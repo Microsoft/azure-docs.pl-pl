@@ -11,27 +11,27 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 04/15/2020
-ms.openlocfilehash: d2a5928d8326c4a0628ebc1bfb7eec3cd20f9254
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/03/2020
+ms.openlocfilehash: 576861265771977f7e13140dd595f47bf556e585
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747519"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331903"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Dostosuj konfigurację dla Azure-SSIS Integration Runtime
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Konfiguracja niestandardowa dla Integration Runtime platformy Azure SQL Server Integration Services (Azure-SSIS IR) udostępnia interfejs do dodawania własnych kroków podczas instalacji lub ponownej konfiguracji Azure-SSIS IR. 
+Konfiguracja niestandardowa dla Integration Runtime platformy Azure — SQL Server Integration Services (SSIS) w Azure Data Factory (ADF) udostępnia interfejs do dodawania własnych kroków podczas aprowizacji lub ponownej konfiguracji Azure-SSIS IR. 
 
-Korzystając z konfiguracji niestandardowej, można zmienić domyślną konfigurację lub środowisko na, na przykład, uruchomić dodatkowe usługi systemu Windows, zachować poświadczenia dostępu do udziałów plików lub użyć silnego kryptografii/bezpieczniejszego protokołu sieciowego (TLS 1,2). Można też zainstalować dodatkowe składniki, takie jak zestawy, sterowniki lub rozszerzenia, na każdym węźle Azure-SSIS IR.
+Korzystając z konfiguracji niestandardowej, można zmienić domyślną konfigurację lub środowisko na, na przykład, uruchomić dodatkowe usługi systemu Windows, zachować poświadczenia dostępu do udziałów plików lub użyć silnego kryptografii/bezpieczniejszego protokołu sieciowego (TLS 1,2). Można także zainstalować dodatkowe składniki niestandardowe/inne firmy, takie jak zestawy, sterowniki lub rozszerzenia, na każdym węźle Azure-SSIS IR. Aby uzyskać więcej informacji na temat wbudowanych/preinstalowanych składników, zobacz [składniki wbudowane/preinstalowane na Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/built-in-preinstalled-components-ssis-integration-runtime).
 
 Niestandardowe konfiguracje można wykonywać na Azure-SSIS IR na jeden z dwóch sposobów: 
-* **Instalacja niestandardowa Express bez skryptu**: uruchamianie niektórych typowych konfiguracji systemu i poleceń systemu Windows lub instalowanie niektórych popularnych lub zalecanych dodatkowych składników bez użycia skryptów.
 * **Standardowa Konfiguracja niestandardowa z skryptem**: Przygotuj skrypt i skojarzone z nim pliki i przekaż je ze sobą do kontenera obiektów BLOB na koncie usługi Azure Storage. Następnie należy podać Uniform Resource Identifier sygnatury dostępu współdzielonego (SAS) dla kontenera podczas konfigurowania lub zmiany konfiguracji Azure-SSIS IR. Każdy węzeł Azure-SSIS IR następnie pobiera skrypt i skojarzone z nim pliki z Twojego kontenera i uruchamia konfigurację niestandardową z podniesionymi uprawnieniami. Po zakończeniu instalacji niestandardowej każdy węzeł przekazuje standardowe dane wyjściowe wykonywania i innych dzienników do kontenera.
+* **Instalacja niestandardowa Express bez skryptu**: uruchamianie niektórych typowych konfiguracji systemu i poleceń systemu Windows lub instalowanie niektórych popularnych lub zalecanych dodatkowych składników bez użycia skryptów.
 
-Można zainstalować zarówno bezpłatne, nielicencjonowane składniki i płatne składniki licencjonowane za pomocą instalacji niestandardowych Express i Standard. Jeśli jesteś niezależnym dostawcą oprogramowania (ISV), zobacz [opracowywanie składników płatnych lub licencjonowanych dla Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
+Można zainstalować zarówno bezpłatne, nielicencjonowane składniki i płatne składniki licencjonowane za pomocą konfiguracji Standard i Express Custom. Jeśli jesteś niezależnym dostawcą oprogramowania (ISV), zobacz temat [Tworzenie składników płatnych lub licencjonowanych dla Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
 > [!IMPORTANT]
 > Aby skorzystać z przyszłych ulepszeń, zalecamy korzystanie z serii dla Azure-SSIS IR w wersji 3 lub nowszej z konfiguracją niestandardową.
@@ -62,7 +62,11 @@ Aby dostosować Azure-SSIS IR, potrzebne są następujące elementy:
 
 ## <a name="instructions"></a>Instrukcje
 
-1. Jeśli chcesz skonfigurować lub zmienić konfigurację Azure-SSIS IR przy użyciu programu PowerShell, Pobierz i zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps). W przypadku instalacji niestandardowych Express przejdź do kroku 4.
+Możesz zainicjować lub zmienić konfigurację Azure-SSIS IR przy użyciu konfiguracji niestandardowych w interfejsie użytkownika funkcji ADF. Jeśli chcesz zrobić to samo przy użyciu programu PowerShell, Pobierz i zainstaluj [Azure PowerShell](/powershell/azure/install-az-ps).
+
+### <a name="standard-custom-setup"></a>Standardowa Konfiguracja niestandardowa
+
+Aby zainicjować lub zmienić konfigurację Azure-SSIS IR przy użyciu standardowych konfiguracji niestandardowych, wykonaj następujące czynności.
 
 1. Przygotowanie niestandardowego skryptu instalacji i skojarzonych z nim plików (na przykład. bat,. cmd,. exe,. dll,. msi lub pliki ps1).
 
@@ -70,7 +74,7 @@ Aby dostosować Azure-SSIS IR, potrzebne są następujące elementy:
    * Aby upewnić się, że skrypt może być wykonywany w trybie dyskretnym, zalecamy najpierw przetestowanie go na komputerze lokalnym.  
    * Jeśli chcesz, aby dodatkowe dzienniki wygenerowane przez inne narzędzia (na przykład *msiexec. exe*) zostały przekazane do kontenera, określ wstępnie zdefiniowaną zmienną środowiskową, `CUSTOM_SETUP_SCRIPT_LOG_DIR` jako folder dziennika w skryptach (na przykład *msiexec/i XXX. msi/quiet/LV% CUSTOM_SETUP_SCRIPT_LOG_DIR% \ install. log*).
 
-1. Pobierz, zainstaluj i Otwórz [Eksplorator usługi Azure Storage](https://storageexplorer.com/). W tym celu:
+1. Pobierz, zainstaluj i Otwórz [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
    a. W obszarze **(lokalne i dołączone)** kliknij prawym przyciskiem myszy pozycję **konta magazynu**, a następnie wybierz pozycję **Połącz z usługą Azure Storage**.
 
@@ -96,7 +100,7 @@ Aby dostosować Azure-SSIS IR, potrzebne są następujące elementy:
 
       ![Uzyskaj sygnaturę dostępu współdzielonego dla kontenera](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
 
-   g. Utwórz identyfikator URI sygnatury dostępu współdzielonego dla kontenera o wystarczająco długim czasie wygaśnięcia oraz uprawnienia do odczytu/zapisu/listy. Wymagany jest identyfikator URI sygnatury dostępu współdzielonego, który umożliwia pobranie i uruchomienie niestandardowego skryptu instalacji i skojarzonych z nim plików za każdym razem, gdy dowolny węzeł Azure-SSIS IR zostanie odgraficzny lub uruchomiony ponownie. Musisz mieć uprawnienia do zapisu w celu przekazania dzienników wykonywania Instalatora.
+   przykład Utwórz identyfikator URI sygnatury dostępu współdzielonego dla kontenera o wystarczająco długim czasie wygaśnięcia oraz uprawnienia do odczytu/zapisu/listy. Wymagany jest identyfikator URI sygnatury dostępu współdzielonego, który umożliwia pobranie i uruchomienie niestandardowego skryptu instalacji i skojarzonych z nim plików za każdym razem, gdy dowolny węzeł Azure-SSIS IR zostanie odgraficzny lub uruchomiony ponownie. Musisz mieć uprawnienia do zapisu w celu przekazania dzienników wykonywania Instalatora.
 
       > [!IMPORTANT]
       > Upewnij się, że identyfikator URI sygnatury dostępu współdzielonego nie wygasa, a niestandardowe zasoby instalacyjne są zawsze dostępne w całym cyklu życia Azure-SSIS IR, od tworzenia do usunięcia, zwłaszcza jeśli regularnie zatrzymasz i uruchomisz Azure-SSIS IR w tym okresie.
@@ -107,11 +111,17 @@ Aby dostosować Azure-SSIS IR, potrzebne są następujące elementy:
 
       ![Kopiowanie i zapisywanie sygnatury dostępu współdzielonego](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-1. Po skonfigurowaniu lub ponownym skonfigurowaniu Azure-SSIS IR za pomocą interfejsu użytkownika fabryki danych można dodać lub usunąć niestandardowe ustawienia, zaznaczając pole wyboru **dostosuj Azure-SSIS Integration Runtime z dodatkowymi konfiguracjami systemu/instalacjami składników** w sekcji **Ustawienia zaawansowane** w okienku **Konfiguracja środowiska Integration Runtime** . 
+1. Po wprowadzeniu lub ponownym skonfigurowaniu Azure-SSIS IR w interfejsie użytkownika funkcji ADF zaznacz pole wyboru **dostosuj Azure-SSIS Integration Runtime z użyciem dodatkowych konfiguracji systemu/instalacji składników** na stronie **Ustawienia zaawansowane** w okienku **Konfiguracja środowiska Integration Runtime** i wprowadź identyfikator URI sygnatury dostępu WSPÓŁDZIELONEGO kontenera w polu **Identyfikator URI sygnatury dostępu współdzielonego kontenera ustawień niestandardowych** .
 
-   Jeśli chcesz dodać standardowe konfiguracje niestandardowe, wprowadź identyfikator URI sygnatury dostępu współdzielonego kontenera w polu **Identyfikator URI sygnatury dostępu współdzielonego kontenera ustawień niestandardowych** . 
-   
-   Jeśli chcesz dodać niestandardowe ustawienia instalacji, wybierz pozycję **Nowy** , aby otworzyć okienko **Dodaj ekspresową instalację niestandardową** , a następnie wybierz typ z listy rozwijanej **Typ instalacji niestandardowej** :
+   ![Ustawienia zaawansowane z konfiguracjami niestandardowymi](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
+
+### <a name="express-custom-setup"></a>Konfiguracja niestandardowa Express
+
+W celu aprowizacji lub zmiany konfiguracji Azure-SSIS IR przy użyciu niestandardowych konfiguracji programu Express wykonaj następujące czynności.
+
+1. Podczas aprowizacji lub zmiany konfiguracji Azure-SSIS IR w interfejsie użytkownika funkcji ADF zaznacz pole wyboru **dostosuj Azure-SSIS Integration Runtime z dodatkowymi konfiguracjami systemu/instalacjami składników** na stronie **Ustawienia zaawansowane** w okienku **Konfiguracja środowiska Integration Runtime** . 
+
+1. Wybierz pozycję **Nowy** , aby otworzyć okienko **Dodawanie ekspresowej instalacji niestandardowej** , a następnie wybierz typ z listy rozwijanej **Typ instalacji niestandardowej** :
 
    * W przypadku wybrania typu **polecenia Uruchom cmdkey** można zachować poświadczenia dostępu do udziałów plików lub Azure Files udziały w Azure-SSIS IR, wprowadzając dodaną nazwę komputera lub nazwę domeny, nazwę konta lub nazwę użytkownika oraz klucz konta lub hasło w polach **/Add**, **/User**i **/Pass** . Jest to podobne do uruchamiania polecenia Windows [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) na komputerze lokalnym.
    
@@ -131,12 +141,16 @@ Aby dostosować Azure-SSIS IR, potrzebne są następujące elementy:
 
      * W przypadku wybrania składnika **Yodrębnij oprogramowania Theobald** można zainstalować [yodrębnij to](https://theobald-software.com/en/xtract-is/) pakiet łączników dla systemu SAP system (ERP, s/4HANA, BW) firmy Theobald na Azure-SSIS IR przez przeciąganie & upuszczenie/przekazanie pliku licencji produktu zakupionego z nich w polu **plik licencji** . Aktualna wersja zintegrowana to **6.1.1.3**.
 
-   Dodane ustawienia Express Custom Setup zostaną wyświetlone w sekcji **Ustawienia zaawansowane** . Aby je usunąć, zaznacz ich pola wyboru, a następnie wybierz pozycję **Usuń**.
+Dodane ustawienia Express Custom Setup zostaną wyświetlone na stronie **Ustawienia zaawansowane** . Aby je usunąć, zaznacz ich pola wyboru, a następnie wybierz pozycję **Usuń**.
 
-   ![Ustawienia zaawansowane z konfiguracjami niestandardowymi](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
+### <a name="azure-powershell"></a>Azure PowerShell
 
-1. Po skonfigurowaniu lub ponownym skonfigurowaniu Azure-SSIS IR przy użyciu programu PowerShell można dodać lub usunąć niestandardowe ustawienia, uruchamiając `Set-AzDataFactoryV2IntegrationRuntime` polecenie cmdlet przed rozpoczęciem Azure-SSIS IR.
-   
+W celu aprowizacji lub zmiany konfiguracji Azure-SSIS IR za pomocą konfiguracji niestandardowych przy użyciu Azure PowerShell wykonaj następujące czynności.
+
+1. Jeśli Azure-SSIS IR jest już uruchomiona/uruchomiona, Zatrzymaj ją w pierwszej kolejności.
+
+1. Następnie można dodać lub usunąć niestandardowe konfiguracje, uruchamiając `Set-AzDataFactoryV2IntegrationRuntime` polecenie cmdlet przed rozpoczęciem Azure-SSIS IR.
+
    ```powershell
    $ResourceGroupName = "[your Azure resource group name]"
    $DataFactoryName = "[your data factory name]"
@@ -214,10 +228,14 @@ Aby dostosować Azure-SSIS IR, potrzebne są następujące elementy:
        -Name $AzureSSISName `
        -Force
    ```
-   
-   Po zakończeniu standardowej instalacji niestandardowej i rozpoczęciu Azure-SSIS IR można znaleźć standardowe dane wyjściowe *głównego. cmd* i innych dzienników wykonywania w folderze *Main. cmd. log* kontenera magazynu.
 
-1. Aby wyświetlić przykłady standardowych konfiguracji niestandardowych, Połącz się z naszym publicznym kontenerem w wersji zapoznawczej przy użyciu Eksplorator usługi Azure Storage.
+1. Po zakończeniu standardowej instalacji niestandardowej i rozpoczęciu Azure-SSIS IR można znaleźć standardowe dane wyjściowe *głównego. cmd* i innych dzienników wykonywania w folderze *Main. cmd. log* kontenera.
+
+### <a name="standard-custom-setup-samples"></a>Standardowe przykłady instalacji niestandardowej
+
+Aby wyświetlić i ponownie użyć niektórych przykładów standardowych konfiguracji niestandardowych, wykonaj następujące czynności.
+
+1. Połącz się z naszym publicznym kontenerem w wersji zapoznawczej przy użyciu Eksplorator usługi Azure Storage.
 
    a. W obszarze **(lokalne i dołączone)** kliknij prawym przyciskiem myszy pozycję **konta magazynu**, wybierz pozycję **Połącz z usługą Azure Storage**, wybierz polecenie **Użyj parametrów połączenia lub identyfikatora URI sygnatury dostępu współdzielonego**, a następnie wybierz przycisk **dalej**.
 
@@ -295,13 +313,15 @@ Aby dostosować Azure-SSIS IR, potrzebne są następujące elementy:
 
         ![Foldery w folderze scenariusze użytkownika](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
-   f. Aby wypróbować te próbki instalacji niestandardowej, skopiuj zawartość z wybranego folderu do kontenera.
+   f. Aby ponownie użyć tych standardowych przykładów instalacji niestandardowej, skopiuj zawartość wybranego folderu do kontenera.
+
+1. Po wprowadzeniu lub ponownym skonfigurowaniu Azure-SSIS IR w interfejsie użytkownika funkcji ADF zaznacz pole wyboru **dostosuj Azure-SSIS Integration Runtime z użyciem dodatkowych konfiguracji systemu/instalacji składników** na stronie **Ustawienia zaawansowane** w okienku **Konfiguracja środowiska Integration Runtime** i wprowadź identyfikator URI sygnatury dostępu WSPÓŁDZIELONEGO kontenera w polu **Identyfikator URI sygnatury dostępu współdzielonego kontenera ustawień niestandardowych** .
    
-      Po skonfigurowaniu lub ponownym skonfigurowaniu Azure-SSIS IR przy użyciu interfejsu użytkownika Data Factory, zaznacz pole wyboru **dostosuj Azure-SSIS Integration Runtime z dodatkowymi konfiguracjami systemu/instalacjami składników** w sekcji **Ustawienia zaawansowane** , a następnie wprowadź identyfikator URI sygnatury dostępu współdzielonego kontenera w polu **Identyfikator URI sygnatury dostępu współdzielonego kontenera ustawień niestandardowych** .
-   
-      Po skonfigurowaniu lub ponownym skonfigurowaniu Azure-SSIS IR przy użyciu programu PowerShell uruchom `Set-AzDataFactoryV2IntegrationRuntime` polecenie cmdlet z identyfikatorem URI sygnatury dostępu współdzielonego kontenera jako wartość `SetupScriptContainerSasUri` parametru.
+1. Podczas aprowizacji lub zmiany konfiguracji Azure-SSIS IR przy użyciu Azure PowerShell, Zatrzymaj ją, jeśli jest już uruchomiona/uruchomiona, uruchom `Set-AzDataFactoryV2IntegrationRuntime` polecenie cmdlet z identyfikatorem URI sygnatury dostępu współdzielonego kontenera jako wartość `SetupScriptContainerSasUri` parametru, a następnie uruchom Azure-SSIS IR.
+
+1. Po zakończeniu standardowej instalacji niestandardowej i rozpoczęciu Azure-SSIS IR można znaleźć standardowe dane wyjściowe *głównego. cmd* i innych dzienników wykonywania w folderze *Main. cmd. log* kontenera.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Skonfiguruj wersję Enterprise Azure-SSIS Integration Runtime](how-to-configure-azure-ssis-ir-enterprise-edition.md)
-- [Rozwijaj płatne lub licencjonowane składniki niestandardowe dla Azure-SSIS Integration Runtime](how-to-develop-azure-ssis-ir-licensed-components.md)
+- [Konfigurowanie Azure-SSIS IR Enterprise Edition](how-to-configure-azure-ssis-ir-enterprise-edition.md)
+- [Utwórz składniki płatne lub licencjonowane dla Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md)

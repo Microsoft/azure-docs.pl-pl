@@ -1,5 +1,5 @@
 ---
-title: Zagadnienia dotyczące zabezpieczeń SQL Server na platformie Azure | Microsoft Docs
+title: Zagadnienia dotyczące zabezpieczeń | Microsoft Docs
 description: Ten temat zawiera ogólne wskazówki dotyczące zabezpieczania SQL Server działających na maszynie wirtualnej platformy Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f04620430571a1f86d601eac2b1b662c77499a76
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a9c3588d75bbad3ed7feb2d8a53c0a698286861a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047265"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342565"
 ---
-# <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines
+# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Zagadnienia dotyczące zabezpieczeń SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Ten temat zawiera ogólne wytyczne dotyczące zabezpieczeń, które pomagają w ustanowieniu bezpiecznego dostępu do wystąpień SQL Server na maszynie wirtualnej platformy Azure.
@@ -31,7 +31,7 @@ Platforma Azure jest zgodna z kilkoma przepisami i standardami branżowymi, któ
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="control-access-to-the-sql-vm"></a>Kontrola dostępu do maszyny wirtualnej SQL
+## <a name="control-access-to-the-sql-virtual-machine"></a>Kontrola dostępu do maszyny wirtualnej SQL
 
 Podczas tworzenia maszyny wirtualnej SQL Server należy rozważyć, jak dokładnie kontrolować, kto ma dostęp do maszyny i SQL Server. Ogólnie rzecz biorąc, należy wykonać następujące czynności:
 
@@ -46,7 +46,7 @@ W przypadku tworzenia maszyny wirtualnej SQL Server z obrazem galerii opcja **SQ
 
 ![SQL Server łączności](./media/security-considerations-best-practices/sql-vm-connectivity-option.png)
 
-Aby uzyskać najlepsze zabezpieczenia, wybierz opcję najbardziej restrykcyjną dla danego scenariusza. Na przykład, jeśli używasz aplikacji, która uzyskuje dostęp do SQL Server na tej samej maszynie wirtualnej, **to jest to** najbardziej bezpieczny wybór. W przypadku korzystania z aplikacji platformy Azure, która wymaga dostępu do SQL Server, **prywatna** komunikacja zabezpiecza komunikacji do SQL Server tylko w ramach określonego [Virtual Network platformy Azure](../../../virtual-network/virtual-networks-overview.md). Jeśli wymagany jest dostęp **publiczny** (Internet) do maszyny wirtualnej SQL Server, należy postępować zgodnie z innymi najlepszymi rozwiązaniami w tym temacie, aby zmniejszyć obszar narażony na ataki.
+Aby uzyskać najlepsze zabezpieczenia, wybierz opcję najbardziej restrykcyjną dla danego scenariusza. Na przykład, jeśli używasz aplikacji, która uzyskuje dostęp do SQL Server na tej samej maszynie wirtualnej, **to jest to** najbardziej bezpieczny wybór. W przypadku korzystania z aplikacji platformy Azure, która wymaga dostępu do SQL Server, **prywatna** komunikacja zabezpiecza komunikację do SQL Server tylko w ramach określonej [sieci wirtualnej platformy Azure](../../../virtual-network/virtual-networks-overview.md). Jeśli wymagany jest dostęp **publiczny** (Internet) do maszyny wirtualnej SQL Server, należy postępować zgodnie z innymi najlepszymi rozwiązaniami w tym temacie, aby zmniejszyć obszar narażony na ataki.
 
 Wybrane opcje w portalu używają reguł zabezpieczeń dla ruchu przychodzącego w [sieciowej grupie zabezpieczeń](../../../active-directory/identity-protection/security-overview.md) maszyny wirtualnej (sieciowej grupy zabezpieczeń), aby zezwalać na ruch sieciowy do maszyny wirtualnej lub go odmawiać. Można modyfikować lub tworzyć nowe reguły sieciowej grupy zabezpieczeń dla ruchu przychodzącego, aby zezwalać na ruch do portu SQL Server (domyślnie 1433). Można również określić określone adresy IP, które mogą komunikować się za pośrednictwem tego portu.
 
@@ -54,7 +54,7 @@ Wybrane opcje w portalu używają reguł zabezpieczeń dla ruchu przychodzącego
 
 Oprócz reguł sieciowej grupy zabezpieczeń, aby ograniczyć ruch sieciowy, można również użyć zapory systemu Windows na maszynie wirtualnej.
 
-Jeśli korzystasz z punktów końcowych z klasycznym modelem wdrażania, Usuń wszystkie punkty końcowe na maszynie wirtualnej, jeśli nie są używane. Aby uzyskać instrukcje dotyczące korzystania z list ACL z punktami końcowymi, zobacz [Zarządzanie listą kontroli dostępu w punkcie końcowym](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Nie jest to konieczne w przypadku maszyn wirtualnych, które używają Menedżer zasobów.
+Jeśli korzystasz z punktów końcowych z klasycznym modelem wdrażania, Usuń wszystkie punkty końcowe na maszynie wirtualnej, jeśli nie są używane. Aby uzyskać instrukcje dotyczące korzystania z list ACL z punktami końcowymi, zobacz [Zarządzanie listą kontroli dostępu w punkcie końcowym](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint). Nie jest to konieczne w przypadku maszyn wirtualnych, które używają Azure Resource Manager.
 
 Na koniec Rozważ włączenie zaszyfrowanych połączeń dla wystąpienia aparatu bazy danych SQL Server na maszynie wirtualnej platformy Azure. Skonfiguruj wystąpienie programu SQL Server przy użyciu podpisanego certyfikatu. Aby uzyskać więcej informacji, zobacz [Włączanie szyfrowanych połączeń do aparatu bazy danych](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) i [składni parametrów połączenia](https://msdn.microsoft.com/library/ms254500.aspx).
 

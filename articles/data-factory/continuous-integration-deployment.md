@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 51f583b946d6f5a18325e77cfe12404daab83d22
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 74f89629c783a444633fe276d99dc75d6c7fc8d8
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268039"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331971"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -98,9 +98,9 @@ Poniżej przedstawiono Przewodnik konfigurowania wersji Azure Pipelines, która 
 
     ![Widok etapu](media/continuous-integration-deployment/continuous-integration-image14.png)
 
-    b.  Utwórz nowe zadanie. Wyszukaj **wdrożenie grupy zasobów platformy Azure**, a następnie wybierz pozycję **Dodaj**.
+    b.  Utwórz nowe zadanie. Wyszukaj **wdrożenie szablonu ARM**, a następnie wybierz pozycję **Dodaj**.
 
-    d.  W zadaniu wdrażania wybierz subskrypcję, grupę zasobów i lokalizację docelowej fabryki danych. W razie potrzeby podaj poświadczenia.
+    c.  W zadaniu wdrażania wybierz subskrypcję, grupę zasobów i lokalizację docelowej fabryki danych. W razie potrzeby podaj poświadczenia.
 
     d.  Na liście **Akcja** wybierz pozycję **Utwórz lub Zaktualizuj grupę zasobów**.
 
@@ -108,7 +108,7 @@ Poniżej przedstawiono Przewodnik konfigurowania wersji Azure Pipelines, która 
 
     f.  Wybierz **...** obok pola **Parametry szablonu** , aby wybrać plik parametrów. Wyszukaj plik `ARMTemplateParametersForFactory.json` w <FactoryName> folderze gałęzi adf_publish.
 
-    g.  Wybierz **...** obok pola **Zastąp parametry szablonu** i wprowadź odpowiednie wartości parametrów dla docelowej fabryki danych. W przypadku poświadczeń, które pochodzą z Azure Key Vault wprowadź nazwę wpisu tajnego między podwójnymi cudzysłowami. Na przykład, jeśli nazwa wpisu tajnego to cred1, wprowadź wartość **"$ (cred1)"** dla tej wartości.
+    przykład  Wybierz **...** obok pola **Zastąp parametry szablonu** i wprowadź odpowiednie wartości parametrów dla docelowej fabryki danych. W przypadku poświadczeń, które pochodzą z Azure Key Vault wprowadź nazwę wpisu tajnego między podwójnymi cudzysłowami. Na przykład, jeśli nazwa wpisu tajnego to cred1, wprowadź wartość **"$ (cred1)"** dla tej wartości.
 
     h. Wybierz opcję **przyrostowy** dla **trybu wdrożenia**.
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/18/2020
+ms.date: 06/01/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a05de8bf6a6e4ab79e63d6634ddb1b79fae6045f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 232a1b714802ce9531a9932bc2af4c6b6f35dffd
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680218"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324219"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatyczne uaktualnianie
 Ta funkcja została wprowadzona w programie Build [1.1.105.0 (wydano luty 2016)](reference-connect-version-history.md#111050).  Ta funkcja została zaktualizowana w usłudze [build 1.1.561](reference-connect-version-history.md#115610) i obsługuje teraz dodatkowe scenariusze, które wcześniej nie były obsługiwane.
@@ -89,18 +89,11 @@ Poniżej znajduje się lista najczęściej spotykanych komunikatów. Nie zawiera
 | UpgradeAbortedSyncExeInUse |[Interfejs użytkownika Menedżera usługi synchronizacji](how-to-connect-sync-service-manager-ui.md) jest otwarty na serwerze. |
 | UpgradeAbortedSyncOrConfigurationInProgress |Kreator instalacji jest uruchomiony lub synchronizacja została zaplanowana poza harmonogramem. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | Wybrano usługi ADFS jako metodę logowania. |
 | UpgradeNotSupportedCustomizedSyncRules |Do konfiguracji dodano własne reguły niestandardowe. |
-| UpgradeNotSupportedDeviceWritebackEnabled |Włączono funkcję [zapisywania zwrotnego urządzeń](how-to-connect-device-writeback.md) . |
-| UpgradeNotSupportedGroupWritebackEnabled |Włączono funkcję zapisywania zwrotnego grup. |
 | UpgradeNotSupportedInvalidPersistedState |Instalacja nie jest ustawieniami ekspresowymi ani uaktualnieniem narzędzia DirSync. |
-| UpgradeNotSupportedMetaverseSizeExceeeded |W magazynie Metaverse znajduje się więcej niż 100 000 obiektów. |
-| UpgradeNotSupportedMultiForestSetup |Nawiązujesz połączenie z więcej niż jednym lasem. Instalacja ekspresowa nawiązuje połączenie tylko z jednym lasem. |
 | UpgradeNotSupportedNonLocalDbInstall |Nie używasz bazy danych LocalDB SQL Server Express. |
-| UpgradeNotSupportedNonMsolAccount |[Konto łącznika AD DS](reference-connect-accounts-permissions.md#ad-ds-connector-account) nie jest już domyślnym kontem MSOL_. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | Podczas konfigurowania programu AAD Connect podczas wybierania metody logowania nie została wybrana opcja *nie Konfiguruj* . |
-| UpgradeNotSupportedStagingModeEnabled |Serwer jest ustawiony na [tryb przejściowy](how-to-connect-sync-staging-server.md). |
-| UpgradeNotSupportedUserWritebackEnabled |Włączono funkcję [zapisywania zwrotnego użytkownika](how-to-connect-preview.md#user-writeback) . |
+|UpgradeNotSupportedLocalDbSizeExceeded|Rozmiar lokalnej bazy danych jest większy lub równy 8 GB|
+|UpgradeNotSupportedAADHealthUploadDisabled|Operacje przekazywania danych o kondycji zostały wyłączone z portalu|
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej na temat [integrowania tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md).

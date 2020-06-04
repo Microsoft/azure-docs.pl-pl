@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 2008dd5e1e583a99756f62bc25f27e8f9832646e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9b92454abcb985a21952389f9f618c1f58d45182
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045606"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344785"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Rozwiązywanie problemów z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL w programie Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -283,7 +283,7 @@ Zmiany konfiguracji w zakresie bazy danych można ustawić dla każdej pojedyncz
 
 ### <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Dziennik diagnostyczny wyprowadza zmiany konfiguracji z zakresem bazy danych, które zostały ostatnio wykonane, co spowodowało spadek wydajności w porównaniu z poprzednim 7-dniowym zachowaniem obciążenia. Zmiany konfiguracji można przywrócić do poprzednich wartości. Możesz również dostroić wartość przez wartość do momentu osiągnięcia żądanego poziomu wydajności. Możesz kopiować wartości konfiguracyjne zakresu bazy danych z podobnej bazy danych o zadowalającą wydajności. Jeśli nie możesz rozwiązać problemu z wydajnością, Przywróć domyślne wartości domyślne i ponów próbę dostosowania, rozpoczynając od tej linii bazowej.
+Dziennik diagnostyczny wyprowadza zmiany konfiguracji z zakresem bazy danych, które zostały ostatnio wykonane, co spowodowało spadek wydajności w porównaniu z poprzednim 7-dniowym zachowaniem obciążenia. Zmiany konfiguracji można przywrócić do poprzednich wartości. Możesz również dostroić wartość przez wartość do momentu osiągnięcia żądanego poziomu wydajności. Możesz kopiować wartości konfiguracyjne zakresu bazy danych z podobnej bazy danych o zadowalającą wydajności. Jeśli nie możesz rozwiązać problemu z wydajnością, Przywróć wartości domyślne i spróbuj precyzyjnie dostosować rozpoczęcie od tej linii bazowej.
 
 Aby uzyskać więcej informacji na temat optymalizacji konfiguracji z zakresem bazy danych i składni języka T-SQL podczas zmiany konfiguracji, zobacz [ALTER DATABASE-scoped Configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

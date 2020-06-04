@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: 57a3bab06e4c0a1e4fd8df5d0794a89904a88954
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f9768d4d20380e8e0c4ca6f7c71fddd68bb93d5c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747648"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340678"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Zmienne HTTP dla aparatu reguł Azure CDN
 Zmienne HTTP zapewniają metodę, za pomocą której można pobrać metadane żądań i odpowiedzi HTTP. Można następnie użyć tych metadanych do dynamicznego zmiany żądania lub odpowiedzi. Użycie zmiennych HTTP jest ograniczone do następujących funkcji aparatu zasad:
 
-- [Pamięć podręczna — ponowne zapisywanie klucza](cdn-verizon-premium-rules-engine-reference-features.md#cache-key-rewrite)
-- [Modyfikowanie nagłówka żądania klienta](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-request-header)
-- [Modyfikowanie nagłówka odpowiedzi klienta](cdn-verizon-premium-rules-engine-reference-features.md#modify-client-response-header)
-- [Przekierowanie adresu URL](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)
-- [Ponowne zapisywanie adresów URL](cdn-verizon-premium-rules-engine-reference-features.md#url-rewrite)
+- [Pamięć podręczna — ponowne zapisywanie klucza](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm)
+- [Modyfikowanie nagłówka żądania klienta](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Request-Header.htm)
+- [Modyfikowanie nagłówka odpowiedzi klienta](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Response-Header.htm)
+- [Przekierowanie adresu URL](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm)
+- [Ponowne zapisywanie adresów URL](https://docs.vdms.com/cdn/Content/HRE/F/URL-Rewrite.htm)
 
 ## <a name="definitions"></a>Definicje
 W poniższej tabeli opisano obsługiwane zmienne HTTP. Wartość pusta jest zwracana, gdy metadane geograficzne (na przykład kod pocztowy) są niedostępne dla określonego żądania.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 405705bee3ada2d2c43e9a243724d823a5e28602
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4c0ae83a0ed3a7f9fc550af2d64d5fcd1f42c998
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188699"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324679"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Samouczek: Konfigurowanie SQL Data Sync między bazami danych w Azure SQL Database i SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Przykłady programu PowerShell dotyczące konfigurowania SQL Data Sync znajdują
 
 ## <a name="create-sync-group"></a>Utwórz grupę synchronizacji
 
-1. Przejdź do [Azure Portal](https://portal.azure.com) , aby znaleźć bazę danych SQL. Wyszukaj i wybierz pozycję **bazy danych SQL**.
+1. Przejdź do [Azure Portal](https://portal.azure.com) , aby znaleźć bazę danych w SQL Database. Wyszukaj i wybierz pozycję **bazy danych SQL**.
 
     ![Wyszukiwanie baz danych SQL, Microsoft Azure Portal](./media/sql-data-sync-sql-server-configure/search-for-sql-databases.png)
 
@@ -75,9 +75,9 @@ W sekcji **baza danych centrum** wprowadź istniejące poświadczenia dla serwer
 
 ![Krok 2. ustawienia](./media/sql-data-sync-sql-server-configure/steptwo.png)
 
-### <a name="to-add-an-azure-sql-database"></a>Aby dodać Azure SQL Database
+### <a name="to-add-a-database-in-azure-sql-database"></a>Aby dodać bazę danych w Azure SQL Database
 
-W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj Azure SQL Database do grupy synchronizacji, wybierając pozycję **Dodaj Azure SQL Database**. Zostanie otwarta strona **konfigurowanie Azure SQL Database** .
+W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych w Azure SQL Database do grupy synchronizacji, wybierając pozycję **Dodaj Azure SQL Database**. Zostanie otwarta strona **konfigurowanie Azure SQL Database** .
 
   ![Krok 2 — Konfigurowanie bazy danych](./media/sql-data-sync-sql-server-configure/steptwo-configure.png)
 
@@ -88,7 +88,7 @@ W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj Azure SQL Da
   | **Nazwa elementu członkowskiego synchronizacji** | Podaj nazwę nowego elementu członkowskiego synchronizacji. Ta nazwa różni się od samej nazwy bazy danych. |
   | **Subskrypcja** | Wybierz skojarzoną subskrypcję platformy Azure na potrzeby rozliczeń. |
   | **Serwer usługi SQL Azure** | Wybierz istniejący serwer. |
-  | **Azure SQL Database** | Wybierz istniejącą bazę danych SQL. |
+  | **Azure SQL Database** | Wybierz istniejącą bazę danych w SQL Database. |
   | **Wskazówki dotyczące synchronizacji** | Wybierz opcję **Synchronizacja dwukierunkowa**, z **centrum**lub **z centrum**. |
   | **Nazwa użytkownika** i **hasło** | Wprowadź istniejące poświadczenia dla serwera, na którym znajduje się baza danych elementu członkowskiego. W tej sekcji nie wprowadzaj *nowych* poświadczeń. |
 
@@ -110,7 +110,7 @@ W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych
 
    W przypadku wybrania opcji **Utwórz nowego agenta**wykonaj następujące czynności:
 
-   1. Pobierz agenta synchronizacji danych z dostarczonego linku i zainstaluj go na komputerze, na którym znajduje się SQL Server. Agenta można także pobrać bezpośrednio z [agenta synchronizacji danych SQL Azure](https://www.microsoft.com/download/details.aspx?id=27693).
+   1. Pobierz agenta synchronizacji danych z dostarczonego linku i zainstaluj go na komputerze, na którym znajduje się SQL Server. Agenta można także pobrać bezpośrednio z [usługi Azure SQL Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
       > [!IMPORTANT]
       > Musisz otworzyć wychodzący port TCP 1433 w zaporze, aby umożliwić agentowi klienckiemu komunikowanie się z serwerem.
@@ -167,7 +167,7 @@ Po utworzeniu i wdrożeniu nowych członków grupy synchronizacji na stronie **N
 
 1. Wybierz pozycję **Zapisz**.
 
-1. Domyślnie bazy danych nie są synchronizowane do czasu zaplanowanego ani ręcznego uruchomienia. Aby uruchomić synchronizację ręczną, przejdź do bazy danych SQL w Azure Portal, wybierz pozycję **Synchronizuj z innymi bazami danych**i wybierz grupę synchronizacji. Zostanie otwarta strona **Synchronizacja danych** . Wybierz pozycję **Synchronizuj**.
+1. Domyślnie bazy danych nie są synchronizowane do czasu zaplanowanego ani ręcznego uruchomienia. Aby uruchomić synchronizację ręczną, przejdź do bazy danych programu w SQL Database w Azure Portal, wybierz pozycję **Synchronizuj z innymi bazami danych**i wybierz grupę synchronizacji. Zostanie otwarta strona **Synchronizacja danych** . Wybierz pozycję **Synchronizuj**.
 
     ![Synchronizacja ręczna](./media/sql-data-sync-sql-server-configure/datasync-sync.png)
 

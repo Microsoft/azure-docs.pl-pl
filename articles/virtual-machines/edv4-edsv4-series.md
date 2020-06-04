@@ -8,20 +8,16 @@ ms.custom: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 795891f56985504a3584089d7377f753605ba4dd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: d6f70e00bc33430cba13895b6d0c9a0aac5ef246
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263044"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338689"
 ---
-# <a name="edv4-and-edsv4-series"></a>Edv4 i Edsv4 — seria
+# <a name="edv4-and-edsv4-series"></a>Serie Edv4 i Edsv4
 
 Serie Edv4 i Edsv4 są uruchamiane na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej i są idealnym rozwiązaniem dla różnych aplikacji przedsiębiorstwa intensywnie korzystających z pamięci oraz funkcji do 504 GIB pamięci RAM, [ &reg; technologii Intel Turbo zwiększania poziomu 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [ &reg; technologii Intel Hyper-threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) i [intel &reg; Advanced Vector Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Te nowe rozmiary maszyn wirtualnych będą miały 50% większego magazynu lokalnego, a także lepszą liczbę operacji we/wy na dysku lokalnym dla odczytu i zapisu w porównaniu do rozmiarów [EV3/Esv3](https://docs.microsoft.com/azure/virtual-machines/ev3-esv3-series) z [maszynami wirtualnymi Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)
-
-
-> [!IMPORTANT]
-> Jeśli wdrażasz nową maszynę wirtualną przy użyciu serii Edv4 lub Edsv4 i zamierzasz korzystać z obrazu systemu Linux, musisz użyć RHEL 8. x, CentOS 8. x lub Oracle 7. x lub nowszego. Jeśli zostanie wybrana opcja RHEL 7. x, CentOS 7. x lub Orcale 6. x, wystąpi błąd awaryjnego jądra. Firma Microsoft aktywnie wdraża poprawkę. Tylko RHEL, CentOS i Oracle mają wpływ.
 
 ## <a name="edv4-series"></a>Seria Edv4
 

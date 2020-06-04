@@ -11,14 +11,14 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: b2ba1d07983021e376a950fba789db0b51c11d4b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e32f2bf6f353e32fe96cd3c8b109d698cd3d40ef
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050429"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344581"
 ---
-# <a name="performing-disaster-recovery-drill"></a>Przechodzenie do szczegółów odzyskiwania po awarii
+# <a name="performing-disaster-recovery-drills"></a>Wykonywanie operacji przechodzenia do odzyskiwania po awarii
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Zalecane jest, aby sprawdzanie gotowości aplikacji dla przepływu pracy odzyskiwania odbywało się okresowo. Sprawdzanie zachowania aplikacji oraz implikacje utraty danych i/lub zakłócenia, które obejmuje przełączenie w tryb failover, jest dobrą metodą inżynieryjną. Jest to również wymagane przez większość standardów branżowych w ramach certyfikacji prowadzonej w ramach ciągłości działania.

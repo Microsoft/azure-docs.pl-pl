@@ -3,12 +3,12 @@ title: Skonfiguruj urządzenie Azure Migrate w Azure Government
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate w Azure Government
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: fd97161ffa075a6165ea963ef80bfabf8904576e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7a2e90b718c50cb86fdca9911e7535d434e7afa
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726737"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84332005"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Konfigurowanie urządzenia w Azure Government 
 
@@ -33,8 +33,8 @@ Aby skonfigurować urządzenie dla oprogramowania VMware, pobierz spakowany plik
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2.  W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji hypervisor programu VMware vSphere**.
+1.  W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2.  W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji hypervisor programu VMware vSphere**.
 3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
 
@@ -47,12 +47,12 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
 
-3. Sprawdź wygenerowane wartości skrótu. W przypadku najnowszej wersji urządzenia:
+3. Sprawdź, czy Najnowsza wersja i wartość skrótu urządzenia:
 
-    **Algorytm** | **Wartość skrótu**
-    --- | ---
-    MD5 | 6316bcc8bc932204295bfe33f4be3949
-          
+    **Algorytm** | **Pobierz** | **SHA256**
+    --- | --- | ---
+    VMware (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 
@@ -85,8 +85,8 @@ Aby skonfigurować urządzenie dla funkcji Hyper-V, pobierz spakowany plik z Azu
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2.  W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
+1.  W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2.  W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
 3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
 
@@ -99,11 +99,12 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
 
-3. Sprawdź wygenerowane wartości skrótu. W przypadku najnowszej wersji urządzenia:
+3. Sprawdź, czy Najnowsza wersja i wartość skrótu urządzenia:
 
-    **Algorytm** | **Wartość skrótu**
-    --- | ---
-    MD5 | 717f8b9185f565006b5aff0215ecadac
+    **Scenariusz** | **Pobierz** | **SHA256**
+    --- | --- | ---
+    Funkcja Hyper-V (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+
           
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
@@ -137,8 +138,8 @@ Aby skonfigurować urządzenie dla oprogramowania VMware, pobierz spakowany plik
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2.  W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** wybierz opcję **niezwirtualizowane/inne**.
+1.  W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2.  W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz opcję **niezwirtualizowane/inne**.
 3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
 
@@ -151,11 +152,11 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5```
 
-3. Sprawdź wygenerowane wartości skrótu. W przypadku najnowszej wersji urządzenia:
+3. Sprawdź, czy Najnowsza wersja i wartość skrótu urządzenia:
 
-    **Algorytm** | **Wartość skrótu**
-    --- | ---
-    MD5 | f81c155fc4a1409901caea948713913f
+    **Scenariusz** | **Przesłać*** | **Wartość skrótu**
+    --- | --- | ---
+    Fizyczne (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
           
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu

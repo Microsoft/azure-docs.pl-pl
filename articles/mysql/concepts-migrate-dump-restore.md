@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: 158dd5e1f69340e233a0c2392d3f19fd5cf562ea
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: bc3411a926e71c88f0b4e4f84fcdf083b519f46a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845550"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323556"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrowanie bazy danych MySQL do usługi Azure Database for MySQL przy użyciu zrzutu i przywracania
 W tym artykule opisano dwa typowe sposoby tworzenia kopii zapasowych i przywracania baz danych w Azure Database for MySQL
@@ -98,7 +98,8 @@ Aby przygotować docelowy serwer Azure Database for MySQL do szybszego ładowani
 - slow_query_log — ustaw wartość wyłączone, aby wyłączyć dziennik wolnych zapytań. Pozwoli to wyeliminować obciążenie spowodowane przez wolne rejestrowanie zapytań podczas ładowania danych.
 - query_store_capture_mode — ustaw wartość Brak, aby wyłączyć magazyn zapytań. Pozwoli to wyeliminować obciążenie spowodowane przez działania próbkowania według magazynu zapytań.
 - innodb_buffer_pool_size — Skaluj serwer w górę do 32 rdzeń wirtualny pamięci podręcznej zoptymalizowanej od warstwy cenowej portalu podczas migracji, aby zwiększyć innodb_buffer_pool_size. Innodb_buffer_pool_size można zwiększyć tylko poprzez skalowanie w górę obliczeń dla serwera Azure Database for MySQL.
-- innodb_write_io_threads & innodb_write_io_threads — Zmień na 16 z parametrów serwera w programie Azure Portal, aby zwiększyć szybkość migracji.
+- innodb_io_capacity & innodb_io_capacity_max — Zmień na 9000 z parametrów serwera w Azure Portal, aby zwiększyć użycie operacji we/wy w celu optymalizacji pod kątem szybkości migracji.
+- innodb_write_io_threads & innodb_write_io_threads — Zmień na 4 z parametrów serwera w programie Azure Portal, aby zwiększyć szybkość migracji.
 - Skalowanie w górę warstwy magazynowania — liczba operacji we/wy dla serwera Azure Database for MySQL przyrostowo rośnie wraz ze wzrostem warstwy magazynowania. W przypadku szybszych obciążeń warto zwiększyć warstwę magazynowania, aby zwiększyć liczbę operacji we/wy zainicjowanej. Należy pamiętać, że magazyn można skalować w górę, a nie w dół.
 
 Po zakończeniu migracji można przywrócić jej poprzednie wartości parametrów serwera i konfiguracji warstwy obliczeniowej. 

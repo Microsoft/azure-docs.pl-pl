@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 08904b3a5a1053d64e3b54582189da5d82f62dee
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 133ca6503a2e0fa9ff19fa55cf126b9556b741e0
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051927"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344054"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights przy użyciu AI do monitorowania i rozwiązywania problemów z wydajnością bazy danych (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -75,7 +75,7 @@ Dostępne opcje Intelligent Insights są następujące:
 | :----------------------------- | ----- | ----- |
 | **Skonfiguruj Intelligent Insights** — Skonfiguruj Intelligent Insights analizę dla baz danych. | Yes | Yes |
 | Usługi **Stream Insights do Azure SQL Analytics** — szczegółowe informacje o usłudze Stream Azure SQL Analytics. | Yes | Yes |
-| Usługi **Stream Insights do usługi Event Hub** — szczegółowe informacje o usłudze Stream Event Hubs w celu uzyskania dalszych integracji niestandardowych. | Yes | Yes |
+| **Usługa Stream Insights w usłudze Azure Event Hubs** — szczegółowe informacje o usłudze Stream Event Hubs w celu uzyskania dalszych integracji niestandardowych. | Yes | Yes |
 | **Usługa Stream Insights w usłudze Azure Storage** — szczegółowe informacje o usłudze Stream w usłudze Azure Storage w celu przeprowadzenia dalszej analizy i długoterminowej archiwizacji. | Yes | Yes |
 
 ## <a name="configure-the-export-of-the-intelligent-insights-log"></a>Konfigurowanie eksportu dziennika Intelligent Insights
@@ -86,7 +86,7 @@ Dane wyjściowe Intelligent Insights mogą być przesyłane strumieniowo do jedn
 - Dane wyjściowe przesyłane strumieniowo do usługi Azure Event Hubs mogą służyć do tworzenia niestandardowych scenariuszy monitorowania i zgłaszania alertów
 - Dane wyjściowe przesyłane strumieniowo do usługi Azure Storage mogą służyć do tworzenia niestandardowych aplikacji, takich jak raportowanie niestandardowe, długoterminowe archiwizowanie danych i tak dalej.
 
-Integracja Azure SQL Analytics, centrum zdarzeń platformy Azure, usługi Azure Storage lub produktów innych firm do użycia jest wykonywana przez włączenie rejestrowania Intelligent Insights (Dziennik "SQLInsights") w bloku ustawień diagnostycznych bazy danych, a następnie skonfigurowanie danych dziennika Intelligent Insights do przesyłania strumieniowego do jednego z tych miejsc docelowych.
+Integracja Azure SQL Analytics, platformy Azure Event Hubs, usługi Azure Storage lub produktów innych firm w celu ich użycia odbywa się przy pierwszym włączeniu rejestrowania Intelligent Insights (Dziennik "SQLInsights") w bloku ustawień diagnostycznych bazy danych, a następnie skonfigurować dane dziennika Intelligent Insights do przesyłania strumieniowego do jednego z tych miejsc docelowych.
 
 Aby uzyskać więcej informacji na temat włączania rejestrowania Intelligent Insights i konfigurowania metryk i danych dzienników zasobów do przesyłania strumieniowego do produktu zużywanego, zobacz [metryki i rejestrowanie diagnostyki](metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
@@ -106,7 +106,7 @@ Poniższy przykład pokazuje Intelligent Insights oglądany przez Azure SQL Anal
 
 Aby użyć Intelligent Insights z Event Hubs, skonfiguruj dane dziennika Intelligent Insights do przesyłania strumieniowego do Event Hubs, zobacz [metryki i rejestrowanie diagnostyki](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) oraz [przesyłanie strumieniowe dzienników diagnostyki platformy Azure do Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
 
-Aby użyć Event Hubs do konfiguracji niestandardowego monitorowania i generowania alertów, zobacz [co zrobić z metrykami i dziennikami diagnostycznymi w Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
+Aby użyć Event Hubs do konfigurowania niestandardowego monitorowania i generowania alertów, zobacz [co zrobić z metrykami i dziennikami diagnostycznymi w Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 
 ### <a name="set-up-with-azure-storage"></a>Konfigurowanie za pomocą usługi Azure Storage
 
@@ -133,7 +133,7 @@ Wszystkie metryki są brane pod uwagę w różnych relacjach za pomocą ogólnie
 
 - Szczegóły wykrytego problemu z wydajnością.
 - Wykryto analizę głównej przyczyny problemu.
-- Zalecenia dotyczące poprawy wydajności monitorowanej bazy danych SQL, o ile jest to możliwe.
+- Zalecenia dotyczące poprawy wydajności monitorowanej bazy danych, jeśli jest to możliwe.
 
 ## <a name="query-duration"></a>Czas trwania zapytania
 

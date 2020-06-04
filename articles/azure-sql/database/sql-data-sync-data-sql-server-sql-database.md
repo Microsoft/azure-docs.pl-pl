@@ -11,15 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: c2c0e6d1d3ffd9ec3091e92530ec5c191f3f7ca6
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 94479bda00e2ea7fa7cf2d0b7cd8001a070a5703
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297959"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343272"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 SQL Data Sync to usługa oparta na Azure SQL Database, która pozwala synchronizować dane, które są wybierane dwukierunkowo dla wielu baz danych, zarówno lokalnie, jak i w chmurze. 
 
@@ -149,7 +148,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 
 #### <a name="unsupported-column-types"></a>Nieobsługiwane typy kolumn
 
-Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Na przykład:
+Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Przykład:
 
 - Kolumny obliczane.
 - Kolumny danych czasowych generowane przez system.
@@ -200,16 +199,16 @@ Tak. Aby hostować bazę danych centrów, musisz mieć konto SQL Database.
 
 Nie bezpośrednio. Istnieje jednak możliwość synchronizacji między bazami danych SQL Server, ale przez utworzenie centralnej bazy danych na platformie Azure, a następnie dodanie lokalnych baz danych do grupy synchronizacji.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Czy można używać synchronizacji danych do synchronizacji między bazami danych SQL, które należą do różnych subskrypcji
+### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-subscriptions"></a>Czy można używać synchronizacji danych do synchronizacji między bazami danych w SQL Database, które należą do różnych subskrypcji
 
-Tak. Można synchronizować między bazami danych SQL, które należą do grup zasobów należących do różnych subskrypcji.
+Tak. Można synchronizować między bazami danych należącymi do grup zasobów należących do różnych subskrypcji.
 
 - Jeśli subskrypcje należą do tej samej dzierżawy i masz uprawnienia do wszystkich subskrypcji, możesz skonfigurować grupę synchronizacji w Azure Portal.
 - W przeciwnym razie musisz użyć programu PowerShell, aby dodać elementy członkowskie synchronizacji należące do różnych subskrypcji.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Czy można używać synchronizacji danych do synchronizacji między bazami danych SQL, które należą do różnych chmur (takich jak chmura publiczna platformy Azure i usługa Azure Chiny 21Vianet)
+### <a name="can-i-use-data-sync-to-sync-between-databases-in-sql-database-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Czy można używać synchronizacji danych do synchronizacji między bazami danych w SQL Database, które należą do różnych chmur (takich jak chmura publiczna platformy Azure i usługa Azure Chiny 21Vianet)
 
-Tak. Można zsynchronizować między bazami danych SQL należącymi do różnych chmur, aby dodać elementy członkowskie synchronizacji należące do różnych subskrypcji.
+Tak. Można synchronizować między bazami danych, które należą do różnych chmur. Musisz użyć programu PowerShell, aby dodać elementy członkowskie synchronizacji należące do różnych subskrypcji.
 
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Czy można używać synchronizacji danych do wypełniania danych z mojej produkcyjnej bazy danych do pustej bazy danych, a następnie synchronizować ją
 
@@ -217,7 +216,7 @@ Tak. Utwórz schemat ręcznie w nowej bazie danych, wykonując skrypt z orygina�
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Czy należy używać SQL Data Sync do tworzenia kopii zapasowych i przywracania baz danych
 
-Nie zaleca się używania SQL Data Sync, aby utworzyć kopię zapasową danych. Nie można utworzyć kopii zapasowej i przywrócić do określonego punktu w czasie, ponieważ synchronizacje SQL Data Sync nie są obsługiwane. Ponadto SQL Data Sync nie wykonuje kopii zapasowych innych obiektów SQL, takich jak procedury składowane, i nie wykonuje operacji przywracania szybko.
+Nie zaleca się używania SQL Data Sync, aby utworzyć kopię zapasową danych. Nie można utworzyć kopii zapasowej i przywrócić do określonego punktu w czasie, ponieważ synchronizacje SQL Data Sync nie są obsługiwane. Ponadto SQL Data Sync nie tworzy kopii zapasowej innych obiektów SQL, takich jak procedury składowane, i nie wykonuje operacji przywracania szybko.
 
 Aby poznać jedną z zalecanych technik tworzenia kopii zapasowych, zobacz [Kopiowanie bazy danych Azure SQL Database](database-copy.md).
 
@@ -259,3 +258,4 @@ Aby uzyskać więcej informacji na temat Azure SQL Database, zobacz następując
 
 - [Omówienie usługi SQL Database](sql-database-paas-overview.md)
 - [Database Lifecycle Management (Zarządzanie cyklem życia bazy danych)](https://msdn.microsoft.com/library/jj907294.aspx)
+ 

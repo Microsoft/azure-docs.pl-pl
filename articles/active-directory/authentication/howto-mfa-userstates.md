@@ -11,21 +11,21 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0db72e30fbced17665c112ad56510d7c2ca23d12
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c51863cd95deff5e460707b004206f6fde54cac4
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639624"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84337754"
 ---
-# <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Włącz usługę Azure Multi-Factor Authentication dla poszczególnych użytkowników, aby zabezpieczyć zdarzenia logowania
+# <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Włączanie usługi Azure Multi-Factor Authentication dla poszczególnych użytkowników w celu zabezpieczenia zdarzeń logowania
 
 Istnieją dwa sposoby zabezpieczania zdarzeń logowania użytkowników przez wymaganie uwierzytelniania wieloskładnikowego w usłudze Azure AD. Pierwszy i preferowany opcja to skonfigurowanie zasad dostępu warunkowego, które wymagają uwierzytelniania wieloskładnikowego w określonych warunkach. Drugą opcją jest włączenie każdego użytkownika dla Multi-Factor Authentication platformy Azure. Gdy użytkownicy są włączani indywidualnie, przeprowadzają uwierzytelnianie wieloskładnikowe przy każdym logowaniu (z pewnymi wyjątkami, takimi jak logowanie przy użyciu zaufanych adresów IP lub włączenie funkcji _zapamiętanych urządzeń_ ).
 
 > [!NOTE]
-> Zalecanym podejściem jest włączenie Multi-Factor Authentication platformy Azure korzystającej z zasad dostępu warunkowego. Zmiana stanu użytkowników nie jest już zalecana, chyba że licencje nie obejmują dostępu warunkowego, ponieważ wymaga ona od użytkowników wykonywania uwierzytelniania MFA przy każdym logowaniu.
+> Zalecanym podejściem jest włączenie Multi-Factor Authentication platformy Azure korzystającej z zasad dostępu warunkowego. Zmiana stanu użytkowników nie jest już zalecana, chyba że licencje nie obejmują dostępu warunkowego, ponieważ wymaga ona od użytkowników wykonywania uwierzytelniania MFA przy każdym logowaniu. Aby rozpocząć korzystanie z dostępu warunkowego, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 >
-> Aby rozpocząć korzystanie z dostępu warunkowego, zobacz [Samouczek: Zabezpieczanie zdarzeń logowania użytkowników przy użyciu usługi Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+> W przypadku bezpłatnych dzierżawców usługi Azure AD bez dostępu warunkowego można [użyć domyślnych ustawień zabezpieczeń, aby chronić użytkowników](../fundamentals/concept-fundamentals-security-defaults.md).
 
 ## <a name="azure-multi-factor-authentication-user-states"></a>Stany użytkownika Multi-Factor Authentication platformy Azure
 

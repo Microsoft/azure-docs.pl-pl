@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: c2556cb1dcf59cdb8ae5014b7dd95fa2c431dc93
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1d384bf4919589675dd6947fcb083585ebaf7e18
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050422"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344598"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Przegląd opracowywania aplikacji — SQL Database & wystąpienie zarządzane SQL 
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -53,7 +53,7 @@ Aby uzyskać więcej informacji o sposobach przygotowania do planowanych zdarze�
 - Upewnij się, że zapora na komputerze hostującym program kliencki zezwala na wychodzącą komunikację TCP na porcie 1433.  Więcej informacji: [Konfigurowanie zapory Azure SQL Database](firewall-configure.md).
 - Jeśli program kliencki nawiązuje połączenie z SQL Database, gdy klient działa na maszynie wirtualnej platformy Azure (VM), należy otworzyć niektóre zakresy portów na maszynie wirtualnej. Więcej informacji: [porty przekraczające 1433 dla ADO.NET 4,5 i SQL Database](adonet-v12-develop-direct-route-ports.md).
 - Połączenia klientów z Azure SQL Database czasami pomijają serwer proxy i współpracują bezpośrednio z bazą danych. Porty inne niż 1433 nabierają znaczenia. Aby uzyskać więcej informacji, [Azure SQL Database architekturze](connectivity-architecture.md) i [portów łączności ponad 1433 dla ADO.NET 4,5 i SQL Database](adonet-v12-develop-direct-route-ports.md).
-- Aby uzyskać konfigurację sieci dla wystąpienia zarządzanego SQL, zobacz [Konfiguracja sieci dla wystąpień zarządzanych SQL](../managed-instance/how-to-content-reference-guide.md#network-configuration).
+- Aby uzyskać konfigurację sieci dla wystąpienia wystąpienia zarządzanego SQL, zobacz [Konfiguracja sieci dla wystąpienia zarządzanego SQL](../managed-instance/how-to-content-reference-guide.md#network-configuration).
 
 ## <a name="next-steps"></a>Następne kroki
 

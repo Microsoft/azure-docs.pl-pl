@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 6a0a4c0885552d7f8697a1f13b8750e084d8770a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5aba4c690f91b515424eb866d387652ca9f40e7e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041724"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344615"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-azure-sql-database-from-code"></a>Pobierz wymagane wartości w celu uwierzytelnienia aplikacji w celu uzyskania dostępu do Azure SQL Database z kodu
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Aby utworzyć SQL Database z kodu i zarządzać nim, musisz zarejestrować aplikację w domenie Azure Active Directory (AAD) w subskrypcji, w której zostały utworzone zasoby platformy Azure.
+Aby utworzyć Azure SQL Database z kodu i zarządzać nim, musisz zarejestrować aplikację w domenie Azure Active Directory (Azure AD) w subskrypcji, w której zostały utworzone zasoby platformy Azure.
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Tworzenie jednostki usługi w celu uzyskania dostępu do zasobów z aplikacji
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 75c25454451b733870f8a674b292cd131454f4d2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f3f4d49b42fa4b978db93fd3fee08e3f9017667e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045886"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342858"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurowanie SQL Server wystąpienia klastra trybu failover na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,7 +56,7 @@ Dzięki licencjonowaniu z płatnością zgodnie z rzeczywistym użyciem wystąpi
 
 Jeśli masz Umowa Enterprise z programem Software Assurance, możesz użyć jednego wolnego węzła pasywnej FCI dla każdego aktywnego węzła. Aby skorzystać z tej korzyści na platformie Azure, użyj obrazów maszyn wirtualnych BYOL i Użyj tej samej licencji na węzłach aktywnych i pasywnych FCI. Aby uzyskać więcej informacji, zobacz [Umowa Enterprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-Aby porównać usługę płatność zgodnie z rzeczywistym użyciem i BYOL Licencjonowanie na potrzeby SQL Server na maszynach wirtualnych platformy Azure, zobacz artykuł [Rozpoczynanie pracy z maszynami](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms)wirtualnymi SQL.
+Aby porównać usługę płatność zgodnie z rzeczywistym użyciem i BYOL Licencjonowanie na potrzeby SQL Server na maszynach wirtualnych platformy Azure, zobacz artykuł [Rozpoczynanie pracy z maszynami](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms)wirtualnymi SQL.
 
 Aby uzyskać pełne informacje na temat licencjonowania SQL Server, zobacz [Cennik](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -88,7 +88,7 @@ Należy również uzyskać ogólne informacje na temat tych technologii:
 
 Przed wykonaniem kroków opisanych w tym artykule należy dysponować:
 
-- Subskrypcja Microsoft Azure.
+- Subskrypcję platformy Microsoft Azure.
 - Domena systemu Windows na maszynach wirtualnych platformy Azure.
 - Konto, które ma uprawnienia do tworzenia obiektów zarówno na maszynach wirtualnych platformy Azure, jak i w Active Directory.
 - Sieć wirtualna platformy Azure i podsieć z wystarczającą przestrzenią adresową IP dla tych składników:
@@ -111,7 +111,7 @@ Po spełnieniu tych wymagań wstępnych można rozpocząć tworzenie klastra try
 
    1. W Azure Portal wybierz pozycję **Utwórz zasób** , aby otworzyć witrynę Azure Marketplace. Wyszukaj **zestaw dostępności**.
    1. Wybierz pozycję **zestaw dostępności**.
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
    1. W obszarze **Tworzenie zestawu dostępności**podaj następujące wartości:
       - **Nazwa**: Nazwa zestawu dostępności.
       - **Subskrypcja**: Twoja subskrypcja platformy Azure.
@@ -368,7 +368,7 @@ Aby utworzyć moduł równoważenia obciążenia:
 
 1. Wybierz pozycję **Dodaj**. Wyszukaj **Load Balancer**w portalu Azure Marketplace. Wybierz **Load Balancer**.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Skonfiguruj moduł równoważenia obciążenia przy użyciu:
 
@@ -472,7 +472,7 @@ Po ustawieniu sondy klastra można zobaczyć wszystkie parametry klastra w progr
 
 ## <a name="step-7-test-fci-failover"></a>Krok 7. Testowanie pracy w trybie failover FCI
 
-Przetestuj tryb failover FCI, aby sprawdzić poprawność działania klastra. Wykonaj następujące kroki:
+Przetestuj tryb failover FCI, aby sprawdzić poprawność działania klastra. Wykonaj następujące czynności:
 
 1. Połącz się z jednym z SQL Server węzłów klastra FCI przy użyciu protokołu RDP.
 

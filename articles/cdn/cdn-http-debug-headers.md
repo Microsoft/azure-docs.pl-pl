@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: allensu
-ms.openlocfilehash: 52aae3bdd2fe82eea6cbd500723192c88c293a1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4154c6a1e739f935022271e7a101f39d3ee5c500
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260500"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343024"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Nagłówki HTTP do debugowania X-we dla aparatu reguł Azure CDN
-Nagłówek `X-EC-Debug`żądania pamięci podręcznej debugowania, zawiera dodatkowe informacje dotyczące zasad pamięci podręcznej, które są stosowane do żądanego elementu zawartości. Te nagłówki są specyficzne dla **Azure CDN Premium z produktów Verizon** .
+Nagłówek żądania pamięci podręcznej debugowania, `X-EC-Debug` zawiera dodatkowe informacje dotyczące zasad pamięci podręcznej, które są stosowane do żądanego elementu zawartości. Te nagłówki są specyficzne dla **Azure CDN Premium z produktów Verizon** .
 
-## <a name="usage"></a>Sposób użycia
+## <a name="usage"></a>Użycie
 Odpowiedź wysłana z serwerów POP do użytkownika zawiera `X-EC-Debug` nagłówek tylko wtedy, gdy spełnione są następujące warunki:
 
-- [Funkcja nagłówków odpowiedzi pamięci podręcznej debugowania](cdn-verizon-premium-rules-engine-reference-features.md#debug-cache-response-headers) została włączona w aparacie reguł dla określonego żądania.
+- [Funkcja nagłówków odpowiedzi pamięci podręcznej debugowania](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) została włączona w aparacie reguł dla określonego żądania.
 - Określone żądanie definiuje zestaw nagłówków odpowiedzi w pamięci podręcznej debugowania, które zostaną uwzględnione w odpowiedzi.
 
 ## <a name="requesting-debug-cache-information"></a>Żądanie informacji o pamięci podręcznej debugowania
@@ -54,7 +54,7 @@ Nagłówki odpowiedzi pamięci podręcznej debugowania mogą być wymagane przez
 ## <a name="cache-status-code-information"></a>Informacje o kodzie stanu pamięci podręcznej
 Nagłówek odpowiedzi X-we-Debug może identyfikować serwer i sposób obsługi odpowiedzi przez następujące dyrektywy:
 
-Nagłówek | Opis
+Header | Opis
 -------|------------
 X-we-Debug: x-we-cache | Ten nagłówek jest raportowany za każdym razem, gdy zawartość jest kierowana przez sieć CDN. Identyfikuje serwer POP, który spełnił żądanie.
 X-we-Debug: x-we-cache-Remote | Ten nagłówek jest raportowany tylko wtedy, gdy żądana zawartość została buforowana na serwerze ochrony źródła lub serwerze bramy wdrożenie.
@@ -74,7 +74,7 @@ Terminy używane w powyższej składni nagłówka odpowiedzi są zdefiniowane w 
 
 - Platforma: wskazuje platformę, w której zażądano zawartości. Następujące kody są prawidłowe dla tego pola:
 
-    Code  | Platforma
+    Kod  | Platforma
     ------| --------
     ECAcc | Duże HTTP
     ECS   | Niewielka HTTP
@@ -91,13 +91,13 @@ Następujące przykładowe nagłówki zawierają informacje o kodzie stanu pami�
 - `X-EC-Debug: x-ec-cache-remote: TCP_HIT from ECD (dca/EF00)`
 
 ## <a name="cacheable-response-header"></a>Nagłówek odpowiedzi w pamięci podręcznej
-Nagłówek `X-EC-Debug: x-ec-check-cacheable` odpowiedzi wskazuje, czy żądana zawartość mogła być buforowana.
+`X-EC-Debug: x-ec-check-cacheable`Nagłówek odpowiedzi wskazuje, czy żądana zawartość mogła być buforowana.
 
 Ten nagłówek odpowiedzi nie wskazuje, czy buforowanie zostało wykonane. Zamiast tego wskazuje, czy żądanie było uprawnione do buforowania.
 
 ### <a name="response-header-format"></a>Format nagłówka odpowiedzi
 
-Nagłówek `X-EC-Debug` odpowiedzi zgłasza, czy żądanie mogło być buforowane, ma następujący format:
+`X-EC-Debug`Nagłówek odpowiedzi zgłasza, czy żądanie mogło być buforowane, ma następujący format:
 
 `X-EC-Debug: x-ec-check-cacheable: <cacheable status>`
 
@@ -116,17 +116,17 @@ Następujący przykładowy nagłówek odpowiedzi wskazuje, czy żądana zawarto�
 `X-EC-Debug: x-ec-check-cacheable: YES`
 
 ## <a name="cache-key-response-header"></a>Cache-Key — nagłówek odpowiedzi
-Nagłówek `X-EC-Debug: x-ec-cache-key` odpowiedzi wskazuje fizyczny klucz pamięci podręcznej skojarzony z żądaną zawartością. Fizyczna pamięć podręczna — klucz składa się ze ścieżki, która identyfikuje zasób na potrzeby buforowania. Innymi słowy, serwery będą sprawdzać, czy w pamięci podręcznej znajduje się podręczna wersja elementu zawartości, zgodnie z jego ścieżką zdefiniowaną w kluczu podręcznym.
+`X-EC-Debug: x-ec-cache-key`Nagłówek odpowiedzi wskazuje fizyczny klucz pamięci podręcznej skojarzony z żądaną zawartością. Fizyczna pamięć podręczna — klucz składa się ze ścieżki, która identyfikuje zasób na potrzeby buforowania. Innymi słowy, serwery będą sprawdzać, czy w pamięci podręcznej znajduje się podręczna wersja elementu zawartości, zgodnie z jego ścieżką zdefiniowaną w kluczu podręcznym.
 
 Ta fizyczna pamięć podręczna — klucz rozpoczyna się od podwójnego ukośnika (//), po którym następuje protokół używany do żądania zawartości (HTTP lub HTTPS). Następuje ścieżka względna do żądanego zasobu, który rozpoczyna się od punktu dostępu do zawartości (na przykład _/000001/_).
 
 Domyślnie platformy HTTP są skonfigurowane do korzystania z *pamięci podręcznej w warstwie Standardowa*, co oznacza, że ciągi zapytań są ignorowane przez mechanizm buforowania. Ten typ konfiguracji uniemożliwia użycie klucza pamięci podręcznej w celu uwzględnienia danych ciągu zapytania.
 
-Jeśli ciąg zapytania jest rejestrowany w kluczu pamięci podręcznej, zostanie przekonwertowany na jego odpowiednik skrótu, a następnie wstawiony między nazwą żądanego elementu zawartości a jego rozszerzeniem pliku (na przykład wartość&lt;&gt;skrótu zasobu. html).
+Jeśli ciąg zapytania jest rejestrowany w kluczu pamięci podręcznej, zostanie przekonwertowany na jego odpowiednik skrótu, a następnie wstawiony między nazwą żądanego elementu zawartości a jego rozszerzeniem pliku (na przykład &lt; wartość skrótu zasobu &gt; . html).
 
 ### <a name="response-header-format"></a>Format nagłówka odpowiedzi
 
-W `X-EC-Debug` nagłówku odpowiedzi są raportowane informacje o kluczach fizycznych pamięci podręcznej w następującym formacie:
+`X-EC-Debug`W nagłówku odpowiedzi są raportowane informacje o kluczach fizycznych pamięci podręcznej w następującym formacie:
 
 `X-EC-Debug: x-ec-cache-key: CacheKey`
 
@@ -137,11 +137,11 @@ Następujący przykładowy nagłówek odpowiedzi wskazuje fizyczny klucz pamięc
 `X-EC-Debug: x-ec-cache-key: //http/800001/origin/images/foo.jpg`
 
 ## <a name="cache-state-response-header"></a>Nagłówek odpowiedzi stanu pamięci podręcznej
-Nagłówek `X-EC-Debug: x-ec-cache-state` odpowiedzi wskazuje stan pamięci podręcznej wymaganej zawartości w chwili, gdy zażądano.
+`X-EC-Debug: x-ec-cache-state`Nagłówek odpowiedzi wskazuje stan pamięci podręcznej wymaganej zawartości w chwili, gdy zażądano.
 
 ### <a name="response-header-format"></a>Format nagłówka odpowiedzi
 
-W `X-EC-Debug` nagłówku odpowiedzi są raportowane informacje o stanie pamięci podręcznej w następującym formacie:
+`X-EC-Debug`W nagłówku odpowiedzi są raportowane informacje o stanie pamięci podręcznej w następującym formacie:
 
 `X-EC-Debug: x-ec-cache-state: max-age=MASeconds (MATimePeriod); cache-ts=UnixTime (ddd, dd MMM yyyy HH:mm:ss GMT); cache-age=CASeconds (CATimePeriod); remaining-ttl=RTSeconds (RTTimePeriod); expires-delta=ExpiresSeconds`
 
@@ -163,7 +163,7 @@ Terminy używane w powyższej składni nagłówka odpowiedzi są zdefiniowane w 
 
 - RTTimePeriod: konwertuje pozostałą wartość czasu wygaśnięcia (czyli RTSeconds) na przybliżoną równowartość większej jednostki (na przykład dni).
 
-- ExpiresSeconds: wskazuje liczbę sekund pozostałej przed datą/godziną określoną w nagłówku `Expires` odpowiedzi. Jeśli nagłówek `Expires` odpowiedzi nie został uwzględniony w odpowiedzi, wartość tego terminu to *Brak*.
+- ExpiresSeconds: wskazuje liczbę sekund pozostałej przed datą/godziną określoną w `Expires` nagłówku odpowiedzi. Jeśli `Expires` Nagłówek odpowiedzi nie został uwzględniony w odpowiedzi, wartość tego terminu to *Brak*.
 
 ### <a name="sample-response-header"></a>Przykładowy nagłówek odpowiedzi
 

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 1006b8719a1141bd38792bdbbe116d0c477071dd
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a17b5d80817637f1038996b034f926ee74cf54e9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190062"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344666"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla Azure SQL Database i wystąpienia zarządzanego SQL 
  
@@ -57,7 +57,7 @@ Poniższa tabela zawiera linki do przykładów skryptów interfejsu wiersza pole
 | [Importowanie bazy danych z pliku BACPAC](../../sql-database/scripts/sql-database-import-from-bacpac-cli.md)| Importuje bazę danych do SQL Database z pliku BACPAC. |
 |||
 
-Dowiedz się więcej o [interfejsie API interfejsu wiersza polecenia platformy Azure o pojedynczej bazie danych](single-database-manage.md#azure-cli).
+Dowiedz się więcej o [interfejsie API interfejsu wiersza polecenia platformy Azure o pojedynczej bazie danych](single-database-manage.md#the-azure-cli).
 
 # <a name="azure-sql-managed-instance"></a>[Wystąpienie zarządzane Azure SQL](#tab/managed-instance)
 

@@ -4,19 +4,19 @@ description: Dowiedz się więcej o funkcji systemowej ENDSWITH SQL w Azure Cosm
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 0cd927af50eca04aa8162d9d8f292077d9e4165c
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 3d37786c7364b07228d1d8d6540e7b6d8a174eb5
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844968"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322690"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
 
- Zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu ma kończyć się drugim.  
+Zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu ma kończyć się drugim.  
   
 ## <a name="syntax"></a>Składnia
   
@@ -75,6 +75,8 @@ Rozważmy na przykład dwie właściwości: Miasto i kraj. Kardynalność miejsc
 ```
 
 Pierwsze zapytanie będzie prawdopodobnie używać więcej jednostek ru niż drugie zapytanie, ponieważ Kardynalność miejscowości jest wyższa niż kraj.
+
+Jeśli rozmiar właściwości w EndsWith jest większy niż 1 KB dla niektórych dokumentów, aparat zapytań będzie musiał załadować te dokumenty. W takim przypadku aparat zapytań nie będzie w stanie w pełni oszacować EndsWith z indeksem. Opłata za usługę RU dla EndsWith będzie wysoka, jeśli masz dużą liczbę dokumentów o rozmiarze większym niż 1 KB.
 
 ## <a name="next-steps"></a>Następne kroki
 

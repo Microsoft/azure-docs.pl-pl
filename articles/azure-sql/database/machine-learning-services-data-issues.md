@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f784d6ef56ad5cb800c0061fbb5d0d4ca3252fa0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d7f33dd782b46afa1aa3845d2acb5712a76ea420
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048231"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324202"
 ---
 # <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Pracuj z danymi języka R i SQL w Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-W tym artykule omówiono niektóre typowe problemy, które mogą wystąpić podczas przemieszczania danych między językiem R i SQL Database w [Machine Learning Services (z językiem r) w Azure SQL Database](machine-learning-services-overview.md). Środowisko zdobyte w tym ćwiczeniu zapewnia podstawowe tło podczas pracy z danymi w swoim skrypcie.
+W tym artykule omówiono niektóre typowe problemy, które mogą wystąpić podczas przemieszczania danych między językiem R i Azure SQL Database w [Machine Learning Services (z językiem r) w Azure SQL Database](machine-learning-services-overview.md). Środowisko zdobyte w tym ćwiczeniu zapewnia podstawowe tło podczas pracy z danymi w swoim skrypcie.
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 

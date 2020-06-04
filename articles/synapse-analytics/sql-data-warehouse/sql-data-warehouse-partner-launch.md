@@ -11,12 +11,12 @@ ms.date: 05/18/2020
 ms.author: procha
 ms.reviewer: mabasile
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e7d370c49d4571b7b46d0d5db121955afd62fd45
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e4af27d841beb21b364b499231a422112eb3ad78
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664452"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324134"
 ---
 # <a name="azure-synapse-analytics-launch-partners"></a>Partnerzy uruchamiania analizy usługi Azure Synapse
 
@@ -40,7 +40,6 @@ Partnerzy usługi Azure Synapse Analytics oferują narzędzia integracji głębo
 | ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>Wykrywanie szczegółowych informacji za pomocą aplikacji do wizualizacji danych, która może być używana przez każdy z nich. Dzięki Qlik sensu wszystkie osoby w organizacji mogą łatwo tworzyć elastyczne, interaktywne wizualizacje i podejmować znaczące decyzje. |[Strona produktu](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/qlik.qlik-sense) |
 | ![SqlDBM](./media/sql-data-warehouse-partner-data-management/sqldbm-logo.png) |**SqlDBM**<br>SqlDBM to oparte na chmurze narzędzie do modelowania danych, które oferuje łatwy i wygodny sposób tworzenia bazy danych w dowolnym miejscu w dowolnej przeglądarce. Wszystkie z uwzględnieniem wszystkich wymaganych reguł bazy danych i obiektów, takich jak klucze bazy danych, schematy, indeksy, ograniczenia kolumn i relacje. |[Strona produktu](http://sqldbm.com/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sqldbm1583438206845.sqldbm-data-modeling-tool?tab=Overview)<br>|
 | ![Talend](./media/sql-data-warehouse-partner-data-integration/talend_logo.png) |**Chmura Talend**<br>Talend Cloud to platforma integracji danych w przedsiębiorstwie służąca do łączenia, uzyskiwania dostępu i przekształcania danych w chmurze lub w środowisku lokalnym. Jest to platforma integracji jako usługa (iPaaS), która zapewnia szeroką łączność, wbudowaną jakość danych i natywną obsługę najnowszych technologii danych Big Data i chmury. |[Strona produktu](https://www.talend.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/talend.talendremoteengine?source=datamarket&tab=Overview) |
-| ![ThoughtSpot](./media/sql-data-warehouse-partner-business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Skorzystaj z usługi Search, aby uzyskać szczegółowe informacje z miliardów wierszy danych lub pozwolić na uzyskanie wglądu w szczegółowe informacje na podstawie pytań, na które mogą nie być przydatne. ThoughtSpot pomaga businesspeople w ciągu kilku sekund znaleźć informacje ukryte w danych firmy. Użyj usługi Search, aby analizować dane i uzyskiwać zautomatyzowane szczegółowe informacje, gdy ich potrzebujesz.|[Strona produktu](https://www.thoughtspot.com)<br>|
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej o niektórych naszych partnerach, zobacz [partnerzy analizy biznesowej](sql-data-warehouse-partner-business-intelligence.md), [partnerzy integracji danych](sql-data-warehouse-partner-data-integration.md)i [partnerzy zarządzanie danymi](sql-data-warehouse-partner-data-management.md).

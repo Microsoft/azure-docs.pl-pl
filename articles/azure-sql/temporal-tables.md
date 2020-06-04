@@ -1,5 +1,5 @@
 ---
-title: Wprowadzenie z tabelami czasowymi
+title: Wprowadzenie do tabel danych czasowych
 description: Dowiedz się, jak rozpocząć korzystanie z tabel danych czasowych w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
-ms.openlocfilehash: e172c251f629dc53bd8f4479d63fe743bbe42095
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5cfd77cbc35248e48f60222ab617ea4d07d91ca0
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046747"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343816"
 ---
-# <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Wprowadzenie z tabelami czasowymi w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
+# <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Wprowadzenie do tabel danych czasowych w Azure SQL Database i wystąpieniu zarządzanym Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Tabele danych czasowych to funkcja programowalności Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL, które pozwala śledzić i analizować pełną historię zmian danych, bez potrzeby kodowania niestandardowego. Tabele danych czasowych przechowują dane ściśle powiązane z kontekstem czasu, dzięki czemu przechowywane fakty mogą być interpretowane jako prawidłowe tylko w określonym okresie. Ta właściwość tabel danych czasowych pozwala na efektywną analizę opartą na czasie i uzyskiwanie szczegółowych informacji na podstawie ewolucji danych.

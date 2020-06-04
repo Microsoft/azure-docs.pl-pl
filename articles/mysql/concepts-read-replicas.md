@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: d9d600b4ac34e4608b7747bee0e0a704ad2ab3be
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1536773840693e943b1e32f0ae7358b8b2ee7ce9
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846056"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324644"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliki do odczytu w usłudze Azure Database for MySQL
 
@@ -106,6 +106,9 @@ Dowiedz się, jak [zatrzymać replikację do repliki](howto-read-replicas-portal
 ### <a name="pricing-tiers"></a>Warstwy cenowe
 
 Repliki odczytu są obecnie dostępne tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
+
+> [!NOTE]
+> Koszt uruchomienia serwera repliki jest oparty na regionie, w którym jest uruchomiony serwer repliki.
 
 ### <a name="master-server-restart"></a>Ponowne uruchamianie serwera głównego
 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 19703557ce03100888dffc7a6c7f41b72b036214
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 19c75952846067d338d0956391a4b78bbb7d0d26
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050079"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323471"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dynamiczne skalowanie zasobów bazy danych przy minimalnym przestoju
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,17 +25,17 @@ Azure SQL Database i wystąpienie zarządzane SQL umożliwiają dynamiczne dodaw
 
 ## <a name="overview"></a>Omówienie
 
-Gdy zapotrzebowanie na aplikację rośnie od kilku urządzeń i klientów do milionów, Azure SQL Database i wystąpienia zarządzane SQL są skalowane na bieżąco z minimalnym przestojem. Skalowalność to jedna z najważniejszych cech PaaS, które umożliwiają dynamiczne dodawanie większej liczby zasobów do usługi w razie potrzeby. Azure SQL Database umożliwia łatwe zmienianie zasobów (mocy procesora CPU, pamięci, przepływności we/wy i magazynu) przyznanych do baz danych.
+Gdy zapotrzebowanie na aplikację rośnie od kilku urządzeń i klientów do milionów, Azure SQL Database i skalowanie wystąpienia zarządzanego SQL na bieżąco z minimalnym przestojem. Skalowalność to jedna z najważniejszych cech platformy jako usługi (PaaS), która umożliwia dynamiczne dodawanie zasobów do usługi w razie potrzeby. Azure SQL Database umożliwia łatwe zmienianie zasobów (mocy procesora CPU, pamięci, przepływności we/wy i magazynu) przyznanych do baz danych.
 
 Możesz ograniczyć problemy z wydajnością z powodu zwiększonego użycia aplikacji, których nie można naprawić przy użyciu metod indeksowania lub zapisywania zapytań. Dodanie większej liczby zasobów pozwala szybko reagować, gdy baza danych osiągnie bieżące limity zasobów i potrzebuje większej mocy do obsługi przychodzącego obciążenia. Azure SQL Database również umożliwia skalowanie zasobów w dół, gdy nie są one potrzebne do obniżenia kosztów.
 
-Nie musisz martwić się o zakup sprzętu i zmienianie podstawowej infrastruktury. Skalowanie bazy danych można łatwo wykonać za pośrednictwem Azure Portal za pomocą suwaka.
+Nie musisz martwić się o zakup sprzętu i zmienianie podstawowej infrastruktury. Skalowanie bazy danych może być łatwo wykonywane za pośrednictwem Azure Portal za pomocą suwaka.
 
 ![Skalowanie wydajności bazy danych](./media/scale-resources/scale-performance.svg)
 
 Azure SQL Database oferuje model [zakupu oparty](service-tiers-dtu.md) na jednostkach DTU i [model zakupu oparty na rdzeń wirtualny](service-tiers-vcore.md), podczas gdy wystąpienie zarządzane usługi Azure SQL oferuje tylko [model zakupu oparty na rdzeń wirtualny](service-tiers-vcore.md). 
 
-- [Model zakupu oparty na](service-tiers-dtu.md) jednostkach DTU oferuje mieszankę zasobów obliczeniowych, pamięci i we/wy w trzech warstwach usług, co zapewnia obsługę lekkich i intensywnych obciążeń bazy danych: Basic, standard i Premium. Poziomy wydajności w każdej warstwie udostępniają różne kombinacje tych zasobów i można do nich dodawać kolejne zasoby magazynu.
+- [Model zakupu oparty na](service-tiers-dtu.md) jednostkach DTU oferuje mieszankę zasobów obliczeniowych, pamięci i operacji we/wy w trzech warstwach usług w celu obsługi lekkich i intensywnych obciążeń bazy danych: Basic, standard i Premium. Poziomy wydajności w każdej warstwie udostępniają różne kombinacje tych zasobów i można do nich dodawać kolejne zasoby magazynu.
 - [Model zakupu oparty na rdzeń wirtualny](service-tiers-vcore.md) umożliwia wybranie liczby rdzeni wirtualnych, ilości lub pamięci oraz ilości i szybkości magazynu. Ten model zakupów oferuje trzy warstwy usług: Ogólnego przeznaczenia, Krytyczne dla działania firmy i skalowania.
 
 Możesz utworzyć swoją pierwszą aplikację w małej, pojedynczej bazie danych przy niskich kosztach miesięcznie w warstwie usług podstawowa, standardowa lub Ogólnego przeznaczenia, a następnie ręcznie zmienić jej warstwę usług lub programowo w dowolnym momencie do warstwy usług premium lub Krytyczne dla działania firmy, aby zaspokoić potrzeby rozwiązania. Wydajność można dostosować bez przestoju aplikacji i przerwy w świadczeniu usługi klientom. Dynamiczna skalowalność umożliwia bazie danych przezroczyste odpowiadanie na gwałtownie zmieniające się wymagania dotyczące zasobów oraz płacenie tylko za potrzebne zasoby i tylko gdy są używane.
@@ -44,7 +44,7 @@ Możesz utworzyć swoją pierwszą aplikację w małej, pojedynczej bazie danych
 > Dynamiczna skalowalność różni się od skalowania automatycznego. Skalowanie automatyczne polega na tym, że usługa jest skalowana automatycznie na podstawie kryteriów, a dynamiczna skalowalność umożliwia skalowanie ręczne z minimalnym czasem przestoju.
 
 Pojedyncze bazy danych w Azure SQL Database obsługują ręczną skalowalność, ale nie Skalowanie automatyczne. Aby zapewnić środowisko bardziej *zautomatyzowane*, rozważ użycie elastycznych pul baz danych, które umożliwiają bazom danych udostępnianie zasobów w puli w zależności od potrzeb.
-Istnieją jednak skrypty, które mogą ułatwić automatyzację skalowalności dla jednego Azure SQL Database. Na przykład zobacz temat [Monitorowanie i skalowanie pojedynczej bazy danych SQL za pomocą programu PowerShell](scripts/monitor-and-scale-database-powershell.md).
+Istnieją jednak skrypty, które mogą ułatwić automatyzację skalowalności pojedynczej bazy danych w Azure SQL Database. Na przykład zobacz temat [Monitorowanie i skalowanie pojedynczej bazy danych SQL za pomocą programu PowerShell](scripts/monitor-and-scale-database-powershell.md).
 
 Możesz zmienić [warstwy usług jednostek DTU](service-tiers-dtu.md) lub [charakterystyki rdzeni wirtualnych](resource-limits-vcore-single-databases.md) w dowolnym momencie przy minimalnych przestojach w działaniu aplikacji (zwykle poniżej czterech sekund). W przypadku wielu firm i aplikacji możliwość tworzenia baz danych i dostosowywania wydajności na żądanie jest wystarczająca, zwłaszcza jeśli wzorce użycia są względnie przewidywalne. Jednak w przypadku nieprzewidywalnych wzorców zarządzanie kosztami i modelem biznesowym może być trudne. W tym scenariuszu używana jest pula elastyczna z określoną liczbą jednostek eDTU, które są współużytkowane przez wiele baz danych w puli.
 
@@ -57,7 +57,7 @@ Azure SQL Database oferuje możliwość dynamicznego skalowania baz danych:
 
 Wystąpienie zarządzane Azure SQL umożliwia również skalowanie: 
 
-- [Wystąpienie zarządzane SQL](../managed-instance/sql-managed-instance-paas-overview.md) używa trybu [rdzeni wirtualnych](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) i pozwala definiować maksymalne rdzenie procesora CPU i maksymalną ilość miejsca do magazynowania przydzieloną do wystąpienia. Wszystkie bazy danych w ramach tego wystąpienia będą współużytkować zasoby przydzielono do wystąpienia.
+- [Wystąpienie zarządzane SQL](../managed-instance/sql-managed-instance-paas-overview.md) używa trybu [rdzeni wirtualnych](../managed-instance/sql-managed-instance-paas-overview.md#vcore-based-purchasing-model) i pozwala definiować maksymalne rdzenie procesora CPU i maksymalną ilość miejsca do magazynowania przydzieloną do wystąpienia. Wszystkie bazy danych w ramach wystąpienia zarządzanego będą współużytkować zasoby przydzielono do wystąpienia.
 
 Inicjowanie działania skalowania w górę lub w dół w dowolnym z tych typów spowoduje ponowne uruchomienie procesu aparatu bazy danych i przeniesienie go do innej maszyny wirtualnej w razie potrzeby. Proces przeniesienia aparatu bazy danych do nowej maszyny wirtualnej jest w **trybie online** , w którym można kontynuować korzystanie z istniejącej usługi Azure SQL Database, gdy proces jest w toku. Gdy docelowy aparat bazy danych zostanie w pełni zainicjowany i będzie gotowy do przetwarzania zapytań, połączenia zostaną [przełączone ze źródła do docelowego aparatu bazy danych](single-database-scale.md#impact).
 

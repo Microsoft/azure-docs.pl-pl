@@ -4,12 +4,12 @@ description: Dowiedz się więcej o scenariuszach zabezpieczeń dla klastra usł
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: c43cfbd4468a64867d50482d9c8055622602f159
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71a5891bf26cbd79ba5cfeff8324e225b3febd73
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461586"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324015"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenariusze zabezpieczeń klastra Service Fabric
 
@@ -33,7 +33,7 @@ Klastry działające na platformie Azure i autonomicznych klastrach działający
 
 Service Fabric używa certyfikatów serwera X. 509, które są określane jako część konfiguracji typu węzła podczas tworzenia klastra. Na końcu tego artykułu zobaczysz krótkie omówienie tego, czym są te certyfikaty i jak można je uzyskać lub utworzyć.
 
-Konfigurowanie zabezpieczeń certyfikatów podczas tworzenia klastra, w Azure Portal, przy użyciu szablonu Azure Resource Manager lub przy użyciu autonomicznego szablonu JSON. Domyślne zachowanie Service Fabric zestawu SDK polega na wdrożeniu i instalowaniu certyfikatu z najpóźniejszym terminem wygaśnięcia certyfikatu. zachowanie klasyczne może definiować certyfikaty podstawowe i pomocnicze, aby umożliwić Ręczne inicjowanie przerzucania i nie jest zalecane do użycia w ramach nowych funkcji. Certyfikaty podstawowe, które będą używane, mają najpóźniejsze daty wygaśnięcia, powinny być inne od klienta administratora i certyfikatów klienta tylko do odczytu ustawionych dla [zabezpieczeń klient-węzeł](#client-to-node-security).
+Konfigurowanie zabezpieczeń certyfikatów podczas tworzenia klastra, w Azure Portal, przy użyciu szablonu Azure Resource Manager lub przy użyciu autonomicznego szablonu JSON. Domyślnym zachowaniem zestawu SDK Service Fabric jest wdrożenie i zainstalowanie certyfikatu z najpóźniejszym terminem wygaśnięcia. zachowanie klasyczne może definiować certyfikaty podstawowe i pomocnicze, aby umożliwić Ręczne inicjowanie przerzucania i nie jest zalecane do użycia w ramach nowych funkcji. Certyfikaty podstawowe, które będą używane, mają najpóźniejsze daty wygaśnięcia, powinny być inne od klienta administratora i certyfikatów klienta tylko do odczytu ustawionych dla [zabezpieczeń klient-węzeł](#client-to-node-security).
 
 Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze dla platformy Azure, zobacz [Konfigurowanie klastra przy użyciu szablonu Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
@@ -113,7 +113,7 @@ Certyfikat musi spełniać następujące wymagania:
 
 Niektóre inne zagadnienia, które należy wziąć pod uwagę:
 
-* Pole **podmiotu** może zawierać wiele wartości. Każda wartość jest poprzedzona inicjalizacją, aby wskazać typ wartości. Zazwyczaj inicjowanie jest **CN** (dla *nazwy pospolitej*); na przykład **CN = www\.contoso.com**.
+* Pole **podmiotu** może zawierać wiele wartości. Każda wartość jest poprzedzona inicjalizacją, aby wskazać typ wartości. Zazwyczaj inicjowanie jest **CN** (dla *nazwy pospolitej*); na przykład **CN = www \. contoso.com**.
 * Pole **podmiotu** może być puste.
 * Jeśli pole wyboru opcjonalnej **alternatywnej nazwy podmiotu** jest wypełnione, musi mieć zarówno nazwę pospolitą certyfikatu, jak i jeden wpis na sieć San. Są one wprowadzane jako wartości **nazw DNS** . Aby dowiedzieć się, jak generować certyfikaty, które mają sieci SAN, zobacz [jak dodać alternatywną nazwę podmiotu do certyfikatu bezpiecznego protokołu LDAP](https://support.microsoft.com/kb/931351).
 * Wartość pola **zamierzone cele** w certyfikacie powinna zawierać odpowiednią wartość, na przykład **uwierzytelnianie serwera** lub **uwierzytelnianie klienta**.

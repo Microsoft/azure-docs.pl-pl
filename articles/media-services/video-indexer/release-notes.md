@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 06/02/2020
 ms.author: juliako
-ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 5bd4c9aa3fde9e3fa596ce5a18b892edfab60af5
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124588"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84325069"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Informacje o wersji Azure Media Services Video Indexer
 
@@ -29,6 +29,20 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 * Znane problemy
 * Poprawki błędów
 * Funkcje uznane za przestarzałe
+
+## <a name="may-2020"></a>Maj 2020 r.
+
+### <a name="video-indexer-deployed-in-the-east-us"></a>Video Indexer wdrożone w regionie Wschodnie stany USA
+
+Teraz możesz utworzyć konto płatne Video Indexer w regionie Wschodnie stany USA.
+ 
+### <a name="video-indexer-url"></a>Adres URL Video Indexer
+
+Video Indexer regionalne punkty końcowe były bardzo ujednolicone do uruchamiania tylko z usługą www. Element akcji nie jest wymagany.
+
+Od teraz na, dowiesz się, www.videoindexer.ai niezależnie od tego, czy zamierzasz osadzać widżety czy logować się do Video Indexer aplikacji sieci Web.
+
+Wus.videoindexer.ai również zostanie przekierowana do sieci www. Więcej informacji można znaleźć w temacie [osadź Video Indexer widżety w aplikacjach](video-indexer-embed-widgets.md).
 
 ## <a name="april-2020"></a>Kwiecień 2020 r.
 
@@ -134,13 +148,13 @@ Kod stanu 409 będzie teraz zwracany przez [ponowne indeksowanie wideo](https://
     
     W przypadku przekazywania wideo zamieniono polecenie zh-HANS na zh-CN, obie są obsługiwane, ale zaleca się, aby Metoda zh-CN była zalecana i bardziej dokładna.
     
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
  
 * Wyszukaj animowane znaki w galerii
 
     W przypadku indeksowania animowanych znaków można teraz wyszukiwać je w postaci szpaltowej wideo na koncie. Aby uzyskać więcej informacji, zobacz [rozpoznawanie znaków animowanych](animated-characters-recognition.md).
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
  
 Wiele zaliczek zapowiedziano w IBC 2019:
  
@@ -160,7 +174,7 @@ Wiele zaliczek zapowiedziano w IBC 2019:
     
     Temat inferencing model obsługuje teraz bardziej szczegółowy stopień szczegółowości taksonomii IPTC. Przeczytaj wszystkie szczegółowe informacje o [Azure Media Services nowych innowacyjności opartych na AI](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
  
 ### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer wdrożony w programie Południowe Zjednoczone Królestwo
 
@@ -197,7 +211,7 @@ Obsługa ciągu zapytania URL o 4096 (zamiast 2048) na indeksowaniu wideo.
 
 Projekty można teraz tworzyć w oparciu o wideo indeksowane w różnych językach (tylko interfejsy API).
 
-## <a name="july-2019"></a>Lipiec 2019 r.
+## <a name="july-2019"></a>Lipiec 2019
 
 ### <a name="editor-as-a-widget"></a>Edytor jako widżet
 

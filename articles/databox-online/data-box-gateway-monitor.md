@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: aeaee121fd611838fb3c168b696946e7d8d998ea
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: e352c2d8141f90c4dc721fe4fc0e717dfad7b88b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779918"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84339046"
 ---
 # <a name="monitor-your-azure-data-box-gateway"></a>Monitoruj Azure Data Box Gateway
 

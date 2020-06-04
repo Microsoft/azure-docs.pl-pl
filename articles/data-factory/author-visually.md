@@ -10,12 +10,12 @@ ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
 ms.date: 05/15/2020
-ms.openlocfilehash: 79b89c6a6a7598dd3fbdfc5030fd59fe1aab6625
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832788"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343121"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Tworzenie wizualne w Azure Data Factory
 
@@ -42,6 +42,12 @@ W przypadku zasobów najwyższego poziomu, takich jak potoki, zestawy danych i p
 ![Kanwa tworzenia](media/author-visually/properties-pane.png)
 
 Okienko właściwości zostanie otwarte domyślnie podczas tworzenia zasobu. Aby go edytować, kliknij ikonę okienka właściwości znajdującą się w prawym górnym rogu kanwy.
+
+## <a name="management-hub"></a>Centrum zarządzania
+
+Centrum zarządzania, do którego uzyskuje się dostęp na karcie *Zarządzanie* w Azure Data Factory środowisku użytkownika, jest portalem, który hostuje globalne akcje zarządzania dla fabryki danych. W tym miejscu można zarządzać połączeniami z magazynami danych i obliczeniami zewnętrznymi, konfiguracją kontroli źródła i ustawieniami wyzwalacza. Aby uzyskać więcej informacji, zapoznaj się z możliwościami [centrum zarządzania](author-management-hub.md).
+
+![Zarządzanie połączonymi usługami](media/author-management-hub/management-hub-linked-services.png)
 
 ## <a name="expressions-and-functions"></a>Wyrażenia i funkcje
 

@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate na potrz
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: ddc70ee9430d3a767ce01191824c150a4dbd5e6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d9cc071ad5d81a09a14b12fe2acdf564c2ea6c8
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538277"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331784"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurowanie urządzenia dla serwerów fizycznych
 
@@ -35,8 +35,8 @@ Aby skonfigurować urządzenie:
 
 Pobierz spakowany plik dla urządzenia.
 
-1. W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2. W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** kliknij pozycję **niezwirtualizowane/inne**.
+1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** kliknij pozycję **niezwirtualizowane/inne**.
 3. Kliknij pozycję **Pobierz** , aby pobrać plik zip.
 
     ![Pobierz maszynę wirtualną](./media/tutorial-assess-physical/download-appliance.png)
@@ -51,20 +51,19 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykładowe użycie chmury publicznej:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
     - Przykładowe użycie w chmurze dla instytucji rządowych:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Weryfikuj wartości skrótu:
+3.  Sprawdź najnowszą wersję urządzenia i wartości skrótu:
  
-    - W przypadku chmury publicznej (dla najnowszej wersji urządzenia):
+    - W przypadku chmury publicznej:
 
-        **Algorytm** | **Wartość skrótu**
-          --- | ---
-          MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-          SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+        **Scenariusz** | **Przesłać*** | **Wartość skrótu**
+        --- | --- | ---
+        Fizyczne (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2105112) | 0a27adf13cc5755e4b23df0c05732c6ac08d1fe8850567cb57c9906fbc3b85a0
 
-    - W przypadku platformy Azure dla instytucji rządowych (dla najnowszej wersji urządzenia):
+    - Dla Azure Government:
 
-        **Algorytm** | **Wartość skrótu**
-          --- | ---
-          MD5 | f81c155fc4a1409901caea948713913f
+        **Scenariusz** | **Przesłać*** | **Wartość skrótu**
+        --- | --- | ---
+        Fizyczne (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Uruchom skrypt Instalatora Azure Migrate
@@ -108,7 +107,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 2. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
     - **Licencja**: zaakceptuj postanowienia licencyjne i przeczytaj informacje o innych firmach.
     - **Łączność**: aplikacja sprawdza, czy maszyna wirtualna ma dostęp do Internetu. Jeśli maszyna wirtualna używa serwera proxy:
-        - Kliknij pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w formularzu http://ProxyIPAddress lub http://ProxyFQDN.
+        - Kliknij pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w formularzu http://ProxyIPAddress lub http://ProxyFQDN .
         - Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
         - Obsługiwane są tylko serwery proxy HTTP.
     - **Synchronizacja czasu**: godzina została zweryfikowana. Czas na urządzeniu powinien być zsynchronizowany z czasem Internetu, aby funkcja odnajdywania maszyn wirtualnych działała prawidłowo.
@@ -123,7 +122,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 3. Po pomyślnym zalogowaniu Wróć do aplikacji sieci Web.
 4. Wybierz subskrypcję, w której został utworzony projekt Azure Migrate. Następnie wybierz projekt.
 5. Określ nazwę urządzenia. Nazwa powinna być alfanumeryczna z 14 znakami lub mniej.
-6. Kliknij pozycję **zarejestruj**.
+6. Kliknij pozycję **Zarejestruj**.
 
 
 ## <a name="start-continuous-discovery"></a>Uruchom odnajdywanie ciągłe
@@ -146,7 +145,7 @@ Spowoduje to uruchomienie odnajdywania. Metadane wykrytych maszyn wirtualnych mo
 Po zakończeniu odnajdywania możesz sprawdzić, czy serwery są wyświetlane w portalu.
 
 1. Otwórz pulpit nawigacyjny Azure Migrate.
-2. W **Azure Migrate serwery** > **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
+2. W **Azure Migrate serwery**  >  **Azure Migrate: Strona Ocena serwera** kliknij ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 
 ## <a name="next-steps"></a>Następne kroki

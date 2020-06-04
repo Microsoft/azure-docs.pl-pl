@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: 8bff8cf1111675446c1c9fb2e5dde8b19e2ef5c1
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 9a80adbbeda2754f9f08a4d2f16b8caf9263b087
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310890"
+ms.locfileid: "84340859"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -40,7 +40,7 @@ Azure Monitor korzysta z zarządzanej tożsamości przypisanej do systemu, aby u
 Po CMK konfiguracji wszystkie dane pozyskiwane w obszarach roboczych skojarzonych z zasobem *klastra* są szyfrowane za pomocą klucza w Key Vault. W dowolnym momencie możesz usunąć skojarzenie obszarów roboczych z zasobem *klastra* . Nowe dane są pobierane do magazynu Log Analytics i szyfrowane za pomocą klucza firmy Microsoft, podczas gdy można bezproblemowo badać nowe i stare dane.
 
 
-![CMK — Omówienie](media/customer-managed-keys/cmk-overview-8bit.png)
+![CMK — Omówienie](media/customer-managed-keys/cmk-overview.png)
 
 1. Usługa Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
@@ -80,7 +80,7 @@ Procedura nie jest obecnie obsługiwana w interfejsie użytkownika, a proces apr
 > [!IMPORTANT]
 > Wszystkie żądania interfejsu API muszą zawierać Token autoryzacji okaziciela w nagłówku żądania.
 
-Na przykład:
+Przykład:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview

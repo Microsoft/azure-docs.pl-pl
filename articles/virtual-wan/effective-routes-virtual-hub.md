@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 06/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1173da81736661048d1e4e12d9919bc2aadf73ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f0785f8ce2528d0c17a8aca520212df931bf394
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73515852"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343374"
 ---
 # <a name="view-effective-routes-of-a-virtual-hub"></a>Wyświetlanie efektywnych tras koncentratora wirtualnego
 
@@ -42,14 +42,14 @@ Użyj paska przewijania u dołu tabeli, aby wyświetlić ścieżkę "AS".
 
 | **Prefiks** |  **Typ następnego skoku** | **Następny przeskok** |  **Źródło trasy** |**Ścieżka AS** |
 | ---        | ---                | ---          | ---               | ---         |
-| 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
-|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-GW|21000|
-|10.23.1.0/24| VPN |10.1.0.6, 10.1.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
+| 10.20.1.0/24|Sieć VPN |10.1.0.6, 10.1.0.7| /subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW| 20000|
+|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-GW|21000|
+|10.23.1.0/24| Sieć VPN |10.1.0.6, 10.1.0.7|/subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-GW|23000|
 |10.4.0.0/16|Połączenie Virtual Network| Na linku |  |  |
-|10.5.0.0/16| Adres IP| 10.4.0.6|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
-|0.0.0.0/0| Adres IP| `<Azure Firewall IP>` |/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
-|10.22.1.0/16| Koncentrator zdalny|10.8.0.6, 10.8.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/westhub_| 4848-22000 |
-|10.9.0.0/16| Koncentrator zdalny|  Na linku |/subscriptions/`<sub>`/resourceGroups/`<rg>`/Providers/Microsoft.Network/virtualhubs/westhub_1| |
+|10.5.0.0/16| Adres IP| 10.4.0.6|/subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
+|0.0.0.0/0| Adres IP| `<Azure Firewall IP>` |/subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/virtualhubs/easthub_1/routetables/table_1| |
+|10.22.1.0/16| Koncentrator zdalny|10.8.0.6, 10.8.0.7|/subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/virtualhubs/westhub_| 4848-22000 |
+|10.9.0.0/16| Koncentrator zdalny|  Na linku |/subscriptions/ `<sub>` /ResourceGroups/ `<rg>` /providers/Microsoft.Network/virtualhubs/westhub_1| |
 
 >[!NOTE]
 > Jeśli środkowe stany USA i Europa Zachodnia nie komunikują się ze sobą w przykładowej topologii, nie istnieje trasa poznania (10.9.0.0/16). Koncentratory anonsują tylko te sieci, które są bezpośrednio połączone z nimi.
@@ -59,7 +59,7 @@ Użyj paska przewijania u dołu tabeli, aby wyświetlić ścieżkę "AS".
 
 ### <a name="about-the-hub-route-table"></a><a name="abouthubroute"></a>Informacje o tabeli tras centrum
 
-Można utworzyć trasę koncentratora wirtualnego i zastosować trasę do tabeli tras koncentratora wirtualnego. Możesz zastosować wiele tras do tabeli tras koncentratora wirtualnego. Pozwala to na ustawienie trasy dla docelowej sieci wirtualnej za pośrednictwem adresu IP (zazwyczaj jest to sieciowe urządzenie wirtualne (urządzenie WUS). Aby uzyskać więcej informacji na temat urządzeń WUS, zobacz [kierowanie ruchu z koncentratora wirtualnego do urządzenie WUS](virtual-wan-route-table-portal.md).
+Można utworzyć trasę koncentratora wirtualnego i zastosować trasę do tabeli tras koncentratora wirtualnego. Możesz zastosować wiele tras do tabeli tras koncentratora wirtualnego. Pozwala to na ustawienie trasy dla docelowej sieci wirtualnej za pośrednictwem adresu IP (zazwyczaj jest to sieciowe urządzenie wirtualne (urządzenie WUS). Aby uzyskać więcej informacji na temat urządzeń WUS, zobacz [kierowanie ruchu z koncentratora wirtualnego do urządzenie WUS](virtual-wan-route-table-portal.md). Należy pamiętać, że te trasy nie będą wyświetlane w tabeli obowiązujących tras. Obowiązująca tabela tras zawiera tylko prefiksy dla lokalnych i zdalnych centrów oraz połączone Virtual Network przestrzeń adresową i trasy uzyskane za pośrednictwem protokołu BGP.
 
 ### <a name="about-default-route-00000"></a><a name="aboutdefaultroute"></a>Informacje o trasy domyślnej (0.0.0.0/0)
 

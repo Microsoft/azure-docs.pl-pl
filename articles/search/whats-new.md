@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 05/19/2020
-ms.openlocfilehash: 6597a8d5f1f8f4aa34ba9f59d4e08b5dc6d66728
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f8ddc3ef56aefc6ea613af19d91cd0122435efd7
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682466"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344207"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -29,7 +29,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 + Użyj [tożsamości zarządzanej przez system (wersja zapoznawcza)](search-howto-managed-identities-data-sources.md) , aby skonfigurować połączenie ze źródłem danych platformy Azure do indeksowania. Dotyczy [indeksatorów](search-indexer-overview.md) , które pobierają zawartość ze źródeł danych platformy Azure, takich jak Azure SQL Database, Azure Cosmos DB i Azure Storage.
 
-+ Zmień podstawę obliczania wyników wyszukiwania z fragmentu na wszystkie-fragmentów przy użyciu [parametru zapytania globalnego scoringStatistics =](index-similarity-and-scoring.md#scoring-statistics).
++ Zmień podstawę sposobu, w jaki wyniki wyszukiwania są obliczane, z fragmentu na wszystkie-fragmentów, przy użyciu parametrów zapytania [scoringStatistics = Global](index-similarity-and-scoring.md#scoring-statistics) i SessionID.
 
 ### <a name="march-2020"></a>Marzec 2020 r.
 

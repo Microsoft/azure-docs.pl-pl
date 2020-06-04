@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: ee4bd24264be9e7730d4dc99af4e61b05a7692bc
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 716d40a0b86ec3385f236a3d81f651d24a36845a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594138"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342118"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -28,7 +28,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 ## <a name="general"></a>Ogólne
 
-### <a name="what-is-azure-front-door"></a>Co to jest Azure Front Door?
+### <a name="what-is-azure-front-door"></a>Co to jest usługa Azure Front Door?
 
 Azure Front Drzwiczks to Application Delivery Network (wdrożenie) jako usługa, oferując różne możliwości równoważenia obciążenia warstwy 7 dla aplikacji. Zapewnia to przyspieszenie lokacji dynamicznej (DSA) wraz z globalnym równoważeniem obciążenia, które umożliwia przejście w tryb failover niemal w czasie rzeczywistym. Jest to wysoce dostępna i skalowalna usługa, która jest w pełni zarządzana przez platformę Azure.
 
@@ -46,7 +46,7 @@ Najważniejsze scenariusze, dla których należy używać Application Gateway za
 
 - Z przodu drzwi można korzystać z równoważenia obciążenia opartego na ścieżkach tylko na poziomie globalnym, ale jeśli jedna z nich chce, aby równoważyć obciążenie ruchem jeszcze bardziej w ramach ich sieci wirtualnych (VNET), powinny używać Application Gateway.
 - Ponieważ tylne drzwi nie działają na poziomie maszyny wirtualnej/kontenera, więc nie można ich opróżniać. Jednak Application Gateway umożliwia opróżnianie połączeń. 
-- Za pomocą Application Gateway za AFD, jeden może osiągnąć 100% protokołu TLS/SSL i rozsyłać tylko żądania HTTP w ramach ich sieci wirtualnych (VNET).
+- Za pomocą Application Gateway za drzwiami przednimi, jeden może osiągnąć 100% protokołu TLS/SSL i kierować tylko żądania HTTP w ramach sieci wirtualnej (VNET).
 - Drzwiczki z przodu i Application Gateway obsługują koligacje sesji. Podczas gdy drzwi tylne mogą kierować ruch z sesji użytkownika do tego samego klastra lub zaplecza w danym regionie, Application Gateway może kierować ruch do tego samego serwera w klastrze.  
 
 ### <a name="can-we-deploy-azure-load-balancer-behind-front-door"></a>Czy można wdrażać Azure Load Balancer za drzwiami przednimi?
@@ -93,12 +93,12 @@ Aby zablokować aplikację w celu akceptowania tylko ruchu pochodzącego z okre�
  
     - Zapoznaj *się z* sekcją *AzureFrontDoor. zaplecza* w obszarze zakresy adresów IP [platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla zakresu adresu IP zaplecza [IPv4.](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)
     - Przestrzeń adresów IP zaplecza **protokołu IPv6** znajdujących się na początku i objęta tagiem usługi nie znajduje się na liście w pliku JSON zakresów adresów IP platformy Azure. Jeśli szukasz jawnego zakresu adresów IPv6, jest on obecnie ograniczony do`2a01:111:2050::/44`
-    - [Podstawowe usługi infrastruktury](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) platformy Azure za pomocą zwirtualizowanych adresów IP hosta `168.63.129.16` : i`169.254.169.254`
+    - [Podstawowe usługi infrastruktury](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) platformy Azure za pomocą zwirtualizowanych adresów IP hosta: `168.63.129.16` i`169.254.169.254`
 
     > [!WARNING]
     > Przestrzeń adresów IP zaplecza z drzwiami może ulec zmianie później, jednak zapewnimy, że przed takim wdrożeniem będziemy zintegrowane z [zakresem adresów IP i tagami usług platformy Azure](https://www.microsoft.com/download/details.aspx?id=56519). Zalecamy, aby zasubskrybować [zakresy adresów IP platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla wszelkich zmian lub aktualizacji.
 
--    Wykonaj operację pobierania na swoich drzwiach z przodu przy użyciu wersji `2020-01-01` interfejsu API lub nowszej. W wywołaniu interfejsu API poszukaj `frontdoorID` pola. Odfiltruj w przychodzącym nagłówku "**X-Azure-FDID**" wysyłanym przez tylne drzwi do zaplecza przy użyciu wartości `frontdoorID`jako pola. 
+-    Wykonaj operację pobierania na swoich drzwiach z przodu przy użyciu wersji interfejsu API `2020-01-01` lub nowszej. W wywołaniu interfejsu API poszukaj `frontdoorID` pola. Odfiltruj w przychodzącym nagłówku "**X-Azure-FDID**" wysyłanym przez tylne drzwi do zaplecza przy użyciu wartości jako pola `frontdoorID` . 
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Czy adres IP emisji jest zmieniany w okresie istnienia moich zewnętrznych drzwi?
 
@@ -123,7 +123,7 @@ Uwaga — niestandardowe aktualizacje certyfikatu TLS/SSL trwają około 30 minu
 Wszystkie aktualizacje tras lub pul zaplecza itp. są bezproblemowe i spowodują zero przestojów (Jeśli nowa konfiguracja jest poprawna). Aktualizacje certyfikatów są również niepodzielne i nie spowodują awarii, chyba że zostanie przełączone z "AFD Managed" na "Użyj własnego certyfikatu" lub na odwrót.
 
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Czy można zrównoważyć ruch z przodu platformy Azure lub kierowaniu ruchu w sieci wirtualnej?
 
@@ -213,7 +213,7 @@ Nie, certyfikaty z podpisem własnym nie są obsługiwane w przypadku drzwi zewn
 
 W przypadku pomyślnego nawiązania połączenia HTTPS z zaplecem niezależnie od tego, czy są używane sondy kondycji, czy przekazywanie żądań, może istnieć dwa przyczyny niepowodzenia ruchu HTTPS:
 
-1. **Niezgodność nazwy podmiotu certyfikatu**: w przypadku połączeń HTTPS, drzwiczki z przodu oczekują, że zaplecze przedstawia certyfikat z prawidłowego urzędu certyfikacji z nazwami podmiotu pasującymi do nazwy hosta zaplecza. Jeśli na przykład nazwa hosta zaplecza jest ustawiona na `myapp-centralus.contosonews.net` , a certyfikat, którego zaplecze prezentuje się podczas UZGADNIANIA protokołu TLS `myapp-centralus.contosonews.net` , `*myapp-centralus*.contosonews.net` nie ma ani w nazwie podmiotu, drzwi tylne odmówią połączenia i spowodują wystąpienie błędu. 
+1. **Niezgodność nazwy podmiotu certyfikatu**: w przypadku połączeń HTTPS, drzwiczki z przodu oczekują, że zaplecze przedstawia certyfikat z prawidłowego urzędu certyfikacji z nazwami podmiotu pasującymi do nazwy hosta zaplecza. Jeśli na przykład nazwa hosta zaplecza jest ustawiona na, `myapp-centralus.contosonews.net` a certyfikat, którego zaplecze prezentuje się podczas uzgadniania protokołu TLS `myapp-centralus.contosonews.net` , nie ma ani `*myapp-centralus*.contosonews.net` w nazwie podmiotu, drzwi tylne odmówią połączenia i spowodują wystąpienie błędu. 
     1. **Rozwiązanie**: Chociaż nie jest to zalecane w punktu widzenia zgodności, można obejść ten błąd, wyłączając Sprawdzanie nazwy podmiotu certyfikatu dla drzwi z przodu. Ta opcja jest dostępna w obszarze Ustawienia w Azure Portal i w obszarze BackendPoolsSettings w interfejsie API.
 2. **Certyfikat hostingu zaplecza z nieprawidłowego urzędu certyfikacji**: można używać tylko certyfikatów z [prawidłowych urzędów certyfikacji](/azure/frontdoor/front-door-troubleshoot-allowed-ca) w zapleczu z przednimi drzwiami. Certyfikaty z wewnętrznych urzędów certyfikacji lub certyfikatów z podpisem własnym są niedozwolone.
 

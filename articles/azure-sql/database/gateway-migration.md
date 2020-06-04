@@ -1,6 +1,6 @@
 ---
 title: Powiadomienie o migracji ruchu bramy
-description: Artykuł zawiera powiadomienie dla użytkowników o migracji adresów IP bram Azure SQL Database Gateway
+description: Artykuł zawiera powiadomienie dla użytkowników o migracji adresów IP bramy Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: f5e45a4625b1cf9422f7ef7e10e9080a7878172d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d9ec21657f871211df575b56ff56962aad3f5c88
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043394"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324719"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migrację ruchu do nowszych bram
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Pierwsza część migracji ruchu do nowszych bram jest zaplanowana na **14 paźd
 - Wschodnie stany USA 2
 - Azja Wschodnia
 
-Migracja ruchu zmieni publiczny adres IP, który usługa DNS rozpoznaje dla SQL Database.
+Migracja ruchu zmieni publiczny adres IP, który serwer DNS rozpoznaje dla bazy danych w Azure SQL Database.
 Będzie to miało wpływ na następujące działania:
 
 - Sztywno zakodowany adres IP dla każdej konkretnej bramy w zaporze lokalnej

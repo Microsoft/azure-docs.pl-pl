@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9a490550bf6652186c80268d4a99bff931897fcd
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78251889"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344190"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Samouczek: równoważenie obciążenia maszyn wirtualnych w różnych strefach dostępności przy użyciu usługi Load Balancer w strefie Standardowa w witrynie Azure Portal
 
@@ -39,7 +39,7 @@ Aby uzyskać więcej informacji na temat obsługi stref dostępności przy użyc
 
 Jeśli chcesz, możesz wykonać ten samouczek przy użyciu [interfejsu wiersza polecenia platformy Azure](load-balancer-standard-public-zone-redundant-cli.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -49,7 +49,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 Usługa Load Balancer w warstwie Standardowa obsługuje tylko publiczny adres IP w warstwie Standardowa. W przypadku tworzenia nowego publicznego adresu IP podczas tworzenia modułu równoważenia obciążenia jest on automatycznie konfigurowany jako standardowa jednostka SKU. Jest on również automatycznie strefowo nadmiarowy.
 
-1. W lewym górnym rogu ekranu kliknij pozycję **Utwórz zasób zasobów** > **Networking** > **Load Balancer**.
+1. W lewym górnym rogu ekranu kliknij pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Load Balancer**.
 2. Na karcie **Podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Przeglądanie + tworzenie**:
 
     | Ustawienie                 | Wartość                                              |
@@ -75,12 +75,12 @@ W tej sekcji należy zamienić następujące parametry w krokach z poniższymi i
 
 | Parametr                   | Wartość                |
 |-----------------------------|----------------------|
-| **\<Nazwa grupy zasobów>**  | myResourceGroupLBAZ (wybierz istniejącą grupę zasobów) |
-| **\<Nazwa sieci wirtualnej>** | myVNet          |
-| **\<Nazwa regionu>**          | Europa Zachodnia      |
-| **\<Adresy IPv4>miejsca**   | 10.0.0.0 \ 16          |
-| **\<>nazwy podsieci**          | myBackendSubnet        |
-| **\<>zakresu adresów podsieci** | 10.0.0.0 \ 24          |
+| **\<resource-group-name>**  | myResourceGroupLBAZ (wybierz istniejącą grupę zasobów) |
+| **\<virtual-network-name>** | myVNet          |
+| **\<region-name>**          | Europa Zachodnia      |
+| **\<IPv4-address-space>**   | 10.0.0.0 \ 16          |
+| **\<subnet-name>**          | myBackendSubnet        |
+| **\<subnet-address-range>** | 10.0.0.0 \ 24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
@@ -127,7 +127,7 @@ W tej sekcji utworzysz reguły sieciowej grupy zabezpieczeń, aby zezwolić na p
 
 Utwórz maszyny wirtualne w różnych strefach regionu (strefie 1, strefie 2 i strefie 3). Mogą one pełnić rolę serwerów zaplecza dla modułu równoważenia obciążenia.
 
-1. W lewym górnym rogu ekranu kliknij pozycję **Utwórz zasób** > **obliczeniowy** > **systemu Windows Server 2016 Datacenter** i wprowadź następujące wartości dla maszyny wirtualnej:
+1. W lewym górnym rogu ekranu kliknij pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **systemu Windows Server 2016 Datacenter** i wprowadź następujące wartości dla maszyny wirtualnej:
     - *myVM1* — jako nazwę maszyny wirtualnej.        
     - *azureuser* — jako nazwę użytkownika administratora.    
     - *myResourceGroupLBAZ* — w obszarze **Grupa zasobów** wybierz opcję **Użyj istniejącej**, a następnie wybierz wartość *myResourceGroupLBAZ*.
@@ -140,9 +140,6 @@ Utwórz maszyny wirtualne w różnych strefach regionu (strefie 1, strefie 2 i s
     - *myNetworkSecurityGroup* — jako nazwę sieciowej grupy zabezpieczeń (zapory).
 5. Kliknij pozycję **Wyłączone**, aby wyłączyć diagnostykę rozruchu.
 6. Kliknij przycisk **OK**, przejrzyj ustawienia na stronie podsumowania, a następnie kliknij przycisk **Utwórz**.
-  
-   ![Tworzenie maszyny wirtualnej](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
-
 7. Utwórz drugą maszynę wirtualną o nazwie *VM2* w strefie 2 i trzecią maszynę wirtualną w strefie 3 z następującymi ustawieniami: siecią wirtualną *myVnet*, podsiecią *myBackendSubnet* i sieciową grupą zabezpieczeń **myNetworkSecurityGroup*, wykonując kroki 1–6.
 
 ### <a name="install-iis-on-vms"></a>Instalowanie usług IIS na maszynach wirtualnych
@@ -150,7 +147,7 @@ Utwórz maszyny wirtualne w różnych strefach regionu (strefie 1, strefie 2 i s
 1. W menu po lewej stronie kliknij pozycję **Wszystkie zasoby**, a następnie na liście zasobów kliknij pozycję **myVM1** znajdującą się w grupie zasobów *myResourceGroupLBAZ*.
 2. Na stronie **Przegląd** kliknij pozycję **Połącz** dla protokołu RDP z maszyną wirtualną.
 3. Zaloguj się do maszyny wirtualnej przy użyciu nazwy użytkownika *azureuser*.
-4. Na pulpicie serwera przejdź do> **narzędzi administracyjnych systemu Windows****programu Windows PowerShell**.
+4. Na pulpicie serwera przejdź do **narzędzi administracyjnych systemu Windows** > **programu Windows PowerShell**.
 5. W oknie programu PowerShell uruchom poniższe polecenia, aby zainstalować serwer usług IIS, usunąć domyślny plik iisstart.htm i dodać nowy plik iisstart.htm, który wyświetla nazwę maszyny wirtualnej:
    ```azurepowershell-interactive
     

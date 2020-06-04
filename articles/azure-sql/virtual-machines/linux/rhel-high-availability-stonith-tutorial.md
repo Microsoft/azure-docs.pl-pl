@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure — Linux Virtual Machines | Microsoft Docs
+title: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na maszynach wirtualnych platformy Azure z systemem Linux | Microsoft Docs
 description: Dowiedz się więcej o konfigurowaniu wysokiej dostępności w środowisku klastra RHEL i konfigurowaniu STONITH
 ms.service: virtual-machines-linux
 ms.subservice: ''
@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 02/27/2020
-ms.openlocfilehash: 445ab97e2e980cdcafe333fa05a340c0e5fef24b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d323d89b13a89a8dd9f2dac6292a01215bf6068a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053687"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343799"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -21,12 +21,12 @@ ms.locfileid: "84053687"
 > [!NOTE]
 > Przedstawiony samouczek jest w **publicznej wersji zapoznawczej**. 
 >
-> W tym samouczku używamy SQL Server 2017 z RHEL 7,6, ale można użyć SQL Server 2019 w RHEL 7 lub RHEL 8, aby skonfigurować HA. Polecenia służące do konfigurowania zasobów grupy dostępności zostały zmienione w RHEL 8. Aby zapoznać się z artykułem, [Utwórz zasób grupy dostępności](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) i zasoby RHEL 8, aby uzyskać więcej informacji na temat prawidłowych poleceń.
+> W tym samouczku używamy SQL Server 2017 z RHEL 7,6, ale można użyć SQL Server 2019 w RHEL 7 lub RHEL 8, aby skonfigurować wysoką dostępność. Polecenia służące do konfigurowania zasobów grupy dostępności zostały zmienione w RHEL 8 i chcesz zapoznać się z artykułem [Tworzenie zasobu grupy dostępności](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) i zasobów RHEL 8, aby uzyskać więcej informacji na temat prawidłowych poleceń.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
-> - Tworzenie nowej grupy zasobów, zestawu dostępności i usługi Azure Linux Virtual Machines (VM)
+> - Tworzenie nowej grupy zasobów, zestawu dostępności i maszyn wirtualnych z systemem Linux (VM)
 > - Włącz wysoką dostępność (HA)
 > - Tworzenie klastra Pacemaker
 > - Konfigurowanie Agenta ogrodzenia przez utworzenie urządzenia STONITH
@@ -35,7 +35,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > - Konfigurowanie zasobów grupy dostępności (AG) w klastrze Pacemaker
 > - Testowanie trybu failover i Agenta ogrodzenia
 
-Ten samouczek umożliwia wdrażanie zasobów na platformie Azure przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure.
+Ten samouczek będzie używać interfejsu wiersza polecenia platformy Azure do wdrażania zasobów na platformie Azure.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -95,7 +95,7 @@ Po zakończeniu wykonywania polecenia należy uzyskać następujące wyniki:
 >
 > Aby uniknąć "podwójnego rozliczania", Użyj obrazu RHEL HA podczas tworzenia maszyny wirtualnej platformy Azure. Obrazy oferowane jako obrazy RHEL-HA to również obrazy PAYG z wstępnie włączonym repozytorium HA.
 
-1. Pobierz listę obrazów maszyn wirtualnych, które oferują RHEL o wysokiej dostępności:
+1. Pobierz listę obrazów maszyn wirtualnych oferujących RHEL o wysokiej dostępności:
 
     ```azurecli-interactive
     az vm image list --all --offer "RHEL-HA"
@@ -472,7 +472,7 @@ sudo firewall-cmd --reload
 
 ## <a name="install-sql-server-and-mssql-tools"></a>Instalowanie SQL Server i narzędzi MSSQL
  
-Poniższa sekcja służy do instalowania SQL Server i narzędzi MSSQL na maszynach wirtualnych. Wykonaj każdą z tych akcji na wszystkich węzłach. Aby uzyskać więcej informacji, zobacz [install SQL Server a Red Hat VM](/sql/linux/quickstart-install-connect-red-hat).
+Poniższa sekcja służy do instalowania SQL Server i narzędzi MSSQL na maszynach wirtualnych. Wykonaj każdą z tych akcji na wszystkich węzłach. Aby uzyskać więcej informacji, zobacz [installing SQL Server in the Red Hat VM](/sql/linux/quickstart-install-connect-red-hat).
 
 ### <a name="installing-sql-server-on-the-vms"></a>Instalowanie SQL Server na maszynach wirtualnych
 
@@ -531,11 +531,11 @@ Powinny zostać wyświetlone następujące dane wyjściowe:
            └─11640 /opt/mssql/bin/sqlservr
 ```
 
-## <a name="configure-sql-server-always-on-availability-group"></a>Skonfiguruj zawsze włączona Grupa dostępności SQL Server
+## <a name="configure-an-availability-group"></a>Konfigurowanie grupy dostępności
 
-Wykonaj poniższe kroki, aby SQL Server skonfigurować grupę dostępności zawsze włączone dla maszyn wirtualnych. Aby uzyskać więcej informacji, zobacz [SQL Server Konfigurowanie grupy dostępności zawsze włączone w systemie Linux w celu zapewnienia wysokiej dostępności](/sql/linux/sql-server-linux-availability-group-configure-ha)
+Wykonaj następujące kroki, aby skonfigurować grupę dostępności dla maszyn wirtualnych w SQL Server zawsze włączona. Aby uzyskać więcej informacji, zobacz [SQL Server Konfigurowanie grup dostępności, które są zawsze włączone w systemie Linux](/sql/linux/sql-server-linux-availability-group-configure-ha) .
 
-### <a name="enable-alwayson-availability-groups-and-restart-mssql-server"></a>Włączanie zawsze włączonych grup dostępności i ponowne uruchamianie programu MSSQL-Server
+### <a name="enable-always-on-availability-groups-and-restart-mssql-server"></a>Włącz zawsze włączone grupy dostępności i uruchom ponownie program MSSQL-Server
 
 Włącz zawsze włączone grupy dostępności na każdym węźle, który hostuje wystąpienie SQL Server. Następnie uruchom ponownie program MSSQL-Server. Uruchom poniższy skrypt:
 
@@ -566,19 +566,19 @@ Obecnie nie obsługujemy uwierzytelniania usługi AD w punkcie końcowym AG. W z
 1. Połącz się z repliką podstawową przy użyciu programu SSMS lub CMD. Poniższe polecenia spowodują utworzenie certyfikatu przy użyciu `/var/opt/mssql/data/dbm_certificate.cer` klucza prywatnego w `var/opt/mssql/data/dbm_certificate.pvk` replice SQL Server głównej:
 
     - Zastąp wartość `<Private_Key_Password>` własnym hasłem.
-
-```sql
-CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
-GO
-
-BACKUP CERTIFICATE dbm_certificate
-   TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
-   WITH PRIVATE KEY (
-           FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
-           ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
-       );
-GO
-```
+    
+    ```sql
+    CREATE CERTIFICATE dbm_certificate WITH SUBJECT = 'dbm';
+    GO
+    
+    BACKUP CERTIFICATE dbm_certificate
+       TO FILE = '/var/opt/mssql/data/dbm_certificate.cer'
+       WITH PRIVATE KEY (
+               FILE = '/var/opt/mssql/data/dbm_certificate.pvk',
+               ENCRYPTION BY PASSWORD = '<Private_Key_Password>'
+           );
+    GO
+    ```
 
 Zakończ sesję programu SQL CMD, uruchamiając `exit` polecenie i wróć do sesji SSH.
  
@@ -631,7 +631,7 @@ Zakończ sesję programu SQL CMD, uruchamiając `exit` polecenie i wróć do ses
 
 ### <a name="create-the-database-mirroring-endpoints-on-all-replicas"></a>Utwórz punkty końcowe dublowania bazy danych dla wszystkich replik
 
-Uruchom następujący skrypt na wszystkich wystąpieniach SQL za pomocą programu SQL CMD lub SSMS:
+Uruchom następujący skrypt na wszystkich wystąpieniach SQL Server przy użyciu polecenia SQL CMD lub programu SSMS:
 
 ```sql
 CREATE ENDPOINT [Hadr_endpoint]
@@ -687,7 +687,7 @@ GO
 
 ### <a name="create-a-sql-server-login-for-pacemaker"></a>Utwórz SQL Server Login dla Pacemaker
 
-Na wszystkich serwerach SQL Utwórz nazwę logowania SQL dla Pacemaker. Poniższy kod Transact-SQL tworzy nazwę logowania.
+Na wszystkich wystąpieniach SQL Server Utwórz SQL Server Login dla Pacemaker. Poniższy kod Transact-SQL tworzy nazwę logowania.
 
 - Zamień `<password>` na własne hasło złożone.
 
@@ -702,7 +702,7 @@ ALTER SERVER ROLE [sysadmin] ADD MEMBER [pacemakerLogin];
 GO
 ```
 
-Na wszystkich serwerach SQL Zapisz poświadczenia używane do logowania SQL Server. 
+Na wszystkich wystąpieniach SQL Server Zapisz poświadczenia używane do logowania SQL Server. 
 
 1. Utwórz plik:
 
@@ -745,7 +745,7 @@ Na wszystkich serwerach SQL Zapisz poświadczenia używane do logowania SQL Serv
     GO
     ```
 
-1. Uruchom następujący skrypt języka Transact-SQL w replice podstawowej i każdej z nich:
+1. Uruchom następujący skrypt języka Transact-SQL w replice podstawowej i każdej pomocniczej replice:
 
     ```sql
     GRANT ALTER, CONTROL, VIEW DEFINITION ON AVAILABILITY GROUP::ag1 TO pacemakerLogin;
@@ -790,7 +790,7 @@ GO
 SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.dm_hadr_database_replica_states;
 ```
 
-Jeśli `synchronization_state_desc` Lista jest zsynchronizowana z `db1` , oznacza to, że repliki są synchronizowane. Serwery pomocnicze są wyświetlane `db1` w replice podstawowej.
+Jeśli `synchronization_state_desc` listy są synchronizowane z `db1` , oznacza to, że repliki są synchronizowane. Serwery pomocnicze są wyświetlane `db1` w replice podstawowej.
 
 ## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Tworzenie zasobów grupy dostępności w klastrze Pacemaker
 
@@ -985,7 +985,7 @@ Więcej informacji na temat testowania urządzenia ogrodzenia można znaleźć w
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby można było korzystać z odbiornika grupy dostępności dla serwerów SQL, należy utworzyć i skonfigurować moduł równoważenia obciążenia.
+Aby można było korzystać z odbiornika grupy dostępności dla wystąpień SQL Server, należy utworzyć i skonfigurować moduł równoważenia obciążenia.
 
 > [!div class="nextstepaction"]
 > [Samouczek: Konfigurowanie odbiornika grupy dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure](rhel-high-availability-listener-tutorial.md)

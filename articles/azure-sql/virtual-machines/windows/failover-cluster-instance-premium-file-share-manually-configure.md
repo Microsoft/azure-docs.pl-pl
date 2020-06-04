@@ -1,6 +1,6 @@
 ---
 title: SQL Server FCI z udziałem plików w warstwie Premium — Azure Virtual Machines
-description: W tym artykule wyjaśniono, jak utworzyć wystąpienie klastra trybu failover SQL Server przy użyciu udziału plików w warstwie Premium na maszynach wirtualnych platformy Azure.
+description: W tym artykule wyjaśniono, jak utworzyć wystąpienie klastra trybu failover SQL Server przy użyciu udziału plików w warstwie Premium w usłudze Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 60526dbeb3e221e6a2e4c6b900ff3a109d4cdf8f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 01787fbf3339a7e079b705fb4be27ba1e30aee1b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045963"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342882"
 ---
-# <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurowanie wystąpienia klastra trybu failover SQL Server z udziałem plików w warstwie Premium na maszynach wirtualnych platformy Azure
+# <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurowanie SQL Server wystąpienia klastra trybu failover z udziałem plików w warstwie Premium na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W tym artykule opisano sposób tworzenia SQL Server wystąpienia klastra trybu failover (FCI) na maszynach wirtualnych platformy Azure przy użyciu [udziału plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md).
+W tym artykule opisano sposób tworzenia SQL Server wystąpienia klastra trybu failover (FCI) w usłudze Azure Virtual Machines przy użyciu [udziału plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md).
 
 Udziały plików w warstwie Premium to dyski SSD, spójne udziały plików o małym opóźnieniu, które są w pełni obsługiwane do użycia z wystąpieniami klastrów trybu failover dla SQL Server 2012 lub nowszych w systemie Windows Server 2012 lub nowszym. Udziały plików w warstwie Premium zapewniają większą elastyczność, co pozwala na zmianę rozmiaru i skalowanie udziału plików bez przestojów.
 
@@ -46,7 +46,7 @@ Należy również uzyskać ogólne informacje na temat tych technologii:
 - [Grupa zasobów platformy Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> W tej chwili SQL Server wystąpienia klastra trybu failover w usłudze Azure Virtual Machines są obsługiwane tylko w [trybie uproszczonego zarządzania](sql-vm-resource-provider-register.md#management-modes) [rozszerzenia agenta SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md). Aby zmienić tryb pełnego rozszerzenia na lekki, Usuń zasób **maszyny wirtualnej SQL** dla odpowiednich maszyn wirtualnych, a następnie zarejestruj je u dostawcy zasobów maszyny wirtualnej SQL w trybie uproszczonym. Podczas usuwania zasobu **maszyny wirtualnej SQL** przy użyciu Azure Portal **Wyczyść pole wyboru obok odpowiedniej maszyny wirtualnej**. Pełne rozszerzenie obsługuje takie funkcje, jak automatyczne tworzenie kopii zapasowych, stosowanie poprawek i zaawansowane zarządzanie portalem. Te funkcje nie będą działały w przypadku maszyn wirtualnych SQL po ponownym zainstalowaniu agenta w trybie uproszczonego zarządzania.
+> W tej chwili SQL Server wystąpienia klastra trybu failover na platformie Azure Virtual Machines są obsługiwane tylko w SQL Server [trybie uproszczonego zarządzania](sql-vm-resource-provider-register.md#management-modes) [rozszerzenia IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Aby zmienić tryb pełnego rozszerzenia na lekki, Usuń zasób **maszyny wirtualnej SQL** dla odpowiednich maszyn wirtualnych, a następnie zarejestruj je u dostawcy zasobów maszyny wirtualnej SQL w trybie uproszczonym. Podczas usuwania zasobu **maszyny wirtualnej SQL** przy użyciu Azure Portal **Wyczyść pole wyboru obok odpowiedniej maszyny wirtualnej**. Pełne rozszerzenie obsługuje takie funkcje, jak automatyczne tworzenie kopii zapasowych, stosowanie poprawek i zaawansowane zarządzanie portalem. Te funkcje nie będą działały w przypadku maszyn wirtualnych SQL po ponownym zainstalowaniu agenta w trybie uproszczonego zarządzania.
 
 Udziały plików w warstwie Premium zapewniają możliwości IOPS i przepływności, które będą spełniały potrzeby wielu obciążeń. W przypadku obciążeń intensywnie korzystających z operacji we/wy należy rozważyć [SQL Server wystąpienia klastra trybu failover z bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md), na podstawie zarządzanych dysków Premium lub Ultra dysków.  
 
@@ -58,13 +58,13 @@ Aby uzyskać więcej informacji na temat wydajności udziałów plików w warstw
 
 ### <a name="licensing-and-pricing"></a>Licencjonowanie i Cennik
 
-Na maszynach wirtualnych platformy Azure możesz uzyskać licencję SQL Server przy użyciu obrazów maszyn wirtualnych "płatność zgodnie z rzeczywistym użyciem" lub "Przenieś własną licencję" (BYOL). Wybrany typ obrazu ma wpływ na sposób naliczania opłat.
+Na platformie Azure Virtual Machines można licencjonować SQL Server przy użyciu obrazów maszyn wirtualnych "płatność zgodnie z rzeczywistym użyciem" lub "Przenieś własną licencję" (BYOL). Wybrany typ obrazu ma wpływ na sposób naliczania opłat.
 
-Dzięki licencjonowaniu z płatnością zgodnie z rzeczywistym użyciem wystąpienie klastra trybu failover (FCI) SQL Server w usłudze Azure Virtual Machines powoduje naliczanie opłat za wszystkie węzły FCI, w tym węzły pasywne. Aby uzyskać więcej informacji, zobacz [SQL Server Enterprise Virtual Machines cennika](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
+Dzięki licencjonowaniu z płatnością zgodnie z rzeczywistym użyciem wystąpienie klastra trybu failover (FCI) SQL Server na platformie Azure Virtual Machines powoduje naliczanie opłat za wszystkie węzły FCI, w tym węzły pasywne. Aby uzyskać więcej informacji, zobacz [SQL Server Enterprise Virtual Machines cennika](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/).
 
 Jeśli masz Umowa Enterprise z programem Software Assurance, możesz użyć jednego wolnego węzła pasywnej FCI dla każdego aktywnego węzła. Aby skorzystać z tej korzyści na platformie Azure, użyj obrazów maszyn wirtualnych BYOL i Użyj tej samej licencji na węzłach aktywnych i pasywnych FCI. Aby uzyskać więcej informacji, zobacz [Umowa Enterprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-Aby porównać usługę płatność zgodnie z rzeczywistym użyciem i BYOL Licencjonowanie na potrzeby SQL Server na maszynach wirtualnych platformy Azure, zobacz artykuł [Rozpoczynanie pracy z maszynami](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms)wirtualnymi SQL.
+Aby porównać usługę płatność zgodnie z rzeczywistym użyciem i BYOL licencję na SQL Server w usłudze Azure Virtual Machines, zobacz artykuł [Rozpoczynanie pracy z maszynami wirtualnymi SQL](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
 Aby uzyskać pełne informacje na temat licencjonowania SQL Server, zobacz [Cennik](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -76,9 +76,9 @@ Element FILESTREAM nie jest obsługiwany w przypadku klastra trybu failover z ud
 
 Przed wykonaniem kroków opisanych w tym artykule należy dysponować:
 
-- Subskrypcja Microsoft Azure.
-- Domena systemu Windows na maszynach wirtualnych platformy Azure.
-- Konto użytkownika domeny, które ma uprawnienia do tworzenia obiektów na maszynach wirtualnych platformy Azure i w Active Directory.
+- Subskrypcję platformy Microsoft Azure.
+- Domena systemu Windows w usłudze Azure Virtual Machines.
+- Konto użytkownika domeny, które ma uprawnienia do tworzenia obiektów na platformie Azure Virtual Machines i w Active Directory.
 - Konto użytkownika domeny do uruchamiania usługi SQL Server i można zalogować się do maszyny wirtualnej przy użyciu programu podczas instalowania udziału plików.  
 - Sieć wirtualna platformy Azure i podsieć z wystarczającą przestrzenią adresową IP dla tych składników:
    - Dwie maszyny wirtualne.
@@ -102,7 +102,7 @@ Po spełnieniu tych wymagań wstępnych można rozpocząć tworzenie klastra try
 
    1. W Azure Portal wybierz pozycję **Utwórz zasób** , aby otworzyć witrynę Azure Marketplace. Wyszukaj **zestaw dostępności**.
    1. Wybierz pozycję **zestaw dostępności**.
-   1. Wybierz przycisk **Utwórz**.
+   1. Wybierz pozycję **Utwórz**.
    1. W obszarze **Tworzenie zestawu dostępności**podaj następujące wartości:
       - **Nazwa**: Nazwa zestawu dostępności.
       - **Subskrypcja**: Twoja subskrypcja platformy Azure.
@@ -321,7 +321,7 @@ Po skonfigurowaniu klastra trybu failover można utworzyć SQL Server FCI.
 
 ## <a name="step-6-create-the-azure-load-balancer"></a>Krok 6. Tworzenie modułu równoważenia obciążenia platformy Azure
 
-W przypadku maszyn wirtualnych platformy Azure klastry używają usługi równoważenia obciążenia do przechowywania adresu IP, który musi znajdować się w jednym węźle klastra naraz. W tym rozwiązaniu moduł równoważenia obciążenia przechowuje adres IP SQL Server FCI.
+W przypadku usługi Azure Virtual Machines klastry używają modułu równoważenia obciążenia do przechowywania adresu IP, który musi znajdować się w jednym węźle klastra naraz. W tym rozwiązaniu moduł równoważenia obciążenia przechowuje adres IP SQL Server FCI.
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie i Konfigurowanie modułu równoważenia obciążenia platformy Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer).
 
@@ -333,7 +333,7 @@ Aby utworzyć moduł równoważenia obciążenia:
 
 1. Wybierz pozycję **Dodaj**. Wyszukaj **Load Balancer**w portalu Azure Marketplace. Wybierz **Load Balancer**.
 
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 1. Skonfiguruj moduł równoważenia obciążenia przy użyciu następujących wartości:
 
@@ -438,7 +438,7 @@ Po ustawieniu sondy klastra można zobaczyć wszystkie parametry klastra w progr
 
 ## <a name="step-8-test-fci-failover"></a>Krok 8. Testowanie pracy w trybie failover FCI
 
-Przetestuj tryb failover FCI, aby sprawdzić poprawność działania klastra. Wykonaj następujące kroki:
+Przetestuj tryb failover FCI, aby sprawdzić poprawność działania klastra. Wykonaj następujące czynności:
 
 1. Połącz się z jednym z SQL Server węzłów klastra FCI przy użyciu protokołu RDP.
 
@@ -459,9 +459,9 @@ Aby przetestować łączność, zaloguj się do innej maszyny wirtualnej w tej s
 
 ## <a name="limitations"></a>Ograniczenia
 
-Usługa Azure Virtual Machines obsługuje program Microsoft Distributed Transaction Coordinator (MSDTC) w systemie Windows Server 2019 z magazynem w udostępnionych woluminach klastra (CSV) i w [standardowym module równoważenia obciążenia](../../../load-balancer/load-balancer-standard-overview.md).
+Usługa Azure Virtual Machines obsługuje usługę Microsoft Distributed Transaction Coordinator (MSDTC) w systemie Windows Server 2019 z magazynem w udostępnionych woluminach klastra (CSV) i w [standardowym module równoważenia obciążenia](../../../load-balancer/load-balancer-standard-overview.md).
 
-W przypadku maszyn wirtualnych platformy Azure usługa MSDTC nie jest obsługiwana w systemie Windows Server 2016 lub starszym, ponieważ:
+Na platformie Azure Virtual Machines usługa MSDTC nie jest obsługiwana w systemie Windows Server 2016 lub starszym, ponieważ:
 
 - Nie można skonfigurować klastrowanego zasobu usługi MSDTC do korzystania z magazynu udostępnionego. W systemie Windows Server 2016, jeśli utworzysz zasób MSDTC, nie będzie widoczny żaden magazyn udostępniony dostępny do użycia, nawet jeśli magazyn jest dostępny. Ten problem został rozwiązany w systemie Windows Server 2019.
 - Podstawowa usługa równoważenia obciążenia nie obsługuje portów RPC.

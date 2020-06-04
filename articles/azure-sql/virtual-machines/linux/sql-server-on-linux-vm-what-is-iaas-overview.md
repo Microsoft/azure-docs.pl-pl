@@ -1,6 +1,6 @@
 ---
-title: Omówienie programu SQL Server na maszynach wirtualnych platformy Azure z systemem Linux | Microsoft Docs
-description: Dowiedz się, jak uruchomić pełne wersje programu SQL Server na maszynach wirtualnych platformy Azure z systemem Linux. Uzyskaj bezpośrednie linki do wszystkich obrazów maszyn wirtualnych programu SQL Server z systemem Linux i powiązanej zawartości.
+title: Omówienie SQL Server w usłudze Azure Virtual Machines dla systemu Linux | Microsoft Docs
+description: Dowiedz się, jak uruchamiać pełne wersje SQL Server w usłudze Azure Virtual Machines dla systemu Linux. Uzyskaj bezpośrednie linki do wszystkich obrazów maszyn wirtualnych programu SQL Server z systemem Linux i powiązanej zawartości.
 services: virtual-machines-linux
 documentationcenter: ''
 author: MashaMSFT
@@ -12,12 +12,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 61b8982868bf14a7b5a5441049cb7fa21cdd9d6d
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: f9ef33c40da70910c99d18339da66faaec9d39cd
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266036"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343748"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Omówienie programu SQL Server na maszynach wirtualnych platformy Azure (system Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,16 +26,16 @@ ms.locfileid: "84266036"
 > * [Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 > * [Linux](sql-server-on-linux-vm-what-is-iaas-overview.md)
 
-Program SQL Server na maszynach wirtualnych platformy Azure pozwala na używanie pełnych wersji programu SQL Server w chmurze bez konieczności zarządzania sprzętem lokalnym. Maszyny wirtualne z programem SQL Server upraszczają również określanie kosztów licencjonowania w przypadku płatności zgodnie z rzeczywistym użyciem.
+SQL Server na platformie Azure Virtual Machines umożliwia korzystanie z pełnych wersji SQL Server w chmurze bez konieczności zarządzania sprzętem lokalnym. Maszyny wirtualne z programem SQL Server upraszczają również określanie kosztów licencjonowania w przypadku płatności zgodnie z rzeczywistym użyciem.
 
 Maszyny wirtualne platformy Azure działają w wielu różnych [regionach geograficznych](https://azure.microsoft.com/regions/) na świecie. Oferują one także szereg różnych [rozmiarów maszyn](../../../virtual-machines/windows/sizes.md). Galeria obrazów maszyn wirtualnych umożliwia utworzenie maszyny wirtualnej z programem SQL Server we właściwej wersji i edycji oraz z odpowiednim systemem operacyjnym. Dzięki temu maszyny wirtualne to dobry wybór w przypadku wielu różnych obciążeń programu SQL Server. 
 
-## <a name="get-started-with-sql-vms"></a><a id="create"></a>Wprowadzenie do maszyn wirtualnych SQL
+## <a name="get-started-with-sql-server-vms"></a><a id="create"></a>Rozpoczynanie pracy z maszynami wirtualnymi SQL Server
 
 Aby rozpocząć, wybierz obraz maszyny wirtualnej z programem SQL Server w wymaganej wersji i edycji oraz z odpowiednim systemem operacyjnym. Poniższe sekcje zawierają bezpośrednie linki do obrazów maszyn wirtualnych programu SQL Server w galerii witryny Azure Portal.
 
 > [!TIP]
-> Aby uzyskać więcej informacji umożliwiających zrozumienie cennika obrazów SQL, zobacz [stronę cen dla maszyn wirtualnych z programem SQL Server i systemem Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+> Aby uzyskać więcej informacji na temat sposobu zrozumienia cen dla SQL Server obrazów, zobacz [stronę cennika dla maszyn wirtualnych z systemem Linux, na których działa program SQL Server](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 | Wersja | System operacyjny | Wersja |
 | --- | --- | --- |
@@ -44,13 +44,13 @@ Aby rozpocząć, wybierz obraz maszyny wirtualnej z programem SQL Server w wymag
 | **SQL Server 2017** | Ubuntu 16.04 LTS |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonUbuntuServer1604LTS), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) |
 
 > [!NOTE]
-> Aby wyświetlić dostępne obrazy maszyn wirtualnych z programem SQL Server i systemem Windows, zobacz [Overview of SQL Server on Azure Virtual Machines (Windows) (Omówienie programu SQL Server na maszynach wirtualnych platformy Azure [system Windows])](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
+> Aby wyświetlić dostępne SQL Server obrazy maszyn wirtualnych dla systemu Windows, zobacz [omówienie SQL Server na platformie Azure Virtual Machines (Windows)](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 
 ## <a name="installed-packages"></a><a id="packages"></a> Zainstalowane pakiety
 
-Po skonfigurowaniu programu SQL Server w systemie Linux zainstaluj pakiet aparatu bazy danych, a następnie kilka opcjonalnych pakietów w zależności od swoich wymagań. Obrazy maszyn wirtualnych z systemem Linux dla programu SQL Server automatycznie zainstalują większość pakietów. W poniższej tabeli przedstawiono pakiety instalowane dla poszczególnych dystrybucji.
+Podczas konfigurowania SQL Server on Linux należy zainstalować pakiet aparat bazy danych, a następnie kilka opcjonalnych pakietów w zależności od wymagań. Obrazy maszyn wirtualnych z systemem Linux dla programu SQL Server automatycznie zainstalują większość pakietów. W poniższej tabeli przedstawiono pakiety instalowane dla poszczególnych dystrybucji.
 
-| Dystrybucja | [Aparat bazy danych](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Narzędzia](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [Program SQL Server Agent](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Wyszukiwanie pełnotekstowe](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Dodatek wysokiej dostępności](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
+| Dystrybucja | [Aparat bazy danych](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Narzędzia](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [Agent SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Wyszukiwanie pełnotekstowe](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [Dodatek wysokiej dostępności](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
 | RHEL | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![nie](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) |
 | SLES | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![tak](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![nie](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![nie](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) |
@@ -60,13 +60,13 @@ Po skonfigurowaniu programu SQL Server w systemie Linux zainstaluj pakiet aparat
 
 ### <a name="linux-virtual-machines"></a>Maszyny wirtualne z systemem Linux
 
-* [Omówienie maszyn wirtualnych](../../../virtual-machines/linux/overview.md)
+* [Omówienie usługi Azure Virtual Machines](../../../virtual-machines/linux/overview.md)
 
 ### <a name="storage"></a>Magazyn
 
 * [Wprowadzenie do usługi Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
-### <a name="networking"></a>Networking
+### <a name="networking"></a>Sieć
 
 * [Przegląd Virtual Network](../../../virtual-network/virtual-networks-overview.md)
 * [Adresy IP na platformie Azure](../../../virtual-network/public-ip-addresses.md)
@@ -79,10 +79,10 @@ Po skonfigurowaniu programu SQL Server w systemie Linux zainstaluj pakiet aparat
 
 ## <a name="next-steps"></a>Następne kroki
 
-Wprowadzenie do programu SQL Server na maszynach wirtualnych platformy Azure z systemem Linux:
+Wprowadzenie do SQL Server on Linux maszyn wirtualnych:
 
 * [Tworzenie maszyny wirtualnej z programem SQL Server w witrynie Azure Portal](sql-vm-create-portal-quickstart.md)
 
-Uzyskaj odpowiedzi na często zadawane pytania dotyczące maszyn wirtualnych SQL z systemem Linux:
+Uzyskaj odpowiedzi na często zadawane pytania dotyczące SQL Server maszyn wirtualnych w systemie Linux:
 
-* [Często zadawane pytania dotyczące programu SQL Server na maszynach wirtualnych platformy Azure z systemem Linux](frequently-asked-questions-faq.md)
+* [Często zadawane pytania dotyczące programu SQL Server w usłudze Azure Virtual Machines](frequently-asked-questions-faq.md)

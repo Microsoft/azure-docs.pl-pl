@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: jgao
-ms.openlocfilehash: e3f3301ac78480c4d8ebbf909bafcefa025ff395
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 2ca6848ed8fe16baea49311ee4b4b15ae8c64b56
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168577"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344717"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
@@ -131,7 +131,7 @@ Poniższy kod JSON jest przykładem.  Najnowszy schemat szablonu można znaleź�
 ```
 
 > [!NOTE]
-> Przykład służy do celów demonstracyjnych.  **scriptContent** i **primaryScriptUris** nie mogą współistnieć w szablonie.
+> Przykład służy do celów demonstracyjnych.  **scriptContent** i **primaryScriptUri** nie mogą współistnieć w szablonie.
 
 Szczegóły wartości właściwości:
 

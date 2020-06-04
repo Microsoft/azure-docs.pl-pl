@@ -3,14 +3,14 @@ title: Przegląd Change Tracking Azure Automation i spisu
 description: W tym artykule opisano Change Tracking i funkcję spisu, która pomaga identyfikować zmiany oprogramowania i usług firmy Microsoft w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/28/2019
+ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a1c5d5371663f3520e76060c9c2a8df0a18449c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: cef323fd5b73b1befec5261e56357751ac72adae
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117543"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342922"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -52,7 +52,9 @@ W Change Tracking i spisu są obecnie występują następujące problemy:
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Oficjalne wersje systemu operacyjnego to Windows Server 2008 z dodatkiem SP1 lub nowszym oraz system Windows 7 z dodatkiem SP1 lub nowszy. Ta funkcja jest również obsługiwana przez wiele systemów operacyjnych Linux. Aby uzyskać informacje na temat systemów operacyjnych Log Analytics, zobacz [Omówienie agenta usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
+Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Oficjalne wersje systemu operacyjnego to Windows Server 2008 z dodatkiem SP1 lub nowszym oraz system Windows 7 z dodatkiem SP1 lub nowszy. Ta funkcja jest również obsługiwana przez wiele systemów operacyjnych Linux. Aby uzyskać informacje na temat systemów operacyjnych Log Analytics, zobacz [Omówienie agenta usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+
+Aby zrozumieć wymagania klienta dotyczące protokołu TLS 1,2, zobacz [Wymuszanie protokołu tls 1,2 dla Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## <a name="network-requirements"></a>Wymagania dotyczące sieci
 
@@ -77,7 +79,7 @@ Możesz kliknąć zmianę lub zdarzenie, aby wyświetlić jego szczegóły. Dost
 
 * Zdarzenia
 * Demonów
-* Files
+* Pliki
 * Rejestr
 * Oprogramowanie
 * Usługi firmy Microsoft

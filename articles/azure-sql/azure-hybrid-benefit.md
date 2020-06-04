@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: e5af5c6b30c6f03930a61200a11bfa0bd2f72093
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: fcb1e5f45bc4f8d234952e338052a18d4b03ee0f
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196446"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344683"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Korzyść użycia hybrydowego platformy Azure-Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -30,7 +30,7 @@ W warstwie obliczeniowej z zainicjowaną obsługą modelu zakupu opartego na rdz
 
 ## <a name="choose-a-license-model"></a>Wybierz model licencji
 
-Za pomocą Korzyść użycia hybrydowego platformy Azure Możesz wybrać opcję płacenia wyłącznie za podstawową infrastrukturę platformy Azure, korzystając z istniejącej licencji SQL Server dla aparatu bazy danych SQL (podstawowa cena obliczeniowa) lub płacisz za podstawową infrastrukturę i licencję SQL Serverową (Cennik uwzględniony w licencji).
+Za pomocą Korzyść użycia hybrydowego platformy Azure Możesz wybrać opcję płacenia wyłącznie za podstawową infrastrukturę platformy Azure, korzystając z istniejącej licencji SQL Server dla samego aparatu bazy danych SQL Server (podstawowa cena obliczeniowa) lub płacisz za podstawową infrastrukturę i licencję SQL Server (Cennik uwzględniony w licencji).
 
 Możesz wybrać lub zmienić model licencjonowania przy użyciu Azure Portal lub przy użyciu jednego z następujących interfejsów API:
 
@@ -77,7 +77,7 @@ Firma Microsoft oferuje korzyści z zakresu mobilności licencji do SQL Server k
 Korzyść użycia hybrydowego platformy Azure SQL Server różni się od przenoszenia licencji w dwóch kluczowych obszarach:
 
 - Zapewnia ekonomiczne korzyści związane z przenoszenium wysoce zwirtualizowanych obciążeń na platformę Azure. Klienci wersji SQL Server Enterprise Edition mogą uzyskać cztery rdzenie na platformie Azure w jednostce SKU Ogólnego przeznaczenia dla każdego rdzenia, które są lokalnie przeznaczone dla wysoce zwirtualizowanych aplikacji. Mobilność licencji nie pozwala na przenoszenie zwirtualizowanych obciążeń do chmury z uwzględnieniem specjalnych kosztów.
-- Zapewnia miejsce docelowe PaaS na platformie Azure (SQL Database wystąpienia zarządzanego), które jest wysoce zgodne z SQL Server.
+- Zapewnia miejsce docelowe PaaS na platformie Azure (wystąpienie zarządzane SQL), które jest wysoce zgodne z SQL Server.
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Jakie są określone prawa Korzyść użycia hybrydowego platformy Azure dla SQL Server?
 

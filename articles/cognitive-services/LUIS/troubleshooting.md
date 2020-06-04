@@ -1,21 +1,21 @@
 ---
 title: Często zadawane pytania — LUIS
 description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Language Understanding (LUIS).
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 79cee94a0f04cb89aa65f65cde63e48b6f078d2c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 15f2cf3c06e56656efd68d472cabd1da52c375cc
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835006"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343544"
 ---
-# <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding często zadawane pytania
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Usługa Language Understanding — często zadawane pytania
 
 Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Language Understanding (LUIS).
 
-## <a name="whats-new"></a>Co nowego
+## <a name="whats-new"></a>Co nowego?
 
 [Dowiedz się więcej](whats-new.md) na temat Nowości w programie Language UNDERSTANDING (Luis).
 

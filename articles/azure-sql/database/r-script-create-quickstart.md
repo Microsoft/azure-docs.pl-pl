@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6645b50a6cd2d2145f9510ca2e2de0ee702fc3ad
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9b78b696b42431c744c30c91a730fdc7ec8c1032
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054695"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324610"
 ---
 # <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Szybki Start: Tworzenie i Uruchamianie prostych skryptów języka R w Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Ten przykład używa procedury składowanej [sp_execute_external_script](/sql/re
 
 Aby uruchomić skrypt języka R, przekazanie go jako argumentu do procedury składowanej systemu [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
-W poniższych krokach opisano uruchamianie tego przykładowego skryptu języka R w usłudze SQL Database:
+W poniższych krokach zostanie uruchomiony Ten przykładowy skrypt języka R w bazie danych:
 
 ```r
 a <- 1
@@ -51,9 +51,9 @@ d <- a*b
 print(c(c, d))
 ```
 
-1. Otwórz program **SQL Server Management Studio** i nawiąż połączenie z usługą SQL Database.
+1. Otwórz **SQL Server Management Studio** i nawiąż połączenie z bazą danych.
 
-   Jeśli potrzebujesz pomocy przy nawiązywaniu połączenia, zobacz [Szybki Start: użyj SQL Server Management Studio, aby nawiązać połączenie i wysłać zapytanie do bazy danych Azure SQL](connect-query-ssms.md).
+   Jeśli potrzebujesz pomocy przy nawiązywaniu połączenia, zobacz [Szybki Start: użyj SQL Server Management Studio, aby nawiązać połączenie z bazą danych i zbadać ją w programie Azure SQL Database](connect-query-ssms.md).
 
 1. Przekaż kompletny skrypt języka R do [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) procedury składowanej.
 
@@ -70,7 +70,7 @@ print(c(c, d))
     '
     ```
 
-   Jeśli wystąpią błędy, może to być spowodowane tym, że publiczna wersja zapoznawcza usług Machine Learning Services (z językiem R) nie jest włączona dla usługi SQL Database. Zobacz powyższe [wymagania wstępne](#prerequisites) .
+   W przypadku wystąpienia błędów może to być spowodowane tym, że publiczna wersja zapoznawcza Machine Learning Services (z R) nie jest włączona dla Twojej bazy danych. Zobacz powyższe [wymagania wstępne](#prerequisites) .
 
    > [!NOTE]
    > Jeśli jesteś administratorem, możesz uruchomić kod zewnętrzny automatycznie. Można udzielić uprawnienia innym użytkownikom przy użyciu polecenia:
@@ -196,7 +196,7 @@ Na razie Użyjmy domyślnych zmiennych wejściowych i wyjściowych [sp_execute_e
 
 ## <a name="check-r-version"></a>Sprawdzanie wersji języka R
 
-Jeśli chcesz zobaczyć, która wersja języka R jest zainstalowana w bazie danych SQL, uruchom następujący skrypt.
+Jeśli chcesz zobaczyć, która wersja języka R jest zainstalowana w bazie danych programu, uruchom następujący skrypt.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -229,7 +229,7 @@ nickname       Someone to Lean On
 
 ## <a name="list-r-packages"></a>Pakiety języka R
 
-Firma Microsoft udostępnia wiele pakietów języka R wstępnie instalowanych z usługami Machine Learning Services w usłudze SQL Database.
+Firma Microsoft udostępnia wiele pakietów języka R wstępnie zainstalowanych z Machine Learning Services w bazie danych programu.
 
 Aby wyświetlić listę zainstalowanych pakietów języka R, w tym informacje o wersji, zależnościach, licencji i ścieżce biblioteki, uruchom następujący skrypt.
 

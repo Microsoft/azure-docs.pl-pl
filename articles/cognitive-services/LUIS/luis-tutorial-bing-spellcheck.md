@@ -8,26 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: a1e43cfc55611c432652055db2ac8411d835608b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 98f35d0b3f37a7bb181f83b83a48ef113e02f1e2
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80396816"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344139"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Popraw błędne słowa przy użyciu sprawdzanie pisowni Bing
 
-Aplikację LUIS można zintegrować sprawdzanie pisowni Bing z [interfejsem API wersji 7](https://azure.microsoft.com/services/cognitive-services/spell-check/) w celu poprawienia błędnie napisanych wyrazów w wyrażenia długości przed Luis przewidywania wyników i jednostek wypowiedź. 
+Aplikację LUIS można zintegrować sprawdzanie pisowni Bing z [interfejsem API wersji 7](https://azure.microsoft.com/services/cognitive-services/spell-check/) w celu poprawienia błędnie napisanych wyrazów w wyrażenia długości przed Luis przewidywania wyników i jednostek wypowiedź.
 
 [!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
 
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>Utwórz pierwszy klucz dla sprawdzanie pisowni Bing wersji 7
 
-[Pierwszy sprawdzanie pisowni Bing klucz wersji 7 interfejsu API](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) jest bezpłatny. 
+[Pierwszy sprawdzanie pisowni Bing klucz wersji 7 interfejsu API](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api) jest bezpłatny.
 
 ![Utwórz klucz bezpłatny](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
@@ -36,7 +36,7 @@ Aplikację LUIS można zintegrować sprawdzanie pisowni Bing z [interfejsem API 
 ## <a name="create-endpoint-key"></a>Utwórz klucz punktu końcowego
 Jeśli Twój bezpłatny klucz wygasł, Utwórz klucz punktu końcowego.
 
-1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com). 
+1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com).
 
 2. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu.
 
@@ -44,9 +44,9 @@ Jeśli Twój bezpłatny klucz wygasł, Utwórz klucz punktu końcowego.
 
     ![Wyszukaj sprawdzanie pisowni Bing API wersji 7](./media/luis-tutorial-bing-spellcheck/portal-search.png)
 
-4. Wybierz usługę. 
+4. Wybierz usługę.
 
-5. Panel Informacje pojawia się z prawej strony zawierającej informacje, takie jak Uwaga prawna. Wybierz pozycję **Utwórz** , aby rozpocząć proces tworzenia subskrypcji. 
+5. Panel Informacje pojawia się z prawej strony zawierającej informacje, takie jak Uwaga prawna. Wybierz pozycję **Utwórz** , aby rozpocząć proces tworzenia subskrypcji.
 
 6. W następnym panelu wprowadź ustawienia usługi. Poczekaj na zakończenie procesu tworzenia usługi.
 
@@ -54,13 +54,13 @@ Jeśli Twój bezpłatny klucz wygasł, Utwórz klucz punktu końcowego.
 
 7. Wybierz pozycję **wszystkie zasoby** pod tytułem **Ulubione** po lewej stronie.
 
-8. Wybierz nową usługę. Jego typem jest **Cognitive Services** , a lokalizacja jest **globalna**. 
+8. Wybierz nową usługę. Jego typem jest **Cognitive Services** , a lokalizacja jest **globalna**.
 
 9. W panelu głównym wybierz pozycję **klucze** , aby wyświetlić nowe klucze.
 
     ![Przechwyć klucze](./media/luis-tutorial-bing-spellcheck/grab-keys.png)
 
-10. Skopiuj pierwszy klucz. Potrzebny jest tylko jeden z tych dwóch kluczy. 
+10. Skopiuj pierwszy klucz. Potrzebny jest tylko jeden z tych dwóch kluczy.
 
 <!--
 ## Using the key in LUIS test panel
@@ -74,13 +74,13 @@ Adres URL punktu końcowego ma kilka wartości, które muszą zostać pomyślnie
 `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=true&bing-spell-check-subscription-key={bingKey}&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Wyślij błędnie wpisane wypowiedź do LUIS
-1. W przeglądarce internetowej Skopiuj poprzedni ciąg i Zastąp `region`wartości, `appId`, `luisKey`, i `bingKey` własnymi wartościami. Upewnij się, że używasz regionu punktu końcowego, jeśli jest inny niż [region](luis-reference-regions.md)publikacji.
+1. W przeglądarce internetowej Skopiuj poprzedni ciąg i Zastąp `region` wartości,, `appId` `luisKey` , i `bingKey` własnymi wartościami. Upewnij się, że używasz regionu punktu końcowego, jeśli jest inny niż [region](luis-reference-regions.md)publikacji.
 
-2. Dodaj błędny wypowiedź, na przykład "jak daleko jest mountainn?". W języku angielskim `mountain`,, z `n`jednym, jest poprawną pisownią. 
+2. Dodaj błędny wypowiedź, na przykład "jak daleko jest mountainn?". W języku angielskim, `mountain` , z jednym `n` , jest poprawną pisownią.
 
 3. Wybierz klawisz ENTER, aby wysłać zapytanie do LUIS.
 
-4. LUIS reaguje na wynik JSON dla `How far is the mountain?`. Jeśli sprawdzanie pisowni Bing API wersji 7 wykrywa błąd pisowni, `query` pole w odpowiedzi JSON aplikacji Luis zawiera oryginalne zapytanie, a `alteredQuery` pole zawiera poprawione zapytanie wysyłane do Luis.
+4. LUIS reaguje na wynik JSON dla `How far is the mountain?` . Jeśli sprawdzanie pisowni Bing API wersji 7 wykrywa błąd pisowni, `query` pole w odpowiedzi JSON aplikacji Luis zawiera oryginalne zapytanie, a `alteredQuery` pole zawiera poprawione zapytanie wysyłane do Luis.
 
 ```json
 {
@@ -96,15 +96,15 @@ Adres URL punktu końcowego ma kilka wartości, które muszą zostać pomyślnie
 
 ## <a name="ignore-spelling-mistakes"></a>Ignoruj błędy pisowni
 
-Jeśli nie chcesz używać sprawdzanie pisowni Bing API wersji 7, musisz dodać poprawną i niepoprawną pisownię. 
+Jeśli nie chcesz używać sprawdzanie pisowni Bing API wersji 7, musisz dodać poprawną i niepoprawną pisownię.
 
 Dwa rozwiązania:
 
 * Etykieta przykład wyrażenia długości, która ma wszystkie inne pisownie, dzięki czemu LUIS może poznać poprawną pisownię oraz literówki. Ta opcja wymaga więcej nakładów na etykietowanie niż przy użyciu modułu sprawdzania pisowni.
-* Utwórz listę fraz ze wszystkimi odmianami wyrazu. W tym rozwiązaniu nie trzeba etykietować odmian wyrazów w przykładzie wyrażenia długości. 
+* Utwórz listę fraz ze wszystkimi odmianami wyrazu. W tym rozwiązaniu nie trzeba etykietować odmian wyrazów w przykładzie wyrażenia długości.
 
 ## <a name="publishing-page"></a>Strona publikowania
-Na stronie [Publikowanie](luis-how-to-publish-app.md) jest zaznaczone pole wyboru **Włącz sprawdzanie pisowni Bing** . Jest to wygoda do utworzenia klucza i zrozumienia, jak zmienia się adres URL punktu końcowego. Nadal musisz użyć prawidłowych parametrów punktu końcowego, aby poprawić pisownię dla każdego wypowiedźu. 
+Na stronie [Publikowanie](luis-how-to-publish-app.md) jest zaznaczone pole wyboru **Włącz sprawdzanie pisowni Bing** . Jest to wygoda do utworzenia klucza i zrozumienia, jak zmienia się adres URL punktu końcowego. Nadal musisz użyć prawidłowych parametrów punktu końcowego, aby poprawić pisownię dla każdego wypowiedźu.
 
 > [!div class="nextstepaction"]
 > [Dowiedz się więcej na temat przykładu wyrażenia długości](luis-how-to-add-example-utterances.md)

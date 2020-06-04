@@ -1,6 +1,6 @@
 ---
 title: Rozwiązywanie typowych problemów z połączeniem z usługą Azure SQL Database
-description: Zawiera instrukcje dotyczące rozwiązywania problemów z połączeniami Azure SQL Database i rozwiązywania problemów związanych z innymi Azure SQL Database lub wystąpieniami zarządzanymi przez program SQL
+description: Zawiera instrukcje dotyczące rozwiązywania problemów z połączeniami Azure SQL Database i rozwiązywania problemów związanych z innymi Azure SQL Database lub wystąpieniami zarządzanymi przez usługę Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
@@ -9,17 +9,17 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 0420138ac7366916e8b83cf40abcab1a376017bd
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: e22f962c69091e783b8f6ab55905a02025213f5e
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116809"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321397"
 ---
-# <a name="troubleshooting-connectivity-issues-and-other-errors-with-sql-database-and-sql-managed-instance"></a>Rozwiązywanie problemów z łącznością i innych błędów przy użyciu SQL Database i wystąpienia zarządzanego SQL
+# <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Rozwiązywanie problemów z łącznością i innych błędów przy użyciu Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Komunikaty o błędach są wyświetlane w przypadku niepowodzenia połączenia z usługą Azure SQL Database lub wystąpieniem zarządzanym przez program SQL Server. Te problemy z połączeniem mogą być spowodowane ponowną konfiguracją, ustawieniami zapory, przekroczeniem limitu czasu połączenia, niepoprawnymi informacjami logowania lub niepowodzeniem zastosowania najlepszych praktyk i projektowania podczas procesu [projektowania aplikacji](develop-overview.md) . Ponadto jeśli Osiągnięto maksymalny Azure SQL Database limit zasobów wystąpień zarządzanych przez program SQL Server, nie będzie można nawiązać połączenia.
+Komunikaty o błędach są wyświetlane, gdy połączenie z Azure SQL Database lub wystąpienie zarządzane Azure SQL nie powiedzie się. Te problemy z połączeniem mogą być spowodowane ponowną konfiguracją, ustawieniami zapory, przekroczeniem limitu czasu połączenia, niepoprawnymi informacjami logowania lub niepowodzeniem zastosowania najlepszych praktyk i projektowania podczas procesu [projektowania aplikacji](develop-overview.md) . Ponadto jeśli Osiągnięto maksymalny Azure SQL Database limit zasobów wystąpień zarządzanych przez program SQL Server, nie będzie można nawiązać połączenia.
 
 ## <a name="transient-fault-error-messages-40197-40613-and-others"></a>Komunikaty o błędach przejściowych (40197, 40613 i inne)
 
@@ -30,7 +30,7 @@ Infrastruktura platformy Azure ma możliwość dynamicznego ponownego konfigurow
 | Kod błędu | Ważność | Opis |
 | ---:| ---:|:--- |
 | 4060 |16 |Nie można otworzyć bazy danych "%. &#x2a;ls" żądanej przez nazwę logowania. Logowanie nie powiodło się. Aby uzyskać więcej informacji, zobacz [błędy 4000 do 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
-| 40197 |17 |Usługa napotkała błąd podczas przetwarzania żądania. Spróbuj ponownie. Kod błędu% d.<br/><br/>Ten błąd występuje, gdy usługa nie działa z powodu uaktualnień oprogramowania lub sprzętu, awarii sprzętu lub innych problemów z trybem failover. Kod błędu (% d) osadzony w komunikacie o błędzie 40197] zawiera dodatkowe informacje na temat rodzaju awarii lub przejścia w tryb failover, które wystąpiły. Niektóre przykłady kodów błędów są osadzone w komunikacie o błędzie 40197 to 40020, 40143, 40166 i 40540.<br/><br/>Ponowne łączenie automatycznie nawiązuje połączenie z dobrą kopią bazy danych. Aplikacja musi obsłużyć błąd 40197, zarejestrować osadzony kod błędu (% d) w komunikacie w celu rozwiązywania problemów, a następnie spróbować ponownie nawiązać połączenie z SQL Database, dopóki zasoby nie będą dostępne, a połączenie zostanie nawiązane. Aby uzyskać więcej informacji, zobacz [Błędy przejściowe](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
+| 40197 |17 |Usługa napotkała błąd podczas przetwarzania żądania. Spróbuj ponownie. Kod błędu% d.<br/><br/>Ten błąd występuje, gdy usługa nie działa z powodu uaktualnień oprogramowania lub sprzętu, awarii sprzętu lub innych problemów z trybem failover. Kod błędu (% d) osadzony w komunikacie o błędzie 40197 zawiera dodatkowe informacje o rodzaju awarii lub pracy awaryjnej, które wystąpiły. Niektóre przykłady kodów błędów są osadzone w komunikacie o błędzie 40197 to 40020, 40143, 40166 i 40540.<br/><br/>Ponowne łączenie automatycznie nawiązuje połączenie z dobrą kopią bazy danych. Aplikacja musi obsłużyć błąd 40197, zarejestrować osadzony kod błędu (% d) w komunikacie w celu rozwiązywania problemów, a następnie spróbować ponownie nawiązać połączenie z SQL Database, dopóki zasoby nie będą dostępne, a połączenie zostanie nawiązane. Aby uzyskać więcej informacji, zobacz [Błędy przejściowe](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |Usługa jest obecnie zajęta. Ponów żądanie po 10 sekundach. Identyfikator zdarzenia:% ls. Kod:% d. Aby uzyskać więcej informacji, zobacz: <br/>&bull;&nbsp; [Limity zasobów logicznego serwera SQL](resource-limits-logical-server.md)<br/>&bull;Limity oparte na jednostkach &nbsp; [DTU dla pojedynczych baz danych](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limity dla pul elastycznych](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limity rdzeń wirtualny dla pojedynczych baz danych](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limity dla pul elastycznych rdzeń wirtualny](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limity zasobów wystąpienia zarządzanego usługi Azure SQL](../managed-instance/resource-limits.md).|
 | 40613 |17 |Baza danych "%. &#x2a;ls" na serwerze "%. &#x2a;ls" jest obecnie niedostępna. Spróbuj ponownie nawiązać połączenie później. Jeśli problem będzie nadal występować, skontaktuj się z pomocą techniczną i podaj identyfikator śledzenia sesji "%. &#x2a;ls".<br/><br/> Ten błąd może wystąpić, jeśli istnieje już istniejące dedykowane połączenie administratora (DAC) dla bazy danych. Aby uzyskać więcej informacji, zobacz [Błędy przejściowe](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
 | 49918 |16 |Nie można przetworzyć żądania. Za mało zasobów, aby przetworzyć żądanie.<br/><br/>Usługa jest obecnie zajęta. Spróbuj ponownie wykonać żądanie później. Aby uzyskać więcej informacji, zobacz: <br/>&bull;&nbsp; [Limity zasobów logicznego serwera SQL](resource-limits-logical-server.md)<br/>&bull;Limity oparte na jednostkach &nbsp; [DTU dla pojedynczych baz danych](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limity dla pul elastycznych](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limity rdzeń wirtualny dla pojedynczych baz danych](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limity dla pul elastycznych rdzeń wirtualny](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limity zasobów wystąpienia zarządzanego usługi Azure SQL](../managed-instance/resource-limits.md). |
@@ -390,4 +390,4 @@ Aby uzyskać więcej informacji na temat włączania rejestrowania, zobacz [Wł�
 ## <a name="next-steps"></a>Następne kroki
 
 - [Architektura łączności Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture)
-- [Azure SQL Database i kontrola dostępu do sieci hurtowni danych](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)
+- [Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics](https://docs.microsoft.com/azure/sql-database/sql-database-networkaccess-overview)

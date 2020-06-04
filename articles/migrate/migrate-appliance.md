@@ -3,12 +3,12 @@ title: Urządzenie usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 5995242f84738eca1b2be680e3f744e36831d78f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 8d385e956aaa2888d72d711571fa8e7cb91da772
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235337"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323811"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -49,7 +49,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 **Limity odnajdywania** | Urządzenie może wykryć do 10 000 maszyn wirtualnych VMware na vCenter Server.<br/> Urządzenie może połączyć się z pojedynczym vCenter Server.
 **Szablon komórki jajowe** | Pobierz z portalu lub z programu https://aka.ms/migrate/appliance/vmware .<br/><br/> Rozmiar pobieranych plików to 11,2 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
 **Skrypt programu PowerShell** | [Pobieranie](https://go.microsoft.com/fwlink/?linkid=2105112)skryptu.<br/><br/> 
-**Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na maszynie wirtualnej VMware, konieczne jest posiadanie wystarczającej ilości zasobów na vCenter Server do przydzielenia maszyny wirtualnej spełniającej wymagania.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe. 
+**Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na maszynie wirtualnej VMware, konieczne jest posiadanie wystarczającej ilości zasobów na vCenter Server do przydzielenia maszyny wirtualnej spełniającej wymagania.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.
 **Wymagania dotyczące oprogramowania VMware** | W przypadku wdrożenia urządzenia jako maszyny wirtualnej VMware należy je wdrożyć na hoście ESXi z systemem w wersji 5,5 lub nowszej.<br/><br/> vCenter Server uruchomione 5,5, 6,0, 6,5 lub 6,7.
 **VDDK (migracja bez wykorzystania agentów)** | W przypadku wdrożenia urządzenia jako maszyny wirtualnej VMware i korzystania z migracji bez agenta należy zainstalować na maszynie wirtualnej urządzenia VMware vSphere VDDK.
 **Wartość skrótu — komórki jajowe** | [Sprawdź](tutorial-assess-vmware.md#verify-security) wartości skrótu szablonu komórki jajowe.
@@ -215,7 +215,7 @@ Funkcja odnajdywania aplikacji zbiera zainstalowane aplikacje i dane systemu ope
 
 Oto dane aplikacji, które są zbierane przez urządzenie z każdej maszyny wirtualnej z włączoną funkcją odnajdowania aplikacji. Te dane są wysyłane do platformy Azure.
 
-**Dane** | **Lokalizacja rejestru** | **Głównych**
+**Dane** | **Lokalizacja rejestru** | **Klucz**
 --- | --- | ---
 Nazwa aplikacji  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Nazwa wyświetlana
 Wersja  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
@@ -225,7 +225,7 @@ Dostawca  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/>
 
 Poniżej przedstawiono informacje o funkcjach zbieranych przez urządzenie z każdej maszyny wirtualnej z włączoną funkcją odnajdowania aplikacji. Te dane są wysyłane do platformy Azure.
 
-**Dane**  | **Polecenie cmdlet programu PowerShell** | **Wartość**
+**Dane**  | **Polecenie cmdlet programu PowerShell** | **Właściwość**
 --- | --- | ---
 Nazwa  | Get-WindowsFeature  | Nazwa
 Typ funkcji | Get-WindowsFeature  | Element featuretype
@@ -235,7 +235,7 @@ Nadrzędny  | Get-WindowsFeature  | Nadrzędny
 
 Oto metadane programu SQL Server zbierane przez urządzenie z maszyn wirtualnych, na których działa program Microsoft SQL Server z włączoną funkcją odnajdywania aplikacji. Te dane są wysyłane do platformy Azure.
 
-**Dane**  | **Lokalizacja rejestru**  | **Głównych**
+**Dane**  | **Lokalizacja rejestru**  | **Klucz**
 --- | --- | ---
 Nazwa  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
 Wersja  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Wersja 

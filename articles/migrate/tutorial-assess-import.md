@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 519520538c16b1bde18f0810344864d37090accf
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82114568"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342650"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Ocenianie serwerów za pomocą zaimportowanych danych
 
@@ -32,7 +32,7 @@ Należy pamiętać o następujących kwestiach:
 - Informacje o serwerze można przekazać do oceny serwera wiele razy przy użyciu woluminu CSV.
 - Zbieranie informacji o aplikacji jest przydatne w ocenie środowiska lokalnego do migracji. Jednak Ocena serwera nie przeprowadza obecnie oceny poziomu aplikacji ani nie uwzględnia aplikacji podczas tworzenia oceny.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Skonfiguruj projekt Azure Migrate.
 > * Wypełnij plik CSV informacjami o serwerze.
@@ -42,7 +42,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > [!NOTE]
 > Samouczki pokazują najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Samouczki korzystają z domyślnych opcji, jeśli jest to możliwe, i nie wyświetlają wszystkich możliwych ustawień i ścieżek. Aby uzyskać szczegółowe instrukcje, zapoznaj się z przewodnikami.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="set-azure-permissions-for-azure-migrate"></a>Ustawianie uprawnień platformy Azure dla Azure Migrate
 
@@ -68,13 +68,13 @@ Aby skonfigurować nowy projekt Azure Migrate:
 5. W obszarze **Projekt migracji**wybierz subskrypcję platformy Azure i utwórz grupę zasobów, jeśli jej nie masz.
 6. W obszarze **szczegóły projektu**Określ nazwę projektu i geografię, w której chcesz utworzyć projekt. Więcej informacji:
 
-    - Zapoznaj się z obsługiwaną lokalizacje geograficzneą dla chmur [publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
+    - Przejrzyj obsługiwane lokalizacje geograficzne [chmur publicznych](migrate-support-matrix.md#supported-geographies-public-cloud) i [chmur dla instytucji rządowych](migrate-support-matrix.md#supported-geographies-azure-government).
     - Podczas przeprowadzania migracji można wybrać dowolny region docelowy.
 
     ![Tworzenie projektu Azure Migrate](./media/tutorial-assess-import/migrate-project.png)
 
-7. Wybierz pozycję **Dalej**.
-8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena** > serwera**dalej**.
+7. Wybierz opcję **Dalej**.
+8. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
     ![Tworzenie oceny Azure Migrate](./media/tutorial-assess-import/assessment-tool.png)
 
@@ -88,7 +88,7 @@ Pobierz szablon CSV i Dodaj do niego informacje o serwerze.
 
 ### <a name="download-the-template"></a>Pobieranie szablonu
 
-1. W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
+1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
 2. W obszarze **odnajdywanie maszyn**wybierz pozycję **Importuj przy użyciu woluminu CSV**.
 3. Wybierz pozycję **Pobierz** , aby pobrać szablon woluminu CSV. Alternatywnie możesz [pobrać go bezpośrednio](https://go.microsoft.com/fwlink/?linkid=2109031).
 
@@ -105,12 +105,13 @@ Poniższa tabela zawiera podsumowanie pól plików do wypełnienia:
 
 **Nazwa pola** | **Obowiązkowy** | **Szczegóły**
 --- | --- | ---
-**Nazwa serwera** | Tak | Zalecamy określenie w pełni kwalifikowanej nazwy domeny (FQDN).
+**Nazwa serwera** | Yes | Zalecamy określenie w pełni kwalifikowanej nazwy domeny (FQDN).
 **Adres IP** | Nie | Adres serwera.
-**Rdzenie** | Tak | Liczba rdzeni procesora przypisanych do serwera.
-**Rozmiar** | Tak | Całkowita ilość pamięci RAM w MB przypisana do serwera.
-**Nazwa systemu operacyjnego** | Tak | System operacyjny serwera. <br/> Nazwy systemu operacyjnego, które pasują lub zawierają nazwy na [tej](#supported-operating-system-names) liście, są rozpoznawane przez ocenę.
+**Rdzenie** | Yes | Liczba rdzeni procesora przypisanych do serwera.
+**Memory (Pamięć)** | Yes | Całkowita ilość pamięci RAM w MB przypisana do serwera.
+**Nazwa systemu operacyjnego** | Yes | System operacyjny serwera. <br/> Nazwy systemu operacyjnego, które pasują lub zawierają nazwy na [tej](#supported-operating-system-names) liście, są rozpoznawane przez ocenę.
 **Wersja systemu operacyjnego** | Nie | Wersja systemu operacyjnego serwera.
+**Architektura systemu operacyjnego** | Nie | Architektura systemu operacyjnego serwera <br/> Prawidłowe wartości to: x64, x86, amd64, 32-bitowa lub 64-bitowy
 **Liczba dysków** | Nie | Niepotrzebna, jeśli podano szczegółowe szczegóły dysku.
 **Rozmiar dysku 1**  | Nie | Maksymalny rozmiar dysku (w GB).<br/>Możesz dodać szczegóły do większej liczby dysków, [dodając kolumny](#add-multiple-disks) w szablonie. Można dodać maksymalnie osiem dysków.
 **Operacje odczytu z dysku 1** | Nie | Operacje odczytu z dysku na sekundę.
@@ -171,7 +172,7 @@ Możesz zaktualizować informacje o serwerze, importując dane dla serwera z tą
 Aby sprawdzić, czy serwery są wyświetlane w Azure Portal po przeprowadzeniu odnajdywania:
 
 1. Otwórz pulpit nawigacyjny Azure Migrate.
-2. Na stronie **Azure Migrate serwerów** > **Azure Migrate: Ocena serwera** wybierz ikonę, która wyświetla liczbę **odnalezionych serwerów**.
+2. Na stronie **Azure Migrate serwerów**  >  **Azure Migrate: Ocena serwera** wybierz ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 3. Wybierz kartę **Importuj na podstawie** .
 
 ## <a name="set-up-and-run-an-assessment"></a>Konfigurowanie i uruchamianie oceny
@@ -192,7 +193,7 @@ Aby uruchomić ocenę:
 
 3. W obszarze **ocenianie serwerów**Określ nazwę oceny.
 4. W obszarze **Źródło odnajdywania**wybierz pozycję **maszyny dodane za pośrednictwem opcji Importuj do Azure Migrate**.
-5. Wybierz pozycję **Wyświetl wszystko** , aby przejrzeć właściwości oceny.
+5. Wybierz pozycję **Wyświetl wszystko**, aby sprawdzić właściwości oceny.
 
     ![Właściwości oceny](./media/tutorial-assess-physical/view-all.png)
 
@@ -202,7 +203,7 @@ Aby uruchomić ocenę:
 
     ![Tworzenie oceny](./media/tutorial-assess-physical/assessment-create.png)
 
-9. Po utworzeniu oceny Wyświetl ją w obszarze **serwery** > **Azure Migrate:** > **oceny**oceny serwera.
+9. Po utworzeniu oceny Wyświetl ją w obszarze **serwery**  >  **Azure Migrate: oceny oceny serwera**  >  **Assessments**.
 10. Wybierz pozycję **Ocena eksportu** , aby pobrać ją jako plik programu Microsoft Excel.
 
 ## <a name="review-an-assessment"></a>Przegląd oceny
@@ -215,7 +216,7 @@ Ocena zawiera opis:
 
 ### <a name="view-an-assessment"></a>Wyświetlanie oceny
 
-1. W obszarze > **serwery** **celów migracji**wybierz pozycję **oceny** w **Azure Migrate: Ocena serwera**.
+1. W obszarze serwery **celów migracji**  >  **Servers**wybierz pozycję **oceny** w **Azure Migrate: Ocena serwera**.
 2. W obszarze **oceny**Wybierz ocenę, aby ją otworzyć.
 
     ![Podsumowanie oceny](./media/tutorial-assess-physical/assessment-summary.png)

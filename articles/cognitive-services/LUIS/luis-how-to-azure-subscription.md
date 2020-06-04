@@ -2,14 +2,14 @@
 title: Jak używać kluczy tworzenia i środowiska uruchomieniowego — LUIS
 description: Przy pierwszym użyciu Language Understanding (LUIS) nie trzeba tworzyć klucza tworzenia. Jeśli zamierzasz opublikować aplikację, użyj punktu końcowego środowiska uruchomieniowego, aby utworzyć aplikację i przypisać do niej klucz środowiska uruchomieniowego.
 services: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: d9235b6ef1c7cddbfbbd36f8382439d781af6d5f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c566e8fe56d19856f5a577e472929b7610497d7c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101029"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344462"
 ---
 # <a name="create-luis-resources"></a>Tworzenie zasobów LUIS
 
@@ -51,7 +51,7 @@ Gdy wszystko będzie gotowe do opublikowania punktu końcowego przewidywania, [U
 
 Utwórz poszczególne zasoby przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
 
-Zasób `kind`:
+Zasób `kind` :
 
 * Projekt`LUIS.Authoring`
 * Przewidując`LUIS`
@@ -64,13 +64,13 @@ Zasób `kind`:
 
     Spowoduje to otwarcie przeglądarki w celu umożliwienia wybrania odpowiedniego konta i zapewnienia uwierzytelniania.
 
-1. Utwórz **zasób autorstwa Luis**, `LUIS.Authoring`którego nazwa jest określona `my-luis-authoring-resource` w _istniejącej_ grupie zasobów o nazwie `my-resource-group` dla `westus` regionu.
+1. Utwórz **zasób autorstwa Luis**, którego `LUIS.Authoring` nazwa jest określona `my-luis-authoring-resource` w _istniejącej_ grupie zasobów o nazwie `my-resource-group` dla `westus` regionu.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Utwórz `LUIS` `my-luis-prediction-resource` **zasób punktu końcowego przewidywania Luis**o nazwie w _istniejącej_ grupie zasobów o nazwie `my-resource-group` dla `westus` regionu. Jeśli potrzebujesz wyższej przepływności niż warstwa Bezpłatna, Zmień `F0` wartość na. `S0` Dowiedz się więcej o [warstwach cenowych i przepływności](luis-limits.md#key-limits).
+1. Utwórz **zasób punktu końcowego przewidywania Luis**o `LUIS` nazwie `my-luis-prediction-resource` w _istniejącej_ grupie zasobów o nazwie `my-resource-group` dla `westus` regionu. Jeśli potrzebujesz wyższej przepływności niż warstwa Bezpłatna, Zmień wartość `F0` na `S0` . Dowiedz się więcej o [warstwach cenowych i przepływności](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -111,9 +111,9 @@ W celach automatyzacji, takich jak potok ciągłej integracji/ciągłego wdraża
 
     Ten POST API wymaga następujących ustawień:
 
-    |Nagłówek|Wartość|
+    |Header|Wartość|
     |--|--|
-    |`Authorization`|Wartość `Authorization` to `Bearer {token}`. Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
+    |`Authorization`|Wartość `Authorization` to `Bearer {token}` . Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
     |`Ocp-Apim-Subscription-Key`|Twój klucz tworzenia.|
 
     Ten interfejs API zwraca tablicę obiektów JSON subskrypcji LUIS, w tym identyfikator subskrypcji, grupę zasobów i nazwę zasobu, zwracaną jako nazwa konta. Znajdź jeden element w tablicy, który jest zasobem LUIS do przypisania do aplikacji LUIS.
@@ -124,9 +124,9 @@ W celach automatyzacji, takich jak potok ciągłej integracji/ciągłego wdraża
 
     |Typ|Ustawienie|Wartość|
     |--|--|--|
-    |Nagłówek|`Authorization`|Wartość `Authorization` to `Bearer {token}`. Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
-    |Nagłówek|`Ocp-Apim-Subscription-Key`|Twój klucz tworzenia.|
-    |Nagłówek|`Content-type`|`application/json`|
+    |Header|`Authorization`|Wartość `Authorization` to `Bearer {token}` . Zwróć uwagę, że wartość tokenu musi być poprzedzona słowem `Bearer` i spacją.|
+    |Header|`Ocp-Apim-Subscription-Key`|Twój klucz tworzenia.|
+    |Header|`Content-type`|`application/json`|
     |Kwerendy|`appid`|Identyfikator aplikacji usługi LUIS.
     |Treść||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceName": "resourceName-2",<br>"AccountName": "Luis-uswest-S0-2"}|
 

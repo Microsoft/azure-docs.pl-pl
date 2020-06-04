@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: edf22c7f1086c1d13717adaff514c42aab3a4cfd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: b33d8db9d43b151cb0405ea24e0bea87e21cbdc9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046922"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345346"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Wykrywalne typy wąskich gardeł wydajności zapytań w Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -153,11 +153,11 @@ Niska wydajność zapytań nie jest związana z nieoptymalnymi planami zapytań 
 - Wykrywanie limitów zasobów przy użyciu [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Wykrywanie problemów z zasobami przy użyciu [widoków DMV](database/monitoring-with-dmvs.md):
 
-  - [Sys. dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV zwraca procesor, we/wy i użycie pamięci dla bazy danych SQL. Jeden wiersz istnieje dla każdego 15-sekundowego interwału, nawet jeśli w bazie danych nie ma żadnych działań. Dane historyczne są przechowywane przez jedną godzinę.
+  - [Sys. dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV zwraca procesor, we/wy i użycie pamięci dla bazy danych. Jeden wiersz istnieje dla każdego 15-sekundowego interwału, nawet jeśli w bazie danych nie ma żadnych działań. Dane historyczne są przechowywane przez jedną godzinę.
   - DMV [sys. resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) zwraca dane użycia procesora CPU i magazynu dla Azure SQL Database. Dane są zbierane i agregowane w odstępach 5-minutowych.
   - [Wiele indywidualnych zapytań, które łącznie zużywają duże użycie procesora CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
-W przypadku zidentyfikowania problemu jako niewystarczającego zasobu można uaktualnić zasoby, aby zwiększyć pojemność bazy danych SQL w celu zaabsorbowania wymagań procesora. Aby uzyskać więcej informacji, zobacz [skalowanie zasobów pojedynczej bazy danych w Azure SQL Database](database/single-database-scale.md) i [skalowanie zasobów puli elastycznej w Azure SQL Database](database/elastic-pool-scale.md). Aby uzyskać informacje na temat skalowania wystąpienia zarządzanego, zobacz [limity zasobów w warstwie usług](managed-instance/resource-limits.md#service-tier-characteristics)
+W przypadku zidentyfikowania problemu jako niewystarczającego zasobu można uaktualnić zasoby, aby zwiększyć pojemność bazy danych w celu zaabsorbowania wymagań procesora. Aby uzyskać więcej informacji, zobacz [skalowanie zasobów pojedynczej bazy danych w Azure SQL Database](database/single-database-scale.md) i [skalowanie zasobów puli elastycznej w Azure SQL Database](database/elastic-pool-scale.md). Aby uzyskać informacje na temat skalowania wystąpienia zarządzanego, zobacz [limity zasobów w warstwie usług](managed-instance/resource-limits.md#service-tier-characteristics)
 
 ## <a name="performance-problems-caused-by-increased-workload-volume"></a>Problemy z wydajnością spowodowane przez zwiększony wolumin obciążeń
 

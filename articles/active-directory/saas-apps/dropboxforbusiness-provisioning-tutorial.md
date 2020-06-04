@@ -15,16 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 3acc2c271e590bddb13aaa01498f404da4340036
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a8aaa82a3913bcafbe8f86b85d63c39d44f08ac9
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77058452"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323760"
 ---
 # <a name="tutorial-configure-dropbox-for-business-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi Dropbox dla firm na potrzeby automatycznego aprowizacji użytkowników
 
 Celem tego samouczka jest przedstawienie czynności do wykonania w usłudze Dropbox dla firm i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup w usłudze Dropbox dla firm.
+
+> [!IMPORTANT]
+> Firma Microsoft i usługa Dropbox będą wycofać starą integrację z usługą Dropbox 04/01/2021. Aby uniknąć przerw w działaniu usługi, zalecamy przeprowadzenie migracji do nowej integracji Dropbox, która obsługuje grupy. Aby przeprowadzić migrację do nowej integracji usługi Dropbox, Dodaj i skonfiguruj nowe wystąpienie usługi Dropbox na potrzeby aprowizacji w dzierżawie usługi Azure AD, wykonując poniższe kroki. Po skonfigurowaniu nowej integracji usługi Dropbox należy wyłączyć funkcję aprowizacji na starej integracji usługi Dropbox, aby uniknąć konfliktów aprowizacji.
 
 > [!NOTE]
 > Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
@@ -114,7 +117,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-9. Kliknij przycisk **Zapisz**.
+9. Kliknij pozycję **Zapisz**.
 
 10. W sekcji **mapowania** wybierz kolejno pozycje **Synchronizuj Azure Active Directory użytkownicy do usługi Dropbox**.
 
@@ -154,7 +157,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
  
 * Usługa Dropbox nie obsługuje zawieszania zaproszonych użytkowników. Jeśli zaproszony użytkownik zostanie zawieszony, ten użytkownik zostanie usunięty.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

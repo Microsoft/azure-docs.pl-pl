@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: ace34cf4a72b871ba6646b279007b8ce21c03e9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d312346accc4fb6781744343911158bb538c0ccf
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457437"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324083"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Szyfrowanie danych konfiguracji aplikacji przy użyciu kluczy zarządzanych przez klienta
 Usługa Azure App Configuration [szyfruje poufne informacje w stanie spoczynku](../security/fundamentals/encryption-atrest.md). Użycie kluczy zarządzanych przez klienta zapewnia ulepszoną ochronę danych przez umożliwienie zarządzania kluczami szyfrowania.  Gdy używane jest szyfrowanie klucza zarządzanego, wszystkie informacje poufne w konfiguracji aplikacji są szyfrowane za pomocą klucza Azure Key Vault dostarczonego przez użytkownika.  Dzięki temu można obrócić klucz szyfrowania na żądanie.  Umożliwia także odwoływanie dostępu do informacji poufnych z usługi Azure App Configuration poprzez odwoływanie dostępu do klucza wystąpienia konfiguracji aplikacji.
@@ -36,7 +36,7 @@ Następujące składniki są wymagane, aby pomyślnie włączyć funkcję klucz 
 
 Po skonfigurowaniu tych zasobów należy wykonać dwa kroki, aby zezwolić usłudze Azure App Configuration na używanie klucza Key Vault:
 1. Przypisywanie tożsamości zarządzanej do wystąpienia konfiguracji aplikacji platformy Azure
-2. Przyznaj tożsamość `GET`, `WRAP`i `UNWRAP` uprawnienia w zasadach dostępu Key Vault docelowej.
+2. Przyznaj tożsamość `GET` , `WRAP` i `UNWRAP` uprawnienia w zasadach dostępu Key Vault docelowej.
 
 ## <a name="enable-customer-managed-key-encryption-for-your-azure-app-configuration-instance"></a>Włącz szyfrowanie klucza zarządzanego przez klienta dla wystąpienia konfiguracji aplikacji platformy Azure
 Aby rozpocząć, musisz prawidłowo skonfigurować wystąpienie konfiguracji aplikacji platformy Azure. Jeśli nie masz jeszcze dostępnego wystąpienia konfiguracji aplikacji, wykonaj jedną z następujących przewodników Szybki Start, aby je skonfigurować:
@@ -49,25 +49,25 @@ Aby rozpocząć, musisz prawidłowo skonfigurować wystąpienie konfiguracji apl
 > Azure Cloud Shell to bezpłatna interaktywna powłoka, której można użyć do uruchomienia instrukcji wiersza polecenia w tym artykule.  Ma ona popularne narzędzia platformy Azure preinstalowane, w tym zestaw .NET Core SDK. Jeśli logujesz się do subskrypcji platformy Azure, uruchom [Azure Cloud Shell](https://shell.azure.com) z Shell.Azure.com.  Więcej informacji na temat Azure Cloud Shell można znaleźć w [dokumentacji](../cloud-shell/overview.md) .
 
 ### <a name="create-and-configure-an-azure-key-vault"></a>Tworzenie i Konfigurowanie Azure Key Vault
-1. Utwórz Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure.  Należy zauważyć, `vault-name` że `resource-group-name` oba i są podane przez użytkownika i muszą być unikatowe.  Używamy `contoso-vault` i `contoso-resource-group` w tych przykładach.
+1. Utwórz Azure Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure.  Należy zauważyć, że oba `vault-name` i `resource-group-name` są podane przez użytkownika i muszą być unikatowe.  Używamy `contoso-vault` i `contoso-resource-group` w tych przykładach.
 
     ```azurecli
     az keyvault create --name contoso-vault --resource-group contoso-resource-group
     ```
     
-1. Włącz nietrwałe usuwanie i przeczyszczanie ochrony dla Key Vault. Zastąp nazwy Key Vault (`contoso-vault`) i grupy zasobów (`contoso-resource-group`) utworzonych w kroku 1.
+1. Włącz nietrwałe usuwanie i przeczyszczanie ochrony dla Key Vault. Zastąp nazwy Key Vault ( `contoso-vault` ) i grupy zasobów ( `contoso-resource-group` ) utworzonych w kroku 1.
 
     ```azurecli
     az keyvault update --name contoso-vault --resource-group contoso-resource-group --enable-purge-protection --enable-soft-delete
     ```
     
-1. Utwórz klucz Key Vault. Podaj unikatową `key-name` wartość dla tego klucza i Zastąp nazwy Key Vault (`contoso-vault`) utworzonych w kroku 1. Określ, czy `RSA` wolisz `RSA-HSM` , czy szyfrowanie.
+1. Utwórz klucz Key Vault. Podaj unikatową wartość `key-name` dla tego klucza i Zastąp nazwy Key Vault ( `contoso-vault` ) utworzonych w kroku 1. Określ, czy wolisz, czy `RSA` `RSA-HSM` szyfrowanie.
 
     ```azurecli
     az keyvault key create --name key-name --kty {RSA or RSA-HSM} --vault-name contoso-vault
     ```
     
-    Dane wyjściowe tego polecenia przedstawiają identyfikator klucza ("dziecko") dla wygenerowanego klucza.  Zanotuj identyfikator klucza do użycia w dalszej części tego ćwiczenia.  Identyfikator klucza ma postać: `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}`.  Identyfikator klucza ma trzy ważne składniki:
+    Dane wyjściowe tego polecenia przedstawiają identyfikator klucza ("dziecko") dla wygenerowanego klucza.  Zanotuj identyfikator klucza do użycia w dalszej części tego ćwiczenia.  Identyfikator klucza ma postać: `https://{my key vault}.vault.azure.net/keys/{key-name}/{Key version}` .  Identyfikator klucza ma trzy ważne składniki:
     1. Identyfikator URI Key Vault: "https://{mój magazyn kluczy}. magazyn. Azure. NET
     1. Nazwa klucza Key Vault: {Nazwa klucza}
     1. Wersja klucza Key Vault: {wersja klucza}
@@ -75,7 +75,7 @@ Aby rozpocząć, musisz prawidłowo skonfigurować wystąpienie konfiguracji apl
 1. Utwórz tożsamość zarządzaną przypisaną przez system za pomocą interfejsu wiersza polecenia platformy Azure, zastępując nazwę wystąpienia konfiguracji aplikacji i grupę zasobów używaną w poprzednich krokach. Zarządzana tożsamość zostanie użyta w celu uzyskania dostępu do klucza zarządzanego. Używamy `contoso-app-config` do zilustrowania nazwy wystąpienia konfiguracji aplikacji:
     
     ```azurecli
-    az appconfig identity assign --na1. me contoso-app-config --group contoso-resource-group --identities [system]
+    az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
     Dane wyjściowe tego polecenia obejmują Identyfikator podmiotu zabezpieczeń ("principalId") i identyfikator dzierżawy ("tenandId") tożsamości przypisanej do systemu.  Ta wartość zostanie użyta w celu udzielenia tożsamości dostępu do klucza zarządzanego.
@@ -89,13 +89,13 @@ Aby rozpocząć, musisz prawidłowo skonfigurować wystąpienie konfiguracji apl
     }
     ```
 
-1. Zarządzana tożsamość wystąpienia konfiguracji aplikacji platformy Azure wymaga dostępu do klucza w celu weryfikacji klucza, szyfrowania i odszyfrowywania. Określony zestaw akcji, do których wymaga dostępu, obejmuje: `GET`, `WRAP`i `UNWRAP` dla kluczy.  Przyznanie dostępu wymaga identyfikatora podmiotu zabezpieczeń zarządzanej tożsamości wystąpienia konfiguracji aplikacji. Ta wartość została uzyskana w poprzednim kroku. Jest on widoczny poniżej `contoso-principalId`. Udziel uprawnienia do klucza zarządzanego przy użyciu wiersza polecenia:
+1. Zarządzana tożsamość wystąpienia konfiguracji aplikacji platformy Azure wymaga dostępu do klucza w celu weryfikacji klucza, szyfrowania i odszyfrowywania. Określony zestaw akcji, do których wymaga dostępu, obejmuje: `GET` , `WRAP` i `UNWRAP` dla kluczy.  Przyznanie dostępu wymaga identyfikatora podmiotu zabezpieczeń zarządzanej tożsamości wystąpienia konfiguracji aplikacji. Ta wartość została uzyskana w poprzednim kroku. Jest on widoczny poniżej `contoso-principalId` . Udziel uprawnienia do klucza zarządzanego przy użyciu wiersza polecenia:
 
     ```azurecli
     az keyvault set-policy -n contoso-vault --object-id contoso-principalId --key-permissions get wrapKey unwrapKey
     ```
 
-1. Gdy wystąpienie usługi Azure App Configuration ma dostęp do klucza zarządzanego, można włączyć funkcję klucz zarządzany przez klienta w usłudze przy użyciu interfejsu wiersza polecenia platformy Azure. Odwołaj następujące właściwości zarejestrowane podczas kroków tworzenia klucza: `key name` `key vault URI`.
+1. Gdy wystąpienie usługi Azure App Configuration ma dostęp do klucza zarządzanego, można włączyć funkcję klucz zarządzany przez klienta w usłudze przy użyciu interfejsu wiersza polecenia platformy Azure. Odwołaj następujące właściwości zarejestrowane podczas kroków tworzenia klucza: `key name` `key vault URI` .
 
     ```azurecli
     az appconfig update -g contoso-resource-group -n contoso-app-config --encryption-key-name key-name --encryption-key-version key-version --encryption-key-vault key-vault-Uri

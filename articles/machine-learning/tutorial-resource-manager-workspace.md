@@ -9,12 +9,12 @@ ms.date: 05/26/2020
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.openlocfilehash: b6eac711ed6c420330b036cb6094c841508cee9f
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 76f37beb22e28c0232efd0d62e82c8d3b60c78dc
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791579"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345091"
 ---
 # <a name="tutorial-deploy-an-azure-machine-learning-workspace-using-a-resource-manager-template"></a>Samouczek: wdrażanie obszaru roboczego usługi Azure Machine Learning przy użyciu szablonu Menedżer zasobów
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,13 +29,13 @@ W tym samouczku przedstawiono sposób tworzenia obszaru roboczego usługi Azure 
 
 * Aby korzystać z poleceń interfejsu wiersza polecenia w tym dokumencie ze **środowiska lokalnego**, wymagany jest [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-## <a name="create-a-workspace"></a>Tworzenie obszaru roboczego
+## <a name="create-a-workspace"></a>Utwórz obszar roboczy
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-machine-learning-create/).
 
-:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-machine-learning-create/azuredeploy.json" range="1-258" highlight="224-254":::
 
 Następujące zasoby są zdefiniowane w szablonie:
 
@@ -67,7 +67,7 @@ Po uruchomieniu powyższego polecenia wpisz:
 Aby wyświetlić obszar roboczy usługi Azure ML:
 
 1. Przejdź do strony https://portal.azure.com 
-1. Logowanie 
+1. Zaloguj 
 1. Wybierz właśnie utworzony obszar roboczy
 
 Zobaczysz stronę główną Azure Machine Learning: 
@@ -76,7 +76,7 @@ Zobaczysz stronę główną Azure Machine Learning:
 
 Aby wyświetlić wszystkie zasoby skojarzone z wdrożeniem, kliknij link w lewym górnym rogu z nazwą obszaru roboczego (na zrzucie ekranu `my_templated_ws` ). Ten link spowoduje przejście do grupy zasobów w Azure Portal. Nazwa grupy zasobów to `{projectName}rg` i obszar roboczy o nazwie `{projectName}ws` .
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz używać tego obszaru roboczego, usuń go. Ponieważ obszar roboczy jest skojarzony z innymi zasobami, takimi jak konto magazynu, prawdopodobnie chcesz usunąć całą utworzoną grupę zasobów. Aby usunąć grupę zasobów za pomocą portalu, kliknij przycisk "Usuń" i potwierdź. Można też usunąć grupę zasobów z interfejsu wiersza polecenia przy użyciu: 
 

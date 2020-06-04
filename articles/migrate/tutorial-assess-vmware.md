@@ -2,21 +2,21 @@
 title: Ocenianie maszyn wirtualnych VMware za pomocą oceny serwera Azure Migrate
 description: Opisuje sposób oceny lokalnych maszyn wirtualnych VMware na potrzeby migracji na platformę Azure przy użyciu oceny serwera Azure Migrate.
 ms.topic: tutorial
-ms.date: 04/15/2020
+ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: bd9e6b5923207297b1aa70a67052a7796b901781
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535370"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331886"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Ocenianie maszyn wirtualnych programu VMware przy użyciu narzędzia do oceny serwera
 
 W tym artykule opisano sposób oceny lokalnych maszyn wirtualnych VMware przy użyciu [Azure Migrate: narzędzia do oceny serwera](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
 
 
-Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne VMware na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne VMware na platformę Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Skonfiguruj projekt Azure Migrate.
 > * Skonfiguruj urządzenie Azure Migrate uruchamiane lokalnie w celu oceny maszyn wirtualnych.
@@ -27,7 +27,7 @@ Ten samouczek jest drugą częścią serii, która pokazuje, jak oceniać i migr
 > [!NOTE]
 > Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Samouczki korzystają z domyślnych opcji, jeśli jest to możliwe, i nie wyświetlają wszystkich możliwych ustawień i ścieżek. Aby uzyskać szczegółowe instrukcje, zapoznaj się z artykułami z instrukcjami.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -53,8 +53,8 @@ Skonfiguruj nowy projekt Azure Migrate w następujący sposób:
 
    ![Pola nazwy i regionu projektu](./media/tutorial-assess-vmware/migrate-project.png)
 
-1. Wybierz pozycję **Dalej**.
-1. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena** > serwera**dalej**.
+1. Wybierz opcję **Dalej**.
+1. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
    ![Wybór dla narzędzia do oceny serwera](./media/tutorial-assess-vmware/assessment-tool.png)
 
@@ -74,8 +74,8 @@ Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Mi
 
 ### <a name="download-the-ova-template"></a>Pobierz szablon komórki jajowe
 
-1. W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
-1. W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji hypervisor programu VMware vSphere**.
+1. W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, wybierz pozycję **odkryj**.
+1. W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji hypervisor programu VMware vSphere**.
 1. Wybierz pozycję **Pobierz** , aby pobrać plik szablonu komórki jajowe.
 
    ![Wybrane do pobrania plik komórki jajowe](./media/tutorial-assess-vmware/download-ova.png)
@@ -85,24 +85,32 @@ Po utworzeniu urządzenia sprawdź, czy może nawiązać połączenie z Azure Mi
 Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny:
 
 1. Na maszynie, na którą pobrano plik, otwórz okno wiersza polecenia administratora.
-1. Uruchom następujące polecenie, aby wygenerować skrót dla pliku komórki jajowe:
+2. Uruchom następujące polecenie, aby wygenerować skrót dla pliku komórki jajowe:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
    Przykład użycia: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
-W przypadku wersji 2.19.07.30 wygenerowany skrót powinien pasować do następujących wartości:
+3. Sprawdź najnowsze wersje urządzeń i wartości skrótu:
 
-**Algorytm** | **Wartość skrótu**
---- | ---
-MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+    - W przypadku chmury publicznej platformy Azure:
+    
+        **Algorytm** | **Pobierz** | **SHA256**
+        --- | --- | ---
+        VMware (10,9 GB) | [Najnowsza wersja](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
+
+    - W przypadku usługi Azure rządu:
+    
+        **Algorytm** | **Pobierz** | **SHA256**
+        --- | --- | ---
+        VMware (63,1 MB) | [Najnowsza wersja](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+
 
 ### <a name="create-the-appliance-vm"></a>Tworzenie maszyny wirtualnej urządzenia
 
 Zaimportuj pobrany plik i Utwórz maszynę wirtualną:
 
-1. W konsoli klienta vSphere wybierz pozycję **plik** > **Wdróż OVF szablon**.
+1. W konsoli klienta vSphere wybierz pozycję **plik**  >  **Wdróż OVF szablon**.
 
    ![Polecenie menu do wdrażania szablonu OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
 
@@ -133,7 +141,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 1. W aplikacji internetowej > **skonfigurować wymagania wstępne**, wykonaj następujące czynności:
    - **Licencja**: zaakceptuj postanowienia licencyjne i przeczytaj informacje o innych firmach.
    - **Łączność**: aplikacja sprawdza, czy maszyna wirtualna ma dostęp do Internetu. Jeśli maszyna wirtualna używa serwera proxy:
-     - Wybierz pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w http://ProxyIPAddress formularzu http://ProxyFQDNlub.
+     - Wybierz pozycję **Ustawienia serwera proxy**i określ adres serwera proxy i port nasłuchujący w http://ProxyIPAddress formularzu http://ProxyFQDN lub.
      - Jeśli serwer proxy wymaga uwierzytelnienia, wprowadź poświadczenia.
      - Obsługiwane są tylko serwery proxy HTTP.
    - **Synchronizacja czasu**: czas na urządzeniu powinien być zsynchronizowany z czasem Internetu, aby odnajdywanie działało prawidłowo.
@@ -183,13 +191,13 @@ Odnajdywanie działa w następujący sposób:
 Po przeprowadzeniu odnajdywania możesz sprawdzić, czy maszyny wirtualne są wyświetlane w Azure Portal:
 
 1. Otwórz pulpit nawigacyjny Azure Migrate.
-1. W **Azure Migrate serwery** > **Azure Migrate: Ocena serwera**, wybierz ikonę, która wyświetla liczbę **odnalezionych serwerów**.
+1. W **Azure Migrate serwery**  >  **Azure Migrate: Ocena serwera**, wybierz ikonę, która wyświetla liczbę **odnalezionych serwerów**.
 
 ## <a name="set-up-an-assessment"></a>Konfigurowanie oceny
 
 Za pomocą oceny serwera Azure Migrate można utworzyć dwa typy ocen:
 
-**Ocena** | **Szczegóły** | **Dane**
+**Stopnia** | **Szczegóły** | **Dane**
 --- | --- | ---
 **Oparta na wydajności** | Oceny oparte na zebranych danych wydajności | **Zalecany rozmiar maszyny wirtualnej**: na podstawie danych użycia procesora CPU i pamięci.<br/><br/> **Zalecany typ dysku (dysk zarządzany w warstwie Standardowa lub Premium)**: w zależności od liczby operacji we/wy na sekundę i przepływności dysków lokalnych.
 **Jako lokalne** | Oceny oparte na wymiarach lokalnych | **Zalecany rozmiar maszyny wirtualnej**: na podstawie rozmiaru lokalnej maszyny wirtualnej.<br/><br> **Zalecany typ dysku**: na podstawie ustawienia typu magazynu, które wybrano do oceny.
@@ -214,7 +222,7 @@ Uruchom ocenę w następujący sposób:
 
    ![Ocenianie serwerów](./media/tutorial-assess-vmware/assessment-create.png)
 
-1. Po utworzeniu oceny Wyświetl ją w obszarze **serwery** > **Azure Migrate:** > **oceny**oceny serwera.
+1. Po utworzeniu oceny Wyświetl ją w obszarze **serwery**  >  **Azure Migrate: oceny oceny serwera**  >  **Assessments**.
 1. Wybierz pozycję **Ocena eksportu** , aby pobrać ją jako plik programu Excel.
 
 ## <a name="review-an-assessment"></a>Przegląd oceny
@@ -227,7 +235,7 @@ Ocena zawiera opis:
 
 Aby wyświetlić ocenę:
 
-1. W obszarze > **serwery** **celów migracji**wybierz pozycję **oceny** w **Azure Migrate: Ocena serwera**.
+1. W obszarze serwery **celów migracji**  >  **Servers**wybierz pozycję **oceny** w **Azure Migrate: Ocena serwera**.
 1. W obszarze **oceny**Wybierz ocenę, aby ją otworzyć.
 
    ![Podsumowanie oceny](./media/tutorial-assess-vmware/assessment-summary.png)

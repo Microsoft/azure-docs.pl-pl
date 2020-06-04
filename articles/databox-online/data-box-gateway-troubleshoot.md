@@ -5,25 +5,26 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: b452362744d7fbf655ea043127a15f5173d04e4c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 675ee8b19a870221488ade2f578199f4f53599b9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562461"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338995"
 ---
-# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Rozwiązywanie problemów związanych z usługą Azure Data Box Gateway 
+# <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Rozwiązywanie problemów związanych z usługą Azure Data Box Gateway
 
-W tym artykule opisano sposoby rozwiązywania problemów z usługą Azure Data Box Gateway. W tym artykule omówiono sposób wykonywania następujących zadań:
+W tym artykule opisano sposoby rozwiązywania problemów z usługą Azure Data Box Gateway.
+W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
+>
 > * Uruchamianie diagnostyki
 > * Zbieranie pakietu dla pomocy technicznej
 > * Rozwiązywanie problemów przy użyciu dzienników
-
 
 ## <a name="run-diagnostics"></a>Uruchamianie diagnostyki
 

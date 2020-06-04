@@ -1,6 +1,6 @@
 ---
-title: Licencjonowanie&reg; zestawu portów programu Microsoft Smooth Streaming Client
-description: Dowiedz się więcej na temat licencjonowania&reg; zestawu portów Microsoft Smooth Streaming clienting Kit.
+title: Licencjonowanie &reg; zestawu portów programu Microsoft Smooth Streaming Client
+description: Dowiedz się więcej na temat licencjonowania &reg; zestawu portów Microsoft Smooth Streaming clienting Kit.
 services: media-services
 documentationcenter: ''
 author: xpouyat
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: bd77c53a195a9549f6aaad9ee2928206f5324b0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 423597da44a74afb60e69c4e32cbd6353f81e726
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686913"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344037"
 ---
-# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie&reg; zestawu portów programu Microsoft Smooth Streaming Client 
+# <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie &reg; zestawu portów programu Microsoft Smooth Streaming Client 
 ## <a name="overview"></a>Omówienie
 Microsoft Smooth Streaming Clienting Kit (**SSPK** for Short) to Smooth Streaming implementacja klienta, która została zoptymalizowana pod kątem pomocy producentom urządzeń osadzonych, operatorom telewizji kablowej i mobilnemu, dostawcom usług zawartości, producentom słuchawek, niezależnym dostawcom oprogramowania i dostawcom rozwiązań tworzenie produktów i usług na potrzeby przesyłania strumieniowego zawartości w formacie Smooth Streaming. SSPK to oparta na urządzeniach i niezależna od platformy implementacja klienta Smooth Streaming, którą można przenieść na dowolne urządzenie i platformę. 
 
@@ -71,11 +71,11 @@ Końcowy produkt klienta Smooth Streaming jest oferowany w ramach modelu honorar
 * Brak honorarium dla pierwszych 10 000 implementacji urządzeń w każdym roku 
 
 ## <a name="licensing-procedure-and-sspk-access"></a>Procedura licencjonowania i dostęp SSPK
-Wyślij [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) wiadomość e-mail do wszystkich zapytań licencjonowania.
+Wyślij wiadomość e-mail [sspkinfo@microsoft.com](mailto:sspkinfo@microsoft.com) do wszystkich zapytań licencjonowania.
 
 Portal dystrybucji SSPK jest dostępny dla zarejestrowanych licencji tymczasowych.
 
-Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com)programu.
+Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do programu [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com) .
 
 ## <a name="microsoft-smooth-streaming-client-interim-product-agreement-licensees"></a>Licencje na umowę o produkcie pośrednim klienta firmy Microsoft Smooth Streaming
 
@@ -144,6 +144,7 @@ Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do [
 * Shenzhen Chuangwei-RGB Electronics Co., Ltd.
 * Shenzhena elektronika CO., LTD
 * Shenzhen Jiuzhou, co., Ltd
+* Shenzhen KTC Technology Co., Ltd. 
 * Shenzhen Skyworth — Technologia cyfrowa co., Ltd
 * Sichuan Changhong, co., Ltd.
 * Skardin przemysł Corp.

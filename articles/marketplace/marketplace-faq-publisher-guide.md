@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 1eae45eea35a118be51dc1e2f95055238212560d
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 79ca7381c1d06d897202320632b55f91e4a50d91
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800655"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340474"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Microsoft Marketplace
 
@@ -205,7 +205,7 @@ Jeśli rozwiązanie jest używane bezpośrednio w subskrypcji platformy Azure kl
 
 Oprogramowanie, które zostało skompilowane lub skompilowane dla usług w chmurze, może zostać zrealizowane za pomocą komercyjnej witryny Marketplace. Usługi profesjonalne nie są jeszcze transakcyjne.
 
-## <a name="purchasing"></a>Zakupy
+## <a name="purchasing"></a>Zakup
 
 ### <a name="whats-required-to-purchase-solutions-from-microsoft-appsource-or-azure-marketplace"></a>Co jest wymagane do zakupu rozwiązań z Microsoft AppSource lub Azure Marketplace?
 
@@ -274,9 +274,12 @@ Klienci są zwykle rozliczani miesięcznie za jakiekolwiek zakupy w poprzednim c
 
 ### <a name="how-often-will-i-receive-payouts-for-sales-through-the-commercial-marketplace"></a>Jak często otrzymuję wypłaty za sprzedaż za pomocą komercyjnej witryny Marketplace?
 
-Wypłaty wypłaty są comiesięczne. Kolekcje przetwarzane w poprzednim miesiącu są wypłacane jednocześnie, a sprzedaż musi mieć minimalną łączną wartość $50,00.
+Wypłaty wypłaty są comiesięczne. Aby uzyskać szczegółowe informacje na temat harmonogramów płatności, można znaleźć nadchodzące wypłaty w centrum partnerskim i sposób postępowania z niepłatami klientów, zobacz [Szczegóły zasad wypłaty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payout-policy-details).
 
-Subskrypcje i zakupy kart kredytowych są rozliczane miesięcznie, a faktury za umowę klienta firmy Microsoft lub Umowa Enterprise mogą być rzadziej. Od momentu, gdy klienci są obciążani opłatami, pomożemy 30 dni. Po otrzymaniu płatności Transakcje kartą kredytową przechodzą do 30-dniowego okresu płatności.
+- W przypadku transakcji, w których Klient użył Umowa Enterprise, wypłaty wypłaty są wydawane w następnym cyklu wypłaty 30 dni. 
+- W przypadku transakcji, w których Klient użył karty kredytowej, po otrzymaniu płatności w celu zagwarantowania, że nie ma żadnych obciążeń zwrotnychych lub niejawnych oszustw, występuje dodatkowy 30-dniowy okres płatności.
+
+Wypłaty są wystawiane tylko wtedy, gdy sprzedaż osiągnęła minimalną łączną wartość $50,00.
 
 Aby uzyskać więcej informacji, zobacz [progi płatności, metody i klatki czasowe](https://docs.microsoft.com/azure/marketplace/partner-center-portal/payment-thresholds-methods-timeframes).
 

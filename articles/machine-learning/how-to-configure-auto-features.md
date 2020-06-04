@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 93e18a95e30c21a44f9ca7df92925323930a9ce8
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 87cb5714a1f4b362e2f73879d93f5739f0fc20cf
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122430"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324287"
 ---
 # <a name="featurization-with-automated-machine-learning"></a>Cechowania przy użyciu automatycznej uczenia maszynowego
 
@@ -99,7 +99,7 @@ W poniższej tabeli opisano aktualnie obsługiwane guardrails danych oraz skojar
 Guardrail|Stan|Warunek &nbsp; dla &nbsp; wyzwalacza
 ---|---|---
 **Brak przypisywania wartości funkcji** |*Przeniesione* <br><br><br> *Gotowe*| Nie wykryto żadnych wartości funkcji w danych szkoleniowych. Dowiedz się więcej o [braku przypisywania wartości.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> W danych szkoleniowych zostały wykryte brakujące wartości funkcji.
-**Obsługa funkcji wysokiej kardynalności** |*Przeniesione* <br><br><br> *Gotowe*| Dane wejściowe zostały przeanalizowane i nie wykryto żadnych funkcji wysokiej kardynalności. Dowiedz się więcej o [funkcji wykrywania dużej kardynalności.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> W danych wejściowych zostały wykryte funkcje wysokiej kardynalności i zostały obsłużone.
+**Obsługa funkcji wysokiej kardynalności** |*Przeniesione* <br><br><br> *Gotowe*| Dane wejściowe zostały przeanalizowane i nie wykryto żadnych funkcji wysokiej kardynalności. Dowiedz się więcej o [funkcji wykrywania dużej kardynalności.](#automatic-featurization) <br><br> W danych wejściowych zostały wykryte funkcje wysokiej kardynalności i zostały obsłużone.
 **Obsługa podziału walidacji** |*Gotowe*| Konfiguracja walidacji została ustawiona na wartość "automatycznej", a dane szkoleniowe zawierają **mniej niż 20 000 wierszy**. <br> Każda iteracja przeszkolonego modelu została zweryfikowana za pomocą weryfikacji krzyżowej. Dowiedz się więcej o [danych sprawdzania poprawności.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> Konfiguracja walidacji została ustawiona na wartość "Auto", a dane szkoleniowe zawierały **więcej niż 20 000 wierszy**. <br> Dane wejściowe zostały podzielone na zestaw danych szkoleniowych i zestaw danych walidacji w celu sprawdzenia poprawności modelu.
 **Wykrywanie równoważenia klasy** |*Przeniesione* <br><br><br><br><br> *Alerty* | Dane wejściowe zostały przeanalizowane i wszystkie klasy są zrównoważone w danych szkoleniowych. Zestaw danych jest uznawany za zrównoważony, jeśli każda klasa ma dobrą reprezentację w zestawie danych, zgodnie z liczbą i stosunkiem próbek. <br><br><br> Wykryto niezrównoważone klasy w danych wejściowych. Aby naprawić odchylenia modelu, napraw problem z równoważeniem. Dowiedz się więcej o [niezrównoważonych danych.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)
 **Wykrywanie problemów z pamięcią** |*Przeniesione* <br><br><br><br> *Gotowe* |<br> Przeanalizowane wartości wybranych elementów {Horizon, lag, kroczących} i nie wykryto problemów braku związanych z pamięcią. Dowiedz się więcej na temat [konfiguracji prognozowania](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) szeregów czasowych. <br><br><br>Przeanalizowane zostały wartości wybrane w polu {Horizon, zwłoka, krocząca}, co może spowodować, że w Twoim doświadczeniu zabrakło pamięci. Konfiguracje okna zwłoki lub kroczącej zostały wyłączone.

@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie ustawieniami modelu i uczenia — Personalizacja
 description: Model uczenia maszynowego i ustawienia uczenia można wyeksportować do kopii zapasowej w ramach własnego systemu kontroli źródła.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: c544d058019c8d507f65dc6bfd854376b364abd1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 59af5a64ea5752ec03fb44df91440e8d395e3782
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77624298"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344360"
 ---
 # <a name="how-to-manage-model-and-learning-settings"></a>Jak zarządzać ustawieniami modelu i uczenia
 

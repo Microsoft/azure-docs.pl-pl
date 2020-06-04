@@ -3,12 +3,12 @@ title: Dokumentacja dla deweloperów Java dla Azure Functions
 description: Dowiedz się, jak opracowywać funkcje przy użyciu języka Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 6ce886fd0ca47d728a115427b354442fd259e714
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b3404920dda9225b289d82013d29c35a1297ec32
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648233"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340338"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Przewodnik dewelopera Azure Functions Java
 
@@ -391,7 +391,7 @@ W poprzednim przykładzie, `queryValue` jest powiązany z parametrem ciągu zapy
 
 ## <a name="execution-context"></a>Kontekst wykonywania
 
-`ExecutionContext`zdefiniowany w `azure-functions-java-library` , zawiera metody pomocnika do komunikowania się ze środowiskiem uruchomieniowym funkcji.
+`ExecutionContext`zdefiniowany w `azure-functions-java-library` , zawiera metody pomocnika do komunikowania się ze środowiskiem uruchomieniowym funkcji. Aby uzyskać więcej informacji, zobacz [artykuł dotyczący odwołania kontekście wykonywania](/java/api/com.microsoft.azure.functions.executioncontext).
 
 ### <a name="logger"></a>Rejestratora
 

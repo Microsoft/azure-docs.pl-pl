@@ -13,15 +13,15 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 49b669627507af0e3e7386f31e344082cc4686df
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: d7ce3a19ddb5f14e53a8821cf070500f8e3eb061
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219307"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338445"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Rejestrowanie wielu maszyn wirtualnych SQL na platformie Azure przy użyciu dostawcy zasobów maszyny wirtualnej SQL
-[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)][!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym artykule opisano sposób samoSQL Serverowego rejestrowania maszyn wirtualnych na platformie Azure za pomocą dostawcy zasobów maszyny wirtualnej SQL przy użyciu `Register-SqlVMs` polecenia cmdlet programu PowerShell.
 
@@ -35,7 +35,7 @@ Aby uzyskać więcej informacji na temat dostawcy zasobów, zobacz [dostawca zas
 
 Aby zarejestrować SQL Server maszynę wirtualną przy użyciu dostawcy zasobów, potrzebne są następujące elementy: 
 
-- [Subskrypcja platformy Azure](https://azure.microsoft.com/free/) , która została [zarejestrowana w dostawcy zasobów](sql-vm-resource-provider-register.md#register-subscription-with-rp) i zawiera niezarejestrowane SQL Server maszyn wirtualnych. 
+- [Subskrypcja platformy Azure](https://azure.microsoft.com/free/) , która została [zarejestrowana w dostawcy zasobów](sql-vm-resource-provider-register.md#register-a-subscription-with-the-resource-provider) i zawiera niezarejestrowane SQL Server maszyn wirtualnych. 
 - Poświadczenia klienta używane do rejestrowania maszyn wirtualnych znajdują się w następujących rolach RBAC: współautor, **współautor**lub **właściciel** **maszyny wirtualnej**. 
 - Najnowsza wersja polecenia [AZ PowerShell](/powershell/azure/new-azureps-module-az). 
 - Najnowsza wersja [AZ. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
@@ -78,7 +78,7 @@ Register-SqlVMs -SubscriptionList SubscriptionId1,SubscriptionId2
 Przykładowe dane wyjściowe: 
 
 ```
-Number of Subscriptions registration failed for 
+Number of subscriptions registration failed for 
 because you do not have access or credentials are wrong: 1
 Total VMs Found: 10
 VMs Already registered: 1
@@ -155,7 +155,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="register-specific-vms-in-single-resource-group"></a>Rejestrowanie określonych maszyn wirtualnych w pojedynczej grupie zasobów
+## <a name="register-specific-vms-in-a-single-resource-group"></a>Rejestrowanie określonych maszyn wirtualnych w pojedynczej grupie zasobów
 
 Użyj następującego polecenia cmdlet, aby zarejestrować określone SQL Server maszyny wirtualne w ramach jednej grupy zasobów:
 

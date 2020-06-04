@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: b72195c818e418cfca9c88fe666b27b277aa7bda
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8007966482ba5f046a918ddfc02025e06fadc8d6
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309105"
+ms.locfileid: "84324185"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,6 +82,7 @@ Wystąpienie zarządzane SQL ma dwie warstwy usług: [ogólnego przeznaczenia](.
 | Opóźnienie operacji we/wy magazynu (w przybliżeniu) | 5-10 ms | 1-2 MS |
 | Przetwarzanie OLTP w pamięci | Nieobsługiwane | Dostępne, [rozmiar zależy od liczby rdzeń wirtualny](#in-memory-oltp-available-space) |
 | Maksymalna liczba sesji | 30000 | 30000 |
+| Maksymalna liczba współbieżnych procesów roboczych (żądań) | Obliczenia: 210 * liczba rdzeni wirtualnych + 800<br>5 rdzeń: 105 * liczba rdzeni wirtualnych + 800 | Obliczenia: 210 * liczba rdzeń wirtualny + 800<br>5 rdzeń: 105 * liczba rdzeń wirtualny + 800 |
 | [Repliki tylko do odczytu](../database/read-scale-out.md) | 0 | 1 (wliczone w cenę) |
 | Izolacja obliczeniowa | 5 rdzeń<br/>-obsługiwane przez 80 rdzeni wirtualnych<br/>-nieobsługiwane w przypadku innych rozmiarów<br/><br/>Obliczenia nie jest obsługiwana z powodu wycofania|5 rdzeń<br/>-obsługiwane przez 60, 64, 80 rdzeni wirtualnych<br/>-nieobsługiwane w przypadku innych rozmiarów<br/><br/>Obliczenia nie jest obsługiwana z powodu wycofania|
 
@@ -126,6 +127,9 @@ Wystąpienie zarządzane SQL obecnie obsługuje wdrażanie tylko w następujący
 
 ## <a name="regional-resource-limitations"></a>Ograniczenia zasobów regionalnych
 
+> [!Note]
+> Aby uzyskać najnowsze informacje o dostępności regionów dla subskrypcji, należy najpierw zapoznać się z [oficjalnym wpisem w blogu COVID-19](https://aka.ms/sqlcapacity).
+
 Obsługiwane typy subskrypcji mogą zawierać ograniczoną liczbę zasobów na region. Wystąpienie zarządzane SQL ma dwa domyślne limity dla regionu platformy Azure (które można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w Azure Portal w](../database/quota-increase-request.md) zależności od typu subskrypcji:
 
 - **Limit podsieci**: Maksymalna liczba podsieci, w których wystąpienia wystąpienia zarządzanego SQL są wdrażane w jednym regionie.
@@ -149,6 +153,9 @@ W poniższej tabeli przedstawiono **domyślne limity** dla obsługiwanych typów
 \*W obszarze Planowanie wdrożeń należy wziąć pod uwagę, że warstwa usług Krytyczne dla działania firmy (BC) wymaga czterech (4) razy więcej rdzeń wirtualny pojemności niż Ogólnego przeznaczenia (GP). Na przykład: 1 GP rdzeń wirtualny = 1 rdzeń wirtualny Unit i 1 BC rdzeń wirtualny = 4 jednostki rdzeń wirtualny. Aby uprościć analizę zużycia pod kątem domyślnych limitów, należy podsumować jednostki rdzeń wirtualny we wszystkich podsieciach w regionie, w którym wdrożono wystąpienie zarządzane SQL, i porównać wyniki z limitami jednostek wystąpienia dla danego typu subskrypcji. **Maksymalna liczba jednostek rdzeń wirtualny** dotyczy każdej subskrypcji w regionie. Nie ma żadnego limitu dla poszczególnych podsieci, z tą różnicą, że suma wszystkich rdzeni wirtualnych wdrożonych w wielu podsieciach musi być mniejsza lub równa **maksymalnej liczbie jednostek rdzeń wirtualny**.
 
 \*\*Większe limity podsieci i rdzeń wirtualny są dostępne w następujących regionach: Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia Południowe Zjednoczone Królestwo, Europa Zachodnia, zachodnie stany USA 2.
+
+> [!IMPORTANT]
+> Jeśli limit rdzeń wirtualny i podsieci wynosi 0, oznacza to, że domyślny limit regionalny dla danego typu subskrypcji nie jest ustawiony. Można również użyć żądania zwiększenia przydziału w celu uzyskania dostępu do subskrypcji w określonym regionie, zgodnie z tą samą procedurą — dostarczając wymagane wartości rdzeń wirtualny i podsieci.
 
 ## <a name="request-a-quota-increase"></a>Poproś o zwiększenie limitu przydziału
 

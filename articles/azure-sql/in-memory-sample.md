@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: aa26b0c6e30413366e06673a0890b21434fc842b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: aed1965b07a80efa3cd8dbc84e396b9ef4f99252
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047342"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345278"
 ---
 # <a name="in-memory-sample"></a>Przykład w pamięci
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -47,7 +47,7 @@ Aby uzyskać więcej uproszczony, ale bardziej atrakcyjny wizualnie pokaz wydajn
 
 ### <a name="installation-steps"></a>Kroki instalacji
 
-1. W [Azure Portal](https://portal.azure.com/)Utwórz bazę danych Premium lub krytyczne dla działania firmy na serwerze. Ustaw **Źródło** na przykładową bazę danych AdventureWorksLT. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie pierwszej bazy danych Azure SQL Database](database/single-database-create-quickstart.md).
+1. W [Azure Portal](https://portal.azure.com/)Utwórz bazę danych Premium lub krytyczne dla działania firmy na serwerze. Ustaw **Źródło** na przykładową bazę danych AdventureWorksLT. Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie pierwszej bazy danych w Azure SQL Database](database/single-database-create-quickstart.md).
 
 2. Nawiąż połączenie z bazą danych za pomocą programu SQL Server Management Studio [(SSMS. exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
@@ -363,7 +363,7 @@ W bazie danych z warstwą cenową P2 można oczekiwać około dziewięciu razy w
 
 - [Używanie OLTP w pamięci w istniejącej aplikacji Azure SQL](in-memory-oltp-configure.md)
 
-#### <a name="tools"></a>Narzędzia
+#### <a name="tools"></a>narzędzia
 
 - [Azure Portal](https://portal.azure.com/)
 

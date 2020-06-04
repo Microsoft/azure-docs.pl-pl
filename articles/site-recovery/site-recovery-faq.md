@@ -4,12 +4,12 @@ description: W tym artykule omówiono popularne pytania dotyczące Azure Site Re
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 2e6cbac9896fc2bc6b3d4d95a28a25d8177bd7a5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: b16301bb092395ac71a5bfd6f53f392ab708b10c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193559"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345176"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące Azure Site Recovery
 
@@ -226,6 +226,9 @@ Tak. Azure Site Recovery dla systemu operacyjnego Linux obsługuje niestandardow
 ```
 
 5. Dodawanie poleceń Zablokuj i Odblokuj dane wejściowe/wyjściowe w przypadku aplikacji wymagających spójności aplikacji. Możesz dodać inny skrypt określający te i wywołać go z elementu "customscript.sh" za pomocą opcji pre i post.
+
+>[!Note]
+>Wersja agenta Site Recovery powinna mieć wartość 9,24 lub wyższą, aby można było obsługiwać skrypty niestandardowe.
 
 ## <a name="failover"></a>Tryb failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>W jaki sposób można uzyskać dostęp do maszyn wirtualnych platformy Azure po przejściu w tryb failover?

@@ -4,13 +4,13 @@ description: Ten przewodnik Szybki Start oparty na języku C# umożliwia opublik
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
-ms.openlocfilehash: 0a2f64795d82928e33a10c7e9d162f2333cdf7bf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: how-to
+ms.openlocfilehash: 7eaa8d7f7d86e215ea2e9906075c27dd2916dcd5
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78851708"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342752"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Szybki start: publikowanie bazy wiedzy w usłudze QnA Maker przy użyciu języka C#
 
@@ -35,7 +35,7 @@ Ten przewodnik Szybki start wywołuje interfejsy API usługi QnA Maker:
 ## <a name="create-knowledge-base-project"></a>Tworzenie projektu bazy wiedzy
 
 1. Otwórz program Visual Studio 2019 Community Edition.
-1. Utwórz nowy projekt **Aplikacja konsolowa (.NET Core)** i nadaj mu nazwę `QnaMakerQuickstart`. Zaakceptuj wartości domyślne pozostałych ustawień.
+1. Utwórz nowy projekt **Aplikacja konsolowa (.NET Core)** i nadaj mu nazwę `QnaMakerQuickstart` . Zaakceptuj wartości domyślne pozostałych ustawień.
 
 ## <a name="add-required-dependencies"></a>Dodawanie wymaganych zależności
 

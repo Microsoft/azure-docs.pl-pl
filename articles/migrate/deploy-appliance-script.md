@@ -3,12 +3,12 @@ title: Skonfiguruj urządzenie Azure Migrate za pomocą skryptu
 description: Dowiedz się, jak skonfigurować urządzenie Azure Migrate za pomocą skryptu
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c4d85909bbfa623b5ad8590e973250474d9d95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20dbe4ba3b1b4858cb7022bb72129ee419ea2540
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676312"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331988"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurowanie urządzenia za pomocą skryptu
 
@@ -34,8 +34,8 @@ Aby skonfigurować urządzenie dla oprogramowania VMware, pobierz spakowany plik
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2.  W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji hypervisor programu VMware vSphere**.
+1.  W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2.  W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji hypervisor programu VMware vSphere**.
 3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
 
@@ -47,12 +47,11 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 2. Uruchom następujące polecenie, aby wygenerować skrót dla pliku spakowanego
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
-3. Sprawdź wygenerowaną wartość skrótu. W przypadku najnowszej wersji urządzenia:
+3. Sprawdź najnowszą wersję i skrypt dla chmury publicznej platformy Azure:
 
-    **Algorytm** | **Wartość skrótu**
-    --- | ---
-    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    **Algorytm** | **Pobierz** | **SHA256**
+    --- | --- | ---
+    VMware (10,9 GB) | [Najnowsza wersja](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 
 
 
@@ -89,8 +88,8 @@ Aby skonfigurować urządzenie dla funkcji Hyper-V, pobierz spakowany plik z Azu
 
 ### <a name="download-the-script"></a>Pobierz skrypt
 
-1.  W obszarze**serwery** >  **celów** > migracji**Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
-2.  W obszarze **odnajdywanie** > maszyn**są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
+1.  W obszarze serwery **celów migracji**  >  **Servers**  >  **Azure Migrate: Ocena serwera**, kliknij przycisk **odkryj**.
+2.  W obszarze **odnajdywanie**maszyn  >  **są zwirtualizowane maszyny?** wybierz pozycję **tak, używając funkcji Hyper-V**.
 3.  Kliknij pozycję **Pobierz**, aby pobrać plik zip. 
 
 
@@ -103,12 +102,11 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykład: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256```
 
-3. Sprawdź wygenerowane wartości skrótu. W przypadku najnowszej wersji urządzenia:
+3. Sprawdź najnowszą wersję i skrypt dla chmury publicznej platformy Azure:
 
-    **Algorytm** | **Wartość skrótu**
-    --- | ---
-    MD5 | 1e92ede3e87c03bd148e56a708cdd33f
-    SHA256 | a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+    **Scenariusz** | **Pobierz** | **SHA256**
+    --- | --- | ---
+    Funkcja Hyper-V (8,93 MB) | [Najnowsza wersja](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
 ### <a name="run-the-script"></a>Uruchamianie skryptu
 

@@ -2,13 +2,13 @@
 title: Wybierz opcję migracji VMware z migracją na serwer Azure Migrate | Microsoft Docs
 description: Zawiera omówienie opcji migrowania maszyn wirtualnych VMware na platformę Azure przy użyciu migracji Azure Migrate serwera
 ms.topic: conceptual
-ms.date: 07/09/2019
-ms.openlocfilehash: 52e7103ea3ebcd83369a866cc3f75b0bf0e889a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.openlocfilehash: 196b80f600d9895e9fcb6471bfb5df5fb5bbe8d1
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76028719"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324508"
 ---
 # <a name="select-a-vmware-migration-option"></a>Wybierz opcję migracji VMware
 
@@ -27,7 +27,7 @@ Użyj tych wybranych porównań, aby określić metodę, która ma zostać użyt
 **Ustawienie** | **Bez agenta** | **Na podstawie agenta**
 --- | --- | ---
 **Uprawnienia platformy Azure** | Musisz mieć uprawnienia do tworzenia projektu Azure Migrate i rejestrowania aplikacji usługi Azure AD utworzonych podczas wdrażania urządzenia Azure Migrate. | Musisz mieć uprawnienia współautora w ramach subskrypcji platformy Azure. 
-**Równoczesna replikacja** | Maksymalnie 100 maszyn wirtualnych może być replikowanych z vCenter Server.<br/> Jeśli masz więcej niż 50 maszyn wirtualnych do migracji, Utwórz wiele partii maszyn wirtualnych.<br/> Replikacja więcej jednocześnie będzie miała wpływ na wydajność. | Nie dotyczy
+**Równoczesna replikacja** | Maksymalnie 100 maszyn wirtualnych może być replikowanych z vCenter Server.<br/> Jeśli masz więcej niż 50 maszyn wirtualnych do migracji, Utwórz wiele partii maszyn wirtualnych.<br/> Replikacja więcej jednocześnie będzie miała wpływ na wydajność. | NA
 **Wdrażanie urządzenia** | [Urządzenie Azure Migrate](migrate-appliance.md) jest wdrażane lokalnie. | [Urządzenie replikacji Azure Migrate](migrate-replication-appliance.md) jest wdrażane lokalnie.
 **Zgodność Site Recovery** | Zgodność. | Nie można przeprowadzić replikacji z migracją serwera Azure Migrate, jeśli skonfigurowano replikację dla maszyny przy użyciu Site Recovery.
 **Dysk docelowy** | Dyski zarządzane | Dyski zarządzane
@@ -42,15 +42,15 @@ Po przejrzeniu ograniczeń można zrozumieć kroki związane z wdrażaniem poszc
 
 **Zadanie** | **Szczegóły** |**Bez agenta** | **Na podstawie agenta**
 --- | --- | --- | ---
-**Ocena** | Oceń serwery przed migracją.  Ocena jest opcjonalna. Zalecamy, aby oceniać maszyny przed ich migracją, ale nie musisz. <br/><br/> W celu dokonania oceny Azure Migrate konfiguruje lekkie urządzenie w celu odnajdywania i oceniania maszyn wirtualnych. | W przypadku uruchomienia migracji bez agenta po dokonaniu oceny to samo urządzenie Azure Migrate skonfigurowane do oceny jest używane do migracji bez wykorzystania agentów.  |  W przypadku uruchomienia migracji opartej na agencie po dokonaniu oceny urządzenie skonfigurowane do oceny nie jest używane podczas migracji bez agenta. Możesz opuścić urządzenie lub je usunąć, jeśli nie chcesz jeszcze przeanalizować i ocenić.
-**Przygotuj serwery i maszyny wirtualne VMware do migracji** | Skonfiguruj kilka ustawień na serwerach i maszynach wirtualnych VMware. | Wymagany | Wymagany
-**Dodawanie narzędzia migracji serwera** | Dodaj narzędzie do migracji Azure Migrate Server w projekcie Azure Migrate. | Wymagany | Wymagany
-**Wdróż urządzenie Azure Migrate** | Skonfiguruj lekkie urządzenie na maszynie wirtualnej VMware na potrzeby odnajdywania i oceny maszyn wirtualnych. | Wymagany | Niewymagane.
-**Instalowanie usługi mobilności na maszynach wirtualnych** | Zainstaluj usługę mobilności na każdej maszynie wirtualnej, która ma zostać zreplikowana | Niewymagane | Wymagany
-**Wdrażanie urządzenia replikacji migracji serwera Azure Migrate** | Konfigurowanie urządzenia na maszynie wirtualnej VMware w celu odnajdywania maszyn wirtualnych i mostkowania między usługą mobilności działającą na maszynach wirtualnych i migracji Azure Migrate serwera | Niewymagane | Wymagany
-**Replikowanie maszyn wirtualnych**. Włącz replikację maszyny wirtualnej. | Skonfiguruj ustawienia replikacji i wybierz maszyny wirtualne do replikacji | Wymagany | Wymagany
-**Uruchamianie migracji testowej** | Uruchom migrację testową, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami. | Wymagany | Wymagany
-**Uruchamianie pełnej migracji** | Migrowanie maszyn wirtualnych. | Wymagany | Wymagany
+**Stopnia** | Oceń serwery przed migracją.  Ocena jest opcjonalna. Zalecamy, aby oceniać maszyny przed ich migracją, ale nie musisz. <br/><br/> W celu dokonania oceny Azure Migrate konfiguruje lekkie urządzenie w celu odnajdywania i oceniania maszyn wirtualnych. | W przypadku uruchomienia migracji bez agenta po dokonaniu oceny to samo urządzenie Azure Migrate skonfigurowane do oceny jest używane do migracji bez wykorzystania agentów.  |  Jeśli przeprowadzasz migrację opartą na agencie po dokonaniu oceny, urządzenie skonfigurowane do oceny nie jest używane podczas migracji opartej na agencie. Możesz opuścić urządzenie lub je usunąć, jeśli nie chcesz jeszcze przeanalizować i ocenić.
+**Przygotuj serwery i maszyny wirtualne VMware do migracji** | Skonfiguruj kilka ustawień na serwerach i maszynach wirtualnych VMware. | Wymagane | Wymagane
+**Dodawanie narzędzia migracji serwera** | Dodaj narzędzie do migracji Azure Migrate Server w projekcie Azure Migrate. | Wymagane | Wymagane
+**Wdróż urządzenie Azure Migrate** | Skonfiguruj lekkie urządzenie na maszynie wirtualnej VMware na potrzeby odnajdywania i oceny maszyn wirtualnych. | Wymagane | Niewymagane.
+**Instalowanie usługi mobilności na maszynach wirtualnych** | Zainstaluj usługę mobilności na każdej maszynie wirtualnej, która ma zostać zreplikowana | Niewymagane | Wymagane
+**Wdrażanie urządzenia replikacji migracji serwera Azure Migrate** | Konfigurowanie urządzenia na maszynie wirtualnej VMware w celu odnajdywania maszyn wirtualnych i mostkowania między usługą mobilności działającą na maszynach wirtualnych i migracji Azure Migrate serwera | Niewymagane | Wymagane
+**Replikowanie maszyn wirtualnych**. Włącz replikację maszyny wirtualnej. | Skonfiguruj ustawienia replikacji i wybierz maszyny wirtualne do replikacji | Wymagane | Wymagane
+**Uruchamianie migracji testowej** | Uruchom migrację testową, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami. | Wymagane | Wymagane
+**Uruchamianie pełnej migracji** | Migrowanie maszyn wirtualnych. | Wymagane | Wymagane
 
 
 

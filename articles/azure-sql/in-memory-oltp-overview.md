@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: c9b25912e1386520d61412a8ba05f6b02224fbe6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 10f4a0012076deef0757743f206f937ab43dc8b8
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046894"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345295"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optymalizowanie wydajności przy użyciu technologii znajdujących się w pamięci w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Rozmiar danych i limit pamięci dla przetwarzania OLTP w pamięci
 
-Przetwarzanie OLTP w pamięci obejmuje tabele zoptymalizowane pod kątem pamięci, które są używane do przechowywania danych użytkownika. Te tabele są wymagane do dopasowania do pamięci. Ze względu na to, że zarządzasz pamięcią bezpośrednio w usłudze SQL Database, mamy koncepcję przydziału danych użytkownika. Ten pomysł jest określany mianem *magazynu OLTP w pamięci*.
+Przetwarzanie OLTP w pamięci obejmuje tabele zoptymalizowane pod kątem pamięci, które są używane do przechowywania danych użytkownika. Te tabele są wymagane do dopasowania do pamięci. Ze względu na to, że zarządzasz pamięcią bezpośrednio w SQL Database, mamy koncepcji przydziału danych użytkownika. Ten pomysł jest określany mianem *magazynu OLTP w pamięci*.
 
 Każda obsługiwana warstwa cenowa pojedynczej bazy danych i każda warstwa cenowa puli elastycznej zawiera pewną ilość magazynu OLTP w pamięci.
 
@@ -149,7 +149,7 @@ Jednak obniżenie warstwy może mieć negatywny wpływ na bazę danych. Ten wpł
 
 Przed obniżeniem poziomu bazy danych do Ogólnego przeznaczenia, Standard lub Basic, Usuń wszystkie tabele zoptymalizowane pod kątem pamięci i typy tabel, a także wszystkie natywnie skompilowane moduły T-SQL.
 
-*Skalowanie zasobów w warstwie krytyczne dla działania firmy*: dane w tabelach zoptymalizowanych pod kątem pamięci muszą mieścić się w magazynie OLTP w pamięci, który jest skojarzony z warstwą bazy danych lub wystąpienia zarządzanego, lub jest dostępny w puli elastycznej. W przypadku próby skalowania w dół warstwy lub przeniesienia bazy danych do puli, która nie ma wystarczającej ilości dostępnego magazynu OLTP w pamięci, operacja kończy się niepowodzeniem.
+*Skalowanie zasobów w warstwie krytyczne dla działania firmy*: dane w tabelach zoptymalizowanych pod kątem pamięci muszą pasować do magazynu OLTP w pamięci, który jest skojarzony z warstwą bazy danych lub wystąpienia zarządzanego, lub jest dostępny w puli elastycznej. W przypadku próby skalowania w dół warstwy lub przeniesienia bazy danych do puli, która nie ma wystarczającej ilości dostępnego magazynu OLTP w pamięci, operacja kończy się niepowodzeniem.
 
 ## <a name="in-memory-columnstore"></a>Magazyn kolumn w pamięci
 
@@ -183,7 +183,7 @@ W przypadku korzystania z nieklastrowanych indeksów magazynu kolumn tabela pods
 Jeśli masz **klastrowany** indeks magazynu kolumn, cała tabela staną się niedostępna po obniżeniu poziomu. Dlatego zalecamy porzucenie wszystkich *klastrowanych* indeksów magazynu kolumn przed obniżeniem poziomu bazy danych na nieobsługiwaną warstwę lub poziom.
 
 > [!Note]
-> Wystąpienie zarządzane obsługuje indeksy magazynu kolumn we wszystkich warstwach.
+> Wystąpienie zarządzane SQL obsługuje indeksy magazynu kolumn we wszystkich warstwach.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
@@ -192,7 +192,7 @@ Jeśli masz **klastrowany** indeks magazynu kolumn, cała tabela staną się nie
 - [Szybki Start 1: technologie OLTP w pamięci do szybszej wydajności T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
 - [Używanie OLTP w pamięci w istniejącej aplikacji Azure SQL](in-memory-oltp-configure.md)
 - [Monitorowanie magazynu OLTP w pamięci](in-memory-oltp-monitor-space.md) na potrzeby przetwarzania OLTP w pamięci
-- [Wypróbuj funkcje w pamięci](in-memory-sample.md)
+- [Próbowanie funkcji w pamięci](in-memory-sample.md)
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

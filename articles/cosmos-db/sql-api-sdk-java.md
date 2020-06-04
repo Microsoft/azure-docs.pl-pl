@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 53ae3217e77a9301cbe0d3d63ce0712a0b9b7f1e
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 799f38cff1c10da1b0d280121a7a5ab4a380152d
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171620"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331427"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -42,11 +42,17 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 |**Pobieranie zestawu SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Java](/java/api/com.microsoft.azure.documentdb)|
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Wprowadzenie**|[Wprowadzenie do zestawu Java SDK](sql-api-java-get-started.md)|
+|**Rozpoczęcie pracy**|[Wprowadzenie do zestawu Java SDK](sql-api-java-get-started.md)|
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-java-application.md)|
 |**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
-## <a name="release-notes"></a>Informacje o wersji
+## <a name="release-notes"></a>Uwagi do wersji
+
+### <a name="251"></a><a name="2.5.1"></a>2.5.1
+* Rozwiązuje problem z pamięcią podręczną partycji głównej w zapytaniu documentcollection.
+
+### <a name="250"></a><a name="2.5.0"></a>2.5.0
+* Dodano obsługę niestandardowej konfiguracji ponowień 449.
 
 ### <a name="247"></a><a name="2.4.7"></a>2.4.7
 * Rozwiązuje problem z limitem czasu puli połączeń.
@@ -268,6 +274,8 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 
 | Wersja | Data wydania | Data wycofania |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |03, 2020 |--- |
+| [2.5.0](#2.5.0) |12 maja 2020 |--- |
 | [2.4.7](#2.4.7) |20 lutego 2020 |--- |
 | [2.4.6](#2.4.6) |24 stycznia 2020 |--- |
 | [2.4.5](#2.4.5) |Lis 10, 2019 |--- |
@@ -325,6 +333,6 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .
 

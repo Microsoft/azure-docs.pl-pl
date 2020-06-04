@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: d5b4986c24a1db61527e6a9ff7be249f189d6248
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 3db9dc260cb8546109870834f364c62305aa3fbb
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248553"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324525"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Często zadawane pytania — ogólne pytania dotyczące Azure Security Center
 
@@ -37,14 +37,8 @@ Azure Security Center monitoruje następujące zasoby platformy Azure:
 
 * Maszyny wirtualne (z uwzględnieniem [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Zestawy skalowania maszyn wirtualnych
-* Sieci wirtualne platformy Azure
-* Containers
-* Usługa Azure SQL
-* Konto usługi Azure Storage
-* Web Apps platformy Azure (w [App Service Environment](../app-service/environment/intro.md))
 * Rozwiązania partnerskie zintegrowane z subskrypcją platformy Azure, taką jak Zapora aplikacji sieci Web na maszynach wirtualnych i na App Service Environment
-
-Ponadto komputery spoza platformy Azure (w tym lokalne) mogą być również monitorowane przez Azure Security Center. Obsługiwane są zarówno [maszyny z systemem Windows](./quick-onboard-windows-computer.md) , jak i komputery z systemem [Linux](./quick-onboard-linux-computer.md) .
+* [Wiele usług PaaS platformy Azure wymienionych w przeglądzie produktu](features-paas.md)
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Jak można zobaczyć bieżący stan zabezpieczeń moich zasobów platformy Azure?

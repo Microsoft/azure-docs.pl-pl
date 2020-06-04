@@ -8,17 +8,18 @@ author: asudbring
 manager: KumudD
 Customer intent: I want to test a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: b3e10b3abbe5c9815e51ce67786882dbd294df3f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b1ca26a63c910861d333f707d13946c5e046f599
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79202237"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84340984"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Samouczek: Tworzenie bramy NAT przy użyciu interfejsu wiersza polecenia platformy Azure i testowanie usługi translatora adresów sieciowych
 
@@ -390,13 +391,13 @@ Teraz można przystąpić do testowania usługi translatora adresów sieciowych.
 
 Po zalogowaniu się do źródłowej maszyny wirtualnej można użyć jej **zwinięcie** i **Hej** do generowania żądań na docelowy adres IP.
 
-Użyj zwinięciea, aby pobrać plik 100-kilobajtów.  Zastąp ** \<>IP-Address-Destination** w poniższym przykładzie z docelowym wcześniej skopiowanym adresem IP.  Parametr **--Output** wskazuje, że pobrany plik zostanie odrzucony.
+Użyj zwinięciea, aby pobrać plik 100-kilobajtów.  **\<ip-address-destination>** W poniższym przykładzie Zastąp wartość docelowym wcześniej skopiowanym adresem IP.  Parametr **--Output** wskazuje, że pobrany plik zostanie odrzucony.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
 ```
 
-Możesz również generować serię żądań za pomocą polecenia **Hej**. Ponownie Zastąp ** \<>IP-Address-Destination** adresem IP, który został wcześniej skopiowany.
+Możesz również generować serię żądań za pomocą polecenia **Hej**. Ponownie Zastąp **\<ip-address-destination>** wartość docelowym adresem IP, który został wcześniej skopiowany.
 
 ```bash
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k

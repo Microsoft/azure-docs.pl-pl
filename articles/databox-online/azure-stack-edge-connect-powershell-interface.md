@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ee69015b52024ba4edaaa414a0d9dda753510b3e
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 445e86f1979d52496052572c1682e0b894d512dd
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570098"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84339879"
 ---
 # <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Zarządzanie urządzeniem brzegowym Azure Stack za pomocą programu Windows PowerShell
 
@@ -71,7 +71,7 @@ Aby uzyskać więcej informacji na temat certyfikatów, przejdź do pozycji [Azu
 Jeśli na urządzeniu skonfigurowano rolę obliczeniową, można także uzyskać dzienniki obliczeń za pomocą interfejsu programu PowerShell.
 
 1. [Nawiąż połączenie z interfejsem programu PowerShell](#connect-to-the-powershell-interface).
-2. Użyj, `Get-AzureDataBoxEdgeComputeRoleLogs` aby pobrać dzienniki obliczeniowe dla Twojego urządzenia.
+2. Użyj, `Get-AzureDataBoxEdgeComputeRoleLogs` Aby pobrać dzienniki obliczeniowe dla Twojego urządzenia.
 
     W poniższym przykładzie pokazano użycie tego polecenia cmdlet:
 

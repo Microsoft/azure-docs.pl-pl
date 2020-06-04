@@ -3,12 +3,12 @@ title: Oceny w Azure Migrate oceny serwera
 description: Dowiedz się więcej na temat ocen w Azure Migrate oceny serwera
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: bfae3f23dd16b0d1a09b49f56efbca88a7bea08f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: ee6b13edd12109b7f748abeaf13a5e8f3ded2a8e
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171008"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343952"
 ---
 # <a name="assessments-in-azure-migrate-server-assessment"></a>Oceny w Azure Migrate: Ocena serwera
 
@@ -110,7 +110,7 @@ Właściwość | Szczegóły
 **Lokalizacja docelowa** | Lokalizacja, do której chcesz przeprowadzić migrację. Ocena serwera obsługuje obecnie następujące docelowe regiony platformy Azure:<br/><br/> Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada środkowa, Kanada Wschodnia, Indie Środkowe, środkowe stany USA, Chiny Wschodnie, Chiny Północne, Azja Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Niemcy środkowe, Niemcy Południowo-Wschodnia, Japonia Południowo-Wschodnia, Japonia Zachodnia, Korea środkowa, Południowe stany USA, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Indie Południowe , Zachodnio-środkowe stany USA, Europa Zachodnia, Indie Zachodnie, zachodnie stany USA i zachodnie stany USA 2.
 **Docelowy dysk magazynujący (w przypadku zmiany wielkości liter)** | Typ dysku do użycia na potrzeby magazynu na platformie Azure. <br/><br/> Określ docelowy dysk magazynujący jako zarządzany przez usługę Premium, zarządzany SSD w warstwie Standardowa lub HDD w warstwie Standardowa.
 **Docelowy dysk magazynujący (ustalanie wielkości na podstawie wydajności)** | Określa typ docelowego dysku magazynującego, który ma być zarządzany przez funkcję automatycznej, w warstwie Premium — zarządzany HDD w warstwie Standardowa lub SSD w warstwie Standardowa.<br/><br/> **Automatyczne**: zalecenie dysku opiera się na danych wydajności dysków, co oznacza liczbę IOPS i przepływność.<br/><br/>**Premium lub standard**: Ocena zaleca użycie jednostki SKU dysku w wybranym typie magazynu.<br/><br/> Jeśli chcesz uzyskać umowę na poziomie usług (SLA) na jednym wystąpieniu maszyny wirtualnej o wartości 99,9%, rozważ użycie dysków zarządzanych w warstwie Premium. Pozwala to zagwarantować, że wszystkie dyski w ocenie są zalecane jako dyski zarządzane w warstwie Premium.<br/><br/> Azure Migrate obsługuje tylko dyski zarządzane na potrzeby oceny migracji.
-**Azure Reserved VM Instances** | Określa [wystąpienia zarezerwowane](https://azure.microsoft.com/pricing/reserved-vm-instances/) , aby oszacować koszt w ocenie wziąć pod uwagę.<br/><br/> Jeśli wybrane są zarezerwowane wystąpienia, Pozostaw domyślne ustawienia w polu Rabat (%) i właściwości czasu działania maszyny wirtualnej.<br/><br/> Azure Migrate obecnie obsługuje Azure Reserved VM Instances tylko w przypadku ofert z opcją płatność zgodnie z rzeczywistym użyciem.
+**Azure Reserved VM Instances** | Określa [wystąpienia zarezerwowane](https://azure.microsoft.com/pricing/reserved-vm-instances/) , aby oszacować koszt w ocenie wziąć pod uwagę.<br/><br/> Po wybraniu opcji "zarezerwowane wystąpienia" rabat (%) i nie mają zastosowania właściwości "czas pracy maszyny wirtualnej".<br/><br/> Azure Migrate obecnie obsługuje Azure Reserved VM Instances tylko w przypadku ofert z opcją płatność zgodnie z rzeczywistym użyciem.
 **Kryteria ustalania wielkości** | Używane do rightsize maszyny wirtualnej platformy Azure.<br/><br/> Używaj wielkości liter lub wielkości na podstawie wydajności.
 **Historia wydajności** | Używane z rozmiarem opartym na wydajności. Historia wydajności określa czas trwania używany podczas oceniania danych wydajności.
 **Użycie percentyla** | Używane z rozmiarem opartym na wydajności. Użycie percentylu określa wartość percentylości próbki wydajności używanej dla odpowiedniej zmiany.
@@ -154,7 +154,8 @@ Właściwość | Szczegóły | Stan gotowości platformy Azure
 Wraz z przeglądaniem właściwości maszyny wirtualnej Ocena serwera jest sprawdzana na komputerze z systemem operacyjnym gościa, aby określić, czy może on działać na platformie Azure.
 
 > [!NOTE]
-> Aby obsłużyć analizę gościa maszyn wirtualnych VMware, Ocena serwera używa systemu operacyjnego określonego dla maszyny wirtualnej w vCenter Server. W przypadku maszyn wirtualnych z systemem Linux działających w oprogramowaniu VMware Ocena serwera obecnie nie identyfikuje wersji jądra systemu operacyjnego gościa.
+> Aby obsłużyć analizę gościa maszyn wirtualnych VMware, Ocena serwera używa systemu operacyjnego określonego dla maszyny wirtualnej w vCenter Server. Jednak vCenter Server nie zapewnia wersji jądra dla systemów operacyjnych maszyn wirtualnych z systemem Linux. Aby odnaleźć wersję, należy skonfigurować [odnajdywanie aplikacji](https://docs.microsoft.com/azure/migrate/how-to-discover-applications). Następnie urządzenie odnajduje informacje o wersji przy użyciu poświadczeń gościa określonych podczas konfigurowania funkcji odnajdywania aplikacji.
+
 
 W celu identyfikacji gotowości platformy Azure opartej na systemie operacyjnym Ocena serwera korzysta z następującej logiki:
 
@@ -199,7 +200,8 @@ W przypadku korzystania z ustalania rozmiarów na podstawie wydajności Ocena se
 
 W przypadku określania wielkości magazynu Azure Migrate próbuje zmapować każdy dysk dołączony do maszyny do dysku platformy Azure. Ustalanie wielkości przebiega w następujący sposób:
 
-1. Ocena serwera umożliwia dodanie operacji odczytu i zapisu na dysku, aby uzyskać łączną liczbę operacji we/wy na sekundę. Podobnie dodaje wartości przepływności odczytu i zapisu w celu uzyskania całkowitej przepływności każdego dysku.
+1. Ocena serwera umożliwia dodanie operacji odczytu i zapisu na dysku, aby uzyskać łączną liczbę operacji we/wy na sekundę. Podobnie dodaje wartości przepływności odczytu i zapisu w celu uzyskania całkowitej przepływności każdego dysku. W przypadku ocen opartych na imporcie istnieje możliwość zapewnienia łącznej liczby operacji we/wy, całkowitej przepływności i łącznej liczby operacji. dysków w zaimportowanym pliku bez określania poszczególnych ustawień dysków. W takim przypadku pozostało, że rozmiar poszczególnych dysków zostanie pominięty, a podane dane są używane bezpośrednio do obliczania wielkości i wybrania odpowiedniej jednostki SKU maszyny wirtualnej.
+
 1. Jeśli typ magazynu został określony jako automatyczny, wybrany typ jest oparty na wartościach operacji wejścia/wyjścia na sekundę. Ocena serwera określa, czy dysk ma zostać zmapowany na dysk HDD w warstwie Standardowa, SSD w warstwie Standardowa lub Premium na platformie Azure. Jeśli typ magazynu jest ustawiony na jeden z tych typów dysków, Ocena serwera próbuje znaleźć jednostkę SKU dysku w wybranym typie magazynu.
 1. Dyski są wybierane w następujący sposób:
     - Jeśli Ocena serwera nie może znaleźć dysku z wymaganą liczbą operacji we/wy i przepływności, oznacza to, że maszyna jest nieodpowiednia dla platformy Azure.

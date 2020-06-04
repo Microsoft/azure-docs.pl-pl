@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 123ef7de338bfe872948db60c68c0c5743f5cda1
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257487"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345142"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Dodawanie elementów Runbook usługi Azure Automation do planów odzyskiwania
 
@@ -56,6 +56,9 @@ Po uruchomieniu skryptu wprowadza kontekst planu odzyskiwania do elementu Runboo
 | CloudServiceName |Nazwa usługi w chmurze platformy Azure, w której została utworzona maszyna wirtualna. |
 | RoleName |Nazwa maszyny wirtualnej platformy Azure. |
 | RecoveryPointId|Sygnatura czasowa odzyskiwania maszyny wirtualnej. |
+
+>[!Note]
+>Wartość zmiennej "element failoverdirection" będzie równa "PrimaryToSecondary" w przypadku przejścia w tryb failover i "SecondaryToPrimary" w przypadku powrotu po awarii.
 
 W poniższym przykładzie przedstawiono zmienną kontekstową:
 
@@ -117,7 +120,7 @@ Blog Aman Sharma w usłudze w [chmurze zbierających](http://harvestingclouds.co
 
     ![Kliknij przycisk Dostosuj](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Kliknij przycisk wielokropka (...) obok pozycji **Grupa 1: Rozpocznij** > **Dodawanie wpisu**.
+2. Kliknij przycisk wielokropka (...) obok pozycji **Grupa 1: Rozpocznij**  >  **Dodawanie wpisu**.
 3. W obszarze **Wstaw akcję**Sprawdź, czy jest wybrany **skrypt** , a następnie określ nazwę skryptu (**Hello World**).
 4. Określ konto usługi Automation i wybierz element Runbook. Aby zapisać skrypt, kliknij przycisk **OK**. Skrypt zostanie dodany do **grupy 1: kroki po kroku**.
 

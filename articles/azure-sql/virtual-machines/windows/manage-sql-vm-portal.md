@@ -13,17 +13,17 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6cf6fac84abd1d996c77aae7240c0322c5ec53fb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8d04099bc4b384c4b8554a77bafd5d669f0d0e76
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049071"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344237"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Zarządzanie maszynami wirtualnymi SQL Server na platformie Azure przy użyciu Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-W [Azure Portal](https://portal.azure.com)zasób **maszyny wirtualne SQL** jest niezależną usługą zarządzania. Służy do wyświetlania wszystkich SQL Server maszyn wirtualnych jednocześnie i modyfikowania ustawień przeznaczonych dla SQL Server: 
+W [Azure Portal](https://portal.azure.com) **jest to** niezależna usługa zarządzania. Służy do wyświetlania wszystkich SQL Server maszyn wirtualnych jednocześnie i modyfikowania ustawień przeznaczonych dla SQL Server: 
 
 ![Zasób maszyn wirtualnych SQL](./media/manage-sql-vm-portal/sql-vm-manage.png)
 

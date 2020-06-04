@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8aa4fe143c78d2053ce8c48e4866a5522057aa0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61f98d7de6c278416b4bb46074cad9f9e143d468
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063025"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341069"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrowanie do usługi Azure Virtual WAN
 
@@ -20,21 +20,21 @@ Wirtualna sieć WAN platformy Azure umożliwia firmom uproszczenie łączności 
 
 Aby uzyskać informacje o korzyściach, które usługa Azure Virtual WAN umożliwia przedsiębiorstwom wdrażanie nowoczesnej sieci globalnej opartej na chmurze, zobacz [Globalna architektura sieci tranzytowej i wirtualna sieć WAN](virtual-wan-global-transit-network-architecture.md).
 
-![](./media/migrate-from-hub-spoke-topology/hub-spoke.png)
-gwiazdy **: Azure Virtual WAN**
+![gwiazdy ](./media/migrate-from-hub-spoke-topology/hub-spoke.png)
+ **: Azure Virtual WAN**
 
-Model łączności centrum danych (VDC) platformy Azure został przyjęty przez tysiące naszych klientów w celu wykorzystania domyślnego, przechodniego zachowania routingu w sieci platformy Azure w celu tworzenia prostych i skalowalnych sieci w chmurze. Wirtualne sieci WAN platformy Azure bazują na tych pojęciach i wprowadzają nowe funkcje, które umożliwiają globalne topologie łączności, nie tylko między lokalizacjami lokalnymi i platformą Azure, ale również umożliwiają klientom wykorzystanie skali sieci firmy Microsoft w celu rozszerzenia istniejących sieci globalnych.
+Model łączności usługi Azure Hub i szprych został przyjęty przez tysiące naszych klientów w celu wykorzystania domyślnego, przechodniego zachowania routingu sieci platformy Azure w celu tworzenia prostych i skalowalnych sieci w chmurze. Wirtualne sieci WAN platformy Azure bazują na tych pojęciach i wprowadzają nowe funkcje, które umożliwiają globalne topologie łączności, nie tylko między lokalizacjami lokalnymi i platformą Azure, ale również umożliwiają klientom wykorzystanie skali sieci firmy Microsoft w celu rozszerzenia istniejących sieci globalnych.
 
 W tym artykule pokazano, jak przeprowadzić migrację istniejącego środowiska hybrydowego do wirtualnej sieci WAN.
 
 ## <a name="scenario"></a>Scenariusz
 
-Contoso to globalna organizacja finansowa z biurami w Europie i Azji. Są one planowane do przenoszenia istniejących aplikacji z lokalnego centrum danych na platformę Azure i opracowano projekt podstaw oparty na architekturze VDC, w tym regionalnych sieci wirtualnych centrów zarządzanych przez klienta na potrzeby łączności hybrydowej. W ramach przechodzenia do technologii opartych na chmurze zespół sieci został poddany do zagwarantowania, że ich łączność jest zoptymalizowana pod kątem rozwoju firmy.
+Contoso to globalna organizacja finansowa z biurami w Europie i Azji. Są one planowane do przenoszenia istniejących aplikacji z lokalnego centrum danych na platformę Azure i opracowano projekt podstaw oparty na ręcznej architekturze centrów i szprych, w tym regionalnych sieci wirtualnych centrów zarządzanych przez klienta na potrzeby łączności hybrydowej. W ramach przechodzenia do technologii opartych na chmurze zespół sieci został poddany do zagwarantowania, że ich łączność jest zoptymalizowana pod kątem rozwoju firmy.
 
 Na poniższej ilustracji przedstawiono ogólny widok istniejącej sieci globalnej, w tym połączenie z wieloma regionami świadczenia usługi Azure.
 
-![Ilustracja istniejącej topologii](./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png)
-sieci **: contoso istniejąca topologia sieci**
+![Ilustracja istniejącej topologii sieci ](./media/migrate-from-hub-spoke-topology/contoso-pre-migration.png)
+ **: contoso istniejąca topologia sieci**
 
 Następujące punkty można zrozumieć z istniejącej topologii sieci:
 
@@ -61,8 +61,8 @@ Zespół sieci został poddany procesowi dostarczającemu globalny model sieci, 
 
 Na poniższej ilustracji przedstawiono ogólny widok zaktualizowanej topologii docelowej przy użyciu wirtualnej sieci WAN platformy Azure, aby spełnić wymagania opisane w poprzedniej sekcji.
 
-![Ilustracja architektury](./media/migrate-from-hub-spoke-topology/vwan-architecture.png)
-wirtualnej sieci WAN firmy Contoso **: architektura wirtualnej sieci WAN platformy Azure**
+![Ilustracja architektury wirtualnej sieci WAN firmy Contoso ](./media/migrate-from-hub-spoke-topology/vwan-architecture.png)
+ **: architektura wirtualnej sieci WAN platformy Azure**
 
 Podsumowanie:
 
@@ -78,14 +78,14 @@ Podsumowanie:
 
 W tej sekcji przedstawiono różne kroki migracji do wirtualnej sieci WAN platformy Azure.
 
-### <a name="step-1-vdc-hub-and-spoke-single-region"></a>Krok 1. VDC Hub i szprychy w jednym regionie
+### <a name="step-1-single-region-customer-managed-hub-and-spoke"></a>Krok 1. centrum zarządzane przez klienta w jednym regionie i szprych
 
-Przejrzyj architekturę. Na poniższej ilustracji przedstawiono topologię jednego regionu dla firmy Contoso przed wdrożeniem wirtualnej sieci WAN platformy Azure:
+Na poniższej ilustracji przedstawiono topologię jednego regionu dla firmy Contoso przed wdrożeniem wirtualnej sieci WAN platformy Azure:
 
-![Topologia](./media/migrate-from-hub-spoke-topology/figure1.png)
-jednoregionowa **— rysunek 1: VDC Hub i szprych w jednym regionie**
+![Topologia jednoregionowa ](./media/migrate-from-hub-spoke-topology/figure1.png)
+ **— rysunek 1: ręczne centrum i-szprych z pojedynczym regionem**
 
-W zachowaniu z podejściem do wirtualnego centrum danych (VDC), Sieć wirtualna centrum zarządzanego przez klienta zawiera kilka bloków funkcji:
+W zachowaniu z podejściem gwiazdy i gwiazdy Sieć wirtualna centrum zarządzanego przez klienta zawiera kilka bloków funkcji:
 
 - Usługi udostępnione (każda wspólna funkcja wymagana przez wiele szprych). Przykład: Contoso używa kontrolerów domeny systemu Windows Server na maszynach wirtualnych "infrastruktura jako usługa" (IaaS).
 - Usługi zapory IP/routingu są udostępniane przez urządzenie wirtualne sieci innej firmy, co umożliwia routing protokołu IP dla satelity.
@@ -102,8 +102,8 @@ Wdróż Wirtualne Centrum sieci WAN w każdym regionie. Skonfiguruj Wirtualne Ce
 > [!NOTE]
 > Wirtualna sieć WAN platformy Azure musi używać standardowej jednostki SKU do włączania niektórych ścieżek ruchu pokazanych w tym artykule.
 
-![Wdrażanie koncentratorów](./media/migrate-from-hub-spoke-topology/figure2.png)
-wirtualnych sieci WAN**rysunek 2: VDC Hub-and-szprych do migracji wirtualnej sieci WAN**
+![Wdrażanie koncentratorów wirtualnych sieci WAN ](./media/migrate-from-hub-spoke-topology/figure2.png)
+ **rysunek 2: zarządzane przez klienta centrum i współdziałanie z wirtualną migracją sieci WAN**
 
 ### <a name="step-3-connect-remote-sites-expressroute-and-vpn-to-virtual-wan"></a>Krok 3. Łączenie z witrynami zdalnymi (ExpressRoute i VPN) z wirtualną siecią WAN
 
@@ -112,39 +112,39 @@ Podłącz wirtualne koncentrator sieci WAN do istniejących obwodów usługi Exp
 > [!NOTE]
 > Obwody usługi Express Routes muszą zostać uaktualnione do typu SKU Premium, aby połączyć się z koncentratorem wirtualnej sieci WAN.
 
-![Połącz Lokacje zdalne z wirtualną](./media/migrate-from-hub-spoke-topology/figure3.png)
-siecią WAN**rysunek 3: VDC Hub-and-szprych do migracji wirtualnej sieci WAN**
+![Połącz Lokacje zdalne z wirtualną siecią WAN ](./media/migrate-from-hub-spoke-topology/figure3.png)
+ **rysunek 3: zarządzane przez klienta centrum-i-szprych do migracji wirtualnej sieci WAN**
 
-W tym momencie lokalne urządzenie sieciowe rozpocznie odbieranie tras odzwierciedlających przestrzeń adresową IP przypisaną do sieci wirtualnej koncentratora zarządzanego przez sieć WAN. Rozgałęzienia połączonej sieci VPN na tym etapie zostaną wyświetlone dwie ścieżki do wszystkich istniejących aplikacji w sieciach wirtualnych szprych. Te urządzenia powinny być skonfigurowane tak, aby w dalszym ciągu używać tunelu do koncentratora VDC w celu zapewnienia symetrycznego routingu podczas fazy przejścia.
+W tym momencie lokalne urządzenie sieciowe rozpocznie odbieranie tras odzwierciedlających przestrzeń adresową IP przypisaną do sieci wirtualnej koncentratora zarządzanego przez sieć WAN. Rozgałęzienia połączonej sieci VPN na tym etapie zostaną wyświetlone dwie ścieżki do wszystkich istniejących aplikacji w sieciach wirtualnych szprych. Te urządzenia powinny być skonfigurowane tak, aby w dalszym ciągu używać tunelu do koncentratora zarządzanego przez klienta w celu zapewnienia symetrycznego routingu podczas fazy przejścia.
 
 ### <a name="step-4-test-hybrid-connectivity-via-virtual-wan"></a>Krok 4. Testowanie łączności hybrydowej za pośrednictwem wirtualnej sieci WAN
 
 Przed rozpoczęciem korzystania z zarządzanego wirtualnego koncentratora sieci WAN na potrzeby łączności produkcyjnej zalecamy skonfigurowanie sieci wirtualnej szprychy testowej i wirtualnego połączenia z siecią wirtualną sieci WAN. Sprawdź, czy połączenia z tym środowiskiem testowym działają przez ExpressRoute i sieci VPN między lokacjami, przed przejściem do następnego kroku.
 
-![Testowanie łączności hybrydowej za pośrednictwem wirtualnej sieci WAN](./media/migrate-from-hub-spoke-topology/figure4.png)
-**rysunek 4: VDC Hub-and-szprych do migracji wirtualnej sieci WAN**
+![Testowanie łączności hybrydowej za pośrednictwem wirtualnej sieci WAN ](./media/migrate-from-hub-spoke-topology/figure4.png)
+ **rysunek 4: zarządzane przez klienta centrum-i-szprych do migracji wirtualnej sieci WAN**
 
 ### <a name="step-5-transition-connectivity-to-virtual-wan-hub"></a>Krok 5. przejście do koncentratora wirtualnej sieci WAN
 
-![Przejście do usługi Virtual WAN Hub](./media/migrate-from-hub-spoke-topology/figure5.png)
-**rysunek 5: VDC Hub-and-szprych do migracji wirtualnej sieci WAN**
+![Przejście do wirtualnego koncentratora sieci WAN ](./media/migrate-from-hub-spoke-topology/figure5.png)
+ **rysunek 5: zarządzane przez klienta centrum-i-szprych do migracji wirtualnej sieci WAN**
 
-**a**. Usuń istniejące połączenia komunikacji równorzędnej z sieci wirtualnych szprych do starego centrum VDC. Dostęp do aplikacji w sieciach wirtualnych szprych jest niedostępny do momentu ukończenia kroków a-c.
+**a**. Usuń istniejące połączenia komunikacji równorzędnej z sieci wirtualnych szprych do starego centrum zarządzanego przez klienta. Dostęp do aplikacji w sieciach wirtualnych szprych jest niedostępny do momentu ukończenia kroków a-c.
 
 **b**. Połącz sieci wirtualne szprych z koncentratorem wirtualnej sieci WAN za pośrednictwem połączeń sieci wirtualnej.
 
 **c**. Usuń wszystkie trasy zdefiniowane przez użytkownika (UDR) wcześniej używane w sieciach wirtualnych szprych w przypadku komunikacji między satelitami. Ta ścieżka jest teraz włączona przez dynamiczny Routing dostępny w koncentratorze sieci wirtualnej.
 
-**d**. Istniejące bramy ExpressRoute i VPN w centrum VDC zostały teraz zlikwidowane, aby zezwolić na następny krok (e).
+**d**. Istniejące bramy ExpressRoute i VPN w centrum zarządzanym przez klienta zostały teraz zlikwidowane, aby zezwolić na następny krok (e).
 
-**e**. Podłącz stare VDC Hub (Centrum sieci wirtualnej) do wirtualnego koncentratora sieci WAN za pośrednictwem nowego połączenia sieci wirtualnej.
+**e**. Podłącz stare centrum zarządzane przez klienta (koncentrator sieci wirtualnej) do wirtualnego koncentratora sieci WAN za pośrednictwem nowego połączenia sieci wirtualnej.
 
 ### <a name="step-6-old-hub-becomes-shared-services-spoke"></a>Krok 6. stare centrum staną się usługami udostępnionymi szprych
 
 Przeprojektowano teraz sieć platformy Azure w celu udostępnienia koncentratora wirtualnego sieci WAN centralnym punktem w naszej nowej topologii.
 
-![Stary centrum stał się usługami udostępnionymi szprychs](./media/migrate-from-hub-spoke-topology/figure6.png)
-**6: VDC Hub-and-szprych do migracji wirtualnej sieci WAN**
+![Stary centrum staną się usługami udostępnionymi szprychs ](./media/migrate-from-hub-spoke-topology/figure6.png)
+ **6: zarządzane przez klienta centrum-i-szprych do migracji wirtualnej sieci WAN**
 
 Ponieważ wirtualne Centrum sieci WAN jest zarządzaną jednostką i nie zezwala na wdrażanie zasobów niestandardowych, takich jak maszyny wirtualne, blok usługi udostępnione teraz istnieje jako sieć wirtualna szprych i udostępnia funkcje, takie jak ruch internetowy za pośrednictwem platformy Azure Application Gateway lub sieciowego zwirtualizowanej sieci. Ruch między środowiskiem usług udostępnionych i maszynami wirtualnymi zaplecza teraz przesyła koncentrator zarządzany przez wirtualną sieć WAN.
 
@@ -152,8 +152,8 @@ Ponieważ wirtualne Centrum sieci WAN jest zarządzaną jednostką i nie zezwala
 
 Na tym etapie firma Contoso przede wszystkim ukończyła migrację aplikacji firmowych do Microsoft Cloud z uwzględnieniem tylko kilku starszych aplikacji w lokalnym kontrolerze domeny.
 
-![Optymalizuj połączenie lokalne, aby w pełni wykorzystać wirtualne sieci](./media/migrate-from-hub-spoke-topology/figure7.png)
-WAN**rysunek 7: VDC Hub-and-szprych do migracji wirtualnej sieci WAN**
+![Optymalizuj połączenie lokalne, aby w pełni wykorzystać wirtualne sieci WAN ](./media/migrate-from-hub-spoke-topology/figure7.png)
+ **rysunek 7: zarządzane przez klienta centrum i współdziałanie z wirtualną migracją sieci WAN**
 
 Aby skorzystać z pełnej funkcjonalności wirtualnej sieci WAN platformy Azure, firma Contoso decyduje o zlikwidowaniu starszych lokalnych połączeń sieci VPN. Wszystkie gałęzie w celu uzyskania dostępu do sieci CENTRALĄ lub DC mogą przekierować sieć globalną firmy Microsoft przy użyciu wbudowanego routingu tranzytowego wirtualnej sieci WAN platformy Azure.
 
@@ -162,8 +162,8 @@ Aby skorzystać z pełnej funkcjonalności wirtualnej sieci WAN platformy Azure,
 
 ## <a name="end-state-architecture-and-traffic-paths"></a>Architektura stanu końcowego i ścieżki ruchu
 
-![Architektura stanu końcowego i ścieżki](./media/migrate-from-hub-spoke-topology/figure8.png)
-ruchu **: wirtualna sieć WAN dwuregionowa**
+![Architektura stanu końcowego i ścieżki ruchu ](./media/migrate-from-hub-spoke-topology/figure8.png)
+ **: wirtualna sieć WAN dwuregionowa**
 
 Ta sekcja zawiera podsumowanie, w jaki sposób Ta topologia spełnia pierwotne wymagania, patrząc na kilka przykładowych przepływów ruchu.
 
@@ -231,8 +231,8 @@ Ruch jest kierowany w następujący sposób:
 
 Firma Contoso ma teraz zweryfikowane połączenie między wszystkimi gałęziami i sieci wirtualnych zgodnie z wymaganiami omówionymi wcześniej w tym artykule. Aby spełnić wymagania dotyczące kontroli zabezpieczeń i izolacji sieci, muszą one nadal oddzielić ruch i rejestrować go za pośrednictwem sieci centrum. Wcześniej ta funkcja była wykonywana przez wirtualne urządzenie sieciowe (urządzenie WUS). Firma Contoso chce również zlikwidować istniejące usługi proxy i korzystać z natywnych usług platformy Azure na potrzeby filtrowania ruchu internetowego.
 
-![Kontrola zabezpieczeń i zasad za pośrednictwem](./media/migrate-from-hub-spoke-topology/security-policy.png)
-zapory platformy Azure **: Zapora platformy Azure w wirtualnej sieci WAN (zabezpieczony koncentrator wirtualny)**
+![Kontrola zabezpieczeń i zasad za pośrednictwem zapory platformy Azure ](./media/migrate-from-hub-spoke-topology/security-policy.png)
+ **: Zapora platformy Azure w wirtualnej sieci WAN (zabezpieczony koncentrator wirtualny)**
 
 Poniższe kroki wysokiego poziomu są wymagane do wprowadzenia zapory platformy Azure do wirtualnych koncentratorów sieci WAN w celu zapewnienia ujednoliconego punktu kontroli zasad. Aby uzyskać więcej informacji na temat tego procesu i koncepcji bezpiecznych centrów wirtualnych, zobacz [Menedżer zapory platformy Azure](../firewall-manager/index.yml).
 

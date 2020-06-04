@@ -1,6 +1,6 @@
 ---
 title: Konfigurowanie grupy dostępności niezależnej od domeny
-description: Dowiedz się, jak skonfigurować niezależną od domena usługi Active Directory grupę dostępności zawsze włączona na SQL Server maszynie wirtualnej na platformie Azure.
+description: Dowiedz się, jak skonfigurować grupę dostępności niezależną od domeny Active Directory na SQL Server maszynie wirtualnej na platformie Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 36c4a141acf38d83ff925bafaa75c294847a7d74
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 0d3e7e7de6d8f044355a43eb870420ad121ed61f
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049330"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343697"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Konfigurowanie grupy dostępności grupy roboczej 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -36,7 +36,7 @@ Aby skonfigurować grupę dostępności grupy roboczej, potrzebne są następuj�
 
 W przypadku odwołania do tego artykułu są używane następujące parametry, ale w razie potrzeby można je zmodyfikować: 
 
-| **Nazwa** | **Konstruktora** |
+| **Nazwa** | **Parametr** |
 | :------ | :---------------------------------- |
 | **Węzeł1**   | AGNode1 (10.0.0.4) |
 | **Węzeł2**   | AGNode2 (10.0.0.5) |
@@ -46,13 +46,13 @@ W przypadku odwołania do tego artykułu są używane następujące parametry, a
 | **Nazwa grupy roboczej** | AGWorkgroup | 
 | &nbsp; | &nbsp; |
 
-## <a name="set-dns-suffix"></a>Ustawianie sufiksu DNS 
+## <a name="set-a-dns-suffix"></a>Ustawianie sufiksu DNS 
 
 W tym kroku Skonfiguruj sufiks DNS dla obu serwerów. Na przykład `ag.wgcluster.example.com`. Dzięki temu można użyć nazwy obiektu, z którym chcesz nawiązać połączenie jako w pełni kwalifikowanego adresu w sieci, na przykład `AGNode1.ag.wgcluster.example.com` . 
 
 Aby skonfigurować sufiks DNS, wykonaj następujące kroki:
 
-1. Połącz protokół RDP z pierwszym węzłem i Otwórz Menedżer serwera. 
+1. Protokół RDP w pierwszym węźle i otwiera Menedżer serwera. 
 1. Wybierz pozycję **serwer lokalny** , a następnie wybierz nazwę maszyny wirtualnej w polu **Nazwa komputera**. 
 1. Wybierz pozycję **Zmień...** **, aby zmienić nazwę tego komputera..**. 
 1. Zmień nazwę grupy roboczej tak, aby była znacząca, na przykład `AGWORKGROUP` : 
@@ -71,13 +71,13 @@ Aby skonfigurować sufiks DNS, wykonaj następujące kroki:
 1. Po wyświetleniu odpowiedniego monitu ponownie uruchom serwer. 
 1. Powtórz te kroki dla wszystkich innych węzłów, które mają być używane dla grupy dostępności. 
 
-## <a name="edit-host-file"></a>Edytuj plik hosta
+## <a name="edit-a-host-file"></a>Edytowanie pliku hosta
 
 Ponieważ nie istnieje usługa Active Directory, nie ma możliwości uwierzytelniania połączeń systemu Windows. W związku z tym Przypisz zaufanie, edytując plik hosta za pomocą edytora tekstu. 
 
 Aby edytować plik hosta, wykonaj następujące kroki:
 
-1. Połącz protokół RDP z maszyną wirtualną. 
+1. Protokół RDP w maszynie wirtualnej. 
 1. Użyj **Eksploratora plików** , aby przejść do `c:\windows\system32\drivers\etc` . 
 1. Kliknij prawym przyciskiem myszy plik **hosts** i Otwórz plik za pomocą **Notatnika** (lub dowolnego innego edytora tekstu).
 1. Na końcu pliku Dodaj wpis dla każdego węzła, grupy dostępności i odbiornika w postaci `IP Address, DNS Suffix #comment` podobnej do: 
@@ -132,11 +132,11 @@ Po utworzeniu klastra Przypisz statyczny adres IP klastra. Aby to zrobić, wykon
 
 W tym kroku skonfigurujesz monitor udostępniania w chmurze. Jeśli nie znasz tego kroku, zapoznaj się z [samouczkiem dotyczącym klastra trybu failover](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness). 
 
-## <a name="enable-availability-group-feature"></a>Włącz funkcję grupy dostępności 
+## <a name="enable-the-availability-group-feature"></a>Włącz funkcję grupy dostępności 
 
 W tym kroku Włącz funkcję Grupa dostępności. Jeśli nie znasz kroków, zobacz [Samouczek dotyczący grupy dostępności](availability-group-manually-configure-tutorial.md#enable-availability-groups). 
 
-## <a name="create-keys-and-certificate"></a>Utwórz klucze i certyfikat
+## <a name="create-keys-and-certificates"></a>Tworzenie kluczy i certyfikatów
 
 W tym kroku utworzysz certyfikaty używane przez logowania SQL na zaszyfrowanym punkcie końcowym. Utwórz folder w każdym węźle, w którym mają być przechowywane kopie zapasowe certyfikatów, na przykład `c:\certs` . 
 
@@ -277,16 +277,16 @@ GO
 
 Jeśli klaster zawiera inne węzły, Powtórz te czynności również, modyfikując odpowiednie nazwy certyfikatów i użytkowników. 
 
-## <a name="configure-availability-group"></a>Konfiguruj grupę dostępności
+## <a name="configure-an-availability-group"></a>Konfigurowanie grupy dostępności
 
 W tym kroku skonfigurujesz grupę dostępności i dodasz do niej bazy danych. Nie twórz teraz odbiornika. Jeśli nie znasz kroków, zobacz [Samouczek dotyczący grupy dostępności](availability-group-manually-configure-tutorial.md#create-the-availability-group). Pamiętaj o zainicjowaniu trybu failover i powrotu po awarii, aby upewnić się, że wszystko działa zgodnie z oczekiwaniami. 
 
    > [!NOTE]
    > Jeśli wystąpi awaria podczas procesu synchronizacji, może być konieczne przyznanie `NT AUTHORITY\SYSTEM` praw sysadmin do tworzenia zasobów klastra w pierwszym węźle, na przykład `AGNode1` tymczasowo. 
 
-## <a name="configure-load-balancer"></a>Konfigurowanie usługi równoważenia obciążenia
+## <a name="configure-a-load-balancer"></a>Konfigurowanie modułu równoważenia obciążenia
 
-W tym ostatnim kroku Skonfiguruj moduł równoważenia obciążenia przy użyciu [Azure Portal](availability-group-load-balancer-portal-configure.md) lub [programu PowerShell](availability-group-listener-powershell-configure.md) .
+W tym ostatnim kroku Skonfiguruj moduł równoważenia obciążenia przy użyciu [Azure Portal](availability-group-load-balancer-portal-configure.md) lub [programu PowerShell](availability-group-listener-powershell-configure.md).
 
 
 ## <a name="next-steps"></a>Następne kroki

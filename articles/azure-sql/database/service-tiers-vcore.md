@@ -1,6 +1,6 @@
 ---
 title: Przegląd modelu zakupu rdzeń wirtualny
-titleSuffix: Azure SQL Database & SQL Managed Instance
+titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Model zakupów rdzeń wirtualny umożliwia niezależne skalowanie zasobów obliczeniowych i magazynu, dopasowanie wydajności lokalnej oraz optymalizację cen dla Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 1a6546ad587fa308ab5559d04814191c503ecdc3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1f7d0d411ffbff6aad7d134711a0190251f68aa8
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044094"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324440"
 ---
-# <a name="vcore-model-overview---azure-sql-database--sql-managed-instance"></a>Przegląd modelu rdzeń wirtualny — Azure SQL Database & wystąpienie zarządzane SQL 
+# <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Rdzeń wirtualny model — Omówienie — Azure SQL Database i wystąpienie zarządzane Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Model zakupu wirtualnego rdzenia (rdzeń wirtualny) używany przez Azure SQL Database i wystąpienie zarządzane usługi Azure SQL zapewnia kilka korzyści:
@@ -29,9 +29,9 @@ Model zakupu wirtualnego rdzenia (rdzeń wirtualny) używany przez Azure SQL Dat
 
 ## <a name="service-tiers"></a>Warstwy usług
 
-Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia, Krytyczne dla działania firmy i skalowanie. Warstwa usługi zwykle definiuje architekturę magazynu, limity przestrzeni i operacji we/wy oraz opcje ciągłości działania związane z dostępnością i odzyskiwaniem po awarii.
+Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia, Krytyczne dla działania firmy i skalowanie. Warstwa usługi zwykle definiuje architekturę magazynu, przestrzeń i limity we/wy oraz opcje ciągłości działania związane z dostępnością i odzyskiwaniem po awarii.
 
-||**Zastosowania ogólne**|**Krytyczne dla działania firmy**|**Hiperskala**|
+||**Ogólnego przeznaczenia**|**Krytyczne dla działania firmy**|**Hiperskala**|
 |---|---|---|---|
 |Najlepsze dla|Większość obciążeń firmowych. Oferuje zorientowane na budżety, zrównoważone i skalowalne Opcje obliczeniowe i magazynowe. |Oferuje aplikacjom biznesowym największą odporność na błędy przy użyciu kilku izolowanych replik i zapewnia największą wydajność operacji we/wy na replikę bazy danych.|Większość obciążeń firmowych z wysoce skalowalnym magazynem i wymaganiami dotyczącymi skali odczytu.  Zapewnia wyższą odporność na błędy, umożliwiając konfigurację wielu izolowanych replik baz danych. |
 |Magazyn|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
@@ -46,7 +46,7 @@ Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia
 
 Aby uzyskać informacje na temat wybierania warstwy usług dla konkretnego obciążenia, zobacz następujące artykuły:
 
-- [Kiedy należy wybrać warstwę usług ogólnego przeznaczenia](service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [Kiedy należy wybrać warstwę usługi Ogólnego przeznaczenia](service-tier-general-purpose.md#when-to-choose-this-service-tier)
 - [Kiedy należy wybrać warstwę usługi Krytyczne dla działania firmy](service-tier-business-critical.md#when-to-choose-this-service-tier)
 - [Kiedy należy wybrać warstwę usługi do skalowania](service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
@@ -99,7 +99,7 @@ Aby włączyć sprzęt serii M dla subskrypcji i regionu, należy otworzyć żą
 ### <a name="compute-and-memory-specifications"></a>Specyfikacje obliczeniowe i pamięci
 
 
-|Generowanie sprzętu  |Wystąpienia obliczeniowe  |Memory (Pamięć)  |
+|Generowanie sprzętu  |Compute  |Memory (Pamięć)  |
 |:---------|:---------|:---------|
 |Obliczenia     |-Procesory Intel E5-2673 v3 (Haswell) 2,4 GHz<br>— Zapewnij do 24 rdzeni wirtualnych (1 rdzeń wirtualny = 1 rdzeń fizyczny)  |-7 GB na rdzeń wirtualny<br>— Zapewnij do 168 GB|
 |5 rdzeń     |**Zainicjowane obliczenie**<br>-Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake) * procesory<br>— Inicjowanie obsługi administracyjnej do 80 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Intel E5-2673 v4 (Broadwell) 2,3-GHz i Intel SP-8160 (Skylake) * procesory<br>-Automatyczne skalowanie do 16 rdzeni wirtualnych (1 rdzeń wirtualny = 1 Hyper-Thread)|**Zainicjowane obliczenie**<br>-5,1 GB na rdzeń wirtualny<br>— Zapewnij do 408 GB<br><br>**Bezserwerowe usługi obliczeniowe**<br>-Automatyczne skalowanie do 24 GB na rdzeń wirtualny<br>— Automatyczne skalowanie do maksymalnie 48 GB|
@@ -112,7 +112,7 @@ Aby uzyskać więcej informacji na temat limitów zasobów, zobacz [limity zasob
 
 ### <a name="selecting-a-hardware-generation"></a>Wybieranie generowania sprzętu
 
-W Azure Portal można wybrać generowanie sprzętu dla SQL Database lub puli w momencie tworzenia lub można zmienić generowanie sprzętu istniejącej bazy danych lub puli SQL.
+W Azure Portal można wybrać generowanie sprzętu dla bazy danych lub puli w SQL Database w momencie tworzenia lub można zmienić generowanie sprzętu istniejącej bazy danych lub puli SQL.
 
 **Aby wybrać generowanie sprzętu podczas tworzenia SQL Database lub puli**
 
@@ -147,7 +147,7 @@ Na karcie **podstawowe** wybierz łącze **Konfiguruj bazę danych** w sekcji **
   
 **Aby zmienić generowanie sprzętu istniejącego wystąpienia zarządzanego SQL**
 
-# <a name="portal"></a>[Portal](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[Witryna Azure Portal](#tab/azure-portal)
 
 Na stronie wystąpienie zarządzane SQL Wybierz pozycję **warstwa cenowa** link do sekcji Ustawienia.
 
@@ -165,7 +165,7 @@ Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" 
 
 Aby uzyskać więcej szczegółów, zobacz polecenie [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) .
 
-# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
 Wykonaj następujące polecenie interfejsu wiersza polecenia:
 
@@ -228,7 +228,7 @@ Aby rozpocząć, zobacz:
 
 Aby uzyskać szczegółowe informacje o cenach, zobacz [stronę z cennikiem Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
-Aby uzyskać szczegółowe informacje o określonych rozmiarach obliczeniowych i magazynowych dostępnych w warstwach usług ogólnych i krytycznych dla działania firmy, zobacz: 
+Aby uzyskać szczegółowe informacje o określonych rozmiarach obliczeniowych i magazynowych dostępnych w warstwach usług ogólnych i krytycznych dla działania firmy, zobacz:
 
 - [limity zasobów opartych na rdzeń wirtualny Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [limity zasobów opartych na rdzeń wirtualny dla Azure SQL Database w puli](resource-limits-vcore-elastic-pools.md).

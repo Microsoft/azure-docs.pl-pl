@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1ea47dbc743c980b0509a3da42da13d294bc64fc
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f8b31b97752a39724a4b1b7073c2d4282bc54763
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300127"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344853"
 ---
 # <a name="create-an-azure-files-file-share-with-a-domain-controller"></a>Tworzenie Azure Files udziału plików z kontrolerem domeny
 
@@ -43,7 +43,7 @@ Aby skonfigurować konto magazynu:
     - Wprowadź unikatową nazwę konta magazynu.
     - W przypadku **lokalizacji**zalecamy wybranie tej samej lokalizacji co Pula hostów pulpitów wirtualnych systemu Windows.
     - W obszarze **Wydajność** wybierz opcję **Standardowa**. (W zależności od wymagań IOPS. Aby uzyskać więcej informacji, zobacz [Opcje magazynu dla kontenerów profilów FSLogix na pulpicie wirtualnym systemu Windows](store-fslogix-profile.md).
-    - W obszarze **Typ konta**wybierz pozycję **StorageV2**.
+    - W obszarze **Typ konta**wybierz pozycję **StorageV2** lub **FileStorage**.
     - W obszarze **replikacja**wybierz pozycję **Magazyn lokalnie nadmiarowy (LRS)**.
 
 5. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz**, a następnie wybierz pozycję **Utwórz**.
@@ -64,15 +64,15 @@ Aby utworzyć udział plików:
 
 4. Wybierz pozycję **Utwórz**.
 
-## <a name="enable-azure-active-directory-authentication"></a>Włącz uwierzytelnianie Azure Active Directory
+## <a name="enable-active-directory-authentication"></a>Włącz uwierzytelnianie Active Directory
 
-Następnie należy włączyć uwierzytelnianie Azure Active Directory (AD). Aby włączyć te zasady, należy postępować zgodnie z instrukcjami w tej sekcji na komputerze, który jest już przyłączony do domeny. Aby włączyć uwierzytelnianie, postępuj zgodnie z tymi instrukcjami na maszynie wirtualnej z uruchomionym kontrolerem domeny:
+Następnie należy włączyć uwierzytelnianie Active Directory (AD). Aby włączyć te zasady, należy postępować zgodnie z instrukcjami w tej sekcji na komputerze, który jest już przyłączony do domeny. Aby włączyć uwierzytelnianie, postępuj zgodnie z tymi instrukcjami na maszynie wirtualnej z uruchomionym kontrolerem domeny:
 
 1. Remote Desktop Protocol do maszyny wirtualnej przyłączonej do domeny.
 
 2. Postępuj zgodnie z instrukcjami w temacie [Włączanie usługi azure AD DS Authentication dla udziałów plików platformy Azure](../storage/files/storage-files-identity-ad-ds-enable.md) , aby zainstalować moduł AzFilesHybrid i włączyć uwierzytelnianie.
 
-3.  Otwórz Azure Portal, Otwórz konto magazynu, wybierz pozycję **Konfiguracja**, a następnie potwierdź, że **Azure Active Directory (AD)** jest ustawiona na wartość **włączone**.
+3.  Otwórz Azure Portal, Otwórz konto magazynu, wybierz pozycję **Konfiguracja**, a następnie potwierdź, że **Active Directory (AD)** jest ustawiona na wartość **włączone**.
 
      ![Zrzut ekranu przedstawiający stronę konfiguracji z włączonym Azure Active Directory (AD).](media/active-directory-enabled.png)
 
@@ -178,7 +178,7 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
      - Zastąp <literę dysku zainstalowana> literą dysku użytego do zmapowania dysku.
      - Zastąp <User-e-mail> nazwą UPN grupy użytkowników lub Active Directory zawierającą użytkowników, którzy będą potrzebować dostępu do udziału.
 
-     Na przykład:
+     Przykład:
 
      ```powershell
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)

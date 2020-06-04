@@ -7,15 +7,15 @@ ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/06/2018
+ms.date: 06/03/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9880915061c0639aebe30bdb33258d7c79e155d7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d2109baf077b1b4c1074cfae9edd0d2b5ef5030d
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836893"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343007"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Przegląd konfiguracji stanu Azure Automation
 
@@ -88,9 +88,11 @@ Jeśli węzły znajdują się w sieci prywatnej, wymagane są następujące port
 * Port: tylko protokół TCP 443 wymagany do wychodzącego dostępu do Internetu
 * Globalny adres URL: ***. Azure-Automation.NET**
 * Globalny adres URL US Gov Wirginia: ***. Azure-Automation.us**
-* Usługa agenta: **https:// \< identyfikator obszaru roboczego \> . agentsvc.Azure-Automation.NET**
+* Usługa agenta: **https:// \<workspaceId\> . agentsvc.Azure-Automation.NET**
 
 Jeśli używasz zasobów DSC komunikujących się między węzłami, takimi jak [WAITFOR * Resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), musisz również zezwolić na ruch między węzłami. Zapoznaj się z dokumentacją poszczególnych zasobów DSC, aby poznać te wymagania sieciowe.
+
+Aby zrozumieć wymagania klienta dotyczące protokołu TLS 1,2, zobacz [Wymuszanie protokołu tls 1,2 dla Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### <a name="proxy-support"></a>Obsługa serwera proxy
 
@@ -107,7 +109,7 @@ Zaleca się użycie adresów wymienionych poniżej podczas definiowania wyjątk�
 
 Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu, możesz ograniczyć komunikację z tym regionalnym centrum danych. Poniższa tabela zawiera rekord DNS dla każdego regionu:
 
-| **Okolicy** | **Rekord DNS** |
+| **Region** | **Rekord DNS** |
 | --- | --- |
 | Zachodnio-środkowe stany USA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Południowo-środkowe stany USA |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |

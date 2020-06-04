@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/02/2020
 ms.author: rogarana
-ms.openlocfilehash: 5592a3c53a57e9cd96468bfca187e02faef28b05
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 4423067fde70728a5449485434cc40c5c3d3ee8f
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268506"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324100"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Część 1: Włączanie uwierzytelniania AD DS dla udziałów plików platformy Azure 
 
@@ -89,7 +89,18 @@ Najpierw należy sprawdzić stan środowiska. W odróżnieniu od tego należy sp
 
 ### <a name="creating-an-identity-representing-the-storage-account-in-your-ad-manually"></a>Ręczne tworzenie tożsamości reprezentującej konto magazynu w usłudze AD
 
-Aby ręcznie utworzyć to konto, Utwórz nowy klucz Kerberos dla konta magazynu za pomocą programu `New-AzStorageAccountKey -KeyName kerb1` . Następnie użyj tego klucza Kerberos jako hasła do konta. Ten klucz jest używany tylko podczas instalacji i nie może być używany dla operacji kontroli ani płaszczyzny danych na koncie magazynu. Po utworzeniu tego klucza Utwórz konto usługi lub komputera w jednostce organizacyjnej. Użyj następującej specyfikacji (Pamiętaj, aby zastąpić przykładowy tekst nazwą konta magazynu):
+Aby ręcznie utworzyć to konto, Utwórz nowy klucz Kerberos dla konta magazynu. Następnie użyj tego klucza Kerberos jako hasła dla konta za pomocą poleceń cmdlet programu PowerShell poniżej. Ten klucz jest używany tylko podczas instalacji i nie może być używany dla operacji kontroli ani płaszczyzny danych na koncie magazynu. 
+
+```PowerShell
+# Create the Kerberos key on the storage account and get the Kerb1 key as the password for the AD identity to represent the storage account
+$ResourceGroupName = "<resource-group-name-here>"
+$StorageAccountName = "<storage-account-name-here>"
+
+New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName kerb1
+Get-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ListKerbKey | where-object{$_.Keyname -contains "kerb1"}
+```
+
+Po utworzeniu tego klucza Utwórz konto usługi lub komputera w jednostce organizacyjnej. Użyj następującej specyfikacji (Pamiętaj, aby zastąpić przykładowy tekst nazwą konta magazynu):
 
 SPN: "CIFS/Storage-account-name-tutaj. File. Core. Windows. NET" Password: klucz Kerberos dla konta magazynu.
 

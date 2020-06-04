@@ -2,18 +2,18 @@
 title: Plik dyrektywy include
 description: Plik dyrektywy include
 services: batch
-author: LauraBrenner
+author: JnHs
 ms.service: batch
 ms.topic: include
-ms.date: 05/28/2019
-ms.author: labrenne
+ms.date: 06/03/2020
+ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: a0d74aa38dffdd41fbe617066391ef271a507349
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d23da1c3a45ed12193dfd4c1fc2ede453fc6ac7
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81737013"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323890"
 ---
 | **Zasób** | **Limit domyślny** | **Limit maksymalny** |
 | --- | --- | --- |
@@ -24,6 +24,9 @@ ms.locfileid: "81737013"
 | Pule na konto usługi Batch | 20–100 | 500<sup>1</sup> |
 
 <sup>1</sup>Aby poprosić o zwiększenie tego limitu, skontaktuj się z działem pomocy technicznej platformy Azure.
+
+> [!IMPORTANT]
+> Zmieniamy sposób żądania i zarządzania dedykowanym limitem przydziału.  Całkowita dedykowana procesorów wirtualnych vCPU jest obecnie wymuszana, ale wkrótce wymusimy dedykowany przydział dla każdej serii maszyn wirtualnych. Przydział o niskim priorytecie będzie kontynuowany w oparciu o łączny limit; nie będzie wymuszana przez serię maszyn wirtualnych.
 
 > [!NOTE]
 > Limity domyślne różnią się w zależności od typu subskrypcji użytej do utworzenia konta usługi Batch. Pokazano limity przydziału rdzeni dla kont usługi Batch w trybie usługi Batch. [Wyświetlanie limitów przydziału na koncie usługi Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas).
