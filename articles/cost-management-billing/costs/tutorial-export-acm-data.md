@@ -3,17 +3,17 @@ title: Samouczek — eksportowanie danych z usługi Azure Cost Management i zarz
 description: W tym artykule pokazano, jak eksportować dane usługi Azure Cost Management i zarządzać nimi, aby można było używać ich w systemach zewnętrznych.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/24/2020
+ms.date: 05/27/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f0a1515816fe7a9e1d79f69655e6bf21725a0b5d
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 90334d29ed2f649854863f9ad86f03811728a945
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877953"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142325"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Samouczek: Eksportowanie danych i zarządzanie nimi
 
@@ -49,17 +49,15 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 ## <a name="create-a-daily-export"></a>Tworzenie codziennego eksportu
 
-Aby utworzyć lub wyświetlić eksport danych bądź zaplanować eksport, otwórz żądany zakres w witrynie Azure Portal i wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do obszaru **Subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję **Analiza kosztów** w menu. W górnej części strony Analiza kosztów wybierz pozycję **Eksportuj**, a następnie wybierz opcję eksportowania. Na przykład wybierz polecenie **Zaplanuj eksport**.  
+Aby utworzyć lub wyświetlić eksport danych bądź zaplanować eksport, otwórz żądany zakres w witrynie Azure Portal i wybierz pozycję **Analiza kosztów** w menu. Na przykład przejdź do obszaru **Subskrypcje**, wybierz subskrypcję z listy, a następnie wybierz pozycję **Analiza kosztów** w menu. W górnej części strony Analiza kosztów wybierz pozycję **Ustawienia** i pozycję **Eksporty**, a następnie wybierz opcję eksportowania.
 
 > [!NOTE]
 > - Eksporty można tworzyć nie tylko dla subskrypcji, ale również dla grup zasobów, kont, działów i rejestracji. Aby uzyskać więcej informacji na temat zakresów, zobacz [Omówienie zakresów i praca z nimi](understand-work-scopes.md).
 >- Po zalogowaniu się jako partner w zakresie konta rozliczeniowego lub dzierżawy klienta możesz wyeksportować dane do konta usługi Azure Storage połączonego z Twoim partnerskim kontem magazynu. Musisz jednak mieć aktywną subskrypcję w dzierżawie dostawców rozwiązań w chmurze.
->
-
 
 Wybierz pozycję **Dodaj**, wpisz nazwę zadania eksportu, a następnie wybierz opcję **Codzienny eksport kosztów od początku miesiąca**. Wybierz opcję **Dalej**.
 
-![Przykład nowego eksportu z pokazanym typem eksportu](./media/tutorial-export-acm-data/basics_exports.png)
+[![Przykład nowego eksportu z pokazanym typem eksportu](./media/tutorial-export-acm-data/basics_exports.png)](./media/tutorial-export-acm-data/basics_exports.png#lightbox)
 
 Podaj subskrypcję zawierającą konto usługi Azure Storage, a następnie wybierz konto usługi Storage.  Określ ścieżkę kontenera i katalogu do zapisania wyeksportowanego pliku. Wybierz opcję **Dalej**.
 
@@ -83,10 +81,19 @@ Istnieją dwa typy opcji eksportu:
 **Niestandardowe** — umożliwia zaplanowanie cotygodniowych i comiesięcznych eksportów z opcjami od początku tygodnia i od początku miesiąca. *Początkowy eksport zostanie uruchomiony natychmiast.*
 
 Jeśli masz subskrypcję z płatnością zgodnie z rzeczywistym użyciem, MSDN lub programu Visual Studio, Twój okres rozliczeniowy faktury może nie zgadzać się z miesiącem kalendarzowym. W przypadku tych typów subskrypcji i grup zasobów można utworzyć eksport dopasowany do Twojego okresu faktury lub miesięcy kalendarzowych. Aby utworzyć eksport dopasowany do miesiąca na fakturze, przejdź do obszaru **Niestandardowy**, a następnie wybierz pozycję **Okres rozliczeniowy do dnia bieżącego**.  Aby utworzyć eksport dopasowany do miesiąca kalendarzowego, wybierz pozycję **W ciągu ostatniego miesiąca**.
->
->
 
 ![Nowy eksport — karta Podstawowe przedstawiająca wybór opcji Niestandardowe, Co tydzień i Od początku tygodnia](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
+
+#### <a name="create-an-export-for-multiple-subscriptions"></a>Tworzenie eksportu dla wielu subskrypcji
+
+Jeśli masz umowę Enterprise Agreement, możesz użyć grupy zarządzania do agregowania informacji o kosztach subskrypcji w jednym kontenerze. Następnie można wyeksportować dane dotyczące zarządzania kosztami dla grupy zarządzania.
+
+Eksporty dla grup zarządzania innych typów subskrypcji nie są obsługiwane.
+
+1. Utwórz grupę zarządzania i przypisz do niej subskrypcje.
+1. W obszarze Eksporty wybierz pozycję **Zakres**.
+1. Wybierz pozycję **wybierz tę grupę zarządzania**.
+1. Utwórz eksport w zakresie, aby uzyskać dane dotyczące zarządzania kosztami dla subskrypcji w grupie zarządzania.
 
 ## <a name="verify-that-data-is-collected"></a>Sprawdzanie, czy dane są zbierane
 
@@ -104,6 +111,18 @@ Plik zostanie otwarty za pomocą programu lub aplikacji, która została skonfig
 
 ![Przykładowe wyeksportowane dane w formacie CSV wyświetlane w programie Excel](./media/tutorial-export-acm-data/example-export-data.png)
 
+### <a name="download-an-exported-csv-data-file"></a>Pobieranie wyeksportowanego pliku danych CSV
+
+Możesz również pobrać wyeksportowany plik CSV w witrynie Azure Portal. Poniżej wyjaśniono, jak znaleźć go z poziomu analizy kosztów.
+
+1. W obszarze analizy kosztów wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **Eksporty**.
+1. Z listy eksportów wybierz konto magazynu do wyeksportowania.
+1. Na koncie magazynu kliknij pozycję **Kontenery**.
+1. Z listy kontenerów wybierz kontener.
+1. Przejdź do katalogów i obiektów blob magazynu z żądanego dnia.
+1. Wybierz plik CSV, a następnie wybierz pozycję **Pobierz**.
+
+[![Przykład pobierania eksportu](./media/tutorial-export-acm-data/download-export.png)](./media/tutorial-export-acm-data/download-export.png#lightbox)
 
 ## <a name="access-exported-data-from-other-systems"></a>Uzyskiwanie dostępu do wyeksportowanych danych z poziomu innych systemów
 

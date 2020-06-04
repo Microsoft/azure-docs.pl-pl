@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 5fce5c8de3b2224ef471b0b3eec5ff29a869a9f6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844526"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995653"
 ---
 # <a name="understand-cost-management-data"></a>Omówienie danych usługi Cost Management
 
@@ -75,7 +75,12 @@ Następujące oferty nie są jeszcze obsługiwane:
 | **Plany pomocy technicznej** | Pomoc techniczna Azure Government Pro-Direct | Default_2014-09-01 | MS-AZR-USGOV-0042P |
 | **Plany pomocy technicznej** | Pomoc techniczna Azure Government Developer  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
-## <a name="determine-your-offer-type"></a>Określanie typu oferty
+### <a name="free-trial-to-pay-as-you-go-upgrade"></a>Uaktualnienie bezpłatnej wersji próbnej do oferty z płatnością zgodnie z rzeczywistym użyciem
+
+Aby uzyskać informacje o dostępności usług warstwy Bezpłatna po przeprowadzeniu uaktualnienia z bezpłatnej wersji próbnej do cennika oferty z płatnością zgodnie z rzeczywistym użyciem, zobacz [Często zadawane pytania dotyczące bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/free-account-faq/).
+
+### <a name="determine-your-offer-type"></a>Określanie typu oferty
+
 Jeśli nie widzisz danych dla subskrypcji i chcesz określić, czy Twoja subskrypcja jest objęta obsługiwanymi ofertami, możesz zweryfikować, czy subskrypcja jest obsługiwana. Aby zweryfikować, czy subskrypcja platformy Azure jest obsługiwana, zaloguj się do witryny [Azure Portal](https://portal.azure.com). Następnie wybierz pozycję **Wszystkie usługi** w okienku menu po lewej stronie. Z listy usług wybierz pozycję **Subskrypcje**. Z menu listy subskrypcji wybierz subskrypcję, którą chcesz zweryfikować. Twoja subskrypcja zostanie pokazana na karcie Przegląd i zobaczysz pozycje **Oferta** oraz **Identyfikator oferty**. Na poniższej ilustracji przedstawiono przykładowy raport.
 
 ![Przykład karty Przegląd dla subskrypcji z pozycjami Oferta oraz Identyfikator oferty](./media/understand-cost-mgt-data/offer-and-offer-id.png)
@@ -106,7 +111,7 @@ Usługa Azure Cost Management odbiera tagi w ramach każdego rekordu użycia prz
 - Tagi są obsługiwane tylko w przypadku zasobów wdrożonych w grupach zasobów.
 - Niektóre wdrożone zasoby mogą nie obsługiwać tagów lub mogą nie mieć tagów w danych użycia — zobacz [Obsługa tagów dla zasobów platformy Azure](../../azure-resource-manager/tag-support.md).
 - Tagi zasobów są uwzględniane w danych użycia tylko wtedy, gdy tag jest zastosowany — tagi nie są stosowane do danych historycznych.
-- Tagi zasobów stają się dostępne w usłudze Cost Management wyłącznie po odświeżeniu danych — zobacz [Częstotliwość aktualizacji danych użycia jest różna](#usage-data-update-frequency-varies).
+- Tagi zasobów stają się dostępne w usłudze Cost Management wyłącznie po odświeżeniu danych — zobacz [Aktualizacje oraz przechowywanie danych dotyczących kosztów i użycia](#cost-and-usage-data-updates-and-retention).
 - Tagi zasobów są dostępne w usłudze Cost Management tylko wtedy, gdy zasób jest aktywny/uruchomiony i tworzy rekordy użycia (np. nie wtedy, gdy cofnięto przydział maszyny wirtualnej).
 - Zarządzanie tagami wymaga dostępu do każdego zasobu na poziomie współautora.
 - Zarządzanie zasadami tagów wymaga dostępu na poziomie właściciela lub współautora zasad do grupy zarządzania, subskrypcji lub grupy zasobów.
@@ -114,7 +119,7 @@ Usługa Azure Cost Management odbiera tagi w ramach każdego rekordu użycia prz
 Jeśli nie widzisz konkretnego tagu w usłudze Cost Management, weź pod uwagę następujące kwestie:
 
 - Czy tag został zastosowany bezpośrednio do zasobu?
-- Czy tag został zastosowany ponad 24 godziny temu? Zobacz [Częstotliwość aktualizacji danych użycia jest różna](#usage-data-update-frequency-varies)
+- Czy tag został zastosowany ponad 24 godziny temu? Zobacz [Aktualizacje oraz przechowywanie danych dotyczących kosztów i użycia](#cost-and-usage-data-updates-and-retention)
 - Czy typ zasobu obsługuje tagi? Następujące typy zasobów nie obsługują tagów w danych użycia od 1 grudnia 2019 r. Zobacz [Obsługa tagów dla zasobów platformy Azure](../../azure-resource-manager/tag-support.md), aby uzyskać pełną listę obsługiwanych tagów.
     - Katalogi usługi Azure Active Directory B2C
     - Zapory usługi Azure Firewall
@@ -134,24 +139,22 @@ Oto kilka porad dotyczących pracy z tagami:
 - Użyj interfejsu API tagów w połączeniu z elementem Query lub UsageDetails, aby uzyskać wszystkie koszty na podstawie bieżących tagów.
 
 
-## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Uaktualnienie bezpłatnej wersji próbnej do oferty z płatnością zgodnie z rzeczywistym użyciem
+## <a name="cost-and-usage-data-updates-and-retention"></a>Aktualizacje oraz przechowywanie danych dotyczących kosztów i użycia
 
-Aby uzyskać informacje o dostępności usług warstwy Bezpłatna po przeprowadzeniu uaktualnienia z bezpłatnej wersji próbnej do cennika oferty z płatnością zgodnie z rzeczywistym użyciem, zobacz [Często zadawane pytania dotyczące bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/free-account-faq/).
+Dane dotyczące kosztów i użycia zwykle są dostępne w witrynie Azure Portal w części Zarządzanie kosztami i rozliczenia oraz za pośrednictwem [interfejsów API obsługi](../index.yml) w ciągu 8–24 godzin. Podczas przeglądania kosztów trzeba mieć na uwadze następujące kwestie:
 
-## <a name="rated-usage-data-refresh-schedule"></a>Harmonogram odświeżania danych płatnego użycia
-
-Dane dotyczące kosztów i użycia są dostępne w witrynie Azure Portal w części Zarządzanie kosztami i rozliczenia oraz za pośrednictwem [interfejsów API obsługi](../index.yml). Podczas przeglądania kosztów trzeba mieć na uwadze następujące kwestie:
-
+- Każda usługa platformy Azure (na przykład Storage, Compute i SQL) emituje użycie w różnych odstępach czasu — dane niektórych usług mogą być widoczne wcześniej niż inne.
 - Szacowane opłaty za bieżący okres rozliczeniowy są aktualizowane sześć razy dziennie.
 - Szacowane opłaty za bieżący okres rozliczeniowy mogą ulec zmianie w miarę wzrostu użycia.
 - Każda aktualizacja jest zbiorcza i obejmuje wszystkie elementy wierszy i informacje z poprzedniej aktualizacji.
 - Platforma Azure finalizuje lub _zamyka_ bieżący okres rozliczeniowy w ciągu maksymalnie 72 godzin (trzech dni kalendarzowych) po zakończeniu okresu rozliczeniowego.
 
-W poniższych przykładach pokazano, jak okresy rozliczeniowe mogą zostać zakończone.
+W poniższych przykładach pokazano, jak okresy rozliczeniowe mogą zostać zakończone:
 
-Subskrypcje z umową Enterprise Agreement (EA) — jeśli miesiąc rozliczeniowy kończy się 31 marca, szacowane opłaty są aktualizowane nawet przez jeszcze 72 godziny. W tym przykładzie jest to północ (UTC) 4 kwietnia.
+* Subskrypcje z umową Enterprise Agreement (EA) — jeśli miesiąc rozliczeniowy kończy się 31 marca, szacowane opłaty są aktualizowane nawet przez jeszcze 72 godziny. W tym przykładzie jest to północ (UTC) 4 kwietnia.
+* Subskrypcje z płatnością zgodnie z rzeczywistym użyciem — jeśli miesiąc rozliczeniowy kończy się 15 maja, szacowane opłaty mogą być aktualizowane przez jeszcze 72 godziny. W tym przykładzie jest to północ (UTC) 19 maja.
 
-Subskrypcje z płatnością zgodnie z rzeczywistym użyciem — jeśli miesiąc rozliczeniowy kończy się 15 maja, szacowane opłaty mogą być aktualizowane przez jeszcze 72 godziny. W tym przykładzie jest to północ (UTC) 19 maja.
+Gdy dane dotyczące kosztów i użycia staną się dostępne w obszarze Zarządzanie kosztami i rozliczenia, będą przechowywane przez co najmniej 7 lat.
 
 ### <a name="rerated-data"></a>Dane ponownego przeliczania
 
@@ -166,16 +169,6 @@ Koszty wyświetlone w usłudze Cost Management są zaokrąglane. Koszty zwrócon
   - Opłata 2: 0,004 USD
   -    Renderowana opłata zagregowana: 0,004 + 0,004 = 0,008. Wyświetlana opłata to 0,01 USD.
 - Zapytania API — opłaty są pokazywane z ośmioma miejscami dziesiętnymi, a zaokrąglanie nie jest wykonywane.
-
-
-## <a name="usage-data-update-frequency-varies"></a>Częstotliwość aktualizacji danych użycia jest różna
-
-Dostępność danych użycia w usłudze Cost Management zależy od kilku czynników, w tym:
-
-- Jak często usługi platformy Azure (takie jak Storage, Compute, CDN i SQL) emitują użycie.
-- Czas potrzebny na przetworzenie danych użycia za pomocą aparatu wyceny i potoku zarządzania kosztami.
-
-Niektóre usługi emitują użycie częściej niż inne. W związku z tym dane w usłudze Cost Management niektórych usług mogą być widoczne wcześniej niż w przypadku innych usług, które emitują dane rzadziej. Zazwyczaj pokazanie użycia usług w usłudze Cost Management zajmuje od 8 do 24 godzin. Należy pamiętać, że dane dla otwartego miesiąca są odświeżane po zwiększeniu użycia, ponieważ aktualizacje są naliczane zbiorczo.
 
 ## <a name="historical-data-might-not-match-invoice"></a>Dane historyczne mogą nie być zgodne z fakturą
 

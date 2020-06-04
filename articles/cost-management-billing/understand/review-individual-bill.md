@@ -6,20 +6,22 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/13/2020
+ms.date: 05/28/2020
 ms.author: banders
-ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199130"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194133"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Samouczek: Przeglądanie indywidualnego rachunku za korzystanie z platformy Azure
 
 Ten artykuł pomaga zinterpretować i przejrzeć rachunek za korzystanie z platformy Azure. Dla każdego okresu rozliczeniowego otrzymujesz zwykle fakturę w wiadomości e-mail. Faktura odzwierciedla naliczone opłaty za platformę Azure. Te same informacje o kosztach na fakturze są dostępne w witrynie Azure Portal. W tym samouczku porównasz fakturę z zawartością pliku szczegółowego dziennego użycia oraz analizą kosztów w witrynie Azure Portal.
 
 Ten samouczek dotyczy tylko klientów platformy Azure mających pojedynczą subskrypcję. Pojedyncze subskrypcje są najczęściej subskrypcjami ze stawkami płatności zgodnie z rzeczywistym użyciem kupowanymi bezpośrednio w witrynie internetowej platformy Azure.
+
+Jeśli potrzebujesz pomocy przy zrozumieniu nieoczekiwanych opłat, zobacz [Analizowanie nieoczekiwanych opłat](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Jeśli musisz anulować subskrypcję platformy Azure, zobacz [Anulowanie subskrypcji platformy Azure](../manage/cancel-azure-subscription.md).
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
@@ -47,7 +49,7 @@ Pierwszym krokiem w celu porównania użycia i kosztów jest pobranie faktury i 
 
 W witrynie Azure Portal wpisz *subskrypcje* w polu wyszukiwania, a następnie kliknij pozycję [Subskrypcje](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-![Przechodzenie do subskrypcji](./media/review-individual-bill/navigate-subscriptions.png)
+[![Przechodzenie do subskrypcji](./media/review-individual-bill/navigate-subscriptions.png)](./media/review-individual-bill/navigate-subscriptions.png#lightbox)
 
 Na liście subskrypcji kliknij daną subskrypcję.
 
@@ -147,7 +149,7 @@ Na przykład pojedyncza maszyna wirtualna utworzona na platformie Azure może mi
 
 Po utworzeniu maszyny wirtualnej każdy miernik rozpoczyna emitowanie rekordów użycia. To użycie i cena miernika są śledzone w systemie pomiaru platformy Azure.
 
-Liczniki, które zostały użyte do obliczenia rachunku, są pokazywane w pliku CSV użycia.
+Liczniki, które zostały użyte do obliczenia rachunku, są pokazywane w pliku CSV użycia, jak we wcześniejszym przykładzie.
 
 ## <a name="pay-your-bill"></a><a name="payment"></a>Płatność za rachunek
 

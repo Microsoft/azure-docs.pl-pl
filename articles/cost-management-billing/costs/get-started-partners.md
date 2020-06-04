@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: d1425407b9d451a8c35e736c38b8fac059a7c9d8
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8dea0da44ebfb35165daa7096296dada55e78e99
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204889"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997132"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Wprowadzenie do usługi Azure Cost Management dla partnerów
 
@@ -246,7 +246,7 @@ Gdy właściwość **PartnerEarnedCreditApplied** ma wartość _True_, skojarzon
 
 Gdy właściwość **PartnerEarnedCreditApplied** ma wartość _False_, skojarzony koszt nie ma wymaganych uprawnień do środków. Możliwe też, że zakupiona usługa nie kwalifikuje się do środków uzyskanych przez partnerów.
 
-Wyświetlenie danych użycia usługi w usłudze Cost Management zwykle zajmuje od 8 do 24 godzin. Aby uzyskać więcej informacji, zobacz [Częstotliwość aktualizacji danych użycia zmienia się](understand-cost-mgt-data.md#usage-data-update-frequency-varies). Środki uzyskane przez partnerów są wyświetlane w ciągu 48 godzin od momentu uzyskania dostępu w usłudze Azure Cost Management.
+Wyświetlenie danych użycia usługi w usłudze Cost Management zwykle zajmuje od 8 do 24 godzin. Aby uzyskać więcej informacji, zobacz [Aktualizacje oraz przechowywanie danych dotyczących kosztów i użycia](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Środki uzyskane przez partnerów są wyświetlane w ciągu 48 godzin od momentu uzyskania dostępu w usłudze Azure Cost Management.
 
 
 Możesz również grupować i filtrować według właściwości **PartnerEarnedCreditApplied** przy użyciu opcji **Grupuj według**. Użyj opcji, aby zbadać koszty, które mają i nie mają środków uzyskanych przez partnerów.

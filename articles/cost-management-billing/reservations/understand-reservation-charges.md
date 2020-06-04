@@ -7,16 +7,18 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f0b093950b7f8fbbfbb0ca8ceb48cb0aa6341e10
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46236355ca569c28ed9418f9c341a1510c1335b1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200286"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114065"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>W jaki sposób rabat na rezerwacje jest stosowany do baz danych Azure SQL Database
 
 Po zakupie pojemności zarezerwowanej usługi Azure SQL Database rabat na rezerwację jest automatycznie stosowany do baz danych SQL Database pasujących do atrybutów i ilości rezerwacji. Rezerwacja obejmuje koszty zasobów obliczeniowych bazy danych SQL Database. Opłata jest naliczana za oprogramowanie, magazyn i sieć według normalnych stawek. Koszty licencjonowania baz danych SQL Database można pokryć w ramach [Korzyści użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
+
+Należy pamiętać, że rabaty rezerwacji nie mają zastosowania do bezserwerowej usługi Azure SQL Database.
 
 Aby uzyskać informacje dotyczące wystąpień zarezerwowanych maszyny wirtualnej, zobacz [Objaśnienie rabatu na wystąpienia zarezerwowane maszyny wirtualnej platformy Azure](../manage/understand-vm-reservation-charges.md).
 
@@ -52,7 +54,7 @@ Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następ
 
 - [Co to są rezerwacje platformy Azure?](save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances (Opłacanie maszyn wirtualnych z góry przy użyciu usługi Azure Reserved VM Instances)](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity (Opłacanie zasobów obliczeniowych usługi SQL Database z góry przy użyciu zarezerwowanej pojemności usługi Azure SQL Database)](../../sql-database/sql-database-reserved-capacity.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity (Opłacanie zasobów obliczeniowych usługi SQL Database z góry przy użyciu zarezerwowanej pojemności usługi Azure SQL Database)](../../azure-sql/database/reserved-capacity-overview.md)
 - [Zarządzanie usługą Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment (Informacje na temat użycia wystąpień zarezerwowanych w przypadku rejestracji Enterprise)](understand-reserved-instance-usage-ea.md)

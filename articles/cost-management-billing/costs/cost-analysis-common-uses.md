@@ -3,20 +3,69 @@ title: Najczęstsze zastosowania analizy kosztów w usłudze Azure Cost Manageme
 description: W tym artykule wyjaśniono, jak uzyskać wyniki dla typowych zadań analizy kosztów w usłudze Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2020
+ms.date: 05/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 2e0e222e636f694328835e20fda97deca1d9986a
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 130d313c1ca549f3a4e6f1ec1bbac2a16a753709
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81261508"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142523"
 ---
 # <a name="common-cost-analysis-uses"></a>Najczęstsze zastosowania analizy kosztów
 
 Użytkownicy usługi Azure Cost Management często poszukują odpowiedzi na pytania zadawane przez innych. Ten artykuł zawiera instrukcje, jak uzyskać wyniki dla typowych zadań analizy kosztów w usłudze Cost Management.
+
+## <a name="view-forecasted-costs"></a>Wyświetl prognozowane koszty
+
+Prognozowane koszty są wyświetlane w obszarach analizy kosztów widoku obszaru i widoku skumulowanego kolumnowego. Prognoza jest oparta na historii użycia zasobów. Zmiany dotyczące użycia zasobów wpływają na przewidywane koszty.
+
+W witrynie Azure Portal przejdź do analizy kosztów dla swojego zakresu. Przykład: **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami** > **Analiza kosztów**.
+
+W widoku domyślnym górny wykres zawiera sekcje kosztu rzeczywistego/zamortyzowanego i prognozowanego. Jednolity kolor wykresu przedstawia koszt rzeczywisty/zamortyzowany. Kolor zacieniowany przedstawia koszt prognozowany.
+
+[![Prognozowany koszt](./media/cost-analysis-common-uses/enrollment-forecast.png)](./media/cost-analysis-common-uses/enrollment-forecast.png#lightbox)
+
+## <a name="view-forecasted-costs-grouped-by-service"></a>Wyświetlanie prognozowanych kosztów pogrupowanych według usługi
+
+Widok domyślny nie przedstawia grupy prognozowanych kosztów według usługi, dlatego należy dodać odpowiednią grupę.
+
+W witrynie Azure Portal przejdź do analizy kosztów dla swojego zakresu. Przykład: **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami** > **Analiza kosztów**.
+
+Wybierz pozycję **Grupuj według**  >  **Nazwa usługi**.
+
+Widok przedstawia koszty pogrupowane dla każdej usługi. Prognozowany koszt nie jest obliczany dla każdej usługi. Jest on przewidywany dla **sumy** wszystkich usług.
+
+[![Pogrupowany koszt prognozowany](./media/cost-analysis-common-uses/forecast-group-by-service.png)](./media/cost-analysis-common-uses/forecast-group-by-service.png#lightbox)
+
+## <a name="view-forecasted-costs-for-a-service"></a>Wyświetlanie prognozowanych kosztów usługi
+
+Prognozowane koszty można zawęzić do jednej usługi. Na przykład można zobaczyć przewidywane koszty tylko dla maszyn wirtualnych.
+
+1. W witrynie Azure Portal przejdź do analizy kosztów dla swojego zakresu. Przykład: **Zarządzanie kosztami i rozliczenia** > **Zarządzanie kosztami** > **Analiza kosztów**.
+1. Wybierz pozycję **Dodaj filtr**, a następnie pozycję **Nazwa usługi**.
+1. Z listy **wyboru** wybierz usługę. Na przykład wybierz pozycję **maszyny wirtualne**.
+
+Zapoznaj się z rzeczywistym kosztem wybranej usługi i prognozowanym kosztem.
+
+Do widoku można dodać więcej dostosowań.
+
+1. Dodaj drugi filtr dla **miernika** i wybierz wartość do odfiltrowania dla pojedynczego typu miernika w ramach wybranej nazwy usługi.
+1. Grupuj według pozycji **Zasób**, aby wyświetlić określone zasoby, które generują koszt. Prognozowany koszt nie jest obliczany dla każdej usługi. Jest on przewidywany dla **sumy** wszystkich zasobów.
+
+[![Prognozowany koszt usługi](./media/cost-analysis-common-uses/forecast-by-service.png)](./media/cost-analysis-common-uses/forecast-by-service.png#lightbox)
+
+## <a name="view-your-azure-and-aws-costs-together"></a>Wyświetlanie jednocześnie kosztów platform Azure i AWS  
+
+Aby wyświetlić koszty platform Azure i AWS, użyj zakresów grup zarządzania na platformie Azure.
+
+1. Utwórz grupę zarządzania lub wybierz istniejącą grupę.
+1. Przypisz istniejące subskrypcje platformy Azure do tej grupy zarządzania.
+1. Przypisz *tę samą* grupę zarządzania do połączonego konta dla łącznika.
+1. Przejdź do analizy kosztów i wybierz pozycję **Koszty skumulowane**.
+1. Wybierz pozycję **Grupuj według**  -  **Dostawca**.
 
 ## <a name="view-cost-breakdown-by-azure-service"></a>Wyświetlanie podziału kosztów według usługi platformy Azure
 
@@ -37,7 +86,6 @@ Aby wyświetlić szczegóły faktury w witrynie Azure Portal, przejdź do analiz
 Przeglądając szczegóły faktury, możesz zidentyfikować usługę z nieoczekiwanymi kosztami i określić, które zasoby są bezpośrednio skojarzone z zasobem w analizie kosztów. Jeśli na przykład chcesz przeanalizować opłaty za usługę Virtual Machines, przejdź do widoku **Skumulowany koszt**. Następnie ustaw stopień szczegółowości na **Codziennie**, ustaw filtr opłat **Nazwa usługi: Virtual Machines** i pogrupuj opłaty według wartości **Zasób**.
 
 [![Przykład przedstawiający skumulowane koszty maszyn wirtualnych](./media/cost-analysis-common-uses/virtual-machines.png)](./media/cost-analysis-common-uses/virtual-machines.png#lightbox)
-
 
 ## <a name="view-cost-breakdown-by-azure-resource"></a>Wyświetlanie podziału kosztów według zasobu platformy Azure
 
