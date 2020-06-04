@@ -3,15 +3,15 @@ title: Tworzenie środowisk usługi integracji (ISEs) za pomocą interfejsu API 
 description: Utwórz środowisko usługi integracji (ISE) za pomocą interfejsu API REST Logic Apps, dzięki czemu możesz uzyskiwać dostęp do sieci wirtualnych platformy Azure (sieci wirtualnych) z Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: 0670331d2338b4b6419ffbff1452b5fbac91029f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/29/2020
+ms.openlocfilehash: 7b163c65c0bf781a068abcd6434d75149a1de20b
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478832"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324763"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Tworzenie środowiska usługi integracji (ISE) za pomocą interfejsu API REST Logic Apps
 
@@ -50,13 +50,15 @@ Wdrożenie zazwyczaj trwa w ciągu dwóch godzin. Czasami wdrożenie może trwa�
 
 W nagłówku żądania uwzględnij następujące właściwości:
 
-* `Content-type`: Ustaw tę wartość właściwości na `application/json`.
+* `Content-type`: Ustaw tę wartość właściwości na `application/json` .
 
 * `Authorization`: Ustaw tę wartość właściwości na token okaziciela dla klienta, który ma dostęp do subskrypcji platformy Azure lub grupy zasobów, której chcesz użyć.
 
-### <a name="request-body-syntax"></a>Składnia treści żądania
+<a name="request-body"></a>
 
-Poniżej przedstawiono składnię treści żądania opisującą właściwości używane podczas tworzenia ISE:
+## <a name="request-body"></a>Treść żądania
+
+Poniżej przedstawiono składnię treści żądania opisującą właściwości używane podczas tworzenia ISE. Aby utworzyć ISE, który zezwala na używanie certyfikatu z podpisem własnym, który jest zainstalowany w danej `TrustedRoot` lokalizacji, Uwzględnij `certificates` obiekt wewnątrz sekcji definicji ISE `properties` . W przypadku istniejącej ISE można wysłać żądanie PATCH tylko dla `certificates` obiektu. Aby uzyskać więcej informacji o korzystaniu z certyfikatów z podpisem własnym, zobacz również [łącznik protokołu HTTP — certyfikaty](../connectors/connectors-native-http.md#self-signed)z podpisem własnym.
 
 ```json
 {
@@ -88,6 +90,13 @@ Poniżej przedstawiono składnię treści żądania opisującą właściwości u
                "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-4}",
             }
          ]
+      },
+      // Include `certificates` object to enable self-signed certificate support
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "{base64-encoded-certificate}",
+            "kind": "TrustedRoot"
+         }
       }
    }
 }
@@ -127,7 +136,12 @@ W tej przykładowej treści żądania pokazano przykładowe wartości:
                "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-4",
             }
          ]
-      }
+      },
+      "certificates": {
+         "testCertificate": {
+            "publicCertificate": "LS0tLS1CRUdJTiBDRV...",
+            "kind": "TrustedRoot"
+         }
    }
 }
 ```

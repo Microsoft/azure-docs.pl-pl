@@ -1,6 +1,6 @@
 ---
 title: Zarządzane przez klienta szyfrowanie danych przezroczystych (TDE)
-description: Bring Your Own Key (BYOK) obsługa Transparent Data Encryption (TDE) z Azure Key Vault dla SQL Database i Azure Synapse. TDE z BYOK Omówienie, korzyści, jak to działa, zagadnienia i zalecenia.
+description: Bring Your Own Key (BYOK) obsługa Transparent Data Encryption (TDE) z Azure Key Vault dla SQL Database i Azure Synapse Analytics. TDE z BYOK Omówienie, korzyści, jak to działa, zagadnienia i zalecenia.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4677a16f1c3bd4a0d04e5ada5cee98e3e0f8e094
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 51187a81865d9efa098e2c25cccdead01ed6dc74
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048735"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321312"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Usługa Azure SQL Transparent Data Encryption z kluczem zarządzanym przez klienta
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -25,7 +25,7 @@ Usługa Azure SQL [transparent Data Encryption (TDE)](/sql/relational-databases/
 
 W tym scenariuszu klucz używany do szyfrowania klucza szyfrowania bazy danych (w tym przypadku TDE) jest kluczem asymetrycznym zarządzanym przez klienta przechowywanym w ramach klienta i zarządzanego przez klienta [Azure Key Vault (AKV)](../../key-vault/general/secure-your-key-vault.md), który jest oparty na chmurze w zewnętrznym systemie zarządzania kluczami. Key Vault jest wysoce dostępny i skalowalny bezpieczny magazyn dla kluczy kryptograficznych RSA, opcjonalnie obsługiwane w przypadku FIPS 140-2 poziom 2 sprawdzone sprzętowe moduły zabezpieczeń (sprzętowych modułów zabezpieczeń). Nie zezwala na bezpośredni dostęp do przechowywanego klucza, ale udostępnia usługi szyfrowania/odszyfrowywania przy użyciu klucza do autoryzowanych jednostek. Klucz może być generowany przez Magazyn kluczy, importowany lub [transferowany do magazynu kluczy z urządzenia Premium HSM](../../key-vault/keys/hsm-protected-keys.md).
 
-W przypadku Azure SQL Database i usługi Azure Synapse funkcja ochrony TDE jest ustawiana na poziomie serwera i jest dziedziczona przez wszystkie zaszyfrowane bazy danych skojarzone z tym serwerem. W przypadku wystąpienia zarządzanego usługi Azure SQL funkcja ochrony TDE jest ustawiana na poziomie wystąpienia i jest dziedziczona przez wszystkie zaszyfrowane bazy danych w tym wystąpieniu. Termin *serwer* odnosi się zarówno do serwera w SQL Database, jak i na platformie Azure Synapse oraz do wystąpienia zarządzanego w wystąpieniu zarządzanym SQL w tym dokumencie, chyba że określono inaczej.
+W przypadku Azure SQL Database i usługi Azure Synapse Analytics funkcja ochrony TDE jest ustawiana na poziomie serwera i jest dziedziczona przez wszystkie zaszyfrowane bazy danych skojarzone z tym serwerem. W przypadku wystąpienia zarządzanego usługi Azure SQL funkcja ochrony TDE jest ustawiana na poziomie wystąpienia i jest dziedziczona przez wszystkie zaszyfrowane bazy danych w tym wystąpieniu. Termin *serwer* odnosi się zarówno do serwera w SQL Database, jak i na platformie Azure Synapse oraz do wystąpienia zarządzanego w wystąpieniu zarządzanym SQL w tym dokumencie, chyba że określono inaczej.
 
 > [!IMPORTANT]
 > W przypadku korzystania z usługi TDE zarządzanej przez usługę, która chce zacząć korzystać z TDE zarządzanych przez klienta, dane pozostają zaszyfrowane podczas procesu przełączania i nie ma żadnych przestojów ani ponownego szyfrowania plików bazy danych. Przełączenie z klucza zarządzanego przez usługę do klucza zarządzanego przez klienta wymaga ponownego włączenia szyfrowania danych, które jest szybką i online operacją.
@@ -50,7 +50,7 @@ TDE zarządzane przez klienta zapewnia klientom następujące korzyści:
 
 ![Konfiguracja i działanie TDE zarządzanego przez klienta](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-roles.PNG)
 
-Aby serwer mógł korzystać z funkcji ochrony TDE przechowywanej w AKV na potrzeby szyfrowania, należy przyznać następujące prawa dostępu do serwera przy użyciu unikatowej tożsamości usługi AAD:
+Aby serwer mógł korzystać z funkcji ochrony TDE przechowywanej w AKV na potrzeby szyfrowania, administrator magazynu kluczy musi przyznać następujące prawa dostępu do serwera przy użyciu unikatowej tożsamości usługi Azure Active Directory (Azure AD):
 
 - **Get** -do pobierania publicznej części i właściwości klucza w Key Vault
 
@@ -76,7 +76,7 @@ Audytorzy mogą używać Azure Monitor do przeglądania dzienników AuditEvent m
 
 - Funkcja [usuwania nietrwałego](../../key-vault/general/overview-soft-delete.md) musi być włączona w magazynie kluczy, aby chronić przed utratą danych (lub magazynu kluczy). Zasoby usunięte nietrwale są przechowywane przez 90 dni, chyba że w międzyczasie zostanie odzyskany lub usunięty przez klienta. Akcje *odzyskania* i *przeczyszczania* mają własne uprawnienia skojarzone z zasadami dostępu magazynu kluczy. Funkcja usuwania nietrwałego jest domyślnie wyłączona i można ją włączyć za pomocą [programu PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) lub [interfejsu wiersza polecenia](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). Nie można jej włączyć za pośrednictwem Azure Portal.  
 
-- Przyznaj serwerowi lub wystąpieniu zarządzanemu dostęp do magazynu kluczy (Get, wrapKey, unwrapKey) przy użyciu jego tożsamości Azure Active Directory. W przypadku korzystania z Azure Portal tożsamość usługi Azure AD zostanie utworzona automatycznie. W przypadku korzystania z programu PowerShell lub interfejsu wiersza polecenia tożsamość usługi Azure AD musi być jawnie utworzona, a ukończenie powinna zostać zweryfikowana. Aby uzyskać szczegółowe instrukcje krok po kroku dotyczące korzystania z programu PowerShell, zobacz [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) i [Configure TDE with BYOK for Managed instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) .
+- Przyznaj serwerowi lub wystąpieniu zarządzanemu dostęp do magazynu kluczy (Get, wrapKey, unwrapKey) przy użyciu jego tożsamości Azure Active Directory. W przypadku korzystania z Azure Portal tożsamość usługi Azure AD zostanie utworzona automatycznie. W przypadku korzystania z programu PowerShell lub interfejsu wiersza polecenia tożsamość usługi Azure AD musi być jawnie utworzona, a ukończenie powinna zostać zweryfikowana. Szczegółowe instrukcje krok po kroku znajdują się w temacie [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) i [Configure TDE with BYOK for SQL Managed instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) .
 
 - W przypadku korzystania z zapory z AKV należy włączyć opcję *Zezwalaj zaufanym usługom firmy Microsoft na pominięcie zapory*.
 
@@ -176,7 +176,7 @@ Nawet w przypadkach, gdy nie ma skonfigurowanej nadmiarowości geograficznej ser
 
 Użyj polecenia cmdlet Backup-AzKeyVaultKey, aby pobrać klucz w szyfrowanym formacie z magazynu kluczy podstawowych, a następnie użyć polecenia cmdlet Restore-AzKeyVaultKey i określić Magazyn kluczy w drugim regionie, aby sklonować klucz. Alternatywnie możesz użyć Azure Portal, aby utworzyć kopię zapasową i przywrócić klucz. Klucz w magazynie kluczy pomocniczych w innym regionie nie powinien być oznaczony jako funkcja ochrony TDE i nie jest jeszcze dozwolony.
 
- Jeśli wystąpi awaria wpływająca na podstawowy Magazyn kluczy, system automatycznie przejdzie do innego połączonego klucza z tym samym odciskiem palca w magazynie kluczy pomocniczych, jeśli istnieje. Należy pamiętać, że ten przełącznik nie zostanie wykonany, jeśli funkcja ochrony TDE jest niedostępna z powodu odwołanych praw dostępu lub klucz lub Magazyn kluczy został usunięty, ponieważ może to wskazywać, że klient chce ograniczyć dostęp serwera do klucza.
+Jeśli wystąpi awaria wpływająca na podstawowy Magazyn kluczy, system automatycznie przejdzie do innego połączonego klucza z tym samym odciskiem palca w magazynie kluczy pomocniczych, jeśli istnieje. Należy pamiętać, że ten przełącznik nie zostanie wykonany, jeśli funkcja ochrony TDE jest niedostępna z powodu odwołanych praw dostępu lub klucz lub Magazyn kluczy został usunięty, ponieważ może to wskazywać, że klient chce ograniczyć dostęp serwera do klucza.
 
 ![HA na jednym serwerze](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
@@ -194,7 +194,7 @@ Aby uniknąć problemów podczas ustanawiania lub podczas przeprowadzania replik
 
 ![Grupy trybu failover i geograficznie](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
-Aby przetestować tryb failover, wykonaj kroki opisane w temacie [Aktywna replikacja geograficzna](active-geo-replication-overview.md). Należy regularnie przeprowadzać potwierdzenie uprawnień dostępu dla programu SQL do obu magazynów kluczy.
+Aby przetestować tryb failover, wykonaj kroki opisane w temacie [Aktywna replikacja geograficzna](active-geo-replication-overview.md). Testowanie pracy w trybie failover powinno odbywać się regularnie, aby sprawdzić, czy SQL Database ma uprawnienia dostępu do obu magazynów kluczy.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -204,4 +204,4 @@ Warto również sprawdzić następujące przykładowe skrypty programu PowerShel
 
 - [Usuwanie funkcji ochrony Transparent Data Encryption (TDE) dla SQL Database przy użyciu programu PowerShell](transparent-data-encryption-byok-remove-tde-protector.md)
 
-- [Zarządzanie Transparent Data Encryption w wystąpieniu zarządzanym przy użyciu własnego klucza programu PowerShell](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+- [Zarządzaj Transparent Data Encryption w wystąpieniu zarządzanym SQL przy użyciu własnego klucza za pomocą programu PowerShell](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)

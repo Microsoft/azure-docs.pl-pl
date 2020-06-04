@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 5/13/2020
-ms.openlocfilehash: fd552e3236732fd37b2fc5d23dd234f0a87f0f27
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3d3eee7dc57a2438ccf726851025c700824a5e3a
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049939"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322073"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Bezserwerowy jest warstwą obliczeniową dla pojedynczej bazy danych Azure SQL D
 
 ## <a name="serverless-compute-tier"></a>Warstwa bezserwerowych usług obliczeniowych
 
-Warstwa obliczeń bezserwerowych dla pojedynczej bazy danych Azure SQL Database jest sparametryzowane przy użyciu zakresu obliczeń skalowania automatycznego i opóźnienia automatycznego wstrzymania.  Konfiguracja tych parametrów służy do kształtowania wydajności bazy danych i kosztu obliczeniowego.
+Warstwa obliczeń bezserwerowych dla pojedynczej bazy danych w Azure SQL Database jest sparametryzowane przez zakres obliczeń skalowania automatycznego i opóźnienie automatycznego wstrzymania. Konfiguracja tych parametrów służy do kształtowania wydajności bazy danych i kosztu obliczeniowego.
 
 ![rozliczenia bezserwerowe](./media/serverless-tier-overview/serverless-billing.png)
 
@@ -125,7 +125,7 @@ Autowstrzymywanie jest tymczasowo uniemożliwiane podczas wdrażania niektórych
 
 Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest którykolwiek z następujących warunków:
 
-|Cecha|Wyzwalacz autowznawiania|
+|Cechy|Wyzwalacz autowznawiania|
 |---|---|
 |Uwierzytelnianie i autoryzacja|Zaloguj się|
 |Wykrywanie zagrożeń|Włączanie/wyłączanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.<br>Modyfikowanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.|
@@ -183,11 +183,11 @@ Tworzenie nowej bazy danych lub przeniesienie istniejącej bazy danych do warstw
    |Opóźnienie AutoPause|Minimum: 60 minut (1 godzina)<br>Maksimum: 10080 minut (7 dni)<br>Przyrosty: 10 minut<br>Wyłącz autowstrzymywanie:-1|60 minut|
 
 
-### <a name="create-new-database-in-serverless-compute-tier"></a>Utwórz nową bazę danych w warstwie obliczeniowej bezserwerowej 
+### <a name="create-a-new-database-in-the-serverless-compute-tier"></a>Tworzenie nowej bazy danych w warstwie obliczeniowej bezserwerowej
 
 Poniżej przedstawiono przykłady tworzenia nowej bazy danych w warstwie obliczeniowej bezserwerowej.
 
-#### <a name="use-azure-portal"></a>Korzystanie z witryny Azure Portal
+#### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
 Zobacz [Szybki Start: Tworzenie pojedynczej bazy danych w Azure SQL Database przy użyciu Azure Portal](single-database-create-quickstart.md).
 
@@ -199,7 +199,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
-#### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+#### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
@@ -218,7 +218,7 @@ CREATE DATABASE testdb
 
 Aby uzyskać szczegółowe informacje, zobacz [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
 
-### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>Przenoszenie bazy danych ze wstępnie zainicjowanej warstwy obliczeniowej do warstwy obliczeń bezserwerowych
+### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>Przenoszenie bazy danych ze wstępnie zainicjowanej warstwy obliczeniowej do warstwy obliczeń bezserwerowych
 
 Poniższe przykłady przenosiją bazę danych z zainicjowanej warstwy obliczeniowej do warstwy obliczeń bezserwerowych.
 
@@ -231,7 +231,7 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-#### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+#### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
 ```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
@@ -250,7 +250,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 Aby uzyskać szczegółowe informacje, zobacz [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
-### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>Przenoszenie bazy danych z warstwy obliczeń bezserwerowej do alokowanej warstwy obliczeniowej
+### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>Przenoszenie bazy danych z warstwy obliczeniowej bezserwerowej do alokowanej warstwy obliczeniowej
 
 Bezserwerowa baza danych może zostać przeniesiona do warstwy obliczeń aprowizacji w taki sam sposób jak w przypadku przenoszenia zainicjowanej bazy danych obliczeń do warstwy obliczeń bezserwerowych.
 
@@ -260,7 +260,7 @@ Bezserwerowa baza danych może zostać przeniesiona do warstwy obliczeń aprowiz
 
 Modyfikacja wartości maksymalnej lub minimalnej rdzeni wirtualnych oraz opóźnienia AutoPause odbywa się przy użyciu polecenia [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) w programie PowerShell przy użyciu `MaxVcore` `MinVcore` argumentów, i `AutoPauseDelayInMinutes` .
 
-### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
 Modyfikacja maksymalnego lub minimalnego rdzeni wirtualnych oraz opóźnienia AutoPause odbywa się przy użyciu polecenia [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) w interfejsie CLI platformy Azure przy `capacity` użyciu `min-capacity` argumentów, i `auto-pause-delay` .
 
@@ -307,7 +307,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername 
   | Select -ExpandProperty "Status"
 ```
 
-#### <a name="use-azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+#### <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
 ```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json

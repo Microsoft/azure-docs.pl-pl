@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
 ms.openlocfilehash: 7cb300297336edcce4294b800520ad570b12bcde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548162"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84320934"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Najlepsze rozwiązania dotyczące tworzenia rozwiązań do zarządzania na platformie Azure (wersja zapoznawcza)
 > [!NOTE]

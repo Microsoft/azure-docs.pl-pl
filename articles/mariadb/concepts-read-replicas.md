@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: 6b738fc96a51893d8c0a0e75c5551007da60bdd2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e3615286150723308f861456bfe2bbb0cff81707
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793197"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321669"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliki do odczytu w usłudze Azure Database for MariaDB
 
@@ -86,7 +86,7 @@ W wierszu polecenia wprowadź hasło dla konta użytkownika.
 
 Azure Database for MariaDB zapewnia wartość **opóźnienia replikacji w sekundach** w Azure monitor. Ta Metryka jest dostępna tylko dla replik.
 
-Ta Metryka jest obliczana przy `seconds_behind_master` użyciu metryki dostępnej w `SHOW SLAVE STATUS` MariaDB polecenia.
+Ta Metryka jest obliczana przy użyciu `seconds_behind_master` metryki dostępnej w MariaDB `SHOW SLAVE STATUS` polecenia.
 
 Ustaw Alert, aby poinformować Cię, gdy zwłoka replikacji osiągnie wartość, która nie jest akceptowalna dla obciążenia.
 
@@ -102,11 +102,14 @@ Gdy zdecydujesz się zatrzymać replikację do repliki, utraci ona wszystkie lin
 
 Dowiedz się, jak [zatrzymać replikację do repliki](howto-read-replicas-portal.md).
 
-## <a name="considerations-and-limitations"></a>Istotne kwestie i ograniczenia
+## <a name="considerations-and-limitations"></a>Istotne zagadnienia i ograniczenia
 
 ### <a name="pricing-tiers"></a>Warstwy cenowe
 
 Repliki odczytu są obecnie dostępne tylko w warstwach cenowych Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
+
+> [!NOTE]
+> Koszt uruchomienia serwera repliki jest oparty na regionie, w którym jest uruchomiony serwer repliki.
 
 ### <a name="master-server-restart"></a>Ponowne uruchamianie serwera głównego
 
@@ -145,7 +148,7 @@ Następujące parametry serwera są blokowane na serwerach głównych i repliki:
 - [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
-[`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) Parametr jest zablokowany na serwerach repliki.
+[`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler)Parametr jest zablokowany na serwerach repliki.
 
 Aby zaktualizować jeden z powyższych parametrów na serwerze głównym, należy usunąć serwer repliki, zaktualizować wartość parametru na wzorcu i ponownie utworzyć repliki.
 

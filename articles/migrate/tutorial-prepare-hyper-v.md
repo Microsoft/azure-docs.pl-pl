@@ -4,19 +4,19 @@ description: Dowiedz się, jak przygotować się do oceny/migracji maszyn wirtua
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: ea6290eae187ed4ead39f7307a84a54a23c19c29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22fd5bc87494eb2fc162828363e7ca70afe1bbf0
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81641632"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322169"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Przygotowanie do oceny i migracji maszyn wirtualnych funkcji Hyper-V na platformę Azure
 
 W tym artykule opisano sposób przygotowania do oceny lokalnych maszyn wirtualnych funkcji Hyper-V przy użyciu [Azure Migrate: oceny serwera](migrate-services-overview.md#azure-migrate-server-assessment-tool)i migracji maszyn wirtualnych funkcji Hyper-v z [Azure Migrate: Migracja serwera](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
-Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać i migrować maszyny wirtualne funkcji Hyper-V na platformę Azure. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Przygotuj platformę Azure. Skonfiguruj uprawnienia dla konta i zasobów platformy Azure do pracy z Azure Migrate.
@@ -29,7 +29,7 @@ Ten samouczek jest pierwszą częścią serii, która pokazuje, jak oceniać i m
 > Samouczki przedstawiają najprostszą ścieżkę wdrożenia dla scenariusza, dzięki czemu można szybko skonfigurować weryfikację koncepcji. Samouczki korzystają z domyślnych opcji, jeśli jest to możliwe, i nie wyświetlają wszystkich możliwych ustawień i ścieżek. Aby uzyskać szczegółowe instrukcje, zapoznaj się z tematem Porady dotyczące oceny i migracji funkcji Hyper-V.
 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="prepare-azure"></a>Przygotowywanie platformy Azure
@@ -73,7 +73,7 @@ Można przypisać uprawnienia dla Azure Migrate, aby utworzyć aplikację usług
 
 Dzierżawy/Administrator globalny mogą udzielić uprawnień w następujący sposób:
 
-1. W usłudze Azure AD dzierżawca/Administrator globalny powinien przejść do**ustawień użytkownika** **Azure Active Directory** > **Użytkownicy** > .
+1. W usłudze Azure AD dzierżawca/Administrator globalny powinien przejść do **Azure Active Directory**  >  **Users**  >  **ustawień użytkownika**Azure Active Directory użytkownicy.
 2. Administrator powinien ustawić **rejestracje aplikacji** na **wartość tak**.
 
     ![Uprawnienia usługi Azure AD](./media/tutorial-prepare-hyper-v/aad.png)
@@ -126,11 +126,10 @@ Uruchom skrypt w następujący sposób:
     ```
     Przykład użycia: 
     ```
-    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
-    SHA256
+    C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
 
-4.    Po zweryfikowaniu integralności skryptu Uruchom skrypt na każdym hoście funkcji Hyper-V za pomocą tego polecenia programu PowerShell:
+4. Po zweryfikowaniu integralności skryptu Uruchom skrypt na każdym hoście funkcji Hyper-V za pomocą tego polecenia programu PowerShell:
     ```
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
