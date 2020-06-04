@@ -12,17 +12,17 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/29/2020
-ms.openlocfilehash: 385a7594de48f1bcf04d79d0dcd9dfb521d4ff08
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f7625f7dda4553a160f11ecd7f6d5c44943f6a6b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045116"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338740"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Zarządzanie długoterminowym przechowywaniem kopii zapasowych wystąpienia zarządzanego usługi Azure SQL (program PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-W wystąpieniu zarządzanym usługi Azure SQL można skonfigurować [długoterminowe zasady przechowywania kopii zapasowych](../database/long-term-retention-overview.md#managed-instance-support) (LTR) jako ograniczoną publiczną funkcję w wersji zapoznawczej. Pozwala to na automatyczne zachowywanie kopii zapasowych bazy danych w oddzielnych kontenerach usługi Azure Blob Storage przez maksymalnie 10 lat. Następnie można odzyskać bazę danych przy użyciu tych kopii zapasowych za pomocą programu PowerShell.
+W wystąpieniu zarządzanym usługi Azure SQL można skonfigurować [długoterminowe zasady przechowywania kopii zapasowych](../database/long-term-retention-overview.md#sql-managed-instance-support) (LTR) jako ograniczoną publiczną funkcję w wersji zapoznawczej. Pozwala to na automatyczne zachowywanie kopii zapasowych bazy danych w oddzielnych kontenerach usługi Azure Blob Storage przez maksymalnie 10 lat. Następnie można odzyskać bazę danych przy użyciu tych kopii zapasowych za pomocą programu PowerShell.
 
    > [!IMPORTANT]
    > Wartość LTR dla wystąpień zarządzanych jest obecnie w ograniczonej wersji zapoznawczej i jest dostępna dla subskrypcji umów EA i CSP w przypadku wystąpienia w zależności od wielkości liter. Aby zażądać rejestracji, Utwórz [bilet pomocy technicznej systemu Azure](https://azure.microsoft.com/support/create-ticket/). W polu Typ problemu wybierz pozycję problem techniczny, dla opcji usługa wybierz SQL Database wystąpienie zarządzane, a w polu Typ problemu wybierz pozycję **kopia zapasowa, przywracanie i ciągłość działania oraz przechowywanie długoterminowych kopii zapasowych**. W żądaniu Określ, czy chcesz zarejestrować się w ograniczonej publicznej wersji zapoznawczej LTR dla wystąpienia zarządzanego.

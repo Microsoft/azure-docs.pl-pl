@@ -1,20 +1,45 @@
 ---
-title: Zarządzanie danymi usługi Azure Automation
-description: Ten artykuł zawiera pojęcia związane z zarządzaniem danymi w Azure Automation, w tym przechowywanie i wykonywanie kopii zapasowych danych.
+title: Zabezpieczenia danych Azure Automation
+description: Ten artykuł pomaga dowiedzieć się, jak Azure Automation chroni prywatność i zabezpiecza dane.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/23/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: de60ef31a39a698f9a797a5836546f9b75b67594
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2dbaebac2228c11aef5fb33af4588f75ea15677a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835210"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343058"
 ---
 # <a name="management-of-azure-automation-data"></a>Zarządzanie danymi usługi Azure Automation
 
-Ten artykuł zawiera kilka tematów dotyczących zarządzania danymi w środowisku Azure Automationm.
+Ten artykuł zawiera kilka tematów wyjaśniających, jak dane są chronione i zabezpieczane w środowisku Azure Automation.
+
+## <a name="tls-12-enforcement-for-azure-automation"></a>Wymuszanie protokołu TLS 1,2 dla Azure Automation
+
+Aby zapewnić bezpieczeństwo danych podczas przesyłania do Azure Automation, zdecydowanie zachęcamy do konfigurowania użycia Transport Layer Security (TLS) 1,2. Poniżej przedstawiono listę metod lub klientów komunikujących się za pośrednictwem protokołu HTTPS z usługą Automation:
+
+* Wywołania elementu webhook
+
+* Hybrydowe procesy robocze elementów Runbook, w tym maszyny zarządzane przez Update Management i Change Tracking i spisu.
+
+* Węzły DSC
+
+Starsze wersje protokołu TLS/SSL (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**. Od września 2020 zaczynamy wymuszać protokół TLS 1,2 i nowsze wersje protokołu szyfrowania.
+
+Nie zalecamy jawnego ustawienia agenta do używania protokołu TLS 1,2, chyba że jest to absolutnie konieczne, ponieważ może to spowodować przerwanie funkcji zabezpieczeń na poziomie platformy, które umożliwiają automatyczne wykrywanie i korzystanie z nowszych bezpieczniejszych protokołów, gdy staną się dostępne, takich jak TLS 1,3.
+
+Aby uzyskać informacje o obsłudze protokołu TLS 1,2 z agentem Log Analytics dla systemów Windows i Linux, który jest zależnością roli hybrydowego procesu roboczego elementu Runbook, zobacz [Omówienie agenta log Analytics — TLS 1,2](..//azure-monitor/platform/log-analytics-agent.md#tls-12-protocol). 
+
+### <a name="platform-specific-guidance"></a>Wskazówki dotyczące platformy
+
+|Platforma/język | Pomoc techniczna | Więcej informacji |
+| --- | --- | --- |
+|Linux | Dystrybucje systemu Linux zależą od [OpenSSL](https://www.openssl.org) obsługi TLS 1,2.  | Sprawdź [Dziennik zmian OpenSSL](https://www.openssl.org/news/changelog.html) , aby potwierdzić, że wersja OpenSSL jest obsługiwana.|
+| Windows 8,0 — 10 | Obsługiwane i domyślnie włączone. | , Aby upewnić się, że nadal używasz [ustawień domyślnych](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 — 2016 | Obsługiwane i domyślnie włączone. | Aby potwierdzić, że nadal używasz [ustawień domyślnych](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 z dodatkiem SP1 i Windows Server 2008 R2 z dodatkiem SP1 | Obsługiwane, ale nie włączone domyślnie. | Aby uzyskać szczegółowe informacje na temat włączania, zobacz stronę [Ustawienia rejestru Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) .  |
 
 ## <a name="data-retention"></a>Przechowywanie danych
 
@@ -53,16 +78,16 @@ Nie można eksportować Azure Automation zasobów: certyfikaty, połączenia, po
 
 Nie można pobrać wartości szyfrowanych zmiennych lub pól haseł poświadczeń przy użyciu poleceń cmdlet. Jeśli nie znasz tych wartości, możesz je pobrać w elemencie Runbook. Aby pobrać wartości zmiennych, zobacz [zmienne zasoby w Azure Automation](shared-resources/variables.md). Aby dowiedzieć się więcej o pobieraniu wartości poświadczeń, zobacz [zasoby poświadczeń w Azure Automation](shared-resources/credentials.md).
 
- ### <a name="dsc-configurations"></a>Konfiguracje DSC
+### <a name="dsc-configurations"></a>Konfiguracje DSC
 
 Konfiguracje DSC można wyeksportować do plików skryptów przy użyciu Azure Portal lub polecenia cmdlet [Export-AzAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/az.automation/export-azautomationdscconfiguration?view=azps-3.7.0
 ) w programie Windows PowerShell. Możesz importować te konfiguracje i używać ich w innym koncie usługi Automation.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replikacja geograficzna w Azure Automation
 
-Replikacja geograficzna jest standardowa w ramach kont Azure Automation. Podczas konfigurowania konta możesz wybrać region podstawowy. Wewnętrzna usługa replikacji geograficznej automatyzacji automatycznie przypisuje region pomocniczy do konta. Następnie usługa ciągle tworzy kopię zapasową danych konta z regionu podstawowego do regionu pomocniczego. Pełną listę regionów podstawowych i pomocniczych można znaleźć w obszarze [ciągłość biznesowa i odzyskiwanie po awarii (BCDR): wielodostępne regiony platformy Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+Replikacja geograficzna jest standardowa w ramach kont Azure Automation. Podczas konfigurowania konta możesz wybrać region podstawowy. Wewnętrzna usługa replikacji geograficznej automatyzacji automatycznie przypisuje region pomocniczy do konta. Następnie usługa ciągle tworzy kopię zapasową danych konta z regionu podstawowego do regionu pomocniczego. Pełną listę regionów podstawowych i pomocniczych można znaleźć w obszarze [ciągłość biznesowa i odzyskiwanie po awarii (BCDR): wielodostępne regiony platformy Azure](../best-practices-availability-paired-regions.md).
 
-Kopia zapasowa utworzona przez usługę replikacji geograficznej automatyzacji to kompletna kopia zasobów usługi Automation, konfiguracji i podobne. Tej kopii zapasowej można użyć, jeśli region podstawowy ulegnie awarii i utraci dane. W prawdopodobnym zdarzeniu, gdy dane dla regionu podstawowego zostaną utracone, firma Microsoft podejmie próbę jego odzyskania. Jeśli firma nie może odzyskać danych podstawowych, używa automatycznej pracy awaryjnej i informuje Cię o sytuacji za pośrednictwem subskrypcji platformy Azure. 
+Kopia zapasowa utworzona przez usługę replikacji geograficznej automatyzacji to kompletna kopia zasobów usługi Automation, konfiguracji i podobne. Tej kopii zapasowej można użyć, jeśli region podstawowy ulegnie awarii i utraci dane. W prawdopodobnym zdarzeniu, gdy dane dla regionu podstawowego zostaną utracone, firma Microsoft podejmie próbę jego odzyskania. Jeśli firma nie może odzyskać danych podstawowych, używa automatycznej pracy awaryjnej i informuje Cię o sytuacji za pośrednictwem subskrypcji platformy Azure.
 
 Usługa replikacji geograficznej usługi Automation nie jest dostępna bezpośrednio dla klientów zewnętrznych, jeśli wystąpi awaria regionalna. Jeśli chcesz zachować konfigurację automatyzacji i elementy Runbook w trakcie awarii regionalnych:
 
@@ -77,4 +102,5 @@ Usługa replikacji geograficznej usługi Automation nie jest dostępna bezpośre
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby dowiedzieć się więcej na temat zabezpieczania zasobów w Azure Automation, zobacz [szyfrowanie zabezpieczonych zasobów w programie Azure Automation](automation-secure-asset-encryption.md).
-* Aby dowiedzieć się więcej na temat replikacji geograficznej, zobacz [Tworzenie i używanie aktywnej replikacji geograficznej](https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication).
+
+* Aby dowiedzieć się więcej na temat replikacji geograficznej, zobacz [Tworzenie i używanie aktywnej replikacji geograficznej](../sql-database/sql-database-active-geo-replication.md).

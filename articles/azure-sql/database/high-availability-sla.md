@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: 527fe8fa2ad8916f9e5209e4823457d81e745034
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: a5c55149b9cfbe1c82208347f96383a60b6b1817
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219369"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331546"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -75,12 +75,14 @@ Aby uzyskać więcej informacji na temat wysokiej dostępności w ramach skalowa
 
 ## <a name="zone-redundant-configuration"></a>Konfiguracja nadmiarowa stref
 
-Domyślnie klaster węzłów dla modelu dostępności Premium jest tworzony w tym samym centrum danych. Wprowadzenie [strefy dostępności platformy Azure](../../availability-zones/az-overview.md), SQL Database i wystąpienia zarządzane SQL mogą umieścić różne repliki bazy danych krytyczne dla działania firmy w różnych strefach dostępności w tym samym regionie. Aby wyeliminować single point of failure, pierścień kontrolny jest również duplikowany w wielu strefach jako trzy pierścienie bramy (GW). Routing do określonego pierścienia bramy jest kontrolowany przez [usługę Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Ponieważ konfiguracja nadmiarowa strefy w warstwach usług premium lub Krytyczne dla działania firmy nie powoduje utworzenia dodatkowej nadmiarowości bazy danych, możesz ją włączyć bez dodatkowych kosztów. Wybierając strefowo nadmiarową konfigurację, można sprawić, aby bazy danych Premium lub Krytyczne dla działania firmy odporne na znacznie większy zestaw błędów, w tym katastrofalne przerwy w działaniu, bez wprowadzania żadnych zmian w logice aplikacji. Istnieje również możliwość przekonwertowania wszelkich istniejących baz danych lub pul w warstwie Premium lub Krytyczne dla działania firmy na strefę nadmiarową.
+Domyślnie klaster węzłów dla modelu dostępności Premium jest tworzony w tym samym centrum danych. Wprowadzając [strefy dostępności platformy Azure](../../availability-zones/az-overview.md), SQL Database mogą umieścić różne repliki bazy danych krytyczne dla działania firmy w różnych strefach dostępności w tym samym regionie. Aby wyeliminować single point of failure, pierścień kontrolny jest również duplikowany w wielu strefach jako trzy pierścienie bramy (GW). Routing do określonego pierścienia bramy jest kontrolowany przez [usługę Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) (ATM). Ponieważ konfiguracja nadmiarowa strefy w warstwach usług premium lub Krytyczne dla działania firmy nie powoduje utworzenia dodatkowej nadmiarowości bazy danych, możesz ją włączyć bez dodatkowych kosztów. Wybierając strefowo nadmiarową konfigurację, można sprawić, aby bazy danych Premium lub Krytyczne dla działania firmy odporne na znacznie większy zestaw błędów, w tym katastrofalne przerwy w działaniu, bez wprowadzania żadnych zmian w logice aplikacji. Istnieje również możliwość przekonwertowania wszelkich istniejących baz danych lub pul w warstwie Premium lub Krytyczne dla działania firmy na strefę nadmiarową.
 
 Ze względu na to, że nadmiarowe bazy danych strefy mają repliki w różnych centrach, z odległości między nimi, zwiększone opóźnienie sieci może wydłużyć czas zatwierdzania i w ten sposób mieć wpływ na wydajność niektórych obciążeń OLTP. Zawsze możesz wrócić do konfiguracji pojedynczej strefy, wyłączając ustawienie nadmiarowości strefy. Ten proces jest operacją online podobną do zwykłego uaktualnienia warstwy usług. Na końcu procesu baza danych lub Pula jest migrowana ze strefy nadmiarowego pierścień do pojedynczego pierścienia strefy lub odwrotnie.
 
 > [!IMPORTANT]
-> Nadmiarowe bazy danych stref i pule elastyczne są obecnie obsługiwane tylko w warstwach usług premium i Krytyczne dla działania firmy w wybranych regionach. W przypadku korzystania z warstwy Krytyczne dla działania firmy konfiguracja nadmiarowa strefy jest dostępna tylko po wybraniu sprzętu obliczeniowego 5 rdzeń. Aby uzyskać aktualne informacje o regionach, które obsługują nadmiarowe bazy danych strefy, zobacz temat [Obsługa usług według regionów](../../availability-zones/az-region.md).  
+> Nadmiarowe bazy danych stref i pule elastyczne są obecnie obsługiwane tylko w warstwach usług premium i Krytyczne dla działania firmy w wybranych regionach. W przypadku korzystania z warstwy Krytyczne dla działania firmy konfiguracja nadmiarowa strefy jest dostępna tylko po wybraniu sprzętu obliczeniowego 5 rdzeń. Aby uzyskać aktualne informacje o regionach, które obsługują nadmiarowe bazy danych strefy, zobacz temat [Obsługa usług według regionów](../../availability-zones/az-region.md).
+
+> [!NOTE]
 > Ta funkcja jest niedostępna w wystąpieniu zarządzanym SQL.
 
 Strefa o wysokiej dostępności nadmiarowa jest zilustrowana na poniższym diagramie:

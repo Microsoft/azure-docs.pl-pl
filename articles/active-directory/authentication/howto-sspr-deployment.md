@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6151bbd9f056ef95c0875b83c7b6fccb732aebfe
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a56f7248d5782b63befc55c4215360e0f5cb52b2
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870974"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338570"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planowanie Azure Active Directory samoobsługowego resetowania hasła
 
@@ -323,7 +323,7 @@ Dzienniki inspekcji na potrzeby rejestracji i resetowania haseł są dostępne p
 
 [Użycie i szczegółowe informacje](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-methods-usage-insights) pozwalają zrozumieć, jak metody uwierzytelniania dla funkcji, takich jak Azure MFA i SSPR, działają w organizacji. Ta funkcja raportowania umożliwia organizacji korzystanie z metod, które umożliwiają zapoznanie się z metodami rejestrowania i korzystania z nich.
 
-### <a name="troubleshoot"></a>Rozwiązywanie problemów
+### <a name="troubleshoot"></a>Rozwiąż problemy
 
 * Zobacz [Rozwiązywanie problemów z samoobsługowym resetowaniem hasła](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-troubleshoot) 
 

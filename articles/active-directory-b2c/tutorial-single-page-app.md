@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 4a36019f9023490c3aac68dbe7004b053f08e5ec
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 31db8aa750a0691940f9f55c2743764c38fd8b0b
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298826"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331461"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
@@ -97,20 +97,28 @@ Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azu
     ```javascript
     const msalConfig = {
         auth: {
-            clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
-            authority: "https://your-b2c-tenant.b2clogin.com/your-b2c-tenant.onmicrosoft.com/B2C_1_signupsignin1", // Update with your tenant and user flow names
-            validateAuthority: false
+          clientId: "00000000-0000-0000-0000-000000000000", // Replace this value with your Application (client) ID
+          authority: b2cPolicies.authorities.signUpSignIn.authority,
+          validateAuthority: false
         },
         cache: {
-            cacheLocation: "localStorage",
-            storeAuthStateInCookie: true
+          cacheLocation: "localStorage",
+          storeAuthStateInCookie: true
         }
+    };
+
+    const loginRequest = {
+       scopes: ["openid", "profile"],
+    };
+
+    const tokenRequest = {
+      scopes: apiConfig.b2cScopes // i.e. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
     };
     ```
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-1. Otwórz okno konsoli i przejdź do katalogu zawierającego przykład. Na przykład:
+1. Otwórz okno konsoli i przejdź do katalogu zawierającego przykład. Przykład:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp

@@ -2,14 +2,14 @@
 title: Limity i przydziały dotyczące usługi
 description: Informacje o domyślnych przydziałach Azure Batch, limitach i ograniczeniach oraz o sposobach zwiększania limitu przydziału
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3168c6fc60b2552129e9a11fbf6e8e24d9b37b14
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 45eefd10f7227509e7db8730e5e7192bd5833721
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84229849"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84323891"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 
@@ -83,41 +83,41 @@ Wykonaj następujące kroki, aby zażądać zwiększenia przydziału dla konta u
 1. Wybierz pozycję **nowe**  >  **Informacje podstawowe**żądania obsługi.
 1. **Podstawowe informacje**:
    
-    a. **Typ problemu**  >  **Limity usług i subskrypcji (przydziały)**
+    1. **Typ problemu**  >  **Limity usług i subskrypcji (przydziały)**
    
-    b. Wybierz subskrypcję.
+    1. Wybierz subskrypcję.
    
-    c. **Typ**  >  limitu przydziału **Partia zadań**
+    1. **Typ**  >  limitu przydziału **Partia zadań**
       
-    Wybierz opcję **Dalej**.
+       Wybierz opcję **Dalej**.
     
 1. W obszarze **Szczegóły**:
       
-    a. W obszarze **Podaj szczegóły**Określ lokalizację, typ przydziału i konto w usłudze Batch.
+    1. W obszarze **Podaj szczegóły**Określ lokalizację, typ przydziału i konto w usłudze Batch.
     
-    ![Wzrost przydziału partii][quota_increase]
+       ![Wzrost przydziału partii][quota_increase]
 
-    Typy przydziałów obejmują:
+       Typy przydziałów obejmują:
 
-    * **Za konto wsadowe**  
-        Wartości specyficzne dla pojedynczego konta partii, w tym dedykowane i o niskim priorytecie rdzenie oraz liczbę zadań i pul.
+       * **Za konto wsadowe**  
+         Wartości specyficzne dla pojedynczego konta partii, w tym dedykowane i o niskim priorytecie rdzenie oraz liczbę zadań i pul.
         
-    * **Na region**  
-        Wartości, które mają zastosowanie do wszystkich kont usługi Batch w regionie i obejmują liczbę kont usługi Batch na region na subskrypcję.
+       * **Na region**  
+         Wartości, które mają zastosowanie do wszystkich kont usługi Batch w regionie i obejmują liczbę kont usługi Batch na region na subskrypcję.
 
-    Przydział o niskim priorytecie to pojedyncza wartość dla wszystkich serii maszyn wirtualnych. Jeśli potrzebujesz ograniczonych jednostek SKU, musisz wybrać **rdzenie o niskim priorytecie** i dołączyć rodziny maszyn wirtualnych do żądania.
+       Przydział o niskim priorytecie to pojedyncza wartość dla wszystkich serii maszyn wirtualnych. Jeśli potrzebujesz ograniczonych jednostek SKU, musisz wybrać **rdzenie o niskim priorytecie** i dołączyć rodziny maszyn wirtualnych do żądania.
 
-    b. Wybierz **wagę** zgodną z Twoim [wpływem na firmę][support_sev].
+    1. Wybierz **wagę** zgodną z Twoim [wpływem na firmę][support_sev].
 
-    Wybierz opcję **Dalej**.
+       Wybierz opcję **Dalej**.
 
 1. W **informacjach kontaktowych**:
    
-    a. Wybierz **preferowaną metodę kontaktu**.
+    1. Wybierz **preferowaną metodę kontaktu**.
    
-    b. Sprawdź i wprowadź wymagane szczegóły kontaktu.
+    1. Sprawdź i wprowadź wymagane szczegóły kontaktu.
    
-    Wybierz pozycję **Utwórz** , aby przesłać żądanie obsługi.
+       Wybierz pozycję **Utwórz** , aby przesłać żądanie obsługi.
 
 Po przesłaniu żądania pomocy technicznej systemu Azure skontaktuje się z Tobą. Żądania limitu przydziału mogą być wykonywane w ciągu kilku minut lub do dwóch dni roboczych.
 

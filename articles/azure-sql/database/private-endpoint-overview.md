@@ -1,6 +1,6 @@
 ---
-title: Link prywatny
-description: Omówienie funkcji prywatnego punktu końcowego
+title: Link prywatny platformy Azure
+description: Omówienie funkcji prywatnego punktu końcowego.
 author: rohitnayakmsft
 ms.author: rohitna
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
@@ -9,36 +9,36 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: e1093e57757d780bf5393b6cb1bb45a706b18b11
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: cd2f88d78a967b46c1983e7eb96328c14d90a81a
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219878"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344003"
 ---
-# <a name="private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Prywatne łącze do Azure SQL Database i analizy Synapse Azure
+# <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Prywatny link do platformy Azure dla Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 Link prywatny umożliwia nawiązanie połączenia z różnymi usługami PaaS na platformie Azure za pośrednictwem **prywatnego punktu końcowego**. Aby zapoznać się z listą usług PaaS Services, które obsługują funkcję link prywatny, przejdź do strony z [dokumentacją linku prywatnego](../../private-link/index.yml) . Prywatny punkt końcowy to prywatny adres IP w obrębie określonej sieci [wirtualnej](../../virtual-network/virtual-networks-overview.md) i podsieci.
 
 > [!IMPORTANT]
-> Ten artykuł dotyczy zarówno Azure SQL Database, jak i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse). Dla uproszczenia termin "baza danych" odnosi się do obu baz danych w Azure SQL Database i Azure Synapse Analytics. Podobnie wszystkie odwołania do "serwer" odwołują się do [logicznego serwera SQL](logical-servers.md) , który hostuje Azure SQL Database i usługi Azure Synapse Analytics. Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**.
+> Ten artykuł dotyczy zarówno Azure SQL Database, jak i usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse). Dla uproszczenia termin "baza danych" odnosi się do obu baz danych w Azure SQL Database i Azure Synapse Analytics. Podobnie wszystkie odwołania do "serwer" odwołują się do [logicznego serwera SQL](logical-servers.md) , który hostuje Azure SQL Database i usługi Azure Synapse Analytics. Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**.
 
 ## <a name="data-exfiltration-prevention"></a>Ochrona danych eksfiltracji
 
 Eksfiltracji danych w Azure SQL Database polega na tym, że autoryzowany użytkownik, taki jak administrator bazy danych, może wyodrębnić dane z jednego systemu i przenieść go do innej lokalizacji lub systemu poza organizacją. Na przykład użytkownik przenosi dane na konto magazynu należące do innej firmy.
 
-Rozważmy scenariusz z użytkownikiem z uruchomioną SQL Server Management Studio (SSMS) wewnątrz maszyny wirtualnej platformy Azure łączącej się z SQL Database. Ten SQL Database znajduje się w centrum danych w zachodnich stanach USA. W poniższym przykładzie pokazano, jak ograniczyć dostęp za pomocą publicznych punktów końcowych w SQL Database przy użyciu funkcji kontroli dostępu do sieci.
+Zapoznaj się z scenariuszem dla użytkownika z uruchomionym SQL Server Management Studio (SSMS) w ramach maszyny wirtualnej platformy Azure łączącej się z bazą danych w programie SQL Database. Ta baza danych znajduje się w centrum danych w zachodnich stanach USA. W poniższym przykładzie pokazano, jak ograniczyć dostęp za pomocą publicznych punktów końcowych w SQL Database przy użyciu funkcji kontroli dostępu do sieci.
 
 1. Wyłącz cały ruch usługi platformy Azure do SQL Database za pośrednictwem publicznego punktu końcowego przez ustawienie opcji Zezwalaj na **wyłączanie**usług platformy Azure. Upewnij się, że żadne adresy IP nie są dozwolone w regułach zapory na poziomie serwera i bazy danych. Aby uzyskać więcej informacji, zobacz [Azure SQL Database i kontrola dostępu do sieci w usłudze Azure Synapse Analytics](network-access-controls-overview.md).
-1. Zezwalaj tylko na ruch do SQL Database przy użyciu prywatnego adresu IP maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz artykuły na temat [punktów końcowych usługi](vnet-service-endpoint-rule-overview.md) i [reguł zapory sieci wirtualnej](firewall-configure.md).
+1. Zezwalanie na ruch do bazy danych w SQL Database przy użyciu prywatnego adresu IP maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz artykuły na temat [punktów końcowych usługi](vnet-service-endpoint-rule-overview.md) i [reguł zapory sieci wirtualnej](firewall-configure.md).
 1. Na maszynie wirtualnej platformy Azure Zawęź zakres połączenia wychodzącego za pomocą [sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń)](../../virtual-network/manage-network-security-group.md) i tagów usługi w następujący sposób:
     - Określ regułę sieciowej grupy zabezpieczeń, aby zezwolić na ruch dla programu Service Tag = SQL. Zachodnie — Zezwalanie na połączenie tylko SQL Database w regionie zachodnie stany USA
     - Określ regułę sieciowej grupy zabezpieczeń (z **wyższym priorytetem**), aby odmówić ruchu dla programu Service Tag = odmowa dostępu do SQL Database we wszystkich regionach
 
-Po zakończeniu tej instalacji maszyna wirtualna platformy Azure może łączyć się tylko z bazami danych SQL w regionie zachodnie stany USA. Łączność nie jest jednak ograniczona do jednego SQL Database. Maszyna wirtualna może nadal łączyć się z dowolnymi bazami danych SQL w regionie zachodnie stany USA, włącznie z bazami danych, które nie są częścią subskrypcji. Chociaż eksfiltracji zakres danych w powyższym scenariuszu do określonego regionu, nie został on całkowicie wyeliminowany.
+Po zakończeniu tej instalacji maszyna wirtualna platformy Azure może łączyć się tylko z bazą danych w SQL Database w regionie zachodnie stany USA. Łączność nie jest jednak ograniczona do pojedynczej bazy danych w SQL Database. Maszyna wirtualna może nadal łączyć się z dowolną bazą danych w regionie zachodnie stany USA, włącznie z bazami danych, które nie są częścią subskrypcji. Chociaż eksfiltracji zakres danych w powyższym scenariuszu do określonego regionu, nie został on całkowicie wyeliminowany.
 
-Za pomocą linku prywatnego klienci mogą teraz konfigurować metody kontroli dostępu do sieci, takie jak sieciowych grup zabezpieczeń, aby ograniczyć dostęp do prywatnego punktu końcowego. Poszczególne zasoby usługi Azure PaaS są następnie mapowane na określone prywatne punkty końcowe. Złośliwy tester może uzyskać dostęp tylko do zamapowanego zasobu PaaS (na przykład SQL Database) i bez innego zasobu. 
+Za pomocą linku prywatnego klienci mogą teraz konfigurować metody kontroli dostępu do sieci, takie jak sieciowych grup zabezpieczeń, aby ograniczyć dostęp do prywatnego punktu końcowego. Poszczególne zasoby usługi Azure PaaS są następnie mapowane na określone prywatne punkty końcowe. Złośliwy tester może uzyskać dostęp tylko do zamapowanego zasobu PaaS (na przykład bazy danych w SQL Database) i bez innego zasobu. 
 
 ## <a name="on-premises-connectivity-over-private-peering"></a>Łączność lokalna za pośrednictwem prywatnej komunikacji równorzędnej
 
@@ -49,7 +49,7 @@ Za pomocą linku prywatnego klienci mogą włączyć dostęp między lokalizacja
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Jak skonfigurować link prywatny dla Azure SQL Database 
 
 ### <a name="creation-process"></a>Proces tworzenia
-Prywatne punkty końcowe można tworzyć przy użyciu portalu, programu PowerShell lub interfejsu wiersza polecenia platformy Azure:
+Prywatne punkty końcowe można tworzyć przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure:
 - [Portal](../../private-link/create-private-endpoint-portal.md)
 - [Program PowerShell](../../private-link/create-private-endpoint-powershell.md)
 - [Interfejs wiersza polecenia](../../private-link/create-private-endpoint-cli.md)
@@ -57,7 +57,7 @@ Prywatne punkty końcowe można tworzyć przy użyciu portalu, programu PowerShe
 ### <a name="approval-process"></a>Proces zatwierdzania
 Po utworzeniu przez administratora sieci prywatnego punktu końcowego (PE) administrator SQL może zarządzać połączeniem prywatnego punktu końcowego (PEC) do SQL Database.
 
-1. Przejdź do zasobu programu SQL Server w Azure Portal zgodnie z krokami podanymi na poniższym zrzucie ekranu
+1. Przejdź do zasobu serwera w Azure Portal zgodnie z krokami przedstawionymi na poniższym zrzucie ekranu
 
     - (1) wybierz połączenia prywatnego punktu końcowego w lewym okienku
     - (2) przedstawia listę wszystkich połączeń prywatnych punktów końcowych (PECs)
@@ -74,11 +74,11 @@ Po utworzeniu przez administratora sieci prywatnego punktu końcowego (PE) admin
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Przypadki użycia prywatnego linku do Azure SQL Database 
 
-Klienci mogą łączyć się z prywatnym punktem końcowym z tej samej sieci wirtualnej, równorzędnej podsieci w tym samym regionie lub za pośrednictwem połączenia między sieciami wirtualnymi w różnych regionach. Ponadto klienci mogą łączyć się z lokalnego przy użyciu ExpressRoute, prywatnej komunikacji równorzędnej lub tunelowania sieci VPN. Poniżej znajduje się uproszczony diagram przedstawiający typowe przypadki użycia.
+Klienci mogą łączyć się z prywatnym punktem końcowym z tej samej sieci wirtualnej, równorzędnej sieci wirtualnej w tym samym regionie lub za pośrednictwem sieci wirtualnej z siecią wirtualną w różnych regionach. Ponadto klienci mogą łączyć się z lokalnego przy użyciu ExpressRoute, prywatnej komunikacji równorzędnej lub tunelowania sieci VPN. Poniżej znajduje się uproszczony diagram przedstawiający typowe przypadki użycia.
 
  ![Diagram opcji łączności][1]
 
-## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network-vnet"></a>Przetestuj łączność z SQL Database z maszyny wirtualnej platformy Azure w tym samym Virtual Network (VNet)
+## <a name="test-connectivity-to-sql-database-from-an-azure-vm-in-same-virtual-network"></a>Przetestuj łączność z SQL Database z maszyny wirtualnej platformy Azure w tej samej sieci wirtualnej
 
 W tym scenariuszu przyjęto założenie, że utworzono maszynę wirtualną platformy Azure z systemem Windows Server 2016. 
 
@@ -93,7 +93,7 @@ W tym scenariuszu przyjęto założenie, że utworzono maszynę wirtualną platf
 
 [Klient Telnet](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) to funkcja systemu Windows, która może służyć do testowania łączności. W zależności od wersji systemu operacyjnego Windows może być konieczne jawne włączenie tej funkcji. 
 
-Otwórz okno wiersza polecenia po zainstalowaniu programu Telnet. Uruchom polecenie telnet i określ adres IP i prywatny punkt końcowy SQL Database.
+Otwórz okno wiersza polecenia po zainstalowaniu programu Telnet. Uruchom polecenie telnet i określ adres IP i prywatny punkt końcowy bazy danych w SQL Database.
 
 ```
 >telnet 10.1.1.5 1433
@@ -159,17 +159,17 @@ where session_id=@@SPID
 Połączenia z prywatnym punktem końcowym obsługują tylko **serwer proxy** jako [zasady połączenia](connectivity-architecture.md#connection-policy)
 
 
-## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Łączenie z maszyny wirtualnej platformy Azure w Virtual Network komunikacji równorzędnej (VNet) 
+## <a name="connecting-from-an-azure-vm-in-peered-virtual-network"></a>Łączenie z maszyny wirtualnej platformy Azure w Virtual Network komunikacji równorzędnej 
 
-Skonfiguruj [komunikację równorzędną sieci](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) wirtualnych w celu nawiązania połączenia z SQL Database z maszyny wirtualnej platformy Azure w równorzędnej sieci wirtualnej.
+Skonfiguruj [komunikację równorzędną sieci wirtualnej](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) , aby nawiązać połączenie z SQL Database z maszyny wirtualnej platformy Azure w równorzędnej sieci wirtualnej.
 
-## <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Nawiązywanie połączenia z maszyny wirtualnej platformy Azure w środowisku sieci wirtualnej między sieciami wirtualnymi
+## <a name="connecting-from-an-azure-vm-in-virtual-network-to-virtual-network-environment"></a>Łączenie z maszyny wirtualnej platformy Azure w sieci wirtualnej ze środowiskiem sieci wirtualnej
 
-Skonfiguruj [połączenie z bramą VPN między sieciami wirtualnymi](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) w celu nawiązania połączenia z SQL Databaseą z maszyny wirtualnej platformy Azure w innym regionie lub w ramach subskrypcji.
+Skonfiguruj [połączenie bramy sieci VPN z siecią wirtualną](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) w celu nawiązania połączenia z bazą danych w SQL Database z maszyny wirtualnej platformy Azure w innym regionie lub w ramach subskrypcji.
 
 ## <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Łączenie ze środowiska lokalnego za pośrednictwem sieci VPN
 
-Aby nawiązać połączenie ze środowiskiem lokalnym z SQL Database, wybierz i zaimplementuj jedną z opcji:
+Aby nawiązać połączenie ze środowiskiem lokalnym z bazą danych w SQL Database, wybierz i zaimplementuj jedną z opcji:
 - [Połączenie punkt-lokacja](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Połączenie sieci VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - [Obwód usługi ExpressRoute](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -177,7 +177,7 @@ Aby nawiązać połączenie ze środowiskiem lokalnym z SQL Database, wybierz i 
 
 ## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase"></a>Łączenie z usługi Azure Synapse Analytics do usługi Azure Storage przy użyciu bazy danych
 
-Baza danych wielobase jest często używana do ładowania do usługi Azure Synapse Analytics z kont usługi Azure Storage. Jeśli konto usługi Azure Storage, z którego są ładowane dane, ogranicza dostęp tylko do zestawu podsieci sieci wirtualnej za pośrednictwem prywatnych punktów końcowych, punktów końcowych usługi lub zapór opartych na protokole IP, połączenie z bazą danych z bazy danych na koncie zostanie przerwane. Aby włączyć zarówno podstawowe scenariusze importu i eksportu z usługą Azure Synapse Analytics łączącą się z usługą Azure Storage, która jest zabezpieczona w sieci wirtualnej, wykonaj kroki podane [tutaj](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+Baza danych wielobase jest często używana do ładowania do usługi Azure Synapse Analytics z kont usługi Azure Storage. Jeśli konto usługi Azure Storage, z którego dane są ładowane, ogranicza dostęp tylko do zestawu podsieci sieci wirtualnej za pośrednictwem prywatnych punktów końcowych, punktów końcowych usługi lub zapór opartych na protokole IP, połączenie z bazą danych z bazy danych na koncie zostanie przerwane. Aby włączyć zarówno podstawowe scenariusze importu i eksportu z usługą Azure Synapse Analytics łączącą się z usługą Azure Storage, która jest zabezpieczona w sieci wirtualnej, wykonaj kroki podane [tutaj](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## <a name="next-steps"></a>Następne kroki
 

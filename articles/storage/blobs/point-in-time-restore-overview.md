@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 5dcbd3748215575edb37525e7350bedfb980650c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.custom: references_regions
+ms.openlocfilehash: 3af87af0dca34b6587cf92bcc65568ad6dd943be
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193366"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324304"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)
 

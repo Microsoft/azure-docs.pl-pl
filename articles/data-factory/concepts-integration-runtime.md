@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: eb5e15f5387628fea293c767202ece77b14f656c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 81061f9f20e325d6f392c76c5e2801527abc9e2b
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113330"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84345006"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory 
 
@@ -30,6 +30,8 @@ Integration Runtime (IR) to infrastruktura obliczeniowa używana przez usługę 
 - **Wykonanie pakietów SSIS**: natywne wykonywanie pakietów SQL Server Integration Services (SSIS) w zarządzanym środowisku obliczeniowym platformy Azure.
 
 W usłudze Data Factory działanie definiuje akcję do wykonania. Połączona usługa definiuje docelowy magazyn danych lub usługę obliczeniową. Infrastruktura Integration Runtime zapewnia połączenie między działaniem i połączonymi usługami.  Jest on przywoływany przez połączoną usługę lub działanie i udostępnia środowisko obliczeniowe, w którym działanie jest uruchamiane lub wysyłane z programu. Dzięki temu działanie można wykonać w regionie najbliższym docelowemu magazynowi danych lub usłudze obliczeniowej, w sposób najbardziej wydajny, jednocześnie spełniając wymagania dotyczące zabezpieczeń i zgodności.
+
+Środowisko Integration Runtimes można utworzyć w interfejsie użytkownika Azure Data Factory za pośrednictwem [centrum zarządzania](author-management-hub.md) oraz wszelkich działań, zestawów danych lub przepływów, które odwołują się do nich.
 
 ## <a name="integration-runtime-types"></a>Typy infrastruktury Integration Runtime
 

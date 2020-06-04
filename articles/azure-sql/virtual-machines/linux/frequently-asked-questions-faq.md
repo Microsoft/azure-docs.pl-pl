@@ -1,6 +1,6 @@
 ---
-title: SQL Server on Linux Virtual Machines Azure — często zadawane pytania | Microsoft Docs
-description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące uruchamiania SQL Server on Linux maszyn wirtualnych platformy Azure.
+title: SQL Server on Linux często zadawane pytania dotyczące maszyn wirtualnych | Microsoft Docs
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące uruchamiania SQL Server on Linux maszyn wirtualnych.
 services: virtual-machines-linux
 documentationcenter: ''
 author: MashaMSFT
@@ -12,21 +12,21 @@ ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f5447e61936b55db353404aae7cb391377d78294
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3a9660de8cba2522bf66cabb91ee8b27ba810fdf
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048007"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343789"
 ---
-# <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Często zadawane pytania dotyczące SQL Server on Linux platformy Azure Virtual Machines
+# <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Często zadawane pytania dotyczące SQL Server on Linux maszyn wirtualnych
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [Windows](../windows/frequently-asked-questions-faq.md)
 > * [Linux](frequently-asked-questions-faq.md)
 
-Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczących uruchamiania [SQL Server on Linux Azure Virtual Machines](sql-server-on-linux-vm-what-is-iaas-overview.md).
+Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczących uruchamiania [SQL Server on Linux maszyn wirtualnych](sql-server-on-linux-vm-what-is-iaas-overview.md).
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -34,7 +34,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Jakie są dostępne obrazy z galerii maszyn wirtualnych SQL Server?**
 
-   System Azure przechowuje obrazy maszyn wirtualnych dla wszystkich obsługiwanych głównych wersji SQL Server we wszystkich wersjach dla systemów Linux i Windows. Aby uzyskać więcej informacji, zobacz kompletna lista [obrazów maszyn wirtualnych](sql-server-on-linux-vm-what-is-iaas-overview.md#create) z systemem Linux i [obrazów maszyn wirtualnych z systemem Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
+   Platforma Azure obsługuje obrazy maszyn wirtualnych dla wszystkich obsługiwanych głównych wersji SQL Server we wszystkich wersjach systemu Linux i Windows. Aby uzyskać więcej informacji, zobacz kompletna lista [obrazów maszyn wirtualnych](sql-server-on-linux-vm-what-is-iaas-overview.md#create) z systemem Linux i [obrazów maszyn wirtualnych z systemem Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 
 1. **Czy istnieją zaktualizowane obrazy galerii maszyn wirtualnych SQL Server?**
 
@@ -42,7 +42,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 1. **Jakie powiązane pakiety SQL Server są również zainstalowane?**
 
-   Aby wyświetlić SQL Server pakiety, które są instalowane domyślnie na maszynach wirtualnych SQL Server Linux, zobacz [zainstalowane pakiety](sql-server-on-linux-vm-what-is-iaas-overview.md#packages).
+   Aby wyświetlić SQL Server pakiety, które są instalowane domyślnie na maszynach wirtualnych SQL Server on Linux, zobacz [zainstalowane pakiety](sql-server-on-linux-vm-what-is-iaas-overview.md#packages).
 
 1. **Czy SQL Server obrazy maszyn wirtualnych zostaną usunięte z galerii?**
 
@@ -50,9 +50,9 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 ## <a name="creation"></a>Tworzenie
 
-1. **Jak mogę utworzyć maszynę wirtualną platformy Azure z systemem Linux przy użyciu SQL Server?**
+1. **Jak mogę utworzyć maszynę wirtualną z systemem Linux przy użyciu SQL Server?**
 
-   Najłatwiej jest utworzyć maszynę wirtualną z systemem Linux, która zawiera SQL Server. Aby zapoznać się z samouczkiem dotyczącym rejestracji w usłudze Azure i tworzenia maszyny wirtualnej SQL z poziomu portalu, zobacz temat [Inicjowanie obsługi maszyny wirtualnej z systemem Linux SQL Server w Azure Portal](sql-vm-create-portal-quickstart.md). Istnieje również możliwość ręcznej instalacji SQL Server na maszynie wirtualnej z bezpłatną licencjonowaną wersją (Developer lub Express) lub przez ponowne użycie licencji lokalnej. W przypadku posiadania własnej licencji musisz mieć [Przenośność licencji w ramach programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility).
+   Najłatwiej jest utworzyć maszynę wirtualną z systemem Linux, która zawiera SQL Server. Aby zapoznać się z samouczkiem dotyczącym rejestracji w usłudze Azure i tworzenia SQL Server maszyny wirtualnej z poziomu portalu, zobacz temat [udostępnianie maszyny wirtualnej z systemem Linux, która działa SQL Server w Azure Portal](sql-vm-create-portal-quickstart.md). Istnieje również możliwość ręcznej instalacji SQL Server na maszynie wirtualnej z bezpłatną licencjonowaną wersją (Developer lub Express) lub przez ponowne użycie licencji lokalnej. W przypadku posiadania własnej licencji musisz mieć [Przenośność licencji w ramach programu Software Assurance na platformie Azure](https://azure.microsoft.com/pricing/license-mobility).
 
 1. **Dlaczego nie mogę zainicjować obsługi administracyjnej maszyny wirtualnej RHEL lub SLES SQL Server z subskrypcją platformy Azure, która ma limit wydatków?**
 
@@ -74,13 +74,13 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 ## <a name="administration"></a>Administracja
 
-1. **Czy mogę zarządzać maszyną wirtualną z systemem Linux SQL Server przy użyciu programu SQL Server Management Studio (SSMS)?**
+1. **Czy mogę zarządzać maszyną wirtualną z systemem Linux, SQL Server z SQL Server Management Studio (SSMS)?**
 
-   Tak, ale program SSMS jest obecnie narzędziem wyłącznie dla systemu Windows. Musisz połączyć się zdalnie z komputera z systemem Windows, aby używać programu SSMS z maszynami wirtualnymi z systemem Linux SQL Server. W systemie Linux w nowym narzędziu [MSSQL-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) można wykonywać wiele zadań administracyjnych. Aby uzyskać międzyplatformowe narzędzie do zarządzania bazami danych, zobacz [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
+   Tak, ale program SSMS jest obecnie narzędziem wyłącznie dla systemu Windows. Musisz połączyć się zdalnie z komputera z systemem Windows, aby używać programu SSMS z maszynami wirtualnymi z systemem Linux, na których działa SQL Server W systemie Linux w nowym narzędziu [MSSQL-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) można wykonywać wiele zadań administracyjnych. Aby uzyskać międzyplatformowe narzędzie do zarządzania bazami danych, zobacz [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
-1. **Czy mogę usunąć całkowicie program SQL Server z maszyny wirtualnej SQL?**
+1. **Czy mogę usunąć całkowicie program SQL Server z maszyny wirtualnej z programem SQL Server?**
 
-   Tak, ale nadal będzie naliczana opłata za maszynę wirtualną SQL, zgodnie z opisem w temacie [wskazówki dotyczące cen dla SQL Server maszyn wirtualnych platformy Azure](../windows/pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Jeśli program SQL Server nie jest już potrzebny, można wdrożyć nową maszynę wirtualną, a następnie migrować dane i aplikacje do nowej maszyny wirtualnej. Następnie można usunąć maszynę wirtualną z programem SQL Server.
+   Tak, ale nadal będzie naliczana opłata za maszynę wirtualną SQL Server, zgodnie z opisem w temacie [wskazówki dotyczące cen dla SQL Server maszyn wirtualnych platformy Azure](../windows/pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). Jeśli program SQL Server nie jest już potrzebny, można wdrożyć nową maszynę wirtualną, a następnie migrować dane i aplikacje do nowej maszyny wirtualnej. Następnie można usunąć maszynę wirtualną z programem SQL Server.
 
 ## <a name="updating-and-patching"></a>Aktualizowanie i stosowanie poprawek
 
@@ -90,7 +90,7 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 
 ## <a name="general"></a>Ogólne
 
-1. **Czy SQL Server rozwiązania wysokiej dostępności są obsługiwane na maszynach wirtualnych platformy Azure?**
+1. **Czy SQL Server rozwiązania o wysokiej dostępności są obsługiwane na maszynach wirtualnych platformy Azure?**
 
    Nie w tej chwili. Zawsze włączone grupy dostępności i klaster trybu failover wymagają rozwiązania klastrowego w systemie Linux, takiego jak Pacemaker. Obsługiwane dystrybucje systemu Linux dla SQL Server nie obsługują ich dodatków o wysokiej dostępności w chmurze.
 
@@ -99,11 +99,11 @@ Ten artykuł zawiera odpowiedzi na niektóre z najczęstszych pytań dotyczącyc
 **Maszyny wirtualne z systemem Linux**:
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Linux](sql-server-on-linux-vm-what-is-iaas-overview.md)
-* [Inicjowanie obsługi administracyjnej maszyny wirtualnej z systemem SQL Server Linux](sql-vm-create-portal-quickstart.md)
+* [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Linux](sql-vm-create-portal-quickstart.md)
 * [Dokumentacja SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
 **Maszyny wirtualne z systemem Windows**:
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Inicjowanie obsługi administracyjnej maszyny wirtualnej z systemem SQL Server](../windows/sql-vm-create-portal-quickstart.md)
+* [Inicjowanie obsługi administracyjnej SQL Server na maszynie wirtualnej z systemem Windows](../windows/sql-vm-create-portal-quickstart.md)
 * [Często zadawane pytania (Windows)](../windows/frequently-asked-questions-faq.md)

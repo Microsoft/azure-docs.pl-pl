@@ -10,40 +10,39 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/14/2020
+ms.date: 6/2/2020
 ms.author: yohaddad
-ms.openlocfilehash: 9ea1caff5a0aba99bcd0d21b97650d075b830d2a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 89344c38c719a06d8241ec34136a75c96de9f901
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656398"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322876"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
 
 ## <a name="may-2020-guest-os"></a>System operacyjny gościa 2020
->[!NOTE]
->System operacyjny gościa w kwietniu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w kwietniu uwzględniono następujące poprawki. Ta lista może ulec zmianie ".
+
 
 | Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05   |  [4556798]  |  Internet Explorer   |  2,98, 3,85, 4,78  |  12 maja 2020  |
-|  Rel 20-05   |  [4556813]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  5,43  |  12 maja 2020  |
-|  Rel 20-05   |  [4551853]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  6,19  |  12 maja 2020  |
-|  Rel 20-05   |  [4552940]  |  Zestawienie miesięczne   |  2,98  |  12 maja 2020  |
-|  Rel 20-05   |  [4556836]  |  Zestawienie miesięczne   |  2,98  |  12 maja 2020  |
-|  Rel 20-05   |  [4555449]  |  Obsługa aktualizacji stosu   |  2,98  |  12 maja 2020  |
-|  Rel 20-05   |  [4552920]  |  Zestawienie miesięczne   |  2,98  |  12 maja 2020  |
-|  Rel 20-05   |  [4552979]  |  Zestawienie miesięczne   |  3,85  |  12 maja 2020  |
-|  Rel 20-05   |  [4556840]  |  Zestawienie miesięczne   |  3,85  |  12 maja 2020  |
-|  Rel 20-05   |  [4552947]  |  Zestawienie miesięczne   |  3,85  |  12 maja 2020  |
-|  Rel 20-05   |  [4552982]  |  Zestawienie miesięczne   |  3,85  |  12 maja 2020  |
-|  Rel 20-05   |  [4552946]  |  Zestawienie miesięczne   |  4,78  |  12 maja 2020  |
-|  Rel 20-05   |  [4556846]  |  Zestawienie miesięczne   |  4,78  |  12 maja 2020  |
-|  Rel 20-05   |  [4550994]  |  Obsługa aktualizacji stosu   |  5,43  |  14 kwietnia 2020  |
-|  Rel 20-05   |  [4552924]  |  Zestawienie miesięczne   |  6,19  |  12 maja 2020  |
-|  Rel 20-05   |  [4549947]  |  Obsługa aktualizacji stosu   |  6,19  |  14 kwietnia 2020  |
+|  Rel 20-05   |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 maja 2020  |
+|  Rel 20-05   |  [4556813]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  [5,43]  |  12 maja 2020  |
+|  Rel 20-05   |  [4551853]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  [6,19]  |  12 maja 2020  |
+|  Rel 20-05   |  [4552940]  |  Zestawienie miesięczne   |  [2,98]  |  12 maja 2020  |
+|  Rel 20-05   |  [4556836]  |  Zestawienie miesięczne   |  [2,98]  |  12 maja 2020  |
+|  Rel 20-05   |  [4555449]  |  Obsługa aktualizacji stosu   |  [2,98]  |  12 maja 2020  |
+|  Rel 20-05   |  [4552920]  |  Zestawienie miesięczne   |  [2,98]  |  12 maja 2020  |
+|  Rel 20-05   |  [4552979]  |  Zestawienie miesięczne   |  [3,85]  |  12 maja 2020  |
+|  Rel 20-05   |  [4556840]  |  Zestawienie miesięczne   |  [3,85]  |  12 maja 2020  |
+|  Rel 20-05   |  [4552947]  |  Zestawienie miesięczne   |  [3,85]  |  12 maja 2020  |
+|  Rel 20-05   |  [4552982]  |  Zestawienie miesięczne   |  [3,85]  |  12 maja 2020  |
+|  Rel 20-05   |  [4552946]  |  Zestawienie miesięczne   |  [4,78]  |  12 maja 2020  |
+|  Rel 20-05   |  [4556846]  |  Zestawienie miesięczne   |  [4,78]  |  12 maja 2020  |
+|  Rel 20-05   |  [4550994]  |  Obsługa aktualizacji stosu   |  [5,43]  |  14 kwietnia 2020  |
+|  Rel 20-05   |  [4552924]  |  Zestawienie miesięczne   |  [6,19]  |  12 maja 2020  |
+|  Rel 20-05   |  [4549947]  |  Obsługa aktualizacji stosu   |  [6,19]  |  14 kwietnia 2020  |
 
 
 [4556798]: https://support.microsoft.com/kb/4556798
@@ -62,7 +61,11 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 [4550994]: https://support.microsoft.com/kb/4550994
 [4552924]: https://support.microsoft.com/kb/4552924
 [4549947]: https://support.microsoft.com/kb/4549947
-
+[2,98]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3,85]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4,78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5,43]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6,19]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 ## <a name="april-2020-guest-os"></a>System operacyjny gościa z kwietnia 2020
 

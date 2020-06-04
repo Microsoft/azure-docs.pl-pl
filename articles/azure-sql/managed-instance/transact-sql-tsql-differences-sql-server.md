@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 03/11/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 190d0bd242a685487480d4da613f354277663d9c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 3a912e636c8bd8f762b401bda9623f23913047cb
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308034"
+ms.locfileid: "84344530"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -188,7 +188,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
 - [Tworzenie kopii zapasowej klucza głównego usługi](/sql/t-sql/statements/backup-service-master-key-transact-sql) nie jest obsługiwane (zarządzane przez usługę SQL Database).
 - [Przywracanie klucza głównego usługi](/sql/t-sql/statements/restore-service-master-key-transact-sql) nie jest obsługiwane (zarządzane przez usługę SQL Database).
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="buffer-pool-extension"></a>Rozszerzenie puli buforów
 
@@ -506,6 +506,9 @@ Następujące zmienne, funkcje i widoki zwracają różne wyniki:
 - Sieć wirtualną można wdrożyć przy użyciu modelu zasobów — model klasyczny dla sieci wirtualnej nie jest obsługiwany.
 - Po utworzeniu wystąpienia zarządzanego SQL przeniesienie wystąpienia zarządzanego SQL lub sieci wirtualnej do innej grupy zasobów lub subskrypcji nie jest obsługiwane.
 - Niektóre usługi, takie jak środowiska App Service, Aplikacje logiki i wystąpienie zarządzane SQL (używane na potrzeby replikacji geograficznej, replikacji transakcyjnej lub połączonych serwerów) nie mogą uzyskać dostępu do wystąpienia zarządzanego SQL w różnych regionach, jeśli ich sieci wirtualnych są połączone przy użyciu [globalnej komunikacji równorzędnej](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.
+
+### <a name="failover-groups"></a>Grupy trybu failover
+Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie trybu failover. W związku z tym scenariusze, które są zależne od obiektów z systemowych baz danych, będą niedostępne w wystąpieniu pomocniczym, chyba że obiekty są tworzone ręcznie na serwerze pomocniczym.
 
 ### <a name="failover-groups"></a>Grupy trybu failover
 Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie trybu failover. W związku z tym scenariusze, które są zależne od obiektów z systemowych baz danych, będą niedostępne w wystąpieniu pomocniczym, chyba że obiekty są tworzone ręcznie na serwerze pomocniczym.

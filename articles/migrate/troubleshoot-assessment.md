@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 205b52201edb849abab02809b58ff9dc77a32a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18158c867ba7a3307585eab0f950d15a6a12aa7c
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80127674"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342633"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -50,13 +50,16 @@ Nie można określić przydatności dla co najmniej jednej karty sieciowej z pow
 
 ## <a name="linux-vms-are-conditionally-ready"></a>Maszyny wirtualne z systemem Linux są "warunkowo gotowe"
 
-Ocena serwera oznacza maszyny wirtualne z systemem Linux jako "warunkowo gotowe" ze względu na znaną przerwę w ocenie serwera.
+W przypadku maszyn wirtualnych VMware i funkcji Hyper-V Ocena serwera oznacza maszyny wirtualne z systemem Linux jako "warunkowo gotowe" ze względu na znaną przerwę w ocenie serwera. 
 
 - Przerwy uniemożliwiają wykrycie pomocniczej wersji systemu operacyjnego Linux zainstalowanej na lokalnych maszynach wirtualnych.
-- Na przykład w przypadku RHEL 6,10 obecnie Ocena serwera wykrywa tylko RHEL 6 jako wersję systemu operacyjnego.
+- Na przykład w przypadku RHEL 6,10 obecnie Ocena serwera wykrywa tylko RHEL 6 jako wersję systemu operacyjnego. Wynika to z faktu, że vCenter Server AR hosta funkcji Hyper-V nie zapewnia wersji jądra dla systemów operacyjnych maszyn wirtualnych z systemem Linux.
 -  Ponieważ platforma Azure poświadcza tylko określone wersje systemu Linux, maszyny wirtualne z systemem Linux są obecnie oznaczone jako gotowe do oceny serwera.
 - Możesz określić, czy system operacyjny Linux uruchomiony na lokalnej maszynie wirtualnej jest zatwierdzony na platformie Azure, przeglądając [Pomoc techniczną platformy Azure](https://aka.ms/migrate/selfhost/azureendorseddistros)w systemie Linux.
 -  Po zweryfikowaniu poświadczonej dystrybucji można zignorować to ostrzeżenie.
+
+Tę lukę można rozwiązać przez włączenie [odnajdowania aplikacji](https://docs.microsoft.com/azure/migrate/how-to-discover-applications) na maszynach wirtualnych VMware. Ocena serwera używa systemu operacyjnego wykrytego na maszynie wirtualnej przy użyciu podanych poświadczeń gościa. Te dane systemu operacyjnego identyfikują odpowiednie informacje o systemie operacyjnym w przypadku maszyn wirtualnych z systemami Windows i Linux.
+
 
 ## <a name="azure-skus-bigger-than-on-premises"></a>Jednostki SKU platformy Azure większe niż lokalne
 
@@ -102,6 +105,8 @@ Ocena serwera Azure Migrate obecnie uwzględnia koszt licencji systemu operacyjn
 
 Narzędzie Server Assessment nieprzerwanie zbiera dane wydajności maszyn lokalnych i używa ich do określania zalecanych jednostek SKU maszyn wirtualnych i jednostek SKU dysków na platformie Azure. [Dowiedz się, jak](concepts-assessment-calculation.md#calculate-sizing-performance-based) zbierane są dane oparte na wydajności.
 
+## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combintion-of-reserved-instances-vm-uptime-and-discount-"></a>Dlaczego moja ocena wykazuje ostrzeżenie, że zostało utworzone z nieprawidłowym combintion wystąpień zarezerwowanych, czasu działania maszyny wirtualnej i rabatu (%)?
+Po wybraniu opcji "zarezerwowane wystąpienia" rabat (%) i nie mają zastosowania właściwości "czas pracy maszyny wirtualnej". Po utworzeniu oceny z nieprawidłową kombinacją tych właściwości przyciski Edytuj i Oblicz ponownie są wyłączone. Utwórz nową ocenę. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## <a name="dependency-visualization-in-azure-government"></a>Wizualizacja zależności w Azure Government
 
@@ -113,7 +118,7 @@ Po zainstalowaniu agentów wizualizacji zależności na lokalnych maszynach wirt
 
 Dla maszyn wirtualnych z systemem Windows:
 1. W panelu sterowania uruchom MMA.
-2. We **właściwościach** > Microsoft Monitoring Agent**Azure log Analytics (OMS)** upewnij się, że **stan** obszaru roboczego to zielony.
+2. We **właściwościach Microsoft Monitoring Agent**  >  **Azure log Analytics (OMS)** upewnij się, że **stan** obszaru roboczego to zielony.
 3. Jeśli stan nie jest zielony, spróbuj usunąć obszar roboczy i dodać go ponownie do MMA.
 
     ![Stan MMA](./media/troubleshoot-assessment/mma-properties.png)
@@ -165,6 +170,15 @@ Zbierz dzienniki ruchu sieciowego w następujący sposób:
    - W programie Chrome kliknij prawym przyciskiem myszy w dowolnym miejscu w dzienniku konsoli. Wybierz pozycję **Zapisz jako**, aby wyeksportować i zip log.
    - W przeglądarce Microsoft Edge lub Internet Explorer, kliknij prawym przyciskiem myszy błędy i wybierz polecenie **Kopiuj wszystko**.
 7. Zamknij Narzędzia deweloperskie.
+
+
+## <a name="where-is-the-operating-system-data-in-my-assessment-discovered-from"></a>Gdzie są wykryte dane systemu operacyjnego z mojej oceny?
+
+- W przypadku maszyn wirtualnych VMware domyślnie są to dane systemu operacyjnego udostępniane przez program vCenter. 
+   - W przypadku maszyn wirtualnych VMware Linux, jeśli Odnajdowanie aplikacji jest włączone, szczegóły systemu operacyjnego są pobierane z maszyny wirtualnej gościa. Aby sprawdzić szczegóły systemu operacyjnego w ocenie, przejdź do widoku odnalezione serwery i wskaźnik myszy nad wartością w kolumnie "system operacyjny". W wyskakującym tekście zobaczysz, czy widoczne dane systemu operacyjnego są zbierane z serwera vCenter Server, czy z maszyny wirtualnej gościa przy użyciu poświadczeń maszyny wirtualnej. 
+   - W przypadku maszyn wirtualnych z systemem Windows szczegóły systemu operacyjnego są zawsze pobierane z vCenter Server.
+- W przypadku maszyn wirtualnych funkcji Hyper-V dane systemu operacyjnego są zbierane z hosta funkcji Hyper-V
+- W przypadku serwerów fizycznych jest on pobierany z serwera.
 
 ## <a name="next-steps"></a>Następne kroki
 

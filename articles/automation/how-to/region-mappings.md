@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/23/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: d594d5a9dd263817023d2b5987c03aa50828191c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1ccf87bfd387182af269670abf1d86833854834d
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191862"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331631"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 
@@ -37,6 +37,7 @@ W poniższej tabeli przedstawiono obsługiwane mapowania:
 |AustraliaSoutheast|AustraliaSoutheast|
 |SoutheastAsia|SoutheastAsia|
 |CentralIndia|CentralIndia|
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |JapanEast|JapanEast|
 |**Europa**||
 |UKSouth|UKSouth|
@@ -47,6 +48,8 @@ W poniższej tabeli przedstawiono obsługiwane mapowania:
 <sup>1</sup> mapowanie Wschodnie dla obszarów roboczych log Analytics na konta usługi Automation nie jest dokładnym mapowaniem między regionami, ale jest poprawnym mapowaniem.
 
 <sup>2</sup> ze względu na ograniczenia pojemności region nie jest dostępny podczas tworzenia nowych zasobów. Obejmuje to konta usługi Automation i Log Analytics obszary robocze. Jednak wcześniej istniejące połączone zasoby w regionie powinny być nadal wykonywane.
+
+<sup>3</sup> na platformie Azure (Chiny) obsługiwane są tylko Update Management, a inne funkcje, takie jak Change Tracking i spis, nie są dostępne w tym momencie. 
 
 ## <a name="unlink-a-workspace"></a>Odłączanie obszaru roboczego
 

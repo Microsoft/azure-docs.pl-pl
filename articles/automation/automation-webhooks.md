@@ -3,14 +3,14 @@ title: Uruchamianie Azure Automation elementu Runbook z elementu webhook
 description: W tym artykule opisano sposób używania elementu webhook do uruchamiania elementu Runbook w Azure Automation z wywołania HTTP.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/16/2020
+ms.date: 06/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2578e15a60b2021d9e599018043c4834d0c07d34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 78ce1e46b7ea2cc82a0c478b0c81abbf701f68a9
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830501"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342973"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Uruchamianie elementu runbook z poziomu elementu webhook
 
@@ -20,6 +20,8 @@ Element webhook umożliwia zewnętrznej usłudze uruchamianie określonego eleme
 > Korzystanie z elementu webhook do uruchamiania elementów Runbook języka Python nie jest obsługiwane.
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
+
+Aby zrozumieć wymagania klienta dotyczące protokołu TLS 1,2 z elementami webhook, zobacz [Wymuszanie protokołu tls 1,2 dla Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 ## <a name="webhook-properties"></a>Właściwości elementu webhook
 
@@ -101,7 +103,8 @@ Poniższa procedura umożliwia utworzenie nowego elementu webhook połączonego 
    ![Adres URL elementu webhook](media/automation-webhooks/copy-webhook-url.png)
 
 1. Kliknij pozycję **Parametry** , aby podać wartości parametrów elementu Runbook. Jeśli element Runbook ma obowiązkowe parametry, nie można utworzyć elementu webhook, chyba że podano wartości.
-1. Kliknij pozycję **Utwórz**, aby utworzyć element webhook.
+
+2. Kliknij pozycję **Utwórz**, aby utworzyć element webhook.
 
 ## <a name="use-a-webhook"></a>Używanie elementu webhook
 

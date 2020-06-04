@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2020
+ms.date: 6/3/2020
 ms.author: yohaddad
-ms.openlocfilehash: 19a442126fe2f090851236eb41cb6995df857c77
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2d4e6054b1e5626b42bb662ac57fc0323d190aa8
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791548"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343969"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Wersje systemu operacyjnego gościa platformy Azure i macierz zgodności zestawu SDK
 Program udostępnia aktualne informacje o najnowszych wersjach systemu operacyjnego gościa platformy Azure dla Cloud Services. Te informacje ułatwiają zaplanowanie ścieżki uaktualnienia przed wyłączeniem systemu operacyjnego gościa. Jeśli skonfigurujesz role do korzystania z *automatycznych* aktualizacji systemu operacyjnego gościa zgodnie z opisem w [ustawieniach aktualizacji systemu operacyjnego gościa platformy Azure][Azure Guest OS Update Settings], nie trzeba przeczytywać tej strony.
@@ -41,6 +41,9 @@ Program udostępnia aktualne informacje o najnowszych wersjach systemu operacyjn
 Nie wiesz, jak zaktualizować system operacyjny gościa? Sprawdź [to][cloud updates] .
 
 ## <a name="news-updates"></a>Aktualizacje wiadomości
+
+###### <a name="june-2-2020"></a>**2 czerwca 2020**
+Wydano system operacyjny gościa. 
 
 ###### <a name="may-4-2020"></a>**4 maja 2020**
 System operacyjny gościa w kwietniu został opublikowany. 
@@ -128,8 +131,9 @@ Wydano system operacyjny gościa w trybie gościnnym.
 
 | Ciąg konfiguracji | Data wydania | Data wyłączenia |
 | --- | --- | --- |
+|  WA-GOŚĆ-OS-6.19 _202005-02  |  2 czerwca 2020  |  Wpis 6,21  |  
 |  WA-GOŚĆ-OS-6.18 _202004-01  |  4 maja 2020  |  Wpis 6,20  |  
-|  WA-GOŚĆ-OS-6.17 _202003-01  |  2 kwietnia 2020  |  Wpis 6,19  |  
+|~~WA-GOŚĆ-OS-6.17 _202003-01~~|  2 kwietnia 2020  |  2 czerwca 2020  |  
 |~~WA-GOŚĆ-OS-6.16 _202002-01~~|  5 marca 2020  |  4 maja 2020  |  
 |~~WA-GOŚĆ-OS-6.15 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020  |  
 |~~WA-GOŚĆ-OS-6.14 _201912-01~~| 8 stycznia 2020 | 5 marca 2020 |  
@@ -159,8 +163,9 @@ Wydano system operacyjny gościa w trybie gościnnym.
 
 | Ciąg konfiguracji | Data wydania | Data wyłączenia |
 | --- | --- | --- |
+|  WA-GOŚĆ-OS-5.43 _202005-02  |  2 czerwca 2020  |  Wpis 5,45  |  
 |  WA-GOŚĆ-OS-5.42 _202004-01  |  4 maja 2020  |  Wpis 5,44  |  
-|  WA-GOŚĆ-OS-5.41 _202003-01  |  2 kwietnia 2020  |  Wpis 5,43  |  
+|~~WA-GOŚĆ-OS-5.41 _202003-01~~|  2 kwietnia 2020  |  2 czerwca 2020  |  
 |~~WA-GOŚĆ-OS-5.40 _202002-01~~|  5 marca 2020  |  4 maja 2020  |  
 |~~WA-GOŚĆ-OS-5.39 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020  |  
 |~~WA-GOŚĆ-OS-5.38 _201912-01~~| 8 stycznia 2020 | 5 marca 2020 |  
@@ -181,14 +186,15 @@ Wydano system operacyjny gościa w trybie gościnnym.
 |~~WA-GOŚĆ-OS-5.23 _201809-01~~ |12 października 2018 |14 grudnia 2018 |
 
 ## <a name="family-4-releases"></a>Wydania z rodziny 4
-**Windows Server 2012 R2**
+**System Windows Server 2012 R2**
 
 .NET Framework zainstalowane: 3,5, 4.5.1, 4.5.2
 
 | Ciąg konfiguracji | Data wydania | Data wyłączenia |
 | --- | --- | --- |
+|  WA-GOŚĆ-OS-4.78 _202005-02  |  2 czerwca 2020  |  Wpis 4,80  |  
 |  WA-GOŚĆ-OS-4.77 _202004-01  |  4 maja 2020  |  Wpis 4,79  |  
-|  WA-GOŚĆ-OS-4.76 _202003-01  |  2 kwietnia 2020  |  Wpis 4,78  |  
+|~~WA-GOŚĆ-OS-4.76 _202003-01~~|  2 kwietnia 2020  |  2 czerwca 2020  |  
 |~~WA-GOŚĆ-OS-4.75 _202002-01~~|  5 marca 2020  |  4 maja 2020  |  
 |~~WA-GOŚĆ-OS-4.74 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020  |  
 |~~WA-GOŚĆ-OS-4.73 _201912-01~~| 8 stycznia 2020 | 5 marca 2020 |  
@@ -215,8 +221,9 @@ Wydano system operacyjny gościa w trybie gościnnym.
 
 | Ciąg konfiguracji | Data wydania | Data wyłączenia |
 | --- | --- | --- |
+|  WA-GOŚĆ-OS-3.85 _202005-02  |  2 czerwca 2020  |  Wpis 3,87  |  
 |  WA-GOŚĆ-OS-3.84 _202004-01  |  4 maja 2020  |  Wpis 3,86  |  
-|  WA-GOŚĆ-OS-3.83 _202003-01  |  2 kwietnia 2020  |  Wpis 3,85  |  
+|~~WA-GOŚĆ-OS-3.83 _202003-01~~|  2 kwietnia 2020  |  2 czerwca 2020  |  
 |~~WA-GOŚĆ-OS-3.82 _202002-01~~|  5 marca 2020  |  4 maja 2020  |  
 |~~WA-GOŚĆ-OS-3.81 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020  |  
 |~~WA-GOŚĆ-OS-3.80 _201912-01~~| 8 stycznia 2020 | 5 marca 2020 |  
@@ -243,8 +250,9 @@ Wydano system operacyjny gościa w trybie gościnnym.
 
 | Ciąg konfiguracji | Data wydania | Data wyłączenia |
 | --- | --- | --- |
+|  WA-GOŚĆ-OS-2.98 _202005-02  |  2 czerwca 2020  |  Wpis 2,100  |  
 |  WA-GOŚĆ-OS-2.97 _202004-01  |  4 maja 2020  |  Wpis 2,99  |  
-|  WA-GOŚĆ-OS-2.96 _202003-01  |  2 kwietnia 2020  |  Wpis 2,98  |  
+|~~WA-GOŚĆ-OS-2.96 _202003-01~~|  2 kwietnia 2020  |  2 czerwca 2020  |  
 |~~WA-GOŚĆ-OS-2.95 _202002-01~~|  5 marca 2020  |  4 maja 2020  |  
 |~~WA-GOŚĆ-OS-2.94 _202001-01~~|  24 stycznia 2020  |  2 kwietnia 2020  |  
 |~~WA-GOŚĆ-OS-2.93 _201912-01~~| 8 stycznia 2020 | 5 marca 2020 |  

@@ -1,6 +1,6 @@
 ---
 title: Monitorowanie SQL Data Sync przy użyciu dzienników Azure Monitor
-description: Informacje na temat monitorowania SQL Data Sync przy użyciu dzienników Azure Monitor
+description: Informacje na temat monitorowania SQL Data Sync przy użyciu dzienników Azure Monitor.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,15 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: b7c801d75d778deccae645e0945fba557dbc6782
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 307e501743d01b94cfca3692cc09c05cc90ed3ce
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188798"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343238"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitorowanie SQL Data Sync przy użyciu dzienników Azure Monitor 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Aby sprawdzić dziennik aktywności SQL Data Sync i wykryć błędy i ostrzeżenia, wcześniej trzeba było sprawdzić SQL Data Sync ręcznie w Azure Portal lub użyć programu PowerShell lub interfejsu API REST. Wykonaj kroki opisane w tym artykule, aby skonfigurować rozwiązanie niestandardowe, które poprawi środowisko monitorowania synchronizacji danych. Możesz dostosować to rozwiązanie tak, aby było zgodne z Twoim scenariuszem.
 
@@ -188,7 +187,7 @@ W większości przypadków to rozwiązanie jest bezpłatne.
 
 **Azure Automation:** W zależności od użycia może nastąpić poniesienie kosztu związanego z kontem Azure Automation. Pierwsze 500 minut czasu wykonywania zadania miesięcznie są bezpłatne. W większości przypadków użycie tego rozwiązania jest mniejsze niż 500 minut miesięcznie. Aby uniknąć naliczania opłat, Zaplanuj uruchomienie elementu Runbook w przedziale od 2 do kilku godzin. Aby uzyskać więcej informacji, zobacz [Cennik usługi Automation](https://azure.microsoft.com/pricing/details/automation/).
 
-**Azure monitor dzienników:** W zależności od użycia może istnieć koszt skojarzony z dziennikami Azure Monitor. Warstwa Bezpłatna obejmuje 500 MB pobieranych danych dziennie. W większości przypadków to rozwiązanie powinno pozyskać mniej niż 500 MB dziennie. Aby zmniejszyć użycie, użyj filtrowania tylko niepowodzeń zawartego w elemencie Runbook. Jeśli używasz ponad 500 MB dziennie, przeprowadź uaktualnienie do warstwy płatnej, aby uniknąć ryzyka zatrzymania analizy po osiągnięciu ograniczenia. Aby uzyskać więcej informacji, zobacz [Azure monitor rejestrować cenniki](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Azure monitor dzienników:** W zależności od użycia może istnieć koszt skojarzony z dziennikami Azure Monitor. Warstwa Bezpłatna obejmuje 500 MB pobieranych danych dziennie. W większości przypadków to rozwiązanie powinno pozyskać mniej niż 500 MB dziennie. Aby zmniejszyć użycie, użyj filtrowania tylko niepowodzeń zawartego w elemencie Runbook. Jeśli używasz więcej niż 500 MB dziennie, przeprowadź uaktualnienie do warstwy płatnej, aby uniknąć ryzyka zatrzymania analizy po osiągnięciu ograniczenia. Aby uzyskać więcej informacji, zobacz [Azure monitor rejestrować cenniki](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Przykłady kodu
 

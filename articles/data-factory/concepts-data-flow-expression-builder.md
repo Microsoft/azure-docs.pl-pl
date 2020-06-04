@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: dda2812b5e2cc79d53658d568ba0845d593f41d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23355abdced3a4073cf90ccf60c14af088a4e564
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605375"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324168"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Tworzenie wyrażeń w mapowaniu przepływu danych
 
@@ -76,16 +76,12 @@ Przykłady interpolacji ciągów:
 
 Dodaj komentarze do wyrażeń, używając składni komentarzy jednowierszowych i w wielu wierszach.
 
-![Składnia komentarzy jednowierszowych i wielowierszowych](media/data-flow/comments.png "Komentarze")
-
 Następujące przykłady są prawidłowymi komentarzami:
 
 * ```/* This is my comment */```
 
 * ```/* This is a```
 *   ```multi-line comment */```
-   
-* ```// This is a single line comment```
 
 Jeśli umieścisz komentarz w górnej części wyrażenia, pojawi się w polu tekstowym przekształcanie, aby udokumentować wyrażenia transformacji.
 
@@ -93,7 +89,7 @@ Jeśli umieścisz komentarz w górnej części wyrażenia, pojawi się w polu te
 
 ## <a name="regular-expressions"></a>Wyrażenia regularne
 
-Wiele funkcji języka wyrażeń używa składni wyrażeń regularnych. W przypadku korzystania z funkcji wyrażeń regularnych program Expression Builder próbuje zinterpretować ukośnik odwrotny (\\) jako sekwencję znaku ucieczki. W przypadku używania ukośników odwrotnych w wyrażeniu regularnym należy ująć całe wyrażenie regularne w Takty (\`) lub użyć podwójnego ukośnika odwrotnego.
+Wiele funkcji języka wyrażeń używa składni wyrażeń regularnych. W przypadku korzystania z funkcji wyrażeń regularnych program Expression Builder próbuje zinterpretować ukośnik odwrotny ( \\ ) jako sekwencję znaku ucieczki. W przypadku używania ukośników odwrotnych w wyrażeniu regularnym należy ująć całe wyrażenie regularne w Takty ( \` ) lub użyć podwójnego ukośnika odwrotnego.
 
 Przykład, który używa znaczników:
 
@@ -124,11 +120,11 @@ Za pomocą funkcji wyrażeń, które zwracają tablice, użyj nawiasów ([]) do 
 
 ## <a name="convert-to-dates-or-timestamps"></a>Konwertuj na daty lub sygnatury czasowe
 
-Aby uwzględnić literały ciągu w danych wyjściowych znacznika czasu, zawiń konwersję w ```toString()```.
+Aby uwzględnić literały ciągu w danych wyjściowych znacznika czasu, zawiń konwersję w ```toString()``` .
 
 ```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
 
-Aby skonwertować milisekundy z epoki do daty lub sygnatury `toTimestamp(<number of milliseconds>)`czasowej, użyj. Jeśli czas przekroczy sekundy, pomnóż przez 1 000.
+Aby skonwertować milisekundy z epoki do daty lub sygnatury czasowej, użyj `toTimestamp(<number of milliseconds>)` . Jeśli czas przekroczy sekundy, pomnóż przez 1 000.
 
 ```toTimestamp(1574127407*1000l)```
 

@@ -5,21 +5,21 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 2413e53e9613aaa1140b083cb24fe709eb1b067d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: c071d372ba90d29806fd8a44909e2c803a8d3fa4
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561776"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84339284"
 ---
 # <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Zarządzanie urządzeniem Azure Data Box Gateway za pomocą programu Windows PowerShell
 
 Rozwiązanie Azure Data Box Gateway umożliwia wysyłanie danych za pośrednictwem sieci do platformy Azure. W tym artykule opisano niektóre zadania związane z konfiguracją i zarządzaniem dla urządzenia Data Box Gateway. Aby zarządzać urządzeniem, można użyć Azure Portal, lokalnego interfejsu użytkownika sieci Web lub interfejsu programu Windows PowerShell.
 
-Ten artykuł koncentruje się na zadaniach, które można wykonać za pomocą interfejsu programu PowerShell. 
+Ten artykuł koncentruje się na zadaniach, które można wykonać za pomocą interfejsu programu PowerShell.
 
 Ten artykuł zawiera następujące procedury:
 

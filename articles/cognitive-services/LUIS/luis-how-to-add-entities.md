@@ -7,15 +7,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: fa7e2321d61721e370ef6b5924dc6f820dd1f724
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 61e53e6110e545d253dae81e94f8738ee17c4141
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685281"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344479"
 ---
 # <a name="add-entities-to-extract-data"></a>Dodawanie jednostek do wyodrębniania danych
 
@@ -72,7 +72,7 @@ Ten proces działa w przypadku obiektów, które są obsługiwane przez maszynę
 1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
 1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
 1. W sekcji **kompilacja** wybierz pozycję **jednostki** w lewym panelu, a następnie wybierz pozycję **+ Utwórz**.
-1. W oknie dialogowym **Tworzenie typu jednostki** wprowadź nazwę jednostki, a następnie wybierz opcję **Machined**, a następnie wybierz opcję. Aby dodać podjednostki, wybierz pozycję **Dodaj strukturę**. Wybierz przycisk **Utwórz**.
+1. W oknie dialogowym **Tworzenie typu jednostki** wprowadź nazwę jednostki, a następnie wybierz opcję **Machined**, a następnie wybierz opcję. Aby dodać podjednostki, wybierz pozycję **Dodaj strukturę**. Wybierz pozycję **Utwórz**.
 
     > [!div class="mx-imgBorder"]
     > ![Zrzut ekranu przedstawiający tworzenie jednostki uzyskanej na maszynie.](media/add-entities/machine-learned-entity-with-structure.png)
@@ -207,7 +207,7 @@ LUIS nie pozwala na zmianę typu jednostki, ponieważ nie wie, co należy dodać
 > [!div class="nextstepaction"]
 > [Korzystanie ze wstępnie utworzonych modeli](howto-add-prebuilt-models.md)
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 * Jak [nauczyć](luis-how-to-train.md) się
 * [Testowanie](luis-interactive-test.md)
 * Jak [opublikować](luis-how-to-publish-app.md)

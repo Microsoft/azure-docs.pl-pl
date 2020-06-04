@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dd3958022a5947a04b8bca4db4bee3ad059c7e17
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736487"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331954"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurowanie domen niestandardowych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -138,7 +138,7 @@ Nie zalecamy korzystania z prywatnego głównego urzędu certyfikacji, ponieważ
 
 Wszystkie zarządzanie certyfikatami odbywa się za pomocą poszczególnych stron aplikacji. Przejdź do strony **serwer proxy aplikacji** w celu uzyskania dostępu do pola **certyfikatu** .
 
-Tego samego certyfikatu można użyć dla wielu aplikacji. Jeśli przekazany certyfikat współdziała z inną aplikacją, zostanie automatycznie zastosowany. Nie zostanie wyświetlony monit o ponowne przekazanie po dodaniu lub skonfigurowaniu aplikacji. 
+Po przekazaniu certyfikatu dla aplikacji zostanie ona również automatycznie zastosowana do **nowych** aplikacji skonfigurowanych do korzystania z tego samego certyfikatu. Konieczne będzie ponowne przekazanie certyfikatu dla istniejących aplikacji w dzierżawie.
 
 Po wygaśnięciu certyfikatu zostanie wyświetlone ostrzeżenie z informacją o przekazaniu innego certyfikatu. Jeśli certyfikat zostanie odwołany, użytkownicy mogą zobaczyć ostrzeżenie o zabezpieczeniach podczas uzyskiwania dostępu do aplikacji. Aby zaktualizować certyfikat dla aplikacji, przejdź do strony **serwera proxy aplikacji** , wybierz pozycję **certyfikat**i przekaż nowy certyfikat. Jeśli stary certyfikat nie jest używany przez inne aplikacje, zostanie automatycznie usunięty. 
 

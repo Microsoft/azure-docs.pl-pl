@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 968cc9ed9d938bb04d1243102855c134147ddf3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7464a9d13e1ffccbc3fab3256fe6c7ab1cb10495
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81269877"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321500"
 ---
 # <a name="network-security-groups"></a>Grupy zabezpieczeń sieci
 <a name="network-security-groups"></a>
 
 Za pomocą grupy zabezpieczeń sieci platformy Azure można filtrować ruch sieciowy do i z zasobów platformy Azure w sieci wirtualnej platformy Azure. Grupa zabezpieczeń sieci zawiera [reguły zabezpieczeń](#security-rules), które zezwalają na lub blokują przychodzący ruch sieciowy lub wychodzący ruch sieciowy dla kilku typów zasobów platformy Azure. Dla każdej reguły można określić źródło i obiekt docelowy, port i protokół.
+
 W tym artykule opisano właściwości reguły sieciowej grupy zabezpieczeń, stosowane [domyślne reguły zabezpieczeń](#default-security-rules) oraz właściwości reguły, które można modyfikować w celu utworzenia [rozszerzonej reguły zabezpieczeń](#augmented-security-rules).
 
 ## <a name="security-rules"></a><a name="security-rules"></a>Reguły zabezpieczeń
@@ -34,8 +35,8 @@ Grupa zabezpieczeń sieci nie zawiera żadnych reguł lub dowolną liczbę regu�
 |---------|---------|
 |Nazwa|Unikatowa nazwa w obrębie grupy zabezpieczeń sieci.|
 |Priorytet | Liczba z zakresu od 100 do 4096. Reguły są przetwarzane w kolejności priorytetów. Im niższy numer, tym wyższy priorytet, więc te o niższych numerach są przetwarzane przed tymi o wyższych numerach. Kiedy ruch jest zgodny z regułą, przetwarzanie zostaje zatrzymane. W związku z tym żadne istniejące reguły o niższych priorytetach (wyższych numerach), które mają takie same atrybuty jak reguły o wyższych priorytetach, nie będą przetwarzane.|
-|Obiekt źródłowy lub docelowy| Dowolny lub indywidualny adres IP, blok CIDR (na przykład 10.0.0.0/24), [tag usługi](service-tags-overview.md) lub [grupa zabezpieczeń aplikacji](#application-security-groups). W przypadku określenia adresu dla zasobu platformy Azure należy określić prywatny adres IP przypisany do zasobu. W przypadku ruchu przychodzącego grupy zabezpieczeń sieci są przetwarzane po tym, jak platforma Azure przetłumaczy publiczny adres IP na prywatny adres IP, a w przypadku ruchu wychodzącego — zanim platforma Azure przetłumaczy prywatny adres IP na publiczny adres IP. Dowiedz się więcej o [adresach IP](virtual-network-ip-addresses-overview-arm.md) platformy Azure. Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. Możliwość określenia wielu poszczególnych adresów IP i zakresów (nie można określić wielu tagów usługi ani grup aplikacji) w regule nosi nazwę [rozszerzonych reguł zabezpieczeń](#augmented-security-rules). Rozszerzone reguły zabezpieczeń można tworzyć tylko w grupach zabezpieczeń sieci utworzonych za pośrednictwem modelu wdrażania przy użyciu usługi Resource Manager. Nie można określić wielu adresów IP i zakresów adresów IP w grupach zabezpieczeń sieci utworzonych za pomocą klasycznego modelu wdrażania. Dowiedz się więcej o [modelach wdrażania platformy Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocol (Protokół)     | TCP, UDP, ICMP lub dowolny.|
+|Obiekt źródłowy lub docelowy| Dowolny lub indywidualny adres IP, blok CIDR (na przykład 10.0.0.0/24), tag usługi lub grupa zabezpieczeń aplikacji. W przypadku określenia adresu dla zasobu platformy Azure należy określić prywatny adres IP przypisany do zasobu. W przypadku ruchu przychodzącego grupy zabezpieczeń sieci są przetwarzane po tym, jak platforma Azure przetłumaczy publiczny adres IP na prywatny adres IP, a w przypadku ruchu wychodzącego — zanim platforma Azure przetłumaczy prywatny adres IP na publiczny adres IP. . Określenie zakresu, tagu usługi lub grupy zabezpieczeń aplikacji umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. Możliwość określenia wielu poszczególnych adresów IP i zakresów (nie można określić wielu tagów usługi ani grup aplikacji) w regule nosi nazwę [rozszerzonych reguł zabezpieczeń](#augmented-security-rules). Rozszerzone reguły zabezpieczeń można tworzyć tylko w grupach zabezpieczeń sieci utworzonych za pośrednictwem modelu wdrażania przy użyciu usługi Resource Manager. Nie można określić wielu adresów IP i zakresów adresów IP w grupach zabezpieczeń sieci utworzonych za pomocą klasycznego modelu wdrażania.|
+|Protokół     | TCP, UDP, ICMP lub dowolny.|
 |Kierunek| Określa, czy ta reguła ma zastosowanie do ruchu przychodzącego, czy wychodzącego.|
 |Zakres portów     |Można określić pojedynczy port lub zakres portów. Na przykład można określić port 80 lub 10000–10005. Określenie zakresów umożliwia utworzenie mniejszej liczby reguł zabezpieczeń. Rozszerzone reguły zabezpieczeń można tworzyć tylko w grupach zabezpieczeń sieci utworzonych za pośrednictwem modelu wdrażania przy użyciu usługi Resource Manager. Nie można określić wielu portów lub zakresów portów w grupach zabezpieczeń sieci utworzonych za pomocą klasycznego modelu wdrażania.   |
 |Akcja     | Zezwolenie lub zablokowanie        |
@@ -53,19 +54,19 @@ Platforma Azure tworzy następujące reguły domyślne w każdej tworzonej grupi
 
 ##### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protocol (Protokół)|Dostęp|
+|Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protokół|Access|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Dowolne|Zezwalaj|
 
 ##### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protocol (Protokół)|Dostęp|
+|Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protokół|Access|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Dowolne|Zezwalaj|
 
 ##### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protocol (Protokół)|Dostęp|
+|Priorytet|Element źródłowy|Porty źródłowe|Element docelowy|Porty docelowe|Protokół|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Dowolne|Zablokuj|
 
@@ -73,19 +74,19 @@ Platforma Azure tworzy następujące reguły domyślne w każdej tworzonej grupi
 
 ##### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protocol (Protokół) | Dostęp |
+|Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protokół | Access |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Dowolne | Zezwalaj |
 
 ##### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protocol (Protokół) | Dostęp |
+|Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protokół | Access |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Dowolne | Zezwalaj |
 
 ##### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protocol (Protokół) | Dostęp |
+|Priorytet|Element źródłowy|Porty źródłowe| Element docelowy | Porty docelowe | Protokół | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Dowolne | Zablokuj |
 
@@ -148,7 +149,7 @@ Reguły agregowane stosowane do interfejsu sieciowego można łatwo wyświetlić
 > Sieciowe grupy zabezpieczeń są skojarzone z podsieciami lub do maszyn wirtualnych i usług w chmurze wdrożonych w klasycznym modelu wdrażania, a także do podsieci lub interfejsów sieciowych w Menedżer zasobów model wdrażania. Aby dowiedzieć się więcej na temat modeli wdrażania platformy Azure, zapoznaj się z artykułem [Understand Azure deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Informacje na temat modeli wdrażania platformy Azure).
 
 > [!TIP]
-> Zaleca się skojarzenie grupy zabezpieczeń sieci z podsiecią lub interfejsem sieciowym, ale nie obydwoma tymi elementami naraz, o ile nie ma po temu konkretnego powodu. Ponieważ reguły w grupie zabezpieczeń sieci skojarzonej z podsiecią mogą powodować konflikt z regułami w grupie zabezpieczeń sieci skojarzonej z interfejsem sieciowym, możesz napotkać nieoczekiwane problemy z komunikacją, co będzie wymagać rozwiązywania problemów.
+> O ile nie masz konkretnej przyczyny, zalecamy skojarzenie sieciowej grupy zabezpieczeń z podsiecią lub interfejsem sieciowym, ale nie obu jednocześnie. Ponieważ reguły w grupie zabezpieczeń sieci skojarzonej z podsiecią mogą powodować konflikt z regułami w grupie zabezpieczeń sieci skojarzonej z interfejsem sieciowym, możesz napotkać nieoczekiwane problemy z komunikacją, co będzie wymagać rozwiązywania problemów.
 
 ## <a name="azure-platform-considerations"></a>Zagadnienia dotyczące platformy Azure
 

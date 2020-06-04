@@ -11,14 +11,14 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac7a836f339e86ce3705d64d04cad143f1043a81
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 767bdeef48ed78b32ad5e3b0e43002a21cb1c9b6
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259528"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343714"
 ---
-# <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprowizowanie maszyny wirtualnej z programem SQL Server w witrynie Azure Portal
+# <a name="provision-a-linux-virtual-machine-running-sql-server-in-the-azure-portal"></a>Inicjowanie obsługi administracyjnej maszyny wirtualnej z systemem Linux SQL Server w Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "84259528"
 W tym samouczku Szybki start użyjesz witryny Azure Portal do utworzenia maszyny wirtualnej z systemem Linux z zainstalowanym programem SQL Server 2017. Poznasz następujące informacje: 
 
 
-* [Tworzenie maszyny wirtualnej z systemem Linux i programem SQL przy użyciu galerii](#create)
+* [Tworzenie maszyny wirtualnej z systemem Linux z SQL Server z galerii](#create)
 * [Łączenie z nową maszyną wirtualną przy użyciu protokołu SSH](#connect)
 * [Zmienianie hasła administratora systemu](#password)
 * [Konfiguruj dla połączeń zdalnych](#remote)
@@ -125,7 +125,7 @@ Jeśli używasz systemu Windows i nie masz powłoki BASH, zainstaluj klienta SSH
 
 Aby uzyskać więcej informacji na temat nawiązywania połączenia z maszynami wirtualnymi z systemem Linux, zobacz [Create a Linux VM on Azure using the Portal (Tworzenie maszyny wirtualnej z systemem Linux na platformie Azure przy użyciu portalu)](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal).
 
-> [!Note]
+> [!NOTE]
 > Jeśli w programie PuTTY zostanie wyświetlony alert dotyczący zabezpieczeń z informacją „server’s host key not cached in the registry” (klucz hosta serwera nie jest buforowany w rejestrze), wybierz jedną z następujących opcji. Jeśli host jest zaufany, wybierz pozycję **Yes** (Tak), aby dodać ten klucz do pamięci podręcznej programu PuTTy i kontynuować nawiązywanie połączenia. Jeśli chcesz nawiązać połączenie tylko raz, bez dodawania klucza do pamięci podręcznej, wybierz pozycję **No** (Nie). Jeśli host nie jest zaufany, wybierz pozycję **Cancel** (Anuluj), aby przerwać nawiązywanie połączenia.
 
 ## <a name="change-the-sa-password"></a><a id="password"></a> Zmienianie hasła administratora systemu

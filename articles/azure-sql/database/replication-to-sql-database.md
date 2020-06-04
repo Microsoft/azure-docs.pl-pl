@@ -1,6 +1,6 @@
 ---
-title: SQL Server replikację do Azure SQL Database
-description: Azure SQL Database jako subskrybenta wypychania można skonfigurować w jednokierunkowej topologii replikacji.
+title: Replikacja SQL Server platformy Azure do Azure SQL Database
+description: Bazę danych można skonfigurować w Azure SQL Database jako subskrybent wypychany w jednokierunkowej topologii replikacji transakcyjnej lub migawki.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: ec0aebc10d47b3e9945e63e818240da7bf2451e4
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6f1eb48655c4e38e2cf0520409e5e2b38750baf5
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84192965"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324151"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replikacja do Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,13 +29,13 @@ Azure SQL Database jako subskrybenta wypychania można skonfigurować w jednokie
 ## <a name="supported-configurations"></a>Obsługiwane konfiguracje
   
 - Azure SQL Database może być tylko subskrybentem wypychania SQL Server wydawcy i dystrybutora.  
-- SQL Server działający jako Wydawca i/lub dystrybutor może być wystąpieniem [SQL Server działającego lokalnie](https://www.microsoft.com/sql-server/sql-server-downloads), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/instance-create-quickstart.md)lub wystąpienia [SQL Server uruchomionego na maszynie wirtualnej platformy Azure w chmurze](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
-- Nie można umieścić bazy danych dystrybucji i agentów replikacji na Azure SQL Database.  
+- Wystąpienie SQL Server działające jako Wydawca i/lub dystrybutor może być wystąpieniem [SQL Server działającego lokalnie](https://www.microsoft.com/sql-server/sql-server-downloads), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/instance-create-quickstart.md)lub wystąpienia [SQL Server uruchomionego na maszynie wirtualnej platformy Azure w chmurze](../virtual-machines/windows/sql-vm-create-portal-quickstart.md). 
+- Bazy danych dystrybucji i agentów replikacji nie można umieścić w bazie danych w Azure SQL Database.  
 - [Migawki](/sql/relational-databases/replication/snapshot-replication) i [jednokierunkowa replikacja transakcyjna](/sql/relational-databases/replication/transactional/transactional-replication) są obsługiwane. Replikacja transakcyjna równorzędna i replikacja scalająca nie są obsługiwane.
 
 ### <a name="versions"></a>Wersje  
 
-Aby można było pomyślnie przeprowadzić replikację do Azure SQL Database, SQL Server wydawców i dystrybutorów muszą korzystać z jednej z następujących wersji: 
+Aby pomyślnie przeprowadzić replikację do bazy danych w Azure SQL Database, SQL Server wydawcy i dystrybutorzy muszą korzystać z jednej z następujących wersji:
 
 Publikowanie w dowolnych Azure SQL Database z bazy danych SQL Server jest obsługiwane przez następujące wersje SQL Server:
 
@@ -54,11 +54,11 @@ Istnieją różne [typy replikacji](https://docs.microsoft.com/sql/relational-da
 
 | Replikacja | Azure SQL Database | Wystąpienie zarządzane Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Tak | 
-| [**Migawka**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Tak|
+| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Yes | 
+| [**Migawka**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Yes|
 | [**Replikacja scalająca**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nie | Nie|
 | [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nie | Nie|
-| [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Tak|
+| [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Yes|
 | [**Aktualizowalne subskrypcje**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nie | Nie|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -116,7 +116,6 @@ Następujące opcje nie są obsługiwane w przypadku subskrypcji Azure SQL Datab
 - Konwertuj hierarchyid na maksymalną liczbę typów danych  
 - Konwertuj dane przestrzenne na wartości typu MAX  
 - Kopiuj właściwości rozszerzone  
-- Uprawnienia do kopiowania  
 
 ### <a name="limitations-to-be-determined"></a>Ograniczenia do określenia
 

@@ -2,13 +2,13 @@
 title: Zbieranie & analizowanie dzienników zasobów
 description: Rejestruj i Analizuj zdarzenia dziennika zasobów dla Azure Container Registry takich jak uwierzytelnianie, wypychanie obrazów i ściąganie obrazów.
 ms.topic: article
-ms.date: 01/03/2020
-ms.openlocfilehash: 00f9468721126bd166051df47cec1596356e9b54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/01/2020
+ms.openlocfilehash: b41b1001a669fe42721471bc196e7628eabff983
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409647"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84343187"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Dzienniki Azure Container Registry na potrzeby oceny i inspekcji diagnostyki
 
@@ -24,12 +24,14 @@ Zbieranie danych dzienników zasobów przy użyciu Azure Monitor może pociągn�
 
 Następujące zdarzenia na poziomie repozytorium dla obrazów i innych artefaktów są obecnie rejestrowane:
 
-* **Zdarzenia wypychania**
-* **Zdarzenia ściągnięcia**
-* **Zdarzenia UNTAG**
-* **Usuń zdarzenia** (w tym zdarzenia usuwania repozytorium)
+* **Wypychanie**
+* **Pobierać**
+* **Untag**
+* **Usuń** (łącznie ze zdarzeniami usunięcia repozytorium)
+* **Wyczyść tag** i **Przeczyść manifest**
 
-Zdarzenia na poziomie repozytorium, które nie są obecnie rejestrowane: przeczyszczanie zdarzeń.
+> [!NOTE]
+> Zdarzenia przeczyszczania są rejestrowane tylko wtedy, gdy skonfigurowano [zasady przechowywania](container-registry-retention-policy.md) rejestru.
 
 ## <a name="registry-resource-logs"></a>Dzienniki zasobów rejestru
 
@@ -37,7 +39,7 @@ Dzienniki zasobów zawierają informacje wyemitowane przez zasoby platformy Azur
 
 * **ContainerRegistryLoginEvents** — zdarzenia i stan uwierzytelniania rejestru, w tym przychodzącą tożsamość i adres IP
 * **ContainerRegistryRepositoryEvents** — operacje, takie jak wypychanie i ściąganie dla obrazów i innych artefaktów w repozytoriach rejestru
-* **AzureMetrics** - [Metryki rejestru kontenerów](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) AzureMetrics, takie jak agregowane liczby wypychania i ściągania.
+* **AzureMetrics**  -  [Metryki rejestru kontenerów](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) , takie jak agregowane liczby wypychania i ściągania.
 
 W przypadku operacji dane dziennika obejmują:
   * Stan powodzenia lub niepowodzenia
@@ -83,16 +85,58 @@ Aby zapoznać się z samouczkiem dotyczącym używania Log Analytics w Azure Por
 
 Aby uzyskać więcej informacji na temat zapytań dzienników, zobacz [Omówienie zapytań dzienników w Azure monitor](../azure-monitor/log-query/log-query-overview.md).
 
-### <a name="additional-query-examples"></a>Dodatkowe przykłady zapytań
+## <a name="query-examples"></a>Przykłady zapytań
 
-#### <a name="100-most-recent-registry-events"></a>100 ostatnich zdarzeń rejestru
+### <a name="error-events-from-the-last-hour"></a>Zdarzenia błędów z ostatniej godziny
+
+```Kusto
+union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+| where TimeGenerated > ago(1h)
+| where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+    or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+```
+
+### <a name="100-most-recent-registry-events"></a>100 ostatnich zdarzeń rejestru
 
 ```Kusto
 ContainerRegistryRepositoryEvents
 | union ContainerRegistryLoginEvents
 | top 100 by TimeGenerated
-| project TimeGenerated, LoginServer , OperationName , Identity , Repository , DurationMs , Region , ResultType
+| project TimeGenerated, LoginServer, OperationName, Identity, Repository, DurationMs, Region , ResultType
 ```
+
+### <a name="identity-of-user-or-object-that-deleted-repository"></a>Tożsamość użytkownika lub obiektu, który usunął repozytorium
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Delete"
+| project LoginServer, OperationName, Repository, Identity, CallerIpAddress
+```
+
+### <a name="identity-of-user-or-object-that-deleted-tag"></a>Tożsamość użytkownika lub obiektu, który usunął tag
+
+```Kusto
+ContainerRegistryRepositoryEvents
+| where OperationName contains "Untag"
+| project LoginServer, OperationName, Repository, Tag, Identity, CallerIpAddress
+```
+
+### <a name="reposity-level-operation-failures"></a>Niepowodzenia operacji na poziomie repozytoriów
+
+```kusto
+ContainerRegistryRepositoryEvents 
+| where ResultDescription contains "40"
+| project TimeGenerated, OperationName, Repository, Tag, ResultDescription
+```
+
+### <a name="registry-authentication-failures"></a>Błędy uwierzytelniania rejestru
+
+```kusto
+ContainerRegistryLoginEvents 
+| where ResultDescription != "200"
+| project TimeGenerated, Identity, CallerIpAddress, ResultDescription
+```
+
 
 ## <a name="additional-log-destinations"></a>Dodatkowe miejsca docelowe dzienników
 

@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 291dbdd874e3d657ff171d7e08ea6a1ee7e5999f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4d513471e288c1aadbf70b24ef367965a0b69a80
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683102"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84339913"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-and-azure-data-box-gateway"></a>Otwórz bilet pomocy technicznej dla Azure Stack Edge i Azure Data Box Gateway
 
@@ -39,7 +39,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
     7. Na podstawie wybranego typu problemu wybierz odpowiedni **podtyp problemu**.
     8. Wybierz pozycję **Dalej: rozwiązania >>**.
 
-        ![Podstawy](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
+        ![Informacje podstawowe](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. Na karcie **szczegóły** wykonaj następujące czynności:
 
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
         ![Problem](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-2.png)
 
-4. Na karcie **Przegląd i tworzenie** zapoznaj się z informacjami dotyczącymi biletu pomocy technicznej. Wybierz przycisk **Utwórz**. 
+4. Na karcie **Przegląd i tworzenie** zapoznaj się z informacjami dotyczącymi biletu pomocy technicznej. Wybierz pozycję **Utwórz**. 
 
     ![Problem](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-3.png)
 

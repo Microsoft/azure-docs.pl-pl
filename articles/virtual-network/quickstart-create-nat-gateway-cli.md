@@ -8,17 +8,18 @@ author: asudbring
 manager: KumundD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
+ms.subservice: nat
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 9402960927f56092e226ab81bd3e6ede0cf6a52d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dcc3eda4c19e8d15040feb31d2a45922035c6cb0
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79202200"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84341545"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Szybki Start: Tworzenie bramy NAT przy użyciu interfejsu wiersza polecenia platformy Azure
 

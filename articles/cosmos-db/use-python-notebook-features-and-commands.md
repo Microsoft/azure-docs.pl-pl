@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: a16b95249562db98d9382f8ca56bf4a27beba2fd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d455490f6eed0f928dc69c8f51f8d335a1dfe145
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743491"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84321329"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Korzystanie z wbudowanych poleceń i funkcji notesu w Azure Cosmos DB notesach Python (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ Po włączeniu obsługi notesu dla kont usługi Azure Cosmos można otworzyć no
 W nowej komórce kodu Wstaw i uruchom następujący kod, zastępując ``PackageToBeInstalled`` go żądanym pakietem języka Python.
 ```python
 import sys
-!{sys.executable} -m pip install PackageToBeInstalled –user
+!{sys.executable} -m pip install PackageToBeInstalled --user
 ```
 Ten pakiet będzie dostępny do użycia z dowolnego notesu w obszarze roboczym konta usługi Azure Cosmos. 
 

@@ -11,22 +11,22 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/14/2020
-ms.openlocfilehash: 6f7c90791025f14e743a83693503fe235792c603
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e5fd842e47c606c8f41aafe72253c1c4a1e885f3
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051955"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84324401"
 ---
-# <a name="configure--manage-content-reference---azure-sql-database"></a>Konfigurowanie & zarządzanie odwołaniem do zawartości — Azure SQL Database
+# <a name="configure-and-manage-content-reference---azure-sql-database"></a>Konfigurowanie i zarządzanie odwołaniem do zawartości — Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Ten artykuł zawiera informacje dotyczące różnych przewodników, skryptów i wyjaśnień, które mogą pomóc w zarządzaniu i konfigurowaniu Azure SQL Database. 
 
 ## <a name="load-data"></a>Ładowanie danych
 
-- [Migruj do SQL Database](migrate-to-database-from-sql-server.md)
-- Dowiedz się, jak [zarządzać usługą SQL Database po migracji](manage-data-after-migrating-to-database.md).
+- [Migracja do bazy danych SQL](migrate-to-database-from-sql-server.md)
+- Dowiedz się, jak [zarządzać SQL Database po migracji](manage-data-after-migrating-to-database.md).
 - [Kopiowanie bazy danych](database-copy.md)
 - [Importowanie bazy danych z pliku BACPAC](database-import.md)
 - [Eksportowanie bazy danych do pliku BACPAC](database-export.md)
@@ -35,10 +35,10 @@ Ten artykuł zawiera informacje dotyczące różnych przewodników, skryptów i 
 
 ## <a name="configure-features"></a>Konfigurowanie funkcji
 
-- [Konfigurowanie uwierzytelniania usługi Azure AD](authentication-aad-configure.md)
+- [Konfigurowanie uwierzytelniania Azure Active Directory (Azure AD)](authentication-aad-configure.md)
 - [Konfigurowanie dostępu warunkowego](conditional-access-configure.md)
-- [Uwierzytelnianie wieloskładnikowe usługi AAD](authentication-mfa-ssms-overview.md)
-- [Konfigurowanie uwierzytelniania wieloskładnikowego](authentication-mfa-ssms-configure.md)
+- [Uwierzytelnianie wieloskładnikowe usługi Azure AD](authentication-mfa-ssms-overview.md)
+- [Konfigurowanie Multi-Factor Authentication](authentication-mfa-ssms-configure.md)
 - [Konfigurowanie zasad przechowywania danych czasowych](temporal-tables-retention-policy.md)
 - [Konfigurowanie szyfrowania TDE przy usługi BYOK](transparent-data-encryption-byok-configure.md)
 - [Obracanie kluczy BYOK szyfrowania TDE](transparent-data-encryption-byok-key-rotation.md)
@@ -111,7 +111,7 @@ Ten artykuł zawiera informacje dotyczące różnych przewodników, skryptów i 
 
 ## <a name="develop-applications"></a>Tworzenie aplikacji
 
-- [Łączność](connect-query-content-reference-guide.md#libraries)
+- [Połączenia](connect-query-content-reference-guide.md#libraries)
 - [Korzystanie z łącznika Spark](spark-connector.md)
 - [Uwierzytelnianie aplikacji](application-authentication-get-client-id-keys.md)
 - [Korzystanie z usługi Batch w celu uzyskania lepszej wydajności](../performance-improve-use-batching.md)
@@ -128,11 +128,12 @@ Ten artykuł zawiera informacje dotyczące różnych przewodników, skryptów i 
 - [Projektowanie pod kątem elastycznych pul](disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 - [Projektowanie pod kątem uaktualnień aplikacji](manage-application-rolling-upgrade.md)
 
-### <a name="design-multi-tenant-saas-applications"></a>Projektowanie wielodostępnych aplikacji SaaS
+### <a name="design-multi-tenant-software-as-a-service-saas-applications"></a>Projektowanie aplikacji wielodostępnego oprogramowania jako usługi (SaaS)
 
 - [Wzorce projektowe SaaS](saas-tenancy-app-design-patterns.md)
 - [Indeksator wideo SaaS](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Zabezpieczenia aplikacji SaaS](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## <a name="next-steps"></a>Następne kroki
-- Dowiedz się więcej [na temat przewodników dla wystąpienia zarządzanego SQL](../managed-instance/how-to-content-reference-guide.md)
+
+- Dowiedz się więcej [na temat przewodników dla wystąpienia zarządzanego usługi Azure SQL](../managed-instance/how-to-content-reference-guide.md)

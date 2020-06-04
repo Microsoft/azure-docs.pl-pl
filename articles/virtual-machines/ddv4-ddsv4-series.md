@@ -8,21 +8,18 @@ ms.custom: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 42b42a7477326196546ad445367691192f00569a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 23644736370d4a875d1f9c0e65f3097fcffa07f6
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263249"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84338706"
 ---
-# <a name="ddv4-and-ddsv4-series"></a>Ddv4 i Ddsv4 — seria
+# <a name="ddv4-and-ddsv4-series"></a>Serie Ddv4 i Ddsv4
 
 Seria Ddv4 i Ddsv4 jest uruchamiana na &reg; &reg; procesorach Intel Xeon Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej, co zapewnia lepszą wartość dla większości obciążeń ogólnego przeznaczenia. Funkcja ta oferuje stałą szybkość zegara Turbo wynoszącą 3,4 GHz, [technologię Intel &reg; Turbo do zwiększania poziomu 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [ &reg; technologii Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) i [Intel &reg; Advanced Vector Extensions 512 (Intel &reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). Te nowe rozmiary maszyn wirtualnych będą miały 50% większego magazynu lokalnego, a także lepszą liczbę operacji we/wy na dysku lokalnym dla odczytu i zapisu w porównaniu do rozmiarów [Dv3/Dsv3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series) z [maszynami wirtualnymi Gen2](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2).
 
 Przypadki użycia serii D obejmują aplikacje klasy korporacyjnej, relacyjne bazy danych, buforowanie w pamięci i analizy.
-
-> [!IMPORTANT]
-> Jeśli wdrażasz nową maszynę wirtualną przy użyciu serii Ddv4 lub Ddsv4 i zamierzasz korzystać z obrazu systemu Linux, musisz użyć RHEL 8. x, CentOS 8. x lub Oracle 7. x lub nowszego. Jeśli zostanie wybrana opcja RHEL 7. x, CentOS 7. x lub Orcale 6. x, wystąpi błąd awaryjnego jądra. Firma Microsoft aktywnie wdraża poprawkę. Tylko RHEL, CentOS i Oracle mają wpływ. 
 
 ## <a name="ddv4-series"></a>Seria Ddv4
 

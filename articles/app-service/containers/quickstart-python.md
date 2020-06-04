@@ -4,12 +4,12 @@ description: Zacznij korzystać z aplikacji systemu Linux na Azure App Service, 
 ms.topic: quickstart
 ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
-ms.openlocfilehash: 5b055c3ed93d5f093295b52c7a28a73e242bfe75
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 023bd8a3d53665a797848c6a9053ccd26f6015ce
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690881"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344734"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji w języku Python w Azure App Service w systemie Linux
 
@@ -24,7 +24,7 @@ Jeśli wolisz wdrażać aplikacje za pośrednictwem środowiska IDE, zobacz [wdr
 - <a href="https://git-scm.com/downloads" target="_blank">Git</a>
 - <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Interfejs wiersza polecenia platformy Azure</a> 2.0.80 lub wyższy. Uruchom polecenie `az --version`, aby sprawdzić wersję.
 
-## <a name="download-the-sample"></a>Pobierz przykład
+## <a name="download-the-sample"></a>Pobieranie przykładu
 
 W oknie terminalu uruchom następujące polecenie, aby sklonować przykładową aplikację na komputer lokalny. 
 
@@ -54,7 +54,7 @@ export FLASK_APP=application.py
 flask run
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 py -3 -m venv env
@@ -76,11 +76,11 @@ flask run
 
 ---
 
-Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:5000/`. Aplikacja wyświetli komunikat **Hello World!**.
+Otwórz przeglądarkę internetową i przejdź do przykładowej aplikacji pod adresem `http://localhost:5000/` . Aplikacja wyświetli komunikat **Hello World!**.
 
 ![Uruchamianie przykładowej aplikacji w języku Python lokalnie](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
-W oknie terminalu naciśnij klawisz **Ctrl**+**, aby wyjść z serwera** sieci Web.
+W oknie terminalu naciśnij klawisz **Ctrl**, + Aby wyjść**z** serwera sieci Web.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -94,25 +94,20 @@ az login
 
 ## <a name="deploy-the-sample"></a>Wdróż przykład
 
-[`az webapp up`](/cli/azure/webapp#az-webapp-up) Polecenie tworzy aplikację sieci web na App Service i wdraża swój kod.
+[`az webapp up`](/cli/azure/webapp#az-webapp-up)Polecenie tworzy aplikację sieci Web na App Service i wdraża swój kod.
 
-W folderze *Python-docs-Hello-World* , który zawiera przykładowy kod, uruchom następujące `az webapp up` polecenie. Zamień `<app-name>` na globalnie unikatową nazwę aplikacji (*prawidłowe znaki to `a-z`, `0-9`i `-` *).
+W folderze *Python-docs-Hello-World* , który zawiera przykładowy kod, uruchom następujące `az webapp up` polecenie. Zamień na `<app-name>` globalnie unikatową nazwę aplikacji (*prawidłowe znaki to `a-z` , `0-9` i `-` *).
 
 
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
-> [!CAUTION]
-> W przypadku korzystania z **platformy Azure — interfejs wiersza polecenia 2.5.0** istnieje regresja `az webapp up` , w której niektóre scenariusze zakończą `-l <location-name>` się niepowodzeniem, jeśli parametr nie zostanie uwzględniony. Ten problem jest [śledzony w tym miejscu](https://github.com/Azure/azure-cli/issues/13257).  
-> 
->Możesz sprawdzić wersję interfejsu wiersza `az --version` polecenia platformy Azure, który jest używany z poleceniem.
->
 
-`--sku F1` Argument tworzy aplikację sieci Web w warstwie cenowej bezpłatna. Możesz pominąć ten argument, aby zamiast tego użyć warstwy Premium, która ponosi koszt godzinowy.
+`--sku F1`Argument tworzy aplikację sieci Web w warstwie cenowej bezpłatna. Możesz pominąć ten argument, aby zamiast tego użyć warstwy Premium, która ponosi koszt godzinowy.
 
-Opcjonalnie `-l <location-name>` możesz dołączyć argument, gdzie `<location_name>` jest regionem świadczenia usługi Azure, takim jak **środkowe**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**i tak dalej. Możesz pobrać listę dozwolonych regionów dla Twojego konta platformy Azure, uruchamiając [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) polecenie.
+Opcjonalnie możesz dołączyć argument `-l <location-name>` `<location_name>` , gdzie jest regionem świadczenia usługi Azure, takim jak **środkowe**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**i tak dalej. Możesz pobrać listę dozwolonych regionów dla Twojego konta platformy Azure, uruchamiając [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) polecenie.
 
-Wykonanie `az webapp up` polecenia może potrwać kilka minut. W trakcie działania są wyświetlane informacje podobne do poniższego przykładu, `<app-name>` gdzie zostanie podana wcześniej Nazwa:
+`az webapp up`Wykonanie polecenia może potrwać kilka minut. W trakcie działania są wyświetlane informacje podobne do poniższego przykładu, gdzie `<app-name>` zostanie podana wcześniej Nazwa:
 
 <pre>
 Creating Resource group 'appsvc_rg_Linux_centralus' ...
@@ -144,7 +139,7 @@ You can launch the app at http://&lt;app-name&gt;.azurewebsites.net
 
 ## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
 
-Przejdź do wdrożonej aplikacji w przeglądarce sieci Web pod adresem URL `http://<app-name>.azurewebsites.net`.
+Przejdź do wdrożonej aplikacji w przeglądarce sieci Web pod adresem URL `http://<app-name>.azurewebsites.net` .
 
 Przykładowy kod w języku Python używa kontenera systemu Linux w App Service przy użyciu wbudowanego obrazu.
 
@@ -196,9 +191,9 @@ Odśwież aplikację w przeglądarce, aby generować dzienniki konsoli, które p
 2020-04-03T22:54:04.236497641Z 172.16.0.1 - - [03/Apr/2020:22:54:04 +0000] "GET / HTTP/1.1" 200 12 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.83 Safari/537.36 Edg/81.0.416.41"
 </pre>
 
-Możesz również sprawdzić pliki dziennika z przeglądarki pod adresem `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+Możesz również sprawdzić pliki dziennika z przeglądarki pod adresem `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
 
-Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie `Ctrl` + `C`, wpisz polecenie.
+Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz polecenie `Ctrl` + `C` .
 
 ## <a name="manage-the-azure-app"></a>Zarządzanie aplikacją platformy Azure
 

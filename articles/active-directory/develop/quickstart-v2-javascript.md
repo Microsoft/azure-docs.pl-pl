@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
-ms.openlocfilehash: 91a4d10269975152cc62f3f5dc33238a8f6f2e11
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: d0c705ffba84b9d34f8bc3d6e4c06d4bdb90fa21
+ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890521"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84322825"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript SPA
 
@@ -58,7 +58,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > 1. Wybierz pozycję **Zarejestruj**. Na stronie **Przegląd** aplikacji Zanotuj wartość **identyfikatora aplikacji (klienta)** do późniejszego użycia.
 > 1. Ten przewodnik Szybki start wymaga włączenia [przepływu niejawnego udzielenia](v2-oauth2-implicit-grant-flow.md). W lewym okienku zarejestrowanej aplikacji wybierz pozycję **uwierzytelnianie**.
 > 1. W obszarze **Konfiguracja platformy**wybierz pozycję **Dodaj platformę**. Po lewej stronie zostanie otwarty panel. W tym miejscu wybierz region **aplikacje sieci Web** .
-> 1. Nadal po lewej stronie Ustaw wartość **identyfikatora URI przekierowania** na `http://localhost:3000/`. Następnie wybierz **token dostępu** i **token identyfikatora**.
+> 1. Nadal po lewej stronie Ustaw wartość **identyfikatora URI przekierowania** na `http://localhost:3000/` . Następnie wybierz **token dostępu** i **token identyfikatora**.
 > 1. Wybierz pozycję **Konfiguruj**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -84,7 +84,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-javascript-app"></a>Krok 3. Konfigurowanie aplikacji JavaScript
 >
-> W folderze *JavaScriptSPA* Edytuj *authConfig. js*, a następnie `clientID`Ustaw wartości `authority` i. `redirectUri` `msalConfig`
+> W folderze *JavaScriptSPA* Edytuj *authConfig. js*, a następnie ustaw `clientID` `authority` `redirectUri` wartości i `msalConfig` .
 >
 > ```javascript
 >
@@ -92,7 +92,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 >  const msalConfig = {
 >    auth: {
 >      clientId: "Enter_the_Application_Id_Here",
->      authority: "Enter_the_Cloud_Instance_Id_Here_OR_Enter_the_Tenant_Info_Here",
+>      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >      redirectUri: "Enter_the_Redirect_Uri_Here",
 >    },
 >    cache: {
@@ -110,9 +110,9 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > [!div renderon="docs"]
 >
 > Gdzie:
-> - Enter_the_Application_Id_Here>to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji. * \<*
-> - Enter_the_Cloud_Instance_Id_Here>jest wystąpieniem chmury platformy Azure. * \<* W przypadku głównej lub globalnej chmury platformy Azure po prostu *https://login.microsoftonline.com*wprowadź. W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
-> - >Enter_the_Tenant_info_here jest ustawiona na jedną z następujących opcji: * \<*
+> - *\<Enter_the_Application_Id_Here>* to **Identyfikator aplikacji (klienta)** dla zarejestrowanej aplikacji.
+> - *\<Enter_the_Cloud_Instance_Id_Here>* jest wystąpieniem chmury platformy Azure. W przypadku głównej lub globalnej chmury platformy Azure po prostu wprowadź *https://login.microsoftonline.com* . W przypadku chmur **narodowych** (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+> - *\<Enter_the_Tenant_info_here>* jest ustawiona na jedną z następujących opcji:
 >    - Jeśli aplikacja obsługuje *konta w tym katalogu organizacyjnym*, Zastąp tę wartość **identyfikatorem dzierżawy** lub **nazwą dzierżawy** (na przykład *contoso.Microsoft.com*).
 >    - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość **organizacją**.
 >    - Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość **wspólnym**. Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość **odbiorcom**.
@@ -130,8 +130,8 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
->     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
->     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+>     graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+>     graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
 >   };
 >
 >   // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -144,7 +144,7 @@ W tym przewodniku szybki start użyjesz przykładowego kodu, aby dowiedzieć si�
 > [!div renderon="docs"]
 >
 > Gdzie:
-> - Enter_the_Graph_Endpoint_Here>jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. * \<* W przypadku usługi interfejsu API głównej lub globalnej Microsoft Graph, wystarczy `https://graph.microsoft.com`wprowadzić polecenie. Aby uzyskać więcej informacji, zobacz [wdrażanie w chmurze krajowej](https://docs.microsoft.com/graph/deployments)
+> - *\<Enter_the_Graph_Endpoint_Here>* jest punktem końcowym, z którym będą wykonywane wywołania interfejsu API. W przypadku usługi interfejsu API głównej lub globalnej Microsoft Graph, wystarczy wprowadzić polecenie `https://graph.microsoft.com` . Aby uzyskać więcej informacji, zobacz [wdrażanie w chmurze krajowej](https://docs.microsoft.com/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Krok 4. uruchamianie projektu
 
@@ -155,7 +155,7 @@ Uruchom projekt z serwerem sieci Web przy użyciu środowiska [Node. js](https:/
     npm install
     npm start
     ```
-1. Otwórz przeglądarkę internetową i przejdź do `http://localhost:3000/`.
+1. Otwórz przeglądarkę internetową i przejdź do `http://localhost:3000/` .
 
 1. Wybierz pozycję **Zaloguj** się, aby rozpocząć logowanie, a następnie wywołaj Microsoft Graph API.
 
@@ -207,8 +207,8 @@ const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |Lokalizacja  |  |
 > |---------|---------|
 > |`clientId`     | Identyfikator aplikacji, która jest zarejestrowana w Azure Portal.|
-> |`authority`    | Obowiązkowe Adres URL urzędu obsługujący typy kont, zgodnie z opisem wcześniej w sekcji konfiguracji. Domyślny urząd to `https://login.microsoftonline.com/common`. |
-> |`redirectUri`     | Skonfigurowana odpowiedź/redirectUri rejestracji aplikacji. W takim przypadku `http://localhost:3000/`. |
+> |`authority`    | Obowiązkowe Adres URL urzędu obsługujący typy kont, zgodnie z opisem wcześniej w sekcji konfiguracji. Domyślny urząd to `https://login.microsoftonline.com/common` . |
+> |`redirectUri`     | Skonfigurowana odpowiedź/redirectUri rejestracji aplikacji. W takim przypadku `http://localhost:3000/` . |
 > |`cacheLocation`  | Obowiązkowe Ustawia magazyn przeglądarki dla stanu uwierzytelniania. Wartość domyślna to sessionStorage.   |
 > |`storeAuthStateInCookie`  | Obowiązkowe Biblioteka, w której jest przechowywany stan żądania uwierzytelniania, który jest wymagany do weryfikacji przepływów uwierzytelniania w plikach cookie w przeglądarce. Ten plik cookie jest ustawiany dla przeglądarki IE i programu Edge, aby wyeliminować pewne [znane problemy](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
@@ -234,14 +234,14 @@ myMSALObj.loginPopup(loginRequest)
 
 > |Lokalizacja  |  |
 > |---------|---------|
-> | `scopes`   | Obowiązkowe Zawiera zakresy, które są wymagane do wyrażania zgody użytkownika w czasie logowania. Na przykład `[ "user.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user`). |
+> | `scopes`   | Obowiązkowe Zawiera zakresy, które są wymagane do wyrażania zgody użytkownika w czasie logowania. Na przykład `[ "user.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` ). |
 
 > [!TIP]
 > Alternatywnie możesz chcieć użyć `loginRedirect` metody, aby przekierować bieżącą stronę do strony logowania zamiast okna podręcznego.
 
 ### <a name="request-tokens"></a>Żądanie tokenów
 
-MSAL używa trzech metod do uzyskiwania tokenów `acquireTokenRedirect`: `acquireTokenPopup`, i`acquireTokenSilent`
+MSAL używa trzech metod do uzyskiwania tokenów: `acquireTokenRedirect` , `acquireTokenPopup` i`acquireTokenSilent`
 
 #### <a name="get-a-user-token-silently"></a>Dyskretne pobieranie tokenu użytkownika
 
@@ -264,7 +264,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
 
 > |Lokalizacja  |  |
 > |---------|---------|
-> | `scopes`   | Zawiera zakresy żądane na potrzeby zwracania w tokenie dostępu dla interfejsu API. Na przykład `[ "mail.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user`).|
+> | `scopes`   | Zawiera zakresy żądane na potrzeby zwracania w tokenie dostępu dla interfejsu API. Na przykład `[ "mail.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web (czyli `api://<Application ID>/access_as_user` ).|
 
 #### <a name="get-a-user-token-interactively"></a>Interaktywne pobieranie tokenu użytkownika
 
@@ -273,7 +273,7 @@ Istnieją sytuacje, w których należy wymusić, aby użytkownicy mogli korzysta
 * Aplikacja żąda dostępu do dodatkowych zakresów zasobów, do których użytkownik musi wyrazić zgodę.
 * Wymagane jest uwierzytelnianie dwuskładnikowe.
 
-Typowym zalecanym wzorcem dla większości aplikacji jest `acquireTokenSilent` Wywołaj pierwsze, a następnie Przechwyć wyjątek, `acquireTokenPopup` a następnie `acquireTokenRedirect`Wywołaj (lub), aby uruchomić żądanie interaktywne.
+Typowym zalecanym wzorcem dla większości aplikacji jest Wywołaj `acquireTokenSilent` pierwsze, a następnie Przechwyć wyjątek, a następnie Wywołaj `acquireTokenPopup` (lub `acquireTokenRedirect` ), aby uruchomić żądanie interaktywne.
 
 Wywoływanie `acquireTokenPopup` wyników w oknie podręcznym do logowania. (Lub `acquireTokenRedirect` wyniki przekierowywania użytkowników do punktu końcowego platformy tożsamości firmy Microsoft). W tym oknie Użytkownicy muszą mieć możliwość działania przez potwierdzenie poświadczeń, udzielenie zgody na wymagane zasoby lub zakończenie uwierzytelniania dwuskładnikowego.
 

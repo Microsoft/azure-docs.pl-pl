@@ -5,17 +5,20 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 1/08/2020
-ms.author: rohogue
-ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: v-erkel
+ms.openlocfilehash: 9bce4ec383b8ac7efaa9b00237044424ffb58fc0
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75867006"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84344258"
 ---
 # <a name="edit-storage-targets"></a>Edytowanie lokalizacji docelowych magazynu
 
 Można usunąć lub zmodyfikować miejsce docelowe magazynu z poziomu strony **miejsca docelowe magazynu** pamięci podręcznej.
+
+> [!TIP]
+> W obszarze [Zarządzanie wideo w pamięci podręcznej platformy Azure HPC](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) pokazano, jak edytować miejsce docelowe magazynu.
 
 ## <a name="remove-a-storage-target"></a>Usuń miejsce docelowe magazynu
 
