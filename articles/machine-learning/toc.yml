@@ -70,7 +70,8 @@
       items:
         - name: Uczenie i wdrażanie przy użyciu interfejsu wiersza polecenia
           href: tutorial-train-deploy-model-cli.md
-        - name: Tworzenie obszarów roboczych za pomocą szablonów usługi Resource Manager
+        - name: Tworzenie obszarów roboczych przy użyciu szablonu usługi ARM
+          displayName: Resource Manager
           href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:

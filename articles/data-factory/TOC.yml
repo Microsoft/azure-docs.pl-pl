@@ -90,6 +90,10 @@
                   href: tutorial-incremental-copy-change-tracking-feature-portal.md
                 - name: Azure PowerShell
                   href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+            - name: Korzystanie z funkcji przechwytywania zmian danych w wystąpieniu zarządzanym usługi Azure SQL
+              items:
+                - name: Interfejs użytkownika
+                  href: tutorial-incremental-copy-change-data-capture-feature-portal.md
             - name: Nowe pliki według daty ostatniej modyfikacji
               href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
             - name: Nowe pliki według nazwy pliku partycjonowanego w czasie
@@ -196,6 +200,8 @@
       items:
         - name: Wizualne tworzenie fabryk danych
           href: author-visually.md
+        - name: Centrum zarządzania
+          href: author-management-hub.md
         - name: Kontrola źródła
           href: source-control.md
         - name: Ciągła integracja i ciągłe dostarczanie
