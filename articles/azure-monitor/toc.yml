@@ -230,7 +230,7 @@
                     - name: Historia wersji
                       href: platform/diagnostics-extension-versions.md
                     - name: Format dzienników zasobów JSON Lines
-                      href: platform/diagnostic-logs-append-blobs.md
+                      href: platform/resource-logs-append-blobs.md
                     - name: Rozwiązywanie problemów
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
@@ -1173,8 +1173,10 @@
           href: platform/alerts-metric-near-real-time.md
     - name: Dzienniki platformy
       items:
+        - name: Obsługiwane typy i kategorie dzienników zasobów
+          href: platform/resource-logs-categories.md
         - name: Schematy dzienników zasobów
-          href: platform/diagnostic-logs-schema.md
+          href: platform/resource-logs-schema.md
         - name: Schemat dziennika aktywności
           href: platform/activity-log-schema.md
     - name: Schematy rozszerzenia diagnostycznego

@@ -466,7 +466,7 @@
       items:
         - name: Interfejsy API REST
           items:
-            - name: Interfejs API funkcji rozpoznawania mowy
+            - name: Interfejs API REST funkcji rozpoznawania osoby mówiącej
               href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hosting
   items:

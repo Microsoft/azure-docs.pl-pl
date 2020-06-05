@@ -259,6 +259,10 @@
       href: 'https://docs.microsoft.com/power-bi/desktop-sap-bw-connector'
     - name: Usługa Azure Data Factory oferuje integrację danych oprogramowania SAP HANA i Business Warehouse
       href: 'https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration'
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/sap-hana/hanainstance
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure

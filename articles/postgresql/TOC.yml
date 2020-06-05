@@ -235,6 +235,10 @@
               href: howto-migrate-using-export-and-import.md
             - name: Migracja z minimalnym przestojem
               href: howto-migrate-online.md
+        - name: Łączenie aplikacji
+          items:
+            - name: Konfigurowanie protokołu TLS
+              href: howto-tls-configurations.md
         - name: Konfigurowanie parametrów serwera
           items:
             - name: Azure Portal

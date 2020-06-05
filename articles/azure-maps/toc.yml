@@ -177,6 +177,14 @@
               href: map-get-information-from-coordinate.md
             - name: Wyświetlanie instrukcji dotyczących trasy z punktu A do punktu B
               href: map-route.md
+        - name: Moduł planów wnętrz
+          items:
+            - name: Moduł planów wnętrz
+              href: how-to-use-indoor-module.md
+            - name: Dynamiczne określanie stylów dla planów wnętrz
+              href: indoor-map-dynamic-styling.md
+            - name: Wizualizator błędów rysunków
+              href: drawing-error-visualizer.md
         - name: Moduł operacji we/wy danych przestrzennych
           items:
             - name: Używanie modułu operacji we/wy danych przestrzennych
@@ -211,14 +219,6 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Wyświetlanie danych o ruchu
           href: how-to-show-traffic-android.md
-    - name: Tworzenie planów wnętrz przy użyciu kreatora
-      items:
-        - name: Moduł planów wnętrz
-          href: how-to-use-indoor-module.md
-        - name: Dynamiczne określanie stylów dla planów wnętrz
-          href: indoor-map-dynamic-styling.md
-        - name: Wizualizator błędów rysunków
-          href: drawing-error-visualizer.md
     - name: Przesyłanie opinii o danych
       href: how-to-use-feedback-tool.md
 - name: Dokumentacja

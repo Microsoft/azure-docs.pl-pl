@@ -195,6 +195,10 @@
                   href: ../storage/files/storage-sync-offline-data-transfer.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
                 - name: Z magazynu HDFS
                   href: ../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md?toc=/azure/databox/toc.json&bc=/azure/databox/breadcrumb/toc.json
+    - name: Dokumentacja
+      items:
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: /cli/azure/ext/databox/databox
     - name: Zasoby
       items:
         - name: Produkt Data Box

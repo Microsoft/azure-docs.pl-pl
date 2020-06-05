@@ -114,6 +114,8 @@
   items:
     - name: Zarządzanie
       items:
+        - name: Zadania autoskalowania
+          href: stream-analytics-autoscale.md
         - name: Aktualizowanie poświadczeń
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Konfigurowanie zasad określania kolejności zdarzeń
@@ -611,6 +613,8 @@
       href: /rest/api/streamanalytics
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.streamanalytics/allversions
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Zasoby
   items:
     - name: Stream Analytics — wersje zapoznawcze

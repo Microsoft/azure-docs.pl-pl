@@ -151,7 +151,7 @@
       href: /rest/api/datalakeanalytics/
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.datalakeanalytics/allversions
-    - name: Interfejs wiersza polecenia
+    - name: Interfejs wiersza polecenia platformy Azure
       href: 'https://docs.microsoft.com/cli/azure/dla'
 - name: Zasoby
   items:

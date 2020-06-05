@@ -82,6 +82,8 @@
           href: specify-marketplace-images.md
         - name: Określanie informacji o pomocy technicznej (właściciel konta laboratorium)
           href: lab-account-owner-support-information.md
+        - name: Zarządzanie kosztami dla laboratoriów
+          href: cost-management-guide.md
     - name: Tworzenie i konfigurowanie laboratoriów na potrzeby zajęć (nauczyciel)
       items:
         - name: Tworzenie laboratoriów na potrzeby zajęć i zarządzanie nimi
