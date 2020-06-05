@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: v-erkel
-ms.openlocfilehash: d8f345b12d635f0ab683929fc67d5d789bfea8d9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 817c03780b91e39d43a5348f84105236ee811cc8
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343636"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433610"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Wymagania wstępne dotyczące usługi Azure HPC cache
 
@@ -25,11 +25,11 @@ Obejrzyj te filmy wideo, aby zapoznać się z krótkim omówieniem składników 
 
 * [Jak to działa](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/) — objaśnia sposób współdziałania pamięci podręcznej platformy Azure HPC z magazynem i klientami
 
-  [![obraz miniatury wideo: Azure HPC cache: jak działa (kliknij, aby odwiedzić stronę wideo)](media/video2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
+  [![obraz miniatury wideo: Azure HPC cache: jak działa (kliknij, aby odwiedzić stronę wideo)](media/video-2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
 
 * [Wymagania wstępne](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) — opis wymagań dotyczących magazynu serwera nas, usługi Azure Blob Storage, dostępu do sieci i dostępu klienta
 
-  [![obraz miniatury wideo: Azure HPC cache: wymagania wstępne (kliknij, aby odwiedzić stronę wideo)](media/video3-prereqs.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
+  [![obraz miniatury wideo: Azure HPC cache: wymagania wstępne (kliknij, aby odwiedzić stronę wideo)](media/video-3-prerequisites.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
 
 Zapoznaj się z pozostałą częścią tego artykułu, aby uzyskać szczegółowe zalecenia.
 

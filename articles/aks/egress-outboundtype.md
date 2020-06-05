@@ -4,12 +4,12 @@ description: Informacje o definiowaniu niestandardowej trasy ruchu wychodzącego
 services: container-service
 ms.topic: article
 ms.date: 06/05/2020
-ms.openlocfilehash: d62f40fb835bfe6993ad31ddd20cfdea1d9135c2
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 03b18a9cb8fa28d54952a77bf8721c63dd56a9ad
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310873"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416787"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Dostosowywanie ruchu wychodzącego klastra przy użyciu trasy zdefiniowanej przez użytkownika
 
@@ -227,11 +227,11 @@ Zapoznaj się z [dokumentacją dotyczącą trasy sieci wirtualnej](../virtual-ne
 ## <a name="adding-network-firewall-rules"></a>Dodawanie reguł zapory sieciowej
 
 > [!WARNING]
-> Poniżej przedstawiono przykład dodawania reguły zapory. Wszystkie punkty końcowe wyjściowe zdefiniowane w [wymaganych punktach końcowych ruchu](egress.md) wychodzącego muszą być włączone przez reguły zapory aplikacji dla klastrów AKS do działania. Bez włączonych punktów końcowych klaster nie może działać.
+> Poniżej przedstawiono przykład dodawania reguły zapory. Wszystkie punkty końcowe wyjściowe zdefiniowane w [wymaganych punktach końcowych ruchu](limit-egress-traffic.md) wychodzącego muszą być włączone przez reguły zapory aplikacji dla klastrów AKS do działania. Bez włączonych punktów końcowych klaster nie może działać.
 
 Poniżej znajduje się przykład reguły sieci i aplikacji. Dodawana jest reguła sieci, która zezwala na dowolny protokół, adres źródłowy, adres docelowy i port docelowy. Dodajemy również regułę aplikacji dla **niektórych** punktów końcowych wymaganych przez AKS.
 
-W scenariuszu produkcyjnym należy włączyć tylko dostęp do wymaganych punktów końcowych dla aplikacji oraz tych zdefiniowanych w [AKS](egress.md).
+W scenariuszu produkcyjnym należy włączyć tylko dostęp do wymaganych punktów końcowych dla aplikacji oraz tych zdefiniowanych w [AKS](limit-egress-traffic.md).
 
 ```
 # Add Network FW Rules

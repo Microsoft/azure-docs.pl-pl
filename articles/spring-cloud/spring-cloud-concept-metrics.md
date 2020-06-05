@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
-ms.openlocfilehash: 746366675501c80776f0a4308e22250f344a00c9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ed8a46683d79211559b4af7972c6d1bb784e1f02
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343442"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434161"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informacje o metrykach dla chmury wiosennej platformy Azure
 
@@ -90,8 +90,8 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 >[!div class="mx-tdCol2BreakAll"]
 >| Nazwa | Nazwa metryki siłownika | Jednostka | Szczegóły |
 >|----|----|----|------------|
->| Błąd globalny Tomcat (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020)  | Tomcat. Global. Error | Liczba | Liczba błędów przetworzonych żądań |
->| Tomcat. Global. Error | Tomcat. Global. Error | Liczba | Liczba błędów przetworzonych żądań |
+>| Błąd globalny Tomcat (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020)  | Tomcat. Global. Error | Liczba | Liczba błędów, które wystąpiły w przetwarzanych żądaniach |
+>| Tomcat. Global. Error | Tomcat. Global. Error | Liczba | Liczba błędów, które wystąpiły w przetwarzanych żądaniach |
 
 ### <a name="performance"></a>Wydajność
 >[!div class="mx-tdCol2BreakAll"]
@@ -101,7 +101,7 @@ W poniższych tabelach przedstawiono dostępne metryki i szczegóły.
 >| System. CPU. Usage | System. CPU. Usage | Wartość procentowa | Ostatnie użycie procesora CPU całego systemu. Ta wartość jest podwójnym interwałem [0.0, 1.0]. Wartość 0,0 oznacza, że wszystkie procesory były bezczynne w trakcie ostatniego zaobserwowanego okresu, a wartość 1,0 oznacza, że wszystkie procesory aktywnie działały 100% czasu w trakcie ostatniego zaobserwowanego okresu.|
 >| Procent użycia procesora aplikacji (przestarzałe)<br><br>(usunięto po 1 lipca 2020) | Procent użycia procesora aplikacji | Wartość procentowa | Ostatnie użycie procesora CPU przez proces wirtualna maszyna Java. Ta wartość jest podwójnym interwałem [0.0, 1.0]. Wartość 0,0 oznacza, że żaden z procesorów CPU nie był uruchomiony z procesu JVM w trakcie ostatniego zaobserwowanego okresu, a wartość 1,0 oznacza, że wszystkie procesory aktywnie działały wątki z JVM 100% czasu podczas ostatniego zaobserwowanego okresu. Wątki z JVM obejmują wątki aplikacji oraz wewnętrzne wątki JVM.|
 >| Process. CPU. Usage | Procent użycia procesora aplikacji | Wartość procentowa | Ostatnie użycie procesora CPU przez proces wirtualna maszyna Java. Ta wartość jest podwójnym interwałem [0.0, 1.0]. Wartość 0,0 oznacza, że żaden z procesorów CPU nie był uruchomiony z procesu JVM w trakcie ostatniego zaobserwowanego okresu, a wartość 1,0 oznacza, że wszystkie procesory aktywnie działały wątki z JVM 100% czasu podczas ostatniego zaobserwowanego okresu. Wątki z JVM obejmują wątki aplikacji oraz wewnętrzne wątki JVM.|
->| Przypisana pamięć aplikacji (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. Memory. Committed | Bajty | Reprezentuje ilość pamięci, która ma być dostępna do użycia przez JVM. JVM może zwolnić pamięć do systemu, a zatwierdzenie może być mniejsze niż init. wartość zatwierdzone będzie zawsze większa lub równa używanej. |
+>| Przypisana pamięć aplikacji (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. Memory. Committed | Bajty | Reprezentuje ilość pamięci, która ma być dostępna do użycia przez JVM. JVM może zwolnić pamięć do systemu, a ilość pamięci zadeklarowanej może być mniejsza niż ilość pamięci początkowej. Pamięć zadeklarowana będzie zawsze większa lub równa używanej pamięci. |
 >| JVM. Memory. Committed | JVM. Memory. Committed | Bajty | Reprezentuje ilość pamięci, która ma być dostępna do użycia przez JVM. JVM może zwolnić pamięć do systemu, a zatwierdzenie może być mniejsze niż init. wartość zatwierdzone będzie zawsze większa lub równa używanej. |
 >| Użyta pamięć aplikacji (przestarzałe)<br><br>(do usunięcia po 1 lipca 2020) | JVM. Memory. użyty | Bajty | Reprezentuje ilość pamięci aktualnie używaną w bajtach. |
 >| JVM. Memory. użyty | JVM. Memory. użyty | Bajty | Reprezentuje ilość pamięci aktualnie używaną w bajtach. |

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 06/04/2020
 ms.author: memildin
-ms.openlocfilehash: 6e61571400930d4a781d6d67647bd662a7f2d350
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4ecc7f0e11712fa3d664d1227eacb39409bd184
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106223"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418215"
 ---
 # <a name="permissions-in-azure-security-center"></a>Uprawnienia w usłudze Azure Security Center
 
@@ -35,13 +35,12 @@ Oprócz tych ról istnieją dwie określone role usługi Security Center:
 > [!NOTE]
 > Role zabezpieczeń, czytelnik zabezpieczeń i administrator zabezpieczeń mają dostęp tylko w Security Center. Role zabezpieczeń nie mają dostępu do innych obszarów usługi platformy Azure, takich jak Storage, Web & Mobile lub Internet rzeczy.
 >
->
 
 ## <a name="roles-and-allowed-actions"></a>Role i dozwolone akcje
 
 W poniższej tabeli przedstawiono role i dozwolone akcje w Security Center.
 
-| Rola | Edytuj zasady zabezpieczeń | Stosowanie zaleceń dotyczących zabezpieczeń dla zasobu</br> (w tym z opcją "szybkie rozwiązanie!") | Odrzuć alerty i zalecenia | Wyświetlanie alertów i zaleceń |
+| Rola | Edytuj zasady zabezpieczeń | Stosowanie zaleceń dotyczących zabezpieczeń dla zasobu</br> (w tym z opcją "szybkie rozwiązanie!") | Odrzuć alerty | Wyświetlanie alertów i zaleceń |
 |:--- |:---:|:---:|:---:|:---:|
 | Właściciel subskrypcji | ✔ | ✔ | ✔ | ✔ |
 | Współautor subskrypcji | -- | ✔ | ✔ | ✔ |

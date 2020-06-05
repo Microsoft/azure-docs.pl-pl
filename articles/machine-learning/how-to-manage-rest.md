@@ -7,14 +7,14 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/31/2020
-ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f096f432111e4e8b52ffcaff355fbf8d9e603819
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77580632"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430432"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Tworzenie, uruchamianie i usuwanie zasobów usługi Azure ML przy użyciu interfejsu REST
 
@@ -37,7 +37,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 - **Subskrypcja platformy Azure** , dla której masz prawa administracyjne. Jeśli nie masz takiej subskrypcji, wypróbuj [bezpłatną lub płatną subskrypcję osobistą](https://aka.ms/AMLFree)
 - [Obszar roboczy usługi Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
 - Administracyjne żądania REST używają uwierzytelniania nazwy głównej usługi. Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) , aby utworzyć jednostkę usługi w obszarze roboczym
-- Narzędzie **zwinięcie** . Program **zwinięcie** jest dostępny w [podsystemie Windows dla systemu Linux](https://aka.ms/wslinstall/) lub dowolnej dystrybucji systemu UNIX. W programie PowerShell **zwinięcie** jest aliasem dla elementu **Invoke-WebRequest** `curl -d "key=val" -X POST uri` i `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`zmieni się. 
+- Narzędzie **zwinięcie** . Program **zwinięcie** jest dostępny w [podsystemie Windows dla systemu Linux](https://aka.ms/wslinstall/) lub dowolnej dystrybucji systemu UNIX. W programie PowerShell **zwinięcie** jest aliasem dla elementu **Invoke-WebRequest** i `curl -d "key=val" -X POST uri` zmieni się `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` . 
 
 ## <a name="retrieve-a-service-principal-authentication-token"></a>Pobieranie tokenu uwierzytelniania jednostki usługi
 
@@ -53,7 +53,7 @@ Aby pobrać token:
 
 1. Otwórz okno terminalu
 1. Wprowadź następujący kod w wierszu polecenia
-1. Podstaw własne wartości dla `{your-tenant-id}`, `{your-client-id}`i. `{your-client-secret}` W tym artykule ciągi ujęte w nawiasy klamrowe są zmiennymi, które należy zamienić na własne odpowiednie wartości.
+1. Podstaw własne wartości dla `{your-tenant-id}` , `{your-client-id}` i `{your-client-secret}` . W tym artykule ciągi ujęte w nawiasy klamrowe są zmiennymi, które należy zamienić na własne odpowiednie wartości.
 1. Uruchamianie polecenia
 
 ```bash
@@ -91,7 +91,7 @@ Aby pobrać listę grup zasobów skojarzonych z Twoją subskrypcją, uruchom pol
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups?api-version=2019-11-01 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Na platformie Azure publikowane są wiele interfejsów API REST. Każdy dostawca usług aktualizuje swój interfejs API na własny erze, ale nie przerywa istniejących programów. Dostawca usług używa argumentu, `api-version` aby zapewnić zgodność. `api-version` Argument jest różny od usługi do usługi. Dla usługi Machine Learning, na przykład bieżąca wersja interfejsu API to `2019-11-01`. W przypadku kont magazynu jest `2019-06-01`to. W przypadku magazynów kluczy jest `2019-09-01`to. Wszystkie wywołania REST powinny ustawiać `api-version` argument dla oczekiwanej wartości. Można polegać na składni i semantyki określonej wersji, nawet gdy interfejs API nadal się rozwija. W przypadku wysłania żądania do dostawcy bez `api-version` argumentu odpowiedź będzie zawierać listę obsługiwanych wartości przez człowieka. 
+Na platformie Azure publikowane są wiele interfejsów API REST. Każdy dostawca usług aktualizuje swój interfejs API na własny erze, ale nie przerywa istniejących programów. Dostawca usług używa argumentu, `api-version` Aby zapewnić zgodność. `api-version`Argument jest różny od usługi do usługi. Dla usługi Machine Learning, na przykład bieżąca wersja interfejsu API to `2019-11-01` . W przypadku kont magazynu jest to `2019-06-01` . W przypadku magazynów kluczy jest to `2019-09-01` . Wszystkie wywołania REST powinny ustawiać `api-version` argument dla oczekiwanej wartości. Można polegać na składni i semantyki określonej wersji, nawet gdy interfejs API nadal się rozwija. W przypadku wysłania żądania do dostawcy bez `api-version` argumentu odpowiedź będzie zawierać listę obsługiwanych wartości przez człowieka. 
 
 Powyższe wywołanie spowoduje powstanie kompaktowej odpowiedzi JSON w postaci: 
 
@@ -123,7 +123,7 @@ Powyższe wywołanie spowoduje powstanie kompaktowej odpowiedzi JSON w postaci:
 
 ## <a name="drill-down-into-workspaces-and-their-resources"></a>Przechodzenie do szczegółów obszarów roboczych i ich zasobów
 
-Aby pobrać zestaw obszarów roboczych w grupie zasobów, uruchom następujące polecenie, podstawiając `{your-subscription-id}` `{your-resource-group}`, i: `{your-access-token}` 
+Aby pobrać zestaw obszarów roboczych w grupie zasobów, uruchom następujące polecenie, podstawiając, `{your-subscription-id}` `{your-resource-group}` i `{your-access-token}` : 
 
 ```
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2019-11-01 \
@@ -183,7 +183,7 @@ Aby można było korzystać z zasobów w obszarze roboczym, należy przełączy�
 }
 ```
 
-Wartość `api` odpowiedzi to adres URL serwera, który będzie używany w przypadku dodatkowych żądań. Aby wyświetlić listę eksperymentów, na przykład Wyślij następujące polecenie. Zamień `regional-api-server` na wartość `api` odpowiedzi (na przykład `centralus.api.azureml.ms`). Należy również `your-subscription-id`zastąpić `your-resource-group`, `your-workspace-name`,, `your-access-token` i w zwykły sposób:
+Wartość `api` odpowiedzi to adres URL serwera, który będzie używany w przypadku dodatkowych żądań. Aby wyświetlić listę eksperymentów, na przykład Wyślij następujące polecenie. Zamień na `regional-api-server` wartość `api` odpowiedzi (na przykład `centralus.api.azureml.ms` ). Należy również zastąpić `your-subscription-id` , `your-resource-group` , `your-workspace-name` , i `your-access-token` w zwykły sposób:
 
 ```bash
 curl https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
@@ -199,11 +199,11 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Zwróć uwagę, że w celu wyświetlenia listy eksperymentów ścieżka zaczyna się od `history/v1.0` while, aby wyświetlić `modelmanagement/v1.0`listę modeli, ścieżka zaczyna się od. Interfejs API REST jest podzielony na kilka grup operacyjnych, z których każda ma odrębną ścieżkę. Dokumenty referencyjne interfejsu API na poniższych linkach zawierają listę operacji, parametrów i kodów odpowiedzi dla różnych operacji.
+Zwróć uwagę, że w celu wyświetlenia listy eksperymentów ścieżka zaczyna się od `history/v1.0` while, aby wyświetlić listę modeli, ścieżka zaczyna się od `modelmanagement/v1.0` . Interfejs API REST jest podzielony na kilka grup operacyjnych, z których każda ma odrębną ścieżkę. Dokumenty referencyjne interfejsu API na poniższych linkach zawierają listę operacji, parametrów i kodów odpowiedzi dla różnych operacji.
 
-|Obszar|Ścieżka|Dokumentacja|
+|Warstwowy|Ścieżka|Dokumentacja|
 |-|-|-|
-|Artefakty|artefakt/v 2.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
+|Artifacts|artefakt/v 2.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
 |Magazyny danych|Magazyn danych/v 1.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
 |Dostrajanie hiperparametrów|dysk/v 1.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
 |Modele|Modelmanagement/v 1.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
@@ -235,7 +235,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Aby utworzyć lub zastąpić nazwany zasób obliczeniowy, będzie używane żądanie PUT. W następujących `your-subscription-id`tematach oprócz teraz znanych podstawiania, `your-resource-group`, `your-workspace-name`, i `your-access-token`, podstawiania `your-compute-name`i wartości dla `location`, `vmSize` `vmPriority` `scaleSettings` `adminUserName`,,, i. `adminUserPassword` Zgodnie z opisem w temacie Reference w [środowisko obliczeniowe usługi Machine Learning-Create lub Update SDK](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), następujące polecenie tworzy dedykowany Standard_D1 z pojedynczym węzłem (podstawowy zasób obliczeniowy procesora), który będzie skalowany w dół po 30 minutach:
+Aby utworzyć lub zastąpić nazwany zasób obliczeniowy, będzie używane żądanie PUT. W następujących tematach oprócz teraz znanych podstawiania `your-subscription-id` ,, `your-resource-group` `your-workspace-name` , i `your-access-token` , podstawiania `your-compute-name` i wartości dla,,, `location` , `vmSize` `vmPriority` `scaleSettings` `adminUserName` i `adminUserPassword` . Zgodnie z opisem w temacie Reference w [środowisko obliczeniowe usługi Machine Learning-Create lub Update SDK](https://docs.microsoft.com/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate), następujące polecenie tworzy dedykowany Standard_D1 z pojedynczym węzłem (podstawowy zasób obliczeniowy procesora), który będzie skalowany w dół po 30 minutach:
 
 ```bash
 curl -X PUT \
@@ -264,7 +264,7 @@ curl -X PUT \
 ```
 
 > [!Note]
-> W terminalach systemu Windows może być konieczne wypróbowanie symboli podwójnych cudzysłowów podczas wysyłania danych JSON. Oznacza to, że tekst taki `"location"` jak `\"location\"`staną się. 
+> W terminalach systemu Windows może być konieczne wypróbowanie symboli podwójnych cudzysłowów podczas wysyłania danych JSON. Oznacza to, że tekst taki jak `"location"` staną się `\"location\"` . 
 
 Pomyślne żądanie otrzyma `201 Created` odpowiedź, ale należy zauważyć, że ta odpowiedź po prostu oznacza, że proces aprowizacji został rozpoczęty. Aby potwierdzić pomyślne zakończenie, należy wykonać sondowanie (lub użyć portalu).
 
@@ -359,7 +359,7 @@ curl
 
 ## <a name="use-rest-to-score-a-deployed-model"></a>Użycie REST do oceny wdrożonego modelu
 
-Chociaż istnieje możliwość wdrożenia modelu w taki sposób, że jest on uwierzytelniany przy użyciu nazwy głównej usługi, większość wdrożeń związanych z klientem korzysta z uwierzytelniania opartego na kluczach. Odpowiedni klucz można znaleźć na stronie wdrożenia na karcie **punkty końcowe** w programie Studio. Ta sama lokalizacja będzie zawierać identyfikator URI oceniania punktu końcowego. Dane wejściowe modelu muszą być modelowane jako tablica JSON o nazwie `data`:
+Chociaż istnieje możliwość wdrożenia modelu w taki sposób, że jest on uwierzytelniany przy użyciu nazwy głównej usługi, większość wdrożeń związanych z klientem korzysta z uwierzytelniania opartego na kluczach. Odpowiedni klucz można znaleźć na stronie wdrożenia na karcie **punkty końcowe** w programie Studio. Ta sama lokalizacja będzie zawierać identyfikator URI oceniania punktu końcowego. Dane wejściowe modelu muszą być modelowane jako tablica JSON o nazwie `data` :
 
 ```bash
 curl 'https://{scoring-uri}' \
@@ -372,7 +372,7 @@ curl 'https://{scoring-uri}' \
 
 Każdy obszar roboczy usługi Azure ML ma zależność od czterech innych zasobów platformy Azure: Rejestr kontenerów z włączoną administracją, Magazyn kluczy, zasób Application Insights i konto magazynu. Nie można utworzyć obszaru roboczego, dopóki te zasoby nie istnieją. Szczegółowe informacje na temat tworzenia poszczególnych zasobów można znaleźć w dokumentacji interfejsu API REST.
 
-Aby utworzyć obszar roboczy, należy umieścić wywołanie podobne do poniższego `management.azure.com`. Chociaż to wywołanie wymaga ustawienia dużej liczby zmiennych, jest to strukturalnie identyczne z innymi wywołaniami opisanymi w tym artykule. 
+Aby utworzyć obszar roboczy, należy umieścić wywołanie podobne do poniższego `management.azure.com` . Chociaż to wywołanie wymaga ustawienia dużej liczby zmiennych, jest to strukturalnie identyczne z innymi wywołaniami opisanymi w tym artykule. 
 
 ```bash
 curl -X PUT \
@@ -400,7 +400,7 @@ providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
 }'
 ```
 
-Należy odebrać `202 Accepted` odpowiedź i, w zwróconych nagłówkach, `Location` identyfikator URI. Możesz uzyskać ten identyfikator URI, aby uzyskać informacje dotyczące wdrożenia, w tym przydatne informacje debugowania, jeśli wystąpi problem z jednym z zasobów zależnych (na przykład jeśli nie chcesz włączyć dostępu administratora w rejestrze kontenerów). 
+Należy odebrać `202 Accepted` odpowiedź i, w zwróconych nagłówkach, `Location` Identyfikator URI. Możesz uzyskać ten identyfikator URI, aby uzyskać informacje dotyczące wdrożenia, w tym przydatne informacje debugowania, jeśli wystąpi problem z jednym z zasobów zależnych (na przykład jeśli nie chcesz włączyć dostępu administratora w rejestrze kontenerów). 
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

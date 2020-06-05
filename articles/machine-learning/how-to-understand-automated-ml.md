@@ -8,21 +8,21 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2019
-ms.openlocfilehash: a7827349166ce55b1604f949f1d78a1ddce7c5e0
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: e424163a2fc07d92eee110396cf8cce57e686622
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116025"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431705"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Opis wyników zautomatyzowanego uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak wyświetlać i zrozumieć wykresy i metryki dla każdego z zautomatyzowanych przebiegów uczenia maszynowego. 
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 + [Metryki, wykresy i krzywe dla modeli klasyfikacji](#classification)
 + [Metryki, wykresy i wykresy dla modeli regresji](#regression)
 + [Interpretacja modelu i ważność funkcji](#explain-model)

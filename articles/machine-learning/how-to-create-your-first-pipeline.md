@@ -5,18 +5,18 @@ description: Utwórz i uruchom potok uczenia maszynowego za pomocą zestawu Azur
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 006a2f5775fc053feda1efd568660f29c81fe599
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: aa5b4c0e78872b7705af385974b9564aaeb25e67
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872217"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433526"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Tworzenie i uruchamianie potoków uczenia maszynowego za pomocą zestawu SDK Azure Machine Learning
 
@@ -55,7 +55,7 @@ Utwórz zasoby wymagane do uruchomienia potoku ML:
 
 * Skonfiguruj magazyn danych, który jest używany do uzyskiwania dostępu do wymaganych przez kroki potoku.
 
-* Skonfiguruj `Dataset` obiekt w taki sposób, aby wskazywał trwałe dane, które znajdują się w, lub jest dostępny w magazynie danych. Skonfiguruj `PipelineData` obiekt dla danych tymczasowych przesyłanych między krokami potoku. 
+* Skonfiguruj obiekt w taki `Dataset` sposób, aby wskazywał trwałe dane, które znajdują się w, lub jest dostępny w magazynie danych. Skonfiguruj `PipelineData` obiekt dla danych tymczasowych przesyłanych między krokami potoku. 
 
 * Skonfiguruj [cele obliczeń](concept-azure-machine-learning-architecture.md#compute-targets) , na których będą uruchamiane kroki potoku.
 
@@ -92,11 +92,11 @@ Aby dowiedzieć się więcej na temat łączenia potoku z danymi, zobacz artyku�
 
 ### <a name="configure-data-using-dataset-and-pipelinedata-objects"></a>Konfigurowanie danych przy `Dataset` użyciu `PipelineData` obiektów i
 
-Właśnie utworzono źródło danych, do którego można się odwoływać w potoku jako dane wejściowe do kroku. Preferowanym sposobem zapewnienia danych do potoku jest obiekt [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) . `Dataset` Obiekt wskazuje dane, które znajdują się w lub są dostępne z magazynu danych lub w adresie URL sieci Web. `Dataset` Klasa jest abstrakcyjna, dlatego utworzysz wystąpienie `FileDataset` (odwołujące się do jednego lub kilku plików) lub `TabularDataset` utworzone przez z jednego lub kilku plików z rozdzielonymi kolumnami danych.
+Właśnie utworzono źródło danych, do którego można się odwoływać w potoku jako dane wejściowe do kroku. Preferowanym sposobem zapewnienia danych do potoku jest obiekt [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.Dataset) . `Dataset`Obiekt wskazuje dane, które znajdują się w lub są dostępne z magazynu danych lub w adresie URL sieci Web. `Dataset`Klasa jest abstrakcyjna, dlatego utworzysz wystąpienie `FileDataset` (odwołujące się do jednego lub kilku plików) lub `TabularDataset` utworzone przez z jednego lub kilku plików z rozdzielonymi kolumnami danych.
 
 `Dataset`obiekty obsługują przechowywanie wersji, diffe i statystyki podsumowujące. `Dataset`s są opóźnieniem oceniane (na przykład generatory języka Python) i wydajnym podzbiorem ich przez dzielenie lub filtrowanie. 
 
-Tworzysz metody `Dataset` using, takie jak [from_file](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) lub [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
+Tworzysz `Dataset` metody using, takie jak [from_file](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) lub [from_delimited_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false-).
 
 ```python
 from azureml.core import Dataset
@@ -287,7 +287,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-Ponowne użycie poprzednich wyników (`allow_reuse`) jest kluczem w przypadku używania potoków w środowisku współpracy, ponieważ wyeliminowanie niepotrzebnych ponownych prób zapewnia elastyczność. Ponowne użycie jest zachowaniem domyślnym, gdy script_name, dane wejściowe i parametry kroku pozostają takie same. Gdy dane wyjściowe kroku są ponownie używane, zadanie nie zostanie przesłane do obliczenia, a wyniki z poprzedniego przebiegu są natychmiast dostępne dla uruchomienia następnego kroku. Jeśli `allow_reuse` jest ustawiona na wartość false, nowy przebieg będzie zawsze generowany dla tego kroku podczas wykonywania potoku. 
+Ponowne użycie poprzednich wyników ( `allow_reuse` ) jest kluczem w przypadku używania potoków w środowisku współpracy, ponieważ wyeliminowanie niepotrzebnych ponownych prób zapewnia elastyczność. Ponowne użycie jest zachowaniem domyślnym, gdy script_name, dane wejściowe i parametry kroku pozostają takie same. Gdy dane wyjściowe kroku są ponownie używane, zadanie nie zostanie przesłane do obliczenia, a wyniki z poprzedniego przebiegu są natychmiast dostępne dla uruchomienia następnego kroku. Jeśli `allow_reuse` jest ustawiona na wartość false, nowy przebieg będzie zawsze generowany dla tego kroku podczas wykonywania potoku. 
 
 Po zdefiniowaniu kroków można skompilować potok za pomocą niektórych lub wszystkich tych kroków.
 
@@ -386,7 +386,7 @@ Podczas pierwszego uruchomienia potoku Azure Machine Learning:
 * Pobiera migawkę projektu do obiektu docelowego obliczeń z magazynu obiektów BLOB skojarzonego z obszarem roboczym.
 * Kompiluje obraz platformy Docker odpowiadający każdemu krokowi w potoku.
 * Pobiera obraz platformy Docker dla każdego kroku do obiektu docelowego obliczeń z rejestru kontenerów.
-* Konfiguruje dostęp `Dataset` do `PipelineData` obiektów i. W przypadku `as_mount()` trybu dostępu jako bezpiecznik służy do zapewnienia dostępu wirtualnego. Jeśli instalacja nie jest obsługiwana lub jeśli użytkownik określił dostęp jako `as_download()`, dane są kopiowane do elementu docelowego obliczeń.
+* Konfiguruje dostęp `Dataset` do `PipelineData` obiektów i. W przypadku `as_mount()` trybu dostępu jako bezpiecznik służy do zapewnienia dostępu wirtualnego. Jeśli instalacja nie jest obsługiwana lub jeśli użytkownik określił dostęp jako `as_download()` , dane są kopiowane do elementu docelowego obliczeń.
 * Uruchamia krok w elemencie docelowym obliczeń określonym w definicji kroku. 
 * Tworzy artefakty, takie jak dzienniki, stdout i stderr, metryki i dane wyjściowe określone przez krok. Te artefakty są następnie przekazywane i przechowywane w domyślnym magazynie danych użytkownika.
 
@@ -527,7 +527,7 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-Można włączyć ją ponownie za pomocą `p.enable()`. Aby uzyskać więcej informacji, zobacz [PublishedPipeline klasy](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) Reference.
+Można włączyć ją ponownie za pomocą `p.enable()` . Aby uzyskać więcej informacji, zobacz [PublishedPipeline klasy](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) Reference.
 
 ## <a name="caching--reuse"></a>Buforowanie & ponownie używane  
 
@@ -535,7 +535,7 @@ Aby zoptymalizować i dostosować zachowanie potoków, można wykonać kilka czy
 + Wyłącz **domyślne ponowne użycie kroku Uruchom dane wyjściowe** przez ustawienie `allow_reuse=False` podczas [definiowania kroku](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Ponowne użycie jest kluczem przy użyciu potoków w środowisku współpracy, ponieważ wyeliminowanie niepotrzebnych uruchomień zapewnia elastyczność. Można jednak zrezygnować z ponownego użycia.
 + **Wymuś ponowne wygenerowanie danych wyjściowych dla wszystkich kroków w przebiegu** z`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Domyślnie dla kroków `allow_reuse` jest włączone, a `source_directory` określone w definicji kroku są skrótem. Tak więc, jeśli skrypt dla danego kroku pozostaje taki sam (`script_name`, dane wejściowe i parametry), a żadne inne elementy w programie` source_directory` nie zmieniły się, dane wyjściowe przebiegu poprzedniego kroku są ponownie używane, zadanie nie zostanie przesłane do obliczenia, a wyniki z poprzedniego uruchomienia są natychmiast dostępne w następnym kroku.
+Domyślnie `allow_reuse` dla kroków jest włączone, a `source_directory` określone w definicji kroku są skrótem. Tak więc, jeśli skrypt dla danego kroku pozostaje taki sam ( `script_name` , dane wejściowe i parametry), a żadne inne elementy w programie ` source_directory` nie zmieniły się, dane wyjściowe przebiegu poprzedniego kroku są ponownie używane, zadanie nie zostanie przesłane do obliczenia, a wyniki z poprzedniego uruchomienia są natychmiast dostępne w następnym kroku.
 
 ```python
 step = PythonScriptStep(name="Hello World",

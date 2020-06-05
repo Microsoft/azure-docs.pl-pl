@@ -5,17 +5,17 @@ description: Dowiedz się więcej na temat danych wejściowych & danych wyjścio
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 233361fb238342cde3c692174e85fb57f69979b1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 67af2fec75c2a4ead10e59c651dac1542c095659
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858452"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430099"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Przenoszenie danych do kroków potoku uczenia maszynowego i między nimi (Python)
 
@@ -42,7 +42,7 @@ Będą potrzebne:
 
 - Obszar roboczy usługi Azure Machine Learning.
   
-  [Utwórz obszar roboczy Azure Machine Learning](how-to-manage-workspace.md) lub Użyj istniejącego z nich za pomocą zestawu SDK języka Python. `Workspace` Zaimportuj `Datastore` klasę i i Załaduj informacje o subskrypcji z pliku `config.json` przy użyciu funkcji `from_config()`. Ta funkcja szuka domyślnego pliku JSON w bieżącym katalogu, ale można także określić parametr ścieżki, aby wskazać plik przy użyciu `from_config(path="your/file/path")`.
+  [Utwórz obszar roboczy Azure Machine Learning](how-to-manage-workspace.md) lub Użyj istniejącego z nich za pomocą zestawu SDK języka Python. Zaimportuj `Workspace` klasę i i `Datastore` Załaduj informacje o subskrypcji z pliku `config.json` przy użyciu funkcji `from_config()` . Ta funkcja szuka domyślnego pliku JSON w bieżącym katalogu, ale można także określić parametr ścieżki, aby wskazać plik przy użyciu `from_config(path="your/file/path")` .
 
    ```python
    import azureml.core
@@ -75,15 +75,15 @@ Aby uzyskać więcej opcji tworzenia zestawów danych z różnymi opcjami i z r�
 
 ### <a name="pass-datasets-to-your-script"></a>Przekazywanie zestawów danych do skryptu
 
-Aby przekazać ścieżkę zestawu danych do skryptu, użyj `Dataset` `as_named_input()` metody obiektu. Można przekazać obiekt wyników `DatasetConsumptionConfig` do skryptu jako argument lub, przy użyciu `inputs` argumentu do skryptu potoku, można pobrać zestaw danych przy użyciu. `Run.get_context().input_datasets[]`
+Aby przekazać ścieżkę zestawu danych do skryptu, użyj `Dataset` `as_named_input()` metody obiektu. Można przekazać `DatasetConsumptionConfig` obiekt wyników do skryptu jako argument lub, przy użyciu `inputs` argumentu do skryptu potoku, można pobrać zestaw danych przy użyciu `Run.get_context().input_datasets[]` .
 
-Po utworzeniu nazwanego wejścia możesz wybrać jego tryb dostępu: `as_mount()` lub. `as_download()` Jeśli skrypt przetwarza wszystkie pliki w zestawie danych, a dysk w zasobie obliczeniowym jest wystarczająco duży dla zestawu danych, lepszym wyborem będzie tryb dostępu do pobierania. Tryb dostępu do pobierania pozwoli uniknąć obciążenia przesyłania strumieniowego danych w czasie wykonywania. Jeśli skrypt uzyskuje dostęp do podzbioru zestawu danych lub jest zbyt duży dla obliczeń, użyj trybu dostępu do instalacji. Aby uzyskać więcej informacji, zapoznaj się z tematem [Instalowanie i pobieranie plików.](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets#mount-vs-download)
+Po utworzeniu nazwanego wejścia możesz wybrać jego tryb dostępu: `as_mount()` lub `as_download()` . Jeśli skrypt przetwarza wszystkie pliki w zestawie danych, a dysk w zasobie obliczeniowym jest wystarczająco duży dla zestawu danych, lepszym wyborem będzie tryb dostępu do pobierania. Tryb dostępu do pobierania pozwoli uniknąć obciążenia przesyłania strumieniowego danych w czasie wykonywania. Jeśli skrypt uzyskuje dostęp do podzbioru zestawu danych lub jest zbyt duży dla obliczeń, użyj trybu dostępu do instalacji. Aby uzyskać więcej informacji, zapoznaj się z tematem [Instalowanie i pobieranie plików.](https://docs.microsoft.com/azure/machine-learning/how-to-train-with-datasets#mount-vs-download)
 
 Aby przekazać zestaw danych do etapu potoku:
 
 1. Użyj `TabularDataset.as_named_inputs()` lub `FileDataset.as_named_input()` (brak "na końcu"), aby utworzyć `DatasetConsumptionConfig` obiekt
-1. Użyj `as_mount()` lub `as_download()` , aby ustawić tryb dostępu
-1. Przekaż zestawy danych do etapów potoku przy użyciu `arguments` albo argumentu `inputs`
+1. Użyj `as_mount()` lub, `as_download()` Aby ustawić tryb dostępu
+1. Przekaż zestawy danych do etapów potoku przy użyciu `arguments` albo `inputs` argumentu
 
 Poniższy fragment kodu przedstawia wspólny wzorzec łączenia tych kroków w `PythonScriptStep` konstruktorze: 
 
@@ -97,7 +97,7 @@ train_step = PythonScriptStep(
 )
 ```
 
-Można również użyć metod, takich jak `random_split()` i `take_sample()` , aby utworzyć wiele danych wejściowych lub zmniejszyć ilość przesyłanych do etapu potoku:
+Można również użyć metod, takich jak `random_split()` i, `take_sample()` Aby utworzyć wiele danych wejściowych lub zmniejszyć ilość przesyłanych do etapu potoku:
 
 ```python
 seed = 42 # PRNG seed
@@ -114,7 +114,7 @@ train_step = PythonScriptStep(
 
 ### <a name="access-datasets-within-your-script"></a>Dostęp do zestawów danych w skrypcie
 
-Nazwane dane wejściowe do skryptu kroku potoku są dostępne jako słownik w `Run` obiekcie. Pobierz aktywny `Run` obiekt za pomocą `Run.get_context()` , a następnie Pobierz słownik nazwanych wejść przy `input_datasets`użyciu. Jeśli przeszedł `DatasetConsumptionConfig` Obiekt przy użyciu `arguments` argumentu zamiast `inputs` argumentu, uzyskaj dostęp do danych przy użyciu `ArgParser` kodu. Obie techniki przedstawiono w poniższym fragmencie kodu.
+Nazwane dane wejściowe do skryptu kroku potoku są dostępne jako słownik w `Run` obiekcie. Pobierz aktywny `Run` obiekt za pomocą `Run.get_context()` , a następnie Pobierz słownik nazwanych wejść przy użyciu `input_datasets` . Jeśli przeszedł `DatasetConsumptionConfig` Obiekt przy użyciu `arguments` argumentu zamiast `inputs` argumentu, uzyskaj dostęp do danych przy użyciu `ArgParser` kodu. Obie techniki przedstawiono w poniższym fragmencie kodu.
 
 ```python
 # In pipeline definition script:
@@ -138,7 +138,7 @@ testing_data_folder = Run.get_context().input_datasets['test']
 
 Przeniesiona wartość będzie ścieżką do plików zestawu danych.
 
-Istnieje również możliwość bezpośredniego dostępu do zarejestrowanych `Dataset` danych. Ponieważ zarejestrowane zestawy danych są trwałe i udostępniane w obszarze roboczym, można je pobrać bezpośrednio:
+Istnieje również możliwość bezpośredniego dostępu do zarejestrowanych danych `Dataset` . Ponieważ zarejestrowane zestawy danych są trwałe i udostępniane w obszarze roboczym, można je pobrać bezpośrednio:
 
 ```python
 run = Run.get_context()
@@ -148,7 +148,7 @@ ds = Dataset.get_by_name(workspace=ws, name='mnist_opendataset')
 
 ## <a name="use-pipelinedata-for-intermediate-data"></a>Użyj `PipelineData` dla danych pośrednich
 
-Gdy `Dataset` obiekty reprezentują dane trwałe, obiekty [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) są używane dla danych tymczasowych, które są wyprowadzane z kroków potoku. Ponieważ cykl życia `PipelineData` obiektu jest dłuższy niż pojedynczy krok potoku, można je zdefiniować w skrypcie definicji potoku. Podczas tworzenia `PipelineData` obiektu należy podać nazwę i magazyn danych, w których będą znajdować się dane. Przekaż swoje `PipelineData` `PythonScriptStep` obiekty do _obu_ `arguments` `outputs` argumentów i:
+Gdy `Dataset` obiekty reprezentują dane trwałe, obiekty [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) są używane dla danych tymczasowych, które są wyprowadzane z kroków potoku. Ponieważ cykl życia `PipelineData` obiektu jest dłuższy niż pojedynczy krok potoku, można je zdefiniować w skrypcie definicji potoku. Podczas tworzenia `PipelineData` obiektu należy podać nazwę i magazyn danych, w których będą znajdować się dane. Przekaż swoje `PipelineData` obiekty do `PythonScriptStep` _obu_ `arguments` `outputs` argumentów i:
 
 ```python
 default_datastore = workspace.get_default_datastore()
@@ -164,7 +164,7 @@ dataprep_step = PythonScriptStep(
 )
 ```
 
-Można utworzyć `PipelineData` Obiekt przy użyciu trybu dostępu, który zapewnia natychmiastowe przekazywanie. W takim `PipelineData`przypadku podczas tworzenia należy ustawić `upload_mode` do `"upload"` i użyć `output_path_on_compute` argumentu, aby określić ścieżkę, do której będą zapisywane dane:
+Można utworzyć `PipelineData` Obiekt przy użyciu trybu dostępu, który zapewnia natychmiastowe przekazywanie. W takim przypadku podczas tworzenia `PipelineData` należy ustawić `upload_mode` do `"upload"` i użyć `output_path_on_compute` argumentu, aby określić ścieżkę, do której będą zapisywane dane:
 
 ```python
 PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", output_path_on_compute="clean_data_output/")
@@ -172,7 +172,7 @@ PipelineData("clean_data", datastore=def_blob_store, output_mode="upload", outpu
 
 ### <a name="use-pipelinedata-as-outputs-of-a-training-step"></a>Użyj `PipelineData` jako wyjścia kroku szkoleniowego
 
-W ramach potoku `PythonScriptStep`można pobrać dostępne ścieżki wyjściowe przy użyciu argumentów programu. Jeśli ten krok jest pierwszy i spowoduje zainicjowanie danych wyjściowych, należy utworzyć katalog w określonej ścieżce. Następnie można napisać wszystkie pliki, które mają być zawarte w `PipelineData`.
+W ramach potoku `PythonScriptStep` można pobrać dostępne ścieżki wyjściowe przy użyciu argumentów programu. Jeśli ten krok jest pierwszy i spowoduje zainicjowanie danych wyjściowych, należy utworzyć katalog w określonej ścieżce. Następnie można napisać wszystkie pliki, które mają być zawarte w `PipelineData` .
 
 ```python
 parser = argparse.ArgumentParser()
@@ -185,7 +185,7 @@ with open(args.output_path, 'w') as f:
     f.write("Step 1's output")
 ```
 
-`PipelineData` Jeśli został utworzony `is_directory` z argumentem ustawionym na `True`, wystarczy wykonać `os.makedirs()` wywołanie, a następnie będzie można napisać dowolne pliki do ścieżki. Aby uzyskać więcej informacji, zobacz dokumentację referencyjną [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) .
+Jeśli został utworzony `PipelineData` z `is_directory` argumentem ustawionym na `True` , wystarczy wykonać `os.makedirs()` wywołanie, a następnie będzie można napisać dowolne pliki do ścieżki. Aby uzyskać więcej informacji, zobacz dokumentację referencyjną [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) .
 
 ### <a name="read-pipelinedata-as-inputs-to-non-initial-steps"></a>Odczytaj `PipelineData` jako dane wejściowe do kroków niepoczątkowych
 
@@ -226,9 +226,9 @@ with open(args.pd) as f:
     print(f.read())
 ```
 
-## <a name="convert-pipelinedata-objects-to-datasets"></a>Konwertuj `PipelineData` obiekty na `Dataset`s
+## <a name="convert-pipelinedata-objects-to-datasets"></a>Konwertuj `PipelineData` obiekty na `Dataset` s
 
-Jeśli chcesz, aby były `PipelineData` dostępne dłużej niż czas trwania przebiegu, użyj `as_dataset()` funkcji, aby przekonwertować ją na. `Dataset` Następnie możesz zarejestrować się `Dataset`, tworząc jako obywatela pierwszej klasy w Twoim obszarze roboczym. `PipelineData` Ponieważ obiekt `create_new_version` będzie miał inną ścieżkę przy każdym uruchomieniu potoku, zdecydowanie zaleca się, aby podczas rejestrowania `True` `Dataset` utworzonego na podstawie `PipelineData` obiektu był ustawiony na wartość.
+Jeśli chcesz, aby były `PipelineData` dostępne dłużej niż czas trwania przebiegu, użyj `as_dataset()` funkcji, aby przekonwertować ją na `Dataset` . Następnie możesz zarejestrować się `Dataset` , tworząc jako obywatela pierwszej klasy w Twoim obszarze roboczym. Ponieważ `PipelineData` obiekt będzie miał inną ścieżkę przy każdym uruchomieniu potoku, zdecydowanie zaleca się, `create_new_version` Aby `True` podczas rejestrowania `Dataset` utworzonego na podstawie `PipelineData` obiektu był ustawiony na wartość.
 
 ```python
 step1_output_ds = step1_output_data.as_dataset()

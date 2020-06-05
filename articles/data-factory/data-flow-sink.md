@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 4b10a4c98abd6bec4074bf35764a9cbb85d5b157
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.openlocfilehash: 2c57ddd88046044cccd13b0ade23144cd5649455
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605965"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433322"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformacja ujścia w przepływie danych mapowania
 
@@ -23,6 +23,22 @@ ms.locfileid: "81605965"
 Po przekształceniu danych można je ujścia do docelowego zestawu danych. Każdy przepływ danych wymaga co najmniej jednego przekształcenia ujścia, ale w razie potrzeby można zapisać do tylu zlewów, aby zakończyć przepływ transformacji. Aby zapisywać w dodatkowych ujściach, Utwórz nowe strumienie za pośrednictwem nowych gałęzi i podziałów warunkowych.
 
 Każda transformacja ujścia jest skojarzona z dokładnie jednym Data Factory zestawem danych. Zestaw danych definiuje kształt i lokalizację danych, do których chcesz pisać.
+
+## <a name="inline-datasets"></a>Wbudowane zestawy danych
+
+Podczas tworzenia transformacji ujścia należy określić, czy informacje o ujściach są zdefiniowane wewnątrz obiektu DataSet, czy w ramach transformacji ujścia. Większość formatów jest dostępna tylko w jednym lub drugim. Zapoznaj się z odpowiednim dokumentem łącznika, aby dowiedzieć się, jak używać określonego łącznika.
+
+Jeśli format jest obsługiwany zarówno w przypadku obiektów wbudowanych, jak i w obiekcie DataSet, istnieją zalety obu tych metod. Obiekty DataSet to jednostki wielokrotnego użytku, których można użyć w innych przepływach danych i działaniach, takich jak Kopiuj. Są one szczególnie przydatne w przypadku korzystania ze schematu ze wzmocnionymi zabezpieczeniami. Zestawy danych nie są oparte na platformie Spark i czasami może zaistnieć potrzeba zastąpienia niektórych ustawień lub projekcji schematu w transformację ujścia.
+
+Wbudowane zestawy danych są zalecane w przypadku używania elastycznych schematów, jednokrotnych wystąpień ujścia lub sparametryzowanych zbiorników. Jeśli ujścia jest silnie sparametryzowane, zestawy danych w wierszu umożliwiają nie można utworzyć "fikcyjnego" obiektu. Wbudowane zestawy danych są oparte na platformie Spark, a ich właściwości są natywne dla przepływu danych.
+
+Aby użyć wbudowanego zestawu danych, wybierz odpowiedni format w selektorze **typu ujścia** . Zamiast wybierać zestaw danych ujścia, należy wybrać połączoną usługę, z którą chcesz nawiązać połączenie.
+
+![Wbudowany zestaw danych](media/data-flow/inline-selector.png "Wbudowany zestaw danych")
+
+### <a name="supported-inline-dataset-formats"></a>Obsługiwane formaty wbudowanego zestawu danych
+
+Obecnie jedynym dostępnym formatem wbudowanego zestawu [danych](format-common-data-model.md#sink-properties) jest odczytanie z [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md).
 
 ## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Obsługiwane łączniki ujścia w mapowaniu przepływu danych
 
@@ -37,7 +53,7 @@ Obecnie następujące zestawy danych mogą być używane w transformację ujści
 
 Ustawienia specyficzne dla tych łączników znajdują się na karcie **Ustawienia** . informacje dotyczące tych ustawień znajdują się w dokumentacji łącznika. 
 
-Azure Data Factory ma dostęp do ponad [90 łączników natywnych](connector-overview.md). Aby zapisać dane do tych innych źródeł z przepływu danych, Użyj działania kopiowania w celu załadowania danych z jednego z obsługiwanych obszarów przemieszczania po zakończeniu przepływu danych.
+Usługa Azure Data Factory ma dostęp do ponad [90 natywnych łączników](connector-overview.md). Aby zapisać dane do tych innych łączników z przepływu danych, Użyj działania kopiowania w celu załadowania danych z jednego z obsługiwanych obszarów przemieszczania po zakończeniu przepływu danych.
 
 ## <a name="sink-settings"></a>Ustawienia ujścia
 

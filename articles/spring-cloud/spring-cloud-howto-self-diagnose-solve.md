@@ -6,15 +6,15 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.openlocfilehash: c4eada891f68a21732ab9a19548cbdfe1a3833a8
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: f1d5161b0efe0b8d9b9c0b84ac149050c3823ab6
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325852"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84429479"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Jak automatycznie diagnozować i rozwiązywać problemy w chmurze Azure wiosennej
-W tym samouczku przedstawiono sposób samodiagnozowania i rozwiązywania problemów z chmurą wiosenną platformy Azure. Zapewnia łatwy sposób zbierania metryk i dzienników.
+App Service Diagnostics to interaktywny interfejs ułatwiający Rozwiązywanie problemów z aplikacją. Nie jest wymagana żadna konfiguracja. Po znalezieniu problemów App Service Diagnostyka wskazuje, co jest nieprawidłowe, i prowadzi użytkownika do informacji ułatwiających rozwiązywanie problemów i rozwiązywanie problemu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do ukończenia tego samouczka niezbędne są następujące elementy:

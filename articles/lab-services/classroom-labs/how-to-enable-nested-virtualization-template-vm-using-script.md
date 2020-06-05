@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 56e5ad21f94521565b4df193b2450a1c994b66f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b03bf543226da12e5cfca5228b879a533942d384
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79503038"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424367"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Włącz wirtualizację zagnieżdżoną na maszynie wirtualnej szablonu w Azure Lab Services przy użyciu skryptu
 
 Wirtualizacja zagnieżdżona umożliwia tworzenie środowiska z obsługą wiele maszyn wirtualnych w ramach maszyny wirtualnej szablonu laboratorium. Opublikowanie szablonu zapewni każdemu użytkownikowi w laboratorium z maszyną wirtualną skonfigurowaną z wieloma maszynami wirtualnymi.  Aby uzyskać więcej informacji na temat wirtualizacji zagnieżdżonej i Azure Lab Services, zobacz [Włączanie wirtualizacji zagnieżdżonej na maszynie wirtualnej szablonu w Azure Lab Services](how-to-enable-nested-virtualization-template-vm.md).
 
-Kroki opisane w tym artykule koncentrują się na konfigurowaniu zagnieżdżonej wirtualizacji dla systemu Windows Server 2016 lub Windows Server 2019. Za pomocą skryptu można skonfigurować maszynę szablonu przy użyciu funkcji Hyper-V.  Poniższe kroki przeprowadzą Cię przez proces korzystania ze [skryptów funkcji Hyper-V dla usług Lab Services](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
+Kroki opisane w tym artykule koncentrują się na konfigurowaniu zagnieżdżonej wirtualizacji dla systemu Windows Server 2016, Windows Server 2019 lub Windows 10. Za pomocą skryptu można skonfigurować maszynę szablonu przy użyciu funkcji Hyper-V.  Poniższe kroki przeprowadzą Cię przez proces korzystania ze [skryptów funkcji Hyper-V dla usług Lab Services](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV).
 
 >[!IMPORTANT]
 >Wybierz opcję **duże (Wirtualizacja zagnieżdżona)** lub **Średni (Wirtualizacja zagnieżdżona)** dla rozmiaru maszyny wirtualnej podczas tworzenia laboratorium.  Wirtualizacja zagnieżdżona nie będzie działała inaczej.  
@@ -35,20 +35,20 @@ Kroki opisane w tym artykule koncentrują się na konfigurowaniu zagnieżdżonej
     1. Otwórz program Internet Explorer.
     1. Wybierz ikonę koła zębatego, a następnie wybierz pozycję **Opcje internetowe**.  
     1. Po wyświetleniu okna dialogowego **Opcje internetowe** wybierz pozycję **zabezpieczenia**, wybierz pozycję **Zaufane witryny**, kliknij przycisk **witryny** .
-    1. Gdy zostanie wyświetlone okno dialogowe **Zaufane witryny** , `https://github.com` Dodaj do listy zaufanych witryn sieci Web i wybierz pozycję **Zamknij**.
+    1. Gdy zostanie wyświetlone okno dialogowe **Zaufane witryny** , Dodaj `https://github.com` do listy zaufanych witryn sieci Web i wybierz pozycję **Zamknij**.
 
         ![Zaufane witryny](../media/how-to-enable-nested-virtualization-template-vm-using-script/trusted-sites-dialog.png)
 1. Pobierz pliki repozytorium git, jak opisano w poniższych krokach.
-    1. Przejdź do [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/).
+    1. Przejdź do [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) .
     1. Kliknij przycisk **klonowania lub pobierania** .
     1. Kliknij pozycję **Pobierz plik zip**.
     1. Wyodrębnij plik ZIP
 
     >[!TIP]
-    >Repozytorium git można również sklonować pod adresem [https://github.com/Azure/azure-devtestlab.git](https://github.com/Azure/azure-devtestlab.git).
+    >Repozytorium git można również sklonować pod adresem [https://github.com/Azure/azure-devtestlab.git](https://github.com/Azure/azure-devtestlab.git) .
 
 1. Uruchom program **PowerShell** w trybie **administratora** .
-1. W oknie programu PowerShell przejdź do folderu z pobranym skryptem. Jeśli przechodzenie jest z górnego folderu plików repozytorium, skrypt znajduje się w lokalizacji `azure-devtestlab\samples\ClassroomLabs\Scripts\HyperV\`.
+1. W oknie programu PowerShell przejdź do folderu z pobranym skryptem. Jeśli przechodzenie jest z górnego folderu plików repozytorium, skrypt znajduje się w lokalizacji `azure-devtestlab\samples\ClassroomLabs\Scripts\HyperV\` .
 1. Może być konieczna zmiana zasad wykonywania w celu pomyślnego uruchomienia skryptu. Uruchom następujące polecenie:
 
     ```powershell

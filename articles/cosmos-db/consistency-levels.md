@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: e5966f142ece32f148c56edb5b0ef5dfd88603aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 640884168aef13ef3a8d751c211bf16756ff350f
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380076"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417892"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Poziomy spójności w Azure Cosmos DB
 
@@ -72,13 +72,13 @@ Klienci poza sesją wykonującą operacje zapisu będą widzieć następujące g
 - Spójność zapisywania klientów w jednym regionie dla konta z wieloma wzorcami = spójny prefiks
 - Spójność w przypadku klientów, którzy zapisują w wielu regionach dla konta z wieloma głównymi:
 
-  Spójność sesji to szeroko używany poziom spójności dla jednego regionu, a także aplikacje rozproszone globalnie. Zapewnia ona opóźnienia zapisu, dostępność i przepływność odczytu porównywalne do tej samej spójności ostatecznej, ale również zapewnia gwarancje spójności, które odpowiadają potrzebom aplikacji napisanych w kontekście użytkownika. Poniższa ilustracja ilustruje spójność sesji z notatkami muzycznymi. Moduł zapisujący "zachodnie stany USA 2" i "zachodnie stany USA 2" używają tej samej sesji (sesji A), tak aby jednocześnie odczytywać te same dane w tym samym czasie. Natomiast region "Australia Wschodnia" używa "Session B", więc otrzymuje dane później, ale w tej samej kolejności jak zapisy.
+  Spójność sesji to najczęściej używany poziom spójności dla jednego regionu, a także aplikacje rozproszone globalnie. Zapewnia ona opóźnienia zapisu, dostępność i przepływność odczytu porównywalne do tej samej spójności ostatecznej, ale również zapewnia gwarancje spójności, które odpowiadają potrzebom aplikacji napisanych w kontekście użytkownika. Poniższa ilustracja ilustruje spójność sesji z notatkami muzycznymi. Moduł zapisujący "zachodnie stany USA 2" i "zachodnie stany USA 2" używają tej samej sesji (sesji A), tak aby jednocześnie odczytywać te same dane w tym samym czasie. Natomiast region "Australia Wschodnia" używa "Session B", więc otrzymuje dane później, ale w tej samej kolejności jak zapisy.
 
   ![wideo](media/consistency-levels/session-consistency.gif)
 
-- **Spójny prefiks**: zwrócone aktualizacje zawierają prefiks wszystkich aktualizacji bez przerw. Spójny poziom spójności prefiksu gwarantuje, że odczyt nie zobaczy niewidocznych kolejności zapisu.
+- **Spójny prefiks**: zwrócone aktualizacje zawierają prefiks wszystkich aktualizacji bez przerw. Spójny poziom spójności prefiksu gwarantuje, że odczyty nigdy nie są wyświetlane.
 
-Jeśli zapisy zostały wykonane w kolejności `A, B, C`, to klient będzie widział zapis `A`, `A,B` lub `A,B,C`, ale nigdy w innej kolejności, takiej jak `A,C` lub `B,A,C`. Spójny prefiks zapewnia opóźnienia zapisu, dostępność i przepływność odczytu porównywalne do tej spójności ostatecznej, ale również zapewnia gwarancję zamówienia, która odpowiada potrzebom scenariuszy, w których kolejność jest ważna. 
+Jeśli operacje zapisu zostały wykonane w podanej kolejności `A, B, C` , klient zobaczy `A` , `A,B` , lub `A,B,C` , ale nigdy nie z kolejności permutacji, takich jak `A,C` lub `B,A,C` . Spójny prefiks zapewnia opóźnienia zapisu, dostępność i przepływność odczytu porównywalne do tej spójności ostatecznej, ale również zapewnia gwarancję zamówienia, która odpowiada potrzebom scenariuszy, w których kolejność jest ważna. 
 
 Poniżej przedstawiono gwarancje spójności dla spójnego prefiksu:
 

@@ -9,6 +9,7 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: d5f18929-15e3-40a2-9ee3-8188bc248ed8
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 1745ca176fac18b4903686cb556670531ee40a1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a575462d09b64bd7a5d32c9cd5cc0a603e84694
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244760"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417773"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Tworzenie maszyny wirtualnej ze statycznym prywatnym adresem IP przy użyciu programu PowerShell
 
@@ -33,7 +34,7 @@ Można utworzyć maszynę wirtualną za pomocą statycznego prywatnego adresu IP
 
 Poniższe kroki można wykonać z komputera lokalnego lub przy użyciu Azure Cloud Shell. Aby korzystać z komputera lokalnego, upewnij się, że [zainstalowano Azure PowerShell](/powershell/azure/install-az-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby użyć Azure Cloud Shell, wybierz opcję **Wypróbuj** w prawym górnym rogu dowolnego poniższego pola polecenia. Cloud Shell umożliwia zalogowanie się do platformy Azure.
 
-1. Jeśli używasz Cloud Shell, przejdź do kroku 2. Otwórz sesję polecenia i zaloguj się do platformy Azure `Connect-AzAccount`za pomocą usługi.
+1. Jeśli używasz Cloud Shell, przejdź do kroku 2. Otwórz sesję polecenia i zaloguj się do platformy Azure za pomocą usługi `Connect-AzAccount` .
 2. Utwórz grupę zasobów za pomocą polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Poniższy przykład tworzy grupę zasobów w regionie platformy Azure Wschodnie stany USA:
 
    ```azurepowershell-interactive

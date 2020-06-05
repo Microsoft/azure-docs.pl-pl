@@ -5,17 +5,17 @@ description: Dowiedz się, jak szkolić model i skonfigurować potok prognozowan
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
 ms.custom: Ignite2019, designer
-ms.openlocfilehash: 5079953994b74378a54a316c288c77d13c3af782
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a464ab001eec877ffc6dc0ab5e33e82493c226ff
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653683"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84429933"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Prognozowanie partii za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -81,7 +81,7 @@ Teraz wszystko jest gotowe do wdrożenia potoku inferencing. Spowoduje to wdroż
 
     W dolnej części okna dialogowego można zobaczyć skonfigurowany parametr z wartością domyślną identyfikatora zestawu danych używanego podczas szkolenia.
 
-1. Wybierz pozycję **Publikuj**.
+1. Wybierz polecenie **Publikuj**.
 
 ![Publikowanie potoku](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 

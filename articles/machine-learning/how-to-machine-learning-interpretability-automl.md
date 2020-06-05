@@ -5,16 +5,16 @@ description: Dowiedz się, jak uzyskać wyjaśnienia dotyczące sposobu, w jaki 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.date: 03/11/2020
-ms.openlocfilehash: e0ec6cbc4cea926dfc50cdae247aea5d765c20ca
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 6fcebb34f82565fcf83a9535e8c036231c5b3cf7
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691225"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430529"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning"></a>Interpretowanie: Omówienie modelu w automatycznej usłudze Machine Learning
 
@@ -22,7 +22,7 @@ ms.locfileid: "82691225"
 
 W tym artykule dowiesz się, jak uzyskać wyjaśnienia dotyczące zautomatyzowanej uczenia maszynowego (ML) w Azure Machine Learning. Automatyczna ML pomaga zrozumieć zaprojektowaną ważność funkcji. 
 
-Wszystkie wersje zestawu SDK po 1.0.85 `model_explainability=True` są domyślnie ustawione. W wersji zestawu SDK 1.0.85 i starszych wersji użytkownicy muszą ustawić `model_explainability=True` w obiekcie `AutoMLConfig` , aby można było użyć interpretera modelu. 
+Wszystkie wersje zestawu SDK po 1.0.85 są `model_explainability=True` domyślnie ustawione. W wersji zestawu SDK 1.0.85 i starszych wersji użytkownicy muszą ustawić `model_explainability=True` w obiekcie, aby `AutoMLConfig` można było użyć interpretera modelu. 
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -32,16 +32,16 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Funkcje interpretacji. Uruchom `pip install azureml-interpret azureml-contrib-interpret` , aby pobrać niezbędne pakiety.
+- Funkcje interpretacji. Uruchom, `pip install azureml-interpret azureml-contrib-interpret` Aby pobrać niezbędne pakiety.
 - Wiedza o tworzeniu zautomatyzowanych eksperymentów ML. Aby uzyskać więcej informacji na temat korzystania z zestawu SDK Azure Machine Learning, wykonaj ten [samouczek model regresji](tutorial-auto-train-models.md) lub Zobacz, jak [skonfigurować zautomatyzowane eksperymenty ml](how-to-configure-auto-train.md).
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretacja dla najlepszego modelu
 
-Pobierz wyjaśnienie z programu `best_run`, w tym wyjaśnienia dotyczące funkcji programu.
+Pobierz wyjaśnienie z programu, w tym `best_run` wyjaśnienia dotyczące funkcji programu.
 
 ### <a name="download-engineered-feature-importance-from-artifact-store"></a>Pobierz wagę funkcji z magazynu artefaktów
 
-Za pomocą `ExplanationClient` programu można pobrać z magazynu artefaktów `best_run`. 
+Za pomocą `ExplanationClient` programu można pobrać z magazynu artefaktów `best_run` . 
 
 ```python
 from azureml.explain.model._internal.explanation_client import ExplanationClient
@@ -63,13 +63,13 @@ automl_run, fitted_model = local_run.get_output(metric='accuracy')
 
 ### <a name="set-up-the-model-explanations"></a>Konfigurowanie wyjaśnień modelu
 
-Służy `automl_setup_model_explanations` do uzyskiwania zaprojektowanych wyjaśnień. `fitted_model` Może generować następujące elementy:
+Służy `automl_setup_model_explanations` do uzyskiwania zaprojektowanych wyjaśnień. `fitted_model`Może generować następujące elementy:
 
 - Polecane dane z próbek przeszkolonych lub testowych
 - Zaprojektowane listy nazw funkcji
 - Klasy odnalezione w kolumnie oznaczonej etykietą w scenariuszach klasyfikacji
 
-`automl_explainer_setup_obj` Zawiera wszystkie struktury z powyższej listy.
+`automl_explainer_setup_obj`Zawiera wszystkie struktury z powyższej listy.
 
 ```python
 from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
@@ -87,7 +87,7 @@ Aby wygenerować wyjaśnienie dla modeli AutoML, użyj `MimicWrapper` klasy. Mo�
 - Twój obszar roboczy
 - Model zastępczy opisujący `fitted_model` zautomatyzowany model ml
 
-MimicWrapper pobiera również `automl_run` obiekt, w którym zostaną przekazane przetworzone wyjaśnienia.
+MimicWrapper pobiera również obiekt, `automl_run` w którym zostaną przekazane przetworzone wyjaśnienia.
 
 ```python
 from azureml.explain.model.mimic_wrapper import MimicWrapper
@@ -104,7 +104,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
 
 ### <a name="use-mimicexplainer-for-computing-and-visualizing-engineered-feature-importance"></a>Korzystanie z MimicExplainer na potrzeby przetwarzania i wizualizacji wagi funkcji
 
-Możesz wywołać `explain()` metodę w MimicWrapper z przekształconymi próbkami testowymi, aby uzyskać ważność funkcji dla wygenerowanych funkcji. Można również użyć `ExplanationDashboard` , aby wyświetlić wizualizację pulpitu nawigacyjnego wartości znaczenia funkcji wygenerowanych funkcji przez zautomatyzowaną featurizers ml.
+Możesz wywołać `explain()` metodę w MimicWrapper z przekształconymi próbkami testowymi, aby uzyskać ważność funkcji dla wygenerowanych funkcji. Można również użyć, `ExplanationDashboard` Aby wyświetlić wizualizację pulpitu nawigacyjnego wartości znaczenia funkcji wygenerowanych funkcji przez zautomatyzowaną FEATURIZERS ml.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
@@ -117,7 +117,7 @@ W tej sekcji dowiesz się, jak operacjonalizować zautomatyzowany model tablicy 
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>Zarejestruj model i wyjaśnienie oceniania
 
-Użyj, `TreeScoringExplainer` aby utworzyć program do oceny oceniania, który będzie obliczać wartości znaczenia funkcji w czasie wnioskowania. Należy zainicjować wyjaśnienie oceniania przy użyciu `feature_map` , który został wcześniej obliczony. 
+Użyj, `TreeScoringExplainer` Aby utworzyć program do oceny oceniania, który będzie obliczać wartości znaczenia funkcji w czasie wnioskowania. Należy zainicjować wyjaśnienie oceniania przy użyciu `feature_map` , który został wcześniej obliczony. 
 
 Zapisz wyjaśnienie oceniania, a następnie zarejestruj model i wyjaśnienie oceniania przy użyciu usługi Zarządzanie modelami. Uruchom następujący kod:
 

@@ -5,18 +5,18 @@ description: Dowiedz się, jak i gdzie wdrażać modele Azure Machine Learning, 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/28/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: f9558431d65a9c0f4fecf34141d9148afa514d86
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3b1dd474b3b5518029e7cf404cc88b97bfa23e36
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208571"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433493"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -68,7 +68,7 @@ Zarejestrowany model to logiczny kontener dla co najmniej jednego pliku, który 
 > [!TIP]
 > Po zarejestrowaniu modelu podajesz ścieżkę do lokalizacji w chmurze (z przebiegu szkoleniowego) lub katalogu lokalnego. Ta ścieżka służy tylko do lokalizowania plików do przekazania w ramach procesu rejestracji. Nie musi być zgodna ze ścieżką używaną w skrypcie wprowadzania. Aby uzyskać więcej informacji, zobacz [Lokalizowanie plików modelu w skrypcie wprowadzania](#load-model-files-in-your-entry-script).
 
-Modele uczenia maszynowego są rejestrowane w obszarze roboczym Azure Machine Learning. Model może pochodzić z Azure Machine Learning lub w innym miejscu. Podczas rejestrowania modelu można opcjonalnie dostarczyć metadane dotyczące modelu. Do `tags` filtrowania `properties` modeli można używać słowników i, które są stosowane do rejestracji modelu.
+Modele uczenia maszynowego są rejestrowane w obszarze roboczym Azure Machine Learning. Model może pochodzić z Azure Machine Learning lub w innym miejscu. Podczas rejestrowania modelu można opcjonalnie dostarczyć metadane dotyczące modelu. `tags` `properties` Do filtrowania modeli można używać słowników i, które są stosowane do rejestracji modelu.
 
 W poniższych przykładach pokazano, jak zarejestrować model.
 
@@ -92,7 +92,7 @@ Fragmenty kodu w tej sekcji pokazują, jak zarejestrować model z poziomu przebi
     print(model.name, model.id, model.version, sep='\t')
     ```
 
-    `model_path` Parametr odnosi się do lokalizacji w chmurze modelu. W tym przykładzie jest używana ścieżka pojedynczego pliku. Aby uwzględnić w rejestracji modelu wiele plików, ustaw `model_path` ścieżkę folderu zawierającego pliki. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [uruchamiania. register_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) .
+    `model_path`Parametr odnosi się do lokalizacji w chmurze modelu. W tym przykładzie jest używana ścieżka pojedynczego pliku. Aby uwzględnić w rejestracji modelu wiele plików, ustaw `model_path` ścieżkę folderu zawierającego pliki. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [uruchamiania. register_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) .
 
   + Zarejestruj model na podstawie `azureml.train.automl.run.AutoMLRun` obiektu:
 
@@ -104,7 +104,7 @@ Fragmenty kodu w tej sekcji pokazują, jak zarejestrować model z poziomu przebi
         print(run.model_id)
     ```
 
-    W tym przykładzie parametry `metric` i `iteration` nie są określone, więc iteracja z najlepszą metryką podstawową zostanie zarejestrowana. `model_id` Wartość zwracana z przebiegu jest używana zamiast nazwy modelu.
+    W tym przykładzie `metric` `iteration` Parametry i nie są określone, więc iteracja z najlepszą metryką podstawową zostanie zarejestrowana. `model_id`Wartość zwracana z przebiegu jest używana zamiast nazwy modelu.
 
     Aby uzyskać więcej informacji, zobacz dokumentację [AutoMLRun. register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) .
 
@@ -116,7 +116,7 @@ Fragmenty kodu w tej sekcji pokazują, jak zarejestrować model z poziomu przebi
 
   [!INCLUDE [install extension](../../includes/machine-learning-service-install-extension.md)]
 
-  `--asset-path` Parametr odnosi się do lokalizacji w chmurze modelu. W tym przykładzie jest używana ścieżka pojedynczego pliku. Aby uwzględnić w rejestracji modelu wiele plików, ustaw `--asset-path` ścieżkę folderu zawierającego pliki.
+  `--asset-path`Parametr odnosi się do lokalizacji w chmurze modelu. W tym przykładzie jest używana ścieżka pojedynczego pliku. Aby uwzględnić w rejestracji modelu wiele plików, ustaw `--asset-path` ścieżkę folderu zawierającego pliki.
 
 + **Korzystanie z narzędzia Visual Studio Code**
 
@@ -203,7 +203,7 @@ dependencies:
 >
 > Aby uzyskać więcej informacji, zobacz [Omówienie Conda i PIP](https://www.anaconda.com/understanding-conda-and-pip/).
 >
-> Aby sprawdzić, czy zależność jest dostępna za pomocą Conda, użyj `conda search <package-name>` polecenia lub użyj indeksów pakietów w [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) i. [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo)
+> Aby sprawdzić, czy zależność jest dostępna za pomocą Conda, użyj `conda search <package-name>` polecenia lub użyj indeksów pakietów w [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) i [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo) .
 
 Możesz użyć pliku zależności, aby utworzyć obiekt środowiska i zapisać go w obszarze roboczym do użycia w przyszłości:
 
@@ -239,7 +239,7 @@ W poniższej tabeli opisano wartość AZUREML_MODEL_DIR w zależności od liczby
 | Wdrożenie | Wartość zmiennej środowiskowej |
 | ----- | ----- |
 | Jeden model | Ścieżka do folderu zawierającego model. |
-| Wiele modeli | Ścieżka do folderu zawierającego wszystkie modele. Modele są zlokalizowane według nazwy i wersji w tym folderze (`$MODEL_NAME/$VERSION`) |
+| Wiele modeli | Ścieżka do folderu zawierającego wszystkie modele. Modele są zlokalizowane według nazwy i wersji w tym folderze ( `$MODEL_NAME/$VERSION` ) |
 
 Podczas rejestracji i wdrażania modelu modele są umieszczane w ścieżce AZUREML_MODEL_DIR i ich oryginalne nazwy plików są zachowywane.
 
@@ -277,7 +277,7 @@ Te typy są obecnie obsługiwane:
 * `pyspark`
 * Standardowy obiekt języka Python
 
-Aby użyć generacji schematu, Dołącz pakiet "Open Source `inference-schema` " do pliku zależności. Aby uzyskać więcej informacji na temat tego pakietu [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema), zobacz. Zdefiniuj formaty próbek wejściowych i wyjściowych w zmiennych `input_sample` i `output_sample` , które reprezentują formaty żądań i odpowiedzi dla usługi sieci Web. Te przykłady są używane w funkcji Input i Output dekoratory `run()` funkcji. Poniższy przykład scikit-Dowiedz się, jak użyć generowania schematu.
+Aby użyć generacji schematu, Dołącz pakiet "open source" do `inference-schema` pliku zależności. Aby uzyskać więcej informacji na temat tego pakietu, zobacz [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema) . Zdefiniuj formaty próbek wejściowych i wyjściowych w `input_sample` zmiennych i `output_sample` , które reprezentują formaty żądań i odpowiedzi dla usługi sieci Web. Te przykłady są używane w funkcji Input i Output dekoratory `run()` funkcji. Poniższy przykład scikit-Dowiedz się, jak użyć generowania schematu.
 
 ##### <a name="example-entry-script"></a>Przykładowy skrypt wprowadzania
 
@@ -496,7 +496,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 ```
 
 > [!TIP]
-> Aby zachować informacje zwracane przez profilowanie, użyj tagów lub właściwości dla modelu. Użycie tagów lub właściwości przechowuje dane w modelu w rejestrze modelu. W poniższych przykładach pokazano, `requestedCpu` jak dodać nowy tag zawierający `requestedMemoryInGb` informacje i:
+> Aby zachować informacje zwracane przez profilowanie, użyj tagów lub właściwości dla modelu. Użycie tagów lub właściwości przechowuje dane w modelu w rejestrze modelu. W poniższych przykładach pokazano, jak dodać nowy tag `requestedCpu` zawierający `requestedMemoryInGb` informacje i:
 >
 > ```python
 > model.add_tags({'requestedCpu': details['requestedCpu'],
@@ -531,7 +531,7 @@ Poniższa tabela zawiera przykład tworzenia konfiguracji wdrożenia dla każdeg
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
-Klasy dla lokalnych, Azure Container Instances i usług sieci Web AKS można zaimportować z `azureml.core.webservice`:
+Klasy dla lokalnych, Azure Container Instances i usług sieci Web AKS można zaimportować z `azureml.core.webservice` :
 
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
@@ -608,7 +608,7 @@ Jeśli włączono uwierzytelnianie oparte na tokenach dla usługi, musisz podać
 Podstawowa różnica polega na tym, że **klucze są statyczne i mogą być ponownie generowane ręcznie**, a **tokeny muszą być odświeżane po wygaśnięciu**. Uwierzytelnianie oparte na kluczach jest obsługiwane dla wystąpień kontenerów platformy Azure i wdrożonych usług sieci Web usługi Azure Kubernetes, a uwierzytelnianie oparte na tokenach jest dostępne **tylko** dla wdrożeń usługi Azure Kubernetes. Zobacz instrukcje [dotyczące](how-to-setup-authentication.md#web-service-authentication) uwierzytelniania, aby uzyskać więcej informacji i przykłady kodu.
 
 > [!TIP]
-> Po wdrożeniu usługi można pobrać dokument JSON schematu. Użyj [właściwości swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) ze wdrożonej usługi sieci Web (na przykład) `service.swagger_uri`, aby uzyskać identyfikator URI do pliku struktury Swagger lokalnej usługi sieci Web.
+> Po wdrożeniu usługi można pobrać dokument JSON schematu. Użyj [właściwości swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) ze wdrożonej usługi sieci Web (na przykład `service.swagger_uri` ), aby uzyskać identyfikator URI do pliku struktury Swagger lokalnej usługi sieci Web.
 
 ### <a name="request-response-consumption"></a>Żądanie — użycie odpowiedzi
 
@@ -642,7 +642,7 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie aplikacji klienckich do korzy
 
 ### <a name="web-service-schema-openapi-specification"></a>Schemat usługi sieci Web (Specyfikacja OpenAPI)
 
-Jeśli używasz automatycznej generacji schematu w ramach wdrożenia, możesz uzyskać adres specyfikacji OpenAPI dla usługi przy użyciu [właściwości swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). (Na przykład `print(service.swagger_uri)`.) Użyj żądania GET lub Otwórz identyfikator URI w przeglądarce, aby pobrać specyfikację.
+Jeśli używasz automatycznej generacji schematu w ramach wdrożenia, możesz uzyskać adres specyfikacji OpenAPI dla usługi przy użyciu [właściwości swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). (Na przykład `print(service.swagger_uri)` .) Użyj żądania GET lub Otwórz identyfikator URI w przeglądarce, aby pobrać specyfikację.
 
 Poniższy dokument JSON jest przykładem schematu (Specyfikacja OpenAPI) wygenerowanego dla wdrożenia:
 
@@ -978,11 +978,11 @@ Aby uruchomić kontener lokalny na podstawie tego obrazu, użyj następującego 
 docker run -p 6789:5001 --name mycontainer <imageid>
 ```
 
-To polecenie powoduje uruchomienie najnowszej wersji obrazu o nazwie `myimage`. Mapuje port lokalny 6789 na port w kontenerze, w którym usługa sieci Web nasłuchuje (5001). Przypisuje również nazwę `mycontainer` do kontenera, co ułatwia zatrzymanie kontenera. Po rozpoczęciu kontenera można przesłać żądania do `http://localhost:6789/score`.
+To polecenie powoduje uruchomienie najnowszej wersji obrazu o nazwie `myimage` . Mapuje port lokalny 6789 na port w kontenerze, w którym usługa sieci Web nasłuchuje (5001). Przypisuje również nazwę `mycontainer` do kontenera, co ułatwia zatrzymanie kontenera. Po rozpoczęciu kontenera można przesłać żądania do `http://localhost:6789/score` .
 
 ### <a name="generate-a-dockerfile-and-dependencies"></a>Generowanie pliku dockerfile i zależności
 
-Poniższy przykład pokazuje, jak pobrać pliku dockerfile, model i inne zasoby, które są konieczne do lokalnego utworzenia obrazu. `generate_dockerfile=True` Parametr wskazuje, że chcesz, aby pliki nie były w pełni skompilowane.
+Poniższy przykład pokazuje, jak pobrać pliku dockerfile, model i inne zasoby, które są konieczne do lokalnego utworzenia obrazu. `generate_dockerfile=True`Parametr wskazuje, że chcesz, aby pliki nie były w pełni skompilowane.
 
 ```python
 package = Model.package(ws, [model], inference_config, generate_dockerfile=True)
@@ -996,23 +996,23 @@ print("Username:", acr.username)
 print("Password:", acr.password)
 ```
 
-Ten kod pobiera pliki, które są konieczne do skompilowania obrazu `imagefiles` do katalogu. Pliku dockerfile zawarte w zapisanych plikach odwołuje się do obrazu podstawowego przechowywanego w rejestrze kontenerów platformy Azure. Podczas tworzenia obrazu w lokalnej instalacji platformy Docker należy użyć adresu, nazwy użytkownika i hasła w celu uwierzytelnienia w rejestrze. Wykonaj następujące kroki, aby skompilować obraz przy użyciu lokalnej instalacji platformy Docker:
+Ten kod pobiera pliki, które są konieczne do skompilowania obrazu do `imagefiles` katalogu. Pliku dockerfile zawarte w zapisanych plikach odwołuje się do obrazu podstawowego przechowywanego w rejestrze kontenerów platformy Azure. Podczas tworzenia obrazu w lokalnej instalacji platformy Docker należy użyć adresu, nazwy użytkownika i hasła w celu uwierzytelnienia w rejestrze. Wykonaj następujące kroki, aby skompilować obraz przy użyciu lokalnej instalacji platformy Docker:
 
-1. Z poziomu powłoki lub sesji wiersza polecenia Użyj następującego polecenia, aby uwierzytelnić platformę Docker za pomocą usługi Azure Container Registry. `<address>`Zastąp `<username>`wartości, `<password>` i wartościami pobranymi przez `package.get_container_registry()`.
+1. Z poziomu powłoki lub sesji wiersza polecenia Użyj następującego polecenia, aby uwierzytelnić platformę Docker za pomocą usługi Azure Container Registry. Zastąp `<address>` `<username>` wartości, i `<password>` wartościami pobranymi przez `package.get_container_registry()` .
 
     ```bash
     docker login <address> -u <username> -p <password>
     ```
 
-2. Aby skompilować obraz, użyj następującego polecenia. Zamień `<imagefiles>` na ścieżkę do katalogu, w którym `package.save()` zapisano pliki.
+2. Aby skompilować obraz, użyj następującego polecenia. Zamień na `<imagefiles>` ścieżkę do katalogu, w którym `package.save()` zapisano pliki.
 
     ```bash
     docker build --tag myimage <imagefiles>
     ```
 
-    To polecenie ustawia nazwę obrazu na `myimage`.
+    To polecenie ustawia nazwę obrazu na `myimage` .
 
-Aby sprawdzić, czy obraz został skompilowany, użyj `docker images` polecenia. `myimage` Obraz powinien zostać wyświetlony na liście:
+Aby sprawdzić, czy obraz został skompilowany, użyj `docker images` polecenia. Obraz powinien zostać wyświetlony `myimage` na liście:
 
 ```text
 REPOSITORY      TAG                 IMAGE ID            CREATED             SIZE
@@ -1026,7 +1026,7 @@ Aby rozpocząć nowy kontener oparty na tym obrazie, użyj następującego polec
 docker run -p 6789:5001 --name mycontainer myimage:latest
 ```
 
-To polecenie powoduje uruchomienie najnowszej wersji obrazu o nazwie `myimage`. Mapuje port lokalny 6789 na port w kontenerze, w którym usługa sieci Web nasłuchuje (5001). Przypisuje również nazwę `mycontainer` do kontenera, co ułatwia zatrzymanie kontenera. Po rozpoczęciu kontenera można przesłać żądania do `http://localhost:6789/score`.
+To polecenie powoduje uruchomienie najnowszej wersji obrazu o nazwie `myimage` . Mapuje port lokalny 6789 na port w kontenerze, w którym usługa sieci Web nasłuchuje (5001). Przypisuje również nazwę `mycontainer` do kontenera, co ułatwia zatrzymanie kontenera. Po rozpoczęciu kontenera można przesłać żądania do `http://localhost:6789/score` .
 
 ### <a name="example-client-to-test-the-local-container"></a>Przykładowy klient do testowania lokalnego kontenera
 
@@ -1069,8 +1069,8 @@ docker kill mycontainer
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Aby usunąć wdrożoną usługę sieci Web, `service.delete()`Użyj programu.
-Aby usunąć zarejestrowany model, użyj `model.delete()`.
+Aby usunąć wdrożoną usługę sieci Web, użyj programu `service.delete()` .
+Aby usunąć zarejestrowany model, użyj `model.delete()` .
 
 Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą usługi [WebService. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) i [model. Delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
@@ -1114,7 +1114,7 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> `AMLRequest` Klasa znajduje się w `azureml.contrib` przestrzeni nazw. Jednostki w tej przestrzeni nazw często zmieniają się, gdy pracujemy nad ulepszeniem usługi. Wszystkie elementy w tej przestrzeni nazw powinny być traktowane jako wersja zapoznawcza, która nie jest w pełni obsługiwana przez firmę Microsoft.
+> `AMLRequest`Klasa znajduje się w `azureml.contrib` przestrzeni nazw. Jednostki w tej przestrzeni nazw często zmieniają się, gdy pracujemy nad ulepszeniem usługi. Wszystkie elementy w tej przestrzeni nazw powinny być traktowane jako wersja zapoznawcza, która nie jest w pełni obsługiwana przez firmę Microsoft.
 >
 > Jeśli konieczne jest przetestowanie go w lokalnym środowisku programistycznym, można zainstalować składniki przy użyciu następującego polecenia:
 >
@@ -1122,7 +1122,7 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-`AMLRequest` Klasa pozwala tylko na dostęp do nieprzetworzonych danych w Score.py nie ma składnika klienta. Z poziomu klienta dane są ogłaszane jako normalne. Na przykład poniższy kod w języku Python odczytuje plik obrazu i zapisuje dane:
+`AMLRequest`Klasa pozwala tylko na dostęp do nieprzetworzonych danych w Score.py nie ma składnika klienta. Z poziomu klienta dane są ogłaszane jako normalne. Na przykład poniższy kod w języku Python odczytuje plik obrazu i zapisuje dane:
 
 ```python
 import requests
@@ -1140,7 +1140,7 @@ Udostępnianie zasobów między źródłami to sposób zezwalania na żądanie z
 
 Aby skonfigurować wdrożenie modelu do obsługi mechanizmu CORS, użyj `AMLResponse` klasy w skrypcie wpisu. Ta klasa umożliwia ustawianie nagłówków obiektu Response.
 
-Poniższy przykład ustawia `Access-Control-Allow-Origin` nagłówek odpowiedzi ze skryptu wprowadzania:
+Poniższy przykład ustawia `Access-Control-Allow-Origin` Nagłówek odpowiedzi ze skryptu wprowadzania:
 
 ```python
 from azureml.contrib.services.aml_request import AMLRequest, rawhttp
@@ -1172,7 +1172,7 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> `AMLResponse` Klasa znajduje się w `azureml.contrib` przestrzeni nazw. Jednostki w tej przestrzeni nazw często zmieniają się, gdy pracujemy nad ulepszeniem usługi. Wszystkie elementy w tej przestrzeni nazw powinny być traktowane jako wersja zapoznawcza, która nie jest w pełni obsługiwana przez firmę Microsoft.
+> `AMLResponse`Klasa znajduje się w `azureml.contrib` przestrzeni nazw. Jednostki w tej przestrzeni nazw często zmieniają się, gdy pracujemy nad ulepszeniem usługi. Wszystkie elementy w tej przestrzeni nazw powinny być traktowane jako wersja zapoznawcza, która nie jest w pełni obsługiwana przez firmę Microsoft.
 >
 > Jeśli konieczne jest przetestowanie go w lokalnym środowisku programistycznym, można zainstalować składniki przy użyciu następującego polecenia:
 >

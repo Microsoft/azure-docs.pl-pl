@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 87cb5714a1f4b362e2f73879d93f5739f0fc20cf
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c81e0a71b23e865ca2938f5fbf3c73cdb5c3aeb1
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324287"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434311"
 ---
 # <a name="featurization-with-automated-machine-learning"></a>Cechowania przy użyciu automatycznej uczenia maszynowego
 

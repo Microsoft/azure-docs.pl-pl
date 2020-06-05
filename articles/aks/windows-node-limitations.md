@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Informacje o znanych ograniczeniach w przypadku uruchamiania pul węzłów systemu Windows Server i obciążeń aplikacji w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/18/2019
-ms.openlocfilehash: 935b049ce5e1951952b4af4e7df9574df764b6e8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/28/2020
+ms.openlocfilehash: 89cfb42da4433f17298cf2cb68f1a4b3d8f9e549
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208010"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433014"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Bieżące ograniczenia dotyczące pul węzłów systemu Windows Server i obciążeń aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -57,6 +57,19 @@ Węzły systemu Windows Server w AKS muszą zostać *uaktualnione* w celu pobran
 > [!NOTE]
 > Zaktualizowany obraz systemu Windows Server będzie używany tylko wtedy, gdy uaktualnienie klastra (uaktualnienie płaszczyzny kontroli) zostało wykonane przed uaktualnieniem puli węzłów
 >
+
+## <a name="why-am-i-seeing-an-error-when-i-try-to-create-a-new-windows-agent-pool"></a>Dlaczego widzę błąd podczas próby utworzenia nowej puli agentów systemu Windows?
+
+Jeśli klaster został utworzony przed luty 2020 i nigdy nie przeszedł żadnych operacji uaktualniania klastra, klaster nadal używa starego obrazu systemu Windows. Mógł wystąpić błąd podobny do następującego:
+
+"Nie znaleziono następującej listy obrazów, do których odwołuje się szablon wdrożenia: Publisher: MicrosoftWindowsServer, oferta: WindowsServer, SKU: 2019-Datacenter-Core-smalldisk-2004, wersja: Najnowsza. Zapoznaj się z instrukcjami dotyczącymi https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage znajdowania dostępnych obrazów.
+
+Aby rozwiązać ten problem:
+
+1. Uaktualnij [płaszczyznę kontroli klastra][upgrade-cluster-cp]. Spowoduje to zaktualizowanie oferty obrazu i wydawcy.
+1. Utwórz nowe pule agentów systemu Windows.
+1. Przenieś zestawy Windows z istniejących pul agentów systemu Windows na nowe pule agentów systemu Windows.
+1. Usuń stare pule agentów systemu Windows.
 
 ## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Jak mogę obrócić jednostki usługi dla puli węzłów systemu Windows?
 
@@ -112,6 +125,8 @@ Aby rozpocząć pracę z kontenerami systemu Windows Server w programie AKS, nal
 [windows-node-cli]: windows-container-cli.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[upgrade-cluster]: upgrade-cluster.md
+[upgrade-cluster-cp]: use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools
 [azure-outbound-traffic]: ../load-balancer/load-balancer-outbound-connections.md#defaultsnat
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909

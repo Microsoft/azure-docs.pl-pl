@@ -1,19 +1,19 @@
 ---
 title: Filtry zabezpieczeń do przycinania wyników przy użyciu Active Directory
 titleSuffix: Azure Cognitive Search
-description: Kontrola dostępu do zawartości platformy Azure Wyszukiwanie poznawcze przy użyciu filtrów zabezpieczeń i tożsamości Azure Active Directory (AAD).
+description: Uprawnienia zabezpieczeń na poziomie dokumentu dla wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze przy użyciu filtrów zabezpieczeń i tożsamości Azure Active Directory (AAD).
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 01280b6ee9dda15af3c0fc707a385501580c624c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: bbf1aa2fe8410f6d624fb9d50b1edb6ac2c64093
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72794300"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84429514"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtry zabezpieczeń do przycinania wyników Wyszukiwanie poznawcze platformy Azure przy użyciu tożsamości Active Directory
 
@@ -42,11 +42,11 @@ Aplikacja musi być również zarejestrowana w usłudze AAD, zgodnie z opisem w 
 
 Ten krok integruje aplikację z usługą AAD w celu zaakceptowania logowania użytkowników i kont grup. Jeśli nie jesteś administratorem usługi AAD w organizacji, może być konieczne [utworzenie nowej dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) w celu wykonania poniższych kroków.
 
-1.  >  Przejdź do [**portalu rejestracji aplikacji**](https://apps.dev.microsoft.com)**zbieżność aplikacji** > **Dodaj aplikację**.
+1. Przejdź do [**portalu rejestracji aplikacji**](https://apps.dev.microsoft.com)  >   **zbieżność aplikacji**  >  **Dodaj aplikację**.
 2. Wprowadź nazwę aplikacji, a następnie kliknij przycisk **Utwórz**. 
 3. Wybierz nowo zarejestrowanej aplikacji na stronie Moje aplikacje.
-4. Na stronie Rejestracja aplikacji > **platformy** > **Dodaj platformę**, wybierz pozycję **interfejs API sieci Web**.
-5. Na stronie Rejestracja aplikacji przejdź do pozycji > **Microsoft Graph uprawnienia** > **Dodaj**.
+4. Na stronie Rejestracja aplikacji > **platformy**  >  **Dodaj platformę**, wybierz pozycję **interfejs API sieci Web**.
+5. Na stronie Rejestracja aplikacji przejdź do pozycji > **Microsoft Graph uprawnienia**  >  **Dodaj**.
 6. W obszarze Wybierz uprawnienia Dodaj następujące delegowane uprawnienia, a następnie kliknij przycisk **OK**:
 
    + **Katalog. ReadWrite. All**
@@ -186,7 +186,7 @@ Odpowiedź obejmuje przefiltrowaną listę dokumentów składającą się z tych
 
 W tym instruktażu przedstawiono metody używania logowań usługi AAD do filtrowania dokumentów w usłudze Azure Wyszukiwanie poznawcze wyniki, przycinania wyników dokumentów, które nie pasują do filtru dostarczonego w żądaniu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Kontrola dostępu oparta na tożsamościch za pomocą filtrów Wyszukiwanie poznawcze platformy Azure](search-security-trimming-for-azure-search.md)
 + [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)

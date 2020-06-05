@@ -148,13 +148,13 @@ Kod stanu 409 będzie teraz zwracany przez [ponowne indeksowanie wideo](https://
     
     W przypadku przekazywania wideo zamieniono polecenie zh-HANS na zh-CN, obie są obsługiwane, ale zaleca się, aby Metoda zh-CN była zalecana i bardziej dokładna.
     
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
  
 * Wyszukaj animowane znaki w galerii
 
     W przypadku indeksowania animowanych znaków można teraz wyszukiwać je w postaci szpaltowej wideo na koncie. Aby uzyskać więcej informacji, zobacz [rozpoznawanie znaków animowanych](animated-characters-recognition.md).
 
-## <a name="september-2019"></a>Wrzesień 2019
+## <a name="september-2019"></a>Wrzesień 2019 r.
  
 Wiele zaliczek zapowiedziano w IBC 2019:
  
@@ -174,7 +174,7 @@ Wiele zaliczek zapowiedziano w IBC 2019:
     
     Temat inferencing model obsługuje teraz bardziej szczegółowy stopień szczegółowości taksonomii IPTC. Przeczytaj wszystkie szczegółowe informacje o [Azure Media Services nowych innowacyjności opartych na AI](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
  
 ### <a name="video-indexer-deployed-in-uk-south"></a>Video Indexer wdrożony w programie Południowe Zjednoczone Królestwo
 
@@ -211,7 +211,7 @@ Obsługa ciągu zapytania URL o 4096 (zamiast 2048) na indeksowaniu wideo.
 
 Projekty można teraz tworzyć w oparciu o wideo indeksowane w różnych językach (tylko interfejsy API).
 
-## <a name="july-2019"></a>Lipiec 2019
+## <a name="july-2019"></a>Lipiec 2019 r.
 
 ### <a name="editor-as-a-widget"></a>Edytor jako widżet
 

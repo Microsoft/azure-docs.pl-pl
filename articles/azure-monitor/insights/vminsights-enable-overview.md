@@ -5,13 +5,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/28/2020
-ms.openlocfilehash: 3c9c5e69eea72b20da485ffb1edf806f2c9f3b41
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: 87d8b26110eba647975de577e9d7b5b0ed138266
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195304"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84423976"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Włącz przegląd Azure Monitor dla maszyn wirtualnych
 
@@ -43,6 +43,7 @@ Azure Monitor dla maszyn wirtualnych obsługuje obszar roboczy Log Analytics w n
 - Wschodnie stany USA 2
 - Środkowe stany USA
 - Północno-środkowe stany USA
+- US Gov VA
 - Kanada Środkowa
 - Południowe Zjednoczone Królestwo
 - Europa Północna

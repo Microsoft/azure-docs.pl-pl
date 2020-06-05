@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 06/03/2020
 ms.author: b-juche
-ms.openlocfilehash: a8c299a6f0e6732d50b40fc29bde07179fc2c412
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e9ee573ca908c41fe7c7887d0f306971369f83f
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185646"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417501"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -64,7 +64,7 @@ Wszystkie woluminy Azure NetApp Files są szyfrowane przy użyciu standardu FIPS
 
 Zarządzanie kluczami dla Azure NetApp Files jest obsługiwane przez usługę. Dla każdego woluminu jest generowany unikatowy klucz szyfrowania danych XTS-AES-256. Hierarchia kluczy szyfrowania służy do szyfrowania i ochrony wszystkich kluczy woluminów. Te klucze szyfrowania nigdy nie są wyświetlane ani raportowane w nieszyfrowanym formacie. Klucze szyfrowania są usuwane natychmiast po usunięciu woluminu.
 
-Obsługa kluczy zarządzanych przez użytkownika (wprowadzanie własnych kluczy) przy użyciu dedykowanego modułu HSM platformy Azure jest dostępna na kontrolowanej zasadzie w regionach Południowo-środkowe stany USA, USA West2 i Wschodnie stany USA.  Możesz zażądać dostępu pod **anffeedback@microsoft.com**adresem. Gdy pojemność jest dostępna, żądania zostaną zatwierdzone.
+Obsługa kluczy zarządzanych przez użytkownika (wprowadzanie własnych kluczy) przy użyciu dedykowanego modułu HSM platformy Azure jest dostępna na kontrolowanej zasadzie w regionach Południowo-środkowe stany USA, USA West2 i Wschodnie stany USA.  Możesz zażądać dostępu pod adresem **anffeedback@microsoft.com** . Gdy pojemność jest dostępna, żądania zostaną zatwierdzone.
 
 ### <a name="can-i-configure-the-nfs-export-policy-rules-to-control-access-to-the-azure-netapp-files-service-mount-target"></a>Czy można skonfigurować zasady eksportowania systemu plików NFS, aby kontrolować dostęp do celu instalacji usługi Azure NetApp Files Service?
 
@@ -103,11 +103,11 @@ Zmiana poziomu usługi woluminu nie jest obecnie obsługiwana.
 
 Azure NetApp Files udostępnia metryki wydajności woluminu. Można również użyć Azure Monitor do monitorowania metryk użycia dla Azure NetApp Files.  Aby uzyskać listę metryk wydajności dla Azure NetApp Files, zobacz [metryki dla Azure NetApp Files](azure-netapp-files-metrics.md) .
 
-## <a name="nfs-faqs"></a>Często zadawane pytania dotyczące NFS
+## <a name="nfs-faqs"></a>Często zadawane pytania dotyczące systemu NFS
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Chcę, aby wolumin został zainstalowany automatycznie podczas uruchamiania lub ponownego uruchamiania maszyny wirtualnej platformy Azure.  Jak mogę skonfigurować mój Host dla trwałych woluminów NFS?
 
-Aby wolumin systemu plików NFS został automatycznie zainstalowany podczas uruchamiania lub ponownego uruchamiania maszyny wirtualnej, Dodaj wpis `/etc/fstab` do pliku na hoście. 
+Aby wolumin systemu plików NFS został automatycznie zainstalowany podczas uruchamiania lub ponownego uruchamiania maszyny wirtualnej, Dodaj wpis do `/etc/fstab` pliku na hoście. 
 
 Aby uzyskać szczegółowe informacje [, zobacz Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) .  
 
@@ -123,7 +123,11 @@ Azure NetApp Files obsługuje NFSv3 i NFSv 4.1. Wolumin można [utworzyć](azure
 
 Główny zgniatanie nie jest obecnie obsługiwany.
 
-## <a name="smb-faqs"></a>Funkcja SMB — często zadawane pytania
+## <a name="smb-faqs"></a>Protokół SMB — często zadawane pytania
+
+### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Które wersje protokołu SMB są obsługiwane przez Azure NetApp Files?
+
+Azure NetApp Files obsługuje SMB 2,1 i SMB 3,1 (w tym obsługa protokołu SMB 3,0).    
 
 ### <a name="is-an-active-directory-connection-required-for-smb-access"></a>Czy Active Directory jest wymagane połączenie z dostępem do protokołu SMB? 
 

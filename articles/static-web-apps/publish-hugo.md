@@ -18,7 +18,7 @@ ms.locfileid: "84344020"
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Hugo](https://gohugo.io/) w usłudze [Azure static Web Apps](overview.md). Końcowym wynikiem jest nowe statyczne Web Apps platformy Azure ze skojarzonymi akcjami GitHub, które zapewniają kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >

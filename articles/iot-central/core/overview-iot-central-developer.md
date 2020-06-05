@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d29420d14a716e5a45e42dd681faa01f518f713a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: aa442e15dbc95709ecf3c818f69301d2f02e9b5b
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666540"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417025"
 ---
 # <a name="iot-central-device-development-overview"></a>Przegląd opracowywania urządzeń IoT Central
 
@@ -85,7 +85,9 @@ Aby zaimplementować zachowanie urządzenia, użyj jednego z [zestawów SDK urz�
 - Zsynchronizuj wartości właściwości między urządzeniem a IoT Central. Szablon urządzenia określa nazwy właściwości i typy danych, dzięki czemu IoT Central mogą wyświetlać informacje.
 - Zaimplementuj programy obsługi poleceń dla poleceń, które są określone w szablonie urządzenia. Szablon urządzenia określa nazwy poleceń i parametry, które powinny być używane przez urządzenie.
 
-Aby uzyskać więcej informacji, zobacz [Tworzenie i łączenie aplikacji klienckiej Node. js](./tutorial-connect-device-nodejs.md) lub [Tworzenie i łączenie aplikacji klienckiej języka Python](./tutorial-connect-device-python.md).
+Aby uzyskać więcej informacji na temat roli szablonów urządzeń, zobacz [co to są szablony urządzeń?](./concepts-device-templates.md)
+
+Aby zapoznać się z przykładowym kodem, zobacz [Tworzenie i łączenie aplikacji klienckiej Node. js](./tutorial-connect-device-nodejs.md) lub [Tworzenie i łączenie aplikacji klienckiej języka Python](./tutorial-connect-device-python.md).
 
 ### <a name="languages-and-sdks"></a>Języki i zestawy SDK
 

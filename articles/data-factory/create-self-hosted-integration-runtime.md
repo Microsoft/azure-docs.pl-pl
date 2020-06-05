@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 705c35570484f604e9281b9c19ceb734180ba3e1
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857702"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418266"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
 
@@ -97,7 +97,7 @@ Możesz zautomatyzować konfigurację samodzielnego środowiska IR na maszynie w
 
 Za pomocą wiersza polecenia można skonfigurować lub zarządzać istniejącym własnym środowiskoem IR. To użycie może pomóc w zaautomatyzowaniu instalacji i rejestracji samodzielnych węzłów IR.
 
-Dmgcmd. exe jest dołączony do samodzielnego instalatora. Zazwyczaj znajduje się on w folderze C:\Program Files\Microsoft Integration Runtime\3.0\Shared\. Ta aplikacja obsługuje różne parametry i może być wywoływana za pomocą wiersza polecenia przy użyciu skryptów wsadowych do automatyzacji.
+Dmgcmd. exe jest dołączony do samodzielnego instalatora. Zazwyczaj znajduje się on w folderze C:\Program Files\Microsoft Integration Runtime\4.0\Shared\. Ta aplikacja obsługuje różne parametry i może być wywoływana za pomocą wiersza polecenia przy użyciu skryptów wsadowych do automatyzacji.
 
 Użyj aplikacji w następujący sposób:
 
@@ -107,7 +107,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
 Poniżej znajdują się szczegółowe informacje o parametrach i właściwościach aplikacji: 
 
-| Właściwość                                                    | Opis                                                  | Wymagany |
+| Właściwość                                                    | Opis                                                  | Wymagane |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | Zarejestruj własny węzeł Integration Runtime z określonym kluczem uwierzytelniania. | Nie       |
 | **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Zarejestruj własny węzeł Integration Runtime z określonym kluczem uwierzytelniania i nazwą węzła. | Nie       |
@@ -151,7 +151,7 @@ Poniżej znajduje się podsumowanie etapów przepływu danych do kopiowania przy
 - Użyj własnego środowiska Integration Runtime do obsługi integracji danych w ramach sieci wirtualnej platformy Azure.
 - Traktuj źródło danych jako lokalne źródło danych znajdujące się za zaporą, nawet jeśli korzystasz z usługi Azure ExpressRoute. Użyj własnego środowiska Integration Runtime, aby połączyć usługę ze źródłem danych.
 - Użyj własnego środowiska Integration Runtime, nawet jeśli magazyn danych znajduje się w chmurze na maszynie wirtualnej infrastruktury platformy Azure jako usługi (IaaS).
-- Zadania mogą zakończyć się niepowodzeniem w ramach własnego środowiska Integration Runtime zainstalowanego w systemie Windows Server, dla którego włączono szyfrowanie zgodne ze standardem FIPS. Aby obejść ten problem, należy wyłączyć szyfrowanie zgodne ze standardem FIPS na serwerze. Aby wyłączyć szyfrowanie zgodne ze standardem FIPS, należy zmienić wartość następującego podklucza rejestru z 1 (włączone) na 0 ( `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`wyłączone):.
+- Zadania mogą zakończyć się niepowodzeniem w ramach własnego środowiska Integration Runtime zainstalowanego w systemie Windows Server, dla którego włączono szyfrowanie zgodne ze standardem FIPS. Aby obejść ten problem, należy wyłączyć szyfrowanie zgodne ze standardem FIPS na serwerze. Aby wyłączyć szyfrowanie zgodne ze standardem FIPS, należy zmienić wartość następującego podklucza rejestru z 1 (włączone) na 0 (wyłączone): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -173,7 +173,7 @@ Poniżej znajduje się podsumowanie etapów przepływu danych do kopiowania przy
 - Przebiegi kopiowania działania są wykonywane z określoną częstotliwością. Użycie procesora i pamięci RAM na komputerze jest zgodne z tym samym wzorcem, w którym są czasy szczytowe i bezczynne. Użycie zasobów również zależy znacznie od ilości przeniesionych danych. Gdy trwa wykonywanie wielu zadań kopiowania, zostanie wyświetlone użycie zasobów w godzinach szczytu.
 - Zadania mogą kończyć się niepowodzeniem podczas wyodrębniania danych w formatach Parquet, ORC i Avro. Aby uzyskać więcej informacji na temat Parquet, zobacz [Parquet format w Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime). Tworzenie plików jest uruchamiane na samoobsługowej maszynie integracji. Aby program działał zgodnie z oczekiwaniami, tworzenie plików wymaga następujących wymagań wstępnych:
     - [Pakiet redystrybucyjny Visual C++ 2010](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Pakiet (x64)
-    - Środowisko uruchomieniowe języka Java (JRE) w wersji 8 od dostawcy środowiska JRE, takiego jak [przyjęcie OpenJDK](https://adoptopenjdk.net/). Upewnij się, `JAVA_HOME` że zmienna środowiskowa jest ustawiona.
+    - Środowisko uruchomieniowe języka Java (JRE) w wersji 8 od dostawcy środowiska JRE, takiego jak [przyjęcie OpenJDK](https://adoptopenjdk.net/). Upewnij się, że `JAVA_HOME` zmienna środowiskowa jest ustawiona.
 
 ## <a name="installation-best-practices"></a>Najlepsze rozwiązania dotyczące instalacji
 
@@ -220,7 +220,7 @@ Możesz skojarzyć wiele węzłów, instalując własne oprogramowanie Integrati
 > Nie musisz tworzyć nowego środowiska Integration Runtime, aby skojarzyć każdy węzeł. Możesz zainstalować własne środowisko Integration Runtime na innym komputerze i zarejestrować je przy użyciu tego samego klucza uwierzytelniania.
 
 > [!NOTE]
-> Przed dodaniem kolejnego węzła w celu zapewnienia wysokiej dostępności i skalowalności upewnij się, że opcja **dostęp zdalny do sieci intranet** jest włączona w pierwszym węźle. W tym celu wybierz pozycję **Microsoft Integration Runtime Configuration Manager** > **Ustawienia** > **dostęp zdalny do intranetu**.
+> Przed dodaniem kolejnego węzła w celu zapewnienia wysokiej dostępności i skalowalności upewnij się, że opcja **dostęp zdalny do sieci intranet** jest włączona w pierwszym węźle. W tym celu wybierz pozycję **Microsoft Integration Runtime Configuration Manager**  >  **Ustawienia**  >  **dostęp zdalny do intranetu**.
 
 ### <a name="scale-considerations"></a>Zagadnienia dotyczące skalowania
 
@@ -362,7 +362,7 @@ Po zarejestrowaniu własnego środowiska Integration Runtime, jeśli chcesz wyś
 1. Otwórz **Configuration Manager Microsoft Integration Runtime**.
 1. Wybierz kartę **Ustawienia**.
 1. W obszarze **serwer proxy HTTP**wybierz łącze **Zmień** , aby otworzyć okno dialogowe **Ustawianie serwera proxy HTTP** .
-1. Wybierz pozycję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
+1. Wybierz opcję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
 
 Za pomocą narzędzia Configuration Manager można wyświetlać i aktualizować serwer proxy HTTP.
 
@@ -375,9 +375,9 @@ Za pomocą narzędzia Configuration Manager można wyświetlać i aktualizować 
 
 W przypadku wybrania opcji **Użyj serwera proxy** dla serwera proxy HTTP, własne środowisko Integration runtime używa ustawień serwera proxy w diahost. exe. config i diawp. exe. config. Gdy te pliki nie określają serwera proxy, własne środowisko Integration Runtime łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy. Poniższa procedura zawiera instrukcje dotyczące aktualizowania pliku diahost. exe. config:
 
-1. W Eksploratorze plików wykonaj bezpieczną kopię folderu C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config jako kopię zapasową oryginalnego pliku.
+1. W Eksploratorze plików wykonaj bezpieczną kopię folderu C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config jako kopię zapasową oryginalnego pliku.
 1. Otwórz Notatnik uruchomiony jako administrator.
-1. W Notatniku otwórz plik tekstowy C:\Program Files\Microsoft Integration Runtime\3.0\Shared\diahost.exe.config.
+1. W Notatniku otwórz plik tekstowy C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config.
 1. Znajdź domyślny tag **System.NET** , jak pokazano w poniższym kodzie:
 
     ```xml
@@ -395,7 +395,7 @@ W przypadku wybrania opcji **Użyj serwera proxy** dla serwera proxy HTTP, włas
     </system.net>
     ```
 
-    Tag serwera proxy umożliwia dodawanie wymaganych ustawień, takich jak `scriptLocation`. Zobacz [ \<element\> proxy (ustawienia sieciowe)](https://msdn.microsoft.com/library/sa91de1e.aspx) dla składni.
+    Tag serwera proxy umożliwia dodawanie wymaganych ustawień, takich jak `scriptLocation` . Zobacz [ \<proxy\> element (Ustawienia sieci)](https://msdn.microsoft.com/library/sa91de1e.aspx) dla składni.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
@@ -416,7 +416,7 @@ Należy również upewnić się, że Microsoft Azure znajduje się na liście do
 W przypadku wyświetlenia komunikatów o błędach, takich jak następujące, prawdopodobnie przyczyną jest niepoprawna konfiguracja zapory lub serwera proxy. Taka konfiguracja uniemożliwia samodzielne środowisko Integration Runtime łączenie się z usługą Data Factory w celu samodzielnego uwierzytelnienia. Aby upewnić się, że Zapora i serwer proxy są prawidłowo skonfigurowane, zapoznaj się z poprzednią sekcją.
 
 * Podczas próby zarejestrowania własnego środowiska Integration Runtime zostanie wyświetlony następujący komunikat o błędzie: "nie można zarejestrować tego węzła Integration Runtime. Upewnij się, że klucz uwierzytelniania jest prawidłowy, a na tym komputerze jest uruchomiona usługa hosta usługi integracji.
-* Po otwarciu Integration Runtime Configuration Manager zostanie wyświetlony stan **odłączony** lub **nawiązanie połączenia**. Podczas wyświetlania dzienników zdarzeń systemu Windows w obszarze **Podgląd zdarzeń** >  > **Dzienniki aplikacji i usług****Microsoft Integration Runtime**są wyświetlane komunikaty o błędach podobne do tego:
+* Po otwarciu Integration Runtime Configuration Manager zostanie wyświetlony stan **odłączony** lub **nawiązanie połączenia**. Podczas wyświetlania dzienników zdarzeń systemu Windows w obszarze **Podgląd zdarzeń**  >  **Dzienniki aplikacji i usług**  >  **Microsoft Integration Runtime**są wyświetlane komunikaty o błędach podobne do tego:
 
     ```
     Unable to connect to the remote server

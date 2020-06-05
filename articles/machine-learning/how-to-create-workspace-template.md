@@ -5,17 +5,17 @@ description: Dowiedz się, jak utworzyć nowy obszar roboczy Azure Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 05/19/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: eae10b7ae8cd14fd120e969c39c05a8ba2525003
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 5280fe3c4a06479ae49c5064832aca6affd8167f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681543"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433513"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 

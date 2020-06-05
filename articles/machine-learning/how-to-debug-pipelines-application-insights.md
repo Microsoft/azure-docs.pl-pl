@@ -8,15 +8,15 @@ ms.author: sanpil
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: b3e4bf19a7ec153f85483f3c5028e468e06ed7f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3da1cea0b5e17f43d42ced4d1c4ca55d0d3050ad
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982365"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433479"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines-in-application-insights"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego w Application Insights
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,11 +35,11 @@ Umieszczenie dzienników w miejscu spowoduje udostępnienie historii wyjątków 
   ```
 * Utwórz [wystąpienie Application Insights](../azure-monitor/app/opencensus-python.md) (ten dokument zawiera również informacje dotyczące uzyskiwania parametrów połączenia dla zasobu)
 
-## <a name="getting-started"></a>Getting Started
+## <a name="getting-started"></a>Wprowadzenie
 
 Ta sekcja zawiera wprowadzenie do korzystania z programu OpenCensus z potoku Azure Machine Learning. Aby uzyskać szczegółowy samouczek, zobacz [OpenCensus Azure monitor exports](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Dodaj PythonScriptStep do potoku usługi Azure ML. Skonfiguruj [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) z zależnością od opencensus-EXT-Azure. Skonfiguruj zmienną `APPLICATIONINSIGHTS_CONNECTION_STRING` środowiskową.
+Dodaj PythonScriptStep do potoku usługi Azure ML. Skonfiguruj [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) z zależnością od opencensus-EXT-Azure. Skonfiguruj `APPLICATIONINSIGHTS_CONNECTION_STRING` zmienną środowiskową.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -142,7 +142,7 @@ logger.info("I will be sent to Application Insights with Custom Dimensions", cus
 
 OpenCensus AzureLogHandler jest używany do kierowania dzienników w języku Python do Application Insights. W związku z tym należy rozważyć rejestrowanie w języku Python wszystkie szczegóły. Po utworzeniu rejestratora ma domyślny poziom dziennika i będzie wyświetlał dzienniki większe niż lub równe tego poziomu. Dobrym odwołaniem do korzystania z funkcji rejestrowania języka Python jest [Cookbook rejestrowania](https://docs.python.org/3/howto/logging-cookbook.html).
 
-Zmienna `APPLICATIONINSIGHTS_CONNECTION_STRING` środowiskowa jest wymagana dla biblioteki OpenCensus. Zalecamy ustawienie tej zmiennej środowiskowej zamiast przekazywania jej w postaci parametru potoku, aby uniknąć pominięcia ciągów połączeń z tekstem.
+`APPLICATIONINSIGHTS_CONNECTION_STRING`Zmienna środowiskowa jest wymagana dla biblioteki OpenCensus. Zalecamy ustawienie tej zmiennej środowiskowej zamiast przekazywania jej w postaci parametru potoku, aby uniknąć pominięcia ciągów połączeń z tekstem.
 
 ## <a name="querying-logs-in-application-insights"></a>Wykonywanie zapytania dotyczącego dzienników w Application Insights
 

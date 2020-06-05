@@ -6,15 +6,15 @@ author: trevorbye
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: trbye
 ms.date: 03/05/2020
-ms.openlocfilehash: 73b9ae6bc3c15526bfdafd74330c7b86286631b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92120d7eabcd4f9fe8d30c1124555588fcadd19a
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78396140"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432907"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Włącz rejestrowanie w Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ Zestaw Azure Machine Learning Python SDK umożliwia włączenie rejestrowania pr
 > * Modele szkoleniowe i cele obliczeniowe
 > * Tworzenie obrazu
 > * Wdrożone modele
-> * Ustawienia `logging` języka Python
+> * Ustawienia języka Python `logging`
 
 [Utwórz obszar roboczy Azure Machine Learning](how-to-manage-workspace.md). Aby uzyskać więcej informacji na temat zestawu SDK, Skorzystaj z [przewodnika](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) .
 
@@ -52,7 +52,7 @@ experiment = Experiment(ws, experiment_name)
 run = experiment.submit(config=run_config_object, show_output=True)
 ```
 
-Można również użyć tego samego parametru w `wait_for_completion` funkcji w uruchomionym przebiegu.
+Można również użyć tego samego parametru w funkcji w `wait_for_completion` uruchomionym przebiegu.
 
 ```python
 run.wait_for_completion(show_output=True)
@@ -73,7 +73,7 @@ automated_ml_config = AutoMLConfig(task='regression',
                                    primary_metric="spearman_correlation")
 ```
 
-Podczas tworzenia trwałego obiektu `show_output` docelowego obliczeń można także użyć parametru. Określ parametr w `wait_for_completion` funkcji, aby włączyć rejestrowanie podczas tworzenia elementu docelowego obliczeń.
+`show_output`Podczas tworzenia trwałego obiektu docelowego obliczeń można także użyć parametru. Określ parametr w funkcji, `wait_for_completion` Aby włączyć rejestrowanie podczas tworzenia elementu docelowego obliczeń.
 
 ```python
 from azureml.core.compute import ComputeTarget

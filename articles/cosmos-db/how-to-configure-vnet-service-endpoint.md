@@ -4,14 +4,14 @@ description: W tym dokumencie opisano kroki wymagane do skonfigurowania punktu k
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 06/04/2020
 ms.author: mjbrown
-ms.openlocfilehash: 442623880c1b95f3d7e038ae44832b74853d2c4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 904b976b5e5c811912df9421dc64be1617b30b44
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366232"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431721"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Konfigurowanie dostępu z sieci wirtualnych (VNet)
 
@@ -52,7 +52,7 @@ W poniższych sekcjach opisano sposób konfigurowania punktu końcowego usługi 
 > Aby włączyć punkty końcowe usługi sieci wirtualnej, wymagane są następujące uprawnienia do subskrypcji:
 >   * Subskrypcja z siecią wirtualną: współautor sieci
 >   * Subskrypcja przy użyciu konta Azure Cosmos DB: współautor konta DocumentDB
->   * Jeśli Twoja sieć wirtualna i konto Azure Cosmos DB znajdują się w różnych subskrypcjach, upewnij się, że subskrypcja z siecią wirtualną `Microsoft.DocumentDB` również ma zarejestrowany dostawca zasobów. Aby zarejestrować dostawcę zasobów, zobacz artykuł [dostawcy zasobów platformy Azure i typy](../azure-resource-manager/management/resource-providers-and-types.md) artykułów.
+>   * Jeśli Twoja sieć wirtualna i konto Azure Cosmos DB znajdują się w różnych subskrypcjach, upewnij się, że subskrypcja z siecią wirtualną również ma `Microsoft.DocumentDB` zarejestrowany dostawca zasobów. Aby zarejestrować dostawcę zasobów, zobacz artykuł [dostawcy zasobów platformy Azure i typy](../azure-resource-manager/management/resource-providers-and-types.md) artykułów.
 
 Poniżej przedstawiono wskazówki dotyczące rejestrowania subskrypcji przy użyciu dostawcy zasobów.
 
@@ -257,6 +257,10 @@ az network vnet subnet update \
    --vnet-name $vnetName \
    --service-endpoints Microsoft.AzureCosmosDB
 ```
+
+## <a name="port-range-when-using-direct-mode"></a>Zakres portów w trybie bezpośrednim
+
+W przypadku korzystania z punktów końcowych usługi z kontem usługi Azure Cosmos za pośrednictwem połączenia trybu bezpośredniego należy upewnić się, że zakres portów TCP od 10000 do 20000 jest otwarty.
 
 ## <a name="migrating-from-an-ip-firewall-rule-to-a-virtual-network-acl"></a><a id="migrate-from-firewall-to-vnet"></a>Migrowanie z reguły zapory IP do listy ACL sieci wirtualnej
 

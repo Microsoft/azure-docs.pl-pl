@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 481406b02d7d864dd16ac42918ae1aa2dea0b145
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 31c285b8130e7df549ae9f3bb7f1e30cd8a0546c
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195223"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432674"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure Storage
 
@@ -32,11 +32,15 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 #### <a name="account-level"></a>Poziom konta
 
+W tej tabeli przedstawiono [metryki na poziomie konta](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts).
+
 | Metric | Opis |
 | ------------------- | ----------------- |
 | UsedCapacity | Ilość miejsca do magazynowania używanego przez konto magazynu. W przypadku kont magazynu w warstwie Standardowa jest to suma pojemności używanej przez obiekt blob, tabelę, plik i kolejkę. W przypadku kont w warstwie Premium i kont usługi Blob Storage wartość jest taka sama jak BlobCapacity. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 
 #### <a name="blob-storage"></a>Blob Storage
+
+W tej tabeli przedstawiono [metryki magazynu obiektów BLOB](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
 
 | Metric | Opis |
 | ------------------- | ----------------- |
@@ -45,7 +49,9 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 | ContainerCount    | Liczba kontenerów na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 | IndexCapacity     | Ilość miejsca do magazynowania używanego przez ADLS Gen2 indeks hierarchiczny <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 
-#### <a name="table-storage"></a>Magazyn tabel
+#### <a name="table-storage"></a>Table Storage
+
+W tej tabeli przedstawiono [metryki magazynu tabel](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
 
 | Metric | Opis |
 | ------------------- | ----------------- |
@@ -55,6 +61,8 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 #### <a name="queue-storage"></a>Queue Storage
 
+W tej tabeli przedstawiono [metryki magazynu kolejki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+
 | Metric | Opis |
 | ------------------- | ----------------- |
 | QueueCapacity | Ilość magazynu kolejki używanego przez konto magazynu. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
@@ -62,6 +70,8 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 | QueueMessageCount | Liczba niewygasłych komunikatów w kolejce na koncie magazynu. <br/><br/>Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 
 #### <a name="file-storage"></a>File Storage
+
+W tej tabeli przedstawiono [metryki magazynu plików](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
 
 | Metric | Opis |
 | ------------------- | ----------------- |
@@ -263,7 +273,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 |**smbCommandMajor UInt32** | Wartość w **SMB2_HEADER. Command**. Obecnie jest to liczba z przedziału od 0 do 18 włącznie. Na przykład: `0x6` |
 |**smbCommandMinor** | Podklasa elementu **SmbCommandMajor**, gdzie to konieczne. Na przykład: `DirectoryCloseAndDelete` |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - Zobacz [monitorowanie usługi Azure Storage](monitor-storage.md) , aby zapoznać się z opisem monitorowania usługi Azure Storage.
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) .

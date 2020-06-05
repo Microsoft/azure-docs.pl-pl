@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów przy użyciu interfejsu wiersza polecenia platformy Azure i szablonu
 description: Użyj Azure Resource Manager i interfejsu wiersza polecenia platformy Azure, aby wdrożyć zasoby na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
-ms.date: 04/20/2020
-ms.openlocfilehash: 8ee15699a085178add05137be895fe6b660b715b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: a2a1c1fe63d0a841f57407ed5402d7ddca3fcea4
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685700"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432083"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure
 
@@ -26,35 +26,35 @@ Wdrożenie można określić w grupie zasobów, subskrypcji, grupie zarządzania
 
 W zależności od zakresu wdrożenia używane są inne polecenia.
 
-Aby wdrożyć w **grupie zasobów**, użyj [AZ Deployment Group Create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
+* Aby wdrożyć w **grupie zasobów**, użyj [AZ Deployment Group Create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
 
-```azurecli-interactive
-az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+  ```
 
-Aby wdrożyć w **ramach subskrypcji**, użyj polecenie [AZ Deployment sub Create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
+* Aby wdrożyć w **ramach subskrypcji**, użyj polecenie [AZ Deployment sub Create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
 
-```azurecli-interactive
-az deployment sub create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment sub create --location <location> --template-file <path-to-template>
+  ```
 
-Aby uzyskać więcej informacji o wdrożeniach na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](deploy-to-subscription.md).
+  Aby uzyskać więcej informacji o wdrożeniach na poziomie subskrypcji, zobacz [Tworzenie grup zasobów i zasobów na poziomie subskrypcji](deploy-to-subscription.md).
 
-Aby wdrożyć w **grupie zarządzania**, użyj [AZ Deployment mg Create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+* Aby wdrożyć w **grupie zarządzania**, użyj [AZ Deployment mg Create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
 
-```azurecli-interactive
-az deployment mg create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment mg create --location <location> --template-file <path-to-template>
+  ```
 
-Aby uzyskać więcej informacji o wdrożeniach na poziomie grupy zarządzania, zobacz [Tworzenie zasobów na poziomie grupy zarządzania](deploy-to-management-group.md).
+  Aby uzyskać więcej informacji o wdrożeniach na poziomie grupy zarządzania, zobacz [Tworzenie zasobów na poziomie grupy zarządzania](deploy-to-management-group.md).
 
-Aby wdrożyć aplikację w **dzierżawie**, użyj polecenie [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+* Aby wdrożyć aplikację w **dzierżawie**, użyj polecenie [AZ Deployment dzierżawca Create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
 
-```azurecli-interactive
-az deployment tenant create --location <location> --template-file <path-to-template>
-```
+  ```azurecli-interactive
+  az deployment tenant create --location <location> --template-file <path-to-template>
+  ```
 
-Aby uzyskać więcej informacji na temat wdrożeń na poziomie dzierżawy, zobacz [Tworzenie zasobów na poziomie dzierżawy](deploy-to-tenant.md).
+  Aby uzyskać więcej informacji na temat wdrożeń na poziomie dzierżawy, zobacz [Tworzenie zasobów na poziomie dzierżawy](deploy-to-tenant.md).
 
 W przykładach w tym artykule są używane wdrożenia grup zasobów.
 
@@ -102,6 +102,10 @@ az deployment group create \
 
 Poprzedni przykład wymaga publicznie dostępnego identyfikatora URI dla szablonu, który działa w większości scenariuszy, ponieważ szablon nie powinien zawierać poufnych danych. Jeśli musisz określić dane poufne (na przykład hasło administratora), przekaż tę wartość jako bezpieczny parametr. Jeśli jednak nie chcesz, aby szablon był dostępny publicznie, możesz go chronić, przechowując go w prywatnym kontenerze magazynu. Informacje o wdrażaniu szablonu wymagającego tokenu sygnatury dostępu współdzielonego (SAS) znajdują się w temacie [Deploy Private Template with SAS token](secure-template-with-sas-token.md).
 
+## <a name="preview-changes"></a>Podgląd zmian
+
+Przed wdrożeniem szablonu można wyświetlić podgląd zmian wprowadzonych przez szablon w danym środowisku. Użyj [operacji działania warunkowego](template-deploy-what-if.md) , aby sprawdzić, czy szablon wprowadza zmiany, których oczekujesz. Co-jeśli również sprawdza poprawność szablonu pod kątem błędów.
+
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../../includes/resource-manager-cloud-shell-deploy.md)]
 
 W Cloud Shell Użyj następujących poleceń:
@@ -119,7 +123,7 @@ Aby przekazać wartości parametrów, można użyć parametrów wbudowanych lub 
 
 ### <a name="inline-parameters"></a>Parametry wbudowane
 
-Aby przekazać parametry wbudowane, podaj wartości w `parameters`. Na przykład, aby przekazać ciąg i tablicę do szablonu, jest powłoką bash, użyj:
+Aby przekazać parametry wbudowane, podaj wartości w `parameters` . Na przykład, aby przekazać ciąg i tablicę do szablonu, jest powłoką bash, użyj:
 
 ```azurecli-interactive
 az deployment group create \
@@ -128,7 +132,7 @@ az deployment group create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-Jeśli używasz interfejsu wiersza polecenia platformy Azure z wierszem poleceń systemu Windows (CMD) lub PowerShell, Przekaż tablicę w `exampleArray="['value1','value2']"`formacie:.
+Jeśli używasz interfejsu wiersza polecenia platformy Azure z wierszem poleceń systemu Windows (CMD) lub PowerShell, Przekaż tablicę w formacie: `exampleArray="['value1','value2']"` .
 
 Możesz również pobrać zawartość pliku i podać tę zawartość jako parametr wbudowany.
 
@@ -156,7 +160,7 @@ Zamiast przekazywać parametry jako wartości wbudowane w skrypcie, można ułat
 
 Aby uzyskać więcej informacji na temat pliku parametrów, zobacz [Tworzenie pliku parametrów Menedżer zasobów](parameter-files.md).
 
-Aby przekazać lokalny plik parametrów, użyj `@` , aby określić plik lokalny o nazwie Storage. Parameters. JSON.
+Aby przekazać lokalny plik parametrów, użyj, `@` Aby określić plik lokalny o nazwie Storage. Parameters. JSON.
 
 ```azurecli-interactive
 az deployment group create \
@@ -188,57 +192,6 @@ Aby wdrożyć szablon z wielowierszowymi ciągami lub komentarzami przy użyciu 
   ],
 ```
 
-## <a name="test-a-template-deployment"></a>Testowanie wdrożenia szablonu
-
-Aby przetestować wartości szablonu i parametrów bez faktycznego wdrażania zasobów, użyj [AZ Deployment Group Validate](/cli/azure/group/deployment).
-
-```azurecli-interactive
-az deployment group validate \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters @storage.parameters.json
-```
-
-Jeśli nie wykryto żadnych błędów, polecenie zwraca informacje o wdrożeniu testowym. W szczególności Zwróć uwagę na to, że wartość **błędu** to null.
-
-```output
-{
-  "error": null,
-  "properties": {
-      ...
-```
-
-Jeśli zostanie wykryty błąd, polecenie zwróci komunikat o błędzie. Na przykład przekazanie nieprawidłowej wartości dla jednostki SKU konta magazynu zwróci następujący błąd:
-
-```output
-{
-  "error": {
-    "code": "InvalidTemplate",
-    "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter
-      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed
-      value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
-    "target": null
-  },
-  "properties": null
-}
-```
-
-Jeśli szablon zawiera błąd składniowy, polecenie zwróci błąd wskazujący, że nie można przeanalizować szablonu. Komunikat wskazuje numer wiersza i położenie błędu analizy.
-
-```output
-{
-  "error": {
-    "code": "InvalidTemplate",
-    "details": null,
-    "message": "Deployment template parse failed: 'After parsing a value an unexpected character was encountered:
-      \". Path 'variables', line 31, position 3.'.",
-    "target": null
-  },
-  "properties": null
-}
-```
-
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby wrócić do pomyślnego wdrożenia, gdy wystąpi błąd, zobacz [wycofywanie po pomyślnym wdrożeniu](rollback-on-error.md).
@@ -246,4 +199,3 @@ Jeśli szablon zawiera błąd składniowy, polecenie zwróci błąd wskazujący,
 - Aby zrozumieć, jak definiować parametry w szablonie, zobacz [Opis struktury i składni szablonów ARM](template-syntax.md).
 - Aby uzyskać wskazówki dotyczące rozwiązywania typowych błędów wdrażania, zobacz [Rozwiązywanie typowych błędów wdrażania platformy Azure przy użyciu Azure Resource Manager](common-deployment-errors.md).
 - Informacje o wdrażaniu szablonu wymagającego tokenu SAS można znaleźć w temacie [Deploy Private Template with SAS token](secure-template-with-sas-token.md).
-- Aby bezpiecznie wdrożyć usługę w więcej niż jednym regionie, zobacz [Azure Menedżer wdrażania](deployment-manager-overview.md).

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6339b86166aff008bf17b5096d42629daf6e3401
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996078"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434292"
 ---
 # <a name="language-and-region-support-for-translator"></a>Obsługa języków i regionów w usłudze translator
 
@@ -74,10 +74,11 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 |Irlandzki | `ga`| Neuronowych
 |Włoski|    `it`    |    Neuronowych|
 |Japoński|    `ja`    |    Neuronowych|
-|Kannada|`kn`| Neuronowych
+|Kannada|`kn`| Neuronowych|
+|Kazachski |`kk`| Neuronowych|
 |Kiswahili|    `sw`    |    Statystyczn|
-|Klingon|    `tlh`    |    Statystyczn|
-|Klingon (plqaD)|    `tlh-Qaak`    |    Statystyczn|
+|Klingon|    `tlh-Latn`    |    Statystyczn|
+|Klingon (plqaD)|    `tlh-Piqd`    |    Statystyczn|
 |Koreański    |`ko`    |    Neuronowych|
 |Łotewski|    `lv`    |    Neuronowych|
 |Litewski|    `lt`    |    Neuronowych|
@@ -130,20 +131,20 @@ Metoda transliteracji obsługuje następujące języki. W polu "do/z" <--> "wska
 | Chiński (uproszczony) | `zh-Hans` | Chiński uproszczony`Hans`| <--> | Chiński tradycyjny`Hant`|
 | Chiński (tradycyjny) | `zh-Hant` | Chiński tradycyjny`Hant`| <--> | Wielka`Latn` |
 | Chiński (tradycyjny) | `zh-Hant` | Chiński tradycyjny`Hant`| <--> | Chiński uproszczony`Hans` |
-| Gudżarati | `gu`  | Gudżarati`Gujr` | --> | Wielka`Latn` |
+| Gudżarati | `gu`  | Gudżarati`Gujr` | <--> | Wielka`Latn` |
 | Hebrajski | `he` | Hebrajski`Hebr` | <--> | Wielka`Latn` |
 | Hindi | `hi` | Devanagari`Deva` | <--> | Wielka`Latn` |
 | Japoński | `ja` | Japoński`Jpan` | <--> | Wielka`Latn` |
-| Kannada | `kn` | Kannada`Knda` | --> | Wielka`Latn` |
-| Malayalam | `ml` | Malayalam`Mlym` | --> | Wielka`Latn` |
-| Marathi | `mr` | Devanagari`Deva` | --> | Wielka`Latn` |
+| Kannada | `kn` | Kannada`Knda` | <--> | Wielka`Latn` |
+| Malayalam | `ml` | Malayalam`Mlym` | <--> | Wielka`Latn` |
+| Marathi | `mr` | Devanagari`Deva` | <--> | Wielka`Latn` |
 | Orija | `or` | Orija`Orya` | <--> | Wielka`Latn` |
 | Pendżabski | `pa` | Gurmukhi`Guru`  | <--> | Wielka`Latn`  |
 | Serbski (cyrylica) | `sr-Cyrl` | Pisanych`Cyrl`  | --> | Wielka`Latn` |
 | Serbski (łaciński) | `sr-Latn` | Wielka`Latn` | --> | Pisanych`Cyrl`|
-| Tamilski | `ta` | Tamilski`Taml` | --> | Wielka`Latn` |
-| Telugu | `te` | Telugu`Telu` | --> | Wielka`Latn` |
-| Tajlandzki | `th` | Tajski`Thai` | --> | Wielka`Latn` |
+| Tamilski | `ta` | Tamilski`Taml` | <--> | Wielka`Latn` |
+| Telugu | `te` | Telugu`Telu` | <--> | Wielka`Latn` |
+| Tajlandzki | `th` | Tajski`Thai` | <--> | Wielka`Latn` |
 
 ## <a name="dictionary"></a>Słownik
 
@@ -177,7 +178,7 @@ Słownik obsługuje następujące języki w języku angielskim lub z niego przy 
 | Włoski      | `it`          |
 | Japoński      | `ja`          |
 | Kiswahili      | `sw`          |
-| Klingon      | `tlh`          |
+| Klingon      | `tlh-Latn`          |
 | Koreański      | `ko`          |
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |

@@ -6,18 +6,31 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 10/16/2019
+ms.date: 6/4/2020
 ms.author: dapatil
-ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74b02da51603366f5ec18aa4733117bc2c59faf7
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72433414"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417858"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Historia wersji Planista wdrażania usługi Azure Site Recovery
 
 W tym artykule przedstawiono historię wszystkich wersji Planista wdrażania usługi Azure Site Recovery wraz z poprawkami, znanymi ograniczeniami w każdej i ich datach wydania.
+
+## <a name="version-252"></a>Wersja 2,52
+
+**Data wydania: 4 czerwca 2020**
+
+**Prefix**
+
+- Dodano obsługę programu vCenter 7,0
+- Dodano obsługę następujących systemów operacyjnych:
+
+    - SUSE Linux Enterprise 15 (ze wszystkimi wersjami pomocniczymi)
+    - Red Hat Enterprise Linux 8 (ze wszystkimi wersjami pomocniczymi)
+
 
 ## <a name="version-251"></a>Wersja 2,51
 
@@ -44,7 +57,7 @@ W tym artykule przedstawiono historię wszystkich wersji Planista wdrażania us�
 
 - Ulepszona zgodność systemu operacyjnego, w przypadku obsługi błędów na podstawie lokalizacji.
 - Dodano maszyny wirtualne z maksymalnie 20 MB/s szybkości zmian danych (zmiany) do listy kontrolnej zgodności.
-- Ulepszone komunikaty o błędach
+- Ulepszono komunikaty o błędach
 - Dodano obsługę programu vCenter 6,7.
 - Dodano obsługę stacji roboczej z systemem Windows Server 2019 i Red Hat Enterprise Linux (RHEL).
 
@@ -109,7 +122,7 @@ W tym artykule przedstawiono historię wszystkich wersji Planista wdrażania us�
 
 **Znane ograniczenia:**
 
-- W przypadku odzyskiwania po awarii funkcji Hyper-V do platformy Azure maszyna wirtualna o nazwie zawierającej `"`znaki `[`takie `]`jak: ``` ` ``` `,`,,, i nie jest obsługiwana. Jeśli profilowana, generowanie raportu zakończy się niepowodzeniem lub będzie mieć niepoprawny wynik.
+- W przypadku odzyskiwania po awarii funkcji Hyper-V do platformy Azure maszyna wirtualna o nazwie zawierającej znaki takie jak: `,` , `"` ,, `[` `]` i ``` ` ``` nie jest obsługiwana. Jeśli profilowana, generowanie raportu zakończy się niepowodzeniem lub będzie mieć niepoprawny wynik.
 - W przypadku odzyskiwania po awarii programu VMware do platformy Azure maszyna wirtualna o nazwie zawierającej przecinek nie jest obsługiwana. Po profilowaniu generowanie raportu kończy się niepowodzeniem lub będzie miało niepoprawny wynik.
 
 ## <a name="version-131"></a>Wersja 1.3.1

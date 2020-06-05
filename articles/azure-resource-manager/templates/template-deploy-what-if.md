@@ -3,14 +3,14 @@ title: Template deployment co zrobić (wersja zapoznawcza)
 description: Przed wdrożeniem szablonu Azure Resource Manager Ustal, jakie zmiany będą miały miejsce w swoich zasobach.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/04/2020
 ms.author: tomfitz
-ms.openlocfilehash: 31ef0f26043c416ff902fe792bae064c63f15b20
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 62f46d158bea9507246fda7f24750c3743a5e1f1
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218292"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424248"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Wdrażanie szablonu ARM — operacja, którą należy wykonać (wersja zapoznawcza)
 
@@ -19,19 +19,23 @@ Przed wdrożeniem szablonu Azure Resource Manager (ARM) można wyświetlić podg
 > [!NOTE]
 > Operacja działania warunkowego jest obecnie w wersji zapoznawczej. W wersji zapoznawczej wyniki mogą czasami wskazywać, że zasób ulegnie zmianie, gdy nie zostanie wykonana żadna zmiana. Pracujemy nad zmniejszeniem tych problemów, ale potrzebujemy pomocy. Zgłoś te problemy pod adresem [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
-Operacji działania warunkowego można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub operacji interfejsu API REST.
+Operacji działania warunkowego można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub operacji interfejsu API REST. Co jest obsługiwane w przypadku wdrożeń grup zasobów i na poziomie subskrypcji.
 
-## <a name="install-powershell-module"></a>Zainstaluj moduł programu PowerShell
+## <a name="install-azure-powershell-module"></a>Zainstaluj moduł Azure PowerShell
 
-Aby użyć co zrobić w programie PowerShell, należy zainstalować wersję zapoznawczą modułu AZ. resources z galerii programu PowerShell. Jednak przed zainstalowaniem modułu upewnij się, że masz rdzeń programu PowerShell (6. x lub 7. x). Jeśli masz program PowerShell 5. x lub starszy, [Zaktualizuj swoją wersję programu PowerShell](/powershell/scripting/install/installing-powershell). Nie można zainstalować modułu w wersji zapoznawczej programu PowerShell 5. x lub starszej wersji.
+Aby użyć tego, co jest dostępne w programie PowerShell, musisz mieć wersję **4,2 lub nowszą w programie AZ module**.
 
-### <a name="install-preview-version"></a>Wersja zapoznawcza instalacji
+Jednak przed zainstalowaniem wymaganego modułu upewnij się, że masz rdzeń programu PowerShell (6. x lub 7. x). Jeśli masz program PowerShell 5. x lub starszy, [Zaktualizuj swoją wersję programu PowerShell](/powershell/scripting/install/installing-powershell). Nie można zainstalować wymaganego modułu w programie PowerShell 5. x lub starszym.
 
-Aby zainstalować moduł w wersji zapoznawczej, użyj:
+### <a name="install-latest-version"></a>Zainstaluj najnowszą wersję
+
+Aby zainstalować moduł, użyj:
 
 ```powershell
-Install-Module Az.Resources -RequiredVersion 1.12.1-preview -AllowPrerelease
+Install-Module -Name Az -Force
 ```
+
+Aby uzyskać więcej informacji o instalowaniu modułów, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="uninstall-alpha-version"></a>Odinstaluj wersję Alpha
 
@@ -101,7 +105,7 @@ Resource changes: 1 to modify.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, Dodaj `-Whatif` parametr Switch do polecenia Deployment.
+Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj polecenie [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) lub [New-AzSubscriptionDeployment](/powershell/module/az.resources/new-azdeployment). Dodaj `-Whatif` parametr Switch do polecenia Deployment.
 
 * `New-AzResourceGroupDeployment -Whatif`dla wdrożeń grup zasobów
 * `New-AzSubscriptionDeployment -Whatif`i `New-AzDeployment -Whatif` dla wdrożeń na poziomie subskrypcji
@@ -111,19 +115,19 @@ Możesz użyć `-Confirm` parametru Switch, aby wyświetlić podgląd zmian i uz
 * `New-AzResourceGroupDeployment -Confirm`dla wdrożeń grup zasobów
 * `New-AzSubscriptionDeployment -Confirm`i `New-AzDeployment -Confirm` dla wdrożeń na poziomie subskrypcji
 
-Powyższe polecenia zwracają podsumowanie tekstu, które można ręcznie sprawdzić. Aby uzyskać obiekt, który można programowo sprawdzić pod kątem zmian, użyj:
+Powyższe polecenia zwracają podsumowanie tekstu, które można ręcznie sprawdzić. Aby uzyskać obiekt, który można programowo sprawdzić pod kątem zmian, użyj polecenie [Get-AzResourceGroupDeploymentWhatIfResult](/powershell/module/az.resources/get-azresourcegroupdeploymentwhatifresult) lub [Get-AzSubscriptionDeploymentWhatIfResult](/powershell/module/az.resources/get-azdeploymentwhatifresult).
 
 * `$results = Get-AzResourceGroupDeploymentWhatIfResult`dla wdrożeń grup zasobów
 * `$results = Get-AzSubscriptionDeploymentWhatIfResult`lub `$results = Get-AzDeploymentWhatIfResult` w przypadku wdrożeń na poziomie subskrypcji
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj `what-if` polecenia z poleceniem Deployment.
+Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj [AZ Deployment Group IF-IF](/cli/azure/deployment/group#az-deployment-group-what-if) lub [AZ Deployment sub-if](/cli/azure/deployment/sub#az-deployment-sub-what-if).
 
 * `az deployment group what-if`dla wdrożeń grup zasobów
 * `az deployment sub what-if`w przypadku wdrożeń na poziomie subskrypcji
 
-Możesz użyć `--confirm-with-what-if` przełącznika (lub jego krótkiej formy `-c` ), aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
+Możesz użyć `--confirm-with-what-if` przełącznika (lub jego krótkiej formy `-c` ), aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia. Dodaj ten przełącznik do [AZ Deployment Group Create](/cli/azure/deployment/group#az-deployment-group-create) lub [AZ Deployment sub Create](/cli/azure/deployment/sub#az-deployment-sub-create).
 
 * `az deployment group create --confirm-with-what-if`lub `-c` dla wdrożeń grup zasobów
 * `az deployment sub create --confirm-with-what-if`lub `-c` w przypadku wdrożeń na poziomie subskrypcji

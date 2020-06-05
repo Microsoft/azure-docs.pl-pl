@@ -4,12 +4,12 @@ description: Przywróć maszynę wirtualną platformy Azure z punktu odzyskiwani
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 6a170755673c05448d1bb86af993cad929664949
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 31d318f53dd8e55d3d2740d783be4f4dcae92344
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597777"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84416668"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Przywracanie danych maszyny wirtualnej platformy Azure w Azure Portal
 
@@ -51,7 +51,7 @@ Jeśli nie masz uprawnień, możesz [przywrócić dysk](#restore-disks), a nast�
 
 ## <a name="select-a-restore-point"></a>Wybierz punkt przywracania
 
-1. W magazynie skojarzonym z maszyną wirtualną, którą chcesz przywrócić, kliknij pozycję **Utwórz kopię zapasową elementów** > **usługi Azure Virtual Machine**.
+1. W magazynie skojarzonym z maszyną wirtualną, którą chcesz przywrócić, kliknij pozycję **Utwórz kopię zapasową elementów**  >  **usługi Azure Virtual Machine**.
 2. Kliknij maszynę wirtualną. Domyślnie na pulpicie nawigacyjnym maszyny wirtualnej są wyświetlane punkty odzyskiwania z ostatnich 30 dni. Możesz wyświetlić punkty odzyskiwania starsze niż 30 dni lub przefiltrować, aby znaleźć punkty odzyskiwania na podstawie dat, zakresów czasu i różnych typów spójności migawek.
 3. Aby przywrócić maszynę wirtualną, kliknij pozycję **Przywróć maszynę wirtualną**.
 
@@ -73,7 +73,7 @@ Jeśli nie masz uprawnień, możesz [przywrócić dysk](#restore-disks), a nast�
 
 Jako jedna z [opcji przywracania](#restore-options)można szybko utworzyć maszynę wirtualną z ustawieniami podstawowymi z punktu przywracania.
 
-1. W obszarze **Przywróć konfigurację** > **Utwórz nowy** > **Typ przywracania**, wybierz pozycję **Utwórz maszynę wirtualną**.
+1. W obszarze **Przywróć konfigurację**  >  **Utwórz nowy**  >  **Typ przywracania**, wybierz pozycję **Utwórz maszynę wirtualną**.
 2. W polu **Nazwa maszyny wirtualnej**Określ maszynę wirtualną, która nie istnieje w subskrypcji.
 3. W obszarze **Grupa zasobów**wybierz istniejącą grupę zasobów dla nowej maszyny wirtualnej lub Utwórz nową z globalnie unikatową nazwą. Jeśli przypiszesz już istniejącą nazwę, platforma Azure przypisze grupę o tej samej nazwie co maszyna wirtualna.
 4. W obszarze **Sieć wirtualna**wybierz sieć wirtualną, w której zostanie umieszczona maszyna wirtualna. Zostanie wyświetlona cała sieci wirtualnych skojarzona z subskrypcją. Wybierz podsieć. Pierwsza podsieć jest domyślnie zaznaczona.
@@ -91,7 +91,7 @@ Jako jedną z [opcji przywracania](#restore-options)można utworzyć dysk z punk
 - [Dołącz przywrócone dyski](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) do istniejącej maszyny wirtualnej.
 - [Utwórz nową maszynę wirtualną](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) na podstawie przywróconych dysków przy użyciu programu PowerShell.
 
-1. W obszarze **Przywróć konfigurację** > **Utwórz nowy** > **Typ przywracania**, wybierz pozycję **Przywróć dyski**.
+1. W obszarze **Przywróć konfigurację**  >  **Utwórz nowy**  >  **Typ przywracania**, wybierz pozycję **Przywróć dyski**.
 2. W obszarze **Grupa zasobów**wybierz istniejącą grupę zasobów dla przywróconych dysków lub Utwórz nową z globalnie unikatową nazwą.
 3. W obszarze **konto magazynu**Określ konto, do którego mają zostać skopiowane wirtualne dyski twarde. [Dowiedz się więcej](#storage-accounts).
 
@@ -144,7 +144,7 @@ Aby sprawdzić, czy CRR jest włączona, postępuj zgodnie z instrukcjami podany
 
 Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regionie pomocniczym.
 
-1. W portalu przejdź do obszaru **Recovery Services** > **elementy kopii zapasowej** magazynu
+1. W portalu przejdź do obszaru **Recovery Services**  >  **elementy kopii zapasowej** magazynu
 2. Kliknij pozycję **region pomocniczy** , aby wyświetlić elementy w regionie pomocniczym.
 
 ![Maszyny wirtualne w regionie pomocniczym](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
@@ -171,7 +171,7 @@ Jeśli CRR jest włączona, można wyświetlić elementy kopii zapasowej w regio
 
 ### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorowanie zadań przywracania regionu pomocniczego
 
-1. W portalu przejdź do obszaru **Recovery Services** > **zadania tworzenia kopii zapasowej** magazynu
+1. W portalu przejdź do obszaru **Recovery Services**  >  **zadania tworzenia kopii zapasowej** magazynu
 2. Kliknij pozycję **region pomocniczy** , aby wyświetlić elementy w regionie pomocniczym.
 
 ![Odfiltrowane zadania tworzenia kopii zapasowej](./media/backup-azure-arm-restore-vms/secbackupjobs.png)
@@ -191,6 +191,7 @@ Istnieje kilka typowych scenariuszy, w których może być konieczne przywrócen
 **Przywracanie maszyn wirtualnych ze specjalnymi konfiguracjami sieci** | Specjalne konfiguracje sieci obejmują maszyny wirtualne korzystające z wewnętrznego lub zewnętrznego równoważenia obciążenia, przy użyciu wielu kart sieciowych lub wielu zarezerwowanych adresów IP. Te maszyny wirtualne można przywrócić przy użyciu [opcji Przywróć dysk](#restore-disks). Ta opcja powoduje utworzenie kopii dysków VHD na określonym koncie magazynu, a następnie można utworzyć maszynę wirtualną z [wewnętrznym](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) lub [zewnętrznym](/azure/load-balancer/quickstart-create-standard-load-balancer-powershell) modułem równoważenia obciążenia, [wieloma](../virtual-machines/windows/multiple-nics.md)kartami sieciowymi lub [wieloma zastrzeżonymi adresami IP](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), zgodnie z konfiguracją.
 **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) na karcie sieciowej/podsieci** | Kopia zapasowa maszyny wirtualnej platformy Azure obsługuje tworzenie kopii zapasowych i przywracanie informacji sieciowej grupy zabezpieczeń na poziomie sieci wirtualnej, podsieci i karty sieciowej.
 **Przypięte strefy maszyny wirtualne** | W przypadku tworzenia kopii zapasowej maszyny wirtualnej platformy Azure, która jest przypięta do strefy (z Azure Backup), można przywrócić ją w tej samej strefie, w której został przypięty. [Dowiedz się więcej](https://docs.microsoft.com/azure/availability-zones/az-overview)
+**Przywróć maszynę wirtualną w dowolnym zestawie dostępności** | W przypadku przywracania maszyny wirtualnej z portalu nie jest dostępna opcja wyboru zestawu dostępności. Przywrócona maszyna wirtualna nie ma zestawu dostępności. Jeśli używasz opcji Przywróć dysk, możesz [określić zestaw dostępności](../virtual-machines/windows/tutorial-availability-sets.md) podczas tworzenia maszyny wirtualnej na podstawie dysku przy użyciu podanego szablonu lub programu PowerShell.
 
 ## <a name="track-the-restore-operation"></a>Śledzenie operacji przywracania
 

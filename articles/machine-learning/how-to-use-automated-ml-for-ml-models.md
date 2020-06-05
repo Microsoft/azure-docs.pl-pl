@@ -5,18 +5,18 @@ description: Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynow
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: nibaccam
 author: aniththa
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/20/2020
-ms.openlocfilehash: 20d98f8eb4971d2aba1ecfbf8abeaba261cde8c4
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 7335eee191d87ba34e32a5f7842c088d8ea4cb3e
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115900"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431560"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Twórz, Przeglądaj i wdrażaj automatyczne modele uczenia maszynowego za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -70,7 +70,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
         ----|----
         Format pliku| Definiuje układ i typ danych przechowywanych w pliku.
         Ogranicznik| Jeden lub więcej znaków do określenia granicy między oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych.
-        Kodowanie| Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.
+        Encoding| Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.
     
@@ -99,7 +99,7 @@ W przeciwnym razie zostanie wyświetlona lista ostatnich zautomatyzowanych ekspe
     Rozmiar maszyny wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.
     Minimalna/Maksymalna liczba węzłów (w ustawieniach zaawansowanych)| Aby profilować dane, musisz określić co najmniej jeden węzeł. Wprowadź maksymalną liczbę węzłów dla obliczeń. Wartość domyślna to 6 węzłów na potrzeby obliczeń AML.
     
-    Wybierz przycisk **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
+    Wybierz pozycję **Utwórz**. Tworzenie nowego obliczenia może potrwać kilka minut.
 
     >[!NOTE]
     > Nazwa obliczeniowa wskazuje, czy w przypadku obliczeń, które zostały wybrane/utworzone, *włączono profilowanie*. (Szczegółowe informacje znajdują się w sekcji [Profilowanie danych](#profile) ).
@@ -142,7 +142,7 @@ Możesz uzyskać szeroką gamę statystyk podsumowujących dla zestawu danych, a
 
 Statystyka|Opis
 ------|------
-Cecha| Nazwa sumowanej kolumny.
+Cechy| Nazwa sumowanej kolumny.
 Profil| Wizualizacja w wierszu oparta na wywnioskowanym typie. Na przykład ciągi, wartości logiczne i daty będą mieć liczby wartości, podczas gdy miejsca dziesiętne (liczbowe) mają przybliżone histogramy. Pozwala to na szybkie zrozumienie dystrybucji danych.
 Dystrybucja typów| Liczba wartości w wierszu dla typów w kolumnie. Wartości null są własnym typem, więc Wizualizacja jest przydatna do wykrywania nieparzystych lub brakujących wartości.
 Typ|Wywnioskowany typ kolumny. Możliwe wartości to: ciągi, wartości logiczne, daty i miejsca dziesiętne.

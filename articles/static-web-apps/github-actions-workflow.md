@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: chnwamba
-ms.openlocfilehash: 44472eb697a4d191d4ed99b7879654fcca61383b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e2cc1e20c20c17742f2bea56f4e87e8678e4cc03
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655210"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434014"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Przepływy pracy akcji GitHub dla usługi Azure static Web Apps Preview
 
@@ -105,7 +105,7 @@ W pliku statycznego przepływu pracy Web Apps są dostępne dwa zadania.
 | Nazwa  | Opis |
 |---------|---------|
 |`build_and_deploy_job` | Wykonuje się w przypadku wypychania zatwierdzeń lub otwarcia żądania ściągnięcia względem gałęzi wymienionej we `on` właściwości. |
-|`close_pull_request_job` | Wykonuje tylko po zamknięciu żądania ściągnięcia. |
+|`close_pull_request_job` | Wykonuje tylko po zamknięciu żądania ściągnięcia, które usuwa środowisko przejściowe utworzone na podstawie żądań ściągnięcia. |
 
 ## <a name="steps"></a>Kroki
 
@@ -136,7 +136,7 @@ with:
 
 | Właściwość | Opis | Wymagane |
 |---|---|---|
-| `app_location` | Lokalizacja kodu aplikacji.<br><br>Na przykład wprowadź, `/` czy kod źródłowy aplikacji znajduje się w katalogu głównym repozytorium, czy `/app` kod aplikacji znajduje się w katalogu o nazwie `app` . | Yes |
+| `app_location` | Lokalizacja kodu aplikacji.<br><br>Na przykład wprowadź, `/` czy kod źródłowy aplikacji znajduje się w katalogu głównym repozytorium, czy `/app` kod aplikacji znajduje się w katalogu o nazwie `app` . | Tak |
 | `api_location` | Lokalizacja kodu Azure Functions.<br><br>Na przykład wprowadź, `/api` czy kod aplikacji znajduje się w folderze o nazwie `api` . Jeśli w folderze nie zostanie wykryta żadna aplikacja Azure Functions, kompilacja nie powiedzie się, a przepływ pracy zakłada, że nie potrzebujesz interfejsu API. | Nie |
 | `app_artifact_location` | Lokalizacja katalogu wyjściowego kompilacji względem `app_location` .<br><br>Na przykład, jeśli kod źródłowy aplikacji znajduje się w lokalizacji `/app` i skrypt kompilacji wyprowadza pliki do `/app/build` folderu, a następnie ustawi `build` jako `app_artifact_location` wartość. | Nie |
 

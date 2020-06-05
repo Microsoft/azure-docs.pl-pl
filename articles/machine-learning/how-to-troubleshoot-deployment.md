@@ -5,18 +5,18 @@ description: Dowiedz się, jak obejść, rozwiązać i rozwiązać typowe błęd
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4
-ms.openlocfilehash: f65b263bb90356a4d739ebc963458cc7e992863c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 758e0b19cd249215dc8531224bc2685703b9fc85
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84307949"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433722"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Rozwiązywanie problemów z wdrażaniem modeli przez platformę Docker za pomocą usługi Azure Kubernetes Service i Azure Container Instances 
 
@@ -211,7 +211,7 @@ Ustawienie poziomu rejestrowania na debugowanie może spowodować zarejestrowani
 
 ## <a name="function-fails-runinput_data"></a>Niepowodzenie funkcji: Uruchom (input_data)
 
-Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Na przykład:
+Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Przykład:
 
 ```python
 def run(input_data):

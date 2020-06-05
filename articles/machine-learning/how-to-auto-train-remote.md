@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: e55e6d4eb4f52b8a4b64db89691cf087a30ecb73
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3e88db734ecabb38363087d98b97f9eb4ec181ec
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612320"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434669"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Trenowanie modeli za pomocą automatycznego uczenia maszynowego w chmurze
 
@@ -34,7 +34,7 @@ Więcej funkcji jest dostępnych w przypadku użycia zdalnego obiektu docelowego
 
 Samouczek "[uczenie modelu klasyfikacji przy użyciu automatycznego uczenia maszynowego](tutorial-auto-train-models.md)" uczy się, w jaki sposób używać komputera lokalnego do uczenia modelu o zautomatyzowanej ml. Przepływ pracy, gdy szkolenie lokalnie dotyczy również zdalnych obiektów docelowych. Aby przeprowadzić uczenie zdalne, należy najpierw utworzyć zdalne miejsce docelowe obliczeń, takie jak AmlCompute. Następnie należy skonfigurować zasób zdalny i przesłać tam swój kod.
 
-W tym artykule przedstawiono dodatkowe kroki niezbędne do uruchomienia zautomatyzowanego eksperymentu ML na zdalnym miejscu docelowym AmlCompute. Obiekt `ws`obszaru roboczego, z samouczka jest używany w całym kodzie tutaj.
+W tym artykule przedstawiono dodatkowe kroki niezbędne do uruchomienia zautomatyzowanego eksperymentu ML na zdalnym miejscu docelowym AmlCompute. Obiekt obszaru roboczego, `ws` z samouczka jest używany w całym kodzie tutaj.
 
 ```python
 ws = Workspace.from_config()
@@ -42,7 +42,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Tworzenie zasobu
 
-Utwórz element [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) docelowy w obszarze roboczym`ws`(), jeśli jeszcze nie istnieje.
+Utwórz [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) element docelowy w obszarze roboczym ( `ws` ), jeśli jeszcze nie istnieje.
 
 **Szacowany czas**: Tworzenie elementu docelowego AmlCompute trwa około 5 minut.
 
@@ -85,11 +85,11 @@ Teraz można użyć `compute_target` obiektu jako zdalnego obiektu docelowego ob
 
 Ograniczenia nazw klastrów obejmują:
 + Musi być krótsza niż 64 znaków.
-+ Nie może zawierać żadnego z następujących znaków: `\` ~! @ # $% ^ & * () = + _ [] {} \\ \\ |; : \' \\",  < > /?. `
++ Nie może zawierać żadnego z następujących znaków: `\` ~! @ # $% ^ & * () = + _ [] {} \\ \\ |;: \' \\ ",  < > /?. `
 
 ## <a name="access-data-using-tabulardataset-function"></a>Dostęp do danych za pomocą funkcji TabularDataset
 
-Zdefiniowane training_data jako [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) i etykieta, które są przesyłane do zautomatyzowanej ml w [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). `TabularDataset` Metoda `from_delimited_files`domyślnie ustawia wartość `infer_column_types` na true, co spowoduje automatyczne wywnioskowanie typu kolumn. 
+Zdefiniowane training_data jako [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) i etykieta, które są przesyłane do zautomatyzowanej ml w [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) . `TabularDataset`Metoda `from_delimited_files` domyślnie ustawia `infer_column_types` wartość na true, co spowoduje automatyczne wywnioskowanie typu kolumn. 
 
 Jeśli chcesz ręcznie ustawić typy kolumn, możesz ustawić `set_column_types` argument, aby ręcznie ustawić typ każdej kolumny. W poniższym przykładzie kodu dane pochodzą z pakietu skryptu sklearn.
 
@@ -125,7 +125,7 @@ training_data = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/di
 ```
 
 ## <a name="configure-experiment"></a>Konfigurowanie eksperymentu
-Określ ustawienia dla `AutoMLConfig`.  (Zobacz [pełną listę parametrów](how-to-configure-auto-train.md#configure-experiment) i ich wartości).
+Określ ustawienia dla `AutoMLConfig` .  (Zobacz [pełną listę parametrów](how-to-configure-auto-train.md#configure-experiment) i ich wartości).
 
 ```python
 from azureml.train.automl import AutoMLConfig

@@ -5,16 +5,16 @@ description: Skonfiguruj VS Code zdalnie, aby interaktywnie debugować kod przy 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: 1999d29db21f820fbcdbca08f2258b657673be3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19d4b6e7994450eacacab51e9a01cbf58eab803a
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77169759"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433139"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Interaktywna debugowanie w wystąpieniu obliczeniowym Azure Machine Learning przy użyciu VS Code zdalnego
 
@@ -25,7 +25,7 @@ W tym artykule dowiesz się, jak skonfigurować Visual Studio Code zdalne dla wy
 
 + [Visual Studio Code zdalny](https://code.visualstudio.com/docs/remote/remote-overview) Programowanie umożliwia korzystanie z kontenera, maszyny zdalnej lub podsystemu Windows dla systemu Linux (WSL) jako w pełni funkcjonalnego środowiska deweloperskiego. 
 
-## <a name="prerequisite"></a>Wymagania wstępne  
+## <a name="prerequisite"></a>Wymaganie wstępne  
 
 Na platformach Windows należy [zainstalować klienta SSH zgodnego z OpenSSH](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) , jeśli jeszcze go nie ma. 
 
@@ -34,7 +34,7 @@ Na platformach Windows należy [zainstalować klienta SSH zgodnego z OpenSSH](ht
 
 ## <a name="get-ip-and-ssh-port"></a>Pobieranie portu IP i protokołu SSH 
 
-1. Przejdź do Azure Machine Learning Studio na stronie https://ml.azure.com/.
+1. Przejdź do Azure Machine Learning Studio na stronie https://ml.azure.com/ .
 
 2. Wybierz [obszar roboczy](concept-workspace.md).
 1. Kliknij kartę **wystąpienia obliczeniowe** .
@@ -94,7 +94,7 @@ Poniżej przedstawiono niektóre szczegóły dotyczące pól:
 |Użytkownik|Musi to być `azureuser` |
 |IdentityFile|Powinien wskazywać plik, w którym zapisano klucz prywatny |
 
-Teraz powinno być możliwe użycie protokołu SSH w wystąpieniu obliczeniowym przy użyciu składni użytej powyżej `ssh azmlci1`. 
+Teraz powinno być możliwe użycie protokołu SSH w wystąpieniu obliczeniowym przy użyciu składni użytej powyżej `ssh azmlci1` . 
 
 ## <a name="connect-vs-code-to-the-instance"></a>Połącz VS Code z wystąpieniem 
 

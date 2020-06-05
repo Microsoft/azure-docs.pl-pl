@@ -1,21 +1,21 @@
 ---
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.date: 05/14/2019
 ms.topic: include
-ms.author: pmorgan
+ms.author: crtreasu
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 96439479ebb007507efdd577e963532d9cdf90d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 76d42361a65dd6a92704cd1189e5dddab50331f4
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67722947"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84429674"
 ---
 ## <a name="putting-everything-together"></a>Umieszczanie wszystkich siebie
 
-Poniżej przedstawiono sposób, w `AzureSpatialAnchorsScript` jaki powinien wyglądać cały plik klasy, po umieszczeniu wszystkich różnych elementów. Można go użyć jako odwołania, aby porównać się z własnym plikiem i tam, gdzie mogą występować jakiekolwiek różnice.
+Poniżej przedstawiono sposób, w jaki `AzureSpatialAnchorsScript` powinien wyglądać cały plik klasy, po umieszczeniu wszystkich różnych elementów. Można go użyć jako odwołania, aby porównać się z własnym plikiem i tam, gdzie mogą występować jakiekolwiek różnice.
 
 ```csharp
 using Microsoft.Azure.SpatialAnchors;

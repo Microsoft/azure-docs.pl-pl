@@ -5,18 +5,18 @@ description: Dowiedz się, jak utworzyć potok pozyskiwania danych za pomocą Az
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
-ms.openlocfilehash: 5b4ed40048aab815397c9726098880b2125b732c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62ab85092ccbf0cbb817554e3285b908c9faa869
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78274790"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433989"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Pozyskiwanie danych przy użyciu usługi Azure Data Factory
 

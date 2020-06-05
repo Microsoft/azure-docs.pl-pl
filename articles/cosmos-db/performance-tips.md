@@ -4,14 +4,14 @@ description: Poznaj opcje konfiguracji klienta, aby zwiększyć wydajność Azur
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/15/2020
+ms.date: 06/04/2020
 ms.author: sngun
-ms.openlocfilehash: ee2743af2f8499aec04d8b6b733e1ba4c2a82083
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b8d55e5096f3af8d91027eec090cf1f9240a82cb
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546073"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84432105"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 
@@ -33,9 +33,9 @@ Zalecamy przetwarzanie hosta systemu Windows 64-bitowego w celu zwiększenia wyd
 
 - W przypadku aplikacji wykonywalnych można zmienić przetwarzanie hosta, ustawiając wartość [docelowy platformy](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) na **x64** w oknie **właściwości projektu** na karcie **kompilacja** .
 
-- W przypadku projektów testowych opartych na VSTest można zmienić przetwarzanie hosta **, wybierając opcję** > **Testuj ustawienia** > testu**domyślne architektura procesora jako x64** w menu **test** programu Visual Studio.
+- W przypadku projektów testowych opartych na VSTest można zmienić przetwarzanie hosta **, wybierając opcję Testuj**  >  **Ustawienia testu**  >  **domyślne architektura procesora jako x64** w menu **test** programu Visual Studio.
 
-- W przypadku lokalnie wdrożonych aplikacji sieci Web ASP.NET można zmienić przetwarzanie hosta, wybierając opcję **Użyj 64-bitowej wersji IIS Express dla witryn i projektów sieci Web** w obszarze **Narzędzia** > **Opcje** > **projekty i rozwiązania** > **projekty sieci Web**.
+- W przypadku lokalnie wdrożonych aplikacji sieci Web ASP.NET można zmienić przetwarzanie hosta, wybierając opcję **Użyj 64-bitowej wersji IIS Express dla witryn i projektów sieci Web** w obszarze **Narzędzia**  >  **Opcje**  >  **projekty i rozwiązania**  >  **projekty sieci Web**.
 
 - W przypadku aplikacji sieci Web ASP.NET wdrożonych na platformie Azure można zmienić przetwarzanie hosta, wybierając platformę **64-bitową** w **ustawieniach aplikacji** w Azure Portal.
 
@@ -45,7 +45,7 @@ Zalecamy przetwarzanie hosta systemu Windows 64-bitowego w celu zwiększenia wyd
     
 **Włącz odzyskiwanie pamięci po stronie serwera (GC)**
 
-Zmniejszenie częstotliwości wyrzucania elementów bezużytecznych może pomóc w niektórych przypadkach. W programie .NET Ustaw [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) wartość gcServer `true`na.
+Zmniejszenie częstotliwości wyrzucania elementów bezużytecznych może pomóc w niektórych przypadkach. W programie .NET ustaw wartość [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) na `true` .
 
 **Skalowanie obciążenia klienta**
 
@@ -73,16 +73,16 @@ Sposób, w jaki klient nawiązuje połączenie z Azure Cosmos DB, ma ważne kons
 
 W trybie bramy Azure Cosmos DB korzysta z portu 443 i portów 10250, 10255 i 10256, gdy korzystasz z interfejsu API Azure Cosmos DB dla MongoDB. Port 10250 jest mapowany na domyślne wystąpienie MongoDB bez replikacji geograficznej. Porty 10255 i 10256 są mapowane na wystąpienie MongoDB mające replikację geograficzną.
      
-W przypadku korzystania z protokołu TCP w trybie bezpośrednim oprócz portów bramy należy upewnić się, że zakres portów od 10000 do 20000 jest otwarty, ponieważ Azure Cosmos DB używa dynamicznych portów TCP. Jeśli te porty nie są otwarte i próbujesz użyć protokołu TCP, zostanie wyświetlony błąd niedostępności usługi 503. W tej tabeli przedstawiono tryby łączności dostępne dla różnych interfejsów API i portów usług używanych dla każdego interfejsu API:
+W przypadku korzystania z protokołu TCP w trybie bezpośrednim oprócz portów bramy należy upewnić się, że zakres portów od 10000 do 20000 jest otwarty, ponieważ Azure Cosmos DB używa dynamicznych portów TCP (w przypadku korzystania z trybu bezpośredniego w [prywatnych punktach końcowych](./how-to-configure-private-endpoints.md), cały zakres portów TCP — od 0 do 65535 — musi być otwarty). Jeśli te porty nie są otwarte i próbujesz użyć protokołu TCP, zostanie wyświetlony błąd niedostępności usługi 503. W tej tabeli przedstawiono tryby łączności dostępne dla różnych interfejsów API i portów usług używanych dla każdego interfejsu API:
 
 |Tryb połączenia  |Obsługiwany protokół  |Obsługiwane zestawy SDK  |Port API/usługi  |
 |---------|---------|---------|---------|
 |Brama  |   HTTPS    |  Wszystkie zestawy SDK    |   SQL (443), MongoDB (10250, 10255, 10256), tabela (443), Cassandra (10350), Graph (443)    |
-|Direct    |     TCP    |  Zestaw SDK .NET    | Porty z zakresu od 10000 do 20000 |
+|Direct    |     TCP    |  Zestaw SDK .NET    | Gdy są używane publiczne/punkty końcowe usługi: porty z zakresu od 10000 do 20000<br>W przypadku korzystania z prywatnych punktów końcowych: porty w zakresie od 0 do 65535 |
 
 Azure Cosmos DB oferuje prosty, otwarty model programowania RESTful za pośrednictwem protokołu HTTPS. Ponadto oferuje wydajny protokół TCP, który jest również RESTful w swoim modelu komunikacji i jest dostępny za pośrednictwem zestawu SDK klienta platformy .NET. Protokół TCP używa protokołu TLS do uwierzytelniania początkowego i szyfrowania ruchu sieciowego. Aby uzyskać najlepszą wydajność, Użyj protokołu TCP, gdy jest to możliwe.
 
-W przypadku zestawu SDK v3 można skonfigurować tryb połączenia podczas tworzenia `CosmosClient` wystąpienia, w programie. `CosmosClientOptions` Należy pamiętać, że tryb bezpośredni jest domyślnie.
+W przypadku zestawu SDK v3 można skonfigurować tryb połączenia podczas tworzenia `CosmosClient` wystąpienia, w programie `CosmosClientOptions` . Należy pamiętać, że tryb bezpośredni jest domyślnie.
 
 ```csharp
 var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -94,7 +94,7 @@ new CosmosClientOptions
 });
 ```
 
-W przypadku zestawu SDK Microsoft. Azure. DocumentDB można skonfigurować tryb połączenia podczas konstruowania `DocumentClient` wystąpienia przy użyciu `ConnectionPolicy` parametru. W przypadku korzystania z `Protocol` trybu bezpośredniego można również ustawić za pomocą `ConnectionPolicy` parametru.
+W przypadku zestawu SDK Microsoft. Azure. DocumentDB można skonfigurować tryb połączenia podczas konstruowania `DocumentClient` wystąpienia przy użyciu `ConnectionPolicy` parametru. W przypadku korzystania z trybu bezpośredniego można również ustawić `Protocol` za pomocą `ConnectionPolicy` parametru.
 
 ```csharp
 var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -107,7 +107,7 @@ new ConnectionPolicy
 });
 ```
 
-Ponieważ protokół TCP jest obsługiwany tylko w trybie bezpośrednim, w przypadku korzystania z trybu bramy protokół HTTPS jest zawsze używany do komunikowania się z bramą `Protocol` , a `ConnectionPolicy` wartość w jest ignorowana.
+Ponieważ protokół TCP jest obsługiwany tylko w trybie bezpośrednim, w przypadku korzystania z trybu bramy protokół HTTPS jest zawsze używany do komunikowania się z bramą, a `Protocol` wartość w `ConnectionPolicy` jest ignorowana.
 
 ![Zasady połączenia Azure Cosmos DB](./media/performance-tips/connection-policy.png)
 
@@ -118,14 +118,14 @@ Domyślnie pierwsze żądanie ma większe opóźnienia, ponieważ musi pobrać t
     await client.OpenAsync();
 
 > [!NOTE] 
-> `OpenAsync`Program będzie generował żądania w celu uzyskania tabeli routingu adresów dla wszystkich kontenerów na koncie. W przypadku kont, które mają wiele kontenerów, ale których aplikacja uzyskuje dostęp `OpenAsync` do podzbioru z nich, wygeneruje niepotrzebny ruch, co spowodowałoby powolne działanie inicjalizacji. Korzystanie z `OpenAsync` programu może nie być przydatne w tym scenariuszu, ponieważ spowalnia uruchamianie aplikacji.
+> `OpenAsync`Program będzie generował żądania w celu uzyskania tabeli routingu adresów dla wszystkich kontenerów na koncie. W przypadku kont, które mają wiele kontenerów, ale których aplikacja uzyskuje dostęp do podzbioru z nich, `OpenAsync` wygeneruje niepotrzebny ruch, co spowodowałoby powolne działanie inicjalizacji. Korzystanie `OpenAsync` z programu może nie być przydatne w tym scenariuszu, ponieważ spowalnia uruchamianie aplikacji.
 
    <a id="same-region"></a>
 **W celu uzyskania wydajności kolokacja klientów w tym samym regionie świadczenia usługi Azure**
 
 Jeśli to możliwe, należy umieścić wszystkie aplikacje, które wywołują Azure Cosmos DB w tym samym regionie, co baza danych Azure Cosmos DB. Oto przybliżone porównanie: wywołania Azure Cosmos DB w tym samym regionie zakończyły się w ciągu 1 ms do 2 MS, ale opóźnienie między zachodnim i wschodnim wybrzeżem USA jest większe niż 50 ms. To opóźnienie może się różnić od żądania do żądania, w zależności od trasy podjętej przez żądanie przesyłanej z klienta do granicy centrum danych platformy Azure. Najniższe możliwe opóźnienie można uzyskać, upewniając się, że aplikacja wywołująca znajduje się w tym samym regionie platformy Azure, co punkt końcowy Azure Cosmos DB aprowizacji. Aby uzyskać listę dostępnych regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services).
 
-![Zasady](./media/performance-tips/same-region.png) połączenia Azure Cosmos DB<a id="increase-threads"></a>
+![Zasady ](./media/performance-tips/same-region.png) połączenia Azure Cosmos DB<a id="increase-threads"></a>
 
 **Zwiększenie liczby wątków/zadań**
 
@@ -148,7 +148,7 @@ Aplikacje warstwy środkowej, które nie zużywają odpowiedzi bezpośrednio z z
 
 **Używanie pojedynczego klienta Azure Cosmos DB w okresie istnienia aplikacji**
 
-Każdy `DocumentClient` obiekt `CosmosClient` i jego wystąpienie są bezpieczne dla wątków i realizuje wydajne zarządzanie połączeniami oraz buforowanie adresów podczas pracy w trybie bezpośrednim. Aby umożliwić efektywne zarządzanie połączeniami i lepszą wydajność klienta zestawu SDK, zalecamy użycie jednego wystąpienia na `AppDomain` okres istnienia aplikacji.
+Każdy `DocumentClient` obiekt i jego `CosmosClient` wystąpienie są bezpieczne dla wątków i realizuje wydajne zarządzanie połączeniami oraz buforowanie adresów podczas pracy w trybie bezpośrednim. Aby umożliwić efektywne zarządzanie połączeniami i lepszą wydajność klienta zestawu SDK, zalecamy użycie jednego wystąpienia na `AppDomain` okres istnienia aplikacji.
 
    <a id="max-connection"></a>
 
@@ -170,7 +170,7 @@ Należy zauważyć, że zapytania równoległe generują najwięcej korzyści, j
 
 ***Dostrajanie MaxBufferedItemCount***
     
-Zapytanie równoległe zostało zaprojektowane w celu wstępnego pobrania wyników, podczas gdy bieżąca partia wyników jest przetwarzana przez klienta. To wstępne pobranie ułatwia zwiększenie ogólnego opóźnienia zapytania. `MaxBufferedItemCount` Parametr ogranicza liczbę wstępnie pobranych wyników. Ustaw `MaxBufferedItemCount` na oczekiwaną liczbę zwracanych wyników (lub wyższą liczbę), aby zezwolić na zapytanie, aby otrzymać maksymalną korzyść z wstępnego pobierania.
+Zapytanie równoległe zostało zaprojektowane w celu wstępnego pobrania wyników, podczas gdy bieżąca partia wyników jest przetwarzana przez klienta. To wstępne pobranie ułatwia zwiększenie ogólnego opóźnienia zapytania. `MaxBufferedItemCount`Parametr ogranicza liczbę wstępnie pobranych wyników. Ustaw `MaxBufferedItemCount` na oczekiwaną liczbę zwracanych wyników (lub wyższą liczbę), aby zezwolić na zapytanie, aby otrzymać maksymalną korzyść z wstępnego pobierania.
 
 Przed pobraniem działa w taki sam sposób, niezależnie od stopnia równoległości, i istnieje pojedynczy bufor dla danych ze wszystkich partycji.  
 
@@ -199,12 +199,12 @@ W miarę możliwości można buforować identyfikatory URI dokumentów w celu uz
    <a id="tune-page-size"></a>
 **Dostosuj rozmiar strony dla zapytań/Odczytaj źródła w celu uzyskania lepszej wydajności**
 
-Gdy wykonujesz zbiorczy odczyt dokumentów przy użyciu funkcji odczytywania kanału informacyjnego (na `ReadDocumentFeedAsync`przykład) lub podczas wysyłania zapytania SQL, wyniki są zwracane w postaci segmentacji, jeśli zestaw wyników jest zbyt duży. Domyślnie wyniki są zwracane w fragmentach 100 elementów lub 1 MB, w zależności od tego, który limit zostanie osiągnięty jako pierwszy.
+Gdy wykonujesz zbiorczy odczyt dokumentów przy użyciu funkcji odczytywania kanału informacyjnego (na przykład `ReadDocumentFeedAsync` ) lub podczas wysyłania zapytania SQL, wyniki są zwracane w postaci segmentacji, jeśli zestaw wyników jest zbyt duży. Domyślnie wyniki są zwracane w fragmentach 100 elementów lub 1 MB, w zależności od tego, który limit zostanie osiągnięty jako pierwszy.
 
 Aby zmniejszyć liczbę podróży sieci wymaganych do pobrania wszystkich stosownych wyników, można zwiększyć rozmiar strony, używając wartości [x-MS-Max-Item-Count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) do żądania tak wielu nagłówków jak 1 000. Jeśli chcesz wyświetlić tylko kilka wyników, na przykład jeśli interfejs użytkownika lub API aplikacji zwraca tylko 10 wyników naraz, można również zmniejszyć rozmiar strony do 10, aby zmniejszyć przepływność wykorzystywaną do odczytu i zapytań.
 
 > [!NOTE] 
-> `maxItemCount` Właściwość nie powinna być używana tylko do dzielenia na strony. Jego głównym zastosowaniem jest poprawa wydajności zapytań przez zmniejszenie maksymalnej liczby elementów zwracanych na jednej stronie.  
+> `maxItemCount`Właściwość nie powinna być używana tylko do dzielenia na strony. Jego głównym zastosowaniem jest poprawa wydajności zapytań przez zmniejszenie maksymalnej liczby elementów zwracanych na jednej stronie.  
 
 Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Przykład:
     
@@ -212,7 +212,7 @@ Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 ```
     
-Po wykonaniu zapytania dane uzyskane są wysyłane w ramach pakietu TCP. Jeśli określisz zbyt niską wartość dla `maxItemCount`, liczba podróży wymagana do wysłania danych w ramach pakietu TCP jest wysoka, co ma wpływ na wydajność. Dlatego jeśli nie masz pewności, jaka wartość ma być ustawiona dla `maxItemCount` właściwości, najlepiej ją ustawić na wartość-1 i pozwól, aby zestaw SDK wybierze domyślną.
+Po wykonaniu zapytania dane uzyskane są wysyłane w ramach pakietu TCP. Jeśli określisz zbyt niską wartość dla `maxItemCount` , liczba podróży wymagana do wysłania danych w ramach pakietu TCP jest wysoka, co ma wpływ na wydajność. Dlatego jeśli nie masz pewności, jaka wartość ma być ustawiona dla `maxItemCount` właściwości, najlepiej ją ustawić na wartość-1 i pozwól, aby zestaw SDK wybierze domyślną.
 
 **Zwiększenie liczby wątków/zadań**
 
@@ -244,7 +244,7 @@ Obsługa przepływności zależy od liczby [jednostek żądania](request-units.m
 
 Złożoność zapytania wpływa na liczbę jednostek żądań używanych dla operacji. Liczba predykatów, charakter predykatów, liczba UDF i rozmiar źródłowego zestawu danych wpływają na koszt operacji zapytania.
 
-Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-obciążeni](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (lub równoważną `RequestCharge` właściwość w `ResourceResponse\<T>` lub `FeedResponse\<T>` w zestawie .NET SDK), aby zmierzyć liczbę jednostek żądania używanych przez operacje:
+Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-obciążeni](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (lub równoważną `RequestCharge` Właściwość w `ResourceResponse\<T>` lub `FeedResponse\<T>` w zestawie .NET SDK), aby zmierzyć liczbę jednostek żądania używanych przez operacje:
 
 ```csharp
 // Measure the performance (Request Units) of writes

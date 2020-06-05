@@ -5,17 +5,17 @@ description: Tworzenie zestawów danych Azure Machine Learning monitorów (wersj
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: e49c621d92a8aa604b5f95291c5d80c0141f41dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15cfa56f718290af3ae5fb87aadab70016cc8594
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682721"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430243"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Wykrywanie dryfowania danych (wersja zapoznawcza) w zestawach DataSet
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -73,11 +73,11 @@ Za pomocą Azure Machine Learning, dryfowanie danych jest monitorowane za pośre
 
 ### <a name="set-the-timeseries-trait-in-the-target-dataset"></a>Ustawianie `timeseries` cech w docelowym zestawie danych
 
-Docelowy zestaw danych musi mieć ustawioną `timeseries` cechę, określając kolumnę sygnatury czasowej w kolumnie dane lub kolumnę wirtualną pochodną wzorca ścieżki plików. Można to zrobić za pomocą zestawu SDK języka Python lub Azure Machine Learning Studio. Kolumna reprezentująca znacznik czasu "drobnoziarniste" musi być określona, aby `timeseries` można było dodać cechy do zestawu danych. Jeśli dane są partycjonowane w strukturze folderów wraz z informacjami o czasie, takimi jak "{RRRR/MM/DD}", można utworzyć kolumnę wirtualną za pomocą ustawienia wzorca ścieżki i ustawić ją jako sygnaturę "grube ziarno", aby zwiększyć ważność funkcji szeregów czasowych. 
+Docelowy zestaw danych musi mieć `timeseries` ustawioną cechę, określając kolumnę sygnatury czasowej w kolumnie dane lub kolumnę wirtualną pochodną wzorca ścieżki plików. Można to zrobić za pomocą zestawu SDK języka Python lub Azure Machine Learning Studio. Kolumna reprezentująca znacznik czasu "drobnoziarniste" musi być określona, aby można było dodać `timeseries` cechy do zestawu danych. Jeśli dane są partycjonowane w strukturze folderów wraz z informacjami o czasie, takimi jak "{RRRR/MM/DD}", można utworzyć kolumnę wirtualną za pomocą ustawienia wzorca ścieżki i ustawić ją jako sygnaturę "grube ziarno", aby zwiększyć ważność funkcji szeregów czasowych. 
 
 #### <a name="python-sdk"></a>Zestaw SDK dla języka Python
 
-[`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) Metoda [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) Class określa kolumnę sygnatury czasowej dla zestawu danych. 
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-) Metoda Class określa kolumnę sygnatury czasowej dla zestawu danych. 
 
 ```python 
 from azureml.core import Workspace, Dataset, Datastore
@@ -144,7 +144,7 @@ Te ustawienia dotyczą potoku monitora harmonogramu zestawu danych, który zosta
 
 | Ustawienie | Opis | Porady | Modyfikowalny | 
 | ------- | ----------- | ---- | ------- |
-| Włączanie | Włączanie lub wyłączanie harmonogramu dla potoku monitora zestawu danych | Wyłącz harmonogram, aby analizować dane historyczne przy użyciu ustawienia wypełniania. Można ją włączyć po utworzeniu monitora zestawu danych. | Tak | 
+| Włącz | Włączanie lub wyłączanie harmonogramu dla potoku monitora zestawu danych | Wyłącz harmonogram, aby analizować dane historyczne przy użyciu ustawienia wypełniania. Można ją włączyć po utworzeniu monitora zestawu danych. | Tak | 
 | Opóźnienie | Czas, w godzinach, pobiera dane do zestawu danych. Na przykład jeśli dane mają być dostarczone przez trzy dni w bazie danych bazy danych SQL, należy ustawić opóźnienie na 72. | Nie można zmienić po utworzeniu monitora zestawu danych | Nie | 
 | Adresy e-mail | Adresy e-mail dla alertów na podstawie naruszenia progu procentu dryfu danych. | Wiadomości e-mail są wysyłane za poorednictwem Azure Monitor. | Tak | 
 | Próg | Próg procentowy dryfu danych dla alertów e-mail. | Więcej alertów i zdarzeń można ustawić dla wielu innych metryk w skojarzonym zasobie Application Insightsm obszaru roboczego. | Tak | 
@@ -239,12 +239,12 @@ Monitor danych tworzy dwie grupy wyników: przegląd Dryfów i szczegółowe inf
 
 Sekcja **Przegląd dryfu** zawiera szczegółowe informacje o wielkości dryfowania danych oraz o tym, które funkcje powinny być poddane dalszej analizie. 
 
-| Metryka | Opis | Porady | 
+| Metric | Opis | Porady | 
 | ------ | ----------- | ---- | 
 | Wielkość dryfu danych | Wyrażony jako wartość procentowa między bazowym i docelowym zestawem danych w czasie. W zakresie od 0 do 100 gdzie 0 wskazuje identyczne zestawy danych i 100 wskazuje, że funkcja dryfowania danych Azure Machine Learning może całkowicie powiadomić o dwóch zestawach. | Oczekiwano szumu w precyzyjnym procencie mierzonym z powodu technik uczenia maszynowego używanego do generowania tego rozmiaru. | 
 | Współtworzenie dryfu według funkcji | Udział każdej funkcji w docelowym zestawie danych do mierzonej wielkości dryfu. |  Ze względu na covariate Shift bazowa dystrybucja funkcji nie musi być konieczna do zmiany w celu zapewnienia stosunkowo dużej ważności funkcji. | 
 
-Na poniższej ilustracji przedstawiono przykładowe wykresy widoczne w **omówieniu dryfu** w programie Azure Machine Learning Studio, wynikające z wypełniania [NOAA zintegrowanych danych powierzchniowych](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Dane były próbkowane do `stationName contains 'FLORIDA'`, z 2019 stycznia, używany jako zestaw danych bazowych i wszystkie dane 2019 używane jako element docelowy.
+Na poniższej ilustracji przedstawiono przykładowe wykresy widoczne w **omówieniu dryfu** w programie Azure Machine Learning Studio, wynikające z wypełniania [NOAA zintegrowanych danych powierzchniowych](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Dane były próbkowane do `stationName contains 'FLORIDA'` , z 2019 stycznia, używany jako zestaw danych bazowych i wszystkie dane 2019 używane jako element docelowy.
  
 ![Przegląd dryfu](./media/how-to-monitor-datasets/drift-overview.png)
 
@@ -256,13 +256,13 @@ Docelowy zestaw danych jest również profilowany w czasie. Odległość statyst
 
 W Azure Machine Learning Studio, jeśli klikniesz punkt danych na grafie, rozkład wyświetlanej funkcji zostanie odpowiednio dostosowany. Domyślnie pokazuje rozkład bazowego zestawu danych i najnowszą dystrybucję przebiegu tej samej funkcji. 
 
-Te metryki można także pobrać w zestawie SDK języka Python za `get_metrics()` pomocą metody dla `DataDriftDetector` obiektu. 
+Te metryki można także pobrać w zestawie SDK języka Python za pomocą `get_metrics()` metody dla `DataDriftDetector` obiektu. 
 
 #### <a name="numeric-features"></a>Funkcje liczbowe 
 
 Funkcje liczbowe są profilowane w każdym przebiegu monitora zestawu danych. Poniższe elementy są dostępne w programie Azure Machine Learning Studio. Dla dystrybucji jest pokazywana gęstość prawdopodobieństwa.
 
-| Metryka | Opis |  
+| Metric | Opis |  
 | ------ | ----------- |  
 | Odległość Wasserstein | Minimalna ilość pracy, aby przekształcić dystrybucję bazową w dystrybucję docelową. |
 | Wartość średnia | Średnia wartość funkcji. |
@@ -275,7 +275,7 @@ Funkcje liczbowe są profilowane w każdym przebiegu monitora zestawu danych. Po
 
 Funkcje liczbowe są profilowane w każdym przebiegu monitora zestawu danych. Poniższe elementy są dostępne w programie Azure Machine Learning Studio. Dla dystrybucji zostanie wyświetlony histogram.
 
-| Metryka | Opis |  
+| Metric | Opis |  
 | ------ | ----------- |  
 | Odległość euclidian | Odległość geometryczna między rozkładami bazowymi i docelowymi. |
 | Unikatowe wartości | Liczba unikatowych wartości (Kardynalność) funkcji. |
@@ -295,7 +295,7 @@ Wybierz pozycję Dzienniki (analiza) w obszarze monitorowanie w okienku po lewej
 
 ![Omówienie usługi Application Insights](./media/how-to-monitor-datasets/ai-overview.png)
 
-Metryki monitora zestawu danych są przechowywane `customMetrics`jako. Można napisać i uruchomić zapytanie po skonfigurowaniu monitora zestawu danych, aby je wyświetlić:
+Metryki monitora zestawu danych są przechowywane jako `customMetrics` . Można napisać i uruchomić zapytanie po skonfigurowaniu monitora zestawu danych, aby je wyświetlić:
 
 [![Zapytanie usługi log Analytics](./media/how-to-monitor-datasets/simple-query.png)](media/how-to-monitor-datasets/simple-query-expanded.png)
 

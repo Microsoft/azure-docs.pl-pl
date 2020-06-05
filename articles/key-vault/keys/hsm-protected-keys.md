@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 011ef67e5dbbf5b391e8bdaad20a42688022a0a9
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5433d9746cd64d0e942e056cfcd1940eba35c77d
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296769"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417926"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importowanie kluczy chronionych przez moduł HSM do usługi Key Vault
 
@@ -34,7 +34,7 @@ Transferowanie kluczy chronionych przez moduł HSM do Key Vault jest obsługiwan
 |Nazwa dostawcy|Typ dostawcy|Obsługiwane modele HSM|Obsługiwana metoda modułu HSM — transfer klucza|
 |---|---|---|---|
 |[Oprogramowanie wspomagające nCipher](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|Instrukcj<br/>Moduł HSM jako usługa|<ul><li>Rodzina sprzętowego nshield sprzętowych modułów zabezpieczeń</li><li>Sprzętowego nshield jako usługa</ul>|**Metoda 1:** [oprogramowanie wspomagające nCipher BYOK](hsm-protected-keys-ncipher.md) (z silnym zaświadczeniem dotyczącym importowania kluczy i walidacji modułu HSM)<br/>**Metoda 2.** [Użyj nowej metody BYOK](hsm-protected-keys-byok.md) |
-|Firmy Thales|Producent|<ul><li>Rodzina SafeNet Luna modułu HSM 7 z oprogramowaniem układowym w wersji 7,3 lub nowszej</li></ul>| [Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|
+|Firmy Thales|Producent|<ul><li>Rodzina Luna HSM 7 z oprogramowaniem układowym w wersji 7,3 lub nowszej</li></ul>| [Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|
 |Fortanix|Instrukcj<br/>Moduł HSM jako usługa|<ul><li>Samoobsługowa usługa zarządzania kluczami (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|
 |Firmy|Producent|Wszystkie LiquidSecurity sprzętowych modułów zabezpieczeń with<ul><li>Oprogramowanie układowe w wersji 2.0.4 lub nowszej</li><li>Oprogramowanie układowe w wersji 3,2 lub nowszej</li></ul>|[Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|
 |Cryptomathic|Niezależnego dostawcy oprogramowania (system zarządzania kluczami przedsiębiorstwa)|Wiele marek i modeli modułu HSM, w tym<ul><li>Oprogramowanie wspomagające nCipher</li><li>Firmy Thales</li><li>Utimaco</li></ul>[Aby uzyskać szczegółowe informacje, zobacz witrynę Cryptomathic](https://www.cryptomathic.com/azurebyok)|[Użyj nowej metody BYOK](hsm-protected-keys-byok.md)|

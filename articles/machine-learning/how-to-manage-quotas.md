@@ -5,18 +5,18 @@ description: Dowiedz się więcej na temat przydziałów zasobów dla Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 0fb9e0ced0cc7cacdd2247bd208e4354fffe82c8
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: df636ce1200d8c3744681a60532b22c409dd81dc
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344921"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430468"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

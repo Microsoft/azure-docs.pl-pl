@@ -3,12 +3,12 @@ title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 223acb523b8a7e4bc14d894c0eb6781d147b8923
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: f077548f2de06ef35a80aea0e8e33718a18ff229
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308884"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424350"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -115,7 +115,7 @@ Przykład: używanie efektu inspekcji.
 
 ## <a name="auditifnotexists"></a>AuditIfNotExists
 
-AuditIfNotExists włącza inspekcję zasobów, które pasują do warunku **if** , ale nie mają składników określonych w **szczegółach** warunku **then** .
+AuditIfNotExists umożliwia inspekcję zasobów _związanych_ z zasobem, które pasują do warunku **if** , ale nie mają właściwości określonych w **szczegółów** warunku **then** .
 
 ### <a name="auditifnotexists-evaluation"></a>Ocena AuditIfNotExists
 
@@ -547,7 +547,7 @@ Przykład 2: Usuń `env` tag i Dodaj `environment` tag lub Zastąp istniejące `
 
 ## <a name="layering-policy-definitions"></a>Definicje zasad dotyczących warstw
 
-Na zasób może mieć wpływ kilka przypisań. Te przydziały mogą znajdować się w tym samym zakresie lub w różnych zakresach. Każdy z tych przypisań jest również prawdopodobnie zdefiniowanym innym efektem. Warunek i wpływ dla każdej zasady są oceniane niezależnie. Na przykład:
+Na zasób może mieć wpływ kilka przypisań. Te przydziały mogą znajdować się w tym samym zakresie lub w różnych zakresach. Każdy z tych przypisań jest również prawdopodobnie zdefiniowanym innym efektem. Warunek i wpływ dla każdej zasady są oceniane niezależnie. Przykład:
 
 - Zasady 1
   - Ogranicza lokalizację zasobu do "zachodnie"

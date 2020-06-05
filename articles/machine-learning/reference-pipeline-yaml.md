@@ -5,17 +5,17 @@ description: Dowiedz się, jak zdefiniować potok uczenia maszynowego przy użyc
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 0bf5a722c611f4d1c5446eb739fdd95b7edbc934
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 3d5f73eedba64d0d8475826c61b84aab09372716
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170532"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430937"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiowanie potoków uczenia maszynowego w YAML
 

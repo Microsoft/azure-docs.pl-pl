@@ -1,19 +1,19 @@
 ---
 title: Uwierzytelnianie i autoryzacja
 description: Dowiedz się więcej na temat różnych sposobów uwierzytelniania aplikacji lub usługi w kotwicach przestrzennych platformy Azure oraz poziomów kontroli, które mają być bramą dostępu do kotwic przestrzennych platformy Azure.
-author: julianparismorgan
+author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
-ms.author: pmorgan
+ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8a64c8cabe91bb7bbfb533b38a32f58a82fd3351
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653374"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434387"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Uwierzytelnianie i autoryzacja w kotwicach przestrzennych platformy Azure
 
@@ -39,7 +39,6 @@ Tokeny uwierzytelniania usługi Azure AD można uzyskać na dwa sposoby:
 Korzystanie z kluczy konta do uzyskiwania dostępu do konta zakotwiczeń przestrzennych platformy Azure jest najprostszym sposobem na rozpoczęcie pracy. Klucze kont znajdziesz na Azure Portal. Przejdź do swojego konta i wybierz kartę "klucze".
 
 ![Omówienie uwierzytelniania w kotwicach przestrzennych platformy Azure](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
-
 
 Dostępne są dwa klucze, które jednocześnie są prawidłowe w celu uzyskania dostępu do konta kotwice przestrzenne. Zalecane jest regularne aktualizowanie klucza używanego do uzyskiwania dostępu do konta. posiadanie dwóch oddzielnych prawidłowych kluczy pozwala na takie aktualizacje bez przestojów. musisz tylko zaktualizować klucz podstawowy i klucz pomocniczy.
 

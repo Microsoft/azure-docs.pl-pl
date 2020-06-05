@@ -5,17 +5,17 @@ description: Dowiedz się, jak tworzyć, wyświetlać i usuwać obszary robocze 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4b4b64bcca57e1dc98cdba10626597532ae1461c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c729f59fbb92584ff613147577ab097e63307ace
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81269736"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430446"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Tworzenie Azure Machine Learning obszarów roboczych i zarządzanie nimi w Azure Portal
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,7 +80,7 @@ Możesz uaktualnić obszar roboczy z wersji podstawowa do wersji Enterprise, aby
 
 1. Wybierz pozycję **Dowiedz się więcej** w prawym górnym rogu strony.
 
-   [![Uaktualnianie obszaru](./media/how-to-manage-workspace/upgrade.png) roboczego](./media/how-to-manage-workspace/upgrade.png#lightbox)
+   [![Uaktualnianie obszaru roboczego ](./media/how-to-manage-workspace/upgrade.png)](./media/how-to-manage-workspace/upgrade.png#lightbox)
 
 1. W wyświetlonym oknie wybierz pozycję **Uaktualnij** .
 
@@ -106,7 +106,7 @@ Możesz uaktualnić obszar roboczy z wersji podstawowa do wersji Enterprise, aby
 
 W [Azure Portal](https://portal.azure.com/)wybierz pozycję **Usuń** w górnej części obszaru roboczego, który chcesz usunąć.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Usuń obszar roboczy":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Usuwanie obszaru roboczego":::
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

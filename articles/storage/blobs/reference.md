@@ -95,7 +95,7 @@ W poniższej tabeli przedstawiono odwołania i przykładową dokumentację inter
 
 Poniższa lista zawiera linki do bibliotek dla innych języków programowania i platform.
 
-- [Języków](https://azure.github.io/azure-storage-cpp)
+- [C++](https://azure.github.io/azure-storage-cpp)
 - [Ruby](https://azure.github.io/azure-storage-ruby)
 - [PHP](https://azure.github.io/azure-storage-php/)
 - [iOS](https://azure.github.io/azure-storage-ios/)

@@ -9,15 +9,15 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9613b74b727d27bd47a05fadc1398bf898f667a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bbe4cfe2cce70735e765601e46cb62cd3939c693
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835731"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433101"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitoruj uruchomienia eksperymentów i metryki usługi Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

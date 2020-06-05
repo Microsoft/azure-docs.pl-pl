@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4fccf7b786de91c8bcce0b2073e0519ef6c1f2ab
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018824"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424406"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -171,6 +171,56 @@ Kolejną przyczyną niestabilnych hologramów (Wobbling, zniekształcenia, zakł
 Inna wartość, która ma być wyszukiwana `ARRServiceStats.LatencyPoseToReceiveAvg` . Powinien on być spójny poniżej 100 ms. Jeśli zobaczysz wyższe wartości, oznacza to, że masz połączenie z centrum danych zbyt daleko.
 
 Aby zapoznać się z listą potencjalnych środków zaradczych, zobacz [wytyczne dotyczące łączności sieciowej](../reference/network-requirements.md#guidelines-for-network-connectivity).
+
+## <a name="z-fighting"></a>Walka Z
+
+Chociaż ARR oferuje [funkcje ograniczania środków zaradczych](../overview/features/z-fighting-mitigation.md), w przypadku, gdy usługa walki może nadal się pojawić na scenie. Ten przewodnik ma na celu rozwiązywanie problemów związanych z pozostałymi problemami.
+
+### <a name="recommended-steps"></a>Zalecane czynności
+
+Użyj poniższego przepływu pracy, aby ograniczyć walkę z:
+
+1. Przetestuj scenę z domyślnymi ustawieniami ARR (z ograniczeniami do walki z)
+
+1. Wyłącz środki zaradcze dla walki za pośrednictwem [interfejsu API](../overview/features/z-fighting-mitigation.md) 
+
+1. Zmień kamerę blisko zakresu
+
+1. Rozwiązywanie problemów z sceną za pośrednictwem następnej sekcji
+
+### <a name="investigating-remaining-z-fighting"></a>Badanie pozostałej części z-walka
+
+Jeśli powyższe kroki zostały wyczerpane, a pozostała walka z nią nie zostanie zaakceptowana, należy zbadać podstawową przyczynę z walki z. Jak zostało to określone na [stronie funkcji ograniczenia dotyczącej walki z walką z](../overview/features/z-fighting-mitigation.md), istnieją dwa główne przyczyny dotyczące z-walk: utrata dokładności głębokości na dalekiej końcu zakresu głębokości oraz powierzchnie przecinające się podczas współcinania. Utrata dokładności głębokości jest matematyczną możliwością i można ją ograniczyć tylko w kroku 3. Współrzędne powierzchniowe wskazują na wadliwe źródło zasobów i są lepiej naprawione w danych źródłowych.
+
+ARR zawiera funkcję służącą do określenia, czy powierzchnie mogą z-walka: [podświetlanie szachownicy](../overview/features/z-fighting-mitigation.md). Możesz również określić wizualnie, co powoduje przeprowadzenie walki z. Poniższa pierwsza animacja przedstawia przykład utraty dokładności na odległość, a drugi pokazuje przykład niemal widocznych powierzchni:
+
+![Głębokość — precyzja — walka z](./media/depth-precision-z-fighting.gif)  ![Współrzędna-z-walka](./media/coplanar-z-fighting.gif)
+
+Porównaj te przykłady z walką z, aby określić przyczynę lub opcjonalnie wykonać ten przepływ pracy krok po kroku:
+
+1. Umieść kamerę powyżej powierzchni do przeszukiwania, aby wyglądała bezpośrednio na powierzchni.
+1. Wolno przesunąć kamerę do tyłu, poza powierzchnie.
+1. Jeśli walka z i jest widoczna przez cały czas, powierzchnie są doskonale współrzędnymi. 
+1. Jeśli walka z jest widoczna w większości czasu, powierzchnie są niemal współrzędnymi.
+1. Jeśli walka z jest widoczna tylko od razu, powód nie ma dokładności głębokości.
+
+Współrzędne powierzchniowe mogą mieć różne przyczyny:
+
+* Obiekt został zduplikowany przez eksportowanie aplikacji ze względu na błąd lub różne podejścia do przepływu pracy.
+
+    Sprawdź te problemy, korzystając z obsługi odpowiednich aplikacji i aplikacji.
+
+* Powierzchnie są duplikowane i przerzucane, aby pojawiły się podwójnie w modułach renderowania, które używają przedniej lub usuwania z tyłu.
+
+    Importowanie przy użyciu [konwersji modelu](../how-tos/conversion/model-conversion.md) określa główną część modelu. Domyślna wartość jest przyjmowana domyślnie. Powierzchnia będzie renderowana jako cienka ściana z fizycznie prawidłowym oświetleniem z obu stron. Pojedyncze wartości mogą być implikowane przez flagi w źródłowym elemencie zawartości lub jawnie wymuszone podczas [konwersji modelu](../how-tos/conversion/model-conversion.md). Dodatkowo, ale opcjonalnie, [tryb](../overview/features/single-sided-rendering.md) jednostronny można ustawić na "normalny".
+
+* Obiekty przecinają się w zasobach źródłowych.
+
+     Obiekty przekształcone w taki sposób, że niektóre z nich nakładają się również na tworzenie z-walka. Ten problem można także utworzyć, przenosząc części drzewa sceny w zaimportowanej scenie.
+
+* Powierzchnie są celowo całkowicie do dotknięcia, takich jak wyróżnianie licencji lub tekst na ściany.
+
+
 
 ## <a name="next-steps"></a>Następne kroki
 

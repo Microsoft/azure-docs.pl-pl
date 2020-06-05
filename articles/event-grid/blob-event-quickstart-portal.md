@@ -9,12 +9,12 @@ ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 3c84bf32f0d7b8b8381747e995f060d7e2dc1c9b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 877dab3376e1a4397d9f1c6971baea957b4eea68
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310509"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424197"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Szybki Start: kierowanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web za pomocą Azure Portal
 
@@ -92,7 +92,7 @@ Subskrybowanie tematu ma poinformować usługę Event Grid o tym, które zdarzen
    ![Wybieranie elementu webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Na stronie **Tworzenie subskrypcji zdarzeń** wykonaj następujące czynności: 
     1. Wprowadź **nazwę** subskrypcji zdarzeń.
-    2. Wprowadź **nazwę** **tematu systemowego**. 
+    2. Wprowadź **nazwę** **tematu systemowego**. Wcześniej podczas tworzenia subskrypcji zdarzenia zgłoszonego przez źródła platformy Azure, takie jak Azure Blob Storage lub Azure Event Hubs, usługa Event Grid automatycznie utworzyła temat systemowy z **losowo wygenerowaną nazwą**. Teraz można określić nazwę tematu systemu podczas tworzenia tematu w Azure Portal, jak pokazano na poniższej ilustracji. Ten zasób tematu systemu służy do odnajdywania metryk i dzienników diagnostycznych.
 
        ![Wprowadź nazwy dla subskrypcji zdarzeń i tematu systemu](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
 

@@ -5,17 +5,17 @@ description: Dowiedz się, jak używać Azure Machine Learning z modelami, któr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/17/2020
-ms.openlocfilehash: 924bd2fdba2359e6f1108c39802ad3ce95ebdf07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cf80a509b1a8100aaa00bf6a2fdeedbbdf143af
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472379"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433916"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Użyj istniejącego modelu z Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -36,9 +36,9 @@ Jeśli masz model uczenia maszynowego, który został przeszkolony poza Azure Ma
 * Obszar roboczy usługi Azure Machine Learning. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego](how-to-manage-workspace.md).
 
     > [!TIP]
-    > W przykładach w języku Python w tym artykule `ws` założono, że zmienna jest ustawiona na obszar roboczy Azure Machine Learning.
+    > W przykładach w języku Python w tym artykule założono, że `ws` zmienna jest ustawiona na obszar roboczy Azure Machine Learning.
     >
-    > Przykłady interfejsu wiersza polecenia wykorzystują symbol `myworkspace` zastępczy i `myresourcegroup`. Zamień je na nazwę obszaru roboczego i grupę zasobów, która ją zawiera.
+    > Przykłady interfejsu wiersza polecenia wykorzystują symbol zastępczy `myworkspace` i `myresourcegroup` . Zamień je na nazwę obszaru roboczego i grupę zasobów, która ją zawiera.
 
 * [Zestaw SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
@@ -47,11 +47,11 @@ Jeśli masz model uczenia maszynowego, który został przeszkolony poza Azure Ma
 * Model szkolony. Model musi być utrwalony w co najmniej jednym pliku w środowisku deweloperskim.
 
     > [!NOTE]
-    > Aby zademonstrować rejestrowanie modelu przeszkolonego na Azure Machine Learning, przykładowe fragmenty kodu w tym artykule korzystają z modeli utworzonych przez projekt Paolo Ripamonti w serwisie Twitter [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis)tonacji Analysis:.
+    > Aby zademonstrować rejestrowanie modelu przeszkolonego na Azure Machine Learning, przykładowe fragmenty kodu w tym artykule korzystają z modeli utworzonych przez projekt Paolo Ripamonti w serwisie Twitter tonacji Analysis: [https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis) .
 
 ## <a name="register-the-models"></a>Zarejestruj modele
 
-Zarejestrowanie modelu umożliwia przechowywanie, wersję i śledzenie metadanych na temat modeli w obszarze roboczym. W poniższych przykładach języka Python i interfejsu wiersza `models` polecenia katalog zawiera `model.h5`pliki `model.w2v`, `encoder.pkl`, i `tokenizer.pkl` . Ten przykład przekazuje pliki zawarte w `models` katalogu jako nową rejestrację modelu o nazwie: `sentiment`
+Zarejestrowanie modelu umożliwia przechowywanie, wersję i śledzenie metadanych na temat modeli w obszarze roboczym. W poniższych przykładach języka Python i interfejsu wiersza polecenia `models` katalog zawiera `model.h5` `model.w2v` pliki,, `encoder.pkl` i `tokenizer.pkl` . Ten przykład przekazuje pliki zawarte w `models` katalogu jako nową rejestrację modelu o nazwie `sentiment` :
 
 ```python
 from azureml.core.model import Model
@@ -81,7 +81,7 @@ Aby uzyskać więcej informacji na temat rejestracji modelu ogólnie, zobacz art
 
 Konfiguracja wnioskowania definiuje środowisko używane do uruchamiania wdrożonego modelu. Konfiguracja wnioskowania odwołuje się do następujących jednostek, które są używane do uruchamiania modelu podczas jego wdrażania:
 
-* Skrypt wejściowy. Ten plik (o `score.py`nazwie) ładuje model podczas uruchamiania wdrożonej usługi. Jest on również odpowiedzialny za otrzymywanie danych, przekazywanie go do modelu, a następnie zwracanie odpowiedzi.
+* Skrypt wejściowy. Ten plik (o nazwie `score.py` ) ładuje model podczas uruchamiania wdrożonej usługi. Jest on również odpowiedzialny za otrzymywanie danych, przekazywanie go do modelu, a następnie zwracanie odpowiedzi.
 * [Środowisko](how-to-use-environments.md)Azure Machine Learning. Środowisko definiuje zależności oprogramowania wymagające do uruchomienia modelu i skryptu wejścia.
 
 Poniższy przykład pokazuje, jak utworzyć środowisko przy użyciu zestawu SDK, a następnie użyć go z konfiguracją wnioskowania:
@@ -111,7 +111,7 @@ inference_config = InferenceConfig(entry_script="score.py",
                                    environment=myenv)
 ```
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 + [Jak używać środowisk](how-to-use-environments.md).
 + Odwołanie [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) .
@@ -127,7 +127,7 @@ Interfejs wiersza polecenia ładuje konfigurację wnioskowania z pliku YAML:
 }
 ```
 
-W interfejsie wiersza polecenia środowisko Conda jest zdefiniowane w pliku `myenv.yml` , do którego odwołuje się konfiguracja wnioskowania. Następujący YAML to zawartość tego pliku:
+W interfejsie wiersza polecenia środowisko Conda jest zdefiniowane w `myenv.yml` pliku, do którego odwołuje się konfiguracja wnioskowania. Następujący YAML to zawartość tego pliku:
 
 ```yaml
 name: inference_environment
@@ -146,12 +146,12 @@ Aby uzyskać więcej informacji na temat konfiguracji wnioskowania, zobacz [Wdra
 
 ### <a name="entry-script"></a>Skrypt wprowadzania
 
-Skrypt wejścia ma tylko dwie wymagane funkcje `init()` i. `run(data)` Te funkcje są używane do inicjowania usługi przy uruchamianiu i uruchamiania modelu przy użyciu danych żądania przekazaną przez klienta. Pozostała część skryptu obsługuje ładowanie i uruchamianie modeli.
+Skrypt wejścia ma tylko dwie wymagane funkcje `init()` i `run(data)` . Te funkcje są używane do inicjowania usługi przy uruchamianiu i uruchamiania modelu przy użyciu danych żądania przekazaną przez klienta. Pozostała część skryptu obsługuje ładowanie i uruchamianie modeli.
 
 > [!IMPORTANT]
 > Brak ogólnego skryptu wejścia, który działa dla wszystkich modeli. Jest zawsze specyficzny dla modelu, który jest używany. Musi on zrozumieć sposób ładowania modelu, format danych, którego oczekuje model, oraz sposób oceny danych przy użyciu modelu.
 
-Poniższy kod w języku Python jest przykładowym skryptem`score.py`wprowadzania ():
+Poniższy kod w języku Python jest przykładowym skryptem wprowadzania ( `score.py` ):
 
 ```python
 import os
@@ -258,7 +258,7 @@ Wdrażanie w innym miejscu docelowym obliczeniowym, takim jak usługa Azure Kube
 
 ## <a name="deploy-the-model"></a>Wdrażanie modelu
 
-Poniższy przykład ładuje informacje z zarejestrowanego modelu o `sentiment`nazwie, a następnie wdraża je jako usługę o nazwie `sentiment`. Podczas wdrażania, konfiguracja i konfiguracja wdrożenia są używane do tworzenia i konfigurowania środowiska usługi:
+Poniższy przykład ładuje informacje z zarejestrowanego modelu o nazwie `sentiment` , a następnie wdraża je jako usługę o nazwie `sentiment` . Podczas wdrażania, konfiguracja i konfiguracja wdrożenia są używane do tworzenia i konfigurowania środowiska usługi:
 
 ```python
 from azureml.core.model import Model
@@ -273,7 +273,7 @@ print("scoring URI: " + service.scoring_uri)
 
 Aby uzyskać więcej informacji, zobacz Dokumentacja [model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) .
 
-Aby wdrożyć model z interfejsu wiersza polecenia, użyj następującego polecenia. To polecenie wdraża wersję 1 zarejestrowanego modelu (`sentiment:1`) przy użyciu konfiguracji wnioskowania i wdrożenia przechowywanej w plikach `inferenceConfig.json` i `deploymentConfig.json` :
+Aby wdrożyć model z interfejsu wiersza polecenia, użyj następującego polecenia. To polecenie wdraża wersję 1 zarejestrowanego modelu ( `sentiment:1` ) przy użyciu konfiguracji wnioskowania i wdrożenia przechowywanej w `inferenceConfig.json` plikach i `deploymentConfig.json` :
 
 ```azurecli
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json

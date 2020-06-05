@@ -9,18 +9,19 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 8e3e37347c8c23ccc9746bbb98ef6a822743848b
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e0d17c91c4f5052d9ada369c14980dea8a606607
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790290"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417705"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Tworzenie maszyny wirtualnej ze statycznym publicznym adresem IP przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -30,14 +31,14 @@ Można utworzyć maszynę wirtualną ze statycznym publicznym adresem IP. Public
 
 Poniższe kroki można wykonać z komputera lokalnego lub przy użyciu Azure Cloud Shell. Aby korzystać z komputera lokalnego, upewnij się, że jest [zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Aby użyć Azure Cloud Shell, wybierz opcję **Wypróbuj** w prawym górnym rogu dowolnego poniższego pola polecenia. Cloud Shell umożliwia zalogowanie się do platformy Azure.
 
-1. Jeśli używasz Cloud Shell, przejdź do kroku 2. Otwórz sesję polecenia i zaloguj się do platformy Azure `az login`za pomocą usługi.
+1. Jeśli używasz Cloud Shell, przejdź do kroku 2. Otwórz sesję polecenia i zaloguj się do platformy Azure za pomocą usługi `az login` .
 2. Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Poniższy przykład tworzy grupę zasobów w regionie platformy Azure Wschodnie stany USA:
 
    ```azurecli-interactive
    az group create --name myResourceGroup --location eastus
    ```
 
-3. Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). `--public-ip-address-allocation=static` Opcja przypisuje statyczny publiczny adres IP do maszyny wirtualnej. Poniższy przykład tworzy maszynę wirtualną Ubuntu ze statycznym publicznym adresem IP podstawowej jednostki SKU o nazwie *myPublicIpAddress*:
+3. Utwórz maszynę wirtualną za pomocą polecenia [az vm create](/cli/azure/vm#az-vm-create). `--public-ip-address-allocation=static`Opcja przypisuje statyczny publiczny adres IP do maszyny wirtualnej. Poniższy przykład tworzy maszynę wirtualną Ubuntu ze statycznym publicznym adresem IP podstawowej jednostki SKU o nazwie *myPublicIpAddress*:
 
    ```azurecli-interactive
    az vm create \
@@ -50,7 +51,7 @@ Poniższe kroki można wykonać z komputera lokalnego lub przy użyciu Azure Clo
      --public-ip-address-allocation static
    ```
 
-   Jeśli publiczny adres IP musi być standardową jednostką SKU, `--public-ip-sku Standard` Dodaj do poprzedniego polecenia. Dowiedz się więcej o jednostkach [SKU publicznych adresów IP](virtual-network-ip-addresses-overview-arm.md#sku). Jeśli maszyna wirtualna zostanie dodana do puli zaplecza Azure Load Balancer publicznej, jednostka SKU publicznego adresu IP maszyny wirtualnej musi być zgodna z jednostką SKU publicznego adresu IP modułu równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Azure Load Balancer](../load-balancer/skus.md).
+   Jeśli publiczny adres IP musi być standardową jednostką SKU, Dodaj `--public-ip-sku Standard` do poprzedniego polecenia. Dowiedz się więcej o jednostkach [SKU publicznych adresów IP](virtual-network-ip-addresses-overview-arm.md#sku). Jeśli maszyna wirtualna zostanie dodana do puli zaplecza Azure Load Balancer publicznej, jednostka SKU publicznego adresu IP maszyny wirtualnej musi być zgodna z jednostką SKU publicznego adresu IP modułu równoważenia obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Azure Load Balancer](../load-balancer/skus.md).
 
 4. Wyświetl przypisany publiczny adres IP i upewnij się, że został on utworzony jako statyczny, podstawowy adres jednostki SKU z poleceniem [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show):
 

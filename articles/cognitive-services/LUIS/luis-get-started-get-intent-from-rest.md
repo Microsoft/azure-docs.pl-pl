@@ -4,18 +4,16 @@ description: W tym przewodniku szybki start interfejsu API REST Użyj dostępnej
 ms.topic: quickstart
 ms.date: 05/18/2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 90d98e56e53e28991fb5aada9eab5a7e9c2e69c3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 919308bbb557247516e85017909df9caed8eafdf
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654275"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418066"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>Szybki Start: pobieranie zamierzeń przy użyciu interfejsów API REST
 
 W tym przewodniku szybki start użyjesz aplikacji LUIS do określenia zamiaru użytkownika z tekstu konwersacjowego. Wyślij zamiar użytkownika jako tekst do punktu końcowego przewidywania HTTP aplikacji Pizza. W punkcie końcowym LUIS stosuje model aplikacji Pizza w celu przeanalizowania tekstu w języku naturalnym pod kątem znaczenia, określania ogólnego zamiaru i wyodrębnienia danych związanych z domeną podmiotu aplikacji.
-
-W tym przewodniku Szybki start jest używany punkt końcowy interfejsu API REST. Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API punktu końcowego](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
 
 W przypadku tego artykułu jest potrzebne bezpłatne konto [usługi LUIS](https://www.luis.ai).
 

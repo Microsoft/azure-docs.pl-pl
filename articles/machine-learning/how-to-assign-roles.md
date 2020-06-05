@@ -5,18 +5,18 @@ description: Dowiedz się, jak uzyskać dostęp do obszaru roboczego Azure Machi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/06/2020
 ms.custom: seodec18
-ms.openlocfilehash: 127a0a2b7f7573db91df9347169e90de3e14c4c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9763cc0d93e6731bb42bcc55f9d8bf9463e2b0dd
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270097"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434683"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,9 +42,9 @@ Aby uzyskać więcej informacji na temat określonych ról wbudowanych, zobacz [
 
 Jeśli jesteś właścicielem obszaru roboczego, możesz dodawać i usuwać role dla obszaru roboczego. Możesz również przypisywać role do użytkowników. Skorzystaj z poniższych linków, aby dowiedzieć się, jak zarządzać dostępem:
 - [Interfejs użytkownika Azure Portal](/azure/role-based-access-control/role-assignments-portal)
-- [Narzędzia](/azure/role-based-access-control/role-assignments-powershell)
+- [Program PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Interfejs wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
-- [INTERFEJS API REST](/azure/role-based-access-control/role-assignments-rest)
+- [Interfejs API REST](/azure/role-based-access-control/role-assignments-rest)
 - [Szablony usługi Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
 
 Jeśli zainstalowano [interfejs wiersza polecenia Azure Machine Learning](reference-azure-machine-learning-cli.md), można także przypisać role do użytkowników za pomocą interfejsu CLI.
@@ -53,7 +53,7 @@ Jeśli zainstalowano [interfejs wiersza polecenia Azure Machine Learning](refere
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-`user` Pole jest adresem e-mail istniejącego użytkownika w wystąpieniu Azure Active Directory, w którym znajduje się subskrypcja nadrzędna obszaru roboczego. Oto przykład użycia tego polecenia:
+`user`Pole jest adresem e-mail istniejącego użytkownika w wystąpieniu Azure Active Directory, w którym znajduje się subskrypcja nadrzędna obszaru roboczego. Oto przykład użycia tego polecenia:
 
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
@@ -87,7 +87,7 @@ Aby utworzyć rolę niestandardową, należy najpierw skonstruować plik JSON de
 }
 ```
 
-Można zmienić `AssignableScopes` pole, aby ustawić zakres tej roli niestandardowej na poziomie subskrypcji, na poziomie grupy zasobów lub na określonym poziomie obszaru roboczego.
+Można zmienić pole, `AssignableScopes` Aby ustawić zakres tej roli niestandardowej na poziomie subskrypcji, na poziomie grupy zasobów lub na określonym poziomie obszaru roboczego.
 
 Ta rola niestandardowa może wykonywać wszystkie czynności w obszarze roboczym, z wyjątkiem następujących akcji:
 
@@ -102,7 +102,7 @@ Aby wdrożyć tę rolę niestandardową, użyj następującego polecenia platfor
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Po wdrożeniu ta rola zostanie udostępniona w określonym obszarze roboczym. Teraz możesz dodać tę rolę i przypisać ją do Azure Portal. Można też przypisać tę rolę do użytkownika za pomocą polecenia `az ml workspace share` interfejsu wiersza poleceń:
+Po wdrożeniu ta rola zostanie udostępniona w określonym obszarze roboczym. Teraz możesz dodać tę rolę i przypisać ją do Azure Portal. Można też przypisać tę rolę do użytkownika za pomocą `az ml workspace share` polecenia interfejsu wiersza poleceń:
 
 ```azurecli-interactive
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
@@ -118,7 +118,7 @@ Aby uzyskać więcej informacji o operacjach (działania), których można uży�
 
 ### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>PYTANIE: Jakie są uprawnienia potrzebne do wykonywania różnych akcji w ramach usługi Azure Machine Learning?
 
-Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawnienia wymagane do ich wykonania w najniższym zakresie. Przykładowo, jeśli działanie może być wykonywane z zakresem obszaru roboczego (kolumna 4), wówczas cały wyższy zakres z tym uprawnieniem będzie również działać automatycznie. Wszystkie ścieżki w tej tabeli są **ścieżkami względnymi** do `Microsoft.MachineLearningServices/`.
+Poniższa tabela zawiera podsumowanie działań Azure Machine Learning i uprawnienia wymagane do ich wykonania w najniższym zakresie. Przykładowo, jeśli działanie może być wykonywane z zakresem obszaru roboczego (kolumna 4), wówczas cały wyższy zakres z tym uprawnieniem będzie również działać automatycznie. Wszystkie ścieżki w tej tabeli są **ścieżkami względnymi** do `Microsoft.MachineLearningServices/` .
 
 | Działanie | Zakres poziomu subskrypcji | Zakres poziomu grupy zasobów | Zakres obszaru roboczego |
 |---|---|---|---|
@@ -139,7 +139,7 @@ az role definition list --subscription <sub-id> --custom-role-only true
 
 ### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>PYTANIE: Jak mogę znaleźć definicję roli dla roli w mojej subskrypcji?
 
-W interfejsie wiersza polecenia platformy Azure Uruchom następujące polecenie. Należy pamiętać `<role-name>` , że powinny być w tym samym formacie zwracanym przez polecenie powyżej.
+W interfejsie wiersza polecenia platformy Azure Uruchom następujące polecenie. Należy pamiętać, że `<role-name>` powinny być w tym samym formacie zwracanym przez polecenie powyżej.
 
 ```azurecli-interactive
 az role definition list -n <role-name> --subscription <sub-id>
@@ -159,7 +159,7 @@ Należy pamiętać, że należy mieć uprawnienia do całego zakresu nowej defin
 > Zastosowanie aktualizacji ról może zająć od 15 minut do godziny.
 ### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>PYTANIE: Czy mogę zdefiniować rolę, która uniemożliwia Aktualizowanie wersji obszaru roboczego? 
 
-Tak, możesz zdefiniować rolę, która uniemożliwi Aktualizowanie wersji obszaru roboczego. Ponieważ aktualizacja obszaru roboczego jest wywołaniem poprawki w obiekcie obszaru roboczego, można to zrobić, umieszczając w `"NotActions"` tablicy następującą akcję w definicji JSON: 
+Tak, możesz zdefiniować rolę, która uniemożliwi Aktualizowanie wersji obszaru roboczego. Ponieważ aktualizacja obszaru roboczego jest wywołaniem poprawki w obiekcie obszaru roboczego, można to zrobić, umieszczając w tablicy następującą akcję w `"NotActions"` definicji JSON: 
 
 `"Microsoft.MachineLearningServices/workspaces/write"`
 

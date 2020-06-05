@@ -1,21 +1,21 @@
 ---
 title: Wersje, poprawki, &, uaktualnienia w ramach usługi Azure łańcucha bloków
 description: Przegląd obsługiwanych wersji księgi w usłudze Azure łańcucha bloków Service, w tym zasady dotyczące poprawek systemów i uaktualnień zarządzanych przez użytkowników oraz zarządzanych przez użytkownika.
-ms.date: 11/20/2019
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: 8d4a77699dd80743acfadd4d72d6d75bc1939b3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da7907c2c324932ba43863c1074cdff7d54d3827
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325187"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430752"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Obsługiwane wersje finansów usługi Azure łańcucha bloków Service
 
 Usługa Azure łańcucha bloków korzysta z opartej na Ethereum księgi [kworum](https://www.goquorum.com/developers) przeznaczonej do przetwarzania transakcji prywatnych w grupie znanych uczestników, identyfikowanej jako konsorcjum w usłudze Azure łańcucha bloków.
 
-Obecnie usługa Azure łańcucha bloków obsługuje [kworum w wersji 2.2.3](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.3) i [Tessera Transaction Manager](https://github.com/jpmorganchase/tessera).
+Obecnie usługa Azure łańcucha bloków obsługuje [kworum w wersji 2.5.0](https://github.com/jpmorganchase/quorum/releases/tag/v2.5.0) i [Tessera Transaction Manager](https://github.com/jpmorganchase/tessera).
 
 ## <a name="managing-updates-and-upgrades"></a>Zarządzanie aktualizacjami i uaktualnieniami
 

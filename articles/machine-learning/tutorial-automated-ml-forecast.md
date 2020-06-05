@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 05/19/2020
-ms.openlocfilehash: 46c11ef3b3a1fa1a1861f9e944c93ffdf94f7c5a
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/04/2020
+ms.openlocfilehash: 3786b7a2b8b8fc40b1cf393aa452c15d72c5b963
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118894"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433703"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Samouczek: prognozowanie popytu przy użyciu automatycznej uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -79,7 +79,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
         ---|---|---
         Format pliku|Definiuje układ i typ danych przechowywanych w pliku.| Lista
         Ogranicznik|Jeden lub więcej znaków do określenia granicy między &nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych. |Przecinek
-        Kodowanie|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
+        Encoding|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Użyj nagłówków z pierwszego pliku
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
 
@@ -124,7 +124,7 @@ Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybi
 
     1. Wybierz opcję **Dalej**.
 
-## <a name="select-task-type-and-settings"></a>Wybierz typ i ustawienia zadania
+## <a name="select-forecast-settings"></a>Wybierz ustawienia prognozy
 
 Ukończ instalację eksperymentu dotyczącego zautomatyzowanej sieci ML, określając typ zadania Uczenie maszynowe i ustawienia konfiguracji.
 
@@ -138,8 +138,8 @@ Ukończ instalację eksperymentu dotyczącego zautomatyzowanej sieci ML, określ
         Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
         ------|---------|---
         Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|Znormalizowany błąd średniego poziomu głównego
-        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włączanie
-        Wyjaśnij najlepszy model (wersja zapoznawcza)| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włączanie
+        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włącz
+        Wyjaśnij najlepszy model (wersja zapoznawcza)| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włącz
         Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Skrajnie losowe drzewa
         Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Przewidywany horyzont**_ czasowy: długość czasu na przyszłość, którą chcesz przewidzieć <br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_: Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. |Horyzont prognoz: 14 <br> &nbsp;Spowolnienia docelowy prognozy &nbsp; : brak <br> &nbsp;Rozmiar stopniowego &nbsp; okna docelowego &nbsp; : brak
         Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 3 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
@@ -200,7 +200,7 @@ Po pomyślnym wdrożeniu masz działającą usługę sieci Web do generowania pr
 
 Przejdź do [**następnych kroków**](#next-steps) , aby dowiedzieć się więcej na temat korzystania z nowej usługi sieci Web i testowania prognoz przy użyciu Power BI wbudowanej Azure Machine Learning obsługi.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Pliki wdrożeń są większe niż pliki danych i eksperymenty, dzięki czemu są one droższe do przechowywania. Usuń tylko pliki wdrożenia, aby zminimalizować koszty dla konta, lub jeśli chcesz zachować obszar roboczy i pliki eksperymentów. W przeciwnym razie Usuń całą grupę zasobów, jeśli nie planujesz używać żadnego z tych plików.  
 

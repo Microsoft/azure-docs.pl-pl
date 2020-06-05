@@ -5,16 +5,16 @@ description: Debuguj potoki Azure Machine Learning w języku Python. Poznaj typo
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: bf6a8dd0bfc4ffb9f6b6fa0c9b1d864c4298755a
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594653"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433441"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Debugowanie i rozwiązywanie problemów z potokami uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -50,9 +50,9 @@ Po skonfigurowaniu skryptu do uruchomienia w środowisku lokalnym można znaczni
 
 ### <a name="debugging-scripts-from-remote-context"></a>Debugowanie skryptów z kontekstu zdalnego
 
-Testowanie skryptów lokalnie to doskonały sposób na Debugowanie głównych fragmentów kodu i złożonej logiki przed rozpoczęciem tworzenia potoku, ale w pewnym momencie prawdopodobnie trzeba będzie debugować skrypty w trakcie rzeczywistego uruchomienia potoku, szczególnie podczas diagnozowania zachowań występujących podczas interakcji między krokami potoku. Zalecamy korzystanie z `print()` niezliberalizowanych instrukcji w skryptach kroków, dzięki czemu można zobaczyć stan obiektu i oczekiwane wartości podczas wykonywania zdalnego, podobnie jak w przypadku debugowania kodu JavaScript.
+Testowanie skryptów lokalnie to doskonały sposób na Debugowanie głównych fragmentów kodu i złożonej logiki przed rozpoczęciem tworzenia potoku, ale w pewnym momencie prawdopodobnie trzeba będzie debugować skrypty w trakcie rzeczywistego uruchomienia potoku, szczególnie podczas diagnozowania zachowań występujących podczas interakcji między krokami potoku. Zalecamy korzystanie z niezliberalizowanych `print()` instrukcji w skryptach kroków, dzięki czemu można zobaczyć stan obiektu i oczekiwane wartości podczas wykonywania zdalnego, podobnie jak w przypadku debugowania kodu JavaScript.
 
-Plik `70_driver_log.txt` dziennika zawiera: 
+Plik dziennika `70_driver_log.txt` zawiera: 
 
 * Wszystkie wydrukowane instrukcje podczas wykonywania skryptu
 * Ślad stosu dla skryptu 
@@ -78,11 +78,11 @@ Poniższa tabela zawiera typowe problemy podczas tworzenia potoku z potencjalnym
 
 | Problem | Możliwe rozwiązanie |
 |--|--|
-| Nie można przekazać danych do `PipelineData` katalogu | Upewnij się, że utworzono katalog w skrypcie, który odnosi się do miejsca, w którym potok oczekuje danych wyjściowych kroku. W większości przypadków argument wejściowy określi katalog wyjściowy, a następnie utworzysz katalog jawnie. Użyj `os.makedirs(args.output_dir, exist_ok=True)` polecenia, aby utworzyć katalog wyjściowy. Zapoznaj się z [samouczkiem](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) przykładowego skryptu oceniania, który pokazuje ten Wzorzec projektowy. |
+| Nie można przekazać danych do `PipelineData` katalogu | Upewnij się, że utworzono katalog w skrypcie, który odnosi się do miejsca, w którym potok oczekuje danych wyjściowych kroku. W większości przypadków argument wejściowy określi katalog wyjściowy, a następnie utworzysz katalog jawnie. Użyj polecenia `os.makedirs(args.output_dir, exist_ok=True)` , aby utworzyć katalog wyjściowy. Zapoznaj się z [samouczkiem](tutorial-pipeline-batch-scoring-classification.md#write-a-scoring-script) przykładowego skryptu oceniania, który pokazuje ten Wzorzec projektowy. |
 | Błędy zależności | Jeśli lokalnie opracowano i przetestowano skrypty, ale występują problemy z zależnościami podczas uruchamiania na zdalnym obliczeniu w potoku, upewnij się, że zależności środowiska obliczeniowego i wersje są zgodne ze środowiskiem testowym. (Zobacz [Tworzenie środowiska, buforowanie i ponowne używanie](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse)|
 | Niejednoznaczne błędy z obiektami docelowymi obliczeń | Usunięcie i ponowne utworzenie obiektów docelowych obliczeń może rozwiązać pewne problemy związane z obiektami docelowymi obliczeń. |
-| Potok nie wykorzystał się z kroków | Ponowne użycie kroku jest włączone domyślnie, ale upewnij się, że nie zostało wyłączone w kroku potoku. Jeśli ponowne użycie jest wyłączone, `allow_reuse` parametr w kroku zostanie ustawiony na `False`. |
-| Potok jest niepotrzebny. | Aby zapewnić, że kroki mają zostać uruchomione ponownie tylko wtedy, gdy ich dane podstawowe lub skrypty zmienią się, należy rozdzielić katalogi dla każdego kroku. Jeśli używasz tego samego katalogu źródłowego dla wielu kroków, może wystąpić niepotrzebne wykonanie ponownie. Użyj `source_directory` parametru w obiekcie krok potoku, aby wskazać odizolowany katalog dla tego kroku, i upewnij się, że nie używasz `source_directory` tej samej ścieżki dla wielu kroków. |
+| Potok nie wykorzystał się z kroków | Ponowne użycie kroku jest włączone domyślnie, ale upewnij się, że nie zostało wyłączone w kroku potoku. Jeśli ponowne użycie jest wyłączone, `allow_reuse` parametr w kroku zostanie ustawiony na `False` . |
+| Potok jest niepotrzebny. | Aby zapewnić, że kroki mają zostać uruchomione ponownie tylko wtedy, gdy ich dane podstawowe lub skrypty zmienią się, należy rozdzielić katalogi dla każdego kroku. Jeśli używasz tego samego katalogu źródłowego dla wielu kroków, może wystąpić niepotrzebne wykonanie ponownie. Użyj `source_directory` parametru w obiekcie krok potoku, aby wskazać odizolowany katalog dla tego kroku, i upewnij się, że nie używasz tej samej `source_directory` ścieżki dla wielu kroków. |
 
 ### <a name="logging-options-and-behavior"></a>Opcje rejestrowania i zachowanie
 
@@ -233,7 +233,7 @@ Aby włączyć debugowanie, wprowadź następujące zmiany w skryptach języka P
         print(f'Debugger attached = {ptvsd.is_attached()}')
     ```
 
-W poniższym przykładzie w języku Python przedstawiono `train.py` podstawowy plik, który umożliwia debugowanie:
+W poniższym przykładzie w języku Python przedstawiono podstawowy `train.py` plik, który umożliwia debugowanie:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.
@@ -287,7 +287,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>Konfigurowanie potoku ML
 
-Aby udostępnić pakiety języka Python, które są konieczne do uruchomienia programu PTVSD i uzyskać kontekst uruchamiania, Utwórz środowisko `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`i ustaw. Zmień wersję zestawu SDK, aby była zgodna z tą, której używasz. Poniższy fragment kodu przedstawia sposób tworzenia środowiska:
+Aby udostępnić pakiety języka Python, które są konieczne do uruchomienia programu PTVSD i uzyskać kontekst uruchamiania, Utwórz środowisko i ustaw `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']` . Zmień wersję zestawu SDK, aby była zgodna z tą, której używasz. Poniższy fragment kodu przedstawia sposób tworzenia środowiska:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.
@@ -312,7 +312,7 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
                                                                            pip_packages=['ptvsd', 'azureml-sdk==1.0.83'])
 ```
 
-W sekcji [Konfigurowanie skryptów języka Python](#configure-python-scripts) dwa nowe argumenty zostały dodane do skryptów używanych przez etapy potoku. Poniższy fragment kodu ilustruje, jak używać tych argumentów, aby włączyć debugowanie dla składnika i ustawić limit czasu. Pokazano w nim także, jak używać środowiska utworzonego wcześniej przez ustawienie `runconfig=run_config`:
+W sekcji [Konfigurowanie skryptów języka Python](#configure-python-scripts) dwa nowe argumenty zostały dodane do skryptów używanych przez etapy potoku. Poniższy fragment kodu ilustruje, jak używać tych argumentów, aby włączyć debugowanie dla składnika i ustawić limit czasu. Pokazano w nim także, jak używać środowiska utworzonego wcześniej przez ustawienie `runconfig=run_config` :
 
 ```python
 # Use RunConfig from a pipeline step
@@ -351,7 +351,7 @@ Zapisz `ip_address` wartość. Jest on używany w następnej sekcji.
 
     1. W obszarze VS Code wybierz menu __Debuguj__ , a następnie wybierz pozycję __Otwórz konfiguracje__. Zostanie otwarty plik o nazwie __Launch. JSON__ .
 
-    1. W pliku __Launch. JSON__ Znajdź wiersz, który zawiera `"configurations": [`, i Wstaw następujący tekst po nim. Zmień `"host": "10.3.0.5"` wpis na adres IP zwrócony w dziennikach z poprzedniej sekcji. Zmień `"localRoot": "${workspaceFolder}/code/step"` wpis na katalog lokalny, który zawiera kopię debugowanego skryptu:
+    1. W pliku __Launch. JSON__ Znajdź wiersz, który zawiera `"configurations": [` , i Wstaw następujący tekst po nim. Zmień `"host": "10.3.0.5"` wpis na adres IP zwrócony w dziennikach z poprzedniej sekcji. Zmień `"localRoot": "${workspaceFolder}/code/step"` wpis na katalog lokalny, który zawiera kopię debugowanego skryptu:
 
         ```json
         {
@@ -374,7 +374,7 @@ Zapisz `ip_address` wartość. Jest on używany w następnej sekcji.
         > Jeśli w sekcji konfiguracje znajdują się już inne wpisy, Dodaj przecinek (,) po wstawionym kodzie.
 
         > [!TIP]
-        > Najlepszym rozwiązaniem jest utrzymywanie zasobów dla skryptów w oddzielnych katalogach, co oznacza, że przykładowe `localRoot` odwołania `/code/step1`do wartości.
+        > Najlepszym rozwiązaniem jest utrzymywanie zasobów dla skryptów w oddzielnych katalogach, co oznacza, że `localRoot` przykładowe odwołania do wartości `/code/step1` .
         >
         > W przypadku debugowania wielu skryptów w różnych katalogach należy utworzyć osobną sekcję konfiguracyjną dla każdego skryptu.
 
@@ -384,12 +384,12 @@ Zapisz `ip_address` wartość. Jest on używany w następnej sekcji.
 
 1. Otwórz VS Code i Otwórz lokalną kopię skryptu.
 2. Ustaw punkty przerwania, w których skrypt ma zostać zatrzymany po dołączeniu.
-3. Podczas gdy proces podrzędny uruchamia skrypt, a w dziennikach `Timeout for debug connection` jest wyświetlany, użyj klawisza F5 lub wybierz opcję __Debuguj__. Po wyświetleniu monitu wybierz konfigurację __Azure Machine Learning COMPUTE: Remote Debug__ . Możesz również wybrać ikonę debugowania z paska bocznego, __Azure Machine Learning: zdalnego debugowania__ z menu rozwijanego debugowanie, a następnie użyć zieloną strzałkę, aby dołączyć debuger.
+3. Podczas gdy proces podrzędny uruchamia skrypt, a w `Timeout for debug connection` dziennikach jest wyświetlany, użyj klawisza F5 lub wybierz opcję __Debuguj__. Po wyświetleniu monitu wybierz konfigurację __Azure Machine Learning COMPUTE: Remote Debug__ . Możesz również wybrać ikonę debugowania z paska bocznego, __Azure Machine Learning: zdalnego debugowania__ z menu rozwijanego debugowanie, a następnie użyć zieloną strzałkę, aby dołączyć debuger.
 
     W tym momencie VS Code nawiązuje połączenie z usługą PTVSD w węźle obliczeniowym i zatrzyma się na ustawionym wcześniej punkcie przerwania. Teraz można przechodzić przez kod w trakcie jego uruchamiania, wyświetlać zmienne itp.
 
     > [!NOTE]
-    > Jeśli w dzienniku zostanie wyświetlony wpis z informacją `Debugger attached = False`, upłynął limit czasu, a skrypt kontynuuje działanie bez debugera. Prześlij potok ponownie, a następnie podłącz debuger po `Timeout for debug connection` komunikacie i przed upływem limitu czasu.
+    > Jeśli w dzienniku zostanie wyświetlony wpis z informacją `Debugger attached = False` , upłynął limit czasu, a skrypt kontynuuje działanie bez debugera. Prześlij potok ponownie, a następnie podłącz debuger po `Timeout for debug connection` komunikacie i przed upływem limitu czasu.
 
 ## <a name="next-steps"></a>Następne kroki
 

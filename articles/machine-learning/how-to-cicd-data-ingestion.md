@@ -5,18 +5,18 @@ description: Dowiedz się, jak stosować praktyki DevOps do implementacji potoku
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 01/30/2020
-ms.openlocfilehash: d987171d41bd6d80bab4cce91ef9ecec1f0dc7a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c5ffd45eadfd2d1b0e455ea3de91bf91c11c2517
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80247184"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434608"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps dla potoku pozyskiwania danych
 
