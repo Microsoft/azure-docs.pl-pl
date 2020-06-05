@@ -5,17 +5,17 @@ description: Dowiedz się, jak ponownie szkolić modele z opublikowanymi potokam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
 ms.custom: designer
-ms.openlocfilehash: 7a132734c3ccb6d5d143053b83723950d154d74c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c466684bf5c07b5e88e8052c29aa9fb0b8583a89
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653692"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430078"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ponowne trenowanie modeli za pomocą projektanta usługi Azure Machine Learning (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -93,7 +93,7 @@ Opublikuj potok w punkcie końcowym potoku, aby łatwo ponownie wykorzystać pot
    > [!NOTE]
    > Można opublikować wiele potoków w jednym punkcie końcowym. Każdy potok w danym punkcie końcowym ma numer wersji, który można określić podczas wywoływania punktu końcowego potoku.
 
-1. Wybierz pozycję **Publikuj**.
+1. Wybierz polecenie **Publikuj**.
 
 ## <a name="retrain-your-model"></a>Ponowne uczenie modelu
 
