@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: plik dołączany
+description: plik dołączany
 services: machine-learning
 author: nibaccam
 ms.service: machine-learning
@@ -16,4 +16,4 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75527301"
 ---
-**Dotyczy:** ![brak](media/aml-applies-to-skus/no.png)wersji Basic Edition ![yes](media/aml-applies-to-skus/yes.png)Enterprise &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Edition &nbsp; &nbsp; [Upgrade to Enterprise](../articles/machine-learning/how-to-manage-workspace.md#upgrade)(uaktualnienie &nbsp; do wersji Enterprise) &nbsp; &nbsp; &nbsp; &nbsp;
+**dotyczy:** ![ Brak ](media/aml-applies-to-skus/no.png) wersji Basic Edition ![ yes ](media/aml-applies-to-skus/yes.png) Enterprise Edition &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ([uaktualnienie do wersji Enterprise](../articles/machine-learning/how-to-manage-workspace.md#upgrade))

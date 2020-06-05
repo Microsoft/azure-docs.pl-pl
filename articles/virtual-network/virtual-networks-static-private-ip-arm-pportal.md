@@ -57,7 +57,7 @@ Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *frontonu* sieci w
     | **Grupa zasobów** | **TestRG** (wybierz z listy rozwijanej) |
     | **Nazwa maszyny wirtualnej** | *DNS01* |
     | **Region** | **Prześlij Wschodnie stany USA** |
-    | **Image (Obraz)** | **Windows Server 2019 Datacenter** |
+    | **Obraz** | **Windows Server 2019 Datacenter** |
     | **Rozmiar** | **Rozmiar maszyny wirtualnej** **B1ls**, **Oferta** **standardu** |
     | **Uż** | Nazwa użytkownika konta administratora |
     | **Hasło** | Hasło dla nazwy użytkownika konta administratora |
