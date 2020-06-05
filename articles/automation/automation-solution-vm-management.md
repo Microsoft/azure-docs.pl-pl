@@ -3,20 +3,23 @@ title: Omówienie Start/Stop VMs during off-hours Azure Automation
 description: W tym artykule opisano funkcję Start/Stop VMs during off-hours, która uruchamia lub wstrzymuje maszyny wirtualne zgodnie z harmonogramem i aktywnie monitoruje je z dzienników Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/28/2020
+ms.date: 06/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7c0cc2b4996c1002aae0656234c356c805923811
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 3b4358651b811ba5c1e7644333a1e9f5a8da2990
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205130"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424078"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Przegląd Start/Stop VMs during off-hours
 
-Funkcja Start/Stop VMs during off-hours uruchamia lub przerywa włączone maszyny wirtualne platformy Azure. Uruchamia lub kończy maszyny w harmonogramach zdefiniowanych przez użytkownika, udostępnia szczegółowe informacje za pośrednictwem dzienników Azure Monitor i wysyła opcjonalne wiadomości e-mail przy użyciu [grup akcji](../azure-monitor/platform/action-groups.md). Tę funkcję można włączyć na Azure Resource Manager i klasycznych maszynach wirtualnych w większości scenariuszy. 
+Funkcja Start/Stop VMs during off-hours uruchamiania lub zatrzymywania włączonych maszyn wirtualnych platformy Azure. Uruchamia lub kończy maszyny w harmonogramach zdefiniowanych przez użytkownika, udostępnia szczegółowe informacje za pośrednictwem dzienników Azure Monitor i wysyła opcjonalne wiadomości e-mail przy użyciu [grup akcji](../azure-monitor/platform/action-groups.md). Tę funkcję można włączyć na Azure Resource Manager i klasycznych maszynach wirtualnych w większości scenariuszy. 
 
-Ta funkcja używa polecenia cmdlet [Start-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/start-azurermvm?view=azurermps-6.13.0) do uruchamiania maszyn wirtualnych. Do zatrzymywania maszyn wirtualnych jest wykorzystywany [komunikat STOP-AzureRmVM](https://docs.microsoft.com/powershell/module/AzureRM.Compute/Stop-AzureRmVM?view=azurermps-6.13.0) .
+Ta funkcja używa polecenia cmdlet [Start-AzVm](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) do uruchamiania maszyn wirtualnych. Do zatrzymywania maszyn wirtualnych jest wykorzystywany [komunikat STOP-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) .
+
+> [!NOTE]
+> Mimo że elementy Runbook zostały zaktualizowane do korzystania z nowych poleceń cmdlet platformy Azure AZ module, używają aliasu prefiksu AzureRM.
 
 > [!NOTE]
 > Zaktualizowano Start/Stop VMs during off-hours, aby obsługiwały najnowsze wersje modułów platformy Azure, które są dostępne. Zaktualizowana wersja tej funkcji dostępna w portalu Marketplace nie obsługuje modułów AzureRM, ponieważ przeprowadzono migrację z AzureRM do AZ modules.
@@ -132,7 +135,7 @@ Poniższa tabela zawiera listę zmiennych utworzonych na koncie usługi Automati
 |External_AutoStop_TimeAggregationOperator | Operator agregacji czasu stosowany do wybranego rozmiaru okna, aby oszacować warunek. Dopuszczalne wartości to `Average` , `Minimum` , `Maximum` , `Total` i `Last` .|
 |External_AutoStop_TimeWindow | Rozmiar okna, w którym platforma Azure analizuje wybrane metryki na potrzeby wyzwalania alertu. Ten parametr akceptuje dane wejściowe w formacie TimeSpan. Możliwe wartości to od 5 minut do 6 godzin.|
 |External_EnableClassicVMs| Wartość określająca, czy klasyczne maszyny wirtualne są objęte funkcją. Wartość domyślna to true. Ustaw dla tej zmiennej wartość false dla subskrypcji dostawcy rozwiązań w chmurze Azure (CSP). Klasyczne maszyny wirtualne wymagają [klasycznego konta Uruchom jako](automation-create-standalone-account.md#create-a-classic-run-as-account).|
-|External_ExcludeVMNames | Rozdzielana przecinkami lista nazw maszyn wirtualnych do wykluczenia, ograniczona do 140 maszyn wirtualnych. Jeśli dodasz więcej niż 140 maszyn wirtualnych do listy, maszyny wirtualne, które są wykluczone, mogą zostać przypadkowo uruchomione lub zatrzymane.|
+|External_ExcludeVMNames | Rozdzielana przecinkami lista nazw maszyn wirtualnych do wykluczenia, ograniczona do 140 maszyn wirtualnych. Jeśli dodasz więcej niż 140 maszyn wirtualnych do listy, maszyny wirtualne określone do wykluczenia mogą zostać przypadkowo uruchomione lub zatrzymane.|
 |External_Start_ResourceGroupNames | Rozdzielana przecinkami lista jednej lub większej liczby grup zasobów przeznaczonych do uruchamiania akcji.|
 |External_Stop_ResourceGroupNames | Rozdzielana przecinkami lista co najmniej jednej grupy zasobów, która jest przeznaczona dla akcji zatrzymania.|
 |External_WaitTimeForVMRetrySeconds |Czas oczekiwania (w sekundach) wykonywania akcji na maszynach wirtualnych dla **SequencedStartStop_Parent** elementu Runbook. Ta zmienna umożliwia elementowi Runbook oczekiwanie na wykonanie operacji podrzędnych przez określoną liczbę sekund przed przejściem do następnej akcji. Maksymalny czas oczekiwania wynosi 10800 lub trzy godziny. Wartość domyślna to 2100 sekund.|

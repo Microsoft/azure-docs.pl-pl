@@ -5,17 +5,17 @@ description: Konfigurowanie aplikacji opartych na zdarzeniach, procesów lub prz
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 4a8c9c8088126a33b28bd36382536a8fe25ff0a7
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 97253a75a089570613c1d7b378ad4acf07d798a4
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800468"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431252"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Wyzwalaj aplikacje, procesy lub przepływy pracy ciągłej integracji/ciągłego wdrażania w oparciu o zdarzenia Azure Machine Learning (wersja zapoznawcza)
 

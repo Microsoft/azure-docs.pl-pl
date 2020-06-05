@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 52ffc6bf83ff2a2dcc22fd7c5ad8ab1480f9ce50
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248247"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417297"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -31,7 +31,7 @@ Przed skonfigurowaniem kopii zapasowych upewnij się, że wykonano następujące
 
 * Zezwól na połączenie z maszyną wirtualną z Internetem, aby można było uzyskać dostęp do platformy Azure, zgodnie z opisem w poniższej procedurze [Konfigurowanie łączności sieciowej](#set-up-network-connectivity) .
 * Klucz powinien istnieć w **hdbuserstore** , który spełnia następujące kryteria:
-  * Powinien być obecny w domyślnym **hdbuserstore**
+  * Powinien być obecny w domyślnym **hdbuserstore**. Wartość domyślna to `<sid>adm` konto, pod którym zainstalowano SAP HANA.
   * W przypadku MDC klucz powinien wskazywać port SQL **serwer nazw**. W przypadku SDC powinna wskazywać port SQL of **INDEXSERVER**
   * Należy mieć poświadczenia, aby dodawać i usuwać użytkowników
 * Uruchom skrypt konfiguracji kopii zapasowej SAP HANA (skrypt przed rejestracją) na maszynie wirtualnej, na której jest zainstalowany program HANA, jako użytkownik główny. [Ten skrypt](https://aka.ms/scriptforpermsonhana) Pobiera System Hana do utworzenia kopii zapasowej. Zapoznaj się z sekcją co to jest [skrypt przed rejestracją](#what-the-pre-registration-script-does) , aby dowiedzieć się więcej na temat skryptu przed rejestracją.
@@ -100,7 +100,7 @@ Używanie serwera proxy HTTP | Szczegółowa kontrola w serwerze proxy za pośre
 
 Uruchamianie skryptu przed rejestracją wykonuje następujące funkcje:
 
-* Instaluje lub aktualizuje wszelkie niezbędne pakiety wymagane przez agenta Azure Backup w dystrybucji.
+* W oparciu o dystrybucję systemu Linux skrypt instaluje lub aktualizuje wszelkie niezbędne pakiety wymagane przez agenta Azure Backup.
 * Przeprowadza ona kontrolę łączności sieciowej wychodzącej za pomocą serwerów Azure Backup i usług zależnych, takich jak Azure Active Directory i Azure Storage.
 * Loguje się do systemu HANA przy użyciu klucza użytkownika podanego w ramach [wymagań wstępnych](#prerequisites). Klucz użytkownika służy do tworzenia kopii zapasowej użytkownika (AZUREWLBACKUPHANAUSER) w systemie HANA, a klucz użytkownika można usunąć po pomyślnym uruchomieniu skryptu przed rejestracją.
 * Do AZUREWLBACKUPHANAUSER są przypisane następujące wymagane role i uprawnienia:

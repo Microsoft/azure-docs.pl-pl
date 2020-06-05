@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 3e5507069a3e1eeadfaf4c3eeee288b2651e88a1
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 083b130d1bb02ccc922c834c09a0d16fab004ae9
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996044"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433575"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)
 
@@ -130,7 +130,7 @@ W poniższej tabeli przedstawiono wszystkie prawidłowe operatory operacji warun
 |     <      |  Mniejsze niż    | "Wiek" < "32" |
 |     <=     |  Mniejsze niż lub równe  | "Firma" <= "contoso" |
 |    AND     |  Koniunkcja logiczna i  | "Ranga" >= "010" i "ranga" < "100" |
-|     LUB     |  Logiczne lub   | "Status" = "gotowe" lub "priorytet" >= "05" |
+|     OR     |  Logiczne lub   | "Status" = "gotowe" lub "priorytet" >= "05" |
 
 > [!NOTE]
 > Istnieją dwa operatory dodatkowe, nie równe i logiczne lub, które są dozwolone w przypadku warunkowego nagłówka x-MS-if-Tags dla operacji obiektu BLOB, ale nie istnieją w operacji FindBlobsByTags.
@@ -208,7 +208,7 @@ Wywołania przy użyciu [tożsamości usługi AAD](../common/storage-auth-aad.md
 
 |   Operacje obiektu BLOB   |  Akcja RBAC   |
 |---------------------|----------------|
-| Znajdź obiekty blob według tagów  | Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/filtr |
+| Znajdź obiekty blob według tagów  | Microsoft. Storage/storageAccounts/blobServices/Containers/Blobs/Filter/Action |
 | Ustaw Tagi obiektów BLOB         | Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/Tagi/zapis | 
 | Pobierz Tagi obiektów BLOB         | Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/Tagi/odczyt |
 

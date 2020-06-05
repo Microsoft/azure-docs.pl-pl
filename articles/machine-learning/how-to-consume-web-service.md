@@ -5,18 +5,18 @@ description: Dowiedz się, jak wywołać punkt końcowy usługi sieci Web wygene
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0222b63323c4e546628d790fabb881eba006494e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb957169f542fdf6dc01e1024e3daab57eabd894
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383393"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433551"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu Azure Machine Learning wdrożonego jako usługa sieci Web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,8 +41,8 @@ Ogólny przepływ pracy służący do tworzenia klienta korzystającego z usług
 
 Klasa [Azure. Core. WebService](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) zawiera informacje potrzebne do utworzenia klienta. Następujące `Webservice` właściwości są przydatne podczas tworzenia aplikacji klienckiej:
 
-* `auth_enabled`-Jeśli uwierzytelnianie klucza jest włączone, `True` w przeciwnym `False`razie.
-* `token_auth_enabled`-Jeśli uwierzytelnianie tokenu jest włączone, `True`; w przeciwnym `False`razie.
+* `auth_enabled`-Jeśli jest włączone uwierzytelnianie klucza `True` ; w przeciwnym razie `False` .
+* `token_auth_enabled`-Jeśli uwierzytelnianie tokenu jest włączone, `True` w przeciwnym razie, `False` .
 * `scoring_uri`— Adres interfejsu API REST.
 * `swagger_uri`-Adres specyfikacji OpenAPI. Ten identyfikator URI jest dostępny po włączeniu automatycznego generowania schematu. Aby uzyskać więcej informacji, zobacz [Wdrażanie modeli przy użyciu Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -57,7 +57,7 @@ Istnieją trzy sposoby pobierania tych informacji dla wdrożonych usług sieci W
     print(service.swagger_uri)
     ```
 
-* Możesz użyć `Webservice.list` , aby pobrać listę wdrożonych usług sieci Web dla modeli w obszarze roboczym. Filtry można dodać, aby zawęzić listę zwracanych informacji. Aby uzyskać więcej informacji o tym, co można filtrować, zobacz dokumentację dotyczącą usługi [WebService. list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) .
+* Możesz użyć, `Webservice.list` Aby pobrać listę wdrożonych usług sieci Web dla modeli w obszarze roboczym. Filtry można dodać, aby zawęzić listę zwracanych informacji. Aby uzyskać więcej informacji o tym, co można filtrować, zobacz dokumentację dotyczącą usługi [WebService. list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) .
 
     ```python
     services = Webservice.list(ws)
@@ -65,7 +65,7 @@ Istnieją trzy sposoby pobierania tych informacji dla wdrożonych usług sieci W
     print(services[0].swagger_uri)
     ```
 
-* Jeśli znasz nazwę wdrożonej usługi, możesz utworzyć nowe wystąpienie programu `Webservice`i podać nazwę obszaru roboczego i usługi jako parametry. Nowy obiekt zawiera informacje o wdrożonej usłudze.
+* Jeśli znasz nazwę wdrożonej usługi, możesz utworzyć nowe wystąpienie programu `Webservice` i podać nazwę obszaru roboczego i usługi jako parametry. Nowy obiekt zawiera informacje o wdrożonej usłudze.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -88,10 +88,10 @@ Azure Machine Learning zapewnia dwa sposoby kontroli dostępu do usług sieci We
 
 |Metoda uwierzytelniania|ACI|AKS|
 |---|---|---|
-|Key|Domyślnie wyłączone| Domyślnie włączone|
+|Klucz|Domyślnie wyłączone| Domyślnie włączone|
 |Token| Niedostępny| Domyślnie wyłączone |
 
-Podczas wysyłania żądania do usługi, która jest zabezpieczona za pomocą klucza lub tokenu, użyj nagłówka __autoryzacji__ w celu przekazania klucza lub tokenu. Klucz lub token musi być sformatowany jako `Bearer <key-or-token>`, gdzie `<key-or-token>` jest wartością klucza lub tokenu.
+Podczas wysyłania żądania do usługi, która jest zabezpieczona za pomocą klucza lub tokenu, użyj nagłówka __autoryzacji__ w celu przekazania klucza lub tokenu. Klucz lub token musi być sformatowany jako `Bearer <key-or-token>` , gdzie `<key-or-token>` jest wartością klucza lub tokenu.
 
 #### <a name="authentication-with-keys"></a>Uwierzytelnianie przy użyciu kluczy
 
@@ -102,7 +102,7 @@ Po włączeniu uwierzytelniania dla wdrożenia automatycznie tworzone są klucze
 
 Aby kontrolować uwierzytelnianie, użyj `auth_enabled` parametru podczas tworzenia lub aktualizowania wdrożenia.
 
-Jeśli jest włączone uwierzytelnianie, można użyć `get_keys` metody, aby pobrać podstawowy i pomocniczy klucz uwierzytelniania:
+Jeśli jest włączone uwierzytelnianie, można użyć metody, `get_keys` Aby pobrać podstawowy i pomocniczy klucz uwierzytelniania:
 
 ```python
 primary, secondary = service.get_keys()
@@ -110,7 +110,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Jeśli musisz ponownie wygenerować klucz, użyj [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+> Jeśli musisz ponownie wygenerować klucz, użyj [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) .
 
 #### <a name="authentication-with-tokens"></a>Uwierzytelnianie przy użyciu tokenów
 
@@ -121,7 +121,7 @@ Po włączeniu uwierzytelniania tokenów dla usługi sieci Web użytkownik musi 
 
 Aby kontrolować uwierzytelnianie tokenu, użyj `token_auth_enabled` parametru podczas tworzenia lub aktualizowania wdrożenia.
 
-Jeśli jest włączone uwierzytelnianie tokenu, można użyć `get_token` metody, aby pobrać token okaziciela i czas wygaśnięcia tokenów:
+Jeśli jest włączone uwierzytelnianie tokenu, można użyć metody, `get_token` Aby pobrać token okaziciela i czas wygaśnięcia tokenów:
 
 ```python
 token, refresh_by = service.get_token()
@@ -129,7 +129,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> Po upływie `refresh_by` czasu tokenu trzeba będzie zażądać nowego tokenu. 
+> Po upływie czasu tokenu trzeba będzie zażądać nowego tokenu `refresh_by` . 
 
 ## <a name="request-data"></a>Dane żądania
 

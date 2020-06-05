@@ -5,18 +5,18 @@ description: Dowiedz się, jak wdrożyć usługę sieci Web z modelem działają
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8569f4751c54d7b37aa15737a9b3f7f394c7e26e
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: ac246c5135f9c00368ccce2ca79627322f504976
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983588"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433888"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Co to są tablice z bramą programowalną w polu (FPGA) i sposób wdrażania
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -96,7 +96,7 @@ Model można wdrożyć jako usługę sieci Web na FPGA z [Modele z przyspieszani
     ```
 
     > [!TIP]
-    > Inne możliwe lokalizacje to ``southeastasia``, ``westeurope``i. ``westus2``
+    > Inne możliwe lokalizacje to ``southeastasia`` , ``westeurope`` i ``westus2`` .
 
     Polecenie zwraca tekst podobny do następującego:
 
@@ -108,7 +108,7 @@ Model można wdrożyć jako usługę sieci Web na FPGA z [Modele z przyspieszani
 
     Upewnij się, że masz co najmniej 6 procesorów wirtualnych vCPU w obszarze __CurrentValue__.
 
-    Jeśli nie masz przydziału, Prześlij żądanie na [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
+    Jeśli nie masz przydziału, Prześlij żądanie na [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI) .
 
 - Zainstalowano obszar roboczy Azure Machine Learning i Azure Machine Learning SDK dla języka Python. Aby uzyskać więcej informacji, zobacz [Tworzenie obszaru roboczego](how-to-manage-workspace.md).
  
@@ -344,7 +344,7 @@ aks_service.wait_for_deployment(show_output=True)
 #### <a name="test-the-cloud-service"></a>Testowanie usługi w chmurze
 Obraz platformy Docker obsługuje gRPC i TensorFlow obsługujący interfejs API "przewidywania".  Użyj przykładowego klienta do wywołania obrazu platformy Docker w celu uzyskania prognoz z modelu.  Kod przykładowego klienta jest dostępny:
 - [Python](https://github.com/Azure/aml-real-time-ai/blob/master/pythonlib/amlrealtimeai/client.py)
-- [S #](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
+- [C#](https://github.com/Azure/aml-real-time-ai/blob/master/sample-clients/csharp)
 
 Jeśli chcesz korzystać z TensorFlow, możesz [pobrać przykładowego klienta](https://www.tensorflow.org/serving/setup).
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: de6953b6648613595bc9975b17941b3a453a6d60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 635ea81f37e72cdee80fbae928745e49b103820e
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185979"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433042"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Najlepsze rozwiązania dotyczące tworzenia ocen
 
@@ -83,7 +83,18 @@ Jeśli dodasz lub usuniesz maszyny z grupy po utworzeniu oceny, utworzona Ocena 
 
 ### <a name="outdated-assessments"></a>Nieaktualne oceny
 
-Jeśli istnieją lokalne zmiany w maszynach wirtualnych, które znajdują się w grupie, która została oceniona, ocena jest oznaczona jako **nieaktualna**. Aby odzwierciedlić zmiany, należy ponownie uruchomić ocenę.
+Jeśli istnieją lokalne zmiany w maszynach wirtualnych, które znajdują się w grupie, która została oceniona, ocena jest oznaczona jako **nieaktualna**. Ocenę można oznaczyć jako "nieaktualne" z powodu co najmniej jednej zmiany w poniższych właściwościach:
+
+- Liczba rdzeni procesora
+- Przydzieloną pamięć
+- Typ rozruchu lub oprogramowanie układowe
+- Nazwa, wersja i architektura systemu operacyjnego
+- Liczba dysków
+- Liczba kart sieciowych
+- Zmiana rozmiaru dysku (przydzielono GB)
+- Aktualizowanie właściwości karty sieciowej. Przykład: zmiany adresów MAC, Dodawanie adresów IP itp.
+
+Uruchom ocenę ponownie, aby**Recalculate**odzwierciedlić zmiany.
 
 ### <a name="low-confidence-rating"></a>Ocena niskiej pewności
 

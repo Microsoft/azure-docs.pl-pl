@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/03/2020
 ms.author: jgao
-ms.openlocfilehash: 2ca6848ed8fe16baea49311ee4b4b15ae8c64b56
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: fb910260c562a41871fe0cd13d5e5e9652b2017d
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344717"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417110"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
@@ -248,8 +248,9 @@ Dane wyjściowe skryptu wdrożenia muszą być zapisane w lokalizacji AZ_SCRIPTS
 
 ### <a name="handle-non-terminating-errors"></a>Obsługuj błędy niepowodujące zakończenia
 
-Można kontrolować, jak program PowerShell reaguje na błędy niepowodujące zakończenia przy użyciu zmiennej [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) w skrypcie wdrożenia. Usługa skryptu nie ustawia/nie zmienia wartości.  Pomimo wartości ustawionej dla $ErrorActionPreference skrypt wdrażania ustawia stan aprowizacji zasobów na *Niepowodzenie* , gdy wystąpi błąd w skrypcie.
+Można kontrolować, jak program PowerShell reaguje na błędy niepowodujące zakończenia przy użyciu zmiennej **$ErrorActionPreference** w skrypcie wdrożenia. Jeśli zmienna nie jest ustawiona w skrypcie wdrażania, usługa **skryptów będzie używać wartości domyślnej**.
+
+Usługa skryptów ustawia stan aprowizacji zasobów na **Niepowodzenie** , gdy skrypt napotka błąd pomimo ustawienia $ErrorActionPreference.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Przekaż zabezpieczone ciągi do skryptu wdrażania
 
@@ -354,7 +355,7 @@ Cykl życia tych zasobów jest kontrolowany przez następujące właściwości w
 
 - **cleanupPreference**: Wyczyść preferencję, gdy wykonywanie skryptu zostanie odszukane w stanie terminalu. Obsługiwane są następujące wartości:
 
-  - **Zawsze**: Usuń automatycznie utworzone zasoby, gdy wykonywanie skryptu zostanie rozpoczęte w stanie terminalu. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików utworzony na koncie magazynu. Ponieważ zasób deploymentScripts może nadal występować po oczyszczeniu zasobów, usługi skryptów utrwalają wyniki wykonywania skryptu, na przykład stdout, Output, Value Return itp. przed usunięciem zasobów.
+  - **Zawsze**: Usuń automatycznie utworzone zasoby, gdy wykonywanie skryptu zostanie rozpoczęte w stanie terminalu. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików utworzony na koncie magazynu. Ponieważ zasób deploymentScripts może nadal występować po oczyszczeniu zasobów, usługa skryptów zachowuje wyniki wykonywania skryptu, na przykład stdout, Output, Value Return itp., zanim zasoby zostaną usunięte.
   - **OnSuccess**: usuwanie automatycznie utworzonych zasobów tylko wtedy, gdy wykonywanie skryptu zakończyło się pomyślnie. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików tylko po pomyślnym wykonaniu skryptu. Nadal możesz uzyskać dostęp do zasobów, aby znaleźć informacje debugowania.
   - **Onwygaśnięcia**: usuwanie zasobów automatycznie tylko wtedy, gdy ustawienie **retentionInterval** wygasło. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików, ale zachowa konto magazynu.
 

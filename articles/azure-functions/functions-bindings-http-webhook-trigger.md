@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: ce40a46d4c1da627930ef8de8813936b71dcc281
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2f102a2a335d61326ccb02a898f425e7924f7fdb
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648914"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434028"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions wyzwalacza HTTP
 
@@ -475,7 +475,7 @@ Aby uzyskać pełny przykład, zobacz [przykład wyzwalacza](#example).
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `HttpTrigger` atrybucie.
 
@@ -485,7 +485,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane
 | **wskazywa** | nie dotyczy| Wymagane — musi być ustawiony na wartość `in` . |
 | **Nazwij** | nie dotyczy| Wymagane — nazwa zmiennej używana w kodzie funkcji dla żądania lub treści żądania. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Określa, jakie klucze (jeśli istnieją) muszą być obecne w żądaniu w celu wywołania funkcji. Poziom autoryzacji może być jedną z następujących wartości: <ul><li><code>anonymous</code>&mdash;Nie jest wymagany żaden klucz interfejsu API.</li><li><code>function</code>&mdash;Wymagany jest klucz interfejsu API specyficzny dla funkcji. Jest to wartość domyślna, jeśli nie podano żadnej z nich.</li><li><code>admin</code>&mdash;Klucz główny jest wymagany.</li></ul> Aby uzyskać więcej informacji, zapoznaj się z sekcją dotyczącej [kluczy autoryzacji](#authorization-keys). |
-| **methods** |**Form** | Tablica metod HTTP, do których funkcja reaguje. Jeśli nie zostanie określony, funkcja reaguje na wszystkie metody HTTP. Zobacz [Dostosowywanie punktu końcowego http](#customize-the-http-endpoint). |
+| **form** |**Metody** | Tablica metod HTTP, do których funkcja reaguje. Jeśli nie zostanie określony, funkcja reaguje na wszystkie metody HTTP. Zobacz [Dostosowywanie punktu końcowego http](#customize-the-http-endpoint). |
 | **Szlak** | **Trasa** | Definiuje szablon trasy, który kontroluje adresy URL żądań, które odpowiada funkcja. Wartość domyślna, jeśli nie jest podano `<functionname>` . Aby uzyskać więcej informacji, zobacz [Dostosowywanie punktu końcowego http](#customize-the-http-endpoint). |
 | **Element webhooktype** | **Element webhooktype** | _Obsługiwane tylko dla środowiska uruchomieniowego w wersji 1. x._<br/><br/>Konfiguruje wyzwalacz HTTP do działania jako odbiornik [elementu webhook](https://en.wikipedia.org/wiki/Webhook) dla określonego dostawcy. Nie ustawiaj `methods` właściwości w przypadku ustawienia tej właściwości. Typ elementu webhook może być jedną z następujących wartości:<ul><li><code>genericJson</code>&mdash;Punkt końcowy elementu webhook ogólnego przeznaczenia bez logiki dla określonego dostawcy. To ustawienie ogranicza żądania tylko do tych, które używają protokołu HTTP POST i z `application/json` typem zawartości.</li><li><code>github</code>&mdash;Funkcja reaguje na elementy [webhook usługi GitHub](https://developer.github.com/webhooks/). Nie należy używać właściwości _authLevel_ z elementami webhook usługi GitHub. Aby uzyskać więcej informacji, zobacz sekcję elementy webhook w usłudze GitHub w dalszej części tego artykułu.</li><li><code>slack</code>&mdash;Funkcja reaguje na elementy [webhook zapasowych](https://api.slack.com/outgoing-webhooks). Nie należy używać właściwości _authLevel_ z elementami webhook zapasowych. Aby uzyskać więcej informacji, zobacz sekcję elementy webhooks w dalszej części tego artykułu.</li></ul>|
 
@@ -634,12 +634,14 @@ public class HttpTriggerJava {
 
 ---
 
-Domyślnie wszystkie trasy funkcji są poprzedzone *interfejsem API*. Można również dostosować lub usunąć prefiks przy użyciu `http.routePrefix` właściwości w pliku [host. JSON](functions-host-json.md) . Poniższy przykład usuwa prefiks trasy *interfejsu API* za pomocą pustego ciągu dla prefiksu w pliku *host. JSON* .
+Domyślnie wszystkie trasy funkcji są poprzedzone *interfejsem API*. Można również dostosować lub usunąć prefiks przy użyciu `extensions.http.routePrefix` właściwości w pliku [host. JSON](functions-host-json.md) . Poniższy przykład usuwa prefiks trasy *interfejsu API* za pomocą pustego ciągu dla prefiksu w pliku *host. JSON* .
 
 ```json
 {
-    "http": {
-    "routePrefix": ""
+    "extensions": {
+        "http": {
+            "routePrefix": ""
+        }
     }
 }
 ```

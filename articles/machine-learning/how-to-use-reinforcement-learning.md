@@ -5,16 +5,16 @@ description: Dowiedz się, w jaki sposób używać Azure Machine Learning wzmacn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.openlocfilehash: 01e7e6c84be13db839338928f8086bcceb2ea169
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ffd121c61456c1b8898433362c46b99685820818
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654422"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434477"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Uczenie wzmacniające (wersja zapoznawcza) dzięki Azure Machine Learning
 

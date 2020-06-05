@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 2a0394e6e7c17e0a4954bbdddb1d5b2811959746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46eb1fe7543cbc65545eaca46e38f09466406701
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371583"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84417943"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Zbiorcze importowanie i eksportowanie tożsamości urządzeń usługi IoT Hub
 
@@ -27,8 +27,6 @@ Operacje importowania i eksportowania odbywają się w kontekście *zadań* , kt
 Klasa **registrymanager** zawiera metody **ExportDevicesAsync** i **ImportDevicesAsync** , które korzystają z platformy **zadań** . Te metody umożliwiają eksportowanie, importowanie i synchronizację całości rejestru tożsamości Centrum IoT Hub.
 
 W tym temacie omówiono użycie klasy **registrymanager** i systemu **zadań** do wykonywania importu zbiorczego i eksportu urządzeń do i z rejestru tożsamości Centrum IoT Hub. Możesz również użyć IoT Hub Device Provisioning Service platformy Azure, aby włączyć funkcję bezobsługowego udostępniania w czasie just-in-Time do jednego lub kilku centrów IoT, bez konieczności interwencji człowieka. Aby dowiedzieć się więcej, zobacz [dokumentację usługi aprowizacji](/azure/iot-dps).
-
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 ## <a name="what-are-jobs"></a>Co to są zadania?
 
@@ -267,10 +265,10 @@ Użyj **opcjonalnej** właściwości ImportMode w Importuj dane serializacji dla
 | --- | --- |
 | **Metodę createorupdate** |Jeśli urządzenie nie istnieje o określonym **identyfikatorze**, jest ono nowo zarejestrowane. <br/>Jeśli urządzenie już istnieje, istniejące informacje są zastępowane przez podane dane wejściowe bez względu na wartość **ETag** . <br> Użytkownik może opcjonalnie określić dane przędzy wraz z danymi urządzenia. Element ETag o przędze, jeśli jest określony, jest przetwarzany niezależnie od elementu ETag urządzenia. W przypadku niezgodności z elementem ETag istniejącej przędzy w pliku dziennika jest zapisywana błąd. |
 | **Create** |Jeśli urządzenie nie istnieje o określonym **identyfikatorze**, jest ono nowo zarejestrowane. <br/>Jeśli urządzenie już istnieje, w pliku dziennika zostanie zapisany błąd. <br> Użytkownik może opcjonalnie określić dane przędzy wraz z danymi urządzenia. Element ETag o przędze, jeśli jest określony, jest przetwarzany niezależnie od elementu ETag urządzenia. W przypadku niezgodności z elementem ETag istniejącej przędzy w pliku dziennika jest zapisywana błąd. |
-| **aktualizacji** |Jeśli urządzenie już istnieje o określonym **identyfikatorze**, istniejące informacje są zastępowane dostarczonymi danymi wejściowymi bez względu na wartość **ETag** . <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. |
+| **update** |Jeśli urządzenie już istnieje o określonym **identyfikatorze**, istniejące informacje są zastępowane dostarczonymi danymi wejściowymi bez względu na wartość **ETag** . <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. |
 | **updateIfMatchETag** |Jeśli urządzenie już istnieje o określonym **identyfikatorze**, istniejące informacje są zastępowane danymi wejściowymi tylko wtedy, gdy istnieje element **ETag** Match. <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. <br/>Jeśli występuje niezgodność elementu **ETag** , w pliku dziennika jest zapisywana błąd. |
 | **createOrUpdateIfMatchETag** |Jeśli urządzenie nie istnieje o określonym **identyfikatorze**, jest ono nowo zarejestrowane. <br/>Jeśli urządzenie już istnieje, istniejące informacje są zastępowane przez podane dane wejściowe tylko wtedy, gdy istnieje element **ETag** Match. <br/>Jeśli występuje niezgodność elementu **ETag** , w pliku dziennika jest zapisywana błąd. <br> Użytkownik może opcjonalnie określić dane przędzy wraz z danymi urządzenia. Element ETag o przędze, jeśli jest określony, jest przetwarzany niezależnie od elementu ETag urządzenia. W przypadku niezgodności z elementem ETag istniejącej przędzy w pliku dziennika jest zapisywana błąd. |
-| **usunięty** |Jeśli urządzenie już istnieje o określonym **identyfikatorze**, zostanie usunięte bez względu na wartość **ETag** . <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. |
+| **delete** |Jeśli urządzenie już istnieje o określonym **identyfikatorze**, zostanie usunięte bez względu na wartość **ETag** . <br/>Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. |
 | **deleteIfMatchETag** |Jeśli istnieje już urządzenie o określonym **identyfikatorze**, jest ono usuwane tylko wtedy, gdy istnieje dopasowanie **ETag** . Jeśli urządzenie nie istnieje, w pliku dziennika zostanie zapisany błąd. <br/>Jeśli występuje niezgodność elementu ETag, w pliku dziennika jest zapisywana błąd. |
 
 > [!NOTE]

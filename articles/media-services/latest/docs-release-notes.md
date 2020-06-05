@@ -11,20 +11,24 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: b0f01f5f044fd096704683fe67d2068e4ab4c3f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8619366580dd77ae12c4c101c183532fec4da04a
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81772147"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430840"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Aktualizacje dokumentacji Azure Media Services v3
 
->Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` tego adresu URL: do czytnika źródła danych RSS.
+>Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie tego adresu URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+documentation+updates%22&locale=en-us` do czytnika źródła danych RSS.
 
 W tym artykule omówiono najnowsze aktualizacje dokumentacji programu Media Services v3.
 
-## <a name="april-2020"></a>Kwiecień 2020 r.
+## <a name="june-2020"></a>Czerwiec 2020
+
+Wersja zapoznawcza usługi Analiza filmów wideo na żywo na IoT Edge powiodła się. Szczegółowe informacje znajdują się w dokumentacji [dotyczącej analizy filmów wideo na żywo w IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) .
+
+## <a name="april-2020"></a>Kwiecień 2020 r.
 
 * Azure Media Player dokumenty zostały zmigrowane do [dokumentacji platformy Azure](../azure-media-player/azure-media-player-overview.md).
 * Dodano obsługę [przesyłania strumieniowego na żywo za pomocą programu Open Broadcast Studio (obs)](live-events-obs-quickstart.md) . Przedstawiono sposób tworzenia Media Services strumienia na żywo przy użyciu Azure Portal i OBS.

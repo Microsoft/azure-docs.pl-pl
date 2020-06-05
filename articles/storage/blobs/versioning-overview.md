@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 89d69547d793599fc669927b1a500716a858cc89
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123840"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433594"
 ---
 # <a name="blob-versioning-preview"></a>Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)
 
@@ -178,8 +178,8 @@ W poniższej tabeli przedstawiono akcje RBAC obsługujące usuwanie obiektu BLOB
 
 | Opis | Operacja Blob service | Wymagana jest akcja danych RBAC | Wbudowana rola RBAC |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Usuwanie bieżącej wersji obiektu BLOB | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/Containers/Blobs/Delete/actionDeleting** | Współautor danych obiektu blob magazynu |
-| Usuwanie wersji | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/deleteBlobVersion/** | Właściciel danych obiektów blob magazynu |
+| Usuwanie bieżącej wersji obiektu BLOB | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/usuwanie** | Współautor danych obiektu blob magazynu |
+| Usuwanie wersji | Usuwanie obiektu blob | **Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/deleteBlobVersion/akcja** | Właściciel danych obiektów blob magazynu |
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametry sygnatury dostępu współdzielonego (SAS)
 

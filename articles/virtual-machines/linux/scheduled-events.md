@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: c888a28607101cdf41fcd9b47cf25a2fc5da6337
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1f34066b9f8fa16a2889c1872ebfd3f8cf33ee69
+ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299523"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84418113"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events dla maszyn wirtualnych z systemem Linux
 
@@ -53,7 +53,12 @@ Zaplanowane zdarzenia są dostarczane do:
 - Autonomiczna Virtual Machines.
 - Wszystkie maszyny wirtualne w usłudze w chmurze.
 - Wszystkie maszyny wirtualne w zestawie dostępności.
+- Wszystkie maszyny wirtualne w strefie dostępności. 
 - Wszystkie maszyny wirtualne w grupie umieszczania zestawu skalowania. 
+
+> [!NOTE]
+> W przypadku maszyn wirtualnych w strefie dostępności zaplanowane zdarzenia przechodzą do pojedynczych maszyn wirtualnych w strefie.
+> Na przykład jeśli masz 100 maszyn wirtualnych w zestawie dostępności i istnieje aktualizacja dla jednego z nich, zaplanowane zdarzenie zostanie przełączone do wszystkich 100, a jeśli w strefie istnieje możliwość 100 pojedynczej maszyny wirtualnej, zdarzenie będzie miało wpływ tylko na maszynę wirtualną, na której jest to możliwe.
 
 W związku z tym należy zaznaczyć `Resources` pole w zdarzeniu, aby ustalić, które maszyny wirtualne mają to oddziaływać.
 
@@ -67,14 +72,14 @@ Jeśli maszyna wirtualna nie zostanie utworzona w ramach Virtual Network, domyś
 ### <a name="version-and-region-availability"></a>Dostępność wersji i regionu
 Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe; Bieżąca wersja to `2019-01-01` .
 
-| Wersja | Typ wydania | Regiony | Uwagi do wersji | 
+| Wersja | Typ wydania | Regiony | Informacje o wersji | 
 | - | - | - | - | 
-| 2019-08-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventSource |
-| 2019-04-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę opisu zdarzenia |
-| 2019-01-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
-| 2017-11-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
-| 2017-08-01 | Ogólna dostępność | Wszystko | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
-| 2017-03-01 | Wersja zapoznawcza | Wszystko | <li>Wersja początkowa |
+| 2019-08-01 | Ogólna dostępność | Wszyscy | <li> Dodano obsługę elementu EventSource |
+| 2019-04-01 | Ogólna dostępność | Wszyscy | <li> Dodano obsługę opisu zdarzenia |
+| 2019-01-01 | Ogólna dostępność | Wszyscy | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
+| 2017-11-01 | Ogólna dostępność | Wszyscy | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
+| 2017-08-01 | Ogólna dostępność | Wszyscy | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
+| 2017-03-01 | Wersja zapoznawcza | Wszyscy | <li>Wersja początkowa |
 
 
 > [!NOTE] 

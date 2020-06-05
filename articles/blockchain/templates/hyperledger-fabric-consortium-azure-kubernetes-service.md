@@ -1,15 +1,15 @@
 ---
 title: Konsorcjum sieci szkieletowej w ramach usługi Azure Kubernetes Service (AKS)
 description: Jak wdrożyć i skonfigurować sieć szkieletową z systemem webledger w usłudze Azure Kubernetes Service
-ms.date: 01/08/2020
+ms.date: 06/04/2020
 ms.topic: article
-ms.reviewer: v-umha
-ms.openlocfilehash: da4ec99f1b9d73ab67a2312094feaa1a89aee394
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.reviewer: ravastra
+ms.openlocfilehash: 98d89905c89156d05fd61389693ad8d5765ba9e1
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980233"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434340"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Konsorcjum sieci szkieletowej w ramach usługi Azure Kubernetes Service (AKS)
 
@@ -273,7 +273,7 @@ Z poziomu klienta organizacji równorzędnej, wystaw poniżej polecenie, aby ust
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
 ```
 
-`<anchorPeersList>`jest rozdzielaną spacją listą węzłów równorzędnych, które mają być ustawiane jako zakotwiczenie elementu równorzędnego. Na przykład:
+`<anchorPeersList>`jest rozdzielaną spacją listą węzłów równorzędnych, które mają być ustawiane jako zakotwiczenie elementu równorzędnego. Na przykład
 
   - Ustaw `<anchorPeersList>` jako "Peer1", jeśli chcesz ustawić tylko węzeł Peer1 jako zakotwiczenie elementu równorzędnego.
   - Ustaw `<anchorPeersList>` jako "Peer1" "peer3", jeśli chcesz ustawić zarówno węzeł Peer1, jak i peer3 jako zakotwiczenie elementu równorzędnego.
@@ -368,7 +368,7 @@ Z aplikacji klienckiej równorzędnej wykonaj poniższe polecenie, aby utworzyć
 ```bash
 ./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
-Przekaż nazwę funkcji tworzenia wystąpień i listę oddzielonych spacjami argumentów `<instantiateFunc>` w `<instantiateFuncArgs>` i odpowiednio. Na przykład w chaincode_example02. Przejdź do chaincode, aby utworzyć wystąpienie chaincode ustawione `<instantiateFunc>` na `init`i `<instantiateFuncArgs>` na wartość "a" "2000" "b" "1000".
+Przekaż nazwę funkcji tworzenia wystąpień i listę oddzielonych spacjami argumentów w `<instantiateFunc>` i `<instantiateFuncArgs>` odpowiednio. Na przykład w chaincode_example02. Przejdź do chaincode, aby utworzyć wystąpienie chaincode ustawione `<instantiateFunc>` na `init` i `<instantiateFuncArgs>` na wartość "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Wykonaj polecenie dla raz z dowolnej organizacji równorzędnej w kanale. Po pomyślnym przesłaniu transakcji do programu orderer program zamawiający dystrybuuje tę transakcję do wszystkich organizacji równorzędnych w kanale. W związku z tym chaincode jest tworzona na wszystkich węzłach równorzędnych na wszystkich organizacjach równorzędnych w kanale.  
@@ -382,7 +382,7 @@ Z poziomu klienta organizacji równorzędnej wykonaj poniższe polecenie, aby wy
 ./azhlf chaincode invoke -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <invokeFunc> -a <invokeFuncArgs>  
 ```
 
-Przekaż nazwę funkcji wywołania i listę oddzielonych spacjami argumentów `<invokeFunction>` w `<invokeFuncArgs>` i odpowiednio. Kontynuując korzystanie z chaincode_example02. chaincode. Przejdź do przykładu, aby `<invokeFunction>` wykonać `invoke` operację `<invokeFuncArgs>` Invoke ustawioną na i "a" "b" "10".  
+Przekaż nazwę funkcji wywołania i listę oddzielonych spacjami argumentów w  `<invokeFunction>`   i  `<invokeFuncArgs>`   odpowiednio. Kontynuując korzystanie z chaincode_example02. chaincode. Przejdź do przykładu, aby wykonać operację Invoke ustawioną  `<invokeFunction>`   na  `invoke`   i  `<invokeFuncArgs>`   "a" "b" "10".  
 
 >[!NOTE]
 > Wykonaj polecenie dla raz z dowolnej organizacji równorzędnej w kanale. Po pomyślnym przesłaniu transakcji do programu orderer program zamawiający dystrybuuje tę transakcję do wszystkich organizacji równorzędnych w kanale. W związku z tym stan świata zostanie zaktualizowany we wszystkich węzłach równorzędnych w kanale.  
@@ -395,7 +395,7 @@ Wykonaj poniższe polecenie, aby wysłać zapytanie do chaincode:
 ```bash
 ./azhlf chaincode query -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL_NAME -f <queryFunction> -a <queryFuncArgs>  
 ```
-Przekaż listę argumentów Nazwa funkcji zapytania i rozdzieloną spacjami `<queryFunction>` w `<queryFuncArgs>` i odpowiednio. Ponownie, pobierając chaincode_example02. chaincode jako odwołanie, aby zbadać wartość "a" w stanie świecie `<queryFunction>` ustawionym na `query` i `<queryArgs>` na "a".  
+Przekaż listę argumentów Nazwa funkcji zapytania i rozdzieloną spacjami w  `<queryFunction>`   i  `<queryFuncArgs>`   odpowiednio. Ponownie, pobierając chaincode_example02. chaincode jako odwołanie, aby zbadać wartość "a" w stanie świecie ustawionym  `<queryFunction>`   na  `query` i  `<queryArgs>` na "a".  
 
 ## <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -418,3 +418,17 @@ SWITCH_TO_AKS_CLUSTER $AKS_CLUSTER_RESOURCE_GROUP $AKS_CLUSTER_NAME $AKS_CLUSTER
 kubectl describe pod fabric-tools -n tools | grep "Image:" | cut -d ":" -f 3
 
 ```
+
+## <a name="support-and-feedback"></a>Pomoc techniczna i opinie
+
+W przypadku usługi Azure łańcucha bloków News odwiedź [blog usługi Azure łańcucha bloków](https://azure.microsoft.com/blog/topics/blockchain/) , aby zachować aktualność w zakresie usług łańcucha bloków i uzyskać informacje od zespołu inżynierów ds. platformy Azure łańcucha bloków.
+
+Aby przekazać opinie o produkcie lub zażądać nowych funkcji, opublikuj lub zagłosuj na pomysł za pośrednictwem [forum opinii platformy Azure dla usługi łańcucha bloków](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Pomoc techniczna w społeczności
+
+Współpracuj z inżynierami firmy Microsoft i ekspertów społeczności Azure łańcucha bloków.
+
+- [Firma Microsoft pytań i odpowiedzi na&stronie pytań dotyczących usługi Azure łańcucha bloków](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Wsparcie inżynieryjne dla szablonów łańcucha bloków jest ograniczone do problemów z wdrażaniem.
+- [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

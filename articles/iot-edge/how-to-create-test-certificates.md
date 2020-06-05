@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 921a9c5f7136713f278d9c50bf67f02d9742a470
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309139"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430662"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Tworzenie certyfikatów demonstracyjnych do testowania funkcji urządzenia IoT Edge
 
@@ -272,7 +272,7 @@ Jednak dobrym sposobem jest unikanie używania tej samej nazwy.
 ## <a name="create-downstream-device-certificates"></a>Tworzenie certyfikatów urządzeń podrzędnych
 
 W przypadku konfigurowania podrzędnego urządzenia IoT dla scenariusza bramy i używania uwierzytelniania X. 509 można generować certyfikaty demonstracyjne dla urządzenia podrzędnego.
-Jeśli chcesz użyć uwierzytelniania przy użyciu klucza symetrycznego, nie potrzebujesz żadnych certyfikatów dla urządzenia podrzędnego.
+Jeśli chcesz użyć uwierzytelniania przy użyciu klucza symetrycznego, nie musisz tworzyć dodatkowych certyfikatów dla urządzenia podrzędnego.
 Istnieją dwa sposoby uwierzytelniania urządzenia IoT przy użyciu certyfikatów X. 509: przy użyciu certyfikatów z podpisem własnym lub certyfikatów podpisanych przez urząd certyfikacji.
 W przypadku uwierzytelniania z podpisem własnym X. 509, czasami określanego jako Uwierzytelnianie odciskiem palca, należy utworzyć nowe certyfikaty do umieszczenia na urządzeniu IoT.
 Te certyfikaty mają odcisk palca, które udostępniają IoT Hub na potrzeby uwierzytelniania.
@@ -293,7 +293,7 @@ Urządzenie IoT wymaga również kopii certyfikatów urządzeń, aby można był
 
 1. Przejdź do katalogu roboczego, który ma skrypty generowania certyfikatów i certyfikat głównego urzędu certyfikacji.
 
-2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Na przykład:
+2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Przykład:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -323,7 +323,7 @@ Urządzenie IoT wymaga również kopii certyfikatów urządzeń, aby można był
 
 1. Przejdź do katalogu roboczego, który ma skrypty generowania certyfikatów i certyfikat głównego urzędu certyfikacji.
 
-2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Na przykład:
+2. Utwórz dwa certyfikaty (podstawowe i pomocnicze) dla urządzenia podrzędnego. Łatwą konwencją nazewnictwa jest utworzenie certyfikatów o nazwie urządzenia IoT, a następnie podstawowej lub pomocniczej etykiety. Przykład:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

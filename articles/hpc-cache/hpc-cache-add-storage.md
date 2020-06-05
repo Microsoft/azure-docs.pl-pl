@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9d08526334a9891788df63b156cdf65f55c587ca
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 442c9897c5f02e9ed9cbcda96b6a540b9201f428
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344938"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434124"
 ---
 # <a name="add-storage-targets"></a>Dodawanie lokalizacji docelowych magazynu
 
@@ -25,7 +25,7 @@ Dodaj elementy docelowe magazynu po utworzeniu pamięci podręcznej. Procedura j
 
 Kliknij poniższy obraz, aby obejrzeć [film wideo](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) przedstawiający tworzenie pamięci podręcznej i Dodawanie miejsca docelowego magazynu.
 
-[![Miniatura wideo: Azure HPC cache: Setup (kliknij, aby odwiedzić stronę wideo)](media/video4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+[![Miniatura wideo: Azure HPC cache: Setup (kliknij, aby odwiedzić stronę wideo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
 ## <a name="open-the-storage-targets-page"></a>Otwórz stronę miejsc docelowych magazynu
 

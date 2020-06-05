@@ -5,16 +5,16 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 02/27/2020
+ms.date: 06/03/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: subject-armqs
-ms.openlocfilehash: 86dc7a4ed05ceae5c7a641ffef23bd75ec48ceea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0cf880411a5c2a8eefd592a01de40b5098f31cda
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81605544"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424136"
 ---
 # <a name="route-blob-storage-events-to-web-endpoint-by-using-azure-resource-manager-template"></a>Kierowanie zdarzeń usługi BLOB Storage do punktu końcowego w sieci Web przy użyciu szablonu Azure Resource Manager
 
@@ -22,7 +22,7 @@ Azure Event Grid to usługa obsługi zdarzeń dla chmury. W tym artykule opisano
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,7 +32,7 @@ Przed zasubskrybowaniem zdarzeń w ramach usługi Blob Storage utwórzmy punkt k
 
 1. Wybierz pozycję **Wdróż na platformie Azure** w celu wdrożenia rozwiązania w subskrypcji. W witrynie Azure Portal podaj wartości parametrów.
 
-    [Wdrażanie na platformie Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
+    [Wdróż na platformie Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json)
 1. Wdrożenie może potrwać kilka minut. Po pomyślnym wdrożeniu należy wyświetlić aplikację sieci Web i upewnić się, że jest uruchomiona. W przeglądarce sieci Web przejdź do: `https://<your-site-name>.azurewebsites.net`
 
 1. Zobaczysz witrynę, w której nie opublikowano jeszcze żadnych zdarzeń.
@@ -41,16 +41,17 @@ Przed zasubskrybowaniem zdarzeń w ramach usługi Blob Storage utwórzmy punkt k
 
 ## <a name="create-a-storage-account-with-an-event-grid-subscription"></a>Tworzenie konta magazynu z subskrypcją Event Grid
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage).
 
 [!code-json[<Azure Resource Manager template create Blob storage Event Grid subscription>](~/quickstart-templates/101-event-grid-subscription-and-storage/azuredeploy.json)]
 
 Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
 * [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageaccounts): Tworzenie konta usługi Azure Storage.
-* [**"Microsoft. Storage/storageAccounts/Providers/eventSubscriptions**](/azure/templates/microsoft.eventgrid/eventsubscriptions): Utwórz subskrypcję Azure Event Grid dla konta magazynu.
+* [**Microsoft. EventGrid/systemTopics**](/azure/templates/microsoft.eventgrid/systemtopics): Tworzenie tematu systemu o określonej nazwie dla konta magazynu. 
+* [**Microsoft. EventGrid/systemTopics/eventSubscriptions**](/azure/templates/microsoft.eventgrid/systemtopics/eventsubscriptions): tworzenie subskrypcji Azure Event Grid dla tematu systemowego.
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -58,7 +59,7 @@ Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
     [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-event-grid-subscription-and-storage%2Fazuredeploy.json)
 
-2. Określ **punkt końcowy**: Podaj adres URL aplikacji sieci Web i Dodaj `api/updates` adres URL strony głównej.
+2. Określ **punkt końcowy**: Podaj adres URL aplikacji sieci Web i Dodaj adres `api/updates` URL strony głównej.
 3. Wybierz pozycję **Kup** , aby wdrożyć szablon.
 
   Azure Portal jest używany tutaj do wdrożenia szablonu. Można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-powershell.md).

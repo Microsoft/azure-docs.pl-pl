@@ -5,18 +5,18 @@ description: Dowiedz się, jak używać zestawów danych w szkoleniu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 04/20/2020
-ms.openlocfilehash: cd72ce9fed7f821807b8604f68068c64a38293e3
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 2d573591c2ec70c0d9ec1598dca3af295d36b4c7
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996659"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433774"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Uczenie się z zestawami danych w Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -42,7 +42,7 @@ Aby tworzyć zestawy danych i uczenia się z nich, potrzebne są:
 
 Możesz uzyskać dostęp do istniejącej TabularDataset z poziomu skryptu szkoleniowego w obszarze roboczym i załadować ten zestaw danych do Pandas Dataframe w celu przeprowadzenia dalszej eksploracji w środowisku lokalnym.
 
-Poniższy kod używa [`get_context()`]() metody w [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) klasie w celu uzyskania dostępu do istniejącej TabularDataset wejściowej, `titanic`w skrypcie szkoleniowym. Następnie używa [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metody do ładowania tego zestawu danych do Pandas Dataframe w celu dalszej eksploracji i przygotowania danych przed szkoleniem.
+Poniższy kod używa [`get_context()`]() metody w [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) klasie w celu uzyskania dostępu do istniejącej TabularDataset wejściowej, `titanic` w skrypcie szkoleniowym. Następnie używa [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metody do ładowania tego zestawu danych do Pandas Dataframe w celu dalszej eksploracji i przygotowania danych przed szkoleniem.
 
 > [!Note]
 > Jeśli oryginalne źródło danych zawiera NaN, puste ciągi lub puste wartości, w przypadku używania to_pandas_dataframe (), wówczas te wartości są zastępowane wartością *null* . 
@@ -85,11 +85,11 @@ Obiekty TabularDataset zapewniają możliwość ładowania danych w TabularDatas
 
 Obiekt [szacowania](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) jest używany do przesyłania eksperymentu. Azure Machine Learning wstępnie skonfigurowany szacowania dla popularnych platform uczenia maszynowego, a także ogólny szacowania.
 
-Ten kod tworzy generyczny obiekt szacowania, `est`który określa
+Ten kod tworzy generyczny obiekt szacowania, `est` który określa
 
 * Katalog skryptów dla skryptów. Wszystkie pliki w tym katalogu są przekazywane do węzłów klastra w celu wykonania.
 * Skrypt szkoleniowy *train_titanic. PR*.
-* Wejściowy zestaw danych do szkolenia `titanic_ds`,. `as_named_input()`jest wymagany, aby wejściowy zestaw danych mógł zostać odwoływany przez `titanic` przypisaną nazwę w skrypcie szkoleniowym. 
+* Wejściowy zestaw danych do szkolenia, `titanic_ds` . `as_named_input()`jest wymagany, aby wejściowy zestaw danych mógł zostać odwoływany przez przypisaną nazwę `titanic` w skrypcie szkoleniowym. 
 * Element docelowy obliczeń dla eksperymentu.
 * Definicja środowiska dla eksperymentu.
 
@@ -130,7 +130,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Konfigurowanie szacowania
 
-Zalecamy przekazanie zestawu danych jako argumentu podczas instalowania. Oprócz przekazywania zestawu danych przez `inputs` parametr w szacowania, można również przekazać zestaw danych za `script_params` pomocą i uzyskać ścieżkę danych (punkt instalacji) w skrypcie szkoleniowym za pośrednictwem argumentów. Dzięki temu będzie można użyć tego samego skryptu szkoleniowego na potrzeby debugowania lokalnego i zdalnego szkolenia na dowolnej platformie w chmurze.
+Zalecamy przekazanie zestawu danych jako argumentu podczas instalowania. Oprócz przekazywania zestawu danych przez `inputs` parametr w szacowania, można również przekazać zestaw danych za pomocą `script_params` i uzyskać ścieżkę danych (punkt instalacji) w skrypcie szkoleniowym za pośrednictwem argumentów. Dzięki temu będzie można użyć tego samego skryptu szkoleniowego na potrzeby debugowania lokalnego i zdalnego szkolenia na dowolnej platformie w chmurze.
 
 Obiekt [skryptu sklearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) szacowania jest używany do przesyłania przebiegów dla eksperymentów scikit-uczyć się. Po przesłaniu przebiegu pliki danych, do których odwołuje się `mnist` zestaw danych, zostaną zainstalowane do obiektu docelowego obliczeń. Dowiedz się więcej o szkoleniu z [skryptu sklearn szacowania](how-to-train-scikit-learn.md).
 
@@ -201,7 +201,7 @@ Podczas pobierania zestawu danych wszystkie pliki, do których odwołuje się ze
 
 Jeśli skrypt przetwarza wszystkie pliki, do których odwołuje się zestaw danych, a dysk obliczeniowy może pasować do pełnego zestawu danych, zaleca się pobranie, aby uniknąć naliczania danych przesyłanych strumieniowo z usług magazynu. Jeśli rozmiar danych przekracza rozmiar dysku, pobieranie nie jest możliwe. W tym scenariuszu zalecamy zamontowanie, ponieważ tylko pliki danych używane przez skrypt są ładowane w czasie przetwarzania.
 
-Poniższy kod jest instalowany `dataset` w katalogu tymczasowym w`mounted_path`
+Poniższy kod jest instalowany w `dataset` katalogu tymczasowym w`mounted_path`
 
 ```python
 import tempfile

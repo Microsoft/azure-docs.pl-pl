@@ -5,17 +5,17 @@ description: Monitorowanie usług sieci Web wdrożonych za pomocą Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
 ms.date: 03/12/2020
-ms.openlocfilehash: 464ec1fcf0986dc04bd92bbe9e31b5675e5822d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 925b562189d713dd4cb1e72aa8b8fae28fcde0a5
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136197"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433234"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorowanie i zbieranie danych z punktów końcowych usługi sieci Web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,7 +46,7 @@ Oprócz zbierania danych wyjściowych i odpowiedzi punktu końcowego można moni
 >[!Important]
 > Usługa Azure Application Insights rejestruje tylko ładunki o rozmiarze do 64 KB. Jeśli limit zostanie osiągnięty, rejestrowane są tylko najnowsze dane wyjściowe modelu. 
 
-Metadane i odpowiedź usługi — odpowiadające metadanych usługi sieci Web i prognozom modelu — są rejestrowane w śladach Application Insights platformy Azure pod komunikatem `"model_data_collection"`. Możesz wysyłać zapytania do usługi Azure Application Insights bezpośrednio, aby uzyskać dostęp do tych danych, lub skonfigurować [ciągły eksport](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) do konta magazynu w celu dłuższego przechowywania lub dalszego przetwarzania. Dane modelu można następnie użyć w Azure Machine Learning, aby skonfigurować etykietowanie, przeszkolenie, wyjaśnienie, analizę danych lub inne użycie. 
+Metadane i odpowiedź usługi — odpowiadające metadanych usługi sieci Web i prognozom modelu — są rejestrowane w śladach Application Insights platformy Azure pod komunikatem `"model_data_collection"` . Możesz wysyłać zapytania do usługi Azure Application Insights bezpośrednio, aby uzyskać dostęp do tych danych, lub skonfigurować [ciągły eksport](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) do konta magazynu w celu dłuższego przechowywania lub dalszego przetwarzania. Dane modelu można następnie użyć w Azure Machine Learning, aby skonfigurować etykietowanie, przeszkolenie, wyjaśnienie, analizę danych lub inne użycie. 
 
 <a name="python"></a>
 
@@ -138,7 +138,7 @@ Aby dowiedzieć się więcej na temat korzystania z usługi Azure Application In
 >[!Important]
 > Usługa Azure Application Insights obsługuje tylko eksporty do magazynu obiektów BLOB. Dodatkowe limity tej możliwości eksportu są wymienione w temacie [Eksportowanie danych telemetrycznych z usługi App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-Aby wysyłać komunikaty do obsługiwanego konta magazynu, można użyć usługi Azure Application Insights " [eksport ciągły](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) ", w której można ustawić dłuższe przechowywanie. `"model_data_collection"` Komunikaty są przechowywane w formacie JSON i można je łatwo przeanalizować w celu wyodrębnienia danych modelu. 
+Aby wysyłać komunikaty do obsługiwanego konta magazynu, można użyć usługi Azure Application Insights " [eksport ciągły](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) ", w której można ustawić dłuższe przechowywanie. `"model_data_collection"`Komunikaty są przechowywane w formacie JSON i można je łatwo przeanalizować w celu wyodrębnienia danych modelu. 
 
 Azure Data Factory, potoki Azure ML lub inne narzędzia do przetwarzania danych mogą służyć do przekształcania danych zgodnie z wymaganiami. Po przeniesieniu danych można zarejestrować je w obszarze roboczym Azure Machine Learning jako zestaw danych. Aby to zrobić, zobacz [jak utworzyć i zarejestrować zestawy danych](how-to-create-register-datasets.md).
 

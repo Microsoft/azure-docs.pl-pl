@@ -1,14 +1,14 @@
 ---
 title: Obsługiwane Menedżer zasobów typy zasobów
 description: Podaj listę typów zasobów Menedżer zasobów obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 05/21/2020
+ms.date: 06/04/2020
 ms.topic: reference
-ms.openlocfilehash: 7ccf8cc58ce19746958f89ff9d9207906aad16bd
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: a4679c9e1ecaef34445a7283e0d58ab78cb61ab0
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770588"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424299"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -484,13 +484,6 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. Security/regulatorycompliancestandards
 - Microsoft. Security/regulatorycompliancestandards/regulatorycompliancecontrols
 - Microsoft. Security/regulatorycompliancestandards/regulatorycompliancecontrols/regulatorycomplianceassessments
-- Microsoft. Security/securitystatuses
-- Microsoft. Security/securitystatuses/containerhosts
-- Microsoft. Security/securitystatuses/onpremisemachines
-- Microsoft. Security/securitystatuses/serwery
-- Microsoft. Security/securitystatuses/podsieci
-- Microsoft. Security/securitystatuses/virtualmachines
-- Microsoft. Security/securitystatusessummaries
 
 ## <a name="next-steps"></a>Następne kroki
 

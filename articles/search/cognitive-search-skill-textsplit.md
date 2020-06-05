@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 3f80169808b1e6420f04b786d2bb06bde9c96231
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: 558f7ef250c99d85cb957162b6d098e586bc0fc4
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73479663"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433243"
 ---
 # <a name="text-split-cognitive-skill"></a>Umiejętność rozdzielania tekstu
 
@@ -32,8 +32,8 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
 | textsplitmode      | "Strony" lub "zdania" | 
-| maximumPageLength | Jeśli textsplitmode ma wartość "Pages", odnosi się do maksymalnej długości strony, która jest `String.Length`mierzona przez. Wartość minimalna to 100.  Jeśli element textsplitmode ma wartość "Pages", algorytm podejmie próbę podzielenia tekstu na fragmenty o rozmiarze co najwyżej "maximumPageLength". W takim przypadku algorytm będzie optymalnie dzielić zdanie na granicy zdania, więc rozmiar fragmentu może być nieco mniejszy niż "maximumPageLength". | 
-| defaultLanguageCode   | obowiązkowe Jeden z następujących kodów języka: `da, de, en, es, fi, fr, it, ko, pt`. Wartość domyślna to angielski (EN). Kilka kwestii, które należy wziąć pod uwagę:<ul><li>Jeśli przekażesz format languagecode-CountryCode, zostanie użyta tylko część languagecode formatu.</li><li>Jeśli język nie znajduje się na poprzedniej liście, podzielona umiejętność zrywa tekst w granicach znaku.</li><li>Udostępnianie kodu języka jest przydatne, aby uniknąć wycinania wyrazu w połowie dla języków innych niż odstępy, takich jak chińskie, Japońskie i koreański.</li><li>Jeśli nie znasz języka (tj. musisz podzielić tekst na dane wejściowe na [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), wartość domyślna języka angielskiego (EN) powinna być wystarczająca. </li></ul>  |
+| maximumPageLength | Jeśli textsplitmode ma wartość "Pages", odnosi się do maksymalnej długości strony, która jest mierzona przez `String.Length` . Wartość minimalna to 300.  Jeśli element textsplitmode ma wartość "Pages", algorytm podejmie próbę podzielenia tekstu na fragmenty o rozmiarze co najwyżej "maximumPageLength". W takim przypadku algorytm będzie optymalnie dzielić zdanie na granicy zdania, więc rozmiar fragmentu może być nieco mniejszy niż "maximumPageLength". | 
+| defaultLanguageCode   | obowiązkowe Jeden z następujących kodów języka: `da, de, en, es, fi, fr, it, ko, pt` . Wartość domyślna to angielski (EN). Kilka kwestii, które należy wziąć pod uwagę:<ul><li>Jeśli przekażesz format languagecode-CountryCode, zostanie użyta tylko część languagecode formatu.</li><li>Jeśli język nie znajduje się na poprzedniej liście, podzielona umiejętność zrywa tekst w granicach znaku.</li><li>Udostępnianie kodu języka jest przydatne, aby uniknąć wycinania wyrazu w połowie dla języków innych niż odstępy, takich jak chińskie, Japońskie i koreański.</li><li>Jeśli nie znasz języka (tj. musisz podzielić tekst na dane wejściowe na [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), wartość domyślna języka angielskiego (EN) powinna być wystarczająca. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
@@ -130,7 +130,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 ## <a name="error-cases"></a>Przypadki błędów
 Jeśli język nie jest obsługiwany, generowane jest ostrzeżenie, a tekst jest dzielony w granicach znaków.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

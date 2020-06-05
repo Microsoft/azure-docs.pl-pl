@@ -3,12 +3,12 @@ title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
 ms.date: 06/02/2020
-ms.openlocfilehash: a87d55ceee759d81d0aab823f003b4bb36a66610
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 272e6cb27b01ed971025bd273b225d4823d04501
+ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310329"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84424439"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | --------------------------- | ------------- |
 | Microsoft. AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft. Dodatki | Procesor |
-| Microsoft. ADHybridHealthService<sup>1</sup> | [Azure Active Directory](/azure/active-directory/) |
+| Microsoft. ADHybridHealthService<sup>1</sup> | [Usługa Azure Active Directory](/azure/active-directory/) |
 | Microsoft. Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft. AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
@@ -68,7 +68,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft. datacegły | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft. datacatalog | [Data Catalog](/azure/data-catalog/) |
-| Microsoft. DataFactory | [Fabryka danych](/azure/data-factory/) |
+| Microsoft. DataFactory | [Data Factory](/azure/data-factory/) |
 | Microsoft. DataLakeAnalytics | [Data Lake Analytics](/azure/data-lake-analytics/) |
 | Microsoft. kontach datalakestore | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) |
 | Migracja Microsoft. | [Azure Database Migration Service](/azure/dms/) |
@@ -96,7 +96,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. HDInsight | [HDInsight](../../hdinsight/index.yml) |
 | Microsoft. HealthcareApis | [Interfejs API platformy Azure dla standardu FHIR](../../healthcare-apis/index.yml) |
 | Microsoft. HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
-| Microsoft. HybridData | [Magazyn StorSimple](/azure/storsimple/) |
+| Microsoft. HybridData | [StorSimple](/azure/storsimple/) |
 | Microsoft. ImportExport | [Usługa Azure Import/Export](../../storage/common/storage-import-export-service.md) |
 | Microsoft. Insights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. IoTCentral | [Azure IoT Central](/azure/iot-central/) |
@@ -121,7 +121,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. Migrowanie | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft. MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft. NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[System DNS platformy Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Link prywatny platformy Azure](../../private-link/index.yml)<br />[Moduł równoważenia obciążenia](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Wirtualna sieć WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
+| Microsoft.Network | [Application Gateway](../../application-gateway/index.yml)<br />[Azure Bastion](/azure/bastion/)<br />[Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md)<br />[System DNS platformy Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Azure Firewall](../../firewall/index.yml)<br />[Azure Front Door Service](../../frontdoor/index.yml)<br />[Link prywatny platformy Azure](../../private-link/index.yml)<br />[Load Balancer](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Traffic Manager](../../traffic-manager/index.yml)<br />[Virtual Network](../../virtual-network/index.yml)<br />[Virtual WAN](../../virtual-wan/index.yml)<br />[VPN Gateway](../../vpn-gateway/index.yml)<br /> |
 | Microsoft. NotificationHubs | [Notification Hubs](../../notification-hubs/index.yml) |
 | Microsoft. ObjectStore | Magazyn obiektów |
 | Microsoft. OffAzure | [Azure Migrate](../../migrate/migrate-overview.md) |
@@ -157,7 +157,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. SqlVirtualMachine | [Program SQL Server na maszynach wirtualnych platformy Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft. StorageSync | [Storage](../../storage/index.yml) |
-| Microsoft. StorSimple | [Magazyn StorSimple](/azure/storsimple/) |
+| Microsoft. StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft. StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft. Subscription | Procesor |
 | Microsoft. Support<sup>1</sup> | Procesor |
@@ -174,8 +174,8 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. WindowsIoT | [Windows 10 IoT Core Services](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 | Microsoft. Monitor obciążenia został<sup>1</sup> | [Azure Monitor](../../azure-monitor/index.yml) |
 
-<sup>1</sup> włączona domyślnie
+<sup>1</sup> zarejestrowano domyślnie
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat dostawców zasobów, zobacz [dostawcy zasobów platformy Azure i typy](resource-providers-and-types.md)
+Aby uzyskać więcej informacji o dostawcach zasobów, w tym o sposobie rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i typy](resource-providers-and-types.md)

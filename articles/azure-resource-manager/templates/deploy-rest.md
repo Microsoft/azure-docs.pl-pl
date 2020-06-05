@@ -2,13 +2,13 @@
 title: Wdrażanie zasobów za pomocą interfejsu API REST i szablonu
 description: Użyj Azure Resource Manager i Menedżer zasobów interfejsu API REST do wdrażania zasobów na platformie Azure. Zasoby są zdefiniowane w szablonie usługi Resource Manager.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: d7865ac6f9b2bb176ea5308e326dec0741a80962
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 06/04/2020
+ms.openlocfilehash: de24283301a4612179f8eaa3562e0c372898387f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723123"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431630"
 ---
 # <a name="deploy-resources-with-arm-templates-and-resource-manager-rest-api"></a>Wdrażanie zasobów za pomocą szablonów ARM i interfejsu API REST Menedżer zasobów
 
@@ -73,7 +73,7 @@ W przykładach w tym artykule są używane wdrożenia grup zasobów.
    }
    ```
 
-1. Sprawdź poprawność wdrożenia przed jego wykonaniem, uruchamiając operację [walidacji wdrożenia szablonu](/rest/api/resources/deployments/validate) . Podczas testowania wdrożenia podaj parametry dokładnie tak, jak podczas wykonywania wdrożenia (pokazane w następnym kroku).
+1. Przed wdrożeniem szablonu można wyświetlić podgląd zmian wprowadzonych przez szablon w danym środowisku. Użyj [operacji działania warunkowego](template-deploy-what-if.md) , aby sprawdzić, czy szablon wprowadza zmiany, których oczekujesz. Co-jeśli również sprawdza poprawność szablonu pod kątem błędów.
 
 1. Aby wdrożyć szablon, podaj identyfikator subskrypcji, nazwę grupy zasobów, nazwę wdrożenia w identyfikatorze URI żądania.
 

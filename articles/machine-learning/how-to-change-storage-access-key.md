@@ -5,17 +5,17 @@ description: Dowiedz się, jak zmienić klucze dostępu dla konta usługi Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: f1541c177cea2d223a5e7df576d95fab7eafb310
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4ae4890d28236db493909243d66e28d308e2002
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80296945"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434652"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Ponowne generowanie kluczy dostępu do konta magazynu
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -95,7 +95,7 @@ Aby zaktualizować Azure Machine Learning, aby użyć nowego klucza, wykonaj nas
 
         [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)]
 
-    1. Aby zaktualizować obszar roboczy pod kątem używania nowego klucza, użyj następującego polecenia. Zastąp `myworkspace` ciąg nazwą obszaru roboczego Azure Machine Learning i Zamień `myresourcegroup` na nazwę grupy zasobów platformy Azure, która zawiera obszar roboczy.
+    1. Aby zaktualizować obszar roboczy pod kątem używania nowego klucza, użyj następującego polecenia. Zastąp ciąg `myworkspace` nazwą obszaru roboczego Azure Machine Learning i Zamień na `myresourcegroup` nazwę grupy zasobów platformy Azure, która zawiera obszar roboczy.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
@@ -129,4 +129,4 @@ Aby zaktualizować Azure Machine Learning, aby użyć nowego klucza, wykonaj nas
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat rejestrowania magazynów danych, [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) Zobacz odwołanie do klasy.
+Aby uzyskać więcej informacji na temat rejestrowania magazynów danych, zobacz [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) odwołanie do klasy.

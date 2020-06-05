@@ -5,16 +5,16 @@ description: Dowiedz się, jak utworzyć nowy obszar roboczy Azure Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 03/05/2020
-ms.openlocfilehash: 9a7d0b75140c50df61ff63f350e5b312a6a684c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9131ce9b211a33fe45ef571f3a274b4ddc81739f
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617779"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84430395"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +71,7 @@ Obszar roboczy Azure Machine Learning opiera się na następujących usługach l
 
 ### <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
-Obszar roboczy Azure Machine Learning należy utworzyć w grupie zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć nową. Aby __utworzyć nową grupę zasobów__, użyj następującego polecenia. Zamień `<resource-group-name>` na nazwę, która ma być używana dla tej grupy zasobów. Zamień `<location>` na region platformy Azure, który ma być używany dla tej grupy zasobów:
+Obszar roboczy Azure Machine Learning należy utworzyć w grupie zasobów. Możesz użyć istniejącej grupy zasobów lub utworzyć nową. Aby __utworzyć nową grupę zasobów__, użyj następującego polecenia. Zamień na `<resource-group-name>` nazwę, która ma być używana dla tej grupy zasobów. Zamień na `<location>` region platformy Azure, który ma być używany dla tej grupy zasobów:
 
 > [!TIP]
 > Należy wybrać region, w którym Azure Machine Learning jest dostępna. Aby uzyskać więcej informacji, zobacz [dostępne produkty według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
@@ -181,7 +181,7 @@ Aby utworzyć obszar roboczy, który korzysta z istniejących zasobów, należy 
     > [!IMPORTANT]
     > Aby można było używać [konta administratora](/azure/container-registry/container-registry-authentication#admin-account) z obszarem roboczym Azure Machine Learning, rejestr kontenerów musi być włączony.
 
-Gdy masz identyfikatory zasobów, które mają być używane z obszarem roboczym, użyj polecenia Base `az workspace create -w <workspace-name> -g <resource-group-name>` i Dodaj parametry oraz identyfikatory dla istniejących zasobów programu. Na przykład następujące polecenie tworzy obszar roboczy, który używa istniejącego rejestru kontenerów:
+Gdy masz identyfikatory zasobów, które mają być używane z obszarem roboczym, użyj `az workspace create -w <workspace-name> -g <resource-group-name>` polecenia Base i Dodaj parametry oraz identyfikatory dla istniejących zasobów programu. Na przykład następujące polecenie tworzy obszar roboczy, który używa istniejącego rejestru kontenerów:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name> --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"

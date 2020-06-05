@@ -5,18 +5,18 @@ description: Dowiedz się, jak używać magazynów danych do bezpiecznego łącz
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 904738d73aaa0580773a085c70cd74f4240fc4b7
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: d0f37d32b7d2306865d435bc68ea12c9bb95651c
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773936"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434714"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]

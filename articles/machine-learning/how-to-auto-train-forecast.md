@@ -8,14 +8,14 @@ ms.author: trbye
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: bfb53893031300926944ca97a760aec199f699c0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6ef21eb0bbd941af30af203f395a833a1ee32b44
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266444"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434694"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]

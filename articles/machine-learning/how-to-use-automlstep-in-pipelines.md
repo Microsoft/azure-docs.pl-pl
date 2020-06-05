@@ -5,17 +5,17 @@ description: AutoMLStep umożliwia korzystanie z zautomatyzowanej uczenia maszyn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: laobri
 author: lobrien
 manager: cgronlun
 ms.date: 04/28/2020
-ms.openlocfilehash: 9bf17512d0b14c7106101d98598e2914020afc7a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 94e45e2c5aae1633ce206fe56fe94cb9d03f9f67
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857953"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84431434"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Korzystanie z zautomatyzowanej tablicy w potoku Azure Machine Learning w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,15 +32,15 @@ Funkcja zautomatyzowanej ML Azure Machine Learning umożliwia odnajdywanie model
 
 ## <a name="review-automated-mls-central-classes"></a>Przegląd klas centralnych o zautomatyzowanej ML
 
-Automatyczna tablica w potoku jest reprezentowana przez `AutoMLStep` obiekt. `AutoMLStep` Klasa jest podklasą `PipelineStep`. Wykres `PipelineStep` obiektów definiuje `Pipeline`.
+Automatyczna tablica w potoku jest reprezentowana przez `AutoMLStep` obiekt. `AutoMLStep`Klasa jest podklasą `PipelineStep` . Wykres `PipelineStep` obiektów definiuje `Pipeline` .
 
-Istnieje kilka podklas `PipelineStep`. Oprócz programu `AutoMLStep`, w tym artykule przedstawiono przygotowanie `PythonScriptStep` do przygotowania danych i inne do zarejestrowania modelu.
+Istnieje kilka podklas `PipelineStep` . Oprócz programu, w `AutoMLStep` tym artykule przedstawiono `PythonScriptStep` przygotowanie do przygotowania danych i inne do zarejestrowania modelu.
 
-Preferowanym sposobem na wstępne przeniesienie danych _do_ potoku jest z `Dataset` obiektami. Aby przenieść dane _między_ krokami, preferowanym sposobem jest `PipelineData` z obiektami. Aby można było używać `AutoMLStep`go `PipelineData` z, obiekt musi być przekształcony w `PipelineOutputTabularDataset` obiekt. Aby uzyskać więcej informacji, zobacz [dane wejściowe i wyjściowe z potoków ml](how-to-move-data-in-out-of-pipelines.md).
+Preferowanym sposobem na wstępne przeniesienie danych _do_ potoku jest z `Dataset` obiektami. Aby przenieść dane _między_ krokami, preferowanym sposobem jest z `PipelineData` obiektami. Aby można było używać `AutoMLStep` go z, `PipelineData` obiekt musi być przekształcony w `PipelineOutputTabularDataset` obiekt. Aby uzyskać więcej informacji, zobacz [dane wejściowe i wyjściowe z potoków ml](how-to-move-data-in-out-of-pipelines.md).
 
-Konfiguracja `AutoMLStep` jest konfigurowana za pośrednictwem `AutoMLConfig` obiektu. `AutoMLConfig`jest elastyczną klasą, jak opisano w temacie [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
+`AutoMLStep`Konfiguracja jest konfigurowana za pośrednictwem `AutoMLConfig` obiektu. `AutoMLConfig`jest elastyczną klasą, jak opisano w temacie [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#configure-your-experiment-settings). 
 
-`Pipeline` Działa w `Experiment`. Potok `Run` ma dla każdego kroku element podrzędny `StepRun`. Dane wyjściowe zautomatyzowanej części ML `StepRun` to metryki szkoleniowe i model o najwyższej wydajności.
+`Pipeline`Działa w `Experiment` . Potok `Run` ma dla każdego kroku element podrzędny `StepRun` . Dane wyjściowe zautomatyzowanej części ML `StepRun` to metryki szkoleniowe i model o najwyższej wydajności.
 
 W celu utworzenia konkretnych elementów ten artykuł tworzy prosty potok dla zadania klasyfikacji. Zadanie jest przewidywane przewidywalność Titanic, ale nie będziemy omawiać danych ani zadań poza przekazywaniem.
 
@@ -68,7 +68,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-Kod najpierw loguje się do obszaru roboczego Azure Machine Learning zdefiniowanego w **pliku config. JSON** (Aby uzyskać wyjaśnienie, zobacz [Samouczek: Rozpoczynanie tworzenia pierwszego dodatku ml przy użyciu zestawu SDK języka Python](tutorial-1st-experiment-sdk-setup.md)). Jeśli nie istnieje jeszcze zestaw danych o `'titanic_ds'` nazwie zarejestrowane, zostanie on utworzony. Kod pobiera dane CSV z sieci Web, używa ich do tworzenia `TabularDataset` wystąpienia a, a następnie rejestruje zestaw danych z obszarem roboczym. Na koniec funkcja `Dataset.get_by_name()` przypisuje `Dataset` do. `titanic_ds` 
+Kod najpierw loguje się do obszaru roboczego Azure Machine Learning zdefiniowanego w **pliku config. JSON** (Aby uzyskać wyjaśnienie, zobacz [Samouczek: Rozpoczynanie tworzenia pierwszego dodatku ml przy użyciu zestawu SDK języka Python](tutorial-1st-experiment-sdk-setup.md)). Jeśli nie istnieje jeszcze zestaw danych o nazwie `'titanic_ds'` zarejestrowane, zostanie on utworzony. Kod pobiera dane CSV z sieci Web, używa ich do tworzenia wystąpienia a `TabularDataset` , a następnie rejestruje zestaw danych z obszarem roboczym. Na koniec funkcja `Dataset.get_by_name()` przypisuje `Dataset` do `titanic_ds` . 
 
 ### <a name="configure-your-storage-and-compute-target"></a>Konfigurowanie magazynu i celu obliczeń
 
@@ -99,13 +99,13 @@ compute_target = ws.compute_targets[compute_name]
 
 Pośrednie dane między przygotowaniem danych i etapem zautomatyzowanej ML mogą być przechowywane w domyślnym magazynie elementów roboczych obszaru roboczego, więc nie trzeba wykonywać więcej niż wywołania `get_default_datastore()` na `Workspace` obiekcie. 
 
-Następnie kod sprawdza, czy element docelowy `'cpu-cluster'` obliczeń AML już istnieje. Jeśli nie, firma Microsoft określa, że chcemy użyć małych procesorów opartych na procesorach. Jeśli planujesz korzystanie z funkcji uczenia głębokiego (na przykład cechowania text with DNN Support), należy wybrać obliczenia o silnej obsłudze procesora GPU, zgodnie z opisem w obszarze [rozmiary maszyn wirtualnych zoptymalizowanych pod kątem procesora GPU](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu). 
+Następnie kod sprawdza, czy element docelowy obliczeń AML `'cpu-cluster'` już istnieje. Jeśli nie, firma Microsoft określa, że chcemy użyć małych procesorów opartych na procesorach. Jeśli planujesz korzystanie z funkcji uczenia głębokiego (na przykład cechowania text with DNN Support), należy wybrać obliczenia o silnej obsłudze procesora GPU, zgodnie z opisem w obszarze [rozmiary maszyn wirtualnych zoptymalizowanych pod kątem procesora GPU](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu). 
 
-Kod jest blokowany do momentu zainicjowania obsługi administracyjnej, a następnie drukuje pewne szczegóły właśnie utworzonego elementu docelowego obliczeń. Na koniec nazwanego elementu docelowego obliczeń jest pobierana z obszaru roboczego i `compute_target`przypisana do. 
+Kod jest blokowany do momentu zainicjowania obsługi administracyjnej, a następnie drukuje pewne szczegóły właśnie utworzonego elementu docelowego obliczeń. Na koniec nazwanego elementu docelowego obliczeń jest pobierana z obszaru roboczego i przypisana do `compute_target` . 
 
 ### <a name="configure-the-training-run"></a>Konfigurowanie przebiegu szkoleniowego
 
-Następnym krokiem jest upewnienie się, że uruchomienie szkolenia zdalnego ma wszystkie zależności wymagane przez kroki szkoleniowe. Zależności i kontekst środowiska uruchomieniowego są ustawiane przez utworzenie i `RunConfiguration` skonfigurowanie obiektu. 
+Następnym krokiem jest upewnienie się, że uruchomienie szkolenia zdalnego ma wszystkie zależności wymagane przez kroki szkoleniowe. Zależności i kontekst środowiska uruchomieniowego są ustawiane przez utworzenie i skonfigurowanie `RunConfiguration` obiektu. 
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -133,7 +133,7 @@ Zestaw danych bazowych Titanic składa się z danych liczbowych i tekstowych, z 
 - Przekształcanie danych kategorii na liczby całkowite
 - Upuść kolumny, których nie zamierzasz używać
 - Podziel dane na zestawy szkoleniowe i testowe
-- Zapisz przekształcone dane w ścieżkach `PipelineData` wyjściowych
+- Zapisz przekształcone dane w `PipelineData` ścieżkach wyjściowych
 
 ```python
 %%writefile dataprep.py
@@ -201,17 +201,17 @@ print(f"Wrote test to {args.output_path} and train to {args.output_path}")
 
 Powyższy fragment kodu stanowi kompletny, ale minimalny przykład przygotowania danych dla danych Titanic. Fragment kodu rozpoczyna się od Jupyter "Magic polecenie", aby wyprowadzić kod do pliku. Jeśli nie używasz notesu Jupyter, Usuń ten wiersz i Utwórz plik ręcznie.
 
-Różne `prepare_` funkcje w powyższym fragmencie kodu modyfikują odpowiednią kolumnę w wejściowym zestawie danych. Te funkcje działają na danych po zmianie do obiektu Pandas `DataFrame` . W każdym przypadku brakujące dane są wypełniane za pomocą reprezentatywnych danych losowych lub kategorii danych wskazujących "nieznany". Dane kategorii oparte na tekście są mapowane na liczby całkowite. Kolumny, które nie są już potrzebne, są zastępowane lub usuwane. 
+Różne `prepare_` funkcje w powyższym fragmencie kodu modyfikują odpowiednią kolumnę w wejściowym zestawie danych. Te funkcje działają na danych po zmianie do `DataFrame` obiektu Pandas. W każdym przypadku brakujące dane są wypełniane za pomocą reprezentatywnych danych losowych lub kategorii danych wskazujących "nieznany". Dane kategorii oparte na tekście są mapowane na liczby całkowite. Kolumny, które nie są już potrzebne, są zastępowane lub usuwane. 
 
-Po zdefiniowaniu przez kod funkcji przygotowywania danych kod analizuje argument wejściowy, który jest ścieżką, do której chcemy napisać dane. (Te wartości zostaną określone przez `PipelineData` obiekty, które zostaną omówione w następnym kroku). Kod pobiera zarejestrowane `'titanic_cs'` `Dataset`, konwertuje go na Pandas `DataFrame`i wywołuje różne funkcje przygotowywania danych. 
+Po zdefiniowaniu przez kod funkcji przygotowywania danych kod analizuje argument wejściowy, który jest ścieżką, do której chcemy napisać dane. (Te wartości zostaną określone przez `PipelineData` obiekty, które zostaną omówione w następnym kroku). Kod pobiera zarejestrowane `'titanic_cs'` `Dataset` , konwertuje go na Pandas `DataFrame` i wywołuje różne funkcje przygotowywania danych. 
 
-Ponieważ jest `output_path` w pełni kwalifikowana, funkcja `os.makedirs()` służy do przygotowywania struktury katalogów. W tym momencie można użyć `DataFrame.to_csv()` , aby napisać dane wyjściowe, ale pliki Parquet są bardziej wydajne. Ta wydajność prawdopodobnie nie jest istotna dla tego małego zestawu danych, ale korzystanie **PyArrow** z pakietu PyArrow `from_pandas()` i `write_table()` funkcji to tylko kilka naciśnięć klawiszy niż `to_csv()`.
+Ponieważ `output_path` jest w pełni kwalifikowana, funkcja służy `os.makedirs()` do przygotowywania struktury katalogów. W tym momencie można użyć, `DataFrame.to_csv()` Aby napisać dane wyjściowe, ale pliki Parquet są bardziej wydajne. Ta wydajność prawdopodobnie nie jest istotna dla tego małego zestawu danych, ale korzystanie **PyArrow** z pakietu PyArrow `from_pandas()` i `write_table()` funkcji to tylko kilka naciśnięć klawiszy niż `to_csv()` .
 
 Pliki Parquet są natywnie obsługiwane przez krok zautomatyzowanej ML opisany poniżej, więc nie jest wymagane żadne specjalne przetwarzanie do ich użycia. 
 
-### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>Napisz krok potoku przygotowywania danych`PythonScriptStep`()
+### <a name="write-the-data-preparation-pipeline-step-pythonscriptstep"></a>Napisz krok potoku przygotowywania danych ( `PythonScriptStep` )
 
-Kod przygotowywania danych opisany powyżej musi być skojarzony z `PythonScripStep` obiektem, który ma być używany z potokiem. Ścieżka, do której jest zapisywana dane wyjściowe przygotowywania danych Parquet, jest generowana przez `PipelineData` obiekt. Przygotowane wcześniej zasoby, takie jak `ComputeTarget`, `RunConfig`, i `'titanic_ds' Dataset` są używane do wykonania specyfikacji.
+Kod przygotowywania danych opisany powyżej musi być skojarzony z `PythonScripStep` obiektem, który ma być używany z potokiem. Ścieżka, do której jest zapisywana dane wyjściowe przygotowywania danych Parquet, jest generowana przez `PipelineData` obiekt. Przygotowane wcześniej zasoby, takie jak,, `ComputeTarget` `RunConfig` i `'titanic_ds' Dataset` są używane do wykonania specyfikacji.
 
 ```python
 from azureml.pipeline.core import PipelineData
@@ -232,15 +232,15 @@ dataprep_step = PythonScriptStep(
 )
 ```
 
-`prepped_data_path` Obiekt jest typu `PipelineOutputFileDataset`. Należy zauważyć, że jest on określony zarówno `arguments` w `outputs` argumentach, jak i. W przypadku przejrzenia poprzedniego kroku zobaczysz, że w kodzie przygotowywania danych wartość argumentu `'--output_path'` jest ścieżką pliku, do której zapisano plik Parquet. 
+`prepped_data_path`Obiekt jest typu `PipelineOutputFileDataset` . Należy zauważyć, że jest on określony zarówno `arguments` w `outputs` argumentach, jak i. W przypadku przejrzenia poprzedniego kroku zobaczysz, że w kodzie przygotowywania danych wartość argumentu `'--output_path'` jest ścieżką pliku, do której zapisano plik Parquet. 
 
 ## <a name="train-with-automlstep"></a>Uczenie z AutoMLStep
 
-Konfigurowanie zautomatyzowanego kroku potoku ML jest wykonywane z `AutoMLConfig` klasą. Ta elastyczna Klasa została opisana w artykule [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). Dane wejściowe i wyjściowe danych są jedynymi aspektami konfiguracji, które wymagają specjalnej uwagi w potoku. Dane wejściowe i wyjściowe `AutoMLConfig` dla potoków zostały omówione szczegółowo poniżej. Poza danymi, zaletą potoków ML jest możliwość używania różnych elementów docelowych obliczeń dla różnych kroków. Możesz wybrać bardziej zaawansowane `ComputeTarget` tylko dla procesu zautomatyzowanej sieci. Takie działanie jest tak proste jak przypisanie do `RunConfiguration` `AutoMLConfig` `run_configuration` parametru obiektu bardziej zaawansowanego.
+Konfigurowanie zautomatyzowanego kroku potoku ML jest wykonywane z `AutoMLConfig` klasą. Ta elastyczna Klasa została opisana w artykule [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). Dane wejściowe i wyjściowe danych są jedynymi aspektami konfiguracji, które wymagają specjalnej uwagi w potoku. Dane wejściowe i wyjściowe dla `AutoMLConfig` potoków zostały omówione szczegółowo poniżej. Poza danymi, zaletą potoków ML jest możliwość używania różnych elementów docelowych obliczeń dla różnych kroków. Możesz wybrać bardziej zaawansowane `ComputeTarget` tylko dla procesu zautomatyzowanej sieci. Takie działanie jest tak proste jak przypisanie `RunConfiguration` do parametru obiektu bardziej zaawansowanego `AutoMLConfig` `run_configuration` .
 
 ### <a name="send-data-to-automlstep"></a>Wyślij dane do`AutoMLStep`
 
-W potoku ML dane wejściowe muszą być `Dataset` obiektem. Najwyższą z nich jest dostarczenie danych wejściowych w postaci `PipelineOutputTabularDataset` obiektów. Tworzysz obiekt tego typu `parse_parquet_files()` z lub `parse_delimited_files()` na a `PipelineOutputFileDataset`, taki jak `prepped_data_path` obiekt.
+W potoku ML dane wejściowe muszą być `Dataset` obiektem. Najwyższą z nich jest dostarczenie danych wejściowych w postaci `PipelineOutputTabularDataset` obiektów. Tworzysz obiekt tego typu z `parse_parquet_files()` lub `parse_delimited_files()` na a `PipelineOutputFileDataset` , taki jak `prepped_data_path` obiekt.
 
 ```python
 # type(prepped_data_path) == PipelineOutputFileDataset
@@ -267,11 +267,11 @@ Porównanie dwóch technik:
 | Użytkownikiem`Dataset` | Niższa wydajność |
 | | Można generować na wiele sposobów | 
 | | Dane utrwalają się i są widoczne w całym obszarze roboczym |
-| | [Notes przedstawiający `Dataset` zarejestrowaną technikę](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)
+| | [Notes przedstawiający zarejestrowaną `Dataset` technikę](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/continuous-retraining/auto-ml-continuous-retraining.ipynb)
 
 ### <a name="specify-automated-ml-outputs"></a>Określ zautomatyzowane dane wyjściowe ML
 
-Wyniki `AutoMLStep` są końcowymi wynikami metryk modelu wyższego poziomu i samym modelem. Aby użyć tych danych wyjściowych w dalszych krokach `PipelineData` potoku, przygotuj obiekty do odebrania.
+Wyniki `AutoMLStep` są końcowymi wynikami metryk modelu wyższego poziomu i samym modelem. Aby użyć tych danych wyjściowych w dalszych krokach potoku, przygotuj `PipelineData` obiekty do odebrania.
 
 ```python
 from azureml.pipeline.core import TrainingOutput
@@ -286,11 +286,11 @@ model_data = PipelineData(name='best_model_data',
                            training_output=TrainingOutput(type='Model'))
 ```
 
-Poniższy fragment kodu tworzy dwa `PipelineData` obiekty dla danych wyjściowych metryk i modelu. Każda z nich jest nazywana, przypisywana do domyślnego magazynu danych pobranego wcześniej i skojarzona `TrainingOutput` z określonym `AutoMLStep` `type` z. Ponieważ przypiszemy `pipeline_output_name` do `PipelineData` tych obiektów, ich wartości będą dostępne nie tylko z poszczególnych etapów potoku, ale z potoku jako całości, jak zostanie omówione w sekcji "sprawdzanie wyników potoku". 
+Poniższy fragment kodu tworzy dwa `PipelineData` obiekty dla danych wyjściowych metryk i modelu. Każda z nich jest nazywana, przypisywana do domyślnego magazynu danych pobranego wcześniej i skojarzona z określonym z `type` `TrainingOutput` `AutoMLStep` . Ponieważ przypiszemy `pipeline_output_name` do tych `PipelineData` obiektów, ich wartości będą dostępne nie tylko z poszczególnych etapów potoku, ale z potoku jako całości, jak zostanie omówione w sekcji "sprawdzanie wyników potoku". 
 
 ### <a name="configure-and-create-the-automated-ml-pipeline-step"></a>Skonfiguruj i Utwórz zautomatyzowany krok potoku
 
-Po zdefiniowaniu danych wejściowych i wyjściowych czas tworzenia `AutoMLConfig` i. `AutoMLStep` Szczegóły konfiguracji będą zależeć od zadania, zgodnie z opisem w temacie [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). W przypadku zadania klasyfikacji przeżycia Titanic w poniższym fragmencie kodu pokazano prostą konfigurację.
+Po zdefiniowaniu danych wejściowych i wyjściowych czas tworzenia `AutoMLConfig` i `AutoMLStep` . Szczegóły konfiguracji będą zależeć od zadania, zgodnie z opisem w temacie [Konfigurowanie zautomatyzowanych eksperymentów ml w języku Python](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train). W przypadku zadania klasyfikacji przeżycia Titanic w poniższym fragmencie kodu pokazano prostą konfigurację.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -320,33 +320,33 @@ train_step = AutoMLStep(name='AutoML_Classification',
     outputs=[metrics_data,model_data],
     allow_reuse=True)
 ```
-Fragment kodu przedstawia idiom często używany z `AutoMLConfig`. Argumenty, które są bardziej płynne (parametr-ish), są określane w osobnym słowniku, podczas gdy wartości mniejsze od zmiany są określane bezpośrednio `AutoMLConfig` w konstruktorze. W takim przypadku należy `automl_settings` określić krótki przebieg: przebieg zostanie zatrzymany po upływie 2 iteracji lub 15 minut, zależnie od tego, co nastąpi wcześniej.
+Fragment kodu przedstawia idiom często używany z `AutoMLConfig` . Argumenty, które są bardziej płynne (parametr-ish), są określane w osobnym słowniku, podczas gdy wartości mniejsze od zmiany są określane bezpośrednio w `AutoMLConfig` konstruktorze. W takim przypadku należy `automl_settings` określić krótki przebieg: przebieg zostanie zatrzymany po upływie 2 iteracji lub 15 minut, zależnie od tego, co nastąpi wcześniej.
 
-`automl_settings` Słownik jest przesyłany do `AutoMLConfig` konstruktora jako kwargs. Inne parametry nie są złożone:
+`automl_settings`Słownik jest przesyłany do `AutoMLConfig` konstruktora jako kwargs. Inne parametry nie są złożone:
 
 - `task`jest ustawiony na `classification` dla tego przykładu. Inne prawidłowe wartości to `regression` i`forecasting`
 - `path`i `debug_log` opisz ścieżkę do projektu i plik lokalny, do którego zostaną nadane informacje debugowania. 
-- `compute_target`jest to wcześniej zdefiniowane `compute_target` , które w tym przykładzie jest niedrogią maszyną opartą na procesorze. Jeśli korzystasz z usług uczenia głębokiego AutoML, chcesz zmienić cel obliczeń na oparty na procesorach GPU
-- `featurization`jest ustawiony na `auto`. Więcej szczegółów znajduje się w sekcji [Data cechowania](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) w dokumencie zautomatyzowanej konfiguracji ml. 
+- `compute_target`jest to wcześniej zdefiniowane, `compute_target` które w tym przykładzie jest niedrogią maszyną opartą na procesorze. Jeśli korzystasz z usług uczenia głębokiego AutoML, chcesz zmienić cel obliczeń na oparty na procesorach GPU
+- `featurization`jest ustawiony na `auto` . Więcej szczegółów znajduje się w sekcji [Data cechowania](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#data-featurization) w dokumencie zautomatyzowanej konfiguracji ml. 
 - `training_data`jest ustawiony na `PipelineOutputTabularDataset` obiekty wykonane z danych wyjściowych kroku przygotowywania 
 - `label_column_name`wskazuje, która kolumna chcemy przewidzieć 
 
-`AutoMLStep` Samo przyjmuje `AutoMLConfig` i ma jako dane wyjściowe `PipelineData` obiekty utworzone w celu przechowywania metryk i danych modelu. 
+`AutoMLStep`Samo przyjmuje `AutoMLConfig` i ma jako `PipelineData` dane wyjściowe obiekty utworzone w celu przechowywania metryk i danych modelu. 
 
 >[!Important]
-> Należy ustawić `passthru_automl_config` na `False` , jeśli `AutoMLStep` używasz `PipelineOutputTabularDataset` obiektów do wprowadzania danych.
+> Należy ustawić `passthru_automl_config` na, `False` Jeśli `AutoMLStep` używasz `PipelineOutputTabularDataset` obiektów do wprowadzania danych.
 
-W tym przykładzie zautomatyzowany proces ML wykona walidację na `training_data`. Można kontrolować liczbę operacji sprawdzania krzyżowego z `n_cross_validations` argumentem. Jeśli dane szkoleniowe zostały już podzielone w ramach kroków przygotowywania danych, można ustawić własne `validation_data` `Dataset`ustawienia.
+W tym przykładzie zautomatyzowany proces ML wykona walidację na `training_data` . Można kontrolować liczbę operacji sprawdzania krzyżowego z `n_cross_validations` argumentem. Jeśli dane szkoleniowe zostały już podzielone w ramach kroków przygotowywania danych, można ustawić `validation_data` własne ustawienia `Dataset` .
 
 Czasami może być widoczne użycie `X` funkcji danych i `y` etykiet danych. Ta technika jest przestarzała i powinna być używana `training_data` do wprowadzania danych. 
 
 ## <a name="register-the-model-generated-by-automated-ml"></a>Zarejestruj model wygenerowany przez zautomatyzowaną ML 
 
-Ostatnim krokiem w ramach potoku podstawowej ML jest zarejestrowanie utworzonego modelu. Po dodaniu modelu do rejestru modelu obszaru roboczego będzie on dostępny w portalu i może być w wersji. Aby zarejestrować model, napisz inny `PythonScriptStep` , który pobiera `model_data` dane wyjściowe. `AutoMLStep`
+Ostatnim krokiem w ramach potoku podstawowej ML jest zarejestrowanie utworzonego modelu. Po dodaniu modelu do rejestru modelu obszaru roboczego będzie on dostępny w portalu i może być w wersji. Aby zarejestrować model, napisz inny, `PythonScriptStep` który pobiera `model_data` dane wyjściowe `AutoMLStep` .
 
 ### <a name="write-the-code-to-register-the-model"></a>Napisz kod, aby zarejestrować model
 
-Model jest zarejestrowany w `Workspace`. Prawdopodobnie wiesz już, jak używać `Workspace.from_config()` do logowania się do obszaru roboczego na komputerze lokalnym, ale istnieje inny sposób na uzyskanie obszaru roboczego z działającego potoku. `Run.get_context()` Pobiera aktywny `Run`. Ten `run` obiekt umożliwia dostęp do wielu ważnych obiektów, w `Workspace` tym użytych tutaj.
+Model jest zarejestrowany w `Workspace` . Prawdopodobnie wiesz już `Workspace.from_config()` , jak używać do logowania się do obszaru roboczego na komputerze lokalnym, ale istnieje inny sposób na uzyskanie obszaru roboczego z działającego potoku. `Run.get_context()`Pobiera aktywny `Run` . Ten `run` obiekt umożliwia dostęp do wielu ważnych obiektów, w tym `Workspace` użytych tutaj.
 
 ```python
 %%writefile register_model.py
@@ -395,7 +395,7 @@ register_step = PythonScriptStep(script_name="register_model.py",
 
 ## <a name="create-and-run-your-automated-ml-pipeline"></a>Utwórz i uruchom zautomatyzowany potok ML
 
-Tworzenie i uruchamianie potoku, który zawiera `AutoMLStep` element, nie różni się od normalnego potoku. 
+Tworzenie i uruchamianie potoku, który zawiera element, `AutoMLStep` nie różni się od normalnego potoku. 
 
 ```python
 from azureml.pipeline.core import Pipeline
@@ -409,11 +409,11 @@ run = experiment.submit(pipeline, show_output=True)
 run.wait_for_completion()
 ```
 
-Powyższy kod łączy Przygotowywanie danych, automatyczne ML i rejestrowanie modeli w `Pipeline` obiekcie. Następnie tworzy `Experiment` obiekt. `Experiment` Konstruktor pobierze nazwany eksperyment, jeśli istnieje, lub utwórz go w razie potrzeby. Przesyła `Pipeline` do `Experiment`, tworząc `Run` obiekt, który będzie asynchronicznie uruchamiać potok. Funkcja `wait_for_completion()` jest blokowana do momentu zakończenia przebiegu.
+Powyższy kod łączy Przygotowywanie danych, automatyczne ML i rejestrowanie modeli w `Pipeline` obiekcie. Następnie tworzy `Experiment` obiekt. `Experiment`Konstruktor pobierze nazwany eksperyment, jeśli istnieje, lub utwórz go w razie potrzeby. Przesyła `Pipeline` do `Experiment` , tworząc `Run` obiekt, który będzie asynchronicznie uruchamiać potok. `wait_for_completion()`Funkcja jest blokowana do momentu zakończenia przebiegu.
 
 ### <a name="examine-pipeline-results"></a>Sprawdzanie wyników potoku 
 
-Po `run` zakończeniu można pobrać `PipelineData` obiekty, które zostały przypisane. `pipeline_output_name` Możesz pobrać wyniki i załadować je do dalszej obróbki.  
+Po `run` zakończeniu można pobrać `PipelineData` obiekty, które zostały przypisane `pipeline_output_name` . Możesz pobrać wyniki i załadować je do dalszej obróbki.  
 
 ```python
 metrics_output_port = run.get_pipeline_output('metrics_output')
@@ -423,7 +423,7 @@ metrics_output_port.download('.', show_progress=True)
 model_output_port.download('.', show_progress=True)
 ```
 
-Pobrane pliki są zapisywane w podkatalogu `azureml/{run.id}/`. Plik metryk jest sformatowany w formacie JSON i może być konwertowany do Pandas Dataframe na potrzeby badania.
+Pobrane pliki są zapisywane w podkatalogu `azureml/{run.id}/` . Plik metryk jest sformatowany w formacie JSON i może być konwertowany do Pandas Dataframe na potrzeby badania.
 
 W przypadku przetwarzania lokalnego może być konieczne zainstalowanie odpowiednich pakietów, takich jak Pandas, pakietu pickle, zestaw SDK platformy Azure i tak dalej. W tym przykładzie najprawdopodobniej najlepszym modelem znalezionym przez zautomatyzowane ML będzie zależeć od XGBoost.
 
@@ -465,9 +465,9 @@ Aby uzyskać więcej informacji na temat ładowania i pracy z istniejącymi mode
 
 ### <a name="download-the-results-of-an-automated-ml-run"></a>Pobierz wyniki zautomatyzowanego przebiegu ML
 
-Jeśli po wykonaniu tych czynności zamieszczono w artykule, masz `run` obiekt z utworzonymi wystąpieniami. Można jednak również pobrać ukończone `Run` obiekty z metody `Workspace` za pomocą `Experiment` obiektu.
+Jeśli po wykonaniu tych czynności zamieszczono w artykule, masz obiekt z utworzonymi wystąpieniami `run` . Można jednak również pobrać ukończone `Run` obiekty z `Workspace` metody za pomocą `Experiment` obiektu.
 
-Obszar roboczy zawiera pełny rekord wszystkich eksperymentów i przebiegów. Możesz użyć portalu, aby znaleźć i pobrać dane wyjściowe eksperymentów lub użyć kodu. Aby uzyskać dostęp do rekordów z przebiegu historycznego, użyj Azure Machine Learning, aby znaleźć identyfikator przebiegu, w którym interesują Cię zainteresowania. Przy użyciu tego identyfikatora można wybrać odpowiednie opcje `run` w obszarze `Workspace` i. `Experiment`
+Obszar roboczy zawiera pełny rekord wszystkich eksperymentów i przebiegów. Możesz użyć portalu, aby znaleźć i pobrać dane wyjściowe eksperymentów lub użyć kodu. Aby uzyskać dostęp do rekordów z przebiegu historycznego, użyj Azure Machine Learning, aby znaleźć identyfikator przebiegu, w którym interesują Cię zainteresowania. Przy użyciu tego identyfikatora można wybrać odpowiednie opcje w `run` obszarze `Workspace` i `Experiment` .
 
 ```python
 # Retrieved from Azure Machine Learning web UI
@@ -476,7 +476,7 @@ experiment = ws.experiments['titanic_automl']
 run = next(run for run in ex.get_runs() if run.id == run_id)
 ```
 
-Należy zmienić ciągi w powyższym kodzie na charakterystykę przebiegu historycznego. W powyższym fragmencie kodu przyjęto `ws` założenie, `Workspace` że użytkownik jest `from_config()`przypisany do odpowiednich z normalną. Eksperyment jest pobierany bezpośrednio, a następnie kod znajdzie `Run` interesu, dopasowując `run.id` wartość.
+Należy zmienić ciągi w powyższym kodzie na charakterystykę przebiegu historycznego. W powyższym fragmencie kodu przyjęto założenie, że użytkownik jest przypisany `ws` do odpowiednich `Workspace` z normalną `from_config()` . Eksperyment jest pobierany bezpośrednio, a następnie kod znajdzie `Run` interesu, dopasowując `run.id` wartość.
 
 Po utworzeniu `Run` obiektu można pobrać metryki i model. 
 
@@ -490,7 +490,7 @@ metrics.get_port_data_reference().download('.')
 model.get_port_data_reference().download('.')
 ```
 
-Każdy `Run` obiekt zawiera `StepRun` obiekty, które zawierają informacje o przebiegu poszczególnych etapów potoku. `run` Jest wyszukiwany `StepRun` obiekt dla elementu `AutoMLStep`. Metryki i modele są pobierane przy użyciu ich domyślnych nazw, które są dostępne, nawet jeśli nie `PipelineData` przechodzą obiektów `outputs` do parametru `AutoMLStep`. 
+Każdy `Run` obiekt zawiera `StepRun` obiekty, które zawierają informacje o przebiegu poszczególnych etapów potoku. `run`Jest wyszukiwany `StepRun` obiekt dla elementu `AutoMLStep` . Metryki i modele są pobierane przy użyciu ich domyślnych nazw, które są dostępne, nawet jeśli nie przechodzą `PipelineData` obiektów do `outputs` parametru `AutoMLStep` . 
 
 Na koniec rzeczywiste metryki i modele są pobierane na maszynę lokalną, jak zostało to omówione w sekcji "Zbadaj wyniki potoku" powyżej.
 

@@ -5,17 +5,17 @@ description: Dowiedz się, jak za pomocą Azure Machine Learning wdrożyć model
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 646254238f83166c53fe94a1821c68ff4dac8f04
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 787c8ec88b001a55a83bfba3124c62e12800aa58
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82651928"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84433945"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Wdróż model uczenia maszynowego w Azure App Service (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,14 +114,14 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platformy Docker. Po zakończeniu procesu obraz został utworzony w Azure Container Registry dla obszaru roboczego. Po skompilowaniu obrazu zostanie wyświetlona lokalizacja w Azure Container Registry. Zwrócona Lokalizacja ma format `<acrinstance>.azurecr.io/package@sha256:<imagename>`. Na przykład `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
+Gdy `show_output=True` są wyświetlane dane wyjściowe procesu kompilacji platformy Docker. Po zakończeniu procesu obraz został utworzony w Azure Container Registry dla obszaru roboczego. Po skompilowaniu obrazu zostanie wyświetlona lokalizacja w Azure Container Registry. Zwrócona Lokalizacja ma format `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Na przykład `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Zapisz informacje o lokalizacji, ponieważ są używane podczas wdrażania obrazu.
 
 ## <a name="deploy-image-as-a-web-app"></a>Wdrażanie obrazu jako aplikacji sieci Web
 
-1. Użyj poniższego polecenia, aby uzyskać poświadczenia logowania dla Azure Container Registry zawierającej obraz. Zamień `<acrinstance>` na wartość zwróconą wcześniej z `package.location`:
+1. Użyj poniższego polecenia, aby uzyskać poświadczenia logowania dla Azure Container Registry zawierającej obraz. Zamień na `<acrinstance>` wartość zwróconą wcześniej z `package.location` :
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -154,12 +154,12 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
     az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    W tym przykładzie jest używana __podstawowa__ warstwa cenowa`--sku B1`().
+    W tym przykładzie jest używana __podstawowa__ warstwa cenowa ( `--sku B1` ).
 
     > [!IMPORTANT]
     > Obrazy utworzone przez Azure Machine Learning używają systemu Linux, dlatego należy użyć `--is-linux` parametru.
 
-1. Aby utworzyć aplikację sieci Web, użyj następującego polecenia. Zamień `<app-name>` na nazwę, której chcesz użyć. Zamień `<acrinstance>` i `<imagename>` na wartości zwracane `package.location` wcześniej:
+1. Aby utworzyć aplikację sieci Web, użyj następującego polecenia. Zamień na `<app-name>` nazwę, której chcesz użyć. Zamień `<acrinstance>` i `<imagename>` na wartości zwracane `package.location` wcześniej:
 
     ```azurecli-interactive
     az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package@sha256:<imagename>
@@ -188,7 +188,7 @@ Gdy `show_output=True`są wyświetlane dane wyjściowe procesu kompilacji platfo
     > [!IMPORTANT]
     > W tym momencie aplikacja sieci Web została utworzona. Jednak ponieważ nie podano poświadczeń do Azure Container Registry, które zawierają obraz, aplikacja sieci Web nie jest aktywna. W następnym kroku podajesz informacje o uwierzytelnianiu dla rejestru kontenerów.
 
-1. Aby zapewnić aplikacji sieci Web poświadczenia potrzebne do uzyskania dostępu do rejestru kontenerów, użyj następującego polecenia. Zamień `<app-name>` na nazwę, której chcesz użyć. Zamień `<acrinstance>` i `<imagename>` na wartości zwracane `package.location` wcześniej. Zamień `<username>` i `<password>` na pobrane wcześniej informacje logowania ACR:
+1. Aby zapewnić aplikacji sieci Web poświadczenia potrzebne do uzyskania dostępu do rejestru kontenerów, użyj następującego polecenia. Zamień na `<app-name>` nazwę, której chcesz użyć. Zamień `<acrinstance>` i `<imagename>` na wartości zwracane `package.location` wcześniej. Zamień `<username>` i na `<password>` pobrane wcześniej informacje logowania ACR:
 
     ```azurecli-interactive
     az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package@sha256:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -234,7 +234,7 @@ W tym momencie aplikacja sieci Web rozpocznie ładowanie obrazu.
 > az webapp log tail --name <app-name> --resource-group myresourcegroup
 > ```
 >
-> Po załadowaniu obrazu, gdy lokacja jest aktywna, w dzienniku zostanie wyświetlony komunikat z informacją `Container <container name> for site <app-name> initialized successfully and is ready to serve requests`o stanie.
+> Po załadowaniu obrazu, gdy lokacja jest aktywna, w dzienniku zostanie wyświetlony komunikat z informacją o stanie `Container <container name> for site <app-name> initialized successfully and is ready to serve requests` .
 
 Po wdrożeniu obrazu można znaleźć nazwę hosta za pomocą następującego polecenia:
 
@@ -242,11 +242,11 @@ Po wdrożeniu obrazu można znaleźć nazwę hosta za pomocą następującego po
 az webapp show --name <app-name> --resource-group myresourcegroup
 ```
 
-To polecenie zwraca informacje podobne do następującej nazwy hosta `<app-name>.azurewebsites.net`. Użyj tej wartości jako części __podstawowego adresu URL__ usługi.
+To polecenie zwraca informacje podobne do następującej nazwy hosta `<app-name>.azurewebsites.net` . Użyj tej wartości jako części __podstawowego adresu URL__ usługi.
 
 ## <a name="use-the-web-app"></a>Korzystanie z aplikacji sieci Web
 
-Usługa sieci Web, która przekazuje żądania do modelu, znajduje się `{baseurl}/score`w lokalizacji. Na przykład `https://<app-name>.azurewebsites.net/score`. Poniższy kod w języku Python pokazuje, jak przesłać dane do adresu URL i wyświetlić odpowiedź:
+Usługa sieci Web, która przekazuje żądania do modelu, znajduje się w lokalizacji `{baseurl}/score` . Na przykład `https://<app-name>.azurewebsites.net/score`. Poniższy kod w języku Python pokazuje, jak przesłać dane do adresu URL i wyświetlić odpowiedź:
 
 ```python
 import requests
