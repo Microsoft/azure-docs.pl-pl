@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: storage
 author: roygara
 ms.service: storage
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6a053b94813145f9ccd69158d18edb728d5dad61
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 95c553d26a3e79b53106b933c629c5884c3e004c
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74795958"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466862"
 ---
 | Zasób | Środowisko docelowe | Limit sztywny |
 |----------|--------------|------------|
-| Usługi synchronizacji magazynu na region | 20 usług synchronizacji magazynu | Tak |
-| Grupy synchronizacji na usługę synchronizacji magazynu | 100 grup synchronizacji | Tak |
+| Usługi synchronizacji magazynu na region | Usługi synchronizacji magazynu 100 | Tak |
+| Grupy synchronizacji na usługę synchronizacji magazynu | 200 grup synchronizacji | Tak |
 | Zarejestrowane serwery na usługę synchronizacji magazynu | serwery 99 | Tak |
 | Punkty końcowe chmury na grupę synchronizacji | 1 punkt końcowy w chmurze | Tak |
 | Punkty końcowe serwera dla grupy synchronizacji | punkty końcowe serwera 50 | Nie |

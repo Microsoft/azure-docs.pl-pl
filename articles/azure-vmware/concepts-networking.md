@@ -3,12 +3,12 @@ title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware (Automatyczna synchronizacja)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 82e5497c30bf02313e5ff8ad24167af569a153c2
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 1d869601110266f7ad16e23b66453c44793cdf31
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740917"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457086"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware (wersja zapoznawcza) — Omówienie rozwiązań sieciowych i międzyłącznościowych
 
@@ -62,7 +62,7 @@ Po połączeniu z Global Reach dwa obwody usługi ExpressRoute będą kierować 
 
 Aby zapewnić pełną łączność, w Azure Portal można żądać klucza autoryzacji i prywatnego identyfikatora komunikacji równorzędnej dla Global Reach. Za pomocą klucza i identyfikatora można ustalić Global Reach między obwodem usługi ExpressRoute w ramach subskrypcji i obwodem usługi ExpressRoute dla nowej chmury prywatnej. [Samouczek dotyczący tworzenia chmury prywatnej](tutorial-create-private-cloud.md) zapewnia procedury umożliwiające żądanie i użycie klucza i identyfikatora.
 
-Wymagania dotyczące routingu w ramach rozwiązania wymagają zaplanowania przestrzeni adresów sieci chmury prywatnej, aby uniknąć nakładania się innych sieci wirtualnych i sieci lokalnych. Automatyczna synchronizacja chmur prywatnych wymaga co najmniej bloku `/22` adresów sieciowych CIDR dla podsieci, jak pokazano poniżej. Ta sieć uzupełnia sieci lokalne. Aby można było połączyć się ze środowiskami lokalnymi i sieciami wirtualnymi, musi to być nienakładający się blok adresów sieciowych.
+Wymagania dotyczące routingu w ramach rozwiązania wymagają zaplanowania przestrzeni adresów sieci chmury prywatnej, aby uniknąć nakładania się innych sieci wirtualnych i sieci lokalnych. Automatyczna synchronizacja chmur prywatnych wymaga co najmniej `/22` bloku adresów sieciowych CIDR dla podsieci, jak pokazano poniżej. Ta sieć uzupełnia sieci lokalne. Aby można było połączyć się ze środowiskami lokalnymi i sieciami wirtualnymi, musi to być nienakładający się blok adresów sieciowych.
 
 Przykładowy `/22` blok adresów sieciowych CIDR:`10.10.0.0/22`
 

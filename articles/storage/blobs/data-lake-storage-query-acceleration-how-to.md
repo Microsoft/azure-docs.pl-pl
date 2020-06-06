@@ -4,16 +4,16 @@ description: Użyj przyspieszenia zapytania (wersja zapoznawcza), aby pobrać po
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.openlocfilehash: d7213bb44503fbe191a69683188bdea6976827ee
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: cc9235f07c0829abfb8be42e83d05d8428bc1806
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930084"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465868"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration-preview"></a>Filtrowanie danych przy użyciu przyspieszania zapytań Azure Data Lake Storage (wersja zapoznawcza)
 
@@ -53,11 +53,11 @@ Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja Azure Data Lake Sto
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-1. Pobierz pakiety przyspieszania zapytań. Można uzyskać skompresowany plik zip zawierający te pakiety za pomocą tego linku: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net). 
+1. Pobierz pakiety przyspieszania zapytań. Można uzyskać skompresowany plik zip zawierający te pakiety za pomocą tego linku: [https://aka.ms/adls/qqsdk/.net](https://aka.ms/adls/qqsdk/.net) . 
 
 2. Wyodrębnij zawartość tego pliku do katalogu projektu.
 
-3. Otwórz plik projektu (*. csproj*) w edytorze tekstów i Dodaj te odwołania do pakietu wewnątrz elementu \<projektu.\>
+3. Otwórz plik projektu (*. csproj*) w edytorze tekstów i Dodaj te odwołania do pakietu wewnątrz \<Project\> elementu.
 
    ```xml
    <ItemGroup>
@@ -67,7 +67,7 @@ Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja Azure Data Lake Sto
    </ItemGroup>
    ```
 
-4. Przywróć pakiety w wersji zapoznawczej zestawu SDK. To przykładowe polecenie przywraca pakiety zestawu SDK wersji zapoznawczej `dotnet restore` za pomocą polecenia. 
+4. Przywróć pakiety w wersji zapoznawczej zestawu SDK. To przykładowe polecenie przywraca pakiety zestawu SDK wersji zapoznawczej za pomocą `dotnet restore` polecenia. 
 
    ```console
    dotnet restore --source C:\Users\contoso\myProject
@@ -86,7 +86,7 @@ Przyspieszenie zapytań (wersja zapoznawcza) to nowa funkcja Azure Data Lake Sto
    > [!NOTE]
    > W przykładach w tym artykule przyjęto założenie, że nazwa katalogu to **lib**.
 
-2. Pobierz pakiety przyspieszania zapytań. Można uzyskać skompresowany plik zip zawierający te pakiety za pomocą tego linku: [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java). 
+2. Pobierz pakiety przyspieszania zapytań. Można uzyskać skompresowany plik zip zawierający te pakiety za pomocą tego linku: [https://aka.ms/adls/qqsdk/java](https://aka.ms/adls/qqsdk/java) . 
 
 3. Wyodrębnij pliki z pliku zip do utworzonego katalogu. W naszym przykładzie katalog nosi nazwę **lib**. 
 
@@ -155,7 +155,7 @@ using Azure.Storage.QuickQuery;
 using Azure.Storage.QuickQuery.Models;
 ```
 
-Przyspieszenie zapytań pobiera dane sformatowane w formacie CSV i JSON. W związku z tym Pamiętaj, aby dodać instrukcje using dla wszystkich bibliotek analizy woluminów CSV lub JSON, które będą używane. Przykłady, które pojawiają się w tym artykule, analizują plik CSV przy użyciu biblioteki [CsvHelper](https://www.nuget.org/packages/CsvHelper/) dostępnej w programie NuGet. W związku z tym dodamy `using` te instrukcje na początku pliku kodu.
+Przyspieszenie zapytań pobiera dane sformatowane w formacie CSV i JSON. W związku z tym Pamiętaj, aby dodać instrukcje using dla wszystkich bibliotek analizy woluminów CSV lub JSON, które będą używane. Przykłady, które pojawiają się w tym artykule, analizują plik CSV przy użyciu biblioteki [CsvHelper](https://www.nuget.org/packages/CsvHelper/) dostępnej w programie NuGet. W związku z tym dodamy te `using` instrukcje na początku pliku kodu.
 
 ```csharp
 using CsvHelper;
@@ -190,15 +190,15 @@ import org.apache.commons.csv.*;
 
 ## <a name="retrieve-data-by-using-a-filter"></a>Pobieranie danych przy użyciu filtru
 
-Aby określić predykaty filtru wierszy i projekcje kolumn w żądaniu przyspieszenia zapytania, można użyć języka SQL. Poniższy kod wysyła zapytanie do pliku CSV w magazynie i zwraca wszystkie wiersze danych, w których trzecia kolumna jest zgodna z `Hemingway, Ernest`wartością. 
+Aby określić predykaty filtru wierszy i projekcje kolumn w żądaniu przyspieszenia zapytania, można użyć języka SQL. Poniższy kod wysyła zapytanie do pliku CSV w magazynie i zwraca wszystkie wiersze danych, w których trzecia kolumna jest zgodna z wartością `Hemingway, Ernest` . 
 
 - W zapytaniu SQL słowo kluczowe `BlobStorage` jest używane do określenia pliku, który jest wysyłany do zapytania.
 
-- Odwołania do kolumn są określone `_N` , gdy pierwsza kolumna to `_1`. Jeśli plik źródłowy zawiera wiersz nagłówka, można odwoływać się do kolumn według nazwy określonej w wierszu nagłówka. 
+- Odwołania do kolumn są określone, `_N` gdy pierwsza kolumna to `_1` . Jeśli plik źródłowy zawiera wiersz nagłówka, można odwoływać się do kolumn według nazwy określonej w wierszu nagłówka. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Metoda `BlobQuickQueryClient.QueryAsync` Async wysyła zapytanie do interfejsu API przyspieszenia zapytania, a następnie strumieniuje wyniki z powrotem do aplikacji jako obiekt [strumienia](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) .
+Metoda async `BlobQuickQueryClient.QueryAsync` wysyła zapytanie do interfejsu API przyspieszenia zapytania, a następnie strumieniuje wyniki z powrotem do aplikacji jako obiekt [strumienia](https://docs.microsoft.com/dotnet/api/system.io.stream?view=netframework-4.8) .
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)

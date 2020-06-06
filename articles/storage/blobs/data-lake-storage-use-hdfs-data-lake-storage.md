@@ -4,17 +4,17 @@ description: Wprowadzenie do interfejsu wiersza polecenia systemu HDFS dla Data 
 services: storage
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: 1d5313f3f0fff128dd09f9c9857b7dd9921ea4f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c5b1d38e32ff0a0d0954064c8a2511d898d16e2
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "69992219"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462927"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Korzystanie z interfejsu wiersza polecenia systemu plików HDFS z Data Lake Storage Gen2
 
@@ -56,7 +56,7 @@ Parametry połączenia można znaleźć w sekcji "SSH + logowanie do klastra" w 
 
     hdfs dfs -ls <path>
 
-Zastąp `<path>` symbol ZASTĘPCZy identyfikatorem URI kontenera lub folderu kontenerów.
+Zastąp `<path>` symbol zastępczy identyfikatorem URI kontenera lub folderu kontenerów.
 
 Na przykład: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
@@ -72,7 +72,7 @@ Na przykład: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.w
 
     hdfs dfs -rm <path>
 
-Zastąp `<path>` symbol ZASTĘPCZy identyfikatorem URI pliku lub folderu, który chcesz usunąć.
+Zastąp `<path>` symbol zastępczy identyfikatorem URI pliku lub folderu, który chcesz usunąć.
 
 Na przykład: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
 

@@ -10,12 +10,12 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 3af87af0dca34b6587cf92bcc65568ad6dd943be
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 513f0240296debb5e878461ed1ca7cffecad760a
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324304"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462995"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -122,7 +122,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 ### <a name="check-registration-status"></a>Sprawdź stan rejestracji
 
-Aby sprawdzić stan rejestracji, uruchom następujące polecenia:
+Operacja przywracania do punktu w czasie jest automatyczna i powinna trwać krócej niż 10 minut. Aby sprawdzić stan rejestracji, uruchom następujące polecenia:
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 ```powershell

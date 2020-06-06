@@ -4,19 +4,19 @@ description: Dowiedz się, jak skonfigurować Azure AD Identity Protection zasad
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 10/18/2019
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fa6a4cf184b426355f62117ea51642127eee529
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4c6b57eaa2a68906053faade48dd0e63fbf0db7
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74382141"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464338"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Instrukcje: Konfigurowanie zasad rejestracji w usłudze Azure Multi-Factor Authentication
 
@@ -36,13 +36,13 @@ Aby uzyskać więcej informacji na temat usługi Azure Multi-Factor Authenticati
 ## <a name="policy-configuration"></a>Konfiguracja zasad
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-1. Przejdź do obszaru **Azure Active Directory** > **Security** > **Identity Protection** > **zasady rejestracji usługi MFA**.
+1. Przejdź do obszaru **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **zasady rejestracji usługi MFA**.
    1. W obszarze **przypisania**
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
          1. Opcjonalnie możesz zdecydować się na wykluczenie użytkowników z zasad.
    1. W obszarze **Controls**
       1. Upewnij się, że pole wyboru **Wymagaj rejestracji w usłudze Azure MFA** jest zaznaczone, a następnie wybierz **pozycję Wybierz**.
-   1. **Wymuś zasady** - **On**
+   1. **Wymuś zasady**  -  **Na**
    1. **Zapisz**
 
 ## <a name="user-experience"></a>Środowisko użytkownika

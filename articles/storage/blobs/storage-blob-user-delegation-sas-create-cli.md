@@ -5,17 +5,17 @@ description: Dowiedz się, jak utworzyć sygnaturę dostępu współdzielonego u
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa864b5b2ded092ae7834ecd8c7d271d13117716
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "75371993"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464407"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Tworzenie sygnatury dostępu współdzielonego użytkownika dla kontenera lub obiektu BLOB za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -60,7 +60,7 @@ Gdy tworzysz sygnaturę dostępu współdzielonego użytkownika przy użyciu int
 
 Ze względu na to, że maksymalny interwał ważności klucza delegowania użytkownika wynosi 7 dni od daty rozpoczęcia, należy określić czas wygaśnięcia dla sygnatury dostępu współdzielonego w ciągu 7 dni od czasu rozpoczęcia. Sygnatura dostępu współdzielonego jest nieprawidłowa po wygaśnięciu klucza delegowania użytkownika, więc sygnatura dostępu współdzielonego o godzinie przekraczającej 7 dni będzie nadal ważna tylko przez 7 dni.
 
-W `--auth-mode login` przypadku tworzenia sygnatury dostępu współdzielonego `--as-user parameters` użytkownika wymagane są i. Określ *nazwę logowania* dla `--auth-mode` parametru, aby żądania kierowane do usługi Azure Storage były autoryzowane przy użyciu poświadczeń usługi Azure AD. Określ `--as-user` parametr wskazujący, że zwracany sygnatura dostępu współdzielonego powinien być sygnaturą dostępu współdzielonego delegowaną przez użytkownika.
+W przypadku tworzenia sygnatury dostępu współdzielonego użytkownika `--auth-mode login` `--as-user parameters` wymagane są i. Określ *nazwę logowania* dla `--auth-mode` parametru, aby żądania kierowane do usługi Azure Storage były autoryzowane przy użyciu poświadczeń usługi Azure AD. Określ `--as-user` parametr wskazujący, że zwracany sygnatura dostępu współdzielonego powinien być sygnaturą dostępu współdzielonego delegowaną przez użytkownika.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Tworzenie sygnatury dostępu współdzielonego użytkownika dla kontenera
 

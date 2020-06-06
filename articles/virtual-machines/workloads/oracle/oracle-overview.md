@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/01/2020
+ms.date: 06/05/2020
 ms.author: borisb
-ms.openlocfilehash: d739f9f5c0e1be80005d5f3c6db5aa94ff6cc85d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b738d0a04ded3e592f69075d1b113a22905efa11
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299846"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462723"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Omówienie aplikacji i rozwiązań firmy Oracle na platformie Azure
 
@@ -43,7 +43,7 @@ Wybieraj z wielu aplikacji platformy Azure WebLogic Server, aby przyspieszyć po
 
 ## <a name="applications-on-oracle-linux-and-weblogic-server"></a>Aplikacje na serwerach Oracle Linux i WebLogic
 
-Uruchamiaj aplikacje dla przedsiębiorstw na platformie Azure w obsługiwanych systemach operacyjnych Oracle. Następujące obrazy maszyn wirtualnych są dostępne w portalu Azure Marketplace:
+Uruchamiaj aplikacje dla przedsiębiorstw na platformie Azure na obsługiwanych obrazach Oracle Linux. Następujące obrazy maszyn wirtualnych są dostępne w portalu Azure Marketplace:
 
 * Oracle webWebLogicc Server 12.1.2
 
@@ -53,7 +53,7 @@ Uruchamiaj aplikacje dla przedsiębiorstw na platformie Azure w obsługiwanych s
 
 * Skonfiguruj funkcję [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [aktywną ochronę danych przy użyciu usługi FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [fragmentowania](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) lub [złota bramę](https://www.oracle.com/middleware/technologies/goldengate.html) platformy Azure w połączeniu z [strefy dostępności](../../../availability-zones/az-overview.md) w celu zapewnienia wysokiej dostępności w regionie. Konfiguracje te można również skonfigurować w wielu regionach świadczenia usługi Azure, aby zwiększyć dostępność i odzyskiwanie po awarii.
 
-* Użyj [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) , aby organizować i zarządzać odzyskiwaniem po awarii dla maszyn wirtualnych Oracle Linux na platformie Azure oraz na serwerach lokalnych lub fizycznych. 
+* Użyj [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) , aby organizować i zarządzać odzyskiwaniem po awarii dla maszyn wirtualnych Oracle Linux na platformie Azure i serwerach fizycznych. 
 
 * Włącz obsługę platformy Oracle dla klastrów (RAC) na platformie Azure przy użyciu [rozwiązania Azure VMware](https://docs.microsoft.com/azure/vmware-cloudsimple/oracle-real-application-clusters/) lub [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
@@ -74,7 +74,7 @@ Uruchom aplikacje Oracle w infrastrukturze platformy Azure, połączone z bazami
 
 Użyj szablonów Terraform, aby skonfigurować infrastrukturę platformy Azure i zainstalować aplikacje firmy Oracle. 
 
-Od maja 2020 następujące aplikacje Oracle są certyfikowane do uruchamiania na platformie Azure podczas korzystania z rozwiązania Azure/Oracle Cloud Interconnect:
+Firma Oracle potwierdziła, że te aplikacje są uruchamiane na platformie Azure podczas łączenia się z bazą danych Oracle za pośrednictwem rozwiązania Azure Cloud Interconnect:
 
 * Pakiet E-Business
 * JD Edwards EnterpriseOne
@@ -86,7 +86,7 @@ Wdrażaj także aplikacje niestandardowe na platformie Azure, które łączą si
 
 ### <a name="set-up-oracle-databases-in-oci"></a>Konfigurowanie baz danych Oracle w systemie OCI
 
-Użyj Oracle Database Cloud Services (autonomiczna baza danych, certyfikat RAC, Exadata, DBaaS, pojedynczy węzeł) w połączeniu z aplikacjami Oracle działającymi na platformie Azure. Dowiedz się więcej na temat [opcji bazy danych OCI](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
+Użyj Oracle Database Cloud Services (autonomiczna baza danych, RAC, Exadata, DBaaS, pojedynczy węzeł) w połączeniu z oprogramowaniem Oracle działającym na platformie Azure. Dowiedz się więcej na temat [opcji bazy danych OCI](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm). 
  
 
 ## <a name="licensing"></a>Licencjonowanie

@@ -2,30 +2,28 @@
 title: Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 description: Dowiedz się, jak używać tożsamości zarządzanych w usłudze Azure Kubernetes Service (AKS)
 services: container-service
-author: saudas
-manager: saudas
 ms.topic: article
-ms.date: 04/02/2020
-ms.author: saudas
-ms.openlocfilehash: 00ecc077ba55ab9f91fc58f8a47fcdf7440deea6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/04/2020
+ms.openlocfilehash: ae66c6a6fbfef2a6052a037e010ecdeb4256bfd8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112970"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456440"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Korzystanie z tożsamości zarządzanych w usłudze Azure Kubernetes Service
 
 Obecnie klaster usługi Azure Kubernetes Service (AKS) (w odróżnieniu od dostawcy usług w chmurze Kubernetes) wymaga tożsamości do tworzenia dodatkowych zasobów, takich jak moduły równoważenia obciążenia i dyski zarządzane na platformie Azure, Ta tożsamość może być *tożsamością zarządzaną* lub jednostką *usługi*. W przypadku korzystania z jednostki [usługi](kubernetes-service-principal.md)należy podać jedną lub AKS w Twoim imieniu. Jeśli używasz tożsamości zarządzanej, zostanie ona utworzona automatycznie przez AKS. Klastry korzystające z jednostek usługi ostatecznie docierają do stanu, w którym należy przeprowadzić odnowienie jednostki usługi w celu zachowania działania klastra. Zarządzanie jednostkami usługi zwiększa złożoność, dlatego łatwiej jest używać zarządzanych tożsamości. Te same wymagania dotyczące uprawnień dotyczą zarówno jednostek głównych usługi, jak i zarządzanych tożsamości.
 
-*Tożsamości zarządzane* są zasadniczo otoką dla podmiotów usługi i upraszczają zarządzanie nimi. Aby dowiedzieć się więcej, Przeczytaj o [zarządzanych tożsamościach dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+*Tożsamości zarządzane* są zasadniczo otoką dla podmiotów usługi i upraszczają zarządzanie nimi. Rotacja poświadczeń dla pliku MSI odbywa się automatycznie co 46 dni zgodnie z ustawieniami domyślnymi Azure Active Directory. Aby dowiedzieć się więcej, Przeczytaj o [zarządzanych tożsamościach dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 AKS tworzy dwie zarządzane tożsamości:
 
-- **Tożsamość zarządzana przypisana przez system**: tożsamość wykorzystywana przez dostawcę chmury Kubernetes do tworzenia zasobów platformy Azure w imieniu użytkownika. Cykl życia tożsamości przypisanej do systemu jest powiązany z tym klastrem. Tożsamość jest usuwana po usunięciu klastra.
-- **Tożsamość zarządzana przypisana przez użytkownika**: tożsamość, która jest używana na potrzeby autoryzacji w klastrze. Na przykład tożsamość przypisana przez użytkownika służy do autoryzacji AKS do używania rejestrów kontenerów platformy Azure (rekordami ACR) lub do autoryzacji kubelet do uzyskiwania metadanych z platformy Azure.
+- **Tożsamość zarządzana przypisana przez system**: tożsamość wykorzystywana przez dostawcę chmury Kubernetes do tworzenia zasobów platformy Azure w imieniu użytkownika, takich jak [moduł równoważenia obciążenia](load-balancer-standard.md) lub [publiczny adres IP](static-ip.md). Cykl życia tożsamości przypisanej do systemu jest powiązany z tym klastrem i powinien być używany tylko przez dostawcę chmury. Tożsamość jest usuwana po usunięciu klastra.
 
-Dodatki również są uwierzytelniane przy użyciu tożsamości zarządzanej. Dla każdego dodatku zarządzana tożsamość jest tworzona przez AKS i obowiązuje w okresie istnienia dodatku. 
+- **Tożsamość zarządzana przypisana przez użytkownika**: tożsamość, która jest używana do autoryzacji w klastrze i wszystkie inne elementy, które chcesz kontrolować. Na przykład tożsamość przypisana przez użytkownika służy do autoryzacji AKS do używania rejestrów kontenerów platformy Azure (rekordami ACR) lub do autoryzacji kubelet do uzyskiwania metadanych z platformy Azure.
+
+Dodatki również są uwierzytelniane przy użyciu tożsamości zarządzanej. Dla każdego dodatku zarządzana tożsamość jest tworzona przez AKS i obowiązuje w okresie istnienia dodatku.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 

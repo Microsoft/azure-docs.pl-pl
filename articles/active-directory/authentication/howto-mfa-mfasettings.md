@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef98f243abd02f0156190638cda8ab7c33f935d
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: dd804937fbd98121f3242c6906b890183d1284bb
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83770911"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464372"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 
@@ -30,7 +30,7 @@ Możesz uzyskać dostęp do ustawień związanych z usługą Azure Multi-Factor 
 
 Niektóre z tych ustawień mają zastosowanie do serwera MFA, usługi Azure MFA lub obu.
 
-| Cecha | Opis |
+| Cechy | Opis |
 | ------- | ----------- |
 | Blokada konta | Tymczasowe blokowanie kont w usłudze wieloskładnikowe uwierzytelnianie, jeśli w wierszu występuje zbyt wiele nieudanych prób uwierzytelnienia. Ta funkcja ma zastosowanie tylko do użytkowników, którzy wprowadzają kod PIN do uwierzytelnienia. (Serwer MFA) |
 | [Blokuj/Odblokuj użytkowników](#block-and-unblock-users) | Służy do blokowania, aby określeni użytkownicy mogli odbierać Multi-Factor Authentication żądania. Wszystkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają zablokowani przez 90 dni od momentu zablokowania. |
@@ -44,7 +44,7 @@ Niektóre z tych ustawień mają zastosowanie do serwera MFA, usługi Azure MFA 
 
 Ustawienia w tej sekcji dotyczą tylko serwera MFA.
 
-| Cecha | Opis |
+| Cechy | Opis |
 | ------- | ----------- |
 | Ustawienia serwera | Pobierz serwer usługi MFA i Wygeneruj poświadczenia aktywacji w celu zainicjowania środowiska |
 | [Jednorazowe obejście](#one-time-bypass) | Zezwalaj użytkownikowi na uwierzytelnianie bez przeprowadzania weryfikacji dwuetapowej przez ograniczony czas. |
@@ -163,7 +163,7 @@ Przykładowe skrypty do tworzenia komunikatów niestandardowych.
 | Potwierdzenie oszustwa | Przesłano alert oszustwa. Aby odblokować konto, skontaktuj się z działem pomocy technicznej IT w Twojej firmie. |
 | Pozdrowienie oszustwa (standard) | Dziękujemy za skorzystanie z systemu weryfikacji logowania firmy Microsoft. Naciśnij krzyżyk, aby zakończyć weryfikację. Jeśli weryfikacja nie została zainicjowana, ktoś może próbować uzyskać dostęp do Twojego konta. Naciśnij zero funta, aby przesłać alert oszustwa. Spowoduje to powiadomienie zespołu IT firmy i zablokowanie dalszych prób weryfikacji. |
 | Zgłoszono oszustwo informujące o przesłaniu alertu oszustwa. | Aby odblokować konto, skontaktuj się z działem pomocy technicznej IT w Twojej firmie. |
-| Aktywacja | Dziękujemy za skorzystanie z systemu weryfikacji logowania firmy Microsoft. Naciśnij krzyżyk, aby zakończyć weryfikację. |
+| Uaktywnienie | Dziękujemy za skorzystanie z systemu weryfikacji logowania firmy Microsoft. Naciśnij krzyżyk, aby zakończyć weryfikację. |
 | Ponowienie próby uwierzytelnienia | Odmowa weryfikacji. |
 | Ponów próbę (standard) | Dziękujemy za skorzystanie z systemu weryfikacji logowania firmy Microsoft. Naciśnij krzyżyk, aby zakończyć weryfikację. |
 | Greetings (standard) | Dziękujemy za skorzystanie z systemu weryfikacji logowania firmy Microsoft. Naciśnij krzyżyk, aby zakończyć weryfikację. |
@@ -217,7 +217,8 @@ Ustawienia dotyczące haseł aplikacji, zaufanych adresów IP, opcji weryfikacji
 
 ![Ustawienia usługi Azure Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
 
-Zakresy zaufanych adresów IP mogą być prywatne lub publiczne.
+> [!NOTE]
+> W przypadku korzystania z serwera MFA Zaufane adresy IP mogą zawierać prywatne zakresy adresów IPv4. W przypadku usługi Azure Multi-Factor Authentication opartej na chmurze można używać tylko publicznych zakresów adresów IP.
 
 ## <a name="app-passwords"></a>Hasła aplikacji
 
@@ -293,8 +294,8 @@ Użytkownicy mogą również tworzyć hasła aplikacji po rejestracji. Aby uzysk
 
 Funkcja _Zaufane adresy IP_ w usłudze Azure Multi-Factor Authentication jest używana przez administratorów dzierżawy zarządzanej lub federacyjnej. Ta funkcja pomija weryfikację dwuetapową dla użytkowników logujących się z firmowej sieci intranet. Ta funkcja jest dostępna w pełnej wersji platformy Azure Multi-Factor Authentication, a nie w wersji bezpłatnej dla administratorów. Aby uzyskać szczegółowe informacje na temat sposobu uzyskania pełnej wersji usługi Azure Multi-Factor Authentication, zobacz [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
-> [!NOTE]
-> Zaufane adresy IP i dostęp warunkowy usługi MFA działają tylko z adresami IPV4.
+> [!TIP]
+> Zakresy adresów IPv6 są obsługiwane tylko w interfejsie [nazwanych lokalizacji (wersja zapoznawcza)](../conditional-access/location-condition.md#preview-features) .
 
 Jeśli w organizacji wdrożono rozszerzenie serwera NPS w celu zapewnienia uwierzytelniania MFA w aplikacjach lokalnych, należy zauważyć, że źródłowy adres IP zawsze będzie serwerem NPS, za pomocą którego nastąpi próba uwierzytelnienia.
 
@@ -322,7 +323,7 @@ Niezależnie od tego, czy funkcja zaufanych adresów IP jest włączona, dla prz
 3. Wybierz pozycję **Nowa lokalizacja**.
 4. Wprowadź nazwę lokalizacji.
 5. Wybierz pozycję **Oznacz jako zaufaną lokalizację**.
-6. Wprowadź zakres adresów IP w notacji CIDR, np. **192.168.1.1/24**.
+6. Wprowadź zakres adresów IP w notacji CIDR, np. **40.77.182.32/27**.
 7. Wybierz przycisk **Utwórz**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Włączanie funkcji Zaufane adresy IP przy użyciu dostępu warunkowego
@@ -382,7 +383,7 @@ Gdy użytkownicy rejestrują swoje konta dla usługi Azure Multi-Factor Authenti
 3. Wybierz **Multi-Factor Authentication**.
 4. W obszarze Multi-Factor Authentication wybierz pozycję **Ustawienia usługi**.
 5. Na stronie **Ustawienia usługi** w obszarze **Opcje weryfikacji**wybierz/Usuń zaznaczenie metod, które mają być dostępne dla użytkowników.
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz**.
 
 Dodatkowe szczegóły dotyczące korzystania z metod uwierzytelniania można znaleźć w artykule [co to są metody uwierzytelniania](concept-authentication-methods.md).
 

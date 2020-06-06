@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 09aa3a5febe9ea25d8614a99ec3f832cc2d0309f
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196630"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456950"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Obsługiwane metryki z Azure Monitor
 
@@ -65,7 +65,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |MemoryLimitHigh|Pamięć: limit pamięci jest wysoki|Bajty|Średnia|Górny limit pamięci z pliku konfiguracji.|ServerResourceType|
 |MemoryLimitLow|Pamięć: limit pamięci — niski|Bajty|Średnia|Limit braku pamięci z pliku konfiguracji.|ServerResourceType|
 |MemoryLimitVertiPaq|Pamięć: limit pamięci — tryb VertiPaq|Bajty|Średnia|Limit w pamięci z pliku konfiguracji.|ServerResourceType|
-|Limit przydziału|Pamięć: limit przydziału|Bajty|Średnia|Bieżący limit pamięci (w bajtach). Przydział pamięci jest również nazywany przydziałem pamięci lub rezerwacją pamięci.|ServerResourceType|
+|limit przydziału|Pamięć: limit przydziału|Bajty|Średnia|Bieżący limit pamięci (w bajtach). Przydział pamięci jest również nazywany przydziałem pamięci lub rezerwacją pamięci.|ServerResourceType|
 |QuotaBlocked|Pamięć: zablokowany limit przydziału|Liczba|Średnia|Bieżąca liczba żądań przydziałów blokowanych do momentu zwolnienia innych limitów przydziału pamięci.|ServerResourceType|
 |VertiPaqNonpaged|Pamięć: VertiPaq niestronicowana|Bajty|Średnia|Bajty pamięci zablokowane w zestawie roboczym do użycia przez aparat w pamięci.|ServerResourceType|
 |VertiPaqPaged|Pamięć: stronicowana na stronie VertiPaq|Bajty|Średnia|Bajty stronicowanej pamięci w użyciu dla danych w pamięci.|ServerResourceType|
@@ -260,10 +260,10 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |totalkeys|Łączna liczba kluczy|Liczba|Maksimum||ShardId|
 |expiredkeys|Wygasłe klucze|Liczba|Łącznie||ShardId|
 |usedmemory|Użyta pamięć|Bajty|Maksimum||ShardId|
-|usedmemorypercentage|Wartość procentowa używanej pamięci|Wartość procentowa|Maksimum||ShardId|
+|usedmemorypercentage|Procentowe użycie pamięci|Wartość procentowa|Maksimum||ShardId|
 |usedmemoryRss|Używana pamięć RSS|Bajty|Maksimum||ShardId|
 |serverLoad|Obciążenie serwera|Wartość procentowa|Maksimum||ShardId|
-|cacheWrite|Zapis pamięci podręcznej|BytesPerSecond|Maksimum||ShardId|
+|cacheWrite|Zapis w pamięci podręcznej|BytesPerSecond|Maksimum||ShardId|
 |cacheRead|Odczyt pamięci podręcznej|BytesPerSecond|Maksimum||ShardId|
 |percentProcessorTime|Procesor CPU|Wartość procentowa|Maksimum||ShardId|
 |cacheLatency|Mikrosekundy opóźnienia pamięci podręcznej (wersja zapoznawcza)|Liczba|Średnia||ShardId|
@@ -545,7 +545,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |TotalCalls|Łączna liczba wywołań|Liczba|Łącznie|Łączna liczba wywołań.|ApiName, OperationName, region|
 |SuccessfulCalls|Pomyślne wywołania|Liczba|Łącznie|Liczba pomyślnych wywołań.|ApiName, OperationName, region|
-|TotalErrors|Łączna liczba błędów|Liczba|Łącznie|Łączna liczba wywołań z odpowiedzią na błąd (kod odpowiedzi HTTP 4xx lub 5xx).|ApiName, OperationName, region|
+|TotalErrors|Całkowita liczba błędów|Liczba|Łącznie|Łączna liczba wywołań z odpowiedzią na błąd (kod odpowiedzi HTTP 4xx lub 5xx).|ApiName, OperationName, region|
 |BlockedCalls|Zablokowane wywołania|Liczba|Łącznie|Liczba wywołań, które przekroczyły limit szybkości lub limitu przydziału.|ApiName, OperationName, region|
 |Błędy servererrors|Błędy serwera|Liczba|Łącznie|Liczba wywołań z błędem wewnętrznym usługi (5xx kodu odpowiedzi HTTP).|ApiName, OperationName, region|
 |ClientErrors|Błędy klienta|Liczba|Łącznie|Liczba wywołań z błędem po stronie klienta (4xx kodu odpowiedzi HTTP).|ApiName, OperationName, region|
@@ -697,7 +697,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|CpuUsage|Użycie procesora|Liczba|Średnia|Użycie procesora CPU we wszystkich rdzeniach w millicores.|containerName|
+|CpuUsage|Użycie procesora CPU|Liczba|Średnia|Użycie procesora CPU we wszystkich rdzeniach w millicores.|containerName|
 |MemoryUsage|Użycie pamięci|Bajty|Średnia|Całkowite użycie pamięci w bajcie.|containerName|
 |NetworkBytesReceivedPerSecond|Bajty odebrane przez sieć na sekundę|Bajty|Średnia|Bajty odebrane przez sieć na sekundę.|Brak|
 |NetworkBytesTransmittedPerSecond|Bajty przesyłane przez sieć na sekundę|Bajty|Średnia|Bajty przesyłane przez sieć na sekundę.|Brak|
@@ -1448,7 +1448,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Typ agregacji|Opis|Wymiary|
 |---|---|---|---|---|---|
-|Sposób użycia|Sposób użycia|Liczba|Liczba|Liczba wywołań interfejsu API|ApiCategory, ApiName, ResultType, ResponseCode|
+|Użycie|Użycie|Liczba|Liczba|Liczba wywołań interfejsu API|ApiCategory, ApiName, ResultType, ResponseCode|
 |Dostępność|Dostępność|Wartość procentowa|Średnia|Dostępność interfejsów API|ApiCategory, ApiName|
 
 ## <a name="microsoftmediamediaservicesstreamingendpoints"></a>Microsoft. Media/MediaServices/streamingEndpoints
@@ -1621,7 +1621,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |---|---|---|---|---|---|
 |AverageBandwidth|Przepustowość S2S bramy|BytesPerSecond|Średnia|Średnia przepustowość lokacja-lokacja bramy w bajtach na sekundę|Brak|
 |P2SBandwidth|Przepustowość P2S bramy|BytesPerSecond|Średnia|Średnia przepustowość typu punkt-lokacja bramy w bajtach na sekundę|Brak|
-|P2SConnectionCount|Liczba połączeń P2S|Liczba|Maksimum|Liczba połączeń punkt-lokacja bramy|Protocol (Protokół)|
+|P2SConnectionCount|Liczba połączeń P2S|Liczba|Maksimum|Liczba połączeń punkt-lokacja bramy|Protokół|
 |TunnelAverageBandwidth|Przepustowość tunelu|BytesPerSecond|Średnia|Średnia przepustowość tunelu w bajtach na sekundę|ConnectionName, RemoteIP|
 |TunnelEgressBytes|Bajty wychodzące tunelu|Bajty|Łącznie|Wychodzące bajty tunelu|ConnectionName, RemoteIP|
 |TunnelIngressBytes|Bajty transferu danych wejściowych tunelu|Bajty|Łącznie|Przychodzące bajty tunelu|ConnectionName, RemoteIP|
@@ -1856,7 +1856,7 @@ Istnieją pewne ograniczenia dotyczące tego, co może być kierowane i formular
 |Average_Bytes całkowita/s|Całkowita liczba bajtów/s|Liczba|Średnia|Average_Bytes całkowita/s|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Długość kolejki Average_Processor|Długość kolejki procesora|Liczba|Średnia|Długość kolejki Average_Processor|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Puls|Puls|Liczba|Łącznie|Puls|Komputer, OSType, wersja, SourceComputerId|
-|Aktualizowanie|Aktualizowanie|Liczba|Średnia|Aktualizowanie|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
+|Aktualizacja|Aktualizacja|Liczba|Średnia|Update|Komputer, produkt, klasyfikacja, UpdateState, opcjonalne, zatwierdzone|
 |Wydarzenie|Wydarzenie|Liczba|Średnia|Wydarzenie|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
 ## <a name="microsoftpeeringpeeringservices"></a>Microsoft. Komunikacja równorzędna/peeringServices
