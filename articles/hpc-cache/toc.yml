@@ -38,6 +38,10 @@
       href: hpc-cache-manage.md
     - name: Konfigurowanie opcjonalnych ustawień
       href: configuration.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/hpc-cache/hpc-cache
 - name: Zasoby
   items:
     - name: Otwieranie biletu pomocy technicznej
