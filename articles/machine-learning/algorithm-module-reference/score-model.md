@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 56d8cad05a42da8de680ade487dddee9a97aab3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 361199bd380b126ec41fb8a5587a2ebd78cd6f24
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80364172"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447615"
 ---
-# <a name="score-model-module"></a>Moduł Score Model (Generowanie wyników przez model)
+# <a name="score-model"></a>Klasyfikacja modelu
 
 W tym artykule opisano moduł w programie Azure Machine Learning Designer (wersja zapoznawcza).
 

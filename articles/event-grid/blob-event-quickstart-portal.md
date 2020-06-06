@@ -9,12 +9,12 @@ ms.date: 06/02/2020
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 877dab3376e1a4397d9f1c6971baea957b4eea68
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 8c1627b0a9ae37f7d784c49613eb14b0c851b9b1
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424197"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457052"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Szybki Start: kierowanie zdarzeń magazynu obiektów BLOB do punktu końcowego sieci Web za pomocą Azure Portal
 
@@ -92,12 +92,9 @@ Subskrybowanie tematu ma poinformować usługę Event Grid o tym, które zdarzen
    ![Wybieranie elementu webhook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. Na stronie **Tworzenie subskrypcji zdarzeń** wykonaj następujące czynności: 
     1. Wprowadź **nazwę** subskrypcji zdarzeń.
-    2. Wprowadź **nazwę** **tematu systemowego**. Wcześniej podczas tworzenia subskrypcji zdarzenia zgłoszonego przez źródła platformy Azure, takie jak Azure Blob Storage lub Azure Event Hubs, usługa Event Grid automatycznie utworzyła temat systemowy z **losowo wygenerowaną nazwą**. Teraz można określić nazwę tematu systemu podczas tworzenia tematu w Azure Portal, jak pokazano na poniższej ilustracji. Ten zasób tematu systemu służy do odnajdywania metryk i dzienników diagnostycznych.
+    2. Wprowadź **nazwę** **tematu systemowego**. Aby dowiedzieć się więcej na temat tematów systemowych, zobacz [Omówienie tematów systemowych](system-topics.md).
 
        ![Wprowadź nazwy dla subskrypcji zdarzeń i tematu systemu](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
-
-       > [!NOTE]
-       > Wcześniej podczas tworzenia subskrypcji dla zdarzenia zgłoszonego przez źródła platformy Azure usługa Event Grid automatycznie utworzyła temat systemowy z losowo wygenerowaną nazwą. Teraz możesz określić nazwę tematu systemu przy użyciu tego pola tekstowego. Ten zasób tematu systemu służy do odnajdywania metryk i dzienników diagnostycznych.
     2. Wybierz **element Hook sieci Web** dla **typu punktu końcowego**. 
 
        ![Wybierz typ punktu końcowego elementu webhook](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)

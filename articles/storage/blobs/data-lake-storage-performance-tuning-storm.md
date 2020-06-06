@@ -4,16 +4,16 @@ description: Wskazówki dotyczące dostrajania wydajności Azure Data Lake Stora
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 125c583512f6bae34c2dd3c3dd76a1b96a181ac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60e0d3fc22fdfc158110e9936748cc0bda280853
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327905"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465919"
 ---
 # <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Dostrajanie wydajności: burza, & usługi HDInsight Azure Data Lake Storage Gen2
 
@@ -63,7 +63,7 @@ Załóżmy, że 8 wątków piorunów na rdzeń. Podano 64 rdzeni, co oznacza, ż
 Po utworzeniu topologii podstawowej można rozważyć, czy chcesz dostosować dowolny z parametrów:
 * **Liczba JVMs na węzeł procesu roboczego.** Jeśli masz dużą strukturę danych (na przykład tabelę odnośników), która jest hostowana w pamięci, każda JVM wymaga oddzielnej kopii. Alternatywnie możesz użyć struktury danych w wielu wątkach, jeśli masz mniej JVMs. W przypadku operacji we/wy pioruna liczba JVMs nie jest tak duża jak liczba wątków dodanych w ramach tych JVMs. Dla uproszczenia dobrym pomysłem jest posiadanie jednego JVM na proces roboczy. W zależności od tego, co działa lub jakie jest wymagane przetwarzanie aplikacji, może być konieczna zmiana tej liczby.
 * **Liczba modułów wykonujących elementu Spout.** Ponieważ w powyższym przykładzie są wykorzystywane pioruny do zapisu w Data Lake Storage Gen2, liczba elementy Spout nie jest bezpośrednio istotna dla wydajności obiektu. Jednakże, w zależności od ilości przetwarzania lub operacji we/wy w elementu Spout, dobrym pomysłem jest dostrojenie elementy Spout w celu uzyskania najlepszej wydajności. Upewnij się, że masz wystarczająco dużo elementy Spout, aby zapewnić, że pioruny są zajęte. Stawki danych wyjściowych elementy Spout powinny odpowiadać przepływności piorunów. Rzeczywista konfiguracja zależy od elementu Spout.
-* **Liczba zadań.** Każdy obiekt piorun działa jako pojedynczy wątek. Dodatkowe zadania na piorun nie zapewniają żadnych dodatkowych współbieżności. Jedyną zaletą jest to, że proces potwierdzania spójnej kolekcji zajmuje dużą część czasu wykonywania obiektu. Dobrym pomysłem jest pogrupowanie wielu spójnych kolekcji przed wysłaniem potwierdzenia z pioruna. Dlatego w większości przypadków wiele zadań nie zapewnia dodatkowej korzyści.
+* **Liczba zadań.** Każdy obiekt piorun działa jako pojedynczy wątek. Dodatkowe zadania na piorun nie zapewniają żadnych dodatkowych współbieżności. Jedyną zaletą jest to, że proces potwierdzania spójnej kolekcji zajmuje dużą część czasu wykonywania obiektu. Dobrym pomysłem jest Grupowanie wielu spójnych kolekcji przed wysłaniem potwierdzenia z pioruna. Dlatego w większości przypadków wiele zadań nie zapewnia dodatkowej korzyści.
 * **Grupowanie lokalne lub losowe.** Gdy to ustawienie jest włączone, krotki są wysyłane do piorunów w ramach tego samego procesu roboczego. Powoduje to zmniejszenie komunikacji między procesami i połączenia sieciowe. Jest to zalecane w przypadku większości topologii.
 
 Ten podstawowy scenariusz jest dobrym punktem początkowym. Przetestuj swoje własne dane, aby dostosować poprzednie parametry w celu uzyskania optymalnej wydajności.
@@ -89,7 +89,7 @@ Gdy topologia jest uruchomiona, można monitorować ją w interfejsie użytkowni
 
 * **Całkowite opóźnienie wykonania procesu.** Jest to średni czas, przez który jedna krotka będzie emitować przez elementu Spout, przetworzona przez pioruna i potwierdzona.
 
-* **Całkowite opóźnienie procesu pioruna.** Jest to średni czas spędzony przez krotkę na piorunie do momentu otrzymania potwierdzenia.
+* **Całkowite opóźnienie procesu pioruna.** Jest to średni czas spędzony przez krotkę w piorunze do momentu otrzymania potwierdzenia.
 
 * **Całkowite opóźnienie wykonania pioruna.** Jest to średni czas spędzony przez piorun w metodzie Execute.
 
@@ -110,8 +110,8 @@ W przypadku osiągnięcia limitów przepustowości zapewnianej przez Data Lake S
 
 Aby sprawdzić, czy masz ograniczone ograniczenia, Włącz rejestrowanie debugowania po stronie klienta:
 
-1. W obszarze **Ambari** > **burzy** > **config** > **Advanced burzy-Worker-Log4J**, Zmień ** &lt;poziom główny =&gt; "info"** na ** &lt;root Level =&gt;"debug"**. Uruchom ponownie wszystkie węzły/usługi, aby konfiguracja zaczęła obowiązywać.
-2. Monitoruj dzienniki topologii burzy w węzłach procesu roboczego&lt;(w&gt;/&lt;obszarze&gt;/var/log/Storm/Worker-Artifacts/topologyname port/Worker.log), aby uzyskać Data Lake Storage Gen2 wyjątków ograniczania.
+1. W obszarze **Ambari**  >  **burzy**  >  **config**  >  **Advanced burzy-Worker-Log4J**, Zmień ** &lt; poziom główny = &gt; "info"** na ** &lt; root Level = &gt; "debug"**. Uruchom ponownie wszystkie węzły/usługi, aby konfiguracja zaczęła obowiązywać.
+2. Monitoruj dzienniki topologii burzy w węzłach procesu roboczego (w obszarze/var/log/Storm/Worker-Artifacts/ &lt; topologyname &gt; / &lt; port &gt; /Worker.log), aby uzyskać Data Lake Storage Gen2 wyjątków ograniczania.
 
 ## <a name="next-steps"></a>Następne kroki
 W [tym blogu](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)można odwoływać się do dodatkowej dostrajania wydajności dla burzy.

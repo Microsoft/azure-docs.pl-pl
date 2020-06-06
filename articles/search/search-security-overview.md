@@ -1,5 +1,5 @@
 ---
-title: Bezpieczeństwo i prywatność danych
+title: Omówienie zabezpieczeń
 titleSuffix: Azure Cognitive Search
 description: Usługa Azure Wyszukiwanie poznawcze jest zgodna z SOC 2, HIPAA i innymi certyfikatami. Połączenie i szyfrowanie danych, uwierzytelnianie i dostęp do tożsamości za poorednictwem identyfikatorów zabezpieczeń użytkowników i grup w wyrażeniach filtru.
 manager: nitinme
@@ -7,64 +7,67 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/25/2020
-ms.openlocfilehash: 68355ac4238aba3deaa951881bc164fe9dc08e28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/03/2020
+ms.openlocfilehash: fb79c3546037aabf5ce60905044901f0d5793990
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183436"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465630"
 ---
-# <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Bezpieczeństwo i prywatność danych na platformie Azure Wyszukiwanie poznawcze
+# <a name="security-in-azure-cognitive-search---overview"></a>Zabezpieczenia w usłudze Azure Wyszukiwanie poznawcze — Omówienie
 
-Kompleksowe funkcje zabezpieczeń i kontroli dostępu są wbudowane w usługę Azure Wyszukiwanie poznawcze, aby zapewnić, że prywatna zawartość pozostaje w ten sposób. W tym artykule wymieniono funkcje zabezpieczeń i standardy zgodności wbudowane w usługę Azure Wyszukiwanie poznawcze.
+W tym artykule opisano kluczowe funkcje zabezpieczeń w usłudze Azure Wyszukiwanie poznawcze, które mogą chronić zawartość i operacje. 
 
-Architektura zabezpieczeń Wyszukiwanie poznawcze platformy Azure obejmuje zabezpieczenia fizyczne, zaszyfrowane transporty, zaszyfrowane magazyny i zgodność ze standardami na poziomie platformy. W ramach tej operacji usługa Azure Wyszukiwanie poznawcze akceptuje tylko uwierzytelnione żądania. Opcjonalnie można dodać kontrolę dostępu dla poszczególnych użytkowników do zawartości za poorednictwem filtrów zabezpieczeń. Ten artykuł dotyka zabezpieczeń w każdej warstwie, ale głównie koncentruje się na sposobie zabezpieczania danych i operacji na platformie Azure Wyszukiwanie poznawcze.
++ W warstwie magazynu szyfrowanie danych w spoczynku jest podane na poziomie platformy, ale Wyszukiwanie poznawcze oferuje także opcję "podwójne szyfrowanie" dla klientów, którzy chcą mieć podwójną ochronę kluczy zarządzanych przez użytkownika i firmę Microsoft.
 
-## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Zgodność ze standardami: ISO 27001, SOC 2, HIPAA
++ Zabezpieczenia przychodzące chronią punkt końcowy usługi wyszukiwania przy jednoczesnym zwiększeniu poziomu zabezpieczeń: od kluczy interfejsu API w żądaniu do reguł ruchu przychodzącego w zaporze do prywatnych punktów końcowych, które w pełni chronią usługę przed publicznym Internetem.
 
-Usługa Azure Wyszukiwanie poznawcze ma certyfikat dla następujących standardów, zgodnie z [ogłoszeniem w czerwcu 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
++ Zabezpieczenia wychodzące dotyczą indeksatorów, które pobierają zawartość ze źródeł zewnętrznych. W przypadku żądań wychodzących Skonfiguruj zarządzaną tożsamość, aby przeszukiwać zaufaną usługę podczas uzyskiwania dostępu do danych z usługi Azure Storage, Azure SQL, Cosmos DB lub innych źródeł danych platformy Azure. Tożsamość zarządzana zastępuje poświadczenia lub klucze dostępu w połączeniu. Zabezpieczenia wychodzące nie zostały omówione w tym artykule. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [nawiązywanie połączenia ze źródłem danych przy użyciu tożsamości zarządzanej](search-howto-managed-identities-data-sources.md).
 
-+ [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
-+ [Zgodność SOC 2 typu 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) Aby uzyskać pełny raport, przejdź do [raportu Azure-i Azure Government SOC 2 Type II](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). 
-+ [Przenośność i odpowiedzialność z tytułu odpowiedzialności ubezpieczeniowej (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
-+ [GxP (21 CFR część 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
-+ [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
-+ [PCI DSS poziom 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
+Obejrzyj ten krótki film wideo, aby zapoznać się z omówieniem architektury zabezpieczeń i każdej kategorii funkcji.
 
-Zgodność ze standardami dotyczy ogólnie dostępnych funkcji. Funkcje w wersji zapoznawczej są certyfikowane, gdy przechodzą do ogólnej dostępności i nie mogą być używane w rozwiązaniach mających ścisłe wymagania dotyczące standardów. Certyfikacja zgodności jest udokumentowana w temacie [Omówienie zgodności Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) i [Centrum zaufania](https://www.microsoft.com/en-us/trustcenter). 
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
-## <a name="encrypted-transmission-and-storage"></a>Zaszyfrowana transmisja i magazyn
+## <a name="encrypted-transmissions-and-storage"></a>Zaszyfrowane transmisja i magazyn
 
-Szyfrowanie rozciąga się w całym potoku indeksowania: od połączeń, transmisji i w dół do indeksowanych danych przechowywanych w usłudze Azure Wyszukiwanie poznawcze.
+Szyfrowanie jest rozpowszechnione na platformie Azure Wyszukiwanie poznawcze, począwszy od połączeń i transmisja, rozszerzając do zawartości przechowywanej na dysku. W przypadku usług wyszukiwania w publicznej sieci Internet usługa Azure Wyszukiwanie poznawcze nasłuchuje na porcie HTTPS 443. Wszystkie połączenia klient-usługa korzystają z szyfrowania TLS 1,2. Wcześniejsze wersje (1,0 lub 1,1) nie są obsługiwane.
 
-| Warstwa zabezpieczeń | Opis |
-|----------------|-------------|
-| Szyfrowanie podczas transferu <br>(HTTPS/TLS) | Usługa Azure Wyszukiwanie poznawcze nasłuchuje na porcie HTTPS 443. Na całej platformie połączenia z usługami platformy Azure są szyfrowane. <br/><br/>Wszystkie interakcje z usługą Azure Wyszukiwanie poznawcze na klientach używają szyfrowania TLS 1,2. Wcześniejsze wersje (1,0 lub 1,1) nie są obsługiwane.|
-| Szyfrowanie w spoczynku <br>Klucze zarządzane przez firmę Microsoft | Szyfrowanie jest w pełni wewnętrzne w procesie indeksowania, bez wymiernego wpływu na indeksowanie czasu do ukończenia lub rozmiaru indeksu. Odbywa się to automatycznie na wszystkich indeksach, w tym w przypadku aktualizacji przyrostowych, do indeksu, który nie jest w pełni szyfrowany (utworzony przed stycznia 2018).<br><br>Wewnętrznie szyfrowanie jest oparte na [usłudze Azure szyfrowanie usługi Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)przy użyciu 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Szyfrowanie jest wewnętrzne dla Wyszukiwanie poznawcze platformy Azure, z certyfikatami i kluczami szyfrowania, które są zarządzane wewnętrznie przez firmę Microsoft i stosowane uniwersalnie. Nie można włączać ani wyłączać szyfrowania, zarządzać nimi ani zastępować własnych kluczy lub wyświetlać ustawienia szyfrowania w portalu lub programowo.<br><br>Szyfrowanie w spoczynku zostało ogłoszone w 24 stycznia 2018 i ma zastosowanie do wszystkich warstw usług, w tym warstwy Bezpłatna, we wszystkich regionach. Aby można było przeprowadzić pełne szyfrowanie, indeksy utworzone przed tą datą muszą zostać porzucone i ponownie skompilowane w celu zaszyfrowania. W przeciwnym razie tylko nowe dane dodane po 24 stycznia są szyfrowane.|
-| Szyfrowanie w spoczynku <br>Klucze zarządzane przez klienta | Szyfrowanie za pomocą kluczy zarządzanych przez klienta jest teraz ogólnie dostępne dla usług wyszukiwania utworzonych w dniu lub po stycznia 2019. Nie jest obsługiwana w przypadku usług bezpłatnych (udostępnionych).<br><br>Usługi Azure Wyszukiwanie poznawcze Indexes i mapy synonimów mogą teraz być szyfrowane w spoczynku z kluczami zarządzanymi przez klienta w programie Azure Key Vault. Aby dowiedzieć się więcej, zobacz [Zarządzanie kluczami szyfrowania w usłudze Azure wyszukiwanie poznawcze](search-security-manage-encryption-keys.md).<br><br>Ta funkcja nie zastępuje domyślnego szyfrowania w spoczynku, ale zamiast tego stosuje się do niego.<br><br>Włączenie tej funkcji spowoduje zwiększenie rozmiaru indeksu i spadek wydajności zapytań. Na podstawie obserwacji do daty można oczekiwać, że w czasie wykonywania zapytań zostanie wyświetlony wzrost o 30%-60%, chociaż Rzeczywista wydajność będzie się różnić w zależności od definicji indeksu i typów zapytań. Ze względu na ten wpływ na wydajność zalecamy włączenie tej funkcji tylko w przypadku indeksów, które naprawdę wymagają tego.
+### <a name="data-encryption-at-rest"></a>Szyfrowanie danych w spoczynku
 
-## <a name="azure-wide-user-access-controls"></a>Kontrola dostępu użytkowników w całej platformie Azure
+Na platformie Azure Wyszukiwanie poznawcze są przechowywane definicje indeksu i zawartość, definicje źródeł danych, definicje indeksatora, definicje zestawu umiejętności oraz mapy synonimów.
 
-Dostępne są różne mechanizmy zabezpieczeń platformy Azure, które są automatycznie dostępne dla utworzonych zasobów Wyszukiwanie poznawcze platformy Azure.
+W warstwie magazynu dane są szyfrowane na dysku przy użyciu kluczy zarządzanych przez firmę Microsoft. Nie można włączać ani wyłączać szyfrowania ani wyświetlać ustawień szyfrowania w portalu lub programowo. Szyfrowanie jest w pełni wewnętrzne, bez wymiernego wpływu na indeksowanie czasu do ukończenia lub rozmiaru indeksu. Odbywa się to automatycznie na wszystkich indeksach, w tym w przypadku aktualizacji przyrostowych, do indeksu, który nie jest w pełni szyfrowany (utworzony przed stycznia 2018).
 
-+ [Blokuje na poziomie subskrypcji lub zasobu, aby zapobiec usunięciu](../azure-resource-manager/management/lock-resources.md)
-+ [Access Control oparte na rolach (RBAC) do kontrolowania dostępu do informacji i operacji administracyjnych](../role-based-access-control/overview.md)
+Wewnętrznie szyfrowanie jest oparte na [usłudze Azure szyfrowanie usługi Storage](../storage/common/storage-service-encryption.md)przy użyciu 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
 
-Wszystkie usługi platformy Azure obsługują funkcję kontroli dostępu opartej na rolach (RBAC) na potrzeby spójnego ustawiania poziomów dostępu dla wszystkich usług. Na przykład wyświetlanie poufnych danych, takich jak klucz administratora, jest ograniczone do ról właściciela i współautora. Wyświetlanie stanu usługi jest jednak dostępne dla członków dowolnej roli. RBAC oferuje role właściciela, współautora i czytelnika. Domyślnie wszyscy Administratorzy usługi są członkami roli właściciela.
+> [!NOTE]
+> Szyfrowanie w spoczynku zostało ogłoszone w 24 stycznia 2018 i ma zastosowanie do wszystkich warstw usług, w tym warstwy Bezpłatna, we wszystkich regionach. Aby można było przeprowadzić pełne szyfrowanie, indeksy utworzone przed tą datą muszą zostać porzucone i ponownie skompilowane w celu zaszyfrowania. W przeciwnym razie tylko nowe dane dodane po 24 stycznia są szyfrowane.
+
+### <a name="customer-managed-key-cmk-encryption"></a>Szyfrowanie klucza zarządzanego przez klienta (CMK)
+
+Klienci, którzy chcą mieć dodatkową ochronę magazynu, mogą szyfrować dane i obiekty przed ich zapisaniem i zaszyfrowaniem na dysku. To podejście jest oparte na kluczu należącym do użytkownika, zarządzanym i przechowywanym za pośrednictwem Azure Key Vault niezależnie od firmy Microsoft. Szyfrowanie zawartości przed szyfrowaniem na dysku jest określane jako "podwójne szyfrowanie". Obecnie można wybiórczo selektywnie szyfrować indeksy i mapy synonimów. Aby uzyskać więcej informacji, zobacz [klucze szyfrowania zarządzane przez klienta w usłudze Azure wyszukiwanie poznawcze](search-security-manage-encryption-keys.md).
+
+> [!NOTE]
+> Szyfrowanie CMK jest ogólnie dostępne dla usług wyszukiwania utworzonych po styczniu 2019. Nie jest obsługiwana w przypadku usług bezpłatnych (udostępnionych). 
+>
+>Włączenie tej funkcji spowoduje zwiększenie rozmiaru indeksu i spadek wydajności zapytań. Na podstawie obserwacji do daty można oczekiwać, że w czasie wykonywania zapytań zostanie wyświetlony wzrost o 30%-60%, chociaż Rzeczywista wydajność będzie się różnić w zależności od definicji indeksu i typów zapytań. Ze względu na ten wpływ na wydajność zalecamy włączenie tej funkcji tylko w przypadku indeksów, które naprawdę wymagają tego.
 
 <a name="service-access-and-authentication"></a>
 
-## <a name="endpoint-access"></a>Dostęp do punktu końcowego
+## <a name="inbound-security-and-endpoint-protection"></a>Zabezpieczenia i program Endpoint Protection dla ruchu przychodzącego
 
-### <a name="public-access"></a>Dostęp publiczny
+Funkcje zabezpieczeń ruchu przychodzącego chronią punkt końcowy usługi wyszukiwania przez zwiększenie poziomu zabezpieczeń i złożoności. Najpierw wszystkie żądania wymagają klucza interfejsu API w celu uzyskania dostępu uwierzytelnionego. Następnie można opcjonalnie ustawić reguły zapory, które ograniczają dostęp do określonych adresów IP. Aby uzyskać zaawansowaną ochronę, trzecią opcją jest włączenie prywatnego linku platformy Azure w celu ochrony punktu końcowego usługi przed całym ruchem internetowym.
 
-Usługa Azure Wyszukiwanie poznawcze dziedziczy zabezpieczenia platformy Azure i zapewnia własne uwierzytelnianie oparte na kluczach. Klucz API-Key jest ciągiem zawierającym losowo wygenerowane liczby i litery. Typ klucza (administrator lub zapytanie) określa poziom dostępu. Przesyłanie prawidłowego klucza jest uważane za potwierdzenie, że żądanie pochodzi od zaufanej jednostki. 
+### <a name="public-access-using-api-keys"></a>Dostęp publiczny przy użyciu kluczy interfejsu API
 
-Istnieją dwa poziomy dostępu do usługi wyszukiwania, które są obsługiwane przez dwa typy kluczy:
+Domyślnie dostęp do usługi wyszukiwania odbywa się za pośrednictwem chmury publicznej, przy użyciu uwierzytelniania opartego na kluczach dla administratorów lub dostępu do zapytań do punktu końcowego usługi wyszukiwania. Klucz API-Key jest ciągiem zawierającym losowo wygenerowane liczby i litery. Typ klucza (administrator lub zapytanie) określa poziom dostępu. Przesyłanie prawidłowego klucza jest uważane za potwierdzenie, że żądanie pochodzi od zaufanej jednostki. 
 
-* Dostęp administratora (prawidłowy dla każdej operacji odczytu i zapisu do usługi)
-* Dostęp do zapytań (prawidłowy dla operacji tylko do odczytu, takich jak zapytania, względem kolekcji dokumentów indeksu)
+Istnieją dwa poziomy dostępu do usługi wyszukiwania, które są obsługiwane przez następujące klucze interfejsu API:
+
++ Klucz administratora (zezwala na dostęp do odczytu i zapisu dla operacji [Create-Read-Update-Delete](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) w usłudze wyszukiwania)
+
++ Klucz zapytania (zezwala na dostęp tylko do odczytu do kolekcji dokumentów indeksu)
 
 *Klucze administratora* są tworzone podczas aprowizacji usługi. Istnieją dwa klucze administracyjne, wyznaczono jako *podstawowa* i *pomocnicza* , aby zapewnić ich bezpośrednie, ale w rzeczywistości są one zamienne. Każda usługa ma dwa klucze administracyjne, aby można było ją wycofać bez utraty dostępu do usługi. [Klucz administratora można wygenerować ponownie](search-security-api-keys.md#regenerate-admin-keys) okresowo według najlepszych rozwiązań w zakresie zabezpieczeń platformy Azure, ale nie można dodać do całkowitej liczby kluczy administratora. Istnieje maksymalnie dwa klucze administratora dla każdej usługi wyszukiwania.
 
@@ -72,19 +75,25 @@ Istnieją dwa poziomy dostępu do usługi wyszukiwania, które są obsługiwane 
 
 Dla każdego żądania wymagane jest uwierzytelnianie, gdzie każde żądanie składa się z klucza obowiązkowego, operacji i obiektu. Po połączeniu ze sobą dwa poziomy uprawnień (pełne lub tylko do odczytu) oraz kontekst (na przykład operacja zapytania na indeksie) są wystarczające do zapewnienia bezpieczeństwa pełnego spektrum operacji usługi. Aby uzyskać więcej informacji na temat kluczy, zobacz [Tworzenie kluczy API i zarządzanie nimi](search-security-api-keys.md).
 
-### <a name="restricted-access"></a>Ograniczony dostęp
+### <a name="ip-restricted-access"></a>Dostęp z ograniczeniami do adresów IP
 
-Jeśli masz usługę publiczną i chcesz ograniczyć korzystanie z usługi, możesz użyć reguły ograniczeń adresów IP w wersji interfejsu API REST zarządzania: 2020-03-13, [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule). IpRule umożliwia ograniczenie dostępu do usługi przez identyfikację adresów IP, pojedynczo lub w zakresie, które mają udzielić dostępu do usługi wyszukiwania. 
+Aby dodatkowo kontrolować dostęp do usługi wyszukiwania, można utworzyć reguły zapory dla ruchu przychodzącego, które zezwalają na dostęp do określonego adresu IP lub zakresu adresów IP. Wszystkie połączenia klientów muszą mieć dozwolony adres IP lub nastąpi odmowa połączenia.
 
-### <a name="private-access"></a>Dostęp prywatny
+Za pomocą portalu można [skonfigurować dostęp przychodzący](service-configure-firewall.md). 
 
-[Prywatne punkty końcowe](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) dla systemu Azure wyszukiwanie poznawcze umożliwiają klientowi w sieci wirtualnej bezpieczne uzyskiwanie dostępu do danych w indeksie wyszukiwania za pośrednictwem [prywatnego linku](https://docs.microsoft.com/azure/private-link/private-link-overview). Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla usługi wyszukiwania. Ruch sieciowy między klientem a usługą wyszukiwania odbywa się za pośrednictwem sieci wirtualnej i łączy prywatnych w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
+Alternatywnie możesz użyć interfejsów API REST zarządzania. Interfejs API w wersji 2020-03-13 z parametrem [IpRule](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) umożliwia ograniczenie dostępu do usługi przez identyfikację adresów IP, pojedynczo lub w zakresie, które mają udzielić dostępu do usługi wyszukiwania. 
 
-[Usługa Azure Virtual Network (VNET)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) umożliwia bezpieczną komunikację między zasobami, z siecią lokalną oraz Internetem. 
+### <a name="private-endpoint-no-internet-traffic"></a>Prywatny punkt końcowy (bez ruchu internetowego)
+
+[Prywatny punkt końcowy](../private-link/private-endpoint-overview.md) dla systemu Azure wyszukiwanie poznawcze umożliwia klientowi w [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) bezpieczne uzyskiwanie dostępu do danych w indeksie wyszukiwania za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md). 
+
+Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej na potrzeby połączeń z usługą wyszukiwania. Ruch sieciowy między klientem a usługą wyszukiwania odbywa się za pośrednictwem sieci wirtualnej i łączy prywatnych w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu. Sieć wirtualna umożliwia bezpieczną komunikację między zasobami, z siecią lokalną oraz Internetem. 
+
+Chociaż to rozwiązanie jest najbezpieczniejsze, korzystanie z dodatkowych usług jest kosztem dodatkowym, dlatego należy upewnić się, że masz jasne zrozumienie korzyści przed nadaniem się do niego. lub więcej informacji o kosztach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/private-link/). Aby uzyskać więcej informacji o tym, jak te składniki współpracują ze sobą, Obejrzyj wideo w górnej części tego artykułu. Pokrycie opcji prywatnego punktu końcowego zaczyna się od 5:48 do wideo. Aby uzyskać instrukcje dotyczące sposobu konfigurowania punktu końcowego, zobacz [Tworzenie prywatnego punktu końcowego dla wyszukiwanie poznawcze platformy Azure](service-create-private-endpoint.md).
 
 ## <a name="index-access"></a>Dostęp do indeksu
 
-Na platformie Azure Wyszukiwanie poznawcze pojedynczym indeksem nie jest obiekt zabezpieczany. Zamiast tego, dostęp do indeksu jest określany w warstwie usług (dostęp do odczytu lub zapisu) wraz z kontekstem operacji.
+Na platformie Azure Wyszukiwanie poznawcze pojedynczym indeksem nie jest obiekt zabezpieczany. Zamiast tego dostęp do indeksu jest określany na poziomie warstwy usługi (dostęp do odczytu lub zapisu do usługi) wraz z kontekstem operacji.
 
 W przypadku dostępu użytkowników końcowych można określać strukturę żądań zapytań w celu nawiązania połączenia przy użyciu klucza zapytania, co oznacza, że każdy żądania jest tylko do odczytu i zawiera określony indeks używany przez aplikację. W żądaniu zapytania nie istnieje koncepcja sprzęgania indeksów lub uzyskiwania dostępu do wielu indeksów jednocześnie, więc wszystkie żądania są kierowane do jednego indeksu według definicji. W związku z tym konstruowanie samego żądania zapytania (klucz Plus pojedynczy indeks docelowy) definiuje granicę zabezpieczeń.
 
@@ -92,49 +101,32 @@ Dostęp administratora i dewelopera do indeksów jest niezróżnicowany: oba mus
 
 W przypadku rozwiązań wielodostępnych wymagających granic zabezpieczeń na poziomie indeksu takie rozwiązania zwykle obejmują warstwę środkową, której klienci używają do obsługi izolacji indeksów. Aby uzyskać więcej informacji na temat wielodostępnego przypadku użycia, zobacz [wzorce projektowania dla wielodostępnych aplikacji SaaS i platformy Azure wyszukiwanie poznawcze](search-modeling-multitenant-saas-applications.md).
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="user-access"></a>Dostęp użytkowników
 
-### <a name="admin-access"></a>Dostęp administratora
+Sposób, w jaki użytkownik uzyskuje dostęp do indeksu i innych obiektów jest określany przez typ klucza interfejsu API w żądaniu. Większość deweloperów tworzy i przypisuje [*klucze zapytań*](search-security-api-keys.md) dla żądań wyszukiwania po stronie klienta. Klucz zapytania umożliwia dostęp tylko do odczytu do zawartości z możliwością wyszukiwania w indeksie.
 
-[Dostęp oparty na rolach (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) określa, czy masz dostęp do kontrolek usługi i jej zawartości. Jeśli jesteś właścicielem lub współautorem usługi Azure Wyszukiwanie poznawcze, możesz użyć portalu lub modułu PowerShell **AZ. Search** do tworzenia, aktualizowania lub usuwania obiektów w usłudze. Można również użyć [interfejsu API REST usługi Azure wyszukiwanie poznawcze Management](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
-
-### <a name="user-access"></a>Dostęp użytkowników
-
-Domyślnie dostęp użytkownika do indeksu jest określany przez klucz dostępu w żądaniu zapytania. Większość deweloperów tworzy i przypisuje [*klucze zapytań*](search-security-api-keys.md) dla żądań wyszukiwania po stronie klienta. Klucz zapytania umożliwia dostęp do odczytu do całej zawartości w indeksie.
-
-Jeśli potrzebujesz szczegółowej kontroli nad zawartością, możesz utworzyć filtry zabezpieczeń dla zapytań, zwracając dokumenty skojarzone z daną tożsamością zabezpieczeń. Zamiast wstępnie zdefiniowanych ról i przypisań ról kontrola dostępu oparta na tożsamości jest implementowana jako *Filtr* , który przycina wyniki wyszukiwania dokumentów i zawartości na podstawie tożsamości. W poniższej tabeli opisano dwa podejścia do przycinania wyników wyszukiwania nieautoryzowanej zawartości.
+Jeśli potrzebujesz szczegółowej kontroli dla poszczególnych użytkowników nad wynikami wyszukiwania, możesz utworzyć filtry zabezpieczeń dla zapytań, zwracając dokumenty skojarzone z daną tożsamością zabezpieczeń. Zamiast wstępnie zdefiniowanych ról i przypisań ról kontrola dostępu oparta na tożsamości jest implementowana jako *Filtr* , który przycina wyniki wyszukiwania dokumentów i zawartości na podstawie tożsamości. W poniższej tabeli opisano dwa podejścia do przycinania wyników wyszukiwania nieautoryzowanej zawartości.
 
 | Podejście | Opis |
 |----------|-------------|
 |[Przycinanie zabezpieczeń na podstawie filtrów tożsamości](search-security-trimming-for-azure-search.md)  | Dokumentuje podstawowy przepływ pracy dotyczący implementowania kontroli dostępu do tożsamości użytkownika. Obejmuje ona Dodawanie identyfikatorów zabezpieczeń do indeksu, a następnie objaśnia filtrowanie względem tego pola, aby przyciąć wyniki zabronionej zawartości. |
 |[Przycinanie zabezpieczeń oparte na tożsamościach Azure Active Directory](search-security-trimming-for-azure-search-with-aad.md)  | Ten artykuł został rozbudowany w poprzednim artykule, co zapewnia procedurę pobierania tożsamości z usługi Azure Active Directory (AAD), jednej z [bezpłatnych usług](https://azure.microsoft.com/free/) na platformie Azure w chmurze. |
 
-## <a name="table-permissioned-operations"></a>Tabela: operacje z uprawnieniami
+## <a name="administrative-rights"></a>Prawa administracyjne
 
-Poniższa tabela zawiera podsumowanie operacji dozwolonych w usłudze Azure Wyszukiwanie poznawcze i odblokowanie dostępu do określonej operacji.
+[Dostęp oparty na rolach (RBAC)](../role-based-access-control/overview.md) to system autoryzacji oparty na [Azure Resource Manager](../azure-resource-manager/management/overview.md) na potrzeby aprowizacji zasobów platformy Azure. W usłudze Azure Wyszukiwanie poznawcze Menedżer zasobów służy do tworzenia lub usuwania usługi, zarządzania kluczami interfejsu API i skalowania usługi. W związku z tym przypisania roli RBAC określają, kto może wykonywać te zadania, bez względu na to, czy korzystają one z [portalu](search-manage.md), [programu PowerShell](search-manage-powershell.md)lub [interfejsów API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
-| Operacja | Uprawnienia |
-|-----------|-------------------------|
-| Tworzenie usługi | Posiadacz subskrypcji platformy Azure|
-| Skalowanie usługi | Klucz administracyjny, właściciel RBAC lub współautor zasobu  |
-| Usuwanie usługi | Klucz administracyjny, właściciel RBAC lub współautor zasobu |
-| Tworzenie, modyfikowanie i usuwanie obiektów w usłudze: <br>Indeksy i części składników (w tym definicje analizatora, profile oceniania, opcje CORS), indeksatory, źródła danych, synonimy, sugestie. | Klucz administracyjny, właściciel RBAC lub współautor zasobu  |
-| Tworzenie zapytań względem indeksu | Administrator lub klucz zapytania (RBAC nie dotyczy) |
-| Badaj informacje o systemie, takie jak zwracanie statystyk, liczników i list obiektów. | Klucz administratora, RBAC dla zasobu (właściciel, współautor, czytelnik) |
-| Zarządzaj kluczami administratora | Klucz administracyjny, właściciel RBAC lub współautor zasobu. |
-| Zarządzanie kluczami zapytań |  Klucz administracyjny, właściciel RBAC lub współautor zasobu.  |
+Z kolei prawa administratora do zawartości hostowanej w usłudze, takie jak możliwość tworzenia lub usuwania indeksu, są nałożone przez klucze interfejsu API zgodnie z opisem w [poprzedniej sekcji](#index-access).
 
-## <a name="physical-security"></a>Zabezpieczenia fizyczne
+> [!TIP]
+> Korzystając z mechanizmów opartych na platformie Azure, można zablokować subskrypcję lub zasób, aby zapobiec przypadkowemu lub nieautoryzowanemu usunięciu usługi wyszukiwania przez użytkowników z uprawnieniami administratora. Aby uzyskać więcej informacji, zobacz [Zablokuj zasoby, aby zapobiec nieoczekiwanemu usunięciu](../azure-resource-manager/management/lock-resources.md).
 
-Centra danych firmy Microsoft zapewniają wiodące w branży zabezpieczenia fizyczne i są zgodne z obszernym portfelem standardów i przepisów. Aby dowiedzieć się więcej, przejdź do strony [Globalne centra danych](https://www.microsoft.com/cloud-platform/global-datacenters) lub obejrzyj krótkie wideo w zabezpieczeniach centrum danych.
+## <a name="certifications-and-compliance"></a>Certyfikaty i zgodność
 
-> [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
-
+Usługa Azure Wyszukiwanie poznawcze ma certyfikowaną zgodność z wieloma standardami globalnymi, regionalnymi i branżowymi dla chmury publicznej i Azure Government. Aby zapoznać się z pełną listą, Microsoft Azure Pobierz oficjalny dokument dotyczący [ **ofert zgodności** ](https://aka.ms/azurecompliance) na stronie oficjalne raporty inspekcji.
 
 ## <a name="see-also"></a>Zobacz także
 
-+ [Wprowadzenie do platformy .NET (w celu utworzenia indeksu przy użyciu klucza administratora)](search-create-index-dotnet.md)
-+ [Wprowadzenie do usługi REST (w celu utworzenia indeksu przy użyciu klucza administratora)](search-create-index-rest-api.md)
-+ [Kontrola dostępu oparta na tożsamościch za pomocą filtrów Wyszukiwanie poznawcze platformy Azure](search-security-trimming-for-azure-search.md)
-+ [Active Directory kontroli dostępu opartej na tożsamościach przy użyciu filtrów Wyszukiwanie poznawcze platformy Azure](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filtry na platformie Azure Wyszukiwanie poznawcze](search-filters.md)
++ [Podstawy zabezpieczeń platformy Azure](../security/fundamentals/index.yml)
++ [Zabezpieczenia platformy Azure](https://azure.microsoft.com/overview/security)
++ [Azure Security Center](../security-center/index.yml)

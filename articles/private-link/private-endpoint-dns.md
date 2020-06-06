@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: af56adef37c65da87a6de6b6a477ee3996a4e272
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 2341fa45446078f669314561db13e640e78776b8
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259596"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463204"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure
 
@@ -55,18 +55,24 @@ W przypadku usług platformy Azure Użyj zalecanych nazw stref, zgodnie z opisem
 | Azure Database for MySQL (Microsoft. DBforMySQL/Servers)/sqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Azure Database for MariaDB (Microsoft. DBforMariaDB/serwery)/mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
 | Azure Key Vault (magazyn/magazyny firmy Microsoft)/magazyn | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
-| Usługa Azure Kubernetes Service — Kubernetes API (Microsoft. ContainerService/managedClusters)/managedCluster | privatelink. {Region}. azmk8s. IO | {Region}. azmk8s. IO |
+| Usługa Azure Kubernetes Service — interfejs API Kubernetes (Microsoft. ContainerService/managedClusters)/Zarządzanie | privatelink. {Region}. azmk8s. IO | {Region}. azmk8s. IO |
 | Azure Search (Microsoft. Search/searchServices)/searchService | privatelink.search.windows.net | search.windows.net |
 | Azure Container Registry (Microsoft. ContainerRegistry/rejestry)/rejestr | privatelink.azurecr.io | azurecr.io |
 | Konfiguracja aplikacji platformy Azure (Microsoft. AppConfiguration/configurationStores)/magazyn konfiguracji | privatelink.azconfig.io | azconfig.io |
 | Azure Backup (Microsoft. RecoveryServices/magazyny)/magazyn | privatelink. {Region}. Backup. windowsazure. com | {Region}. Backup. windowsazure. com |
 | Event Hubs platformy Azure (Microsoft. EventHub/przestrzenie nazw)/przestrzeń nazw | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Service Bus (Microsoft. ServiceBus/przestrzenie nazw)/przestrzeń nazw | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Azure IoT Hub (Microsoft. Devices/IotHubs)/iotHub | privatelink.azure-devices.net | azure-devices.net |
 | Azure Relay (Microsoft. Relay/przestrzenie nazw)/przestrzeń nazw | privatelink.servicebus.windows.net | servicebus.windows.net |
 | Azure Event Grid (Microsoft. EventGrid/tematy)/temat | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 | Azure Event Grid (Microsoft. EventGrid/domen)/domena | privatelink.eventgrid.azure.net | eventgrid.azure.net |
-| Azure Web Apps (Microsoft. Web/Sites)/lokacja | privatelink.azurewebsites.net | azurewebsites.net |
+| Azure Web Apps (Microsoft. Web/Sites)/Lokacje | privatelink.azurewebsites.net | azurewebsites.net |
 | Azure Machine Learning (Microsoft. MachineLearningServices/Workspaces)/obszar roboczy | privatelink.api.azureml.ms | api.azureml.ms |
+| IoT Hub (Microsoft. Devices/IotHubs)/IotHub | privatelink.azure-devices.net | azure-devices.net |
+| Sygnalizujący (Microsoft. SignalRService/Signaler)/sygnalizujący | privatelink.service.signalr.net | service.signalr.net |
+| Azure Monitor (Microsoft. Insights/privateLinkScopes)/azuremonitor | privatelink.monitor.azure.com | monitor.azure.com |
+| Cognitive Services (Microsoft. CognitiveServices/accounts)/Account | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
+
  
 ## <a name="dns-configuration-scenarios"></a>Scenariusze konfiguracji DNS
 

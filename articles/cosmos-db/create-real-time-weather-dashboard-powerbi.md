@@ -1,18 +1,18 @@
 ---
 title: Tworzenie pulpitu nawigacyjnego w czasie rzeczywistym przy użyciu Azure Cosmos DB, Azure Analysis Services i Power BI
 description: Dowiedz się, jak utworzyć pulpit nawigacyjny pogody na żywo w Power BI przy użyciu Azure Cosmos DB i Azure Analysis Services.
-author: bharathsreenivas
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: bharathb
 ms.reviewer: sngun
-ms.openlocfilehash: d225a14edddcad58c08094dbc758d67df8f834e6
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: aac89de936ae709ac825391eb0515e7f36a457a6
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "70376595"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465800"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Tworzenie pulpitu nawigacyjnego w czasie rzeczywistym przy użyciu Azure Cosmos DB i Power BI
 
@@ -70,9 +70,9 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
    
    |Właściwość  |Typ danych  |Filtr  |
    |---------|---------|---------|
-   |_ts     |   Liczbowe      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) i [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
-   |Data (na przykład:-2019-08-19)     |   Ciąg      | [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD")        |
-   |Data (na przykład:-2019-08-11 12:00:00)   |  Ciąg       |  [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD GG: mm: SS") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD GG: mm: SS")       |
+   |_ts     |   Numeryczne      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) i [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
+   |Data (na przykład:-2019-08-19)     |   String      | [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD")        |
+   |Data (na przykład:-2019-08-11 12:00:00)   |  String       |  [Document. Date] > DateTime. ToText (RangeStart, "RRRR-MM-DD GG: mm: SS") i [Document. Date] < DateTime. ToText (RangeEnd, "RRRR-MM-DD GG: mm: SS")       |
 
 
 1. **Zdefiniuj zasady odświeżania** — Zdefiniuj zasady odświeżania, przechodząc do karty **odświeżanie przyrostowe** w menu **kontekstowym** dla tabeli. Ustaw zasady odświeżania do odświeżania **codziennie** i przechowuj dane z ostatniego miesiąca.
@@ -96,9 +96,9 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Połącz Azure Analysis Services z kontem usługi Azure Cosmos
 
-1. **Utwórz nowy klaster** - Azure Analysis Services[Utwórz wystąpienie usług Azure Analysis Services](../analysis-services/analysis-services-create-server.md) w tym samym regionie, w którym znajduje się konto usługi Azure Cosmos i klaster datakostki.
+1. **Tworzenie nowego klastra Azure Analysis Services**  -  [Utwórz wystąpienie usług Azure Analysis Services](../analysis-services/analysis-services-create-server.md) w tym samym regionie, w którym znajduje się konto usługi Azure Cosmos i klaster datakostki.
 
-1. **Utwórz nowy projekt tabelaryczny Analysis Services w programie Visual Studio** -  [Zainstaluj narzędzia danych SQL Server (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017) i Utwórz Analysis Services Projekt tabelaryczny w programie Visual Studio.
+1. **Tworzenie nowego projektu Analysis Services tabelarycznego w programie Visual Studio**  -   [Zainstaluj narzędzia SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017) i Utwórz Analysis Services Projekt tabelaryczny w programie Visual Studio.
 
    ![Utwórz projekt Azure Analysis Services](./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png)
 
@@ -106,7 +106,7 @@ Skonfiguruj potok pozyskiwania w celu załadowania [danych pogody](https://catal
 
    ![Azure Analysis Services projektanta modelu tabelarycznego](./media/create-real-time-weather-dashboard-powerbi/tabular-model-designer.png)
 
-1. **Dodaj źródło danych Azure Cosmos DB** — umożliwia przejście do **modeli**> **źródła** > danych**nowe źródło danych** i dodanie Azure Cosmos DB źródła danych, jak pokazano na poniższym zrzucie ekranu:
+1. **Dodaj źródło danych Azure Cosmos DB** — umożliwia przejście do **modeli** >  **źródła danych**  >  **nowe źródło danych** i dodanie Azure Cosmos DB źródła danych, jak pokazano na poniższym zrzucie ekranu:
 
    ![Dodaj źródło danych Cosmos DB](./media/create-real-time-weather-dashboard-powerbi/add-data-source.png)
 

@@ -5,15 +5,15 @@ author: normesta
 ms.service: storage
 ms.date: 02/14/2019
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 375dac3fffc1a49cc3d10999c4969a7365dfb49c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6c5f2a041f03d53e1ea7c3f981683f4b70d3963b
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193436"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466004"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrowanie ze sklepu premium HDFS do usługi Azure Storage za pomocą Azure Data Box
 
@@ -323,7 +323,7 @@ Konieczne będzie wykluczenie niektórych katalogów z zadania DisCp. Na przykł
 
 W lokalnym klastrze usługi Hadoop, w którym planujesz zainicjować zadanie pomocą distcp, Utwórz plik, który określa listę katalogów, które chcesz wykluczyć.
 
-Oto przykład:
+Przykład:
 
 ```
 .*ranger/audit.*

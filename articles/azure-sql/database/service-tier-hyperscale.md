@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 7fe29bfa7d6140f3abce8feb9e372a5c066b9692
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 2625e1f55c0b7e7df44da6c1f36e024911577d63
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343884"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457273"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
 
@@ -87,7 +87,7 @@ Na poniższym diagramie przedstawiono różne typy węzłów w bazie danych w sk
 
 Baza danych wieloskali zawiera następujące różne typy składników:
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Wystąpienia obliczeniowe
 
 Węzeł obliczeniowy to miejsce, w którym działa silnik relacyjny, więc wszystkie elementy języka, przetwarzanie zapytań i tak dalej występują. Wszystkie interakcje użytkownika z bazą danych w ramach skalowania są wykonywane za pomocą tych węzłów obliczeniowych. Węzły obliczeniowe mają pamięć podręczną opartą na dyskach SSD (z etykietami RBPEX-odporny na błędy w powyższym diagramie), aby zminimalizować liczbę podróży w sieci wymaganych do pobrania strony danych. Istnieje jeden podstawowy węzeł obliczeniowy, w którym są przetwarzane wszystkie obciążenia odczytu i zapisu. Istnieje co najmniej jeden pomocniczy węzeł obliczeniowy działający jako węzły rezerwy aktywnej do pracy w trybie failover, a także działający jako węzeł obliczeniowy tylko do odczytu do odciążania obciążeń odczytu (Jeśli ta funkcja jest wymagana).
 
@@ -171,7 +171,7 @@ Jeśli chcesz przywrócić bazę danych w ramach skalowania w Azure SQL Database
 Warstwa skalowania Azure SQL Database jest dostępna we wszystkich regionach, ale domyślnie włączona w następujących regionach wymienionych poniżej.
 Jeśli chcesz utworzyć bazę danych w ramach skalowania w regionie, który nie jest wymieniony jako obsługiwany, możesz wysłać żądanie dołączania za pośrednictwem Azure Portal. Aby uzyskać instrukcje, zobacz temat [żądanie zwiększania limitu przydziału dla Azure SQL Database](quota-increase-request.md) , aby uzyskać instrukcje. Podczas przesyłania żądania należy przestrzegać następujących wytycznych:
 
-- Użyj limitu przydziału bazy danych SQL [żądania limitu przydziału](quota-increase-request.md#other) .
+- Użyj [dostępu do regionu](quota-increase-request.md#region) typ limitu przydziału bazy danych SQL.
 - W polu Szczegóły tekstu Dodaj jednostki SKU obliczeń/całkowite rdzenie, w tym odczytane repliki.
 - Określ także szacowaną wartość TB.
 

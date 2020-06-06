@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 202acff5bae87174781dc6c914bebf0494dfcf05
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: da7164fbf9148764ef8da0205b147b0fd188de9d
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871455"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457256"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą przyspieszonej sieci przy użyciu Azure PowerShell
 
@@ -98,7 +98,7 @@ W oknie Informacje o interfejsie sieciowym obok skróconej etykiety **sieciowej*
 
 ## <a name="vm-creation-using-powershell"></a>Tworzenie maszyny wirtualnej przy użyciu programu PowerShell
 
-Przed kontynuowaniem Zainstaluj program [Azure PowerShell](/powershell/azure/install-az-ps) w wersji 1.0.0 lub nowszej. Aby znaleźć aktualnie zainstalowaną wersję, `Get-Module -ListAvailable Az`Uruchom polecenie. Jeśli musisz zainstalować lub uaktualnić, zainstaluj najnowszą wersję AZ module z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/Az). W sesji programu PowerShell Zaloguj się do konta platformy Azure przy użyciu polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
+Przed kontynuowaniem Zainstaluj program [Azure PowerShell](/powershell/azure/install-az-ps) w wersji 1.0.0 lub nowszej. Aby znaleźć aktualnie zainstalowaną wersję, uruchom polecenie `Get-Module -ListAvailable Az` . Jeśli musisz zainstalować lub uaktualnić, zainstaluj najnowszą wersję AZ module z [Galeria programu PowerShell](https://www.powershellgallery.com/packages/Az). W sesji programu PowerShell Zaloguj się do konta platformy Azure przy użyciu polecenia [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 W poniższych przykładach Zastąp przykładowe nazwy parametrów własnymi wartościami. Przykładowe nazwy parametrów dołączone do *zasobów*, *myNic*i *myVM*.
 
@@ -244,7 +244,7 @@ Po utworzeniu maszyny wirtualnej na platformie Azure Nawiąż połączenie z mas
 
 3. Na stronie Przegląd maszyny wirtualnej, jeśli **stan** maszyny wirtualnej jest wyświetlany jako **Tworzenie**, zaczekaj na zakończenie tworzenia maszyny wirtualnej przez platformę Azure. **Stan** zostanie zmieniony na **uruchomiony** po zakończeniu tworzenia maszyny wirtualnej.
 
-4. Na pasku narzędzi przegląd maszyny wirtualnej wybierz pozycję **Połącz** > **RDP** > **Pobierz plik RDP**.
+4. Na pasku narzędzi przegląd maszyny wirtualnej wybierz pozycję **Połącz**  >  **RDP**  >  **Pobierz plik RDP**.
 
 5. Otwórz plik RDP, a następnie zaloguj się do maszyny wirtualnej przy użyciu poświadczeń wprowadzonych w sekcji [Tworzenie maszyny wirtualnej i dołączanie interfejsu sieciowego](#create-a-vm-and-attach-the-network-interface) . Jeśli nigdy nie nawiązano połączenia z maszyną wirtualną z systemem Windows na platformie Azure, zobacz [nawiązywanie połączenia z maszyną wirtualną](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-virtual-machine).
 
@@ -327,7 +327,7 @@ Zestaw skalowania maszyn wirtualnych jest nieco inny, ale znajduje się w tym sa
 3. Ustaw stosowane aktualizacje automatycznie, aby zmiany zostały natychmiast pobrane:
 
     ```azurepowershell
-    $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
+    $vmss.UpgradePolicy.Mode = "Automatic"
     
     Update-AzVmss -ResourceGroupName "myResourceGroup" `
         -VMScaleSetName "myScaleSet" `

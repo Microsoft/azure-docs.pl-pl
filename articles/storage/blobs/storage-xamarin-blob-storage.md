@@ -6,13 +6,13 @@ ms.author: mhopkins
 ms.date: 05/11/2017
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 8a1c91c8a8a59af26386e70e68e7c4fd93f5eaa9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: a724cf309ef0677b79636f6789de9a6c8f9ba248
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68726336"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465511"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>Jak używać Blob Storage z platformy Xamarin
 
@@ -37,7 +37,7 @@ Teraz powinna być dostępna aplikacja, która pozwala na kliknięcie przycisku,
 
 ## <a name="create-container-and-upload-blob"></a>Tworzenie kontenera i przekazywanie obiektu BLOB
 
-Następnie w obszarze `(Portable)` projektu dodasz kod do `MyClass.cs`. Ten kod tworzy kontener i przekazuje obiekt BLOB do tego kontenera. `MyClass.cs`powinien wyglądać następująco:
+Następnie w obszarze `(Portable)` projektu dodasz kod do `MyClass.cs` . Ten kod tworzy kontener i przekazuje obiekt BLOB do tego kontenera. `MyClass.cs`powinien wyglądać następująco:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -233,7 +233,7 @@ namespace XamarinApp.WinPhone
 
 Teraz możesz uruchomić tę aplikację w emulatorze systemu Android lub Windows Phone. Możesz również uruchomić tę aplikację w emulatorze systemu iOS, ale będzie to wymagało komputera Mac. Szczegółowe instrukcje na ten temat można znaleźć w dokumentacji dotyczącej [łączenia programu Visual Studio z komputerem Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-Po uruchomieniu aplikacji zostanie utworzony kontener `mycontainer` na koncie magazynu. Powinien zawierać obiekt BLOB, `myblob`który zawiera tekst,. `Hello, world!` Można to sprawdzić przy użyciu [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/).
+Po uruchomieniu aplikacji zostanie utworzony kontener `mycontainer` na koncie magazynu. Powinien zawierać obiekt BLOB, `myblob` który zawiera tekst, `Hello, world!` . Można to sprawdzić przy użyciu [Eksplorator usługi Microsoft Azure Storage](https://storageexplorer.com/).
 
 ## <a name="next-steps"></a>Następne kroki
 

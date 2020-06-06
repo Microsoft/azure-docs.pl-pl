@@ -5,13 +5,13 @@ author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 533cd8fa69c01b8a36ff5e314ce61a4b624e62ec
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/04/2020
+ms.openlocfilehash: b2efca53ce8d59ca1e050a9c18100b67024f3ba3
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655813"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465664"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Tworzenie kontenerów i baz danych usługi Azure Cosmos przy użyciu przepływności automatycznego skalowania
 
@@ -29,7 +29,7 @@ Bazy danych i kontenery usługi Azure Cosmos, które są skonfigurowane przy uż
 
 * **Skalowalność:** Bazy danych i kontenery automatycznie skalują zainicjowaną przepływność zgodnie z potrzebami. Nie ma przerw w połączeniach klientów, aplikacjach ani wpływu na Azure Cosmos DB umowy SLA.
 
-* **Koszt ekonomiczny:** Funkcja automatycznego skalowania pomaga zoptymalizować użycie RU/s i zużycie kosztów poprzez skalowanie w dół, gdy nie jest używane. Płacisz tylko za zasoby, których obciążenia wymagają w ciągu godziny.
+* **Koszt ekonomiczny:** Funkcja automatycznego skalowania pomaga zoptymalizować użycie RU/s i zużycie kosztów poprzez skalowanie w dół, gdy nie jest używane. Płacisz tylko za zasoby, których obciążenia wymagają w ciągu godziny. Przez wszystkie godziny w miesiącu, jeśli ustawisz automatyczne skalowanie RU/s (Tmax) i wykorzystasz pełną kwotę Tmax przez 66% godzin lub mniej, będziesz zapisywać z funkcją automatycznego skalowania. Aby dowiedzieć się więcej, zobacz artykuł [jak wybrać między standardowym (ręcznym) i automatycznym skalowaniem przepływności](how-to-choose-offer.md) .
 
 * **Wysoka dostępność:** Bazy danych i kontenery korzystające z funkcji automatycznego skalowania używają tych samych globalnie rozproszonych, odpornych na uszkodzenia Azure Cosmos DB zaplecza w celu zapewnienia trwałości i wysokiej dostępności danych.
 
@@ -75,7 +75,7 @@ Więcej szczegółów można znaleźć w tej [dokumentacji](how-to-choose-offer.
 |---------|---------|---------|
 | **Elastyczna przepływność (RU/s)** | Ręcznie zainicjowany. | Automatycznie i chwilowo skalowane na podstawie wzorców użycia obciążeń. |
 | **Szybkość ograniczania żądań/operacji (429)**  | Może się tak zdarzyć, jeśli zużycie przekracza przypuszczalną pojemność. | Nie nastąpi w przypadku używania RU/s w określonym zakresie przepływności skalowania automatycznego.    |
-| **Planowanie pojemności** |  Trzeba przeprowadzić planowanie pojemności i zapewnić dokładną przepływność. |    System automatycznie zajmuje się planowaniem pojemności i zarządzaniem pojemnością. |
+| **Planowanie wydajności** |  Trzeba przeprowadzić planowanie pojemności i zapewnić dokładną przepływność. |    System automatycznie zajmuje się planowaniem pojemności i zarządzaniem pojemnością. |
 | **Cennik** | Płacisz za ręcznie zainicjowaną jednostkę RU/s na godzinę przy użyciu [standardowej (ręcznej) jednostki ru/s na godzinę](https://azure.microsoft.com/pricing/details/cosmos-db/). | Opłata jest naliczana za godzinę dla największej liczby jednostek RU na sekundę, w której system jest skalowany do godziny. <br/><br/> W przypadku kont z jednym regionem zapisu opłata jest naliczana za użycie jednostek RU/s w godzinie, przy użyciu [skali ru/s na godzinę](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>W przypadku kont z wieloma regionami zapisu nie ma dodatkowej opłaty za automatyczne skalowanie. Opłata jest naliczana za przepływność użyta co godzinę przy użyciu tego samego [kursu wieloskładnikowego ru/s na godzinę](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Najlepiej dopasowane do typów obciążeń** |  Przewidywalne i stabilne obciążenia|   Nieprzewidywalne obciążenia i zmienne  |
 

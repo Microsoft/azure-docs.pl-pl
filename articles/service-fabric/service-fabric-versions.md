@@ -2,13 +2,13 @@
 title: Obsługiwane wersje klastra w usłudze Azure Service Fabric
 description: Dowiedz się więcej o wersjach klastra w usłudze Azure Service Fabric, łącznie z linkiem do najnowszych wydań z blogu zespołu Service Fabric.
 ms.topic: troubleshooting
-ms.date: 05/06/2020
-ms.openlocfilehash: dd5844fb88234a5bdf5470a484f26cb08f719107
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 06/01/2020
+ms.openlocfilehash: 5dc3835bd58670a66968448fa798c547bb06e340
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890841"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449706"
 ---
 # <a name="supported-service-fabric-versions"></a>Obsługiwane Service Fabric wersje
 
@@ -42,6 +42,7 @@ W poniższej tabeli wymieniono wersje Service Fabric i ich daty końcowe pomocy 
 | 7.0.470.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,0 |1 sierpnia 2020  |
 | 7.0.472.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,0 |1 sierpnia 2020  |
 | 7.1.409.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,0 |Bieżąca wersja, dlatego bez daty zakończenia |
+| 7.1.416.* | 7.0.466.* |Mniejsze niż lub równe wersji 4,0 |Bieżąca wersja, dlatego bez daty zakończenia |
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
@@ -111,3 +112,4 @@ W poniższej tabeli wymieniono nazwy wersji Service Fabric i odpowiadające im n
 | 7,0 CU4 | 7.0.470.9590 | 7.0.469.1 |
 | 7,0 CU6 | 7.0.472.9590 | 7.0.471.1 |
 | 7,1 RTO | 7.1.409.9590 | 7.1.410.1 |
+| 7,1 CU1 | 7.1.416.9590 | 7.1.418.1 |

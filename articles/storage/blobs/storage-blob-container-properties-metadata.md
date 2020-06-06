@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: c66b521b5cd75825fcafe07b24d5d527c45f5153
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6923ab3a2344c8496f314e2f7a23b536a534bca
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79135925"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457035"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Zarządzanie właściwościami kontenera i metadanymi przy użyciu platformy .NET
 
@@ -70,7 +70,7 @@ Można określić metadane jako jedną lub więcej par nazwa-wartość w obiekci
 - [Setmetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadataasync)
 
-Nazwa metadanych musi być zgodna z konwencjami nazewnictwa dla identyfikatorów C#. Nazwy metadanych zachowują przypadek, za pomocą którego zostały utworzone, ale bez uwzględniania wielkości liter podczas ustawiania lub odczytywania. Jeśli co najmniej dwa nagłówki metadanych o tej samej nazwie są przesyłane do zasobu, Magazyn obiektów BLOB zwraca kod błędu HTTP 400 (Nieprawidłowe żądanie).
+Nazwa metadanych musi być zgodna z konwencjami nazewnictwa dla identyfikatorów C#. Nazwy metadanych zachowują przypadek, za pomocą którego zostały utworzone, ale bez uwzględniania wielkości liter podczas ustawiania lub odczytywania. Jeśli co najmniej dwa nagłówki metadanych o tej samej nazwie są przesyłane do zasobu, Magazyn obiektów BLOB oddziela i łączy te dwie wartości i zwracają kod odpowiedzi HTTP 200 (OK).
 
 Poniższy przykład kodu ustawia metadane w kontenerze. Jedna wartość jest ustawiana za pomocą metody **Add** kolekcji. Druga wartość jest ustawiana za pomocą niejawnej składni klucz/wartość. Oba są prawidłowe.
 

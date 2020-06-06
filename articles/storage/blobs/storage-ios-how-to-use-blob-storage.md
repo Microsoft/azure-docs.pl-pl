@@ -6,13 +6,13 @@ ms.author: mhopkins
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 2e168abaf522fa1126e3cb4618941952b562df31
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.topic: how-to
+ms.openlocfilehash: 378c21a6904acad16847bb32955e4bc091e587df
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831878"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465494"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Jak korzystać z usługi BLOB Storage z systemu iOS
 
@@ -82,7 +82,7 @@ Następnie można zaimportować plik struktury do aplikacji, wykonując następu
 #import <AZSClient/AZSClient.h>
 ```
 
-Jeśli używasz SWIFT, musisz utworzyć nagłówek mostkowania i zaimportować \< AZSClient/AZSClient. h>:
+Jeśli używasz SWIFT, musisz utworzyć nagłówek mostkowania i zaimportować go \<AZSClient/AZSClient.h> :
 
 1. Utwórz plik nagłówka `Bridging-Header.h` i Dodaj powyższą instrukcję importu.
 2. Przejdź do karty *Ustawienia kompilacji* i Wyszukaj *nagłówek "z mostkiem C"*.

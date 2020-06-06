@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: b398f739189232f39a2fee06fc6e6ff0d53348f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656611"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449519"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące przepływności dotyczącej automatycznego skalowania w Azure Cosmos DB
 
@@ -86,6 +86,10 @@ Tak, Skalowanie automatyczne jest obsługiwane w przypadku udostępnionych baz d
 
 ### <a name="what-is-the-number-of-allowed-containers-per-shared-throughput-database-when-autoscale-is-enabled"></a>Jaka jest liczba dozwolonych kontenerów na udostępnioną bazę danych przepływności, gdy funkcja automatycznego skalowania jest włączona?
 Azure Cosmos DB wymusza maksymalnie 25 kontenerów w udostępnionej bazie danych przepływności, która ma zastosowanie do baz danych ze skalowaniem automatycznym lub standardowym (ręcznym) przepływności. 
+
+### <a name="what-is-the-impact-of-autoscale-on-database-consistency-level"></a>Jaki jest wpływ automatycznego skalowania na poziom spójności bazy danych?
+Nie ma to wpływu na poziom spójności w bazie danych.
+Zobacz artykuł [poziomy spójności](consistency-levels.md) , aby uzyskać więcej informacji na temat dostępnych poziomów spójności.
 
 ### <a name="what-is-the-storage-limit-associated-with-each-max-rus-option"></a>Jaki jest limit magazynowania skojarzony z każdą maksymalną opcją RU/s?  
 Limit magazynowania w GB dla każdej maksymalnej wartości RU/s to: Max RU/s bazy danych lub kontenera/100. Na przykład jeśli maksymalna wartość RU/s wynosi 20 000 RU/s, zasób może obsługiwać 200 GB miejsca w magazynie. Zapoznaj się z artykułem [limity skalowania automatycznego](provision-throughput-autoscale.md#autoscale-limits) dla dostępnych maksymalnych opcji ru/s i magazynu. 

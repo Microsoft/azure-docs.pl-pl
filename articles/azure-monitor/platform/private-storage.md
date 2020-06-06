@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 7213cb10936fc1c2117b2c5c3fc32a6bfea02d30
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 6a123fac9f199fc0b19a3e6af33ad705ce51945c
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816780"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464457"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Konta magazynu należące do klienta na potrzeby pozyskiwania dzienników w Azure Monitor
 
@@ -232,4 +232,4 @@ Jeśli zarejestrowane konto magazynu obszaru roboczego znajduje się w innym reg
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat konfigurowania linku prywatnego, zobacz [używanie prywatnego linku platformy Azure do bezpiecznego łączenia sieci z Azure Monitor} (Private-link-security.md)
+- Aby uzyskać więcej informacji na temat konfigurowania linku prywatnego, zobacz [bezpieczne łączenie sieci do Azure monitor przy użyciu prywatnego linku platformy Azure](private-link-security.md)

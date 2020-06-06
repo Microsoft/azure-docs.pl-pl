@@ -2,13 +2,13 @@
 title: Limity — LUIS
 description: Ten artykuł zawiera znane limity usługi Azure Cognitive Services Language Understanding (LUIS). LUIS ma kilka obszarów ograniczeń. Limit modelu kontroluje intencje, jednostki i funkcje w LUIS. Limity przydziału na podstawie typu klucza. Kombinacja klawiatury kontroluje witrynę sieci Web LUIS.
 ms.topic: reference
-ms.date: 05/06/2020
-ms.openlocfilehash: d4a6162758fab7e5c9592b98974620bbf06ba978
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/04/2020
+ms.openlocfilehash: aa4362fba09834758d47f3ef063068c1854b9280
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684604"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449502"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limity dotyczące modelu i kluczy LUIS
 LUIS ma kilka obszarów ograniczeń. Pierwszy to [Limit modelu](#model-limits), który steruje intencjami, jednostkami i funkcjami w Luis. Drugi obszar ma [limity przydziału](#key-limits) na podstawie typu klucza. Trzeci obszar limitów jest [kombinacją klawiatury](#keyboard-controls) służącą do kontrolowania witryny sieci Web Luis. Czwarty obszar to [Mapowanie regionów świata](luis-reference-regions.md) między witryną sieci Web Luis Authoring a interfejsem API Luis [Endpoint](luis-glossary.md#endpoint) .
@@ -19,7 +19,7 @@ LUIS ma kilka obszarów ograniczeń. Pierwszy to [Limit modelu](#model-limits), 
 
 Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji do [wysyłania Luis](luis-concept-enterprise.md#dispatch-tool-and-model) lub [kontenera Luis](luis-container-howto.md).
 
-|Warstwowy|Limit|
+|Obszar|Limit|
 |--|:--|
 | [Nazwa aplikacji][luis-get-started-create-app] | * Maksimum znaku domyślnego |
 | Aplikacje| 500 aplikacji na zasób tworzenia na platformie Azure |
@@ -37,8 +37,8 @@ Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji 
 | [Wstępnie utworzone jednostki](./luis-prebuilt-entities.md) | bez limitu|
 | [Jednostki wyrażenia regularnego](./luis-concept-entity-types.md)|20 jednostek<br>maksymalnie 500 znaków. na wzorzec jednostki wyrażenia regularnego|
 | [Role](luis-concept-roles.md)|300 ról na aplikację. 10 ról na jednostkę|
-| [Wypowiedź][utterances] | 500 znaków|
-| [Wypowiedzi][utterances] | 15 000 na aplikację — nie ma limitu liczby wyrażenia długości na zamiar|
+| [Wypowiedź][utterances] | 500 znaków<br><br>Jeśli masz tekst dłuższy niż ten limit znaków, musisz podzielić wypowiedź przed wejściem w LUIS i odpowiednio scalić odpowiedzi. Istnieją oczywiste przerwy, z którymi można korzystać, takie jak znaki interpunkcyjne i długie przerwy w mowie.|
+| [Przykłady wypowiedź][utterances] | 15 000 na aplikację — nie ma limitu liczby wyrażenia długości na zamiar<br><br>Jeśli konieczne jest uczenie aplikacji z więcej przykładów, użyj podejścia modelu [wysyłania](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) . Możesz przeszkolić pojedyncze aplikacje LUIS (nazywane aplikacjami podrzędnymi do nadrzędnej aplikacji do wysyłania) z co najmniej jednym zamiarem, a następnie przeszkolić aplikację do wysyłania, która próbuje pobrać z poszczególnych podrzędnych aplikacji LUIS wyrażenia długości, aby skierować żądanie przewidywania do odpowiedniej aplikacji podrzędnej. |
 | [Wersje](luis-concept-version.md)| 100 wersji na aplikację |
 | [Nazwa wersji][luis-how-to-manage-versions] | 128 znaków |
 

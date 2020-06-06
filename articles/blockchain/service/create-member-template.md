@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: patricka
-ms.date: 04/22/2020
-ms.openlocfilehash: 1e0e4018c79c231c69f29b2272420344198af413
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.date: 06/04/2020
+ms.openlocfilehash: 5524a8920ef49603ab9aa143ae4094cdaad9d340
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310363"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456536"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Szybki Start: Tworzenie elementu członkowskiego usługi Azure łańcucha bloków przy użyciu szablonu Azure Resource Manager
 
@@ -61,6 +61,12 @@ Zasoby platformy Azure zdefiniowane w szablonie:
 1. Wybierz pozycję **Kup** , aby wdrożyć szablon.
 
   Azure Portal jest używany tutaj do wdrożenia szablonu. Można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../azure-resource-manager/templates/deploy-powershell.md).
+
+## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+
+Za pomocą Azure Portal można wyświetlić szczegóły wdrożonego elementu członkowskiego usługi Azure łańcucha bloków. W portalu przejdź do grupy zasobów zawierającej członka usługi Azure łańcucha bloków. Wybierz utworzony element członkowski łańcucha bloków.
+
+![Wdrożono szczegóły przeglądu elementu członkowskiego usługi Azure łańcucha bloków w Azure Portal](./media/create-member-template/deployed-member.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

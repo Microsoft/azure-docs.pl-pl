@@ -4,15 +4,15 @@ description: Dowiedz się, jak używać kompasu MongoDB do przechowywania danych
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 06/05/2020
 author: LuisBosquez
 ms.author: lbosq
-ms.openlocfilehash: c683ec0c4b3a536b0627a7c1c8abf28ee4f83663
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74822211ae834bc4705552bd3291299cf14b54d0
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757029"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465732"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Użyj MongoDB kompas do nawiązywania połączenia z interfejsem API usługi Azure Cosmos DB dla MongoDB
 
@@ -28,7 +28,7 @@ Aby nawiązać połączenie z kontem usługi Cosmos DB przy użyciu kompasu Mong
 * Cosmos DB informacje o [parametrach połączenia](connect-mongodb-account.md)
 
 > [!NOTE]
-> Obecnie program Azure Cosmos DB API for MongoDB Server w wersji 3,2 jest obsługiwany z MongoDB kompas.
+> Obecnie program Azure Cosmos DB API for MongoDB Server w wersji 3,2 jest obsługiwany z najnowszą wersją MongoDB kompasu. MongoDB kompas nie jest jeszcze obsługiwany w wersji serwera 3,6. 
 
 ## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>Nawiązywanie połączenia z interfejsem API Cosmos DB MongoDB
 

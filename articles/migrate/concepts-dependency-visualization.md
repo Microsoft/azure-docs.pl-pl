@@ -3,12 +3,12 @@ title: Analiza zależności w ocenie serwera Azure Migrate
 description: Opisuje sposób używania analizy zależności do oceny przy użyciu Azure Migrate oceny serwera.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: f0b956620895ae2264b53916015d440f5e586eb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b269322f5426a68b072452bc2f79531685be3742
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024765"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447581"
 ---
 # <a name="dependency-analysis"></a>Analiza zależności
 
@@ -30,7 +30,7 @@ Istnieją dwie opcje wdrażania analizy zależności
 - Bez **agenta**: dzięki analizie bez agentów nie trzeba instalować agentów na maszynach, które mają być sprawdzane krzyżowo. Ta opcja jest obecnie w wersji zapoznawczej i jest dostępna tylko dla maszyn wirtualnych VMware.
 
 > [!NOTE]
-> Analiza zależności oparta na agentach nie jest dostępna w Azure Government. Można użyć analizy zależności bez agenta.
+> Analiza zależności oparta na agentach nie jest dostępna w Azure Government. Możesz użyć analizy zależności bez agenta.
 
 ## <a name="agentless-analysis"></a>Analiza bez agentów
 
@@ -70,7 +70,7 @@ Log Analytics | Niewymagane. | Azure Migrate używa rozwiązania [Service map](h
 Jak to działa | Przechwytuje dane połączenia TCP na maszynach z włączoną funkcją wizualizacji zależności. Po odnajdywaniu dane są zbierane w odstępach pięciu minut. | Service Map agenci zainstalowani na komputerze zbierają dane dotyczące procesów TCP oraz połączeń przychodzących/wychodzących dla każdego procesu.
 Dane | Nazwa serwera źródłowego, proces, nazwa aplikacji.<br/><br/> Nazwa serwera maszyny docelowej, proces, nazwa aplikacji i port. | Nazwa serwera źródłowego, proces, nazwa aplikacji.<br/><br/> Nazwa serwera maszyny docelowej, proces, nazwa aplikacji i port.<br/><br/> Liczba połączeń, opóźnień i informacji o przesyłaniu danych jest zbieranych i dostępnych dla zapytań Log Analytics. 
 Wizualizacja | Mapę zależności pojedynczego serwera można wyświetlać w czasie trwania z przedziału od godziny do 30 dni. | Mapa zależności pojedynczego serwera.<br/><br/> Mapę można wyświetlać tylko w ciągu godziny.<br/><br/> Mapa zależności grupy serwerów.<br/><br/> Dodawanie i usuwanie serwerów w grupie z widoku mapy.
-Eksportowanie danych | Nie można obecnie pobrać w formacie tabelarycznym. | Dane można badać przy użyciu Log Analytics.
+Eksportowanie danych | Dane z ostatnich 30 dni można pobrać w formacie CSV. | Dane można badać przy użyciu Log Analytics.
 
 
 

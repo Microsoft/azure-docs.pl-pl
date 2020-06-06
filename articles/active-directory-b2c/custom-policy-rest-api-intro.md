@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b308e5d74f1a87ea1cebed26f602780307c77d35
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636996"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447921"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integruj wymianę oświadczeń interfejsu API REST w zasadach niestandardowych Azure AD B2C
 
@@ -32,6 +32,9 @@ Za pomocą Azure AD B2C można dodać własną logikę biznesową do podróży u
 - **Uruchom niestandardową logikę biznesową**. Możesz wysyłać powiadomienia wypychane, aktualizować korporacyjne bazy danych, uruchamiać proces migracji użytkowników, zarządzać uprawnieniami, bazami danych inspekcji i wykonywać inne przepływy pracy.
 
 ![Diagram wymiany oświadczeń usługi RESTful Service](media/custom-policy-rest-api-intro/restful-service-claims-exchange.png)
+
+> [!NOTE]
+> Jeśli usługa RESTful jest powolna lub nie ma odpowiedzi na Azure AD B2C, limit czasu wynosi 30 sekund, a liczba ponownych prób wynosi 2 razy (oznacza to, że w sumie są 3 próby). Nie można obecnie konfigurować ustawień limitu czasu i liczby ponownych prób.
 
 ## <a name="calling-a-restful-service"></a>Wywoływanie usługi RESTful
 

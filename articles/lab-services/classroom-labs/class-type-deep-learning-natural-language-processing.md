@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: f03d1cfeccf03614fe0a5828a05768a5ae3f56e2
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 269ad20d99f21c05d527d60af61692eb49048f08
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699655"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448077"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Skonfiguruj laboratorium ukierunkowane na głębokie uczenie się w przetwarzaniu języka naturalnego przy użyciu Azure Lab Services
 W tym artykule opisano sposób konfigurowania laboratorium ukierunkowanego na głębokie uczenie w ramach przetwarzania języka naturalnego (NLP) przy użyciu Azure Lab Services. Przetwarzanie języka naturalnego (NLP) jest formą sztucznej analizy (AI), która umożliwia komputerom z translacją, rozpoznawanie mowy i innymi funkcjami interpretacji języka.  
@@ -38,7 +38,7 @@ Postępuj zgodnie z [tym samouczkiem](tutorial-setup-classroom-lab.md) , aby utw
 
 | Ustawienia laboratorium | Wartość/instrukcje | 
 | ------------ | ------------------ |
-| Rozmiar maszyny wirtualnej (VM) | Mały procesor GPU (COMPUTE). Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z obliczeń i sieci, takich jak sztuczna inteligencja i uczenie głębokie. |
+| Rozmiar maszyny wirtualnej (VM) | **Mały procesor GPU (COMPUTE)**. Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z obliczeń i sieci, takich jak sztuczna inteligencja i uczenie głębokie. |
 | Obraz maszyny wirtualnej | [Data Science Virtual Machine dla systemu Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Ten obraz zawiera platformy uczenia głębokiego i narzędzia do uczenia maszynowego i analizy danych. Aby wyświetlić pełną listę zainstalowanych narzędzi na tym obrazie, zapoznaj się z następującym artykułem: [co obejmuje DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
 | Włącz Podłączanie pulpitu zdalnego | <p>Obraz analizy danych jest już skonfigurowany do korzystania z programu X2Go, dzięki czemu nauczyciele i uczniowie mogą łączyć się przy użyciu klasycznego interfejsu użytkownika.  X2Go nie *wymaga włączenia* ustawienia **Włącz Podłączanie pulpitu zdalnego** .  To ustawienie należy włączyć tylko w przypadku wybrania opcji Użyj protokołu RDP.
 

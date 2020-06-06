@@ -6,15 +6,15 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.openlocfilehash: f1d5161b0efe0b8d9b9c0b84ac149050c3823ab6
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 581d77a5568b9533d85ff476b63001c8a237bc4e
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429479"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457205"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Jak automatycznie diagnozować i rozwiązywać problemy w chmurze Azure wiosennej
-App Service Diagnostics to interaktywny interfejs ułatwiający Rozwiązywanie problemów z aplikacją. Nie jest wymagana żadna konfiguracja. Po znalezieniu problemów App Service Diagnostyka wskazuje, co jest nieprawidłowe, i prowadzi użytkownika do informacji ułatwiających rozwiązywanie problemów i rozwiązywanie problemu.
+Diagnostyka chmurowa platformy Azure to interaktywny interfejs ułatwiający Rozwiązywanie problemów z aplikacją. Nie jest wymagana żadna konfiguracja. Po znalezieniu problemów Diagnostyka chmurowa platformy Azure wskazuje, co jest nieprawidłowe, i prowadzi użytkownika do informacji ułatwiających rozwiązywanie problemów i rozwiązywanie problemu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do ukończenia tego samouczka niezbędne są następujące elementy:
@@ -24,7 +24,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * Co najmniej jedna aplikacja została już utworzona w wystąpieniu usługi.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>Przejdź do strony Diagnostyka
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 2. Przejdź do strony **omówienia** chmury Azure wiosennej.
 3. Otwórz okno **diagnozowanie i rozwiązywanie problemów** z menu po lewej stronie strony.
 

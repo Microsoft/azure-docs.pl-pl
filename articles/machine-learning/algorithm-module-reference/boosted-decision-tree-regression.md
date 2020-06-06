@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: cb7f11f184ba8e19eb8786817da58edf8ddee44e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b72d80f0be65af22bf334752052757346457a67
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137097"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448635"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Moduł regresji drzewa decyzyjnego
 
@@ -99,7 +99,7 @@ Metodę zwiększania gradientu można również użyć w przypadku problemów z 
 
 Po zakończeniu szkolenia:
 
-+ Aby użyć modelu do oceniania, połącz go z [modelem oceny](./score-model.md), aby przewidzieć wartości dla nowych przykładów wejściowych.
++ Aby użyć modelu do oceniania, Połącz [model uczenia](train-model.md) z [modelem oceny](./score-model.md), aby przewidzieć wartości dla nowych przykładów wejściowych.
 
 + Aby zapisać migawkę przeszkolonego modelu, wybierz kartę Output (dane **wyjściowe** ) w prawym panelu **przeszkolonego modelu** i kliknij ikonę **zarejestruj zestaw danych** . Kopia przeszkolonego modelu zostanie zapisana jako moduł w drzewie modułów i nie będzie aktualizowana po kolejnych uruchomieniach potoku.
 

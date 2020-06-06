@@ -1,14 +1,14 @@
 ---
-title: Usunięcia historii wdrożenia
+title: Usunięcia historii wdrażania
 description: Opisuje, w jaki sposób Azure Resource Manager automatycznie usuwać wdrożenia z historii wdrażania. Wdrożenia są usuwane, gdy historia zbliża się do przekroczenia limitu 800.
 ms.topic: conceptual
-ms.date: 05/27/2020
-ms.openlocfilehash: 3e48b2da00986da00f7597cf887aa74f84587710
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/05/2020
+ms.openlocfilehash: 2d87cc1dcc0d3a41cb32bf7750ccdd832019f8bf
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122451"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84462740"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatyczne usuwanie z historii wdrożenia
 
@@ -28,6 +28,9 @@ Wdrożenia są usuwane z historii wdrożenia tylko wtedy, gdy zbliża się limit
 Oprócz wdrożeń wyzwalacze są również wyzwalane po uruchomieniu [operacji działania warunkowego](template-deploy-what-if.md) lub weryfikacji wdrożenia.
 
 Jeśli nastąpi wdrożenie o takiej samej nazwie jak jedna w historii, zresetuj jej miejsce w historii. Wdrożenie przechodzi do ostatniego miejsca w historii. Należy również zresetować miejsce wdrożenia po [wycofaniu tego wdrożenia](rollback-on-error.md) po wystąpieniu błędu.
+
+> [!NOTE]
+> Jeśli grupa zasobów ma już limit 800, następne wdrożenie zakończy się niepowodzeniem z powodu błędu. Proces automatycznego usuwania rozpocznie się natychmiast. Możesz ponowić próbę wdrożenia po krótkim czasie oczekiwania.
 
 ## <a name="opt-out-of-automatic-deletions"></a>Rezygnacja z automatycznego usuwania
 

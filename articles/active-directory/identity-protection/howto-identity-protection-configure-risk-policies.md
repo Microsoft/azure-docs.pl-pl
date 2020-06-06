@@ -4,19 +4,19 @@ description: Włączanie i Konfigurowanie zasad ryzyka w Azure Active Directory 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 01/06/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75707009"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464168"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Instrukcje: Konfigurowanie i Włączanie zasad ryzyka
 
@@ -54,24 +54,24 @@ Skonfigurowane lokalizacje zaufanej [sieci](../conditional-access/location-condi
 Aby włączyć ryzyko dla użytkownika i zasady dotyczące ryzyka związanego z logowaniem, wykonaj następujące czynności.
 
 1. Przejdź do [Azure Portal](https://portal.azure.com).
-1. Przejdź do**omówienia**usługi **Azure Active Directory** > **Security** > **Identity Protection** > .
+1. Przejdź do omówienia usługi **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **Overview**.
 1. Wybierz pozycję **Konfiguruj zasady ryzyka użytkownika**.
    1. W obszarze **przypisania**
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
          1. Opcjonalnie możesz zdecydować się na wykluczenie użytkowników z zasad.
-      1. **Warunki** - **ryzyko dla użytkownika** firma Microsoft zaleca ustawienie tej opcji na **wysoki**.
+      1. **Warunki**  -  **Ryzyko użytkownika** Zalecenie firmy Microsoft polega na ustawieniu tej opcji na **wysoki**.
    1. W obszarze **Controls**
       1. **Dostęp** — zalecenia firmy Microsoft mają **na celu umożliwienie dostępu** i **wymaganie zmiany hasła**.
-   1. **Wymuś zasady** - **On**
+   1. **Wymuś zasady**  -  **Na**
    1. **Zapisz** — ta akcja spowoduje powrót do strony **Przegląd** .
 1. Wybierz pozycję **Konfiguruj zasady dotyczące ryzyka związanego z logowaniem**.
    1. W obszarze **przypisania**
       1. **Użytkownicy** — wybierz opcję **Wszyscy użytkownicy** lub **Wybierz osoby i grupy w** przypadku ograniczenia wdrożenia.
          1. Opcjonalnie możesz zdecydować się na wykluczenie użytkowników z zasad.
-      1. **Warunki** - **ryzyka związanego z logowaniem** firma Microsoft polega na ustawieniu tej opcji na **średni i wyższy**.
+      1. **Warunki**  -  **Ryzyko związane z logowaniem** Zalecenie firmy Microsoft polega na ustawieniu tej opcji na **średni i wyższy**.
    1. W obszarze **Controls**
       1. **Dostęp** — zalecenia firmy Microsoft mają na celu **umożliwienie dostępu** i **wymaganie uwierzytelniania wieloskładnikowego**.
-   1. **Wymuś zasady** - **On**
+   1. **Wymuś zasady**  -  **Na**
    1. **Zapisz**
 
 ## <a name="next-steps"></a>Następne kroki
@@ -82,4 +82,4 @@ Aby włączyć ryzyko dla użytkownika i zasady dotyczące ryzyka związanego z 
 
 - [Badanie wykryć ryzyka](howto-identity-protection-investigate-risk.md)
 
-- [Symulowanie wykrywania ryzyka](howto-identity-protection-simulate-risk.md)
+- [Symulowanie wykryć ryzyka](howto-identity-protection-simulate-risk.md)

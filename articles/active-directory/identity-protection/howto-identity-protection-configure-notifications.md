@@ -4,19 +4,19 @@ description: Dowiedz się, jak powiadomienia obsługują Twoje działania dochod
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: conceptual
-ms.date: 05/05/2020
+ms.topic: how-to
+ms.date: 06/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 200ede6b4c5565a8eab95b0398abaa1c056c612f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c7b5208d2da3635e822049859cae9c8f17b6105a
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853118"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464253"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Powiadomienia Azure Active Directory Identity Protection
 
@@ -43,7 +43,7 @@ Jako administrator możesz ustawić:
 - Adresaci **tej wiadomości e-mail** — domyślnie odbiorcy obejmują wszystkich administratorów globalnych. Administratorzy globalni mogą również dodawać innych administratorów globalnych, administratorów zabezpieczeń, czytelników zabezpieczeń jako odbiorców.
    - Opcjonalnie możesz **dodać dodatkowe wiadomości e-mail w celu otrzymywania powiadomień o alertach** , ponieważ ta funkcja jest dostępna w wersji zapoznawczej, a zdefiniowane przez użytkowników muszą mieć odpowiednie uprawnienia do wyświetlania raportów połączonych w Azure Portal.
 
-Należy skonfigurować użytkowników pod kątem ryzykownych wiadomości e-mail w **Azure Portal** w obszarze **Azure Active Directory** > użytkownicy**ochrony** > tożsamości**zabezpieczeń** > **na wykryciu zagrożeń**.
+Należy skonfigurować użytkowników pod kątem ryzykownych wiadomości e-mail w **Azure Portal** w obszarze **Azure Active Directory**  >  **Security**  >  Użytkownicy**ochrony tożsamości**zabezpieczeń  >  **na wykryciu zagrożeń**.
 
 ## <a name="weekly-digest-email"></a>Tygodniowy adres e-mail w postaci skróconej
 
@@ -62,8 +62,8 @@ Domyślnie odbiorcy obejmują wszystkich administratorów globalnych. Administra
 
 Jako administrator możesz przełączać wysyłanie cotygodniowej wiadomości e-mail z podsumowaniem lub wyłączyć ją i wybrać użytkowników przypisanych do odbierania wiadomości e-mail.
 
-Skonfiguruj cotygodniowe wiadomości e-mail z podsumowaniem w **Azure Portal** w obszarze **Azure Active Directory** > **Security** > **Identity Protection** > **.**
+Skonfiguruj cotygodniowe wiadomości e-mail z podsumowaniem w **Azure Portal** w obszarze **Azure Active Directory**  >  **Security**  >  **Identity Protection**  >  **Weekly digest**.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Ochrona tożsamości w usłudze Azure Active Directory](../active-directory-identityprotection.md)

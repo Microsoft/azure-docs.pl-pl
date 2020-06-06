@@ -3,12 +3,12 @@ title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure M
 description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: af767bf73a3b9a6f2a91298987f11974499fd694
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3259c861b0e64b560eb2a17a832a02b87855bebf
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455710"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449196"
 ---
 # <a name="set-up-agentless-dependency-visualization"></a>Konfigurowanie wizualizacji zależności bez agenta 
 
@@ -50,8 +50,8 @@ Dodaj konto użytkownika do urządzenia.
 1. Otwórz aplikację zarządzanie urządzeniami. 
 2. Przejdź do panelu **Podaj szczegóły programu vCenter** .
 3. W obszarze **Znajdź aplikację i zależności na maszynach wirtualnych**kliknij pozycję **Dodaj poświadczenia** .
-3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i**hasło** w polu **Nazwa użytkownika**/
-6. Kliknij przycisk **Zapisz**.
+3. Wybierz **system operacyjny**, podaj przyjazną nazwę konta i hasło w polu **Nazwa użytkownika** / **Password**
+6. Kliknij pozycję **Zapisz**.
 7. Kliknij przycisk **Zapisz i Rozpocznij odnajdywanie**.
 
     ![Dodaj konto użytkownika maszyny wirtualnej](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -63,9 +63,9 @@ Wybierz maszyny, na których chcesz włączyć odnajdowanie zależności.
 1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
 2. Kliknij ikonę **analiza zależności** .
 3. Kliknij pozycję **Dodaj serwery**.
-3. Na stronie **Dodawanie serwerów** wybierz urządzenie, które odnajduje odpowiednie maszyny.
-4. Z listy maszyna wybierz maszyny.
-5. Kliknij pozycję **Dodaj serwery**.
+4. Na stronie **Dodawanie serwerów** wybierz urządzenie, które odnajduje odpowiednie maszyny.
+5. Z listy maszyna wybierz maszyny.
+6. Kliknij pozycję **Dodaj serwery**.
 
     ![Uruchom odnajdywanie zależności](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -91,6 +91,20 @@ Możesz wizualizować zależności na sześć godzin po rozpoczęciu odnajdywani
 
 > [!NOTE]
 > Informacje o procesie dla zależności nie są zawsze dostępne. Jeśli ta funkcja jest niedostępna, zależność jest przedstawiana z procesem oznaczonym jako "nieznany proces".
+
+## <a name="export-dependency-data"></a>Eksportuj dane zależności
+
+1. W **Azure Migrate: Ocena serwera**, kliknij przycisk **odnalezione serwery**.
+2. Kliknij ikonę **analiza zależności** .
+3. Kliknij pozycję **Eksportuj zależności aplikacji**.
+4. Na stronie **Eksportuj zależności aplikacji** wybierz urządzenie, które odnajduje odpowiednie maszyny.
+5. Wybierz godzinę rozpoczęcia i godzinę zakończenia. Należy pamiętać, że dane można pobrać tylko w ciągu ostatnich 30 dni.
+6. Kliknij pozycję **Eksportuj zależność**.
+
+Dane zależności są eksportowane i pobierane w formacie CSV. Pobrany plik zawiera dane zależności między wszystkimi maszynami, na których włączono obsługę analizy zależności. 
+
+    ![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
+
 
 ## <a name="stop-dependency-discovery"></a>Zatrzymaj odnajdywanie zależności
 

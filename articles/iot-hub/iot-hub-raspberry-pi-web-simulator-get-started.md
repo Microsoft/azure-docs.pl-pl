@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: efbe41be6c923f3547df86fd6faeb56bff5e0802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c1e56eced3ed675a70cc1ec2461038c80cff233
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73954527"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449791"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Połącz symulator online Raspberry Pi z platformą Azure IoT Hub (Node. js)
 
@@ -23,18 +23,20 @@ ms.locfileid: "73954527"
 
 W tym samouczku rozpocznie się zapoznanie się z podstawą pracy z symulatorem online Raspberry Pi. Następnie dowiesz się, jak bezproblemowo połączyć symulatora pi z chmurą przy użyciu [usługi Azure IoT Hub](about-iot-hub.md).
 
-Jeśli masz urządzenia fizyczne, odwiedź stronę [Connect Raspberry Pi do platformy IoT Hub Azure](iot-hub-raspberry-pi-kit-node-get-started.md) , aby rozpocząć pracę.
-
 <p>
 <div id="diag" style="width:100%; text-align:center">
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
 <img src="media/iot-hub-raspberry-pi-web-simulator/3-banner.png" alt="Connect Raspberry Pi web simulator to Azure IoT Hub" width="400">
 </div>
+</p>
 <p>
 <div id="button" style="width:100%; text-align:center">
-<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted" target="_blank">
+<a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#getstarted" target="_blank">
 <img src="media/iot-hub-raspberry-pi-web-simulator/6-button-default.png" alt="Start Raspberry Pi simulator" width="400" onmouseover="this.src='media/iot-hub-raspberry-pi-web-simulator/5-button-click.png';" onmouseout="this.src='media/iot-hub-raspberry-pi-web-simulator/6-button-default.png';">
+</a>
 </div>
+</p>
+
+Jeśli masz urządzenia fizyczne, odwiedź stronę [Connect Raspberry Pi do platformy IoT Hub Azure](iot-hub-raspberry-pi-kit-node-get-started.md) , aby rozpocząć pracę.
 
 ## <a name="what-you-do"></a>Co robisz
 
@@ -96,9 +98,9 @@ W symulatorze sieci Web znajdują się trzy obszary.
 1. 
    ![Zastępowanie parametrów połączenia urządzenia](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
 
-2. Wybierz polecenie **Uruchom** lub `npm start` wpisz, aby uruchomić aplikację.
+2. Wybierz polecenie **Uruchom** lub wpisz, `npm start` Aby uruchomić aplikację.
 
-Powinny pojawić się następujące dane wyjściowe pokazujące dane czujnika i komunikaty wysyłane do danych z czujnika danych wyjściowych ![usługi IoT Hub wysyłane z Raspberry Pi do centrum IoT Hub](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
+Powinny pojawić się następujące dane wyjściowe pokazujące dane czujnika i komunikaty wysyłane do ![ danych z czujnika danych wyjściowych usługi IoT Hub wysyłane z Raspberry Pi do centrum IoT Hub](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Odczytywanie komunikatów odebranych przez centrum
 

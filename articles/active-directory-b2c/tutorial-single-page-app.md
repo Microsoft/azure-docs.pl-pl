@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 31db8aa750a0691940f9f55c2743764c38fd8b0b
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: cd696b6aba96b06a7b84722d61eb40bbfa15c0ff
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331461"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84447938"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
@@ -59,7 +59,8 @@ Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. Wybierz pozycję **rejestracje aplikacji**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
-1. W obszarze **Sieć Web**wybierz łącze **Dodaj identyfikator URI** , wprowadź `http://localhost:6420` , a następnie wybierz pozycję **Zapisz**.
+1. W obszarze **Sieć Web**wybierz łącze **Dodaj identyfikator URI** , a następnie wprowadź `http://localhost:6420` .
+1. W obszarze **niejawne przyznanie**zaznacz pola wyboru **tokenów dostępu** i **tokenów identyfikatorów** , a następnie wybierz pozycję **Zapisz**.
 1. Wybierz pozycję **Omówienie**.
 1. Rejestrowanie **identyfikatora aplikacji (klienta)** do użycia w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
 

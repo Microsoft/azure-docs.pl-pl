@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8a64c8cabe91bb7bbfb533b38a32f58a82fd3351
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: baf5252a6b158855739546c2a03e63dceee6701e
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434387"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456508"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Uwierzytelnianie i autoryzacja w kotwicach przestrzennych platformy Azure
 
@@ -174,13 +174,14 @@ Token dostępu usługi Azure AD jest pobierany przy użyciu [biblioteki MSAL](..
         1.  W Azure Portal przejdź do **Azure Active Directory**i wybierz pozycję **rejestracje aplikacji**
         2.  Wybierz pozycję **rejestracja nowej aplikacji**
         3.  Wprowadź nazwę aplikacji, wybierz pozycję **Web App/API** jako typ aplikacji, a następnie wprowadź adres URL uwierzytelniania dla usługi. Następnie kliknij przycisk **Utwórz**.
-        4.  W tej aplikacji naciśnij pozycję **Ustawienia**, a następnie wybierz kartę **klucze** . Wprowadź nazwę klucza, wybierz czas trwania i naciśnij pozycję **Zapisz**. Pamiętaj, aby zapisać wartość klucza, która jest wyświetlana w tym czasie, ponieważ należy ją uwzględnić w kodzie usługi sieci Web.
+        4.  W tej aplikacji naciśnij pozycję **Ustawienia**, a następnie wybierz kartę **Certyfikaty i wpisy tajne** . Utwórz nowy klucz tajny klienta, wybierz czas trwania i przycisk **Dodaj**. Pamiętaj, aby zapisać wartość wpisu tajnego, ponieważ będzie ona musiała zostać uwzględniona w kodzie usługi sieci Web.
     2.  Przyznaj aplikacji i/lub użytkownikom dostęp do zasobu:
         1.  Przejdź do zasobu zakotwiczenia przestrzennego w Azure Portal
         2.  Przełącz na kartę **Kontrola dostępu (IAM)**
         3.  Trafienie **Dodaj przypisanie roli**
         1.  [Wybierz rolę](#role-based-access-control)
         2.  W polu **Wybierz** wprowadź nazwę utworzonych aplikacji i, do których chcesz przypisać dostęp. Jeśli chcesz, aby użytkownicy Twojej aplikacji mieli różne role względem konta zakotwiczeń przestrzennych, należy zarejestrować wiele aplikacji w usłudze Azure AD i przypisać je do każdej innej roli. Następnie Zaimplementuj logikę autoryzacji, aby korzystać z odpowiedniej roli dla użytkowników.
+        3.  Zwróć uwagę, że w polu **Dodaj przypisanie roli** ma być **ustawiona wartość "** użytkownik, Grupa lub główna usługa" usługi Azure AD.
     3.  Wybierz pozycję **Zapisz**.
 2.  W kodzie (Uwaga: możesz użyć przykładu usługi dostępnego w witrynie GitHub):
     1.  Upewnij się, że używasz identyfikatora aplikacji, klucza tajnego aplikacji i identyfikatora URI przekierowania dla własnej aplikacji usługi Azure AD jako parametry identyfikatora klienta, klucza tajnego i RedirectUri w MSAL

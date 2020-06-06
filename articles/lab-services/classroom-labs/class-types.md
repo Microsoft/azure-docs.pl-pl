@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 45043718664eb1b3b6b865821b3f6b2a51199194
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c4842c673dc5d56cd57a2131f1c522b0bc682559
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115034"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448023"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Przegląd typów klas — Azure Lab Services
 
@@ -62,9 +62,19 @@ Można skonfigurować laboratorium w Azure Lab Services, aby nauczyć się wprow
 Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia opracowywania aplikacji mobilnych za pomocą Android Studio](class-type-mobile-dev-android-studio.md).
 
 ## <a name="big-data-analytics"></a>Analiza danych big data
-Można skonfigurować laboratorium do uczenia klasy analizy danych Big Data. Z tego typu klasy studenci mogą dowiedzieć się, jak obsługiwać duże ilości danych, i stosować algorytmy uczenia maszynowego i statystycznego w celu uzyskania szczegółowych informacji. Najważniejszym celem dla studentów jest Nauka korzystania z narzędzi analitycznych danych, takich jak pakiet oprogramowania typu open source Apache Hadoop, który oferuje narzędzia do przechowywania i przetwarzania danych Big Data oraz zarządzania nimi. 
+Można skonfigurować laboratorium procesora GPU do uczenia klasy analizy danych Big Data. Z tego typu klasy studenci mogą dowiedzieć się, jak obsługiwać duże ilości danych, i stosować algorytmy uczenia maszynowego i statystycznego w celu uzyskania szczegółowych informacji. Najważniejszym celem dla studentów jest Nauka korzystania z narzędzi analitycznych danych, takich jak pakiet oprogramowania typu open source Apache Hadoop, który oferuje narzędzia do przechowywania i przetwarzania danych Big Data oraz zarządzania nimi. 
 
-Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do analizy danych Big Data przy użyciu platformy Docker Deployment HortonWorks Data Platform](class-type-big-data-analytics.md).
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium na potrzeby analizy danych Big Data za pomocą platformy Docker Deployment HortonWorks Data Platform](class-type-big-data-analytics.md).
+
+## <a name="matlab"></a>MATLAB
+Program [MATLAB](https://www.mathworks.com/products/matlab.html), który jest przeznaczony dla laboratorium Matrix, jest platformą programistyczną [MathWorks](https://www.mathworks.com/).  Łączy moc obliczeniową i wizualizację, co sprawia, że jest to popularne narzędzie w dziedzinach matematycznych, inżynieryjnych, fizyki i chemii.
+
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium do uczenia programu MATLAB](class-type-matlab.md).
+
+## <a name="solidworks-computer-aided-design-cad"></a>SolidWorks projektowanie wspomagane komputerem (CAD)
+Można skonfigurować laboratorium procesora GPU, które daje studentom inżynierów dostęp do [SolidWorks](https://www.solidworks.com/).  SolidWorks udostępnia środowisko CAD 3D do modelowania obiektów stałych.  Dzięki SolidWorks inżynierowie mogą łatwo tworzyć, wizualizować, symulować i dokumentować projekty.
+
+Aby uzyskać szczegółowe informacje na temat sposobu konfigurowania tego typu laboratorium, zobacz [Konfigurowanie laboratorium dla klas inżynierii przy użyciu SolidWorks](class-type-solidworks.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

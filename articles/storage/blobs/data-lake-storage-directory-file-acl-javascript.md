@@ -5,21 +5,21 @@ author: normesta
 ms.service: storage
 ms.date: 03/20/2020
 ms.author: normesta
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: 04d0d23bdbdaeda6a4823c900badb3133ba9eeae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a95af730e8250539e8b33af4bd5a90dc3a604a2
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061536"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466072"
 ---
 # <a name="use-javascript-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Używanie języka JavaScript do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
 W tym artykule pokazano, jak używać języka JavaScript do tworzenia katalogów, plików i uprawnień w ramach kont magazynu, które mają włączoną hierarchiczną przestrzeń nazw (SNS) i zarządzać nimi. 
 
-[Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)Przykłady | pakietu (Menedżer pakietów węzła)[zawierają opinię](https://github.com/Azure/azure-sdk-for-java/issues)
+[Pakiet (Menedżer pakietów węzła)](https://www.npmjs.com/package/@azure/storage-file-datalake)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)  |  [Przekaż opinię](https://github.com/Azure/azure-sdk-for-java/issues)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -94,7 +94,7 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 
 System plików działa jako kontener dla plików. Można go utworzyć, pobierając wystąpienie **FileSystemClient** , a następnie wywołując metodę **FileSystemClient. Create** .
 
-Ten przykład tworzy system plików o nazwie `my-file-system`. 
+Ten przykład tworzy system plików o nazwie `my-file-system` . 
 
 ```javascript
 async function CreateFileSystem(datalakeServiceClient) {
@@ -128,7 +128,7 @@ async function CreateDirectory(fileSystemClient) {
 
 Zmień nazwę lub Przenieś katalog, wywołując metodę **DirectoryClient. Rename** . Przekaż ścieżkę do żądanego katalogu jako parametr. 
 
-Ten przykład zmienia nazwę podkatalogu na nazwę `my-directory-renamed`.
+Ten przykład zmienia nazwę podkatalogu na nazwę `my-directory-renamed` .
 
 ```javascript
 async function RenameDirectory(fileSystemClient) {
@@ -139,7 +139,7 @@ async function RenameDirectory(fileSystemClient) {
 }
 ```
 
-Ten przykład przenosi katalog o nazwie `my-directory-renamed` do podkatalogu o nazwie `my-directory-2`. 
+Ten przykład przenosi katalog o nazwie `my-directory-renamed` do podkatalogu o nazwie `my-directory-2` . 
 
 ```javascript
 async function MoveDirectory(fileSystemClient) {
@@ -154,7 +154,7 @@ async function MoveDirectory(fileSystemClient) {
 
 Usuń katalog, wywołując metodę **DirectoryClient. Delete** .
 
-Ten przykład usuwa katalog o nazwie `my-directory`.   
+Ten przykład usuwa katalog o nazwie `my-directory` .   
 
 ```javascript
 async function DeleteDirectory(fileSystemClient) {
@@ -167,7 +167,7 @@ async function DeleteDirectory(fileSystemClient) {
 
 ## <a name="manage-a-directory-acl"></a>Zarządzanie listą ACL katalogów
 
-Ten przykład pobiera i ustawia listę ACL katalogu o nazwie `my-directory`. Ten przykład daje właścicielowi uprawnień Odczyt, zapis i wykonywanie, daje grupie będącej właścicielem tylko uprawnienia do odczytu i wykonywania, a ponadto daje wszystkim innym osobom dostęp do odczytu.
+Ten przykład pobiera i ustawia listę ACL katalogu o nazwie `my-directory` . Ten przykład daje właścicielowi uprawnień Odczyt, zapis i wykonywanie, daje grupie będącej właścicielem tylko uprawnienia do odczytu i wykonywania, a ponadto daje wszystkim innym osobom dostęp do odczytu.
 
 > [!NOTE]
 > Jeśli aplikacja autoryzuje dostęp przy użyciu Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzacji dostępu ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -223,7 +223,7 @@ async function ManageDirectoryACLs(fileSystemClient) {
 
 Najpierw Odczytaj plik. Ten przykład używa modułu Node. js `fs` . Następnie Utwórz odwołanie do pliku w katalogu docelowym, tworząc wystąpienie **FileClient** , a następnie wywołując metodę **FileClient. Create** . Przekaż plik, wywołując metodę **FileClient. Append** . Upewnij się, że ukończono przekazywanie, wywołując metodę **FileClient. Flush** .
 
-Ten przykład przekazuje plik tekstowy do katalogu o nazwie `my-directory`.
+Ten przykład przekazuje plik tekstowy do katalogu o nazwie `my-directory` .
 
 ```javascript
 async function UploadFile(fileSystemClient) {
@@ -249,7 +249,7 @@ async function UploadFile(fileSystemClient) {
 
 ## <a name="manage-a-file-acl"></a>Zarządzanie listą ACL plików
 
-Ten przykład pobiera i ustawia listę ACL pliku o nazwie `upload-file.txt`. Ten przykład daje właścicielowi uprawnień Odczyt, zapis i wykonywanie, daje grupie będącej właścicielem tylko uprawnienia do odczytu i wykonywania, a ponadto daje wszystkim innym osobom dostęp do odczytu.
+Ten przykład pobiera i ustawia listę ACL pliku o nazwie `upload-file.txt` . Ten przykład daje właścicielowi uprawnień Odczyt, zapis i wykonywanie, daje grupie będącej właścicielem tylko uprawnienia do odczytu i wykonywania, a ponadto daje wszystkim innym osobom dostęp do odczytu.
 
 > [!NOTE]
 > Jeśli aplikacja autoryzuje dostęp przy użyciu Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzacji dostępu ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -341,7 +341,7 @@ async function DownloadFile(fileSystemClient) {
 
 ## <a name="list-directory-contents"></a>Wyświetlanie zawartości katalogu
 
-W tym przykładzie program drukuje nazwy poszczególnych katalogów i plików znajdujących się w katalogu o nazwie `my-directory`.
+W tym przykładzie program drukuje nazwy poszczególnych katalogów i plików znajdujących się w katalogu o nazwie `my-directory` .
 
 ```javascript
 async function ListFilesInDirectory(fileSystemClient) {

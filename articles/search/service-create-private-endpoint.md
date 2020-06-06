@@ -8,16 +8,18 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 0945743fb2cf3e37345ff562250e48511944cee6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e55dfc692bdd625de8873f6e61c9969ed7fbf2df
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125557"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466174"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Utwórz prywatny punkt końcowy dla bezpiecznego połączenia z platformą Azure Wyszukiwanie poznawcze
 
 W tym artykule opisano Azure Portal tworzenia nowego wystąpienia usługi Azure Wyszukiwanie poznawcze, do którego nie można uzyskać dostępu za pośrednictwem Internetu. Następnie skonfigurujesz maszynę wirtualną platformy Azure w tej samej sieci wirtualnej i używasz jej do uzyskiwania dostępu do usługi wyszukiwania za pośrednictwem prywatnego punktu końcowego.
+
+Prywatne punkty końcowe są udostępniane przez [łącze prywatne platformy Azure](../private-link/private-link-overview.md)jako oddzielna usługa. Aby uzyskać więcej informacji o kosztach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/private-link/).
 
 > [!Important]
 > Obsługę prywatnego punktu końcowego dla usługi Azure Wyszukiwanie poznawcze można skonfigurować przy użyciu Azure Portal lub [interfejsu API REST zarządzania w wersji 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/). Gdy punkt końcowy usługi jest prywatny, niektóre funkcje portalu są wyłączone. Będziesz mieć możliwość wyświetlania informacji o poziomie usług i zarządzania nimi, ale dostęp portalu do danych indeksu i różne składniki usługi, takie jak indeks, indeksator i definicje zestawu umiejętności, są ograniczone ze względów bezpieczeństwa.
@@ -42,7 +44,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć do hostowania maszyny wirtual
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    | Subskrypcja | Wybierz swoją subskrypcję|
+    | Subskrypcja | Wybieranie subskrypcji|
     | Grupa zasobów | Wybierz pozycję **Utwórz nowy**, wprowadź nazwę *zasobu*, a następnie wybierz przycisk **OK** . |
     | Nazwa | Wprowadź *MyVirtualNetwork* |
     | Region | Wybierz żądany region |

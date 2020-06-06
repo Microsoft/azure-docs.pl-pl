@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: 5c2ea38dfa799239adde158506e1359fb84adcc4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 751d55493b1bdb06dfe61d9f951846e13e1e5d72
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650537"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457188"
 ---
 # <a name="classroom-lab-setup-guide"></a>Przewodnik konfigurowania laboratorium zajęć
 
@@ -137,7 +137,7 @@ Po zrozumieniu wymagań dla laboratorium klasy można rozpocząć konfigurację.
 1. **Użyj pulpitu nawigacyjnego.** Aby uzyskać instrukcje, zobacz [Korzystanie z pulpitu nawigacyjnego laboratorium](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 
     > [!NOTE]
-    > Szacowany koszt pokazany na pulpicie nawigacyjnym to maksymalny koszt, który można oczekiwać na użycie dla studentów w laboratorium. Na przykład *nie* będzie naliczana opłata za niewykorzystane godziny według uczniów. Szacowane koszty *nie* uwzględniają żadnych opłat za korzystanie z szablonu maszyny wirtualnej lub galerii obrazów udostępnionych.
+    > Szacowany koszt pokazany na pulpicie nawigacyjnym to maksymalny koszt, który można oczekiwać na użycie dla studentów w laboratorium. Na przykład *nie* będzie naliczana opłata za niewykorzystane godziny według uczniów. Szacowane koszty *nie* uwzględniają żadnych opłat za korzystanie z szablonu maszyny wirtualnej, galerii obrazów udostępnionych ani gdy twórca laboratorium uruchamia komputer użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 

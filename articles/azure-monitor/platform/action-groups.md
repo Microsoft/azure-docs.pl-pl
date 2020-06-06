@@ -3,15 +3,15 @@ title: Tworzenie grup akcji i zarządzanie nimi w Azure Portal
 description: Dowiedz się, jak tworzyć grupy akcji i zarządzać nimi w Azure Portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 4/17/2020
+ms.date: 6/5/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: b88b6d1ea4b9d9fc2b33849157968ee1c2f8c620
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: dbc810ad7227d9d47099fe85e89a92c8fa750302
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170464"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465256"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. W ramach subskrypcji można skonfigurować maksymalnie 2 000 grup akcji.
@@ -80,7 +80,7 @@ W grupie akcji może istnieć ograniczona liczba akcji elementu Runbook.
 ### <a name="azure-app-push-notifications"></a>Powiadomienia push aplikacji platformy Azure
 W grupie akcji może istnieć ograniczona liczba akcji aplikacji platformy Azure.
 
-### <a name="email"></a>E-mail
+### <a name="email"></a>Poczta e-mail
 Wiadomości e-mail będą wysyłane z następujących adresów e-mail. Upewnij się, że filtrowanie poczty e-mail jest skonfigurowane odpowiednio
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
@@ -217,7 +217,12 @@ W grupie akcji może istnieć ograniczona liczba akcji głosowych.
 Cennik dla obsługiwanych krajów/regionów znajduje się na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>Webhook
-Próby elementów webhook zostały ponowione przy użyciu następujących reguł. Wywołanie elementu webhook jest ponawiane maksymalnie 2 razy, gdy zwracane są następujące kody stanu HTTP: 408, 429, 503, 504 lub punkt końcowy HTTP nie odpowiada. Pierwsze ponowienie próby odbywa się po 10 sekundach. Druga ponowna próba nastąpi po 100 sekundach. Po dwóch awariach żadna grupa akcji nie będzie wywoływała punktu końcowego przez 30 minut. 
+Elementy webhook są przetwarzane przy użyciu następujących reguł
+- Podjęto próbę wywołania elementu webhook z maksymalnie 3 razy.
+- Wywołanie zostanie ponowione, jeśli odpowiedź nie zostanie odebrana w określonym limicie czasu lub zostanie zwrócony jeden z następujących kodów stanu HTTP: 408, 429, 503 lub 504.
+- Pierwsze wywołanie będzie oczekiwać 10 sekund na odpowiedź.
+- Druga i trzecia próba odczeka 30 sekund na odpowiedź.
+- Gdy 3 próby wywołania elementu webhook zakończą się niepowodzeniem, żadna grupa akcji nie zadzwoni punktu końcowego przez 15 minut.
 
 Zakresy źródłowych adresów IP
  - 13.72.19.232

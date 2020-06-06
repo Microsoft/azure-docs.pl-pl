@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2020
+ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 84857315e4b6b4375ed5b78520b4c6ff0d66751a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b696cdf2d54c42d3967041c5d10b1bd9bb5a3065
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684984"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448686"
 ---
 # <a name="azure-load-balancer-components"></a>Składniki Azure Load Balancer
 
@@ -39,6 +39,8 @@ Charakter adresu IP określa **Typ** utworzonego modułu równoważenia obciąż
 
 ![Przykład modułu równoważenia obciążenia warstwowego](./media/load-balancer-overview/load-balancer.png)
 
+Load Balancer może mieć wiele adresów IP frontonu. Dowiedz się więcej na temat [wielu frontonów](load-balancer-multivip-overview.md).
+
 ## <a name="backend-pool"></a>Pula zaplecza
 
 Grupa maszyn wirtualnych lub wystąpień w zestawie skalowania maszyn wirtualnych obsługujących żądanie przychodzące. Aby zapewnić oszczędne skalowanie w celu spełnienia dużych ilości ruchu przychodzącego, wytyczne obliczeniowe zwykle zaleca się dodanie większej liczby wystąpień do puli zaplecza.
@@ -57,7 +59,7 @@ Można zdefiniować próg złej kondycji dla sond kondycji. Gdy Sonda nie odpowi
 - Limit czasu bezczynności
 - Maszyna wirtualna jest zamykana
 
-Load Balancer oferuje różne typy sond kondycji dla punktów końcowych: TCP, HTTP i HTTPS.
+Load Balancer oferuje różne typy sond kondycji dla punktów końcowych: TCP, HTTP i HTTPS. [Dowiedz się więcej o Load Balancer sondy kondycji](load-balancer-custom-probe-overview.md).
 
 Podstawowa Load Balancer nie obsługuje sond protokołu HTTPS. Podstawowa Load Balancer zamyka wszystkie połączenia TCP (łącznie z ustanowionymi połączeniami).
 
@@ -67,15 +69,34 @@ Reguła Load Balancer służy do definiowania sposobu dystrybucji ruchu przychod
 
 Na przykład jeśli chcesz, aby ruch na porcie 80 (lub innym porcie) adresu IP frontonu był kierowany do portu 80 wszystkich wystąpień zaplecza, użyj reguły równoważenia obciążenia, aby to osiągnąć.
 
+### <a name="high-availability-ports"></a>Porty wysokiej dostępności
+
+Reguła Load Balancer skonfigurowana z opcją "Protokół-All i port-0". Pozwala to zapewnić jednej regule równoważenia obciążenia wszystkich przepływów TCP i UDP, które docierają do wszystkich portów wewnętrznej usługa Load Balancer w warstwie Standardowa. Podejmowana jest decyzja dotycząca równoważenia obciążenia dla przepływu. Ta akcja jest oparta na następującym połączeniu z pięcioma krotkami: 
+1. 
+    źródłowy adres IP
+  
+2. port źródłowy
+3. docelowy adres IP
+4. port docelowy
+5. protokol
+
+Reguły równoważenia obciążenia portów HA ułatwiają scenariusze krytyczne, takie jak wysoka dostępność i skalowanie dla wirtualnych urządzeń sieciowych (urządzeń WUS) w sieciach wirtualnych. Funkcja może również pomóc w sytuacji, gdy duża liczba portów musi być zrównoważona obciążenia.
+
+Więcej informacji o [portach ha](load-balancer-ha-ports-overview.md)można znaleźć w części.
+
 ## <a name="inbound-nat-rules"></a>Reguły NAT dla ruchu przychodzącego
 
 Reguła ruchu przychodzącego NAT przesyła przychodzącego ruchu wysyłanego do wybranego adresu IP frontonu i kombinacji portów do **określonej** maszyny wirtualnej lub wystąpienia w puli zaplecza. Przekazywanie portów odbywa się przy użyciu tego samego rozkładu opartego na wykorzystaniu skrótu co Równoważenie obciążenia.
 
 Na przykład jeśli chcesz, aby w ramach sesji Remote Desktop Protocol (RDP) lub Secure Shell (SSH) oddzielić wystąpienia maszyn wirtualnych w puli zaplecza. Wiele wewnętrznych punktów końcowych można zamapować na porty przy użyciu tego samego adresu IP frontonu. Adresy IP frontonu mogą służyć do zdalnego administrowania maszynami wirtualnymi bez dodatkowego pola skoku.
 
+Reguły NAT dla ruchu przychodzącego w kontekście Virtual Machine Scale Sets (VMSS) to pule NAT dla ruchu przychodzącego. Dowiedz się więcej o [składnikach Load Balancer i VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
+
 ## <a name="outbound-rules"></a>Reguły ruchu wychodzącego
 
 Reguła ruchu wychodzącego konfiguruje wychodzące translatora adresów sieciowych dla wszystkich maszyn wirtualnych lub wystąpień identyfikowanych przez pulę zaplecza. Dzięki temu wystąpienia w zapleczu mogą komunikować się z Internetem lub z innymi punktami końcowymi.
+
+Dowiedz się więcej o [połączeniach wychodzących i regułach](load-balancer-outbound-connections.md).
 
 Podstawowa usługa równoważenia obciążenia nie obsługuje reguł ruchu wychodzącego.
 
@@ -89,9 +110,6 @@ Podstawowa usługa równoważenia obciążenia nie obsługuje reguł ruchu wycho
 - Dowiedz się więcej na temat [diagnostyki usługa Load Balancer w warstwie Standardowa](load-balancer-standard-diagnostics.md).
 - Więcej informacji [na temat resetowania protokołu TCP w trybie bezczynności](load-balancer-tcp-reset.md).
 - Dowiedz się więcej o [Usługa Load Balancer w warstwie Standardowa z regułami równoważenia obciążenia dla portów ha](load-balancer-ha-ports-overview.md).
-- Dowiedz się więcej o korzystaniu [z Load Balancer z wieloma konfiguracjami adresów IP frontonu](load-balancer-multivip-overview.md).
 - Dowiedz się więcej na temat [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md).
-- Dowiedz się więcej o [typach sond](load-balancer-custom-probe-overview.md#types).
 - Dowiedz się więcej o [limitach usługi równoważenia obciążenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer).
 - Dowiedz się więcej o używaniu [przekazywania portów](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal).
-- Dowiedz się więcej o [regułach ruchu wychodzącego modułu równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).

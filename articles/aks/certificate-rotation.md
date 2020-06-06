@@ -2,16 +2,14 @@
 title: Obróć certyfikaty w usłudze Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak obrócić certyfikaty w klastrze usługi Azure Kubernetes Service (AKS).
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: zarhoads
-ms.openlocfilehash: 00dcef4ae0f04fc7f550859238ae8c7e1ad19384
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae85b544409cbf4532c221a2a7ca27940ae6f369
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549067"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465613"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Obróć certyfikaty w usłudze Azure Kubernetes Service (AKS)
 
@@ -34,10 +32,10 @@ AKS generuje i używa następujących certyfikatów, urzędów certyfikacji i ko
 * Magazyn wartości klucza etcd tworzy urząd certyfikacji, który podpisuje certyfikaty w celu uwierzytelniania i autoryzacji replikacji danych między replikami etcd w klastrze AKS.
 * Agregator interfejsów API używa urzędu certyfikacji klastra do wystawiania certyfikatów do komunikacji z innymi interfejsami API. Agregator API może również mieć własny urząd certyfikacji do wystawiania tych certyfikatów, ale obecnie używa urzędu certyfikacji klastra.
 * W każdym węźle jest używany token konta usługi (SA), który jest podpisany przez urząd certyfikacji klastra.
-* `kubectl` Klient ma certyfikat do komunikacji z klastrem AKS.
+* `kubectl`Klient ma certyfikat do komunikacji z klastrem AKS.
 
 > [!NOTE]
-> W przypadku klastrów AKS utworzonych przed Marzec 2019 istnieją certyfikaty, które wygasną po upływie dwóch lat. Każdy klaster utworzony po marcu 2019 lub dowolny klaster, który ma swoje certyfikaty, został obrócony, ma certyfikaty urzędu certyfikacji klastra, które wygasną po 30 latach. Wszystkie inne certyfikaty wygasną po upływie dwóch lat. Aby sprawdzić, kiedy klaster został utworzony, użyj `kubectl get nodes` , aby zobaczyć *wiek* pul węzłów.
+> W przypadku klastrów AKS utworzonych przed Marzec 2019 istnieją certyfikaty, które wygasną po upływie dwóch lat. Każdy klaster utworzony po marcu 2019 lub dowolny klaster, który ma swoje certyfikaty, został obrócony, ma certyfikaty urzędu certyfikacji klastra, które wygasną po 30 latach. Wszystkie inne certyfikaty wygasną po upływie dwóch lat. Aby sprawdzić, kiedy klaster został utworzony, użyj, `kubectl get nodes` Aby zobaczyć *wiek* pul węzłów.
 > 
 > Ponadto możesz sprawdzić datę wygaśnięcia certyfikatu klastra. Na przykład następujące polecenie wyświetla szczegóły certyfikatu dla klastra *myAKSCluster* .
 > ```console
@@ -48,7 +46,7 @@ AKS generuje i używa następujących certyfikatów, urzędów certyfikacji i ko
 ## <a name="rotate-your-cluster-certificates"></a>Obróć certyfikaty klastra
 
 > [!WARNING]
-> Obrócenie certyfikatów przy `az aks rotate-certs` użyciu programu może spowodować przestoje dla klastra AKS do 30 minut.
+> Obrócenie certyfikatów przy użyciu programu `az aks rotate-certs` może spowodować przestoje dla klastra AKS do 30 minut.
 
 Użyj [AZ AKS Get-Credentials][az-aks-get-credentials] , aby zalogować się do klastra AKS. To polecenie pobiera również i konfiguruje `kubectl` certyfikat klienta na komputerze lokalnym.
 
@@ -63,16 +61,16 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 ```
 
 > [!IMPORTANT]
-> Ukończenie tego procesu może potrwać do `az aks rotate-certs` 30 minut. Jeśli polecenie zakończy się niepowodzeniem przed `az aks show` ukończeniem, należy użyć do sprawdzenia stanu klastra jako *rotacji certyfikatu*. Jeśli klaster jest w stanie niepowodzenia, uruchom `az aks rotate-certs` ponownie, aby ponownie obrócić certyfikaty.
+> Ukończenie tego procesu może potrwać do 30 minut `az aks rotate-certs` . Jeśli polecenie zakończy się niepowodzeniem przed ukończeniem, należy użyć `az aks show` do sprawdzenia stanu klastra jako *rotacji certyfikatu*. Jeśli klaster jest w stanie niepowodzenia, uruchom ponownie, `az aks rotate-certs` Aby ponownie obrócić certyfikaty.
 
-Sprawdź, czy stare certyfikaty nie są już prawidłowe, uruchamiając `kubectl` polecenie. Ponieważ certyfikaty używane przez `kubectl`program nie zostały zaktualizowane, zostanie wyświetlony komunikat o błędzie.  Przykład:
+Sprawdź, czy stare certyfikaty nie są już prawidłowe, uruchamiając `kubectl` polecenie. Ponieważ certyfikaty używane przez program nie zostały zaktualizowane `kubectl` , zostanie wyświetlony komunikat o błędzie.  Przykład:
 
 ```console
 $ kubectl get no
 Unable to connect to the server: x509: certificate signed by unknown authority (possibly because of "crypto/rsa: verification error" while trying to verify candidate authority certificate "ca")
 ```
 
-Zaktualizuj certyfikat używany przez program `kubectl` przez uruchomienie `az aks get-credentials`.
+Zaktualizuj certyfikat używany przez program `kubectl` przez uruchomienie `az aks get-credentials` .
 
 ```azurecli
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing

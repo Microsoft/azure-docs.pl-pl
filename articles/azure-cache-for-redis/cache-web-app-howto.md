@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 904e15611ae3032c0523d5132fea9973fbfe3f3f
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74927066"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457120"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacją internetową ASP.NET 
 
@@ -25,7 +25,7 @@ W tym przewodniku szybki start użyjesz programu Visual Studio 2019 do utworzeni
 
 ## <a name="create-the-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
-1. Otwórz program Visual Studio, a następnie wybierz pozycję **plik** >**Nowy** > **projekt**.
+1. Otwórz program Visual Studio, a następnie wybierz pozycję **plik**  > **Nowy**  >  **projekt**.
 
 2. W oknie dialogowym **Nowy projekt** wykonaj następujące kroki:
 
@@ -143,30 +143,34 @@ Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure z
 
             // Connection refers to a property that returns a ConnectionMultiplexer
             // as shown in the previous example.
-            IDatabase cache = lazyConnection.Value.GetDatabase();
+            
+            using (ConnectionMultiplexer redis = lazyConnection.Value)
+            {
+               IDatabase cache = redis.GetDatabase();
 
-            // Perform cache operations using the cache object...
 
-            // Simple PING command
-            ViewBag.command1 = "PING";
-            ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
+               // Perform cache operations using the cache object...
 
-            // Simple get and put of integral data types into the cache
-            ViewBag.command2 = "GET Message";
-            ViewBag.command2Result = cache.StringGet("Message").ToString();
+               // Simple PING command
+               ViewBag.command1 = "PING";
+               ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
 
-            ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
-            ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
+               // Simple get and put of integral data types into the cache
+               ViewBag.command2 = "GET Message";
+               ViewBag.command2Result = cache.StringGet("Message").ToString();
 
-            // Demonstrate "SET Message" executed as expected...
-            ViewBag.command4 = "GET Message";
-            ViewBag.command4Result = cache.StringGet("Message").ToString();
+               ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
+               ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
 
-            // Get the client list, useful to see if connection list is growing...
-            ViewBag.command5 = "CLIENT LIST";
-            ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
+               // Demonstrate "SET Message" executed as expected...
+               ViewBag.command4 = "GET Message";
+               ViewBag.command4Result = cache.StringGet("Message").ToString();
 
-            lazyConnection.Value.Dispose();
+               // Get the client list, useful to see if connection list is growing...
+               ViewBag.command5 = "CLIENT LIST";
+               ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
+
+            }
 
             return View();
         }
@@ -188,7 +192,7 @@ Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure z
 
 ### <a name="to-add-a-new-rediscache-view"></a>Aby dodać nowy widok RedisCache
 
-1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki**, a następnie kliknij prawym przyciskiem myszy folder **Główny**. Wybierz pozycję **Dodaj** > **Widok.**...
+1. W **Eksploratorze rozwiązań** rozwiń folder **Widoki**, a następnie kliknij prawym przyciskiem myszy folder **Główny**. Wybierz pozycję **Dodaj**  >  **Widok.**...
 
 2. W oknie dialogowym **Dodawanie widoku** wprowadź **RedisCache** jako nazwę widoku. Następnie wybierz pozycję **Dodaj**.
 
@@ -235,7 +239,7 @@ Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure z
 Domyślnie projekt jest konfigurowany do lokalnego hostowania aplikacji w usługach [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) na potrzeby testowania i debugowania.
 
 ### <a name="to-run-the-app-locally"></a>Uruchamianie aplikacji lokalnie
-1. W programie Visual Studio wybierz kolejno opcje **Debuguj** > **Rozpocznij debugowanie** , aby skompilować i uruchomić aplikację lokalnie na potrzeby testowania i debugowania.
+1. W programie Visual Studio wybierz kolejno opcje **Debuguj**  >  **Rozpocznij debugowanie** , aby skompilować i uruchomić aplikację lokalnie na potrzeby testowania i debugowania.
 
 2. W przeglądarce wybierz pozycję **Test usługi Azure Cache for Redis** na pasku nawigacyjnym.
 

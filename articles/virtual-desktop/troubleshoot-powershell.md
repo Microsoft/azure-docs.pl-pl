@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/30/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ce19c670df5062a11bf86e9c383a322f9033818d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6e4459eea07f60d90dad692d6625dd45c5038093
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612014"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456967"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Program PowerShell dla usługi Windows Virtual Desktop
 
@@ -36,7 +36,7 @@ Ta sekcja zawiera listę poleceń programu PowerShell, które są zwykle używan
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Błąd: New-AzRoleAssignment: podane informacje nie są mapowane na identyfikator obiektu usługi AD.
 
 ```powershell
-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
 **Przyczyna:** Nie można znaleźć użytkownika określonego przez parametr *-SignInName* w Azure Active Directory powiązanym ze środowiskiem pulpitu wirtualnego systemu Windows. 
@@ -73,7 +73,7 @@ Poprawka: w komunikacie o błędzie zostanie opublikowana Lista obsługiwanych r
 New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
 ```
 
-**Przyczyna:** Niezgodność lokalizacji. Wszystkie pule hostów, grupy aplikacji i obszary robocze mają lokalizację do przechowywania metadanych usługi. Wszystkie obiekty, które tworzysz, są skojarzone ze sobą, muszą znajdować się w tej samej lokalizacji. Na przykład, jeśli Pula hostów znajduje się w `eastus`programie, należy również utworzyć grupy aplikacji w programie `eastus`. Jeśli utworzysz obszar roboczy, aby zarejestrować te grupy aplikacji do, ten obszar roboczy musi być również `eastus` w tym obszarze.
+**Przyczyna:** Niezgodność lokalizacji. Wszystkie pule hostów, grupy aplikacji i obszary robocze mają lokalizację do przechowywania metadanych usługi. Wszystkie obiekty, które tworzysz, są skojarzone ze sobą, muszą znajdować się w tej samej lokalizacji. Na przykład, jeśli Pula hostów znajduje się w programie `eastus` , należy również utworzyć grupy aplikacji w programie `eastus` . Jeśli utworzysz obszar roboczy, aby zarejestrować te grupy aplikacji do, ten obszar roboczy musi być również w tym obszarze `eastus` .
 
 **Poprawka:** Pobierz lokalizację, w której utworzono pulę hostów, a następnie Przypisz grupę aplikacji, którą tworzysz, do tej samej lokalizacji.
 

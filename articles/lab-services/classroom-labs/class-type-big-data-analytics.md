@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/15/2020
 ms.author: nicolela
-ms.openlocfilehash: 3035b9debdd46c1a8ba246882312e28d1a2087e4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 5c2962fcc470525510be8ee0c89baba658d9f9d9
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118434"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449638"
 ---
-# <a name="set-up-a-lab-to-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Skonfiguruj laboratorium do analizy danych Big Data przy użyciu platformy Docker Deployment HortonWorks Data Platform
+# <a name="set-up-a-lab-for-big-data-analytics-using-docker-deployment-of-hortonworks-data-platform"></a>Konfigurowanie laboratorium na potrzeby analizy danych Big Data przy użyciu platformy Docker HortonWorks Data Platform
 
 W tym artykule opisano sposób konfigurowania laboratorium do uczenia klasy analizy danych Big Data.  Z tego typu klasy studenci mogą dowiedzieć się, jak obsługiwać duże ilości danych i stosować algorytmy uczenia maszynowego i statystycznego w celu uzyskania szczegółowych informacji.  Najważniejszym celem dla studentów jest Nauka korzystania z narzędzi analitycznych danych, takich jak [pakiet oprogramowania typu open source Apache Hadoop](https://hadoop.apache.org/) , który oferuje narzędzia do przechowywania i przetwarzania danych Big Data oraz zarządzania nimi.
 
@@ -32,7 +32,7 @@ Innym interesującym aspektem tego laboratorium jest wdrożenie piaskownicy HDP 
 
 ## <a name="lab-configuration"></a>Konfiguracja laboratorium
 
-Aby rozpocząć pracę z tym laboratorium, musisz zacząć korzystać z subskrypcji platformy Azure i konta laboratorium. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) . Po otrzymaniu subskrypcji platformy Azure Możesz utworzyć nowe konto laboratorium w Azure Lab Services. Aby uzyskać więcej informacji na temat tworzenia nowego konta laboratorium, zobacz [Samouczek dotyczący konfigurowania konta laboratorium](tutorial-setup-lab-account.md).  Możesz również użyć istniejącego konta laboratorium.
+Aby rozpocząć pracę z tym laboratorium, musisz zacząć korzystać z subskrypcji platformy Azure i konta laboratorium. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/). Po otrzymaniu subskrypcji platformy Azure Możesz utworzyć nowe konto laboratorium w Azure Lab Services. Aby uzyskać więcej informacji na temat tworzenia nowego konta laboratorium, zobacz [Samouczek dotyczący konfigurowania konta laboratorium](tutorial-setup-lab-account.md).  Możesz również użyć istniejącego konta laboratorium.
 
 ### <a name="lab-account-settings"></a>Ustawienia konta laboratorium
 

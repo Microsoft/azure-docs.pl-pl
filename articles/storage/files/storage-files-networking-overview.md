@@ -7,20 +7,20 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 804e469a01be042b4c299fd608f11426e7274b72
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296531"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464814"
 ---
 # <a name="azure-files-networking-considerations"></a>Zagadnienia dotyczące sieci Azure Files 
 Możesz połączyć się z udziałem plików platformy Azure na dwa sposoby:
 
 - Uzyskiwanie dostępu do udziału bezpośrednio za pośrednictwem protokołów SMB lub FileREST. Ten wzorzec dostępu jest używany przede wszystkim wtedy, gdy można wyeliminować dowolną liczbę serwerów lokalnych.
-- Tworzenie pamięci podręcznej udziału plików platformy Azure na serwerze lokalnym z Azure File Sync i uzyskiwanie dostępu do danych udziału plików z serwera lokalnego za pomocą wybranego protokołu (SMB, NFS, FTPS itp.) dla przypadku użycia. Ten wzorzec dostępu jest przydatny, ponieważ łączy się z najlepszą z nich zarówno w przypadku lokalnego, jak i skalowalnych usług, takich jak Azure Backup.
+- Tworzenie pamięci podręcznej udziału plików platformy Azure na serwerze lokalnym (lub na maszynie wirtualnej platformy Azure) przy użyciu Azure File Sync i uzyskiwanie dostępu do danych udziału plików z serwera lokalnego przy użyciu wybranego przez Ciebie protokołu (SMB, NFS, FTPS itp.). Ten wzorzec dostępu jest przydatny, ponieważ łączy się z najlepszą z nich zarówno w przypadku lokalnego, jak i skalowalnych usług, takich jak Azure Backup.
 
-W tym artykule opisano sposób konfigurowania sieci w przypadku, gdy przypadek użycia wywołuje bezpośrednio dostęp do udziału plików platformy Azure, a nie za pomocą Azure File Sync. Aby uzyskać więcej informacji na temat zagadnień sieciowych dotyczących wdrażania Azure File Sync, zobacz [konfigurowanie Azure File Sync serwera proxy i ustawień zapory](storage-sync-files-firewall-and-proxy.md).
+W tym artykule opisano sposób konfigurowania sieci w przypadku, gdy przypadek użycia wywołuje bezpośrednio dostęp do udziału plików platformy Azure, a nie za pomocą Azure File Sync. Aby uzyskać więcej informacji dotyczących zagadnień sieciowych dotyczących wdrażania Azure File Sync, zobacz [Azure File Sync zagadnienia dotyczące sieci](storage-sync-files-networking-overview.md).
 
 Konfiguracja sieci dla udziałów plików platformy Azure odbywa się na koncie usługi Azure Storage. Konto magazynu to konstrukcja zarządzania, która reprezentuje udostępnioną pulę magazynu, w którym można wdrożyć wiele udziałów plików, a także inne zasoby magazynu, takie jak kontenery obiektów blob lub kolejki. Konta magazynu uwidaczniają wiele ustawień, które ułatwiają Zabezpieczanie dostępu sieciowego do udziałów plików: punktów końcowych sieci, ustawień zapory konta magazynu i szyfrowania podczas przesyłania. 
 

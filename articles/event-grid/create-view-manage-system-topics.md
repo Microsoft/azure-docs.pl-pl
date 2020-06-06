@@ -1,5 +1,5 @@
 ---
-title: Twórz, Wyświetlaj i Zarządzaj tematami systemowymi w Azure Event Grid
+title: Twórz, Wyświetlaj i Zarządzaj tematami systemowymi w Azure Event Grid (Portal)
 description: W tym artykule przedstawiono sposób wyświetlania istniejącego tematu systemu, tworzenia Azure Event Grid tematów systemu przy użyciu Azure Portal.
 services: event-grid
 author: spelluru
@@ -7,29 +7,21 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: spelluru
-ms.openlocfilehash: ac22afb351973397960e66c2a8fe86031e0b213a
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 23b87812492485fc2336b8d2d35bf0426ede4772
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316656"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457239"
 ---
-# <a name="create-view-and-manage-system-topics-in-azure-event-grid"></a>Twórz, Wyświetlaj i Zarządzaj tematami systemowymi w Azure Event Grid
-W tym artykule przedstawiono sposób wykonywania następujących zadań:
-
-- Tworzenie tematu systemu
-- Wyświetl wszystkie istniejące tematy dotyczące systemu 
-- Usuwanie tematu systemu
-- Tworzenie subskrypcji zdarzeń dla tematu systemu
-
+# <a name="create-view-and-manage-event-grid-system-topics-in-the-azure-portal"></a>Twórz, Wyświetlaj i Zarządzaj Event Grid tematy systemowe w Azure Portal
+W tym artykule opisano sposób tworzenia tematów systemowych i zarządzania nimi przy użyciu Azure Portal. Aby zapoznać się z omówieniem tematów systemowych, zobacz [Tematy systemowe](system-topics.md).
 
 ## <a name="create-a-system-topic"></a>Tworzenie tematu systemu
-Temat systemowy dla zasobu platformy Azure można utworzyć na dwa sposoby:
+Można utworzyć temat systemowy dla zasobu platformy Azure (konto magazynu, Event Hubs przestrzeń nazw itp.) na dwa sposoby:
 
-- Korzystając ze strony zasobu, na przykład strony konto magazynu lub Event Hubs stronie obszaru nazw. 
-- Korzystając ze strony **Tematy dotyczące systemu Event Grid** . 
-
-Zapoznaj się z [tym przewodnikiem Szybki Start](blob-event-quickstart-portal.md) , aby zapoznać się z przykładem tworzenia tematu systemu przy użyciu strony zasobów (karta**zdarzenia** na stronie zasobu w Azure Portal). Poniższe kroki dotyczą tworzenia tematu systemu przy użyciu strony tematy dotyczące **systemu Event Grid** . 
+- Korzystając ze strony **zdarzeń** zasobu, na przykład konto magazynu lub Event Hubs przestrzeni nazw. Korzystając ze strony **zdarzenia** w Azure Portal, aby utworzyć subskrypcję zdarzeń dla zdarzenia zgłoszonego przez źródło platformy Azure (np. konto usługi Azure Storage), Portal tworzy temat systemowy dla zasobu platformy Azure, a następnie tworzy subskrypcję tematu systemowego. Należy określić nazwę tematu systemu w przypadku tworzenia subskrypcji zdarzeń w ramach zasobu platformy Azure po raz pierwszy. Począwszy od drugiego czasu, nazwa tematu systemu jest wyświetlana w trybie tylko do odczytu. Aby uzyskać szczegółowe instrukcje [, zobacz Szybki Start: kierowanie zdarzeń usługi BLOB Storage do punktu końcowego sieci Web przy użyciu Azure Portal](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage) .
+- Korzystając ze strony **Tematy dotyczące systemu Event Grid** . Poniższe kroki dotyczą tworzenia tematu systemu przy użyciu strony tematy dotyczące **systemu Event Grid** . 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 2. W polu wyszukiwania w górnej części wpisz **Event Grid tematy systemowe**, a następnie naciśnij klawisz **Enter**. 
@@ -57,11 +49,9 @@ Zapoznaj się z [tym przewodnikiem Szybki Start](blob-event-quickstart-portal.md
 
         ![Strona tematu systemu](./media/create-view-manage-system-topics/system-topic-page.png)
 
+
 ## <a name="view-all-system-topics"></a>Wyświetl wszystkie tematy dotyczące systemu
 Wykonaj następujące kroki, aby wyświetlić wszystkie istniejące Event Grid tematy dotyczące systemu. 
-
-> [!NOTE]
-> Wcześniej podczas tworzenia subskrypcji dla zdarzenia zgłoszonego przez źródła platformy Azure usługa Event Grid automatycznie utworzyła temat systemowy z losowo wygenerowaną nazwą. Teraz można określić nazwę tematu systemu podczas tworzenia tematu. Ten zasób tematu systemu służy do odnajdywania metryk i dzienników diagnostycznych.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 2. W polu wyszukiwania w górnej części wpisz **Event Grid tematy systemowe**, a następnie naciśnij klawisz **Enter**. 
@@ -100,7 +90,6 @@ Wykonaj następujące kroki, aby wyświetlić wszystkie istniejące Event Grid t
 3. Upewnij się, że **Typ tematu**, **zasób źródłowy**i **nazwa tematu** są wypełniane automatycznie. Wprowadź nazwę, wybierz **Typ punktu końcowego**i określ **punkt końcowy**. Następnie wybierz pozycję **Utwórz** , aby utworzyć subskrypcję zdarzeń. 
 
     ![Temat systemu — Tworzenie subskrypcji zdarzeń](./media/create-view-manage-system-topics/create-event-subscription.png)
-
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz [Tematy systemowe w Azure Event Grid](system-topics.md) sekcji, aby dowiedzieć się więcej o tematach systemowych i typach tematów obsługiwanych przez Azure Event Grid. 

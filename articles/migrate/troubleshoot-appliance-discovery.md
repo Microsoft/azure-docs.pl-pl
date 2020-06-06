@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3d9e4e54d2b1186278afc72c72cdd6bcf33dd41b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a4cbe49efd605e2104dbbc9f389a85e8fc4c468e
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235455"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449604"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -168,39 +168,54 @@ Azure Migrate obsługuje odnajdywanie aplikacji, ról i funkcji przy użyciu Azu
 Typowe błędy odnajdowania aplikacji zostały podsumowane w tabeli. 
 
 **Błąd** | **Przyczyna** | **Akcja**
---- | --- | --- | ---
-10000: "nie można odnaleźć aplikacji zainstalowanych na serwerze" | Taka sytuacja może wystąpić, jeśli system operacyjny komputera nie jest w systemie Windows lub Linux. | Funkcja odnajdywania aplikacji jest używana tylko w systemie Windows/Linux.
-10001: "nie można pobrać aplikacji zainstalowanych na serwerze" | Błąd wewnętrzny — niektóre brakujące pliki w urządzeniu. | Contact Microsoft Support.
-10002: "nie można pobrać aplikacji zainstalowanych na serwerze" | Agent odnajdywania na urządzeniu może nie działać prawidłowo. | Jeśli problem nie rozwiąże się w ciągu 24 godzin, skontaktuj się z pomocą techniczną.
-10003 "nie można pobrać aplikacji zainstalowanych na serwerze" | Agent odnajdywania na urządzeniu może nie działać prawidłowo. | Jeśli problem nie rozwiąże się w ciągu 24 godzin, skontaktuj się z pomocą techniczną.
-10004: "nie można odnaleźć zainstalowanych aplikacji dla <maszynach> z systemem Windows/Linux" |  W urządzeniu nie dostarczono poświadczeń dostępu do <z maszynami> z systemem Windows/Linux.| Dodaj poświadczenie do urządzenia, które ma dostęp do <> z systemem Windows/Linux.
-10005: "nie można uzyskać dostępu do serwera lokalnego" | Poświadczenia dostępu mogą być nieprawidłowe. | Zaktualizuj poświadczenia urządzenia, aby upewnić się, że masz dostęp do odpowiedniej maszyny. 
-10006: "nie można uzyskać dostępu do serwera lokalnego" | Taka sytuacja może wystąpić, jeśli system operacyjny komputera nie jest w systemie Windows lub Linux.|  Funkcja odnajdywania aplikacji jest używana tylko w systemie Windows/Linux.
-10007: "nie można przetworzyć pobranych metadanych" | Wystąpił błąd wewnętrzny podczas próby deserializacji JSON | Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie
-9000/9001/9002: "nie można odnaleźć aplikacji zainstalowanych na serwerze" | Narzędzia VMware mogą nie być zainstalowane lub są uszkodzone. | Zainstaluj/ponownie zainstaluj narzędzia VMware na odpowiedniej maszynie i sprawdź, czy jest ono uruchomione.
-9003: nie można odnaleźć aplikacji zainstalowanych na serwerze " | Taka sytuacja może wystąpić, jeśli system operacyjny komputera nie jest w systemie Windows lub Linux. | Funkcja odnajdywania aplikacji jest używana tylko w systemie Windows/Linux.
-9004: "nie można odnaleźć aplikacji zainstalowanych na serwerze" | Taka sytuacja może wystąpić, jeśli maszyna wirtualna jest wyłączona. | Na potrzeby odnajdywania upewnij się, że maszyna wirtualna jest włączona.
-9005: "nie można odnaleźć aplikacji zainstalowanych na maszynie wirtualnej | Taka sytuacja może wystąpić, jeśli system operacyjny komputera nie jest w systemie Windows lub Linux. | Funkcja odnajdywania aplikacji jest używana tylko w systemie Windows/Linux.
-9006/9007: "nie można pobrać aplikacji zainstalowanych na serwerze" | Agent odnajdywania na urządzeniu może nie działać prawidłowo. | Jeśli problem nie rozwiąże się w ciągu 24 godzin, skontaktuj się z pomocą techniczną
-9008: "nie można pobrać aplikacji zainstalowanych na serwerze". | Może być błędem wewnętrznym.  | TF problem nie rozwiąże się w ciągu 24 godzin, skontaktuj się z pomocą techniczną.
-9009: "nie można pobrać aplikacji zainstalowanych na serwerze" | Może wystąpić, jeśli ustawienia kontroli konta użytkownika systemu Windows (UAC) na serwerze są restrykcyjne i uniemożliwiają odnajdywanie zainstalowanych aplikacji. | Wyszukaj ustawienia "Kontrola konta użytkownika" na serwerze i skonfiguruj ustawienie UAC na serwerze na jednym z niższych poziomów.
-9010: "maszyna wirtualna jest wyłączona" | Maszyna wirtualna jest wyłączona.  | Upewnij się, że maszyna wirtualna jest włączona.
-9011: "nie znaleziono pliku do pobrania z gościa na maszynie wirtualnej gościa" | Problem może wystąpić z powodu błędu wewnętrznego. | Problem powinien zostać rozwiązany automatycznie w ciągu 24 godzin. Jeśli problem nadal występuje, skontaktuj się z pomoc techniczna firmy Microsoft.
-9012: "zawartość pliku wynikowego jest pusta" | Problem może wystąpić z powodu błędu wewnętrznego. | Problem powinien zostać rozwiązany automatycznie w ciągu 24 godzin. Jeśli problem nadal występuje, skontaktuj się z pomoc techniczna firmy Microsoft.
-9013: "nowy profil tymczasowy jest tworzony dla każdej nazwy logowania na maszynie wirtualnej VMware" | Nowy profil tymczasowy jest tworzony dla każdej nazwy logowania na maszynie wirtualnej | Upewnij się, że nazwa użytkownika podana w poświadczeniach maszyny wirtualnej gościa jest w formacie nazwy UPN.
-9014: "nie można pobrać metadanych z systemu plików maszyny wirtualnej gościa" | Wystąpił problem podczas nawiązywania połączenia z hostem ESXi | Upewnij się, że urządzenie może połączyć się z portem 443 na hoście ESXi z uruchomioną maszyną wirtualną
-9015: "nie można nawiązać połączenia z maszynami wirtualnymi VMware z powodu niewystarczających uprawnień w programie vCenter" | Rola operacji gościa nie jest włączona na koncie użytkownika vCenter | Upewnij się, że rola operacje gościa jest włączona na koncie użytkownika vCenter.
-9016: "nie można nawiązać połączenia z maszynami wirtualnymi VMware, ponieważ agent operacji gościa nie ma danych" | Narzędzia VMware nie są poprawnie zainstalowane lub są nieaktualne. | Upewnij się, że narzędzia VMware są prawidłowo zainstalowane i aktualne.
-9017: "plik z odnalezionymi metadanymi nie został znaleziony na maszynie wirtualnej" | Problem może wystąpić z powodu błędu wewnętrznego. | Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
-9018: "program PowerShell nie jest zainstalowany na maszynach wirtualnych gościa" | Program PowerShell nie jest dostępny na maszynie wirtualnej gościa. | Zainstaluj program PowerShell na maszynie wirtualnej gościa.
-9019: "nie można odnaleźć z powodu błędów operacji maszyny wirtualnej gościa" | Nie można wykonać operacji gościa VMware na maszynie wirtualnej. | Upewnij się, że poświadczenia maszyny wirtualnej są prawidłowe, a nazwa użytkownika podana w poświadczeniach maszyny wirtualnej gościa jest w formacie nazwy UPN.
-9020: "odmowa uprawnień do tworzenia pliku" | Rola skojarzona z użytkownikiem lub zasad grupy ogranicza użytkownika do tworzenia pliku w folderze. | Sprawdź, czy podany użytkownik-Gość ma uprawnienie Tworzenie dla tego pliku w folderze. Zobacz **powiadomienia** w obszarze Ocena serwera, aby uzyskać nazwę folderu.
-9021: "brak uprawnienia do tworzenia pliku w ścieżce tymczasowej systemu folderu" | Wersja narzędzia VMware na maszynie wirtualnej nie jest obsługiwana | Uaktualnij wersję narzędzia VMware powyżej 10.2.0.
-9022: "Uzyskiwanie odmowa dostępu do obiektu WMI" | Rola skojarzona z użytkownikiem lub zasad grupy ogranicza użytkownikowi dostęp do obiektu WMI. | Skontaktuj się z pomoc techniczna firmy Microsoft.
-9023: "wartość zmiennej środowiskowej główny_katalog_systemowy jest pusta" | Nieznane | Skontaktuj się z pomoc techniczna firmy Microsoft.
-9024: "wartość zmiennej środowiskowej TEMP jest pusta" | Nieznane | Skontaktuj się z pomoc techniczna firmy Microsoft.
-9025: "program PowerShell jest uszkodzony na maszynach wirtualnych gościa" | Nieznane | Zainstaluj ponownie program PowerShell na maszynie wirtualnej gościa i sprawdź, czy można uruchomić środowisko PowerShell na maszynie wirtualnej gościa.
-8084: "nie można odnaleźć aplikacji z powodu błędu VMware:  <Exception from VMware> " | Urządzenie Azure Migrate używa interfejsów API VMware do odnajdywania aplikacji. Ten problem może wystąpić, jeśli wyjątek jest zgłaszany przez vCenter Server podczas próby odnalezienia aplikacji. W oknie portalu zostanie wyświetlony komunikat o błędzie z programu VMware. | Wyszukaj komunikat w [dokumentacji programu VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)i postępuj zgodnie z instrukcjami, aby rozwiązać ten problem. Jeśli nie możesz rozwiązać tego problemu, skontaktuj się z pomocą techniczną firmy Microsoft.
+--- | --- | ---
+9000: nie można wykryć stanu narzędzia VMware.     |   Narzędzia VMWare mogą nie być zainstalowane lub są uszkodzone.    |   Upewnij się, że narzędzia VMware zostały zainstalowane i uruchomione na maszynie wirtualnej.
+9001: narzędzia VMware nie są zainstalowane.     |   Narzędzia VMWare mogą nie być zainstalowane lub są uszkodzone.    |   Upewnij się, że narzędzia VMware zostały zainstalowane i uruchomione na maszynie wirtualnej.
+9002: narzędzia VMware nie są uruchomione.   |   Narzędzia VMWare mogą nie być zainstalowane lub są uszkodzone.    |   Upewnij się, że narzędzia VMware zostały zainstalowane i uruchomione na maszynie wirtualnej.
+9003: typ systemu operacyjnego nie jest obsługiwany w przypadku odnajdywania maszyn wirtualnych gościa.    |   System operacyjny uruchomiony na serwerze nie jest systemem Windows ani Linux.    |   Obsługiwane typy systemów operacyjnych to tylko systemy Windows i Linux. Jeśli serwer jest w rzeczywistości Windows lub Linux, Sprawdź typ systemu operacyjnego określony w vCenter Server.
+9004: maszyna wirtualna nie jest uruchomiona.     |   Maszyna wirtualna jest wyłączona.  |   Upewnij się, że maszyna wirtualna jest włączona.
+9005: typ systemu operacyjnego nie jest obsługiwany w przypadku odnajdywania maszyn wirtualnych gościa.    |   Typ systemu operacyjnego nie jest obsługiwany w przypadku odnajdywania maszyn wirtualnych gościa.     |   Obsługiwane typy systemów operacyjnych to tylko systemy Windows i Linux.
+9006: adres URL pobierania pliku metadanych z gościa jest pusty.     |   Może się tak zdarzyć, jeśli agent odnajdywania nie działa zgodnie z oczekiwaniami.    |   Problem powinien automatycznie rozwiązać in24 godzin. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft.
+9007: nie znaleziono procesu uruchamiania zadania odnajdywania w maszynie wirtualnej gościa.   |   Może się tak zdarzyć, jeśli agent odnajdywania nie działa prawidłowo.   |   Problem powinien zostać automatycznie rozwiązany w ciągu 24 godzin. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft.
+9008: nie można pobrać stanu procesu maszyny wirtualnej gościa.   |   Problem może wystąpić z powodu błędu wewnętrznego.   |   Problem powinien zostać automatycznie rozwiązany w ciągu 24 godzin. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft.
+9009: funkcja Windows UAC nie uniemożliwiła wykonania zadania odnajdywania na serwerze.  |   Ustawienia kontroli konta użytkownika systemu Windows (UAC) na serwerze są restrykcyjne i uniemożliwiają odnajdywanie zainstalowanych aplikacji.  |   W ustawieniach kontroli konta użytkownika na serwerze skonfiguruj ustawienie UAC na jeden z niższych poziomów.
+9010: maszyna wirtualna jest wyłączona.     |   Maszyna wirtualna jest wyłączona.  |   Upewnij się, że maszyna wirtualna jest włączona.
+9011: odnaleziony plik metadanych nie został znaleziony w systemie plików maszyny wirtualnej gościa.    |   Problem może wystąpić z powodu błędu wewnętrznego.   |   Problem powinien zostać automatycznie rozwiązany w ciągu 24 godzin. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft.
+9012: odnaleziony plik metadanych jest pusty.     |   Problem może wystąpić z powodu błędu wewnętrznego.   |   Problem powinien zostać automatycznie rozwiązany w ciągu 24 godzin. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft.
+9013: dla każdej nazwy logowania tworzony jest nowy profil tymczasowy.    |   Nowy profil tymczasowy jest tworzony dla każdej nazwy logowania na maszynie wirtualnej VMware.    |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
+9014: nie można pobrać metadanych z systemu plików maszyny wirtualnej gościa.     |   Brak łączności z hostem ESXi    |   Upewnij się, że urządzenie może połączyć się z portem 443 na hoście ESXi z uruchomioną maszyną wirtualną
+9015: rola operacji gościa nie jest włączona na koncie użytkownika vCenter   |   Rola operacji gościa nie jest włączona na koncie użytkownika vCenter.   |   Upewnij się, że rola operacje gościa jest włączona na koncie użytkownika vCenter.
+9016: nie można odnaleźć agenta, ponieważ agent operacji gościa jest nieaktualny.   |   Narzędzia VMware nie są poprawnie zainstalowane lub są nieaktualne.    |   Upewnij się, że narzędzia VMware są prawidłowo zainstalowane i aktualne.
+9017: plik z odnalezionymi metadanymi nie został znaleziony na maszynie wirtualnej.  |   Problem może wystąpić z powodu błędu wewnętrznego.   |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
+9018: program PowerShell nie jest zainstalowany na maszynach wirtualnych gościa.  |   Program PowerShell nie jest dostępny na maszynie wirtualnej gościa.    |   Zainstaluj program PowerShell na maszynie wirtualnej gościa.
+9019: nie można odnaleźć z powodu niepowodzeń operacji maszyny wirtualnej gościa.     |   Nie można wykonać operacji gościa VMware na maszynie wirtualnej.    |   Upewnij się, że poświadczenia maszyny wirtualnej są prawidłowe, a nazwa użytkownika podana w poświadczeniach maszyny wirtualnej gościa jest w formacie nazwy UPN.
+9020: odmowa uprawnień do tworzenia pliku.    |   Rola skojarzona z użytkownikiem lub zasad grupy ogranicza użytkownikowi możliwość tworzenia pliku w folderze    |   Sprawdź, czy podany użytkownik-Gość ma uprawnienie Tworzenie dla pliku w folderze. Zobacz **powiadomienia** w obszarze Ocena serwera, aby uzyskać nazwę folderu.
+9021: nie można utworzyć pliku w tymczasowej ścieżce systemowej.     |   Narzędzie VMware raportuje ścieżkę Temp systemu zamiast ścieżki tymczasowej użytkownika.    |   Uaktualnij wersję narzędzia VMware powyżej 10287 (format klienta NGC/VI).
+9022: odmowa dostępu do obiektu WMI.    |   Rola skojarzona z użytkownikiem lub zasad grupy ogranicza użytkownikowi dostęp do obiektu WMI.  |   Skontaktuj się z pomoc techniczna firmy Microsoft.
+9023: nie można uruchomić programu PowerShell, ponieważ wartość zmiennej środowiskowej główny_katalog_systemowy jest pusta.    |   Wartość zmiennej środowiskowej główny_katalog_systemowy jest pusta dla maszyny wirtualnej gościa.     |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
+9024: nie można odnaleźć jako wartość zmiennej środowiskowej TEMP jest pusta.    |   Wartość zmiennej środowiskowej TEMP jest pusta dla maszyny wirtualnej gościa.   |   Skontaktuj się z pomoc techniczna firmy Microsoft.
+9025: program PowerShell jest uszkodzony na maszynach wirtualnych gościa.  |   Program PowerShell jest uszkodzony na maszynie wirtualnej gościa.    |   Zainstaluj ponownie program PowerShell na maszynie wirtualnej gościa i sprawdź, czy środowisko PowerShell można uruchomić na maszynie wirtualnej gościa.
+9026: nie można uruchomić operacji gościa na maszynie wirtualnej.  |   Stan maszyny wirtualnej nie zezwala na uruchamianie operacji gościa na maszynie wirtualnej.   |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
+9027: Agent operacji gościa nie jest uruchomiony na maszynie wirtualnej.   |   Nie można skontaktować się z agentem operacji gościa uruchomionym w ramach maszyny wirtualnej.    |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
+9028: nie można utworzyć pliku z powodu niewystarczającej ilości miejsca na dysku w maszynie wirtualnej.     |   Za mało miejsca na dysku.   |   Upewnij się, że dostępna jest wystarczająca ilość miejsca w magazynie na dysku maszyny wirtualnej.
+9029: nie można uzyskać dostępu do programu PowerShell na podanym poświadczeniu maszyny wirtualnej gościa.   |   Dostęp do programu PowerShell nie jest dostępny dla użytkownika.     |   Upewnij się, że użytkownik dodany na urządzeniu może uzyskać dostęp do programu PowerShell na maszynie wirtualnej gościa.
+9030: nie można zebrać odnalezionych metadanych, ponieważ Host ESXi został odłączony.     |   Host ESXi jest w stanie odłączonym.   |   Upewnij się, że host ESXi z uruchomioną maszyną wirtualną jest połączony.
+9031: nie można zebrać odnalezionych metadanych, ponieważ Host ESXi nie odpowiada.   |   Host zdalny jest w nieprawidłowym stanie.    |   Upewnij się, że host ESXi z uruchomioną maszyną wirtualną jest uruchomiony i połączony.
+9032: nie można odnaleźć z powodu błędu wewnętrznego.   |   Problem może wystąpić z powodu błędu wewnętrznego.   |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
+9033: nie można odnaleźć, ponieważ nazwa użytkownika maszyny wirtualnej zawiera nieprawidłowe znaki.     |   W nazwie użytkownika wykryto nieprawidłowe znaki.   |   Podaj ponownie poświadczenia maszyny wirtualnej, aby upewnić się, że nie ma żadnych nieprawidłowych znaków.
+9034: podana nazwa użytkownika nie jest w formacie nazwy UPN.    |   Nazwa użytkownika nie jest w formacie nazwy UPN.  |   Upewnij się, że nazwa użytkownika jest w formacie głównej nazwy użytkownika (UPN).
+9035: nie można odnaleźć, ponieważ tryb języka programu PowerShell nie jest ustawiony na wartość "Full Language".  |   Tryb języka dla programu PowerShell na maszynie wirtualnej gościa nie jest ustawiony na język pełny.   |   Upewnij się, że tryb języka programu PowerShell jest ustawiony na wartość "Full Language".
+10000: typ systemu operacyjnego nie jest obsługiwany.   |   System operacyjny uruchomiony na serwerze nie jest systemem Windows ani Linux.    |   Obsługiwane typy systemów operacyjnych to tylko systemy Windows i Linux.
+10001: na urządzeniu nie znaleziono skryptu do odnajdowania serwerów.    |   Odnajdywanie nie działa zgodnie z oczekiwaniami.   |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
+10002: zadanie odnajdywania nie zostało ukończone w czasie.     |   Agent odnajdywania nie działa zgodnie z oczekiwaniami.     |   Problem powinien zostać automatycznie rozwiązany w ciągu 24 godzin. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft.
+10003: proces wykonywania zadania odnajdywania zakończył się z powodu błędu.    |   Proces wykonywania zadania odnajdywania zakończył się z powodu błędu.  |   Problem powinien zostać automatycznie rozwiązany w ciągu 24 godzin. Jeśli problem nadal występuje, skontaktuj się z pomoc techniczna firmy Microsoft.
+10004: nie podano poświadczeń dla typu systemu operacyjnego gościa.  |   Nie podano poświadczeń w celu uzyskania dostępu do maszyn tego typu systemu operacyjnego na urządzeniu Azure Migrate.    |   Dodawanie poświadczeń dla maszyn na urządzeniu
+10005: podane poświadczenia są nieprawidłowe.   |   Poświadczenia podane dla urządzenia w celu uzyskania dostępu do serwera są nieprawidłowe.  |   Zaktualizuj poświadczenia podane w urządzeniu i upewnij się, że serwer jest dostępny przy użyciu poświadczeń.
+10006: typ systemu operacyjnego gościa nie jest obsługiwany przez magazyn poświadczeń.  |   System operacyjny uruchomiony na serwerze nie jest systemem Windows ani Linux.    |   Obsługiwane typy systemów operacyjnych to tylko systemy Windows i Linux.
+10007: nie można przetworzyć odnalezionych metadanych.    |   Wystąpił błąd podczas próby deserializacji JSON.    |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
+10008: nie można utworzyć pliku na serwerze.    |  Problem może wystąpić z powodu błędu wewnętrznego.    |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
+10009: nie można zapisać odnalezionych metadanych do pliku na serwerze.  |   Problem może wystąpić z powodu błędu wewnętrznego.   |   Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
+
 
 
 

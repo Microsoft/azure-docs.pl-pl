@@ -7,12 +7,12 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: b243d05619642e1dd3ad8dfe2bbe1d0a9661b773
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d52877129fe256253410f1d38011fa0343dd433d
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75351317"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84455947"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v11-for-net"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage v11 dla platformy .NET
 
@@ -27,7 +27,7 @@ Użyj biblioteki klienta Blob Storage platformy Azure dla platformy .NET, aby:
 * Wyświetl listę wszystkich obiektów BLOB w kontenerze
 * Usuwanie kontenera
 
-[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Przykłady](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) pakietu[Code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | Source[(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | biblioteki dokumentacji interfejsu API
+[Dokumentacja](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)  |  interfejsu API [Kod](https://github.com/Azure/azure-storage-net/tree/master/Blob)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)  |  [Przykłady](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -109,12 +109,11 @@ namespace blob_quickstart
 {
     class Program
     {
-        public static void Main()
+        public static async Task Main()
         {
             Console.WriteLine("Azure Blob Storage - .NET quickstart sample\n");
 
-            // Run the examples asynchronously, wait for the results before proceeding
-            ProcessAsync().GetAwaiter().GetResult();
+            await ProcessAsync();
 
             Console.WriteLine("Press any key to exit the sample application.");
             Console.ReadLine();
@@ -197,7 +196,7 @@ Te przykładowe fragmenty kodu pokazują, jak wykonać następujące czynności 
 
 ### <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
-Poniższy kod sprawdza, czy zmienna środowiskowa zawiera parametry połączenia, które można analizować, aby utworzyć obiekt [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) wskazujący na konto magazynu. Aby sprawdzić, czy parametry połączenia są prawidłowe, należy użyć metody [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet). Jeśli `TryParse` się powiedzie, inicjuje `storageAccount` zmienną i zwraca. `true`
+Poniższy kod sprawdza, czy zmienna środowiskowa zawiera parametry połączenia, które można analizować, aby utworzyć obiekt [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) wskazujący na konto magazynu. Aby sprawdzić, czy parametry połączenia są prawidłowe, należy użyć metody [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet). Jeśli `TryParse` się powiedzie, inicjuje `storageAccount` zmienną i zwraca `true` .
 
 Dodaj ten kod wewnątrz `ProcessAsync` metody:
 
@@ -231,7 +230,7 @@ else
 ```
 
 > [!NOTE]
-> Aby wykonać pozostałe operacje opisane w tym artykule, Zastąp `// ADD OTHER OPERATIONS HERE` ciąg w powyższym kodzie ze fragmentami kodu w poniższych sekcjach.
+> Aby wykonać pozostałe operacje opisane w tym artykule, Zastąp ciąg `// ADD OTHER OPERATIONS HERE` w powyższym kodzie ze fragmentami kodu w poniższych sekcjach.
 
 ### <a name="create-a-container"></a>Tworzenie kontenera
 

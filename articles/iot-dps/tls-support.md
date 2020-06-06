@@ -7,16 +7,19 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: wesmc
-ms.openlocfilehash: 0daddd2fb1368819c8f7b4cf0183c90a8c6c065e
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: fefae4ad1f4e10598fcc67d65155c3b13efc9ff4
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417977"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449621"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Obsługa protokołu TLS w usłudze Azure IoT Hub Device Provisioning Service (DPS)
 
-Usługa DPS używa Transport Layer Security (TLS) do zabezpieczania połączeń z urządzeń IoT. Wersje protokołu TLS obsługiwane przez usługę DPS obejmują protokół TLS 1,2.
+Usługa DPS używa [Transport Layer Security (TLS)](http://wikipedia.org/wiki/Transport_Layer_Security) do zabezpieczania połączeń z urządzeń IoT. 
+
+Bieżące wersje protokołu TLS obsługiwane przez usługę DPS są następujące: 
+* TLS 1.2
 
 Protokoły TLS 1,0 i 1,1 są uznawane za starsze i są planowane jako przestarzałe. Aby uzyskać więcej informacji, zobacz [przestarzałe protokoły TLS 1,0 i 1,1 dla IoT Hub](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md). 
 
@@ -24,7 +27,7 @@ Protokoły TLS 1,0 i 1,1 są uznawane za starsze i są planowane jako przestarza
 
 W celu zwiększenia bezpieczeństwa zaleca się skonfigurowanie wystąpień usługi DPS w taki sposób, *aby zezwalały na połączenia z klientami* urządzeń korzystające z protokołu TLS w wersji 1,2 i wymuszanie użycia [zalecanych szyfrów](#recommended-ciphers).
 
-W tym celu należy zastanowić się nad nowym zasobem DPS w dowolnym z [obsługiwanych regionów](#supported-regions) i ustawić `minTlsVersion` Właściwość na wartość `1.2` w specyfikacji zasobu "DPS" szablonu Azure Resource Manager. Poniższy przykładowy szablon JSON określa `minTlsVersion` Właściwość nowego wystąpienia usługi DPS.
+W tym celu należy zastanowić się nad nowym zasobem DPS ustawiającym `minTlsVersion` Właściwość na wartość `1.2` w specyfikacji zasobu w usłudze dps szablonu Azure Resource Manager. Poniższy przykładowy szablon JSON określa `minTlsVersion` Właściwość nowego wystąpienia usługi DPS.
 
 ```json
 {
@@ -35,7 +38,7 @@ W tym celu należy zastanowić się nad nowym zasobem DPS w dowolnym z [obsługi
             "type": "Microsoft.Devices/ProvisioningServices",
             "apiVersion": "2020-01-01",
             "name": "<provide-a-valid-DPS-resource-name>",
-            "location": "<any-of-supported-regions-below>",
+            "location": "<any-region>",
             "properties": {
                 "minTlsVersion": "1.2"
             },
@@ -61,12 +64,6 @@ Zasób DPS utworzony przy użyciu tej konfiguracji będzie odrzucać urządzenia
 > [!NOTE]
 > `minTlsVersion`Właściwość jest tylko do odczytu i nie można jej zmienić po utworzeniu zasobu DPS. W związku z tym ważne jest, aby prawidłowo testować i sprawdzać, czy *wszystkie* urządzenia IoT są zgodne z protokołem TLS 1,2 i [zalecanymi szyframi](#recommended-ciphers) z wyprzedzeniem.
 
-## <a name="supported-regions"></a>Obsługiwane regiony
-
-Wystąpienia IoT DPS wymagające użycia protokołu TLS 1,2 można utworzyć w następujących regionach:
-
-* US Gov Arizona
-* US Gov Wirginia
 
 > [!NOTE]
 > Po przełączeniu w tryb failover `minTlsVersion` Właściwość punktu dystrybucji pozostanie obowiązująca w przypadku przełączenia w tryb failover z parowaniem geograficznym.

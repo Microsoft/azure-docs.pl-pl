@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję z wiersza polecenia, a następ
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 8b720a34268a1a43b65ef8a7b8afbf61b753f79a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8098b675e7d0ab4267137521e29b9ca87dacf92c
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195017"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84448919"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji na platformie Azure, która odpowiada na żądania HTTP
 
@@ -409,6 +409,9 @@ az group delete --name AzureFunctionsQuickstart-rg
 ```azurecli
 az group delete --name java-functions-group
 ```
+::: zone-end
+::: zone pivot="programming-language-python"
+Aby wyjść z środowiska wirtualnego, uruchom polecenie `deactivate` .
 ::: zone-end
 
 ## <a name="next-steps"></a>Następne kroki

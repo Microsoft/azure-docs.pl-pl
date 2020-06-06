@@ -1,21 +1,21 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: dołączanie pliku
+description: dołączanie pliku
 services: cognitive-services
 author: roy-har
 manager: diberry
 ms.service: cognitive-services
-ms.date: 06/03/2020
+ms.date: 06/04/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.custom: include file
 ms.author: roy-har
-ms.openlocfilehash: cffc9af2ef93ec44e2af9363c0040d1f22d945f7
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 9965e4c856fdef2af17b116264ad5344ebc97eb2
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84416413"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84466799"
 ---
 Utwórz aplikację Pizza.
 
@@ -57,7 +57,7 @@ Jeśli nie masz zasobu do tworzenia:
 
 Aplikacja Pizza jest teraz gotowa do użycia.
 
-## <a name="record-the-app-id-prediction-key-and-prediction-endpoint-of-your-pizza-app"></a>Rejestrowanie identyfikatora aplikacji, klucza predykcyjnego i punktu końcowego przewidywania aplikacji Pizza
+## <a name="record-the-access-values-for-your-pizza-app"></a>Rejestrowanie wartości dostępu dla aplikacji Pizza
 
 Aby można było korzystać z nowej aplikacji Pizza, wymagany jest identyfikator aplikacji, klucz tworzenia i punkt końcowy tworzenia aplikacji Pizza.
 

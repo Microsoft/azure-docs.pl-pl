@@ -5,21 +5,21 @@ author: normesta
 ms.service: storage
 ms.date: 04/10/2020
 ms.author: normesta
-ms.topic: article
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: a79f3110206a01b9b974952f0ec0d299644be11f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06c263d751f6452e18765efb928ae6425ac50099
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262353"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84466038"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Używanie języka Python do zarządzania katalogami, plikami i listami ACL w Azure Data Lake Storage Gen2
 
 W tym artykule pokazano, jak używać języka Python do tworzenia katalogów, plików i uprawnień w ramach kont magazynu, które mają włączoną hierarchiczną przestrzeń nazw (SNS) i zarządzać nimi. 
 
-[Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-storage-file-datalake/) | [przykłady](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples) | [odwołania](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0/azure.storage.filedatalake.html) | [do interfejsu API Gen1 do mapowania](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | Gen2[dają opinię](https://github.com/Azure/azure-sdk-for-python/issues)
+[Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-storage-file-datalake/)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)  |  [Dokumentacja](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0/azure.storage.filedatalake.html)  |  interfejsu API Mapowanie Gen1 do [Gen2](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)  |  [Przekaż opinię](https://github.com/Azure/azure-sdk-for-python/issues)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -97,7 +97,7 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 
 System plików działa jako kontener dla plików. Można go utworzyć, wywołując metodę **FileSystemDataLakeServiceClient. create_file_system** .
 
-Ten przykład tworzy system plików o nazwie `my-file-system`.
+Ten przykład tworzy system plików o nazwie `my-file-system` .
 
 ```python
 def create_file_system():
@@ -130,7 +130,7 @@ def create_directory():
 
 Zmień nazwę lub Przenieś katalog, wywołując metodę **DataLakeDirectoryClient. rename_directory** . Przekaż ścieżkę do żądanego katalogu jako parametr. 
 
-Ten przykład zmienia nazwę podkatalogu na nazwę `my-subdirectory-renamed`.
+Ten przykład zmienia nazwę podkatalogu na nazwę `my-subdirectory-renamed` .
 
 ```python
 def rename_directory():
@@ -150,7 +150,7 @@ def rename_directory():
 
 Usuń katalog, wywołując metodę **DataLakeDirectoryClient. delete_directory** .
 
-Ten przykład usuwa katalog o nazwie `my-directory`.  
+Ten przykład usuwa katalog o nazwie `my-directory` .  
 
 ```python
 def delete_directory():
@@ -170,7 +170,7 @@ Pobierz listę kontroli dostępu (ACL) katalogu, wywołując metodę **DataLakeD
 > [!NOTE]
 > Jeśli aplikacja autoryzuje dostęp przy użyciu Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzacji dostępu ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-Ten przykład pobiera i ustawia listę ACL katalogu o nazwie `my-directory`. Ciąg `rwxr-xrw-` przyznaje uprawnienia Odczyt, zapis i wykonywanie przez użytkownika, który ma grupę będącą właścicielem, ma uprawnienia tylko do odczytu i wykonania, i daje wszystkim innym uprawnienie do odczytu i zapisu.
+Ten przykład pobiera i ustawia listę ACL katalogu o nazwie `my-directory` . Ciąg `rwxr-xrw-` przyznaje uprawnienia Odczyt, zapis i wykonywanie przez użytkownika, który ma grupę będącą właścicielem, ma uprawnienia tylko do odczytu i wykonania, i daje wszystkim innym uprawnienie do odczytu i zapisu.
 
 ```python
 def manage_directory_permissions():
@@ -199,7 +199,7 @@ def manage_directory_permissions():
 
 Najpierw Utwórz odwołanie do pliku w katalogu docelowym, tworząc wystąpienie klasy **DataLakeFileClient** . Przekaż plik, wywołując metodę **DataLakeFileClient. append_data** . Upewnij się, że ukończono przekazywanie, wywołując metodę **DataLakeFileClient. flush_data** .
 
-Ten przykład przekazuje plik tekstowy do katalogu o nazwie `my-directory`.   
+Ten przykład przekazuje plik tekstowy do katalogu o nazwie `my-directory` .   
 
 ```python
 def upload_file_to_directory():
@@ -256,7 +256,7 @@ Pobierz listę kontroli dostępu (ACL) pliku, wywołując metodę **DataLakeFile
 > [!NOTE]
 > Jeśli aplikacja autoryzuje dostęp przy użyciu Azure Active Directory (Azure AD), upewnij się, że podmiot zabezpieczeń używany przez aplikację do autoryzacji dostępu ma przypisaną [rolę właściciela danych obiektu blob magazynu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Aby dowiedzieć się więcej na temat sposobu stosowania uprawnień ACL i skutków ich zmiany, zobacz [Kontrola dostępu w Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
-Ten przykład pobiera i ustawia listę ACL pliku o nazwie `my-file.txt`. Ciąg `rwxr-xrw-` przyznaje uprawnienia Odczyt, zapis i wykonywanie przez użytkownika, który ma grupę będącą właścicielem, ma uprawnienia tylko do odczytu i wykonania, i daje wszystkim innym uprawnienie do odczytu i zapisu.
+Ten przykład pobiera i ustawia listę ACL pliku o nazwie `my-file.txt` . Ciąg `rwxr-xrw-` przyznaje uprawnienia Odczyt, zapis i wykonywanie przez użytkownika, który ma grupę będącą właścicielem, ma uprawnienia tylko do odczytu i wykonania, i daje wszystkim innym uprawnienie do odczytu i zapisu.
 
 ```python
 def manage_file_permissions():
@@ -313,7 +313,7 @@ def download_file_from_directory():
 
 Wyświetlanie zawartości katalogu przez wywołanie metody **FileSystemClient. get_paths** , a następnie Wyliczenie przez wyniki.
 
-W tym przykładzie program drukuje ścieżkę każdego podkatalogu i pliku, który znajduje się w katalogu o `my-directory`nazwie.
+W tym przykładzie program drukuje ścieżkę każdego podkatalogu i pliku, który znajduje się w katalogu o nazwie `my-directory` .
 
 ```python
 def list_directory_contents():

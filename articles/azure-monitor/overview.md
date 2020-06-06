@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: dbace6b93e07571693b221bb3d2a947010b1e476
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9a5c03664205676d53c083bddcfa6833ace641d2
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799994"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457154"
 ---
 # <a name="azure-monitor-overview"></a>Omówienie usługi Azure Monitor
 
@@ -32,7 +32,7 @@ Poniżej przedstawiono kilka przykładów tego, co można zrobić z Azure Monito
 
 ## <a name="overview"></a>Omówienie
 
-Poniższy diagram przedstawia ogólny widok usługi Azure Monitor. Na środku diagramu są magazyny danych dla metryk i dzienników, czyli dwa podstawowe typy danych używanych przez Azure Monitor. Po lewej stronie znajdują się [źródła danych monitorowania](platform/data-sources.md) , które wypełniają te [magazyny danych](platform/data-platform.md). Po prawej stronie znajdują się różne funkcje, które Azure Monitor wykonuje przy użyciu tych zebranych danych, takich jak analiza, alerty i przesyłanie strumieniowe do systemów zewnętrznych.
+Poniższy diagram przedstawia ogólny widok usługi Azure Monitor. Na środku diagramu są magazyny danych dla metryk i dzienników, które są dwoma podstawowymi typami danych używanymi przez Azure Monitor. Po lewej stronie znajdują się [źródła danych monitorowania](platform/data-sources.md) , które wypełniają te [magazyny danych](platform/data-platform.md). Po prawej stronie znajdują się różne funkcje, które Azure Monitor wykonuje przy użyciu tych zebranych danych, takich jak analiza, alerty i przesyłanie strumieniowe do systemów zewnętrznych.
 
 ![Omówienie usługi Azure Monitor](media/overview/overview.png)
 
@@ -145,7 +145,7 @@ Często wymaga się, aby zintegrować Azure Monitor z innymi systemami i tworzy�
 Wiele interfejsów API jest dostępnych do odczytu i zapisu metryk i dzienników do i z Azure Monitor oprócz uzyskiwania dostępu do wygenerowanych alertów. Możesz również skonfigurować i pobrać alerty. Zapewnia to bardzo nieograniczone możliwości tworzenia niestandardowych rozwiązań, które integrują się z Azure Monitor.
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 
 * [Metryki i dzienniki](platform/data-platform.md) dla danych zbieranych przez Azure monitor.
 * [Źródła danych](platform/data-sources.md) , dla których różne składniki aplikacji wysyłają dane telemetryczne.

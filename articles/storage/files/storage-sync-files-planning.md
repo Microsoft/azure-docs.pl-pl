@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: e432f599196a6948633d7150e1a747fbe626e1f4
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869723"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84464661"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -146,7 +146,7 @@ Obsługiwane są tylko woluminy NTFS; Systemy plików ReFS, FAT, FAT32 i inne ni
 
 W poniższej tabeli przedstawiono stan międzyoperacyjności funkcji systemu plików NTFS: 
 
-| Cecha | Stan obsługi | Uwagi |
+| Cechy | Stan obsługi | Uwagi |
 |---------|----------------|-------|
 | Listy kontroli dostępu (ACL) | W pełni obsługiwane | Poufne listy kontroli dostępu w stylu systemu Windows są zachowywane przez Azure File Sync i są wymuszane przez system Windows Server w punktach końcowych serwera. Listy ACL można również wymuszać podczas bezpośredniego instalowania udziału plików platformy Azure, jednak wymaga to dodatkowej konfiguracji. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [tożsamości](#identity) . |
 | Twarde linki | Pominięto | |
@@ -191,7 +191,7 @@ Zwróć uwagę, że oszczędności woluminu dotyczą tylko serwera programu; Two
 > [!Note]  
 > Aby zapewnić obsługę deduplikacji danych na woluminach z włączoną obsługą warstw w chmurze w systemie Windows Server 2019, należy zainstalować usługę Windows Update [KB4520062](https://support.microsoft.com/help/4520062) , a wymagany jest Agent Azure File Sync w wersji 9.0.0.0 lub nowszej.
 
-**Windows Server 2012 R2**  
+**System Windows Server 2012 R2**  
 Azure File Sync nie obsługuje deduplikacji danych i warstw w chmurze na tym samym woluminie w systemie Windows Server 2012 R2. Jeśli Deduplikacja danych jest włączona w woluminie, Obsługa warstw w chmurze musi być wyłączona. 
 
 **Uwagi**
@@ -254,9 +254,7 @@ Zgodnie z zasadami organizacji lub unikatowymi wymaganiami prawnymi może być w
 - Skonfiguruj Azure File Sync do obsługi serwera proxy w Twoim środowisku.
 - Ogranicz aktywność sieci z Azure File Sync.
 
-Aby dowiedzieć się więcej o konfigurowaniu funkcji sieciowych Azure File Sync, zobacz:
-- [Ustawienia serwera proxy i zapory usługi Azure File Sync](storage-sync-files-firewall-and-proxy.md)
-- [Zapewnienie Azure File Sync jest dobrym sąsiadem w centrum danych](storage-sync-files-server-registration.md)
+Aby dowiedzieć się więcej na temat Azure File Sync i sieci, zobacz [zagadnienia dotyczące sieci Azure File Sync](storage-sync-files-networking-overview.md).
 
 ## <a name="encryption"></a>Szyfrowanie
 Korzystając z Azure File Sync, istnieją trzy różne warstwy szyfrowania, które należy wziąć pod uwagę: szyfrowanie magazynu systemu Windows Server, szyfrowanie podczas przesyłania między agentem Azure File Sync i platformą Azure oraz szyfrowanie danych w udziale plików platformy Azure. 
@@ -377,7 +375,7 @@ Jeśli używasz lokalnego rozwiązania do tworzenia kopii zapasowych, kopie zapa
 > Przywracanie bez systemu operacyjnego (BMR) może spowodować nieoczekiwane wyniki i nie jest obecnie obsługiwane.
 
 > [!Note]  
-> W wersji 9 agenta Azure File Sync, migawki usługi VSS (w tym poprzednie wersje karty) są teraz obsługiwane na woluminach, na których włączono obsługę warstw w chmurze. Należy jednak włączyć zgodność poprzedniej wersji za poorednictwem programu PowerShell. [Dowiedz się, jak to zrobić](storage-files-deployment-guide.md).
+> W wersji 9 agenta Azure File Sync, migawki usługi VSS (w tym poprzednie wersje karty) są teraz obsługiwane na woluminach, na których włączono obsługę warstw w chmurze. Należy jednak włączyć zgodność poprzedniej wersji za poorednictwem programu PowerShell. [Dowiedz się, jak](storage-files-deployment-guide.md).
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Zasady aktualizacji agenta usługi Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: cbrooks
-ms.openlocfilehash: c7211bc805f4ed1d026faedbfdc9d53d3c1dfd93
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 72185cf8bc5701e67c6126c9b1b5cc76bb80f362
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68721280"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84463420"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Jak używać Magazynu kolejek w języku Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -46,7 +46,7 @@ require "azure"
 ```
 
 ## <a name="setup-an-azure-storage-connection"></a>Konfigurowanie połączenia usługi Azure Storage
-Moduł Azure odczyta zmienne środowiskowe **konta usługi Azure\_Storage\_** i **usługi Azure\_Storage\_ACCESS_KEY** , aby uzyskać informacje wymagane do nawiązania połączenia z kontem usługi Azure Storage. Jeśli te zmienne środowiskowe nie są ustawione, należy określić informacje o koncie przed użyciem **platformy Azure:: QueueService** z następującym kodem:
+Moduł Azure odczyta zmienne środowiskowe **konta usługi Azure \_ Storage \_ ** i **usługi Azure \_ Storage \_ ACCESS_KEY** , aby uzyskać informacje wymagane do nawiązania połączenia z kontem usługi Azure Storage. Jeśli te zmienne środowiskowe nie są ustawione, należy określić informacje o koncie przed użyciem **platformy Azure:: QueueService** z następującym kodem:
 
 ```ruby
 Azure.config.storage_account_name = "<your azure storage account>"
@@ -86,7 +86,7 @@ azure_queue_service.create_message("test-queue", "test message")
 ```
 
 ## <a name="how-to-peek-at-the-next-message"></a>Instrukcje: wgląd do następnego komunikatu
-Możesz uzyskać wgląd w komunikat z przodu kolejki bez usuwania go z kolejki, wywołując metodę **wglądu\_wiadomości ()** . Domyślnie **wgląd\_do wiadomości ()** wgląd w jeden komunikat. Możesz również określić liczbę wiadomości, które chcesz uzyskać.
+Możesz uzyskać wgląd w komunikat z przodu kolejki bez usuwania go z kolejki, wywołując metodę **wglądu \_ wiadomości ()** . Domyślnie wgląd do ** \_ wiadomości ()** wgląd w jeden komunikat. Możesz również określić liczbę wiadomości, które chcesz uzyskać.
 
 ```ruby
 result = azure_queue_service.peek_messages("test-queue",
@@ -96,10 +96,10 @@ result = azure_queue_service.peek_messages("test-queue",
 ## <a name="how-to-dequeue-the-next-message"></a>Instrukcje: dequeueing Next Message
 Możesz usunąć komunikat z kolejki w dwóch krokach.
 
-1. Gdy wywołujesz **listę\_komunikatów ()**, domyślnie otrzymujesz następny komunikat w kolejce. Można również określić liczbę wiadomości, które mają zostać pobrane. Komunikaty zwrócone z **komunikatów list\_()** staną się niewidoczne dla innych kodów odczytujących komunikaty z tej kolejki. Limit czasu widoczności (w sekundach) jest przekazywany jako parametr.
+1. Gdy wywołujesz **listę \_ komunikatów ()**, domyślnie otrzymujesz następny komunikat w kolejce. Można również określić liczbę wiadomości, które mają zostać pobrane. Komunikaty zwrócone z **komunikatów list \_ ()** staną się niewidoczne dla innych kodów odczytujących komunikaty z tej kolejki. Limit czasu widoczności (w sekundach) jest przekazywany jako parametr.
 2. Aby zakończyć usuwanie komunikatu z kolejki, należy również wywołać **delete_message ()**.
 
-Ten dwuetapowy proces usuwania komunikatu gwarantuje, że gdy kod nie może przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu może uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **komunikat usuwania\_()** bezpośrednio po przetworzeniu komunikatu.
+Ten dwuetapowy proces usuwania komunikatu gwarantuje, że gdy kod nie może przetworzyć komunikatu z powodu awarii sprzętu lub oprogramowania, inne wystąpienie kodu może uzyskać ten sam komunikat i spróbować ponownie. Kod wywołuje **komunikat usuwania \_ ()** bezpośrednio po przetworzeniu komunikatu.
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)
@@ -123,7 +123,7 @@ Istnieją dwa sposoby dostosowania pobierania komunikatów z kolejki.
 1. Możesz uzyskać wsadowy komunikat.
 2. Można ustawić dłuższy lub krótszy limit czasu niewidoczności, co pozwala na zwiększenie lub skrócenie czasu w celu pełnego przetworzenia poszczególnych komunikatów.
 
-Poniższy przykład kodu używa metody **list\_Messages ()** do pobierania 15 komunikatów w jednym wywołaniu. Następnie drukuje i usuwa każdy komunikat. Ustawia również limitu czasu niewidoczności na pięć minut dla każdego komunikatu.
+Poniższy przykład kodu używa metody **list \_ Messages ()** do pobierania 15 komunikatów w jednym wywołaniu. Następnie drukuje i usuwa każdy komunikat. Ustawia również limitu czasu niewidoczności na pięć minut dla każdego komunikatu.
 
 ```ruby
 azure_queue_service.list_messages("test-queue", 300
@@ -134,7 +134,7 @@ end
 ```
 
 ## <a name="how-to-get-the-queue-length"></a>Instrukcje: pobieranie długości kolejki
-Możesz uzyskać szacunkową liczbę komunikatów w kolejce. Metoda **pobierania\_metadanych\_kolejki ()** żąda, aby usługa kolejki zwracała przybliżoną liczbę komunikatów i metadane dotyczące kolejki.
+Możesz uzyskać szacunkową liczbę komunikatów w kolejce. Metoda **pobierania \_ \_ metadanych kolejki ()** żąda, aby usługa kolejki zwracała przybliżoną liczbę komunikatów i metadane dotyczące kolejki.
 
 ```ruby
 message_count, metadata = azure_queue_service.get_queue_metadata(
@@ -142,7 +142,7 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
 ```
 
 ## <a name="how-to-delete-a-queue"></a>Instrukcje: usuwanie kolejki
-Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj metodę **delete\_Queue ()** w obiekcie Queue.
+Aby usunąć kolejkę i wszystkie znajdujące się w niej komunikaty, wywołaj metodę **delete \_ Queue ()** w obiekcie Queue.
 
 ```ruby
 azure_queue_service.delete_queue("test-queue")

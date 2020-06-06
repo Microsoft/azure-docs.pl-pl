@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 04566bae2a9010dde5f9d6d4a0a63c237505597b
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 2f871312b7e36288d1b78e05aa4058dab6c1942f
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429647"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449570"
 ---
 # <a name="autoscale-stream-analytics-jobs-using-azure-automation"></a>Automatyczne skalowanie zadań Stream Analytics przy użyciu Azure Automation
 
@@ -31,13 +31,13 @@ Dodaj następujące zmienne w ramach konta Azure Automation. Te zmienne zostaną
 
 | Nazwa | Typ | Wartość |
 | --- | --- | --- |
-| **jobName** | Ciąg | Nazwa zadania Stream Analytics, które ma być skalowane automatycznie. |
-| **resourceGroupName** | Ciąg | Nazwa grupy zasobów, w której znajduje się to zadanie. |
-| **subId** | Ciąg | Identyfikator subskrypcji, w której znajduje się to zadanie. |
-| **increasedSU** | Liczba całkowita | Wyższa wartość SU, w której ma być skalowane zadanie w harmonogramie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
-| **decreasedSU** | Liczba całkowita | Dolna wartość SU, na którą zadanie ma być skalowane w harmonogramie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
-| **maxSU** | Liczba całkowita | Maksymalna wartość SU, w której ma być skalowane zadanie, w przypadku automatycznego skalowania przez załadowanie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
-| **minSU** | Liczba całkowita | Minimalna wartość SU, w której ma być skalowane zadanie, w przypadku automatycznego skalowania przez załadowanie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
+| **jobName** | String | Nazwa zadania Stream Analytics, które ma być skalowane automatycznie. |
+| **resourceGroupName** | String | Nazwa grupy zasobów, w której znajduje się to zadanie. |
+| **subId** | String | Identyfikator subskrypcji, w której znajduje się to zadanie. |
+| **increasedSU** | Integer | Wyższa wartość SU, w której ma być skalowane zadanie w harmonogramie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
+| **decreasedSU** | Integer | Dolna wartość SU, na którą zadanie ma być skalowane w harmonogramie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
+| **maxSU** | Integer | Maksymalna wartość SU, w której ma być skalowane zadanie, w przypadku automatycznego skalowania przez załadowanie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
+| **minSU** | Integer | Minimalna wartość SU, w której ma być skalowane zadanie, w przypadku automatycznego skalowania przez załadowanie. Ta wartość musi być jedną z prawidłowych opcji SU, które są widoczne w ustawieniach **skalowania** zadania podczas jego działania. |
 
 ![Dodawanie zmiennych w Azure Automation](./media/autoscale/variables.png)
 
@@ -67,7 +67,7 @@ Azure Automation umożliwia skonfigurowanie harmonogramu wyzwalania elementów R
 ## <a name="autoscale-based-on-load"></a>Automatyczne skalowanie na podstawie obciążenia
 Mogą wystąpić sytuacje, w których nie można przewidzieć obciążenia wejściowego. W takich przypadkach bardziej optymalne jest skalowanie w górę i w dół w ramach kroków w ramach minimalnej i maksymalnej wartości. Reguły alertów można skonfigurować w zadaniach Stream Analytics, aby wyzwalać elementy Runbook, gdy metryki zadań przechodzą powyżej lub poniżej wartości progowej.
 1. W ramach konta Azure Automation Utwórz dwie zmienne o wartościach całkowitych o nazwie **minSU** i **maxSU**. To ustawienie określa granice, w ramach których zadanie będzie skalowane w ramach kroków.
-2. Utwórz dwa nowe elementy Runbook. Możesz użyć [skryptu programu StepScaleUp PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/Autoscaleup.ps1) , który zwiększa liczbę usług SUs zadania w przyrostach do wartości **maxSU** . Można również użyć [skryptu programu StepScaleDown PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/autoscaledown.ps1) , który zmniejsza liczbę czynności programu SUs dla zadania, dopóki nie zostanie osiągnięta wartość **minSU** . Alternatywnie można użyć elementów Runbook z poprzedniej sekcji, jeśli masz określone wartości SU, do których chcesz skalować.
+2. Utwórz dwa nowe elementy Runbook. Możesz użyć [skryptu programu StepScaleUp PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleUp.ps1) , który zwiększa liczbę usług SUs zadania w przyrostach do wartości **maxSU** . Można również użyć [skryptu programu StepScaleDown PowerShell](https://github.com/Azure/azure-stream-analytics/blob/master/Autoscale/StepScaleDown.ps1) , który zmniejsza liczbę czynności programu SUs dla zadania, dopóki nie zostanie osiągnięta wartość **minSU** . Alternatywnie można użyć elementów Runbook z poprzedniej sekcji, jeśli masz określone wartości SU, do których chcesz skalować.
 3. W zadaniu Stream Analytics wybierz pozycję **reguły alertów** w obszarze **monitorowanie**. 
 4. Utwórz dwie grupy akcji. Jeden do użycia podczas operacji skalowania w górę i innej dla operacji skalowania w dół. Wybierz pozycję **Zarządzaj akcjami** , a następnie kliknij pozycję **Dodaj grupę akcji**. 
 5. Wypełnij pola wymagane. Wybierz **element Runbook usługi Automation** po wybraniu **typu akcji**. Wybierz element Runbook, który ma zostać wyzwolony po uruchomieniu alertu. Następnie utwórz grupę akcji.

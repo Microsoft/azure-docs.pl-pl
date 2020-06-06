@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 06/02/2020
 ms.author: robinsh
-ms.openlocfilehash: 5a0b9b2752a2ad8b7d2e03a40af11407b97391bc
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 2a0b25fc73bf0f549a199592d558c0097c2db8b8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322038"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84457069"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Samouczek: wysyłanie powiadomień e-mail dotyczących zdarzeń usługi Azure IoT Hub przy użyciu Event Grid i Logic Apps
 
@@ -47,7 +47,7 @@ Najpierw Utwórz aplikację logiki i Dodaj wyzwalacz usługi Event Grid monitoru
 
    ![Pola dla tworzenia aplikacji logiki](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Po utworzeniu zasobu przejdź do aplikacji logiki. W tym celu wybierz pozycję **grupy zasobów**, a następnie wybierz grupę zasobów utworzoną dla tego samouczka. Następnie znajdź aplikację logiki na liście zasobów i wybierz ją. 
 
@@ -181,7 +181,7 @@ W tej sekcji skonfigurujesz usługę IoT Hub pod kątem publikowania zdarzeń na
    2. W sekcji **Szczegóły tematu** wykonaj następujące zadania:
        1. Upewnij się, że **Typ tematu** jest ustawiony na **IoT Hub**. 
        2. Upewnij się, że nazwa usługi IoT Hub jest ustawiona jako wartość pola **zasobu źródłowego** . 
-       3. Wprowadź nazwę **tematu systemowego** , który zostanie utworzony. 
+       3. Wprowadź nazwę **tematu systemowego** , który zostanie utworzony. Aby dowiedzieć się więcej na temat tematów systemowych, zobacz [Omówienie tematów systemowych](system-topics.md).
    3. W sekcji **typy zdarzeń** wykonaj następujące zadania: 
         1. W polu **Filtruj do typów zdarzeń**Usuń zaznaczenie wszystkich opcji z wyjątkiem **urządzenia utworzonego**.
 

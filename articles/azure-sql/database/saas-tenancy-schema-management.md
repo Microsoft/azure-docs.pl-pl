@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a9378d0f499814706762349a0eac2c5a26ca939a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 02b7b7b78e2a5933d9e9cc5931ca2cd2a46a6e9e
+ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042036"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84449300"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Zarządzanie schematem w aplikacji SaaS przy użyciu wzorca bazy danych na dzierżawcę z Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,12 +49,10 @@ Wzorzec bazy danych na dzierżawcę pozwala efektywnie wyizolować dane dzierża
 ![ekran](./media/saas-tenancy-schema-management/schema-management-dpt.png)
 
 
-## <a name="elastic-jobs-limited-preview"></a>Ograniczona wersja zapoznawcza Zadań elastycznych
+## <a name="elastic-jobs-public-preview"></a>Zadania elastyczne — publiczna wersja zapoznawcza
 
-Istnieje nowa wersja zadań elastycznych, która jest teraz zintegrowaną funkcją Azure SQL Database. Nowa wersja Zadań elastycznych jest obecnie dostępna w ograniczonej wersji zapoznawczej. Ta ograniczona wersja zapoznawcza obsługuje obecnie używanie programu PowerShell do tworzenia agenta zadań i języka T-SQL w celu tworzenia zadań i zarządzania nimi.
-
-> [!NOTE]
-> Ten samouczek zakłada użycie funkcji usługi SQL Database, które znajdują się w ograniczonej wersji zapoznawczej (zadania Elastic Database). Jeśli chcesz wykonać ten samouczek, podaj identyfikator subskrypcji SaaSFeedback@microsoft.com z tematem "zadania elastyczne" w wersji zapoznawczej. Po otrzymaniu potwierdzenia, że Twoja subskrypcja została włączona, [pobierz i zainstaluj najnowsze polecenia cmdlet zadań w wersji wstępnej](https://github.com/jaredmoo/azure-powershell/releases). Ta wersja zapoznawcza jest ograniczona, dlatego należy skontaktować się z SaaSFeedback@microsoft.com tematem powiązanych pytań lub pomocy technicznej.
+Istnieje nowa wersja zadań elastycznych, która jest teraz zintegrowaną funkcją Azure SQL Database. Ta nowa wersja zadań elastycznych jest obecnie dostępna w publicznej wersji zapoznawczej. Ta Publiczna wersja zapoznawcza obsługuje obecnie używanie programu PowerShell do tworzenia agenta zadań i języka T-SQL w celu tworzenia zadań i zarządzania nimi.
+Aby uzyskać więcej informacji, zobacz artykuł dotyczący [Elastic Database zadań](https://docs.microsoft.com/azure/azure-sql/database/elastic-jobs-overview) .
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Pobierz Wingtip bilety bazy danych SaaS na skrypty aplikacji dzierżawców
 

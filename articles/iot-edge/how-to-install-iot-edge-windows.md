@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: kgremban
-ms.openlocfilehash: e95f68610f8469a829255d6a16115dcf728ef612
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: ba3e8b9d7649d56d1639f7f608d85a2da04ff74a
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856737"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465562"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Install the Azure IoT Edge runtime on Windows (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemie Windows)
 
@@ -27,7 +27,7 @@ W tym artykule przedstawiono procedurę instalowania środowiska uruchomienioweg
 > [!NOTE]
 > Znany problem z systemem operacyjnym Windows zapobiega przejściu do trybu uśpienia i hibernacji w przypadku, gdy są uruchomione moduły IoT Edge (kontenery systemu Windows nano Server w systemie). Ten problem wpływa na czas pracy baterii na urządzeniu.
 >
-> W celu obejścia tego problemu należy `Stop-Service iotedge` użyć polecenia, aby zatrzymać wszystkie uruchomione moduły IoT Edge przed użyciem tych stanów.
+> W celu obejścia tego problemu należy użyć polecenia, `Stop-Service iotedge` Aby zatrzymać wszystkie uruchomione moduły IoT Edge przed użyciem tych stanów.
 
 Korzystanie z kontenerów systemu Linux w systemach Windows nie jest zalecaną lub obsługiwaną konfiguracją produkcyjną dla Azure IoT Edge. Można go jednak używać w celach deweloperskich i testowych. Aby dowiedzieć się więcej, zobacz [używanie IoT Edge w systemie Windows do uruchamiania kontenerów systemu Linux](how-to-install-iot-edge-windows-with-linux.md).
 
@@ -42,7 +42,7 @@ Ta sekcja służy do sprawdzenia, czy urządzenie z systemem Windows może obsł
 IoT Edge dla systemu Windows wymaga systemu Windows w wersji 1809/kompilacja 17763, który jest najnowszą [kompilacją długoterminowej pomocy technicznej systemu Windows](https://docs.microsoft.com/windows/release-information/). Aby uzyskać pomoc techniczną dla systemu Windows, zobacz artykuł co jest obsługiwane w zależności od tego, czy przygotowujesz się do scenariuszy produkcyjnych lub scenariuszy projektowania i testowania:
 
 * **Produkcja**: Najnowsze informacje o tym, które systemy operacyjne są obecnie obsługiwane w scenariuszach produkcyjnych, można znaleźć w temacie [Azure IoT Edge obsługiwane systemy](support.md#operating-systems).
-* **Programowanie i testowanie**: w przypadku scenariuszy projektowania i testowania Azure IoT Edge z kontenerami systemu Windows można zainstalować w dowolnej wersji systemu Windows 10 lub windows Server 2019, która obsługuje funkcję Containers.
+* **Opracowywanie i testowanie**: w przypadku scenariuszy projektowania i testowania Azure IoT Edge z kontenerami systemu Windows można zainstalować na dowolnej jednostce SKU (Pro, Enterprise, Server itp.) systemu windows Build 17763, która obsługuje funkcję Containers.
 
 Urządzenia IoT Core muszą zawierać opcjonalną funkcję kontenerów systemu Windows IoT Core do obsługi środowiska uruchomieniowego IoT Edge. Użyj następującego polecenia w [zdalnej sesji programu PowerShell](https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell) , aby sprawdzić, czy kontenery systemu Windows są obsługiwane na urządzeniu:
 
@@ -50,7 +50,7 @@ Urządzenia IoT Core muszą zawierać opcjonalną funkcję kontenerów systemu W
 Get-Service vmcompute
 ```
 
-Jeśli usługa jest obecna, należy uzyskać pomyślną odpowiedź ze stanem usługi wymienionym jako **uruchomiony**. Jeśli `vmcompute` usługa nie zostanie znaleziona, urządzenie nie spełnia wymagań dotyczących IoT Edge. Skontaktuj się z dostawcą sprzętu, aby uzyskać pomoc techniczną dotyczącą tej funkcji.
+Jeśli usługa jest obecna, należy uzyskać pomyślną odpowiedź ze stanem usługi wymienionym jako **uruchomiony**. Jeśli `vmcompute` Usługa nie zostanie znaleziona, urządzenie nie spełnia wymagań dotyczących IoT Edge. Skontaktuj się z dostawcą sprzętu, aby uzyskać pomoc techniczną dotyczącą tej funkcji.
 
 ### <a name="prepare-for-a-container-engine"></a>Przygotowanie do aparatu kontenera
 
@@ -164,7 +164,7 @@ Możesz również użyć parametru ścieżka instalacji w trybie offline, aby za
 
 4. Opcjonalnie można pobrać Instalatora dla Visual C++ pakiet redystrybucyjny. Na przykład skrypt programu PowerShell używa tej wersji: [vc_redist. x64. exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Zapisz Instalatora w tym samym folderze na urządzeniu IoT jako pliki IoT Edge.
 
-5. Aby zainstalować program za pomocą składników trybu [offline, należy](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) uzyskać kopię lokalną skryptu programu PowerShell. Następnie użyj `-OfflineInstallationPath` parametru jako części `Deploy-IoTEdge` polecenia i podaj ścieżkę bezwzględną do katalogu plików. Na przykład:
+5. Aby zainstalować program za pomocą składników trybu [offline, należy](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts?view=powershell-7#script-scope-and-dot-sourcing) uzyskać kopię lokalną skryptu programu PowerShell. Następnie użyj `-OfflineInstallationPath` parametru jako części `Deploy-IoTEdge` polecenia i podaj ścieżkę bezwzględną do katalogu plików. Na przykład
 
    ```powershell
    . <path>\IoTEdgeSecurityDaemon.ps1
@@ -173,9 +173,9 @@ Możesz również użyć parametru ścieżka instalacji w trybie offline, aby za
 
    Polecenie wdrożenia użyje wszystkich składników znalezionych w lokalnym katalogu plików. Jeśli brakuje pliku cab lub Instalatora Visual C++, spróbuje je pobrać.
 
-6. Uruchom polecenie `Initialize-IoTEdge` , aby zainicjować obsługę administracyjną urządzenia przy użyciu tożsamości w IoT Hub. Podaj parametry połączenia urządzenia do aprowizacji ręcznej lub wybierz jedną z metod opisanych w poprzedniej sekcji [Automatyczne inicjowanie](#option-2-install-and-automatically-provision) obsługi administracyjnej.
+6. Uruchom `Initialize-IoTEdge` polecenie, aby zainicjować obsługę administracyjną urządzenia przy użyciu tożsamości w IoT Hub. Podaj parametry połączenia urządzenia do aprowizacji ręcznej lub wybierz jedną z metod opisanych w poprzedniej sekcji [Automatyczne inicjowanie](#option-2-install-and-automatically-provision) obsługi administracyjnej.
 
-   Jeśli urządzenie zostało uruchomione ponownie po uruchomieniu `Deploy-IoTEdge`, przed uruchomieniem `Initialize-IoTEdge`Uruchom skrypt programu PowerShell.
+   Jeśli urządzenie zostało uruchomione ponownie po uruchomieniu `Deploy-IoTEdge` , przed uruchomieniem Uruchom skrypt programu PowerShell `Initialize-IoTEdge` .
 
 Aby uzyskać więcej informacji na temat opcji instalacji w trybie offline, przejdź dalej, aby poznać [wszystkie parametry instalacji](#all-installation-parameters).
 
@@ -199,7 +199,7 @@ Uruchom [Narzędzie do rozwiązywania problemów](troubleshoot.md#run-the-check-
 iotedge check
 ```
 
-Do momentu wdrożenia pierwszego modułu do IoT Edge na urządzeniu moduł **$edgeHub** system nie zostanie wdrożony na urządzeniu. W związku z tym, automatyczne sprawdzanie zwróci błąd sprawdzania `Edge Hub can bind to ports on host` łączności. Ten błąd można zignorować, chyba że występuje po wdrożeniu modułu na urządzeniu.
+Do momentu wdrożenia pierwszego modułu do IoT Edge na urządzeniu moduł **$edgeHub** system nie zostanie wdrożony na urządzeniu. W związku z tym, automatyczne sprawdzanie zwróci błąd `Edge Hub can bind to ports on host` sprawdzania łączności. Ten błąd można zignorować, chyba że występuje po wdrożeniu modułu na urządzeniu.
 
 Na koniec Wyświetl listę uruchomionych modułów:
 
@@ -246,11 +246,11 @@ Uninstall-IoTEdge
 
 Polecenie Uninstall-IoTEdge nie działa w przypadku systemu Windows IoT Core. Aby usunąć IoT Edge z urządzeń z systemem Windows IoT Core, należy ponownie wdrożyć obraz systemu Windows IoT Core.
 
-Aby uzyskać więcej informacji o opcjach odinstalowywania, użyj polecenia `Get-Help Uninstall-IoTEdge -full`.
+Aby uzyskać więcej informacji o opcjach odinstalowywania, użyj polecenia `Get-Help Uninstall-IoTEdge -full` .
 
 ## <a name="verify-installation-script"></a>Weryfikuj skrypt instalacji
 
-Polecenia instalacji podane w tym artykule korzystają z polecenia cmdlet Invoke-WebRequest w celu zażądania skryptu instalacji `aka.ms/iotedge-win`z programu. Ten link wskazuje`IoTEdgeSecurityDaemon.ps1` skrypt z najnowszej [wersji IoT Edge](https://github.com/Azure/azure-iotedge/releases). Możesz również pobrać ten skrypt lub wersję skryptu z określonej wersji, aby uruchomić polecenia instalacji na urządzeniu IoT Edge.
+Polecenia instalacji podane w tym artykule korzystają z polecenia cmdlet Invoke-WebRequest w celu zażądania skryptu instalacji z programu `aka.ms/iotedge-win` . Ten link wskazuje `IoTEdgeSecurityDaemon.ps1` skrypt z najnowszej [wersji IoT Edge](https://github.com/Azure/azure-iotedge/releases). Możesz również pobrać ten skrypt lub wersję skryptu z określonej wersji, aby uruchomić polecenia instalacji na urządzeniu IoT Edge.
 
 Podany skrypt jest podpisany, aby zwiększyć bezpieczeństwo. Podpis można sprawdzić, pobierając skrypt na urządzenie, a następnie uruchamiając następujące polecenie programu PowerShell:
 
@@ -266,7 +266,7 @@ W poprzednich sekcjach wprowadzono typowe scenariusze instalacji z przykładami 
 
 ### <a name="deploy-iotedge"></a>Wdróż — IoTEdge
 
-Polecenie Deploy-IoTEdge pobiera i wdraża demona zabezpieczeń IoT Edge i jej zależności. Polecenie wdrożenia akceptuje te typowe parametry między innymi. Aby uzyskać pełną listę, użyj polecenia `Get-Help Deploy-IoTEdge -full`.  
+Polecenie Deploy-IoTEdge pobiera i wdraża demona zabezpieczeń IoT Edge i jej zależności. Polecenie wdrożenia akceptuje te typowe parametry między innymi. Aby uzyskać pełną listę, użyj polecenia `Get-Help Deploy-IoTEdge -full` .  
 
 | Parametr | Dopuszczalne wartości | Komentarze |
 | --------- | --------------- | -------- |
@@ -278,7 +278,7 @@ Polecenie Deploy-IoTEdge pobiera i wdraża demona zabezpieczeń IoT Edge i jej z
 
 ### <a name="initialize-iotedge"></a>Inicjowanie — IoTEdge
 
-Polecenie Initialize-IoTEdge konfiguruje IoT Edge przy użyciu parametrów połączenia urządzenia i szczegółów operacyjnych. Większość informacji generowanych przez to polecenie jest następnie przechowywana w pliku iotedge\config.YAML. Polecenie inicjujące akceptuje te typowe parametry między innymi. Aby uzyskać pełną listę, użyj polecenia `Get-Help Initialize-IoTEdge -full`.
+Polecenie Initialize-IoTEdge konfiguruje IoT Edge przy użyciu parametrów połączenia urządzenia i szczegółów operacyjnych. Większość informacji generowanych przez to polecenie jest następnie przechowywana w pliku iotedge\config.YAML. Polecenie inicjujące akceptuje te typowe parametry między innymi. Aby uzyskać pełną listę, użyj polecenia `Get-Help Initialize-IoTEdge -full` .
 
 | Parametr | Dopuszczalne wartości | Komentarze |
 | --------- | --------------- | -------- |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 04c02cb493941d101cf230b1ca3dab32aaa7a2fc
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 9b18b596e0be0e410f1d868f405e2a30105276d8
+ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234553"
+ms.lasthandoff: 06/05/2020
+ms.locfileid: "84456457"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Użyj Log Analytics dla funkcji diagnostyki
 
@@ -96,7 +96,7 @@ Możesz uzyskać dostęp do Log Analytics obszarów roboczych na Azure Portal lu
 
 ### <a name="access-log-analytics-on-a-log-analytics-workspace"></a>Log Analytics dostępu do Log Analytics obszaru roboczego
 
-1. Zaloguj się do Portalu Azure.
+1. Zaloguj się do witryny Azure Portal.
 
 2. Wyszukaj **log Analytics obszar roboczy**. 
 
@@ -230,16 +230,6 @@ Aby dowiedzieć się, czy wystąpił konkretny błąd:
 WVDErrors 
 | where CodeSymbolic =="ErrorSymbolicCode" 
 | summarize count(UserName) by CodeSymbolic 
-```
-
-Aby znaleźć wystąpienie błędu dla wszystkich użytkowników:
-
-```kusto
-WVDErrors 
-| where ServiceError =="false" 
-| summarize usercount = count(UserName) by CodeSymbolic 
-| sort by usercount desc
-| render barchart 
 ```
 
 Aby znaleźć wystąpienie błędu dla wszystkich użytkowników:

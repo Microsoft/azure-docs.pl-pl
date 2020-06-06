@@ -4,16 +4,16 @@ description: Wskazówki dotyczące dostrajania wydajności Azure Data Lake Stora
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a3ea6858355d6cb921f629bf36134d96371f6244
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5de8da90ac3356480fd809af68ab2c8b30540aa
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74327929"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465953"
 ---
 # <a name="tune-performance-mapreduce-hdinsight--azure-data-lake-storage-gen2"></a>Dostrajanie wydajności: MapReduce, HDInsight & Azure Data Lake Storage Gen2
 

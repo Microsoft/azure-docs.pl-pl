@@ -1,5 +1,5 @@
 ---
-title: Tworzenie wielu punktów końcowych modelu
+title: Tworzenie wielu modeli i punktów końcowych
 titleSuffix: ML Studio (classic) - Azure
 description: Użyj programu PowerShell, aby utworzyć wiele modeli Machine Learning i punkty końcowe usługi sieci Web przy użyciu tego samego algorytmu, ale różnych zestawów danych szkoleniowych.
 services: machine-learning
@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 1dd17d3ac715c2b32f645602203aa2551c91b42a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 145ee5b458927fc4e3cda5277de614383181eed5
+ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195343"
+ms.lasthandoff: 06/06/2020
+ms.locfileid: "84465698"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Tworzenie wielu punktów końcowych usługi sieci Web na podstawie jednego eksperymentu z ML Studio (klasyczny) i programu PowerShell
 
