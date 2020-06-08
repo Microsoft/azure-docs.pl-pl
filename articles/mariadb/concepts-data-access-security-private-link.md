@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: b05a202537492fe54a76cf40a3b15987e099a7e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e54c0c156fde8201e6c5803c2c94f67692a7fd7
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367724"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484769"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Prywatny link do Azure Database for MariaDB
 
@@ -46,6 +46,10 @@ Za pomocą linku prywatnego można teraz skonfigurować mechanizmy kontroli dost
 Po nawiązaniu połączenia z publicznym punktem końcowym z maszyn lokalnych należy dodać adres IP do zapory opartej na protokole IP przy użyciu reguły zapory na poziomie serwera. Chociaż ten model działa dobrze, aby umożliwić dostęp do poszczególnych maszyn na potrzeby obciążeń deweloperskich lub testowych, trudno jest zarządzać w środowisku produkcyjnym.
 
 Za pomocą linku prywatnego można włączyć dostęp między lokalizacjami do prywatnego punktu końcowego za pomocą usługi [Express Route](https://azure.microsoft.com/services/expressroute/) (er), prywatnej komunikacji równorzędnej lub [tunelu VPN](https://docs.microsoft.com/azure/vpn-gateway/). Mogą oni następnie wyłączyć dostęp za pośrednictwem publicznego punktu końcowego i nie używać zapory opartej na protokole IP.
+
+> [!NOTE]
+> W niektórych przypadkach Azure Database for MariaDB i podsieć wirtualna znajdują się w różnych subskrypcjach. W takich przypadkach należy zapewnić następujące konfiguracje:
+> - Upewnij się, że w subskrypcji jest zarejestrowany dostawca zasobów **Microsoft. DBforMariaDB** . Aby uzyskać więcej informacji, zobacz temat [Resource-Manager-Registration][resource-manager-portal]
 
 ## <a name="configure-private-link-for-azure-database-for-mariadb"></a>Skonfiguruj prywatny link dla Azure Database for MariaDB
 
@@ -130,3 +134,6 @@ Aby dowiedzieć się więcej na temat funkcji zabezpieczeń Azure Database for M
 * Aby dowiedzieć się, jak skonfigurować punkt końcowy usługi sieci wirtualnej dla Azure Database for MariaDB, zobacz [Konfigurowanie dostępu z sieci wirtualnych](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
 
 * Aby zapoznać się z omówieniem Azure Database for MariaDB łączności, zobacz [Azure Database for MariaDB architektura łączności](https://docs.microsoft.com/azure/MariaDB/concepts-connectivity-architecture)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

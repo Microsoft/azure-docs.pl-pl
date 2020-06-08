@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: c28c5494c1cff2c198a94ea6b92003ae74ee2c8e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45233fd869a664844a9378af66892a74bea8c7f2
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371804"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485070"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Tworzenie prywatnego linku do Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia i zarządzanie nim
 
@@ -49,7 +49,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Wyłącz zasady prywatnego punktu końcowego podsieci 
-Platforma Azure wdraża zasoby w podsieci w sieci wirtualnej, dlatego należy utworzyć lub zaktualizować podsieć w celu wyłączenia zasad sieci prywatnych punktów końcowych. Zaktualizuj konfigurację podsieci o nazwie Moja *podsieć* za pomocą elementu [AZ Network VNET Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Platforma Azure wdraża zasoby w podsieci w sieci wirtualnej, dlatego należy utworzyć lub zaktualizować podsieć w celu wyłączenia [zasad sieci](../private-link/disable-private-endpoint-network-policy.md)prywatnych punktów końcowych. Zaktualizuj konfigurację podsieci o nazwie Moja *podsieć* za pomocą elementu [AZ Network VNET Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -82,7 +82,9 @@ az mariadb server create \
 --sku-name GP_Gen5_2
 ```
 
-Zwróć uwagę, że identyfikator serwera MariaDB jest ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.DBforMariaDB/servers/servername.``` podobny do tego, że w następnym kroku zostanie użyty identyfikator serwera MariaDB. 
+> [!NOTE]
+> W niektórych przypadkach Azure Database for MariaDB i podsieć wirtualna znajdują się w różnych subskrypcjach. W takich przypadkach należy zapewnić następujące konfiguracje:
+> - Upewnij się, że w subskrypcji jest zarejestrowany dostawca zasobów **Microsoft. DBforMariaDB** . Aby uzyskać więcej informacji, zobacz temat [Resource-Manager-Registration][resource-manager-portal]
 
 ## <a name="create-the-private-endpoint"></a>Tworzenie prywatnego punktu końcowego 
 Utwórz prywatny punkt końcowy dla serwera MariaDB w Virtual Network: 
@@ -92,7 +94,7 @@ az network private-endpoint create \
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "<MariaDB Server ID>" \  
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMariaDB/servers/$Servername" \  
     --group-ids mariadbServer \  
     --connection-name myConnection  
  ```
@@ -141,7 +143,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
     1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
 
         > [!NOTE]
-        > Może być konieczne wybranie **pozycji więcej opcji** > **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
+        > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
 1. Wybierz przycisk **OK**.
 
@@ -172,7 +174,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
     | ------- | ----- |
     | Nazwa połączenia| Wybierz wybraną nazwę połączenia.|
     | Nazwa hosta | Wybierz *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
-    | Nazwa użytkownika | Wprowadź nazwę użytkownika *username@servername* , która jest dostępna podczas tworzenia serwera MariaDB. |
+    | Nazwa użytkownika | Wprowadź nazwę użytkownika, *username@servername* która jest dostępna podczas tworzenia serwera MariaDB. |
     | Hasło | Wprowadź hasło podane podczas tworzenia serwera MariaDB. |
     ||
 
@@ -191,3 +193,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o tym, [co to jest prywatny punkt końcowy platformy Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

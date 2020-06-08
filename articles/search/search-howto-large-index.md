@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 915243fb4dbc6bb274e26261bc5741811ef24592
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: e544e720f024b265e957e67d5bd2ee8af91f5c7f
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925987"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484576"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Jak indeksować duże zestawy danych w usłudze Azure Wyszukiwanie poznawcze
 
@@ -89,7 +89,7 @@ Zestaw .NET SDK platformy Azure Wyszukiwanie poznawcze automatycznie ponawia pr�
 
 Szybkość transferu danych w sieci może być czynnikiem ograniczającym podczas indeksowania danych. Indeksowanie danych z poziomu środowiska platformy Azure to prosty sposób przyspieszenia indeksowania.
 
-## <a name="indexers"></a>Indexers (Indeksatory)
+## <a name="indexers"></a>Indeksatory
 
 [Indeksatory](search-indexer-overview.md) służą do przeszukiwania obsługiwanych źródeł danych platformy Azure w celu wyszukania zawartości. Chociaż nie jest to przeznaczone do indeksowania na dużą skalę, kilka funkcji indeksatora jest szczególnie przydatne do obsługi większych zestawów danych:
 
@@ -139,7 +139,7 @@ W przypadku indeksatorów pojemność przetwarzania jest luźno oparta na jednym
 
 1. Na [Azure Portal](https://portal.azure.com)na stronie **Przegląd** pulpitu nawigacyjnego usługi wyszukiwania Sprawdź **warstwę cenową** , aby potwierdzić, że może ona obsługiwać równoległe indeksowanie. Warstwy Podstawowa i Standardowa oferują wiele replik.
 
-2. W obszarze **Ustawienia** > **Skala** [Zwiększ liczbę replik](search-capacity-planning.md) do przetwarzania równoległego: jedną dodatkową replikę dla każdego obciążenia indeksatora. Pozostaw wystarczającą liczbę dla istniejącego woluminu zapytania. Obniżanie obciążenia zapytań dla indeksowania nie jest dobrym kompromisem.
+2. Można uruchamiać dowolną liczbę indeksatorów równolegle jako liczbę jednostek wyszukiwania w usłudze. W obszarze **Ustawienia**  >  **skalowanie** [Zwiększ liczbę replik](search-capacity-planning.md) lub partycji do przetwarzania równoległego: jedną dodatkową replikę lub partycję dla każdego obciążenia indeksatora. Pozostaw wystarczającą liczbę dla istniejącego woluminu zapytania. Obniżanie obciążenia zapytań dla indeksowania nie jest dobrym kompromisem.
 
 3. Dystrybuuj dane do wielu kontenerów na poziomie, do którego mogą uzyskać dostęp indeksatory platformy Azure Wyszukiwanie poznawcze. Może to być wiele tabel w Azure SQL Database, wiele kontenerów w usłudze Azure Blob Storage lub wiele kolekcji. Zdefiniuj jeden obiekt źródła danych dla każdej tabeli lub kontenera.
 
@@ -156,7 +156,7 @@ W zaplanowanym czasie wszystkie indeksatory rozpoczynają wykonywanie, ładowani
 > [!Note]
 > Podczas zwiększania replik należy rozważyć zwiększenie liczby partycji, jeśli rozmiar indeksu jest rzutowany, aby znacząco zwiększyć. Partycje przechowują wycinki indeksowanej zawartości; im więcej partycji, tym mniejsza jest możliwość przechowywania wycinka każdego z nich.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 + [Omówienie indeksatora](search-indexer-overview.md)
 + [Indeksowanie w portalu](search-import-data-portal.md)

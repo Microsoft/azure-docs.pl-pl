@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 6f8ed02659f1720435df3ff98817233a5a46dbcb
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: e45726cfc54963c546274e0777dd0a10d89da72d
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450990"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483308"
 ---
 # <a name="cloud-storage-for-highly-secure-durable-scalable-apps-with-azure-storage"></a>Magazyn w chmurze dla wysoce bezpiecznych, trwałych i skalowalnych aplikacji z usługą Azure Storage
 Usługa [Azure Storage](https://azure.microsoft.com/services/storage/) to rozwiązanie magazynu w chmurze firmy Microsoft dla nowoczesnych aplikacji, które oferuje wysoce skalowalny magazyn obiektów dla obiektów danych, usługę systemu plików dla chmury, magazyn komunikatów dla niezawodnej obsługi komunikatów i Magazyn NoSQL. Usługa Azure Storage to:
@@ -53,21 +53,6 @@ Magazyn tabel służy do przechowywania i wykonywania zapytań dotyczących duż
 - [Dokumentacja usługi Azure Table Storage](/azure/storage/tables/table-storage-overview)
 - [Samples](/azure/cosmos-db/tutorial-develop-table-dotnet?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 - [Przewodniki Szybki start](/azure/storage/tables/table-storage-quickstart-portal)
-
-## <a name="azure-files"></a>Azure Files
-Za pomocą [Azure Files](https://azure.microsoft.com/services/storage/files/)można skonfigurować udziały plików o wysokiej dostępności, do których można uzyskać dostęp przy użyciu standardowego protokołu bloku komunikatów serwera (SMB). Wiele maszyn wirtualnych może współużytkować te same pliki z dostępem do odczytu i zapisu. Pliki można również odczytywać przy użyciu interfejsu REST lub bibliotek klienta usługi Storage. Możesz uzyskać dostęp do plików z dowolnego miejsca na świecie przy użyciu adresu URL, który wskazuje plik i zawiera token sygnatury dostępu współdzielonego (SAS). Można generować tokeny SAS. Umożliwiają one określony dostęp do prywatnego zasobu przez określony czas.
-
-Udziały plików platformy Azure mogą być używane w następujących celach:
-- **Zastąp lub Uzupełnij lokalne serwery plików:** Popularne systemy operacyjne, takie jak Windows, macOS i Linux, mogą bezpośrednio instalować udziały plików platformy Azure wszędzie tam, gdzie znajdują się na świecie. Udziały plików platformy Azure można również replikować za pomocą usługi Azure File Sync w systemach Windows Server, lokalnie lub w chmurze, w celu zapewnienia wydajnego i rozproszonego buforowania danych w miejscu ich używania.
-- **Aplikacje podnoszenia i przesunięcia:** Migruj aplikacje do chmury, które oczekują udziału plików na przechowywanie plików aplikacji lub danych użytkownika.
-- **Uproszczenie programowania w chmurze:** Azure Files można również używać na wiele sposobów w celu uproszczenia nowych projektów programistycznych w chmurze. Przykład:
-    - **Ustawienia aplikacji udostępnionej:** Typowym wzorcem aplikacji rozproszonych jest posiadanie plików konfiguracji w scentralizowanej lokalizacji, w której można uzyskać do nich dostęp z wielu wystąpień aplikacji. Wystąpienia aplikacji mogą ładować swoją konfigurację za pomocą interfejsu API REST plików. Użytkownicy mogą uzyskiwać do nich dostęp w razie konieczności, instalując udział SMB lokalnie.
-    - **Udział diagnostyczny:** Udział plików platformy Azure jest wygodnym miejscem do zapisywania dzienników, metryk i zrzutów awaryjnych aplikacji w chmurze. Dzienniki mogą być zapisywane przez wystąpienia aplikacji za pośrednictwem interfejsu API REST plików. Deweloperzy mogą uzyskać do nich dostęp, instalując udział plików na ich maszynach lokalnych. Ta funkcja zapewnia dużą elastyczność. Deweloperzy mogą wdrożyć programowanie w chmurze bez konieczności porzucenia istniejących narzędzi, które znają.
-
-**Dokumentacja**
-- [Azure Portal](https://portal.azure.com)
-- [Dokumentacja usługi Azure Files](/azure/storage/files/storage-files-introduction)
-- [Przewodniki Szybki start](/azure/storage/files/storage-files-quick-create-use-windows)
 
 ## <a name="azure-queue-storage"></a>Azure Queue Storage
 [Azure queue storage](https://azure.microsoft.com/services/storage/queues/) to usługa służąca do przechowywania dużej liczby komunikatów. Użytkownik uzyskuje dostęp do komunikatów z dowolnego miejsca na świecie za pośrednictwem uwierzytelnionych połączeń przy użyciu protokołu HTTP lub HTTPS. Komunikat w kolejce może mieć rozmiar do 64 KB. Kolejka może zawierać miliony komunikatów, do łącznego limitu pojemności konta magazynu. Kolejki są często używane do tworzenia zaległości prac do przetwarzania asynchronicznego.

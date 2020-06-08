@@ -5,14 +5,14 @@ author: codemillmatt
 ms.service: mobile-services
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 3fb8057d0619193237567b619ca93b92526a3496
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 7f31c89924ac6c3752a3916987c8aba027641deb
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450843"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482670"
 ---
 # <a name="choose-mobile-development-frameworks"></a>Wybierz platformy deweloperskie dla urządzeń przenośnych
 Deweloperzy mogą używać technologii po stronie klienta do kompilowania aplikacji mobilnych, korzystając z określonych struktur i wzorców dla podejścia międzyplatformowego. W oparciu o czynniki decyzyjne deweloperzy mogą tworzyć:

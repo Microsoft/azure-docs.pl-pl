@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: d0f37d32b7d2306865d435bc68ea12c9bb95651c
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: ffb0cd65ed8c904098a1099540a5c3a55f605d36
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434714"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485082"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -102,6 +102,9 @@ Możesz znaleźć informacje potrzebne do wypełnienia `register_azure_*()` meto
 
 * Jeśli planujesz używać zasady usługi do uwierzytelniania, przejdź do **rejestracje aplikacji** i wybierz aplikację, której chcesz użyć. 
     * Odpowiadająca jej Strona **przeglądu** będzie zawierać wymagane informacje, takie jak identyfikator dzierżawy i identyfikator klienta.
+
+> [!IMPORTANT]
+> Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla konta usługi Azure Storage (klucza konta lub tokenu SAS). W tym celu należy zsynchronizować nowe poświadczenia z obszarem roboczym i magazynami danych, które są z nim połączone. Informacje o synchronizowaniu zaktualizowanych poświadczeń z [tymi krokami](how-to-change-storage-access-key.md). 
 
 W poniższych przykładach pokazano, jak zarejestrować kontener obiektów blob platformy Azure, udział plików platformy Azure i Azure Data Lake Storage generacja 2 jako magazyn danych. Parametry podane w tych przykładach są parametrami **wymaganymi** do utworzenia i zarejestrowania magazynu danych. 
 
@@ -192,6 +195,9 @@ Informacje potrzebne do wypełnienia formularza można znaleźć na [Azure Porta
 * W przypadku elementów uwierzytelniania, takich jak klucz konta lub token SAS, przejdź do pozycji **klucze dostępu** w okienku **Ustawienia** . 
 
 * W przypadku elementów nazwy głównej usługi, takich jak identyfikator dzierżawy i identyfikator klienta, przejdź do **rejestracje aplikacji** i wybierz aplikację, której chcesz użyć. Odpowiadająca jej Strona **przeglądu** będzie zawierać te elementy. 
+
+> [!IMPORTANT]
+> Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla konta usługi Azure Storage (klucza konta lub tokenu SAS). W tym celu należy zsynchronizować nowe poświadczenia z obszarem roboczym i magazynami danych, które są z nim połączone. Informacje o synchronizowaniu zaktualizowanych poświadczeń z [tymi krokami](how-to-change-storage-access-key.md). 
 
 Poniższy przykład pokazuje, jak wygląda formularz podczas tworzenia magazynu danych obiektów blob platformy Azure: 
     

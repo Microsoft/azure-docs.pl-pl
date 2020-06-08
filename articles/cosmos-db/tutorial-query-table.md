@@ -6,20 +6,20 @@ ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 06/05/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14a6d2b448bb943356ae1738c3d53d9c6fee1a98
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76770482"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484671"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Samouczek: Wykonywanie zapytań w usłudze Azure Cosmos DB przy użyciu interfejsu API tabel
 
 [Interfejs API tabel](table-introduction.md) usługi Azure Cosmos DB obsługuje zapytania OData i [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) dla danych klucz-wartość (tabeli).  
 
-W tym artykule opisano następujące zadania: 
+W tym artykule opisano następujące zadania:
 
 > [!div class="checklist"]
 > * Wykonywanie zapytania o dane przy użyciu interfejsu API tabel
@@ -30,39 +30,42 @@ Zapytania w tym artykule korzystają z następującej przykładowej tabeli `Peop
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0101 |
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
-| Smith | Jan | Jeff@contoso.com| 425-555-0104 | 
+| Smith | Jan | Jeff@contoso.com| 425-555-0104 |
 
-Zobacz [Wykonywanie zapytań względem tabel i jednostek](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities), aby uzyskać szczegółowe informacje na temat wykonywania zapytań przy użyciu interfejsu API tabel. 
+Zobacz [Wykonywanie zapytań względem tabel i jednostek](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities), aby uzyskać szczegółowe informacje na temat wykonywania zapytań przy użyciu interfejsu API tabel.
 
-Aby uzyskać więcej informacji na temat funkcji premium oferowanych przez usługę Azure Cosmos DB, zobacz [Interfejs API tabel usługi Azure Cosmos DB](table-introduction.md) i [Opracowywanie zawartości przy użyciu interfejsu API tabel na platformie .NET](tutorial-develop-table-dotnet.md). 
+Aby uzyskać więcej informacji na temat funkcji premium oferowanych przez usługę Azure Cosmos DB, zobacz [Interfejs API tabel usługi Azure Cosmos DB](table-introduction.md) i [Opracowywanie zawartości przy użyciu interfejsu API tabel na platformie .NET](tutorial-develop-table-dotnet.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby te zapytania działały, musisz mieć konto usługi Azure Cosmos DB i mieć dane jednostki w kontenerze. Nie spełniasz tych warunków? Ukończ [pięciominutowy przewodnik Szybki start](create-table-dotnet.md) lub [samouczek dewelopera](tutorial-develop-table-dotnet.md), aby utworzyć konto i wypełnić bazę danych.
 
 ## <a name="query-on-partitionkey-and-rowkey"></a>Zapytanie dotyczące właściwości PartitionKey i RowKey
-Ponieważ właściwości PartitionKey i RowKey tworzą klucz podstawowy jednostki, do zidentyfikowania jednostki można użyć następującej specjalnej składni: 
+
+Ponieważ właściwości PartitionKey i RowKey tworzą klucz podstawowy jednostki, do zidentyfikowania jednostki można użyć następującej specjalnej składni:
 
 **Zapytanie**
 
 ```
 https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')  
 ```
-**Wyniki**
+
+**Uzyskane**
 
 | PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Harp | Walter | Walter@contoso.com| 425-555-0104 |
 
-Można także określić te właściwości jako część opcji `$filter`, jak pokazano w poniższej sekcji. Należy pamiętać, że w nazwach właściwości kluczy i wartościach stałych jest rozróżniana wielkość liter. Właściwości PartitionKey i RowKey są typu String. 
+Można także określić te właściwości jako część opcji `$filter`, jak pokazano w poniższej sekcji. Należy pamiętać, że w nazwach właściwości kluczy i wartościach stałych jest rozróżniana wielkość liter. Właściwości PartitionKey i RowKey są typu String.
 
 ## <a name="query-by-using-an-odata-filter"></a>Wykonywanie zapytań przy użyciu filtru OData
-Podczas tworzenia ciągu filtru należy pamiętać o następujących regułach: 
 
-* Aby porównać właściwość z wartością, użyj operatorów logicznych określonych w specyfikacji protokołu OData. Pamiętaj, że nie można porównać właściwości z wartością dynamiczną. Jedna strona wyrażenia musi być stałą. 
-* Nazwa właściwości, operator i wartość stała muszą być oddzielone spacjami zakodowanymi w adresie URL. Spacja jest zakodowana w adresie URL jako `%20`. 
-* We wszystkich częściach ciągu filtru jest rozróżniana wielkość liter. 
-* Wartość stała musi mieć ten sam typ danych co właściwość, aby filtr zwracał prawidłowe wyniki. Aby uzyskać szczegółowe informacje na temat obsługiwanych typów właściwości, zobacz [Omówienie modelu danych usługi Table service](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). 
+Podczas tworzenia ciągu filtru należy pamiętać o następujących regułach:
+
+* Aby porównać właściwość z wartością, użyj operatorów logicznych określonych w specyfikacji protokołu OData. Pamiętaj, że nie można porównać właściwości z wartością dynamiczną. Jedna strona wyrażenia musi być stałą.
+* Nazwa właściwości, operator i wartość stała muszą być oddzielone spacjami zakodowanymi w adresie URL. Spacja jest zakodowana w adresie URL jako `%20`.
+* We wszystkich częściach ciągu filtru jest rozróżniana wielkość liter.
+* Wartość stała musi mieć ten sam typ danych co właściwość, aby filtr zwracał prawidłowe wyniki. Aby uzyskać szczegółowe informacje na temat obsługiwanych typów właściwości, zobacz [Omówienie modelu danych usługi Table service](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model).
 
 Poniżej przedstawiono przykładowe zapytanie, które pokazuje sposób filtrowania według właściwości PartitionKey i Email przy użyciu elementu `$filter` OData.
 
@@ -74,11 +77,13 @@ https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and
 
 Aby uzyskać więcej informacji na temat sposobu tworzenia wyrażenia filtru dla różnych typów danych, zobacz [Wykonywanie zapytań względem tabel i jednostek](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
 
-**Wyniki**
+**Uzyskane**
 
 | PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
 | --- | --- | --- | --- |
 | Smith |Ben | Ben@contoso.com| 425-555-0102 |
+
+Zapytania dotyczące właściwości DateTime nie zwracają żadnych danych, gdy są wykonywane w interfejs API tabel Azure Cosmos DB. Podczas gdy magazyn tabel Azure przechowuje wartości daty z szczegółowością czasu taktów, interfejs API tabel w Azure Cosmos DB używa `_ts` właściwości. `_ts`Właściwość jest na drugim poziomie stopnia szczegółowości, który nie jest filtrem OData. Dlatego zapytania we właściwościach sygnatur czasowych są blokowane przez Azure Cosmos DB. Jako obejście można zdefiniować niestandardową właściwość DateTime lub Long typu danych i ustawić wartość daty z klienta.
 
 ## <a name="query-by-using-linq"></a>Wykonywanie zapytań za pomocą wyrażenia LINQ 
 Możesz także wykonywać zapytania za pomocą wyrażenia LINQ, co oznacza odpowiednie wyrażenia zapytań OData. Oto przykład sposobu tworzenia zapytań przy użyciu zestawu .NET SDK:

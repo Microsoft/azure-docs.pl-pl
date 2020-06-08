@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: a2083de1ddf400b368815877725d3b8dd446156b
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 3733989ad6eed113e37c87eb7da6748cec10e34d
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82844621"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485768"
 ---
 Aby w spójny sposób tworzyć maszyny wirtualne platformy Azure i zarządzać nimi w odpowiedniej skali, zwykle jest wymagana pewna forma automatyzacji. Istnieje wiele narzędzi i rozwiązań umożliwiających automatyzację całego cyklu wdrażania infrastruktury platformy Azure i zarządzania nimi. W tym artykule przedstawiono niektóre narzędzia automatyzacji infrastruktury, których można użyć na platformie Azure. Te narzędzia często pasują do jednej z następujących metod:
 
@@ -100,7 +100,7 @@ Instrukcje:
 
 Instrukcje:
 
-- [Zainstaluj i skonfiguruj Terraform z platformą Azure](/azure/developer/terraform/install-configure).
+- [Zainstaluj i skonfiguruj Terraform z platformą Azure](/azure/developer/terraform/getting-started-cloud-shell).
 - [Utwórz infrastrukturę platformy Azure z usługą Terraform](/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure).
 
 
@@ -119,7 +119,7 @@ Instrukcje:
 ## <a name="azure-devops-services"></a>Usługa Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) to pakiet narzędzi, które ułatwiają udostępnianie i śledzenie kodu, korzystanie z zautomatyzowanych kompilacji oraz tworzenie kompletnego potoku ciągłej integracji i tworzenia oprogramowania (Ci/CD). Azure DevOps Services integruje się z programem Visual Studio i innymi edytorami, aby uprościć użycie. Azure DevOps Services może również tworzyć i konfigurować maszyny wirtualne platformy Azure, a następnie wdrażać w nich kod.
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 
 - [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 

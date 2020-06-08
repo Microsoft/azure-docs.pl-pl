@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-0123-4678-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 7986d740eb8e963fbede19637e8e691459b742c5
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: cff95c38500a32b9b8ddc3f303ae218926bd59bd
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84451011"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483360"
 ---
 # <a name="content-delivery-network-on-azure-with-azure-content-delivery-network"></a>Usługa Content Delivery Network na platformie Azure z usługą Azure Content Delivery Network
 [Usługa Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) oferuje deweloperom globalne rozwiązanie umożliwiające szybkie dostarczanie zawartości o wysokiej przepustowości, np. wideo, obrazów lub plików statycznych, przez buforowanie ich zawartości w setkach punktów obecności na całym świecie. Content Delivery Network może również przyspieszyć zawartość dynamiczną, której nie można buforować, aby skrócić czas ładowania, zaoszczędzić przepustowość i zwiększyć czas odpowiedzi. Te korzyści można uzyskać, niezależnie od tego, czy tworzysz lub zarządzasz witrynami sieci Web lub aplikacjami mobilnymi oraz Koduj i Dystrybuuj multimedia strumieniowe, oprogramowanie do gier, aktualizacje oprogramowania układowego i punkty końcowe IoT.

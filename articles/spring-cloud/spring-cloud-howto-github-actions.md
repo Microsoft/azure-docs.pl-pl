@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 559c894a2212466761de820de7486ae203337802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a0624c01a3bb75c1a7b07b130345776417cf482
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77538468"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484322"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Ciągłej integracji/ciągłego wdrażania w chmurze platformy Azure za pomocą akcji GitHub
 
@@ -45,7 +45,7 @@ Ten przykład używa przykładu [metryk Piggy](https://github.com/Azure-Samples/
 
  ![Dodaj nowy wpis tajny](./media/github-actions/actions1.png)
 
-W polu Nazwa klucza tajnego ustaw wartość `AZURE_CREDENTIALS` i jej wartości na ciąg JSON znaleziony w nagłówku *Skonfiguruj repozytorium GitHub i Uwierzytelnij*.
+W polu Nazwa klucza tajnego Ustaw `AZURE_CREDENTIALS` wartość i jej wartości na ciąg JSON znaleziony w nagłówku *Skonfiguruj repozytorium GitHub i Uwierzytelnij*.
 
  ![Ustawianie danych tajnych](./media/github-actions/actions2.png)
 
@@ -99,7 +99,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
     
     - name: Azure Login
       uses: azure/login@v1
@@ -118,7 +118,7 @@ jobs:
         az spring-cloud app deploy -n auth-service --jar-path ${{ github.workspace }}/auth-service/target/auth-service.jar
 ```
 ### <a name="deploy-with-azure-cli-action"></a>Wdrażanie za pomocą akcji interfejsu wiersza polecenia platformy Azure
-AZ `run` polecenie będzie używać najnowszej wersji interfejsu wiersza polecenia platformy Azure. Jeśli istnieją istotne zmiany, możesz również użyć określonej wersji interfejsu wiersza polecenia platformy Azure z platformą Azure/ `action`CLI. 
+AZ `run` polecenie będzie używać najnowszej wersji interfejsu wiersza polecenia platformy Azure. Jeśli istnieją istotne zmiany, możesz również użyć określonej wersji interfejsu wiersza polecenia platformy Azure z platformą Azure/CLI `action` . 
 
 > [!Note] 
 > To polecenie zostanie uruchomione w nowym kontenerze, więc `env` nie będzie działać, a dostęp do plików między akcjami może mieć dodatkowe ograniczenia.
@@ -142,7 +142,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
         
     - name: Azure Login
       uses: azure/login@v1
@@ -183,7 +183,7 @@ jobs:
     
     - name: maven build, clean
       run: |
-        mvn clean package -D skipTests
+        mvn clean package -DskipTests
         
     # Maven plugin can cosume this authentication method automatically
     - name: Azure Login
@@ -198,7 +198,7 @@ jobs:
 ```
 
 ## <a name="run-the-workflow"></a>Uruchamianie przepływu pracy
-**Akcje** usługi GitHub powinny być włączane automatycznie po `.github/workflow/main.yml` wypchnięciu do serwisu GitHub. Akcja zostanie wyzwolona po wypchnięciu nowego zatwierdzenia. Jeśli utworzysz ten plik w przeglądarce, Twoja akcja powinna być już uruchomiona.
+**Akcje** usługi GitHub powinny być włączane automatycznie po wypchnięciu `.github/workflow/main.yml` do serwisu GitHub. Akcja zostanie wyzwolona po wypchnięciu nowego zatwierdzenia. Jeśli utworzysz ten plik w przeglądarce, Twoja akcja powinna być już uruchomiona.
 
 Aby sprawdzić, czy akcja została włączona, kliknij kartę **Akcje** na stronie repozytorium GitHub:
 
@@ -211,4 +211,4 @@ Jeśli akcja zostanie uruchomiona z błędem, na przykład jeśli nie ustawiono 
 ## <a name="next-steps"></a>Następne kroki
 * [Key Vault dla akcji GitHub w chmurze](./spring-cloud-github-actions-key-vault.md)
 * [Azure Active Directory jednostek usługi](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
-* [Akcje GitHub dla platformy Azure](https://github.com/Azure/actions/)
+* [Akcje GitHub Actions dla platformy Azure](https://github.com/Azure/actions/)

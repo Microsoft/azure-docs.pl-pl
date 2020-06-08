@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1ed7126f2698294ac6706aafcb85e3229a7491bb
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 1bff1e22df1583491bf8d249cdb8752e9a1e4f57
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300095"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485378"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji Java na Azure App Service w systemie Linux
 
@@ -44,7 +44,7 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Konfigurowanie wtyczki Maven
 
-Proces wdrażania w celu Azure App Service może uzyskać poświadczenia platformy Azure automatycznie z poziomu interfejsu wiersza polecenia platformy Azure. Jeśli nie masz zainstalowanego interfejsu wiersza polecenia platformy Azure, wtyczka Maven zarejestruje Cię przy użyciu logowania OAuth lub urządzenia. W razie potrzeby Sprawdź szczegółowe informacje dotyczące [uwierzytelniania przy użyciu wtyczek Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio) .
+Proces wdrażania w celu Azure App Service może uzyskać poświadczenia platformy Azure automatycznie z poziomu interfejsu wiersza polecenia platformy Azure. Jeśli nie masz zainstalowanego interfejsu wiersza polecenia platformy Azure, wtyczka Maven zarejestruje Cię przy użyciu logowania OAuth lub urządzenia. W razie potrzeby Sprawdź szczegółowe informacje dotyczące [uwierzytelniania przy użyciu wtyczek Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) .
 
 Aby skonfigurować wdrożenie, uruchom polecenie Maven w wierszu polecenia i użyj konfiguracji domyślnej przez naciśnięcie klawisza **Enter** do momentu uzyskania monitu o **potwierdzenie (t/N)** , a następnie naciśnij klawisz **"Y"** , a konfiguracja zostanie ukończona. 
 ```cmd

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: 332b0193059c2c60cce0bc653d48bace45eca38d
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 62c7a3ecec3f941971cad552af2e36f63ab67c60
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432724"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485108"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Macierz obsługi odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure
 
@@ -32,11 +32,14 @@ Funkcja Hyper-V bez Virtual Machine Manager | Odzyskiwanie po awarii można prze
 
 **Serwer** | **Wymagania** | **Szczegóły**
 --- | --- | ---
-Funkcja Hyper-V (uruchomiona bez Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 z najnowszymi aktualizacjami (w tym instalacja Server Core systemów operacyjnych) | Jeśli już skonfigurowano system Windows Server 2012 R2 z/lub SCVMM 2012 R2 z Azure Site Recovery i planujesz uaktualnić system operacyjny, postępuj zgodnie z [dokumentacją.](upgrade-2012R2-to-2016.md) <br/><br/> Uwaga: powrót po awarii nie jest obsługiwany w przypadku wersji Server Core systemu Windows Server 2019.
-Funkcja Hyper-V (uruchomiona z Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Jeśli Virtual Machine Manager jest używany, hosty systemu Windows Server 2019 powinny być zarządzane w Virtual Machine Manager 2019. Podobnie hosty systemu Windows Server 2016 powinny być zarządzane w Virtual Machine Manager 2016.<br/><br/> Uwaga: powrót po awarii do alternatywnej lokalizacji nie jest obsługiwany w przypadku hostów z systemem Windows Server 2019.
+Funkcja Hyper-V (uruchomiona bez Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 z najnowszymi aktualizacjami (w tym instalacja Server Core systemów operacyjnych) | Jeśli już skonfigurowano system Windows Server 2012 R2 z/lub SCVMM 2012 R2 z Azure Site Recovery i planujesz uaktualnić system operacyjny, postępuj zgodnie z [dokumentacją.](upgrade-2012R2-to-2016.md)
+Funkcja Hyper-V (uruchomiona z Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016 Virtual Machine Manager 2012 R2 (w tym systemy operacyjne instalacji Server Core) | Jeśli Virtual Machine Manager jest używany, hosty systemu Windows Server 2019 powinny być zarządzane w Virtual Machine Manager 2019. Podobnie hosty systemu Windows Server 2016 powinny być zarządzane w Virtual Machine Manager 2016.
 
 > [!NOTE]
-> Upewnij się, że na serwerze lokalnym jest zainstalowany .NET Framework 4.6.2 lub nowszy.
+>
+> - Upewnij się, że na serwerze lokalnym jest zainstalowany .NET Framework 4.6.2 lub nowszy.
+> - Powrót po awarii nie jest obsługiwany w wersji Server Core systemu Windows Server 2019.
+> - Powrót po awarii do alternatywnej lokalizacji nie jest obsługiwany w przypadku hostów z systemem Windows Server 2019.
 
 ## <a name="replicated-vms"></a>Zreplikowane maszyny wirtualne
 
@@ -164,7 +167,7 @@ Karty sieciowe | Obsługiwana jest konfiguracja z wieloma kartami sieciowymi |
 Udostępniony wirtualny dysk twardy | Nieobsługiwane | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nie jest obsługiwana
 Dysk FC | Nieobsługiwane | Sprawdzanie wymagań wstępnych kończy się niepowodzeniem, jeśli nie jest obsługiwana
 Format dysku twardego | VHD <br/><br/> DYSKU | W przypadku przełączenia w tryb failover na platformie Azure Site Recovery automatycznie konwertuje plik VHDX na dysk VHD. Po powrocie po awarii do lokalnego programu maszyny wirtualne nadal używają formatu VHDX.
-BitLocker | Nieobsługiwane | Aby włączyć replikację dla maszyny wirtualnej, należy wyłączyć funkcję BitLocker.
+Funkcja BitLocker | Nieobsługiwane | Aby włączyć replikację dla maszyny wirtualnej, należy wyłączyć funkcję BitLocker.
 Nazwa maszyny wirtualnej | Od 1 do 63 znaków. Ograniczone do liter, cyfr i łączników. Nazwa maszyny wirtualnej musi zaczynać się i kończyć literą lub cyfrą. | Zaktualizuj wartość we właściwościach maszyny wirtualnej w Site Recovery.
 Typ maszyny wirtualnej | Pierwsza generacja<br/><br/> Generacja 2 — Windows | Maszyny wirtualne generacji 2 z typem dysku systemu operacyjnego Basic (zawierającym jeden lub dwa woluminy danych sformatowane jako VHDX) i mniej niż 300 GB miejsca na dysku są obsługiwane.<br></br>Maszyny wirtualne 2. generacji systemu Linux nie są obsługiwane. [Dowiedz się więcej](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 

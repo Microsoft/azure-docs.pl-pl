@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 06/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc75b300704ef7f8218134c9d384b0718fca1e97
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: b7b551fcace5289b9ffd9fb131b5ba1120b3fdd2
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220696"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483678"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurowanie zarządzania sesjami uwierzytelniania przy użyciu dostępu warunkowego
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
 
 W złożonych wdrożeniach organizacje mogą wymagać ograniczenia sesji uwierzytelniania. Niektóre scenariusze mogą obejmować:
 
@@ -54,6 +54,8 @@ Ustawienie częstotliwości logowania działa z aplikacjami, które mają wdroż
 ### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Częstotliwość logowania użytkownika i uwierzytelnianie wieloskładnikowe
 
 Częstotliwość logowania została wcześniej zastosowana tylko do uwierzytelniania pierwszego czynnika na urządzeniach, które zostały dołączone do usługi Azure AD, dołączona hybrydowa usługa Azure AD i zarejestrowana usługa Azure AD. W przypadku naszych klientów nie ma łatwego sposobu na ponowne Wymuszanie uwierzytelniania wieloskładnikowego (MFA) na tych urządzeniach. W oparciu o opinie klientów, częstotliwość logowania będzie również dotyczyć usługi MFA.
+
+[![Częstotliwość logowania i uwierzytelnianie wieloskładnikowe](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart-small.png)](media/howto-conditional-access-session-lifetime/conditional-access-flow-chart.png#lightbox)
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Częstotliwość logowania użytkownika i tożsamości urządzeń
 

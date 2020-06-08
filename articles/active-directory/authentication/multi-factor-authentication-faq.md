@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d28f93f316ac2a63be6b3a8eb0b80678bd7607f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81271407"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483784"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Często zadawane pytania dotyczące usługi Azure Multi-Factor Authentication
 
@@ -163,7 +163,7 @@ Aby zapobiec nieautoryzowanemu dostępowi, Usuń wszystkie hasła aplikacji uży
 
 ### <a name="what-if-a-user-cant-sign-in-to-non-browser-apps"></a>Co zrobić, jeśli użytkownik nie może się zalogować do aplikacji niekorzystających z przeglądarki?
 
-Jeśli Twoja organizacja nadal używa starszych klientów i [zezwolono na korzystanie z haseł aplikacji](howto-mfa-mfasettings.md#app-passwords), użytkownicy nie będą mogli zalogować się do tych starszych klientów przy użyciu ich nazwy użytkownika i hasła. Zamiast tego należy [skonfigurować hasła aplikacji](../user-help/multi-factor-authentication-end-user-app-passwords.md). Użytkownicy muszą wyczyścić (usunąć) informacje logowania, ponownie uruchomić aplikację, a następnie zalogować się przy użyciu nazwy użytkownika i *hasła aplikacji* zamiast zwykłego hasła.
+Jeśli Twoja organizacja nadal używa starszych klientów i [zezwolono na korzystanie z haseł aplikacji](howto-mfa-app-passwords.md), użytkownicy nie będą mogli zalogować się do tych starszych klientów przy użyciu ich nazwy użytkownika i hasła. Zamiast tego należy [skonfigurować hasła aplikacji](../user-help/multi-factor-authentication-end-user-app-passwords.md). Użytkownicy muszą wyczyścić (usunąć) informacje logowania, ponownie uruchomić aplikację, a następnie zalogować się przy użyciu nazwy użytkownika i *hasła aplikacji* zamiast zwykłego hasła.
 
 Jeśli Twoja organizacja nie ma starszych klientów, nie należy zezwalać użytkownikom na tworzenie haseł aplikacji.
 
@@ -186,7 +186,7 @@ W niektórych przypadkach tak.
 
 W przypadku jednokierunkowego SMS z usługą Azure MFA Server w wersji 7.0 lub nowszej można skonfigurować ustawienie limitu czasu, ustawiając klucz rejestru. Po wysłaniu wiadomości tekstowej przez usługę MFA w chmurze kod weryfikacyjny (lub jednorazowy kod dostępu) jest zwracany do serwera usługi MFA. Serwer MFA domyślnie przechowuje kod w pamięci przez 300 sekund. Jeśli użytkownik nie wprowadzi kodu przed upływem 300 sekund, jego uwierzytelnienie zostanie odrzucone. Wykonaj następujące kroki, aby zmienić domyślne ustawienie limitu czasu:
 
-1. Przejdź do pozycji `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor` (Plik > Nowy > Inny).
+1. Przejdź do witryny `HKLM\Software\Wow6432Node\Positive Networks\PhoneFactor`.
 2. Utwórz klucz rejestru **typu DWORD** o nazwie *pfsvc_pendingSmsTimeoutSeconds* i Ustaw czas w sekundach, w ciągu którego serwer usługi Azure MFA ma przechowywać kody dostępu jednorazowego.
 
 >[!TIP]
@@ -257,4 +257,4 @@ Jeśli na pytanie nie ma odpowiedzi, dostępne są następujące opcje pomocy te
 * Wyszukaj rozwiązania typowych problemów technicznych w [Pomoc techniczna firmy Microsoft bazie wiedzy](https://support.microsoft.com) .
 * Wyszukaj i Przeglądaj pytania techniczne oraz odpowiedzi ze społeczności lub zadawaj swoje pytanie w [Azure Active Directory Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html).
 * Skontaktuj się z pomocą techniczną firmy Microsoft za pomocą [usługi Azure serwer Multi-Factor Authentication](https://support.microsoft.com/oas/default.aspx?prid=14947). Gdy kontaktuje się z nami, jest to przydatne, jeśli możesz dołączyć tyle informacji o problemie, ile to możliwe. Informacje, które można podać, obejmują stronę, na której wydano błąd, konkretny kod błędu, identyfikator konkretnej sesji oraz identyfikator użytkownika, który wykorzystał błąd.
-* Jeśli jesteś starszym klientem PhoneFactor i masz pytania lub potrzebujesz pomocy przy resetowaniu hasła, użyj adresu [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) e-mail, aby otworzyć zgłoszenie do pomocy technicznej.
+* Jeśli jesteś starszym klientem PhoneFactor i masz pytania lub potrzebujesz pomocy przy resetowaniu hasła, użyj [phonefactorsupport@microsoft.com](mailto:phonefactorsupport@microsoft.com) adresu e-mail, aby otworzyć zgłoszenie do pomocy technicznej.

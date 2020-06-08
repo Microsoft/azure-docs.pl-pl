@@ -3,12 +3,12 @@ title: Wdrażanie zasobów w dzierżawie
 description: Opisuje sposób wdrażania zasobów w zakresie dzierżawy w szablonie Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 46e8db865b022e4fa1294c96843553a0480e559f
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653334"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485461"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Tworzenie zasobów na poziomie dzierżawy
 
@@ -72,7 +72,7 @@ W przypadku interfejsu wiersza polecenia platformy Azure Użyj polecenia [AZ Dep
 az deployment tenant create \
   --name demoTenantDeployment \
   --location WestUS \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 Aby uzyskać Azure PowerShell, użyj polecenie [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
@@ -81,7 +81,7 @@ Aby uzyskać Azure PowerShell, użyj polecenie [New-AzTenantDeployment](/powersh
 New-AzTenantDeployment `
   -Name demoTenantDeployment `
   -Location "West US" `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-level-deployments/new-mg/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/tenant-deployments/new-mg/azuredeploy.json"
 ```
 
 W przypadku interfejsu API REST Użyj [wdrożeń — Utwórz lub zaktualizuj w zakresie dzierżawy](/rest/api/resources/deployments/createorupdateattenantscope).
@@ -117,7 +117,7 @@ W przypadku wdrożeń dzierżawców istnieją pewne ważne zagadnienia dotycząc
 
 ## <a name="create-management-group"></a>Tworzenie grupy zarządzania
 
-[Poniższy szablon](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/new-mg) tworzy grupę zarządzania.
+[Poniższy szablon](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) tworzy grupę zarządzania.
 
 ```json
 {
@@ -143,7 +143,7 @@ W przypadku wdrożeń dzierżawców istnieją pewne ważne zagadnienia dotycząc
 
 ## <a name="assign-role"></a>Przypisz rolę
 
-[Poniższy szablon](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-level-deployments/tenant-role-assignment) przypisuje rolę w zakresie dzierżawy.
+[Poniższy szablon](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/tenant-role-assignment) przypisuje rolę w zakresie dzierżawy.
 
 ```json
 {

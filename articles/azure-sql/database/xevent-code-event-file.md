@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-ms.date: 03/12/2019
-ms.openlocfilehash: f409a4c27e2b69993406f95301d21f05b547aed6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/06/2020
+ms.openlocfilehash: 7c451deb04c9fd8b394512979668ad266cadf02d
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047006"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485465"
 ---
 # <a name="event-file-target-code-for-extended-events-in-azure-sql-database"></a>Kod docelowy pliku zdarzeń dla zdarzeń rozszerzonych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,6 @@ Ten temat przedstawia dwufazowy przykład kodu:
 
 - Program PowerShell umożliwia utworzenie kontenera usługi Azure Storage w chmurze.
 - Język Transact-SQL:
-  
   - Aby przypisać kontener usługi Azure Storage do docelowego pliku zdarzeń.
   - Aby utworzyć i uruchomić sesję zdarzeń i tak dalej.
 
@@ -71,7 +70,7 @@ Skrypt rozpoczyna się od poleceń, które mają zostać oczyszczone po możliwy
 
    - Jeśli ponownie uruchomisz skrypt bez zakłócania sesji, masz wygodną opcję komentowania polecenia **Add-AzureAccount** .
 
-![Program PowerShell ISE z zainstalowanym modułem platformy Azure gotowy do uruchomienia skryptu.][30_powershell_ise]
+![Program PowerShell ISE z zainstalowanym modułem platformy Azure gotowy do uruchomienia skryptu.](./media/xevent-code-event-file/event-file-powershell-ise-b30.png)
 
 ### <a name="powershell-code"></a>Kod programu PowerShell
 
@@ -232,6 +231,15 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 ```
 
 Zwróć uwagę na kilka nazwanych wartości, które skrypt programu PowerShell drukuje po zakończeniu. Należy edytować te wartości w skrypcie Transact-SQL, który następuje po fazie 2.
+
+<!--
+TODO:   Consider whether the preceding PowerShell code example deserves to be updated to the latest package (AzureRM.SQL?).
+2020/June/06   Adding the !NOTE below about "ADLS Gen2 storage accounts".
+Related to   https://github.com/MicrosoftDocs/azure-docs/issues/56520
+-->
+
+> [!NOTE]
+> W poprzednim przykładzie kodu programu PowerShell zdarzenia rozszerzone SQL nie są zgodne z kontami magazynu ADLS Gen2.
 
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Faza 2: kod języka Transact-SQL, który używa kontenera usługi Azure Storage
 
@@ -514,6 +522,3 @@ Aby uzyskać więcej informacji na temat kont i kontenerów w usłudze Azure Sto
 - [Lekcja 1. Tworzenie zasad dostępu przechowywanego i sygnatury dostępu współdzielonego w kontenerze platformy Azure](https://msdn.microsoft.com/library/dn466430.aspx)
   - [Lekcja 2. Tworzenie poświadczeń SQL Server przy użyciu sygnatury dostępu współdzielonego](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Zdarzenia rozszerzone dla Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
-
-<!-- Image references. -->
-[30_powershell_ise]: ./media/xevent-code-event-file/event-file-powershell-ise-b30.png

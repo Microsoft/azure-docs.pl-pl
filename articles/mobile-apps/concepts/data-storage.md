@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12344321-0123-4678-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 724ad41bdafdba976939cbf9b7f88df2de6c6c18
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: dc92b187d1bef52339466cf46dbabde7662e95f9
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450668"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482546"
 ---
 # <a name="store-sync-and-query-mobile-application-data-from-the-cloud"></a>Przechowuj, Synchronizuj i badaj dane aplikacji mobilnych z chmury
 Niezależnie od tego, jakiego rodzaju aplikacja została utworzona, prawdopodobnie będziesz generować i przetwarzać dane. Użytkownicy Twojej aplikacji mają duże oczekiwania. Chcą, aby aplikacja działała szybko i bezproblemowo, we wszystkich przypadkach. Większość aplikacji również pracuje na wielu urządzeniach. Możesz uzyskać dostęp do aplikacji z poziomu pulpitu lub urządzenia przenośnego. Wielu użytkowników może korzystać z aplikacji w tym samym czasie i udostępniać dane przy użyciu oczekiwań, aby uzyskiwać dostęp do danych na bieżąco i w czasie rzeczywistym.

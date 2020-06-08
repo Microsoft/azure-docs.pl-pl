@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/12/2020
-ms.openlocfilehash: cba07b84a1ddc2b9362c818ae2d3747b98379f2e
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.date: 6/3/2020
+ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402641"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485241"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Zalecenia dotyczące wydajności w usłudze Azure Database for MySQL
 
@@ -29,23 +29,25 @@ Funkcja [Zalecenia dotyczące wydajności](concepts-performance-recommendations.
 
 Zaleceń dotyczących **wydajności** w sekcji **Intelligent Performance** na pasku menu na stronie Azure Portal serwera MySQL.
 
-![Zalecenia dotyczące wydajności, strona docelowa](./media/concepts-performance-recommendations/performance-recommendations-page.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Zalecenia dotyczące wydajności, strona docelowa":::
 
 Wybierz pozycję **Analizuj** i wybierz bazę danych, która rozpocznie analizę. W zależności od obciążenia analiza może potrwać kilka minut. Po zakończeniu analizy w portalu zostanie wyświetlone powiadomienie. Analiza wykonuje głębokie badanie bazy danych. Zalecamy przeprowadzanie analiz poza okresami szczytu.
 
 W oknie **rekomendacje** zostanie wyświetlona lista zaleceń, jeśli zostały znalezione i powiązanego identyfikatora zapytania, które wygenerowało to zalecenie. Korzystając z identyfikatora zapytania, można dowiedzieć się więcej o zapytaniu za pomocą widoku [MySQL. query_store](concepts-query-store.md#mysqlquery_store) .
 
-![Zaleceń dotyczących wydajności — Nowa strona](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Zaleceń dotyczących wydajności — Nowa strona":::
 
 Zalecenia nie są automatycznie stosowane. Aby zastosować zalecenie, skopiuj tekst zapytania i uruchom go z wybranego klienta. Należy pamiętać o przetestowaniu i monitorowaniu w celu ocenienia zalecenia.
 
 ## <a name="recommendation-types"></a>Typy rekomendacji
 
-Obecnie obsługiwane są tylko zalecenia dotyczące *tworzenia indeksów* .
-
-### <a name="create-index-recommendations"></a>Tworzenie zaleceń dotyczących indeksów
+### <a name="index-recommendations"></a>Zalecenia dotyczące indeksów
 
 *Tworzenie* zaleceń dotyczących indeksów Sugeruj nowe indeksy, aby przyspieszyć najczęściej wykonywane lub czasochłonne zapytania w obciążeniu. Ten typ rekomendacji wymaga włączenia [magazynu zapytań](concepts-query-store.md) . Magazyn zapytań zbiera informacje o zapytaniach i zawiera szczegółowe dane dotyczące środowiska uruchomieniowego zapytań i częstotliwości, których analiza używa do wykonania zalecenia.
+
+### <a name="query-recommendations"></a>Zalecenia dotyczące zapytań
+
+Zalecenia dotyczące zapytań sugerują optymalizacje i ponownie zapisuje zapytania w obciążeniu. Dzięki zidentyfikowaniu i usunięciu składni zapytań MySQL można poprawić wydajność czasochłonnych zapytań. Ten typ rekomendacji wymaga włączenia magazynu zapytań. Magazyn zapytań zbiera informacje o zapytaniach i zawiera szczegółowe dane dotyczące środowiska uruchomieniowego zapytań i częstotliwości, których analiza używa do wykonania zalecenia.
 
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się więcej o [monitorowaniu i dostrajania](concepts-monitoring.md) w Azure Database for MySQL.

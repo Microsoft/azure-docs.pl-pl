@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 4216abdf8cc8aae00e3ba0c57961c4b8b7403672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2ed81972cd89856d0bcde689c3d1f61c5534c96
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371685"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485046"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Prywatny link do Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -46,6 +46,10 @@ Za pomocą linku prywatnego można teraz skonfigurować mechanizmy kontroli dost
 Po nawiązaniu połączenia z publicznym punktem końcowym z maszyn lokalnych należy dodać adres IP do zapory opartej na protokole IP przy użyciu reguły zapory na poziomie serwera. Chociaż ten model działa dobrze, aby umożliwić dostęp do poszczególnych maszyn na potrzeby obciążeń deweloperskich lub testowych, trudno jest zarządzać w środowisku produkcyjnym.
 
 Za pomocą linku prywatnego można włączyć dostęp między lokalizacjami do prywatnego punktu końcowego za pomocą usługi [Express Route](https://azure.microsoft.com/services/expressroute/) (er), prywatnej komunikacji równorzędnej lub [tunelu VPN](https://docs.microsoft.com/azure/vpn-gateway/). Mogą oni następnie wyłączyć dostęp za pośrednictwem publicznego punktu końcowego i nie używać zapory opartej na protokole IP.
+
+> [!NOTE]
+> W niektórych przypadkach Azure Database for PostgreSQL i podsieć wirtualna znajdują się w różnych subskrypcjach. W takich przypadkach należy zapewnić następujące konfiguracje:
+> - Upewnij się, że w subskrypcji jest zarejestrowany dostawca zasobów **Microsoft. DBforPostgreSQL** . Aby uzyskać więcej informacji, zobacz temat [Resource-Manager-Registration][resource-manager-portal]
 
 ## <a name="configure-private-link-for-azure-database-for-postgresql-single-server"></a>Konfigurowanie prywatnego linku dla Azure Database for PostgreSQL pojedynczego serwera
 
@@ -129,3 +133,6 @@ Aby dowiedzieć się więcej na temat Azure Database for PostgreSQL funkcji zabe
 * Aby dowiedzieć się, jak skonfigurować punkt końcowy usługi sieci wirtualnej dla Azure Database for PostgreSQL pojedynczego serwera, zobacz [Konfigurowanie dostępu z sieci wirtualnych](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
 
 * Aby zapoznać się z omówieniem Azure Database for PostgreSQL łączności z jednym serwerem, zobacz [Azure Database for PostgreSQL architektura łączności](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

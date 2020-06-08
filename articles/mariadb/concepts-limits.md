@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/1/2020
-ms.openlocfilehash: d4450689f6865c19436e437e09a3aa9f286c6e21
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 6/5/2020
+ms.openlocfilehash: c99851125552873e63f8199bf7b206c5fad231be
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653137"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484736"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Ograniczenia w Azure Database for MariaDB
 W poniższych sekcjach opisano pojemność, obsługę aparatu magazynu, obsługę uprawnień, obsługę instrukcji manipulowania danymi oraz limity funkcjonalne w usłudze bazy danych.
@@ -32,7 +32,7 @@ Minimalne i maksymalne wartości kilku popularnych parametrów serwera są okre�
 |Ogólnego przeznaczenia|16|2500|10|5000|
 |Ogólnego przeznaczenia|32|5000|10|10 000|
 |Ogólnego przeznaczenia|64|10 000|10|20000|
-|Optymalizacja pod kątem pamięci|2|600|10|800|
+|Optymalizacja pod kątem pamięci|2|625|10|1250|
 |Optymalizacja pod kątem pamięci|4|1250|10|2500|
 |Optymalizacja pod kątem pamięci|8|2500|10|5000|
 |Optymalizacja pod kątem pamięci|16|5000|10|10 000|
@@ -54,8 +54,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
 |Ogólnego przeznaczenia|2|0|0|16777216|
 |Ogólnego przeznaczenia|4|0|0|33554432|
 |Ogólnego przeznaczenia|8|0|0|67108864|
@@ -74,8 +74,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
 |Ogólnego przeznaczenia|2|524288|32768|4194304|
 |Ogólnego przeznaczenia|4|524288|32768|8388608|
 |Ogólnego przeznaczenia|8|524288|32768|16777216|
@@ -94,8 +94,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
 |Ogólnego przeznaczenia|2|262144|128|268435455|
 |Ogólnego przeznaczenia|4|262144|128|536870912|
 |Ogólnego przeznaczenia|8|262144|128|1073741824|
@@ -114,8 +114,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
 |Ogólnego przeznaczenia|2|16777216|16384|268435455|
 |Ogólnego przeznaczenia|4|16777216|16384|536870912|
 |Ogólnego przeznaczenia|8|16777216|16384|1073741824|
@@ -134,8 +134,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna**|**Wartość minimalna**|**Wartość maksymalna**|
 |---|---|---|---|---|
-|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
-|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowy|1|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
+|Podstawowy|2|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
 |Ogólnego przeznaczenia|2|16777216|1024|67108864|
 |Ogólnego przeznaczenia|4|16777216|1024|134217728|
 |Ogólnego przeznaczenia|8|16777216|1024|268435456|

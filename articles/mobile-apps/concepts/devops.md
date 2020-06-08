@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12a8a079-9b3c-4faf-2323-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 4699610223e824dfaa147b880e73b0e04852f386
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: fa18f50a1e2c9a83cf5aa234e5d9e1b1574eeb4c
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450857"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482703"
 ---
 # <a name="what-is-devops"></a>Co to jest metodyka DevOps?
 Słowo "DevOps" pochodzi z kombinacji "rozwoju" i "operacji". DevOps podkreśla znaczenie komunikacji i współpracy między deweloperami oprogramowania i produkcyjnymi specjalistami IT podczas automatyzowania wdrażania zmian oprogramowania i infrastruktury. DevOps koncentruje się na przyjęciu metodologii Agile i Lean i automatyzowaniu powtarzających się zadań. Celem DevOps jest pomyślne wydanie aplikacji.

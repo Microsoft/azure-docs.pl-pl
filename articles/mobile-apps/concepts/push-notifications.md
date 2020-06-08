@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: c9ae5e268066e498b3a341a9c54391ee5d15d592
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 515583a19c576d25bd9573cbf80974d72c6df1ec
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450654"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84482641"
 ---
 # <a name="engage-with-your-application-users-by-sending-push-notifications"></a>Zaangażuj użytkowników aplikacji, wysyłając powiadomienia wypychane
 
@@ -36,24 +36,6 @@ Dla użytkowników aplikacji powiadomienia wypychane:
 - Przypomnij użytkownikom, aby korzystali z aplikacji.
 
 Użyj następujących usług, aby włączyć powiadomienia wypychane w aplikacjach mobilnych.
-
-## <a name="visual-studio-app-center"></a>Visual Studio App Center
-Za pomocą [App Center wypychania](/appcenter/push/)możesz wysyłać do użytkowników z systemami iOS, Android i Windows, które nie mają być zarządzane przy użyciu usług powiadomień wypychanych (PNS). W oparciu o Notification Hubs platformy Azure usługa ta eliminuje złożone funkcje związane z wypychaniem powiadomień ręcznie, dostarczając zaawansowany pulpit nawigacyjny.
-
-**Najważniejsze funkcje**
-- Wysyłanie powiadomień wypychanych do urządzeń przenośnych na różnych platformach.
-- Używaj powiadomień do wysyłania danych do aplikacji, wyświetlania komunikatu dla użytkownika lub wyzwalania akcji przez aplikację.
-- Użyj celów powiadomień, aby: 
-    - Emituj komunikaty do wszystkich zarejestrowanych urządzeń.
-    - Wysyłaj powiadomienia do odbiorców na podstawie informacji o urządzeniu i właściwości niestandardowych.
-    - Wysyłaj powiadomienia do określonych użytkowników.
-    - Wysyłaj powiadomienia do określonych urządzeń.
-- Korzystaj z rozbudowanej telemetrii dotyczącej wypychania, urządzeń i błędów, które są dostępne w portalu App Center.
-- Uzyskaj wsparcie dla platformy dla systemów iOS, Android, macOS, Xamarin, w przypadku natywnych, aparatu Unity i oprogramowania Cordova.
-
-**Dokumentacja**
-- [Zarejestruj się w usłudze Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-- [Wprowadzenie do App Center wypychania](/appcenter/push/)
 
 ## <a name="azure-notification-hubs"></a>Azure Notification Hubs
 [Notification Hubs](/azure/notification-hubs/notification-hubs-push-notification-overview) zapewnia łatwy w użyciu i skalowany aparat wypychania. Można jej używać do wysyłania powiadomień do dowolnej platformy i z dowolnego zaplecza w chmurze lub lokalnie.

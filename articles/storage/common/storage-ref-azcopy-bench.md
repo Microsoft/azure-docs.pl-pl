@@ -8,22 +8,22 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 331d0cd4a20cb4351a1bc9a204c500386c499ada
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 40ff6c6c76e255945681e678ef296ffcf9978f61
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220141"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485187"
 ---
-# <a name="azcopy-bench"></a>azcopy bench
+# <a name="azcopy-benchmark"></a>wzorzec AzCopy
 
 Uruchamia wzorzec wydajności, przekazując dane testowe do określonego miejsca docelowego. Dane testowe są generowane automatycznie.
 
 Polecenie testu porównawczego uruchamia ten sam proces przekazywania co "Copy", z tą różnicą, że:
 
-  - Brak parametru źródłowego.  Polecenie wymaga tylko docelowego adresu URL. W bieżącej wersji ten docelowy adres URL musi odwoływać się do kontenera obiektów BLOB.
+  - Brak parametru źródłowego.  Polecenie wymaga tylko docelowego adresu URL. 
   
-  - Ładunek jest opisywany przez parametry wiersza polecenia, które kontrolują, ile plików jest generowanych automatycznie i jak duże są. Proces generacji odbywa się w całości w pamięci. Dysk nie jest używany.
+  - Ładunek jest opisany przez parametry wiersza polecenia, które kontrolują, ile plików jest generowanych automatycznie i ich rozmiar. Proces generacji odbywa się w całości w pamięci. Dysk nie jest używany.
   
   - Obsługiwane jest tylko kilka opcjonalnych parametrów, które są dostępne dla polecenia copy.
   
@@ -38,18 +38,18 @@ Obsługiwane są wszystkie standardowe typy uwierzytelniania. Jednak najbardziej
 ## <a name="examples"></a>Przykłady
 
 ```azcopy
-azcopy bench [destination] [flags]
+azcopy benchmark [destination] [flags]
 ```
 
 Uruchom test testu porównawczego z domyślnymi parametrami (odpowiednie dla sieci testowych do 1 GB/s):
 
 - AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS> "
 
-Uruchom test testu porównawczego, który przekazuje 100 plików, każdy 2 GiB w rozmiarze: (odpowiednie dla tworzenia wzorców w szybkiej sieci, np. 10 GB/s): "
+Uruchom test testu porównawczego, który przekazuje 100 plików, każdy 2 GiB w rozmiarze: (odpowiednie dla tworzenia wzorców w szybkiej sieci, na przykład 10 GB/s): "
 
 - AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS> " --File-Count 100--size-na-File 2G
 
-Tak samo jak powyżej, ale używaj plików 50 000, każdy 8 MiB w rozmiarze i obliczy ich skróty MD5 (w taki sam sposób, że flaga--Put-MD5 wykonuje to w poleceniu Copy). Przeznaczenie---MD5, gdy test porównawczy ma na celu sprawdzenie, czy obliczanie MD5 wpływa na przepływność dla wybranej liczby plików i rozmiaru:
+Uruchom test testu porównawczego, ale Użyj 50 000 plików, każdy 8 baz MiB w rozmiarze i Oblicz skróty MD5 (w taki sam sposób, jak `--put-md5` w przypadku polecenia copy). Celem przeprowadzania `--put-md5` testów porównawczych jest sprawdzenie, czy obliczenia MD5 wpływają na przepływność dla wybranej liczby plików i rozmiaru:
 
 - AzCopy "https://[Account]. blob. Core. Windows. NET/[Container]? <SAS> " --File-Count 50000--size-na-File 8 M--Put-MD5
 
@@ -81,4 +81,4 @@ Tak samo jak powyżej, ale używaj plików 50 000, każdy 8 MiB w rozmiarze i ob
 
 ## <a name="see-also"></a>Zobacz także
 
-- [AzCopy](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

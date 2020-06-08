@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: 46d8fb33c59fc5f0b6d844831e5ee1c937654afb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: e7776317b80dbe6d927cf33792d1a180a546fa05
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193793"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484228"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: dostępność regionu & dane miejsca do zamieszkania
 
@@ -41,7 +41,7 @@ Azure AD B2C przechowuje dane użytkowników w Stany Zjednoczone, Europie lub re
 
 Dane zamieszkania są określane przez kraj/region wybrany podczas [tworzenia dzierżawy Azure AD B2C](tutorial-create-tenant.md):
 
-![Zrzut ekranu dla dzierżawy w wersji zapoznawczej](./media/data-residency/data-residency-b2c-tenant.png)
+![Zrzut ekranu przedstawiający formularz Tworzenie dzierżawy, Wybieranie kraju lub regionu.](./media/data-residency/data-residency-b2c-tenant.png)
 
 Dane znajdują się w **Stany Zjednoczone** dla następujących krajów/regionów:
 
@@ -69,4 +69,4 @@ W takim przypadku należy użyć dzierżawy tylko do celów deweloperskich i tes
 
 Istnieją znane problemy związane z usuwaniem dzierżawy B2C w wersji zapoznawczej i tworzenie dzierżawy B2C w skali produkcyjnej o tej samej nazwie domeny. *Musisz utworzyć dzierżawę B2C w skali produkcyjnej z inną nazwą domeny*.
 
-![Zrzut ekranu dla dzierżawy w wersji zapoznawczej](./media/data-residency/preview-b2c-tenant.png)
+![Zrzut ekranu przedstawiający typ dzierżawy jako dzierżawę w wersji zapoznawczej.](./media/data-residency/preview-b2c-tenant.png)

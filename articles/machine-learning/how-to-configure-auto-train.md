@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5751a7c5eac9386ecd52e172b40aacbef5247dd1
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 2db6134d49ccd73c32339fe51814d915ae88604a
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434630"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484480"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -344,6 +344,8 @@ Istnieje kilka opcji, które można zdefiniować, aby zakończyć eksperyment.
 ### <a name="explore-model-metrics"></a>Eksplorowanie metryk modelu
 
 Możesz wyświetlić wyniki szkolenia w widżecie lub inline, jeśli jesteś w notesie. Aby uzyskać więcej informacji [, zobacz Śledzenie i szacowanie modeli](how-to-track-experiments.md#view-run-details) .
+
+Aby uzyskać szczegółowe informacje na temat pobierania lub rejestrowania modelu wdrożenia w usłudze sieci Web, zobacz [jak i gdzie wdrożyć model](how-to-deploy-and-where.md).
 
 ## <a name="understand-automated-ml-models"></a>Zrozumienie zautomatyzowanych modeli ML
 

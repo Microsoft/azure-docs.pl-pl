@@ -5,17 +5,17 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c2ffd22c8b3e3ca1786e0a1f905cd07d0568fcf2
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 9210787c674e825c8728e3b79e261b184fbc42fa
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84296361"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484633"
 ---
-# <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu Azure NetApp Files
+# <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure NetApp Files i AD DS
 
 Zalecamy używanie kontenerów profilów FSLogix jako rozwiązania profilu użytkownika dla [usługi pulpitu wirtualnego systemu Windows](overview.md). Kontenery profilu FSLogix przechowują pełny profil użytkownika w jednym kontenerze i są przeznaczone do roamingu profilów w nietrwałych środowiskach obliczeniowych, takich jak pulpity wirtualne systemu Windows. Po zalogowaniu kontener dynamicznie dołącza do środowiska obliczeniowego przy użyciu lokalnie obsługiwanego wirtualnego dysku twardego (VHD) i wirtualnego dysku twardego funkcji Hyper-V (VHDX). Te zaawansowane technologie sterowników filtru umożliwiają natychmiastowe udostępnienie profilu użytkownika i pojawi się w systemie tak samo jak profil użytkownika lokalnego. Aby dowiedzieć się więcej na temat kontenerów profilów FSLogix, zobacz [kontenery profilu FSLogix i usługi Azure Files](fslogix-containers-azure-files.md).
 

@@ -4,12 +4,12 @@ description: W tym artykule omówiono możliwości monitorowania i powiadamiania
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8c72c192f3bd12169703b70cbee76599b15eb560
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247057"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485104"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorowanie obciążeń Azure Backup
 
@@ -77,7 +77,7 @@ Powyższe wyjątki zostały zaprojektowane z myślą o tym, że wynik tych opera
 W oparciu o ważność alertu alerty można definiować w trzech typach:
 
 - **Krytyczny**: w zasadzie wszystkie błędy tworzenia kopii zapasowej lub odzyskiwania (zaplanowane lub wywołane przez użytkownika) spowodują wygenerowanie alertu i będą wyświetlane jako alert krytyczny, a także operacje niszczące, takie jak usuwanie kopii zapasowej.
-- **Ostrzeżenie**: Jeśli operacja tworzenia kopii zapasowej zakończy się pomyślnie, ale z kilkoma ostrzeżeniami, są one wyświetlane jako alerty ostrzegawcze.
+- **Ostrzeżenie**: Jeśli operacja tworzenia kopii zapasowej zakończy się pomyślnie, ale z kilkoma ostrzeżeniami, są one wyświetlane jako alerty ostrzegawcze. Alerty ostrzegawcze są obecnie dostępne tylko dla kopii zapasowych agenta Azure Backup.
 - **Informacyjny**: obecnie nie jest generowany alert informacyjny przez usługę Azure Backup.
 
 ## <a name="notification-for-backup-alerts"></a>Powiadomienia o alertach dotyczących kopii zapasowych

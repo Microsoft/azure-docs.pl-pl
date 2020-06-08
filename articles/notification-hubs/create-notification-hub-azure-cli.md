@@ -13,12 +13,12 @@ ms.date: 05/27/2020
 ms.author: dbradish
 ms.reviewer: sethm
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d6502985c0267fe6636c606e493533daf17f6b56
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: f39d5ca5e153da3d1644aabeb7e48b41d07fe253
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300016"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485144"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Szybki Start: tworzenie centrum powiadomień platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -112,7 +112,7 @@ Notification Hubs wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia 
 
 2. Pobierz listę przestrzeni nazw.
 
-   Aby wyświetlić szczegółowe informacje o nowej przestrzeni nazw, użyj polecenia [AZ Notification-Hub Namespace list](/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) .  Ten `--resource-group` parametr jest opcjonalny, jeśli chcesz zobaczyć wszystkie przestrzenie nazw dla subskrypcji.
+   Aby wyświetlić szczegółowe informacje o nowej przestrzeni nazw, użyj polecenia [AZ Notification-Hub Namespace list](/cli/azure/ext/notification-hub/notification-hub/namespace?view=azure-cli-latest#ext-notification-hub-az-notification-hub-namespace-list) .  Ten `--resource-group` parametr jest opcjonalny, jeśli chcesz zobaczyć wszystkie przestrzenie nazw dla subskrypcji.
 
    ```azurecli
    az notification-hub namespace list --resource-group spnhubrg
@@ -138,7 +138,7 @@ Notification Hubs wymaga wersji 2.0.67 lub nowszej interfejsu wiersza polecenia 
 
 3. Pobierz listę centrów powiadomień.
 
-   Interfejs wiersza polecenia platformy Azure zwraca komunikat o powodzeniu lub błędzie z każdym wykonanym poleceniem; jednak możliwość wykonywania zapytań o listę centrów powiadomień to pewność.  Polecenie [AZ Notification-Hub list](/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) zostało zaprojektowane do tego celu.
+   Interfejs wiersza polecenia platformy Azure zwraca komunikat o powodzeniu lub błędzie z każdym wykonanym poleceniem; jednak możliwość wykonywania zapytań o listę centrów powiadomień to pewność.  Polecenie [AZ Notification-Hub list](/cli/azure/ext/notification-hub/notification-hub?view=azure-cli-latest#ext-notification-hub-az-notification-hub-list) zostało zaprojektowane do tego celu.
 
    ```azurecli
    az notification-hub list --resource-group spnhubrg --namespace-name spnhubns --output table

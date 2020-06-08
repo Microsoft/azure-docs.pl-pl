@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-0123-8982-8345-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: 33ef251f60a833721e17d36d8df01a6095434af5
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 424284799e5a823601473853aece3a598c50513b
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450997"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483296"
 ---
 # <a name="ai-powered-cloud-service-with-azure-cognitive-search"></a>Usługa w chmurze oparta na dyskach AI z usługą Azure Wyszukiwanie poznawcze
 [Azure wyszukiwanie poznawcze](https://azure.microsoft.com/services/search/) to rozwiązanie w chmurze typu "wyszukiwanie jako usługa", które udostępnia deweloperom interfejsy API i narzędzia umożliwiające dodawanie bogatego środowiska wyszukiwania za pośrednictwem prywatnej, heterogenicznej zawartości w aplikacjach sieci Web, mobilnych i firmowych. Niestandardowy kod wywołuje pozyskiwanie danych (indeksowanie) w celu utworzenia i załadowania indeksu. Po drugiej stronie kod aplikacji wystawia żądania zapytań i obsługuje odpowiedzi. Środowisko wyszukiwania jest zdefiniowane w kliencie przy użyciu funkcji z usługi Azure Wyszukiwanie poznawcze, z wykonywaniem zapytań w odniesieniu do utrwalonego indeksu tworzonego, własnego i przechowywanego w usłudze.

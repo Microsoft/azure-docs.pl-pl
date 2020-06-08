@@ -5,14 +5,14 @@ author: codemillmatt
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
 ms.service: mobile-services
 ms.topic: article
-ms.date: 03/24/2020
+ms.date: 06/05/2020
 ms.author: masoucou
-ms.openlocfilehash: ebe07ec76e5b852dbe7d030ad8859d59ce5cd074
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 6895944e4ca5cb115725814e9d27cb1f5fa04cfa
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84451060"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484834"
 ---
 # <a name="analyze-and-understand-mobile-application-use"></a>Analizowanie i zrozumienie użycia aplikacji mobilnych
 Jak dobrze rozumiesz, jak użytkownicy korzystają z aplikacji? Ile aktywnych użytkowników ma Twoja aplikacja i jak zmienia się użycie z upływem czasu? Jakie funkcje są używane i które z nich korzystają? Gdzie są oparte te użytkownicy? Ilu użytkowników korzysta z najnowszej wersji aplikacji? Wszystkie te pytania są ważne, aby zrozumieć, jak przekształcić swoją aplikację w pomyślną działalność. Aby odpowiedzieć na te rodzaje pytań dotyczących analizy użycia, należy zebrać dane użycia z aplikacji.

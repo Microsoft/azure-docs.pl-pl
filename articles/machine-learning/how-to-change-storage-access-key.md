@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.openlocfilehash: f4ae4890d28236db493909243d66e28d308e2002
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 0444ffd27b3a261268f04f0077cca3116521e6f7
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434652"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84484511"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Ponowne generowanie kluczy dostępu do konta magazynu
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,27 +105,35 @@ Aby zaktualizować Azure Machine Learning, aby użyć nowego klucza, wykonaj nas
 
         To polecenie automatycznie synchronizuje nowe klucze dla konta usługi Azure Storage używanego w obszarze roboczym.
 
-1. Aby ponownie zarejestrować magazyny danych korzystające z konta magazynu, użyj wartości z sekcji [co należy zaktualizować](#whattoupdate) , a klucz z kroku 1 z następującym kodem:
-
-    ```python
-    # Re-register the blob container
-    ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+1. Można ponownie zarejestrować magazyny danych korzystające z konta magazynu za pośrednictwem zestawu SDK lub [Azure Machine Learning Studio](https://ml.azure.com).
+    1. **Aby ponownie zarejestrować magazyny danych za pomocą zestawu SDK języka Python**, użyj wartości z sekcji [co należy zaktualizować](#whattoupdate) , a klucz z kroku 1 z poniższym kodem. 
+    
+        Ponieważ `overwrite=True` został określony, ten kod zastępuje istniejącą rejestrację i aktualizuje ją w celu użycia nowego klucza.
+    
+        ```python
+        # Re-register the blob container
+        ds_blob = Datastore.register_azure_blob_container(workspace=ws,
+                                                  datastore_name='your datastore name',
+                                                  container_name='your container name',
+                                                  account_name='your storage account name',
+                                                  account_key='new storage account key',
+                                                  overwrite=True)
+        # Re-register file shares
+        ds_file = Datastore.register_azure_file_share(workspace=ws,
                                               datastore_name='your datastore name',
-                                              container_name='your container name',
+                                              file_share_name='your container name',
                                               account_name='your storage account name',
                                               account_key='new storage account key',
                                               overwrite=True)
-    # Re-register file shares
-    ds_file = Datastore.register_azure_file_share(workspace=ws,
-                                          datastore_name='your datastore name',
-                                          file_share_name='your container name',
-                                          account_name='your storage account name',
-                                          account_key='new storage account key',
-                                          overwrite=True)
+        
+        ```
     
-    ```
-
-    Ponieważ `overwrite=True` został określony, ten kod zastępuje istniejącą rejestrację i aktualizuje ją w celu użycia nowego klucza.
+    1. **Aby ponownie zarejestrować magazyny danych za pośrednictwem programu Studio**, wybierz pozycję **magazyny** danych z okienka po lewej stronie w programie Studio. 
+        1. Wybierz magazyn danych, który chcesz zaktualizować.
+        1. Wybierz przycisk **Aktualizuj poświadczenia** w lewym górnym rogu. 
+        1. Użyj nowego klucza dostępu z kroku 1, aby wypełnić formularz, a następnie kliknij przycisk **Zapisz**.
+        
+            Jeśli aktualizujesz poświadczenia dla **domyślnego magazynu**danych, wykonaj ten krok i powtórz krok 2b, aby ponownie zsynchronizować nowy klucz z domyślnym magazynem danych obszaru roboczego. 
 
 ## <a name="next-steps"></a>Następne kroki
 

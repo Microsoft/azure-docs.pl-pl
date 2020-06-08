@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c51863cd95deff5e460707b004206f6fde54cac4
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: a8ea97d7a2aa5fdc18d11e952eafe65b167b3397
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337754"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84483921"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Włączanie usługi Azure Multi-Factor Authentication dla poszczególnych użytkowników w celu zabezpieczenia zdarzeń logowania
 
@@ -84,7 +84,7 @@ Aby zmienić stan użytkownika przy użyciu [programu Azure AD PowerShell](/powe
 * *Enforced (Wymuszony)*
 * *Wyłączone*  
 
-Nie przenoś użytkowników bezpośrednio do stanu *wymuszonego* . W takim przypadku aplikacje niekorzystające z przeglądarki przestaną działać, ponieważ użytkownik nie przeszedł za pośrednictwem usługi Azure Multi-Factor Authentication Registration i uzyskał [hasło aplikacji](howto-mfa-mfasettings.md#app-passwords).
+Nie przenoś użytkowników bezpośrednio do stanu *wymuszonego* . W takim przypadku aplikacje niekorzystające z przeglądarki przestaną działać, ponieważ użytkownik nie przeszedł za pośrednictwem usługi Azure Multi-Factor Authentication Registration i uzyskał [hasło aplikacji](howto-mfa-app-passwords.md).
 
 Aby rozpocząć, zainstaluj moduł *MSOnline* za pomocą polecenia [Install-module](/powershell/module/powershellget/install-module) w następujący sposób:
 

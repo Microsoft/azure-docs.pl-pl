@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6066cd4f347ef05e6fcdb67bb1223ffbc0cae46b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 30244a426b6f934ef66261c6dccbb46e72f28488
+ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341016"
+ms.lasthandoff: 06/07/2020
+ms.locfileid: "84485191"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
 
@@ -34,7 +34,7 @@ Aby skonfigurować ustawienia serwera proxy dla AzCopy, należy ustawić `https_
 |--------|-----------|
 | **Windows** | W wierszu polecenia Użyj:`set https_proxy=<proxy IP>:<proxy port>`<br> W programie PowerShell Użyj:`$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
-| **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
+| **macOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
 Obecnie AzCopy nie obsługuje serwerów proxy, które wymagają uwierzytelniania przy użyciu protokołu NTLM lub Kerberos.
 
@@ -63,23 +63,23 @@ Ta sekcja ułatwia wykonywanie następujących zadań optymalizacji:
 
 ### <a name="run-benchmark-tests"></a>Uruchamianie testów porównawczych
 
-Test testu porównawczego wydajności dla określonych kontenerów obiektów BLOB można uruchomić w celu wyświetlenia ogólnych statystyk wydajności i problemów z wąskimi gardłami wydajności. 
+Test testu porównawczego wydajności dla określonych kontenerów obiektów blob lub udziałów plików można uruchomić w celu wyświetlenia ogólnych statystyk wydajności i problemów z wąskimi gardłami wydajności. 
 
 Użyj poniższego polecenia, aby uruchomić test porównawczy wydajności.
 
 |    |     |
 |--------|-----------|
-| **Składnia** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
-| **Przyklad** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
+| **Składnia** | `azcopy benchmark 'https://<storage-account-name>.blob.core.windows.net/<container-name>'` |
+| **Przykład** | `azcopy benchmark 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
 > [!TIP]
 > Ten przykład obejmuje argumenty ścieżki z pojedynczym cudzysłowem (' '). Używaj pojedynczych cudzysłowów we wszystkich powłokach poleceń z wyjątkiem powłoki poleceń systemu Windows (cmd. exe). Jeśli używasz powłoki poleceń systemu Windows (cmd. exe), ujmij argumenty ścieżki z podwójnymi cudzysłowami ("") zamiast pojedynczego cudzysłowu ("").
 
 To polecenie uruchamia wzorzec wydajności przez przekazywanie danych testowych do określonego miejsca docelowego. Dane testowe są generowane w pamięci, przekazane do miejsca docelowego, a następnie usuwane z lokalizacji docelowej po zakończeniu testu. Można określić, ile plików ma być generowanych i jakie rozmiary mają być używane przez opcjonalne parametry polecenia.
 
-Aby uzyskać szczegółowe dokumenty referencyjne, zobacz [AzCopy kanapie](storage-ref-azcopy-bench.md).
+Aby uzyskać szczegółowe dokumenty referencyjne, zobacz [azcopyal](storage-ref-azcopy-bench.md).
 
-Aby wyświetlić szczegółowe wskazówki dotyczące pomocy dla tego polecenia, wpisz, `azcopy bench -h` a następnie naciśnij klawisz ENTER.
+Aby wyświetlić szczegółowe wskazówki dotyczące pomocy dla tego polecenia, wpisz, `azcopy benchmark -h` a następnie naciśnij klawisz ENTER.
 
 ### <a name="optimize-throughput"></a>Optymalizowanie przepływności
 
@@ -97,7 +97,7 @@ Jeśli komputer ma mniej niż 5 procesorów CPU, wartość tej zmiennej jest ust
 |--------|-----------|
 | **Windows** | `set AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
-| **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
+| **macOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
 Użyj, `azcopy env` Aby sprawdzić bieżącą wartość tej zmiennej. Jeśli wartość jest pusta, można odczytać, która wartość jest używana, przeglądając początek dowolnego pliku dziennika AzCopy. W tym miejscu są raportowane wybrane wartości i powód, w którym została wybrana.
 
@@ -112,7 +112,7 @@ Ta wartość jest wyrażana w gigabajtach (GB).
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
-| **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
+| **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
 
 ### <a name="optimize-file-synchronization"></a>Optymalizowanie synchronizacji plików
 
@@ -193,9 +193,9 @@ Użyj dowolnego z tych poleceń.
 
 | System operacyjny | Polecenie  |
 |--------|-----------|
-| **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Windows** | Narzędzia`$env:AZCOPY_JOB_PLAN_LOCATION="<value>"` <br> W wierszu polecenia Użyj::`set AZCOPY_JOB_PLAN_LOCATION=<value>` |
 | **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
-| **MacOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **macOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
 
 Użyj, `azcopy env` Aby sprawdzić bieżącą wartość tej zmiennej. Jeśli wartość jest pusta, Zaplanuj pliki są zapisywane w domyślnej lokalizacji.
 
@@ -205,9 +205,9 @@ Użyj dowolnego z tych poleceń.
 
 | System operacyjny | Polecenie  |
 |--------|-----------|
-| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
+| **Windows** | Narzędzia`$env:AZCOPY_LOG_LOCATION="<value>"` <br> W wierszu polecenia Użyj::`set AZCOPY_LOG_LOCATION=<value>`|
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
-| **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
+| **macOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
 Użyj, `azcopy env` Aby sprawdzić bieżącą wartość tej zmiennej. Jeśli wartość jest pusta, dzienniki są zapisywane w domyślnej lokalizacji.
 
