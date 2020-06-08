@@ -324,24 +324,28 @@
               href: search-dotnet-mgmt-sdk-migration.md
         - name: Uaktualnianie interfejsu API REST
           href: search-api-migration.md
-    - name: Bezpieczeństwo
+    - name: Zabezpieczenia
       items:
-        - name: Omówienie zabezpieczeń
+        - name: Omówienie
           href: search-security-overview.md
-        - name: Tworzenie prywatnego punktu końcowego
-          href: service-create-private-endpoint.md
-        - name: Konfigurowanie zapory IP
-          href: service-configure-firewall.md
-        - name: Zarządzanie kluczem usługi
-          href: search-security-api-keys.md
-        - name: Oparty na rolach dostęp administratora
-          href: search-security-rbac.md
-        - name: Filtry zabezpieczeń
-          href: search-security-trimming-for-azure-search.md
-        - name: Filtrowanie według tożsamości usługi AAD
-          href: search-security-trimming-for-azure-search-with-aad.md
-        - name: Zarządzanie kluczami szyfrowania
-          href: search-security-manage-encryption-keys.md
+        - name: Szyfrowanie danych
+          items:
+            - name: Klucze zarządzane przez klienta
+              href: search-security-manage-encryption-keys.md
+        - name: Zabezpieczenia ruchu przychodzącego
+          items:
+            - name: Klucze dostępu do interfejsu API
+              href: search-security-api-keys.md
+            - name: Konfigurowanie zapory IP
+              href: service-configure-firewall.md
+            - name: Tworzenie prywatnego punktu końcowego
+              href: service-create-private-endpoint.md
+        - name: Dostęp oparty na tożsamościach
+          items:
+            - name: Filtry zabezpieczeń
+              href: search-security-trimming-for-azure-search.md
+            - name: Filtrowanie według tożsamości usługi AAD
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: Zarządzanie
       items:
         - name: Portal
@@ -350,6 +354,8 @@
           href: search-manage-powershell.md
         - name: Przenoszenie usługi między regionami
           href: search-howto-move-across-regions.md
+        - name: Oparty na rolach dostęp administratora
+          href: search-security-rbac.md
     - name: Monitorowanie
       items:
         - name: Podstawy
@@ -473,6 +479,8 @@
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Forum z opiniami (UserVoice)
       href: 'https://feedback.azure.com/forums/263029-azure-search'
+    - name: Zgodność i certyfikaty
+      href: 'https://aka.ms/azurecompliance'
     - name: Witryny demonstracyjne
       items:
         - name: Pokaz plików finansowych

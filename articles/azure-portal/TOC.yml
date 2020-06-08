@@ -70,11 +70,13 @@
       href: azure-portal-safelist-urls.md
     - name: Struktura pulpitów nawigacyjnych platformy Azure
       href: azure-portal-dashboards-structure.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/portal/portal
 - name: Zasoby
   items:
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/updates/'
-    - name: Rozwijanie umiejętności dzięki Microsoft Learn
+    - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
       href: /learn/browse/?products=azure-portal
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'

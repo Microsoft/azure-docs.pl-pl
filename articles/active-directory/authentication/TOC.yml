@@ -80,6 +80,8 @@
           href: howto-mfa-userstates.md
         - name: Konfigurowanie dostawców uwierzytelniania
           href: concept-mfa-authprovider.md
+        - name: Korzystanie z haseł aplikacji
+          href: howto-mfa-app-passwords.md
         - name: Federacja katalogów
           items:
             - name: Windows Server 2016 — adapter usług AD FS
@@ -169,6 +171,8 @@
           href: howto-mfaserver-deploy-userportal.md
         - name: Usługa sieci Web aplikacji mobilnej
           href: howto-mfaserver-deploy-mobileapp.md
+        - name: Konfigurowanie ustawień
+          href: howto-mfa-server-settings.md
         - name: Konfigurowanie wysokiej dostępności
           href: howto-mfaserver-deploy-ha.md
         - name: Uaktualnianie serwera uwierzytelniania wieloskładnikowego

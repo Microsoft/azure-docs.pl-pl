@@ -162,6 +162,10 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Integration Runtime
       href: concepts-integration-runtime.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Przepływy danych
       items:
         - name: Przekształcanie danych przy użyciu przepływów danych mapowania

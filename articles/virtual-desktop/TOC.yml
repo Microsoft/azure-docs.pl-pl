@@ -50,8 +50,8 @@
           href: create-fslogix-profile-container.md
         - name: Używanie usług Azure Files i Azure AD DS
           href: create-profile-container-adds.md
-    - name: Tworzenie udziałów plików kontenera profilu
-      href: create-file-share.md
+        - name: Korzystanie z usług Azure Files i AD DS
+          href: create-file-share.md
     - name: Konfigurowanie ustawień puli hostów
       items:
         - name: Właściwości RDP
@@ -110,7 +110,7 @@
       href: troubleshoot-set-up-overview.md
     - name: Identyfikowanie i diagnozowanie problemów
       href: diagnostics-role-service.md
-    - name: Tworzenie dzierżawy i puli hosta
+    - name: Tworzenie puli hostów
       href: troubleshoot-set-up-issues.md
     - name: Konfiguracja maszyny wirtualnej hosta sesji
       href: troubleshoot-vm-configuration.md

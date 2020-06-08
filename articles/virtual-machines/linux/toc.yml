@@ -13,6 +13,9 @@
       href: quick-create-portal.md
     - name: Tworzenie maszyny wirtualnej — program Azure PowerShell
       href: quick-create-powershell.md
+    - name: Tworzenie maszyny wirtualnej — szablon usługi Resource Manager
+      displayName: 'Resource Manager, template, json'
+      href: quick-create-template.md
 - name: Samouczki
   items:
     - name: 1 — Tworzenie maszyn wirtualnych/zarządzanie nimi

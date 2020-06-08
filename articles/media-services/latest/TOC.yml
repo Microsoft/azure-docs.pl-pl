@@ -195,6 +195,19 @@
         - name: Przesyłanie strumieniowe
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-streaming.md
+    - name: Rozwiązywanie problemów
+      items:
+        - name: Często zadawane pytania
+          displayName: faqs
+          href: frequently-asked-questions.md
+        - name: Kody błędów
+          items:
+            - name: Kody błędów punktu końcowego przesyłania strumieniowego
+              href: streaming-endpoint-error-codes.md
+            - name: Kody błędów zdarzeń na żywo
+              href: live-event-error-codes.md
+            - name: Kody błędów zadań
+              href: job-error-codes.md
     - name: Migracja z wersji 2 do 3
       items:
         - name: Porównanie wersji 2 i 3
@@ -340,19 +353,6 @@
           href: download-results-howto.md
         - name: Dźwięk opisowy sygnału
           href: signal-descriptive-audio-howto.md
-    - name: Rozwiązywanie problemów
-      items:
-        - name: Często zadawane pytania
-          displayName: faqs
-          href: frequently-asked-questions.md
-        - name: Kody błędów
-          items:
-            - name: Kody błędów punktu końcowego przesyłania strumieniowego
-              href: streaming-endpoint-error-codes.md
-            - name: Kody błędów zdarzeń na żywo
-              href: live-event-error-codes.md
-            - name: Kody błędów zadań
-              href: job-error-codes.md
 - name: Dokumentacja
   items:
     - name: Specyfikacja interfejsu OpenAPI (Swagger)

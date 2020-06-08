@@ -195,7 +195,13 @@
 - name: Przewodniki z instrukcjami
   items:
     - name: Tworzenie i wyświetlanie alertów tematów dotyczących systemu oraz zarządzanie nimi
-      href: create-view-manage-system-topics.md
+      items:
+        - name: Azure Portal
+          href: create-view-manage-system-topics.md
+        - name: Interfejs wiersza polecenia platformy Azure
+          href: create-view-manage-system-topics-cli.md
+        - name: Szablon usługi Azure Resource Manager
+          href: create-view-manage-system-topics-arm.md
     - name: Publikowanie w temacie niestandardowym
       href: post-to-custom-topic.md
     - name: Subskrybowanie do zdarzeń usługi Auth0

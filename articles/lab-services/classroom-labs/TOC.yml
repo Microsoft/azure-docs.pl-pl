@@ -50,6 +50,8 @@
               href: class-type-big-data-analytics.md
             - name: MATLAB
               href: class-type-matlab.md
+            - name: Oprogramowanie SolidWorks do projektowania wspomaganego komputerem (CAD)
+              href: class-type-solidworks.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Podręcznik administratora
@@ -112,6 +114,8 @@
               href: how-to-enable-nested-virtualization-template-vm-ui.md
             - name: Włączanie wirtualizacji zagnieżdżonej na maszynie wirtualnej szablonu za pomocą skryptu
               href: how-to-enable-nested-virtualization-template-vm-using-script.md
+        - name: Konfigurowanie laboratorium z procesorami GPU
+          href: how-to-setup-lab-gpu.md
         - name: Przygotowywanie maszyny wirtualnej szablonu z systemem Windows
           href: how-to-prepare-windows-template.md
         - name: Sterowanie zachowaniem zamykania systemu Windows

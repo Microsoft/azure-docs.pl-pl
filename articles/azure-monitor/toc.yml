@@ -622,6 +622,10 @@
                   href: app/javascript.md
                 - name: Mapa źródła języka JavaScript
                   href: app/source-map-support.md
+                - name: Rozwiązywanie problemów
+                  items:
+                    - name: Niepowodzenie ładowania zestawu SDK
+                      href: app/javascript-sdk-load-failure.md
             - name: Podsumowanie interfejsu API usługi Application Insights
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
@@ -743,6 +747,8 @@
               href: app/profiler-settings.md
             - name: Śledzenie żądań na potrzeby profilowania
               href: app/profiler-trackrequests.md
+            - name: Konfigurowanie metodologii BYOS (Bring Your Own Storage)
+              href: app/profiler-bring-your-own-storage.md
             - name: Rozwiązywanie problemów z profilerem
               href: app/profiler-troubleshooting.md
         - name: Debuger migawek
@@ -756,6 +762,8 @@
               href: app/snapshot-debugger-vm.md
             - name: Uaktualnianie rozszerzenia Snapshot Debugger
               href: app/snapshot-debugger-upgrade.md
+            - name: Konfigurowanie metodologii BYOS (Bring Your Own Storage)
+              href: app/profiler-bring-your-own-storage.md
             - name: Rozwiązywanie problemów z rozszerzeniem Snapshot Debugger
               displayname: 'troubleshoot, troubleshooting'
               href: app/snapshot-debugger-troubleshoot.md

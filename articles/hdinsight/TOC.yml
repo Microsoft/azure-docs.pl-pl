@@ -59,8 +59,6 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: Planowanie pojemności klastra
           href: ./hdinsight-capacity-planning.md
-        - name: Żądanie zwiększenia limitu przydziału rdzeni procesora
-          href: ./quota-increase-request.md
         - name: Najlepsze rozwiązania dotyczące zarządzania klastrami
           href: ./cluster-management-best-practices.md
         - name: Dostępność i niezawodność
@@ -239,6 +237,8 @@
               href: ./cluster-availability-monitor-logs.md
         - name: Rozwiązywanie problemów
           items:
+            - name: Żądanie zwiększenia limitu przydziału rdzeni procesora
+              href: ./quota-increase-request.md
             - name: Rozwiązywanie problemów z akcjami skryptu
               href: ./troubleshoot-script-action.md
             - name: Niepowodzenia tworzenia zasobów

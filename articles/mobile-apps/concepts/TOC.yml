@@ -1,0 +1,55 @@
+- name: Dokumentacja używania aplikacji mobilnych z platformą Azure
+  href: index.md
+- name: Omówienie
+  expanded: true
+  items:
+    - name: Wybór platformy tworzenia aplikacji mobilnych
+      href: front-end-development-platform.md
+    - name: Etapy tworzenia aplikacji mobilnych w chmurze
+      href: stages-overview.md
+- name: Pojęcia
+  items:
+    - name: Authentication
+      href: authentication.md
+    - name: Dane
+      items:
+        - name: Magazyn danych
+          href: data-storage.md
+        - name: Azure Storage
+          href: azure-storage.md
+        - name: Azure Content Delivery Network
+          href: azure-cdn.md
+    - name: Wystąpienia obliczeniowe
+      items:
+        - name: Bezserwerowe usługi obliczeniowe
+          href: serverless-compute.md
+        - name: Aplikacje w czasie rzeczywistym
+          href: real-time.md
+    - name: Kontrola źródła
+      href: code-hosting-services.md
+    - name: DevOps
+      items:
+        - name: Co to jest metodyka DevOps?
+          href: devops.md
+        - name: Ciągła kompilacja i integracja
+          href: continuous-integration.md
+        - name: Testowanie na rzeczywistych urządzeniach
+          href: test.md
+        - name: Ciągłe dostarczanie
+          href: continuous-delivery.md
+    - name: Telemetria
+      items:
+        - name: Analizowanie użycia i zachowania użytkowników
+          href: analytics.md
+        - name: Raportowanie błędów w czasie rzeczywistym
+          href: diagnostics.md
+    - name: Powiadomienia push
+      href: push-notifications.md
+    - name: Uczenie maszynowe
+      items:
+        - name: Azure Cognitive Services
+          href: cognitive-services.md
+        - name: Azure Maps
+          href: azure-maps.md
+        - name: Azure Cognitive Search
+          href: azure-search.md
