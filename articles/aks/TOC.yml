@@ -133,6 +133,8 @@
           href: upgrade-cluster.md
         - name: Używanie umowy SLA dotyczącej czasu dostępności
           href: uptime-sla.md
+        - name: Uaktualnij obraz węzła (wersja zapoznawcza)
+          href: node-image-upgrade.md
         - name: Przetwarzanie aktualizacji systemu operacyjnego węzła
           href: node-updates-kured.md
         - name: Konfigurowanie klastra AKS

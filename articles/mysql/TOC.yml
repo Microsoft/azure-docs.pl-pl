@@ -87,7 +87,7 @@
           href: concepts-pricing-tiers.md
         - name: Opłacanie wydajności rezerwowej z góry
           href: concept-reserved-pricing.md
-        - name: Limity
+        - name: Ograniczenia
           href: concepts-limits.md
     - name: Bezpieczeństwo i dostęp do danych
       items:
@@ -132,6 +132,8 @@
           href: concepts-query-performance-insight.md
         - name: Zalecenia dotyczące wydajności
           href: concepts-performance-recommendations.md
+        - name: Parametry serwera
+          href: concepts-server-parameters.md
     - name: Opracowywanie zawartości
       items:
         - name: Zgodność sterowników i narzędzi

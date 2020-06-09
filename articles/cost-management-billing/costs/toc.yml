@@ -35,6 +35,8 @@
           href: manage-automation.md
         - name: Migrowanie z interfejsów API EA do MCA
           href: migrate-cost-management-api.md
+        - name: Opcje grupowania i filtrowania
+          href: group-filter.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Zapobieganie i analizowanie nieoczekiwanych opłat
