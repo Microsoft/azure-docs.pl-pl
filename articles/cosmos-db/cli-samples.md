@@ -5,18 +5,18 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: defeacc3f0bc4cd9d77e538f8ceac5ca09a4068a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 46536dcaf5e8565bb621fa3b1c3ff547459816ab
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71272372"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509427"
 ---
-# <a name="azure-cli-samples-for-azure-cosmos-db-sql-core-api"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla usługi Azure Cosmos DB SQL (rdzeń)
+# <a name="azure-cli-samples-for-azure-cosmos-db-core-sql-api"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla programu Azure Cosmos DB Core (SQL)
 
-Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza polecenia platformy Azure dla interfejsu API Azure Cosmos DB SQL (rdzeń). W [dokumentacji interfejsu wiersza polecenia platformy Azure](/cli/azure/cosmosdb)są dostępne strony referencyjne dla wszystkich poleceń CLI Azure Cosmos DB. Przykłady interfejsu wiersza polecenia platformy Azure dla innych interfejsów API Azure Cosmos DB Zobacz, [interfejs API Cassandra](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md)i [interfejs API tabel](cli-samples-table.md). Wszystkie przykłady skryptów interfejsu wiersza polecenia Azure Cosmos DB można znaleźć w [repozytorium GitHub Azure Cosmos DB interfejsu wiersza polecenia](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza polecenia platformy Azure dla interfejsu API Azure Cosmos DB Core (SQL). W [dokumentacji interfejsu wiersza polecenia platformy Azure](/cli/azure/cosmosdb)są dostępne strony referencyjne dla wszystkich poleceń CLI Azure Cosmos DB. Przykłady interfejsu wiersza polecenia platformy Azure dla innych interfejsów API Azure Cosmos DB Zobacz, [interfejs API Cassandra](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md)i [interfejs API tabel](cli-samples-table.md). Wszystkie przykłady skryptów interfejsu wiersza polecenia Azure Cosmos DB można znaleźć w [repozytorium GitHub Azure Cosmos DB interfejsu wiersza polecenia](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
 | |  |
 |---|---|
@@ -27,4 +27,5 @@ Poniższa tabela zawiera linki do przykładowych skryptów interfejsu wiersza po
 | [Zabezpieczanie za pomocą zapory IP](scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Utwórz konto Cosmos z skonfigurowaną zaporą IP.|
 | [Zabezpiecz nowe konto za pomocą punktów końcowych usługi](scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Utwórz konto Cosmos i zabezpiecz je za pomocą punktów końcowych usługi.|
 | [Zabezpiecz istniejące konto za pomocą punktów końcowych usługi](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Zaktualizuj konto usługi Cosmos, aby zabezpieczyć za pomocą punktów końcowych, gdy podsieć jest ostatecznie skonfigurowana.|
+| [Zablokuj zasoby przed usunięciem](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Zapobiegaj usunięciu zasobów z blokadami zasobów.|
 |||

@@ -1,19 +1,19 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: include
 ms.date: 01/16/2020
-ms.author: babanisa
+ms.author: femila
 ms.custom: include file
-ms.openlocfilehash: cca628a54d9ac84fbb8a798168f72adbaa24aa48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16272ffceea6db5ced839d3ed957d11aec580a91
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844557"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84562251"
 ---
 >[!NOTE]
 > Zawsze sprawdzaj wersję obrazu, aby upewnić się, że jest wymagany feautures. Jeśli masz poprzednią wersję obrazu kontenera, który został już pobrany na komputer, musisz określić żądany tag wersji lub usunąć istniejący obraz przed ponownym ściąganiem za pomocą `:latest` znacznika. Aby uzyskać więcej informacji o wersjach i tagach obrazu, zobacz [Informacje o wersji](../articles/event-grid/edge/release-notes.md).

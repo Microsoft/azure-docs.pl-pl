@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: f8b72037046d05b39587c2fd57794b4109a85ae3
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: a59fafccecaf2fc266a6c7864174c477e1831186
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249182"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561150"
 ---
-# <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Zbiorcze kopiowanie wielu tabel przy użyciu usługi Azure Data Factory
+# <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiuj wiele tabel zbiorczo przy użyciu Azure Data Factory w Azure Portal
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -117,7 +117,7 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
     
     b. Wybierz serwer dla **nazwy serwera**
     
-    d. W polu **Nazwa bazy danych** wybierz swoją bazę danych Azure SQL Database. 
+    c. W polu **Nazwa bazy danych** wybierz swoją bazę danych Azure SQL Database. 
     
     d. Wprowadź **nazwę użytkownika**, aby nawiązać połączenie z bazą danych Azure SQL Database. 
     
@@ -138,7 +138,7 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
      
     b. Wybierz serwer dla **nazwy serwera**
      
-    d. W polu **Nazwa bazy danych** wybierz swoją bazę danych Azure SQL Database. 
+    c. W polu **Nazwa bazy danych** wybierz swoją bazę danych Azure SQL Database. 
      
     d. Wprowadź **nazwę użytkownika** , aby nawiązać połączenie z usługą Azure SQL Database. 
      
@@ -158,7 +158,7 @@ W tym samouczku magazyn obiektów blob platformy Azure służy jako obszar przej
     a. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.                                                 
     b. Wybierz swoje **konto usługi Azure Storage** w polu **Nazwa konta magazynu**.
     
-    d. Kliknij przycisk **Utwórz**.
+    c. Kliknij przycisk **Utwórz**.
 
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
@@ -222,7 +222,7 @@ Potok **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każde
     
     b. Wprowadź **ciąg tablelist jako** dla **nazwy**parametru.
     
-    d. Wybierz wartość **Array** w polu **Typ**.
+    c. Wybierz wartość **Array** w polu **Typ**.
 
 1. W przyborniku **Działania** rozwiń pozycję **Iteracja i warunki**, a następnie przeciągnij i upuść działanie **ForEach** do powierzchni projektu potoku. Możesz również wyszukać działania w przyborniku **Działania**. 
 
@@ -230,7 +230,7 @@ Potok **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każde
 
     b. Przejdź do karty **Ustawienia** , kliknij pole wejściowe dla **pozycji elementy**, a następnie kliknij link **Dodaj zawartość dynamiczną** poniżej. 
 
-    d. Na stronie **Dodaj zawartość dynamiczną** Zwiń sekcje **systemowe** i **funkcje** , kliknij **ciąg tablelist jako** w obszarze **Parametry**, co spowoduje automatyczne wypełnienie pola tekstowego pierwsze wyrażenie jako `@pipeline().parameter.tableList` . Następnie kliknij przycisk **Zakończ**. 
+    c. Na stronie **Dodaj zawartość dynamiczną** Zwiń sekcje **systemowe** i **funkcje** , kliknij **ciąg tablelist jako** w obszarze **Parametry**, co spowoduje automatyczne wypełnienie pola tekstowego pierwsze wyrażenie jako `@pipeline().parameter.tableList` . Następnie kliknij przycisk **Zakończ**. 
 
     ![Konstruktor parametru ForEach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     

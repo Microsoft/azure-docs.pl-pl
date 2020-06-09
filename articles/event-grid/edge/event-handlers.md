@@ -1,19 +1,19 @@
 ---
 title: Programy obsługi zdarzeń i miejsca docelowe — Azure Event Grid IoT Edge | Microsoft Docs
 description: Programy obsługi zdarzeń i miejsca docelowe w Event Grid na krawędzi
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 35bf5af90aa5f0456aa8d68f0e4e8aaacc6cf84f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e144461b80dca2cf02c0cc06d7feee882293848
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76849749"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557633"
 ---
 # <a name="event-handlers-and-destinations-in-event-grid-on-edge"></a>Programy obsługi zdarzeń i miejsca docelowe w Event Grid na krawędzi
 
@@ -23,7 +23,7 @@ Ten artykuł zawiera informacje dotyczące sposobu konfigurowania każdego z nic
 
 ## <a name="webhook"></a>Elementu webhook
 
-Aby opublikować w punkcie końcowym elementu webhook, `endpointType` Ustaw `WebHook` dla opcji wartość i podaj:
+Aby opublikować w punkcie końcowym elementu webhook, ustaw dla opcji wartość `endpointType` `WebHook` i podaj:
 
 * endpointUrl: adres URL punktu końcowego elementu webhook
 
@@ -42,7 +42,7 @@ Aby opublikować w punkcie końcowym elementu webhook, `endpointType` Ustaw `Web
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 
-Aby opublikować w punkcie końcowym w chmurze Azure Event Grid, `endpointType` Ustaw `eventGrid` dla opcji wartość i podaj:
+Aby opublikować w punkcie końcowym w chmurze Azure Event Grid, ustaw dla opcji wartość `endpointType` `eventGrid` i podaj:
 
 * endpointUrl: adres URL tematu Event Grid w chmurze
 * sasKey: klucz SAS tematu Event Grid
@@ -65,7 +65,7 @@ Aby opublikować w punkcie końcowym w chmurze Azure Event Grid, `endpointType` 
 
 ## <a name="iot-edge-hub"></a>IoT Edge Hub
 
-Aby opublikować w module centrum brzegowego, ustaw `endpointType` dla `edgeHub` opcji wartość i podaj:
+Aby opublikować w module centrum brzegowego, ustaw dla opcji wartość `endpointType` `edgeHub` i podaj:
 
 * outputName: dane wyjściowe, na których moduł Event Grid będzie kierować zdarzenia, które pasują do tej subskrypcji do edgeHub. Na przykład zdarzenia zgodne z poniższą subskrypcją będą zapisywane w/messages/modules/eventgridmodule/outputs/sampleSub4.
 
@@ -106,7 +106,7 @@ Aby opublikować w centrum zdarzeń, ustaw polecenie `endpointType` na `eventHub
 
 ## <a name="service-bus-queues"></a>Kolejki usługi Service Bus
 
-Aby opublikować w kolejce Service Bus, ustaw `endpointType` dla `serviceBusQueue` opcji wartość i podaj:
+Aby opublikować w kolejce Service Bus, ustaw dla opcji `endpointType` wartość `serviceBusQueue` i podaj:
 
 * connectionString: parametry połączenia dla konkretnej kolejki Service Bus są generowane przez zasady dostępu współdzielonego.
 

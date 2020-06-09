@@ -5,13 +5,13 @@ author: anthonychu
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
-ms.custom: mvc
-ms.openlocfilehash: 9d25e2e32f09cc681d85d5adffe53f1237d7200c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 44aa7bdcaa77ba0865f17e2781e2a0521afe16df
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81255502"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555426"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Samouczek: stosowanie modeli uczenia maszynowego w Azure Functions przy użyciu języka Python i TensorFlow
 
@@ -32,8 +32,8 @@ W tym artykule dowiesz się, jak używać języka Python, TensorFlow i Azure Fun
 
 ### <a name="prerequisite-check"></a>Sprawdzanie wymagań wstępnych
 
-1. W terminalu lub oknie poleceń Uruchom `func --version` polecenie, aby sprawdzić, czy Azure Functions Core Tools jest w wersji 2.7.1846 lub nowszej.
-1. Uruchom `python --version` system (Linux/MacOS) `py --version` lub (Windows), aby sprawdzić raporty wersji języka Python 3.7. x.
+1. W terminalu lub oknie poleceń Uruchom polecenie, `func --version` Aby sprawdzić, czy Azure Functions Core Tools jest w wersji 2.7.1846 lub nowszej.
+1. Uruchom system `python --version` (Linux/MacOS) lub `py --version` (Windows), aby sprawdzić raporty wersji języka Python 3.7. x.
 
 ## <a name="clone-the-tutorial-repository"></a>Klonowanie repozytorium samouczka
 
@@ -56,7 +56,7 @@ W tym artykule dowiesz się, jak używać języka Python, TensorFlow i Azure Fun
     
 ## <a name="create-and-activate-a-python-virtual-environment"></a>Tworzenie i aktywowanie środowiska wirtualnego języka Python
 
-Przejdź do folderu *Start* i uruchom następujące polecenia, aby utworzyć i aktywować środowisko wirtualne o nazwie `.venv`. Upewnij się, że używasz języka Python 3,7, który jest obsługiwany przez Azure Functions.
+Przejdź do folderu *Start* i uruchom następujące polecenia, aby utworzyć i aktywować środowisko wirtualne o nazwie `.venv` . Upewnij się, że używasz języka Python 3,7, który jest obsługiwany przez Azure Functions.
 
 
 # <a name="bash"></a>[bash](#tab/bash)
@@ -79,7 +79,7 @@ Jeśli środowisko Python nie zainstalowało pakietu venv na dystrybucji systemu
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -109,7 +109,7 @@ py -m venv .venv
 
 ---
 
-Wszystkie kolejne polecenia są uruchamiane w tym aktywowanym środowisku wirtualnym. (Aby wyjść z środowiska wirtualnego, uruchom `deactivate`polecenie).
+Wszystkie kolejne polecenia są uruchamiane w tym aktywowanym środowisku wirtualnym. (Aby wyjść z środowiska wirtualnego, uruchom polecenie `deactivate` ).
 
 
 ## <a name="create-a-local-functions-project"></a>Tworzenie projektu funkcji lokalnych
@@ -133,7 +133,7 @@ W Azure Functions, projekt funkcji jest kontenerem dla jednej lub kilku poszczeg
     func new --name classify --template "HTTP trigger"
     ```
 
-    To polecenie tworzy folder pasujący do nazwy funkcji, *klasyfikowanie*. W tym folderze są dwa pliki: * \_ \_init\_\_. PR*, który zawiera kod funkcji i *Function. JSON*, który opisuje wyzwalacz funkcji i powiązania wejściowe i wyjściowe. Aby uzyskać szczegółowe informacje na temat zawartości tych plików, zobacz sekcję [Sprawdź zawartość pliku](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) w przewodniku szybki start dla języka Python.
+    To polecenie tworzy folder pasujący do nazwy funkcji, *klasyfikowanie*. W tym folderze są dwa pliki: * \_ \_ init \_ \_ . PR*, który zawiera kod funkcji i *Function. JSON*, który opisuje wyzwalacz funkcji i powiązania wejściowe i wyjściowe. Aby uzyskać szczegółowe informacje na temat zawartości tych plików, zobacz sekcję [Sprawdź zawartość pliku](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) w przewodniku szybki start dla języka Python.
 
 
 ## <a name="run-the-function-locally"></a>Lokalne uruchamianie funkcji
@@ -144,9 +144,9 @@ W Azure Functions, projekt funkcji jest kontenerem dla jednej lub kilku poszczeg
     func start
     ```
     
-1. Gdy `classify` punkt końcowy zostanie wyświetlony w danych wyjściowych, przejdź do adresu URL, ```http://localhost:7071/api/classify?name=Azure```. Komunikat "Hello Azure!" powinien pojawić się w danych wyjściowych.
+1. Gdy `classify` punkt końcowy zostanie wyświetlony w danych wyjściowych, przejdź do adresu URL, ```http://localhost:7071/api/classify?name=Azure``` . Komunikat "Hello Azure!" powinien pojawić się w danych wyjściowych.
 
-1. Użyj **klawisza Ctrl**-**C** , aby zatrzymać hosta.
+1. Użyj **klawisza Ctrl** - **C** , aby zatrzymać hosta.
 
 
 ## <a name="import-the-tensorflow-model-and-add-helper-code"></a>Importowanie modelu TensorFlow i Dodawanie kodu pomocnika
@@ -158,7 +158,7 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
 > [!TIP]
 > Jeśli chcesz hostować model TensorFlow niezależnie od aplikacji funkcji, zamiast tego możesz zainstalować udział plików zawierający model w aplikacji funkcji systemu Linux. Aby dowiedzieć się więcej, zobacz [Instalowanie udziału plików w aplikacji funkcji języka Python przy użyciu interfejsu wiersza polecenia platformy Azure](./scripts/functions-cli-mount-files-storage-linux.md).
 
-1. W folderze *Start* Uruchom następujące polecenie, aby skopiować pliki modelu do folderu *klasyfikowanie* . Pamiętaj, aby uwzględnić `\*` je w poleceniu. 
+1. W folderze *Start* Uruchom następujące polecenie, aby skopiować pliki modelu do folderu *klasyfikowanie* . Pamiętaj, aby uwzględnić je `\*` w poleceniu. 
 
     # <a name="bash"></a>[bash](#tab/bash)
     
@@ -166,7 +166,7 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
     cp ../resources/model/* classify
     ```
     
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\model\* classify
@@ -190,7 +190,7 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
     cp ../resources/predict.py classify
     ```
     
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\predict.py classify
@@ -222,14 +222,14 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
     pip install --no-cache-dir -r requirements.txt
     ```
     
-    W systemie Windows może wystąpić błąd "nie można zainstalować pakietów ze względu na EnvironmentError: [errno 2] Brak pliku lub katalogu:" po którym występuje długa nazwa ścieżki do pliku, takiego jak *sharded_mutable_dense_hashtable. CPython-37. PYC*. Zazwyczaj ten błąd występuje, ponieważ głębokość ścieżki folderu jest zbyt długa. W takim przypadku należy ustawić klucz `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` rejestru, aby `1` włączyć długie ścieżki. Alternatywnie Sprawdź, gdzie jest zainstalowany interpreter języka Python. Jeśli ta lokalizacja ma długą ścieżkę, spróbuj zainstalować ją ponownie w folderze o krótszej ścieżce.
+    W systemie Windows może wystąpić błąd "nie można zainstalować pakietów ze względu na EnvironmentError: [errno 2] Brak pliku lub katalogu:" po którym występuje długa nazwa ścieżki do pliku, takiego jak *sharded_mutable_dense_hashtable. CPython-37. PYC*. Zazwyczaj ten błąd występuje, ponieważ głębokość ścieżki folderu jest zbyt długa. W takim przypadku należy ustawić klucz rejestru, `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` Aby `1` włączyć długie ścieżki. Alternatywnie Sprawdź, gdzie jest zainstalowany interpreter języka Python. Jeśli ta lokalizacja ma długą ścieżkę, spróbuj zainstalować ją ponownie w folderze o krótszej ścieżce.
 
 > [!TIP]
 > Podczas wywoływania metody *Predict.py* w celu utworzenia pierwszego przewidywania funkcja o nazwie `_initialize` ładuje model TensorFlow z dysku i buforuje go w zmiennych globalnych. Ta pamięć podręczna przyspiesza kolejne przewidywania. Aby uzyskać więcej informacji na temat używania zmiennych globalnych, zapoznaj się z [przewodnikiem dla deweloperów Azure Functions Python](functions-reference-python.md#global-variables).
 
 ## <a name="update-the-function-to-run-predictions"></a>Aktualizowanie funkcji do uruchamiania prognoz
 
-1. Otwórz *klasyfikację\_\_/\_\_init. PR* w edytorze tekstów i Dodaj następujące wiersze po istniejących `import` instrukcjach, aby zaimportować standardową bibliotekę JSON i pomocnicy *predykcyjny* :
+1. Otwórz *klasyfikację/ \_ \_ init \_ \_ . PR* w edytorze tekstów i Dodaj następujące wiersze po istniejących `import` instrukcjach, aby zaimportować standardową bibliotekę JSON i pomocnicy *predykcyjny* :
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
 
@@ -237,14 +237,14 @@ Aby utworzyć własny model przy użyciu warstwy Bezpłatna Custom Vision Servic
 
     :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="8-19":::
 
-    Ta funkcja odbiera adres URL obrazu w parametrze ciągu zapytania o `img`nazwie. Następnie wywołuje `predict_image_from_url` z biblioteki pomocnika, aby pobrać i sklasyfikować obraz przy użyciu modelu TensorFlow. Funkcja zwraca odpowiedź HTTP z wynikami. 
+    Ta funkcja odbiera adres URL obrazu w parametrze ciągu zapytania o nazwie `img` . Następnie wywołuje `predict_image_from_url` z biblioteki pomocnika, aby pobrać i sklasyfikować obraz przy użyciu modelu TensorFlow. Funkcja zwraca odpowiedź HTTP z wynikami. 
 
     > [!IMPORTANT]
-    > Ponieważ ten punkt końcowy HTTP jest wywoływany przez stronę sieci Web hostowaną w innej domenie, odpowiedź `Access-Control-Allow-Origin` zawiera nagłówek, który spełnia wymagania funkcji udostępniania zasobów między źródłami (CORS) przeglądarki.
+    > Ponieważ ten punkt końcowy HTTP jest wywoływany przez stronę sieci Web hostowaną w innej domenie, odpowiedź zawiera `Access-Control-Allow-Origin` nagłówek, który spełnia wymagania funkcji udostępniania zasobów między źródłami (CORS) przeglądarki.
     >
     > W aplikacji produkcyjnej przejdź `*` do konkretnego źródła strony sieci Web, aby zwiększyć bezpieczeństwo.
 
-1. Zapisz zmiany, a następnie założono, że te zależności zakończyły instalację, uruchom ponownie hosta `func start`funkcji lokalnej przy użyciu programu. Upewnij się, że host został uruchomiony w folderze *Start* z aktywowanym środowiskiem wirtualnym. W przeciwnym razie zostanie uruchomiony host, ale podczas wywoływania funkcji pojawią się błędy.
+1. Zapisz zmiany, a następnie założono, że te zależności zakończyły instalację, uruchom ponownie hosta funkcji lokalnej przy użyciu programu `func start` . Upewnij się, że host został uruchomiony w folderze *Start* z aktywowanym środowiskiem wirtualnym. W przeciwnym razie zostanie uruchomiony host, ale podczas wywoływania funkcji pojawią się błędy.
 
     ```
     func start
@@ -274,7 +274,7 @@ Aby przetestować wywoływanie punktu końcowego funkcji z innej aplikacji sieci
     python -m http.server
     ```
     
-    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server
@@ -286,7 +286,7 @@ Aby przetestować wywoływanie punktu końcowego funkcji z innej aplikacji sieci
     py -m http.server
     ```
 
-1. W przeglądarce przejdź do `localhost:8000`, a następnie wprowadź jeden z następujących adresów URL zdjęć do pola tekstowego lub użyj adresu URL dowolnego dostępnego publicznie obrazu.
+1. W przeglądarce przejdź do `localhost:8000` , a następnie wprowadź jeden z następujących adresów URL zdjęć do pola tekstowego lub użyj adresu URL dowolnego dostępnego publicznie obrazu.
 
     - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png`
     - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat2.png`

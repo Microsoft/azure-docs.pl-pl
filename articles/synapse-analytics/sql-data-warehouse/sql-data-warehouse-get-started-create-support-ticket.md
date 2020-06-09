@@ -10,12 +10,12 @@ author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e0788f978fd25356b230a7923def6cbbea3dc305
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 717db5ee9d14074b6bd2fdae78847e0ad0fa2255
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835465"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561366"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Zwiększanie limitu przydziału żądań i uzyskiwanie pomocy technicznej dla usługi Azure Synapse Analytics
 
@@ -53,59 +53,89 @@ Wykonaj następujące kroki, aby utworzyć nowe żądanie pomocy technicznej na 
 
    ![Wybierz typ limitu przydziału](./media/sql-data-warehouse-get-started-create-support-ticket/select-quota-type.png)
 
-1. W oknie **szczegóły** wybierz pozycję **Podaj szczegóły** , aby wprowadzić dodatkowe informacje.
+1. W oknie **szczegóły** wybierz pozycję **Wprowadź szczegóły** , aby wprowadzić dodatkowe informacje.
 
    ![Link "Podaj szczegóły"](./media/sql-data-warehouse-get-started-create-support-ticket/provide-details-link.png)
 
 ## <a name="quota-request-types"></a>Typy żądań limitu przydziału
 
-Kliknięcie pozycji **Podaj szczegóły** powoduje wyświetlenie okna **Szczegóły przydziału** umożliwiającego dodanie dodatkowych informacji. W poniższych sekcjach opisano różne żądania przydziału dostępne dla usługi Azure Synapse Analytics.
+Wybranie pozycji **Wprowadź szczegóły** powoduje wyświetlenie okna **Szczegóły przydziału** umożliwiającego dodanie dodatkowych informacji. W poniższych sekcjach opisano różne żądania przydziału dostępne dla usługi Azure Synapse Analytics.
 
-### <a name="data-warehouse-units-dwus-per-server"></a>Jednostki magazynu danych (jednostek dwu) na serwer
+### <a name="synapse-sql-pool-data-warehouse-units-dwus-per-server"></a>Synapse jednostki magazynu danych (jednostek dwu) puli SQL na serwer
 
 Wykonaj następujące kroki, aby zażądać wzrostu jednostek dwu na serwer.
 
-1. Wybierz typ przydziału **jednostki magazynu danych (DTU) na serwer** .
+1. Wybierz typ przydziału **Synapse puli SQL jednostek dwu na serwer** .
 
-1. Na liście **zasobów** wybierz zasób docelowy.
+1. Wybierz **zasób** , do którego chcesz zastosować limit przydziału, korzystając z listy rozwijanej.
 
-1. W polu **przydział żądania** wprowadź nowy limit jednostek dwu, którego żądasz.
+1. Wprowadź nowy przydział do sekcji **limit przydziału żądania** .
+
+1. Wybierz przycisk **Zapisz i kontynuuj**.
 
    ![Szczegóły przydziału jednostek dwu](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-dwus.png)
 
+
 ### <a name="servers-per-subscription"></a>Serwery na subskrypcję
 
-Wykonaj następujące kroki, aby zażądać zwiększenia liczby serwerów na subskrypcję.
+Aby zażądać zwiększenia liczby serwerów na subskrypcję, należy wykonać następujące czynności:
 
-1. Wybierz typ przydziału **serwery na subskrypcję** .
+1. Wybierz **serwery SQL na subskrypcję** jako typ limitu przydziału.
 
 1. Na liście **Lokalizacja** wybierz region platformy Azure, który ma być używany. Przydział jest przypadany na subskrypcję w każdym regionie.
 
-1. W polu **nowy limit przydziału** wprowadź swój wniosek dotyczący maksymalnej liczby serwerów w tym regionie.
+1. W polu **przydział żądania** wprowadź swój wniosek dotyczący maksymalnej liczby serwerów w tym regionie.
 
    ![Szczegóły limitu przydziału serwerów](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-servers.png)
 
-### <a name="enable-subscription-access-to-a-region"></a>Włączanie dostępu do subskrypcji do regionu
+
+
+1. Wybierz przycisk **Zapisz i kontynuuj**.
 
 Niektóre typy ofert nie są dostępne w każdym regionie. Może zostać wyświetlony następujący błąd:
 
-`This location is not available for subscription`
+![Błąd dostępu do regionu](./media/sql-data-warehouse-get-started-create-support-ticket/region-access-error.png)
 
-Jeśli Twoja subskrypcja wymaga dostępu w określonym regionie, użyj **innej opcji żądania przydziału** , aby zażądać dostępu. W żądaniu Określ szczegóły oferty i jednostki SKU, które chcesz włączyć dla regionu. Aby poznać opcje oferty i jednostki SKU, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
+### <a name="enable-subscription-access-to-a-region"></a>Włączanie dostępu do subskrypcji do regionu
+
+Aby włączyć dostęp do regionu dla subskrypcji, należy wykonać następujące czynności:  
+
+1. Wybierz typ limitu przydziału **dostępu do Synapse puli SQL (magazynu danych)** .
+
+1. Wybierz region, wybierając **lokalizację** z listy rozwijanej.
+
+1. Wskaż wymagania dotyczące wydajności jednostek dwu w sekcji **jednostek dwu Required** .
+
+1. Wprowadź **Opis wymagań firmy**. 
+
+1. Wybierz przycisk **Zapisz i kontynuuj**.
+
+![Dostęp regionu](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-region.png)
+
+
+### <a name="for-other-quota-requests"></a>W przypadku innych żądań limitu przydziału
+
+Wybierz **inne żądanie przydziału** z menu rozwijanego typ przydziału dla innych typów żądań przydziału:
 
 ![Inne szczegóły przydziału](./media/sql-data-warehouse-get-started-create-support-ticket/quota-details-whitelisting.png)
 
 ## <a name="submit-your-request"></a>Prześlij żądanie
 
-Ostatnim krokiem jest wypełnienie pozostałych szczegółów żądania obsługi SQL Database. Następnie wybierz pozycję **Dalej: Przeglądanie i tworzenie >>** i po przejrzeniu szczegółów żądania kliknij pozycję **Utwórz**, aby przesłać żądanie.
+Ostatnim krokiem jest wypełnienie pozostałych szczegółów żądania obsługi SQL Database. Następnie wybierz kolejno pozycje **Dalej: recenzja + utwórz>>**.
+
+![Przejrzyj szczegóły tworzenia](./media/sql-data-warehouse-get-started-create-support-ticket/review-create-details.png)
+
+Po przejrzeniu szczegółów żądania wybierz pozycję **Utwórz** , aby przesłać żądanie.
+
+![Utwórz bilet](./media/sql-data-warehouse-get-started-create-support-ticket/create-ticket.png)
 
 ## <a name="monitor-a-support-ticket"></a>Monitorowanie biletu pomocy technicznej
 
-Po przesłaniu żądania pomocy technicznej zespół pomocy technicznej systemu Azure skontaktuje się z Tobą. Aby sprawdzić stan żądania i szczegółowe informacje, kliknij pozycję **Wszystkie żądania obsługi** na pulpicie nawigacyjnym.
+Po przesłaniu żądania pomocy technicznej zespół pomocy technicznej systemu Azure skontaktuje się z Tobą. Aby sprawdzić stan żądania i szczegóły, wybierz pozycję **wszystkie żądania pomocy technicznej** na pulpicie nawigacyjnym.
 
 ![Sprawdzanie stanu](./media/sql-data-warehouse-get-started-create-support-ticket/monitor-ticket.png)
 
 ## <a name="other-resources"></a>Inne zasoby
 
-Możesz również nawiązać połączenie z społecznością usługi Azure Synapse Analytics na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) lub za pomocą [strony pytań&Microsoft pytań i odpowiedzi na Azure SQL Data Warehouse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
+Możesz również nawiązać połączenie z społecznością usługi Azure Synapse Analytics na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) lub za pomocą [strony pytań&Microsoft pytań i odpowiedzi na usługę Azure Synapse Analytics](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
 

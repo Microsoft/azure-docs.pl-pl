@@ -1,19 +1,19 @@
 ---
 title: Tematy dotyczące monitorowania i subskrypcje zdarzeń — Azure Event Grid IoT Edge | Microsoft Docs
 description: Monitorowanie tematów i subskrypcji zdarzeń
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4fbc5232722bfb08bde9be51d44e8e8d7514570
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77086681"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554353"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>Monitorowanie tematów i subskrypcji zdarzeń
 
@@ -21,7 +21,7 @@ Event Grid na platformie Edge udostępnia wiele metryk dla tematów i subskrypcj
 
 ## <a name="enable-metrics"></a>Włącz metryki
 
-Skonfiguruj moduł do emisji metryk przez ustawienie zmiennej `metrics__reporterType` środowiskowej na `prometheus` w opcjach tworzenia kontenera:
+Skonfiguruj moduł do emisji metryk przez ustawienie `metrics__reporterType` zmiennej środowiskowej na `prometheus` w opcjach tworzenia kontenera:
 
  ```json
         {
@@ -48,7 +48,7 @@ Oba tematy i subskrypcje zdarzeń emitują metryki, aby uzyskać wgląd w inform
 
 ### <a name="topic-metrics"></a>Metryki tematu
 
-| Metryka | Opis |
+| Metric | Opis |
 | ------ | ----------- |
 | EventsReceived | Liczba zdarzeń opublikowanych w temacie
 | UnmatchedEvents | Liczba zdarzeń opublikowanych w temacie, które nie pasują do subskrypcji zdarzeń i zostały usunięte
@@ -60,7 +60,7 @@ Oba tematy i subskrypcje zdarzeń emitują metryki, aby uzyskać wgląd w inform
 
 ### <a name="event-subscription-metrics"></a>Metryki subskrypcji zdarzeń
 
-| Metryka | Opis |
+| Metric | Opis |
 | ------ | ----------- |
 | DeliverySuccessCounts | Liczba zdarzeń pomyślnie dostarczonych do skonfigurowanego punktu końcowego
 | DeliveryFailureCounts | Liczba zdarzeń, które nie zostały dostarczone do skonfigurowanego punktu końcowego

@@ -1,5 +1,5 @@
 ---
-title: Przyrostowe kopiowanie danych przy użyciu Change Tracking
+title: Przyrostowe kopiowanie danych przy użyciu Change Tracking przy użyciu programu PowerShell
 description: W tym samouczku utworzysz potok Azure Data Factory, który stopniowo kopiuje dane różnicowe z wielu tabel w bazie danych SQL Server do Azure SQL Database.
 services: data-factory
 ms.author: yexu
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: b83b10c15bcc5d1a8ea9fc094e1d709d57221902
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2eb52ae24fe17a3e1a161ab132eee862efae9af1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196158"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559665"
 ---
-# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage z użyciem informacji o śledzeniu zmian
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Przyrostowe ładowanie danych z Azure SQL Database do platformy Azure Blob Storage przy użyciu informacji o śledzeniu zmian przy użyciu programu PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

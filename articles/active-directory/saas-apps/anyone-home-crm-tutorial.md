@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f2320f8a005531039a386af9192157c3091f3ac
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4146e6de2ef23f7e12ee6b59c40045f8a678dc13
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221891"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509189"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-anyone-home-crm"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) z dowolnymi osobami w domu CRM
 
@@ -88,7 +88,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     b. W polu tekstowym **Adres URL odpowiedzi** wpisz adres URL, korzystając z następującego wzorca: `https://app.anyonehome.com/webroot/files/simplesamlphp/www/module.php/saml/sp/saml2-acs.php/<Anyone_Home_Provided_Unique_Value>`
 
     > [!NOTE]
-    > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [osobą z zespołem pomocy technicznej programu CRM](mailto:lightson@anyonehome.com) w celu uzyskania tych wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Te wartości nie są prawdziwe. Zastąp te wartości rzeczywistymi wartościami identyfikatora i adresu URL odpowiedzi. Skontaktuj się z [osobą z zespołem pomocy technicznej programu CRM](mailto:support@anyonehome.com) w celu uzyskania tych wartości. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
@@ -126,11 +126,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-anyone-home-crm-sso"></a>Konfigurowanie każdego programu macierzystego programu CRM — Logowanie jednokrotne
 
-Aby skonfigurować Logowanie jednokrotne na **każdej stronie głównej programu CRM** , musisz wysłać **adres URL metadanych federacji aplikacji** do [każdego głównego zespołu pomocy technicznej programu CRM](mailto:lightson@anyonehome.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na **każdej stronie głównej programu CRM** , musisz wysłać **adres URL metadanych federacji aplikacji** do [każdego głównego zespołu pomocy technicznej programu CRM](mailto:support@anyonehome.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-anyone-home-crm-test-user"></a>Tworzenie każdego użytkownika testowego w domu CRM
 
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w dowolnym domu CRM. Pracuj z [dowolnym zespołem pomocy technicznej programu CRM](mailto:lightson@anyonehome.com) w celu dodania użytkowników do platformy głównej programu CRM. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
+W tej sekcji utworzysz użytkownika o nazwie Britta Simon w dowolnym domu CRM. Pracuj z [dowolnym zespołem pomocy technicznej programu CRM](mailto:support@anyonehome.com) w celu dodania użytkowników do platformy głównej programu CRM. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -144,7 +144,7 @@ Po kliknięciu kafelka każdy domowy CRM w panelu dostępu należy automatycznie
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Wypróbuj każdy domowy program CRM z usługą Azure AD](https://aad.portal.azure.com/)
 

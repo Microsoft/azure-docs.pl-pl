@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 77b801837be80749ca73dd4ae5c526a7980e83e0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 92962c376e2b800a327f44c4cad5cd9fdd4cab8d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652708"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560511"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Samouczek: Automatyzowanie zmiany rozmiarów załadowanych obrazów przy użyciu Event Grid
 
@@ -37,7 +37,7 @@ Aby dodać funkcję zmiany rozmiaru do istniejącej aplikacji do przekazywania o
 
 ---
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta usługi Azure Storage
@@ -75,14 +75,19 @@ Usługa Azure Functions wymaga konta magazynu ogólnego. Oprócz konta usługi B
     ```azurecli-interactive
     resourceGroupName="myResourceGroup"
     ```
-2. Ustaw zmienną dla nazwy nowego konta magazynu wymaganego przez usługę Azure Functions.
+2. Ustaw zmienną do przechowywania lokalizacji zasobów, które mają zostać utworzone. 
+
+    ```azurecli-interactive
+    location="eastus"
+    ```    
+3. Ustaw zmienną dla nazwy nowego konta magazynu wymaganego przez usługę Azure Functions.
     ```azurecli-interactive
     functionstorage="<name of the storage account to be used by the function>"
     ```
-3. Utwórz konto magazynu dla funkcji platformy Azure.
+4. Utwórz konto magazynu dla funkcji platformy Azure.
 
     ```azurecli-interactive
-    az storage account create --name $functionstorage --location southeastasia \
+    az storage account create --name $functionstorage --location $location \
     --resource-group $resourceGroupName --sku Standard_LRS --kind StorageV2
     ```
 
@@ -101,7 +106,7 @@ W poniższym poleceniu podaj własną, unikatową nazwę aplikacji funkcji. Nazw
 
     ```azurecli-interactive
     az functionapp create --name $functionapp --storage-account $functionstorage \
-      --resource-group $resourceGroupName --consumption-plan-location southeastasia \
+      --resource-group $resourceGroupName --consumption-plan-location $location \
       --functions-version 2
     ```
 
@@ -114,7 +119,6 @@ Funkcja wymaga poświadczeń dla konta usługi Blob Storage, które są dodawane
 # <a name="net-v12-sdk"></a>[\.Zestaw SDK NET V12](#tab/dotnet)
 
 ```azurecli-interactive
-blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
 storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
   --name $blobStorageAccount --query connectionString --output tsv)
 
@@ -126,8 +130,6 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
 # <a name="nodejs-v10-sdk"></a>[Zestaw Node.js V10 SDK](#tab/nodejsv10)
 
 ```azurecli-interactive
-blobStorageAccount="<name of the Blob storage account you created in the previous tutorial>"
-
 blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
   -n $blobStorageAccount --query [0].value --output tsv)
 
@@ -211,9 +213,10 @@ Subskrypcja zdarzeń wskazuje, które zdarzenia generowane przez dostawcę mają
     | **Subskrypcja** | Twoja subskrypcja platformy Azure | Domyślnie jest wybrana Twoja bieżąca subskrypcja platformy Azure. |
     | **Grupa zasobów** | myResourceGroup | Wybierz pozycję **Użyj istniejącej** i wybierz grupę zasobów używaną w tym samouczku. |
     | **Zasób** | Konto usługi Blob Storage | Wybierz utworzone konto usługi Blob Storage. |
+    | **Nazwa tematu systemu** | imagestoragesystopic | Określ nazwę tematu systemowego. Aby dowiedzieć się więcej o tematach systemowych, zobacz [Tematy systemowe — Omówienie](system-topics.md). |    
     | **Typy zdarzeń** | Utworzony obiekt blob | Anuluj zaznaczenie wszystkich typów innych niż **Utworzony obiekt blob**. Tylko typy zdarzeń `Microsoft.Storage.BlobCreated` są przekazywane do funkcji. |
     | **Typ punktu końcowego** | generowany automatycznie | Wstępnie zdefiniowana jako **Funkcja platformy Azure**. |
-    | **Punktu końcowego** | generowany automatycznie | Nazwa funkcji. W tym przypadku jest to **miniatura**. |
+    | **Punkt końcowy** | generowany automatycznie | Nazwa funkcji. W tym przypadku jest to **miniatura**. |
 
 1. Przejdź do karty **filtry** i wykonaj następujące czynności:
     1. Zaznacz pole wyboru **Enable subject filtering** (Włącz filtrowanie tematów).

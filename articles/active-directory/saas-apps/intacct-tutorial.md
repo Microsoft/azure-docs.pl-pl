@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 731ed4664d10d3957be160bf9e8001d5470a6f38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0d05e48cdaf75af5acb09713679d3aa21450b433
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201350"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509376"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Samouczek: Integrowanie programu Sage Intacct z Azure Active Directory
 
@@ -86,15 +86,14 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. Aplikacja Sage Intacct oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij przycisk **Edytuj** , aby otworzyć okno dialogowe atrybuty użytkownika...
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
-1. Oprócz powyższych, aplikacja Sage Intacct oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
+1. Oprócz powyższych, aplikacja Sage Intacct oczekuje kilku atrybutów do przekazania z powrotem do odpowiedzi SAML. W oknie dialogowym **atrybuty użytkownika & oświadczenia** wykonaj następujące kroki, aby dodać ATRYBUT tokenu SAML, jak pokazano w poniższej tabeli:
 
-    | Nazwa  |  Atrybut źródłowy|
+    | Nazwa atrybutu  |  Atrybut źródłowy|
     | ---------------| --------------- |
     | Nazwa firmy | **Identyfikator firmy Sage Intacct** |
     | name | Wartość powinna być taka sama jak **Nazwa użytkownika**Sage Intacct, którą wprowadzasz w **sekcji Tworzenie użytkownika testowego programu Sage Intacct**, która została omówiona w dalszej części tego samouczka |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` | Wartość powinna być taka sama jak **Identyfikator użytkownika federacyjnego logowania jednokrotnego**w programie Sage Intacct, który można wprowadzić w **sekcji Tworzenie użytkownika testowego programu Sage Intacct**, która została omówiona w dalszej części tego samouczka |
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
 
@@ -104,11 +103,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     d. Dla opcji Źródło wybierz wartość **Atrybut**.
 
-    e. Na liście **Atrybut źródłowy** wpisz wartość atrybutu pokazaną dla tego wiersza.
+    e. Z listy **atrybutów źródłowych** wpisz lub wybierz wartość atrybutu wyświetlaną dla tego wiersza.
 
     f. Kliknij przycisk **OK** .
 
-    g. Kliknij przycisk **Zapisz**.
+    g. Kliknij pozycję **Zapisz**.
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
@@ -126,7 +125,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -174,7 +173,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     e. Otwórz certyfikat zakodowany w formacie **Base-64** w Notatniku, skopiuj zawartość tego pliku do schowka, a następnie wklej go do pola **certyfikat** .
 
-    f. Kliknij przycisk **Zapisz**.
+    f. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-sage-intacct-test-user"></a>Utwórz użytkownika testowego Intacct Sage
 
@@ -203,11 +202,11 @@ Aby skonfigurować użytkowników usługi Azure AD, aby mogli się zalogować do
 
     b. Wybierz **uprawnienia administratora** konta usługi Azure AD, które chcesz udostępnić.
 
-    c. Kliknij przycisk **Zapisz**. 
+    c. Kliknij pozycję **Zapisz**. 
     
     d. Posiadacz konta usługi Azure AD otrzymuje wiadomość e-mail, a następnie łączy się z linkiem, aby potwierdzić swoje konto.
 
-1. Kliknij kartę **Logowanie jednokrotne** i upewnij się, że **Identyfikator użytkownika federacyjnego logowania jednokrotnego** na poniższym zrzucie ekranu oraz wartość **atrybutu źródłowego** , która `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` jest mapowana za pomocą w sekcji **atrybuty użytkownika** w Azure Portal powinna być taka sama.
+1. Kliknij kartę **Logowanie jednokrotne** i upewnij się, że **Identyfikator użytkownika federacyjnego logowania jednokrotnego** na poniższym zrzucie ekranu oraz wartość **atrybutu źródłowego** , która jest mapowana za pomocą `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` w sekcji **atrybuty użytkownika** w Azure Portal powinna być taka sama.
 
     ![Informacje o użytkowniku](./media/intacct-tutorial/ic790044.png "Informacje o użytkowniku")
 
@@ -226,5 +225,5 @@ Po kliknięciu kafelka Sage Intacct w panelu dostępu należy automatycznie zalo
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

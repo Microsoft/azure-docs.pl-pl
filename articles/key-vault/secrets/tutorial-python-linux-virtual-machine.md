@@ -9,13 +9,13 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
-ms.custom: mvc
-ms.openlocfilehash: df089f0338a177c08f4d9e88d55b501fd12f88f2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 6b3fb07322009134a75621a19cd013e2f967972a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81423319"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561615"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Samouczek: korzystanie z maszyny wirtualnej z systemem Linux i aplikacji w języku Python do przechowywania wpisów tajnych w programie Azure Key Vault
 
@@ -36,7 +36,7 @@ Zanim przejdziesz dalej, zapoznaj się z [podstawowymi pojęciami dotyczącymi u
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Usługi [git](https://git-scm.com/downloads).
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Interfejs wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) lub usługa Azure Cloud Shell.
 
 [!INCLUDE [Azure Cloud Shell](../../../includes/cloud-shell-try-it.md)]

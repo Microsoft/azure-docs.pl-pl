@@ -2,17 +2,17 @@
 title: Azure Service Bus jako źródło Event Grid
 description: Opisuje właściwości, które są dostępne dla zdarzeń Service Bus z Azure Event Grid
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.author: babanisa
-ms.openlocfilehash: 141a0e96071014dc3705d30f72b1a9257737298a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: femila
+ms.openlocfilehash: 5152c1579d46bfbff6c85b2cd19425aee0dd3290
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393239"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559494"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus jako źródło Event Grid
 
@@ -85,8 +85,8 @@ Zdarzenie ma następujące dane najwyższego poziomu:
 | Temat | ciąg | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
 | Klasę | ciąg | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
 | eventTime | ciąg | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| id | ciąg | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Dane zdarzenia magazynu obiektów BLOB. |
+| identyfikator | ciąg | Unikatowy identyfikator zdarzenia. |
+| dane | object | Dane zdarzenia magazynu obiektów BLOB. |
 | dataVersion | ciąg | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
 | metadataVersion | ciąg | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 

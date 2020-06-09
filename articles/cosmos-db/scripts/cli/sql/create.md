@@ -1,20 +1,20 @@
 ---
-title: Tworzenie bazy danych i kontenera interfejsu API SQL (rdzeń) dla Azure Cosmos DB
-description: Tworzenie bazy danych i kontenera interfejsu API SQL (rdzeń) dla Azure Cosmos DB
+title: Tworzenie bazy danych i kontenera interfejsu API programu Core (SQL) dla Azure Cosmos DB
+description: Tworzenie bazy danych i kontenera interfejsu API programu Core (SQL) dla Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 9/25/2019
-ms.openlocfilehash: ae958c7e48b1c4a93a09c607d5a2e51abf49a8ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/03/2020
+ms.openlocfilehash: 416da39df9bfb49d6323ee789d5e67b1743a1cd7
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71275493"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509393"
 ---
-# <a name="create-an-azure-cosmos-sql-core-api-account-database-and-container-using-azure-cli"></a>Tworzenie konta interfejsu API usługi Azure Cosmos SQL (rdzeń), bazy danych i kontenera przy użyciu interfejsu wiersza polecenia platformy Azure
+# <a name="create-an-azure-cosmos-core-sql-api-account-database-and-container-using-azure-cli"></a>Tworzenie konta, bazy danych i kontenera interfejsu API platformy Azure Cosmos Core przy użyciu interfejsu wiersza polecenia platformy Azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

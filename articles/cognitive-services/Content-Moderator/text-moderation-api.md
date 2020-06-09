@@ -10,18 +10,18 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 31bd6a2680d8c71df6b6030187ff44ca10d09440
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685071"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561045"
 ---
 # <a name="learn-text-moderation-concepts"></a>Poznaj pojęcia związane z moderowaniem tekstu
 
 Używaj modeli moderowania tekstu Content Moderator do analizowania zawartości tekstowej.
 
-Można zablokować, zatwierdzać lub przeglądać zawartość na podstawie zasad i progów (zobacz [przeglądy, przepływy pracy i zadania,](./review-api.md) aby dowiedzieć się, jak skonfigurować Recenzje przez człowieka). Używaj modeli moderowania tekstu, aby rozszerzyć ludzkie moderowanie środowisk, w których partnerzy, pracownicy i konsumenci generują zawartość tekstową. Te środowiska obejmują pokoje czatów, tablice dyskusyjne, czatboty, katalogi handlu elektronicznego i dokumenty. 
+Można zablokować, zatwierdzać lub przeglądać zawartość na podstawie zasad i progów (zobacz [przeglądy, przepływy pracy i zadania,](./review-api.md) aby dowiedzieć się, jak skonfigurować Recenzje przez człowieka). Używaj modeli moderowania tekstu, aby rozszerzyć ludzkie moderowanie środowisk, w których partnerzy, pracownicy i konsumenci generują zawartość tekstową. Te środowiska obejmują pokoje czatów, tablice dyskusyjne, czatboty, katalogi handlu elektronicznego i dokumenty.
 
 Odpowiedź usługi zawiera następujące informacje:
 
