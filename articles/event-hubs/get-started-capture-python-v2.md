@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 191a2246afdc60953d8c353f9ccdc2339130f910
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 67bf19c08d9a9309d8d4b731bf30a6db1091ebf1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159339"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558944"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Przechwytywanie danych Event Hubs w usłudze Azure Storage i odczytywanie ich przy użyciu języka Python (Azure-eventhub w wersji 5)
 
@@ -89,7 +90,7 @@ W tej sekcji utworzysz skrypt języka Python, który wysyła zdarzenia 200 (10 u
     producer.close()
     ```
 4. Zastąp następujące wartości w skryptach:  
-    * Zamień `EVENT HUBS NAMESPACE CONNECTION STRING` na parametry połączenia dla przestrzeni nazw Event Hubs.  
+    * Zamień na `EVENT HUBS NAMESPACE CONNECTION STRING` Parametry połączenia dla przestrzeni nazw Event Hubs.  
     * Zamień `EVENT HUB NAME` na nazwę centrum zdarzeń.  
 5. Uruchom skrypt, aby wysłać zdarzenia do centrum zdarzeń.  
 6. W Azure Portal można sprawdzić, czy centrum zdarzeń odebrało komunikaty. Przejdź do widoku **komunikaty** w sekcji **metryki** . Odśwież stronę, aby zaktualizować wykres. Wyświetlanie komunikatów przez stronę może potrwać kilka sekund. 
@@ -157,7 +158,7 @@ W tym przykładzie przechwycone dane są przechowywane w usłudze Azure Blob Sto
     
     startProcessing()    
     ```
-3. Zamień `AZURE STORAGE CONNECTION STRING` na parametry połączenia dla konta usługi Azure Storage. Nazwa kontenera utworzonego w tym przewodniku szybki start to *przechwytywanie*. Jeśli użyto innej nazwy kontenera, Zastąp *przechwycenie* nazwą kontenera na koncie magazynu. 
+3. Zamień na `AZURE STORAGE CONNECTION STRING` Parametry połączenia dla konta usługi Azure Storage. Nazwa kontenera utworzonego w tym przewodniku szybki start to *przechwytywanie*. Jeśli użyto innej nazwy kontenera, Zastąp *przechwycenie* nazwą kontenera na koncie magazynu. 
 
 ## <a name="run-the-scripts"></a>Uruchamianie skryptów
 1. Otwórz wiersz polecenia z językiem Python w swojej ścieżce, a następnie uruchom następujące polecenia, aby zainstalować wstępnie wymagane pakiety języka Python:

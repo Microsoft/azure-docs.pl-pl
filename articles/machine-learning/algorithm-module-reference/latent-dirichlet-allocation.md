@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/11/2020
-ms.openlocfilehash: 1384491489c175ffc338f80a99aa8d5050f835d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/05/2020
+ms.openlocfilehash: a75bf458a1c6735de42349de5d5cb6845e9ae464
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80109227"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84487971"
 ---
 # <a name="latent-dirichlet-allocation"></a>Alokacja ukrytej zmiennej Dirichleta
 
@@ -68,9 +68,9 @@ Ten moduł wymaga zestawu danych, który zawiera kolumnę tekstu — nieprzetwor
 
 6. Wybierz opcję **normalizing** , aby przekonwertować wartości wyjściowe na prawdopodobieństwa. W związku z tym, zamiast przedstawiać przekształcone wartości jako liczby całkowite, wartości w danych wyjściowych i funkcji DataSet byłyby przekształcone w następujący sposób:
 
-    + Wartości w zestawie danych będą reprezentowane jako prawdopodobieństwo, gdzie `P(topic|document)`.
+    + Wartości w zestawie danych będą reprezentowane jako prawdopodobieństwo, gdzie `P(topic|document)` .
 
-    + Wartości w macierzy tematu funkcji będą reprezentowane jako prawdopodobieństwo, gdzie `P(word|topic)`.
+    + Wartości w macierzy tematu funkcji będą reprezentowane jako prawdopodobieństwo, gdzie `P(word|topic)` .
 
     > [!NOTE] 
     > W programie Azure Machine Learning Designer (wersja zapoznawcza), ponieważ biblioteka, w której Bazujemy, scikit — nie obsługuje już nieznormalizowanych *doc_topic_distr* danych wyjściowych z wersji 0,19, dlatego w tym module można zastosować **normalizację** parametru tylko do danych wyjściowych **macierzy tematu funkcji** , **przekształcony zestaw danych** wyjściowy jest zawsze znormalizowany.
@@ -116,7 +116,8 @@ Moduł ma dwa dane wyjściowe:
 
 Ten moduł generuje również *transformację LDA* , która stosuje LDA do zestawu danych.
 
-Transformację można zapisać, rejestrując zestaw danych na karcie dane **wyjściowe + dzienniki** w prawym okienku modułu i ponownie używając innych zestawów danych. Może to być przydatne, jeśli przeszkolony jest duży korpus i chcesz ponownie wykorzystać współczynniki lub kategorie.
+To przekształcenie można ponownie wykorzystać dla innych zestawów danych. Może to być przydatne, jeśli przeszkolony jest duży korpus i chcesz ponownie wykorzystać współczynniki lub kategorie.
+Aby ponownie użyć tej transformacji, kliknij ikonę **zarejestruj zestaw danych** w prawym panelu modułu LDA, aby zachować go jako moduł w kategorii **zestawy danych** na liście modułów. Następnie można połączyć ten moduł, aby [zastosować moduł transformacji](apply-transformation.md) do ponownego użycia tej transformacji.
 
 ### <a name="refining-an-lda-model-or-results"></a>Udoskonalanie modelu LDA lub wyników
 
@@ -177,26 +178,26 @@ Po obliczeniach indeksów warunków poszczególne wiersze tekstu są porównywan
 
 ###  <a name="module-parameters"></a>Parametry modułu
 
-|Nazwa|Typ|Zakres|Optional|Domyślny|Opis|  
+|Nazwa|Typ|Zakres|Opcjonalne|Domyślne|Opis|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
-|Kolumny docelowe|Wybór kolumny||Wymagany|StringFeature|Nazwa lub indeks kolumny docelowej|  
-|Liczba tematów do modelowania|Liczba całkowita|[1; 1000]|Wymagany|5|Modelowanie dystrybucji dokumentu względem N tematów|  
-|N-gramy|Liczba całkowita|[1; 10]|Wymagany|2|Kolejność N-gramów wygenerowana podczas tworzenia skrótów|  
-|Normalizuj|Boolean|Prawda lub FAŁSZ|Wymagany|true|Normalizowanie danych wyjściowych do prawdopodobieństwa.  Przekształcony zestaw danych będzie P (temat&#124;dokument), a macierz tematu funkcji będzie P (temat Word&#124;temat)|  
-|Pokaż wszystkie opcje|Boolean|Prawda lub FAŁSZ|Wymagany|Fałsz|Przedstawia dodatkowe parametry charakterystyczne dla scikit — uczenie online LDA|  
-|Parametr Rho|Liczba zmiennoprzecinkowa|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja wyrazów tematu|  
-|Parametr alfa|Liczba zmiennoprzecinkowa|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja dokumentu|  
-|Szacowana Liczba dokumentów|Liczba całkowita|[1; int. MaxValue|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|1000|Szacowana Liczba dokumentów (odpowiada parametrowi total_samples)|  
-|Rozmiar partii|Liczba całkowita|[1; 1024]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|32|Rozmiar partii|  
-|Początkowa wartość iteracji użyta w harmonogramie aktualizacji szybkości uczenia|Liczba całkowita|[0; int. MaxValue|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0|Wartość początkowa, która downweights szybkość uczenia dla wczesnych iteracji. Odpowiada parametrowi learning_offset|  
-|Moc zastosowana do iteracji podczas aktualizacji|Liczba zmiennoprzecinkowa|[0.0; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,5|Moc zastosowana do liczby iteracji w celu kontrolowania stawki szkoleniowej. Odpowiada parametrowi learning_decay |  
-|Liczba iteracji szkoleniowych|Liczba całkowita|[1; 1024]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|25|Liczba iteracji szkoleniowych|  
-|Słownik kompilacji ngrams|Boolean|Prawda lub FAŁSZ|Ma zastosowanie, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone|Prawda|Kompiluje słownik ngrams przed przetwarzaniem LDA. Przydatny do przeprowadzania inspekcji i interpretacji modelu|  
-|Maksymalny rozmiar słownika ngram|Liczba całkowita|[1; int. MaxValue|Stosuje się, gdy **słownik kompilacji opcji ngrams** ma wartość true|20000|Maksymalny rozmiar słownika ngrams. Jeśli liczba tokenów w danych wejściowych przekracza ten rozmiar, kolizje mogą wystąpić|  
-|Liczba bitów do użycia na potrzeby tworzenia skrótów funkcji|Liczba całkowita|[1; 31]|Stosuje się, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone, a **słownik kompilacji ngrams** ma wartość FAŁSZ|12|Liczba bitów do użycia na potrzeby tworzenia skrótów funkcji| 
-|Kompilowanie słownika ngrams przed LDA|Boolean|Prawda lub FAŁSZ|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|Prawda|Kompiluje słownik ngrams przed LDA. Przydatny do przeprowadzania inspekcji i interpretacji modelu|  
-|Maksymalna liczba ngrams w słowniku|Liczba całkowita|[1; int. MaxValue|Stosuje się, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje** , a **słownik kompilacji opcji Ngrams** ma wartość true.|20000|Maksymalny rozmiar słownika. Jeśli liczba tokenów w danych wejściowych przekracza ten rozmiar, kolizje mogą wystąpić|  
-|Liczba bitów skrótu|Liczba całkowita|[1; 31]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje** , a **słownik kompilacji opcji Ngrams** ma wartość FAŁSZ|12|Liczba bitów do użycia podczas tworzenia skrótów funkcji|   
+|Kolumny docelowe|Wybór kolumny||Wymagane|StringFeature|Nazwa lub indeks kolumny docelowej|  
+|Liczba tematów do modelowania|Integer|[1; 1000]|Wymagane|5|Modelowanie dystrybucji dokumentu względem N tematów|  
+|N-gramy|Integer|[1; 10]|Wymagane|2|Kolejność N-gramów wygenerowana podczas tworzenia skrótów|  
+|Normalizuj|Boolean|Prawda lub FAŁSZ|Wymagane|true|Normalizowanie danych wyjściowych do prawdopodobieństwa.  Przekształcony zestaw danych będzie P (temat&#124;dokument), a macierz tematu funkcji będzie P (temat Word&#124;temat)|  
+|Pokaż wszystkie opcje|Boolean|Prawda lub FAŁSZ|Wymagane|Fałsz|Przedstawia dodatkowe parametry charakterystyczne dla scikit — uczenie online LDA|  
+|Parametr Rho|Float|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja wyrazów tematu|  
+|Parametr alfa|Float|[0.00001; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,01|Wcześniejsza dystrybucja dokumentu|  
+|Szacowana Liczba dokumentów|Integer|[1; int. MaxValue|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|1000|Szacowana Liczba dokumentów (odpowiada parametrowi total_samples)|  
+|Rozmiar partii|Integer|[1; 1024]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|32|Rozmiar partii|  
+|Początkowa wartość iteracji użyta w harmonogramie aktualizacji szybkości uczenia|Integer|[0; int. MaxValue|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0|Wartość początkowa, która downweights szybkość uczenia dla wczesnych iteracji. Odpowiada parametrowi learning_offset|  
+|Moc zastosowana do iteracji podczas aktualizacji|Float|[0.0; 1.0]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|0,5|Moc zastosowana do liczby iteracji w celu kontrolowania stawki szkoleniowej. Odpowiada parametrowi learning_decay |  
+|Liczba iteracji szkoleniowych|Integer|[1; 1024]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|25|Liczba iteracji szkoleniowych|  
+|Słownik kompilacji ngrams|Boolean|Prawda lub FAŁSZ|Ma zastosowanie, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone|True|Kompiluje słownik ngrams przed przetwarzaniem LDA. Przydatny do przeprowadzania inspekcji i interpretacji modelu|  
+|Maksymalny rozmiar słownika ngram|Integer|[1; int. MaxValue|Stosuje się, gdy **słownik kompilacji opcji ngrams** ma wartość true|20000|Maksymalny rozmiar słownika ngrams. Jeśli liczba tokenów w danych wejściowych przekracza ten rozmiar, kolizje mogą wystąpić|  
+|Liczba bitów do użycia na potrzeby tworzenia skrótów funkcji|Integer|[1; 31]|Stosuje się, gdy pole wyboru **Pokaż wszystkie opcje** *nie* jest zaznaczone, a **słownik kompilacji ngrams** ma wartość FAŁSZ|12|Liczba bitów do użycia na potrzeby tworzenia skrótów funkcji| 
+|Kompilowanie słownika ngrams przed LDA|Boolean|Prawda lub FAŁSZ|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje**|True|Kompiluje słownik ngrams przed LDA. Przydatny do przeprowadzania inspekcji i interpretacji modelu|  
+|Maksymalna liczba ngrams w słowniku|Integer|[1; int. MaxValue|Stosuje się, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje** , a **słownik kompilacji opcji Ngrams** ma wartość true.|20000|Maksymalny rozmiar słownika. Jeśli liczba tokenów w danych wejściowych przekracza ten rozmiar, kolizje mogą wystąpić|  
+|Liczba bitów skrótu|Integer|[1; 31]|Ma zastosowanie, gdy zaznaczone jest pole wyboru **Pokaż wszystkie opcje** , a **słownik kompilacji opcji Ngrams** ma wartość FAŁSZ|12|Liczba bitów do użycia podczas tworzenia skrótów funkcji|   
 
 
 ## <a name="next-steps"></a>Następne kroki

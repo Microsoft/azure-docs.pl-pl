@@ -4,12 +4,12 @@ description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych pla
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: raynew
-ms.openlocfilehash: 9be07290762a7f012417c4442f93f648889c452f
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 13bff6006d38489d576a0cbefbf3e7bab8afab37
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323233"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488906"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Macierz obsługi odzyskiwania po awarii maszyny wirtualnej platformy Azure między regionami platformy Azure
 
@@ -28,7 +28,7 @@ W tym artykule podsumowano obsługę i wymagania wstępne dotyczące odzyskiwani
 
 ## <a name="resource-support"></a>Pomoc techniczna dla zasobów
 
-**Akcja zasobu** | **Szczegóły**
+**Akcja zasobu** | **Uzyskać**
 --- | ---
 **Przenoszenie magazynów między grupami zasobów** | Nieobsługiwane
 **Przenoszenie zasobów obliczeniowych/magazynowych/sieciowych między grupami zasobów** | Nieobsługiwane.<br/><br/> W przypadku przenoszenia maszyny wirtualnej lub skojarzonych składników, takich jak magazyn/sieć po zakończeniu replikacji maszyny wirtualnej, należy wyłączyć i ponownie włączyć replikację maszyny wirtualnej.
@@ -66,7 +66,7 @@ Ograniczone regiony zarezerwowane na potrzeby odzyskiwania po awarii w kraju |Ni
 
 Ta tabela zawiera podsumowanie obsługi konta magazynu pamięci podręcznej używanego przez Site Recovery podczas replikacji.
 
-**Ustawienie** | **Pomoc techniczna** | **Szczegóły**
+**Ustawienie** | **Pomoc techniczna** | **Uzyskać**
 --- | --- | ---
 Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwa gorąca i chłodna) | Obsługiwane | Użycie GPv2 jest niezalecane, ponieważ koszty transakcji dla wersji 2 są znacznie wyższe niż konta magazynu w wersji 1.
 Premium Storage | Nieobsługiwane | Konta magazynu w warstwie Standardowa są używane na potrzeby magazynu pamięci podręcznej w celu optymalizacji kosztów.
@@ -80,11 +80,11 @@ Site Recovery obsługuje replikację maszyn wirtualnych platformy Azure z system
 ### <a name="windows"></a>Windows
 
 
-**System operacyjny** | **Szczegóły**
+**System operacyjny** | **Uzyskać**
 --- | ---
 Windows Server 2019 | Obsługiwane dla serwera Server Core, serwera z funkcją środowisko pulpitu.
 Windows Server 2016  | Obsługiwane serwery z funkcją środowisko pulpitu.
-Windows Server 2012 R2 | Obsługiwane.
+Windows Server 2012 z dodatkiem R2 | Obsługiwane.
 Windows Server 2012 | Obsługiwane.
 Windows Server 2008 R2 z dodatkiem SP1/SP2 | Obsługiwane.<br/><br/> W wersji [9,30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) rozszerzenia usługi mobilności dla maszyn wirtualnych platformy Azure należy zainstalować aktualizację [stosu obsługi systemu Windows (SSU)](https://support.microsoft.com/help/4490628) i [aktualizację SHA-2](https://support.microsoft.com/help/4474419) na komputerach z systemem Windows Server 2008 R2 z dodatkiem SP1/SP2.  Algorytm SHA-1 nie jest obsługiwany z września 2019 i jeśli podpisywanie kodu SHA-2 nie jest włączone, rozszerzenie agenta nie zostanie zainstalowane/uaktualnione zgodnie z oczekiwaniami. Dowiedz się więcej o [uaktualnieniu i wymaganiach algorytmu SHA-2](https://aka.ms/SHA-2KB).
 Windows 10 (x64) | Obsługiwane.
@@ -96,47 +96,49 @@ Windows 7 (x64) z dodatkiem SP1 lub nowszym | W wersji [9,30](https://support.mi
 
 #### <a name="linux"></a>Linux
 
-**System operacyjny** | **Szczegóły**
+**System operacyjny** | **Uzyskać**
 --- | ---
 Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [8,0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, [7,8](https://support.microsoft.com/help/4564347/), 8,0, 8,1
 Serwer Ubuntu 14,04 LTS | [Obsługiwane wersje jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Serwer Ubuntu 16,04 LTS | [Obsługiwana wersja jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Serwery Ubuntu korzystające z uwierzytelniania opartego na hasłach i logowania, a pakiet Cloud-init do konfigurowania maszyn wirtualnych w chmurze mogą mieć wyłączone logowanie oparte na hasłach w trybie failover (w zależności od konfiguracji cloudinit). Logowanie oparte na haśle można włączyć na maszynie wirtualnej przez zresetowanie hasła w menu Ustawienia > > Rozwiązywanie problemów z pomocą techniczną (w przypadku maszyny wirtualnej w trybie failover w Azure Portal.
 Serwer Ubuntu 18,04 LTS | [Obsługiwana wersja jądra](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-Debian 7 | [Obsługiwane wersje jądra](#supported-debian-kernel-versions-for-azure-virtual-machines)
-Debian 8 | [Obsługiwane wersje jądra](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1, SP2, SP3 I SP4. [(Obsługiwane wersje jądra)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+Debian 7 | Obejmuje obsługę wszystkich 7. *x* wersje [obsługiwane przez jądra](#supported-debian-kernel-versions-for-azure-virtual-machines)
+Debian 8 | Obejmuje obsługę wszystkich 8. *x* wersje [obsługiwane przez jądra](#supported-debian-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4, SP5 [(obsługiwane wersje jądra)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines) </br> (* * Wersja SP5 jest dostępna za pomocą najnowszej poprawki 9,33 dla scenariusza platformy Azure do usługi Azure DR).
 SUSE Linux Enterprise Server 15 | 15 i 15 SP1. [(Obsługiwane wersje jądra)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | USUWA<br/><br/> Uaktualnienie maszyn replikowanych z programu SP3 do wersji SP4 nie jest obsługiwane. Jeśli replikowana maszyna została uaktualniona, należy wyłączyć replikację i ponownie włączyć replikację po uaktualnieniu.
 SUSE Linux Enterprise Server 11 | DODATEK
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)
 
+* * Uwaga: aby obsłużyć najnowsze jądra systemu Linux w ciągu 30 dni od wydania, Azure Site Recovery naprawia poprawkę poprawek na bieżąco na najnowszej wersji agenta mobilności. Ta poprawka jest wprowadzana między dwiema wersjami głównymi. Aby zaktualizować do najnowszej wersji agenta mobilności (łącznie z poprawkami gorącą), wykonaj kroki opisane w [tym artykule](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Ta poprawka jest obecnie wprowadzana dla agentów mobilności używanych na platformie Azure do scenariusza odzyskiwania po awarii platformy Azure.
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Obsługiwane wersje jądra Ubuntu dla usługi Azure Virtual Machines
 
-**Usuwanie** | **Wersja usługi mobilności** | **Wersja jądra** |
+**Wersja** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
 14,04 LTS | 9,32, [9,33](https://support.microsoft.com/help/4564347/)| 3.13.0-24-ogólny do 3.13.0-170-Generic,<br/>3.16.0-25-ogólny do 3.16.0-77-Generic,<br/>3.19.0-18-Generic do 3.19.0-80-Generic,<br/>4.2.0-18-Generic do 4.2.0-42-Generic,<br/>4.4.0-21-Generic to 4.4.0-148-Generic,<br/>4.15.0-1023-Azure do 4.15.0-1045 — Azure |
 14,04 LTS | 9,31 | 3.13.0-24-ogólny do 3.13.0-170-Generic,<br/>3.16.0-25-ogólny do 3.16.0-77-Generic,<br/>3.19.0-18-Generic do 3.19.0-80-Generic,<br/>4.2.0-18-Generic do 4.2.0-42-Generic,<br/>4.4.0-21-Generic to 4.4.0-148-Generic,<br/>4.15.0-1023-Azure do 4.15.0-1045 — Azure |
 14,04 LTS | 9,30 | 3.13.0-24-ogólny do 3.13.0-170-Generic,<br/>3.16.0-25-ogólny do 3.16.0-77-Generic,<br/>3.19.0-18-Generic do 3.19.0-80-Generic,<br/>4.2.0-18-Generic do 4.2.0-42-Generic,<br/>4.4.0-21-Generic to 4.4.0-148-Generic,<br/>4.15.0-1023-Azure do 4.15.0-1045 — Azure |
 14,04 LTS | 9,29 | 3.13.0-24-ogólny do 3.13.0-170-Generic,<br/>3.16.0-25-ogólny do 3.16.0-77-Generic,<br/>3.19.0-18-Generic do 3.19.0-80-Generic,<br/>4.2.0-18-Generic do 4.2.0-42-Generic,<br/>4.4.0-21-Generic to 4.4.0-148-Generic,<br/>4.15.0-1023-Azure do 4.15.0-1045 — Azure |
 |||
-16,04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.4.0-21-Generic to 4.4.0-178-Generic,<br/>4.8.0-34-Generic do 4.8.0-58-Generic,<br/>4.10.0-14-Generic to 4.10.0-42-Generic,<br/>4.11.0-13-Generic do 4.11.0-14-Generic,<br/>4.13.0-16-ogólny do 4.13.0-45-Generic,<br/>4.15.0-13-Generic do 4.15.0-99-Generic<br/>4.11.0-1009-Azure to 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure to 4.13.0-1018-Azure <br/>4.15.0-1012-Azure to 4.15.0-1082-Azure|
+16,04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.4.0-21-Generic to 4.4.0-178-Generic,<br/>4.8.0-34-Generic do 4.8.0-58-Generic,<br/>4.10.0-14-Generic to 4.10.0-42-Generic,<br/>4.11.0-13-Generic do 4.11.0-14-Generic,<br/>4.13.0-16-ogólny do 4.13.0-45-Generic,<br/>4.15.0-13-Generic do 4.15.0-99-Generic<br/>4.11.0-1009-Azure to 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure to 4.13.0-1018-Azure <br/>4.15.0-1012-Azure to 4.15.0-1082-Azure </br> 4.15.0-101-generyczne & 4.4.0-179-Generic do 9,33 poprawka gorącej poprawki * *|
 16,04 LTS | 9,32 | 4.4.0-21-Generic to 4.4.0-171-Generic,<br/>4.8.0-34-Generic do 4.8.0-58-Generic,<br/>4.10.0-14-Generic to 4.10.0-42-Generic,<br/>4.11.0-13-Generic do 4.11.0-14-Generic,<br/>4.13.0-16-ogólny do 4.13.0-45-Generic,<br/>4.15.0-13-Generic to 4.15.0-74-Generic<br/>4.11.0-1009-Azure to 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure to 4.13.0-1018-Azure <br/>4.15.0-1012-Azure to 4.15.0-1066-Azure|
 16,04 LTS | 9,31 | 4.4.0-21-Generic to 4.4.0-170-Generic,<br/>4.8.0-34-Generic do 4.8.0-58-Generic,<br/>4.10.0-14-Generic to 4.10.0-42-Generic,<br/>4.11.0-13-Generic do 4.11.0-14-Generic,<br/>4.13.0-16-ogólny do 4.13.0-45-Generic,<br/>4.15.0-13-Generic to 4.15.0-72-Generic<br/>4.11.0-1009-Azure to 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure to 4.13.0-1018-Azure <br/>4.15.0-1012-Azure to 4.15.0-1063-Azure|
 16,04 LTS | [9,30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.4.0-21-Generic to 4.4.0-166-Generic,<br/>4.8.0-34-Generic do 4.8.0-58-Generic,<br/>4.10.0-14-Generic to 4.10.0-42-Generic,<br/>4.11.0-13-Generic do 4.11.0-14-Generic,<br/>4.13.0-16-ogólny do 4.13.0-45-Generic,<br/>4.15.0-13-Generic to 4.15.0-66-Generic<br/>4.11.0-1009-Azure to 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure to 4.13.0-1018-Azure <br/>4.15.0-1012-Azure to 4.15.0-1061-Azure|
 16,04 LTS | 9,29 | 4.4.0-21-Generic to 4.4.0-164-Generic,<br/>4.8.0-34-Generic do 4.8.0-58-Generic,<br/>4.10.0-14-Generic to 4.10.0-42-Generic,<br/>4.11.0-13-Generic do 4.11.0-14-Generic,<br/>4.13.0-16-ogólny do 4.13.0-45-Generic,<br/>4.15.0-13-Generic do 4.15.0-64-Generic<br/>4.11.0-1009-Azure to 4.11.0-1016-Azure,<br/>4.13.0-1005-Azure to 4.13.0-1018-Azure <br/>4.15.0-1012-Azure to 4.15.0-1059-Azure|
 |||
-18,04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.15.0-20-ogólny do 4.15.0-99-Generic </br> 4.18.0-13-Generic to 4.18.0-25-Generic </br> 5.0.0-15-ogólny do 5.0.0-47-Generic </br> 5.3.0-19-Generic do 5.3.0-51-Generic </br> 4.15.0-1009-Azure to 4.15.0-1082-Azure </br> 4.18.0-1006-Azure do 4.18.0-1025-Azure </br> 5.0.0-1012-Azure to 5.0.0-1036-Azure </br> 5.3.0-1007-Azure to 5.3.0-1020-Azure|
+18,04 LTS | [9,33](https://support.microsoft.com/help/4564347/) | 4.15.0-20-ogólny do 4.15.0-99-Generic </br> 4.18.0-13-Generic to 4.18.0-25-Generic </br> 5.0.0-15-ogólny do 5.0.0-47-Generic </br> 5.3.0-19-Generic do 5.3.0-51-Generic </br> 4.15.0-1009-Azure to 4.15.0-1082-Azure </br> 4.18.0-1006-Azure do 4.18.0-1025-Azure </br> 5.0.0-1012-Azure to 5.0.0-1036-Azure </br> 5.3.0-1007-Azure to 5.3.0-1020-Azure </br> 4.15.0-101-Generic, 5.0.0-48-Generic, 5.3.0-1022-Azure & 5.3.0-53-Generic do 9,33 poprawka "gorąca poprawka * *"|
 18,04 LTS | 9,32| 4.15.0-20-ogólny do 4.15.0-74-generyczny </br> 4.18.0-13-Generic to 4.18.0-25-Generic </br> 5.0.0-15-ogólny do 5.0.0-37-Generic </br> 5.3.0-19-Generic do 5.3.0-24-Generic </br> 4.15.0-1009-Azure to 4.15.0-1037-Azure </br> 4.18.0-1006-Azure do 4.18.0-1025-Azure </br> 5.0.0-1012-Azure to 5.0.0-1028-Azure </br> 5.3.0-1007-Azure to 5.3.0-1009-Azure|
 18,04 LTS | 9,31| 4.15.0-20-Generic to 4.15.0-72-Generic </br> 4.18.0-13-Generic to 4.18.0-25-Generic </br> 5.0.0-15-ogólny do 5.0.0-37-Generic </br> 5.3.0-19-Generic do 5.3.0-24-Generic </br> 4.15.0-1009-Azure to 4.15.0-1037-Azure </br> 4.18.0-1006-Azure do 4.18.0-1025-Azure </br> 5.0.0-1012-Azure to 5.0.0-1025-Azure </br> 5.3.0 — 1007 — Azure|
 18,04 LTS | [9,30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.15.0-20-ogólny do 4.15.0-66-Generic </br> 4.18.0-13-Generic to 4.18.0-25-Generic </br> 5.0.0-15-ogólny do 5.0.0-32-generyczny </br> 4.15.0-1009-Azure to 4.15.0-1037-Azure </br> 4.18.0-1006-Azure do 4.18.0-1025-Azure </br> 5.0.0-1012-Azure to 5.0.0-1023-Azure|
 18,04 LTS | [9,29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-Generic do 4.15.0-64-Generic </br> 4.18.0-13-Generic to 4.18.0-25-Generic </br> 5.0.0-15-Generic to 5.0.0-29-Generic </br> 4.15.0-1009-Azure to 4.15.0-1037-Azure </br> 4.18.0-1006-Azure do 4.18.0-1025-Azure </br> 5.0.0-1012-Azure to 5.0.0-1020-Azure|
 
+* * Uwaga: aby obsłużyć najnowsze jądra systemu Linux w ciągu 30 dni od wydania, Azure Site Recovery naprawia poprawkę poprawek na bieżąco na najnowszej wersji agenta mobilności. Ta poprawka jest wprowadzana między dwiema wersjami głównymi. Aby zaktualizować do najnowszej wersji agenta mobilności (łącznie z poprawkami gorącą), wykonaj kroki opisane w [tym artykule](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). Ta poprawka jest obecnie wprowadzana dla agentów mobilności używanych na platformie Azure do scenariusza odzyskiwania po awarii platformy Azure.
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Obsługiwane wersje jądra Debian dla usługi Azure Virtual Machines
 
-**Usuwanie** | **Wersja usługi mobilności** | **Wersja jądra** |
+**Wersja** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
 Debian 7 | 9.28, 9.29, 9.30, 9.31, 9,32, [9,33](https://support.microsoft.com/help/4564347/) | 3.2.0-4-amd64 do 3.2.0-6-amd64, 3.16.0 -0. BPO. 4-amd64 |
 |||
@@ -145,16 +147,17 @@ Debian 8 | 9,28 | 3.16.0-4-amd64 do 3.16.0-10-amd64, 4.9.0 -0. BPO. 4-amd64 do 4
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Obsługiwane SUSE Linux Enterprise Server 12 wersji jądra dla usługi Azure Virtual Machines
 
-**Usuwanie** | **Wersja usługi mobilności** | **Wersja jądra** |
+**Wersja** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,32, [9,33](https://support.microsoft.com/help/4564347/) | Obsługiwane są wszystkie zapasy SUSE 12 SP1, SP2, SP3 i SP4.</br></br> 4.4.138-4,7-Azure do 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure do 4.12.14-6.34 — Azure  |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | Poprawka na gorąco 9,33 | Obsługiwane są wszystkie zapasy SUSE 12 SP1, SP2, SP3 i SP4.</br></br> 4.4.138-4,7-Azure do 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure do 4.12.14-6.34 — Azure </br> 4.12.14-16.10-Azure to 4.12.14-16,7-Azure: 5  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,31 | Obsługiwane są wszystkie zapasy SUSE 12 SP1, SP2, SP3 i SP4.</br></br> 4.4.138-4,7-Azure do 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure do 4.12.14-6.29 — Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,30 | Obsługiwane są wszystkie zapasy SUSE 12 SP1, SP2, SP3 i SP4.</br></br> 4.4.138-4,7-Azure do 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure do 4.12.14-6.29 — Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,29 | Obsługiwane są wszystkie zapasy SUSE 12 SP1, SP2, SP3 i SP4.</br></br> 4.4.138-4,7-Azure do 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure do 4.12.14-6.23 — Azure  |
 
 #### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>Obsługiwane SUSE Linux Enterprise Server 15 wersji jądra dla usługi Azure Virtual Machines
 
-**Usuwanie** | **Wersja usługi mobilności** | **Wersja jądra** |
+**Wersja** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 15 i 15 SP1 | [9,33](https://support.microsoft.com/help/4564347/) | Domyślnie obsługiwane są wszystkie [jądra systemu SUSE 15 i 15](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5,5-Azure do 4.12.14-5.47 — Azure </br></br> 4.12.14-8,5-Azure do 4.12.14-8.30 — Azure |
 SUSE Linux Enterprise Server 15 i 15 SP1 | 9,32 | Domyślnie obsługiwane są wszystkie [jądra systemu SUSE 15 i 15](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5,5-Azure do 4.12.14-8.22 — Azure |
@@ -169,7 +172,7 @@ SUSE Linux Enterprise Server 15 i 15 SP1 | 9,32 | Domyślnie obsługiwane są ws
 
 ## <a name="replicated-machines---compute-settings"></a>Zreplikowane maszyny — ustawienia obliczeń
 
-**Ustawienie** | **Pomoc techniczna** | **Szczegóły**
+**Ustawienie** | **Pomoc techniczna** | **Uzyskać**
 --- | --- | ---
 Rozmiar | Rozmiar maszyny wirtualnej platformy Azure z co najmniej 2 rdzeniami procesora i 1 GB pamięci RAM | Sprawdź [rozmiary maszyn wirtualnych platformy Azure](../virtual-machines/windows/sizes.md).
 Zestawy dostępności | Obsługiwane | Jeśli włączysz replikację dla maszyny wirtualnej platformy Azure z opcjami domyślnymi, zestaw dostępności zostanie utworzony automatycznie na podstawie ustawień regionu źródłowego. Te ustawienia można modyfikować.
@@ -187,7 +190,7 @@ Grupy umieszczania zbliżeniowe | Nieobsługiwane | Nie można chronić maszyn w
 
 ## <a name="replicated-machines---disk-actions"></a>Zreplikowane maszyny — akcje dysku
 
-**Akcja** | **Szczegóły**
+**Akcja** | **Uzyskać**
 -- | ---
 Zmień rozmiar dysku na zreplikowanej maszynie wirtualnej | Obsługiwane przez źródłową maszynę wirtualną przed przełączeniem w tryb failover. Nie trzeba wyłączać/ponownie włączać replikacji.<br/><br/> Zmiana źródłowej maszyny wirtualnej po przejściu do trybu failover nie powoduje przechwycenia zmian.<br/><br/> Jeśli zmienisz rozmiar dysku maszyny wirtualnej platformy Azure po przejściu w tryb failover, zmiany nie zostaną przechwycone przez Site Recovery, a powrót po awarii zostanie zmieniony na oryginalny rozmiar maszyny wirtualnej.
 Dodawanie dysku do zreplikowanej maszyny wirtualnej | Obsługiwane
@@ -200,7 +203,7 @@ Ta tabela zawiera podsumowanie obsługi dysku systemu operacyjnego Azure VM, dys
 - W przypadku wdrożenia z ustawieniami domyślnymi program Site Recovery automatycznie tworzy dyski i konta magazynu na podstawie ustawień źródłowych.
 - W przypadku dostosowania programu upewnij się, że przestrzegasz wytycznych.
 
-**Składnik** | **Pomoc techniczna** | **Szczegóły**
+**Składnik** | **Pomoc techniczna** | **Uzyskać**
 --- | --- | ---
 Maksymalny rozmiar dysku systemu operacyjnego | 2048 GB | [Dowiedz się więcej](../virtual-machines/windows/managed-disks-overview.md) o dyskach maszyn wirtualnych.
 Dysk tymczasowy | Nieobsługiwane | Dysk tymczasowy jest zawsze wykluczony z replikacji.<br/><br/> Nie przechowuj żadnych trwałych danych na dysku tymczasowym. [Dowiedz się więcej](../virtual-machines/windows/managed-disks-overview.md).
@@ -257,7 +260,7 @@ Dysk w warstwie Premium P20, P30, P40 lub P50 | 8 KB    | 5 MB/s | 421 GB na dys
 Dysk w warstwie Premium P20, P30, P40 lub P50 | 16 KB lub większy |20 MB/s | 1684 GB na dysk
 
 ## <a name="replicated-machines---networking"></a>Zreplikowane maszyny — sieć
-**Ustawienie** | **Pomoc techniczna** | **Szczegóły**
+**Ustawienie** | **Pomoc techniczna** | **Uzyskać**
 --- | --- | ---
 Karta sieciowa | Maksymalna liczba obsługiwana dla określonego rozmiaru maszyny wirtualnej platformy Azure | Karty sieciowe są tworzone podczas pracy w trybie failover.<br/><br/> Liczba kart sieciowych na maszynie wirtualnej trybu failover zależy od liczby kart sieciowych na źródłowej maszynie wirtualnej, gdy replikacja została włączona. Po dodaniu lub usunięciu karty sieciowej po włączeniu replikacji nie ma to wpływu na liczbę kart sieciowych replikowanych maszyn wirtualnych po przejściu w tryb failover. <br/><br/> Kolejność kart sieciowych po przejściu w tryb failover nie gwarantuje, że jest taka sama jak oryginalna kolejność. <br/><br/> Można zmienić nazwy kart sieciowych w regionie docelowym na podstawie konwencji nazewnictwa w organizacji.
 Internetowy moduł równoważenia obciążenia | Obsługiwane | Skojarz wstępnie skonfigurowany moduł równoważenia obciążenia za pomocą skryptu Azure Automation w planie odzyskiwania.

@@ -6,18 +6,18 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 95795f287a369edec84b68ac920874808966ff1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a813a9b8c2a81a85d1c4a96d5a4da2256832d3b
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097085"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84487988"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Warstwy cenowe w usłudze Azure Database for PostgreSQL— pojedynczy serwer
 
 Serwer Azure Database for PostgreSQL można utworzyć w jednej z trzech różnych warstw cenowych: podstawowe, Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci. Warstwy cenowe są zróżnicowane według ilości obliczeń w rdzeni wirtualnych, które mogą być inicjowane, pamięć na rdzeń wirtualny i technologia magazynowania służąca do przechowywania danych. Wszystkie zasoby są obsługiwane na poziomie serwera PostgreSQL. Serwer może mieć jedną lub wiele baz danych.
 
-|    | **Podstawowy** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
+|    | **Podstawowe** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
 |:---|:----------|:--------------------|:---------------------|
 | Generowanie obliczeń | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | Rdzeni wirtualnych | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -43,7 +43,7 @@ Zasoby obliczeniowe są udostępniane jako rdzeni wirtualnych, które reprezentu
 
 Zapewniana ilość miejsca w magazynie to pojemność magazynu dostępna dla serwera Azure Database for PostgreSQL. Magazyn jest używany dla plików bazy danych, plików tymczasowych, dzienników transakcji i dzienników serwera PostgreSQL. Całkowita ilość dostępnego miejsca w magazynie określa również wydajność we/wy dostępną dla serwera.
 
-|    | **Podstawowy** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
+|    | **Podstawowe** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
 |:---|:----------|:--------------------|:---------------------|
 | Typ magazynu | Magazyn podstawowy | Magazyn Ogólnego przeznaczenia | Magazyn Ogólnego przeznaczenia |
 | Rozmiar magazynu | od 5 GB do 1 TB | od 5 GB do 16 TB | od 5 GB do 16 TB |
@@ -51,7 +51,7 @@ Zapewniana ilość miejsca w magazynie to pojemność magazynu dostępna dla ser
 | Liczba operacji we/wy na sekundę | Zmienna |3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 | 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 |
 
 > [!NOTE]
-> Magazyn o pojemności do 16TB i 20 000 operacji we/wy jest obsługiwany w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowe stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Azja Wschodnia Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Europa Zachodnia, Korea środkowa, Korea Południowa, Australia Wschodnia
+> Magazynowanie do 16TB i 20 000 operacji we/wy jest obsługiwane w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowe stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Azja Wschodnia Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Europa Zachodnia, Japonia Południowo-Wschodnia, Korea Południowa, Australia Południowo-Wschodnia, zachodnie stany USA 2 i zachodnie stany USA.
 >
 > Wszystkie inne regiony obsługują do 4 TB magazynu i 6000 operacji we/wy na sekundę.
 >
@@ -73,7 +73,7 @@ Jeśli na przykład Zainicjowano obsługę administracyjną 110 GB miejsca w mag
 
 Gdy serwer jest ustawiony na tylko do odczytu, wszystkie istniejące sesje są rozłączone, a niezatwierdzone transakcje są wycofywane. Wszelkie kolejne operacje zapisu i zatwierdzenia transakcji kończą się niepowodzeniem. Wszystkie kolejne zapytania odczytu będą działały nieprzerwanie.  
 
-Można zwiększyć ilość magazynu zainicjowanego na serwer lub rozpocząć nową sesję w trybie odczytu i zapisu oraz porzucić dane, aby odzyskiwać bezpłatny magazyn. Uruchomiony `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` ustawia tryb zapisu bieżącej sesji na odczyt. Aby uniknąć uszkodzenia danych, nie wykonuj żadnych operacji zapisu, gdy serwer nadal jest w stanie tylko do odczytu.
+Można zwiększyć ilość magazynu zainicjowanego na serwer lub rozpocząć nową sesję w trybie odczytu i zapisu oraz porzucić dane, aby odzyskiwać bezpłatny magazyn. Uruchomiony `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` Ustawia tryb zapisu bieżącej sesji na odczyt. Aby uniknąć uszkodzenia danych, nie wykonuj żadnych operacji zapisu, gdy serwer nadal jest w stanie tylko do odczytu.
 
 Zalecamy włączenie opcji autowzrostu magazynu lub skonfigurowanie alertu w celu powiadomienia użytkownika o tym, że magazyn serwera zbliża się do progu, aby można było uniknąć przekroczenia stanu tylko do odczytu. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dotyczącą [sposobu konfigurowania alertu](howto-alert-on-metric.md).
 

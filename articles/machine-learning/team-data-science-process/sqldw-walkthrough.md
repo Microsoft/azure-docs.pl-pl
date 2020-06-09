@@ -10,13 +10,13 @@ ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
-ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c4c1cfdb927cfd2ee607bfe2a951e06c80f9bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, tracking-python, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a65143394d8e6ee8a385cc5d1737cc976aae47b2
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418545"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558495"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Proces nauki danych zespołu w działaniu: korzystanie z usługi Azure Synapse Analytics
 W ramach tego samouczka przeprowadzimy Cię przez proces tworzenia i wdrażania modelu uczenia maszynowego przy użyciu usługi Azure Synapse Analytics dla publicznie dostępnego zestawu danych — zestawu danych [podróży NYC z taksówkami](https://www.andresmh.com/nyctaxitrips/) . Model klasyfikacji binarnej skonstruowany przewiduje, czy Porada jest płatna za podróż.  Modele obejmują klasyfikację wieloklasową (bez względu na to, czy jest to Porada) i regresję (dystrybucja dla płatnych sum).
@@ -43,17 +43,17 @@ Dane dotyczące podróży z taksówką NYC obejmują około 20 GB skompresowanyc
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-**Unikatowy klucz** służący do przyłączania danych\_podróży\_i opłaty za podróż są złożone z następujących trzech pól:
+**Unikatowy klucz** służący do przyłączania \_ danych podróży i opłaty za podróż \_ są złożone z następujących trzech pól:
 
 * medallion,
 * \_Licencjonowanie licencji i
-* Data\_i godzina pobrania.
+* \_Data i godzina pobrania.
 
 ## <a name="address-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Adresowanie trzech typów zadań przewidywania
-Opracowujemy trzy problemy z przewidywaniami na podstawie *\_kwoty* pozostałej do zilustrowania trzech rodzajów zadań modelowania:
+Opracowujemy trzy problemy z przewidywaniami na podstawie * \_ kwoty* pozostałej do zilustrowania trzech rodzajów zadań modelowania:
 
-1. **Klasyfikacja binarna**: w celu przewidywania, czy Porada została zapłacona dla podróży, to oznacza, *że\_kwota TIP* , która jest większa niż $0, jest dodatnim przykładem, podczas gdy *\_kwota* pozostała do $0 jest ujemna.
-2. **Klasyfikacja wieloklasowa**: przewidywanie zakresu porady dla podróży. Podziel *\_kwotę* na pięć przedziałów lub klas:
+1. **Klasyfikacja binarna**: w celu przewidywania, czy Porada została zapłacona dla podróży, to oznacza, *że \_ Kwota TIP* , która jest większa niż $0, jest dodatnim przykładem, podczas gdy * \_ Kwota* pozostała do $0 jest ujemna.
+2. **Klasyfikacja wieloklasowa**: przewidywanie zakresu porady dla podróży. Podziel * \_ kwotę* na pięć przedziałów lub klas:
 
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -77,7 +77,7 @@ Aby skonfigurować środowisko nauki danych platformy Azure, wykonaj następują
 **Inicjowanie obsługi administracyjnej wystąpienia usługi Azure Synapse Analytics.**
 Postępuj zgodnie z dokumentacją w temacie [Tworzenie i wykonywanie zapytań dotyczących Azure SQL Data Warehouse w Azure Portal,](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) aby udostępnić wystąpienie usługi Azure Synapse Analytics. Upewnij się, że wprowadzono notację na następujących poświadczeniach usługi Azure Synapse Analytics, które będą używane w dalszych krokach.
 
-* **Nazwa serwera**: \<nazwa serwera>. Database.Windows.NET
+* **Nazwa serwera**: \<server Name> . Database.Windows.NET
 * **Nazwa SQLDW (baza danych)**
 * **Uż**
 * **Hasło**
@@ -323,7 +323,7 @@ Należy zdecydować, co zrobić, jeśli masz zduplikowane pliki źródłowe i do
 
 ![Wyjście z AzCopy][21]
 
-Możesz użyć własnych danych. Jeśli Twoje dane są na komputerze lokalnym w swojej aplikacji w rzeczywistości, można nadal używać AzCopy do przekazywania danych lokalnych do prywatnego magazynu obiektów blob platformy Azure. Wystarczy zmienić lokalizację `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"` **źródłową** , w poleceniu AzCopy pliku skryptu programu PowerShell do katalogu lokalnego, który zawiera dane.
+Możesz użyć własnych danych. Jeśli Twoje dane są na komputerze lokalnym w swojej aplikacji w rzeczywistości, można nadal używać AzCopy do przekazywania danych lokalnych do prywatnego magazynu obiektów blob platformy Azure. Wystarczy zmienić lokalizację **źródłową** , `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"` w poleceniu AzCopy pliku skryptu programu PowerShell do katalogu lokalnego, który zawiera dane.
 
 > [!TIP]
 > Jeśli Twoje dane są już w prywatnym magazynie obiektów blob platformy Azure w aplikacji rzeczywistej, możesz pominąć krok AzCopy w skrypcie programu PowerShell i bezpośrednio przekazać dane do usługi Azure Synapse Analytics. Będzie to wymagało dodatkowych modyfikacji skryptu w celu dopasowania go do formatu danych.
@@ -350,7 +350,7 @@ Poniżej przedstawiono typy zadań eksploracji danych i generowania funkcji wyko
 
 * Eksplorowanie dystrybucji danych kilku pól w różnych oknach czasu.
 * Zbadaj jakość danych pól długości i szerokości geograficznej.
-* Generowanie etykiet klasyfikacji danych binarnych i wieloklasowych na podstawie **\_kwoty**pozostałej.
+* Generowanie etykiet klasyfikacji danych binarnych i wieloklasowych na podstawie ** \_ kwoty**pozostałej.
 * Generuj funkcje i odległość wyjazdu obliczeniowego/porównania.
 * Dołącz dwie tabele i Wyodrębnij losową próbkę, która będzie używana do kompilowania modeli.
 
@@ -366,7 +366,7 @@ Te zapytania zapewniają szybką weryfikację liczby wierszy i kolumn w tabelach
 **Dane wyjściowe:** Należy uzyskać 173 179 759 wierszy i 14 kolumn.
 
 ### <a name="exploration-trip-distribution-by-medallion"></a>Eksploracja: dystrybucja podróży według Medallion
-To przykładowe zapytanie identyfikuje Medallions (liczby taksówki), które ukończyły ponad 100 podróży w określonym przedziale czasu. Zapytanie jest korzystne z poziomu dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem schematu partycji typu **\_DateTime**. Wykonywanie zapytania dotyczącego pełnego zestawu danych spowoduje również użycie partycjonowanej tabeli i/lub skanowania indeksu.
+To przykładowe zapytanie identyfikuje Medallions (liczby taksówki), które ukończyły ponad 100 podróży w określonym przedziale czasu. Zapytanie jest korzystne z poziomu dostępu do partycjonowanej tabeli, ponieważ jest ono warunkiem schematu partycji typu ** \_ DateTime**. Wykonywanie zapytania dotyczącego pełnego zestawu danych spowoduje również użycie partycjonowanej tabeli i/lub skanowania indeksu.
 
     SELECT medallion, COUNT(*)
     FROM <schemaname>.<nyctaxi_fare>
@@ -540,7 +540,7 @@ Oto przykład, aby wywołać tę funkcję w celu wygenerowania funkcji w kwerend
 | 3 |40,761456 |-73,999886 |40,766544 |-73,988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Przygotowywanie danych do kompilowania modelu
-Następujące zapytanie sprzęga **nyctaxie\_** i **nyctaxi\_taryfy** czasowe **, generuje**tablicę klasyfikacji danych binarnych, **\_klasę**etykiet klasyfikacji wieloklasowego i wyodrębnia przykład z pełnego dołączonego zestawu danych. Próbkowanie jest wykonywane przez pobranie podzestawu TRIPS na podstawie czasu odbioru.  To zapytanie można skopiować, a następnie wkleić bezpośrednio w [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net) [Importuj dane]import[-Data] modułu do bezpośredniego pozyskiwania danych z wystąpienia SQL Database na platformie Azure. Zapytanie wyklucza rekordy z nieprawidłowymi współrzędnymi (0, 0).
+Następujące zapytanie sprzęga **nyctaxie \_ ** i **nyctaxi \_ taryfy** czasowe, generuje tablicę klasyfikacji **tipped**danych binarnych, ** \_ klasę**etykiet klasyfikacji wieloklasowego i wyodrębnia przykład z pełnego dołączonego zestawu danych. Próbkowanie jest wykonywane przez pobranie podzestawu TRIPS na podstawie czasu odbioru.  To zapytanie można skopiować, a następnie wkleić bezpośrednio w [Azure Machine Learning Studio (klasyczny)](https://studio.azureml.net) [Importuj dane]import[-Data] modułu do bezpośredniego pozyskiwania danych z wystąpienia SQL Database na platformie Azure. Zapytanie wyklucza rekordy z nieprawidłowymi współrzędnymi (0, 0).
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -675,7 +675,7 @@ Czas odczytywania przykładowej tabeli wynosi 14,096495 sekund.
 Liczba pobranych wierszy i kolumn = (1000, 21).
 
 ### <a name="descriptive-statistics"></a>Statystyki opisowe
-Teraz możesz przystąpić do eksplorowania przykładowych danych. Zaczynamy od przejrzenia niektórych opisowych statystyk dotyczących **odległości podróży\_** (lub innych pól, które można określić).
+Teraz możesz przystąpić do eksplorowania przykładowych danych. Zaczynamy od przejrzenia niektórych opisowych statystyk dotyczących ** \_ odległości podróży** (lub innych pól, które można określić).
 
     df1['trip_distance'].describe()
 
@@ -711,20 +711,20 @@ Można wykreślić powyższą dystrybucję pojemników na pasku lub w wierszu z:
 
 ![Wykres słupkowy][3]
 
-i
+oraz
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
 ![Wyjście liniowe][4]
 
 ### <a name="visualization-scatterplot-examples"></a>Wizualizacja: przykłady Scatterplot
-Pokazujemy wykres punktowy **między\_czasem\_podróży\_w sekundach** i **odległości podróży\_** , aby sprawdzić, czy istnieje korelacja
+Pokazujemy wykres punktowy **między \_ czasem podróży \_ w \_ sekundach** i ** \_ odległości podróży** , aby sprawdzić, czy istnieje korelacja
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![Scatterplot dane wyjściowe relacji między czasem a odległością][6]
 
-Podobnie możemy sprawdzić relację między **kodem częstotliwości\_** i **odległością\_podróży**.
+Podobnie możemy sprawdzić relację między ** \_ kodem częstotliwości** i ** \_ odległością podróży**.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
@@ -844,7 +844,7 @@ Przykładem eksperymentu klasyfikacji binarnej odczytującego dane bezpośrednio
 ![Uczenie maszynowe platformy Azure][10]
 
 > [!IMPORTANT]
-> W zapytaniach dotyczących wyodrębniania i próbkowania danych modelowania, które zostały podane w poprzednich sekcjach, **wszystkie etykiety dla trzech ćwiczeń modelowania są zawarte w zapytaniu**. Ważne (wymagane) krok w każdym z ćwiczeń modelowania polega na **wykluczeniu** niepotrzebnych etykiet dla innych dwóch problemów oraz wszelkich innych **przecieków docelowych**. Na przykład, w przypadku używania klasyfikacji binarnej, użyj etykiety **przechylonej** i Wyklucz **\_klasę etykietki**pól, **kwotę wskazówki\_** i **łączną\_kwotę**. Te ostatnie są wyciekami docelowymi, ponieważ implikują zapłacone wskazówki.
+> W zapytaniach dotyczących wyodrębniania i próbkowania danych modelowania, które zostały podane w poprzednich sekcjach, **wszystkie etykiety dla trzech ćwiczeń modelowania są zawarte w zapytaniu**. Ważne (wymagane) krok w każdym z ćwiczeń modelowania polega na **wykluczeniu** niepotrzebnych etykiet dla innych dwóch problemów oraz wszelkich innych **przecieków docelowych**. Na przykład, w przypadku używania klasyfikacji binarnej, użyj etykiety **przechylonej** i Wyklucz ** \_ klasę etykietki**pól, ** \_ kwotę wskazówki**i **łączną \_ kwotę**. Te ostatnie są wyciekami docelowymi, ponieważ implikują zapłacone wskazówki.
 >
 > Aby wykluczyć niepotrzebne kolumny lub wycieki docelowe, możesz użyć modułu [SELECT Columns in DataSet (Wybieranie kolumn w zestawie danych][select-columns] ) lub [edytować metadane][edit-metadata]. Aby uzyskać więcej informacji, zobacz [Wybieranie kolumn w zestawie danych][select-columns] i edytowanie stron odwołań do [metadanych][edit-metadata] .
 >
@@ -880,7 +880,7 @@ Aby podsumowanie, co zostało zrobione w tym samouczku instruktażu, utworzono �
 ### <a name="license-information"></a>Informacje o licencji
 Ten przykładowy przewodnik i towarzyszące mu skrypty i notesy IPython są udostępniane przez firmę Microsoft w ramach licencji MIT. Sprawdź plik LICENSE. txt w katalogu przykładowego kodu w witrynie GitHub, aby uzyskać więcej informacji.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 - [Strona pobierania podróży z Andrés Monroy NYC](https://www.andresmh.com/nyctaxitrips/)
 - [Dane o podróży z taksówką NYC przez Krzysztof Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
 - [Badania i dane statystyczne dotyczące NYC taksówki i Limousine Komisji](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)

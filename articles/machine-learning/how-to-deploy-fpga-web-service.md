@@ -10,13 +10,13 @@ ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
-ms.custom: seodec18, contperfq4
-ms.openlocfilehash: ae887345e7e3107b0669e60eea76e35a1c2ec08a
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.custom: seodec18, contperfq4, tracking-python
+ms.openlocfilehash: fabdbfbb90a14aa0f66e3d8a4eb5f6a428c6a0a1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449553"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557360"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Co to są tablice z bramą programowalną w polu (FPGA) i sposób wdrażania
 

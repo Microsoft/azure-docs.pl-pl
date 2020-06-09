@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 79e9551650866e5f5fc28b123c1259e2a5fb6f20
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: tracking-python
+ms.openlocfilehash: 7d34b54349a681061f80798a19ce65d2266f589d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983452"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559468"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Co to są Azure Machine Learning potoki?
 
@@ -84,7 +85,7 @@ Potoki rozwiązują ten problem. Azure Machine Learning automatycznie organizuje
 
 Ponadto dane wyjściowe kroku mogą być ponownie używane. Jeśli określisz ponowne użycie jako możliwe i nie zostaną wyzwolone żadne zależności nadrzędne, usługa potoku będzie korzystać z zbuforowanej wersji wyników kroku. Takie ponowne użycie może znacznie skrócić czas projektowania. Jeśli masz złożone zadanie przygotowania danych, prawdopodobnie będzie ono często uruchamiane ponownie, niż jest to absolutnie konieczne. Potoku zwalniają Cię z tego powodu: w razie potrzeby krok zostanie uruchomiony, jeśli nie.
 
-Wszystkie te analizy zależności, aranżacja i aktywacja są obsługiwane przez Azure Machine Learning podczas tworzenia wystąpienia obiektu [potoku](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py) , przekazywania go do `Experiment`i wywołania. `submit()` 
+Wszystkie te analizy zależności, aranżacja i aktywacja są obsługiwane przez Azure Machine Learning podczas tworzenia wystąpienia obiektu [potoku](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)?view=azure-ml-py) , przekazywania go do `Experiment` i wywołania `submit()` . 
 
 ### <a name="coordinating-the-steps-involved"></a>Koordynacja pozostałych kroków
 
@@ -98,7 +99,7 @@ Podczas tworzenia i uruchamiania `Pipeline` obiektu należy wykonać następują
 + Usługa określa zależności między krokami, co prowadzi do dynamicznego wykresu wykonawczego
 + Po uruchomieniu każdego węzła w grafie wykonywania:
     + Usługa konfiguruje niezbędne środowisko sprzętowe i programowe (prawdopodobnie przy użyciu istniejących zasobów)
-    + Ten krok jest uruchamiany, dostarczając informacje o rejestrowaniu i monitorowaniu do zawierającego `Experiment` go obiektu
+    + Ten krok jest uruchamiany, dostarczając informacje o rejestrowaniu i monitorowaniu do zawierającego go `Experiment` obiektu
     + Po zakończeniu kroku jego wyniki są przygotowywane jako dane wejściowe do następnego kroku i/lub zapisywane w magazynie
     + Zasoby, które nie są już potrzebne, są finalizowane i odłączone
 
@@ -106,7 +107,7 @@ Podczas tworzenia i uruchamiania `Pipeline` obiektu należy wykonać następują
 
 ## <a name="building-pipelines-with-the-python-sdk"></a>Kompilowanie potoków przy użyciu zestawu SDK języka Python
 
-W [zestawie Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)potok jest obiektem języka Python zdefiniowanym w `azureml.pipeline.core` module. Obiekt [potoku](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) zawiera uporządkowaną sekwencję co najmniej jednego obiektu [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) . Klasa jest abstrakcyjna i rzeczywiste kroki będą podklasami, takimi jak [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py)lub DataTransferStep. [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) `PipelineStep` Klasa [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) przechowuje sekwencję kroków wielokrotnego użytku, które mogą być współużytkowane między potokami. `Pipeline` Działa jako część elementu `Experiment`.
+W [zestawie Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)potok jest obiektem języka Python zdefiniowanym w `azureml.pipeline.core` module. Obiekt [potoku](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) zawiera uporządkowaną sekwencję co najmniej jednego obiektu [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) . `PipelineStep`Klasa jest abstrakcyjna i rzeczywiste kroki będą podklasami, takimi jak [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py), [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py)lub [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). Klasa [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py) przechowuje sekwencję kroków wielokrotnego użytku, które mogą być współużytkowane między potokami. `Pipeline`Działa jako część elementu `Experiment` .
 
 Potok Azure ML jest skojarzony z obszarem roboczym Azure Machine Learning, a krok potoku jest skojarzony z elementem docelowym obliczeń dostępnym w tym obszarze roboczym. Aby uzyskać więcej informacji, zobacz temat [Tworzenie obszarów roboczych Azure Machine Learning i zarządzanie nimi w Azure Portal](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) lub [co to są cele obliczeniowe w Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/concept-compute-target).
 
@@ -124,14 +125,14 @@ Podczas wizualnego projektowania potoków dane wejściowe i wyjściowe kroku są
 
 Kroki w potoku mogą mieć zależności od innych kroków. Usługa potoku Azure ML wykonuje analizę i organizowanie tych zależności. Węzły na "grafie wykonywania" są krokami przetwarzania. Każdy krok może polegać na utworzeniu lub ponownej użyciu określonej kombinacji sprzętu i oprogramowania, ponownego użycia zbuforowanych wyników i tak dalej. Dzięki aranżacji i optymalizacji usługi w tym grafie wykonywania można znacznie przyspieszyć fazę ML i obniżyć koszty. 
 
-Ponieważ kroki są uruchamiane niezależnie, obiekty do przechowywania danych wejściowych i wyjściowych, które przepływ między krokami muszą być zdefiniowane zewnętrznie. Jest to rola [zestawu danych](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)i [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)obiektów. Te obiekty danych są skojarzone z obiektem [magazynu](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) obiektów, który hermetyzuje konfigurację magazynu. Klasa `PipelineStep` bazowa jest zawsze tworzona z `name` ciągiem, listą `inputs`oraz listą. `outputs` Zwykle zawiera również listę `arguments` i często ma listę. `resource_inputs` Podklasy zazwyczaj mają również dodatkowe argumenty (na przykład `PythonScriptStep` wymaga nazwy pliku i ścieżki do uruchomienia skryptu). 
+Ponieważ kroki są uruchamiane niezależnie, obiekty do przechowywania danych wejściowych i wyjściowych, które przepływ między krokami muszą być zdefiniowane zewnętrznie. Jest to rola [zestawu danych](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py)i [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py)obiektów. Te obiekty danych są skojarzone z obiektem [magazynu](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py) obiektów, który hermetyzuje konfigurację magazynu. `PipelineStep`Klasa bazowa jest zawsze tworzona z `name` ciągiem, listą `inputs` oraz listą `outputs` . Zwykle zawiera również listę i często ma listę `arguments` `resource_inputs` . Podklasy zazwyczaj mają również dodatkowe argumenty (na przykład `PythonScriptStep` wymaga nazwy pliku i ścieżki do uruchomienia skryptu). 
 
 Wykres wykonawczy jest niespójny, ale potoki można uruchamiać w cyklicznym harmonogramie i uruchamiać skrypty języka Python, które mogą zapisywać informacje o stanie w systemie plików, dzięki czemu można tworzyć złożone profile. W przypadku zaprojektowania potoku w taki sposób, aby pewne czynności mogły działać równolegle lub asynchronicznie, Azure Machine Learning niewidocznym w sposób przezroczysty przeanalizować zależności i koordynacja wentylatorów oraz wentylatorów. Zazwyczaj nie trzeba niczego zachodzić na szczegóły wykresu wykonawczego, ale jest on dostępny za pośrednictwem atrybutu [Pipeline. Graph](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline.pipeline?view=azure-ml-py#attributes) . 
 
 
 ### <a name="a-simple-python-pipeline"></a>Prosty potok Python
 
-Ten fragment kodu przedstawia obiekty i wywołania, które są konieczne do utworzenia i `Pipeline`uruchomienia podstawowego:
+Ten fragment kodu przedstawia obiekty i wywołania, które są konieczne do utworzenia i uruchomienia podstawowego `Pipeline` :
 
 ```python
 ws = Workspace.from_config() 
@@ -161,7 +162,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-Fragment kodu rozpoczyna się od typowego Azure Machine Learning obiektów `Workspace`, a `Datastore`, a, [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py)i `Experiment`. Następnie kod tworzy obiekty do zatrzymania `input_data` i. `output_data` Tablica `steps` zawiera pojedynczy element, `PythonScriptStep` który będzie używać obiektów danych i jest uruchamiany na. `compute_target` Następnie kod tworzy wystąpienie samego `Pipeline` obiektu, przekazując w obszarze roboczym i w tablicy kroków. Wywołanie `experiment.submit(pipeline)` rozpoczynające uruchomienie potoku usługi Azure ml. Wywołanie bloków do `wait_for_completion()` momentu zakończenia potoku. 
+Fragment kodu rozpoczyna się od typowego Azure Machine Learning obiektów, a `Workspace` , a `Datastore` , [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py)i `Experiment` . Następnie kod tworzy obiekty do zatrzymania `input_data` i `output_data` . Tablica `steps` zawiera pojedynczy element, `PythonScriptStep` który będzie używać obiektów danych i jest uruchamiany na `compute_target` . Następnie kod tworzy wystąpienie `Pipeline` samego obiektu, przekazując w obszarze roboczym i w tablicy kroków. Wywołanie `experiment.submit(pipeline)` rozpoczynające uruchomienie potoku usługi Azure ml. Wywołanie bloków do `wait_for_completion()` momentu zakończenia potoku. 
 
 Aby dowiedzieć się więcej na temat łączenia potoku z danymi, zobacz artykuł [Data Access (dostęp do danych) w Azure Machine Learning](concept-data.md) i [przeniesienie danych do i między etapami potoku (Python)](how-to-move-data-in-out-of-pipelines.md). 
 
@@ -183,7 +184,7 @@ Można łatwo stać r o ponowne używanie buforowanych wyników, szczegółową 
 
 * Duże sprzęganie między krokami potoku. Jeśli Refaktoryzacja krok zależny często wymaga modyfikacji danych wyjściowych poprzedniego kroku, istnieje duże ryzyko, że poszczególne kroki są obecnie bardziej kosztowne niż korzyść. Kolejną wskazówki, że kroki są zbyt powiązane z argumentami, które nie są danymi, ale flagi sterujące przetwarzaniem. 
 
-* Przedwcześnie Optymalizacja zasobów obliczeniowych. Na przykład istnieje często kilka etapów przygotowywania danych, a jedna z nich często widzi "Niestety, to miejsce, w którym można użyć `MpiStep` do programowania równoległego, ale jest to miejsce, w którym można użyć `PythonScriptStep` z mniej zaawansowanym celem obliczeń" i tak dalej. I może w długim czasie tworzyć szczegółowe kroki, takie jak to, które mogą okazać się wartościowa, zwłaszcza jeśli istnieje możliwość użycia zbuforowanych wyników zamiast zawsze ponownego obliczania. Ale potoki nie są przeznaczone do podstawiania dla natywnego `multiprocessing` modułu języka Python. 
+* Przedwcześnie Optymalizacja zasobów obliczeniowych. Na przykład istnieje często kilka etapów przygotowywania danych, a jedna z nich często widzi "Niestety, to miejsce, w którym można użyć `MpiStep` do programowania równoległego, ale jest to miejsce, w którym można użyć `PythonScriptStep` z mniej zaawansowanym celem obliczeń" i tak dalej. I może w długim czasie tworzyć szczegółowe kroki, takie jak to, które mogą okazać się wartościowa, zwłaszcza jeśli istnieje możliwość użycia zbuforowanych wyników zamiast zawsze ponownego obliczania. Ale potoki nie są przeznaczone do podstawiania dla natywnego modułu języka Python `multiprocessing` . 
 
 Dopóki projekt nie osiągnie dużego lub niemal wdrożenia, potoki powinny być grubsze, a nie szczegółowe. Jeśli myślisz o projekcie ML jako obejmującej _etapy_ i potoku, co zapewnia kompletny przepływ pracy w celu przechodzenia przez określony etap, jesteś w odpowiedniej ścieżce. 
 
@@ -193,7 +194,7 @@ Najważniejsze zalety używania potoków dla przepływów pracy usługi Machine 
 
 |Najważniejsze zalety|Opis|
 |:-------:|-----------|
-|**Nienadzorowane&nbsp;uruchomienia**|Zaplanuj wykonywanie kroków równolegle lub w kolejności w sposób niezawodny i nienadzorowany. Przygotowanie i modelowanie danych może trwać ostatni dzień lub tygodnie, a potoki umożliwiają skoncentrowanie się na innych zadaniach w trakcie działania procesu. |
+|**Nienadzorowane &nbsp; uruchomienia**|Zaplanuj wykonywanie kroków równolegle lub w kolejności w sposób niezawodny i nienadzorowany. Przygotowanie i modelowanie danych może trwać ostatni dzień lub tygodnie, a potoki umożliwiają skoncentrowanie się na innych zadaniach w trakcie działania procesu. |
 |**Obliczenia heterogenicznych**|Używaj wielu potoków, które są niezawodne, skoordynowane w heterogenicznych i skalowalnych zasobach obliczeniowych i lokalizacjach magazynu. Wydajnie korzystaj z dostępnych zasobów obliczeniowych, uruchamiając poszczególne etapy potoku w różnych obiektach docelowych obliczeń, takich jak HDInsight, maszyny wirtualne do nauki o danych procesora GPU i kostki datacegły.|
 |**Możliwość ponownego wykorzystania**|Tworzenie szablonów potoku dla konkretnych scenariuszy, takich jak ponowne szkolenie i ocenianie partii. Wyzwalaj opublikowane potoki z systemów zewnętrznych za pośrednictwem prostych wywołań REST.|
 |**Śledzenie i przechowywanie wersji**|Zamiast ręcznego śledzenia danych i ścieżek wyników podczas iteracji Użyj zestawu SDK potoków, aby jawnie nazwać i w wersji źródła danych, dane wejściowe i wyjściowe. Możesz również zarządzać skryptami i danymi osobno w celu zwiększenia produktywności.|
@@ -202,9 +203,9 @@ Najważniejsze zalety używania potoków dla przepływów pracy usługi Machine 
 
 ### <a name="choosing-the-proper-pipelinestep-subclass"></a>Wybieranie odpowiedniej podklasy PipelineStep
 
-`PythonScriptStep` Jest to najbardziej elastyczny podklasa abstrakcyjna `PipelineStep`. Inne podklasy, takie jak `EstimatorStep` podklasy, i `DataTransferStep` mogą wykonywać określone zadania z mniejszym kodem. Na przykład `EstimatorStep` można utworzyć tylko przez przekazanie nazwy dla kroku, `Estimator`a i elementu docelowego obliczeń. Można też przesłonić dane wejściowe i wyjściowe, parametry potoku i argumenty. Aby uzyskać więcej informacji, zobacz [uczenie modeli za pomocą Azure Machine Learning przy użyciu szacowania](how-to-train-ml-models.md). 
+`PythonScriptStep`Jest to najbardziej elastyczny podklasa abstrakcyjna `PipelineStep` . Inne podklasy, takie jak `EstimatorStep` podklasy, i `DataTransferStep` mogą wykonywać określone zadania z mniejszym kodem. Na przykład `EstimatorStep` można utworzyć tylko przez przekazanie nazwy dla kroku, `Estimator` a i elementu docelowego obliczeń. Można też przesłonić dane wejściowe i wyjściowe, parametry potoku i argumenty. Aby uzyskać więcej informacji, zobacz [uczenie modeli za pomocą Azure Machine Learning przy użyciu szacowania](how-to-train-ml-models.md). 
 
-`DataTransferStep` Ułatwia to przenoszenie danych między źródłami danych i ujściami. Kod do przetransferowania ręcznie jest prosty, ale powtarzany. Zamiast tego można po prostu utworzyć obiekt `DataTransferStep` z nazwą, odwołaniem do źródła danych i ujścia danych oraz obiektem docelowym obliczeń. Potoku [Azure Machine Learning notesu z DataTransferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) pokazuje tę elastyczność.
+`DataTransferStep`Ułatwia to przenoszenie danych między źródłami danych i ujściami. Kod do przetransferowania ręcznie jest prosty, ale powtarzany. Zamiast tego można po prostu utworzyć obiekt `DataTransferStep` z nazwą, odwołaniem do źródła danych i ujścia danych oraz obiektem docelowym obliczeń. Potoku [Azure Machine Learning notesu z DataTransferStep](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-data-transfer.ipynb) pokazuje tę elastyczność.
 
 ## <a name="modules"></a>Moduły
 
@@ -222,7 +223,7 @@ Zobacz [Notes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how
 
 ## <a name="next-steps"></a>Następne kroki
 
-Potoki Azure ML to zaawansowana funkcja, która rozpoczyna dostarczanie wartości na wczesnych etapach tworzenia oprogramowania. Wartość zwiększa się wraz ze wzrostem zespołu i projektu. W tym artykule wyjaśniono, jak potoki są określone za pomocą zestawu SDK języka Python Azure Machine Learning i zorganizowane na platformie Azure. Zaobserwowano kilka podstawowych kodów źródłowych i wprowadzono je do kilku dostępnych `PipelineStep` klas. W przypadku korzystania z potoków Azure ML i sposobu ich uruchamiania na platformie Azure należy mieć sens. 
+Potoki Azure ML to zaawansowana funkcja, która rozpoczyna dostarczanie wartości na wczesnych etapach tworzenia oprogramowania. Wartość zwiększa się wraz ze wzrostem zespołu i projektu. W tym artykule wyjaśniono, jak potoki są określone za pomocą zestawu SDK języka Python Azure Machine Learning i zorganizowane na platformie Azure. Zaobserwowano kilka podstawowych kodów źródłowych i wprowadzono je do kilku `PipelineStep` dostępnych klas. W przypadku korzystania z potoków Azure ML i sposobu ich uruchamiania na platformie Azure należy mieć sens. 
 
 
 + Dowiedz się, jak [utworzyć pierwszy potok](how-to-create-your-first-pipeline.md).

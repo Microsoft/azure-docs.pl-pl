@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 29400a374c421b0d1835c94ed302c57ba45744d7
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7dbce3f2645a1ae4e01dc52d516962297ea07df6
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485408"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488855"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Tworzenie prywatnego linku do Azure Database for MySQL przy użyciu portalu i zarządzanie nim
 
@@ -173,7 +173,7 @@ W tej sekcji utworzysz serwer MySQL i dodasz do niego prywatny punkt końcowy.
     |||
 
     > [!Note] 
-    > Zapoznaj się z [konfiguracją strefy DNS usług platformy Azure](../private-link/private-endpoint-dns.md).
+    > Użyj wstępnie zdefiniowanej prywatnej strefy DNS dla usługi lub Utwórz nową. Aby uzyskać szczegółowe informacje, zapoznaj się z [konfiguracją strefy DNS usług platformy Azure](../private-link/private-endpoint-dns.md) .
 
 1. Wybierz pozycję **Przegląd + utwórz**. Nastąpi przejście do strony **Recenzja i tworzenie** , w której platforma Azure weryfikuje konfigurację. 
 2. Gdy zobaczysz komunikat o **przekazaniu walidacji** , wybierz pozycję **Utwórz**. 

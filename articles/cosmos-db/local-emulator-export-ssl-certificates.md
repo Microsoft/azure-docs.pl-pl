@@ -6,12 +6,13 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: c72dbf24df850d8b0f7e5f26a873b78f5664c9e0
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.custom: tracking-python
+ms.openlocfilehash: 89d91a3c5c8a4209489ed427067a90e7e2d0b880
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82200942"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561176"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Eksportowanie certyfikatów emulatora usługi Azure Cosmos DB do użycia w językach Java, Python i Node.js
 
@@ -70,7 +71,7 @@ Oba certyfikaty można wygenerować ponownie, klikając pozycję **Reset Data** 
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Sposób użycia certyfikatu w środowisku Java
 
-Podczas uruchamiania aplikacji Java lub aplikacji MongoDB, które używają klienta Java, łatwiej jest zainstalować certyfikat do domyślnego magazynu certyfikatów Java niż w przypadku przekazywania `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flag. Na przykład uwzględniona aplikacja demonstracyjna Java`https://localhost:8081/_explorer/index.html`() zależy od domyślnego magazynu certyfikatów.
+Podczas uruchamiania aplikacji Java lub aplikacji MongoDB, które używają klienta Java, łatwiej jest zainstalować certyfikat do domyślnego magazynu certyfikatów Java niż w przypadku przekazywania `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flag. Na przykład uwzględniona aplikacja demonstracyjna Java ( `https://localhost:8081/_explorer/index.html` ) zależy od domyślnego magazynu certyfikatów.
 
 Postępuj zgodnie z instrukcjami w artykule [Dodawanie certyfikatu do magazynu certyfikatów Java CA](https://docs.microsoft.com/azure/java-add-certificate-ca-store), aby zaimportować certyfikat X.509 do domyślnego magazynu certyfikatów Java. Pamiętaj, że podczas uruchamiania narzędzia keytool będziesz pracować w katalogu %JAVA_HOME%.
 

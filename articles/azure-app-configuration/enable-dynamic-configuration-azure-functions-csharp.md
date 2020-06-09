@@ -15,12 +15,12 @@ ms.date: 11/17/2019
 ms.author: zhenlwa
 ms.custom: azure-functions
 ms.tgt_pltfrm: Azure Functions
-ms.openlocfilehash: ba70d5f186c1424b2019716ab7a87aeae85f8913
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0cd86aa647655f92f4ae1b5de50f506e9aad0f4e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74185450"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558141"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-azure-functions-app"></a>Samouczek: używanie konfiguracji dynamicznej w aplikacji Azure Functions
 
@@ -41,14 +41,14 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="reload-data-from-app-configuration"></a>Ponowne ładowanie danych z usługi App Configuration
 
-1. Otwórz *Function1.cs*. `static` Oprócz `Configuration`właściwości Dodaj `static` nową właściwość `ConfigurationRefresher` , aby zachować pojedyncze wystąpienie `IConfigurationRefresher` , które będzie używane do sygnalizowania aktualizacji konfiguracji podczas wywoływania funkcji w późniejszym czasie.
+1. Otwórz *Function1.cs*. Oprócz `static` właściwości `Configuration` Dodaj nową `static` Właściwość, `ConfigurationRefresher` Aby zachować pojedyncze wystąpienie `IConfigurationRefresher` , które będzie używane do sygnalizowania aktualizacji konfiguracji podczas wywoływania funkcji w późniejszym czasie.
 
     ```csharp
     private static IConfiguration Configuration { set; get; }
     private static IConfigurationRefresher ConfigurationRefresher { set; get; }
     ```
 
-2. Zaktualizuj konstruktora i Użyj `ConfigureRefresh` metody, aby określić ustawienie do odświeżenia z magazynu konfiguracji aplikacji. Wystąpienie `IConfigurationRefresher` jest pobierane za pomocą `GetRefresher` metody. Opcjonalnie można także zmienić wartość ustawienia czas wygaśnięcia pamięci podręcznej konfiguracji na 1 minutę z domyślnego 30 sekund.
+2. Zaktualizuj konstruktora i użyj metody, `ConfigureRefresh` Aby określić ustawienie do odświeżenia z magazynu konfiguracji aplikacji. Wystąpienie `IConfigurationRefresher` jest pobierane za pomocą `GetRefresher` metody. Opcjonalnie można także zmienić wartość ustawienia czas wygaśnięcia pamięci podręcznej konfiguracji na 1 minutę z domyślnego 30 sekund.
 
     ```csharp
     static Function1()
@@ -67,7 +67,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     }
     ```
 
-3. Zaktualizuj `Run` metodę i sygnał, aby odświeżyć konfigurację przy użyciu `Refresh` metody na początku wywołania funkcji. Nie będzie to możliwe, jeśli przedział czasu wygaśnięcia pamięci podręcznej nie zostanie osiągnięty. Usuń `await` operator, jeśli wolisz odświeżać konfigurację bez blokowania.
+3. Zaktualizuj `Run` metodę i sygnał, aby odświeżyć konfigurację przy użyciu `TryRefreshAsync` metody na początku wywołania funkcji. Nie będzie to możliwe, jeśli przedział czasu wygaśnięcia pamięci podręcznej nie zostanie osiągnięty. Usuń `await` operator, jeśli wolisz odświeżać konfigurację bez blokowania.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -75,7 +75,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     {
         log.LogInformation("C# HTTP trigger function processed a request.");
 
-        await ConfigurationRefresher.Refresh();
+        await ConfigurationRefresher.TryRefreshAsync(); 
 
         string keyName = "TestApp:Settings:Message";
         string message = Configuration[keyName];

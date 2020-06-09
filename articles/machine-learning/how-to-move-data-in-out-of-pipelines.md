@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.custom: contperfq4
-ms.openlocfilehash: 67af2fec75c2a4ead10e59c651dac1542c095659
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 54b8161634d15853719d98a52d0d17e2e55a6bb3
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430099"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559356"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Przenoszenie danych do kroków potoku uczenia maszynowego i między nimi (Python)
 

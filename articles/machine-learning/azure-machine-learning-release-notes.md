@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 03/10/2020
-ms.openlocfilehash: 6bf26a739169c561e95c7376a75166daf9aa9fb0
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 81832e3ccfb3529f94b41b903a8b73fbbe7bbd40
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309989"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553064"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Informacje o wersji Azure Machine Learning
 
@@ -22,6 +22,69 @@ W tym artykule dowiesz się więcej na temat wydań Azure Machine Learning.  Aby
 
 Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowiedzieć się więcej o znanych usterkach i obejść.
 
+## <a name="2020-06-08"></a>2020-06-08
+
+### <a name="azure-machine-learning-sdk-for-python-v170"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.7.0
+
++ **Poprawki i ulepszenia błędów**
+  + **Azure — interfejs wiersza polecenia**
+    + Ukończono usuwanie profilowania modelu z Mir contrib przez czyszczenie poleceń interfejsu wiersza polecenia i zależności pakietów, profilowanie modelu jest dostępne na rdzeń.
+    + Uaktualnia minimalną wersję interfejsu wiersza polecenia platformy Azure do 2.3.0
+  + **azureml-automl-core**
+    + Lepszy komunikat o wyjątku na cechowania kroku fit_transform () z powodu niestandardowych parametrów transformatora.
+    + Dodaj obsługę wielu języków dla modeli transformatora głębokiego, takich jak BERT, w zautomatyzowanej ML.
+    + Usuń przestarzały parametr lag_length z dokumentacji.
+    + Ulepszona dokumentacja dotycząca parametrów prognozowania. Parametr lag_length był przestarzały.
+  + **azureml-automl-runtime**
+    + Naprawiono błąd wywoływany, gdy jedna z kolumn kategorii jest pusta w czasie prognozowania/testowania.
+    + Usuń błędy uruchamiania wykonywane, gdy funkcje lookback są włączone, a dane zawierają krótkie ziarna.
+    + Rozwiązano problem ze zduplikowanym komunikatem o błędzie indeksu czasu, gdy spowolnienia lub stopniowe okna zostały ustawione na wartość "Auto".
+    + Rozwiązano problem z modelami Prophet i ARIMA w zestawach danych, które zawierają funkcje lookback.
+    + Dodano obsługę dat przed 1677-09-21 lub po 2262-04-11 w kolumnach innych niż data i godzina w zadaniach prognozowania. Ulepszone komunikaty o błędach.
+    + Ulepszona dokumentacja dotycząca parametrów prognozowania. Parametr lag_length był przestarzały.
+    + Lepszy komunikat o wyjątku na cechowania kroku fit_transform () z powodu niestandardowych parametrów transformatora.
+    + Dodaj obsługę wielu języków dla modeli transformatora głębokiego, takich jak BERT, w zautomatyzowanej ML.
+    + Operacje pamięci podręcznej, które powodują, że niektóre OSErrors spowodują wystąpienie błędu użytkownika.
+    + Dodano testy, aby upewnić się, że dane szkoleniowe i weryfikacyjne mają taką samą liczbę i zestaw kolumn
+    + Rozwiązano problem z automatycznie generowanym skryptem oceniania AutoML, gdy dane zawierają znaki cudzysłowu
+    + Włączanie wyjaśnień dla modeli AutoML Prophet i modelu z modelem Prophet.
+    + W przypadku ostatniego problemu z klientem Wykryto usterkę na żywo w celu założenia, że komunikaty są rejestrowane w ramach równoważenia klasy, nawet jeśli logika równoważenia klasy nie jest prawidłowo włączona. Usuwanie tych dzienników/komunikatów za pomocą tego żądania ściągnięcia.
+  + **Azure-Common — interfejs wiersza polecenia**
+    + Ukończono usuwanie profilowania modelu z Mir contrib przez czyszczenie poleceń interfejsu wiersza polecenia i zależności pakietów, profilowanie modelu jest dostępne na rdzeń.
+  + **azureml-contrib-reinforcementlearning**
+    + Narzędzie testowania obciążenia
+  + **azureml-core**
+    + Dokumentacja dotycząca zmian w dokumentacji Script_run_config. PR
+    + Naprawia usterkę z drukowaniem danych wyjściowych uruchomienia polecenia Run-Pipeline
+    + Udoskonalenia dokumentacji azureml-Core/Azure. Data
+    + Rozwiązuje problem podczas pobierania konta magazynu przy użyciu polecenia HDFS getconf
+    + Ulepszona dokumentacja register_azure_blob_container i register_azure_file_share
+  + **azureml-datadrift**
+    + Ulepszona implementacja do wyłączania i włączania monitorów dryfowania zestawu danych
+  + **azureml-interpret**
+    + W wyjaśnieniu klient usuwa NaNs lub inf przed serializacji JSON przy przekazywaniu z artefaktów
+    + Aktualizowanie do najnowszej wersji programu interpretuje społeczność, aby zwiększyć błędy pamięci dla globalnych wyjaśnień z wieloma funkcjami i klasami
+    + Dodaj true_ys opcjonalny parametr do wyjaśnienia przekazywanie, aby włączyć dodatkowe funkcje w interfejsie użytkownika programu Studio
+    + Poprawa wydajności download_model_explanations () i list_model_explanations ()
+    + Małe dostosowania do notesów, aby pomóc w debugowaniu
+  + **azureml-opendatasets**
+    + Azure opendatasets potrzebuje programu Azure-preprodukcyjny w wersji 1.4.0 lub nowszej. Dodano ostrzeżenie w przypadku wykrycia niższej wersji
+  + **azureml-pipeline-core**
+    + Ta zmiana umożliwia użytkownikowi dostarczenie opcjonalnej runconfig do moduleVersion podczas wywoływania modułu. Publish_python_script.
+    + Konto węzła Enable może być parametrem potoku w ParallelRunStep w usłudze Azure. Pipeline. kroki
+  + **Azure — potok — kroki**
+    + Ta zmiana umożliwia użytkownikowi dostarczenie opcjonalnej runconfig do moduleVersion podczas wywoływania modułu. Publish_python_script.
+  + **azureml-train-automl-client**
+    + Dodaj obsługę wielu języków dla modeli transformatora głębokiego, takich jak BERT, w zautomatyzowanej ML.
+    + Usuń przestarzały parametr lag_length z dokumentacji.
+    + Ulepszona dokumentacja dotycząca parametrów prognozowania. Parametr lag_length był przestarzały.
+  + **azureml-train-automl-runtime**
+    + Włączanie wyjaśnień dla modeli AutoML Prophet i modelu z modelem Prophet.
+    + Dokumentacja aktualizacji dla pakietów Azure-pociąg-automl-*.
+  + **azureml-train-core**
+    + Obsługa TensorFlow w wersji 2,1 w PyTorch szacowania
+    + Ulepszenia dotyczące pakietu Azure — uczenie rdzeniowe.
+  
 ## <a name="2020-05-26"></a>2020-05-26
 
 ### <a name="azure-machine-learning-sdk-for-python-v160"></a>Zestaw Azure Machine Learning SDK dla języka Python v 1.6.0
@@ -104,7 +167,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
   + **azureml-pipeline-core**
     + Szybka poprawka dla ParallelRunStep, gdzie ładowanie z YAML zostało przerwane
     + ParallelRunStep jest udostępniona do ogólnej dostępności — Azure. contrib. Pipeline. kroki zawierają powiadomienie o zaniechaniu i są przenoszone do programu Azure. Pipeline. kroki — nowe funkcje obejmują: 1. Zestawy danych jako PipelineParameter 2. Nowy parametr run_max_retry 3. Konfigurowalna nazwa pliku wyjściowego append_row
-  + **Azure — potok — kroki**
+  + **azureml-pipeline-steps**
     + Przestarzały element Azure. dprep. przepływu danych jest prawidłowym typem danych wejściowych.
     + Szybka poprawka dla ParallelRunStep, gdzie ładowanie z YAML zostało przerwane
     + ParallelRunStep jest udostępniona do ogólnej dostępności — Azure. contrib. Pipeline. kroki zawierają powiadomienie o zaniechaniu i są przenoszone do programu Azure. Pipeline. kroki — nowe funkcje obejmują:
@@ -131,7 +194,7 @@ Zapoznaj się z [listą znanych problemów](resource-known-issues.md) , aby dowi
     + Obsługa cv_split_column_names, które mają być używane z training_data
   + **azureml-train-core**
     + Dodano nowy zestaw wyjątków określonych dla konkretnych dysków. Program Azure. uczenie. na dysku spowoduje teraz zgłoszenie szczegółowych wyjątków.
-  + **azureml-widgets**
+  + **Azure — widżety**
     + Widżety Azure nie są wyświetlane w JupyterLab
   
 
@@ -499,7 +562,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
     + stała Serializacja DeepScoringExplainer dla modeli keras
   + **azureml-pipeline-core**
     + Notes oceniania partii potoków używa teraz ParallelRunStep
-  + **Azure — potok — kroki**
+  + **azureml-pipeline-steps**
     + Przeniesiono `AutoMLStep` w `azureml-pipeline-steps` pakiecie. Przestarzałe w `AutoMLStep` programie `azureml-train-automl-runtime` .
   + **azureml-contrib-pipeline-steps**
     + Dodano side_inputs parametru opcjonalnego do ParallelRunStep. Ten parametr może służyć do instalowania folderu w kontenerze. Obecnie obsługiwane typy to DataReference i PipelineData.
@@ -530,7 +593,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
     + Zaktualizowano interpretację usługi Azure 0.5.0
   + **azureml-pipeline-core**
     + Naprawiono usterkę, w której wyniki PythonScriptStep mogą być nieprawidłowo używane ponownie pomimo zmiany listy argumentów
-  + **azureml-pipeline-steps**
+  + **Azure — potok — kroki**
     + Dodano przykład dokumentacji dla zestawu danych jako dane wejściowe PythonScriptStep
   + **azureml-contrib-pipeline-steps**
     + Parametry przekazywane w ParallelRunConfig mogą zostać zastąpione przez przekazanie teraz parametrów potoku. Obsługiwane są nowe parametry potoku aml_mini_batch_size, aml_error_threshold, aml_logging_level, aml_run_invocation_timeout (aml_node_count i aml_process_count_per_node są już częścią starszej wersji).
@@ -591,7 +654,7 @@ Uzyskaj dostęp do następujących narzędzi autorskich opartych na sieci Web z 
     + Zaktualizowano zestaw SDK w taki sposób, aby korzystał z nowej biblioteki tokenów na platformie Azure Synapse w sposób zgodny ze sobą.
   + **azureml-interpret**
     + Naprawiono usterkę, która nie została zwrócona w przypadku braku wyjaśnień dostępnych do pobrania. Teraz zgłasza wyjątek, zgodne zachowanie w innym miejscu.
-  + **Azure — potok — kroki**
+  + **azureml-pipeline-steps**
     + Niedozwolone przekazanie `DatasetConsumptionConfig` parametru s `Estimator` do `inputs` , gdy `Estimator` zostanie użyty w `EstimatorStep` .
   + **Azure-SDK**
     + Dodano klienta AutoML do pakietu Azure-SDK, co umożliwia przesłanie zdalnych przebiegów AutoML bez instalowania pełnego pakietu AutoML.
@@ -1056,7 +1119,7 @@ Karta eksperymenty w [nowym portalu obszaru roboczego](https://ml.azure.com) zos
     + Dodano komunikat o zaniechaniu dla explain_model () i retrieve_model_explanations ()
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
     + Dodano [Notes](https://aka.ms/pl-modulestep) do opisywania [modułów](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module(class)), [ModuleVersion i [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
-  + **[Azure — potok — kroki](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
+  + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + Dodano [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) do obsługi skryptu języka R za pośrednictwem potoku AML.
     + Stałe analizowanie parametrów metadanych w [AzureBatchStep, które spowodowały komunikat o błędzie "przypisanie dla identyfikatora subskrypcji parametru nie jest określone".
   + **[Uczenie maszynowe — automl](/python/api/azureml-train-automl-runtime/)**
@@ -1269,7 +1332,7 @@ W tej wersji obsługiwane są następujące przeglądarki: Chrome, Firefox, Safa
     + AutoML Data Guardrail jest teraz w publicznej wersji zapoznawczej. Użytkownik zobaczy raport Guardrail danych (dla zadań klasyfikacji/regresji) po szkoleniu, a także będzie mógł uzyskać do niego dostęp za pomocą interfejsu API zestawu SDK.
   + **azureml-train-core**
     + Dodano obsługę Torch 1,2 w PyTorch szacowania.
-  + **azureml-widgets**
+  + **Azure — widżety**
     + Udoskonalone wykresy macierzowe z błędami na potrzeby szkoleń klasyfikacji.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1112"></a>Azure Machine Learning zestawu SDK 1.1.12 przygotowywania danych
@@ -1420,7 +1483,7 @@ W tej wersji obsługiwane są następujące przeglądarki: Chrome, Firefox, Safa
     + Przenieś usługę Azure-contrib-opendatasets do programu Azure opendatasets.
     + Zezwalaj na rejestrację otwartych klas DataSet w obszarze roboczym Azure Machine Learning i bezproblemowo korzystaj z możliwości zestawu danych AML.
     + Znacznie Zwiększ wydajność wzbogacania NoaaIsdWeather w wersji innej niż SPARK.
-  + **Azure — potok — kroki**
+  + **azureml-pipeline-steps**
     + Magazyn danych DBFS jest teraz obsługiwany w przypadku wejść i wyjść w DatabricksStep.
     + Zaktualizowana dokumentacja Azure Batch kroku w odniesieniu do danych wejściowych/wyjściowych.
     + W AzureBatchStep, zmieniono wartość domyślną *delete_batch_job_after_finish* na *true*.
@@ -1492,7 +1555,7 @@ W tej wersji obsługiwane są następujące przeglądarki: Chrome, Firefox, Safa
   + **azureml-pipeline-core**
     + Parametr hash_paths dla wszystkich kroków potoku jest przestarzały i zostanie usunięty w przyszłości. Domyślnie zawartość source_directory jest skrótem (z wyjątkiem plików wymienionych w pliku. amlignore lub. gitignore)
     + Kontynuuj ulepszanie modułów i ModuleStep w celu obsługi obliczeniowych modułów dla konkretnych typów, aby przygotować się do integracji RunConfiguration i innych zmian w celu odblokowania użycia modułu specyficznego dla typu obliczeń w potokach.
-  + **Azure — potok — kroki**
+  + **azureml-pipeline-steps**
     + AzureBatchStep: Ulepszona dokumentacja w odniesieniu do danych wejściowych/wyjściowych.
     + AzureBatchStep: Zmieniono wartość domyślną delete_batch_job_after_finish na true.
   + **azureml-train-core**

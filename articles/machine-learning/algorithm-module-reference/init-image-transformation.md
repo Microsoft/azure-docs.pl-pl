@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: aa8d7bf4b9c709c5fb7ff32e89f0af6c4e82b3e7
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: f54dd09ac82ddefeb2528462c7131aa921592d2a
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450759"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84487954"
 ---
-# <a name="init-image-transformation"></a>Przekształcenie obrazu init
+# <a name="init-image-transformation"></a>Inicjowanie transformacji obrazów
 
 W tym artykule opisano, jak używać modułu **transformacji obrazu init** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu zainicjowania przekształcenia obrazu w celu określenia, w jaki sposób ma zostać przekształcony obraz.
 
@@ -51,7 +51,6 @@ W tym artykule opisano, jak używać modułu **transformacji obrazu init** w pro
 
 14.  W przypadku **losowej perspektywy**Określ, czy program ma wykonywać transformację perspektywy danego obrazu PIL losowo z prawdopodobieństwem 0,5.
 
-15.  Aby **losowo wymazywać**, określ, czy losowo zaznaczyć region prostokąta w obrazie i wymazuje jego piksele z prawdopodobieństwem 0,5.
 
 16.  Połącz się z [zastosowaniem modułu transformacji obrazu](apply-image-transformation.md) , aby zastosować transformację określoną powyżej do zestawu danych obrazu wejściowego.
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 06/08/2020
 ms.author: victorh
-ms.openlocfilehash: d1ec04a0c16feb6d404018ff9538b9572e1d71c2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f8bfc163fbf32a2083b6e9250daaf5ea2629d10a
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649616"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509240"
 ---
 # <a name="azure-firewall-faq"></a>Często zadawane pytania dotyczące zapory platformy Azure
 
@@ -211,3 +211,7 @@ Polecenie ping protokołu TCP nie nawiązuje połączenia z docelową nazwą FQD
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Czy istnieją limity liczby adresów IP obsługiwanych przez grupy adresów IP?
 
 Tak. Aby uzyskać więcej informacji, zobacz [limity subskrypcji i usług platformy Azure, limity przydziału i ograniczenia](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+
+## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Czy mogę przenieść grupę adresów IP do innej grupy zasobów?
+
+Nie, przeniesienie grupy adresów IP do innej grupy zasobów nie jest obecnie obsługiwane.

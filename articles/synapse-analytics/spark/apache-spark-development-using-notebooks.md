@@ -9,12 +9,13 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.custom: tracking-python
+ms.openlocfilehash: b7ab7abb74701abeeac126b34efdf784beff2d03
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702100"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561820"
 ---
 # <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Tworzenie, opracowywanie i konserwowanie notesów platformy Azure Synapse Studio (wersja zapoznawcza)
 
@@ -383,7 +384,7 @@ Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigow
 |Przejdź do końca komórki |Ctrl + End|
 |Przejdź o jedno słowo w lewo|Ctrl + w lewo|
 |Przejdź o jedno słowo w prawo|Ctrl + w prawo|
-|Zaznacz wszystkie|Ctrl + A|
+|Zaznacz wszystko|Ctrl + A|
 |Wyświetlane| Ctrl +]|
 |Zmniejsz wcięcie|CTRL + [|
 |Przełącz do trybu polecenia| Esc |

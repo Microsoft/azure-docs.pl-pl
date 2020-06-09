@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
-ms.custom: aaddev, scenarios:getting-started, languages:Python
-ms.openlocfilehash: b137f47ac2cfb8074320677419a6a34b7d8bba84
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: aaddev, tracking-python, scenarios:getting-started, languages:Python
+ms.openlocfilehash: 0a2867b9b39634000366ec2a92f936a4e419e859
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680319"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558619"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Szybki Start: Dodawanie logowania z firmą Microsoft do aplikacji sieci Web w języku Python
 

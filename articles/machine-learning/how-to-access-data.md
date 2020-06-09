@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
-ms.custom: seodec18
-ms.openlocfilehash: ffb0cd65ed8c904098a1099540a5c3a55f605d36
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 835bcba5e24137377c33c9166b1c3076d19cacc1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485082"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84552381"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]

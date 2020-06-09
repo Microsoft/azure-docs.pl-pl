@@ -1,14 +1,14 @@
 ---
 title: Ograniczanie dostępu przy użyciu punktu końcowego usługi
-description: Ograniczanie dostępu do rejestru kontenerów platformy Azure przy użyciu punktu końcowego usługi w sieci wirtualnej platformy Azure
+description: Ograniczanie dostępu do usługi Azure Container Registry przy użyciu punktu końcowego usług w sieci wirtualnej platformy Azure. Dostęp do punktu końcowego usługi jest funkcją warstwy Premium usługi.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 5a3cc9638fb12853e0e26f3806c17dc47f522249
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0f320bb86549c801711cafdbce4500ff7737cb89
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685054"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509291"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Ograniczanie dostępu do rejestru kontenerów przy użyciu punktu końcowego usługi w sieci wirtualnej platformy Azure
 
@@ -170,7 +170,7 @@ Zastąp nazwę rejestru następującym poleceniem [AZ ACR Update][az-acr-update]
 az acr update --name myContainerRegistry --default-action Allow
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli wszystkie zasoby platformy Azure zostały utworzone w tej samej grupie zasobów i nie będą już potrzebne, możesz opcjonalnie usunąć zasoby za pomocą jednego polecenia [AZ Group Delete](/cli/azure/group) :
 

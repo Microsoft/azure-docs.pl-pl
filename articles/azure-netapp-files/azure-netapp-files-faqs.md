@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/08/2020
 ms.author: b-juche
-ms.openlocfilehash: 8e9ee573ca908c41fe7c7887d0f306971369f83f
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: d3f5095f8b8c140f704160feff9cd12ad9ca0974
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417501"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553754"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Często zadawane pytania dotyczące Azure NetApp Files
 
@@ -177,7 +177,7 @@ Nie. Azure NetApp Files nie jest obsługiwana przez Eksplorator usługi Azure St
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Jak mogę określić, czy katalog zbliża się do rozmiaru limitu?
 
-Możesz użyć `stat` polecenia z klienta, aby sprawdzić, czy katalog zbliża się do maksymalnego limitu rozmiaru (320 MB).
+Możesz użyć `stat` polecenia z klienta, aby sprawdzić, czy katalog zbliża się do limitu maksymalnego rozmiaru metadanych katalogu (320 MB).
 
 W przypadku katalogu 320 MB liczba bloków wynosi 655360, przy czym każdy rozmiar bloku jest 512 bajtów.  (To jest 320x1024x1024/512).  
 
