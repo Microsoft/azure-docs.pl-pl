@@ -34,7 +34,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-Utworzenie maszyny wirtualnej może potrwać kilka minut. Po zakończeniu wykonywania polecenia Zanotuj `publicIpAddress` wyświetlane wartości w wierszu polecenia platformy Azure. Użyj tego adresu, aby nawiązać połączenia SSH z maszyną wirtualną.
+Utworzenie maszyny wirtualnej może potrwać kilka minut. Po zakończeniu wykonywania polecenia Zanotuj wyświetlane wartości w wierszu polecenia `publicIpAddress` platformy Azure. Użyj tego adresu, aby nawiązać połączenia SSH z maszyną wirtualną.
 
 ### <a name="install-docker-on-the-vm"></a>Zainstaluj platformę Docker na maszynie wirtualnej
 

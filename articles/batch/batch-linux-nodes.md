@@ -33,7 +33,7 @@ Usługa Batch używa [zestawów skalowania maszyn wirtualnych](../virtual-machin
 
 Konfigurując odwołanie do obrazu maszyny wirtualnej, należy określić właściwości obrazu maszyny wirtualnej. Następujące właściwości są wymagane podczas tworzenia odwołania do obrazu maszyny wirtualnej:
 
-| **Właściwości odwołania do obrazu** | **Przykład** |
+| **Właściwości odwołania do obrazu** | **Przyklad** |
 | --- | --- |
 | Publisher |Canonical |
 | Oferta |UbuntuServer |

@@ -1,6 +1,6 @@
 ---
-title: plik dołączany
-description: plik dołączany
+title: dołączanie pliku
+description: dołączanie pliku
 services: machine-learning
 author: nibaccam
 ms.service: machine-learning
