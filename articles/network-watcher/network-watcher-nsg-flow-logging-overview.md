@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: ed14d3fb1cd3d9d8af37088811ce62b050778a95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0b25b07e3517bbbf17dce95660f209bd74bcccb
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189807"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561734"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Wprowadzenie do rejestrowania przepływu dla sieciowych grup zabezpieczeń
 
@@ -53,7 +53,7 @@ Dzienniki przepływu są źródłem prawdy dla całej aktywności sieciowej w ś
 - Każdy rekord dziennika zawiera interfejs sieciowy (karta sieciowa), do którego odnosi się ten przepływ, do 5 informacji o spójnej kolekcji, & decyzja o ruchu (tylko wersja 2). Szczegółowe informacje znajdują się w poniższym _formacie dziennika_ .
 - Dzienniki przepływu mają funkcję przechowywania, która umożliwia automatyczne usuwanie dzienników do roku po ich utworzeniu. **Uwaga**: przechowywanie jest dostępne tylko w przypadku korzystania z [kont magazynu ogólnego przeznaczenia w wersji 2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
-**Kluczowe pojęcia**
+**Podstawowe pojęcia**
 
 - Sieci zdefiniowane w oprogramowaniu są zorganizowane wokół sieci wirtualnych (sieci wirtualnych) i podsieci. Zabezpieczeniami tych sieci wirtualnych i podsieci można zarządzać przy użyciu sieciowej grupy zabezpieczeń.
 - Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) zawiera listę _reguł zabezpieczeń_ , które zezwalają na ruch sieciowy w zasobach, do których jest podłączony. Sieciowych grup zabezpieczeń można kojarzyć z podsieciami, poszczególnymi maszynami wirtualnymi lub interfejsami sieciowymi (NIC) podłączonymi do maszyn wirtualnych (Menedżer zasobów). Aby uzyskać więcej informacji, zobacz [Omówienie grup zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
@@ -67,7 +67,7 @@ Dzienniki przepływu są źródłem prawdy dla całej aktywności sieciowej w ś
 Dzienniki przepływów obejmują następujące właściwości:
 
 * **czas,** w którym zdarzenie zostało zarejestrowane
-* **systemId** — identyfikator zasobu grupy zabezpieczeń sieci.
+* **systemId** — identyfikator systemu grupy zabezpieczeń sieci.
 * **Kategoria** — Kategoria zdarzenia. Kategoria jest zawsze **NetworkSecurityGroupFlowEvent**
 * **ResourceID** — identyfikator zasobu sieciowej grupy zabezpieczeń
 * **OperationName** — zawsze NetworkSecurityGroupFlowEvents
@@ -304,7 +304,7 @@ W przypadku Stanów kontynuacja _C_ i End _E_ , liczba bajtów i pakietów to li
 Użyj poniższego linku poniżej, aby zapoznać się z przewodnikami dotyczącymi włączania dzienników przepływów.
 
 - [Azure Portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
-- [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
+- [Program PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
 - [Interfejs wiersza polecenia](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
 - [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
 - [Azure Resource Manager](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-azure-resource-manager)
@@ -413,7 +413,7 @@ Dzienniki przepływu sieciowej grupy zabezpieczeń są zgodne z punktami końcow
 
 **Jaka jest różnica między dziennikami przepływów w wersjach 1 & 2?**
 
-Dzienniki przepływów w wersji 2 wprowadzają koncepcję _stanu przepływu_ & przechowuje informacje o transmitowanych bajtach i pakietach. [Przeczytaj więcej](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
+Dzienniki przepływów w wersji 2 wprowadzają koncepcję _stanu przepływu_ & przechowuje informacje o transmitowanych bajtach i pakietach. [Dowiedz się więcej](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file)
 
 ## <a name="pricing"></a>Cennik
 

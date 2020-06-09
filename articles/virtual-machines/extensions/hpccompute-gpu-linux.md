@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 6bfbbacd0b30e206a9c1873c4df204117155e044
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 55ca9232252895dd46ad3da3912f808ebd9b9533
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465239"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559673"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Rozszerzenie sterownika GPU NVIDIA dla systemu Linux
 
@@ -138,7 +138,7 @@ Set-AzVMExtension
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Poniższy przykład odzwierciedla powyższe Azure Resource Manager i przykłady programu PowerShell, a także dodaje ustawienia niestandardowe jako przykład dla instalacji sterowników innych niż domyślne. W konkretnym przypadku aktualizuje jądro systemu operacyjnego i instaluje określony sterownik wersji zestawu narzędzi CUDA.
+Poniższy przykład odzwierciedla powyższe Azure Resource Manager i przykłady programu PowerShell.
 
 ```azurecli
 az vm extension set \
@@ -146,10 +146,22 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.2 \
+  --version 1.3 \
+  }'
+```
+
+W poniższym przykładzie dodano również dwa opcjonalne ustawienia niestandardowe jako przykład instalacji sterowników innych niż domyślne. W konkretnym przypadku aktualizuje jądro systemu operacyjnego i instaluje określony sterownik wersji zestawu narzędzi CUDA. Należy pamiętać, że opcja "--Settings" jest opcjonalna i domyślna. Należy pamiętać, że aktualizacja jądra może wydłużyć czasy instalacji rozszerzenia. Wybór konkretnej (starszej) wersji CUDA tolkit może nie zawsze być zgodny z nowszymi jądrami.
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name NvidiaGpuDriverLinux \
+  --publisher Microsoft.HpcCompute \
+  --version 1.3 \
   --settings '{ \
     "updateOS": true, \
-    "driverVersion": "9.1.85" \
+    "driverVersion": "10.0.130" \
   }'
 ```
 
@@ -167,7 +179,7 @@ Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtens
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Dane wyjściowe wykonania rozszerzenia są rejestrowane w następującym pliku:
+Dane wyjściowe wykonania rozszerzenia są rejestrowane w następującym pliku. Zapoznaj się z tym plikiem, aby śledzić stan (wszystkie długotrwałe) instalacji oraz rozwiązywać problemy związane z błędami.
 
 ```bash
 /var/log/azure/nvidia-vmext-status

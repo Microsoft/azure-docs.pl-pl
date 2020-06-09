@@ -2,17 +2,17 @@
 title: Jak wysyłać zdarzenia z rozwiązanie Auth0 do platformy Azure przy użyciu Azure Event Grid
 description: Jak kończyć zdarzenia z rozwiązanie Auth0 do usług platformy Azure za pomocą Azure Event Grid.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.author: babanisa
-ms.openlocfilehash: 950b17611ba4932cc986d1b6488b904f29fdf04b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.author: femila
+ms.openlocfilehash: bd8cebaad27857dbd2fe3c5ed61be63d3700a688
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691320"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560750"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integracja Azure Event Grid z usługą rozwiązanie Auth0
 
@@ -60,7 +60,7 @@ Aktywowanie tematu rozwiązanie Auth0 na platformie Azure pozwala na przepływ z
 1. Potwierdź, że `Source` pole jest zgodne z kontem rozwiązanie Auth0.
 1. Kliknij pozycję Aktywuj.
 
-### <a name="subscribe-to-auth0-events"></a>Subskrybuj zdarzenia rozwiązanie Auth0
+### <a name="subscribe-to-auth0-events"></a>Subskrybowanie do zdarzeń usługi Auth0
 
 #### <a name="create-an-event-handler"></a>Utwórz procedurę obsługi zdarzeń
 W celu przetestowania tematu partnera potrzebna jest procedura obsługi zdarzeń. Przejdź do subskrypcji platformy Azure i uruchom usługę, która jest obsługiwana jako [program obsługi zdarzeń](event-handlers.md) , taki jak [Funkcja platformy Azure](custom-event-to-function.md).

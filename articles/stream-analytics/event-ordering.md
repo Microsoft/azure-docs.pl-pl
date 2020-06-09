@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: c0a108565a6a0f62c6252113f984e8b10967c5db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4472909b731af5067b4d38c2a04a2d10a4039242
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75461193"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560006"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Konfigurowanie zasad określania kolejności zdarzeń dla Azure Stream Analytics
 
-W tym artykule opisano sposób konfigurowania i używania późnego przybycia i zasad dotyczących zdarzeń poza kolejnością w programie Azure Stream Analytics. Te zasady są stosowane tylko w przypadku używania klauzuli [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) w zapytaniu.
+W tym artykule opisano sposób konfigurowania i używania późnego przybycia i zasad dotyczących zdarzeń poza kolejnością w programie Azure Stream Analytics. Te zasady są stosowane tylko wtedy, gdy używasz klauzuli [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) w zapytaniu i są one stosowane tylko w przypadku źródeł danych wejściowych w chmurze.
 
 ## <a name="event-time-and-arrival-time"></a>Godzina i czas przybycia zdarzenia
 

@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 5e2fc8fb06248e2cdad9067c56647da6d9626b50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 0e47078e9f7620e72524ccf91e942d4e15a6b5bb
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78255749"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559122"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Ciągłe dostarczanie za pomocą usługi Azure DevOps
 
@@ -25,7 +26,7 @@ Dostępne są dwie opcje definiowania potoku:
 
 Aby utworzyć potok oparty na YAML, najpierw skompiluj aplikację, a następnie wdróż aplikację.
 
-### <a name="build-your-app"></a>Kompiluj aplikację
+### <a name="build-your-app"></a>Kompilowanie aplikacji
 
 Sposób kompilowania aplikacji w Azure Pipelines zależy od języka programowania aplikacji. Każdy język zawiera konkretne kroki kompilacji, które tworzą artefakt wdrożenia. Artefakt wdrożenia służy do wdrażania aplikacji funkcji na platformie Azure.
 
@@ -150,7 +151,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Możesz użyć poniższego przykładu, aby utworzyć plik YAML w celu spakowania aplikacji programu PowerShell. Program PowerShell jest obsługiwany tylko w przypadku Azure Functions systemu Windows.
 
@@ -215,7 +216,7 @@ steps:
 
 Szablony na platformie Azure DevOps są wstępnie zdefiniowanymi grupami zadań, które kompilują lub wdrażają aplikację.
 
-### <a name="build-your-app"></a>Kompiluj aplikację
+### <a name="build-your-app"></a>Kompilowanie aplikacji
 
 Sposób kompilowania aplikacji w Azure Pipelines zależy od języka programowania aplikacji. Każdy język zawiera konkretne kroki kompilacji, które tworzą artefakt wdrożenia. Artefakt wdrożenia służy do aktualizowania aplikacji funkcji na platformie Azure.
 

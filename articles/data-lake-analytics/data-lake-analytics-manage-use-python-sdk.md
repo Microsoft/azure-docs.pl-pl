@@ -9,12 +9,13 @@ ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: d40658e1510c9ae8a2e3e1f865df7ac95f61abfb
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.custom: tracking-python
+ms.openlocfilehash: 34b3801d32720b8512f056ad16e3b3e3a979ee4b
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "68355978"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559245"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Zarządzanie Azure Data Lake Analytics przy użyciu języka Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -37,13 +38,13 @@ Zainstaluj następujące moduły:
 * Moduł **Azure-Management-datalake-Store** obejmuje operacje zarządzania kontem Azure Data Lake Store.
 * Moduł **zarządzania usługą Azure — Usługa Data Lake Analytics** obejmuje operacje Azure Data Lake Analytics. 
 
-Najpierw upewnij się, że masz najnowszą `pip` wersję, uruchamiając następujące polecenie:
+Najpierw upewnij się, że masz najnowszą wersję, `pip` uruchamiając następujące polecenie:
 
 ```
 python -m pip install --upgrade pip
 ```
 
-Ten dokument został zapisany przy `pip version 9.0.1`użyciu.
+Ten dokument został zapisany przy użyciu `pip version 9.0.1` .
 
 Użyj następujących `pip` poleceń, aby zainstalować moduły z wiersza polecenia:
 
@@ -97,7 +98,7 @@ import time
 
 Uruchom ten skrypt, aby sprawdzić, czy moduły mogą być importowane.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 ### <a name="interactive-user-authentication-with-a-pop-up"></a>Interaktywne uwierzytelnianie użytkowników przy użyciu okna podręcznego
 

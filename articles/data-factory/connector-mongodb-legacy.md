@@ -2,7 +2,6 @@
 title: Kopiuj dane z MongoDB przy użyciu starszej wersji
 description: Informacje o kopiowaniu danych z usługi Mongo DB do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
 manager: shwang
@@ -12,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 803e34a93e8019cfc2577bfaab3ba13c409c6b01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418171"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558179"
 ---
-# <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiowanie danych z MongoDB za pomocą Azure Data Factory
+# <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Kopiowanie danych z MongoDB przy użyciu Azure Data Factory (starsza wersja)
 
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
 > * [Wersja 1](v1/data-factory-on-premises-mongodb-connector.md)
@@ -56,13 +55,13 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi MongoDB są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość Type musi mieć wartość: **MongoDB** |Tak |
-| serwer |Adres IP lub nazwa hosta serwera MongoDB. |Tak |
+| typ |Właściwość Type musi mieć wartość: **MongoDB** |Yes |
+| serwer |Adres IP lub nazwa hosta serwera MongoDB. |Yes |
 | port |Port TCP, którego serwer MongoDB używa do nasłuchiwania połączeń klientów. |Nie (domyślnie 27017) |
-| Bazy |Nazwa bazy danych MongoDB, do której chcesz uzyskać dostęp. |Tak |
-| authenticationType | Typ uwierzytelniania używany do łączenia się z bazą danych MongoDB.<br/>Dozwolone wartości to: **Basic**i **Anonymous**. |Tak |
+| Bazy |Nazwa bazy danych MongoDB, do której chcesz uzyskać dostęp. |Yes |
+| authenticationType | Typ uwierzytelniania używany do łączenia się z bazą danych MongoDB.<br/>Dozwolone wartości to: **Basic**i **Anonymous**. |Yes |
 | nazwa użytkownika |Konto użytkownika do uzyskiwania dostępu do MongoDB. |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | hasło |Hasło użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak (jeśli jest używane uwierzytelnianie podstawowe). |
 | authSource |Nazwa bazy danych MongoDB, która ma zostać użyta do sprawdzenia poświadczeń w celu uwierzytelnienia. |Nie. W przypadku uwierzytelniania podstawowego wartość domyślna to użycie konta administratora i bazy danych określonej przy użyciu właściwości databaseName. |
@@ -99,10 +98,10 @@ Dla połączonej usługi MongoDB są obsługiwane następujące właściwości:
 
 Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępne do definiowania zestawów danych, zobacz [zestawy danych i połączone usługi](concepts-datasets-linked-services.md). Dla zestawu danych MongoDB są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **MongoDbCollection** | Tak |
-| CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **MongoDbCollection** | Yes |
+| CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Yes |
 
 **Przykład:**
 
@@ -130,9 +129,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **MongoDbSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **MongoDbSource** | Yes |
 | query |Użyj niestandardowej kwerendy SQL-92 do odczytu danych. Na przykład: select * from MyTable. |Nie (Jeśli określono "CollectionName" w zestawie danych) |
 
 **Przykład:**
@@ -180,14 +179,14 @@ Podczas kopiowania danych z MongoDB następujące mapowania są używane z typó
 
 | MongoDB — typ danych | Typ danych pośrednich fabryki danych |
 |:--- |:--- |
-| plików binarnych |Byte [] |
-| Boolean |Wartość logiczna |
+| Binarne |Byte [] |
+| Boolean (wartość logiczna) |Wartość logiczna |
 | Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectID |String |
-| String |String |
+| ObjectID |String (ciąg) |
+| String (ciąg) |String (ciąg) |
 | INTERFEJSU |Guid (identyfikator GUID) |
 | Obiekt |Reznormalizowany do spłaszczonych kolumn z "_" jako separatorem zagnieżdżonym |
 
@@ -231,9 +230,9 @@ W poniższych tabelach przedstawiono tabele wirtualne, które reprezentują oryg
 
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | element | price | Rabat |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |wyskakujący |456 |0.2 |
-| 1111 |1 |124 |laboratoryjn |1235 |0.2 |
-| 2222 |0 |135 |lodówki |12543 |0.0 |
+| 1111 |0 |123 |wyskakujący |456 |0,2 |
+| 1111 |1 |124 |laboratoryjn |1235 |0,2 |
+| 2222 |0 |135 |lodówki |12543 |0,0 |
 
 **Tabela "ExampleTable_Ratings":**
 

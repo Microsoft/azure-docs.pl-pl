@@ -3,14 +3,14 @@ title: Tworzenie pierwszej funkcji na platformie Azure przy użyciu programu Vis
 description: Tworzenie prostej funkcji wyzwalanej przez protokół HTTP i publikowanie jej przy użyciu rozszerzenia usługi Azure Functions w programie Visual Studio Code.
 ms.topic: quickstart
 ms.date: 01/10/2020
-ms.custom: mvc, devcenter, seo
+ms.custom: mvc, devcenter, seo, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 64c2e813743a772692efcb1d966c8ab7b52cc66d
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: ebb402da5a647d20b669442c05c47a0f1c627471
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628184"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559930"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Szybki Start: Tworzenie funkcji na platformie Azure przy użyciu Visual Studio Code
 
@@ -50,11 +50,11 @@ Przed rozpoczęciem upewnij się, że zostały spełnione następujące wymagani
 + Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-python"  
-+ [Node. js](https://nodejs.org/)wymagany przez system Windows for npm. Tylko [aktywne wersje LTS LTS i Maintenance](https://nodejs.org/about/releases/). Użyj polecenia `node --version` , aby sprawdzić wersję.
++ [Node. js](https://nodejs.org/)wymagany przez system Windows for npm. Tylko [aktywne wersje LTS LTS i Maintenance](https://nodejs.org/about/releases/). Użyj `node --version` polecenia, aby sprawdzić wersję.
     Nie jest wymagana do lokalnego programowania w systemach macOS i Linux.   
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node. js](https://nodejs.org/), Active LTS i Maintenance — wersje LTS (zalecane 10.14.1). Użyj polecenia `node --version` , aby sprawdzić wersję.
++ [Node. js](https://nodejs.org/), Active LTS i Maintenance — wersje LTS (zalecane 10.14.1). Użyj `node --version` polecenia, aby sprawdzić wersję.
 ::: zone-end 
 ::: zone pivot="programming-language-python"
 + Środowisko [python 3,8](https://www.python.org/downloads/release/python-381/), [Python 3,7](https://www.python.org/downloads/release/python-375/), [python 3,6](https://www.python.org/downloads/release/python-368/) jest obsługiwane przez Azure Functions (x64).
@@ -101,48 +101,48 @@ W tej sekcji użyjesz Visual Studio Code, aby utworzyć projekt lokalnego Azure 
 1. Podaj następujące informacje na ekranie:
 
     ::: zone pivot="programming-language-csharp"
-    + **Wybierz język projektu funkcji**: Wybierz `C#`.
+    + **Wybierz język projektu funkcji**: Wybierz `C#` .
     ::: zone-end
     ::: zone pivot="programming-language-javascript"
-    + **Wybierz język projektu funkcji**: Wybierz `JavaScript`.
+    + **Wybierz język projektu funkcji**: Wybierz `JavaScript` .
     ::: zone-end
     ::: zone pivot="programming-language-typescript"
-    + **Wybierz język projektu funkcji**: Wybierz `TypeScript`.
+    + **Wybierz język projektu funkcji**: Wybierz `TypeScript` .
     ::: zone-end
     ::: zone pivot="programming-language-powershell"
-    + **Wybierz język projektu funkcji**: Wybierz `PowerShell`.
+    + **Wybierz język projektu funkcji**: Wybierz `PowerShell` .
     ::: zone-end
     ::: zone pivot="programming-language-python"
-    + **Wybierz język projektu funkcji**: Wybierz `Python`.
+    + **Wybierz język projektu funkcji**: Wybierz `Python` .
 
     + **Wybierz alias języka Python, aby utworzyć środowisko wirtualne**: Wybierz lokalizację interpretera języka Python. Jeśli lokalizacja nie jest wyświetlana, wpisz pełną ścieżkę do pliku binarnego języka Python.  
     ::: zone-end
 
     ::: zone pivot="programming-language-java"  
-    + **Wybierz język projektu funkcji**: Wybierz `Java`.
+    + **Wybierz język projektu funkcji**: Wybierz `Java` .
 
-    + **Podaj identyfikator grupy**: Wybierz `com.function`.
+    + **Podaj identyfikator grupy**: Wybierz `com.function` .
 
-    + **Podaj identyfikator artefaktu**: Wybierz `myFunction`.
+    + **Podaj identyfikator artefaktu**: Wybierz `myFunction` .
 
-    + **Podaj wersję**: Wybierz `1.0-SNAPSHOT`.
+    + **Podaj wersję**: Wybierz `1.0-SNAPSHOT` .
 
-    + **Podaj nazwę pakietu**: wybierz opcję `com.function`.
+    + **Podaj nazwę pakietu**: wybierz opcję `com.function` .
 
-    + **Podaj nazwę aplikacji**: Wybierz `myFunction-12345`.
+    + **Podaj nazwę aplikacji**: Wybierz `myFunction-12345` .
     ::: zone-end  
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    + **Wybierz szablon dla pierwszej funkcji projektu**: Wybierz `HTTP trigger`.
+    + **Wybierz szablon dla pierwszej funkcji projektu**: Wybierz `HTTP trigger` .
     
-    + **Podaj nazwę funkcji**: type `HttpExample`.
+    + **Podaj nazwę funkcji**: type `HttpExample` .
     ::: zone-end  
     ::: zone pivot="programming-language-csharp"
-    + **Podaj przestrzeń nazw**: type `My.Functions`. 
+    + **Podaj przestrzeń nazw**: type `My.Functions` . 
     ::: zone-end  
     ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-    + **Poziom autoryzacji**: Wybierz `Anonymous`, co umożliwi wszystkim wywoływanie punktu końcowego funkcji. Aby dowiedzieć się więcej o poziomie autoryzacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
+    + **Poziom autoryzacji**: Wybierz `Anonymous` , co umożliwi wszystkim wywoływanie punktu końcowego funkcji. Aby dowiedzieć się więcej o poziomie autoryzacji, zobacz [klucze autoryzacji](functions-bindings-http-webhook-trigger.md#authorization-keys).
     ::: zone-end  
-    + **Wybierz, w jaki sposób chcesz otworzyć projekt**: Wybierz `Add to workspace`.
+    + **Wybierz, w jaki sposób chcesz otworzyć projekt**: Wybierz `Add to workspace` .
 
 1. Korzystając z tych informacji, Visual Studio Code generuje projekt Azure Functions z wyzwalaczem HTTP. Pliki projektu lokalnego można wyświetlić w Eksploratorze. Aby dowiedzieć się więcej na temat tworzonych plików, zobacz [pliki wygenerowanego projektu](functions-develop-vs-code.md#generated-project-files). 
 
@@ -170,7 +170,7 @@ Po sprawdzeniu, że funkcja działa poprawnie na komputerze lokalnym, można uż
 
     ![Skopiuj adres URL funkcji dla nowego wyzwalacza HTTP](./media/functions-create-first-function-vs-code/function-copy-endpoint-url.png)
 
-1. Wklej ten adres URL żądania HTTP na pasku adresu przeglądarki, Dodaj ciąg `name` `?name=Functions` zapytania na końcu tego adresu URL, a następnie wykonaj żądanie. Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, powinien mieć następujący format:
+1. Wklej ten adres URL żądania HTTP na pasku adresu przeglądarki, Dodaj `name` ciąg zapytania na `?name=Functions` końcu tego adresu URL, a następnie wykonaj żądanie. Adres URL, który wywołuje funkcję wyzwalaną przez protokół HTTP, powinien mieć następujący format:
 
         http://<functionappname>.azurewebsites.net/api/httpexample?name=Functions 
         

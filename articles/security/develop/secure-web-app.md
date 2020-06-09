@@ -16,13 +16,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.custom: has-adal-ref
-ms.openlocfilehash: 690cb37df4a5d195bfce6ee792f7565a6f7f1768
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: has-adal-ref, tracking-python
+ms.openlocfilehash: 857303009b31945b0fe4f5555cb7e545cd16719d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612779"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558875"
 ---
 # <a name="develop-a-secure-web-app"></a>Tworzenie bezpiecznej aplikacji internetowej
 
@@ -105,7 +105,7 @@ Używana aplikacja:
 - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) do wdrożenia.
 - [Centrum platformy Docker](https://hub.docker.com/) jako rejestr kontenerów.
 
-## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
+## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
 
 ### <a name="network"></a>Sieć
 
@@ -177,11 +177,11 @@ Uruchom skrypty wdrażania, aby skonfigurować środowisko i subskrypcję:
 
 Zostanie otwarta przeglądarka, zaloguj się przy użyciu swoich poświadczeń. Po zalogowaniu można rozpocząć wdrażanie zasobów z poziomu wiersza polecenia.
 
-Skrypty `deploy-powershell.ps1` wdrażania i `deploy-bash.sh` zawierają kod, który wdraża całą aplikację.
+Skrypty wdrażania `deploy-powershell.ps1` i `deploy-bash.sh` zawierają kod, który wdraża całą aplikację.
 Aby wdrożyć rozwiązanie:
 
 1. Jeśli używasz programu PowerShell, uruchom `deploy-powershell.ps1` plik, wpisując `./deploy-powershell.ps1 REGION RESOURCE_GROUP_NAME` zastępowanie regionu i nazwy grupy zasobów odpowiednimi regionami świadczenia usługi Azure i nazwą grupy zasobów
-2. Jeśli używasz systemu Linux, uruchom `deploy-bash.sh` plik przez wpisanie polecenia `/deploy-bash.sh REGION RESOURCE_GROUP_NAME`, aby plik wykonywalny mógł być wpisywany przez wpisanie`chmod +x deploy-bash.sh`
+2. Jeśli używasz systemu Linux `deploy-bash.sh` , uruchom plik przez wpisanie polecenia `/deploy-bash.sh REGION RESOURCE_GROUP_NAME` , aby plik wykonywalny mógł być wpisywany przez wpisanie`chmod +x deploy-bash.sh`
 
 W poniższych przykładach przedstawiono fragmenty najważniejszych składników. Przykłady można wdrożyć pojedynczo lub z pozostałymi składnikami, uruchamiając pliki Deploy.
 
@@ -311,10 +311,10 @@ Poniższy kod opiera się na wpisach tajnych PGUSERNAME i PGPASSWORD przechowywa
 Po wdrożeniu bazy danych należy przechowywać jej poświadczenia i parametry połączenia w Azure Key Vault.
 W folderze skrypty znajduje się `functions.sql` plik, który zawiera kod pl/pgsql, który tworzy funkcje przechowywane podczas jego uruchamiania. Uruchomienie tego pliku parameterizes dane wejściowe, aby ograniczyć iniekcję kodu SQL.
 
-PostgreSQL jest powiązany z narzędziem o nazwie `psql` , które jest używane do łączenia się z bazą danych. Aby uruchomić `functions.sql`, musisz nawiązać połączenie z wystąpieniem Azure Database for PostgreSQL z komputera lokalnego i uruchomić je stamtąd. Instalacja narzędzia PSQL jest dołączana do domyślnej instalacji programu PostgreSQL w każdym systemie operacyjnym.
+PostgreSQL jest powiązany z narzędziem o nazwie `psql` , które jest używane do łączenia się z bazą danych. Aby uruchomić `functions.sql` , musisz nawiązać połączenie z wystąpieniem Azure Database for PostgreSQL z komputera lokalnego i uruchomić je stamtąd. Instalacja narzędzia PSQL jest dołączana do domyślnej instalacji programu PostgreSQL w każdym systemie operacyjnym.
 Aby uzyskać więcej informacji, zapoznaj się z [dokumentacją PSQL](https://www.postgresql.org/docs/9.3/app-psql.html).
 
-Azure Cloud Shell również zawiera `psql` narzędzie. Cloud Shell można użyć bezpośrednio z Azure Portal, wybierając ikonę Cloud Shell.
+Azure Cloud Shell również zawiera `psql` Narzędzie. Cloud Shell można użyć bezpośrednio z Azure Portal, wybierając ikonę Cloud Shell.
 
 Aby włączyć dostęp zdalny do wystąpienia PostgreSQL, należy autoryzować adres IP w PostgreSQL.
 Ten dostęp można włączyć, przechodząc do karty **zabezpieczenia połączeń** , wybierając pozycję **Dodaj adres IP klienta**i zapisując nowe ustawienia.
@@ -437,7 +437,7 @@ USER appuser
 ENTRYPOINT ["/usr/local/bin/init.sh"]
 ```
 
-Pliku dockerfile powyżej jest używany do kompilowania kontenera hostowanego na Azure Container Registry w `mcr.microsoft.com/samples/basic-linux-app`.
+Pliku dockerfile powyżej jest używany do kompilowania kontenera hostowanego na Azure Container Registry w `mcr.microsoft.com/samples/basic-linux-app` .
 
 Poniższy kod:
 
@@ -696,7 +696,7 @@ Wystąpienia App Service mogą być zintegrowane z sieciami wirtualnymi. Ta Inte
 
 1. Na następnej stronie wybierz pozycję **Dodaj sieć wirtualną (wersja zapoznawcza)**.
 
-1. W następnym menu wybierz sieć wirtualną utworzoną w ramach wdrożenia, które zaczyna się od `hello-vnet`. Można utworzyć nową podsieć lub wybrać istniejącą.
+1. W następnym menu wybierz sieć wirtualną utworzoną w ramach wdrożenia, które zaczyna się od `hello-vnet` . Można utworzyć nową podsieć lub wybrać istniejącą.
    W takim przypadku należy utworzyć nową podsieć. Ustaw **zakres adresów** na **10.0.3.0/24** i nadaj nazwę podsieci **aplikacji**podsieć.
 
    ![App Service konfigurację sieci wirtualnej](./media/secure-web-app/app-vnet-config.png)
@@ -723,7 +723,7 @@ Po włączeniu integracji sieci wirtualnej możesz dodać sieciowe grupy zabezpi
 
    *Konfigurowanie sieciowej grupy zabezpieczeń*
 
-4. W regułach ruchu wychodzącego dla bramy sieciowej grupy zabezpieczeń Dodaj regułę, która zezwala na połączenia wychodzące z wystąpieniem App Service, tworząc regułę, która `AppService`odwołuje się do tagu usługi:
+4. W regułach ruchu wychodzącego dla bramy sieciowej grupy zabezpieczeń Dodaj regułę, która zezwala na połączenia wychodzące z wystąpieniem App Service, tworząc regułę, która odwołuje się do tagu usługi `AppService` :
 
    ![Dodaj reguły ruchu wychodzącego dla sieciowej grupy zabezpieczeń](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
@@ -754,7 +754,7 @@ Po włączeniu integracji sieci wirtualnej możesz dodać sieciowe grupy zabezpi
 Aby ograniczyć obszar narażony na ataki, zmodyfikuj ustawienia sieci App Service tak, aby zezwalały na dostęp do aplikacji tylko bramie aplikacji.
 W tym celu należy przejść do karty sieć App Service, wybierając kartę **Ograniczenia adresów IP** i utworzyć regułę zezwalania, która zezwala na bezpośredni dostęp do usługi tylko adres IP bramy aplikacji.
 
-Adres IP bramy można pobrać ze strony przeglądowej. Na karcie **adres IP CIDR** wprowadź adres IP w tym formacie: `<GATEWAY_IP_ADDRESS>/32`.
+Adres IP bramy można pobrać ze strony przeglądowej. Na karcie **adres IP CIDR** wprowadź adres IP w tym formacie: `<GATEWAY_IP_ADDRESS>/32` .
 
 ![Zezwalaj tylko na bramę](./media/secure-web-app/app-allow-gw-only.png)
 
@@ -783,16 +783,16 @@ W Azure Portal Skonfiguruj aplikację tak, aby korzystała z wymaganych poświad
    *Konfigurowanie rejestracji aplikacji usługi Azure AD*
 
 4. Zostanie wyświetlony ekran pokazujący zarejestrowaną aplikację i jej informacje. Musisz dodać te informacje do wystąpienia Azure Key Vault.
-   1. Skopiuj identyfikator aplikacji (klienta) i Zapisz go w Key Vault jako `CLIENTID`.
-   2. Skopiuj identyfikator URI przekierowania wprowadzony w poprzednim kroku i Zapisz go jako `REDIRECTURI`.
-   3. Skopiuj domyślną nazwę katalogu usługi Azure AD, która ma format *name*. microsoftonline.com i Zapisz ją w Key Vault jako `TENANT`.
-   4. Przejdź do karty **certyfikaty & dane tajne** utworzonej wcześniej aplikacji usługi Azure AD i wybierz pozycję **Nowy wpis tajny klienta**, jak pokazano na poniższym zrzucie ekranu. Ustaw datę wygaśnięcia, a następnie skopiuj wygenerowaną wartość i Zapisz ją w Key Vault jako `CLIENTSECRET`.
+   1. Skopiuj identyfikator aplikacji (klienta) i Zapisz go w Key Vault jako `CLIENTID` .
+   2. Skopiuj identyfikator URI przekierowania wprowadzony w poprzednim kroku i Zapisz go jako `REDIRECTURI` .
+   3. Skopiuj domyślną nazwę katalogu usługi Azure AD, która ma format *name*. microsoftonline.com i Zapisz ją w Key Vault jako `TENANT` .
+   4. Przejdź do karty **certyfikaty & dane tajne** utworzonej wcześniej aplikacji usługi Azure AD i wybierz pozycję **Nowy wpis tajny klienta**, jak pokazano na poniższym zrzucie ekranu. Ustaw datę wygaśnięcia, a następnie skopiuj wygenerowaną wartość i Zapisz ją w Key Vault jako `CLIENTSECRET` .
 
       ![Wpis tajny autoryzacji usługi Azure AD](./media/secure-web-app/ad-auth-secrets.png)
 
       *Wpis tajny autoryzacji usługi Azure AD*
 
-   5. Wygeneruj bezpieczny losowy klucz tajny przy użyciu dowolnego narzędzia wiersza polecenia/trybu online. Zapisz ją w Key Vault jako `FLASKSECRETKEY`. Platforma aplikacji używa tego klucza do tworzenia sesji.
+   5. Wygeneruj bezpieczny losowy klucz tajny przy użyciu dowolnego narzędzia wiersza polecenia/trybu online. Zapisz ją w Key Vault jako `FLASKSECRETKEY` . Platforma aplikacji używa tego klucza do tworzenia sesji.
         Aby dowiedzieć się, jak wygenerować klucz tajny, zobacz temat [sesje](http://flask.pocoo.org/docs/1.0/quickstart/#sessions).
 
 5. Po skonfigurowaniu logowania należy dodać użytkowników do linku usługi Azure AD, aby umożliwić im zalogowanie się do zasobu. Aby je dodać, przejdź do karty **Użytkownicy** w usłudze Azure AD, wybierz pozycję **Wszyscy użytkownicy**, a następnie wybierz pozycję **nowy użytkownik** lub **nowy użytkownik Gość**. Do testowania można dodać użytkownika-gościa i zaprosić użytkownika do katalogu. Możesz też dodać nowego użytkownika, jeśli domena, na której uruchomiona jest aplikacja, została zweryfikowana. W tym przykładzie tylko użytkownicy zarejestrowani w dzierżawie usługi Azure AD mogą być rejestrowani na potrzeby dostępu. Informacje o dostępie do wielodostępnego logowania można znaleźć w dokumentacji.
@@ -804,7 +804,7 @@ W Azure Portal Skonfiguruj aplikację tak, aby korzystała z wymaganych poświad
 Po dodaniu konfiguracji i wpisów tajnych usługi Azure AD do Key Vault użytkownicy mogą uwierzytelniać się w aplikacji przy użyciu uwierzytelniania OAuth platformy Azure.
 W kodzie aplikacji jest to obsługiwane przez bibliotekę uwierzytelniania Azure Active Directory (ADAL).
 
-Gdy wpisy tajne znajdują się w Key Vault i aplikacja ma dostęp do wpisów tajnych i bazy danych, Usługa aplikacji może zostać osiągnięta za pośrednictwem adresu URL aplikacji\/bramy (https:/GATEWAY_HASH. cloudapp. NET), którą można pobrać z jego bloku.
+Gdy wpisy tajne znajdują się w Key Vault i aplikacja ma dostęp do wpisów tajnych i bazy danych, Usługa aplikacji może zostać osiągnięta za pośrednictwem adresu URL aplikacji bramy (https: \/ /GATEWAY_HASH. cloudapp. NET), którą można pobrać z jego bloku.
 
 Jeśli po zalogowaniu się do usługi Azure AD zostanie wyświetlony komunikat o błędzie "użytkownik nie jest zarejestrowany w katalogu, do którego próbujesz się zalogować", musisz dodać użytkownika. Aby dodać użytkownika, przejdź do karty **Użytkownicy** usługi Azure AD i ręcznie Dodaj użytkownika, wprowadzając ich szczegóły lub Zaproś użytkownika, wprowadzając swój adres e-mail jako użytkownika-gościa do usługi Azure AD w bloku **zapraszanego gościa** .
 
@@ -991,6 +991,6 @@ Bezpieczeństwo jest podobną aplikacją, która sprawdza zależności. Można j
 
 Poniższe artykuły mogą pomóc w projektowaniu, projektowaniu i wdrażaniu bezpiecznych aplikacji.
 
-- [Projektowanie](secure-design.md)
+- [Projekt](secure-design.md)
 - [Programowanie](secure-develop.md)
-- [Wdróż](secure-deploy.md)
+- [Wdrażanie](secure-deploy.md)

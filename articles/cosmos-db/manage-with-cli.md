@@ -4,14 +4,14 @@ description: Użyj interfejsu wiersza polecenia platformy Azure, aby zarządzać
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3f86468bcafe3d7ce78827aba761bb4e1bf920fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86045ee05e4acb15e2268dce4f68387b1527e4b6
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273634"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509529"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Zarządzanie zasobami usługi Azure Cosmos za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -19,18 +19,33 @@ W poniższym przewodniku opisano typowe polecenia służące do automatyzowania 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-an-azure-cosmos-db-account"></a>Tworzenie konta usługi Azure Cosmos DB
+## <a name="azure-cosmos-accounts"></a>Konta usługi Azure Cosmos
+
+W poniższych sekcjach pokazano, jak zarządzać kontem usługi Azure Cosmos, w tym:
+
+* [tworzenie konta usługi Azure Cosmos](#create-an-azure-cosmos-db-account)
+* [Add or remove regions](#add-or-remove-regions) (Dodawanie lub usuwanie regionów)
+* [Włącz zapisywanie w ramach wieloregionu](#enable-multiple-write-regions)
+* [Ustawianie priorytetu trybu failover dla regionu](#set-failover-priority)
+* [Włącz automatyczną pracę w trybie failover](#enable-automatic-failover)
+* [Wyzwalanie ręcznego przełączania do trybu failover](#trigger-manual-failover)
+* [Wyświetl listę kluczy konta](#list-account-keys)
+* [Wyświetlanie listy kluczy konta tylko do odczytu](#list-read-only-account-keys)
+* [Wyświetlanie listy parametrów połączenia](#list-connection-strings)
+* [Ponownie Wygeneruj klucz konta](#regenerate-account-key)
+
+### <a name="create-an-azure-cosmos-db-account"></a>Tworzenie konta usługi Azure Cosmos DB
 
 Utwórz konto Azure Cosmos DB przy użyciu interfejsu API SQL, spójność sesji w regionach zachodnie stany USA 2 i Wschodnie stany USA 2:
 
 > [!IMPORTANT]
-> Nazwa konta usługi Azure Cosmos musi zawierać małe litery i mniej niż 31 znaków.
+> Nazwa konta usługi Azure Cosmos musi zawierać małe litery i mniej niż 44 znaków.
 
 ```azurecli-interactive
 resourceGroupName='MyResourceGroup'
-accountName='mycosmosaccount' #needs to be lower case and less than 31 characters
+accountName='mycosmosaccount' #needs to be lower case and less than 44 characters
 
 az cosmosdb create \
     -n $accountName \
@@ -40,7 +55,7 @@ az cosmosdb create \
     --locations regionName='East US 2' failoverPriority=1 isZoneRedundant=False
 ```
 
-## <a name="add-or-remove-regions"></a>Add or remove regions (Dodawanie lub usuwanie regionów)
+### <a name="add-or-remove-regions"></a>Add or remove regions (Dodawanie lub usuwanie regionów)
 
 Utwórz konto usługi Azure Cosmos z dwoma regionami, Dodaj region i Usuń region.
 
@@ -51,7 +66,7 @@ Utwórz konto usługi Azure Cosmos z dwoma regionami, Dodaj region i Usuń regio
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
-accountName='mycosmosaccount' # must be lower case and <31 characters
+accountName='mycosmosaccount'
 
 # Create an account with 2 regions
 az cosmosdb create --name $accountName --resource-group $resourceGroupName \
@@ -70,7 +85,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName \
     --locations regionName="East US 2" failoverPriority=1 isZoneRedundant=False
 ```
 
-## <a name="enable-multiple-write-regions"></a>Włącz wiele regionów zapisu
+### <a name="enable-multiple-write-regions"></a>Włącz wiele regionów zapisu
 
 Włącz wiele wzorców dla konta Cosmos
 
@@ -85,7 +100,7 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 az cosmosdb update --ids $accountId --enable-multiple-write-locations true
 ```
 
-## <a name="set-failover-priority"></a>Ustawianie priorytetu trybu failover
+### <a name="set-failover-priority"></a>Ustawianie priorytetu trybu failover
 
 Ustawianie priorytetu trybu failover dla konta usługi Azure Cosmos skonfigurowanego do automatycznego przełączania do trybu failover
 
@@ -99,10 +114,10 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 
 # Make South Central US the next region to fail over to instead of East US 2
 az cosmosdb failover-priority-change --ids $accountId \
-    --failover-policies 'West US 2'=0 'South Central US'=1 'East US 2'=2
+    --failover-policies 'West US 2=0' 'South Central US=1' 'East US 2=2'
 ```
 
-## <a name="enable-automatic-failover"></a>Włącz automatyczną pracę w trybie failover
+### <a name="enable-automatic-failover"></a>Włącz automatyczną pracę w trybie failover
 
 ```azurecli-interactive
 # Enable automatic failover on an existing account
@@ -115,13 +130,13 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 az cosmosdb update --ids $accountId --enable-automatic-failover true
 ```
 
-## <a name="trigger-manual-failover"></a>Wyzwalanie ręcznego przełączania do trybu failover
+### <a name="trigger-manual-failover"></a>Wyzwalanie ręcznego przełączania do trybu failover
 
 > [!CAUTION]
 > Zmiana regionu o priorytecie = 0 spowoduje wyzwolenie ręcznego przejścia w tryb failover dla konta usługi Azure Cosmos. Jakakolwiek inna zmiana priorytetu nie spowoduje wyzwolenia trybu failover.
 
 ```azurecli-interactive
-# Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
+# Assume region order is initially 'West US 2=0' 'East US 2=1' 'South Central US=2' for account
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 
@@ -130,10 +145,10 @@ accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o
 
 # Trigger a manual failover to promote East US 2 as new write region
 az cosmosdb failover-priority-change --ids $accountId \
-    --failover-policies 'East US 2'=0 'South Central US'=1 'West US 2'=2
+    --failover-policies 'East US 2=0' 'South Central US=1' 'West US 2=2'
 ```
 
-## <a name="list-all-account-keys"></a><a id="list-account-keys"></a>Wyświetl listę wszystkich kluczy konta
+### <a name="list-all-account-keys"></a><a id="list-account-keys"></a>Wyświetl listę wszystkich kluczy konta
 
 Pobierz wszystkie klucze dla konta Cosmos.
 
@@ -147,7 +162,7 @@ az cosmosdb keys list \
    -g $resourceGroupName
 ```
 
-## <a name="list-read-only-account-keys"></a>Wyświetlanie listy kluczy konta tylko do odczytu
+### <a name="list-read-only-account-keys"></a>Wyświetlanie listy kluczy konta tylko do odczytu
 
 Pobierz klucze tylko do odczytu dla konta Cosmos.
 
@@ -162,7 +177,7 @@ az cosmosdb keys list \
     --type read-only-keys
 ```
 
-## <a name="list-connection-strings"></a>Wyświetlanie listy parametrów połączenia
+### <a name="list-connection-strings"></a>Wyświetlanie listy parametrów połączenia
 
 Pobierz parametry połączenia dla konta Cosmos.
 
@@ -177,7 +192,7 @@ az cosmosdb keys list \
     --type connection-strings
 ```
 
-## <a name="regenerate-account-key"></a>Ponownie Wygeneruj klucz konta
+### <a name="regenerate-account-key"></a>Ponownie Wygeneruj klucz konta
 
 Wygeneruj ponownie nowy klucz dla konta Cosmos.
 
@@ -190,7 +205,16 @@ az cosmosdb keys regenerate \
     --key-kind secondary
 ```
 
-## <a name="create-a-database"></a>Tworzenie bazy danych
+## <a name="azure-cosmos-db-database"></a>Baza danych Azure Cosmos DB
+
+W poniższych sekcjach pokazano, jak zarządzać bazą danych Azure Cosmos DB, w tym:
+
+* [Tworzenie bazy danych](#create-a-database)
+* [Tworzenie bazy danych z udostępnioną przepływność](#create-a-database-with-shared-throughput)
+* [Zmień przepływność bazy danych](#change-database-throughput)
+* [Zarządzanie blokadami w bazie danych](#manage-lock-on-a-database)
+
+### <a name="create-a-database"></a>Tworzenie bazy danych
 
 Utwórz bazę danych Cosmos.
 
@@ -205,7 +229,7 @@ az cosmosdb sql database create \
     -n $databaseName
 ```
 
-## <a name="create-a-database-with-shared-throughput"></a>Tworzenie bazy danych z udostępnioną przepływność
+### <a name="create-a-database-with-shared-throughput"></a>Tworzenie bazy danych z udostępnioną przepływność
 
 Utwórz bazę danych Cosmos z udostępnioną przepływność.
 
@@ -222,7 +246,7 @@ az cosmosdb sql database create \
     --throughput $throughput
 ```
 
-## <a name="change-the-throughput-of-a-database"></a>Zmiana przepływności bazy danych
+### <a name="change-database-throughput"></a>Zmień przepływność bazy danych
 
 Zwiększ przepływność bazy danych Cosmos o 1000 RU/s.
 
@@ -248,7 +272,48 @@ az cosmosdb sql database throughput update \
     --throughput $newRU
 ```
 
-## <a name="create-a-container"></a>Tworzenie kontenera
+### <a name="manage-lock-on-a-database"></a>Zarządzanie blokadą w bazie danych
+
+Umieść blokadę usuwania w bazie danych. Aby dowiedzieć się więcej o tym, jak włączyć tę funkcję, zobacz, [uniemożliwiając zmiany z zestawów SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+
+```azurecli-interactive
+resourceGroupName='myResourceGroup'
+accountName='my-cosmos-account'
+databaseName='myDatabase'
+
+lockType='CanNotDelete' # CanNotDelete or ReadOnly
+databaseParent="databaseAccounts/$accountName"
+databaseLockName="$databaseName-Lock"
+
+# Create a delete lock on database
+az lock create --name $databaseLockName \
+    --resource-group $resourceGroupName \
+    --resource-type Microsoft.DocumentDB/sqlDatabases \
+    --lock-type $lockType \
+    --parent $databaseParent \
+    --resource $databaseName
+
+# Delete lock on database
+lockid=$(az lock show --name $databaseLockName \
+        --resource-group $resourceGroupName \
+        --resource-type Microsoft.DocumentDB/sqlDatabases \
+        --resource $databaseName \
+        --parent $databaseParent \
+        --output tsv --query id)
+az lock delete --ids $lockid
+```
+
+## <a name="azure-cosmos-db-container"></a>Kontener Azure Cosmos DB
+
+W poniższych sekcjach pokazano, jak zarządzać kontenerem Azure Cosmos DB, w tym:
+
+* [Tworzenie kontenera](#create-a-container)
+* [Tworzenie kontenera z włączonym czasem TTL](#create-a-container-with-ttl)
+* [Tworzenie kontenera przy użyciu niestandardowych zasad indeksu](#create-a-container-with-a-custom-index-policy)
+* [Zmień przepływność kontenera](#change-container-throughput)
+* [Zarządzanie blokadami w kontenerze](#manage-lock-on-a-container)
+
+### <a name="create-a-container"></a>Tworzenie kontenera
 
 Utwórz kontener Cosmos z domyślnymi zasadami indeksu, kluczem partycji i RU/s z 400.
 
@@ -267,7 +332,7 @@ az cosmosdb sql container create \
     -p $partitionKey --throughput $throughput
 ```
 
-## <a name="create-a-container-with-ttl"></a>Tworzenie kontenera z czasem wygaśnięcia
+### <a name="create-a-container-with-ttl"></a>Tworzenie kontenera z czasem wygaśnięcia
 
 Utwórz kontener Cosmos z włączonym czasem TTL.
 
@@ -286,7 +351,7 @@ az cosmosdb sql container update \
     --ttl=86400
 ```
 
-## <a name="create-a-container-with-a-custom-index-policy"></a>Tworzenie kontenera przy użyciu niestandardowych zasad indeksu
+### <a name="create-a-container-with-a-custom-index-policy"></a>Tworzenie kontenera przy użyciu niestandardowych zasad indeksu
 
 Utwórz kontener Cosmos z niestandardowymi zasadami indeksu, indeksem przestrzennym, indeksem złożonym, kluczem partycji i RU/s z 400.
 
@@ -338,7 +403,7 @@ az cosmosdb sql container create \
 rm -f "idxpolicy-$uniqueId.json"
 ```
 
-## <a name="change-the-throughput-of-a-container"></a>Zmiana przepływności kontenera
+### <a name="change-container-throughput"></a>Zmień przepływność kontenera
 
 Zwiększ przepływność kontenera Cosmos o 1000 RU/s.
 
@@ -364,6 +429,39 @@ az cosmosdb sql container throughput update \
     -d $databaseName \
     -n $containerName \
     --throughput $newRU
+```
+
+### <a name="manage-lock-on-a-container"></a>Zarządzanie blokadą w kontenerze
+
+Umieść blokadę usuwania dla kontenera. Aby dowiedzieć się więcej o tym, jak włączyć tę funkcję, zobacz, [uniemożliwiając zmiany z zestawów SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+
+```azurecli-interactive
+resourceGroupName='myResourceGroup'
+accountName='my-cosmos-account'
+databaseName='myDatabase'
+containerName='myContainer'
+
+lockType='CanNotDelete' # CanNotDelete or ReadOnly
+databaseParent="databaseAccounts/$accountName"
+containerParent="databaseAccounts/$accountName/sqlDatabases/$databaseName"
+containerLockName="$containerName-Lock"
+
+# Create a delete lock on container
+az lock create --name $containerLockName \
+    --resource-group $resourceGroupName \
+    --resource-type Microsoft.DocumentDB/containers \
+    --lock-type $lockType \
+    --parent $containerParent \
+    --resource $containerName
+
+# Delete lock on container
+lockid=$(az lock show --name $containerLockName \
+        --resource-group $resourceGroupName \
+        --resource-type Microsoft.DocumentDB/containers \
+        --resource-name $containerName \
+        --parent $containerParent \
+        --output tsv --query id)
+az lock delete --ids $lockid
 ```
 
 ## <a name="next-steps"></a>Następne kroki

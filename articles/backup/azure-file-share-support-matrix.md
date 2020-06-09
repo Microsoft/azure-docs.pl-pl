@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8198c06c1151dd86d99bc64f825764d0a4988287
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 72492ea77534b636d90820c96e36163e6c6efebe
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193864"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488464"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
@@ -23,7 +23,7 @@ Kopie zapasowe udziałów plików platformy Azure są dostępne we wszystkich re
 
 ### <a name="supported-regions-for-accidental-delete-protection"></a>Obsługiwane regiony do przypadkowego usunięcia ochrony
 
-Zachodnio-środkowe stany USA
+Zachodnio-środkowe stany USA, Australia Południowo-Wschodnia, Kanada środkowa
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
 
@@ -53,7 +53,7 @@ Zachodnio-środkowe stany USA
 
 | Ustawienie                                      | Limit |
 | -------------------------------------------- | ----- |
-| Maksymalna liczba kopii zapasowych na żądanie dziennie | 4     |
+| Maksymalna liczba kopii zapasowych na żądanie dziennie | 10   |
 | Maksymalna liczba zaplanowanych kopii zapasowych dziennie | 1     |
 
 ## <a name="restore-limits"></a>Limity przywracania

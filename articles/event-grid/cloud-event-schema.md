@@ -2,17 +2,17 @@
 title: Używanie Azure Event Grid ze zdarzeniami w schemacie CloudEvents
 description: Opisuje sposób używania schematu CloudEvents dla zdarzeń w Azure Event Grid. Usługa obsługuje zdarzenia w implementacji JSON zdarzeń w chmurze.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: 127095bef2c67a93097bf90bea54ca1b44b16c58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: femila
+ms.openlocfilehash: 57827b1c5a43a3408d374e8bddb7b91113b2929a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81394386"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560692"
 ---
 # <a name="cloudevents-v10-schema-with-event-grid"></a>Schemat CloudEvents v 1.0 z Event Grid
 
@@ -56,7 +56,7 @@ Oto przykład zdarzenia usługi Azure Blob Storage w formacie CloudEvents:
 
 Szczegółowy opis dostępnych pól, ich typów i definicji w CloudEvents v 1.0 jest [dostępny tutaj](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
-Wartości nagłówków dla zdarzeń dostarczonych w schemacie CloudEvents i schemacie Event Grid są takie same, z wyjątkiem `content-type`. W przypadku schematu CloudEvents wartość tego nagłówka to `"content-type":"application/cloudevents+json; charset=utf-8"`. W przypadku schematu Event Grid wartość tego nagłówka to `"content-type":"application/json; charset=utf-8"`.
+Wartości nagłówków dla zdarzeń dostarczonych w schemacie CloudEvents i schemacie Event Grid są takie same, z wyjątkiem `content-type` . W przypadku schematu CloudEvents wartość tego nagłówka to `"content-type":"application/cloudevents+json; charset=utf-8"` . W przypadku schematu Event Grid wartość tego nagłówka to `"content-type":"application/json; charset=utf-8"` .
 
 ## <a name="event-grid-for-cloudevents"></a>Event Grid CloudEvents
 
