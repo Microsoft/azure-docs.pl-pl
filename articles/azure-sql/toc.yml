@@ -447,7 +447,7 @@
             - name: Używanie funkcji Resource Health w przypadku problemów z połączeniem
               href: database/resource-health-to-troubleshoot-connectivity.md
             - name: Migrowanie z modelu jednostek DTU do modelu rdzeni wirtualnych
-              href: database/resource-health-to-troubleshoot-connectivity.md
+              href: database/migrate-dtu-to-vcore.md
             - name: Skalowanie zasobów bazy danych
               href: database/single-database-scale.md
             - name: Skalowanie zasobów w puli

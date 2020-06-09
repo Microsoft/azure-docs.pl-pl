@@ -28,6 +28,8 @@
           href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Container Instances
           href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Container Registry
+          href: ../../container-registry/container-registry-get-started-geo-replication-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Cosmos DB
           href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Budżet usługi Cost Management
@@ -74,6 +76,8 @@
           href: ../../machine-learning/tutorial-resource-manager-workspace.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Notification Hubs
           href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Potoki
+          href: 'https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json'
         - name: Zasady
           href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Wykres zasobów
@@ -96,6 +100,8 @@
           href: ../../virtual-machine-scale-sets/quick-create-template-windows.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Zapora aplikacji internetowej
           href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+        - name: Maszyny wirtualne z systemem Windows
+          href: ../../virtual-machines/windows/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Samouczki
   items:
     - name: Szablony dla początkujących
