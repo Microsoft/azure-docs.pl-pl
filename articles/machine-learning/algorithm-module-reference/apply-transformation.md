@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/05/2020
-ms.openlocfilehash: ccf9d0c3eef50c7dfd838f1929e52506e8984879
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/05/2020
+ms.openlocfilehash: e2b4233f8f59a26e7da532fca48aecbb41857b66
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78395259"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488634"
 ---
 # <a name="apply-transformation-module"></a>Zastosuj moduł transformacji
 
@@ -32,13 +32,13 @@ Projektant umożliwia zapisywanie przekształceń danych jako **zestawów DataSe
 
 1. Wybierz kartę dane **wyjściowe + dzienniki** .
 
-1. Wybierz **ikonę Zapisz** , aby zapisać **transformację wyniku**.
+1. Znajdź dane wyjściowe transformacji i wybierz pozycję **zarejestruj zestaw danych** , aby go zapisać jako moduł w kategorii **zestawy danych** w palecie modułów.
 
 ## <a name="how-to-use-apply-transformation"></a>Jak używać transformacji zastosowania  
   
 1. Dodaj moduł **przekształcenia Zastosuj** do potoku. Ten moduł można znaleźć w sekcji **obliczanie & oceny** w palecie modułów. 
   
-1. Znajdź zapisaną transformację, która ma być używana w obszarze **DataSets** > **Moje zestawy danych** w palecie modułów.
+1. Znajdź zapisaną transformację, która ma być używana w obszarze **zestawy danych** w palecie modułów.
 
 1. Połącz dane wyjściowe zapisanej transformacji z lewym portem wejściowym modułu **Zastosuj transformację** .
 

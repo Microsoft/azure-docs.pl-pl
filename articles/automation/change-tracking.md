@@ -3,14 +3,14 @@ title: Przegląd Change Tracking Azure Automation i spisu
 description: W tym artykule opisano Change Tracking i funkcję spisu, która pomaga identyfikować zmiany oprogramowania i usług firmy Microsoft w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/03/2020
+ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: cef323fd5b73b1befec5261e56357751ac72adae
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 2aab90b12cd3844b94b0b7e6e94582d403db2efe
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342922"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555030"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -33,22 +33,23 @@ Change Tracking i zapasy pobierają swoje dane z Azure Monitor. Maszyny wirtualn
 
 Change Tracking i spis nie obsługują obecnie następujących elementów:
 
-* Rekursja śledzenia rejestru systemu Windows
-* Systemy plików sieciowych
-* Różne metody instalacji
-* *pliki **. exe** dla systemu Windows
+- Rekursja śledzenia rejestru systemu Windows
+- Systemy plików sieciowych
+- Różne metody instalacji
+- *pliki **. exe** dla systemu Windows
 
 Inne ograniczenia:
 
-* Kolumny **Maksymalny rozmiar pliku** i wartości są nieużywane w bieżącej implementacji.
-* Jeśli zbierasz więcej niż 2500 plików w cyklu zbierania danych o 30 minutach, wydajność Change Tracking i spisu może być obniżona.
-* Gdy ruch sieciowy jest wysoki, wyświetlanie rekordów może potrwać do 6 godzin.
-* Jeśli zmodyfikujesz konfigurację podczas zamykania komputera, komputer może opublikować zmiany należące do poprzedniej konfiguracji.
+- Kolumny **Maksymalny rozmiar pliku** i wartości są nieużywane w bieżącej implementacji.
+- Jeśli zbierasz więcej niż 2500 plików w cyklu zbierania danych o 30 minutach, wydajność Change Tracking i spisu może być obniżona.
+- Gdy ruch sieciowy jest wysoki, wyświetlanie rekordów może potrwać do 6 godzin.
+- Jeśli zmodyfikujesz konfigurację podczas zamykania komputera, komputer może opublikować zmiany należące do poprzedniej konfiguracji.
 
 W Change Tracking i spisu są obecnie występują następujące problemy:
 
-* Aktualizacje poprawek nie są zbierane na maszynach podstawowych RS3 systemu Windows Server 2016.
-* Demony systemu Linux mogą wyświetlać zmieniony stan nawet wtedy, gdy nie nastąpiła żadna zmiana. Ten problem występuje ze względu na sposób, w jaki `SvcRunLevels` dane w dzienniku Azure monitor [zmianakonfiguracji](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) są przechwytywane.
+- Aktualizacje poprawek nie są zbierane na maszynach podstawowych RS3 systemu Windows Server 2016.
+
+- Demony systemu Linux mogą wyświetlać zmieniony stan nawet wtedy, gdy nie nastąpiła żadna zmiana. Ten problem występuje ze względu na sposób, w jaki `SvcRunLevels` dane w dzienniku Azure monitor [zmianakonfiguracji](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) są przechwytywane.
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
@@ -77,12 +78,12 @@ Listy rozwijane są dostępne w górnej części pulpitu nawigacyjnego, aby ogra
 
 Możesz kliknąć zmianę lub zdarzenie, aby wyświetlić jego szczegóły. Dostępne typy zmian to:
 
-* Zdarzenia
-* Demonów
-* Pliki
-* Rejestr
-* Oprogramowanie
-* Usługi firmy Microsoft
+- Zdarzenia
+- Demonów
+- Files
+- Rejestr
+- Oprogramowanie
+- Usługi firmy Microsoft
 
 Można dodawać, modyfikować lub usuwać każdą zmianę. W poniższym przykładzie pokazano zmianę typu uruchamiania usługi z ręcznego na automatycznie.
 
@@ -137,10 +138,13 @@ Change Tracking i spis umożliwia monitorowanie zmian kluczy rejestru systemu Wi
 
 Change Tracking i spis obsługuje rekursję, co pozwala na określenie symboli wieloznacznych, aby uprościć śledzenie w katalogach. Rekursja udostępnia również zmienne środowiskowe umożliwiające śledzenie plików w środowiskach z wieloma lub dynamicznymi nazwami dysków. Poniższa lista zawiera typowe informacje, które należy znać podczas konfigurowania rekursji:
 
-* Do śledzenia wielu plików wymagane są symbole wieloznaczne.
-* Symboli wieloznacznych można używać tylko w ostatnim segmencie ścieżki pliku, na przykład **c:\Folder \\ pliku*** lub **/etc/*. conf**.
-* Jeśli zmienna środowiskowa ma nieprawidłową ścieżkę, walidacja powiedzie się, ale ścieżka kończy się niepowodzeniem podczas wykonywania.
-* Podczas ustawiania ścieżki należy unikać ogólnych nazw ścieżek, ponieważ ten typ ustawienia może spowodować przechodzenie przez zbyt wiele folderów.
+- Do śledzenia wielu plików wymagane są symbole wieloznaczne.
+
+- Symboli wieloznacznych można używać tylko w ostatnim segmencie ścieżki pliku, na przykład **c:\Folder \\ pliku*** lub **/etc/*. conf**.
+
+- Jeśli zmienna środowiskowa ma nieprawidłową ścieżkę, walidacja powiedzie się, ale ścieżka kończy się niepowodzeniem podczas wykonywania.
+
+- Podczas ustawiania ścieżki należy unikać ogólnych nazw ścieżek, ponieważ ten typ ustawienia może spowodować przechodzenie przez zbyt wiele folderów.
 
 ## <a name="change-tracking-and-inventory-data-collection"></a>Zbieranie danych dotyczących Change Tracking i spisu
 
@@ -167,7 +171,7 @@ W poniższej tabeli przedstawiono limity śledzonych elementów na maszynę dla 
 |Usługi|250|
 |Demonów|250|
 
-Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Za pomocą funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Użyj tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs). 
+Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Za pomocą funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Użyj tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dane usługi firmy Microsoft
 
@@ -182,13 +186,13 @@ Aby zoptymalizować wydajność, Agent Log Analytics śledzi jedynie zmiany. Ust
 
 ## <a name="support-for-alerts-on-configuration-state"></a>Obsługa alertów dotyczących stanu konfiguracji
 
-Kluczową możliwością Change Tracking i spisu jest alert dotyczący zmian stanu konfiguracji środowiska hybrydowego. Wiele przydatnych akcji jest dostępnych do wyzwalania w odpowiedzi na alerty, na przykład akcji w usłudze Azure Functions, elementów Runbook usługi Automation, elementy webhook i podobne. Alerty dotyczące zmian w pliku **c:\windows\System32\drivers\etc\HOSTS** na komputerze to jedna dobra aplikacja dla Change Tracking i danych spisu. Istnieje wiele więcej scenariuszy dotyczących alertów, łącznie z scenariuszami zapytań zdefiniowanymi w następnej tabeli. 
+Kluczową możliwością Change Tracking i spisu jest alert dotyczący zmian stanu konfiguracji środowiska hybrydowego. Wiele przydatnych akcji jest dostępnych do wyzwalania w odpowiedzi na alerty, na przykład akcji w usłudze Azure Functions, elementów Runbook usługi Automation, elementy webhook i podobne. Alerty dotyczące zmian w pliku **c:\windows\System32\drivers\etc\HOSTS** na komputerze to jedna dobra aplikacja dla Change Tracking i danych spisu. Istnieje wiele więcej scenariuszy dotyczących alertów, łącznie z scenariuszami zapytań zdefiniowanymi w następnej tabeli.
 
 |Zapytanie  |Opis  |
 |---------|---------|
 |Zmianakonfiguracji <br>&#124; gdzie ConfigChangeType = = "Files" i FileSystemPath zawiera "c: \\ Windows \\ system32 \\ Drivers \\ "|Przydatne do śledzenia zmian w plikach krytycznych dla systemu.|
 |Zmianakonfiguracji <br>&#124;, gdzie FieldsChanged zawiera "FileContentChecksum" i FileSystemPath = = "c: \\ Windows \\ system32 \\ Drivers \\ itp. \\ hosts"|Przydatne do śledzenia modyfikacji plików konfiguracji kluczy.|
-|Zmianakonfiguracji <br>&#124; gdzie ConfigChangeType = = "Microsoft Services" i SvcName zawiera "W3SVC" i SvcState = = "zatrzymana"|Przydatne do śledzenia zmian w usługach krytycznych dla systemu.|
+|Zmianakonfiguracji <br>&#124; gdzie ConfigChangeType = = "WindowsServices" i SvcName zawiera "W3SVC" i SvcState = = "zatrzymana"|Przydatne do śledzenia zmian w usługach krytycznych dla systemu.|
 |Zmianakonfiguracji <br>&#124;, gdzie ConfigChangeType = = "demony" i SvcName zawierają "SSH" i SvcState! = "uruchomiona"|Przydatne do śledzenia zmian w usługach krytycznych dla systemu.|
 |Zmianakonfiguracji <br>&#124; gdzie ConfigChangeType = = "oprogramowanie" i ChangeCategory = = "dodane"|Przydatne w przypadku środowisk, które wymagają blokowania konfiguracji oprogramowania.|
 |ConfigurationData <br>&#124;, gdzie Oprogramowaniename zawiera "Monitoring Agent" i CurrentVersion! = "8.0.11081.0"|Przydatne do wyświetlania maszyn, na których zainstalowano nieaktualną lub niezgodną wersję oprogramowania. To zapytanie raportuje o ostatnim raportowanym stanie konfiguracji, ale nie raportuje zmian.|
@@ -197,7 +201,10 @@ Kluczową możliwością Change Tracking i spisu jest alert dotyczący zmian sta
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby włączyć funkcję z konta usługi Automation, zobacz [włączanie Change Tracking i spisu na podstawie konta usługi Automation](automation-enable-changes-from-auto-acct.md).
-* Aby włączyć tę funkcję, przeglądając Azure Portal, zobacz [włączanie Change Tracking i spisu w Azure Portal](automation-onboard-solutions-from-browse.md).
-* Aby włączyć funkcję z elementu Runbook, zobacz [włączanie Change Tracking i spisu z elementu Runbook](automation-enable-changes-from-runbook.md).
-* Aby włączyć funkcję z maszyny wirtualnej platformy Azure, zobacz [włączanie Change Tracking i spisu z maszyny wirtualnej platformy Azure](automation-enable-changes-from-vm.md).
+- Aby włączyć funkcję z konta usługi Automation, zobacz [włączanie Change Tracking i spisu na podstawie konta usługi Automation](automation-enable-changes-from-auto-acct.md).
+
+- Aby włączyć tę funkcję, przeglądając Azure Portal, zobacz [włączanie Change Tracking i spisu w Azure Portal](automation-onboard-solutions-from-browse.md).
+
+- Aby włączyć funkcję z elementu Runbook, zobacz [włączanie Change Tracking i spisu z elementu Runbook](automation-enable-changes-from-runbook.md).
+
+- Aby włączyć funkcję z maszyny wirtualnej platformy Azure, zobacz [włączanie Change Tracking i spisu z maszyny wirtualnej platformy Azure](automation-enable-changes-from-vm.md).

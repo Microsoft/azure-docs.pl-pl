@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 338ebc584cc718fd9d3b587d17ec0895483dfb0c
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376634"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560437"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Samouczek: monitorowanie klastra Service Fabric na platformie Azure
 
@@ -124,7 +124,7 @@ ServiceFabricOperationalEvent
 | project EventId, EventName = 'NodeUpOperational', TaskName, Computer, EventMessage, TimeGenerated
 | sort by TimeGenerated 
 ``` 
- 
+
 Zwraca raporty kondycji z atrybutem HealthState = = 3 (error) i wyodrębnienie dodatkowych właściwości z pola EventMessage:
 
 ```kusto
@@ -210,7 +210,7 @@ Niezawodne zdarzenia aktora można wyświetlać w podobny sposób:
 ServiceFabricReliableActorEvent
 | sort by TimeGenerated desc
 ```
-Aby skonfigurować bardziej szczegółowe zdarzenia dla niezawodnych aktorów, można `scheduledTransferKeywordFilter` zmienić w pliku config dla rozszerzenia diagnostyki w szablonie klastra. Szczegółowe informacje na temat tych wartości znajdują się w [odniesieniu do zdarzeń niezawodnych aktorów](service-fabric-reliable-actors-diagnostics.md#keywords).
+Aby skonfigurować bardziej szczegółowe zdarzenia dla niezawodnych aktorów, można zmienić `scheduledTransferKeywordFilter` w pliku config dla rozszerzenia diagnostyki w szablonie klastra. Szczegółowe informacje na temat tych wartości znajdują się w [odniesieniu do zdarzeń niezawodnych aktorów](service-fabric-reliable-actors-diagnostics.md#keywords).
 
 ```json
 "EtwEventSourceProviderConfiguration": [

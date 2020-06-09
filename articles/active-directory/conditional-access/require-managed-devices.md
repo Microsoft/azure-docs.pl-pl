@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 06/08/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a3c71534febc3cdb6429d3092225ebc73f6cbe7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ec6e0f7405d29cb89fd8ba701b52678ca939596
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481487"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558711"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrukcje: wymaganie zarządzanych urządzeń dla dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego
 
@@ -30,7 +30,7 @@ Wymaganie, aby zarządzane urządzenia dla dostępu do aplikacji w chmurze były
 
 - **[Dostęp warunkowy w Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** — ten artykuł zawiera omówienie pojęć dotyczących dostępu warunkowego i powiązanej terminologii.
 - **[Wprowadzenie do zarządzania urządzeniami w Azure Active Directory](../devices/overview.md)** — ten artykuł zawiera omówienie różnych opcji, które należy wykonać, aby uzyskać dostęp do urządzeń objętych kontrolą organizacyjną. 
-- Aby uzyskać pomoc techniczną dla programu Chrome w **aktualizacji systemu Windows 10 dla twórców (wersja 1703)** lub nowszą, zainstaluj [rozszerzenie konta systemu Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). To rozszerzenie jest wymagane, gdy zasady dostępu warunkowego wymagają szczegółowych informacji o urządzeniu.
+- Aby uzyskać pomoc techniczną dla programu Chrome w **aktualizacji systemu Windows 10 dla twórców (wersja 1703)** lub nowszą, zainstaluj [rozszerzenie konta systemu Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). To rozszerzenie jest wymagane, gdy zasady dostępu warunkowego wymagają szczegółowych informacji dotyczących urządzenia.
 
 >[!NOTE] 
 > Zalecamy korzystanie z zasad dostępu warunkowego opartego na urządzeniach z usługą Azure AD w celu uzyskania najlepszego wymuszenia po początkowym uwierzytelnianiu urządzenia. Obejmuje to zamykanie sesji, jeśli urządzenie przestanie być zgodne i przepływ kodu urządzenia.
@@ -97,6 +97,8 @@ W przypadku urządzenia oznaczonego jako zgodnego można założyć, że:
 - Urządzenie i jego aplikacje są zgodne z wymaganiami firmy dotyczącymi zabezpieczeń
 
 ### <a name="known-behavior"></a>Znane zachowanie
+
+W przypadku korzystania z [przepływu OAuth przy użyciu kodu urządzenia](../develop/v2-oauth2-device-code.md)nie jest obsługiwana kontrola Wymagaj zarządzanego urządzenia lub stanu urządzenia. Wynika to z faktu, że urządzenie wykonujące uwierzytelnianie nie może dostarczyć stanu urządzenia do urządzenia dostarczającego kod, a stan urządzenia w tokenie jest zablokowany na urządzeniu, na którym jest wykonywane uwierzytelnianie. Zamiast tego użyj kontrolki Wymagaj uwierzytelniania wieloskładnikowego.
 
 W systemach Windows 7, iOS, Android, macOS i niektórych przeglądarkach sieci Web innych firm usługa Azure AD identyfikuje urządzenie przy użyciu certyfikatu klienta, który jest inicjowany, gdy urządzenie jest zarejestrowane w usłudze Azure AD. Gdy użytkownik po raz pierwszy zaloguje się za pomocą przeglądarki, użytkownik jest monitowany o wybranie certyfikatu. Użytkownik końcowy musi wybrać ten certyfikat, zanim będzie mógł kontynuować korzystanie z przeglądarki.
 

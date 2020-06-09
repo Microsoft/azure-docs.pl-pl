@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdf904bb2c0d133ea07cd32274fad5b6601da5d9
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: a9e34b63017eae61a886bcff8faffa2910783f3e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148127"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559135"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -76,7 +76,7 @@ Okres istnienia tokenu dostępu zostanie zwiększony do 24 godzin w sesjach CAE.
 1. Dostawca zasobów przedstawia token dostępu. Dostawca zasobów szacuje ważność tokenu i sprawdza, czy istnieją jakieś zdarzenia odwołania dla użytkownika. Dostawca zasobów używa tych informacji do podejmowania decyzji o udzieleniu dostępu do zasobu.
 1. W takim przypadku dostawca zasobów nie zezwala na dostęp i wysyła żądanie 401 + żądanie do klienta
 1. Klient z obsługą CAE rozumie wyzwanie 401 i roszczeń. Pomija pamięć podręczną i wraca do kroku 1, wysyłając token odświeżania wraz z wezwaniem do usługi Azure AD. Usługa Azure AD będzie następnie ponownie szacować wszystkie warunki i monitować użytkownika o ponowne uwierzytelnienie w tym przypadku.
- 
+
 ## <a name="faqs"></a>Często zadawane pytania
 
 ### <a name="what-is-the-lifetime-of-my-access-token"></a>Jaki jest okres istnienia tokenu dostępu?

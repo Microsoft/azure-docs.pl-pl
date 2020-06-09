@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63486d6ee627d3b321978fb9f0268d15a8a86f34
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264247"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488192"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Samouczek: Tworzenie przepływów użytkowników w Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 W tym samouczku przedstawiono sposób tworzenia niektórych zalecanych przepływów użytkowników przy użyciu Azure Portal. Jeśli szukasz informacji o sposobie konfigurowania przepływu poświadczeń hasła właściciela zasobu (ROPC) w aplikacji, zobacz [Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure AD B2C](configure-ropc.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -68,7 +68,7 @@ Przepływ użytkowników rejestracji i logowania obsługuje zarówno środowisko
 ### <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
 1. Wybierz utworzony przepływ użytkownika, aby otworzyć jego stronę przeglądu, a następnie wybierz pozycję **Uruchom przepływ użytkownika**.
-1. W przypadku **aplikacji**wybierz aplikację sieci Web o nazwie *webapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany `https://jwt.ms` **adres URL odpowiedzi** .
+1. W przypadku **aplikacji**wybierz aplikację sieci Web o nazwie *webapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Kliknij pozycję **Uruchom przepływ użytkownika**, a następnie wybierz pozycję **Utwórz konto teraz**.
 
     ![Uruchom stronę przepływu użytkownika w portalu z wyróżnionym przyciskiem Uruchom przepływ użytkownika](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
@@ -92,7 +92,7 @@ Jeśli chcesz umożliwić użytkownikom edytowanie ich profilu w aplikacji, Uży
 ### <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
 1. Wybierz utworzony przepływ użytkownika, aby otworzyć jego stronę przeglądu, a następnie wybierz pozycję **Uruchom przepływ użytkownika**.
-1. W przypadku **aplikacji**wybierz aplikację sieci Web o nazwie *webapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany `https://jwt.ms` **adres URL odpowiedzi** .
+1. W przypadku **aplikacji**wybierz aplikację sieci Web o nazwie *webapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Kliknij pozycję **Uruchom przepływ użytkownika**, a następnie zaloguj się przy użyciu utworzonego wcześniej konta.
 1. Teraz można zmienić nazwę wyświetlaną i stanowisko użytkownika. Kliknij przycisk **Kontynuuj**. Token jest zwracany do `https://jwt.ms` i powinien być wyświetlony.
 
@@ -111,7 +111,7 @@ Aby umożliwić użytkownikom aplikacji Resetowanie hasła, należy użyć przep
 ### <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
 1. Wybierz utworzony przepływ użytkownika, aby otworzyć jego stronę przeglądu, a następnie wybierz pozycję **Uruchom przepływ użytkownika**.
-1. W przypadku **aplikacji**wybierz aplikację sieci Web o nazwie *webapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany `https://jwt.ms` **adres URL odpowiedzi** .
+1. W przypadku **aplikacji**wybierz aplikację sieci Web o nazwie *webapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Kliknij pozycję **Uruchom przepływ użytkownika**, Sprawdź adres e-mail konta, które zostało utworzone wcześniej, a następnie wybierz pozycję **Kontynuuj**.
 1. Masz teraz możliwość zmiany hasła dla użytkownika. Zmień hasło i wybierz pozycję **Kontynuuj**. Token jest zwracany do `https://jwt.ms` i powinien być wyświetlony.
 

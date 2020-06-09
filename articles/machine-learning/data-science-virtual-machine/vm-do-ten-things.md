@@ -5,16 +5,17 @@ description: Wykonuj zadania eksploracji i modelowania danych w Data Science Vir
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: acada42cd50d607925d7c4583820c2590ff76639
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: f59ee4a21581310a0729079cd25afa1c683071cd
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266563"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84552713"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dziesięć rzeczy, które możesz wykonać w Data Science Virtual Machine systemu Windows
 
@@ -129,7 +130,7 @@ IrisPredictor(3,2,3,4)
 ```
 
 ### <a name="build-and-operationalize-r-models"></a>Tworzenie i operacjonalizować modeli R
-Można wdrażać modele języka R utworzone na Data Science Virtual Machine lub w innym miejscu Azure Machine Learning w taki sposób, aby były podobne do języka Python. Oto odpowiednie kroki:
+Można wdrażać modele języka R utworzone na Data Science Virtual Machine lub w innym miejscu Azure Machine Learning w taki sposób, aby były podobne do języka Python. Oto kroki do wykonania:
 
 1. Utwórz plik Settings. JSON, aby podać identyfikator obszaru roboczego i token uwierzytelniania. 
 2. Napisz otokę dla funkcji przewidywania modelu.

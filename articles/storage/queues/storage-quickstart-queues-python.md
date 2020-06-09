@@ -7,12 +7,13 @@ ms.date: 12/10/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: d6ccd3cc61f9d8244874823be76496a4f4e1073c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 0ab8cb56b29460911f2cfe8b711a07329ee739d6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78199771"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553179"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla języka Python
 
@@ -28,7 +29,7 @@ Użyj biblioteki klienta usługi Azure queue storage V12 dla języka Python, aby
 * Usuwanie komunikatów z kolejki
 * Usuwanie kolejki
 
-[API reference documentation](https://docs.microsoft.com/python/api/azure-storage-queue/index) |  | [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples) pakietu | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)dokumentacji interfejsu API[(indeks pakietu języka Python)](https://pypi.org/project/azure-storage-queue/)
+[Dokumentacja](https://docs.microsoft.com/python/api/azure-storage-queue/index)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)  |  źródłowy biblioteki [Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-storage-queue/)  |  [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -165,7 +166,7 @@ Dodaj ten kod na końcu `try` bloku:
 
 ### <a name="add-messages-to-a-queue"></a>Dodawanie komunikatów do kolejki
 
-Poniższy fragment kodu dodaje komunikaty do kolejki, wywołując metodę [send_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) . Zapisuje także [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage) zwracane z trzeciego `send_message` wywołania. `saved_message` Służy do aktualizacji zawartości wiadomości w dalszej części tego programu.
+Poniższy fragment kodu dodaje komunikaty do kolejki, wywołując metodę [send_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) . Zapisuje także [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage) zwracane z trzeciego `send_message` wywołania. `saved_message`Służy do aktualizacji zawartości wiadomości w dalszej części tego programu.
 
 Dodaj ten kod na końcu `try` bloku:
 
@@ -180,7 +181,7 @@ Dodaj ten kod na końcu `try` bloku:
 
 ### <a name="peek-at-messages-in-a-queue"></a>Wgląd w wiadomości w kolejce
 
-Zajrzyj do komunikatów w kolejce, wywołując metodę [peek_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) . `peek_messages` Metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
+Zajrzyj do komunikatów w kolejce, wywołując metodę [peek_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) . `peek_messages`Metoda pobiera co najmniej jeden komunikat z przodu kolejki, ale nie zmienia widoczności komunikatu.
 
 Dodaj ten kod na końcu `try` bloku:
 
@@ -197,7 +198,7 @@ Dodaj ten kod na końcu `try` bloku:
 
 ### <a name="update-a-message-in-a-queue"></a>Aktualizowanie komunikatu w kolejce
 
-Zaktualizuj zawartość komunikatu, wywołując metodę [update_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) . `update_message` Metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością można przekazać wartości z wiadomości zapisanej wcześniej w kodzie. `saved_message` Wartości identyfikują, którą wiadomość należy zaktualizować.
+Zaktualizuj zawartość komunikatu, wywołując metodę [update_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) . `update_message`Metoda może zmienić limit czasu i treść wiadomości. Zawartość komunikatu musi być ciągiem zakodowanym w formacie UTF-8, który ma rozmiar do 64 KB. Wraz z nową zawartością można przekazać wartości z wiadomości zapisanej wcześniej w kodzie. `saved_message`Wartości identyfikują, którą wiadomość należy zaktualizować.
 
 ```python
     print("\nUpdating the third message in the queue...")
@@ -224,7 +225,7 @@ Dodaj ten kod na końcu `try` bloku:
 
 Usuwanie wiadomości z kolejki po ich odebraniu i przetworzeniu. W takim przypadku przetwarzanie właśnie wyświetla komunikat w konsoli programu.
 
-Aplikacja wstrzymuje się do wprowadzania danych przez użytkownika `input` , wywołując przed przetworzeniem i usunięciem komunikatów. Przed usunięciem [Azure Portal](https://portal.azure.com) Sprawdź, czy zasoby zostały utworzone prawidłowo. Wszystkie komunikaty, które nie zostały jawnie usunięte, zostaną ostatecznie wyświetlone w kolejce w celu przetworzenia ich przez inną szansę.
+Aplikacja wstrzymuje się do wprowadzania danych przez użytkownika, wywołując przed przetworzeniem `input` i usunięciem komunikatów. Przed usunięciem [Azure Portal](https://portal.azure.com) Sprawdź, czy zasoby zostały utworzone prawidłowo. Wszystkie komunikaty, które nie zostały jawnie usunięte, zostaną ostatecznie wyświetlone w kolejce w celu przetworzenia ich przez inną szansę.
 
 Dodaj ten kod na końcu `try` bloku:
 

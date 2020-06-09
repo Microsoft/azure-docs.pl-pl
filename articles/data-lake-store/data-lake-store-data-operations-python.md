@@ -7,18 +7,19 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 17b53c508f0c4c5ba8fa257fcdc692cdaa45d470
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 564de3a38d4f3d2c50d49e570986f2d025a11457
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76294222"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560472"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operacje systemu plików na Azure Data Lake Storage Gen1 przy użyciu języka Python
 > [!div class="op_single_selector"]
 > * [Zestaw SDK .NET](data-lake-store-data-operations-net-sdk.md)
 > * [Zestaw SDK Java](data-lake-store-get-started-java-sdk.md)
-> * [INTERFEJS API REST](data-lake-store-data-operations-rest-api.md)
+> * [Interfejs API REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
@@ -38,8 +39,8 @@ W tym artykule dowiesz się, jak używać zestawu SDK języka Python do wykonywa
 Aby można było korzystać z Data Lake Storage Gen1 przy użyciu języka Python, należy zainstalować trzy moduły.
 
 * Moduł `azure-mgmt-resource`, który obejmuje moduły platformy Azure dla usługi Active Directory itp.
-* `azure-mgmt-datalake-store` Moduł, który obejmuje operacje zarządzania kontem Azure Data Lake Storage Gen1. Aby uzyskać więcej informacji na temat tego modułu, zobacz artykuł dotyczący [zarządzania modułem Azure-zarządzanie-datalake-Store](/python/api/azure-mgmt-datalake-store/).
-* `azure-datalake-store` Moduł, który obejmuje operacje systemu plików Azure Data Lake Storage Gen1. Aby uzyskać więcej informacji na temat tego modułu, zobacz artykuł [Azure-datalake-Store — dokumentacja modułu systemowego](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
+* `azure-mgmt-datalake-store`Moduł, który obejmuje operacje zarządzania kontem Azure Data Lake Storage Gen1. Aby uzyskać więcej informacji na temat tego modułu, zobacz artykuł dotyczący [zarządzania modułem Azure-zarządzanie-datalake-Store](/python/api/azure-mgmt-datalake-store/).
+* `azure-datalake-store`Moduł, który obejmuje operacje systemu plików Azure Data Lake Storage Gen1. Aby uzyskać więcej informacji na temat tego modułu, zobacz artykuł [Azure-datalake-Store — dokumentacja modułu systemowego](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
 
 Użyj następujących poleceń, aby zainstalować moduły.
 
@@ -82,7 +83,7 @@ pip install azure-datalake-store
 
 3. Zapisz zmiany w aplikacji mysample.py.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 W tej sekcji omówione zostaną różne sposoby uwierzytelniania w usłudze Azure AD. Dostępne opcje:
 

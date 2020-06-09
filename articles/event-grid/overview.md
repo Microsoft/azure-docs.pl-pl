@@ -2,19 +2,19 @@
 title: Co to jest usługa Azure Event Grid?
 description: Wysyłaj dane zdarzenia ze źródła do procedury obsługi za pomocą usługi Azure Event Grid. Twórz aplikacje oparte na zdarzeniach i integruj z usługami platformy Azure.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
 ms.date: 02/20/2020
-ms.author: babanisa
+ms.author: femila
 ms.custom: seodec18
-ms.openlocfilehash: 75ee828c659aba895f65d0cf14070966428a1d19
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 38f0218a7dedd243cccfab4b0b5ecfb73d3a626a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682514"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560302"
 ---
 # <a name="what-is-azure-event-grid"></a>Co to jest usługa Azure Event Grid?
 

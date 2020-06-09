@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe9c9f44c42ef1e8dd6ff3401ad7201b174aa952
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 53ac540950dc6f64107ee20448b2c24981837b05
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725299"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558504"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
 Zespół Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect za pomocą nowych funkcji i funkcji. Nie wszystkie dodatki są stosowane dla wszystkich odbiorców.
@@ -569,7 +569,7 @@ Zablokuj dostęp do konta AD DS, implementując następujące zmiany uprawnień 
 *   Usuń wszystkie wpisy kontroli dostępu do określonego obiektu, z wyjątkiem ACE określonych dla siebie. Chcemy zachować domyślne uprawnienia, które są niezmienione, gdy nastąpi samodzielne.
 *   Przypisz te określone uprawnienia:
 
-Typ     | Nazwa                          | Dostęp               | Dotyczy:
+Typ     | Nazwa                          | Access               | Dotyczy:
 ---------|-------------------------------|----------------------|--------------|
 Zezwalaj    | SYSTEM                        | Pełna kontrola         | Ten obiekt  |
 Zezwalaj    | Enterprise Admins             | Pełna kontrola         | Ten obiekt  |
@@ -1055,7 +1055,7 @@ Synchronizacja programu Azure AD Connect
 
 Logowanie jednokrotne na komputerze
 
-* Kreator Azure AD Connect nie wymaga już otwarcia portu 9090 w sieci podczas konfigurowania uwierzytelniania przekazywanego i logowania jednokrotnego na pulpicie. Wymagany jest tylko port 443. 
+* Kreator Azure AD Connect nie wymaga już otwarcia portu 9090 w sieci podczas konfigurowania uwierzytelniania przekazywanego i logowania jednokrotnego na pulpicie. Wymagany jest tylko port 443.
 
 ## <a name="114430"></a>wersji 1.1.443.0
 Wydanie: marzec 2017

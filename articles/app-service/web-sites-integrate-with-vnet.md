@@ -4,29 +4,25 @@ description: Integruj aplikację w Azure App Service z sieciami wirtualnymi plat
 author: ccompy
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 06/08/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7df06ea7ff07907a292bdcc32e66aafa44ae68
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: ee2c279db7dde0e3e6acadb318c470813dccc7a3
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170787"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488799"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrowanie aplikacji z siecią wirtualną platformy Azure
 
-W tym artykule opisano funkcję integracji sieci wirtualnej Azure App Service i sposób konfigurowania jej przy użyciu aplikacji w programie [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Korzystając z [usługi azure Virtual Network][VNETOverview] (sieci wirtualnych), możesz umieścić wiele zasobów platformy Azure w sieci bez obsługi Internetu.
+W tym artykule opisano funkcję integracji sieci wirtualnej Azure App Service i sposób konfigurowania jej przy użyciu aplikacji w programie [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Korzystając z [usługi azure Virtual Network][VNETOverview] (sieci wirtualnych), możesz umieścić wiele zasobów platformy Azure w sieci bez obsługi Internetu. Funkcja integracji sieci wirtualnej umożliwia aplikacjom dostęp do zasobów w sieci wirtualnej lub przez sieć wirtualną. Integracja z siecią wirtualną nie umożliwia prywatnym dostępu do Twoich aplikacji.
 
-Azure App Service ma dwie odmiany:
+Azure App Service ma dwie odmiany funkcji integracji sieci wirtualnej:
 
 [!INCLUDE [app-service-web-vnet-types](../../includes/app-service-web-vnet-types.md)]
 
 ## <a name="enable-vnet-integration"></a>Włącz integrację sieci wirtualnej
-
-> [!NOTE]
-> Jeśli blok "Sieć" jest wyłączony (wyszarzony) w menu dla aplikacji systemu Linux, oznacza to, że ta funkcja jest obecnie niedostępna.
->
 
 1. Przejdź do interfejsu użytkownika **sieci** w portalu App Service. W obszarze integracja z siecią **wirtualną**wybierz **pozycję kliknij tutaj, aby ją skonfigurować**.
 
@@ -75,8 +71,8 @@ Integracja sieci wirtualnej wymagana przez bramę obsługuje łączenie z sieci�
 
 Nie można używać integracji sieci wirtualnej wymaganej przez bramę:
 
-* Z aplikacjami systemu Linux.
 * Z siecią wirtualną połączoną z usługą Azure ExpressRoute.
+* Z poziomu aplikacji systemu Linux
 * Aby uzyskać dostęp do zabezpieczonych zasobów punktu końcowego usługi.
 * Z bramą współistnienia obsługującą zarówno ExpressRoute, jak i sieci VPN typu lokacja-lokacja.
 

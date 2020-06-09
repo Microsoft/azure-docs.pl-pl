@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: ad9c0f29ee10197c4dafe6ca24ee4df7b7afdb88
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: fec11b930be0487a7fbc0968c3c8a8003a2fb911
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485365"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559265"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Wykonywanie operacji zbiorczych w usłudze Azure Cosmos DB przy użyciu biblioteki funkcji wykonawczej Java operacji zbiorczych
 
 Ten samouczek zawiera instrukcje dotyczące korzystania z biblioteki języka Java modułu wykonawczego Azure Cosmos DB do importowania i aktualizowania Azure Cosmos DB dokumentów. Aby dowiedzieć się więcej o bibliotece narzędzia do wykonywania zbiorczego i jak można wykorzystać ogromną przepływność i magazyn, zobacz artykuł [Omówienie biblioteki wykonawców zbiorczych](bulk-executor-overview.md) . W tym samouczku utworzysz aplikację Java, która generuje losowe dokumenty i są one zbiorczo importowane do kontenera usługi Azure Cosmos. Po zaimportowaniu zbiorczo należy zaktualizować niektóre właściwości dokumentu. 
 
-Obecnie Biblioteka wykonawców zbiorczych jest obsługiwana tylko przez Azure Cosmos DB z INTERFEJSem API SQL i kontami interfejsu API Gremlin. W tym artykule opisano sposób użycia zbiorczej procedury tworzenia biblioteki Java z kontami interfejsu API SQL. Aby dowiedzieć się więcej o używaniu zbiorczej biblioteki .NET Library z interfejsem API Gremlin, zobacz [wykonywanie operacji zbiorczych w interfejsie API usługi Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md). Opisana biblioteka wykonawczy Bulk jest dostępna dla aplikacji korzystających z wersji zestawu Java SDK 2. x. Nie jest ona obecnie dostępna dla 3. x, 4. x lub innych wersji zestawu SDK.
+Obecnie Biblioteka wykonawców zbiorczych jest obsługiwana tylko przez Azure Cosmos DB z INTERFEJSem API SQL i kontami interfejsu API Gremlin. W tym artykule opisano sposób użycia zbiorczej procedury tworzenia biblioteki Java z kontami interfejsu API SQL. Aby dowiedzieć się więcej o używaniu zbiorczej biblioteki .NET Library z interfejsem API Gremlin, zobacz [wykonywanie operacji zbiorczych w interfejsie API usługi Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md). Opisana biblioteka wykonawczy Bulk jest dostępna tylko dla [Azure Cosmos DB Java Sync SDK V2](sql-api-sdk-java.md) i jest obecnie zalecanym rozwiązaniem dla obsługi zbiorczej Java. Nie jest ona obecnie dostępna dla 3. x, 4. x lub innych wersji zestawu SDK.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

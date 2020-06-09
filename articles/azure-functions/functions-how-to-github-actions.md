@@ -5,12 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
-ms.openlocfilehash: dedca6912fd9d9e7b6f5089d02de9e4020e4e0ef
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: tracking-python
+ms.openlocfilehash: 1a7cc37f297f902fb5de473303f1dc260cbea9ca
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83122339"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559105"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Ciągłe dostarczanie za pomocą akcji GitHub
 
@@ -26,7 +27,7 @@ W przypadku przepływu pracy Azure Functions plik ma trzy sekcje:
 | ------- | ----- |
 | **Authentication** | <ol><li>Zdefiniuj nazwę główną usługi.</li><li>Pobierz profil publikowania.</li><li>Utwórz wpis tajny usługi GitHub.</li></ol>|
 | **Kompilacja** | <ol><li>Skonfiguruj środowisko.</li><li>Kompiluj aplikację funkcji.</li></ol> |
-| **Wdróż** | <ol><li>Wdróż aplikację funkcji.</li></ol>|
+| **Wdrażanie** | <ol><li>Wdróż aplikację funkcji.</li></ol>|
 
 > [!NOTE]
 > Nie trzeba tworzyć jednostki usługi, jeśli zdecydujesz się na użycie profilu publikowania na potrzeby uwierzytelniania.
@@ -101,7 +102,7 @@ Poniższy przykład przedstawia część przepływu pracy, który używa `action
         python-version: 3.6
 ```
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Poniższy przykład przedstawia część przepływu pracy, który używa `actions/setup-dotnet` akcji do skonfigurowania środowiska:
 
@@ -169,7 +170,7 @@ Poniższy przykład przedstawia część przepływu pracy, który kompiluje apli
         popd
 ```
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'

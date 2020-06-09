@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d4e7077c338586298c5e7f0805c3d47b08a7a108
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 149ac61e4737faa81e55fac3e07133c73bbc00d5
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184337"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488124"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Szybki Start: tablica wskaźnikowa platformy Azure
 
@@ -57,6 +57,9 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
    > - Domyślne obszary robocze utworzone przez Azure Security Center nie będą wyświetlane na liście; nie można zainstalować na nich wskaźnikiem na platformie Azure.
    > - Wskaźnik "Azure" może działać w obszarach roboczych w dowolnym [regionie log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chińska i Niemcy (suwerenne). Dane generowane przez wskaźnik na platformie Azure (takie jak zdarzenia, zakładki i reguły alertów, które mogą zawierać niektóre dane klienta pochodzące z tych obszarów roboczych) są zapisywane w Europie (dla obszarów roboczych znajdujących się w Europie), w Australii (dla obszarów roboczych znajdujących się w Australii) lub w regionie Wschodnie stany USA (dla obszarów roboczych znajdujących się w innym regionie).
 
+   >[!IMPORTANT]
+   > - Po włączeniu funkcji wskaźnikowej platformy Azure w obszarze roboczym przeniesienie tego obszaru roboczego do innych grup zasobów lub subskrypcji nie jest obsługiwane. Jeśli musisz przenieść obszar roboczy, skontaktuj się z pomocą techniczną, aby uzyskać wskazówki.
+
 1. Wybierz pozycję **Dodaj wskaźnik platformy Azure**.
   
 
@@ -65,7 +68,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
 Usługa Azure wskaźnikowego tworzy połączenie z usługami i aplikacjami przez połączenie się z usługą i przekazanie zdarzeń i dzienników do funkcji wskaźnikowej platformy Azure. W przypadku maszyn i maszyn wirtualnych można zainstalować agenta wskaźnikowego platformy Azure, który zbiera dzienniki i przekazuje je do usługi Azure wskaźnikowej. W przypadku zapór i serwerów proxy usługa Azure użytks wykorzystuje serwer dziennika systemu Linux. Agent jest zainstalowany na nim i z którego Agent zbiera pliki dziennika i przekazuje je do usługi Azure wskaźnikowej. 
  
 1. Kliknij pozycję **Łączniki danych**.
-2. Istnieje kafelek dla każdego źródła danych, które można połączyć.<br>
+1. Istnieje kafelek dla każdego źródła danych, które można połączyć.<br>
 Na przykład kliknij pozycję **Azure Active Directory**. Jeśli połączysz to źródło danych, przesyłasz strumieniowo wszystkie dzienniki z usługi Azure AD do usługi Azure wskaźnikowej. Możesz wybrać typ dzienników sieci WAN do pobrania i/lub dzienników inspekcji. <br>
 Na dole wskaźnik na platformie Azure obejmuje zalecenia dotyczące tego, które skoroszyty należy zainstalować dla każdego łącznika, dzięki czemu można natychmiast uzyskać interesujące informacje w danych. <br> Postępuj zgodnie z instrukcjami instalacji lub [zapoznaj się z odpowiednim przewodnikiem połączenia](connect-data-sources.md) , aby uzyskać więcej informacji. Aby uzyskać informacje na temat łączników danych, zobacz [łączenie usług firmy Microsoft](connect-data-sources.md).
 

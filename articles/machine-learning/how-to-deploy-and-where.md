@@ -10,13 +10,13 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/28/2020
-ms.custom: seoapril2019
-ms.openlocfilehash: 3b1dd474b3b5518029e7cf404cc88b97bfa23e36
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: seoapril2019, tracking-python
+ms.openlocfilehash: c0cf361cc00466a8ddf098b52bfaacc2fa63dad4
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433493"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559435"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -581,8 +581,8 @@ W poniższej tabeli opisano różne stany usług:
 | Przechodzenie | Usługa jest w trakcie wdrażania. | Nie |
 | Nieprawidłowy | Usługa została wdrożona, ale jest obecnie nieosiągalna.  | Nie |
 | Unschedulable | Nie można teraz wdrożyć usługi z powodu braku zasobów. | Nie |
-| Niepowodzenie | Wdrożenie usługi nie powiodło się z powodu błędu lub awarii. | Tak |
-| Dobra kondycja | Usługa jest w dobrej kondycji, a punkt końcowy jest dostępny. | Tak |
+| Niepowodzenie | Wdrożenie usługi nie powiodło się z powodu błędu lub awarii. | Yes |
+| Dobra kondycja | Usługa jest w dobrej kondycji, a punkt końcowy jest dostępny. | Yes |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Usługa sieci Web wystąpienia obliczeniowego (Tworzenie i testowanie)
 
@@ -961,7 +961,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-Po utworzeniu pakietu można użyć `package.pull()` programu w celu ściągnięcia obrazu do lokalnego środowiska platformy Docker. W danych wyjściowych tego polecenia zostanie wyświetlona nazwa obrazu. Przykład: 
+Po utworzeniu pakietu można użyć `package.pull()` programu w celu ściągnięcia obrazu do lokalnego środowiska platformy Docker. W danych wyjściowych tego polecenia zostanie wyświetlona nazwa obrazu. Na przykład: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 

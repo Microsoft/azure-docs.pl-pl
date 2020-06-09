@@ -7,33 +7,35 @@ manager: nitinme
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 8324ca0184c508591fa4568175bad0f606f952a8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 061907783d21372f0e926e529730e9e82b7a4ddb
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369450"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488770"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Szybki Start: Tworzenie indeksu Wyszukiwanie poznawcze platformy Azure w Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
-> * [S #](search-get-started-dotnet.md)
+> * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Node.js](search-get-started-nodejs.md)
-> * [PowerShell](search-get-started-powershell.md)
+> * [Program PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Użyj kreatora **importu danych** portalu i narzędzi **Eksploratora wyszukiwania** , aby szybko uzyskać dostęp do koncepcji i napisać interesujące zapytania względem indeksu w ciągu kilku minut.
+Kreator **importu danych** to narzędzie Azure Portal, które przeprowadzi Cię przez proces tworzenia indeksu wyszukiwania, aby można było pisać interesujące zapytania w ciągu kilku minut. 
 
-Jeśli narzędzia są zbyt ograniczone, można rozważyć [wprowadzenie kodu do programowania platformy Azure wyszukiwanie poznawcze w programie .NET](search-howto-dotnet-sdk.md) lub użycie [programu do tworzenia wywołań interfejsu API REST](search-get-started-postman.md). 
-
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Kreator zawiera również strony do wzbogacania, dzięki czemu można wyodrębnić tekst i strukturę z plików obrazów i tekstu bez struktury. Przetwarzanie zawartości przy użyciu obrazu AI obejmuje optyczne rozpoznawanie znaków (OCR), frazę klucza i wyodrębnianie jednostek oraz analizę obrazu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-[Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
+Przed rozpoczęciem należy wykonać następujące czynności:
+
++ Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/).
+
++ Usługa Wyszukiwanie poznawcze platformy Azure. [Utwórz usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
 
 ### <a name="check-for-space"></a>Sprawdzanie ilości wolnego miejsca
 
@@ -51,15 +53,17 @@ W tym samouczku użyjemy wbudowanego przykładowego zestawu danych, który możn
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Krok 1 — Uruchomienie Kreatora importowania danych i utworzenie źródła danych
 
-1. Na pulpicie nawigacyjnym usługi Azure Wyszukiwanie poznawcze kliknij pozycję **Importuj dane** na pasku poleceń, aby utworzyć i wypełnić indeks wyszukiwania.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
+
+1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd kliknij pozycję **Importuj dane** na pasku poleceń, aby utworzyć i wypełnić indeks wyszukiwania.
 
    ![Polecenie importu danych](media/search-get-started-portal/import-data-cmd.png)
 
-2. W Kreatorze kliknij pozycję **Połącz z danymi** > **Samples** > **przykładowymi hoteli**. To źródło danych jest wbudowane. Podczas tworzenia własnego źródła danych należy określić nazwę, typ i informacje o połączeniu. Po utworzeniu staje się ono „istniejącym źródłem danych”, które może zostać ponownie użyte w innych operacjach importu.
+1. W Kreatorze kliknij pozycję **Połącz z danymi**  >  **Samples**  >  **przykładowymi hoteli**. To źródło danych jest wbudowane. Podczas tworzenia własnego źródła danych należy określić nazwę, typ i informacje o połączeniu. Po utworzeniu staje się ono „istniejącym źródłem danych”, które może zostać ponownie użyte w innych operacjach importu.
 
    ![Wybieranie przykładowego zestawu danych](media/search-get-started-portal/import-datasource-sample.png)
 
-3. Przejdź do następnej strony.
+1. Przejdź do następnej strony.
 
 ### <a name="step-2---skip-the-enrich-content-page"></a>Krok 2. pomijanie strony "wzbogacanie zawartości"
 
@@ -193,7 +197,7 @@ Filtry aspektów są uwzględniane w żądaniach wyszukiwania. Korzystając z pa
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Przykład (aspektowe ze zmniejszeniem zakresu): `search=*&facet=Category&$top=2`
 
 * Parametr **search=*** to puste wyszukiwanie. Puste wyszukiwania umożliwiają znalezienie wszystkiego. Jednym z powodów przesłania pustego zapytania może być potrzeba przeprowadzenia filtrowania lub utworzenia aspektów pełnego zestawu dokumentów. Na przykład, chcesz, aby struktura nawigacji aspektów zawierała wszystkie hotele w indeksie.
-* Parametr **facet** zwraca strukturę nawigacji, którą można przekazać do kontrolki interfejsu użytkownika. Zwraca ona kategorie i liczbę elementów. W takim przypadku kategorie są oparte na polu wygodnie o nazwie *Category*. Na platformie Azure Wyszukiwanie poznawcze nie ma agregacji, ale można przybliżyć agregację za pośrednictwem `facet`, co daje liczbę dokumentów w każdej kategorii.
+* Parametr **facet** zwraca strukturę nawigacji, którą można przekazać do kontrolki interfejsu użytkownika. Zwraca ona kategorie i liczbę elementów. W takim przypadku kategorie są oparte na polu wygodnie o nazwie *Category*. Na platformie Azure Wyszukiwanie poznawcze nie ma agregacji, ale można przybliżyć agregację za pośrednictwem `facet` , co daje liczbę dokumentów w każdej kategorii.
 
 * Parametr **$top=2** powoduje zwrócenie dwóch dokumentów, co pokazuje, że za pomocą parametru `top` możesz zmniejszyć lub zwiększyć liczbę wyników.
 

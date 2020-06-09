@@ -3,14 +3,14 @@ title: Tworzenie Azure Functions w systemie Linux przy użyciu obrazu niestandar
 description: Informacje o sposobie tworzenia usługi Azure Functions działającej w niestandardowym obrazie systemu Linux.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 65fa62e0e21eea44ebd1d0948e71ad1d552d4d68
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: bb9fc07c0c909f1fcec1644175c1dbac1e2bbb57
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345159"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560917"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Tworzenie funkcji w systemie Linux przy użyciu kontenera niestandardowego
 
@@ -18,7 +18,7 @@ W tym samouczku utworzysz i wdrożono kod w celu Azure Functions jako niestandar
 
 Można również użyć domyślnego kontenera Azure App Service, zgodnie z opisem w temacie [Tworzenie pierwszej funkcji hostowanej w systemie Linux](functions-create-first-azure-function-azure-cli-linux.md). Obsługiwane obrazy podstawowe dla Azure Functions są dostępne w [repozytorium Azure Functions obrazów podstawowych](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz aplikację funkcji i pliku dockerfile przy użyciu Azure Functions Core Tools.

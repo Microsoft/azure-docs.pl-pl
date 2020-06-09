@@ -6,18 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ff257e101ca925a554f2343d357e2042d2930b45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 1683fba2d8f085569c7cc62a06d0fe95803d4346
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062392"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559194"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Jak połączyć aplikacje z usługą Azure Database for MySQL
 W tym temacie wymieniono typy parametrów połączenia, które są obsługiwane przez Azure Database for MySQL wraz z szablonami i przykładami. W parametrach połączenia mogą istnieć inne parametry i ustawienia.
 
 - Aby uzyskać certyfikat, zobacz [jak skonfigurować protokół SSL](./howto-configure-ssl.md).
-- {your_host} = \<ServerName>. MySQL.Database.Azure.com
+- {your_host} = \<servername> . MySQL.Database.Azure.com
 - {your_user} @ {ServerName} = format identyfikatora użytkownika w celu poprawnego uwierzytelniania.  Jeśli używasz tylko identyfikatora użytkownika, uwierzytelnienie zakończy się niepowodzeniem.
 
 ## <a name="adonet"></a>ADO.NET
@@ -25,7 +26,7 @@ W tym temacie wymieniono typy parametrów połączenia, które są obsługiwane 
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-W tym przykładzie nazwa serwera `mydemoserver`to, nazwa bazy danych `wpdb`, nazwa `WPAdmin`użytkownika i hasło. `mypassword!2` W związku z tym parametry połączenia powinny być następujące:
+W tym przykładzie nazwa serwera to, nazwa `mydemoserver` bazy danych, `wpdb` Nazwa użytkownika `WPAdmin` i hasło `mypassword!2` . W związku z tym parametry połączenia powinny być następujące:
 
 ```ado.net
 Server= "mydemoserver.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
@@ -62,7 +63,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Pobierz szczegóły parametrów połączenia z Azure Portal
-W [Azure Portal](https://portal.azure.com)przejdź do serwera Azure Database for MySQL, a następnie kliknij pozycję **Parametry połączenia** , aby uzyskać listę ciągów dla wystąpienia: ![okienko parametry połączenia w Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+W [Azure Portal](https://portal.azure.com)przejdź do serwera Azure Database for MySQL, a następnie kliknij pozycję **Parametry połączenia** , aby uzyskać listę ciągów dla wystąpienia: ![ okienko parametry połączenia w Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 Ten ciąg zawiera szczegółowe informacje, takie jak sterownik, serwer i inne parametry połączenia z bazą danych. Zmodyfikuj te przykłady, aby użyć własnych parametrów, takich jak nazwa bazy danych, hasło i tak dalej. Tego ciągu można użyć do nawiązania połączenia z serwerem z poziomu kodu i aplikacji.
 

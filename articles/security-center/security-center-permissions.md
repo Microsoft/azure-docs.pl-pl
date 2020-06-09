@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: memildin
-ms.openlocfilehash: a4ecc7f0e11712fa3d664d1227eacb39409bd184
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 2552012678300e944a513f9d7167fa582424bf8f
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418215"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558868"
 ---
 # <a name="permissions-in-azure-security-center"></a>Uprawnienia w usłudze Azure Security Center
 
@@ -40,15 +40,14 @@ Oprócz tych ról istnieją dwie określone role usługi Security Center:
 
 W poniższej tabeli przedstawiono role i dozwolone akcje w Security Center.
 
-| Rola | Edytuj zasady zabezpieczeń | Stosowanie zaleceń dotyczących zabezpieczeń dla zasobu</br> (w tym z opcją "szybkie rozwiązanie!") | Odrzuć alerty | Wyświetlanie alertów i zaleceń |
-|:--- |:---:|:---:|:---:|:---:|
-| Właściciel subskrypcji | ✔ | ✔ | ✔ | ✔ |
-| Współautor subskrypcji | -- | ✔ | ✔ | ✔ |
-| Właściciel grupy zasobów | -- | ✔ | -- | ✔ |
-| Współautor grupy zasobów | -- | ✔ | -- | ✔ |
-| Czytelnik | -- | -- | -- | ✔ |
-| Administrator zabezpieczeń | ✔ | -- | ✔ | ✔ |
-| Czytelnik zabezpieczeń | -- | -- | -- | ✔ |
+|Akcja|Czytelnik zabezpieczeń/ <br> Czytelnik |Administrator zabezpieczeń  |Współautor grupy zasobów/ <br> Właściciel grupy zasobów  |Współautor subskrypcji  |Właściciel subskrypcji  |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+|Edytuj zasady zabezpieczeń|-|✔|-|-|✔|
+|Zmień warstwę cenową subskrypcji|-|✔|-|-|-|
+|Włącz/Wyłącz funkcję autoaprowizacji|-|✔|-|-|-|
+|Stosowanie zaleceń dotyczących zabezpieczeń dla zasobu</br> (i Użyj [szybkiej poprawki!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
+|Odrzuć alerty|-|✔|-|✔|✔|
+|Wyświetlanie alertów i zaleceń|✔|✔|✔|✔|✔|
 
 > [!NOTE]
 > Zaleca się przypisanie użytkownikom najbardziej ograniczonej roli wystarczającej do wykonywania zadań. Na przykład Przypisz rolę czytelnik do użytkowników, którzy muszą jedynie wyświetlać informacje o kondycji zabezpieczeń zasobu, ale nie podejmować działań, takich jak stosowanie zaleceń lub edytowanie zasad.

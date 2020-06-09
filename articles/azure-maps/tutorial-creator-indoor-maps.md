@@ -3,17 +3,17 @@ title: Tworzenie map wewnętrznych przy użyciu kreatora
 description: Użyj Kreatora Azure Maps, aby utworzyć mapy wewnętrzne.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 05/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c27752d7a4b8e99dd70563cece02a4fd4e67bdc1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745939"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560361"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Tworzenie map wewnętrznych przy użyciu kreatora
 
@@ -38,6 +38,9 @@ Aby utworzyć mapy wewnętrzne:
 4. Pobierz [przykładowy pakiet rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 W tym samouczku jest stosowana aplikacja programu [Poster](https://www.postman.com/) , ale można wybrać inne środowisko deweloperskie interfejsu API.
+
+>[!IMPORTANT]
+> Adresy URL interfejsu API w tym dokumencie mogą być dostosowane do lokalizacji Twojego zasobu twórcy. Aby uzyskać więcej informacji, zobacz [dostęp do usługi Creator Services](how-to-manage-creator.md#access-to-creator-services).
 
 ## <a name="upload-a-drawing-package"></a>Przekaż pakiet rysowania
 
@@ -94,7 +97,7 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
 
  Teraz, gdy pakiet do rysowania zostanie przekazany, zostanie użyty `udid` dla przekazanego pakietu do przekonwertowania pakietu na dane mapy. Interfejs API konwersji używa długotrwałej transakcji implementującej wzorzec zdefiniowany w [tym miejscu](creator-long-running-operation.md). Po zakończeniu operacji będziemy korzystać z programu `conversionId` w celu uzyskania dostępu do przekonwertowanych danych. Wykonaj poniższe kroki, aby uzyskać `conversionId` .
 
-1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**.
+1. Wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij pozycję **Zapisz**.
 
 2. Wybierz metodę **post** http na karcie Konstruktor i wprowadź następujący adres URL, aby przekonwertować przekazany pakiet rysowania na dane mapy. Użyj `udid` do przekazanego pakietu.
 

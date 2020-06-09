@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 16dc15b4369904643d0138a4b8e5b94c47868d31
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204938"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488889"
 ---
 # <a name="enable-kdump-service"></a>Włącz usługę kdump
 
@@ -30,14 +30,30 @@ W tym dokumencie opisano szczegółowe informacje dotyczące włączania usługi
 |-----------------------------|--------------|-----------------------|-------------|
 |   Typ I                    |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S224m      |
 |   Typ I                    |  Szło        |   SLES 12 SP4         |  S224m      |
+|   Typ I                    |  Szło        |   SLES 12 SP2         |  S72        |
 |   Typ I                    |  Szło        |   SLES 12 SP2         |  S72m       |
 |   Typ I                    |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S72m       |
 |   Typ I                    |  Szło        |   SLES 12 SP2         |  S96        |
 |   Typ I                    |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S96        |
+|   Typ I                    |  Szło        |   SLES 12 SP2         |  S192       |
+|   Typ I                    |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S192       |
+|   Typ I                    |  Szło        |   SLES 12 SP4         |  S192       |
+|   Typ I                    |  Szło        |   SLES 12 SP2         |  S192m      |
+|   Typ I                    |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S192m      |
+|   Typ I                    |  Szło        |   SLES 12 SP4         |  S192m      |
+|   Typ I                    |  Szło        |   SLES 12 SP2         |  S144       |
+|   Typ I                    |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S144       |
+|   Typ I                    |  Szło        |   SLES 12 SP2         |  S144m      |
+|   Typ I                    |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S144m      |
+|   Typ II                   |  Szło        |   SLES 12 SP2         |  S384       |
 |   Typ II                   |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S384       |
-|   Typ II                   |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S576m      |
+|   Typ II                   |  Szło        |   SLES 12 SP4         |  S384       |
+|   Typ II                   |  Szło        |   SLES 12 SP2         |  S384xm     |
 |   Typ II                   |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S384xm     |
 |   Typ II                   |  Szło        |   SLES 12 SP4         |  S384xm     |
+|   Typ II                   |  Szło        |   SLES 12 SP2         |  S576m      |
+|   Typ II                   |  Szło        |   SLES 12 Z DODATKIEM SP3         |  S576m      |
+|   Typ II                   |  Szło        |   SLES 12 SP4         |  S576m      |
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -68,7 +84,6 @@ W tym dokumencie opisano szczegółowe informacje dotyczące włączania usługi
 - Wyzwalanie awarii jądra
 
     ```bash
-    echo 1 > /proc/sys/kernel/sysrq
     echo c > /proc/sysrq-trigger
     ```
 

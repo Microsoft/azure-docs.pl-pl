@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie zestawu umiejętności w Azure Portal'
+title: Utwórz zestawu umiejętności w Azure Portal
 titleSuffix: Azure Cognitive Search
 description: W tym przewodniku szybki start dowiesz się, jak za pomocą Kreatora importu danych dodać umiejętności poznawcze do potoku indeksowania w usłudze Azure Wyszukiwanie poznawcze. Umiejętności obejmują optyczne rozpoznawanie znaków (OCR) i przetwarzanie języka naturalnego.
 manager: nitinme
@@ -7,35 +7,44 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/20/2019
-ms.openlocfilehash: e2e17ba6af60fa495a03e7d46a07cfe6b66f4e68
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: db9e8f71787026abea74fbbfeed51a227a295601
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77472421"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488957"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Szybki Start: Tworzenie usługi Azure Wyszukiwanie poznawcze poznawcze zestawu umiejętności w Azure Portal
 
-Zestawu umiejętności to funkcja AI, która wyodrębnia informacje i strukturę z dużych nierozróżnianych plików tekstowych lub obrazów, i umożliwia indeksowanie i wyszukiwanie kwerend wyszukiwania pełnotekstowego w usłudze Azure Wyszukiwanie poznawcze. 
+Zestawu umiejętności to funkcja oparta na formacie AI, która wyodrębnia informacje i strukturę z dużych nierozróżnianych plików tekstowych lub obrazów, dzięki czemu zawartość można indeksować i przeszukiwać na platformie Azure Wyszukiwanie poznawcze. 
 
-W tym przewodniku szybki start utworzysz usługi i dane w chmurze platformy Azure, aby utworzyć zestawu umiejętności. Gdy wszystko będzie na miejscu, uruchom kreatora **importowania danych** w portalu, aby ściągnąć wszystkie te elementy. Wynik końcowy to indeks z możliwością wyszukiwania, wypełniony danymi utworzonymi przez przetwarzanie AI, które można badać w portalu ([Eksplorator wyszukiwania](search-explorer.md)).
+W tym przewodniku szybki start utworzysz usługi i dane w chmurze platformy Azure, aby utworzyć zestawu umiejętności. Gdy wszystko będzie na miejscu, uruchom kreatora **importowania danych** w Azure Portal, aby ściągnąć wszystkie jednocześnie. Wynik końcowy to indeks z możliwością wyszukiwania, wypełniony danymi utworzonymi przez przetwarzanie AI, które można badać w portalu ([Eksplorator wyszukiwania](search-explorer.md)).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+## <a name="prerequisites"></a>Wymagania wstępne
 
-## <a name="create-services-and-load-data"></a>Tworzenie usług i ładowanie danych
+Przed rozpoczęciem należy wykonać następujące czynności:
 
-Ten przewodnik Szybki Start używa platformy Azure Wyszukiwanie poznawcze, [usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/)i [usługi Azure COGNITIVE Services dla systemu](https://azure.microsoft.com/services/cognitive-services/) AI. 
++ Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/).
 
-Ponieważ obciążenie jest tak małe, Cognitive Services jest wybierane w tle, aby zapewnić bezpłatne przetwarzanie dla maksymalnie 20 transakcji. W przypadku takiego małego zestawu danych możesz pominąć tworzenie i dołączanie zasobów Cognitive Services.
++ Usługa Wyszukiwanie poznawcze platformy Azure. [Utwórz usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
+
++ Konto usługi Azure Storage z [magazynem obiektów BLOB](https://docs.microsoft.com/azure/storage/blobs/).
+
+> [!NOTE]
+> Ten przewodnik Szybki Start używa również [usługi Azure Cognitive Services dla systemu](https://azure.microsoft.com/services/cognitive-services/) AI. Ze względu na to, że obciążenie jest małe, Cognitive Services jest wybierana w tle, aby można było bezpłatnie przetwarzać do 20 transakcji. Oznacza to, że można wykonać to ćwiczenie bez konieczności tworzenia dodatkowego zasobu Cognitive Services.
+
+## <a name="set-up-your-data"></a>Skonfiguruj dane
+
+W poniższych krokach skonfiguruj kontener obiektów BLOB w usłudze Azure Storage do przechowywania plików zawartości heterogenicznej.
 
 1. [Pobierz przykładowe dane](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) składające się z małego zestawu plików różnych typów. Rozpakuj pliki.
 
 1. [Utwórz konto usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) lub [Znajdź istniejące konto](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
-   Wybierz ten sam region co usługa Azure Wyszukiwanie poznawcze, aby uniknąć naliczania opłat za przepustowość. 
-   
-   Wybierz typ konta StorageV2 (ogólnego przeznaczenia w wersji 2), jeśli chcesz wypróbować funkcję magazynu wiedzy później, w innym instruktażu. W przeciwnym razie wybierz dowolny typ.
+   + Wybierz ten sam region co usługa Azure Wyszukiwanie poznawcze, aby uniknąć naliczania opłat za przepustowość. 
+
+   + Wybierz typ konta StorageV2 (ogólnego przeznaczenia w wersji 2), jeśli chcesz wypróbować funkcję magazynu wiedzy później, w innym instruktażu. W przeciwnym razie wybierz dowolny typ.
 
 1. Otwórz strony usługi BLOB Services i Utwórz kontener. Można użyć domyślnego poziomu dostępu publicznego. 
 
@@ -43,15 +52,15 @@ Ponieważ obciążenie jest tak małe, Cognitive Services jest wybierane w tle, 
 
    ![Pliki źródłowe w usłudze Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. [Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start.
-
 Teraz można przystąpić do przenoszenia Kreatora importu danych.
 
 ## <a name="run-the-import-data-wizard"></a>Uruchom Kreatora importowania danych
 
-Na stronie Przegląd usługi wyszukiwania kliknij pozycję **Importuj dane** na pasku poleceń, aby skonfigurować wzbogacanie poznawcze w czterech krokach.
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
 
-  ![Polecenie importu danych](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
+1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd kliknij pozycję **Importuj dane** na pasku poleceń, aby skonfigurować wzbogacanie poznawcze w czterech krokach.
+
+   ![Polecenie importu danych](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### <a name="step-1---create-a-data-source"></a>Krok 1. Tworzenie źródła danych
 
@@ -87,7 +96,7 @@ Indeks zawiera zawartość z możliwością wyszukiwania, a Kreator **importu da
 
 W przypadku tego przewodnika Szybki start kreator wykonuje dobrą pracę, ustawiając rozsądne wartości domyślne:  
 
-+ Pola domyślne są oparte na właściwościach istniejących obiektów blob, a nowe pola zawierają dane wyjściowe wzbogacania (na `people`przykład `organizations`, `locations`,). Typy danych są wywnioskowane na podstawie metadanych i próbkowania danych.
++ Pola domyślne są oparte na właściwościach istniejących obiektów blob, a nowe pola zawierają dane wyjściowe wzbogacania (na przykład,, `people` `organizations` `locations` ). Typy danych są wywnioskowane na podstawie metadanych i próbkowania danych.
 
 + Domyślny klucz dokumentu jest *metadata_storage_path* (wybrany, ponieważ pole zawiera unikatowe wartości).
 
@@ -97,7 +106,7 @@ W przypadku tego przewodnika Szybki start kreator wykonuje dobrą pracę, ustawi
 
 Zwróć uwagę na przekreślenie i znak zapytania w atrybucie **Możliwość pobierania** obok pola `content`. W przypadku dokumentów obiektów blob z dużą ilością tekstu pole `content` zawiera większą część pliku, która może potencjalnie składać się z tysięcy wierszy. Takie pole jest nieporęczny w wynikach wyszukiwania i należy je wykluczyć dla tej wersji demonstracyjnej. 
 
-Jeśli jednak chcesz przekazać zawartość pliku do kodu klienta, upewnij się, że wybrano opcję **pobierania** . W przeciwnym razie Rozważ wyczyszczenie tego `content` atrybutu w przypadku, gdy wyodrębnione `people`elementy `organizations`( `locations`takie jak,, i tak dalej) są wystarczające.
+Jeśli jednak chcesz przekazać zawartość pliku do kodu klienta, upewnij się, że wybrano opcję **pobierania** . W przeciwnym razie Rozważ wyczyszczenie tego atrybutu w `content` przypadku, gdy wyodrębnione elementy (takie jak `people` ,, `organizations` `locations` i tak dalej) są wystarczające.
 
 Oznaczenie pola jako **Możliwość pobierania** nie oznacza, że pole *musi* znajdować się w wynikach wyszukiwania. Można precyzyjnie kontrolować wyniki wyszukiwania za pomocą parametru zapytania **$select** w celu wybrania pól do uwzględnienia. W przypadku pól zawierających dużo tekstu, takich jak `content`, parametr **$select** to rozwiązanie, które oferuje użytkownikom aplikacji łatwe w zarządzaniu wyniki wyszukiwania, gwarantując jednocześnie, że kod klienta ma dostęp do wszystkich wymaganych informacji za pośrednictwem atrybutu **Możliwość pobierania**.
   

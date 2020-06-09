@@ -2,18 +2,18 @@
 title: Dostarczanie zdarzeń elementu webhook
 description: Ten artykuł zawiera opis dostarczania zdarzeń elementu webhook i walidacji punktu końcowego podczas korzystania z elementów webhook.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.author: babanisa
-ms.openlocfilehash: 80efee18ff7cc927ea9029c11aadcf13ad75781a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.author: femila
+ms.openlocfilehash: cf298156fe7a347799afced8bb065cb3a02bc49a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747594"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558436"
 ---
 # <a name="webhook-event-delivery"></a>Dostarczanie zdarzeń elementu webhook
 Elementy webhook to jeden z wielu sposobów odbierania zdarzeń z Azure Event Grid. Gdy nowe zdarzenie jest gotowe, usługa Event Grid ogłasza żądanie HTTP do skonfigurowanego punktu końcowego przy użyciu zdarzenia w treści żądania.

@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
-ms.openlocfilehash: b1286daaa76c71f88d44ea387a92876a8676783c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: fd266dd4e75915c0710acce1a2a49f24049c4e9d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062243"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559862"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Szybki Start: Tworzenie bazy danych grafu w Azure Cosmos DB przy użyciu języka Python i Azure Portal
 
@@ -71,7 +72,7 @@ Teraz przejdźmy do pracy z kodem. Sklonujemy aplikację interfejsu API języka 
 
 ## <a name="review-the-code"></a>Przeglądanie kodu
 
-Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. Wszystkie fragmenty kodu pochodzą z pliku *Connect.py* znajdującego się w folderze *C:\git-samples\azure-Cosmos-DB-Graph-Python-Getting-Started\\ * . W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-information). 
+Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. Wszystkie fragmenty kodu pochodzą z pliku *Connect.py* znajdującego się w folderze *C:\git-samples\azure-Cosmos-DB-Graph-Python-Getting-Started \\ * . W przeciwnym razie możesz od razu przejść do sekcji [Aktualizacja parametrów połączenia](#update-your-connection-information). 
 
 * Gremlin `client` jest inicjowana w wierszu 104 w *Connect.py*:
 
@@ -127,7 +128,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o połączeniu i s
         password="<YOUR_PASSWORD>")
     ```
 
-4. Na stronie **klucze** Użyj przycisku kopiowania, aby SKOPIOWAĆ klucz podstawowy i wkleić go `<YOUR_PASSWORD>` do `password=<YOUR_PASSWORD>` parametru.
+4. Na stronie **klucze** Użyj przycisku kopiowania, aby SKOPIOWAĆ klucz podstawowy i wkleić go do `<YOUR_PASSWORD>` `password=<YOUR_PASSWORD>` parametru.
 
     Cała definicja obiektu `client` powinna teraz wyglądać podobnie do tego kodu:
     ```python
@@ -188,7 +189,7 @@ Po wstawieniu wierzchołków i krawędzi możesz teraz wrócić do Eksplorator d
     key|value|Uwagi
     ----|----|----
     produktu|/pk| 
-    id|ashley|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
+    identyfikator|ashley|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
     płeć|kobieta| 
     techniczne | java | 
 
@@ -206,7 +207,7 @@ Po wstawieniu wierzchołków i krawędzi możesz teraz wrócić do Eksplorator d
     key|value|Uwagi
     ----|----|----
     produktu|/pk| 
-    id|rakesh|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
+    identyfikator|rakesh|Unikatowy identyfikator wierzchołka. Jeśli nie określono identyfikatora, zostanie on wygenerowany.
     płeć|mężczyzna| 
     szkoła|MIT| 
 

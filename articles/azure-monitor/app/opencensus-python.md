@@ -6,12 +6,13 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6b8343d08962d8ce749e1160b0226b68571571f8
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.custom: tracking-python
+ms.openlocfilehash: 3a47296d755c2a933e7e136a4b17ae87561213ad
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83815727"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553868"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -39,7 +40,7 @@ Najpierw należy utworzyć zasób Application Insights w Azure Monitor, co spowo
    | Ustawienie        | Wartość           | Opis  |
    | ------------- |:-------------|:-----|
    | **Nazwa**      | Globalnie unikatowa wartość | Nazwa identyfikująca monitorowaną aplikację |
-   | **Resource Group**     | myResourceGroup      | Nazwa nowej grupy zasobów do hostowania danych Application Insights |
+   | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów do hostowania danych Application Insights |
    | **Lokalizacja** | Wschodnie stany USA | Lokalizacja w sąsiedztwie lub w sąsiedztwie, gdzie aplikacja jest hostowana |
 
 1. Wybierz przycisk **Utwórz**.

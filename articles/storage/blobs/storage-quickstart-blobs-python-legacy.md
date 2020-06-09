@@ -7,13 +7,13 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: seo-python-october2019
-ms.openlocfilehash: 4b0248604b6e9189d5275177a4960e4c352e8215
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: seo-python-october2019, tracking-python
+ms.openlocfilehash: 513e3bc2e8625f8ce255f479301b2ed5115708bb
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76906438"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561335"
 ---
 # <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK języka Python v 2.1
 
@@ -48,7 +48,7 @@ W aplikacji podaj nazwę konta magazynu i klucz konta, aby utworzyć obiekt `Blo
 
 1. Otwórz plik *example.py* w Eksploratorze rozwiązań w środowisku IDE.
 
-1. Zastąp `accountname` wartości `accountkey` i nazwą konta magazynu i kluczem:
+1. Zastąp `accountname` `accountkey` wartości i nazwą konta magazynu i kluczem:
 
     ```python
     block_blob_service = BlockBlobService(
@@ -94,8 +94,8 @@ Przykładowy program tworzy plik testowy w folderze *dokumenty* , przekazuje pli
 
 1. Przed kontynuowaniem przejdź do folderu *dokumenty* i sprawdź, czy są dwa pliki.
 
-    * *QuickStart_\<uniwersalnie unikatowy identyfikator\>*
-    * *QuickStart_\<uniwersalnie unikatowy identyfikator\>_DOWNLOADED*
+    * *QuickStart_\<universally-unique-identifier\>*
+    * *QuickStart_ \<universally-unique-identifier\> _DOWNLOADED*
 
 1. Możesz je otworzyć i sprawdzić, czy są takie same.
 
@@ -109,7 +109,7 @@ Teraz, gdy wiesz już, jak działa aplikacja przykładowa, otwórz plik *example
 
 ### <a name="get-references-to-the-storage-objects"></a>Pobieranie odwołań do obiektów magazynu
 
-Ta sekcja poświęcona jest tworzeniu wystąpień obiektów, tworzeniu nowego kontenera, a następnie konfigurowaniu uprawnień w kontenerze, tak aby obiekty blob były publiczne. Nastąpi wywołanie kontenera `quickstartblobs`. 
+Ta sekcja poświęcona jest tworzeniu wystąpień obiektów, tworzeniu nowego kontenera, a następnie konfigurowaniu uprawnień w kontenerze, tak aby obiekty blob były publiczne. Nastąpi wywołanie kontenera `quickstartblobs` . 
 
 ```python
 # Create the BlockBlockService that the system uses to call the Blob service for the storage account.
@@ -142,7 +142,7 @@ Usługa Blob Storage obsługuje blokowe, uzupełnialne i stronicowe obiekty blob
 
 Aby przekazać plik do obiektu blob, uzyskaj pełną ścieżkę pliku, łącząc nazwę katalogu i nazwę pliku na dysku lokalnym. Następnie możesz przekazać plik do określonej ścieżki przy użyciu metody `create_blob_from_path`. 
 
-Przykładowy kod tworzy plik lokalny, którego system używa do przekazywania i pobierania, przechowując plik przekazywany przez system jako *full_path_to_file* i nazwę obiektu blob jako *local_file_name*. Ten przykład przekazuje plik do kontenera o nazwie `quickstartblobs`:
+Przykładowy kod tworzy plik lokalny, którego system używa do przekazywania i pobierania, przechowując plik przekazywany przez system jako *full_path_to_file* i nazwę obiektu blob jako *local_file_name*. Ten przykład przekazuje plik do kontenera o nazwie `quickstartblobs` :
 
 ```python
 # Create a file in Documents to test the upload and download.

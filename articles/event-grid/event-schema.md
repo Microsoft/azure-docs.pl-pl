@@ -2,18 +2,18 @@
 title: Schemat zdarzeń Azure Event Grid
 description: Opisuje właściwości i schemat, które są obecne dla wszystkich zdarzeń.Zdarzenia składają się z zestawu pięciu wymaganych właściwości ciągu i wymaganego obiektu danych.
 services: event-grid
-author: banisadr
+author: femila
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
 ms.date: 01/21/2020
-ms.author: babanisa
-ms.openlocfilehash: 7c45b8f634868024a84f9f3b75bb23031c09b40c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: femila
+ms.openlocfilehash: 3104d29b84b08add89e7c19772dffaaa782755a1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82114007"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559430"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schemat zdarzeń Azure Event Grid
 
@@ -80,16 +80,16 @@ Na przykład schemat opublikowany dla zdarzenia usługi Azure Blob Storage to:
 
 Wszystkie zdarzenia mają takie same dane jak najwyższego poziomu:
 
-| Właściwość | Typ | Wymagany | Opis |
+| Właściwość | Typ | Wymagane | Opis |
 | -------- | ---- | -------- | ----------- |
 | temat | ciąg | Nie, ale jeśli ta wartość jest uwzględniona, musi dokładnie odpowiadać Event Grid tematu Azure Resource Manager identyfikator. Jeśli nie jest uwzględniony, Event Grid będzie sygnaturą zdarzenia. | Pełna ścieżka zasobu do źródła zdarzeń. To pole nie umożliwia zapisu. Ta wartość jest podawana przez usługę Event Grid. |
-| Temat | ciąg | Tak | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
-| Klasę | ciąg | Tak | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
-| eventTime | ciąg | Tak | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
-| id | ciąg | Tak | Unikatowy identyfikator zdarzenia. |
-| dane | obiekt | Nie | Dane zdarzenia specyficzne dla dostawcy zasobów. |
+| Temat | ciąg | Yes | Zdefiniowana przez wydawcę ścieżka do tematu zdarzenia. |
+| Klasę | ciąg | Yes | Jeden z zarejestrowanych typów zdarzeń dla tego źródła zdarzeń. |
+| eventTime | ciąg | Yes | Czas generowania zdarzenia na podstawie czasu UTC dostawcy. |
+| identyfikator | ciąg | Yes | Unikatowy identyfikator zdarzenia. |
+| dane | object | Nie | Dane zdarzenia specyficzne dla dostawcy zasobów. |
 | dataVersion | ciąg | Nie, ale zostanie opatrzona pustą wartością. | Wersja schematu obiektu danych. Wydawca definiuje wersję schematu. |
-| metadataVersion | ciąg | Niewymagane, ale jeśli to konieczne, musi być dokładnie `metadataVersion` zgodne ze schematem Event Grid `1`(obecnie tylko). Jeśli nie jest uwzględniony, Event Grid będzie sygnaturą zdarzenia. | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
+| metadataVersion | ciąg | Niewymagane, ale jeśli to konieczne, musi być dokładnie zgodne ze schematem Event Grid `metadataVersion` (obecnie tylko `1` ). Jeśli nie jest uwzględniony, Event Grid będzie sygnaturą zdarzenia. | Wersja schematu metadanych zdarzenia. Usługa Event Grid definiuje schemat właściwości najwyższego poziomu. Ta wartość jest podawana przez usługę Event Grid. |
 
 Aby dowiedzieć się więcej o właściwościach w obiekcie danych, zobacz Źródło zdarzenia:
 
@@ -97,7 +97,7 @@ Aby dowiedzieć się więcej o właściwościach w obiekcie danych, zobacz Źró
 * [Container Registry](event-schema-container-registry.md)
 * [Blob Storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
-* [Usługa IoT Hub](event-schema-iot-hub.md)
+* [IoT Hub](event-schema-iot-hub.md)
 * [Media Services](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Grupy zasobów (operacje zarządzania)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
@@ -106,9 +106,9 @@ Aby dowiedzieć się więcej o właściwościach w obiekcie danych, zobacz Źró
 
 W przypadku niestandardowych tematów Wydawca zdarzeń określa obiekt danych. Dane najwyższego poziomu powinny mieć te same pola co standardowe zdarzenia zdefiniowane przez zasób.
 
-Podczas publikowania zdarzeń w niestandardowych tematach, należy utworzyć tematy dotyczące wydarzeń, które ułatwią subskrybentom dowiedzieć się, czy zainteresują się wydarzeniem. Subskrybenci używają podmiotu do filtrowania i kierowania zdarzeń. Rozważ podanie ścieżki do miejsca wystąpienia zdarzenia, dzięki czemu Subskrybenci mogą filtrować według segmentów tej ścieżki. Ścieżka umożliwia subskrybentom Zawężanie lub szerokie filtrowanie zdarzeń. Na przykład jeśli podano trzy ścieżki segmentu jak `/A/B/C` w temacie, subskrybenci mogą odfiltrować według pierwszego segmentu `/A` , aby uzyskać obszerny zestaw zdarzeń. Subskrybenci uzyskują zdarzenia z podmiotami `/A/B/C` takimi jak lub `/A/D/E`. Inni Subskrybenci mogą odfiltrować, `/A/B` Aby uzyskać węższy zestaw zdarzeń.
+Podczas publikowania zdarzeń w niestandardowych tematach, należy utworzyć tematy dotyczące wydarzeń, które ułatwią subskrybentom dowiedzieć się, czy zainteresują się wydarzeniem. Subskrybenci używają podmiotu do filtrowania i kierowania zdarzeń. Rozważ podanie ścieżki do miejsca wystąpienia zdarzenia, dzięki czemu Subskrybenci mogą filtrować według segmentów tej ścieżki. Ścieżka umożliwia subskrybentom Zawężanie lub szerokie filtrowanie zdarzeń. Na przykład jeśli podano trzy ścieżki segmentu jak `/A/B/C` w temacie, subskrybenci mogą odfiltrować według pierwszego segmentu, `/A` Aby uzyskać obszerny zestaw zdarzeń. Subskrybenci uzyskują zdarzenia z podmiotami takimi jak `/A/B/C` lub `/A/D/E` . Inni Subskrybenci mogą odfiltrować, `/A/B` Aby uzyskać węższy zestaw zdarzeń.
 
-Czasami podmiot wymaga więcej szczegółów na temat tego, co się stało. Na przykład, `/blobServices/default/containers/<container-name>/blobs/<file>` gdy plik zostanie dodany do kontenera, jest wydawcą **kont magazynu** . Subskrybent może filtrować według ścieżki `/blobServices/default/containers/testcontainer` , aby uzyskać wszystkie zdarzenia dla tego kontenera, ale nie inne kontenery na koncie magazynu. Subskrybent może również filtrować lub kierować sufiksem `.txt` , aby działał tylko z plikami tekstowymi.
+Czasami podmiot wymaga więcej szczegółów na temat tego, co się stało. Na przykład, gdy plik zostanie dodany do kontenera, jest wydawcą **kont magazynu** `/blobServices/default/containers/<container-name>/blobs/<file>` . Subskrybent może filtrować według ścieżki, `/blobServices/default/containers/testcontainer` Aby uzyskać wszystkie zdarzenia dla tego kontenera, ale nie inne kontenery na koncie magazynu. Subskrybent może również filtrować lub kierować sufiksem, `.txt` Aby działał tylko z plikami tekstowymi.
 
 ## <a name="next-steps"></a>Następne kroki
 

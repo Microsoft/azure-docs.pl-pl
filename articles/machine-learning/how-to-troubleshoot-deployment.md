@@ -10,13 +10,13 @@ author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: contperfq4
-ms.openlocfilehash: 758e0b19cd249215dc8531224bc2685703b9fc85
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: contperfq4, tracking-python
+ms.openlocfilehash: 012d183a20e5fdcf39d72813051d745a3f9787a7
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433722"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560123"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Rozwiązywanie problemów z wdrażaniem modeli przez platformę Docker za pomocą usługi Azure Kubernetes Service i Azure Container Instances 
 
@@ -211,7 +211,7 @@ Ustawienie poziomu rejestrowania na debugowanie może spowodować zarejestrowani
 
 ## <a name="function-fails-runinput_data"></a>Niepowodzenie funkcji: Uruchom (input_data)
 
-Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Przykład:
+Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Na przykład:
 
 ```python
 def run(input_data):

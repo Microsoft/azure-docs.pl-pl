@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 48287f023e14dbf978a993db98b2d9c3392ea2db
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: b9f7deb16269aac94f5363a1588b2e1ed4ee9206
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323981"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488602"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -19,14 +19,14 @@ W tym artykule opisano obsługiwane składniki i ustawienia odzyskiwania po awar
 
 ## <a name="deployment-scenarios"></a>Scenariusze wdrażania
 
-**Scenariusz** | **Szczegóły**
+**Scenariusz** | **Uzyskać**
 --- | ---
 Odzyskiwanie po awarii maszyn wirtualnych VMware | Replikacja lokalnych maszyn wirtualnych programu VMware na platformę Azure. Ten scenariusz można wdrożyć w Azure Portal lub przy użyciu [programu PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Odzyskiwanie po awarii serwerów fizycznych | Replikacja lokalnych serwerów z systemem Windows/Linux do platformy Azure. Ten scenariusz można wdrożyć w Azure Portal.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokalne serwery wirtualizacji
 
-**Serwer** | **Wymagania** | **Szczegóły**
+**Serwer** | **Wymagania** | **Uzyskać**
 --- | --- | ---
 Program vCenter Server | Wersja 6,7, 6,5, 6,0 lub 5,5 | Zalecamy używanie serwera vCenter w ramach wdrożenia odzyskiwania po awarii.
 hosty vSphere | Wersja 6,7, 6,5, 6,0 lub 5,5 | Zalecamy, aby hosty vSphere i serwery vCenter znajdowały się w tej samej sieci co serwer przetwarzania. Domyślnie serwer przetwarzania jest uruchamiany na serwerze konfiguracji. [Dowiedz się więcej](vmware-physical-azure-config-process-server-overview.md).
@@ -63,7 +63,7 @@ Site Recovery obsługuje replikację wszystkich obciążeń uruchomionych na obs
 > [!Note]
 > W poniższej tabeli przedstawiono obsługę maszyn z rozruchem systemu BIOS. Zapoznaj się z sekcją [Magazyn](#storage) , aby uzyskać pomoc techniczną dotyczącą komputerów z interfejsem UEFI.
 
-**Składnik** | **Szczegóły**
+**Składnik** | **Uzyskać**
 --- | ---
 Ustawienia maszyny | Maszyny, które są replikowane na platformę Azure, muszą spełniać [wymagania dotyczące platformy Azure](#azure-vm-requirements).
 Obciążenie maszyny | Site Recovery obsługuje replikację wszystkich obciążeń uruchomionych na obsługiwanej maszynie. [Dowiedz się więcej](https://aka.ms/asr_workload).
@@ -79,7 +79,7 @@ Linux | Obsługiwany jest tylko system 64-bitowy. 32 — system bitowy nie jest 
 Linux Red Hat Enterprise | 5,2 do 5,11</b><br/> 6,1 do 6,10</b> </br> 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4564347/), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1 <br/> Kilka starszych jądra na serwerach z systemem Red Hat Enterprise Linux 5.2 — 5.11 & 6.1-6.10 nie mają wstępnie zainstalowanych [składników usług integracji systemu Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Jeśli brakuje wbudowanych składników LIS, przed włączeniem replikacji maszyn na platformie Azure upewnij się, że zostały zainstalowane [składniki](https://www.microsoft.com/download/details.aspx?id=55106) .
 Linux: CentOS | 5,2 do 5,11</b><br/> 6,1 do 6,10</b><br/> 7,0 do 7,8<br/> <br/> 8,0 do 8,1<br/><br/> Niektóre starsze jądra na serwerach z systemem CentOS 5.2-5.11 & 6.1-6.10 nie mają wstępnie zainstalowanych [składników usług integracji systemu Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Jeśli brakuje wbudowanych składników LIS, przed włączeniem replikacji maszyn na platformie Azure upewnij się, że zostały zainstalowane [składniki](https://www.microsoft.com/download/details.aspx?id=55106) .
 Ubuntu | Serwer Ubuntu 14,04 LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions)<br/><br/>Serwer Ubuntu 16,04 LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions) </br> Serwer Ubuntu 18,04 LTS [(Przejrzyj obsługiwane wersje jądra)](#ubuntu-kernel-versions)
-Debian | Debian 7/Debian 8 [(Przejrzyj obsługiwane wersje jądra)](#debian-kernel-versions)
+Debian | Debian 7/Debian 8 (obejmuje obsługę wszystkich 7. *x*, 8. *x* wersje) [(Przejrzyj obsługiwane wersje jądra)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 z dodatkiem SP1, SP2, SP3 i SP4 [(Przejrzyj obsługiwane wersje jądra)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(Przejrzyj obsługiwane wersje jądra)](#suse-linux-enterprise-server-15-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> Uaktualnianie zreplikowanych maszyn z programu SUSE Linux Enterprise Server 11 z dodatkiem SP3 do wersji SP4 nie jest obsługiwane. Aby przeprowadzić uaktualnienie, wyłącz replikację i włącz ją ponownie po uaktualnieniu.
 Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)<br/><br/> Uruchamianie jądra zgodnego z systemem Red Hat lub nieprzerwane wydanie jądra 3, 4 & 5 (UEK3, UEK4, UEK5)
 
@@ -119,7 +119,7 @@ Debian 8 | [9,29][9.29 UR] | 3.16.0-4-amd64 do 3.16.0-10-amd64, 4.9.0 -0. BPO. 4
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 obsługiwanych wersji jądra
 
-**Usuwanie** | **Wersja usługi mobilności** | **Wersja jądra** |
+**Wersja** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,32, [9,33](https://support.microsoft.com/help/4564347/) | Obsługiwane są wszystkie zapasy SUSE 12 SP1, SP2, SP3 i SP4.</br></br> 4.4.138-4,7-Azure do 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure do 4.12.14-6.34 — Azure  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,31 | Obsługiwane są wszystkie zapasy SUSE 12 SP1, SP2, SP3 i SP4.</br></br> 4.4.138-4,7-Azure do 4.4.180-4.31-Azure,</br>4.12.14-6.3-Azure do 4.12.14-6.29 — Azure  |
@@ -128,7 +128,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,29 | Obsługiwane są w
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE Linux Enterprise Server 15 obsługiwanych wersji jądra
 
-**Usuwanie** | **Wersja usługi mobilności** | **Wersja jądra** |
+**Wersja** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 15 i 15 SP1 | [9,33](https://support.microsoft.com/help/4564347/) | Domyślnie obsługiwane są wszystkie [jądra systemu SUSE 15 i 15](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> 4.12.14-5,5-Azure do 4.12.14-5.47 — Azure </br></br> 4.12.14-8,5-Azure do 4.12.14-8.30 — Azure |
 SUSE Linux Enterprise Server 15 i 15 SP1 | [9,32](https://support.microsoft.com/help/4550047/) | Domyślnie obsługiwane są wszystkie [jądra systemu SUSE 15 i 15](https://www.suse.com/support/kb/doc/?id=000019587) . </br></br> 4.12.14-5,5-Azure do 4.12.14-8.22 — Azure
@@ -154,7 +154,7 @@ BTRFS | BTRFS jest obsługiwana z [pakietu zbiorczego aktualizacji 34](https://s
 
 ## <a name="vmdisk-management"></a>Zarządzanie MASZYNami wirtualnymi/dyskami
 
-**Akcja** | **Szczegóły**
+**Akcja** | **Uzyskać**
 --- | ---
 Zmień rozmiar dysku na zreplikowanej maszynie wirtualnej | Obsługiwane przez źródłową maszynę wirtualną przed przełączeniem w tryb failover bezpośrednio we właściwościach maszyny wirtualnej. Nie trzeba wyłączać/ponownie włączać replikacji.<br/><br/> Zmiana źródłowej maszyny wirtualnej po przejściu do trybu failover powoduje, że zmiany nie będą przechwytywane.<br/><br/> W przypadku zmiany rozmiaru dysku maszyny wirtualnej platformy Azure po przejściu w tryb failover program Site Recovery tworzy nową maszynę wirtualną z aktualizacjami.
 Dodawanie dysku do zreplikowanej maszyny wirtualnej | Nieobsługiwane.<br/> Wyłącz replikację dla maszyny wirtualnej, Dodaj dysk, a następnie ponownie Włącz replikację.
@@ -247,7 +247,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwy gorąca i chłodna) |
 
 ## <a name="azure-compute"></a>Obliczenia na platformie Azure
 
-**Cechy** | **Obsługiwał**
+**Funkcja** | **Obsługiwał**
 --- | ---
 Zestawy dostępności | Yes
 Strefy dostępności | Nie
@@ -258,7 +258,7 @@ Dyski zarządzane | Yes
 
 Lokalne maszyny wirtualne replikowane na platformę Azure muszą spełniać wymagania dotyczące maszyny wirtualnej platformy Azure podsumowane w tej tabeli. Gdy Site Recovery uruchamia sprawdzanie wymagań wstępnych dotyczących replikacji, sprawdzenie zakończy się niepowodzeniem, jeśli niektóre wymagania nie zostaną spełnione.
 
-**Składnik** | **Wymagania** | **Szczegóły**
+**Składnik** | **Wymagania** | **Uzyskać**
 --- | --- | ---
 System operacyjny gościa | Sprawdź [obsługiwane systemy operacyjne](#replicated-machines) dla replikowanych maszyn. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Architektura systemu operacyjnego gościa | 64-bitowa. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
@@ -269,7 +269,7 @@ Rozmiar dysku danych | Do 8 192 GB podczas replikowania na dysk zarządzany (wer
 Karty sieciowe | Obsługiwane są wiele kart. |
 Udostępniony wirtualny dysk twardy | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Dysk FC | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-BitLocker | Nieobsługiwane. | Aby włączyć replikację dla maszyny, należy wyłączyć funkcję BitLocker. |
+Funkcja BitLocker | Nieobsługiwane. | Aby włączyć replikację dla maszyny, należy wyłączyć funkcję BitLocker. |
 Nazwa maszyny wirtualnej | Od 1 do 63 znaków.<br/><br/> Ograniczone do liter, cyfr i łączników.<br/><br/> Nazwa maszyny musi rozpoczynać się i kończyć literą lub cyfrą. |  Zaktualizuj wartość we właściwościach komputera w Site Recovery.
 
 ## <a name="resource-group-limits"></a>Limity grupy zasobów
@@ -314,7 +314,7 @@ Przenoszenie magazynu, sieci, maszyn wirtualnych platformy Azure w ramach i mię
 
 ## <a name="obtain-latest-components"></a>Uzyskaj najnowsze składniki
 
-**Nazwa** | **Opis** | **Szczegóły**
+**Nazwa** | **Opis** | **Uzyskać**
 --- | --- | ---
 Serwer konfiguracji | Zainstalowany lokalnie.<br/> Koordynuje komunikację między lokalnymi serwerami VMware lub maszynami fizycznymi i platformą Azure. | - [Dowiedz się więcej o](vmware-physical-azure-config-process-server-overview.md) serwerze konfiguracji.<br/> - [Dowiedz się więcej o](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) uaktualnianiu do najnowszej wersji.<br/> - [Dowiedz się więcej na temat](vmware-azure-deploy-configuration-server.md) konfigurowania serwera konfiguracji.
 Serwer przetwarzania | Domyślnie instalowany na serwerze konfiguracji.<br/> Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do platformy Azure.<br/> Wraz z rozwojem wdrożenia można dodać kolejne serwery przetwarzania do obsługi większych woluminów ruchu związanego z replikacją. | - [Dowiedz się więcej o](vmware-physical-azure-config-process-server-overview.md) serwerze przetwarzania.<br/> - [Dowiedz się więcej o](vmware-azure-manage-process-server.md#upgrade-a-process-server) uaktualnianiu do najnowszej wersji.<br/> - [Dowiedz się więcej o](vmware-physical-large-deployment.md#set-up-a-process-server) konfigurowaniu serwerów przetwarzania skalowalnego w poziomie.

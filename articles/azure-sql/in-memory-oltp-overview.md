@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 10f4a0012076deef0757743f206f937ab43dc8b8
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c5208edc6038db0f9d45bb8fe10f3a96b5051b4c
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345295"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560568"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optymalizowanie wydajności przy użyciu technologii znajdujących się w pamięci w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -50,7 +50,7 @@ Ze względu na wydajniejsze przetwarzanie zapytań i transakcji, technologie w p
 
 Poniżej przedstawiono dwa przykłady sposobu, w jaki w przypadku przetwarzania w pamięci można znacznie poprawić wydajność:
 
-- Korzystając z przetwarzania OLTP w pamięci, [rozwiązania biznesowe kworum mogły zwiększyć obciążenie przy jednoczesnym zwiększeniu DTU o 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
+- Korzystając z przetwarzania OLTP w pamięci, [rozwiązania biznesowe kworum mogły zwiększyć obciążenie przy jednoczesnym zwiększeniu DTU o 70%](https://resources.quorumsoftware.com/case-studies/quorum-doubles-key-database-s-workload-while-lowering-dtu).
 - Poniższy film wideo ilustruje znaczne zwiększenie zużycia zasobów przy użyciu przykładowego obciążenia: [wideo OLTP w pamięci](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB). Aby uzyskać więcej informacji, zobacz wpis w blogu: przetwarzanie [OLTP w pamięci](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
@@ -174,7 +174,7 @@ W przypadku korzystania z klastrowanych indeksów magazynu kolumn, kompresja kol
 
 Na przykład jeśli masz bazę danych o maksymalnym rozmiarze wynoszącym 1 terabajt (TB), a następnie przeniesiesz 10 razy kompresję przy użyciu indeksów magazynu kolumn, możesz dopasować łącznie 10 TB danych użytkownika do bazy danych.
 
-W przypadku korzystania z nieklastrowanych indeksów magazynu kolumn tabela podstawowa jest nadal przechowywana w tradycyjnym formacie magazynu wierszy. W związku z tym oszczędności magazynu nie są tak duże jak w przypadku klastrowanych indeksów magazynu kolumn. Jednak w przypadku wymiany wielu tradycyjnych indeksów nieklastrowanych z pojedynczym indeksem magazynu kolumn nadal można uzyskać ogólne oszczędności w odniesieniu do tabeli.
+W przypadku korzystania z nieklastrowanych indeksów magazynu kolumn tabela podstawowa jest nadal przechowywana w tradycyjnym formacie magazynu wierszy. W związku z tym oszczędności magazynu nie są tak znaczące jak w przypadku klastrowanych indeksów magazynu kolumn. Jednak w przypadku wymiany wielu tradycyjnych indeksów nieklastrowanych z pojedynczym indeksem magazynu kolumn nadal można uzyskać ogólne oszczędności w odniesieniu do tabeli.
 
 ### <a name="changing-service-tiers-of-databases-containing-columnstore-indexes"></a>Zmiana warstw usługi baz danych zawierających indeksy magazynu kolumn
 
@@ -214,4 +214,4 @@ Jeśli masz **klastrowany** indeks magazynu kolumn, cała tabela staną się nie
 
 - [Azure Portal](https://portal.azure.com/)
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [Narzędzia danych SQL Server (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

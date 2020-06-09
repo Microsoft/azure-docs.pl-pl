@@ -8,12 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: f2f09e67c16993696f4f352abf68991ca20f9369
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.custom: tracking-python
+ms.openlocfilehash: dc8f00e5764cea856e028acb7adb5aebc070c625
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310023"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559843"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra za pomocą zestawu SDK języka Python i Azure Cosmos DB
 

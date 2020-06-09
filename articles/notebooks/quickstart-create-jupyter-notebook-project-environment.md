@@ -3,12 +3,13 @@ title: Tworzenie projektu Azure Notebooks w wersji zapoznawczej przy użyciu śr
 description: Utwórz nowy projekt w Azure Notebooks wersji zapoznawczej, który jest skonfigurowany z określonym zestawem zainstalowanych pakietów i skryptów uruchamiania.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 6388cb7997cac5bef25975043a13c4e080f288d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 03935b9672c25db11b91733fac1c63f1f5978b87
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78196845"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559751"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Szybki Start: Tworzenie projektu za pomocą środowiska niestandardowego w programie Azure Notebooks Preview
 
@@ -24,7 +25,7 @@ Projekt w Azure Notebooks to zbiór plików, takich jak notesy, pliki danych, do
 
     ![Link Moje projekty w górnej części okna przeglądarki](media/quickstarts/my-projects-link.png)
 
-1. Na stronie **Moje projekty** wybierz pozycję **+ Nowy projekt** (skrót klawiaturowy: n). przycisk może się pojawić tylko **+** wtedy, gdy okno przeglądarki jest wąskie:
+1. Na stronie **Moje projekty** wybierz pozycję **+ Nowy projekt** (skrót klawiaturowy: n). przycisk może się pojawić tylko wtedy, **+** gdy okno przeglądarki jest wąskie:
 
     ![Polecenie nowego projektu na stronie Moje projekty](media/quickstarts/new-project-command.png)
 
@@ -35,7 +36,7 @@ Projekt w Azure Notebooks to zbiór plików, takich jak notesy, pliki danych, do
     - **Projekt publiczny**: (wyczyszczone)
     - **Utwórz element Readme.MD**: (wyczyszczony)
 
-1. Po kilku chwilach Azure Notebooks przechodzi do nowego projektu. Dodaj Notes do projektu, wybierając listę rozwijaną **+ Nowy** (która może być wyświetlana tylko **+** jako), a następnie wybierając pozycję **Notes**.
+1. Po kilku chwilach Azure Notebooks przechodzi do nowego projektu. Dodaj Notes do projektu, wybierając listę rozwijaną **+ Nowy** (która może być wyświetlana tylko jako **+** ), a następnie wybierając pozycję **Notes**.
 
 1. Nadaj notesowi nazwę, np *. Custom Environment. ipynb*, wybierz opcję **Python 3,6** dla języka i wybierz pozycję **New (nowy**).
 
@@ -53,18 +54,18 @@ Projekt w Azure Notebooks to zbiór plików, takich jak notesy, pliki danych, do
 
    | Operacja | Opis |
    | --- | --- |
-   | Requirements. txt | Projekty języka Python definiują ich zależności w pliku Requirements. txt. Po wybraniu tej opcji należy wybrać odpowiedni plik z listy plików projektu, a także wybrać wersję języka Python w dodatkowych listach rozwijanych. W razie potrzeby wybierz **pozycję Anuluj** , aby powrócić do projektu, Przekaż lub Utwórz plik, a następnie wróć do karty**środowisko** **ustawień** > projektu i Utwórz nowy krok. W tym kroku jest uruchamiane automatyczne uruchamianie notesu w projekcie`pip install -r <file>` |
+   | Requirements. txt | Projekty języka Python definiują ich zależności w pliku Requirements. txt. Po wybraniu tej opcji należy wybrać odpowiedni plik z listy plików projektu, a także wybrać wersję języka Python w dodatkowych listach rozwijanych. W razie potrzeby wybierz pozycję **Anuluj** , aby powrócić do projektu, Przekaż lub Utwórz plik, a następnie wróć do karty środowisko **ustawień projektu**  >  **Environment** i Utwórz nowy krok. W tym kroku jest uruchamiane automatyczne uruchamianie notesu w projekcie`pip install -r <file>` |
    | Skrypt powłoki | Użyj, aby wskazać skrypt powłoki bash (zazwyczaj plik z rozszerzeniem *. sh* ) zawierający wszystkie polecenia, które chcesz uruchomić w celu zainicjowania środowiska. |
    | Środowisko. yml | Projekt języka Python, który używa Conda do zarządzania środowiskiem, używa pliku Environments *. yml* do opisywania zależności. W przypadku tej opcji wybierz odpowiedni plik z listy plików projektu. |
 
    > [!WARNING]
-   > Ponieważ jest to usługa w wersji zapoznawczej w ramach programowania, istnieje obecnie znany problem `Environment.yml` , w którym ustawienie nie zostanie zastosowane do projektu zgodnie z oczekiwaniami. Projekty i notesy Jupyter w programie nie ładują teraz określonego pliku środowiska.
+   > Ponieważ jest to usługa w wersji zapoznawczej w ramach programowania, istnieje obecnie znany problem, w którym ustawienie nie zostanie `Environment.yml` zastosowane do projektu zgodnie z oczekiwaniami. Projekty i notesy Jupyter w programie nie ładują teraz określonego pliku środowiska.
 
 1. Aby usunąć dowolny krok instalacji, wybierz **znak X** z prawej strony kroku.
 
 1. Po zakończeniu wszystkich kroków instalacji wybierz pozycję **Zapisz**. (Wybierz pozycję **Anuluj** , aby odrzucić zmiany).
 
-1. Aby przetestować środowisko, Utwórz i uruchom nowy Notes, a następnie utwórz komórkę kodu z instrukcjami, które są zależne od pakietu w środowisku, na przykład przy użyciu instrukcji języka `import` Python. Jeśli instrukcja się powiedzie, wymagany pakiet został pomyślnie zainstalowany w środowisku.
+1. Aby przetestować środowisko, Utwórz i uruchom nowy Notes, a następnie utwórz komórkę kodu z instrukcjami, które są zależne od pakietu w środowisku, na przykład przy użyciu `import` instrukcji języka Python. Jeśli instrukcja się powiedzie, wymagany pakiet został pomyślnie zainstalowany w środowisku.
 
 ## <a name="next-steps"></a>Następne kroki
 

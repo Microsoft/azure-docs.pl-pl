@@ -10,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
 ms.date: 03/12/2020
-ms.openlocfilehash: 925b562189d713dd4cb1e72aa8b8fae28fcde0a5
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: 2473d864e0ad0fca4a886a6135a9caac0742e3d7
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433234"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557072"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorowanie i zbieranie danych z punktów końcowych usługi sieci Web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

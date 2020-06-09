@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: afb576c265ccdd4a014ed678331f030a0442a197
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c6fbec35920c8afd08ab60fc380c9f816ae599b0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219303"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561019"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Jak wywołać interfejs API REST analiza tekstu
 
-Wywołania **interfejs API analizy tekstu** to wywołania http post/Get, które można sformułować w dowolnym języku. W tym artykule używamy REST i programu [Poster](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) , aby zademonstrować kluczowe pojęcia.
+Wywołania **interfejs API analizy tekstu** to wywołania http post/Get, które można sformułować w dowolnym języku. W tym artykule używamy REST i programu [Poster](https://www.postman.com/downloads/) , aby zademonstrować kluczowe pojęcia.
 
-Każde żądanie musi zawierać klucz dostępu i punkt końcowy HTTP. Punkt końcowy określa region wybrany podczas rejestracji, adres URL usługi i zasób używany w żądaniu `sentiment`:, `keyphrases`, `languages`, i. `entities` 
+Każde żądanie musi zawierać klucz dostępu i punkt końcowy HTTP. Punkt końcowy określa region wybrany podczas rejestracji, adres URL usługi i zasób używany w żądaniu: `sentiment` , `keyphrases` , `languages` , i `entities` . 
 
 Odzyskanie tego analiza tekstu jest bezstanowe, aby nie było żadnych zasobów danych do zarządzania. Tekst zostanie przekazany, przeanalizowany po odebraniu, a wyniki są zwracane natychmiast do aplikacji wywołującej.
 
@@ -39,11 +39,11 @@ Dane wejściowe muszą być w formacie JSON w nieprzetworzonym tekście bez stru
 
 Obecnie można przesłać te same dokumenty do wszystkich operacji analiza tekstu: tonacji, frazy kluczowej, wykrywania języka i identyfikacji jednostek. (Schemat jest prawdopodobnie różny dla każdej analizy w przyszłości).
 
-| Element | Prawidłowe wartości | Wymagane? | Sposób użycia |
+| Element | Prawidłowe wartości | Wymagane? | Użycie |
 |---------|--------------|-----------|-------|
-|`id` |Typ danych to ciąg, ale w temacie identyfikatory dokumentów w programie mają być liczbami całkowitymi. | Wymagany | System używa identyfikatorów dostarczanych do struktury danych wyjściowych. Kody języka, kluczowe frazy i oceny tonacji są generowane dla każdego identyfikatora w żądaniu.|
-|`text` | Nieprzetworzony tekst nieprzebudowany, do 5 120 znaków. | Wymagany | W przypadku wykrywania języka tekst może być wyrażony w dowolnym języku. W przypadku analizy tonacji, wyodrębniania kluczowych fraz i identyfikacji jednostek tekst musi być w [obsługiwanym języku](../text-analytics-supported-languages.md). |
-|`language` | 2-znakowy kod [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) dla [obsługiwanego języka](../text-analytics-supported-languages.md) | Różna | Wymagane do analizy tonacji, wyodrębniania kluczowych fraz i konsolidacji jednostek; opcjonalne do wykrywania języka. Jeśli wyłączysz go, nie ma żadnego błędu, ale analiza zostanie nieprzerwana. Kod języka powinien odpowiadać podanemu `text` podaniu. |
+|`id` |Typ danych to ciąg, ale w temacie identyfikatory dokumentów w programie mają być liczbami całkowitymi. | Wymagane | System używa identyfikatorów dostarczanych do struktury danych wyjściowych. Kody języka, kluczowe frazy i oceny tonacji są generowane dla każdego identyfikatora w żądaniu.|
+|`text` | Nieprzetworzony tekst nieprzebudowany, do 5 120 znaków. | Wymagane | W przypadku wykrywania języka tekst może być wyrażony w dowolnym języku. W przypadku analizy tonacji, wyodrębniania kluczowych fraz i identyfikacji jednostek tekst musi być w [obsługiwanym języku](../text-analytics-supported-languages.md). |
+|`language` | 2-znakowy kod [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) dla [obsługiwanego języka](../text-analytics-supported-languages.md) | Różnie | Wymagane do analizy tonacji, wyodrębniania kluczowych fraz i konsolidacji jednostek; opcjonalne do wykrywania języka. Jeśli wyłączysz go, nie ma żadnego błędu, ale analiza zostanie nieprzerwana. Kod języka powinien odpowiadać podanemu podaniu `text` . |
 
 Aby uzyskać więcej informacji na temat limitów, zobacz [Analiza tekstu omówienie > limitów danych](../overview.md#data-limits). 
 

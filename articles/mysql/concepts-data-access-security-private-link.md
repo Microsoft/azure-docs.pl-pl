@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 9a42148bb9610b27f2c0874ffa74d9e517c2063a
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: f780bf946e81e9873a1828f9d697f69c81cef513
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84482597"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509325"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Prywatny link do Azure Database for MySQL
 
@@ -115,7 +115,7 @@ W przypadku korzystania z prywatnego linku w połączeniu z regułami zapory są
 
 Jeśli chcesz używać tylko prywatnych punktów końcowych do uzyskiwania dostępu do swoich Azure Database for MySQL, możesz wyłączyć ustawienie wszystkie publiczne punkty końcowe (tj. [reguły zapory](concepts-firewall-rules.md) i [punkty końcowe usługi sieci wirtualnej](concepts-data-access-and-security-vnet.md)), ustawiając opcję **Odmów dostępu** do poczty publicznej na serwerze bazy danych. 
 
-Jeśli to ustawienie ma wartość *tak*, do Azure Database for MySQL mogą być używane tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie ma wartość *nie*, klienci mogą łączyć się z Azure Database for MySQL na podstawie ustawień zapory lub punktu końcowego usługi sieci wirtualnej. Ponadto po ustawieniu wartości dostępu do sieci prywatnej nie można dodawać i/lub aktualizować istniejących reguł punktu końcowego zapory i usługi sieci wirtualnej.
+Jeśli to ustawienie ma wartość *tak*, do Azure Database for MySQL mogą być używane tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie ma wartość *nie*, klienci mogą łączyć się z Azure Database for MySQL na podstawie ustawień zapory lub punktu końcowego usługi sieci wirtualnej. Ponadto po ustawieniu wartości dostępu do sieci prywatnej klienci nie mogą dodawać i/lub aktualizować istniejących reguł zapory i zasad punktu końcowego usługi sieci wirtualnej.
 
 > [!Note]
 > Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for PostgreSQL — jeden serwer obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.

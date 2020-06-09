@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: ef8196cebfbdda72f98fee0e9c75bcb80172a55e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 8b9a1caa750c7c27b2a6c845843b8bb6b779086d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791463"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561322"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (dawniej SQL DW) — często zadawane pytania
 
@@ -56,6 +56,10 @@ A. Zobacz nasze bieżące [limity pojemności](sql-data-warehouse-service-capaci
 PYTANIE: Dlaczego moje skalowanie/wstrzymywanie/wznawianie trwa tak długo?
 
 A. Kilka czynników może mieć wpływ na czas operacji zarządzania obliczeniami. Typowym przypadkiem długotrwałych operacji jest wycofywanie transakcyjne. Po zainicjowaniu operacji skalowania lub wstrzymania wszystkie sesje przychodzące są blokowane, a kwerendy są opróżniane. Aby pozostawić system w stanie stabilnym, należy ponownie wykonać transakcje przed rozpoczęciem operacji. Im większa liczba i większy rozmiar dziennika transakcji, tym dłużej operacja zostanie wstrzymana, przywracając system do stanu stabilnego.
+
+P: Jak mogę zmienić nazwy opublikowanego artefaktu (zestawu danych, notesu, skryptu SQL itd.) w Synapse?
+
+Odp.: Aby zmienić nazwę opublikowanego pliku artefaktu, najpierw należy zmienić nazwę preferowanego pliku. Musisz ręcznie zaktualizować wszystkie odwołania artefaktu do nowego pliku i usunąć stary.
 
 ## <a name="user-support"></a>Obsługa użytkowników
 

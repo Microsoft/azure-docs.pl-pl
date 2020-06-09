@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: c439c118e242f3561593aa0c8fe9a88b3b07a4a9
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 58be0315b272199e74f28654aae315a8c6c5f7b5
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771846"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558825"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplikacja klasyczna, która wywołuje interfejsy API sieci Web: uzyskiwanie tokenu
 

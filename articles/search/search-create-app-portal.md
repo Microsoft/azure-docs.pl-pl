@@ -7,39 +7,41 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/25/2020
-ms.openlocfilehash: 248ef093601eda7a180a6465ccb97e6fc1c9fe41
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 6c956c937027b16d51141ded4de5ff9b019c37d4
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369709"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488175"
 ---
 # <a name="quickstart-create-a-search-app-in-the-portal-azure-cognitive-search"></a>Szybki Start: Tworzenie aplikacji wyszukiwania w portalu (Azure Wyszukiwanie poznawcze)
 
-Użyj kreatora **tworzenia aplikacji wyszukiwania** w portalu, aby wygenerować aplikację sieci Web typu "localhost", która jest uruchamiana w przeglądarce. W zależności od konfiguracji wygenerowana aplikacja działa przy pierwszym użyciu z połączeniem na żywo z zdalnym indeksem. Aplikacja domyślna może obejmować pasek wyszukiwania, obszar wyników, filtry paska bocznego i obsługę typeahead.
-
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Użyj kreatora **tworzenia aplikacji wyszukiwania** Azure Portal, aby wygenerować aplikację sieci Web typu "localhost", która jest uruchamiana w przeglądarce. W zależności od konfiguracji wygenerowana aplikacja działa przy pierwszym użyciu z połączeniem na żywo z zdalnym indeksem. Aplikacja domyślna może obejmować pasek wyszukiwania, obszar wyników, filtry paska bocznego i obsługę typeahead.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przejdź do [najnowszej wersji programu Microsoft Edge](https://www.microsoft.com/edge) lub użyj przeglądarki Chrome firmy Google dla tego przewodnika Szybki Start.
+Przed rozpoczęciem należy wykonać następujące czynności:
 
-[Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
++ Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/).
 
-[Utwórz indeks](search-create-index-portal.md) , który ma być używany jako podstawa aplikacji. 
++ Usługa Wyszukiwanie poznawcze platformy Azure. [Utwórz usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
 
-Ten przewodnik Szybki Start używa wbudowanego przykładowych danych i indeksu nieruchomości, ponieważ ma obrazy miniatur (Kreator obsługuje dodawanie obrazów do strony wyniki). Aby utworzyć indeks używany w tym ćwiczeniu, uruchom kreatora **importowania danych** , wybierając źródło danych *realestate-US-Sample* .
++ [Microsoft Edge (Najnowsza wersja)](https://www.microsoft.com/edge) lub Google Chrome.
 
-![Strona źródła danych dla przykładowych danych](media/search-create-app-portal/import-data-realestate.png)
++ [Indeks wyszukiwania](search-create-index-portal.md) , który ma być używany jako podstawa wygenerowanej aplikacji. 
+
+  Ten przewodnik Szybki Start używa wbudowanego przykładowych danych i indeksu nieruchomości, ponieważ ma obrazy miniatur (Kreator obsługuje dodawanie obrazów do strony wyniki). Aby utworzyć indeks używany w tym ćwiczeniu, uruchom kreatora **importowania danych** , wybierając źródło danych *realestate-US-Sample* .
+
+  ![Strona źródła danych dla przykładowych danych](media/search-create-app-portal/import-data-realestate.png)
 
 Gdy indeks jest gotowy do użycia, przejdź do następnego kroku.
 
 ## <a name="start-the-wizard"></a>Uruchom Kreatora
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com) i [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+1. Zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta platformy Azure.
 
-1. Na stronie Przegląd w obszarze linki w środku strony wybierz pozycję **indeksy**. 
+1. [Znajdź usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) i na stronie Przegląd w obszarze linki w środku strony wybierz pozycję **indeksy**. 
 
 1. Wybierz pozycję *realestate-US-Sample-index* z listy istniejących indeksów.
 
@@ -57,7 +59,7 @@ Kreator udostępnia podstawowy układ dla renderowanych wyników wyszukiwania, k
 
 1. W polu Opis wybierz pole, które zawiera szczegółowe informacje, które mogą pomóc komuś zdecydować, czy klikać ten dokument.
 
-![Strona źródła danych dla przykładowych danych](media/search-create-app-portal/configure-results.png)
+   ![Strona źródła danych dla przykładowych danych](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>Dodaj pasek boczny
 

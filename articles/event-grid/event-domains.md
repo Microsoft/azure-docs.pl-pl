@@ -2,17 +2,17 @@
 title: Domeny zdarzeń w Azure Event Grid
 description: W tym artykule opisano, jak używać domen zdarzeń do zarządzania przepływem zdarzeń niestandardowych do różnych organizacji, klientów i aplikacji branżowych.
 services: event-grid
-author: banisadr
+author: femila
 ms.service: event-grid
-ms.author: babanisa
+ms.author: femila
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f6698f91d7659f9fc2c314a9291380301146f8ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11ecf5c2a7bea8a9ef2047bdabcbfd4d844c5a3a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898866"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559508"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Informacje o domenach zdarzeń związanych z zarządzaniem Event Grid tematy
 
@@ -65,7 +65,7 @@ Podczas tworzenia domeny zdarzeń otrzymujesz punkt końcowy publikowania podobn
 
 Aby opublikować zdarzenia w dowolnym temacie w domenie zdarzeń, wypchnij zdarzenia do punktu końcowego domeny w taki [sam sposób jak w przypadku tematu niestandardowego](./post-to-custom-topic.md). Jedyną różnicą jest to, że należy określić temat, do którego ma zostać dostarczone zdarzenie.
 
-`"id": "1111"` Na przykład opublikowanie poniższej tablicy zdarzeń spowoduje wysłanie zdarzenia z do tematu `foo` , podczas gdy zdarzenie z `"id": "2222"` zostałby przesłane do tematu: `bar`
+Na przykład opublikowanie poniższej tablicy zdarzeń spowoduje wysłanie zdarzenia z `"id": "1111"` do tematu `foo` , podczas gdy zdarzenie z `"id": "2222"` zostałby przesłane do tematu `bar` :
 
 ```json
 [{
@@ -105,7 +105,7 @@ Oto limity i przydziały związane z domenami zdarzeń:
 - subskrypcje dotyczące zakresu domeny 50 
 - 5 000 zdarzeń na sekundę (do domeny)
 
-Jeśli te limity nie są odpowiednie dla Ciebie, skontaktuj się z zespołem produktu, otwierając bilet pomocy technicznej lub wysyłając wiadomość [askgrid@microsoft.com](mailto:askgrid@microsoft.com)e-mail na adres. 
+Jeśli te limity nie są odpowiednie dla Ciebie, skontaktuj się z zespołem produktu, otwierając bilet pomocy technicznej lub wysyłając wiadomość e-mail na adres [askgrid@microsoft.com](mailto:askgrid@microsoft.com) . 
 
 ## <a name="pricing"></a>Cennik
 Domeny zdarzeń używają tych samych [cen operacji](https://azure.microsoft.com/pricing/details/event-grid/) , które są używane przez wszystkie inne funkcje w Event Grid.

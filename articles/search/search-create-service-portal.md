@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie usługi wyszukiwania w portalu'
+title: Tworzenie usługi wyszukiwania w portalu
 titleSuffix: Azure Cognitive Search
 description: W tym przewodniku szybki start dowiesz się, jak skonfigurować zasób platformy Azure Wyszukiwanie poznawcze w Azure Portal. Wybierz grupy zasobów, regiony i jednostki SKU lub warstwę cenową.
 manager: nitinme
@@ -7,17 +7,17 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 83b723c815825a255727e9a48d415fedd405c942
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77209362"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488226"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Szybki Start: Tworzenie usługi Azure Wyszukiwanie poznawcze w portalu
 
-Usługa Azure Wyszukiwanie poznawcze to zasób autonomiczny służący do podłączenia środowiska wyszukiwania do aplikacji niestandardowych. Platforma Azure Wyszukiwanie poznawcze łatwo integruje się z innymi usługami platformy Azure, aplikacjami na serwerach sieciowych lub z oprogramowaniem działającym na innych platformach w chmurze.
+Usługa Azure Wyszukiwanie poznawcze to zasób autonomiczny służący do podłączenia środowiska wyszukiwania do aplikacji niestandardowych. Wyszukiwanie poznawcze łatwo integruje się z innymi usługami platformy Azure, z aplikacjami na serwerach sieciowych lub z oprogramowaniem działającym na innych platformach w chmurze.
 
 W tym artykule dowiesz się, jak utworzyć zasób w [Azure Portal](https://portal.azure.com/).
 
@@ -34,8 +34,10 @@ Możesz również [aktywować korzyści dla subskrybentów MSDN](https://azure.m
 ## <a name="find-azure-cognitive-search"></a>Znajdź Wyszukiwanie poznawcze platformy Azure
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Kliknij znak plus („+ Utwórz zasób”) w lewym górnym rogu.
-3. Użyj paska wyszukiwania, aby znaleźć "wyszukiwanie poznawcze platformy Azure" lub przejdź do zasobu za pomocą usługi **Web** > **Azure wyszukiwanie poznawcze**.
+
+1. Kliknij znak plus („+ Utwórz zasób”) w lewym górnym rogu.
+
+1. Użyj paska wyszukiwania, aby znaleźć "wyszukiwanie poznawcze platformy Azure" lub przejdź do zasobu za pomocą usługi **Web**  >  **Azure wyszukiwanie poznawcze**.
 
 ![Tworzenie zasobu w portalu](./media/search-create-service-portal/find-search3.png "Tworzenie zasobu w portalu")
 
@@ -60,7 +62,7 @@ W miarę upływu czasu można śledzić bieżące i przewidywane koszty, a takż
 
 ## <a name="name-the-service"></a>Nazwij usługę
 
-W obszarze Szczegóły wystąpienia Podaj nazwę usługi w polu **adres URL** . Nazwa jest częścią punktu końcowego adresu URL, względem którego są wydawane wywołania `https://your-service-name.search.windows.net`interfejsu API:. Na przykład jeśli chcesz, aby punkt końcowy znajdował się pod adresem `https://myservice.search.windows.net`, wpisz `myservice`.
+W obszarze Szczegóły wystąpienia Podaj nazwę usługi w polu **adres URL** . Nazwa jest częścią punktu końcowego adresu URL, względem którego są wydawane wywołania interfejsu API: `https://your-service-name.search.windows.net` . Na przykład jeśli chcesz, aby punkt końcowy znajdował się pod adresem `https://myservice.search.windows.net`, wpisz `myservice`.
 
 Wymagania dotyczące nazwy usługi:
 
@@ -71,18 +73,24 @@ Wymagania dotyczące nazwy usługi:
 * Nie można używać kolejnych kresek ("--") w dowolnym miejscu
 
 > [!TIP]
-> Jeśli uważasz, że będziesz korzystać z wielu usług, zalecamy uwzględnienie regionu (lub lokalizacji) w nazwie usługi jako konwencji nazewnictwa. Usługi w ramach tego samego regionu mogą bezpłatnie wymieniać dane, więc jeśli platforma Azure Wyszukiwanie poznawcze jest w regionie zachodnie stany USA i masz inne usługi również w regionie zachodnie Stany `mysearchservice-westus` USA, nazwa, na przykład, może zaoszczędzić na stronie właściwości podczas decydowania o sposobie łączenia lub dołączania zasobów.
+> Jeśli uważasz, że będziesz korzystać z wielu usług, zalecamy uwzględnienie regionu (lub lokalizacji) w nazwie usługi jako konwencji nazewnictwa. Usługi w ramach tego samego regionu mogą bezpłatnie wymieniać dane, więc jeśli platforma Azure Wyszukiwanie poznawcze jest w regionie zachodnie stany USA i masz inne usługi również w regionie zachodnie stany USA, nazwa, na przykład, `mysearchservice-westus` może zaoszczędzić na stronie właściwości podczas decydowania o sposobie łączenia lub dołączania zasobów.
 
 ## <a name="choose-a-location"></a>Wybierz lokalizację
 
-Usługa Azure Wyszukiwanie poznawcze może być hostowana w centrach danych na całym świecie. Listę obsługiwanych regionów można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/search/). 
-
-Możesz zminimalizować lub uniknąć opłat za przepustowość, wybierając tę samą lokalizację dla wielu usług. Na przykład w przypadku indeksowania danych dostarczanych przez inną usługę platformy Azure (Azure Storage, Azure Cosmos DB, Azure SQL Database) Tworzenie usługi Azure Wyszukiwanie poznawcze w tym samym regionie pozwala uniknąć naliczania opłat za przepustowość (nie są naliczane opłaty za dane wychodzące, gdy usługi znajdują się w tym samym regionie).
-
-Jeśli używasz wzbogacania AI, Utwórz usługę wyszukiwania w tym samym regionie co Cognitive Services. *Współpraca z platformą Azure wyszukiwanie poznawcze i Cognitive Services w tym samym regionie jest wymagana do wzbogacania AI*.
+Usługa Azure Wyszukiwanie poznawcze jest dostępna w większości regionów. Listę obsługiwanych regionów można znaleźć na [stronie z cennikiem](https://azure.microsoft.com/pricing/details/search/).
 
 > [!Note]
-> Indie Środkowe nie są obecnie dostępne dla nowych usług. W przypadku usług już znajdujących się w centralnym Indiach można skalować w górę bez ograniczeń, a usługa jest w pełni obsługiwana w tym regionie. Ograniczenie w tym regionie jest tymczasowe i ograniczone tylko do nowych usług. Ta uwaga zostanie usunięta, jeśli ograniczenie nie zostanie już zastosowane.
+> Indie Środkowe i Zjednoczone Emiraty Arabskie są obecnie niedostępne dla nowych usług. W przypadku usług znajdujących się już w tych regionach można skalować w górę bez ograniczeń, a usługa jest w pełni obsługiwana w tym regionie. Ograniczenia są tymczasowe i ograniczone tylko do nowych usług. Ta uwaga zostanie usunięta, gdy ograniczenia nie będą już miały zastosowania.
+
+### <a name="requirements"></a>Wymagania
+
+ Jeśli używasz wzbogacania AI, Utwórz usługę wyszukiwania w tym samym regionie co Cognitive Services. *Współpraca z platformą Azure wyszukiwanie poznawcze i Cognitive Services w tym samym regionie jest wymagana do wzbogacania AI*.
+
+ Klienci, którzy mają wymagania dotyczące ciągłości biznesowej i odzyskiwania po awarii (BCDR), powinni tworzyć usługi w [parach regionalnej](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). Na przykład jeśli pracujesz w Ameryka Północna, możesz wybrać Wschodnie stany USA i zachodnie stany USA, Północno-środkowe stany USA i południowe Central US dla każdej usługi.
+
+### <a name="recommendations"></a>Zalecenia
+
+Jeśli używasz wielu usług platformy Azure, wybierz region obsługujący dane lub usługę aplikacji. W ten sposób minimalizuje lub unieważnia opłaty za dane wychodzące (nie są naliczane opłaty za dane wychodzące, gdy usługi znajdują się w tym samym regionie).
 
 ## <a name="choose-a-pricing-tier-sku"></a>Wybierz warstwę cenową (SKU)
 
@@ -128,7 +136,7 @@ Dodawanie zasobów wiąże się z dodaniem opłat do rachunku miesięcznego. [Ka
 > Usługa musi mieć [2 repliki w ramach umowy SLA tylko do odczytu oraz 3 repliki w ramach umowy SLA do odczytu/zapisu](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Przejdź do strony usługi wyszukiwania w witrynie Azure Portal.
-2. W okienku nawigacji po lewej stronie wybierz pozycję **Ustawienia** > **Skala**.
+2. W okienku nawigacji po lewej stronie wybierz pozycję **Ustawienia**  >  **Skala**.
 3. Użyj suwaka, aby dodać zasoby wybranego typu.
 
 ![Dodaj pojemność](./media/search-create-service-portal/settings-scale.png "Dodawanie pojemności przy użyciu replik i partycji")
@@ -142,9 +150,11 @@ Większość klientów używa tylko jednej usługi aprowizowanej dla danej warst
 
 Chociaż większość klientów używa tylko jednej usługi, nadmiarowość usług może być konieczna, jeśli wymagania operacyjne są następujące:
 
-* Odzyskiwanie po awarii (awaria centrum danych). Usługa Azure Wyszukiwanie poznawcze nie zapewnia natychmiastowej pracy w trybie failover w przypadku awarii. Aby uzyskać wskazówki i zalecenia, zobacz [Service administration](search-manage.md) (Administrowanie usługą).
-* W trakcie badania modelowania wielodostępnego ustalono, że dodatkowe usługi stanowią optymalne rozwiązanie dla danego projektu. Aby uzyskać więcej informacji, zobacz [Design for multi-tenancy](search-modeling-multitenant-saas-applications.md) (Projektowanie na potrzeby wielodostępu).
-* W przypadku aplikacji wdrażanych globalnie może zajść potrzeba wystąpienia platformy Azure Wyszukiwanie poznawcze w wielu regionach w celu zminimalizowania opóźnień ruchu międzynarodowego aplikacji.
++ [Ciągłość działania i odzyskiwanie po awarii (BCDR)](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Usługa Azure Wyszukiwanie poznawcze nie zapewnia natychmiastowej pracy w trybie failover w przypadku awarii.
+
++ [Architektury z wieloma dzierżawcami](search-modeling-multitenant-saas-applications.md) czasami są wywoływane w przypadku co najmniej dwóch usług.
+
++ Aplikacje wdrożone globalnie mogą wymagać usług wyszukiwania w poszczególnych lokalizacjach geograficznych, aby zminimalizować opóźnienia.
 
 > [!NOTE]
 > Na platformie Azure Wyszukiwanie poznawcze nie można rozdzielić operacji indeksowania i wykonywania zapytań. w ten sposób nigdy nie utworzysz wielu usług dla rozdzielonych obciążeń. Zapytania względem indeksu zawsze dotyczą usługi, w której został utworzony (nie można utworzyć indeksu w jednej usłudze, by następnie skopiować go do innej).

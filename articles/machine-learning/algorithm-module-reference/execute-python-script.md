@@ -6,15 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
+ms.custom: tracking-python
 author: likebupt
 ms.author: keli19
 ms.date: 04/27/2020
-ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: d25a738a76c955ee11f091bb0f8861bd21cc9f1d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983605"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555866"
 ---
 # <a name="execute-python-script-module"></a>Wykonaj moduł skryptu języka Python
 
@@ -229,12 +230,12 @@ Moduł **wykonywania skryptu języka Python** zawiera przykładowy kod w języku
     Pole tekstowe **skrypt języka Python** jest wstępnie wypełnione kilkoma instrukcjami w komentarzach i przykładowym kodzie na potrzeby dostępu do danych i wyjścia. Należy edytować lub zamienić ten kod. Pamiętaj, aby przestrzegać Konwencji języka Python dotyczących wcięć i wielkości liter.
 
     + Skrypt musi zawierać funkcję o nazwie `azureml_main` jako punkt wejścia dla tego modułu.
-    + Funkcja punktu wejścia musi mieć dwa argumenty wejściowe: `Param<dataframe1>` i `Param<dataframe2>`, nawet jeśli te argumenty nie są używane w skrypcie.
-    + Pliki spakowane połączone z trzecim portem wejściowym są rozpakowane i przechowywane w katalogu, `.\Script Bundle`który jest również dodawany do języka Python `sys.path`. 
+    + Funkcja punktu wejścia musi mieć dwa argumenty wejściowe: `Param<dataframe1>` i `Param<dataframe2>` , nawet jeśli te argumenty nie są używane w skrypcie.
+    + Pliki spakowane połączone z trzecim portem wejściowym są rozpakowane i przechowywane w katalogu, `.\Script Bundle` który jest również dodawany do języka Python `sys.path` . 
 
-    W związku z tym, jeśli plik `mymodule.py`zip zawiera, zaimportuj go za pomocą `import mymodule`.
+    W związku z tym, jeśli plik zip zawiera `mymodule.py` , zaimportuj go za pomocą `import mymodule` .
 
-    + Do projektanta można zwrócić dwa zestawy danych, które muszą być sekwencją typu `pandas.DataFrame`. Możesz tworzyć inne dane wyjściowe w kodzie języka Python i zapisywać je bezpośrednio w usłudze Azure Storage.
+    + Do projektanta można zwrócić dwa zestawy danych, które muszą być sekwencją typu `pandas.DataFrame` . Możesz tworzyć inne dane wyjściowe w kodzie języka Python i zapisywać je bezpośrednio w usłudze Azure Storage.
 
 6. Prześlij potok lub wybierz moduł, a następnie kliknij pozycję **Uruchom wybrane** , aby uruchomić tylko skrypt języka Python.
 

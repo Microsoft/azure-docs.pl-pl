@@ -8,13 +8,13 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.custom: seodec18
-ms.openlocfilehash: 3a7a00e59db677e156037c007537ab1b54c1cfaf
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 82bdf4cd25d486d48f4f2adda222197a600434d8
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159970"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559576"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Technologie open source — często zadawane pytania dotyczące Web Apps na platformie Azure
 
@@ -26,8 +26,8 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 Aby włączyć rejestrowanie w języku PHP:
 
-1. Zaloguj się do **witryny sieci Web kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
-2. W górnym menu wybierz kolejno polecenia **Debuguj konsolę** > **cmd**.
+1. Zaloguj się do **witryny sieci Web kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
+2. W górnym menu wybierz kolejno polecenia **Debuguj konsolę**  >  **cmd**.
 3. Wybierz folder **witryny** .
 4. Wybierz folder **wwwroot** .
 5. Wybierz **+** ikonę, a następnie wybierz pozycję **nowy plik**.
@@ -56,7 +56,7 @@ Aby zmienić wersję aplikacji node. js, można użyć jednej z następujących 
   1. W Azure Portal przejdź do aplikacji sieci Web.
   2. W bloku **Ustawienia** wybierz pozycję **Ustawienia aplikacji**.
   3. W obszarze **Ustawienia aplikacji**można uwzględnić WEBSITE_NODE_DEFAULT_VERSION jako klucz oraz wersję środowiska Node. js, która ma być wartością.
-  4. Przejdź do **konsoli kudu** (`https://*yourwebsitename*.scm.azurewebsites.net`).
+  4. Przejdź do **konsoli kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
   5. Aby sprawdzić wersję środowiska Node. js, wprowadź następujące polecenie:  
      ```
      node -v
@@ -91,7 +91,7 @@ Jeśli ten błąd wystąpi w plikach Debug. log lub php_errors. log, aplikacja p
 
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>Jak mogę debugować aplikację Node. js hostowaną w App Service?
 
-1.  Przejdź do **konsoli kudu** (`https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole`).
+1.  Przejdź do **konsoli kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole` ).
 2.  Przejdź do folderu logs aplikacji (D:\home\LogFiles\Application).
 3.  W pliku logging_errors. txt sprawdź zawartość.
 
@@ -138,7 +138,7 @@ Aby rozwiązać ten problem:
 
 1. Usuń plik JAR sqljdbc* z folderu App/lib.
 2. Jeśli używasz niestandardowego serwera sieci Web Tomcat lub Azure Marketplace Tomcat, Skopiuj ten plik jar do folderu Tomcat lib.
-3. W przypadku włączania języka Java z poziomu Azure Portal (wybierz pozycję **Java 1,8** > **Tomcat Server**) Skopiuj plik JAR sqljdbc. * w folderze, który jest równoległy do aplikacji. Następnie Dodaj następujące ustawienie ścieżki klasy do pliku Web. config:
+3. W przypadku włączania języka Java z poziomu Azure Portal (wybierz pozycję **Java 1,8**  >  **Tomcat Server**) Skopiuj plik JAR sqljdbc. * w folderze, który jest równoległy do aplikacji. Następnie Dodaj następujące ustawienie ścieżki klasy do pliku Web. config:
 
     ```xml
     <httpPlatform>

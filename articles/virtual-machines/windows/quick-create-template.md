@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 7ae8c21ef12a1233268fda772525e91be9d62bb6
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 6ef929a2934d8480ce6d1eca8bb7ba3b70580110
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84435478"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84551995"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-a-resource-manager-template"></a>Szybki Start: Tworzenie maszyny wirtualnej z systemem Windows przy użyciu szablonu Menedżer zasobów
 
@@ -23,9 +23,13 @@ W tym przewodniku szybki start pokazano, jak za pomocą szablonu Menedżer zasob
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+## <a name="prerequisites"></a>Wymagania wstępne
 
+Brak.
 
-## <a name="review-the-template"></a>Przegląd szablonu
+## <a name="create-a-windows-virtual-machine"></a>Tworzenie maszyny wirtualnej z systemem Windows
+
+### <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
@@ -44,11 +48,11 @@ W szablonie zdefiniowano kilka zasobów:
 
 
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Ten szablon umożliwia utworzenie magazynu kluczy oraz wpisu tajnego.
 
-    [![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
+    [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-windows%2fazuredeploy.json)
 
 1. Wybierz lub wprowadź następujące wartości. Użyj wartości domyślnych, jeśli są dostępne.
 

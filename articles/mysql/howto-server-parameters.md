@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/16/2020
-ms.openlocfilehash: bd0a867cce9b2a9ad793b491b9042034ef5810f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c6e4ff494ee79428f7d9e6a55d184b877c0d58e4
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605155"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554953"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Jak skonfigurować parametry serwera w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -29,50 +29,14 @@ Azure Database for MySQL obsługuje konfigurację niektórych parametrów serwer
 5. Jeśli Zapisano nowe wartości parametrów, zawsze możesz przywrócić wszystkie elementy z powrotem do wartości domyślnych, wybierając pozycję **Zresetuj wszystkie do domyślnych**.
 ![Zresetuj wszystkie do domyślnych](./media/howto-server-parameters/5-reset_parameters.png)
 
-## <a name="list-of-configurable-server-parameters"></a>Lista konfigurowalnych parametrów serwera
-
-Lista obsługiwanych parametrów serwera stale rośnie. Karta parametry serwera w Azure Portal służy do uzyskiwania definicji i konfigurowania parametrów serwera na podstawie wymagań aplikacji.
-
-## <a name="non-configurable-server-parameters"></a>Parametry serwera, które nie zostały konfigurowalne
-
-Nie można skonfigurować rozmiaru puli buforów InnoDB i powiązana z Twoją [warstwą cenową](concepts-service-tiers.md).
-
-|**Warstwa cenowa**|**Rdzeń wirtualny**|**Rozmiar puli buforów InnoDB w <br>MB (serwery obsługujące do 4 TB magazynu)**| **Rozmiar puli buforów InnoDB w <br>MB (serwery obsługujące do 16 TB magazynu)**|
-|:---|---:|---:|---:|
-|Podstawowy| 1| 832| |
-|Podstawowy| 2| 2560| |
-|Ogólnego przeznaczenia| 2| 3584| 7168|
-|Ogólnego przeznaczenia| 4| 7680| 15360|
-|Ogólnego przeznaczenia| 8| 15360| 30720|
-|Ogólnego przeznaczenia| 16| 31232| 62464|
-|Ogólnego przeznaczenia| 32| 62976| 125952|
-|Ogólnego przeznaczenia| 64| 125952| 251904|
-|Optymalizacja pod kątem pamięci| 2| 7168| 14336|
-|Optymalizacja pod kątem pamięci| 4| 15360| 30720|
-|Optymalizacja pod kątem pamięci| 8| 30720| 61440|
-|Optymalizacja pod kątem pamięci| 16| 62464| 124928|
-|Optymalizacja pod kątem pamięci| 32| 125952| 251904|
-
-Te dodatkowe parametry serwera nie są konfigurowane w systemie:
-
-|**Konstruktora**|**Stała wartość**|
-| :------------------------ | :-------- |
-|innodb_file_per_table w warstwie Podstawowa|WYŁ.|
-|innodb_flush_log_at_trx_commit|1|
-|sync_binlog|1|
-|innodb_log_file_size|256 MB|
-|innodb_log_files_in_group|2|
-
-Inne parametry serwera, które nie są wymienione w tym miejscu, są ustawione na wartości domyślne dla programu MySQL w wersjach [5,7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) i [5,6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html).
-
 ## <a name="working-with-the-time-zone-parameter"></a>Praca z parametrem strefy czasowej
 
 ### <a name="populating-the-time-zone-tables"></a>Wypełnianie tabel strefy czasowej
 
-Tabele strefy czasowej na serwerze można wypełnić przez wywołanie procedury `mysql.az_load_timezone` składowanej z narzędzia, takiego jak wiersz polecenia MySQL lub MySQL Workbench.
+Tabele strefy czasowej na serwerze można wypełnić przez wywołanie `mysql.az_load_timezone` procedury składowanej z narzędzia, takiego jak wiersz polecenia MySQL lub MySQL Workbench.
 
 > [!NOTE]
-> Jeśli uruchamiasz `mysql.az_load_timezone` polecenie z programu MySQL Workbench, może być konieczne wyłączenie bezpiecznego trybu aktualizacji jako pierwszego przy użyciu programu `SET SQL_SAFE_UPDATES=0;`.
+> Jeśli uruchamiasz `mysql.az_load_timezone` polecenie z programu MySQL Workbench, może być konieczne wyłączenie bezpiecznego trybu aktualizacji jako pierwszego przy użyciu programu `SET SQL_SAFE_UPDATES=0;` .
 
 ```sql
 CALL mysql.az_load_timezone();

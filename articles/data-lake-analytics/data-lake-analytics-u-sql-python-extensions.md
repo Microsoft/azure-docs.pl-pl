@@ -9,12 +9,13 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 0a49cbdb4caf474d0628fea3679ce712d37886e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: d047fd62e897163bf4ab6bf7e085462b136bf8fe
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60813403"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553343"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Rozszerzone skrypty U-SQL z kodem języka Python w Azure Data Lake Analytics
 
@@ -32,8 +33,8 @@ Rozszerzenia Python dla języka U-SQL umożliwiają deweloperom wykonywanie wyso
 
 * Użycie `REFERENCE ASSEMBLY` instrukcji w celu włączenia rozszerzeń języka Python dla skryptu U-SQL
 * Używanie `REDUCE` operacji do partycjonowania danych wejściowych klucza
-* Rozszerzenia Python dla języka U-SQL zawierają wbudowanego zredukowanego (`Extension.Python.Reducer`), który uruchamia kod języka Python na każdym wierzchołku przypisanym do tego ograniczenia
-* Skrypt U-SQL zawiera osadzony kod języka Python, który ma funkcję o `usqlml_main` nazwie, która akceptuje Pandas Dataframe jako dane wejściowe i zwraca element Pandas Dataframe jako dane wyjściowe.
+* Rozszerzenia Python dla języka U-SQL zawierają wbudowanego zredukowanego ( `Extension.Python.Reducer` ), który uruchamia kod języka Python na każdym wierzchołku przypisanym do tego ograniczenia
+* Skrypt U-SQL zawiera osadzony kod języka Python, który ma funkcję o nazwie `usqlml_main` , która akceptuje Pandas Dataframe jako dane wejściowe i zwraca element Pandas Dataframe jako dane wyjściowe.
 
 --
 
@@ -73,7 +74,7 @@ Rozszerzenia Python dla języka U-SQL umożliwiają deweloperom wykonywanie wyso
 ### <a name="datatypes"></a>Typy danych
 
 * Ciągi i kolumny liczbowe z języka U-SQL są konwertowane między Pandas i U-SQL
-* Wartości null U-SQL są konwertowane na i z Pandas `NA`
+* Wartości null U-SQL są konwertowane na i `NA` z Pandas
 
 ### <a name="schemas"></a>Schematy
 

@@ -3,12 +3,13 @@ title: Konfigurowanie i zarządzanie Azure Notebooks wersja zapoznawcza
 description: Dowiedz się, jak zarządzać metadanymi projektu, plikami projektu, środowiskiem projektu i instrukcjami konfiguracji za pośrednictwem interfejsu użytkownika Azure Notebooks i bezpośredniego dostępu do terminalu.
 ms.topic: how-to
 ms.date: 02/28/2020
-ms.openlocfilehash: 1674effda2cb9bda45f49c91ca618225b0a75f0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: df64c9d90252c31118b66943b6a182319e3f1cc2
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280601"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554305"
 ---
 # <a name="manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Zarządzanie projektami i konfigurowanie ich w programie Azure Notebooks Preview
 
@@ -61,7 +62,7 @@ Pulpit nawigacyjny projektu pokazuje zawartość systemu folderu projektu. Aby z
 | **Notes** | Notes Jupyter | Wyświetla okno podręczne, w którym można określić nazwę pliku i język notesu. |
 | **Folder** | Podfolder | Tworzy pole edycji na liście plików projektu, do którego zostanie wprowadzona nazwa folderu. |
 | **Pusty plik** | Plik, w którym można przechowywać dowolną zawartość, taką jak tekst, dane itp. | Tworzy pole edycji na liście plików projektu, w którym należy wprowadzić nazwę pliku. |
-| **Markdown** | Plik promocji. | Tworzy pole edycji na liście plików projektu, w którym należy wprowadzić nazwę pliku. |
+| **Znaczniki języka Markdown** | Plik promocji. | Tworzy pole edycji na liście plików projektu, w którym należy wprowadzić nazwę pliku. |
 
 ### <a name="upload-files"></a>Przekazywanie plików
 
@@ -75,14 +76,14 @@ Każdy element na liście plików projektu zawiera polecenia za pomocą menu kon
 
 | Polecenie | Skrót klawiaturowy | Akcja |
 | --- | --- | --- |
-| Run | r (lub kliknij) | Uruchamia plik notesu. Inne typy plików są otwierane do wyświetlania.  |
-| Kopiuj link | t | Kopiuje link do pliku do Schowka. |
+| Uruchom | r (lub kliknij) | Uruchamia plik notesu. Inne typy plików są otwierane do wyświetlania.  |
+| Kopiuj link | Y | Kopiuje link do pliku do Schowka. |
 | Uruchom w laboratorium Jupyter Lab | j | Uruchamia Notes w JupyterLab, który jest większym interfejsem zorientowanym na dewelopera niż Jupyter zwykle. |
 | Wersja zapoznawcza | p | Otwiera Podgląd HTML pliku; w przypadku notesów Podgląd jest renderowaniem tylko do odczytu w notesie. Aby uzyskać więcej informacji, zobacz sekcję [wersja zapoznawcza](#preview) . |
 | Edytuj plik | mogę | Otwiera plik do edycji. |
-| Pliki do pobrania | d | Pobiera plik zip, który zawiera plik lub zawartość folderu. |
+| Pobierz | d | Pobiera plik zip, który zawiera plik lub zawartość folderu. |
 | Zmień nazwę | a | Żąda nowej nazwy dla pliku lub folderu. |
-| Usuwanie | x | Monituje o potwierdzenie, a następnie trwale usuwa plik z projektu. Usunięć nie można cofnąć. |
+| Usuń | x | Monituje o potwierdzenie, a następnie trwale usuwa plik z projektu. Usunięć nie można cofnąć. |
 | Move | m | Przenosi plik do innego folderu w tym samym projekcie. |
 
 #### <a name="preview"></a>Wersja zapoznawcza
@@ -95,8 +96,8 @@ Strona Podgląd obsługuje kilka poleceń paska narzędzi ze skrótami klawiatur
 | --- | --- | --- |
 | Udostępnij | s | Wyświetla okno podręczne udostępniania, z którego można uzyskać link, udostępnić je do mediów społecznościowych, uzyskać kod HTML do osadzenia i wysłać wiadomość e-mail. |
 | Klonowanie | c  | Sklonuj Notes na swoje konto. |
-| Run | r | Uruchamia Notes, jeśli jest to możliwe. |
-| Pliki do pobrania | d | Pobiera kopię notesu. |
+| Uruchom | r | Uruchamia Notes, jeśli jest to możliwe. |
+| Pobierz | d | Pobiera kopię notesu. |
 
 ## <a name="configure-the-project-environment"></a>Konfigurowanie środowiska projektu
 
@@ -133,7 +134,7 @@ Informacje, które następnie projekt zależą od wybranego typu operacji:
 - **Środowisko. yml**: na drugiej liście rozwijanej wybierz plik Environments *. yml* dla projektów języka Python korzystających ze środowiska Conda.
 
    > [!WARNING]
-   > Ponieważ jest to usługa w wersji zapoznawczej w ramach programowania, istnieje obecnie znany problem `Environment.yml` , w którym ustawienie nie zostanie zastosowane do projektu zgodnie z oczekiwaniami. Projekty i notesy Jupyter w programie nie ładują teraz określonego pliku środowiska.
+   > Ponieważ jest to usługa w wersji zapoznawczej w ramach programowania, istnieje obecnie znany problem, w którym ustawienie nie zostanie `Environment.yml` zastosowane do projektu zgodnie z oczekiwaniami. Projekty i notesy Jupyter w programie nie ładują teraz określonego pliku środowiska.
 
 Po zakończeniu dodawania kroków wybierz pozycję **Zapisz**.
 
@@ -144,7 +145,7 @@ Na pulpicie nawigacyjnym projektu polecenie **terminalu** otwiera terminal syste
 > [!Note]
 > Jeśli masz skrypty uruchamiania w środowisku projektu, otwarcie terminalu może wyświetlić komunikat informujący o tym, że Instalator jest nadal w toku.
 
-W terminalu można wydać wszystkie standardowe polecenia systemu Linux. `ls` Można również użyć w folderze głównym, aby zobaczyć różne środowiska, które istnieją na maszynie wirtualnej, takie jak *anaconda2_501*, *anaconda3_420*, *anaconda3_501*, *IfSharp*i *R*, wraz z folderem *projektu* zawierającym projekt:
+W terminalu można wydać wszystkie standardowe polecenia systemu Linux. Można również użyć `ls` w folderze głównym, aby zobaczyć różne środowiska, które istnieją na maszynie wirtualnej, takie jak *anaconda2_501*, *anaconda3_420*, *anaconda3_501*, *IfSharp*i *R*, wraz z folderem *projektu* zawierającym projekt:
 
 ![Terminal projektu w Azure Notebooks](media/project-terminal.png)
 
@@ -166,7 +167,7 @@ python36 -m pip install <package>
 Zmiany wprowadzone na serwerze dotyczą tylko bieżącej sesji, z wyjątkiem plików i folderów tworzonych w folderze *projektu* . Na przykład edytowanie pliku w folderze projektu jest utrwalane między sesjami, ale pakiety z `pip install` nie są.
 
 > [!Note]
-> W przypadku korzystania `python` z `python3`programu lub należy wywołać wersje języka Python zainstalowane w systemie, które nie są używane w notesach. Nie masz uprawnień do operacji takich jak `pip install` albo upewnij się, że używasz aliasów specyficznych dla wersji.
+> W przypadku korzystania `python` z programu lub należy `python3` wywołać wersje języka Python zainstalowane w systemie, które nie są używane w notesach. Nie masz uprawnień do operacji takich jak `pip install` albo upewnij się, że używasz aliasów specyficznych dla wersji.
 
 ## <a name="access-notebook-logs"></a>Dostęp do dzienników notesu
 

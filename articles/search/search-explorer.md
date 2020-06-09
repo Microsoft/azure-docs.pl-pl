@@ -7,25 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/27/2020
-ms.openlocfilehash: 9fb34141d19866a2f49ac164e0d89802cf7818c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/07/2020
+ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80369654"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488209"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Szybki Start: korzystanie z Eksploratora wyszukiwania do uruchamiania zapytań w portalu
 
-**Eksplorator wyszukiwania** to wbudowane narzędzie do tworzenia zapytań służące do uruchamiania zapytań w odniesieniu do indeksu wyszukiwania w usłudze Azure wyszukiwanie poznawcze. To narzędzie ułatwia naukę składni zapytań, testowanie zapytania lub wyrażenia filtru lub potwierdzenie wyników odświeżania indeksu przez sprawdzenie, czy istnieje nowsza zawartość.
+**Eksplorator wyszukiwania** to wbudowane narzędzie do tworzenia zapytań służące do uruchamiania zapytań w odniesieniu do indeksu wyszukiwania w usłudze Azure wyszukiwanie poznawcze. To narzędzie ułatwia naukę składni zapytań, testowanie zapytania lub wyrażenia filtru lub potwierdzenie odświeżania danych przez sprawdzenie, czy nowa zawartość istnieje w indeksie.
 
-Ten przewodnik Szybki Start używa **realestate-US-Sample-index** do zademonstrowania Eksploratora wyszukiwania. Żądania są formułowane przy użyciu [interfejsu API REST wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/)z odpowiedziami zwracanymi jako dokumenty JSON.
+Ten przewodnik Szybki Start używa istniejącego indeksu do zademonstrowania Eksploratora wyszukiwania. Żądania są formułowane przy użyciu [interfejsu API REST wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/)z odpowiedziami zwracanymi jako dokumenty JSON.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ [Utwórz usługę Azure wyszukiwanie poznawcze](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start.
+Przed rozpoczęciem należy wykonać następujące czynności:
 
-+ w tym przewodniku Szybki Start jest używany **indeks realestate-US-Sample-index** . Wykonaj kroki kreatora [**importu danych**](search-import-data-portal.md) , aby wygenerować indeks ze źródła danych z wbudowanych przykładów.
++ Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/).
+
++ Usługa Wyszukiwanie poznawcze platformy Azure. [Utwórz usługę](search-create-service-portal.md) lub [Znajdź istniejącą usługę](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) w ramach bieżącej subskrypcji. Możesz użyć bezpłatnej usługi dla tego przewodnika Szybki Start. 
+
++ Na potrzeby tego przewodnika Szybki Start jest używany *indeks realestate-US-Sample* . Użyj kreatora [**importu danych**](search-import-data-portal.md) , aby utworzyć indeks. W pierwszym kroku, gdy zostanie wyświetlony monit o podanie źródła danych, wybierz pozycję **przykłady** , a następnie wybierz źródło danych **realestate-US-Sample** . Zaakceptuj wszystkie ustawienia domyślne kreatora, aby utworzyć indeks.
 
 ## <a name="start-search-explorer"></a>Uruchom Eksploratora wyszukiwania
 
@@ -41,9 +45,9 @@ Ten przewodnik Szybki Start używa **realestate-US-Sample-index** do zademonstro
 
 ## <a name="unspecified-query"></a>Nieokreślone zapytanie
 
-Aby najpierw obejrzeć zawartość, wykonaj puste wyszukiwanie, klikając przycisk **Wyszukaj** bez podanych warunków. Puste wyszukiwanie jest przydatne jako pierwsze zapytanie, ponieważ zwraca całe dokumenty, aby można było sprawdzić kompozycję dokumentu. W przypadku pustego wyszukiwania nie ma rangi wyszukiwania i dokumenty są zwracane w dowolnej kolejności (`"@search.score": 1` dla wszystkich dokumentów). Domyślnie w żądaniu wyszukiwania są zwracane dokumenty 50.
+Aby najpierw obejrzeć zawartość, wykonaj puste wyszukiwanie, klikając przycisk **Wyszukaj** bez podanych warunków. Puste wyszukiwanie jest przydatne jako pierwsze zapytanie, ponieważ zwraca całe dokumenty, aby można było sprawdzić kompozycję dokumentu. W przypadku pustego wyszukiwania nie ma rangi wyszukiwania i dokumenty są zwracane w dowolnej kolejności ( `"@search.score": 1` dla wszystkich dokumentów). Domyślnie w żądaniu wyszukiwania są zwracane dokumenty 50.
 
-Odpowiednikiem składni pustego wyszukiwania jest `*` lub `search=*`.
+Odpowiednikiem składni pustego wyszukiwania jest `*` lub `search=*` .
    
    ```http
    search=*
@@ -83,7 +87,7 @@ Dodaj **$Count = true** , aby uzyskać liczbę dopasowań znalezionych w indeksi
 
 ## <a name="limit-fields-in-search-results"></a>Ograniczanie pól w wynikach wyszukiwania
 
-Dodaj [**$SELECT**](search-query-odata-select.md) , aby ograniczyć wyniki do jawnie nazwanych pól, aby uzyskać bardziej czytelny wynik w **Eksploratorze wyszukiwania**. Aby zachować ciąg wyszukiwania i **$Count = true**, prefiks argumentów z **&**. 
+Dodaj [**$SELECT**](search-query-odata-select.md) , aby ograniczyć wyniki do jawnie nazwanych pól, aby uzyskać bardziej czytelny wynik w **Eksploratorze wyszukiwania**. Aby zachować ciąg wyszukiwania i **$Count = true**, prefiks argumentów z **&** . 
 
    ```http
    search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true

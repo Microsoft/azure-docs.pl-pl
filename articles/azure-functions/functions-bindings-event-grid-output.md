@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: fasttrack-edit, tracking-python
+ms.openlocfilehash: 891eda49e11d9a9252cfcb5a0677eb47551135bc
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773950"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561803"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Event Grid powiązanie danych wyjściowych dla Azure Functions
 
@@ -27,7 +27,7 @@ Aby uzyskać informacje na temat konfiguracji i szczegółów konfiguracji, zoba
 
 ## <a name="example"></a>Przykład
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Poniższy przykład pokazuje [funkcję języka C#](functions-dotnet-class-library.md) , która zapisuje komunikat do Event Grid niestandardowego tematu przy użyciu metody zwracanej wartości jako dane wyjściowe:
 
@@ -218,7 +218,7 @@ Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Java.
 
 ## <a name="attributes-and-annotations"></a>Atrybuty i adnotacje
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 W przypadku [bibliotek klas języka C#](functions-dotnet-class-library.md)należy użyć atrybutu [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) .
 
@@ -253,7 +253,7 @@ Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Java.
 
 ---
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `EventGrid` atrybucie.
 
@@ -272,7 +272,7 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane
 
 ## <a name="usage"></a>Użycie
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Wysyłaj komunikaty przy użyciu parametru metody, takiego jak `out EventGridEvent paramName` . Aby napisać wiele komunikatów, można użyć `ICollector<EventGridEvent>` lub zamiast `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
 

@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: 1610ba173f31ecee05b2816758eab2d7c6da98f9
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.custom: tracking-python
+ms.openlocfilehash: 3a274ca84be8e4803bae614dcb3eba5d8086bd2d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798445"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559521"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK dla interfejsu API SQL: informacje o wersji i zasoby
 
@@ -98,7 +99,7 @@ ms.locfileid: "83798445"
 
 * Połączenie klienta zostało dostosowane do korzystania z potoku HTTP zdefiniowanego w `azure.core.pipeline` .
 
-* Nazwy obiektów interaktywnych zostały teraz zmienione jako serwery proxy. Obejmuje to:
+* Nazwy obiektów interaktywnych zostały teraz zmienione jako serwery proxy. Możliwości obejmują:
 
   * `Database` -> `DatabaseProxy`
   * `User` -> `UserProxy`

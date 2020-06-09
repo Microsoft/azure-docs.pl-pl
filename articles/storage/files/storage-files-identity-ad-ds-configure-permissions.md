@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/07/2020
 ms.author: rogarana
-ms.openlocfilehash: 6e49201b0574e0a1235cc9e2cb313b40b0563f93
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 436f0ae3e19b2a0591a2727bde48bae66b91a94e
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268492"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509257"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Część trzecia: Konfigurowanie uprawnień na poziomie katalogu i pliku za pośrednictwem protokołu SMB 
 
@@ -31,12 +31,22 @@ Aby skonfigurować listy ACL z uprawnieniami administratora, należy zainstalowa
 W katalogu głównym udziału plików znajdują się następujące uprawnienia:
 
 - Builtin\administratorzy: (OI) (CI) (F)
-- NT NT\SYSTEM: (OI) (CI) (CI) (F)
 - BUILTIN\Users: (RX)
 - BUILTIN\Users: (OI) (CI) (we/wy) (GR, GE)
 - Użytkownicy NT AUTHORITY\Authenticated: (OI) (CI) (M)
+- NT NT\SYSTEM: (OI) (CI) (CI) (F)
 - ZARZĄDZANIE NT\SYSTEM: (F)
 - TWÓRCA-WŁAŚCICIEL: (OI) (WE/WY) (IO) (F)
+
+|Użytkownicy|Definicja|
+|---|---|
+|BUILTIN\Administrators|Wszyscy użytkownicy, którzy są administratorami domeny środowiska Premium AD DS.
+|BUILTIN\Users|Wbudowana grupa zabezpieczeń w usłudze AD. Domyślnie obejmuje użytkowników NT AUTHORITY\Authenticated. W przypadku tradycyjnego serwera plików można skonfigurować definicję członkostwa na serwer. W przypadku Azure Files nie istnieje serwer hostingu, dlatego BUILTIN\Users obejmuje ten sam zestaw użytkowników jako użytkowników NT AUTHORITY\Authenticated.|
+|ZARZĄDZANIE NT\SYSTEM|Konto usługi systemu operacyjnego serwera plików. Takie konto usługi nie ma zastosowania w kontekście Azure Files. Jest ona uwzględniona w katalogu głównym, aby była spójna ze środowiskiem Windows Files dla scenariuszy hybrydowych.|
+|Użytkownicy NT AUTHORITY\Authenticated|Wszyscy użytkownicy w usłudze AD, którzy mogą uzyskać prawidłowy token Kerberos.|
+|WŁAŚCICIEL TWÓRCY|Każdy obiekt albo katalog lub plik ma właściciela dla tego obiektu. Jeśli istnieją listy ACL przypisane do elementu "Twórca-właściciel" tego obiektu, użytkownik będący właścicielem tego obiektu ma uprawnienia do obiektu zdefiniowanego przez listę ACL.|
+
+
 
 ## <a name="mount-a-file-share-from-the-command-prompt"></a>Instalowanie udziału plików z wiersza polecenia
 
@@ -65,7 +75,7 @@ Użyj Eksploratora plików systemu Windows, aby przyznać pełne uprawnienia do 
 1. W oknie monitu do dodawania nowych użytkowników wprowadź nazwę docelowej nazwy użytkownika, do której chcesz udzielić uprawnień, w polu **Wprowadź nazwy obiektów do wybrania** , a następnie wybierz pozycję **Sprawdź nazwy** , aby znaleźć pełną nazwę UPN użytkownika docelowego.
 1.    Wybierz przycisk **OK**.
 1.    Na karcie **zabezpieczenia** wybierz pozycję wszystkie uprawnienia, które chcesz udzielić nowemu użytkownikowi.
-1.    Wybierz przycisk **Zastosuj**.
+1.    Wybierz pozycję **Zastosuj**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurowanie list ACL systemu Windows przy użyciu icacls
 

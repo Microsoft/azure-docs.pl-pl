@@ -5,14 +5,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 06/08/2020
 ms.author: dsindona
-ms.openlocfilehash: da2588125b455deaf18110687d54adc04a7dd4c0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: fb2031072ce93fcacdf52f8f0fad68f836049b22
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799862"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560907"
 ---
 # <a name="consulting-service-offers"></a>Oferty usługi konsultingowej
 
@@ -22,16 +22,7 @@ Oferty usługi konsultingowej są zobowiązaniami specyficznymi dla klienta. Wyd
 
 ## <a name="compare-consulting-services"></a>Porównaj usługi doradcze
 
-Komercyjne witryny sklepu Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. Każda witryna sklepu oferuje wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Poniższa tabela zawiera podsumowanie następujących opcji:
-
-|         |Azure Marketplace  |Microsoft AppSource |
-|---------|---------|---------|
-|Grupy odbiorców      |Informatycy i deweloperzy rozwiązań w chmurze|Użytkownicy biznesowi i przedsiębiorcy podejmujące decyzje biznesowe|
-|Istotność rozwiązania      |Aplikacje techniczne skompilowane lub utworzone na platformie Azure|Aplikacje biznesowe wykorzystujące lub rozszerzające usługę Dynamics 365, Power BI, Office 365, Azure (aplikacje gotowe do użycia lub dodatki)|
-|Opcje publikowania      |Kontakt ze mną, wersja próbna, usługa Transact lub usługi dla platformy Azure|Skontaktuj się z nami, wersją próbną lub usługami dla systemu Dynamics 365 i Power BI|
-|Środowisko pracy w produkcie      |Azure Portal|Dynamics 365, Office 365, aplikacje klienckie pakietu Office| 
-|Inne      |Publikowanie lokalne za pośrednictwem Azure Stack, usług konsultingowych dla platformy Azure, usług zarządzanych dla platformy Azure|Usługi doradcze dla systemu Dynamics 365 i Power BI|
-||
+Komercyjne witryny sklepu Marketplace, Microsoft AppSource i Azure Marketplace są wyrównane z odbiorcami i produktami w chmurze, aby ułatwić klientom znalezienie potrzebnych informacji. Każda witryna sklepu oferuje wyspecjalizowane opcje publikowania, które ułatwiają zmaksymalizowanie inwestycji w publikowanie. Aby dowiedzieć się więcej o różnicach między tymi dwoma sklepami, zobacz [porównanie Microsoft AppSource i witryny Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
 
 Oferty usług konsultingowych, które są oparte na Dynamics 365, zaawansowanych aplikacjach i Power BI mogą być wymienione w witrynie AppSource. Aby uzyskać więcej informacji, Pobierz [Microsoft AppSource usług doradczych dotyczących list](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) plików PDF.
 
@@ -79,7 +70,7 @@ Dodatkowe zasoby i pomoc techniczna:
 
 Aby uzyskać więcej informacji na temat kompetencji, przejdź do strony [Microsoft Partner Network kompetencji](https://partner.microsoft.com/membership/competencies) .
 
-Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dla następujących 21 krajów/regionów:
+Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dla następujących 20 krajów/regionów:
 
 |   |   |   |   |
 |---------|----------|----------|----------|
@@ -87,8 +78,7 @@ Partnerzy integratora systemu mogą przesyłać oferty usług konsultingowych dl
 | Finlandia  | Francja | Niemcy  | Indie   |
 | Włochy    | Japonia  |  Meksyk  |  Holandia  |
 |  Nowa Zelandia  |  Norwegia  |  Polska  | Republika Południowej Afryki |
-|  Hiszpania  | Szwecja  | Szwajcaria  |  Stany Zjednoczone  |
-| Zjednoczone Królestwo  |
+|  Szwecja  | Szwajcaria  |  Stany Zjednoczone  | Zjednoczone Królestwo  |
 ||
 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Zarejestruj się w celu uzyskania usług doradczych na rynku komercyjnym

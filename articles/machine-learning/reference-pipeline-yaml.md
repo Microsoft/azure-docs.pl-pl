@@ -10,12 +10,13 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: 3d5f73eedba64d0d8475826c61b84aab09372716
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: a519519d5728307847b5d92f9ae5ce3e739e3ba6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430937"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560948"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiowanie potoków uczenia maszynowego w YAML
 
@@ -25,15 +26,15 @@ W poniższej tabeli przedstawiono, co jest i nie jest obecnie obsługiwane podcz
 
 | Typ kroku | Obsługiwane? |
 | ----- | :-----: |
-| PythonScriptStep | Tak |
-| ParallelRunStep | Tak |
-| AdlaStep | Tak |
-| AzureBatchStep | Tak |
-| DatabricksStep | Tak |
-| DataTransferStep | Tak |
+| PythonScriptStep | Yes |
+| ParallelRunStep | Yes |
+| AdlaStep | Yes |
+| AzureBatchStep | Yes |
+| DatabricksStep | Yes |
+| DataTransferStep | Yes |
 | AutoMLStep | Nie |
 | HyperDriveStep | Nie |
-| ModuleStep | Tak |
+| ModuleStep | Yes |
 | MPIStep | Nie |
 | EstimatorStep | Nie |
 

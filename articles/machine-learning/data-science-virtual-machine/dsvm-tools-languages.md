@@ -6,16 +6,17 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: e7b32579712e89c0d5595303ee7e03d8b2462607
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c81f2a23474ff98c202cdbe5b455dd3d15535c96
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283656"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557470"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Języki obsługiwane na Data Science Virtual Machine 
 
@@ -27,7 +28,7 @@ Data Science Virtual Machine (DSVM) zawiera kilka wstępnie utworzonych językó
 | ------------- | ------------- |
 | Obsługiwane wersje językowe | Python 2,7 i 3,7 |
 | Obsługiwane wersje DSVM      | Windows Server 2016     |
-| Jak jest on skonfigurowany/instalowany w DSVM?  | Tworzone są `conda` dwa środowiska globalne: <br /> * `root` Środowisko zlokalizowane w `/anaconda/` programie to Python 3,7. <br/> * `python2` Środowisko zlokalizowane w `/anaconda/envs/python2` programie to Python 2,7.       |
+| Jak jest on skonfigurowany/instalowany w DSVM?  | `conda`Tworzone są dwa środowiska globalne: <br /> * `root` Środowisko zlokalizowane w programie `/anaconda/` to Python 3,7. <br/> * `python2` Środowisko zlokalizowane w programie `/anaconda/envs/python2` to Python 2,7.       |
 | Linki do przykładów      | Dołączono przykładowe notesy Jupyter dla języka Python.     |
 | Narzędzia pokrewne na DSVM      | PySpark, R, Julia.      |
 
@@ -55,7 +56,7 @@ Data Science Virtual Machine (DSVM) zawiera kilka wstępnie utworzonych językó
   Użyj Python Tools for Visual Studio (PTVS) zainstalowanej w programie Visual Studio Community Edition. Domyślnie jedynym środowiskiem, które jest konfigurowane automatycznie w PTVS, jest Python 3,6. 
 
     > [!NOTE]
-    > Aby wskazać PTVS w języku Python 2,7, należy utworzyć środowisko niestandardowe w PTVS. Aby ustawić tę ścieżkę środowiska w programie Visual Studio Community Edition, przejdź do pozycji **Narzędzia** -> **Python Tools** -> **Python** environments i wybierz pozycję **+ Custom (niestandardowe**). Następnie Ustaw lokalizację na **c:\anaconda\envs\python2** i wybierz pozycję **Autowykrywanie**.
+    > Aby wskazać PTVS w języku Python 2,7, należy utworzyć środowisko niestandardowe w PTVS. Aby ustawić tę ścieżkę środowiska w programie Visual Studio Community Edition, przejdź do pozycji **Narzędzia**  ->  **Python Tools**  ->  **Python** environments i wybierz pozycję **+ Custom (niestandardowe**). Następnie Ustaw lokalizację na **c:\anaconda\envs\python2** i wybierz pozycję **Autowykrywanie**.
 
 * Użyj w Jupyter:
 
@@ -63,7 +64,7 @@ Data Science Virtual Machine (DSVM) zawiera kilka wstępnie utworzonych językó
 
 * Zainstaluj pakiety języka Python:
 
-  Domyślne środowiska języka Python na DSVM są środowiskami globalnymi, które są odczytywane przez wszystkich użytkowników. Ale tylko Administratorzy mogą zapisywać i instalować pakiety globalne. Aby zainstalować pakiety w środowisku globalnym, Aktywuj je w środowisku głównym lub python2 za pomocą `activate` polecenia jako administrator. Następnie można użyć Menedżera pakietów, takiego jak `conda` lub `pip` , aby zainstalować lub zaktualizować pakiety.
+  Domyślne środowiska języka Python na DSVM są środowiskami globalnymi, które są odczytywane przez wszystkich użytkowników. Ale tylko Administratorzy mogą zapisywać i instalować pakiety globalne. Aby zainstalować pakiety w środowisku globalnym, Aktywuj je w środowisku głównym lub python2 za pomocą `activate` polecenia jako administrator. Następnie można użyć Menedżera pakietów, takiego jak `conda` lub, `pip` Aby zainstalować lub zaktualizować pakiety.
 
 ## <a name="python-linux-edition"></a>Python (wersja Linux)
 
@@ -71,7 +72,7 @@ Data Science Virtual Machine (DSVM) zawiera kilka wstępnie utworzonych językó
 | ------------- | ------------- |
 | Obsługiwane wersje językowe | Python 2,7 i 3,5 |
 | Obsługiwane wersje DSVM      | Linux   |
-| Jak jest on skonfigurowany/instalowany w DSVM?  | Tworzone są `conda` dwa środowiska globalne: <br /> * `root`środowisko zlokalizowane w `/anaconda/` programie to Python 2,7. <br/> * `py35`środowisko zlokalizowane w `/anaconda/envs/py35`programie to Python 3,5.       |
+| Jak jest on skonfigurowany/instalowany w DSVM?  | `conda`Tworzone są dwa środowiska globalne: <br /> * `root`środowisko zlokalizowane w programie `/anaconda/` to Python 2,7. <br/> * `py35`środowisko zlokalizowane w programie `/anaconda/envs/py35` to Python 3,5.       |
 | Linki do przykładów      | Dołączono przykładowe notesy Jupyter dla języka Python.     |
 | Narzędzia pokrewne na DSVM      | PySpark, R, Julia      |
 ### <a name="how-to-use-and-run-it"></a>Jak używać i uruchamiać    
@@ -100,7 +101,7 @@ Data Science Virtual Machine (DSVM) zawiera kilka wstępnie utworzonych językó
 
 * Zainstaluj pakiety języka Python:
 
-  Domyślne środowiska języka Python na DSVM są środowiskami globalnymi możliwymi do odczytania przez wszystkich użytkowników. Ale tylko Administratorzy mogą zapisywać i instalować pakiety globalne. Aby zainstalować pakiety w środowisku globalnym, Aktywuj je w środowisku głównym lub py35 za pomocą `source activate` polecenia jako administrator lub jako użytkownik z uprawnieniami sudo. Następnie można użyć Menedżera pakietów, takiego jak `conda` lub `pip` , aby zainstalować lub zaktualizować pakiety.
+  Domyślne środowiska języka Python na DSVM są środowiskami globalnymi możliwymi do odczytania przez wszystkich użytkowników. Ale tylko Administratorzy mogą zapisywać i instalować pakiety globalne. Aby zainstalować pakiety w środowisku globalnym, Aktywuj je w środowisku głównym lub py35 za pomocą `source activate` polecenia jako administrator lub jako użytkownik z uprawnieniami sudo. Następnie można użyć Menedżera pakietów, takiego jak `conda` lub, `pip` Aby zainstalować lub zaktualizować pakiety.
 
 
 ## <a name="r"></a>R
@@ -130,13 +131,13 @@ Data Science Virtual Machine (DSVM) zawiera kilka wstępnie utworzonych językó
 
 * Zainstaluj pakiety języka R:
 
-  Język R jest instalowany na DSVM w środowisku globalnym, który jest możliwy do odczytania przez wszystkich użytkowników. Ale tylko Administratorzy mogą zapisywać i instalować pakiety globalne. Aby zainstalować pakiety w środowisku globalnym, uruchom polecenie R przy użyciu jednej z powyższych metod. Następnie można uruchomić Menedżera `install.packages()` pakietów języka R, aby zainstalować lub zaktualizować pakiety.
+  Język R jest instalowany na DSVM w środowisku globalnym, który jest możliwy do odczytania przez wszystkich użytkowników. Ale tylko Administratorzy mogą zapisywać i instalować pakiety globalne. Aby zainstalować pakiety w środowisku globalnym, uruchom polecenie R przy użyciu jednej z powyższych metod. Następnie można uruchomić Menedżera pakietów języka R, `install.packages()` Aby zainstalować lub zaktualizować pakiety.
 
 System **Linux**:
 
 * Uruchom w terminalu:
 
-  Otwórz Terminal i uruchom `R`go.  
+  Otwórz Terminal i uruchom go `R` .  
 
 * Użyj w środowisku IDE:
 
@@ -148,7 +149,7 @@ System **Linux**:
 
 * Zainstaluj pakiety języka R:
 
-  Język R jest instalowany na DSVM w środowisku globalnym, który jest możliwy do odczytania przez wszystkich użytkowników. Ale tylko Administratorzy mogą zapisywać i instalować pakiety globalne. Aby zainstalować pakiety w środowisku globalnym, uruchom polecenie R przy użyciu jednej z powyższych metod. Następnie można uruchomić Menedżera `install.packages()` pakietów języka R, aby zainstalować lub zaktualizować pakiety.
+  Język R jest instalowany na DSVM w środowisku globalnym, który jest możliwy do odczytania przez wszystkich użytkowników. Ale tylko Administratorzy mogą zapisywać i instalować pakiety globalne. Aby zainstalować pakiety w środowisku globalnym, uruchom polecenie R przy użyciu jednej z powyższych metod. Następnie można uruchomić Menedżera pakietów języka R, `install.packages()` Aby zainstalować lub zaktualizować pakiety.
 
 
 ## <a name="julia"></a>Julia
@@ -166,7 +167,7 @@ System **Linux**:
 
 * Uruchom z wiersza polecenia
 
-  Otwórz wiersz polecenia i uruchom `julia`polecenie.
+  Otwórz wiersz polecenia i uruchom polecenie `julia` .
 * Użyj w środowisku IDE:
 
   Używany `Juno` z Julia IDE zainstalowanym w DSVM i dostępny jako skrót na pulpicie.
@@ -183,10 +184,10 @@ System **Linux**:
 System **Linux**:
 * Uruchom w terminalu:
 
-  Otwórz Terminal i uruchom `julia`go.
+  Otwórz Terminal i uruchom go `julia` .
 * Użyj w środowisku IDE:
 
-  Użyj `Juno`, z Julia IDE zainstalowanym w DSVM i dostępne jako skrót menu **aplikacji** .
+  Użyj `Juno` , z Julia IDE zainstalowanym w DSVM i dostępne jako skrót menu **aplikacji** .
 
 * Użyj w Jupyter:
 
@@ -198,10 +199,10 @@ System **Linux**:
 
 ## <a name="other-languages"></a>Inne języki
 
-**C#**: dostępne w systemie Windows i dostępne za pomocą programu Visual Studio Community Edition lub `Developer Command Prompt for Visual Studio`w miejscu, w którym można `csc` uruchomić polecenie.
+**C#**: dostępne w systemie Windows i dostępne za pomocą programu Visual Studio Community Edition lub w miejscu `Developer Command Prompt for Visual Studio` , w którym można uruchomić `csc` polecenie.
 
-**Java**: OpenJDK jest dostępny zarówno w wersjach systemu Linux, jak i Windows DSVM i są ustawione na ścieżce. Aby użyć języka Java, wpisz `javac` polecenie `java` lub w wierszu polecenia w systemie Windows lub w powłoce bash na komputerze z systemem Linux.
+**Java**: OpenJDK jest dostępny zarówno w wersjach systemu Linux, jak i Windows DSVM i są ustawione na ścieżce. Aby użyć języka Java, wpisz `javac` `java` polecenie lub w wierszu polecenia w systemie Windows lub w powłoce bash na komputerze z systemem Linux.
 
-**Node. js**: Node. js jest dostępny zarówno w wersjach systemu Linux, jak i Windows DSVM i są ustawione na ścieżce. Aby uzyskać dostęp do środowiska Node. js `node` , `npm` wpisz polecenie lub w wierszu polecenia w systemie Windows lub w powłoce bash na komputerze z systemem Linux. W systemie Windows jest zainstalowane rozszerzenie programu Visual Studio dla narzędzi Node. js, aby zapewnić graficzne środowisko IDE do tworzenia aplikacji node. js.
+**Node. js**: Node. js jest dostępny zarówno w wersjach systemu Linux, jak i Windows DSVM i są ustawione na ścieżce. Aby uzyskać dostęp do środowiska Node. js, wpisz `node` polecenie lub w `npm` wierszu polecenia w systemie Windows lub w powłoce bash na komputerze z systemem Linux. W systemie Windows jest zainstalowane rozszerzenie programu Visual Studio dla narzędzi Node. js, aby zapewnić graficzne środowisko IDE do tworzenia aplikacji node. js.
 
-**F #**: dostępne w systemie Windows i dostępne za pomocą programu Visual Studio Community Edition lub `Developer Command Prompt for Visual Studio`w a, gdzie można uruchomić `fsc` polecenie.
+**F #**: dostępne w systemie Windows i dostępne za pomocą programu Visual Studio Community Edition lub w a `Developer Command Prompt for Visual Studio` , gdzie można uruchomić `fsc` polecenie.

@@ -7,38 +7,36 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: d7be56fa48887e2ee500f1b253c078bde16d91e6
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 06/05/2020
+ms.openlocfilehash: a7fb5d9274771fb736e9373e343a1d520fdbbe55
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891230"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553140"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analizatory do przetwarzania tekstu na platformie Azure Wyszukiwanie poznawcze
 
-*Analizator* jest składnikiem [aparatu wyszukiwania pełnotekstowego](search-lucene-query-architecture.md) odpowiedzialnego za przetwarzanie tekstu w ciągach zapytań i indeksowanych dokumentach. Różne analizatory manipulują tekstem na różne sposoby w zależności od scenariusza. Analizatory języka przetwarzają tekst przy użyciu reguł lingwistycznych, aby zwiększyć jakość wyszukiwania, podczas gdy inne analizatory wykonują bardziej podstawowe zadania, takie jak konwertowanie znaków na małe litery, na przykład. 
+*Analizator* jest składnikiem [aparatu wyszukiwania pełnotekstowego](search-lucene-query-architecture.md) odpowiedzialnego za przetwarzanie tekstu w ciągach zapytań i indeksowanych dokumentach. Procesy są analizie przekształceń, modyfikując ciąg za pomocą akcji takich jak:
 
-Poniższy segment wideo szybko przekazuje do wyjaśnień, jak przetwarzanie tekstu działa w usłudze Azure Wyszukiwanie poznawcze.
++ Usuwanie nieistotnych wyrazów (Stop-słowa) i interpunkcji
++ Podział fraz i słów wyrazów na części składników
++ Małe litery, wielkie litery
++ Zmniejsz liczbę słów w postaci pierwotnych formularzy głównych w celu zapewnienia wydajności magazynu, aby można było znaleźć dopasowania bez względu na intensywność
+
+Analiza występuje podczas indeksowania, gdy indeks został skompilowany, a następnie ponownie podczas wykonywania zapytania, gdy indeks zostanie odczytany. Jeśli używasz tego samego analizatora dla obu operacji, możesz uzyskać oczekiwany wynik wyszukiwania.
+
+Jeśli nie znasz analizy tekstu, posłuchaj poniższego klipu wideo, aby uzyskać krótkie wyjaśnienie, jak przetwarzanie tekstu działa na platformie Azure Wyszukiwanie poznawcze.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
 
-
-Analizatory języka są najczęściej używane, a do każdego pola możliwego do przeszukania w indeksie Wyszukiwanie poznawcze platformy Azure jest przypisany default Language Analyzer. Podczas analizy tekstu typowe są następujące przekształcenia języka:
-
-+ Wyrazy nieistotne (Stop-słowa) i interpunkcja są usuwane.
-+ Frazy i wyrazy w wyrazach są podzielone na części składnika.
-+ Wielkie litery są małymi literami.
-+ Wyrazy są skracane do formularzy głównych, dzięki czemu można znaleźć dopasowanie niezależnie od intensywności.
-
-Analizatory języka konwertują wprowadzanie tekstu do formularzy podstawowych lub głównych, które są wydajne w celu przechowywania i pobierania informacji. Konwersja występuje podczas indeksowania, gdy indeks zostanie skompilowany, a następnie ponownie podczas wyszukiwania, gdy indeks zostanie odczytany. Jeśli używasz tego samego analizatora dla obu operacji, możesz uzyskać oczekiwany wynik wyszukiwania.
-
 ## <a name="default-analyzer"></a>Analizator domyślny  
 
-Usługa Azure Wyszukiwanie poznawcze korzysta z programu [Apache Lucene Standard (standardowa Lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) jako domyślnego, który dzieli tekst na elementy po regułach ["segmentacja tekstu Unicode"](https://unicode.org/reports/tr29/) . Dodatkowo Analizator standardowy konwertuje wszystkie znaki na ich małą literę. Zarówno indeksowane dokumenty, jak i wyszukiwane terminy przechodzą przez analizę podczas indeksowania i przetwarzania zapytań.  
+W zapytaniach usługi Azure Wyszukiwanie poznawcze Analizator tekstu jest automatycznie wywoływany dla wszystkich pól ciągów oznaczonych jako przeszukiwane. 
 
-Jest ona używana automatycznie dla każdego pola z możliwością wyszukiwania. Można przesłonić wartość domyślną dla każdego pola. Alternatywni analizatory mogą być [analizatorem języka](index-add-language-analyzers.md), [analizatorem niestandardowym](index-add-custom-analyzers.md)lub predefiniowaną z [listy dostępnych](index-add-custom-analyzers.md#AnalyzerTable)narzędzi do analizowania.
+Domyślnie usługa Azure Wyszukiwanie poznawcze korzysta z narzędzia [Apache Lucene Standard Analyzer (standardowa Lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), które dzieli tekst na elementy po regułach ["segmentacji tekstu Unicode"](https://unicode.org/reports/tr29/) . Dodatkowo Analizator standardowy konwertuje wszystkie znaki na ich małą literę. Zarówno indeksowane dokumenty, jak i wyszukiwane terminy przechodzą przez analizę podczas indeksowania i przetwarzania zapytań.  
 
+Można przesłonić wartość domyślną dla każdego pola. Alternatywni analizatory mogą być [analizatorem języka](index-add-language-analyzers.md) dla przetwarzania lingwistycznego, [analizatorem niestandardowym](index-add-custom-analyzers.md)lub wstępnie zdefiniowanym analizatorze z [listy dostępnych analiz](index-add-custom-analyzers.md#AnalyzerTable).
 
 ## <a name="types-of-analyzers"></a>Typy analizatorów
 
@@ -46,7 +44,7 @@ Na poniższej liście opisano, które analizatory są dostępne w usłudze Azure
 
 | Kategoria | Opis |
 |----------|-------------|
-| [Standardowy Analizator Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Domyślne. Nie jest wymagana Specyfikacja ani konfiguracja. Ten Analizator ogólnego przeznaczenia dobrze sprawdza się w przypadku większości języków i scenariuszy.|
+| [Standardowy Analizator Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Domyślne. Nie jest wymagana Specyfikacja ani konfiguracja. Ten Analizator ogólnego przeznaczenia dobrze sprawdza się w wielu językach i scenariuszach.|
 | Wstępnie zdefiniowane analizatory | Oferowany jako gotowy produkt przeznaczony do użycia w przypadku, gdy jest to możliwe. <br/>Istnieją dwa typy: wyspecjalizowane i językowe. Co sprawia, że "wstępnie zdefiniowane" polega na odwoływaniu się do nich według nazwy, bez konfiguracji ani dostosowywania. <br/><br/>[Analizatory wyspecjalizowane (Language-niezależny od)](index-add-custom-analyzers.md#AnalyzerTable) są używane, gdy dane wejściowe wymagają wyspecjalizowanego przetwarzania lub minimalnego przetwarzania. Analizatory wstępnie zdefiniowane w języku innym niż język to **Asciifolding**, **słowo kluczowe**, **wzorzec**, **prosty**, **stop**, **biały**znak.<br/><br/>[Analizatory języka](index-add-language-analyzers.md) są używane, gdy potrzebna jest zaawansowana obsługa języków w poszczególnych językach. Platforma Azure Wyszukiwanie poznawcze obsługuje analizatory języków Lucene 50 i 35 analizatory przetwarzania języka naturalnego firmy Microsoft. |
 |[Analizatory niestandardowe](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Odnosi się do zdefiniowanej przez użytkownika konfiguracji kombinacji istniejących elementów, która składa się z jednego tokenizatora (wymagane) i opcjonalnych filtrów (Char lub token).|
 
@@ -56,7 +54,7 @@ Kilka wstępnie zdefiniowanych analizatorów, takich jak **wzorzec** lub **Zatrz
 
 1. (tylko dla analizatorów niestandardowych) Utwórz sekcję nazwanego **analizatora** w definicji indeksu. Aby uzyskać więcej informacji, zobacz [Tworzenie indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) i [Dodawanie niestandardowych analizatorów](index-add-custom-analyzers.md).
 
-2. Dla [definicji pola](https://docs.microsoft.com/rest/api/searchservice/create-index) w indeksie ustaw właściwość **analizatora** pola na nazwę analizatora docelowego (na przykład `"analyzer" = "keyword"`. Prawidłowe wartości to nazwa wstępnie zdefiniowanego analizatora, analizatora języka lub analizatora niestandardowego zdefiniowanego w schemacie indeksu. Zaplanuj przypisanie analizatora w fazie definicji indeksu przed utworzeniem indeksu w usłudze.
+2. Dla [definicji pola](https://docs.microsoft.com/rest/api/searchservice/create-index) w indeksie ustaw właściwość **analizatora** pola na nazwę analizatora docelowego (na przykład `"analyzer" = "keyword"` . Prawidłowe wartości to nazwa wstępnie zdefiniowanego analizatora, analizatora języka lub analizatora niestandardowego zdefiniowanego w schemacie indeksu. Zaplanuj przypisanie analizatora w fazie definicji indeksu przed utworzeniem indeksu w usłudze.
 
 3. Opcjonalnie, zamiast jednej właściwości **analizatora** , można ustawić różne analizy do indeksowania i wykonywania zapytań przy użyciu parametrów pola **indexAnalyzer** i **searchAnalyzer** . Przy przygotowywaniu i pobieraniu danych należy używać różnych analizatorów, jeśli jedno z tych działań wymagało konkretnego przekształcenia, które nie jest potrzebne.
 
@@ -191,7 +189,7 @@ Przechodzenie przez ten przykład:
 
 Standardowa analizator jest wartością domyślną. Załóżmy, że chcesz zastąpić wartość domyślną przy użyciu innego wstępnie zdefiniowanego analizatora, takiego jak Analizator wzorców. Jeśli nie ustawiasz opcji niestandardowych, wystarczy określić ją tylko według nazwy w definicji pola.
 
-Element "Analyzer" przesłania analizatora standardowego w zależności od pola. Nie istnieje globalne zastąpienie. W tym przykładzie `text1` używa analizatora wzorców i `text2`, który nie określa analizatora, używa domyślnego.
+Element "Analyzer" przesłania analizatora standardowego w zależności od pola. Nie istnieje globalne zastąpienie. W tym przykładzie `text1` używa analizatora wzorców i `text2` , który nie określa analizatora, używa domyślnego.
 
 ~~~~
   {
@@ -352,7 +350,7 @@ Utwórz obiekt [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.
 
 + [Skonfiguruj Niestandardowe analizatory](index-add-custom-analyzers.md) dla minimalnego przetwarzania lub wyspecjalizowanego przetwarzania dla poszczególnych pól.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
  [Interfejs API REST wyszukiwania dokumentów](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

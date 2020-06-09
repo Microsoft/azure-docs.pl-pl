@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702035"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560869"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Jak używać funkcji OPENROWSET z SQL na żądanie (wersja zapoznawcza)
 
@@ -107,19 +107,19 @@ Dostępne są dwie opcje dla plików wejściowych, które zawierają dane docelo
 **"unstructured_data_path"**
 
 Unstructured_data_path, który ustanawia ścieżkę do danych może być ścieżką bezwzględną lub względną:
-- Ścieżka bezwzględna w formacie " \< prefix>:// \< storage_account_path>/ \< storage_path>" umożliwia użytkownikowi bezpośrednie odczytywanie plików.
+- Ścieżka bezwzględna w formacie " \<prefix> :// \<storage_account_path> / \<storage_path> " umożliwia użytkownikowi bezpośrednie odczytywanie plików.
 - Ścieżka względna w formacie "<storage_path>", która musi być używana z `DATA_SOURCE` parametrem i opisuje wzorzec pliku w lokalizacji <storage_account_path> zdefiniowanej w `EXTERNAL DATA SOURCE` . 
 
  Poniżej znajdziesz odpowiednie <storage account path> wartości, które zostaną połączone z określonym zewnętrznym źródłem danych. 
 
 | Zewnętrzne źródło danych       | Prefiks | Ścieżka konta magazynu                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Azure Blob Storage         | https  | \<storage_account>. blob.core.windows.net             |
+| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net             |
 | Azure Data Lake Store Gen1 | https  | \<storage_account>. azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | https  | \<storage_account>. dfs.core.windows.net              |
 ||||
 
-" \< storage_path>"
+'\<storage_path>'
 
  Określa ścieżkę w magazynie, która wskazuje folder lub plik, który ma zostać odczytany. Jeśli ścieżka wskazuje kontener lub folder, wszystkie pliki zostaną odczytane z danego kontenera lub folderu. Pliki w podfolderach nie będą uwzględniane. 
 
@@ -130,7 +130,7 @@ Poniżej znajduje się przykład, który odczytuje wszystkie pliki *CSV* zaczyna
 Jeśli określisz unstructured_data_path jako folder, zapytanie SQL na żądanie pobierze pliki z tego folderu. 
 
 > [!NOTE]
-> W przeciwieństwie do usługi Hadoop i bazy danych SQL na żądanie nie zwraca podfolderów. Ponadto, w przeciwieństwie do usługi Hadoop i PloyBase, SQL na żądanie zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
+> W przeciwieństwie do usługi Hadoop i bazy danych SQL na żądanie nie zwraca podfolderów. Ponadto, w przeciwieństwie do platformy Hadoop i bazy danych SQL na żądanie, zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
 
 W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , zapytanie SQL na żądanie zwróci wiersze z elementu webdata. txt i _hidden. txt. Nie zwróci mydata2. txt i mydata3. txt, ponieważ znajdują się one w podfolderze.
 

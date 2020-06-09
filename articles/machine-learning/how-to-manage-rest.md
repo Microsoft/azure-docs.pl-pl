@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 01/31/2020
-ms.openlocfilehash: f096f432111e4e8b52ffcaff355fbf8d9e603819
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: tracking-python
+ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430432"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560171"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Tworzenie, uruchamianie i usuwanie zasobów usługi Azure ML przy użyciu interfejsu REST
 
@@ -201,7 +202,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 Zwróć uwagę, że w celu wyświetlenia listy eksperymentów ścieżka zaczyna się od `history/v1.0` while, aby wyświetlić listę modeli, ścieżka zaczyna się od `modelmanagement/v1.0` . Interfejs API REST jest podzielony na kilka grup operacyjnych, z których każda ma odrębną ścieżkę. Dokumenty referencyjne interfejsu API na poniższych linkach zawierają listę operacji, parametrów i kodów odpowiedzi dla różnych operacji.
 
-|Warstwowy|Ścieżka|Dokumentacja|
+|Obszar|Ścieżka|Dokumentacja|
 |-|-|-|
 |Artifacts|artefakt/v 2.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
 |Magazyny danych|Magazyn danych/v 1.0/|[Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/azureml/datastores)|

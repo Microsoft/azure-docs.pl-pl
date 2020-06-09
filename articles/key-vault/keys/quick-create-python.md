@@ -7,12 +7,13 @@ ms.date: 3/30/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: 663d219e73d8b3de001e02d465016f45974855bb
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: tracking-python
+ms.openlocfilehash: 830866880c1fc86bbc7510290a50df7fc86b9d1e
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982262"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84555965"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Szybki Start: Azure Key Vaulta Biblioteka kliencka dla języka Python
 
@@ -26,7 +27,7 @@ Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajn
 - Uprość i automatyzuj zadania dla certyfikatów TLS/SSL.
 - Użyj zweryfikowanej sprzętowych modułów zabezpieczeń poziomu 2 trybu FIPS 140-2.
 
-[Dokumentacja](/python/api/overview/azure/key-vault?view=azure-python) | referencyjna interfejsu API[Biblioteka kodu](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | źródłowego[(indeks pakietu języka Python)](https://pypi.org/project/azure-keyvault/)
+[Dokumentacja](/python/api/overview/azure/key-vault?view=azure-python)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (indeks pakietu języka Python)](https://pypi.org/project/azure-keyvault/)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -69,7 +70,7 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 Najprostszym sposobem uwierzytelniania aplikacji .NET opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](../general/managed-identity.md) . 
 
-W tym przewodniku szybki start można jednak utworzyć aplikację klasyczną, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Zasada usługi wymaga unikatowej nazwy w formacie "http://&lt;my-Unique-Service-Name&gt;".
+W tym przewodniku szybki start można jednak utworzyć aplikację klasyczną, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Zasada usługi wymaga unikatowej nazwy w formacie "http:// &lt; My-Unique-Service-Name &gt; ".
 
 Utwórz zasadę usługi przy użyciu interfejsu wiersza polecenia platformy Azure [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
 
@@ -105,9 +106,9 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>Ustaw zmienne środowiskowe
 
-Metoda DefaultAzureCredential w naszej aplikacji opiera się na trzech zmiennych środowiskowych: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`i `AZURE_TENANT_ID`. Ustaw te zmienne na wartości clientId, clientSecret i tenantId zanotowane w kroku [Tworzenie jednostki usługi](#create-a-service-principal) przy użyciu `export VARNAME=VALUE` formatu. (Ta metoda ustawia tylko zmienne dla bieżącej powłoki i procesów utworzonych na podstawie powłoki; aby trwale dodać te zmienne do środowiska, Edytuj `/etc/environment ` plik). 
+Metoda DefaultAzureCredential w naszej aplikacji opiera się na trzech zmiennych środowiskowych: `AZURE_CLIENT_ID` , `AZURE_CLIENT_SECRET` i `AZURE_TENANT_ID` . Ustaw te zmienne na wartości clientId, clientSecret i tenantId zanotowane w kroku [Tworzenie jednostki usługi](#create-a-service-principal) przy użyciu `export VARNAME=VALUE` formatu. (Ta metoda ustawia tylko zmienne dla bieżącej powłoki i procesów utworzonych na podstawie powłoki; aby trwale dodać te zmienne do środowiska, Edytuj `/etc/environment ` plik). 
 
-Należy również zapisać nazwę magazynu kluczy jako zmienną środowiskową o nazwie `KEY_VAULT_NAME`.
+Należy również zapisać nazwę magazynu kluczy jako zmienną środowiskową o nazwie `KEY_VAULT_NAME` .
 
 ```console
 export AZURE_CLIENT_ID=<your-clientID>
@@ -169,7 +170,7 @@ print(retrieve_key.name)
 
  ```
 
-Twój klucz jest teraz zapisany jako `retrieved_key`.
+Twój klucz jest teraz zapisany jako `retrieved_key` .
 
 ### <a name="delete-a-key"></a>Usuń klucz
 

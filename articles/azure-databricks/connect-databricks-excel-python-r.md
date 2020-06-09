@@ -9,12 +9,13 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
-ms.openlocfilehash: f7494d36cf9b16ac6c7a1287a6ff96dd2285c6e2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.custom: tracking-python
+ms.openlocfilehash: 77b9bcf0dad8fa11fad4828649cd75d7df7806d5
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73601943"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561308"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Łączenie się z Azure Databricks z programu Excel, Python lub R
 
@@ -58,8 +59,8 @@ Nazwa źródła danych (DSN) zawiera informacje o określonym źródle danych. S
     |---------|---------|
     |**Data Source Name (Nazwa źródła danych)**     | Podaj nazwę źródła danych.        |
     |**Hosty**     | Podaj wartość skopiowaną z obszaru roboczego datakosteks dla *nazwy hosta serwera*.        |
-    |**Przewożąc**     | Wprowadź *443*.        |
-    |**Authentication** > **Mechanizm** uwierzytelniania     | Wybierz *nazwę użytkownika i hasło*.        |
+    |**Port**     | Wprowadź *443*.        |
+    |**Uwierzytelnianie**  >  **Mechanizm**     | Wybierz *nazwę użytkownika i hasło*.        |
     |**Nazwa użytkownika**     | Wprowadź *token*.        |
     |**Hasło**     | Wprowadź wartość tokenu skopiowaną z obszaru roboczego datakostki. |
     
@@ -102,11 +103,11 @@ Po umieszczeniu danych w skoroszycie programu Excel można wykonywać na niej op
 W tej sekcji użyjesz środowiska IDE języka R do odwoływania się do danych dostępnych w Azure Databricks. Przed rozpoczęciem należy zainstalować na komputerze następujące elementy.
 
 * Środowisko IDE dla języka R. W tym artykule jest stosowany program RStudio dla komputerów stacjonarnych. Można go zainstalować z poziomu programu [R Studio Download](https://www.rstudio.com/products/rstudio/download/).
-* Jeśli używasz programu RStudio for Desktop jako środowiska IDE, Zainstaluj również Microsoft R Client z [https://aka.ms/rclient/](https://aka.ms/rclient/)programu. 
+* Jeśli używasz programu RStudio for Desktop jako środowiska IDE, Zainstaluj również Microsoft R Client z programu [https://aka.ms/rclient/](https://aka.ms/rclient/) . 
 
 Otwórz RStudio i wykonaj następujące czynności:
 
-- Odwołuje `RODBC` się do pakietu. Umożliwia to nawiązanie połączenia z Azure Databricks przy użyciu utworzonej wcześniej nazwy DSN.
+- Odwołuje się do `RODBC` pakietu. Umożliwia to nawiązanie połączenia z Azure Databricks przy użyciu utworzonej wcześniej nazwy DSN.
 - Nawiąż połączenie przy użyciu nazwy DSN.
 - Uruchom zapytanie SQL dotyczące danych w Azure Databricks. W poniższym fragmencie kodu *radio_sample_data* to tabela, która już istnieje w Azure Databricks.
 - Wykonaj pewne operacje dotyczące zapytania, aby sprawdzić dane wyjściowe. 

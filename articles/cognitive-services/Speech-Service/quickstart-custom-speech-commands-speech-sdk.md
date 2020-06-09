@@ -3,19 +3,19 @@ title: 'Szybki Start: Nawiązywanie połączenia z aplikacją poleceń niestanda
 titleSuffix: Azure Cognitive Services
 description: W tym artykule opisano tworzenie aplikacji klienckiej zestawu Speech SDK z poleceniami niestandardowymi.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: donkim
-ms.openlocfilehash: 186b684cc7e4442d1a8ce14f06e16c839e117a26
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.author: nitinme
+ms.openlocfilehash: f2e8292ccace38e1a167c3ecdfb924589e4ebf0e
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872494"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508934"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Szybki Start: Nawiązywanie połączenia z aplikacją poleceń niestandardowych za pomocą zestawu Speech SDK (wersja zapoznawcza)
 
@@ -129,7 +129,7 @@ Dodaj źródło związane z kodem, aby aplikacja działała zgodnie z oczekiwani
 
 Dodaj źródło związane z kodem w następujący sposób:
 
-1. W **Eksplorator rozwiązań**Otwórz plik `MainPage.xaml.cs` źródłowy związany z kodem (pogrupowany pod `MainPage.xaml`).
+1. W **Eksplorator rozwiązań**Otwórz plik źródłowy związany z kodem `MainPage.xaml.cs` (pogrupowany pod `MainPage.xaml` ).
 
 1. Zastąp zawartość pliku następującym kodem: 
 
@@ -321,7 +321,7 @@ Dodaj źródło związane z kodem w następujący sposób:
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Zastąp ciągi `YourApplicationId`, `YourSpeechSubscriptionKey`i `YourServiceRegion` własnymi wartościami dla swojej aplikacji, subskrypcji mowy i [regionu](regions.md)
+1. Zastąp ciągi `YourApplicationId` , `YourSpeechSubscriptionKey` i `YourServiceRegion` własnymi wartościami dla swojej aplikacji, subskrypcji mowy i [regionu](regions.md)
 
 1. Dołącz następujący fragment kodu na końcu treści metody`InitializeDialogServiceConnector`
 
@@ -381,7 +381,7 @@ Dodaj źródło związane z kodem w następujący sposób:
    };
    ```
 
-1. Dodaj następujący fragment kodu do treści `ListenButton_ButtonClicked` metody w klasie `MainPage`
+1. Dodaj następujący fragment kodu do treści `ListenButton_ButtonClicked` metody w `MainPage` klasie
 
    ```csharp
    // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
@@ -405,13 +405,13 @@ Dodaj źródło związane z kodem w następujący sposób:
    }
    ```
 
-1. Na pasku menu wybierz kolejno opcje **plik** > **Zapisz wszystko** , aby zapisać zmiany.
+1. Na pasku menu wybierz kolejno opcje **plik**  >  **Zapisz wszystko** , aby zapisać zmiany.
 
 ## <a name="build-and-run-the-application"></a>Kompilowanie i uruchamianie aplikacji
 
-1. Na pasku menu wybierz polecenie **Kompiluj** > **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien zostać skompilowany bez błędów.
+1. Na pasku menu wybierz polecenie **Kompiluj**  >  **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien zostać skompilowany bez błędów.
 
-1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację. Zostanie wyświetlone okno **HelloWorld** .
+1. Wybierz **Debuguj**  >  **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację. Zostanie wyświetlone okno **HelloWorld** .
 
    ![Przykładowa aplikacja asystenta wirtualnego platformy UWP w języku C# — Szybki Start](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
@@ -424,8 +424,8 @@ Dodaj źródło związane z kodem w następujący sposób:
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Instrukcje: wykonywanie poleceń na kliencie przy użyciu zestawu Speech SDK (wersja zapoznawcza)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [instrukcje: Dodawanie walidacji do parametrów polecenia niestandardowego (wersja zapoznawcza)](./how-to-custom-speech-commands-validations.md)
+> [Instrukcje: spełnienie poleceń na kliencie przy użyciu zestawu mowy SDK (wersja zapoznawcza)](./how-to-custom-speech-commands-fulfill-sdk.md) 
+>  [Instrukcje: Dodawanie walidacji do parametrów polecenia niestandardowego (wersja zapoznawcza)](./how-to-custom-speech-commands-validations.md)
 
 ## <a name="sample-source-code"></a>Przykładowy kod źródłowy
 Zapoznaj się z przykładowymi kodami klientów w witrynie [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)

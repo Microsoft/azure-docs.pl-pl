@@ -4,13 +4,13 @@ description: Samouczek — Równoległe przetwarzanie plików multimedialnych pr
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.custom: mvc
-ms.openlocfilehash: 32e42fe04ad8ce55bbbbb90e5aca6356fd1c6f22
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 63515012d10739bb018de34e040465fbe337aa02
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117119"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561278"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Samouczek: uruchamianie równoległego obciążenia w usłudze Azure Batch przy użyciu interfejsu API Python
 
@@ -44,7 +44,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 ## <a name="download-and-run-the-sample"></a>Pobieranie i uruchamianie aplikacji przykładowej
 
-### <a name="download-the-sample"></a>Pobierz przykład
+### <a name="download-the-sample"></a>Pobieranie przykładu
 
 [Pobierz lub sklonuj przykładową aplikację](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) z usługi GitHub. Aby sklonować repozytorium przykładowej aplikacji za pomocą klienta Git, użyj następującego polecenia:
 
@@ -60,7 +60,7 @@ W środowisku Python zainstaluj wymagane pakiety przy użyciu menedżera `pip`.
 pip install -r requirements.txt
 ```
 
-Otwórz plik `config.py`. Zaktualizuj ciągi poświadczeń konta usługi Batch i konta magazynu, podając wartości unikatowe dla Twoich kont. Przykład:
+Otwórz plik `config.py`. Zaktualizuj ciągi poświadczeń konta usługi Batch i konta magazynu, podając wartości unikatowe dla Twoich kont. Na przykład:
 
 
 ```Python
@@ -102,7 +102,7 @@ Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Przejdź do konta usługi Batch w witrynie Azure Portal, aby monitorować pulę, węzły obliczeniowe, zadanie i zadania podrzędne. Na przykład aby wyświetlić mapę cieplną węzłów obliczeniowych w puli, kliknij pozycję **Pule** > *LinuxFFmpegPool*.
+Przejdź do konta usługi Batch w witrynie Azure Portal, aby monitorować pulę, węzły obliczeniowe, zadanie i zadania podrzędne. Na przykład aby wyświetlić mapę cieplną węzłów obliczeniowych w puli, kliknij pozycję **Pule**  >  *LinuxFFmpegPool*.
 
 Podczas wykonywania zadań podrzędnych mapa cieplna może wyglądać następująco:
 

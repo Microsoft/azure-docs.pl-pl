@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: ead39343cca9943ba55d66509bd9917402efb8cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: aaddev, tracking-python
+ms.openlocfilehash: 921015d6aa7acd840a4a231a899217daafe3525b
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868970"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558560"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Aplikacja demona, która wywołuje interfejsy API sieci Web — konfiguracja kodu
 
@@ -38,7 +38,7 @@ Aplikacje demona używają uprawnień aplikacji zamiast uprawnień delegowanych.
 
 W związku z tym Urząd określony w konfiguracji aplikacji powinien być dzierżawcą (określając identyfikator dzierżawy lub nazwę domeny skojarzoną z Twoją organizacją).
 
-Jeśli jesteś niezależnym dostawcą oprogramowania i chcesz udostępnić narzędzie wielodostępne, możesz użyć `organizations`programu. Należy jednak pamiętać, że należy również wyjaśnić swoim klientom sposób udzielania zgody administratora. Aby uzyskać szczegółowe informacje, zobacz [żądanie zgody dla całej dzierżawy](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Ponadto obecnie obowiązuje ograniczenie MSAL: `organizations` jest to dozwolone tylko wtedy, gdy poświadczenia klienta są wpisem tajnym aplikacji (nie certyfikatem).
+Jeśli jesteś niezależnym dostawcą oprogramowania i chcesz udostępnić narzędzie wielodostępne, możesz użyć programu `organizations` . Należy jednak pamiętać, że należy również wyjaśnić swoim klientom sposób udzielania zgody administratora. Aby uzyskać szczegółowe informacje, zobacz [żądanie zgody dla całej dzierżawy](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Ponadto obecnie obowiązuje ograniczenie MSAL: `organizations` jest to dozwolone tylko wtedy, gdy poświadczenia klienta są wpisem tajnym aplikacji (nie certyfikatem).
 
 ## <a name="configure-and-instantiate-the-application"></a>Konfigurowanie i tworzenie wystąpienia aplikacji
 
@@ -69,7 +69,7 @@ plik [appSettings. JSON](https://github.com/Azure-Samples/active-directory-dotne
 }
 ```
 
-Podajesz `ClientSecret` albo lub `CertificateName`. Te ustawienia są wyłączność.
+Podajesz `ClientSecret` albo lub `CertificateName` . Te ustawienia są wyłączność.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -267,7 +267,7 @@ MSAL.NET ma dwie metody, aby zapewnić podpisane potwierdzenia do poufnej aplika
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-W przypadku korzystania `WithClientAssertion`z programu należy podać podpisany token JWT. Ten zaawansowany scenariusz jest szczegółowy w przypadku [potwierdzeń klientów](msal-net-client-assertions.md).
+W przypadku korzystania z programu należy `WithClientAssertion` podać podpisany token JWT. Ten zaawansowany scenariusz jest szczegółowy w przypadku [potwierdzeń klientów](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -276,7 +276,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-W przypadku korzystania `WithClientClaims`z programu MSAL.NET wyśle podpisane potwierdzenie zawierające oświadczenia oczekiwane przez usługę Azure AD oraz dodatkowe oświadczenia klienta, które chcesz wysłać.
+W przypadku korzystania z programu `WithClientClaims` MSAL.NET wyśle podpisane potwierdzenie zawierające oświadczenia oczekiwane przez usługę Azure AD oraz dodatkowe oświadczenia klienta, które chcesz wysłać.
 Ten kod pokazuje, jak to zrobić:
 
 ```csharp
@@ -293,7 +293,7 @@ Aby uzyskać szczegółowe informacje, zobacz [potwierdzenia klientów](msal-net
 
 # <a name="python"></a>[Python](#tab/python)
 
-W MSAL Python można zapewnić oświadczenia klienta przy użyciu oświadczeń, które będą podpisane przez ten `ConfidentialClientApplication`klucz prywatny.
+W MSAL Python można zapewnić oświadczenia klienta przy użyciu oświadczeń, które będą podpisane przez ten `ConfidentialClientApplication` klucz prywatny.
 
 ```Python
 config = json.load(open(sys.argv[1]))

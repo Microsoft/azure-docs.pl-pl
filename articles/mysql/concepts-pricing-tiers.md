@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: f633c33d0d90715a940129d62cee6472d33d2106
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3af5a716bc5e211a7fd3263f57f5b5e62af628ef
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100961"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488362"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL warstw cenowych
 
 Serwer Azure Database for MySQL można utworzyć w jednej z trzech różnych warstw cenowych: podstawowe, Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci. Warstwy cenowe są zróżnicowane według ilości obliczeń w rdzeni wirtualnych, które mogą być inicjowane, pamięć na rdzeń wirtualny i technologia magazynowania służąca do przechowywania danych. Wszystkie zasoby są obsługiwane na poziomie serwera MySQL. Serwer może mieć jedną lub wiele baz danych.
 
-|    | **Podstawowy** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
+|    | **Podstawowe** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
 |:---|:----------|:--------------------|:---------------------|
 | Generowanie obliczeń | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | Rdzeni wirtualnych | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -43,7 +43,7 @@ Zasoby obliczeniowe są udostępniane jako rdzeni wirtualnych, które reprezentu
 
 Zapewniana ilość miejsca w magazynie to pojemność magazynu dostępna dla serwera Azure Database for MySQL. Magazyn jest używany dla plików bazy danych, plików tymczasowych, dzienników transakcji i dzienników serwera MySQL. Całkowita ilość dostępnego miejsca w magazynie określa również wydajność we/wy dostępną dla serwera.
 
-|    | **Podstawowy** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
+|    | **Podstawowe** | **Ogólnego przeznaczenia** | **Zoptymalizowane pod kątem pamięci** |
 |:---|:----------|:--------------------|:---------------------|
 | Typ magazynu | Magazyn podstawowy | Magazyn Ogólnego przeznaczenia | Magazyn Ogólnego przeznaczenia |
 | Rozmiar magazynu | od 5 GB do 1 TB | od 5 GB do 16 TB | od 5 GB do 16 TB |
@@ -51,7 +51,7 @@ Zapewniana ilość miejsca w magazynie to pojemność magazynu dostępna dla ser
 | Liczba operacji we/wy na sekundę | Zmienna |3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 | 3 IOPS/GB<br/>Minimalna liczba operacji we/wy 100<br/>Maksymalna liczba operacji we/wy 20 000 |
 
 > [!NOTE]
-> Magazyn o pojemności do 16TB i 20 000 operacji we/wy jest obsługiwany w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowe stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Azja Wschodnia Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Europa Zachodnia, Korea środkowa, Korea Południowa, Australia Wschodnia
+> Magazynowanie do 16TB i 20 000 operacji we/wy jest obsługiwane w następujących regionach: Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Południowe stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, Europa Północna, Azja Wschodnia Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Europa Zachodnia, Japonia Południowo-Wschodnia, Korea Południowa, Australia Południowo-Wschodnia, zachodnie stany USA 2 i zachodnie stany USA.
 >
 > Wszystkie inne regiony obsługują do 4 TB magazynu i do 6000 operacji we/wy na sekundę.
 >

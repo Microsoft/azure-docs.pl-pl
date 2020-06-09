@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 367ca77b0f3a142d8aa36143052993d1ed96f052
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 543be2b408d9442c61ae2c052776e63c33206188
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996503"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488940"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Włącz odzyskiwanie strefy do strefy odzyskiwania po awarii dla maszyn wirtualnych platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób replikowania maszyn wirtualnych platformy Azure w
 
 >[!NOTE]
 >
->- Site Recovery obecnie nie obsługuje planów odzyskiwania dla strefy do odzyskiwania po awarii strefy. 
+>- Site Recovery obecnie nie obsługuje planów odzyskiwania dla strefy do odzyskiwania danych po awarii za pośrednictwem portalu. Użyj programu PowerShell lub interfejsu API REST, aby skorzystać z planów odzyskiwania dla strefy do odzyskiwania po awarii strefy. 
 >- Obsługa odzyskiwania po awarii strefy do strefy jest obecnie ograniczona do dwóch regionów: Azja Południowo-Wschodnia i Południowe Zjednoczone Królestwo.  
 
 Usługa Site Recovery przyczynia się do zachowania ciągłości działania i odzyskiwania po awarii, dzięki czemu aplikacje biznesowe są wykonywane w trakcie planowanych i nieplanowanych przestojów. Jest to zalecana opcja odzyskiwania po awarii, aby zapewnić, że aplikacje będą działać w przypadku wystąpienia regionalnego.
@@ -65,7 +65,7 @@ Jak wspomniano powyżej, funkcja odzyskiwania po awarii strefy do strefy zmniejs
 
 Przed wdrożeniem strefy do odzyskiwania po awarii strefy dla maszyn wirtualnych należy upewnić się, że inne funkcje włączone na maszynie wirtualnej współdziałają ze strefą odzyskiwania po awarii strefy.
 
-|Cecha  | Instrukcja obsługi  |
+|Cechy  | Instrukcja obsługi  |
 |---------|---------|
 |Klasyczne maszyny wirtualne   |     Nieobsługiwane    |
 |Maszyny wirtualne ARM    |    Obsługiwane    |

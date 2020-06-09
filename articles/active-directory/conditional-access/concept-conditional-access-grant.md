@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c625bebbcd2e619a8125fdfb92673cd02966b2
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: c1dcc91c6a7b823cd89b3ce4bf4d611b9923f87d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583199"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558727"
 ---
 # <a name="conditional-access-grant"></a>Dostęp warunkowy: Udziel
 
@@ -28,7 +28,7 @@ W ramach zasad dostępu warunkowego administrator może korzystać z kontroli do
 
 Zablokowanie uwzględnia wszelkie przypisania i uniemożliwia dostęp na podstawie konfiguracji zasad dostępu warunkowego.
 
-Block to zaawansowana kontrolka, która powinna być wielded z odpowiednią wiedzą. Aby przetestować przed włączeniem, Administratorzy powinni używać [trybu tylko do raportowania](concept-conditional-access-report-only.md) .
+Block to zaawansowana kontrolka, która powinna być wielded z odpowiednią wiedzą. Zasady z instrukcjami bloku mogą mieć niezamierzone efekty uboczne. Poprawne testowanie i walidacja są niezbędne przed włączeniem na dużą skalę. Administratorzy powinni korzystać z narzędzi, takich jak [tryb tylko raport dostęp warunkowy](concept-conditional-access-report-only.md) i [Narzędzie What If w przypadku dostępu warunkowego](what-if-tool.md) podczas wprowadzania zmian.
 
 ## <a name="grant-access"></a>Udzielanie dostępu
 
@@ -62,6 +62,8 @@ Aby można było oznaczyć je jako zgodne, urządzenia muszą być zarejestrowan
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Wymagaj hybrydowego urządzenia dołączonego do usługi Azure AD
 
 Organizacje mogą zdecydować się na użycie tożsamości urządzenia jako części zasad dostępu warunkowego. Organizacje mogą wymagać, aby urządzenia były dołączone do hybrydowej usługi Azure AD przy użyciu tego pola wyboru. Aby uzyskać więcej informacji o tożsamościach urządzeń, zobacz artykuł [co to jest tożsamość urządzenia?](../devices/overview.md).
+
+W przypadku korzystania z [przepływu OAuth przy użyciu kodu urządzenia](../develop/v2-oauth2-device-code.md)nie jest obsługiwana kontrola Wymagaj zarządzanego urządzenia lub stanu urządzenia. Wynika to z faktu, że urządzenie wykonujące uwierzytelnianie nie może dostarczyć stanu urządzenia do urządzenia dostarczającego kod, a stan urządzenia w tokenie jest zablokowany na urządzeniu, na którym jest wykonywane uwierzytelnianie. Zamiast tego użyj kontrolki Wymagaj uwierzytelniania wieloskładnikowego.
 
 ### <a name="require-approved-client-app"></a>Wymaganie zatwierdzonej aplikacji klienckiej
 

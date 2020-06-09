@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: f5c93e35b2a9124ac6d480b3719608ee3b4484a5
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871220"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554828"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury NPS z usługą Azure Multi-Factor Authentication
 
@@ -65,7 +65,11 @@ Te biblioteki są instalowane automatycznie z rozszerzeniem.
 
 Moduł Microsoft Azure Active Directory dla Windows PowerShell jest zainstalowany, jeśli jeszcze nie istnieje, za pomocą skryptu konfiguracji uruchamianego w ramach procesu instalacji. Nie ma potrzeby instalowania tego modułu przed czasem, jeśli nie został jeszcze zainstalowany.
 
-### <a name="azure-active-directory"></a>Usługa Azure Active Directory
+Należy ręcznie zainstalować następującą bibliotekę:
+
+- [Pakiet redystrybucyjny języka Visual C++ dla programu Visual Studio 2015](https://www.microsoft.com/download/details.aspx?id=48145)
+
+### <a name="azure-active-directory"></a>Azure Active Directory
 
 Każdy użytkownik korzystający z rozszerzenia serwera NPS musi być synchronizowany do Azure Active Directory przy użyciu Azure AD Connect i musi być zarejestrowany dla usługi MFA.
 
@@ -201,7 +205,7 @@ Powtórz te kroki na wszystkich dodatkowych serwerach NPS, które chcesz skonfig
 Jeśli poprzedni certyfikat komputera wygasł i został wygenerowany nowy certyfikat, należy usunąć wszystkie wygasłe certyfikaty. Wygaśnięcie certyfikatów może spowodować problemy z uruchamianiem rozszerzenia serwera NPS.
 
 > [!NOTE]
-> Jeśli używasz własnych certyfikatów zamiast generować certyfikaty przy użyciu skryptu programu PowerShell, upewnij się, że są one wyrównane do konwencji nazewnictwa NPS. Nazwa podmiotu musi być **CN = \< TenantID \> , OU = Microsoft NPS Extension**. 
+> Jeśli używasz własnych certyfikatów zamiast generować certyfikaty przy użyciu skryptu programu PowerShell, upewnij się, że są one wyrównane do konwencji nazewnictwa NPS. Nazwa podmiotu musi mieć wartość **CN = \<TenantID\> , OU = Microsoft NPS Extension**. 
 
 ### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government dodatkowych kroków
 
@@ -271,7 +275,7 @@ Następujący skrypt jest dostępny do wykonywania podstawowych kroków kontroli
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Jak mogę sprawdzić, czy certyfikat klienta został zainstalowany zgodnie z oczekiwaniami?
 
-Wyszukaj certyfikat z podpisem własnym utworzony przez Instalatora w magazynie certyfikatów i sprawdź, czy klucz prywatny ma uprawnienia przyznane **usłudze sieciowej**użytkownika. Certyfikat ma nazwę podmiotu **CN \< tenantid \> , OU = Microsoft NPS Extension**
+Wyszukaj certyfikat z podpisem własnym utworzony przez Instalatora w magazynie certyfikatów i sprawdź, czy klucz prywatny ma uprawnienia przyznane **usłudze sieciowej**użytkownika. Certyfikat ma nazwę podmiotu **CN \<tenantid\> , OU = Microsoft NPS Extension**
 
 Certyfikaty z podpisem własnym wygenerowane przez skrypt *AzureMfaNpsExtnConfigSetup. ps1* mają również okres istnienia ważności wynoszący dwa lata. Podczas sprawdzania, czy certyfikat jest zainstalowany, należy również sprawdzić, czy certyfikat nie wygasł.
 

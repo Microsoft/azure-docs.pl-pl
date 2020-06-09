@@ -22,7 +22,7 @@ Usługa kolejki platformy Azure zawiera następujące składniki:
 
 ![Składniki usługi Azure usługa kolejki](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
-* **Format adresu URL:** Kolejki są adresowane przy użyciu następującego formatu adresu URL:`<storage account>`http://. Queue.Core.Windows.NET/`<queue>`
+* **Format adresu URL:** Kolejki są adresowane przy użyciu następującego formatu adresu URL: http:// `<storage account>` . Queue.Core.Windows.NET/`<queue>`
   
     Następujący adres URL dotyczy kolejki w schemacie:  
   

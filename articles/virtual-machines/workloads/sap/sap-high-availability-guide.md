@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a881f1cbc93d4774e25833a5c57b4727cc2e4be
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: d1b028472785b146a45c22b3d23db7cb241c11da
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594835"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557316"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure Virtual Machines wysoka dostępność dla oprogramowania SAP NetWeaver
 
@@ -238,7 +238,7 @@ Korzystając z klastra trybu failover systemu Windows Server, można wybrać jed
 * **Większość węzłów i dysków**. Każdy węzeł i wydzielony dysk (Monitor dysku) w magazynie klastra mogą głosować, gdy są dostępne i w komunikacji. Klaster działa tylko z większością głosów, czyli z więcej niż połowa głosów. Ten tryb ma sens w środowisku klastra z parzystą liczbą węzłów. Jeśli połowa węzłów i dysku są w trybie online, klaster pozostaje w dobrej kondycji.
 * **Większość węzłów i udziałów plików**. Każdy węzeł oraz wytworzony udział plików (Monitor udostępniania plików), który może zostać zagłosowany przez administratora, bez względu na to, czy węzły i udziały plików są dostępne i w komunikacji. Klaster działa tylko z większością głosów, czyli z więcej niż połowa głosów. Ten tryb ma sens w środowisku klastra z parzystą liczbą węzłów. Jest to podobne do trybu większość węzłów i dysków, ale używa udziału plików monitora zamiast dysku monitora. Ten tryb jest łatwy do zaimplementowania, ale jeśli sam udział plików nie ma wysokiej dostępności, może stać się single point of failure.
 * **Brak większości: tylko dysk**. Klaster ma kworum, jeśli jeden węzeł jest dostępny i w komunikacji z określonym dyskiem w magazynie klastra. Tylko węzły, które również komunikują się z tym dyskiem, mogą dołączyć do klastra. Zalecamy, aby nie korzystać z tego trybu.
- 
+
 
 ## <a name="windows-server-failover-clustering-on-premises"></a><a name="fdfee875-6e66-483a-a343-14bbaee33275"></a>Lokalne usługi Windows Server Failover Clustering
 Rysunek 1 przedstawia klaster dwóch węzłów. Jeśli połączenie sieciowe między węzłami zakończy się niepowodzeniem, a oba węzły zostaną uruchomione, dysk kworum lub udział plików określa, który węzeł będzie kontynuował udostępnianie aplikacji i usług klastra. Węzeł, który ma dostęp do dysku kworum lub udziału plików, jest węzłem, który gwarantuje, że usługi będą kontynuowane.
@@ -377,7 +377,7 @@ _**Rysunek 9.** Szablon architektoniczny wysokiej dostępności SAP z dedykowany
 
 ### <a name="deployment-scenario-using-architectural-template-3"></a>Scenariusz wdrażania przy użyciu szablonu architektury 3
 
-Na rysunku nr 10 przedstawiono przykład architektury wysokiej dostępności SAP NetWeaver na platformie Azure dla **dwóch** &lt;systemów SAP z&gt; SID1 i &lt;SID2.&gt; Ten scenariusz jest ustawiany w następujący sposób:
+Na rysunku nr 10 przedstawiono przykład architektury wysokiej dostępności SAP NetWeaver na platformie Azure dla **dwóch** systemów SAP z &lt; SID1 &gt; i &lt; SID2 &gt; . Ten scenariusz jest ustawiany w następujący sposób:
 
 - Jeden dedykowany klaster jest używany **dla wystąpienia** SID1 SAP ASCS/SCS *i* wystąpienia SAP ASCS/SCS SID2 (jeden klaster).
 - Jeden dedykowany klaster jest używany w systemie DBMS SID1, a inny dedykowany klaster jest używany dla systemu DBMS SID2 (dwa klastry).
@@ -626,7 +626,7 @@ Można ręcznie utworzyć pozostałe dwie nazwy hostów wirtualnych, **PR1-ASCS-
 ### <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Ustaw statyczne adresy IP dla maszyn wirtualnych SAP
 Po wdrożeniu maszyn wirtualnych do użycia w klastrze należy ustawić statyczne adresy IP dla wszystkich maszyn wirtualnych. Zrób to w konfiguracji Virtual Network platformy Azure, a nie w systemie operacyjnym gościa.
 
-1. W Azure Portal wybierz pozycję **Grupa** > zasobów**Ustawienia** > **karta** > sieciowa**adres IP**.
+1. W Azure Portal wybierz pozycję **Grupa zasobów**  >  ustawienia**karta sieciowa**  >  **Settings**  >  **adres IP**.
 2. W bloku **adresy IP** w obszarze **przypisanie**wybierz pozycję **statyczny**. W polu **adres IP** wprowadź adres IP, którego chcesz użyć.
 
    > [!NOTE]
@@ -737,7 +737,7 @@ Ustaw adres IP modułu równoważenia obciążenia **PR1-lb-DBMS** na adres IP n
 
 Jeśli chcesz użyć różnych numerów dla wystąpień SAP ASCS lub SCS, należy zmienić nazwy i wartości ich portów z wartości domyślnych.
 
-1. W Azure Portal wybierz pozycję ** < *SID*>-lb-ASCS** > **reguły równoważenia obciążenia**usługi równoważenia obciążenia.
+1. W Azure Portal wybierz pozycję ** < *SID*>-lb-ASCS**  >  **reguły równoważenia obciążenia**usługi równoważenia obciążenia.
 2. Dla wszystkich reguł równoważenia obciążenia należących do wystąpienia SAP ASCS lub SCS Zmień następujące wartości:
 
    * Nazwa
@@ -940,7 +940,7 @@ Konfigurowanie monitora udziału plików klastra obejmuje następujące zadania:
 
    _**Rysunek 36:** Wybierz monitor udziału plików_
 
-4. Wprowadź ścieżkę UNC do udziału plików (w naszym przykładzie \\domcontr-0\FSW). Aby wyświetlić listę zmian, które można wprowadzić, wybierz pozycję **dalej**.
+4. Wprowadź ścieżkę UNC do udziału plików (w naszym przykładzie \\ domcontr-0\FSW). Aby wyświetlić listę zmian, które można wprowadzić, wybierz pozycję **dalej**.
 
    ![Ilustracja 37: definiowanie lokalizacji udziału plików dla udziału monitora][sap-ha-guide-figure-3026]
 
@@ -952,7 +952,7 @@ Konfigurowanie monitora udziału plików klastra obejmuje następujące zadania:
 
    _**Rysunek 38:** Potwierdzenie, że klaster został ponownie skonfigurowany_
 
-Po pomyślnym zainstalowaniu klastra trybu failover systemu Windows należy wprowadzić zmiany w niektórych progach w celu dostosowania wykrywania trybu failover do warunków na platformie Azure. Parametry, które mają zostać zmienione, są udokumentowane w https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ tym blogu:. Przy założeniu, że dwie maszyny wirtualne, które tworzą konfigurację klastra systemu Windows dla ASCS/SCS znajdują się w tej samej podsieci, należy zmienić następujące parametry na następujące wartości:
+Po pomyślnym zainstalowaniu klastra trybu failover systemu Windows należy wprowadzić zmiany w niektórych progach w celu dostosowania wykrywania trybu failover do warunków na platformie Azure. Parametry, które mają zostać zmienione, są udokumentowane w tym blogu: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Przy założeniu, że dwie maszyny wirtualne, które tworzą konfigurację klastra systemu Windows dla ASCS/SCS znajdują się w tej samej podsieci, należy zmienić następujące parametry na następujące wartości:
 - SameSubNetDelay = 2
 - SameSubNetThreshold = 15
 
@@ -1132,7 +1132,7 @@ Instalowanie oprogramowania SAP z wystąpieniem ASCS/SCS o wysokiej dostępnośc
 1. W Menedżerze DNS systemu Windows Utwórz wpis DNS dla nazwy hosta wirtualnego wystąpienia ASCS/SCS.
 
    > [!IMPORTANT]
-   > Adres IP przypisany do nazwy hosta wirtualnego wystąpienia ASCS/SCS musi być taki sam jak adres IP przypisany do Azure Load Balancer (**<*SID*>-lb-ASCS**).  
+   > Adres IP przypisany do nazwy hosta wirtualnego wystąpienia ASCS/SCS musi być taki sam jak adres IP przypisany do Azure Load Balancer (** < *SID*>-lb-ASCS**).  
    >
    >
 
@@ -1142,7 +1142,7 @@ Instalowanie oprogramowania SAP z wystąpieniem ASCS/SCS o wysokiej dostępnośc
 
    _**Rysunek 56:** Zdefiniuj wpis DNS dla nazwy wirtualnej klastra SAP ASCS/SCS i adresu TCP/IP_
 
-2. Aby zdefiniować adres IP przypisany do nazwy hosta wirtualnego, wybierz pozycję Domena **Menedżera** > **Domain**DNS.
+2. Aby zdefiniować adres IP przypisany do nazwy hosta wirtualnego, wybierz pozycję Domena **Menedżera DNS**  >  **Domain**.
 
    ![Rysunek 57: Nowa nazwa wirtualna i adres TCP/IP dla konfiguracji klastra SAP ASCS/SCS][sap-ha-guide-figure-3047]
 
@@ -1292,7 +1292,7 @@ Należy otworzyć port sondy zapory systemu Windows na obu węzłach klastra. U�
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-**ProbePort** jest ustawiona na **62000**. Teraz możesz uzyskać dostęp do udziału ** \\plików \ascsha-clsap\sapmnt** z innych hostów, takich jak z **ascsha-przetwarzający**.
+**ProbePort** jest ustawiona na **62000**. Teraz możesz uzyskać dostęp do udziału plików ** \\ \ascsha-clsap\sapmnt** z innych hostów, takich jak z **ascsha-przetwarzający**.
 
 ### <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Instalowanie wystąpienia bazy danych
 
@@ -1316,7 +1316,7 @@ Zainstaluj wystąpienie serwera aplikacji podstawowej (PAS) <*Identyfikator SID*
 
 ### <a name="install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Zainstaluj dodatkowy serwer aplikacji SAP
 
-Zainstaluj dodatkowy serwer aplikacji SAP (AAS) na wszystkich maszynach wirtualnych, które zostały wskazane do hostowania wystąpienia serwera aplikacji SAP. Na przykład na <*identyfikator sid*>-di-1 w celu <*identyfikatora SID*>-&lt;di&gt;-n.
+Zainstaluj dodatkowy serwer aplikacji SAP (AAS) na wszystkich maszynach wirtualnych, które zostały wskazane do hostowania wystąpienia serwera aplikacji SAP. Na przykład na <*identyfikator sid*>-di-1 w celu <*identyfikatora SID*>-di- &lt; n &gt; .
 
 > [!NOTE]
 > Spowoduje to zakończenie instalacji systemu SAP NetWeaver o wysokiej dostępności. Następnie kontynuuj Testowanie pracy w trybie failover.

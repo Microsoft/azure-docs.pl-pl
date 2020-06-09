@@ -3,19 +3,19 @@ title: 'Szybki Start: Tworzenie niestandardowych poleceń podgląd aplikacji App
 titleSuffix: Azure Cognitive Services
 description: W tym artykule opisano tworzenie i testowanie hostowanych poleceń niestandardowych aplikacji w wersji zapoznawczej. Aplikacja będzie przetwarzać wyrażenia długości.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
-ms.openlocfilehash: 80111ff370f3a5412b45adc04c82c9dee103c01d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.author: nitinme
+ms.openlocfilehash: 5b54923bb667053ffc886b335ab9d1b0cf4cb754
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142354"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509359"
 ---
 # <a name="quickstart-create-a-custom-commands-preview-app"></a>Szybki Start: Tworzenie aplikacji niestandardowych poleceń w wersji zapoznawczej
 

@@ -7,12 +7,13 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/30/2020
-ms.openlocfilehash: a0b66f233de9e1bfdc6d011b65489884a1049a12
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.custom: tracking-python
+ms.openlocfilehash: 25ff9bdb2c4ec1b3367c522c497fad9cfb0ba588
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559664"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558322"
 ---
 # <a name="tutorial-convert-ml-experiments-to-production-python-code"></a>Samouczek: konwertowanie eksperymentów ML do kodu w języku Python produkcji
 
@@ -30,12 +31,12 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Wygeneruj [szablon MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) i Użyj `experimentation/Diabetes Ridge Regression Training.ipynb` notesów `experimentation/Diabetes Ridge Regression Scoring.ipynb` i. Te notesy są używane jako przykład konwersji z eksperymentów do środowiska produkcyjnego. Te notesy można znaleźć pod [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation)adresem.
+- Wygeneruj [szablon MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) i Użyj `experimentation/Diabetes Ridge Regression Training.ipynb` `experimentation/Diabetes Ridge Regression Scoring.ipynb` notesów i. Te notesy są używane jako przykład konwersji z eksperymentów do środowiska produkcyjnego. Te notesy można znaleźć pod adresem [https://github.com/microsoft/MLOpsPython/tree/master/experimentation](https://github.com/microsoft/MLOpsPython/tree/master/experimentation) .
 - Zainstaluj system `nbconvert`. Postępuj zgodnie z instrukcjami dotyczącymi instalacji w sekcji __Instalowanie nbconvert__ na stronie [instalacji](https://nbconvert.readthedocs.io/en/latest/install.html) .
 
 ## <a name="remove-all-nonessential-code"></a>Usuń cały nieistotny kod
 
-Kod zapisany podczas eksperymentowania jest przeznaczony wyłącznie do celów badawczych. W związku z tym pierwszy krok konwersji kodu doświadczalnego na kod produkcyjny polega na usunięciu tego nieistotnego kodu. Usunięcie nieistotnego kodu spowoduje również zwiększenie utrzymania kodu. W tej sekcji usuniemy kod z `experimentation/Diabetes Ridge Regression Training.ipynb` notesu. Instrukcje drukowania kształtu `X` i `y` i wywołania `features.describe` komórki są przeznaczone tylko do eksploracji danych i można je usunąć. Po usunięciu nieistotnego `experimentation/Diabetes Ridge Regression Training.ipynb` kodu powinien wyglądać podobnie do następującego kodu:
+Kod zapisany podczas eksperymentowania jest przeznaczony wyłącznie do celów badawczych. W związku z tym pierwszy krok konwersji kodu doświadczalnego na kod produkcyjny polega na usunięciu tego nieistotnego kodu. Usunięcie nieistotnego kodu spowoduje również zwiększenie utrzymania kodu. W tej sekcji usuniemy kod z `experimentation/Diabetes Ridge Regression Training.ipynb` notesu. Instrukcje drukowania kształtu `X` i `y` i wywołania komórki `features.describe` są przeznaczone tylko do eksploracji danych i można je usunąć. Po usunięciu nieistotnego kodu `experimentation/Diabetes Ridge Regression Training.ipynb` powinien wyglądać podobnie do następującego kodu:
 
 ```python
 from sklearn.datasets import load_diabetes
@@ -80,24 +81,24 @@ joblib.dump(value=reg, filename=model_name)
 
 Po drugie kod Jupyter musi zostać oddzielony do funkcji. Refaktoryzacja kodu do funkcji sprawia, że testy jednostkowe są łatwiejsze i zwiększają łatwość obsługi kodu. W tej sekcji zostanie Refaktoryzacja:
 
-- Notes uczenia regresji pierścieniowej`experimentation/Diabetes Ridge Regression Training.ipynb`cukrzycą ()
-- Notes oceniania regresji pierścieniowej`experimentation/Diabetes Ridge Regression Scoring.ipynb`cukrzycą ()
+- Notes uczenia regresji pierścieniowej cukrzycą ( `experimentation/Diabetes Ridge Regression Training.ipynb` )
+- Notes oceniania regresji pierścieniowej cukrzycą ( `experimentation/Diabetes Ridge Regression Scoring.ipynb` )
 
 ### <a name="refactor-diabetes-ridge-regression-training-notebook-into-functions"></a>Refaktoryzacja cukrzycą — Notes szkolenia pierścieniowego do funkcji
 
-W `experimentation/Diabetes Ridge Regression Training.ipynb`programie wykonaj następujące czynności:
+W programie `experimentation/Diabetes Ridge Regression Training.ipynb` wykonaj następujące czynności:
 
-1. Utwórz funkcję o nazwie `split_data` , aby podzielić ramkę danych na testowanie i próbkowanie danych. Funkcja powinna przyjmować element Dataframe `df` jako parametr i zwracać słownik zawierający klucze `train` i. `test`
+1. Utwórz funkcję o nazwie, `split_data` Aby podzielić ramkę danych na testowanie i próbkowanie danych. Funkcja powinna przyjmować element Dataframe `df` jako parametr i zwracać słownik zawierający klucze `train` i `test` .
 
     Przenieś kod w polu *Podziel dane na nagłówek szkolenia i zestawy walidacji* do `split_data` funkcji i zmodyfikuj go, aby zwracał `data` obiekt.
 
-1. Utwórz funkcję o nazwie `train_model`, która przyjmuje parametry `data` i `args` zwraca szkolony model.
+1. Utwórz funkcję o nazwie `train_model` , która przyjmuje parametry `data` i `args` zwraca szkolony model.
 
-    Przenieś kod objęty *modelem szkoleń dotyczących kursów w ramach szkolenia ustawionego* na `train_model` funkcję i zmodyfikuj go `reg_model` , aby zwracał obiekt. Usunięcie `args` słownika spowoduje, że wartości będą pochodzić z `args` parametru.
+    Przenieś kod objęty *modelem szkoleń dotyczących kursów w ramach szkolenia ustawionego* na `train_model` funkcję i zmodyfikuj go, aby zwracał `reg_model` obiekt. Usunięcie `args` słownika spowoduje, że wartości będą pochodzić z `args` parametru.
 
-1. Utwórz funkcję o nazwie `get_model_metrics`, która pobiera parametry `reg_model` i `data`i szacuje model, a następnie zwraca słownik metryk dla nauczonego modelu.
+1. Utwórz funkcję o nazwie `get_model_metrics` , która pobiera parametry `reg_model` i `data` i szacuje model, a następnie zwraca słownik metryk dla nauczonego modelu.
 
-    Przenieś kod w obszarze *model walidacji w polu Walidacja Ustaw* nagłówek `get_model_metrics` do funkcji i zmodyfikuj go, aby `metrics` zwracał obiekt.
+    Przenieś kod w obszarze *model walidacji w polu Walidacja Ustaw* nagłówek do `get_model_metrics` funkcji i zmodyfikuj go, aby zwracał `metrics` obiekt.
 
 Trzy funkcje powinny być następujące:
 
@@ -129,9 +130,9 @@ def get_model_metrics(reg_model, data):
     return metrics
 ```
 
-Nadal w `experimentation/Diabetes Ridge Regression Training.ipynb`programie wykonaj następujące czynności:
+Nadal w programie `experimentation/Diabetes Ridge Regression Training.ipynb` wykonaj następujące czynności:
 
-1. Utwórz nową funkcję o nazwie `main`, która nie przyjmuje parametrów i nie zwraca żadnej wartości.
+1. Utwórz nową funkcję o nazwie `main` , która nie przyjmuje parametrów i nie zwraca żadnej wartości.
 1. Przenieś kod w nagłówku "Ładowanie danych" do `main` funkcji.
 1. Dodaj wywołania dla nowo pisanych funkcji do `main` funkcji:
     ```python
@@ -153,7 +154,7 @@ Nadal w `experimentation/Diabetes Ridge Regression Training.ipynb`programie wyko
     ```
 1. Przenieś kod w nagłówku "Zapisz model" do `main` funkcji.
 
-`main` Funkcja powinna wyglądać podobnie do następującego kodu:
+`main`Funkcja powinna wyglądać podobnie do następującego kodu:
 
 ```python
 def main():
@@ -260,12 +261,12 @@ main()
 
 ### <a name="refactor-diabetes-ridge-regression-scoring-notebook-into-functions"></a>Refaktoryzacja Cukrzycąa w notesie do funkcji
 
-W `experimentation/Diabetes Ridge Regression Scoring.ipynb`programie wykonaj następujące czynności:
+W programie `experimentation/Diabetes Ridge Regression Scoring.ipynb` wykonaj następujące czynności:
 
-1. Utwórz nową funkcję o nazwie `init`, która nie przyjmuje parametrów i nie zwraca niczego.
+1. Utwórz nową funkcję o nazwie `init` , która nie przyjmuje parametrów i nie zwraca niczego.
 1. Skopiuj kod w nagłówku "Ładowanie modelu" do `init` funkcji.
 
-`init` Funkcja powinna wyglądać podobnie do następującego kodu:
+`init`Funkcja powinna wyglądać podobnie do następującego kodu:
 
 ```python
 def init():
@@ -274,15 +275,15 @@ def init():
     model = joblib.load(model_path)
 ```
 
-Po utworzeniu `init` funkcji Zastąp cały kod pod nagłówkiem "Ładowanie modelu" pojedynczym wywołaniem do `init` w następujący sposób:
+Po `init` utworzeniu funkcji Zastąp cały kod pod nagłówkiem "Ładowanie modelu" pojedynczym wywołaniem do `init` w następujący sposób:
 
 ```python
 init()
 ```
 
-W `experimentation/Diabetes Ridge Regression Scoring.ipynb`programie wykonaj następujące czynności:
+W programie `experimentation/Diabetes Ridge Regression Scoring.ipynb` wykonaj następujące czynności:
 
-1. Utwórz nową funkcję o nazwie `run`, która przyjmuje `raw_data` i `request_headers` jako parametry i zwraca słownik wyników w następujący sposób:
+1. Utwórz nową funkcję o nazwie `run` , która przyjmuje `raw_data` i `request_headers` jako parametry i zwraca słownik wyników w następujący sposób:
 
     ```python
     {"result": result.tolist()}
@@ -290,7 +291,7 @@ W `experimentation/Diabetes Ridge Regression Scoring.ipynb`programie wykonaj nas
 
 1. Skopiuj kod w nagłówkach "przygotowanie danych" i "dane oceny" do `run` funkcji.
 
-    `run` Funkcja powinna wyglądać podobnie do następującego kodu (należy pamiętać, aby usunąć instrukcje ustawiające zmienne `raw_data` i `request_headers`, które będą używane później podczas wywoływania `run` funkcji):
+    `run`Funkcja powinna wyglądać podobnie do następującego kodu (należy pamiętać, aby usunąć instrukcje ustawiające zmienne `raw_data` i `request_headers` , które będą używane później podczas `run` wywoływania funkcji):
 
     ```python
     def run(raw_data, request_headers):
@@ -301,7 +302,7 @@ W `experimentation/Diabetes Ridge Regression Scoring.ipynb`programie wykonaj nas
         return {"result": result.tolist()}
     ```
 
-Po utworzeniu `run` funkcji Zastąp cały kod w nagłówkach "przygotowanie danych" i "dane oceny" następującym kodem:
+Po `run` utworzeniu funkcji Zastąp cały kod w nagłówkach "przygotowanie danych" i "dane oceny" następującym kodem:
 
 ```python
 raw_data = '{"data":[[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}'
@@ -310,7 +311,7 @@ prediction = run(raw_data, request_header)
 print("Test result: ", prediction)
 ```
 
-Poprzedni kod ustawia `raw_data` zmienne i `request_header`, wywołuje `run` funkcję z `raw_data` i `request_header`i drukuje przewidywania.
+Poprzedni kod ustawia zmienne `raw_data` i `request_header` , wywołuje `run` funkcję z i i `raw_data` `request_header` drukuje przewidywania.
 
 Po refaktoryzacji `experimentation/Diabetes Ridge Regression Scoring.ipynb` powinien wyglądać podobnie do następującego kodu bez promocji:
 
@@ -343,25 +344,25 @@ print("Test result: ", prediction)
 
 Po trzecie, powiązane funkcje muszą zostać scalone z plikami języka Python, aby lepiej ułatwić ponowne użycie kodu. W tej sekcji utworzysz pliki języka Python dla następujących notesów:
 
-- Notes uczenia regresji pierścieniowej`experimentation/Diabetes Ridge Regression Training.ipynb`cukrzycą ()
-- Notes oceniania regresji pierścieniowej`experimentation/Diabetes Ridge Regression Scoring.ipynb`cukrzycą ()
+- Notes uczenia regresji pierścieniowej cukrzycą ( `experimentation/Diabetes Ridge Regression Training.ipynb` )
+- Notes oceniania regresji pierścieniowej cukrzycą ( `experimentation/Diabetes Ridge Regression Scoring.ipynb` )
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-training-notebook"></a>Utwórz plik w języku Python dla notesu szkoleniowego dla regresji cukrzycą
 
-Przekonwertuj Notes na skrypt wykonywalny, uruchamiając następującą instrukcję w wierszu polecenia, który używa `nbconvert` pakietu i ścieżki: `experimentation/Diabetes Ridge Regression Training.ipynb`
+Przekonwertuj Notes na skrypt wykonywalny, uruchamiając następującą instrukcję w wierszu polecenia, który używa `nbconvert` pakietu i ścieżki `experimentation/Diabetes Ridge Regression Training.ipynb` :
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Training.ipynb" –output train
 ```
 
-Po przekonwertowaniu notesu na `train.py`program Usuń niechciane Komentarze. Zastąp wywołanie `main()` na końcu pliku z wywołaniem warunkowym, takim jak poniższy kod:
+Po przekonwertowaniu notesu na `train.py` program Usuń niechciane Komentarze. Zastąp wywołanie `main()` na końcu pliku z wywołaniem warunkowym, takim jak poniższy kod:
 
 ```python
 if __name__ == '__main__':
     main()
 ```
 
-`train.py` Plik powinien wyglądać podobnie do następującego kodu:
+`train.py`Plik powinien wyglądać podobnie do następującego kodu:
 
 ```python
 from sklearn.datasets import load_diabetes
@@ -429,20 +430,20 @@ if __name__ == '__main__':
     main()
 ```
 
-`train.py`mogą teraz być wywoływane z terminalu przez uruchomienie `python train.py`.
+`train.py`mogą teraz być wywoływane z terminalu przez uruchomienie `python train.py` .
 Funkcje z `train.py` mogą również być wywoływane z innych plików.
 
-`train_aml.py` Plik znaleziony w `diabetes_regression/training` katalogu w repozytorium MLOpsPython wywołuje funkcje zdefiniowane w `train.py` kontekście uruchomienia eksperymentu Azure Machine Learning. Funkcje mogą być również wywoływane w testach jednostkowych, omówione w dalszej części tego przewodnika.
+`train_aml.py`Plik znaleziony w `diabetes_regression/training` katalogu w repozytorium MLOpsPython wywołuje funkcje zdefiniowane w `train.py` kontekście uruchomienia eksperymentu Azure Machine Learning. Funkcje mogą być również wywoływane w testach jednostkowych, omówione w dalszej części tego przewodnika.
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-scoring-notebook"></a>Utwórz plik Python dla notesu oceniania regresji pierścieniowej cukrzycą
 
-Przekonwertować Notes do skryptu wykonywalnego, uruchamiając następującą instrukcję w wierszu polecenia, który używa `nbconvert` pakietu i ścieżki: `experimentation/Diabetes Ridge Regression Scoring.ipynb`
+Przekonwertować Notes do skryptu wykonywalnego, uruchamiając następującą instrukcję w wierszu polecenia, który używa `nbconvert` pakietu i ścieżki `experimentation/Diabetes Ridge Regression Scoring.ipynb` :
 
 ```
 jupyter nbconvert -- to script "Diabetes Ridge Regression Scoring.ipynb" –output score
 ```
 
-Po przekonwertowaniu notesu na `score.py`program Usuń niechciane Komentarze. `score.py` Plik powinien wyglądać podobnie do następującego kodu:
+Po przekonwertowaniu notesu na `score.py` program Usuń niechciane Komentarze. `score.py`Plik powinien wyglądać podobnie do następującego kodu:
 
 ```python
 import json
@@ -469,7 +470,7 @@ prediction = run(test_row, request_header)
 print("Test result: ", prediction)
 ```
 
-`model` Zmienna musi być globalna, aby była widoczna w całym skrypcie. Dodaj następującą instrukcję na początku `init` funkcji:
+`model`Zmienna musi być globalna, aby była widoczna w całym skrypcie. Dodaj następującą instrukcję na początku `init` funkcji:
 
 ```python
 global model
@@ -489,7 +490,7 @@ def init():
 
 ## <a name="create-unit-tests-for-each-python-file"></a>Utwórz testy jednostkowe dla każdego pliku języka Python
 
-Czwarty, Utwórz testy jednostkowe dla funkcji języka Python. Testy jednostkowe chronią kod przed regresją funkcjonalną i ułatwiają ich obsługę. W tej sekcji utworzysz testy jednostkowe dla funkcji w programie `train.py`.
+Czwarty, Utwórz testy jednostkowe dla funkcji języka Python. Testy jednostkowe chronią kod przed regresją funkcjonalną i ułatwiają ich obsługę. W tej sekcji utworzysz testy jednostkowe dla funkcji w programie `train.py` .
 
 `train.py`zawiera wiele funkcji, ale utworzymy tylko jeden test jednostkowy dla `train_model` funkcji przy użyciu struktury Pytest w tym samouczku. Pytest nie jest jedyną strukturą testów jednostkowych w języku Python, ale jest jednym z najczęściej używanych. Aby uzyskać więcej informacji, odwiedź stronę [Pytest](https://pytest.org).
 
@@ -499,7 +500,7 @@ Test jednostkowy zwykle zawiera trzy główne akcje:
 - Działanie na obiekcie
 - Potwierdź, co jest oczekiwane
 
-Test jednostkowy będzie wywoływał `train_model` z niektórymi ustalonymi danymi i argumentami, a `train_model` następnie sprawdza, czy działa zgodnie z oczekiwaniami, korzystając z modelu, który jest przeszkolony, aby utworzyć prognozę i porównać ją z oczekiwaną wartością.
+Test jednostkowy będzie wywoływał `train_model` z niektórymi ustalonymi danymi i argumentami, a następnie sprawdza, czy działa `train_model` zgodnie z oczekiwaniami, korzystając z modelu, który jest przeszkolony, aby utworzyć prognozę i porównać ją z oczekiwaną wartością.
 
 ```python
 import numpy as np

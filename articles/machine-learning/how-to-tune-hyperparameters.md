@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.custom: seodec18
-ms.openlocfilehash: 4d018d87873d8b68f51363ddfd904d783dd5d1e0
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: b80122393fd71ecc7f09474759961ac52f5afb11
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433737"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560081"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Dostrajanie parametrów dla modelu za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

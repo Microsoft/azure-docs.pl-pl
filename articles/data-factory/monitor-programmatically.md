@@ -10,12 +10,13 @@ ms.date: 01/16/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d416a4a2bace2aeced6961d4959b0478feb0e650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 983beb70ef1919dc3230d5daa6d29fb7209f69aa
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81398839"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84561216"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Programowe monitorowanie fabryki danych Azure
 
@@ -27,7 +28,7 @@ W tym artykule opisano sposób monitorowania potoku w fabryce danych przy użyci
 
 ## <a name="data-range"></a>Zakres danych
 
-Data Factory przechowuje tylko dane uruchomienia potoku przez 45 dni. Podczas wykonywania zapytania programistycznego w celu uzyskania danych o Data Factory uruchomieniach potoku — na przykład `Get-AzDataFactoryV2PipelineRun` przy użyciu polecenia programu PowerShell nie są dostępne żadne `LastUpdatedAfter` maksymalne `LastUpdatedBefore` daty dla parametrów opcjonalnych i. Ale jeśli kwerenda dotyczy danych przez ostatni rok, na przykład zapytanie nie zwraca błędu, ale zwraca dane przebiegu potoku z ostatnich 45 dni.
+Data Factory przechowuje tylko dane uruchomienia potoku przez 45 dni. Podczas wykonywania zapytania programistycznego w celu uzyskania danych o Data Factory uruchomieniach potoku — na przykład przy użyciu polecenia programu PowerShell `Get-AzDataFactoryV2PipelineRun` nie są dostępne żadne maksymalne daty dla parametrów opcjonalnych `LastUpdatedAfter` i `LastUpdatedBefore` . Ale jeśli kwerenda dotyczy danych przez ostatni rok, na przykład zapytanie nie zwraca błędu, ale zwraca dane przebiegu potoku z ostatnich 45 dni.
 
 Jeśli chcesz utrwalać dane przebiegu potoku przez ponad 45 dni, skonfiguruj własne rejestrowanie diagnostyczne przy użyciu [Azure monitor](monitor-using-azure-monitor.md).
 

@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9fb43061b42a43755564f825fa01e65dacad3e5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 634c10771751522dba4093fe1c830820926fd621
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827299"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558580"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync: wprowadź zmianę konfiguracji domyślnej
 W tym artykule opisano sposób wprowadzania zmian w konfiguracji domyślnej w programie Azure Active Directory (Azure AD) Connect Sync. Zawiera kroki dla niektórych typowych scenariuszy. Korzystając z tej wiedzy, powinno być możliwe wprowadzanie prostych zmian do własnej konfiguracji w oparciu o własne reguły biznesowe.
@@ -243,7 +243,7 @@ Nie wszystkie atrybuty usługi Azure AD są importowane do lokalnego obszaru ł�
  5. Kliknij przycisk **OK** , aby zapisać.
 ![Dodaj atrybut źródłowy do schematu lokalnego łącznika usługi AD](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### <a name="step-3-add-the-usertype-to-the-azure-ad-connector-schema"></a>Krok 3. Dodawanie użytkownika do schematu łącznika usługi Azure AD
+### <a name="step-3-add-the-usertype-attribute-to-the-azure-ad-connector-schema"></a>Krok 3. Dodawanie atrybutu UserType do schematu łącznika usługi Azure AD
 Domyślnie atrybut UserType nie jest importowany do obszaru Azure AD Connect. Aby dodać atrybut UserType do listy importowanych atrybutów:
 
  1. Przejdź do karty **Łączniki** w Synchronization Service Manager.
@@ -284,13 +284,13 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | extensionAttribute1 | Unchecked | Aktualizacja |
+    | Direct | UserType | extensionAttribute1 | Unchecked | Update |
 
     W innym przykładzie, chcesz utworzyć wartość atrybutu UserType z innych właściwości. Na przykład chcesz zsynchronizować wszystkich użytkowników jako gościa, jeśli ich lokalny atrybut AD userPrincipalName kończy się częścią domeny <em>@partners.fabrikam123.org</em> . Można zaimplementować wyrażenie podobne do tego:
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Wyrażenie | UserType | IIF (isobecny ([userPrincipalName]), IIF (CBool (InStr (LCase ([userPrincipalName]), " @partners.fabrikam123.org ") = 0), "member", "Gość"), błąd ("userPrincipalName nie jest obecny w celu określenia typu użytkownika")) | Unchecked | Aktualizacja |
+    | Wyrażenie | UserType | IIF (isobecny ([userPrincipalName]), IIF (CBool (InStr (LCase ([userPrincipalName]), " @partners.fabrikam123.org ") = 0), "member", "Gość"), błąd ("userPrincipalName nie jest obecny w celu określenia typu użytkownika")) | Unchecked | Update |
 
 7. Kliknij przycisk **Dodaj** , aby utworzyć regułę ruchu przychodzącego.
 
@@ -327,7 +327,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | UserType | Unchecked | Aktualizacja |
+    | Direct | UserType | UserType | Unchecked | Update |
 
 7. Kliknij przycisk **Dodaj** , aby utworzyć regułę wychodzącą.
 
@@ -340,7 +340,7 @@ Aby sprawdzić zmiany podczas ręcznego wykonywania kroków, które składają s
 
 1. Uruchom **pełny import** do **lokalnego łącznika usługi AD**:
 
-   1. Przejdź do karty **operacje** w Synchronization Service Manager.
+   1. Przejdź do karty **Łączniki** w Synchronization Service Manager.
    2. Kliknij prawym przyciskiem myszy **lokalny łącznik usługi AD** i wybierz polecenie **Uruchom**.
    3. W podręcznym oknie dialogowym wybierz pozycję **pełny import** , a następnie kliknij przycisk **OK**.
    4. Poczekaj na zakończenie operacji.

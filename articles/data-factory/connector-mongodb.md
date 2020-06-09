@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 3b6476b794d2e1b2e9a36aa26f35c247641d44e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eba63ff500aad4538f5b30f11bac168cf14816c0
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418154"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558162"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiowanie danych z MongoDB za pomocą Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z bazy danych MongoDB. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
@@ -47,11 +48,11 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi MongoDB są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość Type musi mieć wartość: **MongoDbV2** |Tak |
-| Parametry połączenia |Określ parametry połączenia MongoDB, np. `mongodb://[username:password@]host[:port][/[database][?options]]`. Więcej informacji można znaleźć w [podręczniku MongoDB w parametrach połączenia](https://docs.mongodb.com/manual/reference/connection-string/) . <br/><br /> Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md) . |Tak |
-| database | Nazwa bazy danych, do której chcesz uzyskać dostęp. | Tak |
+| typ |Właściwość Type musi mieć wartość: **MongoDbV2** |Yes |
+| Parametry połączenia |Określ parametry połączenia MongoDB, np. `mongodb://[username:password@]host[:port][/[database][?options]]` . Więcej informacji można znaleźć w [podręczniku MongoDB w parametrach połączenia](https://docs.mongodb.com/manual/reference/connection-string/) . <br/><br /> Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć  `password`   konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md) . |Yes |
+| database | Nazwa bazy danych, do której chcesz uzyskać dostęp. | Yes |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 **Przykład:**
@@ -77,10 +78,10 @@ Dla połączonej usługi MongoDB są obsługiwane następujące właściwości:
 
 Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępne do definiowania zestawów danych, zobacz [zestawy danych i połączone usługi](concepts-datasets-linked-services.md). Dla zestawu danych MongoDB są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **MongoDbV2Collection** | Tak |
-| CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **MongoDbV2Collection** | Yes |
+| CollectionName |Nazwa kolekcji w bazie danych MongoDB. |Yes |
 
 **Przykład:**
 
@@ -109,10 +110,10 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **MongoDbV2Source** | Tak |
-| filtr | Określa filtr wyboru przy użyciu operatorów zapytań. Aby zwrócić wszystkie dokumenty w kolekcji, Pomiń ten parametr lub Przekaż pusty dokument ({}). | Nie |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **MongoDbV2Source** | Yes |
+| filtr | Określa filtr wyboru przy użyciu operatorów zapytań. Aby zwrócić wszystkie dokumenty w kolekcji, Pomiń ten parametr lub Przekaż pusty dokument ( {} ). | Nie |
 | cursorMethods. Project | Określa pola do zwrócenia w dokumentach dla projekcji. Aby zwrócić wszystkie pola w pasujących dokumentach, Pomiń ten parametr. | Nie |
 | cursorMethods. Sort | Określa kolejność, w której zapytanie zwraca pasujące dokumenty. Zapoznaj się z [kursorem. Sort ()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Nie |
 | cursorMethods. limit | Określa maksymalną liczbę dokumentów zwracanych przez serwer. Zapoznaj się z [kursorem. limit ()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Nie |

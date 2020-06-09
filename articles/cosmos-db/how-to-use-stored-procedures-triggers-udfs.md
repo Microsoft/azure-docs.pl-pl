@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: tisande
-ms.openlocfilehash: 2e870e6cbc16fd98d8fccb5bbe3ac5d8be634cf2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: tracking-python
+ms.openlocfilehash: ea34ec3bd601b784afd5bf0286768bbf5f92d040
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982313"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553026"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Jak rejestrować procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika oraz jak ich używać w usłudze Azure Cosmos DB
 
-Interfejs API SQL w usłudze Azure Cosmos DB obsługuje rejestrowanie i wywoływanie procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytkownika (UDF) napisanych w języku JavaScript. Aby zarejestrować i wywołać procedury składowane, można [użyć interfejsów API SQL, .NET](sql-api-sdk-dotnet.md) [Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node. js](sql-api-sdk-node.md)lub [Python](sql-api-sdk-python.md) SDK. Po zdefiniowaniu kilku procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytkownika można je załadować i wyświetlić w witrynie [Azure Portal](https://portal.azure.com/) za pomocą Eksploratora danych.
+Interfejs API SQL w usłudze Azure Cosmos DB obsługuje rejestrowanie i wywoływanie procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytkownika (UDF) napisanych w języku JavaScript. Aby zarejestrować i wywołać procedury składowane, można [użyć interfejsów API SQL, .NET](sql-api-sdk-dotnet.md) [Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md), [Node. js](sql-api-sdk-node.md)lub [Python](sql-api-sdk-python.md) SDK. Po zdefiniowaniu co najmniej jednej procedury składowanej, wyzwalaczy i funkcji zdefiniowanych przez użytkownika można ładować i przeglądać je w [Azure Portal](https://portal.azure.com/) przy użyciu Eksplorator danych.
 
 ## <a name="how-to-run-stored-procedures"></a><a id="stored-procedures"></a>Jak uruchamiać procedury składowane
 

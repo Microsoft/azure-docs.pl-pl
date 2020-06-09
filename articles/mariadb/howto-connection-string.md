@@ -6,12 +6,13 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 74574fb905ae4ebd2552ef97cd0b5430eea6363a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 18e3f2ab7c581a1ff93a65e410e83739564b5be5
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530227"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84558300"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>Jak połączyć aplikacje z usługą Azure Database for MariaDB
 W tym temacie wymieniono typy parametrów połączenia, które są obsługiwane przez Azure Database for MariaDB wraz z szablonami i przykładami. W parametrach połączenia mogą istnieć inne parametry i ustawienia.
@@ -25,7 +26,7 @@ W tym temacie wymieniono typy parametrów połączenia, które są obsługiwane 
 Server={your_host}; Port=3306; Database={your_database}; Uid={username@servername}; Pwd={your_password}; SslMode=Preferred;
 ```
 
-W tym przykładzie nazwa serwera `mydemoserver`to, nazwa bazy danych `wpdb`, nazwa `WPAdmin`użytkownika i hasło. `mypassword!2` W związku z tym parametry połączenia powinny być następujące:
+W tym przykładzie nazwa serwera to, nazwa `mydemoserver` bazy danych, `wpdb` Nazwa użytkownika `WPAdmin` i hasło `mypassword!2` . W związku z tym parametry połączenia powinny być następujące:
 
 ```csharp
 Server= "mydemoserver.mariadb.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@mydemoserver"; Pwd="mypassword!2"; SslMode=Required;
@@ -62,7 +63,7 @@ client = Mysql2::Client.new(username: "{username@servername}", password: {your_p
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Pobierz szczegóły parametrów połączenia z Azure Portal
-W [Azure Portal](https://portal.azure.com)przejdź do serwera Azure Database for MariaDB, a następnie kliknij pozycję **Parametry połączenia** , aby uzyskać listę ciągów dla wystąpienia: ![okienko parametry połączenia w Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+W [Azure Portal](https://portal.azure.com)przejdź do serwera Azure Database for MariaDB, a następnie kliknij pozycję **Parametry połączenia** , aby uzyskać listę ciągów dla wystąpienia: ![ okienko parametry połączenia w Azure Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 Ten ciąg zawiera szczegółowe informacje, takie jak sterownik, serwer i inne parametry połączenia z bazą danych. Zmodyfikuj te przykłady, aby użyć własnych parametrów, takich jak nazwa bazy danych, hasło i tak dalej. Tego ciągu można użyć do nawiązania połączenia z serwerem z poziomu kodu i aplikacji.
 

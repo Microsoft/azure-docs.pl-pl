@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 2e54c0c156fde8201e6c5803c2c94f67692a7fd7
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 6f2043b91f8345a638d6fc773230cd182fb0fead
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484769"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84508849"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Prywatny link do Azure Database for MariaDB
 
@@ -116,7 +116,7 @@ W przypadku korzystania z prywatnego linku w połączeniu z regułami zapory są
 
 Jeśli chcesz całkowicie używać prywatnych punktów końcowych do uzyskiwania dostępu do swoich Azure Database for MariaDB, możesz wyłączyć ustawienie wszystkie publiczne punkty końcowe ([reguły zapory](concepts-firewall-rules.md) i [punkty końcowe usługi sieci wirtualnej](concepts-data-access-security-vnet.md)), ustawiając opcję **Odmów dostępu** do poczty publicznej na serwerze bazy danych. 
 
-Jeśli to ustawienie ma wartość *tak*, do Azure Database for MariaDB mogą być używane tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie ma wartość *nie*, klienci mogą łączyć się z Azure Database for MariaDB na podstawie ustawień zapory lub punktu końcowego usługi sieci wirtualnej. Ponadto po ustawieniu wartości dostępu do sieci prywatnej nie można dodawać i/lub aktualizować istniejących reguł punktu końcowego zapory i usługi sieci wirtualnej.
+Jeśli to ustawienie ma wartość *tak*, do Azure Database for MariaDB mogą być używane tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie ma wartość *nie*, klienci mogą łączyć się z Azure Database for MariaDB na podstawie ustawień zapory lub punktu końcowego usługi sieci wirtualnej. Ponadto po ustawieniu wartości dostępu do sieci prywatnej klienci nie mogą dodawać i/lub aktualizować istniejących reguł zapory i zasad punktu końcowego usługi sieci wirtualnej.
 
 > [!Note]
 > Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for PostgreSQL — jeden serwer obsługuje warstwy cenowe Ogólnego przeznaczenia i zoptymalizowane pod kątem pamięci.

@@ -3,17 +3,17 @@ title: 'Szybki Start: wysyłanie zdarzeń niestandardowych do funkcji platformy 
 description: 'Szybki Start: Użyj Azure Event Grid i interfejsu wiersza polecenia platformy Azure w celu opublikowania tematu i zasubskrybowania tego zdarzenia. Funkcja platformy Azure jest używana w punkcie końcowym.'
 services: event-grid
 keywords: ''
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.date: 11/15/2019
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 5e38571cf84537fd722093b96cd277743e8ce80c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cc429fd38fc3322887affb72e71e0f583823c297
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80292150"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84557860"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Szybki Start: kierowanie zdarzeń niestandardowych do funkcji platformy Azure za pomocą Event Grid
 
@@ -124,7 +124,7 @@ W pierwszym przykładzie użyto interfejsu wiersza polecenia platformy Azure. Po
 ### <a name="azure-powershell"></a>Azure PowerShell
 Drugi przykład obejmuje wykonanie podobnych kroków przy użyciu programu PowerShell.
 
-1. W Azure Portal wybierz pozycję **Cloud Shell** (Alternatywnie przejdź do `https://shell.azure.com/`). W lewym górnym rogu okna Cloud Shell wybierz pozycję **PowerShell** . Zapoznaj się z przykładowym obrazem okna **Cloud Shell** w sekcji interfejsu wiersza polecenia platformy Azure.
+1. W Azure Portal wybierz pozycję **Cloud Shell** (Alternatywnie przejdź do `https://shell.azure.com/` ). W lewym górnym rogu okna Cloud Shell wybierz pozycję **PowerShell** . Zapoznaj się z przykładowym obrazem okna **Cloud Shell** w sekcji interfejsu wiersza polecenia platformy Azure.
 2. Ustaw następujące zmienne. Po skopiowaniu i wklejeniu każdego polecenia zaktualizuj **nazwę tematu** i **nazwę grupy zasobów** przed uruchomieniem polecenia:
 
     ```powershell

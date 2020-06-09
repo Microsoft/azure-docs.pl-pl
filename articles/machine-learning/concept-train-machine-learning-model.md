@@ -9,12 +9,13 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.openlocfilehash: 99e2c878443b9a4256eec495429dbe57a88557d0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: tracking-python
+ms.openlocfilehash: c63fb819f0db7a3a367f5351fd80eb14e5733d99
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683013"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559457"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Uczenie modeli za pomocą Azure Machine Learning
 

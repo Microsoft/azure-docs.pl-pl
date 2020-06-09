@@ -7,12 +7,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: antchu
-ms.openlocfilehash: 0cf8705cf2567a60129681c2db41b0868f8fe182
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 4078edcadf3985e3b4dd392f726ca2e8d171b8b1
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75392151"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559061"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Szybki Start: Tworzenie pokoju rozmów z usługami Azure Functions i sygnalizującymi przy użyciu języka Python
 
@@ -72,7 +73,7 @@ Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com/> prz
 
 1. W pliku **local.settings.json** wklej parametry połączenia jako wartość ustawienia **AzureSignalRConnectionString**. Zapisz plik.
 
-1. Funkcje języka Python są zorganizowane w foldery. W każdym folderze są dwa pliki: *Function. JSON* definiuje powiązania, które są używane w funkcji, a * \_ \_init\_\_. PR* jest treścią funkcji. W tej aplikacji funkcji znajdują się dwie funkcje wyzwalane przez protokół HTTP:
+1. Funkcje języka Python są zorganizowane w foldery. W każdym folderze są dwa pliki: *Function. JSON* definiuje powiązania, które są używane w funkcji, a * \_ \_ init \_ \_ . PR* jest treścią funkcji. W tej aplikacji funkcji znajdują się dwie funkcje wyzwalane przez protokół HTTP:
 
     - **negotiate** — ta funkcja generuje i zwraca ważne informacje o połączeniu przy użyciu danych wejściowych powiązania *SignalRConnectionInfo*.
     - **messages** — ta funkcja otrzymuje wiadomość czatu w treści żądania i używa powiązania danych wyjściowych *SignalR* do rozgłoszenia wiadomości do wszystkich połączonych aplikacji klienckich.

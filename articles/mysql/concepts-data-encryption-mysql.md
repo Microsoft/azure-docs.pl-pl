@@ -6,23 +6,23 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 24b52042e037e998069550599ca006eded70d1c4
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 0873f9b55adbf54abe47bf275f953c3cc2b1cd3f
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849737"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488447"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Azure Database for MySQL szyfrowanie danych za pomocą klucza zarządzanego przez klienta
-
-> [!NOTE]
-> W tej chwili należy zażądać dostępu do korzystania z tej funkcji. Aby to zrobić, skontaktuj się z firmą AskAzureDBforMySQL@service.microsoft.com .
 
 Szyfrowanie danych za pomocą kluczy zarządzanych przez klienta w usłudze Azure Database for MySQL umożliwia korzystanie z własnego klucza (Bring Your Own Key, BYOK) na potrzeby ochrony danych w spoczynku. Umożliwia to również organizacjom rozdzielanie obowiązków związanych z zarządzaniem kluczami i danymi. W przypadku szyfrowania zarządzanego przez klienta odpowiadasz za cykl życia klucza, uprawnienia do użycia klucza i inspekcje operacji na kluczach oraz w pełni kontrolujesz te elementy.
 
 Szyfrowanie danych z kluczami zarządzanymi przez klienta dla Azure Database for MySQL jest ustawiany na poziomie serwera. Dla danego serwera klucz zarządzany przez klienta o nazwie klucz szyfrowania klucza (KEK) jest używany do szyfrowania klucza szyfrowania danych używanego przez usługę. KEK jest kluczem asymetrycznym przechowywanym w wystąpieniu [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) klienta i zarządzanym przez klienta. Klucz szyfrowania klucza (KEK) i klucz szyfrowania danych (w tym artykule) opisano szczegółowo w dalszej części tego artykułu.
 
 Key Vault to oparty na chmurze zewnętrzny system zarządzania kluczami. Jest ona wysoce dostępna i zapewnia skalowalny, bezpieczny magazyn dla kluczy kryptograficznych RSA, opcjonalnie obsługiwane przez program FIPS 140-2 Level 2 sprawdzone sprzętowe moduły zabezpieczeń (sprzętowych modułów zabezpieczeń). Nie zezwala na bezpośredni dostęp do przechowywanego klucza, ale zapewnia usługi szyfrowania i odszyfrowywania do autoryzowanych jednostek. Key Vault może wygenerować klucz, zaimportować go lub [przetransferować z lokalnego urządzenia HSM](../key-vault/key-Vault-hsm-protected-keys.md).
+
+> [!NOTE]
+> Ta funkcja jest obecnie wdrażana globalnie i wkrótce będzie dostępna we wszystkich regionach. Jeśli nie widzisz go w Twoim regionie, skontaktuj się zAskAzureDBforMySQL@service.microsoft.com
 
 > [!NOTE]
 > Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for MySQL obsługuje warstwy cenowe "Ogólnego przeznaczenia" i "zoptymalizowane pod kątem pamięci".
@@ -129,6 +129,19 @@ Aby uniknąć problemów podczas konfigurowania szyfrowania danych zarządzanych
 * Zainicjuj proces przywracania lub odczytywania repliki z głównego Azure Database for MySQL.
 * Zachowaj nowo utworzony serwer (przywrócony/Replica) w stanie niedostępnym, ponieważ jego unikatowa tożsamość nie otrzymała jeszcze uprawnień do Key Vault.
 * Na serwerze przywróconym/repliki ponownie sprawdź poprawność klucza zarządzanego przez klienta w ustawieniach szyfrowania danych, aby zagwarantować, że nowo utworzony serwer ma uprawnienia zawijania i deotoki do klucza przechowywanego w Key Vault.
+
+## <a name="limitations"></a>Ograniczenia
+
+W przypadku Azure Database for MySQL obsługa szyfrowania danych magazynowanych przy użyciu klucza zarządzanego przez klientów (CMK) ma kilka ograniczeń —
+
+* Obsługa tej funkcji jest ograniczona do warstw cenowych **ogólnego przeznaczenia** i **zoptymalizowanych pod kątem pamięci** .
+* Ta funkcja jest obsługiwana tylko w regionach i serwerach, które obsługują magazyn o pojemności do 16TB. Listę regionów świadczenia usługi Azure obsługujących magazyn o wartości do 16TB można znaleźć w sekcji magazyn w dokumentacji [poniżej](concepts-pricing-tiers.md#storage) .
+
+    > [!NOTE]
+    > - Wszystkie nowe serwery MySQL utworzone w wymienionych powyżej regionach obsługują szyfrowanie z kluczami Menedżera **klienta.** Serwer przywrócony do punktu w czasie (kopie) lub odczytana replika nie będzie kwalifikować, chociaż w teorii są "nowe".
+    > - Aby sprawdzić, czy serwer aprowizacji obsługuje do 16TB, możesz przejść do bloku warstwa cenowa w portalu i zobaczyć maksymalny rozmiar magazynu obsługiwany przez serwer aprowizacji. Jeśli można przenieść suwak do 4 TB, serwer może nie obsługiwać szyfrowania z użyciem kluczy zarządzanych przez klienta. Jednak dane są szyfrowane przy użyciu kluczy zarządzanych przez usługę przez cały czas. AskAzureDBforMySQL@service.microsoft.comJeśli masz jakieś pytania, skontaktuj się z Tobą.
+
+* Szyfrowanie jest obsługiwane tylko przy użyciu klucza kryptograficznego RSA 2048.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,19 +3,19 @@ title: 'Szybki Start: Tworzenie poleceń niestandardowych dla aplikacji w wersji
 titleSuffix: Azure Cognitive Services
 description: W tym artykule opisano Dodawanie parametrów do aplikacji poleceń niestandardowych, dzięki czemu można włączać i wyłączać wiele urządzeń.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
-ms.openlocfilehash: 5461ef9680ab89c8cc9cc2e1166366abb04a6eab
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.author: nitinme
+ms.openlocfilehash: 940b3604487fbef7736c0d8f4f9299563b0b86d5
+ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142286"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84509308"
 ---
 # <a name="quickstart-create-a-custom-commands-preview-application-with-parameters"></a>Szybki Start: Tworzenie poleceń niestandardowych aplikacji w wersji zapoznawczej przy użyciu parametrów
 
@@ -40,7 +40,7 @@ W tym artykule zostanie rozszerzona ta aplikacja o parametry, aby umożliwić i 
         ```
         On or Off?
         ```
-   1. Wybierz pozycję **Zaktualizuj**.
+   1. Wybierz pozycję **Update** (Aktualizuj).
 
        > [!div class="mx-imgBorder"]
        > ![Utwórz wymaganą odpowiedź parametru](media/custom-speech-commands/add-required-on-off-parameter-response.png)
@@ -81,7 +81,7 @@ W tym artykule zostanie rozszerzona ta aplikacja o parametry, aby umożliwić i 
 
 ## <a name="add-example-sentences"></a>Dodaj przykładowe zdania
 
-W przypadku poleceń z parametrami warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Przykład:
+W przypadku poleceń z parametrami warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Na przykład:
 
 - Pełne informacje o parametrach:`turn {OnOff} the {SubjectDevice}`
 - Informacje o części parametru:`turn it {OnOff}`

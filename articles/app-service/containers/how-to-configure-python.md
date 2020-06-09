@@ -4,13 +4,13 @@ description: Dowiedz się, jak skonfigurować wstępnie skonstruowany kontener j
 ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
-ms.openlocfilehash: 8a9276f73c1d9bdf0289f41bb59340b29f5a2575
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, seodec18, tracking-python
+ms.openlocfilehash: 96f7684176df35e9ac085dd2d7a0c576b7266883
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80046019"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84553254"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Konfigurowanie aplikacji systemu Linux w języku Python dla Azure App Service
 
@@ -52,12 +52,12 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 Jeśli aplikacja zostanie wdrożona za pomocą usługi Git lub zip z włączonym automatyzacją kompilacji, App Service kroki automatyzacji kompilacji w następującej kolejności:
 
-1. Uruchom skrypt niestandardowy, jeśli został `PRE_BUILD_SCRIPT_PATH`określony przez.
+1. Uruchom skrypt niestandardowy, jeśli został określony przez `PRE_BUILD_SCRIPT_PATH` .
 1. Uruchom polecenie `pip install -r requirements.txt`.
-1. Jeśli *manage.py* znajduje się w katalogu głównym repozytorium, uruchom *manage.py collectstatic*. Jeśli `DISABLE_COLLECTSTATIC` jednak jest ustawiona na `true`, ten krok zostanie pominięty.
-1. Uruchom skrypt niestandardowy, jeśli został `POST_BUILD_SCRIPT_PATH`określony przez.
+1. Jeśli *manage.py* znajduje się w katalogu głównym repozytorium, uruchom *manage.py collectstatic*. Jeśli jednak `DISABLE_COLLECTSTATIC` jest ustawiona na `true` , ten krok zostanie pominięty.
+1. Uruchom skrypt niestandardowy, jeśli został określony przez `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND`i `DISABLE_COLLECTSTATIC` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND`. Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND`. Aby wyłączyć uruchamianie collectstatic podczas kompilowania aplikacji Django, `DISABLE_COLLECTSTATIC=true`ustaw wartość.
+`PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` i `DISABLE_COLLECTSTATIC` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND` . Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND` . Aby wyłączyć uruchamianie collectstatic podczas kompilowania aplikacji Django, ustaw wartość `DISABLE_COLLECTSTATIC=true` .
 
 W poniższym przykładzie określono dwie zmienne do szeregu poleceń, oddzielone przecinkami.
 
@@ -102,7 +102,7 @@ W przypadku aplikacji Django usługa App Service szuka pliku o nazwie `wsgi.py` 
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Jeśli potrzebujesz bardziej szczegółowej kontroli nad poleceniem uruchamiania, użyj [niestandardowego polecenia uruchamiania](#customize-startup-command) i Zastąp `<module>` ciąg nazwą modułu zawierającego *WSGI.py*.
+Jeśli potrzebujesz bardziej szczegółowej kontroli nad poleceniem uruchamiania, użyj [niestandardowego polecenia uruchamiania](#customize-startup-command) i Zastąp ciąg `<module>` nazwą modułu zawierającego *WSGI.py*.
 
 ### <a name="flask-app"></a>Aplikacja Flask
 
@@ -131,7 +131,7 @@ Aby kontrolować zachowanie kontenera podczas uruchamiania, możesz podać niest
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
 ```
 
-Na przykład jeśli masz aplikację z kolbą, której moduł główny to *Hello.py* , a w tym pliku znajduje się obiekt aplikacji do `myapp`kolby o nazwie, * \<>polecenie niestandardowe* jest następujące:
+Na przykład jeśli masz aplikację z kolbą, której moduł główny to *Hello.py* , a obiekt aplikacji do kolby w tym pliku ma nazwę, należy wykonać `myapp` *\<custom-command>* następujące czynności:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -143,9 +143,9 @@ Jeśli moduł główny znajduje się w podfolderze, takim jak `website`, określ
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-Można również dodać wszelkie dodatkowe argumenty dla Gunicorn do * \<polecenia Custom->*, na przykład. `--workers=4` Aby uzyskać więcej informacji, zobacz [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (Uruchamianie serwera Gunicorn) (docs.gunicorn.org).
+Możesz również dodać wszelkie dodatkowe argumenty dla Gunicorn do, na przykład *\<custom-command>* `--workers=4` . Aby uzyskać więcej informacji, zobacz [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (Uruchamianie serwera Gunicorn) (docs.gunicorn.org).
 
-Aby użyć serwera innego niż Gunicorn, takiego jak [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), można zamienić * \<polecenie niestandardowe>* na podobne do tego:
+Aby użyć serwera innego niż Gunicorn, takiego jak [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), można zastąpić *\<custom-command>* element podobny do tego:
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func

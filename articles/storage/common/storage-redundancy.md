@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d14c21174f9631a1ad72489d4c0bafe013572c
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 143820eb3c58d2aaac4d4176c4456fca676a0e45
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681340"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84554103"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -81,7 +81,7 @@ Usługa Azure Storage oferuje dwie opcje kopiowania danych do regionu pomocnicze
 - **Magazyn Geograficznie nadmiarowy (GRS)** wielokrotnie kopiuje dane w jednej lokalizacji fizycznej w regionie podstawowym przy użyciu LRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym.
 - **Magazyn Geograficznie nadmiarowy (GZRS)** kopiuje dane synchronicznie w trzech strefach dostępności platformy Azure w regionie podstawowym przy użyciu ZRS. Następnie dane są kopiowane asynchronicznie do pojedynczej lokalizacji fizycznej w regionie pomocniczym.
 
-Podstawowa różnica między GRS i GZRS polega na tym, jak dane są replikowane w regionie podstawowym. W lokalizacji dodatkowej dane są zawsze replikowane synchronicznie, przy użyciu LRS.
+Podstawowa różnica między GRS i GZRS polega na tym, jak dane są replikowane w regionie podstawowym. W lokalizacji dodatkowej dane są zawsze replikowane synchronicznie, przy użyciu LRS. LRS w regionie pomocniczym chroni dane przed awariami sprzętowymi.
 
 W przypadku GRS lub GZRS dane w pomocniczej lokalizacji nie są dostępne do odczytu lub zapisu, chyba że istnieje przejście w tryb failover do regionu pomocniczego. Aby uzyskać dostęp do odczytu do lokalizacji dodatkowej, skonfiguruj konto magazynu tak, aby korzystało z magazynu geograficznie nadmiarowego do odczytu (RA-GRS) lub strefy geograficznej do odczytu nadmiarowego (RA-GZRS). Aby uzyskać więcej informacji, zobacz [Odczyt dostępu do danych w regionie pomocniczym](#read-access-to-data-in-the-secondary-region).
 

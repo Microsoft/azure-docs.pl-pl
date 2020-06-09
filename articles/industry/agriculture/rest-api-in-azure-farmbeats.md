@@ -1,18 +1,18 @@
 ---
-title: Dokumentacja
+title: Odwołania
 description: ''
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: 717a09d8377a7b95fe24300cc65222f307e7419f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
+ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437520"
+ms.lasthandoff: 06/08/2020
+ms.locfileid: "84488039"
 ---
-# <a name="references"></a>Dokumentacja
+# <a name="references"></a>Odwołania
 
 W tym artykule opisano interfejsy API usługi Azure FarmBeats.
 
@@ -74,7 +74,7 @@ Oto najczęstsze nagłówki żądań, które należy określić podczas wywołan
 
 **Nagłówki** | **Opis i przykład**
 --- | ---
-Content-Type  | Format żądania (Content-Type: Application/<format>). W przypadku interfejsów API usługi Azure FarmBeats Datahub format to JSON. Content-Type: Application/JSON
+Content-Type  | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API usługi Azure FarmBeats Datahub format to JSON. Content-Type: Application/JSON
 Autoryzacja  | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <tokenu dostępu>
 Zaakceptuj | Format odpowiedzi. W przypadku interfejsów API usługi Azure FarmBeats Datahub format to JSON. Akceptuj: Application/JSON
 
@@ -82,7 +82,7 @@ Zaakceptuj | Format odpowiedzi. W przypadku interfejsów API usługi Azure FarmB
 
 Aby wykonać żądanie interfejsu API REST, należy połączyć metodę HTTP (GET, POST, PUT lub DELETE), adres URL usługi API Service, identyfikator URI do zasobu do zapytania, przesłać dane do, zaktualizować lub usunąć, a następnie dodać co najmniej jeden nagłówek żądania HTTP.
 
-Adres URL usługi interfejsu API to adres URL Datahub, na przykład https://\<yourdatahub-Website-Name>. azurewebsites.NET.
+Adres URL usługi interfejsu API to adres URL Datahub, na przykład https:// \<yourdatahub-website-name> . azurewebsites.NET.
 
 Opcjonalnie można uwzględnić parametry zapytania dla wywołań GET do filtrowania, ograniczyć rozmiar i sortować dane w odpowiedziach.
 
@@ -147,7 +147,7 @@ W tym przykładzie podczas tworzenia farmy nie określono obowiązkowego pola "n
 
 Dostęp do interfejsów API platformy Azure FarmBeats można uzyskać za pomocą użytkownika lub rejestracji aplikacji w Azure Active Directory. Aby utworzyć rejestrację aplikacji w Azure Active Directory, wykonaj następujące kroki:
 
-1. Przejdź do [Azure Portal](https://portal.azure.com)i wybierz pozycję **Azure Active Directory** > **rejestracje aplikacji** > **Nowa rejestracja**. Alternatywnie możesz użyć istniejącego konta.
+1. Przejdź do [Azure Portal](https://portal.azure.com)i wybierz pozycję **Azure Active Directory**  >  **rejestracje aplikacji**  >  **Nowa rejestracja**. Alternatywnie możesz użyć istniejącego konta.
 2. W przypadku nowego konta wykonaj następujące czynności:
 
     - Wprowadź nazwę.
@@ -162,9 +162,18 @@ Dostęp do interfejsów API platformy Azure FarmBeats można uzyskać za pomocą
     - Wróć do **omówienia**i wybierz link obok pozycji **Zarządzaj aplikacją w katalogu lokalnym**.
     - Przejdź do pozycji **Właściwości** , aby przechwycić **Identyfikator obiektu**.
 
-4. Przejdź do Datahub Swagger (https://<yourdatahub>. azurewebsites.NET/Swagger/index.html) i wykonaj następujące czynności:
+4. Przejdź do Datahub Swagger (https:// <yourdatahub> . azurewebsites.NET/Swagger/index.html) i wykonaj następujące czynności:
     - Przejdź do **interfejsu API RoleAssignment**.
     - Wykonaj wpis, aby utworzyć obiekt **RoleAssignment** dla właśnie utworzonego **identyfikatora obiektu** .
+ 
+```json
+{
+  "roleDefinitionId": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
+  "objectId": "objectId from step 3 above",
+  "objectIdType": "ServicePrincipalId",
+  "tenantId": "tenant id of your Azure subscription"
+}
+```
 
   > [!NOTE]
   > Aby uzyskać więcej informacji na temat dodawania użytkowników i rejestrowania Active Directory, zobacz [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).

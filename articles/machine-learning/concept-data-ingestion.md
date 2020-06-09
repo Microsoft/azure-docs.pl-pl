@@ -10,12 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 475c4fd6b34996c83035c4f7ef93b9fa02ded11f
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.custom: tracking-python
+ms.openlocfilehash: 48393ac14805c60ac12df9256f915721ee928758
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789865"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84552844"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opcje pozyskiwania danych dla przepływów pracy Azure Machine Learning
 
