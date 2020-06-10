@@ -10,13 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: ad3a2bf734ef8df8c3807dda17aeeb58b0032772
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: bac8ab3da806927c588d3dc9cd06b83feb904a67
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995806"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606551"
 ---
 # <a name="quickstart-use-the-translator-to-determine-sentence-length"></a>Szybki Start: Użyj translatora, aby określić długość zdania
 

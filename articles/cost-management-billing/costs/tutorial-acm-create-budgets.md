@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: ef165f63ff1f9e45bb3586192146d822e334dc54
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 384be4599abadaada31cfc5b4993fff6705ec71d
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142439"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84559319"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Samouczek: Tworzenie budżetów platformy Azure i zarządzanie nimi
 
@@ -133,7 +133,7 @@ Jeśli chcesz odfiltrować nowe koszty, tak aby budżety były oceniane tylko na
 - Typ wydawcy: Azure
 - Typ opłaty: Sposób użycia
 
-Oceny kosztów budżetowych bazują na rzeczywistych kosztach. Nie obejmują one amortyzacji. Aby uzyskać więcej informacji na temat opcji filtrowania dostępnych w budżetach, zobacz [Omówienie opcji grupowania i filtrowania](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
+Oceny kosztów budżetowych bazują na rzeczywistych kosztach. Nie obejmują one amortyzacji. Aby uzyskać więcej informacji na temat opcji filtrowania dostępnych w budżetach, zobacz [Omówienie opcji grupowania i filtrowania](group-filter.md).
 
 ## <a name="trigger-an-action-group"></a>Wyzwalanie grupy akcji
 

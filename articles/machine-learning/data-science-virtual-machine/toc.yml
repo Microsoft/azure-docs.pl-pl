@@ -15,8 +15,6 @@
       href: provision-vm.md
     - name: Tworzenie maszyny Data Science Virtual Machine z systemem Ubuntu
       href: dsvm-ubuntu-intro.md
-- name: Samouczki
-  items:
     - name: Tworzenie maszyny DSVM przy użyciu szablonu usługi ARM
       displayName: Resource Manager
       href: dsvm-tutorial-resource-manager.md
