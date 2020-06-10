@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 06/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7e98f4a401a9fcab12bd7a276c47df67c7936b1d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5022efacf33a2c07f1388666b5de26ee86322739
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853416"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636737"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 ExpressRoute to prywatny i odporny na podłączenie sieci lokalnych do Microsoft Cloud. Możesz uzyskać dostęp do wielu usług w chmurze firmy Microsoft, takich jak Azure, i pakietu Office 365 z prywatnego centrum danych lub sieci firmowej. Na przykład możesz mieć oddział w sieci San Francisco z obwodem usługi ExpressRoute w Dolina krzemu i innym biurze oddziału w Londynie z obwodem usługi ExpressRoute w tym samym mieście. Obie biura oddziałów mogą mieć dużą szybkość łączności z zasobami platformy Azure w regionie zachodnie stany USA i Południowe Zjednoczone Królestwo. Oddziały nie mogą jednak wymieniać danych bezpośrednio. Innymi słowy, 10.0.1.0/24 może wysyłać dane do 10.0.3.0/24 i 10.0.4.0/24, ale nie do 10.0.2.0/24.
@@ -43,8 +43,9 @@ ExpressRoute Global Reach obecnie jest obsługiwana w następujących miejscach.
 * Nowa Zelandia
 * Norwegia
 * Singapur
+* Szwecja
 * Szwajcaria
-* Wielka Brytania
+* Zjednoczone Królestwo
 * Stany Zjednoczone
 
 Obwody usługi ExpressRoute muszą zostać utworzone w [lokalizacjach komunikacji równorzędnej ExpressRoute](expressroute-locations.md) w powyższych krajach lub regionach. Aby umożliwić ExpressRoute Global Reach między [różnymi regionami geopolitycznych](expressroute-locations.md), obwody muszą być jednostkami SKU w warstwie Premium.

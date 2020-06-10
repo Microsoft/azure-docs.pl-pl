@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 3af744c7ce73544fa35af79a7904701a74241aab
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 59ef47ac67955ef5b9b7cb51ae6f39a9e0d30c3b
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555168"
+ms.locfileid: "84634937"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>Szybki Start: Tworzenie indeksu wyszukiwania w programie .NET
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Dla tego projektu należy użyć wersji 9 `Microsoft.Azure.Search` pakietu NuGet
 
 1. Kliknij pozycję **Browse (Przeglądaj)**.
 
-1. Wyszukaj `Microsoft.Azure.Search` i wybierz wersję 9.0.1 lub nowszą.
+1. Wyszukaj `Microsoft.Azure.Search` i wybierz wersję 9.0.1 lub nowszą (Najnowsza stabilna wersja to 10.1.0).
 
 1. Kliknij przycisk **Instaluj** po prawej stronie, aby dodać zestaw do projektu i rozwiązania.
 
@@ -89,26 +89,27 @@ Dla tego projektu należy użyć wersji 9 `Microsoft.Azure.Search` pakietu NuGet
 
 1. Dodaj plik do katalogu wyjściowego. Kliknij prawym przyciskiem myszy plik appSettings. JSON i wybierz polecenie **Właściwości**. W obszarze **Kopiuj do katalogu wyjściowego**wybierz opcję **Kopiuj, jeśli nowszy**.
 
-1. Skopiuj poniższy kod JSON do nowego pliku JSON. Zastąp wartość w polu Nazwa usługi wyszukiwania (nazwa usługi-SEARCH-SERVICE-NAME) i klucz interfejsu API administratora (administrator-administrator-klucz) z prawidłowymi wartościami. Jeśli punkt końcowy usługi to `https://mydemo.search.windows.net` , nazwa usługi to "Moja demonstracja".
+1. Skopiuj poniższy kod JSON do nowego pliku JSON. 
 
-```json
-{
-  "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
-  "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
-  "SearchIndexName": "hotels-quickstart"
-}
-```
+    ```json
+    {
+      "SearchServiceName": "<YOUR-SEARCH-SERVICE-NAME>",
+      "SearchServiceAdminApiKey": "<YOUR-ADMIN-API-KEY>",
+      "SearchIndexName": "hotels-quickstart"
+    }
+    ```
+
+1. Zastąp wartość w polu Nazwa usługi wyszukiwania (nazwa usługi-SEARCH-SERVICE-NAME) i klucz interfejsu API administratora (administrator-administrator-klucz) z prawidłowymi wartościami. Jeśli punkt końcowy usługi to `https://mydemo.search.windows.net` , nazwa usługi to "Moja demonstracja".
 
 ### <a name="add-class-method-files-to-your-project"></a>Dodaj klasę ". Metoda "pliki do projektu
 
-Podczas drukowania wyników do okna konsoli, poszczególne pola z obiektu hotelu muszą zostać zwrócone jako ciągi. Można zaimplementować [ToString ()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) , aby wykonać to zadanie, kopiując kod niezbędny do dwóch nowych plików.
+Ten krok jest wymagany w celu utworzenia znaczących danych wyjściowych w konsoli programu. Podczas drukowania wyników do okna konsoli, poszczególne pola z obiektu hotelu muszą zostać zwrócone jako ciągi. Ten krok implementuje program [ToString ()](https://docs.microsoft.com/dotnet/api/system.object.tostring?view=netframework-4.8) w celu wykonania tego zadania, które można skopiować do dwóch nowych plików.
 
 1. Dodaj dwie puste definicje klas do projektu: Address.Methods.cs, Hotel.Methods.cs
 
-1. W Address.Methods.cs Zastąp domyślną zawartość następującym kodem: [wierszami 1-32](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L32).
+1. W Address.Methods.cs Zastąp domyślną zawartość następującym kodem: [wierszami 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Address.Methods.cs/#L1-L25).
 
-1. W Hotel.Methods.cs Skopiuj [wiersze 1-66](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L66).
-
+1. W Hotel.Methods.cs Skopiuj [wiersze 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/Quickstart/AzureSearchQuickstart/Hotel.Methods.cs/#L1-L68).
 
 ## <a name="1---create-index"></a>1 — Tworzenie indeksu
 
@@ -273,7 +274,7 @@ Indeks hoteli zawiera proste i złożone pola, w których proste pole to "Hoteln
             // The fields of the index are defined by calling the FieldBuilder.BuildForType() method.
             private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
             {
-                var definition = new Index()
+                var definition = new Microsoft.Azure.Search.Models.Index()
                 {
                     Name = indexName,
                     Fields = FieldBuilder.BuildForType<Hotel>()

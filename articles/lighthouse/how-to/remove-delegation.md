@@ -2,13 +2,13 @@
 title: Usuwanie dostępu do delegacji
 description: Dowiedz się, jak usunąć dostęp do zasobów, które zostały delegowane do dostawcy usług w celu zarządzania zasobami delegowanymi przez platformę Azure.
 ms.date: 04/24/2020
-ms.topic: conceptual
-ms.openlocfilehash: d0db809eb057f8b4bb48bdf9dd127f4d488f0406
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 2a8024a47b3f7ea461e4ea7648db7003889552cf
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149452"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636499"
 ---
 # <a name="remove-access-to-a-delegation"></a>Usuwanie dostępu do delegacji
 
