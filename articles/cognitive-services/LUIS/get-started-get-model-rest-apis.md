@@ -5,19 +5,19 @@ description: W tym przewodniku szybki start interfejsu API REST Użyj dostępnej
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/03/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: b73b149e955eee0cb24308d2c1b5b1616b95d7e7
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: a4d84aa6dc24bc7d293200e20d60c5fe349a769d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84416417"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608574"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>Szybki Start: zmiana modelu przy użyciu interfejsów API REST
 

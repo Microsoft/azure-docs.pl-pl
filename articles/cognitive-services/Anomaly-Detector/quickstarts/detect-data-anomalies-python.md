@@ -10,12 +10,13 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: 684aba561dc50b64dd7cc564cff8e55229ce1429
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: fd632e267e087c6489567c51e731d81cf9511ccb
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80239045"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606704"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Szybki Start: wykrywanie anomalii w danych szeregów czasowych przy użyciu interfejsu API REST usługi wykrywania anomalii i języka Python
 
@@ -56,7 +57,7 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 
     [!code-python[initial endpoint and key variables](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=vars)]
 
-3. Przeczytaj plik danych JSON, otwierając go i używając `json.load()`.
+3. Przeczytaj plik danych JSON, otwierając go i używając `json.load()` .
 
     [!code-python[Open JSON file and read in the data](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=fileLoad)]
 
@@ -64,27 +65,27 @@ Skorzystaj z tego przewodnika Szybki Start, aby rozpocząć korzystanie z dwóch
 
 1. Utwórz nową funkcję o nazwie `send_request()` , która przyjmuje zmienne utworzone powyżej. Następnie wykonaj poniższe czynności.
 
-2. Utwórz słownik dla nagłówków żądania. Ustaw wartość `Content-Type` na `application/json`, a następnie Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka.
+2. Utwórz słownik dla nagłówków żądania. Ustaw wartość `Content-Type` na `application/json` , a następnie Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka.
 
-3. Wyślij żądanie przy użyciu `requests.post()`. Połącz swój punkt końcowy i adres URL wykrywania anomalii dla adresu URL pełnego żądania oraz Uwzględnij nagłówki i dane żądania JSON. A następnie Zwróć odpowiedź.
+3. Wyślij żądanie przy użyciu `requests.post()` . Połącz swój punkt końcowy i adres URL wykrywania anomalii dla adresu URL pełnego żądania oraz Uwzględnij nagłówki i dane żądania JSON. A następnie Zwróć odpowiedź.
 
     [!code-python[request method](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=request)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>Wykryj anomalie jako partię
 
-1. Utwórz metodę o nazwie `detect_batch()` , aby wykrywać anomalie w danych jako partię. Wywołaj `send_request()` metodę utworzoną powyżej przy użyciu swojego punktu końcowego, adresu URL, klucza subskrypcji i danych JSON.
+1. Utwórz metodę o nazwie, `detect_batch()` Aby wykrywać anomalie w danych jako partię. Wywołaj `send_request()` metodę utworzoną powyżej przy użyciu swojego punktu końcowego, adresu URL, klucza subskrypcji i danych JSON.
 
 2. Zadzwoń `json.dumps()` na wynik, aby sformatować go i wydrukować w konsoli programu.
 
 3. Jeśli odpowiedź zawiera `code` pole, Wydrukuj kod błędu i komunikat o błędzie.
 
-4. W przeciwnym razie Znajdź pozycje anomalii w zestawie danych. `isAnomaly` Pole odpowiedzi zawiera wartość logiczną odnoszącą się do tego, czy dany punkt danych jest anomalią. Wykonaj iterację na liście i wydrukuj indeks wszelkich `True` wartości. Te wartości odpowiadają indeksowi nietypowych punktów danych, jeśli zostały znalezione.
+4. W przeciwnym razie Znajdź pozycje anomalii w zestawie danych. `isAnomaly`Pole odpowiedzi zawiera wartość logiczną odnoszącą się do tego, czy dany punkt danych jest anomalią. Wykonaj iterację na liście i wydrukuj indeks wszelkich `True` wartości. Te wartości odpowiadają indeksowi nietypowych punktów danych, jeśli zostały znalezione.
 
     [!code-python[detection as a batch](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectBatch)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Wykrywanie stanu anomalii najnowszego punktu danych
 
-1. Utwórz metodę o nazwie `detect_latest()` , aby określić, czy najnowszy punkt danych w szeregu czasowym jest anomalią. Wywołaj `send_request()` powyższą metodę za pomocą punktu końcowego, adresu URL, klucza subskrypcji i danych JSON. 
+1. Utwórz metodę o nazwie, `detect_latest()` Aby określić, czy najnowszy punkt danych w szeregu czasowym jest anomalią. Wywołaj `send_request()` powyższą metodę za pomocą punktu końcowego, adresu URL, klucza subskrypcji i danych JSON. 
 
 2. Zadzwoń `json.dumps()` na wynik, aby sformatować go i wydrukować w konsoli programu.
 

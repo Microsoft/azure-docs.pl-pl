@@ -10,12 +10,13 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 7f2a4ff98345aa43dd6a99eafd60ff2d05ee1bee
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 1071f3dabf7148381edecedce495f645c52e748d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75378555"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610257"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Szybki Start: korzystanie z interfejsu API REST języka Python w celu wywołania usługi analiza tekstu poznawczej 
 <a name="HOLTop"></a>
@@ -70,7 +71,7 @@ Dołącz `/text/analytics/v2.1/languages` do podstawowego punktu końcowego anal
 language_api_url = endpoint + "/text/analytics/v2.1/languages"
 ```
 
-Ładunek do interfejsu API składa się z listy `documents`, która jest krotką zawierającą `id` i `text` atrybut. Ten `text` atrybut przechowuje tekst do przeanalizowania, a `id` może być dowolną wartością. 
+Ładunek do interfejsu API składa się z listy `documents` , która jest krotką zawierającą `id` i `text` atrybut. Ten `text` atrybut przechowuje tekst do przeanalizowania, a `id` może być dowolną wartością. 
 
 ```python
 documents = {"documents": [
@@ -80,7 +81,7 @@ documents = {"documents": [
 ]}
 ```
 
-Użyj biblioteki Requests, aby wysłać dokumenty do interfejsu API. Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka i Wyślij żądanie przy użyciu. `requests.post()` 
+Użyj biblioteki Requests, aby wysłać dokumenty do interfejsu API. Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka i Wyślij żądanie przy użyciu `requests.post()` . 
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -139,7 +140,7 @@ Aby wykryć tonacji (zakres wartości dodatnich lub ujemnych) zestawu dokumentó
 sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
 ```
 
-Podobnie jak w przypadku wykrywania języka, Utwórz słownik z `documents` kluczem, który składa się z listy dokumentów. Każdy dokument jest spójną kolekcją składająca się z elementów `id` i `text` do przeanalizowania oraz elementem `language` tekstu. 
+Podobnie jak w przypadku wykrywania języka, Utwórz słownik z kluczem, `documents` który składa się z listy dokumentów. Każdy dokument jest spójną kolekcją składająca się z elementów `id` i `text` do przeanalizowania oraz elementem `language` tekstu. 
 
 ```python
 documents = {"documents": [
@@ -154,7 +155,7 @@ documents = {"documents": [
 ]}
 ```
 
-Użyj biblioteki Requests, aby wysłać dokumenty do interfejsu API. Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka i Wyślij żądanie przy użyciu. `requests.post()` 
+Użyj biblioteki Requests, aby wysłać dokumenty do interfejsu API. Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka i Wyślij żądanie przy użyciu `requests.post()` . 
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -216,7 +217,7 @@ documents = {"documents": [
 ]}
 ```
 
-Użyj biblioteki Requests, aby wysłać dokumenty do interfejsu API. Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka i Wyślij żądanie przy użyciu. `requests.post()` 
+Użyj biblioteki Requests, aby wysłać dokumenty do interfejsu API. Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka i Wyślij żądanie przy użyciu `requests.post()` . 
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -285,7 +286,7 @@ documents = {"documents": [
 ]}
 ```
 
-Użyj biblioteki Requests, aby wysłać dokumenty do interfejsu API. Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka i Wyślij żądanie przy użyciu. `requests.post()`
+Użyj biblioteki Requests, aby wysłać dokumenty do interfejsu API. Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka i Wyślij żądanie przy użyciu `requests.post()` .
 
 ```python
 headers = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -454,7 +455,7 @@ pprint(entities)
 > [!div class="nextstepaction"]
 > [analiza tekstu z Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Zobacz także 
+## <a name="see-also"></a>Zobacz też 
 
  [Przegląd analiza tekstu](../overview.md)  
  [Często zadawane pytania](../text-analytics-resource-faq.md)

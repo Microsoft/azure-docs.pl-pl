@@ -10,13 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 3272af5217a2130b8af3de2afe69f47080cd7d08
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 07f66edc19a9be202ee2e73de02f814a1afde38a
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996135"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84611107"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Szybki Start: wyszukiwanie wyrazów przy użyciu słownika dwujęzycznego
 

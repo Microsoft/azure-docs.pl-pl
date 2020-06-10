@@ -10,13 +10,14 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 03/12/2020
 ms.author: pafarley
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 4ac9f4bcaed5400846bf94f7db6ea6c143c101d6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b76c986007a5df017bbadab62de239b319230ab5
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80136028"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609968"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Szybki Start: korzystanie z biblioteki klienta przetwarzanie obrazów
 

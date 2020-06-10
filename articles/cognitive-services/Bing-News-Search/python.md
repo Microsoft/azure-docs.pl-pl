@@ -10,13 +10,13 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 77795e654a2f3824a877b28c8d006090c0de7d15
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: seodec2018, tracking-python
+ms.openlocfilehash: 37571113be715c7eb6b120aa592b5a2422a08ad8
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873212"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610002"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Szybki Start: wykonywanie wyszukiwania wiadomości za pomocą języka Python i interfejsu API REST wyszukiwanie wiadomości Bing
 

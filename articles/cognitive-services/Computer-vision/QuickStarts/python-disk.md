@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 05941081580295ddcf396a9ec2c12826d2cc2136
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: dc5358ba68e3e295c30689c03102ad375def061a
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712744"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608945"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-python"></a>Szybki Start: analizowanie obrazu lokalnego przy użyciu interfejsu API REST przetwarzanie obrazów i języka Python
 

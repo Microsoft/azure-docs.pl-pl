@@ -10,13 +10,14 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/25/2020
 ms.author: aahi
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: b51dcc214e099ed573fa297d979cfc55ba1513b9
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: be9b82b411d8ba76f0b592cb25e7ff70917b934f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140747"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605480"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Szybki Start: korzystanie z biblioteki klienta analiza tekstu
 
@@ -86,7 +87,7 @@ Jeśli kliknięto tę kartę, prawdopodobnie nie widzisz przewodnika Szybki Star
 
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli chcesz wyczyścić i usunąć subskrypcję Cognitive Services, możesz usunąć zasób lub grupę zasobów. Usunięcie grupy zasobów spowoduje również usunięcie wszystkich skojarzonych z nią zasobów.
 

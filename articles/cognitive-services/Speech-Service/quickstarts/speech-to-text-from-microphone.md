@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: dapine
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js-go-spx
-ms.openlocfilehash: 455475d87557cf70f3a3d14b18060c08a2ac5da1
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b2a0dfb363bb834bff03ffc36b0763cc38097089
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715316"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609640"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Szybki Start: Rozpoznawanie mowy z mikrofonu
 

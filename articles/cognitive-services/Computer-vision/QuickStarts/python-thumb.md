@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 05/20/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 38fb7f3b0f2d85762161c384f4e5564078c9a63c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.custom: seodec18, tracking-python
+ms.openlocfilehash: 762688aaf21f88ef1404bc09be32cf4129bfd0db
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745175"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608846"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Szybki Start: generowanie miniatury przy użyciu interfejsu API REST przetwarzanie obrazów i języka Python
 

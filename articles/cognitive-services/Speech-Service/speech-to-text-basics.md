@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: trbye
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: b2971f010610116d90171cfc6fadb7b9f91ab132
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 42d5e3082745d2f15cff455dd1ff31e634586860
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115408"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604817"
 ---
 # <a name="learn-the-basics-of-speech-recognition"></a>Poznaj podstawy rozpoznawania mowy
 

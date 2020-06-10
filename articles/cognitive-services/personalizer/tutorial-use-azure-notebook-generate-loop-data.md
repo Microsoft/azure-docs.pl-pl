@@ -10,12 +10,13 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 1f004fe1dae58faaded0b872dcdebdb4e9af66aa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 30897e1bdd5d139d3a11980430cbcc6b10052ecc
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193007"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608489"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Samouczek: używanie programu Personalizujer w notesie platformy Azure
 
@@ -91,12 +92,12 @@ Te wartości mają bardzo krótki czas trwania, aby można było wyświetlić zm
 
 ## <a name="set-up-the-azure-notebook"></a>Konfigurowanie notesu platformy Azure
 
-1. Zmień jądro na `Python 3.6`.
+1. Zmień jądro na `Python 3.6` .
 1. Otwórz plik `Personalizer.ipynb`.
 
 ## <a name="run-notebook-cells"></a>Uruchamianie komórek notesu
 
-Uruchom każdą komórkę wykonywalną i poczekaj na jej zwrócenie. Wiadomo, że jest to wykonywane, gdy nawiasy obok komórki wyświetlają liczbę zamiast `*`. W poniższych sekcjach wyjaśniono, co każda komórka wykonuje programowo i czego można oczekiwać na dane wyjściowe.
+Uruchom każdą komórkę wykonywalną i poczekaj na jej zwrócenie. Wiadomo, że jest to wykonywane, gdy nawiasy obok komórki wyświetlają liczbę zamiast `*` . W poniższych sekcjach wyjaśniono, co każda komórka wykonuje programowo i czego można oczekiwać na dane wyjściowe.
 
 ### <a name="include-the-python-modules"></a>Uwzględnij moduły języka Python
 
@@ -135,7 +136,7 @@ def currentDateTime():
 
 ### <a name="get-the-last-model-update-time"></a>Pobierz ostatni czas aktualizacji modelu
 
-Gdy funkcja, `get_last_updated`,, jest wywoływana, funkcja drukuje datę i godzinę ostatniej modyfikacji modelu.
+Gdy funkcja, `get_last_updated` ,, jest wywoływana, funkcja drukuje datę i godzinę ostatniej modyfikacji modelu.
 
 Te komórki nie mają danych wyjściowych. Funkcja wykonuje ostatnią datę uczenia modelu po wywołaniu.
 
@@ -197,10 +198,10 @@ Ta komórka
 * ustawia nagłówek zabezpieczeń przy użyciu klucza zasobu narzędzia Personalizacja
 * Ustawia losowy inicjator dla identyfikatora zdarzenia rangi
 * odczytuje w plikach danych JSON
-* Metoda `get_last_updated` Calls — zasady uczenia zostały usunięte z przykładowych danych wyjściowych
-* Calls `get_service_settings` — Metoda
+* Metoda Calls `get_last_updated` — zasady uczenia zostały usunięte z przykładowych danych wyjściowych
+* Calls — `get_service_settings` Metoda
 
-Komórka zawiera dane wyjściowe wywołania funkcji `get_last_updated` i. `get_service_settings`
+Komórka zawiera dane wyjściowe wywołania `get_last_updated` `get_service_settings` funkcji i.
 
 ```python
 # build URLs
@@ -262,7 +263,7 @@ Coffee count 4
 
 ### <a name="troubleshooting-the-first-rest-call"></a>Rozwiązywanie problemów z pierwszym wywołaniem REST
 
-Ta Poprzednia komórka jest pierwszą komórką, która wywołuje do personalizacji. Upewnij się, że kod stanu REST w danych wyjściowych to `<Response [200]>`. Jeśli wystąpi błąd, na przykład 404, ale upewnij się, że klucz zasobu i nazwa są poprawne, Załaduj ponownie Notes.
+Ta Poprzednia komórka jest pierwszą komórką, która wywołuje do personalizacji. Upewnij się, że kod stanu REST w danych wyjściowych to `<Response [200]>` . Jeśli wystąpi błąd, na przykład 404, ale upewnij się, że klucz zasobu i nazwa są poprawne, Załaduj ponownie Notes.
 
 Upewnij się, że liczba kawy i użytkowników to 4. Jeśli wystąpi błąd, sprawdź, czy zostały przekazane wszystkie 3 pliki JSON.
 
@@ -391,7 +392,7 @@ Następna komórka to _główna_ część notesu, pobierająca losowego użytkow
 
 Pętla jest uruchamiana przez `num_requests` czas. Personalizacja potrzebuje kilku tysięcy wywołań do rangi i nagrody, aby utworzyć model.
 
-Przykład kodu JSON wysyłanego do interfejsu API rangi znajduje się poniżej. Lista kawy nie jest kompletna dla zwięzłości. Cały kod JSON dla kawy można zobaczyć w `coffee.json`.
+Przykład kodu JSON wysyłanego do interfejsu API rangi znajduje się poniżej. Lista kawy nie jest kompletna dla zwięzłości. Cały kod JSON dla kawy można zobaczyć w `coffee.json` .
 
 Dane JSON wysłane do interfejsu API rangi:
 
@@ -548,7 +549,7 @@ jsonTemplate = rankactionsjsonobj
 
 ## <a name="chart-results-to-see-improvement"></a>Wyniki wykresu, aby zobaczyć ulepszenie
 
-Utwórz wykres z `count` i `rewards`.
+Utwórz wykres z `count` i `rewards` .
 
 ```python
 def createChart(x, y):
