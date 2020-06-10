@@ -15,6 +15,10 @@
           href: tutorial-net-windows-virtual-machine.md
         - name: Korzystanie z usługi Azure Key Vault za pomocą maszyny wirtualnej z systemem Windows na platformie Python
           href: tutorial-python-windows-virtual-machine.md
+    - name: Azure Kubernetes Service
+      items:
+        - name: Integrowanie usługi Azure Key Vault z usługą Kubernetes
+          href: key-vault-integrate-kubernetes.md
     - name: Łączenie usługi Key Vault z aplikacją internetową przy użyciu tożsamości zarządzanej i platformy .NET
       href: tutorial-net-create-vault-azure-web-app.md
 - name: Samples

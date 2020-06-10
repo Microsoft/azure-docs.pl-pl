@@ -624,7 +624,7 @@
           href: ../extensions/agent-windows.md
         - name: Ograniczanie ryzyka związanego z wykonywaniem spekulatywnym
           href: mitigate-se.md
-        - name: Monitorowanie metadanych
+        - name: Azure Instance Metadata Service
           href: instance-metadata-service.md
         - name: Włączanie wirtualizacji zagnieżdżonej
           href: nested-virtualization.md

@@ -462,6 +462,8 @@
       items:
         - name: Co to jest rozpoznawanie osoby mówiącej?
           href: speaker-recognition-overview.md
+        - name: Podstawy rozpoznawania osoby mówiącej
+          href: speaker-recognition-basics.md
     - name: Dokumentacja
       items:
         - name: Interfejsy API REST
