@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: fefa5ff5d112b479110d484ee0ea4c358b5c88a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c9257c50320497a11a6cd1dbfdd1c709e2d9800
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335913"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658432"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Portal deweloperów API Management platformy Azure — omówienie
 
@@ -34,7 +34,7 @@ W tym artykule opisano różnice między samodzielnymi i zarządzanymi wersjami 
 
 Portal dla deweloperów można skompilować na dwa sposoby:
 
-- **Wersja zarządzana** — edytując i dostosowując Portal, który jest wbudowany w wystąpienie API Management i jest dostępny za pomocą adresu URL `<your-api-management-instance-name>.developer.azure-api.net`. Zapoznaj się z [tym artykułem dokumentacji](api-management-howto-developer-portal-customize.md) , aby dowiedzieć się, jak uzyskać dostęp do portalu zarządzanego i dostosować go.
+- **Wersja zarządzana** — edytując i dostosowując Portal, który jest wbudowany w wystąpienie API Management i jest dostępny za pomocą adresu URL `<your-api-management-instance-name>.developer.azure-api.net` . Zapoznaj się z [tym artykułem dokumentacji](api-management-howto-developer-portal-customize.md) , aby dowiedzieć się, jak uzyskać dostęp do portalu zarządzanego i dostosować go.
 - **Samodzielna wersja** — przez wdrożenie i samodzielne hostowanie portalu poza wystąpieniem API Management. Takie podejście umożliwia edytowanie bazy kodu portalu i poszerzanie dostarczonych funkcji podstawowych — na przykład zaimplementowanie niestandardowych widżetów dla integracji z systemami innych firm. W tym scenariuszu użytkownik jest odpowiedzialny za aktualizowanie portalu do najnowszej wersji. Aby uzyskać szczegółowe informacje i instrukcje, zapoznaj się z [repozytorium GitHub za pomocą kodu źródłowego portalu][1] i [samouczka dotyczącego implementacji widżetu][3]. Samouczek dotyczący [zarządzanej wersji](api-management-howto-developer-portal-customize.md) przeprowadzi Cię przez panel administracyjny portalu, który jest typowy dla zarządzanych i samodzielnych wersji.
 
 ## <a name="portal-architectural-concepts"></a>Koncepcje architektury portalu
@@ -68,7 +68,7 @@ Portal jest oparty na dostosowaniu rozwidlenia [struktury Paperbits](https://pap
 
 W tej sekcji znajdziesz odpowiedzi na często zadawane pytania dotyczące portalu dla deweloperów, który ma charakter ogólny. Pytania specyficzne dla własnej wersji hostowanej można znaleźć w [sekcji wiki repozytorium GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/>Jak przeprowadzić migrację z wersji zapoznawczej portalu?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>Jak przeprowadzić migrację z wersji zapoznawczej portalu?
 
 Korzystając z wersji zapoznawczej portalu dla deweloperów, Zainicjowano obsługę zawartości w wersji zapoznawczej w usłudze API Management. Zawartość domyślna została znacząco zmodyfikowana w ogólnie dostępnej wersji w celu lepszego środowiska użytkownika. Zawiera również nowe widżety.
 
@@ -116,7 +116,7 @@ Nie.
 
 W większości przypadków — nie.
 
-Jeśli Twoja usługa API Management znajduje się w wewnętrznej sieci wirtualnej, Portal dla deweloperów jest dostępny tylko z poziomu usługi. Nazwa hosta punktu końcowego zarządzania musi zostać rozpoznana jako wewnętrzny adres VIP usługi z komputera, który służy do uzyskiwania dostępu do interfejsu administracyjnego portalu. Upewnij się, że punkt końcowy zarządzania jest zarejestrowany w systemie DNS. W przypadku błędnej konfiguracji zostanie wyświetlony komunikat o błędzie: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
+Jeśli Twoja usługa API Management znajduje się w wewnętrznej sieci wirtualnej, Portal dla deweloperów jest dostępny tylko z poziomu usługi. Nazwa hosta punktu końcowego zarządzania musi zostać rozpoznana jako wewnętrzny adres VIP usługi z komputera, który służy do uzyskiwania dostępu do interfejsu administracyjnego portalu. Upewnij się, że punkt końcowy zarządzania jest zarejestrowany w systemie DNS. W przypadku błędnej konfiguracji zostanie wyświetlony komunikat o błędzie: `Unable to start the portal. See if settings are specified correctly in the configuration (...)` .
 
 Jeśli usługa API Management znajduje się w wewnętrznej sieci wirtualnej i uzyskuje do niej dostęp za pośrednictwem Application Gateway z Internetu, upewnij się, że jest włączona łączność z portalem dla deweloperów i punktami końcowymi zarządzania API Management.
 
@@ -151,7 +151,7 @@ Można również włączyć funkcję CORS ręcznie.
 1. Kliknij pozycję **ręcznie Zastosuj na poziomie globalnym** , aby wyświetlić wygenerowany kod zasad.
 2. Przejdź do **wszystkich interfejsów API** w sekcji **interfejsy API** usługi API Management w Azure Portal.
 3. Kliknij **</>** ikonę w sekcji **Przetwarzanie przychodzące** .
-4. Wstaw zasady w **<inbound>** sekcji pliku XML. Upewnij się, **<origin>** że wartość jest zgodna z domeną portalu deweloperów.
+4. Wstaw zasady w **<inbound>** sekcji pliku XML. Upewnij się, że **<origin>** wartość jest zgodna z domeną portalu deweloperów.
 
 > [!NOTE]
 > 
@@ -165,7 +165,7 @@ Można również włączyć funkcję CORS ręcznie.
 
 Jeśli `Oops. Something went wrong. Please try again later.` wystąpi błąd podczas otwierania portalu w trybie administracyjnym, może brakować wymaganych uprawnień (RBAC).
 
-Starsze portale wymagały uprawnienia `Microsoft.ApiManagement/service/getssotoken/action` do zakresu usługi (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`), aby umożliwić administratorowi użytkownika dostęp do portali. Nowy portal wymaga uprawnień `Microsoft.ApiManagement/service/users/token/action` w zakresie. `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1`
+Starsze portale wymagały uprawnienia do `Microsoft.ApiManagement/service/getssotoken/action` zakresu usługi ( `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>` ), aby umożliwić administratorowi użytkownika dostęp do portali. Nowy portal wymaga uprawnień `Microsoft.ApiManagement/service/users/token/action` w zakresie `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` .
 
 Za pomocą poniższego skryptu programu PowerShell można utworzyć rolę z wymaganym uprawnieniem. Pamiętaj, aby zmienić `<subscription-id>` parametr. 
 
@@ -195,7 +195,7 @@ Po udzieleniu uprawnień użytkownikowi użytkownik musi się wylogować i zalog
 
 ### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>Widzę `Unable to start the portal. See if settings are specified correctly (...)` błąd
 
-Ten błąd jest wyświetlany, `GET` gdy wywołanie `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` zakończy się niepowodzeniem. Wywołanie jest wydawane z przeglądarki przez interfejs administracyjny portalu.
+Ten błąd jest wyświetlany, gdy `GET` wywołanie `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` zakończy się niepowodzeniem. Wywołanie jest wydawane z przeglądarki przez interfejs administracyjny portalu.
 
 Jeśli usługa API Management znajduje się w sieci wirtualnej, zapoznaj się z powyższym pytaniem dotyczącym łączności sieci wirtualnej.
 

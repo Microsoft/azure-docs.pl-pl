@@ -3,16 +3,16 @@ title: Instalowanie usługi Azure File Storage na maszynach wirtualnych z system
 description: Jak zainstalować usługę Azure File Storage na maszynach wirtualnych z systemem Linux przy użyciu protokołu SMB i interfejsu wiersza polecenia platformy Azure
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 0314095a053087a7d490926c41c6ae386c304919
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ab798ccbbbfc9cfc11ae85fd698ecedcb5e8e73
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066645"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658154"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Instalowanie usługi Azure File Storage na maszynach wirtualnych z systemem Linux przy użyciu protokołu SMB
 
@@ -35,7 +35,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
 
-Utwórz nowe konto magazynu w utworzonej grupie zasobów przy użyciu polecenia [AZ Storage account Create](/cli/azure/storage/account). Ten przykład tworzy konto magazynu o nazwie *ciąg mystorageacct\<liczba losowa>* i umieszcza nazwę tego konta magazynu w zmiennej **STORAGEACCT**. Nazwy kont magazynu muszą być unikatowe, korzystając `$RANDOM` z dołączania liczby do końca, aby uczynić ją unikatową.
+Utwórz nowe konto magazynu w utworzonej grupie zasobów przy użyciu polecenia [AZ Storage account Create](/cli/azure/storage/account). Ten przykład tworzy konto magazynu o nazwie *ciąg mystorageacct \<random number> * i umieszcza nazwę tego konta magazynu w zmiennej **STORAGEACCT**. Nazwy kont magazynu muszą być unikatowe, korzystając z `$RANDOM` dołączania liczby do końca, aby uczynić ją unikatową.
 
 ```azurecli
 STORAGEACCT=$(az storage account create \
@@ -93,7 +93,7 @@ Zainstaluj udział plików platformy Azure w katalogu lokalnym.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Powyższe polecenie używa polecenia [Mount](https://linux.die.net/man/8/mount) do zainstalowania udziału plików platformy Azure i opcji specyficznych dla protokołu [CIFS](https://linux.die.net/man/8/mount.cifs). W każdym przypadku opcje file_mode i dir_mode umożliwiają ustawianie plików i katalogów na `0777`uprawnienia. `0777` Uprawnienie przyznaje uprawnienia Odczyt, zapis i wykonywanie wszystkim użytkownikom. Te uprawnienia można zmienić, zastępując wartości innymi [uprawnieniami chmod](https://en.wikipedia.org/wiki/Chmod). Można również użyć innych opcji [CIFS](https://linux.die.net/man/8/mount.cifs) , takich jak gid lub UID. 
+Powyższe polecenie używa polecenia [Mount](https://linux.die.net/man/8/mount) do zainstalowania udziału plików platformy Azure i opcji specyficznych dla protokołu [CIFS](https://linux.die.net/man/8/mount.cifs). W każdym przypadku opcje file_mode i dir_mode umożliwiają ustawianie plików i katalogów na uprawnienia `0777` . `0777`Uprawnienie przyznaje uprawnienia Odczyt, zapis i wykonywanie wszystkim użytkownikom. Te uprawnienia można zmienić, zastępując wartości innymi [uprawnieniami chmod](https://en.wikipedia.org/wiki/Chmod). Można również użyć innych opcji [CIFS](https://linux.die.net/man/8/mount.cifs) , takich jak gid lub UID. 
 
 
 ## <a name="persist-the-mount"></a>Utrwalanie instalacji

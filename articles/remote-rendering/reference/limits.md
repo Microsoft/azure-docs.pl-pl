@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: 6a1a51ee09422607ae1392704add4d49d3367d57
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: c35930a93751cc82c3145d414a2a09b3a1e90c53
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759051"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659835"
 ---
 # <a name="limitations"></a>Ograniczenia
 
@@ -45,6 +45,7 @@ Dozwolona liczba wielokątów dla wszystkich załadowanych modeli zależy od roz
 **Windows 10 Desktop**
 
 * PLATFORMY UWP/x86 jest jedyną obsługiwaną platformą platformy UWP. PLATFORMY UWP/x64 nie jest obsługiwane.
+* Win32/x64 jest jedyną obsługiwaną platformą Win32. Win32/x86 nie jest obsługiwany.
 
 **Urządzenie HoloLens 2**
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 90a058b7702dd51d3f93a83ae3e3d85f534808f3
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 6bf218f14b0fc783bead5183b22e4abcefe87b5a
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552222"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660009"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny
 
@@ -92,6 +92,9 @@ Twój bezpieczny wynik jest oparty na liczbie Security Center zaleceń, które z
 |**Wszystkie reguły autoryzacji z wyjątkiem RootManageSharedAccessKey powinny zostać usunięte z przestrzeni nazw Service Bus**|Klienci Service Bus nie powinni używać zasad dostępu na poziomie przestrzeni nazw, które zapewniają dostęp do wszystkich kolejek i tematów w przestrzeni nazw. Aby dostosować model zabezpieczeń najniższych uprawnień, należy utworzyć zasady dostępu na poziomie jednostki dla kolejek i tematów, aby zapewnić dostęp tylko do określonej jednostki.<br>(Powiązane zasady: wszystkie reguły autoryzacji z wyjątkiem RootManageSharedAccessKey powinny zostać usunięte z przestrzeni nazw Service Bus)|Małe|N|Zasoby obliczeniowe (Magistrala usług)|
 |**Wszystkie reguły autoryzacji z wyjątkiem RootManageSharedAccessKey powinny zostać usunięte z przestrzeni nazw centrum zdarzeń**|Klienci centrum zdarzeń nie powinni używać zasad dostępu na poziomie przestrzeni nazw, które zapewniają dostęp do wszystkich kolejek i tematów w przestrzeni nazw. Aby dostosować model zabezpieczeń najniższych uprawnień, należy utworzyć zasady dostępu na poziomie jednostki dla kolejek i tematów, aby zapewnić dostęp tylko do określonej jednostki.<br>(Powiązane zasady: wszystkie reguły autoryzacji z wyjątkiem RootManageSharedAccessKey powinny zostać usunięte z przestrzeni nazw centrum zdarzeń)|Małe|N|Zasoby obliczeniowe (centrum zdarzeń)|
 |**Należy zdefiniować reguły autoryzacji w jednostce centrum zdarzeń**|Przeprowadź inspekcję reguł autoryzacji w jednostce centrum zdarzeń, aby udzielić dostępu z najwyższymi uprawnieniami.<br>(Zasady pokrewne: należy zdefiniować reguły autoryzacji w jednostce centrum zdarzeń)|Małe|N|Zasoby obliczeniowe (centrum zdarzeń)|
+|**Zainstaluj agenta monitorowania na maszynach wirtualnych**|Zainstaluj agenta monitorowania, aby włączyć zbieranie danych, skanowanie aktualizacji, skanowanie linii bazowej i program Endpoint Protection na poszczególnych komputerach.<br>(Brak powiązanych zasad)|Wysoki|**T**|Maszyna|
+|**Rozszerzenie konfiguracji gościa powinno być zainstalowane na maszynach wirtualnych z systemem Windows (wersja zapoznawcza)**|Zainstaluj agenta konfiguracji gościa, aby włączyć ustawienia inspekcji na komputerze, na przykład: Konfiguracja systemu operacyjnego, konfiguracja aplikacji lub obecność, ustawienia środowiska. Po zainstalowaniu zasady w gościu będą dostępne na przykład w przypadku włączenia funkcji Windows Exploit Guard.<br>(Powiązane zasady: Inspekcja wymagań wstępnych dotyczących włączania zasad konfiguracji gościa na maszynach wirtualnych z systemem Windows)|Wysoki|**T**|Maszyna|
+|**Funkcja Windows Defender Exploit Guard powinna być włączona na maszynach (wersja zapoznawcza)**|Funkcja Windows Defender Exploit Guard wykorzystuje Azure Policy agenta konfiguracji gościa. Funkcja Exploit Guard ma cztery składniki przeznaczone do blokowania urządzeń przed szeroką gamą wektorów ataków i blokowania zachowań często używanych w atakach złośliwego oprogramowania, a jednocześnie umożliwia przedsiębiorstwom zrównoważenie zagrożeń bezpieczeństwa i wymagań dotyczących produktywności (tylko system Windows).<br>(Powiązane zasady: Przeprowadź inspekcję maszyn wirtualnych z systemem Windows, na których nie jest włączona funkcja Windows Defender Exploit Guard)|Średniaa|N|Maszyna|
 |**Zainstaluj agenta monitorowania na maszynach wirtualnych**|Zainstaluj agenta monitorowania, aby włączyć zbieranie danych, skanowanie aktualizacji, skanowanie linii bazowej i program Endpoint Protection na poszczególnych komputerach.<br>(Brak powiązanych zasad)|Wysoki|**T**|Maszyna|
 |**Na maszynach należy rozwiązać problemy z kondycją agenta monitorowania**|Aby uzyskać pełną ochronę Security Center, należy rozwiązać problemy z agentem monitorowania na swoich maszynach, postępując zgodnie z instrukcjami w przewodniku rozwiązywania problemów.<br>(Żadne powiązane zasady nie są zależne od "Zainstaluj agenta monitorowania na maszynach wirtualnych")|Średniaa|N|Maszyna|
 |**Na maszynach wirtualnych należy włączyć adaptacyjne kontrolki aplikacji**|Włącz sterowanie aplikacjami, aby kontrolować, które aplikacje mogą być uruchamiane na maszynach wirtualnych znajdujących się na platformie Azure. Ułatwi to ochronę maszyn wirtualnych przed złośliwym oprogramowaniem. Security Center korzysta z uczenia maszynowego do analizowania aplikacji uruchomionych na poszczególnych maszynach wirtualnych i ułatwia stosowanie reguł zezwalania przy użyciu tej analizy. Ta funkcja upraszcza proces konfigurowania i konserwowania reguł zezwalania aplikacji.<br>(Powiązane zasady: kontrolki aplikacji adaptacyjnej powinny być włączone na maszynach wirtualnych)|Wysoki|N|Maszyna|

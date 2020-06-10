@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ac9d9fddc45abbcbe4890d1060dcc2c931c72182
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3724392cc50e910c5caf4a3f6cba85070a6d107f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265169"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661106"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -109,7 +109,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
    
     \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
-    Na przykład pierwszy konflikt CompanyReport. docx stanie się CompanyReport-CentralServer. docx, jeśli CentralServer jest miejsce, w którym wystąpił starszy zapis. Drugi konflikt zostałby nazwany CompanyReport-CentralServer-1. docx. Azure File Sync obsługuje pliki konfliktów 100 na plik. Po osiągnięciu maksymalnej liczby plików konfliktów plik nie zostanie zsynchronizowany, dopóki liczba plików konfliktów nie będzie mniejsza niż 100.
+    Na przykład pierwszy konflikt CompanyReport.docx byłby CompanyReport-CentralServer.docx, jeśli CentralServer jest miejsce, w którym wystąpił starszy zapis. Drugi konflikt zostałby nazwany CompanyReport-CentralServer-1.docx. Azure File Sync obsługuje pliki konfliktów 100 na plik. Po osiągnięciu maksymalnej liczby plików konfliktów plik nie zostanie zsynchronizowany, dopóki liczba plików konfliktów nie będzie mniejsza niż 100.
 
 * <a id="afs-storage-redundancy"></a>
   **Czy Azure File Sync jest magazyn Geograficznie nadmiarowy?**  
@@ -160,7 +160,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 * <a id="afs-ntfs-acls"></a>
   **Czy Azure File Sync zachować listy ACL na poziomie katalogu/pliku systemu plików NTFS wraz z danymi przechowywanymi w Azure Files?**
 
-    Począwszy od 24 lutego 2020, nowe i istniejące listy kontroli dostępu w warstwach przez usługę Azure File Sync zostaną utrwalone w formacie systemu plików NTFS, a modyfikacje ACL wprowadzone bezpośrednio do udziału plików platformy Azure zostaną zsynchronizowane ze wszystkimi serwerami w grupie synchronizacji. Wszystkie zmiany list ACL wprowadzonych do Azure Files zostaną zsynchronizowane za pośrednictwem usługi Azure File Sync. Podczas kopiowania danych do Azure Files upewnij się, że używasz protokołu SMB, aby uzyskać dostęp do udziału i zachować listy ACL. Istniejące narzędzia oparte na interfejsie REST, takie jak AzCopy lub Eksplorator usługi Storage nie utrwalają list ACL.
+    Począwszy od 24 lutego 2020, nowe i istniejące listy kontroli dostępu w warstwach przez usługę Azure File Sync zostaną utrwalone w formacie systemu plików NTFS, a modyfikacje ACL wprowadzone bezpośrednio do udziału plików platformy Azure zostaną zsynchronizowane ze wszystkimi serwerami w grupie synchronizacji. Wszystkie zmiany list ACL wprowadzonych do Azure Files zostaną zsynchronizowane za pośrednictwem usługi Azure File Sync. Podczas kopiowania danych do Azure Files upewnij się, że używasz narzędzia do kopiowania, które obsługuje "wierność", aby skopiować atrybuty, sygnatury czasowe i listy kontroli dostępu do udziału plików platformy Azure — za pośrednictwem protokołu SMB lub REST. W przypadku korzystania z narzędzi do kopiowania platformy Azure, takich jak AzCopy, ważne jest, aby użyć najnowszej wersji. Zapoznaj się z [tabelą narzędzia kopiowania plików](storage-files-migration-overview.md#file-copy-tools) , aby zapoznać się z omówieniem narzędzi do kopiowania na platformie Azure w celu zagwarantowania, że można skopiować wszystkie ważne metadane pliku.
 
     Jeśli włączono Azure Backup w udziałach plików zarządzanych przez funkcję synchronizacji plików, listy ACL plików można nadal przywracać w ramach przepływu pracy przywracania kopii zapasowych. Działa to zarówno w przypadku całego udziału, jak i poszczególnych plików lub katalogów.
 
@@ -421,7 +421,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Jak mogę użyć Azure Files z IBM MQ?**  
     Firma IBM wydała dokument, który pomaga klientom firmy IBM MQ skonfigurować Azure Files z usługą firmy IBM. Aby uzyskać więcej informacji, zobacz [jak skonfigurować usługę zarządzania wieloma wystąpieniami programu IBM MQ z usługą Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Rozwiązywanie problemów z usługą Azure File Sync](storage-sync-files-troubleshoot.md)

@@ -3,16 +3,16 @@ title: Dołączanie zarządzanego dysku danych do maszyny wirtualnej z systemem 
 description: Jak dołączyć dysk danych zarządzanych do maszyny wirtualnej z systemem Windows przy użyciu Azure Portal.
 author: roygara
 ms.service: virtual-machines-windows
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8fd330fdb6e0c7d857ea99f6d51b05436c17d1a
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919383"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657164"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Dołączanie zarządzanego dysku danych do maszyny wirtualnej z systemem Windows przy użyciu Azure Portal
 
@@ -26,7 +26,7 @@ W tym artykule opisano sposób dołączania nowego zarządzanego dysku danych do
 3. Na stronie **maszyna wirtualna** wybierz pozycję **dyski**.
 4. Na stronie **dyski** wybierz pozycję **Dodaj dysk danych**.
 5. Na liście rozwijanej dla nowego dysku wybierz pozycję **Utwórz dysk**.
-6. Na stronie **Utwórz dysk zarządzany** wpisz nazwę dysku i dostosuj inne ustawienia w razie potrzeby. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+6. Na stronie **Utwórz dysk zarządzany** wpisz nazwę dysku i dostosuj inne ustawienia w razie potrzeby. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 7. Na stronie **dyski** wybierz pozycję **Zapisz** , aby zapisać nową konfigurację dysków dla maszyny wirtualnej.
 8. Po utworzeniu dysku przez platformę Azure i dołączeniu go do maszyny wirtualnej nowy dysk zostanie wyświetlony na liście ustawień dyskowych maszyny wirtualnej w obszarze **dyski danych**.
 

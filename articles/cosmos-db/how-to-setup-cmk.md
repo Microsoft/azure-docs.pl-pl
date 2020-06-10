@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: thweiss
-ms.openlocfilehash: d551f05dd0700a93a94c6b836b896a99d7f5d96c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 31681397961045da02add7ccb37f29f6c835c08d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267090"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659898"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Skonfiguruj klucze zarządzane przez klienta na potrzeby konta usługi Azure Cosmos przy użyciu usługi Azure Key Vault
 
@@ -30,9 +30,9 @@ Klucze zarządzane przez klienta muszą być przechowywane w [Azure Key Vault](.
 
    ![Wpis "dostawcy zasobów" z menu po lewej stronie](./media/how-to-setup-cmk/portal-rp.png)
 
-1. Wyszukaj dostawcę zasobów **Microsoft. DocumentDB** . Sprawdź, czy dostawca zasobów został już oznaczony jako zarejestrowany. W przeciwnym razie wybierz dostawcę zasobów i wybierz pozycję **zarejestruj**:
+1. Wyszukaj dostawcę zasobów usługi **Microsoft.DocumentDB** . Sprawdź, czy dostawca zasobów został już oznaczony jako zarejestrowany. W przeciwnym razie wybierz dostawcę zasobów i wybierz pozycję **zarejestruj**:
 
-   ![Rejestrowanie dostawcy zasobów Microsoft. DocumentDB](./media/how-to-setup-cmk/portal-rp-register.png)
+   ![Rejestrowanie dostawcy zasobów Microsoft.DocumentDB](./media/how-to-setup-cmk/portal-rp-register.png)
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Skonfiguruj wystąpienie Azure Key Vault
 
@@ -59,7 +59,7 @@ Jeśli używasz istniejącego wystąpienia Azure Key Vault, możesz sprawdzić, 
 
    ![Wybieranie odpowiednich uprawnień](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. W obszarze **Wybierz podmiot zabezpieczeń**wybierz pozycję **nie wybrano**. Następnie wyszukaj **Azure Cosmos DB** podmiot zabezpieczeń i wybierz go (aby ułatwić znalezienie, możesz również wyszukiwać według identyfikatora podmiotu zabezpieczeń `a232010e-820c-4083-83bb-3ace5fc29d0b` ) w dowolnym regionie świadczenia usługi Azure, Azure Government z wyjątkiem regionów, w których jest to identyfikator podmiotu zabezpieczeń `57506a73-e302-42a9-b869-6f12d9ec29e9` . Na koniec wybierz **pozycję Wybierz** u dołu. Jeśli podmiot zabezpieczeń **Azure Cosmos DB** nie znajduje się na liście, może być konieczne ponowne zarejestrowanie dostawcy zasobów **Microsoft. DocumentDB** zgodnie z opisem w sekcji [Rejestrowanie dostawcy zasobów](#register-resource-provider) w tym artykule.
+1. W obszarze **Wybierz podmiot zabezpieczeń**wybierz pozycję **nie wybrano**. Następnie wyszukaj **Azure Cosmos DB** podmiot zabezpieczeń i wybierz go (aby ułatwić znalezienie, możesz również wyszukiwać według identyfikatora podmiotu zabezpieczeń `a232010e-820c-4083-83bb-3ace5fc29d0b` ) w dowolnym regionie świadczenia usługi Azure, Azure Government z wyjątkiem regionów, w których jest to identyfikator podmiotu zabezpieczeń `57506a73-e302-42a9-b869-6f12d9ec29e9` . Na koniec wybierz **pozycję Wybierz** u dołu. Jeśli podmiot zabezpieczeń **Azure Cosmos DB** nie znajduje się na liście, może być konieczne ponowne zarejestrowanie **Microsoft.Doc** dostawcy zasobów umentDB zgodnie z opisem w sekcji [Rejestrowanie dostawcy zasobów](#register-resource-provider) w tym artykule.
 
    ![Wybierz Azure Cosmos DB podmiotu zabezpieczeń](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 
@@ -220,6 +220,31 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## <a name="key-rotation"></a>Wymiana kluczy
+
+Rotacja klucza zarządzanego przez klienta używanego przez konto usługi Azure Cosmos można wykonać na dwa sposoby.
+
+- Utwórz nową wersję klucza aktualnie używaną w Azure Key Vault:
+
+  ![Utwórz nową wersję klucza](./media/how-to-setup-cmk/portal-akv-rot.png)
+
+- Zamień klucz aktualnie używany z całkowicie innym z nich przez zaktualizowanie `keyVaultKeyUri` Właściwości konta. Oto jak to zrobić w programie PowerShell:
+
+    ```powershell
+    $resourceGroupName = "myResourceGroup"
+    $accountName = "mycosmosaccount"
+    $newKeyUri = "https://<my-vault>.vault.azure.net/keys/<my-new-key>"
+    
+    $account = Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
+        -ResourceType "Microsoft.DocumentDb/databaseAccounts"
+    
+    $account.Properties.keyVaultKeyUri = $newKeyUri
+    
+    $account | Set-AzResource -Force
+    ```
+
+Poprzedni klucz lub wersję klucza można wyłączyć po 24 godzinach lub w [dziennikach inspekcji Azure Key Vault](../key-vault/general/logging.md) nie będą już wyświetlane działania Azure Cosmos DB w tym kluczu lub wersji klucza.
+    
 ## <a name="error-handling"></a>Obsługa błędów
 
 W przypadku korzystania z kluczy zarządzanych przez klienta (CMK) w Azure Cosmos DB, jeśli wystąpią jakieś błędy, Azure Cosmos DB zwróci szczegóły błędu wraz z kodem stanu podrzędnego HTTP w odpowiedzi. Tego kodu stanu podrzędnego można użyć do debugowania głównej przyczyny problemu. Zobacz [kody stanu HTTP dla Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) artykułu, aby uzyskać listę obsługiwanych kodów stanu podrzędnego http.
@@ -267,14 +292,6 @@ Można programowo pobrać szczegóły konta usługi Azure Cosmos i wyszukać obe
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>Jak klucze zarządzane przez klienta wpływają na kopię zapasową?
 
 Azure Cosmos DB [regularnie i automatycznie tworzy kopie zapasowe](./online-backup-and-restore.md) danych przechowywanych na koncie. Ta operacja tworzy kopię zapasową zaszyfrowanych danych. Aby można było użyć przywróconej kopii zapasowej, wymagany jest klucz szyfrowania używany w momencie tworzenia kopii zapasowej. Oznacza to, że nie wprowadzono odwołania, a wersja klucza, która była używana w momencie tworzenia kopii zapasowej, nadal będzie włączona.
-
-### <a name="how-do-i-rotate-an-encryption-key"></a>Jak mogę obrócić klucz szyfrowania?
-
-Rotacja kluczy jest wykonywana przez utworzenie nowej wersji klucza w Azure Key Vault:
-
-![Utwórz nową wersję klucza](./media/how-to-setup-cmk/portal-akv-rot.png)
-
-Poprzednią wersję można wyłączyć po 24 godzinach lub w [dziennikach inspekcji Azure Key Vault](../key-vault/general/logging.md) nie będą już wyświetlane działania Azure Cosmos DB w tej wersji.
 
 ### <a name="how-do-i-revoke-an-encryption-key"></a>Jak mogę odwołać klucz szyfrowania?
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 37ddf57057b736cd76a74276e5593a865e7df8cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ebbf789d804ab903489c809fc96f1514d6c4f577
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666865"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658090"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Dostosowywanie interfejsu użytkownika w Azure Active Directory B2C
 
@@ -61,7 +61,7 @@ W obszarze **Dostosuj** w menu po lewej stronie wybierz pozycję **układy stron
 
 Następnie wybierz szablon z listy. Poniżej przedstawiono przykłady stron logowania dla każdego szablonu:
 
-| Ocean niebieski | Szare | Wdrożenie klasyczne |
+| Ocean niebieski | Szare | Klasyczny |
 |:-:|:-:|:-:|
 |![Przykład niebieskiego szablonu oceanu renderowany podczas rejestracji na stronie logowania](media/customize-ui-overview/template-ocean-blue.png)|![Przykład szarego szablonu renderowanego na stronie logowania](media/customize-ui-overview/template-slate-gray.png)|![Przykładowy szablon klasyczny renderowany podczas rejestracji na stronie logowania](media/customize-ui-overview/template-classic.png)|
 
@@ -100,7 +100,7 @@ Ważnym punktem jest hostowanie zawartości w publicznie dostępnym punkcie koń
 
 Zacznij korzystać z własnego kodu HTML i CSS na stronach środowiska użytkownika, postępując zgodnie z tymi wskazówkami.
 
-- Utwórz poprawnie sformułowaną zawartość HTML z pustym `<div id="api"></div>` elementem znajdującym się w `<body>`miejscu. Ten element oznacza miejsce wstawienia zawartości Azure AD B2C. W poniższym przykładzie przedstawiono minimalną stronę:
+- Utwórz poprawnie sformułowaną zawartość HTML z pustym `<div id="api"></div>` elementem znajdującym się w miejscu `<body>` . Ten element oznacza miejsce wstawienia zawartości Azure AD B2C. W poniższym przykładzie przedstawiono minimalną stronę:
 
     ```html
     <!DOCTYPE html>
@@ -146,7 +146,7 @@ Zacznij korzystać z własnego kodu HTML i CSS na stronach środowiska użytkown
 
 ### <a name="html-fragments-from-azure-ad-b2c"></a>Fragmenty kodu HTML z Azure AD B2C
 
-W poniższej tabeli wymieniono fragmenty kodu HTML, które Azure AD B2C scalane `<div id="api"></div>` do elementu znajdującego się w zawartości.
+W poniższej tabeli wymieniono fragmenty kodu HTML, które Azure AD B2C scalane do `<div id="api"></div>` elementu znajdującego się w zawartości.
 
 | Wstawiona Strona | Opis HTML |
 | ------------- | ------------------- |
@@ -155,7 +155,7 @@ W poniższej tabeli wymieniono fragmenty kodu HTML, które Azure AD B2C scalane 
 | Konto społecznościowe — Rejestracja | Może pojawić się podczas rejestracji przy użyciu istniejącego konta od dostawcy tożsamości społecznościowej, takiego jak Facebook lub Google. Jest on używany, gdy dodatkowe informacje muszą być zbierane z klienta przy użyciu formularza tworzenia konta. |
 | Ujednolicone rejestrowanie lub logowanie | Obsługuje zarówno rejestrowanie, jak i logowanie klientów, którzy mogą korzystać z dostawców tożsamości społecznościowych, takich jak Facebook, Google lub konta lokalnego. |
 | Uwierzytelnianie wieloskładnikowe | Klienci mogą weryfikować numery telefonów (przy użyciu tekstu lub głosu) podczas rejestracji lub logowania. |
-| Error | Zawiera informacje o błędach dla klienta. |
+| Błąd | Zawiera informacje o błędach dla klienta. |
 
 ## <a name="company-branding-preview"></a>Znakowanie firmowe (wersja zapoznawcza)
 
@@ -202,7 +202,7 @@ Ten przykład adnotacji przedstawia niestandardowe logo transparentu i obraz tł
 
 ### <a name="use-company-branding-assets-in-custom-html"></a>Używanie zasobów znakowania firmowego w niestandardowym kodzie HTML
 
-Aby korzystać z firmowych zasobów znakowania w niestandardowym kodzie HTML, Dodaj następujące `<div id="api">` znaczniki poza tagiem:
+Aby korzystać z firmowych zasobów znakowania w niestandardowym kodzie HTML, Dodaj następujące znaczniki poza `<div id="api">` tagiem:
 
 ```HTML
 <img data-tenant-branding-background="true" />
@@ -213,9 +213,9 @@ Aby korzystać z firmowych zasobów znakowania w niestandardowym kodzie HTML, Do
 
 ## <a name="localize-content"></a>Lokalizowanie zawartości
 
-Zawartość HTML można zlokalizować, włączając [Dostosowywanie języka](user-flow-language-customization.md) w dzierżawie Azure AD B2C. Włączenie tej funkcji umożliwia Azure AD B2C przekazanie parametru `ui-locales` OpenID Connect Connect do punktu końcowego. Twój serwer zawartości może użyć tego parametru, aby udostępnić strony HTML specyficzne dla języka.
+Zawartość HTML można zlokalizować, włączając [Dostosowywanie języka](user-flow-language-customization.md) w dzierżawie Azure AD B2C. Włączenie tej funkcji umożliwia Azure AD B2C przekazanie parametru OpenID Connect Connect `ui_locales` do punktu końcowego. Twój serwer zawartości może użyć tego parametru, aby udostępnić strony HTML specyficzne dla języka.
 
-Zawartość można ściągnąć z różnych miejsc w oparciu o używane ustawienia regionalne. W punkcie końcowym z obsługą mechanizmu CORS można skonfigurować strukturę folderów, aby hostować zawartość dla określonych języków. Jeśli używasz wartości `{Culture:RFC5646}`wieloznacznej, nastąpi wywołanie odpowiedniej metody.
+Zawartość można ściągnąć z różnych miejsc w oparciu o używane ustawienia regionalne. W punkcie końcowym z obsługą mechanizmu CORS można skonfigurować strukturę folderów, aby hostować zawartość dla określonych języków. Jeśli używasz wartości wieloznacznej, nastąpi wywołanie odpowiedniej metody `{Culture:RFC5646}` .
 
 Na przykład identyfikator URI strony niestandardowej może wyglądać następująco:
 

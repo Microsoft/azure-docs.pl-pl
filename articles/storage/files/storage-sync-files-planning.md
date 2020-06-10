@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e432f599196a6948633d7150e1a747fbe626e1f4
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: f22b7eca6db55f886dbd4fea563d993bbee11ecb
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84464661"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661119"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -69,7 +69,7 @@ Azure File Sync jest obsługiwana w następujących wersjach systemu Windows Ser
 |---------|----------------|------------------------------|
 | Windows Server 2019 | Centrum danych, standard i IoT | Pełne i podstawowe |
 | Windows Server 2016 | Serwer Datacenter, standard i Storage | Pełne i podstawowe |
-| Windows Server 2012 R2 | Serwer Datacenter, standard i Storage | Pełne i podstawowe |
+| Windows Server 2012 z dodatkiem R2 | Serwer Datacenter, standard i Storage | Pełne i podstawowe |
 
 Przyszłe wersje systemu Windows Server zostaną dodane po ich wydaniu.
 
@@ -163,7 +163,7 @@ W poniższej tabeli przedstawiono stan międzyoperacyjności funkcji systemu pli
 | Plik/folder | Uwaga |
 |-|-|
 | pagefile.sys | Plik specyficzny dla systemu |
-| Plik Desktop. ini | Plik specyficzny dla systemu |
+| Desktop.ini | Plik specyficzny dla systemu |
 | kciuki. DB | Plik tymczasowy dla miniatur |
 | ehThumbs. DB | Plik tymczasowy dla miniatur multimediów |
 | ~$\*.\* | Plik tymczasowy pakietu Office |
@@ -191,7 +191,7 @@ Zwróć uwagę, że oszczędności woluminu dotyczą tylko serwera programu; Two
 > [!Note]  
 > Aby zapewnić obsługę deduplikacji danych na woluminach z włączoną obsługą warstw w chmurze w systemie Windows Server 2019, należy zainstalować usługę Windows Update [KB4520062](https://support.microsoft.com/help/4520062) , a wymagany jest Agent Azure File Sync w wersji 9.0.0.0 lub nowszej.
 
-**System Windows Server 2012 R2**  
+**Windows Server 2012 z dodatkiem R2**  
 Azure File Sync nie obsługuje deduplikacji danych i warstw w chmurze na tym samym woluminie w systemie Windows Server 2012 R2. Jeśli Deduplikacja danych jest włączona w woluminie, Obsługa warstw w chmurze musi być wyłączona. 
 
 **Uwagi**
@@ -356,7 +356,7 @@ Jeśli masz istniejący serwer plików systemu Windows, Azure File Sync mogą by
 
 Można również użyć urządzenie Data Box do migracji danych do wdrożenia Azure File Sync. W większości przypadków, gdy klienci chcą korzystać z urządzenie Data Box do pozyskiwania danych, to zrobią to, ponieważ ich zdaniem zwiększy szybkość wdrożenia lub będzie pomocna w scenariuszach z ograniczoną przepustowością. W związku z tym, że użycie urządzenie Data Box do pozyskiwania danych we wdrożeniu Azure File Sync spowoduje zmniejszenie wykorzystania przepustowości, prawdopodobnie będzie szybsze w przypadku większości scenariuszy w celu przeprowadzenia przekazywania danych online za pomocą jednej z metod opisanych powyżej. Aby dowiedzieć się więcej o tym, jak używać urządzenie Data Box do pozyskiwania danych do wdrożenia Azure File Sync, zobacz [Migrowanie danych do Azure File Sync z Azure Data Box](storage-sync-offline-data-transfer.md).
 
-Typowym błędom podejmowanym przez klientów podczas migrowania danych do nowego wdrożenia Azure File Sync jest skopiowanie danych bezpośrednio do udziału plików platformy Azure, a nie na serwerach plików systemu Windows. Mimo że Azure File Sync zidentyfikuje wszystkie nowe pliki w udziale plików platformy Azure, a następnie zsynchronizuje je z udziałami plików systemu Windows, jest to zwykle znacznie wolniejsze niż ładowanie danych za pomocą serwera plików systemu Windows. Wiele narzędzi do kopiowania platformy Azure, takich jak AzCopy, ma dodatkowe minusem, które nie kopiują wszystkich ważnych metadanych pliku, takich jak sygnatury czasowe i listy kontroli dostępu.
+Typowym błędom podejmowanym przez klientów podczas migrowania danych do nowego wdrożenia Azure File Sync jest skopiowanie danych bezpośrednio do udziału plików platformy Azure, a nie na serwerach plików systemu Windows. Mimo że Azure File Sync zidentyfikuje wszystkie nowe pliki w udziale plików platformy Azure, a następnie zsynchronizuje je z udziałami plików systemu Windows, jest to zwykle znacznie wolniejsze niż ładowanie danych za pomocą serwera plików systemu Windows. W przypadku korzystania z narzędzi do kopiowania platformy Azure, takich jak AzCopy, ważne jest, aby użyć najnowszej wersji. Zapoznaj się z [tabelą narzędzia kopiowania plików](storage-files-migration-overview.md#file-copy-tools) , aby zapoznać się z omówieniem narzędzi do kopiowania na platformie Azure w celu zagwarantowania, że można skopiować wszystkie ważne metadane pliku, takie jak sygnatury czasowe i listy ACL.
 
 ## <a name="antivirus"></a>Oprogramowanie antywirusowe
 Ponieważ oprogramowanie antywirusowe działa przez skanowanie plików pod kątem znanego złośliwego kodu, produkt antywirusowy może powodować odwoływanie się do plików warstwowych. W wersji 4,0 i większej od agenta Azure File Sync pliki warstwowe mają ustawiony atrybut Secure Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Firma Microsoft zaleca zapoznanie się z dostawcą oprogramowania, aby dowiedzieć się, jak skonfigurować swoje rozwiązanie, aby pominąć odczytywanie plików z tym zestawem atrybutów (wiele do nich jest automatycznie). 

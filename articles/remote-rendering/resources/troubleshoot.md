@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4fccf7b786de91c8bcce0b2073e0519ef6c1f2ab
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 0aa09ffe5b5dd9dd0f49204495ecdd7179a0f36f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424406"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660028"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -145,6 +145,12 @@ W przypadku tego pola ograniczenia mogą występować dwa problemy, które prowa
 Renderowanie zdalne na platformie Azure jest podłączane do potoku renderowania aparatu Unity, aby wykonać transkompozycję ramki z filmem wideo i przeprojektować. Aby sprawdzić, czy te punkty zaczepie istnieją, otwórz menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Włącz ją i upewnij się, że `HolographicRemotingCallbackPass` w potoku istnieją dwa wpisy:
 
 ![Debuger ramki aparatu Unity](./media/troubleshoot-unity-pipeline.png)
+
+## <a name="the-rendered-image-in-unity-is-upside-down"></a>Renderowany obraz w aparacie Unity jest odwrócony do góry
+
+Upewnij się, że dokładnie postępuj zgodnie z [przewodnikiem po instalacji projektu](../tutorials/unity/project-setup.md) . Obraz z góry nogami wskazuje, że środowisko Unity jest wymagane do utworzenia celu renderowania poza ekranem. To zachowanie nie jest obecnie obsługiwane i tworzy ogromny wpływ na wydajność w przypadku urządzeń HoloLens 2.
+
+Przyczyną tego problemu może być MSAA, HDR lub włączenie procesu post. Upewnij się, że profil niskiej jakości został wybrany i ustawiony jako domyślny w aparacie Unity. Aby to zrobić, przejdź do pozycji *Edytuj ustawienia projektu >... >*.
 
 ## <a name="unity-code-using-the-remote-rendering-api-doesnt-compile"></a>Kod Unity korzystający z interfejsu API renderowania zdalnego nie kompiluje
 

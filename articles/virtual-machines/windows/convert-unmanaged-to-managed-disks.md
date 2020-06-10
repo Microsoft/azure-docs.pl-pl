@@ -4,15 +4,15 @@ description: Jak skonwertować maszynę wirtualną z systemem Windows z dysków 
 author: roygara
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: d8069b174b7a69cc2e6c47171159569c56a15563
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6173f2f60f5dd0b2b06c415bbf55ed31bacbe8b7
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82081952"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658196"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konwertowanie maszyny wirtualnej z systemem Windows z dysków niezarządzanych na dyski zarządzane
 
@@ -20,7 +20,7 @@ Jeśli masz istniejące maszyny wirtualne z systemem Windows, które korzystają
 
  
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 
 * Przejrzyj [plan migracji do Managed disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks).
@@ -35,7 +35,7 @@ Jeśli masz istniejące maszyny wirtualne z systemem Windows, które korzystają
 ## <a name="convert-single-instance-vms"></a>Konwertowanie maszyn wirtualnych z pojedynczym wystąpieniem
 W tej sekcji opisano sposób konwersji maszyn wirtualnych platformy Azure z jednym wystąpieniem z dysków niezarządzanych na dyski zarządzane. (Jeśli maszyny wirtualne znajdują się w zestawie dostępności, zobacz następną sekcję). 
 
-1. Cofnij przydział maszyny wirtualnej za pomocą polecenia cmdlet [stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) . Poniższy przykład powoduje cofnięcie przydziału maszyny wirtualnej o `myVM` nazwie w grupie zasobów o `myResourceGroup`nazwie: 
+1. Cofnij przydział maszyny wirtualnej za pomocą polecenia cmdlet [stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) . Poniższy przykład powoduje cofnięcie przydziału maszyny wirtualnej o nazwie `myVM` w grupie zasobów o nazwie `myResourceGroup` : 
 
    ```azurepowershell-interactive
    $rgName = "myResourceGroup"
@@ -55,7 +55,7 @@ W tej sekcji opisano sposób konwersji maszyn wirtualnych platformy Azure z jedn
 
 Jeśli maszyny wirtualne, które mają zostać przekonwertowane na dyski zarządzane, znajdują się w zestawie dostępności, należy najpierw skonwertować zestaw dostępności na zarządzany zestaw dostępności.
 
-1. Przekonwertuj zestaw dostępności za pomocą polecenia cmdlet [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) . Poniższy przykład aktualizuje zestaw dostępności o nazwie `myAvailabilitySet` w grupie zasobów o nazwie: `myResourceGroup`
+1. Przekonwertuj zestaw dostępności za pomocą polecenia cmdlet [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) . Poniższy przykład aktualizuje zestaw dostępności o nazwie `myAvailabilitySet` w grupie zasobów o nazwie `myResourceGroup` :
 
    ```azurepowershell-interactive
    $rgName = 'myResourceGroup'
@@ -65,7 +65,7 @@ Jeśli maszyny wirtualne, które mają zostać przekonwertowane na dyski zarząd
    Update-AzAvailabilitySet -AvailabilitySet $avSet -Sku Aligned 
    ```
 
-   Jeśli region, w którym znajduje się zestaw dostępności, ma tylko dwie zarządzane domeny błędów, ale liczba niezarządzanych domen błędów to 3, to polecenie wyświetla błąd podobny do "określona liczba domen błędów 3 musi należeć do zakresu od 1 do 2". Aby rozwiązać ten problem, należy zaktualizować domenę błędów do 2 i zaktualizować `Sku` ją `Aligned` do programu w następujący sposób:
+   Jeśli region, w którym znajduje się zestaw dostępności, ma tylko dwie zarządzane domeny błędów, ale liczba niezarządzanych domen błędów to 3, to polecenie wyświetla błąd podobny do "określona liczba domen błędów 3 musi należeć do zakresu od 1 do 2". Aby rozwiązać ten problem, należy zaktualizować domenę błędów do 2 i zaktualizować `Sku` ją do programu `Aligned` w następujący sposób:
 
    ```azurepowershell-interactive
    $avSet.PlatformFaultDomainCount = 2
@@ -88,7 +88,7 @@ Jeśli maszyny wirtualne, które mają zostać przekonwertowane na dyski zarząd
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-Jeśli wystąpi błąd podczas konwersji lub jeśli maszyna wirtualna jest w stanie niepowodzenia z powodu problemów w poprzedniej konwersji, ponownie uruchom `ConvertTo-AzVMManagedDisk` polecenie cmdlet. Proste ponowienie próby zwykle odblokowuje sytuację.
+Jeśli wystąpi błąd podczas konwersji lub jeśli maszyna wirtualna jest w stanie niepowodzenia z powodu problemów w poprzedniej konwersji, `ConvertTo-AzVMManagedDisk` ponownie uruchom polecenie cmdlet. Proste ponowienie próby zwykle odblokowuje sytuację.
 Przed przekonwertowaniem upewnij się, że wszystkie rozszerzenia maszyn wirtualnych znajdują się w stanie "Inicjowanie obsługi" zakończyło się pomyślnie, lub konwersja zakończy się niepowodzeniem z kodem błędu 409.
 
 ## <a name="convert-using-the-azure-portal"></a>Konwertuj przy użyciu Azure Portal

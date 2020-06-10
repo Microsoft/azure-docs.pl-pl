@@ -1,6 +1,6 @@
 ---
-title: Udostępnianie maszyny wirtualnej za pomocą Azure Portal
-description: Ten przewodnik zawiera opis opcji tworzenia maszyn wirtualnych z systemem Windows SQL Server 2017 w Azure Portal.
+title: Inicjowanie obsługi administracyjnej maszyny wirtualnej z systemem Windows przy użyciu Azure Portal
+description: W tym przewodniku omówiono opcje dostępne przy użyciu Azure Portal do aprowizacji SQL Server na maszynie wirtualnej z systemem Windows.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -15,17 +15,18 @@ ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0c534b87250a4cc17ec9dd67c7a4ab5af19b3384
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 52ac4d34a54e8bceb22f46f9de42dc461648970f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046229"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657135"
 ---
-# <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Jak zainicjować obsługę administracyjną maszyny wirtualnej z systemem Windows SQL Server w Azure Portal
+# <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Jak za pomocą Azure Portal zainicjować obsługę administracyjną maszyny wirtualnej z systemem Windows za pomocą SQL Server
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Ten przewodnik zawiera szczegółowe informacje dotyczące różnych opcji dostępnych podczas tworzenia maszyny wirtualnej z systemem Windows SQL Server w Azure Portal. W tym artykule opisano więcej opcji konfiguracji niż SQL Server samoobsługowego samouczka [maszyn wirtualnych](sql-vm-create-portal-quickstart.md), które przechodzą więcej po jednym możliwym zadaniu aprowizacji. 
+W tym przewodniku omówiono opcje dostępne przy użyciu Azure Portal do aprowizacji SQL Server na maszynie wirtualnej z systemem Windows. W tym artykule opisano więcej opcji konfiguracji niż [SQL Server maszyny wirtualnej — szybki start](sql-vm-create-portal-quickstart.md), które koncentrują się na jednej konfiguracji. 
 
 Użyj tego przewodnika, aby utworzyć własną SQL Server maszynę wirtualną. Lub użyj go jako odwołania do dostępnych opcji w Azure Portal.
 
@@ -38,18 +39,20 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Podczas tworzenia maszyny wirtualnej SQL Server można wybrać jeden z kilku wstępnie skonfigurowanych obrazów z galerii maszyn wirtualnych. W poniższych krokach pokazano, jak wybrać jeden z SQL Server obrazów 2017.
 
-1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
-1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Dodatkowe informacje można wyświetlić, wybierając pozycję **Pokaż szczegóły**. 
-1. Wpisz `2017` w polu wyszukiwania SQL Server obrazu na kafelku **maszyny wirtualne SQL** , a następnie wybierz pozycję **bezpłatna SQL Server Licencja: SQL Server 2017 Developer w systemie Windows Server 2016** z listy rozwijanej. 
+1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz *SQL Azure* w polu wyszukiwania. 
 
+   Możesz również wybrać gwiazdkę obok **usługi Azure SQL** , aby zapisać ją jako ulubioną i dodać jako element do nawigacji po lewej stronie. 
+
+1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Dodatkowe informacje można wyświetlić, wybierając pozycję **Pokaż szczegóły**. 
+1. Wpisz *2017* w polu wyszukiwania obrazu SQL Server na kafelku **maszyny wirtualne SQL** , a następnie wybierz pozycję **bezpłatna SQL Server Licencja: SQL Server 2017 deweloper w systemie Windows Server 2016** z listy rozwijanej. 
 
    ![Wybieranie obrazu maszyny wirtualnej SQL](./media/create-sql-vm-portal/select-sql-vm-image-portal.png)
 
    > [!TIP]
-   > Wersja Developer jest używana w tym instruktażu, ponieważ jest to w pełni funkcjonalna, bezpłatna wersja SQL Server do testowania projektowania. Opłaty dotyczą tylko kosztów obsługi maszyny wirtualnej. Można jednak wybrać dowolny z obrazów do użycia w tym instruktażu. Opis dostępnych obrazów znajduje się w temacie [omówienie Windows Virtual Machines SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
+   > Wersja Developer jest używana w tym artykule, ponieważ jest to w pełni funkcjonalna, bezpłatna wersja SQL Server do testowania projektowania. Opłaty dotyczą tylko kosztów obsługi maszyny wirtualnej. Można jednak wybrać dowolny z obrazów do użycia w tym instruktażu. Opis dostępnych obrazów znajduje się w temacie [omówienie Windows Virtual Machines SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 
    > [!TIP]
-   > Koszty licencjonowania dla SQL Server są uwzględniane w cenach na sekundę utworzonej maszyny wirtualnej i różnią się w zależności od wersji i rdzeni. Jednak wersja SQL Server Developer jest bezpłatna na potrzeby tworzenia i testowania (nie produkcji), a program SQL Express jest bezpłatny dla obciążeń lekkich (mniej niż 1 GB pamięci, mniej niż 10 GB magazynu). Możesz również przenieść własną licencję (BYOL) i zapłacił tylko za maszynę wirtualną. Nazwy tych obrazów mają prefiks {BYOL}. 
+   > Koszty licencjonowania dla SQL Server są uwzględniane w cenach na sekundę utworzonej maszyny wirtualnej i różnią się w zależności od wersji i rdzeni. Jednak wersja SQL Server Developer jest bezpłatna do programowania i testowania, a nie do produkcji. Ponadto program SQL Express jest bezpłatny dla obciążeń lekkich (mniej niż 1 GB pamięci, mniej niż 10 GB magazynu). Możesz również przenieść własną licencję (BYOL) i zapłacił tylko za maszynę wirtualną. Nazwy tych obrazów mają prefiks {BYOL}. 
    >
    > Aby uzyskać więcej informacji na temat tych opcji, zobacz [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) (Wskazówki dotyczące cen maszyn wirtualnych platformy Azure z programem SQL Server).
 
@@ -59,19 +62,19 @@ Podczas tworzenia maszyny wirtualnej SQL Server można wybrać jeden z kilku wst
 
 ## <a name="1-configure-basic-settings"></a>1. Skonfiguruj ustawienia podstawowe
 
-
 Na karcie **podstawowe** podaj następujące informacje:
 
 * W obszarze **szczegóły projektu**upewnij się, że wybrano poprawną subskrypcję. 
-*  W sekcji **Grupa zasobów** wybierz istniejącą grupę zasobów z listy lub wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów. Grupa zasobów to kolekcja powiązanych zasobów platformy Azure (maszyny wirtualne, konta magazynu, sieci wirtualne itp.). 
+* W sekcji **Grupa zasobów** wybierz istniejącą grupę zasobów z listy lub wybierz pozycję **Utwórz nową** , aby utworzyć nową grupę zasobów. Grupa zasobów to kolekcja powiązanych zasobów platformy Azure (maszyny wirtualne, konta magazynu, sieci wirtualne itp.). 
 
-    ![Subskrypcja](./media/create-sql-vm-portal/basics-project-details.png)
+  ![Subskrypcja](./media/create-sql-vm-portal/basics-project-details.png)
 
   > [!NOTE]
   > Nowa grupa zasobów jest przydatna, jeśli tylko testujesz lub poznajesz wdrożenia programu SQL Server na platformie Azure. Po zakończeniu testu usuń grupę zasobów, aby automatycznie usunąć maszynę wirtualną i wszystkie skojarzone z nią zasoby. Aby uzyskać więcej informacji na temat grup zasobów, zobacz [Omówienie usługi Azure Resource Manager](../../../active-directory-b2c/overview.md).
 
 
 * W obszarze **szczegóły wystąpienia**:
+
     1. Wprowadź unikatową **nazwę maszyny wirtualnej**.  
     1. Wybierz lokalizację dla **regionu**. 
     1. Na potrzeby tego przewodnika pozostaw opcję **dostępność** ustawioną na _niewymaganą nadmiarowość infrastruktury_. Aby uzyskać więcej informacji na temat opcji dostępności, zobacz [dostępność](../../../virtual-machines/windows/availability.md). 
@@ -111,9 +114,9 @@ Na karcie **dyski** Skonfiguruj opcje dysków.
 
 Na karcie **Sieć** Skonfiguruj opcje sieci. 
 
-* Utwórz nową **sieć wirtualną**lub Użyj istniejącej sieci wirtualnej dla maszyny wirtualnej SQL Server. Wyznacz również **podsieć** . 
+* Utwórz nową **sieć wirtualną** lub Użyj istniejącej sieci wirtualnej dla maszyny wirtualnej SQL Server. Wyznacz również **podsieć** . 
 
-* W obszarze **Sieć sieciowa Grupa zabezpieczeń**, wybierz opcję podstawowa grupa zabezpieczeń lub zaawansowana Grupa zabezpieczeń. Wybranie opcji podstawowa umożliwia wybranie portów ruchu przychodzącego dla maszyny wirtualnej SQL Server (te same wartości, które zostały skonfigurowane na karcie **podstawowa** ). Wybranie opcji Zaawansowane umożliwia wybranie istniejącej sieciowej grupy zabezpieczeń lub utworzenie nowej. 
+* W obszarze **sieciowe grupy zabezpieczeń kart sieciowych**wybierz podstawową grupę zabezpieczeń lub zaawansowaną grupę zabezpieczeń. Wybranie opcji podstawowa umożliwia wybranie portów ruchu przychodzącego dla maszyny wirtualnej SQL Server, które są te same wartości skonfigurowane na karcie **podstawowa** . wybranie opcji Zaawansowane umożliwia wybranie istniejącej sieciowej grupy zabezpieczeń lub utworzenie nowej. 
 
 * Możesz wprowadzić inne zmiany w ustawieniach sieci lub zachować wartości domyślne.
 
@@ -123,25 +126,23 @@ Na karcie **Sieć** Skonfiguruj opcje sieci.
 
 Na karcie **monitorowanie** Skonfiguruj monitorowanie i automatyczne zamykanie. 
 
-* System Azure domyślnie umożliwia **diagnostykę rozruchu** przy użyciu tego samego konta magazynu wyznaczenie dla maszyny wirtualnej. W tym miejscu możesz zmienić te ustawienia, a także włączyć **diagnostykę gościa systemu operacyjnego**. 
-* Na tej karcie można również włączyć **zarządzaną tożsamość** i automatyczne **zamykanie** systemu. 
+* System Azure domyślnie umożliwia **diagnostykę rozruchu** przy użyciu tego samego konta magazynu wyznaczenie dla maszyny wirtualnej. Na tej karcie można zmienić te ustawienia i włączyć **diagnostykę gościa systemu operacyjnego**. 
+* Na tej karcie można również włączyć **zarządzaną tożsamość przypisaną przez system** i **automatyczne zamykanie** . 
 
 ![Ustawienia zarządzania maszyną wirtualną SQL](./media/create-sql-vm-portal/azure-sqlvm-management.png)
 
 
 ## <a name="3-configure-sql-server-settings"></a>3. Skonfiguruj ustawienia SQL Server
 
-Na karcie **ustawienia SQL Server** Skonfiguruj określone ustawienia i optymalizacje dla SQL Server. Ustawienia, które można skonfigurować dla SQL Server są następujące:
+Na karcie **ustawienia SQL Server** Skonfiguruj określone ustawienia i optymalizacje dla SQL Server. Dla SQL Server można skonfigurować następujące ustawienia:
 
-| Ustawienie |
-| --- |
-| [Łączność](#connectivity) |
-| [Authentication](#authentication) |
-| [Integracja Azure Key Vault](#azure-key-vault-integration) |
-| [Konfiguracja magazynu](#storage-configuration) |
-| [Automatyczne stosowanie poprawek](#automated-patching) |
-| [Automatyczne usługa Backup](#automated-backup) |
-| [Machine Learning Services](#machine-learning-services) |
+- [Połączenia](#connectivity)
+- [Uwierzytelnianie](#authentication)
+- [Integracja magazynu kluczy Azure](#azure-key-vault-integration)
+- [Konfiguracja magazynu](#storage-configuration)
+- [Automatyczne stosowanie poprawek](#automated-patching)
+- [Automatyczna kopia zapasowa](#automated-backup)
+- [Machine Learning Services](#machine-learning-services)
 
 
 ### <a name="connectivity"></a>Łączność
@@ -149,7 +150,7 @@ Na karcie **ustawienia SQL Server** Skonfiguruj określone ustawienia i optymali
 W obszarze **Łączność z serwerem SQL** określ żądany typ dostępu do wystąpienia programu SQL Server na tej maszynie wirtualnej. Na potrzeby tego przewodnika wybierz opcję **Public (Internet)** , aby zezwolić na połączenia SQL Server z maszyn lub usług w Internecie. Po wybraniu tej opcji platforma Azure automatycznie skonfiguruje zaporę i grupę zabezpieczeń sieci w taki sposób, aby zezwalały na ruch na wybranym porcie.
 
 > [!TIP]
-> Domyślnie program SQL Server nasłuchuje na dobrze znanym porcie **1433**. Aby zwiększyć bezpieczeństwo, zmień port w poprzednim oknie dialogowym do nasłuchiwania na porcie innym niż domyślny, takim jak 1401. W przypadku zmiany portu należy nawiązać połączenie przy użyciu tego portu z dowolnego narzędzia klienckiego, takiego jak program SSMS.
+> Domyślnie program SQL Server nasłuchuje na dobrze znanym porcie **1433**. Aby zwiększyć bezpieczeństwo, zmień port w poprzednim oknie dialogowym do nasłuchiwania na porcie innym niż domyślny, takim jak 1401. W przypadku zmiany portu należy nawiązać połączenie przy użyciu tego portu z dowolnego narzędzia klienckiego, takiego jak SQL Server Management Studio (SSMS).
 
 ![Zabezpieczenia maszyny wirtualnej SQL](./media/create-sql-vm-portal/azure-sqlvm-security.png)
 
@@ -160,23 +161,20 @@ Jeśli nie chcesz zezwolić na połączenia z aparatem bazy danych za pośrednic
 * **Lokalne (tylko wewnątrz maszyny wirtualnej)**, aby zezwolić na połączenia z programem SQL Server tylko z maszyny wirtualnej.
 * **Prywatne (wewnątrz usługi Virtual Network)**, aby zezwolić na połączenia z programem SQL Server tylko z maszyn wirtualnych lub usług w tej samej sieci wirtualnej.
 
-Ogólnie rzecz biorąc, można ulepszyć zabezpieczenia, wybierając łączność z najbardziej restrykcyjnymi ograniczeniami akceptowanymi w danym scenariuszu. Jednak wszystkie opcje można zabezpieczyć przy użyciu reguł sieciowej grupy zabezpieczeń i uwierzytelniania SQL/Windows. Możesz edytować sieciową grupę zabezpieczeń po utworzeniu maszyny wirtualnej. Aby uzyskać więcej informacji, zobacz [Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines](security-considerations-best-practices.md).
+Ogólnie rzecz biorąc, można ulepszyć zabezpieczenia, wybierając łączność z najbardziej restrykcyjnymi ograniczeniami akceptowanymi w danym scenariuszu. Wszystkie opcje są zabezpieczane za pomocą reguł grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń) i uwierzytelniania SQL/systemu Windows. Po utworzeniu maszyny wirtualnej można edytować sieciowej grupy zabezpieczeń. Aby uzyskać więcej informacji, zobacz [Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines](security-considerations-best-practices.md).
 
+### <a name="authentication"></a>Uwierzytelnianie
 
-
-### <a name="authentication"></a>Authentication
-
-Jeśli wymagane jest uwierzytelnianie SQL Server, kliknij pozycję **Włącz** w obszarze **uwierzytelnianie SQL** na karcie **Ustawienia SQL Server** .
+Jeśli wymagane jest uwierzytelnianie SQL Server, wybierz pozycję **Włącz** w obszarze **uwierzytelnianie SQL** na karcie **Ustawienia SQL Server** .
 
 ![Uwierzytelnianie programu SQL Server](./media/create-sql-vm-portal/azure-sqlvm-authentication.png)
 
 > [!NOTE]
-> Jeśli planujesz uzyskać dostęp do SQL Server za pośrednictwem Internetu (opcja łączności publicznej), musisz w tym miejscu włączyć uwierzytelnianie SQL. Publiczny dostęp do programu SQL Server wymaga użycia uwierzytelniania SQL.
+> Jeśli planujesz uzyskać dostęp do SQL Server za pośrednictwem Internetu (opcja łączności publicznej), musisz w tym miejscu włączyć uwierzytelnianie SQL. Publiczny dostęp do SQL Server wymaga uwierzytelniania SQL.
 
-Jeśli włączasz opcję uwierzytelniania programu SQL Server, podaj informacje w polach **Nazwa logowania** i **Hasło**. Ta nazwa logowania jest konfigurowana jako SQL Server Logowanie do uwierzytelniania i członek stałej roli serwera **sysadmin** . Aby uzyskać więcej informacji na temat trybów uwierzytelniana, zobacz artykuł [Choose an Authentication Mode](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) (Wybieranie trybu uwierzytelniania).
+Jeśli włączasz opcję uwierzytelniania programu SQL Server, podaj informacje w polach **Nazwa logowania** i **Hasło**. Ta nazwa logowania jest konfigurowana jako SQL Server Identyfikator logowania uwierzytelniania i członek stałej roli serwera **sysadmin** . Aby uzyskać więcej informacji na temat trybów uwierzytelniana, zobacz artykuł [Choose an Authentication Mode](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode) (Wybieranie trybu uwierzytelniania).
 
-Jeśli nie włączysz opcji uwierzytelniania programu SQL Server, możesz użyć konta administratora lokalnego na maszynie wirtualnej do ustanawiania połączeń z wystąpieniem programu SQL Server.
-
+Jeśli wolisz nie włączać uwierzytelniania SQL Server, możesz użyć konta administratora lokalnego na maszynie wirtualnej, aby nawiązać połączenie z wystąpieniem SQL Server.
 
 ### <a name="azure-key-vault-integration"></a>Integracja magazynu kluczy Azure
 
@@ -184,14 +182,14 @@ Aby przechowywać wpisy tajne zabezpieczeń na platformie Azure na potrzeby szyf
 
 ![Integracja magazynu kluczy Azure](./media/create-sql-vm-portal/azure-sqlvm-akv.png)
 
-Poniższa tabela zawiera listę parametrów wymaganych do skonfigurowania integracji magazynu kluczy Azure.
+Poniższa tabela zawiera listę parametrów wymaganych do skonfigurowania integracji z usługą Azure Key Vault (AKV).
 
 | PARAMETR | OPIS | PRZYKŁAD |
 | --- | --- | --- |
-| **Adres URL magazynu kluczy** |Lokalizacja magazynu kluczy. |https: \/ /contosokeyvault.Vault.Azure.NET/ |
-| **Nazwa główna** |Nazwa główna usługi Azure Active Directory. Ta nazwa jest również nazywana identyfikatorem klienta. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
-| **Główny klucz tajny** |Główny klucz tajny usługi Azure Active Directory. Ten klucz tajny jest również nazywany kluczem tajnym klienta. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **Nazwa poświadczenia** |**Nazwa poświadczenia**: integracja usługi Azure Key Vault powoduje utworzenie poświadczenia w programie SQL Server, co umożliwia maszynie wirtualnej dostęp do magazynu kluczy. Wybierz nazwę tego poświadczenia. |moje_poświadczenie_1 |
+| **Adres URL magazynu kluczy** |Lokalizacja magazynu kluczy. |`https://contosokeyvault.vault.azure.net/` |
+| **Nazwa główna** |Nazwa główna usługi Azure Active Directory. Ta nazwa jest również nazywana identyfikatorem klienta. |`fde2b411-33d5-4e11-af04eb07b669ccf2` |
+| **Główny klucz tajny** |Główny klucz tajny usługi Azure Active Directory. Ten klucz tajny jest również nazywany kluczem tajnym klienta. |`9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=` |
+| **Nazwa poświadczenia** |**Nazwa poświadczenia**: integracja z usługą AKV tworzy poświadczenie w ramach SQL Server i umożliwia maszynie wirtualnej dostęp do magazynu kluczy. Wybierz nazwę tego poświadczenia. |`mycred1` |
 
 Aby uzyskać więcej informacji, zobacz [Configure Azure Key Vault Integration for SQL Server on Azure VMs](azure-key-vault-integration-configure.md) (Konfigurowanie integracji usługi Azure Key Vault dla programu SQL Server na maszynach wirtualnych Azure).
 
@@ -212,13 +210,14 @@ W obszarze **Usługa Storage zoptymalizowana dla** wybierz jedną z następując
 Możesz pozostawić wartości domyślne lub ręcznie zmienić topologię magazynu, aby odpowiadała potrzebom IOPS. Aby uzyskać więcej informacji, zobacz [Konfiguracja magazynu](storage-configuration.md). 
 
 ### <a name="sql-server-license"></a>Licencja SQL Server
-Jeśli jesteś klientem programu Software Assurance, możesz skorzystać z [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) , aby zapewnić własną licencję SQL Server i zaoszczędzić na zasobach. 
+
+Jeśli jesteś klientem programu Software Assurance, możesz użyć [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) , aby zapewnić własne licencje SQL Server i zaoszczędzić na zasobach. 
 
 ![Licencja maszyny wirtualnej SQL](./media/create-sql-vm-portal/azure-sqlvm-license.png)
 
 ### <a name="automated-patching"></a>Automatyczne stosowanie poprawek
 
-Opcja **Automatyczne stosowanie poprawek** jest domyślnie włączona. Automatyczne stosowanie poprawek umożliwia platformie Azure automatyczne stosowanie poprawek programu SQL Server i systemu operacyjnego. Określ dzień tygodnia, godzinę i czas trwania okna obsługi. Platforma Azure stosuje poprawki w tym oknie obsługi. Harmonogram okna obsługi korzysta z ustawień regionalnych godziny maszyny wirtualnej. Jeśli nie chcesz, aby platforma Azure automatycznie stosowała poprawki programu SQL Server i systemu operacyjnego, kliknij pozycję **Wyłącz**.  
+Opcja **Automatyczne stosowanie poprawek** jest domyślnie włączona. Automatyczne stosowanie poprawek umożliwia platformie Azure automatyczne stosowanie poprawek programu SQL Server i systemu operacyjnego. Określ dzień tygodnia, godzinę i czas trwania okna obsługi. Platforma Azure stosuje poprawki w tym oknie obsługi. Harmonogram okna obsługi używa ustawień regionalnych maszyny wirtualnej. Jeśli nie chcesz, aby platforma Azure automatycznie dołączyła SQL Server i system operacyjny, wybierz pozycję **Wyłącz**.  
 
 ![Zautomatyzowane stosowanie poprawek maszyny wirtualnej SQL](./media/create-sql-vm-portal/azure-sqlvm-automated-patching.png)
 
@@ -236,7 +235,7 @@ Po włączeniu automatycznej obsługi kopii zapasowych SQL możesz skonfigurowa�
 * Bazy danych systemu tworzenia kopii zapasowych
 * Konfigurowanie harmonogramu tworzenia kopii zapasowych
 
-Aby szyfrować kopie zapasowe, kliknij pozycję **Włącz**. Następnie określ ustawienie **Hasło**. Platforma Azure tworzy certyfikat do szyfrowania kopii zapasowych i używa określonego hasła do ochrony tego certyfikatu. Domyślnie harmonogram jest ustawiany automatycznie, ale można utworzyć harmonogram ręczny, wybierając pozycję **Ręczne**. 
+Aby zaszyfrować kopię zapasową, wybierz pozycję **Włącz**. Następnie określ ustawienie **Hasło**. Platforma Azure tworzy certyfikat do szyfrowania kopii zapasowych i używa określonego hasła do ochrony tego certyfikatu. Domyślnie harmonogram jest ustawiany automatycznie, ale można utworzyć harmonogram ręczny, wybierając pozycję **Ręczne**. 
 
 ![Automatyczne kopie zapasowe maszyny wirtualnej SQL](./media/create-sql-vm-portal/automated-backup.png)
 
@@ -245,21 +244,23 @@ Aby uzyskać więcej informacji, zobacz [Automated Backup for SQL Server in Azur
 
 ### <a name="machine-learning-services"></a>Machine Learning Services
 
-Możesz włączyć [Machine Learning Services](/sql/advanced-analytics/). Ta opcja umożliwia korzystanie z uczenia maszynowego w języku Python i języka R w SQL Server 2017. Wybierz pozycję **Włącz** w oknie **Ustawienia SQL Server** .
+Możesz włączyć [Machine Learning Services](/sql/advanced-analytics/). Ta opcja umożliwia korzystanie z uczenia maszynowego z językami Python i R w SQL Server 2017. Wybierz pozycję **Włącz** w oknie **Ustawienia SQL Server** .
 
 
 ## <a name="4-review--create"></a>4. Przejrzyj i Utwórz
 
-Na karcie **Przegląd + tworzenie** Przejrzyj podsumowanie, a następnie wybierz pozycję **Utwórz** , aby utworzyć SQL Server, grupę zasobów i zasoby określone dla tej maszyny wirtualnej.
+Na karcie **Recenzja + tworzenie** :
+1. Przejrzyj podsumowanie.
+1. Wybierz pozycję **Utwórz** , aby utworzyć SQL Server, grupę zasobów i zasoby określone dla tej maszyny wirtualnej.
 
 Możesz monitorować wdrożenie z poziomu witryny Azure Portal. Przycisk **Powiadomienia** w górnej części ekranu służy do wyświetlania podstawowych informacji dotyczących stanu wdrożenia.
 
 > [!NOTE]
-> Aby podać przykład czasu wymaganego do przeprowadzenia wdrożenia, wdrożono maszynę wirtualną SQL dla regionu Wschodnie stany USA z ustawieniami domyślnymi. Przeprowadzenie tego wdrożenia testowego trwało około 12 minut. Wdrażanie może jednak trwać krócej lub dłużej zależnie od regionu i wybranych ustawień.
+> Przykład czasu na platformę Azure w celu wdrożenia maszyny wirtualnej SQL Server: test SQL Server maszyna wirtualna, która została zainicjowana do regionu Wschodnie stany USA z ustawieniami domyślnymi, trwa około 12 minut. Czas wdrożenia może być krótszy lub wolniejszy w zależności od regionu i wybranych ustawień.
 
 ## <a name="open-the-vm-with-remote-desktop"></a><a id="remotedesktop"></a>Otwórz maszynę wirtualną przy użyciu Pulpit zdalny
 
-Wykonaj następujące kroki, aby ustanowić połączenie z maszyną wirtualną programu SQL Server przy użyciu pulpitu zdalnego:
+Aby nawiązać połączenie z maszyną wirtualną SQL Server przy użyciu Remote Desktop Protocol (RDP), wykonaj następujące czynności:
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 

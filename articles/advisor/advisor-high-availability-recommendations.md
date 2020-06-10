@@ -3,12 +3,12 @@ title: Zwiększ dostępność aplikacji dzięki Azure Advisor
 description: Użyj Azure Advisor, aby zwiększyć wysoką dostępność wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 5e38a1fb5e07e3811c53e24a5e324575d6774a75
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: bed092a51b5a4aba1dfa64c17f5ed3d6f72212da
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788029"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658467"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Zwiększ dostępność aplikacji dzięki Azure Advisor
 
@@ -29,7 +29,7 @@ Aby zapewnić nadmiarowość aplikacji, zalecamy grupowanie co najmniej dwóch m
 
 Maszyny wirtualne, które znajdują się w zestawie dostępności z dyskami, które korzystają z kont magazynu lub jednostek skalowania magazynu, nie są odporne na awarie pojedynczej jednostki skalowania magazynu podczas przestoju. Usługa Advisor zidentyfikuje te zestawy dostępności i zaleca migrację do usługi Azure Managed Disks. Dzięki temu dyski różnych maszyn wirtualnych w zestawie dostępności są wystarczająco izolowane, aby uniknąć single point of failure. 
 
-## <a name="known-issue-with-check-point-network-virtual-appliance-image-version"></a>Znany problem dotyczący wersji obrazu wirtualnego urządzenia sieciowego testowego
+## <a name="known-issue-with-check-point-network-virtual-appliance-image-version"></a>Znany problem dotyczący wersji obrazu Check Point wirtualnego urządzenia sieciowego
 
 Doradca może określić, czy na maszynie wirtualnej może być uruchomiona wersja obrazu programu Check Point, która została uznana za utratę łączności sieciowej w przypadku operacji obsługi platformy. Zalecenie doradcy pomoże Ci uaktualnić do nowszej wersji obrazu, który rozwiązuje ten problem. Zapewni to ciągłość działania dzięki lepszej łączności sieciowej.
 
@@ -93,6 +93,14 @@ Azure Advisor będzie identyfikować konta Azure Cosmos DB, które używają sta
 
 Azure Advisor zidentyfikuje konta Azure Cosmos DB, które używają starych wersji łącznika programu Cosmos DB Spark i zalecamy uaktualnienie do najnowszej wersji z Maven dla najnowszych poprawek, ulepszeń wydajności i nowych funkcji. [Dowiedz się więcej o łączniku Cosmos DB Spark](https://aka.ms/cosmosdb/spark-connector)
 
+## <a name="upgrade-recommendation-for-deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Zalecenie dotyczące uaktualnienia dotyczące wycofania Kafka 1,1 w klastrze usługi HDInsight 4,0 Kafka
+
+Od 1 lipca 2020 r. klienci nie będą mogli tworzyć nowych klastrów platformy Kafka za pomocą platformy Kafka 1.1 w usłudze HDInsight 4.0. Istniejące klastry będą działać w obecnym stanie bez pomocy technicznej firmy Microsoft. Rozważ przejście na platformę Kafka 2.1 w usłudze HDInsight 4.0 do 30 czerwca 2020 r., aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+
+## <a name="upgrade-recommendation-for-deprecation-of-older-spark-versions-in-hdinsight-spark-cluster"></a>Zalecenie dotyczące uaktualnienia dla wycofania starszych wersji platformy Spark w klastrze usługi HDInsight Spark
+
+Od 1 lipca 2020 r. klienci nie będą mogli tworzyć nowych klastrów platformy Spark za pomocą platformy Spark 2.1 i 2.2 w usłudze HDInsight 3.6 oraz platformy Spark 2.3 w usłudze HDInsight 4.0. Istniejące klastry będą działać w obecnym stanie bez pomocy technicznej firmy Microsoft. ",
+
 ## <a name="enable-virtual-machine-replication"></a>Włącz replikację maszyn wirtualnych
 Maszyny wirtualne, które nie mają włączonej replikacji w innym regionie, nie są odporne na awarie regionalne. Replikowanie maszyn wirtualnych zmniejsza niekorzystny wpływ na działalność biznesową w czasie awarii regionu platformy Azure. Usługa Advisor wykrywa maszyny wirtualne, które nie mają włączonej replikacji i zaleca włączenie replikacji, tak aby w przypadku awarii można szybko przełączać maszyny wirtualne w odległym regionie platformy Azure. [Dowiedz się więcej o replikacji maszyny wirtualnej](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
@@ -105,7 +113,7 @@ Maszyny wirtualne, które nie mają włączonej replikacji w innym regionie, nie
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat zaleceń klasyfikatora, zobacz:
-* [Wprowadzenie do Azure Advisor](advisor-overview.md)
+* [Wprowadzenie do usługi Advisor](advisor-overview.md)
 * [Wprowadzenie do usługi Advisor](advisor-get-started.md)
 * [Zalecenia dotyczące kosztów usługi Advisor](advisor-cost-recommendations.md)
 * [Zalecenia dotyczące wydajności usługi Advisor](advisor-performance-recommendations.md)

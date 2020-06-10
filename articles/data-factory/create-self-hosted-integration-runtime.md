@@ -10,13 +10,13 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
-ms.date: 03/13/2020
-ms.openlocfilehash: 705c35570484f604e9281b9c19ceb734180ba3e1
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.date: 06/09/2020
+ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418266"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655871"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Tworzenie i konfigurowanie własnego środowiska Integration Runtime
 
@@ -56,13 +56,13 @@ Aby utworzyć i skonfigurować własne środowisko Integration Runtime, należy 
 
 Wykonaj następujące kroki, aby utworzyć środowisko IR samodzielnego przy użyciu Azure Data Factory interfejsu użytkownika.
 
-1. Na stronie Wprowadzenie Azure Data Factory interfejsu użytkownika wybierz kartę **autor** w okienku po **lewej stronie.**
+1. Na stronie Wprowadzenie Azure Data Factory interfejsu użytkownika wybierz [kartę Zarządzanie](https://docs.microsoft.com/azure/data-factory/author-management-hub) w okienku po **lewej stronie.**
 
-   ![Przycisk autora strony głównej](media/doc-common-process/get-started-page-author-button.png)
+   ![Przycisk zarządzania stroną główną](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Wybierz pozycję **połączenia** w dolnej części okienka po lewej stronie, a następnie wybierz pozycję **Integration Runtimes** w oknie **połączenia** . Wybierz pozycję **+ Nowy**.
+1. W lewym okienku wybierz pozycję **Integration Runtimes** , a następnie wybierz pozycję **+ Nowy**.
 
-   ![Tworzenie środowiska Integration Runtime](media/create-self-hosted-integration-runtime/new-integration-runtime.png)
+   ![Tworzenie środowiska Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
 1. Na stronie **Konfiguracja środowiska Integration Runtime** wybierz pozycję **Azure, pozycję samodzielny**, a następnie wybierz pozycję **Kontynuuj**. 
 
@@ -97,7 +97,7 @@ Możesz zautomatyzować konfigurację samodzielnego środowiska IR na maszynie w
 
 Za pomocą wiersza polecenia można skonfigurować lub zarządzać istniejącym własnym środowiskoem IR. To użycie może pomóc w zaautomatyzowaniu instalacji i rejestracji samodzielnych węzłów IR.
 
-Dmgcmd. exe jest dołączony do samodzielnego instalatora. Zazwyczaj znajduje się on w folderze C:\Program Files\Microsoft Integration Runtime\4.0\Shared\. Ta aplikacja obsługuje różne parametry i może być wywoływana za pomocą wiersza polecenia przy użyciu skryptów wsadowych do automatyzacji.
+Dmgcmd.exe jest dołączony do samodzielnego instalatora. Zazwyczaj znajduje się on w folderze C:\Program Files\Microsoft Integration Runtime\4.0\Shared\. Ta aplikacja obsługuje różne parametry i może być wywoływana za pomocą wiersza polecenia przy użyciu skryptów wsadowych do automatyzacji.
 
 Użyj aplikacji w następujący sposób:
 
@@ -161,7 +161,7 @@ Poniżej znajduje się podsumowanie etapów przepływu danych do kopiowania przy
   + Windows 10
   + Windows Server 2008 R2 SP1
   + Windows Server 2012
-  + Windows Server 2012 R2
+  + Windows Server 2012 z dodatkiem R2
   + Windows Server 2016
   + Windows Server 2019
    
@@ -352,8 +352,8 @@ Po skonfigurowaniu środowisko Integration runtime używa serwera proxy do łąc
 Dostępne są trzy opcje konfiguracji:
 
 - **Nie używaj serwera proxy**: własne środowisko Integration Runtime nie używa jawnie żadnego serwera proxy do nawiązywania połączenia z usługami w chmurze.
-- **Użyj systemowego serwera proxy**: własne środowisko Integration runtime używa ustawień serwera proxy skonfigurowanych w diahost. exe. config i diawp. exe. config. Jeśli te pliki nie określają konfiguracji serwera proxy, własne środowisko Integration Runtime łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy.
-- **Użyj niestandardowego serwera proxy**: Skonfiguruj ustawienia serwera proxy HTTP do użycia dla własnego środowiska Integration Runtime, zamiast używać konfiguracji w diahost. exe. config i diawp. exe. config. Wartości **Address** i **port** są wymagane. Wartości **Nazwa użytkownika** i **hasło** są opcjonalne, w zależności od ustawienia uwierzytelniania serwera proxy. Wszystkie ustawienia są szyfrowane za pomocą funkcji DPAPI systemu Windows w ramach własnego środowiska Integration Runtime i przechowywane lokalnie na komputerze.
+- **Użyj systemowego serwera proxy**: własne środowisko Integration runtime używa ustawień serwera proxy skonfigurowanych w diahost.exe.config i diawp.exe.config. Jeśli te pliki nie określają konfiguracji serwera proxy, własne środowisko Integration Runtime łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy.
+- **Użyj niestandardowego serwera proxy**: Skonfiguruj ustawienia serwera proxy HTTP, które ma być używane dla własnego środowiska Integration Runtime, zamiast korzystać z konfiguracji w diahost.exe.config i diawp.exe.config. Wartości **Address** i **port** są wymagane. Wartości **Nazwa użytkownika** i **hasło** są opcjonalne, w zależności od ustawienia uwierzytelniania serwera proxy. Wszystkie ustawienia są szyfrowane za pomocą funkcji DPAPI systemu Windows w ramach własnego środowiska Integration Runtime i przechowywane lokalnie na komputerze.
 
 Usługa hosta Integration Runtime jest uruchamiana automatycznie po zapisaniu zaktualizowanych ustawień serwera proxy.
 
@@ -362,7 +362,7 @@ Po zarejestrowaniu własnego środowiska Integration Runtime, jeśli chcesz wyś
 1. Otwórz **Configuration Manager Microsoft Integration Runtime**.
 1. Wybierz kartę **Ustawienia**.
 1. W obszarze **serwer proxy HTTP**wybierz łącze **Zmień** , aby otworzyć okno dialogowe **Ustawianie serwera proxy HTTP** .
-1. Wybierz opcję **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
+1. Wybierz przycisk **Dalej**. Następnie zostanie wyświetlone ostrzeżenie z prośbą o zgodę na zapisanie ustawienia serwera proxy i ponowne uruchomienie usługi hosta Integration Runtime.
 
 Za pomocą narzędzia Configuration Manager można wyświetlać i aktualizować serwer proxy HTTP.
 
@@ -373,7 +373,7 @@ Za pomocą narzędzia Configuration Manager można wyświetlać i aktualizować 
 
 ### <a name="configure-proxy-server-settings"></a>Skonfiguruj ustawienia serwera proxy
 
-W przypadku wybrania opcji **Użyj serwera proxy** dla serwera proxy HTTP, własne środowisko Integration runtime używa ustawień serwera proxy w diahost. exe. config i diawp. exe. config. Gdy te pliki nie określają serwera proxy, własne środowisko Integration Runtime łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy. Poniższa procedura zawiera instrukcje dotyczące aktualizowania pliku diahost. exe. config:
+W przypadku wybrania opcji **Użyj serwera proxy** dla serwera proxy HTTP, własne środowisko Integration runtime używa ustawień serwera proxy w diahost.exe.config i diawp.exe.config. Gdy te pliki nie określają serwera proxy, własne środowisko Integration Runtime łączy się bezpośrednio z usługą w chmurze bez przechodzenia przez serwer proxy. Poniższa procedura zawiera instrukcje dotyczące aktualizowania pliku diahost.exe.config:
 
 1. W Eksploratorze plików wykonaj bezpieczną kopię folderu C:\Program Files\Microsoft Integration Runtime\4.0\Shared\diahost.exe.config jako kopię zapasową oryginalnego pliku.
 1. Otwórz Notatnik uruchomiony jako administrator.
@@ -407,7 +407,7 @@ W przypadku wybrania opcji **Użyj serwera proxy** dla serwera proxy HTTP, włas
    Jeśli usługa nie zostanie uruchomiona, prawdopodobnie dodano niepoprawną składnię tagu XML w edytowanym pliku konfiguracyjnym aplikacji.
 
 > [!IMPORTANT]
-> Nie zapomnij zaktualizować obu diahost. exe. config i diawp. exe. config.
+> Nie zapomnij zaktualizować obu diahost.exe.config i diawp.exe.config.
 
 Należy również upewnić się, że Microsoft Azure znajduje się na liście dozwolonych w firmie. Listę prawidłowych adresów IP platformy Azure można pobrać z [Centrum pobierania Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 2f3932f3374367e260685ae5145da8858384c3a2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/08/2020
+ms.openlocfilehash: a023599cb026a62aee034846dd390cda730d5df4
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194769"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660296"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Ładowanie danych do usługi Azure Synapse Analytics przy użyciu Azure Data Factory
 
@@ -57,7 +57,7 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
     * **Wersja**: wybierz pozycję **v2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
 
-3. Wybierz pozycję **Utwórz**.
+3. Wybierz przycisk **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji:
 
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
@@ -136,11 +136,13 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 1. Na stronie **Podsumowanie** przejrzyj ustawienia, a następnie wybierz przycisk **dalej**.
 
     ![Strona podsumowania](./media/load-azure-sql-data-warehouse/summary-page.png)
-1. Na **stronie wdrażanie**wybierz pozycję **Monitoruj** , aby monitorować potok (zadanie).
 
-1. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Po pomyślnym zakończeniu przebiegu potoku wybierz łącze **CopyFromSQLToSQLDW** w kolumnie **Nazwa potoku** , aby wyświetlić szczegóły uruchomienia działania i ponownie uruchomić potok.
+1. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie**, aby monitorować potok (zadanie). 
+ 
+1. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Po pomyślnym zakończeniu przebiegu potoku wybierz łącze **CopyFromSQLToSQLDW** w kolumnie **Nazwa potoku** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok.
 
     [![Monitorowanie uruchomień potoku](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png#lightbox)
+
 1. Aby przełączyć się z powrotem do widoku uruchomienia potoków, wybierz link **wszystkie uruchomienia potoku** u góry. Wybierz pozycję **Odśwież**, aby odświeżyć listę.
 
     ![Monitorowanie uruchomień działania](./media/load-azure-sql-data-warehouse/activity-monitoring.png)

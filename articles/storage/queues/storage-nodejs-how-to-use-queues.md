@@ -1,6 +1,6 @@
 ---
-title: Korzystanie z usługi Azure queue storage z poziomu środowiska Node. js — Azure Storage
-description: Dowiedz się, jak używać usługa kolejki platformy Azure do tworzenia i usuwania kolejek oraz wstawiania, pobierania i usuwania komunikatów. Przykłady zapisywane w języku Node. js.
+title: Korzystanie z usługi Azure queue storage z usługi Node.js — Azure Storage
+description: Dowiedz się, jak używać usługa kolejki platformy Azure do tworzenia i usuwania kolejek oraz wstawiania, pobierania i usuwania komunikatów. Przykłady zapisywane w Node.js.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/08/2016
@@ -9,30 +9,33 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: c7b5e679fa47437e7019884317d0ab14792055f3
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 878c4a5028b114ad10d19c03c0239c9d7a8bc6ce
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465426"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659562"
 ---
-# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Tworzenie i usuwanie kolejek za pomocą usługi kolejek platformy Azure z poziomu środowiska Node. js
+# <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Tworzenie i usuwanie kolejek z Node.js za pomocą usługi Azure Queue Service
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
 ## <a name="overview"></a>Omówienie
-W tym przewodniku pokazano, jak wykonywać typowe scenariusze przy użyciu usługa kolejki Microsoft Azure. Przykłady są zapisywane przy użyciu interfejsu API środowiska Node. js. Omówione scenariusze obejmują **Wstawianie**, **wgląd**, **pobieranie**i **usuwanie** komunikatów w kolejce, a także **Tworzenie i usuwanie kolejek**.
+W tym przewodniku pokazano, jak wykonywać typowe scenariusze przy użyciu usługa kolejki Microsoft Azure. Przykłady są zapisywane przy użyciu interfejsu API Node.js. Omówione scenariusze obejmują **Wstawianie**, **wgląd**, **pobieranie**i **usuwanie** komunikatów w kolejce, a także **Tworzenie i usuwanie kolejek**.
+
+> [!IMPORTANT]
+> Ten artykuł odnosi się do starszej wersji biblioteki klienta usługi Azure Storage dla języka JavaScript. Aby rozpocząć pracę z najnowszą wersją, zobacz [Szybki Start: Biblioteka kliencka usługi Azure queue storage dla języka JavaScript](storage-quickstart-queues-nodejs.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-nodejs-application"></a>Tworzenie aplikacji w języku Node. js
-Utwórz pustą aplikację Node. js. Aby uzyskać instrukcje dotyczące tworzenia aplikacji node. js, zobacz [Tworzenie aplikacji sieci Web Node. js w Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Kompilowanie i wdrażanie aplikacji node. js w usłudze w chmurze platformy Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) przy użyciu programu Windows PowerShell lub [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
+## <a name="create-a-nodejs-application"></a>Tworzenie aplikacji Node.js
+Utwórz pustą aplikację Node.js. Aby uzyskać instrukcje dotyczące tworzenia aplikacji Node.js, zobacz [Tworzenie aplikacji internetowej Node.js w Azure App Service](../../app-service/app-service-web-get-started-nodejs.md), [Kompilowanie i wdrażanie aplikacji Node.js w usłudze w chmurze platformy Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) przy użyciu programu Windows PowerShell lub [Visual Studio Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurowanie aplikacji w celu uzyskania dostępu do magazynu
-Aby można było korzystać z usługi Azure Storage, wymagany jest zestaw SDK usługi Azure Storage dla środowiska Node. js, który obejmuje zestaw wygodnych bibliotek, które komunikują się z usługami REST usługi Storage.
+Aby można było korzystać z usługi Azure Storage, wymagany jest zestaw SDK usługi Azure Storage dla Node.js, który obejmuje zestaw wygodnych bibliotek, które komunikują się z usługami REST magazynu.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Korzystanie z programu Node Package Manager (NPM) w celu uzyskania pakietu
 1. Użyj interfejsu wiersza polecenia, takiego jak program **PowerShell** (Windows), **Terminal** (Mac,) lub **bash** (UNIX), przejdź do folderu, w którym została utworzona Przykładowa aplikacja.
@@ -54,7 +57,7 @@ Aby można było korzystać z usługi Azure Storage, wymagany jest zestaw SDK us
 3. Można ręcznie uruchomić **ls** polecenie, aby sprawdzić, czy folder ** \_ modułów węzła** został utworzony. Wewnątrz tego folderu znajduje się pakiet **azure-storage** zawierający biblioteki wymagane do uzyskiwania dostępu do magazynu.
 
 ### <a name="import-the-package"></a>Importowanie pakietu
-Za pomocą Notatnika lub innego edytora tekstów Dodaj następujący tekst do pliku **Server. js** aplikacji, w której zamierzasz używać magazynu:
+Za pomocą Notatnika lub innego edytora tekstów Dodaj następujący tekst do pliku **server.js** aplikacji, w której zamierzasz używać magazynu:
 
 ```javascript
 var azure = require('azure-storage');

@@ -10,12 +10,12 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.date: 03/12/2020
-ms.openlocfilehash: c8531af9e8d43dfe1279306cea57a93cf89ded90
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 88fffc083b918157857c5c170cddda2016944c89
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045795"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660330"
 ---
 # <a name="enabling-service-aided-subnet-configuration-for-azure-sql-managed-instance"></a>Włączanie konfiguracji podsieci wspomaganej przez usługę dla wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ Automatycznie skonfigurowane sieciowe grupy zabezpieczeń i reguły tabeli tras 
 Konfiguracja wspomagana usługi jest włączana automatycznie po włączeniu [delegowania podsieci](../../virtual-network/subnet-delegation-overview.md) dla `Microsoft.Sql/managedInstances` dostawcy zasobów.
 
 > [!IMPORTANT] 
-> Po włączeniu delegowania podsieci nie można go wyłączyć do momentu usunięcia ostatniego klastra wirtualnego z podsieci. Aby uzyskać więcej informacji na temat usuwania klastra wirtualnego, zobacz następujący [artykuł](virtual-cluster-delete.md#delete-virtual-cluster-from-the-azure-portal).
+> Po włączeniu delegowania podsieci nie można go wyłączyć do momentu usunięcia ostatniego klastra wirtualnego z podsieci. Aby uzyskać więcej informacji na temat usuwania klastra wirtualnego, zobacz następujący [artykuł](virtual-cluster-delete.md#delete-a-virtual-cluster-from-the-azure-portal).
 
 > [!NOTE] 
 > Ponieważ konfiguracja podsieci wspomagana przez usługę jest istotną funkcją do utrzymania umowy SLA, począwszy od 1 maja 2020, nie będzie możliwe wdrożenie wystąpień zarządzanych w podsieciach, które nie są delegowane do dostawcy zasobów wystąpienia zarządzanego. 1 lipca 2020 wszystkie podsieci zawierające wystąpienia zarządzane zostaną automatycznie delegowane do dostawcy zasobów wystąpienia zarządzanego. 

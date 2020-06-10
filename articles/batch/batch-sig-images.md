@@ -4,12 +4,12 @@ description: Obrazy niestandardowe są wydajnym sposobem konfigurowania węzłó
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: tracking-python
-ms.openlocfilehash: bd71983a5c932b515a7d41a680a55772567694ca
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8e81d0954d391210563641531b4c572325ae946f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561255"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656597"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Tworzenie puli niestandardowej za pomocą galerii obrazów udostępnionych
 
@@ -44,6 +44,8 @@ Używanie udostępnionego obrazu skonfigurowanego dla danego scenariusza może z
 
 > [!NOTE]
 > Udostępniony obraz musi znajdować się w tej samej subskrypcji co konto usługi Batch. Obraz może znajdować się w różnych regionach, o ile ma repliki w tym samym regionie, co konto w usłudze Batch.
+
+Jeśli używasz aplikacji usługi Azure AD do tworzenia niestandardowej puli obrazów przy użyciu obrazu z galerii obrazów udostępnionych, ta aplikacja musi mieć przydzieloną [wbudowaną rolę platformy Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) , która zapewnia dostęp do udostępnionego obrazu. Ten dostęp można udzielić w Azure Portal, przechodząc do udostępnionego obrazu, wybierając pozycję **Kontrola dostępu (IAM)** i dodając przypisanie roli do aplikacji.
 
 ## <a name="prepare-a-custom-image"></a>Przygotowywanie obrazu niestandardowego
 

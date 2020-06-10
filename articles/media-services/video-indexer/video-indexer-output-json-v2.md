@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: 2fac5e07f9646c4fc0fac7b1be53b5a5ac1ea803
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e3501ea8bc327f0dd906a42702194abce18c5fd
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245930"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656585"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Sprawdzanie Video Indexer danych wyjściowych generowanych przez interfejs API
 
@@ -28,7 +28,7 @@ Gdy wywołasz interfejs API **pobierania indeksu wideo** , a stan odpowiedzi to 
 
 Możesz również wizualnie zapoznać się ze szczegółowymi informacjami na temat wideo, naciskając przycisk **odtwarzania** na filmie wideo w witrynie [Video Indexer](https://www.videoindexer.ai/) . Aby uzyskać więcej informacji, zobacz [Wyświetlanie i edytowanie wglądu w dane wideo](video-indexer-view-edit.md).
 
-![Szczegółowe informacje](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
 Ten artykuł bada zawartość JSON zwróconą przez interfejs API **pobierania indeksu wideo** . 
 
@@ -41,7 +41,7 @@ Ten artykuł bada zawartość JSON zwróconą przez interfejs API **pobierania i
 |Nazwa|Opis|
 |---|---|
 |accountId|Identyfikator konta w VI listy odtwarzania.|
-|id|Identyfikator listy odtwarzania.|
+|identyfikator|Identyfikator listy odtwarzania.|
 |name|Nazwa listy odtwarzania.|
 |description|Opis listy odtwarzania.|
 |userName|Nazwa użytkownika, który utworzył listę odtwarzania.|
@@ -81,7 +81,7 @@ W tej sekcji przedstawiono podsumowanie szczegółowych informacji.
 |Atrybut | Opis|
 |---|---|
 |name|Nazwa filmu wideo. Na przykład Azure Monitor.|
-|id|Identyfikator filmu wideo. Na przykład 63c6d532ff.|
+|identyfikator|Identyfikator filmu wideo. Na przykład 63c6d532ff.|
 |Ustawienia prywatności|Podział może mieć jeden z następujących trybów: **prywatny**, **publiczny**. **Public** — wideo jest widoczne dla wszystkich użytkowników na Twoim koncie i dla wszystkich użytkowników, którzy mają link do filmu wideo. **Prywatny** — wideo jest widoczne dla wszystkich użytkowników Twojego konta.|
 |czas trwania|Zawiera jeden okres czasu, który opisuje czas wystąpienia szczegółowych informacji. Czas trwania jest w sekundach.|
 |thumbnailVideoId|Identyfikator filmu wideo, z którego zrobiono miniaturę.
@@ -89,7 +89,7 @@ W tej sekcji przedstawiono podsumowanie szczegółowych informacji.
 |ściank|Może zawierać zero lub więcej twarzy. Aby uzyskać szczegółowe informacje, zobacz [twarze](#faces).|
 |keywords (słowa kluczowe)|Może zawierać zero lub więcej słów kluczowych. Aby uzyskać szczegółowe informacje, zobacz [słowa kluczowe](#keywords).|
 |mową|Może zawierać zero lub więcej mową. Aby uzyskać szczegółowe informacje, zobacz [mową](#sentiments).|
-|audioEffects| Może zawierać zero lub więcej audioEffects. Aby uzyskać szczegółowe informacje, zobacz [audioEffects](#audioEffects).|
+|audioEffects| Może zawierać zero lub więcej audioEffects. Aby uzyskać szczegółowe informacje, zobacz [audioEffects](#audioeffects).|
 |Etykieta| Może zawierać zero lub więcej etykiet. Aby uzyskać szczegółowe informacje, zobacz [etykiety](#labels).|
 |Marek| Może zawierać zero lub więcej marek. Aby uzyskać szczegółowe informacje, zobacz [marki](#brands).|
 |statystyki | Aby uzyskać szczegółowe informacje, zobacz [Statystyka](#statistics).|
@@ -101,7 +101,7 @@ W tej sekcji przedstawiono podsumowanie szczegółowych informacji.
 |Nazwa|Opis|
 |---|---|
 |accountId|Identyfikator konta wideo VI.|
-|id|Identyfikator wideo.|
+|identyfikator|Identyfikator wideo.|
 |name|Nazwa filmu wideo.
 |state|Stan filmu wideo (przekazany, przetwarzany, przetworzony, Niepowodzenie, poddane kwarantannie).|
 |processingProgress|Postęp przetwarzania podczas przetwarzania (na przykład 20%).|
@@ -166,7 +166,7 @@ Obiekt może mieć identyfikator, nazwę, miniaturę, inne metadane i listę wys
 |Etykieta|Szczegółowe informacje o [etykietach](#labels) .|
 |zrzutów|Informacje na temat [zrzutów](#shots) .|
 |Marek|Informacje o [marek](#brands) .|
-|audioEffects|[AudioEffects](#audioEffects) wgląd w szczegółowe dane.|
+|audioEffects|[AudioEffects](#audioeffects) wgląd w szczegółowe dane.|
 |mową|[Mową](#sentiments) wgląd w szczegółowe dane.|
 |visualContentModeration|[VisualContentModeration](#visualcontentmoderation) wgląd w szczegółowe dane.|
 |textualContentModeration|[TextualContentModeration](#textualcontentmoderation) wgląd w szczegółowe dane.|
@@ -198,14 +198,14 @@ Przykład:
 
 Atrybut | Opis
 ---|---
-id|Identyfikator bloku.|
+identyfikator|Identyfikator bloku.|
 Liczba|Lista zakresów czasu tego bloku.|
 
 #### <a name="transcript"></a>zapisy
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator wiersza.|
+|identyfikator|Identyfikator wiersza.|
 |tekst|Samego transkrypcji.|
 |language|Język transkrypcji. Przeznaczone do obsługi transkrypcji, w których każdy wiersz może mieć inny język.|
 |Liczba|Lista przedziałów czasu, w których pojawił się ten wiersz. Jeśli wystąpienie jest transkrypcją, będzie miało tylko 1 wystąpienie.|
@@ -243,7 +243,7 @@ Przykład:
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator wiersza OCR.|
+|identyfikator|Identyfikator wiersza OCR.|
 |tekst|Tekst OCR.|
 |ufność|Wiarygodność rozpoznawania.|
 |language|Język OCR.|
@@ -278,7 +278,7 @@ Przykład:
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator słowa kluczowego.|
+|identyfikator|Identyfikator słowa kluczowego.|
 |tekst|Tekst słowa kluczowego.|
 |ufność|Wiarygodność rozpoznawania słowa kluczowego.|
 |language|Język słowa kluczowego (w przypadku tłumaczenia).|
@@ -309,7 +309,7 @@ Przykład:
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator kroju.|
+|identyfikator|Identyfikator kroju.|
 |name|Nazwa kroju. Może to być "nieznany #0, zidentyfikowanej osobistości lub osoby przeszkolonej przez klienta.|
 |ufność|Niepewność identyfikacji kroju.|
 |description|Opis osobistości. |
@@ -317,7 +317,7 @@ Przykład:
 |knownPersonId|Jeśli jest to znana osoba, jej identyfikator wewnętrzny.|
 |referenceId|Jeśli jest to osobistości Bing, jego identyfikator Bing.|
 |referenceType|Obecnie tylko Bing.|
-|title|Jeśli jest to osobistości, jego tytuł (na przykład "dyrektor naczelny firmy Microsoft").|
+|tytuł|Jeśli jest to osobistości, jego tytuł (na przykład "dyrektor naczelny firmy Microsoft").|
 |imageUrl|Jeśli jest to osobistości, jego adres URL obrazu.|
 |Liczba|Są to wystąpienia, w których pojawiły się powierzchnie w danym przedziale czasu. Każde wystąpienie ma również thumbnailsId. |
 
@@ -354,7 +354,7 @@ Przykład:
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator etykiety.|
+|identyfikator|Identyfikator etykiety.|
 |name|Nazwa etykiety (na przykład "Computer", "TV").|
 |language|Nazwa etykiety językowej (po translacji). BCP-47|
 |Liczba|Lista przedziałów czasu, w których pojawiła się Ta etykieta (etykieta może być wyświetlana wiele razy). Każde wystąpienie ma pole zaufania. |
@@ -413,7 +413,7 @@ Przykład:
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator sceny.|
+|identyfikator|Identyfikator sceny.|
 |Liczba|Lista zakresów czasu tej sceny (scena może mieć tylko 1 wystąpienie).|
 
 ```json
@@ -446,7 +446,7 @@ Przykład:
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator zrzutu.|
+|identyfikator|Identyfikator zrzutu.|
 |Ramki kluczowe|Lista klatek kluczowych w zrzucie (każdy ma identyfikator i listę zakresów czasu wystąpienia). Każde wystąpienie z klatką kluczową ma pole thumbnailId, które zawiera identyfikator miniatury klatki kluczowej.|
 |Liczba|Lista zakresów czasu tego zrzutu (zrzut może mieć tylko 1 wystąpienie).|
 
@@ -496,10 +496,10 @@ Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR 
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator marki.|
+|identyfikator|Identyfikator marki.|
 |name|Nazwa marki.|
-|referenceId | Sufiks adresu URL witryny Wikipedia. Na przykład "Target_Corporation" jest sufiksem [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|referenceUrl | Adres URL witryny Wikipedia marki, jeśli istnieje. Na przykład [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceId | Sufiks adresu URL witryny Wikipedia. Na przykład "Target_Corporation" jest sufiksem [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
+|referenceUrl | Adres URL witryny Wikipedia marki, jeśli istnieje. Na przykład [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
 |description|Opis marek.|
 |tags|Lista wstępnie zdefiniowanych tagów, które zostały skojarzone z tą marką.|
 |ufność|Wartość ufności detektora Video Indexer marką (0-1).|
@@ -561,12 +561,12 @@ Nazwy firmowe i towarowe wykryte w zamiany mowy na tekst transkrypcji i/lub OCR 
 |SpeakerLongestMonolog|Najdłuższa monologa. Jeśli prelegent znajduje się w monolog, jest on uwzględniony. Wyciszenie na początku i na końcu monolog zostaje usunięte.| 
 |SpeakerTalkToListenRatio|Obliczenia opierają się na czasie poświęcanym na monolog osoby mówiącej (bez wyciszenia między nimi) podzieloną przez łączny czas wideo. Czas jest zaokrąglany do trzeciego punktu dziesiętnego.|
 
-#### <a name="audioeffects"></a><a id="audioEffects"/>audioEffects
+#### <a name="audioeffects"></a>audioEffects
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator efektu audio.|
-|type|Typ efektu audio (na przykład Clapping, Speech, cisz).|
+|identyfikator|Identyfikator efektu audio.|
+|typ|Typ efektu audio (na przykład Clapping, Speech, cisz).|
 |Liczba|Lista przedziałów czasu, w których pojawił się ten efekt audio.|
 
 ```json
@@ -594,7 +594,7 @@ Mową są agregowane według pola sentimentType (pozytywna/neutralna/ujemna). Na
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator tonacji.|
+|identyfikator|Identyfikator tonacji.|
 |averageScore |Średnia wszystkich ocen wszystkich wystąpień tego typu tonacji — wartość dodatnia/neutralna/ujemna|
 |Liczba|Lista przedziałów czasu, w których wystąpiła ta tonacji.|
 |sentimentType |Typem może być "dodatnia", "neutralna" lub "ujemna".|
@@ -633,7 +633,7 @@ Filmy wideo, które mają zawierać zawartość dla dorosłych lub erotycznej, m
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator moderowania zawartości wizualnej.|
+|identyfikator|Identyfikator moderowania zawartości wizualnej.|
 |adultScore|Wynik dla dorosłych (z usługi Content moderator).|
 |racyScore|Wynik erotycznej (z moderowaniem zawartości).|
 |Liczba|Lista przedziałów czasu, w których pojawiło się to moderowanie zawartości wizualnej.|
@@ -669,7 +669,7 @@ Filmy wideo, które mają zawierać zawartość dla dorosłych lub erotycznej, m
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator moderowania zawartości tekstowej.|
+|identyfikator|Identyfikator moderowania zawartości tekstowej.|
 |bannedWordsCount |Liczba zabronionych wyrazów.|
 |bannedWordsRatio |Stosunek całkowitej liczby wyrazów.|
 
@@ -679,8 +679,8 @@ Video Indexer identyfikuje emocji na podstawie podpowiedzi i sygnałów dźwięk
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator rozpoznawania emocji.|
-|type|Rozpoznawania emocji, która została zidentyfikowana na podstawie wskazówek dotyczących mowy i audio. Rozpoznawania emocji może być: radości, smutek, gniew lub obaw.|
+|identyfikator|Identyfikator rozpoznawania emocji.|
+|typ|Rozpoznawania emocji, która została zidentyfikowana na podstawie wskazówek dotyczących mowy i audio. Rozpoznawania emocji może być: radości, smutek, gniew lub obaw.|
 |Liczba|Lista przedziałów czasu, w których wystąpiła ta rozpoznawania emocji.|
 
 ```json
@@ -769,7 +769,7 @@ Video Indexer wykonuje wnioskowanie głównych tematów z transkrypcji. Gdy jest
 
 |Nazwa|Opis|
 |---|---|
-|id|Identyfikator tematu.|
+|identyfikator|Identyfikator tematu.|
 |name|Nazwa tematu, na przykład: "środki farmaceutyczne".|
 |referenceId|Struktura nawigacyjna odzwierciedla hierarchię tematów. Na przykład: "kondycja i samopoczucie/medycyna, opieka medyczna/środki farmaceutyczne".|
 |ufność|Wynik pewności z zakresu [0, 1]. Wyższy poziom.|

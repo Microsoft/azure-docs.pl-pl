@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: b149757ccfc41587aa3ea6c5d18717fdecaba656
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734924"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656651"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Dostęp do zasobów platformy Azure Virtual Network z Azure Logic Apps przy użyciu środowisk usługi integracji (ISEs)
 
-Czasami Aplikacje logiki muszą mieć dostęp do zabezpieczonych zasobów, takich jak maszyny wirtualne i inne systemy i usługi, które znajdują się w [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). Aby skonfigurować ten dostęp, można [utworzyć *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). ISE jest izolowanym wystąpieniem usługi Logic Apps, która używa dedykowanych zasobów i jest uruchamiana niezależnie od "globalnej" usługi Logic Apps z wieloma dzierżawami.
+Czasami Aplikacje logiki muszą mieć dostęp do zabezpieczonych zasobów, takich jak maszyny wirtualne i inne systemy i usługi, które znajdują się w [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md). Aby skonfigurować ten dostęp, można [utworzyć *środowisko usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). ISE to dedykowane wystąpienie usługi Logic Apps, która używa dedykowanych zasobów i jest uruchamiane niezależnie od "globalnej" usługi Logic Apps z wieloma dzierżawami.
 
-Uruchamianie aplikacji logiki we własnym osobnym wystąpieniu izolowanym pozwala zmniejszyć wpływ innych dzierżawców platformy Azure na wydajność aplikacji, nazywanych również [efektem "sąsiedzi](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)". ISE zapewnia również następujące korzyści:
+Uruchamianie aplikacji logiki w osobnym dedykowanym wystąpieniu pozwala ograniczyć wpływ innych dzierżawców platformy Azure na wydajność aplikacji, nazywanych również [efektem "sąsiedzi](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)". ISE zapewnia również następujące korzyści:
 
 * Własne statyczne adresy IP, które są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w usłudze wielu dzierżawców. W celu komunikowania się z systemami docelowymi można także skonfigurować jeden publiczny, statyczny i przewidywalny wychodzący adres IP. Dzięki temu nie trzeba konfigurować dodatkowych otwartych zapór w tych systemach docelowych dla każdego ISEu.
 
@@ -38,7 +38,7 @@ Aplikacje logiki mogą uzyskać dostęp do zasobów, które znajdują się w sie
 
 Nadal można także używać łączników, które nie mają etykiety **Core** ani **ISE** z aplikacjami logiki w ISE. Te łączniki działają w ramach usługi Logic Apps z wieloma dzierżawcami. Aby uzyskać więcej informacji, zobacz następujące sekcje:
 
-* [Izolowane względem wielu dzierżawców](#difference)
+* [Dedykowane w przypadku wielu dzierżawców](#difference)
 * [Nawiązywanie połączenia ze środowiskiem usługi integracji](../connectors/apis-list.md#integration-service-environment)
 * [Łączniki ISE](../connectors/apis-list.md#ise-connectors)
 
@@ -49,7 +49,7 @@ W tym omówieniu opisano więcej informacji o tym, jak usługa ISE umożliwia ap
 
 <a name="difference"></a>
 
-## <a name="isolated-versus-multi-tenant"></a>Izolowane względem wielu dzierżawców
+## <a name="dedicated-versus-multi-tenant"></a>Dedykowane w przypadku wielu dzierżawców
 
 Podczas tworzenia i uruchamiania aplikacji logiki w ISE można korzystać z tych samych środowisk użytkownika i podobnych funkcji, co usługa Logic Apps wielodostępna. Można użyć wszystkich wbudowanych wyzwalaczy, akcji i łączników zarządzanych, które są dostępne w usłudze Logic Apps wielodostępnej. Niektóre zarządzane łączniki oferują dodatkowe wersje ISE. Różnica między łącznikami ISE i łącznikami innymi niż ISE istnieją w miejscu, w którym są uruchamiane, oraz etykietami, które znajdują się w Projektancie aplikacji logiki, gdy Pracujesz w ISE.
 

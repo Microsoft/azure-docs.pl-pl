@@ -2,13 +2,13 @@
 title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awarii w Azure Site Recovery
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 06/03/2020
-ms.openlocfilehash: b9f7deb16269aac94f5363a1588b2e1ed4ee9206
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.date: 06/10/2020
+ms.openlocfilehash: a5348379979b14f321cbe4f32d6107fdfe7a4639
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488602"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661077"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -19,17 +19,17 @@ W tym artykule opisano obsługiwane składniki i ustawienia odzyskiwania po awar
 
 ## <a name="deployment-scenarios"></a>Scenariusze wdrażania
 
-**Scenariusz** | **Uzyskać**
+**Scenariusz** | **Szczegóły**
 --- | ---
 Odzyskiwanie po awarii maszyn wirtualnych VMware | Replikacja lokalnych maszyn wirtualnych programu VMware na platformę Azure. Ten scenariusz można wdrożyć w Azure Portal lub przy użyciu [programu PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Odzyskiwanie po awarii serwerów fizycznych | Replikacja lokalnych serwerów z systemem Windows/Linux do platformy Azure. Ten scenariusz można wdrożyć w Azure Portal.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokalne serwery wirtualizacji
 
-**Serwer** | **Wymagania** | **Uzyskać**
+**Serwer** | **Wymagania** | **Szczegóły**
 --- | --- | ---
-Program vCenter Server | Wersja 6,7, 6,5, 6,0 lub 5,5 | Zalecamy używanie serwera vCenter w ramach wdrożenia odzyskiwania po awarii.
-hosty vSphere | Wersja 6,7, 6,5, 6,0 lub 5,5 | Zalecamy, aby hosty vSphere i serwery vCenter znajdowały się w tej samej sieci co serwer przetwarzania. Domyślnie serwer przetwarzania jest uruchamiany na serwerze konfiguracji. [Dowiedz się więcej](vmware-physical-azure-config-process-server-overview.md).
+Program vCenter Server | Wersja 7,0, 6,7, 6,5, 6,0 lub 5,5 | Zalecamy używanie serwera vCenter w ramach wdrożenia odzyskiwania po awarii.
+hosty vSphere | Wersja 7,0, 6,7, 6,5, 6,0 lub 5,5 | Zalecamy, aby hosty vSphere i serwery vCenter znajdowały się w tej samej sieci co serwer przetwarzania. Domyślnie serwer przetwarzania jest uruchamiany na serwerze konfiguracji. [Dowiedz się więcej](vmware-physical-azure-config-process-server-overview.md).
 
 
 ## <a name="site-recovery-configuration-server"></a>Serwer konfiguracji Site Recovery
@@ -63,7 +63,7 @@ Site Recovery obsługuje replikację wszystkich obciążeń uruchomionych na obs
 > [!Note]
 > W poniższej tabeli przedstawiono obsługę maszyn z rozruchem systemu BIOS. Zapoznaj się z sekcją [Magazyn](#storage) , aby uzyskać pomoc techniczną dotyczącą komputerów z interfejsem UEFI.
 
-**Składnik** | **Uzyskać**
+**Składnik** | **Szczegóły**
 --- | ---
 Ustawienia maszyny | Maszyny, które są replikowane na platformę Azure, muszą spełniać [wymagania dotyczące platformy Azure](#azure-vm-requirements).
 Obciążenie maszyny | Site Recovery obsługuje replikację wszystkich obciążeń uruchomionych na obsługiwanej maszynie. [Dowiedz się więcej](https://aka.ms/asr_workload).
@@ -154,7 +154,7 @@ BTRFS | BTRFS jest obsługiwana z [pakietu zbiorczego aktualizacji 34](https://s
 
 ## <a name="vmdisk-management"></a>Zarządzanie MASZYNami wirtualnymi/dyskami
 
-**Akcja** | **Uzyskać**
+**Akcja** | **Szczegóły**
 --- | ---
 Zmień rozmiar dysku na zreplikowanej maszynie wirtualnej | Obsługiwane przez źródłową maszynę wirtualną przed przełączeniem w tryb failover bezpośrednio we właściwościach maszyny wirtualnej. Nie trzeba wyłączać/ponownie włączać replikacji.<br/><br/> Zmiana źródłowej maszyny wirtualnej po przejściu do trybu failover powoduje, że zmiany nie będą przechwytywane.<br/><br/> W przypadku zmiany rozmiaru dysku maszyny wirtualnej platformy Azure po przejściu w tryb failover program Site Recovery tworzy nową maszynę wirtualną z aktualizacjami.
 Dodawanie dysku do zreplikowanej maszyny wirtualnej | Nieobsługiwane.<br/> Wyłącz replikację dla maszyny wirtualnej, Dodaj dysk, a następnie ponownie Włącz replikację.
@@ -179,15 +179,15 @@ Sieć gościa/serwer z wieloma kartami sieciowymi | Tak.
 
 **Składnik** | **Obsługiwał**
 --- | ---
-Azure ExpressRoute | Yes
-ILB | Yes
-ELB | Yes
-Azure Traffic Manager | Yes
-Wiele kart sieciowych | Yes
-Adres Zastrzeżony adres IP | Yes
-Protokół IPv4 | Yes
-Zachowaj źródłowy adres IP | Yes
-Punkty końcowe usługi dla sieci wirtualnej platformy Azure<br/> | Yes
+Azure ExpressRoute | Tak
+ILB | Tak
+ELB | Tak
+Azure Traffic Manager | Tak
+Wiele kart sieciowych | Tak
+Adres Zastrzeżony adres IP | Tak
+Protokół IPv4 | Tak
+Zachowaj źródłowy adres IP | Tak
+Punkty końcowe usługi dla sieci wirtualnej platformy Azure<br/> | Tak
 Wydajniejsze sieci | Nie
 
 ## <a name="storage"></a>Magazyn
@@ -196,25 +196,25 @@ Wydajniejsze sieci | Nie
 Dysk dynamiczny | Dysk systemu operacyjnego musi być dyskiem podstawowym. <br/><br/>Dyski danych mogą być dyskami dynamicznymi
 Konfiguracja dysku platformy Docker | Nie
 System plików NFS hosta | Tak dla oprogramowania VMware<br/><br/> Nie dla serwerów fizycznych
-Sieć SAN hosta (iSCSI/FC) | Yes
+Sieć SAN hosta (iSCSI/FC) | Tak
 Sieci vSAN hosta | Tak dla oprogramowania VMware<br/><br/> N/A dla serwerów fizycznych
 Wielościeżkowa hosta (MPIO) | Tak, przetestowano przy użyciu modułu Microsoft DSM, EMC PowerPath 5,7 SP4, EMC PowerPath DSM dla CLARiiON
 Woluminy wirtualne hosta (VVols) | Tak dla oprogramowania VMware<br/><br/> N/A dla serwerów fizycznych
-Gość/serwer VMDK | Yes
+Gość/serwer VMDK | Tak
 Udostępniony dysk klastra gościa/serwera | Nie
 Dysk szyfrowany gościa/serwera | Nie
 System plików NFS gościa/serwera | Nie
 Interfejs iSCSI gościa/serwera | Dla migracji — tak<br/>W przypadku odzyskiwania po awarii — nie, iSCSI spowoduje powrót po awarii jako dołączony dysk do maszyny wirtualnej
 Gość/serwer SMB 3,0 | Nie
-RDM gościa/serwera | Yes<br/><br/> N/A dla serwerów fizycznych
+RDM gościa/serwera | Tak<br/><br/> N/A dla serwerów fizycznych
 Dysk gościa/serwer > 1 TB | Tak, dysk musi być większy niż 1024 MB<br/><br/>Do 8 192 GB podczas replikowania na dyski zarządzane (wersja 9,26)<br></br> Do 4 095 GB podczas replikowania na konta magazynu
 Dysk gościa/serwer z rozmiarem sektora fizycznego i 4 KB w kilobajtach | Nie
 Dysk gościa/serwer z logicznymi i 512mi 4K rozmiar sektora fizycznego | Nie
-Wolumin gościa/serwer z dyskiem rozłożonym >4 TB | Yes
+Wolumin gościa/serwer z dyskiem rozłożonym >4 TB | Tak
 Zarządzanie woluminami logicznymi (LVM)| Obsługa szerokiej alokacji — tak <br></br> Alokowanie elastyczne — nie
 Gość/serwer — miejsca do magazynowania | Nie
 Gość/serwer gorąca Dodaj/Usuń dysk | Nie
-Gość/serwer — wykluczanie dysku | Yes
+Gość/serwer — wykluczanie dysku | Tak
 Wielościeżkowa gość/serwer (MPIO) | Nie
 Partycje typu GPT/serwer | Z [pakietem zbiorczym aktualizacji 37](https://support.microsoft.com/help/4508614/) są obsługiwane pięć partycji (wersja 9,25 usługi mobilności). Cztery dawniej były obsługiwane.
 ReFS | System plików jest odporny na błędy w wersji 9,23 lub nowszej
@@ -232,15 +232,15 @@ Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla systemu Windows Server 2012 l
 
 **Składnik** | **Obsługiwał**
 --- | ---
-Magazyn lokalnie nadmiarowy | Yes
-Magazyn geograficznie nadmiarowy | Yes
-Magazyn geograficznie nadmiarowy dostępny do odczytu | Yes
+Magazyn lokalnie nadmiarowy | Tak
+Magazyn geograficznie nadmiarowy | Tak
+Magazyn geograficznie nadmiarowy dostępny do odczytu | Tak
 Chłodny magazyn | Nie
 Magazyn gorąca| Nie
 Blokowe obiekty blob | Nie
-Szyfrowanie — w spoczynku (SSE)| Yes
+Szyfrowanie — w spoczynku (SSE)| Tak
 Szyfrowanie na poziomie spoczynku (CMK)| Tak (za pośrednictwem programu PowerShell AZ 3.3.0 module lub nowszym)
-Premium Storage | Yes
+Premium Storage | Tak
 Usługa importu/eksportu | Nie
 Zapory usługi Azure Storage dla sieci wirtualnych | Tak.<br/> Skonfigurowane na docelowym koncie magazynu/pamięci podręcznej (używane do przechowywania danych replikacji).
 Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwy gorąca i chłodna) | Tak (koszt transakcji jest znacznie wyższy dla wersji 2 w porównaniu do v1)
@@ -249,16 +249,16 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwy gorąca i chłodna) |
 
 **Funkcja** | **Obsługiwał**
 --- | ---
-Zestawy dostępności | Yes
+Zestawy dostępności | Tak
 Strefy dostępności | Nie
-Centralny | Yes
-Dyski zarządzane | Yes
+Centralny | Tak
+Dyski zarządzane | Tak
 
 ## <a name="azure-vm-requirements"></a>Wymagania dotyczące maszyny wirtualnej platformy Azure
 
 Lokalne maszyny wirtualne replikowane na platformę Azure muszą spełniać wymagania dotyczące maszyny wirtualnej platformy Azure podsumowane w tej tabeli. Gdy Site Recovery uruchamia sprawdzanie wymagań wstępnych dotyczących replikacji, sprawdzenie zakończy się niepowodzeniem, jeśli niektóre wymagania nie zostaną spełnione.
 
-**Składnik** | **Wymagania** | **Uzyskać**
+**Składnik** | **Wymagania** | **Szczegóły**
 --- | --- | ---
 System operacyjny gościa | Sprawdź [obsługiwane systemy operacyjne](#replicated-machines) dla replikowanych maszyn. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Architektura systemu operacyjnego gościa | 64-bitowa. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
@@ -314,7 +314,7 @@ Przenoszenie magazynu, sieci, maszyn wirtualnych platformy Azure w ramach i mię
 
 ## <a name="obtain-latest-components"></a>Uzyskaj najnowsze składniki
 
-**Nazwa** | **Opis** | **Uzyskać**
+**Nazwa** | **Opis** | **Szczegóły**
 --- | --- | ---
 Serwer konfiguracji | Zainstalowany lokalnie.<br/> Koordynuje komunikację między lokalnymi serwerami VMware lub maszynami fizycznymi i platformą Azure. | - [Dowiedz się więcej o](vmware-physical-azure-config-process-server-overview.md) serwerze konfiguracji.<br/> - [Dowiedz się więcej o](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) uaktualnianiu do najnowszej wersji.<br/> - [Dowiedz się więcej na temat](vmware-azure-deploy-configuration-server.md) konfigurowania serwera konfiguracji.
 Serwer przetwarzania | Domyślnie instalowany na serwerze konfiguracji.<br/> Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do platformy Azure.<br/> Wraz z rozwojem wdrożenia można dodać kolejne serwery przetwarzania do obsługi większych woluminów ruchu związanego z replikacją. | - [Dowiedz się więcej o](vmware-physical-azure-config-process-server-overview.md) serwerze przetwarzania.<br/> - [Dowiedz się więcej o](vmware-azure-manage-process-server.md#upgrade-a-process-server) uaktualnianiu do najnowszej wersji.<br/> - [Dowiedz się więcej o](vmware-physical-large-deployment.md#set-up-a-process-server) konfigurowaniu serwerów przetwarzania skalowalnego w poziomie.

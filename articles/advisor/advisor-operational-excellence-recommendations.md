@@ -3,12 +3,12 @@ title: Ulepszanie operacyjnego Excellency dla subskrypcji platformy Azure za pom
 description: Użyj usługi Advisor, aby zoptymalizować i uzyskać dojrzałość operacyjną dla subskrypcji platformy Azure
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 4133fbe40c0fc1bdaf9c3f734bc19f94437c9acb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 861b12c2267ffa89985ff11357de92da5a4ac870
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187420"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658451"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Osiągaj doskonałości operacyjnej dzięki Azure Advisor
 
@@ -18,6 +18,7 @@ Azure Advisor zalecenia dotyczące doskonałości operacyjnej pomagają klientom
 
 Zalecamy skonfigurowanie alertów Azure Service Health, aby otrzymywać powiadomienia o problemach z usługą platformy Azure. [Azure Service Health](https://azure.microsoft.com/features/service-health/) to bezpłatna usługa, która zapewnia spersonalizowane wskazówki i pomoc techniczną, gdy ma to wpływ na problem z usługą platformy Azure. Klasyfikator identyfikuje subskrypcje, dla których nie skonfigurowano alertów i zaleca ich utworzenie.
 
+
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Zaprojektuj konta magazynu, aby zapobiec osiągnięciu maksymalnego limitu subskrypcji
 
 Region świadczenia usługi Azure może obsłużyć maksymalnie 250 kont magazynu na subskrypcję. Po osiągnięciu limitu nie będzie można utworzyć więcej kont magazynu w ramach tej kombinacji regionu/subskrypcji. Doradca sprawdzi Twoje subskrypcje i zalecenia dotyczące powierzchni, aby zaprojektować mniejszą liczbę kont magazynu dla dowolnego miejsca, które zbliżają się do maksymalnego limitu.
@@ -25,6 +26,10 @@ Region świadczenia usługi Azure może obsłużyć maksymalnie 250 kont magazyn
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Upewnij się, że masz dostęp do ekspertów w chmurze platformy Azure, gdy ich potrzebujesz
 
 W przypadku wykonywania obciążeń o krytycznym znaczeniu dla firmy ważne jest, aby mieć dostęp do pomocy technicznej w razie potrzeby. Doradca identyfikuje potencjalne subskrypcje o krytycznym znaczeniu dla firmy, które nie mają wsparcia technicznego zawartego w planie pomocy technicznej i zalecają uaktualnienie do opcji, która obejmuje pomoc techniczną.
+
+## <a name="delete-and-recreate-your-pool-to-remove-a-deprecated-internal-component"></a>Usuwanie i ponowne tworzenie puli w celu usunięcia przestarzałego składnika wewnętrznego
+
+Pula używa przestarzałego składnika wewnętrznego. Usuń i utwórz ponownie pulę, aby zwiększyć stabilność i wydajność.
 
 ## <a name="repair-invalid-log-alert-rules"></a>Napraw nieprawidłowe reguły alertów dziennika
 

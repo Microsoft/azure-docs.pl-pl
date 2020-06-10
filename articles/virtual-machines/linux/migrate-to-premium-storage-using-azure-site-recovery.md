@@ -3,16 +3,16 @@ title: Migrowanie maszyn wirtualnych z systemem Linux do usługi Azure Premium S
 description: Przeprowadź migrację istniejących maszyn wirtualnych do usługi Azure Premium Storage przy użyciu Site Recovery. Premium Storage oferuje wysoką wydajność, obsługę dysków o niskich opóźnieniach dla obciążeń intensywnie korzystających z operacji we/wy działających na platformie Azure Virtual Machines.
 author: luywang
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 03e26c344284541116a5b98bc330804b71a64e28
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 734d4f9e3c9832d08b61d98c9f9c8fe860998135
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833779"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660201"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrowanie do Premium Storage przy użyciu Azure Site Recovery
 
@@ -215,8 +215,8 @@ Aby zapoznać się z określonymi scenariuszami migrowania maszyn wirtualnych, z
 
 Zobacz też następujące zasoby, aby dowiedzieć się więcej na temat usługi Azure Storage i platformy Azure Virtual Machines:
 
-* [Usługa Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
-* [Virtual Machines platformy Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Wybieranie typu dysku dla maszyn wirtualnych IaaS](disks-types.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png

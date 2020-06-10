@@ -3,12 +3,12 @@ title: Konfigurowanie analizy zależności bez agentów w ocenie serwera Azure M
 description: Skonfiguruj analizę zależności bez agenta w ocenie serwera Azure Migrate.
 ms.topic: how-to
 ms.date: 2/24/2020
-ms.openlocfilehash: 3259c861b0e64b560eb2a17a832a02b87855bebf
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 68c95c74768f9d9628f92b061754c942b080565c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449196"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659987"
 ---
 # <a name="set-up-agentless-dependency-visualization"></a>Konfigurowanie wizualizacji zależności bez agenta 
 
@@ -103,8 +103,7 @@ Możesz wizualizować zależności na sześć godzin po rozpoczęciu odnajdywani
 
 Dane zależności są eksportowane i pobierane w formacie CSV. Pobrany plik zawiera dane zależności między wszystkimi maszynami, na których włączono obsługę analizy zależności. 
 
-    ![Export dependencies](./media/how-to-create-group-machine-dependencies-agentless/export.png)
-
+![Eksportuj zależności](./media/how-to-create-group-machine-dependencies-agentless/export.png)
 
 ## <a name="stop-dependency-discovery"></a>Zatrzymaj odnajdywanie zależności
 

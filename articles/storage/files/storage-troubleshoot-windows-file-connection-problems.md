@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 40b8616f40f2ce33332fc42ec68532e4ae0ecdb0
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 2b49598d51fb785872fccec966ac11a95ef3cede
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267821"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657733"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
 
@@ -330,7 +330,7 @@ Obecnie można rozważyć ponowne wdrożenie usługi AAD DS przy użyciu nowej n
 ### <a name="self-diagnostics-steps"></a>Kroki samodiagnostyki
 Najpierw upewnij się, że wykonano wszystkie cztery kroki, aby [włączyć Azure Files uwierzytelnianie usługi AD](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-enable).
 
-Następnie spróbuj zainstalować [udział plików platformy Azure z kluczem konta magazynu](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Jeśli instalacja nie powiodła się, Pobierz [AzFileDiagnostics. ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) , aby pomóc w sprawdzeniu, czy środowisko klienta działa, Wykryj niezgodną konfigurację klienta, która spowodowałaby wystąpienie błędu dostępu dla Azure Files, zapewni wskazówki dotyczące samoobsługowego rozwiązywania problemów oraz zbiera dane śledzenia diagnostyki.
+Następnie spróbuj zainstalować [udział plików platformy Azure z kluczem konta magazynu](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Jeśli instalacja nie powiodła się, Pobierz [AzFileDiagnostics.ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) , aby pomóc w sprawdzeniu, czy środowisko klienta działa, Wykryj niezgodną konfigurację klienta, która spowoduje niepowodzenie dostępu do Azure Files, zawiera wskazówki dotyczące samoobsługowego rozwiązywania problemów, a następnie zbiera ślady diagnostyki.
 
 Po trzecie można uruchomić polecenie cmdlet Debug-AzStorageAccountAuth w celu przeprowadzenia zestawu podstawowych sprawdzeń konfiguracji usługi AD przy użyciu zalogowanego użytkownika usługi AD. To polecenie cmdlet jest obsługiwane w [wersji AzFilesHybrid 0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Należy uruchomić to polecenie cmdlet z użytkownikiem usługi AD, który ma uprawnienia właściciela do docelowego konta magazynu.  
 ```PowerShell
@@ -345,9 +345,9 @@ Polecenie cmdlet wykonuje poniższe testy w sekwencji i zawiera wskazówki dotyc
 3. CheckADObject: Upewnij się, że zalogowany użytkownik ma prawidłową reprezentację w domenie usługi AD, z którą skojarzone jest konto magazynu
 4. CheckGetKerberosTicket: spróbuj uzyskać bilet protokołu Kerberos, aby nawiązać połączenie z kontem magazynu 
 5. CheckADObjectPasswordIsCorrect: Upewnij się, że hasło skonfigurowane na tożsamości usługi AD reprezentującej konto magazynu jest zgodne z kluczem kerb konta magazynu
-6. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD
-
-Aktywnie pracujemy nad rozszerzaniem tego polecenia cmdlet, aby zapewnić lepsze wskazówki dotyczące rozwiązywania problemów.
+6. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD. Jeśli chcesz sprawdzić, czy określony użytkownik usługi AD jest synchronizowany z usługą Azure AD, możesz określić parametry-UserName i-Domain w parametrach wejściowych.
+7. CheckAadUserHasSid: Sprawdź, czy użytkownik usługi AD Azuer ma identyfikator SID w usłudze AD, wymagaj od użytkownika wprowadzenia identyfikatora obiektu użytkownika usługi Azure AD z parametrem-ObjectId. 
+8. CheckStorageAccountDomainJoined: Sprawdź, czy w usłudze AD zarejestrowano tożsamość, aby reprezentować konto magazynu. 
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Nie można skonfigurować uprawnień na poziomie katalogu/pliku (listy ACL systemu Windows) przy użyciu Eksploratora plików systemu Windows
 

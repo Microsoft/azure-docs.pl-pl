@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: cee913e846ebfef174a3cd6383401eace89187f0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 347f9522bacc768265027f1a2070ac4605ade158
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044339"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655672"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Typy połączeń wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -31,24 +31,24 @@ Wystąpienie zarządzane Azure SQL obsługuje następujące dwa typy połączeń
 
 ## <a name="redirect-connection-type"></a>Przekieruj typ połączenia
 
-Typ połączenia przekierowania oznacza, że po nawiązaniu sesji protokołu TCP z aparatem SQL sesja klienta uzyskuje docelowy wirtualny adres IP węzła klastra wirtualnego z modułu równoważenia obciążenia. Kolejne pakiety przepływają bezpośrednio do węzła klastra wirtualnego, pomijając bramę. Na poniższym diagramie przedstawiono ten przepływ ruchu.
+W polu Typ połączenia przekierowania po ustanowieniu sesji protokołu TCP dla aparatu SQL sesja klienta uzyskuje docelowy wirtualny adres IP węzła klastra wirtualnego z modułu równoważenia obciążenia. Kolejne pakiety przepływają bezpośrednio do węzła klastra wirtualnego, pomijając bramę. Na poniższym diagramie przedstawiono ten przepływ ruchu.
 
-![redirect. png](./media/connection-types-overview/redirect.png)
+![redirect.png](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
-> Typ połączenia przekierowania obecnie działa tylko dla prywatnego punktu końcowego. Niezależnie od ustawienia typu połączenia połączenia przechodzące przez publiczny punkt końcowy byłyby za pomocą serwera proxy.
+> Typ połączenia przekierowania aktualnie działa tylko dla prywatnego punktu końcowego. Niezależnie od ustawienia typu połączenia połączenia przechodzące przez publiczny punkt końcowy byłyby za pomocą serwera proxy.
 
 ## <a name="proxy-connection-type"></a>Typ połączenia serwera proxy
 
-Typ połączenia z serwerem proxy oznacza, że sesja TCP zostaje ustanowiona przy użyciu bramy i wszystkie kolejne pakiety przepływają przez nią. Na poniższym diagramie przedstawiono ten przepływ ruchu.
+W przypadku typu połączenia serwera proxy sesja TCP zostaje ustanowiona przy użyciu bramy i wszystkie kolejne pakiety przepływają przez nią. Na poniższym diagramie przedstawiono ten przepływ ruchu.
 
-![proxy. png](./media/connection-types-overview/proxy.png)
+![proxy.png](./media/connection-types-overview/proxy.png)
 
 ## <a name="script-to-change-connection-type-settings-using-powershell"></a>Skrypt służący do zmiany ustawień typu połączenia przy użyciu programu PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Poniższy skrypt programu PowerShell przedstawia sposób zmiany typu połączenia dla wystąpienia zarządzanego SQL na `Redirect` .
+Poniższy skrypt programu PowerShell przedstawia sposób zmiany typu połączenia dla wystąpienia zarządzanego na `Redirect` .
 
 ```powershell
 Install-Module -Name Az
@@ -60,7 +60,7 @@ Connect-AzAccount
 Get-AzSubscription
 # Use your SubscriptionId in place of {subscription-id} below
 Select-AzSubscription -SubscriptionId {subscription-id}
-# Replace {rg-name} with the resource group for your SQL Managed Instance, and replace {mi-name} with the name of your SQL Managed Instance
+# Replace {rg-name} with the resource group for your managed instance, and replace {mi-name} with the name of your managed instance
 $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi = $mi | Set-AzSqlInstance -ProxyOverride "Redirect" -force
 ```

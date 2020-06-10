@@ -3,16 +3,16 @@ title: Rozszerzanie wirtualnych dysków twardych na maszynę wirtualną z system
 description: Dowiedz się, jak rozszerzyć wirtualne dyski twarde na maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: roygara
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 1295c5276f0f342323acf8d86eaaf9f785af3e9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27c9a7c2e526a33875402827e2eee2c63943e058
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78945183"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659743"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Rozszerzanie wirtualnych dysków twardych na maszynę wirtualną z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -35,7 +35,7 @@ W poniższych przykładach Zastąp przykładowe nazwy parametrów, takie jak *my
     ```
 
     > [!NOTE]
-    > Aby zwiększyć rozmiar wirtualnego dysku twardego, należy cofnąć przydział maszyny wirtualnej. Zatrzymywanie maszyny wirtualnej `az vm stop` przy użyciu programu nie powoduje zwolnienia zasobów obliczeniowych. Aby zwolnić zasoby obliczeniowe, `az vm deallocate`Użyj programu.
+    > Aby zwiększyć rozmiar wirtualnego dysku twardego, należy cofnąć przydział maszyny wirtualnej. Zatrzymywanie maszyny wirtualnej przy użyciu programu nie `az vm stop` powoduje zwolnienia zasobów obliczeniowych. Aby zwolnić zasoby obliczeniowe, użyj programu `az vm deallocate` .
 
 1. Wyświetl listę dysków zarządzanych w grupie zasobów za pomocą [AZ Disk list](/cli/azure/disk#az-disk-list). Poniższy przykład przedstawia listę dysków zarządzanych w grupie zasobów o nazwie Moja *zasobów*:
 
@@ -88,7 +88,7 @@ Aby użyć rozszerzonego dysku, rozwiń podstawową partycję i system plików.
     sudo parted /dev/sdc
     ```
 
-    Wyświetl informacje o istniejącym układzie partycji za `print`pomocą programu. Dane wyjściowe są podobne do poniższego przykładu, który pokazuje, że dysk podstawowy to 215 GB:
+    Wyświetl informacje o istniejącym układzie partycji za pomocą programu `print` . Dane wyjściowe są podobne do poniższego przykładu, który pokazuje, że dysk podstawowy to 215 GB:
 
     ```bash
     GNU Parted 3.2
@@ -105,7 +105,7 @@ Aby użyć rozszerzonego dysku, rozwiń podstawową partycję i system plików.
         1      0.00B  107GB  107GB  ext4
     ```
 
-    c. Rozwiń partycję za `resizepart`pomocą. Wprowadź numer partycji, *1*i rozmiar nowej partycji:
+    c. Rozwiń partycję za pomocą `resizepart` . Wprowadź numer partycji, *1*i rozmiar nowej partycji:
 
     ```bash
     (parted) resizepart
@@ -113,27 +113,27 @@ Aby użyć rozszerzonego dysku, rozwiń podstawową partycję i system plików.
     End?  [107GB]? 215GB
     ```
 
-    d. Aby wyjść, wprowadź `quit`.
+    d. Aby wyjść, wprowadź `quit` .
 
-1. Po zmianie rozmiaru partycji Sprawdź spójność partycji z `e2fsck`:
+1. Po zmianie rozmiaru partycji Sprawdź spójność partycji z `e2fsck` :
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-1. Zmień rozmiar systemu plików `resize2fs`przy użyciu:
+1. Zmień rozmiar systemu plików przy użyciu `resize2fs` :
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-1. Zainstaluj partycję w odpowiedniej lokalizacji, na przykład `/datadrive`:
+1. Zainstaluj partycję w odpowiedniej lokalizacji, na przykład `/datadrive` :
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Aby sprawdzić, czy rozmiar dysku danych został zmieniony, użyj `df -h`. Następujące przykładowe dane wyjściowe przedstawiają teraz 200 */dev/sdc1* GB:
+1. Aby sprawdzić, czy rozmiar dysku danych został zmieniony, użyj `df -h` . Następujące przykładowe dane wyjściowe przedstawiają teraz 200 */dev/sdc1* GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

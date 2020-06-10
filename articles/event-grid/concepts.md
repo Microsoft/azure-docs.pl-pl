@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 348d82f704b89b97e11a09b8f88e92831901b3bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1464acf2b4a620bf0e2dc91f362cc1739737176
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393458"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659176"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Pojęcia w Azure Event Grid
 
@@ -41,9 +41,9 @@ Aby uzyskać informacje na temat implementowania dowolnego z obsługiwanych źr�
 
 Temat GridY zdarzeń zawiera punkt końcowy, w którym źródło wysyła zdarzenia. Wydawca tworzy temat siatka zdarzeń i decyduje o tym, czy źródło zdarzenia wymaga jednego tematu, czy też więcej niż jednego tematu. Temat służy do zbierania powiązanych zdarzeń. Aby odpowiedzieć na określone typy zdarzeń, subskrybenci decydują, które tematy zasubskrybować.
 
-Tematy systemowe to wbudowane tematy udostępniane przez usługi platformy Azure. Tematy systemowe nie są widoczne w ramach subskrypcji platformy Azure, ponieważ wydawca jest właścicielem tematów, ale można je subskrybować. Aby zasubskrybować temat, podaj informacje o zasobie, z którego chcesz odbierać zdarzenia. Możesz subskrybować zdarzenia, dopóki masz dostęp do ich zasobu.
+Tematy systemowe to wbudowane tematy udostępniane przez usługi platformy Azure, takie jak Azure Storage, Azure Event Hubs i Azure Service Bus. Możesz tworzyć tematy systemowe w ramach subskrypcji platformy Azure i subskrybować je. Aby uzyskać więcej informacji, zobacz [Omówienie tematów systemowych](system-topics.md). 
 
-Tematy niestandardowe to tematy aplikacji i innych firm. Gdy temat niestandardowy zostanie utworzony lub zostanie przypisany do niego dostęp, będzie on widoczny w ramach subskrypcji.
+Tematy niestandardowe to tematy aplikacji i innych firm. Gdy temat niestandardowy zostanie utworzony lub zostanie przypisany do niego dostęp, będzie on widoczny w ramach subskrypcji. Aby uzyskać więcej informacji, zobacz [Tematy niestandardowe](custom-topics.md).
 
 Podczas projektowania aplikacji masz elastyczność podczas decydowania o liczbie tematów do utworzenia. W przypadku dużych rozwiązań Utwórz niestandardowy temat dla każdej kategorii powiązanych zdarzeń. Może to na przykład być aplikacja, która wysyła zdarzenia powiązane z modyfikowaniem kont użytkowników i przetwarzaniem zamówień. Istnieje małe prawdopodobieństwo, że procedura obsługi zdarzeń oczekuje obu kategorii zdarzeń. Utwórz dwa tematy niestandardowe, a procedury obsługi zdarzeń subskrybują temat, którymi są zainteresowane. W przypadku małych rozwiązań można chcieć wysłać wszystkie zdarzenia do jednego tematu. Subskrybenci zdarzeń mogą odfiltrować żądane typy zdarzeń.
 
@@ -66,7 +66,7 @@ Aby zapoznać się z przykładem ustawiania wygaśnięcia, zobacz [Subskrybuj wi
 
 ## <a name="event-handlers"></a>Procedury obsługi zdarzeń
 
-W perspektywie Event Grid program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Event Grid obsługuje kilka typów obsługi. Możesz użyć obsługiwanej usługi platformy Azure lub własnego elementu webhook jako procedury obsługi. W zależności od typu procedury obsługi Event Grid są zgodne z różnymi mechanizmami w celu zagwarantowania dostarczania zdarzenia. W przypadku obsługi zdarzeń elementu webhook protokołu HTTP zdarzenie jest ponawiane do momentu, gdy procedura obsługi zwróci `200 – OK`kod stanu. W przypadku kolejki usługi Azure Storage zdarzenia są ponawiane, dopóki usługa kolejki pomyślnie przetworzy komunikat wypchnięcie do kolejki.
+W perspektywie Event Grid program obsługi zdarzeń jest miejscem, w którym zdarzenie jest wysyłane. Procedura obsługi wykonuje kilka dalszych działań w celu przetworzenia zdarzenia. Event Grid obsługuje kilka typów obsługi. Możesz użyć obsługiwanej usługi platformy Azure lub własnego elementu webhook jako procedury obsługi. W zależności od typu procedury obsługi Event Grid są zgodne z różnymi mechanizmami w celu zagwarantowania dostarczania zdarzenia. W przypadku obsługi zdarzeń elementu webhook protokołu HTTP zdarzenie jest ponawiane do momentu, gdy procedura obsługi zwróci kod stanu `200 – OK` . W przypadku kolejki usługi Azure Storage zdarzenia są ponawiane, dopóki usługa kolejki pomyślnie przetworzy komunikat wypchnięcie do kolejki.
 
 Aby uzyskać informacje dotyczące implementowania dowolnego obsługiwanego programu obsługi Event Grid, zobacz [programy obsługi zdarzeń w programie Azure Event Grid](event-handlers.md).
 
