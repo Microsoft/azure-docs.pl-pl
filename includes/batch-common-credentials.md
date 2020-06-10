@@ -15,7 +15,7 @@ ms.locfileid: "70128062"
 
 W tym przykładzie należy podać poświadczenia dla kont usług Batch i Storage. Najprościej jest uzyskać wymagane poświadczenia w witrynie Azure Portal. (Te poświadczenia możesz również uzyskać za pomocą interfejsów API platformy Azure lub narzędzi wiersza polecenia).
 
-1. Wybierz kolejno pozycje **wszystkie usługi Usługa** > **Batch konta**, a następnie wybierz nazwę swojego konta w usłudze Batch.
+1. Wybierz kolejno pozycje **wszystkie usługi Usługa**  >  **Batch konta**, a następnie wybierz nazwę swojego konta w usłudze Batch.
 
 2. Aby wyświetlić poświadczenia w usłudze Batch, wybierz pozycję **klucze**. Skopiuj wartości z pól **Konto usługi Batch**, **Adres URL** i **Podstawowy klucz dostępu** do edytora tekstów.
 

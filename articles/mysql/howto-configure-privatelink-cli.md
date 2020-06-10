@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: db4161379c844506b3f50b162979ad6fa312e0bd
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: a9c9afc6e1730e2b370cf3b1ae32393250d83178
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485436"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84634799"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Tworzenie prywatnego linku do Azure Database for MySQL przy użyciu interfejsu wiersza polecenia i zarządzanie nim
 
@@ -91,7 +91,7 @@ az network private-endpoint create \
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
     --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMySQL/servers/$Servername" \    
-    --group-ids mysqlServer \  
+    --group-id mysqlServer \  
     --connection-name myConnection  
  ```
 
@@ -175,7 +175,7 @@ Połącz się z maszyną wirtualną *myVm* z Internetu w następujący sposób:
     | Hasło | Wprowadź hasło podane podczas tworzenia serwera MySQL. |
     ||
 
-5. Wybierz pozycję Połącz.
+5. Wybierz polecenie Połącz.
 
 6. Przeglądaj bazy danych z menu po lewej stronie.
 

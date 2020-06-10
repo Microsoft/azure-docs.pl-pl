@@ -10,18 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.openlocfilehash: 251197c456ece4fe2dbbe264219d52f3502b7492
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: ac704ff7213b08072debf9d56da10a74e8315c68
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67341721"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607039"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Korzystanie z tokenu Insights w celu uzyskania szczegółowych informacji dotyczących obrazu
 
-Interfejs API wyszukiwania wizualnego Bing zwraca informacje o udostępnionym obrazie. Obraz można udostępnić przy użyciu adresu URL obrazu, tokenu szczegółowych informacji lub przez przekazanie obrazu. Aby uzyskać informacje o tych opcjach, zobacz [co to jest interfejs API wyszukiwania wizualnego Bing?](overview.md). W tym artykule pokazano, jak używać tokenu usługi Insights. Przykłady pokazujące sposób przekazywania obrazu w celu uzyskania szczegółowych informacji można znaleźć w przewodnikach szybki start ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node. js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
+Interfejs API wyszukiwania wizualnego Bing zwraca informacje o udostępnionym obrazie. Obraz można udostępnić przy użyciu adresu URL obrazu, tokenu szczegółowych informacji lub przez przekazanie obrazu. Aby uzyskać informacje o tych opcjach, zobacz [co to jest interfejs API wyszukiwania wizualnego Bing?](overview.md). W tym artykule pokazano, jak używać tokenu usługi Insights. Przykłady pokazujące sposób przekazywania obrazu w celu uzyskania szczegółowych informacji można znaleźć w przewodnikach szybki start ([C#](quickstarts/csharp.md)  |  [Java](quickstarts/java.md)  |  [Node. js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)).
 
-W przypadku wysłania wyszukiwanie wizualne Bing tokenu lub adresu URL obrazu, poniżej przedstawiono dane formularza, które należy uwzględnić w treści wpisu. Dane formularza muszą zawierać `Content-Disposition` nagłówek i należy ustawić jego `name` parametr na wartość "knowledgeRequest". Aby uzyskać szczegółowe informacje `imageInfo` na temat obiektu, zobacz żądanie:
+W przypadku wysłania wyszukiwanie wizualne Bing tokenu lub adresu URL obrazu, poniżej przedstawiono dane formularza, które należy uwzględnić w treści wpisu. Dane formularza muszą zawierać `Content-Disposition` Nagłówek i należy ustawić jego `name` parametr na wartość "knowledgeRequest". Aby uzyskać szczegółowe informacje na temat `imageInfo` obiektu, zobacz żądanie:
 
 ```json
 {
@@ -58,7 +59,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Aby zapoznać się z przykładami korzystającymi z tokenu usługi Insights, zobacz [C#](#use-with-c) | [Java](#use-with-java) | [Node. js](#use-with-nodejs) | [Python](#use-with-python).
+Aby zapoznać się z przykładami korzystającymi z tokenu usługi Insights, zobacz [C#](#use-with-c)  |  [Java](#use-with-java)  |  [Node. js](#use-with-nodejs)  |  [Python](#use-with-python).
 
 ## <a name="use-with-c"></a>Używanie z C #
 

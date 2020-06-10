@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: c488c57f8c755bfc062dc81a242fbfbb605406e0
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 7fd8fd35ee411d929843be81a1daaa512e0b3ca1
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298571"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84611051"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -194,73 +194,25 @@ Podczas kopiowania danych z plików JSON działania kopiowania mogą automatyczn
 
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
-Typy plików JSON mogą być używane jako ujścia i źródło w przepływie danych mapowania.
+W mapowaniu przepływów danych można odczytywać i zapisywać w formacie JSON w następujących magazynach danych: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
-### <a name="creating-json-structures-in-a-derived-column"></a>Tworzenie struktur JSON w kolumnie pochodnej
+### <a name="source-properties"></a>Właściwości źródła
 
-Do przepływu danych można dodać kolumnę złożoną za pośrednictwem konstruktora wyrażeń kolumn pochodnych. W transformację kolumn pochodnych Dodaj nową kolumnę, a następnie otwórz konstruktora wyrażeń, klikając niebieską ramkę. Aby utworzyć kolumnę złożoną, można wprowadzić strukturę JSON ręcznie lub użyć środowiska użytkownika do interaktywnego dodawania podkolumn.
+Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło danych JSON. Można edytować te właściwości na karcie **Opcje źródła** .
 
-#### <a name="using-the-expression-builder-ux"></a>Korzystanie z środowiska programu Expression Builder
-
-W okienku po stronie schematu danych wyjściowych Umieść kursor nad kolumną i kliknij ikonę znaku plus. Wybierz pozycję **Dodaj podkolumnę** , aby utworzyć kolumnę typu złożonego.
-
-![Dodaj podkolumnę](media/data-flow/addsubcolumn.png "Dodaj podkolumnę")
-
-W ten sam sposób można dodać dodatkowe kolumny i podkolumny. W przypadku każdego niezłożonej pola wyrażenie może być dodane w edytorze wyrażeń z prawej strony.
-
-![Kolumna złożona](media/data-flow/complexcolumn.png "Kolumna złożona")
-
-#### <a name="entering-the-json-structure-manually"></a>Ręczne wprowadzanie struktury JSON
-
-Aby ręcznie dodać strukturę JSON, Dodaj nową kolumnę i wprowadź wyrażenie w edytorze. Wyrażenie jest zgodne z następującym formatem ogólnym:
-
-```
-@(
-    field1=0,
-    field2=@(
-        field1=0
-    )
-)
-```
-
-Jeśli to wyrażenie zostało wprowadzone dla kolumny o nazwie "complexColumn", zostanie ona zapisywana w ujścia jako następujący kod JSON:
-
-```
-{
-    "complexColumn": {
-        "field1": 0,
-        "field2": {
-            "field1": 0
-        }
-    }
-}
-```
-
-#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Przykładowy skrypt ręczny dla pełnej definicji hierarchicznej
-```
-@(
-    title=Title,
-    firstName=FirstName,
-    middleName=MiddleName,
-    lastName=LastName,
-    suffix=Suffix,
-    contactDetails=@(
-        email=EmailAddress,
-        phone=Phone
-    ),
-    address=@(
-        line1=AddressLine1,
-        line2=AddressLine2,
-        city=City,
-        state=StateProvince,
-        country=CountryRegion,
-        postCode=PostalCode
-    ),
-    ids=[
-        toString(CustomerID), toString(AddressID), rowguid
-    ]
-)
-```
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Ścieżki symboli wieloznacznych | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie | Ciąg [] | wildcardPaths |
+| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | String | partitionRootPath |
+| Lista plików | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie | `true` lub `false` | fileList |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | String | rowUrlColumn |
+| Po zakończeniu | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie | Usuń: `true` lub`false` <br> Przenieś`['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie | Znacznik czasu | modifiedAfter <br> modifiedBefore |
+| Pojedynczy dokument | Mapowanie przepływów danych odczytywanie jednego dokumentu JSON z każdego pliku | nie | `true` lub `false` | singleDocument |
+| Nazwy kolumn bez cytowania | Jeśli wybrano **nazwy kolumn bez cudzysłowów** , mapowanie przepływów danych odczytuje kolumny JSON, które nie są ujęte w cudzysłowy. | nie | `true` lub `false` |  unquotedColumnNames
+| Ma Komentarze | Zaznacz pole **ma Komentarze** , jeśli dane JSON mają komentarz w stylu C lub C++ | nie | `true` lub `false` | asComments |
+| Pojedyncze cudzysłowy | Odczytuje kolumny JSON, które nie są ujęte w cudzysłowy | nie | `true` lub `false` | singleQuoted |
+| Odwrócony ukośnik odwrotny | Wybierz **ukośnik odwrotny** , jeśli ukośniki odwrotne są używane do ucieczki znaków w danych JSON | nie | `true` lub `false` | backslashEscape |
 
 ### <a name="source-format-options"></a>Opcje formatu źródła
 
@@ -331,12 +283,87 @@ Wybierz opcję **pojedyncze cudzysłowy** , jeśli pola i wartości JSON używaj
 
 #### <a name="backslash-escaped"></a>Odwrócony ukośnik odwrotny
 
-Wybierz opcję **pojedyncze cudzysłowy** , jeśli ukośniki odwrotne są używane do ucieczki znaków w danych JSON.
+Wybierz **ukośnik odwrotny** , jeśli ukośniki odwrotne są używane do ucieczki znaków w danych JSON.
 
 ```
 { "json": "record 1" }
 { "json": "\} \" \' \\ \n \\n record 2" }
 { "json": "record 3" }
+```
+
+### <a name="sink-properties"></a>Właściwości ujścia
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia JSON. Te właściwości można edytować na karcie **Ustawienia** .
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Wyczyść folder | Jeśli folder docelowy został wyczyszczony przed zapisem | nie | `true` lub `false` | obciąć |
+| Opcja nazwy pliku | Format nazewnictwa zapisanych danych. Domyślnie jeden plik na partycję w formacie`part-#####-tid-<guid>` | nie | Wzorzec: ciąg <br> Na partycję: String [] <br> Jako dane w kolumnie: ciąg <br> Dane wyjściowe do pojedynczego pliku:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### <a name="creating-json-structures-in-a-derived-column"></a>Tworzenie struktur JSON w kolumnie pochodnej
+
+Do przepływu danych można dodać kolumnę złożoną za pośrednictwem konstruktora wyrażeń kolumn pochodnych. W transformację kolumn pochodnych Dodaj nową kolumnę, a następnie otwórz konstruktora wyrażeń, klikając niebieską ramkę. Aby utworzyć kolumnę złożoną, można wprowadzić strukturę JSON ręcznie lub użyć środowiska użytkownika do interaktywnego dodawania podkolumn.
+
+#### <a name="using-the-expression-builder-ux"></a>Korzystanie z środowiska programu Expression Builder
+
+W okienku po stronie schematu danych wyjściowych Umieść kursor nad kolumną i kliknij ikonę znaku plus. Wybierz pozycję **Dodaj podkolumnę** , aby utworzyć kolumnę typu złożonego.
+
+![Dodaj podkolumnę](media/data-flow/addsubcolumn.png "Dodaj podkolumnę")
+
+W ten sam sposób można dodać dodatkowe kolumny i podkolumny. W przypadku każdego niezłożonej pola wyrażenie może być dodane w edytorze wyrażeń z prawej strony.
+
+![Kolumna złożona](media/data-flow/complexcolumn.png "Kolumna złożona")
+
+#### <a name="entering-the-json-structure-manually"></a>Ręczne wprowadzanie struktury JSON
+
+Aby ręcznie dodać strukturę JSON, Dodaj nową kolumnę i wprowadź wyrażenie w edytorze. Wyrażenie jest zgodne z następującym formatem ogólnym:
+
+```
+@(
+    field1=0,
+    field2=@(
+        field1=0
+    )
+)
+```
+
+Jeśli to wyrażenie zostało wprowadzone dla kolumny o nazwie "complexColumn", zostanie ona zapisywana w ujścia jako następujący kod JSON:
+
+```
+{
+    "complexColumn": {
+        "field1": 0,
+        "field2": {
+            "field1": 0
+        }
+    }
+}
+```
+
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Przykładowy skrypt ręczny dla pełnej definicji hierarchicznej
+```
+@(
+    title=Title,
+    firstName=FirstName,
+    middleName=MiddleName,
+    lastName=LastName,
+    suffix=Suffix,
+    contactDetails=@(
+        email=EmailAddress,
+        phone=Phone
+    ),
+    address=@(
+        line1=AddressLine1,
+        line2=AddressLine2,
+        city=City,
+        state=StateProvince,
+        country=CountryRegion,
+        postCode=PostalCode
+    ),
+    ids=[
+        toString(CustomerID), toString(AddressID), rowguid
+    ]
+)
 ```
 
 ## <a name="next-steps"></a>Następne kroki

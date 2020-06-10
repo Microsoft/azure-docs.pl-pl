@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą usługi Azure Import/Export korzystać
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 642787e17f347bf8233e50c65d26a1661b08fcfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d448687836842835259fcf7bbad41af815dfb58
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183895"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629298"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Przepływ pracy kopii zapasowej offline w Azure Backup
 
@@ -45,7 +45,7 @@ Następujące Azure Backup funkcje lub obciążenia obsługują użycie kopii za
 ## <a name="prerequisites"></a>Wymagania wstępne
 
   > [!NOTE]
-  > Poniższe wymagania wstępne i przepływ pracy dotyczą tylko kopii zapasowych plików i folderów w trybie offline przy użyciu [najnowszego agenta Recovery Services platformy Azure](https://aka.ms/azurebackup_agent). Aby wykonywać kopie zapasowe offline dla obciążeń przy użyciu programu System Center DPM lub Azure Backup Server, zobacz [przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server](backup-azure-backup-server-import-export-.md).
+  > Poniższe wymagania wstępne i przepływ pracy dotyczą tylko kopii zapasowych plików i folderów w trybie offline przy użyciu [najnowszego agenta Recovery Services platformy Azure](https://aka.ms/azurebackup_agent). Aby wykonywać kopie zapasowe offline dla obciążeń przy użyciu programu System Center DPM lub Azure Backup Server, zobacz [przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server](backup-azure-backup-server-import-export.md).
 
 Przed rozpoczęciem przepływu pracy tworzenia kopii zapasowej offline wykonaj następujące wymagania wstępne:
 
@@ -135,8 +135,8 @@ Narzędzie *AzureOfflineBackupDiskPrep* przygotowuje dyski SATA, które są wysy
 
     | Parametr | Opis |
     | --- | --- |
-    | s:&lt;*ścieżka lokalizacji tymczasowej*&gt; |To obowiązkowe dane wejściowe są używane w celu zapewnienia ścieżki do lokalizacji tymczasowej wprowadzonej w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline". |
-    | p:&lt;*ścieżka do PublishSettingsFile*&gt; |To opcjonalne dane wejściowe są używane w celu zapewnienia ścieżki do pliku ustawień publikowania platformy Azure wprowadzonego w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline". |
+    | s: &lt; *ścieżka lokalizacji tymczasowej*&gt; |To obowiązkowe dane wejściowe są używane w celu zapewnienia ścieżki do lokalizacji tymczasowej wprowadzonej w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline". |
+    | p: &lt; *ścieżka do PublishSettingsFile*&gt; |To opcjonalne dane wejściowe są używane w celu zapewnienia ścieżki do pliku ustawień publikowania platformy Azure wprowadzonego w przepływie pracy w sekcji "Inicjowanie kopii zapasowej w trybie offline". |
 
     Po uruchomieniu polecenia Narzędzie żąda wyboru zadania importowania platformy Azure odpowiadającego dyskom, które muszą zostać przygotowane. Jeśli tylko jedno zadanie importu jest skojarzone z podaną lokalizacją przemieszczania, zobaczysz stronę podobną do tej.
 

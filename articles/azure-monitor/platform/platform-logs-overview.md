@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 89de6b3737c8a1e91832aba8f749078806b64e90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c61a7b46a2f1cc6fa518e5001d5e1905946d5e8e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77659324"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610087"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Omówienie dzienników platformy Azure
 Dzienniki platformy zapewniają szczegółowe informacje diagnostyczne i inspekcji dla zasobów platformy Azure oraz platformy platformy Azure, od których zależą. Są one generowane automatycznie, mimo że konieczne jest skonfigurowanie niektórych dzienników platformy do przechowania do co najmniej jednego miejsca docelowego, które ma zostać zachowane. Ten artykuł zawiera omówienie dzienników platformy, w tym informacje, które zapewnia i jak można je skonfigurować do zbierania i analizy.
@@ -44,11 +44,11 @@ Dostępne są różne opcje wyświetlania i analizowania różnych dzienników p
 ## <a name="destinations"></a>Miejsca docelowe
 Można wysłać dzienniki platformy do co najmniej jednego miejsca docelowego w poniższej tabeli, w zależności od wymagań dotyczących monitorowania. Skonfiguruj miejsca docelowe dla dzienników platformy, [tworząc ustawienie diagnostyczne](diagnostic-settings.md).
 
-| Element docelowy | Scenariusz | Dokumentacja |
+| Element docelowy | Scenariusz | Odwołania |
 |:---|:---|:---|:---|
-| Obszar roboczy usługi Log Analytics | Analizuj dzienniki z innymi danymi monitorowania i korzystaj z funkcji Azure Monitor, takich jak zapytania i alerty dzienników. | [Dziennik aktywności i dzienniki zasobów](resource-logs-collect-workspace.md)<br>[Dzienniki katalogów aktywności platformy Azure](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Usługa Azure Storage | Archiwizuj dzienniki na potrzeby inspekcji, analizy statycznej lub kopii zapasowej. |[Dziennik aktywności i dzienniki zasobów](archive-diagnostic-logs.md)<br>[Dzienniki katalogów aktywności platformy Azure](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Centrum zdarzeń | Przesyłanie strumieniowe dzienników do systemów rejestrowania i telemetrii innych firm.  |[Dziennik aktywności i dzienniki zasobów](resource-logs-stream-event-hubs.md)<br>[Dzienniki katalogów aktywności platformy Azure](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
+| Obszar roboczy usługi Log Analytics | Analizuj dzienniki z innymi danymi monitorowania i korzystaj z funkcji Azure Monitor, takich jak zapytania i alerty dzienników. | [Dziennik aktywności i dzienniki zasobów](resource-logs-collect-workspace.md)<br>[Dzienniki Azure Active Directory](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure Storage | Archiwizuj dzienniki na potrzeby inspekcji, analizy statycznej lub kopii zapasowej. |[Dziennik aktywności i dzienniki zasobów](archive-diagnostic-logs.md)<br>[Dzienniki Azure Active Directory](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Centrum zdarzeń | Przesyłanie strumieniowe dzienników do systemów rejestrowania i telemetrii innych firm.  |[Dziennik aktywności i dzienniki zasobów](resource-logs-stream-event-hubs.md)<br>[Dzienniki Azure Active Directory](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
 
 
 

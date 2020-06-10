@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,mvc
+ms.custom: hdinsightactive,mvc, tracking-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 963f5bd4dfdd9dda78a437bdb1111c9eec2795dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0dfdb324013a246010c12d36a50c80b4fbef503e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878446"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607095"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Samouczek: Tworzenie aplikacji Apache Spark Machine Learning w usłudze Azure HDInsight
 
@@ -33,7 +33,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="understand-the-data-set"></a>Opis zestawu danych
 
-Aplikacja używa przykładowych danych **HVAC. csv** , które są domyślnie dostępne we wszystkich klastrach. Plik znajduje się w lokalizacji `\HdiSamples\HdiSamples\SensorSampleData\hvac`. Dane dotyczą temperatury docelowej i temperatury rzeczywistej niektórych budynków, wyposażonych w instalacje grzewczo-wentylacyjne (HVAC). Kolumna **System** zawiera identyfikatory systemów, a kolumna **SystemAge** — liczbę lat użytkowania instalacji grzewczo-wentylacyjnej w danym budynku. Można przewidzieć, czy kompilacja będzie hotter czy chłodna na podstawie temperatury docelowej, danego identyfikatora systemu i wieku systemu.
+Aplikacja używa przykładowych danych **HVAC. csv** , które są domyślnie dostępne we wszystkich klastrach. Plik znajduje się w lokalizacji `\HdiSamples\HdiSamples\SensorSampleData\hvac` . Dane dotyczą temperatury docelowej i temperatury rzeczywistej niektórych budynków, wyposażonych w instalacje grzewczo-wentylacyjne (HVAC). Kolumna **System** zawiera identyfikatory systemów, a kolumna **SystemAge** — liczbę lat użytkowania instalacji grzewczo-wentylacyjnej w danym budynku. Można przewidzieć, czy kompilacja będzie hotter czy chłodna na podstawie temperatury docelowej, danego identyfikatora systemu i wieku systemu.
 
 ![Migawka danych używanych na potrzeby przykładowego uczenia maszynowego Spark](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "Migawka danych używanych na potrzeby przykładowego uczenia maszynowego Spark")
 
@@ -186,13 +186,13 @@ Ta aplikacja używa [potoku Spark ml](https://spark.apache.org/docs/2.2.0/ml-pip
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Uczenie maszynowe platformy Spark z użyciem biblioteki Anaconda scikit-learn
 
-Klastry Apache Spark w usłudze HDInsight obejmują biblioteki Anaconda. Zawierają także bibliotekę **scikit-learn** do uczenia maszynowego. W tej bibliotece znajdują się różne zestawy danych, za pomocą których można utworzyć przykładowe aplikacje bezpośrednio w notesie Jupyter. Aby zapoznać się z przykładami dotyczącymi korzystania z biblioteki [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)scikit-Dowiedz się, zobacz.
+Klastry Apache Spark w usłudze HDInsight obejmują biblioteki Anaconda. Zawierają także bibliotekę **scikit-learn** do uczenia maszynowego. W tej bibliotece znajdują się różne zestawy danych, za pomocą których można utworzyć przykładowe aplikacje bezpośrednio w notesie Jupyter. Aby zapoznać się z przykładami dotyczącymi korzystania z biblioteki scikit-Dowiedz się, zobacz [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html) .
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń klaster, który został utworzony, wykonując następujące czynności:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 1. W polu **Wyszukaj** w górnej części wpisz **HDInsight**.
 
@@ -200,7 +200,7 @@ Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń klaster, który zosta�
 
 1. Na liście wyświetlonych klastrów usługi HDInsight wybierz pozycję **...** obok klastra utworzonego w ramach tego samouczka.
 
-1. Wybierz pozycję **Usuń**. Wybierz pozycję **tak**.
+1. Wybierz pozycję **Usuń**. Wybierz pozycję **Tak**.
 
 ![Azure Portal usuwa klaster usługi HDInsight](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "Usuwanie klastra usługi HDInsight")
 

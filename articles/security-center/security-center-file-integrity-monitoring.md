@@ -13,15 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 46ff4d9c941af25fcec3a70d7a2e6da95da59f32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106699"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628290"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorowanie integralności plików w usłudze Azure Security Center
 Dowiedz się, jak skonfigurować monitorowanie integralności plików (FIM) w Azure Security Center przy użyciu tego przewodnika.
+
+
+## <a name="availability"></a>Dostępność
+
+- Stan wydania: **ogólnie dostępny**
+- Wymagane role: **właściciel obszaru roboczego** może włączyć/wyłączyć program FIM (Aby uzyskać więcej informacji, zobacz [role platformy Azure dla log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)). **Czytelnik** może wyświetlać wyniki.
+- Połączeń
+    - ✔ Chmury komercyjne
+    - ✔ US Gov Cloud
+    - ✘ Chiny gov/inne gov
+
 
 ## <a name="what-is-fim-in-security-center"></a>Co to jest FIM w Security Center?
 Monitorowanie integralności plików (FIM), znane także jako monitorowanie zmian, bada pliki i rejestry systemu operacyjnego, oprogramowania aplikacji i innych osób, które mogą wskazywać na atak. Metoda porównania służy do określenia, czy bieżący stan pliku różni się od ostatniego skanowania pliku. Możesz użyć tego porównania, aby określić, czy w plikach wprowadzono prawidłowe lub podejrzane modyfikacje.
@@ -37,7 +48,7 @@ Security Center zalecamy monitorowanie jednostek, które można łatwo włączy�
 > [!NOTE]
 > Funkcja monitorowania integralności plików działa w przypadku komputerów z systemem Windows i Linux oraz maszyn wirtualnych i jest dostępna w warstwie Standardowa Security Center. Zobacz [cennik](security-center-pricing.md), aby dowiedzieć się więcej na temat warstw cenowych usługi Security Center. KOD FIM przekazuje dane do obszaru roboczego Log Analytics. Opłaty za dane są stosowane w oparciu o ilość przekazywanych danych. Aby dowiedzieć się więcej, zobacz [cennik log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) .
 
-Usługa FIM używa rozwiązania Change Tracking platformy Azure do śledzenia i identyfikowania zmian w środowisku. Po włączeniu monitorowania integralności plików istnieje zasób **Change Tracking** typu **rozwiązanie**. Aby uzyskać szczegółowe informacje o częstotliwości zbierania danych, zobacz [Change Tracking szczegóły zbierania danych](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) dla Change Tracking platformy Azure.
+Usługa FIM używa rozwiązania Change Tracking platformy Azure do śledzenia i identyfikowania zmian w środowisku. Po włączeniu monitorowania integralności plików istnieje zasób **Change Tracking** typu **rozwiązanie**. Aby uzyskać szczegółowe informacje o częstotliwości zbierania danych, zobacz [Szczegółowe informacje dotyczące zbierania danych przez usługę Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) dla usługi Azure Change Tracking.
 
 > [!NOTE]
 > W przypadku usunięcia zasobu **Change Tracking** należy również wyłączyć funkcję monitorowania integralności plików w programie Security Center.
@@ -49,8 +60,8 @@ Security Center zawiera poniższą listę zalecanych elementów do monitorowania
 
 |**Pliki systemu Linux**|**Pliki systemu Windows**|**Klucze rejestru systemu Windows**|
 |:----|:----|:----|
-|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
-|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/bin/login|C:\autoexec.bat|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/bin/passwd|C:\boot.ini|HKLM\SOFTWARE\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4B59-4E08-B724-D2C6297EF351}|
 |/etc/*. conf|C:\config.sys|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\IniFileMapping\SYSTEM.ini\boot|
 |/usr/bin|C:\Windows\system.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows|
 |/usr/sbin|C:\Windows\win.ini|HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon|
@@ -61,8 +72,8 @@ Security Center zawiera poniższą listę zalecanych elementów do monitorowania
 |/usr/local/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnceEx|
 |/opt/bin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices|
 |/opt/sbin||HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\RunServicesOnce|
-|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
-|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg\{603BCC1F-4B59-4E08-B724-D2C6297EF351}|
+|/etc/crontab||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ C689AAB8-8E78-11D0-8C47-00C04FC295EE}|
+|/etc/init.d||HKLM\SOFTWARE\WOW6432Node\Microsoft\Cryptography\OID\EncodingType 0 \ CryptSIPDllRemoveSignedDataMsg \{ 603BCC1F-4B59-4E08-B724-D2C6297EF351}|
 |/etc/cron.hourly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\IniFileMapping\system.ini\boot|
 |/etc/cron.daily||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Windows|
 |/etc/cron.weekly||HKLM\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Winlogon|
@@ -97,7 +108,7 @@ Dla każdego obszaru roboczego są dostępne następujące informacje:
 Następujące przyciski mogą być również wyświetlane dla obszaru roboczego:
 
 - ![Ikona włączania][3] Wskazuje, że w obszarze roboczym nie jest włączona funkcja FIM. Wybranie obszaru roboczego umożliwia włączenie programu FIM na wszystkich komputerach w obszarze roboczym.
-- ![Ikona][4] planu uaktualniania wskazuje, że obszar roboczy lub subskrypcja nie jest uruchomiona w ramach warstwy Standardowa Security Center. Aby można było korzystać z funkcji FIM, Twoja subskrypcja musi być uruchomiona w standardzie.  Wybranie obszaru roboczego umożliwia uaktualnienie do warstwy Standardowa. Aby dowiedzieć się więcej na temat warstwy Standardowa i sposobu jej uaktualniania, zobacz [uaktualnianie do Security Center warstwy Standardowa w celu zwiększenia bezpieczeństwa](security-center-pricing.md).
+- ![Ikona planu uaktualniania ][4] wskazuje, że obszar roboczy lub subskrypcja nie jest uruchomiona w ramach warstwy standardowa Security Center. Aby można było korzystać z funkcji FIM, Twoja subskrypcja musi być uruchomiona w standardzie.  Wybranie obszaru roboczego umożliwia uaktualnienie do warstwy Standardowa. Aby dowiedzieć się więcej na temat warstwy Standardowa i sposobu jej uaktualniania, zobacz [uaktualnianie do Security Center warstwy Standardowa w celu zwiększenia bezpieczeństwa](security-center-pricing.md).
 - Puste (brak przycisku) oznacza, że FIM jest już włączony w obszarze roboczym.
 
 W obszarze **monitorowanie integralności plików**można wybrać obszar roboczy, aby włączyć program FIM dla tego obszaru roboczego, wyświetlić pulpit nawigacyjny monitorowanie integralności plików dla tego obszaru roboczego lub [uaktualnić](security-center-pricing.md) obszar roboczy do warstwy Standardowa.
@@ -216,7 +227,7 @@ Użyj symboli wieloznacznych, aby uprościć śledzenie między katalogami. Podc
 -   Do śledzenia wielu plików wymagane są symbole wieloznaczne.
 -   Symboli wieloznacznych można używać tylko w ostatnim segmencie ścieżki, na przykład C:\folder\file lub/etc/*. conf
 -   Jeśli zmienna środowiskowa zawiera nieprawidłową ścieżkę, walidacja powiedzie się, ale ścieżka zakończy się niepowodzeniem po uruchomieniu spisu.
--   Podczas ustawiania ścieżki należy unikać ogólnych ścieżek, takich jak c:\*. *, co spowoduje, że przechodzą zbyt wiele folderów.
+-   Podczas ustawiania ścieżki należy unikać ogólnych ścieżek, takich jak c: \* . *, co spowoduje, że przechodzą zbyt wiele folderów.
 
 ## <a name="disable-fim"></a>Wyłącz FIM
 Możesz wyłączyć funkcję FIM. Usługa FIM używa rozwiązania Change Tracking platformy Azure do śledzenia i identyfikowania zmian w środowisku. Wyłączenie programu FIM powoduje usunięcie rozwiązania Change Tracking z wybranego obszaru roboczego.

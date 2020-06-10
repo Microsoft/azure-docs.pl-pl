@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722630"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629018"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Trenowanie modelu dla usługi Custom Speech
 
-Uczenie modelu zamiany mowy na tekst może poprawić dokładność rozpoznawania dla modelu bazowego firmy Microsoft. Model jest szkolony z zastosowaniem transkrypcji i powiązanego tekstu. Te zestawy danych wraz z wcześniej przekazanymi danymi audio są używane do udoskonalania i uczenia modelu zamiany mowy na tekst w celu rozpoznawania wyrazów, fraz, akronimów, nazw i innych warunków specyficznych dla produktu. Im bardziej szczegółowe zestawy danych w domenie, które zapewniasz (dane związane z tym, co użytkownicy będą wiedzieć i jakie są oczekiwane do rozpoznania), to dokładniejszy model, który będzie wynikiem ulepszonego rozpoznawania. Należy pamiętać, że przez podawanie niepowiązanych danych do szkolenia, można zmniejszyć lub obniżyć dokładność modelu.
+Uczenie modelu zamiany mowy na tekst może poprawić dokładność rozpoznawania dla modelu bazowego firmy Microsoft. Model jest szkolony z zastosowaniem transkrypcji i powiązanego tekstu. Te zestawy danych wraz z wcześniej przekazanymi danymi audio są używane do uściślania i uczenia modelu zamiany mowy na tekst.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Rozwiązywanie problemów z dokładnością przy użyciu szkoleń
 
@@ -39,7 +39,7 @@ Jeśli napotykasz problemy z rozpoznawaniem z modelem, używanie transkrypcji z 
 Pierwszym krokiem do uczenia modelu jest przekazanie danych szkoleniowych. Użyj opcji [Przygotuj i przetestuj dane](how-to-custom-speech-test-data.md) , aby uzyskać instrukcje krok po kroku w celu przygotowania oznakowania i powiązanego tekstu (wyrażenia długości i wymowy). Po przesłaniu danych szkoleniowych postępuj zgodnie z poniższymi instrukcjami, aby rozpocząć uczenie modelu:
 
 1. Zaloguj się do [portalu Custom Speech](https://speech.microsoft.com/customspeech).
-2. Przejdź do **> mowy Custom Speech > szkolenia**.
+2. Przejdź do **> zamiany mowy na tekst Custom Speech > [nazwa projektu] > szkolenia**.
 3. Kliknij pozycję **uczenie modelu**.
 4. Następnie Nadaj swojemu szkoleniowi **nazwę** i **Opis**.
 5. Z menu rozwijanego **model scenariusza i linia bazowa** Wybierz scenariusz, który najlepiej pasuje do domeny. Jeśli nie masz pewności, który scenariusz wybrać, wybierz pozycję **Ogólne**. Model linii bazowej jest punktem początkowym szkolenia. Najnowszym modelem jest zazwyczaj najlepszy wybór.

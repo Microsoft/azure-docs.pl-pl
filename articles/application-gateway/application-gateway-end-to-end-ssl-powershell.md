@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/8/2019
+ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2b5d2687ce95ca7db139ae06ab83bc3ecee8cf8a
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648422"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628803"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Konfigurowanie kompleksowej usługi TLS przy użyciu Application Gateway z programem PowerShell
 
@@ -167,7 +167,7 @@ Wszystkie elementy konfiguracji są ustawione przed utworzeniem bramy aplikacji.
    > [!NOTE]
    > Domyślna sonda Pobiera klucz publiczny z *domyślnego* powiązania TLS na adres IP zaplecza i porównuje wartość klucza publicznego, którą otrzymuje do wartości klucza publicznego, którą podano w tym miejscu. 
    > 
-   > Jeśli używasz nagłówków hosta i Oznaczanie nazwy serwera (SNI) na zapleczu, pobrany klucz publiczny może nie być zamierzoną lokacją, do której przepływy ruchu. Jeśli masz wątpliwości, odwiedź stronę https://127.0.0.1/ na serwerach zaplecza, aby potwierdzić, który certyfikat jest używany dla *domyślnego* powiązania protokołu TLS. Użyj klucza publicznego z tego żądania w tej sekcji. Jeśli korzystasz z nagłówków hosta i SNI na powiązaniach HTTPS i nie otrzymasz odpowiedzi ani certyfikatu z ręcznego żądania przeglądarki do https://127.0.0.1/ serwerów zaplecza, musisz skonfigurować domyślne powiązanie protokołu TLS. Jeśli nie zostanie to zrobione, sondy zakończą się niepowodzeniem, a zaplecze nie listy dozwolonych.
+   > Jeśli używasz nagłówków hosta i Oznaczanie nazwy serwera (SNI) na zapleczu, pobrany klucz publiczny może nie być zamierzoną lokacją, do której przepływy ruchu. Jeśli masz wątpliwości, odwiedź stronę https://127.0.0.1/ na serwerach zaplecza, aby potwierdzić, który certyfikat jest używany dla *domyślnego* powiązania protokołu TLS. Użyj klucza publicznego z tego żądania w tej sekcji. Jeśli korzystasz z nagłówków hosta i SNI na powiązaniach HTTPS i nie otrzymasz odpowiedzi ani certyfikatu z ręcznego żądania przeglądarki do https://127.0.0.1/ serwerów zaplecza, musisz skonfigurować domyślne powiązanie protokołu TLS. W przeciwnym razie sondy zakończą się niepowodzeniem, a zaplecze jest niedozwolone.
    
    Aby uzyskać więcej informacji na temat SNI w Application Gateway, zobacz [Omówienie kończenia protokołu TLS i kompleksowej usługi TLS z Application Gateway](ssl-overview.md).
 
@@ -176,7 +176,7 @@ Wszystkie elementy konfiguracji są ustawione przed utworzeniem bramy aplikacji.
    ```
 
    > [!NOTE]
-   > Certyfikat podany w poprzednim kroku powinien być kluczem publicznym certyfikatu PFX znajdującego się na zapleczu. Wyeksportuj certyfikat (nie certyfikat główny) zainstalowany na serwerze zaplecza w formacie Claim, dowód i powód (CER) i użyj go w tym kroku. Ten krok dozwolonych zaplecza z bramą aplikacji.
+   > Certyfikat podany w poprzednim kroku powinien być kluczem publicznym certyfikatu PFX znajdującego się na zapleczu. Wyeksportuj certyfikat (nie certyfikat główny) zainstalowany na serwerze zaplecza w formacie Claim, dowód i powód (CER) i użyj go w tym kroku. Ten krok pozwala zapleczu z bramą aplikacji.
 
    Jeśli używasz jednostki SKU Application Gateway v2, Utwórz zaufany certyfikat główny zamiast certyfikatu uwierzytelniania. Aby uzyskać więcej informacji, zobacz [Omówienie kompleksowej usługi TLS z Application Gateway](ssl-overview.md#end-to-end-tls-with-the-v2-sku):
 

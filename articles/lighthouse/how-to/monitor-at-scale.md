@@ -2,13 +2,13 @@
 title: Monitorowanie delegowanych zasobów na dużą skalę
 description: Dowiedz się, jak efektywnie korzystać z dzienników Azure Monitor w sposób skalowalny dla dzierżaw klientów, którymi zarządzasz.
 ms.date: 02/03/2020
-ms.topic: conceptual
-ms.openlocfilehash: 9a600cec524c9f715ada9da09dea35f3baa98151
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: bdd91cec650d6810d1d62230219f840a172141d9
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985205"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84634119"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorowanie delegowanych zasobów na dużą skalę
 

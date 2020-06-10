@@ -3,18 +3,18 @@ title: Pojęcia — łączność z siecią
 description: Dowiedz się więcej na temat kluczowych aspektów i przypadków użycia sieci i połączeń z platformą Azure VMware (Automatyczna synchronizacja)
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 1d869601110266f7ad16e23b66453c44793cdf31
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 35d886fe0f6a68e522d7f2cf20b450b5d9afc199
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457086"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629209"
 ---
 # <a name="azure-vmware-solution-avs-preview-networking-and-interconnectivity-concepts"></a>Azure VMware (wersja zapoznawcza) — Omówienie rozwiązań sieciowych i międzyłącznościowych
 
 Łączność sieciową między chmurami prywatnymi (Automatyczna synchronizacja) i środowiskami lokalnymi lub sieciami wirtualnymi na platformie Azure umożliwia dostęp do chmury prywatnej oraz korzystanie z niej. W tym artykule opisano kilka najważniejszych koncepcji dotyczących sieci i międzyłączności, które stanowią podstawę międzyłączności.
 
-Przydatną perspektywą dotyczącą międzyłączności jest uwzględnienie dwóch typów implementacji chmury prywatnej. Implementacje z podstawowymi rozwiązaniami opartymi na platformie Azure oraz z kompleksowymi wdrożeniami z pełną łącznością z chmurą prywatną.
+Przydatną perspektywą dotyczącą międzyłączności jest rozważenie dwóch typów implementacji chmury prywatnej na potrzeby automatycznej synchronizacji: implementacji z podstawowymi połączeniami i niestandardowymi rozwiązaniami opartymi na platformie Azure z pełnymi połączeniami lokalnymi z chmurą prywatną.
 
 W przypadku użycia w przypadku chmur prywatnych w ramach automatycznej synchronizacji należą:
 - nowe obciążenia maszyn wirtualnych VMware w chmurze
@@ -25,7 +25,7 @@ W przypadku użycia w przypadku chmur prywatnych w ramach automatycznej synchron
 
  Wszystkie przypadki użycia usługi automatycznej synchronizacji są włączone z łącznością lokalną z chmurą prywatną. Model podstawowej łączności wzajemnej jest najlepiej dostosowany do oceny lub implementacji automatycznej synchronizacji, które nie wymagają dostępu ze środowisk lokalnych.
 
-W poniższych sekcjach opisano dwa typy synchronizacji prywatnej z chmurą prywatną.  Największą podstawową międzyłącznością jest "łączność sieci wirtualnej platformy Azure" i umożliwia zarządzanie chmurą prywatną oraz korzystanie z niej tylko przy użyciu jednej sieci wirtualnej na platformie Azure. Wzajemne połączenia opisane w temacie "łączność lokalna" rozszerzają łączność sieci wirtualnej w celu uwzględnienia połączenia między środowiskami lokalnymi i automatyczna synchronizacja chmur prywatnych.
+W poniższych sekcjach opisano dwa typy synchronizacji prywatnej z chmurą prywatną.  Najbardziej podstawową międzyłącznością jest "łączność sieci wirtualnej platformy Azure"; Umożliwia ona zarządzanie chmurą prywatną i korzystanie z niej tylko przy użyciu jednej sieci wirtualnej na platformie Azure. Wzajemne połączenia opisane w temacie "łączność lokalna" rozszerzają łączność sieci wirtualnej w celu uwzględnienia połączenia między środowiskami lokalnymi i automatyczna synchronizacja chmur prywatnych.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Łączność z siecią wirtualną platformy Azure
 

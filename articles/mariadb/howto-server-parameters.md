@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/16/2020
-ms.openlocfilehash: f39e9450fb922e5b93d7b4b809df73cf5ab007c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/8/2020
+ms.openlocfilehash: 674ae5c60b7e897f43d28f5813641ddc833b3002
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81602408"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636074"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Jak skonfigurować parametry serwera w Azure Database for MariaDB przy użyciu Azure Portal
 
@@ -29,50 +29,14 @@ Azure Database for MariaDB obsługuje konfigurację niektórych parametrów serw
 5. Jeśli Zapisano nowe wartości parametrów, zawsze możesz przywrócić wszystkie elementy z powrotem do wartości domyślnych, wybierając pozycję **Zresetuj wszystkie do domyślnych**.
 ![Zresetuj wszystkie do domyślnych](./media/howto-server-parameters/5-reset_parameters.png)
 
-## <a name="list-of-configurable-server-parameters"></a>Lista konfigurowalnych parametrów serwera
-
-Lista obsługiwanych parametrów serwera stale rośnie. Karta parametry serwera w Azure Portal służy do uzyskiwania definicji i konfigurowania parametrów serwera na podstawie wymagań aplikacji.
-
-## <a name="non-configurable-server-parameters"></a>Parametry serwera, które nie zostały konfigurowalne
-
-Pula buforów InnoDB i Maksymalna liczba połączeń nie są konfigurowane i powiązane z [warstwą cenową](concepts-pricing-tiers.md).
-
-|**Warstwa cenowa**| **Rdzeń wirtualny**|**Pula buforów InnoDB (MB)**|
-|---|---|---|
-|Podstawowy| 1| 1024|
-|Podstawowy| 2| 2560|
-|Ogólnego przeznaczenia| 2| 3584|
-|Ogólnego przeznaczenia| 4| 7680|
-|Ogólnego przeznaczenia| 8| 15360|
-|Ogólnego przeznaczenia| 16| 31232|
-|Ogólnego przeznaczenia| 32| 62976|
-|Ogólnego przeznaczenia| 64| 125952|
-|Optymalizacja pod kątem pamięci| 2| 7168|
-|Optymalizacja pod kątem pamięci| 4| 15360|
-|Optymalizacja pod kątem pamięci| 8| 30720|
-|Optymalizacja pod kątem pamięci| 16| 62464|
-|Optymalizacja pod kątem pamięci| 32| 125952|
-
-Te dodatkowe parametry serwera nie są konfigurowane w systemie:
-
-|**Konstruktora**|**Stała wartość**|
-| :------------------------ | :-------- |
-|innodb_file_per_table w warstwie Podstawowa|WYŁ.|
-|innodb_flush_log_at_trx_commit|1|
-|sync_binlog|1|
-|innodb_log_file_size|256 MB|
-|innodb_log_files_in_group|2|
-
-Inne parametry serwera, które nie są wymienione w tym miejscu, są ustawione na wartości domyślne MariaDB dla [MariaDB](https://mariadb.com/kb/en/library/xtradbinnodb-server-system-variables/).
-
 ## <a name="working-with-the-time-zone-parameter"></a>Praca z parametrem strefy czasowej
 
 ### <a name="populating-the-time-zone-tables"></a>Wypełnianie tabel strefy czasowej
 
-Tabele strefy czasowej na serwerze można wypełnić przez wywołanie procedury `mysql.az_load_timezone` składowanej z narzędzia, takiego jak wiersz polecenia MySQL lub MySQL Workbench.
+Tabele strefy czasowej na serwerze można wypełnić przez wywołanie `mysql.az_load_timezone` procedury składowanej z narzędzia, takiego jak wiersz polecenia MySQL lub MySQL Workbench.
 
 > [!NOTE]
-> Jeśli uruchamiasz `mysql.az_load_timezone` polecenie z programu MySQL Workbench, może być konieczne wyłączenie bezpiecznego trybu aktualizacji jako pierwszego przy użyciu programu `SET SQL_SAFE_UPDATES=0;`.
+> Jeśli uruchamiasz `mysql.az_load_timezone` polecenie z programu MySQL Workbench, może być konieczne wyłączenie bezpiecznego trybu aktualizacji jako pierwszego przy użyciu programu `SET SQL_SAFE_UPDATES=0;` .
 
 ```sql
 CALL mysql.az_load_timezone();
@@ -102,8 +66,6 @@ SET time_zone = 'US/Pacific';
 
 Zapoznaj się z dokumentacją MariaDB dla [funkcji daty i godziny](https://mariadb.com/kb/en/library/convert_tz/).
 
-<!--
-## Next steps
+## <a name="next-steps"></a>Następne kroki
 
-- [Connection libraries for Azure Database for MariaDB](concepts-connection-libraries.md).
--->
+- Dowiedz się więcej na temat [parametrów serwera](concepts-server-parameters.md)

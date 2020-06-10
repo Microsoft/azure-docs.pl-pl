@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ca8285eb9553e0c69a024714c2f5a258bd9b0ba0
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712234"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628181"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
@@ -172,7 +172,7 @@ Wszystkie operacje wykonywane przez usługę aprowizacji użytkowników są reje
 
 Usługa Azure AD Provisioning przechowuje systemy źródłowe i docelowe w synchronizacji przy użyciu kont anulowania aprowizacji, gdy użytkownicy nie mają już dostępu. 
 
-Usługa Azure AD Provisioning spowoduje nietrwałe usunięcie użytkownika w aplikacji w przypadku usunięcia nietrwałej aplikacji (żądanie aktualizacji z aktywnym = false) i wystąpienia dowolnego z następujących zdarzeń:
+Usługa Azure AD Provisioning spowoduje nietrwałe usunięcie użytkownika w aplikacji, gdy aplikacja obsługuje usunięcia nietrwałe (żądanie aktualizacji z aktywnym = false) i wystąpią dowolne z następujących zdarzeń:
 
 * Konto użytkownika zostało usunięte w usłudze Azure AD
 *   Użytkownik nie jest przypisany do aplikacji

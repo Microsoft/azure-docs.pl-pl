@@ -3,12 +3,12 @@ title: Przegląd kopii zapasowej offline
 description: Dowiedz się więcej o składnikach kopii zapasowej offline. Obejmują one kopie zapasowe offline na podstawie Azure Data Box i kopii zapasowej offline na podstawie usługi Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 84f79efe10f867b37d1e3bb21363be4b12156615
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744638"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628343"
 ---
 # <a name="overview-of-offline-backup"></a>Przegląd kopii zapasowej offline
 
@@ -60,7 +60,7 @@ Oto podsumowanie architektury:
 
 Aby użyć kopii zapasowej offline opartej na usłudze Azure Import/Export za pomocą agenta MARS, zobacz [przepływ pracy kopii zapasowej offline w Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
 
-Aby użyć tego samego programu wraz z serwera usługi MAB lub DPM-A, zobacz [przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
+Aby użyć tego samego programu wraz z serwera usługi MAB lub DPM-A, zobacz [przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
 
 ## <a name="offline-backup-support-summary"></a>Podsumowanie obsługi kopii zapasowych w trybie offline
 
@@ -83,4 +83,4 @@ Poniższa tabela zawiera porównanie dwóch dostępnych opcji, dzięki czemu mo�
 
 - [Azure Backup kopii zapasowej offline przy użyciu Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
 - [Przepływ pracy kopii zapasowej offline w Azure Backup](backup-azure-backup-import-export.md)
-- [Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server](backup-azure-backup-server-import-export-.md)
+- [Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server](backup-azure-backup-server-import-export.md)

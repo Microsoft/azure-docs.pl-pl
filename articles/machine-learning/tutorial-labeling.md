@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 54f09c4b35f31619c3dcaa027c70444595c4352e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5f3a73ed6c7843c13d35a91a75189fe9dd8d4dbd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196512"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628377"
 ---
 # <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania (wersja zapoznawcza) dla klasyfikacji obrazów wieloklasowych 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -110,6 +110,12 @@ Teraz, gdy masz dostęp do danych, które mają mieć etykietę, Utwórz projekt
 
 1. Wybierz pozycję **dalej** , aby kontynuować tworzenie projektu.
 
+### <a name="incremental-refresh"></a>Odświeżanie przyrostowe
+
+Jeśli planujesz dodać nowe obrazy do zestawu danych, odświeżanie przyrostowe będzie odszukać te nowe obrazy i dodać je do projektu.  Po włączeniu tej funkcji projekt będzie okresowo sprawdzać, czy są nowe obrazy.  Nie dodasz nowych obrazów do magazynu danych dla tego samouczka, więc nie zaznaczaj tej funkcji.
+
+Wybierz przycisk **Dalej**, aby kontynuować.
+
 ### <a name="label-classes"></a>Klasy etykiet
 
 1. W formularzu **klasy etykiet** wpisz nazwę etykiety, a następnie wybierz pozycję **+ Dodaj etykietę** , aby wpisać następną etykietę.  W przypadku tego projektu etykiety to **kot**, **Dog**i **niepewne**.
@@ -122,7 +128,7 @@ Teraz, gdy masz dostęp do danych, które mają mieć etykietę, Utwórz projekt
 
 1. Możesz również dodać Krótki opis zadania bezpośrednio w formularzu.  **Samouczek typu etykieta — koty & psy.**
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz pozycję **Dalej**.
 
 1. Na formularzu **etykiet z asystą ml** pozostaw niezaznaczone pole wyboru. Etykieta z asystą, wymaga większej ilości danych niż ta, która będzie używana w tym samouczku.
 

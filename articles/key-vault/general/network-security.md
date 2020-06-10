@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 0438f573c33c71e0f30b7db1909e3649b21010a7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 78ae393c47de7a9d03d7b3de9b3dcd315d228f05
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82086593"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605429"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurowanie zapór Azure Key Vault i sieci wirtualnych
 
@@ -33,6 +33,7 @@ Poniżej przedstawiono sposób konfigurowania zapór Key Vault i sieci wirtualny
 4. Aby dodać istniejące sieci wirtualne do zapór i reguł sieci wirtualnej, wybierz pozycję **+ Dodaj istniejące sieci wirtualne**.
 5. W nowym bloku, który zostanie otwarty, wybierz subskrypcję, sieci wirtualne i podsieci, dla których chcesz zezwolić na dostęp do tego magazynu kluczy. Jeśli wybrane sieci wirtualne i podsieci nie mają włączonych punktów końcowych usługi, potwierdź, że chcesz włączyć punkty końcowe usługi, a następnie wybierz pozycję **Włącz**. Wprowadzenie zmian może potrwać do 15 minut.
 6. W obszarze **sieci IP**Dodaj zakresy adresów IPv4, wpisując zakresy adresów IPv4 w [notacji CIDR (bezklasowe Routing między domenami)](https://tools.ietf.org/html/rfc4632) lub pojedynczych adresów IP.
+7. Jeśli chcesz zezwolić usłudze Microsoft Trusted Services na ominięcie zapory Key Vault, wybierz pozycję "tak". Aby zapoznać się z pełną listą bieżących Key Vault zaufanych usług, Skorzystaj z następującego linku. [Azure Key Vault zaufanych usług](https://docs.microsoft.com/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
 7. Wybierz pozycję **Zapisz**.
 
 Możesz również dodać nowe sieci wirtualne i podsieci, a następnie włączyć punkty końcowe usługi dla nowo utworzonych sieci wirtualnych i podsieci, wybierając pozycję **+ Dodaj nową sieć wirtualną**. Następnie postępuj zgodnie z monitami.
@@ -64,12 +65,12 @@ Poniżej przedstawiono sposób konfigurowania zapór Key Vault i sieci wirtualny
    az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvault" --ip-address "191.10.18.0/24"
    ```
 
-6. Jeśli ten magazyn kluczy powinien być dostępny dla wszystkich zaufanych usług, ustaw `bypass` opcję `AzureServices`na.
+6. Jeśli ten magazyn kluczy powinien być dostępny dla wszystkich zaufanych usług, ustaw opcję `bypass` na `AzureServices` .
    ```azurecli
    az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --bypass AzureServices
    ```
 
-7. Włącz reguły sieci, ustawiając domyślną akcję na `Deny`.
+7. Włącz reguły sieci, ustawiając domyślną akcję na `Deny` .
    ```azurecli
    az keyvault update --resource-group "myresourcegroup" --name "mekeyvault" --default-action Deny
    ```
@@ -103,17 +104,17 @@ Poniżej przedstawiono sposób konfigurowania zapór Key Vault i sieci wirtualny
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
-6. Jeśli ten magazyn kluczy powinien być dostępny dla wszystkich zaufanych usług, ustaw `bypass` opcję `AzureServices`na.
+6. Jeśli ten magazyn kluczy powinien być dostępny dla wszystkich zaufanych usług, ustaw opcję `bypass` na `AzureServices` .
    ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
-7. Włącz reguły sieci, ustawiając domyślną akcję na `Deny`.
+7. Włącz reguły sieci, ustawiając domyślną akcję na `Deny` .
    ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 * Polecenie interfejsu wiersza polecenia platformy Azure: [AZ datamagazyn Network-Rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
 * Polecenia cmdlet Azure PowerShell: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)

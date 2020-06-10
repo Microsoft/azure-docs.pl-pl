@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79474d85d9b2349c79aeff0c33ffed9afad690fb
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 241e5baf7f00bc9897e84fb0c10ac7db605fb712
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169749"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628328"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu Azure Portal
 
@@ -33,7 +33,7 @@ W tym artykule:
 
 Portal usługi Azure AD udostępnia centralne miejsce do zarządzania tożsamościami urządzeń. Możesz to zrobić za pomocą [linku bezpośredniego](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) lub:
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 1. Przejdź do **Azure Active Directory**  >  **urządzeń**.
 
 Na stronie **urządzenia** można:
@@ -143,7 +143,7 @@ Aby usunąć urządzenie, dostępne są dwie opcje:
    - Usuwa wszystkie szczegóły, które są dołączone do urządzenia, na przykład klucze funkcji BitLocker dla urządzeń z systemem Windows.  
    - Reprezentuje nieodzyskiwalne działanie i nie jest zalecane, chyba że jest to wymagane.
 
-Jeśli urządzenie jest zarządzane przez inny urząd zarządzania (na przykład Microsoft Intune), upewnij się, że urządzenie zostało wyczyszczone/wycofane przed usunięciem urządzenia w usłudze Azure AD. Zapoznaj się z tematem jak [zarządzać przestarzałymi urządzeniami](device-management-azure-portal.md) przed usunięciem wszystkich urządzeń.
+Jeśli urządzenie jest zarządzane przez inny urząd zarządzania (na przykład Microsoft Intune), upewnij się, że urządzenie zostało wyczyszczone/wycofane przed usunięciem urządzenia w usłudze Azure AD. Zapoznaj się z tematem jak [zarządzać przestarzałymi urządzeniami](manage-stale-devices.md) przed usunięciem wszystkich urządzeń.
 
 ### <a name="view-or-copy-device-id"></a>Wyświetl lub Skopiuj identyfikator urządzenia
 
@@ -184,7 +184,7 @@ Aby włączyć funkcję filtrowania wersji zapoznawczej w widoku **wszystkie urz
 
 ![Włącz funkcję filtrowania filtru](./media/device-management-azure-portal/device-filter-preview-enable.png)
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Zaloguj się do [portalu Azure](https://portal.azure.com).
 1. Przejdź do **Azure Active Directory**  >  **urządzeń**.
 1. Wybierz baner, który brzmi, **Wypróbuj ulepszenia filtrowania nowych urządzeń. Kliknij, aby włączyć podgląd.**
 

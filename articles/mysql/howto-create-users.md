@@ -6,16 +6,22 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/2/2020
-ms.openlocfilehash: f8c020da72e9cdf8777a3eefac266e97e4a312bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 606279c0db92ad3aeb76d4f7a1a914f14348dd8f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81263475"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608472"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Tworzenie użytkowników w Azure Database for MySQL serwerze
 
 W tym artykule opisano, jak można tworzyć użytkowników na serwerze Azure Database for MySQL.
+
+> [!NOTE]
+> Komunikacja bezpłatna bez opłat
+>
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
+>
 
 Podczas pierwszego tworzenia Azure Database for MySQL należy podać nazwę użytkownika i hasło administratora serwera. Aby uzyskać więcej informacji, możesz skorzystać z [przewodnika Szybki Start](quickstart-create-mysql-server-database-using-azure-portal.md). Nazwę użytkownika nazwy logowania administratora serwera można zlokalizować z Azure Portal.
 
@@ -34,7 +40,7 @@ Po utworzeniu serwera Azure Database for MySQL można użyć pierwszego konta u�
 2. Aby nawiązać połączenie z serwerem bazy danych, użyj konta administratora i hasła. Korzystaj z preferowanego narzędzia klienckiego, takiego jak MySQL Workbench, MySQL. exe, HeidiSQL lub inne.
    Jeśli nie wiesz, jak nawiązać połączenie, zobacz temat [Korzystanie z programu MySQL Workbench do nawiązywania połączeń i wysyłania zapytań dotyczących danych](./connect-workbench.md)
 
-3. Edytuj i uruchom następujący kod SQL. Zamień nową nazwę użytkownika na wartość `new_master_user`symbolu zastępczego. Ta składnia przyznaje listę uprawnień dla wszystkich schematów bazy danych (*.*) do nazwy użytkownika (new_master_user w tym przykładzie).
+3. Edytuj i uruchom następujący kod SQL. Zamień nową nazwę użytkownika na wartość symbolu zastępczego `new_master_user` . Ta składnia przyznaje listę uprawnień dla wszystkich schematów bazy danych (*.*) do nazwy użytkownika (new_master_user w tym przykładzie).
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';
@@ -60,9 +66,9 @@ Po utworzeniu serwera Azure Database for MySQL można użyć pierwszego konta u�
 2. Aby nawiązać połączenie z serwerem bazy danych, użyj konta administratora i hasła. Korzystaj z preferowanego narzędzia klienckiego, takiego jak MySQL Workbench, MySQL. exe, HeidiSQL lub inne.
    Jeśli nie wiesz, jak nawiązać połączenie, zobacz temat [Korzystanie z programu MySQL Workbench do nawiązywania połączeń i wysyłania zapytań dotyczących danych](./connect-workbench.md)
 
-3. Edytuj i uruchom następujący kod SQL. Zastąp wartość `db_user` symbolu zastępczego zamierzoną nową nazwą użytkownika i wartość `testdb` symbolu zastępczego własną nazwą bazy danych.
+3. Edytuj i uruchom następujący kod SQL. Zastąp wartość symbolu zastępczego `db_user` zamierzoną nową nazwą użytkownika i wartość symbolu zastępczego `testdb` własną nazwą bazy danych.
 
-   Ta składnia kodu SQL tworzy na przykład nową bazę danych o nazwie TestDB. Następnie tworzy nowego użytkownika w usłudze MySQL i przyznaje wszystkie uprawnienia nowemu schematowi bazy danych (TestDB.\*) dla tego użytkownika.
+   Ta składnia kodu SQL tworzy na przykład nową bazę danych o nazwie TestDB. Następnie tworzy nowego użytkownika w usłudze MySQL i przyznaje wszystkie uprawnienia nowemu schematowi bazy danych (TestDB. \* ) dla tego użytkownika.
 
    ```sql
    CREATE DATABASE testdb;

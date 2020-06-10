@@ -4,12 +4,12 @@ description: Włącz automatyczne skalowanie w puli w chmurze, aby dynamicznie d
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: ad1bf47cd2b9d8db950154b5a36786c294549566
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 223ba348ce1f8b69791581a70cd21af621c28b24
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780242"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609016"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Utwórz automatyczną formułę skalowania węzłów obliczeniowych w puli usługi Batch
 
@@ -126,6 +126,9 @@ Możesz uzyskać wartości tych zmiennych zdefiniowanych przez usługę, aby wpr
 | $CurrentDedicatedNodes |Bieżąca liczba dedykowanych węzłów obliczeniowych. |
 | $CurrentLowPriorityNodes |Bieżąca liczba węzłów obliczeniowych o niskim priorytecie, w tym wszystkich węzłów, które zostały przeniesiona. |
 | $PreemptedNodeCount | Liczba węzłów w puli, które są w stanie przeniesiona. |
+
+> [!IMPORTANT]
+> Zadania zwolnienia zadań nie są obecnie uwzględniane w powyższych zmiennych, które zapewniają liczbę zadań, takich jak $ActiveTasks i $PendingTasks. W zależności od formuły automatycznego skalowania może to spowodować usunięcie węzłów i brak dostępnych węzłów do uruchamiania zadań zwolnienia zadań.
 
 > [!TIP]
 > Zmienne zdefiniowane w ramach usługi, które są wyświetlane w poprzedniej tabeli, to *obiekty* , które udostępniają różne metody uzyskiwania dostępu do danych skojarzonych z każdym z nich. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie przykładowych danych](#getsampledata) w dalszej części tego artykułu.

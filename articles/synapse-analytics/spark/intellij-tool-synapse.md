@@ -8,14 +8,14 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 4d1fafa131a39ab72f6fc09663c7eb5b06107539
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644852"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608761"
 ---
-# <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>Samouczek: Tworzenie aplikacji Apache Spark dla pul Spark (wersja zapoznawcza) za pomocą Azure Toolkit for IntelliJ
+# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>Samouczek: Tworzenie aplikacji Apache Spark za pomocą IntelliJ przy użyciu Synapse Synapse Analytics (obszary robocze w wersji zapoznawczej)
 
 W tym samouczku pokazano, jak za pomocą wtyczki Azure Toolkit for IntelliJ tworzyć aplikacje Apache Spark, które są zapisywane w [Scala](https://www.scala-lang.org/), a następnie przesyłać je do puli platformy Spark (wersja zapoznawcza) bezpośrednio z poziomu zintegrowanego środowiska projektowego INTELLIJ (IDE). Możesz użyć wtyczki na kilka sposobów:
 
@@ -23,7 +23,7 @@ W tym samouczku pokazano, jak za pomocą wtyczki Azure Toolkit for IntelliJ twor
 - Uzyskaj dostęp do zasobów pul platformy Spark.
 - Tworzenie i uruchamianie aplikacji Scala Spark lokalnie.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 >
 > - Korzystanie z wtyczki Azure Toolkit for IntelliJ

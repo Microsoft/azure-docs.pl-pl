@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 06/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 58fd207698ca15f5d2fe74d84b6d01ca18cc1120
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: b4f90fe7c37fd43c62a4b74989be6cb4dcceda0c
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84455964"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636369"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -110,7 +110,7 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Marsylia** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | Francja Południowa | nie dotyczy | DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Australia Południowo-Wschodnia | 10G, 100G | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | nie dotyczy | ° | Claro, C3ntro, Equinix, Megaport, sieci neutronów |
-| **Mediolan** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | nie dotyczy | ° | |
+| **Mediolan** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | nie dotyczy | ° | Retelit |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | nie dotyczy | 10G, 100G | Bell Canada, Cologix, Megaport, Telus, Zayo |
 | **Mumbaj** | Tata Communications | 2 | Indie Zachodnie | ° | Global CloudXchange (GCX), zależność Jio, sify, Tata Communications, Verizon |
 | **Mumbaj2** | Airtel | 2 | Indie Zachodnie | nie dotyczy | Airtel, Sify, Vodafone Idea |

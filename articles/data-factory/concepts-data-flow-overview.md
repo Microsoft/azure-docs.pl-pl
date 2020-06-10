@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
-ms.openlocfilehash: 9f280aafabd59878ee24a9c3fe809dd027a97284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187855"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635133"
 ---
 # <a name="what-are-mapping-data-flows"></a>Czym są przepływy danych mapowania?
 
@@ -22,6 +22,8 @@ ms.locfileid: "82187855"
 Mapowanie przepływów danych to wizualnie zaprojektowane przekształcenia danych w Azure Data Factory. Przepływy danych umożliwiają inżynierom danych Tworzenie logiki transformacji danych graficznych bez pisania kodu. Wyniki przepływów danych są wykonywane jako działania w ramach potoków Azure Data Factory, które korzystają ze skalowania Apache Spark klastrów. Działania związane z przepływem danych mogą być realizowane za pośrednictwem istniejących Data Factory planowania, kontroli, przepływu i monitorowania.
 
 Mapowanie przepływów danych zapewnia całkowicie wizualizację, bez konieczności kodowania. Przepływy danych są uruchamiane w klastrze wykonywania w celu przetwarzania danych skalowanych w poziomie. Azure Data Factory obsługuje wszystkie tłumaczenia kodu, optymalizację ścieżki i wykonywanie zadań przepływu danych.
+
+![Architektura](media/data-flow/adf-data-flows.png "Architektura")
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -93,7 +95,7 @@ Pierwsza karta w okienku Konfiguracja każdej transformacji zawiera ustawienia s
 
 Karta **Optymalizacja** zawiera ustawienia umożliwiające skonfigurowanie schematów partycjonowania.
 
-![Zoptymalizować](media/data-flow/optimize1.png "Optymalizacja")
+![Optymalizacja](media/data-flow/optimize1.png "Optymalizacja")
 
 Ustawieniem domyślnym jest **użycie bieżącego partycjonowania**, które instruuje Azure Data Factory, aby używać schematu partycjonowania natywnego dla przepływów danych uruchomionych w systemie Spark. W większości scenariuszy zalecamy to ustawienie.
 
@@ -123,7 +125,7 @@ Zakres dynamiczny używa zakresów dynamicznych platformy Spark na podstawie kol
 
 Utwórz wyrażenie, które udostępnia stały zakres dla wartości w kolumnach danych partycjonowanych. Aby uniknąć pochylenia partycji, przed użyciem tej opcji należy dobrze zrozumieć swoje dane. Wartości wprowadzane dla wyrażenia są używane jako część funkcji partycji. Można ustawić liczbę partycji fizycznych.
 
-##### <a name="key"></a>Key
+##### <a name="key"></a>Klucz
 
 Jeśli masz dobrą wiedzę o kardynalności danych, partycjonowanie kluczy może być dobrą strategią. Partycjonowanie kluczy tworzy partycje dla każdej unikatowej wartości w kolumnie. Nie można ustawić liczby partycji, ponieważ liczba jest oparta na unikatowych wartościach danych.
 

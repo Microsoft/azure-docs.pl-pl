@@ -1,6 +1,6 @@
 ---
 title: Maszyna wirtualna platformy Azure nie odpowiada podczas stosowania zasad
-description: W tym artykule przedstawiono procedurę rozwiązywania problemów z zawieszeniem ekranu ładowania podczas stosowania zasad podczas rozruchu na maszynie wirtualnej platformy Azure.
+description: W tym artykule przedstawiono kroki rozwiązywania problemów, w których ekran ładowania nie reaguje, gdy podczas uruchamiania na maszynie wirtualnej platformy Azure zostanie zastosowane zasady.
 services: virtual-machines-windows
 documentationcenter: ''
 author: TobyTu
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 30f833bc49f92dcabfc75f0a1507c6f540bdea24
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 187098f557cb691e023abb282a265b11e975c544
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749277"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629262"
 ---
-# <a name="vm-becomes-unresponsive-while-applying-group-policy-local-users--groups-policy"></a>Maszyna wirtualna przestaje odpowiadać podczas stosowania zasad "zasady grupy lokalnych użytkowników & grup"
+# <a name="vm-is-unresponsive-when-applying-group-policy-local-users-and-groups-policy"></a>Maszyna wirtualna nie odpowiada podczas stosowania zasady grupy zasad lokalnych użytkowników i grup
 
-W tym artykule przedstawiono procedurę rozwiązywania problemów z zawieszeniem ekranu ładowania podczas stosowania zasad podczas rozruchu na maszynie wirtualnej platformy Azure.
+Ten artykuł zawiera kroki rozwiązywania problemów, gdy ekran ładowania nie odpowiada, gdy maszyna wirtualna platformy Azure stosuje zasady podczas uruchamiania.
 
 ## <a name="symptoms"></a>Objawy
 
-W przypadku wyświetlania zrzutu ekranu maszyny wirtualnej przy użyciu [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) ekran jest zablokowany przy użyciu komunikatu: "*stosowanie zasady grupy lokalnych użytkowników i zasad grupy*".
+W przypadku korzystania z [diagnostyki rozruchu](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) w celu wyświetlenia zrzutu ekranu maszyny wirtualnej ekran jest zablokowany przy użyciu komunikatu: "stosowanie zasady grupy lokalnych użytkowników i grup zasad".
 
 :::image type="content" source="media//unresponsive-vm-apply-group-policy/applying-group-policy-1.png" alt-text="Zrzut ekranu przedstawiający zastosowanie zasad zasady grupy lokalnych użytkowników i grup (Windows Server 2012 R2).":::
 
@@ -49,42 +49,42 @@ Oto problemy z zasadami:
 ### <a name="process-overview"></a>Przegląd procesu
 
 1. [Tworzenie maszyny wirtualnej naprawy i uzyskiwanie do niej dostępu](#step-1-create-and-access-a-repair-vm)
-2. [Wyłączanie zasad](#step-2-disable-the-policy)
-3. [Włącz zbieranie danych z konsoli szeregowej i zrzutu pamięci](#step-3-enable-serial-console-and-memory-dump-collection)
-4. [Kompiluj ponownie maszynę wirtualną](#step-4-rebuild-the-vm)
+1. [Wyłączanie zasad](#step-2-disable-the-policy)
+1. [Włącz zbieranie danych z konsoli szeregowej i zrzutu pamięci](#step-3-enable-serial-console-and-memory-dump-collection)
+1. [Kompiluj ponownie maszynę wirtualną](#step-4-rebuild-the-vm)
 
 > [!NOTE]
-> Jeśli napotkasz ten błąd rozruchu, system operacyjny gościa nie działa. Należy rozwiązać problemy w trybie offline.
+> Jeśli wystąpi ten błąd rozruchu, system operacyjny gościa nie działa. Należy rozwiązać problemy w trybie offline.
 
 ### <a name="step-1-create-and-access-a-repair-vm"></a>Krok 1. Tworzenie naprawy maszyny wirtualnej i uzyskiwanie do niej dostępu
 
 1. Wykonaj [kroki 1-3 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) , aby przygotować maszynę wirtualną naprawy.
-2. Użyj Podłączanie pulpitu zdalnego połączyć się z maszyną wirtualną naprawy.
+2. Użyj Podłączanie pulpitu zdalnego, aby nawiązać połączenie z maszyną wirtualną naprawy.
 
 ### <a name="step-2-disable-the-policy"></a>Krok 2. wyłączenie zasad
 
 1. Na stronie Naprawa maszyny wirtualnej Otwórz Edytor rejestru.
-2. Znajdź klucz **HKEY_LOCAL_MACHINE** i wybierz pozycję **plik**  >  **Załaduj gałąź** z menu.
+1. Znajdź klucz **HKEY_LOCAL_MACHINE** i wybierz pozycję **plik**  >  **Załaduj gałąź** z menu.
 
     :::image type="content" source="media/unresponsive-vm-apply-group-policy/registry.png" alt-text="Zrzut ekranu przedstawia wyróżnione HKEY_LOCAL_MACHINE i menu zawierające gałąź ładowania.":::
 
-    - Ładowanie usługi Hive pozwala ładować klucze rejestru z systemu offline, w tym przypadku uszkodzony dysk dołączony do maszyny wirtualnej naprawy.
+    - Aby załadować klucze rejestru z systemu w trybie offline, można użyć funkcji ładowania Hive. W takim przypadku system jest uszkodzonym dyskiem podłączonym do maszyny wirtualnej naprawy.
     - Ustawienia całego systemu są przechowywane w `HKEY_LOCAL_MACHINE` i mogą być skrócone jako "HKLM".
-3. Na podłączonym dysku przejdź do `\windows\system32\config\SOFTWARE` pliku i otwórz go.
+1. Na podłączonym dysku przejdź do `\windows\system32\config\SOFTWARE` pliku i otwórz go.
 
-    1. Zostanie wyświetlony monit o podanie nazwy. Wprowadź BROKENSOFTWARE.<br/>
-    2. Aby sprawdzić, czy BROKENSOFTWARE został załadowany, rozwiń **HKEY_LOCAL_MACHINE** i poszukaj dodanego klucza BROKENSOFTWARE.
-4. Przejdź do BROKENSOFTWARE i sprawdź, czy klucz CleanupProfile istnieje w załadowanym elemencie Hive.
+    1. Gdy zostanie wyświetlony monit o podanie nazwy, wprowadź BROKENSOFTWARE.
+    1. Aby sprawdzić, czy BROKENSOFTWARE został załadowany, rozwiń **HKEY_LOCAL_MACHINE** i poszukaj dodanego klucza BROKENSOFTWARE.
+1. Przejdź do BROKENSOFTWARE i sprawdź, czy klucz CleanupProfile istnieje w załadowanym elemencie Hive.
 
-    1. Jeśli klucz istnieje, zasady CleanupProfile są ustawione, jego wartość reprezentuje zasady przechowywania w dniach. Kontynuuj usuwanie klucza.<br/>
-    2. Jeśli klucz nie istnieje, zasady CleanupProfile nie są ustawione. [Prześlij bilet pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), w tym plik Memory. dmp znajdujący się w katalogu systemu Windows dołączonego dysku systemu operacyjnego.
+    1. Jeśli klucz istnieje, zasady CleanupProfile są ustawione. Jego wartość reprezentuje zasady przechowywania mierzone w dniach. Kontynuuj usuwanie klucza.
+    1. Jeśli klucz nie istnieje, zasady CleanupProfile nie są ustawione. [Prześlij bilet pomocy technicznej](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade), w tym plik Memory. dmp znajdujący się w katalogu systemu Windows dołączonego dysku systemu operacyjnego.
 
-5. Usuń klucz CleanupProfiles za pomocą tego polecenia:
+1. Usuń klucz CleanupProfiles za pomocą tego polecenia:
 
     ```
     reg delete "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows\System" /v CleanupProfiles /f
     ```
-6.  Zwolnij gałąź BROKENSOFTWARE za pomocą tego polecenia:
+1.  Zwolnij gałąź BROKENSOFTWARE za pomocą tego polecenia:
 
     ```
     reg unload HKLM\BROKENSOFTWARE
@@ -92,25 +92,23 @@ Oto problemy z zasadami:
 
 ### <a name="step-3-enable-serial-console-and-memory-dump-collection"></a>Krok 3. Włączanie zbierania danych z konsoli szeregowej i zrzutu pamięci
 
-Aby włączyć Zbieranie zrzutów pamięci i konsolę seryjną, uruchom następujący skrypt:
+Aby włączyć Zbieranie zrzutów pamięci i konsolę szeregową, uruchom następujący skrypt:
 
-1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień (Uruchom jako administrator).
-2. Uruchom następujące polecenia:
-
-    **Włącz konsolę seryjną**: 
+1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień. (Uruchom jako administrator).
+1. Uruchom następujące polecenia, aby włączyć konsolę seryjną:
     
     ```
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
     ```
 
     ```
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200 
+    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
     ```
-3. Sprawdź, czy ilość wolnego miejsca na dysku systemu operacyjnego jest co najmniej równa rozmiarowi pamięci maszyny wirtualnej.
+1. Sprawdź, czy ilość wolnego miejsca na dysku systemu operacyjnego jest co najmniej równa rozmiarowi pamięci maszyny wirtualnej.
 
-    Jeśli na dysku systemu operacyjnego nie ma wystarczającej ilości miejsca, Zmień lokalizację zrzutu pamięci i zapoznaj ją z dołączonym dyskiem danych z wystarczającą ilością wolnego miejsca. Aby zmienić lokalizację, Zastąp "% główny_katalog_systemowy%" literą dysku (np. "F:") dysku danych w poniższych poleceniach.
+    Jeśli na dysku systemu operacyjnego nie ma wystarczającej ilości miejsca, Zmień lokalizację zrzutu pamięci i zapoznaj ją z dołączonym dyskiem danych z wystarczającą ilością wolnego miejsca. Aby zmienić lokalizację, Zastąp "% główny_katalog_systemowy%" literą dysku (na przykład "F:") dysku danych w następujących poleceniach.
 
-    **Sugerowana konfiguracja do włączenia zrzutu systemu operacyjnego**:
+    **Sugerowana konfiguracja do włączenia zrzutu systemu operacyjnego**
 
     Załaduj przerwany dysk systemu operacyjnego:
 
@@ -135,7 +133,7 @@ Aby włączyć Zbieranie zrzutów pamięci i konsolę seryjną, uruchom następu
     ```
     
     Zwolnij przerwany dysk systemu operacyjnego:
-    
+
     ```
     REG UNLOAD HKLM\BROKENSYSTEM
     ```
@@ -144,7 +142,7 @@ Aby włączyć Zbieranie zrzutów pamięci i konsolę seryjną, uruchom następu
 
 Aby ponownie połączyć maszynę wirtualną, użyj [kroku 5 poleceń naprawy maszyny wirtualnej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) .
 
-Jeśli problem został rozwiązany, zasady zostały wyłączone lokalnie. W przypadku stałego rozwiązania nie należy używać zasad CleanupProfilesymi na maszynach wirtualnych. Użyj innej metody do przeprowadzenia czyszczenia profilów.
+Jeśli problem został rozwiązany, zasady są teraz wyłączone lokalnie. W przypadku stałego rozwiązania nie należy używać zasad CleanupProfiles na maszynach wirtualnych. Użyj innej metody do przeprowadzenia czyszczenia profilów.
 
 Nie używaj tych zasad:
 
@@ -152,4 +150,4 @@ Nie używaj tych zasad:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli wystąpią problemy podczas stosowania Windows Update, zobacz, że [maszyna wirtualna nie odpowiada z błędem "C01A001D" podczas stosowania Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).
+Jeśli masz problemy z zastosowaniem Windows Update, zobacz, że [maszyna wirtualna nie odpowiada z błędem "C01A001D" podczas stosowania Windows Update](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/unresponsive-vm-apply-windows-update).

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 9d607f0ad1ab9d9924cd05ce1a66bee34e4ff18d
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: db7bfbef7435c47aa011c5f19e8c52d013c88dc3
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84229864"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636686"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
@@ -123,6 +123,15 @@ mysql -h mydb.mysql.database.azure.com \
   --enable-cleartext-plugin \ 
   --password=`az account get-access-token --resource-type oss-rdbms --output tsv --query accessToken`
 ```
+
+Ważne zagadnienia dotyczące nawiązywania połączenia:
+
+* `user@tenant.onmicrosoft.com`jest nazwą użytkownika lub grupy usługi Azure AD, z którą próbujesz nawiązać połączenie
+* Zawsze dołączaj nazwę serwera po nazwie użytkownika/grupy usługi Azure AD (np. `@mydb` )
+* Upewnij się, że używasz dokładnego sposobu, w jaki nazwa użytkownika lub grupy usługi Azure AD jest wpisana
+* Nazwy użytkowników i grup usługi Azure AD uwzględniają wielkość liter
+* Podczas nawiązywania połączenia jako grupy należy użyć tylko nazwy grupy (np. `GroupName@mydb` )
+* Jeśli nazwa zawiera spacje, użyj `\` przed każdym miejscem, aby ją wypróbować
 
 Zwróć uwagę na ustawienie "Enable-zwykły tekst-wtyczka" — należy użyć podobnej konfiguracji z innymi klientami, aby upewnić się, że token jest wysyłany do serwera bez mieszania.
 

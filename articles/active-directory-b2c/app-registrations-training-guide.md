@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e60e8452b5cd3750a7b3478c860de95d8992528d
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6b6294abe986115d86826fee8aad09f468b3d651
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300148"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628010"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nowe środowisko Rejestracje aplikacji dla Azure Active Directory B2C
 
-Nowe środowisko **[rejestracje aplikacji](https://aka.ms/b2cappregistrations)** dla Azure Active Directory Azure AD B2C (Azure AD B2C) jest teraz ogólnie dostępne. Jeśli wiesz już, jak korzystać z **aplikacji** do rejestrowania aplikacji dla Azure AD B2C, o których mowa w tym miejscu jako "starsze środowisko", ten przewodnik umożliwi rozpoczęcie pracy przy użyciu nowego środowiska.
+Nowe środowisko **[rejestracje aplikacji](https://aka.ms/b2cappregistrations)** dla Azure Active Directory B2C (Azure AD B2C) jest teraz ogólnie dostępne. Jeśli wiesz już, jak korzystać z **aplikacji** do rejestrowania aplikacji dla Azure AD B2C, o których mowa w tym miejscu jako "starsze środowisko", ten przewodnik umożliwi rozpoczęcie pracy przy użyciu nowego środowiska.
 
 ## <a name="overview"></a>Omówienie
 Wcześniej należało zarządzać Azure AD B2C aplikacjami dostępnymi dla klientów niezależnie od reszty aplikacji przy użyciu starszego środowiska. Są to różne środowiska tworzenia aplikacji w różnych miejscach na platformie Azure.

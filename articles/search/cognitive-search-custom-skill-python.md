@@ -8,12 +8,13 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: tracking-python
+ms.openlocfilehash: 7945b3b0aeba7f5135665f4413d304eb225ac749
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77210469"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604698"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Przykład: Tworzenie niestandardowej umiejętności przy użyciu języka Python
 
@@ -41,7 +42,7 @@ W tym przykładzie została użyta funkcja platformy Azure do zademonstrowania k
 
 Szablon projektu usługi Azure Functions w programie Visual Studio Code umożliwia utworzenie projektu, który można opublikować w aplikacji funkcji na platformie Azure. Aplikacja funkcji umożliwia grupowanie funkcji w jednostki logiczne, co ułatwia wdrażanie i udostępnianie zasobów oraz zarządzanie nimi.
 
-1. W Visual Studio Code naciśnij klawisz F1, aby otworzyć paletę poleceń. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Create new project...`.
+1. W Visual Studio Code naciśnij klawisz F1, aby otworzyć paletę poleceń. W palecie poleceń Wyszukaj i wybierz `Azure Functions: Create new project...` .
 
 1. Wybierz lokalizację katalogu dla obszaru roboczego projektu, a następnie wybierz **pozycję Wybierz**.
 
@@ -57,7 +58,7 @@ Szablon projektu usługi Azure Functions w programie Visual Studio Code umożliw
 
 Program Visual Studio Code utworzy projekt aplikacji funkcji w nowym obszarze roboczym. Ten projekt zawiera pliki konfiguracyjne [host.json](../azure-functions/functions-host-json.md) i [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), a także wszystkie specyficzne dla języka pliki projektu. 
 
-Nowa funkcja wyzwalana przez protokół HTTP jest również tworzona w folderze **złączer** projektu aplikacji funkcji. W tym miejscu będzie istnieć plik o nazwie "\_\_init__. pr" z następującą zawartością:
+Nowa funkcja wyzwalana przez protokół HTTP jest również tworzona w folderze **złączer** projektu aplikacji funkcji. W tym miejscu będzie istnieć plik o nazwie " \_ \_ init__. pr" z następującą zawartością:
 
 ```py
 import logging
@@ -231,7 +232,7 @@ Ten przykład powinien dawać ten sam wynik, który został wcześniej wyświetl
 
 ## <a name="connect-to-your-pipeline"></a>Nawiązywanie połączenia z potokiem
 
-Teraz, gdy masz nową niestandardową umiejętność, możesz dodać ją do swojej zestawu umiejętności. W poniższym przykładzie pokazano, jak wywołać umiejętność łączenia tytułu i autora dokumentu w jedno pole, które wywołuje merged_title_author. Zamień `[your-function-url-here]` na adres URL nowej funkcji platformy Azure.
+Teraz, gdy masz nową niestandardową umiejętność, możesz dodać ją do swojej zestawu umiejętności. W poniższym przykładzie pokazano, jak wywołać umiejętność łączenia tytułu i autora dokumentu w jedno pole, które wywołuje merged_title_author. Zamień na `[your-function-url-here]` adres URL nowej funkcji platformy Azure.
 
 ```json
 {

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/05/2020
 ms.author: jingwang
-ms.openlocfilehash: 1b32685aa060363d00f1566e009beee36bbf9680
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 21f074be2cefcf5df261b354f169e8c210c9256f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298554"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604875"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format tekstu rozdzielanego w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -139,7 +139,63 @@ Obsługiwane **rozdzielone ustawienia zapisu tekstu** w obszarze `formatSettings
 
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
-Dowiedz się więcej o [przekształceniu źródłowym](data-flow-source.md) i [transformacji ujścia](data-flow-sink.md) w mapowaniu przepływu danych.
+W mapowaniu przepływów danych można odczytywać i zapisywać w rozdzielonym formacie tekstowym w następujących magazynach danych: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)i [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+
+### <a name="source-properties"></a>Właściwości źródła
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez rozdzielane Źródło tekstu. Można edytować te właściwości na karcie **Opcje źródła** .
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Ścieżki symboli wieloznacznych | Wszystkie pliki zgodne ze ścieżką wieloznaczną zostaną przetworzone. Zastępuje folder i ścieżkę pliku ustawioną w zestawie danych. | nie | Ciąg [] | wildcardPaths |
+| Ścieżka katalogu głównego partycji | W przypadku danych plików podzielonych na partycje można wprowadzić ścieżkę katalogu głównego partycji, aby odczytywać foldery partycjonowane jako kolumny | nie | String | partitionRootPath |
+| Lista plików | Czy źródło wskazuje plik tekstowy, który zawiera listę plików do przetworzenia | nie | `true` lub `false` | fileList |
+| Wiersze wielowierszowe | Czy plik źródłowy zawiera wiersze, które rozciągają się na wiele wierszy. Wartości wielowierszowe muszą być w cudzysłowach. | nie `true` lub`false` | multiLineRow |
+| Kolumna do przechowywania nazwy pliku | Utwórz nową kolumnę o nazwie i ścieżce pliku źródłowego | nie | String | rowUrlColumn |
+| Po zakończeniu | Usuń lub Przenieś pliki po przetworzeniu. Ścieżka pliku zaczyna się od katalogu głównego kontenera | nie | Usuń: `true` lub`false` <br> Przenieś`['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Filtruj według ostatniej modyfikacji | Wybierz filtrowanie plików na podstawie czasu ich ostatniej modyfikacji | nie | Znacznik czasu | modifiedAfter <br> modifiedBefore |
+
+### <a name="source-example"></a>Przykład źródła
+
+Poniżej przedstawiono przykład konfiguracji rozdzielonego źródła tekstu w mapowaniu przepływów danych.
+
+![Źródło DelimitedText](media/data-flow/delimited-text-source.png)
+
+Skojarzony skrypt przepływu danych:
+
+```
+source(
+    allowSchemaDrift: true,
+    validateSchema: false,
+    multiLineRow: true,
+    wildcardPaths:['*.csv']) ~> CSVSource
+```
+
+### <a name="sink-properties"></a>Właściwości ujścia
+
+Poniższa tabela zawiera listę właściwości obsługiwanych przez rozdzieloną zlewkę tekstu. Te właściwości można edytować na karcie **Ustawienia** .
+
+| Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Wyczyść folder | Jeśli folder docelowy został wyczyszczony przed zapisem | nie | `true` lub `false` | obciąć |
+| Opcja nazwy pliku | Format nazewnictwa zapisanych danych. Domyślnie jeden plik na partycję w formacie`part-#####-tid-<guid>` | nie | Wzorzec: ciąg <br> Na partycję: String [] <br> Jako dane w kolumnie: ciąg <br> Dane wyjściowe do pojedynczego pliku:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Wszystkie oferty | Ujmij wszystkie wartości w cudzysłowy | nie | `true` lub `false` | quoteAll |
+
+### <a name="sink-example"></a>Przykład ujścia
+
+Poniższy obraz to przykład konfiguracji rozdzielonego ujścia tekstu w mapowaniu przepływów danych.
+
+![Ujścia DelimitedText](media/data-flow/delimited-text-sink.png)
+
+Skojarzony skrypt przepływu danych:
+
+```
+CSVSource sink(allowSchemaDrift: true,
+    validateSchema: false,
+    truncate: true,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> CSVSink
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

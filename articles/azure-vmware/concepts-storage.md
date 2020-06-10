@@ -3,12 +3,12 @@ title: Pojęcia — magazyn
 description: Dowiedz się więcej o możliwościach magazynu kluczy w programie Azure VMware w wersji zapoznawczej chmury prywatne.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 7e58a829a40d590b7936a58ccdc866211a4f5cb4
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 7f92e8f961422f8354e55192ebdddd077d61acd1
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740358"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604120"
 ---
 # <a name="azure-vmware-solution-avs-preview-storage-concepts"></a>Azure VMware Solution (wersja zapoznawcza) — koncepcje dotyczące magazynu
 
@@ -32,7 +32,7 @@ magazyny danych sieci vSAN korzystają domyślnie z szyfrowania Data-in-Rest. Ro
 
 ## <a name="scaling"></a>Skalowanie
 
-Pojemność magazynu natywnego klastra jest skalowana przez Dodawanie hostów do klastra. W przypadku klastrów, które korzystają z hostów, pierwotna pojemność całego klastra jest zwiększana o 15,4 TB z każdym dodatkowym hostem. W klastrach zbudowanych przy użyciu hostów zasad grupy ich pierwotna pojemność wzrosła o 7,7 TB z każdym dodatkowym hostem. W obu typach klastrów hosty trwają około 10 minut do dodania do klastra. Aby uzyskać instrukcje dotyczące skalowania klastrów, zobacz [Samouczek dotyczący chmury prywatnej.
+Pojemność magazynu natywnego klastra jest skalowana przez Dodawanie hostów do klastra. W przypadku klastrów, które korzystają z hostów, pierwotna pojemność całego klastra jest zwiększana o 15,4 TB z każdym dodatkowym hostem. W klastrach zbudowanych przy użyciu hostów zasad grupy ich pierwotna pojemność wzrosła o 7,7 TB z każdym dodatkowym hostem. W obu typach klastrów hosty trwają około 10 minut do dodania do klastra. Zobacz samouczek skalowanie [chmury prywatnej][tutorial-scale-private-cloud] , aby uzyskać instrukcje dotyczące skalowania klastrów.
 
 ## <a name="azure-storage-integration"></a>Integracja z usługą Azure Storage
 
@@ -45,5 +45,5 @@ Następnym krokiem jest zapoznanie się z [pojęciami dotyczącymi tożsamości 
 <!-- LINKS - external-->
 
 <!-- LINKS - internal -->
-[tutorials-scale-private-cloud]: ./tutorials-scale-private-cloud.md
+[tutorial-scale-private-cloud]: ./tutorial-scale-private-cloud.md
 [concepts-identity]: ./concepts-identity.md

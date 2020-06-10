@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: 0d1aa15c572f8ddec38cef913b170ed795ba1505
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: dda71869411cbb37a24c2d39ef1d78563cfe6cab
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297925"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604103"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events maszyn wirtualnych z systemem Windows
 
@@ -78,7 +78,7 @@ Użytkownik zainicjował konserwację maszyny wirtualnej za pośrednictwem Azure
 
 Ponowne uruchomienie maszyny wirtualnej powoduje zaplanowanie zdarzenia typu `Reboot` . Ponowne wdrożenie maszyny wirtualnej powoduje zaplanowanie zdarzenia typu `Redeploy` .
 
-## <a name="using-the-api"></a>Korzystanie z interfejsu API
+## <a name="using-the-api"></a>Używanie interfejsu API
 
 ### <a name="headers"></a>Nagłówki
 Podczas wykonywania zapytania dotyczącego Metadata Service należy podać nagłówek, `Metadata:true` Aby upewnić się, że żądanie nie zostało przypadkowo przekierowane. `Metadata:true`Nagłówek jest wymagany dla wszystkich żądań zaplanowanych zdarzeń. Niepowodzenie dołączenia nagłówka w żądaniu spowoduje nieprawidłową odpowiedź na żądanie z Metadata Service.
@@ -142,10 +142,18 @@ Każde zdarzenie ma zaplanowaną minimalną ilość czasu w przyszłości w opar
 Zaplanowane zdarzenia są dostarczane do:
  - Autonomiczna Virtual Machines.
  - Wszystkie Virtual Machines w usłudze w chmurze.     
- - Wszystkie Virtual Machines w zestawie dostępności.     
+ - Wszystkie Virtual Machines w zestawie dostępności. 
+ - Wszystkie Virtual Machines w strefie dostępności.
  - Wszystkie Virtual Machines w grupie położenia zestawu skalowania (w tym partii).       
 
-W związku z tym należy zaznaczyć `Resources` pole w zdarzeniu, aby ustalić, które maszyny wirtualne mają mieć wpływ. 
+> [!NOTE]
+> W strefie dostępności zaplanowane zdarzenia dotyczą tylko jednej maszyny wirtualnej, której to dotyczy, w strefie dostępności.
+> 
+> Na przykład w zestawie dostępności, jeśli masz 100 maszyn wirtualnych w zestawie i istnieje aktualizacja dla jednej z maszyn wirtualnych, zaplanowane zdarzenie przechodzi do wszystkich maszyn wirtualnych 100 w zestawie dostępności.
+>
+> W strefie dostępności, jeśli masz 100 maszyn wirtualnych w strefie dostępności, zdarzenie będzie miało miejsce tylko na maszynę wirtualną, której to dotyczy.
+>
+> W związku z tym należy zaznaczyć `Resources` pole w zdarzeniu, aby ustalić, które maszyny wirtualne będą miały na to oddziaływać. 
 
 ### <a name="starting-an-event"></a>Uruchamianie zdarzenia 
 

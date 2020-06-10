@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: c5b86319752fc70e754e34b787bbdc12f18636f0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3317410408754519bcd8b52e78dee4a81b3ab070
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655995"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609492"
 ---
-# <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-analytics-workspace-preview"></a>Szybki Start: łączenie obszaru roboczego Power BI z obszarem roboczym Synapse Analytics (wersja zapoznawcza)
+# <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Szybki Start: łączenie obszaru roboczego Power BI z obszarem roboczym Synapse
 
 W tym przewodniku szybki start dowiesz się, jak połączyć obszar roboczy Power BI z obszarem roboczym Synapse Analytics, aby utworzyć nowe raporty Power BI i zestawy danych z programu Synapse Studio (wersja zapoznawcza).
 

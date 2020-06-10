@@ -5,7 +5,6 @@ services: storsimple
 documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 116ac5c4efda87b5d16336dd326d516299f6955d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c25955c87899291c599d7055e7213dad955c6816
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "61481981"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84634185"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Dezaktywacja i usuwanie urządzenia StorSimple
 
@@ -36,28 +35,29 @@ W przypadku dezaktywowania urządzenia żadne dane przechowywane lokalnie na urz
 >
 > Proces resetowania do ustawień fabrycznych usuwa wszystkie dane przechowywane lokalnie na urządzeniu. W związku z tym przed dezaktywacją urządzenia musisz wykonać migawkę w chmurze dla wszystkich danych. Ta migawka w chmurze umożliwia odzyskanie wszystkich danych na późniejszym etapie.
 
+> [!NOTE]
+>
+> - Przed dezaktywacją urządzenia fizycznego StorSimple lub urządzeniem w chmurze upewnij się, że dane z usuniętego kontenera woluminów są w rzeczywistości usuwane z urządzenia. Możesz monitorować wykresy zużycia w chmurze i wyświetlić listę rozwijaną użycia w chmurze ze względu na usunięte kopie zapasowe, a następnie można rozpocząć dezaktywację urządzenia. Jeśli urządzenie zostanie dezaktywowane przed wystąpieniem tej porzucenia, dane są uwzględniane na koncie magazynu i naliczane są opłaty.
+>
+> - Przed dezaktywacją urządzenia fizycznego StorSimple lub urządzeniem w chmurze Zatrzymaj lub Usuń klientów i hosty, które są zależne od tego urządzenia.
+>
+> - Jeśli konta magazynu lub kontenery na koncie magazynu skojarzonym z kontenerami woluminów zostały już usunięte przed usunięciem danych z urządzenia, wystąpi błąd i może nie być możliwe usunięcie danych. Zalecamy usunięcie danych z urządzenia przed usunięciem z nich konta magazynu lub kontenerów. Jednak w takiej sytuacji trzeba będzie kontynuować dezaktywację i usunięcie urządzenia przy założeniu, że dane zostały już usunięte z konta magazynu.
+
 Po przeczytaniu tego samouczka będziesz mieć możliwość:
 
-* Dezaktywuj urządzenie i Usuń dane.
-* Dezaktywuj urządzenie i Zachowaj dane.
-
-> [!NOTE]
-> Przed dezaktywacją urządzenia fizycznego StorSimple lub urządzeniem w chmurze Zatrzymaj lub Usuń klientów i hosty, które są zależne od tego urządzenia.
-
+- Dezaktywuj urządzenie i Usuń dane.
+- Dezaktywuj urządzenie i Zachowaj dane.
 
 ## <a name="deactivate-and-delete-data"></a>Dezaktywuj i Usuń dane
 
 Jeśli chcesz całkowicie usunąć urządzenie i nie chcesz zachować danych na urządzeniu, wykonaj następujące czynności.
 
-#### <a name="to-deactivate-the-device-and-delete-the-data"></a>Aby dezaktywować urządzenie i usunąć dane
+### <a name="to-deactivate-the-device-and-delete-the-data"></a>Aby dezaktywować urządzenie i usunąć dane
 
-1. Przed dezaktywacją urządzenia należy usunąć wszystkie kontenery woluminów (i woluminy) skojarzone z urządzeniem. Kontenery woluminów można usunąć dopiero po usunięciu skojarzonych kopii zapasowych.
-
-    > [!NOTE]
-    > Przed dezaktywacją urządzenia fizycznego StorSimple lub urządzeniem w chmurze upewnij się, że dane z usuniętego kontenera woluminów są w rzeczywistości usuwane z urządzenia. Możesz monitorować wykresy zużycia w chmurze i wyświetlić listę rozwijaną użycia w chmurze ze względu na usunięte kopie zapasowe, a następnie można rozpocząć dezaktywację urządzenia. Jeśli urządzenie zostanie dezaktywowane przed wystąpieniem tej porzucenia, dane są uwzględniane na koncie magazynu i naliczane są opłaty.
+1. Przed dezaktywacją urządzenia należy usunąć wszystkie kontenery woluminów (i woluminy) skojarzone z urządzeniem. Kontenery woluminów można usunąć dopiero po usunięciu skojarzonych kopii zapasowych. Zapoznaj się z uwagami opisanymi w powyższym omówieniu przed dezaktywacją urządzenia fizycznego StorSimple lub urządzeniem w chmurze.
 
 2. Dezaktywuj urządzenie w następujący sposób:
-   
+
    1. Przejdź do usługi Menedżer urządzeń StorSimple i kliknij pozycję **Urządzenia**. W bloku **urządzenia** wybierz urządzenie, które chcesz dezaktywować, kliknij prawym przyciskiem myszy, a następnie kliknij pozycję **Dezaktywuj**.
 
         ![Dezaktywuj Urządzenie StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate1.png)
@@ -79,7 +79,8 @@ Jeśli chcesz całkowicie usunąć urządzenie i nie chcesz zachować danych na 
 
 Jeśli interesuje Cię usunięcie urządzenia, ale chcesz zachować dane, wykonaj następujące czynności:
 
-#### <a name="to-deactivate-a-device-and-retain-the-data"></a>Aby dezaktywować urządzenie i zachować dane
+### <a name="to-deactivate-a-device-and-retain-the-data"></a>Aby dezaktywować urządzenie i zachować dane
+
 1. Dezaktywuj urządzenie. Wszystkie kontenery woluminów i migawki urządzenia pozostają.
    
    1. Przejdź do usługi Menedżer urządzeń StorSimple i kliknij pozycję **Urządzenia**. W bloku **urządzenia** wybierz urządzenie, które chcesz dezaktywować, kliknij prawym przyciskiem myszy, a następnie kliknij pozycję **Dezaktywuj**.
@@ -99,7 +100,6 @@ Jeśli interesuje Cię usunięcie urządzenia, ale chcesz zachować dane, wykona
        ![Dezaktywuj Urządzenie StorSimple](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Po pomyślnym ukończeniu usuwania zostanie wyświetlone powiadomienie. Lista urządzeń jest również aktualizowana w celu odzwierciedlenia usunięcia.
 
-     
 ## <a name="deactivate-and-delete-a-cloud-appliance"></a>Dezaktywowanie i usuwanie urządzenia w chmurze
 
 W przypadku urządzenia w chmurze StorSimple dezaktywacja z poziomu portalu powoduje cofnięcie alokacji i usunięcie maszyny wirtualnej oraz zasobów utworzonych po zainicjowaniu obsługi administracyjnej. Po dezaktywacji urządzenia w chmurze nie można go przywrócić do poprzedniego stanu.

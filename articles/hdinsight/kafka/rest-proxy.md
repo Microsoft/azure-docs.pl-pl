@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, tracking-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 5e46e50da67559f69302357804f6f98fee70d4ad
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 5260da53ac7b65b68be58046ac6cb20e66c213c6
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773308"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605497"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Korzystanie z klastrów Apache Kafka w usłudze Azure HDInsight przy użyciu serwera proxy REST
 

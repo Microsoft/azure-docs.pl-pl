@@ -9,12 +9,13 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: dapine
-ms.openlocfilehash: fa0ad8c7f75a977e1a39ff6ffd6fee08d977f57a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: tracking-python
+ms.openlocfilehash: be1f6bd05069024194cb9312b17941c609d544dd
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202011"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608455"
 ---
 # <a name="azure-cognitive-services-security"></a>Zabezpieczenia usługi Azure Cognitive Services
 
@@ -110,9 +111,9 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 
 Aby uzyskać zmienną środowiskową, należy ją odczytać w pamięci. W zależności od używanego języka należy wziąć pod uwagę następujące fragmenty kodu. Te fragmenty kodu pokazują, jak uzyskać zmienną środowiskową `ENVIRONMENT_VARIABLE_KEY` i przypisać ją do zmiennej o nazwie `value` .
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
+Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```csharp
 using static System.Environment;
@@ -129,9 +130,9 @@ class Program
 }
 ```
 
-# <a name="c"></a>[Języków](#tab/cpp)
+# <a name="c"></a>[C++](#tab/cpp)
 
-Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
+Aby uzyskać więcej informacji, zobacz <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```cpp
 #include <stdlib.h>
@@ -146,7 +147,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-Aby uzyskać więcej informacji, <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
+Aby uzyskać więcej informacji, zobacz <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```java
 import java.lang.*;
@@ -163,7 +164,7 @@ public class Program {
 
 # <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-Aby uzyskać więcej informacji, <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
+Aby uzyskać więcej informacji, zobacz <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -173,7 +174,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-Aby uzyskać więcej informacji, <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
+Aby uzyskać więcej informacji, zobacz <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```python
 import os
@@ -182,9 +183,9 @@ import os
 value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 ```
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/objective-c)
+# <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-Aby uzyskać więcej informacji, <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
+Aby uzyskać więcej informacji, zobacz <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable

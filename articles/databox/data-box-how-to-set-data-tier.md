@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 31178284313ad7dafb094b109a75d4550cabd39c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a68793d893d8eb8de681eb438de39afc212370c9
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77560375"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608727"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Używanie Azure Data Box lub Azure Data Box Heavy do wysyłania danych do odpowiedniej warstwy obiektów BLOB usługi Azure Storage
 
@@ -48,7 +48,7 @@ Alternatywnie utworzysz konto magazynu z określonym atrybutem warstwy dostępu.
 Po przekazaniu danych z urządzenia urządzenie Data Box do warstwy domyślnej można przenieść dane do warstwy innej niż domyślna. Istnieją dwa sposoby przenoszenia tych danych do warstwy innej niż domyślna.
 
 - **Zarządzanie cyklem życia usługi Azure Blob Storage** — możesz użyć podejścia opartego na zasadach, aby automatycznie warstwy lub wygasnąć po zakończeniu cyklu życia. Aby uzyskać więcej informacji, przejdź do [obszaru Zarządzanie cyklem życia usługi Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).
-- **Obsługa skryptów** — można użyć podejścia skryptowego za pośrednictwem Azure PowerShell, aby włączyć obsługę warstw na poziomie obiektów BLOB. Możesz wywołać `SetBlobTier` operację, aby ustawić warstwę dla obiektu BLOB.
+- **Obsługa skryptów** — można użyć podejścia skryptowego za pośrednictwem Azure PowerShell, aby włączyć obsługę warstw na poziomie obiektów BLOB. Możesz wywołać operację, `SetBlobTier` Aby ustawić warstwę dla obiektu BLOB.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Użyj Azure PowerShell, aby ustawić warstwę obiektów BLOB
 

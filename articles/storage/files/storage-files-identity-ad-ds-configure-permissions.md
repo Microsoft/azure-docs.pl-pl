@@ -7,18 +7,16 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 06/07/2020
 ms.author: rogarana
-ms.openlocfilehash: 436f0ae3e19b2a0591a2727bde48bae66b91a94e
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: b8ff58e830d9ca992db4461ee5c75659120c89c1
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509257"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629587"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Część trzecia: Konfigurowanie uprawnień na poziomie katalogu i pliku za pośrednictwem protokołu SMB 
 
 Przed rozpoczęciem tego artykułu upewnij się, że wykonano Poprzedni artykuł, [przypisując uprawnienia na poziomie udziału do tożsamości](storage-files-identity-ad-ds-assign-permissions.md). , Aby upewnić się, że Twoje uprawnienia na poziomie udziału zostały wprowadzone.
-
-Po przypisaniu uprawnień na poziomie udziałów przy użyciu RBAC należy przypisać odpowiednie listy ACL systemu Windows (znane także jako uprawnienia NTFS) na poziomie katalogu głównego, katalogu lub pliku, aby skorzystać z szczegółowej kontroli dostępu. Należy traktować uprawnienia na poziomie udziału RBAC jako strażnika wysokiego poziomu, który określa, czy użytkownik może uzyskać dostęp do udziału. Chociaż listy kontroli dostępu systemu Windows działają na bardziej szczegółowym poziomie, aby określić, jakie operacje może wykonać użytkownik na poziomie katalogu lub pliku.
 
 Po przypisaniu uprawnień na poziomie udziału za pomocą RBAC należy skonfigurować odpowiednie listy ACL systemu Windows na poziomie katalogu głównego, katalogu lub pliku, aby skorzystać z szczegółowej kontroli dostępu. Należy traktować uprawnienia na poziomie udziału RBAC jako strażnika wysokiego poziomu, który określa, czy użytkownik może uzyskać dostęp do udziału. Listy ACL systemu Windows działają na bardziej szczegółowym poziomie, aby określić, jakie operacje może wykonywać użytkownik na poziomie katalogu lub pliku. Uprawnienia na poziomie udziału i pliku/katalogu są wymuszane, gdy użytkownik próbuje uzyskać dostęp do pliku/katalogu, więc jeśli istnieje różnica między jednym z nich, zostanie zastosowane tylko najbardziej restrykcyjne. Na przykład jeśli użytkownik ma dostęp do odczytu/zapisu na poziomie pliku, ale tylko do odczytu na poziomie udziału, może odczytać tylko ten plik. Ta sama wartość powinna być równa true, jeśli została odwrócona, a użytkownik miał dostęp do odczytu/zapisu na poziomie udziału, ale tylko do odczytu na poziomie pliku może nadal tylko odczytać plik.
 

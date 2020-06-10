@@ -13,12 +13,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 781d8b89dd1b7fa6b2ed9707f6d4c485b4abdf20
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: f9f80cf0c42bdc6e45d62cac930c0bce4b20ee60
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220590"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605463"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Używanie warunku lokalizacji w zasadach dostępu warunkowego 
 
@@ -34,7 +34,7 @@ Organizacje mogą używać tej lokalizacji sieciowej do wykonywania typowych zad
 Lokalizacja sieciowa jest określana przez publiczny adres IP, który klient zapewnia Azure Active Directory. Zasady dostępu warunkowego są domyślnie stosowane do wszystkich adresów IPv4 i IPv6. 
 
 > [!TIP]
-> Zakresy adresów IPV6 są obsługiwane tylko w interfejsie **[nazwanych lokalizacji (wersja zapoznawcza)](#preview-features)** . 
+> Zakresy adresów IPv6 są obsługiwane tylko w interfejsie **[nazwanych lokalizacji (wersja zapoznawcza)](#preview-features)** . 
 
 ## <a name="named-locations"></a>Nazwane lokalizacje
 
@@ -50,7 +50,7 @@ Liczba nazwanych lokalizacji, które można skonfigurować, jest ograniczona prz
 - Maksymalnie 90 nazwanych lokalizacji z jednym zakresem adresów IP przypisanym do każdego z nich.
 
 > [!TIP]
-> Zakresy adresów IPV6 są obsługiwane tylko w interfejsie **[nazwanych lokalizacji (wersja zapoznawcza)](#preview-features)** . 
+> Zakresy adresów IPv6 są obsługiwane tylko w interfejsie **[nazwanych lokalizacji (wersja zapoznawcza)](#preview-features)** . 
 
 ### <a name="trusted-locations"></a>Zaufane lokalizacje
 
@@ -65,7 +65,7 @@ Ta opcja może być oparta na zasadach dostępu warunkowego, które mogą na prz
 Niektóre organizacje mogą zdecydować się na zdefiniowanie wszystkich krajów lub regionów granic adresów IP jako lokalizacji nazw dla zasad dostępu warunkowego. Mogą oni korzystać z tych lokalizacji podczas blokowania niepotrzebnego ruchu, gdy wiedzą, że Prawidłowi użytkownicy nigdy nie pochodzą z lokalizacji takiej jak Korea Północna. Te mapowania adresów IP do kraju są okresowo aktualizowane. 
 
 > [!NOTE]
-> Kraje nie zawierają zakresów adresów IPv6, tylko znanych zakresów adresów IPv4.
+> Kraje nie obejmują zakresów adresów IPv6, tylko znanych zakresów adresów IPv4 i nie mogą być oznaczone jako zaufane.
 
 ![Tworzenie nowego kraju lub lokalizacji na podstawie regionu w Azure Portal](./media/location-condition/new-named-location-country-region.png)
 
@@ -102,7 +102,7 @@ W wersji zapoznawczej określonej lokalizacji można
 
 - Skonfiguruj do 195 nazwanych lokalizacji
 - Skonfiguruj maksymalnie 2000 zakresów adresów IP na nazwę lokalizacji
-- Skonfiguruj do adresów IPv6
+- Skonfiguruj adresy IPv6 obok adresów IPv4
 
 Dodaliśmy również dodatkowe kontrole, aby zmniejszyć liczbę niezmienionych konfiguracji.
 
@@ -115,7 +115,7 @@ W wersji zapoznawczej dostępne są dwie opcje tworzenia:
 - **Lokalizacja zakresów adresów IP**
 
 > [!NOTE]
-> Kraje nie zawierają zakresów adresów IPv6, tylko znanych zakresów adresów IPv4.
+> Kraje nie obejmują zakresów adresów IPv6, tylko znanych zakresów adresów IPv4 i nie mogą być oznaczone jako zaufane.
 
 ![Interfejs wersji zapoznawczej lokalizacji](./media/location-condition/named-location-preview.png)
 

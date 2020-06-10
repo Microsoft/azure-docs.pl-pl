@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: a7dfc58258c8c7c6e8bbf7567d743abf90d3a7e5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1fb4e7cf589d63e9e595a35c34a2728d564b309b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194894"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609934"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hostowanie statycznej witryny sieci Web w usłudze Azure Storage
 
@@ -153,13 +153,10 @@ W tych instrukcjach pokazano, jak przekazywać pliki przy użyciu wersji Eksplor
 
 Przekaż obiekty do kontenera *$Web* z katalogu źródłowego.
 
-> [!NOTE]
-> Jeśli używasz Azure Cloud Shell, pamiętaj o dodaniu `\` znaku ucieczki podczas odwoływania się do `$web` kontenera (na przykład: `\$web` ). Jeśli używasz lokalnej instalacji interfejsu wiersza polecenia platformy Azure, nie musisz używać znaku ucieczki.
-
 W tym przykładzie przyjęto założenie, że używasz poleceń z sesji Azure Cloud Shell.
 
 ```azurecli-interactive
-az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+az storage blob upload-batch -s <source-path> -d '$web' --account-name <storage-account-name>
 ```
 
 > [!NOTE] 

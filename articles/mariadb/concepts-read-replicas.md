@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 5/4/2020
-ms.openlocfilehash: e3615286150723308f861456bfe2bbb0cff81707
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 9e168387afce4fb623c89bffddb72eeda5a3d80b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84321669"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606177"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Repliki do odczytu w usłudze Azure Database for MariaDB
 
@@ -20,6 +20,12 @@ Funkcja repliki do odczytu umożliwia replikowanie danych z serwera usługi Azur
 Repliki to nowe serwery, którymi można zarządzać podobnie jak regularne Azure Database for MariaDB serwery. Dla każdej repliki odczytu są naliczane opłaty za zasoby obliczeniowe rdzeni wirtualnych i magazyn w GB/miesiąc.
 
 Więcej informacji na temat replikacji GTID można znaleźć w [dokumentacji dotyczącej replikacji MariaDB](https://mariadb.com/kb/en/library/gtid/).
+
+> [!NOTE]
+> Komunikacja bezpłatna bez opłat
+>
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
+>
 
 ## <a name="when-to-use-a-read-replica"></a>Kiedy używać repliki odczytu
 

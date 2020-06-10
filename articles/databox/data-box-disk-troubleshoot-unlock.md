@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 02cbf64261bbfbf50561e1b7466b46b27b688e0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e06cf07809d3eca208fc18f4ee6022538400d315
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67148285"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610597"
 ---
 # <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Rozwiązywanie problemów dotyczących odblokowywania dysków w Azure Data Box Disk
 
@@ -47,17 +47,17 @@ W tej sekcji przedstawiono niektóre najczęstsze problemy występujące podczas
 
 ### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problem: nie można odblokować dysku na podstawie funkcji BitLocker
  
-**Może** 
+**Przyczyna** 
 
 W oknie dialogowym funkcji BitLocker użyto hasła i próba odblokowania dysku za pośrednictwem okna dialogowego dysków odblokowywania funkcją BitLocker. Nie będzie to zadziałało.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Aby odblokować dyski urządzenie Data Box, należy użyć narzędzia odblokowywanie Data Box Disk i podać hasło w Azure Portal. Aby uzyskać więcej informacji, przejdź do [samouczka: rozpakowywanie, łączenie i odblokowywanie Azure Data Box Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
  
 ### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problem: nie można odblokować lub zweryfikować niektórych woluminów. Contact Microsoft Support.
  
-**Może**
+**Przyczyna**
 
 W dzienniku błędów może zostać wyświetlony następujący błąd i nie będzie można odblokować ani zweryfikować niektórych woluminów.
 
@@ -65,7 +65,7 @@ W dzienniku błędów może zostać wyświetlony następujący błąd i nie będ
  
 Oznacza to, że najkorzystniej brakuje odpowiedniej wersji programu Windows PowerShell na kliencie systemu Windows.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Możesz zainstalować program [Windows PowerShell](https://www.microsoft.com/download/details.aspx?id=54616) w wersji 5,0 i ponownie wykonać operację.
  

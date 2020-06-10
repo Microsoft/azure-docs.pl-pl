@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 48a23c483ab4338492a407b60f3a5dfc95c0e680
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67805705"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84607333"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Korzystanie z dzienników w celu rozwiązywania problemów ze sprawdzaniem poprawności w Azure Data Box Disk
 
@@ -27,7 +27,7 @@ Po sprawdzeniu poprawności danych na dyskach za pomocą [Narzędzia sprawdzania
 
 W przypadku uruchomienia wielu sesji w celu sprawdzenia poprawności zostanie wygenerowany jeden dziennik błędów dla każdej sesji.
 
-- Poniżej znajduje się przykładowy dziennik błędów, gdy dane załadowane do `PageBlob` folderu nie są 512-bajtowe wyrównane. Wszystkie dane przekazane do PageBlob muszą być wyrównane do 512-bajtowe, na przykład dysk VHD lub VHDX. Błędy w tym pliku znajdują się w `<Errors>` tematach i `<Warnings>`.
+- Poniżej znajduje się przykładowy dziennik błędów, gdy dane załadowane do `PageBlob` folderu nie są 512-bajtowe wyrównane. Wszystkie dane przekazane do PageBlob muszą być wyrównane do 512-bajtowe, na przykład dysk VHD lub VHDX. Błędy w tym pliku znajdują się w tematach `<Errors>` i `<Warnings>` .
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -48,7 +48,7 @@ W przypadku uruchomienia wielu sesji w celu sprawdzenia poprawności zostanie wy
         </ErrorLog>
     ```
 
-- Poniżej znajduje się przykładowy dziennik błędów, gdy nazwa kontenera jest nieprawidłowa. Folder utworzony w folderze `BlockBlob`, `PageBlob`czyli lub `AzureFile` foldery na dysku staną się kontenerami na koncie usługi Azure Storage. Nazwa kontenera musi być zgodna z [konwencjami nazewnictwa platformy Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
+- Poniżej znajduje się przykładowy dziennik błędów, gdy nazwa kontenera jest nieprawidłowa. Folder utworzony w folderze `BlockBlob` , `PageBlob` czyli lub `AzureFile` foldery na dysku staną się kontenerami na koncie usługi Azure Storage. Nazwa kontenera musi być zgodna z [konwencjami nazewnictwa platformy Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
     ```xml
         <?xml version="1.0" encoding="utf-8"?>
@@ -78,7 +78,7 @@ Błędy zawarte w *pliku Error. XML* z odpowiednimi zalecanymi akcjami zostały 
 | `None` | Pomyślnie zweryfikowano dane. | Nie jest wymagana żadna akcja. |
 | `InvalidXmlCharsInPath` |Nie można utworzyć pliku manifestu, ponieważ ścieżka pliku zawiera nieprawidłowe znaki. | Usuń te znaki, aby wykonać operację.  |
 | `OpenFileForReadFailed`| Nie można przetworzyć pliku. Może to być spowodowane problemem z dostępem lub uszkodzeniem systemu plików.|Nie można odczytać pliku z powodu błędu. Szczegóły błędu znajdują się w wyjątku. |
-| `Not512Aligned` | Ten plik ma nieprawidłowy format dla folderu PageBlob.| Przekaż tylko dane z 512 bajtami wyrównanymi `PageBlob` do folderu. Usuń plik z folderu PageBlob lub przenieś go do folderu BlockBlob. Spróbuj ponownie wykonać weryfikację.|
+| `Not512Aligned` | Ten plik ma nieprawidłowy format dla folderu PageBlob.| Przekaż tylko dane z 512 bajtami wyrównanymi do `PageBlob` folderu. Usuń plik z folderu PageBlob lub przenieś go do folderu BlockBlob. Spróbuj ponownie wykonać weryfikację.|
 | `InvalidBlobPath` | Ścieżka pliku nie jest zmapowana do prawidłowej ścieżki obiektu BLOB w chmurze zgodnie z konwencjami nazewnictwa obiektów blob platformy Azure.|Postępuj zgodnie z wytycznymi nazewnictwa platformy Azure, aby zmienić nazwę ścieżki pliku. |
 | `EnumerationError` | Nie można wyliczyć pliku do walidacji. |Może istnieć wiele przyczyn tego błędu. Najbardziej prawdopodobną przyczyną jest dostęp do pliku. |
 | `ShareSizeExceeded` | Ten plik spowodował, że rozmiar udziału plików platformy Azure przekracza limit platformy Azure wynoszący 5 TB.|Zmniejsz rozmiar danych w udziale, aby była zgodna z [limitami rozmiaru obiektu platformy Azure](data-box-disk-limits.md#azure-object-size-limits). Spróbuj ponownie wykonać weryfikację. |

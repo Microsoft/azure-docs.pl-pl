@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: 2d4ce6f274efbd4d8afe2ac48856b0fc312f0a09
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84261787"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635173"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>Co to jest usługa Azure rozpoznawanie osoby mówiącej?
 
@@ -27,7 +27,7 @@ Weryfikacja osoby mówiącej usprawnia proces weryfikowania zarejestrowanej toż
 
 ### <a name="how-does-speaker-verification-work"></a>Jak działa weryfikacja osoby mówiącej?
 
-![Jak działa weryfikacja głośników](media/speaker-recognition/speaker-rec.png)
+:::image type="content" source="media/speaker-recognition/speaker-rec.png" alt-text="Weryfikacja osoby mówiącej Flowchart.":::
 
 Weryfikacja osoby mówiącej może być zależna od tekstu lub niezależna od tekstu. Weryfikacja **zależna od tekstu** oznacza, że głośniki muszą wybrać takie samo hasło, które ma być używane podczas faz rejestracji i weryfikacji. Weryfikacja **niezależna od tekstu** oznacza, że głośniki mogą mówić w codziennym języku w zwrotach rejestracyjnych i weryfikacyjnych.
 
@@ -59,4 +59,5 @@ Podobnie jak w przypadku wszystkich zasobów Cognitive Services, deweloperzy kor
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
+> * Zapoznaj się z [artykułem podstawowe](speaker-recognition-basics.md) rozpoznawanie osoby mówiącej, aby zapoznać się z typowymi wzorcami projektowymi, których można używać w aplikacjach.
 > * Zapoznaj się z [samouczkiem](https://azure.microsoft.com/resources/videos/speaker-recognition-text-independent-verification-developer-tutorial/) dotyczącym weryfikacji niezależnych od tekstu.

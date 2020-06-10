@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76717326"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629011"
 ---
 # <a name="create-a-custom-voice"></a>Tworzenie niestandardowego głosu
 
@@ -28,7 +28,7 @@ Sprawdź języki obsługiwane dla niestandardowego głosu: [język do dostosowan
 
 ## <a name="upload-your-datasets"></a>Przekazywanie zestawów danych
 
-Gdy wszystko będzie gotowe do przekazania danych, przejdź do [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal). Utwórz lub wybierz niestandardowy projekt głosowy. Projekt musi udostępniać odpowiednie właściwości języka/ustawień regionalnych oraz płci jako dane, których zamierzasz użyć do szkolenia głosowego. Na przykład wybierz `en-GB` , czy nagranie audio zostało wykonane w języku angielskim z akcentem Zjednoczonego Królestwa.
+Gdy wszystko będzie gotowe do przekazania danych, przejdź do [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal). Utwórz lub wybierz niestandardowy projekt głosowy. Projekt musi udostępniać odpowiednie właściwości języka/ustawień regionalnych oraz płci jako dane, których zamierzasz użyć do szkolenia głosowego. Na przykład wybierz, `en-GB` czy nagranie audio zostało wykonane w języku angielskim z akcentem Zjednoczonego Królestwa.
 
 Przejdź do karty **dane** , a następnie kliknij pozycję **Przekaż dane**. W kreatorze wybierz odpowiedni typ danych, który jest zgodny z przygotowanymi danymi.
 
@@ -62,13 +62,13 @@ Rozważ ponowne nagranie wszelkich wyrażenia długości z wynikami niskiej wymo
 
 Po sprawdzeniu poprawności zestawu danych można go użyć do utworzenia niestandardowego modelu głosu.
 
-1.  Przejdź do **funkcji Zamiana tekstu na mowę > niestandardowego szkolenia > głosu**.
+1.  Przejdź do obszaru **Zamiana tekstu na mowę > niestandardowego głosu > [nazwa projektu] > szkolenie**.
 
 2.  Kliknij pozycję **uczenie modelu**.
 
 3.  Następnie wprowadź **nazwę** i **Opis** , aby ułatwić identyfikację tego modelu.
 
-    Należy uważnie wybrać nazwę. Wprowadzona nazwa będzie nazwą użytą do określenia głosu w żądaniu dla syntezy mowy w ramach danych wejściowych SSML. Dozwolone są tylko litery, cyfry i kilka znaków interpunkcyjnych, takich jak- \_, i (","). Użyj różnych nazw dla różnych modeli głosowych.
+    Należy uważnie wybrać nazwę. Wprowadzona nazwa będzie nazwą użytą do określenia głosu w żądaniu dla syntezy mowy w ramach danych wejściowych SSML. Dozwolone są tylko litery, cyfry i kilka znaków interpunkcyjnych, takich jak-, \_ i (","). Użyj różnych nazw dla różnych modeli głosowych.
 
     Typowym zastosowaniem pola **Opis** jest zapisanie nazw zestawów danych, które zostały użyte do utworzenia modelu.
 
@@ -106,7 +106,7 @@ W przypadku korzystania z funkcji szkolenia głosu neuronowych można wybrać, a
 
 Po pomyślnym skompilowaniu czcionki głosowej możesz ją przetestować przed wdrożeniem jej do użycia.
 
-1.  Przejdź do **funkcji zamiany tekstu na mowę > niestandardowego testowania > głosu**.
+1.  Przejdź do obszaru **zamiany tekstu na mowę > niestandardowego głosu > [nazwa projektu] > testowanie**.
 
 2.  Kliknij przycisk **Dodaj test**.
 

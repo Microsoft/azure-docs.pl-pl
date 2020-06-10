@@ -81,7 +81,7 @@ W tym artykule zostanie rozszerzona ta aplikacja o parametry, aby umożliwić i 
 
 ## <a name="add-example-sentences"></a>Dodaj przykładowe zdania
 
-W przypadku poleceń z parametrami warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Na przykład:
+W przypadku poleceń z parametrami warto dodać przykładowe zdania, które obejmują wszystkie możliwe kombinacje. Przykład:
 
 - Pełne informacje o parametrach:`turn {OnOff} the {SubjectDevice}`
 - Informacje o części parametru:`turn it {OnOff}`

@@ -5,20 +5,22 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/5/2020
-ms.openlocfilehash: 7f43e47975b797b68b250399ee31bf56e0f01d21
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.date: 6/8/2020
+ms.openlocfilehash: 4036fe5b08a087f1f26027d5c5d98da851fb377c
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483381"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610291"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Nawiązywanie połączenia z usługą Azure Database for MySQL przy użyciu przekierowania
 
 W tym temacie opisano sposób łączenia aplikacji Azure Database for MySQL serwerze z trybem przekierowywania. Przekierowywanie ma na celu zmniejszenie opóźnienia sieci między aplikacjami klienckimi a serwerami MySQL, umożliwiając aplikacjom bezpośrednie łączenie się z węzłami serwera zaplecza.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Utwórz serwer Azure Database for MySQL przy użyciu aparatu w wersji 5,6, 5,7 lub 8,0. Aby uzyskać szczegółowe informacje, zobacz [jak utworzyć serwer Azure Database for MySQL z poziomu portalu](quickstart-create-mysql-server-database-using-azure-portal.md) lub [jak utworzyć serwer Azure Database for MySQL przy użyciu interfejsu wiersza polecenia](quickstart-create-mysql-server-database-using-azure-cli.md).
+Zaloguj się do [portalu Azure](https://portal.azure.com). Utwórz serwer Azure Database for MySQL przy użyciu aparatu w wersji 5,6, 5,7 lub 8,0. 
+
+Aby uzyskać szczegółowe informacje, zobacz jak utworzyć serwer Azure Database for MySQL przy użyciu [Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="enable-redirection"></a>Włącz przekierowanie
 

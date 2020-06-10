@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 81d02b32bc1eb6edf22845a4d02ba2ba02536855
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: cbec7843b16298abfb9da683fc4dcec1e0a63a9d
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236317"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636006"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą PostgreSQL
 
@@ -130,6 +130,15 @@ Teraz możesz inicjować połączenie z Azure Database for PostgreSQL, podobnie 
 ```shell
 psql "host=mydb.postgres... user=user@tenant.onmicrosoft.com@mydb dbname=postgres sslmode=require"
 ```
+
+Ważne zagadnienia dotyczące nawiązywania połączenia:
+
+* `user@tenant.onmicrosoft.com`jest nazwą użytkownika lub grupy usługi Azure AD, z którą próbujesz nawiązać połączenie
+* Zawsze dołączaj nazwę serwera po nazwie użytkownika/grupy usługi Azure AD (np. `@mydb` )
+* Upewnij się, że używasz dokładnego sposobu, w jaki nazwa użytkownika lub grupy usługi Azure AD jest wpisana
+* Nazwy użytkowników i grup usługi Azure AD uwzględniają wielkość liter
+* Podczas nawiązywania połączenia jako grupy należy użyć tylko nazwy grupy (np. `GroupName@mydb` )
+* Jeśli nazwa zawiera spacje, użyj `\` przed każdym miejscem, aby ją wypróbować
 
 Masz teraz uwierzytelnienie na serwerze PostgreSQL przy użyciu uwierzytelniania usługi Azure AD.
 

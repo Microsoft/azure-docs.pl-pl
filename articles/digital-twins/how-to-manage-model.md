@@ -1,0 +1,255 @@
+---
+title: Zarządzanie modelem bliźniaczym
+titleSuffix: Azure Digital Twins
+description: Zobacz jak tworzyć, edytować i usuwać model w usłudze Azure Digital bliźniaczych reprezentacji.
+author: baanders
+ms.author: baanders
+ms.date: 3/12/2020
+ms.topic: how-to
+ms.service: digital-twins
+ms.openlocfilehash: 195f5f8d820ff43aed73fc0a46dcccccef43ae66
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84612928"
+---
+# <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
+
+Można zarządzać [modelami](concepts-models.md) , dla których wystąpienie usługi Azure Digital bliźniaczych reprezentacji wie o korzystaniu z [**interfejsów API DigitalTwinsModels**](how-to-use-apis-sdks.md), [zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia platformy Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md). 
+
+Operacje zarządzania obejmują przekazywanie, sprawdzanie poprawności, pobieranie i usuwanie modeli. 
+
+## <a name="create-models"></a>Tworzenie modeli
+
+Modele dla usługi Azure Digital bliźniaczych reprezentacji są zapisywane w DTDL i zapisywane jako pliki *JSON* . Istnieje również [rozszerzenie DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) dostępne dla [Visual Studio Code](https://code.visualstudio.com/), które zapewnia weryfikację składni i inne funkcje do ułatwienia pisania dokumentów DTDL.
+
+Rozważmy przykład, w którym Szpital chce cyfrowo reprezentować pokoje. Każde pomieszczenie zawiera inteligentny dozownik SOAP do monitorowania ręcznych i czujników do monitorowania ruchu w pokoju.
+
+Pierwszym krokiem w kierunku rozwiązania jest utworzenie modeli do reprezentowania aspektów szpitala. Pokój pacjenta w tym scenariuszu może być opisany w następujący sposób:
+
+```json
+{
+  "@id": "dtmi:com:contoso:PatientRoom;1",
+  "@type": "Interface",
+  "@context": "dtmi:dtdl:context;2",
+  "displayName": "Patient Room",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "visitorCount",
+      "schema": "double"
+    },
+    {
+      "@type": "Property",
+      "name": "handWashCount",
+      "schema": "double"
+    },
+    {
+      "@type": "Property",
+      "name": "handWashPercentage",
+      "schema": "double"
+    },
+    {
+      "@type": "Relationship",
+      "name": "hasDevices"
+    }
+  ]
+}
+```
+
+> [!NOTE]
+> Jest to Przykładowa treść pliku JSON, w którym model jest zdefiniowany i zapisany do przekazania w ramach projektu klienta. Wywołanie interfejsu API REST, z drugiej strony, pobiera tablicę definicji modelu, takich jak powyższa część (która jest mapowana na zestaw `IEnumerable<string>` SDK platformy .NET). Aby używać tego modelu bezpośrednio w interfejsie API REST, umieść go w nawiasach.
+
+Ten model definiuje nazwę i unikatowy identyfikator pokoju pacjenta oraz właściwości przedstawiające liczbę odwiedzających i stan odmycia (te liczniki zostaną zaktualizowane z czujników ruchu i inteligentnych rozdzielaczy SOAP) i zostaną użyte razem w celu obliczenia *handwash wartości procentowej* . Model definiuje również relację *hasDevices*, która będzie używana do łączenia wszelkich [cyfrowych bliźniaczych reprezentacji](concepts-twins-graph.md) opartych na tym modelu *pokoju* na rzeczywistych urządzeniach.
+
+Korzystając z tej metody, można wykonać Definiowanie modeli dla danych szpitalnych, stref lub samego szpitala.
+
+> [!TIP]
+> Istnieje Biblioteka po stronie klienta dostępna do analizowania i weryfikowania DTDL. Generuje on model obiektów C# zawartości DTDL, który może być używany w scenariuszach projektowania opartych na modelu, takich jak Generowanie elementów interfejsu użytkownika. Możesz również użyć tej biblioteki, aby upewnić się, że modele nie mają błędów składniowych przed ich przekazaniem. Aby uzyskać więcej informacji na temat tej biblioteki i uzyskać dostęp do przykładowej kompilacji dla modułu sprawdzania DTDL, zobacz [How to: Parse and Validate models](how-to-use-parser.md).
+
+## <a name="manage-models-with-apis"></a>Zarządzanie modelami za pomocą interfejsów API.
+
+W poniższych sekcjach pokazano, jak wykonać różne operacje zarządzania modelami przy użyciu [interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure](how-to-use-apis-sdks.md).
+
+> [!NOTE]
+> Poniższe przykłady nie obejmują obsługi błędów dla zwięzłości. Jednak zdecydowanie zalecamy w projektach, aby zawijać wywołania usługi w blokach try/catch.
+
+> [!TIP] 
+> Należy pamiętać, że wszystkie metody zestawu SDK są dostępne w wersjach synchronicznych i asynchronicznych. W przypadku wywołań stronicowania metody asynchroniczne zwracają, `AsyncPageable<T>` gdy zwracane są wersje synchroniczne `Pageable<T>` .
+
+### <a name="upload-models"></a>Przekazywanie modeli
+
+Po utworzeniu modeli można je przekazać do wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
+
+Oto fragment kodu pokazujący, jak to zrobić:
+
+```csharp
+// 'client' is an instance of DigitalTwinsClient
+// Read model file into string (not part of SDK)
+StreamReader r = new StreamReader("MyModelFile.json");
+string dtdl = r.ReadToEnd(); r.Close();
+string[] dtdls = new string[] { dtdl };
+client.CreateModels(dtdls);
+```
+
+Zwróć uwagę, że `CreateModels` Metoda akceptuje wiele plików w jednej pojedynczej transakcji. Oto przykład, który ilustruje:
+
+```csharp
+var dtdlFiles = Directory.EnumerateFiles(sourceDirectory, "*.json");
+
+List<string> dtdlStrings = new List<string>();
+foreach (string fileName in dtdlFiles)
+{
+    // Read model file into string (not part of SDK)
+    StreamReader r = new StreamReader(fileName);
+    string dtdl = r.ReadToEnd(); r.Close();
+    dtdlStrings.Add(dtdl);
+}
+client.CreateModels(dtdlStrings);
+```
+
+Pliki modelu mogą zawierać więcej niż jeden model. W takim przypadku modele muszą być umieszczone w tablicy JSON. Przykład:
+
+```json
+[
+  {
+    "@id": "dtmi:com:contoso:Planet",
+    "@type": "Interface",
+    //...
+  },
+  {
+    "@id": "dtmi:com:contoso:Moon",
+    "@type": "Interface",
+    //...
+  }
+]
+```
+ 
+Przy przekazywaniu pliki modelu są weryfikowane.
+
+> [!TIP] 
+> Należy pamiętać, że można również użyć [biblioteki analizatora po stronie klienta DTDL](how-to-use-parser.md) do sprawdzania poprawności modeli po stronie klienta.
+
+### <a name="retrieve-models"></a>Pobierz modele
+
+Można wyświetlać i pobierać modele przechowywane w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji. 
+
+Poniżej przedstawiono następujące opcje:
+* Pobierz wszystkie modele
+* Pobieranie pojedynczego modelu
+* Pobieranie pojedynczego modelu z zależnościami
+* Pobieranie metadanych dla modeli
+
+Oto kilka przykładowych wywołań:
+
+```csharp
+// 'client' is a valid DigitalTwinsClient object
+
+// Get a single model, metadata and data
+ModelData md1 = client.GetModel(id);
+
+// Get a list of the metadata of all available models
+Pageable<ModelData> pmd2 = client.GetModels();
+
+// Get a list of metadata and full model definitions
+Pageable<ModelData> pmd3 = client.GetModels(null, true);
+
+// Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
+Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+```
+
+Interfejs API wywołuje pobieranie modeli wszystkich zwracanych `ModelData` obiektów. `ModelData`zawiera metadane dotyczące modelu przechowywanego w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji, takie jak nazwa, DTMI i Data utworzenia modelu. `ModelData`Obiekt również opcjonalnie zawiera sam model. W zależności od parametrów można w ten sposób użyć wywołań pobierania, aby pobrać tylko metadane (co jest przydatne w scenariuszach, w których chcesz wyświetlić listę dostępnych narzędzi, na przykład) lub cały model.
+
+`RetrieveModelWithDependencies`Wywołanie zwraca nie tylko żądany model, ale również wszystkie modele, od których zależy żądany model.
+
+Modele nie zawsze są zwracane w dokładnie formularzu dokumentu, w którym zostały przekazane. Usługa Azure Digital bliźniaczych reprezentacji gwarantuje, że formularz zwrotny będzie semantycznie równoważny. 
+
+### <a name="remove-models"></a>Usuń modele
+
+Modele można również usunąć z usługi, na jeden z dwóch sposobów:
+* **Likwidowanie** : po zlikwidowaniu modelu nie można już używać go do tworzenia nowych bliźniaczych reprezentacji cyfrowych. Nie ma to wpływu na istniejące bliźniaczych reprezentacji cyfrowe, które już używają tego modelu, więc można je zaktualizować za pomocą elementów, takich jak zmiany właściwości i Dodawanie lub usuwanie relacji.
+* **Usunięcie** : spowoduje to całkowite usunięcie modelu z rozwiązania. Wszystkie bliźniaczych reprezentacji korzystające z tego modelu nie są już skojarzone z żadnym prawidłowym modelem, dlatego są traktowane tak, jakby nie miały modelu. Nadal można odczytywać te bliźniaczych reprezentacji, ale nie będzie można wprowadzać żadnych aktualizacji, dopóki nie zostaną ponownie przypisane do innego modelu.
+
+Są to osobne funkcje, które nie wpływają na siebie, ale mogą być używane razem w celu stopniowego usuwania modelu. 
+
+### <a name="decommissioning"></a>Likwidowanie
+
+Oto kod likwidowania modelu:
+
+```csharp
+// 'client' is a valid DigitalTwinsClient  
+client.DecommissionModel(dtmiOfPlanetInterface);
+// Write some code that deletes or transitions digital twins
+//...
+```
+
+Stan likwidowania modelu jest uwzględniany w `ModelData` rekordach zwracanych przez interfejsy API pobierania modelu.
+
+#### <a name="deletion"></a>Usunięcie
+
+Można usunąć wszystkie modele w wystąpieniu jednocześnie lub można wykonać je pojedynczo.
+
+Aby zapoznać się z przykładem sposobu usuwania wszystkich modeli, należy pobrać przykładową aplikację używaną w [samouczku: Poznaj podstawy za pomocą przykładowej aplikacji klienckiej](tutorial-command-line-app.md). Plik *CommandLoop.cs* wykonuje tę `CommandDeleteAllModels` funkcję w funkcji.
+
+Pozostała część tej sekcji przerywa usuwanie modelu w bardziej szczegółowy sposób i pokazuje, jak to zrobić dla pojedynczego modelu.
+
+##### <a name="before-deletion-deletion-requirements"></a>Przed usunięciem: wymagania dotyczące usuwania
+
+Ogólnie rzecz biorąc, modele można usuwać w dowolnym momencie.
+
+Wyjątkiem są modele, od których zależą inne modele, z `extends` relacją lub składnikiem. Na przykład jeśli model *ConferenceRoom* rozszerza model *pokoju* i ma model *ACUnit* jako składnik, nie można usunąć *pokoju* ani *ACUnit* do momentu, gdy *ConferenceRoom* usunie te odpowiednie odwołania. 
+
+Można to zrobić, aktualizując model zależny, aby usunąć zależności, lub całkowicie usuwając model zależny.
+
+##### <a name="during-deletion-deletion-process"></a>Podczas usuwania: proces usuwania
+
+Nawet jeśli model spełnia wymagania, aby natychmiast je usunąć, warto najpierw wykonać kilka kroków, aby uniknąć niezamierzonych konsekwencji bliźniaczych reprezentacji. Poniżej przedstawiono kilka kroków, które mogą ułatwić zarządzanie procesem:
+1. Najpierw likwidowanie modelu
+2. Poczekaj kilka minut, aby upewnić się, że usługa przetworzyła wszystkie żądania utworzenia łodzi z ostatniej minuty wysłane przed zlikwidowaniem
+3. Bliźniaczych reprezentacji zapytania według modelu, aby zobaczyć wszystkie bliźniaczych reprezentacji, które używają obecnie likwidowanego modelu
+4. Usuń bliźniaczych reprezentacji, jeśli nie są już potrzebne, lub w razie potrzeby poproś ich o nowy model. Możesz również zrezygnować z nich, a w takim przypadku stają się one bliźniaczych reprezentacji bez modeli po usunięciu modelu. Zapoznaj się z następną sekcją, aby poznać skutki tego stanu.
+5. Poczekaj kilka minut, aby upewnić się, że zmiany zostały percolated przez
+6. Usuń model 
+
+Aby usunąć model, użyj tego wywołania:
+```csharp
+// 'client' is a valid DigitalTwinsClient
+await client.DeleteModelAsync(IDToDelete);
+```
+
+##### <a name="after-deletion-twins-without-models"></a>Po usunięciu: bliźniaczych reprezentacji bez modeli
+
+Po usunięciu modelu wszelkie bliźniaczych reprezentacji cyfrowe, które były używane przez model, są teraz uważane za bez modelu. Należy zauważyć, że nie ma zapytania, które może dać listę wszystkich bliźniaczych reprezentacji w tym stanie — mimo że *można* nadal wysyłać zapytania do bliźniaczych reprezentacji przez usunięty model, aby wiedzieć, jakie bliźniaczych reprezentacji mają wpływ.
+
+Poniżej znajdują się informacje o tym, co można zrobić i czego nie można zrobić z bliźniaczych reprezentacji, które nie mają modelu.
+
+**Możliwe** czynności:
+* Badaj sznurek
+* Właściwości odczytu
+* Odczytaj relacje wychodzące
+* Dodawanie i usuwanie relacji przychodzących (podobnie jak w przypadku innych bliźniaczych reprezentacji można nadal tworzyć relacje *z* tym przędzą)
+  - `target`W definicji relacji można nadal odzwierciedlić DTMI usuniętego modelu. Relacja bez zdefiniowanego obiektu docelowego może również być dostępna w tym miejscu.
+* Usuń relacje
+* Usuwanie sznurka
+
+Elementy, których **nie** możesz wykonać:
+* Edytuj relacje wychodzące (jak w programie, relacje *z* tego przędzy z innymi bliźniaczych reprezentacji)
+* Edytuj właściwości
+
+##### <a name="after-deletion-re-uploading-a-model"></a>Po usunięciu: przekazanie modelu
+
+Po usunięciu modelu można później zdecydować się na przekazanie nowego modelu o takim samym IDENTYFIKATORze jak usunięty. Oto co się dzieje w tym przypadku.
+* W perspektywie magazynu rozwiązań jest to taka sama jak w przypadku przekazywania zupełnie nowego modelu. Usługa nie pamięta, że stara została kiedykolwiek przekazana.   
+* Jeśli w grafie istnieją jakiekolwiek pozostałe bliźniaczych reprezentacji, odwołujące się do usuniętego modelu, nie są już oddzielone; Ten identyfikator modelu jest ponownie ważny z nową definicją. Jeśli jednak Nowa definicja modelu różni się od definicji modelu, która została usunięta, te bliźniaczych reprezentacji mogą mieć właściwości i relacje, które pasują do usuniętej definicji i nie są prawidłowe dla nowej.
+
+Usługa Azure Digital bliźniaczych reprezentacji nie uniemożliwia tego stanu, dlatego należy zachować ostrożność, aby odpowiednio zastosować poprawkę bliźniaczych reprezentacji w celu upewnienia się, że pozostaną one prawidłowe przez przełącznik definicji modelu.
+
+## <a name="manage-models-with-cli"></a>Zarządzanie modelami przy użyciu interfejsu wiersza polecenia
+
+Modele można także zarządzać za pomocą interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji. Polecenia można znaleźć w [opisie procedury: korzystanie z interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
+
+## <a name="next-steps"></a>Następne kroki
+
+Zobacz, jak tworzyć i zarządzać bliźniaczych reprezentacjiami cyfrowymi w oparciu o Twoje modele:
+* [Instrukcje: Zarządzanie dwuosiową cyfrą](how-to-manage-twin.md)

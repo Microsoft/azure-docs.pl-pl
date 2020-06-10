@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: a7b4de3b1d2998a1b6083283c3f397fc77fe9670
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: e0daa2b02c16d8d5a65b5e7e0f983a4f47181d40
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167591"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635972"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Obsługiwane magazyny danych w udziale danych platformy Azure
 
@@ -26,7 +26,7 @@ Poniższa tabela zawiera szczegółowe informacje o obsługiwanych źródłach d
 | Magazyn danych | Udostępnianie oparte na migawce | Udostępnianie w miejscu 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage |✓ | |
-| Azure Data Lake Storage Gen1 |✓ | |
+| Usługa Azure Data Lake Storage 1. generacji |✓ | |
 | Usługa Azure Data Lake Storage 2. generacji |✓ ||
 | Azure SQL Database |Publiczna wersja zapoznawcza | |
 | Azure Synapse Analytics (dawniej: Azure SQL DW) |Publiczna wersja zapoznawcza | |
@@ -38,16 +38,17 @@ Udział danych platformy Azure oferuje klientom danych elastyczność podczas wy
 
 Poniższa tabela zawiera szczegółowe informacje o różnych kombinacjach i wyborach, które użytkownicy danych mają podczas akceptowania i konfigurowania udziału danych. Aby uzyskać więcej informacji na temat konfigurowania mapowań zestawu danych, zobacz [jak skonfigurować mapowania zestawu danych](how-to-configure-mapping.md).
 
-|  | Azure Blob Storage | Usługa Azure Data Lake Storage 1. generacji | Usługa Azure Data Lake Storage 2. generacji | Azure SQL Database | Azure Synapse Analytics 
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob Storage | ✓ || ✓|
-| Azure Data Lake Storage Gen1 | ✓ | | ✓|
-| Usługa Azure Data Lake Storage 2. generacji | ✓ | | ✓|
-| Azure SQL Database | ✓ | | ✓| ✓| ✓|
-| Azure Synapse Analytics (dawniej: Azure SQL DW) | ✓ | | ✓| ✓| ✓|
+|  | Azure Blob Storage | Usługa Azure Data Lake Storage 1. generacji | Usługa Azure Data Lake Storage 2. generacji | Azure SQL Database | Azure Synapse Analytics | Azure Data Explorer
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Azure Blob Storage | ✓ || ✓ ||
+| Usługa Azure Data Lake Storage 1. generacji | ✓ | | ✓ ||
+| Usługa Azure Data Lake Storage 2. generacji | ✓ | | ✓ ||
+| Azure SQL Database | ✓ | | ✓ | ✓ | ✓ ||
+| Azure Synapse Analytics (dawniej: Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
+| Azure Data Explorer |||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Udostępnianie z konta magazynu
-Udział danych platformy Azure obsługuje udostępnianie plików, folderów i systemów plików z Azure Data Lake Gen1 i Azure Data Lake Gen2. Obsługuje także udostępnianie obiektów blob, folderów i kontenerów z usługi Azure Blob Storage. Obecnie jest obsługiwany tylko blokowy obiekt BLOB. Gdy foldery są udostępniane w ramach udostępniania opartego na migawce, konsument danych może wybrać pełną kopię danych udziału lub użyć funkcji przyrostowej migawki w celu skopiowania tylko nowych lub zaktualizowanych plików. Istniejące pliki o tej samej nazwie zostaną zastąpione.
+Udział danych platformy Azure obsługuje udostępnianie plików, folderów i systemów plików z Azure Data Lake Gen1 i Azure Data Lake Gen2. Obsługuje także udostępnianie obiektów blob, folderów i kontenerów z usługi Azure Blob Storage. Obecnie jest obsługiwany tylko blokowy obiekt BLOB. Gdy systemy plików, kontenery lub foldery są udostępniane w ramach udostępniania opartego na migawce, konsument danych może wybrać pełną kopię danych udziału lub użyć funkcji przyrostowej migawki w celu skopiowania tylko nowych lub zaktualizowanych plików. Przyrostowa migawka jest określana na podstawie czasu ostatniej modyfikacji plików. Istniejące pliki o tej samej nazwie zostaną zastąpione.
 
 ## <a name="share-from-a-sql-based-source"></a>Udostępnianie z poziomu źródła opartego na języku SQL
 Udział danych platformy Azure obsługuje udostępnianie tabel lub widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW). Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Store Gen2 lub Blob Storage platformy Azure jako pliku CSV lub Parquet. Należy pamiętać, że domyślnie formaty plików to CSV. Odbiorca danych może wybrać, aby w razie potrzeby odbierać dane w formacie Parquet. Można to zrobić w ustawieniach mapowania zestawu danych podczas otrzymywania danych. 

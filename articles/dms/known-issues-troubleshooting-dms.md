@@ -11,16 +11,22 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 0f108c8b9d86a527764d2c7b8dddc6fb239b00d2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 40c7b1b0ae2065ed00cf21f99ab2046e25970237
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196265"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609441"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Rozwiązywanie typowych problemów i błędów Azure Database Migration Service
 
 W tym artykule opisano niektóre typowe problemy i błędy, które mogą występować Azure Database Migration Service użytkownicy. Artykuł zawiera również informacje dotyczące sposobu rozwiązywania tych problemów i błędów.
+
+> [!NOTE]
+> Komunikacja bezpłatna bez opłat
+>
+> Firma Microsoft obsługuje różnorodne i dołączane środowiska. Ten artykuł zawiera odwołania do programu Word _podrzędny_. Przewodnik po [stylu firmy Microsoft dla komunikacji bezpłatnej](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) jest rozpoznawany jako wykluczony wyraz. Słowo jest używane w tym artykule w celu zapewnienia spójności, ponieważ jest to obecnie słowo, które jest wyświetlane w oprogramowaniu. W przypadku zaktualizowania oprogramowania w celu usunięcia wyrazu ten artykuł zostanie zaktualizowany w celu wyrównania.
+>
 
 ## <a name="migration-activity-in-queued-state"></a>Działanie migracji w stanie w kolejce
 

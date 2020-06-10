@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: robinsh
-ms.custom: mqtt
-ms.openlocfilehash: 47fb7c615389e24322450ed1785aa7da9ec50db6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: mqtt, tracking-python
+ms.openlocfilehash: 9a3782c0d5791f20f14aabb53d486fc012518c1f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759690"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608506"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>Przekazywanie plików z urządzenia do chmury przy użyciu IoT Hub (Python)
 
@@ -75,7 +75,7 @@ W tej sekcji utworzysz aplikację urządzenia w celu przekazania pliku do centru
     PATH_TO_FILE = r"[Full path to local file]"
     ```
 
-1. W pliku Zastąp `[Device Connection String]` ciąg połączeniem urządzenia usługi IoT Hub. Zamień `[Full path to local file]` na ścieżkę do pliku testowego utworzonego lub dowolnego pliku na urządzeniu, które chcesz przekazać.
+1. W pliku Zastąp `[Device Connection String]` ciąg połączeniem urządzenia usługi IoT Hub. Zamień na `[Full path to local file]` ścieżkę do pliku testowego utworzonego lub dowolnego pliku na urządzeniu, które chcesz przekazać.
 
 1. Utwórz funkcję do przekazania pliku do magazynu obiektów blob:
 

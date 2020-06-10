@@ -90,7 +90,7 @@ Usługa akceptuje żądania o rozmiarze do 1 MB. Jeśli używasz programu Poster
 
    W programie Poster odpowiedź jest wyświetlana w następnym oknie w dół, jako pojedynczy dokument JSON, z elementem dla każdego identyfikatora dokumentu podanego w żądaniu.
 
-## <a name="see-also"></a>Zobacz także 
+## <a name="see-also"></a>Zobacz też 
 
  [Przegląd analizy tekstu](../overview.md)  
  [Często zadawane pytania](../text-analytics-resource-faq.md)

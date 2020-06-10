@@ -35,7 +35,7 @@ Do wykonania tego artykułu jest wymagana aplikacja poleceń niestandardowych. J
 
 Wymagane są również:
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * [Program Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 > * Klucz subskrypcji platformy Azure dla usługi Speech Services. [Pobierz bezpłatnie](get-started.md) lub utwórz je na [Azure Portal](https://portal.azure.com)
 > * [Włącz Programowanie na urządzeniu](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 

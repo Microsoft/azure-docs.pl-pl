@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: daperlov
-ms.openlocfilehash: 0dce717461754ac1259bc666adf4eb9f7ef9d6c2
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 1764036413d6e4f634ed156f7cfb441b4a2bb1e6
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465273"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604965"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Format Common Data Model w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -30,7 +30,7 @@ Wspólny model danych jest dostępny jako [Wbudowany zestaw](data-flow-source.md
 
 ### <a name="source-properties"></a>Właściwości źródła
 
-Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło CDM.
+Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło CDM. Można edytować te właściwości na karcie **Opcje źródła** .
 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -49,7 +49,13 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez źródło CD
 | Jednostka korpus | Ścieżka do odwołania do jednostki | tak | String | jednostka |
 | Nie znaleziono plików | W przypadku wartości true błąd nie jest zgłaszany, jeśli nie znaleziono plików | nie | `true` lub `false` | ignoreNoFilesFound |
 
-#### <a name="cdm-source-example"></a>Przykład źródła CDM
+#### <a name="import-schema"></a>Importuj schemat
+
+CDM jest dostępny tylko jako Wbudowany zestaw danych i domyślnie nie ma skojarzonego schematu. Aby uzyskać metadane kolumny, kliknij przycisk **Importuj schemat** na karcie **projekcja** . Pozwoli to na odwoływanie się do nazw kolumn i typów danych określonych przez korpus. Aby zaimportować schemat, [sesja debugowania przepływu danych](concepts-data-flow-debug-mode.md) musi być aktywna.
+
+![Importuj schemat](media/format-common-data-model/import-schema-source.png)
+
+### <a name="cdm-source-example"></a>Przykład źródła CDM
 
 Poniższy obraz stanowi przykład konfiguracji źródła CDM w mapowaniu przepływów danych.
 
@@ -79,10 +85,9 @@ source(output(
     fileSystem: 'data') ~> CDMSource
 ```
 
-
 ### <a name="sink-properties"></a>Właściwości ujścia
 
-Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia CDM.
+Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia CDM. Te właściwości można edytować na karcie **Ustawienia** .
 
 | Nazwa | Opis | Wymagane | Dozwolone wartości | Właściwość skryptu przepływu danych |
 | ---- | ----------- | -------- | -------------- | ---------------- |
@@ -103,7 +108,7 @@ Poniższa tabela zawiera listę właściwości obsługiwanych przez ujścia CDM.
 | Ogranicznik kolumny | Jeśli piszesz do DelimitedText, jak ograniczać kolumny | tak, jeśli piszesz do DelimitedText | String | columnDelimiter |
 | Pierwszy wiersz jako nagłówek | W przypadku korzystania z DelimitedText, niezależnie od tego, czy nazwy kolumn są dodawane jako nagłówek | nie | `true` lub `false` | columnNamesAsHeader |
 
-#### <a name="cdm-sink-example"></a>Przykład ujścia CDM
+### <a name="cdm-sink-example"></a>Przykład ujścia CDM
 
 Poniżej przedstawiono przykład konfiguracji ujścia CDM w mapowaniu przepływów danych.
 

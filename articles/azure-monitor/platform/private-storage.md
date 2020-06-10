@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: 6a123fac9f199fc0b19a3e6af33ad705ce51945c
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 0c9982fd4aa6459cdcbd715077f08092075a9776
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84464457"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610070"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Konta magazynu należące do klienta na potrzeby pozyskiwania dzienników w Azure Monitor
 
-Azure Monitor używa kont magazynu w procesie pozyskiwania niektórych typów danych, takich jak [dzienniki niestandardowe](data-sources-custom-logs.md) i niektóre [dzienniki platformy Azure](azure-storage-iis-table.md). W procesie pozyskiwania dzienniki są najpierw wysyłane do konta magazynu i później wprowadzane do Log Analytics lub Application Insights. Jeśli chcesz kontrolować dane podczas pozyskiwania, możesz użyć własnych kont magazynu zamiast magazynu zarządzanego przez usługę. Przy użyciu własnego konta magazynu możesz kontrolować dostęp, zawartość, szyfrowanie i przechowywanie dzienników podczas pozyskiwania. Nazywamy to własnymi magazynami lub BYOS. 
+Azure Monitor używa kont magazynu w procesie pozyskiwania niektórych typów danych, takich jak [dzienniki niestandardowe](data-sources-custom-logs.md) i niektóre [dzienniki platformy Azure](azure-storage-iis-table.md). W procesie pozyskiwania dzienniki są najpierw wysyłane do konta magazynu i później wprowadzane do Log Analytics lub Application Insights. Jeśli chcesz kontrolować dane podczas pozyskiwania, możesz użyć własnych kont magazynu zamiast magazynu zarządzanego przez usługę. Korzystanie z własnego konta magazynu zapewnia kontrolę nad dostępem, zawartością, szyfrowaniem i przechowywaniem dzienników podczas pozyskiwania. Nazywamy to własnymi magazynami lub BYOS. 
 
 Jeden scenariusz wymagający BYOS jest izolacją sieci za poorednictwem prywatnych linków. W przypadku używania sieci wirtualnej izolacja sieci jest często wymagane i dostęp do publicznej sieci Internet jest ograniczony. W takich przypadkach dostęp do usługi Azure Monitor Service Storage na potrzeby pozyskiwania dzienników jest całkowicie zablokowany lub traktowany jako niewłaściwy. Zamiast tego dzienniki powinny być pozyskane za pośrednictwem konta magazynu należącego do klienta w sieci wirtualnej lub łatwo dostępne.
 

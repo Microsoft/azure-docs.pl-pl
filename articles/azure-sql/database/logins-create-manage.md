@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 296bf84c22313723c328e1775f697ee19dcb8f04
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: e56b526dff9e18f19275cb248fd6955dd680324f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220550"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605102"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzuj dostęp do bazy danych do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -85,7 +85,7 @@ W tym momencie serwer lub wystąpienie zarządzane jest konfigurowane tylko na p
 
   - Utwórz dodatkową nazwę logowania SQL w bazie danych Master.
   - Dodaj nazwę logowania do [stałej roli serwera sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) przy użyciu instrukcji [ALTER Server role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) . Ta nazwa logowania będzie miała pełne uprawnienia administracyjne.
-  - Alternatywnie możesz utworzyć [Identyfikator logowania usługi Azure AD](authentication-aad-configure.md)#provision-Azure-AD-admin-SQL-Managed-Instance) przy użyciu SKŁADNI [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) .
+  - Alternatywnie możesz utworzyć [Identyfikator logowania usługi Azure AD](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) przy użyciu składni [tworzenia nazwy logowania](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) .
 
 - **W SQL Database Utwórz nazwy logowania SQL z ograniczonymi uprawnieniami administracyjnymi**
 

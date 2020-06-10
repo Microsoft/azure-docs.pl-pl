@@ -2,13 +2,13 @@
 title: Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do tworzenia kopii zapasowych maszyn wirtualnych VMware działających na serwerze VMware vCenter/ESXi.
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.openlocfilehash: c4bf61e2a02200b2e6af814ef4509081649e202d
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.date: 05/24/2020
+ms.openlocfilehash: deb72ad1f2b9b18368ef5134ecc23048b483f3f8
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204722"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628446"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
 
@@ -371,6 +371,21 @@ Dodaj maszyny wirtualne VMware na potrzeby tworzenia kopii zapasowych. Grupy och
 
     ![Członek grupy ochrony i podsumowanie ustawień](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
+## <a name="vmware-parallel-backups"></a>Równoległe kopie zapasowe VMware
+
+>[!NOTE]
+> Ta funkcja ma zastosowanie do serwera usługi MAB v3 UR1.
+
+We wcześniejszych wersjach programu serwera usługi MAB równoległe kopie zapasowe były wykonywane tylko w grupach ochrony. W przypadku serwera usługi MAB v3 UR1 wszystkie kopie zapasowe maszyn wirtualnych VMWare w ramach jednej grupy ochrony są równoległe, co prowadzi do szybszego tworzenia kopii zapasowych maszyn wirtualnych. Wszystkie zadania replikacji różnicowej programu VMWare są uruchamiane równolegle. Domyślnie liczba zadań do uruchomienia równoległego jest ustawiona na 8.
+
+Liczbę zadań można zmodyfikować przy użyciu klucza rejestru, jak pokazano poniżej (nieobecny domyślnie, należy go dodać):
+
+**Ścieżka klucza**:`Software\Microsoft\Microsoft Data Protection Manager\Configuration\ MaxParallelIncrementalJobs\VMWare`<BR>
+**Typ klucza**: wartość DWORD (32-bitowa).
+
+> [!NOTE]
+> Liczbę zadań można zmodyfikować na wyższą wartość. W przypadku ustawienia numeru zadania na 1 zadania replikacji są uruchamiane sekwencyjnie. Aby zwiększyć liczbę do wyższej wartości, należy wziąć pod uwagę wydajność programu VMWare. Należy wziąć pod uwagę liczbę używanych zasobów i dodatkowe użycie wymagane przez program VMWare vSphere Server oraz określić liczbę zadań replikacji różnicowej, które mają być uruchamiane równolegle. Ponadto ta zmiana będzie miała wpływ tylko na nowo utworzone grupy ochrony. W przypadku istniejących grup ochrony należy tymczasowo dodać kolejną maszynę wirtualną do grupy ochrony. Należy odpowiednio zaktualizować konfigurację grupy ochrony. Po zakończeniu procedury można usunąć tę maszynę wirtualną z grupy ochrony.
+
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6,7
 
 Aby utworzyć kopię zapasową vSphere 6,7, wykonaj następujące czynności:
@@ -400,6 +415,126 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
 "SystemDefaultTlsVersions"=dword:00000001
 "SchUseStrongCrypto"=dword:00000001
+```
+
+## <a name="exclude-disk-from-vmware-vm-backup"></a>Wyklucz dysk z kopii zapasowej maszyny wirtualnej VMware
+
+> [!NOTE]
+> Ta funkcja ma zastosowanie do serwera usługi MAB v3 UR1.
+
+Za pomocą serwera usługi MAB v3 UR1 można wykluczyć określony dysk z kopii zapasowej maszyny wirtualnej VMware. Skrypt konfiguracyjny **ExcludeDisk. ps1** znajduje się w `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin folder` .
+
+Aby skonfigurować wykluczenie dysku, wykonaj następujące czynności:
+
+### <a name="identify-the-vmware-vm-and-disk-details-to-be-excluded"></a>Zidentyfikuj szczegóły maszyny wirtualnej VMWare i dysku do wykluczenia
+
+  1. W konsoli programu VMware przejdź do ustawień maszyny wirtualnej, dla których chcesz wykluczyć dysk.
+  2. Wybierz dysk, który ma zostać wykluczony, i Zanotuj ścieżkę dla tego dysku.
+
+        Na przykład aby wykluczyć dysk twardy 2 z TestVM4, ścieżka do dysku twardego 2 to **[datastore1] TestVM4/TestVM4 \_ 1. vmdk**.
+
+        ![Dysk twardy, który ma zostać wykluczony](./media/backup-azure-backup-server-vmware/test-vm.png)
+
+### <a name="configure-mabs-server"></a>Konfigurowanie serwera serwera usługi MAB
+
+Przejdź do serwera serwera usługi MAB, na którym maszyna wirtualna VMware została skonfigurowana pod kątem ochrony, aby skonfigurować wykluczanie dysku.
+
+  1. Zapoznaj się ze szczegółami hosta VMware, który jest chroniony na serwerze serwera usługi MAB.
+
+        ```powershell
+        $psInfo = get-DPMProductionServer
+        $psInfo
+        ```
+
+        ```output
+        ServerName   ClusterName     Domain            ServerProtectionState
+        ----------   -----------     ------            ---------------------
+        Vcentervm1                   Contoso.COM       NoDatasourcesProtected
+        ```
+
+  2. Wybierz hosta VMware i Wyświetl listę ochrony maszyn wirtualnych dla hosta VMware.
+
+        ```powershell
+        $vmDsInfo = get-DPMDatasource -ProductionServer $psInfo[0] -Inquire
+        $vmDsInfo
+        ```
+
+        ```output
+        Computer     Name     ObjectType
+        --------     ----     ----------
+        Vcentervm1  TestVM2      VMware
+        Vcentervm1  TestVM1      VMware
+        Vcentervm1  TestVM4      VMware
+        ```
+
+  3. Wybierz maszynę wirtualną, dla której chcesz wykluczyć dysk.
+
+        ```powershell
+        $vmDsInfo[2]
+        ```
+
+        ```output
+        Computer     Name      ObjectType
+        --------     ----      ----------
+        Vcentervm1   TestVM4   VMware
+        ```
+
+  4. Aby wykluczyć dysk, przejdź do `Bin` folderu i uruchom skrypt *ExcludeDisk. ps1* z następującymi parametrami:
+
+        > [!NOTE]
+        > Przed uruchomieniem tego polecenia Zatrzymaj usługę DPMRA na serwerze serwera usługi MAB. W przeciwnym razie skrypt zwraca sukces, ale nie aktualizuje listy wykluczeń. Przed zatrzymaniem usługi upewnij się, że żadne zadania nie są w toku.
+
+     **Aby dodać/usunąć dysk z wykluczenia, uruchom następujące polecenie:**
+
+      ```powershell
+      ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-Add|Remove] "[Datastore] vmdk/vmdk.vmdk"
+      ```
+
+     **Przykład**:
+
+     Aby dodać wykluczenie dysku dla TestVM4, uruchom następujące polecenie:
+
+       ```powershell
+      C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Add "[datastore1] TestVM4/TestVM4\_1.vmdk"
+       ```
+
+      ```output
+       Creating C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\excludedisk.xml
+       Disk : [datastore1] TestVM4/TestVM4\_1.vmdk, has been added to disk exclusion list.
+      ```
+
+  5. Sprawdź, czy dysk został dodany do wykluczenia.
+
+     **Aby wyświetlić istniejące wykluczenie dla określonych maszyn wirtualnych, uruchom następujące polecenie:**
+
+        ```powershell
+        ./ExcludeDisk.ps1 -Datasource $vmDsInfo[0] [-view]
+        ```
+
+     **Przyklad**
+
+        ```powershell
+        C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -view
+        ```
+
+        ```output
+        <VirtualMachine>
+        <UUID>52b2b1b6-5a74-1359-a0a5-1c3627c7b96a</UUID>
+        <ExcludeDisk>[datastore1] TestVM4/TestVM4\_1.vmdk</ExcludeDisk>
+        </VirtualMachine>
+        ```
+
+     Po skonfigurowaniu ochrony dla tej maszyny wykluczonej dysk nie będzie wyświetlany podczas ochrony.
+
+        > [!NOTE]
+        > Jeśli wykonujesz te kroki dla już chronionej maszyny wirtualnej, musisz ręcznie uruchomić sprawdzanie spójności po dodaniu dysku do wykluczenia.
+
+### <a name="remove-the-disk-from-exclusion"></a>Usuń dysk z wykluczenia
+
+Aby usunąć dysk z wykluczenia, uruchom następujące polecenie:
+
+```powershell
+C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin> ./ExcludeDisk.ps1 -Datasource $vmDsInfo[2] -Remove "[datastore1] TestVM4/TestVM4\_1.vmdk"
 ```
 
 ## <a name="next-steps"></a>Następne kroki

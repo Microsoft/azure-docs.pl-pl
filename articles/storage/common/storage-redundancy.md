@@ -10,12 +10,12 @@ ms.date: 06/08/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 143820eb3c58d2aaac4d4176c4456fca676a0e45
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 5bc433615b19b36681796056ff4baf95d080d457
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554103"
+ms.locfileid: "84629416"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -62,8 +62,8 @@ W poniższej tabeli przedstawiono typy kont magazynu obsługujące ZRS, w który
 |    Typ konta magazynu    |    Obsługiwane regiony    |    Obsługiwane usługi    |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 |    Ogólnego przeznaczenia<sup>w wersji 2</sup>    | Azja Południowo-Wschodnia<br /> Australia Wschodnia<br /> Europa Północna<br />  Europa Zachodnia<br /> Francja Środkowa<br /> Japonia Wschodnia<br /> Północna Republika Południowej Afryki<br /> Południowe Zjednoczone Królestwo<br /> Środkowe stany USA<br /> Wschodnie stany USA<br /> Wschodnie stany USA 2<br /> Zachodnie stany USA 2    |    Blokowe obiekty blob<br /> Stronicowe obiekty blob<sup>2</sup><br /> Udziały plików (wersja standardowa)<br /> Tabele<br /> Kolejki<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Europa Zachodnia<br /> Wschodnie stany USA    |    Blokuj tylko obiekty blob    |
-|    FileStorage    | Europa Zachodnia<br /> Wschodnie stany USA    |    Tylko Azure Files    |
+|    BlockBlobStorage<sup>1</sup>    | Azja Południowo-Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA    |    Blokuj tylko obiekty blob    |
+|    FileStorage    | Azja Południowo-Wschodnia<br /> Europa Zachodnia<br /> Wschodnie stany USA    |    Tylko Azure Files    |
 
 <sup>1</sup> warstwa archiwum nie jest obecnie obsługiwana dla kont ZRS.<br />
 <sup>2</sup> konta magazynu zawierające dyski zarządzane przez platformę Azure dla maszyn wirtualnych zawsze używają LRS. W przypadku dysków niezarządzanych platformy Azure należy również użyć LRS. Istnieje możliwość utworzenia konta magazynu dla dysków niezarządzanych platformy Azure korzystających z GRS, ale nie jest to zalecane ze względu na potencjalne problemy ze spójnością w przypadku asynchronicznej replikacji geograficznej. Żadne dyski zarządzane ani niezarządzane nie obsługują ZRS ani GZRS. Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Cennik usługi Azure Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -158,8 +158,8 @@ Poniższa tabela wskazuje, czy dane są trwałe i dostępne w danym scenariuszu,
 
 | Scenariusz przestoju                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Węzeł w centrum danych jest niedostępny                                                                 | Yes                             | Tak                              | Tak                                  | Tak                                 |
-| Całe centrum danych (zona lub non-Zona) staną się niedostępne                                           | Nie                              | Yes                              | Tak<sup>1</sup>                                  | Yes                                  |
+| Węzeł w centrum danych jest niedostępny                                                                 | Tak                             | Tak                              | Tak                                  | Tak                                 |
+| Całe centrum danych (zona lub non-Zona) staną się niedostępne                                           | Nie                              | Tak                              | Tak<sup>1</sup>                                  | Tak                                  |
 | Awaria całego regionu występuje w regionie podstawowym                                                                                     | Nie                              | Nie                               | Tak<sup>1</sup>                                  | Tak<sup>1</sup>                                  |
 | Dostęp do odczytu do regionu pomocniczego jest dostępny, jeśli region podstawowy stał się niedostępny | Nie                              | Nie                               | Tak (z RA-GRS)                                   | Tak (z RA-GZRS)                                 |
 
@@ -184,7 +184,7 @@ Aby uzyskać informacje o cenach dla każdej opcji nadmiarowości, zobacz [Cenni
 
 Usługa Azure Storage regularnie weryfikuje integralność danych przechowywanych przy użyciu cyklicznych testów nadmiarowości (CRCs). Jeśli wykryto uszkodzenie danych, zostanie ono naprawione przy użyciu nadmiarowych danych. Usługa Azure Storage oblicza również sumy kontrolne dla całego ruchu sieciowego w celu wykrycia uszkodzenia pakietów danych podczas przechowywania lub pobierania danych.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)
 - [Zmiana opcji nadmiarowości dla konta magazynu](redundancy-migration.md)
