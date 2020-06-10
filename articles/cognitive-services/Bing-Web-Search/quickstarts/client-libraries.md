@@ -11,12 +11,13 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 5bbf3dcd6fff7bc93fb76b3e79ec7d4e4fa690ed
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: 738e3a4d77fe98e6616dc6ef3e7ac54581d4a76c
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78402582"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84604188"
 ---
 # <a name="quickstart-use-a-bing-web-search-client-library"></a>Szybki Start: korzystanie z wyszukiwanie w sieci Web Bingej biblioteki klienckiej
 

@@ -10,12 +10,13 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: dylankil
-ms.openlocfilehash: a252afae0a007ee0b791b56d19ffb0685848d30a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: tracking-python
+ms.openlocfilehash: fb95e21f9df5cf5eded03ea51f56bab86bbbecb3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844364"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609135"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Samouczek: uruchamianie czytnika immersyjny przy użyciu przykładowego projektu języka Python
 
@@ -26,7 +27,7 @@ W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czyt
 > * Uzyskiwanie tokenu dostępu
 > * Uruchom czytnik immersyjny z przykładową zawartością
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -57,7 +58,7 @@ Punkt końcowy interfejsu API **getimmersivereadertoken** powinien być zabezpie
 
 ## <a name="create-a-python-web-app-on-windows"></a>Tworzenie aplikacji sieci Web w języku Python w systemie Windows
 
-Utwórz aplikację sieci Web w języku `flask` Python przy użyciu systemu Windows.
+Utwórz aplikację sieci Web w języku Python przy użyciu `flask` systemu Windows.
 
 Zainstaluj narzędzie [git](https://git-scm.com/).
 
@@ -77,7 +78,7 @@ Dodaj funkcje opcjonalne, zaznaczając pola, a następnie klikając przycisk "da
 
 ![Okno dialogowe instalacji systemu Windows w języku Python — krok 2](./media/pythoninstalltwo.jpg)
 
-Wybierz pozycję "Instalacja niestandardowa" i Ustaw ścieżkę instalacji jako folder główny, `C:\Python37-32\` a następnie kliknij przycisk "Zainstaluj".
+Wybierz pozycję "Instalacja niestandardowa" i Ustaw ścieżkę instalacji jako folder główny, a `C:\Python37-32\` następnie kliknij przycisk "Zainstaluj".
 
 ![Okno dialogowe instalacji systemu Windows w języku Python — krok 3](./media/pythoninstallthree.jpg)
 
@@ -155,7 +156,7 @@ Dezaktywuj środowisko.
 deactivate
 ```
 
-`(advanced-python)` Prefiks powinien teraz zostać usunięty, ponieważ środowisko jest teraz dezaktywowane.
+`(advanced-python)`Prefiks powinien teraz zostać usunięty, ponieważ środowisko jest teraz dezaktywowane.
 
 Aby ponownie uaktywnić środowisko `workon advanced-python` z przykładowego folderu głównego projektu.
 
@@ -171,11 +172,11 @@ Gdy środowisko jest aktywne, uruchom przykładowy projekt, wprowadzając `flask
 flask run
 ```
 
-Otwórz przeglądarkę i przejdź do _http://localhost:5000_.
+Otwórz przeglądarkę i przejdź do _http://localhost:5000_ .
 
 ## <a name="create-a-python-web-app-on-osx"></a>Tworzenie aplikacji sieci Web w języku Python w witrynie OSX
 
-Utwórz aplikację sieci Web w języku `flask` Python przy użyciu usługi w systemie OSX.
+Utwórz aplikację sieci Web w języku Python przy użyciu usługi `flask` w systemie OSX.
 
 Zainstaluj narzędzie [git](https://git-scm.com/).
 
@@ -187,7 +188,7 @@ git clone https://github.com/microsoft/immersive-reader-sdk.git
 
 Zainstaluj język [Python](https://www.python.org/downloads/).
 
-Folder główny języka Python, np `Python37-32` . powinien znajdować się w folderze aplikacji.
+Folder główny języka Python, np. `Python37-32` powinien znajdować się w folderze aplikacji.
 
 Po zakończeniu instalacji języka Python Otwórz pozycję Terminal i `cd` folder skrypty języka Python.
 
@@ -213,10 +214,10 @@ sudo nano /etc/paths
 
 - Po wyświetleniu monitu wprowadź hasło.
 - Dodaj ścieżkę instalacji PIP do zmiennej PATH.
-- Przejdź do dolnej części pliku, a następnie wprowadź ścieżkę, którą chcesz dodać jako ostatni element listy, np. `PATH=$PATH:/usr/local/bin`.
+- Przejdź do dolnej części pliku, a następnie wprowadź ścieżkę, którą chcesz dodać jako ostatni element listy, np. `PATH=$PATH:/usr/local/bin` .
 - Naciśnij klawisz Control — x, aby zakończyć.
 - Wprowadź `Y` , aby zapisać zmodyfikowany bufor.
-- Gotowe. Aby go przetestować, w nowym oknie terminalu wpisz: `echo $PATH`.
+- To wszystko. Aby go przetestować, w nowym oknie terminalu wpisz: `echo $PATH` .
 
 Zainstaluj kolbę.
 
@@ -292,7 +293,7 @@ Dezaktywuj środowisko.
 deactivate
 ```
 
-`(advanced-python)` Prefiks powinien teraz zostać usunięty, ponieważ środowisko jest teraz dezaktywowane.
+`(advanced-python)`Prefiks powinien teraz zostać usunięty, ponieważ środowisko jest teraz dezaktywowane.
 
 Aby ponownie uaktywnić środowisko `workon advanced-python` z przykładowego folderu głównego projektu.
 
@@ -308,7 +309,7 @@ Gdy środowisko jest aktywne, uruchom przykładowy projekt, wprowadzając `flask
 flask run
 ```
 
-Otwórz przeglądarkę i przejdź do _http://localhost:5000_.
+Otwórz przeglądarkę i przejdź do _http://localhost:5000_ .
 
 ## <a name="next-steps"></a>Następne kroki
 
