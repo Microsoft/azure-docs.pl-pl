@@ -967,8 +967,6 @@
                   items:
                     - name: Interfejs wiersza polecenia maszyny wirtualnej Azure SQL
                       href: virtual-machines/windows/availability-group-az-cli-configure.md
-                    - name: Szablon witryny Azure Portal
-                      href: virtual-machines/windows/availability-group-azure-marketplace-template-configure.md
                     - name: Szablony przewodników Szybki start platformy Azure
                       href: virtual-machines/windows/availability-group-quickstart-template-configure.md
                     - name: Wiele regionów

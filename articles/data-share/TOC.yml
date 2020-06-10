@@ -19,8 +19,6 @@
       href: terminology.md
     - name: Role i wymagania
       href: concepts-roles-permissions.md
-    - name: Odzyskiwanie po awarii
-      href: disaster-recovery.md
 - name: Samples
   items:
     - name: Przykłady kodu
@@ -43,6 +41,10 @@
       href: how-to-delete-invitation.md
     - name: Odwoływanie subskrypcji udostępniania
       href: how-to-revoke-share-subscription.md
+    - name: Zabezpieczenia
+      href: security.md
+    - name: Odzyskiwanie po awarii
+      href: disaster-recovery.md
 - name: Dokumentacja
   items:
     - name: .NET

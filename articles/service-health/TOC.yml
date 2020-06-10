@@ -30,8 +30,6 @@
       href: service-health-alert-webhook-pagerduty.md
     - name: Wysyłanie alertów do usługi OpsGenie
       href: service-health-alert-webhook-opsgenie.md
-    - name: Pobieranie zdarzeń kondycji za pomocą interfejsu REST
-      href: service-health-rest.md
     - name: Konfigurowanie alertów dla zdarzeń usługi związanych z kondycją zasobów
       href: resource-health-alert-arm-template-guide.md
 - name: Dokumentacja

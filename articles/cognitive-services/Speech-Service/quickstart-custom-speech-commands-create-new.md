@@ -98,7 +98,7 @@ Utwórzmy proste polecenie, które będzie miało pojedynczy wypowiedź, `turn o
 Środkowe okienko zawiera listę właściwości polecenia:
 
 
-| Konfigurowanie            | Opis                                                                                                                 |
+| Konfiguracja            | Opis                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | **Przykładowe zdania** | Przykłady wyrażenia długości, które użytkownik może powiedzieć, aby wyzwolić polecenie.                                                                 |
 | **Parametry**       | Informacje wymagane do ukończenia tego polecenia.                                                                                |
