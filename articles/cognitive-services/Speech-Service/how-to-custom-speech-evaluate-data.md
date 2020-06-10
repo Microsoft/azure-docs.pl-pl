@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27229d36dbe9592b6ad6fc2740f7714f99fd6857
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74806100"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629056"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Ocena dokładności usługi Custom Speech
 
@@ -52,7 +52,7 @@ Jeśli chcesz przetestować jakość modelu linii bazowej zamiany mowy na tekst 
 Aby oszacować modele obok siebie:
 
 1. Zaloguj się do [portalu Custom Speech](https://speech.microsoft.com/customspeech).
-2. Przejdź do **> funkcji zamiany mowy na tekst Custom Speech > testowanie**.
+2. Przejdź do **> zamiany mowy na tekst Custom Speech > [nazwa projektu] > testowanie**.
 3. Kliknij przycisk **Dodaj test**.
 4. Wybierz pozycję **Oceń dokładność**. Nadaj testowi nazwę, opis, a następnie wybierz swój audio + ludzki zestaw danych transkrypcji.
 5. Wybierz maksymalnie dwa modele, które chcesz przetestować.
@@ -69,7 +69,7 @@ Po zakończeniu testu, wskazywanym przez zmianę stanu na *powodzenie*, można z
 * [Trenowanie modelu](how-to-custom-speech-train-model.md)
 * [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
 * [Inspekcja danych](how-to-custom-speech-inspect-data.md)

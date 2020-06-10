@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9061cbbae0b30881fffe1762208216cb8009594a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 1ded745b5a734fd92a8ace851e3ecfc4a7a487d5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791582"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636397"
 ---
 # <a name="tutorial-create-windows-vm-images-with-azure-powershell"></a>Samouczek: Tworzenie obrazów maszyn wirtualnych z systemem Windows za pomocą Azure PowerShell
 
@@ -50,11 +50,11 @@ Funkcja galerii obrazów udostępnionych ma wiele typów zasobów:
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 ## <a name="get-the-vm"></a>Pobierz maszynę wirtualną
 
-Możesz wyświetlić listę maszyn wirtualnych, które są dostępne w grupie zasobów za pomocą polecenia [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Jeśli znasz nazwę maszyny wirtualnej i grupę zasobów, możesz użyć `Get-AzVM` jej ponownie, aby pobrać obiekt maszyny wirtualnej i zapisać go w zmiennej do użycia później. Ten przykład pobiera maszynę wirtualną o nazwie *sourceVM* z grupy zasobów "Grupa zasobów" i przypisuje ją do zmiennej *$VM*. 
+Możesz wyświetlić listę maszyn wirtualnych, które są dostępne w grupie zasobów za pomocą polecenia [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Jeśli znasz nazwę maszyny wirtualnej i grupę zasobów, możesz użyć jej ponownie, `Get-AzVM` Aby pobrać obiekt maszyny wirtualnej i zapisać go w zmiennej do użycia później. Ten przykład pobiera maszynę wirtualną o nazwie *sourceVM* z grupy zasobów "Grupa zasobów" i przypisuje ją do zmiennej *$VM*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -117,7 +117,7 @@ Dozwolone znaki wersji obrazu to liczby i kropki. Liczba musi należeć do zakre
 
 W tym przykładzie wersja obrazu to *1.0.0* i jest replikowana zarówno do centrów danych *Wschodnie stany USA* , jak i *Południowo-środkowe stany USA* . Podczas wybierania regionów docelowych na potrzeby replikacji należy uwzględnić region *źródłowy* jako element docelowy dla replikacji.
 
-Aby utworzyć wersję obrazu z maszyny wirtualnej, użyj `$vm.Id.ToString()` dla. `-Source`
+Aby utworzyć wersję obrazu z maszyny wirtualnej, użyj `$vm.Id.ToString()` dla `-Source` .
 
 ```azurepowershell-interactive
    $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -140,7 +140,7 @@ Replikowanie obrazu do wszystkich regionów docelowych może chwilę potrwać.
 
 ## <a name="create-a-vm"></a>Tworzenie maszyny wirtualnej 
 
-Po utworzeniu wyspecjalizowanego obrazu można utworzyć co najmniej jedną nową maszynę wirtualną. Za pomocą polecenia cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . Aby użyć obrazu, użyj opcji "Set-AzVMSourceImage` and set the `-ID" do identyfikatora definicji obrazu ($GalleryImage. ID w tym przypadku), aby zawsze używać najnowszej wersji obrazu. 
+Po utworzeniu wyspecjalizowanego obrazu można utworzyć co najmniej jedną nową maszynę wirtualną. Za pomocą polecenia cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . Aby użyć obrazu, należy użyć `Set-AzVMSourceImage` i ustawić `-Id` na identyfikator definicji obrazu ($GalleryImage. ID w tym przypadku), aby zawsze używał najnowszej wersji obrazu. 
 
 W tym przykładzie Zastąp nazwy zasobów zgodnie z wymaganiami. 
 
@@ -179,7 +179,7 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 
 ## <a name="share-the-gallery"></a>Udostępnianie galerii
 
-Zalecamy Udostępnianie dostępu na poziomie galerii obrazów. Użyj adresu e-mail i polecenia cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) , aby uzyskać identyfikator obiektu dla użytkownika, a następnie użyj polecenie [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) w celu uzyskania dostępu do galerii. Zastąp przykładową wiadomość alinne_montes@contoso.com e-mail, w tym przykładzie, własnymi informacjami.
+Zalecamy Udostępnianie dostępu na poziomie galerii obrazów. Użyj adresu e-mail i polecenia cmdlet [Get-AzADUser](/powershell/module/az.resources/get-azaduser) , aby uzyskać identyfikator obiektu dla użytkownika, a następnie użyj polecenie [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) w celu uzyskania dostępu do galerii. Zastąp przykładową wiadomość e-mail, alinne_montes@contoso.com w tym przykładzie, własnymi informacjami.
 
 ```azurepowershell-interactive
 # Get the object ID for the user

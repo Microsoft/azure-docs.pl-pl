@@ -13,12 +13,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 925e6788035952a4e7b54b8d50b910243a754a09
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 31dba12023643f96018d1192111a19c80d0ba3ef
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041283"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636210"
 ---
 # <a name="tutorial-add-a-sql-managed-instance-to-a-failover-group"></a>Samouczek: dodawanie wystąpienia zarządzanego SQL do grupy trybu failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -432,7 +432,7 @@ Aby utworzyć sieć wirtualną, wykonaj następujące kroki:
     | **Nazwa** |  Nazwa sieci wirtualnej, która ma być używana przez pomocnicze wystąpienie zarządzane SQL, na przykład `vnet-sql-mi-secondary` . |
     | **Przestrzeń adresowa** | Przestrzeń adresowa sieci wirtualnej, na przykład `10.128.0.0/16` . | 
     | **Subskrypcja** | Subskrypcja, w której znajduje się główne wystąpienie zarządzane SQL i Grupa zasobów. |
-    | **Okolicy** | Lokalizacja, w której będzie wdrażane pomocnicze wystąpienie zarządzane SQL. |
+    | **Region** | Lokalizacja, w której będzie wdrażane pomocnicze wystąpienie zarządzane SQL. |
     | **Podsieci** | Nazwa podsieci. `default`jest dostarczany domyślnie. |
     | **Zakres adresów**| Zakres adresów dla podsieci. Ta wartość musi być inna niż zakres adresów podsieci używany przez sieć wirtualną głównego wystąpienia zarządzanego SQL, na przykład `10.128.0.0/24` .  |
     | &nbsp; | &nbsp; |
@@ -458,7 +458,7 @@ Utwórz pomocnicze wystąpienie zarządzane SQL przy użyciu Azure Portal.
 
 1. Wybierz pozycję **Azure SQL** w menu po lewej stronie Azure Portal. Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie. 
 1. Wybierz pozycję **+ Dodaj** , aby otworzyć stronę **Wybieranie opcji wdrożenia SQL** . Aby wyświetlić dodatkowe informacje o różnych bazach danych, wybierz pozycję Pokaż szczegóły na kafelku bazy danych.
-1. Na kafelku **wystąpienia zarządzane** SQL SQL Wybierz pozycję **Utwórz** . 
+1. Wybierz pozycję **Utwórz** na kafelku **wystąpienia zarządzane SQL** . 
 
     ![Wybierz wystąpienie zarządzane SQL](./media/failover-group-add-instance-tutorial/select-managed-instance.png)
 
@@ -471,7 +471,7 @@ Utwórz pomocnicze wystąpienie zarządzane SQL przy użyciu Azure Portal.
     | **Subskrypcja** |  Subskrypcja, w której znajduje się główne wystąpienie zarządzane SQL. |
     | **Grupa zasobów**| Grupa zasobów, w której znajduje się główne wystąpienie zarządzane SQL. |
     | **Nazwa wystąpienia zarządzanego SQL** | Nazwa nowego pomocniczego wystąpienia zarządzanego przez program SQL, na przykład`sql-mi-secondary`  | 
-    | **Okolicy**| Lokalizacja dla pomocniczego wystąpienia zarządzanego SQL.  |
+    | **Region**| Lokalizacja dla pomocniczego wystąpienia zarządzanego SQL.  |
     | **Logowanie administratora wystąpienia zarządzanego SQL** | Identyfikator logowania, którego chcesz użyć dla nowego wystąpienia zarządzanego przez program SQL, na przykład `azureuser` . |
     | **Hasło** | Złożone hasło, które będzie używane przez dane logowania administratora dla nowego wystąpienia zarządzanego przez program SQL.  |
     | &nbsp; | &nbsp; |
@@ -763,10 +763,10 @@ Utwórz bramę dla sieci wirtualnej głównego wystąpienia zarządzanego SQL pr
     | --- | --- |
     | **Subskrypcja** |  Subskrypcja, w której znajduje się główne wystąpienie zarządzane SQL. |
     | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `primary-mi-gateway` . | 
-    | **Okolicy** | Region, w którym znajduje się główne wystąpienie zarządzane SQL. |
+    | **Region** | Region, w którym znajduje się główne wystąpienie zarządzane SQL. |
     | **Typ bramy** | wybierz pozycję **VPN**. |
     | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
-    | **Magazyn**| Pozostaw wartość domyślną `VpnGw1` . |
+    | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |
     | **Lokalizacja**| Lokalizacja, w której znajduje się główne wystąpienie zarządzane SQL i podstawowa Sieć wirtualna.   |
     | **Sieć wirtualna**| Wybierz sieć wirtualną, która została utworzona w sekcji 2, na przykład `vnet-sql-mi-primary` . |
     | **Publiczny adres IP**| Wybierz pozycję**Utwórz nowy**. |
@@ -845,10 +845,10 @@ Korzystając z Azure Portal, powtórz kroki opisane w poprzedniej sekcji, aby ut
    | --- | --- |
    | **Subskrypcja** |  Subskrypcja, w której znajduje się pomocnicze wystąpienie zarządzane SQL. |
    | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `secondary-mi-gateway` . | 
-   | **Okolicy** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane SQL. |
+   | **Region** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane SQL. |
    | **Typ bramy** | wybierz pozycję **VPN**. |
    | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
-   | **Magazyn**| Pozostaw wartość domyślną `VpnGw1` . |
+   | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |
    | **Lokalizacja**| Lokalizacja, w której znajduje się pomocnicze wystąpienie zarządzane SQL i pomocnicza Sieć wirtualna.   |
    | **Sieć wirtualna**| Wybierz sieć wirtualną, która została utworzona w sekcji 2, na przykład `vnet-sql-mi-secondary` . |
    | **Publiczny adres IP**| Wybierz pozycję**Utwórz nowy**. |
@@ -1080,7 +1080,7 @@ W tej części samouczka są stosowane następujące polecenia cmdlet programu P
 
 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 Wyczyść zasoby, usuwając najpierw wystąpienie zarządzane SQL, a następnie klaster wirtualny, wszystkie pozostałe zasoby i wreszcie grupę zasobów. 
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)

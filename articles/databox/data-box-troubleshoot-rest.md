@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: ccb1a31761298d9dc4376684380702cf7cbd9a1f
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 130cc532355ac0c52ad08b1a32ae8b961d7ced75
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310074"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606772"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Rozwiązywanie problemów związanych z usługą Azure Data Box BLOB Storage
 
@@ -55,7 +55,7 @@ W tej sekcji przedstawiono niektóre najczęstsze problemy związane z wdrażani
 |Komunikat o błędzie  |Zalecana akcja |
 |---------|---------|
 |Wartość jednego z nagłówków HTTP nie ma poprawnego formatu. |Zainstalowana wersja biblioteki Microsoft Azure Storage dla języka Python nie jest obsługiwana przez urządzenie Data Box. Zobacz Azure Data Box wymagania dotyczące magazynu obiektów BLOB dla obsługiwanych wersji.|
-|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Przed uruchomieniem języka Python należy ustawić zmienną środowiskową REQUESTS_CA_BUNDLE na ścieżkę pliku certyfikatu TLS zakodowanego algorytmem Base64 (Zobacz artykuł jak [pobrać certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Na przykład:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternatywnie Dodaj certyfikat do magazynu certyfikatów systemu, a następnie ustaw tę zmienną środowiskową na ścieżkę do tego magazynu. <br> Na przykład na platformie Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL: CERTIFICATE_VERIFY_FAILED]...|Przed uruchomieniem języka Python należy ustawić zmienną środowiskową REQUESTS_CA_BUNDLE na ścieżkę pliku certyfikatu TLS zakodowanego algorytmem Base64 (Zobacz artykuł jak [pobrać certyfikat](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Przykład:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Alternatywnie Dodaj certyfikat do magazynu certyfikatów systemu, a następnie ustaw tę zmienną środowiskową na ścieżkę do tego magazynu. <br> Na przykład na platformie Ubuntu: <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Typowe błędy

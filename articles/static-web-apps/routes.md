@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 4a9639343827ebc5bb17a6d62d9b65d0b561e932
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 84067917a43fc7c84770b8852f11622ffe2af930
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597744"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629304"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Trasy w usłudze Azure static Web Apps Preview
 
@@ -214,6 +214,7 @@ Poniższy przykład pokazuje, jak utworzyć reguły tras dla zawartości statycz
     },
     {
       "errorType": "Unauthenticated",
+      "statusCode": "301",
       "serve": "/login"
     }
   ]

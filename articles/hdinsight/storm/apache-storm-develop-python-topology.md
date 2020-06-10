@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,hdiseo17may2017, tracking-python
 ms.date: 12/16/2019
-ms.openlocfilehash: 20e4827b1a86bff338646ef71f0dd732255c09c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71709e2f1dcbab188646241eaeb4809e168d5697
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77460028"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608778"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Opracowywanie topologii Apache Storm przy użyciu języka Python w usłudze HDInsight
 
@@ -36,7 +36,7 @@ Dowiedz się, jak utworzyć topologię [Apache Storm](https://storm.apache.org/)
 
 ## <a name="storm-multi-language-support"></a>Obsługa wielu języków
 
-Apache Storm został zaprojektowany z myślą o pracy ze składnikami napisane przy użyciu dowolnego języka programowania. Składniki muszą zrozumieć sposób pracy z definicją Thrift dla burzy. W przypadku języka Python moduł jest dostarczany jako część projektu Apache Storm, który umożliwia łatwe interfejsowanie z burzą. Ten moduł można znaleźć pod adresem [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Apache Storm został zaprojektowany z myślą o pracy ze składnikami napisane przy użyciu dowolnego języka programowania. Składniki muszą zrozumieć sposób pracy z definicją Thrift dla burzy. W przypadku języka Python moduł jest dostarczany jako część projektu Apache Storm, który umożliwia łatwe interfejsowanie z burzą. Ten moduł można znaleźć pod adresem [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py) .
 
 Burza jest procesem języka Java, który działa na wirtualna maszyna Java (JVM). Składniki w innych językach są wykonywane jako podprocesy. Burza komunikuje się z tymi podprocesami przy użyciu komunikatów JSON wysyłanych za pośrednictwem stdin/stdout. Więcej informacji na temat komunikacji między składnikami można znaleźć w dokumentacji [protokołu z wieloma językami](https://storm.apache.org/releases/current/Multilang-protocol.html) .
 
@@ -60,7 +60,7 @@ spouts:
 
 Klasa `FluxShellSpout` jest używana do uruchomienia `sentencespout.py` skryptu, który implementuje elementu Spout.
 
-Strumień oczekuje, że skrypty języka Python mają znajdować `/resources` się w katalogu wewnątrz pliku JAR, który zawiera topologię. W tym przykładzie są przechowywane skrypty języka Python w `/multilang/resources` katalogu. `pom.xml` Obejmuje następujący plik XML:
+Strumień oczekuje, że skrypty języka Python mają znajdować się w `/resources` katalogu wewnątrz pliku JAR, który zawiera topologię. W tym przykładzie są przechowywane skrypty języka Python w `/multilang/resources` katalogu. `pom.xml`Obejmuje następujący plik XML:
 
 ```xml
 <!-- include the Python components -->
@@ -70,13 +70,13 @@ Strumień oczekuje, że skrypty języka Python mają znajdować `/resources` si�
 </resource>
 ```
 
-Jak wspomniano wcześniej, istnieje `storm.py` plik, który implementuje definicję Thrift dla burzy. Platforma strumień jest `storm.py` automatycznie tworzona podczas kompilowania projektu, więc nie trzeba martwić się o dołączenie do niego.
+Jak wspomniano wcześniej, istnieje `storm.py` plik, który implementuje definicję Thrift dla burzy. Platforma strumień `storm.py` jest automatycznie tworzona podczas kompilowania projektu, więc nie trzeba martwić się o dołączenie do niego.
 
 ## <a name="build-the-project"></a>Kompilowanie projektu
 
-1. Pobierz projekt z [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+1. Pobierz projekt z [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) .
 
-1. Otwórz wiersz polecenia i przejdź do katalogu głównego projektu: `hdinsight-python-storm-wordcount-master`. Wprowadź następujące polecenie:
+1. Otwórz wiersz polecenia i przejdź do katalogu głównego projektu: `hdinsight-python-storm-wordcount-master` . Wprowadź następujące polecenie:
 
     ```cmd
     mvn clean compile package
@@ -86,7 +86,7 @@ Jak wspomniano wcześniej, istnieje `storm.py` plik, który implementuje definic
 
 ## <a name="run-the-storm-topology-on-hdinsight"></a>Uruchamianie topologii burzy w usłudze HDInsight
 
-1. Użyj [polecenia SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) , `WordCount-1.0-SNAPSHOT.jar` aby skopiować plik do burzy w klastrze usługi HDInsight. Edytuj poniższe polecenie, zastępując wartość CLUSTERname nazwą klastra, a następnie wprowadź polecenie:
+1. Użyj [polecenia SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) , aby skopiować `WordCount-1.0-SNAPSHOT.jar` plik do burzy w klastrze usługi HDInsight. Edytuj poniższe polecenie, zastępując wartość CLUSTERname nazwą klastra, a następnie wprowadź polecenie:
 
     ```cmd
     scp target/WordCount-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:
@@ -106,7 +106,7 @@ Jak wspomniano wcześniej, istnieje `storm.py` plik, który implementuje definic
 
     Po uruchomieniu topologia burza jest uruchamiana do momentu zatrzymania.
 
-1. Użyj interfejsu użytkownika burzy, aby wyświetlić topologię w klastrze. Interfejs użytkownika burzy znajduje się `https://CLUSTERNAME.azurehdinsight.net/stormui`w lokalizacji. Zastąp `CLUSTERNAME` nazwą klastra.
+1. Użyj interfejsu użytkownika burzy, aby wyświetlić topologię w klastrze. Interfejs użytkownika burzy znajduje się w lokalizacji `https://CLUSTERNAME.azurehdinsight.net/stormui` . Zastąp `CLUSTERNAME` nazwą klastra.
 
 1. Zatrzymaj topologię burzy. Użyj następującego polecenia, aby zatrzymać topologię klastra:
 

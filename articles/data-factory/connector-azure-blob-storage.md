@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: ac1ea150ff47c01092dfaa1fac302c549add5fb3
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 61a0ad5be68425576f40292f9fa53322980284c6
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343517"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606381"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w usłudze Azure Blob Storage za pomocą Azure Data Factory
 
@@ -78,8 +78,8 @@ Data Factory obsługuje następujące właściwości uwierzytelniania klucza kon
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** musi mieć wartość **AzureBlobStorage** (Sugerowana) lub **AzureStorage** (Zobacz poniższe uwagi). |Yes |
-| Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z magazynem dla właściwości **ConnectionString** . <br/> Możesz również umieścić klucz konta w Azure Key Vault i ściągnąć `accountKey` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz następujące przykłady i [poświadczenia sklepu w artykule Azure Key Vault](store-credentials-in-key-vault.md) . |Yes |
+| typ | Właściwość **Type** musi mieć wartość **AzureBlobStorage** (Sugerowana) lub **AzureStorage** (Zobacz poniższe uwagi). |Tak |
+| Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z magazynem dla właściwości **ConnectionString** . <br/> Możesz również umieścić klucz konta w Azure Key Vault i ściągnąć `accountKey` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz następujące przykłady i [poświadczenia sklepu w artykule Azure Key Vault](store-credentials-in-key-vault.md) . |Tak |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. |Nie |
 
 >[!NOTE]
@@ -148,8 +148,8 @@ Data Factory obsługuje następujące właściwości używane do uwierzytelniani
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage** (Sugerowana) lub **AzureStorage** (zobacz poniższą uwagę). |Yes |
-| sasUri | Określ identyfikator URI sygnatury dostępu współdzielonego do zasobów magazynu, takich jak obiekt BLOB lub kontener. <br/>Oznacz to pole jako **SecureString** , aby bezpiecznie przechowywać je w Data Factory. Można również umieścić token sygnatury dostępu współdzielonego w Azure Key Vault, aby użyć instrukcji AutoRotation i usunąć część tokenu. Aby uzyskać więcej informacji, zobacz następujące przykłady i [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage** (Sugerowana) lub **AzureStorage** (zobacz poniższą uwagę). |Tak |
+| sasUri | Określ identyfikator URI sygnatury dostępu współdzielonego do zasobów magazynu, takich jak obiekt BLOB lub kontener. <br/>Oznacz to pole jako **SecureString** , aby bezpiecznie przechowywać je w Data Factory. Można również umieścić token sygnatury dostępu współdzielonego w Azure Key Vault, aby użyć instrukcji AutoRotation i usunąć część tokenu. Aby uzyskać więcej informacji, zobacz następujące przykłady i [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. |Nie |
 
 >[!NOTE]
@@ -232,11 +232,11 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage**. |Yes |
-| Końcowego | Określ punkt końcowy usługi Azure Blob Storage z wzorcem `https://<accountName>.blob.core.windows.net/` . |Yes |
-| servicePrincipalId | Określ identyfikator klienta aplikacji. | Yes |
-| servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Pobierz ją przez umieszczenie kursora w prawym górnym rogu Azure Portal. | Yes |
+| typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage**. |Tak |
+| Końcowego | Określ punkt końcowy usługi Azure Blob Storage z wzorcem `https://<accountName>.blob.core.windows.net/` . |Tak |
+| servicePrincipalId | Określ identyfikator klienta aplikacji. | Tak |
+| servicePrincipalKey | Określ klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
+| dzierżaw | Określ informacje o dzierżawie (nazwę domeny lub identyfikator dzierżawy), w których znajduje się Twoja aplikacja. Pobierz ją przez umieszczenie kursora w prawym górnym rogu Azure Portal. | Tak |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. |Nie |
 
 >[!NOTE]
@@ -286,8 +286,8 @@ Te właściwości są obsługiwane dla połączonej usługi Azure Blob Storage:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage**. |Yes |
-| Końcowego | Określ punkt końcowy usługi Azure Blob Storage z wzorcem `https://<accountName>.blob.core.windows.net/` . |Yes |
+| typ | Właściwość **Type** musi być ustawiona na wartość **AzureBlobStorage**. |Tak |
+| Końcowego | Określ punkt końcowy usługi Azure Blob Storage z wzorcem `https://<accountName>.blob.core.windows.net/` . |Tak |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Możesz użyć środowiska Azure Integration Runtime lub własnego środowiska Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli ta właściwość nie jest określona, usługa używa domyślnego środowiska Azure Integration Runtime. |Nie |
 
 > [!NOTE]
@@ -321,8 +321,8 @@ Następujące właściwości są obsługiwane w przypadku usługi Azure Blob Sto
 
 | Właściwość   | Opis                                                  | Wymagane |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Właściwość **Type** lokalizacji w zestawie danych musi być ustawiona na wartość **AzureBlobStorageLocation**. | Yes      |
-| kontener  | Kontener obiektów BLOB.                                          | Yes      |
+| typ       | Właściwość **Type** lokalizacji w zestawie danych musi być ustawiona na wartość **AzureBlobStorageLocation**. | Tak      |
+| kontener  | Kontener obiektów BLOB.                                          | Tak      |
 | folderPath | Ścieżka do folderu pod podanym kontenerem. Jeśli chcesz użyć symbolu wieloznacznego do filtrowania folderu, pomiń to ustawienie i określ je w obszarze Ustawienia źródła działania. | Nie       |
 | fileName   | Nazwa pliku w podanym kontenerze i ścieżce folderu. Jeśli chcesz użyć symboli wieloznacznych do filtrowania plików, pomiń to ustawienie i określ je w obszarze Ustawienia źródła działania. | Nie       |
 
@@ -365,12 +365,12 @@ Następujące właściwości są obsługiwane w przypadku usługi Azure Blob Sto
 
 | Właściwość                 | Opis                                                  | Wymagane                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| typ                     | Właściwość **Type** w obszarze `storeSettings` musi być ustawiona na wartość **AzureBlobStorageReadSettings**. | Yes                                           |
+| typ                     | Właściwość **Type** w obszarze `storeSettings` musi być ustawiona na wartość **AzureBlobStorageReadSettings**. | Tak                                           |
 | ***Zlokalizuj pliki do skopiowania:*** |  |  |
 | Opcja 1: ścieżka statyczna<br> | Kopiuj z danego kontenera lub folderu/ścieżki pliku określonego w zestawie danych. Jeśli chcesz skopiować wszystkie obiekty blob z kontenera lub folderu, należy również określić `wildcardFileName` jako `*` . |  |
 | Opcja 2: prefiks obiektu BLOB<br>-prefix | Prefiks nazwy obiektu BLOB w danym kontenerze skonfigurowanym w zestawie danych do filtrowania źródłowych obiektów BLOB. Obiekty blob, których nazwy rozpoczynają się od, `container_in_dataset/this_prefix` są zaznaczone. Korzysta ona z filtru po stronie usług dla usługi BLOB Storage, który zapewnia lepszą wydajność niż filtr symboli wieloznacznych. | Nie                                                          |
 | Opcja 3: symbol wieloznaczny<br>- wildcardFolderPath | Ścieżka folderu z symbolami wieloznacznymi pod podanym kontenerem skonfigurowanym w zestawie danych do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Nie                                            |
-| Opcja 3: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi w danym kontenerze i ścieżce folderu (lub ścieżki do symboli wieloznacznych) do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Yes |
+| Opcja 3: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku z symbolami wieloznacznymi w danym kontenerze i ścieżce folderu (lub ścieżki do symboli wieloznacznych) do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Tak |
 | OPCJA 4: Lista plików<br>- fileListPath | Wskazuje, aby skopiować dany zestaw plików. Wskaż plik tekstowy zawierający listę plików, które chcesz skopiować, jeden plik w wierszu, który jest ścieżką względną do ścieżki skonfigurowanej w zestawie danych.<br/>W przypadku korzystania z tej opcji nie należy określać nazwy pliku w zestawie danych. Zobacz więcej przykładów na [listach plików](#file-list-examples). |Nie |
 | ***Ustawienia dodatkowe:*** |  | |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość **cykliczna** jest ustawiona na **wartość true** , a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to **true** (wartość domyślna) i **false**.<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
@@ -430,7 +430,7 @@ Następujące właściwości są obsługiwane w przypadku usługi Azure Blob Sto
 
 | Właściwość                 | Opis                                                  | Wymagane |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| typ                     | Właściwość **Type** w obszarze `storeSettings` musi być ustawiona na wartość **AzureBlobStorageWriteSettings**. | Yes      |
+| typ                     | Właściwość **Type** w obszarze `storeSettings` musi być ustawiona na wartość **AzureBlobStorageWriteSettings**. | Tak      |
 | copyBehavior             | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku lub obiektu BLOB jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie       |
 | blockSizeInMB | Określ rozmiar bloku (w megabajtach), który będzie używany do zapisywania danych w blokowych obiektach Blob. Dowiedz się więcej na [temat blokowych obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs). <br/>Dozwolona wartość wynosi *od 4 MB do 100 MB*. <br/>Domyślnie Data Factory automatycznie określa rozmiar bloku na podstawie typu i danych magazynu źródłowego. W przypadku kopiowania niebinarnego do magazynu obiektów BLOB domyślny rozmiar bloku to 100 MB, co może zmieścić się w (maksymalnie) 4,95 TB danych. Nie jest to optymalne, gdy dane nie są duże, szczególnie w przypadku korzystania z własnego środowiska Integration Runtime z nieprawidłowymi połączeniami sieciowymi, które powodują problemy z upływem limitu czasu operacji lub wydajności. Można jawnie określić rozmiar bloku, dzięki czemu `blockSizeInMB*50000` jest wystarczająco duży, aby przechowywać dane. W przeciwnym razie uruchomienie działania kopiowania zakończy się niepowodzeniem. | Nie |
 | maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie       |
@@ -510,7 +510,13 @@ Podczas kopiowania plików z usługi Amazon S3, Azure Blob Storage lub Azure Dat
 
 ## <a name="mapping-data-flow-properties"></a>Mapowanie właściwości przepływu danych
 
-Gdy przekształcasz dane w celu mapowania przepływów danych, możesz odczytywać i zapisywać pliki z usługi Azure Blob Storage w formacie JSON, Avro, rozdzielanym tekstem lub Parquet. Aby uzyskać więcej informacji, zobacz temat [przekształcanie źródła w mapowaniu przepływu danych](data-flow-source.md) i [transformacji ujścia w mapowaniu przepływu danych](data-flow-sink.md).
+Gdy przekształcasz dane w celu mapowania przepływów danych, możesz odczytywać i zapisywać pliki z usługi Azure Blob Storage w następujących formatach:
+* [JSON](format-json.md#mapping-data-flow-properties)
+* [Avro](format-avro.md#mapping-data-flow-properties)
+* [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties)
+* [Parquet](format-parquet.md#mapping-data-flow-properties).
+
+Ustawienia specyficzne dla formatu znajdują się w dokumentacji dla tego formatu. Aby uzyskać więcej informacji, zobacz temat [przekształcanie źródła w mapowaniu przepływu danych](data-flow-source.md) i [transformacji ujścia w mapowaniu przepływu danych](data-flow-sink.md).
 
 ### <a name="source-transformation"></a>Transformacja źródła
 
@@ -609,7 +615,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **AzureBlob**. |Yes |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **AzureBlob**. |Tak |
 | folderPath | Ścieżka do kontenera i folderu w usłudze BLOB Storage. <br/><br/>Filtr symboli wieloznacznych jest obsługiwany dla ścieżki, z wyłączeniem nazwy kontenera. Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak). Użyj `^` do ucieczki, jeśli nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br/><br/>Przykład: myblobcontainer/myblobfolder/. Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). |Tak dla działania kopiowania lub wyszukiwania — nie dla działania GetMetadata |
 | fileName | Nazwa lub filtr symboli wieloznacznych dla obiektów BLOB pod określoną wartością **folderPath** . Jeśli nie określisz wartości tej właściwości, zestaw danych wskazuje wszystkie obiekty blob w folderze. <br/><br/>W przypadku filtru dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak).<br/>-Przykład 1:`"fileName": "*.csv"`<br/>-Przykład 2:`"fileName": "???20180427.txt"`<br/>Użyj `^` do ucieczki, jeśli nazwa pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.<br/><br/>Jeśli **Nazwa pliku** nie została określona dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w obiekcie ujścia aktywności, działanie kopiowania automatycznie generuje nazwę obiektu BLOB z następującym wzorcem: "*Data. [ Identyfikator GUID przebiegu działania]. [GUID if FlattenHierarchy]. [Format, jeśli skonfigurowano]. [kompresja, jeśli jest skonfigurowana]*". Na przykład: "Data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt. gz". <br/><br/>Jeśli skopiujesz ze źródła tabelarycznego przy użyciu nazwy tabeli zamiast zapytania, wzorzec nazwy to "*[nazwa tabeli]. [ Format]. [kompresja, jeśli jest skonfigurowana]*". Na przykład: "MyTable. csv". |Nie |
 | modifiedDatetimeStart | Pliki są filtrowane na podstawie atrybutu: Ostatnia modyfikacja. Pliki zostaną wybrane, jeśli czas ostatniej modyfikacji mieści się w przedziale czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Należy pamiętać, że włączenie tego ustawienia wpłynie na ogólną wydajność przenoszenia danych, gdy chcesz filtrować ogromne ilości plików. <br/><br/> Właściwości mogą mieć **wartość null**, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime, ale `modifiedDatetimeEnd` jest **równa null**, to pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime zostanie zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime, ale `modifiedDatetimeStart` jest **równa null**, pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
@@ -654,7 +660,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **BlobSource**. |Yes |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **BlobSource**. |Tak |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość **cykliczna** jest ustawiona na **wartość true** , a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia.<br/>Dozwolone wartości to **true** (wartość domyślna) i **false**. | Nie |
 | maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie |
 
@@ -694,7 +700,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz opcję [U
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **wartość blobsink**. |Yes |
+| typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **wartość blobsink**. |Tak |
 | copyBehavior | Definiuje zachowanie kopiowania, gdy źródłem są pliki z magazynu danych opartego na plikach.<br/><br/>Dozwolone wartości to:<br/><b>-PreserveHierarchy (domyślnie)</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><b>-FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie generowane nazwy. <br/><b>-MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku lub obiektu BLOB jest określona, scalona nazwa pliku jest podaną nazwą. W przeciwnym razie jest to automatycznie wygenerowana nazwa pliku. | Nie |
 | maxConcurrentConnections | Liczba jednoczesnych połączeń z magazynem. Określ tylko wtedy, gdy chcesz ograniczyć równoczesne połączenia z magazynem danych. | Nie |
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b0106be09ac4c45ada712b333311aedf0402f785
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: b6b5e43ed0baed8cd84078809c5eb0fe146b0ecb
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432801"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636295"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarów roboczych w Azure Monitor
 
@@ -266,6 +266,18 @@ Aby utworzyć rolę mającą dostęp tylko do tabeli _SecurityBaseline_ , Utwór
     "Microsoft.OperationalInsights/workspaces/read",
     "Microsoft.OperationalInsights/workspaces/query/read",
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+],
+```
+Powyższe przykłady definiują dozwolonych tabel, które są dozwolone. Ten przykład pokazuje definicję listy zabronionych, gdy użytkownik może uzyskać dostęp do wszystkich tabel, ale _SecurityAlert_ tabelę:
+
+```
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
+"notActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read"
 ],
 ```
 

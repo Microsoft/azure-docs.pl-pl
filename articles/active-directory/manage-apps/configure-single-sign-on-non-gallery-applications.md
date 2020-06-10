@@ -2,24 +2,24 @@
 title: Logowanie jednokrotne w języku SAML — aplikacje bez galerii — platforma tożsamości firmy Microsoft | Microsoft Docs
 description: Skonfiguruj Logowanie jednokrotne do aplikacji innych niż Galeria na platformie tożsamości firmy Microsoft (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
-ms.date: 07/19/2019
-ms.author: celested
+ms.date: 06/08/2020
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d97cef332b24700920693bab55dcbd396015dc7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 8c828ab0a3d4f2aff6724967e1467b87df09d09b
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758371"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84606075"
 ---
-# <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurowanie logowania jednokrotnego opartego na protokole SAML w aplikacjach bez galerii
+# <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurowanie logowania jednokrotnego opartego na protokole SAML w aplikacjach spoza galerii
 
 Po [dodaniu aplikacji galerii](add-gallery-app.md) lub [aplikacji sieci Web bez galerii](add-non-gallery-app.md) do aplikacji usługi Azure AD Enterprise jedna z opcji logowania jednokrotnego jest dostępna przy użyciu [protokołu SAML](what-is-single-sign-on.md#saml-sso). Wybierz pozycję SAML wszędzie tam, gdzie to możliwe, dla aplikacji, które uwierzytelniają się przy użyciu jednego z protokołów SAML. Za pomocą logowania jednokrotnego SAML usługa Azure AD uwierzytelnia się w aplikacji przy użyciu konta usługi Azure AD użytkownika. Usługa Azure AD komunikuje informacje logowania do aplikacji za pomocą protokołu połączenia. Użytkowników można mapować na określone role aplikacji na podstawie reguł zdefiniowanych w oświadczeniach SAML. W tym artykule opisano sposób konfigurowania logowania jednokrotnego opartego na protokole SAML dla aplikacji spoza galerii. 
 
@@ -122,9 +122,9 @@ W usłudze Azure AD można pobrać aktywny certyfikat w formacie base64 lub RAW 
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Krok 4. Konfigurowanie aplikacji do korzystania z usługi Azure AD
 
-Sekcja **konfigurowanie \<>ApplicationName** zawiera listę wartości, które należy skonfigurować w aplikacji, aby używały usługi Azure AD jako dostawcy tożsamości SAML. Wymagane wartości różnią się w zależności od aplikacji. Aby uzyskać szczegółowe informacje, zobacz dokumentację języka SAML aplikacji. Aby znaleźć dokumentację, przejdź do nagłówka **Konfigurowanie \< nazwy aplikacji>** i wybierz pozycję **Wyświetl instrukcje krok po kroku**. Dokumentacja zostanie wyświetlona na stronie **Konfigurowanie logowania** . Ta strona przeprowadzi Cię przez użytkownika w celu wypełniania wartości **adresu URL logowania**, **identyfikatora usługi Azure AD**i **adresu URL wylogowywania** w nagłówku ** \<>konfigurowania nazwy aplikacji** .
+Sekcja **Konfigurowanie \<applicationName> ** zawiera listę wartości, które należy skonfigurować w aplikacji, aby używały usługi Azure AD jako dostawcy tożsamości SAML. Wymagane wartości różnią się w zależności od aplikacji. Aby uzyskać szczegółowe informacje, zobacz dokumentację języka SAML aplikacji. Aby znaleźć dokumentację, przejdź do nagłówka **konfiguracji \<application name> ** i wybierz pozycję **Wyświetl instrukcje krok po kroku**. Dokumentacja zostanie wyświetlona na stronie **Konfigurowanie logowania** . Ta strona przeprowadzi Cię przez użytkownika w celu ** \<application name> ** wypełniania wartości **adresu URL logowania**, **identyfikatora usługi Azure AD**i **adresów URL wylogowywania** w nagłówku konfigurowania.
 
-1. Przewiń w dół do sekcji **konfigurowanie \<>ApplicationName** . 
+1. Przewiń w dół do sekcji **Konfiguracja \<applicationName> ** . 
    
    ![Krok 4 — Konfigurowanie aplikacji](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
 

@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: b4333513d2ba210f6a472638732cc2781b8d5c0b
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 6/8/2020
+ms.openlocfilehash: 3f0df02b58835ce4b43d6ba172e79f872a9fae1e
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300839"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608387"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architektura łączności w Azure Database for MariaDB
 W tym artykule opisano architekturę Azure Database for MariaDB łączności oraz sposób kierowania ruchu do wystąpienia Azure Database for MariaDB z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -71,6 +71,17 @@ W poniższej tabeli wymieniono podstawowe i pomocnicze adresy IP bramy Azure Dat
 | Zachodnie stany USA | 104.42.238.205, 23.99.34.75  |
 | Zachodnie stany USA 2 | 13.66.226.202  |
 ||||
+
+## <a name="connection-redirection"></a>Przekierowanie połączenia
+
+Azure Database for MariaDB obsługuje dodatkowe zasady połączeń, **przekierowania**, które ułatwiają skrócenie opóźnienia sieci między aplikacjami klienckimi i serwerami MariaDB. Po nawiązaniu początkowej sesji TCP z serwerem Azure Database for MariaDB przy użyciu tej funkcji serwer zwraca adres zaplecza węzła hostującym serwer MariaDB do klienta. Następnie wszystkie kolejne pakiety przepływają bezpośrednio do serwera, pomijając bramę. Ponieważ pakiety są przesyłane bezpośrednio na serwer, opóźnienia i przepływność zwiększają wydajność.
+
+Ta funkcja jest obsługiwana na serwerach Azure Database for MariaDB z wersjami Engine 10,2 i 10,3.
+
+Obsługa przekierowywania jest dostępna w rozszerzeniu PHP [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) , opracowanym przez firmę Microsoft i jest dostępny w witrynie [PECL](https://pecl.php.net/package/mysqlnd_azure). Aby uzyskać więcej informacji na temat korzystania z przekierowania w aplikacjach, zobacz artykuł [Konfigurowanie przekierowania](./howto-redirection.md) .
+
+> [!IMPORTANT]
+> Obsługa przekierowania w rozszerzeniu [MYSQLND_AZURE](https://github.com/microsoft/mysqlnd_azure) php jest obecnie w wersji zapoznawczej.
 
 ## <a name="next-steps"></a>Następne kroki
 

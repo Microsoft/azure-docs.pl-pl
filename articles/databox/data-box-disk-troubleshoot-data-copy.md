@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 760f5c6c929aa082993683d7a466a71c6484289a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 14c5413939deeedfd7c4e894b1919031062bf13a
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67148350"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610614"
 ---
 # <a name="troubleshoot-data-copy-issues-in-azure-data-box-disk"></a>Rozwiązywanie problemów z kopiowaniem danych w Azure Data Box Disk
 
@@ -26,7 +26,7 @@ W tej sekcji szczegółowo przedstawiono niektóre z najważniejszych problemów
 
 ### <a name="issue-drive-getting-mounted-as-read-only"></a>Problem: dysk jest instalowany jako tylko do odczytu
  
-**Może** 
+**Przyczyna** 
 
 Może to być spowodowane nieczystym systemem plików.
 
@@ -36,7 +36,7 @@ Ponowne zainstalowanie dysku przy użyciu funkcji odczytu i zapisu nie działa z
 
 Mimo że ponowne zainstalowanie zakończyło się pomyślnie, dane nie zostaną zachowane.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 W systemie Linux wykonaj następujące czynności:
 
@@ -72,11 +72,11 @@ W systemie Linux wykonaj następujące czynności:
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problem: błąd związany z danymi, które nie są utrwalane po skopiowaniu
  
-**Może** 
+**Przyczyna** 
 
 Jeśli widzisz, że dysk nie ma danych po odinstalowaniu (Jeśli dane zostały skopiowane do niego), możliwe jest ponowne zainstalowanie dysku jako do odczytu i zapisu po zainstalowaniu dysku jako tylko do odczytu.
 
-**Rozdzielczość**
+**Rozwiązanie**
  
 W takim przypadku zapoznaj się z tematem rozdzielczość dysków, które mają zostać [zainstalowane jako tylko do odczytu](#issue-drive-getting-mounted-as-read-only).
 

@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: seoapr2020
+ms.custom: seoapr2020, tracking-python
 ms.date: 04/23/2020
-ms.openlocfilehash: deeb80ba74385574d62348ddc2ca3b99a7637541
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 0a434e09e940bcfaa459b45ef402b72229bb9375
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417263"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610019"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Skonfiguruj środowisko interaktywne PySpark dla Visual Studio Code
 

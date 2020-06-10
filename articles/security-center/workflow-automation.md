@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 9e905e78a835c833abe415d8b76c09ce672f849c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c97dafa80adedd64d45666eb98ef6b1e69850719
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300118"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629396"
 ---
 # <a name="workflow-automation"></a>Automatyzacja przepływu pracy
 
@@ -43,7 +43,7 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 - Połączeń 
     - ✔ Chmury komercyjne
     - ✔ US Gov
-    - ✘ Chiński gov, inne gov
+    - ✘ Chiny gov, inne gov
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Tworzenie aplikacji logiki i Definiowanie jej automatycznego uruchamiania 

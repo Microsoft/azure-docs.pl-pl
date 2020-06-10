@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 45233fd869a664844a9378af66892a74bea8c7f2
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 82d28a7ac5475752e3969a6af1185bc254b0fa7f
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485070"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636142"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Tworzenie prywatnego linku do Azure Database for MariaDB przy użyciu interfejsu wiersza polecenia i zarządzanie nim
 
@@ -95,7 +95,7 @@ az network private-endpoint create \
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
     --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforMariaDB/servers/$Servername" \  
-    --group-ids mariadbServer \  
+    --group-id mariadbServer \  
     --connection-name myConnection  
  ```
 

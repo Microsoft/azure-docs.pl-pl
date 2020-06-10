@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 6f5d84dea2e835fd12a062b628181354295ed9f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64e47d9617e300ef114fb8d07517be46dbc859e3
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274062"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636227"
 ---
 # <a name="register-for-azure-netapp-files"></a>Rejestrowanie w usłudze Azure NetApp Files
 
@@ -30,7 +30,7 @@ W tym artykule dowiesz się, jak zarejestrować się w celu Azure NetApp Files, 
 
 ## <a name="submit-a-waitlist-request-for-accessing-the-service"></a><a name="waitlist"></a>Prześlij żądanie waitlist w celu uzyskania dostępu do usługi
 
-1. Prześlij żądanie waitlist, aby uzyskać dostęp do usługi Azure NetApp Files za pomocą [strony przesyłania Azure NetApp Files waitlist](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
+1. Prześlij żądanie waitlist, aby uzyskać dostęp do usługi Azure NetApp Files za pomocą [strony przesyłania Azure NetApp Files waitlist](https://aka.ms/azurenetappfiles). 
 
     Rejestracja waitlist nie gwarantuje natychmiastowego dostępu do usługi. 
 
@@ -65,7 +65,7 @@ Aby korzystać z usługi, należy zarejestrować dostawcę zasobów platformy Az
        
    `<SubID>` to identyfikator Twojej subskrypcji.
 
-    Jeśli nie widzisz nazwy `Microsoft.NetApp/ANFGA`funkcji, nie masz dostępu do usługi. Zatrzymaj w tym kroku. Aby uzyskać dostęp do usługi przed kontynuowaniem, postępuj zgodnie z instrukcjami w temacie [Prześlij żądanie waitlist](#waitlist) . 
+    Jeśli nie widzisz nazwy funkcji `Microsoft.NetApp/ANFGA` , nie masz dostępu do usługi. Zatrzymaj w tym kroku. Aby uzyskać dostęp do usługi przed kontynuowaniem, postępuj zgodnie z instrukcjami w temacie [Prześlij żądanie waitlist](#waitlist) . 
 
 4. W konsoli usługi Azure Cloud Shell wprowadź następujące polecenie, aby zarejestrować dostawcę zasobów platformy Azure: 
     

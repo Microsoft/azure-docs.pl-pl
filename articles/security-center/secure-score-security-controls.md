@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 0d0e3220d38f9824b9504a0077d6742a62aeb9e8
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 81c14da762e0ff92305456aa89f06949c7039868
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204994"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629273"
 ---
 # <a name="enhanced-secure-score-preview-in-azure-security-center"></a>Ulepszony bezpieczny wynik (wersja zapoznawcza) w Azure Security Center
 
@@ -106,7 +106,7 @@ W poniższej tabeli wymieniono kontrolki zabezpieczeń w Azure Security Center. 
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Secure Management Ports (max Score 8)</p></strong>Wymuszanie ataków na docelowe porty zarządzania w celu uzyskania dostępu do maszyny wirtualnej. Ponieważ porty nie zawsze muszą być otwarte, jedną strategią zaradczą jest ograniczenie ekspozycji na porty przy użyciu kontroli dostępu do sieci just in Time, sieciowych grup zabezpieczeń i zarządzania portami maszyn wirtualnych.<br>Ponieważ wiele organizacji IT nie blokuje komunikacji SSH z sieci, osoby atakujące mogą tworzyć zaszyfrowane tunele, które umożliwiają portom RDP w zainfekowanych systemach komunikowanie się z poleceniu atakującego w celu kontroli serwerów. Osoby atakujące mogą korzystać z podsystemu Windows Remote Management w celu późniejszego przechodzenia przez środowisko i korzystania z skradzionych poświadczeń w celu uzyskania dostępu do innych zasobów w sieci.</td>
-    <td class="tg-lboi"; width=55%>-Kontrola dostępu do sieci just in Time powinna być stosowana na maszynach wirtualnych<br>-Maszyny wirtualne powinny być skojarzone z sieciową grupą zabezpieczeń<br>-Porty zarządzania powinny być zamknięte na maszynach wirtualnych</td>
+    <td class="tg-lboi"; width=55%>-Porty zarządzania maszyn wirtualnych powinny być chronione za pomocą kontroli dostępu just in Time do sieci<br>-Maszyny wirtualne powinny być skojarzone z sieciową grupą zabezpieczeń<br>-Porty zarządzania powinny być zamknięte na maszynach wirtualnych</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Zastosuj aktualizacje systemu (wynik maksymalny 6)</p></strong>Aktualizacje systemu zapewniają organizacjom możliwość utrzymania sprawności działania, zmniejszania luk w zabezpieczeniach i zapewnienia bardziej stabilnego środowiska dla użytkowników końcowych. Niestosowanie aktualizacji pozostawia Niepoprawione luki w zabezpieczeniach i wyniki w środowiskach, które są podatne na ataki. Luki w zabezpieczeniach można wykorzystać i prowadzić do utraty danych, eksfiltracji danych, oprogramowania wymuszającego okup i nadużycia zasobów. Aby wdrożyć aktualizacje systemu, można użyć <a href="https://docs.microsoft.com/azure/automation/automation-update-management">rozwiązania Update Management do zarządzania poprawkami i aktualizacjami</a> dla maszyn wirtualnych. Zarządzanie aktualizacjami to proces kontroli nad wdrażaniem i konserwacją wydań oprogramowania.</td>

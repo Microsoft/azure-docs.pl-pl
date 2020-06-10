@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 74f89629c783a444633fe276d99dc75d6c7fc8d8
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 1b5d51eafc0cb21a02f8a750bd78b5be7aca734f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331971"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84605514"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -108,7 +108,7 @@ Poniżej przedstawiono Przewodnik konfigurowania wersji Azure Pipelines, która 
 
     f.  Wybierz **...** obok pola **Parametry szablonu** , aby wybrać plik parametrów. Wyszukaj plik `ARMTemplateParametersForFactory.json` w <FactoryName> folderze gałęzi adf_publish.
 
-    przykład  Wybierz **...** obok pola **Zastąp parametry szablonu** i wprowadź odpowiednie wartości parametrów dla docelowej fabryki danych. W przypadku poświadczeń, które pochodzą z Azure Key Vault wprowadź nazwę wpisu tajnego między podwójnymi cudzysłowami. Na przykład, jeśli nazwa wpisu tajnego to cred1, wprowadź wartość **"$ (cred1)"** dla tej wartości.
+    g.  Wybierz **...** obok pola **Zastąp parametry szablonu** i wprowadź odpowiednie wartości parametrów dla docelowej fabryki danych. W przypadku poświadczeń, które pochodzą z Azure Key Vault wprowadź nazwę wpisu tajnego między podwójnymi cudzysłowami. Na przykład, jeśli nazwa wpisu tajnego to cred1, wprowadź wartość **"$ (cred1)"** dla tej wartości.
 
     h. Wybierz opcję **przyrostowy** dla **trybu wdrożenia**.
 
@@ -361,6 +361,14 @@ Poniżej znajduje się bieżący domyślny szablon parametryzacja. Jeśli musisz
                         "value": "-::secureString"
                     },
                     "resourceId": "="
+                },
+                "computeProperties": {
+                    "dataFlowProperties": {
+                        "externalComputeInfo": [{
+                                "accessToken": "-::secureString"
+                            }
+                        ]
+                    }
                 }
             }
         }
@@ -395,6 +403,7 @@ Poniżej znajduje się bieżący domyślny szablon parametryzacja. Jeśli musisz
                     "accessKeyId": "=",
                     "servicePrincipalId": "=",
                     "userId": "=",
+                    "host": "=",
                     "clientId": "=",
                     "clusterUserName": "=",
                     "clusterSshUserName": "=",
@@ -413,7 +422,10 @@ Poniżej znajduje się bieżący domyślny szablon parametryzacja. Jeśli musisz
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "environmentUrl": "=",
                     "aadResourceId": "=",
+                    "sasUri": "|:-sasUri:secureString",
+                    "sasToken": "|",
                     "connectionString": "|:-connectionString:secureString"
                 }
             }

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: a386c7d44cf5ba7eda895006cda7ce1fa9b798ac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a45c8ce820532d11f18758924dc3399818cb9158
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664977"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610240"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Weryfikacja spójności danych w działaniu kopiowania (wersja zapoznawcza)
 
@@ -34,24 +34,24 @@ Po przeniesieniu danych ze źródła do magazynu docelowego, Azure Data Factory 
 
 ### <a name="source-data-stores"></a>Źródłowe magazyny danych
 
--   [Magazyn obiektów blob platformy Azure](connector-azure-blob-storage.md)
+-   [Azure Blob Storage](connector-azure-blob-storage.md)
 -   [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 -   [Azure File Storage](connector-azure-file-storage.md)
 -   [Amazon S3](connector-amazon-simple-storage-service.md)
 -   [System plików](connector-file-system.md)
--   [SYSTEM PLIKÓW HDFS](connector-hdfs.md)
+-   [HDFS](connector-hdfs.md)
 
 ### <a name="destination-data-stores"></a>Docelowe magazyny danych
 
--   [Magazyn obiektów blob platformy Azure](connector-azure-blob-storage.md)
+-   [Azure Blob Storage](connector-azure-blob-storage.md)
 -   [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 -   [Azure File Storage](connector-azure-file-storage.md)
 -   [System plików](connector-file-system.md)
 
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 Poniższy przykład zawiera definicję JSON, aby włączyć weryfikację spójności danych w działaniu kopiowania: 
 
 ```json
@@ -93,9 +93,8 @@ linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-a
 
 >[!NOTE]
 >- Spójność danych nie jest obsługiwana w scenariuszu kopiowania przemieszczania. 
->- Podczas kopiowania plików binarnych z dowolnego magazynu magazynu do usługi Azure Blob Storage lub Azure Data Lake Storage Gen2, działanie Copy ma rozmiar pliku i weryfikację sum kontrolnych MD5, aby zapewnić spójność danych między magazynami źródłowymi i docelowymi. 
->- Podczas kopiowania plików binarnych z dowolnego magazynu magazynu do dowolnego magazynów magazynów innych niż Azure Blob Storage lub Azure Data Lake Storage Gen2, działanie Copy wykonuje weryfikację rozmiaru pliku, aby zapewnić spójność danych między magazynem źródłowym a docelowym.
-
+>- Podczas kopiowania plików z, lub do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2, usługa ADF jest zgodna z weryfikacją sum kontrolnych MD5 poziomu blokowego na podstawie [interfejsu API usługi Azure Blob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) i [interfejsu API Azure Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers) Jeśli ContentMD5 w plikach istnieje w obiekcie blob platformy Azure lub Azure Data Lake Storage Gen2 jako źródła danych, na AUTOMATYCZNYm przeczytaniu plików zostanie zweryfikowana suma kontrolna MD5 na poziomie pliku. Po skopiowaniu plików do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2 jako miejsce docelowe danych usługa ADF zapisuje ContentMD5 do obiektu blob platformy Azure lub Azure Data Lake Storage Gen2, które mogą być dodatkowo używane przez aplikacje podrzędne do weryfikacji spójności danych.
+>- Usługa ADF wykonuje weryfikację rozmiaru plików podczas kopiowania plików między dowolnymi magazynami magazynu.
 
 ## <a name="monitoring"></a>Monitorowanie
 

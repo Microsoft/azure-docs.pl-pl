@@ -5,41 +5,57 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: 1213b38f2b67e8fed179cfda4308943808893e1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: ef7c5644ad8ec1e3816f20d4e5db9ad7d39a4609
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80522149"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84634583"
 ---
 # <a name="logical-decoding"></a>Dekodowanie logiczne
  
 [Dekodowanie logiczne w programie PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) umożliwia przesyłanie strumieniowe zmian danych do użytkowników zewnętrznych. Dekodowanie logiczne jest popularne w przypadku scenariuszy przesyłania strumieniowego zdarzeń i przechwytywania zmian danych.
 
 Dekodowanie logiczne używa wtyczki wyjściowej do przekonwertowania dziennika zapisu z wyprzedzeniem (WAL) Postgres na format możliwy do odczytu. Azure Database for PostgreSQL oferuje dwa wtyczki wyjściowe: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) i [wal2json](https://github.com/eulerto/wal2json).
- 
 
 > [!NOTE]
 > Dekodowanie logiczne jest w publicznej wersji zapoznawczej na Azure Database for PostgreSQL-pojedynczym serwerze.
 
 
-## <a name="set-up-your-server"></a>Skonfiguruj serwer
-Aby rozpocząć korzystanie z dekodowania logicznego, zezwól serwerowi na zapisywanie i przesyłanie strumieniowe w WAL. 
+## <a name="set-up-your-server"></a>Skonfiguruj serwer 
+Logiczne dekodowanie i [odczytywanie replik](concepts-read-replicas.md) są zależne od Postgres zapisu (WAL) w celu uzyskania informacji. Te dwie funkcje wymagają różnych poziomów rejestrowania z Postgres. Dekodowanie logiczne wymaga wyższego poziomu rejestrowania niż repliki odczytu.
 
-1. Skonfiguruj platformę Azure. `logical` replication_support, aby korzystać z interfejsu wiersza polecenia platformy Azure. 
+Aby skonfigurować odpowiedni poziom rejestrowania, użyj parametru Obsługa replikacji platformy Azure. Obsługa replikacji platformy Azure ma trzy opcje ustawień:
+
+* **Wyłączone** — umieszcza najniższe informacje w Wal. To ustawienie nie jest dostępne na większości serwerów Azure Database for PostgreSQL.  
+* **Replika** — większa niż **wyłączona**. Jest to minimalny poziom rejestrowania, który jest wymagany do działania [replik odczytu](concepts-read-replicas.md) . To ustawienie jest domyślne na większości serwerów.
+* **Logiczne** — więcej informacji niż **replika**. Jest to minimalny poziom rejestrowania kodu logicznego do pracy. Odczytaj repliki również działają w tym ustawieniu.
+
+Po zmianie tego parametru należy ponownie uruchomić serwer. Wewnętrznie, ten parametr ustawia parametry Postgres `wal_level` , `max_replication_slots` i `max_wal_senders` .
+
+### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
+
+1. Ustaw platformę Azure. replication_support na `logical` .
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
-   ```
+   ``` 
 
-   > [!NOTE]
-   > Jeśli używasz replik odczytu, platforma Azure. replication_support ustawiona na `logical` opcję zezwala na uruchamianie replik. Jeśli zatrzymasz korzystanie z dekodowania logicznego, Zmień ustawienie `replica`z powrotem na. 
-
-
-2. Uruchom ponownie serwer, aby zastosować zmiany.
+2. Uruchom ponownie serwer, aby zastosować zmianę.
    ```
    az postgres server restart --resource-group mygroup --name myserver
    ```
+
+### <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
+
+1. Ustaw wartość **logiczna**Obsługa replikacji platformy Azure. Wybierz pozycję **Zapisz**.
+
+   ![Azure Database for PostgreSQL-replikacja — Obsługa replikacji platformy Azure](./media/concepts-logical/replication-support.png)
+
+2. Uruchom ponownie serwer, aby zastosować zmiany, wybierając opcję **tak**.
+
+   ![Azure Database for PostgreSQL — Potwierdź ponowne uruchomienie](./media/concepts-logical/confirm-restart.png)
+
 
 ## <a name="start-logical-decoding"></a>Rozpocznij dekodowanie logiczne
 
@@ -135,13 +151,13 @@ SELECT * FROM pg_replication_slots;
 ## <a name="how-to-drop-a-slot"></a>Jak usunąć gniazdo
 Jeśli nie korzystasz aktywnie z miejsca replikacji, należy je usunąć.
 
-Aby porzucić miejsce replikacji o `test_slot` nazwie przy użyciu języka SQL:
+Aby porzucić miejsce replikacji o nazwie `test_slot` przy użyciu języka SQL:
 ```SQL
 SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Jeśli zatrzymasz korzystanie z dekodowania logicznego, Zmień platformę `replica` azure `off`. replication_support z powrotem na lub. Szczegóły WAL przechowywane przez `logical` program są bardziej pełne i powinny być wyłączone, gdy dekodowanie logiczne nie jest używane. 
+> Jeśli zatrzymasz korzystanie z dekodowania logicznego, Zmień platformę Azure. replication_support z powrotem na `replica` lub `off` . Szczegóły WAL przechowywane przez `logical` program są bardziej pełne i powinny być wyłączone, gdy dekodowanie logiczne nie jest używane. 
 
  
 ## <a name="next-steps"></a>Następne kroki

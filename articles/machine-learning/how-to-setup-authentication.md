@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: how-to
 ms.date: 12/17/2019
 ms.custom: has-adal-ref
-ms.openlocfilehash: 57160088c283b1f2c686429168cc858fee58324a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: e6fd2ba9210aa8f133ed08e850e4ded978682988
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433109"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629239"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,9 +71,14 @@ Chociaż jest to przydatne do testowania i uczenia, uwierzytelnianie interaktywn
 
 Ten proces jest niezbędny do włączenia uwierzytelniania, które jest oddzielone od określonej nazwy logowania użytkownika, co pozwala na uwierzytelnianie w programie Azure Machine Learning Python SDK w zautomatyzowanych przepływach pracy. Uwierzytelnianie jednostki usługi również umożliwi [uwierzytelnianie w interfejsie API REST](#azure-machine-learning-rest-api-auth).
 
-Aby skonfigurować uwierzytelnianie jednostki usługi, należy najpierw utworzyć rejestrację aplikacji w Azure Active Directory, a następnie udzielić dostępu opartego na rolach aplikacji do obszaru roboczego ML. Najprostszym sposobem przeprowadzenia tej konfiguracji jest użycie [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) w Azure Portal. Po zalogowaniu się do portalu kliknij `>_` ikonę w prawym górnym rogu strony obok nazwy, aby otworzyć powłokę.
+> [!TIP]
+> Nazwy główne usługi muszą mieć dostęp do obszaru roboczego za pośrednictwem [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](../role-based-access-control/overview.md).
+>
+> Użycie wbudowanych ról **właściciela** lub **współautora** w obszarze roboczym umożliwia jednostce usługi wykonywanie wszystkich działań, takich jak uczenie modelu, Wdrażanie modelu itd. Aby uzyskać więcej informacji na temat korzystania z ról, zobacz [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md).
 
-Jeśli nie korzystasz z usługi Cloud Shell przed kontem platformy Azure, musisz utworzyć zasób konta magazynu na potrzeby przechowywania dowolnych plików, które są zapisywane. Ogólnie rzecz biorąc, to konto magazynu będzie miało niewielki koszt miesięczny. Ponadto zainstaluj rozszerzenie Uczenie maszynowe, jeśli wcześniej nie było używane przy użyciu poniższego polecenia.
+Aby skonfigurować uwierzytelnianie główne usługi, należy najpierw utworzyć rejestrację aplikacji w Azure Active Directory, a następnie przypisać rolę do aplikacji. Najprostszym sposobem przeprowadzenia tej konfiguracji jest użycie [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) w Azure Portal. Po zalogowaniu się do portalu kliknij `>_` ikonę w prawym górnym rogu strony obok nazwy, aby otworzyć powłokę.
+
+Jeśli Cloud Shell nie były używane wcześniej na Twoim koncie platformy Azure, musisz utworzyć zasób konta magazynu na potrzeby przechowywania dowolnych plików, które są zapisywane. Ogólnie rzecz biorąc, to konto magazynu będzie miało niewielki koszt miesięczny. Ponadto zainstaluj rozszerzenie Uczenie maszynowe, jeśli wcześniej nie było używane przy użyciu poniższego polecenia.
 
 ```azurecli-interactive
 az extension add -n azure-cli-ml
@@ -307,6 +312,9 @@ Aby kontrolować uwierzytelnianie tokenu, użyj `token_auth_enabled` parametru p
 
 Jeśli jest włączone uwierzytelnianie tokenu, można użyć metody, `get_token` Aby pobrać token sieci Web JSON (JWT) i czas wygaśnięcia tego tokenu:
 
+> [!TIP]
+> Jeśli używasz nazwy głównej usługi do pobrania tokenu i chcesz, aby miał minimalny wymagany dostęp do pobierania tokenu, przypisz go do roli **czytelnik** dla obszaru roboczego.
+
 ```python
 token, refresh_by = service.get_token()
 print(token)
@@ -323,5 +331,6 @@ print(token)
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Jak używać wpisów tajnych w szkoleniu](how-to-use-secrets-in-runs.md).
 * [Uczenie i wdrażanie modelu klasyfikacji obrazów](tutorial-train-models-with-aml.md).
 * [Korzystaj z modelu Azure Machine Learning wdrożonego jako usługa sieci Web](how-to-consume-web-service.md).

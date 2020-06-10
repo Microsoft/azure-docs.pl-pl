@@ -1,7 +1,7 @@
 ---
-title: Samouczek — Tworzenie szablonu Menedżer zasobów Data Science VM
+title: 'Szybki Start: Tworzenie szablonu Data Science VM-Menedżer zasobów'
 titleSuffix: Azure Data Science Virtual Machine
-description: W tym samouczku użyjesz szablonu Azure Resource Manager, aby szybko wdrożyć Data Science Virtual Machine
+description: W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager, aby szybko wdrożyć Data Science Virtual Machine
 services: machine-learning
 author: lobrien
 ms.author: laobri
@@ -9,18 +9,18 @@ ms.custom: subject-armqs
 ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.topic: tutorial
-ms.openlocfilehash: a0bce8a3de7832b589646668b877ce8396d16bc8
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.topic: quickstart
+ms.openlocfilehash: e89f3d85156081106f4e1dbb55ee6c895e7e7a2d
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/09/2020
-ms.locfileid: "84562050"
+ms.locfileid: "84636754"
 ---
 # <a name="tutorial-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>Samouczek: Tworzenie Ubuntu Data Science Virtual Machine przy użyciu szablonu Menedżer zasobów
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym samouczku przedstawiono sposób tworzenia Ubuntu 18,04 Data Science Virtual Machine przy użyciu szablonu Azure Resource Manager. Virtual Machines analizy danych są wstępnie załadowanymi maszynami wirtualnymi z zestawem narzędzi do nauki o danych i środowisk uczenia maszynowego. Po wdrożeniu w zasobach obliczeniowych opartych na procesorach GPU wszystkie narzędzia i biblioteki są skonfigurowane do korzystania z procesora GPU. 
+Ten przewodnik Szybki Start przedstawia sposób tworzenia Ubuntu 18,04 Data Science Virtual Machine przy użyciu szablonu Azure Resource Manager. Virtual Machines analizy danych są wstępnie załadowanymi maszynami wirtualnymi z zestawem narzędzi do nauki o danych i środowisk uczenia maszynowego. Po wdrożeniu w zasobach obliczeniowych opartych na procesorach GPU wszystkie narzędzia i biblioteki są skonfigurowane do korzystania z procesora GPU. 
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -94,7 +94,7 @@ echo "Press [ENTER] to continue ..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku utworzysz Data Science Virtual Machine z szablonu Azure Resource Manager. 
+W tym przewodniku szybki start utworzono Data Science Virtual Machine z szablonu Azure Resource Manager. 
 
 > [!div class="nextstepaction"]
 > [Przykładowe programy & podprzewodniki dotyczące ML](dsvm-samples-and-walkthroughs.md)

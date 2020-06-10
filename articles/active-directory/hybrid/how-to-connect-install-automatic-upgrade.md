@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 232a1b714802ce9531a9932bc2af4c6b6f35dffd
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: db7c0595d109efddb092f5e96babda17038e5e9e
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324219"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84635819"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatyczne uaktualnianie
 Ta funkcja została wprowadzona w programie Build [1.1.105.0 (wydano luty 2016)](reference-connect-version-history.md#111050).  Ta funkcja została zaktualizowana w usłudze [build 1.1.561](reference-connect-version-history.md#115610) i obsługuje teraz dodatkowe scenariusze, które wcześniej nie były obsługiwane.
@@ -56,6 +56,10 @@ Jeśli instalacja programu Connect nie zostanie uaktualniona zgodnie z oczekiwan
 Najpierw nie należy oczekiwać, że automatyczne uaktualnienie ma być podejmowane jako pierwszy dzień wydania nowej wersji. Przed próbą uaktualnienia należy zamierzać celową losowość, dlatego nie zostanie on zaktualizowany, jeśli instalacja nie zostanie natychmiast uaktualniona.
 
 Jeśli uważasz, że coś nie jest właściwe, najpierw uruchom polecenie, `Get-ADSyncAutoUpgrade` Aby zapewnić włączenie automatycznego uaktualniania.
+
+Jeśli stan jest zawieszony, możesz użyć, `Get-ADSyncAutoUpgrade -Detail` Aby wyświetlić przyczynę.  Przyczyna zawieszenia może zawierać dowolną wartość ciągu, ale zazwyczaj będzie zawierać wartość ciągu UpgradeResult, czyli `UpgradeNotSupportedNonLocalDbInstall` lub `UpgradeAbortedAdSyncExeInUse` .  Można również zwrócić wartość złożoną, na przykład `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed` .
+
+Istnieje również możliwość uzyskania wyniku, który nie jest UpgradeResult, np. "AADHealthEndpointNotDefined" lub "DirSyncInPlaceUpgradeNonLocalDb".
 
 Upewnij się, że zostały otwarte wymagane adresy URL na serwerze proxy lub zaporze. Aktualizacja automatyczna korzysta z Azure AD Connect Health zgodnie z opisem w temacie [Omówienie](#overview). Jeśli używasz serwera proxy, upewnij się, że kondycja została skonfigurowana do korzystania z [serwera proxy](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Przetestuj także [połączenie kondycji](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) z usługą Azure AD.
 

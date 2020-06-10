@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 323ec00667350917e6b16827f908ac1abeee77d6
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4b09df3110907d58badda2c389b9ee39a9b02532
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233307"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636193"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Tworzenie zadania Stream Analytics w usłudze Azure SQL Edge (wersja zapoznawcza) 
 
@@ -24,7 +24,7 @@ W tym artykule wyjaśniono, jak utworzyć zadanie przesyłania strumieniowego T-
 2. Zdefiniuj kwerendę zadania przesyłania strumieniowego w ramach tworzenia zadania przesyłania strumieniowego.
 
 > [!NOTE]
-> Aby włączyć funkcję przesyłania strumieniowego T-SQL w usłudze Azure SQL Edge, należy włączyć TF 11515 jako opcję uruchamiania lub użyć polecenia [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) . Aby uzyskać więcej informacji na temat włączania flag śledzenia przy użyciu pliku MSSQL. conf, zobacz [Konfigurowanie przy użyciu pliku MSSQL. conf](configure.md#configure-using-mssqlconf-file). Ten wymóg zostanie usunięty w przyszłych aktualizacjach usługi Azure SQL Edge (wersja zapoznawcza).
+> Aby włączyć funkcję przesyłania strumieniowego T-SQL w usłudze Azure SQL Edge, należy włączyć TF 11515 jako opcję uruchamiania lub użyć polecenia [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) . Aby uzyskać więcej informacji na temat włączania flag śledzenia przy użyciu pliku MSSQL. conf, zobacz [Konfigurowanie przy użyciu pliku MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file). Ten wymóg zostanie usunięty w przyszłych aktualizacjach usługi Azure SQL Edge (wersja zapoznawcza).
 
 ## <a name="configure-an-external-stream-input-and-output-object"></a>Skonfiguruj zewnętrzny obiekt danych wejściowych i wyjściowych strumienia
 
@@ -44,10 +44,10 @@ Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych j
 
 | Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge Hub | Y | Y | Źródło danych do odczytu/zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji na Azure IoT Edge centrum, zapoznaj się z [centrum IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
-| Baza danych SQL | N | Y | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. SQL Database może być lokalną bazą danych SQL Edge lub SQL Server zdalnego lub Azure SQL Database|
-| Azure Blob Storage | N | Y | Źródło danych służące do zapisywania danych w obiekcie BLOB na koncie usługi Azure Storage. |
-| Kafka | Y | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Ta karta jest obecnie dostępna tylko w wersji Intel/AMD usługi Azure SQL Edge i nie jest dostępna dla ARM64 wersji programu SQL Edge.|
+| Azure IoT Edge Hub | T | T | Źródło danych do odczytu/zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji na Azure IoT Edge centrum, zapoznaj się z [centrum IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
+| SQL Database | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. SQL Database może być lokalną bazą danych SQL Edge lub SQL Server zdalnego lub Azure SQL Database|
+| Azure Blob Storage | N | T | Źródło danych służące do zapisywania danych w obiekcie BLOB na koncie usługi Azure Storage. |
+| Kafka | T | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Ta karta jest obecnie dostępna tylko w wersji Intel/AMD usługi Azure SQL Edge i nie jest dostępna dla ARM64 wersji programu SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Przykład: Tworzenie zewnętrznego obiektu strumienia danych wejściowych/wyjściowych dla centrum Azure IoT Edge
 

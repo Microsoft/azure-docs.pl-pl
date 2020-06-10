@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: d99b9103a597442a5a98fa842eef3e98b2aad086
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.custom: tracking-python
+ms.openlocfilehash: 5c429da761c39ae6828eb5d79809b687e8a76bd3
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417391"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609101"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Użyj narzędzi Hive & platformy Spark dla Visual Studio Code
 
@@ -114,7 +115,7 @@ Można połączyć normalny klaster przy użyciu nazwy użytkownika zarządzanej
 3. Wprowadź ogólny punkt końcowy usługi Livy. Na przykład: http \: //10.172.41.42:18080.
 
 4. Wybierz pozycję typ autoryzacji **podstawowa** lub **Brak**.  W przypadku wybrania opcji **podstawowa**:  
-    &emsp;z. Wprowadź nazwę użytkownika Ambari; wartość domyślna to **admin**.  
+    &emsp;a. Wprowadź nazwę użytkownika Ambari; wartość domyślna to **admin**.  
     &emsp;b. Wprowadź hasło Ambari.
 
 5. Przejrzyj widok **danych wyjściowych** na potrzeby weryfikacji.
@@ -314,20 +315,20 @@ Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodaw
     | name | description | typ |
     | --- | --- | --- |
     |  — plik | Plik zawierający aplikację do wykonania | Ścieżka (wymagana) |
-    | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | Ciąg |
-    | Nazwą | Aplikacja Java/Spark klasy głównej | Ciąg |
+    | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | String |
+    | Nazwą | Aplikacja Java/Spark klasy głównej | String |
     | args | Argumenty wiersza polecenia dla aplikacji | Lista ciągów |
     | jars | Jars do użycia w tej sesji | Lista ciągów | 
     | pyFiles | Pliki języka Python, które mają być używane w tej sesji | Lista ciągów |
     | files | Pliki, które mają być używane w tej sesji | Lista ciągów |
-    | driverMemory | Ilość pamięci do użycia w procesie sterownika | Ciąg |
+    | driverMemory | Ilość pamięci do użycia w procesie sterownika | String |
     | driverCores | Liczba rdzeni do użycia w procesie sterownika | int |
-    | executorMemory | Ilość pamięci do użycia na proces wykonawczy | Ciąg |
+    | executorMemory | Ilość pamięci do użycia na proces wykonawczy | String |
     | executorCores | Liczba rdzeni do użycia dla każdego wykonawcy | int |
     | numExecutors | Liczba uruchomień do uruchomienia dla tej sesji | int |
     | archiwizowan | Archiwa, które mają być używane w tej sesji | Lista ciągów |
-    | kolejka | Nazwa kolejki PRZĘDZy do przesłania| Ciąg |
-    | name | Nazwa tej sesji | Ciąg |
+    | kolejka | Nazwa kolejki PRZĘDZy do przesłania| String |
+    | name | Nazwa tej sesji | String |
     | produkt | Właściwości konfiguracji platformy Spark | Mapa klucza = Val |
 
     Treść odpowiedzi utworzonego obiektu wsadowego.
@@ -335,10 +336,10 @@ Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodaw
     | name | description | typ |
     | --- | ---| --- |
     | ID | Identyfikator sesji | int |
-    | appId | Identyfikator aplikacji dla tej sesji | Ciąg |
+    | appId | Identyfikator aplikacji dla tej sesji | String |
     | appInfo | Szczegółowe informacje o aplikacji | Mapa klucza = Val |
     | Dziennik | Wiersze dziennika | Lista ciągów |
-    | state |Stan partii | Ciąg |
+    | state |Stan partii | String |
 
     > [!NOTE]
     > Przypisana usługi Livy konfiguracja zostanie wyświetlona w okienku danych wyjściowych podczas przesyłania skryptu.

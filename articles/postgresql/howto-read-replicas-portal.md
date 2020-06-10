@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: dd79618b8d9f016c92166edb9ecdb0bfb113947e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: c7d55a7b10f0c874fd84f32db1dcf21fb60c231f
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76768959"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636651"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for PostgreSQL-pojedynczym serwerze z Azure Portal
 
@@ -21,34 +21,38 @@ W tym artykule dowiesz się, jak tworzyć repliki odczytu i zarządzać nimi w A
 ## <a name="prerequisites"></a>Wymagania wstępne
 [Serwer Azure Database for PostgreSQL](quickstart-create-server-database-portal.md) być serwerem głównym.
 
+## <a name="azure-replication-support"></a>Obsługa replikacji platformy Azure
+
+[Odczytywanie replik](concepts-read-replicas.md) i [dekodowanie logiczne](concepts-logical.md) są zależne od dziennika Postgres zapisu (WAL) w celu uzyskania informacji. Te dwie funkcje wymagają różnych poziomów rejestrowania z Postgres. Dekodowanie logiczne wymaga wyższego poziomu rejestrowania niż repliki odczytu.
+
+Aby skonfigurować odpowiedni poziom rejestrowania, użyj parametru Obsługa replikacji platformy Azure. Obsługa replikacji platformy Azure ma trzy opcje ustawień:
+
+* **Wyłączone** — umieszcza najniższe informacje w Wal. To ustawienie nie jest dostępne na większości serwerów Azure Database for PostgreSQL.  
+* **Replika** — większa niż **wyłączona**. Jest to minimalny poziom rejestrowania, który jest wymagany do działania [replik odczytu](concepts-read-replicas.md) . To ustawienie jest domyślne na większości serwerów.
+* **Logiczne** — więcej informacji niż **replika**. Jest to minimalny poziom rejestrowania kodu logicznego do pracy. Odczytaj repliki również działają w tym ustawieniu.
+
+Po zmianie tego parametru należy ponownie uruchomić serwer. Wewnętrznie, ten parametr ustawia parametry Postgres `wal_level` , `max_replication_slots` i `max_wal_senders` .
+
 ## <a name="prepare-the-master-server"></a>Przygotowywanie serwera głównego
-Te kroki muszą być używane do przygotowywania serwera głównego w warstwach zoptymalizowanych pod kątem Ogólnego przeznaczenia lub pamięci. Serwer główny jest przygotowany do replikacji przez ustawienie parametru Azure. replication_support. Po zmianie parametru replikacji wymagane jest ponowne uruchomienie serwera, aby zmiany zaczęły obowiązywać. W Azure Portal te dwa kroki są hermetyzowane przez pojedynczy przycisk, **Włącz obsługę replikacji**.
 
 1. W Azure Portal wybierz istniejący serwer Azure Database for PostgreSQL, który ma być używany jako główny.
 
-2. Na pasku bocznym serwera w obszarze **Ustawienia**wybierz pozycję **replikacja**.
+2. Z menu serwer wybierz pozycję **replikacja**. Jeśli Obsługa replikacji platformy Azure została ustawiona na co najmniej **replikę**, można utworzyć repliki odczytu. 
 
-> [!NOTE] 
-> Jeśli widzisz opcję **Wyłącz obsługę replikacji** wyszarzonej, ustawienia replikacji są już ustawione na serwerze domyślnie. Możesz pominąć poniższe kroki i przejść do sekcji Tworzenie repliki odczytu. 
+3. Jeśli Obsługa replikacji platformy Azure nie jest ustawiona na co najmniej **replikę**, ustaw ją. Wybierz pozycję **Zapisz**.
 
-3. Wybierz pozycję **Włącz obsługę replikacji**. 
+   ![Azure Database for PostgreSQL — replikacja zestawu i zapisywanie](./media/howto-read-replicas-portal/set-replica-save.png)
 
-   ![Włącz obsługę replikacji](./media/howto-read-replicas-portal/enable-replication-support.png)
+4. Uruchom ponownie serwer, aby zastosować zmiany, wybierając opcję **tak**.
 
-4. Potwierdź, że chcesz włączyć obsługę replikacji. Ta operacja spowoduje ponowne uruchomienie serwera głównego. 
+   ![Azure Database for PostgreSQL — Potwierdź ponowne uruchomienie](./media/howto-read-replicas-portal/confirm-restart.png)
 
-   ![Potwierdź włączenie obsługi replikacji](./media/howto-read-replicas-portal/confirm-enable-replication.png)
-   
 5. Po zakończeniu operacji otrzymasz dwie Azure Portal powiadomienia. Istnieje jedno powiadomienie dotyczące aktualizowania parametru serwera. Istnieje inne powiadomienie dotyczące ponownego uruchomienia serwera, które następuje natychmiast.
 
-   ![Powiadomienia o powodzeniu — Włączanie](./media/howto-read-replicas-portal/success-notifications-enable.png)
+   ![Powiadomienia o powodzeniu](./media/howto-read-replicas-portal/success-notifications.png)
 
 6. Odśwież stronę Azure Portal, aby zaktualizować pasek narzędzi replikacji. Teraz można tworzyć repliki odczytu dla tego serwera.
-
-   ![Zaktualizowany pasek narzędzi](./media/howto-read-replicas-portal/updated-toolbar.png)
    
-Włączanie obsługi replikacji jest operacją jednorazową na serwerze głównym. Przycisk **Wyłącz obsługę replikacji** jest dostępny dla wygody użytkownika. Nie zalecamy wyłączania obsługi replikacji, chyba że masz pewność, że nie utworzysz repliki na tym serwerze głównym. Nie można wyłączyć obsługi replikacji, gdy serwer główny ma istniejące repliki.
-
 
 ## <a name="create-a-read-replica"></a>Tworzenie repliki odczytu
 Aby utworzyć replikę odczytu, wykonaj następujące kroki:

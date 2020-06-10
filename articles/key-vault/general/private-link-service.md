@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: a8c153094d38d137ce50c6ff4f922b7708bfcb24
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c832634a4b9154ec800da8c8ff25c6d81c620e9f
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266835"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610155"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integracja Key Vault z prywatnym łączem platformy Azure
 
@@ -66,7 +66,7 @@ Teraz będzie można zobaczyć skonfigurowany prywatny punkt końcowy. Masz tera
 
 Jeśli masz już Magazyn kluczy, możesz utworzyć połączenie prywatne, wykonując następujące czynności:
 
-1. Zaloguj się do Portalu Azure. 
+1. Zaloguj się do witryny Azure Portal. 
 1. Na pasku wyszukiwania wpisz ciąg "magazyny kluczy".
 1. Z listy wybierz magazyn kluczy, do którego chcesz dodać prywatny punkt końcowy.
 1. Wybierz kartę "Sieć" w obszarze Ustawienia
@@ -225,13 +225,16 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 ## <a name="limitations-and-design-considerations"></a>Ograniczenia i zagadnienia dotyczące projektowania
 
+> [!NOTE]
+> Liczba magazynów kluczy z włączonymi prywatnymi punktami końcowymi na subskrypcję jest przystosowanym limitem. Limit przedstawiony poniżej jest domyślnym limitem. Jeśli chcesz poprosić o zwiększenie limitu dla usługi, Wyślij wiadomość e-mail na adres akv-privatelink@microsoft.com . Te żądania będą zatwierdzane w przypadku poszczególnych przypadków.
+
 **Cennik**: Aby uzyskać informacje o cenach, zobacz [Cennik usługi Azure Private link](https://azure.microsoft.com/pricing/details/private-link/).
 
 **Ograniczenia**: prywatny punkt końcowy dla Azure Key Vault jest dostępny tylko w publicznych regionach platformy Azure.
 
 **Maksymalna liczba prywatnych punktów końcowych na Key Vault**: 64.
 
-**Maksymalna liczba magazynów kluczy z prywatnymi punktami końcowymi na subskrypcję**: 64.
+**Domyślna liczba magazynów kluczy z prywatnymi punktami końcowymi na subskrypcję**: 400.
 
 Aby uzyskać więcej informacji, zobacz [usługa Azure Private Link Service: ograniczenia](../../private-link/private-link-service-overview.md#limitations)
 

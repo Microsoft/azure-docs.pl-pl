@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b93f26a6799a50868feb1f3350a3dc4a73a0b2e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d53c21af77204a5e83687d3ce893f3f6f45101f2
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127840"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84628992"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalowanie pakietu Office w głównym obrazie wirtualnego dysku twardego
 
@@ -38,7 +38,7 @@ Narzędzie wdrażania pakietu Office wymaga pliku XML konfiguracji. Aby dostosow
 
 Ten przykładowy plik XML konfiguracji wykona następujące czynności:
 
-- Zainstaluj pakiet Office z miesięcznego kanału i dostarczaj aktualizacje z miesięcznego kanału, gdy są one wykonywane.
+- • Zainstaluj pakiet Office z miesięcznego kanału przedsiębiorstwa i dostarczaj aktualizacje z miesięcznego kanału przedsiębiorstwa, gdy są one wykonywane.
 - Użyj architektury x64.
 - Wyłącz aktualizacje automatyczne.
 - Usuń wszystkie istniejące instalacje pakietu Office i Migruj ich ustawienia.
@@ -53,7 +53,7 @@ Oto co to jest przykładowy kod XML konfiguracji:
 - Zainstaluj usługę OneDrive w trybie dla użytkownika. Aby dowiedzieć się więcej, zobacz [Instalowanie usługi OneDrive w trybie dla komputera](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->Aktywację komputera udostępnionego można skonfigurować za zasady grupy obiektów zasad grupy (GPO) lub ustawień rejestru. Obiekt zasad grupy znajduje się w **obszarze\\zasady\\konfiguracji\\komputera Szablony administracyjne Microsoft Office 2016 (\\maszyny) ustawienia licencjonowania**
+>Aktywację komputera udostępnionego można skonfigurować za zasady grupy obiektów zasad grupy (GPO) lub ustawień rejestru. Obiekt zasad grupy znajduje się w obszarze **zasady konfiguracji komputera \\ \\ Szablony administracyjne \\ Microsoft Office 2016 (maszyny) \\ Ustawienia licencjonowania**
 
 Narzędzie wdrażania pakietu Office zawiera plik Setup. exe. Aby zainstalować pakiet Office, uruchom następujące polecenie w wierszu polecenia:
 
@@ -63,11 +63,11 @@ Setup.exe /configure configuration.xml
 
 #### <a name="sample-configurationxml"></a>Przykładowa konfiguracja. XML
 
-Poniższy przykład kodu XML zainstaluje comiesięczne wydanie.
+Poniższy przykład kodu XML zainstaluje comiesięczną wersję Enterprise Channel.
 
 ```xml
 <Configuration>
-  <Add OfficeClientEdition="64" Channel="Monthly">
+  <Add OfficeClientEdition="64" Channel="MonthlyEnterprise">
     <Product ID="O365ProPlusRetail">
       <Language ID="en-US" />
       <Language ID="MatchOS" />
@@ -116,11 +116,11 @@ Usługa OneDrive jest zwykle instalowana dla poszczególnych użytkowników. W t
 
 Poniżej przedstawiono sposób instalowania usługi OneDrive w trybie na maszynę:
 
-1. Najpierw Utwórz lokalizację, aby przemieścić Instalatora usługi OneDrive. Lokalizacja folderu dysku lokalnego lub [\\\\UNC] (File://UNC) jest odpowiednia.
+1. Najpierw Utwórz lokalizację, aby przemieścić Instalatora usługi OneDrive. Lokalizacja folderu dysku lokalnego lub [ \\ \\ UNC] (File://UNC) jest odpowiednia.
 
 2. Pobierz OneDriveSetup. exe do lokalizacji przygotowanej za pomocą tego linku:<https://aka.ms/OneDriveWVD-Installer>
 
-3. Jeśli zainstalowano pakiet Office z usługą OneDrive przez pominięcie ** \<ExcludeApp ID = "OneDrive\>"/**, Odinstaluj wszystkie istniejące instalacje dla poszczególnych użytkowników w usłudze OneDrive w wierszu polecenia z podwyższonym poziomem uprawnień, uruchamiając następujące polecenie:
+3. Jeśli zainstalowano pakiet Office z usługą OneDrive **\<ExcludeApp ID="OneDrive" /\>** , należy odinstalować wszystkie istniejące instalacje dla poszczególnych użytkowników z poziomu wiersza polecenia z podwyższonym poziomem uprawnień, uruchamiając następujące polecenie:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

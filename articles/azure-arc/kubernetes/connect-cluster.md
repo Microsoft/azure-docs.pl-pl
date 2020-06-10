@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: 868964361e6089eb3417b0f2e2681d82d4aa0b75
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 85ef8bb9868784df66199a4aea261e6b752ae7f8
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299647"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636261"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -24,10 +24,33 @@ Połącz klaster Kubernetes z usługą Azure Arc.
 
 Sprawdź, czy masz gotowe do spełnienia następujące wymagania:
 
-* Klaster Kubernetes, który jest uruchomiony
-* Będziesz potrzebować dostępu z kubeconfig i dostępem do administratora klastra.
+* Klaster Kubernetes, który jest uruchomiony. Jeśli nie masz istniejącego klastra Kubernetes, możesz użyć jednej z następujących przewodników, aby utworzyć klaster testowy:
+  * Tworzenie klastra Kubernetes przy użyciu [Kubernetes w Docker (rodzaj)](https://kind.sigs.k8s.io/)
+  * Tworzenie klastra Kubernetes przy użyciu platformy Docker dla [komputerów Mac](https://docs.docker.com/docker-for-mac/#kubernetes) lub [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
+* Musisz mieć plik kubeconfig, aby uzyskać dostęp do roli klastra i klastra w klastrze w celu wdrożenia agentów Kubernetes z włączonym łukiem.
 * Nazwa główna użytkownika lub usługi używana z `az login` `az connectedk8s connect` poleceniami i musi mieć uprawnienia "read" i "Write" dla typu zasobu "Microsoft. Kubernetes/connectedclusters". Rola "Azure Arc for Kubernetes dołączania" z tymi uprawnieniami może służyć do przypisywania ról dla użytkownika lub nazwy głównej usługi używanej z interfejsem wiersza polecenia platformy Azure do dołączania.
-* Najnowsza wersja rozszerzeń *connectedk8s* i *k8sconfiguration*
+* Do dołączania klastra przy użyciu rozszerzenia connectedk8s jest wymagany Helm 3. [Zainstaluj najnowszą wersję programu Helm 3](https://helm.sh/docs/intro/install) , aby spełnić to wymaganie.
+* Interfejs wiersza polecenia platformy Azure w wersji 2.3 + jest wymagany do zainstalowania rozszerzeń interfejsu wiersza polecenia Kubernetes z funkcją Azure Arc. [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) lub zaktualizuj do najnowszej wersji, aby upewnić się, że interfejs wiersza polecenia platformy Azure w wersji 2.3 + został zainstalowany.
+* Zainstaluj rozszerzenia Kubernetes CLI z włączonym łukiem:
+  
+  Zainstaluj `connectedk8s` rozszerzenie, które ułatwia łączenie klastrów Kubernetes z platformą Azure:
+  
+  ```console
+  az extension add --name connectedk8s
+  ```
+  
+  Zainstaluj `k8sconfiguration` rozszerzenie:
+  
+  ```console
+  az extension add --name k8sconfiguration
+  ```
+  
+  Jeśli chcesz zaktualizować te rozszerzenia później, uruchom następujące polecenia:
+  
+  ```console
+  az extension update --name connectedk8s
+  az extension update --name k8sconfiguration
+  ```
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
@@ -69,31 +92,6 @@ az provider show -n Microsoft.Kubernetes -o table
 ```console
 az provider show -n Microsoft.KubernetesConfiguration -o table
 ```
-
-## <a name="install-azure-cli-and-arc-enabled-kubernetes-extensions"></a>Zainstaluj interfejs wiersza polecenia platformy Azure i rozszerzenia Kubernetes z włączonym łukiem
-Interfejs wiersza polecenia platformy Azure w wersji 2.3 + jest wymagany do zainstalowania rozszerzeń interfejsu wiersza polecenia Kubernetes z funkcją Azure Arc. [Zainstaluj interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) lub zaktualizuj do najnowszej wersji, aby upewnić się, że interfejs wiersza polecenia platformy Azure w wersji 2.3 + został zainstalowany.
-
-Zainstaluj `connectedk8s` rozszerzenie, które ułatwia łączenie klastrów Kubernetes z platformą Azure:
-
-```console
-az extension add --name connectedk8s
-```
-
-Zainstaluj `k8sconfiguration` rozszerzenie:
-
-```console
-az extension add --name k8sconfiguration
-```
-
-Uruchom następujące polecenia, aby zaktualizować rozszerzenia do najnowszych wersji.
-
-```console
-az extension update --name connectedk8s
-az extension update --name k8sconfiguration
-```
-
-## <a name="install-helm"></a>Zainstaluj Helm
-Do dołączania klastra przy użyciu rozszerzenia connectedk8s jest wymagany Helm 3. [Zainstaluj najnowszą wersję programu Helm 3](https://helm.sh/docs/intro/install) , aby spełnić to wymaganie.
 
 ## <a name="create-a-resource-group"></a>Tworzenie grupy zasobów
 
@@ -171,7 +169,7 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
-Możesz również wyświetlić ten zasób w [portalu Azure w wersji zapoznawczej](https://preview.portal.azure.com/). Gdy Portal zostanie otwarty w przeglądarce, przejdź do grupy zasobów i zasobu Kubernetes z włączoną funkcją Azure Arc na podstawie nazwy zasobu i nazwy grupy zasobów użytych wcześniej w `az connectedk8s connect` poleceniu.
+Możesz również wyświetlić ten zasób na [Azure Portal](https://portal.azure.com/). Gdy Portal zostanie otwarty w przeglądarce, przejdź do grupy zasobów i zasobu Kubernetes z włączoną funkcją Azure Arc na podstawie nazwy zasobu i nazwy grupy zasobów użytych wcześniej w `az connectedk8s connect` poleceniu.
 
 Usługa Azure ARC z włączonym Kubernetes wdraża kilka operatorów w `azure-arc` przestrzeni nazw. Te wdrożenia i zasobniki można wyświetlić tutaj:
 

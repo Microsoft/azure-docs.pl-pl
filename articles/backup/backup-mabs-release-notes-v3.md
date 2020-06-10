@@ -2,14 +2,14 @@
 title: Informacje o wersji dla Microsoft Azure Backup Server v3
 description: Ten artykuł zawiera informacje o znanych problemach i obejściach programu Microsoft Azure Backup Server (serwera usługi MAB) v3.
 ms.topic: conceptual
-ms.date: 11/22/2018
+ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: a5c99bcb95fde39bddc9e9db9ab000881c89081a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f67b73612bd970c903b179a4a02c787ee0320b0
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185629"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629168"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Informacje o wersji programu Microsoft Azure Backup Server
 
@@ -71,6 +71,40 @@ Obejście **:** Wykonaj następujące kroki, aby uaktualnić program do wersji s
 
 9. Uruchom usługę MSDPM.
 
+## <a name="after-installing-ur1-the-mabs-reports-arent-updated-with-new-rdl-files"></a>Po zainstalowaniu UR1 raporty serwera usługi MAB nie są aktualizowane przy użyciu nowych plików RDL
+
+**Opis**: w przypadku UR1 problem z formatowaniem raportu serwera usługi MAB jest rozwiązywany przy użyciu zaktualizowanych plików RDL. Nowe pliki RDL nie są automatycznie zastępowane istniejącymi plikami.
+
+**Obejście**: aby zastąpić pliki RDL, wykonaj następujące czynności:
+
+1. Na maszynie serwera usługi MAB Otwórz adres URL portalu internetowego usług SQL Reporting Services.
+1. W adresie URL portalu sieci Web folder katalog dpmreports jest obecny w formacie**`DPMReports_<GUID>`**
+
+    >[!NOTE]
+    >Istnieje zawsze tylko jeden folder z tą konwencją nazewnictwa. Jeśli serwera usługi MAB jest uaktualniana z poprzedniej wersji, może istnieć również inny starszy folder, ale nie będzie można go otworzyć.
+
+    ![Folder katalog dpmreports](./media/backup-mabs-release-notes-v3/dpm-reports-folder.png)
+
+1. Wybierz i Otwórz **`DPMReports_<GUID>`** folder. Poszczególne pliki raportów zostaną wyświetlone jak pokazano poniżej.
+
+    ![Lista poszczególnych plików raportów](./media/backup-mabs-release-notes-v3/individual-report-files.png)
+
+1. Wybierz pliki raportu, które nie kończą się **raportem**, kliknij prawym przyciskiem myszy **opcję** Włącz i wybierz pozycję **Zarządzaj**.
+
+    ![Wybierz pozycję Zarządzaj dla plików raportów](./media/backup-mabs-release-notes-v3/manage-files.png)
+
+1. Na stronie nowy wybierz opcję **Zamień** , aby zastąpić pliki najnowszymi plikami raportu.
+
+    Najnowsze pliki raportów można znaleźć w ścieżce`<MABS Installation Directory>\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+
+    Na przykład: `C:\Program Files\Microsoft Azure Backup Server\DPM\DPM\bin\DpmReports`
+
+    ![Zastąp pliki najnowszymi plikami raportów](./media/backup-mabs-release-notes-v3/replace-files.png)
+
+    Po wymianie plików upewnij się, że **Nazwa** i **Opis** są nienaruszone i nie są puste.
+
+1. Po wymianie plików uruchom ponownie usługi serwera usługi MAB i Użyj plików raportów.
+
 ## <a name="next-steps"></a>Następne kroki
 
-[Co nowego w programie serwera usługi MAB v3](backup-mabs-whats-new-mabs.md)
+[Co nowego w programie serwera usługi MAB](backup-mabs-whats-new-mabs.md)

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/15/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 201bb40e5024442587f5508886da7e844f35be40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: H1Hack27Feb2017,hdinsightactive, tracking-python
+ms.openlocfilehash: 684da980bce96cdf5ec06a41c3026ea59b2756b2
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74148392"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610234"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Używanie funkcji języka Python zdefiniowanej przez użytkownika (UDF) z Apache Hive i Apache chlewnej w usłudze HDInsight
 
@@ -29,16 +29,16 @@ Usługa HDInsight zawiera również Jython, która jest implementacją języka P
 
 * **Klaster usługi Hadoop w usłudze HDInsight**. Zobacz Rozpoczynanie [pracy z usługą HDInsight w systemie Linux](apache-hadoop-linux-tutorial-get-started.md).
 * **Klient SSH**. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
-* [Schemat identyfikatora URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) magazynu podstawowego klastrów. `wasb://` Dotyczy to usługi Azure Storage, `abfs://` Azure Data Lake Storage Gen2 lub ADL://dla Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI zostałby wasbs://.  Zobacz również [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
-* **Możliwa zmiana konfiguracji magazynu.**  Zobacz [Konfiguracja magazynu](#storage-configuration) , jeśli używany jest typ `BlobStorage`konta magazynu.
-* Element opcjonalny.  Jeśli planujesz korzystanie z programu PowerShell, musisz mieć zainstalowaną pozycję [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) .
+* [Schemat identyfikatora URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) magazynu podstawowego klastrów. Dotyczy to `wasb://` usługi Azure Storage, `abfs://` Azure Data Lake Storage Gen2 lub adl://dla Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI zostałby wasbs://.  Zobacz również [bezpieczny transfer](../../storage/common/storage-require-secure-transfer.md).
+* **Możliwa zmiana konfiguracji magazynu.**  Zobacz [Konfiguracja magazynu](#storage-configuration) , jeśli używany jest typ konta magazynu `BlobStorage` .
+* Opcjonalny.  Jeśli planujesz korzystanie z programu PowerShell, musisz mieć zainstalowaną pozycję [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) .
 
 > [!NOTE]  
-> Konto magazynu używane w tym artykule było magazynem platformy Azure z włączonym [bezpiecznym transferem](../../storage/common/storage-require-secure-transfer.md) i w tym `wasbs` przypadku jest używany w całym artykule.
+> Konto magazynu używane w tym artykule było magazynem platformy Azure z włączonym [bezpiecznym transferem](../../storage/common/storage-require-secure-transfer.md) i w tym przypadku `wasbs` jest używany w całym artykule.
 
 ## <a name="storage-configuration"></a>Konfiguracja usługi Storage
 
-Jeśli używane konto magazynu ma charakter `Storage (general purpose v1)` lub `StorageV2 (general purpose v2)`, nie jest wymagana żadna akcja.  Proces w tym artykule spowoduje wygenerowanie danych wyjściowych do `/tezstaging`co najmniej.  Domyślna `/tezstaging` konfiguracja usługi `fs.azure.page.blob.dir` `HDFS`Hadoop będzie zawierać w zmiennej konfiguracyjnej programu `core-site.xml` w programie for.  Ta konfiguracja powoduje, że dane wyjściowe do katalogu będą stronicowymi obiektami BLOB, które nie są obsługiwane dla `BlobStorage`rodzaju konta magazynu.  Aby użyć `BlobStorage` tego artykułu, Usuń `/tezstaging` ze zmiennej `fs.azure.page.blob.dir` konfiguracyjnej.  Dostęp do konfiguracji można uzyskać za pomocą [interfejsu użytkownika Ambari](../hdinsight-hadoop-manage-ambari.md).  W przeciwnym razie zostanie wyświetlony komunikat o błędzie:`Page blob is not supported for this account type.`
+Jeśli używane konto magazynu ma charakter lub, nie jest wymagana żadna `Storage (general purpose v1)` Akcja `StorageV2 (general purpose v2)` .  Proces w tym artykule spowoduje wygenerowanie danych wyjściowych do co najmniej `/tezstaging` .  Domyślna konfiguracja usługi Hadoop będzie zawierać `/tezstaging` w `fs.azure.page.blob.dir` zmiennej konfiguracyjnej programu w programie `core-site.xml` for `HDFS` .  Ta konfiguracja powoduje, że dane wyjściowe do katalogu będą stronicowymi obiektami BLOB, które nie są obsługiwane dla rodzaju konta magazynu `BlobStorage` .  Aby użyć `BlobStorage` tego artykułu, Usuń `/tezstaging` ze `fs.azure.page.blob.dir` zmiennej konfiguracyjnej.  Dostęp do konfiguracji można uzyskać za pomocą [interfejsu użytkownika Ambari](../hdinsight-hadoop-manage-ambari.md).  W przeciwnym razie zostanie wyświetlony komunikat o błędzie:`Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > Kroki opisane w tym dokumencie składają się z następujących założeń:  
@@ -50,11 +50,11 @@ Jeśli używane konto magazynu ma charakter `Storage (general purpose v1)` lub `
 >
 > * Utwórz skrypty w środowisku usługi Cloud Shell.
 > * Służy `scp` do przekazywania plików z usługi Cloud Shell do usługi HDInsight.
-> * Użyj `ssh` usługi Cloud Shell, aby nawiązać połączenie z usługą HDInsight i uruchomić przykłady.
+> * Użyj usługi `ssh` Cloud Shell, aby nawiązać połączenie z usługą HDInsight i uruchomić przykłady.
 
 ## <a name="apache-hive-udf"></a><a name="hivepython"></a>Apache Hive UDF
 
-Język Python może być używany jako UDF z usługi Hive za pośrednictwem instrukcji HiveQL `TRANSFORM` . Na przykład następujący HiveQL wywołuje `hiveudf.py` plik przechowywany na domyślnym koncie usługi Azure Storage dla klastra.
+Język Python może być używany jako UDF z usługi Hive za pośrednictwem `TRANSFORM` instrukcji HiveQL. Na przykład następujący HiveQL wywołuje `hiveudf.py` plik przechowywany na domyślnym koncie usługi Azure Storage dla klastra.
 
 ```hiveql
 add file wasbs:///hiveudf.py;
@@ -68,15 +68,15 @@ ORDER BY clientid LIMIT 50;
 
 Oto co to jest w tym przykładzie:
 
-1. `add file` Instrukcja na początku pliku dodaje `hiveudf.py` plik do rozproszonej pamięci podręcznej, dzięki czemu jest dostępny dla wszystkich węzłów w klastrze.
-2. `SELECT TRANSFORM ... USING` Instrukcja wybiera dane z `hivesampletable`. Przekazuje także wartości ClientID, devicemake i devicemodel do `hiveudf.py` skryptu.
-3. `AS` Klauzula opisuje pola zwracane z `hiveudf.py`.
+1. `add file`Instrukcja na początku pliku dodaje `hiveudf.py` plik do rozproszonej pamięci podręcznej, dzięki czemu jest dostępny dla wszystkich węzłów w klastrze.
+2. `SELECT TRANSFORM ... USING`Instrukcja wybiera dane z `hivesampletable` . Przekazuje także wartości ClientID, devicemake i devicemodel do `hiveudf.py` skryptu.
+3. `AS`Klauzula opisuje pola zwracane z `hiveudf.py` .
 
 <a name="streamingpy"></a>
 
 ### <a name="create-file"></a>Utwórz plik
 
-W środowisku deweloperskim Utwórz plik tekstowy o nazwie `hiveudf.py`. Użyj następującego kodu jako zawartości pliku:
+W środowisku deweloperskim Utwórz plik tekstowy o nazwie `hiveudf.py` . Użyj następującego kodu jako zawartości pliku:
 
 ```python
 #!/usr/bin/env python
@@ -98,12 +98,12 @@ while True:
 Ten skrypt wykonuje następujące czynności:
 
 1. Odczytuje wiersz danych z STDIN.
-2. Końcowy znak nowego wiersza jest usuwany przy `string.strip(line, "\n ")`użyciu.
-3. Podczas przetwarzania strumieniowego pojedynczy wiersz zawiera wszystkie wartości z znakiem tabulacji między każdą wartością. `string.split(line, "\t")` Można go użyć do podziału danych wejściowych na każdej karcie, zwracając tylko pola.
+2. Końcowy znak nowego wiersza jest usuwany przy użyciu `string.strip(line, "\n ")` .
+3. Podczas przetwarzania strumieniowego pojedynczy wiersz zawiera wszystkie wartości z znakiem tabulacji między każdą wartością. `string.split(line, "\t")`Można go użyć do podziału danych wejściowych na każdej karcie, zwracając tylko pola.
 4. Po zakończeniu przetwarzania dane wyjściowe muszą być zapisywane w strumieniu STDOUT jako jeden wiersz, z kartą między każdym polem. Na przykład `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
-5. Pętla powtarza się, `while` dopóki `line` nie zostanie odczytana.
+5. `while`Pętla powtarza się, dopóki nie `line` zostanie odczytana.
 
-Dane wyjściowe skryptu są połączeniem wartości wejściowych dla `devicemake` i `devicemodel`i skrótu połączonej wartości.
+Dane wyjściowe skryptu są połączeniem wartości wejściowych dla `devicemake` i i `devicemodel` skrótu połączonej wartości.
 
 ### <a name="upload-file-shell"></a>Przekaż plik (Shell)
 
@@ -137,7 +137,7 @@ W poniższych poleceniach Zastąp `sshuser` wartość rzeczywistą nazwą użytk
 
     To polecenie uruchamia klienta programu Z usługi Beeline.
 
-2. W `0: jdbc:hive2://headnodehost:10001/>` wierszu polecenia wprowadź następujące zapytanie:
+2. W wierszu polecenia wprowadź następujące zapytanie `0: jdbc:hive2://headnodehost:10001/>` :
 
    ```hive
    add file wasbs:///hiveudf.py;
@@ -164,7 +164,7 @@ W poniższych poleceniach Zastąp `sshuser` wartość rzeczywistą nazwą użytk
 
 ### <a name="upload-file-powershell"></a>Przekaż plik (PowerShell)
 
-Program PowerShell może również służyć do zdalnego uruchamiania zapytań Hive. Upewnij się, że katalog roboczy `hiveudf.py` znajduje się w lokalizacji.  Użyj poniższego skryptu programu PowerShell, aby uruchomić zapytanie programu Hive korzystające ze `hiveudf.py` skryptu:
+Program PowerShell może również służyć do zdalnego uruchamiania zapytań Hive. Upewnij się, że katalog roboczy znajduje się w lokalizacji `hiveudf.py` .  Użyj poniższego skryptu programu PowerShell, aby uruchomić zapytanie programu Hive korzystające ze `hiveudf.py` skryptu:
 
 ```PowerShell
 # Login to your Azure subscription
@@ -294,7 +294,7 @@ Skrypt w języku Python może być używany jako UDF ze świń za pośrednictwem
 * Jython działa na JVM i może być natywnie wywoływany ze świni.
 * Język C Python jest procesem zewnętrznym, dlatego dane ze świń w JVM są wysyłane do skryptu działającego w procesie języka Python. Dane wyjściowe skryptu języka Python są wysyłane z powrotem do świni.
 
-Aby określić interpreter języka Python, użyj `register` go podczas odwoływania się do skryptu języka Python. Poniższe przykłady rejestrują skrypty ze świnią `myfuncs`jako:
+Aby określić interpreter języka Python, użyj go `register` podczas odwoływania się do skryptu języka Python. Poniższe przykłady rejestrują skrypty ze świnią jako `myfuncs` :
 
 * **Aby użyć Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
 * **Aby użyć języka C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
@@ -313,14 +313,14 @@ DUMP DETAILS;
 
 Oto co to jest w tym przykładzie:
 
-1. Pierwszy wiersz ładuje przykładowy plik danych `sample.log` do. `LOGS` Definiuje również każdy rekord jako `chararray`.
-2. Następny wiersz filtruje wartości null, przechowując wynik operacji w `LOG`.
-3. Następnie wykonuje iterację w odniesieniu do `LOG` rekordów w `GENERATE` i używa do `create_structure` wywołania metody zawartej w skrypcie Python/Jython załadowanym jako `myfuncs`. `LINE`służy do przekazywania bieżącego rekordu do funkcji.
-4. Na koniec dane wyjściowe są zrzucane do strumienia STDOUT przy `DUMP` użyciu polecenia. To polecenie wyświetla wyniki po zakończeniu operacji.
+1. Pierwszy wiersz ładuje przykładowy plik danych `sample.log` do `LOGS` . Definiuje również każdy rekord jako `chararray` .
+2. Następny wiersz filtruje wartości null, przechowując wynik operacji w `LOG` .
+3. Następnie wykonuje iterację w odniesieniu do rekordów w `LOG` i używa `GENERATE` do wywołania `create_structure` metody zawartej w skrypcie Python/Jython załadowanym jako `myfuncs` . `LINE`służy do przekazywania bieżącego rekordu do funkcji.
+4. Na koniec dane wyjściowe są zrzucane do strumienia STDOUT przy użyciu `DUMP` polecenia. To polecenie wyświetla wyniki po zakończeniu operacji.
 
 ### <a name="create-file"></a>Utwórz plik
 
-W środowisku deweloperskim Utwórz plik tekstowy o nazwie `pigudf.py`. Użyj następującego kodu jako zawartości pliku:
+W środowisku deweloperskim Utwórz plik tekstowy o nazwie `pigudf.py` . Użyj następującego kodu jako zawartości pliku:
 
 <a name="streamingpy"></a>
 
@@ -339,7 +339,7 @@ def create_structure(input):
 
 W przykładzie dla świni, `LINE` dane wejściowe są zdefiniowane jako CharArray, ponieważ nie istnieje spójny schemat danych wejściowych. Skrypt języka Python przekształca dane w spójny schemat dla danych wyjściowych.
 
-1. `@outputSchema` Instrukcja definiuje format danych, które są zwracane do świni. W tym przypadku jest to **zbiór danych**, który jest typem danych świni. Zbiór zawiera następujące pola, z których wszystkie są CharArray (ciągi):
+1. `@outputSchema`Instrukcja definiuje format danych, które są zwracane do świni. W tym przypadku jest to **zbiór danych**, który jest typem danych świni. Zbiór zawiera następujące pola, z których wszystkie są CharArray (ciągi):
 
    * Data — Data utworzenia wpisu dziennika.
    * godzina — godzina utworzenia wpisu dziennika.
@@ -349,9 +349,9 @@ W przykładzie dla świni, `LINE` dane wejściowe są zdefiniowane jako CharArra
 
 2. Następnie `def create_structure(input)` definiuje funkcję, do której świnie przechodzą elementy wiersza.
 
-3. Przykładowe dane, `sample.log`, głównie zgodne ze schematem daty, godziny, ClassName, poziomu i szczegółów. Zawiera on jednak kilka wierszy, które zaczynają się `*java.lang.Exception*`od. Te wiersze należy zmodyfikować, aby pasowały do schematu. `if` Instrukcja sprawdza dla tych, a następnie komunikaty dane wejściowe w celu przeniesienia `*java.lang.Exception*` ciągu do końca, co powoduje przełączenie danych w wierszu o oczekiwanym schemacie danych wyjściowych.
+3. Przykładowe dane, `sample.log` , głównie zgodne ze schematem daty, godziny, ClassName, poziomu i szczegółów. Zawiera on jednak kilka wierszy, które zaczynają się od `*java.lang.Exception*` . Te wiersze należy zmodyfikować, aby pasowały do schematu. `if`Instrukcja sprawdza dla tych, a następnie komunikaty dane wejściowe w celu przeniesienia ciągu do końca, co powoduje przełączenie `*java.lang.Exception*` danych w wierszu o oczekiwanym schemacie danych wyjściowych.
 
-4. Następnie `split` polecenie jest używane do dzielenia danych na pierwsze cztery znaki spacji. Dane wyjściowe są przypisywane `date`do `time`, `classname`, `level`,, `detail`i.
+4. Następnie `split` polecenie jest używane do dzielenia danych na pierwsze cztery znaki spacji. Dane wyjściowe są przypisywane do,,, `date` `time` `classname` `level` , i `detail` .
 
 5. Na koniec wartości są zwracane do świni.
 
@@ -387,7 +387,7 @@ W poniższych poleceniach Zastąp `sshuser` wartość rzeczywistą nazwą użytk
     pig
     ```
 
-2. W `grunt>` wierszu polecenia wprowadź następujące instrukcje:
+2. W wierszu polecenia wprowadź następujące instrukcje `grunt>` :
 
    ```pig
    Register wasbs:///pigudf.py using jython as myfuncs;
@@ -405,7 +405,7 @@ W poniższych poleceniach Zastąp `sshuser` wartość rzeczywistą nazwą użytk
         ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
         ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-4. Użyj `quit` polecenia, aby wyjść z powłoki grunt, a następnie użyć następujących elementów do edytowania pliku pigudf.py w lokalnym systemie plików:
+4. Użyj polecenia `quit` , aby wyjść z powłoki grunt, a następnie użyć następujących elementów do edytowania pliku pigudf.py w lokalnym systemie plików:
 
     ```bash
     nano pigudf.py
@@ -433,7 +433,7 @@ W poniższych poleceniach Zastąp `sshuser` wartość rzeczywistą nazwą użytk
 
 ### <a name="upload-file-powershell"></a>Przekaż plik (PowerShell)
 
-Program PowerShell może również służyć do zdalnego uruchamiania zapytań Hive. Upewnij się, że katalog roboczy `pigudf.py` znajduje się w lokalizacji.  Użyj poniższego skryptu programu PowerShell, aby uruchomić zapytanie programu Hive korzystające ze `pigudf.py` skryptu:
+Program PowerShell może również służyć do zdalnego uruchamiania zapytań Hive. Upewnij się, że katalog roboczy znajduje się w lokalizacji `pigudf.py` .  Użyj poniższego skryptu programu PowerShell, aby uruchomić zapytanie programu Hive korzystające ze `pigudf.py` skryptu:
 
 ```PowerShell
 # Login to your Azure subscription
@@ -479,7 +479,7 @@ Set-AzStorageBlobContent `
 > [!NOTE]  
 > Podczas zdalnego przesyłania zadania przy użyciu programu PowerShell nie jest możliwe używanie języka C Python jako interpretera.
 
-Program PowerShell może również służyć do uruchamiania zadań w postaci surówki. Aby uruchomić zadanie w postaci wieprzowiny, które `pigudf.py` używa skryptu, użyj następującego skryptu programu PowerShell:
+Program PowerShell może również służyć do uruchamiania zadań w postaci surówki. Aby uruchomić zadanie w postaci wieprzowiny, które używa `pigudf.py` skryptu, użyj następującego skryptu programu PowerShell:
 
 ```PowerShell
 # Script should stop on failures
@@ -555,7 +555,7 @@ Dane wyjściowe dla zadania **świni** powinny wyglądać podobnie do następuj�
     ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-## <a name="troubleshooting"></a><a name="troubleshooting"></a>Rozwiązywanie problemów
+## <a name="troubleshooting"></a><a name="troubleshooting"></a>Rozwiązywanie problemów z
 
 ### <a name="errors-when-running-jobs"></a>Błędy podczas uruchamiania zadań
 

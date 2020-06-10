@@ -1,6 +1,6 @@
 ---
-title: Szybki Start — Tworzenie obszaru roboczego
-description: Utwórz obszar roboczy usługi Azure Synapse Analytics, wykonując czynności opisane w tym przewodniku.
+title: Szybki Start — Tworzenie obszaru roboczego Synapse
+description: Utwórz obszar roboczy Synapse, wykonując czynności opisane w tym przewodniku.
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4d3044ec04a3306efdc3b57c1e5a3149b70fab05
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6f72e2ee3b83b693d889e9c43fe42a4677f1666d
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112859"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609475"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse Analytics (wersja zapoznawcza)
 
@@ -43,8 +43,8 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
     | **Subskrypcja** | *Twoja subskrypcja* | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
     | **Grupa zasobów** | *Dowolna Grupa zasobów* | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Reguły i ograniczenia nazewnictwa). |
     | **Nazwa obszaru roboczego** | mysampleworkspace | Określa nazwę obszaru roboczego, który będzie również używany dla punktów końcowych połączenia.|
-    | **Okolicy** | Wschodnie stany USA 2 | Określa lokalizację obszaru roboczego.|
-    | **Usługa Data Lake Storage 2. generacji** | Koncie`storage account name` </br> System plików:`root file system to use` | Określa nazwę konta magazynu ADLS Gen2, która ma być używana jako magazyn podstawowy i system plików do użycia.|
+    | **Region** | Wschodnie stany USA 2 | Określa lokalizację obszaru roboczego.|
+    | **Data Lake Storage Gen2** | Koncie`storage account name` </br> System plików:`root file system to use` | Określa nazwę konta magazynu ADLS Gen2, która ma być używana jako magazyn podstawowy i system plików do użycia.|
     ||||
 
     ![Przepływ obszaru roboczego — podstawowe karty.](media/quickstart-create-synapse-workspace/create-workspace-03.png)
@@ -63,7 +63,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
 6. Na karcie **Podsumowanie** zostaną uruchomione wymagane walidacje, aby upewnić się, że obszar roboczy może zostać pomyślnie utworzony. Po pomyślnym zakończeniu walidacji kliknij pozycję **Utwórz** ![ przepływ obsługi obszaru roboczego — karta potwierdzenie.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
 7. Po pomyślnym zakończeniu procesu aprowizacji zasobów zobaczysz wpis dla utworzonego obszaru roboczego na liście obszarów roboczych Synapse. ![Lista obszarów roboczych Synapse z nowo zainicjowanym obszarem roboczym.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Wykonaj poniższe kroki, aby usunąć obszar roboczy usługi Azure Synapse.
 > [!WARNING]

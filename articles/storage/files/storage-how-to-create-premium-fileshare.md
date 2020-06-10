@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7680a28b165dc252159cf95311439508d3c867e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 271acdb968bf5bbec3632bbc1f6def854196cd8e
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79529111"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629351"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Jak utworzyć udział plików platformy Azure w warstwie Premium
 Udziały plików w warstwie Premium są oferowane na nośnikach magazynowania SSD i są przydatne w przypadku obciążeń intensywnie korzystających z operacji we/wy, w tym hostingu baz danych i obliczeń o wysokiej wydajności (HPC). Udziały plików w warstwie Premium są hostowane w specjalnym rodzaju koncie magazynu o nazwie konto FileStorage. Udziały plików w warstwie Premium są przeznaczone dla aplikacji o wysokiej wydajności i skalowania w przedsiębiorstwie, zapewniając spójne małe opóźnienia, duże liczby operacji we/wy i duże przepływność.
@@ -27,7 +27,7 @@ Aby uzyskać dostęp do zasobów platformy Azure, w tym udziałów plików Premi
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
+Zaloguj się do [portalu Azure](https://portal.azure.com/).
 
 ### <a name="create-a-filestorage-storage-account"></a>Utwórz konto magazynu FileStorage
 
@@ -46,6 +46,9 @@ Każde konto magazynu musi należeć do grupy zasobów platformy Azure. Grupa za
 1. Następnie wprowadź nazwę konta magazynu. Wybrana nazwa musi być unikatowa w obrębie całej platformy Azure. Ponadto nazwa musi mieć długość od 3 do 24 znaków i może zawierać tylko cyfry i małe litery.
 1. Wybierz lokalizację konta magazynu lub użyj lokalizacji domyślnej.
 1. W obszarze **wydajność** wybierz opcję **Premium**.
+
+    Musisz wybrać opcję **Premium** for **FileStorage** , aby była dostępna opcja na liście rozwijanej **rodzaj konta** .
+
 1. Wybierz pozycję **rodzaj konta** i wybierz pozycję **FileStorage**.
 1. Dla opcji **replikacja** ustaw wartość domyślną **Magazyn lokalnie nadmiarowy (LRS)**.
 

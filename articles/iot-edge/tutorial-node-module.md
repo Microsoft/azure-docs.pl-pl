@@ -8,13 +8,13 @@ ms.author: xshi
 ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 71b22bf9bf040abcdf513a4f8baa916930c8972e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, tracking-python
+ms.openlocfilehash: 7e17da94ba124c3b20fdede93ad6b4716247c6ba
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76772222"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610121"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Samouczek: Tworzenie i wdrażanie modułu IoT Edge Node. js dla urządzeń z systemem Linux
 
@@ -66,7 +66,7 @@ W następujących krokach przedstawiono sposób tworzenia modułu usługi IoT Ed
 
 Użyj programu **npm**, aby utworzyć szablon rozwiązania Node.js, na podstawie którego można dalej tworzyć rozwiązanie.
 
-1. W Visual Studio Code wybierz pozycję **Wyświetl** > **zintegrowany terminal** , aby otworzyć vs Code zintegrowany terminal.
+1. W Visual Studio Code wybierz pozycję **Wyświetl**  >  **zintegrowany terminal** , aby otworzyć vs Code zintegrowany terminal.
 
 2. W zintegrowanym terminalu wprowadź następujące polecenie, aby zainstalować narzędzie **yeoman** oraz generator dla modułu Node.js usługi Azure IoT Edge:
 
@@ -74,7 +74,7 @@ Użyj programu **npm**, aby utworzyć szablon rozwiązania Node.js, na podstawie
     npm install -g yo generator-azure-iot-edge-module
     ```
 
-3. Wybierz pozycję **Widok** > **paleta poleceń** , aby otworzyć paletę poleceń vs Code.
+3. Wybierz pozycję **Widok**  >  **paleta poleceń** , aby otworzyć paletę poleceń vs Code.
 
 4. W palecie poleceń wpisz i uruchom polecenie **Azure: zaloguj**, a następnie postępuj zgodnie z instrukcjami, aby zalogować się na koncie platformy Azure. Jeśli już się zalogowano, można pominąć ten krok.
 
@@ -86,7 +86,7 @@ Użyj programu **npm**, aby utworzyć szablon rozwiązania Node.js, na podstawie
    | Podaj nazwę rozwiązania | Wprowadź opisową nazwę rozwiązania lub zaakceptuj nazwę domyślną **EdgeSolution**. |
    | Wybierz szablon modułu | Wybierz moduł **Node.js Module**. |
    | Podaj nazwę modułu | Nazwij moduł **NodeModule**. |
-   | Podaj repozytorium obrazów platformy Docker dla modułu | Repozytorium obrazów zawiera nazwę rejestru kontenerów oraz nazwę obrazu kontenera. Obraz kontenera jest wstępnie wypełniany na podstawie nazwy podanej w ostatnim kroku. Zastąp ciąg **localhost:5000** wartością serwera logowania z rejestru kontenerów platformy Azure. Serwer logowania możesz pobrać ze strony Przegląd rejestru kontenerów w witrynie Azure Portal. <br><br>Ostateczne repozytorium obrazów wygląda następująco: \<nazwa rejestru\>.azurecr.io/nodemodule. |
+   | Podaj repozytorium obrazów platformy Docker dla modułu | Repozytorium obrazów zawiera nazwę rejestru kontenerów oraz nazwę obrazu kontenera. Obraz kontenera jest wstępnie wypełniany na podstawie nazwy podanej w ostatnim kroku. Zastąp ciąg **localhost:5000** wartością serwera logowania z rejestru kontenerów platformy Azure. Serwer logowania możesz pobrać ze strony Przegląd rejestru kontenerów w witrynie Azure Portal. <br><br>Finalne repozytorium obrazów wygląda jak \<registry name\> . azurecr.IO/nodemodule. |
 
    ![Udostępnianie repozytorium obrazów platformy Docker](./media/tutorial-node-module/repository.png)
 
@@ -110,7 +110,7 @@ Obecnie Visual Studio Code mogą opracowywać Moduły Node. js dla urządzeń z 
 
 Każdy szablon zawiera przykładowy dołączony kod, który wykonuje symulowane dane czujników z modułu **SimulatedTemperatureSensor** i kieruje go do IoT Hub. W tej sekcji dodasz kod, aby umożliwić modułowi NodeModule analizowanie komunikatów przed ich wysłaniem.
 
-1. W Eksploratorze vs Code Otwórz **moduł modules** > **NodeModule** > **App. js**.
+1. W Eksploratorze vs Code Otwórz **moduł modules**  >  **NodeModule**  >  **App. js**.
 
 2. Dodaj zmienną „temperature_threshold” poniżej wymaganych modułów węzła. Zmienna „temperature_threshold” określa wartość zmierzonej temperatury, której przekroczenie spowoduje wysłanie danych do usługi IoT Hub.
 
@@ -185,7 +185,7 @@ Każdy szablon zawiera przykładowy dołączony kod, który wykonuje symulowane 
 
 W poprzedniej sekcji utworzono rozwiązanie IoT Edge i dodano kod do NodeModule, który będzie odfiltrować komunikaty, w przypadku których zgłoszona temperatura maszyny mieści się w dopuszczalnym limicie. Teraz należy skompilować to rozwiązanie jako obraz kontenera i wypchnąć go do rejestru kontenerów.
 
-1. Otwórz vs Code zintegrowany terminal, wybierając pozycję **Wyświetl** > **Terminal**.
+1. Otwórz vs Code zintegrowany terminal, wybierając pozycję **Wyświetl**  >  **Terminal**.
 
 1. Zaloguj się do platformy Docker, wprowadzając następujące polecenie w terminalu. Zaloguj się przy użyciu nazwy użytkownika, hasła i serwera logowania z usługi Azure Container Registry. Te wartości można pobrać z sekcji **klucze dostępu** rejestru w Azure Portal.
 
@@ -193,7 +193,7 @@ W poprzedniej sekcji utworzono rozwiązanie IoT Edge i dodano kod do NodeModule,
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Może zostać wyświetlone ostrzeżenie dotyczące zabezpieczeń zalecające użycie programu `--password-stdin`. Chociaż najlepsze rozwiązanie jest zalecane w scenariuszach produkcyjnych, jest ono poza zakresem tego samouczka. Aby uzyskać więcej informacji, zobacz informacje dotyczące [logowania do platformy Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
+   Może zostać wyświetlone ostrzeżenie dotyczące zabezpieczeń zalecające użycie programu `--password-stdin` . Chociaż najlepsze rozwiązanie jest zalecane w scenariuszach produkcyjnych, jest ono poza zakresem tego samouczka. Aby uzyskać więcej informacji, zobacz informacje dotyczące [logowania do platformy Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
 1. W eksploratorze programu VS Code kliknij prawym przyciskiem myszy plik **deployment.template.json** i wybierz polecenie **Skompiluj i wypchnij rozwiązanie usługi IoT Edge**.
 
@@ -254,7 +254,7 @@ W tym samouczku został utworzony moduł usługi IoT Edge zawierający kod słu�
 Możesz przejść do kolejnych samouczków, aby dowiedzieć się, jak Azure IoT Edge może pomóc w wdrażaniu usług Azure Cloud Services w celu przetwarzania i analizowania danych na krawędzi.
 
 > [!div class="nextstepaction"]
-> [Functions](tutorial-deploy-function.md)
-> [Stream Analytics](tutorial-deploy-stream-analytics.md)Stream Analytics
-> [Machine Learning](tutorial-deploy-machine-learning.md)funkcji Machine Learning
-> [Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [Funkcje](tutorial-deploy-function.md) 
+>  [Stream Analytics](tutorial-deploy-stream-analytics.md) 
+>  [Machine Learning](tutorial-deploy-machine-learning.md) 
+>  [Custom Vision Service](tutorial-deploy-custom-vision.md)

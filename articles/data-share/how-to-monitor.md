@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3d13919a54e170d410abba5da66172c2029d9b5
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73490512"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636278"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorowanie usługi Azure Data Share  
 
@@ -40,13 +40,17 @@ Wyświetl stan subskrypcji udziałów, przechodząc do obszaru wysłane udziały
 
 ## <a name="snapshot-history"></a>Historia migawek 
 
-Na karcie Historia można wyświetlić migawki, które zostały skopiowane do dzierżawy użytkownika danych. Można monitorować częstotliwość i czas trwania każdego interwału migawek. 
+Na karcie **historia** udziału można zobaczyć, kiedy dane są kopiowane z dostawcy danych do magazynu danych odbiorcy danych. Możesz monitorować częstotliwość, czas trwania i stan każdej migawki. 
 
 ![Historia migawek](./media/sent-shares.png "Historia migawek") 
 
-Aby wyświetlić więcej szczegółów na temat poszczególnych migawek, kliknij datę rozpoczęcia przebiegu. 
+Aby wyświetlić więcej szczegółów na temat poszczególnych migawek, kliknij datę rozpoczęcia przebiegu. Następnie kliknij stan każdego zestawu danych, aby wyświetlić ilość transferowanych danych, liczbę skopiowanych plików/rekordów, czas trwania migawki, liczbę użytych rdzeni wirtualnych i komunikat o błędzie, jeśli istnieje. 
 
-Domyślnie zostanie wyświetlona historia migawek do 30 dni. Jeśli potrzebujesz więcej niż 30 dni historii, przejdź do obszaru monitorowanie — > ustawienia diagnostyczne i wybierz pozycję **Dodaj ustawienie diagnostyczne**. Użytkownik musi wybrać konto magazynu, w którym będą przechowywane te dzienniki. 
+Zostanie wyświetlona historia migawek do 30 dni. Jeśli musisz zapisać i zobaczyć więcej niż 30 dni historii, możesz użyć ustawienia diagnostycznego.
+
+## <a name="diagnostic-setting"></a>Ustawienie diagnostyczne
+
+Można skonfigurować ustawienie diagnostyczne, aby zapisywać dane lub zdarzenia dziennika. Przejdź do opcji monitorowanie — > ustawienia diagnostyczne i wybierz pozycję **Dodaj ustawienie diagnostyczne**. Wybierz dane lub zdarzenia dziennika, które Cię interesują, i miejsce, w którym mają być przechowywane lub wysyłane. 
 
 ![Historia migawek](./media/diagnostic-settings.png "Ustawienia diagnostyczne") 
 

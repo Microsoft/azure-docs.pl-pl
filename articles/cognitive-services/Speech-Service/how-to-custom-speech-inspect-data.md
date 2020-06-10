@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 7a8fec876556d943d29756a38ffc27ae8095e3c4
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: e871d2c8e0fe00fa7db3144a787447163c82e62d
+ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466242"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84629041"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspekcja danych usługi Custom Speech
 
@@ -33,7 +33,7 @@ Na tej stronie dowiesz się, jak wizualnie zbadać jakość linii bazowej tekstu
 Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć test:
 
 1. Zaloguj się do [portalu Custom Speech](https://speech.microsoft.com/customspeech).
-2. Przejdź do **> funkcji zamiany mowy na tekst Custom Speech > testowanie**.
+2. Przejdź do **> zamiany mowy na tekst Custom Speech > [nazwa projektu] > testowanie**.
 3. Kliknij przycisk **Dodaj test**.
 4. Wybierz pozycję **Inspekcja jakości (dane audio)**. Nadaj testowi nazwę, opis i wybierz zestaw danych audio.
 5. Wybierz maksymalnie dwa modele, które chcesz przetestować.

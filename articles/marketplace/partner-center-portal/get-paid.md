@@ -5,13 +5,13 @@ author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/10/2019
-ms.openlocfilehash: d34687703506db89b524ad7510d4946df8ac5360
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/09/2020
+ms.openlocfilehash: 57a5f3046ce7a1f968bb823a0e13008d076b78c4
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849029"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636567"
 ---
 # <a name="getting-paid-in-the-commercial-marketplace"></a>Otrzymywanie płatności na rynku komercyjnym
 
@@ -27,21 +27,6 @@ Po [zarejestrowaniu się w celu uzyskania konta dewelopera](https://go.microsoft
 Opłaty są oficjalnie zdefiniowane w [Umowie wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560). Jeśli masz jakieś pytania, zawsze przejrzyj ten dokument.
 
 Opłata za Sklep jest stosowana do całej sprzedaży oferowanej przez komercyjną witrynę Marketplace, w tym dodatków.
-
-## <a name="price-tiers"></a>Warstwy cenowe
-
-Wybrane warstwy cenowe określają cenę sprzedaży we wszystkich krajach/regionach, w których wybrano dystrybucję oferty. Możesz również użyć dodatkowych funkcji cenowych, takich jak wybór różnych cen dla różnych rynków.
-
-Możesz bezpłatnie zaoferować swoją aplikację. Możesz też wybrać cenę, którą klienci muszą zanieść, aby skorzystać z oferty. Warstwy cenowe zaczynają się od. 99 USD, z dodatkowymi przyrostami (1,09 USD, 1,19 USD itd.). Przyrosty między warstwami cenowymi zwiększają się, gdy cena jest wyższa.
-
-> [!NOTE] 
-> Te warstwy cenowe dotyczą również wszelkich dodatków oferowanych w ramach oferty.
-
-Każda warstwa cenowa ma odpowiednią wartość w każdej z walut oferowanych przez sklep. Te wartości są używane w celu podzielenia oferty z porównywalnym punktem cenowym na całym świecie. Jednak ze względu na zmiany kursów wymiany dokładne kwoty sprzedaży mogą się nieco różnić od jednej waluty do innej.
-
-Dostępna jest również opcja wprowadzenia bezpłatnej ceny za wybór w walucie lokalnej określonego rynku. Po wykonaniu tej czynności cena nie zostanie skorygowana (nawet w przypadku zmiany szybkości konwersji), chyba że zostanie przesłana Aktualizacja z nową ceną. 
-
-Należy pamiętać, że wybrana cena może obejmować podatek sprzedaży lub wartości dodanej, które muszą zostać uregulowane przez klientów. Aby uzyskać szczegółowe informacje, zobacz [szczegóły podatkowe dla płatnej oferty](tax-details-paid-transactions.md).
 
 ## <a name="payout-reporting"></a>Raportowanie wypłaty
 

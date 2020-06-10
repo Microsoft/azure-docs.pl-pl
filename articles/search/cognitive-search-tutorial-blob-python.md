@@ -9,12 +9,13 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/26/2020
-ms.openlocfilehash: e7708b0043b7f5baf2c12e813306595cc358a01d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: tracking-python
+ms.openlocfilehash: 350bc92193a27b595158f65b6ae54edc1c934e35
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78194058"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84608795"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Samouczek: używanie języków Python i AI do generowania zawartości z możliwością wyszukiwania z obiektów blob platformy Azure
 
@@ -33,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Otwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-+ [Usługa Azure Storage](https://azure.microsoft.com/services/storage/)
++ [Azure Storage](https://azure.microsoft.com/services/storage/)
 + [Anaconda 3,7](https://www.anaconda.com/distribution/#download-section)
 + [Utwórz](search-create-service-portal.md) lub [Znajdź istniejącą usługę wyszukiwania](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
@@ -110,9 +111,9 @@ Tak jak w przypadku usługi Azure Blob Storage, poświęć chwilę na zebranie k
 
 ### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Pobierz klucz API i adres URL administratora dla usługi Azure Wyszukiwanie poznawcze
 
-1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Pobierz nazwę usługi wyszukiwania. Nazwę usługi można potwierdzić, przeglądając adres URL punktu końcowego. Jeśli adres URL punktu końcowego `https://mydemo.search.windows.net`to, nazwa usługi to `mydemo`.
+1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Pobierz nazwę usługi wyszukiwania. Nazwę usługi można potwierdzić, przeglądając adres URL punktu końcowego. Jeśli adres URL punktu końcowego to `https://mydemo.search.windows.net` , nazwa usługi to `mydemo` .
 
-2. W obszarze **Ustawienia** > **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+2. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
    Pobierz również klucz zapytania. Najlepszym rozwiązaniem jest wydawanie żądań zapytań z dostępem tylko do odczytu.
 
@@ -164,7 +165,7 @@ W przypadku usługi Azure Wyszukiwanie poznawcze przetwarzanie AI odbywa się po
 
 [Obiekt źródła danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source) dostarcza parametry połączenia z kontenerem obiektów BLOB zawierającym pliki.
 
-W poniższym skrypcie Zastąp symbol zastępczy obiektu-BLOB-RESOURCE-CONNECTION-String parametrami połączenia dla obiektu BLOB utworzonego w poprzednim kroku. Zamień tekst zastępczy dla kontenera. Następnie uruchom skrypt, aby utworzyć źródło danych o nazwie `cogsrch-py-datasource`.
+W poniższym skrypcie Zastąp symbol zastępczy obiektu-BLOB-RESOURCE-CONNECTION-String parametrami połączenia dla obiektu BLOB utworzonego w poprzednim kroku. Zamień tekst zastępczy dla kontenera. Następnie uruchom skrypt, aby utworzyć źródło danych o nazwie `cogsrch-py-datasource` .
 
 ```python
 # Create a data source
@@ -203,7 +204,7 @@ W tym kroku zdefiniujesz zestaw kroków wzbogacania, które zostaną zastosowane
 
 + [Wyodrębnianie kluczowych fraz](cognitive-search-skill-keyphrases.md) — określanie najczęściej występujących fraz kluczowych. 
 
-Uruchom następujący skrypt, aby utworzyć obiekt zestawu umiejętności o `cogsrch-py-skillset`nazwie.
+Uruchom następujący skrypt, aby utworzyć obiekt zestawu umiejętności o nazwie `cogsrch-py-skillset` .
 
 ```python
 # Create a skillset
@@ -291,9 +292,9 @@ print(r.status_code)
 
 Żądanie powinno zwrócić kod stanu 201 potwierdzenie sukcesu.
 
-Na każdej stronie jest stosowana umiejętność wyodrębniania frazy klucza. Ustawiając kontekst na `"document/pages/*"`, należy uruchomić ten program wzbogacający dla każdego elementu członkowskiego tablicy Document/Pages (dla każdej strony w dokumencie).
+Na każdej stronie jest stosowana umiejętność wyodrębniania frazy klucza. Ustawiając kontekst na `"document/pages/*"` , należy uruchomić ten program wzbogacający dla każdego elementu członkowskiego tablicy Document/Pages (dla każdej strony w dokumencie).
 
-Każda umiejętność jest wykonywana dla zawartości dokumentu. Podczas przetwarzania platforma Azure Wyszukiwanie poznawcze pęka każdy dokument w celu odczytania zawartości z różnych formatów plików. Tekst znaleziony w pliku źródłowym jest umieszczany w `content` polu, po jednym dla każdego dokumentu. W związku z tym ustaw wartość `"/document/content"`wejściową jako.
+Każda umiejętność jest wykonywana dla zawartości dokumentu. Podczas przetwarzania platforma Azure Wyszukiwanie poznawcze pęka każdy dokument w celu odczytania zawartości z różnych formatów plików. Tekst znaleziony w pliku źródłowym jest umieszczany w `content` polu, po jednym dla każdego dokumentu. W związku z tym ustaw wartość wejściową jako `"/document/content"` .
 
 Graficzna reprezentacja zestawu umiejętności jest przedstawiona poniżej.
 
@@ -309,11 +310,11 @@ W tej sekcji zdefiniujesz schemat indeksu, określając pola do uwzględnienia w
 
 W tym ćwiczeniu są używane następujące pola i typy pól:
 
-| field-names: | id         | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | identyfikator         | zawartość   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
-Uruchom ten skrypt, aby utworzyć indeks o `cogsrch-py-index`nazwie.
+Uruchom ten skrypt, aby utworzyć indeks o nazwie `cogsrch-py-index` .
 
 ```python
 # Create an index
@@ -383,7 +384,7 @@ Aby powiązać te obiekty ze sobą w indeksatorze, należy zdefiniować mapowani
 
 Oprócz przyłączania danych wejściowych do danych wyjściowych, można również używać mapowań pól do spłaszczania struktur. Aby uzyskać więcej informacji, zobacz [Jak mapować wzbogacone pola na indeks wyszukiwania](cognitive-search-output-field-mapping.md).
 
-Uruchom ten skrypt, aby utworzyć indeksator o nazwie `cogsrch-py-indexer`.
+Uruchom ten skrypt, aby utworzyć indeksator o nazwie `cogsrch-py-indexer` .
 
 ```python
 # Create an indexer

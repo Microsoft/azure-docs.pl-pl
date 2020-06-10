@@ -6,16 +6,16 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
 ms.subservice: alerts
-ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e81d48f4e709a9a0bb8ebb33c7029d3841167b6
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665225"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84609050"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alerty dzienników w Azure Monitor
 
-W tym artykule przedstawiono szczegółowe informacje dotyczące alertów dziennika, które są obsługiwane w ramach [alertów platformy Azure](../../azure-monitor/platform/alerts-overview.md) i umożliwiają użytkownikom korzystanie z platformy Azure Analytics na podstawie alertów.
+Alerty dzienników są jednym z typów alertów, które są obsługiwane w [alertach platformy Azure](../../azure-monitor/platform/alerts-overview.md). Alerty dzienników umożliwiają użytkownikom korzystanie z platformy Azure Analytics jako podstawy do zgłaszania alertów.
 
 Alert dziennika składa się z reguł przeszukiwania dzienników utworzonych dla [dzienników Azure monitor](../../azure-monitor/learn/tutorial-viewdata.md) lub [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). Aby dowiedzieć się więcej na temat użycia, zobacz [tworzenie alertów dziennika na platformie Azure](../../azure-monitor/platform/alerts-log.md)
 
@@ -132,7 +132,7 @@ Zobaczmy to zachowanie w działaniu z praktycznym przykładem. Załóżmy, że m
 W każdym przedziale czasowym system alertów platformy Azure oblicza warunek dotyczący *alertu contoso-log*.
 
 
-| Time    | Liczba rekordów zwracanych przez zapytanie przeszukiwania dzienników | Evalution warunku dziennika | Wynik 
+| Godzina    | Liczba rekordów zwracanych przez zapytanie przeszukiwania dzienników | Evalution warunku dziennika | Wynik 
 | ------- | ----------| ----------| ------- 
 | 1:05 PM | 0 rekordów | 0 nie jest > 0, więc FALSE |  Alert nie jest wyzwalany. Nie wywołano żadnych akcji.
 | 1:10 PM | 2 rekordy | 2 > 0  | Wyzwolone alerty i grupy akcji o nazwie. Stan alertu jest aktywny.
@@ -147,22 +147,22 @@ O godzinie 1:20 PM, gdy nie są wyświetlane rekordy z 500 kod wyniku, alerty pl
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Cennik i rozliczanie alertów dziennika
 
-Cennik dotyczący alertów dotyczących dzienników znajduje się na stronie z [cennikiem Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) . Na rachunkach systemu Azure alerty dzienników są reprezentowane jako `microsoft.insights/scheduledqueryrules` typ z:
+Cennik dotyczący alertów dotyczących dzienników znajduje się na stronie z [cennikiem Azure monitor](https://azure.microsoft.com/pricing/details/monitor/) . Na rachunkach systemu Azure alerty dzienników są reprezentowane jako typ `microsoft.insights/scheduledqueryrules` z:
 
 - Alerty dzienników dla Application Insights wyświetlane z dokładną nazwą alertu wraz z właściwościami grupy zasobów i alertu
 - Alerty dzienników dla Log Analytics wyświetlane z dokładną nazwą alertu wraz z właściwościami grupy zasobów i alertu; podczas tworzenia przy użyciu [interfejsu API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
-[Starsza wersja interfejsu API log Analytics](../../azure-monitor/platform/api-alerts.md) zawiera akcje alertów i harmonogramy w ramach log Analytics zapisanego wyszukiwania, a nie odpowiednie [zasoby platformy Azure](../../azure-resource-manager/management/overview.md). W związku z tym, aby włączyć rozliczenia dla takich starszych alertów dziennika utworzonych dla Log Analytics przy użyciu Azure Portal **bez** [przełączania do nowego interfejsu API](../../azure-monitor/platform/alerts-log-api-switch.md) lub za pośrednictwem [starszych log Analytics](../../azure-monitor/platform/api-alerts.md) `microsoft.insights/scheduledqueryrules` Ukryte reguły dotyczące alertów, które zostały utworzone `microsoft.insights/scheduledqueryrules` na potrzeby rozliczania, jak pokazano `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` na stronie z właściwościami grupy zasobów i alertu.
+[Starsza wersja interfejsu API log Analytics](../../azure-monitor/platform/api-alerts.md) zawiera akcje alertów i harmonogramy w ramach log Analytics zapisanego wyszukiwania, a nie odpowiednie [zasoby platformy Azure](../../azure-resource-manager/management/overview.md). W związku z tym, aby włączyć rozliczenia dla takich starszych alertów dziennika utworzonych dla Log Analytics przy użyciu Azure Portal **bez** [przełączania do nowego interfejsu API](../../azure-monitor/platform/alerts-log-api-switch.md) lub za pośrednictwem [starszych log Analytics](../../azure-monitor/platform/api-alerts.md) `microsoft.insights/scheduledqueryrules` Ukryte reguły dotyczące alertów, które zostały utworzone na potrzeby rozliczania `microsoft.insights/scheduledqueryrules` , jak pokazano na stronie `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` z właściwościami grupy zasobów i alertu.
 
 > [!NOTE]
-> Jeśli istnieją nieprawidłowe znaki, `<, >, %, &, \, ?, /` takie jak są obecne, zostaną zastąpione `_` przez wartość w polu Ukryta Nazwa reguły noalertu i w związku z tym również na rachunku na platformie Azure.
+> Jeśli istnieją nieprawidłowe znaki, takie jak `<, >, %, &, \, ?, /` są obecne, zostaną zastąpione przez `_` wartość w polu Ukryta Nazwa reguły noalertu i w związku z tym również na rachunku na platformie Azure.
 
 Aby usunąć ukryte zasoby scheduleQueryRules utworzone w celu rozliczenia reguł alertów przy użyciu [starszej wersji interfejsu API log Analytics](api-alerts.md), użytkownik może wykonać jedną z następujących czynności:
 
 - Każdy użytkownik może [przełączyć preferencję interfejsu API dla reguł alertów w obszarze roboczym log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) i bez utraty ich reguł alertów ani monitorować przechodzenie do Azure Resource Manager zgodnych [interfejsów API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Eliminuje to konieczność podejmowania dla rozliczeń bardzo ukrytych reguł alertów.
 - Lub jeśli użytkownik nie chce przełączać preferencji interfejsu API, użytkownik będzie musiał **usunąć** oryginalny harmonogram i akcję alertu przy użyciu [STARSZEJ wersji interfejsu API log Analytics](api-alerts.md) lub usunąć w [Azure Portal oryginalnej regule alertu dziennika](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
-Ponadto w przypadku ukrytych zasobów scheduleQueryRules utworzonych na potrzeby rozliczania reguł alertów przy użyciu [starszej wersji interfejsu API log Analytics](api-alerts.md)wszelkie operacje modyfikacji, takie jak Put, zakończą się niepowodzeniem Zasady dotyczące `microsoft.insights/scheduledqueryrules` typu są przeznaczone do celów rozliczania reguł alertów utworzonych przy użyciu [STARSZEJ wersji interfejsu API log Analytics](api-alerts.md). Wszelkie modyfikacje reguły alertów należy wykonać przy użyciu [starszej wersji interfejsu api log Analytics](api-alerts.md) (lub) użytkownik może [przełączyć preferencję interfejsu API, aby reguły alertów](../../azure-monitor/platform/alerts-log-api-switch.md) korzystały z [interfejsu API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) .
+Ponadto w przypadku ukrytych zasobów scheduleQueryRules utworzonych na potrzeby rozliczania reguł alertów przy użyciu [starszej wersji interfejsu API log Analytics](api-alerts.md)wszelkie operacje modyfikacji, takie jak Put, zakończą się niepowodzeniem `microsoft.insights/scheduledqueryrules`Zasady dotyczące typu są przeznaczone do celów rozliczania reguł alertów utworzonych przy użyciu [starszej wersji interfejsu API log Analytics](api-alerts.md). Wszelkie modyfikacje reguły alertów należy wykonać przy użyciu [starszej wersji interfejsu api log Analytics](api-alerts.md) (lub) użytkownik może [przełączyć preferencję interfejsu API, aby reguły alertów](../../azure-monitor/platform/alerts-log-api-switch.md) korzystały z [interfejsu API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) .
 
 ## <a name="next-steps"></a>Następne kroki
 

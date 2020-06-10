@@ -9,20 +9,20 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/03/2020
-ms.openlocfilehash: 2c57ddd88046044cccd13b0ade23144cd5649455
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 143c94527b947495709d2e94f107dc578e7f2866
+ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433322"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84610206"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformacja ujścia w przepływie danych mapowania
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Po przekształceniu danych można je ujścia do docelowego zestawu danych. Każdy przepływ danych wymaga co najmniej jednego przekształcenia ujścia, ale w razie potrzeby można zapisać do tylu zlewów, aby zakończyć przepływ transformacji. Aby zapisywać w dodatkowych ujściach, Utwórz nowe strumienie za pośrednictwem nowych gałęzi i podziałów warunkowych.
+Po zakończeniu przekształcania danych Zapisz je w magazynie docelowym przy użyciu transformacji ujścia. Każdy przepływ danych wymaga co najmniej jednego przekształcenia ujścia, ale w razie potrzeby można zapisać do tylu zlewów, aby zakończyć przepływ transformacji. Aby zapisywać w dodatkowych ujściach, Utwórz nowe strumienie za pośrednictwem nowych gałęzi i podziałów warunkowych.
 
-Każda transformacja ujścia jest skojarzona z dokładnie jednym Data Factory zestawem danych. Zestaw danych definiuje kształt i lokalizację danych, do których chcesz pisać.
+Każda transformacja ujścia jest skojarzona z dokładnie jednym Azure Data Factory obiektem DataSet lub połączoną usługą. Transformacja ujścia określa kształt i lokalizację danych, do których chcesz pisać.
 
 ## <a name="inline-datasets"></a>Wbudowane zestawy danych
 
@@ -36,30 +36,28 @@ Aby użyć wbudowanego zestawu danych, wybierz odpowiedni format w selektorze **
 
 ![Wbudowany zestaw danych](media/data-flow/inline-selector.png "Wbudowany zestaw danych")
 
-### <a name="supported-inline-dataset-formats"></a>Obsługiwane formaty wbudowanego zestawu danych
+##  <a name="supported-sink-types"></a><a name="supported-sinks"></a>Obsługiwane typy ujścia
 
-Obecnie jedynym dostępnym formatem wbudowanego zestawu [danych](format-common-data-model.md#sink-properties) jest odczytanie z [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md).
+Mapowanie przepływu danych odbywa się zgodnie z podejściem wyodrębniania, ładowania, przekształcania (ELT) i współdziała z *tymczasowymi* zestawami danych, które są wszystkie na platformie Azure. Obecnie następujące zestawy danych mogą być używane w transformacji źródłowej:
 
-## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Obsługiwane łączniki ujścia w mapowaniu przepływu danych
+| Łącznik | Format | Zestaw danych/wbudowany |
+| --------- | ------ | -------------- |
+| [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Tekst rozdzielany](format-delimited-text.md#mapping-data-flow-properties) <br> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (wersja zapoznawcza)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> ✓/- <br> -/✓ |
+| [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure CosmosDB (interfejs API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 
-Obecnie następujące zestawy danych mogą być używane w transformację ujścia:
-    
-* [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, text, parquet)
-* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, text, parquet)
-* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, text, parquet)
-* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
-* [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
+Ustawienia specyficzne dla tych łączników znajdują się na karcie **Ustawienia** . Przykłady skryptów informacji i przepływu danych dotyczące tych ustawień znajdują się w dokumentacji łącznika. 
 
-Ustawienia specyficzne dla tych łączników znajdują się na karcie **Ustawienia** . informacje dotyczące tych ustawień znajdują się w dokumentacji łącznika. 
-
-Usługa Azure Data Factory ma dostęp do ponad [90 natywnych łączników](connector-overview.md). Aby zapisać dane do tych innych łączników z przepływu danych, Użyj działania kopiowania w celu załadowania danych z jednego z obsługiwanych obszarów przemieszczania po zakończeniu przepływu danych.
+Usługa Azure Data Factory ma dostęp do ponad [90 natywnych łączników](connector-overview.md). Aby zapisać dane do tych innych źródeł z przepływu danych, Użyj działania kopiowania w celu załadowania danych z obsługiwanego ujścia.
 
 ## <a name="sink-settings"></a>Ustawienia ujścia
 
 Po dodaniu ujścia skonfiguruj go za pomocą karty **ujścia** . W tym miejscu możesz wybrać lub utworzyć zestaw danych, do którego ma zostać zapisywany obiekt ujścia. Poniżej znajduje się film przedstawiający szereg różnych opcji ujścia dla typów plików rozdzielanych tekstem:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tf7T]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
 
 ![Ustawienia ujścia](media/data-flow/sink-settings.png "Ustawienia ujścia")
 

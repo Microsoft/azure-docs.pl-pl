@@ -2,13 +2,13 @@
 title: View and manage customers and delegated resources (Wyświetlanie klientów i zasobów delegowanych oraz zarządzanie nimi)
 description: Jako dostawca usług korzystający z funkcji zarządzania zasobami delegowanymi przez platformę Azure możesz wyświetlić wszystkie delegowane zasoby i subskrypcje klientów, przechodząc do moich klientów w Azure Portal.
 ms.date: 01/22/2020
-ms.topic: conceptual
-ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 4b069c2e78021c31a85ea8fca005152e2d28231e
+ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76543430"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636482"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>View and manage customers and delegated resources (Wyświetlanie klientów i zasobów delegowanych oraz zarządzanie nimi)
 
