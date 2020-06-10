@@ -51,7 +51,7 @@ Po przeniesieniu danych ze źródła do magazynu docelowego, Azure Data Factory 
 -   [System plików](connector-file-system.md)
 
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 Poniższy przykład zawiera definicję JSON, aby włączyć weryfikację spójności danych w działaniu kopiowania: 
 
 ```json
