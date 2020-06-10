@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 01787fbf3339a7e079b705fb4be27ba1e30aee1b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 6929f6a8ca79c63d6d6d6fc2f3eee1b22ec49d39
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342882"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656898"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurowanie SQL Server wystąpienia klastra trybu failover z udziałem plików w warstwie Premium na platformie Azure Virtual Machines
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym artykule opisano sposób tworzenia SQL Server wystąpienia klastra trybu failover (FCI) w usłudze Azure Virtual Machines przy użyciu [udziału plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md).
@@ -29,7 +30,7 @@ W tym artykule opisano sposób tworzenia SQL Server wystąpienia klastra trybu f
 Udziały plików w warstwie Premium to dyski SSD, spójne udziały plików o małym opóźnieniu, które są w pełni obsługiwane do użycia z wystąpieniami klastrów trybu failover dla SQL Server 2012 lub nowszych w systemie Windows Server 2012 lub nowszym. Udziały plików w warstwie Premium zapewniają większą elastyczność, co pozwala na zmianę rozmiaru i skalowanie udziału plików bez przestojów.
 
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Przed rozpoczęciem pracy należy poznać kilka rzeczy.
 
@@ -47,6 +48,8 @@ Należy również uzyskać ogólne informacje na temat tych technologii:
 
 > [!IMPORTANT]
 > W tej chwili SQL Server wystąpienia klastra trybu failover na platformie Azure Virtual Machines są obsługiwane tylko w SQL Server [trybie uproszczonego zarządzania](sql-vm-resource-provider-register.md#management-modes) [rozszerzenia IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Aby zmienić tryb pełnego rozszerzenia na lekki, Usuń zasób **maszyny wirtualnej SQL** dla odpowiednich maszyn wirtualnych, a następnie zarejestruj je u dostawcy zasobów maszyny wirtualnej SQL w trybie uproszczonym. Podczas usuwania zasobu **maszyny wirtualnej SQL** przy użyciu Azure Portal **Wyczyść pole wyboru obok odpowiedniej maszyny wirtualnej**. Pełne rozszerzenie obsługuje takie funkcje, jak automatyczne tworzenie kopii zapasowych, stosowanie poprawek i zaawansowane zarządzanie portalem. Te funkcje nie będą działały w przypadku maszyn wirtualnych SQL po ponownym zainstalowaniu agenta w trybie uproszczonego zarządzania.
+> 
+
 
 Udziały plików w warstwie Premium zapewniają możliwości IOPS i przepływności, które będą spełniały potrzeby wielu obciążeń. W przypadku obciążeń intensywnie korzystających z operacji we/wy należy rozważyć [SQL Server wystąpienia klastra trybu failover z bezpośrednie miejsca do magazynowania](failover-cluster-instance-storage-spaces-direct-manually-configure.md), na podstawie zarządzanych dysków Premium lub Ultra dysków.  
 
@@ -64,7 +67,7 @@ Dzięki licencjonowaniu z płatnością zgodnie z rzeczywistym użyciem wystąpi
 
 Jeśli masz Umowa Enterprise z programem Software Assurance, możesz użyć jednego wolnego węzła pasywnej FCI dla każdego aktywnego węzła. Aby skorzystać z tej korzyści na platformie Azure, użyj obrazów maszyn wirtualnych BYOL i Użyj tej samej licencji na węzłach aktywnych i pasywnych FCI. Aby uzyskać więcej informacji, zobacz [Umowa Enterprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
-Aby porównać usługę płatność zgodnie z rzeczywistym użyciem i BYOL licencję na SQL Server w usłudze Azure Virtual Machines, zobacz artykuł [Rozpoczynanie pracy z maszynami wirtualnymi SQL](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
+Aby porównać usługę płatność zgodnie z rzeczywistym użyciem i BYOL Licencjonowanie na potrzeby SQL Server na maszynie wirtualnej platformy Azure, zobacz Wprowadzenie [do SQL Server maszyn wirtualnych](sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms).
 
 Aby uzyskać pełne informacje na temat licencjonowania SQL Server, zobacz [Cennik](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
@@ -79,11 +82,11 @@ Przed wykonaniem kroków opisanych w tym artykule należy dysponować:
 - Subskrypcję platformy Microsoft Azure.
 - Domena systemu Windows w usłudze Azure Virtual Machines.
 - Konto użytkownika domeny, które ma uprawnienia do tworzenia obiektów na platformie Azure Virtual Machines i w Active Directory.
-- Konto użytkownika domeny do uruchamiania usługi SQL Server i można zalogować się do maszyny wirtualnej przy użyciu programu podczas instalowania udziału plików.  
+- Konto użytkownika domeny do uruchamiania usługi SQL Server i służy do logowania się do maszyny wirtualnej podczas instalowania udziału plików. 
 - Sieć wirtualna platformy Azure i podsieć z wystarczającą przestrzenią adresową IP dla tych składników:
-   - Dwie maszyny wirtualne.
-   - Adres IP klastra trybu failover.
-   - Adres IP dla każdego FCIu.
+   - Dwie maszyny wirtualne
+   - Adres IP klastra trybu failover
+   - Adres IP dla każdego FCIu
 - System DNS skonfigurowany w sieci platformy Azure, wskazujący kontrolery domeny.
 - [Udział plików w warstwie Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) , który ma być używany jako dysk klastrowany, na podstawie przydziału magazynu bazy danych dla plików danych.
 - Jeśli korzystasz z systemu Windows Server 2012 R2 lub starszego, będziesz potrzebować innego udziału plików, który będzie używany jako monitor udostępniania plików, ponieważ monitory chmur są obsługiwane dla systemu Windows 2016 i nowszych wersji. Możesz użyć innego udziału plików platformy Azure lub użyć udziału plików na oddzielnej maszynie wirtualnej. Jeśli zamierzasz użyć innego udziału plików platformy Azure, możesz go zainstalować przy użyciu tego samego procesu co w przypadku udziału plików Premium używanego na dysku klastrowym. 
@@ -102,7 +105,7 @@ Po spełnieniu tych wymagań wstępnych można rozpocząć tworzenie klastra try
 
    1. W Azure Portal wybierz pozycję **Utwórz zasób** , aby otworzyć witrynę Azure Marketplace. Wyszukaj **zestaw dostępności**.
    1. Wybierz pozycję **zestaw dostępności**.
-   1. Wybierz pozycję **Utwórz**.
+   1. Wybierz przycisk **Utwórz**.
    1. W obszarze **Tworzenie zestawu dostępności**podaj następujące wartości:
       - **Nazwa**: Nazwa zestawu dostępności.
       - **Subskrypcja**: Twoja subskrypcja platformy Azure.
@@ -125,19 +128,21 @@ Po spełnieniu tych wymagań wstępnych można rozpocząć tworzenie klastra try
 
       >[!IMPORTANT]
       >Nie można ustawić ani zmienić zestawu dostępności po utworzeniu maszyny wirtualnej.
+      >
 
    Wybierz obraz z witryny Azure Marketplace. Możesz użyć obrazu portalu Azure Marketplace zawierającego system Windows Server i SQL Server lub użyć systemu z systemem Windows Server. Aby uzyskać szczegółowe informacje, zobacz [omówienie SQL Server w usłudze Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
 
    Oficjalne obrazy SQL Server w galerii platformy Azure obejmują zainstalowane wystąpienie SQL Server, oprogramowanie instalacyjne SQL Server i wymagany klucz.
 
-   >[!IMPORTANT]
+   > [!IMPORTANT]
    > Po utworzeniu maszyny wirtualnej Usuń wstępnie zainstalowane wystąpienie SQL Server autonomicznej. Przed skonfigurowaniem klastra trybu failover i udziału plików w warstwie Premium jako magazynu użyjesz wstępnie zainstalowanego SQL Server nośnika SQL Server.
+   > 
 
    Alternatywnie możesz użyć obrazów portalu Azure Marketplace, które zawierają tylko system operacyjny. Wybierz obraz **systemu Windows Server 2016 Datacenter** i zainstaluj SQL Server FCI po skonfigurowaniu klastra trybu failover i udziału plików w warstwie Premium jako magazynu. Ten obraz nie zawiera nośnika instalacyjnego SQL Server. Umieść nośnik instalacyjny SQL Server w lokalizacji, w której można uruchomić go dla każdego serwera.
 
-1. Po utworzeniu maszyn wirtualnych przez platformę Azure Połącz się z nimi przy użyciu protokołu RDP.
+1. Po utworzeniu maszyn wirtualnych przez platformę Azure Połącz się z nimi przy użyciu Remote Desktop Protocol (RDP).
 
-   Gdy po raz pierwszy łączysz się z maszyną wirtualną przy użyciu protokołu RDP, zostanie wyświetlony monit z pytaniem, czy chcesz zezwolić na odnajdywanie komputera w sieci. Wybierz pozycję **tak**.
+   Gdy po raz pierwszy łączysz się z maszyną wirtualną przy użyciu protokołu RDP, zostanie wyświetlony monit z pytaniem, czy chcesz zezwolić na odnajdywanie komputera w sieci. Wybierz pozycję **Tak**.
 
 1. Jeśli używasz jednego z obrazów maszyn wirtualnych opartych na SQL Server, Usuń wystąpienie SQL Server.
 
@@ -185,10 +190,11 @@ Po utworzeniu i skonfigurowaniu maszyn wirtualnych można skonfigurować udział
   > [!IMPORTANT]
   > - Rozważ użycie oddzielnego udziału plików dla plików kopii zapasowej w celu zapisania liczby IOPS i pojemności miejsca w tym udziale dla plików danych i dziennika. W przypadku plików kopii zapasowej można użyć Premium lub standardowego udziału plików.
   > - Jeśli korzystasz z systemu Windows 2012 R2 lub starszego, wykonaj te same kroki, aby zainstalować udział plików, który ma być używany jako monitor udziału plików. 
+  > 
 
 ## <a name="step-3-configure-the-failover-cluster"></a>Krok 3. Konfigurowanie klastra trybu failover
 
-Następnym krokiem jest skonfigurowanie klastra trybu failover. W tym kroku wykonasz następujące podkroky:
+Teraz można skonfigurować klaster trybu failover. W tej sekcji wykonaj następujące czynności:
 
 1. Dodaj funkcję Klaster trybu failover systemu Windows Server.
 1. Sprawdź poprawność klastra.
@@ -223,14 +229,14 @@ Aby sprawdzić poprawność klastra przy użyciu interfejsu użytkownika, wykona
 
 1. W obszarze **Menedżer serwera**wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Menedżer klastra trybu failover**.
 1. W obszarze **Menedżer klastra trybu failover**wybierz pozycję **Akcja**, a następnie wybierz pozycję **Weryfikuj konfigurację**.
-1. Wybierz opcję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 1. W obszarze **Wybierz serwery lub klaster**wprowadź nazwy obu maszyn wirtualnych.
-1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. Wybierz opcję **Dalej**.
+1. W obszarze **opcje testowania**wybierz opcję **Uruchom tylko wybrane testy**. Wybierz przycisk **Dalej**.
 1. W obszarze **wybór testu**zaznacz wszystkie testy z wyjątkiem **magazynu** i **bezpośrednie miejsca do magazynowania**, jak pokazano poniżej:
 
    :::image type="content" source="media/manually-configure-failover-cluster-instance-premium-file-share/cluster-validation.png" alt-text="Wybierz testy weryfikacji klastra":::
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 1. W obszarze **potwierdzenie**wybierz pozycję **dalej**.
 
 **Kreator weryfikacji konfiguracji** uruchamia testy weryfikacyjne.
@@ -246,8 +252,9 @@ Po sprawdzeniu poprawności klastra utwórz klaster trybu failover.
 ### <a name="create-the-failover-cluster"></a>Tworzenie klastra trybu failover
 
 Aby utworzyć klaster trybu failover, potrzebne są:
+
 - Nazwy maszyn wirtualnych, które staną się węzłami klastra.
-- Nazwa klastra trybu failover
+- Nazwa klastra trybu failover.
 - Adres IP klastra trybu failover. Można użyć adresu IP, który nie jest używany w tej samej sieci wirtualnej platformy Azure i podsieci co węzły klastra.
 
 #### <a name="windows-server-2012-through-windows-server-2016"></a>System Windows Server 2012 za poorednictwem systemu Windows Server 2016
@@ -267,7 +274,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### <a name="create-a-cloud-witness-win-2016-"></a>Utwórz monitor w chmurze (win 2016 +)
+### <a name="create-a-cloud-witness-win-2016-and-later"></a>Utwórz monitor w chmurze (win 2016 i nowszych)
 
 Jeśli korzystasz z systemu Windows Server 2016 lub nowszego, musisz utworzyć monitor w chmurze. Monitor w chmurze to nowy typ monitora kworum klastra, który jest przechowywany w obiekcie blob usługi Azure Storage. Eliminuje to konieczność użycia oddzielnej maszyny wirtualnej, która hostuje udział monitora lub korzysta z oddzielnego udziału plików.
 
@@ -279,7 +286,7 @@ Jeśli korzystasz z systemu Windows Server 2016 lub nowszego, musisz utworzyć m
 
 ### <a name="configure-quorum"></a>Konfigurowanie kworum 
 
-W przypadku systemu Windows Server 2016 lub nowszego skonfiguruj klaster tak, aby korzystał z właśnie utworzonego monitora chmurowego. Wykonaj wszystkie kroki [konfigurowania monitora kworum w interfejsie użytkownika](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+W przypadku systemu Windows Server 2016 i nowszych skonfiguruj klaster tak, aby korzystał z właśnie utworzonego monitora chmurowego. Wykonaj wszystkie kroki [konfigurowania monitora kworum w interfejsie użytkownika](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
 
 W przypadku systemu Windows Server 2012 R2 lub starszego wykonaj te same czynności w temacie [Konfigurowanie monitora kworum w interfejsie użytkownika](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) , ale na stronie **Wybieranie monitora kworum** wybierz opcję **Konfiguruj udostępnianie plików** . Określ udział plików, który został przydzielony jako monitor udostępniania plików, niezależnie od tego, czy jest on skonfigurowany na oddzielnej maszynie wirtualnej, czy zainstalowany z platformy Azure. 
 
@@ -296,7 +303,7 @@ Po skonfigurowaniu klastra trybu failover można utworzyć SQL Server FCI.
 
 1. Nawiąż połączenie z pierwszą maszyną wirtualną przy użyciu protokołu RDP.
 
-1. W **Menedżer klastra trybu failover**upewnij się, że wszystkie podstawowe zasoby klastra znajdują się na pierwszej maszynie wirtualnej. Jeśli chcesz, Przenieś wszystkie zasoby do tej maszyny wirtualnej.
+1. W **Menedżer klastra trybu failover**upewnij się, że wszystkie podstawowe zasoby klastra znajdują się na pierwszej maszynie wirtualnej. W razie potrzeby Przenieś wszystkie zasoby do tej maszyny wirtualnej.
 
 1. Znajdź nośnik instalacyjny. Jeśli maszyna wirtualna używa jednego z obrazów portalu Azure Marketplace, nośnik znajduje się w lokalizacji `C:\SQLServer_<version number>_Full` . Wybierz pozycję **Konfiguracja**.
 
@@ -304,7 +311,7 @@ Po skonfigurowaniu klastra trybu failover można utworzyć SQL Server FCI.
 
 1. Wybierz pozycję **nowa SQL Server Instalacja klastra trybu failover**. Postępuj zgodnie z instrukcjami wyświetlanymi w kreatorze, aby zainstalować SQL Server FCI.
 
-   Katalogi danych FCI muszą znajdować się w udziale plików w warstwie Premium. Wprowadź pełną ścieżkę udziału w tej formie: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Zostanie wyświetlone ostrzeżenie z informacją o tym, że jako katalog danych został określony serwer plików. To ostrzeżenie jest oczekiwane. Upewnij się, że konto użytkownika, do którego odnosisz się do maszyny wirtualnej, przy zachowaniu udziału plików jest to samo konto, które jest używane przez usługę SQL Server, aby uniknąć możliwych błędów.
+   Katalogi danych FCI muszą znajdować się w udziale plików w warstwie Premium. Wprowadź pełną ścieżkę udziału w tej formie: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Zostanie wyświetlone ostrzeżenie z informacją o tym, że jako katalog danych został określony serwer plików. To ostrzeżenie jest oczekiwane. Upewnij się, że konto użytkownika używane do uzyskiwania dostępu do maszyny wirtualnej za pośrednictwem protokołu RDP podczas utrwalania udziału plików jest tym samym kontem, którego używa Usługa SQL Server, aby uniknąć możliwych błędów.
 
    :::image type="content" source="media/manually-configure-failover-cluster-instance-premium-file-share/use-file-share-as-data-directories.png" alt-text="Korzystanie z udziału plików jako katalogów danych SQL":::
 
@@ -318,6 +325,7 @@ Po skonfigurowaniu klastra trybu failover można utworzyć SQL Server FCI.
 
    >[!NOTE]
    >Jeśli korzystasz z obrazu galerii portalu Azure Marketplace z SQL Server, narzędzia SQL Server zostały dołączone do obrazu. Jeśli nie korzystasz z jednego z tych obrazów, zainstaluj SQL Server narzędzia osobno. Zobacz [pobieranie SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >
 
 ## <a name="step-6-create-the-azure-load-balancer"></a>Krok 6. Tworzenie modułu równoważenia obciążenia platformy Azure
 
@@ -333,7 +341,7 @@ Aby utworzyć moduł równoważenia obciążenia:
 
 1. Wybierz pozycję **Dodaj**. Wyszukaj **Load Balancer**w portalu Azure Marketplace. Wybierz **Load Balancer**.
 
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Skonfiguruj moduł równoważenia obciążenia przy użyciu następujących wartości:
 
@@ -429,6 +437,7 @@ Na poniższej liście opisano wartości, które należy zaktualizować:
 
 >[!IMPORTANT]
 >Maska podsieci parametru klastra musi być adresem IP protokołu TCP: `255.255.255.255` .
+>
 
 Po ustawieniu sondy klastra można zobaczyć wszystkie parametry klastra w programie PowerShell. Uruchom ten skrypt:
 
@@ -456,17 +465,19 @@ Aby przetestować łączność, zaloguj się do innej maszyny wirtualnej w tej s
 
 >[!NOTE]
 >Jeśli zachodzi taka potrzeba, można [pobrać SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+>
 
 ## <a name="limitations"></a>Ograniczenia
 
 Usługa Azure Virtual Machines obsługuje usługę Microsoft Distributed Transaction Coordinator (MSDTC) w systemie Windows Server 2019 z magazynem w udostępnionych woluminach klastra (CSV) i w [standardowym module równoważenia obciążenia](../../../load-balancer/load-balancer-standard-overview.md).
+
 
 Na platformie Azure Virtual Machines usługa MSDTC nie jest obsługiwana w systemie Windows Server 2016 lub starszym, ponieważ:
 
 - Nie można skonfigurować klastrowanego zasobu usługi MSDTC do korzystania z magazynu udostępnionego. W systemie Windows Server 2016, jeśli utworzysz zasób MSDTC, nie będzie widoczny żaden magazyn udostępniony dostępny do użycia, nawet jeśli magazyn jest dostępny. Ten problem został rozwiązany w systemie Windows Server 2019.
 - Podstawowa usługa równoważenia obciążenia nie obsługuje portów RPC.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Technologie klastrów systemu Windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server wystąpienia klastra trybu failover](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

@@ -10,13 +10,13 @@ ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
-ms.date: 10/31/2018
-ms.openlocfilehash: 0f018d6b94d1c5b9d9002a767b3ebceb6c9c746c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/10/2020
+ms.openlocfilehash: 8422d6978c21744696e3d37c34fdd867b014a19e
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106631"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655761"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Utwórz udostępnione środowisko Integration Runtime w Azure Data Factory
 
@@ -28,21 +28,19 @@ W tym przewodniku pokazano, jak utworzyć udostępnione środowisko Integration 
 
 Aby utworzyć udostępniony samoobsługowy środowisko IR przy użyciu interfejsu użytkownika Azure Data Factory, można wykonać następujące czynności:
 
-1. W przypadku samodzielnego udostępniania środowiska IR Udziel uprawnień do fabryki danych, w której chcesz utworzyć połączony IR.
+1. W obszarze samoobsługowe środowisko IR do udostępnienia wybierz pozycję **Udziel uprawnienia do innej fabryki danych** , a następnie na stronie "Instalacja środowiska Integration Runtime" Wybierz fabrykę danych, w której chcesz utworzyć połączony IR.
       
-    ![Przycisk do przyznawania uprawnień na karcie Udostępnianie](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
-      
-    ![Wybory dotyczące przypisywania uprawnień](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)     
+    ![Przycisk do przyznawania uprawnień na karcie Udostępnianie](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)  
     
-2. Zanotuj identyfikator zasobu samodzielnego środowiska IR, który ma zostać udostępniony.
-      
-   ![Lokalizacja identyfikatora zasobu](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
-    
+2. Zwróć uwagę i Skopiuj powyższy "Identyfikator zasobu" samodzielnego środowiska IR do udostępnienia.
+         
 3. W fabryce danych, do której udzielono uprawnień, Utwórz nowe środowisko IR (połączone), a następnie wprowadź identyfikator zasobu.
       
-   ![Przycisk służący do tworzenia połączonego środowiska Integration Runtime (własny)](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
-      
-    ![Pola nazwy i identyfikatora zasobu](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
+    ![Przycisk służący do tworzenia własnego środowiska Integration Runtime](media/create-self-hosted-integration-runtime/create-linkedir-1.png)
+   
+    ![Przycisk służący do tworzenia połączonego środowiska Integration Runtime (własny)](media/create-self-hosted-integration-runtime/create-linkedir-2.png) 
+
+    ![Pola nazwy i identyfikatora zasobu](media/create-self-hosted-integration-runtime/create-linkedir-3.png)
 
 ## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Tworzenie udostępnionego samoobsługowego środowiska IR przy użyciu Azure PowerShell
 

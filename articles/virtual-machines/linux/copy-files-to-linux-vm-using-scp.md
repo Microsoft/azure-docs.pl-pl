@@ -4,16 +4,16 @@ description: Bezpieczne przenoszenie plików do i z maszyny wirtualnej z systeme
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/12/2017
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: a0837790b70de42073338bf085ee0f3976b866f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 531edf5bb857b570e595fc1a179a887013e094f3
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969602"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659768"
 ---
 # <a name="move-files-to-and-from-a-linux-vm-using-scp"></a>Przenoszenie plików do i z maszyny wirtualnej z systemem Linux przy użyciu usługi SCP
 
@@ -41,9 +41,9 @@ Przykładowo przenosimy plik konfiguracji platformy Azure do maszyny wirtualnej 
 
 ## <a name="ssh-key-pair-authentication"></a>Uwierzytelnianie pary kluczy SSH
 
-Punkt połączenia usługi używa protokołu SSH dla warstwy transportowej. Protokół SSH obsługuje uwierzytelnianie na hoście docelowym i przenosi plik w szyfrowanym tunelu udostępnianym domyślnie przy użyciu protokołu SSH. W przypadku uwierzytelniania SSH można używać nazw użytkowników i haseł. Jednak najlepszym rozwiązaniem w zakresie zabezpieczeń jest uwierzytelnianie klucza publicznego i prywatnego protokołu SSH. Po uwierzytelnieniu połączenia przez protokół SSH usługa SCP rozpocznie kopiowanie pliku. Za pomocą prawidłowo skonfigurowanych `~/.ssh/config` i prywatnych kluczy SSH, połączenie punktu połączenia usługi może być nawiązywane przy użyciu nazwy serwera (lub adresu IP). Jeśli masz tylko jeden klucz SSH, punkt połączenia `~/.ssh/` usługi szuka go w katalogu i domyślnie użyje go w celu zalogowania się do maszyny wirtualnej.
+Punkt połączenia usługi używa protokołu SSH dla warstwy transportowej. Protokół SSH obsługuje uwierzytelnianie na hoście docelowym i przenosi plik w szyfrowanym tunelu udostępnianym domyślnie przy użyciu protokołu SSH. W przypadku uwierzytelniania SSH można używać nazw użytkowników i haseł. Jednak najlepszym rozwiązaniem w zakresie zabezpieczeń jest uwierzytelnianie klucza publicznego i prywatnego protokołu SSH. Po uwierzytelnieniu połączenia przez protokół SSH usługa SCP rozpocznie kopiowanie pliku. Za pomocą prawidłowo skonfigurowanych `~/.ssh/config` i prywatnych kluczy SSH, połączenie punktu połączenia usługi może być nawiązywane przy użyciu nazwy serwera (lub adresu IP). Jeśli masz tylko jeden klucz SSH, punkt połączenia usługi szuka go w `~/.ssh/` katalogu i domyślnie użyje go w celu zalogowania się do maszyny wirtualnej.
 
-Aby uzyskać więcej informacji na temat `~/.ssh/config` konfigurowania kluczy publicznych i prywatnych SSH, zobacz [Tworzenie kluczy SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Aby uzyskać więcej informacji na temat konfigurowania `~/.ssh/config` kluczy publicznych i prywatnych SSH, zobacz [Tworzenie kluczy SSH](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="scp-a-file-to-a-linux-vm"></a>SCP pliku do maszyny wirtualnej z systemem Linux
 
@@ -65,7 +65,7 @@ Następujące polecenie kopiuje pliki z katalogu */Home/azureuser/Logs/* na masz
 scp -r azureuser@myserver.eastus.cloudapp.com:/home/azureuser/logs/. /tmp/
 ```
 
-`-r` Flaga nakazuje usłudze SCP cykliczne kopiowanie plików i katalogów z punktu katalogu wymienionego w poleceniu.  Zauważ również, że składnia wiersza polecenia jest podobna do polecenia `cp` Copy.
+`-r`Flaga nakazuje usłudze SCP cykliczne kopiowanie plików i katalogów z punktu katalogu wymienionego w poleceniu.  Zauważ również, że składnia wiersza polecenia jest podobna do `cp` polecenia copy.
 
 ## <a name="next-steps"></a>Następne kroki
 

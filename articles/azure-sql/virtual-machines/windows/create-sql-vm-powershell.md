@@ -1,5 +1,5 @@
 ---
-title: Przewodnik aprowizacji dla SQL Server maszyn wirtualnych z Azure PowerShell | Microsoft Docs
+title: Przewodnik po użyciu Azure PowerShell do aprowizacji SQL Server na maszynie wirtualnej platformy Azure
 description: Zawiera kroki i polecenia programu PowerShell służące do tworzenia maszyny wirtualnej platformy Azure przy użyciu obrazów galerii maszyn wirtualnych SQL Server.
 services: virtual-machines-windows
 documentationcenter: na
@@ -15,14 +15,15 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 39289740bd1d00a5916db45178f1eb1ef9bc7b12
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: def998c018a90cc288204650ae8d713bf1b4b5bc
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046110"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656922"
 ---
-# <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Jak zainicjować obsługę administracyjną SQL Server maszyn wirtualnych za pomocą Azure PowerShell
+# <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Jak za pomocą Azure PowerShell zainicjować obsługę administracyjną SQL Server na platformie Azure Virtual Machines
+
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym przewodniku objaśniono opcje tworzenia maszyn wirtualnych z systemem Windows SQL Server przy użyciu Azure PowerShell. Aby zapoznać się z ulepszonym przykładem Azure PowerShell z większą liczbą wartości domyślnych, zobacz [Azure PowerShell maszyny wirtualnej SQL — szybki start](sql-vm-create-powershell-quickstart.md).

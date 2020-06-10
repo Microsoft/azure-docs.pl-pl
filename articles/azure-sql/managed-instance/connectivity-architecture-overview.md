@@ -1,7 +1,7 @@
 ---
 title: Architektura łączności
 titleSuffix: Azure SQL Managed Instance
-description: Dowiedz się więcej o architekturze komunikacji i łączności wystąpienia zarządzanego usługi Azure SQL oraz o tym, jak składniki kierują ruch do wystąpienia zarządzanego SQL.
+description: Dowiedz się więcej o architekturze komunikacji i architektury łączności wystąpienia zarządzanego Azure SQL oraz o tym, jak składniki kierują ruch do wystąpienia zarządzanego.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,28 +12,28 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: e0a16ac8b52907f5ce27d0d186172725e8536423
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d8c98f647736ac2a6cb6e72b754c7b308ad0c3b0
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045186"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655592"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architektura łączności dla wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-W tym artykule opisano komunikację w wystąpieniu zarządzanym usługi Azure SQL. Opisano w nim również architekturę łączności i sposób, w jaki składniki kierują ruch do wystąpienia zarządzanego SQL.  
+W tym artykule opisano komunikację w wystąpieniu zarządzanym usługi Azure SQL. Opisano w nim również architekturę łączności i sposób, w jaki składniki kierują ruch do wystąpienia zarządzanego.  
 
-Wystąpienie zarządzane SQL jest umieszczane w sieci wirtualnej platformy Azure i podsieci, która jest przeznaczona dla wystąpień zarządzanych SQL. To wdrożenie oferuje następujące informacje:
+Wystąpienie zarządzane SQL jest umieszczane w sieci wirtualnej platformy Azure i podsieć, która jest przeznaczona dla wystąpień zarządzanych. To wdrożenie oferuje następujące informacje:
 
 - Bezpieczny prywatny adres IP.
 - Możliwość połączenia sieci lokalnej z wystąpieniem zarządzanym SQL.
 - Możliwość połączenia wystąpienia zarządzanego SQL z serwerem połączonym lub innym lokalnym magazynem danych.
-- Możliwość łączenia wystąpienia zarządzanego SQL z zasobami platformy Azure.
+- Możliwość połączenia wystąpienia zarządzanego SQL z zasobami platformy Azure.
 
 ## <a name="communication-overview"></a>Omówienie komunikacji
 
-Na poniższym diagramie przedstawiono jednostki, które łączą się z wystąpieniem zarządzanym SQL. Przedstawiono w nim również zasoby, które muszą komunikować się z wystąpieniem zarządzanym SQL. Proces komunikacji w dolnej części diagramu reprezentuje aplikacje i narzędzia klienta, które łączą się z wystąpieniem zarządzanym SQL jako źródłami danych.  
+Na poniższym diagramie przedstawiono jednostki, które łączą się z wystąpieniem zarządzanym SQL. Przedstawiono w nim również zasoby, które muszą komunikować się z wystąpieniem zarządzanym. Proces komunikacji w dolnej części diagramu reprezentuje aplikacje i narzędzia klienta, które łączą się z wystąpieniem zarządzanym SQL jako źródłami danych.  
 
 ![Jednostki w architekturze łączności](./media/connectivity-architecture-overview/connectivityarch001.png)
 
@@ -41,68 +41,68 @@ Wystąpienie zarządzane SQL to oferta platformy jako usługi (PaaS). Platforma 
 
 Niektóre operacje uruchomione przez użytkowników końcowych lub aplikacje mogą wymagać wystąpienia zarządzanego SQL w celu współdziałania z platformą. Jednym z przypadków jest utworzenie bazy danych wystąpienia zarządzanego SQL. Ten zasób jest dostępny za pomocą Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure i interfejsu API REST.
 
-Wystąpienia zarządzane SQL są zależne od usług platformy Azure, takich jak Azure Storage, na potrzeby wykonywania kopii zapasowych, Event Hubs Azure dla telemetrii, Azure Active Directory uwierzytelniania, Azure Key Vault dla Transparent Data Encryption (TDE) oraz kilka usług platformy Azure, które zapewniają funkcje zabezpieczeń i obsługi. Wystąpienia zarządzane przez usługę SQL umożliwiają nawiązywanie połączeń z tymi usługami.
+Wystąpienie zarządzane SQL jest zależne od usług platformy Azure, takich jak Azure Storage, na potrzeby tworzenia kopii zapasowych, Event Hubs platformy Azure do obsługi telemetrii, Azure Active Directory (Azure AD) do uwierzytelniania, Azure Key Vault dla Transparent Data Encryption (TDE) oraz kilka usług platformy Azure, które zapewniają funkcje zabezpieczeń i obsługi. Wystąpienie zarządzane SQL udostępnia połączenia z tymi usługami.
 
-Cała komunikacja jest zaszyfrowana i podpisana przy użyciu certyfikatów. Aby sprawdzić wiarygodność komunikujących się stron, wystąpienia zarządzane SQL stale weryfikują te certyfikaty za pomocą list odwołania certyfikatów. Jeśli certyfikaty zostaną odwołane, wystąpienie zarządzane SQL zamknie połączenia w celu ochrony danych.
+Cała komunikacja jest zaszyfrowana i podpisana przy użyciu certyfikatów. Aby sprawdzić wiarygodność komunikujących się stron, wystąpienie zarządzane SQL ciągle weryfikuje te certyfikaty za pomocą list odwołania certyfikatów. Jeśli certyfikaty zostaną odwołane, wystąpienie zarządzane SQL zamknie połączenia w celu ochrony danych.
 
 ## <a name="high-level-connectivity-architecture"></a>Architektura łączności wysokiego poziomu
 
 Na wysokim poziomie wystąpienie zarządzane SQL jest zestawem składników usługi. Te składniki są hostowane w dedykowanym zestawie izolowanych maszyn wirtualnych, które działają w podsieci sieci wirtualnej klienta. Te maszyny tworzą klaster wirtualny.
 
-Klaster wirtualny może obsługiwać wiele wystąpień zarządzanych przez program SQL. W razie konieczności klaster automatycznie rozszerza lub kontraktuje, gdy klient zmieni liczbę wystąpień zainicjowanych w podsieci.
+Klaster wirtualny może obsługiwać wiele wystąpień zarządzanych. W razie konieczności klaster automatycznie rozszerza lub kontraktuje, gdy klient zmieni liczbę wystąpień zainicjowanych w podsieci.
 
-Aplikacje klienta mogą łączyć się z wystąpieniami zarządzanymi SQL, a także wysyłać zapytania i aktualizować bazy danych wewnątrz sieci wirtualnej, równorzędnej sieci wirtualnej lub sieci połączonej przez sieć VPN lub usługę Azure ExpressRoute. Ta sieć musi używać punktu końcowego i prywatnego adresu IP.  
+Aplikacje klienta mogą łączyć się z wystąpieniem zarządzanym SQL, a także wysyłać zapytania i aktualizować bazy danych wewnątrz sieci wirtualnej, równorzędnej sieci wirtualnej lub sieci połączonej przez sieć VPN lub usługę Azure ExpressRoute. Ta sieć musi używać punktu końcowego i prywatnego adresu IP.  
 
 ![Diagram architektury łączności](./media/connectivity-architecture-overview/connectivityarch002.png)
 
-Usługi zarządzania i wdrażania platformy Azure działają poza siecią wirtualną. Wystąpienie zarządzane SQL i usługi platformy Azure łączą się za pośrednictwem punktów końcowych, które mają publiczne adresy IP. Gdy wystąpienie zarządzane SQL tworzy połączenie wychodzące, po odebraniu translacji adresów sieciowych (NAT) na końcu połączenie będzie wyglądać tak, jak pochodzi z tego publicznego adresu IP.
+Usługi zarządzania i wdrażania platformy Azure działają poza siecią wirtualną. Wystąpienia zarządzane SQL i usługi platformy Azure łączą się za pośrednictwem punktów końcowych, które mają publiczne adresy IP. Gdy wystąpienie zarządzane SQL tworzy połączenie wychodzące, na adresie IP, który otrzyma translacji adresów sieciowych (NAT), sprawia, że połączenie będzie wyglądać tak, jak pochodzi z tego publicznego adresu.
 
 Ruch związany z zarządzaniem odbywa się za pomocą sieci wirtualnej klienta. Oznacza to, że elementy infrastruktury sieci wirtualnej mogą uszkodzić ruch związany z zarządzaniem, co sprawia, że wystąpienie nie powiedzie się i stanie się niedostępne.
 
 > [!IMPORTANT]
-> Aby ulepszyć obsługę klienta i dostępność usług, platforma Azure stosuje zasady dotyczące opcji sieci w elementach infrastruktury sieci wirtualnej platformy Azure. Zasady mogą mieć wpływ na sposób działania wystąpienia zarządzanego SQL. Ten mechanizm platformy w sposób przezroczysty komunikuje wymagania sieciowe z użytkownikami. Głównym celem zasad jest uniknięcie nieprawidłowej konfiguracji sieci i zapewnienia normalnych operacji wystąpienia zarządzanego SQL. Po usunięciu wystąpienia zarządzanego SQL zasady dotyczące opcji sieci również zostaną usunięte.
+> Aby ulepszyć obsługę klienta i dostępność usług, platforma Azure stosuje zasady dotyczące opcji sieci w elementach infrastruktury sieci wirtualnej platformy Azure. Zasady mogą mieć wpływ na sposób działania wystąpienia zarządzanego SQL. Ten mechanizm platformy w sposób przezroczysty komunikuje wymagania sieciowe z użytkownikami. Głównym celem zasad jest uniknięcie nieprawidłowej konfiguracji sieci i zapewnienia normalnych operacji wystąpienia zarządzanego SQL. Usunięcie wystąpienia zarządzanego spowoduje również usunięcie zasad dotyczących opcji sieci.
 
 ## <a name="virtual-cluster-connectivity-architecture"></a>Architektura łączności klastra wirtualnego
 
-Przyjrzyjmy się bardziej szczegółowo szczegółowe architektury połączeń z wystąpieniami zarządzanymi SQL. Na poniższym diagramie przedstawiono układ koncepcyjny klastra wirtualnego.
+Przyjrzyjmy się bardziej szczegółowo szczegółowe architektury łączności dla wystąpienia zarządzanego SQL. Na poniższym diagramie przedstawiono układ koncepcyjny klastra wirtualnego.
 
 ![Architektura łączności klastra wirtualnego](./media/connectivity-architecture-overview/connectivityarch003.png)
 
-Klienci łączą się z wystąpieniem zarządzanym SQL przy użyciu nazwy hosta, która ma formularz `<mi_name>.<dns_zone>.database.windows.net` . Ta nazwa hosta jest rozpoznawana jako prywatny adres IP, mimo że jest zarejestrowana w publicznej strefie systemu nazw domen (DNS) i jest publicznie rozpoznawalna. `zone-id`Jest generowany automatycznie podczas tworzenia klastra. Jeśli nowo utworzony klaster hostuje pomocnicze wystąpienie zarządzane SQL, współużytkuje Identyfikator strefy z klastrem podstawowym. Aby uzyskać więcej informacji, zobacz [Korzystanie z grup autotrybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
+Klienci łączą się z wystąpieniem zarządzanym SQL przy użyciu nazwy hosta, która ma formularz `<mi_name>.<dns_zone>.database.windows.net` . Ta nazwa hosta jest rozpoznawana jako prywatny adres IP, mimo że jest zarejestrowana w publicznej strefie systemu nazw domen (DNS) i jest publicznie rozpoznawalna. `zone-id`Jest generowany automatycznie podczas tworzenia klastra. Jeśli nowo utworzony klaster obsługuje pomocnicze wystąpienie zarządzane, jego identyfikator strefy jest udostępniany klastrowi podstawowemu. Aby uzyskać więcej informacji, zobacz [Korzystanie z grup autotrybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
 
-Ten prywatny adres IP należy do wewnętrznego modułu równoważenia obciążenia wystąpienia zarządzanego SQL. Moduł równoważenia obciążenia kieruje ruch do bramy wystąpienia zarządzanego SQL. Ze względu na to, że w tym samym klastrze można uruchamiać wiele wystąpień zarządzanych przez usługę SQL, brama używa nazwy hosta wystąpienia zarządzanego SQL do przekierowywania ruchu do odpowiedniej usługi aparatu SQL.
+Ten prywatny adres IP należy do wewnętrznego modułu równoważenia obciążenia dla wystąpienia zarządzanego SQL. Moduł równoważenia obciążenia kieruje ruch do bramy wystąpienia zarządzanego SQL. Ponieważ wiele wystąpień zarządzanych może działać w tym samym klastrze, brama używa nazwy hosta wystąpienia zarządzanego SQL do przekierowywania ruchu do poprawnej usługi aparatu SQL.
 
-Usługi zarządzania i wdrażania nawiązują połączenie z wystąpieniem zarządzanym SQL przy użyciu [punktu końcowego zarządzania](#management-endpoint) , który jest mapowany na zewnętrzny moduł równoważenia obciążenia. Ruch jest kierowany do węzłów tylko wtedy, gdy jest odbierany ze wstępnie zdefiniowanym zestawem portów, których używają tylko składniki zarządzania wystąpienia zarządzanego SQL. Wbudowana zapora w węzłach jest skonfigurowana tak, aby zezwalała na ruch tylko z zakresów adresów IP firmy Microsoft. Certyfikaty wzajemnie uwierzytelniają całą komunikację między składnikami zarządzania a płaszczyzną zarządzania.
+Usługi zarządzania i wdrażania nawiązują połączenie z wystąpieniem zarządzanym SQL przy użyciu [punktu końcowego zarządzania](#management-endpoint) , który jest mapowany na zewnętrzny moduł równoważenia obciążenia. Ruch jest kierowany do węzłów tylko wtedy, gdy jest odbierany we wstępnie zdefiniowanym zestawie portów, które są używane tylko przez składniki zarządzania wystąpienia zarządzanego SQL. Wbudowana zapora w węzłach jest skonfigurowana tak, aby zezwalała na ruch tylko z zakresów adresów IP firmy Microsoft. Certyfikaty wzajemnie uwierzytelniają całą komunikację między składnikami zarządzania a płaszczyzną zarządzania.
 
 ## <a name="management-endpoint"></a>Punkt końcowy zarządzania
 
-Platforma Azure zarządza wystąpieniem zarządzanym SQL przy użyciu punktu końcowego zarządzania. Ten punkt końcowy znajduje się w klastrze wirtualnym tego wystąpienia. Punkt końcowy zarządzania jest chroniony przez wbudowaną zaporę na poziomie sieci. Na poziomie aplikacji jest on chroniony przez wzajemne weryfikację certyfikatu. Aby znaleźć adres IP punktu końcowego, zobacz [Określanie adresu IP punktu końcowego zarządzania](management-endpoint-find-ip-address.md).
+Platforma Azure zarządza wystąpieniem zarządzanym SQL przy użyciu punktu końcowego zarządzania. Ten punkt końcowy znajduje się w klastrze wirtualnym wystąpienia. Punkt końcowy zarządzania jest chroniony przez wbudowaną zaporę na poziomie sieci. Na poziomie aplikacji jest on chroniony przez wzajemne weryfikację certyfikatu. Aby znaleźć adres IP punktu końcowego, zobacz [Określanie adresu IP punktu końcowego zarządzania](management-endpoint-find-ip-address.md).
 
-Po rozpoczęciu połączeń wewnątrz wystąpienia zarządzanego SQL (podobnie jak w przypadku kopii zapasowych i dzienników inspekcji) ruch zaczyna się od publicznego adresu IP punktu końcowego zarządzania. Możesz ograniczyć dostęp do usług publicznych z wystąpienia zarządzanego SQL, ustawiając reguły zapory w taki sposób, aby zezwalały tylko na adres IP wystąpienia zarządzanego przez usługę SQL. Aby uzyskać więcej informacji, zobacz [Weryfikowanie zapory wbudowanej wystąpienia zarządzanego SQL](management-endpoint-verify-built-in-firewall.md).
+Po rozpoczęciu połączeń wewnątrz wystąpienia zarządzanego SQL (podobnie jak w przypadku kopii zapasowych i dzienników inspekcji) ruch zaczyna się od publicznego adresu IP punktu końcowego zarządzania. Możesz ograniczyć dostęp do usług publicznych z wystąpienia zarządzanego SQL, ustawiając reguły zapory tak, aby zezwalały tylko na adres IP dla wystąpienia zarządzanego SQL. Aby uzyskać więcej informacji, zobacz [Weryfikowanie wbudowanej zapory wystąpienia zarządzanego SQL](management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Ruch kierowany do usług platformy Azure, które znajdują się w regionie wystąpienia zarządzanego SQL, jest zoptymalizowany i z tego powodu nie jest on przeznaczony dla publicznego adresu IP punktu końcowego zarządzania. Z tego powodu, jeśli konieczne jest użycie reguł zapory opartych na protokole IP, najczęściej dla magazynu, usługa musi znajdować się w innym regionie niż wystąpienie zarządzane SQL.
+> Ruch kierowany do usług platformy Azure, które znajdują się w regionie wystąpienia zarządzanego SQL, jest zoptymalizowany i z tego powodu nie jest to spowodowane publicznym adresem IP dla punktu końcowego zarządzania. Z tego powodu, jeśli musisz użyć reguł zapory opartych na protokole IP, najczęściej dla magazynu, usługa musi znajdować się w innym regionie niż wystąpienie zarządzane SQL.
 
 ## <a name="service-aided-subnet-configuration"></a>Konfiguracja podsieci wspomagana przez usługę
 
-Aby rozwiązać wymagania dotyczące zabezpieczeń i możliwości zarządzania przez program SQL Server, przechodzą z ręcznego konfigurowania podsieci z obsługą techniczną.
+Aby rozwiązać wymagania dotyczące zabezpieczeń i możliwości zarządzania przez klienta, wystąpienie zarządzane SQL przechodzi z ręcznego konfigurowania podsieci z obsługą usługi.
 
-Przy użyciu przystawki z podsiecią wspomaganą przez usługę użytkownik ma pełną kontrolę nad ruchem danych (TDS), podczas gdy wystąpienie zarządzane SQL jest odpowiedzialny za zapewnienie nieprzerwanego przepływu ruchu związanego z zarządzaniem w celu spełnienia warunków umowy SLA.
+W przypadku konfigurowania podsieci z obsługą usług użytkownik ma pełną kontrolę nad ruchem danych (TDS), natomiast wystąpienie zarządzane SQL jest odpowiedzialne za zapewnienie nieprzerwanego przepływu ruchu związanego z zarządzaniem w celu spełnienia warunków umowy SLA.
 
-Konfiguracja podsieci wspomagana przez usługę jest oparta na funkcji [delegowania podsieci](../../virtual-network/subnet-delegation-overview.md) sieci wirtualnej w celu zapewnienia automatycznego zarządzania konfiguracją sieci i włączania punktów końcowych usługi. Punkty końcowe usługi mogą być używane do konfigurowania reguł zapory sieci wirtualnej na kontach magazynu, które przechowują kopie zapasowe/dzienniki inspekcji.
+Konfiguracja podsieci wspomagana przez usługę jest oparta na funkcji [delegowania podsieci](../../virtual-network/subnet-delegation-overview.md) sieci wirtualnej w celu zapewnienia automatycznego zarządzania konfiguracją sieci i włączania punktów końcowych usługi. Punkty końcowe usługi mogą służyć do konfigurowania reguł zapory sieci wirtualnej na kontach magazynu, które przechowują kopie zapasowe i dzienniki inspekcji.
 
 ### <a name="network-requirements"></a>Wymagania dotyczące sieci
 
 Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. Podsieć musi mieć następujące właściwości:
 
-- **Dedykowana podsieć:** Podsieć wystąpienia zarządzanego SQL nie może zawierać żadnej innej usługi w chmurze skojarzonej z nią i nie może być podsiecią bramy. Podsieć nie może zawierać żadnego zasobu, ale wystąpienia zarządzanego SQL i nie można później dodać innych typów zasobów w podsieci.
+- **Dedykowana podsieć:** Podsieć wystąpienia zarządzanego SQL nie może zawierać żadnej innej usługi w chmurze, która jest skojarzona z nią, i nie może być podsiecią bramy. Podsieć nie może zawierać żadnego zasobu, ale wystąpienia zarządzanego SQL i nie można później dodać innych typów zasobów w podsieci.
 - **Delegowanie podsieci:** Podsieć wystąpienia zarządzanego SQL musi być delegowana do `Microsoft.Sql/managedInstances` dostawcy zasobów.
-- **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń):** SIECIOWEJ grupy zabezpieczeń musi być skojarzona z podsiecią wystąpienia zarządzanego SQL. Możesz użyć sieciowej grupy zabezpieczeń, aby kontrolować dostęp do punktu końcowego danych wystąpienia zarządzanego SQL przez filtrowanie ruchu na porcie 1433 i port 11000-11999, gdy wystąpienie zarządzane SQL jest skonfigurowane do przekierowania połączeń. Usługa będzie automatycznie aprowizować i utrzymywać bieżące wymagane [zasady](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration), aby umożliwić nieprzerwany przepływ ruchu związanego z zarządzaniem.
+- **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń):** SIECIOWEJ grupy zabezpieczeń musi być skojarzona z podsiecią wystąpienia zarządzanego SQL. Można użyć sieciowej grupy zabezpieczeń, aby kontrolować dostęp do punktu końcowego danych wystąpienia zarządzanego SQL przez filtrowanie ruchu na porcie 1433 i port 11000-11999, gdy wystąpienie zarządzane SQL jest skonfigurowane do przekierowania połączeń. Usługa będzie automatycznie udostępniać i utrzymywać bieżące [reguły](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) wymagane do umożliwienia nieprzerwanego przepływu ruchu zarządzania.
 - **Tabela zdefiniowana przez użytkownika trasa (UDR):** Tabela UDR musi być skojarzona z podsiecią wystąpienia zarządzanego SQL. Można dodać wpisy do tabeli tras, aby skierować ruch, który ma lokalne prywatne zakresy adresów IP jako lokalizację docelową, za pomocą bramy sieci wirtualnej lub wirtualnego urządzenia sieciowego (urządzenia WUS). Usługa będzie automatycznie aprowizować i utrzymywać bieżące wymagane [wpisy](#user-defined-routes-with-service-aided-subnet-configuration), aby umożliwić nieprzerwany przepływ ruchu związanego z zarządzaniem.
-- **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego SQL musi mieć co najmniej 16 adresów IP. Zalecana minimalna liczba adresów IP to 32. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpień zarządzanych SQL](vnet-subnet-determine-size.md). Wystąpienia zarządzane SQL można wdrożyć w [istniejącej sieci](vnet-existing-add-subnet.md) po jej skonfigurowaniu w celu spełnienia [wymagań sieciowych dla wystąpień zarządzanych przez usługę SQL](#network-requirements). W innym przypadku utwórz [nową sieć i podsieć](virtual-network-subnet-create-arm-template.md).
+- **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego SQL musi mieć co najmniej 16 adresów IP. Zalecana minimalna liczba adresów IP to 32. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpienia zarządzanego SQL](vnet-subnet-determine-size.md). Wystąpienia zarządzane można wdrożyć w [istniejącej sieci](vnet-existing-add-subnet.md) po jej skonfigurowaniu w taki sposób, aby spełniały [wymagania dotyczące sieci dla wystąpienia zarządzanego SQL](#network-requirements). W innym przypadku utwórz [nową sieć i podsieć](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> Podczas tworzenia wystąpienia zarządzanego SQL zasady dotyczące konfigurowania sieci są stosowane w podsieci, aby zapobiec niezgodnym zmianom w konfiguracji sieci. Po usunięciu ostatniego wystąpienia z podsieci zostaną również usunięte zasady dotyczące opcji sieci.
+> Podczas tworzenia wystąpienia zarządzanego w podsieci są stosowane zasady konwersji sieci, które uniemożliwiają niezgodne zmiany konfiguracji sieci. Po usunięciu ostatniego wystąpienia z podsieci zostaną również usunięte zasady dotyczące opcji sieci.
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Obowiązkowe reguły zabezpieczeń dla ruchu przychodzącego z konfiguracją podsieci z obsługą usług
 
@@ -306,23 +306,23 @@ Protokoły **tls 1,2 są wymuszane dla połączeń wychodzących**: w styczniu 2
 
 Następujące funkcje sieci wirtualnej nie są obecnie obsługiwane w przypadku wystąpienia zarządzanego SQL:
 
-- **Komunikacja równorzędna firmy Microsoft**: włączenie komunikacji [równorzędnej firmy Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) w ramach obwodów usługi Express Route bezpośrednio lub przechodnie w sieci wirtualnej, w której znajduje się wystąpienie zarządzane SQL, wpływa na przepływ ruchu między składnikami wystąpienia zarządzanego SQL w ramach sieci wirtualnej i usług, które są zależne od powodu problemów z dostępnością. W przypadku wdrożeń wystąpienia zarządzanego w sieci wirtualnej z usługą komunikacji równorzędnej firmy Microsoft jest już możliwe niepowodzenie.
+- **Komunikacja równorzędna firmy Microsoft**: włączenie komunikacji [równorzędnej firmy Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) w obwodach usługi ExpressRoute bezpośrednio lub przechodniej z siecią wirtualną, w której znajduje się wystąpienie zarządzane SQL, wpływa na przepływ ruchu między składnikami wystąpienia zarządzanego SQL w sieci wirtualnej i usług, od których jest zależna, co powoduje problemy z dostępnością. Wdrożenia wystąpienia zarządzanego SQL w sieci wirtualnej z usługą komunikacji równorzędnej firmy Microsoft są już niepowodzeniem.
 - **Globalna komunikacja równorzędna sieci wirtualnych**: połączenie [komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-peering-overview.md) w regionach platformy Azure nie działa dla wystąpienia zarządzanego SQL z powodu [udokumentowanych ograniczeń modułu równoważenia obciążenia](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
-- **AzurePlatformDNS**: użycie [znacznika usługi](../../virtual-network/service-tags-overview.md) AzurePlatformDNS do blokowania rozpoznawania nazw DNS platformy spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Chociaż wystąpienie zarządzane SQL obsługuje klienta DNS zdefiniowanego do rozpoznawania nazw DNS w aparacie, istnieje zależność od systemu DNS platformy dla operacji na platformie.
-- **Brama translatora adresów sieciowych**: używanie [Virtual Network NAT](../../virtual-network/nat-overview.md) do kontrolowania łączności wychodzącej z określonym publicznym adresem IP spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Usługa wystąpienia zarządzanego SQL jest obecnie ograniczona do korzystania z podstawowego modułu równoważenia obciążenia, który nie zapewnia współistnienia przepływów ruchu przychodzącego i wychodzącego z Virtual Network translatora adresów sieciowych.
+- **AzurePlatformDNS**: użycie [znacznika usługi](../../virtual-network/service-tags-overview.md) AzurePlatformDNS do blokowania rozpoznawania nazw DNS platformy spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Chociaż zarządzane przez klienta wystąpienie systemu DNS obsługuje rozpoznawanie nazw DNS w ramach aparatu, istnieje zależność od systemu DNS platformy dla operacji na platformie.
+- **Brama translatora adresów sieciowych**: użycie [usługi Azure Virtual Network NAT](../../virtual-network/nat-overview.md) do kontrolowania łączności wychodzącej z określonym publicznym adresem IP spowoduje, że wystąpienie zarządzane SQL nie jest dostępne. Usługa wystąpienia zarządzanego SQL jest obecnie ograniczona do korzystania z podstawowego modułu równoważenia obciążenia, który nie zapewnia współistnienia przepływów ruchu przychodzącego i wychodzącego z Virtual Network translatora adresów sieciowych.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Przestarzałe Wymagania sieci bez konfiguracji podsieci z obsługą usług
 
 Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. Podsieć musi mieć następujące właściwości:
 
-- **Dedykowana podsieć:** Podsieć wystąpienia zarządzanego SQL nie może zawierać żadnej innej usługi w chmurze skojarzonej z nią i nie może być podsiecią bramy. Podsieć nie może zawierać żadnego zasobu, ale wystąpienia zarządzanego SQL i nie można później dodać innych typów zasobów w podsieci.
-- **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń):** SIECIOWEJ grupy zabezpieczeń, który jest skojarzony z siecią wirtualną, musi definiować [reguły zabezpieczeń dla ruchu przychodzącego](#mandatory-inbound-security-rules) i [reguły zabezpieczeń dla ruchu wychodzącego](#mandatory-outbound-security-rules) przed innymi regułami. Możesz użyć sieciowej grupy zabezpieczeń, aby kontrolować dostęp do punktu końcowego danych wystąpienia zarządzanego SQL przez filtrowanie ruchu na porcie 1433 i port 11000-11999, gdy wystąpienie zarządzane SQL jest skonfigurowane do przekierowania połączeń.
+- **Dedykowana podsieć:** Podsieć wystąpienia zarządzanego SQL nie może zawierać żadnej innej usługi w chmurze, która jest skojarzona z nią, i nie może być podsiecią bramy. Podsieć nie może zawierać żadnego zasobu, ale wystąpienia zarządzanego SQL i nie można później dodać innych typów zasobów w podsieci.
+- **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń):** SIECIOWEJ grupy zabezpieczeń, który jest skojarzony z siecią wirtualną, musi definiować [reguły zabezpieczeń dla ruchu przychodzącego](#mandatory-inbound-security-rules) i [reguły zabezpieczeń dla ruchu wychodzącego](#mandatory-outbound-security-rules) przed innymi regułami. Można użyć sieciowej grupy zabezpieczeń, aby kontrolować dostęp do punktu końcowego danych wystąpienia zarządzanego SQL przez filtrowanie ruchu na porcie 1433 i port 11000-11999, gdy wystąpienie zarządzane SQL jest skonfigurowane do przekierowania połączeń.
 - **Tabela zdefiniowana przez użytkownika trasa (UDR):** Tabela UDR, która jest skojarzona z siecią wirtualną, musi zawierać określone [wpisy](#user-defined-routes).
-- **Brak punktów końcowych usługi:** Żadna z punktów końcowych usługi nie powinna być skojarzona z podsiecią wystąpienia zarządzanego SQL. Upewnij się, że opcja punkty końcowe usługi jest wyłączona podczas tworzenia sieci wirtualnej.
-- **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego SQL musi mieć co najmniej 16 adresów IP. Zalecana minimalna liczba adresów IP to 32. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpień zarządzanych SQL](vnet-subnet-determine-size.md). Wystąpienia zarządzane SQL można wdrożyć w [istniejącej sieci](vnet-existing-add-subnet.md) po jej skonfigurowaniu w celu spełnienia [wymagań sieciowych dla wystąpień zarządzanych przez usługę SQL](#network-requirements). W innym przypadku utwórz [nową sieć i podsieć](virtual-network-subnet-create-arm-template.md).
+- **Brak punktów końcowych usługi:** Z podsiecią wystąpienia zarządzanego SQL nie powinien być skojarzony żaden punkt końcowy usługi. Upewnij się, że opcja punkty końcowe usługi jest wyłączona podczas tworzenia sieci wirtualnej.
+- **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego SQL musi mieć co najmniej 16 adresów IP. Zalecana minimalna liczba adresów IP to 32. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpienia zarządzanego SQL](vnet-subnet-determine-size.md). Wystąpienia zarządzane można wdrożyć w [istniejącej sieci](vnet-existing-add-subnet.md) po jej skonfigurowaniu w taki sposób, aby spełniały [wymagania dotyczące sieci dla wystąpienia zarządzanego SQL](#network-requirements). W innym przypadku utwórz [nową sieć i podsieć](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
-> Nie można wdrożyć nowego wystąpienia zarządzanego SQL, jeśli podsieć docelowa nie ma tych cech. Podczas tworzenia wystąpienia zarządzanego SQL zasady dotyczące konfigurowania sieci są stosowane w podsieci, aby zapobiec niezgodnym zmianom w konfiguracji sieci. Po usunięciu ostatniego wystąpienia z podsieci zostaną również usunięte zasady dotyczące opcji sieci.
+> Nie można wdrożyć nowego wystąpienia zarządzanego, jeśli podsieć docelowa nie ma tych cech. Podczas tworzenia wystąpienia zarządzanego w podsieci są stosowane zasady konwersji sieci, które uniemożliwiają niezgodne zmiany konfiguracji sieci. Po usunięciu ostatniego wystąpienia z podsieci zostaną również usunięte zasady dotyczące opcji sieci.
 
 ### <a name="mandatory-inbound-security-rules"></a>Obowiązkowe reguły zabezpieczeń dla ruchu przychodzącego
 
@@ -340,7 +340,7 @@ Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. 
 |mi_subnet   |Dowolne           |Dowolne     |MI PODSIEĆ        |MI PODSIEĆ  |Zezwalaj |
 
 > [!IMPORTANT]
-> Upewnij się, że istnieje tylko jedna Reguła ruchu przychodzącego dla portów 9000, 9003, 1438, 1440, 1452 i jednej reguły ruchu wychodzącego dla portów 443, 12000. Inicjowanie obsługi wystąpień zarządzanych przez program SQL za Azure Resource Manager wdrożeń nie powiedzie się, jeśli reguły ruchu przychodzącego i wychodzącego są konfigurowane osobno dla każdego portu. Jeśli te porty są w osobnych regułach, wdrożenie zakończy się niepowodzeniem z kodem błędu`VnetSubnetConflictWithIntendedPolicy`
+> Upewnij się, że istnieje tylko jedna Reguła ruchu przychodzącego dla portów 9000, 9003, 1438, 1440 i 1452 oraz jednej reguły ruchu wychodzącego dla portów 443 i 12000. Inicjowanie obsługi wystąpień zarządzanych przez program SQL za Azure Resource Manager wdrożeń nie powiedzie się, jeśli reguły ruchu przychodzącego i wychodzącego są konfigurowane osobno dla każdego portu. Jeśli te porty są w oddzielnych regułach, wdrożenie zakończy się niepowodzeniem z kodem błędu `VnetSubnetConflictWithIntendedPolicy` .
 
 \*Podsieć MI odnosi się do zakresu adresów IP podsieci w postaci x. x. x. x/y. Te informacje można znaleźć w Azure Portal, we właściwościach podsieci.
 
@@ -526,9 +526,9 @@ Wdróż wystąpienie zarządzane SQL w dedykowanej podsieci w sieci wirtualnej. 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby zapoznać się z omówieniem, zobacz [co to jest wystąpienie zarządzane Azure SQL?](sql-managed-instance-paas-overview.md).
-- Dowiedz się, jak [skonfigurować nową sieć wirtualną platformy Azure](virtual-network-subnet-create-arm-template.md) lub [istniejącą sieć wirtualną platformy Azure](vnet-existing-add-subnet.md) , w której można wdrażać wystąpienia zarządzane SQL.
-- [Oblicz rozmiar podsieci](vnet-subnet-determine-size.md) , w której chcesz wdrożyć wystąpienia zarządzane SQL.
-- Dowiedz się, jak utworzyć wystąpienie zarządzane SQL:
+- Dowiedz się, jak [skonfigurować nową sieć wirtualną platformy Azure](virtual-network-subnet-create-arm-template.md) lub [istniejącą sieć wirtualną platformy Azure](vnet-existing-add-subnet.md) , w której można wdrożyć wystąpienie zarządzane SQL.
+- [Oblicz rozmiar podsieci](vnet-subnet-determine-size.md) , w której chcesz wdrożyć wystąpienie zarządzane SQL.
+- Dowiedz się, jak utworzyć wystąpienie zarządzane:
   - Z [Azure Portal](instance-create-quickstart.md).
   - Za pomocą [programu PowerShell](scripts/create-configure-managed-instance-powershell.md).
   - Przy użyciu [szablonu Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).

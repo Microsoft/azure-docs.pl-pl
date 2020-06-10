@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 82f1958c4fb37fcc7dfbb0e5dd41e814e8e44ada
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 50f9ef0f088fd48b9319f183494389d92278e0dd
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042785"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659950"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Migrowanie bazy danych SQL Server do SQL Server na maszynie wirtualnej platformy Azure
 
@@ -39,7 +39,7 @@ Istnieje kilka sposobów migrowania lokalnej bazy danych SQL Server użytkownika
 Podstawowe metody migracji są następujące:
 
 * Wykonaj lokalną kopię zapasową przy użyciu kompresji, a następnie ręcznie Skopiuj plik kopii zapasowej na maszynę wirtualną platformy Azure.
-* Wykonaj kopię zapasową w adresie URL, a następnie Przywróć ją na maszynie wirtualnej platformy Azure przy użyciu adresu URL.
+* Wykonaj kopię zapasową do adresu URL, a następnie Przywróć ją na maszynie wirtualnej platformy Azure przy użyciu adresu URL.
 * Odłącz pliki danych i dziennika, skopiuj je do usługi Azure Blob Storage, a następnie dołącz je do SQL Server na maszynie wirtualnej platformy Azure przy użyciu adresu URL.
 * Przekonwertuj lokalną maszynę fizyczną na dysk VHD funkcji Hyper-V, przekaż go do usługi Azure Blob Storage, a następnie wdróż ją jako nową maszynę wirtualną przy użyciu przekazanego wirtualnego dysku twardego.
 * Wyślij dysk twardy za pomocą usługi Import/Export systemu Windows.
@@ -51,11 +51,11 @@ Podstawowe metody migracji są następujące:
 
 ## <a name="choose-a-migration-method"></a>Wybierz metodę migracji
 
-Aby uzyskać optymalną wydajność transferu danych, dokonaj migracji plików bazy danych na maszynę wirtualną platformy Azure przy użyciu skompresowanego pliku kopii zapasowej.
+Aby uzyskać najlepszą wydajność transferu danych, dokonaj migracji plików bazy danych na maszynę wirtualną platformy Azure przy użyciu skompresowanego pliku kopii zapasowej.
 
 Aby zminimalizować przestoje podczas procesu migracji bazy danych, należy użyć opcji AlwaysOn lub opcji replikacja transakcyjna.
 
-Jeśli nie można użyć powyższych metod, należy ręcznie przeprowadzić migrację bazy danych. Korzystając z tej metody, zwykle zaczynasz od kopii zapasowej bazy danych, wykonaj ją z kopią kopii zapasowej bazy danych na platformie Azure, a następnie wykonaj operację przywracania bazy danych. Możesz również skopiować pliki bazy danych na platformę Azure, a następnie dołączyć je. Istnieje kilka metod, za pomocą których można wykonać ten ręczny proces migrowania bazy danych na maszynę wirtualną platformy Azure.
+Jeśli nie można użyć powyższych metod, należy ręcznie przeprowadzić migrację bazy danych. Ogólnie rzecz biorąc, należy zacząć od kopii zapasowej bazy danych, wykonać ją z kopią kopii zapasowej bazy danych na platformie Azure, a następnie przywrócić bazę danych. Możesz również skopiować pliki bazy danych na platformę Azure, a następnie dołączyć je. Istnieje kilka metod, za pomocą których można wykonać ten ręczny proces migrowania bazy danych na maszynę wirtualną platformy Azure.
 
 > [!NOTE]
 > Po uaktualnieniu do SQL Server 2014 lub SQL Server 2016 ze starszych wersji SQL Server należy wziąć pod uwagę, czy zmiany są potrzebne. Zaleca się, aby zająć się wszystkimi zależnościami od funkcji nieobsługiwanych przez nową wersję SQL Server w ramach projektu migracji. Aby uzyskać więcej informacji na temat obsługiwanych wersji i scenariuszy, zobacz [uaktualnianie do SQL Server](https://msdn.microsoft.com/library/bb677622.aspx).
@@ -64,15 +64,15 @@ W poniższej tabeli wymieniono wszystkie podstawowe metody migracji i omówiono,
 
 | Metoda | Wersja źródłowej bazy danych | Wersja docelowej bazy danych | Ograniczenie rozmiaru kopii zapasowej źródłowej bazy danych | Uwagi |
 | --- | --- | --- | --- | --- |
-| [Wykonaj lokalną kopię zapasową przy użyciu kompresji i ręcznie Skopiuj plik kopii zapasowej do maszyny wirtualnej platformy Azure](#backup-and-restore) |SQL Server 2005 lub więcej |SQL Server 2005 lub więcej |[Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Jest to bardzo prosta i dobrze sprawdzona technika służąca do przemieszczania baz danych między maszynami. |
-| [Wykonaj kopię zapasową do adresu URL i przywróć ją na maszynie wirtualnej platformy Azure przy użyciu adresu URL](#backup-to-a-url-and-restore) |SQL Server 2012 z dodatkiem SP1 ZASTOSUJESZ pakietu CU2 lub nowszym | SQL Server 2012 z dodatkiem SP1 ZASTOSUJESZ pakietu CU2 lub nowszym | < 12,8 TB dla SQL Server 2016, w przeciwnym razie < 1 TB | Ta metoda jest już inna metodą przenoszenia pliku kopii zapasowej na maszynę wirtualną przy użyciu usługi Azure Storage. |
+| [Wykonaj lokalną kopię zapasową przy użyciu kompresji i ręcznie Skopiuj plik kopii zapasowej do maszyny wirtualnej platformy Azure](#back-up-and-restore) |SQL Server 2005 lub więcej |SQL Server 2005 lub więcej |[Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Ta technika jest prosta i dobrze sprawdzona pod kątem przemieszczania baz danych między maszynami. |
+| [Wykonaj kopię zapasową do adresu URL i przywróć ją na maszynie wirtualnej platformy Azure przy użyciu adresu URL](#backup-to-url-and-restore-from-url) |SQL Server 2012 z dodatkiem SP1 ZASTOSUJESZ pakietu CU2 lub nowszym | SQL Server 2012 z dodatkiem SP1 ZASTOSUJESZ pakietu CU2 lub nowszym | < 12,8 TB dla SQL Server 2016, w przeciwnym razie < 1 TB | Ta metoda jest już inna metodą przenoszenia pliku kopii zapasowej na maszynę wirtualną przy użyciu usługi Azure Storage. |
 | [Odłącz i skopiuj pliki danych i dziennika do usługi Azure Blob Storage, a następnie Dołącz do SQL Server na maszynie wirtualnej platformy Azure z adresu URL](#detach-and-attach-from-a-url) | SQL Server 2005 lub więcej |SQL Server 2014 lub więcej | [Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) | Ta metoda służy do [przechowywania tych plików przy użyciu usługi Azure Blob Storage](https://msdn.microsoft.com/library/dn385720.aspx) i dołączania ich do SQL Server działających na maszynie wirtualnej platformy Azure, szczególnie w przypadku bardzo dużych baz danych |
-| [Przekonwertuj maszynę lokalną na wirtualne dyski twarde funkcji Hyper-V, Przekaż do usługi Azure Blob Storage, a następnie wdróż nową maszynę wirtualną przy użyciu przekazanego wirtualnego dysku twardego](#convert-to-a-vm-upload-to-a-url-and-deploy-as-a-new-vm) |SQL Server 2005 lub więcej |SQL Server 2005 lub więcej |[Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Użyj podczas korzystania z [własnej licencji SQL Server](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md)podczas migrowania bazy danych, która będzie uruchamiana w starszej wersji SQL Server, lub podczas migrowania baz danych systemu i użytkownika w ramach migracji bazy danych zależnej od innych baz danych użytkownika i/lub systemowych baz danych. |
+| [Przekonwertuj maszynę lokalną na wirtualne dyski twarde funkcji Hyper-V, Przekaż do usługi Azure Blob Storage, a następnie wdróż nową maszynę wirtualną przy użyciu przekazanego wirtualnego dysku twardego](#convert-to-a-vm-upload-to-a-url-and-deploy-as-a-new-vm) |SQL Server 2005 lub więcej |SQL Server 2005 lub więcej |[Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Użyj przy korzystaniu [z własnej licencji SQL Server](../../../azure-sql/azure-sql-iaas-vs-paas-what-is-overview.md)podczas migrowania bazy danych, która będzie uruchamiana w starszej wersji SQL Server, lub podczas migrowania baz danych systemu i użytkownika w ramach migracji bazy danych, zależnie od innych baz danych użytkownika i/lub systemowych baz danych. |
 | [Wyślij dysk twardy przy użyciu usługi Windows Import/Export](#ship-a-hard-drive) |SQL Server 2005 lub więcej |SQL Server 2005 lub więcej |[Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Korzystanie z [usługi Import/Export systemu Windows](../../../storage/common/storage-import-export-service.md) , gdy ręczna metoda kopiowania jest zbyt wolna, na przykład z bardzo dużymi bazami danych |
 | [Korzystanie z Kreatora dodawania repliki platformy Azure](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) |SQL Server 2012 lub więcej |SQL Server 2012 lub więcej |[Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Minimalizuje czas przestoju, należy używać w przypadku, gdy istnieje zawsze lokalne wdrożenie |
-| [Użyj SQL Server replikacji transakcyjnej](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 lub więcej |SQL Server 2005 lub więcej |[Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Użyj, gdy zachodzi potrzeba zminimalizowania przestoju i nie ma możliwości ciągłego wdrażania. |
+| [Użyj SQL Server replikacji transakcyjnej](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 lub więcej |SQL Server 2005 lub więcej |[Limit przestrzeni dyskowej maszyny wirtualnej platformy Azure](https://azure.microsoft.com/documentation/articles/azure-resource-manager/management/azure-subscription-service-limits/) |Używaj, gdy zachodzi potrzeba zminimalizowania przestoju i nie istnieje zawsze lokalne wdrożenie |
 
-## <a name="backup-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
+## <a name="back-up-and-restore"></a>Tworzenie kopii zapasowej i przywracanie
 
 Wykonaj kopię zapasową bazy danych z kompresją, skopiuj kopię zapasową do maszyny wirtualnej, a następnie Przywróć bazę danych. Jeśli plik kopii zapasowej jest większy niż 1 TB, należy utworzyć zestaw rozłożony, ponieważ maksymalny rozmiar dysku maszyny wirtualnej wynosi 1 TB. Wykonaj następujące ogólne kroki, aby przeprowadzić migrację bazy danych użytkownika przy użyciu tej metody ręcznej:
 
@@ -81,13 +81,13 @@ Wykonaj kopię zapasową bazy danych z kompresją, skopiuj kopię zapasową do m
 3. Skonfiguruj łączność na podstawie Twoich wymagań. Zobacz [nawiązywanie połączenia z maszyną wirtualną SQL Server na platformie Azure (Menedżer zasobów)](ways-to-connect-to-sql.md).
 4. Skopiuj pliki kopii zapasowej na maszynę wirtualną za pomocą pulpitu zdalnego, Eksploratora Windows lub polecenia copy z wiersza polecenia.
 
-## <a name="backup-to-a-url-and-restore"></a>Utwórz kopię zapasową na adres URL i Przywróć
+## <a name="backup-to-url-and-restore-from-url"></a>Utwórz kopię zapasową do adresu URL i Przywróć z adresu URL
 
-Zamiast tworzyć kopię zapasową w pliku lokalnym, można użyć [kopii zapasowej do adresu URL](https://msdn.microsoft.com/library/dn435916.aspx) , a następnie przywrócić z adresu URL do maszyny wirtualnej. SQL Server 2016 obsługuje zestawy kopii zapasowych. Są one zalecane do wydajności i są wymagane, aby przekroczyć limity rozmiaru na obiekt BLOB. W przypadku bardzo dużych baz danych zalecane jest korzystanie z [usługi Import/Export systemu Windows](../../../storage/common/storage-import-export-service.md) .
+Zamiast tworzyć kopie zapasowe do pliku lokalnego, można użyć funkcji [tworzenia kopii zapasowej do adresu URL](https://msdn.microsoft.com/library/dn435916.aspx) , a następnie przywrócić z adresu URL do maszyny wirtualnej. SQL Server 2016 obsługuje zestawy kopii zapasowych. Są one zalecane do wydajności i są wymagane, aby przekroczyć limity rozmiaru na obiekt BLOB. W przypadku bardzo dużych baz danych zalecane jest korzystanie z [usługi Import/Export systemu Windows](../../../storage/common/storage-import-export-service.md) .
 
 ## <a name="detach-and-attach-from-a-url"></a>Odłączanie i dołączanie adresu URL
 
-Odłącz bazę danych i pliki dziennika, a następnie prześlij je do [usługi Azure Blob Storage](https://msdn.microsoft.com/library/dn385720.aspx). Następnie Dołącz bazę danych z adresu URL na maszynie wirtualnej platformy Azure. Użyj tego, jeśli chcesz, aby pliki fizycznych baz danych znajdowały się w magazynie obiektów BLOB. Może to być przydatne w przypadku bardzo dużych baz danych. Wykonaj następujące ogólne kroki, aby przeprowadzić migrację bazy danych użytkownika przy użyciu tej metody ręcznej:
+Odłącz bazę danych i pliki dziennika, a następnie prześlij je do [usługi Azure Blob Storage](https://msdn.microsoft.com/library/dn385720.aspx). Następnie Dołącz bazę danych z adresu URL na maszynie wirtualnej platformy Azure. Użyj tej metody, jeśli chcesz, aby pliki fizycznych baz danych znajdowały się w magazynie obiektów blob, co może być przydatne w przypadku bardzo dużych baz danych. Wykonaj następujące ogólne kroki, aby przeprowadzić migrację bazy danych użytkownika przy użyciu tej metody ręcznej:
 
 1. Odłączanie plików bazy danych od lokalnego wystąpienia bazy danych.
 2. Skopiuj odłączone pliki bazy danych do usługi Azure Blob Storage za pomocą [narzędzia wiersza polecenia AzCopy](../../../storage/common/storage-use-azcopy.md).

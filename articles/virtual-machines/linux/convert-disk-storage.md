@@ -3,16 +3,16 @@ title: Przekształć magazyn Managed disks między warstwami SSD Standard i Prem
 description: Jak skonwertować Magazyn Azure Managed disks ze standardu do Premium lub Premium na Standard przy użyciu interfejsu wiersza polecenia platformy Azure.
 author: roygara
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: cd9bb92b3ed86c3a57b5fc70411a4593335acedb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51ebecf784b7a3ec38f84703a74e96d277afa70c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75431501"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658216"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>Konwertowanie magazynu Azure Managed disks z wersji Standard do Premium lub Premium na Standard
 
@@ -22,7 +22,7 @@ Ta funkcja nie jest obsługiwana w przypadku dysków niezarządzanych. Można je
 
 W tym artykule pokazano, jak konwertować dyski zarządzane z warstwy Standardowa do Premium lub Premium na Standard przy użyciu interfejsu wiersza polecenia platformy Azure. Aby zainstalować lub uaktualnić narzędzie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 * Konwersja dysku wymaga ponownego uruchomienia maszyny wirtualnej, dlatego należy zaplanować migrację magazynu dyskowego w ramach istniejącego wcześniej okna obsługi.
 * W przypadku dysków niezarządzanych należy najpierw [przeprowadzić konwersję na dyski zarządzane](convert-unmanaged-to-managed-disks.md) , aby można było przełączać się między opcjami magazynu.
