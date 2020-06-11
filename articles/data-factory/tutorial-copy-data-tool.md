@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
-ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/08/2020
+ms.openlocfilehash: 2165efd6b522d3809dba285cf2c3050fc50b2d28
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022065"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660964"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiowanie danych z usługi Azure Blob Storage do SQL Database przy użyciu narzędzia Kopiowanie danych
 
@@ -134,7 +134,7 @@ Wykonaj następujące kroki, aby przygotować magazyn obiektów blob i SQL Datab
 
     b. Kliknij przycisk **Dalej**, aby przejść do następnego kroku.
 
-1. Na stronie **Ustawienia formatu pliku** zaznacz pole wyboru *pierwszy wiersz jako nagłówek*. Należy zauważyć, że narzędzie automatycznie wykrywa ograniczniki kolumn i wierszy. Wybierz opcję **Dalej**. Możesz także wyświetlić podgląd danych i wyświetlić schemat danych wejściowych na tej stronie.
+1. Na stronie **Ustawienia formatu pliku** zaznacz pole wyboru *pierwszy wiersz jako nagłówek*. Należy zauważyć, że narzędzie automatycznie wykrywa ograniczniki kolumn i wierszy. Wybierz przycisk **Dalej**. Możesz także wyświetlić podgląd danych i wyświetlić schemat danych wejściowych na tej stronie.
 
     ![Ustawienia formatu pliku](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. Na stronie **Docelowy magazyn danych** wykonaj następujące czynności:
@@ -156,11 +156,13 @@ Wykonaj następujące kroki, aby przygotować magazyn obiektów blob i SQL Datab
     ![Strona mapowania kolumn](./media/tutorial-copy-data-tool/column-mapping.png)
 
 1. Na stronie **Ustawienia** wybierz przycisk **Dalej**.
-1. Na stronie **Podsumowanie** sprawdź ustawienia, a następnie kliknij przycisk **Dalej**.
-1. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie**, aby monitorować potok (zadanie).
- 
-    ![Monitorowanie potoku](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
+1. Na stronie **Podsumowanie** sprawdź ustawienia, a następnie kliknij przycisk **Dalej**.
+
+1. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie**, aby monitorować potok (zadanie).
+
+    ![Monitorowanie potoku](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+    
 1. Na stronie uruchomienia potoku wybierz pozycję **Odśwież** , aby odświeżyć listę. Kliknij link pod **nazwą potoku** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok. 
     ![Uruchomienie potoku](./media/tutorial-copy-data-tool/pipeline-run.png)
 
@@ -168,9 +170,7 @@ Wykonaj następujące kroki, aby przygotować magazyn obiektów blob i SQL Datab
 
     ![Monitorowanie uruchomień działania](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-
 1. Sprawdź, czy dane są wstawiane do tabeli **dbo. EMP** w SQL Database.
-
 
 1. Wybierz kartę **Autor** po lewej stronie, aby przełączyć się w tryb edytora. Za pomocą edytora można zaktualizować usługi połączone, zestawy danych i potoki utworzone przez narzędzie. Aby uzyskać szczegółowe informacje dotyczące edytowania tych jednostek w interfejsie użytkownika usługi Data Factory, zobacz [wersję witryny Azure Portal używaną w tym samouczku](tutorial-copy-data-portal.md).
 

@@ -1,30 +1,31 @@
 ---
-title: Integracja Azure Key Vault z usługą Kubernetes
+title: Integrowanie usługi Azure Key Vault z usługą Kubernetes
 description: W ramach tego samouczka będziesz mieć dostęp do wpisów tajnych z Azure Key Vault przy użyciu sterownika magazynu informacji o kluczu kontenera (
 author: taytran0
 ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: e945a30ca1fcd62fdfccd16d4e853540dbf73d8a
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 27d602f22aa3915f39f21ac924afa42b98e70720
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637168"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667158"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-secret-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault na potrzeby sterownika CSI magazynu Secret w systemie Kubernetes
 
 W ramach tego samouczka będziesz mieć dostęp do wpisów tajnych z Azure Key Vault przy użyciu sterownika magazynu informacji o kluczu kontenera (
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
-> * Tworzenie nazwy głównej usługi
-> * Wdrażanie klastra usługi Azure Kubernetes Service
+> * Tworzenie nazwy głównej usługi lub korzystanie z tożsamości zarządzanych
+> * Wdrażanie klastra usługi Azure Kubernetes Service przy użyciu interfejsu wiersza polecenia platformy Azure
 > * Zainstaluj sterownik CSI magazynu Helm i wpisów tajnych
 > * Tworzenie Azure Key Vault i Ustawianie wpisów tajnych
 > * Utwórz własny obiekt SecretProviderClass
+> * Przypisywanie nazwy głównej usługi lub korzystanie z tożsamości zarządzanych
 > * Wdróż swój program przy użyciu zainstalowanych wpisów tajnych z Key Vault
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -44,7 +45,7 @@ az ad sp create-for-rbac --name contosoServicePrincipal --skip-assignment
 ```
 Ta operacja zwraca serię par klucz/wartość:
 
-![Image (Obraz)](../media/kubernetes-key-vault-1.png)
+![Obraz](../media/kubernetes-key-vault-1.png)
 
 Skopiuj **identyfikator appid** i **hasło**. Te poświadczenia będą potrzebne później.
 
@@ -62,8 +63,8 @@ Postępuj zgodnie z tym [przewodnikiem](https://docs.microsoft.com/azure/aks/kub
 az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
 ```
 
-1. [Ustaw zmienną środowiskową Path](https://www.java.com/en/download/help/path.xml) na plik "polecenia kubectl. exe", który został pobrany.
-1. Sprawdź wersję usługi Kubernetes przy użyciu poniższego polecenia. To polecenie spowoduje wyjście z wersji klienta i serwera. Wersja klienta to "polecenia kubectl. exe", który został zainstalowany, gdy wersja serwera to usługi Azure Kubernetes, na których działa klaster.
+1. [Ustaw zmienną środowiskową Path](https://www.java.com/en/download/help/path.xml) na pobrany plik "kubectl.exe".
+1. Sprawdź wersję usługi Kubernetes przy użyciu poniższego polecenia. To polecenie spowoduje wyjście z wersji klienta i serwera. Wersja klienta to "kubectl.exe", który został zainstalowany, gdy wersja serwera to usługi Azure Kubernetes, na których działa klaster.
     ```azurecli
     kubectl version
     ```
@@ -78,7 +79,7 @@ az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 
 
     To są dane wyjściowe z wyróżnionymi obydwoma parametrami.
     
-    ![](../media/kubernetes-key-vault-5.png) ![ Obraz obrazu](../media/kubernetes-key-vault-6.png)
+    ![](../media/kubernetes-key-vault-2.png) ![ Obraz obrazu](../media/kubernetes-key-vault-3.png)
     
 ## <a name="install-helm-and-secrets-store-csi-driver"></a>Zainstaluj sterownik CSI magazynu Helm i wpisów tajnych
 
@@ -157,7 +158,7 @@ spec:
 ```
 Poniżej znajduje się dane wyjściowe konsoli "AZ kluczy show--Name contosoKeyVault5" z odpowiednimi wyróżnionymi metadanymi:
 
-![Image (Obraz)](../media/kubernetes-key-vault-2.png)
+![Obraz](../media/kubernetes-key-vault-4.png)
 
 ## <a name="assign-your-service-principal-or-use-managed-identities"></a>Przypisywanie nazwy głównej usługi lub korzystanie z tożsamości zarządzanych
 
@@ -172,7 +173,7 @@ Jeśli jest używana jednostka usługi. Aby uzyskać dostęp do Key Vault i pobr
 
     Poniżej znajduje się dane wyjściowe polecenia: 
 
-    ![Image (Obraz)](../media/kubernetes-key-vault-3.png)
+    ![Obraz](../media/kubernetes-key-vault-5.png)
 
 1. Nadaj uprawnienia główne usługi do pobierania wpisów tajnych:
     ```azurecli
@@ -206,19 +207,19 @@ W przypadku używania tożsamości zarządzanych Przypisz określone role do utw
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     ```
 
-1. Zainstaluj tożsamość usługi Azure Active Directory (Azure AD) w usłudze AKS.
+1. Zainstaluj tożsamość usługi Azure Active Directory (AAD) w usłudze AKS.
     ```azurecli
     helm repo add aad-pod-identity https://raw.githubusercontent.com/Azure/aad-pod-identity/master/charts
 
     helm install pod-identity aad-pod-identity/aad-pod-identity
     ```
 
-1. Utwórz tożsamość usługi Azure AD. Skopiuj **clientId** i **principalId**.
+1. Utwórz tożsamość usługi AAD. Skopiuj **clientId** i **principalId**.
     ```azurecli
     az identity create -g $resourceGroupName -n $identityName
     ```
 
-1. Przypisz rolę czytelnika do tożsamości usługi Azure AD, która została właśnie utworzona dla Key Vault. Następnie nadaj tożsamości uprawnienia do pobierania wpisów tajnych z Key Vault. Zamierzasz korzystać z **clientId** i **principalId** z właśnie utworzonej tożsamości platformy Azure.
+1. Przypisz rolę czytelnika do tożsamości usługi AAD, która została właśnie utworzona dla Key Vault. Następnie nadaj tożsamości uprawnienia do pobierania wpisów tajnych z Key Vault. Zamierzasz korzystać z **clientId** i **principalId** z właśnie utworzonej tożsamości platformy Azure.
     ```azurecli
     az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
@@ -309,7 +310,7 @@ Aby sprawdzić stan Twojego elementu, użyj następującego polecenia:
 kubectl describe pod/nginx-secrets-store-inline
 ```
 
-![Image (Obraz)](../media/kubernetes-key-vault-4.png)
+![Obraz](../media/kubernetes-key-vault-6.png)
 
 Wdrożony pod powinien być w stanie "uruchomiona". W sekcji "events" u dołu wszystkie typy zdarzeń po lewej stronie są klasyfikowane jako "normalne".
 Po sprawdzeniu, że jest uruchomiony, możesz sprawdzić, czy na twoim komputerze znajdują się wpisy tajne z Key Vault.

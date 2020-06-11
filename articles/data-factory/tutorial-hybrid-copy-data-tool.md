@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/09/2018
-ms.openlocfilehash: badf6ed4e4a330aae288cd6a2b102941901a0461
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/09/2020
+ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194586"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660941"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Kopiowanie danych z bazy danych SQL Server do usługi Azure Blob Storage za pomocą narzędzia Kopiowanie danych
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -128,7 +128,7 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
      Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md).
 1. W obszarze **Wersja** wybierz pozycję **V2**.
 1. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez usługę Data Factory mogą mieścić się w innych lokalizacjach/regionach.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Po zakończeniu tworzenia zostanie wyświetlona strona **Data Factory** , jak pokazano na ilustracji.
 
@@ -146,18 +146,15 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 
 1. Na stronie **Źródłowy magazyn danych** kliknij pozycję **Utwórz nowe połączenie**.
 
-
 1. W obszarze **Nowa połączona usługa**wyszukaj pozycję **SQL Server**, a następnie wybierz pozycję **Kontynuuj**.
 
 1. W oknie dialogowym **Nowa połączona usługa (SQL Server)** w polu **Nazwa**wprowadź **SqlServerLinkedService**. Wybierz pozycję **+Nowy** w polu **Połącz za pośrednictwem środowiska Integration Runtime**. Należy utworzyć środowisko Integration Runtime (Self-hosted), pobrać je na komputer i zarejestrować w usłudze Data Factory. Środowisko Integration Runtime (Self-hosted) kopiuje dane między środowiskiem lokalnym a chmurą.
 
+1. W oknie dialogowym **konfiguracja Integration Runtime** wybierz pozycję **samodzielny**. Następnie wybierz pozycję **Kontynuuj**.
 
-1. W oknie dialogowym **konfiguracja Integration Runtime** wybierz pozycję **samodzielny**. Następnie wybierz pozycję **Dalej**.
+   ![Tworzenie środowiska Integration Runtime](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-   ![Tworzenie środowiska Integration Runtime](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
-
-1. W oknie dialogowym **konfiguracja Integration Runtime** w polu **Nazwa**wprowadź **TutorialIntegrationRuntime**. Następnie wybierz pozycję **Dalej**.
-
+1. W oknie dialogowym **konfiguracja Integration Runtime** w polu **Nazwa**wprowadź **TutorialIntegrationRuntime**. Następnie wybierz pozycję **Utwórz**.
 
 1. W oknie dialogowym **konfiguracja Integration Runtime** wybierz **pozycję kliknij tutaj, aby uruchomić instalację ekspresową dla tego komputera**. Ta akcja instaluje na komputerze środowisko Integration Runtime i rejestruje je w usłudze Data Factory. Ewentualnie można użyć opcji instalacji ręcznej w celu pobrania pliku instalacyjnego, uruchomienia go i zarejestrowania środowiska Integration Runtime za pomocą klucza.
 
@@ -216,20 +213,17 @@ W tej sekcji utworzysz kontener obiektów blob o nazwie **adftutorial** w usłud
 
 1. W oknie dialogowym **Podsumowanie** sprawdź wartości wszystkich ustawień, a następnie wybierz pozycję **Dalej**.
 
-1. Na stronie **Wdrażanie** wybierz pozycję **Monitorowanie**, aby monitorować utworzony potok lub zadanie.
+1. Na **stronie Wdrażanie** wybierz pozycję **Monitorowanie**, aby monitorować potok (zadanie). 
 
-   ![Strona Wdrażanie](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+1. Po zakończeniu przebiegu potoku można wyświetlić stan utworzonego potoku. 
 
-1. Na karcie **Monitorowanie** można wyświetlić stan utworzonego potoku. Możesz użyć linków w kolumnie **Akcja**, aby wyświetlić uruchomienia działań skojarzonych z uruchomieniem potoku oraz ponownie uruchamiać potok.
+1. Na stronie uruchomienia potoku wybierz pozycję **Odśwież** , aby odświeżyć listę. Kliknij link pod **nazwą potoku** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok. 
 
-1. Wybierz link **Wyświetl uruchomienia działania** w kolumnie **Akcje**, aby wyświetlić uruchomienia działań skojarzone z uruchomieniem potoku. Aby wyświetlić szczegółowe informacje na temat operacji kopiowania, wybierz link **Szczegóły** (ikona okularów) w kolumnie **Akcje**. Aby przełączyć się z powrotem do widoku **uruchomienia potoków** , wybierz pozycję **uruchomienia potoku** u góry.
+1. Na stronie uruchomienia działania wybierz link **szczegóły** (ikona okularów) w kolumnie **Nazwa działania** , aby uzyskać więcej informacji na temat operacji kopiowania. Aby wrócić do widoku uruchomień potoków, wybierz link **wszystkie uruchomienia potoków** w menu stron nadrzędnych. Aby odświeżyć widok, wybierz pozycję **Odśwież**.
 
 1. Upewnij się, że w folderze **fromonprem** kontenera **adftutorial** znajduje się plik wyjściowy.
 
-
 1. Wybierz kartę **Edycja** po lewej stronie, aby przełączyć się w tryb edytora. Za pomocą edytora można zaktualizować usługi połączone, zestawy danych i potoki utworzone przez narzędzie. Wybierz pozycję **Kod**, aby wyświetlić kod JSON skojarzony z jednostką otwartą w edytorze. Aby uzyskać szczegółowe informacje dotyczące sposobu edytowania tych jednostek w interfejsie użytkownika usługi Data Factory, zobacz [wersję witryny Azure Portal używaną w tym samouczku](tutorial-copy-data-portal.md).
-
-   ![Karta Edycja](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>Następne kroki

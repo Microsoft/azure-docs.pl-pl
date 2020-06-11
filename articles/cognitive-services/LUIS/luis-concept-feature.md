@@ -2,29 +2,70 @@
 title: Funkcje — LUIS
 description: Dodaj funkcje do modelu języka, aby przedstawić wskazówki dotyczące sposobu rozpoznawania danych wejściowych, które mają być oznaczone etykietami lub klasyfikacją.
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 06/10/2020
+ms.openlocfilehash: 823c51f0b58481e30ff54814dde03285ad094b9e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742708"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677595"
 ---
 # <a name="machine-learning-ml-features"></a>Funkcje uczenia maszynowego (ML)
 
-W uczeniu maszynowym **Funkcja**   jest odróżnianą cechą lub atrybutem danych, które są przestrzegane przez system.
+W uczeniu maszynowym **Funkcja**   jest odróżnianą cechą lub atrybutem danych, które są używane przez system i są przez nie poznani.
 
 Funkcje uczenia maszynowego zapewniają LUIS ważne wskaźniki dotyczące lokalizacji, w których należy odróżnić koncepcje. Są to wskazówki, których LUIS mogą używać, ale nie są trudne.  Te wskazówki są używane w połączeniu z etykietami w celu znalezienia danych.
 
- LUIS obsługuje obie listy fraz i używa innych jednostek jako funkcji:
+## <a name="what-is-a-feature"></a>Co to jest funkcja
+
+Funkcja jest cechą odróżniającą, która może być opisana jako funkcja: f (x) = y. Funkcja jest używana, aby wiedzieć, gdzie szukać, w przykładzie wypowiedź, dla cech odróżniających. Podczas tworzenia schematu dowiesz się, jak poznać przykład wypowiedź, który wskazuje cechę? Twoja odpowiedź to najlepszy przewodnik dotyczący tworzenia funkcji.
+
+## <a name="types-of-features"></a>Typy funkcji
+
+ LUIS obsługuje zarówno listę fraz, jak i modele jako funkcje:
 * Funkcja listy fraz
 * Model (cel lub jednostka) jako funkcja
 
 Funkcje powinny być uważane za niezbędne części projektu schematu.
 
+## <a name="how-you-find-features-in-your-example-utterances"></a>Jak znaleźć funkcje w Twoim przykładowym wyrażenia długości
+
+Ponieważ LUIS jest aplikacją opartą na języku, funkcje będą oparte na tekście. Wybierz tekst, który wskazuje cechę, którą chcesz rozróżnić. W przypadku LUIS jest to token. W przypadku języka angielskiego token jest ciągłym zakresem, bez spacji i znaków interpunkcyjnych, liter i cyfr. Spacja nie jest tokenem.
+
+Ponieważ spacje i znaki interpunkcyjne nie są tokenami, należy skoncentrować się na tekście, którego można użyć jako funkcji. Pamiętaj, aby uwzględnić zmiany wyrazów, takie jak:
+* formularze w liczbie mnogiej
+* intensywność zlecenia
+* jednostek
+* pisownia i błędy pisowni
+
+Czy tekst, jako cech odróżniających, musi:
+* Dopasowuje dokładne słowo lub frazę — rozważ dodanie jednostki wyrażenia regularnego lub jednostki listy jako funkcji do jednostki lub zamiaru
+* Dopasowuje dobrze znaną koncepcję, taką jak daty, godziny lub nazwiska osób — Użyj wstępnie skompilowanej jednostki jako funkcji dla jednostki lub intencji
+* Poznaj nowe przykłady w czasie — Użyj listy frazy niektórych przykładów koncepcji jako funkcji dla jednostki lub intencji
+
+## <a name="combine-features"></a>Połącz funkcje
+
+Ze względu na sposób opisywania cech można użyć więcej niż jednej funkcji, która ułatwia opisywanie cech i koncepcji. Typowym parowaniem jest użycie funkcji listy fraz i jednego z typów jednostek często używanych jako funkcje: prekompilowana jednostka, wyrażenie regularne lub jednostka listy.
+
+### <a name="ticket-booking-entity-example"></a>Przykład jednostki rezerwacji biletu
+
+Najpierw rozważmy aplikację do rezerwacji lotu z zamiarem rezerwacji lotu i jednostką rezerwacji biletów.
+
+Jednostka rezerwacji biletów jest jednostką dodaną przez maszynę do miejsca docelowego lotu. Aby ułatwić wyodrębnienie lokalizacji, użyj dwóch funkcji, aby uzyskać pomoc:
+* Lista fraz odpowiednich słów, takich jak `plane` , `flight` , `reservation` ,`ticket`
+* Wstępnie skompilowana `geographyV2` Jednostka jako funkcja do jednostki
+
+### <a name="pizza-entity-example"></a>Przykład jednostki Pizza
+
+Innym przykładem jest rozważenie aplikacji z kolejnością Pizza za pomocą metody tworzenia zamówienia Pizza i jednostki Pizza.
+
+Jednostka Pizza jest jednostką uczenia maszynowego dla szczegółów Pizza. Aby ułatwić wyodrębnienie szczegółów, użyj dwóch funkcji, aby uzyskać pomoc:
+* Lista fraz odpowiednich słów, takich jak `cheese` , `crust` , `pepperoni` ,`pineapple`
+* Wstępnie skompilowana `number` Jednostka jako funkcja do jednostki
+
 ## <a name="a-phrase-list-for-a-particular-concept"></a>Lista fraz dla konkretnej koncepcji
 
-Lista fraz jest listą słów lub fraz, które hermetyzują konkretną koncepcję.
+Lista fraz jest listą słów lub fraz, które hermetyzują konkretną koncepcję i są stosowane jako dopasowanie bez uwzględniania wielkości liter na poziomie tokenu.
 
 Podczas dodawania listy fraz można ustawić tę funkcję jako:
 * **[Globalne](#global-features)**. Globalna funkcja ma zastosowanie do całej aplikacji.
@@ -55,6 +96,18 @@ Jeśli chcesz wyodrębnić warunki medyczne:
 * Najpierw utwórz przykład wyrażenia długości i Oznacz warunki medyczne w tych wyrażenia długości.
 * Następnie utwórz listę fraz z przykładami warunków w domenie podmiotu. Ta lista wyrażeń powinna zawierać rzeczywisty termin oznaczony etykietą i inne terminy opisujące te same koncepcje.
 * Dodaj listę fraz do jednostki lub podjednostki, która wyodrębnia koncepcję używaną na liście fraz. Najbardziej typowym scenariuszem jest składnik (podrzędny) jednostki uczenia maszynowego. Jeśli lista fraz powinna być stosowana dla wszystkich intencji lub jednostek, Oznacz listę fraz jako globalną listę fraz. `enabledForAllModels`Flaga steruje zakresem tego modelu w interfejsie API.
+
+### <a name="token-matches-for-a-phrase-list"></a>Dopasowanie tokenu dla listy fraz
+
+Lista fraz ma zastosowanie na poziomie tokenu, niezależnie od wielkości liter. Poniższy wykres pokazuje, jak lista fraz zawierających wyraz `Ann` jest stosowana do odmian tych samych znaków w tej kolejności.
+
+
+| Odmiana tokenu`Ann` | Dopasowanie listy fraz po znalezieniu tokenu |
+|--------------------------|---------------------------------------|
+| ANN<br>aNN<br>           | Tak — token to`Ann`                  |
+| Ann                    | Tak — token to`Ann`                  |
+| Anne                     | Nie — token to`Anne`                  |
+
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>

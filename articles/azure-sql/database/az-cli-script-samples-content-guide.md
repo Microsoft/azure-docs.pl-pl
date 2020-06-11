@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: a17b5d80817637f1038996b034f926ee74cf54e9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ecd78cdc534b68d913b6b5114a04ad2720796665
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344666"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84658171"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla Azure SQL Database i wystąpienia zarządzanego SQL 
  
@@ -75,6 +75,6 @@ Poniższa tabela zawiera linki do przykładów skryptów interfejsu wiersza pole
 
 Dodatkowe przykłady wystąpienia zarządzanego SQL można znaleźć w temacie [Tworzenie](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [Aktualizowanie](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [przenoszenie bazy danych](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)i [Praca ze](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) skryptami.
 
-Dowiedz się więcej o [interfejsie API interfejsu wiersza polecenia platformy Azure o wystąpieniu zarządzanym SQL](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-manage-managed-instances).
+Dowiedz się więcej o [interfejsie API interfejsu wiersza polecenia platformy Azure o wystąpieniu zarządzanym SQL](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances).
 
 ---

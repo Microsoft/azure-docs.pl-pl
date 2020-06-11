@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/29/2020
-ms.openlocfilehash: 708236cbbd9bf10c6e9edf6b59a3d8e814a40e9f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 06/08/2020
+ms.openlocfilehash: f11498812c3923f75ca84e66cab9098e86cc192e
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194619"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660993"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Kopiowanie danych z bazy danych SQL Server do usługi Azure Blob Storage
 
@@ -130,7 +130,7 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
      Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md).
 1. W obszarze **Wersja** wybierz pozycję **V2**.
 1. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez usługę Data Factory mogą mieścić się w innych regionach.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 1. Po zakończeniu tworzenia zostanie wyświetlona strona **Data Factory** , jak pokazano na ilustracji:
 
@@ -219,7 +219,7 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
     c. W polu część **pliku** wybierz pozycję **Dodaj zawartość dynamiczną**.
     ![wyrażenie dynamiczne do rozpoznawania nazwy pliku](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-    d. Dodaj `@CONCAT(pipeline().RunId, '.txt')` , a następnie wybierz pozycję **Zakończ**. Ta akcja spowoduje zmianę nazwy pliku na PipelineRunID. txt.
+    d. Dodaj `@CONCAT(pipeline().RunId, '.txt')` , a następnie wybierz pozycję **Zakończ**. Ta akcja spowoduje zmianę nazwy pliku na PipelineRunID.txt.
 
 1. Przejdź na kartę z otwartym potokiem lub wybierz potok w widoku drzewa. Upewnij się, że w polu **Zestaw danych będący ujściem** wybrano wartość **AzureBlobDataset**.
 

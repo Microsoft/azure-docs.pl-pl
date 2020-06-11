@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: a59fafccecaf2fc266a6c7864174c477e1831186
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/08/2020
+ms.openlocfilehash: 4e39d4e106a399f0105ee4ec3f3606354f113165
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561150"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84661070"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-in-the-azure-portal"></a>Kopiuj wiele tabel zbiorczo przy użyciu Azure Data Factory w Azure Portal
 
@@ -92,7 +92,7 @@ Aby sprawdzić i włączyć to ustawienie, przejdź do serwera > zabezpieczenia 
      Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 1. Wybierz opcję **V2** w obszarze **Wersja**.
 1. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 1. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** . 
    
 1. Kliknij kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Data Factory.
@@ -108,13 +108,16 @@ W ramach tego samouczka nawiążesz połączenie Azure SQL Database, usługi Azu
 ### <a name="create-the-source-azure-sql-database-linked-service"></a>Tworzenie źródłowej połączonej usługi Azure SQL Database
 W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danych Azure SQL Database z fabryką danych. 
 
-1. Kliknij pozycję **połączenia** w dolnej części okna, a następnie kliknij pozycję **+ Nowy** na pasku narzędzi (przycisk**połączenia** znajduje się u dołu lewej kolumny w obszarze **zasoby fabryki**). 
+1. Otwórz [kartę Zarządzanie](https://docs.microsoft.com/azure/data-factory/author-management-hub) w okienku po lewej stronie.
 
+1. Na stronie połączone usługi wybierz pozycję **+ Nowy** , aby utworzyć nową połączoną usługę.
+
+   ![Nowa połączona usługa](./media/doc-common-process/new-linked-service.png)
 1. W oknie **Nowa połączona usługa** wybierz pozycję **Azure SQL Database**, a następnie kliknij pozycję **Kontynuuj**. 
 1. W oknie **Nowa połączona usługa (Azure SQL Database)** wykonaj następujące czynności: 
 
     a. Wprowadź wartość **AzureSqlDatabaseLinkedService** w polu **Nazwa**.
-    
+
     b. Wybierz serwer dla **nazwy serwera**
     
     c. W polu **Nazwa bazy danych** wybierz swoją bazę danych Azure SQL Database. 
@@ -146,7 +149,7 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
      
     f. Aby przetestować połączenie z bazą danych Azure SQL Database przy użyciu określonych informacji, kliknij pozycję **Testuj połączenie**.
      
-    g. Kliknij przycisk **Utwórz**.
+    g. Kliknij pozycję **Utwórz**.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>Tworzenie przejściowej połączonej usługi Azure Storage
 W tym samouczku magazyn obiektów blob platformy Azure służy jako obszar przejściowy, pozwalający na włączenie programu PolyBase w celu podniesienia wydajności kopiowania.
@@ -158,8 +161,7 @@ W tym samouczku magazyn obiektów blob platformy Azure służy jako obszar przej
     a. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.                                                 
     b. Wybierz swoje **konto usługi Azure Storage** w polu **Nazwa konta magazynu**.
     
-    c. Kliknij przycisk **Utwórz**.
-
+    c. Kliknij pozycję **Utwórz**.
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
 W tym samouczku utworzysz zestawy danych będące źródłem i ujściem, określające lokalizację przechowywania danych. 

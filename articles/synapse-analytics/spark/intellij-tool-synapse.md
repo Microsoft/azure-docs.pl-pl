@@ -8,14 +8,14 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: b344ae50d921c33a5e8ddd344e08ec86179668e9
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 3971d49befd228c111b1a8da5fce44e25abfaa65
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608761"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84657837"
 ---
-# <a name="tutorial-create-apache-spark-applications-with-intellij-using-synapse-synapse-analytics-workspaces-preview"></a>Samouczek: Tworzenie aplikacji Apache Spark za pomocą IntelliJ przy użyciu Synapse Synapse Analytics (obszary robocze w wersji zapoznawczej)
+# <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Samouczek: Tworzenie aplikacji Apache Spark za pomocą IntelliJ przy użyciu obszaru roboczego Synapse
 
 W tym samouczku pokazano, jak za pomocą wtyczki Azure Toolkit for IntelliJ tworzyć aplikacje Apache Spark, które są zapisywane w [Scala](https://www.scala-lang.org/), a następnie przesyłać je do puli platformy Spark (wersja zapoznawcza) bezpośrednio z poziomu zintegrowanego środowiska projektowego INTELLIJ (IDE). Możesz użyć wtyczki na kilka sposobów:
 
@@ -23,7 +23,7 @@ W tym samouczku pokazano, jak za pomocą wtyczki Azure Toolkit for IntelliJ twor
 - Uzyskaj dostęp do zasobów pul platformy Spark.
 - Tworzenie i uruchamianie aplikacji Scala Spark lokalnie.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 >
 > - Korzystanie z wtyczki Azure Toolkit for IntelliJ
@@ -38,7 +38,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 - Wtyczka Scala — Zainstaluj z [repozytorium wtyczki IntelliJ](/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#install-scala-plugin-for-intellij-idea).
 - To wymaganie wstępne jest przeznaczone tylko dla użytkowników systemu Windows.
 
-  Podczas uruchamiania lokalnej aplikacji platformy Spark Scala na komputerze z systemem Windows może wystąpić wyjątek, zgodnie z opisem w platformie [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Wyjątek występuje, ponieważ w systemie Windows brakuje pliku WinUtils. exe.
+  Podczas uruchamiania lokalnej aplikacji platformy Spark Scala na komputerze z systemem Windows może wystąpić wyjątek, zgodnie z opisem w platformie [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356). Wyjątek występuje z powodu braku WinUtils.exe w systemie Windows.
   Aby rozwiązać ten problem, Pobierz [plik wykonywalny WinUtils](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) do lokalizacji takiej jak **C:\WinUtils\bin**. Następnie Dodaj zmienną środowiskową **HADOOP_HOME**i ustaw wartość zmiennej na **C:\WinUtils**.
 
 ## <a name="create-a-spark-scala-application-for-a-spark-pool"></a>Tworzenie aplikacji Spark Scala dla puli platformy Spark
@@ -53,7 +53,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
     ![Okno dialogowe Nowy projekt IntelliJ pomysłów](./media/intellij-tool-synapse/create-synapse-application01.png)
 
-5. Wybierz pozycję **Dalej**.
+5. Wybierz przycisk **Dalej**.
 6. W oknie **New Project** (Nowy projekt) podaj następujące informacje:
 
     | Właściwość | Opis |
@@ -169,9 +169,9 @@ Poniższe instrukcje umożliwiają skonfigurowanie lokalnego uruchomienia i loka
 
     ![IntelliJ uruchamianie konfiguracji debugowania — uruchomienie lokalne](./media/intellij-tool-synapse/local-run-synapse.png)
 
-    - Zmienne środowiskowe i lokalizacja WinUtils. exe są przeznaczone tylko dla użytkowników systemu Windows.
+    - Zmienne środowiskowe i lokalizacja WinUtils.exe są przeznaczone tylko dla użytkowników systemu Windows.
     - Zmienne środowiskowe: zmienna środowiskowa systemu może być wykrywana, jeśli została ustawiona wcześniej, i nie trzeba jej ręcznie dodawać.
-    - [WinUtils. exe — lokalizacja](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): możesz określić lokalizację WinUtils, klikając ikonę folderu po prawej stronie.
+    - [WinUtils.exe lokalizację](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe): możesz określić lokalizację WinUtils, klikając ikonę folderu po prawej stronie.
 
 2. Następnie kliknij przycisk odtwarzania lokalnego.
 
@@ -210,7 +210,7 @@ Można uruchomić konsolę lokalną Spark (Scala) lub uruchomić konsolę sesji 
 
 ### <a name="spark-local-console-scala"></a>Konsola lokalna Spark (Scala)
 
-Upewnij się, że WINUTILS. EXE — wymaganie wstępne.
+Upewnij się, że spełniono wymagania wstępne WINUTILS.EXE.
 
 1. Na pasku menu Przejdź do opcji **Uruchom**  >  **Edytowanie konfiguracji..**..
 2. W oknie **konfiguracje uruchamiania/debugowania** w lewym okienku przejdź do **Apache Spark na Synapse**  >  **[Spark on Synapse] MojaApl**.
@@ -220,7 +220,7 @@ Upewnij się, że WINUTILS. EXE — wymaganie wstępne.
     |Właściwość |Wartość |
     |----|----|
     |Zmienne środowiskowe|Upewnij się, że wartość HADOOP_HOME jest poprawna.|
-    |WINUTILS. exe — lokalizacja|Upewnij się, że ścieżka jest poprawna.|
+    |Lokalizacja WINUTILS.exe|Upewnij się, że ścieżka jest poprawna.|
 
     ![Lokalna konfiguracja zestawu konsoli](./media/intellij-tool-synapse/local-console-synapse01.png)
 

@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: b65213bd87f6b82391733a135e096077127765d7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 44472981e48a7018fcdf55f28d33d0dda9479d44
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344020"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669906"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Hugo w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Hugo](https://gohugo.io/) w usłudze [Azure static Web Apps](overview.md). Końcowym wynikiem jest nowe statyczne Web Apps platformy Azure ze skojarzonymi akcjami GitHub, które zapewniają kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -133,9 +133,9 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 1. Kliknij przycisk **Dalej: kompiluj >** , aby edytować konfigurację kompilacji
 
-1. Ustaw _lokalizację aplikacji_ na **publiczną**.
+1. Ustaw _lokalizację aplikacji_ na **/** .
 
-1. Pozostaw pustą _lokalizację artefaktu aplikacji_ .
+1. Ustaw _lokalizację artefaktu aplikacji_ na **publiczną**.
 
    Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwili nie jest WDRAŻANY interfejs API.
 
@@ -187,7 +187,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
    :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Wdrożona aplikacja":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 

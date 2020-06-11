@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: 4181491053dd1f8d66afcd5f1df7cb96313011da
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1e84f9acb439324317ed2f0d11ed06eb3e43ad8
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650610"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678073"
 ---
 # <a name="what-is-speech-to-text"></a>Co to jest zamiana mowy na tekst?
 
@@ -25,7 +25,7 @@ Zamiana mowy na tekst z usługi mowy, znanej również jako rozpoznawanie mowy, 
 
 Usługa zamiany mowy na tekst domyślnie używa modelu języka uniwersalnego. Ten model został przeszkolony przy użyciu danych firmy Microsoft i jest wdrażany w chmurze. Jest optymalny dla scenariuszy konwersacji i dyktowania. Przy użyciu zamiany mowy na tekst w celu rozpoznawania i transkrypcji w unikatowym środowisku można tworzyć i uczenie niestandardowych modeli akustycznych, językowych i wymowy. Dostosowanie jest pomocne w odniesieniu do hałasu otoczenia lub słownictwa specyficznego dla branży.
 
-Dzięki dodatkowemu tekstowi referencyjnemu jako dane wejściowe, usługa zamiany mowy na tekst umożliwia również [ocenę](rest-speech-to-text.md#pronunciation-assessment-parameters) wymowy, aby ocenić wymowę mowy i dać nam opinię na temat dokładności i Fluency głosu. Dzięki ocenie wymowy, informacje o języku mogą być praktyczne, otrzymywać błyskawiczne informacje zwrotne i ulepszać ich wymowę, aby mogły mówić i być niebezpieczne. Osoby wykorzystujące wykładowcy mogą oszacować wymowę wielu głośników w czasie rzeczywistym. Funkcja obecnie obsługuje amerykańskie angielski i skorelowanie z ocenami mowy prowadzonymi przez ekspertów.
+Dzięki dodatkowemu tekstowi referencyjnemu jako dane wejściowe, usługa zamiany mowy na tekst umożliwia również [ocenę](rest-speech-to-text.md#pronunciation-assessment-parameters) wymowy, aby ocenić wymowę mowy i dać nam opinię na temat dokładności i Fluency głosu. Dzięki ocenie wymowy, informacje o języku mogą być praktyczne, otrzymywać błyskawiczne informacje zwrotne i ulepszać ich wymowę, aby mogły mówić i być niebezpieczne. Osoby wykorzystujące wykładowcy mogą oszacować wymowę wielu głośników w czasie rzeczywistym. Ta funkcja obsługuje obecnie angielskie stany USA i skorelowanie z ocenami mowy prowadzonymi przez ekspertów.
 
 > [!NOTE]
 > Rozpoznawanie mowy Bing został zlikwidowany 15 października 2019. Jeśli Twoje aplikacje, narzędzia lub produkty używają interfejsów API rozpoznawanie mowy Bing, zostały utworzone przewodniki ułatwiające Migrowanie do usługi mowy.

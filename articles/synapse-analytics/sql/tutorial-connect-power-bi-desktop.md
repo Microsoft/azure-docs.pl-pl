@@ -1,6 +1,6 @@
 ---
-title: 'Samouczek: łączenie programu SQL na żądanie (wersja zapoznawcza) w celu Power BI Desktop & tworzenia raportu'
-description: W tym samouczku dowiesz się, jak połączyć usługę SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics, aby Power BI Desktop i utworzyć raport demonstracyjny na podstawie widoku.
+title: 'Samouczek: Łączenie SQL na żądanie w celu Power BI Desktop & tworzenia raportu'
+description: W tym samouczku dowiesz się, jak połączyć SQL na żądanie w usłudze Azure Synapse Analytics, aby Power BI Desktop i utworzyć raport demonstracyjny na podstawie widoku.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1b71e8108ecab0f6d420e404bd602a900ebfcfb2
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 3f32dc14163df6694c69258be365fcbb1390c926
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258287"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660235"
 ---
-# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Samouczek: używanie SQL na żądanie (wersja zapoznawcza) z Power BI Desktop & Tworzenie raportu
+# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Samouczek: korzystanie z SQL na żądanie z Power BI Desktop & Tworzenie raportu
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -125,7 +125,7 @@ Utwórz raport dla Power BI Desktop, wykonując następujące czynności:
 
     - Przykład dla usługi AAD 
   
-        ![Kliknij pozycję Zaloguj się.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![Kliknij przycisk Zaloguj.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - Przykład logowania SQL — wpisz nazwę użytkownika i hasło.
 
@@ -151,7 +151,7 @@ Utwórz raport dla Power BI Desktop, wykonując następujące czynności:
 
    ![Wybierz kolumny zainteresowania, aby wygenerować raport mapy.](./media/tutorial-connect-power-bi-desktop/step-6-select-columns-of-interest.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu korzystania z tego raportu Usuń zasoby z następującymi krokami:
 

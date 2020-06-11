@@ -10,14 +10,14 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: e89f3d85156081106f4e1dbb55ee6c895e7e7a2d
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 7e3e45d96839be06deec238deccdc9873492d68f
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636754"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84660251"
 ---
-# <a name="tutorial-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>Samouczek: Tworzenie Ubuntu Data Science Virtual Machine przy użyciu szablonu Menedżer zasobów
+# <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-a-resource-manager-template"></a>Szybki Start: Tworzenie Ubuntu Data Science Virtual Machine przy użyciu szablonu Menedżer zasobów
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Ten przewodnik Szybki Start przedstawia sposób tworzenia Ubuntu 18,04 Data Science Virtual Machine przy użyciu szablonu Azure Resource Manager. Virtual Machines analizy danych są wstępnie załadowanymi maszynami wirtualnymi z zestawem narzędzi do nauki o danych i środowisk uczenia maszynowego. Po wdrożeniu w zasobach obliczeniowych opartych na procesorach GPU wszystkie narzędzia i biblioteki są skonfigurowane do korzystania z procesora GPU. 
@@ -34,7 +34,7 @@ Ten przewodnik Szybki Start przedstawia sposób tworzenia Ubuntu 18,04 Data Scie
 
 ### <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). Pełny szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić cały szablon, zobacz [azuredeploy. JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). Część definiująca szczegóły DSVM jest pokazana tutaj:
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-vm-ubuntu-DSVM-GPU-or-CPU/). Pełny szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić cały szablon, zobacz [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json). Część definiująca szczegóły DSVM jest pokazana tutaj:
 
 :::code language="json" source="~/quickstart-templates/101-vm-ubuntu-DSVM-GPU-or-CPU/azuredeploy.json" range="235-276":::
 
@@ -81,7 +81,7 @@ Zobaczysz informacje o grupie zasobów:
 
 Kliknij zasób maszyny wirtualnej, aby przejść do strony z informacjami. Tutaj można znaleźć informacje na temat maszyny wirtualnej, w tym szczegóły połączenia. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz używać tej maszyny wirtualnej, usuń ją. Ponieważ DSVM jest skojarzony z innymi zasobami, takimi jak konto magazynu, prawdopodobnie trzeba będzie usunąć całą utworzoną grupę zasobów. Aby usunąć grupę zasobów za pomocą portalu, kliknij przycisk "Usuń" i potwierdź. Można też usunąć grupę zasobów z interfejsu wiersza polecenia przy użyciu: 
 

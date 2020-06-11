@@ -13,6 +13,7 @@
     - name: Tworzenie prywatnego punktu końcowego — interfejs wiersza polecenia platformy Azure
       href: create-private-endpoint-cli.md
     - name: Tworzenie prywatnego punktu końcowego — szablon usługi Resource Manager
+      displayName: Resource Manager
       href: create-private-endpoint-template.md
     - name: Tworzenie usługi Private Link — portal
       href: create-private-link-service-portal.md
@@ -21,6 +22,7 @@
     - name: Tworzenie usługi Private Link — interfejs wiersza polecenia platformy Azure
       href: create-private-link-service-cli.md
     - name: Tworzenie usługi Private Link — szablon usługi Resource Manager
+      displayName: Resource Manager
       href: create-private-link-service-template.md
 - name: Pojęcia
   items:

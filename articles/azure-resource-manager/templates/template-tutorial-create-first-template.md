@@ -2,15 +2,15 @@
 title: Samouczek — Tworzenie szablonu wdrażania &
 description: Utwórz pierwszy szablon Azure Resource Manager. Samouczek zawiera informacje na temat składni pliku szablonu i sposobu wdrażania konta magazynu.
 author: mumian
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dff1dd15f7f161f25ef7de54e36fa83e3e0036d2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e2419e8ee9f8648ae8f929638ac2c85ea8b67a0f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235212"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676152"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Samouczek: Tworzenie i wdrażanie pierwszego szablonu ARM
 
@@ -34,9 +34,10 @@ Szablony są plikami JSON. Do tworzenia szablonów potrzebny jest dobry Edytor J
 
 Do wdrożenia szablonu wymagane są również Azure PowerShell lub interfejs wiersza polecenia platformy Azure. Jeśli używasz interfejsu wiersza polecenia platformy Azure, musisz mieć najnowszą wersję. Instrukcje instalacji znajdują się w temacie:
 
-- [Zainstaluj Azure PowerShell](/powershell/azure/install-az-ps)
+- [Instalowanie programu Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Windows](/cli/azure/install-azure-cli-windows)
 - [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie Linux](/cli/azure/install-azure-cli-linux)
+- [Instalowanie interfejsu wiersza polecenia platformy Azure w systemie macOS](/cli/azure/install-azure-cli-macos)
 
 Po zainstalowaniu Azure PowerShell lub interfejsu wiersza polecenia platformy Azure upewnij się, że logujesz się po raz pierwszy. Aby uzyskać pomoc, zobacz artykuł [Logowanie — PowerShell](/powershell/azure/install-az-ps#sign-in) lub [Logowanie się do interfejsu wiersza polecenia platformy Azure](/cli/azure/get-started-with-azure-cli#sign-in).
 
@@ -50,7 +51,7 @@ Teraz możesz zacząć uczenie się o szablonach.
 1. Otwórz Visual Studio Code z zainstalowanym rozszerzeniem narzędzi Menedżer zasobów.
 1. Z menu **plik** wybierz pozycję **nowy plik** , aby utworzyć nowy plik.
 1. Z menu **plik** wybierz polecenie **Zapisz jako**.
-1. Nazwij plik **azuredeploy** i wybierz rozszerzenie pliku **JSON** . Pełna nazwa pliku **azuredeploy. JSON**.
+1. Nazwij plik **azuredeploy** i wybierz rozszerzenie pliku **JSON** . Pełna nazwa **azuredeploy.js**pliku.
 1. Zapisz plik na stacji roboczej. Wybierz ścieżkę, która jest łatwa do zapamiętania, ponieważ będzie ona dostarczana później podczas wdrażania szablonu.
 1. Skopiuj i wklej następujący kod JSON do pliku:
 
@@ -200,7 +201,7 @@ Można zweryfikować wdrożenie, przeeksplorowanie grupy zasobów z Azure Portal
 
    ![Wyświetl podsumowanie wdrożenia](./media/template-tutorial-create-first-template/view-deployment-summary.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przeniesiesz się do następnego samouczka, nie musisz usuwać grupy zasobów.
 

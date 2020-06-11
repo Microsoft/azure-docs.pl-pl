@@ -11,12 +11,12 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ec0ff6c5e53d33cf5c07171c2b678fe6857836e0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: e82ed66240144f94e18c3343dc0559f47722a2c4
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558367"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667106"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Samouczek: uczenie swojego pierwszego modelu ML
 
@@ -138,7 +138,7 @@ experiment
 
 ## <a name="view-training-results-in-studio"></a>Wyświetlanie wyników szkoleniowych w programie Studio
 
-Po **przyłączeniu do Azure Machine Learning Studio** zostanie przetworzona Strona główna eksperyment. W tym miejscu zobaczysz wszystkie uruchomienia indywidualne w eksperymentie. Wszystkie wartości zarejestrowane przez użytkownika ( `alpha_value` i `rmse` w tym przypadku) stają się polami dla każdego przebiegu, a także stają się dostępne dla wykresów i kafelków w górnej części strony eksperymentu. Aby dodać zarejestrowanej metrykę do wykresu lub kafelka, umieść kursor nad nim, kliknij przycisk Edytuj i Znajdź metrykę zarejestrowaną niestandardowo.
+Po **przyłączeniu do Azure Machine Learning Studio** zostanie przetworzona Strona główna eksperyment. W tym miejscu zobaczysz wszystkie uruchomienia indywidualne w eksperymentie. Wszystkie wartości zarejestrowane przez użytkownika ( `alpha_value` i `rmse` w tym przypadku) stają się polami dla każdego przebiegu, a także stają się dostępne dla wykresów. Aby wykreślić nowy wykres z zarejestrowaną metryką, kliknij pozycję "Dodaj wykres" i wybierz metrykę, którą chcesz wykreolić.
 
 Gdy szkolenia modeli są przeprowadzane na dużą skalę i tysiące różnych uruchomień, ta strona ułatwia przeglądanie każdego modelu, który jest przeszkolony, a w odróżnieniu od czasu, w jaki zostały one przeszkolone, oraz sposobu zmiany unikatowych metryk w czasie.
 
@@ -195,7 +195,7 @@ Wywołaj `download()` obiekt Run, określając nazwę pliku modelu do pobrania. 
 best_run.download_file(name="model_alpha_0.1.pkl")
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Nie wykonuj tej sekcji, jeśli planujesz Uruchamianie innych samouczków Azure Machine Learning.
 

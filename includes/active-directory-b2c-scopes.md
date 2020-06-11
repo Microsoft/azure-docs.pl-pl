@@ -5,16 +5,16 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
-ms.openlocfilehash: bbbc606497b53a0790d667a63b45101a3c18bbc4
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 3ebe1ec4c0292a530e5ef2c754e9b002e931300e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84297495"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84680312"
 ---
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/) 
 
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**.
+1. Wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację *webapi1* , aby otworzyć jej stronę **przeglądu** .
 1. W obszarze **Zarządzaj**wybierz pozycję **uwidaczniaj interfejs API**.
 1. W polu **Identyfikator URI identyfikatora aplikacji**wybierz łącze **Ustaw** .
@@ -29,9 +29,9 @@ ms.locfileid: "84297495"
     1. **Nazwa wyświetlana zgody administratora**:`Write access to demo API`
     1. **Opis zgody administratora**:`Allows write access to the demo API`
 
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
+#### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
 
-1. Wybierz pozycję **aplikacje**.
+1. Wybierz pozycję **aplikacje (starsza wersja)**.
 1. Wybierz aplikację *webapi1* , aby otworzyć jej stronę **Właściwości** .
 1. Wybierz pozycję **Opublikowane zakresy**. Opublikowane zakresy mogą służyć do przyznawania aplikacji klienckiej określonych uprawnień do internetowego interfejsu API.
 1. W obszarze **zakres**wprowadź tekst `demo.read` i wpisz **polecenie** `Read access to the web API` .

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2c1b98a72af3442b596a9fdde66d254e3e5c2c19
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220557"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678617"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>Obsługa języka dla zasobów QnA Maker i baz wiedzy
 
@@ -33,7 +33,7 @@ Poniższa lista zawiera języki obsługiwane dla zasobu QnA Maker.
 |--|
 |Arabski|
 |Armeński|
-|Bengalski|
+|Języku|
 |Baskijski|
 |Bułgarski|
 |Kataloński|
@@ -41,26 +41,26 @@ Poniższa lista zawiera języki obsługiwane dla zasobu QnA Maker.
 |Chinese_Traditional|
 |Chorwacki|
 |Czeski|
-|duński|
+|Duński|
 |Niderlandzki|
 |Angielski|
 |Estoński|
-|fiński|
+|Fiński|
 |Francuski|
 |Galicyjski|
-|niemiecki|
-|grecki|
+|Niemiecki|
+|Grecki|
 |Gudżarati|
 |Hebrajski|
 |Hindi|
-|węgierski|
+|Węgierski|
 |Islandzki|
 |Indonezyjski|
 |Irlandzki|
 |Włoski|
-|japoński|
+|Japoński|
 |Kannada|
-|koreański|
+|Koreański|
 |Łotewski|
 |Litewski|
 |Malayalam|
@@ -76,10 +76,10 @@ Poniższa lista zawiera języki obsługiwane dla zasobu QnA Maker.
 |Słowacki|
 |Słoweński|
 |Hiszpański|
-|szwedzki|
+|Szwedzki|
 |Tamilski|
 |Telugu|
-|Tajski|
+|Tajlandzki|
 |Turecki|
 |Ukraiński|
 |Urdu|
