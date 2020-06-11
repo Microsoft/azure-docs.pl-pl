@@ -1,21 +1,19 @@
 ---
 title: Wycofywanie klasycznych maszyn wirtualnych platformy Azure w dniu 1 marca 2023
 description: Artykuł zawiera ogólne omówienie klasycznej emerytury maszyny wirtualnej
-services: virtual-machines
 author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: e56aa5ec073aadc2a16d53c266d33255a34077cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7488ef45d665d95a28f69b7af887b98dd5a76376
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668807"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678379"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrowanie zasobów IaaS do Azure Resource Manager 1 marca 2023 
 

@@ -2,13 +2,13 @@
 title: Zablokuj zasoby, aby uniemożliwić zmiany
 description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania krytycznych zasobów platformy Azure, stosując blokadę dla wszystkich użytkowników i ról.
 ms.topic: conceptual
-ms.date: 05/19/2020
-ms.openlocfilehash: 6d6617b7e13ebf7a58cdbbf9356eac1d035a1f73
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.date: 06/10/2020
+ms.openlocfilehash: cf5e2c7d19b9b90be3e9ca9e64e832794cd70c92
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483481"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678039"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -35,9 +35,11 @@ Zastosowanie blokad może prowadzić do nieoczekiwanych wyników, ponieważ niek
 
 * Blokada tylko do odczytu w **grupie zasobów** zawierającej **maszynę wirtualną** uniemożliwia wszystkim użytkownikom uruchamianie lub ponowne uruchamianie maszyny wirtualnej. Te operacje wymagają żądania POST.
 
-* Blokada tylko do odczytu w **ramach subskrypcji** uniemożliwia poprawne działanie **Azure Advisor** . W usłudze Advisor nie można przechowywać wyników zapytań.
+* Nie można usunąć blokady **grupy zasobów** uniemożliwia Azure Resource Manager [Automatyczne usuwanie wdrożeń](../templates/deployment-history-deletions.md) w historii. Jeśli w historii osiągniesz 800 wdrożeń, wdrożenia zakończą się niepowodzeniem.
 
 * Nie można usunąć blokady w **grupie zasobów** utworzonej przez **usługę Azure Backup** powoduje niepowodzenie wykonywania kopii zapasowych. Usługa obsługuje maksymalnie 18 punktów przywracania. Po zablokowaniu usługa Backup nie może oczyścić punktów przywracania. Aby uzyskać więcej informacji, zobacz [często zadawane pytania — tworzenie kopii zapasowych maszyn wirtualnych platformy Azure](../../backup/backup-azure-vm-backup-faq.md).
+
+* Blokada tylko do odczytu w **ramach subskrypcji** uniemożliwia poprawne działanie **Azure Advisor** . W usłudze Advisor nie można przechowywać wyników zapytań.
 
 ## <a name="who-can-create-or-delete-locks"></a>Kto może tworzyć lub usuwać blokady
 

@@ -4,7 +4,6 @@ description: Zawiera wskazówki dotyczące optymalizacji wydajności SQL Server 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
@@ -16,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 31b78d19e2cb1bc2ea5952ec19495840333f8429
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: f320ee7c6bab77c64215a0576852f1d895be157b
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342616"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668785"
 ---
 # <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Wskazówki dotyczące wydajności SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +40,7 @@ Ten artykuł zawiera wskazówki dotyczące optymalizacji wydajności SQL Server 
 
 Poniżej przedstawiono szybką listę kontrolną w celu uzyskania optymalnej wydajności SQL Server na platformie Azure Virtual Machines:
 
-| Warstwowy | Optymalizacje |
+| Obszar | Optymalizacje |
 | --- | --- |
 | [Rozmiar maszyny wirtualnej](#vm-size-guidance) | — Użyj rozmiarów maszyn wirtualnych z 4 lub więcej vCPU, takimi jak [E4S_v3](../../../virtual-machines/ev3-esv3-series.md) lub wyższy lub [DS12_v2](../../../virtual-machines/dv2-dsv2-series-memory.md) lub wyższy.<br/><br/> - [ES, EAS, DS i Das Series](../../../virtual-machines/sizes-general.md) oferują optymalną pamięć do vCPU współczynnika wymaganą dla wydajności obciążeń OLTP. <br/><br/> - [Seria M](../../../virtual-machines/m-series.md) oferuje największą ilość pamięci do vCPU współczynnika wymaganą dla wydajności o krytycznym znaczeniu i jest idealnym rozwiązaniem w przypadku obciążeń magazynu danych. <br/><br/> — Zbieraj dane o liczbie operacji we [/wy na sekundę](../../../virtual-machines/windows/premium-storage-performance.md#iops), wymagania dotyczące [przepływności](../../../virtual-machines/windows/premium-storage-performance.md#throughput) i [opóźnień](../../../virtual-machines/windows/premium-storage-performance.md#latency) w godzinach szczytu, postępując zgodnie z [listą wymagań dotyczących wydajności aplikacji](../../../virtual-machines/windows/premium-storage-performance.md#application-performance-requirements-checklist) , a następnie wybierz [rozmiar maszyny wirtualnej](../../../virtual-machines/sizes-general.md) , który można skalować do wymagań dotyczących wydajności obciążeń.|
 | [Storage](#storage-guidance) | — Aby uzyskać szczegółowe informacje na temat testowania wydajności SQL Server na platformie Azure Virtual Machines z użyciem testów TPC-E i TPC_C, zapoznaj się z blogiem [Optymalizacja wydajności OLTP](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). <br/><br/> — Użyj [dysków SSD Premium](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) , aby uzyskać najlepsze korzyści z cen/wydajności. Skonfiguruj [pamięć podręczną tylko do odczytu](../../../virtual-machines/windows/premium-storage-performance.md#disk-caching) dla plików danych i brak pamięci podręcznej dla pliku dziennika. <br/><br/> -Użyj [Ultra disks](../../../virtual-machines/windows/disks-types.md#ultra-disk) , jeśli obciążenie wymaga mniej niż 1 ms magazynu. <br/><br/> — Zbierz wymagania dotyczące opóźnień magazynu dla plików SQL Server, dzienników i tymczasowych baz danych, [monitorując aplikację](../../../virtual-machines/windows/premium-storage-performance.md#application-performance-requirements-checklist) przed wybraniem typu dysku. Jeśli <są wymagane opóźnienia magazynu 1 ms, użyj Ultra disks, w przeciwnym razie użyj SSD w warstwie Premium. Jeśli małe opóźnienia są wymagane tylko dla pliku dziennika, a nie dla plików danych, [należy zastanowić się, że na dysku jest](../../../virtual-machines/windows/disks-enable-ultra-ssd.md) wymagana liczba IOPS i poziomy przepływności tylko dla pliku dziennika. <br/><br/> -  [Udziały plików w warstwie Premium](failover-cluster-instance-premium-file-share-manually-configure.md) są zalecane jako magazyn udostępniony dla SQL Server wystąpienia klastra trybu failover. Udziały plików w warstwie Premium nie obsługują buforowania i oferują ograniczoną wydajność w porównaniu z dyskami SSD w warstwie Premium. Wybierz opcję Premium dyski zarządzane dyskami SSD za pośrednictwem udziałów plików w warstwie Premium dla autonomicznych wystąpień programu SQL Server; Jednak korzystanie z udziałów plików Premium dla magazynu klastra trybu failover w celu ułatwienia konserwacji i elastycznej skalowalności. <br/><br/> — Magazyn w warstwie Standardowa jest zalecany tylko w celach deweloperskich i testowych lub dla plików kopii zapasowej i nie powinien być używany w przypadku obciążeń produkcyjnych. <br/><br/> — Zachowaj [konto magazynu](../../../storage/common/storage-create-storage-account.md) i SQL Server maszynę wirtualną w tym samym regionie.<br/><br/> -Wyłącz [Magazyn Geograficznie nadmiarowy](../../../storage/common/storage-redundancy.md) platformy Azure (replikacja geograficzna) na koncie magazynu.  |

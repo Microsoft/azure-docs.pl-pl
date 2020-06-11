@@ -11,12 +11,12 @@ ms.author: larryfr
 author: blackmist
 ms.date: 06/09/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 021d548c56810021af7257b25c40d7d4cc68ec12
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 30b6412ed5a8462b1ce0d8351e9e86a16b2082da
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629438"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670042"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorowanie i zbieranie danych z punktów końcowych usługi sieci Web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ Oprócz zbierania danych wyjściowych i odpowiedzi punktu końcowego można moni
 
 ## <a name="web-service-metadata-and-response-data"></a>Metadane usługi sieci Web i dane odpowiedzi
 
->[!Important]
+> [!IMPORTANT]
 > Usługa Azure Application Insights rejestruje tylko ładunki o rozmiarze do 64 KB. Jeśli limit zostanie osiągnięty, rejestrowane są tylko najnowsze dane wyjściowe modelu. 
 
 Aby rejestrować informacje o żądaniu do usługi sieci Web, Dodaj `print` instrukcje do pliku Score.py. Każda `print` instrukcja powoduje jeden wpis w tabeli śledzenia w Application Insights, w obszarze komunikatu `STDOUT` . Zawartość `print` instrukcji zostanie zawarta w `customDimensions` , a następnie `Contents` w tabeli śledzenia. W przypadku drukowania ciągu JSON tworzy hierarchiczną strukturę danych w danych wyjściowych śledzenia poniżej `Contents` .
@@ -74,6 +74,9 @@ Możesz wysyłać zapytania do usługi Azure Application Insights bezpośrednio,
 Jeśli chcesz rejestrować niestandardowe ślady, postępuj zgodnie ze standardowym procesem wdrażania dla AKS lub ACI w temacie [jak wdrożyć i gdzie](how-to-deploy-and-where.md) dokument. Następnie wykonaj następujące czynności:
 
 1. Aby wysłać dane do Application Insights podczas wnioskowania, zaktualizuj plik oceniania przez dodanie instrukcji Print. Aby zalogować się do bardziej złożonych informacji, takich jak dane żądania i odpowiedź, możemy nam mieć strukturę JSON. Poniższy przykład pliku score.py rejestruje czas inicjowania modelu, dane wejściowe i wyjściowe podczas wnioskowania oraz czas wystąpienia jakichkolwiek błędów:
+
+    > [!IMPORTANT]
+    > Usługa Azure Application Insights rejestruje tylko ładunki o rozmiarze do 64 KB. Jeśli limit zostanie osiągnięty, rejestrowane są tylko najnowsze dane wyjściowe modelu. Jeśli dane, które mają być rejestrowane, są większe niż 64 KB, należy je zapisać w usłudze BLOB Storage przy użyciu informacji w temacie [zbieranie danych dla modeli w środowisku produkcyjnym](how-to-enable-data-collection.md).
     
     ```python
     import pickle

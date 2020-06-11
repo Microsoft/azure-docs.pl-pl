@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/01/2020
+ms.date: 06/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 560636e000c498fdcd8583dc26cccc357d25ae22
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: d7a487b105c8edc34d9427de3b8ca6738da1855a
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331937"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672106"
 ---
 # <a name="available-skus-for-hli"></a>Dostępne jednostki SKU dla oprogramowania SAP HANA na platformie Azure — duże wystąpienia
 
@@ -56,6 +56,7 @@ Usługa SAP HANA na platformie Azure (duże wystąpienia) oparta na sygnaturach 
 | [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=1985) | SAP HANA na platformie Azure S768m<br /> – 16 x procesor Intel® Xeon® E7-8890 v4<br /> 384 rdzeni procesora CPU i 768 wątki procesora |  16,0 TB |  36 TB | Dostępne (tylko wersja rev 4) |
 | TDIv5 | SAP HANA na platformie Azure S768xm<br /> – 16 x procesor Intel® Xeon® E7-8890 v4<br /> 384 rdzeni procesora CPU i 768 wątki procesora |  24,0 TB |  56 TB | Dostępne |
 | [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=1986) | SAP HANA na platformie Azure S960m<br /> – 20 x procesor Intel® Xeon® E7-8890 v4<br /> 480 rdzeni procesora CPU i 960 wątki procesora |  20,0 TB |  46 TB | Dostępne (tylko wersja rev 4) |
+| [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2328) | SAP HANA na platformie Azure S896m<br /> – 16 x procesor Intel® Xeon® Platinum 8276 <br /> 448 rdzeni procesora CPU i 896 wątki procesora | 24,0 TB | 35,8 TB | Dostępne (tylko wersja rev 4) |
 
 - Rdzenie procesora = suma rdzeni procesora CPU, które nie są oparte na funkcji Hyper-Thread, sumy procesorów jednostki serwera.
 - Wątki procesora = suma wątków obliczeniowych dostarczanych przez rdzenie procesora CPU przez wątki z sumą procesorów jednostki serwera. Większość jednostek jest domyślnie skonfigurowanych do korzystania z technologii Hyper-Threading.
@@ -90,7 +91,6 @@ Ponadto dostępne są następujące duże jednostki SKU w warstwie Standardowa, 
 | SAP HANA na platformie Azure S672ooo<br /> – 12 x procesor Intel® Xeon® Platinum 8276 <br /> 336 rdzeni procesora CPU i 672 wątki procesora | 22,5 TB |  4,5 TB |  18,0 TB | 33,7 TB  | Dostępne (tylko wersja rev 4) |
 | SAP HANA na platformie Azure S672oom<br /> – 12 x procesor Intel® Xeon® Platinum 8276 <br /> 336 rdzeni procesora CPU i 672 wątki procesora | 27,0 TB |  9,0 TB |  18,0 TB | 40,0 TB  | Dostępne (tylko wersja rev 4) |
 | SAP HANA na platformie Azure S896<br /> – 16 x procesor Intel® Xeon® Platinum 8276 <br /> 448 rdzeni procesora CPU i 896 wątki procesora | 12,0 TB |  12,0 TB |  --- | 18,9 TB | Dostępne (tylko wersja rev 4) |
-| SAP HANA na platformie Azure S896m<br /> – 16 x procesor Intel® Xeon® Platinum 8276 <br /> 448 rdzeni procesora CPU i 896 wątki procesora | 24,0 TB |  24,0 TB |  --- | 35.8.4 TB | Dostępne (tylko wersja rev 4) |
 | SAP HANA na platformie Azure S896oo<br /> – 16 x procesor Intel® Xeon® Platinum 8276 <br /> 448 rdzeni procesora CPU i 896 wątki procesora | 18,0 TB |  6,0 TB |  12,0 TB | 27,4 TB  | Dostępne (tylko wersja rev 4) |
 | SAP HANA na platformie Azure S896om<br /> – 16 x procesor Intel® Xeon® Platinum 8276 <br /> 448 rdzeni procesora CPU i 896 wątki procesora | 24,0 TB |  12,0 TB |  12,0 TB | 35,8 TB  | Dostępne (tylko wersja rev 4) |
 | SAP HANA na platformie Azure S896ooo<br /> – 16 x procesor Intel® Xeon® Platinum 8276 <br /> 448 rdzeni procesora CPU i 896 wątki procesora | 30,0 TB |  6,0 TB |  24,0 TB | 44,3 TB  | Dostępne (tylko wersja rev 4) |

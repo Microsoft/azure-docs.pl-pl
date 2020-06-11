@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: d6191a5f4dcfc3d25072e0cfa00418fb64311773
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 39f2dad088f3f3eb4a99aa17c1bdde5fe2a2f79c
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248536"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84655797"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Szybki Start: Tworzenie fabryki danych przy użyciu interfejsu użytkownika Azure Data Factory
 
@@ -42,8 +42,6 @@ Obejrzenie tego filmu wideo ułatwi zapoznanie się z interfejsem użytkownika u
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
 1. Przejdź do [Azure Portal](https://portal.azure.com). 
 1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**.
-   
-   ![Menu wybierz pozycję Utwórz zasób z Azure Portal](./media/doc-common-process/create-a-resource.png)
 1. Wybierz pozycję **Analiza**, a następnie wybierz pozycję **Data Factory**. 
    
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -64,7 +62,7 @@ Obejrzenie tego filmu wideo ułatwi zapoznanie się z interfejsem użytkownika u
 
    Ta lista zawiera tylko lokalizacje, które są obsługiwane przez usługę Data Factory i w których będą przechowywane metadane usługi Azure Data Factory. Skojarzone magazyny danych (np. usługi Azure Storage i Azure SQL Database) i usługi obliczeniowe (np. usługa Azure HDInsight) używane przez Data Factory mogą działać w innych regionach.
 
-1. Wybierz pozycję **Utwórz**. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** . 
+1. Wybierz przycisk **Utwórz**. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** . 
 
 1. Wybierz kafelek **Tworzenie i monitorowanie**, aby na osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Azure Data Factory.
    
@@ -80,8 +78,12 @@ Obejrzenie tego filmu wideo ułatwi zapoznanie się z interfejsem użytkownika u
 ## <a name="create-a-linked-service"></a>Tworzenie usługi połączonej
 W tej procedurze utworzysz połączoną usługę, aby połączyć konto usługi Azure Storage z fabryką danych. Połączona usługa ma informacje o połączeniu, których usługa Data Factory używa w środowisku uruchomieniowym do nawiązywania z nią połączenia.
 
-1. Wybierz pozycję **połączenia**, a następnie wybierz przycisk **Nowy** na pasku narzędzi (przycisk**połączenia** znajduje się u dołu lewej kolumny w obszarze **zasoby fabryki**). 
+1. Otwórz [kartę Zarządzanie](https://docs.microsoft.com/azure/data-factory/author-management-hub) w okienku po lewej stronie.
 
+1. Na stronie połączone usługi wybierz pozycję **+ Nowy** , aby utworzyć nową połączoną usługę.
+
+   ![Nowa połączona usługa](./media/doc-common-process/new-linked-service.png)
+   
 1. Na stronie **Nowa połączona usługa** wybierz pozycję **Azure Blob Storage**, a następnie wybierz pozycję **Dalej**. 
 
 1. Na stronie Nowa połączona usługa (Azure Blob Storage) wykonaj następujące czynności: 
@@ -90,7 +92,7 @@ W tej procedurze utworzysz połączoną usługę, aby połączyć konto usługi 
 
    b. W polu **nazwa konta magazynu**wybierz nazwę konta usługi Azure Storage.
 
-   d. Wybierz pozycję **Testuj połączenie**, aby sprawdzić, czy usługa Data Factory może nawiązać połączenie z kontem magazynu. 
+   c. Wybierz pozycję **Testuj połączenie**, aby sprawdzić, czy usługa Data Factory może nawiązać połączenie z kontem magazynu. 
 
    d. Wybierz pozycję **Utwórz** , aby zapisać połączoną usługę. 
 
@@ -121,9 +123,9 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
 
     b. Wybierz pozycję **AzureStorageLinkedService** w polu **Połączona usługa**.
 
-    d. Kliknij przycisk **Przeglądaj** w polu **Ścieżka pliku**.
+    c. Kliknij przycisk **Przeglądaj** w polu **Ścieżka pliku**.
 
-    d. W oknie **Wybieranie pliku lub folderu** przejdź do folderu **Input** w kontenerze **adftutorial** , wybierz plik **EMP. txt** , a następnie wybierz **przycisk OK**.
+    d. W oknie **Wybieranie pliku lub folderu** przejdź do folderu **Input** w kontenerze **adftutorial** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK**.
     
     e. Wybierz przycisk **OK**.   
 
@@ -134,7 +136,7 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
 
     b. Na stronie **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage**, a następnie wybierz pozycję **Kontynuuj**.
 
-    d. Na stronie **Wybierz format** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj**.
+    c. Na stronie **Wybierz format** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj**.
 
     d. Na stronie **Ustawianie właściwości** Określ **OutputDataset** dla nazwy. Wybierz pozycję **AzureStorageLinkedService** jako połączoną usługę.
 

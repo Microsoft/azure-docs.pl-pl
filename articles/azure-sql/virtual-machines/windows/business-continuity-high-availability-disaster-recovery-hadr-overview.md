@@ -4,7 +4,6 @@ description: Omówienie różnych typów strategii HADR Cluster dla SQL Server u
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: eb61064e3dd7b5f6201bd80fe5d7ca08dea42598
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 43b218e1b86dd17a8f46cc010c8bddaf92694a00
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342939"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669226"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-on-azure-virtual-machines"></a>Wysoka dostępność i odzyskiwanie po awarii dla SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

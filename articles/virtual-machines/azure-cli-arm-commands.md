@@ -2,18 +2,17 @@
 title: Klasyczne polecenie interfejsu wiersza polecenia platformy Azure
 description: Polecenia interfejsu wiersza polecenia platformy Azure do zarządzania zasobami.
 author: cynthn
-manager: gwallace
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3e5fd1a6934d246463e3fd5ad24db7079ca088d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250883"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678430"
 ---
 # <a name="azure-classic-cli-commands"></a>Klasyczne polecenie interfejsu wiersza polecenia platformy Azure 
 
@@ -25,11 +24,11 @@ Ten artykuł zawiera składnię i opcje dla klasycznych poleceń interfejsu wier
 
 Aby rozpocząć, najpierw [Zainstaluj klasyczny interfejs wiersza polecenia platformy Azure](../cli-install-nodejs.md) i [Nawiąż połączenie z subskrypcją platformy Azure](/cli/azure/authenticate-azure-cli).
 
-Dla bieżącej składni polecenia i opcji w wierszu polecenia w trybie Menedżer zasobów wpisz `azure help` lub, aby wyświetlić pomoc dla określonego polecenia,. `azure help [command]` Przykłady interfejsu wiersza polecenia można znaleźć w dokumentacji dotyczącej tworzenia określonych usług platformy Azure i zarządzania nimi.
+Dla bieżącej składni polecenia i opcji w wierszu polecenia w trybie Menedżer zasobów wpisz `azure help` lub, aby wyświetlić pomoc dla określonego polecenia, `azure help [command]` . Przykłady interfejsu wiersza polecenia można znaleźć w dokumentacji dotyczącej tworzenia określonych usług platformy Azure i zarządzania nimi.
 
-Parametry opcjonalne są wyświetlane w nawiasach kwadratowych (na przykład `[parameter]`). Wszystkie inne parametry są wymagane.
+Parametry opcjonalne są wyświetlane w nawiasach kwadratowych (na przykład `[parameter]` ). Wszystkie inne parametry są wymagane.
 
-Oprócz parametrów opcjonalnych określonych w tym miejscu, istnieją trzy opcjonalne parametry, które mogą służyć do wyświetlania szczegółowych danych wyjściowych, takich jak opcje żądań i kody stanu. `-v` Parametr zawiera pełne dane wyjściowe, a `-vv` parametr zapewnia jeszcze więcej szczegółowych danych wyjściowych. `--json` Opcja wyprowadza wynik w formacie nieprzetworzonym JSON.
+Oprócz parametrów opcjonalnych określonych w tym miejscu, istnieją trzy opcjonalne parametry, które mogą służyć do wyświetlania szczegółowych danych wyjściowych, takich jak opcje żądań i kody stanu. `-v`Parametr zawiera pełne dane wyjściowe, a `-vv` parametr zapewnia jeszcze więcej szczegółowych danych wyjściowych. `--json`Opcja wyprowadza wynik w formacie nieprzetworzonym JSON.
 
 ## <a name="setting-the-resource-manager-mode"></a>Ustawianie trybu Menedżer zasobów
 Użyj poniższego polecenia, aby włączyć polecenia w trybie Menedżer zasobów platformy Azure.
@@ -1696,7 +1695,7 @@ Opcje parametrów:
 
     tag show [options] [name]
 
-## <a name="virtual-machines"></a>Maszyny wirtualne
+## <a name="virtual-machines"></a>Virtual Machines
 **Tworzenie maszyny wirtualnej**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1706,7 +1705,7 @@ Opcje parametrów:
     vm quick-create [options] <resource-group> <name> <location> <os-type> <image-urn> <admin-username> <admin-password
 
 > [!TIP]
-> Począwszy od interfejsu wiersza polecenia w wersji 0,10, można podać krótki alias, taki jak "UbuntuLTS" lub "Win2012R2Datacenter" `image-urn` , jak w przypadku niektórych popularnych obrazów w portalu Marketplace. Uruchom `azure help vm quick-create` dla opcji. Ponadto począwszy od wersji 0,10, usługa `azure vm quick-create` Premium Storage jest domyślnie stosowana, jeśli jest dostępna w wybranym regionie.
+> Począwszy od interfejsu wiersza polecenia w wersji 0,10, można podać krótki alias, taki jak "UbuntuLTS" lub "Win2012R2Datacenter", jak w `image-urn` przypadku niektórych popularnych obrazów w portalu Marketplace. Uruchom `azure help vm quick-create` dla opcji. Ponadto począwszy od wersji 0,10, usługa `azure vm quick-create` Premium Storage jest domyślnie stosowana, jeśli jest dostępna w wybranym regionie.
 > 
 > 
 

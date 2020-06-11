@@ -7,29 +7,29 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 073878d6dfb0637b8d0fb7fdf5c7f6d77d2b2c8d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857044"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672650"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Zabezpieczenia sieciowe Azure Event Grid zasobów
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Event Grid: 
 
-- Tagi usług dla ruchu wychodzącego (wersja zapoznawcza)
+- Tagi usług dla ruchu wychodzącego
 - Reguły zapory IP dla ruchu przychodzącego (wersja zapoznawcza)
-- Prywatne punkty końcowe dla ruchu przychodzącego (wersja zapoznawcza)
+- Prywatne punkty końcowe dla ruchu przychodzącego
 
 
 ## <a name="service-tags"></a>Tagi usługi
 Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [Omówienie tagów usług](../virtual-network/service-tags-overview.md).
 
-Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/security-overview.md#security-rules)lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **AzureEventGrid**) w odpowiednim polu *źródłowym* lub *docelowym* reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
+Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/security-overview.md#security-rules)   lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **AzureEventGrid**) w odpowiednim polu *źródłowym*   lub *docelowym*   reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
-| --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. <br/><br/>*Uwaga:* Ten tag obejmuje Azure Event Grid punkty końcowe w regionach Południowo-środkowe stany USA, Wschodnie stany USA 2, zachodnie stany USA 2 i stany USA. | Obie | Nie | Nie |
+| --- | -------- |:---:|:---:|:---:|
+| AzureEventGrid | Azure Event Grid. | Obie | Nie | Nie |
 
 
 ## <a name="ip-firewall"></a>Zapora IP 
@@ -54,14 +54,14 @@ W przypadku tworzenia prywatnego punktu końcowego tematu lub domeny w sieci wir
 Wydawcy w sieci wirtualnej korzystającej z prywatnego punktu końcowego powinni używać tych samych parametrów połączenia dla tematu lub domeny, co w przypadku klientów nawiązujących połączenie z publicznym punktem końcowym. Funkcja rozpoznawania nazw DNS automatycznie kieruje połączenia z sieci wirtualnej do tematu lub domeny za pośrednictwem prywatnego linku. Event Grid domyślnie tworzy [prywatną strefę DNS](../dns/private-dns-overview.md) dołączoną do sieci wirtualnej z niezbędną aktualizacją prywatnych punktów końcowych. Jeśli jednak używasz własnego serwera DNS, może być konieczne wprowadzenie dodatkowych zmian w konfiguracji DNS.
 
 ### <a name="dns-changes-for-private-endpoints"></a>Zmiany w systemie DNS dla prywatnych punktów końcowych
-Podczas tworzenia prywatnego punktu końcowego rekord CNAME DNS dla zasobu zostanie zaktualizowany do aliasu w poddomenie z prefiksem `privatelink`. Domyślnie zostanie utworzona prywatna strefa DNS odpowiadająca poddomenie linku prywatnego. 
+Podczas tworzenia prywatnego punktu końcowego rekord CNAME DNS dla zasobu zostanie zaktualizowany do aliasu w poddomenie z prefiksem `privatelink` . Domyślnie zostanie utworzona prywatna strefa DNS odpowiadająca poddomenie linku prywatnego. 
 
 W przypadku rozwiązywania tematu lub adresu URL punktu końcowego domeny spoza sieci wirtualnej z prywatnym punktem końcowym jest on rozpoznawany jako publiczny punkt końcowy usługi. Rekordy zasobów DNS dla "tematu", po rozwiązaniu spoza sieci **wirtualnej** obsługującej prywatny punkt końcowy, będą:
 
 | Nazwa                                          | Typ      | Wartość                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
-| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Profil usługi Azure Traffic Manager\>
+| `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
 
 Możesz odmówić dostępu do klienta lub kontrolować go poza siecią wirtualną za pośrednictwem publicznego punktu końcowego za pomocą [zapory IP](#ip-firewall). 
 
@@ -76,7 +76,7 @@ Takie podejście umożliwia dostęp do tematu lub domeny przy użyciu tych samyc
 
 Jeśli używasz niestandardowego serwera DNS w sieci, klienci mogą rozpoznać nazwę FQDN tematu lub domeny punktu końcowego jako adres IP prywatnego punktu końcowego. Skonfiguruj serwer DNS w celu delegowania poddomeny prywatnego linku do prywatnej strefy DNS dla sieci wirtualnej lub skonfiguruj rekordy A dla `topicOrDomainName.regionName.privatelink.eventgrid.azure.net` za pomocą prywatnego adresu IP punktu końcowego.
 
-Zalecaną nazwą strefy DNS jest `privatelink.eventgrid.azure.net`.
+Zalecaną nazwą strefy DNS jest `privatelink.eventgrid.azure.net` .
 
 ### <a name="private-endpoints-and-publishing"></a>Prywatne punkty końcowe i publikowanie
 

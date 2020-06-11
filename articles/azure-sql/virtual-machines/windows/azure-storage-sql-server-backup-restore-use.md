@@ -4,7 +4,6 @@ description: Dowiedz się, jak utworzyć kopię zapasową SQL Server w usłudze 
 services: virtual-machines-windows
 documentationcenter: ''
 author: MikeRayMSFT
-manager: craigg
 tags: azure-service-management
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b
 ms.service: virtual-machines-sql
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: e4235a2d0be141d8cb1af30f2c573e3bdfcdd817
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: d697f9edf8d5e57f051c23eaa2807704b2f7771e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342905"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669201"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Tworzenie kopii zapasowych i przywracanie SQL Server przy użyciu usługi Azure Storage
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -4,17 +4,18 @@ description: Dowiedz się więcej o usłudze Azure Private link
 services: private-link
 author: mblanco77
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: a91415e7e3d91c2950cc4df2235c3d58df284cc0
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: af00119f1da3368b8592e020eee1ebb2a39a8501
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235980"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669957"
 ---
-# <a name="create-a-private-endpoint---resource-manager-template"></a>Tworzenie prywatnego szablonu punktu końcowego Menedżer zasobów
+# <a name="quickstart-create-a-private-endpoint---resource-manager-template"></a>Szybki Start: Tworzenie prywatnego szablonu punktu końcowego Menedżer zasobów
 
 W tym przewodniku szybki start użyjesz szablonu Menedżer zasobów, aby utworzyć prywatny punkt końcowy.
 
@@ -32,22 +33,22 @@ Ten szablon służy do tworzenia prywatnego punktu końcowego dla serwera SQL Az
 
 ### <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-private-endpoint-sql/azuredeploy.json)
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
 W szablonie zdefiniowano wiele zasobów platformy Azure:
 
+- [**Microsoft. SQL/serwery**](/azure/templates/microsoft.sql/servers) : Azure SQL Server z przykładową bazą danych
+- [**Microsoft. SQL/serwery/bazy danych**](/azure/templates/microsoft.sql/servers/databases) : przykładowa baza danych
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : Virtual Network miejsce wdrożenia prywatnego punktu końcowego
 - [**Microsoft. Network/privateEndpoints**](/azure/templates/microsoft.network/privateendpoints) : prywatny punkt końcowy do uzyskiwania dostępu do prywatnego serwera SQL Azure
 - [**Microsoft. Network/privateDnsZones**](/azure/templates/microsoft.network/privatednszones) : używany do rozpoznawania prywatnego adresu IP punktu końcowego
 - [**Microsoft. Network/privateDnsZones/virtualNetworkLinks**](/azure/templates/microsoft.network/privatednszones/virtualnetworklinks)
 - [**Microsoft. Network/privateEndpoints/privateDnsZoneGroups**](/azure/templates/microsoft.network/privateendpoints/privateDnsZoneGroups) : Aby skojarzyć prywatny punkt końcowy z prywatną strefą DNS
-- [**Microsoft. SQL/serwery**](/azure/templates/microsoft.sql/servers) : Azure SQL Server z przykładową bazą danych
-- [**Microsoft. SQL/serwery/bazy danych**](/azure/templates/microsoft.sql/servers/databases) : przykładowa baza danych
-- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : Virtual Network miejsce wdrożenia prywatnego punktu końcowego
 - [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicIpAddresses) : publiczny adres IP w celu uzyskania dostępu do maszyny wirtualnej
-- [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : maszyna wirtualna do testowania połączenia prywatnego z prywatnym punktem końcowym do programu Azure SQL Server
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : interfejs sieciowy dla maszyny wirtualnej
+- [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : maszyna wirtualna do testowania połączenia prywatnego z prywatnym punktem końcowym do programu Azure SQL Server
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -119,7 +120,7 @@ W tej sekcji nawiążesz połączenie z serwerem SQL Database z maszyny wirtualn
 7.  Zdefiniować Tworzenie lub zapytanie o informacje z _przykładowej bazy danych_
 8.  Zamknij połączenie pulpitu zdalnego z _myVm {unikatowy}_.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych przy użyciu prywatnego punktu końcowego, Usuń grupę zasobów. Spowoduje to usunięcie prywatnego punktu końcowego i wszystkich powiązanych zasobów.
 

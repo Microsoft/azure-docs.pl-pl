@@ -3,12 +3,12 @@ title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fa6c5e1d7e770468a14c66af9b99b32a7827eb1
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 1d482eeb8b3da94e8af0a597ade1a1d834ccf6a0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871355"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677785"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -171,13 +171,17 @@ W przypadku tras zdefiniowanych przez użytkownika (UDR) Upewnij się, że masz 
 
 ### <a name="honoring-dns"></a>Przestrzeganie systemu DNS
 
-Upewnij się, że Twoje systemy są uznawane za czas wygaśnięcia (TTL) DNS dla adresu URL usługi Batch account. Ponadto należy się upewnić, że klienci usługi Batch i inne mechanizmy łączności z usługą Batch nie korzystają z adresów IP.
+Upewnij się, że Twoje systemy są uznawane za czas wygaśnięcia (TTL) DNS dla adresu URL usługi Batch account. Ponadto upewnij się, że klienci usługi Batch i inne mechanizmy łączności z usługą Batch nie korzystają z adresów IP (lub [Utwórz pulę ze statycznymi publicznymi adresami IP](create-pool-public-ip.md) , jak opisano poniżej).
 
 Jeśli żądania odbierają odpowiedzi HTTP na poziomie 5xx i istnieje nagłówek "Connection: Close" w odpowiedzi, klient usługi Batch powinien przestrzegać zalecenia, zamykając istniejące połączenie, ponownie rozwiązując system DNS dla adresu URL usługi Batch Account i próbuje wykonać następujące żądania dotyczące nowego połączenia.
 
-### <a name="retrying-requests-automatically"></a>Ponawianie prób żądania automatycznie
+### <a name="retry-requests-automatically"></a>Automatycznie ponów żądania
 
 Upewnij się, że klienci usługi Batch mają odpowiednie zasady ponawiania prób w celu automatycznego ponowienia żądań, nawet w trakcie normalnej operacji, a nie wyłącznie w okresach czasu konserwacji usługi. Te zasady ponawiania powinny obejmować interwał wynoszący co najmniej 5 minut. Funkcje automatycznego ponawiania prób są dostarczane z różnymi zestawami SDK partii, takimi jak [Klasa .NET RetryPolicyProvider](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+
+### <a name="static-public-ip-addresses"></a>Statyczne publiczne adresy IP
+
+Zwykle maszyny wirtualne w puli wsadowej są dostępne za pośrednictwem publicznych adresów IP, które mogą ulec zmianie w okresie istnienia puli. Może to utrudnić współpracę z bazą danych lub inną usługą zewnętrzną, która ogranicza dostęp do określonych adresów IP. Aby upewnić się, że publiczne adresy IP w puli nie zmieniają się nieoczekiwanie, można utworzyć pulę przy użyciu zestawu statycznych publicznych adresów IP, które kontrolujesz. Aby uzyskać więcej informacji, zobacz [Tworzenie puli Azure Batch z określonymi publicznymi adresami IP](create-pool-public-ip.md).
 
 ## <a name="batch-node-underlying-dependencies"></a>Podstawowe zależności węzła wsadowego
 

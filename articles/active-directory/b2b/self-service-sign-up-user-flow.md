@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: aadbe07c5bb22c23ac32e46fdf7f102cdd33989a
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712353"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673107"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Dodawanie przepływu użytkownika samoobsługowego rejestrowania do aplikacji (wersja zapoznawcza)
 |     |
@@ -30,7 +30,7 @@ Możesz tworzyć przepływy użytkowników dla aplikacji, które są tworzone pr
 > [!NOTE]
 > Przepływy użytkowników można kojarzyć z aplikacjami skompilowanymi przez organizację. Przepływów użytkowników nie można używać dla aplikacji firmy Microsoft, takich jak SharePoint i zespoły.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 ### <a name="add-social-identity-providers-optional"></a>Dodaj dostawców tożsamości społecznościowych (opcjonalnie)
 
@@ -81,7 +81,7 @@ Następnie utworzysz przepływ użytkownika na potrzeby rejestracji samoobsługo
 
 Możesz wybrać kolejność, w jakiej atrybuty są wyświetlane na stronie rejestracji. 
 
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Azure Active Directory**.
+1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory**.
 2. Wybierz pozycję **tożsamości zewnętrzne**, wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**.
 3. Wybierz z listy przepływ użytkownika do samoobsługowego rejestrowania.
 4. W obszarze **Dostosowywanie**wybierz pozycję **układy stron**.
@@ -109,3 +109,5 @@ Teraz można kojarzyć aplikacje z przepływem użytkownika.
 
 - [Dodaj firmę Google do listy dostawców tożsamości społecznościowych](google-federation.md)
 - [Dodawanie usługi Facebook do listy dostawców tożsamości społecznościowych](facebook-federation.md)
+<!-- - [Use API connectors to customize and extend your user flows via web APIs](api-connectors-overview.md) -->
+<!-- - [Add custom approval to your user flow](self-service-sign-up-add-approvals.md) -->

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 5/13/2020
-ms.openlocfilehash: 3d3eee7dc57a2438ccf726851025c700824a5e3a
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.date: 6/10/2020
+ms.openlocfilehash: 00c60a0ff20c67b63b2ca93f9e5997e78a283f26
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322073"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667594"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ W poniższej tabeli zestawiono różnice między warstwą obliczeniową bezserwe
 
 | | **Bezserwerowe usługi obliczeniowe** | **Zainicjowane obliczenie** |
 |:---|:---|:---|
-|**Wzorzec użycia bazy danych**| Sporadyczne, nieprzewidywalne użycie z niższym średnim wykorzystaniem obliczeń w czasie. |  Bardziej regularne wzorce użycia z wyższym średnim wykorzystaniem obliczeń w czasie lub wielu bazach danych korzystających z pul elastycznych.|
+|**Wzorzec użycia bazy danych**| Sporadyczne, nieprzewidywalne użycie z niższym średnim wykorzystaniem obliczeń w czasie. | Bardziej regularne wzorce użycia z wyższym średnim wykorzystaniem obliczeń w czasie lub wielu bazach danych korzystających z pul elastycznych.|
 | **Nakład pracy zarządzania wydajnością** |Lower|Wyższe|
 |**Skalowanie obliczeniowe**|Automatyczny|Ręcznie|
 |**Czas odpowiedzi obliczeń**|Poniżej nieaktywnych okresów|Bezpośredniego|
@@ -161,19 +161,8 @@ W przypadku korzystania z funkcji [niewidocznego szyfrowania danych przez klient
 
 Tworzenie nowej bazy danych lub przeniesienie istniejącej bazy danych do warstwy obliczeniowej bezserwerowej jest zgodne z tym samym wzorcem, co Tworzenie nowej bazy danych w warstwie obliczeniowej zainicjowanej i obejmuje następujące dwa kroki.
 
-1. Określ cel usługi. Cel usługi określa warstwę usług, generowanie sprzętu i maksymalną rdzeni wirtualnych. W poniższej tabeli przedstawiono opcje celu usługi:
+1. Określ cel usługi. Cel usługi określa warstwę usług, generowanie sprzętu i maksymalną rdzeni wirtualnych. Aby uzyskać opcje celu usługi, zobacz [limity zasobów bezserwerowych](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)
 
-   |Nazwa celu usługi|Warstwa usług|Generowanie sprzętu|Maksymalna rdzeni wirtualnych|
-   |---|---|---|---|
-   |GP_S_Gen5_1|Ogólnego przeznaczenia|5 rdzeń|1|
-   |GP_S_Gen5_2|Ogólnego przeznaczenia|5 rdzeń|2|
-   |GP_S_Gen5_4|Ogólnego przeznaczenia|5 rdzeń|4|
-   |GP_S_Gen5_6|Ogólnego przeznaczenia|5 rdzeń|6|
-   |GP_S_Gen5_8|Ogólnego przeznaczenia|5 rdzeń|8|
-   |GP_S_Gen5_10|Ogólnego przeznaczenia|5 rdzeń|10|
-   |GP_S_Gen5_12|Ogólnego przeznaczenia|5 rdzeń|12|
-   |GP_S_Gen5_14|Ogólnego przeznaczenia|5 rdzeń|14|
-   |GP_S_Gen5_16|Ogólnego przeznaczenia|5 rdzeń|16|
 
 2. Opcjonalnie można określić opóźnienie rdzeni wirtualnych i pauzę, aby zmienić wartości domyślne. W poniższej tabeli przedstawiono dostępne wartości tych parametrów.
 

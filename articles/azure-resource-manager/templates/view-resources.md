@@ -1,16 +1,16 @@
 ---
-title: Wyświetlanie właściwości zasobu
+title: Odnajdź właściwości zasobów
 description: Opisuje sposób wyszukiwania właściwości zasobów.
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: 5714a25cfdc2e2dd76bfe2953040ebb961b51932
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.date: 06/10/2020
+ms.openlocfilehash: 6e00ee875d9b0f7fadf27a44c55920872c815045
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466566"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668563"
 ---
-# <a name="view-resource-properties"></a>Wyświetlanie właściwości zasobu
+# <a name="discover-resource-properties"></a>Odnajdź właściwości zasobów
 
 Przed utworzeniem Menedżer zasobów szablonów należy zrozumieć, jakie typy zasobów są dostępne i jakie wartości należy użyć w szablonie. W tym artykule pokazano, jak można znaleźć właściwości do uwzględnienia w szablonie.
 

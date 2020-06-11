@@ -6,12 +6,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: danis
-ms.openlocfilehash: 316f5dcb3a5fe0cbf8fb6a2f65c0ab11fc45c146
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: abd357808cd0213e92eaba478fb861110bcf9f39
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84607282"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666727"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej z systemem Ubuntu dla platformy Azure
 
@@ -50,8 +50,8 @@ W tym artykule założono, że zainstalowano już Ubuntu Linux system operacyjny
 
     Ubuntu 16,04 i Ubuntu 18,04:
    
-        # sudo sed -i 's/archive\.ubuntu.com/azure\.archive\.ubuntu\.com/g' /etc/apt/sources.list
-        # sed -i 's/[a-z][a-z]\.archive\.ubuntu.com/azure\.archive\.ubuntu\.com/g' /etc/apt/sources.list
+        # sudo sed -i 's/http:\/\/archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
+        # sudo sed -i 's/http:\/\/[a-z][a-z]\.archive\.ubuntu\.com\/ubuntu\//http:\/\/azure\.archive\.ubuntu\.com\/ubuntu\//g' /etc/apt/sources.list
         # sudo apt-get update
 
 
@@ -67,7 +67,9 @@ W tym artykule założono, że zainstalowano już Ubuntu Linux system operacyjny
 
 5. Zmodyfikuj wiersz rozruchowy jądra dla Grub, aby uwzględnić dodatkowe parametry jądra dla platformy Azure. Aby to zrobić `/etc/default/grub` , Otwórz w edytorze tekstów, znajdź zmienną o nazwie `GRUB_CMDLINE_LINUX_DEFAULT` (lub Dodaj ją w razie potrzeby) i zmodyfikuj ją w celu uwzględnienia następujących parametrów:
    
-        GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
+    ```
+    GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300 quiet splash"
+    ```
 
     Zapisz i Zamknij ten plik, a następnie uruchom polecenie `sudo update-grub` . Dzięki temu wszystkie komunikaty konsoli są wysyłane do pierwszego portu szeregowego, który może pomóc w pomocy technicznej platformy Azure z problemami z debugowaniem.
 
@@ -76,46 +78,49 @@ W tym artykule założono, że zainstalowano już Ubuntu Linux system operacyjny
 7. Zainstaluj funkcję Cloud-init (Agent aprowizacji) i agenta systemu Azure Linux (program obsługi rozszerzeń gościa). Cloud-init przy użyciu planu sieciowego Skonfiguruj konfigurację sieci systemowej podczas aprowizacji i każdego kolejnego rozruchu.
 
         # sudo apt update
-        # sudo apt install -y cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
+        # sudo apt install cloud-init netplan.io walinuxagent && systemctl stop walinuxagent
 
    > [!Note]
    >  `walinuxagent`Pakiet może usunąć `NetworkManager` `NetworkManager-gnome` pakiety i, jeśli są zainstalowane.
 
-8. Usuń domyślne konfiguracje usługi Cloud-init i pozostałościowe artefakty, które mogą powodować konflikt z inicjowaniem obsługi inicjalizacji w chmurze na platformie Azure:
+8. Usuń domyślne konfiguracje usługi Cloud-init i obskakujące artefakty planu, które mogą powodować konflikt z inicjowaniem obsługi inicjalizacji w chmurze na platformie Azure:
 
         # rm -f /etc/cloud/cloud.cfg.d/50-curtin-networking.cfg /etc/cloud/cloud.cfg.d/curtin-preserve-sources.cfg
         # rm -f /etc/cloud/ds-identify.cfg
+        # rm -f /etc/netplan/*.yaml
 
 9. Skonfiguruj funkcję Cloud-init, aby udostępnić system przy użyciu źródła danych platformy Azure:
 
-        # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
-        datasource_list: [ Azure ]
-        EOF
+    ```
+    # cat > /etc/cloud/cloud.cfg.d/90_dpkg.cfg << EOF
+    datasource_list: [ Azure ]
+    EOF
 
-        # cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
-        system_info:
-        package_mirrors:
-            - arches: [i386, amd64]
-            failsafe:
-                primary: http://archive.ubuntu.com/ubuntu
-                security: http://security.ubuntu.com/ubuntu
-            search:
-                primary:
-                - http://azure.archive.ubuntu.com/ubuntu/
-                security: []
-            - arches: [armhf, armel, default]
-            failsafe:
-                primary: http://ports.ubuntu.com/ubuntu-ports
-                security: http://ports.ubuntu.com/ubuntu-ports
-        EOF
+    # cat > /etc/cloud/cloud.cfg.d/90-azure.cfg << EOF
+    system_info:
+       package_mirrors:
+         - arches: [i386, amd64]
+           failsafe:
+             primary: http://archive.ubuntu.com/ubuntu
+             security: http://security.ubuntu.com/ubuntu
+           search:
+             primary:
+               - http://azure.archive.ubuntu.com/ubuntu/
+             security: []
+         - arches: [armhf, armel, default]
+           failsafe:
+             primary: http://ports.ubuntu.com/ubuntu-ports
+             security: http://ports.ubuntu.com/ubuntu-ports
+    EOF
 
-        # cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
-        reporting:
-        logging:
-            type: log
-        telemetry:
-            type: hyperv
-        EOF
+    # cat > /etc/cloud/cloud.cfg.d/10-azure-kvp.cfg << EOF
+    reporting:
+      logging:
+        type: log
+      telemetry:
+        type: hyperv
+    EOF
+    ```
 
 10. Skonfiguruj agenta platformy Azure dla systemu Linux w celu zainicjowania obsługi przy użyciu funkcji Cloud-init. Aby uzyskać więcej informacji na temat tych opcji, zobacz [projekt WALinuxAgent](https://github.com/Azure/WALinuxAgent) .
 
@@ -142,6 +147,12 @@ W tym artykule założono, że zainstalowano już Ubuntu Linux system operacyjny
         # sudo rm -f /var/log/waagent.log
 
 12. Uruchom następujące polecenia, aby anulować obsługę administracyjną maszyny wirtualnej i przygotować ją do aprowizacji na platformie Azure:
+
+    > [!NOTE]
+    > `sudo waagent -force -deprovision+user`Polecenie podejmie próbę wyczyszczenia systemu i nadaje się do ponownego udostępnienia. `+user`Opcja powoduje usunięcie ostatniego zainicjowanego konta użytkownika i skojarzonych danych.
+
+    > [!WARNING]
+    > Anulowanie aprowizacji za pomocą powyższego polecenia nie gwarantuje, że obraz jest czyszczony dla wszystkich poufnych informacji i jest odpowiedni do ponownej dystrybucji.
 
         # sudo waagent -force -deprovision+user
         # rm -f ~/.bash_history

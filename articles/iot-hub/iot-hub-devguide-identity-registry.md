@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2ef259bf76815fdf8672b696d2260fe6a143b798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9d5eae4ef926a5c05265b91526d03a17ca57781
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730171"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674958"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Informacje o rejestrze tożsamości w centrum IoT Hub
 
@@ -122,7 +122,7 @@ Komunikat powiadomienia dla urządzenia:
 |operationTimestamp | ISO8601 sygnatura czasowa operacji |
 |iothub — komunikat-schemat | deviceLifecycleNotification |
 
-Treść: Ta sekcja jest w formacie JSON i reprezentuje sznurek utworzonej tożsamości urządzenia. Na przykład:
+Treść: Ta sekcja jest w formacie JSON i reprezentuje sznurek utworzonej tożsamości urządzenia. Na przykład
 
 ```json
 {
@@ -158,7 +158,7 @@ moduleId | Identyfikator modułu |
 operationTimestamp | ISO8601 sygnatura czasowa operacji |
 iothub — komunikat-schemat | moduleLifecycleNotification |
 
-Treść: Ta sekcja jest w formacie JSON i reprezentuje dwuosiową tożsamość utworzonego modułu. Na przykład:
+Treść: Ta sekcja jest w formacie JSON i reprezentuje dwuosiową tożsamość utworzonego modułu. Na przykład
 
 ```json
 {
@@ -188,12 +188,12 @@ Tożsamości urządzeń są reprezentowane jako dokumenty JSON o następujących
 
 | Właściwość | Opcje | Opis |
 | --- | --- | --- |
-| deviceId |wymagane, tylko do odczytu w aktualizacjach |Ciąg z rozróżnianą wielkością liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne i niektóre znaki specjalne: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| deviceId |wymagane, tylko do odczytu w aktualizacjach |Ciąg z rozróżnianą wielkością liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne i niektóre znaki specjalne: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
 | generationId |wymagane, tylko do odczytu |Ciąg z rozróżnianą wielkością liter, który jest generowany przez Centrum IoT, do 128 znaków. Ta wartość jest używana do rozróżniania urządzeń z tym samym identyfikatorem **deviceId**, gdy zostały usunięte i ponownie utworzone. |
 | element ETag |wymagane, tylko do odczytu |Ciąg reprezentujący słaby element ETag dla tożsamości urządzenia, zgodnie z [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | uwierzytelniania |optional |Obiekt złożony zawierający informacje o uwierzytelnianiu i materiały zabezpieczające. |
 | auth. symkey |optional |Obiekt złożony zawierający klucz podstawowy i pomocniczy, przechowywany w formacie base64. |
-| status |wymagany |Wskaźnik dostępu. Można **włączyć** lub **wyłączyć**. Jeśli ta **Funkcja jest włączona**, urządzenie może nawiązać połączenie. Jeśli ta **możliwość jest wyłączona**, urządzenie nie może uzyskać dostępu do żadnego punktu końcowego mającego dostęp do urządzenia. |
+| status |wymagane |Wskaźnik dostępu. Można **włączyć** lub **wyłączyć**. Jeśli ta **Funkcja jest włączona**, urządzenie może nawiązać połączenie. Jeśli ta **możliwość jest wyłączona**, urządzenie nie może uzyskać dostępu do żadnego punktu końcowego mającego dostęp do urządzenia. |
 | statusReason |optional |Ciąg o długości 128 znaków, który przechowuje przyczynę stanu tożsamości urządzenia. Dozwolone są wszystkie znaki UTF-8. |
 | statusUpdateTime |tylko do odczytu |Wskaźnik czasowy przedstawiający datę i godzinę ostatniej aktualizacji stanu. |
 | connectionState |tylko do odczytu |Pole wskazujące stan połączenia: **połączone** lub **rozłączone**. To pole reprezentuje widok IoT Hub stanu połączenia z urządzeniem. **Ważne**: to pole powinno być używane tylko na potrzeby tworzenia i debugowania. Stan połączenia jest aktualizowany tylko dla urządzeń korzystających z MQTT lub AMQP. Ponadto jest oparty na poleceniach ping na poziomie protokołu (MQTT Pings lub pinges AMQP) i może mieć maksymalnie 5 minut. Z tego względu można mieć fałszywe pozytywne, takie jak urządzenia zgłoszone jako połączone, ale które są rozłączone. |
@@ -204,7 +204,7 @@ Tożsamości urządzeń są reprezentowane jako dokumenty JSON o następujących
 > Stan połączenia może reprezentować tylko widok IoT Hub stanu połączenia. Aktualizacje tego stanu mogą być opóźnione, w zależności od warunków i konfiguracji sieci.
 
 > [!NOTE]
-> Obecnie zestawy SDK urządzeń nie obsługują używania znaków `+` i `#` w identyfikatorze **deviceId**.
+> Obecnie zestawy SDK urządzeń nie obsługują używania `+` znaków i w identyfikatorze `#` **deviceId**.
 
 ## <a name="module-identity-properties"></a>Właściwości tożsamości modułu
 
@@ -212,13 +212,13 @@ Tożsamości modułów są reprezentowane jako dokumenty JSON o następujących 
 
 | Właściwość | Opcje | Opis |
 | --- | --- | --- |
-| deviceId |wymagane, tylko do odczytu w aktualizacjach |Ciąg z rozróżnianą wielkością liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne i niektóre znaki specjalne: `- . + % _ # * ? ! ( ) , = @ $ '`. |
-| moduleId |wymagane, tylko do odczytu w aktualizacjach |Ciąg z rozróżnianą wielkością liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne i niektóre znaki specjalne: `- . + % _ # * ? ! ( ) , = @ $ '`. |
+| deviceId |wymagane, tylko do odczytu w aktualizacjach |Ciąg z rozróżnianą wielkością liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne i niektóre znaki specjalne: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
+| moduleId |wymagane, tylko do odczytu w aktualizacjach |Ciąg z rozróżnianą wielkością liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne i niektóre znaki specjalne: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
 | generationId |wymagane, tylko do odczytu |Ciąg z rozróżnianą wielkością liter, który jest generowany przez Centrum IoT, do 128 znaków. Ta wartość jest używana do rozróżniania urządzeń z tym samym identyfikatorem **deviceId**, gdy zostały usunięte i ponownie utworzone. |
 | element ETag |wymagane, tylko do odczytu |Ciąg reprezentujący słaby element ETag dla tożsamości urządzenia, zgodnie z [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | uwierzytelniania |optional |Obiekt złożony zawierający informacje o uwierzytelnianiu i materiały zabezpieczające. |
 | auth. symkey |optional |Obiekt złożony zawierający klucz podstawowy i pomocniczy, przechowywany w formacie base64. |
-| status |wymagany |Wskaźnik dostępu. Można **włączyć** lub **wyłączyć**. Jeśli ta **Funkcja jest włączona**, urządzenie może nawiązać połączenie. Jeśli ta **możliwość jest wyłączona**, urządzenie nie może uzyskać dostępu do żadnego punktu końcowego mającego dostęp do urządzenia. |
+| status |wymagane |Wskaźnik dostępu. Można **włączyć** lub **wyłączyć**. Jeśli ta **Funkcja jest włączona**, urządzenie może nawiązać połączenie. Jeśli ta **możliwość jest wyłączona**, urządzenie nie może uzyskać dostępu do żadnego punktu końcowego mającego dostęp do urządzenia. |
 | statusReason |optional |Ciąg o długości 128 znaków, który przechowuje przyczynę stanu tożsamości urządzenia. Dozwolone są wszystkie znaki UTF-8. |
 | statusUpdateTime |tylko do odczytu |Wskaźnik czasowy przedstawiający datę i godzinę ostatniej aktualizacji stanu. |
 | connectionState |tylko do odczytu |Pole wskazujące stan połączenia: **połączone** lub **rozłączone**. To pole reprezentuje widok IoT Hub stanu połączenia z urządzeniem. **Ważne**: to pole powinno być używane tylko na potrzeby tworzenia i debugowania. Stan połączenia jest aktualizowany tylko dla urządzeń korzystających z MQTT lub AMQP. Ponadto jest oparty na poleceniach ping na poziomie protokołu (MQTT Pings lub pinges AMQP) i może mieć maksymalnie 5 minut. Z tego względu można mieć fałszywe pozytywne, takie jak urządzenia zgłoszone jako połączone, ale które są rozłączone. |
@@ -226,7 +226,7 @@ Tożsamości modułów są reprezentowane jako dokumenty JSON o następujących 
 | lastActivityTime |tylko do odczytu |Wskaźnik danych czasowych, przedstawiający datę i godzinę ostatniego połączenia urządzenia, odebrania lub wysłania wiadomości. |
 
 > [!NOTE]
-> Obecnie zestawy SDK urządzeń nie obsługują używania `+` znaków i `#` w identyfikatorach **deviceId** i **moduleId**.
+> Obecnie zestawy SDK urządzeń nie obsługują używania `+` znaków i w identyfikatorach `#` **deviceId** i **moduleId**.
 
 ## <a name="additional-reference-material"></a>Dodatkowe materiały referencyjne
 
@@ -246,7 +246,7 @@ Inne tematy referencyjne w przewodniku dewelopera IoT Hub obejmują:
 
 Teraz, kiedy wiesz już, jak korzystać z rejestru tożsamości IoT Hub, możesz zainteresować następujące tematy IoT Hub Przewodnik dla deweloperów:
 
-* [Kontrola dostępu do centrum IoT Hub](iot-hub-devguide-security.md)
+* [Kontrola dostępu do usługi IoT Hub](iot-hub-devguide-security.md)
 
 * [Synchronizowanie stanu i konfiguracji przy użyciu urządzenia bliźniaczych reprezentacji](iot-hub-devguide-device-twins.md)
 

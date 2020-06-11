@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: e49ed542af140b28e8ebe58e5c8920d0959c9387
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 7815b8180c29b66b12eddbff88e4728b6784be66
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848907"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672769"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Tworzenie oferty Dynamics 365 for Customer Engagement & PowerApps
 
@@ -175,7 +175,7 @@ Wprowadź adres, na który klienci mogą dowiedzieć się więcej o ofercie.
 
 Wprowadź adres do zasad zachowania poufności informacji organizacji. Użytkownik jest odpowiedzialny za zapewnienie zgodności aplikacji z przepisami i przepisami dotyczącymi ochrony prywatności oraz w celu zapewnienia prawidłowych zasad zachowania poufności informacji.
 
-### <a name="contacts"></a>Contacts (Kontakty)
+### <a name="contacts"></a>Kontakty
 
 Podaj nazwę, adres e-mail i numer telefonu dla **kontaktu z pomocą techniczną** i **kontaktu inżynieryjnego**. Te informacje nie są widoczne dla klientów, ale będą dostępne dla firmy Microsoft i mogą być udostępniane partnerom programu CSP.
 
@@ -315,7 +315,7 @@ Firma Microsoft może usunąć złożoność konfigurowania dysku testowego, udo
 
 - **Adres URL wystąpienia** (wymagany) — adres URL, pod którym klient będzie rozpoczynać swój dysk testowy. Zwykle jest to adres URL wystąpienia usługi Dynamics 365 z uruchomioną aplikacją z zainstalowanymi przykładowymi danymi (na przykład `https://testdrive.crm.dynamics.com` ).
 
-- **Adres URL internetowego interfejsu API wystąpienia** (wymagane) — Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do **ustawień** \& gt; **Dostosowanie** \& gt **Zasoby** \& dla deweloperów gt **Interfejs API sieci Web wystąpienia (główny adres URL usługi)**, skopiuj adres URL znaleziony w tym miejscu (na przykład `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
+- **Adres URL internetowego interfejsu API wystąpienia** (wymagany) — Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do dostosowywania **ustawień**  >  **Customization**  >  wystąpienia**zasobów deweloperskich**  >  **Web API (główny adres URL usługi)**, skopiuj adres URL znaleziony tutaj (na przykład `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Nazwa roli** (wymagana) — podaj nazwę roli zabezpieczeń, która została zdefiniowana w niestandardowym dysku testowym Dynamics 365. Ta nazwa roli zabezpieczeń zostanie przypisana do użytkownika podczas jego dysku testowego (na przykład roli dysk testowy).
 

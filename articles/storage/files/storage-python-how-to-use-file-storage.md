@@ -8,12 +8,12 @@ ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: tracking-python
-ms.openlocfilehash: b8d460f35f67d4e7f48611fdc2a770d4a0bed002
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d04b158761d501d4a79d91fe551670b57f9847f3
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552078"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678719"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Develop for Azure Files with Python (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Python)
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -96,7 +96,7 @@ Aby utworzyć plik i przekazać dane, użyj `create_file_from_path` `create_file
 
 `create_file_from_path`przekazuje zawartość pliku z określonej ścieżki i `create_file_from_stream` przekazuje zawartość z już otwartego pliku/strumienia. `create_file_from_bytes`przekazuje tablicę bajtów i `create_file_from_text` przekazuje określoną wartość tekstową przy użyciu określonego kodowania (wartość domyślna to UTF-8).
 
-Poniższy przykład przekazuje zawartość pliku **słońca. png** **do pliku.**
+Poniższy przykład przekazuje zawartość pliku **sunset.png** do **pliku z plikami** .
 
 ```python
 from azure.storage.file import ContentSettings
@@ -111,7 +111,7 @@ file_service.create_file_from_path(
 ## <a name="download-a-file"></a>Pobieranie pliku
 Aby pobrać dane z pliku, użyj `get_file_to_path` ,, `get_file_to_stream` `get_file_to_bytes` , lub `get_file_to_text` . Są to metody wysokiego poziomu, które wykonują niezbędne fragmenty, gdy rozmiar danych przekracza 64 MB.
 
-W poniższym przykładzie pokazano, `get_file_to_path` jak pobrać zawartość pliku mój **plik** i zapisać go w pliku **out-Sunset. png** .
+W poniższym przykładzie pokazano, `get_file_to_path` jak pobrać zawartość pliku mój **plik** i zapisać go w pliku **out-sunset.png** .
 
 ```python
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')

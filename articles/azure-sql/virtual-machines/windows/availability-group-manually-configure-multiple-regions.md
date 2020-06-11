@@ -4,7 +4,6 @@ description: W tym artykule wyjaśniono, jak skonfigurować grupę dostępności
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
@@ -15,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 00f016dd4a2a713124ef3db2ef6c595f68e9318d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 8ab62a93546719e172eec34168a0692daccf281a
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657028"
+ms.locfileid: "84669311"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>SQL Server Skonfiguruj zawsze dostępną grupę dostępności w różnych regionach platformy Azure
 

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: dca9babff198fc780e54df6e89149f2c4c8157bf
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0e8dc52b160ee69e9c8bfd810c80c1035fc6e0d0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83677704"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674507"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Wskazówki dotyczące wydajności dla Azure Cosmos DB Java SDK v4
 
@@ -20,7 +20,8 @@ ms.locfileid: "83677704"
 > * [Zestaw Java SDK v4](performance-tips-java-sdk-v4-sql.md)
 > * [Async Java SDK 2](performance-tips-async-java.md)
 > * [Sync Java SDK 2](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [Zestaw .NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [Zestaw .NET SDK V2](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -393,7 +394,7 @@ Aby uzyskać więcej informacji, zobacz instrukcje dotyczące [systemów Windows
 
     Złożoność zapytania wpływa na liczbę jednostek żądań używanych dla operacji. Liczba predykatów, charakter predykatów, liczba UDF i rozmiar zestawu danych źródłowych wpływają na koszt operacji zapytania.
 
-    Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-opłata](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) , aby zmierzyć liczbę jednostek żądań używanych przez te operacje. Możesz również przyjrzeć się równoważnej właściwości RequestCharge w ResourceResponse \< t> lub FeedResponse \< t>.
+    Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-opłata](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) , aby zmierzyć liczbę jednostek żądań używanych przez te operacje. Możesz również przyjrzeć się równoważnej właściwości RequestCharge w ResourceResponse \<T> lub FeedResponse \<T> .
 
     #### <a name="async"></a>[Asynchroniczne](#tab/api-async)
 

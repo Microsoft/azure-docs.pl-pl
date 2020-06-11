@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: xpouyat
-ms.openlocfilehash: 423597da44a74afb60e69c4e32cbd6353f81e726
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 7fce1fc529f3af71cac17d8011fe065c6381a419
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344037"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677172"
 ---
 # <a name="licensing-microsoftreg-smooth-streaming-client-porting-kit"></a>Licencjonowanie &reg; zestawu portów programu Microsoft Smooth Streaming Client 
 ## <a name="overview"></a>Omówienie
@@ -113,57 +113,46 @@ Licencje na tymczasowe i końcowe SSPK mogą przesyłać pytania techniczne do p
 ## <a name="microsoft-smooth-streaming-client-final-product-agreement-licensees"></a>Ostateczne licencje umowy licencyjnej programu Microsoft Smooth Streaming Client
 * Zaawansowane skojarzenia zabezpieczeń Digital Broadcast
 * Kablosuz Iletism Sanayive dis Ticaret A.S.
-* Technologie Albis Ltd.
-* Amazon Digital Services, Inc.
-* AmTRAN Technology Co., Ltd.
 * Arcadyan Technology Corporation
-* Arion Technology, Inc.
-* ATMACA ELEKTRONIK SIECI SAN. ZAPISZ KÓŁKO I KRZYŻYK. A. Ş
-* Emisja brytyjskiej przestrzeni powietrznej
-* CastPal Technology Inc., Shenzhen
+* Arcelik A. S
 * Branżowe elektronika, Inc.
-* Dongguan Digital AV Technology Corp., Ltd.
-* EchoStar zakup firmy
-* Enseo, Inc.
-* Ograniczone filmy FilmFlex
+* TECHNOLOGIA EXPRESS SZCZĘŚCIA LIMITED
 * Fluendo sa
 * FUNAI ELEKTRYCZNY CO., LTD
-* Gibson innowacje ograniczone
-* Haier informacje S. R. L
-* HANDAN BroadInfoCom co., Ltd.
 * Hisense International co., Ltd. 
-* Homecast co., Ltd
-* Hon Hai Precision Industry Co., Ltd.
-* Infomir GMBH
+* HKC Corporation Limited
+* Hongkong Konka Ltd
+* InnoLux Corporation
+* Technologie Innopia, Inc
 * Kaonmedia co., Ltd.
 * KDDI Corporation
+* Fame elektroniki z ograniczeniami
+* MIRC elektroniki
 * Nintendo co., Ltd.
-* Pomarańczowy SA
-* Saffron cyfrowo
-* Sagemcom szerokopasmowe SAS
+* ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
+* Firma Panasonic
+* Qingdao Haier OPTRONICS co., Ltd.
+* Shenzhen ATEKO, co., Ltd.
 * Shenzhen Chuangwei-RGB Electronics Co., Ltd.
-* Shenzhena elektronika CO., LTD
 * Shenzhen Jiuzhou, co., Ltd
 * Shenzhen KTC Technology Co., Ltd. 
+* Shenzhena technologia Maxmadea co., Ltd
+* Shenzhen MTC co., Ltd
 * Shenzhen Skyworth — Technologia cyfrowa co., Ltd
 * Sichuan Changhong, co., Ltd.
 * Skardin przemysł Corp.
 * Fernsehen & GmbH Deutschland
-* SmarDTV sa
+* SMARDTV GLOBALNE SAS
 * SoftAtHome
 * Firma Sony Corporation
 * Technologie dostarczania Technicolor, SAS
-* Tongfang Global Ltd.
 * Najlepsze inwestycje Victory, Ltd.
-* Produkty firmy Toshiba o stylu życia w & Services Corporation
-* Uniwersalne Media Corporation/Slovakia/s.r.o.
-* VIZIO, Inc.
-* Wistron Corporation
+* UMC Polska Sp. z. o.o.
 * ZTE Corporation
 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

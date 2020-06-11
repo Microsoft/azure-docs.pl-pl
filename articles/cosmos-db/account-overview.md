@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 06/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d29ed68b2945b2473b33aa88176e6f5d832a0fba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1e08c449f5da81f38c4134cfceceecab2b08150d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246905"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672157"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Praca z kontem usługi Azure Cosmos
 

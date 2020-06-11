@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: interfejs API środowiska Node. js SQL, zasoby & zestawu SDK'
-description: Poznaj wszystkie informacje o interfejsie API Node. js języka SQL i zestawie SDK, w tym daty wydania, daty wycofania i zmiany wprowadzone między poszczególnymi wersjami zestawu SDK Azure Cosmos DB Node. js.
+title: 'Azure Cosmos DB: SQL Node.js API, zasoby & SDK'
+description: Poznaj wszystkie informacje o interfejsie API Node.js SQL i zestawie SDK, w tym daty wydania, daty wycofania i zmiany wprowadzone między poszczególnymi wersjami Azure Cosmos DB Node.js SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,18 +8,19 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 66597f0807e27e421d5f7001550533090d5936c0
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: b0d9b0bd520b3bfca57f2bf7f306ebddd15cc3e5
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171603"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677665"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB zestawu SDK środowiska Node. js dla interfejsu API SQL: informacje o wersji i zasoby
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [Źródło zmian platformy .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [Zestaw .NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [Zestaw .NET SDK V2](sql-api-sdk-dotnet.md)
+> * [Zestaw .NET Core SDK V2](sql-api-sdk-dotnet-core.md)
+> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Zestaw Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
@@ -28,29 +29,29 @@ ms.locfileid: "84171603"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy — .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
 
-|Zasób  |Link  |
+|Zasób  |Łącze  |
 |---------|---------|
 |Pobierz zestaw SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |Dokumentacja interfejsu API  |  [Dokumentacja referencyjna języka JavaScript SDK](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
 |Instrukcje dotyczące instalacji zestawu SDK  |  [Instrukcje instalacji](https://github.com/Azure/azure-cosmos-js#installation)
 |Współtworzenie zestawu SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
-| Samples | [Przykłady kodu dla środowiska Node. js](sql-api-nodejs-samples.md)
+| Samples | [Przykłady koduNode.js](sql-api-nodejs-samples.md)
 | Wprowadzenie — samouczek | [Wprowadzenie do zestawu SDK języka JavaScript](sql-api-nodejs-get-started.md)
-| Samouczek aplikacji sieci Web | [Tworzenie aplikacji sieci Web Node. js przy użyciu Azure Cosmos DB](sql-api-nodejs-application.md)
-| Bieżąca obsługiwana platforma | [Node. js V12. x](https://nodejs.org/en/blog/release/v12.7.0/) -SDK w wersji 3. x. x<br/>[Node. js v10. x](https://nodejs.org/en/blog/release/v10.6.0/) -SDK w wersji 3. x. x<br/>[Node. js V8. x](https://nodejs.org/en/blog/release/v8.16.0/) -SDK w wersji 3. x. x<br/>[Node. js V6. x](https://nodejs.org/en/blog/release/v6.10.3/) -SDK w wersji 2. x. x<br/>[Node. js v 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)— SDK wersja 1. x. x<br/> [Node. js v 0.12](https://nodejs.org/en/blog/release/v0.12.0/)— SDK wersja 1. x. x<br/> [Node. js v 0.10](https://nodejs.org/en/blog/release/v0.10.0/)— SDK wersja 1. x. x
+| Samouczek aplikacji sieci Web | [Tworzenie aplikacji sieci Web Node.js przy użyciu Azure Cosmos DB](sql-api-nodejs-application.md)
+| Bieżąca obsługiwana platforma | [Node.js V12. x](https://nodejs.org/en/blog/release/v12.7.0/) -SDK w wersji 3. x. x<br/>[Node.js v10. x](https://nodejs.org/en/blog/release/v10.6.0/) -SDK w wersji 3. x. x<br/>[Node.js V8. x](https://nodejs.org/en/blog/release/v8.16.0/) -SDK w wersji 3. x. x<br/>[Node.js V6. x](https://nodejs.org/en/blog/release/v6.10.3/) -SDK w wersji 2. x. x<br/>[Node.js v 4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)— zestaw SDK w wersji 1. x. x<br/> [Node.js v 0.12](https://nodejs.org/en/blog/release/v0.12.0/)— zestaw SDK w wersji 1. x. x<br/> [Node.js v 0.10](https://nodejs.org/en/blog/release/v0.10.0/)— zestaw SDK w wersji 1. x. x
 
 ## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="310"></a><a name="3.1.0"></a>3.1.0
-* Ustaw wartość domyślną ResponseContinuationTokenLimitInKB na rozmiarze 1 KB. Domyślnie są one ograniczone do rozmiarze 1 KB, aby uniknąć długich nagłówków (Node. js ma limit rozmiaru nagłówka globalnego). Użytkownik może ustawić to pole, aby zezwalać na dłuższe nagłówki, co może pomóc w zaplecze zoptymalizować wykonywanie zapytania.
+* Ustaw wartość domyślną ResponseContinuationTokenLimitInKB na rozmiarze 1 KB. Domyślnie są one ograniczone do rozmiarze 1 KB, aby uniknąć długich nagłówków (Node.js ma limit rozmiaru nagłówka globalnego). Użytkownik może ustawić to pole, aby zezwalać na dłuższe nagłówki, co może pomóc w zaplecze zoptymalizować wykonywanie zapytania.
 * Usuń disableSSLVerification. Ta opcja ma nowe alternatywy opisane w [#388](https://github.com/Azure/azure-cosmos-js/pull/388)
 
 ### <a name="304"></a><a name="3.0.4"></a>3.0.4
 * Zezwalaj initialHeaders na jawne Ustawianie nagłówka klucza partycji
-* Użyj plików Package. JSON #, aby zapobiec publikowaniu plików obcych
+* Użyj package.jsw # plikach, aby zapobiec publikowaniu plików obcych
 * Napraw błąd sortowania mapy routingu w starszej wersji węzła i V8
 * Naprawia usterkę, gdy użytkownik dostarcza opcje częściowej ponownej próby
 
@@ -101,7 +102,7 @@ W wersji 2 istniały wiele różnych sposobów iteracji lub pobierania wyników 
 
 * Usuń iterator. Next () i iterator. Current (). Użyj fetchNext (), aby uzyskać strony wyników.
 * Usuń iterator. forEach (). Zamiast tego użyj iteratorów asynchronicznych.
-* Nazwa iterator. executeNext () została zmieniona na iterator. fetchNext ()
+* iterator.executeNext () zmieniono nazwę na iterator. fetchNext ()
 * Nazwa iterator. ToArray — () została zmieniona na iterator. fetchAll ()
 * Strony są teraz prawidłowymi obiektami odpowiedzi zamiast zwykłych obiektów JS
 * const Container = Client. Database (dbId). Container (containerId)
@@ -150,7 +151,7 @@ Zestaw SDK będzie teraz zapisywać w wielu regionach domyślnie, jeśli jego ko
 
 #### <a name="new-features"></a>Nowe funkcje
 ##### <a name="user-cancelable-requests"></a>Żądania anulowane przez użytkownika
-Funkcja przenoszenia do pobrania wewnętrznie pozwala nam korzystać z interfejsu API AbortController przeglądarki w celu obsługi operacji z możliwością anulowania użytkownika. W przypadku operacji, w których wiele żądań jest potencjalnie w toku (na przykład zapytań między partycjami), wszystkie żądania dla operacji zostaną anulowane. Użytkownicy nowoczesnej przeglądarki będą już mieć AbortController. Użytkownicy środowiska Node. js będą musieli używać biblioteki z wypełnieniem
+Funkcja przenoszenia do pobrania wewnętrznie pozwala nam korzystać z interfejsu API AbortController przeglądarki w celu obsługi operacji z możliwością anulowania użytkownika. W przypadku operacji, w których wiele żądań jest potencjalnie w toku (na przykład zapytań między partycjami), wszystkie żądania dla operacji zostaną anulowane. Użytkownicy nowoczesnej przeglądarki będą już mieć AbortController. Node.js użytkownicy będą musieli używać biblioteki z wypełnieniem
 
 ``` js
  const controller = new AbortController()
@@ -181,7 +182,7 @@ Add DISTINCT and LIMIT/OFFSET queries (#306)
 ```
 
 #### <a name="improved-browser-experience"></a>Udoskonalone środowisko przeglądarki
-Chociaż było możliwe użycie zestawu v2 SDK w przeglądarce, nie jest to idealne środowisko. Konieczne jest wypełnienie kilku wbudowanych bibliotek Node. js i użycie pakietu, takiego jak WebPack lub Parcel. Zestaw v3 SDK sprawia, że środowisko pracy jest znacznie lepsze dla użytkowników przeglądarki.
+Chociaż było możliwe użycie zestawu v2 SDK w przeglądarce, nie jest to idealne środowisko. Musisz wypełnić kilka node.js wbudowanych bibliotek i użyć pakietu, takiego jak WebPack lub Parcel. Zestaw v3 SDK sprawia, że środowisko pracy jest znacznie lepsze dla użytkowników przeglądarki.
 
 * Zastąp elementy wewnętrzne żądania za pomocą pobrania (#245)
 * Usuń użycie buforu (#330)
@@ -218,7 +219,7 @@ Nie zawsze są to najbardziej widoczne zmiany, ale pomagają naszym zespołowi w
 * Naprawa regionalnego trybu failover w ramach zasad ponawiania
 * Napraw Właściwość ChangeFeed hasMoreResults
 * Aktualizacje zależności dev
-* Dodaj PolicheckExclusions. txt
+* Dodaj PolicheckExclusions.txt
 
 ### <a name="213"></a><a name="2.1.3"></a>2.1.3
 * Przełącz typ _ts z ciągu na liczbę

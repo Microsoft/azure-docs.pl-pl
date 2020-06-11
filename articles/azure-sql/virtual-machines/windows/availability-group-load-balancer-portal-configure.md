@@ -4,7 +4,6 @@ description: Instrukcje krok po kroku dotyczące tworzenia odbiornika dla zawsze
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
@@ -14,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4aed05dc57adfcf93751bc3b90f378d9834c5fa8
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: c527ef9767d7b88e956bb1b3354b3067847857d9
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657155"
+ms.locfileid: "84669328"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Konfigurowanie modułu równoważenia obciążenia dla SQL Server zawsze włączone grupy dostępności na platformie Azure Virtual Machines
 

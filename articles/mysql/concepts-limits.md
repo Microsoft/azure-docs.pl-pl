@@ -5,16 +5,23 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 6/5/2020
-ms.openlocfilehash: 8e2b6f43dcbf38e0e412b817937721d44a65308b
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 6/10/2020
+ms.openlocfilehash: 9b808eb69a013cb513de4ef15f112d7392dfe36e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559226"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669882"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Ograniczenia w Azure Database for MySQL
 W poniższych sekcjach opisano pojemność, obsługę aparatu magazynu, obsługę uprawnień, obsługę instrukcji manipulowania danymi oraz limity funkcjonalne w usłudze bazy danych. Zapoznaj się również z [ogólnymi ograniczeniami](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) dotyczącymi aparatu bazy danych MySQL.
+
+## <a name="server-parameters"></a>Parametry serwera
+
+> [!NOTE]
+> Jeśli szukasz minimalnej/maksymalnej wartości parametrów serwera, takich jak `max_connections` i `innodb_buffer_pool_size` , te informacje zostały przeniesione do artykułu **[parametry serwera](./concepts-server-parameters.md)** .
+
+Azure Database for MySQL obsługuje dostrajanie wartości parametrów serwera. Wartość minimalna i maksymalna niektórych parametrów (np. `max_connections`, `join_buffer_size` , `query_cache_size` ) jest określana na podstawie warstwy cenowej i rdzeni wirtualnych serwera. Aby uzyskać więcej informacji na temat tych limitów, zapoznaj się z [parametrami serwera](./concepts-server-parameters.md) . 
 
 ## <a name="storage-engine-support"></a>Obsługa aparatu magazynu
 
@@ -35,8 +42,6 @@ W poniższych sekcjach opisano pojemność, obsługę aparatu magazynu, obsług�
 - Uprawnienie "noprivileged": podobne [nieuprzywilejowane](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) również jest ograniczone.
 - Zdefiniuj: wymagane są uprawnienia administratora do tworzenia i jest ograniczone. W przypadku importowania danych przy użyciu kopii zapasowej Usuń `CREATE DEFINER` polecenia ręcznie lub przy użyciu `--skip-definer` polecenia podczas wykonywania mysqldump.
 
-## <a name="server-parameters"></a>Parametry serwera
-Azure Database for MySQL obsługuje dostrajanie wartości parametrów serwera. Minimalna i maksymalna wartość niektórych parametrów jest określana na podstawie warstwy cenowej i rdzeni wirtualnych serwera. Aby uzyskać więcej informacji na temat tych limitów, zapoznaj się z [parametrami serwera](./concepts-server-parameters.md) . 
 
 ## <a name="data-manipulation-statement-support"></a>Obsługa instrukcji manipulowania danymi
 

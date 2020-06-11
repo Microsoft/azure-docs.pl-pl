@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 70f124a498ff4aa45b5d90f6221fe3d0121e804a
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c9cf77971038a3d7d160180b93594736d3ca6200
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221049"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674231"
 ---
 # <a name="api-management-authentication-policies"></a>Zasady uwierzytelniania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -77,14 +77,23 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 ### <a name="examples"></a>Przykłady
 
-Ten przykładowy certyfikat klienta jest identyfikowany za pomocą odcisku palca.
+W tym przykładzie certyfikat klienta jest identyfikowany za pomocą odcisku palca:
+
 ```xml
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
-Ten przykładowy certyfikat klienta jest identyfikowany według nazwy zasobu.
+
+W tym przykładzie certyfikat klienta jest identyfikowany przez nazwę zasobu:
+
 ```xml  
 <authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
-```  
+``` 
+
+W tym przykładzie certyfikat klienta jest ustawiany w zasadach, a nie pobierany z wbudowanego magazynu certyfikatów:
+
+```xml
+<authentication-certificate body="@(context.Variables.GetValueOrDefault<byte[]>("byteCertificate"))" password="optional-certificate-password" />
+```
 
 ### <a name="elements"></a>Elementy  
   
@@ -96,8 +105,10 @@ Ten przykładowy certyfikat klienta jest identyfikowany według nazwy zasobu.
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|odcisk palca|Odcisk palca certyfikatu klienta.|Albo `thumbprint` `certificate-id` musi być obecny.|Nie dotyczy|  
-|Identyfikator certyfikatu|Nazwa zasobu certyfikatu.|Albo `thumbprint` `certificate-id` musi być obecny.|Nie dotyczy|  
+|odcisk palca|Odcisk palca certyfikatu klienta.|Albo `thumbprint` `certificate-id` musi być obecny.|Nie dotyczy|
+|Identyfikator certyfikatu|Nazwa zasobu certyfikatu.|Albo `thumbprint` `certificate-id` musi być obecny.|Nie dotyczy|
+|body|Certyfikat klienta jako tablicę bajtów.|Nie|Nie dotyczy|
+|hasło|Hasło dla certyfikatu klienta.|Używany, jeśli certyfikat określony w programie `body` jest chroniony hasłem.|Nie dotyczy|
   
 ### <a name="usage"></a>Użycie  
  Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.  

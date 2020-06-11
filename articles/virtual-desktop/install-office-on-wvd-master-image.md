@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d53c21af77204a5e83687d3ce893f3f6f45101f2
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 2c62fdb41cdd19e34062124564ace9645df1dde6
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628992"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672701"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalowanie pakietu Office w głównym obrazie wirtualnego dysku twardego
 
@@ -55,13 +55,13 @@ Oto co to jest przykładowy kod XML konfiguracji:
 >[!NOTE]
 >Aktywację komputera udostępnionego można skonfigurować za zasady grupy obiektów zasad grupy (GPO) lub ustawień rejestru. Obiekt zasad grupy znajduje się w obszarze **zasady konfiguracji komputera \\ \\ Szablony administracyjne \\ Microsoft Office 2016 (maszyny) \\ Ustawienia licencjonowania**
 
-Narzędzie wdrażania pakietu Office zawiera plik Setup. exe. Aby zainstalować pakiet Office, uruchom następujące polecenie w wierszu polecenia:
+Narzędzie wdrażania pakietu Office zawiera setup.exe. Aby zainstalować pakiet Office, uruchom następujące polecenie w wierszu polecenia:
 
 ```batch
 Setup.exe /configure configuration.xml
 ```
 
-#### <a name="sample-configurationxml"></a>Przykładowa konfiguracja. XML
+#### <a name="sample-configurationxml"></a>Przykład configuration.xml
 
 Poniższy przykład kodu XML zainstaluje comiesięczną wersję Enterprise Channel.
 
@@ -118,7 +118,7 @@ Poniżej przedstawiono sposób instalowania usługi OneDrive w trybie na maszyn�
 
 1. Najpierw Utwórz lokalizację, aby przemieścić Instalatora usługi OneDrive. Lokalizacja folderu dysku lokalnego lub [ \\ \\ UNC] (File://UNC) jest odpowiednia.
 
-2. Pobierz OneDriveSetup. exe do lokalizacji przygotowanej za pomocą tego linku:<https://aka.ms/OneDriveWVD-Installer>
+2. Pobierz OneDriveSetup.exe do lokalizacji przygotowanej za pomocą tego linku:<https://aka.ms/OneDriveWVD-Installer>
 
 3. Jeśli zainstalowano pakiet Office z usługą OneDrive **\<ExcludeApp ID="OneDrive" /\>** , należy odinstalować wszystkie istniejące instalacje dla poszczególnych użytkowników z poziomu wiersza polecenia z podwyższonym poziomem uprawnień, uruchamiając następujące polecenie:
     
@@ -156,9 +156,11 @@ Poniżej przedstawiono sposób instalowania usługi OneDrive w trybie na maszyn�
     REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
     ```
 
-## <a name="teams-and-skype"></a>Zespoły i Skype
+## <a name="microsoft-teams-and-skype-for-business"></a>Microsoft Teams i Skype dla firm
 
-Pulpit wirtualny systemu Windows nie obsługuje programu Skype dla firm i zespołów.
+Pulpit wirtualny systemu Windows nie obsługuje programu Skype dla firm.
+
+Aby uzyskać pomoc dotyczącą instalowania programu Microsoft Teams, zobacz Korzystanie z usługi [Microsoft Teams na pulpicie wirtualnym systemu Windows](teams-on-wvd.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

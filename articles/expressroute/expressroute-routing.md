@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8c86e88f481c6ad27f551a87afae7547c32a331
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273048"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676255"
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej:
@@ -220,17 +220,18 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 
 | **Usługa** | **Wartość społeczności BGP** |
 | --- | --- |
-| Exchange Online * * | 12076:5010 |
-| SharePoint Online * * | 12076:5020 |
-| Skype dla firm Online * * | 12076:5030 |
-| CRM Online * * * |12076:5040 |
-| Usługi globalne platformy Azure * | 12076:5050 |
-| Azure Active Directory |12076:5060 |
+| Usługa Exchange Online\*\* | 12076:5010 |
+| SharePoint Online\*\* | 12076:5020 |
+| Skype dla firm Online\*\*/\*\*\* | 12076:5030 |
+| CRM Online\*\*\*\* |12076:5040 |
+| Usługi globalne platformy Azure\* | 12076:5050 |
+| Usługa Azure Active Directory |12076:5060 |
 | Inne usługi online pakietu Office 365 * * | 12076:5100 |
 
-* Usługi globalne platformy Azure zawierają tylko usługę Azure DevOps.
-* * Autoryzacja wymagana przez firmę Microsoft, zapoznaj się z tematem [Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft](how-to-routefilter-portal.md)\
-Program CRM Online obsługuje Dynamics v 8.2 i poniżej. W przypadku wyższych wersji wybierz społeczność regionalną dla wdrożeń programu Dynamics.
+\*W tej chwili usługi globalne platformy Azure zawierają tylko usługę Azure DevOps.
+\*\*Autoryzacja wymagana przez firmę Microsoft, zapoznaj się z tematem [Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft](how-to-routefilter-portal.md)\
+\*\*\*Ta społeczność publikuje także odpowiednie trasy dla usług Microsoft Team Services. \
+\*\*\*\*Program CRM Online obsługuje Dynamics v 8.2 i poniżej. W przypadku wyższych wersji wybierz społeczność regionalną dla wdrożeń programu Dynamics.
 
 > [!NOTE]
 > Firma Microsoft nie uznaje żadnych wartości społeczności BGP ustawionych na trasach anonsowanych do firmy Microsoft.

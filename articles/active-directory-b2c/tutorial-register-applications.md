@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e97df60739b04884e8a9cd68679c23d4407e4947
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c3be9136f260d73647e144d4d00bb58ce5e6774d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298806"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672616"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Samouczek: rejestrowanie aplikacji sieci Web w Azure Active Directory B2C
 
@@ -47,7 +47,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego
 1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład *webapp1*.
-1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępny) i osobiste konta Microsoft (np. Skype, Xbox)**.
+1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym lub dowolnym dostawcy tożsamości. Do uwierzytelniania użytkowników za pomocą Azure AD B2C**.
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://jwt.ms` wartość w polu tekstowym adres URL.
 
     Identyfikator URI przekierowania jest punktem końcowym, do którego użytkownik jest wysyłany przez serwer autoryzacji (Azure AD B2C w tym przypadku) po zakończeniu interakcji z użytkownikiem oraz do którego zostanie wysłany token dostępu lub kod autoryzacji po pomyślnej autoryzacji. W aplikacji produkcyjnej zwykle jest dostępny publicznie punkt końcowy, w którym działa aplikacja, na przykład `https://contoso.com/auth-response` . Do celów testowych, takich jak ten samouczek, można ustawić dla niego `https://jwt.ms` aplikację sieci Web firmy Microsoft, która wyświetla zdekodowaną zawartość tokenu (zawartość tokenu nigdy nie opuszcza przeglądarki). Podczas tworzenia aplikacji możesz dodać punkt końcowy, w którym aplikacja nasłuchuje lokalnie, na przykład `https://localhost:5000` . Można w dowolnym momencie dodawać i modyfikować identyfikatory URI przekierowań w zarejestrowanych aplikacjach.

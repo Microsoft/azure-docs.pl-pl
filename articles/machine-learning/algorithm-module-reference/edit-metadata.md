@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 9853a3decc8d145fee58d1da526926e224ee2030
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/10/2020
+ms.openlocfilehash: 6683dd445b4d209a6420c7490216b8e325b34c91
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064242"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669974"
 ---
 # <a name="edit-metadata-module"></a>Edytuj moduł metadanych
 
@@ -34,7 +34,7 @@ Typowe zmiany metadanych mogą obejmować:
   
 + Zmiana nazw kolumn.
   
- W każdej chwili należy zmodyfikować definicję kolumny, zazwyczaj w celu spełnienia wymagań dotyczących modułu podrzędnego. Na przykład niektóre moduły działają tylko z określonymi typami danych lub wymagają flag w kolumnach, takich jak `IsFeature` lub. `IsCategorical`  
+ W każdej chwili należy zmodyfikować definicję kolumny, zazwyczaj w celu spełnienia wymagań dotyczących modułu podrzędnego. Na przykład niektóre moduły działają tylko z określonymi typami danych lub wymagają flag w kolumnach, takich jak `IsFeature` lub `IsCategorical` .  
   
  Po wykonaniu wymaganej operacji możesz zresetować metadane do jego oryginalnego stanu.
   
@@ -55,7 +55,8 @@ Typowe zmiany metadanych mogą obejmować:
     + Typ kolumny i jej wartości zmienią się po wykonaniu operacji Edytuj metadane. Możesz w dowolnym momencie odzyskać oryginalny typ danych za pomocą polecenia Edytuj metadane, aby zresetować typ danych kolumny.  
 
     > [!NOTE]
-    > W przypadku zmiany dowolnego typu liczby na typ **DateTime** pozostaw pole **format DateTime** puste. Obecnie nie można określić docelowego formatu danych.  
+        > **Format daty i godziny** jest zgodny z [wbudowanym formatem DateTime języka Python](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
+        > W przypadku zmiany dowolnego typu liczby na typ **DateTime** pozostaw pole **format DateTime** puste. Obecnie nie można określić docelowego formatu danych.
 
 1. Wybierz opcję **kategorii** , aby określić, że wartości w wybranych kolumnach mają być traktowane jako kategorie.
 

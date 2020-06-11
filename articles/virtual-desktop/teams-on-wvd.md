@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3a14ffc9f103e58681418eacbb35b72b704f2d61
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 8b065a79abe4a4f5c23e28be111b09e51e5e6484
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267141"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667050"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -32,7 +32,7 @@ Dzięki optymalizacji multimediów dla zespołów Microsoft Teams klient klasycz
 Aby można było korzystać z programu Microsoft Teams na pulpicie wirtualnym systemu Windows, należy wykonać następujące czynności:
 
 - [Przygotuj sieć](/microsoftteams/prepare-network/) dla programu Microsoft Teams.
-- Zainstaluj [klienta klasycznego systemu Windows](connect-windows-7-and-10.md) na urządzeniu z systemem Windows 10, które spełnia wymagania sprzętowe zespołów Microsoft Teams [dla zespołów na komputerze z systemem Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Zainstaluj [klienta pulpitu systemu Windows](connect-windows-7-and-10.md) na urządzeniu z systemem Windows 10 lub Windows 10 IoT Enterprise spełniającym wymagania sprzętowe zespołów firmy Microsoft [dla zespołów na komputerze z systemem Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Nawiązywanie połączenia z maszyną wirtualną z systemem Windows 10 lub systemem Windows 10 Enterprise.
 - Zainstaluj aplikację Team Desktop na hoście przy użyciu instalacji na komputerze. Optymalizacja multimediów dla zespołów Microsoft Teams wymaga aplikacji Team Desktop w wersji 1.3.00.4461 lub nowszej.
 
@@ -53,7 +53,7 @@ Aby włączyć instalację zespołów dla poszczególnych komputerów, należy d
 
 ### <a name="install-the-teams-websocket-service"></a>Instalowanie usługi WebSocket zespołów
 
-Zainstaluj [usługę WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vkL6) na obrazie maszyny wirtualnej. Jeśli wystąpi błąd instalacji, zainstaluj [najnowszy pakiet redystrybucyjny Microsoft Visual C++](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) i spróbuj ponownie.
+Zainstaluj [usługę WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) na obrazie maszyny wirtualnej. Jeśli wystąpi błąd instalacji, zainstaluj [najnowszy pakiet redystrybucyjny Microsoft Visual C++](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) i spróbuj ponownie.
 
 ### <a name="install-microsoft-teams"></a>Zainstaluj program Microsoft Teams
 
@@ -131,9 +131,9 @@ Prześlij opinię na temat zespołów Microsoft Teams na pulpicie wirtualnym sys
 
 ## <a name="collect-teams-logs"></a>Zbierz dzienniki zespołów
 
-Jeśli wystąpią problemy z aplikacją Team Desktop w środowisku pulpitu wirtualnego systemu Windows, Zbierz dzienniki klienta w obszarze **%AppData%\Microsoft\Teams\logs.txt** na maszynie wirtualnej hosta.
+Jeśli wystąpią problemy z aplikacją Team Desktop w środowisku pulpitu wirtualnego systemu Windows, Zbierz dzienniki klienta w folderze **% AppData% \Microsoft\Teams\logs.txt** na maszynie wirtualnej hosta.
 
-Jeśli wystąpią problemy z wywołaniami i spotkaniami, Zbierz dzienniki klienta sieci Web zespołów z kombinacją klawiszy **Ctrl**  +  **Alt**  +  **SHIFT**  +  **1**. Dzienniki zostaną zapisane w **dzienniku diagnostyki%userprofile%\Downloads\MSTeams DATE_TIME. txt** na maszynie wirtualnej hosta.
+Jeśli wystąpią problemy z wywołaniami i spotkaniami, Zbierz dzienniki klienta sieci Web zespołów z kombinacją klawiszy **Ctrl**  +  **Alt**  +  **SHIFT**  +  **1**. Dzienniki zostaną zapisane w **DATE_TIME.txtdzienniku diagnostyki%USERPROFILE%\Downloads\MSTeams** na maszynie wirtualnej hosta.
 
 ## <a name="contact-microsoft-teams-support"></a>Skontaktuj się z pomocą techniczną Microsoft Teams
 

@@ -4,7 +4,6 @@ description: W tym artykule wprowadzono SQL Server zawsze włączonymi grupami d
 services: virtual-machines
 documentationCenter: na
 author: MikeRayMSFT
-manager: craigg
 editor: monicar
 tags: azure-service-management
 ms.assetid: 601eebb1-fc2c-4f5b-9c05-0e6ffd0e5334
@@ -15,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4a051ca76057d497552a0059f8b0bc8141c35390
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: f3c7009e5ecb43a809b9a3f703fc5ba289a2fd00
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656951"
+ms.locfileid: "84669277"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Wprowadzenie SQL Server zawsze dostępnych grup dostępności na platformie Azure Virtual Machines
 

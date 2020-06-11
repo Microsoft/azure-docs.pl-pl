@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4476502896705c2133b09b203bea0d6f5d74f121
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ccb5543fbeae4d4fe9c0104d873cd9776ea45a5a
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681417"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672956"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Instrukcje: wymaganie zasad ochrony aplikacji oraz zatwierdzonej aplikacji klienckiej do uzyskiwania dostępu do aplikacji w chmurze przy użyciu dostępu warunkowego
 
@@ -37,7 +37,7 @@ Aby uzyskać listę kwalifikujących się aplikacji klienckich, zobacz [wymagani
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenariusz 1: aplikacje pakietu Office 365 wymagają zatwierdzonych aplikacji przy użyciu zasad ochrony aplikacji
 
-W tym scenariuszu firma Contoso zdecydowała się, że wszystkie dostępy mobilne do zasobów pakietu Office 365 muszą korzystać z zatwierdzonych aplikacji klienckich, takich jak Outlook Mobile, OneDrive i Microsoft Teams chronionych przez zasady ochrony aplikacji przed uzyskaniem dostępu. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
+W tym scenariuszu firma Contoso zdecydowała się, że wszystkie dostępy mobilne do zasobów pakietu Office 365 muszą używać zatwierdzonych aplikacji klienckich, takich jak Outlook Mobile i OneDrive, chronione przez zasady ochrony aplikacji przed uzyskaniem dostępu. Wszyscy użytkownicy logują się już przy użyciu poświadczeń usługi Azure AD i mają przypisane licencje, które obejmują Azure AD — wersja Premium P1 lub P2 i Microsoft Intune.
 
 Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przenośnych, organizacje muszą wykonać następujące czynności.
 
@@ -49,7 +49,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Done** (Gotowe).
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Office 365 (wersja zapoznawcza)**.
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -73,7 +73,7 @@ W przypadku zasad dostępu warunkowego w tym kroku skonfiguruj następujące sk�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Done** (Gotowe).
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online**.
 1. W **warunkach**:
    1. **Aplikacje klienckie (wersja zapoznawcza)**:
@@ -101,7 +101,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Done** (Gotowe).
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **Office 365 (wersja zapoznawcza)**.
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -134,7 +134,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Done** (Gotowe).
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online** i **Office 365 SharePoint Online**.
 1. W obszarze **warunki**wybierz pozycję **platformy urządzeń**.
    1. Ustaw **wartość** **tak**.
@@ -156,7 +156,7 @@ Aby wymagać użycia zatwierdzonej aplikacji klienckiej na urządzeniach przeno�
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz opcję **Wszyscy użytkownicy** lub określeni **Użytkownicy i grupy** , do których chcesz zastosować te zasady. 
-   1. Wybierz pozycję **Done** (Gotowe).
+   1. Wybierz pozycję **Gotowe**.
 1. W obszarze **aplikacje lub akcje w chmurze**  >  **Uwzględnij**opcję **Office 365 Exchange Online**.
 1. W **warunkach**:
    1. **Aplikacje klienckie (wersja zapoznawcza)**:

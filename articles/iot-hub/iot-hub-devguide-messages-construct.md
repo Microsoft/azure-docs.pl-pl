@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 0fe167490cd466ca30857c2ed324846e80ab581d
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 3b32468c9795f603ac38854415bca9d653d7c101
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635598"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674981"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Tworzenie i odczytywanie komunikatów usługi IoT Hub
 
@@ -75,7 +75,6 @@ Aby uzyskać więcej informacji na temat kodowania i dekodowania komunikatów wy
 
 Nazwy właściwości systemu różnią się w zależności od punktu końcowego, do którego są kierowane komunikaty. Szczegóły dotyczące tych nazw można znaleźć w poniższej tabeli.
 
-
 |Nazwa właściwości systemu|Event Hubs|Azure Storage|Service Bus|Event Grid|
 |--------------------|----------|-------------|-----------|----------|
 |Identyfikator komunikatu|Identyfikator komunikatu|Identyfikatora|Identyfikatora|Identyfikator komunikatu|
@@ -86,7 +85,7 @@ Nazwy właściwości systemu różnią się w zależności od punktu końcowego,
 |Metoda uwierzytelniania połączenia|iothub-Connection-auth-Metoda|connectionAuthMethod|iothub-Connection-auth-Metoda|iothub-Connection-auth-Metoda|
 |contentType|Typ zawartości|contentType|ContentType|iothub-Content-Type|
 |contentEncoding|Kodowanie zawartości|contentEncoding|ContentEncoding|iothub — kodowanie zawartości|
-|iothub — enqueuedtime|iothub — enqueuedtime|enqueuedTime|     |iothub — enqueuedtime|
+|iothub — enqueuedtime|iothub — enqueuedtime|enqueuedTime| Nie dotyczy |iothub — enqueuedtime|
 |iothub-Interface-Name|iothub-Interface-Name|interfaceName|Iothub-Interface-Name|iothub-Interface-Name|
 |CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
 

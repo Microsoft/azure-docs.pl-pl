@@ -4,15 +4,15 @@ description: Wyświetl powiadomienia dotyczące konserwacji maszyn wirtualnych d
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 4ad57c1c71a51f948bd405a5487a1e27e36bfff7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 289733c4cee23a37c26df0b613a470925756f0eb
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77920896"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674843"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Obsługa powiadomień dotyczących planowanej konserwacji przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -28,7 +28,7 @@ az vm get-instance-view -n myVM -g myResourceGroup --query instanceView.maintena
 
 ## <a name="start-maintenance"></a>Rozpocznij konserwację
 
-Następujące wywołanie rozpocznie konserwację na maszynie wirtualnej, `IsCustomerInitiatedMaintenanceAllowed` Jeśli ma wartość true.
+Następujące wywołanie rozpocznie konserwację na maszynie wirtualnej, jeśli `IsCustomerInitiatedMaintenanceAllowed` ma wartość true.
 
 ```azurecli-interactive
 az vm perform-maintenance -g myResourceGroup -n myVM 

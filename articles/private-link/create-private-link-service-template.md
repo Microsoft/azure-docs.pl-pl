@@ -4,17 +4,18 @@ description: Szablon ARM usługi link prywatny
 services: private-link
 author: mblanco77
 ms.service: private-link
-ms.topic: article
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: 93a66057ddb0034f7ac9ac62578292ca38f2d2fe
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 304ee8c1180c318dd6e99b6e81eb964e264951d1
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84237129"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667033"
 ---
-# <a name="create-a-private-link-service---resource-manager-template"></a>Tworzenie usługi link prywatny — szablon Menedżer zasobów
+# <a name="quickstart-create-a-private-link-service---resource-manager-template"></a>Szybki Start: Tworzenie usługi linku prywatnego — szablon Menedżer zasobów
 
 W tym przewodniku szybki start utworzysz usługę linku prywatnego przy użyciu szablonu Menedżer zasobów.
 
@@ -32,20 +33,20 @@ Ten szablon służy do tworzenia usługi linku prywatnego.
 
 ### <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-privatelink-service/azuredeploy.json)
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
 W szablonie zdefiniowano wiele zasobów platformy Azure:
 
-- [**Microsoft. Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : usługa link prywatny umożliwiająca udostępnianie prywatnie usługi
-- [**Microsoft. Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : prywatny punkt końcowy w celu uzyskania dostępu do prywatnej usługi
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : jeden dla każdej maszyny wirtualnej
 - [**Microsoft. Network/loadBalancers**](/azure/templates/microsoft.network/loadBalancers) : moduł równoważenia obciążenia, który udostępnia maszyny wirtualne, które obsługują usługę
+- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : 2 interfejsy sieciowe, jeden dla każdej maszyny wirtualnej
 - [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) : 2 maszyny wirtualne, takie, które obsługują usługę i jeden do testowania połączenia z prywatnym punktem końcowym
 - [**Microsoft. COMPUTE/virtualMachines/Extensions**](/azure/templates/Microsoft.Compute/virtualMachines/extensions) : rozszerzenie instalujące serwer sieci Web
-- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks) : jeden dla każdej maszyny wirtualnej
+- [**Microsoft. Network/privateLinkServices**](/azure/templates/microsoft.network/privateLinkServices) : usługa link prywatny umożliwiająca udostępnianie prywatnie usługi
 - [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicIpAddresses) : 2 publiczny adres IP, po jednym dla każdej maszyny wirtualnej
-- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) : 2 interfejsy sieciowe, jeden dla każdej maszyny wirtualnej
+- [**Microsoft. Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints) : prywatny punkt końcowy w celu uzyskania dostępu do prywatnej usługi
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -97,7 +98,7 @@ W tej sekcji połączysz się z usługą http z maszyny wirtualnej przy użyciu 
 2.  Otwórz przeglądarkę i wprowadź adres prywatnego punktu końcowegohttp://10.0.0.5/
 3.  Zostanie wyświetlona domyślna strona usług IIS
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych za pomocą usługi link prywatny, Usuń grupę zasobów. Spowoduje to usunięcie usługi link prywatny i wszystkich powiązanych zasobów.
 

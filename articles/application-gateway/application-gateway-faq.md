@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: e61ce629e723f56524ee22d8b127243f9568a835
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7b90748ae29a98038d96e5e3a827413637a98d47
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196506"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668240"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -338,11 +338,31 @@ Nie, używaj tylko znaków alfanumerycznych w haśle pliku PFX.
 Kubernetes umożliwia tworzenie `deployment` i `service` zasób w celu uwidocznienia grupy zasobów w klastrze. Aby udostępnić tę samą usługę zewnętrznie, [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) jest zdefiniowany zasób, który zapewnia Równoważenie obciążenia, zakończenie protokołu TLS i hosting wirtualny oparte na nazwach.
 Aby spełnić ten `Ingress` zasób, wymagany jest kontroler transferu danych przychodzących, który nasłuchuje wszelkich zmian `Ingress` zasobów i konfiguruje zasady usługi równoważenia obciążenia.
 
-Application Gateway kontroler transferu danych przychodzących umożliwia korzystanie z [platformy azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) jako ruchu przychodzącego dla [usługi Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) , znanej również jako klaster AKS.
+Application Gateway kontroler transferu danych przychodzących (AGIC) umożliwia korzystanie z [platformy azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) jako ruchu przychodzącego dla [usługi Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) znanego również jako klaster AKS.
 
 ### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Czy pojedyncze wystąpienie kontrolera ruchu przychodzącego może zarządzać wieloma bramami aplikacji?
 
 Obecnie jedno wystąpienie kontrolera transferu danych przychodzących może być skojarzone tylko z jednym Application Gateway.
+
+### <a name="why-is-my-aks-cluster-with-kubenet-not-working-with-agic"></a>Dlaczego mój klaster AKS z korzystającą wtyczki kubenetem nie działa z usługą AGIC?
+
+AGIC próbuje automatycznie skojarzyć zasób tabeli tras z podsiecią Application Gateway, ale może to się nie powieść z powodu braku uprawnień z AGIC. Jeśli AGIC nie może skojarzyć tabeli tras z podsiecią Application Gateway, wystąpi błąd w dziennikach AGIC, co oznacza, że w takim przypadku trzeba ręcznie skojarzyć tabelę tras utworzoną przez klaster AKS z podsiecią Application Gateway. Aby uzyskać więcej informacji, zobacz instrukcje w [tym miejscu](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).
+
+### <a name="can-i-connect-my-aks-cluster-and-application-gateway-in-separate-virtual-networks"></a>Czy mogę połączyć klaster AKS i Application Gateway w oddzielnych sieciach wirtualnych? 
+
+Tak, o ile sieci wirtualne są połączone za pomocą komunikacji równorzędnej i nie mają nakładających się przestrzeni adresowych. Jeśli korzystasz z programu AKS z korzystającą wtyczki kubenet, pamiętaj, aby skojarzyć tabelę tras wygenerowaną przez AKS z podsiecią Application Gateway. 
+
+### <a name="what-features-are-not-supported-on-the-agic-add-on"></a>Jakie funkcje nie są obsługiwane przez dodatek AGIC? 
+
+Zapoznaj się z różnicami między AGIC wdrożonymi za pomocą Helm a wdrożeniem jako dodatek AKS [tutaj](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on)
+
+### <a name="when-should-i-use-the-add-on-versus-the-helm-deployment"></a>Kiedy należy używać dodatku w porównaniu z wdrożeniem Helm? 
+
+Zapoznaj się z różnicami między AGIC wdrożonymi w Helm i wdrożonymi jako dodatki AKS w [tym miejscu](ingress-controller-overview.md#difference-between-helm-deployment-and-aks-add-on), zwłaszcza w tabelach, w których scenariusze są obsługiwane przez AGIC wdrożone za pomocą Helm, w przeciwieństwie do dodatku AKS. Ogólnie wdrażanie przy użyciu programu Helm umożliwi przetestowanie funkcji beta i kandydatów wydania przed oficjalną wersją. 
+
+### <a name="can-i-control-which-version-of-agic-will-be-deployed-with-the-add-on"></a>Czy mogę określić, która wersja AGIC zostanie wdrożona z dodatkiem?
+
+Nie, dodatek AGIC jest usługą zarządzaną, co oznacza, że firma Microsoft będzie automatycznie aktualizować dodatek do najnowszej stabilnej wersji. 
 
 ## <a name="diagnostics-and-logging"></a>Diagnostyka i rejestrowanie
 

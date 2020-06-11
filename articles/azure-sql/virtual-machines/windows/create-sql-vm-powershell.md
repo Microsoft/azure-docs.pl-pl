@@ -4,7 +4,6 @@ description: Zawiera kroki i polecenia programu PowerShell służące do tworzen
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 98d50dd8-48ad-444f-9031-5378d8270d7b
@@ -15,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: def998c018a90cc288204650ae8d713bf1b4b5bc
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: b97de00dc3480d0297f5ff73a6d61a3cb3a4ad34
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656922"
+ms.locfileid: "84669165"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Jak za pomocą Azure PowerShell zainicjować obsługę administracyjną SQL Server na platformie Azure Virtual Machines
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 05/29/2020
-ms.openlocfilehash: 03884a7d1b834ef8c176434ad4127e1638aabcb1
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.date: 06/10/2020
+ms.openlocfilehash: 4ffd92c0641b74682a74ffd2898e226999ac2dd4
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235743"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668461"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -28,7 +28,7 @@ Aby uzyskać ograniczenia modelu zakupu jednostek DTU, zobacz [SQL Database limi
 > [!IMPORTANT]
 > W pewnych okolicznościach może być konieczne zmniejszenie bazy danych w celu Odbierz nieużywanej przestrzeni. Aby uzyskać więcej informacji, zobacz [Zarządzanie obszarem plików w Azure SQL Database](file-space-manage.md).
 
-Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazynowania przy użyciu [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerShell](elastic-pool-manage.md#powershell), interfejsu [wiersza polecenia platformy Azure](elastic-pool-manage.md#azure-cli)lub [interfejsu API REST](elastic-pool-manage.md#rest-api).
+Za pomocą [Azure Portal](elastic-pool-manage.md#azure-portal), [programu PowerShell](elastic-pool-manage.md#powershell), interfejsu [wiersza polecenia platformy Azure](elastic-pool-manage.md#azure-cli)lub [interfejsu API REST](elastic-pool-manage.md#rest-api)można ustawić warstwę usług, rozmiar obliczeń (cel usługi) i ilość miejsca do magazynowania.
 
 > [!IMPORTANT]
 > Aby uzyskać wskazówki dotyczące skalowania i zagadnienia, zobacz [skalowanie elastycznej puli](elastic-pool-scale.md).
@@ -40,7 +40,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Warstwa usług ogólnego przeznaczenia: platforma obliczeniowa generacji 4 (część 1)
 
-|Rozmiar obliczeń|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|Rozmiar obliczeń (cel usługi)|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generowanie obliczeń|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|
 |Rdzeni wirtualnych|1|2|3|4|5|6|
@@ -72,7 +72,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-2"></a>Warstwa usługi ogólnego przeznaczenia: platforma obliczeniowa 2 generacji (część 2)
 
-|Rozmiar obliczeń|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
+|Rozmiar obliczeń (cel usługi)|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generowanie obliczeń|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|
 |Rdzeni wirtualnych|7|8|9|10|16|24|
@@ -106,7 +106,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-1"></a>Warstwa usług ogólnego przeznaczenia: platforma obliczeniowa generacji 5 (część 1)
 
-|Rozmiar obliczeń|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|Rozmiar obliczeń (cel usługi)|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generowanie obliczeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|
 |Rdzeni wirtualnych|2|4|6|8|10|12|14|
@@ -138,7 +138,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 
 ### <a name="general-purpose-service-tier-generation-5-compute-platform-part-2"></a>Warstwa usług ogólnego przeznaczenia: platforma obliczeniowa generacji 5 (część 2)
 
-|Rozmiar obliczeń|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Rozmiar obliczeń (cel usługi)|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generowanie obliczeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|
 |Rdzeni wirtualnych|16|18|20|24|32|40|80|
@@ -172,7 +172,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 
 ### <a name="fsv2-series-compute-generation-preview"></a>Generowanie obliczeń serii Fsv2 (wersja zapoznawcza)
 
-|Rozmiar obliczeń|GP_Fsv2_72|
+|Rozmiar obliczeń (cel usługi)|GP_Fsv2_72|
 |:--- | --: |
 |Generowanie obliczeń|Seria Fsv2|
 |Rdzeni wirtualnych|72|
@@ -209,7 +209,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Warstwa usługi krytycznej dla działalności: platforma obliczeniowa w wersji 4 (część 1)
 
-|Rozmiar obliczeń|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Rozmiar obliczeń (cel usługi)|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generowanie obliczeń|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|
 |Rdzeni wirtualnych|2|3|4|5|6|
@@ -241,7 +241,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-2"></a>Warstwa usługi krytycznej dla firm: platforma obliczeniowa 2 generacji (część 2)
 
-|Rozmiar obliczeń|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Rozmiar obliczeń (cel usługi)|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generowanie obliczeń|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|
 |Rdzeni wirtualnych|7|8|9|10|16|24|
@@ -275,7 +275,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-1"></a>Warstwa usługi krytycznej dla działalności: platforma obliczeniowa w wersji 5 (część 1)
 
-|Rozmiar obliczeń|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Rozmiar obliczeń (cel usługi)|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generowanie obliczeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|
 |Rdzeni wirtualnych|4|6|8|10|12|14|
@@ -307,7 +307,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Warstwa usługi krytycznej dla działalności: platforma obliczeniowa w wersji 5 (część 2)
 
-|Rozmiar obliczeń|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Rozmiar obliczeń (cel usługi)|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Generowanie obliczeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|
 |Rdzeni wirtualnych|16|18|20|24|32|40|80|
@@ -341,7 +341,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 
 ### <a name="m-series-compute-generation-preview"></a>Generowanie obliczeń serii M (wersja zapoznawcza)
 
-|Rozmiar obliczeń|BC_M_128|
+|Rozmiar obliczeń (cel usługi)|BC_M_128|
 |:--- | --: |
 |Generowanie obliczeń|Seria M|
 |Rdzeni wirtualnych|128|
@@ -378,7 +378,7 @@ Jeśli wszystkie rdzeni wirtualnych puli elastycznej są zajęte, każda baza da
 W poniższej tabeli opisano właściwości dla baz danych w puli.
 
 > [!NOTE]
-> Limity zasobów poszczególnych baz danych w pulach elastycznych są generalnie takie same jak w przypadku pojedynczych baz danych poza pulami o tym samym rozmiarze obliczeniowym. Na przykład maksymalna liczba współbieżnych procesów roboczych dla bazy danych GP_Gen4_1 to 200 procesów roboczych. W związku z tym Maksymalna liczba współbieżnych procesów roboczych dla bazy danych w puli GP_Gen4_1 to również 200 procesów roboczych. Należy pamiętać, że łączna liczba współbieżnych procesów roboczych w puli GP_Gen4_1 wynosi 210.
+> Limity zasobów poszczególnych baz danych w pulach elastycznych są generalnie takie same jak w przypadku pojedynczych baz danych poza pulami o takim samym rozmiarze (cel usługi). Na przykład maksymalna liczba współbieżnych procesów roboczych dla bazy danych GP_Gen4_1 to 200 procesów roboczych. W związku z tym Maksymalna liczba współbieżnych procesów roboczych dla bazy danych w puli GP_Gen4_1 to również 200 procesów roboczych. Należy pamiętać, że łączna liczba współbieżnych procesów roboczych w puli GP_Gen4_1 wynosi 210.
 
 | Właściwość | Opis |
 |:--- |:--- |

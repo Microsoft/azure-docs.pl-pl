@@ -8,16 +8,16 @@ ms.devlang: ''
 ms.custom: sqldbrb=2
 ms.topic: conceptual
 ms.author: memildin
-author: memildin
 manager: rkarlin
+author: memildin
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: d600d174aa37c5c4d5d1011b9cb61e4487256c13
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7efcc4a9ec7da2bdd4005c124d5d0e8dd03c4363
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195145"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669702"
 ---
 # <a name="advanced-data-security"></a>Zaawansowane zabezpieczenia danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]

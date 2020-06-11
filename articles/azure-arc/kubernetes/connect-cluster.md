@@ -9,18 +9,18 @@ ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
 ms.custom: references_regions
-ms.openlocfilehash: 85ef8bb9868784df66199a4aea261e6b752ae7f8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 232d5e5a5f6efd6ddbd6124f78de4f4b8c1cd639
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636261"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676424"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 
 Połącz klaster Kubernetes z usługą Azure Arc.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Sprawdź, czy masz gotowe do spełnienia następujące wymagania:
 
@@ -208,7 +208,7 @@ Usługa Azure ARC z włączonym Kubernetes składa się z kilku agentów (operat
 * `deployment.apps/metrics-agent`: zbiera metryki innych agentów ARC, aby upewnić się, że te agenci wykazują optymalną wydajność
 * `deployment.apps/cluster-metadata-operator`: zbiera metadane klastra — wersję klastra, liczbę węzłów i wersję agenta Arc
 * `deployment.apps/resource-sync-agent`: synchronizuje powyższe metadane klastra z platformą Azure
-* `deployment.apps/clusteridentityoperator`: utrzymuje certyfikat tożsamości usługi zarządzanej (MSI) używany przez innych agentów do komunikacji z platformą Azure
+* `deployment.apps/clusteridentityoperator`: Usługa Azure ARC z włączonym Kubernetes obecnie obsługuje tożsamość przypisaną do systemu. clusteridentityoperator zachowuje certyfikat tożsamości usługi zarządzanej (MSI) używany przez innych agentów do komunikacji z platformą Azure.
 * `deployment.apps/flux-logs-agent`: zbiera dzienniki z operatorów strumienia wdrożonych w ramach konfiguracji kontroli źródła
 
 ## <a name="delete-a-connected-cluster"></a>Usuwanie połączonego klastra

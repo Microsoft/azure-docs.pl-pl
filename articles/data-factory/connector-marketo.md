@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 06/04/2020
 ms.author: jingwang
-ms.openlocfilehash: efb450f4da58c73c134d9f6b6aad6193f786912d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08f117e2fc4939eee1458c0807cac5a292785608
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415004"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669889"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Kopiowanie danych z programu Marketo przy użyciu Azure Data Factory (wersja zapoznawcza)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -35,7 +35,7 @@ Ten łącznik programu Marketo jest obsługiwany dla następujących działań:
 
 Dane z programu Marketo można kopiować do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-Azure Data Factory udostępnia wbudowany sterownik umożliwiający połączenie, dlatego nie trzeba ręcznie instalować żadnego sterownika przy użyciu tego łącznika.
+Obecnie wystąpienie programu Marketo zintegrowane z zewnętrznym programem CRM nie jest obsługiwane.
 
 >[!NOTE]
 >Ten łącznik programu Marketo jest oparty na interfejsie API REST usługi Marketo. Należy pamiętać, że w ramach usługi Marketo występuje [Limit współbieżnych żądań](https://developers.marketo.com/rest-api/) po stronie usług. W przypadku wystąpienia błędów "błąd" podczas próby użycia interfejsu API REST: maksymalny limit szybkości równy "100" został przekroczony w "20" s (606) "lub" błąd podczas próby użycia interfejsu API REST: osiągnięto limit czasu dostępu współbieżnego "10" (615) ", rozważ zmniejszenie współbieżnych przebiegów działania kopiowania w celu zmniejszenia liczby żądań do usługi.
@@ -50,9 +50,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Następujące właściwości są obsługiwane w przypadku usługi połączonej z usługą Marketo:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi być ustawiona na wartość: **Marketo** | Tak |
+| typ | Właściwość Type musi być ustawiona na wartość: **Marketo** | Tak |
 | endpoint | Punkt końcowy serwera programu Marketo. (tj. 123-ABC-321.mktorest.com)  | Tak |
 | clientId | Identyfikator klienta usługi Marketo.  | Tak |
 | clientSecret | Klucz tajny klienta usługi Marketo. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
@@ -85,12 +85,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z usługi Marketo, ustaw właściwość Type zestawu danych na **MarketoObject**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **MarketoObject** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **MarketoObject** | Tak |
 | tableName | Nazwa tabeli. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -115,9 +115,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z usługi Marketo, ustaw typ źródła w działaniu Copy na **MarketoSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **MarketoSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **MarketoSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM Activitiy_Types"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

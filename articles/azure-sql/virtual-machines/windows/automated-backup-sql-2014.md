@@ -4,7 +4,6 @@ description: Wyjaśnia funkcję automatycznej kopii zapasowej dla maszyn wirtual
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
 ms.service: virtual-machines-sql
@@ -14,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d75671b6bd95c66ca21e7938463d150aeab30cf8
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 2089fcd6e774fd735aa4709b072caafe092b46a9
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219697"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669447"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Zautomatyzowana kopia zapasowa maszyn wirtualnych SQL Server 2014 (Menedżer zasobów)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +37,7 @@ Aby korzystać z zautomatyzowanej kopii zapasowej, należy wziąć pod uwagę na
 **System operacyjny**:
 
 - Windows Server 2012
-- Windows Server 2012 R2
+- Windows Server 2012 z dodatkiem R2
 - Windows Server 2016
 
 **Wersja SQL Server/Edition**:

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 06/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 495d16efcc26fc336a87c0f2d88f5202ab0b4a3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac9dff4b16d8ba1b346a2827f3b5487dbf97392e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416614"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669838"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Kopiowanie danych z programu Sybase przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -37,8 +37,10 @@ Dane z bazy danych programu Sybase można kopiować do dowolnego obsługiwanego 
 
 W tym przypadku ten łącznik programu Sybase obsługuje:
 
-- SAP Sybase SQL w dowolnym miejscu (ASA) **w wersji 16 lub nowszej**; IQ i ASE nie są obsługiwane.
+- Oprogramowanie SAP Sybase SQL Anywhere (ASA) **w wersji 16 lub nowszej**.
 - Kopiowanie danych przy użyciu uwierzytelniania **podstawowego** lub **systemu Windows** .
+
+W programie Sybase IQ i ASE nie są obsługiwane. Zamiast tego można użyć generycznego łącznika ODBC z sterownikiem programu Sybase.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -57,9 +59,9 @@ Poniższe sekcje zawierają szczegółowe informacje dotyczące właściwości, 
 
 Dla połączonej usługi Sybase są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **Sybase** | Tak |
+| typ | Właściwość Type musi mieć wartość: **Sybase** | Tak |
 | serwer | Nazwa serwera programu Sybase. |Tak |
 | database | Nazwa bazy danych programu Sybase. |Tak |
 | authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia z bazą danych programu Sybase.<br/>Dozwolone wartości to: **Basic**i **Windows**. |Tak |
@@ -98,12 +100,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z programu Sybase, obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **Sybase** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **Sybase** | Tak |
 | tableName | Nazwa tabeli w bazie danych programu Sybase. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -130,9 +132,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z programu Sybase, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SybaseSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SybaseSource** | Tak |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: ec705a247dceeb06c1fc0a802a8a61d582fa43dc
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: d99cb634278e141bc156357feb686198f713b198
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656785"
+ms.locfileid: "84673670"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Tworzenie prywatnego linku do Azure Database for MySQL przy użyciu interfejsu wiersza polecenia i zarządzanie nim
 
@@ -85,19 +85,13 @@ az mysql server create \
 ## <a name="create-the-private-endpoint"></a>Tworzenie prywatnego punktu końcowego 
 Utwórz prywatny punkt końcowy dla serwera MySQL w Virtual Network: 
 
-Pobieranie identyfikatora zasobu serwera
 ```azurecli-interactive
-$resourceid = $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/servers" --query "id")
-```
-
-```azurecli-interactive
-#Use the resourceid defined above
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id $resourceid \    
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforMySQL/servers" --query "id") \    
     --group-id mysqlServer \  
     --connection-name myConnection  
  ```

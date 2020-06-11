@@ -9,13 +9,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-manager: dcscontentpm
-ms.openlocfilehash: 7addee4cae2e8b1488e37776f31954412e6c0db4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 15b27990842da8837e6cd8fc8d29f361961ee044
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045263"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669549"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Importowanie lub eksportowanie bazy danych za pomocą usługi importu/eksportu wystąpienia zarządzanego Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

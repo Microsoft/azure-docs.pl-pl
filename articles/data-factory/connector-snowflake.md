@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: fd067a0a0e99291dd4cea924a15c1157bc3b9f9f
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 74e2c452d229373d271225dcbb28359b6af1524d
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84425502"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84670501"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Kopiuj dane z i do płatne za pomocą Azure Data Factory
 
@@ -144,7 +144,7 @@ Aby skopiować dane z płatnych śniegów, w sekcji **Źródło** działania kop
 | Właściwość                     | Opis                                                  | Wymagane |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | typ                         | Właściwość Type źródła działania Copy musi być ustawiona na wartość **SnowflakeSource**. | Tak      |
-| query          | Określa zapytanie SQL służące do odczytywania danych z płatki śniegu. | Nie       |
+| query          | Określa zapytanie SQL służące do odczytywania danych z płatki śniegu.<br>Wykonywanie procedury składowanej nie jest obsługiwane. | Nie       |
 | exportSettings | Ustawienia zaawansowane używane do pobierania danych z płatki śniegu. Można skonfigurować obsługiwane przez kopiowanie do polecenia, które zostanie przekazane przez ADF, gdy wywoła instrukcję. | Nie       |
 | ***W obszarze `exportSettings` :*** |  |  |
 | typ | Typ polecenia eksportu, ustawiony na **SnowflakeExportCopyCommand**. | Tak |

@@ -3,12 +3,12 @@ title: Key Vault klucz tajny z szablonem
 description: Pokazuje, jak przekazać klucz tajny z magazynu kluczy jako parametr podczas wdrażania.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: d21a7d727091b427fee59e22db6a77a495a4eab7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458270"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677869"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Użyj Azure Key Vault, aby przekazać bezpieczną wartość parametru podczas wdrażania
 
@@ -18,7 +18,7 @@ Ten artykuł koncentruje się na scenariuszu przekazywania wartości poufnej jak
 
 ## <a name="deploy-key-vaults-and-secrets"></a>Wdrażanie magazynów kluczy i wpisów tajnych
 
-Aby uzyskać dostęp do magazynu kluczy podczas wdrażania szablonu, `enabledForTemplateDeployment` Ustaw dla magazynu kluczy `true`.
+Aby uzyskać dostęp do magazynu kluczy podczas wdrażania szablonu, ustaw `enabledForTemplateDeployment` dla magazynu kluczy `true` .
 
 Jeśli masz już Key Vault, upewnij się, że zezwala na wdrożenia szablonów.
 
@@ -28,7 +28,7 @@ Jeśli masz już Key Vault, upewnij się, że zezwala na wdrożenia szablonów.
 az keyvault update  --name ExampleVault --enabled-for-template-deployment true
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName ExampleVault -EnabledForTemplateDeployment
@@ -50,7 +50,7 @@ az keyvault create \
 az keyvault secret set --vault-name ExampleVault --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name ExampleGroup -Location centralus
@@ -76,7 +76,7 @@ az keyvault set-policy \
   --secret-permissions set delete get list
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $userPrincipalName = "<Email Address of the deployment operator>"
@@ -95,7 +95,7 @@ Aby uzyskać więcej informacji na temat tworzenia magazynów kluczy i dodawania
 - [Ustawianie i pobieranie wpisu tajnego przy użyciu programu PowerShell](../../key-vault/secrets/quick-create-powershell.md)
 - [Ustawianie i pobieranie wpisu tajnego przy użyciu portalu](../../key-vault/secrets/quick-create-portal.md)
 - [Ustawianie i pobieranie wpisu tajnego przy użyciu platformy .NET](../../key-vault/secrets/quick-create-net.md)
-- [Ustawianie i pobieranie wpisu tajnego przy użyciu środowiska Node. js](../../key-vault/secrets/quick-create-node.md)
+- [Ustawianie i pobieranie wpisu tajnego przy użyciu Node.js](../../key-vault/secrets/quick-create-node.md)
 
 ## <a name="grant-access-to-the-secrets"></a>Przyznaj dostęp do wpisów tajnych
 
@@ -135,7 +135,7 @@ Poniższa procedura pokazuje, jak utworzyć rolę z minimalnym uprawnieniem i ja
       --resource-group ExampleGroup
     ```
 
-    # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+    # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
     ```azurepowershell-interactive
     New-AzRoleDefinition -InputFile "<path-to-role-file>"
@@ -163,7 +163,7 @@ Poniższy szablon wdraża program SQL Server zawierający hasło administratora.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminLogin": {
@@ -201,7 +201,7 @@ W poniższym pliku parametrów wpis tajny magazynu kluczy musi już istnieć i p
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "adminLogin": {
@@ -241,7 +241,7 @@ az deployment group create \
   --parameters <parameter-file>
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name $resourceGroupName -Location $location
@@ -267,7 +267,7 @@ Następujący szablon dynamicznie tworzy identyfikator magazynu kluczy i przekaz
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "location": {
@@ -314,7 +314,7 @@ Następujący szablon dynamicznie tworzy identyfikator magazynu kluczy i przekaz
           "scope": "inner"
         },
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "adminLogin": {

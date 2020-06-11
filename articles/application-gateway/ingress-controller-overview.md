@@ -5,14 +5,14 @@ services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/4/2019
+ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: d6a63b6276c07b1fe6487b97f5c7fc255b6d3411
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335801"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668104"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>Co to jest Application Gateway kontroler transferu danych przychodzących?
 Application Gateway AGIC (transfer danych przychodzących) to aplikacja Kubernetes, która umożliwia klientom korzystającym z [usługi Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) korzystanie z natywnego [Application Gateway](https://azure.microsoft.com/services/application-gateway/) P7 modułu równoważenia obciążenia platformy Azure w celu udostępnienia oprogramowania chmury do Internetu. AGIC monitoruje klaster Kubernetes, na którym jest on hostowany, i ciągle aktualizuje Application Gateway, dzięki czemu wybrane usługi są dostępne w Internecie.
@@ -20,7 +20,7 @@ Application Gateway AGIC (transfer danych przychodzących) to aplikacja Kubernet
 Kontroler transferu danych przychodzących działa we własnym zakresie na AKS klienta. AGIC monitoruje podzestaw zasobów Kubernetes dla zmian. Stan klastra AKS jest tłumaczony na Application Gateway konkretną konfigurację i stosowany do [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="benefits-of-application-gateway-ingress-controller"></a>Zalety kontrolera Application Gateway transferu danych przychodzących
-AGIC umożliwia wdrożenie w celu kontrolowania wielu klastrów AKS z pojedynczym Application Gateway kontrolerem danych przychodzących. AGIC pomaga również wyeliminować konieczność posiadania innego modułu równoważenia obciążenia/publicznego adresu IP przed klastrem AKS i unika wielu przeskoków w ścieżce danych, zanim żądania docierają do klastra AKS. Application Gateway rozmowy do zasobników przy użyciu prywatnego adresu IP bezpośrednio i nie wymagają usług NodePort i KubeProxy. Zapewnia to również lepszą wydajność wdrożeń.
+AGIC pomaga wyeliminować konieczność posiadania innego modułu równoważenia obciążenia/publicznego adresu IP przed klastrem AKS i unika wielu przeskoków w ścieżce danych, zanim żądania docierają do klastra AKS. Application Gateway rozmowy do zasobników przy użyciu prywatnego adresu IP bezpośrednio i nie wymagają usług NodePort i KubeProxy. Zapewnia to również lepszą wydajność wdrożeń.
 
 Kontroler transferu danych przychodzących jest obsługiwany wyłącznie przez Standard_v2 i WAF_v2 jednostki SKU, które również zapewniają korzyści skalowania automatycznego. Application Gateway mogą reagować na zwiększenie lub zmniejszenie obciążenia ruchu i odpowiednio skalować, bez zużywania żadnych zasobów z klastra AKS.
 
@@ -36,10 +36,45 @@ AGIC konfiguruje się za pośrednictwem [zasobu](https://kubernetes.io/docs/user
   - Obsługa publicznych, prywatnych i hybrydowych witryn sieci Web
   - Zintegrowana Zapora aplikacji sieci Web
 
-AGIC jest w stanie obsłużyć wiele przestrzeni nazw i ma ProhibitedTargets, co oznacza, że AGIC można skonfigurować Application Gateway przeznaczonych dla klastrów AKS bez wpływu na inne istniejące punkty końcowe. 
+## <a name="difference-between-helm-deployment-and-aks-add-on"></a>Różnica między wdrożeniem Helm i dodatkiem AKS
+Istnieją dwa sposoby wdrażania AGIC dla klastra AKS. Pierwszy sposób polega na Helm; Druga z nich to AKS jako dodatek. Główną zaletą wdrażania AGIC jako dodatku AKS jest znacznie prostsze niż wdrażanie przez Helm. Aby uzyskać nową konfigurację, można wdrożyć nowe Application Gateway i nowy klaster AKS z włączoną funkcją AGIC jako dodatek w jednym wierszu w interfejsie wiersza polecenia platformy Azure. Dodatek to również w pełni zarządzana usługa, która zapewnia dodatkowe korzyści, takie jak aktualizacje automatyczne i zwiększona pomoc techniczna. AGIC wdrożone za pomocą Helm nie są obsługiwane przez AKS, jednak AGIC wdrożony jako dodatek AKS jest obsługiwany przez AKS. 
+
+Dodatek AGIC jest nadal wdrażany jako na przykład w klastrze AKS klienta, jednak istnieje kilka różnic między wersją wdrożenia Helm i wersją dodatku AGIC. Poniżej znajduje się lista różnic między dwiema wersjami: 
+  - Helm wdrożenia nie mogą być modyfikowane w dodatku AKS:
+    - `verbosityLevel`zostanie domyślnie ustawiona na 5
+    - `usePrivateIp`będzie domyślnie ustawiona na wartość false; może to zostać zastąpione przez [adnotację use-Private-IP](ingress-controller-annotations.md#use-private-ip)
+    - `shared`nie jest obsługiwane w dodatku 
+    - `reconcilePeriodSeconds`nie jest obsługiwane w dodatku
+    - `armAuth.type`nie jest obsługiwane w dodatku
+  - AGIC wdrożone za pośrednictwem Helm obsługuje ProhibitedTargets, co oznacza, że AGIC może skonfigurować Application Gateway przeznaczony dla klastrów AKS bez wpływu na inne istniejące założenia. Dodatek AGIC nie jest obecnie obsługiwany. 
+  - Ponieważ dodatek AGIC jest usługą zarządzaną, klienci zostaną automatycznie zaktualizowani do najnowszej wersji dodatku AGIC, w przeciwieństwie do AGIC wdrożonego za pomocą Helm, gdzie klient musi ręcznie zaktualizować AGIC. 
+
+> [!NOTE]
+> Metoda dodatku AGIC AKS dla wdrożenia jest obecnie dostępna w wersji zapoznawczej. Nie zalecamy uruchamiania obciążeń produkcyjnych na funkcjach dostępnych w wersji zapoznawczej, więc jeśli chcesz wiedzieć chcesz ją wypróbować, zalecamy skonfigurowanie nowego klastra w celu przetestowania go w programie. 
+
+W poniższych tabelach przedstawiono, które scenariusze są obecnie obsługiwane w przypadku Helm wdrożenia i wersji AKS dodatku AGIC. 
+
+### <a name="aks-add-on-agic-single-aks-cluster"></a>AKS — dodatek AGIC (pojedynczy klaster AKS)
+|                  |1 Application Gateway |dwie bramy aplikacji |
+|------------------|---------|--------|
+|**1 AGIC**|Tak, jest to obsługiwane |Nie, to jest w naszym zaległości |
+|**2 + AGICs**|Nie, tylko 1 AGIC obsługiwane/klaster |Nie, tylko 1 AGIC obsługiwane/klaster |
+
+### <a name="helm-deployed-agic-single-aks-cluster"></a>Helm wdrożone AGIC (pojedynczy klaster AKS)
+|                  |1 Application Gateway |dwie bramy aplikacji |
+|------------------|---------|--------|
+|**1 AGIC**|Tak, jest to obsługiwane |Nie, to jest w naszym zaległości |
+|**2 + AGICs**|Musi używać współużytkowanych funkcji ProhibitedTarget i oglądać oddzielne przestrzenie nazw |Tak, jest to obsługiwane |
+
+### <a name="helm-deployed-agic-2-aks-clusters"></a>Helm wdrożone AGIC (2 + AKS klastrów)
+|                  |1 Application Gateway |dwie bramy aplikacji |
+|------------------|---------|--------|
+|**1 AGIC**|Nie dotyczy |Nie dotyczy |
+|**2 + AGICs**|Musi używać funkcji Shared ProhibitedTarget |Nie dotyczy |
 
 ## <a name="next-steps"></a>Następne kroki
-
-- [**Wdrożenie Greenfield**](ingress-controller-install-new.md): instrukcje dotyczące instalowania AGIC, AKS i Application Gateway w przypadku niepustej infrastruktury.
-- [**Wdrożenie brownfield**](ingress-controller-install-existing.md): Zainstaluj AGIC na istniejących AKS i Application Gateway.
+- [**Wdrożenie dodatku AKS Greenfield**](tutorial-ingress-controller-add-on-new.md): instrukcje dotyczące instalowania dodatku AGIC, AKS i Application Gateway w infrastrukturze z pustą.
+- [**Wdrożenie dodatku AKS brownfield**](tutorial-ingress-controller-add-on-existing.md): Zainstaluj dodatek AGIC w klastrze AKS z istniejącym Application Gateway.
+- [**Helm Greenfield Deployment**](ingress-controller-install-new.md): Instaluj AGIC za poorednictwem Helm, nowego klastra AKS i nowego Application Gateway w infrastrukturze z pustą.
+- [**Helm brownfield Deployment**](ingress-controller-install-existing.md): Wdróż AGIC za poorednictwem Helm na istniejącym klastrze AKS i Application Gateway.
 

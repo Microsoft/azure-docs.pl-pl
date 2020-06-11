@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: 694f10b53d02d44d189cbe7cbe492f48ac3b5669
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 06/10/2020
+ms.openlocfilehash: 6a7c04bec8a794a234f2f0c6fad75dc94c12d291
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299795"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668359"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Rozwiązywanie problemów z wydajnością działania kopiowania
 
@@ -57,7 +57,7 @@ Szczegóły wykonania i czasy trwania w dolnej części widoku monitorowanie dzi
 | --------------- | ------------------------------------------------------------ |
 | Kolejka           | Czas, który upłynął do momentu rzeczywistego uruchomienia działania kopiowania w środowisku Integration Runtime. |
 | Skrypt poprzedzający kopiowanie | Upłynęło czasu między działaniem kopiowania, rozpoczynającym się od działania funkcji IR i kopiowania, kończący wykonywanie skryptu przed kopiowaniem w magazynie danych ujścia. Zastosuj podczas konfigurowania skryptu przed kopiowaniem dla obiektów ujścia bazy danych, na przykład podczas zapisywania danych do Azure SQL Database Wyczyść przed skopiowaniem nowych danych. |
-| Transfer        | Czas, który upłynął między końcem poprzedniego kroku a środowiskiem IR transferu wszystkie dane ze źródła do ujścia. Podetapy w obszarze "Transfer" są uruchamiane równolegle.<br><br>- **Czas do pierwszego bajtu:** Czas, który upłynął między końcem poprzedniego kroku a czasem, gdy środowisko IR odbierze pierwszy bajt z magazynu danych źródłowych. Dotyczy źródeł nieopartych na plikach.<br>- **Źródło listy:** Ilość czasu poświęcanego na Wyliczenie plików źródłowych lub partycji danych. Ten ostatni ma zastosowanie w przypadku konfigurowania opcji partycji dla źródeł baz danych, na przykład podczas kopiowania danych z baz danych, takich jak Oracle/SAP HANA/Teradata/Netezza/itd.<br/>-**Odczytywanie ze źródła:** Czas spędzony na pobieraniu danych ze źródłowego magazynu danych.<br/>- **Zapisywanie do ujścia:** Ilość czasu poświęcanego na zapisanie danych do magazynu danych ujścia. |
+| Transfer        | Czas, który upłynął między końcem poprzedniego kroku a środowiskiem IR transferu wszystkie dane ze źródła do ujścia. <br/>Należy zwrócić uwagę na podetapy w obszarze transfer równoległy, a niektóre operacje nie są teraz wyświetlane, np. analizowanie/generowanie formatu pliku.<br><br/>- **Czas do pierwszego bajtu:** Czas, który upłynął między końcem poprzedniego kroku a czasem, gdy środowisko IR odbierze pierwszy bajt z magazynu danych źródłowych. Dotyczy źródeł nieopartych na plikach.<br>- **Źródło listy:** Ilość czasu poświęcanego na Wyliczenie plików źródłowych lub partycji danych. Ten ostatni ma zastosowanie w przypadku konfigurowania opcji partycji dla źródeł baz danych, na przykład podczas kopiowania danych z baz danych, takich jak Oracle/SAP HANA/Teradata/Netezza/itd.<br/>-**Odczytywanie ze źródła:** Czas spędzony na pobieraniu danych ze źródłowego magazynu danych.<br/>- **Zapisywanie do ujścia:** Ilość czasu poświęcanego na zapisanie danych do magazynu danych ujścia. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Rozwiązywanie problemów z działaniem kopiowania na Azure IR
 
@@ -70,7 +70,6 @@ Gdy wydajność działania kopiowania nie spełnia oczekiwań, aby rozwiązywać
 - **"Czas przesyłania do pierwszego bajtu" był długi czas pracy**: oznacza to, że zapytanie źródłowe zajmuje dużo czasu na zwrócenie jakichkolwiek danych. Sprawdź i zoptymalizuj zapytanie lub serwer. Jeśli potrzebujesz dalszej pomocy, skontaktuj się z zespołem ds. magazynu danych.
 
 - **"Źródło listy transferu" ma długi czas pracy**: oznacza to, że wyliczane pliki źródłowe lub źródłowe partycje danych bazy danych są wolne.
-
   - W przypadku kopiowania danych z źródła plików, jeśli używasz **filtru symboli wieloznacznych** dla ścieżki folderu lub nazwy pliku ( `wildcardFolderPath` lub `wildcardFileName` ) lub Użyj **filtru czasu ostatniej modyfikacji pliku** ( `modifiedDatetimeStart` lub `modifiedDatetimeEnd` ), zwróć uwagę na to, że ten filtr spowoduje wyświetlenie wszystkich plików w określonym folderze po stronie klienta, a następnie Zastosuj filtr. Takie Wyliczenie plików może stać się wąskim gardłem, szczególnie w przypadku spełnienia przez regułę filtru tylko małego zestawu plików.
 
     - Sprawdź, czy można [kopiować pliki na podstawie ścieżki lub nazwy pliku podzielonego na partycje DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Taki sposób nie powoduje obciążenia po stronie źródłowej.

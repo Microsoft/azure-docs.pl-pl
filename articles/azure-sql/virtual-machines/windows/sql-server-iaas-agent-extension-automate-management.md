@@ -4,7 +4,6 @@ description: W tym artykule opisano sposób zarządzania rozszerzeniem SQL Serve
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: jroth
 editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -17,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3b06252291f687e5304c36fb581c34c0b5eb50b7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 89210cda6390fd7c3cf4ca2877b8899559a41321
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342463"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668716"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatyzowanie zadań zarządzania na maszynach wirtualnych platformy Azure przy użyciu rozszerzenia SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +29,7 @@ ms.locfileid: "84342463"
 
 > [!div class="op_single_selector"]
 > * [Resource Manager](sql-server-iaas-agent-extension-automate-management.md)
-> * [Wdrożenie klasyczne](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
+> * [Klasyczny](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
 Rozszerzenie agenta IaaS w programie SQL Server (SqlIaasExtension) działa na maszynach wirtualnych platformy Azure w celu zautomatyzowania zadań administracyjnych. Ten artykuł zawiera omówienie usług obsługiwanych przez rozszerzenie. Ten artykuł zawiera również instrukcje dotyczące instalacji, stanu i usuwania rozszerzenia.
 
@@ -58,9 +57,9 @@ Poniżej przedstawiono wymagania dotyczące używania SQL Server rozszerzenia ag
 
 **System operacyjny**:
 
-* Windows Server 2008 R2
+* Windows Server 2008 z dodatkiem R2
 * Windows Server 2012
-* Windows Server 2012 R2
+* Windows Server 2012 z dodatkiem R2
 * Windows Server 2016
 * Windows Server 2019 
 

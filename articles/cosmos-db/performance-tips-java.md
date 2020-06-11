@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 998155c2505277170518a62af4ae2481e217a1df
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 092cee943161048bf252fb5e27a1c1169a70bed0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650109"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674469"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB synchronizacji Java SDK V2
 
@@ -20,7 +20,8 @@ ms.locfileid: "83650109"
 > * [Zestaw Java SDK v4](performance-tips-java-sdk-v4-sql.md)
 > * [Async Java SDK 2](performance-tips-async-java.md)
 > * [Sync Java SDK 2](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [Zestaw .NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [Zestaw .NET SDK V2](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -150,7 +151,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
     Złożoność zapytania wpływa na liczbę jednostek żądań używanych dla operacji. Liczba predykatów, charakter predykatów, liczba UDF i rozmiar zestawu danych źródłowych wpływają na koszt operacji zapytania.
 
-    Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-obciążeni](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (lub równoważną właściwość RequestCharge w [ResourceResponse \< t>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) lub [FeedResponse \< t>](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) , aby zmierzyć liczbę jednostek żądania używanych przez te operacje.
+    Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-obciążeni](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (lub równoważną właściwość RequestCharge w [ResourceResponse \<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.resourceresponse) lub [FeedResponse \<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse) , aby zmierzyć liczbę jednostek żądania używanych przez te operacje.
 
 
     ### <a name="sync-java-sdk-v2-maven-commicrosoftazureazure-documentdb"></a><a id="syncjava2-requestcharge"></a>Synchronize Java SDK V2 (Maven com. Microsoft. Azure:: Azure-DocumentDB)

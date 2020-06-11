@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 338fecfe914c1a3667c828355bd4071c317aaebf
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: bce234b0d2fee38f0644ae0bd961cdcd815b0bd2
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561605"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667900"
 ---
 # <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Azure Cosmos DB powiązania danych wejściowych dla Azure Functions 2. x
 
@@ -382,9 +382,9 @@ namespace CosmosDBSamplesV2
 
 ### <a name="queue-trigger-look-up-id-from-string"></a>Wyzwalacz kolejki, wyszukiwanie identyfikatora z ciągu
 
-W poniższym przykładzie pokazano powiązanie danych wejściowych Cosmos DB w pliku *Function. JSON* oraz [Funkcja skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja odczytuje pojedynczy dokument i aktualizuje wartość tekstową dokumentu.
+W poniższym przykładzie pokazano Cosmos DB powiązania wejściowego w *function.js* pliku i [funkcji skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja odczytuje pojedynczy dokument i aktualizuje wartość tekstową dokumentu.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -416,11 +416,11 @@ Oto kod skryptu w języku C#:
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Wyzwalacz kolejki, pobieranie wielu dokumentów przy użyciu zapytania sqlQuery
 
-W poniższym przykładzie pokazano powiązanie danych wejściowych Azure Cosmos DB w pliku *Function. JSON* oraz [Funkcja skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja pobiera wiele dokumentów określonych przez zapytanie SQL, przy użyciu wyzwalacza kolejki, aby dostosować parametry zapytania.
+W poniższym przykładzie pokazano Azure Cosmos DB powiązania wejściowego w *function.js* pliku i [funkcji skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja pobiera wiele dokumentów określonych przez zapytanie SQL, przy użyciu wyzwalacza kolejki, aby dostosować parametry zapytania.
 
 Wyzwalacz kolejki zawiera parametr `departmentId` . Komunikat w kolejce `{ "departmentId" : "Finance" }` zwróci wszystkie rekordy działu finansowego.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -459,7 +459,7 @@ Oto kod skryptu w języku C#:
 
 Poniższy przykład pokazuje [funkcję skryptu języka C#](functions-reference-csharp.md) , która pobiera pojedynczy dokument. Funkcja jest wyzwalana przez żądanie HTTP, które używa ciągu zapytania, aby określić identyfikator i wartość klucza partycji do wyszukania. Ten identyfikator i wartość klucza partycji są używane do pobierania `ToDoItem` dokumentu z określonej bazy danych i kolekcji.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -522,7 +522,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 Poniższy przykład pokazuje [funkcję skryptu języka C#](functions-reference-csharp.md) , która pobiera pojedynczy dokument. Funkcja jest wyzwalana przez żądanie HTTP, które używa danych trasy do określenia identyfikatora i wartości klucza partycji do wyszukania. Ten identyfikator i wartość klucza partycji są używane do pobierania `ToDoItem` dokumentu z określonej bazy danych i kolekcji.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -586,7 +586,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 Poniższy przykład pokazuje [funkcję skryptu języka C#](functions-reference-csharp.md) , która pobiera listę dokumentów. Funkcja jest wyzwalana przez żądanie HTTP. Zapytanie jest określone we `SqlQuery` właściwości atrybutu.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -644,7 +644,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 
 Poniższy przykład pokazuje [funkcję skryptu języka C#](functions-reference-csharp.md) , która pobiera listę dokumentów. Funkcja jest wyzwalana przez żądanie HTTP. Kod używa `DocumentClient` wystąpienia dostarczonego przez powiązanie Azure Cosmos DB, aby odczytać listę dokumentów. `DocumentClient`Wystąpienie może być również używane na potrzeby operacji zapisu.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -730,9 +730,9 @@ Ta sekcja zawiera następujące przykłady odczytywania pojedynczego dokumentu p
 
 ### <a name="queue-trigger-look-up-id-from-json"></a>Wyzwalacz kolejki, wyszukiwanie identyfikatora z poziomu JSON
 
-Poniższy przykład przedstawia Cosmos DB dane wejściowe w pliku *Function. JSON* oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja odczytuje pojedynczy dokument i aktualizuje wartość tekstową dokumentu.
+W poniższym przykładzie pokazano Cosmos DB powiązania wejściowego w *function.js* pliku i [funkcji języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja odczytuje pojedynczy dokument i aktualizuje wartość tekstową dokumentu.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -776,7 +776,7 @@ Oto kod JavaScript:
 
 Poniższy przykład pokazuje [funkcję języka JavaScript](functions-reference-node.md) , która pobiera pojedynczy dokument. Funkcja jest wyzwalana przez żądanie HTTP, które używa ciągu zapytania, aby określić identyfikator i wartość klucza partycji do wyszukania. Ten identyfikator i wartość klucza partycji są używane do pobierania `ToDoItem` dokumentu z określonej bazy danych i kolekcji.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -835,7 +835,7 @@ module.exports = function (context, req, toDoItem) {
 
 Poniższy przykład pokazuje [funkcję języka JavaScript](functions-reference-node.md) , która pobiera pojedynczy dokument. Funkcja jest wyzwalana przez żądanie HTTP, które używa danych trasy do określenia identyfikatora i wartości klucza partycji do wyszukania. Ten identyfikator i wartość klucza partycji są używane do pobierania `ToDoItem` dokumentu z określonej bazy danych i kolekcji.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -893,11 +893,11 @@ module.exports = function (context, req, toDoItem) {
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Wyzwalacz kolejki, pobieranie wielu dokumentów przy użyciu zapytania sqlQuery
 
-W poniższym przykładzie pokazano powiązanie danych wejściowych Azure Cosmos DB w pliku *Function. JSON* oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja pobiera wiele dokumentów określonych przez zapytanie SQL, przy użyciu wyzwalacza kolejki, aby dostosować parametry zapytania.
+W poniższym przykładzie pokazano Azure Cosmos DB powiązania wejściowego w *function.js* pliku i [funkcji języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja pobiera wiele dokumentów określonych przez zapytanie SQL, przy użyciu wyzwalacza kolejki, aby dostosować parametry zapytania.
 
 Wyzwalacz kolejki zawiera parametr `departmentId` . Komunikat w kolejce `{ "departmentId" : "Finance" }` zwróci wszystkie rekordy działu finansowego.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -939,9 +939,9 @@ Ta sekcja zawiera następujące przykłady odczytywania pojedynczego dokumentu p
 
 ### <a name="queue-trigger-look-up-id-from-json"></a>Wyzwalacz kolejki, wyszukiwanie identyfikatora z poziomu JSON
 
-Poniższy przykład przedstawia Cosmos DB dane wejściowe w pliku *Function. JSON* oraz [funkcja języka Python](functions-reference-python.md) , która używa powiązania. Funkcja odczytuje pojedynczy dokument i aktualizuje wartość tekstową dokumentu.
+W poniższym przykładzie pokazano Cosmos DB powiązania wejściowego w *function.js* pliku i [funkcji języka Python](functions-reference-python.md) , która używa powiązania. Funkcja odczytuje pojedynczy dokument i aktualizuje wartość tekstową dokumentu.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -987,7 +987,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 Poniższy przykład pokazuje funkcję języka [Python](functions-reference-python.md) , która pobiera pojedynczy dokument. Funkcja jest wyzwalana przez żądanie HTTP, które używa ciągu zapytania, aby określić identyfikator i wartość klucza partycji do wyszukania. Ten identyfikator i wartość klucza partycji są używane do pobierania `ToDoItem` dokumentu z określonej bazy danych i kolekcji.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -1018,7 +1018,6 @@ Oto plik *Function. JSON* :
       "PartitionKey": "{Query.partitionKeyValue}"
     }
   ],
-  "disabled": true,
   "scriptFile": "__init__.py"
 }
 ```
@@ -1046,7 +1045,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 Poniższy przykład pokazuje funkcję języka [Python](functions-reference-python.md) , która pobiera pojedynczy dokument. Funkcja jest wyzwalana przez żądanie HTTP, które używa danych trasy do określenia identyfikatora i wartości klucza partycji do wyszukania. Ten identyfikator i wartość klucza partycji są używane do pobierania `ToDoItem` dokumentu z określonej bazy danych i kolekcji.
 
-Oto plik *Function. JSON* :
+Oto *function.js* pliku:
 
 ```json
 {
@@ -1103,11 +1102,11 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 ### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Wyzwalacz kolejki, pobieranie wielu dokumentów przy użyciu zapytania sqlQuery
 
-W poniższym przykładzie pokazano powiązanie danych wejściowych Azure Cosmos DB w pliku *Function. JSON* oraz funkcja języka [Python](functions-reference-python.md) , która używa powiązania. Funkcja pobiera wiele dokumentów określonych przez zapytanie SQL, przy użyciu wyzwalacza kolejki, aby dostosować parametry zapytania.
+W poniższym przykładzie pokazano Azure Cosmos DB powiązania wejściowego w *function.js* pliku i [funkcji języka Python](functions-reference-python.md) , która używa powiązania. Funkcja pobiera wiele dokumentów określonych przez zapytanie SQL, przy użyciu wyzwalacza kolejki, aby dostosować parametry zapytania.
 
 Wyzwalacz kolejki zawiera parametr `departmentId` . Komunikat w kolejce `{ "departmentId" : "Finance" }` zwróci wszystkie rekordy działu finansowego.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -1427,9 +1426,9 @@ W [bibliotece środowiska uruchomieniowego usługi Java Functions](https://docs.
 
 ## <a name="configuration"></a>Konfigurowanie
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `CosmosDB` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `CosmosDB` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź**     | nie dotyczy | Musi być ustawiony na `cosmosDB` .        |
 |**wskazywa**     | nie dotyczy | Musi być ustawiony na `in` .         |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f187cc47d9c64c8257cc097734fa41e10629f1c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0b0acd84112e9fd997cb0d60a914da9528cffd9a
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597450"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673041"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definiowanie atrybutów niestandardowych dla przepływów użytkowników (wersja zapoznawcza)
 |     |
@@ -25,13 +25,13 @@ ms.locfileid: "83597450"
 
 Dla każdej aplikacji mogą istnieć różne wymagania dotyczące informacji, które mają być zbierane podczas tworzenia konta. Usługa Azure AD zawiera wbudowany zestaw informacji przechowywanych w atrybutach, takich jak imię, nazwisko, miejscowość i kod pocztowy. Za pomocą usługi Azure AD można rozciągnąć zestaw atrybutów przechowywanych na koncie gościa, gdy użytkownik zewnętrzny zarejestruje się za pomocą przepływu użytkownika.
 
-Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_<Application-client-id>_attributename` . Na przykład:
+Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_<aad-extensions-app-id>_attributename` . Na przykład:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
-Możesz znaleźć `<Application-client-id>` na stronie **rejestracje aplikacji** obok **identyfikatora aplikacji (klienta)**. Ten identyfikator jest specyficzny dla Twojej dzierżawy.
+`<aad-extensions-app-id>`Jest on specyficzny dla Twojej dzierżawy. Aby znaleźć ten identyfikator, przejdź do Azure Active Directory > Rejestracje aplikacji > wszystkie aplikacje. Wyszukaj aplikację rozpoczynającą się od "AAD-Extensions-App" i wybierz ją. Na stronie Przegląd aplikacji Zanotuj identyfikator aplikacji (klienta).
 
 ## <a name="create-a-custom-attribute"></a>Tworzenie atrybutu niestandardowego
 
@@ -55,7 +55,7 @@ Możesz znaleźć `<Application-client-id>` na stronie **rejestracje aplikacji**
 
 Atrybut niestandardowy jest teraz dostępny na liście atrybutów użytkownika i do użycia w przepływach użytkownika. Atrybut niestandardowy jest tworzony tylko za pierwszym razem, gdy jest używany w dowolnym przepływie użytkownika, a nie po dodaniu go do listy atrybutów użytkownika.
 
-Po utworzeniu nowego użytkownika przy użyciu przepływu użytkownika, który używa nowo utworzonego atrybutu niestandardowego, można zbadać obiekt w [eksploratorze Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Na liście atrybutów zebranych podczas rejestracji można teraz zobaczyć **ShoeSize** i zobaczyć je w tokenie wysyłanym z powrotem do aplikacji. Aby dowiedzieć się, jak uwzględnić te oświadczenia w tokenie wysyłanym z powrotem do aplikacji, zobacz [Konfigurowanie opcjonalnych oświadczeń rozszerzenia katalogu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims#configuring-directory-extension-optional-claims)
+Po utworzeniu nowego użytkownika przy użyciu przepływu użytkownika, który używa nowo utworzonego atrybutu niestandardowego, można zbadać obiekt w [eksploratorze Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Na liście atrybutów zebranych w trakcie rejestracji na obiekcie użytkownika powinna być teraz widoczna **ShoeSize** . Możesz wywołać interfejs API programu Graph z aplikacji, aby pobrać dane z tego atrybutu po dodaniu go do obiektu użytkownika.
 
 ## <a name="next-steps"></a>Następne kroki
 

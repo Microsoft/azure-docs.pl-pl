@@ -1,18 +1,18 @@
 ---
 title: Mv2 — seria Virtual Machines platformy Azure
 description: Specyfikacje dotyczące maszyn wirtualnych z serii Mv2.
-services: virtual-machines
 author: ayshakeen
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 04/07/2020
-ms.author: lahugh
-ms.openlocfilehash: 7df8dd439008258ea1b4986054660fb0fb9070ce
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.author: jushiman
+ms.openlocfilehash: 4576a8bdcb6077a9d5de20c52f99325fdcacc0f4
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204189"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673702"
 ---
 # <a name="mv2-series"></a>Seria Mv2
 

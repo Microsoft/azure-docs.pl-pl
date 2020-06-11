@@ -4,15 +4,15 @@ description: Omówienie powiadomień dotyczących konserwacji dla maszyn wirtual
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 68159577cb31145be5063bb19af6db71ca1727bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e65b2c94b5042f857a6ea5fc61136c572b780764
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77115683"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678515"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Obsługa powiadomień dotyczących planowanej konserwacji
 

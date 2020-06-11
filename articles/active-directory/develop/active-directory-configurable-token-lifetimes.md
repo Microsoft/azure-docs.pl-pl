@@ -13,12 +13,12 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: bf53afc0168417bc223a55cd73f9a97b5bb3ac47
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b74940993033d52f993dc507fba38c35ea2b92bb
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299982"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673262"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurowalne okresy istnienia tokenu w Azure Active Directory (wersja zapoznawcza)
 
@@ -75,7 +75,7 @@ Gdy użytkownik jest uwierzytelniany w usłudze Azure AD, zostaje ustanowiona se
 
 Usługa Azure AD używa dwóch rodzajów tokenów sesji SSO: trwałych i nietrwałych. Tokeny sesji trwałych są przechowywane jako trwałe pliki cookie w przeglądarce. Tokeny sesji nietrwałych są przechowywane jako pliki cookie sesji. (Pliki cookie sesji są niszczone po zamknięciu przeglądarki). Zwykle jest przechowywany token nietrwałych sesji. Jednak gdy użytkownik wybierze pole wyboru nie wylogowuj **mnie** podczas uwierzytelniania, jest przechowywany token sesji trwałej.
 
-Tokeny sesji nietrwałych mają okres istnienia 24 godzin. Stałe tokeny mają okres istnienia wynoszący 180 dni. W czasie, gdy token sesji logowania jednokrotnego jest używany w okresie ważności, okres ważności jest rozszerzany o kolejne 24 godziny lub 180 dni, w zależności od typu tokenu. Jeśli token sesji SSO nie jest używany w jego okresie ważności, jest uznawany za wygasły i nie jest już akceptowany.
+Tokeny sesji nietrwałych mają okres istnienia 24 godzin. Stałe tokeny mają okres istnienia wynoszący 90 dni. W czasie, gdy token sesji logowania jednokrotnego jest używany w okresie ważności, okres ważności jest rozszerzany o kolejne 24 godziny lub 90 dni, w zależności od typu tokenu. Jeśli token sesji SSO nie jest używany w jego okresie ważności, jest uznawany za wygasły i nie jest już akceptowany.
 
 Można użyć zasad, aby ustawić czas po wydaniu pierwszego tokenu sesji, poza którym token sesji nie jest już akceptowany. (W tym celu należy użyć właściwości maksymalny wiek tokenu sesji). Możesz dostosować okres istnienia tokenu sesji, aby określić, kiedy i jak często użytkownik musi ponownie wprowadzić poświadczenia, zamiast być uwierzytelniany w trybie dyskretnym w przypadku korzystania z aplikacji sieci Web.
 

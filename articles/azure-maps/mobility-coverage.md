@@ -1,28 +1,27 @@
 ---
-title: Pokrycie mobilności (tranzytowe) | Mapy Microsoft Azure
-description: Ten artykuł zawiera informacje na temat zakresu mobilności w Microsoft Azure Maps
-author: philmea
-ms.author: philmea
-ms.date: 06/05/2019
+title: Pokrycie mobilności (tranzytowe)
+description: W tym artykule dowiesz się więcej o objęcia tranzytem publicznym w Microsoft Azure Maps usługi mobilności.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: db53e09957b5907e9b742c264b6a41f51041df1c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 2959a930ef2b3683cbd822eaee61a037fa0e9e29
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310244"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673646"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps zasięg mobilności
 
-Azure Maps oferuje [usługę mobilności](https://aka.ms/AzureMapsMobilityService). Usługa mobilności skraca czas projektowania aplikacji z tranzytem publicznym, udziałem roweru i funkcjami udostępniania Scooter. Funkcje do tranzytu publicznego obejmują wyszukiwanie w pobliżu stacji, wyszukiwanie zatrzymań, wyszukiwanie linii tranzytowych, pobieranie informacji o harmonogramie, pobieranie publicznych dostaw tranzytowych w czasie rzeczywistym, listy zatrzymanych i wyświetlanie przewodników tras. Usługa zwraca informacje o dostępności w czasie rzeczywistym i statyczne do udostępnionych pojazdów, takich jak samochody, rowery i Scooters. Ponadto usługa mobilności udostępnia funkcje routingu z opcjami planowania podróży Multimodal. Multimodale w trakcie podróży polegają na planowaniu i wyłączaniu i przesyłaniu w jednej podróży. Użytkownicy mają dostęp do szczegółowych i multimodalych trasy krok po kroku i alerty usług.
+[Usługa mobilności](https://aka.ms/AzureMapsMobilityService) Azure Maps usprawnia czas projektowania aplikacji z funkcjami tranzytu publicznego, takimi jak routing tranzytowy i wyszukiwanie w pobliżu tranzytu publicznego. Użytkownicy mogą pobierać szczegółowe informacje o zatrzymaniu, wierszach i harmonogramach tranzytu. Usługa mobilności umożliwia również użytkownikom pobieranie zatrzymań i geometrie wierszy, alertów dotyczących punktów przerwania, wierszy i usług oraz przychodzących tranzytów publicznych i alertów usług w czasie rzeczywistym. Ponadto usługa mobilności udostępnia funkcje routingu z opcjami planowania podróży Multimodal. Multimodale w trakcie podróży, w jednej podróży, umożliwia planowanie przechodzenia między firmami i opcjami tranzytu publicznego. Użytkownicy mogą również uzyskać dostęp do szczegółowych multimodalów krok po kroku. 
 
-Azure Maps nie ma tego samego poziomu informacji i dokładności dla wszystkich miast i krajów/regionów. Możliwość wywołania danych tranzytowych zależy od miasta. Dane mogą nie zawierać wszystkich opcji tranzytu publicznego i agencji, które obsługują miasto.
+Azure Maps nie zapewnia tego samego poziomu informacji i dokładności dla wszystkich miast i krajów/regionów. Możliwość wywoływania danych tranzytu publicznego zależy od obszaru Metro. Ponadto dane mapy mogą nie zawierać wszystkich opcji tranzytu publicznego i agencji, które obsługują obszar Metro.
 
 Poniższa tabela zawiera informacje o zapotrzebowaniu dotyczące usługi mobilności Azure Maps.
-
 
 | Symbol | Znaczenie |
 |--------|---------|

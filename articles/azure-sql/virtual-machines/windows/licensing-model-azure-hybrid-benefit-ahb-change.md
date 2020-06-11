@@ -4,7 +4,6 @@ description: Dowiedz się, jak przełączać licencję na SQL Server maszynę wi
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 07f5896ab43cd02abc9c83667763c1989355b8bc
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: f02f31e0fc8943682af77ca6f506d15f36e88146
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219413"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668903"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Zmiana modelu licencji dla maszyny wirtualnej SQL na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

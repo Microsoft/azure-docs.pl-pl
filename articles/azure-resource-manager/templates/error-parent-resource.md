@@ -3,12 +3,12 @@ title: Błędy zasobów nadrzędnych
 description: Opisuje sposób rozwiązywania błędów podczas pracy z zasobem nadrzędnym w szablonie Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 474cb85d16382136e24e5502b87ba8a1a65488ef
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76154044"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673664"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Rozwiązywanie błędów dotyczących zasobów nadrzędnych
 
@@ -25,7 +25,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Przyczyna
 
-Jeśli jeden zasób jest elementem podrzędnym innego zasobu, musi istnieć zasób nadrzędny przed utworzeniem zasobu podrzędnego. Nazwa zasobu podrzędnego definiuje połączenie z zasobem nadrzędnym. Nazwa zasobu podrzędnego jest w formacie `<parent-resource-name>/<child-resource-name>`. Na przykład SQL Database może być zdefiniowana jako:
+Jeśli jeden zasób jest elementem podrzędnym innego zasobu, musi istnieć zasób nadrzędny przed utworzeniem zasobu podrzędnego. Nazwa zasobu podrzędnego definiuje połączenie z zasobem nadrzędnym. Nazwa zasobu podrzędnego jest w formacie `<parent-resource-name>/<child-resource-name>` . Na przykład SQL Database może być zdefiniowana jako:
 
 ```json
 {
@@ -52,7 +52,7 @@ Aby rozwiązać ten problem, gdy zasób nadrzędny został wcześniej wdrożony 
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "sqlServerName": {

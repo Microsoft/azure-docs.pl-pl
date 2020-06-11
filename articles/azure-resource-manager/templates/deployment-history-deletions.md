@@ -2,13 +2,13 @@
 title: Usunięcia historii wdrażania
 description: Opisuje, w jaki sposób Azure Resource Manager automatycznie usuwać wdrożenia z historii wdrażania. Wdrożenia są usuwane, gdy historia zbliża się do przekroczenia limitu 800.
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: 2d87cc1dcc0d3a41cb32bf7750ccdd832019f8bf
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.date: 06/10/2020
+ms.openlocfilehash: c16b71646e20b71c0d0ca8c9f8e028773983022f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462740"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84673993"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Automatyczne usuwanie z historii wdrożenia
 
@@ -18,10 +18,12 @@ Począwszy od czerwca 2020, Azure Resource Manager automatycznie usuwa wdrożeni
 
 > [!NOTE]
 > Usunięcie wdrożenia z historii nie ma wpływu na żadne wdrożone zasoby.
+>
+> Jeśli masz [blokadę CanNotDelete](../management/lock-resources.md) w grupie zasobów, nie można usunąć wdrożeń dla tej grupy zasobów. Należy usunąć blokadę, aby skorzystać z automatycznych usunięć w historii wdrażania.
 
 ## <a name="when-deployments-are-deleted"></a>Po usunięciu wdrożeń
 
-Wdrożenia są usuwane z historii wdrożenia tylko wtedy, gdy zbliża się limit 800. Azure Resource Manager usuwa mały zestaw najstarszych wdrożeń w celu wyczyszczenia miejsca na potrzeby przyszłych wdrożeń. Większość historii pozostaje niezmieniona. Najstarsze wdrożenia są zawsze usuwane jako pierwsze.
+Wdrożenia są usuwane z historii wdrożenia po osiągnięciu wdrożenia 790. Azure Resource Manager usuwa mały zestaw najstarszych wdrożeń w celu wyczyszczenia miejsca na potrzeby przyszłych wdrożeń. Większość historii pozostaje niezmieniona. Najstarsze wdrożenia są zawsze usuwane jako pierwsze.
 
 :::image type="content" border="false" source="./media/deployment-history-deletions/deployment-history.svg" alt-text="Usunięcia z historii wdrożenia":::
 

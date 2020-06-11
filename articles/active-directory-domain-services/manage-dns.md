@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: iainfou
-ms.openlocfilehash: f4bd3f75c3246cb11e88dbaae817eba8ac76b394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c0ae6a96a303c1c9d2887e6ed4dfb0d1fed4453
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603542"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672582"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-ad-domain-services-managed-domain"></a>Administrowanie systemem DNS i tworzenie usług przesyłania dalej warunkowego w Azure AD Domain Services domenie zarządzanej
 
@@ -27,7 +27,7 @@ W środowisku hybrydowym strefy i rekordy DNS skonfigurowane w innych przestrzen
 
 W tym artykule opisano sposób instalowania narzędzi serwera DNS, a następnie używania konsoli DNS do zarządzania rekordami i tworzenia usług przesyłania dalej warunkowego w usłudze Azure AD DS.
 
-## <a name="before-you-begin"></a>Przed rozpoczęciem
+## <a name="before-you-begin"></a>Zanim rozpoczniesz
 
 Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 
@@ -58,7 +58,7 @@ Aby tworzyć i modyfikować rekordy DNS w usłudze Azure AD DS, należy zainstal
 
     ![Wybierz, aby zainstalować narzędzia serwera DNS z listy dostępnych narzędzi do administrowania rolami](./media/manage-dns/install-dns-tools.png)
 
-1. Na stronie **potwierdzenie** wybierz pozycję **Zainstaluj**. Zainstalowanie zasady grupy narzędzi do zarządzania może potrwać minutę lub dwa.
+1. Na stronie **potwierdzenie** wybierz pozycję **Zainstaluj**. Zainstalowanie narzędzi do zarządzania zasadami dnsGroup może potrwać minutę lub dwa.
 1. Po zakończeniu instalacji funkcji wybierz pozycję **Zamknij** , aby zakończyć działanie kreatora **dodawania ról i funkcji** .
 
 ## <a name="open-the-dns-management-console-to-administer-dns"></a>Otwórz konsolę zarządzania DNS w celu administrowania usługą DNS
@@ -96,7 +96,7 @@ Aby utworzyć usługę przesyłania dalej warunkowego w domenie zarządzanej AD 
 
 1. Zaznacz pole wyboru **przechowuj tę usługę przesyłania dalej warunkowego w Active Directory i Replikuj ją w następujący sposób**, a następnie wybierz opcję dla *wszystkich serwerów DNS w tej domenie*, jak pokazano w następującym przykładzie:
 
-    ![Konsola DNS-Administruj domeną](./media/manage-dns/store-in-domain.png)
+    ![Konsola DNS — wybierz wszystkie serwery DNS w tej domenie](./media/manage-dns/store-in-domain.png)
 
     > [!IMPORTANT]
     > Jeśli usługa przesyłania dalej warunkowego jest przechowywana w *lesie* , a nie w *domenie*, warunkowego przesyłania dalej kończy się niepowodzeniem.

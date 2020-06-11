@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b6294abe986115d86826fee8aad09f468b3d651
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 2344b339575c7338049bfa74c2fc72911e39a362
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628010"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672174"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nowe środowisko Rejestracje aplikacji dla Azure Active Directory B2C
 
@@ -58,7 +58,7 @@ W nowym środowisku wybierz typ konta pomocy technicznej z następujących opcji
 
 Aby poznać różne typy kont, wybierz pozycję **Pomóż mi wybrać** w temacie środowisko tworzenia. 
 
-W starszym środowisku aplikacje były zawsze tworzone jako aplikacje dla klientów. Dla tych aplikacji typ konta jest ustawiony na **konta w dowolnym katalogu organizacyjnym lub u dowolnego dostawcy tożsamości. Do uwierzytelniania użytkowników za pomocą Azure AD B2C.**. 
+W starszym środowisku aplikacje były zawsze tworzone jako aplikacje dla klientów. Dla tych aplikacji typ konta jest ustawiony na **konta w dowolnym katalogu organizacyjnym lub u dowolnego dostawcy tożsamości. Do uwierzytelniania użytkowników za pomocą Azure AD B2C**.
 > [!NOTE]
 > Ta opcja jest wymagana, aby można było uruchamiać Azure AD B2C przepływów użytkowników w celu uwierzytelniania użytkowników dla tej aplikacji. Dowiedz się [, jak zarejestrować aplikację do użycia z przepływami użytkowników.](tutorial-register-applications.md)
 
@@ -72,29 +72,29 @@ Niektóre uprawnienia Microsoft Graph mogą nie być widoczne, ponieważ wiele z
 ## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Zgoda administratora i zakresy offline_access + OpenID Connect  
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
 
-Zakres **OpenID Connect** jest niezbędny, aby Azure AD B2C mógł logować użytkowników do aplikacji. Do wystawiania tokenów odświeżania dla użytkownika jest wymagany zakres **offline_access** . Te zakresy zostały wcześniej dodane i domyślnie podano zgodę administratora. Teraz można łatwo dodawać uprawnienia do tych zakresów t podczas procesu tworzenia, upewniając się, że jest zaznaczona opcja **Udziel zgody na uprawnienia administratora OpenID Connect i offline_access** . W przeciwnym razie uprawnienia Microsoft Graph mogą być dodawane z zgodą administratora w ustawieniach **uprawnień interfejsu API** dla istniejącej aplikacji.
+Zakres **OpenID Connect** jest niezbędny, aby Azure AD B2C mógł logować użytkowników do aplikacji. Do wystawiania tokenów odświeżania dla użytkownika jest wymagany zakres **offline_access** . Te zakresy zostały wcześniej dodane i domyślnie podano zgodę administratora. Teraz można łatwo dodawać uprawnienia do tych zakresów podczas procesu tworzenia, upewniając się, że jest zaznaczona opcja **Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access** . W przeciwnym razie uprawnienia Microsoft Graph mogą być dodawane z zgodą administratora w ustawieniach **uprawnień interfejsu API** dla istniejącej aplikacji.
 
 Dowiedz się więcej o [uprawnieniach i zgodzie](../active-directory/develop/v2-permissions-and-consent.md).
 
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Platformy/uwierzytelnianie: adresy URL odpowiedzi/identyfikatory URI przekierowania
 W starszych wersjach, różne typy platform były zarządzane w obszarze **Właściwości** jako adresy URL odpowiedzi dla aplikacji sieci Web/interfejsów API i URI przekierowania dla klientów natywnych. "Natywni klienci" są również nazywane "klientami publicznymi" i obejmują aplikacje dla systemów iOS, macOS, Android i innych typów aplikacji mobilnych i klasycznych. 
 
-W nowym środowisku adresy URL odpowiedzi i identyfikatory URI przekierowania są określane jako identyfikatory URI przekierowania i można je znaleźć w sekcji **uwierzytelniania** aplikacji. Rejestracje aplikacji nie są ograniczone do aplikacji sieci Web ani interfejsu API ani aplikacji natywnych. Możesz użyć tej samej rejestracji aplikacji dla wszystkich typów platform przez zarejestrowanie odpowiednich identyfikatorów URI przekierowania. 
+W nowym środowisku adresy URL odpowiedzi i identyfikatory URI przekierowania są określane jako identyfikatory URI przekierowania i można je znaleźć w sekcji **uwierzytelniania** aplikacji. Rejestracje aplikacji nie są ograniczone do aplikacji sieci Web ani natywnej aplikacji. Możesz użyć tej samej rejestracji aplikacji dla wszystkich typów platform przez zarejestrowanie odpowiednich identyfikatorów URI przekierowania. 
 
 Identyfikatory URI przekierowania są wymagane do skojarzenia z typem aplikacji: Web lub Public (Mobile and Desktop). [Dowiedz się więcej na temat identyfikatorów URI przekierowania](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
-Czy aplikacja powinna być traktowana jako klient publiczny jest wnioskowany w czasie wykonywania z poziomu platformy URI przekierowania, jeśli jest to możliwe. Dla przepływów, które mogą nie używać identyfikatora URI przekierowania, takich jak przepływy ROPC, należy ustawić wartość *tak dla opcji* **Traktuj aplikację jako publiczny klient** .
+<!-- Whether an application should be treated as a public client is inferred at run-time from the Redirect URI platform type, if possible. The **Treat application as a public client** setting should be set to **Yes** for flows that might not use a redirect URI, such as ROPC flows. -->
 
 Platformy **iOS/macOS** i **Android** to typ klienta publicznego. Umożliwiają one łatwą konfigurację aplikacji iOS/macOS lub Android przy użyciu odpowiednich identyfikatorów URI przekierowania do użycia z MSAL. Dowiedz się więcej o [opcjach konfiguracji aplikacji](../active-directory/develop/msal-client-applications.md).
 
 
 ## <a name="application-certificates--secrets"></a>Certyfikaty aplikacji & wpisy tajne
 
-W nowym środowisku zamiast **kluczy**należy użyć bloku **Certyfikaty & wpisy tajne** do zarządzania certyfikatami i wpisami tajnymi. Poświadczenia pozwalają aplikacjom identyfikować się do usługi uwierzytelniania w przypadku otrzymywania tokenów w lokalizacji adresowej sieci Web (przy użyciu schematu HTTPS). Podczas uwierzytelniania w usłudze Azure AD zalecamy używanie certyfikatu zamiast klucza tajnego klienta. Nie można używać certyfikatów do uwierzytelniania w odniesieniu do Azure AD B2C.
+W nowym środowisku zamiast **kluczy**należy użyć bloku **Certyfikaty & wpisy tajne** do zarządzania certyfikatami i wpisami tajnymi. Certyfikaty & wpisy tajne pozwalają aplikacjom identyfikować się do usługi uwierzytelniania w przypadku otrzymywania tokenów w lokalizacji adresowej sieci Web (przy użyciu schematu HTTPS). Podczas uwierzytelniania w usłudze Azure AD zalecamy używanie certyfikatu zamiast klucza tajnego klienta. Nie można używać certyfikatów do uwierzytelniania w odniesieniu do Azure AD B2C.
 
 
-## <a name="features-not-available-in-azure-ad-b2c-tenants"></a>Funkcje niedostępne w dzierżawach Azure AD B2C
-Następujące możliwości rejestracji aplikacji usługi Azure AD nie mają zastosowania do Azure AD B2C dzierżawców:
+## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Funkcje niemające zastosowania w dzierżawach Azure AD B2C
+Następujące możliwości rejestracji aplikacji usługi Azure AD nie mają zastosowania do dzierżaw Azure AD B2C ani do nich dostępnych:
 - **Role i Administratorzy** — wymaga Azure AD — wersja Premium licencji P1 lub P2, która nie jest obecnie dostępna dla Azure AD B2C.
 - **Znakowanie** — Dostosowywanie interfejsu użytkownika/środowiska użytkownika jest konfigurowane w środowisku **znakowania firmowego** lub w ramach przepływu pracy. Dowiedz się, jak [dostosować interfejs użytkownika w Azure Active Directory B2C](customize-ui-overview.md).
 - **Weryfikacja domeny wydawcy** — Twoja aplikacja jest zarejestrowana w usłudze *. onmicrosoft.com*, która nie jest zweryfikowaną domeną. Ponadto domena wydawcy jest używana głównie do udzielania zgody użytkownika, która nie ma zastosowania do Azure AD B2C aplikacji do uwierzytelniania użytkowników. [Dowiedz się więcej o domenie wydawcy](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
@@ -112,9 +112,9 @@ Nowe środowisko ma następujące ograniczenia:
 ## <a name="next-steps"></a>Następne kroki
 
 Aby rozpocząć pracę z nowym interfejsem rejestracji aplikacji:
-* Dowiedz się [, jak zarejestrować aplikację sieci Web](tutorial-register-applications.md)
-* Dowiedz się [, jak zarejestrować internetowy interfejs API](add-web-api-application.md)
-* Dowiedz się [, jak zarejestrować natywną aplikację kliencką](add-native-application.md)
+* Dowiedz się [, jak zarejestrować aplikację sieci Web](tutorial-register-applications.md).
+* Dowiedz się [, jak zarejestrować internetowy interfejs API](add-web-api-application.md).
+* Dowiedz się, [jak zarejestrować natywną aplikację kliencką](add-native-application.md).
 * Dowiedz się, [jak zarejestrować aplikację Microsoft Graph, aby zarządzać zasobami Azure AD B2C](microsoft-graph-get-started.md).
 * Dowiedz się [, jak używać Azure AD B2C jako dostawcy usługi SAML.](identity-provider-adfs2016-custom.md)
-* Informacje o [typach aplikacji](application-types.md)
+* Dowiedz się więcej o [typach aplikacji](application-types.md).

@@ -9,16 +9,15 @@ ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
-manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 4aa8d35e48c28cadecb6acc1f56ca6c44a145719
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b7cf4ab817f222f3a36a047e1e4d379f5bd6b73e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266971"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84668410"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Rozwiązywanie problemów z błędami połączeń przejściowych w SQL Database i wystąpieniu zarządzanym SQL
 
@@ -150,7 +149,7 @@ Na przykład, jeśli liczba jest równa 3, a interwał jest równy 10 sekund, pr
 Parametry **ConnectRetryCount** i **ConnectRetryInterval** pozwalają obiektowi **SQLConnect** ponowić operację łączenia bez podania lub bothering programu, takiego jak zwracanie kontroli do programu. Ponawianie prób może wystąpić w następujących sytuacjach:
 
 - wywołanie metody mySqlConnection. Open
-- wywołanie metody mySqlConnection. Execute
+- mySqlConnection.Exewywołanie metody urocze
 
 Istnieje element subtlety. Jeśli wystąpi błąd przejściowy podczas wykonywania *zapytania* , obiekt **SqlConnection** nie spróbuje wykonać operacji Connect. Nie powoduje to ponowienia próby wykonania zapytania. Jednak element **SqlConnection** bardzo szybko sprawdza połączenie przed wysłaniem zapytania do wykonania. Jeśli szybkie sprawdzenie wykryje problem z połączeniem, program **SQLConnect** próbuje wykonać operację łączenia. Jeśli ponowna próba powiodła się, zapytanie jest wysyłane do wykonania.
 
@@ -227,7 +226,7 @@ Jeśli program nie może nawiązać połączenia z bazą danych w SQL Database, 
 
 Na dowolnym komputerze z systemem Windows można wypróbować następujące narzędzia:
 
-- SQL Server Management Studio (SSMS. exe), który nawiązuje połączenie za pomocą ADO.NET
+- SQL Server Management Studio (ssms.exe), które nawiązuje połączenie za pomocą ADO.NET
 - `sqlcmd.exe`, które nawiązuje połączenie za pomocą [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
 Po nawiązaniu połączenia z programem Sprawdź, czy jest działa krótkie zapytanie SELECT języka SQL.
@@ -243,7 +242,7 @@ W systemie Linux pomocne mogą być następujące narzędzia:
 - `netstat -nap`
 - `nmap -sS -O 127.0.0.1`: Zmień przykładową wartość na adres IP.
 
-W systemie Windows narzędzie [Portqry. exe](https://www.microsoft.com/download/details.aspx?id=17148) może być przydatne. Oto przykładowe wykonanie, które zbadał sytuację portu w bazie danych w SQL Database i uruchomiono na komputerze przenośnym:
+W systemie Windows narzędzie [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) może być przydatne. Oto przykładowe wykonanie, które zbadał sytuację portu w bazie danych w SQL Database i uruchomiono na komputerze przenośnym:
 
 ```cmd
 [C:\Users\johndoe\]

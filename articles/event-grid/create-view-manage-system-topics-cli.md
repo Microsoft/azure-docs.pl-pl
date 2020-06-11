@@ -7,15 +7,29 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: spelluru
-ms.openlocfilehash: c361e7303f73aee1d2e60bd4dd0b9ed0d0e4746f
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 19a22a0a3b528a9a72fdd51c589e42bf2fba5ce7
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457463"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669940"
 ---
 # <a name="create-view-and-manage-event-grid-system-topics-using-azure-cli"></a>Tworzenie i wyświetlanie Event Grid tematów systemowych przy użyciu interfejsu wiersza polecenia platformy Azure oraz zarządzanie nimi
 W tym artykule pokazano, jak tworzyć tematy systemowe i zarządzać nimi za pomocą interfejsu wiersza polecenia platformy Azure. Aby zapoznać się z omówieniem tematów systemowych, zobacz [Tematy systemowe](system-topics.md).
+
+## <a name="install-extension-for-azure-cli"></a>Zainstaluj rozszerzenie interfejsu wiersza polecenia platformy Azure
+W przypadku interfejsu wiersza polecenia platformy Azure wymagane jest [rozszerzenie Event Grid](/cli/azure/azure-cli-extensions-list).
+
+W CloudShell:
+
+- Jeśli wcześniej zainstalowano rozszerzenie, zaktualizuj je:`az extension update -n eventgrid`
+- Jeśli rozszerzenie nie zostało wcześniej zainstalowane, zainstaluj je:`az extension add -n eventgrid`
+
+W przypadku instalacji lokalnej:
+
+1. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Upewnij się, że masz najnowszą wersję, sprawdzając polecenie AZ--Version.
+2. Odinstaluj poprzednie wersje rozszerzenia:`az extension remove -n eventgrid`
+3. Zainstaluj rozszerzenie eventgrid z`az extension add -n eventgrid`
 
 ## <a name="create-a-system-topic"></a>Tworzenie tematu systemu
 

@@ -4,18 +4,17 @@ description: Dowiedz się, jak przeprowadzić migrację w trybie offline z progr
 services: sql-database
 author: joplum
 ms.author: joplum
-manager: prda
 ms.service: sql-database
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: e72b75b39205d245351480d914ed26eeec8939f7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 551276895de0ba659349c20205fa21d3d2c6b43e
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051332"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669577"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Jak przeprowadzić migrację bazy danych programu SQLite do Azure SQL Database bezserwerowego
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

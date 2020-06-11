@@ -5,14 +5,14 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
 ms.author: mimart
-ms.openlocfilehash: 587a4bfed00415499bcca6d6054d4ab25cddf0b8
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: dfe35eecfec5a12395ac3d9973a651e033aeea73
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298933"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672537"
 ---
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/) 
 
 1. W obszarze **Zarządzaj**wybierz pozycję **uprawnienia interfejsu API**.
 1. W obszarze **skonfigurowane uprawnienia**wybierz pozycję **Dodaj uprawnienie**.
@@ -28,7 +28,7 @@ ms.locfileid: "84298933"
 1. Wybierz pozycję **Zaakceptuj**.
 1. Wybierz pozycję **Odśwież**, a następnie sprawdź, czy "udzielono dla..." pojawia się w obszarze **stan**. Propagowanie uprawnień może potrwać kilka minut.
 
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
+#### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
 
 1. Na stronie Przegląd **zarejestrowanej aplikacji** wybierz pozycję **Ustawienia**.
 1. W obszarze **dostęp do interfejsu API**wybierz pozycję **wymagane uprawnienia**.

@@ -1,18 +1,18 @@
 ---
 title: NCv2 — seria Virtual Machines platformy Azure
 description: Specyfikacje dotyczące maszyn wirtualnych z serii NCv2.
-services: virtual-machines
 author: vikancha
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 3643fbabef08d890ce121d41a9bc1eb40c88459d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: 345a76f2c97d73c24526f3493f84af274876308c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273924"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672298"
 ---
 # <a name="ncv2-series"></a>Seria NCv2
 

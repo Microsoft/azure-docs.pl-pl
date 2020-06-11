@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b62f30f428a0aaf5a564e2f2d2ad8d753dff7767
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: fd4ed98383d38be8528bafd6ec7d149381386fac
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298935"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84672538"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Zarządzanie Azure AD B2C przy użyciu Microsoft Graph
 
@@ -46,7 +46,15 @@ Mimo że przesyłanie poświadczeń klienta OAuth 2,0 nie jest obecnie obsługiw
 
 Zanim skrypty i aplikacje będą mogły korzystać z [interfejsu API Microsoft Graph][ms-graph-api] w celu zarządzania zasobami Azure AD B2C, należy utworzyć rejestrację aplikacji w dzierżawie Azure AD B2C, która przyznaje wymagane uprawnienia interfejsu API.
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
+1. W Azure Portal Wyszukaj i wybierz pozycję **Azure AD B2C**.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
+1. Wprowadź **nazwę** aplikacji. Na przykład *managementapp1*.
+1. Wybierz **konta tylko w tym katalogu organizacji**.
+1. W obszarze **uprawnienia**wyczyść pole wyboru *Udziel zgody na uprawnienia administratora do OpenID Connect i offline_access* .
+1. Wybierz pozycję **Zarejestruj**.
+1. Zanotuj **Identyfikator aplikacji (klienta)** , który pojawia się na stronie przeglądu aplikacji. Ta wartość jest używana w późniejszym kroku.
 
 ### <a name="grant-api-access"></a>Udzielanie dostępu do interfejsu API
 
