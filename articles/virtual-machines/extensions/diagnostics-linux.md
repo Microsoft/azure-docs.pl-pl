@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 4c34996cb47b1f09f47454f162674248820ce975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 4033437db5c14abcd0376fbfeca22cca915908d2
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118552"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677189"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Używanie rozszerzenia diagnostycznego systemu Linux do monitorowania metryk i dzienników
 
@@ -451,7 +451,7 @@ Steruje przechwytywaniem plików dziennika. LAD przechwytuje nowe wiersze tekstu
 
 Element | Wartość
 ------- | -----
- — plik | Pełna nazwa ścieżki pliku dziennika do obserwowania i przechwycenia. Nazwa ścieżki musi mieć nazwę pojedynczego pliku; nie może to być nazwa katalogu ani zawierać symboli wieloznacznych.
+ — plik | Pełna nazwa ścieżki pliku dziennika do obserwowania i przechwycenia. Nazwa ścieżki musi mieć nazwę pojedynczego pliku; nie może to być nazwa katalogu ani zawierać symboli wieloznacznych. Konto użytkownika "omsagent" musi mieć dostęp do odczytu do ścieżki pliku.
 tabela | obowiązkowe Tabela usługi Azure Storage w wyznaczonym koncie magazynu (zgodnie z konfiguracją chronioną), do której zapisywane są nowe wiersze z "ogona" pliku.
 ujścia | obowiązkowe Rozdzielana przecinkami lista nazw dodatkowych obiektów ujścia, do których są wysyłane wiersze dziennika.
 
@@ -566,7 +566,7 @@ Zagregowane wartości na wszystkich dyskach można uzyskać przez ustawienie `"c
 
 ## <a name="installing-and-configuring-lad-30-via-cli"></a>Instalowanie i konfigurowanie rozszerzenia LAD 3.0 za pomocą interfejsu wiersza polecenia
 
-Przy założeniu, że chronione ustawienia znajdują się w pliku PrivateConfig. JSON, a informacje o konfiguracji publicznej są w PublicConfig. JSON, uruchom następujące polecenie:
+Przy założeniu, że chronione ustawienia znajdują się w pliku PrivateConfig.jsna, a Twoje informacje o konfiguracji publicznej są PublicConfig.jsna, uruchom następujące polecenie:
 
 ```azurecli
 az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Azure.Diagnostics '3.*' --private-config-path PrivateConfig.json --public-config-path PublicConfig.json
@@ -578,7 +578,7 @@ W poleceniu założono, że używasz trybu zarządzania zasobami platformy Azure
 
 W oparciu o powyższe definicje przedstawiono przykładową konfigurację rozszerzenia LAD 3,0 z objaśnieniem. Aby zastosować ten przykład do przypadku, należy użyć własnej nazwy konta magazynu, tokenu SAS konta i tokenów SAS EventHubs.
 
-### <a name="privateconfigjson"></a>PrivateConfig. JSON
+### <a name="privateconfigjson"></a>PrivateConfig.jsna
 
 Te ustawienia prywatne konfigurują:
 
@@ -628,7 +628,7 @@ Te ustawienia prywatne konfigurują:
 }
 ```
 
-### <a name="publicconfigjson"></a>PublicConfig. JSON
+### <a name="publicconfigjson"></a>PublicConfig.jsna
 
 Te ustawienia publiczne powodują LAD:
 

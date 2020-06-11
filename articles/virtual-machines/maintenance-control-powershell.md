@@ -3,16 +3,16 @@ title: Kontrola konserwacji maszyn wirtualnych platformy Azure przy użyciu prog
 description: Dowiedz się, jak kontrolować, kiedy konserwacja jest stosowana do maszyn wirtualnych platformy Azure przy użyciu funkcji kontroli konserwacji i programu PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 834ff39b0ffd8ee38156e468008c332971b742d0
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: e0bb3586d637c9399db057b7cd3225bf8cd36e2f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996478"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675846"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Kontroluj aktualizacje przy użyciu sterowania konserwacją i Azure PowerShell
 
@@ -26,7 +26,7 @@ Upewnij się `PowerShellGet` , że jest aktualne.
 Install-Module -Name PowerShellGet -Repository PSGallery -Force 
 ``` 
 
-Zainstaluj moduł `Az.Maintenance` programu PowerShell.     
+Zainstaluj `Az.Maintenance` moduł programu PowerShell.     
 
 ```azurepowershell-interactive  
 Install-Module -Name Az.Maintenance
@@ -73,7 +73,7 @@ Użyj [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/modu
 
 ### <a name="isolated-vm"></a>Izolowana maszyna wirtualna
 
-Zastosuj konfigurację do maszyny wirtualnej przy użyciu identyfikatora konfiguracji. Określ `-ResourceType VirtualMachines` i podaj nazwę maszyny wirtualnej dla `-ResourceName`programu oraz grupę zasobów maszyny wirtualnej dla. `-ResourceGroupName` 
+Zastosuj konfigurację do maszyny wirtualnej przy użyciu identyfikatora konfiguracji. Określ `-ResourceType VirtualMachines` i podaj nazwę maszyny wirtualnej dla programu `-ResourceName` oraz grupę zasobów maszyny wirtualnej dla `-ResourceGroupName` . 
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -88,7 +88,7 @@ New-AzConfigurationAssignment `
 
 ### <a name="dedicated-host"></a>Dedykowany host
 
-Aby zastosować konfigurację do dedykowanego hosta, należy również dołączyć `-ResourceType hosts` `-ResourceParentName` z nazwą grupy hostów i. `-ResourceParentType hostGroups` 
+Aby zastosować konfigurację do dedykowanego hosta, należy również dołączyć `-ResourceType hosts` `-ResourceParentName` z nazwą grupy hostów i `-ResourceParentType hostGroups` . 
 
 
 ```azurepowershell-interactive
@@ -106,7 +106,7 @@ New-AzConfigurationAssignment `
 
 ## <a name="check-for-pending-updates"></a>Wyszukaj oczekujące aktualizacje
 
-Użyj [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) , aby sprawdzić, czy istnieją oczekujące aktualizacje. Użyj `-subscription` , aby określić subskrypcję platformy Azure dla maszyny wirtualnej, jeśli jest inna niż ta, która jest zarejestrowana.
+Użyj [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) , aby sprawdzić, czy istnieją oczekujące aktualizacje. Użyj, `-subscription` Aby określić subskrypcję platformy Azure dla maszyny wirtualnej, jeśli jest inna niż ta, która jest zarejestrowana.
 
 Jeśli nie ma żadnych aktualizacji do wyświetlenia, to polecenie zwróci wartość Nothing. W przeciwnym razie zwróci obiekt PSApplyUpdate:
 
@@ -166,7 +166,7 @@ New-AzApplyUpdate `
    -ProviderName Microsoft.Compute
 ```
 
-Po powodzeniu to polecenie zwróci `PSApplyUpdate` obiekt. Aby sprawdzić stan aktualizacji, można użyć atrybutu `Get-AzApplyUpdate` Name w poleceniu. Zobacz [Sprawdzanie stanu aktualizacji](#check-update-status).
+Po powodzeniu to polecenie zwróci `PSApplyUpdate` obiekt. Aby sprawdzić stan aktualizacji, można użyć atrybutu Name w `Get-AzApplyUpdate` poleceniu. Zobacz [Sprawdzanie stanu aktualizacji](#check-update-status).
 
 ### <a name="dedicated-host"></a>Dedykowany host
 

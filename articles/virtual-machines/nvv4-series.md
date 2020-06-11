@@ -1,18 +1,19 @@
 ---
-title: NVv4 — seria Virtual Machines platformy Azure
+title: Seria NVv4
 description: Specyfikacje dotyczące maszyn wirtualnych z serii NVv4.
 services: virtual-machines
+ms.subservice: sizes
 author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 0295ed7d44d64fcc1aeb68e1beaa37987b177edb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: 856ad9cede58b7a8dd0856cac9568832702d4b23
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273858"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678061"
 ---
 # <a name="nvv4-series"></a>Seria NVv4 
 

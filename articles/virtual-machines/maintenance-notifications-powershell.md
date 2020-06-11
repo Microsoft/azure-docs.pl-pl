@@ -4,21 +4,21 @@ description: Wyświetl powiadomienia dotyczące konserwacji maszyn wirtualnych d
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: b23c210d7c8a9f1d42e6e1b46e0f7f81bda857b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79ef649502af8962253121ea18804966b1fa043e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77916086"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677937"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Obsługa planowanej konserwacji przy użyciu programu PowerShell
 
 **Ten artykuł ma zastosowanie do maszyn wirtualnych z systemami Linux i Windows.**
 
-Możesz użyć Azure PowerShell, aby sprawdzić, kiedy maszyny wirtualne są zaplanowane do [konserwacji](maintenance-notifications.md). Informacje o planowanej konserwacji są dostępne w poleceniu cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) podczas `-status` korzystania z parametru.
+Możesz użyć Azure PowerShell, aby sprawdzić, kiedy maszyny wirtualne są zaplanowane do [konserwacji](maintenance-notifications.md). Informacje o planowanej konserwacji są dostępne w poleceniu cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) podczas korzystania z `-status` parametru.
   
 Informacje o konserwacji są zwracane tylko wtedy, gdy jest planowana konserwacja. Jeśli żadna konserwacja nie zostanie zaplanowana na maszynę wirtualną, polecenie cmdlet nie zwróci żadnych informacji o konserwacji. 
 

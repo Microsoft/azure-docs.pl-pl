@@ -3,12 +3,12 @@ title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 15b1610dfcacb37bce2e265b4e16f675e944b9db
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: b04861e0d3c1b96b77e3865652a4300213b49a09
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331512"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676730"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -36,9 +36,9 @@ Zwraca identyfikator zasobu dla [zasobu rozszerzenia](../management/extension-re
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceId |Yes |ciąg |Identyfikator zasobu dla zasobu, do którego zastosowano zasób rozszerzenia. |
-| resourceType |Yes |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
-| resourceName1 |Yes |ciąg |Nazwa zasobu. |
+| resourceId |Tak |ciąg |Identyfikator zasobu dla zasobu, do którego zastosowano zasób rozszerzenia. |
+| resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
+| resourceName1 |Tak |ciąg |Nazwa zasobu. |
 | resourceName2 |Nie |ciąg |Następny segment nazwy zasobu, w razie konieczności. |
 
 Kontynuuj dodawanie nazw zasobów jako parametrów, gdy typ zasobu zawiera więcej segmentów.
@@ -83,7 +83,7 @@ Poniższy przykład zwraca identyfikator zasobu dla blokady grupy zasobów.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "lockName":{
@@ -114,8 +114,8 @@ Składnia tej funkcji różni się od nazwy operacji na liście. Każda implemen
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceName lub resourceIdentifier |Yes |ciąg |Unikatowy identyfikator zasobu. |
-| apiVersion |Yes |ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zwykle w formacie **rrrr-mm-dd**. |
+| resourceName lub resourceIdentifier |Tak |ciąg |Unikatowy identyfikator zasobu. |
+| apiVersion |Tak |ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zwykle w formacie **rrrr-mm-dd**. |
 | functionValues |Nie |object | Obiekt, który zawiera wartości dla funkcji. Podaj tylko ten obiekt dla funkcji, które obsługują otrzymywanie obiektów z wartościami parametrów, takimi jak **listAccountSas** na koncie magazynu. Przykład przekazywania wartości funkcji przedstawiono w tym artykule. |
 
 ### <a name="valid-uses"></a>Prawidłowe zastosowania
@@ -132,8 +132,8 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft. AppConfiguration/configurationStores | ListKeys |
 | Microsoft. Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
-| Microsoft. Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
-| Microsoft. Batchai Job/obszary robocze/eksperymenty/zadania | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
+| Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
+| Microsoft.BatchAI/obszary robocze/eksperymenty/zadania | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
 | Microsoft. łańcucha bloków/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft. łańcucha bloków/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
 | Microsoft. cache/Redis | [listKeys](/rest/api/redis/redis/listkeys) |
@@ -163,12 +163,12 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. wspólny/Labs/harmonogramy | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft. wspólny/Labs/użytkownicy/servicefabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft. wspólny/Labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft. DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
-| Microsoft. DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/databaseaccounts/listconnectionstrings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/databaseaccounts/listkeys) |
 | Microsoft. DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft. DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft. EventGrid/domeny | [listKeys](/rest/api/eventgrid/version2019-06-01/domains/listsharedaccesskeys) |
-| Microsoft. EventGrid/tematy | [listKeys](/rest/api/eventgrid/version2019-06-01/topics/listsharedaccesskeys) |
+| Microsoft. EventGrid/domeny | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
+| Microsoft. EventGrid/tematy | [listKeys](/rest/api/eventgrid/version2020-06-01/topics/listsharedaccesskeys) |
 | Microsoft. EventHub/przestrzenie nazw/reguł autoryzacji | [listkeys](/rest/api/eventhub) |
 | Microsoft. EventHub/przestrzenie nazw/disasterRecoveryConfigs/reguł autoryzacji | [listkeys](/rest/api/eventhub) |
 | Microsoft. EventHub/przestrzenie nazw/eventhubs/reguł autoryzacji | [listkeys](/rest/api/eventhub) |
@@ -290,7 +290,7 @@ Aby uzyskać token SAS, należy przekazać obiekt przez czas wygaśnięcia. Czas
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storagename": {
@@ -363,7 +363,7 @@ Zwraca informacje o dostawcy zasobów i jego obsługiwanych typach zasobów. Je�
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Yes |ciąg |Przestrzeń nazw dostawcy |
+| providerNamespace |Tak |ciąg |Przestrzeń nazw dostawcy |
 | resourceType |Nie |ciąg |Typ zasobu w określonym obszarze nazw. |
 
 ### <a name="return-value"></a>Wartość zwracana
@@ -386,7 +386,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "providerNamespace": {
@@ -438,7 +438,7 @@ Zwraca obiekt reprezentujący stan środowiska uruchomieniowego zasobu.
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceName lub resourceIdentifier |Yes |ciąg |Nazwa lub unikatowy identyfikator zasobu. W przypadku odwoływania się do zasobu w bieżącym szablonie podaj tylko nazwę zasobu jako parametr. W przypadku odwoływania się do wcześniej wdrożonego zasobu lub gdy nazwa zasobu jest niejednoznaczna, podaj identyfikator zasobu. |
+| resourceName lub resourceIdentifier |Tak |ciąg |Nazwa lub unikatowy identyfikator zasobu. W przypadku odwoływania się do zasobu w bieżącym szablonie podaj tylko nazwę zasobu jako parametr. W przypadku odwoływania się do wcześniej wdrożonego zasobu lub gdy nazwa zasobu jest niejednoznaczna, podaj identyfikator zasobu. |
 | apiVersion |Nie |ciąg |Wersja interfejsu API określonego zasobu. **Ten parametr jest wymagany, jeśli zasób nie jest obsługiwany w ramach tego samego szablonu.** Zwykle w formacie **rrrr-mm-dd**. Aby uzyskać prawidłowe wersje interfejsu API dla zasobu, zobacz [Dokumentacja szablonu](/azure/templates/). |
 | Szczegółowe |Nie |ciąg |Wartość określająca, czy ma zostać zwrócony pełny obiekt zasobów. Jeśli nie zostanie określony `'Full'` , zwracany jest tylko obiekt właściwości zasobu. Pełny obiekt zawiera wartości, takie jak identyfikator zasobu i lokalizacja. |
 
@@ -527,7 +527,7 @@ W przypadku konstruowania w pełni kwalifikowanego odwołania do zasobu kolejno�
 
 **{Resource-Provider-Namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-resource-name}]**
 
-Przykład:
+Na przykład:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt``Microsoft.Compute/virtualMachines/extensions/myVM/myExt`jest niepoprawny
 
@@ -559,7 +559,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "storageAccountName": {
@@ -653,7 +653,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "storageResourceGroup": {
@@ -725,7 +725,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -763,8 +763,8 @@ Zwraca unikatowy identyfikator zasobu. Ta funkcja jest używana, gdy nazwa zasob
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nie |ciąg (w formacie identyfikatora GUID) |Wartość domyślna to bieżąca subskrypcja. Określ tę wartość, jeśli chcesz pobrać zasób w innej subskrypcji. Podaj tę wartość tylko podczas wdrażania w zakresie grupy zasobów lub subskrypcji. |
 | resourceGroupName |Nie |ciąg |Wartość domyślna to bieżąca Grupa zasobów. Określ tę wartość, jeśli chcesz pobrać zasób z innej grupy zasobów. Podaj tę wartość tylko w przypadku wdrażania w zakresie grupy zasobów. |
-| resourceType |Yes |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
-| resourceName1 |Yes |ciąg |Nazwa zasobu. |
+| resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
+| resourceName1 |Tak |ciąg |Nazwa zasobu. |
 | resourceName2 |Nie |ciąg |Następny segment nazwy zasobu, w razie konieczności. |
 
 Kontynuuj dodawanie nazw zasobów jako parametrów, gdy typ zasobu zawiera więcej segmentów.
@@ -827,7 +827,7 @@ Często należy używać tej funkcji w przypadku korzystania z konta magazynu lu
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
       "virtualNetworkName": {
@@ -873,7 +873,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -901,10 +901,10 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| sameRGOutput | String (ciąg) | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | String (ciąg) | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | String (ciąg) | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | String (ciąg) | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
 ## <a name="subscription"></a>subskrypcja
 
@@ -935,7 +935,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -958,8 +958,8 @@ Zwraca unikatowy identyfikator zasobu wdrożonego na poziomie subskrypcji.
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nie |ciąg (w formacie identyfikatora GUID) |Wartość domyślna to bieżąca subskrypcja. Określ tę wartość, jeśli chcesz pobrać zasób w innej subskrypcji. |
-| resourceType |Yes |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
-| resourceName1 |Yes |ciąg |Nazwa zasobu. |
+| resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
+| resourceName1 |Tak |ciąg |Nazwa zasobu. |
 | resourceName2 |Nie |ciąg |Następny segment nazwy zasobu, w razie konieczności. |
 
 Kontynuuj dodawanie nazw zasobów jako parametrów, gdy typ zasobu zawiera więcej segmentów.
@@ -982,7 +982,7 @@ Poniższy szablon przypisuje wbudowaną rolę. Można wdrożyć je w grupie zaso
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -1039,8 +1039,8 @@ Zwraca unikatowy identyfikator zasobu wdrożonego na poziomie dzierżawy.
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceType |Yes |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
-| resourceName1 |Yes |ciąg |Nazwa zasobu. |
+| resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
+| resourceName1 |Tak |ciąg |Nazwa zasobu. |
 | resourceName2 |Nie |ciąg |Następny segment nazwy zasobu, w razie konieczności. |
 
 Kontynuuj dodawanie nazw zasobów jako parametrów, gdy typ zasobu zawiera więcej segmentów.

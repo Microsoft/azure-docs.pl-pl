@@ -3,24 +3,24 @@ title: Funkcje szablonu — logiczne
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager, aby określić wartości logiczne.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0072593e7d7830e75e2386bcfdd2907a873c7a87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192318"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677393"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funkcje logiczne dla szablonów ARM
 
 Menedżer zasobów udostępnia kilka funkcji służących do dokonywania porównań w szablonach Azure Resource Manager (ARM).
 
-* [lub](#and)
+* [oraz](#and)
 * [bool](#bool)
-* [if](#if)
+* [przypadku](#if)
 * [niemożliwe](#not)
-* [oraz](#or)
+* [lub](#or)
 
-## <a name="and"></a>i
+## <a name="and"></a>oraz
 
 `and(arg1, arg2, ...)`
 
@@ -44,7 +44,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -69,7 +69,7 @@ Dane wyjściowe z poprzedniego przykładu to:
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | andExampleOutput | Wartość logiczna | Fałsz |
-| orExampleOutput | Wartość logiczna | True |
+| orExampleOutput | Wartość logiczna | Prawda |
 | notExampleOutput | Wartość logiczna | Fałsz |
 
 ## <a name="bool"></a>bool
@@ -93,7 +93,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [],
     "outputs": {
@@ -121,9 +121,9 @@ Dane wyjściowe z poprzedniego przykładu z wartościami domyślnymi są następ
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| trueString | Wartość logiczna | True |
+| trueString | Wartość logiczna | Prawda |
 | falseString | Wartość logiczna | Fałsz |
-| trueInt | Wartość logiczna | True |
+| trueInt | Wartość logiczna | Prawda |
 | falseInt | Wartość logiczna | Fałsz |
 
 ## <a name="if"></a>if
@@ -150,11 +150,11 @@ Gdy warunek ma **wartość true**, Szacowana jest tylko wartość true. Gdy waru
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) pokazuje, `if` jak używać funkcji.
+Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json) pokazuje, jak używać `if` funkcji.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -187,7 +187,7 @@ Poniższy [przykładowy szablon](https://github.com/krnese/AzureDeploy/blob/mast
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -253,7 +253,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -278,14 +278,14 @@ Dane wyjściowe z poprzedniego przykładu to:
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | andExampleOutput | Wartość logiczna | Fałsz |
-| orExampleOutput | Wartość logiczna | True |
+| orExampleOutput | Wartość logiczna | Prawda |
 | notExampleOutput | Wartość logiczna | Fałsz |
 
 Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) używa **nie** z [równą](template-functions-comparison.md#equals).
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -302,7 +302,7 @@ Dane wyjściowe z poprzedniego przykładu to:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| checkNotEquals | Wartość logiczna | True |
+| checkNotEquals | Wartość logiczna | Prawda |
 
 ## <a name="or"></a>lub
 
@@ -328,7 +328,7 @@ Poniższy [przykładowy szablon](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [ ],
     "outputs": {
@@ -353,7 +353,7 @@ Dane wyjściowe z poprzedniego przykładu to:
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
 | andExampleOutput | Wartość logiczna | Fałsz |
-| orExampleOutput | Wartość logiczna | True |
+| orExampleOutput | Wartość logiczna | Prawda |
 | notExampleOutput | Wartość logiczna | Fałsz |
 
 ## <a name="next-steps"></a>Następne kroki

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: how-to
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: bbe4cfe2cce70735e765601e46cb62cd3939c693
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 426c79c19b599127e2235f61e8c917062ede3b79
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433101"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675206"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitoruj uruchomienia eksperymentów i metryki usługi Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -127,6 +127,8 @@ Użyj modułu __skryptu języka Python__ , aby dodać logikę rejestrowania do e
         run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
 
         # Log the mean absolute error to the parent run to see the metric in the run details page.
+        # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
+        # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
         run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
     
         return dataframe1,
@@ -207,9 +209,11 @@ Możesz wyświetlić metryki modelu przeszkolonego za pomocą ```run.get_metrics
 
 Po zakończeniu eksperymentu możesz przejść do rekordu uruchomienia eksperymentu. Możesz uzyskać dostęp do historii z programu [Azure Machine Learning Studio](https://ml.azure.com).
 
-Przejdź do karty eksperymenty i wybierz swój eksperyment. Nastąpi przełączenie do pulpitu nawigacyjnego uruchamiania eksperymentu, w którym można zobaczyć śledzone metryki i wykresy, które są rejestrowane dla każdego przebiegu. W tym przypadku rejestrujemy MSE i wartości alpha.
+Przejdź do karty eksperymenty i wybierz swój eksperyment. Nastąpi przełączenie do pulpitu nawigacyjnego uruchamiania eksperymentu, w którym można zobaczyć śledzone metryki i wykresy, które są rejestrowane dla każdego przebiegu. 
 
-  ![Szczegóły uruchamiania w programie Azure Machine Learning Studio](./media/how-to-track-experiments/experiment-dashboard.png)
+Można edytować tabelę listy uruchamiania, aby wyświetlić ostatnią, minimalną lub maksymalną zarejestrowana wartość dla przebiegów. Możesz wybrać lub usunąć zaznaczenie wielu przebiegów na liście przebiegów, a wybrane uruchomienia zapełnią wykresy danymi. Możesz również dodać nowe wykresy lub edytować wykresy, aby porównać zarejestrowane metryki (minimum, maksimum, ostatnie lub wszystkie wartości) między wieloma przebiegami. Aby skuteczniej eksplorować dane, możesz również zmaksymalizować wykresy.
+
+:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Szczegóły uruchamiania w programie Azure Machine Learning Studio":::
 
 Możesz przejść do określonego przebiegu w celu wyświetlenia jego danych wyjściowych lub dzienników lub pobrać migawkę podanego eksperymentu, aby umożliwić udostępnienie folderu eksperymentu innym osobom.
 

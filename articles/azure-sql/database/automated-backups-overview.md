@@ -6,19 +6,17 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
 ms.custom: sqldbrb=2
-ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
-manager: craigg
 ms.date: 06/04/2020
-ms.openlocfilehash: fc2c8ea232004488664bc7f15b1d1bb3b83f2e7b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 41df5190f2a7435ad91de94cb6f407037e1783a2
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609611"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667832"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 
@@ -76,18 +74,6 @@ Innymi słowy, w dowolnym momencie w okresie przechowywania, musi istnieć pełn
 > [!NOTE]
 > Aby włączyć kopie, dodatkowe kopie zapasowe są przechowywane przez maksymalnie tydzień dłużej niż skonfigurowany okres przechowywania. Magazyn kopii zapasowych jest naliczany według stawki za wszystkie kopie zapasowe. 
 
-W przypadku pojedynczych baz danych to równanie służy do obliczania łącznego użycia magazynu kopii zapasowych:
-
-`Total backup storage size = (size of full backups + size of differential backups + size of log backups) – maximum data storage`
-
-W przypadku baz danych w puli łączny rozmiar magazynu kopii zapasowych jest agregowany na poziomie puli i obliczany w następujący sposób:
-
-`Total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - maximum pool data storage`
-
-W przypadku wystąpień zarządzanych łączny rozmiar magazynu kopii zapasowych jest agregowany na poziomie wystąpienia i obliczany w następujący sposób:
-
-`Total backup storage size = (total size of full backups + total size of differential backups + total size of log backups) – maximum instance data storage`
-
 Kopie zapasowe, które nie są już potrzebne do udostępnienia funkcji kopie, są automatycznie usuwane. Ponieważ różnicowe kopie zapasowe i kopie zapasowe dzienników wymagają wcześniejszej pełnej kopii zapasowej do dostępnych, wszystkie trzy typy kopii zapasowych są czyszczone w zestawach tygodniowych.
 
 Dla wszystkich baz danych, w tym [TDE szyfrowanych](transparent-data-encryption-tde-overview.md) baz danych, kopie zapasowe są kompresowane w celu zmniejszenia kompresji i kosztów magazynu kopii zapasowych. Średni współczynnik kompresji kopii zapasowej to 3-4 razy, ale może być znacznie mniejszy lub większy w zależności od rodzaju danych i tego, czy kompresja danych jest używana w bazie danych.
@@ -144,9 +130,21 @@ W modelu DTU nie ma dodatkowej opłaty za magazyn kopii zapasowych baz danych i 
 
 W przypadku pojedynczych baz danych w SQL Database kwota magazynu kopii zapasowej równa 100% maksymalnego rozmiaru magazynu danych dla bazy danych jest zapewniana bez dodatkowych opłat. W przypadku pul elastycznych i wystąpień zarządzanych ilość miejsca do magazynowania kopii zapasowych równa 100% maksymalnego magazynu danych dla puli lub maksymalnego rozmiaru magazynu wystąpień jest dostępna bez dodatkowych opłat. 
 
-Dodatkowe użycie magazynu kopii zapasowych (jeśli istnieje) będzie obciążane w GB/miesiąc. To dodatkowe zużycie będzie zależeć od obciążenia i rozmiaru poszczególnych baz danych, pul elastycznych i wystąpień zarządzanych. Wielokrotnie modyfikowane bazy danych mają większe różnice i kopie zapasowe dzienników, ponieważ rozmiar tych kopii zapasowych jest proporcjonalny do ilości zmian danych. W związku z tym te bazy danych będą miały większe opłaty za tworzenie kopii zapasowych.
+W przypadku pojedynczych baz danych to równanie służy do obliczania łącznego użycia magazynu kopii zapasowej do rozliczenia:
 
-SQL Database i wystąpienie zarządzane SQL oblicza łączny magazyn kopii zapasowych jako wartość zbiorczą dla wszystkich plików kopii zapasowej. Co godzinę ta wartość jest raportowana w potoku rozliczania na platformie Azure, która agreguje to użycie godzinowe w celu uzyskania zużycia magazynu kopii zapasowych na koniec każdego miesiąca. Jeśli baza danych zostanie usunięta, użycie magazynu kopii zapasowych stopniowo zmniejszy się w miarę jak starsze kopie zapasowe zostaną usunięte. Ponieważ różnicowe kopie zapasowe i kopie zapasowe dzienników wymagają wcześniejszej pełnej kopii zapasowej do dostępnych, wszystkie trzy typy kopii zapasowych są czyszczone w zestawach tygodniowych. Po usunięciu wszystkich kopii zapasowych zostaną zatrzymane rozliczenia. 
+`Total billable backup storage size = (size of full backups + size of differential backups + size of log backups) – maximum data storage`
+
+W przypadku baz danych w puli łączny rozmiar magazynu kopii zapasowej do rozliczenia jest agregowany na poziomie puli i obliczany w następujący sposób:
+
+`Total billable backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - maximum pool data storage`
+
+W przypadku wystąpień zarządzanych Łączna ilość magazynowanych magazynów kopii zapasowych jest agregowana na poziomie wystąpienia i jest obliczana w następujący sposób:
+
+`Total billable backup storage size = (total size of full backups + total size of differential backups + total size of log backups) – maximum instance data storage`
+
+Łączna ilość rozliczanych magazynów kopii zapasowych (jeśli istnieje) będzie naliczana w GB/miesiąc. To użycie magazynu kopii zapasowych będzie zależeć od obciążenia i rozmiaru poszczególnych baz danych, pul elastycznych i wystąpień zarządzanych. Wielokrotnie modyfikowane bazy danych mają większe różnice i kopie zapasowe dzienników, ponieważ rozmiar tych kopii zapasowych jest proporcjonalny do ilości zmian danych. W związku z tym te bazy danych będą miały większe opłaty za tworzenie kopii zapasowych.
+
+SQL Database i wystąpienie zarządzane SQL oblicza łączny magazyn kopii zapasowych rozliczany jako wartość zbiorczą dla wszystkich plików kopii zapasowej. Co godzinę ta wartość jest raportowana w potoku rozliczania na platformie Azure, która agreguje to użycie godzinowe w celu uzyskania zużycia magazynu kopii zapasowych na koniec każdego miesiąca. Jeśli baza danych zostanie usunięta, użycie magazynu kopii zapasowych stopniowo zmniejszy się w miarę jak starsze kopie zapasowe zostaną usunięte. Ponieważ różnicowe kopie zapasowe i kopie zapasowe dzienników wymagają wcześniejszej pełnej kopii zapasowej do dostępnych, wszystkie trzy typy kopii zapasowych są czyszczone w zestawach tygodniowych. Po usunięciu wszystkich kopii zapasowych zostaną zatrzymane rozliczenia. 
 
 Jako uproszczony przykład załóżmy, że baza danych ma 744 GB miejsca w magazynie kopii zapasowych i że ta kwota pozostaje stała przez cały miesiąc, ponieważ baza danych jest całkowicie bezczynna. Aby dokonać konwersji zbiorczego użycia magazynu na użycie godzinowe, Podziel go o 744,0 (31 dni miesięcznie * 24 godziny dziennie). SQL Database wyśle raport do potoku rozliczeń platformy Azure, który baza danych wykorzysta 1 GB kopie kopii zapasowej co godzinę, przy stałej szybkości. Rozliczenia platformy Azure będą agregowane w tym zużyciu i wykorzystano 744 GB przez cały miesiąc. Koszt będzie naliczany na podstawie stawki za ilość/GB/miesiąc w Twoim regionie.
 

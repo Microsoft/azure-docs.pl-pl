@@ -1,18 +1,18 @@
 ---
 title: Maszyny wirtualne z serii Dv2 i DSv2 — platforma Azure Virtual Machines
 description: Specyfikacje dotyczące maszyn wirtualnych z serii Dv2 i DSv2.
-services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 66e415070e60676df5602078aff50c7b68920f1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: fb493154f81eb5ab63ed9593479356fe89552211
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77914045"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678260"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Zoptymalizowane pod kątem pamięci Dv2 i Dsv2
 

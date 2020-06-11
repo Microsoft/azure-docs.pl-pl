@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2019
 ms.author: allensu
-ms.openlocfilehash: d3bd1156de4aed7d1ea5c530605697f2dc80d63c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e60d44278bb568b1aaaf416fddf35d02596a5ee2
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476980"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84674656"
 ---
 # <a name="high-availability-ports-overview"></a>Omówienie portów wysokiej dostępności
 
@@ -87,15 +87,12 @@ Jeśli Twój scenariusz wymaga skonfigurowania więcej niż jednego frontonu por
 
 ### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>Wewnętrzny moduł równoważenia obciążenia z portami HA i publicznym modułem równoważenia obciążenia w tym samym wystąpieniu zaplecza
 
-Istnieje możliwość skonfigurowania *jednego* publicznego zasobu Usługa Load Balancer w warstwie Standardowa na potrzeby zasobów zaplecza oraz jednego wewnętrznego usługa Load Balancer w warstwie Standardowa z portami ha.
-
->[!NOTE]
->Ta funkcja jest obecnie dostępna za pośrednictwem szablonów Azure Resource Manager, ale nie jest dostępna za pośrednictwem Azure Portal.
+Istnieje możliwość skonfigurowania *jednego* publicznego zasobu Usługa Load Balancer w warstwie Standardowa dla zasobów zaplecza oraz jednego wewnętrznego usługa Load Balancer w warstwie Standardowa z portami ha.
 
 ## <a name="limitations"></a>Ograniczenia
 
 - Reguły równoważenia obciążenia portów HA są dostępne tylko dla wewnętrznych usługa Load Balancer w warstwie Standardowa.
-- Łączenie reguły równoważenia obciążenia portów HA i zasad równoważenia obciążenia z portami nieha wskazujące te same elementy ipconfiguration zaplecza nie jest obsługiwane.
+- Łączenie reguły równoważenia obciążenia portów HA i zasad równoważenia obciążenia z portami nieha wskazujące te same elementy ipconfiguration zaplecza nie są obsługiwane, jeśli oba mają swobodny adres IP włączony.
 - Istniejące fragmenty adresów IP będą przekazywane przez reguły równoważenia obciążenia portów HA do tego samego miejsca docelowego, co pierwszy pakiet.  Fragmentacja IP pakietu UDP lub TCP nie jest obsługiwana.
 - Mechanizm symetrii przepływów (głównie dla scenariuszy urządzenie WUS) jest obsługiwany z wystąpieniem zaplecza i jedną kartą sieciową (i konfiguracją pojedynczego adresu IP) tylko wtedy, gdy jest używana jak pokazano na powyższym diagramie i przy użyciu zasad równoważenia obciążenia portów HA. Nie jest ona dostępna w żadnym innym scenariuszu. Oznacza to, że co najmniej dwa zasoby Load Balancer i ich odpowiednie zasady podejmują niezależne decyzje i nigdy nie są koordynowane. Zapoznaj się z opisem i diagramem [wirtualnych urządzeń sieciowych](#nva). W przypadku korzystania z wielu kart sieciowych lub urządzenie WUSi między publiczną i wewnętrzną Load Balancer, symetria przepływu jest niedostępna.  Możliwe jest obejście tego problemu ze źródłem NAT'ing przepływ transferu danych przychodzących do adresu IP urządzenia, aby umożliwić odpowiedzi na te same urządzenie WUS.  Jednak zdecydowanie zalecamy korzystanie z jednej karty sieciowej i używanie architektury referencyjnej pokazanej na powyższym diagramie.
 

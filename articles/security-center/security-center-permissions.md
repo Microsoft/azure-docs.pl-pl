@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.author: memildin
-ms.openlocfilehash: 2552012678300e944a513f9d7167fa582424bf8f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 16c2669dbb0a483a00d093871dfeeed65c5f9f20
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558868"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669787"
 ---
 # <a name="permissions-in-azure-security-center"></a>Uprawnienia w usłudze Azure Security Center
 
@@ -43,8 +43,8 @@ W poniższej tabeli przedstawiono role i dozwolone akcje w Security Center.
 |Akcja|Czytelnik zabezpieczeń/ <br> Czytelnik |Administrator zabezpieczeń  |Współautor grupy zasobów/ <br> Właściciel grupy zasobów  |Współautor subskrypcji  |Właściciel subskrypcji  |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Edytuj zasady zabezpieczeń|-|✔|-|-|✔|
-|Zmień warstwę cenową subskrypcji|-|✔|-|-|-|
-|Włącz/Wyłącz funkcję autoaprowizacji|-|✔|-|-|-|
+|Zmień warstwę cenową subskrypcji|-|✔|-|-|✔|
+|Włącz/Wyłącz funkcję autoaprowizacji|-|✔|-|-|✔|
 |Stosowanie zaleceń dotyczących zabezpieczeń dla zasobu</br> (i Użyj [szybkiej poprawki!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Odrzuć alerty|-|✔|-|✔|✔|
 |Wyświetlanie alertów i zaleceń|✔|✔|✔|✔|✔|

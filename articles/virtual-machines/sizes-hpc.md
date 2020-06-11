@@ -1,26 +1,20 @@
 ---
 title: Rozmiary maszyn wirtualnych platformy Azure — HPC | Microsoft Docs
 description: Wyświetla listę różnych rozmiarów dostępnych w przypadku maszyn wirtualnych o wysokiej wydajności obliczeniowych na platformie Azure. Wyświetla informacje o liczbie procesorów wirtualnych vCPU, dyskach danych i kartach sieciowych oraz o przepływności magazynu i przepustowości sieci dla rozmiarów w tej serii.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines
-ms.devlang: na
+ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
-ms.reviewer: jonbeck
-ms.openlocfilehash: 409fe69d111e2c5aebe0ad0bd38ced10604b5f1b
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.reviewer: jushiman
+ms.openlocfilehash: 961e5a0febc0212b8a747b052b3fd6f696689351
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839066"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678634"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Rozmiary maszyn wirtualnych o wysokiej wydajności obliczeniowej
 
@@ -92,7 +86,7 @@ Platforma Azure oferuje kilka opcji tworzenia klastrów maszyn wirtualnych z sys
 
 - **Maszyny wirtualne** — Wdróż maszyny wirtualne z obsługą funkcji RDMA w tym samym zestawie skalowania lub zestawie dostępności (w przypadku korzystania z Azure Resource Manager modelu wdrażania). W przypadku korzystania z klasycznego modelu wdrażania należy wdrożyć maszyny wirtualne w tej samej usłudze w chmurze.
 
-- **Zestawy skalowania maszyn wirtualnych** — w zestawie skalowania maszyn wirtualnych (VMSS) Upewnij się, że wdrożenie jest ograniczone do pojedynczej grupy umieszczania na potrzeby komunikacji InfiniBand w ramach VMSS. Na przykład w szablonie Menedżer zasobów Ustaw `singlePlacementGroup` właściwość na. `true` Należy pamiętać, że maksymalny rozmiar VMSS, który może być `singlePlacementGroup` przypadany `true` z właściwością do jest domyślnie ustawiony na maszyny wirtualne 100. Jeśli Twoje wymagania dotyczące skalowania zadań HPC są większe niż 100 maszyn wirtualnych w ramach jednej dzierżawy VMSS, możesz poprosić o zwiększenie, a bezpłatnie [otworzyć żądanie pomocy technicznej online](../azure-supportability/how-to-create-azure-support-request.md) . Limit liczby maszyn wirtualnych w jednym VMSS można zwiększyć do 300. Należy pamiętać, że podczas wdrażania maszyn wirtualnych przy użyciu zestawów dostępności maksymalny limit wynosi 200 maszyn wirtualnych na zestaw dostępności.
+- **Zestawy skalowania maszyn wirtualnych** — w zestawie skalowania maszyn wirtualnych (VMSS) Upewnij się, że wdrożenie jest ograniczone do pojedynczej grupy umieszczania na potrzeby komunikacji InfiniBand w ramach VMSS. Na przykład w szablonie Menedżer zasobów Ustaw `singlePlacementGroup` Właściwość na `true` . Należy pamiętać, że maksymalny rozmiar VMSS, który może być przypadany z `singlePlacementGroup` właściwością do `true` jest domyślnie ustawiony na maszyny wirtualne 100. Jeśli Twoje wymagania dotyczące skalowania zadań HPC są większe niż 100 maszyn wirtualnych w ramach jednej dzierżawy VMSS, możesz poprosić o zwiększenie, a bezpłatnie [otworzyć żądanie pomocy technicznej online](../azure-supportability/how-to-create-azure-support-request.md) . Limit liczby maszyn wirtualnych w jednym VMSS można zwiększyć do 300. Należy pamiętać, że podczas wdrażania maszyn wirtualnych przy użyciu zestawów dostępności maksymalny limit wynosi 200 maszyn wirtualnych na zestaw dostępności.
 
 - **MPI między maszynami wirtualnymi** — Jeśli na maszynach wirtualnych jest wymagana funkcja RDMA (np. Używanie komunikacji MPI), upewnij się, że maszyny wirtualne znajdują się w tym samym zestawie skalowania maszyn wirtualnych lub zestawie dostępności.
 
@@ -100,7 +94,7 @@ Platforma Azure oferuje kilka opcji tworzenia klastrów maszyn wirtualnych z sys
 
 - **Azure Batch** — utwórz pulę [Azure Batch](/azure/batch/) do uruchamiania obciążeń MPI. Aby korzystać z wystąpień intensywnie korzystających z obliczeń podczas uruchamiania aplikacji MPI przy użyciu Azure Batch, zobacz temat [Używanie zadań z wielu wystąpień w celu uruchamiania aplikacji interfejsu przekazywania komunikatów (MPI) w programie Azure Batch](../batch/batch-mpi.md).
 
-- **Pakiet Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) zawiera środowisko uruchomieniowe dla MS-MPI, które używa sieci usługi Azure RDMA w przypadku wdrożenia na maszynach wirtualnych z systemem Linux obsługujących funkcję RDMA. Na przykład wdrożenia, zobacz [Konfigurowanie klastra RDMA systemu Linux przy użyciu pakietu HPC Pack w celu uruchamiania aplikacji MPI](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
+- **Pakiet Microsoft HPC Pack**  -  [Pakiet HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) zawiera środowisko uruchomieniowe dla MS-MPI, które używa sieci usługi Azure RDMA w przypadku wdrożenia na maszynach wirtualnych z systemem Linux obsługujących funkcję RDMA. Na przykład wdrożenia, zobacz [Konfigurowanie klastra RDMA systemu Linux przy użyciu pakietu HPC Pack w celu uruchamiania aplikacji MPI](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
 
 ## <a name="deployment-considerations"></a>Zagadnienia dotyczące wdrażania
 

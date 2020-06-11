@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 513f0240296debb5e878461ed1ca7cffecad760a
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 60f83fae6e7e685a1065d1c01327a004d9bb2864
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462995"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675656"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -85,7 +85,7 @@ Poniższe regiony obsługują przywracanie do punktu w czasie w wersji zapoznawc
 Wersja zapoznawcza obejmuje następujące ograniczenia:
 
 - Przywracanie blokowych obiektów BLOB w warstwie Premium nie jest obsługiwane.
-- Przywracanie obiektów BLOB w warstwie archiwum nie jest obsługiwane. Na przykład jeśli obiekt BLOB w warstwie gorąca został przeniesiony do warstwy archiwum dwa dni temu, a operacja przywracania zostanie przywrócona do punktu trzy dni temu, obiekt BLOB nie zostanie przywrócony do warstwy gorąca.
+- Przywracanie obiektów blob w warstwie Archiwum nie jest obsługiwane. Na przykład jeśli obiekt blob z warstwy Gorąca został przeniesiony do warstwy Archiwum dwa dni temu, a operacja przywracania spowodowała jego przywrócenie do punktu sprzed trzech dni, obiekt blob nie zostanie przywrócony do warstwy Gorąca.
 - Przywracanie Azure Data Lake Storage Gen2 płaskich i hierarchicznych przestrzeni nazw nie jest obsługiwane.
 - Przywracanie kont magazynu przy użyciu kluczy dostarczonych przez klienta nie jest obsługiwane.
 
@@ -97,6 +97,7 @@ Wersja zapoznawcza obejmuje następujące ograniczenia:
 Aby zarejestrować się w celu korzystania z wersji zapoznawczej, uruchom następujące polecenia:
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
 ```powershell
 # Register for the point-in-time restore preview
 Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
@@ -110,7 +111,9 @@ Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```
+
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
 ```azurecli
 az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
 az feature register --namespace Microsoft.Storage --name Changefeed
@@ -125,13 +128,14 @@ az provider register --namespace 'Microsoft.Storage'
 Operacja przywracania do punktu w czasie jest automatyczna i powinna trwać krócej niż 10 minut. Aby sprawdzić stan rejestracji, uruchom następujące polecenia:
 
 # <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+
 ```powershell
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName RestoreBlobRanges
 
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Changefeed
-    
+
 Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
 ```
@@ -145,7 +149,6 @@ az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning
 ```
 
 ---
-
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 

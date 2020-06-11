@@ -6,12 +6,12 @@ author: brahmnes
 ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8af688e38003e0613a06d7d8622ce279a3838589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6928da704236c4bb5492f99a4a5327bf297a323d
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298275"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676850"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Włącz Snapshot Debugger dla aplikacji .NET w programie Azure App Service
 
@@ -28,12 +28,12 @@ Jeśli używasz wersji zapoznawczej programu .NET Core, postępuj zgodnie z inst
 
 Application Insights Snapshot Debugger jest wstępnie zainstalowana jako część środowiska uruchomieniowego App Services, ale musisz ją włączyć, aby uzyskać migawki dla aplikacji App Service. Po wdrożeniu aplikacji, nawet jeśli w kodzie źródłowym dołączono zestaw SDK Application Insights, wykonaj poniższe kroki, aby włączyć debuger migawek.
 
-1. Przejdź do okienka **App Services** w Azure Portal.
-2. Przejdź do okna **ustawienia > Application Insights** .
+1. Przejdź do panelu sterowania platformy Azure, aby uzyskać App Service.
+2. Przejdź do strony **ustawienia > Application Insights** .
 
    ![Włączanie usługi App Insights w portalu App Services](./media/snapshot-debugger/applicationinsights-appservices.png)
 
-3. Postępuj zgodnie z instrukcjami w okienku, aby utworzyć nowy zasób, lub wybierz istniejący zasób usługi App Insights, aby monitorować aplikację. Upewnij się również, że oba przełączniki Snapshot Debugger są **włączone**.
+3. Postępuj zgodnie z instrukcjami na stronie, aby utworzyć nowy zasób, lub wybierz istniejący zasób usługi App Insights, aby monitorować aplikację. Upewnij się również, że oba przełączniki Snapshot Debugger są **włączone**.
 
    ![Dodaj rozszerzenie witryny usługi App Insights][Enablement UI]
 

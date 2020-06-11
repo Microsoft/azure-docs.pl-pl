@@ -4,15 +4,15 @@ description: Przegląd konserwacji i aktualizacji maszyn wirtualnych działając
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 97605b0cdc7ac6368b21e9427f64e4bca7e35d4a
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 3caf8b63cbd86338bbef653e9be9916907578627
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83815948"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84675883"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Konserwacja maszyn wirtualnych na platformie Azure
 

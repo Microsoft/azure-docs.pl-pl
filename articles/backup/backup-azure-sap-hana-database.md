@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej bazy danych SAP HANA na platformie Azure przy u
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową bazy danych SAP HANA na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 20086516dc37538474a31c7735e9b2d3b1a3d5b2
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: c9f9841ac40a39fc51c0e722415c871650bec86d
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248570"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667322"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -41,7 +41,7 @@ W przypadku wszystkich operacji baza danych SAP HANA uruchomiona na maszynie wir
 
 W poniższej tabeli wymieniono różne alternatywy, których można użyć do ustanowienia łączności:
 
-| **Opcja**                        | **Zalety**                                               | **Wady**                                            |
+| **Zaznaczyć**                        | **Zalety**                                               | **Wady**                                            |
 | --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Prywatne punkty końcowe                 | Zezwalaj na wykonywanie kopii zapasowych za pośrednictwem prywatnych adresów IP w sieci wirtualnej  <br><br>   Zapewnianie szczegółowej kontroli po stronie sieci i magazynu | Odnosi się do standardowych [kosztów](https://azure.microsoft.com/pricing/details/private-link/) prywatnych punktów końcowych |
 | Tagi usługi sieciowej grupy zabezpieczeń                  | Łatwiejsze zarządzanie, ponieważ zmiany zakresu są automatycznie scalane   <br><br>   Brak dodatkowych kosztów | Może być używany tylko z sieciowych grup zabezpieczeń  <br><br>    Zapewnia dostęp do całej usługi |
@@ -191,7 +191,7 @@ Kopie zapasowe są uruchamiane zgodnie z harmonogramem zasad. Kopię zapasową m
 
 1. W menu magazyn kliknij pozycję **elementy kopii zapasowej**.
 2. W obszarze **elementy kopii zapasowej**wybierz maszynę wirtualną z uruchomioną SAP HANA bazą danych, a następnie kliknij pozycję **Utwórz kopię zapasową teraz**.
-3. W obszarze **kopia zapasowa**Użyj formantu kalendarza, aby wybrać ostatni dzień przechowywania punktu odzyskiwania. Następnie kliknij przycisk **OK**.
+3. W obszarze **kopia zapasowa**wybierz typ kopii zapasowej, którą chcesz wykonać. Następnie kliknij przycisk **OK**. Ta kopia zapasowa zostanie zachowana zgodnie z zasadami skojarzonymi z tym elementem kopii zapasowej.
 4. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > **zadania tworzenia kopii zapasowej**  >  **w toku**. W zależności od rozmiaru bazy danych Tworzenie początkowej kopii zapasowej może chwilę potrwać.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Uruchamianie kopii zapasowej SAP HANA Studio w bazie danych z włączoną funkcją Azure Backup

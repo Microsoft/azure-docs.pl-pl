@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 4e9ddeddf616c581b116d48738e110dd8cdac2d3
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759000"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659923"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Szybki Start: wdrażanie przykładu aparatu Unity na pulpicie
 
@@ -46,7 +46,7 @@ Tylko proste aplikacje klasyczne są obecnie obsługiwane na komputerze stacjona
 ## <a name="build-the-sample-project"></a>Kompilowanie przykładowego projektu
 
 1. Otwórz *plik > ustawienia kompilacji*.
-1. Zmień *platformę* na **platforma uniwersalna systemu Windows** (**autonomiczny komputer** jest również obsługiwany, ale nie jest używany w tym miejscu).
+1. Zmień *platformę* na **platforma uniwersalna systemu Windows** (**autonomiczny komputer** jest również obsługiwany, ale nie jest tutaj używany, zobacz [ograniczenia dotyczące platformy](../reference/limits.md#platform-limitations)).
 1. Ustaw *urządzenie docelowe* na **komputer**.
 1. Ustaw *architekturę* na **x86**.
 1. Ustaw *typ kompilacji* na **projekt D3D**.
@@ -60,7 +60,7 @@ Tylko proste aplikacje klasyczne są obecnie obsługiwane na komputerze stacjona
 1. Kompiluj rozwiązanie (F7).
 
 > [!WARNING]
-> Upewnij się, że wybrano opcję **x86**. Architektura **x64** nie jest obecnie obsługiwana, zobacz [ograniczenia dotyczące platformy](../reference/limits.md#platform-limitations).
+> Upewnij się, że wybrano opcję **x86**. **Platformy UWP/x64** nie jest obecnie obsługiwane, zobacz [ograniczenia dotyczące platformy](../reference/limits.md#platform-limitations).
 
 ## <a name="launch-the-sample-project"></a>Uruchamianie przykładowego projektu
 

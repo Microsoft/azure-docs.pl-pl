@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/11/2020
-ms.openlocfilehash: 0ba41d63195c906b57046dc6c9fd57c9f08399ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 789ddf39e4493d11d63a07f2341ab36ac161f32d
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241668"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84659596"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Przegląd — co to jest Azure Logic Apps?
 
@@ -77,7 +77,7 @@ Rozpocznij, korzystając ze swoich bieżących systemów oraz usług, i stopniow
   * [Microsoft BizTalk Server](https://docs.microsoft.com/biztalk/core/introducing-biztalk-server)
   * [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
   * [Azure Functions](../azure-functions/functions-overview.md)
-  * [Azure API Management](../api-management/api-management-key-concepts.md)
+  * [Usługa Azure API Management](../api-management/api-management-key-concepts.md)
 
 * Przetwarzanie [wiadomości XML](../logic-apps/logic-apps-enterprise-integration-xml.md)
 
@@ -102,9 +102,9 @@ Twórz aplikacje logiki jako szablony Azure Resource Manager, dzięki czemu moż
 
 ### <a name="access-resources-inside-azure-virtual-networks"></a>Dostęp do zasobów wewnątrz sieci wirtualnych platformy Azure
 
-Usługa Logic Apps może uzyskiwać dostęp do zabezpieczonych zasobów, takich jak maszyny wirtualne i inne systemy i usługi, które znajdują się w [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md) podczas tworzenia [ *środowiska usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). ISE jest izolowanym wystąpieniem usługi Logic Apps, która używa dedykowanych zasobów i jest uruchamiana niezależnie od "globalnej" usługi Logic Apps z wieloma dzierżawami.
+Usługa Logic Apps może uzyskiwać dostęp do zabezpieczonych zasobów, takich jak maszyny wirtualne i inne systemy i usługi, które znajdują się w [sieci wirtualnej platformy Azure](../virtual-network/virtual-networks-overview.md) podczas tworzenia [ *środowiska usługi integracji* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). ISE to dedykowane wystąpienie usługi Logic Apps, która używa dedykowanych zasobów i jest uruchamiane niezależnie od "globalnej" usługi Logic Apps z wieloma dzierżawami.
 
-Uruchamianie aplikacji logiki we własnym osobnym wystąpieniu izolowanym pozwala zmniejszyć wpływ innych dzierżawców platformy Azure na wydajność aplikacji, nazywanych również [efektem "sąsiedzi](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)". ISE zapewnia również następujące korzyści:
+Uruchamianie aplikacji logiki w osobnym dedykowanym wystąpieniu pozwala ograniczyć wpływ innych dzierżawców platformy Azure na wydajność aplikacji, nazywanych również [efektem "sąsiedzi](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)". ISE zapewnia również następujące korzyści:
 
 * Własne statyczne adresy IP, które są niezależne od statycznych adresów IP, które są współużytkowane przez aplikacje logiki w usłudze wielu dzierżawców. W celu komunikowania się z systemami docelowymi można także skonfigurować jeden publiczny, statyczny i przewidywalny wychodzący adres IP. Dzięki temu nie trzeba konfigurować dodatkowych otwartych zapór w tych systemach docelowych dla każdego ISEu.
 
@@ -144,7 +144,7 @@ Wszystkie te usługi pomagają „skleić” i połączyć ze sobą różne syst
 
 * **Pakiet integracyjny dla przedsiębiorstw**: w przypadku bardziej zaawansowanych scenariuszy integracji usługa Logic Apps oferuje możliwości platformy BizTalk Server. Pakiet integracyjny dla przedsiębiorstw udostępnia łączniki, które ułatwiają wykonywanie sprawdzania poprawności, przekształcania i innych akcji przez aplikacje logiki.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Logic Apps to jedna z wielu usług hostowanych na platformie Microsoft Azure. Dlatego przed rozpoczęciem należy uzyskać subskrypcję Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 

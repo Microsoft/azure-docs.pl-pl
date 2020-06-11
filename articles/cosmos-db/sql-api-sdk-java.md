@@ -8,18 +8,19 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
-ms.openlocfilehash: 799f38cff1c10da1b0d280121a7a5ab4a380152d
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 149a14109c5da3daab96cf08e59e70b16195a63a
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331427"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677716"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
-> * [.NET](sql-api-sdk-dotnet.md)
-> * [Źródło zmian platformy .NET](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [Zestaw .NET SDK v3](sql-api-sdk-dotnet-standard.md)
+> * [Zestaw .NET SDK V2](sql-api-sdk-dotnet.md)
+> * [Zestaw .NET Core SDK V2](sql-api-sdk-dotnet-core.md)
+> * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Zestaw Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
@@ -28,7 +29,7 @@ ms.locfileid: "84331427"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Wykonawca zbiorczy — .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
 
 Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interfejsu API SQL, który obsługuje operacje synchroniczne.
@@ -46,7 +47,7 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-java-application.md)|
 |**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
 * Rozwiązuje problem z pamięcią podręczną partycji głównej w zapytaniu documentcollection.
@@ -275,7 +276,7 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 | Wersja | Data wydania | Data wycofania |
 | --- | --- | --- |
 | [2.5.1](#2.5.1) |03, 2020 |--- |
-| [2.5.0](#2.5.0) |12 maja 2020 |--- |
+| [2.5.0](#2.5.0) |12 maj 2020 r. |--- |
 | [2.4.7](#2.4.7) |20 lutego 2020 |--- |
 | [2.4.6](#2.4.6) |24 stycznia 2020 |--- |
 | [2.4.5](#2.4.5) |Lis 10, 2019 |--- |
@@ -333,6 +334,6 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 ## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .
 

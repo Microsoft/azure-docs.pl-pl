@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6f72e2ee3b83b693d889e9c43fe42a4677f1666d
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: e5896d1eabaf43afcbab7513d7abb0b1de4efe51
+ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609475"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84656687"
 ---
-# <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse Analytics (wersja zapoznawcza)
+# <a name="quickstart-create-a-synapse-workspace"></a>Szybki Start: Tworzenie obszaru roboczego Synapse
 
 W tym przewodniku szybki start opisano kroki tworzenia obszaru roboczego usługi Azure Synapse za pomocą Azure Portal.
 
@@ -63,7 +63,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
 6. Na karcie **Podsumowanie** zostaną uruchomione wymagane walidacje, aby upewnić się, że obszar roboczy może zostać pomyślnie utworzony. Po pomyślnym zakończeniu walidacji kliknij pozycję **Utwórz** ![ przepływ obsługi obszaru roboczego — karta potwierdzenie.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
 7. Po pomyślnym zakończeniu procesu aprowizacji zasobów zobaczysz wpis dla utworzonego obszaru roboczego na liście obszarów roboczych Synapse. ![Lista obszarów roboczych Synapse z nowo zainicjowanym obszarem roboczym.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Wykonaj poniższe kroki, aby usunąć obszar roboczy usługi Azure Synapse.
 > [!WARNING]

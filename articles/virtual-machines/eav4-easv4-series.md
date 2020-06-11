@@ -1,18 +1,18 @@
 ---
-title: Seria Eav4 i Easv4 — Virtual Machines platformy Azure
+title: Seria Eav4 i Easv4
 description: Specyfikacje dotyczące maszyn wirtualnych z serii Eav4 i Easv4.
-services: virtual-machines
 author: migerdes
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: ab45298dbcb8988da7d0211fcbde3087d0099038
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: 230809f4fe42ce0fc8b8c85024b42926a27e699f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437080"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678243"
 ---
 # <a name="eav4-and-easv4-series"></a>Serie Eav4 i Easv4
 
@@ -34,15 +34,15 @@ Rozmiary serii Eav4 są oparte na procesorze 2.35 GHz AMD EPYC<sup>TM</sup> 7452
 
 | Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 | -----|-----|-----|-----|-----|-----|-----|
-| Standardowa\_E2A\_v4|2|16|50|4|3000 / 46 / 23|2 / 1000 |
-| Standardowa\_E4A\_v4|4|32|100|8|6000 / 93 / 46|2 / 2000 |
-| Standardowa\_E8a\_v4|8|64|200|16|12000 / 187 / 93|4 / 4000 |
-| Standardowa\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 / 8000 |
-| Standardowa\_E20a\_v4|20|160|500|32|30000/468/234|8 / 10000 |
-| Standardowa\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 / 16 000 |
-| Standardowa\_E48a\_v4|48|384|1200|32|96000/1000 (500)|8 / 24000 |
-| Standardowa\_E64a\_v4|64|512|1600|32|96000/1000 (500)|8 / 30000 |
-| Standardowa\_E96a\_v4|96|672|2400|32|96000/1000 (500)|8 / 30000 |
+| Standardowa \_ E2A \_ v4|2|16|50|4|3000 / 46 / 23|2 / 1000 |
+| Standardowa \_ E4A \_ v4|4|32|100|8|6000 / 93 / 46|2 / 2000 |
+| Standardowa \_ E8a \_ v4|8|64|200|16|12000 / 187 / 93|4 / 4000 |
+| Standardowa \_ E16a \_ v4|16|128|400|32|24000 / 375 / 187|8 / 8000 |
+| Standardowa \_ E20a \_ v4|20|160|500|32|30000/468/234|8 / 10000 |
+| Standardowa \_ E32a \_ v4|32|256|800|32|48000 / 750 / 375|8 / 16 000 |
+| Standardowa \_ E48a \_ v4|48|384|1200|32|96000/1000 (500)|8 / 24000 |
+| Standardowa \_ E64a \_ v4|64|512|1600|32|96000/1000 (500)|8 / 30000 |
+| Standardowa \_ E96a \_ v4|96|672|2400|32|96000/1000 (500)|8 / 30000 |
 
 ## <a name="easv4-series"></a>Seria Easv4
 

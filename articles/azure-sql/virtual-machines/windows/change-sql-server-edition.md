@@ -4,7 +4,6 @@ description: Dowiedz się, jak zmienić wersję SQL Server maszyny wirtualnej na
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.topic: article
@@ -14,12 +13,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 598060c028708ed4ac138914a561f7edb62487ca
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 228f76c9ecb262ffca7851f4339b73c5574f09dc
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046187"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84669171"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Zmiana w miejscu SQL Server edycji na maszynie wirtualnej platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,7 +45,7 @@ Aby przeprowadzić zmianę w miejscu wersji SQL Server, potrzebne są następuj�
 
 Aby uaktualnić wersję SQL Server, uzyskaj SQL Server instalacyjny nośnik dla odpowiedniej wersji SQL Server, a następnie wykonaj następujące czynności:
 
-1. Otwórz plik Setup. exe z nośnika instalacyjnego programu SQL Server. 
+1. Otwórz Setup.exe z nośnika instalacyjnego SQL Server. 
 1. Przejdź do pozycji **konserwacja** i wybierz opcję **uaktualnienia wersji** . 
 
    ![Wybór na potrzeby uaktualnienia wersji SQL Server](./media/change-sql-server-edition/edition-upgrade.png)

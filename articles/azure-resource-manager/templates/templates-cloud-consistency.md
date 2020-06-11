@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: c5095efef5d4bef44993bdd9cd52dbdef17378a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 459a34d104e01dca2cdf997c6aedd6f54f3adbaa
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156110"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677682"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Opracowywanie szablonów ARM w celu zapewnienia spójności chmury
 
@@ -51,7 +51,7 @@ Nowe funkcje szablonu wprowadzone do Azure Resource Manager nie są natychmiast 
 
 Funkcje Azure Resource Manager są zawsze wprowadzane do globalnej platformy Azure jako pierwsze. Za pomocą poniższego skryptu programu PowerShell można sprawdzić, czy nowo wprowadzone funkcje szablonu są również dostępne w Azure Stack:
 
-1. Utwórz klon repozytorium GitHub: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions).
+1. Utwórz klon repozytorium GitHub: [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions) .
 
 1. Po utworzeniu lokalnego klona repozytorium, Połącz się z Azure Resource Managerm docelowym przy użyciu programu PowerShell.
 
@@ -106,7 +106,7 @@ Lepszym rozwiązaniem w przypadku wdrożeń obejmujących wiele chmur jest przec
 
 Ponieważ magazyn obiektów BLOB w każdej chmurze używa innej nazwy domeny (FQDN) punktu końcowego, skonfiguruj szablon przy użyciu lokalizacji połączonych szablonów z dwoma parametrami. Parametry mogą akceptować dane wprowadzane przez użytkownika w czasie wdrażania. Szablony są zwykle tworzone i udostępniane przez wiele osób, dlatego najlepszym rozwiązaniem jest użycie standardowej nazwy dla tych parametrów. Konwencje nazewnictwa ułatwiają tworzenie szablonów do wielokrotnego użytku w regionach, chmurach i autorach.
 
-W poniższym kodzie `_artifactsLocation` służy do wskazywania pojedynczej lokalizacji zawierającej wszystkie artefakty związane z wdrożeniem. Zwróć uwagę, że została podana wartość domyślna. W czasie wdrażania, jeśli dla `_artifactsLocation`programu nie określono wartości wejściowej, zostanie użyta wartość domyślna. `_artifactsLocationSasToken` Jest używany jako dane wejściowe dla `sasToken`. Wartość domyślna powinna być ciągiem pustym dla scenariuszy, `_artifactsLocation` w których nie jest zabezpieczony — na przykład publicznego repozytorium GitHub.
+W poniższym kodzie `_artifactsLocation` służy do wskazywania pojedynczej lokalizacji zawierającej wszystkie artefakty związane z wdrożeniem. Zwróć uwagę, że została podana wartość domyślna. W czasie wdrażania, jeśli dla programu nie określono wartości wejściowej `_artifactsLocation` , zostanie użyta wartość domyślna. `_artifactsLocationSasToken`Jest używany jako dane wejściowe dla `sasToken` . Wartość domyślna powinna być ciągiem pustym dla scenariuszy, w których `_artifactsLocation` nie jest zabezpieczony — na przykład publicznego repozytorium GitHub.
 
 ```json
 "parameters": {
@@ -127,13 +127,13 @@ W poniższym kodzie `_artifactsLocation` służy do wskazywania pojedynczej loka
 }
 ```
 
-W całym szablonie linki są generowane przez połączenie podstawowego identyfikatora URI (z `_artifactsLocation` parametru) ze ścieżką względną artefaktu i. `_artifactsLocationSasToken` Poniższy kod pokazuje, jak określić łącze do szablonu zagnieżdżonego za pomocą funkcji szablonu URI:
+W całym szablonie linki są generowane przez połączenie podstawowego identyfikatora URI (z `_artifactsLocation` parametru) ze ścieżką względną artefaktu i `_artifactsLocationSasToken` . Poniższy kod pokazuje, jak określić łącze do szablonu zagnieżdżonego za pomocą funkcji szablonu URI:
 
 ```json
 "resources": [
   {
     "type": "Microsoft.Resources/deployments",
-    "apiVersion": "2015-01-01",
+    "apiVersion": "2019-10-01",
     "name": "shared",
     "properties": {
       "mode": "Incremental",
@@ -146,7 +146,7 @@ W całym szablonie linki są generowane przez połączenie podstawowego identyfi
 ]
 ```
 
-Korzystając z tej metody, zostanie użyta wartość domyślna `_artifactsLocation` parametru. Jeśli połączone szablony muszą zostać pobrane z innej lokalizacji, dane wejściowe parametru mogą być używane w czasie wdrażania, aby przesłonić wartość domyślną — nie trzeba zmieniać samego szablonu.
+Korzystając z tej metody, `_artifactsLocation` zostanie użyta wartość domyślna parametru. Jeśli połączone szablony muszą zostać pobrane z innej lokalizacji, dane wejściowe parametru mogą być używane w czasie wdrażania, aby przesłonić wartość domyślną — nie trzeba zmieniać samego szablonu.
 
 ### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Użyj _artifactsLocation zamiast linków zakodowana
 
@@ -231,7 +231,7 @@ Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, Re
 
 ### <a name="verify-the-version-of-all-resource-types"></a>Weryfikowanie wersji wszystkich typów zasobów
 
-Zestaw właściwości jest wspólny dla wszystkich typów zasobów, ale każdy zasób ma także własne specyficzne właściwości. Nowe funkcje i powiązane właściwości są dodawane do istniejących typów zasobów w czasie za pomocą nowej wersji interfejsu API. Zasób w szablonie ma własną Właściwość wersji interfejsu API — `apiVersion`. Ta wersja gwarantuje, że zmiany na platformie nie wpływają na istniejącą konfigurację zasobów w szablonie.
+Zestaw właściwości jest wspólny dla wszystkich typów zasobów, ale każdy zasób ma także własne specyficzne właściwości. Nowe funkcje i powiązane właściwości są dodawane do istniejących typów zasobów w czasie za pomocą nowej wersji interfejsu API. Zasób w szablonie ma własną Właściwość wersji interfejsu API — `apiVersion` . Ta wersja gwarantuje, że zmiany na platformie nie wpływają na istniejącą konfigurację zasobów w szablonie.
 
 Nowe wersje interfejsu API wprowadzone do istniejących typów zasobów na globalnym platformie Azure mogą nie być natychmiast dostępne we wszystkich regionach, w chmurach suwerennych lub Azure Stack. Aby wyświetlić listę dostępnych dostawców zasobów, typów zasobów i wersji interfejsu API dla chmury, można użyć Eksplorator zasobów w Azure Portal. Wyszukaj Eksplorator zasobów w menu wszystkie usługi. Rozwiń węzeł dostawcy w Eksplorator zasobów, aby zwrócić wszystkich dostępnych dostawców zasobów, ich typy zasobów i wersje interfejsu API w tej chmurze.
 
@@ -255,7 +255,7 @@ Mimo że można umieszczaj nazwy regionów podczas określania właściwości za
 
 Aby obsłużyć różne regiony, Dodaj do szablonu lokalizację parametru wejściowego z wartością domyślną. Wartość domyślna zostanie użyta, jeśli podczas wdrażania nie zostanie określona żadna wartość.
 
-Funkcja `[resourceGroup()]` Template zwraca obiekt, który zawiera następujące pary klucz/wartość:
+Funkcja template `[resourceGroup()]` zwraca obiekt, który zawiera następujące pary klucz/wartość:
 
 ```json
 {
@@ -270,7 +270,7 @@ Funkcja `[resourceGroup()]` Template zwraca obiekt, który zawiera następujące
 }
 ```
 
-Odwołując się do klucza lokalizacji obiektu w elemencie DefaultValue parametru wejściowego, Azure Resource Manager w czasie wykonywania Zastąp funkcję `[resourceGroup().location]` szablonu nazwą lokalizacji grupy zasobów, w której wdrożono szablon.
+Odwołując się do klucza lokalizacji obiektu w elemencie DefaultValue parametru wejściowego, Azure Resource Manager w czasie wykonywania Zastąp `[resourceGroup().location]` funkcję szablonu nazwą lokalizacji grupy zasobów, w której wdrożono szablon.
 
 ```json
 "parameters": {
@@ -295,13 +295,13 @@ Za pomocą tej funkcji szablonu można wdrożyć szablon w dowolnej chmurze bez 
 
 ### <a name="track-versions-using-api-profiles"></a>Śledź wersje przy użyciu profilów interfejsu API
 
-Może być bardzo trudne do śledzenia wszystkich dostępnych dostawców zasobów i powiązane wersje interfejsów API, które znajdują się w Azure Stack. Na przykład w czasie pisania Najnowsza wersja interfejsu API dla **Microsoft. COMPUTE/availabilitySets** na platformie Azure to `2018-04-01`, chociaż dostępna wersja interfejsu API jest `2016-03-30`wspólna dla platformy Azure i Azure Stack. Wspólna wersja interfejsu API dla **Microsoft. Storage/storageAccounts** współdzielona między wszystkimi lokalizacjami platformy azure `2016-01-01`i Azure Stack to, natomiast Najnowsza wersja interfejsu API `2018-02-01`na platformie Azure to.
+Może być bardzo trudne do śledzenia wszystkich dostępnych dostawców zasobów i powiązane wersje interfejsów API, które znajdują się w Azure Stack. Na przykład w czasie pisania Najnowsza wersja interfejsu API dla **Microsoft. COMPUTE/availabilitySets** na platformie Azure to `2018-04-01` , chociaż dostępna wersja interfejsu API jest wspólna dla platformy Azure i Azure Stack `2016-03-30` . Wspólna wersja interfejsu API dla **Microsoft. Storage/storageAccounts** współdzielona między wszystkimi lokalizacjami platformy azure i Azure Stack to `2016-01-01` , natomiast Najnowsza wersja interfejsu API na platformie Azure to `2018-02-01` .
 
 Z tego powodu Menedżer zasobów wprowadził koncepcji profilów interfejsu API do szablonów. Bez profilów interfejsu API każdy zasób w szablonie jest skonfigurowany przy użyciu `apiVersion` elementu opisującego wersję interfejsu API dla tego konkretnego zasobu.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -342,7 +342,7 @@ Wersja profilu interfejsu API działa jako alias dla pojedynczej wersji interfej
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -384,7 +384,7 @@ Profil interfejsu API nie jest elementem wymaganym w szablonie. Nawet jeśli dod
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "apiProfile": "2018–03-01-hybrid",
     "parameters": {
@@ -452,11 +452,11 @@ Następująca funkcja szablonu odwołania pobiera przestrzeń nazw punktu końco
 "diskUri":"[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))).primaryEndpoints.blob, 'container/myosdisk.vhd')]"
 ```
 
-Zamieniając wartość stałe punktu końcowego konta magazynu na funkcję `reference` szablonu, można użyć tego samego szablonu do wdrożenia w różnych środowiskach, które powiodło się bez wprowadzania jakichkolwiek zmian w odwołaniu do punktu końcowego.
+Zamieniając wartość stałe punktu końcowego konta magazynu na `reference` funkcję szablonu, można użyć tego samego szablonu do wdrożenia w różnych środowiskach, które powiodło się bez wprowadzania jakichkolwiek zmian w odwołaniu do punktu końcowego.
 
 ### <a name="refer-to-existing-resources-by-unique-id"></a>Zapoznaj się z istniejącymi zasobami według unikatowego identyfikatora
 
-Możesz również odwołać się do istniejącego zasobu z tej samej lub innej grupy zasobów, w ramach tej samej subskrypcji lub innej subskrypcji w ramach tej samej dzierżawy w tej samej chmurze. Aby pobrać właściwości zasobu, należy użyć unikatowego identyfikatora dla samego zasobu. Funkcja `resourceId` szablonu pobiera unikatowy identyfikator zasobu, taki jak SQL Server, jak pokazano w poniższym kodzie:
+Możesz również odwołać się do istniejącego zasobu z tej samej lub innej grupy zasobów, w ramach tej samej subskrypcji lub innej subskrypcji w ramach tej samej dzierżawy w tej samej chmurze. Aby pobrać właściwości zasobu, należy użyć unikatowego identyfikatora dla samego zasobu. `resourceId`Funkcja szablonu pobiera unikatowy identyfikator zasobu, taki jak SQL Server, jak pokazano w poniższym kodzie:
 
 ```json
 "outputs": {
@@ -467,7 +467,7 @@ Możesz również odwołać się do istniejącego zasobu z tej samej lub innej g
 }
 ```
 
-Następnie można użyć `resourceId` funkcji wewnątrz funkcji `reference` szablonu, aby pobrać właściwości bazy danych. Obiekt zwracany zawiera `fullyQualifiedDomainName` właściwość, która przechowuje pełną wartość punktu końcowego. Ta wartość jest pobierana w czasie wykonywania i zapewnia przestrzeń nazw punktu końcowego specyficznego dla środowiska chmury. Aby zdefiniować parametry połączenia bez zakodowana przestrzeni nazw punktu końcowego, można odwołać się do właściwości obiektu zwracanego bezpośrednio w parametrach połączenia, jak pokazano:
+Następnie można użyć `resourceId` funkcji wewnątrz `reference` funkcji szablonu, aby pobrać właściwości bazy danych. Obiekt zwracany zawiera `fullyQualifiedDomainName` Właściwość, która przechowuje pełną wartość punktu końcowego. Ta wartość jest pobierana w czasie wykonywania i zapewnia przestrzeń nazw punktu końcowego specyficznego dla środowiska chmury. Aby zdefiniować parametry połączenia bez zakodowana przestrzeni nazw punktu końcowego, można odwołać się do właściwości obiektu zwracanego bezpośrednio w parametrach połączenia, jak pokazano:
 
 ```json
 "[concat('Server=tcp:', reference(resourceId('sql', 'Microsoft.Sql/servers', parameters('test')), '2015-05-01-preview').fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('database'),';User ID=', parameters('username'), ';Password=', parameters('pass'), ';Encrypt=True;')]"
@@ -487,7 +487,7 @@ Aby pobrać listę dostępnych obrazów maszyn wirtualnych w lokalizacji, urucho
 az vm image list -all
 ```
 
-Tę samą listę można pobrać przy użyciu polecenia cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Azure PowerShell programu, a następnie określić lokalizację z `-Location` parametrem. Przykład:
+Tę samą listę można pobrać przy użyciu polecenia cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) Azure PowerShell programu, a następnie określić lokalizację z `-Location` parametrem. Na przykład:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -532,7 +532,7 @@ Aby uzyskać pełną listę dostępnych usług, zobacz [dostępne produkty wedł
 
 Dyski zarządzane obsługują magazyn dla dzierżawy platformy Azure. Zamiast jawnie utworzyć konto magazynu i określić identyfikator URI wirtualnego dysku twardego (VHD), można użyć usługi Managed disks do niejawnie wykonywania tych akcji podczas wdrażania maszyny wirtualnej. Usługi Managed disks rozszerzają dostępność, umieszczając wszystkie dyski z maszyn wirtualnych w tym samym zestawie dostępności w różnych jednostkach magazynu. Ponadto istniejące wirtualne dyski twarde mogą być konwertowane ze standardu do magazynu w warstwie Premium z znacznie mniejszym przestojem.
 
-Chociaż usługi Managed disks znajdują się w planie Azure Stack, nie są obecnie obsługiwane. Do momentu, w którym można tworzyć szablony spójne w chmurze dla Azure Stack, jawnie określając wirtualne `vhd` dyski twarde przy użyciu elementu w szablonie dla zasobu maszyny wirtualnej, jak pokazano poniżej:
+Chociaż usługi Managed disks znajdują się w planie Azure Stack, nie są obecnie obsługiwane. Do momentu, w którym można tworzyć szablony spójne w chmurze dla Azure Stack, jawnie określając wirtualne dyski twarde przy użyciu `vhd` elementu w szablonie dla zasobu maszyny wirtualnej, jak pokazano poniżej:
 
 ```json
 "storageProfile": {
@@ -584,13 +584,13 @@ Deklaratywne podejście szablonu umożliwia zdefiniowanie stanu końcowego zasob
 
 Istnieje wiele typów rozszerzeń maszyn wirtualnych. Podczas opracowywania szablonu spójności w chmurze upewnij się, że używasz tylko rozszerzeń, które są dostępne we wszystkich regionach, w których szablon jest obiektem docelowym.
 
-Aby pobrać listę rozszerzeń maszyn wirtualnych, które są dostępne dla określonego regionu (w tym przykładzie `myLocation`), uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure:
+Aby pobrać listę rozszerzeń maszyn wirtualnych, które są dostępne dla określonego regionu (w tym przykładzie `myLocation` ), uruchom następujące polecenie interfejsu wiersza polecenia platformy Azure:
 
 ```azurecli-interactive
 az vm extension image list --location myLocation
 ```
 
-Możesz również wykonać Azure PowerShell polecenie cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) i użyć `-Location` , aby określić lokalizację obrazu maszyny wirtualnej. Przykład:
+Możesz również wykonać Azure PowerShell polecenie cmdlet [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) i użyć, `-Location` Aby określić lokalizację obrazu maszyny wirtualnej. Na przykład:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
@@ -623,7 +623,7 @@ Można również użyć rozszerzeń maszyny wirtualnej w zestawach skalowania ma
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
-Wszystkie określone rozszerzenia są również w wersji. Ta wersja jest pokazana we `typeHandlerVersion` właściwości rozszerzenia maszyny wirtualnej. Upewnij się, że wersja określona w `typeHandlerVersion` elemencie rozszerzeń maszyny wirtualnej szablonu jest dostępna w lokalizacjach, w których planujesz wdrożyć szablon. Na przykład następujący kod określa wersję 1,7:
+Wszystkie określone rozszerzenia są również w wersji. Ta wersja jest pokazana we `typeHandlerVersion` Właściwości rozszerzenia maszyny wirtualnej. Upewnij się, że wersja określona w `typeHandlerVersion` elemencie rozszerzeń maszyny wirtualnej szablonu jest dostępna w lokalizacjach, w których planujesz wdrożyć szablon. Na przykład następujący kod określa wersję 1,7:
 
 ```json
 {

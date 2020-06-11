@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
-ms.openlocfilehash: 255c39eac2285a23403da2db893d9de8835f7d2c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 06/10/2020
+ms.openlocfilehash: 6aef73381b9294f6bbd83ff99c3fa99eafb4fb1f
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891542"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678317"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Skopiuj dane z programu i do usługi Dynamics 365 (Common Data Service) lub Dynamics CRM przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -65,7 +65,7 @@ Ten łącznik systemu Dynamics jest oparty na [narzędziach programu Dynamics Xr
 
 Aby użyć tego łącznika z uwierzytelnianiem podstawowym usługi AAD, należy skonfigurować uwierzytelnianie serwer-serwer (S2S) w Common Data Service lub Dynamics. Zapoznaj się z [tym artykułem](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) , aby uzyskać szczegółowe instrukcje.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -77,17 +77,17 @@ Dla połączonej usługi Dynamics są obsługiwane następujące właściwości.
 
 ### <a name="dynamics-365-and-dynamics-crm-online"></a>Dynamics 365 i Dynamics CRM Online
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi być ustawiona na wartość **Dynamics**, **DynamicsCrm**lub **CommonDataServiceForApps**. | Tak |
+| typ | Właściwość Type musi być ustawiona na wartość **Dynamics**, **DynamicsCrm**lub **CommonDataServiceForApps**. | Tak |
 | Typ wdrożenia | Typ wdrożenia wystąpienia programu Dynamics. Musi to być **"online"** dla usługi Dynamics online. | Tak |
-| identyfikator URI usługi | Adres URL usługi wystąpienia programu Dynamics, np. `https://adfdynamics.crm.dynamics.com`. | Tak |
+| identyfikator URI usługi | Adres URL usługi wystąpienia programu Dynamics, np. `https://adfdynamics.crm.dynamics.com` . | Tak |
 | authenticationType | Typ uwierzytelniania służący do nawiązywania połączenia z serwerem Dynamics. Dozwolone wartości to: **AADServicePrincipal** lub **"365"**. | Tak |
-| servicePrincipalId | Określ identyfikator klienta aplikacji Azure Active Directory. | Tak, gdy `AADServicePrincipal` korzystasz z uwierzytelniania |
-| servicePrincipalCredentialType | Określ typ poświadczeń, który ma być używany do uwierzytelniania nazwy głównej usługi. Dozwolone wartości to: **ServicePrincipalKey** lub **ServicePrincipalCert**. | Tak, gdy `AADServicePrincipal` korzystasz z uwierzytelniania |
-| servicePrincipalCredential | Określ poświadczenia jednostki usługi. <br>Jeśli jest `ServicePrincipalKey` używany jako typ poświadczeń `servicePrincipalCredential` , może to być ciąg (ADF zaszyfruje go po wdrożeniu połączonej usługi) lub odwołanie do wpisu tajnego w AKV. <br>W przypadku `ServicePrincipalCert` używania jako poświadczenia `servicePrincipalCredential` należy odwołać się do certyfikatu w AKV. | Tak, gdy `AADServicePrincipal` korzystasz z uwierzytelniania | 
-| nazwa użytkownika | Określ nazwę użytkownika, aby połączyć się z usługą Dynamics. | Tak, gdy `Office365` korzystasz z uwierzytelniania |
-| hasło | Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak, gdy `Office365` korzystasz z uwierzytelniania |
+| servicePrincipalId | Określ identyfikator klienta aplikacji Azure Active Directory. | Tak, gdy korzystasz z `AADServicePrincipal` uwierzytelniania |
+| servicePrincipalCredentialType | Określ typ poświadczeń, który ma być używany do uwierzytelniania nazwy głównej usługi. Dozwolone wartości to: **ServicePrincipalKey** lub **ServicePrincipalCert**. | Tak, gdy korzystasz z `AADServicePrincipal` uwierzytelniania |
+| servicePrincipalCredential | Określ poświadczenia jednostki usługi. <br>Jeśli `ServicePrincipalKey` jest używany jako typ poświadczeń, `servicePrincipalCredential` może to być ciąg (ADF zaszyfruje go po wdrożeniu połączonej usługi) lub odwołanie do wpisu tajnego w AKV. <br>W przypadku używania `ServicePrincipalCert` jako poświadczenia `servicePrincipalCredential` należy odwołać się do certyfikatu w AKV. | Tak, gdy korzystasz z `AADServicePrincipal` uwierzytelniania |
+| nazwa użytkownika | Określ nazwę użytkownika, aby połączyć się z usługą Dynamics. | Tak, gdy korzystasz z `Office365` uwierzytelniania |
+| hasło | Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak, gdy korzystasz z `Office365` uwierzytelniania |
 | Właściwością connectvia | [Środowisko Integration Runtime](concepts-integration-runtime.md) służy do nawiązywania połączenia z magazynem danych. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie dla źródła, tak dla ujścia, jeśli źródłowa usługa nie ma środowiska Integration Runtime |
 
 >[!NOTE]
@@ -174,9 +174,9 @@ Dla połączonej usługi Dynamics są obsługiwane następujące właściwości.
 
 *Dodatkowe właściwości, które są porównywane z usługą Dynamics Online, to "hostName" i "Port".*
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi być ustawiona na wartość **Dynamics**, **DynamicsCrm**lub **CommonDataServiceForApps**. | Tak |
+| typ | Właściwość Type musi być ustawiona na wartość **Dynamics**, **DynamicsCrm**lub **CommonDataServiceForApps**. | Tak |
 | Typ wdrożenia | Typ wdrożenia wystąpienia programu Dynamics. Musi to być **"OnPremisesWithIfd"** dla platformy Dynamics w środowisku lokalnym z IFD.| Tak |
 | Nazw | Nazwa hosta lokalnego serwera Dynamics. | Tak |
 | port | Port lokalnego serwera Dynamics. | Nie, wartość domyślna to 443 |
@@ -220,9 +220,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z i do systemu Dynamics, obsługiwane są następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość **DynamicsEntity**, **DynamicsCrmEntity**lub **CommonDataServiceForAppsEntity**. |Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość **DynamicsEntity**, **DynamicsCrmEntity**lub **CommonDataServiceForAppsEntity**. |Tak |
 | entityName | Logiczna Nazwa jednostki do pobrania. | Nie dla źródła (Jeśli określono "zapytanie" w źródle aktywności), tak dla ujścia |
 
 **Przykład:**
@@ -252,9 +252,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z systemu Dynamics, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi mieć wartość **DynamicsSource**, **DynamicsCrmSource**lub **CommonDataServiceForAppsSource**. | Tak |
+| typ | Właściwość Type źródła działania Copy musi mieć wartość **DynamicsSource**, **DynamicsCrmSource**lub **CommonDataServiceForAppsSource**. | Tak |
 | query | FetchXML to własny język zapytań używany w usłudze Dynamics (online i lokalna). Zobacz poniższy przykład. Aby dowiedzieć się więcej, zobacz [Tworzenie zapytań za pomocą FetchXML](https://msdn.microsoft.com/library/gg328332.aspx). | Nie (Jeśli określono "EntityName" w zestawie danych) |
 
 >[!NOTE]
@@ -320,9 +320,9 @@ Aby skopiować dane z systemu Dynamics, w sekcji **Źródło** działania kopiow
 
 Aby skopiować dane do programu Dynamics, w sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type ujścia działania Copy musi mieć wartość **DynamicsSink**, **DynamicsCrmSink**lub **CommonDataServiceForAppsSink**. | Tak |
+| typ | Właściwość Type ujścia działania Copy musi mieć wartość **DynamicsSink**, **DynamicsCrmSink**lub **CommonDataServiceForAppsSink**. | Tak |
 | writeBehavior | Zachowanie zapisu operacji.<br/>Dozwolona wartość to **"upsert"**. | Tak |
 | alternateKeyName | Określ alternatywną nazwę klucza zdefiniowaną w jednostce, aby wykonać operację "upsert". | Nie |
 | writeBatchSize | Liczba wierszy danych zapisywana w Dynamics w każdej partii. | Nie (wartość domyślna to 10) |
@@ -379,25 +379,53 @@ Skonfiguruj odpowiedni typ danych Data Factory w strukturze zestawu danych na po
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode. BigInt | Długo | ✓ | ✓ |
 | AttributeTypeCode. Boolean | Boolean | ✓ | ✓ |
-| AttributeType. Customer | Guid (identyfikator GUID) | ✓ | |
+| AttributeType. Customer | GUID | ✓ | ✓ (zobacz [wskazówki](#writing-data-to-lookup-field)) |
 | AttributeType. DateTime | Datetime (data/godzina) | ✓ | ✓ |
 | AttributeType. Decimal | Wartość dziesiętna | ✓ | ✓ |
 | AttributeType. Double | Double | ✓ | ✓ |
 | AttributeType. EntityName | String | ✓ | ✓ |
 | AttributeType. Integer | Int32 | ✓ | ✓ |
-| AttributeType. Lookup | Guid (identyfikator GUID) | ✓ | ✓ (z skojarzonym pojedynczym elementem docelowym) |
+| AttributeType. Lookup | GUID | ✓ | ✓ (zobacz [wskazówki](#writing-data-to-lookup-field)) |
 | AttributeType. ManagedProperty | Boolean | ✓ | |
 | AttributeType. MEMO | String | ✓ | ✓ |
 | AttributeType. Money | Wartość dziesiętna | ✓ | ✓ |
-| AttributeType. Owner | Guid (identyfikator GUID) | ✓ | |
+| AttributeType. Owner | GUID | ✓ | ✓ (zobacz [wskazówki](#writing-data-to-lookup-field)) |
 | AttributeType. Lista wyboru | Int32 | ✓ | ✓ |
-| AttributeType. unikatowy identyfikator | Guid (identyfikator GUID) | ✓ | ✓ |
+| AttributeType. unikatowy identyfikator | GUID | ✓ | ✓ |
 | AttributeType. String | String | ✓ | ✓ |
 | AttributeType. State | Int32 | ✓ | ✓ |
 | AttributeType. status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
 > Typy danych Dynamics, attributeType. CalendarRules, AttributeType. MultiSelectPicklist i AttributeType. PartyList nie są obsługiwane.
+
+## <a name="writing-data-to-lookup-field"></a>Zapisywanie danych w polu odnośnika
+
+Aby zapisać dane w polu odnośnika z wieloma obiektami docelowymi, np. *klienta* i *właściciela*, postępuj zgodnie z poniższymi wskazówkami i przykładami:
+
+1. Utwórz źródło zawierające zarówno wartość pola, jak i odpowiednią nazwę jednostki docelowej.
+   - Jeśli wszystkie rekordy są mapowane na tę samą jednostkę docelową, upewnij się, że dane źródłowe zawierają kolumnę, która przechowuje nazwę jednostki docelowej, lub Dodaj dodatkową kolumnę w źródle działania kopiowania, aby zdefiniować jednostkę docelową.
+   - Jeśli różne rekordy są mapowane na inną jednostkę docelową, upewnij się, że dane źródłowe zawierają kolumnę, w której jest przechowywana odpowiadająca Nazwa jednostki docelowej.
+
+2. Mapuj kolumny wartości i odwołania do jednostek ze źródła do ujścia. Kolumna odwołania do jednostki musi być zamapowana na kolumnę wirtualną przy użyciu specjalnego wzorca nazewnictwa `{lookup_field_name}@EntityReference` . W rzeczywistości nie istnieje w usłudze Dynamics, ale służy do wskazywania, że jest to kolumna metadanych danego pola wyszukiwania wieloobiektowego.
+
+ Na przykład źródło ma dwie kolumny:
+
+- `CustomerField`kolumna typu *GUID*, która jest wartością klucza podstawowego jednostki docelowej w Dynamics.
+- `Target`kolumna typu *String*, która jest nazwą logiczną jednostki docelowej. 
+
+I chcesz skopiować takie dane do pola jednostki datasink `CustomerField` typu *Klient*. 
+
+W mapowaniu kolumny działania kopiowania Mapuj dwie kolumny w następujący sposób:
+
+- `CustomerField` -> `CustomerField`: to jest normalne Mapowanie pól.
+- `Target` -> `CustomerField@EntityReference`: kolumna ujścia jest kolumną wirtualną reprezentującą odwołanie do jednostki. Wprowadź taką nazwę pola w mapowaniu, ponieważ nie będzie ona wyświetlana przez zaimportowanie schematów.
+
+![Mapowanie kolumn pola wyszukiwania dynamiki](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
+
+Jeśli wszystkie rekordy źródłowe są mapowane na tę samą jednostkę docelową, a dane źródłowe nie zawierają nazwy jednostki docelowej, Oto skrót: w źródle działania kopiowania Dodaj dodatkową kolumnę. W takim przypadku można określić nazwę odpowiadającą wzorzec `{lookup_field_name}@EntityReference` i wartość jako nazwę jednostki docelowej. w takim przypadku jawne mapowanie kolumny stanie się opcjonalne, ponieważ działanie Copy domyślnie mapuje kolumny według nazwy.
+
+![Pole wyszukiwania Dynamics Dodaj odwołanie do jednostki](./media/connector-dynamics-crm-office-365/connector-dynamics-add-entity-reference-column.png)
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup
 

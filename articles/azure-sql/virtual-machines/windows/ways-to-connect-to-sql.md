@@ -4,7 +4,6 @@ description: Dowiedz się, jak nawiązać połączenie z SQL Serverą maszyną w
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -14,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c014799cc0e6a2c985bb6df5872d65880e7d2a26
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: aa0fdddbf31cadad55582f4d45c8e536ce74acd9
+ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219399"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84667433"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Nawiązywanie połączenia z maszyną wirtualną SQL Server na platformie Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,8 +41,8 @@ Dostępne są następujące opcje łączności:
 
 | Opcja | Opis |
 |---|---|
-| **Społeczeństwo** | Połącz się z SQL Server przez Internet. |
-| **Użytek** | Połącz się z SQL Server w tej samej sieci wirtualnej. |
+| **Publiczne** | Połącz się z SQL Server przez Internet. |
+| **Prywatne** | Połącz się z SQL Server w tej samej sieci wirtualnej. |
 | **LAN** | Połącz się z SQL Server lokalnie na tej samej maszynie wirtualnej. | 
 
 W poniższych sekcjach opisano opcje **publiczne** i **prywatne** bardziej szczegółowo.

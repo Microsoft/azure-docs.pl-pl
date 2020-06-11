@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.custom: tracking-python
-ms.openlocfilehash: 70b9f1aaeaedd7968aeaf09aebe4e53682a60019
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 792b0ef3f31bfb9dd26c153d5bb0eeab6ba8baf9
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629366"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677988"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurowanie wielu wzorców w aplikacjach korzystających z Azure Cosmos DB
 
@@ -56,18 +56,17 @@ CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-s
 CosmosClient client = cosmosClientBuilder.Build();
 ```
 
-## <a name="java-v4-sdk"></a>Zestaw SDK Java v4
+## <a name="java-v4-sdk"></a><a id="java4-multi-master"></a>Zestaw SDK Java v4
 
 Aby włączyć obsługę wielu wzorców w aplikacji, wywołaj `.multipleWriteRegionsEnabled(true)` i `.preferredRegions(preferredRegions)` w konstruktorze klienta, gdzie `preferredRegions` jest `List` zawierający jeden element — czyli region, w którym aplikacja jest wdrażana i gdzie Cosmos DB jest replikowana:
 
-### <a id="java4-multi-master"></a>
-#### <a name="async"></a>[Asynchroniczne](#tab/api-async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
 
    [Java SDK v4](sql-api-sdk-java-v4.md) (Maven [com. Azure:: Azure-Cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ConfigureMultimasterAsync)]
 
-#### <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+# <a name="sync"></a>[Synchronizuj](#tab/api-sync)
 
    [Java SDK v4](sql-api-sdk-java-v4.md) (Maven [com. Azure:: Azure-Cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) — interfejs API synchronizacji
 
@@ -75,9 +74,9 @@ Aby włączyć obsługę wielu wzorców w aplikacji, wywołaj `.multipleWriteReg
 
 --- 
 
-## <a name="async-java-v2-sdk-maven-commicrosoftazureazure-cosmosdb"></a><a id="java"></a>[Async Java v2 SDK](sql-api-sdk-async-java.md) (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
+## <a name="async-java-v2-sdk"></a><a id="java2-milti-master"></a>Asynchroniczne środowisko Java w wersji 2 SDK
 
-Aby włączyć wiele wzorców w aplikacji, ustaw `policy.setUsingMultipleWriteLocations(true)` i Ustaw region, `policy.setPreferredLocations` w którym aplikacja jest wdrażana i gdzie Cosmos DB jest replikowana:
+Zestaw Java v2 SDK użył Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb). Aby włączyć wiele wzorców w aplikacji, ustaw `policy.setUsingMultipleWriteLocations(true)` i Ustaw region, `policy.setPreferredLocations` w którym aplikacja jest wdrażana i gdzie Cosmos DB jest replikowana:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -92,7 +91,7 @@ AsyncDocumentClient client =
         .withConnectionPolicy(policy).build();
 ```
 
-## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Node. js, JavaScript i zestawy SDK TypeScript
+## <a name="nodejs-javascript-and-typescript-sdks"></a><a id="javascript"></a>Node.js, JavaScript i zestawy SDK TypeScript
 
 Aby włączyć wiele wzorców w aplikacji, ustaw wartość `connectionPolicy.UseMultipleWriteLocations` `true` . Ponadto ustaw `connectionPolicy.PreferredLocations` do regionu, w którym aplikacja jest wdrażana i gdzie Cosmos DB jest replikowana:
 

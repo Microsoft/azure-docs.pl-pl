@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77371355"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678770"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Zamykanie maszyny wirtualnej systemu Windows Azure jest wstrzymywane po "ponownym uruchomieniu", "zamykanie" lub "zatrzymywanie usług"
 
@@ -43,25 +43,25 @@ System Windows używa procesu zamykania do wykonywania operacji konserwacyjnych 
 
 Użyj [konsoli szeregowej](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) , aby wykonać następujące czynności:
 
-1. Otwórz program PowerShell w środowisku administracyjnym i sprawdź, czy usługa zawiesiła się po zatrzymywaniu.
+1. Otwórz program PowerShell w środowisku administracyjnym i sprawdź, czy usługa przestanie reagować na zatrzymanie.
 
    ``
    Get-Service | Where-Object {$_.Status -eq "STOP_PENDING"}
    ``
 
-2. W administracyjnym CMD Pobierz identyfikator PID zawieszonej usługi.
+2. W administracyjnym CMD Pobierz identyfikator PID usługi niereagującej.
 
    ``
    tasklist /svc | findstr /i <STOPING SERVICE>
    ``
 
-3. Pobierz próbkę zrzutu pamięci z niezawieszonego procesu <STOPPING SERVICE>.
+3. Pobierz próbkę zrzutu pamięci z procesu, który nie odpowiada <STOPPING SERVICE> .
 
    ``
    procdump.exe -s 5 -n 3 -ma <PID>
    ``
 
-4. Teraz Kasuj proces, aby odblokować proces zamykania.
+4. Teraz Kasuj proces nieodpowiadający, aby odblokować proces zamykania.
 
    ``
    taskkill /PID <PID> /t /f
@@ -103,7 +103,7 @@ Aby włączyć dziennik zrzutów i konsolę szeregową, uruchom następujący sk
 
 1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień (Uruchom jako administrator).
 
-2. Uruchom następujący skrypt:
+2. Uruchom poniższy skrypt:
 
    W tym skrypcie Załóżmy, że litera dysku przypisana do dołączonego dysku systemu operacyjnego to F. Zastąp ją odpowiednią wartością w maszynie wirtualnej.
 

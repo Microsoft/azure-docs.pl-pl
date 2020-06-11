@@ -1,18 +1,18 @@
 ---
-title: Dv3 i Dsv3 — seria Virtual Machines platformy Azure
+title: Serie Dv3 i Dsv3
 description: Specyfikacje dotyczące maszyn wirtualnych z serii Dv3 i Dsv3.
-services: virtual-machines
 author: joelpelley
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
-ms.author: lahugh
-ms.openlocfilehash: 9ea5811fa20ea4866655de74d79ff3905ba03f16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: jushiman
+ms.openlocfilehash: 02dc0b83dcf33dbe0ae9f5bb8eb913342a00bd74
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164410"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677240"
 ---
 # <a name="dv3-and-dsv3-series"></a>Serie Dv3 i Dsv3
 

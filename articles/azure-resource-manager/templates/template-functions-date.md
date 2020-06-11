@@ -3,12 +3,12 @@ title: Funkcje szablonu — Data
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pracy z datami.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0c31b26361a262a502b2a9e0fb068391846cab4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22bb3c80acb504649e4f5485c4d78dcd04277ec0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192301"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678005"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funkcje daty dla szablonów ARM
 
@@ -72,7 +72,7 @@ Poniższy przykładowy szablon pokazuje różne sposoby dodawania wartości czas
 }
 ```
 
-Gdy poprzedni szablon zostanie wdrożony z czasem podstawowym programu `2020-04-07 14:53:14Z`, dane wyjściowe są następujące:
+Gdy poprzedni szablon zostanie wdrożony z czasem podstawowym programu `2020-04-07 14:53:14Z` , dane wyjściowe są następujące:
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
@@ -164,7 +164,7 @@ Poniższy przykładowy szablon pokazuje różne formaty wartości daty i godziny
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "utcValue": {

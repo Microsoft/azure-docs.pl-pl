@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 461602aee6d88f8d8f829fcf89e3433a8185e34d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 92b7b1f72cde355f87761807708348b988bcc0a4
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658943"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676877"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
 
@@ -20,7 +20,8 @@ ms.locfileid: "83658943"
 > * [Zestaw Java SDK v4](performance-tips-java-sdk-v4-sql.md)
 > * [Async Java SDK 2](performance-tips-async-java.md)
 > * [Sync Java SDK 2](performance-tips-java.md)
-> * [.NET](performance-tips.md)
+> * [Zestaw .NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [Zestaw .NET SDK V2](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -296,7 +297,7 @@ W przypadku innych platform (Red Hat, Windows, Mac itp.) zapoznaj się z tymi in
 
     Złożoność zapytania wpływa na liczbę jednostek żądań używanych dla operacji. Liczba predykatów, charakter predykatów, liczba UDF i rozmiar zestawu danych źródłowych wpływają na koszt operacji zapytania.
 
-    Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-opłata](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) , aby zmierzyć liczbę jednostek żądań używanych przez te operacje. Możesz również przyjrzeć się równoważnej właściwości RequestCharge w ResourceResponse \< t> lub FeedResponse \< t>.
+    Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-opłata](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) , aby zmierzyć liczbę jednostek żądań używanych przez te operacje. Możesz również przyjrzeć się równoważnej właściwości RequestCharge w ResourceResponse \<T> lub FeedResponse \<T> .
 
     ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-requestcharge"></a>Async Java SDK V2 (Maven com. Microsoft. Azure:: Azure-cosmosdb)
 

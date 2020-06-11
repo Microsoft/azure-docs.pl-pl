@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: 0e9ce74d62bb45c84f8bca2d71579b05c0ba656a
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7fc7e4d5d402bfb21a30798f64e31cbbef8ccdd0
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485742"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677954"
 ---
 # <a name="quickstart-create-an-ubuntu-linux-virtual-machine-using-a-resource-manager-template"></a>Szybki Start: Tworzenie maszyny wirtualnej Ubuntu Linux przy użyciu szablonu Menedżer zasobów
 
@@ -23,8 +23,13 @@ W tym przewodniku szybki start pokazano, jak za pomocą szablonu Menedżer zasob
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+## <a name="prerequisites"></a>Wymagania wstępne
 
-## <a name="review-the-template"></a>Przegląd szablonu
+Brak.
+
+## <a name="create-an-ubuntu-linux-virtual-machine"></a>Tworzenie maszyny wirtualnej Ubuntu Linux
+
+### <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-vm-simple-linux/).
 
@@ -35,19 +40,17 @@ W szablonie zdefiniowano kilka zasobów:
 
 - [**Microsoft. Network/virtualNetworks/podsieci**](/azure/templates/Microsoft.Network/virtualNetworks/subnets): Utwórz podsieć.
 - [**Microsoft. Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts): Tworzenie konta magazynu.
-- [**Microsoft. Network/adresów publicipaddress**](/azure/templates/Microsoft.Network/publicIPAddresses): Tworzenie publicznego adresu IP.
+- [**Microsoft. Network/networkInterfaces**](/azure/templates/Microsoft.Network/networkInterfaces): Tworzenie karty sieciowej.
 - [**Microsoft. Network/networkSecurityGroups**](/azure/templates/Microsoft.Network/networkSecurityGroups): Tworzenie sieciowej grupy zabezpieczeń.
 - [**Microsoft. Network/virtualNetworks**](/azure/templates/Microsoft.Network/virtualNetworks): tworzenie sieci wirtualnej.
-- [**Microsoft. Network/networkInterfaces**](/azure/templates/Microsoft.Network/networkInterfaces): Tworzenie karty sieciowej.
+- [**Microsoft. Network/adresów publicipaddress**](/azure/templates/Microsoft.Network/publicIPAddresses): Tworzenie publicznego adresu IP.
 - [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/Microsoft.Compute/virtualMachines): Tworzenie maszyny wirtualnej.
 
-
-
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Ten szablon umożliwia utworzenie magazynu kluczy oraz wpisu tajnego.
 
-    [![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
+    [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-vm-simple-linux%2fazuredeploy.json)
 
 1. Wybierz lub wprowadź następujące wartości. Użyj wartości domyślnych, jeśli są dostępne.
 
@@ -76,7 +79,7 @@ Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal mo�
 Za pomocą Azure Portal można sprawdzić maszynę wirtualną i inne utworzone zasoby. Po zakończeniu wdrażania wybierz pozycję **Przejdź do grupy zasobów** , aby wyświetlić maszynę wirtualną i inne zasoby.
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po usunięciu grupy zasobów, która usunie maszynę wirtualną i wszystkie zasoby w grupie zasobów, nie są już potrzebne. 
 

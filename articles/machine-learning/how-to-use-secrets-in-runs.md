@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z wpisów tajnych w przebiegach szkoleniowych
+title: Wpisy tajne uwierzytelniania w szkoleniu
 titleSuffix: Azure Machine Learning
 description: Przekaż wpisy tajne do przebiegów szkoleniowych w sposób bezpieczny przy użyciu Key Vault obszaru roboczego
 services: machine-learning
@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: dd3ebeb0f9c55fcc4dee090097459326cbe08eed
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 8fefeb162dd6f036c21485715dd680972823fbaa
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434439"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84677479"
 ---
-# <a name="use-secrets-in-training-runs"></a>Korzystanie z wpisów tajnych w przebiegach szkoleniowych
+# <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Użyj wpisów tajnych poświadczeń uwierzytelniania w Azure Machine Learningych przebiegach szkoleniowych
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym artykule dowiesz się, jak korzystać z wpisów tajnych w programie szkoleniowym w sposób bezpieczny. Informacje o uwierzytelnianiu, takie jak nazwa użytkownika i hasło, są tajne. Na przykład, jeśli łączysz się z zewnętrzną bazą danych w celu wykonywania zapytań dotyczących danych szkoleniowych, musisz przekazać nazwę użytkownika i hasło do zdalnego kontekstu uruchomienia. Kodowanie takich wartości do skryptów szkoleniowych w postaci zwykłego tekstu jest niebezpieczne, ponieważ uwidacznia wpis tajny. 

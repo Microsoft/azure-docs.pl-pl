@@ -1,24 +1,20 @@
 ---
-title: Przegląd jednostki obliczeniowej platformy Azure | Microsoft Docs
+title: Przegląd jednostki obliczeniowej platformy Azure
 description: Przegląd koncepcji jednostek obliczeniowych platformy Azure. ACU umożliwia porównanie wydajności procesora CPU w jednostkach SKU platformy Azure.
-services: virtual-machines
-documentationcenter: ''
 author: mimckitt
-manager: vashan
-editor: ''
-tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines
-ms.devlang: na
+ms.subservice: sizes
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 738ce8dad7237f9703d3ccb998c221ffec29dc17
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.reviewer: davberg
+ms.openlocfilehash: 3fda339b234b83bae9cbf0b6614cb75c66031f71
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629103"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678532"
 ---
 # <a name="azure-compute-unit-acu"></a>Jednostka obliczeniowa platformy Azure (ACU)
 
@@ -55,12 +51,12 @@ Funkcja Hyper-Threading i możliwość uruchamiania wirtualizacji zagnieżdżone
 | [F1s — F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |
 | [G1-G5](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [GS1 — GS5](sizes-previous-gen.md) |180 - 240* | 1:1 |
-| [H](h-series.md) |290 - 300* | 1:1 |
+| [C](h-series.md) |290 - 300* | 1:1 |
 | [HB](hb-series.md) |199 – 216 * * | 1:1 |
 | [WĘGLOWODOR](hc-series.md) |297 – 315 * | 1:1 |
 | [L4s — L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 — L80s_v2](lsv2-series.md) |150 – 175 * * | 2:1 |
-| [M](m-series.md) | 160 – 180 | 2:1\*\*\* |
+| [Mol](m-series.md) | 160 – 180 | 2:1\*\*\* |
 
 Poniżej znajdują się linki do dodatkowych informacji o różnych rozmiarach:
 

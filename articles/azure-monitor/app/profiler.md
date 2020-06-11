@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f0702c09d2803507f07f74d97767c781825bf34f
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 9dffa4d32980a16377f33a4ddb23987b3c2f3dd5
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778560"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678594"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilowanie aplikacji Azure App Service na żywo za pomocą Application Insights
 
@@ -25,9 +25,9 @@ Aby włączyć program Profiler dla aplikacji, postępuj zgodnie z poniższymi i
 
 Application Insights Profiler jest wstępnie zainstalowany w ramach środowiska uruchomieniowego App Services. W poniższych krokach pokazano, jak włączyć ją dla App Service. Wykonaj następujące kroki, nawet jeśli zestaw SDK usługi App Insights został uwzględniony w aplikacji w czasie kompilacji.
 
-1. Włącz ustawienie "Always On" dla usługi App Service. Możesz zaktualizować ustawienie na stronie Konfiguracja App Service w obszarze Ustawienia ogólne.
-1. Przejdź do okienka **App Services** w Azure Portal.
-1. Przejdź do okna **ustawienia > Application Insights** .
+1. Przejdź do panelu sterowania platformy Azure, aby uzyskać App Service.
+1. Włącz ustawienie "Always On" dla usługi App Service. To ustawienie można znaleźć w obszarze **Ustawienia**, na stronie **Konfiguracja** (Zobacz zrzut ekranu w następnym kroku), a następnie kliknąć kartę **Ustawienia ogólne** .
+1. Przejdź do strony **ustawienia > Application Insights** .
 
    ![Włączanie usługi App Insights w portalu App Services](./media/profiler/AppInsights-AppServices.png)
 
@@ -50,7 +50,7 @@ Oto ustawienia, które są konieczne do włączenia profilera:
 |DiagnosticServices_EXTENSION_VERSION | ~ 3 |
 
 
-Można ustawić te wartości przy użyciu [szablonów Azure Resource Manager](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [programu Azure PowerShell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+Można ustawić te wartości przy użyciu [szablonów Azure Resource Manager](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp), [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
 
 ### <a name="enabling-profiler-for-other-clouds-manually"></a>Ręczne włączanie profilera dla innych chmur
 

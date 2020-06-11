@@ -5,12 +5,12 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: aa1999df83c3a3926f3410ea7ee48af75b2dd515
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: ceab81f4dd9089acc2d902f80e7acc95e9f9cb11
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84231483"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676458"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Szybki Start: Tworzenie pierwszej funkcji na platformie Azure przy użyciu programu Visual Studio
 
@@ -40,7 +40,7 @@ Program Visual Studio tworzy projekt i klasę, która zawiera kod standardowy dl
 
 1. W kodzie zmień nazwę klasy Function1 na "HttpExample".
 
-1. W `HttpTrigger` metodzie o nazwie `run` Zmień nazwę `FunctionName` atrybutu metody na `HttpExample` .
+1. W `HttpTrigger` metodzie o nazwie `Run` Zmień nazwę `FunctionName` atrybutu metody na `HttpExample` .
 
 Po zmianie nazwy funkcji można ją przetestować na komputerze lokalnym.
 
@@ -76,7 +76,7 @@ Przed opublikowaniem projektu musisz mieć aplikację funkcji w ramach subskrypc
 
     :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png" alt-text="Odpowiedź funkcji wyświetlona w przeglądarce":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Inne przewodniki Szybki start w tej kolekcji bazują na tym przewodniku. Jeśli planujesz współpracować z kolejnymi przewodnikami Szybki Start, samouczkami lub z dowolnymi usługami utworzonymi w ramach tego przewodnika Szybki Start, nie czyść zasobów.
 

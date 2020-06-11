@@ -2,18 +2,18 @@
 title: Seria B — Virtual Machines platformy Azure
 description: Opisuje serię B pojemności maszyn wirtualnych platformy Azure z możliwością przełożenia.
 services: virtual-machines
+ms.subservice: sizes
 author: ayshakeen
-manager: gwallace
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e7411f30ac0ef03ecd621f4cf6db5cd9350201b
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78161084"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678549"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych z serii B
 
@@ -58,7 +58,7 @@ Linia bazowa: 270%
 
 ![Wykres danych ruchu godzinowego](./media/b-series-burstable/office-workload.png)
 
-| Scenariusz | Time | Użycie procesora CPU (%) | Środki skumulowane<sup>1</sup> | Dostępne kredyty |
+| Scenariusz | Godzina | Użycie procesora CPU (%) | Środki skumulowane<sup>1</sup> | Dostępne kredyty |
 | --- | --- | --- | --- | --- |
 | Wdrożenie B16ms | Wdrożenie | Wdrożenie  | 480 (końcowe środki) | 480 |
 | Brak ruchu | 0:00 | 0 | 162 | 642 |
@@ -86,7 +86,7 @@ Linia bazowa: 270%
 | Brak ruchu | 22:00 | 0 | 162 | 642 |
 | Brak ruchu | 23:00 | 0 | 162 | 804 |
 
-<sup>1</sup> zakumulowane kredyty/kredyty używane w ciągu godziny są równoważne: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes`.  
+<sup>1</sup> zakumulowane kredyty/kredyty używane w ciągu godziny są równoważne: `((Base CPU perf of VM - CPU Usage) / 100) * 60 minutes` .  
 
 Dla D16s_v3, która ma 16 procesorów wirtualnych vCPU i 64 GiB pamięci, stawka godzinowa wynosi $0,936 za godzinę (miesięcznie $673,92) i dla B16ms z 16 procesorów wirtualnych vCPU i 64 $0,794 GiB <b>Spowoduje to 15% oszczędności!</b>
 

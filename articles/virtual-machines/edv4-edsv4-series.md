@@ -1,19 +1,20 @@
 ---
-title: Edv4 i Edsv4 — seria Virtual Machines platformy Azure
+title: Serie Edv4 i Edsv4
 description: Specyfikacje dotyczące maszyn wirtualnych z serii Ev4, Edv4, Esv4 i Edsv4.
 author: brbell
 ms.author: brbell
-ms.reviewer: cynthn
+ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.service: virtual-machines
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: 4f484b92514a374b20eb0c3fa0a2e4e638fd7587
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 79623f48e8aaf89636910d47ec4daa1e3ce83bb3
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488730"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84676628"
 ---
 # <a name="edv4-and-edsv4-series"></a>Serie Edv4 i Edsv4
 
@@ -33,7 +34,7 @@ Migracja na żywo: obsługiwane
 
 Aktualizacje z zachowaniem pamięci: obsługiwane
 
-| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i tymczasowej: IOPS/MB/s | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
+| Rozmiar | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu w pamięci podręcznej i temp: IOPS/MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) |
 |---|---|---|---|---|---|---|
 | Standard_E2d_v4  | 2 | 16 | 75 | 4 | 19000/120 | 2/1000 |
 | Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242 | 2/2000 |
