@@ -1,5 +1,5 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 description: " — plik"
 author: anbene
 ms.author: mingshen

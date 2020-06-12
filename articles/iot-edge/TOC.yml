@@ -265,16 +265,12 @@
       href: 'https://github.com/Azure/azure-iot-explorer'
     - name: Narzędzie iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'
-    - name: Pytania i odpowiedzi Microsoft — strona pytania
-      href: 'https://docs.microsoft.com/answers/topics/azure-iot-edge.html'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/iot-edge/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Aktualizacje usług
       href: 'https://azure.microsoft.com/updates/?product=iot-edge'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-iot-edge'
     - name: Techniczne analizy przypadków
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Filmy wideo
