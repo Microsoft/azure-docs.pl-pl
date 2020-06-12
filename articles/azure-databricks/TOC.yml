@@ -259,7 +259,7 @@
                 - name: Obsługa nieprawidłowych rekordów i plików
                   href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
                   maintainContext: true
-                - name: Wywłaszczanie zadań na potrzeby dużej współbieżności
+                - name: Wywłaszczanie zadania na potrzeby wysokiej współbieżności
                   href: /azure/databricks/spark/latest/spark-sql/preemption
                   maintainContext: true
                 - name: Obsługa dużych zapytań w interaktywnych przepływach pracy
@@ -1072,6 +1072,8 @@
               maintainContext: true
         - name: Najlepsze rozwiązania z zakresu RODO
           href: /azure/databricks/security/privacy/gdpr-delta
+        - name: Lista dostępu do adresów IP
+          href: /azure/databricks/security/network/ip-access-list
         - name: Szyfrowanie ruchu między węzłami roboczymi klastra
           href: /azure/databricks/security/encryption/encrypt-otw
         - name: Włączanie kluczy zarządzanych przez klienta na potrzeby notesów
@@ -1160,10 +1162,13 @@
             - name: Zarządzanie dostępem do funkcji notesu
               href: /azure/databricks/administration-guide/workspace/notebooks
               maintainContext: true
-        - name: Włączanie konfiguracji klastra
+        - name: Zarządzanie klastrami
           items:
-            - name: Omówienie konfiguracji klastra
+            - name: Zarządzanie opcjami konfiguracji klastra
               href: /azure/databricks/administration-guide/clusters/index
+              maintainContext: true
+            - name: Zarządzanie zasadami klastra
+              href: /azure/databricks/administration-guide/clusters/policies
               maintainContext: true
             - name: Włączanie usług kontenerów
               href: /azure/databricks/administration-guide/clusters/container-services
@@ -1191,8 +1196,6 @@
             - name: Ustawienia trasy zdefiniowane przez użytkownika
               href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
               maintainContext: true
-            - name: Adresy IP bazy danych MySQL
-              href: mysql-ip-address.md
     - name: Rozwiązywanie problemów
       items:
         - name: Często zadawane pytania
@@ -1256,6 +1259,18 @@
               maintainContext: true
             - name: Interfejs użytkownika platformy Apache Spark pokazuje wartość mniejszą niż całkowita pamięć węzła
               href: /azure/databricks/kb/clusters/spark-shows-less-memory
+              maintainContext: true
+            - name: Limit rdzeni procesora CPU uniemożliwia utworzenie klastra
+              href: /azure/databricks/kb/clusters/azure-core-limit
+              maintainContext: true
+            - name: Limit adresów IP uniemożliwia utworzenie klastra
+              href: /azure/databricks/kb/clusters/azure-ip-limit
+              maintainContext: true
+            - name: Wolne uruchamianie klastra i brakujące węzły
+              href: /azure/databricks/kb/clusters/azure-nodes-not-acquired
+              maintainContext: true
+            - name: Konfigurowanie klastra w celu używania niestandardowego serwera NTP
+              href: /azure/databricks/kb/clusters/use-internal-ntp
               maintainContext: true
         - name: Zarządzanie danymi
           items:
@@ -1332,6 +1347,9 @@
               maintainContext: true
             - name: Optymalizowanie wydajności odczytu ze źródeł danych JDBC
               href: /azure/databricks/kb/data-sources/jdbc-optimize-read
+              maintainContext: true
+            - name: Ograniczone operacje zapisu usług ADLS i WASB
+              href: /azure/databricks/kb/data-sources/azure-storage-throttling
               maintainContext: true
         - name: DBFS
           items:
@@ -1500,6 +1518,9 @@
             - name: Rozwiązywanie problemów z poleceniem anulowania
               href: /azure/databricks/kb/notebooks/troubleshoot-cancel-command
               maintainContext: true
+            - name: Pobieranie bieżącej nazwy użytkownika dla notesu
+              href: /azure/databricks/kb/notebooks/get-notebook-username
+              maintainContext: true
         - name: Zabezpieczenia i uprawnienia
           items:
             - name: Niepowodzenie tworzenia tabeli z powodu wyjątku zabezpieczeń
@@ -1642,28 +1663,31 @@
                     - name: Rozwiązywanie problemów z tokenami dostępu usługi Azure AD
                       href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
                       maintainContext: true
-            - name: Klastry
+            - name: Interfejs API klastrów
               href: /azure/databricks/dev-tools/api/latest/clusters
               maintainContext: true
-            - name: DBFS
+            - name: Interfejsy API zasad klastra
+              href: /azure/databricks/dev-tools/api/latest/policies
+              maintainContext: true
+            - name: Interfejs API DBFS
               href: /azure/databricks/dev-tools/api/latest/dbfs
               maintainContext: true
-            - name: Grupy
+            - name: Interfejs API grup
               href: /azure/databricks/dev-tools/api/latest/groups
               maintainContext: true
             - name: Interfejs API pul wystąpień
               href: /azure/databricks/dev-tools/api/latest/instance-pools
               maintainContext: true
-            - name: Stanowiska
+            - name: Interfejs API zadań
               href: /azure/databricks/dev-tools/api/latest/jobs
               maintainContext: true
-            - name: Biblioteki
+            - name: Interfejs API bibliotek
               href: /azure/databricks/dev-tools/api/latest/libraries
               maintainContext: true
-            - name: MLflow
+            - name: Interfejs API MLflow
               href: /azure/databricks/dev-tools/api/latest/mlflow
               maintainContext: true
-            - name: SCIM
+            - name: Interfejsy API standardu SCIM
               items:
                 - name: Omówienie interfejsu API standardu SCIM
                   href: /azure/databricks/dev-tools/api/latest/scim/index
@@ -1674,17 +1698,14 @@
                 - name: Interfejs API standardu SCIM (grupy)
                   href: /azure/databricks/dev-tools/api/latest/scim/scim-group
               maintainContext: true
-            - name: Wpisy tajne
+            - name: Interfejs API wpisów tajnych
               href: /azure/databricks/dev-tools/api/latest/secrets
               maintainContext: true
-            - name: Tokeny
+            - name: Interfejs API tokenów
               href: /azure/databricks/dev-tools/api/latest/tokens
               maintainContext: true
-            - name: Workspace
+            - name: Interfejs API obszaru roboczego
               href: /azure/databricks/dev-tools/api/latest/workspace
-              maintainContext: true
-            - name: Ciąg wersji środowiska uruchomieniowego dla wywołań interfejsu API REST
-              href: /azure/databricks/dev-tools/api/latest/runtime-version-string
               maintainContext: true
         - name: Interfejs API REST 1.2
           href: /azure/databricks/dev-tools/api/1.2/index
@@ -1767,6 +1788,9 @@
           items:
             - name: Informacje o wersji platformy
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: "Czerwiec 2020\_r."
+              href: /azure/databricks/release-notes/product/2020/june
               maintainContext: true
             - name: "Maj 2020\_r."
               href: /azure/databricks/release-notes/product/2020/may

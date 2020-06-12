@@ -58,6 +58,8 @@
       href: how-to-create-azure-function.md
     - name: Pozyskiwanie danych telemetrycznych z usługi IoT Hub
       href: how-to-ingest-iot-hub-data.md
+    - name: Integracja z usługą Azure Maps
+      href: how-to-integrate-maps.md
 - name: Dokumentacja
   items:
     - name: Interfejsy API REST usługi Digital Twins

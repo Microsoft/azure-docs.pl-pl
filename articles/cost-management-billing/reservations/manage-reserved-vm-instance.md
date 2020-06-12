@@ -5,14 +5,14 @@ ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 06/04/2020
 ms.author: banders
-ms.openlocfilehash: 1084e8687cc709b5e31a9ef2c903638dd3d8f62c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 187bfeb7f9e4be47fb44a1ad0cf97be757865ab9
+ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020000"
+ms.lasthandoff: 06/04/2020
+ms.locfileid: "84434185"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Zarządzanie rezerwacjami zasobów platformy Azure
 
@@ -20,6 +20,7 @@ Po zakupieniu rezerwacji platformy Azure może być konieczne zastosowanie rezer
 
 Jeśli zakupiono zarezerwowane wystąpienia maszyn wirtualnych na platformie Azure, możesz zmienić ustawienie optymalizacji dla rezerwacji. Rabat związany z rezerwacją może być stosowany do maszyn wirtualnych w tej samej serii lub można zarezerwować pojemność centrum danych dla określonego rozmiaru maszyny wirtualnej. Należy również spróbować zoptymalizować rezerwacje, aby były w pełni używane.
 
+*Uprawnienia potrzebne do zarządzania rezerwacją są oddzielne od uprawnień do subskrypcji.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -55,10 +56,9 @@ Zakres ma zastosowanie tylko do pojedynczych subskrypcji płatności zgodnie z r
 
 Zarządzanie rezerwacją możesz delegować, dodając osoby do ról w rezerwacji lub zamówieniu rezerwacji. Domyślnie osoba, która składa zamówienie rezerwacji, i administrator konta mają rolę właściciela rezerwacji i zamówienia rezerwacji.
 
-Możesz zarządzać dostępem do rezerwacji zamówień i rezerwacji niezależnie od subskrypcji, które otrzymują rabat związany z rezerwacją. Przyznanie komuś uprawnień do zarządzania zamówieniem rezerwacji lub rezerwacją nie daje tej osobie uprawnień do zarządzania subskrypcją. Podobnie przyznanie komuś uprawnień do zarządzania subskrypcją nie daje tej osobie uprawnień do zarządzania zamówieniem rezerwacji lub rezerwacją.
+Możesz zarządzać dostępem do rezerwacji zamówień i rezerwacji *niezależnie od subskrypcji*, które otrzymują rabat związany z rezerwacją. Przyznanie komuś uprawnień do zarządzania zamówieniem rezerwacji lub rezerwacją nie daje tej osobie uprawnień do zarządzania subskrypcją. Podobnie przyznanie komuś uprawnień do zarządzania subskrypcją nie daje tej osobie uprawnień do zarządzania zamówieniem rezerwacji lub rezerwacją.
 
 Aby dokonać wymiany lub zwrotu, użytkownik musi mieć dostęp do zamówienia rezerwacji. W przypadku przyznawania uprawnień innej osobie najlepiej jest przyznać uprawnienia do zamówienia rezerwacji, a nie do rezerwacji.
-
 
 Aby delegować zarządzanie dostępem do rezerwacji:
 

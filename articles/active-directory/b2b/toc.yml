@@ -52,6 +52,8 @@
           href: identity-providers.md
         - name: Przepływy samoobsługowej rejestracji użytkowników (wersja zapoznawcza)
           href: self-service-sign-up-overview.md
+        - name: Łączniki interfejsu API do rejestracji samoobsługowej (wersja zapoznawcza)
+          href: api-connectors-overview.md
         - name: Zarządzanie upoważnieniami w usłudze Azure AD
           href: self-service-portal.md
         - name: Bieżące ograniczenia
@@ -95,6 +97,10 @@
               href: user-flow-add-custom-attributes.md
             - name: Dostosowywanie języka przepływu użytkowników
               href: user-flow-customize-language.md
+            - name: Dodawanie łącznika interfejsu API
+              href: self-service-sign-up-add-api-connector.md
+            - name: Dodawanie niestandardowego systemu zatwierdzania
+              href: self-service-sign-up-add-approvals.md
         - name: Zarządzanie kontami gościa
           items:
             - name: Dodawanie użytkownika B2B do roli

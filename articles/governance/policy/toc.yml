@@ -138,6 +138,9 @@
           href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Integracja z usługą Azure Monitor
       items:
+        - name: Wdrażanie usługi Azure Monitor na dużą skalę
+          displayName: 'monitor, diagnostic settings, dependency agent'
+          href: ../../azure-monitor/platform/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Włączanie usługi Azure Monitor dla maszyn wirtualnych (wersja zapoznawcza)
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json

@@ -3,17 +3,17 @@ title: Szybki start — eksplorowanie kosztów platformy Azure za pomocą analiz
 description: Ten przewodnik Szybki start ułatwia eksplorowanie i analizowanie kosztów organizacyjnych platformy Azure za pomocą funkcji analizy kosztów.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 06/08/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: e63e3ef999db7053609fb098cd2b7583143a2937
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 72c0b55e1ffc300b42181075247ed3efafe2793a
+ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874504"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84560577"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Szybki start: Eksplorowanie i analizowanie kosztów za pomocą analizy kosztów
 
@@ -107,8 +107,7 @@ Po wyłączeniu prognozy wydatków nie widać przewidywanych wydatków w przysz�
 
 Ogólnie rzecz biorąc, w ciągu 8–12 godzin można spodziewać się danych lub powiadomień dotyczących wykorzystanych zasobów.
 
-
-**Grupuj według** typowych właściwości, aby dzielić koszty i identyfikować ich najważniejsze składniki. Na przykład aby grupować według tagów zasobów, wybierz klucz tagu, według którego chcesz grupować. Koszty zostaną podzielone według poszczególnych wartości tagu oraz dodatkowego segmentu dla zasobów, do których nie zastosowano tego tagu.
+**Grupuj według** typowych właściwości, aby dzielić koszty i identyfikować ich najważniejsze składniki. Na przykład aby grupować według tagów zasobów, wybierz klucz tagu, według którego chcesz grupować. Koszty zostaną podzielone według poszczególnych wartości tagu oraz dodatkowego segmentu dla zasobów, do których nie zastosowano tego tagu.  Aby uzyskać więcej informacji na temat opcji grupowania i filtrowania, zobacz [Opcje grupowania i filtrowania](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter).
 
 Większość [zasobów platformy Azure obsługuje tagowanie](../../azure-resource-manager/management/tag-support.md). Jednak niektóre tagi nie są dostępne na stronie Zarządzanie kosztami i rozliczenia. Ponadto nie są obsługiwane tagi grup zasobów. Obsługa tagów dotyczy użycia zgłaszanego *po tym*, gdy tag został zastosowany do zasobu. Tagi nie są stosowane wstecznie dla celów zestawień kosztów.
 
@@ -142,42 +141,6 @@ Możesz wyświetlić pełny zestaw danych dla dowolnego widoku. Wszelkie zastoso
 
 ![Dane dla bieżącego widoku w widoku tabeli](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
-
-## <a name="understanding-grouping-and-filtering-options"></a>Omówienie opcji grupowania i filtrowania
-
-Analiza kosztów ma wiele opcji grupowania i filtrowania. Aby obejrzeć wideo na temat opcji grupowania i filtrowania, zobacz [Cost Management reporting by dimensions and tags](https://www.youtube.com/watch?v=2Vx7V17zbmk) (Raportowanie według wymiarów i tagów w usłudze Cost Management). Aby obejrzeć inne wideo, odwiedź [kanał usługi Cost Management w serwisie YouTube](https://www.youtube.com/c/AzureCostManagement).
-
->[!VIDEO https://www.youtube.com/embed/2Vx7V17zbmk]
-
-W poniższej tabeli wymieniono niektóre z najpopularniejszych opcji grupowania i filtrowania oraz ich przeznaczenie.
-
-| Właściwość | Kiedy stosować | Uwagi |
-| --- | --- | --- |
-| **Strefy dostępności** | Podział kosztów platformy AWS według strefy dostępności. | Dotyczy tylko zakresów platformy AWS i grup zarządzania. Dane platformy Azure nie zawierają strefy dostępności i będą wyświetlane jako **Nie dotyczy**. |
-| **Okres rozliczeniowy** | Podział kosztów płatności zgodnie z rzeczywistym użyciem według miesiąca, w którym zostały (lub zostaną) zafakturowane. | Aby uzyskać dokładną reprezentację zafakturowanych płatności zgodnie z rzeczywistym użyciem, użyj właściwości **Okres rozliczeniowy**. W przypadku filtrowania do niestandardowego zakresu dat uwzględnij 2 dodatkowe dni przed okresem rozliczeniowym i po nim. Ograniczenie do dokładnych dat okresu rozliczeniowego nie będzie pasować do faktury. Zostaną wyświetlone koszty ze wszystkich faktur w okresie rozliczeniowym. Aby filtrować do określonej faktury, użyj właściwości **Identyfikator faktury**. Dotyczy tylko subskrypcji płatnych zgodnie z rzeczywistym użyciem, ponieważ umowy EA i umowy klienta Microsoft (MCA) są rozliczane według miesięcy kalendarzowych. Konta umów EA/MCA mogą używać miesięcy kalendarzowych w selektorze daty lub miesięcznego stopnia szczegółowości do osiągnięcia tego samego celu. |
-| **Typ opłaty** | Podział kosztów użycia, zakupów, zwrotów i niewykorzystanych rezerwacji. | Zakupy rezerwacji i zwroty są dostępne tylko w przypadku korzystania z kosztów rzeczywistych, a nie w przypadku korzystania z kosztów zamortyzowanych. Koszty niewykorzystanych rezerwacji są dostępne tylko podczas przeglądania kosztów zamortyzowanych. |
-| **Dział** | Podział kosztów według działów EA. | Dostępne tylko w przypadku umów EA i grup zarządzania. Subskrypcje płatne zgodnie z rzeczywistym użyciem nie mają działu i będą wyświetlane jako **Nie dotyczy** lub **nieprzypisane**. |
-| **Konto rejestracji** | Podział kosztów według właściciela konta EA. | Dostępne tylko w przypadku kont rozliczeniowych, działów i grup zarządzania umowy EA. Subskrypcje płatne zgodnie z rzeczywistym użyciem nie mają kont rejestracji umowy EA i będą wyświetlane jako **Nie dotyczy** lub **nieprzypisane**. |
-| **Częstotliwość** | Podział kosztów opartych na użyciu, jednorazowych i cyklicznych. | |
-| **Identyfikator faktury** | Podział kosztów według naliczonej faktury. | Nienaliczone opłaty nie mają jeszcze identyfikatora faktury, a koszty umowy EA nie zawierają szczegółów faktury i są wyświetlane jako **Nie dotyczy**.  |
-| **Miernik** | Podział kosztów według miernika użycia. | Zakupy i użycie witryny Marketplace będą wyświetlane jako **Nie dotyczy**. Zapoznaj się z właściwością **Typ opłaty**, aby zidentyfikować zakupy, oraz **Typ wydawcy**, aby zidentyfikować opłaty z witryny Marketplace. |
-| **Operacja** | Podział kosztów platformy AWS według operacji. | Dotyczy tylko zakresów platformy AWS i grup zarządzania. Dane platformy Azure nie zawierają operacji i będą wyświetlane jako **Nie dotyczy**. Zamiast nich użyj właściwości **Miernik**. |
-| **Model cen** | Podział kosztów na żądanie, rezerwacji lub użycia na miejscu. | Zakupy są wyświetlane jako **Na żądanie**. Jeśli widoczny jest komunikat **Nie dotyczy**, grupuj według **rezerwacji**, aby ustalić, czy użycie jest rezerwacją, czy użyciem na żądanie, oraz **typu opłaty** w celu zidentyfikowania zakupów.
-| **Dostawca** | Podział kosztów według platformy AWS i platformy Azure. | Dostępne tylko w przypadku grup zarządzania. |
-| **Typ wydawcy** | Podział kosztów platformy AWS, platformy Azure i witryny Marketplace. |  |
-| **Rezerwacja** | Podział kosztów według rezerwacji. | Każde użycie lub wszystkie zakupy, które nie są skojarzone z rezerwacją, będą wyświetlane jako **Nie dotyczy**. Grupuj według **typu wydawcy**, aby zidentyfikować inne zakupy na platformie Azure, na platformie AWS lub w witrynie Marketplace. |
-| **Zasób** | Podział kosztów według zasobu. | Zakupy są wyświetlane jako **Nie dotyczy**, ponieważ są stosowane na koncie rozliczeniowym umowy EA/płatności zgodnie z rzeczywistym użyciem lub na poziomie profilu rozliczeniowego umowy MCA i nie są skojarzone z określonym zasobem. Grupuj według **typu wydawcy**, aby zidentyfikować inne zakupy na platformie Azure, na platformie AWS lub w witrynie Marketplace. |
-| **Grupa zasobów** | Podział kosztów według grupy zasobów. | Zakupy, zasoby dzierżawy nieskojarzone z subskrypcjami, zasoby subskrypcji niewdrożone w grupie zasobów i zasoby klasyczne nie mają grupy zasobów i będą wyświetlane jako **inne**, **usługi klasyczne**, **$system** lub **Nie dotyczy**. |
-| **Typ zasobu** | Podział kosztów według typu zasobu. | Zakupy i usługi klasyczne nie mają typu zasobu usługi Azure Resource Manager i będą wyświetlane jako **inne**, **usługi klasyczne** lub **Nie dotyczy**. |
-| **Lokalizacja zasobu** | Podział kosztów według lokalizacji lub regionu. | Zakupy i użycie witryny Marketplace mogą być wyświetlane jako **nieprzypisane**, **nieznane**, **niezamapowane** lub **Nie dotyczy**. |
-| **Nazwa usługi** lub **Kategoria miernika** | Podział kosztów według usługi platformy Azure. | Zakupy i użycie witryny Marketplace będą wyświetlane jako **Nie dotyczy** lub **nieprzypisane**. |
-| **Warstwa usługi** lub **Podkategoria miernika** | Podział kosztów według podklasyfikacji miernika użycia platformy Azure. | Zakupy i użycie witryny Marketplace będą wyświetlane jako **Nie dotyczy** lub **nieprzypisane**. |
-| **Subskrypcja** | Podział kosztów według subskrypcji platformy Azure i połączonego konta platformy AWS. | Zakupy i zasoby dzierżawy mogą być wyświetlane jako **Nie dotyczy**. |
-| **Tag** | Podział kosztów według wartości tagów dla określonego klucza tagu. | Tagi są niedostępne w przypadku zakupów, zasobów dzierżawy nieskojarzonych z subskrypcjami, zasobów subskrypcji niewdrożonych w grupie zasobów lub zasobów klasycznych. Pamiętaj, że niektóre usługi nie zawierają tagów w danych dotyczących użycia. Dowiedz się więcej na temat [obsługi tagów dla każdego typu zasobu](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
-
-Aby uzyskać więcej informacji na temat terminów, zobacz [Omówienie terminów używanych w pliku użycia i opłat platformy Azure](../understand/understand-usage.md).
-
-
 ## <a name="saving-and-sharing-customized-views"></a>Zapisywanie i udostępnianie dostosowanych widoków
 
 Dostosowane widoki można zapisywać i udostępniać innym osobom, przypinając analizę kosztów do pulpitu nawigacyjnego witryny Azure Portal lub kopiując link do analizy kosztów.
@@ -192,54 +155,12 @@ Aby udostępnić link do analizy kosztów, wybierz pozycję **Udostępnij** w g�
 
 Aby dowiedzieć się więcej o udzielaniu dostępu do kosztów dla każdego obsługiwanego zakresu, przejrzyj artykuł [Omówienie zakresów i praca z nimi](understand-work-scopes.md).
 
-
-
-## <a name="automation-and-offline-analysis"></a>Automatyzacja i analiza w trybie offline
+## <a name="download-usage-data"></a>Pobieranie danych użycia
 
 Czasami musisz pobrać dane do dalszej analizy, scalić je z własnymi danymi lub zintegrować ze swoimi systemami. Usługa Cost Management oferuje kilka różnych opcji. Na początek, jeśli potrzebujesz podsumowania wysokiego poziomu ad hoc, takiego jak to, które otrzymujesz w ramach analizy kosztów, utwórz potrzebny widok. Następnie pobierz go, wybierając pozycję **Eksportuj**, a następnie pozycję **Pobierz dane do pliku CSV** lub **Pobierz dane do programu Excel**. Pobranie danych do programu Excel zapewnia dodatkowy kontekst w widoku użytym do wygenerowania pobierania, taki jak zakres, konfiguracja zapytania, suma i data wygenerowania.
 
 Jeśli potrzebujesz pełnego, niezagregowanego zestawu danych, pobierz go z konta rozliczeniowego. Następnie na liście usług w okienku nawigacji po lewej stronie portalu przejdź do pozycji **Zarządzanie kosztami i rozliczenia**. Wybierz konto rozliczeniowe, jeśli ma to zastosowanie. Przejdź do pozycji **Użycie + opłaty**, a następnie wybierz ikonę **Pobierz** dla żądanego okresu rozliczeniowego.
 
-Aby zautomatyzować otrzymywanie danych dotyczących kosztów, zastosuj podobne podejście. Użyj [interfejsu API Query](/rest/api/cost-management/query) do zaawansowanej analizy z dynamicznym filtrowaniem, grupowaniem i agregacją lub użyj [interfejsu API UsageDetails](/rest/api/consumption/usageDetails), aby uzyskać pełny, niezagregowany zestaw danych. Ogólnie dostępna wersja tych interfejsów API to 2019-01-01. Aby uzyskać dostęp do wersji zapoznawczej rezerwacji i zakupów w witrynie Marketplace w ramach tych interfejsów API, użyj wersji **2019-04-01-preview**.
-
-Na przykład poniżej przedstawiono zagregowany widok kosztów zamortyzowanych podzielony według typu opłaty (użycie, zakup lub zwrot), typu wydawcy (Azure lub Marketplace), grupy zasobów (pusta w przypadku zakupów) i rezerwacji (pusta, jeśli nie dotyczy).
-
-```
-POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/query?api-version=2019-04-01-preview
-Content-Type: application/json
-
-{
-  "type": "AmortizedCost",
-  "timeframe": "Custom",
-  "timePeriod": { "from": "2019-04-01", "to": "2019-04-30" },
-  "dataset": {
-    "granularity": "None",
-    "aggregation": {
-      "totalCost": { "name": "PreTaxCost", "function": "Sum" }
-    },
-    "grouping": [
-      { "type": "dimension", "name": "ChargeType" },
-      { "type": "dimension", "name": "PublisherType" },
-      { "type": "dimension", "name": "Frequency" },
-      { "type": "dimension", "name": "ResourceGroup" },
-      { "type": "dimension", "name": "SubscriptionName" },
-      { "type": "dimension", "name": "SubscriptionId" },
-      { "type": "dimension", "name": "ReservationName" },
-      { "type": "dimension", "name": "ReservationId" },
-    ]
-  },
-}
-```
-
-A jeśli nie potrzebujesz agregacji i wolisz pełny, nieprzetworzony zestaw danych:
-
-```
-GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
-```
-
-Jeśli potrzebujesz kosztów rzeczywistych, aby wyświetlać zakupy w miarę ich naliczania, zmień atrybut **typu**/**miernika** na **ActualCost**. Aby uzyskać więcej informacji na temat tych interfejsów API, zobacz dokumentację interfejsów API [Query](/rest/api/cost-management/query) i [UsageDetails](/rest/api/consumption/usageDetails). Pamiętaj, że opublikowane dokumenty dotyczą wersji ogólnie dostępnej. Jednak oba działają tak samo w przypadku interfejsu API w wersji *2019-04-01-preview* poza nowym atrybutem typu/metryki i zmienionymi nazwami właściwości. (Więcej informacji na temat nazw właściwości znajduje się poniżej).
-
-Interfejsy API usługi Cost Management działają we wszystkich zakresach powyżej zasobów: w grupie zasobów, subskrypcji i grupie zarządzania w przypadku funkcji RBAC na platformie Azure, na kontach rozliczeniowych umowy EA (rejestracjach), w działach i na kontach rejestracji w przypadku dostępu do portalu EA. Dowiedz się więcej o zakresach, w tym o sposobach określania identyfikatora zakresu lub zarządzania dostępem, korzystając z artykułu [Omówienie zakresów i praca z nimi](understand-work-scopes.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
