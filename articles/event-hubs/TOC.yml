@@ -213,8 +213,12 @@
           href: configure-customer-managed-key.md
     - name: Rozwiązywanie problemów
       items:
-        - name: Przewodnik rozwiązywania problemów
+        - name: Rozwiązywanie problemów z łącznością
           href: troubleshooting-guide.md
+        - name: Rozwiązywanie problemów z uwierzytelnianiem i autoryzacją
+          href: troubleshoot-authentication-authorization.md
+        - name: Przewodnik rozwiązywania problemów z platformą Kafka dotyczący usługi Event Hubs
+          href: apache-kafka-troubleshooting-guide.md
         - name: Wyjątki platformy .NET
           href: event-hubs-messaging-exceptions.md
         - name: Wyjątki usługi Resource Manager
