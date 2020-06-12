@@ -378,8 +378,6 @@
               href: ./partner-center-portal/offer-creation-checklist.md
             - name: Tworzenie oferty SaaS
               href: ./partner-center-portal/create-new-saas-offer.md
-            - name: Rozliczenia danych naliczanych usługi SaaS
-              href: ./partner-center-portal/saas-metered-billing.md
             - name: Interfejsy API realizacji SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -391,6 +389,8 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: Interfejsy API realizacji SaaS — często zadawane pytania
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
+            - name: Rozliczenia danych naliczanych usługi SaaS
+              href: ./partner-center-portal/saas-metered-billing.md
         - name: Przegląd zarządzania potencjalnymi klientami
           href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:
