@@ -11,35 +11,35 @@ ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
 ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220194"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710562"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Obsługa języka i regionu dla interfejs API wyszukiwania wiadomości Bing
 
 Interfejs API wyszukiwania wiadomości Bing obsługuje wiele krajów/regionów, wiele z więcej niż jednym językiem. Określenie kraju/regionu z zapytaniem służy głównie do uściślenia wyników wyszukiwania w oparciu o zainteresowania w tym kraju/regionie. Ponadto wyniki mogą zawierać linki do usługi Bing, a te linki mogą lokalizować środowisko użytkownika Bing w zależności od określonego kraju/regionu lub języka.
 
-Możesz określić kraj/region przy użyciu parametru `cc` zapytania. W przypadku określenia kraju/regionu należy również określić jeden lub więcej kodów języka przy użyciu nagłówka `Accept-Language` http. Obsługiwane języki różnią się w zależności od liczby/regionu; są one przyznawane dla każdego kraju/regionu w tabeli rynków.
+Możesz określić kraj/region przy użyciu `cc` parametru zapytania. W przypadku określenia kraju/regionu należy również określić jeden lub więcej kodów języka przy użyciu `Accept-Language` nagłówka HTTP. Obsługiwane języki różnią się w zależności od liczby/regionu; są one przyznawane dla każdego kraju/regionu w tabeli rynków.
 
-Alternatywnie można określić rynek przy użyciu parametru `mkt` zapytania i kodu z tabeli **rynków** . Określenie rynku jednocześnie określa kraj/region i preferowany język. W `setLang` tym przypadku parametr zapytania może być ustawiony na kod języka; zwykle jest to ten sam język określony przez `mkt` użytkownika, chyba że użytkownik woli zobaczyć Bing w innym języku.
+Alternatywnie można określić rynek przy użyciu `mkt` parametru zapytania i kodu z tabeli **rynków** . Określenie rynku jednocześnie określa kraj/region i preferowany język. `setLang`Parametr zapytania może być ustawiony na kod języka w tym przypadku; zazwyczaj jest to ten sam język określony przez użytkownika, `mkt` chyba że użytkownik woli zobaczyć Bing w innym języku.
 
 ## <a name="supported-markets-for-news-search-endpoint"></a>Obsługiwane rynki dla punktu końcowego wyszukiwania wiadomości
 
-`/news/search` W poniższej tabeli przedstawiono wartości kodów rynkowych, za pomocą których można określić parametr `mkt` zapytania. Bing zwraca zawartość tylko dla tych rynków. Lista może ulec zmianie.  
+W `/news/search` poniższej tabeli przedstawiono wartości kodów rynkowych, za pomocą których można określić `mkt` parametr zapytania. Bing zwraca zawartość tylko dla tych rynków. Lista może ulec zmianie.  
 
-Aby uzyskać listę kodów krajów/regionów, które można określić w parametrze `cc` zapytania, zobacz [Kody krajów](#countrycodes).  
+Aby uzyskać listę kodów krajów/regionów, które można określić w `cc` parametrze zapytania, zobacz [Kody krajów](#countrycodes).  
 
 |Kraj/region|Język|Kod rynkowy|  
 |---------------------|--------------|-----------------|
-|Dania|duński|da-DK|
-|Austria|niemiecki|de-AT|
-|Szwajcaria|niemiecki|Usuń CH|
-|Niemcy|niemiecki|de-DE|
+|Dania|Duński|da-DK|
+|Austria|Niemiecki|de-AT|
+|Szwajcaria|Niemiecki|Usuń CH|
+|Niemcy|Niemiecki|de-DE|
 |Australia|Angielski|en-AU|
 |Kanada|Angielski|EN-CA|
-|Wielka Brytania|Angielski|en-GB|
+|Zjednoczone Królestwo|Angielski|en-GB|
 |Indonezja|Angielski|pl-ID|
 |Irlandia|Angielski|EN-IE|
 |Indie|Angielski|dodatek EN-IN|
@@ -57,7 +57,7 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w paramet
 |Meksyk|Hiszpański|es — MX|
 |Stany Zjednoczone|Hiszpański|es — US|
 |Hiszpański|Ogólne|ES — XL|
-|Finlandia|fiński|fi-FI|  
+|Finlandia|Fiński|fi-FI|  
 |Francja|Francuski|fr — należy|
 |Kanada|Francuski|fr — CA|
 |Belgia|Niderlandzki|NL-to|
@@ -66,32 +66,32 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w paramet
 |Włochy|Włoski|it-IT|
 |SRA Hongkong|Chiński tradycyjny|zh-HK|  
 |Tajwan|Chiński tradycyjny|zh-TW|
-|Japonia|japoński|ja-JP|  
-|Korea|koreański|ko-KR|  
+|Japonia|Japoński|ja-JP|  
+|Korea|Koreański|ko-KR|  
 |Holandia|Niderlandzki|nl-NL|  
 |Chińska Republika Ludowa|Chiński|zh-CN|  
 |Brazylia|Portugalski|pt-BR|
 |Rosja|Rosyjski|ru-RU|  
-|Szwecja|szwedzki|sv-SE|  
+|Szwecja|Szwedzki|sv-SE|  
 |Turcja|Turecki|tr-TR|  
 
 ## <a name="supported-markets-for-news-endpoint"></a>Obsługiwane rynki dla punktu końcowego aktualności News
-`/news` W poniższej tabeli przedstawiono wartości kodów rynkowych, za pomocą których można określić parametr `mkt` zapytania. Bing zwraca zawartość tylko dla tych rynków. Lista może ulec zmianie.  
+W `/news` poniższej tabeli przedstawiono wartości kodów rynkowych, za pomocą których można określić `mkt` parametr zapytania. Bing zwraca zawartość tylko dla tych rynków. Lista może ulec zmianie.  
 
-Aby uzyskać listę kodów krajów/regionów, które można określić w parametrze `cc` zapytania, zobacz [Kody krajów](#countrycodes).  
+Aby uzyskać listę kodów krajów/regionów, które można określić w `cc` parametrze zapytania, zobacz [Kody krajów](#countrycodes).  
 
 |Kraj/region|Język|Kod rynkowy|  
 |---------------------|--------------|-----------------|
-|Dania|duński|da-DK|
-|Niemcy|niemiecki|de-DE|
+|Dania|Duński|da-DK|
+|Niemcy|Niemiecki|de-DE|
 |Australia|Angielski|en-AU|
-|Wielka Brytania|Angielski|en-GB|
+|Zjednoczone Królestwo|Angielski|en-GB|
 |Stany Zjednoczone|Angielski|pl-PL|
 |Angielski|Ogólne|pl-WW|
 |Chile|Hiszpański|ES — CL|
 |Meksyk|Hiszpański|es — MX|
 |Stany Zjednoczone|Hiszpański|es — US|
-|Finlandia|fiński|fi-FI|  
+|Finlandia|Fiński|fi-FI|  
 |Kanada|Francuski|fr — CA|
 |Francja|Francuski|fr-FR|  
 |Włochy|Włoski|it-IT|
@@ -99,15 +99,15 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w paramet
 |Chińska Republika Ludowa|Chiński|zh-CN|
 
 ## <a name="supported-markets-for-news-trending-endpoint"></a>Obsługiwane rynki dla punktu końcowego trendów Aktualności
-`/news/trendingtopics` W poniższej tabeli przedstawiono wartości kodów rynkowych, za pomocą których można określić parametr `mkt` zapytania. Bing zwraca zawartość tylko dla tych rynków. Lista może ulec zmianie.  
+W `/news/trendingtopics` poniższej tabeli przedstawiono wartości kodów rynkowych, za pomocą których można określić `mkt` parametr zapytania. Bing zwraca zawartość tylko dla tych rynków. Lista może ulec zmianie.  
 
-Aby uzyskać listę kodów krajów/regionów, które można określić w parametrze `cc` zapytania, zobacz [Kody krajów](#countrycodes).  
+Aby uzyskać listę kodów krajów/regionów, które można określić w `cc` parametrze zapytania, zobacz [Kody krajów](#countrycodes).  
 
 |Kraj/region|Język|Kod rynkowy|  
 |---------------------|--------------|-----------------|
-|Niemcy|niemiecki|de-DE|
+|Niemcy|Niemiecki|de-DE|
 |Australia|Angielski|en-AU|
-|Wielka Brytania|Angielski|en-GB|
+|Zjednoczone Królestwo|Angielski|en-GB|
 |Stany Zjednoczone|Angielski|pl-PL|
 |Kanada|Angielski|EN-CA|
 |Indie|Angielski|dodatek EN-IN|
@@ -120,7 +120,7 @@ Aby uzyskać listę kodów krajów/regionów, które można określić w paramet
 <a name="countrycodes"></a>   
 ### <a name="country-codes"></a>Kody krajów  
 
-Poniżej znajdują się kody kraju/regionu, które można określić w parametrze `cc` zapytania. Lista może ulec zmianie.  
+Poniżej znajdują się kody kraju/regionu, które można określić w `cc` parametrze zapytania. Lista może ulec zmianie.  
 
 |Kraj/region|Kod kraju|  
 |---------------------|------------------|  
@@ -158,7 +158,7 @@ Poniżej znajdują się kody kraju/regionu, które można określić w parametrz
 |Szwajcaria|CH|  
 |Tajwan|TW|  
 |Turcja|TR|  
-|Wielka Brytania|GB|  
+|Zjednoczone Królestwo|GB|  
 |Stany Zjednoczone|USA|
 
 ## <a name="next-steps"></a>Następne kroki

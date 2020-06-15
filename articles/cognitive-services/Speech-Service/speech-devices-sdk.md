@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: 3fb5f1df0eb4473483c9298cdbf36909b75065e7
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 4ec153a9c770b0001888c972dc44414470e3ddbf
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927211"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730309"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>Co to jest zestaw SDK urządzeń mowy?
 
@@ -37,7 +37,11 @@ Zestaw SDK urządzeń mowy umożliwia korzystanie z różnych scenariuszy z obs�
 
 ### <a name="android"></a>Android
 
-W przypadku systemu Android urządzenia pobierają najnowszą wersję [zestawu SDK urządzeń z systemem Android Speech](https://aka.ms/sdsdk-download-android).
+Zestaw SDK urządzeń usługi Speech dla systemu Android obsługuje [roobo V1](speech-devices-sdk-roobo-v1.md) i urządzenia równoważne, aby pobrać najnowszą wersję [zestawu SDK urządzeń z systemem Android](https://aka.ms/sdsdk-download-android).
+
+
+Jeśli masz inne urządzenie z systemem Android, takie jak telefon lub telefon komórkowy, Zacznij od [zestawu Android Speech SDK](speech-sdk.md)
+
 
 ### <a name="windows"></a>Windows
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
 ms.openlocfilehash: 38701e8bbef1c5d78eca2242105e81fe7261c0f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220634"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693094"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Obsługa języka zawartości bazy wiedzy dla QnA Maker
 
@@ -25,7 +25,7 @@ Język określa przydatność wyników QnA Maker zapewnia odpowiedzi na zapytani
 
 ## <a name="one-language-for-all-knowledge-bases-in-resource"></a>Jeden język dla wszystkich baz wiedzy w zasobie
 
-QnA Maker umożliwia wybranie języka usługi QnA podczas tworzenia pierwszej bazy wiedzy. Wszystkie bazy wiedzy w zasobie QnA Maker muszą być w tym samym języku. Nie można zmienić tego języka.
+Usługa QnA Maker umożliwia wybranie języka usługi pytań i odpowiedzi podczas tworzenia pierwszej bazy wiedzy. Wszystkie bazy wiedzy w zasobie QnA Maker muszą być w tym samym języku. Nie można zmienić tego języka.
 
 Tworzenie baz wiedzy w różnych językach w jednym zasobie ma negatywny wpływ na przydatność wyników QnA Maker zapewnia odpowiedzi na zapytania użytkowników.
 
@@ -49,15 +49,15 @@ Gdy możliwości platformy Azure Wyszukiwanie poznawcze są dostępne dla obsłu
 |Niderlandzki|
 |Angielski|
 |Francuski|
-|niemiecki|
-|węgierski|
+|Niemiecki|
+|Węgierski|
 |Włoski|
-|japoński|
+|Japoński|
 |koreański|
 |Polski|
 |Portugalski|
 |Hiszpański|
-|szwedzki|
+|Szwedzki|
 
 Ta dodatkowa klasyfikacja jest wewnętrzną pracą rangi QnA Maker.
 

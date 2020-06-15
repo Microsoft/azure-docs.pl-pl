@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: 69046772b81f0b5b597cce8e86aca9cbf27c49f8
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: a96ddfe2023fbddd6a4a25c97001875e0dddc7f3
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457103"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753199"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Samouczek: Voice — Włączanie bot przy użyciu zestawu Speech SDK
 
@@ -71,7 +71,7 @@ Aplikacja kliencka utworzona w tym samouczku korzysta z kilku usług platformy A
    * Wprowadź nazwę **grupy zasobów**. Zalecamy **SpeechEchoBotTutorial-zasobów**.
    * Z listy rozwijanej **region** wybierz pozycję **zachodnie stany USA**.
 1. Kliknij pozycję **Przejrzyj i utwórz**. Powinien pojawić się transparent informujący o pomyślnym **sprawdzeniu poprawności**odczytu.
-1. Kliknij przycisk **Utwórz**. Utworzenie grupy zasobów może potrwać kilka minut.
+1. Kliknij pozycję **Utwórz**. Utworzenie grupy zasobów może potrwać kilka minut.
 1. Podobnie jak w przypadku zasobów utworzonych w dalszej części tego samouczka, dobrym pomysłem jest Przypinanie tej grupy zasobów do pulpitu nawigacyjnego w celu ułatwienia dostępu. Jeśli chcesz przypiąć tę grupę zasobów, kliknij ikonę pinezki w prawym górnym rogu pulpitu nawigacyjnego.
 
 ### <a name="choosing-an-azure-region"></a>Wybieranie regionu platformy Azure
@@ -121,7 +121,7 @@ Następnym krokiem jest utworzenie planu App Service. Plan usługi App Service d
    * W **obszarze region**wybierz pozycję **zachodnie stany USA**.
    * W przypadku **warstwy cenowej**upewnij się, że wybrano opcję **standardowa S1** . Powinna to być wartość domyślna. Jeśli nie, upewnij się, że **system operacyjny** jest ustawiony na **system Windows** zgodnie z powyższym opisem.
 5. Kliknij pozycję **Przejrzyj i utwórz**. Powinien pojawić się transparent informujący o pomyślnym **sprawdzeniu poprawności**odczytu.
-6. Kliknij przycisk **Utwórz**. Utworzenie grupy zasobów może potrwać kilka minut.
+6. Kliknij pozycję **Utwórz**. Utworzenie grupy zasobów może potrwać kilka minut.
 
 Na tym etapie należy sprawdzić, czy grupa zasobów (**SpeechEchoBotTutorial-Resource**Group) ma dwa zasoby:
 
@@ -164,7 +164,7 @@ Teraz, po utworzeniu niektórych zasobów, przyjrzyjmy się bot. Zaczniemy od pr
 1. Zainstaluj [emulator bot Framework](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) w wersji 4.3.0 lub nowszej
 2. Uruchom emulator bot Framework i Otwórz bot:
    * **Plik**  ->  **Otwórz bot**.
-3. Wprowadź adres URL bot. Przykład:
+3. Wprowadź adres URL bot. Na przykład:
 
    ```
    http://localhost:3978/api/messages
@@ -265,7 +265,7 @@ Na stronie rejestracji kanałów usługi Azure bot jest dostępna opcja **Testuj
 
 1. Znajdź i Otwórz zasób **EchoBotTutorial-BotRegistration-#** # # w [Azure Portal](https://portal.azure.com)
 1. W obszarze Nawigacja **bot Management** wybierz pozycję **Ustawienia**. Skopiuj wartość w polu **Identyfikator aplikacji firmy Microsoft**
-1. Otwórz rozwiązanie Visual Studio EchoBot. W Eksploratorze rozwiązań Znajdź i kliknij dwukrotnie plik **appSettings. JSON**
+1. Otwórz rozwiązanie Visual Studio EchoBot. W Eksploratorze rozwiązań Znajdź i kliknij dwukrotnie pozycję **appsettings.jsna**
 1. Zastąp ciąg pusty obok wartości **MicrosoftAppId** w pliku JSON z skopiowaną wartością identyfikatora
 1. Pobrano z powrotem do Azure Portal, w obszarze nawigacji **zarządzania bot** wybierz pozycję **Ustawienia**, a następnie kliknij pozycję **(Zarządzaj)** obok pozycji **Microsoft App ID**
 1. Kliknij **nowy klucz tajny klienta**. Dodaj opis (np. "rozmowa w sieci Web"), a następnie kliknij przycisk **Dodaj**. Kopiuj nowy wpis tajny
@@ -321,15 +321,18 @@ Przed przejściem upewnij się, że mikrofon i głośniki są włączone i dzia�
 
 Jeśli w oknie głównym aplikacji zostanie wyświetlony komunikat o błędzie, Skorzystaj z tej tabeli, aby zidentyfikować i rozwiązać problem:
 
-| Błąd | Co musisz zrobić? |
+| Error | Co musisz zrobić? |
 |-------|----------------------|
-|Błąd AuthenticationFailure: uaktualnienie protokołu WebSocket nie powiodło się z powodu błędu uwierzytelniania (401). Sprawdź poprawność klucza subskrypcji (lub tokenu autoryzacji) i nazwy regionu| Na stronie Ustawienia aplikacji upewnij się, że wprowadzono prawidłowy klucz subskrypcji mowy i jego region.<br>Upewnij się, że klucz mowy i klucz regionu zostały wprowadzone poprawnie. |
-|Błąd ConnectionFailure: połączenie zostało zamknięte przez hosta zdalnego. Kod błędu: 1011. Szczegóły błędu: nie można nawiązać połączenia z usługą bot przed wysłaniem komunikatu | Upewnij się, że pole wyboru ["Włącz punkt końcowy przesyłania strumieniowego"](#register-the-direct-line-speech-channel) i/lub przełączono [ **gniazda sieci Web** ](#enable-web-sockets) na wartość włączone.<br>Upewnij się, że Azure App Service jest uruchomiony. Jeśli tak, spróbuj uruchomić ponownie App Service.|
-|Błąd ConnectionFailure: połączenie zostało zamknięte przez hosta zdalnego. Kod błędu: 1011. Szczegóły błędu: kod stanu odpowiedzi nie wskazuje sukcesu: 500 (InternalServerError)| Bot określiła głos neuronowych w polu [wymawiane](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) działanie wyjściowe, ale region platformy Azure skojarzony z kluczem subskrypcji mowy nie obsługuje głosów neuronowych. Zobacz [głosy standardowe i neuronowych](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
-|Błąd ConnectionFailure: połączenie zostało zamknięte przez hosta zdalnego. Kod błędu: 1000. Szczegóły błędu: przekroczono maksymalny czas bezczynności połączenia gniazda internetowego (> 300000 MS)| Jest to oczekiwany błąd, gdy połączenie z kanałem pozostaje otwarte i nieaktywne przez ponad pięć minut. |
+|Błąd (AuthenticationFailure): uaktualnienie protokołu WebSocket nie powiodło się z powodu błędu uwierzytelniania (401). Sprawdź poprawność klucza subskrypcji (lub tokenu autoryzacji) i nazwy regionu| Na stronie Ustawienia aplikacji upewnij się, że wprowadzono prawidłowy klucz subskrypcji mowy i jego region.<br>Upewnij się, że klucz mowy i klucz regionu zostały wprowadzone poprawnie. |
+|Błąd (ConnectionFailure): połączenie zostało zamknięte przez hosta zdalnego. Kod błędu: 1011. Szczegóły błędu: nie można nawiązać połączenia z usługą bot przed wysłaniem komunikatu | Upewnij się, że pole wyboru ["Włącz punkt końcowy przesyłania strumieniowego"](#register-the-direct-line-speech-channel) i/lub przełączono [ **gniazda sieci Web** ](#enable-web-sockets) na wartość włączone.<br>Upewnij się, że Azure App Service jest uruchomiony. Jeśli tak, spróbuj uruchomić ponownie App Service.|
+|Błąd (ConnectionFailure): połączenie zostało zamknięte przez hosta zdalnego. Kod błędu: 1002. Szczegóły błędu: serwer zwrócił kod stanu "503", gdy oczekiwano kodu stanu "101" | Upewnij się, że pole wyboru ["Włącz punkt końcowy przesyłania strumieniowego"](#register-the-direct-line-speech-channel) i/lub przełączono [ **gniazda sieci Web** ](#enable-web-sockets) na wartość włączone.<br>Upewnij się, że Azure App Service jest uruchomiony. Jeśli tak, spróbuj uruchomić ponownie App Service.|
+|Błąd (ConnectionFailure): połączenie zostało zamknięte przez hosta zdalnego. Kod błędu: 1011. Szczegóły błędu: kod stanu odpowiedzi nie wskazuje sukcesu: 500 (InternalServerError)| Bot określiła głos neuronowych w polu [wymawiane](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) działanie wyjściowe, ale region platformy Azure skojarzony z kluczem subskrypcji mowy nie obsługuje głosów neuronowych. Zobacz [głosy standardowe i neuronowych](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 
-Jeśli problem nie został rozwiązany w tabeli, zobacz [asystentów głosowych: często zadawane pytania](faq-voice-assistants.md).
+Jeśli problem nie został rozwiązany w tabeli, zobacz [asystentów głosowych: często zadawane pytania](faq-voice-assistants.md). Jeśli nadal nie możesz rozwiązać problemu po wykonaniu wszystkich kroków tego samouczka, wprowadź nowy problem na [stronie usługi GitHub Assistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
+#### <a name="a-note-on-connection-time-out"></a>Uwaga dotycząca limitu czasu połączenia
+
+Jeśli masz połączenie z usługą bot, a w ciągu ostatnich 5 minut nie wystąpiły żadne działania, usługa automatycznie zamknie połączenie z klientem i z bot. Jest to celowe. Na dolnym pasku zostanie wyświetlony komunikat *"Przekroczono limit czasu aktywnego połączenia, ale wszystko jest gotowe do ponownego połączenia na żądanie"*. Nie musisz naciskać przycisku "Połącz ponownie" — po prostu naciśnij przycisk mikrofonu i zacznij mówić, wpisz wiadomość tekstową lub wymów słowo kluczowe (jeśli jest włączony). Połączenie zostanie automatycznie nawiązane.  
 ### <a name="view-bot-activities"></a>Wyświetlanie działań bot
 
 Każdy bot wysyła i odbiera komunikaty **aktywności** . W oknie **Dziennik aktywności** klienta asystenta głosowego systemu Windows zobaczysz dzienniki z sygnaturami czasowymi z poszczególnymi działaniami, które klient otrzymał z bot. Możesz również zobaczyć działania wysyłane przez klienta do bot przy użyciu [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) metody. Po wybraniu elementu dziennika zostaną wyświetlone szczegóły skojarzonego działania jako plik JSON.
@@ -454,7 +457,7 @@ Po wykonaniu niezbędnych zmian w bot następnym krokiem jest ponowne opublikowa
 4. Otwórz aplikację kliencką asystenta głosowego systemu Windows, kliknij przycisk Ustawienia (ikonę koła górnego) i upewnij się, że w polu Język nadal znajduje się wartość `de-de` .
 5. Postępuj zgodnie z instrukcjami w temacie [Uruchamianie klienta asystenta głosowego systemu Windows](#run-the-windows-voice-assistant-client) , aby ponownie nawiązać połączenie z nowo wdrożonym bot, wypowiedz w nowym języku i posłuchaj bot odpowiedzi w tym języku z nowym głosem.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z funkcji echo-bot wdrożonej w tym samouczku, możesz usunąć ją i wszystkie skojarzone z nią zasoby platformy Azure, usuwając po prostu grupę zasobów platformy Azure **SpeechEchoBotTutorial-resourceName**.
 
@@ -467,7 +470,7 @@ Jeśli nie chcesz nadal korzystać z funkcji echo-bot wdrożonej w tym samouczku
 > [!div class="nextstepaction"]
 > [Tworzenie własnej aplikacji klienckiej przy użyciu zestawu Speech SDK](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * Wdrażanie w [regionie świadczenia usługi Azure w sąsiedztwie,](https://azure.microsoft.com/global-infrastructure/locations/) aby zobaczyć bot poprawy czasu odpowiedzi
 * Wdrażanie w [regionie świadczenia usługi Azure, który obsługuje neuronowychy TTS o wysokiej jakości](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)

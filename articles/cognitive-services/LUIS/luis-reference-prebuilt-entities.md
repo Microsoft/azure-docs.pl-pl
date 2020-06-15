@@ -12,11 +12,11 @@ ms.topic: reference
 ms.date: 10/03/2019
 ms.author: diberry
 ms.openlocfilehash: a49452653f8ac4bcc62758d801a235be0929d314
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219721"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686634"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Jednostki na kulturę w modelu LUIS
 
@@ -28,10 +28,10 @@ Language Understanding (LUIS) udostępnia wstępnie utworzone jednostki. Gdy wbu
 |Niderlandzki|[nl-NL](#dutch-entity-support)||
 |Angielski|[EN-US (American)](#english-american-entity-support)||
 |Francuski|[fr — CA (Kanada)](#french-canadian-entity-support), [fr-fr (Francja)](#french-france-entity-support), ||
-|niemiecki|[de-DE](#german-entity-support)||
+|Niemiecki|[de-DE](#german-entity-support)||
 |Włoski|[IT](#italian-entity-support)||
-|japoński|[ja-JP](#japanese-entity-support)||
-|koreański|[ko-KR](#korean-entity-support)||
+|Japoński|[ja-JP](#japanese-entity-support)||
+|Koreański|[ko-KR](#korean-entity-support)||
 |Portugalski|[pt-BR (Brazylia)](#portuguese-brazil-entity-support)||
 |Hiszpański|[ES-es (Hiszpania)](#spanish-spain-entity-support), [es-MX (Meksyk)](#spanish-mexico-entity-support)||
 |Turecki|[Turecki](#turkish-entity-support)|Brak wstępnie skompilowanych jednostek obsługiwanych w języku tureckim|
@@ -308,7 +308,7 @@ Obsługiwane są następujące jednostki:
 
 Zobacz uwagi dotyczące [przestarzałych wstępnie skompilowanych jednostek](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase nie jest dostępna we wszystkich podkulturach języka portugalskiego (Brazylia) — ```pt-BR```.
+KeyPhrase nie jest dostępna we wszystkich podkulturach języka portugalskiego (Brazylia) — ```pt-BR``` .
 
 ## <a name="turkish-entity-support"></a>Wsparcie tureckiej jednostki
 

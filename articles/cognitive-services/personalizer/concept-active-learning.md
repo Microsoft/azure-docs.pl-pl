@@ -4,11 +4,11 @@ description: Ustawienia uczenia określają *Parametry* szkolenia modelu. Dwa mo
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: abe6a2a2ec9b9978230d894c69193469f6e932e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219347"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700736"
 ---
 # <a name="learning-policy-and-settings"></a>Zasady i ustawienia uczenia
 
@@ -28,7 +28,7 @@ Ustawienia zasad nauki nie są przeznaczone do zmiany. Zmień ustawienia tylko w
 
 Personalizacja używa [vowpalwabbit](https://github.com/VowpalWabbit) do uczenia i oceny zdarzeń. Zapoznaj się z [dokumentacją vowpalwabbit](https://github.com/VowpalWabbit/vowpal_wabbit/wiki/Command-line-arguments) na temat edytowania ustawień uczenia przy użyciu vowpalwabbit. Po otrzymaniu prawidłowych argumentów wiersza polecenia Zapisz polecenie do pliku o następującym formacie (Zastąp wartość właściwości argumenty pożądanym poleceniem) i Przekaż plik, aby zaimportować ustawienia uczenia w okienku **Ustawienia modelu i uczenia** w Azure Portal dla zasobu personalizowania.
 
-Poniżej `.json` przedstawiono przykładowe zasady uczenia się.
+Poniżej przedstawiono `.json` przykładowe zasady uczenia się.
 
 ```json
 {

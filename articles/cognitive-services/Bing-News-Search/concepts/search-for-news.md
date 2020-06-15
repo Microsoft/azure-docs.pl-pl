@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
 ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220326"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710596"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Wyszukiwanie wiadomości za pomocą interfejsu API wyszukiwania wiadomości Bing
 
@@ -107,7 +107,7 @@ Jeśli usłudze Bing uda się określić kategorię artykułu z wiadomościami, 
 
 ## <a name="get-todays-top-news"></a>Pobieranie dzisiejszych najważniejszych wiadomości
 
-Aby uzyskać dzisiejsze najpopularniejsze artykuły z wiadomościami, możesz wysłać te same ogólne żądanie, tak jak wcześniej, `q` pozostawiając parametr bez ustawienia.
+Aby uzyskać dzisiejsze najpopularniejsze artykuły z wiadomościami, możesz wysłać te same ogólne żądanie, tak jak wcześniej, pozostawiając `q` parametr bez ustawienia.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -119,7 +119,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-Odpowiedź na korzystanie z najważniejszych wiadomości jest niemal taka sama jak w przypadku uzyskiwania ogólnych wiadomości. Jednak odpowiedź `news` nie zawiera pola `totalEstimatedMatches`, ponieważ obowiązuje określona liczba wyników. Liczba najważniejszych artykułów może być inna w zależności od cyklu życia informacji. Upewnij się, `provider` że pole jest używane do poatrybutowania artykułu.
+Odpowiedź na korzystanie z najważniejszych wiadomości jest niemal taka sama jak w przypadku uzyskiwania ogólnych wiadomości. Jednak odpowiedź `news` nie zawiera pola `totalEstimatedMatches`, ponieważ obowiązuje określona liczba wyników. Liczba najważniejszych artykułów może być inna w zależności od cyklu życia informacji. Upewnij się, że pole jest używane `provider` do poatrybutowania artykułu.
 
 ## <a name="get-news-by-category"></a>Pobieranie wiadomości według kategorii
 
