@@ -97,6 +97,8 @@
           href: budget.md
         - name: Używanie prywatnych punktów końcowych z kontami usługi Batch
           href: private-connectivity.md
+        - name: Konfigurowanie kluczy zarządzanych przez klienta
+          href: batch-customer-managed-key.md
     - name: Uwierzytelnianie za pomocą usługi Azure AD
       items:
         - name: Usługa Azure AD z usługą Batch
