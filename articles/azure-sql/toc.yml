@@ -35,6 +35,8 @@
           href: temporal-tables.md
         - name: Skalowanie w górę/w dół
           href: database/scale-resources.md
+        - name: Skalowanie odczytu w poziomie
+          href: database/read-scale-out.md
         - name: Zabezpieczenia
           items:
             - name: Omówienie
@@ -282,8 +284,6 @@
           href: database/connectivity-architecture.md
         - name: Ustawienia łączności
           href: database/connectivity-settings.md
-        - name: Skalowanie odczytu w poziomie
-          href: database/read-scale-out.md
         - name: Różnice w języku T-SQL
           href: database/transact-sql-tsql-differences-sql-server.md
         - name: Azure Automation

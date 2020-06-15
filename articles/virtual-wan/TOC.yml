@@ -36,8 +36,12 @@
           href: virtual-wan-locations-partners.md
         - name: Wskazówki dotyczące automatyzacji dla partnerów
           href: virtual-wan-configure-automation-providers.md
-    - name: Zasady protokołu IPsec
-      href: virtual-wan-ipsec.md
+    - name: Lokacja-lokacja
+      items:
+        - name: Informacje o zasadach protokołu IPsec
+          href: virtual-wan-ipsec.md
+        - name: Wiele linków usługodawców internetowych — wybór ścieżki platformy Azure
+          href: path-selection-multiple-links.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Łączenie bramy sieci wirtualnej z usługą Virtual WAN
@@ -58,8 +62,6 @@
       items:
         - name: Tworzenie połączenia typu lokacja-lokacja
           href: virtual-wan-site-to-site-portal.md
-        - name: Wiele linków usługodawców internetowych — wybór ścieżki platformy Azure
-          href: path-selection-multiple-links.md
     - name: Sieć VPN użytkownika (punkt-lokacja)
       items:
         - name: Tworzenie połączenia sieci VPN użytkownika

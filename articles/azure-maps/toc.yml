@@ -59,6 +59,8 @@
           href: drawing-conversion-error-codes.md
     - name: Pokrycie
       items:
+        - name: Pokrycie
+          href: geographic-coverage.md
         - name: Pokrycie geokodowaniem
           href: geocoding-coverage.md
         - name: Pokrycie ruchem
