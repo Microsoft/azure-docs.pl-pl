@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: travisw
-ms.openlocfilehash: 62c317843c275531286eeb2ae616d79ad76c6f99
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 548d324a67b1bbee4741724faf2cf27ec6c3c3c1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80671800"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84754614"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -32,7 +32,7 @@ Pierwszym krokiem jest upewnienie się, że projekt jest otwarty w programie Vis
 
 Dodajmy kod, który działa jako szkielet dla projektu.
 
-1. W **Eksplorator rozwiązań**Otwórz `MainPage.xaml`program.
+1. W **Eksplorator rozwiązań**Otwórz program `MainPage.xaml` .
 
 1. W widoku XAML projektanta Zastąp całą zawartość następującym fragmentem kodu, który definiuje interfejs użytkownika podstawowe:
 
@@ -83,7 +83,7 @@ Dodajmy kod, który działa jako szkielet dla projektu.
 
 Widok Projekt został zaktualizowany, aby pokazać interfejs użytkownika aplikacji.
 
-1. W **Eksplorator rozwiązań**Otwórz plik `MainPage.xaml.cs`źródłowy związany z kodem. (Jest ono pogrupowane `MainPage.xaml`w.) Zastąp zawartość tego pliku następującym poniżej, co obejmuje następujące elementy:
+1. W **Eksplorator rozwiązań**Otwórz plik źródłowy związany z kodem `MainPage.xaml.cs` . (Jest ono pogrupowane w `MainPage.xaml` .) Zastąp zawartość tego pliku następującym poniżej, co obejmuje następujące elementy:
 
 - `using`instrukcje dla `Speech` i `Speech.Dialog` przestrzeni nazw
 - Prosta implementacja zapewniająca dostęp do mikrofonu przy użyciu sieci przewodowej do procedury obsługi przycisku
@@ -259,16 +259,16 @@ Widok Projekt został zaktualizowany, aby pokazać interfejs użytkownika aplika
         }
     }
     ```
-1. Dodaj następujący fragment kodu do treści metody `InitializeDialogServiceConnector`. Ten kod tworzy `DialogServiceConnector` informacje o subskrypcji.
+1. Dodaj następujący fragment kodu do treści metody `InitializeDialogServiceConnector` . Ten kod tworzy `DialogServiceConnector` Informacje o subskrypcji.
 
     ```csharp
     // Create a BotFrameworkConfig by providing a Speech service subscription key
-    // the RecoLanguage property is optional (default en-US)
+    // the botConfig.Language property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
     const string region = "YourServiceRegion"; // Your subscription service region.
 
     var botConfig = BotFrameworkConfig.FromSubscription(speechSubscriptionKey, region);
-    botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
+    botConfig.Language = "en-US";
     connector = new DialogServiceConnector(botConfig);
     ```
 
@@ -280,7 +280,7 @@ Widok Projekt został zaktualizowany, aby pokazać interfejs użytkownika aplika
 
 1. Zastąp ciągi `YourSpeechSubscriptionKey` i `YourServiceRegion` własnymi wartościami dla Twojej subskrypcji mowy i [regionu](~/articles/cognitive-services/speech-service/regions.md).
 
-1. Dołącz Poniższy fragment kodu do końca treści metody `InitializeDialogServiceConnector`. Ten kod konfiguruje programy obsługi zdarzeń, `DialogServiceConnector` które opierają się na tym, aby komunikować działania bot, wyniki rozpoznawania mowy i inne informacje.
+1. Dołącz Poniższy fragment kodu do końca treści metody `InitializeDialogServiceConnector` . Ten kod konfiguruje programy obsługi zdarzeń, które opierają się na tym `DialogServiceConnector` , aby komunikować działania bot, wyniki rozpoznawania mowy i inne informacje.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
@@ -368,9 +368,9 @@ Widok Projekt został zaktualizowany, aby pokazać interfejs użytkownika aplika
 
 Teraz wszystko jest gotowe do skompilowania aplikacji i przetestowania niestandardowego asystenta głosowego przy użyciu usługi mowy.
 
-1. Na pasku menu wybierz polecenie **Kompiluj** > **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
+1. Na pasku menu wybierz polecenie **Kompiluj**  >  **kompilację rozwiązania** , aby skompilować aplikację. Kod powinien teraz zostać skompilowany bez błędów.
 
-1. Wybierz **Debuguj** > **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację. Zostanie wyświetlone okno **HelloWorld** .
+1. Wybierz **Debuguj**  >  **Rozpocznij debugowanie** (lub naciśnij klawisz **F5**), aby uruchomić aplikację. Zostanie wyświetlone okno **HelloWorld** .
 
    ![Przykładowa aplikacja asystenta głosowego platformy UWP w języku C# — Szybki Start](~/articles/cognitive-services/Speech-Service/media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 

@@ -2,14 +2,14 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/13/2020
+ms.date: 06/11/2020
 ms.author: aahi
-ms.openlocfilehash: b842084d00c1ce8ec347994371a55c97b89ba54f
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 6c6de0eb8ca2d1eeee5b882a7a17ca292d816e8a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140746"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735573"
 ---
 <a name="HOLTop"></a>
 
