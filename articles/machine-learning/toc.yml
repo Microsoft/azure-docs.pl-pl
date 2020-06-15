@@ -93,6 +93,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Pojęcia
   items:
+    - name: Wersja Enterprise a wersja podstawowa
+      href: concept-editions.md
     - name: Planowanie kosztów i zarządzanie nimi
       href: concept-plan-manage-cost.md
     - name: Projektant (uczenie maszynowe metodą przeciągania i upuszczania)
@@ -365,6 +367,8 @@
             - name: Azure Functions
               displayName: functions app
               href: how-to-deploy-functions.md
+            - name: Azure Cognitive Search
+              href: how-to-deploy-model-cognitive-search.md
             - name: Urządzenia usługi Azure IoT Edge
               href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
             - name: Wnioskowanie FPGA

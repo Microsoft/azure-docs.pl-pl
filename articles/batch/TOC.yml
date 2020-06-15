@@ -95,6 +95,8 @@
           href: batch-management-dotnet.md
         - name: Analiza kosztów i budżety
           href: budget.md
+        - name: Używanie prywatnych punktów końcowych z kontami usługi Batch
+          href: private-connectivity.md
     - name: Uwierzytelnianie za pomocą usługi Azure AD
       items:
         - name: Usługa Azure AD z usługą Batch

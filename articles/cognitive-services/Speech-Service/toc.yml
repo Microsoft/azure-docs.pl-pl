@@ -12,6 +12,8 @@
       href: language-support.md
     - name: Obsługa regionów
       href: regions.md
+    - name: Co nowego w dokumentacji?
+      href: whats-new.md
 - name: Zamiana mowy na tekst
   items:
     - name: Dokumentacja zamiany mowy na tekst

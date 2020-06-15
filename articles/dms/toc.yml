@@ -5,82 +5,137 @@
     - name: Co to jest usługa Azure Database Migration Service?
       href: dms-overview.md
 - name: Przewodniki Szybki start
+  expanded: true
   items:
     - name: Tworzenie usługi — portal
       href: quickstart-create-data-migration-service-portal.md
     - name: Tworzenie usługi w trybie hybrydowym — portal
       href: quickstart-create-data-migration-service-hybrid-portal.md
-- name: Samouczki
+- name: Pojęcia
   items:
-    - name: Migrowanie z programu SQL Server do jednej bazy danych Azure SQL DB w trybie offline
-      href: tutorial-sql-server-to-azure-sql.md
-    - name: Migrowanie z programu SQL Server do jednej bazy danych Azure SQL DB w trybie online
-      href: tutorial-sql-server-azure-sql-online.md
-    - name: Migrowanie programu SQL Server do zarządzanego wystąpienia usługi SQL DB w trybie offline
-      href: tutorial-sql-server-to-managed-instance.md
-    - name: Migrowanie programu SQL Server do zarządzanego wystąpienia usługi Azure SQL DB w trybie online
-      href: tutorial-sql-server-managed-instance-online.md
-    - name: Migrowanie z usług pulpitu zdalnego programu SQL Server do jednej bazy danych Azure SQL DB lub wystąpienia zarządzanego usługi Azure SQL DB w trybie online
-      href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-    - name: Migrowanie bazy danych MySQL do usługi Azure DB dla MySQL w trybie online
-      href: tutorial-mysql-azure-mysql-online.md
-    - name: Migrowanie bazy danych MySQL usługi RDS do usługi Azure DB dla MySQL w trybie online
-      href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-    - name: Migrowanie bazy danych PostgreSQL do usługi Azure DB for PostgreSQL w trybie online za pośrednictwem portalu
-      href: tutorial-postgresql-azure-postgresql-online-portal.md
-    - name: Migrowanie bazy danych PostgreSQL do usługi Azure DB for PostgreSQL w trybie online za pośrednictwem interfejsu wiersza polecenia
-      href: tutorial-postgresql-azure-postgresql-online.md
-    - name: Migrowanie bazy danych PostgreSQL usługi RDS do usługi Azure DB dla PostgreSQL w trybie online
-      href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-    - name: Migrowanie bazy danych MongoDB do interfejsu API Mongo usługi Azure Cosmos DB w trybie offline
-      href: tutorial-mongodb-cosmos-db.md
-    - name: Migrowanie bazy danych MongoDB do interfejsu API Mongo usługi Azure Cosmos DB w trybie online
-      href: tutorial-mongodb-cosmos-db-online.md
-    - name: Migrowanie bazy danych Oracle do usługi Azure DB for PostgreSQL w trybie online — jeden serwer
-      href: tutorial-oracle-azure-postgresql-online.md
-- name: Przewodniki z instrukcjami
-  items:
-    - name: Używanie programu PowerShell do migrowania programu SQL Server do jednej bazy danych Azure SQL DB
-      href: howto-sql-server-to-azure-sql-powershell.md
-    - name: Używanie programu PowerShell do migrowania programu SQL Server do wystąpienia zarządzanego usługi Azure SQL DB
-      href: howto-sql-server-to-azure-sql-mi-powershell.md
-    - name: Monitorowanie działań migracji
-      href: how-to-monitor-migration-activity.md
-    - name: Ponowne wdrażanie pakietów usług SSIS w pojedynczej bazie danych usługi Azure SQL DB
-      href: how-to-migrate-ssis-packages.md
-    - name: Ponowne wdrażanie pakietów usług SSIS w wystąpieniu zarządzanym usługi Azure SQL DB
-      href: how-to-migrate-ssis-packages-managed-instance.md
-- name: Zasoby
-  expanded: true
-  items:
+    - name: Wymagania wstępne
+      href: pre-reqs.md
     - name: Stan scenariusza migracji bazy danych
       href: resource-scenario-status.md
-    - name: Przegląd wymagań wstępnych
-      href: pre-reqs.md
-    - name: Topologie sieci na potrzeby migracji wystąpienia zarządzanego usługi Azure SQL DB
-      href: resource-network-topologies.md
-    - name: Role niestandardowe na potrzeby migracji w trybie online z programu SQL Server do wystąpienia zarządzanego usługi Azure SQL DB
-      href: resource-custom-roles-sql-db-managed-instance.md
+    - name: Migracja do wystąpienia zarządzanego SQL
+      items:
+        - name: Topologie sieci
+          href: resource-network-topologies.md
+        - name: Role niestandardowe
+          href: resource-custom-roles-sql-db-managed-instance.md
+- name: Samouczki
+  expanded: true
+  items:
+    - name: Migracja z programu SQL Server
+      items:
+        - name: do usługi Azure SQL Database (offline)
+          href: tutorial-sql-server-to-azure-sql.md
+        - name: do usługi Azure SQL Database (online)
+          href: tutorial-sql-server-azure-sql-online.md
+        - name: do wystąpienia zarządzanego Azure SQL (offline)
+          href: tutorial-sql-server-to-managed-instance.md
+        - name: do wystąpienia zarządzanego Azure SQL (online)
+          href: tutorial-sql-server-managed-instance-online.md
+    - name: Migracja z usług pulpitu zdalnego programu SQL Server
+      items:
+        - name: do usługi Azure SQL Database lub wystąpienia zarządzanego SQL
+          href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
+    - name: Migracja z bazy danych MySQL
+      items:
+        - name: do usługi Azure Database for MySQL
+          href: tutorial-mysql-azure-mysql-online.md
+    - name: Migracja z usług pulpitu zdalnego bazy danych MySQL
+      items:
+        - name: do usługi Azure Database for MySQL
+          href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
+    - name: Migracja z bazy danych PostgreSQL
+      items:
+        - name: do usługi Azure DB for PostgreSQL (portal)
+          href: tutorial-postgresql-azure-postgresql-online-portal.md
+        - name: do usługi Azure DB for PostgreSQL (interfejs wiersza polecenia platformy Azure)
+          href: tutorial-postgresql-azure-postgresql-online.md
+    - name: Migracja z usług pulpitu zdalnego bazy danych PostgreSQL
+      items:
+        - name: do usługi Azure DB for PostgreSQL
+          href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
+    - name: Migracja z bazy danych MongoDB
+      items:
+        - name: do interfejsu API Mongo usługi Azure Cosmos DB (offline)
+          href: tutorial-mongodb-cosmos-db.md
+        - name: do interfejsu API Mongo usługi Azure Cosmos DB (online)
+          href: tutorial-mongodb-cosmos-db-online.md
+    - name: Migracja z bazy danych Oracle
+      items:
+        - name: do usługi Azure DB for PostgreSQL w trybie online — jeden serwer
+          href: tutorial-oracle-azure-postgresql-online.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Monitorowanie działań migracji
+      href: how-to-monitor-migration-activity.md
+    - name: Używanie programu PowerShell do przeprowadzania migracji
+      items:
+        - name: z programu SQL Server do usługi SQL Database
+          href: howto-sql-server-to-azure-sql-powershell.md
+        - name: z programu SQL Server do wystąpienia zarządzanego SQL
+          href: howto-sql-server-to-azure-sql-mi-powershell.md
+    - name: Ponowne wdrażanie pakietu SSIS w
+      items:
+        - name: Azure SQL Database
+          href: how-to-migrate-ssis-packages.md
+        - name: Wystąpienie zarządzane Azure SQL
+          href: how-to-migrate-ssis-packages-managed-instance.md
+- name: Zasoby
+  items:
+    - name: Często zadawane pytania
+      href: faq.md
+    - name: Opinia
+      href: 'https://feedback.azure.com/forums/906100-azure-database-migration-service'
+    - name: Cennik
+      href: 'https://aka.ms/dms-pricing'
+    - name: Aktualizacje usług
+      href: 'https://azure.microsoft.com/updates/?product=database-migration'
+    - name: Harmonogram działania dla platformy Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Narzędzia i wskazówki
+      items:
+        - name: Usługi i narzędzia dostępne dla scenariuszy migracji danych
+          href: dms-tools-matrix.md
+        - name: Przewodnik po migracji bazy danych na platformę Azure
+          href: 'https://aka.ms/datamigration'
+        - name: Data Migration Assistant
+          href: 'https://aka.ms/dma'
+        - name: Asystent migracji do programu SQL Server
+          href: 'https://aka.ms/ssma'
+        - name: Asystent eksperymentowania z bazą danych
+          href: 'https://aka.ms/dea-docs'
+        - name: Zestaw narzędzi do migracji dostępu do danych
+          href: 'https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit'
     - name: Znane problemy i rozwiązywanie problemów
       items:
-        - name: Rozwiązywanie problemów z połączeniem ze źródłową bazą danych
-          href: known-issues-troubleshooting-dms-source-connectivity.md
-        - name: Usuwanie typowych problemów i błędów
-          href: known-issues-troubleshooting-dms.md
-        - name: Znane problemy — migracja online do jednej bazy danych Azure SQL DB
-          href: known-issues-azure-sql-online.md
-        - name: Znane problemy — migracja online do wystąpienia zarządzanego usługi Azure SQL DB
-          href: known-issues-azure-sql-db-managed-instance-online.md
-        - name: Znane problemy — migracja online do usługi Azure DB dla MySQL
-          href: known-issues-azure-mysql-online.md
-        - name: Znane problemy — migracja online z bazy danych PostgreSQL do usługi Azure DB for PostgreSQL
-          href: known-issues-azure-postgresql-online.md
-        - name: Znane problemy — migracja online z bazy danych Oracle do usługi Azure DB for PostgreSQL — jeden serwer
-          href: known-issues-oracle-azure-postgresql-online.md
-        - name: Znane problemy — migracja z usługi MongoDB do interfejsu API usługi Azure Cosmos DB dla usługi MongoDB
-          href: known-issues-mongo-cosmos-db.md
-        - name: Znane problemy — korzystanie z trybu hybrydowego
-          href: known-issues-dms-hybrid-mode.md
+        - name: Rozwiązywanie problemów
+          items:
+            - name: Typowe błędy
+              href: known-issues-troubleshooting-dms.md
+            - name: Łączność ze źródłową bazą danych
+              href: known-issues-troubleshooting-dms-source-connectivity.md
+        - name: Znane problemy
+          items:
+            - name: Korzystanie z trybu hybrydowego
+              href: known-issues-dms-hybrid-mode.md
+        - name: Znane problemy z migracją
+          items:
+            - name: do usługi SQL Database
+              href: known-issues-azure-sql-online.md
+            - name: Wystąpienie zarządzane SQL
+              href: known-issues-azure-sql-db-managed-instance-online.md
+            - name: do usługi Azure DB for MySQL
+              href: known-issues-azure-mysql-online.md
+            - name: z bazy danych PostgreSQL do usługi Azure DB for PostgreSQL
+              href: known-issues-azure-postgresql-online.md
+            - name: z bazy danych Oracle do usługi Azure DB for PostgreSQL
+              href: known-issues-oracle-azure-postgresql-online.md
+            - name: z bazy danych MongoDB do interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
+              href: known-issues-mongo-cosmos-db.md
     - name: Filmy wideo
       items:
         - name: Korzystanie z przewodnika po migracji bazy danych
@@ -99,27 +154,3 @@
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/'
         - name: Migrowanie bazy danych MongoDB do usługi Azure Cosmos DB
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/'
-    - name: Narzędzia i wskazówki
-      items:
-        - name: Usługi i narzędzia dostępne dla scenariuszy migracji danych
-          href: dms-tools-matrix.md
-        - name: Przewodnik po migracji bazy danych na platformę Azure
-          href: 'https://aka.ms/datamigration'
-        - name: Data Migration Assistant
-          href: 'https://aka.ms/dma'
-        - name: Asystent migracji do programu SQL Server
-          href: 'https://aka.ms/ssma'
-        - name: Asystent eksperymentowania z bazą danych
-          href: 'https://aka.ms/dea-docs'
-        - name: Zestaw narzędzi do migracji dostępu do danych
-          href: 'https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit'
-    - name: Często zadawane pytania
-      href: faq.md
-    - name: Opinie użytkowników w witrynie User Voice
-      href: 'https://feedback.azure.com/forums/906100-azure-database-migration-service'
-    - name: Ceny
-      href: 'https://aka.ms/dms-pricing'
-    - name: Aktualizacje usług
-      href: 'https://azure.microsoft.com/updates/?product=database-migration'
-    - name: Harmonogram działania dla platformy Azure
-      href: 'https://azure.microsoft.com/roadmap/'

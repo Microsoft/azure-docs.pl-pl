@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentacja usługi Azure Digital Twins (wersja zapoznawcza)
-summary: Dowiedz się, jak za pomocą usługi Azure Digital Twins utworzyć cyfrową reprezentację zasobów, środowisk i systemów firmy, aby tworzyć rozwiązania IoT nowej generacji modelujące świat rzeczywisty.
+summary: Jak ogłoszono na konferencji Microsoft Build 2020, przygotowywana jest właśnie nowa publiczna wersja zapoznawcza usługi Azure Digital Twins. Wkrótce udostępniona zostanie tutaj pełna dokumentacja nowej usługi i jej funkcji. Możesz nadal uzyskiwać dostęp do dokumentacji pierwszej wersji usługi Azure Digital Twins pod podanym linkiem.
 metadata:
   title: Dokumentacja usługi Azure Digital Twins (wersja zapoznawcza) — samouczki i dokumentacja interfejsu API | Microsoft Docs
   description: Dowiedz się, jak używać usługi Azure Digital Twins do łączenia osób, miejsc i rzeczy oraz tworzenia rozwiązań IoT za pomocą analizy przestrzennej.
@@ -10,72 +10,16 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 93bfe0db668e3aaa78e7f58b715490dfe26fbe7a
-  ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+  ms.openlocfilehash: c6822c319489eedf1ecdd7d1fddcd19456c35dd9
+  ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/09/2020
-  ms.locfileid: "84610036"
+  ms.lasthandoff: 06/12/2020
+  ms.locfileid: "84744021"
 landingContent:
-- title: Informacje o usłudze Azure Digital Twins
+- title: Azure Digital Twins, pierwsza wersja
   linkLists:
-  - linkListType: overview
-    links:
-    - text: Co to jest usługa Azure Digital Twins?
-      url: overview.md
-- title: Wprowadzenie do samouczków
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Kodowanie aplikacji klienckiej
-      url: tutorial-code.md
-  - linkListType: tutorial
-    links:
-    - text: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej
-      url: tutorial-command-line-app.md
-  - linkListType: tutorial
-    links:
-    - text: Łączenie kompleksowego rozwiązania
-      url: tutorial-end-to-end.md
-- title: Informacje
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Modele niestandardowe
-      url: concepts-models.md
-  - linkListType: concept
-    links:
-    - text: Bliźniacze reprezentacje cyfrowe i graf bliźniaczych reprezentacji
-      url: concepts-twins-graph.md
-  - linkListType: concept
-    links:
-    - text: Język zapytań
-      url: concepts-query-language.md
-- title: Programowanie
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Korzystanie z interfejsu wiersza polecenia usługi Azure Digital Twins
-      url: how-to-use-cli.md
-  - linkListType: how-to-guide
-    links:
-    - text: Tworzenie wystąpienia usługi Azure Digital Twins
-      url: how-to-set-up-instance.md
-  - linkListType: how-to-guide
-    links:
-    - text: Uwierzytelnianie aplikacji klienckiej
-      url: how-to-authenticate-client.md
-- title: Dokumentacja interfejsu API
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
-      url: how-to-use-apis-sdks.md
-  - linkListType: how-to-guide
-    links:
-    - text: Tworzenie niestandardowych zestawów SDK za pomocą narzędzia AutoRest
-      url: how-to-create-custom-sdks.md
   - linkListType: reference
     links:
-    - text: Interfejsy API REST
-      url: https://docs.microsoft.com/rest/api/azure-digitaltwins/
+    - text: 'Dokumentacja dotycząca poprzednich wersji usługi: Azure Digital Twins'
+      url: https://docs.microsoft.com/previous-versions/azure/digital-twins/about-digital-twins

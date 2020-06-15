@@ -166,8 +166,12 @@
       href: evaluate-recommender.md
     - name: Wynik modułu poleceń SVD
       href: score-svd-recommender.md
+    - name: Wyniki modułu poleceń Wide and Deep
+      href: score-wide-and-deep-recommender.md
     - name: Trenowanie modułu poleceń SVD
       href: train-svd-recommender.md
+    - name: Trenowanie modułu poleceń Wide and Deep
+      href: train-wide-and-deep-recommender.md
 - name: Wykrywanie anomalii
   items:
     - name: Wykrywanie anomalii oparte na analizie głównych składowych

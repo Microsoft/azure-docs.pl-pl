@@ -256,12 +256,10 @@
           href: limit-egress-traffic.md
         - name: Włączanie integracji z usługą Azure Active Directory
           items:
-            - name: Integrowanie usługi Azure AD (wersja zapoznawcza)
+            - name: Usługa AAD zarządzana przez usługę AKS (wersja zapoznawcza)
               href: managed-aad.md
             - name: Używanie interfejsu wiersza polecenia platformy Azure
               href: azure-ad-integration-cli.md
-            - name: Korzystanie z witryny Azure Portal
-              href: azure-ad-integration.md
         - name: Używanie kontroli dostępu opartej na rolach w usłudze Kubernetes w integracji z usługą Azure AD
           href: azure-ad-rbac.md
           maintainContext: true

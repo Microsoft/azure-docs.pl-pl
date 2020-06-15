@@ -15,6 +15,8 @@
           href: quickstart-create-server-database-azure-cli.md
         - name: Tworzenie bazy danych — polecenie up interfejsu wiersza polecenia platformy Azure
           href: quickstart-create-server-up-azure-cli.md
+        - name: Tworzenie bazy danych — program Azure PowerShell
+          href: quickstart-create-postgresql-server-database-using-azure-powershell.md
         - name: Tworzenie bazy danych — szablon usługi Resource Manager
           href: quickstart-create-postgresql-server-database-using-arm-template.md
           displayName: deploy azure resource manager template
@@ -48,6 +50,8 @@
               href: tutorial-design-database-using-azure-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: tutorial-design-database-using-azure-cli.md
+            - name: Azure PowerShell
+              href: tutorial-design-database-using-powershell.md
         - name: 2 — Projektowanie aplikacji internetowej — Python
           href: ../app-service/containers/tutorial-python-postgresql-app.md
           maintainContext: true
@@ -227,6 +231,8 @@
               href: howto-restore-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-restore-server-cli.md
+            - name: Azure PowerShell
+              href: howto-restore-server-powershell.md
         - name: Migrowanie bazy danych
           items:
             - name: Zrzucanie i przywracanie
@@ -245,12 +251,16 @@
               href: howto-configure-server-parameters-using-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-configure-server-parameters-using-cli.md
+            - name: Azure PowerShell
+              href: howto-configure-server-parameters-using-powershell.md
         - name: Automatyczne zwiększanie rozmiaru magazynu
           items:
             - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-auto-grow-storage-cli.md
+            - name: Azure PowerShell
+              href: howto-auto-grow-storage-powershell.md
         - name: Dzienniki dostępu
           items:
             - name: Azure Portal
@@ -297,6 +307,8 @@
               href: howto-restart-server-portal.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: howto-restart-server-cli.md
+            - name: Azure PowerShell
+              href: howto-restart-server-powershell.md
         - name: Odmowa dostępu do sieci publicznej
           items:
             - name: Azure Portal
@@ -307,6 +319,8 @@
               href: howto-read-replicas-portal.md
             - name: 'Zarządzanie replikami do odczytu (interfejs wiersza polecenia platformy Azure, interfejs API REST)'
               href: howto-read-replicas-cli.md
+            - name: Zarządzanie replikami do odczytu w programie Azure PowerShell
+              href: howto-read-replicas-powershell.md
     - name: Hiperskala (Citus)
       items:
         - name: Tworzenie użytkowników
