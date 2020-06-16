@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 36b653fb3c3a24f3d19408aa2c87b3b764d04ec1
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 3e32c7d7da918eb58de47d8fc9b7688a189cb022
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730326"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783099"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -312,6 +312,27 @@ Interfejs API **tłumaczenia mowy** obsługuje różne języki dla tłumaczenia 
 | Wietnamski              | `vi`          |
 | Walijski                   | `cy`          |
 | Yucatec Maya            | `yua`         |
+
+## <a name="speaker-recognition"></a>Rozpoznawanie osoby mówiącej
+
+Zapoznaj się z poniższą tabelą dla obsługiwanych języków dla różnych rozpoznawanie osoby mówiącej interfejsów API. Więcej informacji na temat rozpoznawanie osoby mówiącej można znaleźć w temacie [Omówienie](speaker-recognition-overview.md) .
+
+| Regionalne | Język | Weryfikacja zależna od tekstu | Weryfikacja niezależna od tekstu | Identyfikacja niezależna od tekstu |
+|----|----|----|----|----|
+| pl-PL | Angielski (Stany Zjednoczone) | tak | tak | tak |
+|zh-CN  |Chiński (mandarynki, uproszczony)|    nie dotyczy|    tak|    tak|
+|de-DE  |Niemiecki (Niemcy)   |nie dotyczy    |tak    |tak|
+|en-GB  |Angielski (Zjednoczone Królestwo)   |nie dotyczy    |tak    |tak|
+|fr-FR  |Francuski (Francja)    |nie dotyczy    |tak    |tak|
+|en-AU  |Angielski (Australia)    |nie dotyczy    |tak    |tak|
+|EN-CA  |Angielski (Kanada)   |nie dotyczy|   tak|    tak|
+|fr — CA  |francuski (Kanada)    |nie dotyczy    |tak|   tak|
+|it-IT  |Włoski|   nie dotyczy |tak|   tak|
+|es-ES| hiszpański (Hiszpania) |nie dotyczy    |tak|   tak|
+|es — MX  |Hiszpański (Meksyk)   |nie dotyczy|   tak|    tak|
+|ja-JP| Japoński    |nie dotyczy    |tak    |tak|
+|pt-BR| Portugalski (Brazylia)|    nie dotyczy|    tak|    tak|
+|ko-KR| Koreański  |nie dotyczy    |tak|   tak|
 
 ## <a name="next-steps"></a>Następne kroki
 

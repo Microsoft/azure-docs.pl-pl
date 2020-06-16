@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27e26bb37b444b49797d46dd4e12b61f8fe11b16
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220469"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782538"
 ---
 # <a name="speech-service-supported-regions"></a>Obsługiwane regiony usługi Speech
 
@@ -38,7 +38,7 @@ Usługa Speech jest dostępna w tych regionach na potrzeby **rozpoznawania mowy*
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-Jeśli używasz [zestawu Speech SDK](speech-sdk.md), regiony są określane przez **Identyfikator regionu** (na przykład jako parametr do `SpeechConfig.FromSubscription`). Upewnij się, że region jest zgodny z regionem subskrypcji.
+Jeśli używasz [zestawu Speech SDK](speech-sdk.md), regiony są określane przez **Identyfikator regionu** (na przykład jako parametr do `SpeechConfig.FromSubscription` ). Upewnij się, że region jest zgodny z regionem subskrypcji.
 
 ### <a name="intent-recognition"></a>Rozpoznawanie intencji
 
@@ -75,6 +75,10 @@ Jest to podzestaw regionów publikowania obsługiwanych przez [usługę Language
 | Europa Północna   | `northeurope`        |
 | Azja Południowo-Wschodnia | `southeastasia`      |
 
+### <a name="speaker-recognition"></a>Rozpoznawanie osoby mówiącej
+
+Rozpoznawanie osoby mówiącej jest obecnie dostępna tylko w `westus` regionie.
+
 ## <a name="rest-apis"></a>Interfejsy API REST
 
 Usługa mowy udostępnia również punkty końcowe REST dla żądań zamiany mowy na tekst i zamiany tekstu na mowę.
@@ -89,12 +93,12 @@ Punkt końcowy interfejsu API REST ma następujący format:
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Zamień `<REGION_IDENTIFIER>` na identyfikator pasujący do regionu subskrypcji z tej tabeli:
+Zamień na `<REGION_IDENTIFIER>` Identyfikator pasujący do regionu subskrypcji z tej tabeli:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 > [!NOTE]
-> Parametr Language musi być dołączony do adresu URL, aby uniknąć otrzymania błędu HTTP 4xx. Na przykład język ustawiony na angielski w regionie zachodnie stany USA to: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
+> Parametr Language musi być dołączony do adresu URL, aby uniknąć otrzymania błędu HTTP 4xx. Na przykład język ustawiony na angielski w regionie zachodnie stany USA to: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US` .
 
 ### <a name="text-to-speech"></a>Zamiana tekstu na mowę
 

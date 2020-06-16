@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: trbye
-ms.openlocfilehash: cc19844c6407a83233c70048e9eb258a742036fb
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635173"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84780889"
 ---
 # <a name="what-is-the-azure-speaker-recognition-service"></a>Co to jest usługa Azure rozpoznawanie osoby mówiącej?
 
@@ -55,6 +55,20 @@ Dane rejestracyjne osoby mówiącej są przechowywane w zabezpieczonym systemie,
 Określasz, jak długo mają być przechowywane dane. Można tworzyć, aktualizować i usuwać dane rejestracji dla poszczególnych głośników za poorednictwem wywołań interfejsu API. Usunięcie subskrypcji spowoduje również usunięcie wszystkich danych dotyczących rejestracji głośników skojarzonych z subskrypcją. 
 
 Podobnie jak w przypadku wszystkich zasobów Cognitive Services, deweloperzy korzystający z usługi rozpoznawanie osoby mówiącej muszą mieć świadomość zasad firmy Microsoft dotyczących danych klientów. Upewnij się, że zostały odebrane odpowiednie uprawnienia od użytkowników do rozpoznawanie osoby mówiącej. Aby uzyskać więcej informacji, zobacz [stronę Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)   w centrum zaufania firmy Microsoft. 
+
+## <a name="common-questions-and-solutions"></a>Często zadawane pytania i rozwiązania
+
+| Pytanie | Rozwiązanie |
+|---------|----------|
+| Jakie scenariusze mogą rozpoznawanie osoby mówiącej być używane? | Wywołaj centrum weryfikacja klienta, ewidencjonowanie głosu oparte na głosach, transkrypcja spotkań, Personalizacja urządzenia przez wiele użytkowników|
+| Jaka jest różnica między identyfikacją i weryfikacją? | Identyfikacja jest procesem wykrywania, który element członkowski z grupy głośników mówi. Weryfikacja jest czynnością potwierdzającą, że prelegent pasuje do znanego lub **zarejestrowanego** głosu.|
+| Jaka jest różnica między weryfikacją tekstową i niezależną od tekstu? | Weryfikacja zależna od tekstu wymaga określonego zdania do rejestracji i rozpoznawania. Weryfikacja niezależna od tekstu wymaga dłuższego przykładu głosu do rejestracji, ale wszystkie elementy mogą być wymawiane, w tym podczas rozpoznawania.|
+| Jakie języki są obsługiwane? | Angielski, francuski, hiszpański, chiński, niemiecki, włoski, japoński i portugalski |
+| Jakie regiony platformy Azure są obsługiwane? | Rozpoznawanie osoby mówiącej to usługa w wersji zapoznawczej, która jest obecnie dostępna tylko w regionie zachodnie stany USA.|
+| Jakie formaty dźwięku są obsługiwane? | Mono 16-bitowe, 16kHz w formacie WAV |
+| **Akceptowanie** i **odrzucanie** odpowiedzi nie jest dokładne, jak dostosować próg? | Ze względu na to, że optymalny próg różni się w zależności od scenariuszy, interfejs API decyduje o tym, czy "Akceptuję" czy "odrzucić", w oparciu o domyślny próg 0,5. Zaawansowani użytkownicy powinni zastąpić domyślną decyzję, a następnie dostosować wynik na podstawie własnego scenariusza. |
+| Czy można wielokrotnie rejestrować jednego prelegenta? | Tak, w przypadku weryfikacji zależnej od tekstu możesz zarejestrować prelegenta do 50 razy. W przypadku weryfikacji niezależnej od tekstu lub identyfikacji osoby mówiącej możesz zarejestrować się nawet przez 300 sekund audio. |
+| Jakie dane są przechowywane na platformie Azure? | Dźwięk rejestracyjny jest przechowywany w usłudze do momentu [usunięcia](speaker-recognition-basics.md#deleting-voice-profile-enrollments)profilu głosowego. Próbki audio rozpoznawania nie są zachowywane ani przechowywane. |
 
 ## <a name="next-steps"></a>Następne kroki
 
