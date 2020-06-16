@@ -70,7 +70,7 @@
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia usługi Azure Red Hat OpenShift
-      href: /cli/azure/openshift
+      href: /cli/azure/aro
     - name: Interfejsy API REST usługi Azure Red Hat OpenShift
       href: /rest/api/openshift
 - name: Zasoby

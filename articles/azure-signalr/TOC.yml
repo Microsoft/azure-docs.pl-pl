@@ -7,13 +7,13 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: 'ASP.NET Core — C#'
+    - name: ASP.NET Core — C#
       href: signalr-quickstart-dotnet-core.md
-    - name: 'ASP.NET — C#'
+    - name: ASP.NET — C#
       href: signalr-quickstart-dotnet.md
     - name: Azure Functions — JavaScript
       href: signalr-quickstart-azure-functions-javascript.md
-    - name: 'Azure Functions — C#'
+    - name: Azure Functions — C#
       href: signalr-quickstart-azure-functions-csharp.md
     - name: Azure Functions — Java
       href: signalr-quickstart-azure-functions-java.md
@@ -35,6 +35,8 @@
       href: 'https://github.com/aspnet/AzureSignalR-samples'
     - name: Interfejs wiersza polecenia platformy Azure
       href: signalr-reference-cli.md
+    - name: Elementy wbudowane usługi Azure Policy
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Wewnętrzne elementy usługi Azure SignalR

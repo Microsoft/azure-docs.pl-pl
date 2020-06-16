@@ -2,13 +2,13 @@
 title: Co nowego — Language Understanding (LUIS)
 description: Ten artykuł jest regularnie aktualizowany za pomocą wiadomości o interfejs API usługi Language Understanding usługi Azure Cognitive Services.
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: 45bfe4e703942a7fa38329bd0905833e904e0ab1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.date: 06/15/2020
+ms.openlocfilehash: d178ee2f5db74949f4a8ad68df93bf3c4407c58a
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678753"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789212"
 ---
 # <a name="whats-new-in-language-understanding"></a>Co nowego w Language Understanding
 
@@ -16,11 +16,19 @@ Dowiedz się, co nowego w usłudze. Te elementy obejmują informacje o wersji, k
 
 ## <a name="release-notes"></a>Informacje o wersji
 
-### <a name="june-2020"></a>Czerwiec 2020
+### <a name="june-2020"></a>Czerwiec 2020 r.
 
 * [Wersja Zapoznawcza 3,0](luis-migration-authoring-entities.md) Zestawie
     * Wersja 3.2.0-Preview. 3 — [.NET — NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
     * Wersja 4.0.0-Preview. 3- [js-npm](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
+* Stosowanie praktyk DevOps z LUIS
+    * Pojęcia
+        * [DevOps praktyk dla LUIS](luis-concept-devops-sourcecontrol.md)
+        * [Przepływy pracy ciągłej integracji i ciągłego dostarczania dla LUIS DevOps](luis-concept-devops-automation.md)
+        * [Testowanie pod kątem LUIS DevOps](luis-concept-devops-testing.md)
+    * Porady
+        * [Zastosuj DevOps do tworzenia aplikacji LUIS przy użyciu akcji usługi GitHub](luis-how-to-devops-with-github.md)
+    * [Pełny kod repozytorium GitHub](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### <a name="may-2020---build"></a>Maj 2020-Build
 
