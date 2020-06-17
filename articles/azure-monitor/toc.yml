@@ -197,7 +197,7 @@
             - name: Omówienie
               href: platform/agents-overview.md
             - name: Często zadawane pytania
-              href: 'faq.md#agents'
+              href: faq.md#agents
             - name: Rozszerzenie Diagnostyki Azure
               items:
                 - name: Omówienie
@@ -905,7 +905,7 @@
         - name: Ogólna dostępność — często zadawane pytania
           href: insights/vminsights-ga-release-faq.md
         - name: Często zadawane pytania
-          href: 'faq.md#azure-monitor-for-vms'
+          href: faq.md#azure-monitor-for-vms
         - name: Włączanie monitorowania
           items:
             - name: Omówienie włączania monitorowania
@@ -937,7 +937,7 @@
         - name: Omówienie
           href: insights/container-insights-overview.md
         - name: Często zadawane pytania
-          href: 'faq.md#azure-monitor-for-containers'
+          href: faq.md#azure-monitor-for-containers
         - name: Włączanie monitorowania
           items:
             - name: Omówienie włączania monitorowania
@@ -952,6 +952,8 @@
               href: insights/container-insights-azure-redhat-setup.md
             - name: Włączanie dla platformy Azure Red Hat OpenShift w wersji 4
               href: insights/container-insights-azure-redhat4-setup.md
+            - name: Włączanie dla klastra z obsługą usługi Arc
+              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Mapowania regionów
               href: insights/container-insights-region-mapping.md
         - name: Monitorowanie wydajności

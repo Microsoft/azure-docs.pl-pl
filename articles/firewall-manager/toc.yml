@@ -24,7 +24,7 @@
       href: secured-virtual-hub.md
     - name: Ogólny proces wdrażania
       href: deployment-overview.md
-    - name: Zaufani partnerzy w zakresie zabezpieczeń
+    - name: Dostawcy partnerów w zakresie zabezpieczeń
       href: trusted-security-partners.md
     - name: Logika przetwarzająca reguły
       href: rule-processing.md
@@ -32,7 +32,7 @@
       href: vhubs-and-vnets.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Wdrażanie zaufanych partnerów w zakresie zabezpieczeń
+    - name: Wdrażanie dostawców partnerów w zakresie zabezpieczeń
       href: deploy-trusted-security-partner.md
     - name: Migrowanie do zasad zapory — PowerShell
       href: migrate-to-policy.md
