@@ -1,20 +1,6 @@
 - name: Dokumentacja bezpiecznego tworzenia
   href: index.yml
-- name: Przykładowe aplikacje
-  expanded: true
-  items:
-    - name: Nie znasz bezpiecznego programowania?
-      items:
-        - name: Aplikacja internetowa w kontenerze systemu Linux
-          href: secure-web-app.md
-        - name: Aplikacja internetowa z usługą Azure Active Directory
-          href: secure-aad-app.md
-    - name: Rozwiązania zgodne ze standardami branżowymi
-      items:
-        - name: Payment Card Industry
-          href: secure-pci-web-app.md
 - name: Pojęcia
-  expanded: true
   items:
     - name: Najlepsze rozwiązania
       items:
@@ -26,8 +12,8 @@
           href: secure-develop.md
         - name: Wdrażanie bezpiecznych aplikacji
           href: secure-deploy.md
-- name: Zasoby
   expanded: true
+- name: Zasoby
   items:
     - name: Microsoft Security Code Analysis
       items:
@@ -95,3 +81,4 @@
               href: threat-modeling-tool-sensitive-data.md
             - name: Zarządzanie sesjami
               href: threat-modeling-tool-session-management.md
+  expanded: true

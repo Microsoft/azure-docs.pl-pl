@@ -946,14 +946,14 @@
               href: insights/container-insights-enable-new-cluster.md
             - name: Włączanie dla istniejącego klastra AKS
               href: insights/container-insights-enable-existing-clusters.md
+            - name: Włączanie dla klastra z obsługą usługi Arc
+              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Włączanie dla klastra hybrydowego
               href: insights/container-insights-hybrid-setup.md
             - name: Włączanie dla platformy Azure Red Hat OpenShift w wersji 3
               href: insights/container-insights-azure-redhat-setup.md
             - name: Włączanie dla platformy Azure Red Hat OpenShift w wersji 4
               href: insights/container-insights-azure-redhat4-setup.md
-            - name: Włączanie dla klastra z obsługą usługi Arc
-              href: insights/container-insights-enable-arc-enabled-clusters.md
             - name: Mapowania regionów
               href: insights/container-insights-region-mapping.md
         - name: Monitorowanie wydajności

@@ -155,7 +155,7 @@
     - name: Inicjowanie transformacji obrazów
       href: init-image-transformation.md
     - name: Dzielenie katalogu obrazów
-      href: split-to-image-directory.md
+      href: split-image-directory.md
     - name: Model DenseNet
       href: densenet.md
     - name: Model ResNet
