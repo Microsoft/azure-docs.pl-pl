@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 7ddf556be584603ce3e7cb4a97eb4cc9ff63ec68
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: 4e4200e291db81ff759e21eac5b1a9b785b5657f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718448"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888300"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Obsługa języków i tekstu oraz Tłumaczenie mowy
 
@@ -186,7 +186,7 @@ Metoda transliteracji obsługuje następujące języki. W polu "do/z" <--> "wska
 | Język    | Kod języka | Skrypt | Do/z | Skrypt|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabski | `ar` | Arabski`Arab` | <--> | Wielka`Latn` |
-|Języku  | `bn` | Bengalski`Beng` | <--> | Wielka`Latn` |
+| Języku  | `bn` | Bengalski`Beng` | <--> | Wielka`Latn` |
 | Chiński (uproszczony) | `zh-Hans` | Chiński uproszczony`Hans`| <--> | Wielka`Latn` |
 | Chiński (uproszczony) | `zh-Hans` | Chiński uproszczony`Hans`| <--> | Chiński tradycyjny`Hant`|
 | Chiński (tradycyjny) | `zh-Hant` | Chiński tradycyjny`Hant`| <--> | Wielka`Latn` |
@@ -198,7 +198,7 @@ Metoda transliteracji obsługuje następujące języki. W polu "do/z" <--> "wska
 | Kannada | `kn` | Kannada`Knda` | --> | Wielka`Latn` |
 | Malayalam | `ml` | Malayalam`Mlym` | --> | Wielka`Latn` |
 | Marathi | `mr` | Devanagari`Deva` | --> | Wielka`Latn` |
-| Orija | `or` | Orija`Orya` | <--> | Wielka`Latn` |
+| Odia | `or` | Orija`Orya` | <--> | Wielka`Latn` |
 | Pendżabski | `pa` | Gurmukhi`Guru`  | <--> | Wielka`Latn`  |
 | Serbski (cyrylica) | `sr-Cyrl` | Pisanych`Cyrl`  | --> | Wielka`Latn` |
 | Serbski (łaciński) | `sr-Latn` | Wielka`Latn` | --> | Pisanych`Cyrl`|

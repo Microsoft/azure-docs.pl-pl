@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 879834567b6905a070aada3dae2a41a672635c6c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 5b1471cc43fc506ca798e81ac8e35a5051278ee0
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267243"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907384"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Przewodnik referencyjny zestawu SDK czytnika immersyjny
 
@@ -111,7 +111,7 @@ Pojedynczy fragment danych, który zostanie przesłany do zawartości czytnika i
 
 ### <a name="launchresponse"></a>LaunchResponse
 
-Zawiera odpowiedź z wywołania do `ImmersiveReader.launchAsync` .
+Zawiera odpowiedź z wywołania do `ImmersiveReader.launchAsync` . Należy zauważyć, że odwołanie do programu zawierającego `iframe` czytnik immersyjny jest dostępne za pośrednictwem `container.firstChild` .
 
 ```typescript
 {
@@ -135,7 +135,7 @@ enum CookiePolicy { Disable, Enable }
 | tekst/zwykły | Zwykły tekst. |
 | text/html | Zawartość HTML. [Dowiedz się więcej](#html-support)|
 | Application/MathML + XML | Język matematycznych znaczników (MathML). [Dowiedz się więcej](./how-to/display-math.md).
-| application/vnd. openxmlformats-officedocument. WordprocessingML. Document | Dokument formatu programu Microsoft Word. docx.
+| ument aplikacji/vnd.openxmlformats-officedocument.wordprocessingml.doc | Dokument formatu programu Microsoft Word. docx.
 
 ### <a name="html-support"></a>Obsługa HTML
 
@@ -175,7 +175,7 @@ Opcje renderowania przycisków czytnika szczegółowego.
 }
 ```
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
 Zawiera informacje o błędzie.
 
