@@ -1,0 +1,97 @@
+- name: Interfejs API platformy Azure dla standardu FHIR
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o interfejsie API platformy Azure dla standardu FHIR
+      href: overview.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Wdrażanie interfejsu API platformy Azure dla standardu FHIR — portal
+      href: fhir-paas-portal-quickstart.md
+    - name: Wdrażanie interfejsu API platformy Azure dla standardu FHIR — PowerShell
+      href: fhir-paas-powershell-quickstart.md
+    - name: Wdrażanie interfejsu API platformy Azure dla standardu FHIR — interfejs wiersza polecenia
+      href: fhir-paas-cli-quickstart.md
+    - name: Wdrażanie serwera FHIR dla platformy Azure — portal
+      href: fhir-oss-portal-quickstart.md
+    - name: Wdrażanie serwera FHIR dla platformy Azure — PowerShell
+      href: fhir-oss-powershell-quickstart.md
+    - name: Wdrażanie serwera FHIR dla platformy Azure — interfejs wiersza polecenia
+      href: fhir-oss-cli-quickstart.md
+- name: Samouczki
+  expanded: false
+  items:
+    - name: Wdrażanie aplikacji JavaScript
+      expanded: false
+      items:
+        - name: 1. Początkowa konfiguracja i wdrażanie standardu FHIR
+          href: tutorial-web-app-fhir-server.md
+        - name: 2. Rejestrowanie publicznej aplikacji klienckiej
+          href: tutorial-web-app-public-app-reg.md
+        - name: 3. Testowanie konfiguracji za pomocą narzędzia Postman
+          href: tutorial-web-app-test-postman.md
+        - name: 4. Pisanie aplikacji internetowej
+          href: tutorial-web-app-write-web-app.md
+    - name: Dostęp do interfejsu API FHIR za pomocą narzędzia Postman
+      href: access-fhir-postman-tutorial.md
+    - name: Użyj funkcji SMART na serwerze proxy FHIR
+      href: use-smart-on-fhir-proxy.md
+- name: Przewodniki z instrukcjami
+  expanded: false
+  items:
+    - name: Rejestrowanie aplikacji
+      expanded: false
+      items:
+        - name: Omówienie rejestrowania aplikacji dla interfejsu Azure API for FHIR
+          href: fhir-app-registration.md
+        - name: Aplikacja do obsługi zasobów
+          href: register-resource-azure-ad-client-app.md
+        - name: Poufna aplikacja kliencka
+          href: register-confidential-azure-ad-client-app.md
+        - name: Publiczna aplikacja kliencka
+          href: register-public-azure-ad-client-app.md
+        - name: Aplikacja kliencka usługi
+          href: register-service-azure-ad-client-app.md
+    - name: Konfigurowanie ustawień
+      expanded: false
+      items:
+        - name: Konfigurowanie dodatkowych ustawień interfejsu Azure API for FHIR
+          href: azure-api-for-fhir-additional-settings.md
+        - name: Konfigurowanie kontroli dostępu opartej na rolach na platformie Azure
+          href: configure-azure-rbac.md
+        - name: Konfigurowanie lokalnej kontroli dostępu opartej na rolach
+          href: configure-local-rbac.md
+        - name: Konfigurowanie ustawień bazy danych
+          href: configure-database.md
+        - name: Konfigurowanie mechanizmu CORS
+          href: configure-cross-origin-resource-sharing.md
+        - name: Konfigurowanie eksportu
+          href: configure-export-data.md
+    - name: Znajdowanie identyfikatorów obiektów tożsamości
+      href: find-identity-object-ids.md
+    - name: Włączanie rejestrowania diagnostycznego w interfejsie Azure API for FHIR®
+      href: enable-diagnostic-logging.md
+    - name: Uzyskiwanie tokenu interfejsu API platformy Azure dla standardu FHIR — interfejs wiersza polecenia
+      href: get-healthcare-apis-access-token-cli.md
+- name: Pojęcia
+  expanded: false
+  items:
+    - name: Omówienie usługi Azure AD i interfejsu Azure API for FHIR
+      href: azure-ad-hcapi.md
+    - name: Weryfikacja tokenu dostępu
+      href: azure-ad-hcapi-token-validation.md
+    - name: Używanie niestandardowych nagłówków HTTP do dodawania danych do dzienników inspekcji
+      href: use-custom-headers.md
+- name: Zasoby
+  items:
+    - name: Często zadawane pytania
+      href: fhir-faq.md
+    - name: Obsługiwane funkcje
+      href: fhir-features-supported.md
+    - name: Ekosystem partnerów
+      href: partner-ecosystem.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/healthcareapis/healthcareapis

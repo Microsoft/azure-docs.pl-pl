@@ -24,27 +24,6 @@
       items:
         - name: Tworzenie przy użyciu zestawu Helm
           href: quickstart-helm.md
-        - name: Azure Dev Spaces
-          expanded: true
-          items:
-            - name: Programowanie zespołowe za pomocą usługi Azure Dev Spaces
-              href: ../dev-spaces/quickstart-team-development.md
-              maintainContext: true
-            - name: Korzystanie z programu Visual Studio Code
-              href: ../dev-spaces/quickstart-netcore.md
-              maintainContext: true
-            - name: Korzystanie z programu Visual Studio
-              href: ../dev-spaces/quickstart-netcore-visualstudio.md
-              maintainContext: true
-            - name: Korzystanie z interfejsu wiersza polecenia
-              href: ../dev-spaces/quickstart-cli.md
-              maintainContext: true
-            - name: Korzystanie z usługi Azure Dev Spaces przy użyciu języka Java
-              href: ../dev-spaces/quickstart-java.md
-              maintainContext: true
-            - name: Korzystanie z usługi Azure Dev Spaces przy użyciu środowiska Node.js
-              href: ../dev-spaces/quickstart-nodejs.md
-              maintainContext: true
 - name: Samouczki
   items:
     - name: 1 — Przygotowywanie aplikacji dla usługi AKS
@@ -302,54 +281,10 @@
           href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: Opracowywanie i uruchamianie aplikacji
       items:
-        - name: Programowanie za pomocą usługi Dev Spaces
-          href: ../dev-spaces/azure-dev-spaces.md
-          maintainContext: true
-          items:
-            - name: Java (VS Code i interfejs wiersza polecenia)
-              items:
-                - name: 1 — Wprowadzenie
-                  href: ../dev-spaces/get-started-java.md
-                  maintainContext: true
-                - name: 2 — Programowanie wielu usług
-                  href: ../dev-spaces/multi-service-java.md
-                  maintainContext: true
-                - name: 3 — Programowanie zespołowe
-                  href: ../dev-spaces/team-development-java.md
-                  maintainContext: true
-            - name: .NET Core (VS Code oraz interfejs wiersza polecenia)
-              items:
-                - name: 1 — Wprowadzenie
-                  href: ../dev-spaces/get-started-netcore.md
-                  maintainContext: true
-                - name: 2 — Programowanie wielu usług
-                  href: ../dev-spaces/multi-service-netcore.md
-                  maintainContext: true
-                - name: 3 — Programowanie zespołowe
-                  href: ../dev-spaces/team-development-netcore.md
-                  maintainContext: true
-            - name: .NET Core (Visual Studio 2017)
-              items:
-                - name: 1 — Wprowadzenie
-                  href: ../dev-spaces/get-started-netcore-visualstudio.md
-                  maintainContext: true
-                - name: 2 — Programowanie wielu usług
-                  href: ../dev-spaces/multi-service-netcore-visualstudio.md
-                  maintainContext: true
-                - name: 3 — Programowanie zespołowe
-                  href: ../dev-spaces/team-development-netcore-visualstudio.md
-                  maintainContext: true
-            - name: Node.js (VS Code oraz interfejs wiersza polecenia)
-              items:
-                - name: 1 — Wprowadzenie
-                  href: ../dev-spaces/get-started-nodejs.md
-                  maintainContext: true
-                - name: 2 — Programowanie wielu usług
-                  href: ../dev-spaces/multi-service-nodejs.md
-                  maintainContext: true
-                - name: 3 — Programowanie zespołowe
-                  href: ../dev-spaces/team-development-nodejs.md
-                  maintainContext: true
+        - name: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio Code (wersja zapoznawcza)
+          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+        - name: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio (wersja zapoznawcza)
+          href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
         - name: Instalowanie istniejących aplikacji za pomocą zestawu Helm
           href: kubernetes-helm.md
         - name: Korzystanie z usługi OpenFaaS

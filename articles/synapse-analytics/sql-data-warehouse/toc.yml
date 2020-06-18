@@ -33,6 +33,8 @@
           href: create-data-warehouse-portal.md
         - name: PowerShell
           href: create-data-warehouse-powershell.md
+        - name: Szablon ARM
+          href: quickstart-arm-template.md
     - name: Ładowanie danych
       items:
         - name: Instrukcja COPY

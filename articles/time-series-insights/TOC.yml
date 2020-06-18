@@ -41,9 +41,9 @@
           items:
             - name: Uwierzytelnianie i autoryzacja
               href: time-series-insights-authentication-and-authorization.md
-            - name: 'Wykonywanie zapytań o dane za pomocą języka C#'
+            - name: Wykonywanie zapytań o dane za pomocą języka C#
               href: time-series-insights-query-data-csharp.md
-            - name: 'Zarządzanie danymi referencyjnymi w języku C#'
+            - name: Zarządzanie danymi referencyjnymi w języku C#
               href: time-series-insights-manage-reference-data-csharp.md
             - name: Udostępnianie widoku niestandardowego
               href: time-series-insights-parameterized-urls.md
@@ -65,7 +65,7 @@
           items:
             - name: Uwierzytelnianie i autoryzacja
               href: time-series-insights-authentication-and-authorization.md
-            - name: 'Wykonywanie zapytań o dane za pomocą języka C#'
+            - name: Wykonywanie zapytań o dane za pomocą języka C#
               href: time-series-insights-update-query-data-csharp.md
             - name: Integracja z usługą Power BI
               href: concepts-power-bi.md
@@ -111,6 +111,12 @@
           href: time-series-insights-update-how-to-shape-events.md
         - name: Łączenie z usługą Power BI
           href: how-to-connect-power-bi.md
+- name: Zmiany powodujące niezgodność
+  items:
+    - name: Azure Time Series Insights (wersja zapoznawcza)
+      items:
+        - name: Dodawanie obsługi dla typu danych long
+          href: time-series-insights-long-data-type.md
 - name: Dokumentacja
   items:
     - name: Time Series Insights

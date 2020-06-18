@@ -23,6 +23,8 @@
           href: b2b-tutorial-require-mfa.md
     - name: Samples
       items:
+        - name: Przykłady rejestracji samoobsługowej
+          href: code-samples-self-service-sign-up.md
         - name: Przykłady kodu i programu Azure PowerShell
           href: code-samples.md
     - name: Pojęcia

@@ -305,7 +305,7 @@
         - name: iOS i macOS
           items:
             - name: Integracja z usługą Azure AD B2C
-              href: 'config-authority.md#b2c'
+              href: config-authority.md#b2c
             - name: Migrowanie do biblioteki MSAL.iOS/systemu macOS
               href: migrate-objc-adal-msal.md
             - name: Tryb udostępnionego urządzenia dla urządzeń z systemem iOS
@@ -376,6 +376,11 @@
               displayName: 'shared device mode, firstline worker, frontline worker, flw'
             - name: Obsługa zmian plików cookie SameSite w przeglądarce Chrome
               href: howto-handle-samesite-cookie-changes-chrome-browser.md
+            - name: Zakresy dla internetowego interfejsu API akceptujące tokeny w wersji 1.0
+              href: msal-v1-app-scopes.md
+            - name: Migrowanie aplikacji z biblioteki ADAL do biblioteki MSAL
+              href: msal-migration.md
+              displayName: migration
     - name: Protokoły uwierzytelniania
       displayName: Auth protocol
       items:

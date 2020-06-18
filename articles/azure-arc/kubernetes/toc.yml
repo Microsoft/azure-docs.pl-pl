@@ -4,6 +4,10 @@
   items:
     - name: Informacje na temat platformy Kubernetes z włączoną usługą Azure Arc
       href: overview.md
+- name: Samples
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      href: ./policy-samples.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Operacje klastra

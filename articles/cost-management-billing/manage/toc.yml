@@ -41,10 +41,10 @@
           href: mca-section-invoice.md
         - name: Konfigurowanie konta rozliczeniowego dla umowy klienta firmy Microsoft
           href: mca-setup-account.md
-        - name: Rejestracja przy użyciu konta usługi Office 365
-          href: office-365-account-for-azure-subscription.md
-        - name: Rejestracja w usłudze Office 365 przy użyciu konta platformy Azure
-          href: azure-account-for-office-365-subscription.md
+        - name: Zarejestruj się przy użyciu konta platformy Microsoft 365
+          href: microsoft-365-account-for-azure-subscription.md
+        - name: Zarejestruj się na platformie Microsoft 365 przy użyciu konta platformy Azure
+          href: azure-account-for-microsoft-365-subscription.md
         - name: Płatność przy użyciu silnego uwierzytelniania klienta
           href: open-banking-strong-customer-authentication.md
     - name: Administrowanie subskrypcjami

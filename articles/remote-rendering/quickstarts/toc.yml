@@ -1,8 +1,14 @@
-- name: Renderowanie modelu przy użyciu środowiska Unity
-  href: render-model.md
-- name: Wdrażanie przykładu środowiska Unity na urządzeniu HoloLens
-  href: deploy-to-hololens.md
-- name: Wdrażanie przykładu środowiska Unity na komputerze stacjonarnym
-  href: deploy-to-desktop.md
+- name: Unity
+  items:
+    - name: Renderowanie modelu przy użyciu środowiska Unity
+      href: render-model.md
+    - name: Wdrażanie przykładu środowiska Unity na urządzeniu HoloLens
+      href: deploy-to-hololens.md
+    - name: Wdrażanie przykładu środowiska Unity na komputerze stacjonarnym
+      href: deploy-to-desktop.md
+- name: Natywny język C++
+  items:
+    - name: Wdrażanie natywnego przykładu w języku C++ na urządzeniu HoloLens
+      href: native-cpp/hololens/deploy-native-cpp-tutorial.md
 - name: Konwertowanie modelu do renderowania
   href: convert-model.md

@@ -10,19 +10,22 @@
   items:
     - name: Uruchamianie pierwszego zapytania — witryna Azure Portal
       displayName: 'portal, resource, graph, explorer'
-      href: first-query-portal.md
+      href: ./first-query-portal.md
     - name: Uruchamianie pierwszego zapytania — interfejs wiersza polecenia platformy Azure
       displayName: 'extension, docker'
-      href: first-query-azurecli.md
-    - name: Uruchamianie pierwszego zapytania — program PowerShell
+      href: ./first-query-azurecli.md
+    - name: Uruchamianie pierwszego zapytania — program Azure PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
-      href: first-query-powershell.md
+      href: ./first-query-powershell.md
+    - name: Uruchamianie pierwszego zapytania — język Go
+      displayName: 'package, sdk, golang'
+      href: ./first-query-go.md
     - name: Uruchamianie pierwszego zapytania — język Python
       displayName: 'library, azure-mgmt, cli'
-      href: first-query-python.md
+      href: ./first-query-python.md
     - name: Wdrażanie udostępnionego zapytania — szablon usługi ARM
       displayName: 'resource manager, queries'
-      href: shared-query-template.md
+      href: ./shared-query-template.md
 - name: Samouczki
   items:
     - name: Tworzenie i udostępnianie zapytania w witrynie Azure Portal
