@@ -219,10 +219,6 @@
               href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
             - name: Narzędzia platformy Spark i technologii Hive dla programu VSCode
               href: ./hdinsight-for-vscode.md
-            - name: Narzędzia HDInsight Tools for IntelliJ z piaskownicą Hortonworks
-              href: ./hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md
-            - name: Narzędzia Data Lake z piaskownicą Hortonworks
-              href: ./hdinsight-hadoop-emulator-visual-studio.md
         - name: Monitorowanie
           items:
             - name: Korzystanie z dzienników usługi Azure Monitor
@@ -501,7 +497,7 @@
                   href: ./hadoop/apache-hadoop-run-samples-linux.md
                 - name: Uruchamianie niestandardowych programów MapReduce na platformie Apache Hadoop
                   href: ./hadoop/apache-hadoop-run-custom-programs.md
-                - name: 'Tworzenie programów MapReduce przesyłania strumieniowego w języku C#'
+                - name: Tworzenie programów MapReduce przesyłania strumieniowego w języku C#
                   href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
                 - name: Opracowywanie programów MapReduce w języku Java
                   href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
@@ -758,7 +754,7 @@
           items:
             - name: Przetwarzanie i analizowanie dokumentów JSON
               href: ./hadoop/using-json-in-hive.md
-            - name: 'Używanie funkcji zdefiniowanych przez użytkownika języka C#'
+            - name: Używanie funkcji zdefiniowanych przez użytkownika języka C#
               href: ./hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
             - name: Używanie języka Python z technologią Apache Hive i programem Apache Pig
               href: ./hadoop/python-udf-hdinsight.md
@@ -893,7 +889,7 @@
                   href: ./storm/apache-storm-develop-java-topology.md
                 - name: Opracowywanie topologii przy użyciu język Python
                   href: ./storm/apache-storm-develop-python-topology.md
-                - name: 'Opracowywanie topologii przy użyciu języka C#'
+                - name: Opracowywanie topologii przy użyciu języka C#
                   href: ./storm/apache-storm-develop-csharp-visual-studio-topology.md
                 - name: Przewodnik programowania dla programu SCP.NET
                   href: ./storm/apache-storm-scp-programming-guide.md
@@ -901,7 +897,7 @@
                   href: ./storm/apache-storm-example-topology.md
             - name: Potoki przesyłania strumieniowego
               items:
-                - name: 'Usługi Event Hub i Apache Storm (C# i Java)'
+                - name: Usługi Event Hub i Apache Storm (C# i Java)
                   href: ./storm/apache-storm-develop-csharp-event-hub-topology.md
         - name: Zarządzanie
           items:

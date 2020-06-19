@@ -330,6 +330,8 @@
               href: ./partner-center-portal/azure-vm-create-offer.md
             - name: Tworzenie zasobu technicznego maszyny wirtualnej platformy Azure
               items:
+                - name: Certyfikacja maszyn wirtualnych — problemy i rozwiązania
+                  href: ./partner-center-portal/vm-certification-issues-solutions.md
                 - name: Tworzenie zasobu technicznego maszyny wirtualnej platformy Azure
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Często zadawane pytania na temat zasobów technicznych maszyny wirtualnej platformy Azure

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: e3bf279142383ccdb3e82ffee49bd593640bb937
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8b6cad548c9fdc5b5157c842d6302c8635e21a15
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996826"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099320"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -22,6 +22,17 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 > [!NOTE]
 > Przewodniki Szybki Start i wskazówki dla aparatu rozpoznawania formularzy zawsze używają najnowszej wersji interfejsu API, chyba że zostanie to określone.
+
+## <a name="june-2020"></a>Czerwiec 2020 r.
+
+### <a name="new-features"></a>Nowe funkcje
+* **Interfejs API CopyModel został dodany do zestawów SDK klienta** Teraz można używać zestawów SDK klienta do kopiowania modeli z jednej subskrypcji do innej. Zobacz [Tworzenie kopii zapasowych i odzyskiwanie modeli,](./disaster-recovery.md) Aby uzyskać ogólne informacje dotyczące tej funkcji.
+* **Integracja Azure Active Directory** Możesz teraz używać poświadczeń usługi AAD do uwierzytelniania obiektów klienta aparatu rozpoznawania formularzy w zestawach SDK.
+* **Zmiany specyficzne dla zestawu SDK** Dotyczy to zarówno dodatkowych, jak i drobnych zmian funkcji. Aby uzyskać więcej informacji, zobacz dziennik zmian zestawu SDK.
+  * [Podgląd zestawu C# SDK 3 — dziennik zmian](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+  * [Dziennik zmian zestawu SDK języka Python w wersji 3](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Podgląd zestawu Java SDK Preview 3](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+  * [Kod dziennika zmian zestawu JavaScript SDK Preview 3](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/ai-form-recognizer_1.0.0-preview.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 ## <a name="april-2020"></a>Kwiecień 2020 r.
 

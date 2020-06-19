@@ -140,20 +140,6 @@
               href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Szyfrowanie TDE z użyciem usługi Bring Your Own Key
               href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Advanced Data Security
-          items:
-            - name: Pula SQL
-              items:
-                - name: Omówienie
-                  href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Odnajdowanie i klasyfikacja danych
-                  href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Ocena luk w zabezpieczeniach
-                  href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Zaawansowana ochrona przed zagrożeniami
-                  href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Inspekcja
-                  href: ../sql-database/sql-database-auditing.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Integracja i orkiestracja
       items:
         - name: Potok i działanie
@@ -426,6 +412,8 @@
               href: data-integration/data-integration-data-lake.md
     - name: Przekształcanie i analizowanie danych
       items:
+        - name: Analizowanie tablic i zagnieżdżonych struktur
+          href: how-to-analyze-complex-schema.md
         - name: Usługa Synapse Link
           items:
             - name: Konfigurowanie usługi Synapse Link

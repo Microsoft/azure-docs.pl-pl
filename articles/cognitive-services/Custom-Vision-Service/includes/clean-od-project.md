@@ -5,16 +5,16 @@ ms.subservice: custom-vision
 ms.topic: include
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: b726f7464f681637a577ac63a39b79afd4c64022
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f217bed72e172a7b328c8376fc2a842b4aef4fbe
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82130660"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073278"
 ---
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli chcesz wdrożyć własny projekt wykrywania obiektów (lub zamiast tego wypróbować projekt [klasyfikacji obrazów](../quickstarts/image-classification.md)), możesz usunąć projekt wykrywania widelca/nożyczek z tego przykładu. Bezpłatna wersja próbna umożliwia korzystanie z dwóch projektów Custom Vision.
+Jeśli chcesz wdrożyć własny projekt wykrywania obiektów (lub zamiast tego wypróbować projekt [klasyfikacji obrazów](../quickstarts/image-classification.md)), możesz usunąć projekt wykrywania widelca/nożyczek z tego przykładu. Bezpłatna subskrypcja umożliwia korzystanie z dwóch Custom Vision projektów.
 
 W [witrynie sieci web Custom Vision](https://customvision.ai)przejdź do pozycji **projekty** i wybierz Kosz w obszarze mój nowy projekt.
 

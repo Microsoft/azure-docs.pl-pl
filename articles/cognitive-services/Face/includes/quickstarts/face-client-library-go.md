@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 4a96f0e887bb04aea6d451e08bd5d26d1cc6edca
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 887b9fa62b89c500ef3b2b0164ba0281f911621e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82587836"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85073294"
 ---
 Rozpocznij pracę z biblioteką klienta programu Front for. Wykonaj następujące kroki, aby zainstalować bibliotekę i wypróbuj nasze przykłady dla podstawowych zadań. Usługa twarzy zapewnia dostęp do zaawansowanych algorytmów służących do wykrywania i rozpoznawania ludzkich twarzy na obrazach.
 
@@ -30,66 +30,14 @@ Korzystanie z biblioteki klienta usługi Front Service dla języka go:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 * Najnowsza wersja języka [go](https://golang.org/dl/)
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title=" Utwórz zasób czołowy "  target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API rozpoznawania twarzy. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
+    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+* Po otrzymaniu klucza i punktu końcowego [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla klucza i punktu końcowego, `FACE_SUBSCRIPTION_KEY` odpowiednio nazwane i `FACE_ENDPOINT` .
 
-## <a name="set-up"></a>Konfiguruj
-
-### <a name="create-a-face-azure-resource"></a>Tworzenie zasobu platformy Azure w postaci czołowej 
-
-Rozpocznij korzystanie z usługi kroju i utwórz zasób platformy Azure. Wybierz odpowiedni typ zasobu:
-
-* [Zasób próbny](https://azure.microsoft.com/try/cognitive-services/#decision) (nie jest wymagana subskrypcja platformy Azure): 
-    * Ważne przez siedem dni bezpłatnie. Po zarejestrowaniu się w [witrynie sieci Web platformy Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/)będzie dostępny klucz wersji próbnej i punkt końcowy. 
-    * Jest to świetna opcja, jeśli chcesz wypróbować usługę, ale nie masz subskrypcji platformy Azure.
-* [Zasób usługi kroju](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace):
-    * Dostępne w Azure Portal do momentu usunięcia zasobu.
-    * Skorzystaj z warstwy cenowej bezpłatna do wypróbowania usługi i przeprowadź uaktualnienie później do warstwy płatnej dla środowiska produkcyjnego.
-* Zasób obejmujący [wiele usług](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Dostępne w Azure Portal do momentu usunięcia zasobu.  
-    * Użyj tego samego klucza i punktu końcowego dla aplikacji w wielu Cognitive Services.
-
-### <a name="create-an-environment-variable"></a>Utwórz zmienną środowiskową
-
->[!NOTE]
-> Punkty końcowe dla zasobów nieprzeznaczonych dla wersji próbnej utworzonych po 1 lipca 2019 używają niestandardowego formatu poddomen pokazanego poniżej. Aby uzyskać więcej informacji i pełną listę regionalnych punktów końcowych, zobacz [niestandardowe nazwy domen poddomen dla Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
-
-Przy użyciu klucza i punktu końcowego z utworzonego zasobu Utwórz dwa zmienne środowiskowe do uwierzytelnienia:
-* `FACE_SUBSCRIPTION_KEY`— Klucz zasobu do uwierzytelniania żądań.
-* `FACE_ENDPOINT`— Punkt końcowy zasobu do wysyłania żądań interfejsu API. Będzie wyglądać następująco: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-Skorzystaj z instrukcji dotyczących systemu operacyjnego.
-<!-- replace the below endpoint and key examples -->
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-```console
-setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
-setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-Po dodaniu zmiennej środowiskowej Uruchom ponownie okno konsoli.
-
-#### <a name="linux"></a>[Linux](#tab/linux)
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-Po dodaniu zmiennej środowiskowej uruchom polecenie `source ~/.bashrc` z okna konsoli, aby zmiany zostały uwzględnione.
-
-#### <a name="macos"></a>[macOS](#tab/unix)
-
-Edytuj `.bash_profile` i Dodaj zmienną środowiskową:
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-Po dodaniu zmiennej środowiskowej uruchom polecenie `source .bash_profile` z okna konsoli, aby zmiany zostały uwzględnione.
-***
+## <a name="setting-up"></a>Konfigurowanie
 
 ### <a name="create-a-go-project-directory"></a>Utwórz katalog projektu języka go
 
@@ -251,7 +199,7 @@ Poniższy kod pobiera obraz z wieloma twarzami i szuka tożsamości każdej osob
 
 ### <a name="get-a-test-image"></a>Pobierz obraz testowy
 
-Poniższy kod wyszukuje w katalogu głównym projektu obraz _test-Image-Person-Group. jpg_ i ładuje go do pamięci programu. Ten obraz można znaleźć w tym samym repozytorium, co obrazy używane w [tworzeniu i uczeniu grupy osób](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
+Poniższy kod szuka obrazu w folderze głównym projektu _test-image-person-group.jpg_ i ładuje go do pamięci programu. Ten obraz można znaleźć w tym samym repozytorium, co obrazy używane w [tworzeniu i uczeniu grupy osób](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 
@@ -301,13 +249,13 @@ Poniższy kod porównuje każdy z obrazów źródłowych do obrazu docelowego i 
 
 ## <a name="take-a-snapshot-for-data-migration"></a>Utwórz migawkę migracji danych
 
-Funkcja migawek pozwala przenosić zapisane dane, takie jak wyszkolone **osoby**, do innej subskrypcji platformy Azure Cognitive Services. Ta funkcja może być używana, jeśli na przykład utworzono obiekt obiektu **osoby** przy użyciu subskrypcji bezpłatnej wersji próbnej i teraz zechcesz przeprowadzić migrację go do płatnej subskrypcji. Więcej informacji na temat funkcji migawek można znaleźć w temacie [Migrowanie danych własnych](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) .
+Funkcja migawek pozwala przenosić zapisane dane, takie jak wyszkolone **osoby**, do innej subskrypcji platformy Azure Cognitive Services. Ta funkcja może być używana, jeśli na przykład utworzono obiekt obiektu **osoby** z użyciem bezpłatnej subskrypcji i teraz chcesz przeprowadzić migrację go do płatnej subskrypcji. Więcej informacji na temat funkcji migawek można znaleźć w temacie [Migrowanie danych własnych](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) .
 
 W tym przykładzie przeprowadzisz migrację grupy **osób** utworzonych w temacie [Tworzenie i uczenie](#create-and-train-a-person-group)użytkownika. Możesz najpierw wykonać tę sekcję lub użyć własnych konstrukcji danych czołowych.
 
 ### <a name="set-up-target-subscription"></a>Skonfiguruj subskrypcję docelową
 
-Najpierw musisz mieć drugą subskrypcję platformy Azure z zasobem czołowym; można to zrobić przez powtórzenie kroków z sekcji [Konfiguracja](#set-up) . 
+Najpierw musisz mieć drugą subskrypcję platformy Azure z zasobem czołowym; można to zrobić przez powtórzenie kroków z sekcji [Konfiguracja](#setting-up) . 
 
 Następnie Utwórz następujące zmienne w górnej części metody **Main** . Należy również utworzyć nowe zmienne środowiskowe dla identyfikatora subskrypcji Twojego konta platformy Azure, a także klucz, punkt końcowy i Identyfikator subskrypcji nowego konta (docelowego).
 

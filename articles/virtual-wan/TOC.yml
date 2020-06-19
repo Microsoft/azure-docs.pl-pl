@@ -44,14 +44,10 @@
           href: path-selection-multiple-links.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Łączenie bramy sieci wirtualnej z usługą Virtual WAN
-      href: connect-virtual-network-gateway-vwan.md
     - name: Konfigurowanie globalnej komunikacji równorzędnych sieci wirtualnych
       href: global-peering-vnet.md
     - name: Podwyższanie poziomu jednostki SKU wirtualnej sieci WAN
       href: upgrade-virtual-wan.md
-    - name: Konfigurowanie niestandardowych zasad protokołu IPsec
-      href: virtual-wan-custom-ipsec-portal.md
     - name: ExpressRoute
       items:
         - name: Tworzenie połączenia usługi ExpressRoute
@@ -62,6 +58,10 @@
       items:
         - name: Tworzenie połączenia typu lokacja-lokacja
           href: virtual-wan-site-to-site-portal.md
+        - name: Łączenie bramy sieci wirtualnej z usługą Virtual WAN
+          href: connect-virtual-network-gateway-vwan.md
+        - name: Konfigurowanie niestandardowych zasad protokołu IPsec
+          href: virtual-wan-custom-ipsec-portal.md
     - name: Sieć VPN użytkownika (punkt-lokacja)
       items:
         - name: Tworzenie połączenia sieci VPN użytkownika
@@ -109,7 +109,7 @@
 - name: Dokumentacja
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#networking'
+      href: /powershell/module/az.network#networking
     - name: REST
       href: /rest/api/azure
     - name: Interfejs wiersza polecenia platformy Azure
