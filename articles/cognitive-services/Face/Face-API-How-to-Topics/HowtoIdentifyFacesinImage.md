@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 248bae81db1bc8cb69bac4618bd7593658336636
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169914"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986717"
 ---
 # <a name="example-identify-faces-in-images"></a>Przykład: Zidentyfikuj twarze na obrazach
 
 W tym przewodniku pokazano, jak identyfikować nieznane twarze za pomocą obiektów osób, które są tworzone z góry. Przykłady są zapisywane w języku C# przy użyciu biblioteki klienckiej usługi Azure Cognitive Services
 
-## <a name="preparation"></a>Przygotowywanie
+## <a name="preparation"></a>Przygotowanie
 
 Ten przykład ilustruje:
 
@@ -41,7 +41,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 &subscription-key=<Subscription key>
 ```
 
-Alternatywnie Określ klucz subskrypcji w nagłówku żądania HTTP **OCP-APIM-Subscription-Key: &lt;Key&gt;Subscription**.
+Alternatywnie Określ klucz subskrypcji w nagłówku żądania HTTP **OCP-APIM-Subscription-Key: &lt; Key &gt; Subscription**.
 W przypadku korzystania z biblioteki klienta klucz subskrypcji jest przenoszona przez Konstruktor klasy FaceClient. Przykład:
  
 ```csharp 
@@ -50,7 +50,11 @@ private readonly IFaceClient faceClient = new FaceClient(
             new System.Net.Http.DelegatingHandler[] { });
 ```
  
-Aby uzyskać klucz subskrypcji, przejdź do witryny Azure Marketplace z poziomu Azure Portal. Aby uzyskać więcej informacji, zobacz [subskrypcje](https://azure.microsoft.com/try/cognitive-services/).
+Postępuj zgodnie z tymi instrukcjami, aby uzyskać klucz.
+
+1. Utwórz [konto platformy Azure](https://azure.microsoft.com/free/cognitive-services/). Jeśli masz już taki, możesz przejść do następnego kroku.
+2. Utwórz [zasób czołowy](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) w Azure Portal, aby uzyskać klucz. Upewnij się, że podczas instalacji wybrano warstwę bezpłatna (F0). 
+3. Po wdrożeniu zasobów kliknij pozycję **Przejdź do zasobu** , aby zebrać klucz. 
 
 ## <a name="step-2-create-the-persongroup"></a>Krok 2: Tworzenie elementu PersonGroup
 

@@ -194,11 +194,7 @@
         - name: Migrowanie z jednostki złożonej
           href: migrate-from-composite-entity.md
         - name: Migrowanie do zasobu tworzenia
-          items:
-            - name: Omówienie
-              href: luis-migration-authoring.md
-            - name: Jak przeprowadzić migrację
-              href: luis-migration-authoring-steps.md
+          href: luis-migration-authoring.md
         - name: Migrowanie do interfejsu API w wersji 3
           href: luis-migration-api-v3.md
     - name: Zarządzanie aplikacją
@@ -209,11 +205,7 @@
         - name: Ustawienia aplikacji i wersji
           href: how-to-application-settings-portal.md
         - name: Migrowanie do zasobu tworzenia
-          items:
-            - name: Omówienie
-              href: luis-migration-authoring.md
-            - name: Jak przeprowadzić migrację
-              href: luis-migration-authoring-steps.md
+          href: luis-migration-authoring.md
         - name: Autorzy i współpracownicy
           displayName: 'access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import'
           href: luis-how-to-collaborate.md

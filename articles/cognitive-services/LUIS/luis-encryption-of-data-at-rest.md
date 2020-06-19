@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: 59e066974f690bda2384504cc27af5aa94b7b75b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372338"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052697"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Language Understanding szyfrowanie usługi danych w spoczynku
 
@@ -38,13 +38,11 @@ Aby przechowywać klucze zarządzane przez klienta, należy użyć Azure Key Vau
 
 Aby zażądać możliwości korzystania z kluczy zarządzanych przez klienta, Wypełnij i prześlij [formularz żądania klucza zarządzanego przez klienta usługi Luis](https://aka.ms/cogsvc-cmk). Potrwa około 3-5 dni roboczych, aby poznać stan Twojego żądania. W zależności od popytu można umieścić w kolejce i zatwierdzić, że jest ona dostępna. Po zatwierdzeniu do korzystania z CMK z LUIS należy utworzyć nowy zasób Language Understanding z Azure Portal i wybrać E0 jako warstwę cenową. Nowa jednostka SKU będzie działać tak samo, jak jednostka SKU F0, która jest już dostępna z wyjątkiem CMK. Użytkownicy nie będą mogli przeprowadzić uaktualnienia z F0 do nowej jednostki SKU E0.
 
-Zasoby E0 są dostępne tylko dla usługi tworzenia i że warstwa E0 początkowo będzie obsługiwana tylko w regionie zachodnie stany USA.
-
 ![Obraz subskrypcji LUIS](../media/cognitive-services-encryption/luis-subscription.png)
 
 ### <a name="regional-availability"></a>Dostępność regionalna
 
-Klucze zarządzane przez klienta są obecnie dostępne w regionie **zachodnie stany USA** .
+Klucze zarządzane przez klienta są dostępne we wszystkich [regionach tworzenia](luis-reference-regions.md). 
 
 ### <a name="limitations"></a>Ograniczenia
 

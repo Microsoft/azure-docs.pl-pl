@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 2e5b32421a04e09bd32d2bba21ff4faf920d84dd
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 9fb2f3374d635d8086bac5fe02ecf3b7f819ea65
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221846"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100871"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Tworzenie kopii zapasowych i odzyskiwanie modeli aparatu rozpoznawania formularzy
 
@@ -45,7 +45,7 @@ Proces kopiowania modelu niestandardowego składa się z następujących kroków
 Poniższe żądanie HTTP pobiera autoryzację kopiowania z zasobu docelowego. Musisz wprowadzić punkt końcowy i klucz zasobu docelowego jako nagłówki.
 
 ```
-POST https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/copyAuthorization HTTP/1.1
+POST https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/copyAuthorization HTTP/1.1
 Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -53,7 +53,7 @@ Otrzymasz `201\Created` odpowiedź z `modelId` wartością w treści. Ten ciąg 
 
 ```
 HTTP/1.1 201 Created
-Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d
+Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d
 {"modelId":"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d","accessToken":"1855fe23-5ffc-427b-aab2-e5196641502f","expirationDateTimeTicks":637233481531659440}
 ```
 
@@ -62,7 +62,7 @@ Location: https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0
 Poniższe żądanie HTTP uruchamia operację kopiowania dla zasobu źródłowego. Musisz wprowadzić punkt końcowy i klucz zasobu źródłowego jako nagłówki. Należy zauważyć, że adres URL żądania zawiera identyfikator modelu źródłowego, który ma zostać skopiowany.
 
 ```
-POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copy HTTP/1.1
+POST https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copy HTTP/1.1
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -76,19 +76,29 @@ Treść żądania musi mieć następujący format. Należy wprowadzić identyfik
 }
 ```
 
+> [!NOTE]
+> Interfejs API kopiowania w sposób przezroczysty obsługuje funkcję [AEK/CMK](https://msazure.visualstudio.com/Cognitive%20Services/_wiki/wikis/Cognitive%20Services.wiki/52146/Customer-Managed-Keys) . Nie wymaga to żadnej szczególnej obróbki, ale należy pamiętać, że jeśli kopiujesz między niezaszyfrowanym zasobem a zaszyfrowanym zasobem, musisz dołączyć nagłówek żądania `x-ms-forms-copy-degrade: true` . Jeśli ten nagłówek nie jest uwzględniony, operacja kopiowania zakończy się niepowodzeniem i zwróci `DataProtectionTransformServiceError` .
+
 Otrzymasz `202\Accepted` odpowiedź z nagłówkiem lokalizacji operacji. Ta wartość jest adresem URL, który będzie używany do śledzenia postępu operacji. Skopiuj ją do tymczasowej lokalizacji dla następnego kroku.
 
 ```
 HTTP/1.1 202 Accepted
-Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1
+Operation-Location: https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1
 ```
+
+### <a name="common-errors"></a>Typowe błędy
+
+|Błąd|Rozwiązanie|
+|:--|:--|
+| 400/złe żądanie z`"code:" "1002"` | Wskazuje błąd walidacji lub nieprawidłowo sformułowane żądanie kopiowania. Typowe problemy obejmują: a) nieprawidłowy lub zmodyfikowany `copyAuthorization` ładunek. b) wygasła wartość `expirationDateTimeTicks` tokenu ( `copyAuhtorization` ładunek jest ważny przez 24 godziny). c) jest nieprawidłowy lub nieobsługiwany `targetResourceRegion` . d) nieprawidłowy lub źle sformułowany `targetResourceId` ciąg.
+|
 
 ## <a name="track-copy-progress"></a>Śledź postęp kopiowania
 
 Śledź postęp, wykonując zapytania dotyczące interfejsu API **wyników Get Copy model** względem źródłowego punktu końcowego zasobu.
 
 ```
-GET https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1 HTTP/1.1
+GET https://{SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/eccc3f13-8289-4020-ba16-9f1d1374e96f/copyresults/02989ba8-1296-499f-aaf4-55cfff41b8f1 HTTP/1.1
 Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -100,12 +110,22 @@ Content-Type: application/json; charset=utf-8
 {"status":"succeeded","createdDateTime":"2020-04-23T18:18:01.0275043Z","lastUpdatedDateTime":"2020-04-23T18:18:01.0275048Z","copyResult":{}}
 ```
 
+### <a name="common-errors"></a>Typowe błędy
+
+|Błąd|Rozwiązanie|
+|:--|:--|
+|"błędy": [{"Code": "AuthorizationError",<br>"Message": "niepowodzenie autoryzacji z powodu <br>brakujące lub nieprawidłowe oświadczenia autoryzacji. "}]   | Występuje, gdy `copyAuthorization` ładunek lub zawartość są modyfikowane na podstawie tego, co zostało zwrócone przez `copyAuthorization` interfejs API. Upewnij się, że ładunek jest identyczny z dokładną zawartością, która została zwrócona z wcześniejszego `copyAuthorization` wywołania.|
+|"błędy": [{"Code": "AuthorizationError",<br>"komunikat": "nie można pobrać autoryzacji <br>metadane. Jeśli ten problem będzie nadal występował, użyj innego <br>Model docelowy do kopiowania. "}] | Wskazuje, że `copyAuthorization` ładunek jest ponownie używany z żądaniem kopiowania. Żądanie Copy, które powiodło się, nie będzie zezwalać na żadne dalsze żądania, które używają tego samego `copyAuthorization` ładunku. Jeśli zostanie zgłoszony oddzielny błąd (taki jak wymienione poniżej), a następnie ponów próbę kopiowania z tym samym ładunkiem autoryzacji, ten błąd zostanie wygenerowany. Rozwiązanie to wygenerowanie nowego `copyAuthorization` ładunku, a następnie ponowne wydanie żądania kopiowania.|
+|"błędy": [{"Code": "DataProtectionTransformServiceError",<br>"komunikat": "żądanie transferu danych jest niedozwolone <br>w przypadku obniżenia poziomu do mniej bezpiecznego schematu ochrony danych. Zapoznaj się z dokumentacją lub skontaktuj się z administratorem usługi <br>Aby uzyskać szczegółowe informacje "}]    | Występuje w przypadku kopiowania między `AEK` włączonym zasobem a `AEK` niewłączonym zasobem. Aby umożliwić kopiowanie zaszyfrowanego modelu do elementu docelowego jako niezaszyfrowany, określ `x-ms-forms-copy-degrade: true` Nagłówek z żądaniem kopiowania.|
+|"błędy": [{"Code": "ResourceResolverError",<br>"komunikat": "nie można pobrać informacji o zasobie poznawczym o identyfikatorze"... ". Upewnij się, że zasób jest prawidłowy i istnieje w określonym regionie "westus2".. "}] | Wskazuje, że zasób platformy Azure wskazany przez `targetResourceId` nie jest prawidłowym zasobem poznawczym lub nie istnieje. Sprawdź i wydaj ponownie żądanie Copy, aby rozwiązać ten problem.|
+
+
 ### <a name="optional-track-the-target-model-id"></a>Obowiązkowe Śledzenie identyfikatora modelu docelowego 
 
 Możesz również użyć interfejsu API **uzyskiwania niestandardowego modelu** do śledzenia stanu operacji, badając model docelowy. Wywołaj ten interfejs API przy użyciu identyfikatora modelu docelowego skopiowanego w pierwszym kroku.
 
 ```
-GET https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d HTTP/1.1
+GET https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/33f4d42c-cd2f-4e74-b990-a1aeafab5a5d HTTP/1.1
 Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}
 ```
 
@@ -124,19 +144,19 @@ Poniższe fragmenty kodu wykorzystują zwinięcie, aby wywołania interfejsu API
 ### <a name="generate-copy-authorization-request"></a>Generuj żądanie autoryzacji kopiowania
 
 ```bash
-curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/copyAuthorization" -H "Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}" 
+curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/copyAuthorization" -H "Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}" 
 ```
 
 ### <a name="start-copy-operation"></a>Rozpocznij operację kopiowania
 
 ```bash
-curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0-preview/custom/models/copyAuthorization" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}" --data-ascii "{ \"targetResourceId\": \"{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_ID}\",   \"targetResourceRegion\": \"{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_REGION_NAME}\", \"copyAuthorization\": "{\"modelId\":\"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d\",\"accessToken\":\"1855fe23-5ffc-427b-aab2-e5196641502f\",\"expirationDateTimeTicks\":637233481531659440}"}"
+curl -i -X POST "https://{TARGET_FORM_RECOGNIZER_RESOURCE_ENDPOINT}/formrecognizer/v2.0/custom/models/copyAuthorization" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {TARGET_FORM_RECOGNIZER_RESOURCE_API_KEY}" --data-ascii "{ \"targetResourceId\": \"{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_ID}\",   \"targetResourceRegion\": \"{TARGET_AZURE_FORM_RECOGNIZER_RESOURCE_REGION_NAME}\", \"copyAuthorization\": "{\"modelId\":\"33f4d42c-cd2f-4e74-b990-a1aeafab5a5d\",\"accessToken\":\"1855fe23-5ffc-427b-aab2-e5196641502f\",\"expirationDateTimeTicks\":637233481531659440}"}"
 ```
 
 ### <a name="track-copy-progress"></a>Śledź postęp kopiowania
 
 ```bash
-curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v2.0-preview/custom/models/{SOURCE_MODELID}/copyResults/{RESULT_ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}"
+curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v2.0/custom/models/{SOURCE_MODELID}/copyResults/{RESULT_ID}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {SOURCE_FORM_RECOGNIZER_RESOURCE_API_KEY}"
 ```
 
 ## <a name="next-steps"></a>Następne kroki
