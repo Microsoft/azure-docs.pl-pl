@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: b76690cfbe0eb4851bdd1e4316235a7a9092c86e
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: e120eb20d247ce2def7f7c322ead3066c1d4386e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84781212"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974657"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalowanie i uruchamianie kontenerów usługi mowy (wersja zapoznawcza)
 
@@ -28,10 +28,10 @@ Kontenery mowy umożliwiają klientom tworzenie architektury aplikacji mowy, kt�
 
 | Funkcja | Funkcje | Najnowsza |
 |--|--|--|
-| Zamiana mowy na tekst | Analizuje tonacji i przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub nagrania audio wsadowe z wynikami pośrednimi.  | 2.2.0 |
-| Custom Speech do tekstu | Korzystając z modelu niestandardowego z [portalu Custom Speech](https://speech.microsoft.com/customspeech), przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub przetwarzanie wsadowe audio do tekstu z wynikami pośrednimi. | 2.2.0 |
-| Zamiana tekstu na mowę | Konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech Syntezing Language). | 1.4.0 |
-| Niestandardowa Zamiana tekstu na mowę | Przy użyciu modelu niestandardowego z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal)program konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech syntezing Language). | 1.4.0 |
+| Zamiana mowy na tekst | Analizuje tonacji i przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub nagrania audio wsadowe z wynikami pośrednimi.  | ppkt |
+| Custom Speech do tekstu | Korzystając z modelu niestandardowego z [portalu Custom Speech](https://speech.microsoft.com/customspeech), przekształca ciągłe nagrywanie mowy w czasie rzeczywistym lub przetwarzanie wsadowe audio do tekstu z wynikami pośrednimi. | ppkt |
+| Zamiana tekstu na mowę | Konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech Syntezing Language). | 1.5.0 |
+| Niestandardowa Zamiana tekstu na mowę | Przy użyciu modelu niestandardowego z [niestandardowego portalu głosowego](https://aka.ms/custom-voice-portal)program konwertuje tekst na mowę dźwiękową przy użyciu zwykłego tekstu lub języka SSML (Speech syntezing Language). | 1.5.0 |
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -165,7 +165,7 @@ Wszystkie Tagi, z wyjątkiem programu, `latest` są w następującym formacie i 
 Następujący tag jest przykładem formatu:
 
 ```
-2.2.0-amd64-en-us-preview
+2.3.1-amd64-en-us-preview
 ```
 
 W przypadku wszystkich obsługiwanych ustawień regionalnych kontenera **zamiany mowy na tekst** należy zapoznać się [ze znacznikami obrazu zamiany mowy na tekst](../containers/container-image-tags.md#speech-to-text).
@@ -194,7 +194,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> `latest`Tag ściąga `en-US` Ustawienia regionalne i `jessarus` głos. W przypadku dodatkowych ustawień regionalnych zobacz [Ustawienia regionalne zamiany tekstu na mowę](#text-to-speech-locales).
+> `latest`Tag ściąga `en-US` Ustawienia regionalne i `ariarus` głos. W przypadku dodatkowych ustawień regionalnych zobacz [Ustawienia regionalne zamiany tekstu na mowę](#text-to-speech-locales).
 
 #### <a name="text-to-speech-locales"></a>Ustawienia regionalne zamiany tekstu na mowę
 
@@ -207,13 +207,13 @@ Wszystkie Tagi, z wyjątkiem programu, `latest` są w następującym formacie i 
 Następujący tag jest przykładem formatu:
 
 ```
-1.3.0-amd64-en-us-jessarus-preview
+1.5.0-amd64-en-us-ariarus-preview
 ```
 
 W przypadku wszystkich obsługiwanych ustawień regionalnych i odpowiadających im głosów kontenera **zamiany tekstu na mowę** należy zapoznać się ze [znacznikami obrazu zamiany tekstu na mowę](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> Podczas konstruowania standardowego wpisu http zamiany *tekstu na mowę* , komunikat [języka SSML (Speech synteza Markup Language)](speech-synthesis-markup.md) wymaga `voice` elementu z `name` atrybutem. Wartość jest odpowiednimi ustawieniami regionalnymi kontenera i głosem, znanym również jako ["krótka nazwa"](language-support.md#standard-voices). Na przykład `latest` tag będzie miał nazwę głosu `en-US-JessaRUS` .
+> Podczas konstruowania standardowego wpisu http zamiany *tekstu na mowę* , komunikat [języka SSML (Speech synteza Markup Language)](speech-synthesis-markup.md) wymaga `voice` elementu z `name` atrybutem. Wartość jest odpowiednimi ustawieniami regionalnymi kontenera i głosem, znanym również jako ["krótka nazwa"](language-support.md#standard-voices). Na przykład `latest` tag będzie miał nazwę głosu `en-US-AriaRUS` .
 
 # <a name="custom-text-to-speech"></a>[Niestandardowa Zamiana tekstu na mowę](#tab/ctts)
 

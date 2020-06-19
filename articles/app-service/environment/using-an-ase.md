@@ -218,7 +218,7 @@ Jeśli używasz programu https://resources.azure.com , wykonaj następujące kro
 1. Przejdź do resources.azure.com i zaloguj się przy użyciu konta platformy Azure.
 1. Zapoznaj się z tematem Resources for subscriptions \/ \[ name \] \/ resourceGroups nazwa \/ \[ grupy zasobów \] \/ providers \/ Microsoft. Web \/ hostingEnvironments \/ \[ ASE Name \] .
 1. Na górze wybierz pozycję **Odczyt/zapis** .
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz pozycję **Edytuj**.
 1. Ustaw **upgradePreference** na jedną z trzech wartości, które chcesz.
 1. Wybierz pozycję **poprawka**.
 
