@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4445fd893027f21adfcf6a273d1ba6360087ec49
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76168880"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983612"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>Przykład: Eksplorowanie aplikacji do przetwarzania obrazów przy użyciu języka C #
 
@@ -33,7 +33,10 @@ Zapoznaj się z podstawową aplikacją dla systemu Windows, w której zastosowan
 Przed rozpoczęciem pracy z przykładową aplikacją upewnij się, że zostały spełnione następujące wymagania wstępne:
 
 * Musisz mieć program [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) lub nowszy.
-* Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Zanotuj również adres URL punktu końcowego usługi.
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
+    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 
 ## <a name="get-the-sample-app"></a>Pobieranie przykładowej aplikacji
 
@@ -80,7 +83,6 @@ Możesz uruchomić przykładową aplikację, aby zobaczyć sposób jej interakcj
    ![Strona Zarządzanie kluczami subskrypcji](../Images/Vision_UI_Subscription.PNG)  
 1. Wprowadź swój klucz subskrypcji w polu **Klucz subskrypcji**.
 1. Wprowadź adres URL punktu końcowego w **punkcie końcowym**.  
-   Jeśli na przykład używasz klucza subskrypcji z przetwarzanie obrazów bezpłatnej wersji próbnej, wprowadź następujący adres URL punktu końcowego:`https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Jeśli nie chcesz wprowadzać klucza subskrypcji ani adresu URL punktu końcowego przy następnym uruchomieniu przykładowej aplikacji, wybierz pozycję **Zapisz ustawienie**, aby zapisać klucz subskrypcji i adres URL punktu końcowego na komputerze. Jeśli chcesz usunąć uprzednio zapisany klucz subskrypcji i adres URL punktu końcowego, wybierz pozycję **Usuń ustawienie**.
 
@@ -304,7 +306,7 @@ Metoda `UploadAndThumbnailImageAsync` tworzy nowe wystąpienie `ComputerVisionCl
 
 Metoda `RecognizeUrlAsync` tworzy nowe wystąpienie `ComputerVisionClient`, używając określonego klucza subskrypcji i adresu URL punktu końcowego. Wywołuje to metodę `ComputerVisionClient.GenerateThumbnailAsync` przekazującą szerokość, wysokość, adres URL dla pliku oraz to, czy ma być użyte inteligentne przycinanie, a następnie zwraca wynik w postaci `Stream`. Metody odziedziczone po klasie `ImageScenarioPage` przedstawiają zwracane wyniki na stronie scenariusza.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebny, usuń folder, do którego zostało sklonowane repozytorium `Microsoft/Cognitive-Vision-Windows`. Jeśli postanowisz użyć przykładowych obrazów, również usuń folder, do którego zostało sklonowane repozytorium `Microsoft/Cognitive-Face-Windows`.
 

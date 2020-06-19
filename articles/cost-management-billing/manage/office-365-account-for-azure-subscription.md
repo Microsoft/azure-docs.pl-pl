@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.openlocfilehash: b42a5b83f5442755614a3cb2ae81cffda09b4b3b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238112"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696766"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Rejestracja przy użyciu konta usługi Office 365 w celu uzyskania subskrypcji platformy Azure
 Jeśli masz subskrypcję usługi Office 365, możesz utworzyć subskrypcję platformy Azure za pomocą swojego konta usługi Office 365. Zaloguj się do witryny [Azure Portal](https://portal.azure.com/) przy użyciu nazwy użytkownika i hasła do konta usługi Office 365. Jeśli chcesz skonfigurować maszyny wirtualne lub użyć innych usług platformy Azure, musisz zarejestrować się w celu uzyskania subskrypcji platformy Azure. Subskrypcję platformy Azure można udostępniać innym osobom i [korzystać z kontroli dostępu opartej na rolach w celu zarządzania dostępem do subskrypcji i zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)

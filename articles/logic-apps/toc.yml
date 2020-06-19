@@ -94,12 +94,6 @@
           href: logic-apps-handle-large-messages.md
         - name: Obsługa problemów z ograniczeniem przepustowości lub błędów 429
           href: handle-throttling-problems-429-errors.md
-        - name: Bezpieczeństwo
-          items:
-            - name: Ulepszanie zabezpieczeń dla aplikacji logiki
-              href: logic-apps-securing-a-logic-app.md
-            - name: Uwierzytelnianie przy użyciu tożsamości zarządzanych
-              href: create-managed-service-identity.md
         - name: Opracowywanie łączników niestandardowych
           href: custom-connector-overview.md
         - name: Opracowywanie niestandardowych interfejsów API
@@ -316,6 +310,14 @@
           href: logic-apps-enterprise-integration-xml-validation.md
         - name: Yammer
           href: ../connectors/connectors-create-api-yammer.md
+    - name: Bezpieczeństwo
+      items:
+        - name: Wzmacnianie zabezpieczeń aplikacji logiki
+          href: logic-apps-securing-a-logic-app.md
+        - name: Uwierzytelnianie przy użyciu tożsamości zarządzanych
+          href: create-managed-service-identity.md
+        - name: Blokowanie połączeń w aplikacjach logiki
+          href: block-connections-connectors.md
     - name: Zarządzanie
       items:
         - name: Zarządzanie aplikacjami logiki — Azure Portal
