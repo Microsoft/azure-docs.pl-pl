@@ -9,8 +9,6 @@
       href: cognitive-services-and-machine-learning.md
     - name: Niestandardowe poddomeny usług Cognitive Services
       href: cognitive-services-custom-subdomains.md
-    - name: Proces kontroli w usługach Cognitive Services
-      href: cognitive-services-gating-process.md
     - name: Obsługa języków
       href: language-support.md
 - name: Przewodniki Szybki start
@@ -21,6 +19,13 @@
       href: cognitive-services-apis-create-account-cli.md
     - name: Rejestrowanie diagnostyczne
       href: diagnostic-logging.md
+    - name: Szablon ARM
+      displayName: Resource Manager
+      href: resource-manager-template.md
+- name: Samples
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      href: ./policy-samples.md
 - name: Zabezpieczenia
   items:
     - name: Zabezpieczenia usług Cognitive Services

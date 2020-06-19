@@ -11,23 +11,25 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e55f51c5795c69acc8bc9be63f3db5fe082f6465
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 34d714d1adefbef6572e99c5a98ee968fbb06339
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117648"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987394"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-go"></a>Szybki Start: analizowanie obrazu zdalnego przy użyciu interfejsu API REST przetwarzanie obrazów za pomocą języka go
 
 W tym przewodniku szybki start przeanalizuje się zdalnie przechowywany obraz w celu wyodrębnienia funkcji wizualnych przy użyciu interfejsu API REST przetwarzanie obrazów. [Metoda Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) umożliwia wyodrębnienie elementów wizualnych na podstawie zawartości obrazu.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services).
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Najnowsza wersja języka [go](https://golang.org/dl/)
-* Klucz subskrypcji przetwarzanie obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, `COMPUTER_VISION_SUBSCRIPTION_KEY` odpowiednio nazwane i `COMPUTER_VISION_ENDPOINT` .
+* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services/)
+* [Przejdź](https://golang.org/dl/)
+* Gdy masz subskrypcję platformy Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" Utwórz zasób przetwarzanie obrazów "  target="_blank"> utwórz zasób przetwarzanie obrazów <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+    * Będziesz potrzebować klucza i punktu końcowego z zasobu, który utworzysz, aby połączyć aplikację z usługą przetwarzanie obrazów. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
+    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+* [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla adresu URL klucza i punktu końcowego `COMPUTER_VISION_SUBSCRIPTION_KEY` , `COMPUTER_VISION_ENDPOINT` odpowiednio nazwane i.
 
 ## <a name="create-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
 
