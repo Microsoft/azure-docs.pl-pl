@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 18b158b7a4881619b93ab404de67f7bb25f92b6a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 700c53c8fee61ce6e3c9a65bc3815fabfc5b2baa
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76166830"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983508"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>Analizuj wideo niemal w czasie rzeczywistym
 
@@ -230,12 +230,12 @@ Korzystając z tej metody, można natychmiast wizualizować wykryte działania. 
 
 Aby rozpocząć pracę z tym przykładem, wykonaj następujące czynności:
 
-1. Pobierz z [Subskrypcji](https://azure.microsoft.com/try/cognitive-services/) klucze interfejsu API dla interfejsów API wizualizacji. W przypadku analizy klatek wideo odpowiednie usługi są następujące:
-    - [Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Rozpoznawanie twarzy](https://docs.microsoft.com/azure/cognitive-services/face/overview)
-2. Klonuj repozytorium [poznawcze-przykłady-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub.
-
-3. Otwórz przykład w programie Visual Studio 2015 lub nowszym, a następnie Skompiluj i uruchom przykładowe aplikacje:
+1. Utwórz [konto platformy Azure](https://azure.microsoft.com/free/cognitive-services/). Jeśli masz już taki, możesz przejść do następnego kroku.
+2. Utwórz zasoby dla przetwarzanie obrazów i w Azure Portal, aby uzyskać klucz i punkt końcowy. Upewnij się, że podczas instalacji wybrano warstwę bezpłatna (F0).
+   - [Przetwarzanie obrazów](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Do rozpoznawania](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Po wdrożeniu zasobów kliknij pozycję **Przejdź do zasobu** , aby zebrać klucz i punkt końcowy dla każdego zasobu. 
+3. Klonuj repozytorium [poznawcze-przykłady-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub.
+4. Otwórz przykład w programie Visual Studio 2015 lub nowszym, a następnie Skompiluj i uruchom przykładowe aplikacje:
     - W przypadku BasicConsoleSample klucz czołowy jest zakodowany bezpośrednio w [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - W polu LiveCameraSample wprowadź klucze w okienku **Ustawienia** aplikacji. Klucze są utrwalane w wielu sesjach jako dane użytkownika.
 
@@ -245,7 +245,7 @@ Funkcje obrazu, głosu, wideo i tekstu — VideoFrameAnalyzer używają platform
 
 ## <a name="summary"></a>Podsumowanie
 
-W tym artykule przedstawiono sposób uruchamiania analizy niemal w czasie rzeczywistym na żywo strumieni wideo przy użyciu usług front i przetwarzanie obrazów. Wiesz również, jak można użyć naszego przykładowego kodu, aby rozpocząć pracę. Aby rozpocząć tworzenie aplikacji przy użyciu bezpłatnych kluczy interfejsu API, przejdź do [strony rejestracji w usłudze Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
+W tym artykule przedstawiono sposób uruchamiania analizy niemal w czasie rzeczywistym na żywo strumieni wideo przy użyciu usług front i przetwarzanie obrazów. Wiesz również, jak można użyć naszego przykładowego kodu, aby rozpocząć pracę.
 
 Możesz bezpłatnie przekazać Opinie i sugestie w [repozytorium GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Aby zapewnić szersze informacje zwrotne interfejsu API, przejdź do naszej [witryny UserVoice](https://cognitive.uservoice.com/).
 

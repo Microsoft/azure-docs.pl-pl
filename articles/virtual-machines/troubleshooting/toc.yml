@@ -99,6 +99,8 @@
           href: unresponsive-vm-apply-windows-update.md
         - name: Maszyna wirtualna nie odpowiada podczas stosowania zasad grupy
           href: unresponsive-vm-apply-group-policy.md
+        - name: Maszyna wirtualna nie odpowiada podczas stosowania zasad zabezpieczeń
+          href: unresponsive-vm-apply-security-policy.md
 - name: Nie można nawiązać połączenia z maszyną wirtualną
   items:
     - name: RDP
