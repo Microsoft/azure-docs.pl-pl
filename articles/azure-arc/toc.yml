@@ -18,6 +18,8 @@
           href: ./servers/onboard-dsc.md
     - name: Zarządzanie
       items:
+        - name: Zarządzanie rozszerzeniami maszyn wirtualnych platformy Azure i korzystanie z nich
+          href: ./servers/manage-vm-extensions.md
         - name: Zarządzanie agentem
           href: ./servers/manage-agent.md
 - name: Samples

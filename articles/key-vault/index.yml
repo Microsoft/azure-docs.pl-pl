@@ -13,32 +13,32 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 7a0efa00b4fc881c113e151c6730ca5185ea0349
-  ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+  ms.openlocfilehash: 55cf57d283433936b0cba03b67de8726d0ee98c8
+  ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/29/2020
-  ms.locfileid: "84194435"
+  ms.lasthandoff: 06/17/2020
+  ms.locfileid: "84945600"
 highlightedContent:
   items:
   - title: Wprowadzenie do usługi Azure Key Vault
     itemType: overview
     url: ./general/overview.md
-  - title: Podstawowe pojęcia
+  - title: Authentication
     itemType: overview
-    url: ./general/basic-concepts.md
+    url: ./general/authentication.md
   - title: Usuwanie nietrwałe
     itemType: overview
     url: ./general/overview-soft-delete.md
+  - title: Podstawowe pojęcia
+    itemType: overview
+    url: ./general/basic-concepts.md
   - title: Rejestrowanie
     itemType: overview
     url: ./general/logging.md
   - title: Ograniczanie przepływności
     itemType: overview
     url: ./general/overview-throttling.md
-  - title: Zalecenia dotyczące zabezpieczeń
-    itemType: overview
-    url: ./general/security-recommendations.md
 conceptualContent:
   items:
   - title: Certyfikaty
@@ -63,6 +63,9 @@ conceptualContent:
     - url: ./keys/about-keys.md
       itemType: overview
       text: Informacje o kluczach
+    - url: ../security/fundamentals/encryption-atrest.md
+      itemType: overview
+      text: Szyfrowanie danych
     - url: ./keys/quick-create-portal.md
       itemType: quickstart
       text: Konfigurowanie i pobieranie kluczy z usługi Azure Key Vault przy użyciu witryny Azure Portal
@@ -131,6 +134,6 @@ conceptualContent:
     - url: ../aks/developer-best-practices-pod-security.md#use-azure-key-vault-with-secrets-store-csi-driver
       itemType: overview
       text: Azure Kubernetes Service — korzystanie z wpisów tajnych, certyfikatów usługi Key Vault i kluczy w usłudze AKS
-    - url: ../data-factory/store-credentials-in-key-vault.md
+    - url: https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes
       itemType: overview
-      text: Azure Data Factory — obsługa poświadczeń w usłudze Key Vault
+      text: Azure Databricks — zarządzanie wpisami tajnymi za pomocą usługi Key Vault

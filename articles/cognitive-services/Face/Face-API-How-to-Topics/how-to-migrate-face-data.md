@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: nitinme
-ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ab03e68acf96928922959ed939c0accc1f8290a5
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120814"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986675"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrowanie danych własnych do innej subskrypcji programu Marketo
 
-W tym przewodniku pokazano, jak przenosić dane twarzy, takie jak zapisany obiekt z obiektu z twarzy, do innej subskrypcji platformy Azure Cognitive Services. Aby przenieść dane, użyj funkcji Snapshot. W ten sposób można uniknąć wielokrotnego kompilowania i uczenia obiektu osoby lub FaceList podczas przenoszenia lub rozszerzania operacji. Na przykład być może utworzono obiekt obiektu osoby za pomocą bezpłatnej subskrypcji próbnej i teraz chcesz przeprowadzić migrację go do subskrypcji płatnej. Lub może być konieczne zsynchronizowanie danych czołowych w różnych regionach w ramach dużej operacji przedsiębiorstwa.
+W tym przewodniku pokazano, jak przenosić dane twarzy, takie jak zapisany obiekt z obiektu z twarzy, do innej subskrypcji platformy Azure Cognitive Services. Aby przenieść dane, użyj funkcji Snapshot. W ten sposób można uniknąć wielokrotnego kompilowania i uczenia obiektu osoby lub FaceList podczas przenoszenia lub rozszerzania operacji. Może to być na przykład, że utworzono obiekt z bezpłatną subskrypcją i teraz chcesz przeprowadzić migrację go do subskrypcji płatnej. Lub może być konieczne zsynchronizowanie danych czołowych w różnych regionach w ramach dużej operacji przedsiębiorstwa.
 
 Ta sama Strategia migracji dotyczy również obiektów LargePersonGroup i LargeFaceList. Jeśli nie znasz koncepcji z tego przewodnika, zobacz ich definicje w przewodniku dotyczą [pojęć dotyczących rozpoznawania](../concepts/face-recognition.md) . W tym przewodniku jest stosowana Biblioteka kliencka .NET programu Front with C#.
 
@@ -220,7 +220,7 @@ Teraz możesz użyć nowej osoby w subskrypcji docelowej.
 
 Aby ponownie zaktualizować docelową osobę w przyszłości, Utwórz nową osobę, która ma otrzymać migawkę. Aby to zrobić, wykonaj kroki opisane w tym przewodniku. Do jednej z obiektów jednej osoby może być zastosowana migawka tylko jeden raz.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu migracji danych czołowych Usuń ręcznie obiekt Snapshot.
 

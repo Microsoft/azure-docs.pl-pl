@@ -7,12 +7,12 @@ ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.openlocfilehash: 10bd2e4722751b290263fc0599890ca92cd743c9
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a25a34db99a4c1550ed78b5f084501fb8badfacf
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995653"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791286"
 ---
 # <a name="understand-cost-management-data"></a>Omówienie danych usługi Cost Management
 
@@ -122,6 +122,7 @@ Jeśli nie widzisz konkretnego tagu w usłudze Cost Management, weź pod uwagę 
 - Czy tag został zastosowany ponad 24 godziny temu? Zobacz [Aktualizacje oraz przechowywanie danych dotyczących kosztów i użycia](#cost-and-usage-data-updates-and-retention)
 - Czy typ zasobu obsługuje tagi? Następujące typy zasobów nie obsługują tagów w danych użycia od 1 grudnia 2019 r. Zobacz [Obsługa tagów dla zasobów platformy Azure](../../azure-resource-manager/tag-support.md), aby uzyskać pełną listę obsługiwanych tagów.
     - Katalogi usługi Azure Active Directory B2C
+    - Azure Bastion
     - Zapory usługi Azure Firewall
     - Azure NetApp Files
     - Fabryka danych
