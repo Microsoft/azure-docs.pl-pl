@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/08/2020
 ms.author: pafarley
-ms.openlocfilehash: c24f82d48a1452cdb272abca178a9ba924aacc20
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 0d8c498199d238f2414d4d9268cf466cd2d6b82d
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997588"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85112052"
 ---
 [Dokumentacja](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
@@ -22,7 +22,7 @@ ms.locfileid: "83997588"
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 * Obiekt BLOB usługi Azure Storage zawierający zestaw danych szkoleniowych. Zapoznaj się z tematem [Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego](../../build-training-data-set.md) w celu uzyskania wskazówek i opcji związanych z zestawem danych szkoleniowych. W tym przewodniku szybki start można użyć plików w folderze **uczenie** [zestawu danych przykładowych](https://go.microsoft.com/fwlink/?linkid=2090451).
-* Bieżąca wersja środowiska [Node. js](https://nodejs.org/)
+* Bieżąca wersja [Node.js](https://nodejs.org/)
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -101,9 +101,9 @@ const apiKey = process.env["FORM_RECOGNIZER_KEY"] || "<api key>";
 Następnie Uwierzytelnij obiekt klienta przy użyciu zdefiniowanych zmiennych subskrypcji. Użyjesz obiektu **AzureKeyCredential** , aby w razie potrzeby można było zaktualizować klucz interfejsu API bez tworzenia nowych obiektów klienta. Utworzysz również obiekt klienta szkoleniowego.
 
 ```javascript
-const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
+const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
 
-const trainingClient = client.getFormTrainingClient();
+const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
 ```
 
 ### <a name="call-client-specific-functions"></a>Wywoływanie funkcji specyficznych dla klienta
@@ -182,44 +182,37 @@ async function AnalyzeReceipt( client, receiptUri)
     const response = poller.getResult();
 
 
-    const usReceipt = response.receipts[0];
+    const receipt = receipts[0];
     console.log("First receipt:");
-    console.log(`Receipt type: ${usReceipt.receiptType}`);
-    console.log(
-        `Merchant Name: ${usReceipt.merchantName.value} (confidence: ${usReceipt.merchantName.confidence})`
-    );
-    console.log(
-        `Transaction Date: ${usReceipt.transactionDate.value} (confidence: ${usReceipt.transactionDate.confidence})`
-    );
-    console.log("Receipt items:");
-    console.log(`  name\tprice\tquantity\ttotalPrice`);
+    // For supported fields recognized by the service, please refer to https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult.
+    const receiptTypeField = receipt.recognizedForm.fields["ReceiptType"];
+    if (receiptTypeField.valueType === "string") {
+        console.log(`  Receipt Type: '${receiptTypeField.value || "<missing>"}', with confidence of ${receiptTypeField.confidence}`);
+    }
+    const merchantNameField = receipt.recognizedForm.fields["MerchantName"];
+    if (merchantNameField.valueType === "string") {
+        console.log(`  Merchant Name: '${merchantNameField.value || "<missing>"}', with confidence of ${merchantNameField.confidence}`);
+    }
+    const transactionDate = receipt.recognizedForm.fields["TransactionDate"];
+    if (transactionDate.valueType === "date") {
+        console.log(`  Transaction Date: '${transactionDate.value || "<missing>"}', with confidence of ${transactionDate.confidence}`);
+    }
 ```
 
 Następny blok kodu iteruje poszczególne elementy wykryte na paragonie i drukuje ich szczegóły do konsoli.
 
-```csharp
-    for (const item of usReceipt.items) {
-        const name = `${optionalToString(item.name.value)} (confidence: ${optionalToString(
-            item.name.confidence
-        )})`;
-        const price = `${optionalToString(item.price.value)} (confidence: ${optionalToString(
-            item.price.confidence
-        )})`;
-        const quantity = `${optionalToString(item.quantity.value)} (confidence: ${optionalToString(
-            item.quantity.confidence
-        )})`;
-        const totalPrice = `${optionalToString(item.totalPrice.value)} (confidence: ${optionalToString(
-            item.totalPrice.confidence
-        )})`;
-        console.log(`  ${name}\t${price}\t${quantity}\t${totalPrice}`);
-    }
-```
-
-Ta funkcja korzysta z funkcji pomocnika `optionalToString` . Zdefiniuj tę funkcję w katalogu głównym skryptu:
-
 ```javascript
-function optionalToString(value) {
-  return `${value || "<missing>"}`;
+    const itemsField = receipt.recognizedForm.fields["Items"];
+    if (itemsField.valueType === "array") {
+        for (const itemField of itemsField.value || []) {
+            if (itemField.valueType === "object") {
+                const itemNameField = itemField.value["Name"];
+                if (itemNameField.valueType === "string") {
+                    console.log(`    Item Name: '${itemNameField.value || "<missing>"}', with confidence of ${itemNameField.confidence}`);
+                }
+            }
+        }
+    }
 }
 ```
 
@@ -254,15 +247,15 @@ async function TrainModel(trainingClient, trainingDataUrl)
     
     console.log(`Model ID: ${response.modelId}`);
     console.log(`Status: ${response.status}`);
-    console.log(`Created on: ${response.createdOn}`);
-    console.log(`Last modified: ${response.lastModified}`);
+    console.log(`Created on: ${response.requestedOn}`);
+    console.log(`Last modified: ${response.completedOn}`);
 ```
 
 Zwrócony obiekt **CustomFormModel** zawiera informacje na temat typów formularzy, które może rozpoznać model, oraz pól, które mogą zostać wyodrębnione z każdego typu formularza. Poniższy blok kodu drukuje te informacje w konsoli programu.
 
 ```javascript
-    if (response.models) {
-        for (const submodel of response.models) {
+    if (response.submodels) {
+        for (const submodel of response.submodels) {
             // since the training data is unlabeled, we are unable to return the accuracy of this model
             console.log("We have recognized the following fields");
             for (const key in submodel.fields) {
@@ -282,7 +275,7 @@ Na koniec ta metoda zwraca unikatowy identyfikator modelu.
 
 ### <a name="train-a-model-with-labels"></a>Uczenie modelu z etykietami
 
-Można także uczenie modeli niestandardowych przez ręczne etykietowanie dokumentów szkoleniowych. Szkolenie z etykietami prowadzi do lepszej wydajności w niektórych scenariuszach. Aby szkolić z etykietami, musisz mieć specjalne pliki informacji o etykietach (* \<filename\> . PDF. labels. JSON*) w kontenerze magazynu obiektów BLOB obok dokumentów szkoleniowych. [Narzędzie do etykietowania próbek aparatu rozpoznawania formularzy](../../quickstarts/label-tool.md) udostępnia interfejs użytkownika ułatwiający Tworzenie tych plików etykiet. Po ich utworzeniu można wywołać metodę **beginTraining** z parametrem *uselabels* ustawionym na wartość `true` .
+Można także uczenie modeli niestandardowych przez ręczne etykietowanie dokumentów szkoleniowych. Szkolenie z etykietami prowadzi do lepszej wydajności w niektórych scenariuszach. Aby szkolić z etykietami, musisz mieć specjalne pliki informacji o etykietach (* \<filename\>.pdf.labels.json*) w kontenerze magazynu obiektów BLOB obok dokumentów szkoleniowych. [Narzędzie do etykietowania próbek aparatu rozpoznawania formularzy](../../quickstarts/label-tool.md) udostępnia interfejs użytkownika ułatwiający Tworzenie tych plików etykiet. Po ich utworzeniu można wywołać metodę **beginTraining** z parametrem *uselabels* ustawionym na wartość `true` .
 
 ```javascript
 async function TrainModelWithLabelsAsync(
@@ -305,13 +298,13 @@ W tej sekcji pokazano, jak wyodrębnić informacje o kluczu/wartości i innej za
 > [!IMPORTANT]
 > Aby zaimplementować ten scenariusz, należy wcześniej przeszkolić model, aby można było przekazać jego identyfikator do metody poniżej. Zobacz sekcję [uczenie modelu](#train-a-model-without-labels) .
 
-Będziesz używać metody **beginRecognizeFormsFromUrl** . Zwracana wartość jest kolekcją obiektów **RecognizedForm** : jeden dla każdej strony w przesłanym dokumencie.
+Będziesz używać metody **beginRecognizeCustomFormsFromUrl** . Zwracana wartość jest kolekcją obiektów **RecognizedForm** : jeden dla każdej strony w przesłanym dokumencie.
 
 ```javascript
 // Analyze PDF form document at an accessible URL
 async function AnalyzePdfForm(client, modelId, formUrl)
 {    
-    const poller = await client.beginRecognizeFormsFromUrl(modelId, formUrl, {
+    const poller = await client.beginRecognizeCustomFormsFromUrl(modelId, formUrl, {
         onProgress: (state) => {
             console.log(`status: ${state.status}`);
         }
@@ -351,7 +344,7 @@ Poniższy blok kodu sprawdza, ile modeli Zapisano na koncie aparatu rozpoznawani
     // First, we see how many custom models we have, and what our limit is
     const accountProperties = await trainingClient.getAccountProperties();
     console.log(
-        `Our account has ${accountProperties.count} custom models, and we can have at most ${accountProperties.limit} custom models`
+        `Our account has ${accountProperties.customModelCount} custom models, and we can have at most ${accountProperties.customModelLimit} custom models`
     );
 ```
 
@@ -361,7 +354,7 @@ Poniższy blok kodu zawiera listę bieżących modeli na koncie i drukuje ich sz
 
 ```javascript
     // Next, we get a paged async iterator of all of our custom models
-    const result = trainingClient.listModels();
+    const result = trainingClient.listCustomModels();
 
     // We could print out information about first ten models
     // and save the first model id for later use

@@ -141,6 +141,9 @@
       items:
         - name: Zestaw SDK klienta środowiska JavaScript
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/timeseriesinsights/timeseriesinsights
+      displayName: az iot
 - name: Zasoby
   expanded: true
   items:

@@ -30,9 +30,9 @@
     - name: Używanie interfejsów API REST
       items:
         - name: Uzyskiwanie intencji
-          href: luis-get-started-get-intent-from-rest.md
+          href: luis-get-started-rest-get-intent.md
         - name: Zmiana modelu
-          href: get-started-get-model-rest-apis.md
+          href: luis-get-started-rest-get-model.md
 - name: Samouczki
   items:
     - name: Tworzenie aplikacji z możliwością rozkładania
@@ -226,6 +226,12 @@
           href: luis-migration-api-v3.md
         - name: Migrowanie do interfejsu API V2
           href: luis-migration-api-v1-to-v2.md
+    - name: Używanie interfejsów API REST
+      items:
+        - name: Uzyskiwanie intencji
+          href: luis-get-started-get-intent-from-rest.md
+        - name: Zmiana modelu
+          href: get-started-get-model-rest-apis.md
     - name: Korzystanie z kontenerów
       items:
         - name: Instalowanie i uruchamianie kontenerów
