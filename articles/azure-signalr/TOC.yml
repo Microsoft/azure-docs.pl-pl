@@ -25,10 +25,6 @@
   items:
     - name: Tworzenie bezserwerowej aplikacji czasu rzeczywistego z uwierzytelnianiem
       href: signalr-tutorial-authenticate-azure-functions.md
-    - name: Monitorowanie
-      items:
-        - name: Monitorowanie usługi SignalR Service przy użyciu dzienników diagnostycznych
-          href: signalr-tutorial-diagnostic-logs.md
 - name: Samples
   items:
     - name: Przykłady kodu
@@ -51,6 +47,8 @@
           href: signalr-concept-serverless-development-config.md
         - name: Dokumentacja powiązań usługi SignalR Service dla usługi Azure Functions
           href: ../azure-functions/functions-bindings-signalr-service.md
+        - name: Ustawienia nadrzędne
+          href: concept-upstream.md
     - name: Wysoka dostępność
       items:
         - name: Odporność i odzyskiwanie po awarii
@@ -81,12 +79,20 @@
           href: howto-private-endpoints.md
         - name: Zarządzanie kontrolą dostępu do sieci
           href: howto-network-access-control.md
+        - name: Korzystanie z tożsamości zarządzanej
+          href: howto-use-managed-identity.md
     - name: Integracja
       items:
         - name: Powiązania usługi Azure Functions
           href: signalr-concept-azure-functions.md
         - name: Integracja z usługą Event Grid
           href: signalr-howto-event-grid-integration.md
+    - name: Monitorowanie
+      items:
+        - name: Monitorowanie usługi SignalR Service przy użyciu dzienników diagnostycznych
+          href: signalr-howto-diagnostic-logs.md
+        - name: Przeprowadzanie inspekcji zgodności przy użyciu usługi Azure Policy
+          href: signalr-howto-azure-policy.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

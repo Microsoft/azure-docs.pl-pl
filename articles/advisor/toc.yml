@@ -10,7 +10,7 @@
       href: advisor-get-started.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Zwiększanie dostępności aplikacji platformy Azure
+    - name: Zwiększanie niezawodności aplikacji platformy Azure
       href: advisor-high-availability-recommendations.md
     - name: Lepsze zabezpieczanie zasobów
       href: advisor-security-recommendations.md

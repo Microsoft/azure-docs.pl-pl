@@ -34,6 +34,8 @@
       href: log-analytics-samples.md
 - name: Pojęcia
   items:
+    - name: Funkcje usługi Azure Firewall
+      href: features.md
     - name: Tagi w pełni kwalifikowanych nazw domen
       href: fqdn-tags.md
     - name: Infrastrukturalne nazwy FQDN

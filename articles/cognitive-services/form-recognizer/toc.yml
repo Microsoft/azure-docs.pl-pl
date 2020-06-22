@@ -60,7 +60,7 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Korzystanie z wystąpień kontenerów
           href: deploy-form-recognizer-on-container-instances.md
-    - name: Kopiowanie modeli na potrzeby odzyskiwania po awarii
+    - name: Modele tworzenia kopii zapasowych i odzyskiwania
       href: disaster-recovery.md
 - name: Dokumentacja
   items:

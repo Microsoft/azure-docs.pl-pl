@@ -30,7 +30,7 @@
       href: tutorial-url-redirect-cli.md
     - name: Skalowanie automatyczne i strefowo nadmiarowe
       href: tutorial-autoscale-ps.md
-    - name: Dodatek kontrolera ruchu przychodzącego usługi AKS (greenfield)
+    - name: Dodatek kontrolera ruchu przychodzącego usługi AKS (Greenfield)
       href: tutorial-ingress-controller-add-on-new.md
     - name: Dodatek kontrolera ruchu przychodzącego usługi AKS (brownfield)
       href: tutorial-ingress-controller-add-on-existing.md

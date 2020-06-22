@@ -26,8 +26,10 @@
       href: capacity-limits.md
     - name: Scenariusze
       items:
-        - name: Korzystanie z laboratoriów przy prowadzeniu zajęć
+        - name: Korzystanie z usług Lab Services przy prowadzeniu zajęć
           href: classroom-labs-scenarios.md
+        - name: Korzystanie z usług Lab Services na potrzeby maratonu programistycznego
+          href: hackathon-labs.md
         - name: Laboratoria klas — typy klas
           items:
             - name: Omówienie typów klas

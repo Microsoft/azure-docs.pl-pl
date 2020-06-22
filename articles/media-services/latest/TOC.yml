@@ -18,6 +18,11 @@
     - name: Wydarzenie na żywo za pośrednictwem portalu i programu OBS
       displayName: 'live, event, portal, obs'
       href: live-events-obs-quickstart.md
+    - name: 'Przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu'
+      href: manage-assets-quickstart.md
+    - name: Szyfrowanie zawartości przy użyciu portalu
+      displayName: 'protect, drm, aes'
+      href: encrypt-content-quickstart.md
 - name: Samouczki
   items:
     - name: Kodowanie pliku zdalnego i strumieniowe przesyłanie wideo
@@ -378,6 +383,8 @@
       href: /azure/templates/microsoft.media/allversions
     - name: Schematy kodera w warstwie Standardowa
       items:
+        - name: Metadane wejściowe
+          href: input-metadata-schema.md
         - name: Metadane wyjściowe
           href: output-metadata-schema.md
 - name: Zasoby
