@@ -193,6 +193,8 @@
           items:
             - name: Opcje konfiguracji
               href: concepts-hyperscale-configuration-options.md
+            - name: Opłacanie wydajności rezerwowej z góry
+              href: concepts-hyperscale-reserved-pricing.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Pojedynczy serwer
