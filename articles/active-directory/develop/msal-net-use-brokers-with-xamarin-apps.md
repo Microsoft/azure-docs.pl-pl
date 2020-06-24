@@ -13,11 +13,11 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 1a57173311278c5e3e0304aeb12d4d6999379eb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262791"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692329"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Używanie Microsoft Authenticator lub Intune — Portal firmy w aplikacjach platformy Xamarin
 
@@ -27,7 +27,7 @@ W systemach Android i iOS brokerzy, takie jak Microsoft Authenticator i Portal f
 - **Identyfikacja urządzenia**: Broker uzyskuje dostęp do certyfikatu urządzenia. Ten certyfikat jest tworzony na urządzeniu, gdy jest on przyłączony do miejsca pracy.
 - **Weryfikacja identyfikacji aplikacji**: gdy aplikacja wywołuje brokera, przekazuje adres URL przekierowania. Broker weryfikuje adres URL.
 
-Aby włączyć jedną z tych funkcji, użyj `WithBroker()` parametru podczas wywoływania `PublicClientApplicationBuilder.CreateApplication` metody. `.WithBroker()` Parametr jest domyślnie ustawiony na wartość true. 
+Aby włączyć jedną z tych funkcji, użyj `WithBroker()` parametru podczas wywoływania `PublicClientApplicationBuilder.CreateApplication` metody. `.WithBroker()`Parametr jest domyślnie ustawiony na wartość true. 
 
 Należy również użyć instrukcji w poniższych sekcjach, aby skonfigurować uwierzytelnianie obsługiwane przez brokera dla aplikacji [systemu iOS](#brokered-authentication-for-ios) lub aplikacji [systemu Android](#brokered-authentication-for-android) .
 
@@ -36,7 +36,7 @@ Należy również użyć instrukcji w poniższych sekcjach, aby skonfigurować u
 Wykonaj następujące kroki, aby umożliwić aplikacji platformy Xamarin. iOS komunikację z aplikacją [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) .
 
 ### <a name="step-1-enable-broker-support"></a>Krok 1. Włączanie obsługi brokera
-Należy włączyć obsługę brokera dla poszczególnych wystąpień `PublicClientApplication`. Obsługa jest domyślnie wyłączona. Podczas tworzenia `PublicClientApplication` za pomocą `PublicClientApplicationBuilder`należy użyć `WithBroker()` parametru, jak pokazano w poniższym przykładzie. `WithBroker()` Parametr jest domyślnie ustawiony na wartość true.
+Należy włączyć obsługę brokera dla poszczególnych wystąpień `PublicClientApplication` . Obsługa jest domyślnie wyłączona. Podczas tworzenia `PublicClientApplication` za pomocą `PublicClientApplicationBuilder` należy użyć `WithBroker()` parametru, jak pokazano w poniższym przykładzie. `WithBroker()`Parametr jest domyślnie ustawiony na wartość true.
 
 ```csharp
 var app = PublicClientApplicationBuilder
@@ -48,7 +48,7 @@ var app = PublicClientApplicationBuilder
 
 ### <a name="step-2-enable-keychain-access"></a>Krok 2. Włączanie dostępu do łańcucha kluczy
 
-Aby włączyć dostęp do łańcucha kluczy, musisz mieć grupę dostępu łańcucha kluczy dla swojej aplikacji. Korzystając z interfejsu API `WithIosKeychainSecurityGroup()` , można ustawić grupę dostępu łańcucha kluczy podczas tworzenia aplikacji:
+Aby włączyć dostęp do łańcucha kluczy, musisz mieć grupę dostępu łańcucha kluczy dla swojej aplikacji. Korzystając z `WithIosKeychainSecurityGroup()` interfejsu API, można ustawić grupę dostępu łańcucha kluczy podczas tworzenia aplikacji:
 
 ```csharp
 var builder = PublicClientApplicationBuilder
@@ -61,7 +61,7 @@ var builder = PublicClientApplicationBuilder
 Aby uzyskać więcej informacji, zobacz [Włączanie dostępu do łańcucha kluczy](msal-net-xamarin-ios-considerations.md#enable-keychain-access).
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Krok 3. Aktualizacja AppDelegate do obsługi wywołania zwrotnego
-Gdy biblioteka uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET) wywołuje brokera, Broker wywołuje z powrotem do aplikacji za `OpenUrl` pomocą metody `AppDelegate` klasy. Ponieważ MSAL czeka na odpowiedź brokera, aplikacja musi współpracować w celu wywołania MSAL.NET z powrotem. Aby włączyć tę współpracę, zaktualizuj `AppDelegate.cs` plik, aby zastąpić poniższą metodę.
+Gdy biblioteka uwierzytelniania firmy Microsoft dla platformy .NET (MSAL.NET) wywołuje brokera, Broker wywołuje z powrotem do aplikacji za pomocą `OpenUrl` metody `AppDelegate` klasy. Ponieważ MSAL czeka na odpowiedź brokera, aplikacja musi współpracować w celu wywołania MSAL.NET z powrotem. Aby włączyć tę współpracę, zaktualizuj `AppDelegate.cs` plik, aby zastąpić poniższą metodę.
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, 
@@ -89,11 +89,11 @@ Ta metoda jest wywoływana za każdym razem, gdy aplikacja jest uruchomiona. Jes
 Nadal w `AppDelegate.cs` pliku należy ustawić okno obiektu. Zwykle w przypadku platformy Xamarin iOS nie trzeba ustawiać okna obiektu. Ale potrzebujesz okna obiektu, aby wysyłać i odbierać odpowiedzi z brokera. 
 
 Aby skonfigurować okno obiektu: 
-1. W `AppDelegate.cs` pliku Ustaw `App.RootViewController` nowy. `UIViewController()` To przypisanie zapewnia, że wywołanie do brokera zawiera `UIViewController`. Jeśli to ustawienie jest przypisane nieprawidłowo, może wystąpić następujący błąd:
+1. W `AppDelegate.cs` pliku Ustaw `App.RootViewController` Nowy `UIViewController()` . To przypisanie zapewnia, że wywołanie do brokera zawiera `UIViewController` . Jeśli to ustawienie jest przypisane nieprawidłowo, może wystąpić następujący błąd:
 
       `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 
-1. W `AcquireTokenInteractive` wywołaniu użyj `.WithParentActivityOrWindow(App.RootViewController)` , a następnie Przekaż odwołanie do okna obiektu, którego będziesz używać.
+1. W `AcquireTokenInteractive` wywołaniu użyj, `.WithParentActivityOrWindow(App.RootViewController)` a następnie Przekaż odwołanie do okna obiektu, którego będziesz używać.
 
     W pliku `App.cs`:
 
@@ -119,9 +119,9 @@ Aby skonfigurować okno obiektu:
 ### <a name="step-5-register-a-url-scheme"></a>Krok 5. rejestrowanie schematu adresu URL
 MSAL.NET używa adresów URL do wywołania brokera, a następnie zwrócenia odpowiedzi brokera do aplikacji. Aby zakończyć rundy, zarejestruj schemat adresu URL aplikacji w `Info.plist` pliku.
 
-`CFBundleURLSchemes` Nazwa musi zawierać `msauth.` prefiks. Postępuj zgodnie z `CFBundleURLName`prefiksem. 
+`CFBundleURLSchemes`Nazwa musi zawierać `msauth.` prefiks. Postępuj zgodnie z prefiksem `CFBundleURLName` . 
 
-W schemacie URL `BundleId` jednoznacznie identyfikuje aplikację: `$"msauth.(BundleId)"`. W takim `BundleId` przypadku `com.yourcompany.xforms`schemat adresu URL to `msauth.com.yourcompany.xforms`.
+W schemacie URL `BundleId` jednoznacznie identyfikuje aplikację: `$"msauth.(BundleId)"` . W takim `BundleId` przypadku `com.yourcompany.xforms` schemat adresu URL to `msauth.com.yourcompany.xforms` .
 
 > [!NOTE]
 > Ten schemat adresu URL staje się częścią identyfikatora URI przekierowania, który jednoznacznie identyfikuje aplikację po odebraniu odpowiedzi z brokera.
@@ -180,7 +180,7 @@ Portal rejestracji aplikacji zawiera nowe środowisko ułatwiające Obliczanie i
 
 Aby obliczyć identyfikator URI przekierowania:
 
-1. W portalu rejestracji aplikacji wybierz pozycję **uwierzytelnianie** > **Wypróbuj nowe środowisko**.
+1. W portalu rejestracji aplikacji wybierz pozycję **uwierzytelnianie**  >  **Wypróbuj nowe środowisko**.
 
    ![Wypróbuj nowe środowisko rejestracji aplikacji](media/msal-net-use-brokers-with-xamarin-apps/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
@@ -204,7 +204,7 @@ Po wykonaniu kroków zostanie obliczony identyfikator URI przekierowania.
 
 ### <a name="step-1-enable-broker-support"></a>Krok 1. Włączanie obsługi brokera
 
-Obsługa brokera jest włączana dla poszczególnych PublicClientApplication. Jest on domyślnie wyłączony. Użyj `WithBroker()` parametru (domyślnie ustawione na true) podczas tworzenia `IPublicClientApplication` przy użyciu. `PublicClientApplicationBuilder`
+Obsługa brokera jest włączana dla poszczególnych PublicClientApplication. Jest on domyślnie wyłączony. Użyj `WithBroker()` parametru (domyślnie ustawione na true) podczas tworzenia `IPublicClientApplication` przy użyciu `PublicClientApplicationBuilder` .
 
 ```CSharp
 var app = PublicClientApplicationBuilder
@@ -235,7 +235,7 @@ Aby uwierzytelnianie obsługiwane przez brokera działało, należy ustawić dzi
 
 W tym celu należy podać działanie (zazwyczaj główne) `WithParentActivityOrWindow(object parent)` jako obiekt nadrzędny. 
 
-**Przykład:**
+**Na przykład:**
 
 W wywołaniu tokenu pozyskiwania:
 
@@ -256,7 +256,7 @@ Identyfikator URI przekierowania wymagany dla aplikacji zależy od certyfikatu u
 Example: msauth://com.microsoft.xforms.testApp/hgbUYHVBYUTvuvT&Y6tr554365466=
 ```
 
-Ostatnia część identyfikatora URI, `hgbUYHVBYUTvuvT&Y6tr554365466=`, jest sygnaturą, z którą APK jest podpisany algorytmem Base64.
+Ostatnia część identyfikatora URI, `hgbUYHVBYUTvuvT&Y6tr554365466=` , jest sygnaturą, z którą APK jest podpisany algorytmem Base64.
 Jednak w fazie opracowywania aplikacji przy użyciu programu Visual Studio, jeśli debugujesz kod bez podpisywania apk z określonym certyfikatem, program Visual Studio podpisuje APK do celów debugowania, dając APK unikatowy podpis dla maszyny, na której jest on zbudowany. W ten sposób za każdym razem, gdy kompilujesz aplikację na innym komputerze, musisz zaktualizować identyfikator URI przekierowania w kodzie aplikacji i zarejestrować aplikację w Azure Portal, aby uwierzytelnić się za pomocą MSAL. 
 
 Podczas debugowania może wystąpić wyjątek MSAL (lub komunikat dziennika) z informacją, że podany identyfikator URI przekierowania jest nieprawidłowy. **Ten wyjątek spowoduje również dostarczenie identyfikatora URI przekierowania, który powinien być używany** z bieżącą maszyną, na której odbywa się debugowanie. Możesz użyć tego identyfikatora URI przekierowania, aby kontynuować opracowywanie na czas.

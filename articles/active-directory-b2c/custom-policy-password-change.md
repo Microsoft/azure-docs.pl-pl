@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2c351f8a95110a32c53c68c5eb6095918578bc5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b978e6335aaf6927fe070285f2255910b31b7ffa
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189178"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202623"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie zmiany hasła przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -30,9 +30,9 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Active
 
 ## <a name="add-the-elements"></a>Dodaj elementy
 
-1. Otwórz plik *TrustframeworkExtensions. XML* i Dodaj następujący element **ClaimType** z identyfikatorem `oldPassword` do elementu [ClaimsSchema](claimsschema.md) :
+1. Otwórz plik *TrustframeworkExtensions.xml* i Dodaj następujący element **ClaimType** z identyfikatorem `oldPassword` do elementu [ClaimsSchema](claimsschema.md) :
 
-    ```XML
+    ```xml
     <BuildingBlocks>
       <ClaimsSchema>
         <ClaimType Id="oldPassword">
@@ -47,7 +47,7 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Active
 
 2. Element [ClaimsProvider](claimsproviders.md) zawiera profil techniczny, który uwierzytelnia użytkownika. Dodaj następujących dostawców oświadczeń do elementu **ClaimsProviders** :
 
-    ```XML
+    ```xml
     <ClaimsProviders>
       <ClaimsProvider>
         <DisplayName>Local Account SignIn</DisplayName>
@@ -121,11 +121,11 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Active
     </ClaimsProviders>
     ```
 
-    Zamień `IdentityExperienceFrameworkAppId` na identyfikator aplikacji aplikacji IdentityExperienceFramework utworzonej w samouczku dotyczącym wymagań wstępnych. Zamień `ProxyIdentityExperienceFrameworkAppId` na identyfikator aplikacji aplikacji ProxyIdentityExperienceFramework, która została również utworzona wcześniej.
+    Zamień na `IdentityExperienceFrameworkAppId` Identyfikator aplikacji aplikacji IdentityExperienceFramework utworzonej w samouczku dotyczącym wymagań wstępnych. Zamień na `ProxyIdentityExperienceFrameworkAppId` Identyfikator aplikacji aplikacji ProxyIdentityExperienceFramework, która została również utworzona wcześniej.
 
-3. Element [UserJourney](userjourneys.md) definiuje ścieżkę, którą użytkownik podejmuje podczas korzystania z aplikacji. Dodaj element **UserJourneys** , jeśli nie istnieje z **UserJourney** identyfikowanego jako `PasswordChange`:
+3. Element [UserJourney](userjourneys.md) definiuje ścieżkę, którą użytkownik podejmuje podczas korzystania z aplikacji. Dodaj element **UserJourneys** , jeśli nie istnieje z **UserJourney** identyfikowanego jako `PasswordChange` :
 
-    ```XML
+    ```xml
     <UserJourneys>
       <UserJourney Id="PasswordChange">
         <OrchestrationSteps>
@@ -151,8 +151,8 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Active
     </UserJourneys>
     ```
 
-4. Zapisz plik zasad *TrustFrameworkExtensions. XML* .
-5. Skopiuj pobrany plik *ProfileEdit. XML* z pakietem Starter i nadaj mu nazwę *ProfileEditPasswordChange. XML*.
+4. Zapisz plik zasad *TrustFrameworkExtensions.xml* .
+5. Skopiuj plik *ProfileEdit.xml* pobrany z pakietem startowym i nadaj mu nazwę *ProfileEditPasswordChange.xml*.
 6. Otwórz nowy plik i zaktualizuj atrybut **PolicyId** z unikatową wartością. Ta wartość jest nazwą zasad. Na przykład *B2C_1A_profile_edit_password_change*.
 7. Zmodyfikuj atrybut **ReferenceId** w programie `<DefaultUserJourney>` , aby odpowiadał identyfikatorowi utworzonej przez Ciebie podróży użytkownika. Na przykład *PasswordChange*.
 8. Zapisz zmiany.
@@ -161,7 +161,7 @@ Przykładowe zasady można znaleźć [tutaj](https://github.com/Azure-Samples/ac
 
 ## <a name="test-your-policy"></a>Testowanie zasad
 
-Podczas testowania aplikacji w Azure AD B2C może być przydatne, aby token `https://jwt.ms` Azure AD B2C był w stanie przejrzeć oświadczenia w nim.
+Podczas testowania aplikacji w Azure AD B2C może być przydatne, aby token Azure AD B2C był w `https://jwt.ms` stanie przejrzeć oświadczenia w nim.
 
 ### <a name="upload-the-files"></a>Przekazywanie plików
 
@@ -170,14 +170,14 @@ Podczas testowania aplikacji w Azure AD B2C może być przydatne, aby token `htt
 3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 4. Wybierz pozycję **platforma obsługi tożsamości**.
 5. Na stronie zasady niestandardowe kliknij pozycję **Przekaż zasady**.
-6. Wybierz opcję **Zastąp zasady, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustframeworkExtensions. XML* .
+6. Wybierz opcję **Zastąp zasady, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustframeworkExtensions.xml* .
 7. Kliknij pozycję **Przekaż**.
-8. Powtórz kroki od 5 do 7 dla pliku jednostki uzależnionej, np. *ProfileEditPasswordChange. XML*.
+8. Powtórz kroki od 5 do 7 dla pliku jednostki uzależnionej, takie jak *ProfileEditPasswordChange.xml*.
 
 ### <a name="run-the-policy"></a>Uruchamianie zasad
 
 1. Otwórz zasady, które zostały zmienione. Na przykład *B2C_1A_profile_edit_password_change*.
-2. W przypadku **aplikacji**wybierz wcześniej zarejestrowaną aplikację. Aby wyświetlić token, należy `https://jwt.ms`wyświetlić **adres URL odpowiedzi** .
+2. W przypadku **aplikacji**wybierz wcześniej zarejestrowaną aplikację. Aby wyświetlić token, należy wyświetlić **adres URL odpowiedzi** `https://jwt.ms` .
 3. Kliknij pozycję **Uruchom teraz**. Zaloguj się przy użyciu acouunt, który został wcześniej utworzony. Teraz należy mieć możliwość zmiany hasła.
 
 ## <a name="next-steps"></a>Następne kroki

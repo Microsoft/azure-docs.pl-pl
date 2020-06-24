@@ -4,14 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
-ms.openlocfilehash: 926434d7110877e234888682cb6c946afe3ae685
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 046bd8fcbb8fab50269c8d35da0956bdc63f2304
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648948"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298603"
 ---
 Funkcje umożliwiają korzystanie z kluczy, aby utrudnić dostęp do punktów końcowych funkcji HTTP podczas opracowywania. Jeśli poziom dostępu HTTP w funkcji wyzwalanej przez protokół HTTP nie jest ustawiony na `anonymous` , żądania muszą zawierać klucz dostępu interfejsu API w żądaniu. 
+
+Chociaż klucze zapewniają domyślny mechanizm zabezpieczeń, warto rozważyć dodatkowe opcje zabezpieczania punktu końcowego HTTP w środowisku produkcyjnym. Na przykład zwykle nie jest dobrym sposobem dystrybuowania wspólnych kluczy tajnych w aplikacjach publicznych. Jeśli funkcja jest wywoływana z klienta publicznego, warto rozważyć zaimplementowanie innego mechanizmu Secrity. Aby dowiedzieć się więcej, zobacz temat [Zabezpieczanie punktu końcowego HTTP w środowisku produkcyjnym](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
+
+W przypadku odnowienia wartości klucza funkcji należy ręcznie ponownie przeprowadzić dystrybucję zaktualizowanych wartości klucza do wszystkich klientów, którzy wywołują funkcję.  
 
 #### <a name="authorization-scopes-function-level"></a>Zakresy autoryzacji (na poziomie funkcji)
 

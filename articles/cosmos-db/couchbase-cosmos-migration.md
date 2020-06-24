@@ -2,16 +2,16 @@
 title: Migrowanie z CouchBase Azure Cosmos DB do interfejsu API SQL
 description: Wskazówki krok po kroku dotyczące migrowania z programu CouchBase Azure Cosmos DB do interfejsu API SQL
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
-ms.openlocfilehash: 248860ad6963fcd04526f0d94e52d6a6181463c5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f7c0cb893f65688145811cbd2a0280c2d232d7a9
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657347"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261923"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrowanie z CouchBase Azure Cosmos DB do interfejsu API SQL
 
@@ -109,7 +109,7 @@ W poniższych sekcjach opisano, kiedy należy używać każdego z tych zestawów
 
 Jeśli migrowane obciążenie jest oparte na zestawie SDK opartym na rozruchu sprężynowym, można wykonać następujące czynności:
 
-1. Dodaj element nadrzędny do pliku pliku pom. XML:
+1. Dodaj element nadrzędny do pliku POM.xml:
 
    ```java
    <parent>
@@ -120,13 +120,13 @@ Jeśli migrowane obciążenie jest oparte na zestawie SDK opartym na rozruchu sp
    </parent>
    ```
 
-1. Dodaj właściwości do pliku pliku pom. XML:
+1. Dodaj właściwości do pliku POM.xml:
 
    ```java
    <azure.version>2.1.6</azure.version>
    ```
 
-1. Dodaj zależności do pliku pliku pom. XML:
+1. Dodaj zależności do pliku POM.xml:
 
    ```java
    <dependency>
@@ -200,7 +200,7 @@ W zapytaniach N1QL można zauważyć następujące zmiany:
 
 Użyj asynchronicznego zestawu Java SDK, wykonując następujące czynności:
 
-1. Skonfiguruj następujący zależność do pliku pliku pom. XML:
+1. Skonfiguruj następujący zależność do pliku POM.xml:
 
    ```java
    <!-- https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb -->

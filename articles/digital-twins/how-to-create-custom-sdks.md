@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 261b288154dddacf91f3cb3ba6dec99e3a3534cc
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 3d6fa1660f5204137dbebeae36f6d06852d88412
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613159"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725804"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-with-autorest"></a>Tworzenie niestandardowych zestawów SDK dla usługi Azure Digital bliźniaczych reprezentacji za pomocą AutoRest
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Obecnie jedynym publikowanym zestawem SDK płaszczyzny danych na potrzeby współdziałania z interfejsami API Digital bliźniaczych reprezentacji na platformie Azure jest .NET (C#). Aby uzyskać ogólne informacje na temat zestawu .NET SDK i interfejsów API, zobacz [: korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure](how-to-use-apis-sdks.md). Jeśli pracujesz w innym języku, w tym artykule opisano sposób generowania własnego zestawu SDK w wybranym języku przy użyciu funkcji AutoRest.
 
@@ -22,10 +25,10 @@ Obecnie jedynym publikowanym zestawem SDK płaszczyzny danych na potrzeby wspó�
 
 Aby wygenerować zestaw SDK, potrzebne są:
 * [AutoRest](https://github.com/Azure/autorest), wersja 2.0.4413 (wersja 3 nie jest obecnie obsługiwana)
-* [Node. js](https://nodejs.org) jako warunek wstępny do AutoRest
+* [Node.js](https://nodejs.org) jako warunek wstępny do AutoRest
 * [Plik usługi Azure Digital bliźniaczych reprezentacji openapi (Swagger)](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview/digitaltwins.json)
 
-Jeśli masz zainstalowany program Node. js, możesz uruchomić to polecenie, aby upewnić się, że masz zainstalowaną odpowiednią wersję środowiska AutoRest:
+Jeśli zainstalowano Node.js, możesz uruchomić to polecenie, aby upewnić się, że masz zainstalowaną odpowiednią wersję narzędzia AutoRest:
 ```cmd/sh
 npm install -g autorest@2.0.4413
 ```

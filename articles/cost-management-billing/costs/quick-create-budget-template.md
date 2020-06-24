@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 04/22/2020
+ms.date: 06/10/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 88dd1dc99f32d0539718c0f71206176cbfc16eec
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: dc37039d6777a77f9de247808329930f1621ee82
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830314"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686413"
 ---
 # <a name="quickstart-create-a-budget-with-an-azure-resource-manager-template"></a>Szybki start: Tworzenie budżetu za pomocą szablonu usługi Azure Resource Manager
 
@@ -74,7 +74,7 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
     * **Próg**: wprowadź wartość progową powiadomienia. Powiadomienie jest wysyłane, gdy koszt przekroczy wartość progową. Jest to zawsze wartość procentowa z zakresu od 0 do 1000.
     * **Adresy e-mail do kontaktu**: wprowadź listę adresów e-mail, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Oczekiwany format to `["user1@domain.com","user2@domain.com"]`.
     * **Role do kontaktu**: wprowadź listę ról do kontaktu, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Wartości domyślne to Owner (Właściciel), Contributor (Współautor) i Reader (Czytelnik). Oczekiwany format to `["Owner","Contributor","Reader"]`.
-    * **Grupy do kontaktu**: wprowadź listę grup akcji, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Akceptowana jest tablica ciągów. Oczekiwany format to `["Action Group Name1","Action Group Name2"]`. Jeśli nie chcesz używać grup akcji, wprowadź `[]`.
+    * **Grupy do kontaktu**: wprowadź listę identyfikatorów zasobów grup akcji, w postaci pełnych identyfikatorów URI zasobów, do których zostanie wysłane powiadomienie o budżecie po przekroczeniu progu. Akceptowana jest tablica ciągów. Oczekiwany format to `["action group resource ID1","action group resource ID2"]`. Jeśli nie chcesz używać grup akcji, wprowadź `[]`.
     * **Filtr zasobów**: wprowadź listę filtrów dla zasobów. Oczekiwany format to `["Resource Filter Name1","Resource Filter Name2"]`. Jeśli nie chcesz stosować filtru, wprowadź `[]`. Jeśli podasz filtr zasobów, musisz również wprowadzić wartości **filtrów mierników**.
     * **Filtr mierników**: wprowadź listę filtrów mierników, które są obowiązkowe dla budżetów z kategorii **Użycie**. Oczekiwany format to `["Meter Filter Name1","Meter Filter Name2"]`. Jeśli nie chcesz wprowadzać **filtru zasobów**, wpisz `[]`.
     * **Wyrażam zgodę na powyższe warunki i postanowienia**: Zaznacz.

@@ -6,19 +6,19 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed8c3563f9a17a30e0d5df5f00c35f34510d6029
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 6a2c9500ecefed02b28c066de80137d8f0882fd5
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848927"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731514"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Zbiorcze tworzenie użytkowników w Azure Active Directory
 
@@ -80,7 +80,7 @@ Następnie możesz sprawdzić, czy utworzone przez Ciebie użytkownicy znajdują
 
 1. [Zaloguj się do centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji.
 1. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
-1. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 1. W obszarze **Pokaż**wybierz opcję **Wszyscy użytkownicy** i sprawdź, czy utworzone przez Ciebie użytkownicy znajdują się na liście.
 
 ### <a name="verify-users-with-powershell"></a>Weryfikowanie użytkowników przy użyciu programu PowerShell

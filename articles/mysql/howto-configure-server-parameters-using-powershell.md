@@ -7,14 +7,14 @@ ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: conceptual
 ms.date: 4/29/2020
-ms.openlocfilehash: 0de816d25bbc1563885413d8dbd52dc7bda7d538
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 6c91f1494e56e9176f8bbf79387144aea5942787
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615086"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725175"
 ---
-# <a name="customize-azure-database-for-mysql-server-parameters-using-powershell"></a>Dostosowywanie parametrów serwera Azure Database for MySQL przy użyciu programu PowerShell
+# <a name="configure-server-parameters-in-azure-database-for-mysql-using-powershell"></a>Konfigurowanie parametrów serwera w Azure Database for MySQL przy użyciu programu PowerShell
 
 Można wyświetlić, wyświetlić i zaktualizować parametry konfiguracji dla serwera Azure Database for MySQL przy użyciu programu PowerShell. Podzestaw konfiguracji aparatu jest uwidoczniony na poziomie serwera i można go modyfikować.
 
@@ -26,7 +26,7 @@ Aby ukończyć ten przewodnik, musisz:
 - [Serwer Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
-> Mimo że moduł AZ. MySql PowerShell jest w wersji zapoznawczej, należy go zainstalować niezależnie od modułu AZ PowerShell przy użyciu następującego polecenia `Install-Module -Name Az.MySql -AllowPrerelease`:.
+> Mimo że moduł AZ. MySql PowerShell jest w wersji zapoznawczej, należy go zainstalować niezależnie od modułu AZ PowerShell przy użyciu następującego polecenia: `Install-Module -Name Az.MySql -AllowPrerelease` .
 > Po ogólnym udostępnieniu modułu AZ. MySql PowerShell jest on częścią przyszłej wersji modułu AZ PowerShell releases i dostępne natywnie z poziomu Azure Cloud Shell.
 
 Jeśli zdecydujesz się używać programu PowerShell lokalnie, Połącz się z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) .
@@ -49,7 +49,7 @@ Aby zapoznać się z definicją każdego z wymienionych parametrów, zobacz sekc
 
 Aby wyświetlić szczegóły dotyczące określonego parametru konfiguracji dla serwera, uruchom `Get-AzMySqlConfiguration` polecenie cmdlet i określ parametr **name** .
 
-W tym przykładzie przedstawiono szczegółowe informacje **o\_powolnych\_** parametrach konfiguracji serwera dziennika zapytania dla serwera **mydemoserver** w **obszarze Grupa zasobów**.
+W tym przykładzie przedstawiono szczegółowe informacje o powolnych parametrach konfiguracji serwera ** \_ \_ dziennika zapytania** dla serwera **mydemoserver** w **obszarze Grupa zasobów**.
 
 ```azurepowershell-interactive
 Get-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver
@@ -59,7 +59,7 @@ Get-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup
 
 Można również zmodyfikować wartość określonego parametru konfiguracji serwera, który aktualizuje podstawową wartość konfiguracyjną dla aparatu serwera MySQL. Aby zaktualizować konfigurację, użyj `Update-AzMySqlConfiguration` polecenia cmdlet.
 
-Aby zaktualizować parametr **konfiguracji\_powolnego serwera\_dziennika zapytań** serwera **mydemoserver** w **obszarze Grupa zasobów**.
+Aby zaktualizować parametr konfiguracji **powolnego serwera \_ \_ dziennika zapytań** serwera **mydemoserver** w **obszarze Grupa zasobów**.
 
 ```azurepowershell-interactive
 Update-AzMySqlConfiguration -Name slow_query_log -ResourceGroupName myresourcegroup -ServerName mydemoserver -Value On

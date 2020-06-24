@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 03/22/2020
+ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f210602817c03b73ca4c48da2c3dad5549777f47
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 086623378b64aecb91c4e70e6e69bb13453f7681
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128731"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078650"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Wyświetlanie żądań dotyczących pakietu dostępu w usłudze Azure AD uprawnienia do zarządzania
 

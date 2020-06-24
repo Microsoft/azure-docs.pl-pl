@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b308e5d74f1a87ea1cebed26f602780307c77d35
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 41db591b8abdaaa58461b2782d93f7aa745cfdc6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447921"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202538"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integruj wymianę oświadczeń interfejsu API REST w zasadach niestandardowych Azure AD B2C
 
@@ -131,7 +131,7 @@ Oświadczenia wyjściowe powinny wyglądać następująco:
 </OutputClaims>
 ```
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 Należy chronić punkt końcowy interfejsu API REST, aby tylko uwierzytelnieni klienci mogli z nią komunikować. Interfejs API REST musi używać punktu końcowego HTTPS. Ustaw metadane Uwierzytelnianiatype na jedną z następujących metod uwierzytelniania:
 
@@ -145,7 +145,7 @@ Interfejs API REST może być oparty na dowolnej platformie i zapisany w dowolny
 ## <a name="localize-the-rest-api"></a>Lokalizowanie interfejsu API REST
 W profilu technicznym RESTful może być konieczne wysłanie języka/ustawień regionalnych bieżącej sesji i w razie potrzeby podniesienia zlokalizowanego komunikatu o błędzie. Za pomocą programu [rozpoznawania oświadczeń](claim-resolver-overview.md)można wysłać oświadczenie kontekstowe, takie jak język użytkownika. Poniższy przykład przedstawia profil techniczny RESTful pokazujący ten scenariusz.
 
-```XML
+```xml
 <TechnicalProfile Id="REST-ValidateUserData">
   <DisplayName>Validate user input data</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -165,7 +165,7 @@ W profilu technicznym RESTful może być konieczne wysłanie języka/ustawień r
 
 ## <a name="handling-error-messages"></a>Obsługa komunikatów o błędach
 
-Interfejs API REST może wymagać zwrócenia komunikatu o błędzie, takiego jak "nie znaleziono użytkownika w systemie CRM". Jeśli wystąpi błąd, interfejs API REST powinien zwrócić komunikat o błędzie HTTP 409 (kod stanu odpowiedzi konfliktu). Aby uzyskać więcej informacji, zobacz [profil techniczny RESTful](restful-technical-profile.md#returning-error-message).
+Interfejs API REST może wymagać zwrócenia komunikatu o błędzie, takiego jak "nie znaleziono użytkownika w systemie CRM". Jeśli wystąpi błąd, interfejs API REST powinien zwrócić komunikat o błędzie HTTP 409 (kod stanu odpowiedzi konfliktu). Aby uzyskać więcej informacji, zobacz [profil techniczny RESTful](restful-technical-profile.md#returning-validation-error-message).
 
 Można to osiągnąć tylko przez wywołanie profilu technicznego interfejsu API REST z poziomu profilu technicznego weryfikacji. Dzięki temu użytkownik może skorygować dane na stronie i ponownie uruchomić weryfikację przy przesyłaniu strony.
 

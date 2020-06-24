@@ -5,8 +5,6 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 0156f994-96d0-4878-b07b-49b7be4fd856
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: php
@@ -16,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9a77a9d9c8b2d71197089f66d81e07d56c780e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c4bf0569d6e2e595eb03c85abba7224b25b1864
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263850"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255453"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Jak używać Notification Hubs w języku PHP
 
@@ -32,7 +30,7 @@ Możesz uzyskać dostęp do wszystkich funkcji Notification Hubs z poziomu zaple
 W tym temacie pokazano, jak:
 
 * Tworzenie klienta REST dla funkcji Notification Hubs w języku PHP;
-* Postępuj zgodnie z [samouczkiem](notification-hubs-ios-apple-push-notification-apns-get-started.md) wprowadzenie do wybranej platformy mobilnej, implementując część zaplecza w języku PHP.
+* Wykonaj instrukcje [wysyłania powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-get-started.md) dla wybranej platformy mobilnej, implementując część zaplecza w języku PHP.
 
 ## <a name="client-interface"></a>Interfejs klienta
 
@@ -55,7 +53,7 @@ Aby wysłać powiadomienie natywne systemu iOS:
 
 ## <a name="implementation"></a>Implementacja
 
-Jeśli jeszcze tego nie zrobiono, postępuj zgodnie z [samouczkiem wprowadzenie] do ostatniej sekcji, w której musisz zaimplementować zaplecze.
+Jeśli jeszcze tego nie zrobiono, postępuj zgodnie z sekcją [wprowadzenie do samouczka] do ostatniej sekcji, w której musisz zaimplementować zaplecze.
 Ponadto, jeśli chcesz użyć kodu z [przykładu otoki REST języka PHP] i przejść bezpośrednio do sekcji [Ukończ samouczek](#complete-tutorial) .
 
 Wszystkie szczegóły dotyczące implementacji pełnej otoki REST można znaleźć w [witrynie MSDN](https://msdn.microsoft.com/library/dn530746.aspx). W tej sekcji opisano implementację języka PHP głównych kroków wymaganych do uzyskania dostępu do punktów końcowych REST Notification Hubs:
@@ -106,7 +104,7 @@ Oto główna Klasa implementująca klienta, którego Konstruktor analizuje param
 
 Zapoznaj się z dokumentacją platformy Azure, aby uzyskać informacje na temat [tworzenia tokenu zabezpieczającego SAS](https://docs.microsoft.com/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token).
 
-Dodaj `generateSasToken` metodę do klasy, `NotificationHub` aby utworzyć token oparty na identyfikatorze URI bieżącego żądania, a poświadczenia wyodrębnione z parametrów połączenia.
+Dodaj `generateSasToken` metodę do klasy, `NotificationHub` Aby utworzyć token oparty na identyfikatorze URI bieżącego żądania, a poświadczenia wyodrębnione z parametrów połączenia.
 
     ```php
     private function generateSasToken($uri) {
@@ -222,7 +220,7 @@ Powyższe metody wysyłają żądanie HTTP POST do `/messages` punktu końcowego
 
 Teraz możesz ukończyć samouczek wprowadzenie, wysyłając powiadomienie z zaplecza PHP.
 
-Zainicjuj Notification Hubs klienta (Zastąp ciąg połączenia i nazwę centrum zgodnie z instrukcjami w [samouczku wprowadzenie]):
+Zainicjuj Notification Hubs klienta (Zastąp ciąg połączenia i nazwę centrum zgodnie z instrukcją w samouczku wprowadzenie):
 
     ```php
     $hub = new NotificationHub("connection string", "hubname");
@@ -291,4 +289,5 @@ W tym temacie pokazano, jak utworzyć prosty klient protokołu Java REST dla Not
 Aby uzyskać więcej informacji, zobacz również [Centrum deweloperów języka PHP](https://azure.microsoft.com/develop/php/).
 
 [Przykład otoki REST języka PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Wprowadzenie]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Wysyłanie powiadomień wypychanych do aplikacji systemu iOS przy użyciu usługi Azure Notification Hubs](ios-sdk-get-started.md))
+

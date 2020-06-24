@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 0df0ba4ce76d249bcb4738b41c94677e061f14ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f16902a779fdb7c86fb7506711d2bce77ca9d05
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409863"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809223"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Ustal, który model klucza szyfrowania usługi Azure Storage jest używany dla konta magazynu
 
@@ -57,7 +57,7 @@ $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
 $account.Encryption.KeySource
 ```
 
-Jeśli wartość właściwości **Źródło** klucza to `Microsoft.Storage`, konto jest szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli wartość właściwości **Źródło** klucza to `Microsoft.Keyvault`, konto jest szyfrowane przy użyciu kluczy zarządzanych przez klienta.
+Jeśli wartość właściwości **Źródło** `Microsoft.Storage` klucza to, konto jest szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli wartość właściwości **Źródło** `Microsoft.Keyvault` klucza to, konto jest szyfrowane przy użyciu kluczy zarządzanych przez klienta.
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/cli)
 
@@ -71,11 +71,11 @@ key_source=$(az storage account show \
     --output tsv)
 ```
 
-Jeśli wartość właściwości **Źródło** klucza to `Microsoft.Storage`, konto jest szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli wartość właściwości **Źródło** klucza to `Microsoft.Keyvault`, konto jest szyfrowane przy użyciu kluczy zarządzanych przez klienta.
+Jeśli wartość właściwości **Źródło** `Microsoft.Storage` klucza to, konto jest szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. Jeśli wartość właściwości **Źródło** `Microsoft.Keyvault` klucza to, konto jest szyfrowane przy użyciu kluczy zarządzanych przez klienta.
 
 ---
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szyfrowanie usługi Azure Storage dla danych magazynowanych](storage-service-encryption.md)
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](storage-service-encryption.md)
 - [Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage](encryption-customer-managed-keys.md)

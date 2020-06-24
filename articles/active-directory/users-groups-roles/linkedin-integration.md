@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 1c5058e24ee0817ebcc6c5761f7b9e22d1a14203
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582648"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727198"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integracja połączeń konta LinkedIn w Azure Active Directory
 
@@ -91,7 +91,7 @@ Aby użyć grupy z kroku dwa jako wybranej grupy w ustawieniach połączeń kont
 1. Pobierz [pliki szablonów administracyjnych pakietu Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 1. Wyodrębnij pliki **ADMX** i skopiuj je do magazynu centralnego.
 1. Otwórz przystawkę Zarządzanie zasadami grupy.
-1. Utwórz obiekt zasady grupy przy użyciu następującego ustawienia: **Konfiguracja** > użytkownika**Szablony administracyjne** > **Microsoft Office 2016** > **różne** > **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office**.
+1. Utwórz obiekt zasady grupy przy użyciu następującego ustawienia: **Konfiguracja użytkownika**  >  **Szablony administracyjne**  >  **Microsoft Office 2016**  >  **różne**  >  **Pokaż funkcje serwisu LinkedIn w aplikacjach pakietu Office**.
 1. Wybierz opcję **włączone** lub **wyłączone**.
   
    Stan | Efekt

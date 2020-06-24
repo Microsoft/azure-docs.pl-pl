@@ -3,15 +3,15 @@ title: MongoDB polecenia rozszerzenia do zarządzania danymi w interfejsie API A
 description: W tym artykule opisano sposób używania poleceń rozszerzenia MongoDB do zarządzania danymi przechowywanymi w interfejsie API Azure Cosmos DB dla MongoDB.
 author: LuisBosquez
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: lbosq
-ms.openlocfilehash: cf35e7d6fac53f6854ac746769a9672f8cea9605
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 7879793cbbb029468e84b14f8e8eee793cf4c530
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248723"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260733"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Użyj poleceń rozszerzenia MongoDB, aby zarządzać danymi przechowywanymi w interfejsie API Azure Cosmos DB dla MongoDB 
 

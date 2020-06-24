@@ -11,18 +11,18 @@ ms.assetid: d5f18929-15e3-40a2-9ee3-8188bc248ed8
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2019
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9a575462d09b64bd7a5d32c9cd5cc0a603e84694
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: ced76b73a8a08e6886cf0cef04c74a82d05c75dd
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417773"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708131"
 ---
 # <a name="create-a-virtual-machine-with-a-static-private-ip-address-using-powershell"></a>Tworzenie maszyny wirtualnej ze statycznym prywatnym adresem IP przy użyciu programu PowerShell
 
@@ -99,7 +99,7 @@ Poniższe kroki można wykonać z komputera lokalnego lub przy użyciu Azure Clo
 > [!IMPORTANT]
 > Aby uzyskać dostęp do maszyny wirtualnej za pośrednictwem Internetu, należy przypisać publiczny adres IP do maszyny wirtualnej. Możesz również zmienić przypisanie dynamicznego prywatnego adresu IP do przypisania statycznego. Aby uzyskać szczegółowe informacje, zobacz [Dodawanie lub zmiana adresów IP](virtual-network-network-interface-addresses.md). Ponadto zaleca się ograniczenie ruchu sieciowego do maszyny wirtualnej przez skojarzenie sieciowej grupy zabezpieczeń z interfejsem sieciowym, podsieci, w której został utworzony interfejs sieciowy w programie lub obu tych elementów. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie grupami zabezpieczeń sieci](manage-network-security-group.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) :
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 633f406d042ce5b8ddde5b28022bdb33fdd70377
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745850"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052151"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Przeniesienie własności rozliczeń subskrypcji platformy Azure na inne konto
 
@@ -100,7 +100,7 @@ Jeśli zaakceptujesz własność rozliczeń subskrypcji platformy Azure, zalecam
 
 ## <a name="supported-subscription-types"></a>Obsługiwane typy subskrypcji
 
-Przenoszenie subskrypcji w witrynie Azure Portal jest dostępne dla typów subskrypcji wymienionych poniżej. Obecnie przenoszenie nie jest obsługiwane w przypadku [bezpłatnej wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p/) ani [subskrypcji platformy Azure w ramach programu licencjonowania Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Więcej informacji — zobacz [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Aby przenieść inne subskrypcje, takie jak plany [dostępu sponsorowanego](https://azure.microsoft.com/offers/ms-azr-0036p/) lub pomocy technicznej, [skontaktuj się z pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Przenoszenie subskrypcji w witrynie Azure Portal jest dostępne dla typów subskrypcji wymienionych poniżej. Obecnie przenoszenie nie jest obsługiwane w przypadku [bezpłatnej wersji próbnej](https://azure.microsoft.com/offers/ms-azr-0044p/) ani [subskrypcji platformy Azure w ramach programu licencjonowania Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Więcej informacji — zobacz [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Aby przenieść inne subskrypcje, takie jak plany pomocy technicznej, [skontaktuj się z pomocą techniczną platformy Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 - [Umowa Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*
 - [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)  

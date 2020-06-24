@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
 ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254744"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711701"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Monitorowanie składników i stanu sprzętu za pomocą usługi StorSimple Menedżer urządzeń
 
@@ -93,18 +93,18 @@ W poniższej tabeli przedstawiono składniki fizyczne i logiczne zawarte w podst
 | Zasilacz [0-1] |PCM |Fizyczne |Shared |Tak |Dla każdego zasilacza w dwóch PCMs znajdujących się w tylnej części urządzenia jest prezentowany jeden wiersz. |
 | Chłodzenie [0-1] |PCM |Fizyczne |Shared |Tak |Jeden wiersz jest prezentowany dla każdego z czterech wentylatorów chłodzących znajdujących się w dwóch PCMs. |
 | Bateria [0-1] |PCM |Fizyczne |Shared |Tak |Dla każdego z modułów baterii tworzenia kopii zapasowych, które znajdują się w module PCM, jest prezentowany jeden wiersz. |
-| Funkcja Metis |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Wyświetla stan baterii: czy potrzebują ładowania i zbliżają się do końca okresu użytkowania. |
-| Klaster |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Przedstawia stan klastra utworzonego między dwoma modułami zintegrowanego kontrolera. |
-| Węzeł klastra |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Wskazuje stan kontrolera w ramach klastra. |
-| Kworum klastra |Nie dotyczy |Logiczny | |Nie dotyczy |Wskazuje obecność większościowego członkostwa dysku w puli magazynu dysk twardy. |
-| Obszar danych dysku twardego |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce do magazynowania używane dla danych w puli magazynów dysków twardych (dysk twardy). |
-| Przestrzeń zarządzania dyskami twardymi |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych na potrzeby zadań zarządzania. |
-| Obszar kworum dysku twardego |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych dla kworum klastra. |
-| Przestrzeń zastępująca dysk twardy |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych do zastępowania kontrolera. |
-| Przestrzeń danych SSD |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce do magazynowania używane na potrzeby danych w puli magazynów półprzewodnikowych (SSD). |
-| Przestrzeń dyskowa SSD |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Miejsce do magazynowania w puli magazynów SSD dedykowane dla logiki NVRAM. |
-| Pula magazynów dysków twardych |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia HDD. |
-| Pula magazynu SSD |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia dysków SSD. |
+| Funkcja Metis |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Wyświetla stan baterii: czy potrzebują ładowania i zbliżają się do końca okresu użytkowania. |
+| Klaster |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Przedstawia stan klastra utworzonego między dwoma modułami zintegrowanego kontrolera. |
+| Węzeł klastra |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Wskazuje stan kontrolera w ramach klastra. |
+| Kworum klastra |Nie dotyczy |Wartości logiczne | |Nie dotyczy |Wskazuje obecność większościowego członkostwa dysku w puli magazynu dysk twardy. |
+| Obszar danych dysku twardego |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Miejsce do magazynowania używane dla danych w puli magazynów dysków twardych (dysk twardy). |
+| Przestrzeń zarządzania dyskami twardymi |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych na potrzeby zadań zarządzania. |
+| Obszar kworum dysku twardego |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych dla kworum klastra. |
+| Przestrzeń zastępująca dysk twardy |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Miejsce zarezerwowane w puli magazynów dysków twardych do zastępowania kontrolera. |
+| Przestrzeń danych SSD |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Miejsce do magazynowania używane na potrzeby danych w puli magazynów półprzewodnikowych (SSD). |
+| Przestrzeń dyskowa SSD |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Miejsce do magazynowania w puli magazynów SSD dedykowane dla logiki NVRAM. |
+| Pula magazynów dysków twardych |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia HDD. |
+| Pula magazynu SSD |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia dysków SSD. |
 | Kontroler [0-1] [stan] |WE/WY |Fizyczne |Kontroler |Tak |Wyświetla stan kontrolera i czy jest on w trybie aktywnym lub w stanie wstrzymania w ramach obudowy. |
 | Czujniki temperatury w kontrolerze |WE/WY |Fizyczne |Kontroler |Nie |W przypadku wielu czujników temperatury, takich jak moduł we/wy, czujniki procesora CPU, moduły DIMM i PCIe, są wyświetlane ich Stany, które wskazują, czy napotkana temperatura jest w zakresie tolerancji. |
 | Ekspander SAS |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan ekspandera Serial Attached SCSI (SAS), który jest używany do łączenia zintegrowanego magazynu z kontrolerem. |
@@ -133,7 +133,7 @@ W poniższej tabeli przedstawiono składniki fizyczne i logiczne zawarte w obudo
 | Czujniki temperatury w module PCM |PCM |Fizyczne |Shared |Nie |W przypadku wielu czujników temperatury, takich jak czujniki wlotu i hotspotu, są wyświetlane ich Stany, które wskazują, czy zmierzona temperatura jest w zakresie tolerancji. |
 | Zasilacz [0-1] |PCM |Fizyczne |Shared |Tak |Dla każdego zasilacza w dwóch PCMs znajdujących się w tylnej części urządzenia jest prezentowany jeden wiersz. |
 | Chłodzenie [0-1] |PCM |Fizyczne |Shared |Tak |Jeden wiersz jest prezentowany dla każdego z czterech wentylatorów chłodzących znajdujących się w dwóch PCMs. |
-| Magazyn lokalny [dysk twardy] |Nie dotyczy |Logiczny |Shared |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia HDD. |
+| Magazyn lokalny [dysk twardy] |Nie dotyczy |Wartości logiczne |Shared |Nie dotyczy |Przedstawia stan puli magazynu logicznego, która jest tworzona na podstawie urządzenia HDD. |
 | Kontroler [0-1] [stan] |WE/WY |Fizyczne |Kontroler |Tak |Wyświetla stan kontrolerów w module EBOD. |
 | Czujniki temperatury w EBOD |WE/WY |Fizyczne |Kontroler |Nie |W przypadku wielu czujników temperatury z każdego kontrolera są wyświetlane ich Stany, które wskazują, czy napotkana temperatura jest tolerancja. |
 | Ekspander SAS |WE/WY |Fizyczne |Kontroler |Nie |Wskazuje stan ekspandera SAS, który jest używany do łączenia magazynu zintegrowanego z kontrolerem. |

@@ -3,16 +3,16 @@ title: Zarządzanie zasadami indeksowania w usłudze Azure Cosmos DB
 description: Dowiedz się, jak zarządzać zasadami indeksowania, dołączać lub wykluczać właściwość z indeksowania, jak definiować indeksowanie za pomocą różnych zestawów SDK Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
 ms.author: tisande
 ms.custom: tracking-python
-ms.openlocfilehash: 341c315bfdcb99a2cacb32d8aed892c684c44601
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 8b41a92f16fe7d71c17b6460289db76bf02c62ce
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558890"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261515"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami indeksowania w usłudze Azure Cosmos DB
 
@@ -362,7 +362,7 @@ Kontenery usługi Azure Cosmos przechowują swoje zasady indeksowania jako dokum
 
 1. Gdy wszystko będzie gotowe, kliknij przycisk **Zapisz**.
 
-![Zarządzanie indeksowaniem przy użyciu witryny Azure Portal](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Zarządzanie indeksowaniem przy użyciu witryny Azure Portal":::
 
 ## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
@@ -544,9 +544,9 @@ containerResponse.subscribe(result -> {
 });
 ```
 
-## <a name="use-the-nodejs-sdk"></a>Korzystanie z zestawu SDK środowiska Node. js
+## <a name="use-the-nodejs-sdk"></a>Korzystanie z zestawu SDK Node.js
 
-`ContainerDefinition`Interfejs z [zestawu SDK środowiska Node. js](https://www.npmjs.com/package/@azure/cosmos) (zobacz [ten przewodnik Szybki Start](create-sql-api-nodejs.md) dotyczący użycia) uwidacznia `indexingPolicy` Właściwość, która umożliwia zmianę `indexingMode` i dodanie lub usunięcie `includedPaths` i `excludedPaths` .
+`ContainerDefinition`Interfejs z [zestawu SDKNode.js](https://www.npmjs.com/package/@azure/cosmos) (zobacz [ten przewodnik Szybki Start](create-sql-api-nodejs.md) dotyczący użycia) ujawnia `indexingPolicy` Właściwość, która umożliwia zmianę `indexingMode` i dodanie lub usunięcie `includedPaths` i `excludedPaths` .
 
 Pobierz szczegóły kontenera
 

@@ -3,22 +3,22 @@ title: Porady dotyczące wydajności Azure Cosmos DB dla zestawu .NET SDK v3
 description: Dowiedz się więcej na temat opcji konfiguracji klienta, aby zwiększyć wydajność Azure Cosmos DB .NET v3 SDK.
 author: j82w
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 06/23/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: 48ab7d0b04a155465f2325179cf5617de7873fd8
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: a10272324a9535a0c2468d63a404f76ca56ce375
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680203"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263521"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 
 > [!div class="op_single_selector"]
 > * [Zestaw .NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [Zestaw .NET SDK V2](performance-tips.md)
-> * [Zestaw Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [.NET SDK 2](performance-tips.md)
+> * [Java SDK 4](performance-tips-java-sdk-v4-sql.md)
 > * [Async Java SDK 2](performance-tips-async-java.md)
 > * [Sync Java SDK 2](performance-tips-java.md)
 
@@ -87,9 +87,8 @@ Azure Cosmos DB oferuje prosty, otwarty model programowania RESTful za pośredni
 W przypadku zestawu SDK v3 można skonfigurować tryb połączenia podczas tworzenia `CosmosClient` wystąpienia, w programie `CosmosClientOptions` . Należy pamiętać, że tryb bezpośredni jest domyślnie.
 
 ```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
-CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+string connectionString = "<your-account-connection-string>";
+CosmosClient client = new CosmosClient(connectionString,
 new CosmosClientOptions
 {
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
@@ -98,6 +97,18 @@ new CosmosClientOptions
 
 Ponieważ protokół TCP jest obsługiwany tylko w trybie bezpośrednim, w przypadku korzystania z trybu bramy protokół HTTPS jest zawsze używany do komunikacji z bramą.
 
+:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Zasady połączenia Azure Cosmos DB" border="false":::
+
+**Tymczasowe wyczerpanie portów**
+
+Jeśli w wystąpieniach jest wyświetlany wysoki poziom połączenia lub wysokie użycie portów, należy najpierw sprawdzić, czy wystąpienia klienta są pojedynczymi. Innymi słowy, wystąpienia klienta powinny być unikatowe w okresie istnienia aplikacji.
+
+W przypadku uruchamiania w protokole TCP klient optymalizuje się pod kątem opóźnienia przy użyciu połączeń długotrwałych zamiast protokołu HTTPS, który kończy połączenia po 2 minutach braku aktywności.
+
+W scenariuszach, w których masz dostęp rozrzedzony i jeśli zauważysz wyższą liczbę połączeń w porównaniu z dostępem do trybu bramy, możesz:
+
+* Skonfiguruj Właściwość [CosmosClientOptions. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) na wartość `PrivatePortPool` (efektywna w przypadku wersji Framework>= 4.6.1 i .net core w wersji >= 2,0): Ta właściwość umożliwia zestawowi SDK użycie niewielkiej puli tymczasowych portów dla różnych Azure Cosmos DB docelowych punktów końcowych.
+* Należy skonfigurować właściwość [CosmosClientOptions. IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) , która nie może być większa niż 10 minut. Zalecane wartości są z zakresu od 20 minut do 24 godzin.
 
 <a id="same-region"></a>
 
@@ -105,7 +116,9 @@ Ponieważ protokół TCP jest obsługiwany tylko w trybie bezpośrednim, w przyp
 
 Jeśli to możliwe, należy umieścić wszystkie aplikacje, które wywołują Azure Cosmos DB w tym samym regionie, co baza danych Azure Cosmos DB. Oto przybliżone porównanie: wywołania Azure Cosmos DB w tym samym regionie zakończyły się w ciągu 1 ms do 2 MS, ale opóźnienie między zachodnim i wschodnim wybrzeżem USA jest większe niż 50 ms. To opóźnienie może się różnić od żądania do żądania, w zależności od trasy podjętej przez żądanie przesyłanej z klienta do granicy centrum danych platformy Azure. Najniższe możliwe opóźnienie można uzyskać, upewniając się, że aplikacja wywołująca znajduje się w tym samym regionie platformy Azure, co punkt końcowy Azure Cosmos DB aprowizacji. Aby uzyskać listę dostępnych regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services).
 
-![Zasady ](./media/performance-tips/same-region.png) połączenia Azure Cosmos DB<a id="increase-threads"></a>
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Zasady połączenia Azure Cosmos DB" border="false":::
+
+   <a id="increase-threads"></a>
 
 **Zwiększenie liczby wątków/zadań**
 

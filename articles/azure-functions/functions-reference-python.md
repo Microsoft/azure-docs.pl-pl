@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia funkcji w języku Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 1d9289b6304a9c9e93afeddd98b3a229dae91797
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 26da89628360783e4507c83c3aeaddfc2b0510b7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660580"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730751"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Przewodnik dewelopera w języku Python Azure Functions
 
@@ -263,7 +263,7 @@ Aby dowiedzieć się więcej o rejestrowaniu, zobacz [Monitor Azure Functions](f
 
 ## <a name="http-trigger-and-bindings"></a>Wyzwalacz i powiązania HTTP
 
-Wyzwalacz HTTP jest zdefiniowany w pliku Function. Jan. `name`Powiązanie musi być zgodne z nazwanym parametrem w funkcji.
+Wyzwalacz HTTP jest zdefiniowany w function.jspliku. `name`Powiązanie musi być zgodne z nazwanym parametrem w funkcji.
 W poprzednich przykładach jest używana nazwa powiązania `req` . Ten parametr jest obiektem [HttpRequest] i zwracany jest obiekt [HttpResponse] .
 
 Z obiektu [HttpRequest] można uzyskać nagłówki żądań, parametry zapytania, parametry tras i treść wiadomości.
@@ -338,7 +338,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT ma zastosowanie do każdego hosta, który tworzy 
 
 Aby uzyskać kontekst wywołania funkcji podczas wykonywania, należy uwzględnić [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) argument w jego podpisie.
 
-Na przykład:
+Przykład:
 
 ```python
 import azure.functions
@@ -650,11 +650,11 @@ Proces roboczy funkcji Python wymaga określonego zestawu bibliotek. Możesz ró
 
 ### <a name="azure-functions-python-library"></a>Azure Functions biblioteki języka Python
 
-Każda aktualizacja procesu roboczego w języku Python obejmuje nową wersję [Azure Functions biblioteki języka Python (Azure. Functions)](https://github.com/Azure/azure-functions-python-library). Wersja biblioteki środowiska uruchomieniowego jest ustalana przez platformę Azure i nie może zostać zastąpiona przez requirements.txt. `azure-functions`Wpis w requirements.txt jest tylko dla Zaznaczanie błędów i świadomości klientów.
+Każda aktualizacja procesu roboczego w języku Python obejmuje nową wersję [Azure Functions biblioteki języka Python (Azure. Functions)](https://github.com/Azure/azure-functions-python-library). Takie podejście ułatwia Ciągłe aktualizowanie aplikacji funkcji języka Python, ponieważ każda aktualizacja jest zgodna z poprzednimi wersjami. Listę wersji tej biblioteki można znaleźć w temacie [Azure-Functions PyPi](https://pypi.org/project/azure-functions/#history).
 
-Powodem podejmowania tej decyzji jest ułatwienie ciągłej aktualizacji w aplikacjach Azure Functions Python. Aktualizacja biblioteki języka Python nie powinna być obsługiwana przez klienta, ponieważ każda aktualizacja jest zgodna z poprzednimi wersjami. Listę wersji biblioteki można znaleźć w temacie [Azure-Functions PyPi](https://pypi.org/project/azure-functions/#history).
+Wersja biblioteki środowiska uruchomieniowego jest ustalana przez platformę Azure i nie może zostać zastąpiona przez requirements.txt. `azure-functions`Wpis w requirements.txt jest tylko dla Zaznaczanie błędów i świadomości klientów. 
 
-Rzeczywistą wersję biblioteki funkcji języka Python można śledzić w środowisku uruchomieniowym z następującym wierszem:
+Użyj poniższego kodu, aby śledzić rzeczywistą wersję biblioteki funkcji języka Python w środowisku uruchomieniowym:
 
 ```python
 getattr(azure.functions, '__version__', '< 1.2.1')
@@ -663,6 +663,7 @@ getattr(azure.functions, '__version__', '< 1.2.1')
 ### <a name="runtime-system-libraries"></a>Biblioteki systemowe środowiska uruchomieniowego
 
 Aby zapoznać się z listą wstępnie zainstalowanych bibliotek systemowych w obrazach środowiska Docker procesu roboczego w języku Python, Skorzystaj z poniższych linków:
+
 |  Środowisko uruchomieniowe funkcji  | Wersja Debian | Wersje języka Python |
 |------------|------------|------------|
 | Wersja 2. x | Stretch  | [Python 3,6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Środowisko Python w wersji 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |

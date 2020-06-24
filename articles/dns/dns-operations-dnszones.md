@@ -4,27 +4,25 @@ description: Strefami DNS można zarządzać przy użyciu programu Azure PowerSh
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: timlt
-ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: rohink
-ms.openlocfilehash: 0120501aab7f0a63721126bfb5b3d04d9deb42fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d46e2d31c8d6c5a175239c76795359ad64b1abd3
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936799"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686209"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Jak zarządzać Strefy DNS przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portal](dns-operations-dnszones-portal.md)
-> * [Narzędzia](dns-operations-dnszones.md)
+> * [PowerShell](dns-operations-dnszones.md)
 > * [Klasyczny interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli-nodejs.md)
 > * [Interfejs wiersza polecenia platformy Azure](dns-operations-dnszones-cli.md)
 
@@ -57,7 +55,7 @@ Azure DNS obsługuje również prywatne strefy DNS.  Aby uzyskać więcej inform
 
 ## <a name="get-a-dns-zone"></a>Pobieranie strefy DNS
 
-Aby pobrać strefę DNS, użyj `Get-AzureRmDnsZone` polecenia cmdlet. Ta operacja zwraca obiekt strefy DNS odpowiadający istniejącej strefie w Azure DNS. Obiekt zawiera dane dotyczące strefy (na przykład liczby zestawów rekordów), ale nie zawiera same zestawy rekordów (zobacz `Get-AzureRmDnsRecordSet`).
+Aby pobrać strefę DNS, użyj `Get-AzureRmDnsZone` polecenia cmdlet. Ta operacja zwraca obiekt strefy DNS odpowiadający istniejącej strefie w Azure DNS. Obiekt zawiera dane dotyczące strefy (na przykład liczby zestawów rekordów), ale nie zawiera same zestawy rekordów (zobacz `Get-AzureRmDnsRecordSet` ).
 
 ```powershell
 Get-AzureRmDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
@@ -118,7 +116,7 @@ $zone.Tags.Add("status","approved")
 Set-AzureRmDnsZone -Zone $zone
 ```
 
-W przypadku `Set-AzureRmDnsZone` używania z obiektem $zone [testy ETag](dns-zones-records.md#etags) są używane do zapewnienia, że współbieżne zmiany nie są zastępowane. Aby pominąć te testy, `-Overwrite` można użyć opcjonalnego przełącznika.
+W przypadku używania `Set-AzureRmDnsZone` z obiektem $zone [testy ETag](dns-zones-records.md#etags) są używane do zapewnienia, że współbieżne zmiany nie są zastępowane. Aby pominąć te testy, można użyć opcjonalnego `-Overwrite` przełącznika.
 
 ## <a name="delete-a-dns-zone"></a>Usuwanie strefy DNS
 
@@ -154,7 +152,7 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 
 ```
 
-Podobnie jak `Set-AzureRmDnsZone`w przypadku, określenie strefy przy `$zone` użyciu obiektu umożliwia sprawdzenie elementów ETag, aby upewnić się, że zmiany współbieżne nie są usuwane. Użyj przełącznika `-Overwrite` , aby pominąć te testy.
+Podobnie jak w przypadku `Set-AzureRmDnsZone` , określenie strefy przy użyciu `$zone` obiektu umożliwia sprawdzenie elementów ETag, aby upewnić się, że zmiany współbieżne nie są usuwane. Użyj `-Overwrite` przełącznika, aby pominąć te testy.
 
 ## <a name="confirmation-prompts"></a>Monity o potwierdzenie
 

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 074a0a39090e22a29f778fc1c99060848c6bfd99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd5ae5c60530890f65f8cc9a98171c29820a7762
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80051489"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202861"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -30,7 +30,7 @@ Element **ContentDefinitions** zawiera adresy URL do szablonów HTML5, które mo
 
 Poniższy przykład pokazuje identyfikator definicji zawartości i definicję zlokalizowanych zasobów:
 
-```XML
+```xml
 <ContentDefinition Id="api.localaccountsignup">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -46,7 +46,7 @@ Poniższy przykład pokazuje identyfikator definicji zawartości i definicję zl
 
 Metadane **LocalAccountSignUpWithLogonEmail** z własnym profilem technicznym zawiera identyfikator definicji zawartości **ContentDefinitionReferenceId** ustawiony na`api.localaccountsignup`
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -61,7 +61,7 @@ Metadane **LocalAccountSignUpWithLogonEmail** z własnym profilem technicznym za
 
 Element **ContentDefinition** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator | Tak | Identyfikator definicji zawartości. Wartość jest określona w sekcji **identyfikatorów definicji zawartości** w dalszej części tej strony. |
 
@@ -70,14 +70,14 @@ Element **ContentDefinition** zawiera następujące elementy:
 | Element | Wystąpień | Opis |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Ciąg, który zawiera adres URL strony HTML5 dla definicji zawartości. |
-| RecoveryUri | 1:1 | Ciąg, który zawiera adres URL strony HTML służącej do wyświetlania błędu związanego z definicją zawartości. Nie jest obecnie używany, wartość musi być `~/common/default_page_error.html`. |
+| RecoveryUri | 1:1 | Ciąg, który zawiera adres URL strony HTML służącej do wyświetlania błędu związanego z definicją zawartości. Nie jest obecnie używany, wartość musi być `~/common/default_page_error.html` . |
 | DataUri | 1:1 | Ciąg zawierający względny adres URL pliku HTML, który udostępnia środowisko użytkownika do wywołania dla kroku. |
 | Metadane | 0:1 | Kolekcja par klucz/wartość, które zawierają metadane wykorzystane w definicji zawartości. |
 | LocalizedResourcesReferences | 0:1 | Kolekcja zlokalizowanych zasobów. Użyj tego elementu, aby dostosować lokalizację interfejsu użytkownika i atrybutu oświadczeń. |
 
 ### <a name="datauri"></a>DataUri
 
-Element **DataUri** jest używany do określania identyfikatora strony. Azure AD B2C używa identyfikatora strony do ładowania i inicjowania elementów interfejsu użytkownika oraz języka JavaScript po stronie klienta. Format wartości to `urn:com:microsoft:aad:b2c:elements:page-name:version`. Poniższa tabela zawiera listę identyfikatorów stron, których można użyć.
+Element **DataUri** jest używany do określania identyfikatora strony. Azure AD B2C używa identyfikatora strony do ładowania i inicjowania elementów interfejsu użytkownika oraz języka JavaScript po stronie klienta. Format wartości to `urn:com:microsoft:aad:b2c:elements:page-name:version` . Poniższa tabela zawiera listę identyfikatorów stron, których można użyć.
 
 | Identyfikator strony | Opis |
 | ----- | ----------- |
@@ -96,7 +96,7 @@ Element **DataUri** jest używany do określania identyfikatora strony. Azure AD
 
 Część [wersji](page-layout.md) programu `DataUri` określa pakiet zawartości zawierający kod HTML, CSS i JavaScript dla elementów interfejsu użytkownika w ramach zasad. Jeśli zamierzasz włączyć kod po stronie klienta JavaScript, elementy, które opierają się na języku JavaScript, muszą być niezmienne. Jeśli nie są one niezmienne, wszelkie zmiany mogą spowodować nieoczekiwane zachowanie na stronach użytkownika. Aby uniknąć tych problemów, Wymuś korzystanie z układu strony i określ wersję układu strony. Dzięki temu wszystkie definicje zawartości oparte na języku JavaScript są niezmienne. Nawet jeśli nie zamierzasz włączać języka JavaScript, nadal musisz określić wersję układu strony dla stron.
 
-W poniższym przykładzie przedstawiono **DataUri** `selfasserted` wersji `1.2.0`:
+W poniższym przykładzie przedstawiono **DataUri** `selfasserted` wersji `1.2.0` :
 
 ```xml
 <ContentDefinition Id="api.localaccountpasswordreset">
@@ -111,7 +111,7 @@ W poniższym przykładzie przedstawiono **DataUri** `selfasserted` wersji `1.2.0
 
 #### <a name="migrating-to-page-layout"></a>Migrowanie do układu strony
 
-Format wartości musi zawierać słowo `contract`: _urn: com: Microsoft: AAD: B2C: elementy:**Contract**:p Age-Name: Version_. Aby określić układ strony w niestandardowych zasadach, które używają starej wartości **DataUri** , użyj poniższej tabeli do przeprowadzenia migracji do nowego formatu.
+Format wartości musi zawierać słowo `contract` : _urn: com: Microsoft: AAD: B2C: elementy:**Contract**:p Age-Name: Version_. Aby określić układ strony w niestandardowych zasadach, które używają starej wartości **DataUri** , użyj poniższej tabeli do przeprowadzenia migracji do nowego formatu.
 
 | Stara wartość DataUri | Nowa wartość DataUri |
 | ----------------- | ----------------- |
@@ -137,15 +137,15 @@ Element **Metadata** zawiera następujące elementy:
 
 Element **Item** elementu **Metadata** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Key | Tak | Klucz metadanych.  |
+| Klucz | Tak | Klucz metadanych.  |
 
 #### <a name="metadata-keys"></a>Klucze metadanych
 
 Definicja zawartości obsługuje następujące elementy metadanych:
 
-| Key | Wymagany | Opis |
+| Klucz | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Nazwa wyświetlana | Nie | Ciąg, który zawiera nazwę definicji zawartości. |
 
@@ -159,14 +159,14 @@ Element **LocalizedResourcesReferences** zawiera następujące elementy:
 
 Element **LocalizedResourcesReference** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Język | Tak | Ciąg, który zawiera obsługiwany język dla zasad zgodnie ze specyfikacją RFC 5646-Tagi dla identyfikacji języków. |
 | LocalizedResourcesReferenceId | Tak | Identyfikator elementu **LocalizedResources** . |
 
 W poniższym przykładzie przedstawiono definicję rejestracji lub zawartości logowania z odwołaniem do lokalizacji w języku angielskim, francuskim i hiszpańskim:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>

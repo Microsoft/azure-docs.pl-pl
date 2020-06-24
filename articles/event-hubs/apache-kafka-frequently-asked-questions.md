@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2020
+ms.date: 06/23/2020
 ms.author: shvija
-ms.openlocfilehash: 0186b90e1d75c5dba6e1ca26e4ba079a3456cea4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd4306fd4a3b6dd308b0d62945ae264dfb6ce8ff
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606745"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298331"
 ---
 # <a name="frequently-asked-questions---event-hubs-for-apache-kafka"></a>Często zadawane pytania — Event Hubs dla Apache Kafka 
 Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące migracji do Event Hubs Apache Kafka.
@@ -39,7 +39,7 @@ Jaka jest różnica między grupą użytkowników centrum zdarzeń i grupą kons
 
 - Są one tworzone przez Autotworzenie.  Grupami Kafka można zarządzać za pośrednictwem interfejsów API grup konsumenckich Kafka.
 - Mogą przechowywać przesunięcia w usłudze Event Hubs.
-- Są one używane jako klucze, co jest efektywnie przesuniętym magazynem wartości. W przypadku unikatowej pary `group.id` i `topic-partition`przechowujemy przesunięcie w usłudze Azure Storage (replikacja 3). Event Hubs użytkownicy nie będą ponosić dodatkowych kosztów związanych z przechowywaniem przesunięć Kafka. Przesunięcia są manipulable za pośrednictwem interfejsów API grup konsumenckich Kafka, ale przesunięte *konta* magazynu nie są bezpośrednio widoczne lub manipulable dla użytkowników centrum zdarzeń.  
+- Są one używane jako klucze, co jest efektywnie przesuniętym magazynem wartości. W przypadku unikatowej pary `group.id` i `topic-partition` przechowujemy przesunięcie w usłudze Azure Storage (replikacja 3). Event Hubs użytkownicy nie będą ponosić dodatkowych kosztów związanych z przechowywaniem przesunięć Kafka. Przesunięcia są manipulable za pośrednictwem interfejsów API grup konsumenckich Kafka, ale przesunięte *konta* magazynu nie są bezpośrednio widoczne lub manipulable dla użytkowników centrum zdarzeń.  
 - Obejmują one przestrzeń nazw. Użycie tej samej nazwy grupy Kafka dla wielu aplikacji w wielu tematach oznacza, że wszystkie aplikacje i ich klienci Kafka będą ponownie zrównoważyć, gdy tylko jedna aplikacja będzie wymagała ponownego zrównoważenia.  Wybierz swoje nazwy grup.
 - Są one w pełni odmienne od Event Hubs grup odbiorców. **Nie** musisz używać "$default" ani nie musisz martwić się o Kafka klientów zakłócających obciążenia AMQP.
 - Nie są one widoczne w Azure Portal. Informacje o grupie odbiorców są dostępne za pośrednictwem interfejsów API Kafka.

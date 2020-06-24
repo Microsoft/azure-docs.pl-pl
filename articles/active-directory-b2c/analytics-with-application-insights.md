@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 25e62e7c6865f91daa242a33a0f491f8015be41a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 688bf4526ad287955231358ab0b64036e5480713
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80672531"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201433"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Śledzenie zachowania użytkowników w Azure Active Directory B2C przy użyciu Application Insights
 
@@ -46,11 +46,11 @@ Jeśli używasz Application Insights z Azure AD B2C, wystarczy utworzyć zasób 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 2. Upewnij się, że używasz katalogu, który zawiera subskrypcję platformy Azure, wybierając filtr **katalog + subskrypcja** w górnym menu i wybierając katalog zawierający twoją subskrypcję. Ta dzierżawa nie jest dzierżawą Azure AD B2C.
 3. Wybierz pozycję **Utwórz zasób** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Application Insights**.
-4. Kliknij przycisk **Utwórz**.
+4. Kliknij pozycję **Utwórz**.
 5. Wprowadź **nazwę** zasobu.
 6. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web ASP.NET**.
 7. W obszarze **Grupa zasobów**wybierz istniejącą grupę lub wprowadź nazwę nowej grupy.
-8. Kliknij przycisk **Utwórz**.
+8. Kliknij pozycję **Utwórz**.
 4. Po utworzeniu zasobu Application Insights Otwórz go, rozwiń węzeł **Essentials**i skopiuj klucz Instrumentacji.
 
 ![Przegląd Application Insights i klucz Instrumentacji](./media/analytics-with-application-insights/app-insights.png)
@@ -59,7 +59,7 @@ Jeśli używasz Application Insights z Azure AD B2C, wystarczy utworzyć zasób 
 
 W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazyn danych. [Schemat oświadczeń](claimsschema.md) jest miejscem, w którym deklarujesz oświadczenia.
 
-1. Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+1. Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Wyszukaj element [BuildingBlocks](buildingblocks.md) . Jeśli element nie istnieje, Dodaj go.
 1. Znajdź element [ClaimsSchema](claimsschema.md) . Jeśli element nie istnieje, Dodaj go.
 1. Dodaj następujące oświadczenia do elementu **ClaimsSchema** . 
@@ -111,7 +111,7 @@ Profile techniczne mogą być uznawane za funkcje w środowisku tożsamości Azu
 | AppInsights — UserSignUp | Rejestruje `UserSignUp` zdarzenie, gdy użytkownik wyzwala opcję rejestracji w trakcie rejestracji/logowania. |
 | AppInsights — SignInComplete | Rejestruje `SignInComplete` zdarzenie po pomyślnym zakończeniu uwierzytelniania, gdy token został wysłany do aplikacji jednostki uzależnionej. |
 
-Dodaj profile do pliku *TrustFrameworkExtensions. XML* z pakietu początkowego. Dodaj te elementy do elementu **ClaimsProviders** :
+Dodaj profile do pliku *TrustFrameworkExtensions.xml* z pakietu początkowego. Dodaj te elementy do elementu **ClaimsProviders** :
 
 ```xml
 <ClaimsProvider>
@@ -163,7 +163,7 @@ Dodaj profile do pliku *TrustFrameworkExtensions. XML* z pakietu początkowego. 
 ```
 
 > [!IMPORTANT]
-> Zmień klucz Instrumentacji w profilu `AppInsights-Common` technicznym na identyfikator GUID, który zapewnia zasób Application Insights.
+> Zmień klucz Instrumentacji w `AppInsights-Common` profilu technicznym na identyfikator GUID, który zapewnia zasób Application Insights.
 
 ## <a name="add-the-technical-profiles-as-orchestration-steps"></a>Dodaj profile techniczne jako kroki aranżacji
 
@@ -171,14 +171,14 @@ Wywołaj `AppInsights-SignInRequest` jako aranżację krok 2, aby śledzić, że
 
 ```xml
 <!-- Track that we have received a sign in request -->
-<OrchestrationStep Order="1" Type="ClaimsExchange">
+<OrchestrationStep Order="2" Type="ClaimsExchange">
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackSignInRequest" TechnicalProfileReferenceId="AppInsights-SignInRequest" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
 
-Bezpośrednio *przed* krokiem `SendClaims` aranżacji Dodaj nowy krok, który wywołuje `AppInsights-UserSignup`. Jest wyzwalane, gdy użytkownik wybierze przycisk rejestracji w podróży/logowaniu.
+Bezpośrednio *przed* `SendClaims` krokiem aranżacji Dodaj nowy krok, który wywołuje `AppInsights-UserSignup` . Jest wyzwalane, gdy użytkownik wybierze przycisk rejestracji w podróży/logowaniu.
 
 ```xml
 <!-- Handles the user clicking the sign up link in the local account sign in page -->
@@ -200,7 +200,7 @@ Bezpośrednio *przed* krokiem `SendClaims` aranżacji Dodaj nowy krok, który wy
 </OrchestrationStep>
 ```
 
-Natychmiast po kroku `SendClaims` aranżacji Wywołaj `AppInsights-SignInComplete`polecenie. Ten krok przedstawia pomyślne zakończenie podróży.
+Natychmiast po `SendClaims` kroku aranżacji Wywołaj polecenie `AppInsights-SignInComplete` . Ten krok przedstawia pomyślne zakończenie podróży.
 
 ```xml
 <!-- Track that we have successfully sent a token -->
@@ -217,10 +217,10 @@ Natychmiast po kroku `SendClaims` aranżacji Wywołaj `AppInsights-SignInComplet
 
 ## <a name="upload-your-file-run-the-policy-and-view-events"></a>Przekaż plik, uruchom zasady i Wyświetl zdarzenia
 
-Zapisz i Przekaż plik *TrustFrameworkExtensions. XML* . Następnie należy wywołać zasady jednostki uzależnionej z poziomu aplikacji lub użyć **Uruchom teraz** w Azure Portal. W ciągu kilku sekund Twoje zdarzenia są dostępne w Application Insights.
+Zapisz i Przekaż plik *TrustFrameworkExtensions.xml* . Następnie należy wywołać zasady jednostki uzależnionej z poziomu aplikacji lub użyć **Uruchom teraz** w Azure Portal. W ciągu kilku sekund Twoje zdarzenia są dostępne w Application Insights.
 
 1. Otwórz zasób **Application Insights** w dzierżawie Azure Active Directory.
-2. Wybierz pozycję**zdarzenia** **użycia** > .
+2. Wybierz **Usage**pozycję  >  **zdarzenia**użycia.
 3. Ustawiaj w **ciągu** **ostatniej godziny** i **przez** maksymalnie **3 minuty**.  Może być konieczne wybranie opcji **Odśwież** , aby wyświetlić wyniki.
 
 ![Application Insights użycia — zdarzenia Blase](./media/analytics-with-application-insights/app-ins-graphic.png)
@@ -230,10 +230,10 @@ Zapisz i Przekaż plik *TrustFrameworkExtensions. XML* . Następnie należy wywo
 Dodawanie typów i zdarzeń roszczeń do podróży użytkownika w celu dopasowania do Twoich potrzeb. Można użyć [resolverów oświadczeń](claim-resolver-overview.md) lub dowolnego typu oświadczenia ciągu, dodać oświadczenia poprzez dodanie elementu **oświadczenia wejściowego** do zdarzenia Application Insights lub do profilu technicznego AppInsights-Common.
 
 - **ClaimTypeReferenceId** jest odwołaniem do typu zgłoszenia.
-- **PartnerClaimType** to nazwa właściwości, która pojawia się w usłudze Azure Insights. Użyj składni `{property:NAME}`, gdzie `NAME` jest dodawana właściwość do zdarzenia.
+- **PartnerClaimType** to nazwa właściwości, która pojawia się w usłudze Azure Insights. Użyj składni `{property:NAME}` , gdzie `NAME` jest dodawana właściwość do zdarzenia.
 - **Właściwość DefaultValue** używa dowolnej wartości ciągu lub mechanizmu rozwiązywania konfliktów.
 
-```XML
+```xml
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
 <InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 <InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />

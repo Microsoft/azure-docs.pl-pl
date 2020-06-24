@@ -4,15 +4,15 @@ description: Pomaga to w pracy z plikiem profilu klienta
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: cherylmc
-ms.openlocfilehash: b88be5cccdaeb452288a2cb2f1dd4b4690a8b274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c64e7988094612077131029547682c7ae3d25c98
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066209"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753143"
 ---
 # <a name="working-with-user-vpn-client-profiles"></a>Praca z profilami klienta sieci VPN użytkownika
 

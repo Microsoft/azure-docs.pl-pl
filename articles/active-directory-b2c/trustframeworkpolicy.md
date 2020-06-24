@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c964a7bde0b7db9357c73fc79d2df3170075fcc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29eddbcfb7c0da98e5438f968dd3976b77a44680
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186390"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203099"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -23,7 +23,7 @@ ms.locfileid: "78186390"
 
 Zasady niestandardowe są reprezentowane jako jeden lub więcej plików w formacie XML, które odnoszą się do siebie nawzajem w łańcuchu hierarchicznym. Elementy XML definiują elementy zasad, takie jak schemat oświadczeń, przekształcenia oświadczeń, definicje zawartości, dostawcy oświadczeń, profile techniczne, podróż użytkownika i kroki aranżacji. Każdy plik zasad jest zdefiniowany w elemencie **TrustFrameworkPolicy** najwyższego poziomu pliku zasad.
 
-```XML
+```xml
 <TrustFrameworkPolicy
   xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
@@ -38,15 +38,15 @@ Zasady niestandardowe są reprezentowane jako jeden lub więcej plików w formac
 
 Element **TrustFrameworkPolicy** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Tak | Wersja schematu, która ma zostać użyta do wykonania zasad. Wartość musi być równa`0.3.0.0` |
 | TenantObjectId | Nie | Unikatowy identyfikator obiektu dzierżawy Azure Active Directory B2C (Azure AD B2C). |
 | TenantId | Tak | Unikatowy identyfikator dzierżawy, do której należy ta zasada. |
 | PolicyId | Tak | Unikatowy identyfikator zasad. Ten identyfikator musi być poprzedzony *B2C_1A_* |
 | PublicPolicyUri | Tak | Identyfikator URI dla zasad, który jest kombinacją identyfikatora dzierżawy i identyfikatora zasad. |
-| DeploymentMode | Nie | Możliwe wartości: `Production`, lub `Development`. Wartość domyślna to `Production`. Ta właściwość służy do debugowania zasad. Aby uzyskać więcej informacji, zobacz [zbieranie dzienników](troubleshoot-with-application-insights.md). |
-| UserJourneyRecorderEndpoint | Nie | Punkt końcowy, który jest używany, gdy **DeploymentMode** ma `Development`ustawioną wartość. Wartość musi być `urn:journeyrecorder:applicationinsights`. Aby uzyskać więcej informacji, zobacz [zbieranie dzienników](troubleshoot-with-application-insights.md). |
+| DeploymentMode | Nie | Możliwe wartości: `Production` , lub `Development` . Wartość domyślna to `Production`. Ta właściwość służy do debugowania zasad. Aby uzyskać więcej informacji, zobacz [zbieranie dzienników](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | Nie | Punkt końcowy, który jest używany, gdy **DeploymentMode** ma ustawioną wartość `Development` . Wartość musi być `urn:journeyrecorder:applicationinsights` . Aby uzyskać więcej informacji, zobacz [zbieranie dzienników](troubleshoot-with-application-insights.md). |
 
 
 Poniższy przykład pokazuje, jak określić element **TrustFrameworkPolicy** :
@@ -122,7 +122,7 @@ Wewnątrz pliku zasad RP należy określić element **DefaultUserJourney** , kt�
 
 Zasady B2C_1A_signup_signin:
 
-```XML
+```xml
 <RelyingParty>
   <DefaultUserJourney ReferenceId="SignUpOrSignIn">
   ...
@@ -130,7 +130,7 @@ Zasady B2C_1A_signup_signin:
 
 B2C_1A_TrustFrameWorkBase lub B2C_1A_TrustFrameworkExtensionPolicy:
 
-```XML
+```xml
 <UserJourneys>
   <UserJourney Id="SignUpOrSignIn">
   ...

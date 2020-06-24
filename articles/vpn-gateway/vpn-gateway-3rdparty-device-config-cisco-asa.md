@@ -4,15 +4,15 @@ description: Ten artykuł zawiera przykładową konfigurację służącą do ł�
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec370ca3aa8d89111dcb4737701c7ea58cd48195
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75778086"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986097"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Przykładowa konfiguracja: urządzenie Cisco ASA (IKEv2/No BGP)
 Ten artykuł zawiera przykładowe konfiguracje do łączenia urządzeń Cisco adaptacyjnego urządzenia zabezpieczeń (ASA) z bramami sieci VPN platformy Azure. Przykład dotyczy urządzeń Cisco ASA z uruchomioną IKEv2 bez Border Gateway Protocol (BGP). 
@@ -53,7 +53,7 @@ Aby uzyskać instrukcje krok po kroku dotyczące kompilowania konfiguracji platf
 ### <a name="virtual-network-and-vpn-gateway-information"></a>Informacje o sieci wirtualnej i bramie sieci VPN
 Ta sekcja zawiera listę parametrów dla przykładu.
 
-| **Konstruktora**                | **Wartościami**                    |
+| **Konstruktora**                | **Wartość**                    |
 | ---                          | ---                          |
 | Prefiksy adresów sieci wirtualnej        | 10.11.0.0/16<br>10.12.0.0/16 |
 | Adres IP bramy sieci VPN platformy Azure         | Azure_Gateway_Public_IP      |
@@ -70,7 +70,7 @@ Ta sekcja zawiera listę parametrów dla przykładu.
 ### <a name="ipsecike-policy-and-parameters"></a>Parametry i zasady protokołu IPsec/IKE
 W poniższej tabeli wymieniono Algorytmy IPsec/IKE i parametry, które są używane w przykładzie. Aby sprawdzić algorytmy obsługiwane przez modele urządzeń sieci VPN i wersje oprogramowania układowego, należy zapoznać się ze specyfikacją urządzenia sieci VPN.
 
-| **IPsec/IKEv2**  | **Wartościami**                            |
+| **IPsec/IKEv2**  | **Wartość**                            |
 | ---              | ---                                  |
 | Szyfrowanie IKEv2 | AES256                               |
 | Integralność IKEv2  | SHA384                               |
@@ -287,7 +287,7 @@ Użyj następujących poleceń ASA do celów debugowania:
     debug crypto ikev2 platform <level>
     debug crypto ikev2 protocol <level>
     ```
-    `debug` Polecenia mogą generować znaczące dane wyjściowe w konsoli programu.
+    `debug`Polecenia mogą generować znaczące dane wyjściowe w konsoli programu.
 
 * Pokaż bieżące konfiguracje na urządzeniu:
     ```

@@ -3,15 +3,15 @@ title: Aprowizowanie przepływności kontenera w usłudze Azure Cosmos DB
 description: Dowiedz się, jak zainicjować przepływność na poziomie kontenera w Azure Cosmos DB przy użyciu Azure Portal, interfejsu wiersza polecenia, programu PowerShell i różnych zestawów SDK.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: 6ade9baaf7dc125bac6738b44134ee496b8a2be4
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: e6b4126d3d1c2a7413a43779e0da0cd3f5347a5a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265934"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263707"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Inicjowanie obsługi przepływności standardowej (ręcznej) w kontenerze usługi Azure Cosmos
 
@@ -31,7 +31,7 @@ W tym artykule wyjaśniono, jak zainicjować standardową (ręczną) przepływno
    * Wprowadź przepływność, która ma zostać zainicjowana (na przykład 1000 jednostek ru).
    * Wybierz przycisk **OK**.
 
-    ![Zrzut ekranu okienka usługi Data Explorer z wyróżnioną pozycją Nowa kolekcja](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="Zrzut ekranu okienka usługi Data Explorer z wyróżnioną pozycją Nowa kolekcja":::
 
 ## <a name="azure-cli-or-powershell"></a>Interfejs wiersza polecenia platformy Azure lub program PowerShell
 

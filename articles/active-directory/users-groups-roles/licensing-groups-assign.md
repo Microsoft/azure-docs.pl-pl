@@ -7,7 +7,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.date: 04/29/2020
@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 0524e8756e86771ab555eaa853e3955fe69c8549
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582713"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727657"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Przypisywanie licencji użytkownikom według członkostwa w grupie w Azure Active Directory
 
@@ -59,7 +59,7 @@ W przypadku przypisywania licencji do grupy usługa Azure AD przetwarza wszystki
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Krok 2. sprawdzenie, czy początkowe przypisanie zostało zakończone
 
-1. Przejdź do **Azure Active Directory** > **grup**Azure Active Directory. Wybierz grupę, do której przypisano licencje.
+1. Przejdź do **Azure Active Directory**  >  **grup**Azure Active Directory. Wybierz grupę, do której przypisano licencje.
 
 1. Na stronie Grupa wybierz pozycję **licencje**. Dzięki temu można szybko potwierdzić, czy licencje zostały w pełni przypisane do użytkowników i czy występują błędy, które należy wziąć pod uwagę. Dostępne są następujące informacje:
 
@@ -71,17 +71,17 @@ W przypadku przypisywania licencji do grupy usługa Azure AD przetwarza wszystki
 
    ![Błędy licencjonowania i stan licencji](./media/licensing-groups-assign/assignment-errors.png)
 
-1. Zobacz więcej szczegółowych informacji na temat przetwarzania licencji w obszarze **Azure Active Directory** > **Użytkownicy i grupy** > *Nazwa* > grupy**inspekcji**. Sprawdź następujące działania:
+1. Zobacz więcej szczegółowych informacji na temat przetwarzania licencji w obszarze **Azure Active Directory**  >  **Użytkownicy i grupy**  >  *Nazwa grupy*  >  **inspekcji**. Sprawdź następujące działania:
 
-   - Działanie: `Start applying group based license to users`. Jest to rejestrowane, gdy system pobiera zmiany przypisania licencji do grupy i zaczyna stosować ją do wszystkich członków użytkowników. Zawiera informacje o wprowadzonej zmianie.
+   - Działanie: `Start applying group based license to users` . Jest to rejestrowane, gdy system pobiera zmiany przypisania licencji do grupy i zaczyna stosować ją do wszystkich członków użytkowników. Zawiera informacje o wprowadzonej zmianie.
 
-   - Działanie: `Finish applying group based license to users`. Jest to rejestrowane, gdy system zakończy przetwarzanie wszystkich użytkowników w grupie. Zawiera podsumowanie liczby pomyślnie przetworzonych użytkowników i liczby użytkowników, którym nie można przypisać licencji grupy.
+   - Działanie: `Finish applying group based license to users` . Jest to rejestrowane, gdy system zakończy przetwarzanie wszystkich użytkowników w grupie. Zawiera podsumowanie liczby pomyślnie przetworzonych użytkowników i liczby użytkowników, którym nie można przypisać licencji grupy.
 
    [Przeczytaj tę sekcję](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) , aby dowiedzieć się więcej o tym, jak można użyć dzienników inspekcji do analizowania zmian wprowadzonych w ramach licencjonowania opartego na grupach.
 
 ## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Krok 3. sprawdzenie, czy występują problemy z licencją i rozwiązywanie problemów
 
-1. Przejdź do **Azure Active Directory** > **grup**Azure Active Directory i Znajdź grupę, do której zostały przypisane licencje.
+1. Przejdź do **Azure Active Directory**  >  **grup**Azure Active Directory i Znajdź grupę, do której zostały przypisane licencje.
 1. Na stronie Grupa wybierz pozycję **licencje**. Powiadomienie na stronie zawiera 10 użytkowników, do których nie można przypisać licencji. Otwórz go, aby wyświetlić listę wszystkich użytkowników w stanie błąd licencjonowania dla tej grupy.
 1. Kolumna **przydziałów zakończonych niepowodzeniem** informuje nas, że nie można przypisać do użytkowników obu licencji na produkt. **Górna przyczyna kolumny niepowodzenie** zawiera przyczynę niepowodzenia. W tym przypadku jest to **sprzeczne plany usługi**.
 

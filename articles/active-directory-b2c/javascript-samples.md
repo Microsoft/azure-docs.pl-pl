@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a26f6c5e69ca083335580a0368459e062de3941e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c66ccb8ae9db46ca8e94d9c73e9c61b64119dd0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187665"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201790"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Przykłady kodu JavaScript do użycia w Azure Active Directory B2C
 
@@ -41,16 +41,16 @@ W tym artykule opisano sposób zmiany zasad niestandardowych w celu włączenia 
 
 * Wybierz [Układ strony](contentdefinitions.md#select-a-page-layout) dla elementów interfejsu użytkownika aplikacji.
 
-    Jeśli zamierzasz używać języka JavaScript, musisz [zdefiniować wersję układu strony](contentdefinitions.md#migrating-to-page-layout) z wersją strony `contract` dla *wszystkich* definicji zawartości w niestandardowych zasadach.
+    Jeśli zamierzasz używać języka JavaScript, musisz [zdefiniować wersję układu strony](contentdefinitions.md#migrating-to-page-layout) z `contract` wersją strony dla *wszystkich* definicji zawartości w niestandardowych zasadach.
 
 ## <a name="add-the-scriptexecution-element"></a>Dodaj element ScriptExecution
 
 Wykonanie skryptu jest włączane przez dodanie elementu **ScriptExecution** do elementu [RelyingParty](relyingparty.md) .
 
-1. Otwórz niestandardowy plik zasad. Na przykład *SignUpOrSignin. XML*.
+1. Otwórz niestandardowy plik zasad. Na przykład *SignUpOrSignin.xml*.
 2. Dodaj element **ScriptExecution** do elementu **UserJourneyBehaviors** **RelyingParty**:
 
-    ```XML
+    ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="B2CSignUpOrSignInWithPassword" />
       <UserJourneyBehaviors>

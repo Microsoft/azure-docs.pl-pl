@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: b41435cb0b337edc2d73820c75da847913326315
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3f124e94398e53e3ab8ff7eb4b054d252129128b
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015985"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987002"
 ---
 # <a name="what-are-azure-reservations"></a>Co to jest Azure Reservations?
 
@@ -127,6 +127,7 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 - Dowiedz się więcej na temat rezerwacji w przypadku planów usługi:
     - [Maszyny wirtualne w ramach usługi Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
     - [Zasoby Azure Cosmos DB w ramach zarezerwowanej pojemności Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
-    - [Zasoby obliczeniowe usługi SQL Database w ramach zarezerwowanej pojemności usługi Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md) Dowiedz się więcej na temat rezerwacji w przypadku planów oprogramowania:
+    - [Zasoby obliczeniowe usługi SQL Database w ramach zarezerwowanej pojemności usługi Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
+    - [Zasoby usługi Azure Cache for Redis w ramach pojemności zarezerwowanej usługi Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md) Dowiedz się więcej na temat rezerwacji w przypadku planów oprogramowania:
     - [Plany oprogramowania Red Hat w ramach rezerwacji platformy Azure](../../virtual-machines/linux/prepay-rhel-software-charges.md)
     - [Plany oprogramowania SUSE w ramach rezerwacji platformy Azure](../../virtual-machines/linux/prepay-suse-software-charges.md)

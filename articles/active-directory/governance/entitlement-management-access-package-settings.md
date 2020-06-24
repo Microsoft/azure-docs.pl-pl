@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea90032b1f0cfe598ffdb3d35448a996f3111036
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a29f0a0231cdea5a73b7798088002e63ec93324
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78968766"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078553"
 ---
 # <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Link udostępniania do żądania pakietu dostępu w usłudze Azure AD uprawnień zarządzanie
 
@@ -41,7 +41,7 @@ Tak długo, jak katalog pakietu dostępu jest [włączony dla użytkowników zew
 
     ![Przegląd pakietu dostępu — mój link portalu dostępu](./media/entitlement-management-shared/my-access-portal-link.png)
 
-    Ważne jest, aby skopiować całe łącze portalu dostępu, gdy wyśle je do wewnętrznego partnera biznesowego. Gwarantuje to, że partner uzyska dostęp do portalu Twojego katalogu w celu zgłoszenia żądania. Łącze rozpoczyna się od `myaccess`, zawiera wskazówkę katalogu i KOŃCZĄ się identyfikatorem pakietu dostępu.  (W przypadku instytucji rządowych Stanów Zjednoczonych jest to domena w linku `myaccess.microsoft.us`my Access Portal).
+    Ważne jest, aby skopiować całe łącze portalu dostępu, gdy wyśle je do wewnętrznego partnera biznesowego. Gwarantuje to, że partner uzyska dostęp do portalu Twojego katalogu w celu zgłoszenia żądania. Łącze rozpoczyna się od `myaccess` , zawiera wskazówkę katalogu i kończą się identyfikatorem pakietu dostępu.  (W przypadku instytucji rządowych Stanów Zjednoczonych jest to domena w linku my Access Portal `myaccess.microsoft.us` ).
 
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

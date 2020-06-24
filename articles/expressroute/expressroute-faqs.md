@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 882a94034831b1c710031031918e70bf3581a4a6
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c9b109fe12b709649adaa05d62b3d1255605986e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266648"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987309"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -86,7 +86,7 @@ Jeśli obwód usługi ExpressRoute jest włączony dla komunikacji równorzędne
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI — dostępne za pośrednictwem społeczności regionalnej platformy Azure, zobacz [tutaj](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) , jak sprawdzić region dzierżawy Power BI.
-* Azure Active Directory
+* Usługa Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (społeczność usług globalnych platformy Azure)
 * Publiczne adresy IP platformy Azure dla IaaS (Virtual Machines, bram Virtual Network, modułów równoważenia obciążenia itp.)  
 * Obsługiwane są również większość innych usług platformy Azure. Skontaktuj się bezpośrednio z usługą, która ma zostać użyta, aby zweryfikować pomoc techniczną.
@@ -152,7 +152,7 @@ Jeśli jedno z połączeń krzyżowych zakończy się niepowodzeniem, nastąpi u
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Jak mogę zaimplementować nadmiarowości prywatnej komunikacji równorzędnej?
 
-Wiele obwodów usługi ExpressRoute z różnych lokalizacji komunikacji równorzędnej można podłączyć do tej samej sieci wirtualnej, aby zapewnić wysoką dostępność w przypadku, gdy jeden obwód stanie się niedostępny. Następnie można [przypisać wyższe wagi](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) do połączenia lokalnego, aby preferować preferowany obwód. Zdecydowanie zalecamy, aby klienci mogli skonfigurować co najmniej dwa obwody usługi ExpressRoute, aby uniknąć pojedynczych punktów awarii. 
+Wiele obwodów usługi ExpressRoute z różnych lokalizacji komunikacji równorzędnej lub maksymalnie czterech połączeń z tej samej lokalizacji komunikacji równorzędnej można podłączyć do tej samej sieci wirtualnej, aby zapewnić wysoką dostępność w przypadku, gdy jeden obwód stanie się niedostępny. Następnie można [przypisać wyższe wagi](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) do jednego z połączeń lokalnych w celu preferowania określonego obwodu. Zdecydowanie zalecamy, aby klienci mogli skonfigurować co najmniej dwa obwody usługi ExpressRoute, aby uniknąć pojedynczych punktów awarii. 
 
 Zobacz [tutaj](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) , aby zapoznać się z projektowaniem pod kątem wysokiej dostępności i w [tym miejscu](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) na potrzeby projektowania odzyskiwania po awarii.  
 
@@ -164,7 +164,7 @@ Zobacz [tutaj](https://docs.microsoft.com/azure/expressroute/designing-for-high-
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Jak mogę zapewnić wysoką dostępność w sieci wirtualnej połączonej z usługą ExpressRoute?
 
-Wysoką dostępność można uzyskać, łącząc obwody usługi ExpressRoute w różnych lokalizacjach komunikacji równorzędnej (na przykład Singapur, Singapur2) z siecią wirtualną. Jeśli jeden obwód usługi ExpressRoute ulegnie awarii, nastąpi przełączenie w tryb failover do innego obwodu ExpressRoute. Domyślnie ruch wychodzący z sieci wirtualnej jest kierowany w oparciu o równy koszt Routing z obsługą wielu ścieżek (ECMP). Możesz użyć wagi połączeń, aby preferować jeden obwód do innego. Aby uzyskać więcej informacji, zobacz [Optymalizacja routingu ExpressRoute](expressroute-optimize-routing.md).
+Wysoką dostępność można uzyskać, łącząc maksymalnie cztery obwody usługi ExpressRoute w tej samej lokalizacji komunikacji równorzędnej z siecią wirtualną lub łącząc obwody usługi ExpressRoute w różnych lokalizacjach komunikacji równorzędnej (na przykład Singapur, Singapur2) z siecią wirtualną. Jeśli jeden obwód usługi ExpressRoute ulegnie awarii, nastąpi przełączenie w tryb failover do innego obwodu ExpressRoute. Domyślnie ruch wychodzący z sieci wirtualnej jest kierowany w oparciu o równy koszt Routing z obsługą wielu ścieżek (ECMP). Możesz użyć wagi połączeń, aby preferować jeden obwód do innego. Aby uzyskać więcej informacji, zobacz [Optymalizacja routingu ExpressRoute](expressroute-optimize-routing.md).
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-peering-or-public-peering-is-preferred-on-the-expressroute-path"></a>Jak mogę upewnić się, że mój ruch przeznaczony dla usług publicznych platformy Azure, takich jak Azure Storage i Azure SQL w komunikacji równorzędnej firmy Microsoft lub publicznej komunikacji równorzędnej, jest preferowany na ścieżce ExpressRoute?
 
@@ -195,7 +195,7 @@ Jeśli dostawca usług oferuje ExpressRoute w obu lokacjach, możesz współprac
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Czy mogę mieć wiele obwodów usługi ExpressRoute w tej samej linii metra? Czy mogę połączyć je z tą samą siecią wirtualną?
 
-Tak. Można mieć wiele obwodów usługi ExpressRoute z tymi samymi lub różnymi dostawcami usług. Jeśli Metro ma wiele lokalizacji komunikacji równorzędnej ExpressRoute, a obwody są tworzone w różnych lokalizacjach komunikacji równorzędnej, można połączyć je z tą samą siecią wirtualną. Jeśli obwody są tworzone w tej samej lokalizacji komunikacji równorzędnej, można połączyć maksymalnie 4 obwodów z tą samą siecią wirtualną.
+Tak. Można mieć wiele obwodów usługi ExpressRoute z tymi samymi lub różnymi dostawcami usług. Jeśli Metro ma wiele lokalizacji komunikacji równorzędnej ExpressRoute, a obwody są tworzone w różnych lokalizacjach komunikacji równorzędnej, można połączyć je z tą samą siecią wirtualną. Jeśli obwody są tworzone w tej samej lokalizacji komunikacji równorzędnej, można połączyć maksymalnie cztery obwody z tą samą siecią wirtualną.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Jak mogę połączyć moje sieci wirtualne z obwodem ExpressRoute
 

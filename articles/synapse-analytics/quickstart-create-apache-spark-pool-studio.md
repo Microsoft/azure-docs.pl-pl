@@ -5,16 +5,16 @@ services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 01b85f937516f24aeb50f76c71c89bc47e52abf0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c945e56aa0b6f851f54cf7679276558190b4bc10
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666432"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194971"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) przy użyciu programu Synapse Studio
 
@@ -43,7 +43,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
 1. Z listy obszarów roboczych wpisz nazwę (lub część nazwy) obszaru roboczego, który ma zostać otwarty. W tym przykładzie użyjemy obszaru roboczego o nazwie **contosoanalytics**.
 ![Lista przefiltrowanych obszarów roboczych Synapse, które zawierają nazwę contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
-## <a name="launch-synapse-studio"></a>Uruchom Synapse Studio 
+## <a name="launch-synapse-studio"></a>Uruchamianie programu Synapse Studio 
 
 1. W obszarze roboczym przegląd wybierz pozycję **Uruchom program Synapse Studio** , aby otworzyć lokalizację, w której zostanie utworzona Pula Apache Spark. Wpisz nazwę usługi lub nazwę zasobu bezpośrednio na pasku wyszukiwania.
 ![Azure Portal Omówienie obszaru roboczego Synapse z wyróżnioną opcją Uruchom Synapse Studio.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)

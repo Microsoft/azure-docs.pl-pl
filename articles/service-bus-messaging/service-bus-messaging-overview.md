@@ -12,11 +12,11 @@ ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
 ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240632"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707894"
 ---
 # <a name="what-is-azure-service-bus"></a>Co to jest Azure Service Bus?
 
@@ -31,7 +31,7 @@ Niektóre typowe scenariusze obsługi komunikatów:
 * *Tematy i subskrypcje*. Włącz 1:*n* relacji między wydawcami a subskrybentami.
 * *Sesje komunikatów*. Implementuj przepływy pracy, które wymagają porządkowania komunikatów lub odroczenia komunikatów.
 
-## <a name="namespaces"></a>Namespaces
+## <a name="namespaces"></a>Przestrzenie nazw
 
 Przestrzeń nazw jest kontenerem dla wszystkich składników obsługi komunikatów. W jednej przestrzeni nazw może znajdować się wiele kolejek i tematów, a przestrzenie nazw często pełnią rolę kontenerów aplikacji.
 
@@ -122,7 +122,7 @@ Usługa Service Bus w pełni integruje się z następującymi usługami platform
 * [Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Dynamics 365](https://dynamics.microsoft.com)
-* [Usługa Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
 
 ## <a name="next-steps"></a>Następne kroki
 

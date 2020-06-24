@@ -6,14 +6,15 @@ author: euangMS
 ms.service: synapse-analytics
 ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: f00df1bc204e4d271f1c903ec50759cba3c56774
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 402b479280f0cb7655b68cc00a0ea7fbe55b8c15
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235887"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194658"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tworzenie aplikacji Machine Learning za pomocą Apache Spark MLlib i analizy Synapse Azure
 
@@ -277,7 +278,7 @@ plt.show()
 
 Po zakończeniu uruchamiania aplikacji Zamknij Notes, aby zwolnić zasoby, zamykając kartę lub wybierz pozycję **Zakończ sesję** w panelu stanu w dolnej części notesu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Przegląd: Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
 

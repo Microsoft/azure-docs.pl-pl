@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77526794"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752473"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limity rozmiaru żądań zapory aplikacji sieci Web i listy wykluczeń
 
@@ -31,7 +31,6 @@ Następujące atrybuty można dodać do listy wykluczeń według nazwy. Wartośc
 * Nazwę atrybutu żądania (args) można dodać jako element wykluczenia, na przykład:
 
    * Nazwa pola formularza
-   * Jednostka XML
    * Jednostka JSON
    * Argumenty ciągu zapytania URL
 

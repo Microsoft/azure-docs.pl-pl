@@ -6,14 +6,14 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: bef4ee14cb4a7d64d80dc5776d8ecea0f831881a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4848bdceef084d587c839f2af93d1ff5a43c850b
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75887636"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260579"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Dostęp do Azure Cosmos DB interfejs API Cassandra z platformy Spark w ramach PRZĘDZy z usługą HDInsight
 
@@ -116,7 +116,7 @@ Powłoka Spark jest używana do testowania/eksploracji.
 
 Usługa HDInsight-Spark oferuje Zeppelin i Jupyter notesy. Są to środowiska notesu opartego na sieci Web, które obsługują Scala i Python. Notesy doskonale nadaje się do interaktywnej analizy poznawczej i współpracy, ale nie są przeznaczone dla procesów operacyjnych/produkcyjnych.
 
-Następujące notesy Jupyter można przekazać do klastra usługi HDInsight Spark i udostępnić próbki gotowe do pracy z Azure Cosmos DB interfejs API Cassandra. Zapoznaj się z pierwszym notesem `1.0-ReadMe.ipynb` , aby przejrzeć konfigurację usługi platformy Spark w celu nawiązania połączenia z usługą Azure Cosmos DB interfejs API Cassandra.
+Następujące notesy Jupyter można przekazać do klastra usługi HDInsight Spark i udostępnić próbki gotowe do pracy z Azure Cosmos DB interfejs API Cassandra. Zapoznaj się z pierwszym notesem, `1.0-ReadMe.ipynb` Aby przejrzeć konfigurację usługi platformy Spark w celu nawiązania połączenia z usługą Azure Cosmos DB interfejs API Cassandra.
 
 Pobierz te notesy w obszarze [Azure-Cosmos-DB-Cassandra-API-Spark-Notess-Jupyter](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-api-spark-notebooks-jupyter/blob/master/scala/) do komputera.
   

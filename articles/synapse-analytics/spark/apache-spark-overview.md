@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8ca2a3d55a98f96f704999d888761ea40fc4665f
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 1f1a83bce3a8b46bb49bf78917690851390408e0
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140977"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194692"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Co to jest Apache Spark w usłudze Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Apache Spark zapewnia elementy podstawowe do przetwarzania klastrów w pamięci.
 
 Pule Spark w usłudze Azure Synapse oferują w pełni zarządzaną usługę Spark. Zalety tworzenia puli platformy Spark w usłudze Synapse Analytics są wymienione tutaj.
 
-| Cechy | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Szybkość i wydajność |Wystąpienia platformy Spark zaczynają się około 2 minut przez mniej niż 60 węzłów i około 5 minut przez więcej niż 60 węzłów. Wystąpienie jest zamykane, domyślnie 5 minut od ostatniego wykonanego zadania, chyba że jest ono utrzymywane przez połączenie notesu. |
 | Łatwość tworzenia |Nową pulę platformy Spark można utworzyć na platformie Azure Synapse w ciągu kilku minut, korzystając z zestawu SDK Azure Portal, Azure PowerShell lub Synapse Analytics. Zobacz Rozpoczynanie [pracy z pulami platformy Spark w Synapse Analytics](../quickstart-create-apache-spark-pool-studio.md). |
@@ -70,7 +70,7 @@ Pule Spark w usłudze Synapse Analytics umożliwiają korzystanie z następując
 
 Apache Spark zawiera wiele funkcji języka do obsługi przygotowania i przetwarzania dużych ilości danych, dzięki czemu może być bardziej cenne i zużywane przez inne usługi w ramach analizy Synapse. Jest to możliwe za pośrednictwem wielu języków (C#, Scala, PySpark, Spark SQL) i dostarczonych bibliotek do przetwarzania i łączności.
 
-### <a name="machine-learning"></a>Usługa Machine Learning
+### <a name="machine-learning"></a>Machine Learning
 
 Apache Spark to [MLlib](https://spark.apache.org/mllib/), biblioteka uczenia maszynowego oparta na platformie Spark, która może być używana z puli platformy Spark w usłudze Synapse Analytics. Pule Spark w usłudze Synapse Analytics obejmują również Anaconda, dystrybucję języka Python z wieloma pakietami do nauki o danych, w tym uczenia maszynowego. W połączeniu z wbudowaną obsługą notesów masz środowisko do tworzenia aplikacji do uczenia maszynowego.
 

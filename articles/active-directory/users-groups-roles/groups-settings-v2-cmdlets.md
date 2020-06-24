@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc12e571ca955a0ddc47e1c1dd73c2717161df4b
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 03c5e3fe7fe84b968b59d0668619b3feddacc4f1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739317"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727827"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Polecenia cmdlet Azure Active Directory w wersji 2 dla zarządzania grupami
 
@@ -64,7 +64,7 @@ Przed rozpoczęciem zarządzania grupami przy użyciu poleceń cmdlet programu P
     PS C:\Windows\system32> Connect-AzureAD
 ```
 
-Polecenie cmdlet poprosi o poświadczenia, których chcesz użyć w celu uzyskania dostępu do katalogu. W tym przykładzie używamy karen@drumkit.onmicrosoft.com w celu uzyskania dostępu do katalogu demonstracyjnego. Polecenie cmdlet zwraca potwierdzenie, aby pokazać, że sesja została pomyślnie podłączona do katalogu:
+Polecenie cmdlet poprosi o poświadczenia, których chcesz użyć w celu uzyskania dostępu do katalogu. W tym przykładzie używamy w karen@drumkit.onmicrosoft.com celu uzyskania dostępu do katalogu demonstracyjnego. Polecenie cmdlet zwraca potwierdzenie, aby pokazać, że sesja została pomyślnie podłączona do katalogu:
 
 ```powershell
     Account                       Environment Tenant ID
@@ -274,7 +274,7 @@ Aby wyłączyć tworzenie grupy dla użytkowników niebędących administratoram
    PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
    ```
   
-2. Jeśli zwróci wartość `UsersPermissionToCreateGroupsEnabled : True`, użytkownicy niebędący administratorami mogą tworzyć grupy. Aby wyłączyć tę funkcję:
+2. Jeśli zwróci wartość `UsersPermissionToCreateGroupsEnabled : True` , użytkownicy niebędący administratorami mogą tworzyć grupy. Aby wyłączyć tę funkcję:
   
    ```powershell 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False

@@ -1,5 +1,5 @@
 ---
-title: Połącz z SQL Server lub Azure SQL Database
+title: Nawiązywanie połączenia z usługą SQL Server, Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL
 description: Automatyzowanie zadań związanych z bazami danych SQL w środowisku lokalnym lub w chmurze przy użyciu Azure Logic Apps
 services: logic-apps
 ms.suite: integration
@@ -7,14 +7,14 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/06/2020
 tags: connectors
-ms.openlocfilehash: 4a10cd279961944bf46f4e6b433226eddafd1c53
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: ba8a6e5b53634850670a7d6b2fb55ef0e7b18d09
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449171"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255504"
 ---
-# <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatyzowanie przepływów pracy dla SQL Server lub Azure SQL Database przy użyciu Azure Logic Apps
+# <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatyzowanie przepływów pracy dla bazy danych SQL przy użyciu Azure Logic Apps
 
 W tym artykule pokazano, jak uzyskać dostęp do danych w bazie danych SQL z poziomu aplikacji logiki za pomocą łącznika SQL Server. Dzięki temu możesz zautomatyzować zadania, procesy lub przepływy pracy, które zarządzają danymi i zasobami SQL, tworząc Aplikacje logiki. Łącznik SQL Server działa dla [SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) , a także [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) i [wystąpienia zarządzanego Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
@@ -26,9 +26,9 @@ Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zapoznaj [się z tematem Azu
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* [Baza danych SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) lub baza [danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)
+* [SQL Server bazy danych](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)lub [wystąpienia zarządzanego Azure SQL](../azure-sql/managed-instance/instance-create-quickstart.md).
 
-  Tabele muszą zawierać dane, aby aplikacja logiki mogła zwracać wyniki podczas wywoływania operacji. W przypadku tworzenia Azure SQL Database można użyć przykładowych baz danych, które są dołączone.
+  Tabele muszą zawierać dane, aby aplikacja logiki mogła zwracać wyniki podczas wywoływania operacji. Jeśli używasz Azure SQL Database, możesz użyć przykładowych baz danych, które są dołączone.
 
 * Nazwa programu SQL Server, nazwa bazy danych, nazwa użytkownika i hasło. Te poświadczenia są potrzebne, aby można było autoryzować logikę w celu uzyskania dostępu do programu SQL Server.
 
@@ -65,16 +65,16 @@ Teraz wykonaj następujące kroki:
 
 <a name="connect-azure-sql-db"></a>
 
-### <a name="connect-to-cloud-based-azure-sql-database-or-managed-instance"></a>Łączenie z usługą Azure SQL Database opartą na chmurze lub wystąpieniem zarządzanym
+### <a name="connect-to-azure-sql-database-or-managed-instance"></a>Nawiązywanie połączenia z Azure SQL Database lub wystąpieniem zarządzanym
 
 Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#add-sql-action)i nie utworzono wcześniej połączenia z bazą danych, zostanie wyświetlony monit o wykonanie następujących czynności:
 
-1. W **polu Typ uwierzytelniania**wybierz Uwierzytelnianie, które jest wymagane i włączone dla Azure SQL Database lub wystąpienia zarządzanego:
+1. W polu **Typ uwierzytelniania**wybierz Uwierzytelnianie, które jest wymagane i włączone dla bazy danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL:
 
-   | Authentication | Opis |
+   | Uwierzytelnianie | Opis |
    |----------------|-------------|
-   | [**Integracja z usługą Azure AD**](../azure-sql/database/authentication-aad-overview.md) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej tożsamości w usłudze Azure Active Directory (Azure AD), która ma dostęp do bazy danych Azure SQL. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL — uwierzytelnianie zintegrowane z usługą Azure AD](../azure-sql/database/authentication-aad-overview.md) |
-   | [**Uwierzytelnianie SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w bazie danych SQL Azure. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**Integracja z usługą Azure AD**](../azure-sql/database/authentication-aad-overview.md) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej tożsamości w usłudze Azure Active Directory (Azure AD), która ma dostęp do bazy danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL — uwierzytelnianie zintegrowane z usługą Azure AD](../azure-sql/database/authentication-aad-overview.md) |
+   | [**Uwierzytelnianie SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w bazie danych. <p>Więcej informacji można znaleźć w następujących tematach: <p>- [Omówienie zabezpieczeń usługi Azure SQL — uwierzytelnianie](../azure-sql/database/security-overview.md#authentication) <br>- [Autoryzowanie dostępu do bazy danych do usługi Azure SQL — uwierzytelnianie i autoryzacja](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    Ten przykład jest kontynuowany z **integracją z usługą Azure AD**:
@@ -83,7 +83,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 
 1. Po wybraniu opcji **integracja z usługą Azure AD**wybierz pozycję **Zaloguj**. W zależności od tego, czy używasz Azure SQL Database, czy z wystąpienia zarządzanego Azure SQL, wybierz poświadczenia użytkownika na potrzeby uwierzytelniania.
 
-1. Wybierz te wartości dla usługi Azure SQL Database:
+1. Wybierz następujące wartości dla bazy danych:
 
    | Właściwość | Wymagane | Opis |
    |----------|----------|-------------|
@@ -99,7 +99,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 
    Ten przykład pokazuje, jak te wartości mogą wyglądać następująco:
 
-   ![Utwórz połączenie z usługą Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   ![Utwórz połączenie z bazą danych SQL](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
 
 1. Teraz wykonaj kroki, które nie zostały jeszcze wykonane w obszarze [Dodaj wyzwalacz SQL](#add-sql-trigger) lub [Dodaj akcję SQL](#add-sql-action).
 
@@ -115,7 +115,7 @@ Gdy po raz pierwszy dodasz [wyzwalacz SQL](#add-sql-trigger) lub [akcję SQL](#a
 
 1. W **polu Typ uwierzytelniania**wybierz Uwierzytelnianie, które jest wymagane i włączone na SQL Server:
 
-   | Authentication | Opis |
+   | Uwierzytelnianie | Opis |
    |----------------|-------------|
    | [**Uwierzytelnianie systemu Windows**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Obsługuje tylko ISE łącznik SQL Server, który wymaga zasobu bramy danych, który został wcześniej utworzony na platformie Azure dla połączenia, niezależnie od tego, czy używasz wielodostępnej platformy Azure, czy ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i hasła systemu Windows w celu potwierdzenia tożsamości za pomocą konta systemu Windows. <p>Aby uzyskać więcej informacji, zobacz [uwierzytelnianie systemu Windows](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
    | [**Uwierzytelnianie SQL Server**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | -Obsługuje łącznik SQL Server ISE i ISE. <p><p>-Wymaga prawidłowej nazwy użytkownika i silnego hasła, które są tworzone i przechowywane w SQL Server. <p>Aby uzyskać więcej informacji, zobacz [SQL Server Authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |

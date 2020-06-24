@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: 4b402975a151d26e8f335c07930274c156ac52fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272372"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709270"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrowanie rozwiązań .NET dla usługi HDInsight opartej na systemie Windows do usługi HDInsight w oparciu o system Linux
 
-Klastry HDInsight oparte na systemie Linux używają systemu [mono (https://mono-project.com) ](https://mono-project.com) do uruchamiania aplikacji .NET. Program mono umożliwia korzystanie ze składników platformy .NET, takich jak aplikacje MapReduce z usługą HDInsight opartą na systemie Linux. W tym dokumencie przedstawiono sposób migrowania rozwiązań .NET utworzonych dla klastrów usługi HDInsight opartych na systemie Windows do pracy z programem mono w usłudze HDInsight opartej na usłudze Linux.
+Klastry HDInsight oparte na systemie Linux używają systemu [mono ( https://mono-project.com) ](https://mono-project.com) do uruchamiania aplikacji .NET. Program mono umożliwia korzystanie ze składników platformy .NET, takich jak aplikacje MapReduce z usługą HDInsight opartą na systemie Linux. W tym dokumencie przedstawiono sposób migrowania rozwiązań .NET utworzonych dla klastrów usługi HDInsight opartych na systemie Windows do pracy z programem mono w usłudze HDInsight opartej na usłudze Linux.
 
 ## <a name="mono-compatibility-with-net"></a>Zgodność mono z platformą .NET
 
 W usłudze HDInsight w wersji 3,6 jest dołączony system mono w wersji. Aby uzyskać więcej informacji na temat wersji programu mono zawartej w usłudze HDInsight, zobacz [wersje składników usługi HDInsight](hdinsight-component-versioning.md).
 
-Aby uzyskać więcej informacji na temat zgodności między programami mono i .NET, zobacz [zgodnośćhttps://www.mono-project.com/docs/about-mono/compatibility/) z programem mono (](https://www.mono-project.com/docs/about-mono/compatibility/) dokument.
+Aby uzyskać więcej informacji na temat zgodności między programami mono i .NET, zobacz [zgodność https://www.mono-project.com/docs/about-mono/compatibility/) z programem mono (](https://www.mono-project.com/docs/about-mono/compatibility/) dokument.
 
 > [!IMPORTANT]  
 > Struktura SCP.NET jest zgodna z mono. Aby uzyskać więcej informacji na temat używania SCP.NET z programem mono, zobacz [Korzystanie z programu Visual Studio do tworzenia topologii języka C# dla Apache Storm w usłudze HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
@@ -34,15 +34,15 @@ Aby uzyskać więcej informacji na temat zgodności między programami mono i .N
 
 1. Zainstaluj [Analizator przenośności platformy .NET](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Podczas instalacji wybierz wersję programu Visual Studio, która ma być używana.
 
-2. W programie Visual Studio 2015 wybierz pozycję __Analizuj__ > __Ustawienia analizatora przenośności__i upewnij się, że w sekcji __mono__ jest zaznaczone pole __4,5__ .
+2. W programie Visual Studio 2015 wybierz pozycję __Analizuj__  >  __Ustawienia analizatora przenośności__i upewnij się, że w sekcji __mono__ jest zaznaczone pole __4,5__ .
 
     ![4,5 sprawdzono w sekcji mono dla ustawień analizatora](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
-    Wybierz __przycisk OK__ , aby zapisać konfigurację.
+    Wybierz przycisk __OK__, aby zapisać konfigurację.
 
-3. Wybierz pozycję __Analizuj__ > __Analizuj przenośność zestawu__. Wybierz zestaw, który zawiera Twoje rozwiązanie, a następnie wybierz pozycję __Otwórz__ , aby rozpocząć analizę.
+3. Wybierz pozycję __Analizuj__  >  __Analizuj przenośność zestawu__. Wybierz zestaw, który zawiera Twoje rozwiązanie, a następnie wybierz pozycję __Otwórz__ , aby rozpocząć analizę.
 
-4. Po zakończeniu analizy wybierz kolejno pozycje __Analizuj__ > __Przeglądaj raporty analizy__. W obszarze __wyniki analizy przenoszenia__wybierz pozycję __Otwórz raport__ , aby otworzyć raport.
+4. Po zakończeniu analizy wybierz kolejno pozycje __Analizuj__  >  __Przeglądaj raporty analizy__. W obszarze __wyniki analizy przenoszenia__wybierz pozycję __Otwórz raport__ , aby otworzyć raport.
 
     ![Okno dialogowe wyników analizatora przenośności](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
@@ -51,7 +51,7 @@ Aby uzyskać więcej informacji na temat zgodności między programami mono i .N
 
 ## <a name="manual-portability-analysis"></a>Ręczna analiza przenośności
 
-Wykonaj ręczną inspekcję kodu, korzystając z informacji z [przenośności aplikacji (https://www.mono-project.com/docs/getting-started/application-portability/) ](https://www.mono-project.com/docs/getting-started/application-portability/) dokument.
+Wykonaj ręczną inspekcję kodu, korzystając z informacji z [przenośności aplikacji ( https://www.mono-project.com/docs/getting-started/application-portability/) ](https://www.mono-project.com/docs/getting-started/application-portability/) dokument.
 
 ## <a name="modify-and-build"></a>Modyfikowanie i kompilowanie
 

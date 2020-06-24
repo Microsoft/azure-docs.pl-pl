@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak utworzyć i usunąć hosta bastion
 services: bastion
 author: mialdrid
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mialdrid
-ms.openlocfilehash: f98c965ad3b776f3688a716ba28b5367a00c9119
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7f80bb7f9be2e01aa24090d7305b1a5d882da04
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619220"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255519"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-cli"></a>Tworzenie hosta usługi Azure bastionu przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -39,7 +39,7 @@ Ta sekcja ułatwia tworzenie nowego zasobu usługi Azure bastionu przy użyciu i
 2. Utwórz publiczny adres IP dla usługi Azure bastionu. Publiczny adres IP jest publicznym adresem IP, do którego zostanie uzyskany dostęp do protokołu RDP/SSH (za pośrednictwem portu 443). Publiczny adres IP musi znajdować się w tym samym regionie co tworzony zasób bastionu.
 
    ```azurecli-interactive
-   az network public-ip create -g MyResourceGroup -n MyIp
+   az network public-ip create -g MyResourceGroup -n MyIp --sku Standard
    ```
 
 3. Utwórz nowy zasób platformy Azure bastionu w AzureBastionSubnet sieci wirtualnej. Utworzenie i wdrożenie zasobu bastionu trwa około 5 minut.

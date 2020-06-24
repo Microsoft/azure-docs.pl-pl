@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d55c6b514f6401e60891f0713cb1b4135bb62ab6
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 747acc27a5eaf8551e44a3bf52f55b5a380b73ce
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676000"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752635"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Włącz przywracanie do punktu w czasie i zarządzaj nimi w przypadku blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -83,7 +83,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## <a name="perform-a-restore-operation"></a>Wykonaj operację przywracania
 
-Aby zainicjować operację przywracania, wywołaj polecenie **Restore-AzStorageBlobRange** , określając punkt przywracania jako wartość **daty i godziny** UTC. Można określić zakresy lexicographical obiektów BLOB do przywrócenia lub pominąć zakres, aby przywrócić wszystkie obiekty blob we wszystkich kontenerach na koncie magazynu. Dla operacji przywracania obsługiwane są maksymalnie 10 zakresów lexicographical. Wykonanie operacji przywracania może potrwać kilka minut.
+Aby zainicjować operację przywracania, wywołaj polecenie **Restore-AzStorageBlobRange** , określając punkt przywracania jako wartość **daty i godziny** UTC. Można określić zakresy lexicographical obiektów BLOB do przywrócenia lub pominąć zakres, aby przywrócić wszystkie obiekty blob we wszystkich kontenerach na koncie magazynu. Dla operacji przywracania obsługiwane są maksymalnie 10 zakresów lexicographical. Do przywracania nie są uwzględniane stronicowe obiekty blob i dołączane obiekty blob. Wykonanie operacji przywracania może potrwać kilka minut.
 
 Należy pamiętać o następujących regułach podczas określania zakresu obiektów BLOB do przywrócenia:
 
@@ -165,6 +165,15 @@ $job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 # Check the state of the job.
 $job.State
 ```
+
+Aby poczekać na zakończenie operacji przywracania po jej uruchomieniu, wywołaj polecenie [wait-Job](/powershell/module/microsoft.powershell.core/wait-job) , jak pokazano w następującym przykładzie:
+
+```powershell
+$job | Wait-Job
+```
+
+## <a name="known-issues"></a>Znane problemy
+- Przywracanie nie powiedzie się dla podzestawu przywracania, w którym znajdują się dołączane obiekty blob. Na razie nie należy wykonywać operacji przywracania, jeśli w ramach konta znajdują się w niej obiekty blob.
 
 ## <a name="next-steps"></a>Następne kroki
 

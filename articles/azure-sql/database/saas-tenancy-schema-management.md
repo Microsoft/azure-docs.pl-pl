@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 02b7b7b78e2a5933d9e9cc5931ca2cd2a46a6e9e
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 60c2330578ef4b8e3e40dc3e37a0c8b1eb291e2f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449300"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255555"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Zarządzanie schematem w aplikacji SaaS przy użyciu wzorca bazy danych na dzierżawcę z Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,10 +62,10 @@ Kod źródłowy aplikacji i skrypty zarządzania są dostępne w repozytorium Gi
 
 Ten samouczek wymaga użycia programu PowerShell do utworzenia agenta zadań i jego kopii zapasowej bazy danych agenta zadań. Baza danych agenta zadań zawiera definicje zadań, stan zadania i historię. Po utworzeniu agenta zadań i jego bazy danych można natychmiast utworzyć i monitorować zadania.
 
-1. **W programie POWERSHELL ISE**Otwórz... \\ \\Zarządzanie schematami modułów uczenia \\ *demo-SchemaManagement. ps1*.
+1. **W programie POWERSHELL ISE**Otwórz... \\ \\Demo-SchemaManagement.ps1zarządzania schematami modułów szkoleniowych \\ * *.
 1. Naciśnij klawisz **F5**, aby uruchomić skrypt.
 
-Skrypt *demo-SchemaManagement. ps1* wywołuje skrypt *Deploy-SchemaManagement. ps1* w celu utworzenia bazy danych SQL o nazwie *osagent* na serwerze wykazu. Następnie tworzy agenta zadań przy użyciu bazy danych jako parametru.
+Skrypt *Demo-SchemaManagement.ps1* wywołuje skrypt *Deploy-SchemaManagement.ps1* , aby utworzyć bazę danych o nazwie *osagent* na serwerze wykazu. Następnie tworzy agenta zadań przy użyciu bazy danych jako parametru.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Tworzenie zadania służącego do wdrożenia nowych danych referencyjnych we wszystkich dzierżawach
 

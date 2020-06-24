@@ -6,16 +6,16 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 8b9a1caa750c7c27b2a6c845843b8bb6b779086d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a0d98a2c58e7629f988d0d3e8015355ba414c07a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561322"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201145"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (dawniej SQL DW) — często zadawane pytania
 
@@ -57,9 +57,9 @@ PYTANIE: Dlaczego moje skalowanie/wstrzymywanie/wznawianie trwa tak długo?
 
 A. Kilka czynników może mieć wpływ na czas operacji zarządzania obliczeniami. Typowym przypadkiem długotrwałych operacji jest wycofywanie transakcyjne. Po zainicjowaniu operacji skalowania lub wstrzymania wszystkie sesje przychodzące są blokowane, a kwerendy są opróżniane. Aby pozostawić system w stanie stabilnym, należy ponownie wykonać transakcje przed rozpoczęciem operacji. Im większa liczba i większy rozmiar dziennika transakcji, tym dłużej operacja zostanie wstrzymana, przywracając system do stanu stabilnego.
 
-P: Jak mogę zmienić nazwy opublikowanego artefaktu (zestawu danych, notesu, skryptu SQL itd.) w Synapse?
+P: Jak mogę zmienić nazwy opublikowanego artefaktu (zestawu danych, notesu, skryptu SQL itd.) w usłudze Azure Synapse?
 
-Odp.: Aby zmienić nazwę opublikowanego pliku artefaktu, najpierw należy zmienić nazwę preferowanego pliku. Musisz ręcznie zaktualizować wszystkie odwołania artefaktu do nowego pliku i usunąć stary.
+Odp.: Aby zmienić nazwę opublikowanego pliku artefaktu, należy najpierw sklonować plik i zmienić nazwę nowego pliku na preferowany. Należy ręcznie zaktualizować wszystkie odwołania artefaktu do nowej nazwy pliku i usunąć stary.
 
 ## <a name="user-support"></a>Obsługa użytkowników
 

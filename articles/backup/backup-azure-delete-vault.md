@@ -3,12 +3,12 @@ title: Usuwanie magazynu Microsoft Azure Recovery Services
 description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć Magazyn Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 07e6a0297d131f4a0b7dc93817d9abcf2ae109d2
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 946b199119ee9e03ec9348c4e180f8e4c9b9a776
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447751"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751865"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Usuwanie magazynu Recovery Services Azure Backup
 
@@ -38,7 +38,7 @@ Aby prawidłowo usunąć magazyn, należy wykonać czynności opisane w następu
 
 - **Krok 1**. wyłączenie funkcji usuwania nietrwałego. [Zobacz tutaj](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) , aby zapoznać się z procedurą wyłączenia usuwania nietrwałego.
 
-- **Krok 2**. po wyłączeniu usuwania nietrwałego Sprawdź, czy wszystkie elementy w Thee nietrwałego stanu zostały usunięte. Jeśli istnieją elementy w stanie nietrwałego usunięcia, należy *cofnąć usunięcie* i *usunąć* je ponownie. [Wykonaj następujące kroki](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) , aby znaleźć elementy nietrwałego usuwania i trwale je usunąć.
+- **Krok 2**. po wyłączeniu usuwania nietrwałego Sprawdź, czy w stanie usunięte nietrwałe są jakieś elementy. Jeśli istnieją elementy w stanie nietrwałego usunięcia, należy *cofnąć usunięcie* i *usunąć* je ponownie. [Wykonaj następujące kroki](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#permanently-deleting-soft-deleted-backup-items) , aby znaleźć elementy nietrwałego usuwania i trwale je usunąć.
 
 - **Krok 3**. należy zaznaczyć wszystkie trzy następujące miejsca, aby sprawdzić, czy istnieją jakieś chronione elementy:
 

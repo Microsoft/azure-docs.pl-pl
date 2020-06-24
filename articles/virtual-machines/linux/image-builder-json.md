@@ -1,19 +1,19 @@
 ---
 title: Tworzenie szablonu programu Azure Image Builder (wersja zapoznawcza)
 description: Dowiedz się, jak utworzyć szablon do użycia z programem Azure Image Builder.
-author: danis
+author: danielsollondon
 ms.author: danis
-ms.date: 03/24/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: f567114613f484f0765a6e007c3f0ba97480a968
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 44cafd4ce7e36c34082ff3c5498c5bbc35282221
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779347"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263317"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -29,7 +29,7 @@ Jest to podstawowy format szablonu:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             }
+     },
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
@@ -88,7 +88,7 @@ Domyślnie program Image Builder użyje maszyny wirtualnej kompilacji "Standard_
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-Domyślnie Konstruktor obrazów nie zmieni rozmiaru obrazu, będzie używał rozmiaru z obrazu źródłowego. Można zwiększyć rozmiar dysku systemu operacyjnego (win i Linux), to jest opcjonalne, a wartość 0 oznacza pozostawienie tego samego rozmiaru co obraz źródłowy. 
+Domyślnie Konstruktor obrazów nie zmieni rozmiaru obrazu, będzie używał rozmiaru z obrazu źródłowego. Można zwiększyć **tylko** rozmiar dysku systemu operacyjnego (win i Linux), to jest opcjonalne, a wartość 0 oznacza pozostawienie tego samego rozmiaru co obraz źródłowy. Nie można zmniejszyć rozmiaru dysku systemu operacyjnego do mniejszego niż rozmiar z obrazu źródłowego.
 
 ```json
  {
@@ -453,7 +453,7 @@ Write-Output '>>> Sysprep complete ...'
 #### <a name="overriding-the-commands"></a>Zastępowanie poleceń
 Aby zastąpić polecenia, należy użyć programu PowerShell lub obsługi skryptów powłoki w celu utworzenia plików poleceń z dokładną nazwą pliku i umieścić je w prawidłowych katalogach:
 
-* System Windows: c:\DeprovisioningScript.ps1
+* Windows: c:\DeprovisioningScript.ps1
 * Linux:/tmp/DeprovisioningScript.sh
 
 Konstruktor obrazów odczyta te polecenia, są one zapisywane do dzienników AIB "Customization. log". Zobacz temat [Rozwiązywanie problemów](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) dotyczących zbierania dzienników.
@@ -521,7 +521,7 @@ Wyjście obrazu będzie zasobem obrazu zarządzanego.
  
 Dystrybuuj właściwości:
 - **Typ** — managedImage 
-- **imageId** — identyfikator zasobu obrazu docelowego, oczekiwany format:/subscriptions/ \< subskrypcji>/ResourceGroups/ \< destinationResourceGroupName>/Providers/Microsoft.COMPUTE/images/ \< ImageName>
+- **imageId** — identyfikator zasobu obrazu docelowego, oczekiwany format:/subscriptions/ \<subscriptionId> /resourceGroups/ \<destinationResourceGroupName> /providers/Microsoft.COMPUTE/images/\<imageName>
 - **Lokalizacja** lokalizacji zarządzanego obrazu.  
 - **runOutputName** — unikatowa nazwa identyfikująca dystrybucję.  
 - **artifactTags** — opcjonalne Tagi par wartości klucza określonego przez użytkownika.
@@ -561,7 +561,7 @@ Przed rozpoczęciem dystrybucji do galerii obrazów należy utworzyć galerię i
 Dystrybuuj właściwości dla udostępnionych galerii obrazów:
 
 - **Typ** — sharedImage  
-- **galleryImageId** — identyfikator galerii obrazów udostępnionych. Format to:/subscriptions/identyfikator \< subskrypcji>/ResourceGroups/ \< resourceGroupName>/providers/microsoft.compute/galleries/ \< sharedImageGalleryName>/images/ \< imageGalleryName>.
+- **galleryImageId** — identyfikator galerii obrazów udostępnionych. Format to:/subscriptions/ \<subscriptionId> /ResourceGroups/ \<resourceGroupName> /providers/Microsoft.COMPUTE/Galleries/ \<sharedImageGalleryName> /images/ \<imageGalleryName> .
 - **runOutputName** — unikatowa nazwa identyfikująca dystrybucję.  
 - **artifactTags** — opcjonalne Tagi par wartości klucza określonego przez użytkownika.
 - **replicationRegions** — tablica regionów do replikacji. Jednym z regionów musi być region, w którym została wdrożona Galeria.

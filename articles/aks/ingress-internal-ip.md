@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować międzyNGINXowy ko
 services: container-service
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: 749c9904244dd702e41a63e0266c5ff6b1344261
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ca804849001ec99f077397fb9fbee2aae7bc2e18
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561951"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298569"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Tworzenie kontrolera transferu danych przychodzących w wewnętrznej sieci wirtualnej w usłudze Azure Kubernetes Service (AKS)
 
@@ -68,7 +68,13 @@ helm install nginx-ingress stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-Gdy usługa równoważenia obciążenia Kubernetes jest tworzona dla kontrolera NGINX transferu danych przychodzących, zostanie przypisany wewnętrzny adres IP, jak pokazano w następujących przykładowych danych wyjściowych:
+Gdy usługa równoważenia obciążenia Kubernetes jest tworzona dla kontrolera NGINX, wewnętrzny adres IP jest przypisywany. Aby uzyskać publiczny adres IP, użyj `kubectl get service` polecenia.
+
+```console
+kubectl get service -l app=nginx-ingress --namespace ingress-basic
+```
+
+Przypisanie adresu IP do usługi może potrwać kilka minut, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
@@ -160,7 +166,7 @@ spec:
     app: ingress-demo
 ```
 
-Uruchom dwie aplikacje demonstracyjne przy `kubectl apply`użyciu:
+Uruchom dwie aplikacje demonstracyjne przy użyciu `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld.yaml --namespace ingress-basic
@@ -171,7 +177,7 @@ kubectl apply -f ingress-demo.yaml --namespace ingress-basic
 
 Obie aplikacje działają teraz w klastrze Kubernetes. Aby skierować ruch do poszczególnych aplikacji, utwórz zasób Kubernetes. Zasób danych przychodzących konfiguruje reguły, które kierują ruch do jednej z dwóch aplikacji.
 
-W poniższym przykładzie ruch do adresu `http://10.240.0.42/` jest kierowany do usługi o nazwie. `aks-helloworld` Ruch do adresu `http://10.240.0.42/hello-world-two` jest kierowany do `ingress-demo` usługi.
+W poniższym przykładzie ruch do adresu `http://10.240.0.42/` jest kierowany do usługi o nazwie `aks-helloworld` . Ruch do adresu `http://10.240.0.42/hello-world-two` jest kierowany do `ingress-demo` usługi.
 
 Utwórz plik o nazwie `hello-world-ingress.yaml` i skopiuj w poniższym przykładzie YAML.
 
@@ -201,6 +207,12 @@ spec:
 
 Utwórz zasób transferu danych przychodzących przy użyciu `kubectl apply -f hello-world-ingress.yaml` polecenia.
 
+```console
+kubectl apply -f hello-world-ingress.yaml
+```
+
+Następujące przykładowe dane wyjściowe pokazują, że tworzony jest zasób transferu danych przychodzących.
+
 ```
 $ kubectl apply -f hello-world-ingress.yaml
 
@@ -215,19 +227,19 @@ Aby przetestować trasy dla kontrolera transferu danych przychodzących, przejd�
 kubectl run -it --rm aks-ingress-test --image=debian --namespace ingress-basic
 ```
 
-Zainstaluj `curl` w temacie using `apt-get`:
+Zainstaluj `curl` w temacie using `apt-get` :
 
 ```console
 apt-get update && apt-get install -y curl
 ```
 
-Uzyskaj teraz dostęp do adresu kontrolera usługi Kubernetes Ingress przy `curl`użyciu, takiego *http://10.240.0.42*jak. Podaj własny wewnętrzny adres IP określony podczas wdrażania kontrolera transferu danych przychodzących w pierwszym kroku tego artykułu.
+Uzyskaj teraz dostęp do adresu kontrolera usługi Kubernetes Ingress przy użyciu `curl` , takiego jak *http://10.240.0.42* . Podaj własny wewnętrzny adres IP określony podczas wdrażania kontrolera transferu danych przychodzących w pierwszym kroku tego artykułu.
 
 ```console
 curl -L http://10.240.0.42
 ```
 
-Nie dostarczono żadnej dodatkowej ścieżki z adresem, dlatego kontroler transferu danych przychodzących jest domyślnie */* kierowany do trasy. Zostanie zwrócona pierwsza aplikacja demonstracyjna, jak pokazano w następujących wąskich przykładowych danych wyjściowych:
+Nie dostarczono żadnej dodatkowej ścieżki z adresem, dlatego kontroler transferu danych przychodzących jest domyślnie kierowany do */* trasy. Zostanie zwrócona pierwsza aplikacja demonstracyjna, jak pokazano w następujących wąskich przykładowych danych wyjściowych:
 
 ```
 $ curl -L http://10.240.0.42
@@ -240,7 +252,7 @@ $ curl -L http://10.240.0.42
 [...]
 ```
 
-Teraz dodaj ścieżkę */Hello-World-Two* do adresu, na przykład *http://10.240.0.42/hello-world-two*. Zostanie zwrócona druga aplikacja demonstracyjna z tytułem niestandardowym, jak pokazano w następujących wąskich przykładowych danych wyjściowych:
+Teraz dodaj ścieżkę */Hello-World-Two* do adresu, na przykład *http://10.240.0.42/hello-world-two* . Zostanie zwrócona druga aplikacja demonstracyjna z tytułem niestandardowym, jak pokazano w następujących wąskich przykładowych danych wyjściowych:
 
 ```
 $ curl -L -k http://10.240.0.42/hello-world-two
@@ -253,7 +265,7 @@ $ curl -L -k http://10.240.0.42/hello-world-two
 [...]
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W tym artykule użyto Helm do zainstalowania składników przychodzących. Po wdrożeniu wykresu Helm są tworzone różne zasoby Kubernetes. Te zasoby obejmują między innymi te, wdrożenia i usługi. Aby wyczyścić te zasoby, można usunąć całą przykładową przestrzeń nazw lub poszczególne zasoby.
 
@@ -267,7 +279,13 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Usuń zasoby pojedynczo
 
-Alternatywnie, bardziej szczegółowe podejście polega na usunięciu utworzonych poszczególnych zasobów. Utwórz listę wersji Helm za pomocą `helm list` polecenia. Poszukaj wykresów o nazwie *Nginx-Ingress* i *AKS-HelloWorld*, jak pokazano w następujących przykładowych danych wyjściowych:
+Alternatywnie, bardziej szczegółowe podejście polega na usunięciu utworzonych poszczególnych zasobów. Utwórz listę wersji Helm za pomocą `helm list` polecenia. 
+
+```console
+helm list --namespace ingress-basic
+```
+
+Poszukaj wykresów o nazwie *Nginx-Ingress* i *AKS-HelloWorld*, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```
 $ helm list --namespace ingress-basic
@@ -276,7 +294,13 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1  
 ```
 
-Odinstaluj wydania za pomocą `helm uninstall` polecenia. Poniższy przykład Odinstalowuje wdrożenie NGINX.
+Odinstaluj wydania za pomocą `helm uninstall` polecenia.
+
+```console
+helm uninstall nginx-ingress --namespace ingress-basic
+```
+
+Poniższy przykład Odinstalowuje wdrożenie NGINX.
 
 ```
 $ helm uninstall nginx-ingress --namespace ingress-basic
