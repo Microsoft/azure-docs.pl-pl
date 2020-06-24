@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b416e6ccb035ede06a360c2697a9b20ca417d98
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 51e2560a7ad8d62965474082633d4cb66c1d6592
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613194"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725906"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Łączenie Azure Functions aplikacji do przetwarzania danych
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 W trakcie okresu zapoznawczego aktualizowanie cyfrowego bliźniaczych reprezentacji na podstawie danych jest obsługiwane przy użyciu [**tras zdarzeń**](concepts-route-events.md) za pośrednictwem zasobów obliczeniowych, takich jak [Azure Functions](../azure-functions/functions-overview.md). Funkcja platformy Azure może być używana do aktualizowania wielocyfrowego przędzy w odpowiedzi na:
 * dane telemetryczne urządzenia pochodzące z IoT Hub

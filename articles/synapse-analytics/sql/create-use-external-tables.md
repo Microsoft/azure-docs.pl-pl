@@ -5,16 +5,16 @@ services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f4919bb6856703c5bb5f1c798a8bcf5b2a108cc7
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d830ee28eb1f5befc3ad778a6b82c291d1e49d02
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747667"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206516"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Tworzenie i używanie tabel zewnętrznych w programie SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
 
@@ -63,7 +63,7 @@ Zapytania w tym artykule będą wykonywane w przykładowej bazie danych i używa
 
 Możesz tworzyć tabele zewnętrzne, które uzyskują dostęp do danych na koncie usługi Azure Storage, które umożliwiają dostęp użytkownikom przy użyciu tożsamości usługi Azure AD lub klucza SAS. Tabele zewnętrzne można tworzyć w ten sam sposób, w jaki tworzysz regularne SQL Server tabele zewnętrzne. 
 
-Następujące zapytanie tworzy tabelę zewnętrzną, która odczytuje plik SynapseSQL *populacji* z konta usługi Azure Storage, do którego odwołuje się `sqlondemanddemo` Źródło danych i chronione przy użyciu poświadczeń o zakresie bazy danych o nazwie `sqlondemand` . 
+Następujące zapytanie tworzy tabelę zewnętrzną, która odczytuje plik *population.csv* z SynapseSQL demonstracyjnego konta usługi Azure Storage, do którego odwołuje się `sqlondemanddemo` Źródło danych i jest chroniony przy użyciu poświadczeń o zakresie bazy danych o nazwie `sqlondemand` . 
 
 Poświadczenia w zakresie źródła danych i bazy danych są tworzone w [skrypcie Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 

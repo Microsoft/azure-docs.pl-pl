@@ -4,24 +4,24 @@ description: Informacje o opcjach konfiguracji klienta zwiększające wydajnoś�
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 92b7b1f72cde355f87761807708348b988bcc0a4
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 7efff852c510465f31af4b89ec50da2e597643f4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676877"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260716"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB Async Java SDK V2
 
 > [!div class="op_single_selector"]
-> * [Zestaw Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [Java SDK 4](performance-tips-java-sdk-v4-sql.md)
 > * [Async Java SDK 2](performance-tips-async-java.md)
 > * [Sync Java SDK 2](performance-tips-java.md)
 > * [Zestaw .NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [Zestaw .NET SDK V2](performance-tips.md)
+> * [.NET SDK 2](performance-tips.md)
 > 
 
 > [!IMPORTANT]  
@@ -66,7 +66,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
     Jeśli to możliwe, należy umieścić dowolne aplikacje wywołujące Azure Cosmos DB w tym samym regionie, w którym znajduje się baza danych usługi Azure Cosmos. Dla przybliżonego porównania, wywołania do Azure Cosmos DB w tym samym regionie, kompletne w ciągu 1-2 MS, ale opóźnienie między zachodnim i wschodnim wybrzeżem Stanów Zjednoczonych to >50 ms. To opóźnienie może się różnić od żądania żądania w zależności od trasy wykonywanej przez żądanie, gdy przechodzi od klienta do granicy centrum danych platformy Azure. Najniższe możliwe opóźnienie jest realizowane przez zagwarantowanie, że aplikacja wywołująca znajduje się w tym samym regionie platformy Azure, co punkt końcowy Azure Cosmos DB aprowizacji. Aby uzyskać listę dostępnych regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services).
 
-    ![Ilustracja zasad połączenia Azure Cosmos DB](./media/performance-tips/same-region.png)
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Ilustracja zasad połączenia Azure Cosmos DB" border="false":::
 
 ## <a name="sdk-usage"></a>Użycie zestawu SDK
 * **Zainstaluj najnowszy zestaw SDK**
@@ -87,7 +87,7 @@ Tak więc w przypadku pytania "jak można poprawić wydajność bazy danych?" na
 
     * ***Przegląd trybu bezpośredniego***
 
-        ![Ilustracja architektury trybu bezpośredniego](./media/performance-tips-async-java/rntbdtransportclient.png)
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustracja architektury trybu bezpośredniego" border="false":::
 
         Architektura po stronie klienta stosowana w trybie bezpośrednim umożliwia przewidywalne wykorzystanie sieci i dostęp do multipleksera Azure Cosmos DB replik. Na powyższym diagramie przedstawiono sposób, w jaki tryb Direct kieruje żądania klientów do replik w Cosmos DB zaplecza. Architektura trybu bezpośredniego przydziela do 10 **kanałów** po stronie klienta na replikę bazy danych. Kanał jest połączeniem TCP poprzedzonym buforem żądania, który ma 30 żądań głębokiego. Kanały należące do repliki są przydzielane dynamicznie zgodnie z wymaganiami **punktu końcowego usługi**repliki. Gdy użytkownik wystawia żądanie w trybie bezpośrednim, **TransportClient** kieruje żądanie do odpowiedniego punktu końcowego usługi na podstawie klucza partycji. **Kolejka żądań** buforuje żądania przed punktem końcowym usługi.
 

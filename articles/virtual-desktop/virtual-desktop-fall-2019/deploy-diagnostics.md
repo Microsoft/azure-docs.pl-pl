@@ -4,16 +4,16 @@ description: Jak wdrożyć narzędzie do diagnostyki środowiska użytkownika dl
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6635fff957512b601fe0927769e4ea91e9270450
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 0660947907b26e1a86bbd68bb32d1ac5d211b20e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615177"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206057"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego
 
@@ -68,7 +68,7 @@ W tej sekcji przedstawiono sposób użycia programu PowerShell do tworzenia apli
    ```powershell
    Connect-AzureAD
    ```
-4. Przejdź do [repozytorium RDS-templates GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) i uruchom skrypt **CreateADAppRegistrationforDiagnostics. ps1** w programie PowerShell.
+4. Przejdź do [repozytorium RDS-templates GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) i uruchom skrypt **CreateADAppRegistrationforDiagnostics.ps1** w programie PowerShell.
 5.  Gdy skrypt prosi o podanie nazwy aplikacji, wprowadź unikatową nazwę aplikacji.
 
 
@@ -93,7 +93,7 @@ Można uruchomić skrypt programu PowerShell, aby utworzyć obszar roboczy Log A
 Aby uruchomić skrypt programu PowerShell:
 
 1.  Otwórz program PowerShell jako administrator.
-2.  Przejdź do [repozytorium RDS-templates GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) i uruchom skrypt **CreateLogAnalyticsWorkspaceforDiagnostics. ps1** w programie PowerShell.
+2.  Przejdź do [repozytorium RDS-templates GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) i uruchom skrypt **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** w programie PowerShell.
 3. Wprowadź następujące wartości parametrów:
 
     - W polu **ResourceGroupName**wprowadź nazwę grupy zasobów.
@@ -115,13 +115,13 @@ Poniżej przedstawiono sposób ręcznego konfigurowania zalecanych liczników wy
 1. Otwórz przeglądarkę internetową i zaloguj się do [Azure Portal](https://portal.azure.com/) przy użyciu konta administracyjnego.
 2. Następnie przejdź do **obszaru roboczego log Analytics** , aby przejrzeć skonfigurowane liczniki wydajności systemu Windows.
 3. W sekcji **Ustawienia** wybierz pozycję **Ustawienia zaawansowane**.
-4. Następnie przejdź do **danych** > **liczników wydajności systemu Windows** i Dodaj następujące liczniki:
+4. Następnie przejdź do **danych**  >  **liczników wydajności systemu Windows** i Dodaj następujące liczniki:
 
-    -   Dysk logiczny (\*)\\: wolne miejsce (%)
-    -   Dysk logiczny (C:)\\średnia długość kolejki dysku
-    -   Pamięć (\*)\\dostępne MB
-    -   Informacje o\*procesorze\\() czas procesora
-    -   Opóźnienie wejściowe użytkownika na sesję (\*)\\maksymalne opóźnienie wejściowe
+    -   Dysk logiczny ( \* ): \\ wolne miejsce (%)
+    -   Dysk logiczny (C:) \\ średnia długość kolejki dysku
+    -   Pamięć ( \* ) \\ dostępne MB
+    -   Informacje o procesorze ( \* ) \\ czas procesora
+    -   Opóźnienie wejściowe użytkownika na sesję ( \* ) \\ maksymalne opóźnienie wejściowe
 
 Dowiedz się więcej o licznikach wydajności w [źródłach danych wydajności systemu Windows i Linux w Azure monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
@@ -147,14 +147,14 @@ Aby upewnić się, że obszar roboczy Log Analytics ma wstępnie skonfigurowane 
 
 1. W [Azure Portal](https://portal.azure.com/)przejdź do **obszaru log Analytics obszary robocze** , aby przejrzeć skonfigurowane liczniki wydajności systemu Windows.
 2. W obszarze **Ustawienia**wybierz pozycję **Ustawienia zaawansowane**.
-3. Następnie przejdź do pozycji **dane** > **liczniki wydajności systemu Windows**.
+3. Następnie przejdź do pozycji **dane**  >  **liczniki wydajności systemu Windows**.
 4. Upewnij się, że następujące liczniki są wstępnie skonfigurowane:
 
-   - Dysk logiczny (\*)\\% wolnego miejsca: Wyświetla ilość wolnego miejsca na dysku w postaci wartości procentowej.
-   - Dysk logiczny (C:)\\średnia długość kolejki dysku: długość żądania transferu dysku dla dysku C. Wartość nie może przekroczyć 2 przez dłuższy czas.
-   - Pamięć (\*)\\dostępna pamięć (MB): ilość dostępnej pamięci dla systemu w megabajtach.
-   - Informacje o\*procesorze\\() czas procesora: wyrażony w procentach czas, przez jaki procesor zużywa nieczynny wątek.
-   - Opóźnienie wejściowe użytkownika na sesję (\*)\\maksymalne opóźnienie wejściowe
+   - Dysk logiczny ( \* ) \\ % wolnego miejsca: Wyświetla ilość wolnego miejsca na dysku w postaci wartości procentowej.
+   - Dysk logiczny (C:) \\ średnia długość kolejki dysku: długość żądania transferu dysku dla dysku C. Wartość nie może przekroczyć 2 przez dłuższy czas.
+   - Pamięć ( \* ) \\ dostępna pamięć (MB): ilość dostępnej pamięci dla systemu w megabajtach.
+   - Informacje o procesorze ( \* ) \\ czas procesora: wyrażony w procentach czas, przez jaki procesor zużywa nieczynny wątek.
+   - Opóźnienie wejściowe użytkownika na sesję ( \* ) \\ maksymalne opóźnienie wejściowe
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Nawiązywanie połączenia z maszynami wirtualnymi w obszarze roboczym Log Analytics
 
@@ -164,7 +164,7 @@ Aby można było wyświetlić kondycję maszyn wirtualnych, należy włączyć L
 2. Przejdź do obszaru roboczego Log Analytics.
 3. W lewym panelu w obszarze źródła danych obszaru roboczego wybierz pozycję **maszyny wirtualne**.
 4. Wybierz nazwę maszyny wirtualnej, z którą chcesz nawiązać połączenie.
-5. Wybierz przycisk **Połącz**.
+5. Wybierz pozycję **Połącz**.
 
 ## <a name="deploy-the-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego
 
@@ -197,7 +197,7 @@ Aby ustawić identyfikator URI przekierowania:
 
    ![Strona URI przekierowania](../media/redirect-uri-page.png)
 
-8. Teraz przejdź do zasobów platformy Azure, wybierz zasób App Services platformy Azure o nazwie podanej w szablonie i przejdź do adresu URL skojarzonego z nim. (Na przykład jeśli nazwa aplikacji użyta w szablonie to `contosoapp45`, wówczas skojarzony adres URL to <https://contosoapp45.azurewebsites.net>).
+8. Teraz przejdź do zasobów platformy Azure, wybierz zasób App Services platformy Azure o nazwie podanej w szablonie i przejdź do adresu URL skojarzonego z nim. (Na przykład jeśli nazwa aplikacji użyta w szablonie to `contosoapp45` , wówczas skojarzony adres URL to <https://contosoapp45.azurewebsites.net> ).
 9. Zaloguj się przy użyciu odpowiedniego konta użytkownika Azure Active Directory.
 10.   Wybierz pozycję **Zaakceptuj**.
 
@@ -226,7 +226,7 @@ Działania są sortowane według sygnatury czasowej, najpierw z najnowszą aktyw
 
 Działania połączenia mogą mieć więcej niż jeden błąd. Można rozwinąć typ działania, aby wyświetlić wszystkie inne błędy, które użytkownik wybrał. Wybierz nazwę kodu błędu, aby otworzyć okno dialogowe, aby wyświetlić więcej informacji na jego temat.
 
-### <a name="investigate-the-session-host"></a>Zbadaj hosta sesji 
+### <a name="investigate-the-session-host"></a>Zbadaj hosta sesji
 
 W wynikach wyszukiwania Znajdź i wybierz hosta sesji, na którym chcesz uzyskać informacje.
 
@@ -242,26 +242,26 @@ Możesz również korzystać z użytkowników na hoście sesji:
 
 ### <a name="windows-performance-counter-thresholds"></a>Progi licznika wydajności systemu Windows
 
-- Dysk logiczny (\*)\\% wolnego miejsca:
+- Dysk logiczny ( \* ) \\ % wolnego miejsca:
 
     - Przedstawia wartość procentową całkowitego użytecznego miejsca na dysku logicznym, który jest bezpłatny.
     - Próg: mniej niż 20% jest oznaczone jako w złej kondycji.
 
-- Dysk logiczny (C:)\\średnia długość kolejki dysku:
+- Dysk logiczny (C:) \\ średnia długość kolejki dysku:
 
     - Reprezentuje warunki systemu magazynu.
     - Próg: wartość wyższa niż 5 jest oznaczona jako zła.
 
-- Pamięć (\*)\\dostępne MB:
+- Pamięć ( \* ) \\ dostępne MB:
 
     - Dostępna pamięć dla systemu.
     - Próg: mniej niż 500 megabajtów oznaczono jako zła kondycja.
 
-- Informacje o\*procesorze\\() czas procesora:
+- Informacje o procesorze ( \* ) \\ czas procesora:
 
     - Próg: wartość wyższa niż 80% jest oznaczona jako zła.
 
-- [Opóźnienie danych wejściowych użytkownika na sesję\*(\\) maksymalne opóźnienie wejścia](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
+- [Opóźnienie danych wejściowych użytkownika na sesję ( \* ) \\ maksymalne opóźnienie wejścia](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - Próg: większe niż 2000 MS jest oznaczone jako złej kondycji.
 

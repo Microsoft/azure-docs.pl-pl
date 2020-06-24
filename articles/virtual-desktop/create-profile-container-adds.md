@@ -4,16 +4,16 @@ description: W tym artykule opisano sposób tworzenia kontenera profilu FSLogix 
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7159eac0e71819fd75abef07cae979d5425fc07c
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 3348920260b6c256b25d0ff2419cdfd2a00dea35
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484613"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207315"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i platformy Azure AD DS
 
@@ -41,7 +41,7 @@ Aby dodać administratora:
 
 ## <a name="set-up-an-azure-storage-account"></a>Konfigurowanie konta usługi Azure Storage
 
-Teraz czas na włączenie uwierzytelniania za pomocą usługi Azure AD DS przy użyciu bloku komunikatów serwera (SMB). 
+Teraz czas na włączenie uwierzytelniania za pomocą usługi Azure AD DS przy użyciu bloku komunikatów serwera (SMB).
 
 Aby włączyć uwierzytelnianie:
 
@@ -108,8 +108,8 @@ Aby uzyskać klucz dostępu do konta magazynu:
     - Zamień na `<share-name>` nazwę utworzonego wcześniej udziału.
     - Zamień na `<storage-account-key>` klucz konta magazynu z platformy Azure.
 
-    Przykład:  
-  
+    Przykład:
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -124,7 +124,7 @@ Aby uzyskać klucz dostępu do konta magazynu:
     - Zamień na `<user-email>` nazwę UPN użytkownika, który będzie używać tego profilu do uzyskiwania dostępu do maszyn wirtualnych hosta sesji.
 
     Przykład:
-     
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -137,7 +137,7 @@ Aby skonfigurować kontener profilu FSLogix:
 
 1. Zaloguj się do maszyny wirtualnej hosta sesji skonfigurowanej na początku tego artykułu, a następnie [Pobierz i Zainstaluj agenta FSLogix](/fslogix/install-ht/).
 
-2. Rozpakuj pobrany plik agenta FSLogix i przejdź do wersji **x64**  >  **Releases**, a następnie otwórz **FSLogixAppsSetup. exe**.
+2. Rozpakuj pobrany plik agenta FSLogix i przejdź do wersji **x64**  >  **Releases**, a następnie otwórz **FSLogixAppsSetup.exe**.
 
 3. Po uruchomieniu Instalatora zaznacz opcję **Akceptuję warunki i postanowienia licencyjne.** Jeśli ma to zastosowanie, podaj nowy klucz.
 
@@ -203,13 +203,13 @@ Aby przypisać użytkowników:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 

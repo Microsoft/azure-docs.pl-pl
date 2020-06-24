@@ -2,13 +2,13 @@
 title: Funkcje szablonu — Data
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pracy z datami.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: 22bb3c80acb504649e4f5485c4d78dcd04277ec0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.date: 06/22/2020
+ms.openlocfilehash: e1d9c354c53404bddc31d565b45e608567b218d6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678005"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205173"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funkcje daty dla szablonów ARM
 
@@ -76,9 +76,9 @@ Gdy poprzedni szablon zostanie wdrożony z czasem podstawowym programu `2020-04-
 
 | Nazwa | Typ | Wartość |
 | ---- | ---- | ----- |
-| add3Years | String | 4/7/2023 2:53:14 PM |
-| subtract9Days | String | 3/29/2020 2:53:14 PM |
-| add1Hour | String | 4/7/2020 3:53:14 PM |
+| add3Years | Ciąg | 4/7/2023 2:53:14 PM |
+| subtract9Days | Ciąg | 3/29/2020 2:53:14 PM |
+| add1Hour | Ciąg | 4/7/2020 3:53:14 PM |
 
 Następny przykładowy szablon pokazuje, jak ustawić godzinę rozpoczęcia harmonogramu automatyzacji.
 
@@ -150,7 +150,7 @@ Zwraca bieżącą wartość daty/godziny w określonym formacie. Jeśli format n
 
 Tej funkcji można użyć tylko w wyrażeniu dla wartości domyślnej parametru. Użycie tej funkcji w dowolnym miejscu w szablonie powoduje zwrócenie błędu. Funkcja nie jest dozwolona w innych częściach szablonu, ponieważ zwraca inną wartość za każdym razem, gdy jest wywoływana. Wdrożenie tego samego szablonu z tymi samymi parametrami nie da niezawodnego wygenerowania tych samych wyników.
 
-Jeśli zostanie użyta [opcja ponownego wdrożenia wcześniejszego pomyślnego wdrożenia](rollback-on-error.md), a wcześniejsze wdrożenie zawiera parametr, który używa UtcNow, parametr nie zostanie ponownie oceniony. Zamiast tego wartość parametru z wcześniejszego wdrożenia zostanie automatycznie ponownie użyta w ramach wdrożenia wycofywania.
+W przypadku użycia [opcji Wycofaj przy błędzie](rollback-on-error.md) do wcześniejszego pomyślnego wdrożenia, a wcześniejsze wdrożenie zawiera parametr, który używa UtcNow, parametr nie jest ponownie obliczany. Zamiast tego wartość parametru z wcześniejszego wdrożenia zostanie automatycznie ponownie użyta w ramach wdrożenia wycofywania.
 
 Należy zachować ostrożność wdrażania szablonu, który opiera się na funkcji utcNow dla wartości domyślnej. Po ponownym wdrożeniu i niepodaniu wartości parametru funkcja jest ponownie Szacowana. Jeśli chcesz zaktualizować istniejący zasób zamiast tworzyć nowe, przekaż wartość parametru z wcześniejszego wdrożenia.
 

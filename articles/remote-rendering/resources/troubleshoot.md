@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 0aa09ffe5b5dd9dd0f49204495ecdd7179a0f36f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 2cf997cbe16f7ff4bfe75f90d3797ec97e7d5069
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660028"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808758"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -105,7 +105,7 @@ Jeśli te dwa kroki nie były pomocne, należy sprawdzić, czy ramki wideo są o
 
 **Model przekracza limity wybranej maszyny wirtualnej, w tym maksymalną liczbę wielokątów:**
 
-Zapoznaj się z określonymi [ograniczeniami rozmiaru maszyny wirtualnej](../reference/limits.md#overall-number-of-polygons).
+Zobacz określone [limity rozmiaru maszyny wirtualnej](../reference/limits.md#overall-number-of-polygons).
 
 **Model nie znajduje się w frustumu aparatu:**
 
@@ -146,6 +146,10 @@ Renderowanie zdalne na platformie Azure jest podłączane do potoku renderowania
 
 ![Debuger ramki aparatu Unity](./media/troubleshoot-unity-pipeline.png)
 
+## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Wzór szachownicy jest renderowany po załadowaniu modelu
+
+Jeśli renderowany obraz wygląda następująco: ![ szachownica ](../reference/media/checkerboard.png) , a moduł renderowania trafi na [limity dla standardowego rozmiaru maszyny wirtualnej](../reference/vm-sizes.md). Aby wyeliminować ograniczenia, należy przełączyć się do rozmiaru **maszyny wirtualnej w warstwie Premium** lub zmniejszyć liczbę widocznych wielokątów.
+
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>Renderowany obraz w aparacie Unity jest odwrócony do góry
 
 Upewnij się, że dokładnie postępuj zgodnie z [przewodnikiem po instalacji projektu](../tutorials/unity/project-setup.md) . Obraz z góry nogami wskazuje, że środowisko Unity jest wymagane do utworzenia celu renderowania poza ekranem. To zachowanie nie jest obecnie obsługiwane i tworzy ogromny wpływ na wydajność w przypadku urządzeń HoloLens 2.
@@ -168,6 +172,10 @@ Wystąpił błąd fałszywe podczas próby skompilowania przykładów aparatu Un
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Kompilacje Arm64 dla projektów Unity nie powiodły się, ponieważ brakuje AudioPluginMsHRTF.dll
+
+Obiekt `AudioPluginMsHRTF.dll` for Arm64 został dodany do pakietu *Windows Mixed Reality* *(com. Unity. XR. windowsmr. Metro)* w wersji 3.0.1. Upewnij się, że masz zainstalowaną wersję 3.0.1 lub nowszą za pośrednictwem Menedżera pakietów aparatu Unity. Na pasku menu aparatu Unity przejdź do *okna > Menedżer pakietów* i Wyszukaj pakiet *rzeczywistości mieszanej systemu Windows* .
+
 ## <a name="unstable-holograms"></a>Niestabilne hologramy
 
 W przypadku gdy renderowane obiekty pozornie są przenoszone wraz z przesunięciami, mogą wystąpić problemy związane z *reprojektem późnego etapu* (LSR). Zapoznaj się z sekcją dotyczącą [przemieszczenia na późnym etapie](../overview/features/late-stage-reprojection.md) w celu uzyskania wskazówek dotyczących sposobu podejścia do takiej sytuacji.

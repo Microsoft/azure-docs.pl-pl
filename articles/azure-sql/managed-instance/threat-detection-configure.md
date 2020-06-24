@@ -3,7 +3,7 @@ title: Konfigurowanie zaawansowanej ochrony przed zagrożeniami
 titleSuffix: Azure SQL Managed Instance
 description: Zaawansowana ochrona przed zagrożeniami wykrywa nietypowe działania bazy danych wskazujące na potencjalne zagrożenia bezpieczeństwa bazy danych w wystąpieniu zarządzanym usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 5cc5adf54b522f9209b386fa1fbb457ef6a3e8ff
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ceb6285448df2a5d87dfa87ab249c99bf22c9928
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322349"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686328"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Skonfiguruj zaawansowaną ochronę przed zagrożeniami w wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

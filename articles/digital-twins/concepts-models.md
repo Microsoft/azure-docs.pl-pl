@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 30bf5d3eaa034c033cf32e26c3229a028f036313
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: cacf4c21e92b434aeb73cd76e6dda26508f41d77
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613138"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261362"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Kluczową cechą usługi Azure Digital bliźniaczych reprezentacji jest możliwość definiowania własnego słownictwa i tworzenia grafu bliźniaczyego w samodzielnych warunkach firmy. Ta możliwość jest dostępna za poorednictwem **modeli**zdefiniowanych przez użytkownika. Można traktować modele jako rzeczowniki w opisie świata. 
 
@@ -197,7 +200,7 @@ Interfejs rozszerzający nie może zmienić żadnej definicji interfejsów nadrz
 
 ## <a name="validating-models"></a>Sprawdzanie poprawności modeli
 
-Dostępny jest przykład do sprawdzania poprawności dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest on oparty na bibliotece DTDL parser i ma język niezależny od. Znajdź tutaj: [DTDL moduł sprawdzania poprawności](https://github.com/Azure-Samples/DTDL-Validator).
+Dostępny jest przykład do sprawdzania poprawności dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest on oparty na bibliotece DTDL parser i ma język niezależny od. Znajdź tutaj: [DTDL moduł sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 Lub, aby uzyskać więcej informacji na temat biblioteki parsera, w tym przykład korzystania z niego bezpośrednio, zobacz [How to: Parse and Validate models](how-to-use-parser.md).
 

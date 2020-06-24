@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 09/04/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 13e149c45c720a5da6b051b7ce9581d74c64fa35
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 0bd15da523281a52d36c9ed1336244aa21eb48cd
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834479"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206703"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Najlepsze rozwiązania dotyczące programowania dla puli SQL Synapse
 

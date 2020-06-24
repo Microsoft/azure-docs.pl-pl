@@ -8,17 +8,17 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2019
 ms.author: allensu
-ms.openlocfilehash: f29e29f809faeeb486e5b6b9bacc84a61380a012
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b171699a0c578b3761e58f6e0e977199369864a8
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144455"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709967"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Usuń skojarzenie publicznego adresu IP z maszyny wirtualnej platformy Azure 
 
@@ -44,7 +44,7 @@ Aby usunąć skojarzenie publicznego adresu IP z maszyny wirtualnej, można uży
 
 Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)lub użyj Azure Cloud Shell. Usługa Azure Cloud Shell jest bezpłatną powłoką Bash, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Ma ona wstępnie zainstalowany interfejs wiersza polecenia platformy Azure skonfigurowany do użycia z Twoim kontem. Wybierz przycisk **Wypróbuj** za pomocą poleceń interfejsu wiersza polecenia, które obserwują. Wybranie przycisku **Wypróbuj** wywołuje Cloud Shell, aby można było zalogować się do konta platformy Azure za pomocą usługi.
 
-1. Jeśli używasz interfejsu wiersza polecenia lokalnie w bash, zaloguj się do platformy `az login`Azure za pomocą.
+1. Jeśli używasz interfejsu wiersza polecenia lokalnie w bash, zaloguj się do platformy Azure za pomocą `az login` .
 2. Publiczny adres IP jest skojarzony z konfiguracją IP interfejsu sieciowego dołączonego do maszyny wirtualnej. Za pomocą polecenia [AZ Network nic-IP-config Update](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) Usuń skojarzenie publicznego adresu IP z konfiguracji adresu IP. Poniższy przykład powoduje skojarzenie publicznego adresu IP o nazwie *myVMPublicIP* z konfiguracji protokołu IP o nazwie *ipconfigmyVM* istniejącego interfejsu sieciowego o nazwie *myVMVMNic* , który jest dołączony do maszyny wirtualnej o nazwie *MyVM* w grupie zasobów o nazwie Moja *resourceName*.
   
    ```azurecli-interactive
@@ -86,7 +86,7 @@ Zainstaluj [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azur
 
 Zainstaluj program [PowerShell](/powershell/azure/install-az-ps)lub użyj Azure Cloud Shell. Usługa Azure Cloud Shell jest bezpłatną powłoką, którą można uruchamiać bezpośrednio w witrynie Azure Portal. Program PowerShell jest wstępnie zainstalowany i skonfigurowany do użycia z Twoim kontem. Wybierz przycisk **Wypróbuj** w kolejnych poleceniach programu PowerShell. Wybranie przycisku **Wypróbuj** wywołuje Cloud Shell, aby można było zalogować się do konta platformy Azure za pomocą usługi.
 
-1. Jeśli używasz programu PowerShell lokalnie, zaloguj się do platformy `Connect-AzAccount`Azure za pomocą polecenia.
+1. Jeśli używasz programu PowerShell lokalnie, zaloguj się do platformy Azure za pomocą polecenia `Connect-AzAccount` .
 2. Publiczny adres IP jest skojarzony z konfiguracją IP interfejsu sieciowego dołączonego do maszyny wirtualnej. Użyj polecenia [Get-AzNetworkInterface](/powershell/module/Az.Network/Get-AzNetworkInterface) , aby uzyskać interfejs sieciowy. Ustaw wartość ustawienia publiczny adres IP na wartość null, a następnie użyj polecenia [Set-AzNetworkInterface](/powershell/module/Az.Network/Set-AzNetworkInterface) , aby zapisać nową konfigurację adresu IP w interfejsie sieciowym.
 
    Poniższy przykład powoduje skojarzenie publicznego adresu IP o nazwie *myVMPublicIP* z interfejsu sieciowego o nazwie *myVMVMNic* , który jest dołączony do maszyny wirtualnej o nazwie *myVM*. Wszystkie zasoby znajdują się w grupie zasobów *o nazwie moja grupa zasobów.*

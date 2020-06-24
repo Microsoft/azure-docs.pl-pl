@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 6a00b7d1b72d594c08021982b2448de6275414c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 495949d1a4ec927c601f174521c360f51034a2fb
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75610067"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079354"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planowanie i przygotowywanie Service Fabric wdrożenia klastra autonomicznego
 
@@ -22,7 +22,7 @@ Zamierzasz utworzyć klaster Service Fabric na maszynach, które są "własne", 
 ## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>Określanie liczby domen błędów i domen uaktualnienia
 [ *Domena błędów* (FD)](service-fabric-cluster-resource-manager-cluster-description.md) jest fizyczną jednostką awarii i jest bezpośrednio związana z infrastrukturą fizyczną w centrach danych. Domena błędów składa się ze składników sprzętowych (komputerów, przełączników, sieci i innych), które współużytkują single point of failure. Chociaż nie istnieje 1:1 mapowanie między domenami błędów i stojakami, luźno mówiąc, każdy Stojak może być traktowany jako domena błędów.
 
-Po określeniu domenami błędów w pliku ClusterConfig. JSON można wybrać nazwę dla każdego FD. Service Fabric obsługuje hierarchiczne domenami błędów, dzięki czemu można odzwierciedlić topologię infrastruktury.  Na przykład następujące domenami błędów są prawidłowe:
+Po określeniu domenami błędów w ClusterConfig.jsna, można wybrać nazwę dla każdego FD. Service Fabric obsługuje hierarchiczne domenami błędów, dzięki czemu można odzwierciedlić topologię infrastruktury.  Na przykład następujące domenami błędów są prawidłowe:
 
 * "faultDomain": "FD:/Room1/Szafa1/Maszyna1"
 * "faultDomain": "FD:/FD1"
@@ -32,7 +32,7 @@ Po określeniu domenami błędów w pliku ClusterConfig. JSON można wybrać naz
 
 Najprostszym sposobem na podejście do tego koncepcji jest rozważenie domenami błędów jako jednostki nieplanowanego błędu i odnoszącego się do jednostki planowanej konserwacji.
 
-Jeśli określisz wartość w ClusterConfig. JSON, możesz wybrać nazwę dla każdego UDu. Na przykład następujące nazwy są prawidłowe:
+Jeśli określisz wartość w ClusterConfig.jsna, możesz wybrać nazwę dla każdego UDu. Na przykład następujące nazwy są prawidłowe:
 
 * "upgradeDomain": "UD0"
 * "upgradeDomain": "UD1A"
@@ -51,7 +51,7 @@ Klastry testowe z uruchomionymi obciążeniami stanowymi powinny mieć trzy węz
 
 ## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>Przygotuj maszyny, które będą działać jako węzły
 
-Poniżej przedstawiono niektóre zalecane specyfikacje dla każdej maszyny, która ma zostać dodana do klastra:
+Poniżej przedstawiono zalecane specyfikacje dotyczące maszyn w klastrze Service Fabric:
 
 * Co najmniej 16 GB pamięci RAM
 * Co najmniej 40 GB dostępnego miejsca na dysku
@@ -61,20 +61,22 @@ Poniżej przedstawiono niektóre zalecane specyfikacje dla każdej maszyny, któ
 * [.NET Framework 4.5.1 lub nowszy](https://www.microsoft.com/download/details.aspx?id=40773), pełna instalacja
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
 * [Usługa RemoteRegistry](https://technet.microsoft.com/library/cc754820) powinna być uruchomiona na wszystkich maszynach
-* Dysk instalacji Service Fabric musi mieć system plików NTFS
+* **Dysk instalacji Service Fabric musi mieć system plików NTFS**
+* **Dzienniki wydajności usług systemu Windows, *& alerty* i *Dziennik zdarzeń systemu Windows* , muszą [być włączone](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))**.
 
-Administrator klastra wdrażający i konfigurujący klaster musi mieć [uprawnienia administratora](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) na każdej z tych maszyn. Usługi Service Fabric nie można zainstalować na kontrolerze domeny.
+> [!IMPORTANT]
+> Administrator klastra wdrażający i konfigurujący klaster musi mieć [uprawnienia administratora](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) na każdej z tych maszyn. Usługi Service Fabric nie można zainstalować na kontrolerze domeny.
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>Pobierz pakiet autonomiczny Service Fabric dla systemu Windows Server
 [Link do pobierania — Service Fabric autonomiczny pakiet — system Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) i rozpakować pakiet na maszynę wdrożenia, która nie jest częścią klastra, lub do jednej z maszyn, które będą częścią klastra.
 
 ## <a name="modify-cluster-configuration"></a>Modyfikuj konfigurację klastra
-Aby utworzyć klaster autonomiczny, należy utworzyć autonomiczny plik konfiguracji klastra ClusterConfig. JSON, który opisuje specyfikację klastra. Plik konfiguracji można oprzeć na szablonach znalezionych w poniższym łączu. <br>
+Aby utworzyć klaster autonomiczny, należy utworzyć autonomiczną konfigurację klastra ClusterConfig.jsw pliku, która opisuje specyfikację klastra. Plik konfiguracji można oprzeć na szablonach znalezionych w poniższym łączu. <br>
 [Konfiguracje klastra autonomicznego](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 Aby uzyskać szczegółowe informacje dotyczące sekcji w tym pliku, zobacz [Ustawienia konfiguracji autonomicznego klastra systemu Windows](service-fabric-cluster-manifest.md).
 
-Otwórz jeden z plików ClusterConfig. JSON z pobranego pakietu i zmodyfikuj następujące ustawienia:
+Otwórz jeden z ClusterConfig.jsplików z pobranego pakietu i zmodyfikuj następujące ustawienia:
 
 | **Ustawienie konfiguracji** | **Opis** |
 | --- | --- |
@@ -115,21 +117,21 @@ Gdy administrator klastra konfiguruje autonomiczny klaster Service Fabric, nale�
 
 | **Wykluczone procesy programu antywirusowego** |
 | --- |
-| Fabric. exe |
-| Elemencie fabrichost określono. exe |
-| Usługi fabricinstallerservice. exe |
-| FabricSetup. exe |
-| FabricDeployer. exe |
-| ImageBuilder. exe |
-| FabricGateway. exe |
-| Program fabricdca. exe |
-| FabricFAS. exe |
-| FabricUOS. exe |
-| FabricRM. exe |
-| FileStoreService. exe |
+| Fabric.exe |
+| FabricHost.exe |
+| FabricInstallerService.exe |
+| FabricSetup.exe |
+| FabricDeployer.exe |
+| ImageBuilder.exe |
+| FabricGateway.exe |
+| FabricDCA.exe |
+| FabricFAS.exe |
+| FabricUOS.exe |
+| FabricRM.exe |
+| FileStoreService.exe |
 
 ## <a name="validate-environment-using-testconfiguration-script"></a>Weryfikuj środowisko przy użyciu skryptu TestConfiguration
-Skrypt TestConfiguration. ps1 można znaleźć w pakiecie autonomicznym. Jest on używany jako Analizator najlepszych rozwiązań do sprawdzania poprawności niektórych kryteriów powyżej i powinien być używany jako Sanity, aby sprawdzić, czy klaster można wdrożyć w danym środowisku. Jeśli wystąpi awaria, zapoznaj się z listą w obszarze [Konfiguracja środowiska](service-fabric-cluster-standalone-deployment-preparation.md) w celu rozwiązywania problemów.
+Skrypt TestConfiguration.ps1 można znaleźć w pakiecie autonomicznym. Jest on używany jako Analizator najlepszych rozwiązań do sprawdzania poprawności niektórych kryteriów powyżej i powinien być używany jako Sanity, aby sprawdzić, czy klaster można wdrożyć w danym środowisku. Jeśli wystąpi awaria, zapoznaj się z listą w obszarze [Konfiguracja środowiska](service-fabric-cluster-standalone-deployment-preparation.md) w celu rozwiązywania problemów.
 
 Ten skrypt można uruchomić na dowolnym komputerze, który ma dostęp administratora do wszystkich maszyn wymienionych jako węzły w pliku konfiguracji klastra. Maszyna, na której jest uruchomiony ten skrypt, nie musi być częścią klastra.
 

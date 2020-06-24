@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/24/2019
 ms.author: ramamill
 ms.openlocfilehash: 01aef3aca4f6967b1681bff9598c7dd7a24739cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257266"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692524"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Zarządzaj VMware vCenter Server
 
@@ -26,7 +26,7 @@ Wymagania wstępne dotyczące serwerów vCenter i maszyn wirtualnych podczas odz
 Po skonfigurowaniu odzyskiwania po awarii dla lokalnych maszyn wirtualnych VMware Site Recovery musi mieć dostęp do hosta vCenter Server/vSphere. Serwer przetwarzania Site Recovery może następnie automatycznie odnajdywać maszyny wirtualne i w razie konieczności przełączać je w tryb failover. Domyślnie serwer przetwarzania działa na serwerze konfiguracji Site Recovery. Dodaj konto serwera konfiguracji, aby nawiązać połączenie z hostem vCenter Server/vSphere w następujący sposób:
 
 1. Zaloguj się do serwera konfiguracji.
-1. Otwórz narzędzie serwera konfiguracji (_cspsconfigtool. exe_) przy użyciu skrótu na pulpicie.
+1. Otwórz narzędzie serwera konfiguracji (_cspsconfigtool.exe_) za pomocą skrótu na pulpicie.
 1. Na karcie **Zarządzanie kontem** kliknij pozycję **Dodaj konto**.
 
    ![Dodaj konto](./media/vmware-azure-manage-vcenter/addaccount.png)
@@ -48,7 +48,7 @@ Po skonfigurowaniu odzyskiwania po awarii dla lokalnych maszyn wirtualnych VMwar
 
 Po skonfigurowaniu odzyskiwania po awarii dla lokalnych maszyn wirtualnych VMware należy dodać hosta vCenter Server/vSphere, na którym są odnajdywane maszyny wirtualne do magazynu Site Recovery, w następujący sposób:
 
-1. W obszarze magazyn > **Site Recovery** > **serwery konfiguracji**infrastruktury Otwórz serwer konfiguracji.
+1. W obszarze magazyn > **Site Recovery**  >  **serwery konfiguracji**infrastruktury Otwórz serwer konfiguracji.
 1. Na stronie **szczegółów** kliknij przycisk **vCenter**.
 1. W obszarze **Dodawanie programu vCenter**Określ przyjazną nazwę hosta vSphere lub serwera vCenter.
 1. Określ adres IP lub nazwę FQDN serwera.
@@ -60,13 +60,13 @@ Po skonfigurowaniu odzyskiwania po awarii dla lokalnych maszyn wirtualnych VMwar
 W razie potrzeby można zmodyfikować poświadczenia używane do nawiązywania połączenia z hostem vCenter Server/vSphere w następujący sposób:
 
 1. Zaloguj się do serwera konfiguracji.
-1. Otwórz narzędzie serwera konfiguracji (_cspsconfigtool. exe_) przy użyciu skrótu na pulpicie.
+1. Otwórz narzędzie serwera konfiguracji (_cspsconfigtool.exe_) za pomocą skrótu na pulpicie.
 1. Kliknij pozycję **Dodaj konto** na karcie **Zarządzanie kontem** .
 
    ![Dodaj konto](./media/vmware-azure-manage-vcenter/addaccount.png)
 
 1. Podaj szczegóły nowego konta, a następnie kliknij przycisk **OK**. Konto musi mieć uprawnienia wymienione w tabeli [uprawnień konta](#account-permissions) .
-1. W magazynie > serwery > **konfiguracji** **infrastruktury Site Recovery**, Otwórz serwer konfiguracji.
+1. W magazynie > serwery **konfiguracji infrastruktury Site Recovery**  >  **Configuration Severs**, Otwórz serwer konfiguracji.
 1. W obszarze **szczegóły**kliknij przycisk **Odśwież serwer**.
 1. Po zakończeniu zadania odświeżania serwera wybierz vCenter Server.
 1. W obszarze **Podsumowanie**wybierz nowo dodane konto na **serwerze vCenter/vSphere**, a następnie kliknij przycisk **Zapisz**.
@@ -75,7 +75,7 @@ W razie potrzeby można zmodyfikować poświadczenia używane do nawiązywania p
 
 ## <a name="delete-a-vcenter-server"></a>Usuwanie vCenter Server
 
-1. W magazynie > serwery > **konfiguracji** **infrastruktury Site Recovery**, Otwórz serwer konfiguracji.
+1. W magazynie > serwery **konfiguracji infrastruktury Site Recovery**  >  **Configuration Severs**, Otwórz serwer konfiguracji.
 1. Na stronie **szczegóły** wybierz serwer vCenter.
 1. Kliknij przycisk **Usuń** .
 
@@ -85,7 +85,7 @@ W razie potrzeby można zmodyfikować poświadczenia używane do nawiązywania p
 
 Można zmodyfikować adres IP vCenter Server lub porty używane do komunikacji między serwerem i Site Recovery. Domyślnie Site Recovery uzyskuje dostęp do informacji o hoście vCenter Server/vSphere za pomocą portu 443.
 
-1. W magazynie > **Site Recovery** > **serwery konfiguracji**infrastruktury kliknij serwer konfiguracji, do którego zostanie dodany vCenter Server.
+1. W magazynie > **Site Recovery**  >  **serwery konfiguracji**infrastruktury kliknij serwer konfiguracji, do którego zostanie dodany vCenter Server.
 1. W obszarze **serwery vCenter**kliknij vCenter Server, które chcesz zmodyfikować.
 1. W obszarze **Podsumowanie**zaktualizuj adres IP i port, a następnie Zapisz zmiany.
 
@@ -97,7 +97,7 @@ Można zmodyfikować adres IP vCenter Server lub porty używane do komunikacji m
 
 Jeśli chcesz zmigrować wszystkie maszyny wirtualne, aby użyć nowej vCenter Server, wystarczy zaktualizować adres IP przypisany do vCenter Server. Nie dodawaj kolejnego konta VMware, ponieważ może to prowadzić do duplikowania wpisów. Zaktualizuj adres w następujący sposób:
 
-1. W magazynie > **Site Recovery** > **serwery konfiguracji**infrastruktury kliknij serwer konfiguracji, do którego zostanie dodany vCenter Server.
+1. W magazynie > **Site Recovery**  >  **serwery konfiguracji**infrastruktury kliknij serwer konfiguracji, do którego zostanie dodany vCenter Server.
 1. W sekcji **serwery vCenter** kliknij vCenter Server, z których chcesz przeprowadzić migrację.
 1. W obszarze **Podsumowanie**zaktualizuj adres IP do nowego vCenter Server i Zapisz zmiany.
 1. Gdy tylko adres IP zostanie zaktualizowany, Site Recovery rozpocznie otrzymywanie informacji o odnajdywaniu maszyn wirtualnych z nowego vCenter Server. Nie ma to wpływu na bieżące działania związane z replikacją.

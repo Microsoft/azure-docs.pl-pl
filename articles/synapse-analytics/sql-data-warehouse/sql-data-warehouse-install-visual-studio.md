@@ -8,16 +8,16 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f36fb952b21b058fb50dc567f714e8bdb665d6c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: df24206f4e6ff06be6d7d50ff45c41b60a70b616
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200309"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211871"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Wprowadzenie do programu Visual Studio 2019
 

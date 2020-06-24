@@ -4,14 +4,14 @@ description: W tym dokumencie opisano różne opcje migracji danych lokalnych lu
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 3945048060084874cf9d213aae83c3504312875c
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: a1b8ddba84920d8d3b6871ab404081d3b24c72e1
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465749"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261974"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opcje migracji danych lokalnych lub w chmurze do Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Wybór narzędzia migracji zależy od następujących czynników:
 * **Oczekiwany czas trwania migracji**: migracje można skonfigurować tak, aby odbywały się w powolnym, przyrostowym tempie, które zużywa mniejszą przepływność, lub zużywa całą przepustowość zainicjowaną w docelowym kontenerze Azure Cosmos DB i dokończyć migrację w krótszym czasie.
 
 ## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB — interfejs SQL API
-|**Typ migracji**|**Narzędzie**|**Istotne zagadnienia**|
+|**Typ migracji**|**Rozwiązanie**|**Zagadnienia do rozważenia**|
 |---------|---------|---------|
 |W trybie offline|[Narzędzie do migracji danych](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Łatwa konfiguracja i obsługa wielu źródeł <br/>&bull;Nieodpowiednie dla dużych zestawów danych|
 |W trybie offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Łatwa konfiguracja i obsługa wielu źródeł <br/>&bull;Korzysta z Azure Cosmos DB biblioteki wykonawców zbiorczych <br/>&bull;Odpowiednie dla dużych zestawów danych <br/>&bull;Brak punktów kontrolnych — oznacza to, że w przypadku wystąpienia problemu w trakcie migracji należy ponownie uruchomić cały proces migracji.<br/>&bull;Brak kolejki utraconych wiadomości — oznacza to, że kilka błędnych plików może zatrzymać cały proces migracji.|
@@ -42,7 +42,7 @@ Wybór narzędzia migracji zależy od następujących czynników:
 |Online|[Striim](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-sql-api-migrate-data-striim)|&bull;Działa z wieloma różnymi źródłami, takimi jak Oracle, DB2, SQL Server <br/>&bull;Łatwe tworzenie potoków ETL i udostępnia pulpit nawigacyjny do monitorowania <br/>&bull;Obsługuje większe zestawy danych <br/>&bull;Ponieważ jest to narzędzie innej firmy, należy je zakupić w portalu Marketplace i zainstalować w środowisku użytkownika|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB interfejs API Mongo
-|**Typ migracji**|**Narzędzie**|**Istotne zagadnienia**|
+|**Typ migracji**|**Rozwiązanie**|**Zagadnienia do rozważenia**|
 |---------|---------|---------|
 |W trybie offline|[Narzędzie do migracji danych](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Łatwa konfiguracja i obsługa wielu źródeł <br/>&bull;Nieodpowiednie dla dużych zestawów danych|
 |W trybie offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Łatwa konfiguracja i obsługa wielu źródeł <br/>&bull;Korzysta z Azure Cosmos DB biblioteki wykonawców zbiorczych <br/>&bull;Odpowiednie dla dużych zestawów danych <br/>&bull;Brak punktów kontrolnych oznacza, że każdy problem w trakcie migracji będzie wymagał ponownego uruchomienia całego procesu migracji<br/>&bull;Brak kolejki utraconych wiadomości oznacza, że kilka błędnych plików może zatrzymać cały proces migracji <br/>&bull;Potrzebuje niestandardowego kodu, aby zwiększyć przepływność odczytu dla niektórych źródeł danych|
@@ -50,7 +50,7 @@ Wybór narzędzia migracji zależy od następujących czynników:
 |Online|[Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db-online)|&bull;Korzysta z Azure Cosmos DB biblioteki wykonawców zbiorczych <br/>&bull;Odpowiednie dla dużych zestawów danych i należy zachować ostrożność replikowania zmian na żywo <br/>&bull;Działa tylko z innymi źródłami MongoDB|
 
 ## <a name="azure-cosmos-db-cassandra-api"></a>Interfejs API Cassandra usługi Azure Cosmos DB
-|**Typ migracji**|**Narzędzie**|**Istotne zagadnienia**|
+|**Typ migracji**|**Rozwiązanie**|**Zagadnienia do rozważenia**|
 |---------|---------|---------|
 |W trybie offline|[cqlsh — polecenie kopiowania](https://docs.microsoft.com/azure/cosmos-db/cassandra-import-data#migrate-data-using-cqlsh-copy-command)|&bull;Łatwa konfiguracja <br/>&bull;Nieodpowiednie dla dużych zestawów danych <br/>&bull;Działa tylko wtedy, gdy źródłem jest tabela Cassandra|
 |W trybie offline|[Kopiuj tabelę za pomocą platformy Spark](https://docs.microsoft.com/azure/cosmos-db/cassandra-import-data#migrate-data-using-spark) |&bull;Może korzystać z możliwości platformy Spark do zrównoleglanie transformacji i pozyskiwania <br/>&bull;Wymaga konfiguracji z niestandardowymi zasadami ponawiania w celu obsługi przepustnic|

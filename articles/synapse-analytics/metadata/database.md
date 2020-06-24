@@ -5,16 +5,16 @@ services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: da1bd9c812c20f60264d1a5ee1f8821128900618
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 68919457cc045f50ebef249ced9c117fea8d6984
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698855"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079036"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Udostępniona baza danych usługi Azure Synapse Analytics
 

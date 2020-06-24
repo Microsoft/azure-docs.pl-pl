@@ -3,17 +3,17 @@ title: Projektowanie tabel Azure Cosmos DB na potrzeby skalowania i wydajności
 description: 'Przewodnik dotyczący projektowania usługi Azure Table Storage: skalowalne i wydajne tabele w Azure Cosmos DB i Azure Table Storage'
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: conceptual
-ms.date: 05/21/2019
+ms.topic: how-to
+ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 78a38938ad31bb349b7215f0a26dda69f4fec966
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: beb80390bdeacd6775ccfb0b712fe6dd260fbce0
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651920"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261090"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Przewodnik projektowy tabeli usługi Azure Table Storage: skalowalne i wydajne tabele
 
@@ -195,12 +195,12 @@ W poniższych przykładach założono, że magazyn tabel przechowuje jednostki p
 
 | Nazwa kolumny | Typ danych |
 | --- | --- |
-| `PartitionKey`(Nazwa działu) |String |
-| `RowKey`(Identyfikator pracownika) |String |
-| `FirstName` |String |
-| `LastName` |String |
+| `PartitionKey`(Nazwa działu) |Ciąg |
+| `RowKey`(Identyfikator pracownika) |String (ciąg) |
+| `FirstName` |String (ciąg) |
+| `LastName` |String (ciąg) |
 | `Age` |Liczba całkowita |
-| `EmailAddress` |String |
+| `EmailAddress` |Ciąg |
 
 Poniżej przedstawiono niektóre ogólne wytyczne dotyczące projektowania zapytań usługi Table Storage. Składnia filtru użyta w poniższych przykładach pochodzi z interfejsu API REST usługi Table Storage. Aby uzyskać więcej informacji, zobacz [jednostki zapytań](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
@@ -630,7 +630,7 @@ W przypadku tej opcji Użyj jednostek indeksu, które przechowują następujące
 
 ![Ilustracja przedstawiająca jednostkę pracownika z ciągiem zawierającym listę identyfikatorów pracowników o tej samej nazwie][15]
 
-`EmployeeIDs`Właściwość zawiera listę identyfikatorów pracowników dla pracowników, których nazwisko jest przechowywane w `RowKey` .  
+`EmployeeIDs`Właściwość zawiera listę identyfikatorów pracowników dla pracowników, których nazwisko jest przechowywane w `RowKey` i `PartitionKey` .  
 
 Nie można użyć EGTs do zachowania spójności, ponieważ jednostki indeksu znajdują się w oddzielnej partycji od jednostek pracowników. Upewnij się, że jednostki indeksu są ostatecznie spójne z jednostkami pracowników.  
 
@@ -663,7 +663,7 @@ W relacyjnej bazie danych zazwyczaj normalizuje dane w celu usunięcia duplikat�
 ![Ilustracja przedstawiająca jednostkę działu i jednostkę pracownika][16]
 
 #### <a name="solution"></a>Rozwiązanie
-Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Na przykład:  
+Zamiast przechowywania danych w dwóch osobnych jednostkach, należy deznormalizować dane i zachować kopię szczegółów kierownika w jednostce działu. Przykład:  
 
 ![Ilustracja nieznormalizowanej i połączonej jednostki działu][17]
 

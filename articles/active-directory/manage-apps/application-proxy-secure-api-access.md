@@ -2,22 +2,21 @@
 title: Dostęp do lokalnych interfejsów API za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 description: Serwer proxy aplikacji Azure Active Directory pozwala natywnym aplikacjom bezpiecznie uzyskać dostęp do interfejsów API i logiki biznesowej, które są hostowane lokalnie lub na maszynach wirtualnych w chmurze.
 services: active-directory
-author: jeevanbisht
-manager: mtillman
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/12/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: has-adal-ref
-ms.openlocfilehash: c3efd94e741124d5e662ac17e9c1daaf66d4c1c5
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168813"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206448"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Bezpieczny dostęp do lokalnych interfejsów API przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -35,7 +34,7 @@ Na poniższym diagramie przedstawiono, jak za pomocą usługi Azure serwer proxy
 
 ![Dostęp do interfejsu API serwer proxy aplikacji usługi Azure AD platformy Azure](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-Usługa Azure serwer proxy aplikacji usługi Azure AD stanowi szkielet rozwiązania, działającego jako publiczny punkt końcowy do uzyskiwania dostępu do interfejsu API i zapewniający uwierzytelnianie i autoryzację. Możesz uzyskać dostęp do interfejsów API z rozległej macierzy platform przy użyciu bibliotek [ADAL](/azure/active-directory/develop/active-directory-authentication-libraries) .
+Usługa Azure serwer proxy aplikacji usługi Azure AD stanowi szkielet rozwiązania, działającego jako publiczny punkt końcowy do uzyskiwania dostępu do interfejsu API i zapewniający uwierzytelnianie i autoryzację. Możesz uzyskać dostęp do interfejsów API z rozległej macierzy platform przy użyciu bibliotek [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/active-directory-authentication-libraries) .
 
 Ponieważ uwierzytelnianie i autoryzacja w usłudze Azure serwer proxy aplikacji usługi Azure AD są oparte na usłudze Azure AD, można użyć dostępu warunkowego usługi Azure AD w celu zapewnienia, że tylko zaufane urządzenia mają dostęp do interfejsów API opublikowanych za pomocą serwera proxy aplikacji. Użyj funkcji Dołącz do usługi Azure AD lub hybrydowej usługi Azure AD dla komputerów stacjonarnych, a usługa Intune zarządzana na urządzeniach. Możesz również korzystać z funkcji Azure Active Directory — wersja Premium, takich jak platforma Azure Multi-Factor Authentication i zabezpieczenia w ramach uczenia maszynowego w [usłudze Azure Identity Protection](/azure/active-directory/active-directory-identityprotection).
 
@@ -137,7 +136,7 @@ Aplikacja AppProxyNativeAppSample została już zarejestrowana w Azure Active Di
 
 ## <a name="configure-the-native-app-code"></a>Konfigurowanie natywnego kodu aplikacji
 
-Ostatnim krokiem jest skonfigurowanie aplikacji natywnej. Poniższy fragment kodu z pliku *Form1.cs* w przykładowej aplikacji NativeClient powoduje, że biblioteka ADAL uzyskuje token do żądania wywołania interfejsu API i dołącza go do nagłówka aplikacji.
+Ostatnim krokiem jest skonfigurowanie aplikacji natywnej. Poniższy fragment kodu z pliku *Form1.cs* w przykładowej aplikacji NativeClient powoduje, że biblioteka MSAL umożliwia uzyskanie tokenu żądającego wywołania interfejsu API i dołączenie go jako okaziciela do nagłówka aplikacji.
 
    ```
    // Acquire Access Token from AAD for Proxy Application
@@ -172,7 +171,7 @@ if (authResult != null)
  }
 ```
 
-Aby skonfigurować natywną aplikację do nawiązywania połączeń z usługą Azure Active Directory i wywoływać serwer proxy aplikacji interfejsu API, zaktualizuj wartości symboli zastępczych w pliku *App. config* przykładowej aplikacji NativeClient przy użyciu wartości z usługi Azure AD:
+Aby skonfigurować aplikację natywną do nawiązywania połączenia z Azure Active Directory i wywoływać serwer proxy aplikacji interfejsu API, zaktualizuj wartości symboli zastępczych w pliku *App.config* przykładowej aplikacji NativeClient przy użyciu wartości z usługi Azure AD:
 
 - Wklej w polu **Identyfikator katalogu (dzierżawcy)** `<add key="ida:Tenant" value="" />` . Tę wartość (identyfikator GUID) można znaleźć i skopiować na stronie **Przegląd** dowolnej aplikacji.
 

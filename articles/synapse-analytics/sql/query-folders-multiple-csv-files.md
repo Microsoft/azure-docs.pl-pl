@@ -1,22 +1,22 @@
 ---
-title: Wysyłanie zapytań do folderów i wielu plików CSV za pomocą SQL na żądanie (wersja zapoznawcza)
+title: Wysyłanie zapytań do folderów i wielu plików przy użyciu usługi SQL na żądanie (wersja zapoznawcza)
 description: SQL na żądanie (wersja zapoznawcza) obsługuje odczytywanie wielu plików/folderów przy użyciu symboli wieloznacznych, które są podobne do symboli wieloznacznych używanych w systemie operacyjnym Windows.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cb136fa9a3dc63144d26820b7170250b3598ba77
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6c61bd420121800ade48de88cbcaadf37343262d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235423"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207635"
 ---
-# <a name="query-folders-and-multiple-csv-files"></a>Foldery zapytań i wiele plików CSV  
+# <a name="query-folders-and-multiple-files"></a>Wykonywanie zapytań względem folderów i wielu plików  
 
 W tym artykule dowiesz się, jak napisać zapytanie przy użyciu języka SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics.
 

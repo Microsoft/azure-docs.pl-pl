@@ -7,11 +7,11 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
 ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270240"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708046"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Konfigurowanie Azure Monitor dzienników i zbieranie danych diagnostycznych dla Azure Logic Apps
 
@@ -41,7 +41,7 @@ Log Analytics można włączyć podczas tworzenia aplikacji logiki.
 
       Po zakończeniu tego kroku platforma Azure utworzy aplikację logiki, która jest teraz skojarzona z obszarem roboczym Log Analytics. Ten krok powoduje również automatyczne zainstalowanie rozwiązania do zarządzania Logic Apps w obszarze roboczym.
 
-1. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
+1. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**.
 
 1. Po uruchomieniu aplikacji logiki, aby wyświetlić uruchomienia aplikacji logiki, [wykonaj te kroki](#view-logic-app-runs).
 
@@ -51,7 +51,7 @@ Log Analytics można włączyć podczas tworzenia aplikacji logiki.
 
 Jeśli włączono Log Analytics podczas tworzenia aplikacji logiki, Pomiń ten krok. Masz już zainstalowane rozwiązanie do zarządzania Logic Apps w obszarze roboczym Log Analytics.
 
-1. W polu wyszukiwania [Azure Portal](https://portal.azure.com)wprowadź `log analytics workspaces`wartość, a następnie wybierz pozycję **log Analytics obszary robocze**.
+1. W polu wyszukiwania [Azure Portal](https://portal.azure.com)wprowadź wartość `log analytics workspaces` , a następnie wybierz pozycję **log Analytics obszary robocze**.
 
    ![Wybierz pozycję "Log Analytics obszary robocze"](./media/monitor-logic-apps-log-analytics/find-select-log-analytics-workspaces.png)
 
@@ -59,7 +59,7 @@ Jeśli włączono Log Analytics podczas tworzenia aplikacji logiki, Pomiń ten k
 
    ![Wybierz obszar roboczy Log Analytics](./media/monitor-logic-apps-log-analytics/select-log-analytics-workspace.png)
 
-1. W okienku **Przegląd** w obszarze **wprowadzenie do log Analytics** > **konfigurowania rozwiązań monitorowania**wybierz pozycję **Wyświetl rozwiązania**.
+1. W okienku **Przegląd** w obszarze **wprowadzenie do log Analytics**  >  **konfigurowania rozwiązań monitorowania**wybierz pozycję **Wyświetl rozwiązania**.
 
    ![W okienku Przegląd wybierz pozycję "Wyświetl rozwiązania"](./media/monitor-logic-apps-log-analytics/log-analytics-workspace.png)
 
@@ -67,7 +67,7 @@ Jeśli włączono Log Analytics podczas tworzenia aplikacji logiki, Pomiń ten k
 
    ![W okienku Przegląd Dodaj nowe rozwiązanie](./media/monitor-logic-apps-log-analytics/add-logic-apps-management-solution.png)
 
-1. Po otwarciu **portalu Marketplace** w polu wyszukiwania wpisz `logic apps management`, a następnie wybierz pozycję **Zarządzanie Logic Apps**.
+1. Po otwarciu **portalu Marketplace** w polu wyszukiwania wpisz `logic apps management` , a następnie wybierz pozycję **Zarządzanie Logic Apps**.
 
    ![W witrynie Marketplace wybierz pozycję "Logic Apps Management".](./media/monitor-logic-apps-log-analytics/select-logic-apps-management.png)
 
@@ -91,7 +91,7 @@ Podczas przechowywania informacji o zdarzeniach i danych środowiska uruchomieni
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz aplikację logiki.
 
-1. W menu aplikacji logiki w obszarze **monitorowanie**wybierz pozycję **Ustawienia** > diagnostyczne**Dodaj ustawienie diagnostyczne**.
+1. W menu aplikacji logiki w obszarze **monitorowanie**wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienie diagnostyczne**.
 
    ![W obszarze "monitorowanie" Wybierz pozycję "Ustawienia diagnostyczne" > "Dodaj ustawienie diagnostyczne"](./media/monitor-logic-apps-log-analytics/logic-app-diagnostics.png)
 
@@ -123,7 +123,7 @@ Po uruchomieniu aplikacji logiki można wyświetlić dane dotyczące tych przebi
 
 1. W [Azure Portal](https://portal.azure.com)Znajdź i Otwórz obszar roboczy log Analytics.
 
-1. W menu obszaru roboczego wybierz pozycję >  **Podsumowanie obszaru roboczego****Logic Apps zarządzanie**.
+1. W menu obszaru roboczego wybierz pozycję **Podsumowanie obszaru roboczego**  >  **Logic Apps zarządzanie**.
 
    ![Stan i liczba uruchomień aplikacji logiki](./media/monitor-logic-apps-log-analytics/logic-app-runs-summary.png)
 
@@ -192,9 +192,9 @@ Na podstawie lokalizacji, w których chcesz wysyłać dane diagnostyczne, należ
 
 ## <a name="azure-monitor-diagnostics-events"></a>Azure Monitor zdarzenia diagnostyki
 
-Każde zdarzenie diagnostyczne zawiera szczegółowe informacje o aplikacji logiki oraz o tym zdarzeniu, na przykład o stanie, czasie rozpoczęcia, czasie zakończenia itd. Aby programowo skonfigurować monitorowanie, śledzenie i rejestrowanie, można użyć tych informacji z [interfejsem API REST dla Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) i [interfejsu api REST dla Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Można również użyć właściwości `clientTrackingId` i `trackedProperties` , które pojawiają się w 
+Każde zdarzenie diagnostyczne zawiera szczegółowe informacje o aplikacji logiki oraz o tym zdarzeniu, na przykład o stanie, czasie rozpoczęcia, czasie zakończenia itd. Aby programowo skonfigurować monitorowanie, śledzenie i rejestrowanie, można użyć tych informacji z [interfejsem API REST dla Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) i [interfejsu api REST dla Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows). Można również użyć `clientTrackingId` `trackedProperties` właściwości i, które pojawiają się w 
 
-* `clientTrackingId`: Jeśli nie zostanie podany, platforma Azure automatycznie generuje ten identyfikator i skorelowanie zdarzeń w ramach przebiegu aplikacji logiki, w tym wszystkich zagnieżdżonych przepływów pracy, które są wywoływane z aplikacji logiki. Można ręcznie określić ten identyfikator w wyzwalaczu, przekazując `x-ms-client-tracking-id` nagłówek z wartością niestandardowego identyfikatora w żądaniu wyzwalacza. Można użyć wyzwalacza żądania, wyzwalacza HTTP lub wyzwalacza elementu webhook.
+* `clientTrackingId`: Jeśli nie zostanie podany, platforma Azure automatycznie generuje ten identyfikator i skorelowanie zdarzeń w ramach przebiegu aplikacji logiki, w tym wszystkich zagnieżdżonych przepływów pracy, które są wywoływane z aplikacji logiki. Można ręcznie określić ten identyfikator w wyzwalaczu, przekazując `x-ms-client-tracking-id` Nagłówek z wartością NIESTANDARDOWEGO identyfikatora w żądaniu wyzwalacza. Można użyć wyzwalacza żądania, wyzwalacza HTTP lub wyzwalacza elementu webhook.
 
 * `trackedProperties`: Aby śledzić dane wejściowe lub wyjściowe w danych diagnostycznych, można dodać `trackedProperties` sekcję do akcji przy użyciu projektanta aplikacji logiki lub bezpośrednio w definicji JSON aplikacji logiki. Śledzone właściwości mogą śledzić tylko dane wejściowe i wyjściowe pojedynczej akcji, ale można użyć `correlation` właściwości zdarzeń do skorelowania między akcjami w przebiegu. Aby śledzić więcej niż jedną właściwość, jedną lub więcej właściwości, Dodaj `trackedProperties` sekcję i właściwości, które mają być używane w definicji akcji.
 
@@ -243,7 +243,7 @@ Każde zdarzenie diagnostyczne zawiera szczegółowe informacje o aplikacji logi
   }
   ```
 
-Ten przykład pokazuje, jak `ActionCompleted` zdarzenie zawiera atrybuty `clientTrackingId` i `trackedProperties` :
+Ten przykład pokazuje, jak `ActionCompleted` zdarzenie zawiera `clientTrackingId` atrybuty i `trackedProperties` :
 
 ```json
 {

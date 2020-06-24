@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e32a0a876928e9430f9127299e6b7e657d7743c
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74113002"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85077466"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Jak indeksować tabele z usługi Azure Table Storage za pomocą usługi Azure Wyszukiwanie poznawcze
 
@@ -26,7 +26,7 @@ Indeksator usługi Azure Table Storage można skonfigurować przy użyciu nastę
 
 * [Azure Portal](https://ms.portal.azure.com)
 * [Interfejs API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) usługi Azure wyszukiwanie poznawcze
-* Azure Wyszukiwanie poznawcze [.NET SDK](https://aka.ms/search-sdk)
+* Azure Wyszukiwanie poznawcze [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 
 W tym miejscu zademonstrowano przepływ przy użyciu interfejsu API REST. 
 
@@ -37,7 +37,7 @@ W tym miejscu zademonstrowano przepływ przy użyciu interfejsu API REST.
 W przypadku indeksowania tabeli źródło danych musi mieć następujące właściwości:
 
 - **Nazwa** jest unikatową nazwą źródła danych w ramach usługi wyszukiwania.
-- **Typ** musi być `azuretable`.
+- **Typ** musi być `azuretable` .
 - parametr **Credentials** zawiera parametry połączenia konta magazynu. Aby uzyskać szczegółowe informacje, zobacz sekcję [Określanie poświadczeń](#Credentials) .
 - **kontener** ustawia nazwę tabeli i opcjonalne zapytanie.
     - Określ nazwę tabeli przy użyciu `name` parametru.
@@ -67,7 +67,7 @@ Aby uzyskać więcej informacji na temat interfejsu API tworzenia źródła dany
 
 Poświadczenia dla tabeli można podać w jeden z następujących sposobów: 
 
-- **Pełny dostęp do parametrów połączenia konta magazynu** `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` : parametry połączenia można uzyskać z Azure Portal, przechodząc do**kluczy** **ustawień** >  **bloku** > konta magazynu (dla klasycznych kont magazynu) lub**kluczy dostępu** **ustawień** > (dla Azure Resource Manager kont magazynu).
+- **Pełny dostęp do parametrów połączenia konta magazynu**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` Parametry połączenia można uzyskać z Azure Portal, przechodząc do kluczy ustawień **bloku konta magazynu**  >  **Settings**  >  **Keys** (dla klasycznych kont magazynu) lub **Settings**  >  **kluczy dostępu** ustawień (dla Azure Resource Manager kont magazynu).
 - **Parametry połączenia sygnatury dostępu współdzielonego konta magazynu**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` sygnatura dostępu współdzielonego powinna mieć uprawnienia listy i odczytu w kontenerach (w tym przypadku tabel w tym przypadku) i obiektach (wiersze tabeli).
 -  **Sygnatura dostępu współdzielonego tabeli**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` sygnatura dostępu współdzielonego powinna mieć uprawnienia zapytania (odczyt) w tabeli.
 
@@ -121,19 +121,19 @@ Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w t
 Czasami nazwy pól w istniejącym indeksie różnią się od nazw właściwości w tabeli. Mapowania pól można użyć do mapowania nazw właściwości z tabeli do nazw pól w indeksie wyszukiwania. Aby dowiedzieć się więcej na temat mapowania pól, zobacz [mapowania pól usługi Azure wyszukiwanie poznawcze Indexer — różnice między źródłami danych i indeksami wyszukiwania](search-indexer-field-mappings.md).
 
 ## <a name="handle-document-keys"></a>Obsługuj klucze dokumentów
-W usłudze Azure Wyszukiwanie poznawcze klucz dokumentu jednoznacznie identyfikuje dokument. Każdy indeks wyszukiwania musi mieć dokładnie jedno pole klucza typu `Edm.String`. Pole klucza jest wymagane dla każdego dokumentu, który jest dodawany do indeksu. (W rzeczywistości jest to jedyne pole wymagane).
+W usłudze Azure Wyszukiwanie poznawcze klucz dokumentu jednoznacznie identyfikuje dokument. Każdy indeks wyszukiwania musi mieć dokładnie jedno pole klucza typu `Edm.String` . Pole klucza jest wymagane dla każdego dokumentu, który jest dodawany do indeksu. (W rzeczywistości jest to jedyne pole wymagane).
 
-Ponieważ wiersze tabeli mają klucz złożony, usługa Azure Wyszukiwanie poznawcze generuje pole syntetyczne o `Key` nazwie, które jest połączeniem klucza partycji i wartości klucza wiersza. Na przykład, jeśli `PK1` PartitionKey wiersza to i RowKey is `RK1`, wartość `Key` pola to. `PK1RK1`
+Ponieważ wiersze tabeli mają klucz złożony, usługa Azure Wyszukiwanie poznawcze generuje pole syntetyczne o nazwie `Key` , które jest połączeniem klucza partycji i wartości klucza wiersza. Na przykład, jeśli PartitionKey wiersza to `PK1` i RowKey is `RK1` , `Key` wartość pola to `PK1RK1` .
 
 > [!NOTE]
-> `Key` Wartość może zawierać znaki, które są nieprawidłowe w kluczach dokumentów, takich jak łączniki. Za pomocą `base64Encode` [funkcji mapowania pól](search-indexer-field-mappings.md#base64EncodeFunction)można poradzić sobie z nieprawidłowymi znakami. Wykonując tę czynność, pamiętaj również, aby użyć kodowania Base64 bezpiecznego dla adresu URL podczas przekazywania kluczy dokumentów w wywołaniach interfejsu API, na przykład podczas wyszukiwania.
+> `Key`Wartość może zawierać znaki, które są nieprawidłowe w kluczach dokumentów, takich jak łączniki. Za pomocą `base64Encode` [funkcji mapowania pól](search-indexer-field-mappings.md#base64EncodeFunction)można poradzić sobie z nieprawidłowymi znakami. Wykonując tę czynność, pamiętaj również, aby użyć kodowania Base64 bezpiecznego dla adresu URL podczas przekazywania kluczy dokumentów w wywołaniach interfejsu API, na przykład podczas wyszukiwania.
 >
 >
 
 ## <a name="incremental-indexing-and-deletion-detection"></a>Wykrywanie przyrostowe i usuwanie
 Po skonfigurowaniu indeksatora tabeli do uruchamiania zgodnie z harmonogramem program ponownie indeksuje tylko nowe lub zaktualizowane wiersze, zgodnie z `Timestamp` wartością wiersza. Nie musisz określać zasad wykrywania zmian. Indeksowanie przyrostowe jest automatycznie włączone.
 
-Aby wskazać, że niektóre dokumenty muszą zostać usunięte z indeksu, można użyć strategii usuwania nietrwałego. Zamiast usuwać wiersz, Dodaj właściwość, aby wskazać, że została usunięta, i skonfiguruj zasady wykrywania usuwania nietrwałego dla źródła danych. Na przykład następujące zasady uważają, że wiersz jest usuwany, jeśli wiersz ma właściwość `IsDeleted` o wartości: `"true"`
+Aby wskazać, że niektóre dokumenty muszą zostać usunięte z indeksu, można użyć strategii usuwania nietrwałego. Zamiast usuwać wiersz, Dodaj właściwość, aby wskazać, że została usunięta, i skonfiguruj zasady wykrywania usuwania nietrwałego dla źródła danych. Na przykład następujące zasady uważają, że wiersz jest usuwany, jeśli wiersz ma właściwość `IsDeleted` o wartości `"true"` :
 
     PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -150,18 +150,18 @@ Aby wskazać, że niektóre dokumenty muszą zostać usunięte z indeksu, można
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 
-Domyślnie usługa Azure Wyszukiwanie poznawcze używa następującego filtra zapytania: `Timestamp >= HighWaterMarkValue`. Ponieważ tabele platformy Azure nie mają pomocniczego indeksu dla `Timestamp` tego pola, ten typ zapytania wymaga pełnego skanowania tabeli i dlatego jest wolny dla dużych tabel.
+Domyślnie usługa Azure Wyszukiwanie poznawcze używa następującego filtra zapytania: `Timestamp >= HighWaterMarkValue` . Ponieważ tabele platformy Azure nie mają pomocniczego indeksu dla `Timestamp` tego pola, ten typ zapytania wymaga pełnego skanowania tabeli i dlatego jest wolny dla dużych tabel.
 
 
 Poniżej przedstawiono dwie możliwe podejścia do usprawnienia działania indeksowania tabeli. Oba te podejścia polegają na użyciu partycji tabel: 
 
-- Jeśli dane można w naturalny sposób podzielić na kilka zakresów partycji, Utwórz źródło danych i odpowiedni indeksator dla każdego zakresu partycji. Każdy indeksator musi teraz przetwarzać tylko określony zakres partycji, co zwiększa wydajność zapytań. Jeśli dane, które muszą być indeksowane, mają niewielką liczbę stałych partycji, jeszcze lepszy: każdy indeksator wykonuje tylko skanowanie partycji. Na przykład, aby utworzyć źródło danych do przetwarzania zakresu partycji z kluczami z `000` do `100`, należy użyć zapytania w następujący sposób: 
+- Jeśli dane można w naturalny sposób podzielić na kilka zakresów partycji, Utwórz źródło danych i odpowiedni indeksator dla każdego zakresu partycji. Każdy indeksator musi teraz przetwarzać tylko określony zakres partycji, co zwiększa wydajność zapytań. Jeśli dane, które muszą być indeksowane, mają niewielką liczbę stałych partycji, jeszcze lepszy: każdy indeksator wykonuje tylko skanowanie partycji. Na przykład, aby utworzyć źródło danych do przetwarzania zakresu partycji z kluczami z `000` do `100` , należy użyć zapytania w następujący sposób: 
     ```
     "container" : { "name" : "my-table", "query" : "PartitionKey ge '000' and PartitionKey lt '100' " }
     ```
 
 - Jeśli dane są partycjonowane według czasu (na przykład można utworzyć nową partycję każdego dnia lub tygodnia), należy wziąć pod uwagę następujące podejście: 
-    - Użyj zapytania dotyczącego formularza: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
+    - Użyj zapytania dotyczącego formularza: `(PartitionKey ge <TimeStamp>) and (other filters)` . 
     - Monitoruj postęp indeksatora przy użyciu [interfejsu Get indeksatora](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status), a następnie okresowo Aktualizuj `<TimeStamp>` warunek zapytania w oparciu o ostatnią pomyślną wartość ze znakiem końca wody. 
     - W przypadku konieczności wyzwolenia kompletnego ponownego indeksowania należy zresetować zapytanie DataSource oprócz resetowania indeksatora. 
 

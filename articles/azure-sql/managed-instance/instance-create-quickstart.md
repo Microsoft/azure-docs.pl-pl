@@ -2,8 +2,8 @@
 title: 'Szybki Start: Tworzenie wystąpienia zarządzanego wystąpienia zarządzanego SQL (Portal)'
 description: Utwórz wystąpienie zarządzane, środowisko sieciowe i maszynę wirtualną klienta, aby uzyskać dostęp za pomocą Azure Portal w tym przewodniku Szybki Start.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: e00736c734b3e6f6ba6b188061ec2ffb59a5b169
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 906bcf97ad070eb8c2dfe3266bccf05db1598935
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659753"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708896"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Szybki Start: Tworzenie wystąpienia zarządzanego wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

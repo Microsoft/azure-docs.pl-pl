@@ -3,16 +3,16 @@ title: Testowanie wydajności i skalowania przy użyciu Azure Cosmos DB
 description: Dowiedz się, jak przeprowadzać testowanie skalowalności i wydajności przy użyciu Azure Cosmos DB. Następnie można oszacować funkcjonalność Azure Cosmos DB w scenariuszach aplikacji o wysokiej wydajności.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: fb510c5628913fb3fa37b572c4409aee5d1028ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4b2394f48f9bf3ec436cda92e87fd99ad915474
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76313760"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262569"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Testowanie wydajności i skalowania przy użyciu Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Najszybszym sposobem na rozpoczęcie pracy jest skompilowanie i uruchomienie prz
 
 **Krok 1:** Pobierz projekt z [przykładu Azure Cosmos DB test wydajnościowy](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)lub rozwidlenie repozytorium GitHub.
 
-**Krok 2:** Zmodyfikuj ustawienia dla EndpointUrl, AuthorizationKey, CollectionThroughput i DocumentTemplate (opcjonalnie) w pliku App. config.
+**Krok 2:** Zmodyfikuj ustawienia dla EndpointUrl, AuthorizationKey, CollectionThroughput i DocumentTemplate (opcjonalnie) w App.config.
 
 > [!NOTE]
 > Przed udostępnieniem kolekcji o wysokiej przepływności zapoznaj się ze [stroną cennika](https://azure.microsoft.com/pricing/details/cosmos-db/) , aby oszacować koszty na kolekcję. Azure Cosmos DB rozrachunkowe magazyny i przepływność niezależnie od siebie co godzinę. Możesz zaoszczędzić koszty, usuwając lub obniżając przepływność kontenerów usługi Azure Cosmos po przetestowaniu.
@@ -94,7 +94,7 @@ Najszybszym sposobem na rozpoczęcie pracy jest skompilowanie i uruchomienie prz
 Po uruchomieniu aplikacji można wypróbować różne [zasady indeksowania](index-policy.md) i [poziomy spójności](consistency-levels.md) , aby zrozumieć ich wpływ na przepływność i opóźnienia. Możesz również przejrzeć kod źródłowy i zaimplementować podobne konfiguracje do własnych zestawów testów lub aplikacji produkcyjnych.
 
 ## <a name="next-steps"></a>Następne kroki
-W tym artykule opisano, jak można przeprowadzić testowanie wydajności i skalowania za pomocą Azure Cosmos DB przy użyciu aplikacji konsolowej platformy .NET. Aby uzyskać więcej informacji zobacz następujące artykuły:
+W tym artykule opisano, jak można przeprowadzić testowanie wydajności i skalowania za pomocą Azure Cosmos DB przy użyciu aplikacji konsolowej platformy .NET. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [Przykład testowania wydajności Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [Opcje konfiguracji klienta w celu poprawy wydajności Azure Cosmos DB](performance-tips.md)

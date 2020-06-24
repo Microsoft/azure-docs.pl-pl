@@ -3,14 +3,14 @@ title: Azure Automation przegląd hybrydowego procesu roboczego elementu Runbook
 description: Ten artykuł zawiera omówienie hybrydowego procesu roboczego elementu Runbook, którego można użyć do uruchamiania elementów Runbook na maszynach w lokalnym centrum danych lub dostawcy chmury.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/05/2019
+ms.date: 06/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9305d0d6443c923c680af0d5fafc58887dadb902
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bad64d030f3a5fd6c32ab82702ecd861fe4049a4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835295"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206839"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Omówienie hybrydowych procesów roboczych elementów Runbook
 
@@ -22,14 +22,14 @@ Na poniższej ilustracji przedstawiono tę funkcję:
 
 Hybrydowy proces roboczy elementu Runbook może uruchamiać system operacyjny Windows lub Linux. Do monitorowania wymaga użycia Azure Monitor i agenta Log Analytics dla obsługiwanego systemu operacyjnego. Aby uzyskać więcej informacji, zobacz [Azure monitor](automation-runbook-execution.md#azure-monitor).
 
-Każdy hybrydowy proces roboczy elementu Runbook jest członkiem grupy hybrydowych procesów roboczych elementu Runbook, która została określona podczas instalacji agenta. Grupa może zawierać jednego agenta, ale w celu zapewnienia wysokiej dostępności można zainstalować wielu agentów w grupie. Każdy komputer może obsługiwać jedno zgłoszenie hybrydowego procesu roboczego na jedno konto usługi Automation. 
+Każdy hybrydowy proces roboczy elementu Runbook jest członkiem grupy hybrydowych procesów roboczych elementu Runbook, która została określona podczas instalacji agenta. Grupa może zawierać jednego agenta, ale w celu zapewnienia wysokiej dostępności można zainstalować wielu agentów w grupie. Każdy komputer może obsługiwać jedno zgłoszenie hybrydowego procesu roboczego na jedno konto usługi Automation.
 
 Po uruchomieniu elementu Runbook w hybrydowym procesie roboczym elementu Runbook należy określić grupę, w której ma ona działać. Każdy proces roboczy w grupie sonduje Azure Automation, aby sprawdzić, czy jakieś zadania są dostępne. Jeśli zadanie jest dostępne, pierwszy proces roboczy, aby pobrać to zadanie. Czas przetwarzania kolejki zadań zależy od profilu sprzętu hybrydowego procesu roboczego i obciążenia. Nie można określić określonego pracownika. 
 
 Użyj hybrydowego procesu roboczego elementu Runbook zamiast [piaskownicy platformy Azure](automation-runbook-execution.md#runbook-execution-environment) , ponieważ nie ma wiele [limitów](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) piaskownicy dotyczących miejsca na dysku, pamięci lub gniazd sieciowych. Limity dla hybrydowego procesu roboczego są powiązane tylko z zasobami pracownika. 
 
 > [!NOTE]
-> Hybrydowe procesy robocze elementów Runbook nie są ograniczone przez ograniczony czas [udostępniania](automation-runbook-execution.md#fair-share) dla piaskownic platformy Azure. 
+> Hybrydowe procesy robocze elementów Runbook nie są ograniczone przez ograniczony czas [udostępniania](automation-runbook-execution.md#fair-share) dla piaskownic platformy Azure.
 
 ## <a name="hybrid-runbook-worker-installation"></a>Instalacja hybrydowego procesu roboczego elementu Runbook
 
@@ -51,46 +51,15 @@ Aby hybrydowy proces roboczy elementu Runbook mógł nawiązać połączenie i z
 Następujący port i adresy URL są wymagane dla hybrydowego procesu roboczego elementu Runbook:
 
 * Port: tylko protokół TCP 443 wymagany do wychodzącego dostępu do Internetu
-* Globalny adres URL: *. azure-automation.net
-* Globalny adres URL w regionie US Gov Wirginia: *.azure-automation.us
-* Usługa agenta: https:// \< Identyfikator obszaru roboczego \> . agentsvc.Azure-Automation.NET
+* Globalny adres URL:`*.azure-automation.net`
+* Globalny adres URL US Gov Wirginia:`*.azure-automation.us`
+* Usługa agenta:`https://<workspaceId>.agentsvc.azure-automation.net`
 
-Zalecamy korzystanie z adresów wymienionych podczas definiowania [wyjątków](automation-runbook-execution.md#exceptions). W przypadku adresów IP można pobrać [zakresy adresów IP centrum danych Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Ten plik jest aktualizowany co tydzień i ma aktualnie wdrożone zakresy oraz wszystkie nadchodzące zmiany w zakresach adresów IP.
-
-### <a name="dns-records-per-region"></a>Rekordy DNS na region
-
-Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu, możesz ograniczyć komunikację hybrydowego procesu roboczego elementu Runbook do tego regionalnego centrum danych. Poniższa tabela zawiera rekord DNS dla każdego regionu.
-
-| **Okolicy** | **Rekord DNS** |
-| --- | --- |
-| Australia Środkowa |ac-jobruntimedata-prod-su1.azure-automation.net</br>ac-agentservice-prod-1.azure-automation.net |
-| Australia Wschodnia |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
-| Australia Południowo-Wschodnia |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
-| Kanada Środkowa |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| Indie Środkowe |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
-| Wschodnie stany USA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
-| Japonia Wschodnia |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
-| Europa Północna |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
-| Południowo-środkowe stany USA |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| Azja Południowo-Wschodnia |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Południowe Zjednoczone Królestwo | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| US Gov Wirginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
-| Zachodnio-środkowe stany USA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| Europa Zachodnia |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| Zachodnie stany USA 2 |wus2-jobruntimedata-prod-su1.azure-automation.net</br>wus2-agentservice-prod-1.azure-automation.net |
-
-Aby uzyskać listę adresów IP regionów zamiast nazw regionów, Pobierz plik XML [adresu IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653) z centrum pobierania Microsoft. Zaktualizowany plik adresów IP jest publikowany co tydzień. 
-
-Plik adresu IP zawiera listę zakresów adresów IP, które są używane w centrach danych Microsoft Azure. Obejmuje ona zakresy obliczeń, SQL i magazynu oraz odzwierciedla aktualnie wdrożone zakresy i wszelkie nadchodzące zmiany w zakresach adresów IP. Nowe zakresy, które pojawiają się w pliku nie są używane w centrach danych przez co najmniej jeden tydzień.
-
-Dobrym pomysłem jest pobranie nowego pliku adresów IP co tydzień. Następnie zaktualizuj swoją witrynę, aby prawidłowo identyfikować usługi działające na platformie Azure. 
-
-> [!NOTE]
-> Jeśli używasz usługi Azure ExpressRoute, pamiętaj, że plik adresów IP służy do aktualizowania anonsu Border Gateway Protocol (BGP) usługi Azure Space w pierwszym tygodniu każdego miesiąca.
+Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu, możesz ograniczyć komunikację hybrydowego procesu roboczego elementu Runbook do tego regionalnego centrum danych. Przejrzyj [rekordy DNS używane przez Azure Automation](how-to/automation-region-dns-records.md) dla wymaganych rekordów DNS.
 
 ### <a name="proxy-server-use"></a>Użycie serwera proxy
 
-Jeśli serwer proxy jest używany do komunikacji między Azure Automation a agentem Log Analytics, należy się upewnić, że dostępne są odpowiednie zasoby. Limit czasu dla żądań od hybrydowego procesu roboczego elementu Runbook i usług Automation wynosi 30 sekund. Po trzech próbach żądanie zakończy się niepowodzeniem. 
+Jeśli serwer proxy jest używany do komunikacji między Azure Automation i komputerami z agentem Log Analytics, należy się upewnić, że dostępne są odpowiednie zasoby. Limit czasu dla żądań od hybrydowego procesu roboczego elementu Runbook i usług Automation wynosi 30 sekund. Po trzech próbach żądanie zakończy się niepowodzeniem.
 
 ### <a name="firewall-use"></a>Użycie zapory
 
@@ -98,7 +67,7 @@ W przypadku używania zapory w celu ograniczenia dostępu do Internetu należy s
 
 ## <a name="update-management-on-hybrid-runbook-worker"></a>Update Management w hybrydowym procesie roboczym elementu Runbook
 
-Po włączeniu [Update Management](automation-update-management.md) Azure Automation, każdy komputer połączony z obszarem roboczym log Analytics zostanie automatycznie skonfigurowany jako hybrydowy proces roboczy elementu Runbook. Każdy proces roboczy może obsługiwać elementy Runbook, których dotyczą usługi zarządzania aktualizacjami. 
+Po włączeniu [Update Management](automation-update-management.md) Azure Automation, każdy komputer połączony z obszarem roboczym log Analytics zostanie automatycznie skonfigurowany jako hybrydowy proces roboczy elementu Runbook. Każdy proces roboczy może obsługiwać elementy Runbook, których dotyczą usługi zarządzania aktualizacjami.
 
 Komputer skonfigurowany w ten sposób nie jest zarejestrowany w przypadku żadnych grup hybrydowych procesów roboczych elementów Runbook zdefiniowanych już na koncie usługi Automation. Możesz dodać komputer do grupy hybrydowych procesów roboczych elementu Runbook, ale musisz użyć tego samego konta zarówno dla Update Management, jak i dla członkostwa w grupie hybrydowych procesów roboczych elementu Runbook. Ta funkcja została dodana do wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
 
@@ -108,9 +77,9 @@ Na początku standardowych adresów i portów wymaganych przez hybrydowy proces 
 
 |Azure — publiczna  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     | *. ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
+|`*.ods.opinsights.azure.com`     | `*.ods.opinsights.azure.us`         |
+|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
+|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation konfiguracja stanu w hybrydowym procesie roboczym elementu Runbook
 

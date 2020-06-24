@@ -6,17 +6,17 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: c30429653c024c669d273c45d12236afa8cdbb83
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a9ebee68c7abd90f5fb3345eec1ee929fc30ca20
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591509"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212313"
 ---
 # <a name="azure-synapse-analytics-workload-group-isolation"></a>Izolacja grupy obciążeń usługi Azure Synapse Analytics
 

@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
 ms.openlocfilehash: 7d361d44c349bc7a6e3c041f78d00ad66182fa15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259073"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711038"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Zarządzanie aplikacją Service Fabric platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure Service Fabric (sfctl)
 
@@ -85,7 +85,7 @@ sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app
 
 `app-name`jest nazwą, która ma być używana dla wystąpienia aplikacji. Możesz uzyskać dodatkowe parametry z wcześniej zainicjowanego manifestu aplikacji.
 
-Nazwa aplikacji musi zaczynać się od prefiksu `fabric:/`.
+Nazwa aplikacji musi zaczynać się od prefiksu `fabric:/` .
 
 ### <a name="create-services-for-the-new-application"></a>Tworzenie usług dla nowej aplikacji
 
@@ -112,7 +112,7 @@ sfctl application health --application-id TestApp
 sfctl service health --service-id TestApp/TestSvc
 ```
 
-Usługi i aplikacje w dobrej kondycji `HealthState` mają `Ok`wartość.
+Usługi i aplikacje w dobrej kondycji mają `HealthState` wartość `Ok` .
 
 ## <a name="remove-an-existing-application"></a>Usuń istniejącą aplikację
 

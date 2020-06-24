@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: c45d0a9195a719d830753a9614cfa7efb6f1c23d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 587a6c4104693e8ccf610a670064832364a166d7
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260279"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887574"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Wstępne ładowanie zasobów w punkcie końcowym usługi Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -44,7 +44,7 @@ Ten samouczek przeprowadzi Cię przez wstępne ładowanie zawartości z pamięci
     Zostanie otwarte okienko **ładowanie** .
    
     ![Okienko ładowania usługi CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
-4. W polu **ścieżka zawartości**wprowadź pełną ścieżkę do każdego zasobu, który ma zostać załadowany (na przykład `/pictures/kitten.png`).
+4. W polu **ścieżka zawartości**wprowadź pełną ścieżkę do każdego zasobu, który ma zostać załadowany (na przykład `/pictures/kitten.png` ).
    
    > [!TIP]
    > Po rozpoczęciu wprowadzania tekstu, pojawią się więcej pól tekstowych **ścieżki zawartości** , aby umożliwić tworzenie listy wielu zasobów. Aby usunąć zasoby z listy, wybierz przycisk wielokropka (...), a następnie wybierz pozycję **Usuń**.
@@ -66,7 +66,7 @@ Ten samouczek przeprowadzi Cię przez wstępne ładowanie zawartości z pamięci
 > 
 > 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Przeczyszczanie punktu końcowego Azure CDN](cdn-purge-endpoint.md)
 * [Azure CDN informacje o interfejsie API REST: Załaduj wstępnie zawartość w punkcie końcowym](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
 * [Azure CDN informacje o interfejsie API REST: Przeczyść zawartość z punktu końcowego](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)

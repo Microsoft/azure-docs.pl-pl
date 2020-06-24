@@ -2,13 +2,13 @@
 title: Pytania dotyczące odnajdywania, oceny i analizy zależności w programie Azure Migrate
 description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące odnajdywania, oceny i analizy zależności w programie Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: cec0f655a5b3c71b58e5d0622e020568bf9aee68
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.date: 06/09/2020
+ms.openlocfilehash: abcc84ae376e165eb0d677694acbd7d42a2efd8c
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447870"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079429"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Wykrywanie, Ocena i analiza zależności — typowe pytania
 
@@ -27,7 +27,7 @@ Przejrzyj obsługiwane lokalizacje geograficzne [chmur publicznych](migrate-supp
 
 ## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Ile maszyn wirtualnych można odnajdywać za pomocą urządzenia?
 
-Możesz odkryć do 10 000 maszyn wirtualnych VMware, do 5 000 maszyn wirtualnych funkcji Hyper-V, a nawet do 250 serwery fizyczne przy użyciu jednego urządzenia. Jeśli masz więcej maszyn, zapoznaj się [z tematem skalowanie oceny funkcji Hyper-V](scale-hyper-v-assessment.md), [skalowanie oceny oprogramowania VMware](scale-vmware-assessment.md)lub [skalowanie oceny serwera fizycznego](scale-physical-assessment.md).
+Możesz odkryć do 10 000 maszyn wirtualnych VMware, do 5 000 maszyn wirtualnych funkcji Hyper-V, a nawet do 1000 serwery fizyczne przy użyciu jednego urządzenia. Jeśli masz więcej maszyn, zapoznaj się [z tematem skalowanie oceny funkcji Hyper-V](scale-hyper-v-assessment.md), [skalowanie oceny oprogramowania VMware](scale-vmware-assessment.md)lub [skalowanie oceny serwera fizycznego](scale-physical-assessment.md).
 
 ## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Nie widzę niektórych typów maszyn wirtualnych w Azure Government
 
@@ -72,7 +72,7 @@ W przypadku tylko ustalania rozmiaru na podstawie wydajności Azure Migrate zbie
 1. Aby utworzyć punkt danych, urządzenie wybiera wartość szczytu ze wszystkich próbek 20-sekund.
 1. Urządzenie wysyła punkt danych do platformy Azure.
 
-### <a name="utilization"></a>Zużycie
+### <a name="utilization"></a>Wykorzystanie
 
 Po utworzeniu oceny na platformie Azure, w zależności od czasu trwania wydajności i wartości percentylu historii wydajności, która jest ustawiona, Azure Migrate oblicza wartość efektywnego wykorzystania, a następnie używa jej do ustalania rozmiarów.
 
@@ -99,7 +99,7 @@ Różnice między wizualizacją bez agenta i wizualizacją opartą na agentach z
 
 **Wymaganie** | **Bez agenta** | **Na podstawie agenta**
 --- | --- | ---
-Pomoc techniczna | Ta opcja jest obecnie w wersji zapoznawczej i jest dostępna tylko dla maszyn wirtualnych VMware. [Przejrzyj](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements) obsługiwane systemy operacyjne. | Ogólnie dostępna.
+Pomoc techniczna | Ta opcja jest obecnie w wersji zapoznawczej i jest dostępna tylko dla maszyn wirtualnych VMware. [Przejrzyj](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) obsługiwane systemy operacyjne. | Ogólnie dostępna.
 Agent | Nie trzeba instalować agentów na maszynach, które mają być sprawdzane krzyżowo. | Agenci do zainstalowania na każdej maszynie lokalnej, którą chcesz analizować: [program Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)i [Agent zależności](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 Wymagania wstępne | [Zapoznaj](concepts-dependency-visualization.md#agentless-analysis) się z wymaganiami dotyczącymi wymagań wstępnych i wdrażania. | [Zapoznaj](concepts-dependency-visualization.md#agent-based-analysis) się z wymaganiami dotyczącymi wymagań wstępnych i wdrażania.
 Log Analytics | Niewymagane. | Azure Migrate używa rozwiązania [Service map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) w [dziennikach Azure monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) na potrzeby wizualizacji zależności. [Dowiedz się więcej](concepts-dependency-visualization.md#agent-based-analysis).

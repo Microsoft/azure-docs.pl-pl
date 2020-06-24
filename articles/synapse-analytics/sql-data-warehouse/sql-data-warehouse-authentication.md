@@ -1,23 +1,23 @@
 ---
-title: Authentication
+title: Uwierzytelnianie
 description: Dowiedz się, jak uwierzytelniać się w usłudze Azure Synapse Analytics przy użyciu usługi Azure Active Directory (Azure AD) lub SQL Server Authentication.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 868130b23bc29acf0f1271f68a45f44cee98fe98
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 29709dc03ee3a06bdf2aec2587909a08ee13504e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015628"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206734"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Uwierzytelnianie w usłudze Azure Synapse Analytics
 

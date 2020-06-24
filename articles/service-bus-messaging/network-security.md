@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/10/2020
 ms.author: aschhab
-ms.openlocfilehash: 95f8c2a3b47b59bab7df909be43dacdb1f9c58f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 607afa4b8411af9b960a251d5f9d4688d3edeb10
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79479282"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686906"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Zabezpieczenia sieci dla Azure Service Bus 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Service Bus: 
@@ -37,6 +37,9 @@ Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grup
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ServiceBus** | Azure Service Bus ruch korzystający z warstwy usługi Premium. | Wychodzący | Tak | Tak |
 
+
+> [!NOTE]
+> Tagów usługi można używać tylko w przypadku przestrzeni nazw **Premium** . Jeśli używasz **standardowej** przestrzeni nazw, użyj adresu IP, który będzie widoczny podczas uruchamiania następującego polecenia: `nslookup <host name for the namespace>` . Na przykład: `nslookup contosons.servicebus.windows.net`. 
 
 ## <a name="ip-firewall"></a>Zapora IP 
 Domyślnie obszary nazw Service Bus są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .

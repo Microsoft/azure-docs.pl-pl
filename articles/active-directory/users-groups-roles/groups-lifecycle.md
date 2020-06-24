@@ -9,18 +9,18 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562b551bc8a46a45135bf6a9a8e328b4b0e74f98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 182f51a150c2ef944b0104b73c63028e915c1a4a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80048245"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84728337"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurowanie zasad wygasania dla grup pakietu Office 365
 
@@ -134,7 +134,7 @@ Poniżej przedstawiono przykłady użycia poleceń cmdlet programu PowerShell do
    Connect-AzureAD
    ```
 
-1. Skonfiguruj ustawienia wygasania za pomocą polecenia cmdlet New-AzureADMSGroupLifecyclePolicy Ustaw okres istnienia wszystkich grup pakietu Office 365 w organizacji usługi Azure AD na 365 dni. Powiadomienia o odnowieniu dla grup pakietu Office 365 bez właścicieli zostaną wysłaneemailaddress@contoso.comdo ""
+1. Skonfiguruj ustawienia wygasania za pomocą polecenia cmdlet New-AzureADMSGroupLifecyclePolicy Ustaw okres istnienia wszystkich grup pakietu Office 365 w organizacji usługi Azure AD na 365 dni. Powiadomienia o odnowieniu dla grup pakietu Office 365 bez właścicieli zostaną wysłane do " emailaddress@contoso.com "
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -144,7 +144,7 @@ Poniżej przedstawiono przykłady użycia poleceń cmdlet programu PowerShell do
 
    - Identyfikator zasad
    - Okres istnienia wszystkich grup pakietu Office 365 w organizacji usługi Azure AD jest ustawiony na 365 dni
-   - Powiadomienia o odnowieniu dla grup pakietu Office 365 bez właścicieli zostaną wysłaneemailaddress@contoso.comdo "."
+   - Powiadomienia o odnowieniu dla grup pakietu Office 365 bez właścicieli zostaną wysłane do " emailaddress@contoso.com ."
   
    ```powershell
    Get-AzureADMSGroupLifecyclePolicy

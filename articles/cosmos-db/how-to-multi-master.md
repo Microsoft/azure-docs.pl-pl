@@ -3,16 +3,16 @@ title: Jak skonfigurować wielowzorcowość w usłudze Azure Cosmos DB
 description: Dowiedz się, jak skonfigurować wiele wzorców dla aplikacji przy użyciu różnych zestawów SDK w Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.custom: tracking-python
-ms.openlocfilehash: 792b0ef3f31bfb9dd26c153d5bb0eeab6ba8baf9
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: a07ab3f65fcdeacf37626ad05d0b95ac3f4e7e64
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677988"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263672"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurowanie wielu wzorców w aplikacjach korzystających z Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Po utworzeniu konta z włączoną obsługą wielu regionów zapisu należy wprow
 > [!Note]
 > Konta Cosmos początkowo skonfigurowane z pojedynczym regionem zapisu można skonfigurować dla wielu regionów zapisu (tj. wielu wzorców) z zerem o wartości zero. Aby dowiedzieć się więcej, zobacz [Konfigurowanie regionów wielokrotnego zapisu](how-to-manage-database-account.md#configure-multiple-write-regions)
 
-## <a name="net-sdk-v2"></a><a id="netv2"></a>Zestaw .NET SDK w wersji 2
+## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK 2
 
 Aby włączyć wiele wzorców w aplikacji, ustaw wartość `UseMultipleWriteLocations` `true` . Ponadto ustaw `SetCurrentLocation` do regionu, w którym aplikacja jest wdrażana i gdzie Azure Cosmos DB jest replikowana:
 

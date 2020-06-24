@@ -5,17 +5,17 @@ description: Jak zaimportować dane do Azure Machine Learning Studio (klasyczneg
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 10ff7b4f031934f2f7432e53efc3031272574d0e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: bf8d869582031d5bfa627edabac6a231e9cf8a74
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195323"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711140"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importowanie danych szkoleniowych do Azure Machine Learning Studio (klasyczne) z różnych źródeł danych
 
@@ -44,7 +44,7 @@ W dowolnym momencie eksperymentu możesz wyświetlić lub pobrać dane, które s
 Możesz zaimportować wiele typów danych do eksperymentu, w zależności od tego, jaki mechanizm służy do importowania danych i skąd pochodzą z:
 
 * Zwykły tekst (. txt)
-* Wartości rozdzielane przecinkami (CSV) z nagłówkiem (CSV) lub bez (. NH. csv)
+* Wartości rozdzielane przecinkami (CSV) z nagłówkiem (CSV) lub bez (.nh.csv)
 * Wartości rozdzielane tabulatorami (TSV) z nagłówkiem (. tsv) lub bez (. NH. tsv)
 * Plik programu Excel
 * Tabela platformy Azure
@@ -64,7 +64,7 @@ Można jawnie określić lub zmienić nagłówki i typy danych dla kolumn za pom
 
 Następujące typy danych są rozpoznawane przez program Studio (klasyczny):
 
-* String (ciąg)
+* Ciąg
 * Liczba całkowita
 * Double
 * Boolean (wartość logiczna)

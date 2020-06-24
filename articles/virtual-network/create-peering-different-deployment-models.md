@@ -4,24 +4,24 @@ description: Dowiedz się, jak utworzyć komunikację równorzędną sieci wirtu
 services: virtual-network
 documentationcenter: ''
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 61df13e78dc7115d4f4d45ab18b9ffdae107dc96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 318e51f12653b5cbe6bd47b9c48a57d72286a4a7
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77023263"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710052"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — różne modele wdrażania, ta sama subskrypcja
 
@@ -110,7 +110,7 @@ Wykonaj następujące kroki, korzystając z klasycznego interfejsu wiersza polec
      --address-prefix 10.0.0.0/16
    ```
 
-5. Utwórz komunikację równorzędną sieci wirtualnej między dwiema sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania przy użyciu interfejsu wiersza polecenia. Skopiuj następujący skrypt do edytora tekstu na komputerze. Zamień `<subscription id>` na identyfikator subskrypcji. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `az account show` polecenie. Wartość **identyfikatora** w danych wyjściowych to identyfikator subskrypcji. Wklej zmodyfikowany skrypt w sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter`.
+5. Utwórz komunikację równorzędną sieci wirtualnej między dwiema sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania przy użyciu interfejsu wiersza polecenia. Skopiuj następujący skrypt do edytora tekstu na komputerze. Zamień `<subscription id>` na identyfikator subskrypcji. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `az account show` polecenie. Wartość **identyfikatora** w danych wyjściowych to identyfikator subskrypcji. Wklej zmodyfikowany skrypt w sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter` .
 
    ```azurecli-interactive
    # Get the ID for VNet1.
@@ -128,7 +128,7 @@ Wykonaj następujące kroki, korzystając z klasycznego interfejsu wiersza polec
      --allow-vnet-access
    ```
 
-6. Po wykonaniu skryptu Przejrzyj komunikację równorzędną dla sieci wirtualnej (Menedżer zasobów). Skopiuj następujące polecenie, wklej je w sesji interfejsu wiersza polecenia, a następnie naciśnij `Enter`klawisz:
+6. Po wykonaniu skryptu Przejrzyj komunikację równorzędną dla sieci wirtualnej (Menedżer zasobów). Skopiuj następujące polecenie, wklej je w sesji interfejsu wiersza polecenia, a następnie naciśnij klawisz `Enter` :
 
    ```azurecli-interactive
    az network vnet peering list \
@@ -166,7 +166,7 @@ Wykonaj następujące kroki, korzystając z klasycznego interfejsu wiersza polec
     > [!WARNING]
     > Zaimportowanie zmienionego pliku konfiguracji sieci może spowodować zmianę istniejących sieci wirtualnych (klasycznych) w Twojej subskrypcji. Upewnij się, że dodano tylko poprzednią sieć wirtualną, ale nie wszystkie istniejące sieci wirtualne nie są zmieniane ani usuwane z subskrypcji.
 5. Zaloguj się do platformy Azure, aby utworzyć sieć wirtualną (Menedżer zasobów), wprowadzając `Connect-AzAccount` polecenie. Konto, za pomocą którego logujesz się, musi mieć uprawnienia niezbędne do utworzenia komunikacji równorzędnej sieci wirtualnej. Listę uprawnień można znaleźć w temacie [uprawnienia komunikacji równorzędnej sieci wirtualnych](virtual-network-manage-peering.md#requirements-and-constraints).
-6. Utwórz grupę zasobów i sieć wirtualną (Menedżer zasobów). Skopiuj skrypt, wklej go do programu PowerShell, a następnie naciśnij `Enter`klawisz.
+6. Utwórz grupę zasobów i sieć wirtualną (Menedżer zasobów). Skopiuj skrypt, wklej go do programu PowerShell, a następnie naciśnij klawisz `Enter` .
 
     ```powershell
     # Create a resource group.
@@ -180,7 +180,7 @@ Wykonaj następujące kroki, korzystając z klasycznego interfejsu wiersza polec
       -Location eastus
     ```
 
-7. Utwórz komunikację równorzędną sieci wirtualnej między dwiema sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania. Skopiuj następujący skrypt do edytora tekstu na komputerze. Zamień `<subscription id>` na identyfikator subskrypcji. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `Get-AzSubscription` polecenie, aby je wyświetlić. Wartość **identyfikatora** w zwracanym wyniku to identyfikator subskrypcji. Aby wykonać skrypt, skopiuj zmodyfikowany skrypt z edytora tekstów, a następnie kliknij prawym przyciskiem myszy sesję programu PowerShell, a następnie naciśnij klawisz `Enter`.
+7. Utwórz komunikację równorzędną sieci wirtualnej między dwiema sieciami wirtualnymi utworzonymi za pomocą różnych modeli wdrażania. Skopiuj następujący skrypt do edytora tekstu na komputerze. Zamień `<subscription id>` na identyfikator subskrypcji. Jeśli nie znasz identyfikatora subskrypcji, wprowadź `Get-AzSubscription` polecenie, aby je wyświetlić. Wartość **identyfikatora** w zwracanym wyniku to identyfikator subskrypcji. Aby wykonać skrypt, skopiuj zmodyfikowany skrypt z edytora tekstów, a następnie kliknij prawym przyciskiem myszy sesję programu PowerShell, a następnie naciśnij klawisz `Enter` .
 
     ```powershell
     # Peer VNet1 to VNet2.
@@ -190,7 +190,7 @@ Wykonaj następujące kroki, korzystając z klasycznego interfejsu wiersza polec
       -RemoteVirtualNetworkId /subscriptions/<subscription Id>/resourceGroups/Default-Networking/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnet2
     ```
 
-8. Po wykonaniu skryptu Przejrzyj komunikację równorzędną dla sieci wirtualnej (Menedżer zasobów). Skopiuj następujące polecenie, wklej je w sesji programu PowerShell, a następnie naciśnij klawisz `Enter`:
+8. Po wykonaniu skryptu Przejrzyj komunikację równorzędną dla sieci wirtualnej (Menedżer zasobów). Skopiuj następujące polecenie, wklej je w sesji programu PowerShell, a następnie naciśnij klawisz `Enter` :
 
     ```powershell
     Get-AzVirtualNetworkPeering `
@@ -232,7 +232,7 @@ Po zakończeniu tego samouczka możesz chcieć usunąć zasoby utworzone w samou
     azure network vnet delete --vnet myVnet2 --quiet
     ```
 
-### <a name="powershell"></a><a name="delete-powershell"></a>Narzędzia
+### <a name="powershell"></a><a name="delete-powershell"></a>PowerShell
 
 1. Wprowadź następujące polecenie, aby usunąć sieć wirtualną (Menedżer zasobów):
 

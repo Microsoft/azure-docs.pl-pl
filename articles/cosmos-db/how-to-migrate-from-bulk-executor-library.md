@@ -3,15 +3,15 @@ title: Migrowanie z biblioteki wykonawców zbiorczych do pomocy technicznej zbio
 description: Dowiedz się, jak przeprowadzić migrację aplikacji z korzystania z biblioteki wykonawców zbiorczych do pomocy technicznej zbiorczej w zestawie Azure Cosmos DB SDK v3
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: d63b34c118cd719f73abbd6711dcb3ef02a6fb28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f204b6d73f121b8f05c807d6be47c36c006f607
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146305"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261430"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrowanie z biblioteki wykonawców zbiorczych do pomocy technicznej zbiorczej w Azure Cosmos DB .NET v3 SDK
 
@@ -19,7 +19,7 @@ W tym artykule opisano czynności wymagane do przeprowadzenia migracji kodu istn
 
 ## <a name="enable-bulk-support"></a>Włącz obsługę zbiorczą
 
-Włącz obsługę zbiorczą dla `CosmosClient` tego wystąpienia za pomocą konfiguracji [AllowBulkExecution](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) :
+Włącz obsługę zbiorczą dla tego `CosmosClient` wystąpienia za pomocą konfiguracji [AllowBulkExecution](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) :
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Initialization":::
 
@@ -33,7 +33,7 @@ Na przykład, jeśli początkowe dane wejściowe to lista elementów, w których
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Model":::
 
-Jeśli chcesz przeprowadzić import zbiorczy (podobnie jak w przypadku korzystania z programu BulkExecutor. BulkImportAsync), musisz mieć współbieżne `CreateItemAsync`wywołania do. Przykład:
+Jeśli chcesz przeprowadzić import zbiorczy (podobnie jak w przypadku korzystania z programu BulkExecutor. BulkImportAsync), musisz mieć współbieżne wywołania do `CreateItemAsync` . Przykład:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
@@ -41,7 +41,7 @@ Jeśli chcesz przeprowadzić *aktualizację* zbiorczą (podobną do korzystania 
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-A jeśli chcesz przeprowadzić *usuwanie* zbiorcze (podobnie jak w przypadku korzystania z programu [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), musisz mieć współbieżne `DeleteItemAsync`wywołania do, `id` z kluczem partycji i dla każdego elementu. Przykład:
+A jeśli chcesz przeprowadzić *usuwanie* zbiorcze (podobnie jak w przypadku korzystania z programu [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)), musisz mieć współbieżne wywołania do `DeleteItemAsync` , z `id` kluczem partycji i dla każdego elementu. Przykład:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
@@ -61,7 +61,7 @@ Aby śledzić zakres całej listy zadań, używamy tej klasy pomocnika:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkOperationsHelper":::
 
-`ExecuteAsync` Metoda będzie czekać do momentu zakończenia wszystkich operacji i będzie można jej użyć w następujący sposób:
+`ExecuteAsync`Metoda będzie czekać do momentu zakończenia wszystkich operacji i będzie można jej użyć w następujący sposób:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="WhenAll":::
 
@@ -71,7 +71,7 @@ Poprzedni kod czeka, aż wszystkie operacje zostaną zakończone i obliczy wymag
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="ResponseType":::
 
-`BulkOperationResponse` Zawiera:
+`BulkOperationResponse`Zawiera:
 
 1. Łączny czas potrzebny do przetworzenia listy operacji za pomocą obsługi zbiorczej.
 1. Liczba operacji zakończonych powodzeniem.
@@ -80,18 +80,18 @@ Poprzedni kod czeka, aż wszystkie operacje zostaną zakończone i obliczy wymag
 
 ## <a name="retry-configuration"></a>Ponów konfigurację
 
-Biblioteka wykonawców zbiorczych ma [wskazówki](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) , które wymieniono `MaxRetryAttemptsOnThrottledRequests` w celu ustawienia `0` `MaxRetryWaitTimeInSeconds` i [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) do delegowania kontroli do biblioteki.
+Biblioteka wykonawców zbiorczych ma [wskazówki](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) , które wymieniono w celu ustawienia `MaxRetryWaitTimeInSeconds` i `MaxRetryAttemptsOnThrottledRequests` [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) do `0` delegowania kontroli do biblioteki.
 
 Aby uzyskać obsługę zbiorczą w zestawie SDK platformy .NET, nie ma żadnych ukrytych zachowań. Opcje ponowień można skonfigurować bezpośrednio za pomocą [CosmosClientOptions. MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) i [CosmosClientOptions. MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
 
 > [!NOTE]
 > W przypadkach, gdy jednostki żądania aprowizacji są znacznie mniejsze niż oczekiwane na podstawie ilości danych, warto rozważyć ustawienie wartości górnych. Operacja zbiorcza zajmie więcej czasu, ale ma wyższą szansę na całkowite sukcesy z powodu wyższych ponownych prób.
 
-## <a name="performance-improvements"></a>Ulepszenia wydajności
+## <a name="performance-improvements"></a>Usprawnienia wydajności
 
 Podobnie jak w przypadku innych operacji przy użyciu zestawu .NET SDK, korzystanie z interfejsów API usługi Stream skutkuje lepszą wydajnością i pozwala uniknąć niepotrzebnej serializacji. 
 
-Używanie interfejsów API usługi Stream jest możliwe tylko wtedy, gdy charakter używanych danych pasuje do strumienia bajtów (na przykład strumieni plików). W takich przypadkach użycie `CreateItemStreamAsync`metod, `ReplaceItemStreamAsync`, lub `DeleteItemStreamAsync` i praca z `ResponseMessage` (zamiast `ItemResponse`) zwiększa przepływność, która może zostać osiągnięta.
+Używanie interfejsów API usługi Stream jest możliwe tylko wtedy, gdy charakter używanych danych pasuje do strumienia bajtów (na przykład strumieni plików). W takich przypadkach użycie `CreateItemStreamAsync` `ReplaceItemStreamAsync` metod,, lub `DeleteItemStreamAsync` i praca z `ResponseMessage` (zamiast `ItemResponse` ) zwiększa przepływność, która może zostać osiągnięta.
 
 ## <a name="next-steps"></a>Następne kroki
 

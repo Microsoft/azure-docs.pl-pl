@@ -1,5 +1,5 @@
 ---
-title: Zakończenie powiadomienia o wystąpieniach zestawu skalowania maszyn wirtualnych platformy Azure
+title: Powiadomienie o przerwaniu dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
 description: Dowiedz się, jak włączyć powiadomienia o zakończeniu dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
 author: avirishuv
 ms.author: avverma
@@ -9,14 +9,14 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 695fd03d7c1856ad39b7672d826f85bc4c68a99c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125183"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207519"
 ---
-# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Zakończenie powiadomienia o wystąpieniach zestawu skalowania maszyn wirtualnych platformy Azure
+# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Powiadomienie o przerwaniu dla wystąpień zestawu skalowania maszyn wirtualnych platformy Azure
 Wystąpienia zestawu skalowania mogą zrezygnować z otrzymywania powiadomień o zakończeniu wystąpienia i ustawiać wstępnie zdefiniowany limit czasu opóźnienia dla operacji przerywania. Powiadomienie o wygaśnięciu jest wysyłane za pomocą usługi Azure Metadata Service — [Scheduled Events](../virtual-machines/windows/scheduled-events.md), która zapewnia powiadomienia i opóźniać wpływ na operacje, takie jak ponowny rozruch i ponowne wdrażanie. Rozwiązanie dodaje kolejne zdarzenie — Zakończ — do listy Scheduled Events, a skojarzone opóźnienie zdarzenia zakończenia będzie zależeć od limitu opóźnienia określonego przez użytkowników w konfiguracjach modelu zestawu skalowania.
 
 Po zarejestrowaniu w funkcji wystąpienia zestawu skalowania nie muszą czekać, aż określony limit czasu wygaśnie, zanim wystąpienie zostanie usunięte. Po otrzymaniu powiadomienia o przerwaniu wystąpienie może zostać usunięte w dowolnym momencie przed upływem limitu czasu zakończenia.
@@ -178,7 +178,7 @@ Poniżej znajduje się kod JSON oczekiwany w treści żądania POST. Żądanie p
 
 Upewnij się, że każda maszyna wirtualna w zestawie skalowania zatwierdza tylko EventID odpowiednie dla tej maszyny wirtualnej. Maszyna wirtualna może uzyskać własną nazwę maszyny wirtualnej [za pomocą metadanych wystąpienia](virtual-machine-scale-sets-instance-ids.md#instance-metadata-vm-name). Ta nazwa przyjmuje postać "{Scale-Set-Name} _ {instance-ID}" i zostanie wyświetlona w sekcji "Resources" odpowiedzi zapytania opisanej powyżej.
 
-Możesz również zapoznać się z przykładowymi skryptami służącymi do wykonywania zapytań i reagowania na zdarzenia przy użyciu [programu PowerShell](../virtual-machines/windows/scheduled-events.md#powershell-sample) i języka [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
+Możesz również zapoznać się z przykładowymi skryptami służącymi do wykonywania zapytań i reagowania na zdarzenia w języku [Python](../virtual-machines/linux/scheduled-events.md#python-sample).
 
 ## <a name="tips-and-best-practices"></a>Wskazówki i najlepsze rozwiązania
 -   Przerywaj powiadomienia tylko w operacjach "Delete" — wszystkie operacje usuwania (skalowanie ręczne lub automatyczne skalowanie zainicjowane) będą generować zdarzenia przerwania, jeśli zestaw skalowania ma włączone *scheduledEventsProfile* . Inne operacje, takie jak ponowne uruchamianie, odtwarzanie obrazu, ponowne wdrażanie i zatrzymywanie/cofanie alokacji nie generują zdarzeń zakończenia. Nie można włączyć powiadomień o przerwaniu dla maszyn wirtualnych o niskim priorytecie.

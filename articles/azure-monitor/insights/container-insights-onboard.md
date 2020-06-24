@@ -2,13 +2,13 @@
 title: Jak włączyć Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób włączania i konfigurowania Azure Monitor dla kontenerów, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: 0348d580a42d4a522ac05f929c96547a47e831a9
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 06/15/2020
+ms.openlocfilehash: a765c601682eb594d40ba98b8b4ef1853f35fb37
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147906"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886013"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Jak włączyć Azure Monitor dla kontenerów
 
@@ -24,6 +24,8 @@ Ten artykuł zawiera omówienie opcji dostępnych w celu skonfigurowania Azure M
 
 - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) w wersji 4. x
 
+- [Kubernetes klaster z włączonym łukiem](../../azure-arc/kubernetes/overview.md)
+
 Azure Monitor dla kontenerów można włączyć dla nowych lub jednego lub kilku istniejących wdrożeń Kubernetes przy użyciu następujących obsługiwanych metod:
 
 - Z Azure Portal, Azure PowerShell lub z interfejsem wiersza polecenia platformy Azure
@@ -38,17 +40,17 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 
 - **Obszar roboczy usługi Log Analytics.**
 
-    Azure Monitor dla kontenerów obsługuje obszar roboczy Log Analytics w regionach wymienionych w produktach platformy Azure [według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
+   Azure Monitor dla kontenerów obsługuje obszar roboczy Log Analytics w regionach wymienionych w produktach platformy Azure [według regionów](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
 
-    Można utworzyć obszar roboczy po włączeniu monitorowania nowego klastra usługi AKS lub umożliwieniu funkcji dołączania tworzenie domyślnego obszaru roboczego w domyślnej grupie zasobów subskrypcji klastra AKS. Jeśli wybrano opcję utworzenia jej samodzielnie, można ją utworzyć za pomocą [Azure Resource Manager](../platform/template-workspace-configuration.md), za pomocą [programu PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)lub [Azure Portal](../learn/quick-create-workspace.md). Aby uzyskać listę obsługiwanych par mapowania używanych dla domyślnego obszaru roboczego, zobacz [Mapowanie regionów dla Azure monitor kontenerów](container-insights-region-mapping.md).
+   Można utworzyć obszar roboczy po włączeniu monitorowania nowego klastra usługi AKS lub umożliwieniu funkcji dołączania tworzenie domyślnego obszaru roboczego w domyślnej grupie zasobów subskrypcji klastra AKS. Jeśli wybrano opcję utworzenia jej samodzielnie, można ją utworzyć za pomocą [Azure Resource Manager](../platform/template-workspace-configuration.md), za pomocą [programu PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)lub [Azure Portal](../learn/quick-create-workspace.md). Aby uzyskać listę obsługiwanych par mapowania używanych dla domyślnego obszaru roboczego, zobacz [Mapowanie regionów dla Azure monitor kontenerów](container-insights-region-mapping.md).
 
 - Musisz być członkiem **roli współautor log Analytics** , aby umożliwić monitorowanie kontenerów. Aby uzyskać więcej informacji na temat kontrolowania dostępu do obszaru roboczego Log Analytics, zobacz [Zarządzanie obszarami roboczymi](../platform/manage-access.md).
 
 - Jesteś członkiem roli **[właściciela](../../role-based-access-control/built-in-roles.md#owner)** w zasobie klastra AKS.
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+   [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-* Metryki Prometheus nie są domyślnie zbierane. Przed [skonfigurowaniem agenta](container-insights-prometheus-integration.md) do zbierania danych należy zapoznać się z [dokumentacją](https://prometheus.io/) Prometheus, aby zrozumieć, jakie mogą być odpadków i obsługiwane metody.
+- Metryki Prometheus nie są domyślnie zbierane. Przed [skonfigurowaniem agenta](container-insights-prometheus-integration.md) do zbierania danych należy zapoznać się z [dokumentacją](https://prometheus.io/) Prometheus, aby zrozumieć, jakie mogą być odpadków i obsługiwane metody.
 
 ## <a name="supported-configurations"></a>Obsługiwane konfiguracje
 
@@ -63,27 +65,27 @@ Informacje w poniższej tabeli zawierają informacje o konfiguracji serwera prox
 
 |Zasób agenta|Porty |
 |--------------|------|
-| *.ods.opinsights.azure.com | 443 |  
-| *.oms.opinsights.azure.com | 443 |
-| dc.services.visualstudio.com | 443 |
-| *. monitoring.azure.com | 443 |
-| login.microsoftonline.com | 443 |
+| `*.ods.opinsights.azure.com` | 443 |  
+| `*.oms.opinsights.azure.com` | 443 |
+| `dc.services.visualstudio.com` | 443 |
+| `*.monitoring.azure.com` | 443 |
+| `login.microsoftonline.com` | 443 |
 
-W poniższej tabeli przedstawiono informacje o konfiguracji serwera proxy i zapory dla Chin platformy Azure.
+W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory dla platformy Azure w Chinach.
 
 |Zasób agenta|Porty |Opis | 
 |--------------|------|-------------|
-| *. ods.opinsights.azure.cn | 443 | Wprowadzanie danych |
-| *. oms.opinsights.azure.cn | 443 | Przechodzenie do pakietu OMS |
-| dc.services.visualstudio.com | 443 | Dla programu na potrzeby telemetrii agenta przy użyciu publicznej chmury Application Insights platformy Azure. |
+| `*.ods.opinsights.azure.cn` | 443 | Wprowadzanie danych |
+| `*.oms.opinsights.azure.cn` | 443 | Przechodzenie do pakietu OMS |
+| `dc.services.visualstudio.com` | 443 | Dla programu na potrzeby telemetrii agenta przy użyciu publicznej chmury Application Insights platformy Azure. |
 
 Informacje w poniższej tabeli zawierają informacje o konfiguracji serwera proxy i zapory dla instytucji rządowych USA platformy Azure.
 
 |Zasób agenta|Porty |Opis | 
 |--------------|------|-------------|
-| *. ods.opinsights.azure.us | 443 | Wprowadzanie danych |
-| *. oms.opinsights.azure.us | 443 | Przechodzenie do pakietu OMS |
-| dc.services.visualstudio.com | 443 | W przypadku telemetrii agenta przy użyciu Application Insights publicznej chmury platformy Azure. |
+| `*.ods.opinsights.azure.us` | 443 | Wprowadzanie danych |
+| `*.oms.opinsights.azure.us` | 443 | Przechodzenie do pakietu OMS |
+| `dc.services.visualstudio.com` | 443 | W przypadku telemetrii agenta przy użyciu Application Insights publicznej chmury platformy Azure. |
 
 ## <a name="components"></a>Składniki
 
@@ -103,16 +105,17 @@ Azure Monitor dla kontenerów można włączyć za pomocą jednej z następując
 
 | Stan wdrożenia | Metoda | Opis |
 |------------------|--------|-------------|
-| Nowy klaster AKS Kubernetes | [Tworzenie klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Można włączyć monitorowanie nowego klastra AKS utworzonego za pomocą interfejsu wiersza polecenia platformy Azure. |
+| Nowy klaster Kubernetes | [Tworzenie klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Można włączyć monitorowanie nowego klastra AKS utworzonego za pomocą interfejsu wiersza polecenia platformy Azure. |
 | | [Tworzenie klastra AKS przy użyciu Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Można włączyć monitorowanie nowego klastra AKS utworzonego za pomocą narzędzia typu open source Terraform. |
 | | [Tworzenie klastra OpenShift przy użyciu szablonu Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-for-a-new-cluster-using-an-azure-resource-manager-template) | Można włączyć monitorowanie nowego klastra OpenShift utworzonego przy użyciu wstępnie skonfigurowanego szablonu Azure Resource Manager. |
 | | [Tworzenie klastra OpenShift przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create) | Monitorowanie można włączyć podczas wdrażania nowego klastra OpenShift przy użyciu interfejsu wiersza polecenia platformy Azure. |
-| Istniejący klaster AKS Kubernetes | [Włącz dla klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Możesz włączyć monitorowanie klastra AKS już wdrożonego za pomocą interfejsu wiersza polecenia platformy Azure. |
+| Istniejący klaster Kubernetes | [Włącz dla klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure](container-insights-enable-existing-clusters.md#enable-using-azure-cli) | Możesz włączyć monitorowanie klastra AKS już wdrożonego za pomocą interfejsu wiersza polecenia platformy Azure. |
 | |[Włącz dla klastra AKS przy użyciu Terraform](container-insights-enable-existing-clusters.md#enable-using-terraform) | Można włączyć monitorowanie klastra AKS już wdrożonego za pomocą narzędzia typu "open source" Terraform. |
 | | [Włącz dla klastra AKS z Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Można włączyć monitorowanie jednego lub więcej klastrów AKS już wdrożonych na stronie wielu klastrów w Azure Monitor. |
 | | [Włącz z klastra AKS](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| Monitorowanie można włączyć bezpośrednio z klastra AKS w Azure Portal. |
 | | [Włącz dla klastra AKS przy użyciu szablonu Azure Resource Manager](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| Można włączyć monitorowanie klastra AKS przy użyciu wstępnie skonfigurowanego szablonu Azure Resource Manager. |
 | | [Włącz dla hybrydowego klastra Kubernetes](container-insights-hybrid-setup.md) | Można włączyć monitorowanie aparatu AKS hostowanego w Azure Stack lub dla Kubernetes hostowanego lokalnie. |
+| | [Włącz dla klastra Kubernetes z włączonym łukiem](container-insights-enable-arc-enabled-clusters.md). | Możesz włączyć monitorowanie klastrów Kubernetes hostowanych poza platformą Azure, które są włączone przy użyciu usługi Azure Arc. |
 | | [Włącz dla klastra OpenShift przy użyciu szablonu Azure Resource Manager](container-insights-azure-redhat-setup.md#enable-using-an-azure-resource-manager-template) | Można włączyć monitorowanie istniejącego klastra OpenShift przy użyciu wstępnie skonfigurowanego szablonu Azure Resource Manager. |
 | | [Włącz dla klastra OpenShift z Azure Monitor](container-insights-azure-redhat-setup.md#from-the-azure-portal) | Można włączyć monitorowanie jednego lub więcej klastrów OpenShift już wdrożonych na stronie wielu klastrów w Azure Monitor. |
 

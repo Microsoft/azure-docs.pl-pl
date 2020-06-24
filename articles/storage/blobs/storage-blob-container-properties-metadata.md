@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: d6923ab3a2344c8496f314e2f7a23b536a534bca
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 17d135e9b250ba111cf2bd1a91a91d146221d69d
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457035"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816645"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Zarządzanie właściwościami kontenera i metadanymi przy użyciu platformy .NET
 
@@ -128,8 +128,8 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Operacja pobrania właściwości kontenera](/rest/api/storageservices/get-container-properties)
 - [Operacja ustawiania metadanych kontenera](/rest/api/storageservices/set-container-metadata)
-- [Operacja pobierania metadanych kontenera](/rest/api/storageservices/set-container-metadata)
+- [Operacja pobierania metadanych kontenera](/rest/api/storageservices/get-container-metadata)

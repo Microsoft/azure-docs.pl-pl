@@ -4,23 +4,23 @@ description: Jak używać usługi log Analytics z funkcją diagnostyki pulpitu w
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 05bb7274fe598df45ce14bfc89b606aec3f869c9
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: beb48b90afd54b044eb6d0ceaff32b53ebfcdc34
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615541"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205972"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Użyj Log Analytics dla funkcji diagnostyki
 
 >[!IMPORTANT]
 >Ta zawartość dotyczy wersji 2019, która nie Azure Resource Manager obsługuje obiektów pulpitu wirtualnego systemu Windows. Jeśli próbujesz zarządzać Azure Resource Manager obiektami pulpitu wirtualnego systemu Windows wprowadzonymi w ramach aktualizacji wiosną 2020, zobacz [ten artykuł](../diagnostics-log-analytics.md).
 
-Pulpit wirtualny systemu Windows oferuje funkcję diagnostyki, która umożliwia administratorowi identyfikowanie problemów za pomocą jednego interfejsu. Ta funkcja rejestruje informacje diagnostyczne za każdym razem, gdy ktoś przypisany do roli pulpitu wirtualnego systemu Windows używa usługi. Każdy dziennik zawiera informacje o tym, które role pulpitu wirtualnego systemu Windows dotyczyły działania, wszystkich komunikatów o błędach, które pojawiają się podczas sesji, informacje o dzierżawie i informacje o użytkowniku. Funkcja diagnostyki tworzy dzienniki aktywności zarówno dla użytkownika, jak i akcji administracyjnych. Każdy dziennik aktywności znajduje się poniżej trzech głównych kategorii: 
+Pulpit wirtualny systemu Windows oferuje funkcję diagnostyki, która umożliwia administratorowi identyfikowanie problemów za pomocą jednego interfejsu. Ta funkcja rejestruje informacje diagnostyczne za każdym razem, gdy ktoś przypisany do roli pulpitu wirtualnego systemu Windows używa usługi. Każdy dziennik zawiera informacje o tym, które role pulpitu wirtualnego systemu Windows dotyczyły działania, wszystkich komunikatów o błędach, które pojawiają się podczas sesji, informacje o dzierżawie i informacje o użytkowniku. Funkcja diagnostyki tworzy dzienniki aktywności zarówno dla użytkownika, jak i akcji administracyjnych. Każdy dziennik aktywności znajduje się poniżej trzech głównych kategorii:
 
 - Działania subskrypcji kanału informacyjnego: gdy użytkownik próbuje nawiązać połączenie ze źródłem danych za pomocą aplikacji Pulpit zdalny Microsoft.
 - Działania połączenia: Kiedy użytkownik próbuje nawiązać połączenie z pulpitem lub funkcją RemoteApp za pomocą aplikacji Pulpit zdalny Microsoft.
@@ -36,37 +36,37 @@ Zalecamy używanie Log Analytics do analizowania danych diagnostycznych w klienc
 
 Aby można było używać Log Analytics z funkcją diagnostyki, należy [utworzyć obszar roboczy](../../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace).
 
-Po utworzeniu obszaru roboczego postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem Windows, aby Azure monitor](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) uzyskać następujące informacje: 
+Po utworzeniu obszaru roboczego postępuj zgodnie z instrukcjami w temacie [łączenie komputerów z systemem Windows, aby Azure monitor](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) uzyskać następujące informacje:
 
 - Identyfikator obszaru roboczego
 - Klucz podstawowy obszaru roboczego
 
 Te informacje będą potrzebne później w procesie instalacji.
 
-## <a name="push-diagnostics-data-to-your-workspace"></a>Wypychanie danych diagnostycznych do obszaru roboczego 
+## <a name="push-diagnostics-data-to-your-workspace"></a>Wypychanie danych diagnostycznych do obszaru roboczego
 
 Możesz wypchnąć dane diagnostyczne z dzierżawy pulpitu wirtualnego systemu Windows do Log Analytics obszaru roboczego. Tę funkcję można skonfigurować od razu w momencie utworzenia dzierżawy przez połączenie obszaru roboczego z dzierżawcą lub można skonfigurować go później przy użyciu istniejącej dzierżawy.
 
-Aby połączyć dzierżawcę z obszarem roboczym Log Analytics podczas konfigurowania nowej dzierżawy, uruchom następujące polecenie cmdlet, aby zalogować się do pulpitu wirtualnego systemu Windows przy użyciu konta użytkownika TenantCreator: 
+Aby połączyć dzierżawcę z obszarem roboczym Log Analytics podczas konfigurowania nowej dzierżawy, uruchom następujące polecenie cmdlet, aby zalogować się do pulpitu wirtualnego systemu Windows przy użyciu konta użytkownika TenantCreator:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com 
+Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
 ```
 
-Jeśli chcesz połączyć istniejącą dzierżawę zamiast nowej dzierżawy, Uruchom to polecenie cmdlet w zamian: 
+Jeśli chcesz połączyć istniejącą dzierżawę zamiast nowej dzierżawy, Uruchom to polecenie cmdlet w zamian:
 
 ```powershell
-Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
+Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String>
 ```
 
-Należy uruchomić te polecenia cmdlet dla każdej dzierżawy, do której chcesz połączyć Log Analytics. 
+Należy uruchomić te polecenia cmdlet dla każdej dzierżawy, do której chcesz połączyć Log Analytics.
 
 >[!NOTE]
->Jeśli nie chcesz połączyć obszaru roboczego Log Analytics podczas tworzenia dzierżawy, uruchom `New-RdsTenant` polecenie cmdlet zamiast tego. 
+>Jeśli nie chcesz połączyć obszaru roboczego Log Analytics podczas tworzenia dzierżawy, uruchom `New-RdsTenant` polecenie cmdlet zamiast tego.
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>Erze do wysyłania zdarzeń diagnostycznych
 
-Zdarzenia diagnostyczne są wysyłane do Log Analytics po zakończeniu.  
+Zdarzenia diagnostyczne są wysyłane do Log Analytics po zakończeniu.
 
 ## <a name="example-queries"></a>Przykładowe zapytania
 
@@ -75,65 +75,65 @@ Poniższe przykładowe zapytania pokazują, jak funkcja diagnostyki generuje rap
 W pierwszym przykładzie przedstawiono działania połączenia zainicjowane przez użytkowników z obsługiwanymi klientami pulpitu zdalnego:
 
 ```powershell
-WVDActivityV1_CL 
+WVDActivityV1_CL
 
-| where Type_s == "Connection" 
+| where Type_s == "Connection"
 
-| join kind=leftouter ( 
+| join kind=leftouter (
 
-    WVDErrorV1_CL 
+    WVDErrorV1_CL
 
-    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g 
+    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g   
+    ) on $left.Id_g  == $right.ActivityId_g 
 
-| join  kind=leftouter (  
+| join  kind=leftouter (
 
-    WVDCheckpointV1_CL 
+    WVDCheckpointV1_CL
 
-    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g 
+    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g  
+    ) on $left.Id_g  == $right.ActivityId_g
 
-|project-away ActivityId_g, ActivityId_g1 
+|project-away ActivityId_g, ActivityId_g1
 ```
 
 W następnym przykładzie zapytanie ukazuje działania związane z zarządzaniem według administratorów w dzierżawcach:
 
 ```powershell
-WVDActivityV1_CL 
+WVDActivityV1_CL
 
-| where Type_s == "Management" 
+| where Type_s == "Management"
 
-| join kind=leftouter ( 
+| join kind=leftouter (
 
-    WVDErrorV1_CL 
+    WVDErrorV1_CL
 
-    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g 
+    | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g   
+    ) on $left.Id_g  == $right.ActivityId_g 
 
-| join  kind=leftouter (  
+| join  kind=leftouter (
 
-    WVDCheckpointV1_CL 
+    WVDCheckpointV1_CL
 
-    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g 
+    | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g
 
-    ) on $left.Id_g  == $right.ActivityId_g  
+    ) on $left.Id_g  == $right.ActivityId_g
 
-|project-away ActivityId_g, ActivityId_g1 
+|project-away ActivityId_g, ActivityId_g1
 ```
- 
-## <a name="stop-sending-data-to-log-analytics"></a>Zatrzymaj wysyłanie danych do Log Analytics 
+
+## <a name="stop-sending-data-to-log-analytics"></a>Zatrzymaj wysyłanie danych do Log Analytics
 
 Aby zatrzymać wysyłanie danych z istniejącej dzierżawy do Log Analytics, uruchom następujące polecenie cmdlet i ustaw puste ciągi:
 
 ```powershell
-Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String> 
+Set-RdsTenant -Name <TenantName> -AzureSubscriptionId <SubscriptionID> -LogAnalyticsWorkspaceId <String> -LogAnalyticsPrimaryKey <String>
 ```
 
-Należy uruchomić to polecenie cmdlet dla każdej dzierżawy, z której ma zostać zatrzymane wysyłanie danych. 
+Należy uruchomić to polecenie cmdlet dla każdej dzierżawy, z której ma zostać zatrzymane wysyłanie danych.
 
-## <a name="next-steps"></a>Następne kroki 
+## <a name="next-steps"></a>Następne kroki
 
 Aby zapoznać się z typowymi scenariuszami błędów, które mogą identyfikować funkcja diagnostyki, zobacz [Identyfikowanie i diagnozowanie problemów](diagnostics-role-service-2019.md#common-error-scenarios).

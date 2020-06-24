@@ -4,15 +4,16 @@ description: Typy sortowania obsługiwane w usłudze Azure Synapse SQL
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: reference
+ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b10aea962a31ba600deca866a8d9f7ab3b81ea8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e9d8048c88a5ef37df2fde1ab282a834b07228a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133676"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206346"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Obsługa sortowania bazy danych dla Synapse SQL
 

@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat używania tożsamości zarządzanych 
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: a26f188ed2f5e18bdf775cd1fb21001495ffdc89
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5c82f49195fc6d790ca4308d78b70106b6cc042
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461450"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710307"
 ---
 # <a name="using-managed-identities-for-azure-with-service-fabric"></a>Korzystanie z tożsamości zarządzanych dla platformy Azure z Service Fabric
 
@@ -35,7 +35,7 @@ Istnieją dwa typy tożsamości zarządzanych:
 - **Tożsamość zarządzana przypisana przez system** jest włączona bezpośrednio w wystąpieniu usługi platformy Azure.  Cykl życia tożsamości przypisanej do systemu jest unikatowy dla wystąpienia usługi platformy Azure, na którym jest włączona.
 - **Tożsamość zarządzana przypisana przez użytkownika** jest tworzona jako autonomiczny zasób platformy Azure. Tożsamość może być przypisana do co najmniej jednego wystąpienia usługi platformy Azure i jest zarządzana oddzielnie od cyklów życia tych wystąpień.
 
-Aby poznać różnice między zarządzanymi typami tożsamości, zobacz [jak działają tożsamości zarządzane dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
+Aby dowiedzieć się więcej o różnicach między zarządzanymi typami tożsamości, zobacz [jak działają zarządzane tożsamości dla zasobów platformy Azure?](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types)
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Obsługiwane scenariusze dla aplikacji Service Fabric
 
