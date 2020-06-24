@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 931511a44e19bfe094791a3ee9b9ca30e03648cb
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: fc6ab2c9c844350e83674ed96a0e79289c7f5b43
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669662"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255419"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Tworzenie zadania Azure Stream Analytics w usłudze Azure SQL Edge (wersja zapoznawcza) 
 
@@ -33,7 +33,7 @@ Funkcja przesyłania strumieniowego T-SQL używa funkcji zewnętrznego źródła
 
 - [Utwórz strumień zewnętrzny (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-Ponadto, jeśli usługa Azure SQL Edge, SQL Server lub Azure SQL Database jest używana jako strumień wyjściowy, konieczne jest [utworzenie poświadczeń o zakresie tworzenia bazy danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). To polecenie T-SQL definiuje poświadczenia, aby uzyskać dostęp do bazy danych SQL.
+Ponadto, jeśli usługa Azure SQL Edge, SQL Server lub Azure SQL Database jest używana jako strumień wyjściowy, konieczne jest [utworzenie poświadczeń o zakresie tworzenia bazy danych (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). To polecenie T-SQL definiuje poświadczenia dostępu do bazy danych.
 
 ### <a name="supported-input-and-output-stream-data-sources"></a>Obsługiwane źródła danych wejściowych i wyjściowych strumieni
 
@@ -42,7 +42,7 @@ Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych j
 | Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
 |------------------|-------|--------|------------------|
 | Azure IoT Edge Hub | T | T | Źródło danych do odczytu i zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji, zobacz [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
-| SQL Database | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych SQL może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
+| SQL Database | N | T | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. Baza danych może być lokalną bazą danych w usłudze Azure SQL Edge lub zdalną bazą danych w SQL Server lub Azure SQL Database.|
 | Azure Blob Storage | N | T | Źródło danych służące do zapisywania danych w obiekcie BLOB na koncie usługi Azure Storage. |
 | Kafka | T | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Ten adapter jest obecnie dostępny tylko dla wersji Intel lub AMD usługi Azure SQL Edge. Nie jest ona dostępna dla ARM64 wersji usługi Azure SQL Edge.|
 

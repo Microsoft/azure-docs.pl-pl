@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 59409c428aba938c49fc37647db82f30d783a629
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37e09612491d41887c5945920488569d3620bf0b
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730572"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052012"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Zasady i reguły reguły KSR zapory aplikacji sieci Web
 
@@ -39,6 +39,9 @@ WAF chroni przed następującymi lukami w zabezpieczeniach sieci Web:
 ### <a name="owasp-crs-31"></a>OWASP KSR 3,1
 
 Program KSR 3,1 zawiera 13 grup reguł, jak pokazano w poniższej tabeli. Każda grupa zawiera wiele reguł, które można wyłączyć.
+
+> [!NOTE]
+> KSR 3,1 jest dostępny tylko w jednostce SKU WAF_v2.
 
 |Grupa reguł|Opis|
 |---|---|

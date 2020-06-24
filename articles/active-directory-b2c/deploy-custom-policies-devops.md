@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b23b60ae49a4973fa04e6fa5f795f99536e32e7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f17bbe1a19b969fec681082df50be754f5d6034b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188753"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202368"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Wdrażanie zasad niestandardowych przy użyciu Azure Pipelines
 
@@ -29,7 +29,7 @@ Aby umożliwić Azure Pipelines Zarządzanie zasadami niestandardowymi w ramach 
 1. Konfigurowanie potoku platformy Azure
 
 > [!IMPORTANT]
-> Zarządzanie zasadami niestandardowymi Azure AD B2C przy użyciu potoku platformy Azure obecnie używa operacji w **wersji zapoznawczej** dostępnych w punkcie końcowym interfejsu API `/beta` Microsoft Graph. Te interfejsy API nie są obsługiwane w zastosowaniach produkcyjnych. Aby uzyskać więcej informacji, zobacz [Informacje o punkcie końcowym interfejsu API REST](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta)w usłudze Microsoft Graph.
+> Zarządzanie zasadami niestandardowymi Azure AD B2C przy użyciu potoku platformy Azure obecnie używa operacji w **wersji zapoznawczej** dostępnych w `/beta` punkcie końcowym interfejsu API Microsoft Graph. Te interfejsy API nie są obsługiwane w zastosowaniach produkcyjnych. Aby uzyskać więcej informacji, zobacz [Informacje o punkcie końcowym interfejsu API REST](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta)w usłudze Microsoft Graph.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -46,7 +46,7 @@ W tym scenariuszu opisano sposób korzystania z wywołań między usługami Azur
 
 Jak wspomniano w [wymaganiach wstępnych](#prerequisites), potrzebna jest rejestracja aplikacji, którą skrypty programu PowerShell — wykonywane przez Azure Pipelines — mogą używać do uzyskiwania dostępu do zasobów w dzierżawie.
 
-Jeśli masz już rejestrację aplikacji używaną na potrzeby zadań automatyzacji, upewnij się, że udzielono uprawnienia **Microsoft Graph** > **Policy** > **Policy zasad. ReadWrite. TrustFramework** w ramach **uprawnień interfejsu API** rejestracji aplikacji.
+Jeśli masz już rejestrację aplikacji używaną na potrzeby zadań automatyzacji, upewnij się, że udzielono uprawnienia **Microsoft Graph**  >  **Policy**  >  **Policy zasad. ReadWrite. TrustFramework** w ramach **uprawnień interfejsu API** rejestracji aplikacji.
 
 Instrukcje dotyczące rejestrowania aplikacji zarządzania programu znajdują się w temacie [zarządzanie Azure AD B2C przy użyciu Microsoft Graph](microsoft-graph-get-started.md).
 
@@ -58,9 +58,9 @@ Po zarejestrowaniu aplikacji zarządzania można skonfigurować repozytorium dla
 1. [Utwórz nowy projekt][devops-create-project] lub wybierz istniejący projekt.
 1. W projekcie przejdź do **repozytoriów** i wybierz stronę **pliki** . Wybierz istniejące repozytorium lub utwórz je dla tego ćwiczenia.
 1. Utwórz folder o nazwie *B2CAssets*. Nazwij wymagany plik zastępczy *README.MD* i **Zatwierdź** plik. Możesz usunąć ten plik później, jeśli chcesz.
-1. Dodaj pliki zasad Azure AD B2C do folderu *B2CAssets* . Obejmuje to *TrustFrameworkBase. XML*, *TrustFrameWorkExtensions. XML*, *SignUpOrSignin. XML*, *ProfileEdit. XML*, *PasswordReset. XML*i wszystkie inne utworzone zasady. Zapisz nazwę pliku Azure AD B2C zasad do użycia w późniejszym kroku (są one używane jako argumenty skryptu programu PowerShell).
-1. Utwórz folder o nazwie *scripts* w katalogu głównym repozytorium, Nazwij plik zastępczy *DeployToB2c. ps1*. Nie zatwierdzaj pliku w tym momencie, należy to zrobić w późniejszym kroku.
-1. Wklej następujący skrypt programu PowerShell do pliku *DeployToB2c. ps1*, a następnie **Zatwierdź** plik. Skrypt uzyskuje token z usługi Azure AD i wywołuje interfejs API Microsoft Graph, aby przekazać zasady w folderze *B2CAssets* do dzierżawy usługi Azure AD B2C.
+1. Dodaj pliki zasad Azure AD B2C do folderu *B2CAssets* . Obejmuje to *TrustFrameworkBase.xml*, *TrustFrameWorkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*i innych utworzonych zasad. Zapisz nazwę pliku Azure AD B2C zasad do użycia w późniejszym kroku (są one używane jako argumenty skryptu programu PowerShell).
+1. Utwórz folder o nazwie *scripts* w katalogu głównym repozytorium, Nazwij plik symbolu zastępczego *DeployToB2c.ps1*. Nie zatwierdzaj pliku w tym momencie, należy to zrobić w późniejszym kroku.
+1. Wklej następujący skrypt programu PowerShell do *DeployToB2c.ps1*, a następnie **Zatwierdź** plik. Skrypt uzyskuje token z usługi Azure AD i wywołuje interfejs API Microsoft Graph, aby przekazać zasady w folderze *B2CAssets* do dzierżawy usługi Azure AD B2C.
 
     ```PowerShell
     [Cmdletbinding()]
@@ -114,7 +114,7 @@ Gdy Twoje repozytorium zostało zainicjowane i uzupełnione o niestandardowe pli
 ### <a name="create-pipeline"></a>Tworzenie potoku
 
 1. Zaloguj się do organizacji Azure DevOps Services i przejdź do projektu.
-1. W projekcie wybierz pozycję **potoki** > **zwalnia** > **Nowy potok**.
+1. W projekcie wybierz pozycję **potoki**  >  **zwalnia**  >  **Nowy potok**.
 1. W obszarze **Wybierz szablon**wybierz pozycję **puste zadanie**.
 1. Wprowadź **nazwę etapu**, na przykład *DeployCustomPolicies*, a następnie zamknij okienko.
 1. Wybierz pozycję **Dodaj artefakt**i w obszarze **Typ źródła**wybierz pozycję **Azure Repository**.
@@ -144,17 +144,17 @@ Gdy Twoje repozytorium zostało zainicjowane i uzupełnione o niestandardowe pli
 Następnie Dodaj zadanie, aby wdrożyć plik zasad.
 
 1. Wybierz kartę **zadania** .
-1. Wybierz **zadanie agenta**, a następnie wybierz znak plus (**+**), aby dodać zadanie do zadania agenta.
+1. Wybierz **zadanie agenta**, a następnie wybierz znak plus ( **+** ), aby dodać zadanie do zadania agenta.
 1. Wyszukaj i wybierz pozycję **PowerShell**. Nie wybieraj opcji "Azure PowerShell," programu PowerShell na komputerach docelowych, "lub innego wpisu programu PowerShell.
 1. Wybierz nowo dodane zadanie **skryptu programu PowerShell** .
 1. Wprowadź następujące wartości dla zadania skryptu programu PowerShell:
     * **Wersja zadania**: 2. *
     * **Nazwa wyświetlana**: Nazwa zasad, które mają zostać przekazane przez to zadanie. Na przykład *B2C_1A_TrustFrameworkBase*.
     * **Typ**: ścieżka pliku
-    * **Ścieżka skryptu**: wybierz wielokropek (***...***), przejdź do folderu *scripts* , a następnie wybierz plik *DeployToB2C. ps1* .
+    * **Ścieżka skryptu**: wybierz wielokropek (***...***), przejdź do folderu *scripts* (...), a następnie wybierz plik *DeployToB2C.ps1* .
     * **Argumentu**
 
-        Wprowadź następujące wartości dla **argumentów**. Zamień `{alias-name}` na alias określony w poprzedniej sekcji.
+        Wprowadź następujące wartości dla **argumentów**. Zamień na `{alias-name}` alias określony w poprzedniej sekcji.
 
         ```PowerShell
         # Before
@@ -172,11 +172,11 @@ Następnie Dodaj zadanie, aby wdrożyć plik zasad.
 
 Właśnie dodane zadanie przekazuje *jeden* plik zasad do Azure AD B2C. Przed kontynuowaniem ręcznie Wyzwól zadanie (**Utwórz wydanie**), aby upewnić się, że zostało pomyślnie zakończone przed utworzeniem dodatkowych zadań.
 
-Jeśli zadanie zostało ukończone pomyślnie, Dodaj zadania wdrażania, wykonując powyższe kroki dla każdego z niestandardowych plików zasad. Zmodyfikuj wartości `-PolicyId` argumentów `-PathToFile` i dla każdej zasady.
+Jeśli zadanie zostało ukończone pomyślnie, Dodaj zadania wdrażania, wykonując powyższe kroki dla każdego z niestandardowych plików zasad. Zmodyfikuj `-PolicyId` `-PathToFile` wartości argumentów i dla każdej zasady.
 
-`PolicyId` Jest to wartość znaleziona na początku pliku zasad XML w węźle TrustFrameworkPolicy. Na przykład, `PolicyId` w poniższym kodzie XML zasad jest *B2C_1A_TrustFrameworkBase*:
+`PolicyId`Jest to wartość znaleziona na początku pliku zasad XML w węźle TrustFrameworkPolicy. Na przykład, `PolicyId` w poniższym kodzie XML zasad jest *B2C_1A_TrustFrameworkBase*:
 
-```XML
+```xml
 <TrustFrameworkPolicy
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -189,11 +189,11 @@ PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
 
 Podczas uruchamiania agentów i przekazywania plików zasad upewnij się, że są one przekazywane w następującej kolejności:
 
-1. *TrustFrameworkBase. XML*
-1. *TrustFrameworkExtensions. XML*
-1. *SignUpOrSignin. XML*
-1. *ProfileEdit. XML*
-1. *PasswordReset. XML*
+1. *TrustFrameworkBase.xml*
+1. *TrustFrameworkExtensions.xml*
+1. *SignUpOrSignin.xml*
+1. *ProfileEdit.xml*
+1. *PasswordReset.xml*
 
 Platforma obsługi tożsamości wymusza tę kolejność, ponieważ struktura pliku jest oparta na hierarchicznym łańcuchu.
 
@@ -209,7 +209,7 @@ Powinien zostać wyświetlony baner powiadomienia informujący o tym, że wersja
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 
 * [Wywołania między usługami przy użyciu poświadczeń klienta](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 * [Usługa Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/?view=azure-devops)

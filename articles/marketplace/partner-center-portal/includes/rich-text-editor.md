@@ -1,18 +1,18 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 description: " — plik"
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: include
 ms.date: 05/19/2020
-ms.openlocfilehash: d11589e34ac24cafe57d38d0eef25a1b44576b7c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 744d7f49ee12e5f74eb2ae599d640ed658680c6b
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698422"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752533"
 ---
 Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego w celu zastosowania formatowania.
 

@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.author: banders
-ms.openlocfilehash: 15c686e0d33d7341d16097f32e1c69077c319a12
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: e38271b3a56894380ca5456146a7ab36fb09e08c
+ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295307"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84678022"
 ---
 # <a name="managing-azure-enterprise-roles"></a>Zarządzanie rolami w usłudze Azure Enterprise
 
@@ -27,6 +27,10 @@ Aby ułatwić zarządzanie użyciem i wydatkami w organizacji, klienci platformy
 <sup>1</sup> Kontakt dla rozliczeń dotyczących umowy EA będzie objęty tą rolą.
 
 <sup>2</sup> Kontaktu dla rozliczeń nie można dodać ani zmienić w witrynie Azure EA Portal i zostanie on dodany do rejestracji umowy EA na podstawie użytkownika, który został skonfigurowany jako kontakt dla rozliczeń na poziomie umowy. Aby zmienić kontakt dla rozliczeń, należy przesłać żądanie do regionalnego centrum operacyjnego (ROC) za pośrednictwem partnera/doradcy ds. oprogramowania.
+
+Pierwszy administrator rejestracji skonfigurowany podczas aprowizacji rejestracji określa typ uwierzytelnienia konta kontaktu dla rozliczeń. Gdy kontakt dla rozliczeń zostanie dodany do portalu EA Portal jako administrator tylko do odczytu, zostanie mu nadane uwierzytelnianie konta Microsoft. 
+
+Na przykład jeśli typ uwierzytelniania początkowego jest ustawiony na wartość Mieszane, umowa EA zostanie dodana jako konto Microsoft, a kontakt dla rozliczeń będzie miał uprawnienia administratora EA tylko do odczytu. Jeśli administrator EA nie zatwierdzi autoryzacji konta Microsoft dla istniejącego kontaktu dla rozliczeń, może usunąć danego użytkownika i poprosić klienta o dodanie użytkownika jako administratora tylko do odczytu z kontem służbowym ustawionym tylko na poziomie rejestracji w portalu EA.
 
 Te role są specyficzne dla procesu zarządzania umowami Enterprise Agreement platformy Azure. Są one dodatkiem do wbudowanych ról platformy Azure, które umożliwiają kontrolowanie dostępu do zasobów. Aby uzyskać więcej informacji, zobacz temat [Wbudowane role dla zasobów platformy Azure](../../role-based-access-control/built-in-roles.md).
 

@@ -5,17 +5,17 @@ description: Zarządzaj Machine Learning nowymi i klasycznymi usługami sieci We
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 554e3fa07ef733c443371aca6f1621770686895a
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 893bb1ab7b3fd9d6b3416e0fa4bad29a3d6d518d
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119012"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709015"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Zarządzanie usługą sieci Web przy użyciu portalu usług sieci Web Azure Machine Learning Studio (klasyczny)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 55ca9232252895dd46ad3da3912f808ebd9b9533
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 68dddde965900b966efa96fbd7da7141f1ed8a94
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559673"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753554"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Rozszerzenie sterownika GPU NVIDIA dla systemu Linux
 
@@ -90,7 +90,7 @@ Wszystkie ustawienia są opcjonalne. Domyślnym zachowaniem jest nieaktualizowan
 | installCUDA | Zainstaluj zestaw narzędzi CUDA. Dotyczy tylko maszyn wirtualnych z serii NC/ND. | true | wartość true, false | wartość logiczna |
 
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>wdrażania
 
 
 ### <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager 
@@ -146,8 +146,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
-  }'
+  --version 1.3 
 ```
 
 W poniższym przykładzie dodano również dwa opcjonalne ustawienia niestandardowe jako przykład instalacji sterowników innych niż domyślne. W konkretnym przypadku aktualizuje jądro systemu operacyjnego i instaluje określony sterownik wersji zestawu narzędzi CUDA. Należy pamiętać, że opcja "--Settings" jest opcjonalna i domyślna. Należy pamiętać, że aktualizacja jądra może wydłużyć czasy instalacji rozszerzenia. Wybór konkretnej (starszej) wersji CUDA tolkit może nie zawsze być zgodny z nowszymi jądrami.

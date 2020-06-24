@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 36662a0089fef34a539788cfac667b5086a10c78
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194263"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255538"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurowanie Azure-SSIS Integration Runtime na potrzeby wysokiej wydajności
 
@@ -150,7 +150,7 @@ Poniżej przedstawiono wskazówki dotyczące ustawiania prawidłowej wartości w
 
 ## <a name="ssisdbpricingtier"></a>SSISDBPricingTier
 
-**SSISDBPricingTier** to warstwa cenowa bazy danych wykazu usług SSIS (SSISDB) w usłudze Azure SQL Database. To ustawienie ma wpływ na maksymalną liczbę procesów roboczych w wystąpieniu środowiska IR, szybkość do kolejki wykonania pakietu oraz szybkość ładowania dziennika wykonania.
+**SSISDBPricingTier** to warstwa cenowa bazy danych wykazu usług SSIS (SSISDB) w systemie Azure SQL Database. To ustawienie ma wpływ na maksymalną liczbę procesów roboczych w wystąpieniu środowiska IR, szybkość do kolejki wykonania pakietu oraz szybkość ładowania dziennika wykonania.
 
 -   Jeśli nie masz opieki nad szybkością wykonywania pakietów w kolejce i załadowaniu dziennika wykonywania, możesz wybrać najniższą warstwę cenową bazy danych. Azure SQL Database z cenami podstawowymi obsługuje 8 procesów roboczych w wystąpieniu środowiska Integration Runtime.
 

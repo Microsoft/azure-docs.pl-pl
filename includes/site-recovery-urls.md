@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -17,10 +17,10 @@ ms.locfileid: "67183756"
 ---
 Nazwa | Komercyjny adres URL | Adres URL instytucji rządowych | Opis
 --- | --- | --- | ---
-Azure Active Directory | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Służy do kontroli dostępu i zarządzania tożsamościami przy użyciu Azure Active Directory. 
+Usługa Azure Active Directory | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Służy do kontroli dostępu i zarządzania tożsamościami przy użyciu Azure Active Directory. 
 Backup | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Służy do transferowania i koordynacji danych replikacji.
 Replikacja | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Służy do wykonywania operacji i koordynacji zarządzania replikacją.
-Magazyn | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Służy do uzyskiwania dostępu do konta magazynu przechowującego zreplikowane dane.
+Storage | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Służy do uzyskiwania dostępu do konta magazynu przechowującego zreplikowane dane.
 Dane telemetryczne (opcjonalnie) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Używany na potrzeby telemetrii.
 Synchronizacja czasu | ``time.windows.com`` | ``time.nist.gov`` | Służy do sprawdzania synchronizacji czasu między systemem i czasem globalnym we wszystkich wdrożeniach.
 

@@ -3,25 +3,25 @@ title: Problem z wykorzystaniem samoobsługowego dostępu do aplikacji | Microso
 description: Rozwiązywanie problemów związanych z dostępem do aplikacji samoobsługowych
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a981dfb1d72c21eccf2ad7119ea219114ed15aed
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 8a8a748b11e695041aa6baece381bc8d7d068992
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65784281"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760919"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problem z wykorzystaniem samoobsługowego dostępu do aplikacji
 

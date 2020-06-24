@@ -15,7 +15,7 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/29/2020
 ms.locfileid: "82587848"
 ---
-Polecenie cmdlet **Get-AzPeeringLocation** programu PowerShell zwraca listę lokalizacji komunikacji równorzędnej z obowiązkowym parametrem `Kind`, który będzie używany w dalszych krokach.
+Polecenie cmdlet **Get-AzPeeringLocation** programu PowerShell zwraca listę lokalizacji komunikacji równorzędnej z obowiązkowym parametrem `Kind` , który będzie używany w dalszych krokach.
 
 ```powershell
 Get-AzPeeringLocation -Kind "Exchange"

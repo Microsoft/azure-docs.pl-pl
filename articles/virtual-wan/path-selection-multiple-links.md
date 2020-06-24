@@ -5,15 +5,15 @@ description: Informacje o wyborze ścieżki platformy Azure i wirtualnej sieci W
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8ed37b4ebb54cb38e9f585304a8b9db3615144d5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: a83a050b65f5673a86dd07ec13842f6009d2c8dc
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84237108"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753337"
 ---
 # <a name="azure-path-selection-across-multiple-isp-links"></a>Wybór ścieżki platformy Azure dla wielu linków usługodawcy internetowego
 

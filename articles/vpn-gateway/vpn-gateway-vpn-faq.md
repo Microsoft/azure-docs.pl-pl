@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: yushwang
 ms.openlocfilehash: 027047a212df72479a4f1b2511729365f3fa09e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279886"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708930"
 ---
 # <a name="vpn-gateway-faq"></a>Brama sieci VPN — często zadawane pytania
 

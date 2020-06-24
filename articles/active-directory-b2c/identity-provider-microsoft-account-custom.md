@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56c25ce417a17024843de1b9b16f57740de1e9fc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f159f1a9e4201b1f8eac07f59ec1705f4b6cd0c2
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636978"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201921"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania za pomocą konto Microsoft przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Aby włączyć logowanie dla użytkowników z konto Microsoft, musisz zarejestro
 1. Wybierz pozycję **zarejestruj**
 1. Zapisz **Identyfikator aplikacji (klienta)** widoczny na stronie przeglądu aplikacji. Jest to potrzebne podczas konfigurowania dostawcy oświadczeń w dalszej części.
 1. Wybierz **certyfikaty & wpisy tajne**
-1. Kliknij pozycję **Nowy wpis tajny klienta**
+1. Kliknij pozycję **Nowy klucz tajny klienta**.
 1. Wprowadź **Opis** wpisu tajnego, na przykład *wpis tajny klienta aplikacji MSA*, a następnie kliknij przycisk **Dodaj**.
 1. Zapisz hasło aplikacji wyświetlane w kolumnie **wartość** . Ta wartość jest używana w następnej sekcji.
 
@@ -73,7 +73,7 @@ Teraz, po utworzeniu aplikacji w dzierżawie usługi Azure AD, musisz przechowyw
 1. Wprowadź **nazwę** klucza zasad. Na przykład `MSASecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 1. W **kluczu tajnym**wprowadź klucz tajny klienta zapisany w poprzedniej sekcji.
 1. W obszarze **użycie klucza**wybierz opcję `Signature` .
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
 
@@ -81,7 +81,7 @@ Aby umożliwić użytkownikom logowanie się przy użyciu konto Microsoft, nale�
 
 Usługę Azure AD można zdefiniować jako dostawcę oświadczeń przez dodanie elementu **ClaimsProvider** w pliku rozszerzenia zasad.
 
-1. Otwórz plik zasad *TrustFrameworkExtensions. XML* .
+1. Otwórz plik zasad *TrustFrameworkExtensions.xml* .
 1. Znajdź element **ClaimsProviders** . Jeśli nie istnieje, Dodaj ją do elementu głównego.
 1. Dodaj nową **ClaimsProvider** w następujący sposób:
 
@@ -138,7 +138,7 @@ Przed kontynuowaniem Przekaż zmodyfikowane zasady, aby upewnić się, że nie m
 
 1. Przejdź do dzierżawy Azure AD B2C w Azure Portal i wybierz pozycję **platforma obsługi tożsamości**.
 1. Na stronie **zasady niestandardowe** wybierz opcję **Przekaż zasady niestandardowe**.
-1. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions. XML* .
+1. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions.xml* .
 1. Kliknij pozycję **Przekaż**.
 
 Jeśli w portalu nie są wyświetlane żadne błędy, przejdź do następnej sekcji.
@@ -147,9 +147,9 @@ Jeśli w portalu nie są wyświetlane żadne błędy, przejdź do następnej sek
 
 W tym momencie skonfigurowano dostawcę tożsamości, ale jeszcze nie jest on dostępny na żadnym z ekranów rejestracji lub logowania. Aby udostępnić ten element, Utwórz duplikat istniejącej przez użytkownika szablonu, a następnie zmodyfikuj go tak, aby miał również konto Microsoft dostawcę tożsamości.
 
-1. Otwórz plik *TrustFrameworkBase. XML* z pakietu początkowego.
+1. Otwórz plik *TrustFrameworkBase.xml* z pakietu początkowego.
 1. Znajdź i Skopiuj całą zawartość elementu **UserJourney** , który zawiera `Id="SignUpOrSignIn"` .
-1. Otwórz *plik TrustFrameworkExtensions. XML* i Znajdź element **UserJourneys** . Jeśli element nie istnieje, Dodaj go.
+1. Otwórz *TrustFrameworkExtensions.xml* i Znajdź element **UserJourneys** . Jeśli element nie istnieje, Dodaj go.
 1. Wklej całą zawartość elementu **UserJourney** , który został skopiowany jako element podrzędny elementu **UserJourneys** .
 1. Zmień nazwę identyfikatora podróży użytkownika. Na przykład `SignUpSignInMSA`.
 
@@ -157,10 +157,10 @@ W tym momencie skonfigurowano dostawcę tożsamości, ale jeszcze nie jest on do
 
 Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji lub logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konto Microsoft, zostanie wyświetlony nowy przycisk, gdy użytkownik zostanie umieszczony na stronie.
 
-1. W pliku *TrustFrameworkExtensions. XML* Znajdź element **OrchestrationStep** , który zawiera `Order="1"` w utworzonej podróży użytkownika.
+1. W pliku *TrustFrameworkExtensions.xml* Znajdź element **OrchestrationStep** , który zawiera `Order="1"` w podróży użytkownika.
 1. W obszarze **ClaimsProviderSelects**Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `MicrosoftAccountExchange` :
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
     ```
 
@@ -177,7 +177,7 @@ Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku a
 
     Zaktualizuj wartość **TechnicalProfileReferenceId** , aby pasowała do `Id` wartości w elemencie **profilu technicznym** dostawcy oświadczeń, który został dodany wcześniej. Na przykład `MSA-OIDC`.
 
-1. Zapisz plik *TrustFrameworkExtensions. XML* i przekaż go ponownie w celu weryfikacji.
+1. Zapisz plik *TrustFrameworkExtensions.xml* i przekaż go ponownie w celu weryfikacji.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Tworzenie aplikacji Azure AD B2C
 
@@ -189,7 +189,7 @@ Komunikacja z Azure AD B2C odbywa się za pomocą aplikacji zarejestrowanej w dz
 
 Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez Ciebie podróż użytkownika.
 
-1. Utwórz kopię *pliku SignUpOrSignIn. XML* w katalogu roboczym i zmień jego nazwę. Na przykład zmień nazwę na *SignUpSignInMSA. XML*.
+1. Utwórz kopię *SignUpOrSignIn.xml* w katalogu roboczym i zmień jej nazwę. Na przykład zmień nazwę na *SignUpSignInMSA.xml*.
 1. Otwórz nowy plik i zaktualizuj wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** przy użyciu unikatowej wartości. Na przykład `SignUpSignInMSA`.
 1. Zaktualizuj wartość **PublicPolicyUri** za pomocą identyfikatora URI dla zasad. Na przykład`http://contoso.com/B2C_1A_signup_signin_msa`
 1. Zaktualizuj wartość atrybutu **ReferenceId** w **DefaultUserJourney** w taki sposób, aby odpowiadała identyfikatorowi przejazdu użytkownika utworzonego wcześniej (SignUpSignInMSA).

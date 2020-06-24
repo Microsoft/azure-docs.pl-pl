@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/29/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dfb34085181e0b759d1d77485ff21b5bc59e0de3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d1928de8c9731b54966e566d4dddf9c01073d41
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189773"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201263"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -23,7 +23,7 @@ ms.locfileid: "78189773"
 
 Dostawca oświadczeń zawiera zestaw [profilów technicznych](technicalprofiles.md). Każdy dostawca oświadczeń musi mieć co najmniej jeden profil techniczny, który określa punkty końcowe i protokoły wymagane do komunikowania się z dostawcą oświadczeń. Dostawca oświadczeń może mieć wiele profilów technicznych. Można na przykład zdefiniować wiele profilów technicznych, ponieważ dostawca oświadczeń obsługuje wiele protokołów, różne punkty końcowe z różnymi możliwościami lub zwalnia różne oświadczenia na różnych poziomach gwarancji. Możliwe jest zaakceptowanie poufnych oświadczeń w jednej podróży użytkownika, ale nie w innej.
 
-```XML
+```xml
 <ClaimsProviders>
   <ClaimsProvider>
     <Domain>Domain name</Domain>
@@ -57,7 +57,7 @@ Element **ClaimsProvider** zawiera następujące elementy podrzędne:
 
 **ClaimsProvider** organizuje sposób, w jaki profile techniczne odnoszą się do dostawcy oświadczeń. Poniższy przykład przedstawia dostawcę oświadczeń Azure Active Directory z profilami technicznymi Azure Active Directory:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Azure Active Directory</DisplayName>
   <TechnicalProfiles>
@@ -95,7 +95,7 @@ Element **ClaimsProvider** zawiera następujące elementy podrzędne:
 
 Poniższy przykład przedstawia dostawcę oświadczeń Facebook z profilem technicznym **Facebook-OAuth** .
 
-```XML
+```xml
 <ClaimsProvider>
   <Domain>facebook.com</Domain>
   <DisplayName>Facebook</DisplayName>

@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa110dac1ede9c3ef46bafcca0f4a59d956e3ae9
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261894"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078665"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Zmiana ról zasobów dla pakietu dostępu w usłudze Azure AD uprawnienia zarządzania
 
@@ -103,7 +103,7 @@ Aby uzyskać więcej informacji, zobacz [porównywanie grup](https://docs.micros
 
     ![Dostęp do pakietu — Dodawanie roli zasobów dla grupy lub zespołu](./media/entitlement-management-access-package-resources/group-role.png)
 
-1. Kliknij pozycję **Add** (Dodaj).
+1. Kliknij pozycję **Dodaj**.
 
     Wszyscy użytkownicy z istniejącymi przypisaniami do pakietu dostępu automatycznie staną się członkami tej grupy lub zespołu po dodaniu.
 
@@ -134,7 +134,7 @@ Oto kilka kwestii, które należy wziąć pod uwagę podczas wybierania aplikacj
 
     ![Dostęp do pakietu — Dodawanie roli zasobów dla aplikacji](./media/entitlement-management-access-package-resources/application-role.png)
 
-1. Kliknij pozycję **Add** (Dodaj).
+1. Kliknij pozycję **Dodaj**.
 
     Wszyscy użytkownicy z istniejącymi przypisaniami do pakietu dostępu będą automatycznie mieli dostęp do tej aplikacji po dodaniu.
 
@@ -154,7 +154,7 @@ Usługa Azure AD może automatycznie przypisywać użytkownikom dostęp do witry
 
     ![Dostęp do pakietu — Dodawanie roli zasobów dla witryny usługi SharePoint Online](./media/entitlement-management-access-package-resources/sharepoint-site-role.png)
 
-1. Kliknij pozycję **Add** (Dodaj).
+1. Kliknij pozycję **Dodaj**.
 
     Wszyscy użytkownicy z istniejącymi przypisaniami do pakietu dostępu będą automatycznie mieli dostęp do tej witryny usługi SharePoint Online, gdy zostanie ona dodana.
 

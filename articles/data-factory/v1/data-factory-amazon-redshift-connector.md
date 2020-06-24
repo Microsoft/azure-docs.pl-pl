@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260529"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710154"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Przenoszenie danych z usługi Amazon RedShift przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -59,7 +59,7 @@ W poniższych sekcjach opisano właściwości JSON, które są używane do defin
 
 Poniższa tabela zawiera opisy elementów JSON, które są specyficzne dla połączonej usługi Amazon RedShift.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | **Wprowadź** |Ta właściwość musi być ustawiona na **AmazonRedshift**. |Tak |
 | **Server** |Adres IP lub nazwa hosta serwera Amazon RedShift. |Tak |
@@ -74,7 +74,7 @@ Aby zapoznać się z listą sekcji i właściwości, które są dostępne do def
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w sklepie. Sekcja **typeProperties** dla zestawu danych typu **relacyjnego**, który zawiera zestaw danych Amazon RedShift, ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | **tableName** |Nazwa tabeli w bazie danych Amazon RedShift, do której odwołuje się połączona usługa. |Nie (Jeśli określono Właściwość **zapytania** działania Copy typu **RelationalSource** ) |
 
@@ -84,7 +84,7 @@ Aby zapoznać się z listą sekcji i właściwości, które są dostępne do def
 
 W przypadku działania kopiowania, gdy źródło jest typu **AmazonRedshiftSource**, w sekcji **typeProperties** są dostępne następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | **dotyczących** | Użyj zapytania niestandardowego, aby odczytać dane. |Nie (Jeśli określono Właściwość **TableName** zestawu danych) |
 | **redshiftUnloadSettings** | Zawiera grupę właściwości przy użyciu polecenia RedShift **Unload** . | Nie |
@@ -93,7 +93,7 @@ W przypadku działania kopiowania, gdy źródło jest typu **AmazonRedshiftSourc
 
 Alternatywnie można użyć typu **RelationalSource** , który obejmuje Amazon RedShift, z następującą właściwością w sekcji **typeProperties** . Uwaga Ten typ źródła nie obsługuje polecenia RedShift **Unload** .
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | **dotyczących** |Użyj zapytania niestandardowego, aby odczytać dane. | Nie (Jeśli określono Właściwość **TableName** zestawu danych) |
 
@@ -333,14 +333,14 @@ Następujące mapowania są używane, gdy działanie kopiowania konwertuje dane 
 | LICZBA CAŁKOWITA |Int32 |
 | BIGINT |Int64 |
 | DOKŁADNOŚCI |Wartość dziesiętna |
-| LICZBA RZECZYWISTA |Single |
+| LICZBA RZECZYWISTA |Pojedyncze |
 | PODWÓJNA PRECYZJA |Double |
-| TYPU |String |
-| DELIKATN |String |
-| VARCHAR |String |
+| TYPU |Ciąg |
+| DELIKATN |Ciąg |
+| VARCHAR |Ciąg |
 | DATE |DateTime |
 | ZNACZNIK czasu |DateTime |
-| TEKST |String |
+| TEKST |Ciąg |
 
 ## <a name="map-source-to-sink-columns"></a>Mapowanie źródła do kolumn ujścia
 Aby dowiedzieć się, jak mapować kolumny w źródłowym zestawie danych na kolumny w zestawie danych ujścia, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).

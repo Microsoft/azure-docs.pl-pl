@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 9ab2122fe1dd71a06127cad5ecc064fc42845390
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1d3804a019add8f97dcbad0f9d707d50c35830bb
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847723"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753899"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -80,9 +80,20 @@ Na tej stronie można definiować szczegóły witryny Marketplace (takie jak naz
 > [!NOTE]
 > Oferta zawartości oferty (na przykład opis, dokumenty, zrzuty ekranu i warunki użytkowania) nie jest wymagana w języku angielskim, o ile opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Można także zapewnić *przydatny adres URL linku* do oferowania zawartości w języku innym niż ten, który jest używany w ofercie dotyczącej oferty.
 
+Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal:
+
+:::image type="content" source="media/example-managed-services.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Tytuł
+2. Opis
+3. Przydatne łącza
+4. Zrzuty ekranu
+
 ### <a name="name"></a>Nazwa
 
-Nazwa wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty. To pole jest wstępnie wypełniane tekstem wprowadzonym dla **aliasu oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Ta nazwa może być znakiem towarowym (i może zawierać znaki towarowe lub autorskie). Nazwa nie może być dłuższa niż 50 znaków i nie może zawierać żadnych znaków emoji.
+Nazwa wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty. To pole jest wstępnie wypełnione tekstem wprowadzonym dla **aliasu oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Ta nazwa może być znakiem towarowym (i może zawierać znaki towarowe lub autorskie). Nazwa nie może być dłuższa niż 50 znaków i nie może zawierać żadnych znaków emoji.
 
 ### <a name="search-results-summary"></a>Podsumowanie wyników wyszukiwania
 

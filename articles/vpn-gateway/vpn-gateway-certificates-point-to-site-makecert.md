@@ -4,15 +4,15 @@ description: Utwórz certyfikat główny z podpisem własnym, wyeksportuj klucz 
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: ad2ab31e6771efc54238d5747863fa2a9bb2f356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7903dc7f614d16380626f27579363b1529665cc
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75833974"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84988117"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generowanie i eksportowanie certyfikatów dla połączeń punkt-lokacja za pomocą MakeCert
 
@@ -27,7 +27,7 @@ Chociaż zalecamy używanie [kroków programu PowerShell systemu Windows 10](vpn
 Poniższe kroki pokazują, jak utworzyć certyfikat z podpisem własnym za pomocą MakeCert. Te kroki nie są specyficzne dla modelu wdrożenia. Są one prawidłowe dla Menedżer zasobów i klasycznych.
 
 1. Pobierz i zainstaluj [MakeCert](https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx).
-2. Po instalacji można zwykle znaleźć narzędzie Makecert. exe w tej ścieżce: "C:\Program Files (x86) \Windows Kits\10\bin\<Arch>". Chociaż jest możliwe, że został on zainstalowany w innej lokalizacji. Otwórz wiersz polecenia jako administrator i przejdź do lokalizacji narzędzia MakeCert. Można użyć poniższego przykładu, dostosowując do właściwej lokalizacji:
+2. Po instalacji można zwykle znaleźć narzędzie makecert.exe w tej ścieżce: "C:\Program Files (x86) \Windows Kits\10\bin \<arch> ". Chociaż jest możliwe, że został on zainstalowany w innej lokalizacji. Otwórz wiersz polecenia jako administrator i przejdź do lokalizacji narzędzia MakeCert. Można użyć poniższego przykładu, dostosowując do właściwej lokalizacji:
 
    ```cmd
    cd C:\Program Files (x86)\Windows Kits\10\bin\x64

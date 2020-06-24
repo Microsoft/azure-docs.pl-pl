@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebbf789d804ab903489c809fc96f1514d6c4f577
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 8e0a4a3cac51f54d0bb4e5b23d0b44052d1e89a1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658090"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202487"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Dostosowywanie interfejsu użytkownika w Azure Active Directory B2C
 
@@ -219,13 +219,13 @@ Zawartość można ściągnąć z różnych miejsc w oparciu o używane ustawien
 
 Na przykład identyfikator URI strony niestandardowej może wyglądać następująco:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 ```
 
 Możesz załadować stronę w języku francuskim, pobierając zawartość z:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 

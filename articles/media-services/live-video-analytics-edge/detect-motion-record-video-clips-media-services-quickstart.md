@@ -3,12 +3,12 @@ title: Wykrywaj ruch, nagrywaj wideo do Azure Media Services
 description: W tym przewodniku szybki start pokazano, jak używać analizy wideo na żywo na IoT Edge w celu wykrywania ruchu w strumieniu wideo na żywo i rejestrowania klipów wideo do Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: f0045f7fddfe6c544f10d280450cdafe8dca9e2d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0a81bebe7333266e1b70f97f8c712fccf392a464
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262044"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817319"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Szybki Start: wykrywanie ruchu, nagrywanie wideo do Media Services
 
@@ -21,9 +21,9 @@ Ten artykuł jest oparty na [wprowadzenie szybki start](get-started-detect-motio
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) na swojej maszynie przy użyciu [rozszerzenia narzędzi Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * Jeśli wcześniej nie ukończono [wprowadzenie szybkiego startu](get-started-detect-motion-emit-events-quickstart.md) , wykonaj następujące czynności:
-    * Ukończ [Konfigurowanie zasobów platformy Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+    * [Konfigurowanie zasobów platformy Azure](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
     * [Wdrażanie modułów](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
-    * [Konfigurowanie Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code)
+    * [Konfigurowanie programu Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
 
 ## <a name="review-the-sample-video"></a>Zapoznaj się z przykładowym wideo
 
@@ -845,7 +845,7 @@ Następnie możesz użyć Azure Portal, aby odtworzyć nagrywane wideo.
 > [!NOTE]
 > Ponieważ symulowane wideo na żywo jest uruchamiane po aktywowaniu wykresu, wartości godzinowe nie są istotne i nie są udostępniane za pośrednictwem tego skrótu odtwarzacza. Samouczek dotyczący ciągłego nagrywania i odtwarzania wideo pokazuje, jak można wyświetlić sygnatury czasowe.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń zasoby utworzone w tym przewodniku Szybki Start.
 

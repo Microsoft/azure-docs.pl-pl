@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 92f2102d8d6353da2002a4ee9d5bfbe57a774e10
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: cd7e7df5c789743cf6bd84c6150fd901490bdedd
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792075"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751630"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Podstawa zabezpieczeń Azure dla usługi Azure Storage
 
@@ -218,7 +218,7 @@ Możesz również używać wbudowanych definicji zasad związanych z kontem maga
 
 ### <a name="26-monitor-and-review-logs"></a>2,6: dzienniki monitorowania i przeglądania
 
-**Wskazówki**: Aby przejrzeć dzienniki usługi Azure Storage, istnieją typowe opcje, takie jak zapytania za pomocą oferty log Analytics, a także unikatową opcję bezpośredniego wyświetlania plików dziennika. W usłudze Azure Storage dzienniki są przechowywane w obiektach Blob, do których należy uzyskać http://accountname.blob.core.windows.net/dostęp bezpośrednio w $Logs (folder rejestrowania jest domyślnie ukryty, więc musisz przejść bezpośrednio. Nie będzie on wyświetlany w poleceniach list) 
+**Wskazówki**: Aby przejrzeć dzienniki usługi Azure Storage, istnieją typowe opcje, takie jak zapytania za pomocą oferty log Analytics, a także unikatową opcję bezpośredniego wyświetlania plików dziennika. W usłudze Azure Storage dzienniki są przechowywane w obiektach Blob, do których należy uzyskać dostęp bezpośrednio w http://accountname.blob.core.windows.net/ $Logs (folder rejestrowania jest domyślnie ukryty, więc musisz przejść bezpośrednio. Nie będzie on wyświetlany w poleceniach list) 
 
 Ponadto Włącz zaawansowaną ochronę przed zagrożeniami dla konta usługi Azure Storage. Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage stanowi dodatkową warstwę analizy zabezpieczeń, która wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Alerty zabezpieczeń są wyzwalane, gdy wystąpią anomalie działania. Te alerty zabezpieczeń są zintegrowane z usługą Azure Security Center i są również wysyłane pocztą e-mail do administratorów subskrypcji, ze szczegółowymi informacjami o podejrzanych działaniach i zaleceniami dotyczącymi sposobu badania i korygowania zagrożeń. 
 
@@ -785,7 +785,10 @@ Ponadto Użyj grafu zasobów platformy Azure do wykonywania zapytań/odnajdywani
 
 **Wskazówki**: Użyj aliasów Azure Policy w przestrzeni nazw "Microsoft. Storage", aby utworzyć zasady niestandardowe do inspekcji lub wymuszania konfiguracji wystąpień konta magazynu. Możesz również użyć wbudowanych definicji Azure Policy dla konta usługi Azure Storage, takich jak: 
 
-Inspekcja nieograniczonego dostępu sieciowego do kont magazynu wdrażanie zaawansowanej ochrony przed zagrożeniami na kontach magazynu należy migrować do nowych zasobów Azure Resource Manager należy włączyć bezpieczny transfer do kont magazynu 
+Inspekcja nieograniczonego dostępu sieciowego do kont magazynu  
+Wdróż zaawansowaną ochronę przed zagrożeniami na kontach magazynu  
+Konta magazynu należy migrować do nowych zasobów Azure Resource Manager  
+Należy włączyć bezpieczny transfer na konta magazynu  
 
 Użyj zaleceń z Azure Security Center jako bezpiecznej konfiguracji odniesienia dla kont magazynu. 
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 320723744e1366fdc73cd0593fb0ebece03367f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb2c2f3183ac63d8e5889faf3899a272407f42f4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678103"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202147"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania do Azure Active Directory z wieloma dzierżawcami przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Aby włączyć Logowanie użytkowników z określonej organizacji usługi Azure 
 
 ## <a name="configuring-optional-claims"></a>Konfigurowanie oświadczeń opcjonalnych
 
-Jeśli chcesz uzyskać oświadczenia `family_name` i `given_name` usługi Azure AD, możesz skonfigurować opcjonalne oświadczenia dla swojej aplikacji w Azure Portal interfejsie użytkownika lub manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [jak dostarczyć opcjonalne oświadczenia do aplikacji usługi Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+Jeśli chcesz uzyskać `family_name` `given_name` oświadczenia i usługi Azure AD, możesz skonfigurować opcjonalne oświadczenia dla swojej aplikacji w Azure Portal interfejsie użytkownika lub manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [jak dostarczyć opcjonalne oświadczenia do aplikacji usługi Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**.
@@ -60,7 +60,7 @@ Jeśli chcesz uzyskać oświadczenia `family_name` i `given_name` usługi Azure 
 1. W sekcji **Zarządzanie** wybierz pozycję **Konfiguracja tokenu**.
 1. Wybierz pozycję **Dodaj opcjonalne**pole.
 1. W polu **Typ tokenu**wybierz pozycję **Identyfikator**.
-1. Wybierz opcjonalne oświadczenia do dodania, `family_name` a `given_name`następnie.
+1. Wybierz opcjonalne oświadczenia do dodania, `family_name` a następnie `given_name` .
 1. Kliknij pozycję **Dodaj**.
 
 ## <a name="create-a-policy-key"></a>Tworzenie klucza zasad
@@ -71,10 +71,10 @@ Należy przechowywać klucz aplikacji utworzony w dzierżawie Azure AD B2C.
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. W obszarze **zasady**wybierz pozycję **platforma obsługi tożsamości**.
 1. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje**wybierz `Manual`opcję.
+1. W obszarze **Opcje**wybierz opcję `Manual` .
 1. Wprowadź **nazwę** klucza zasad. Na przykład `AADAppSecret`.  Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza podczas jego tworzenia, więc jego odwołanie w kodzie XML w poniższej sekcji ma *B2C_1A_AADAppSecret*.
 1. W **kluczu tajnym**wprowadź wcześniej zarejestrowany klucz tajny klienta.
-1. W obszarze **użycie klucza**wybierz `Signature`opcję.
+1. W obszarze **użycie klucza**wybierz opcję `Signature` .
 1. Wybierz przycisk **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
@@ -83,11 +83,11 @@ Jeśli chcesz, aby użytkownicy mogli się logować przy użyciu usługi Azure A
 
 Usługę Azure AD można zdefiniować jako dostawcę oświadczeń, dodając usługę Azure AD do elementu **ClaimsProvider** w pliku rozszerzenia zasad.
 
-1. Otwórz plik *TrustFrameworkExtensions. XML* .
+1. Otwórz plik *TrustFrameworkExtensions.xml* .
 1. Znajdź element **ClaimsProviders** . Jeśli nie istnieje, Dodaj ją do elementu głównego.
 1. Dodaj nową **ClaimsProvider** w następujący sposób:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>commonaad</Domain>
       <DisplayName>Common AAD</DisplayName>
@@ -136,7 +136,7 @@ Usługę Azure AD można zdefiniować jako dostawcę oświadczeń, dodając usł
     ```
 
 1. W elemencie **ClaimsProvider** należy zaktualizować wartość dla **domeny** do unikatowej wartości, która może być używana do odróżnienia od innych dostawców tożsamości.
-1. W elemencie **profilu technicznym** zaktualizuj wartość parametru **DisplayName**, na przykład `Contoso Employee`. Ta wartość jest wyświetlana na przycisku logowania na stronie logowania.
+1. W elemencie **profilu technicznym** zaktualizuj wartość parametru **DisplayName**, na przykład `Contoso Employee` . Ta wartość jest wyświetlana na przycisku logowania na stronie logowania.
 1. Ustaw **client_id** na identyfikator aplikacji aplikacji wielodostępnej dla wielodostępnej usługi Azure AD, która została zarejestrowana wcześniej.
 1. W obszarze **CryptographicKeys**zaktualizuj wartość **identyfikatorze storagereferenceid** do nazwy utworzonego wcześniej klucza zasad. Na przykład `B2C_1A_AADAppSecret`.
 
@@ -147,13 +147,13 @@ Usługę Azure AD można zdefiniować jako dostawcę oświadczeń, dodając usł
 
 Należy zaktualizować listę prawidłowych wystawców tokenów i ograniczyć dostęp do określonej listy użytkowników dzierżawy usługi Azure AD, którzy mogą się zalogować.
 
-Aby uzyskać wartości, przyjrzyj się metadanych odnajdywania OpenID Connect Connect dla każdej dzierżawy usługi Azure AD, z której chcesz się zalogować. Format adresu URL metadanych jest podobny do `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, gdzie `your-tenant` jest nazwą dzierżawy usługi Azure AD. Przykład:
+Aby uzyskać wartości, przyjrzyj się metadanych odnajdywania OpenID Connect Connect dla każdej dzierżawy usługi Azure AD, z której chcesz się zalogować. Format adresu URL metadanych jest podobny do `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration` , gdzie `your-tenant` jest nazwą dzierżawy usługi Azure AD. Przykład:
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 
 Wykonaj następujące kroki dla każdej dzierżawy usługi Azure AD, która ma zostać użyta do zalogowania:
 
-1. Otwórz przeglądarkę i przejdź do adresu URL metadanych OpenID Connect Connect dla dzierżawy. Znajdź obiekt **Issuer** i Zapisz jego wartość. Powinien wyglądać podobnie do `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
+1. Otwórz przeglądarkę i przejdź do adresu URL metadanych OpenID Connect Connect dla dzierżawy. Znajdź obiekt **Issuer** i Zapisz jego wartość. Powinien wyglądać podobnie do `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/` .
 1. Skopiuj i wklej wartość do klucza **ValidTokenIssuerPrefixes** . Rozdziel wiele wystawców średnikami. Przykład z dwoma wystawcami pojawia się w poprzednim `ClaimsProvider` przykładzie kodu XML.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Przekaż plik rozszerzenia w celu weryfikacji
@@ -161,16 +161,16 @@ Wykonaj następujące kroki dla każdej dzierżawy usługi Azure AD, która ma z
 Teraz zasady zostały skonfigurowane tak, aby Azure AD B2C wie, jak komunikować się z katalogami usługi Azure AD. Spróbuj przekazać plik rozszerzenia zasad tylko, aby upewnić się, że nie ma żadnych problemów do tej pory.
 
 1. Na stronie **zasady niestandardowe** w dzierżawie Azure AD B2C wybierz pozycję **Przekaż zasady**.
-2. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions. XML* .
-3. Wybierz pozycję **Przekaż**.
+2. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions.xml* .
+3. Wybierz przycisk **Przekaż**.
 
 ## <a name="register-the-claims-provider"></a>Rejestrowanie dostawcy oświadczeń
 
 W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostępny na żadnym z ekranów rejestracji/logowania. Aby można było go udostępnić, należy utworzyć duplikat istniejącej przejazdu użytkownika szablonu, a następnie zmodyfikować go tak, aby miał także dostawcę tożsamości usługi Azure AD.
 
-1. Otwórz plik *TrustFrameworkBase. XML* z pakietu początkowego.
-2. Znajdź i Skopiuj całą zawartość elementu **UserJourney** , który zawiera `Id="SignUpOrSignIn"`.
-3. Otwórz *plik TrustFrameworkExtensions. XML* i Znajdź element **UserJourneys** . Jeśli element nie istnieje, Dodaj go.
+1. Otwórz plik *TrustFrameworkBase.xml* z pakietu początkowego.
+2. Znajdź i Skopiuj całą zawartość elementu **UserJourney** , który zawiera `Id="SignUpOrSignIn"` .
+3. Otwórz *TrustFrameworkExtensions.xml* i Znajdź element **UserJourneys** . Jeśli element nie istnieje, Dodaj go.
 4. Wklej całą zawartość elementu **UserJourney** , który został skopiowany jako element podrzędny elementu **UserJourneys** .
 5. Zmień nazwę identyfikatora podróży użytkownika. Na przykład `SignUpSignInContoso`.
 
@@ -178,10 +178,10 @@ W tym momencie dostawca tożsamości został skonfigurowany, ale nie jest dostę
 
 Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji/logowania. Jeśli dodasz element **ClaimsProviderSelection** dla usługi Azure AD, zostanie wyświetlony nowy przycisk, gdy użytkownik zostanie wystawiony na stronie.
 
-1. Znajdź element **OrchestrationStep** , który zawiera `Order="1"` w podróży użytkownika, który został utworzony w *TrustFrameworkExtensions. XML*.
-1. W obszarze **ClaimsProviderSelects**Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `AzureADExchange`:
+1. Znajdź element **OrchestrationStep** , który obejmuje `Order="1"` podróż użytkownika utworzoną w *TrustFrameworkExtensions.xml*.
+1. W obszarze **ClaimsProviderSelects**Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `AzureADExchange` :
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="AzureADExchange" />
     ```
 
@@ -192,13 +192,13 @@ Teraz, gdy masz już przycisk, musisz połączyć go z akcją. W tym przypadku a
 1. Znajdź **OrchestrationStep** obejmujący `Order="2"` w podróży użytkownika.
 2. Dodaj następujący element **ClaimsExchange** , aby upewnić się, że używasz tej samej wartości dla **identyfikatora** , który został użyty dla **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
 
     Zaktualizuj wartość **TechnicalProfileReferenceId** na **Identyfikator** utworzonego wcześniej profilu technicznego. Na przykład `Common-AAD`.
 
-3. Zapisz plik *TrustFrameworkExtensions. XML* i przekaż go ponownie w celu weryfikacji.
+3. Zapisz plik *TrustFrameworkExtensions.xml* i przekaż go ponownie w celu weryfikacji.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Tworzenie aplikacji Azure AD B2C
 
@@ -210,7 +210,7 @@ Komunikacja z Azure AD B2C odbywa się za pomocą aplikacji zarejestrowanej w dz
 
 Zaktualizuj plik jednostki uzależnionej (RP) inicjujący utworzoną przez Ciebie podróż użytkownika:
 
-1. Utwórz kopię *pliku SignUpOrSignIn. XML* w katalogu roboczym i zmień jego nazwę. Na przykład zmień nazwę na *SignUpSignContoso. XML*.
+1. Utwórz kopię *SignUpOrSignIn.xml* w katalogu roboczym i zmień jej nazwę. Na przykład zmień nazwę na *SignUpSignContoso.xml*.
 1. Otwórz nowy plik i zaktualizuj wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** przy użyciu unikatowej wartości. Na przykład `SignUpSignInContoso`.
 1. Zaktualizuj wartość **PublicPolicyUri** za pomocą identyfikatora URI dla zasad. Na przykład `http://contoso.com/B2C_1A_signup_signin_contoso`.
 1. Zaktualizuj wartość atrybutu **ReferenceId** w **DefaultUserJourney** w taki sposób, aby odpowiadała identyfikatorowi podróży użytkownika, który został utworzony wcześniej. Na przykład *SignUpSignInContoso*.
@@ -220,7 +220,7 @@ Zaktualizuj plik jednostki uzależnionej (RP) inicjujący utworzoną przez Ciebi
 1. Skopiuj **punkt końcowy Uruchom teraz** i otwórz go w prywatnym oknie przeglądarki, na przykład w trybie incognito w przeglądarce Google Chrome lub w oknie InPrivate w programie Microsoft Edge. Otwieranie w prywatnym oknie przeglądarki umożliwia przetestowanie pełnej podróży użytkowników, nie używając obecnie buforowanych poświadczeń usługi Azure AD.
 1. Wybierz przycisk Zaloguj usługi Azure AD, na przykład pracownik firmy *contoso*, a następnie wprowadź poświadczenia dla użytkownika w jednej z dzierżawców organizacyjnych usługi Azure AD. Zostanie wyświetlona prośba o autoryzację aplikacji, a następnie wprowadzenie informacji dla Twojego profilu.
 
-Jeśli proces logowania zakończy się pomyślnie, przeglądarka zostanie przekierowana do `https://jwt.ms`, która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
+Jeśli proces logowania zakończy się pomyślnie, przeglądarka zostanie przekierowana do `https://jwt.ms` , która wyświetla zawartość tokenu zwróconego przez Azure AD B2C.
 
 Aby przetestować możliwość logowania z wieloma dzierżawcami, wykonaj ostatnie dwa kroki przy użyciu poświadczeń dla użytkownika, który istnieje w innej dzierżawie usługi Azure AD.
 

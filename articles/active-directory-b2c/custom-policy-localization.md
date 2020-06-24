@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 090fecea44c7881920fcd087304f33f935a5e907
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 716fbafb444985a9c47635f944f6c9c7078c9aa6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636258"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202657"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalizowanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`Tru
 1. Dodaj `Localization` element z obsługiwanymi językami: angielski (domyślny) i hiszpański.  
 
 
-```XML
+```xml
 <Localization Enabled="true">
   <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
     <SupportedLanguage>en</SupportedLanguage>
@@ -51,7 +51,7 @@ Można skonfigurować zlokalizowane elementy zasobów dla definicji zawartości 
 > [!NOTE]
 > W poniższym przykładzie dodaliśmy symbol funta `#` w BEGGING każdego wiersza, dzięki czemu można easly znaleźć zlokalizowane etykiety na ekranie.
 
-```XML
+```xml
 <!--Local account sign-up or sign-in page English-->
 <LocalizedResources Id="api.signuporsignin.en">
   <LocalizedStrings>
@@ -218,7 +218,7 @@ Wklej całą zawartość elementu ContentDefinitions, który został skopiowany 
 
 W poniższym przykładzie w języku angielskim (EN) i hiszpańskim (ES) ciągi niestandardowe są dodawane do strony rejestracji lub logowania oraz na stronie rejestracji konta lokalnego. **LocalizedResourcesReferenceId** dla każdego **LocalizedResourcesReferenceu** jest taka sama jak ich ustawienia regionalne, ale można użyć dowolnego ciągu jako identyfikatora. Dla każdej kombinacji języka i strony należy wskazać odpowiednie **LocalizedResources** wcześniej utworzone.
 
-```XML
+```xml
 <ContentDefinitions>
   <ContentDefinition Id="api.signuporsignin">
     <LocalizedResourcesReferences MergeBehavior="Prepend">
@@ -252,7 +252,7 @@ W poniższym przykładzie w języku angielskim (EN) i hiszpańskim (ES) ciągi n
 1. Wybierz przekazane zasady, a następnie wybierz pozycję **Uruchom teraz**.
 1. Powinno być możliwe wyświetlenie zlokalizowanej strony rejestracji lub logowania.
 1. Kliknij link do rejestracji, aby wyświetlić zlokalizowaną stronę rejestracji w usłudze.
-1. Zmień język domyślny przeglądarki na hiszpański. Można też dodać parametr ciągu zapytania `ui_locales` do żądania autoryzacji. Na przykład: 
+1. Zmień język domyślny przeglądarki na hiszpański. Można też dodać parametr ciągu zapytania `ui_locales` do żądania autoryzacji. Przykład: 
 
 ```http
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es

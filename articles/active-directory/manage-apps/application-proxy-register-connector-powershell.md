@@ -3,25 +3,25 @@ title: Instalacja dyskretna aplikacja usługi Azure AD łącznika serwera proxy 
 description: W tym artykule opisano sposób przeprowadzania nienadzorowanej instalacji łącznika serwer proxy aplikacji usługi Azure AD platformy Azure w celu zapewnienia bezpiecznego dostępu zdalnego do aplikacji lokalnych.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/24/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ae3cd491db03fd036869a8d86aeb646e3175b59
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 0b959649074e68d50a266f05841ce4c87e2b3e20
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609973"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760018"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Tworzenie skryptu instalacji nienadzorowanej dla łącznika usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -53,7 +53,7 @@ Istnieją dwie metody, których można użyć do zarejestrowania łącznika:
 * Rejestrowanie łącznika przy użyciu tokenu utworzonego w trybie offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Rejestrowanie łącznika przy użyciu obiektu poświadczeń programu Windows PowerShell
-1. Utwórz obiekt `$cred` poświadczeń programu Windows PowerShell, który zawiera administracyjną nazwę użytkownika i hasło dla katalogu. Uruchom następujące polecenie, zastępując * \<nazwę użytkownika\> * i * \<hasło\>*:
+1. Utwórz obiekt poświadczeń programu Windows PowerShell `$cred` , który zawiera administracyjną nazwę użytkownika i hasło dla katalogu. Uruchom następujące polecenie, zastępując *\<username\>* i *\<password\>* :
 
         $User = "<username>"
         $PlainPassword = '<password>'
@@ -175,7 +175,7 @@ Istnieją dwie metody, których można użyć do zarejestrowania łącznika:
 
    `$SecureToken = $Token | ConvertTo-SecureString -AsPlainText -Force`
 
-3. Uruchom następujące polecenie programu Windows PowerShell, zastępując \<identyfikator GUID\> dzierżawy identyfikatorem katalogu:
+3. Uruchom następujące polecenie programu Windows PowerShell, zastępując \<tenant GUID\> je identyfikatorem katalogu:
 
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 

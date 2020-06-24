@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 06/18/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: d2ccdd0a8000cb6c78244445a34529bc8f37d7f9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 85689661e7f0d170cd88edde8985f46285e679c6
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016631"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987784"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Sparametryzuj połączone usługi w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,15 +33,16 @@ Aby zapoznać się z wprowadzeniem do siedmiu minut i demonstracją tej funkcji,
 
 ## <a name="supported-data-stores"></a>Obsługiwane magazyny danych
 
-W tej chwili parametryzacja połączonej usługi jest obsługiwany przez interfejs użytkownika Data Factory w Azure Portal dla następujących magazynów danych. W przypadku wszystkich innych magazynów danych można Sparametryzuj połączoną usługę, wybierając ikonę **kodu** na karcie **połączenia** i używając edytora JSON.
-- Azure SQL Database
-- Azure SQL Data Warehouse
-- SQL Server
-- Oracle
-- Cosmos DB
+W tej chwili parametryzacja połączonej usługi jest obsługiwany w interfejsie użytkownika Data Factory dla następujących magazynów danych. W przypadku wszystkich innych magazynów danych można Sparametryzuj połączoną usługę, wybierając ikonę **kodu** na karcie **połączenia** i używając edytora JSON.
+
 - Amazon Redshift
-- MySQL
+- Azure Cosmos DB (interfejs API SQL)
 - Azure Database for MySQL
+- Azure SQL Database
+- Azure Synapse Analytics (dawniej SQL DW)
+- MySQL
+- Oracle
+- SQL Server
 
 ## <a name="data-factory-ui"></a>Interfejs użytkownika usługi Data Factory
 

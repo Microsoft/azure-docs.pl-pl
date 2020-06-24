@@ -2,14 +2,14 @@
 title: Konfigurowanie Data Manager łańcucha bloków przy użyciu usługi Azure Portal — Azure łańcucha bloków Service
 description: Twórz Data Manager łańcucha bloków dla usługi Azure łańcucha bloków i zarządzaj nimi przy użyciu Azure Portal.
 ms.date: 03/30/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 08f5a4a807087afce13dd4a6e96c0e9dd0a36103
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a151c28d31bf0bb7f21185fb161315d42f9563d8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260602"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200685"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Konfigurowanie menedżera danych łańcucha bloków przy użyciu witryny Azure Portal
 
@@ -76,7 +76,7 @@ ABI kontraktu definiuje inteligentne interfejsy kontraktu. Opisuje sposób korzy
 
     ABI kontraktu jest kopiowany do Schowka.
 
-1. Zapisz tablicę **ABI** jako plik JSON. Na przykład *ABI. JSON*. Ten plik jest używany w późniejszym kroku.
+1. Zapisz tablicę **ABI** jako plik JSON. Na przykład *abi.js*. Ten plik jest używany w późniejszym kroku.
 
 Łańcucha bloków Data Manager wymaga wdrożonego kodu bajtowego dla kontraktu inteligentnego. Wdrożony kod bajtowy jest inny niż kod bajtowy kontraktu inteligentnego. Użyj rozszerzenia Azure łańcucha bloków Development Kit, aby skopiować kod bajtowy do Schowka.
 
@@ -88,11 +88,11 @@ ABI kontraktu definiuje inteligentne interfejsy kontraktu. Opisuje sposób korzy
 
     Kod bajtowy jest kopiowany do Schowka.
 
-1. Zapisz wartość **kodu bajtowego** jako plik JSON. Na przykład, *kod bajtowy. JSON*. Ten plik jest używany w późniejszym kroku.
+1. Zapisz wartość **kodu bajtowego** jako plik JSON. Na przykład *bytecode.js*. Ten plik jest używany w późniejszym kroku.
 
-W poniższym przykładzie przedstawiono pliki *ABI. JSON* i *unformating. JSON* otwarte w edytorze vs Code. Pliki powinny wyglądać podobnie.
+Poniższy przykład pokazuje *abi.json* i *bytecode.jsna* plikach otwartych w edytorze vs Code. Pliki powinny wyglądać podobnie.
 
-![Przykład plików ABI. JSON i kodu bajtowego JSON](./media/data-manager-portal/contract-files.png)
+![Przykład abi.jsi bytecode.jsdla plików](./media/data-manager-portal/contract-files.png)
 
 ### <a name="create-contract-abi-and-bytecode-url"></a>Utwórz ABI kontraktu i adres URL kodu bajtowego
 
@@ -119,7 +119,7 @@ W poniższym przykładzie przedstawiono pliki *ABI. JSON* i *unformating. JSON* 
 
     ![Przekaż obiekt BLOB](./media/data-manager-portal/upload-blobs.png)
 
-    Wybierz pozycję **Przekaż**.
+    Wybierz przycisk **Przekaż**.
 
 #### <a name="generate-url"></a>Generuj adres URL
 

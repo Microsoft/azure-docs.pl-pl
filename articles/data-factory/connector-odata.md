@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 06/12/2020
 ms.author: jingwang
-ms.openlocfilehash: c2fe6b6cc7b52dda9f2beffa444f1965723ea92a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12a858364fc58972894f9fb365955496f8832246
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416924"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987802"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Kopiowanie danych ze źródła strumieniowego OData przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -45,7 +45,7 @@ W przypadku tego łącznika OData obsługuje:
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -55,15 +55,15 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, który
 
 Dla połączonej usługi OData są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** musi być ustawiona na wartość **OData**. |Tak |
+| typ | Właściwość **Type** musi być ustawiona na wartość **OData**. |Tak |
 | url | Główny adres URL usługi OData. |Tak |
 | authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia ze źródłem danych OData. Dozwolone wartości to **Anonymous**, **Basic**, **Windows**i **AadServicePrincipal**. Uwierzytelnianie OAuth oparte na użytkowniku nie jest obsługiwane. | Tak |
 | userName | Określ **nazwę użytkownika** , jeśli używasz uwierzytelniania podstawowego lub systemu Windows. | Nie |
 | hasło | Określ **hasło** dla konta użytkownika określonego w polu **Nazwa użytkownika**. Oznacz to pole jako typ **SecureString** , aby bezpiecznie przechowywać go w Data Factory. Można również [odwołać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | servicePrincipalId | Określ identyfikator klienta aplikacji Azure Active Directory. | Nie |
-| aadServicePrincipalCredentialType | Określ typ poświadczeń, który ma być używany do uwierzytelniania nazwy głównej usługi. Dozwolone wartości to: `ServicePrincipalKey` lub `ServicePrincipalCert`. | Nie |
+| aadServicePrincipalCredentialType | Określ typ poświadczeń, który ma być używany do uwierzytelniania nazwy głównej usługi. Dozwolone wartości to: `ServicePrincipalKey` lub `ServicePrincipalCert` . | Nie |
 | servicePrincipalKey | Określ klucz aplikacji Azure Active Directory. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | servicePrincipalEmbeddedCert | Określ certyfikat kodowany algorytmem Base64 aplikacji zarejestrowanej w Azure Active Directory. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
 | servicePrincipalEmbeddedCertPassword | Określ hasło certyfikatu, jeśli certyfikat jest zabezpieczony hasłem. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md).  | Nie|
@@ -204,12 +204,12 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 Aby skopiować dane z protokołu OData, ustaw właściwość **Type** zestawu danych na **ODataResource**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** zestawu danych musi być ustawiona na wartość **ODataResource**. | Tak |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **ODataResource**. | Tak |
 | ścieżka | Ścieżka do zasobu OData. | Tak |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -240,12 +240,13 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 Aby skopiować dane z usługi OData, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **ODataSource**. | Tak |
-| query | Opcje zapytania OData dotyczące filtrowania danych. Przykład: `"$select=Name,Description&$top=5"`.<br/><br/>**Uwaga**: Łącznik OData kopiuje dane ze połączonego adresu URL: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`. Aby uzyskać więcej informacji, zobacz [składniki URL usługi OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nie |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **ODataSource**. | Tak |
+| query | Opcje zapytania OData dotyczące filtrowania danych. Przykład: `"$select=Name,Description&$top=5"`.<br/><br/>**Uwaga**: Łącznik OData kopiuje dane ze połączonego adresu URL: `[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]` . Aby uzyskać więcej informacji, zobacz [składniki URL usługi OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nie |
+| httpRequestTimeout | Limit czasu (wartość **TimeSpan** ) żądania HTTP w celu uzyskania odpowiedzi. Ta wartość jest przekroczeniem limitu czasu w celu uzyskania odpowiedzi, a nie limitu czasu odczytu danych odpowiedzi. Jeśli nie zostanie określony, wartość domyślna to **00:30:00** (30 minut). | Nie |
 
-**Przyklad**
+**Przykład**
 
 ```json
 "activities":[
@@ -291,13 +292,13 @@ Podczas kopiowania danych z protokołu OData następujące mapowania są używan
 | EDM. DateTime | DateTime |
 | EDM. Decimal | Wartość dziesiętna |
 | Edm.Double | Double |
-| EDM. Single | Single |
+| EDM. Single | Pojedyncze |
 | EDM. GUID | Guid (identyfikator GUID) |
 | EDM. Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | EDM. | Int16 |
-| Edm.String | String |
+| Edm.String | Ciąg |
 | EDM. Time | przedział_czasu |
 | Edm.DateTimeOffset | DateTimeOffset |
 

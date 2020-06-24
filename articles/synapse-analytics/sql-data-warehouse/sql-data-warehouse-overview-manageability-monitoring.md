@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e41bf003af7d0926aab04ffed86bf6ec5031c4f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19b2b4aecedbaa66c258b9076c517b02034a46fb
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80586418"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200991"
 ---
 # <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Zarządzanie i monitorowanie za pomocą puli SQL Synapse
 

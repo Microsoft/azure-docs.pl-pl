@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 0b0eec2425f8a1663eb7a09c83a6bad037d1d79c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67594108"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886055"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analizowanie statystyk użycia przy użyciu zaawansowanych raportów HTTP Azure CDN
 ## <a name="overview"></a>Omówienie
@@ -199,7 +199,7 @@ Lewa strona grafu (oś y) wskazuje nazwę pliku dla każdego z pierwszych 10 ż�
 
 Bezpośrednio poniżej wykresu słupkowego zostaną wyświetlone następujące informacje dotyczące górnego 250 żądanych zasobów: ścieżki względnej (w tym nazwy pliku), liczby żądań, które spowodowały, że nie znaleziono kodu stanu 404, Łączna liczba przypadków, w których zażądano zasobu, oraz procent żądań, które 404 spowodowały, że nie znaleziono kodu stanu.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie usługi Azure CDN](cdn-overview.md)
 * [Statystyki w czasie rzeczywistym w usłudze Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)

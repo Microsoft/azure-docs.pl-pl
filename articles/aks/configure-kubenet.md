@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: a393e87963eabf2e3cf41148233c0e350dc6e380
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 8a101235f8e7aaeff455732b5c048cbc81c20079
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309672"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079047"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Korzystanie z sieci korzystającą wtyczki kubenet z własnymi zakresami adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -201,16 +201,37 @@ Podczas tworzenia klastra AKS są tworzone automatycznie sieciowe grupy zabezpie
 
 W przypadku korzystającą wtyczki kubenet tabela tras musi istnieć w podsieciach klastra. AKS obsługuje nadawanie własnej istniejącej podsieci i tabeli tras.
 
-Jeśli podsieć niestandardowa nie zawiera tabeli tras, AKS tworzy ją dla Ciebie i dodaje do niej reguły. Jeśli podsieć niestandardowa zawiera tabelę tras podczas tworzenia klastra, AKS przyjmuje istniejącą tabelę tras podczas operacji klastra i aktualizuje odpowiednio reguły dla operacji dostawcy chmury.
+Jeśli podsieć niestandardowa nie zawiera tabeli tras, AKS tworzy ją dla Ciebie i dodaje do niej reguły w całym cyklu życia klastra. Jeśli podsieć niestandardowa zawiera tabelę tras podczas tworzenia klastra, AKS przyjmuje istniejącą tabelę tras podczas operacji klastra i odpowiednio dodaje/aktualizuje reguły dla operacji dostawcy chmury.
+
+> [!WARNING]
+> Reguły niestandardowe można dodać do niestandardowej tabeli tras i zaktualizować. Jednak reguły są dodawane przez dostawcę chmury Kubernetes, który nie może zostać zaktualizowany ani usunięty. Reguły, takie jak 0.0.0.0/0, muszą zawsze istnieć w danej tabeli tras i mapowane na obiekt docelowy bramy internetowej, np. urządzenie WUS lub inną bramę ruchu wychodzącego. Należy zachować ostrożność podczas aktualizowania reguł, które są modyfikowane tylko dla reguł niestandardowych.
+
+Dowiedz się więcej o konfigurowaniu [niestandardowej tabeli tras][custom-route-table].
+
+Sieć korzystającą wtyczki kubenet wymaga zorganizowanych reguł tabeli tras, aby pomyślnie kierować żądania. Ze względu na ten projekt tabele tras muszą być starannie utrzymywane dla każdego klastra, który opiera się na nim. Wiele klastrów nie może współdzielić tabeli tras, ponieważ ścieżki CIDR z różnych klastrów mogą się nakładać, co powoduje nieoczekiwane i przerwane Routing. Podczas konfigurowania wielu klastrów w tej samej sieci wirtualnej lub przydzielenia sieci wirtualnej do każdego klastra upewnij się, że są uwzględniane następujące ograniczenia.
 
 Ograniczenia:
 
 * Przed utworzeniem klastra należy przypisać uprawnienia. Upewnij się, że używasz jednostki usługi z uprawnieniami do zapisu w niestandardowej podsieci i niestandardowej tabeli tras.
 * Zarządzane tożsamości nie są obecnie obsługiwane w przypadku niestandardowych tabel tras w programie korzystającą wtyczki kubenet.
-* Aby można było utworzyć klaster AKS, niestandardowa tabela tras musi być skojarzona z podsiecią. Nie można zaktualizować tej tabeli tras i wszystkie reguły routingu muszą zostać dodane lub usunięte z tabeli tras początkowych przed utworzeniem klastra AKS.
-* Wszystkie podsieci w sieci wirtualnej AKS muszą być skojarzone z tą samą tabelą tras.
-* Każdy klaster AKS musi używać unikatowej tabeli tras. Nie można ponownie użyć tabeli tras z wieloma klastrami.
+* Aby można było utworzyć klaster AKS, niestandardowa tabela tras musi być skojarzona z podsiecią.
+* Nie można zaktualizować skojarzonego zasobu tabeli tras po utworzeniu klastra. Nie można zaktualizować zasobu tabeli tras, reguły niestandardowe można modyfikować w tabeli tras.
+* Każdy klaster AKS musi korzystać z jednej unikatowej tabeli tras dla wszystkich podsieci skojarzonych z klastrem. Nie można ponownie użyć tabeli tras z wieloma klastrami ze względu na potencjał nakładający się w CIDR i sprzeczne reguły routingu.
 
+Po utworzeniu niestandardowej tabeli tras i skojarzeniu jej z podsiecią w sieci wirtualnej można utworzyć nowy klaster AKS, który korzysta z tabeli tras.
+Należy użyć identyfikatora podsieci dla miejsca, w którym planujesz wdrożyć klaster AKS. Ta podsieć musi być również skojarzona z niestandardową tabelą tras.
+
+```azurecli-interactive
+# Find your subnet ID
+az network vnet subnet list --resource-group
+                            --vnet-name
+                            [--subscription]
+```
+
+```azurecli-interactive
+# Create a kubernetes cluster with with a custom subnet preconfigured with a route table
+az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
+```
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -238,3 +259,4 @@ W przypadku klastra AKS wdrożonego w istniejącej podsieci sieci wirtualnej mo�
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
 [network-comparisons]: concepts-network.md#compare-network-models
+[custom-route-table]: ../virtual-network/manage-route-table.md

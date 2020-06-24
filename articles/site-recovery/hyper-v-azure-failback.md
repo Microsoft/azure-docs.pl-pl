@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
 ms.openlocfilehash: 4b005ae308576db6fd26fcf079161430b266ec3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281784"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710256"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Uruchamianie powrotu po awarii dla maszyn wirtualnych funkcji Hyper-V
 
@@ -36,7 +36,7 @@ W tym artykule opisano sposób powrotu po awarii maszyn wirtualnych platformy Az
 
 Aby zakończyć przywracanie maszyn wirtualnych funkcji Hyper-V na platformie Azure do oryginalnej lokalnej maszyny wirtualnej, uruchom planowane przejście w tryb failover z platformy Azure do lokacji lokalnej w następujący sposób:
 
-1. W magazynie > **zreplikowane elementy**wybierz maszynę wirtualną. Kliknij prawym przyciskiem myszy maszynę wirtualną > **planowanej pracy w trybie failover**. Jeśli plan odzyskiwania kończy się niepowodzeniem, wybierz nazwę planu i kliknij pozycję**planowana**praca w trybie **failover** > .
+1. W magazynie > **zreplikowane elementy**wybierz maszynę wirtualną. Kliknij prawym przyciskiem myszy maszynę wirtualną > **planowanej pracy w trybie failover**. Jeśli plan odzyskiwania kończy się niepowodzeniem, wybierz nazwę planu i kliknij pozycję Planowana praca w trybie **failover**  >  **Planned Failover**.
 2. W obszarze **Potwierdź planowane przejście w tryb failover**wybierz lokalizację źródłową i docelową. Zanotuj kierunek trybu failover. Jeśli przełączenie w tryb failover z lokacji głównej działa zgodnie z oczekiwaniami i wszystkie maszyny wirtualne znajdują się w lokalizacji pomocniczej, jest to tylko informacje.
 3. W obszarze **Synchronizacja danych**wybierz opcję:
     - **Synchronizuj dane przed przełączeniem w tryb failover (zsynchronizuj tylko zmiany różnicowe)**— ta opcja minimalizuje przestoje maszyn wirtualnych w trakcie synchronizacji bez jej zamykania.
@@ -64,7 +64,7 @@ Powrót po awarii do alternatywnej lokalizacji w następujący sposób:
 
 1. Jeśli konfigurujesz nowy sprzęt, zainstaluj [obsługiwaną wersję systemu Windows](hyper-v-azure-support-matrix.md#replicated-vms)i rolę funkcji Hyper-V na komputerze.
 2. Utwórz przełącznik sieci wirtualnej o takiej samej nazwie, jak na oryginalnym serwerze.
-3. W\< \<**grupie** >  > ochrony **chronione elementy**ProtectionGroupName>-> VirtualMachineName> wybierz maszynę wirtualną, której chcesz użyć do powrotu po awarii, a następnie wybierz pozycję **Planowana praca w trybie failover**.
+3. W **Protected Items**  >  **grupie Ochrona**chronionych elementów  >  \<ProtectionGroupName>  ->  \<VirtualMachineName> Wybierz maszynę wirtualną, której chcesz użyć do powrotu po awarii, a następnie wybierz pozycję **Planowana praca w trybie failover**.
 4. W obszarze **Potwierdź planowane przejście w tryb failover**, wybierz opcję **Utwórz lokalną maszynę wirtualną, jeśli nie istnieje**.
 5. W polu **Nazwa hosta**wybierz nowy serwer hosta funkcji Hyper-V, na którym chcesz umieścić maszynę wirtualną.
 6. W obszarze **Synchronizacja danych**zalecamy wybranie opcji synchronizowania danych przed przełączeniem w tryb failover. Pozwala to zminimalizować czas przestoju w przypadku synchronizacji z maszynami wirtualnymi bez ich zamykania. Wykonuje następujące czynności:
@@ -72,7 +72,7 @@ Powrót po awarii do alternatywnej lokalizacji w następujący sposób:
     - **Faza 2**: zamyka maszynę wirtualną platformy Azure, aby nie pojawiły się żadne nowe zmiany. Końcowy zestaw zmian jest transferowany na serwer lokalny, a lokalna maszyna wirtualna jest uruchamiana.
     
 7. Kliknij znacznik wyboru, aby rozpocząć pracę w trybie failover (powrót po awarii).
-8. Po zakończeniu początkowej synchronizacji i przygotowaniu się do zamykania maszyny wirtualnej platformy Azure kliknij pozycję **zadania** > \<planowane przejście w tryb failover> > **zakończyć**pracę w trybie failover. Spowoduje to zamknięcie maszyny platformy Azure, przeniesienie najnowszych zmian do lokalnej maszyny wirtualnej i jej uruchomienie.
+8. Po zakończeniu początkowej synchronizacji i przygotowaniu się do zamykania maszyny wirtualnej platformy Azure kliknij pozycję **zadania**  >  \<planned failover job>  >  **Zakończ pracę w trybie failover**. Spowoduje to zamknięcie maszyny platformy Azure, przeniesienie najnowszych zmian do lokalnej maszyny wirtualnej i jej uruchomienie.
 9. Możesz zalogować się do lokalnej maszyny wirtualnej, aby sprawdzić, czy wszystko działa zgodnie z oczekiwaniami.
 10. Kliknij przycisk **Zatwierdź** , aby zakończyć pracę w trybie failover. Zatwierdzenie powoduje usunięcie maszyny wirtualnej platformy Azure i jej dysków, a następnie przygotowanie lokalnej maszyny wirtualnej do ochrony.
 10. Kliknij pozycję **replikacja odwrotna** , aby rozpocząć replikację lokalnej maszyny wirtualnej do platformy Azure. Tylko zmiany różnicowe wprowadzone od momentu wyłączenia maszyny wirtualnej na platformie Azure zostaną zreplikowane.

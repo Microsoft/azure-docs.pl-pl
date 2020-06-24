@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 596967a918dc3a94061ce907848e7e502660b97c
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c587af529831c4fb8cdb15b50b2a0b16a868efe3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324372"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255385"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Co to jest logiczny serwer SQL w Azure SQL Database i Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -55,7 +55,7 @@ Można utworzyć grupę zasobów dla serwera przed czasem lub podczas tworzenia 
 
 Aby utworzyć serwer (bez bazy danych, puli elastycznej lub bazy danych magazynu danych) przy użyciu [Azure Portal](https://portal.azure.com), przejdź do pustego formularza programu SQL Server (logicznego serwera SQL).
 
-### <a name="create-a-blank-or-sample-sql-database-in-azure-sql-database"></a>Tworzenie pustej lub przykładowej bazy danych SQL w Azure SQL Database
+### <a name="create-a-blank-or-sample-database-in-azure-sql-database"></a>Utwórz pustą lub przykładową bazę danych w Azure SQL Database
 
 Aby utworzyć bazę danych w SQL Database przy użyciu [Azure Portal](https://portal.azure.com), przejdź do pustego formularza SQL Database i podaj żądane informacje. Można utworzyć grupę zasobów i serwer przed czasem lub podczas tworzenia samej bazy danych. Możesz utworzyć pustą bazę danych lub utworzyć przykładową bazę danych na podstawie firmy Adventure Works LT.
 

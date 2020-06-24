@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 4f03033942517f4778192e0b12f84610df8fd469
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429215"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194998"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Użyj serwera Apache Spark History, aby debugować i diagnozować aplikacje Apache Spark
 
@@ -106,7 +106,7 @@ Przegląd zadania można zobaczyć na wykresie wygenerowanym zadania. Domyślnie
 
 ![Identyfikator zadania programu Spark Application i Graph zadania](./media/apache-spark-history-server/apache-spark-graph-jobid.png)
 
-### <a name="display"></a>Monitor
+### <a name="display"></a>Wyświetlanie
 
 Domyślnie jest wyświetlany ekran **postępu** . Przepływ danych można sprawdzić, wybierając pozycję **Odczytaj** lub **zapisaną** na liście rozwijanej **Wyświetlanie** .
 
@@ -122,9 +122,9 @@ Aby odtworzyć zadanie, wybierz pozycję **odtwarzanie**. W dowolnym momencie mo
 
 |Kolor|Znaczenie|
 |-|-|
-|Zielony|Zakończone powodzeniem: zadanie zostało ukończone pomyślnie.|
+|Green|Zakończone powodzeniem: zadanie zostało ukończone pomyślnie.|
 |Orange|Ponawianie próby: wystąpienia zadań, które zakończyły się niepowodzeniem, ale nie wpływają na końcowy wynik zadania. Te zadania mają zduplikowane lub ponawiane wystąpienia, które mogą się powieść później.|
-|Blue|Uruchomiono: zadanie jest uruchomione.|
+|Niebieski|Uruchomiono: zadanie jest uruchomione.|
 |Biały|Oczekiwanie lub pominięte: zadanie oczekuje na uruchomienie lub etap został pominięty.|
 |Red|Niepowodzenie: zadanie zakończyło się niepowodzeniem.|
 
@@ -182,7 +182,7 @@ W węźle grafu zadania są wyświetlane następujące informacje dotyczące pos
     >  
     > Rozmiar danych odczytu i zapisu to 1 MB = 1000 KB = 1000 * 1000 bajtów.
 
-### <a name="provide-feedback"></a>Przekazywanie opinii
+### <a name="provide-feedback"></a>Wyraź opinię
 
 Prześlij opinię z problemami, wybierając pozycję Prześlij **nam swoją opinię**.
 

@@ -1,0 +1,125 @@
+---
+title: 'Azure Resource Manager: Tworzenie wystąpienia zarządzanego usługi Azure SQL'
+description: Dowiedz się, jak utworzyć wystąpienie zarządzane Azure SQL przy użyciu szablonu Azure Resource Manager.
+services: sql-database
+ms.service: sql-managed-instance
+ms.subservice: operations
+ms.custom: subject-armqs
+ms.devlang: ''
+ms.topic: quickstart
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
+ms.date: 06/22/2020
+ms.openlocfilehash: 01c6c37d31d41f88b370face372555536724adde
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85256182"
+---
+# <a name="quickstart-create-an-azure-sql-managed-instance-using-an-azure-resource-manager-template"></a>Szybki Start: Tworzenie wystąpienia zarządzanego usługi Azure SQL przy użyciu szablonu Azure Resource Manager
+
+Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu Menedżer zasobów w celu utworzenia wystąpienia zarządzanego i sieci wirtualnej usługi Azure SQL.
+
+[!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
+
+Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+Brak.
+
+## <a name="create-an-azure-sql-managed-instance"></a>Tworzenie wystąpienia zarządzanego Azure SQL
+
+[Wystąpienie zarządzane Azure SQL](sql-managed-instance-paas-overview.md) to inteligentna, w pełni zarządzana i skalowalna baza danych w chmurze, która zapewnia niemal 100% możliwości funkcji Dzięki aparatowi bazy danych SQL Server.
+
+### <a name="review-the-template"></a>Przegląd szablonu
+
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+
+:::code language="json" source="~/quickstart-templates/101-sqlmi-new-vnet/azuredeploy.json":::
+
+Te zasoby są zdefiniowane w szablonie:
+
+- [**Microsoft. SQL/ManagedInstances**](/azure/templates/microsoft.sql/managedinstances)
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.Network/virtualNetworks)
+- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.Network/routeTables)
+- [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.Network/networkSecurityGroups)
+
+
+
+Więcej przykładów szablonów można znaleźć w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular).
+
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
+
+Wybierz opcję **Wypróbuj** z następującego bloku kodu programu PowerShell, aby otworzyć Azure Cloud Shell.
+
+> [!IMPORTANT]
+> Wdrożenie wystąpienia zarządzanego jest długotrwałą operacją. Wdrożenie pierwszego wystąpienia w podsieci zwykle trwa znacznie dłużej niż wdrażanie w podsieci z istniejącymi wystąpieniami zarządzanymi. Aby uzyskać średni czas udostępniania, zobacz [operacje zarządzania wystąpieniami zarządzanymi przez program SQL Server](sql-managed-instance-paas-overview.md#management-operations).
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sqlmi-new-vnet/azuredeploy.json"
+
+$resourceGroupName = "${projectName}rg"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
+
+Read-Host -Prompt "Press [ENTER] to continue ..."
+```
+
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli-interactive
+read -p "Enter a project name that is used for generating resource names:" projectName &&
+read -p "Enter the location (i.e. centralus):" location &&
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-sqlmi-new-vnet/azuredeploy.json" &&
+resourceGroupName="${projectName}rg" &&
+az group create --name $resourceGroupName --location "$location" &&
+az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&
+echo "Press [ENTER] to continue ..." &&
+read
+```
+
+* * *
+
+## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
+
+Odwiedź [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceGroups) i sprawdź, czy wystąpienie zarządzane znajduje się w wybranej grupie zasobów. Ze względu na to, że tworzenie wystąpienia zarządzanego może zająć trochę czasu, może być konieczne sprawdzenie linku **wdrożenia** na stronie **przeglądu** grupy zasobów.
+
+- Aby zapoznać się z przewodnikiem Szybki Start, który pokazuje, jak połączyć się z wystąpieniem zarządzanym SQL z maszyny wirtualnej platformy Azure, zobacz [Konfigurowanie połączenia z maszyną wirtualną platformy Azure](connect-vm-instance-configure.md).
+- Aby zapoznać się z przewodnikiem Szybki Start, który pokazuje, jak połączyć się z wystąpieniem zarządzanym SQL z lokalnego komputera klienckiego przy użyciu połączenia typu punkt-lokacja, zobacz [Konfigurowanie połączenia punkt-lokacja](point-to-site-p2s-configure.md).
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
+
+Zachowaj wystąpienie zarządzane, jeśli chcesz przejść do [następnych kroków](#next-steps), ale Usuń wystąpienie zarządzane i powiązane zasoby po ukończeniu dodatkowych samouczków. Po usunięciu wystąpienia zarządzanego zapoznaj się z tematem [usuwanie podsieci po usunięciu wystąpienia zarządzanego](virtual-cluster-delete.md).
+
+
+Aby usunąć grupę zasobów:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+# <a name="the-azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
+```
+
+* * *
+
+## <a name="next-steps"></a>Następne kroki
+
+> [!div class="nextstepaction"]
+> [Konfigurowanie maszyny wirtualnej platformy Azure do nawiązywania połączenia z wystąpieniem zarządzanym usługi Azure SQL](connect-vm-instance-configure.md)

@@ -6,12 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: tracking-python
-ms.openlocfilehash: 10d54088859332ad986dc642247c6af96b378978
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553904"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753211"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Śledź przychodzące żądania przy użyciu języka Python OpenCensus
 
@@ -33,7 +33,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
     )
     ```
 
-3. Upewnij się, że AzureExporter jest prawidłowo skonfigurowany w `settings.py` ramach użytkownika `OPENCENSUS` .
+3. Upewnij się, że AzureExporter jest prawidłowo skonfigurowany w `settings.py` ramach użytkownika `OPENCENSUS` . W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `BLACKLIST_PATHS` .
 
     ```python
     OPENCENSUS = {
@@ -42,20 +42,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
             'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
                 connection_string="InstrumentationKey=<your-ikey-here>"
             )''',
-        }
-    }
-    ```
-
-4. Możesz również dodać adresy URL w `settings.py` obszarze `BLACKLIST_PATHS` dla żądań, które nie mają być śledzone.
-
-    ```python
-    OPENCENSUS = {
-        'TRACE': {
-            'SAMPLER': 'opencensus.trace.samplers.ProbabilitySampler(rate=0.5)',
-            'EXPORTER': '''opencensus.ext.azure.trace_exporter.AzureExporter(
-                connection_string="InstrumentationKey=<your-ikey-here>",
-            )''',
-            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent from it.
+            'BLACKLIST_PATHS': ['https://example.com'],  <--- These sites will not be traced if a request is sent to it.
         }
     }
     ```
@@ -87,7 +74,7 @@ Najpierw Instrumentacja aplikacji w języku Python przy użyciu najnowszego [zes
     
     ```
 
-2. `flask`Oprogramowanie pośredniczące można skonfigurować bezpośrednio w kodzie. W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `BLACKLIST_PATHS` .
+2. Możesz również skonfigurować `flask` aplikację za poorednictwem programu `app.config` . W przypadku żądań z adresów URL, które nie mają być śledzone, Dodaj je do programu `BLACKLIST_PATHS` .
 
     ```python
     app.config['OPENCENSUS'] = {

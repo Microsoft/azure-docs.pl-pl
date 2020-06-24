@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 83e1e11fe38a21bbd7c44139fac562342bcab866
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229650"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201179"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informacje o rozpoznawaniu roszczeń w Azure Active Directory B2C zasadach niestandardowych
 
@@ -24,9 +24,9 @@ Mechanizmy rozpoznawania nazw w Azure Active Directory B2C (Azure AD B2C) [zasad
 
 Aby użyć mechanizmu rozwiązywania konfliktów w ramach oświadczenia wejściowego lub wychodzącego, należy zdefiniować element **ClaimType**typu String w elemencie [ClaimsSchema](claimsschema.md) , a następnie ustawić wartość **DefaultValue** na resolver oświadczenia w elemencie oświadczenia wejściowego lub wychodzącego. Azure AD B2C odczytuje wartość mechanizmu rozwiązywania konfliktów i używa wartości w profilu technicznym.
 
-W poniższym przykładzie typ wystąpienia `correlationId` `string`o nazwie jest zdefiniowany za pomocą typu **danych** .
+W poniższym przykładzie typ wystąpienia o nazwie `correlationId` jest zdefiniowany za pomocą typu **danych** `string` .
 
-```XML
+```xml
 <ClaimType Id="correlationId">
   <DisplayName>correlationId</DisplayName>
   <DataType>string</DataType>
@@ -34,9 +34,9 @@ W poniższym przykładzie typ wystąpienia `correlationId` `string`o nazwie jest
 </ClaimType>
 ```
 
-W profilu technicznym zamapuj mechanizm rozwiązywania konfliktów na typ zgłoszenia. Azure AD B2C wypełnia wartość programu rozpoznawania `{Context:CorrelationId}` roszczeń do roszczeń `correlationId` i wysyła je do profilu technicznego.
+W profilu technicznym zamapuj mechanizm rozwiązywania konfliktów na typ zgłoszenia. Azure AD B2C wypełnia wartość programu rozpoznawania roszczeń `{Context:CorrelationId}` do roszczeń `correlationId` i wysyła je do profilu technicznego.
 
-```XML
+```xml
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
@@ -66,17 +66,17 @@ W poniższych sekcjach znajduje się lista dostępnych elementów rozwiązywania
 
 | Claim | Opis | Przykład |
 | ----- | ----------- | --------|
-| {OIDC: AuthenticationContextReferences} |Parametr `acr_values` ciągu zapytania. | Nie dotyczy |
-| {OIDC: ClientId} |Parametr `client_id` ciągu zapytania. | 00000000-0000-0000-0000-000000000000 |
-| {OIDC: DomainHint} |Parametr `domain_hint` ciągu zapytania. | facebook.com |
-| {OIDC: LoginHint} |  Parametr `login_hint` ciągu zapytania. | someone@contoso.com |
+| {OIDC: AuthenticationContextReferences} |`acr_values`Parametr ciągu zapytania. | Nie dotyczy |
+| {OIDC: ClientId} |`client_id`Parametr ciągu zapytania. | 00000000-0000-0000-0000-000000000000 |
+| {OIDC: DomainHint} |`domain_hint`Parametr ciągu zapytania. | facebook.com |
+| {OIDC: LoginHint} |  `login_hint`Parametr ciągu zapytania. | someone@contoso.com |
 | {OIDC: MaxAge} | Element `max_age`. | Nie dotyczy |
-| {OIDC: nonce} |Parametr `Nonce` ciągu zapytania. | defaultNonce |
+| {OIDC: nonce} |`Nonce`Parametr ciągu zapytania. | defaultNonce |
 | {OIDC: hasło}| [Poświadczenia hasła właściciela zasobu przepływu](ropc-custom.md) hasła użytkownika.| password1| 
-| {OIDC: Prompt} | Parametr `prompt` ciągu zapytania. | logowanie |
-| {OIDC: RedirectUri} |Parametr `redirect_uri` ciągu zapytania. | https://jwt.ms |
-| {OIDC: Resource} |Parametr `resource` ciągu zapytania. | Nie dotyczy |
-| {OIDC: Scope} |Parametr `scope` ciągu zapytania. | OpenID Connect |
+| {OIDC: Prompt} | `prompt`Parametr ciągu zapytania. | logowanie |
+| {OIDC: RedirectUri} |`redirect_uri`Parametr ciągu zapytania. | https://jwt.ms |
+| {OIDC: Resource} |`resource`Parametr ciągu zapytania. | Nie dotyczy |
+| {OIDC: Scope} |`scope`Parametr ciągu zapytania. | OpenID Connect |
 | {OIDC: username}| Nazwa użytkownika [przepływu poświadczeń hasła właściciela zasobu](ropc-custom.md) .| emily@contoso.com| 
 
 ### <a name="context"></a>Kontekst
@@ -94,12 +94,12 @@ W poniższych sekcjach znajduje się lista dostępnych elementów rozwiązywania
 
 | Claim | Opis | Przykład |
 | ----- | ----------- | --------|
-| {Claim: typ zgłoszenia} | Identyfikator typu "Claim" jest już zdefiniowany w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad.  Na przykład: `{Claim:displayName}`, lub `{Claim:objectId}`. | Wartość typu zgłoszenia.|
+| {Claim: typ zgłoszenia} | Identyfikator typu "Claim" jest już zdefiniowany w sekcji ClaimsSchema w pliku zasad lub nadrzędnym pliku zasad.  Na przykład: `{Claim:displayName}` , lub `{Claim:objectId}` . | Wartość typu zgłoszenia.|
 
 
 ### <a name="oauth2-key-value-parameters"></a>OAuth2 klucz-wartość parametrów
 
-Wszelkie nazwy parametrów dołączone jako część żądania OIDC lub OAuth2 mogą być mapowane do roszczeń w podróży użytkownika. Na przykład żądanie z aplikacji może zawierać parametr ciągu zapytania z nazwą `app_session`, `loyalty_number`lub dowolnym niestandardowym ciągiem zapytania.
+Wszelkie nazwy parametrów dołączone jako część żądania OIDC lub OAuth2 mogą być mapowane do roszczeń w podróży użytkownika. Na przykład żądanie z aplikacji może zawierać parametr ciągu zapytania z nazwą `app_session` , `loyalty_number` lub dowolnym niestandardowym ciągiem zapytania.
 
 | Claim | Opis | Przykład |
 | ----- | ----------------------- | --------|
@@ -119,13 +119,13 @@ Wszelkie nazwy parametrów dołączone jako część żądania OIDC lub OAuth2 m
 
 | Claim | Opis | Przykład |
 | ----- | ----------- | --------|
-| {SAML: AuthnContextClassReferences} | Wartość `AuthnContextClassRef` elementu z żądania SAML. | urn: języka Oasis: names: TC: SAML: 2.0: AC: klasy: PasswordProtectedTransport |
-| {SAML: NameIdPolicyFormat} | `Format` Atrybut, od `NameIDPolicy` elementu żądania SAML. | urn: języka Oasis: names: TC: SAML: 1.1: NameID-format: emailAddress |
-| {SAML: Issuer} |  Wartość elementu `Issuer` SAML żądania SAML.| `https://contoso.com` |
-| {SAML: AllowCreate} | Wartość `AllowCreate` atrybutu z `NameIDPolicy` elementu żądania języka SAML. | Prawda |
-| {SAML: ForceAuthn} | Wartość `ForceAuthN` atrybutu z `AuthnRequest` elementu żądania języka SAML. | Prawda |
-| {SAML: ProviderName} | Wartość `ProviderName` atrybutu z `AuthnRequest` elementu żądania języka SAML.| Contoso.com |
-| {SAML: RelayState} | Parametr `RelayState` ciągu zapytania.| 
+| {SAML: AuthnContextClassReferences} | `AuthnContextClassRef`Wartość elementu z żądania SAML. | urn: języka Oasis: names: TC: SAML: 2.0: AC: klasy: PasswordProtectedTransport |
+| {SAML: NameIdPolicyFormat} | `Format`Atrybut, od `NameIDPolicy` elementu żądania SAML. | urn: języka Oasis: names: TC: SAML: 1.1: NameID-format: emailAddress |
+| {SAML: Issuer} |  `Issuer`Wartość elementu SAML żądania SAML.| `https://contoso.com` |
+| {SAML: AllowCreate} | `AllowCreate`Wartość atrybutu z `NameIDPolicy` elementu żądania języka SAML. | True |
+| {SAML: ForceAuthn} | `ForceAuthN`Wartość atrybutu z `AuthnRequest` elementu żądania języka SAML. | True |
+| {SAML: ProviderName} | `ProviderName`Wartość atrybutu z `AuthnRequest` elementu żądania języka SAML.| Contoso.com |
+| {SAML: RelayState} | `RelayState`Parametr ciągu zapytania.| 
 
 ## <a name="using-claim-resolvers"></a>Korzystanie z resolverów roszczeń
 
@@ -146,8 +146,8 @@ Można użyć resolverów oświadczeń z następującymi elementami:
 |Profil techniczny [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
 
 Ustawienia:
-1. `IncludeClaimResolvingInClaimsHandling` Metadane muszą być ustawione na `true`wartość.
-1. Atrybut `AlwaysUseDefaultValue` oświadczeń wejściowych lub wyjściowych musi być ustawiony na `true`wartość.
+1. `IncludeClaimResolvingInClaimsHandling`Metadane muszą być ustawione na wartość `true` .
+1. Atrybut oświadczeń wejściowych lub wyjściowych `AlwaysUseDefaultValue` musi być ustawiony na wartość `true` .
 
 ## <a name="claim-resolvers-samples"></a>Przykłady elementów rozpoznawania nazw
 
@@ -157,7 +157,7 @@ W profilu technicznym [RESTful](restful-technical-profile.md) może być koniecz
 
 W poniższym przykładzie przedstawiono profil techniczny RESTful w tym scenariuszu:
 
-```XML
+```xml
 <TechnicalProfile Id="REST">
   <DisplayName>Validate user input data and return loyaltyNumber claim</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -185,9 +185,9 @@ Korzystając z resolverów roszczeń, można wstępnie wypełnić nazwę logowan
 
 Azure AD B2C umożliwia przekazywanie parametrów ciągu zapytania do punktów końcowych definicji zawartości HTML w celu dynamicznego renderowania zawartości strony. Na przykład ta funkcja umożliwia modyfikowanie obrazu tła na stronie rejestracji na Azure AD B2C lub logowania na podstawie parametru niestandardowego, który jest przekazywany z aplikacji sieci Web lub mobilnej. Aby uzyskać więcej informacji, zobacz [dynamiczne Konfigurowanie interfejsu użytkownika przy użyciu zasad niestandardowych w programie Azure Active Directory B2C](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri). Możesz również lokalizować stronę HTML na podstawie parametru języka lub można zmienić zawartość na podstawie identyfikatora klienta.
 
-Poniższy przykład przekazuje parametr ciągu zapytania o nazwie **campaignId** wartością `Hawaii`, kod `en-US` **języka** i **aplikację** reprezentującą identyfikator klienta:
+Poniższy przykład przekazuje parametr ciągu zapytania o nazwie **campaignId** wartością `Hawaii` , kod **języka** `en-US` i **aplikację** reprezentującą identyfikator klienta:
 
-```XML
+```xml
 <UserJourneyBehaviors>
   <ContentDefinitionParameters>
     <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
@@ -205,9 +205,9 @@ W związku z tym Azure AD B2C wysyła powyższe parametry do strony zawartości 
 
 ### <a name="content-definition"></a>Definicja zawartości
 
-W [ContentDefinition](contentdefinitions.md) `LoadUri`można wysyłać resolvery roszczeń w celu ściągania zawartości z różnych miejsc, na podstawie używanych parametrów.
+W [ContentDefinition](contentdefinitions.md) `LoadUri` można wysyłać resolvery roszczeń w celu ściągania zawartości z różnych miejsc, na podstawie używanych parametrów.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
   ...
@@ -218,7 +218,7 @@ W [ContentDefinition](contentdefinitions.md) `LoadUri`można wysyłać resolvery
 
 Za pomocą usługi Azure Application Insights i rozwiązania do rozwiązywania problemów możesz uzyskiwać wgląd w zachowania użytkowników. W profilu technicznym Application Insights wysyłane są oświadczenia wejściowe, które są utrwalane w usłudze Azure Application Insights. Aby uzyskać więcej informacji, zobacz [śledzenie zachowania użytkowników w Azure AD B2C podróże przy użyciu Application Insights](analytics-with-application-insights.md). Poniższy przykład wysyła identyfikator zasad, identyfikator korelacji, język i identyfikator klienta do usługi Azure Application Insights.
 
-```XML
+```xml
 <TechnicalProfile Id="AzureInsights-Common">
   <DisplayName>Alternate Email</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -236,7 +236,7 @@ Za pomocą usługi Azure Application Insights i rozwiązania do rozwiązywania p
 
 W profilu technicznym zasad [jednostki uzależnionej](relyingparty.md) możesz chcieć wysłać identyfikator dzierżawy lub identyfikator korelacji do aplikacji jednostki uzależnionej w ramach tokenu JWT.
 
-```XML
+```xml
 <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <TechnicalProfile Id="PolicyProfile">

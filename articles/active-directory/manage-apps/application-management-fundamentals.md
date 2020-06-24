@@ -3,27 +3,28 @@ title: 'Zarządzanie aplikacjami: najlepsze rozwiązania i zalecenia | Microsoft
 description: Poznaj najlepsze rozwiązania i zalecenia dotyczące zarządzania aplikacjami w Azure Active Directory. Dowiedz się więcej o używaniu automatycznej aprowizacji i publikowania aplikacji lokalnych przy użyciu serwera proxy aplikacji.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: reference
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6534efb6fcd07ee3b9f3979cabf2feb77496a8b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c633f6d311d052b9f9388a38b17c6459aec4b6cc
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74085293"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760273"
 ---
 # <a name="application-management-best-practices"></a>Najlepsze rozwiązania dotyczące zarządzania aplikacjami
+
 Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące zarządzania aplikacjami w usłudze Azure Active Directory (Azure AD) przy użyciu automatycznej aprowizacji i publikowania aplikacji lokalnych przy użyciu serwera proxy aplikacji.
 
 ## <a name="cloud-app-and-single-sign-on-recommendations"></a>Zalecenia dotyczące aplikacji w chmurze i logowania jednokrotnego
@@ -33,7 +34,7 @@ Ten artykuł zawiera zalecenia i najlepsze rozwiązania dotyczące zarządzania 
 | Używanie federacyjnego logowania jednokrotnego opartego na protokole SAML  | Gdy aplikacja je obsługuje, użyj federacyjnego, opartego na języku SAML logowania jednokrotnego w usłudze Azure AD zamiast logowania jednokrotnego i usług ADFS opartych na hasłach.  | 
 | Użycie algorytmu SHA-256 do podpisywania certyfikatu  | Usługa Azure AD domyślnie używa algorytmu SHA-256 do podpisywania odpowiedzi SAML. Użyj algorytmu SHA-256, chyba że aplikacja wymaga algorytmu SHA-1 (zobacz [Opcje podpisywania certyfikatu](certificate-signing-options.md) i [problem z logowaniem do aplikacji](application-sign-in-problem-application-error.md)).  | 
 | Wymagaj przypisania użytkownika  | Domyślnie użytkownicy mogą uzyskiwać dostęp do aplikacji firmowych bez ich przypisywania. Jeśli jednak aplikacja uwidacznia role lub jeśli chcesz, aby aplikacja była wyświetlana w panelu dostępu użytkownika, wymagaj przypisania użytkownika. (Zobacz [wskazówki dla deweloperów dotyczące integrowania aplikacji](developer-guidance-for-integrating-applications.md)).  | 
-| Wdróż panel dostępu moje aplikacje dla użytkowników | [Panel dostępu](end-user-experiences.md) w `https://myapps.microsoft.com` programie to portal oparty na sieci Web, który udostępnia użytkownikom pojedynczy punkt wejścia dla przypisanych aplikacji opartych na chmurze. W miarę dodawania dodatkowych funkcji, takich jak zarządzanie grupami i Samoobsługowe resetowanie haseł, użytkownicy mogą je znaleźć w panelu dostępu. Zobacz [Planowanie wdrożenia panelu dostępu](access-panel-deployment-plan.md).
+| Wdróż panel dostępu moje aplikacje dla użytkowników | [Panel dostępu](end-user-experiences.md) w programie `https://myapps.microsoft.com` to portal oparty na sieci Web, który udostępnia użytkownikom pojedynczy punkt wejścia dla przypisanych aplikacji opartych na chmurze. W miarę dodawania dodatkowych funkcji, takich jak zarządzanie grupami i Samoobsługowe resetowanie haseł, użytkownicy mogą je znaleźć w panelu dostępu. Zobacz [Planowanie wdrożenia panelu dostępu](access-panel-deployment-plan.md).
 | Użyj przypisania grupy  | W przypadku uwzględnienia w subskrypcji Przypisz grupy do aplikacji, aby można było delegować bieżące zarządzanie dostępem do właściciela grupy. (Zobacz [wskazówki dla deweloperów dotyczące integrowania aplikacji](developer-guidance-for-integrating-applications.md)).   | 
 | Ustanów proces zarządzania certyfikatami | Maksymalny okres istnienia certyfikatu podpisywania wynosi trzy lata. Aby zapobiec lub zminimalizować przestoje ze względu na wygaśnięcie certyfikatu, należy użyć ról i list dystrybucyjnych poczty e-mail, aby upewnić się, że powiadomienia o zmianach powiązane z certyfikatami są ściśle monitorowane. |
 

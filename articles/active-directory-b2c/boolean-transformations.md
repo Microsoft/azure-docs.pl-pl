@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 06/06/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 02d488108474084346d9e37d5cc6ecbe3a8a05c6
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7c292f939339add06168c55236f8666651e4aace
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484275"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201280"
 ---
 # <a name="boolean-claims-transformations"></a>Przekształcenia logiczne oświadczeń
 
@@ -36,7 +36,7 @@ Wykonuje operację i dwie inputClaims logiczne i ustawia oświadczenie outputcla
 
 Następująca transformacja oświadczeń pokazuje, jak i dwa elementy Claims Boolean: `isEmailNotExist` , i `isSocialAccount` . Oświadczenie wyjściowe `presentEmailSelfAsserted` ma ustawioną `true` wartość, jeśli wartością obu oświadczeń wejściowych są `true` . W kroku aranżacji możesz użyć warunku wstępnego, aby wstępnie zapewnieł stronę, tylko jeśli adres e-mail konta społecznościowego jest pusty.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="AndClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isEmailNotExist" TransformationClaimType="inputClaim1" />
@@ -72,7 +72,7 @@ Przekształcenie oświadczeń **AssertBooleanClaimIsEqualToValue** jest zawsze w
 
 Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logicznego elementu ClaimType z `true` wartością. Jeśli wartość `accountEnabled` oświadczenia jest równa false, zostanie zgłoszony komunikat o błędzie.
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabledIsTrue" TransformationMethod="AssertBooleanClaimIsEqualToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="accountEnabled" TransformationClaimType="inputClaim" />
@@ -86,7 +86,7 @@ Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logi
 
 `login-NonInteractive`Profil techniczny weryfikacji wywołuje `AssertAccountEnabledIsTrue` transformację oświadczeń.
 
-```XML
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -97,7 +97,7 @@ Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logi
 
 Profil techniczny z własnym potwierdzeniem wywołuje profil techniczny **logowania weryfikacji — nieinteraktywny** .
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationBooleanValueIsNotEqual">Custom error message if account is disabled.</Item>
@@ -127,7 +127,7 @@ Sprawdza, czy wartość logiczna żądania jest równa `true` lub `false` i zwra
 
 Następująca transformacja oświadczeń pokazuje, jak sprawdzić wartość logicznego elementu ClaimType z `true` wartością. Jeśli wartość `IsAgeOver21Years` oświadczenia jest równa `true` , transformacja oświadczeń zwraca `true` , w przeciwnym razie `false` .
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
@@ -161,7 +161,7 @@ Wykonuje operację not dla oświadczenie inputclaim logicznego i ustawia oświad
 
 Ta transformacja jest używana do wykonywania logicznego negacji dla żądania.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="NotClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="userExists" TransformationClaimType="inputClaim" />
@@ -191,7 +191,7 @@ Oblicza wartość lub z dwóch inputClaims logicznych i ustawia oświadczenie ou
 
 Następująca transformacja oświadczeń pokazuje, jak `Or` dwa elementy Claims Boolean. W kroku aranżacji można użyć warunku wstępnego, aby wstępnie zatwierdzić stronę, jeśli wartość jednego z oświadczeń jest równa `true` .
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckWhetherEmailBePresented" TransformationMethod="OrClaims">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="isLastTOSAcceptedNotExists" TransformationClaimType="inputClaim1" />

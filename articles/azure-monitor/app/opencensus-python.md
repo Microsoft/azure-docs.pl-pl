@@ -7,12 +7,12 @@ ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: 3a47296d755c2a933e7e136a4b17ae87561213ad
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 04581826ab6b05333e910a162c7a0ca9566ec334
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553868"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079117"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -342,36 +342,10 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
     > [!NOTE]
     > `traces`w tym kontekście nie jest taka sama jak `Tracing` . `traces`odnosi się do typu danych telemetrycznych, które będą widoczne w Azure Monitor podczas używania `AzureLogHandler` . `Tracing`odwołuje się do koncepcji w OpenCensus i odnosi się do [śledzenia rozproszonego](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
-5. Aby sformatować komunikaty dziennika, można użyć `formatters` wbudowanego [interfejsu API rejestrowania](https://docs.python.org/3/library/logging.html#formatter-objects)języka Python.
+    > [!NOTE]
+    > Rejestrator główny jest skonfigurowany z OSTRZEŻENIEm na poziomie. Oznacza to, że wszystkie wysyłane dzienniki o mniejszej ważności zostaną zignorowane i z kolei nie będą wysyłane do Azure Monitor. Zapoznaj się z tą [dokumentacją](https://docs.python.org/3/library/logging.html#logging.Logger.setLevel) , aby uzyskać więcej szczegółów.
 
-    ```python
-    import logging
-    from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
-    logger = logging.getLogger(__name__)
-    
-    format_str = '%(asctime)s - %(levelname)-8s - %(message)s'
-    date_format = '%Y-%m-%d %H:%M:%S'
-    formatter = logging.Formatter(format_str, date_format)
-    # TODO: replace the all-zero GUID with your instrumentation key.
-    handler = AzureLogHandler(
-        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    handler.setFormatter(formatter)
-    logger.addHandler(handler)
-    
-    def valuePrompt():
-        line = input("Enter a value: ")
-        logger.warning(line)
-    
-    def main():
-        while True:
-            valuePrompt()
-    
-    if __name__ == "__main__":
-        main()
-    ```
-
-6. Możesz również dodać właściwości niestandardowe do wiadomości dziennika w argumencie słowa kluczowego *ekstra* przy użyciu pola custom_dimensions. Zostaną one wyświetlone jako pary klucz-wartość w `customDimensions` w Azure monitor.
+5. Możesz również dodać właściwości niestandardowe do wiadomości dziennika w argumencie słowa kluczowego *ekstra* przy użyciu pola custom_dimensions. Zostaną one wyświetlone jako pary klucz-wartość w `customDimensions` w Azure monitor.
     > [!NOTE]
     > Aby ta funkcja działała, należy przekazać słownik do pola custom_dimensions. Jeśli przejdziesz argumenty dowolnego innego typu, rejestrator zignoruje je.
 
@@ -390,6 +364,39 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
 
     # Use properties in logging statements
     logger.warning('action', extra=properties)
+    ```
+
+#### <a name="configure-logging-for-django-applications"></a>Konfigurowanie rejestrowania dla aplikacji Django
+
+Rejestrowanie można jawnie skonfigurować w kodzie aplikacji, tak jak powyżej, w przypadku aplikacji Django. można też określić je w konfiguracji rejestrowania Django. Ten kod może przejść do dowolnego pliku używanego do konfiguracji ustawień Django. Aby uzyskać więcej informacji na temat konfigurowania rejestrowania, zobacz [Django Settings](https://docs.djangoproject.com/en/3.0/topics/settings/) (Konfigurowanie ustawień Django i [rejestrowania Django](https://docs.djangoproject.com/en/3.0/topics/logging/) ).
+
+    ```python
+    LOGGING = {
+        "handlers": {
+            "azure": {
+                "level": "DEBUG",
+                "class": "opencensus.ext.azure.log_exporter.AzureLogHandler",
+                "instrumentation_key": "<your-ikey-here>",
+            },
+            "console": {
+                "level": "DEBUG",
+                "class": "logging.StreamHandler",
+                "stream": sys.stdout,
+            },
+        },
+        "loggers": {
+            "logger_name": {"handlers": ["azure", "console"]},
+        },
+    }
+    ```
+
+Upewnij się, że używasz rejestratora o takiej samej nazwie jak nazwa określona w konfiguracji.
+
+    ```python
+    import logging
+        
+    logger = logging.getLogger("logger_name")
+    logger.warning("this will be tracked")
     ```
 
 #### <a name="sending-exceptions"></a>Wysyłanie wyjątków
@@ -428,6 +435,21 @@ Aby uzyskać szczegółowe informacje na temat wzbogacania dzienników przy uży
 #### <a name="modify-telemetry"></a>Modyfikuj dane telemetryczne
 
 Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych [telemetrycznych](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)przed ich wysłaniem do Azure monitor, zobacz OpenCensus.
+
+## <a name="configure-azure-monitor-exporters"></a>Konfigurowanie Azure Monitor eksportu
+
+Jak pokazano powyżej, istnieją trzy różne Azure Monitor eksportujących, które obsługują OpenCensus, każdy wysyła do Azure Monitor różne typy telemetrii. Aby sprawdzić, jakie typy danych telemetrycznych wysyła każdy z eksporterów, zobacz poniżej.
+
+Każdy eksporter akceptuje te same argumenty dla konfiguracji, przekazane przez konstruktory. Poniżej znajdują się szczegółowe informacje o każdym z nich.
+
+1. `connection_string`-Parametry połączenia używane do nawiązywania połączenia z zasobem Azure Monitor. Ma priorytet wyższy niż `instrumentation_key` .
+2. `enable_standard_metrics`-Używane dla `AzureMetricsExporter` . Informuje eksportera, aby automatycznie wysyłał metryki [licznika wydajności](https://docs.microsoft.com/azure/azure-monitor/platform/app-insights-metrics#performance-counters) do Azure monitor. Wartość domyślna to `True` .
+3. `export_interval`— Służy do określania częstotliwości eksportu w sekundach.
+4. `instrumentation_key`— Klucz Instrumentacji używany do nawiązywania połączenia z zasobem Azure Monitor.
+5. `logging_sampling_rate`-Używane dla `AzureLogHandler` . Zapewnia częstotliwość próbkowania [0, 1.0] do eksportowania dzienników. Wartość domyślna to 1,0.
+6. `max_batch_size`-Określa maksymalny rozmiar danych telemetrycznych, które są eksportowane jednocześnie.
+7. `proxies`-Określa sekwencję serwerów proxy do użycia na potrzeby wysyłania danych do Azure Monitor. Aby uzyskać więcej informacji, zobacz [serwery proxy](https://requests.readthedocs.io/en/master/user/advanced/#proxies) .
+8. `storage_path`-Ścieżka do lokalizacji folderu magazynu lokalnego (niewysłane dane telemetryczne). Począwszy od wersji `opencensus-ext-azure` v 1.0.3, domyślną ścieżką jest katalog Temp systemu operacyjnego + `opencensus-python`  +  `your-ikey` . W przypadku 1.0.3 pre v ścieżka domyślna to $USER + `.opencensus`  +  `.azure`  +  `python-file-name` .
 
 ## <a name="view-your-data-with-queries"></a>Wyświetlanie danych za pomocą zapytań
 

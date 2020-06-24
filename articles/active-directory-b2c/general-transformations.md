@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: afdf2f531ede30d868123d89cac94fcfae070384
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52831a1907d5ca8d13b0477c909d0d0358873973
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188549"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202224"
 ---
 # <a name="general-claims-transformations"></a>Ogólne przekształcenia oświadczeń
 
@@ -35,7 +35,7 @@ Kopiuj wartość żądania do innej. Oba oświadczenia muszą pochodzić z tego 
 
 Ta transformacja oświadczeń służy do kopiowania wartości z ciągu lub oświadczenia liczbowego do innego oświadczenia. Poniższy przykład kopiuje wartość externalEmail roszczeń do żądania e-mail.
 
-```XML
+```xml
 <ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
@@ -64,7 +64,7 @@ Sprawdza, czy **oświadczenie inputclaim** istnieje, czy nie, i odpowiednio usta
 
 Ta transformacja oświadczeń służy do sprawdzania, czy oświadczenie istnieje lub zawiera dowolną wartość. Wartość zwracana jest wartością logiczną, która wskazuje, czy istnieje. Poniższy przykład sprawdza, czy adres e-mail istnieje.
 
-```XML
+```xml
 <ClaimsTransformation Id="CheckIfEmailPresent" TransformationMethod="DoesClaimExist">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="inputClaim" />
@@ -93,7 +93,7 @@ Mieszaj podany zwykły tekst przy użyciu soli i wpisu tajnego. Algorytmem wyzna
 | InputParameter | randomizerSecret | ciąg | Wskazuje istniejący **klucz zasad**Azure AD B2C. Aby utworzyć nowy klucz zasad: w dzierżawie Azure AD B2C w obszarze **Zarządzaj**wybierz pozycję **platforma obsługi tożsamości**. Wybierz pozycję **klucze zasad** , aby wyświetlić klucze, które są dostępne w dzierżawie. Wybierz pozycję **Dodaj**. W obszarze **Opcje**wybierz pozycję **Ręczne**. Podaj nazwę (prefiks *B2C_1A_* może zostać dodany automatycznie). W polu tekstowym **wpis tajny** wprowadź dowolne tajne, na przykład 1234567890. W obszarze **użycie klucza**wybierz pozycję **podpis**. Wybierz przycisk **Utwórz**. |
 | Oświadczenie outputclaim | hash | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. Zostało skonfigurowane w `plaintext` oświadczenie inputclaim. |
 
-```XML
+```xml
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="password" TransformationClaimType="plaintext" />

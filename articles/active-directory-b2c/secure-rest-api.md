@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f1897a4f58276bbac2a7de673544e592a562562
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 1028707a63f720f814c90b1376caf7b745a76224
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826676"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203473"
 ---
 # <a name="secure-your-restful-services"></a>Zabezpieczanie usług RESTful Services 
 
@@ -67,7 +67,7 @@ Aby skonfigurować profil techniczny interfejsu API REST z uwierzytelnianiem Bas
 
 Po utworzeniu niezbędnych kluczy Skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwołać się do poświadczeń.
 
-1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions. xml).
+1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
 1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` lub `REST-GetProfile` .
 1. Znajdź `<Metadata>` element.
 1. Zmień wartość *AuthenticationType* na `Basic` .
@@ -114,7 +114,7 @@ Uwierzytelnianie za pomocą certyfikatu klienta jest wzajemnym uwierzytelnianiem
 Jeśli w środowiskach nieprodukcyjnych nie masz jeszcze certyfikatu, możesz użyć certyfikatu z podpisem własnym. W systemie Windows można użyć polecenia cmdlet [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) programu PowerShell do wygenerowania certyfikatu.
 
 1. Wykonaj to polecenie programu PowerShell, aby wygenerować certyfikat z podpisem własnym. Zmodyfikuj `-Subject` argument jako odpowiedni dla aplikacji i Azure AD B2C nazwę dzierżawcy. Możesz również dostosować datę, `-NotAfter` Aby określić inne wygaśnięcie certyfikatu.
-    ```PowerShell
+    ```powershell
     New-SelfSignedCertificate `
         -KeyExportPolicy Exportable `
         -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
@@ -148,7 +148,7 @@ Jeśli w środowiskach nieprodukcyjnych nie masz jeszcze certyfikatu, możesz u�
 
 Po utworzeniu niezbędnego klucza Skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwołać się do certyfikatu klienta.
 
-1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions. xml).
+1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
 1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` lub `REST-GetProfile` .
 1. Znajdź `<Metadata>` element.
 1. Zmień wartość *AuthenticationType* na `ClientCertificate` .
@@ -264,7 +264,7 @@ W przypadku ServiceUrl Zastąp nazwę dzierżawy nazwą swojej dzierżawy usług
 
 Aby zapewnić obsługę uwierzytelniania tokenów okaziciela w zasadach niestandardowych, należy zmodyfikować profil techniczny interfejsu API REST, wykonując następujące czynności:
 
-1. W katalogu roboczym Otwórz plik zasad rozszerzenia *TrustFrameworkExtensions. XML* .
+1. W katalogu roboczym Otwórz plik zasad rozszerzenia *TrustFrameworkExtensions.xml* .
 1. Wyszukaj `<TechnicalProfile>` węzeł, który zawiera `Id="REST-API-SignUp"` .
 1. Znajdź `<Metadata>` element.
 1. Zmień wartość *AuthenticationType* na *Bearer*w następujący sposób:
@@ -285,7 +285,7 @@ Aby zapewnić obsługę uwierzytelniania tokenów okaziciela w zasadach niestand
 
 Po dodaniu powyższych fragmentów Twój profil techniczny powinien wyglądać podobnie do następującego kodu XML:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
@@ -329,7 +329,7 @@ Utwórz klucz zasad, aby zachować wartość tokenu okaziciela.
 
 Po utworzeniu niezbędnego klucza Skonfiguruj metadane profilu technicznego interfejsu API REST, aby odwołać się do tokenu okaziciela.
 
-1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions. xml).
+1. W katalogu roboczym Otwórz plik zasad rozszerzenia (TrustFrameworkExtensions.xml).
 1. Wyszukaj profil techniczny interfejsu API REST. Na przykład `REST-ValidateProfile` lub `REST-GetProfile` .
 1. Znajdź `<Metadata>` element.
 1. Zmień wartość *AuthenticationType* na `Bearer` .

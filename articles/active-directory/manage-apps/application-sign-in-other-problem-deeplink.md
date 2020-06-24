@@ -3,25 +3,25 @@ title: Problemy z logowaniem do aplikacji przy użyciu linku bezpośredniego | M
 description: Jak rozwiązywać problemy z uzyskiwaniem dostępu do aplikacji z adresu URL głębokiego łącza za pomocą usługi Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44825f32a13db0a221252c042dc9f23ec43a9c8f
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 3c68143dabd9b047a8d6cc37ccac770b7d954656
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65825430"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84759491"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemy z logowaniem do aplikacji przy użyciu linku bezpośredniego
 

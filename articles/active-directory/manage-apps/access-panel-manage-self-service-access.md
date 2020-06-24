@@ -3,25 +3,25 @@ title: Jak korzystać z samoobsługowego dostępu do aplikacji | Microsoft Docs
 description: Włącz dostęp do aplikacji samoobsługi, aby umożliwić użytkownikom znajdowanie własnych aplikacji
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55da8731855c8afda496edff33f3fbb7982cd44b
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: b1c5a003eb113289bcb798423ff649b944dcf186
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65784551"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84761072"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Jak korzystać z samoobsługowego dostępu do aplikacji
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc227081af4f306a27b77eb727ea96467f94fa2e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186271"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203116"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Zbieranie dzienników Azure Active Directory B2C z Application Insights
 
@@ -42,28 +42,28 @@ Jeśli jeszcze tego nie masz, Utwórz wystąpienie Application Insights w subskr
 
 ## <a name="configure-the-custom-policy"></a>Konfigurowanie zasad niestandardowych
 
-1. Otwórz plik jednostki uzależnionej (RP), na przykład *SignUpOrSignin. XML*.
+1. Otwórz plik jednostki uzależnionej (RP), na przykład *SignUpOrSignin.xml*.
 1. Dodaj następujące atrybuty do `<TrustFrameworkPolicy>` elementu:
 
-   ```XML
+   ```xml
    DeploymentMode="Development"
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. Jeśli jeszcze nie istnieje, Dodaj węzeł `<UserJourneyBehaviors>` podrzędny do `<RelyingParty>` węzła. Musi ona znajdować się bezpośrednio `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`po.
-1. Dodaj następujący węzeł jako element podrzędny `<UserJourneyBehaviors>` elementu. Pamiętaj, aby zastąpić `{Your Application Insights Key}` **klucz Instrumentacji** Application Insights zarejestrowany wcześniej.
+1. Jeśli jeszcze nie istnieje, Dodaj `<UserJourneyBehaviors>` węzeł podrzędny do `<RelyingParty>` węzła. Musi ona znajdować się bezpośrednio po `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />` .
+1. Dodaj następujący węzeł jako element podrzędny `<UserJourneyBehaviors>` elementu. Pamiętaj, aby zastąpić `{Your Application Insights Key}` **klucz instrumentacji** Application Insights zarejestrowany wcześniej.
 
-    ```XML
+    ```xml
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
     * `DeveloperMode="true"`informuje ApplicationInsights o przyspieszeniu telemetrii za pomocą potoku przetwarzania. Dobre dla rozwoju, ale ograniczone do dużych woluminów.
-    * `ClientEnabled="true"`wysyła skrypt po stronie klienta ApplicationInsights na potrzeby śledzenia widoku strony i błędów po stronie klienta. Można je wyświetlić w tabeli **browserTimings** w portalu Application Insights. Przez ustawienie `ClientEnabled= "true"`, należy dodać Application Insights do skryptu strony i uzyskać chronometraż obciążeń strony i wywołań AJAX, liczniki, szczegóły wyjątków przeglądarki i błędów AJAX, a liczby użytkowników i sesji. To pole jest **opcjonalne**i jest domyślnie ustawione na `false` wartość.
+    * `ClientEnabled="true"`wysyła skrypt po stronie klienta ApplicationInsights na potrzeby śledzenia widoku strony i błędów po stronie klienta. Można je wyświetlić w tabeli **browserTimings** w portalu Application Insights. Przez ustawienie `ClientEnabled= "true"` , należy dodać Application Insights do skryptu strony i uzyskać chronometraż obciążeń strony i wywołań AJAX, liczniki, szczegóły wyjątków przeglądarki i błędów AJAX, a liczby użytkowników i sesji. To pole jest **opcjonalne**i jest domyślnie ustawione na wartość `false` .
     * `ServerEnabled="true"`wysyła istniejący kod JSON UserJourneyRecorder jako zdarzenie niestandardowe do Application Insights.
 
     Przykład:
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
       ...
       TenantId="fabrikamb2c.onmicrosoft.com"

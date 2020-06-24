@@ -4,11 +4,11 @@ description: Dowiedz się, jak używać interfejsu API REST do tworzenia kopii z
 ms.topic: conceptual
 ms.date: 02/16/2020
 ms.openlocfilehash: 2cf385830ec1be17cb62432e6ef9cba7d82a9db1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248101"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710613"
 ---
 # <a name="backup-azure-file-share-using-azure-backup-via-rest-api"></a>Tworzenie kopii zapasowej udziału plików platformy Azure przy użyciu Azure Backup za pomocą interfejsu API REST
 
@@ -38,7 +38,7 @@ Magazyn musi odnaleźć wszystkie konta usługi Azure Storage w ramach subskrypc
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01&$filter={$filter}
 ```
 
-Identyfikator URI wpisu zawiera `{subscriptionId}`parametry `{vaultName}`, `{vaultresourceGroupName}`, i `{fabricName}` . W naszym przykładzie wartość dla różnych parametrów będzie następująca:
+Identyfikator URI wpisu zawiera `{subscriptionId}` `{vaultName}` Parametry,, `{vaultresourceGroupName}` i `{fabricName}` . W naszym przykładzie wartość dla różnych parametrów będzie następująca:
 
 - `{fabricName}`jest *platformą Azure*
 

@@ -3,22 +3,22 @@ title: Integracja z usługą serwer proxy aplikacji usługi Azure AD na serwerze
 titleSuffix: Azure Active Directory
 description: Wskazówki dotyczące wdrażania serwer proxy aplikacji usługi Azure Active Directory w celu ochrony serwera usługi NDES.
 services: active-directory
-author: CelesteDG
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/17/2020
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
-ms.openlocfilehash: 4ccd8834671725ace72497391090f81eb197ad6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0798b7674828b14a37f20921e05820d995bff6a7
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77032259"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760800"
 ---
 # <a name="integrate-with-azure-ad-application-proxy-on-a-network-device-enrollment-service-ndes-server"></a>Integracja z usługą Azure serwer proxy aplikacji usługi Azure AD na serwerze usługi rejestracji urządzeń sieciowych (NDES)
 
@@ -45,7 +45,7 @@ Usługa Azure serwer proxy aplikacji usługi Azure AD jest oparta na platformie 
 1. Zapoznaj się z warunkami użytkowania usługi. Gdy wszystko będzie gotowe, wybierz pozycję **Akceptuj postanowienia & Pobierz**.
 1. Skopiuj plik instalacyjny programu Azure serwer proxy aplikacji usługi Azure AD Connector na serwer usługi NDES. 
    > Łącznik można zainstalować na dowolnym serwerze w sieci firmowej przy użyciu dostępu do usługi NDES. Nie musisz instalować go na serwerze usługi NDES.
-1. Uruchom plik instalacyjny, taki jak *plik aadapplicationproxyconnectorinstaller. exe*. Zaakceptuj postanowienia licencyjne dotyczące oprogramowania.
+1. Uruchom plik instalacyjny, taki jak *AADApplicationProxyConnectorInstaller.exe*. Zaakceptuj postanowienia licencyjne dotyczące oprogramowania.
 1. Podczas instalacji zostanie wyświetlony monit o zarejestrowanie łącznika przy użyciu serwera proxy aplikacji w katalogu usługi Azure AD.
    * Podaj poświadczenia dla globalnego lub administratora aplikacji w katalogu usługi Azure AD. Poświadczenia globalne lub administratora aplikacji usługi Azure AD mogą różnić się od poświadczeń platformy Azure w portalu.
 
@@ -56,7 +56,7 @@ Usługa Azure serwer proxy aplikacji usługi Azure AD jest oparta na platformie 
 
    * Jeśli konfiguracja zwiększonych zabezpieczeń programu Internet Explorer jest włączona dla serwera, na którym jest instalowany łącznik, ekran rejestracji może zostać zablokowany. Aby zezwolić na dostęp, postępuj zgodnie z instrukcjami w komunikacie o błędzie lub wyłącz zaawansowane zabezpieczenia programu Internet Explorer podczas procesu instalacji.
    * Jeśli rejestracja łącznika nie powiedzie się, zobacz [Rozwiązywanie problemów z serwerem proxy aplikacji](application-proxy-troubleshoot.md).
-1. Po zakończeniu instalacji należy wyświetlić uwagę dla środowisk z serwerem proxy wychodzącego. Aby skonfigurować łącznik usługi Azure serwer proxy aplikacji usługi Azure AD do pracy przez wychodzący serwer proxy, uruchom dostarczony skrypt, taki `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`jak.
+1. Po zakończeniu instalacji należy wyświetlić uwagę dla środowisk z serwerem proxy wychodzącego. Aby skonfigurować łącznik usługi Azure serwer proxy aplikacji usługi Azure AD do pracy przez wychodzący serwer proxy, uruchom dostarczony skrypt, taki jak `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1` .
 1. Na stronie serwer proxy aplikacji w Azure Portal nowy łącznik zostanie wyświetlony ze stanem *aktywne*, jak pokazano w następującym przykładzie:
 
     ![Nowy łącznik usługi Azure serwer proxy aplikacji usługi Azure AD wyświetlany jako aktywny w Azure Portal](./media/active-directory-app-proxy-protect-ndes/connected-app-proxy.png)
@@ -83,7 +83,7 @@ Usługa Azure serwer proxy aplikacji usługi Azure AD jest oparta na platformie 
 
 1. Sprawdź, czy możesz uzyskać dostęp do serwera usługi NDES za pośrednictwem serwera proxy aplikacji Azure AD, wklejając link skopiowany w kroku 10 do przeglądarki. Powinna zostać wyświetlona domyślna strona powitalna usług IIS.
 
-1. W końcowym teście Dodaj ścieżkę *mscep. dll* do istniejącego adresu URL wklejonego w poprzednim kroku:
+1. Jako test końcowy Dodaj ścieżkę *mscep.dll* do istniejącego adresu URL wklejonego w poprzednim kroku:
 
    https://scep-test93635307549127448334.msappproxy.net/certsrv/mscep/mscep.dll
 

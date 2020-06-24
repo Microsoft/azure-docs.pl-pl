@@ -3,12 +3,12 @@ title: Środowiska zarządzania wieloma dzierżawami
 description: Zarządzanie zasobami delegowanymi przez platformę Azure umożliwia korzystanie z funkcji zarządzania między dzierżawcami.
 ms.date: 05/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ad8fc7452a704a4a030e7a6eb45a5ba397912ef1
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 225a7f7725762c6887858366b134a7ad9a7b8eb6
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402372"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052674"
 ---
 # <a name="cross-tenant-management-experiences"></a>Środowiska zarządzania wieloma dzierżawami
 
@@ -60,6 +60,10 @@ Większość zadań i usług można wykonać w odniesieniu do zasobów delegowan
 - Tworzenie kopii zapasowych i przywracanie danych klienta w dzierżawach klientów
 - Użyj [Eksploratora kopii zapasowych](../../backup/monitor-azure-backup-with-backup-explorer.md) , aby ułatwić wyświetlanie informacji operacyjnych dotyczących elementów kopii zapasowej (w tym zasobów platformy Azure, które nie zostały jeszcze skonfigurowane do tworzenia kopii zapasowych) i informacji o monitorowaniu (zadania i alerty) dla delegowanych subskrypcji Eksplorator kopii zapasowych jest obecnie dostępny tylko dla danych maszyny wirtualnej platformy Azure.
 - Za pomocą [raportów kopii zapasowych](../../backup/configure-reports.md) w ramach delegowanych subskrypcji można śledzić trendy historyczne, analizować użycie magazynu kopii zapasowych oraz przeprowadzać inspekcję i przywracanie kopii zapasowych.
+
+[Azure Cost Management i rozliczanie](../../cost-management-billing/index.yml):
+
+- Od dzierżawy zarządzającej partnerzy programu CSP mogą wyświetlać i analizować koszty użycia przed opodatkowaniem (nie włącznie z zakupami) dla klientów objętych planem platformy Azure. Koszt będzie oparty na stawkach detalicznych i dostępie do usługi Azure RBAC, który partner ma dla subskrypcji klienta.
 
 [Usługa Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
@@ -143,7 +147,6 @@ We wszystkich scenariuszach należy pamiętać o następujących bieżących ogr
 - Przypisania ról muszą używać [wbudowanych ról](../../role-based-access-control/built-in-roles.md)kontroli dostępu opartej na ROLACH (RBAC). Wszystkie wbudowane role są obecnie obsługiwane przez delegowane zarządzanie zasobami platformy Azure z wyjątkiem właściciela lub wszelkich wbudowanych ról z uprawnieniem [Dataactions](../../role-based-access-control/role-definitions.md#dataactions) . Rola Administrator dostępu użytkowników jest obsługiwana tylko w przypadku ograniczonego użycia w [przypisywaniu ról do zarządzanych tożsamości](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Role niestandardowe i [role administratora klasycznej subskrypcji](../../role-based-access-control/classic-administrators.md) nie są obsługiwane.
 - W tej chwili można dołączać subskrypcje korzystające z Azure Databricks. Użytkownicy w dzierżawie zarządzającej nie mogą teraz uruchamiać Azure Databricks obszarów roboczych w delegowanej subskrypcji.
 - W trakcie dodawania subskrypcji i grup zasobów na potrzeby zarządzania zasobami delegowanymi przez platformę Azure, które mają blokadę zasobów, te blokady nie uniemożliwią wykonywania akcji przez użytkowników w dzierżawie zarządzającej. [Odmów przypisań](../../role-based-access-control/deny-assignments.md) , które chronią zasoby zarządzane przez system, takie jak te utworzone przez aplikacje zarządzane przez platformę Azure lub plany platformy Azure (przypisań odmowy przypisanych do systemu), uniemożliwiają użytkownikom z dzierżawy zarządzającej wykonywanie tych zasobów. Jednak w tej chwili użytkownicy w dzierżawie klienta nie mogą tworzyć własnych przypisań Odmów (przypisań Odmów przez użytkownika).
-- Użytkownicy w dzierżawie zarządzającej nie będą mieć dostępu do wyświetlania informacji dotyczących rozliczeń dla delegowanej subskrypcji klienta, nawet jeśli mają wbudowaną rolę, która zwykle zezwala na dostęp. Wynika to z faktu, że dostęp do informacji dotyczących rozliczeń wymaga dodatkowych kroków, które są obecnie obsługiwane tylko dla użytkowników w tej samej dzierżawie.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,15 +4,15 @@ description: Skorzystaj z tego samouczka, aby włączyć dodatek usługi transfe
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: 625f458c646729c8f236b185f7c082facdd136dd
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 6cbfac4794a685e5858e689c20d6603807edcedf
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84670943"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987980"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Samouczek: Włączanie dodatku Application Gateway transferu danych przychodzących dla istniejącego klastra AKS z istniejącym Application Gateway za pomocą interfejsu wiersza polecenia platformy Azure (wersja zapoznawcza)
 
@@ -112,7 +112,7 @@ Ze względu na to, że klaster AKS został wdrożony we własnej sieci wirtualne
 nodeResourceGroup=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "nodeResourceGroup")
 aksVnetName=$(az network vnet list -g $nodeResourceGroup -o tsv --query "[0].name")
 
-aksVnetId=$(az network vnet show -n $aksVnetName -g MC_$nodeResourceGroup -o tsv --query "id")
+aksVnetId=$(az network vnet show -n $aksVnetName -g $nodeResourceGroup -o tsv --query "id")
 az network vnet peering create -n AppGWtoAKSVnetPeering -g myResourceGroup --vnet-name myVnet --remote-vnet $aksVnetId --allow-vnet-access
 
 appGWVnetId=$(az network vnet show -n myVnet -g myResourceGroup -o tsv --query "id")

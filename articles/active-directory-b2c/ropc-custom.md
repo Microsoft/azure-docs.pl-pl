@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5c6956c38d15213d84b43b24784d2bb2b3a1963f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: eeea35b3564bc2407a2458a43c8349937a4cd845
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638578"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203524"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure Active Directory B2C przy użyciu zasad niestandardowych
 
@@ -36,10 +36,10 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure 
 
 ##  <a name="create-a-resource-owner-policy"></a>Tworzenie zasad właściciela zasobu
 
-1. Otwórz plik *TrustFrameworkExtensions. XML* .
+1. Otwórz plik *TrustFrameworkExtensions.xml* .
 2. Jeśli jeszcze nie istnieje, Dodaj element **ClaimsSchema** i jego elementy podrzędne jako pierwszy element w elemencie **BuildingBlocks** :
 
-    ```XML
+    ```xml
     <ClaimsSchema>
       <ClaimType Id="logonIdentifier">
         <DisplayName>User name or email address that the user can use to sign in</DisplayName>
@@ -62,7 +62,7 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure 
 
 3. Po **ClaimsSchema**Dodaj element **ClaimsTransformations** i jego elementy podrzędne do elementu **BuildingBlocks** :
 
-    ```XML
+    ```xml
     <ClaimsTransformations>
       <ClaimsTransformation Id="CreateSubjectClaimFromObjectID" TransformationMethod="CreateStringClaim">
         <InputParameters>
@@ -88,7 +88,7 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure 
 
 4. Znajdź element **ClaimsProvider** , który ma wartość **DisplayName** `Local Account SignIn` i Dodaj następujący profil techniczny:
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
       <DisplayName>Local Account SignIn</DisplayName>
       <Protocol Name="OpenIdConnect" />
@@ -128,7 +128,7 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure 
 
 5. Dodaj następujące elementy **ClaimsProvider** z ich profilami technicznymi do elementu **ClaimsProviders** :
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>
@@ -182,7 +182,7 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure 
 
 6. Dodaj element **UserJourneys** i jego elementy podrzędne do elementu **TrustFrameworkPolicy** :
 
-    ```XML
+    ```xml
     <UserJourney Id="ResourceOwnerPasswordCredentials">
       <PreserveOriginalAssertion>false</PreserveOriginalAssertion>
       <OrchestrationSteps>
@@ -218,19 +218,19 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure 
     ```
 
 7. Na stronie **zasady niestandardowe** w dzierżawie Azure AD B2C wybierz pozycję **Przekaż zasady**.
-8. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions. XML* .
+8. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions.xml* .
 9. Kliknij pozycję **Przekaż**.
 
 ## <a name="create-a-relying-party-file"></a>Utwórz plik jednostki uzależnionej
 
 Następnie zaktualizuj plik jednostki uzależnionej inicjujący utworzoną przez Ciebie podróż użytkownika:
 
-1. Utwórz kopię pliku *SignUpOrSignin. XML* w katalogu roboczym i zmień jego nazwę na *ROPC_Auth. XML*.
+1. Utwórz kopię pliku *SignUpOrSignin.xml* w katalogu roboczym i zmień jego nazwę na *ROPC_Auth.xml*.
 2. Otwórz nowy plik i zmień wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** na unikatową wartość. Identyfikator zasad to nazwa zasad. Na przykład **B2C_1A_ROPC_Auth**.
 3. Zmień wartość atrybutu **ReferenceId** w **DefaultUserJourney** na `ResourceOwnerPasswordCredentials` .
 4. Zmień element **OutputClaims** tak, aby zawierał tylko następujące oświadczenia:
 
-    ```XML
+    ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     <OutputClaim ClaimTypeReferenceId="objectId" />
     <OutputClaim ClaimTypeReferenceId="displayName" DefaultValue="" />
@@ -239,7 +239,7 @@ Następnie zaktualizuj plik jednostki uzależnionej inicjujący utworzoną przez
     ```
 
 5. Na stronie **zasady niestandardowe** w dzierżawie Azure AD B2C wybierz pozycję **Przekaż zasady**.
-6. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *ROPC_Auth. XML* .
+6. Włącz **Zastępowanie zasad, jeśli istnieje**, a następnie wyszukaj i wybierz plik *ROPC_Auth.xml* .
 7. Kliknij pozycję **Przekaż**.
 
 ## <a name="test-the-policy"></a>Testowanie zasad
@@ -267,7 +267,7 @@ Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wyw
 
 Rzeczywiste żądanie POST wygląda podobnie do poniższego przykładu:
 
-```HTTPS
+```https
 POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
@@ -277,7 +277,7 @@ username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scop
 
 Pomyślna odpowiedź z dostępem w trybie offline wygląda podobnie do poniższego przykładu:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik9YQjNhdTNScWhUQWN6R0RWZDM5djNpTmlyTWhqN2wxMjIySnh6TmgwRlki...",
     "token_type": "Bearer",
@@ -309,7 +309,7 @@ Utwórz wywołanie POST podobne do pokazanego tutaj. Użyj informacji w poniższ
 
 Pomyślna odpowiedź wygląda podobnie do poniższego przykładu:
 
-```JSON
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQndhT...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtMWtsMll0djhkbE5QNC1jNTdkTzZRR1RWQn...",

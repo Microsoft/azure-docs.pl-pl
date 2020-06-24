@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: c4069774249795073b4390de839ae9f563c8b1cb
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 2dc65c2e1b87c50ad2400b8ffb5d4c548e860c91
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424021"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201297"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitoruj Azure AD B2C z Azure Monitor
 
@@ -84,12 +84,12 @@ Aby dołączyć dzierżawę usługi Azure AD ( **klienta**), utwórz [szablon Az
 
 Pobierz Azure Resource Manager szablonu i plików parametrów:
 
-- [rgDelegatedResourceManagement. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
-- [rgDelegatedResourceManagement. Parameters. JSON](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
+- [rgDelegatedResourceManagement.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)
+- [rgDelegatedResourceManagement.parameters.jsna](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)
 
 Następnie zaktualizuj plik parametrów przy użyciu zarejestrowanych wcześniej wartości. Poniższy fragment kodu JSON przedstawia przykład pliku parametrów szablonu Azure Resource Manager. W przypadku programu `authorizations.value.roleDefinitionId` należy użyć [wbudowanej wartości roli](../role-based-access-control/built-in-roles.md) *współautor* `b24988ac-6180-42a0-ab88-20f7382dd24c` .
 
-```JSON
+```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",

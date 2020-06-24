@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 04/28/2020
+ms.date: 06/12/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: c0cf361cc00466a8ddf098b52bfaacc2fa63dad4
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: bc9ab6ddf3a9032fd1919b70d830f0d65cdc06ed
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559435"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817976"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Wdrażanie modeli za pomocą usługi Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -236,7 +236,7 @@ AZUREML_MODEL_DIR jest zmienną środowiskową utworzoną podczas wdrażania us�
 
 W poniższej tabeli opisano wartość AZUREML_MODEL_DIR w zależności od liczby wdrożonych modeli:
 
-| Wdrożenie | Wartość zmiennej środowiskowej |
+| wdrażania | Wartość zmiennej środowiskowej |
 | ----- | ----- |
 | Jeden model | Ścieżka do folderu zawierającego model. |
 | Wiele modeli | Ścieżka do folderu zawierającego wszystkie modele. Modele są zlokalizowane według nazwy i wersji w tym folderze ( `$MODEL_NAME/$VERSION` ) |
@@ -255,9 +255,34 @@ file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'skl
 ```
 
 **Przykład wielu modeli**
+
+W tym scenariuszu są rejestrowane dwa modele z obszarem roboczym:
+
+* `my_first_model`: Zawiera jeden plik ( `my_first_model.pkl` ) i istnieje tylko jedna wersja ( `1` ).
+* `my_second_model`: Zawiera jeden plik ( `my_second_model.pkl` ), a istnieją dwie wersje: `1` i `2` .
+
+Podczas wdrażania usługi w operacji wdrażania są dostępne oba modele:
+
+```python
+first_model = Model(ws, name="my_first_model", version=1)
+second_model = Model(ws, name="my_second_model", version=2)
+service = Model.deploy(ws, "myservice", [first_model, second_model], inference_config, deployment_config)
+```
+
+W obrazie platformy Docker, który obsługuje usługę, `AZUREML_MODEL_DIR` zmienna środowiskowa zawiera katalog, w którym znajdują się modele.
+W tym katalogu każdy model znajduje się w ścieżce katalogu `MODEL_NAME/VERSION` . Gdzie `MODEL_NAME` jest nazwą zarejestrowanego modelu i `VERSION` jest wersją modelu. Pliki, które składają się na zarejestrowany model, są przechowywane w tych katalogach.
+
+W tym przykładzie ścieżki są `$AZUREML_MODEL_DIR/my_first_model/1/my_first_model.pkl` i `$AZUREML_MODEL_DIR/my_second_model/2/my_second_model.pkl` .
+
+
 ```python
 # Example when the model is a file, and the deployment contains multiple models
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
+first_model_name = 'my_first_model'
+first_model_version = '1'
+first_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), first_model_name, first_model_version, 'my_first_model.pkl')
+second_model_name = 'my_second_model'
+second_model_version = '2'
+second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_name, second_model_version, 'my_second_model.pkl')
 ```
 
 ##### <a name="get_model_path"></a>get_model_path
@@ -322,6 +347,8 @@ def run(data):
         return error
 ```
 
+##### <a name="power-bi-compatible-endpoint"></a>Power BI zgodny punkt końcowy 
+
 Poniższy przykład ilustruje sposób definiowania danych wejściowych jako `<key: value>` słownika przy użyciu ramki Dataframe. Ta metoda jest obsługiwana w przypadku używania wdrożonej usługi sieci Web na podstawie Power BI. ([Dowiedz się więcej na temat korzystania z usługi sieci Web z programu Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)).
 
 ```python
@@ -358,8 +385,9 @@ input_sample = pd.DataFrame(data=[{
 # This is an integer type sample. Use the data type that reflects the expected result.
 output_sample = np.array([0])
 
-
-@input_schema('data', PandasParameterType(input_sample))
+# To indicate that we support a variable length of data input,
+# set enforce_shape=False
+@input_schema('data', PandasParameterType(input_sample, enforce_shape=False))
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
@@ -581,8 +609,8 @@ W poniższej tabeli opisano różne stany usług:
 | Przechodzenie | Usługa jest w trakcie wdrażania. | Nie |
 | Nieprawidłowy | Usługa została wdrożona, ale jest obecnie nieosiągalna.  | Nie |
 | Unschedulable | Nie można teraz wdrożyć usługi z powodu braku zasobów. | Nie |
-| Niepowodzenie | Wdrożenie usługi nie powiodło się z powodu błędu lub awarii. | Yes |
-| Dobra kondycja | Usługa jest w dobrej kondycji, a punkt końcowy jest dostępny. | Yes |
+| Niepowodzenie | Wdrożenie usługi nie powiodło się z powodu błędu lub awarii. | Tak |
+| Dobra kondycja | Usługa jest w dobrej kondycji, a punkt końcowy jest dostępny. | Tak |
 
 ### <a name="compute-instance-web-service-devtest"></a><a id="notebookvm"></a>Usługa sieci Web wystąpienia obliczeniowego (Tworzenie i testowanie)
 
@@ -925,13 +953,18 @@ output = service.run(input_payload)
 print(output)
 ```
 
-Uwaga: te zależności są zawarte we wstępnie skompilowanym kontenerze wnioskowania skryptu sklearn:
+Uwaga: te zależności są zawarte we wstępnie skompilowanym kontenerze wnioskowania scikit:
 
 ```yaml
+    - dill
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
     - numpy
+    - joblib
+    - pandas
+    - scipy
+    - sklearn_pandas
 ```
 
 ## <a name="package-models"></a>Modele pakietów
@@ -961,7 +994,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-Po utworzeniu pakietu można użyć `package.pull()` programu w celu ściągnięcia obrazu do lokalnego środowiska platformy Docker. W danych wyjściowych tego polecenia zostanie wyświetlona nazwa obrazu. Na przykład: 
+Po utworzeniu pakietu można użyć `package.pull()` programu w celu ściągnięcia obrazu do lokalnego środowiska platformy Docker. W danych wyjściowych tego polecenia zostanie wyświetlona nazwa obrazu. Przykład: 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
@@ -1067,7 +1100,7 @@ Aby zatrzymać kontener, użyj następującego polecenia z innej powłoki lub wi
 docker kill mycontainer
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby usunąć wdrożoną usługę sieci Web, użyj programu `service.delete()` .
 Aby usunąć zarejestrowany model, użyj `model.delete()` .
@@ -1129,7 +1162,7 @@ import requests
 # Load image data
 data = open('example.jpg', 'rb').read()
 # Post raw data to scoring URI
-res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
+res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/octet-stream'})
 ```
 
 <a id="cors"></a>

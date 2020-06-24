@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fdbd6784ea3333c92154e940916f052dd9cdbfd9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636093"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202510"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Przewodnik: Dodawanie wymiany oświadczeń interfejsu API REST do zasad niestandardowych w Azure Active Directory B2C
 
@@ -123,7 +123,7 @@ Powyższe Komentarze `AuthenticationType` i `AllowInsecureAuthInProduction` okre
 1. Wklej `<UserJourneys>` do pliku rozszerzeń po zamknięciu `<ClaimsProviders>` elementu.
 1. Znajdź `<UserJourney Id="SignUpOrSignIn">` i Dodaj następujący krok aranżacji przed ostatnim.
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
@@ -133,7 +133,7 @@ Powyższe Komentarze `AuthenticationType` i `AllowInsecureAuthInProduction` okre
 
 1. Refaktoryzacja ostatniego kroku aranżacji przez zmianę `Order` do `8` . Ostatnie dwa kroki aranżacji powinny wyglądać następująco:
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="7" Type="ClaimsExchange">
       <ClaimsExchanges>
         <ClaimsExchange Id="RESTGetProfile" TechnicalProfileReferenceId="REST-GetProfile" />
@@ -171,9 +171,9 @@ Aby zwrócić `balance` wniosek z powrotem do aplikacji jednostki uzależnionej,
 </RelyingParty>
 ```
 
-Powtórz ten krok dla podróży użytkownika **ProfileEdit. XML**i **PasswordReset. XML** .
+Powtórz ten krok dla **ProfileEdit.xml**i **PasswordReset.xml** podróży użytkownika.
 
-Zapisz zmienione pliki: *TrustFrameworkBase. XML*i *TrustFrameworkExtensions. XML*, *SignUpOrSignin. XML*, *ProfileEdit. XML*i *PasswordReset. XML*. 
+Zapisz zmienione pliki: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*i *PasswordReset.xml*. 
 
 ## <a name="test-the-custom-policy"></a>Testowanie zasad niestandardowych
 
@@ -181,7 +181,7 @@ Zapisz zmienione pliki: *TrustFrameworkBase. XML*i *TrustFrameworkExtensions. XM
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD, wybierając filtr **katalog + subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawę usługi Azure AD.
 1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz pozycję **platforma obsługi tożsamości**.
-1. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad: *TrustFrameworkBase. XML*i *TrustFrameworkExtensions. XML*, *SignUpOrSignin. XML*, *ProfileEdit. XML*i *PasswordReset. XML*. 
+1. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad: *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml*i *PasswordReset.xml*. 
 1. Wybierz przekazane zasady rejestracji lub logowania, a następnie kliknij przycisk **Uruchom teraz** .
 1. Użytkownik powinien mieć możliwość rejestrowania się przy użyciu adresu e-mail lub konta w serwisie Facebook.
 1. Token wysłany z powrotem do aplikacji zawiera `balance` zastrzeżenie.

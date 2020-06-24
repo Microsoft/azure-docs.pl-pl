@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 178f56354120bf7a65c51f1c9cf54e34bd011d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20f11b14c0393f27a81710218d630f052775e1c3
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137292"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078969"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Wersje interfejsu API na platformie Azure Wyszukiwanie poznawcze
 
@@ -32,19 +32,19 @@ Poniżej znajduje się migawka bieżących wersji wszystkich interfejsów progra
 
 | Interfejsy | Najnowsza wersja główna | Stan |
 | --- | --- | --- |
-| [Zestaw SDK .NET](https://aka.ms/search-sdk) |9.0 |Ogólnie dostępne, wydane mogą 2019 |
+| [Zestaw SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) |9.0 |Ogólnie dostępne, wydane mogą 2019 |
 | [.NET SDK — wersja zapoznawcza](https://aka.ms/search-sdk-preview) |8,0 — wersja zapoznawcza |Wersja zapoznawcza, wydana kwiecień 2019 |
 | [Interfejs API REST usługi](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Ogólnie dostępna |
 | [Interfejs API REST usługi 2019-05-06 — wersja zapoznawcza](search-api-preview.md) |2019-05-06 — wersja zapoznawcza |Wersja zapoznawcza |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Ogólnie dostępna |
 | [Interfejs API REST zarządzania](https://docs.microsoft.com/rest/api/searchmanagement/) |2020-03-13|Ogólnie dostępna |
 
-W przypadku interfejsów API REST, `api-version` w tym na każde wywołanie jest wymagane. Korzystanie `api-version` z programu ułatwia kierowanie określonych wersji, takich jak interfejs API w wersji zapoznawczej. Poniższy przykład ilustruje sposób określenia `api-version` parametru:
+W przypadku interfejsów API REST, `api-version` w tym na każde wywołanie jest wymagane. Korzystanie z programu `api-version` ułatwia kierowanie określonych wersji, takich jak interfejs API w wersji zapoznawczej. Poniższy przykład ilustruje sposób `api-version` określenia parametru:
 
     GET https://my-demo-app.search.windows.net/indexes/hotels?api-version=2019-05-06
 
 > [!NOTE]
-> Chociaż każde żądanie ma `api-version`, zalecamy użycie tej samej wersji dla wszystkich żądań interfejsu API. Jest to szczególnie prawdziwe, gdy nowe wersje interfejsu API wprowadzają atrybuty lub operacje, które nie są rozpoznawane przez poprzednie wersje. Mieszanie wersji interfejsu API może mieć niezamierzone konsekwencje i powinno być nieuniknione.
+> Chociaż każde żądanie ma `api-version` , zalecamy użycie tej samej wersji dla wszystkich żądań interfejsu API. Jest to szczególnie prawdziwe, gdy nowe wersje interfejsu API wprowadzają atrybuty lub operacje, które nie są rozpoznawane przez poprzednie wersje. Mieszanie wersji interfejsu API może mieć niezamierzone konsekwencje i powinno być nieuniknione.
 >
 > Interfejsy API REST usługi i interfejs API REST zarządzania są niezależne od siebie. Wszelkie podobieństwa w numerach wersji to zdarzenie.
 

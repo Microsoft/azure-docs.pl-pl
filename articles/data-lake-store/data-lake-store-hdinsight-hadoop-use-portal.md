@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 1d1368ef8ffb474c6bec1240f567f043961597fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265573"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686175"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Tworzenie klastrów usługi HDInsight z Azure Data Lake Storage Gen1 przy użyciu Azure Portal
 
@@ -195,7 +195,7 @@ Klastra Spark można używać do uruchamiania zadań platformy Spark na danych p
 
 Przy użyciu konta Data Lake Storage Gen1 można pisać dane z topologii burzowej. Aby uzyskać instrukcje dotyczące sposobu osiągnięcia tego scenariusza, zobacz [Korzystanie z Azure Data Lake Storage Gen1 z Apache Storm z usługą HDInsight](../hdinsight/storm/apache-storm-write-data-lake-store.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Używanie Data Lake Storage Gen1 z klastrami usługi Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
 * [PowerShell: Tworzenie klastra usługi HDInsight do użycia Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-powershell.md)

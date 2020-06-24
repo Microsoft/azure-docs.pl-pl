@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c858a17d4574e6e45283df7c1276cd303f25297
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d54c4e5980383c721629143910eafbd5ae6a527
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262011"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85078941"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Utwórz nowy pakiet dostępu w usłudze Azure AD uprawnienia do zarządzania
 
@@ -133,7 +133,7 @@ Na karcie **Przegląd i tworzenie** możesz przejrzeć ustawienia i sprawdzić, 
 
 ## <a name="creating-an-access-package-programmatically"></a>Programistyczne tworzenie pakietu dostępu
 
-Możesz również utworzyć pakiet dostępu przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane `EntitlementManagement.ReadWrite.All` uprawnienie, może wywołać interfejs API, aby
+Możesz również utworzyć pakiet dostępu przy użyciu Microsoft Graph.  Użytkownik w odpowiedniej roli z aplikacją, która ma delegowane uprawnienie, `EntitlementManagement.ReadWrite.All` może wywołać interfejs API, aby
 
 1. [Wyświetl listę accessPackageResources w wykazie](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) i [Utwórz accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) dla wszystkich zasobów, które nie znajdują się jeszcze w wykazie.
 1. [Wyświetl listę accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) każdego AccessPackageResource w accessPackageCatalog. Ta lista ról będzie następnie używana do wybierania roli podczas tworzenia accessPackageResourceRoleScope.
