@@ -5,16 +5,16 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: 70c36f9a18a85b90bb3a66d4083a71a00f61f14e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: aa2b82e70b1a1372076483c7405c32b66da377af
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016376"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974436"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Uwierzytelnianie za pomocą usługi Azure Container Registry z poziomu usługi Azure Kubernetes Service
 
-W przypadku korzystania z Azure Container Registry (ACR) z usługą Azure Kubernetes Service (AKS) należy nawiązać mechanizm uwierzytelniania. W tym artykule przedstawiono przykłady konfigurowania uwierzytelniania między tymi dwiema usługami platformy Azure. 
+W przypadku korzystania z Azure Container Registry (ACR) z usługą Azure Kubernetes Service (AKS) należy nawiązać mechanizm uwierzytelniania. Ta operacja jest zaimplementowana w ramach interfejsu wiersza polecenia i środowiska portalu, przyznając wymagane uprawnienia do ACR. W tym artykule przedstawiono przykłady konfigurowania uwierzytelniania między tymi dwiema usługami platformy Azure. 
 
 Za pomocą interfejsu wiersza polecenia platformy Azure można skonfigurować AKS do integracji z ACR w kilku prostych poleceniach. Ta integracja przypisuje rolę AcrPull do jednostki usługi skojarzonej z klastrem AKS.
 
@@ -23,7 +23,7 @@ Za pomocą interfejsu wiersza polecenia platformy Azure można skonfigurować AK
 Te przykłady wymagają:
 
 * Rola **właściciela** lub **administratora konta platformy Azure** w **subskrypcji platformy Azure**
-* Interfejs wiersza polecenia platformy Azure w wersji 2.0.73 lub nowszej
+* Interfejs wiersza polecenia platformy Azure w wersji 2.7.0 lub nowszej
 
 Aby uniknąć konieczności korzystania z roli **właściciela** lub **administratora konta platformy Azure** , można skonfigurować jednostkę usługi ręcznie lub użyć istniejącej jednostki usługi do uwierzytelniania ACR z AKS. Aby uzyskać więcej informacji, zobacz [uwierzytelnianie ACR za pomocą jednostek usługi](../container-registry/container-registry-auth-service-principal.md) lub [uwierzytelnianie z Kubernetes przy użyciu klucza tajnego ściągania](../container-registry/container-registry-auth-kubernetes.md).
 
@@ -142,6 +142,10 @@ NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
 nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
+
+### <a name="troubleshooting"></a>Rozwiązywanie problemów
+* Dowiedz się więcej o [diagnostyce ACR](../container-registry/container-registry-diagnostics-audit-logs.md)
+* Dowiedz się więcej o [kondycji ACR](../container-registry/container-registry-check-health.md)
 
 <!-- LINKS - external -->
 [AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create

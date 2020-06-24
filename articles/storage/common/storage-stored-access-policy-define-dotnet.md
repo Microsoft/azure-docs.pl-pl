@@ -1,26 +1,27 @@
 ---
-title: Definiowanie przechowywanych zasad dostępu przy użyciu platformy .NET — Azure Storage
-description: Dowiedz się, jak definiować przechowywane zasady dostępu przy użyciu biblioteki klienckiej .NET.
+title: Tworzenie zasad dostępu przechowywanych przy użyciu platformy .NET
+titleSuffix: Azure Storage
+description: Dowiedz się, jak utworzyć zasady dostępu przechowywane przy użyciu biblioteki klienckiej platformy .NET.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 06/16/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 272d676d0a5a55262b1c68d0bae9a9ab229df72c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b56851929cafa7d5fd1266e4500056de5329919
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68990743"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974419"
 ---
-# <a name="define-a-stored-access-policy-with-net"></a>Definiowanie przechowywanych zasad dostępu za pomocą platformy .NET
+# <a name="create-a-stored-access-policy-with-net"></a>Tworzenie zasad dostępu przechowywanych przy użyciu platformy .NET
 
 Przechowywane zasady dostępu zapewniają dodatkowy poziom kontroli nad sygnaturami dostępu współdzielonego na poziomie usług (SAS) po stronie serwera. Zdefiniowanie przechowywanych zasad dostępu służy do grupowania sygnatur dostępu współdzielonego i zapewnienia dodatkowych ograniczeń dla sygnatur dostępu współdzielonego, które są powiązane z zasadami. Za pomocą przechowywanych zasad dostępu można zmienić czas rozpoczęcia, czas wygaśnięcia lub uprawnienia dla SAS lub odwołać je po wydaniu.
   
- Następujące zasoby magazynu obsługują zasady dostępu przechowywane:  
+Następujące zasoby usługi Azure Storage obsługują zasady dostępu przechowywane:  
   
 - Kontenery obiektów blob  
 - Udziały plików  
@@ -32,9 +33,73 @@ Przechowywane zasady dostępu zapewniają dodatkowy poziom kontroli nad sygnatur
 >
 > Zasady dostępu przechowywane są obsługiwane tylko dla SAS usługi. Przechowywane zasady dostępu nie są obsługiwane w przypadku kont SAS lub delegowania uprawnień użytkowników dla konta.  
 
+Aby uzyskać więcej informacji na temat przechowywanych zasad dostępu, zobacz [Definiowanie przechowywanych zasad dostępu](/rest/api/storageservices/define-stored-access-policy).
+
 ## <a name="create-a-stored-access-policy"></a>Tworzenie zasad dostępu przechowywanego
 
-Poniższy kod tworzy zasady dostępu przechowywane w kontenerze. Zasad dostępu można użyć do określenia ograniczeń dla SAS usługi w kontenerze lub jego obiektach Blob.
+Podstawową operacją REST do utworzenia przechowywanych zasad dostępu jest [ustawienie listy ACL kontenerów](/rest/api/storageservices/set-container-acl). Należy autoryzować operację, aby utworzyć zasady dostępu przechowywane za pośrednictwem klucza współużytkowanego przy użyciu kluczy dostępu konta w parametrach połączenia. Autoryzacja operacji **ustawiania listy ACL kontenera** przy użyciu poświadczeń usługi Azure AD nie jest obsługiwana. Aby uzyskać więcej informacji, zobacz [uprawnienia do wywoływania operacji na danych obiektów blob i kolejek](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+
+Poniższe przykłady kodu tworzą zasady dostępu przechowywane w kontenerze. Zasad dostępu można użyć do określenia ograniczeń dla SAS usługi w kontenerze lub jego obiektach Blob.
+
+# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+
+Aby utworzyć przechowywane zasady dostępu w kontenerze z wersją 12 biblioteki klienta .NET dla usługi Azure Storage, należy wywołać jedną z następujących metod:
+
+- [BlobContainerClient.SetAccessPolicy](/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy)
+- [BlobContainerClient.SetAccessPolicyAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicyasync)
+
+Poniższy przykład tworzy zasady dostępu przechowywane, które obowiązują przez jeden dzień i przyznają uprawnienia do odczytu/zapisu:
+
+```csharp
+async static Task CreateStoredAccessPolicyAsync(string containerName)
+{
+    string connectionString = "";
+
+    // Use the connection string to authorize the operation to create the access policy.
+    // Azure AD does not support the Set Container ACL operation that creates the policy.
+    BlobContainerClient containerClient = new BlobContainerClient(connectionString, containerName);
+
+    try
+    {
+        await containerClient.CreateIfNotExistsAsync();
+
+        // Create one or more stored access policies.
+        List<BlobSignedIdentifier> signedIdentifiers = new List<BlobSignedIdentifier>
+        {
+            new BlobSignedIdentifier
+            {
+                Id = "mysignedidentifier",
+                AccessPolicy = new BlobAccessPolicy
+                {
+                    StartsOn = DateTimeOffset.UtcNow.AddHours(-1),
+                    ExpiresOn = DateTimeOffset.UtcNow.AddDays(1),
+                    Permissions = "rw"
+                }
+            }
+        };
+        // Set the container's access policy.
+        await containerClient.SetAccessPolicyAsync(permissions: signedIdentifiers);
+    }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine(e.ErrorCode);
+        Console.WriteLine(e.Message);
+    }
+    finally
+    {
+        await containerClient.DeleteAsync();
+    }
+}
+```
+
+# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
+
+Aby utworzyć przechowywane zasady dostępu w kontenerze z wersją 12 biblioteki klienta .NET dla usługi Azure Storage, należy wywołać jedną z następujących metod:
+
+- [CloudBlobContainer. Set— uprawnienia](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissions)
+- [CloudBlobContainer. SetPermissionsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setpermissionsasync)
+
+Poniższy przykład tworzy zasady dostępu przechowywane, które obowiązują przez jeden dzień i przyznają uprawnienia do odczytu, zapisu i listy:
 
 ```csharp
 private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer container, string policyName)
@@ -46,7 +111,7 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
         // When the start time for the SAS is omitted, the start time is assumed to be the time when Azure Storage receives the request.
         SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
         Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.List |
-            SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Create | SharedAccessBlobPermissions.Delete
+            SharedAccessBlobPermissions.Write
     };
 
     // Get the container's existing permissions.
@@ -58,8 +123,10 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 }
 ```
 
-## <a name="see-also"></a>Zobacz także
+---
+
+## <a name="see-also"></a>Zobacz też
 
 - [Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)](storage-sas-overview.md)
 - [Definiowanie przechowywanych zasad dostępu](/rest/api/storageservices/define-stored-access-policy)
-
+- [Konfiguracja parametrów połączenia usługi Azure Storage](storage-configure-connection-string.md)

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: aded023c9f4c045f612e33d32c1e3ac71afddf02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8af8db6b6853d6b8cbd4ba1105f05ebb9bcf771b
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77530304"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974844"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Przedpłata za usługę Azure cache dla zasobów obliczeniowych Redis z zarezerwowaną pojemnością
 
@@ -30,15 +30,15 @@ Aby uzyskać szczegółowe informacje dotyczące sposobu, w jaki Klienci korpora
 
 ## <a name="determine-the-right-cache-size-before-purchase"></a>Określ właściwy rozmiar pamięci podręcznej przed zakupem
 
-Rozmiar rezerwacji powinien opierać się na łącznej ilości obliczeń używanych przez istniejącą lub wkrótce do wdrożenia pamięć podręczną w określonym regionie oraz przy użyciu tej samej warstwy usług.
+Rozmiar rezerwacji powinien opierać się na łącznej ilości pamięci używanej przez istniejącą lub natychmiastowo wdrożoną pamięć podręczną w określonym regionie i korzystając z tej samej warstwy usług.
 
-Załóżmy na przykład, że uruchomiono jeden ogólnego przeznaczenia, 5 rdzeń – 32 rdzeń wirtualny pamięć podręczną, a dwie pamięci podręczne zoptymalizowane pod kątem 5 rdzeń — 16 rdzeń wirtualny. Ponadto Załóżmy, że planujesz wdrożenie w następnym miesiącu, dodatkowym celu ogólnego przeznaczenia, 5 rdzeń – 32 rdzeń wirtualny bazy danych i jednej pamięci zoptymalizowanej jako serwer bazy danych 5 rdzeń-16 rdzeń wirtualny. Załóżmy, że wiesz, że te zasoby będą potrzebne przez co najmniej 1 rok. W takim przypadku należy zakupić 64 (2x32) rdzeni wirtualnych, 1-letnią rezerwację dla jednej bazy danych ogólnego przeznaczenia-5 rdzeń i 48 (2x16 + 16) rdzeń wirtualny 1 roku dla jednolitej pamięci bazy danych zoptymalizowanej-5 rdzeń
+Załóżmy na przykład, że korzystasz z dwóch pamięci podręcznych — jeden w 13 GB, a drugi przy 26 GB. Wymagana jest co najmniej jeden rok. Ponadto Załóżmy, że planujesz skalować istniejące pamięci podręczne o wielkości 13 GB do 26 GB przez miesiąc, aby zaspokoić zapotrzebowanie sezonowe, a następnie przeskalować je ponownie. W takim przypadku można zakupić 1 pamięć podręczną P1 i 1 P2 pamięci podręcznej lub 3. Otrzymasz rabat na łączną ilość pamięci podręcznej, która jest rezerwowana, niezależnie od tego, jak ta kwota jest przypisana w pamięci podręcznej.
 
 
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Kupowanie pamięci podręcznej platformy Azure pod kątem zarezerwowanej pojemności Redis
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Wybierz pozycję **wszystkie** > **rezerwacje**usług.
+2. Wybierz pozycję **Wszystkie usługi** > **Rezerwacje**.
 3. Wybierz pozycję **Dodaj** , a następnie w okienku rezerwacje zakupu wybierz pozycję **Azure cache for Redis** , aby zakupić nową rezerwację dla pamięci podręcznych.
 4. Wypełnij pola wymagane. Istniejące lub nowe bazy danych zgodne z wybranymi atrybutami kwalifikują się do uzyskania rabatu zarezerwowanej pojemności. Rzeczywista liczba wystąpień usługi Azure cache for Redis, które pobierają rabat, zależą od wybranego zakresu i ilości.
 
@@ -59,7 +59,7 @@ W poniższej tabeli opisano wymagane pola.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Anulowanie, wymiana lub zwrot rezerwacji
 
-Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz samoobsługowe [weksle i zwroty dla Azure Reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Rezerwacje można anulować, wymieniać lub zwracać, jednak obowiązują przy tym pewne ograniczenia. Aby uzyskać więcej informacji, zobacz temat [Self-service exchanges and refunds for Azure Reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund) (Samoobsługowe wymiany i zwroty kosztów dla rezerwacji platformy Azure).
 
 ## <a name="cache-size-flexibility"></a>Elastyczność rozmiaru pamięci podręcznej
 
@@ -77,7 +77,7 @@ Rabat rezerwacji jest automatycznie stosowany do pamięci podręcznej platformy 
 
 * Aby dowiedzieć się więcej na temat rezerwacji platformy Azure, zobacz następujące artykuły:
 
-    * [Co to są Azure Reservations?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+    * [Co to jest Azure Reservations?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
     * [Zarządzanie usługą Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
     * [Informacje na temat rabatu na rezerwacje platformy Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
     * [Understand reservation usage for your Pay-As-You-Go subscription (Informacje na temat użycia wystąpień zarezerwowanych w przypadku subskrypcji z płatnością zgodnie z rzeczywistym użyciem)](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)

@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/14/2020
+ms.date: 06/17/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 3f7e2a5c2dca13ac705d67e1491d88a2537a9064
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: ced9453982615485e25b56be9b7a36dc8f6ce988
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84555785"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974674"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Korzystanie z modelu Azure Machine Learning wdrożonego jako usługa sieci Web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,8 +128,16 @@ token, refresh_by = service.get_token()
 print(token)
 ```
 
+Jeśli masz [interfejs wiersza polecenia platformy Azure i rozszerzenie uczenia maszynowego](reference-azure-machine-learning-cli.md), możesz użyć następującego polecenia, aby uzyskać token:
+
+```azurecli
+az ml service get-access-token -n <service-name>
+```
+
 > [!IMPORTANT]
-> Po upływie czasu tokenu trzeba będzie zażądać nowego tokenu `refresh_by` . 
+> Obecnie jedynym sposobem na pobranie tokenu jest użycie zestawu SDK Azure Machine Learning lub rozszerzenia Azure Machine Learning.
+
+Po upływie czasu tokenu trzeba będzie zażądać nowego tokenu `refresh_by` . 
 
 ## <a name="request-data"></a>Dane żądania
 
