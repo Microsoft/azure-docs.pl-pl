@@ -30,7 +30,7 @@ Ten artykuł koncentruje się na konfigurowaniu i monitorowaniu flot urządzeń,
 
 W tym artykule opisano każdy składnik związany z konfigurowaniem i monitorowaniem wdrożenia. Aby zapoznać się z przewodnikiem dotyczącym tworzenia i aktualizowania wdrożenia, zobacz [wdrażanie i monitorowanie modułów IoT Edge w odpowiedniej skali](how-to-deploy-at-scale.md).
 
-## <a name="deployment"></a>wdrażania
+## <a name="deployment"></a>Wdrożenie
 
 IoT Edge wdrożenie automatyczne przypisuje IoT Edge obrazy modułów do uruchamiania jako wystąpienia w określonym zestawie IoT Edge urządzeń. Działa przez skonfigurowanie manifestu wdrażania IoT Edge w celu uwzględnienia listy modułów z odpowiednimi parametrami inicjalizacji.Wdrożenie może być przypisane do jednego urządzenia (w oparciu o identyfikator urządzenia) lub do grupy urządzeń (w oparciu o Tagi).Gdy urządzenie IoT Edge odbiera manifest wdrożenia, pobiera i instaluje obrazy kontenerów z odpowiednich repozytoriów kontenerów i odpowiednio konfiguruje je.Po utworzeniu wdrożenia operator może monitorować stan wdrożenia, aby sprawdzić, czy urządzenia są poprawnie skonfigurowane.
 

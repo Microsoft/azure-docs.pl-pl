@@ -42,4 +42,4 @@ Po zakończeniu rejestracji aplikacji Włącz przepływ niejawnego przydzielenia
 1. Wprowadź nazwę aplikacji. Na przykład *testapp1*.
 1. W przypadku **aplikacji sieci Web/internetowego interfejsu API**wybierz pozycję **tak**.
 1. Dla **adresu URL odpowiedzi**wprowadź`https://jwt.ms`
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.

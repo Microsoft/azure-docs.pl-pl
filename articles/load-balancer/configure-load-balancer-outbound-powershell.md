@@ -152,7 +152,7 @@ New-AzLoadBalancer -Name lb -Sku Standard -ResourceGroupName myresourcegroupoutb
 
 W tym momencie można kontynuować dodawanie maszyn wirtualnych do pul zaplecza *bepoolinbound* i *bepooloutbound* przez zaktualizowanie konfiguracji protokołu IP odpowiednich zasobów kart sieciowych. Zaktualizuj konfigurację zasobu za pomocą polecenia [Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, moduł równoważenia obciążenia i powiązane zasoby nie są już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.7.0).
 

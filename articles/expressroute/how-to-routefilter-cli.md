@@ -4,15 +4,15 @@ description: W tym artykule opisano sposób konfigurowania filtrów tras dla kom
 services: expressroute
 author: anzaman
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: c3c50a005e119890fb17fcf7b3114a747bbe34bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 269cabae276712a1f5b51c09705b7cd3eee5fb9d
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74033411"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738349"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft: interfejs wiersza polecenia platformy Azure
 

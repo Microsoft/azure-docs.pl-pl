@@ -133,7 +133,7 @@ Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-ma
     | ------------ | --------------- | ----------- |
     | Typ serwera | Aparat bazy danych | Ta wartość jest wymagana |
     | Nazwa serwera | W pełni kwalifikowana nazwa serwera | Na przykład **sqlpoolservername.Database.Windows.NET** to w pełni kwalifikowana nazwa serwera. |
-    | Uwierzytelnianie | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
+    | Authentication | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
     | Zaloguj się | Konto administratora serwera | To konto określono podczas tworzenia serwera. |
     | Hasło | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
 
@@ -1073,7 +1073,7 @@ Aby uzyskać wysoką wydajność zapytań, ważne jest tworzenie statystyk dotyc
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Opłaty są naliczane za zasoby obliczeniowe i dane załadowane do magazynu danych. Są one rozliczane osobno.  
 
@@ -1081,7 +1081,7 @@ Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij swój magazyn danych.
 
-    ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Oczyszczanie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Jeśli chcesz przechowywać dane w magazynie, możesz wstrzymać obliczenia, gdy nie korzystasz z magazynu danych. Dzięki wstrzymaniu obliczeń opłaty są naliczane tylko za magazyn danych i można wznowić obliczenia za każdym razem, gdy wszystko będzie gotowe do pracy z danymi. Aby wstrzymać obliczenia, kliknij przycisk **Wstrzymaj**. Gdy magazyn danych jest wstrzymany, widoczny jest przycisk **Uruchom**.  Aby wznowić obliczenia, kliknij przycisk **Uruchom**.
 

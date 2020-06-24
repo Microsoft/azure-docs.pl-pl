@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 32d978ee766f6dbe95bd7158b8060a0302ef8206
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189066"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738638"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Wizualizowanie wzorców ruchu sieciowego do i z maszyn wirtualnych za pomocą narzędzi open source
 
@@ -35,7 +35,7 @@ Prosta aplikacja internetowa wdrożona na maszynie wirtualnej na platformie Azur
 
 ### <a name="install-capanalysis"></a>Zainstaluj CapAnalysis
 
-Aby zainstalować CapAnalysis na maszynie wirtualnej, możesz zapoznać się z oficjalnymi instrukcjami tutaj https://www.capanalysis.net/ca/how-to-install-capanalysis.
+Aby zainstalować CapAnalysis na maszynie wirtualnej, możesz zapoznać się z oficjalnymi instrukcjami tutaj https://www.capanalysis.net/ca/how-to-install-capanalysis .
 Aby zdalnie uzyskać dostęp do CapAnalysis, musisz otworzyć port 9877 na maszynie wirtualnej przez dodanie nowej reguły zabezpieczeń dla ruchu przychodzącego. Aby uzyskać więcej informacji na temat tworzenia reguł w sieciowych grupach zabezpieczeń, zapoznaj się z tematem [Tworzenie reguł w istniejącej sieciowej grupy zabezpieczeń](../virtual-network/manage-network-security-group.md#create-a-security-rule). Po pomyślnym dodaniu reguły powinno być możliwe uzyskanie dostępu do CapAnalysis z`http://<PublicIP>:9877`
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Użyj usługi Azure Network Watcher, aby rozpocząć sesję przechwytywania pakietów
@@ -84,7 +84,7 @@ CapAnalysis oferuje różne opcje wizualizacji przechwytywania pakietów, z któ
 
     ![filtry][11]
 
-    Odwiedź [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) witrynę, aby dowiedzieć się więcej o możliwościach wszystkich CapAnalysis.
+    Odwiedź witrynę [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) , aby dowiedzieć się więcej o możliwościach wszystkich CapAnalysis.
 
 ## <a name="conclusion"></a>Podsumowanie
 

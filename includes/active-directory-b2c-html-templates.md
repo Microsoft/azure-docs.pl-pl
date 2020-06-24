@@ -25,9 +25,9 @@ Ten projekt zawiera następujące szablony:
 
 Aby użyć przykładu:
 
-1. Sklonuj repozytorium na komputerze lokalnym. Wybierz folder `/ocean_blue` szablonu lub `/slate_gray`.
+1. Sklonuj repozytorium na komputerze lokalnym. Wybierz folder szablonu `/ocean_blue` lub `/slate_gray` .
 1. Przekaż wszystkie pliki z folderu Template i `/assets` folder do magazynu obiektów BLOB zgodnie z opisem w poprzednich sekcjach.
-1. Następnie otwórz każdy `\*.html` plik w katalogu głównym `/ocean_blue` lub `/slate_gray`Zastąp wszystkie wystąpienia względnych adresów URL adresami URL plików CSS, obrazów i czcionek przekazanych w kroku 2. Przykład:
+1. Następnie otwórz każdy `\*.html` plik w katalogu głównym `/ocean_blue` lub `/slate_gray` Zastąp wszystkie wystąpienia względnych adresów URL adresami URL plików CSS, obrazów i czcionek przekazanych w kroku 2. Przykład:
     ```html
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
@@ -38,4 +38,4 @@ Aby użyć przykładu:
     ```
 1. Zapisz `\*.html` pliki i przekaż je do magazynu obiektów BLOB.
 1. Teraz zmodyfikuj zasady, wskazując na plik HTML, jak wspomniano wcześniej.
-1. Jeśli widzisz brakujące czcionki, obrazy lub CSS, Sprawdź odwołania w zasadach rozszerzeń i plikach \*. html.
+1. Jeśli widzisz brakujące czcionki, obrazy lub CSS, Sprawdź odwołania w zasadach rozszerzeń i \* plikach. html.

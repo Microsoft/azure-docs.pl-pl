@@ -3,35 +3,32 @@ title: Konfigurowanie uwierzytelniania
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak skonfigurować i skonfigurować uwierzytelnianie dla różnych zasobów i przepływów pracy w programie Azure Machine Learning. Istnieje wiele sposobów konfigurowania i używania uwierzytelniania w ramach usługi, od prostego uwierzytelniania opartego na interfejsie użytkownika na potrzeby tworzenia i testowania, do pełnego Azure Active Directory uwierzytelniania głównego usługi.
 services: machine-learning
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
+author: larryfr
+ms.author: larryfr
+ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 12/17/2019
+ms.date: 06/17/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: e6fd2ba9210aa8f133ed08e850e4ded978682988
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 34641e7a883f6b07fe63595cf5750df2569640f8
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629239"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974691"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurowanie uwierzytelniania dla Azure Machine Learning zasobów i przepływów pracy
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak skonfigurować i skonfigurować uwierzytelnianie dla różnych zasobów i przepływów pracy w programie Azure Machine Learning. Istnieje wiele sposobów na uwierzytelnianie w usłudze, od prostego uwierzytelniania opartego na interfejsie użytkownika na potrzeby tworzenia i testowania do pełnego Azure Active Directory uwierzytelniania głównego usługi. W tym artykule wyjaśniono także różnice w sposobie działania uwierzytelniania usługi sieci Web oraz sposób uwierzytelniania w interfejsie API REST Azure Machine Learning.
+Dowiedz się, jak uwierzytelniać się w obszarze roboczym Azure Machine Learning i do modeli wdrożonych jako usługi sieci Web.
 
-W tym przykładzie przedstawiono sposób wykonywania następujących zadań:
+Ogólnie rzecz biorąc, istnieją dwa typy uwierzytelniania, których można używać z Azure Machine Learning:
 
-* Używanie interakcyjnego uwierzytelniania interfejsu użytkownika do testowania/programowania
-* Konfigurowanie uwierzytelniania jednostki usługi
-* Uwierzytelnianie w obszarze roboczym
-* Pobieranie tokenów typu okaziciela OAuth 2.0 dla interfejsu API REST Azure Machine Learning
-* Opis uwierzytelniania usługi sieci Web
+* __Interaktywny__: konto jest używane w Azure Active Directory do bezpośredniego uwierzytelniania lub do uzyskania tokenu używanego do uwierzytelniania. Uwierzytelnianie interakcyjne jest używane podczas eksperymentowania i iteracyjnego programowania. Lub, gdzie chcesz kontrolować dostęp do zasobów (takich jak usługa sieci Web) dla poszczególnych użytkowników.
+* Nazwa __główna usługi__: Utwórz konto jednostki usługi w Azure Active Directory i użyj go do uwierzytelnienia lub pobrania tokenu. Nazwa główna usługi jest używana, gdy potrzebny jest zautomatyzowany proces do uwierzytelniania w usłudze, bez konieczności interakcji z użytkownikiem. Na przykład ciągły skrypt integracji i wdrażania, który pociąga i testuje model przy każdym zmianie kodu szkoleniowego. Możesz również użyć jednostki usługi, aby pobrać token do uwierzytelniania w usłudze sieci Web, jeśli nie chcesz wymagać uwierzytelniania użytkownika końcowego usługi. Lub w przypadku, gdy uwierzytelnianie użytkownika końcowego nie jest wykonywane bezpośrednio przy użyciu Azure Active Directory.
 
-Zapoznaj się z [artykułem koncepcji](concept-enterprise-security.md) , aby zapoznać się z ogólnym omówieniem zabezpieczeń i uwierzytelniania w ramach programu Azure Machine Learning.
+Niezależnie od używanego typu uwierzytelniania kontrola dostępu oparta na rolach (RBAC) służy do określania zakresu dostępu do zasobów. Na przykład konto, które jest używane w celu uzyskania tokenu dostępu dla wdrożonego modelu, wymaga tylko dostępu do odczytu w obszarze roboczym. Aby uzyskać więcej informacji na temat RBAC, zobacz [Zarządzanie dostępem do Azure Machine Learning obszaru roboczego](how-to-assign-roles.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -40,108 +37,124 @@ Zapoznaj się z [artykułem koncepcji](concept-enterprise-security.md) , aby zap
 
 ## <a name="interactive-authentication"></a>Uwierzytelnianie interakcyjne
 
-Większość przykładów w dokumentacji tej usługi używa uwierzytelniania interaktywnego w notesach Jupyter jako prostą metodę testowania i demonstracji. Jest to lekki sposób na przetestowanie tego, co tworzysz. Istnieją dwa wywołania funkcji, które automatycznie monitują o przepływ uwierzytelniania oparty na interfejsie użytkownika.
+Większość przykładów w dokumentacji i przykładach używa uwierzytelniania interakcyjnego. Na przykład podczas korzystania z zestawu SDK istnieją dwa wywołania funkcji, które automatycznie monitują o przepływ uwierzytelniania oparty na interfejsie użytkownika:
 
-Wywołanie `from_config()` funkcji spowoduje wydanie monitu.
+* Wywołanie `from_config()` funkcji spowoduje wydanie monitu.
 
-```python
-from azureml.core import Workspace
-ws = Workspace.from_config()
-```
+    ```python
+    from azureml.core import Workspace
+    ws = Workspace.from_config()
+    ```
 
-`from_config()`Funkcja szuka pliku JSON zawierającego informacje o połączeniu z obszarem roboczym. Możesz również jawnie określić szczegóły połączenia przy użyciu `Workspace` konstruktora, który również będzie monitować o uwierzytelnienie interaktywne. Oba wywołania są równoważne.
+    `from_config()`Funkcja szuka pliku JSON zawierającego informacje o połączeniu z obszarem roboczym.
 
-```python
-ws = Workspace(subscription_id="your-sub-id",
-               resource_group="your-resource-group-id",
-               workspace_name="your-workspace-name"
-              )
-```
+* Użycie `Workspace` konstruktora w celu udostępnienia informacji o subskrypcji, grupie zasobów i obszarze roboczym spowoduje również wyświetlenie monitu o uwierzytelnienie interaktywne.
 
-Jeśli masz dostęp do wielu dzierżawców, może zaistnieć konieczność zaimportowania klasy i jawne zdefiniowanie docelowej dzierżawy. Wywołanie konstruktora dla programu `InteractiveLoginAuthentication` spowoduje również wyświetlenie monitu o zalogowanie się podobne do powyższych wywołań.
-
-```python
-from azureml.core.authentication import InteractiveLoginAuthentication
-interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
-```
-
-Chociaż jest to przydatne do testowania i uczenia, uwierzytelnianie interaktywne nie pomoże Ci w tworzeniu zautomatyzowanych lub bezużytecznych przepływów pracy. Konfigurowanie uwierzytelniania jednostki usługi jest najlepszym rozwiązaniem dla zautomatyzowanych procesów korzystających z zestawu SDK.
-
-## <a name="set-up-service-principal-authentication"></a>Konfigurowanie uwierzytelniania jednostki usługi
-
-Ten proces jest niezbędny do włączenia uwierzytelniania, które jest oddzielone od określonej nazwy logowania użytkownika, co pozwala na uwierzytelnianie w programie Azure Machine Learning Python SDK w zautomatyzowanych przepływach pracy. Uwierzytelnianie jednostki usługi również umożliwi [uwierzytelnianie w interfejsie API REST](#azure-machine-learning-rest-api-auth).
+    ```python
+    ws = Workspace(subscription_id="your-sub-id",
+                  resource_group="your-resource-group-id",
+                  workspace_name="your-workspace-name"
+                  )
+    ```
 
 > [!TIP]
-> Nazwy główne usługi muszą mieć dostęp do obszaru roboczego za pośrednictwem [kontroli dostępu opartej na rolach (RBAC) na platformie Azure](../role-based-access-control/overview.md).
+> Jeśli masz dostęp do wielu dzierżawców, może zaistnieć konieczność zaimportowania klasy i jawne zdefiniowanie docelowej dzierżawy. Wywołanie konstruktora dla programu `InteractiveLoginAuthentication` spowoduje również wyświetlenie monitu o zalogowanie się podobne do powyższych wywołań.
 >
-> Użycie wbudowanych ról **właściciela** lub **współautora** w obszarze roboczym umożliwia jednostce usługi wykonywanie wszystkich działań, takich jak uczenie modelu, Wdrażanie modelu itd. Aby uzyskać więcej informacji na temat korzystania z ról, zobacz [Zarządzanie dostępem do obszaru roboczego Azure Machine Learning](how-to-assign-roles.md).
+> ```python
+> from azureml.core.authentication import InteractiveLoginAuthentication
+> interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
+> ```
 
-Aby skonfigurować uwierzytelnianie główne usługi, należy najpierw utworzyć rejestrację aplikacji w Azure Active Directory, a następnie przypisać rolę do aplikacji. Najprostszym sposobem przeprowadzenia tej konfiguracji jest użycie [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) w Azure Portal. Po zalogowaniu się do portalu kliknij `>_` ikonę w prawym górnym rogu strony obok nazwy, aby otworzyć powłokę.
+## <a name="service-principal-authentication"></a>Uwierzytelnianie jednostki usługi
 
-Jeśli Cloud Shell nie były używane wcześniej na Twoim koncie platformy Azure, musisz utworzyć zasób konta magazynu na potrzeby przechowywania dowolnych plików, które są zapisywane. Ogólnie rzecz biorąc, to konto magazynu będzie miało niewielki koszt miesięczny. Ponadto zainstaluj rozszerzenie Uczenie maszynowe, jeśli wcześniej nie było używane przy użyciu poniższego polecenia.
+Aby można było korzystać z uwierzytelniania przy użyciu nazwy głównej usługi (SP), należy najpierw utworzyć SP i udzielić im dostępu do obszaru roboczego. Jak wspomniano wcześniej, kontrola dostępu oparta na rolach (RBAC) na platformie Azure służy do kontroli dostępu, dlatego należy również zdecydować, jaki jest dostęp do udzielenia SP.
 
-```azurecli-interactive
-az extension add -n azure-cli-ml
-```
+> [!IMPORTANT]
+> W przypadku korzystania z jednostki usługi należy przyznać jej __minimalny dostęp wymagany dla zadania__ , które jest używane przez program. Na przykład nie można przyznać właścicielowi jednostki usługi ani dostępu współautora, jeśli jest on używany do odczytu tokenu dostępu dla wdrożenia w sieci Web.
+>
+> Przyczyną uzyskania najmniejszego dostępu jest fakt, że nazwa główna usługi używa hasła do uwierzytelniania, a hasło może być przechowywane jako część skryptu automatyzacji. W przypadku przecieku hasła, gdy minimalny dostęp wymagany do określonych zadań minimalizuje złośliwe użycie programu SP.
+
+Najprostszym sposobem utworzenia SP i udzielenia dostępu do obszaru roboczego jest użycie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Aby utworzyć jednostkę usługi i udzielić jej dostępu do obszaru roboczego, wykonaj następujące czynności:
 
 > [!NOTE]
-> Aby wykonać poniższe kroki, musisz być administratorem w ramach subskrypcji.
+> Aby wykonać wszystkie te kroki, musisz być administratorem w ramach subskrypcji.
 
-Następnie uruchom następujące polecenie, aby utworzyć nazwę główną usługi. Nadaj mu nazwę, w tym przypadku z **uwierzytelnianiem ml**.
+1. Uwierzytelnianie w ramach subskrypcji platformy Azure:
 
-```azurecli-interactive
-az ad sp create-for-rbac --sdk-auth --name ml-auth
-```
+    ```azurecli-interactive
+    az login
+    ```
 
-Dane wyjściowe będą wyglądać podobnie jak w formacie JSON podobnym do poniższego. Zanotuj `clientId` `clientSecret` pola, i `tenantId` , ponieważ będą one potrzebne do wykonania innych czynności opisanych w tym artykule.
+    Jeśli interfejs wiersza polecenia może otworzyć Twoją domyślną przeglądarkę, zrobi to i załaduje stronę logowania. W przeciwnym razie musisz otworzyć przeglądarkę i postępować zgodnie z instrukcjami w wierszu polecenia. Instrukcje obejmują przeglądanie [https://aka.ms/devicelogin](https://aka.ms/devicelogin) i wprowadzanie kodu autoryzacji.
 
-```json
-{
-    "clientId": "your-client-id",
-    "clientSecret": "your-client-secret",
-    "subscriptionId": "your-sub-id",
-    "tenantId": "your-tenant-id",
-    "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-    "resourceManagerEndpointUrl": "https://management.azure.com",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net",
-    "sqlManagementEndpointUrl": "https://management.core.windows.net:5555",
-    "galleryEndpointUrl": "https://gallery.azure.com/",
-    "managementEndpointUrl": "https://management.core.windows.net"
-}
-```
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-Następnie uruchom następujące polecenie, aby uzyskać szczegółowe informacje dotyczące jednostki usługi, która została właśnie utworzona, przy użyciu `clientId` wartości z powyżej jako dane wejściowe do `--id` parametru.
+    Aby poznać inne metody uwierzytelniania, zobacz [Logowanie za pomocą interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-```azurecli-interactive
-az ad sp show --id your-client-id
-```
+1. Zainstaluj rozszerzenie Azure Machine Learning:
 
-Poniżej przedstawiono uproszczony przykład danych wyjściowych JSON z polecenia. Zanotuj `objectId` pole, ponieważ będzie potrzebne jego wartość dla kolejnego kroku.
+    ```azurecli-interactive
+    az extension add -n azure-cli-ml
+    ```
 
-```json
-{
-    "accountEnabled": "True",
-    "addIns": [],
-    "appDisplayName": "ml-auth",
-    ...
-    ...
-    ...
-    "objectId": "your-sp-object-id",
-    "objectType": "ServicePrincipal"
-}
-```
+1. Utwórz nazwę główną usługi. W poniższym przykładzie jest tworzone uwierzytelnianie SP o nazwie **ml** :
 
-Następnie użyj poniższego polecenia, aby przypisać nazwę główną usługi do obszaru roboczego uczenia maszynowego. Wymagana jest nazwa obszaru roboczego i jego nazwa grupy zasobów `-w` `-g` odpowiednio dla parametrów i. Dla `--user` parametru Użyj `objectId` wartości z poprzedniego kroku. `--role`Parametr pozwala ustawić rolę dostępu dla jednostki usługi, a w ogólny sposób będzie używany **właściciel** lub **współautor**. Oba mają dostęp do zapisu do istniejących zasobów, takich jak Klastry obliczeniowe i magazyny danych, ale tylko **właściciel** może udostępniać te zasoby.
+    ```azurecli-interactive
+    az ad sp create-for-rbac --sdk-auth --name ml-auth
+    ```
 
-```azurecli-interactive
-az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
-```
+    Dane wyjściowe będą wyglądać podobnie jak w formacie JSON podobnym do poniższego. Zanotuj `clientId` `clientSecret` pola, i `tenantId` , ponieważ będą one potrzebne do wykonania innych czynności opisanych w tym artykule.
 
-To wywołanie nie produkuje żadnych danych wyjściowych, ale masz teraz skonfigurowane uwierzytelnianie jednostki usługi dla Twojego obszaru roboczego.
+    ```json
+    {
+        "clientId": "your-client-id",
+        "clientSecret": "your-client-secret",
+        "subscriptionId": "your-sub-id",
+        "tenantId": "your-tenant-id",
+        "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+        "resourceManagerEndpointUrl": "https://management.azure.com",
+        "activeDirectoryGraphResourceId": "https://graph.windows.net",
+        "sqlManagementEndpointUrl": "https://management.core.windows.net:5555",
+        "galleryEndpointUrl": "https://gallery.azure.com/",
+        "managementEndpointUrl": "https://management.core.windows.net"
+    }
+    ```
 
-## <a name="authenticate-to-your-workspace"></a>Uwierzytelnianie w obszarze roboczym
+1. Pobierz szczegóły dla jednostki usługi przy użyciu `clientId` wartości zwracanej w poprzednim kroku:
 
-Teraz, gdy jest włączona funkcja uwierzytelniania jednostki usługi, można uwierzytelnić się w obszarze roboczym w zestawie SDK bez fizycznego logowania jako użytkownik. Użyj `ServicePrincipalAuthentication` konstruktora klasy i użyj wartości uzyskanych z poprzednich kroków jako parametrów. `tenant_id`Parametr mapuje do `tenantId` z powyżej, `service_principal_id` mapuje do `clientId` i `service_principal_password` mapuje na `clientSecret` .
+    ```azurecli-interactive
+    az ad sp show --id your-client-id
+    ```
+
+    Poniższy kod JSON to uproszczony przykład danych wyjściowych polecenia. Zanotuj `objectId` pole, ponieważ będzie potrzebne jego wartość dla kolejnego kroku.
+
+    ```json
+    {
+        "accountEnabled": "True",
+        "addIns": [],
+        "appDisplayName": "ml-auth",
+        ...
+        ...
+        ...
+        "objectId": "your-sp-object-id",
+        "objectType": "ServicePrincipal"
+    }
+    ```
+
+1. Zezwól usłudze SP na dostęp do obszaru roboczego Azure Machine Learning. Wymagana jest nazwa obszaru roboczego i jego nazwa grupy zasobów `-w` `-g` odpowiednio dla parametrów i. Dla `--user` parametru Użyj `objectId` wartości z poprzedniego kroku. `--role`Parametr pozwala ustawić rolę dostępu dla jednostki usługi. W poniższym przykładzie SP jest przypisany do roli **właściciela** . 
+
+    > [!IMPORTANT]
+    > Dostęp właściciela umożliwia jednostce usługi wykonywanie niemal każdej operacji w obszarze roboczym. Jest on używany w tym dokumencie, aby zademonstrować sposób udzielania dostępu; w środowisku produkcyjnym firma Microsoft zaleca przyznanie jednostce usługi minimalnego dostępu potrzebnego do przeprowadzenia roli, którą zamierzasz. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem do Azure Machine Learning obszaru roboczego](how-to-assign-roles.md).
+
+    ```azurecli-interactive
+    az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
+    ```
+
+    To wywołanie nie produkuje żadnych danych wyjściowych w przypadku powodzenia.
+
+### <a name="use-a-service-principal-from-the-sdk"></a>Korzystanie z jednostki usługi z zestawu SDK
+
+Aby uwierzytelnić się w obszarze roboczym z zestawu SDK przy użyciu nazwy głównej usługi, użyj `ServicePrincipalAuthentication` konstruktora klasy. Użyj wartości uzyskanych podczas tworzenia dostawcy usług jako parametrów. `tenant_id`Parametr mapuje do `tenantId` z powyżej, `service_principal_id` mapuje do `clientId` i `service_principal_password` mapuje na `clientSecret` .
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
@@ -151,7 +164,7 @@ sp = ServicePrincipalAuthentication(tenant_id="your-tenant-id", # tenantID
                                     service_principal_password="your-client-secret") # clientSecret
 ```
 
-`sp`Zmienna zawiera teraz obiekt uwierzytelniania, który jest używany bezpośrednio w zestawie SDK. Ogólnie rzecz biorąc, dobrym pomysłem jest przechowywanie identyfikatorów/wpisów tajnych użytych powyżej w zmiennych środowiskowych, jak pokazano w poniższym kodzie.
+`sp`Zmienna zawiera teraz obiekt uwierzytelniania, który jest używany bezpośrednio w zestawie SDK. Ogólnie rzecz biorąc, dobrym pomysłem jest przechowywanie identyfikatorów/wpisów tajnych użytych powyżej w zmiennych środowiskowych, jak pokazano w poniższym kodzie. Przechowywanie w zmiennych środowiskowych zapobiega przypadkowemu sprawdzeniu informacji w repozytorium GitHub.
 
 ```python
 import os
@@ -161,7 +174,7 @@ sp = ServicePrincipalAuthentication(tenant_id=os.environ['AML_TENANT_ID'],
                                     service_principal_password=os.environ['AML_PRINCIPAL_PASS'])
 ```
 
-W przypadku zautomatyzowanych przepływów pracy, które są uruchamiane w języku Python i używają zestawu SDK głównie, można użyć tego obiektu w większości przypadków w przypadku uwierzytelniania. Poniższy kod jest uwierzytelniany w obszarze roboczym przy użyciu obiektu auth, który został właśnie utworzony.
+W przypadku zautomatyzowanych przepływów pracy, które są uruchamiane w języku Python i używają zestawu SDK głównie, można użyć tego obiektu w większości przypadków w przypadku uwierzytelniania. Następujący kod jest uwierzytelniany w obszarze roboczym przy użyciu utworzonego obiektu auth.
 
 ```python
 from azureml.core import Workspace
@@ -172,16 +185,20 @@ ws = Workspace.get(name="ml-example",
 ws.get_details()
 ```
 
-## <a name="azure-machine-learning-rest-api-auth"></a>Azure Machine Learning uwierzytelnianie interfejsu API REST
+### <a name="use-a-service-principal-from-the-azure-cli"></a>Używanie jednostki usługi w interfejsie wiersza polecenia platformy Azure
 
-Nazwa główna usługi utworzona w powyższych krokach może być również używana do uwierzytelniania w [interfejsie API REST](https://docs.microsoft.com/rest/api/azureml/)Azure Machine Learning. Używasz [przepływu przyznawania poświadczeń klienta](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)Azure Active Directory, który zezwala na wywołania usługi do usługi dla bezobsługowego uwierzytelniania w zautomatyzowanych przepływach pracy. Przykłady są implementowane za pomocą [biblioteki ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) w języku Python i Node. js, ale można również użyć dowolnej biblioteki Open Source, która obsługuje openid connect Connect 1,0.
+Można użyć jednostki usługi dla poleceń interfejsu wiersza polecenia platformy Azure. Aby uzyskać więcej informacji, zobacz [Logowanie przy użyciu nazwy głównej usługi](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#sign-in-using-a-service-principal).
+
+### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Korzystanie z jednostki usługi przy użyciu interfejsu API REST (wersja zapoznawcza)
+
+Nazwa główna usługi może być również używana do uwierzytelniania w [interfejsie API REST](https://docs.microsoft.com/rest/api/azureml/) Azure Machine Learning (wersja zapoznawcza). Używasz [przepływu przyznawania poświadczeń klienta](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)Azure Active Directory, który zezwala na wywołania usługi do usługi dla bezobsługowego uwierzytelniania w zautomatyzowanych przepływach pracy. Przykłady są implementowane za pomocą [biblioteki ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) w języku Python i Node.js, ale można również użyć dowolnej biblioteki Open Source, która obsługuje openid connect Connect 1,0.
 
 > [!NOTE]
-> MSAL. js jest nowszą biblioteką niż ADAL, ale nie można przeprowadzić uwierzytelniania między usługami przy użyciu poświadczeń klienta z MSAL. js, ponieważ jest to przede wszystkim Biblioteka po stronie klienta przeznaczona do uwierzytelniania interaktywnego/interfejsu użytkownika powiązanego z określonym użytkownikiem. Zalecamy użycie biblioteki ADAL, jak pokazano poniżej, aby utworzyć zautomatyzowane przepływy pracy za pomocą interfejsu API REST.
+> MSAL.js jest nowszą biblioteką niż ADAL, ale nie można przeprowadzić uwierzytelniania między usługami przy użyciu poświadczeń klienta z MSAL.js, ponieważ jest to przede wszystkim Biblioteka po stronie klienta przeznaczona do uwierzytelniania interaktywnego/interfejsu użytkownika powiązanego z określonym użytkownikiem. Zalecamy użycie biblioteki ADAL, jak pokazano poniżej, aby utworzyć zautomatyzowane przepływy pracy za pomocą interfejsu API REST.
 
-### <a name="nodejs"></a>Node.js
+#### <a name="nodejs"></a>Node.js
 
-Wykonaj następujące kroki, aby wygenerować token uwierzytelniania przy użyciu środowiska Node. js. W środowisku programu uruchom polecenie `npm install adal-node` . Następnie użyj `tenantId` , `clientId` , i z jednostki `clientSecret` usługi utworzonej w powyższych krokach jako wartości pasujących zmiennych w poniższym skrypcie.
+Wykonaj następujące kroki, aby wygenerować token uwierzytelniania przy użyciu Node.js. W środowisku programu uruchom polecenie `npm install adal-node` . Następnie użyj `tenantId` , `clientId` , i z jednostki `clientSecret` usługi utworzonej w powyższych krokach jako wartości pasujących zmiennych w poniższym skrypcie.
 
 ```javascript
 const adal = require('adal-node').AuthenticationContext;
@@ -209,7 +226,7 @@ context.acquireTokenWithClientCredentials(
 );
 ```
 
-Zmienna `tokenResponse` jest obiektem, który zawiera token i skojarzone metadane, takie jak czas wygaśnięcia. Tokeny są prawidłowe przez 1 godzinę i mogą być odświeżane przez ponowne uruchomienie tego samego wywołania w celu pobrania nowego tokenu. Poniżej przedstawiono przykładową odpowiedź.
+Zmienna `tokenResponse` jest obiektem, który zawiera token i skojarzone metadane, takie jak czas wygaśnięcia. Tokeny są prawidłowe przez 1 godzinę i mogą być odświeżane przez ponowne uruchomienie tego samego wywołania w celu pobrania nowego tokenu. Poniższy fragment kodu jest odpowiedzią przykładową.
 
 ```javascript
 {
@@ -226,7 +243,7 @@ Zmienna `tokenResponse` jest obiektem, który zawiera token i skojarzone metadan
 
 Użyj `accessToken` właściwości, aby pobrać token uwierzytelniania. Zapoznaj się z [dokumentacją interfejsu API REST](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) , aby zapoznać się z przykładami dotyczącymi używania tokenu w celu wykonywania wywołań interfejsu API.
 
-### <a name="python"></a>Python
+#### <a name="python"></a>Python
 
 Wykonaj następujące kroki, aby wygenerować token uwierzytelniania przy użyciu języka Python. W środowisku programu uruchom polecenie `pip install adal` . Następnie użyj `tenantId` , `clientId` , i z jednostki `clientSecret` usługi utworzonej w powyższych krokach jako wartości dla odpowiednich zmiennych w poniższym skrypcie.
 
@@ -244,7 +261,7 @@ token_response = auth_context.acquire_token_with_client_credentials("https://man
 print(token_response)
 ```
 
-Zmienna `token_response` jest słownikiem zawierającym token i skojarzone metadane, takie jak czas wygaśnięcia. Tokeny są prawidłowe przez 1 godzinę i mogą być odświeżane przez ponowne uruchomienie tego samego wywołania w celu pobrania nowego tokenu. Poniżej przedstawiono przykładową odpowiedź.
+Zmienna `token_response` jest słownikiem zawierającym token i skojarzone metadane, takie jak czas wygaśnięcia. Tokeny są prawidłowe przez 1 godzinę i mogą być odświeżane przez ponowne uruchomienie tego samego wywołania w celu pobrania nowego tokenu. Poniższy fragment kodu jest odpowiedzią przykładową.
 
 ```python
 {
@@ -263,9 +280,17 @@ Służy `token_response["accessToken"]` do pobierania tokenu uwierzytelniania. Z
 
 ## <a name="web-service-authentication"></a>Uwierzytelnianie usługi sieci Web
 
-Usługi sieci Web w Azure Machine Learning używają innego wzorca uwierzytelniania niż opisano powyżej. Najprostszym sposobem uwierzytelniania w ramach wdrożonych usług sieci Web jest użycie **uwierzytelniania opartego na kluczach**, które generuje klucze uwierzytelniania statycznego typu okaziciela, które nie muszą być odświeżane. Jeśli konieczne jest tylko uwierzytelnianie do wdrożonej usługi sieci Web, nie trzeba konfigurować uwierzytelniania przy użyciu zasad usługi, jak pokazano powyżej.
+Wdrożenia modelu utworzone przez Azure Machine Learning mają dwie metody uwierzytelniania:
 
-Usługi sieci Web wdrożone w usłudze Azure Kubernetes Service mają domyślnie *włączone* uwierzytelnianie oparte na kluczach. Azure Container Instances wdrożone usługi mają domyślnie uwierzytelnianie oparte na kluczach, ale można je *włączyć przy użyciu* ustawienia `auth_enabled=True` podczas tworzenia usługi sieci Web ACI. Poniżej przedstawiono przykład tworzenia konfiguracji wdrożenia ACI z włączoną funkcją uwierzytelniania opartego na kluczach.
+* **oparte na kluczach**: klucz statyczny jest używany do uwierzytelniania w usłudze sieci Web.
+* **oparta na tokenach**: tymczasowy token musi zostać uzyskany z obszaru roboczego i użyty do uwierzytelnienia w usłudze sieci Web. Ten token wygasa po upływie okresu czasu i musi zostać odświeżony, aby kontynuować pracę z usługą sieci Web.
+
+    > [!NOTE]
+    > Uwierzytelnianie oparte na tokenach jest dostępne tylko w przypadku wdrażania w usłudze Azure Kubernetes Service.
+
+### <a name="key-based-web-service-authentication"></a>Uwierzytelnianie usługi sieci Web oparte na kluczach
+
+Usługi sieci Web wdrożone w usłudze Azure Kubernetes Service (AKS) mają domyślnie *włączone* uwierzytelnianie oparte na kluczach. W przypadku wdrożonych usług Azure Container Instances (ACI) uwierzytelnianie oparte na kluczach jest domyślnie *wyłączone* , ale można je włączyć przy użyciu ustawienia `auth_enabled=True` podczas tworzenia usługi sieci Web ACI. Poniższy kod stanowi przykład tworzenia konfiguracji wdrożenia ACI z włączoną funkcją uwierzytelniania opartego na kluczach.
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -299,7 +324,7 @@ aci_service.regen_key("Primary")
 aci_service.regen_key("Secondary")
 ```
 
-Usługi sieci Web obsługują również uwierzytelnianie oparte na tokenach, ale tylko w przypadku wdrożeń usługi Azure Kubernetes. Dodatkowe informacje na temat uwierzytelniania można znaleźć w temacie [jak](how-to-consume-web-service.md) korzystać z usług internetowych.
+Aby uzyskać więcej informacji na temat uwierzytelniania do wdrożonego modelu, zobacz [Tworzenie klienta dla modelu wdrożonego jako usługa sieci Web](how-to-consume-web-service.md).
 
 ### <a name="token-based-web-service-authentication"></a>Uwierzytelnianie usługi sieci Web oparte na tokenach
 
@@ -307,8 +332,32 @@ Po włączeniu uwierzytelniania tokenów dla usługi sieci Web użytkownicy musz
 
 * Uwierzytelnianie tokenu jest **domyślnie wyłączone** w przypadku wdrażania w usłudze Azure Kubernetes Service.
 * Uwierzytelnianie tokenu **nie jest obsługiwane** w przypadku wdrażania programu w celu Azure Container Instances.
+* Uwierzytelnianie tokenu **nie może być używane w tym samym czasie, co uwierzytelnianie oparte na kluczach**.
 
-Aby kontrolować uwierzytelnianie tokenu, użyj `token_auth_enabled` parametru podczas tworzenia lub aktualizowania wdrożenia.
+Aby kontrolować uwierzytelnianie tokenu, użyj `token_auth_enabled` parametru podczas tworzenia lub aktualizowania wdrożenia:
+
+```python
+from azureml.core.webservice import AksWebservice
+from azureml.core.model import Model, InferenceConfig
+
+# Create the config
+aks_config = AksWebservice.deploy_configuration()
+
+#  Enable token auth and disable (key) auth on the webservice
+aks_config = AksWebservice.deploy_configuration(token_auth_enabled=True, auth_enabled=False)
+
+aks_service_name ='aks-service-1'
+
+# deploy the model
+aks_service = Model.deploy(workspace=ws,
+                           name=aks_service_name,
+                           models=[model],
+                           inference_config=inference_config,
+                           deployment_config=aks_config,
+                           deployment_target=aks_target)
+
+aks_service.wait_for_deployment(show_output = True)
+```
 
 Jeśli jest włączone uwierzytelnianie tokenu, można użyć metody, `get_token` Aby pobrać token sieci Web JSON (JWT) i czas wygaśnięcia tego tokenu:
 
@@ -316,7 +365,7 @@ Jeśli jest włączone uwierzytelnianie tokenu, można użyć metody, `get_token
 > Jeśli używasz nazwy głównej usługi do pobrania tokenu i chcesz, aby miał minimalny wymagany dostęp do pobierania tokenu, przypisz go do roli **czytelnik** dla obszaru roboczego.
 
 ```python
-token, refresh_by = service.get_token()
+token, refresh_by = aks_service.get_token()
 print(token)
 ```
 

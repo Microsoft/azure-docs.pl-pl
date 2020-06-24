@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: da7164fbf9148764ef8da0205b147b0fd188de9d
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457256"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975796"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows za pomocą przyspieszonej sieci przy użyciu Azure PowerShell
 
@@ -66,6 +66,10 @@ Przyspieszona sieć jest obsługiwana w większości ogólnego przeznaczenia i o
 W wystąpieniach, które obsługują wielowątkowość, przyspieszona sieć jest obsługiwana w wystąpieniach maszyn wirtualnych z co najmniej czterema procesorów wirtualnych vCPU. Obsługiwane są następujące serie: D/Dsv3, D/Dsv4, E/Esv3, EA/Easv4, Fsv2, Lsv2, MS/MMS i MS/Mmsv2.
 
 Aby uzyskać więcej informacji na temat wystąpień maszyn wirtualnych, zobacz [rozmiary maszyn wirtualnych z systemem Windows na platformie Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+### <a name="custom-images"></a>Obrazy niestandardowe
+
+Jeśli używasz obrazu niestandardowego, a obraz obsługuje przyspieszone sieci, upewnij się, że masz wymagane sterowniki obsługujące karty sieciowe Mellanox ConnectX-3 i ConnectX-4 LX na platformie Azure.
 
 ### <a name="regions"></a>Regiony
 

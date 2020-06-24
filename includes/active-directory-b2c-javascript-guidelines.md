@@ -28,6 +28,6 @@ Postępuj zgodnie z poniższymi wskazówkami, gdy dostosowujesz interfejs aplika
     - Azure AD B2C używa określonej wersji platformy jQuery. Nie dołączaj innej wersji jQuery. Użycie więcej niż jednej wersji na tej samej stronie powoduje problemy.
     - Korzystanie z RequireJS nie jest obsługiwane.
     - Większość platform języka JavaScript nie jest obsługiwana przez Azure AD B2C.
-- Ustawienia Azure AD B2C mogą być odczytywane przez `window.SETTINGS`wywoływanie, `window.CONTENT` obiektów, takich jak bieżący język interfejsu użytkownika. Nie zmieniaj wartości tych obiektów.
+- Ustawienia Azure AD B2C mogą być odczytywane przez wywoływanie `window.SETTINGS` , `window.CONTENT` obiektów, takich jak bieżący język interfejsu użytkownika. Nie zmieniaj wartości tych obiektów.
 - Aby dostosować Azure AD B2C komunikat o błędzie, należy użyć lokalizacji w zasadzie.
 - Jeśli coś można osiągnąć przy użyciu zasad, zwykle jest to zalecany sposób.

@@ -1,5 +1,5 @@
 ---
-title: Uwierzytelnianie
+title: Authentication
 description: Dowiedz się, jak uwierzytelniać się w usłudze Azure Synapse Analytics przy użyciu usługi Azure Active Directory (Azure AD) lub SQL Server Authentication.
 services: synapse-analytics
 author: julieMSFT

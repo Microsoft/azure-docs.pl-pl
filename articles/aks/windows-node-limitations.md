@@ -5,12 +5,12 @@ description: Informacje o znanych ograniczeniach w przypadku uruchamiania pul w�
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: 89cfb42da4433f17298cf2cb68f1a4b3d8f9e549
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: e03343bc0bf8d2b49d2322573e75fe76cc853e32
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433014"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976612"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Bieżące ograniczenia dotyczące pul węzłów systemu Windows Server i obciążeń aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -101,7 +101,7 @@ Obsługa kont usług zarządzanych przez grupę (gMSA) nie jest obecnie dostępn
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>Czy mogę używać Azure Monitor do kontenerów z węzłami i kontenerami systemu Windows?
 
-Tak, jednak Azure Monitor nie zbiera dzienników (stdout) z kontenerów systemu Windows. Nadal możesz dołączyć strumień strumieni strumienia stdout z kontenera systemu Windows.
+Tak, jednak Azure Monitor ma zestaw [ograniczeń][azure-monitor] dla pomocy technicznej systemu Windows.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>Co zrobić, jeśli potrzebuję funkcji, która nie jest obsługiwana?
 
@@ -131,3 +131,4 @@ Aby rozpocząć pracę z kontenerami systemu Windows Server w programie AKS, nal
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
+[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide

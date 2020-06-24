@@ -5,12 +5,12 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1de3afc380c5c3c82a869de0ff2319b013e26438
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 602d11b20e50ec5ba56d0d9c1762292c07d0b67b
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610891"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945345"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Przewodnik po interfejsie API REST usługi Azure Monitoring
 
@@ -95,7 +95,7 @@ Użyj [interfejsu API REST definicji metryk Azure monitor](https://docs.microsof
 
 **Metoda**: pobieranie
 
-**Identyfikator URI żądania**: https\/\/:*Management.Azure.com/subscriptions/{Identyfikator subskrypcji}*/resourceGroups/*{resourceGroupName}*/Providers/*{resourceProviderNamespace}*/*{ResourceType}*/*{ResourceType*}/Providers/Microsoft.Insights/metricDefinitions? API-Version =*{apiVersion}*
+**Identyfikator URI żądania**: https: \/ \/ Management.Azure.com/subscriptions/*{Identyfikator subskrypcji}*/resourceGroups/*{resourceGroupName}*/Providers/*{resourceProviderNamespace}* / *{ResourceType}* / *{ResourceType*}/Providers/Microsoft.Insights/metricDefinitions? API-Version =*{apiVersion}*
 
 Na przykład aby pobrać definicje metryk dla konta usługi Azure Storage, żądanie będzie wyglądać w następujący sposób:
 
@@ -239,7 +239,7 @@ Użyj nazwy metryki "value" (nie "localizedValue") dla żadnych żądań filtrow
 
 **Metoda**: pobieranie
 
-**Identyfikator URI żądania**:\:https//*Management.Azure.com/subscriptions/{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/*{Resource-Provider-Namespace}*/*{Resource-Type}*/*{Resource-Name}*/Providers/Microsoft.Insights/Metrics? metricnames *= {Metric}*&TimeSpan =*{StartTime/Endtime}*&$Filter =*{Filter}*&Result = Metadata&API-Version =*{apiVersion}*
+**Identyfikator URI żądania**: https \: //Management.Azure.com/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/*{Resource-Provider-Namespace}* / *{Resource-Type}* / *{Resource-Name}*/Providers/Microsoft.Insights/Metrics? metricnames =*{Metric}*&TimeSpan =*{StartTime/Endtime}*&$Filter =*{Filter}*&Result = Metadata&API-Version =*{apiVersion}*
 
 Na przykład, aby pobrać listę wartości wymiaru, które były emitowane dla metryki "requests" dla "transakcji", gdzie wymiar geotype = "Primary" w określonym przedziale czasu, żądanie będzie w następujący sposób:
 
@@ -312,7 +312,7 @@ Użyj nazwy metryki "value" (nie "localizedValue") dla żadnych żądań filtrow
 
 **Metoda**: pobieranie
 
-**Identyfikator URI żądania**: https\/:/*Management.Azure.com/subscriptions/{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/*{Resource-Provider-Namespace}*/*{Resource-Type}*/*{Resource-Name}*/Providers/Microsoft.Insights/Metrics? metricnames =*{Metric}*&TimeSpan =*{StartTime/Endtime}*&$Filter =*{Filter}*&interval =*{timeGrain}*&agregacji =*{aggreation}*&API-Version =*{apiVersion}*
+**Identyfikator URI żądania**: https: \/ /Management.Azure.com/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/*{Resource-Provider-Namespace}* / *{Resource-Type}* / *{Resource-Name}*/Providers/Microsoft.Insights/Metrics? metricnames =*{Metric}*&TimeSpan *= {StartTime/Endtime}*&$Filter =*{Filter}*&interval =*{timeGrain}*&agregacji =*{aggreation}*&API-Version =*{apiVersion}*
 
 Na przykład aby pobrać 3 najpopularniejsze interfejsy API, w wartości malejącej o liczbę "Transactions" w 5-minutowym zakresie, gdzie GeotType było "Primary", żądanie może być następujące:
 
@@ -391,7 +391,7 @@ Użyj [interfejsu API REST definicji metryk Azure monitor](https://msdn.microsof
 
 **Metoda**: pobieranie
 
-**Identyfikator URI żądania**: https\/\/:*Management.Azure.com/subscriptions/{Identyfikator subskrypcji}*/resourceGroups/*{resourceGroupName}*/Providers/*{resourceProviderNamespace}*/*{ResourceType}*/*{ResourceType*}/Providers/Microsoft.Insights/metricDefinitions? API-Version =*{apiVersion}*
+**Identyfikator URI żądania**: https: \/ \/ Management.Azure.com/subscriptions/*{Identyfikator subskrypcji}*/resourceGroups/*{resourceGroupName}*/Providers/*{resourceProviderNamespace}* / *{ResourceType}* / *{ResourceType*}/Providers/Microsoft.Insights/metricDefinitions? API-Version =*{apiVersion}*
 
 Na przykład aby pobrać definicje metryk dla aplikacji logiki platformy Azure, żądanie będzie wyglądać w następujący sposób:
 
@@ -582,7 +582,7 @@ Utworzona treść odpowiedzi JSON będzie podobna do poniższego przykładu:
 Dodatkowym podejściem jest użycie [ARMClient](https://github.com/projectkudu/armclient) na komputerze z systemem Windows. ARMClient obsługuje uwierzytelnianie w usłudze Azure AD (a w efekcie token JWT) automatycznie. Poniższe kroki przedstawiają użycie ARMClient do pobierania danych metryk:
 
 1. Zainstaluj [czekoladę](https://chocolatey.org/) i [ARMClient](https://github.com/projectkudu/armclient).
-2. W oknie terminalu wpisz *login armclient. exe*. W ten sposób zostanie wyświetlony komunikat z prośbą o zalogowanie się do platformy Azure.
+2. W oknie terminalu wpisz *armclient.exe login*. W ten sposób zostanie wyświetlony komunikat z prośbą o zalogowanie się do platformy Azure.
 3. Wpisz *ARMCLIENT Get [your_resource_id]/Providers/Microsoft.Insights/metricdefinitions? API-Version = 2016-03-01*
 4. Wpisz *ARMCLIENT Get [your_resource_id]/Providers/Microsoft.Insights/Metrics? API-Version = 2016-09-01*
 
@@ -605,7 +605,7 @@ Poniższa lista zawiera kilka przykładów formatów identyfikatorów zasobów d
 * **IoT Hub** -/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/Microsoft.Devices/IotHubs/*{IoT-Hub-Name}*
 * **Elastyczna Pula SQL** -/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/Microsoft.SQL/Servers/*{Pool-DB}*/elasticpools/*{SQL-Pool-Name}*
 * **SQL Database (V12)** —/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/Microsoft.SQL/Servers/*{Server-Name}*/Databases/*{Database-Name}*
-* **Service Bus** -/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/Microsoft.ServiceBus/*{Namespace}*/*{ServiceBus-Name}*
+* **Service Bus** -/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/Microsoft.ServiceBus/*{Namespace}* / *{ServiceBus-Name}*
 * **Zestawy skalowania maszyn wirtualnych** —/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/Microsoft.COMPUTE/virtualMachineScaleSets/*{VM-Name}*
 * **Maszyny wirtualne** —/subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/Microsoft.COMPUTE/virtualMachines/*{VM-Name}*
 * **Event Hubs** /subscriptions/*{Subscription-ID}*/resourceGroups/*{Resource-Group-Name}*/Providers/Microsoft.EventHub/Namespaces/*{EventHub-Namespace}*
@@ -654,7 +654,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby pobrać identyfikator zasobu dla konta usługi Azure Storage za pomocą interfejsu wiersza `az storage account show` polecenia platformy Azure, wykonaj polecenie, jak pokazano w następującym przykładzie:
+Aby pobrać identyfikator zasobu dla konta usługi Azure Storage za pomocą interfejsu wiersza polecenia platformy Azure, wykonaj `az storage account show` polecenie, jak pokazano w następującym przykładzie:
 
 ```azurecli
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
@@ -705,16 +705,30 @@ Wynik powinien wyglądać podobnie do poniższego przykładu:
 
 ## <a name="retrieve-activity-log-data"></a>Pobieranie danych dziennika aktywności
 
-Oprócz definicji metryk i pokrewnych wartości można również użyć interfejsu API REST Azure Monitor, aby uzyskać dodatkowe interesujące informacje związane z zasobami platformy Azure. Przykładowo można wykonywać zapytania dotyczące danych [dziennika aktywności](https://msdn.microsoft.com/library/azure/dn931934.aspx) . Poniższy przykład demonstruje użycie Azure Monitor interfejsu API REST do wykonywania zapytań dotyczących danych dziennika aktywności w określonym zakresie dat dla subskrypcji platformy Azure:
+Oprócz definicji metryk i pokrewnych wartości można również użyć interfejsu API REST Azure Monitor, aby uzyskać dodatkowe interesujące informacje związane z zasobami platformy Azure. Przykładowo można wykonywać zapytania dotyczące danych [dziennika aktywności](https://msdn.microsoft.com/library/azure/dn931934.aspx) . Poniższe przykładowe żądania używają interfejsu API REST Azure Monitor do wysyłania zapytań do dziennika aktywności.
 
-```powershell
-$apiVersion = "2015-04-01"
-$filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
-$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"
-Invoke-RestMethod -Uri $request `
-    -Headers $authHeader `
-    -Method Get `
-    -Verbose
+Pobierz dzienniki aktywności z filtrem:
+
+``` HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
+```
+
+Pobierz dzienniki aktywności z filtrem i wybierz:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+Pobierz dzienniki aktywności przy użyciu funkcji Select:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
+```
+
+Pobierz dzienniki aktywności bez filtrowania lub wybierz:
+
+```HTTP
+GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
 ## <a name="next-steps"></a>Następne kroki

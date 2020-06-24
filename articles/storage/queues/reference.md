@@ -1,5 +1,5 @@
 ---
-title: Dokumentacja usługi Azure queue storage
+title: Dokumentacja usługi Azure Queue Storage
 description: Znajdź informacje dotyczące interfejsów API usługi Azure Storage, plików README i pakietów biblioteki klienta.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: d01fb4d467b34f4093cbeb1346786ad793eede7d
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: fbf20b92edf5d8dce8438731c2812a78e457a402
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346010"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976663"
 ---
-# <a name="azure-queue-storage-reference"></a>Dokumentacja usługi Azure queue storage
+# <a name="azure-queue-storage-reference"></a>Dokumentacja usługi Azure Queue Storage
 
 Znajdź informacje o interfejsie API usługi Azure queue storage, pakietach bibliotek, plikach Readme i artykułach rozpoczynających pracę.
 
@@ -67,8 +67,8 @@ W poniższej tabeli przedstawiono odwołania i przykładową dokumentację inter
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Biblioteka klienta usługi Azure Storage Queues dla języka Python](/python/api/overview/azure/storage-queue-readme) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla języka Python](/azure/storage/queues/storage-quickstart-queues-python) |
-| 2.x | [Azure-Storage-Queue](/python/api/azure-storage-queue/?view=azure-python-previous) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Jak korzystać z usługi Azure queue storage w wersji 2.1 z poziomu języka Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
+| 12. x | [Biblioteki klienta usługi Azure Storage V12 dla języka Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Szybki Start: V12 biblioteki klienta usługi Azure queue storage dla języka Python](/azure/storage/queues/storage-quickstart-queues-python) |
+| 2.x | [Biblioteki klienckie usługi Azure Storage w wersji 2 dla języka Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Jak korzystać z usługi Azure queue storage w wersji 2.1 z poziomu języka Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
 
 ## <a name="javascript-client-libraries"></a>Biblioteki klienckie języka JavaScript
 
@@ -77,7 +77,7 @@ W poniższej tabeli wymieniono odwołania i przykładowe dokumenty dotyczące in
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12. x | [Biblioteka kliencka kolejki usługi Azure Storage dla języka JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Szybki Start: Biblioteka kliencka usługi Azure queue storage V12 dla języka JavaScript](/azure/storage/queues/storage-quickstart-queues-nodejs) |
-| 10. x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy) | [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Tworzenie i usuwanie kolejek za pomocą usługi kolejek platformy Azure z poziomu środowiska Node. js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
+| 10. x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy) | [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Tworzenie i usuwanie kolejek z Node.jsza pomocą usługi Azure Queue Service](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
 
 ## <a name="rest-apis"></a>Interfejsy API REST
 
@@ -95,7 +95,7 @@ W poniższej tabeli przedstawiono odwołania i przykładową dokumentację inter
 
 Poniższa lista zawiera linki do bibliotek dla innych języków programowania i platform.
 
-- [Języków](https://azure.github.io/azure-storage-cpp)
+- [C++](https://azure.github.io/azure-storage-cpp)
 - [Ruby](https://azure.github.io/azure-storage-ruby)
 - [PHP](https://azure.github.io/azure-storage-php/)
 - [iOS](https://azure.github.io/azure-storage-ios/)

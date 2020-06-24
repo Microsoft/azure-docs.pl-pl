@@ -62,7 +62,7 @@ Użyj poleceń interfejsu API REST, aby utworzyć, zaktualizować lub pobrać us
 * [Zaawansowana ochrona przed zagrożeniami — tworzenie](https://go.microsoft.com/fwlink/?linkid=2099745)
 * [Zaawansowana ochrona przed zagrożeniami — Pobierz](https://go.microsoft.com/fwlink/?linkid=2099643)
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Użyj następujących poleceń cmdlet programu PowerShell:
 

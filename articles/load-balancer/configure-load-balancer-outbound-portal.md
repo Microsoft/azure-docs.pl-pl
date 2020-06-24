@@ -5,15 +5,15 @@ description: W tym artykule pokazano, jak skonfigurować równoważenie obciąż
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: b75f49155991bfc71f788ad88f166c0bec281841
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30d71333bb29720afd82c7dbbde7126b30a7f6d6
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77590015"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803684"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu Azure Portal
 
@@ -25,7 +25,7 @@ Każdy fronton odwołuje się do publicznego adresu IP. W tym scenariuszu public
 
 W scenariuszu są stosowane dwie pule zaplecza: jeden dla ruchu przychodzącego i jeden dla ruchu wychodzącego. Te pule ilustrują możliwości i zapewniają elastyczność dla scenariusza.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -35,7 +35,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 W tej sekcji utworzysz moduł równoważenia obciążenia, który będzie równoważenia obciążenia maszyn wirtualnych. Można utworzyć publiczny moduł równoważenia obciążenia lub wewnętrzny moduł równoważenia obciążenia. Podczas tworzenia publicznego modułu równoważenia obciążenia tworzony jest nowy publiczny adres IP skonfigurowany jako fronton dla modułu równoważenia obciążenia. Domyślnie zostanie nadana nazwa **LoadBalancerFrontEnd** .
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów** > **Networking** > **Load Balancer**.
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Load Balancer**.
 2. Na karcie **podstawy** na stronie **Tworzenie modułu równoważenia obciążenia** wprowadź lub wybierz następujące informacje:
 
     | Ustawienie                 | Wartość                                              |
@@ -82,7 +82,7 @@ Sonda kondycji służy do monitorowania stanu aplikacji. Sonda kondycji dodaje l
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Nazwa | Wprowadź **myHealthProbe**. |
-    | Protocol (Protokół) | Wybierz pozycję **http**. |
+    | Protokół | Wybierz pozycję **http**. |
     | Port | Wprowadź **80**.|
     | Interval | Wprowadź **15** dla liczby **interwałów** (w sekundach) między kolejnymi próbami sondowania. |
     | Próg złej kondycji | Wybierz **2** dla liczby **progów złej kondycji** lub kolejnych niepowodzeń sondy, które muszą wystąpić, zanim maszyna wirtualna zostanie uznana za złą.|
@@ -109,7 +109,7 @@ W poniższej sekcji utworzysz:
     | Ustawienie | Wartość |
     | ------- | ----- |
     | Nazwa | Wprowadź **myHTTPRule**. |
-    | Protocol (Protokół) | wybierz pozycję **TCP**. |
+    | Protokół | wybierz pozycję **TCP**. |
     | Port | Wprowadź **80**.|
     | Port zaplecza | Wprowadź **80**. |
     | Pula zaplecza | Wybierz pozycję **myBackendPool**.|
@@ -166,7 +166,7 @@ Reguły ruchu wychodzącego modułu równoważenia obciążenia Skonfiguruj wych
 
 4. Wybierz pozycję **Dodaj**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupSLB** , która zawiera moduł równoważenia obciążenia, a następnie wybierz pozycję **Usuń**.
 

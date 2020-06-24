@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: lbosq
-ms.openlocfilehash: bf453587b354b5db3f3ef1a80f974bcb8f8f4e14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a85df3e437f2c1ec93996cdaacfccadeaa47cc99
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81730015"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118257"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Szybki Start: Tworzenie aplikacji .NET Framework lub Core przy użyciu konta interfejsu API Azure Cosmos DB Gremlin
 
@@ -95,7 +95,7 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku Program.cs.
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="defineClientandServerObjects":::
 
-* Wykonaj każde zapytanie Gremlin, `GremlinClient` używając obiektu z zadaniem asynchronicznym. Można odczytać zapytania Gremlin z słownika zdefiniowanego w poprzednim kroku i wykonać je. Później Pobierz wynik i odczytaj wartości, które są sformatowane jako słownik, przy użyciu `JsonSerializer` klasy z pakietu Newtonsoft. JSON:
+* Wykonaj każde zapytanie Gremlin, używając `GremlinClient` obiektu z zadaniem asynchronicznym. Można odczytać zapytania Gremlin z słownika zdefiniowanego w poprzednim kroku i wykonać je. Później Pobierz wynik i odczytaj wartości, które są sformatowane jako słownik, używając `JsonSerializer` klasy z Newtonsoft.Jsw pakiecie:
 
    :::code language="csharp" source="~/azure-cosmosdb-graph-dotnet/GremlinNetSample/Program.cs" id="executeQueries":::
 
@@ -109,9 +109,9 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
    **Punkt końcowy języka Gremlin** — ta wartość jest używana podczas nawiązywania połączenia z kontem programu Graph przy użyciu biblioteki Gremlin.Net.
 
-    ![Kopiowanie punktu końcowego](./media/create-graph-dotnet/endpoint.png)
+    :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Kopiowanie punktu końcowego":::
 
-   Aby uruchomić ten przykład, skopiuj wartość **punktu końcowego Gremlin** , Usuń numer portu na końcu, który jest identyfikatorem URI `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`. Wartość punktu końcowego powinna wyglądać jak`testgraphacct.gremlin.cosmosdb.azure.com`
+   Aby uruchomić ten przykład, skopiuj wartość **punktu końcowego Gremlin** , Usuń numer portu na końcu, który jest identyfikatorem URI `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com` . Wartość punktu końcowego powinna wyglądać jak`testgraphacct.gremlin.cosmosdb.azure.com`
 
 1. Następnie przejdź do karty **klucze** i skopiuj wartość **klucz podstawowy** z Azure Portal. 
 
@@ -146,13 +146,13 @@ Teraz możesz wrócić do Eksploratora danych w witrynie Azure Portal, aby przeg
 
     Możesz powiększać i zmniejszać graf, rozszerzać obszar wyświetlania grafu, dodawać kolejne wierzchołki oraz przenosić wierzchołki na wyświetlanej powierzchni.
 
-    ![Wyświetlanie grafu w Eksploratorze danych w witrynie Azure Portal](./media/create-graph-dotnet/graph-explorer.png)
+    :::image type="content" source="./media/create-graph-dotnet/graph-explorer.png" alt-text="Wyświetlanie grafu w Eksploratorze danych w witrynie Azure Portal":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

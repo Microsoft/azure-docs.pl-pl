@@ -1,5 +1,5 @@
 ---
-title: Korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure
+title: Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Zobacz, jak korzystać z interfejsów API Digital bliźniaczych reprezentacji na platformie Azure, w tym za pomocą zestawu SDK.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cbc79458c1fe68b05a40f476c298d5fe94e86871
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: ebac7fb6cf4addaa43367d27a4926a85770dd595
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629597"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296138"
 ---
-# <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK Digital bliźniaczych reprezentacji na platformie Azure
+# <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Korzystanie z interfejsów API i zestawów SDK usługi Azure Digital Twins
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Usługa Azure Digital bliźniaczych reprezentacji jest wyposażona w **interfejsy API płaszczyzny kontroli** i **interfejsy API płaszczyzny danych** do zarządzania wystąpieniem i jego elementami. Ten artykuł zawiera omówienie dostępnych interfejsów API oraz metod współpracy z nimi. Możesz użyć interfejsów API REST bezpośrednio ze skojarzonymi z nimi strukturami Swagger lub za pomocą zestawu SDK.
 
@@ -26,7 +29,7 @@ Najbardziej aktualna wersja interfejsu API płaszczyzny kontroli dla publicznej 
 
 Aby używać interfejsów API płaszczyzny kontroli:
 * Interfejsy API można wywoływać bezpośrednio, odwołując się do najnowszego [folderu Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). To repozytorium zawiera również folder przykładów, które pokazują użycie.
-* Obecnie możesz uzyskiwać dostęp do zestawów SDK dla formantów API w programie [go](https://github.com/Azure/azure-sdk-for-go/releases).
+* Obecnie możesz uzyskiwać dostęp do zestawów SDK dla formantów API w programie [.NET (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1), [Python](https://pypi.org/project/azure-mgmt-digitaltwins/)lub [go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins).
 
 Możesz również wykonywać interfejsy API płaszczyzny kontroli, współpracując z usługą Azure Digital bliźniaczych reprezentacji za pomocą [Azure Portal](https://portal.azure.com) i [interfejsu wiersza polecenia](how-to-use-cli.md).
 
@@ -256,6 +259,12 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## <a name="general-apisdk-usage-notes"></a>Ogólne informacje o użyciu interfejsu API/zestawu SDK
 
 Ta sekcja zawiera ogólne informacje o i wskazówkach dotyczących używania interfejsów API i zestawów SDK.
+
+> [!NOTE]
+> Należy pamiętać, że w trakcie okresu zapoznawczego usługa Azure Digital bliźniaczych reprezentacji nie obsługuje **udostępniania zasobów między źródłami (CORS)**. W związku z tym, jeśli wywołujesz interfejs API REST z aplikacji przeglądarki, interfejsu [API Management (APIM)](../api-management/api-management-key-concepts.md) lub łącznika [aplikacji zaawansowanych](https://docs.microsoft.com/powerapps/powerapps-overview) , może zostać wyświetlony błąd zasad.
+> Aby rozwiązać ten problem, można wykonać jedną z następujących czynności:
+> * Przeplataj nagłówek CORS `Access-Control-Allow-Origin` z wiadomości. Ten nagłówek wskazuje, czy można udostępnić odpowiedź. 
+> * Alternatywnie można utworzyć serwer proxy CORS i wprowadzić żądanie interfejsu API REST usługi Azure Digital bliźniaczych reprezentacji. 
 
 * Aby użyć zestawu SDK, Utwórz wystąpienie `DigitalTwinsClient` klasy. Konstruktor wymaga poświadczeń, które można uzyskać przy użyciu różnych metod uwierzytelniania w `Azure.Identity` pakiecie. Więcej informacji `Azure.Identity` można znaleźć w dokumentacji dotyczącej [przestrzeni nazw](https://docs.microsoft.com/dotnet/api/azure.identity?view=azure-dotnet). 
 * Może się to okazać `InteractiveBrowserCredential` przydatne podczas rozpoczynania pracy, ale istnieje kilka innych opcji, w tym poświadczenia [zarządzanej tożsamości](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet), które prawdopodobnie będą używane do uwierzytelniania usługi [Azure Functions w](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) usłudze Azure Digital bliźniaczych reprezentacji. Więcej informacji `InteractiveBrowserCredential` można znaleźć w [dokumentacji swojej klasy](https://docs.microsoft.com/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).

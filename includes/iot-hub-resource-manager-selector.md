@@ -14,7 +14,7 @@ ms.locfileid: "75912242"
 > [!div class="op_single_selector"]
 > * [Azure Portal](../articles/iot-hub/iot-hub-create-through-portal.md)
 > * [Usługa Azure IoT Hub dla edytora VS Code](../articles/iot-hub/iot-hub-create-use-iot-toolkit.md)
-> * [Narzędzia](../articles/iot-hub/iot-hub-create-using-powershell.md)
+> * [Program PowerShell](../articles/iot-hub/iot-hub-create-using-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](../articles/iot-hub/iot-hub-create-using-cli.md)
 > * [PowerShell z szablonem](../articles/iot-hub/iot-hub-rm-template-powershell.md)
 > * [C# z REST](../articles/iot-hub/iot-hub-rm-rest.md)

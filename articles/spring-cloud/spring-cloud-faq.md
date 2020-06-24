@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 95260d9a15fdc32c9fddccbcf63ae9fa564fd36a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3c38a67b13a6b5c12767d38ecf2297d2417ebdb
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176774"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808408"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Wiosenna — często zadawane pytania
 
@@ -24,21 +24,6 @@ Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące chmury wi
 Chmura Wiosnowa platformy Azure udostępnia platformę jako usługę (PaaS) dla deweloperów chmury z chmurą. Chmura sprężynowa platformy Azure zarządza infrastrukturą aplikacji, dzięki czemu możesz skupić się na kodzie aplikacji i logice biznesowej. Podstawowe funkcje wbudowane w chmurę Azure wiosną obejmują: Eureka, config Server, serwer rejestru usług, przestawianie usług kompilacji, tworzenie niebieskich i zielonych wdrożeń. Ta usługa umożliwia również deweloperom powiązanie aplikacji z innymi usługami platformy Azure, takimi jak Azure Cosmos DB, Azure Database for MySQL i pamięć podręczna Azure dla Redis.
 
 Chmura sprężynowa platformy Azure rozszerza środowisko diagnostyki aplikacji dla deweloperów i operatorów przez integrację Azure Monitor, Application Insights i Log Analytics.
-
-### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Jakie plany usług są oferowane przez chmurę Azure ze sprężyną?
-
-Chmura Wiosenna Azure oferuje jeden plan usługi w okresie zapoznawczym.  Wdrożenie z chmurą wiosenną zawiera 16 rdzeni vCPU i 32 gigabajtów (GB) pamięci.  Górna granica każdego wystąpienia mikrousług w ramach wdrożenia wynosi 4 vCPU rdzeni z 8 GB pamięci.
-
-Zasób | Kwota
-------- | -------
-Wystąpienia aplikacji na wiosnę | 20
-Łączna liczba wystąpień aplikacji na usługę Azure sprężynowego wystąpienia usługi w chmurze | 500
-Wystąpienia usługi w chmurze ze sprężyną na platformie Azure na region na subskrypcję | 10
-Trwałe woluminy | 10 x 50 GBytes
-
-\*_Aby podnieść limit, Otwórz [bilet pomocy technicznej](https://azure.microsoft.com/support/faq/)._
-
-Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące pomocy technicznej platformy Azure](https://azure.microsoft.com/support/faq/).
 
 ### <a name="how-secure-is-azure-spring-cloud"></a>Jak bezpieczny jest chmura Wiosenna platformy Azure?
 
@@ -59,7 +44,10 @@ W wersji zapoznawczej chmura sprężynowa platformy Azure ma następujące znane
 * `spring.application.name`zostanie przesłonięty przez nazwę aplikacji, która jest używana do tworzenia każdej aplikacji.
 * `server.port`nie jest dozwolone w pliku konfiguracji z repozytorium git. Dodanie go do pliku konfiguracji prawdopodobnie spowoduje niedostępność aplikacji z innych aplikacji lub Internetu.
 * Szablony Azure Portal i Azure Resource Manager nie obsługują przekazywania pakietów aplikacji. Pakiety aplikacji można przekazywać tylko przez wdrożenie aplikacji za pośrednictwem interfejsu wiersza polecenia platformy Azure.
-* Aby dowiedzieć się więcej o ograniczeniach przydziałów, zobacz [jakie plany usługi są oferowane w chmurze Azure wiosennej?](#what-service-plans-does-azure-spring-cloud-offer).
+
+### <a name="what-pricing-tiers-are-available"></a>Jakie warstwy cenowe są dostępne? 
+Z którego z nich korzystać i jakie są limity w ramach każdej warstwy?
+* Chmura Wiosnowa platformy Azure oferuje dwie warstwy cenowe: podstawowa i standardowa. Warstwa Podstawowa jest przeznaczona do tworzenia i testowania oraz do wypróbowania chmury wiosennej platformy Azure. Warstwa standardowa jest zoptymalizowana pod kątem uruchamiania ruchu produkcyjnego ogólnego przeznaczenia. Zobacz [szczegóły cennika usługi Azure wiosny Cloud](https://azure.microsoft.com/pricing/details/spring-cloud/) dla limitów i porównania poziomu funkcji.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Jak mogę przekazać Opinie i zgłosić problemy?
 
@@ -97,7 +85,7 @@ Tak.
 
 Jest to zależne od logiki dostawców zasobów, do których należą zasoby rozszerzenia. Zasoby rozszerzenia `Microsoft.AppPlatform` wystąpienia nie należą do tej samej przestrzeni nazw, więc zachowania różnią się w zależności od różnych dostawców zasobów. Na przykład operacja usuwania/przenoszenia nie zostanie przeniesiona do zasobów **ustawień diagnostycznych** . Jeśli nowe wystąpienie chmury Azure wiosny jest obsługiwane przy użyciu tego samego identyfikatora zasobu, który został usunięty, lub jeśli poprzednie wystąpienie chmury sieci platformy Azure zostanie przeniesione z powrotem, poprzednie zasoby **ustawień diagnostycznych** kontynuują jego rozszerzanie.
 
-## <a name="deployment"></a>Wdrożenie
+## <a name="deployment"></a>wdrażania
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Czy usługa Azure Wiosenna Cloud obsługuje wdrożenie Blue-Green?
 Tak. Aby uzyskać więcej informacji, zobacz [Konfigurowanie środowiska przejściowego](spring-cloud-howto-staging-environment.md).

@@ -3,17 +3,17 @@ title: Przekaż dysk VHD do platformy Azure lub skopiuj go między regionami —
 description: Dowiedz się, jak przekazać dysk VHD do dysku zarządzanego platformy Azure i skopiować dysk zarządzany między regionami przy użyciu Azure PowerShell za pośrednictwem bezpośredniego przekazywania.
 author: roygara
 ms.author: rogarana
-ms.date: 03/27/2020
+ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 153bbc39ceba52548d667fa4c83d0edc867fcb93
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: d03e911b88e6a7729b0519e74941b47d85a97901
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660610"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944631"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Przekaż dysk VHD do platformy Azure lub skopiuj go do innego regionu — Azure PowerShell
 
@@ -47,6 +47,9 @@ Aby można było utworzyć pusty dysk twardy w celu przeładowania, potrzebny b�
 Teraz w lokalnej powłoce Utwórz pusty standardowy dysk twardy do przekazania przez określenie ustawienia **przekazywania** w parametrze **-i** parametru, a także parametru **-UploadSizeInBytes** w poleceniu cmdlet [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Następnie Wywołaj polecenie [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) , aby utworzyć dysk.
 
 Zastąp `<yourdiskname>` , `<yourresourcegroupname>` , a `<yourregion>` następnie uruchom następujące polecenia:
+
+> [!TIP]
+> Jeśli tworzysz dysk systemu operacyjnego, Dodaj HyperVGeneration " <yourGeneration> " do `New-AzDiskConfig` .
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
@@ -98,6 +101,9 @@ Wykonanie poniższej skryptu spowoduje to, że proces jest podobny do opisanego 
 > Należy dodać przesunięcie 512, gdy podajesz rozmiar dysku w bajtach dysku zarządzanego na platformie Azure. Wynika to z faktu, że platforma Azure pomija stopkę podczas zwracania rozmiaru dysku. Kopia nie powiedzie się, jeśli to zrobisz. Poniższy skrypt już robi to za Ciebie.
 
 Zastąp `<sourceResourceGroupHere>` wartości,, `<sourceDiskNameHere>` `<targetDiskNameHere>` , `<targetResourceGroupHere>` `<yourOSTypeHere>` i `<yourTargetLocationHere>` (przykładem wartości lokalizacji byłaby uswest2) wartościami, a następnie uruchom poniższy skrypt w celu skopiowania dysku zarządzanego.
+
+> [!TIP]
+> Jeśli tworzysz dysk systemu operacyjnego, Dodaj HyperVGeneration " <yourGeneration> " do `New-AzDiskConfig` .
 
 ```powershell
 

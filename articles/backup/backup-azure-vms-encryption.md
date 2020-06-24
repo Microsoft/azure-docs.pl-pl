@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych i Przywracanie zaszyfrowanych maszyn wirtualny
 description: Opisuje sposób tworzenia kopii zapasowych i przywracania zaszyfrowanych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: ea4d2830fb9db9f95ba8ab87626a79d94aaecb8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0800a15b215b37ceb75abc0d6480331d642dc746
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187940"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124507"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Tworzenie kopii zapasowej i przywracanie zaszyfrowanej maszyny wirtualnej platformy Azure
 
@@ -28,7 +28,7 @@ Azure Backup można tworzyć kopie zapasowe maszyn wirtualnych platformy Azure i
 **Typ dysku maszyny wirtualnej** | **ADE (klucz szyfrowania bloków/dm-crypt)** | **ADE i KEK**
 --- | --- | ---
 **Niezarządzany** | Tak | Tak
-**Zarządzani**  | Tak | Tak
+**Zarządzany**  | Tak | Tak
 
 - Dowiedz się więcej na temat [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/general/overview.md)i [KEKs](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
 - Przeczytaj [często zadawane pytania](../security/azure-security-disk-encryption-faq.md) dotyczące szyfrowania dysków maszyn wirtualnych platformy Azure.
@@ -61,12 +61,12 @@ Ponadto istnieje kilka rzeczy, które mogą być konieczne w pewnych okolicznoś
 
     ![Blok kopii zapasowej](./media/backup-azure-vms-encryption/select-backup.png)
 
-3.  > W **celu utworzenia kopii zapasowej**,**gdzie jest uruchomione Twoje obciążenie?** wybierz pozycję **Azure**.
-4. W **czym chcesz utworzyć kopię zapasową?** wybierz pozycję **maszyna** > wirtualna**OK**.
+3. W **celu utworzenia kopii zapasowej**,  >  **gdzie jest uruchomione Twoje obciążenie?** wybierz pozycję **Azure**.
+4. W **czym chcesz utworzyć kopię zapasową?** wybierz pozycję **maszyna wirtualna**  >  **OK**.
 
       ![Blok scenariusza](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. W obszarze >  **zasady tworzenia kopii zapasowych****Wybierz pozycję Zasady tworzenia kopii zapasowych**, a następnie wybierz zasady, które chcesz skojarzyć z magazynem. Następnie kliknij przycisk **OK**.
+5. W obszarze **zasady tworzenia kopii zapasowych**  >  **Wybierz pozycję Zasady tworzenia kopii zapasowych**, a następnie wybierz zasady, które chcesz skojarzyć z magazynem. Następnie kliknij przycisk **OK**.
     - Zasady tworzenia kopii zapasowych określają, kiedy są wykonywane kopie zapasowe oraz jak długo są przechowywane.
     - Szczegóły domyślnych zasad znajdują się w menu rozwijanym.
 
@@ -99,7 +99,7 @@ Początkowa kopia zapasowa będzie uruchamiana zgodnie z harmonogramem, ale moż
 3. Na liście **elementy kopii zapasowej** kliknij przycisk wielokropka (...).
 4. Kliknij pozycję **Utwórz kopię zapasową teraz**.
 5. W obszarze **kopia zapasowa**Użyj formantu kalendarza, aby wybrać ostatni dzień przechowywania punktu odzyskiwania. Następnie kliknij przycisk **OK**.
-6. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > >  **zadania tworzenia kopii zapasowej****w toku**. W zależności od rozmiaru maszyny wirtualnej tworzenie początkowej kopii zapasowej może potrwać pewien czas.
+6. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > **zadania tworzenia kopii zapasowej**  >  **w toku**. W zależności od rozmiaru maszyny wirtualnej tworzenie początkowej kopii zapasowej może potrwać pewien czas.
 
 ## <a name="provide-permissions"></a>Podaj uprawnienia
 
@@ -112,13 +112,13 @@ Aby ustawić uprawnienia:
 
 1. W Azure Portal wybierz pozycję **wszystkie usługi**i Wyszukaj **magazyny kluczy**.
 2. Wybierz magazyn kluczy skojarzony z zaszyfrowaną maszyną wirtualną, której kopię zapasową chcesz utworzyć.
-3. Wybierz pozycję **zasady** > dostępu**Dodaj nowy**.
+3. Wybierz pozycję **zasady dostępu**  >  **Dodaj nowy**.
 4. Wybierz pozycję **Wybierz podmiot zabezpieczeń**, a następnie wpisz **Zarządzanie kopią zapasową**.
-5. Wybierz pozycję > **Select** **Usługa zarządzania kopiami zapasowymi**.
+5. Wybierz pozycję **Usługa zarządzania kopiami zapasowymi**  >  **Select**.
 
     ![Wybór usługi kopii zapasowej](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. W obszarze **Dodaj zasady** > dostępu**Skonfiguruj z szablonu (opcjonalnie)** wybierz pozycję **Azure Backup**.
+6. W obszarze **Dodaj zasady dostępu**  >  **Skonfiguruj z szablonu (opcjonalnie)** wybierz pozycję **Azure Backup**.
     - Wymagane uprawnienia są wstępnie wypełnione dla **uprawnień klucza** i uprawnień do wpisów **tajnych**.
     - Jeśli maszyna wirtualna jest zaszyfrowana **tylko**przy użyciu klucz szyfrowania bloków, usuń zaznaczenie dla **uprawnień kluczowych** , ponieważ potrzebujesz tylko uprawnień do wpisów tajnych.
 
@@ -132,7 +132,9 @@ Aby ustawić uprawnienia:
 
 ## <a name="restore-an-encrypted-vm"></a>Przywracanie zaszyfrowanej maszyny wirtualnej
 
-Zaszyfrowane maszyny wirtualne są przywracane w następujący sposób:
+Zaszyfrowane maszyny wirtualne można przywrócić tylko przez przywrócenie dysku maszyny wirtualnej, jak wyjaśniono poniżej. **Zastępowanie istniejącej** i **przywrócenie maszyny wirtualnej** nie jest obsługiwane.
+
+Przywróć zaszyfrowane maszyny wirtualne w następujący sposób:
 
 1. [Przywróć dysk maszyny wirtualnej](backup-azure-arm-restore-vms.md#restore-disks).
 2. Utwórz ponownie wystąpienie maszyny wirtualnej, wykonując jedną z następujących czynności:

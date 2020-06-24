@@ -9,12 +9,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 149ac61e4737faa81e55fac3e07133c73bbc00d5
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: a581288259a521f8f2f93ff3fbc16f4926486643
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488124"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771176"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Szybki Start: tablica wskaźnikowa platformy Azure
 
@@ -58,7 +58,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
    > - Wskaźnik "Azure" może działać w obszarach roboczych w dowolnym [regionie log Analytics](https://azure.microsoft.com/global-infrastructure/services/?products=monitor) z wyjątkiem regionów Chińska i Niemcy (suwerenne). Dane generowane przez wskaźnik na platformie Azure (takie jak zdarzenia, zakładki i reguły alertów, które mogą zawierać niektóre dane klienta pochodzące z tych obszarów roboczych) są zapisywane w Europie (dla obszarów roboczych znajdujących się w Europie), w Australii (dla obszarów roboczych znajdujących się w Australii) lub w regionie Wschodnie stany USA (dla obszarów roboczych znajdujących się w innym regionie).
 
    >[!IMPORTANT]
-   > - Po włączeniu funkcji wskaźnikowej platformy Azure w obszarze roboczym przeniesienie tego obszaru roboczego do innych grup zasobów lub subskrypcji nie jest obsługiwane. Jeśli musisz przenieść obszar roboczy, skontaktuj się z pomocą techniczną, aby uzyskać wskazówki.
+   > - Po włączeniu funkcji wskaźnikowej platformy Azure w obszarze roboczym przeniesienie tego obszaru roboczego do innych grup zasobów lub subskrypcji nie jest obsługiwane. Jeśli musisz przenieść obszar roboczy, skontaktuj się z pomocą techniczną [platformy Azure](mailto:AzureSentinel@microsoft.com).
 
 1. Wybierz pozycję **Dodaj wskaźnik platformy Azure**.
   

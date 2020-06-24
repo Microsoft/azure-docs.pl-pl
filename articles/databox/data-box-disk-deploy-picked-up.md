@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: bfac12c6ef278072c6bb44d55dc12926fe906e6f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 07c86ca016d3e38359cbe8ba61d67f109c42edb0
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747677"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944971"
 ---
 ::: zone target="docs"
 
@@ -159,7 +159,7 @@ W razie konieczności możesz skontaktować się z pomocą techniczną firmy Qua
 
 ### <a name="in-self-managed"></a>[W przypadku samodzielnego zarządzania](#tab/in-selfmanaged)
 
-Jeśli korzystasz z usługi Data Box Disk w Japonii, Singapurze, Korei i Europie Zachodniej oraz masz wybraną opcję samodzielnego zarządzania wysyłką, postępuj zgodnie z następującymi opcjami podczas tworzenia zamówienia. 
+Jeśli korzystasz z usługi Data Box Disk w Japonii, Singapurze, Korei, Europie Zachodniej lub Indiach i podczas tworzenia zamówienia wybrano opcję samodzielnego zarządzania wysyłką, postępuj zgodnie z następującymi instrukcjami. 
 
 1. Przejdź do bloku **Przegląd** odpowiedniego dla swojego zamówienia w witrynie Azure Portal. Wykonaj instrukcje wyświetlane po wybraniu pozycji **Zaplanuj odebranie**. Powinien zostać wyświetlony kod autoryzacji, który jest używany przy dostarczaniu zamówienia.
 

@@ -5,15 +5,15 @@ description: Ten artykuł zawiera instrukcje dotyczące konfigurowania zasad pro
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 3804059fdd818f10663d14bde72da2c6773fa53f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3109ada2c905a9f11169a462284d22b9e9604494
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312671"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808240"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Skonfiguruj wersje zasad protokołu TLS i mechanizmy szyfrowania na Application Gateway
 
@@ -23,7 +23,7 @@ Dowiedz się, jak skonfigurować wersje zasad protokołu TLS/SSL i mechanizmy sz
 
 ## <a name="get-available-tls-options"></a>Pobierz dostępne opcje protokołu TLS
 
-`Get-AzApplicationGatewayAvailableSslOptions` Polecenie cmdlet zawiera listę dostępnych wstępnie zdefiniowanych zasad, dostępnych mechanizmów szyfrowania i wersji protokołów, które można skonfigurować. Poniższy przykład pokazuje przykładowe dane wyjściowe z uruchamiania polecenia cmdlet.
+`Get-AzApplicationGatewayAvailableSslOptions`Polecenie cmdlet zawiera listę dostępnych wstępnie zdefiniowanych zasad, dostępnych mechanizmów szyfrowania i wersji protokołów, które można skonfigurować. Poniższy przykład pokazuje przykładowe dane wyjściowe z uruchamiania polecenia cmdlet.
 
 ```
 DefaultPolicy: AppGwSslPolicy20150501
@@ -73,9 +73,9 @@ AvailableProtocols:
 
 ## <a name="list-pre-defined-tls-policies"></a>Lista wstępnie zdefiniowanych zasad protokołu TLS
 
-Brama aplikacji zawiera trzy wstępnie zdefiniowane zasady, które mogą być używane. `Get-AzApplicationGatewaySslPredefinedPolicy` Polecenie cmdlet pobiera te zasady. Każda zasada ma inne wersje protokołu i włączono mechanizmy szyfrowania. Te wstępnie zdefiniowane zasady mogą służyć do szybkiego konfigurowania zasad protokołu TLS na bramie aplikacji. Domyślnie **AppGwSslPolicy20150501** jest wybierana, jeśli nie zdefiniowano określonych zasad TLS.
+Brama aplikacji zawiera trzy wstępnie zdefiniowane zasady, które mogą być używane. `Get-AzApplicationGatewaySslPredefinedPolicy`Polecenie cmdlet pobiera te zasady. Każda zasada ma inne wersje protokołu i włączono mechanizmy szyfrowania. Te wstępnie zdefiniowane zasady mogą służyć do szybkiego konfigurowania zasad protokołu TLS na bramie aplikacji. Domyślnie **AppGwSslPolicy20150501** jest wybierana, jeśli nie zdefiniowano określonych zasad TLS.
 
-Oto przykład danych wyjściowych `Get-AzApplicationGatewaySslPredefinedPolicy`.
+Oto przykład danych wyjściowych `Get-AzApplicationGatewaySslPredefinedPolicy` .
 
 ```
 Name: AppGwSslPolicy20150501

@@ -1,20 +1,26 @@
 ---
 title: Rozmiary maszyn wirtualnych platformy Azure — pamięć | Microsoft Docs
-description: Wyświetla różne rozmiary zoptymalizowane pod kątem pamięci dostępne dla maszyn wirtualnych na platformie Azure. Wyświetla informacje o liczbie procesorów wirtualnych vCPU, dyskach danych i kartach sieciowych oraz o przepływności magazynu i przepustowości sieci dla rozmiarów w tej serii.
+description: Wyświetla różne rozmiary zoptymalizowane pod kątem pamięci dostępne dla maszyn wirtualnych na platformie Azure. Wyświetla listę informacji o liczbie procesorów wirtualnych vCPU, dyskach danych i kartach sieciowych, a także przepływności magazynu i przepustowości sieci dla rozmiarów w tej serii.
+services: virtual-machines
+documentationcenter: ''
 author: mimckitt
+manager: gwallace
+editor: ''
+tags: azure-resource-manager,azure-service-management
 keywords: Izolacja maszyny wirtualnej, izolowana maszyna wirtualna, izolacja, izolowana
+ms.assetid: ''
 ms.service: virtual-machines
-ms.subservice: sizes
+ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: 6e2486dfeae221e7e3ddadcdcac0d9779d49542c
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 5e920f165232ec79dcced1de632d90f463ff58d9
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678668"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791473"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci
 
@@ -28,7 +34,9 @@ Rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci oferują duże p
 
 - Procesor [EV3 i Esv3 serii](ev3-esv3-series.md) Intel &reg; Xeon &reg; 8171M 2,1 GHz (Skylake) lub procesor Intel &reg; xeon &reg; E5-2673 v4 2,3 GHz (Broadwell) w konfiguracji wielowątkowej funkcji Hyper-Threading, który zapewnia lepszą wartość w przypadku większości obciążeń ogólnego przeznaczenia, a EV3 do wyrównania z maszynami wirtualnymi ogólnego przeznaczenia większości innych chmur. Pamięć została rozszerzona (od 7 GiB/vCPU do 8 GiB/vCPU), podczas gdy limity dysku i sieci zostały skorygowane dla poszczególnych rdzeni, aby dostosować je do przenoszenia do funkcji Hyper-Threading. EV3 to kolejne rozmiary maszyn wirtualnych o dużej ilości pamięci w rodzinach D/Dv2.
 
-- [Seria Edv4 i Edsv4](edv4-edsv4-series.md) jest uruchamiana na procesorach drugiej generacji Intel &reg; Xeon &reg; Platinum 8272CL (kaskad Lake), idealnym dla bardzo dużych baz danych lub innych aplikacji, które korzystają z wysokich vCPU liczników i dużych ilości pamięci. Funkcja IT oferuje stałą szybkość zegara Turbo o częstotliwości 3,4 GHz i oferuje [ &reg; technologię Intel Turbo](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [— technologia &reg; wielowątkowości](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 2,0 i Intel [ &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). 
+- [Seria Ev4 i Esv4](ev4-esv4-series.md) jest uruchamiana w przypadku procesorów drugiej generacji Intel &reg; Xeon &reg; Platinum 8272CL (kaskad Lake) w konfiguracji wielowątkowej, idealnym rozwiązaniem jest idealne rozwiązanie dla różnych aplikacji dla przedsiębiorstw i funkcji do 504 GIB pamięci RAM. Oferuje ona [technologię rozwoju &reg; technologii intel Turbo 2,0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [ &reg; technologii Intel Hyper-Threading](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) i [Intel &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+
+- [Seria Edv4 i Edsv4](edv4-edsv4-series.md) działa w &reg; &reg; przypadku procesorów Intel Xeon Platinum 8272CL (Kaskada Lake), idealnym rozwiązaniem dla bardzo dużych baz danych lub innych aplikacji, które korzystają z wysokich vCPU liczników i dużych ilości pamięci. Funkcja IT oferuje stałą szybkość zegara Turbo o częstotliwości 3,4 GHz i oferuje [ &reg; technologię Intel Turbo](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [— technologia &reg; wielowątkowości](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 2,0 i Intel [ &reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 - [Seria M](m-series.md) oferuje dużą liczbę vCPU (do 128 procesorów wirtualnych vCPU) i dużą ilość pamięci (do 3,8 TIB). Jest on również idealny dla bardzo dużych baz danych lub innych aplikacji, które korzystają z dużej liczby vCPU i dużych ilości pamięci.
 

@@ -23,7 +23,7 @@ ms.locfileid: "85200974"
 > [!div class="op_single_selector"]
 >
 > * [Przegląd zabezpieczeń](sql-data-warehouse-overview-manage-security.md)
-> * [Uwierzytelnianie](sql-data-warehouse-authentication.md)
+> * [Authentication](sql-data-warehouse-authentication.md)
 > * [Szyfrowanie (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Szyfrowanie (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
@@ -41,7 +41,7 @@ Usługa Azure Synapse Analytics używa reguł zapory adresów IP na poziomie ser
 
 Połączenia z pulą SQL są domyślnie szyfrowane.  Modyfikowanie ustawień połączenia w celu wyłączenia szyfrowania jest ignorowane.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Uwierzytelnianie to sposób potwierdzenia tożsamości podczas nawiązywania połączenia z bazą danych. Pula SQL obecnie obsługuje uwierzytelnianie SQL Server przy użyciu nazwy użytkownika i hasła oraz z Azure Active Directory.
 

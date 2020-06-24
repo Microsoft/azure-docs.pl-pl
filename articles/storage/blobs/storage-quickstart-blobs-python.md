@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: tracking-python
-ms.openlocfilehash: c5ab718fdccfebe852c1522a0cb07303a541a3dd
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c24b934af17dab4f263de504da81d5ccd22d7fb9
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554255"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975317"
 ---
 # <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK V12 języka Python
 
@@ -290,5 +290,5 @@ Aby wyświetlić przykładowe aplikacje dla magazynu obiektów blob, przejdź do
 > [!div class="nextstepaction"]
 > [Przykłady języka Python zestawu SDK usługi Azure Blob Storage V12](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-* Aby dowiedzieć się więcej, zobacz [zestaw Azure SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
+* Aby dowiedzieć się więcej, zobacz [biblioteki klienta usługi Azure Storage dla języka Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12).
 * Samouczki, przykłady, Przewodniki Szybki Start i inne dokumenty można znaleźć [na platformie Azure dla deweloperów języka Python](/azure/python/).

@@ -4,25 +4,25 @@ description: W tym artykule dowiesz się, jak kierować ruchem sieciowym za pomo
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 5fa94b93e081ab6334c39b848068f50682f5f1f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 70f7bd4443602f6f18be54c5bc4ff038e868e58e
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235067"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703353"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Kierowanie ruchu sieciowego za pomocą tabeli tras przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -36,7 +36,7 @@ Platforma Azure automatycznie domyślnie kieruje ruchem między wszystkimi podsi
 * Wdrażanie maszyn wirtualnych w różnych podsieciach
 * Kierowanie ruchem z jednej podsieci do drugiej za pomocą urządzenia NVA
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -121,7 +121,7 @@ az network vnet subnet update \
 
 Urządzenie NVA jest maszyną wirtualną, która realizuje funkcje sieci, takie jak routing, zapora lub optymalizacja sieci WAN.
 
-Utwórz urządzenie WUS w podsieci *DMZ* przy użyciu [AZ VM Create](/cli/azure/vm). Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie tworzy i przypisuje publiczny adres IP do maszyny wirtualnej. `--public-ip-address ""` Parametr instruuje platformę Azure, aby nie utworzył i przypisał publicznego adresu IP do maszyny wirtualnej, ponieważ maszyna wirtualna nie musi być połączona z Internetem. Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
+Utwórz urządzenie WUS w podsieci *DMZ* przy użyciu [AZ VM Create](/cli/azure/vm). Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie tworzy i przypisuje publiczny adres IP do maszyny wirtualnej. `--public-ip-address ""`Parametr instruuje platformę Azure, aby nie utworzył i przypisał publicznego adresu IP do maszyny wirtualnej, ponieważ maszyna wirtualna nie musi być połączona z Internetem. Jeśli klucze SSH nie istnieją jeszcze w domyślnej lokalizacji kluczy, to polecenie je utworzy. Aby użyć określonego zestawu kluczy, użyj opcji `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -162,7 +162,7 @@ Wykonanie polecenia może potrwać do minuty.
 
 Utwórz dwie maszyny wirtualne w sieci wirtualnej, aby można było sprawdzić, czy ruch z podsieci *publicznej* jest kierowany do podsieci *prywatnej* za pośrednictwem urządzenie WUS w późniejszym kroku. 
 
-Utwórz maszynę wirtualną w podsieci *publicznej* za pomocą [AZ VM Create](/cli/azure/vm). `--no-wait` Parametr umożliwia platformie Azure wykonywanie polecenia w tle, dzięki czemu można przejść do następnego polecenia. W celu uproszczenia tego artykułu jest używane hasło. Klucze są zwykle używane w wdrożeniach produkcyjnych. W przypadku korzystania z kluczy należy również skonfigurować przekazywanie agentów SSH. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją klienta SSH. Zastąp `<replace-with-your-password>` wartość w poniższym poleceniu, wybierając wybrane hasło.
+Utwórz maszynę wirtualną w podsieci *publicznej* za pomocą [AZ VM Create](/cli/azure/vm). `--no-wait`Parametr umożliwia platformie Azure wykonywanie polecenia w tle, dzięki czemu można przejść do następnego polecenia. W celu uproszczenia tego artykułu jest używane hasło. Klucze są zwykle używane w wdrożeniach produkcyjnych. W przypadku korzystania z kluczy należy również skonfigurować przekazywanie agentów SSH. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją klienta SSH. Zastąp wartość `<replace-with-your-password>` w poniższym poleceniu, wybierając wybrane hasło.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"
@@ -210,7 +210,7 @@ Zanotuj wartość adresu **publicIpAddress**. Ten adres jest używany w celu uzy
 
 ## <a name="route-traffic-through-an-nva"></a>Kierowanie ruchem za pośrednictwem urządzenia NVA
 
-Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną *myVmPrivate* . Zastąp * \<publicIpAddress>* publicznym adresem IP maszyny wirtualnej. W powyższym przykładzie adres IP to *13.90.242.231*.
+Użyj następującego polecenia, aby utworzyć sesję SSH z maszyną wirtualną *myVmPrivate* . Zastąp *\<publicIpAddress>* wartość publicznym adresem IP maszyny wirtualnej. W powyższym przykładzie adres IP to *13.90.242.231*.
 
 ```bash
 ssh azureuser@<publicIpAddress>

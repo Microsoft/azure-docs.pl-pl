@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozge
 ms.subservice: common
-ms.openlocfilehash: f5c6125b850062450516e7fc0b19c2e0d5d6f577
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee37745b35071893ff504c56a4a6883b589f1d0e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77916068"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804636"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Wywoływanie operacji interfejsu API REST przy użyciu autoryzacji klucza wspólnego
 
@@ -27,7 +27,7 @@ Przykładowa aplikacja zawiera listę kontenerów obiektów BLOB dla konta magaz
 
 - Zainstaluj [program Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) przy użyciu obciążeń **programistycznych platformy Azure** .
 
-- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - Konto magazynu ogólnego przeznaczenia. Jeśli jeszcze nie masz konta magazynu, zobacz [Tworzenie konta magazynu](storage-account-create.md).
 
@@ -65,7 +65,7 @@ Przejrzyj odwołanie do operacji [ListContainers](/rest/api/storageservices/List
 
 **Metoda żądania**: get. To zlecenie jest metodą HTTP określoną jako właściwość obiektu żądania. Inne wartości tego zlecenia obejmują nagłówek, PUT i DELETE, w zależności od wywoływanego interfejsu API.
 
-**Identyfikator URI żądania**: `https://myaccount.blob.core.windows.net/?comp=list`.Identyfikator URI żądania jest tworzony na podstawie punktu końcowego `http://myaccount.blob.core.windows.net` konta usługi BLOB Storage i ciągu `/?comp=list`zasobu.
+**Identyfikator URI żądania**: `https://myaccount.blob.core.windows.net/?comp=list` .Identyfikator URI żądania jest tworzony na podstawie punktu końcowego konta usługi BLOB Storage `http://myaccount.blob.core.windows.net` i ciągu zasobu `/?comp=list` .
 
 [Parametry identyfikatora URI](/rest/api/storageservices/List-Containers2#uri-parameters): Istnieją dodatkowe parametry zapytania, których można użyć podczas wywoływania ListContainers. Kilka z tych parametrów jest *limitem czasu* dla wywołania (w sekundach) i *prefiksu*, który jest używany do filtrowania.
 
@@ -102,14 +102,14 @@ Aby skompilować żądanie, które jest obiektem HttpRequestMessage, przejdź do
 
 Wymagane są pewne podstawowe informacje:
 
-- Dla ListContainers **Metoda** jest `GET`. Ta wartość jest ustawiana podczas tworzenia wystąpienia żądania.
-- **Zasób** jest częścią zapytania identyfikatora URI wskazującej, który interfejs API jest wywoływany, więc wartość to `/?comp=list`. Jak wspomniano wcześniej, zasób znajduje się na stronie dokumentacji referencyjnej, która zawiera informacje o [interfejsie API ListContainers](/rest/api/storageservices/List-Containers2).
-- Identyfikator URI jest konstruowany przez utworzenie punktu końcowego Blob service dla tego konta magazynu i połączenie zasobu. Wartość **identyfikatora URI żądania** jest `http://contosorest.blob.core.windows.net/?comp=list`zakończona.
+- Dla ListContainers **Metoda** jest `GET` . Ta wartość jest ustawiana podczas tworzenia wystąpienia żądania.
+- **Zasób** jest częścią zapytania identyfikatora URI wskazującej, który interfejs API jest wywoływany, więc wartość to `/?comp=list` . Jak wspomniano wcześniej, zasób znajduje się na stronie dokumentacji referencyjnej, która zawiera informacje o [interfejsie API ListContainers](/rest/api/storageservices/List-Containers2).
+- Identyfikator URI jest konstruowany przez utworzenie punktu końcowego Blob service dla tego konta magazynu i połączenie zasobu. Wartość **identyfikatora URI żądania** jest zakończona `http://contosorest.blob.core.windows.net/?comp=list` .
 - Dla ListContainers, **elemencie requestbody** ma wartość null i nie ma żadnych dodatkowych **nagłówków**.
 
 Inne interfejsy API mogą mieć inne parametry do przekazania, takie jak *ifMatch*. Przykładem, gdzie można używać ifMatch, jest wywołanie PutBlob. W takim przypadku należy ustawić ifMatch na eTag i tylko wtedy, gdy obiekt eTag jest zgodny z bieżącym eTag w obiekcie blob. Jeśli ktoś inny zaktualizował obiekt BLOB od momentu pobrania elementu eTag, ich zmiana nie zostanie zastąpiona.
 
-Najpierw ustaw `uri` i `payload`.
+Najpierw ustaw `uri` i `payload` .
 
 ```csharp
 // Construct the URI. It will look like this:
@@ -130,7 +130,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-Dodaj nagłówki żądania dla `x-ms-date` i. `x-ms-version` W tym miejscu w kodzie jest również dodawane dodatkowe nagłówki żądania wymagane dla wywołania. W tym przykładzie nie ma dodatkowych nagłówków. Przykładem interfejsu API, który przekazuje w dodatkowych nagłówkach, jest operacja ustawiania listy ACL kontenera. To wywołanie interfejsu API dodaje nagłówek o nazwie "x-MS-BLOB-Public-Access" i wartość dla poziomu dostępu.
+Dodaj nagłówki żądania dla `x-ms-date` i `x-ms-version` . W tym miejscu w kodzie jest również dodawane dodatkowe nagłówki żądania wymagane dla wywołania. W tym przykładzie nie ma dodatkowych nagłówków. Przykładem interfejsu API, który przekazuje w dodatkowych nagłówkach, jest operacja ustawiania listy ACL kontenera. To wywołanie interfejsu API dodaje nagłówek o nazwie "x-MS-BLOB-Public-Access" i wartość dla poziomu dostępu.
 
 ```csharp
 // Add the request headers for x-ms-date and x-ms-version.
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
                CanonicalizedResource;  
 ```
 
-Większość z tych pól jest rzadko używana. W przypadku usługi BLOB Storage należy określić CZASOWNIK, MD5, długość zawartości, nagłówki kanoniczne i zasób kanoniczny. Pozostałe wartości można pozostawić puste (ale umieścić je w tym `\n` obszarze, tak że są puste).
+Większość z tych pól jest rzadko używana. W przypadku usługi BLOB Storage należy określić CZASOWNIK, MD5, długość zawartości, nagłówki kanoniczne i zasób kanoniczny. Pozostałe wartości można pozostawić puste (ale umieścić je w tym obszarze, `\n` tak że są puste).
 
 Co to są CanonicalizedHeaders i CanonicalizedResource? Dobre pytanie. Co oznacza znaczenie w postaci kanonicznej? Program Microsoft Word nie rozpoznaje go nawet jako wyrazu. Poniżej przedstawiono [Informacje o formacie kanonizacji](https://en.wikipedia.org/wiki/Canonicalization): *w nauce komputerowej, kanonizacji (czasami normalizacji lub normalizacji) to proces konwersji danych, które mają więcej niż jedną możliwą reprezentację w postaci "standardowy", "normalny" lub "kanoniczny".* W normalnych przypadkach oznacza to, że należy zastosować listę elementów (takich jak nagłówki w przypadku nagłówków kanonicznych) i przeprowadzić ich standaryzację w wymaganym formacie. Zasadniczo firma Microsoft zdecydowała się na format i należy je dopasować.
 
@@ -308,7 +308,7 @@ Zacznijmy od tych dwóch pól kanonicznych, ponieważ są one wymagane do utworz
 
 ### <a name="canonicalized-headers"></a>Nagłówki kanoniczne
 
-Aby utworzyć tę wartość, Pobierz nagłówki, które zaczynają się od "x-ms-" i posortuj je, a następnie sformatuj je `[key:value\n]` do ciągu wystąpień, połączone w jeden ciąg. Na potrzeby tego przykładu kanoniczne nagłówki wyglądają następująco:
+Aby utworzyć tę wartość, Pobierz nagłówki, które zaczynają się od "x-ms-" i posortuj je, a następnie sformatuj je do ciągu `[key:value\n]` wystąpień, połączone w jeden ciąg. Na potrzeby tego przykładu kanoniczne nagłówki wyglądają następująco:
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -353,7 +353,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 
 ### <a name="canonicalized-resource"></a>Zasób kanoniczny
 
-Ta część ciągu podpisu reprezentuje konto magazynu wskazywane przez żądanie. Należy pamiętać, że identyfikator URI `<http://contosorest.blob.core.windows.net/?comp=list>`żądania ma rzeczywistą nazwę konta (`contosorest` w tym przypadku). W tym przykładzie jest zwracany:
+Ta część ciągu podpisu reprezentuje konto magazynu wskazywane przez żądanie. Należy pamiętać, że identyfikator URI żądania ma `<http://contosorest.blob.core.windows.net/?comp=list>` rzeczywistą nazwę konta ( `contosorest` w tym przypadku). W tym przykładzie jest zwracany:
 
 ```
 /contosorest/\ncomp:list
