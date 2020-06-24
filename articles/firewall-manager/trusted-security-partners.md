@@ -1,33 +1,33 @@
 ---
-title: Co to są zaufani partnerzy usługi Azure firewall Manager (wersja zapoznawcza)
-description: Informacje o zaufanych partnerach usługi Azure firewall Manager
+title: Co to są dostawcy usługi Azure firewall Manager Security partner Providers (wersja zapoznawcza)
+description: Informacje o dostawcach partnera zabezpieczeń usługi Azure firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 06/15/2020
 ms.author: victorh
-ms.openlocfilehash: b92242ce9086579d0397f78853402cfc08453f68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d430deae191fbc9f9ab5bbbc2b83ee4640dd831
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436769"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791529"
 ---
-# <a name="what-are-trusted-security-partners-preview"></a>Co to są zaufani partnerzy w zakresie zabezpieczeń (wersja zapoznawcza)?
+# <a name="what-are-security-partner-providers-preview"></a>Co to są dostawcy usług partner Security (wersja zapoznawcza)?
 
 > [!IMPORTANT]
 > Ten podgląd publiczny nie jest objęty umową dotyczącą poziomu usług i nie należy korzystać z niego w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości lub mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-*Zaufani partnerzy zabezpieczeń (wersja zapoznawcza)* w Menedżerze zapory platformy Azure umożliwiają używanie znanych, najlepszych w swojej organizacji ofert zabezpieczeń jako usługi (SECaaS) w celu ochrony dostępu do Internetu użytkownikom.
+*Dostawcy partnerów zabezpieczeń (wersja zapoznawcza)* w Menedżerze zapory platformy Azure mogą używać znanych, najlepszych w swojej organizacji ofert zabezpieczeń jako usługi (SECaaS) w celu ochrony dostępu do Internetu użytkownikom.
 
 Dzięki szybkiej konfiguracji można zabezpieczyć koncentrator z obsługiwanym partnerem zabezpieczeń oraz skierować i przefiltrować ruch internetowy z sieci wirtualnych (sieci wirtualnych) lub lokalizacji rozgałęzień w obrębie regionu. Odbywa się to za pomocą zautomatyzowanego zarządzania trasami bez konieczności konfigurowania tras zdefiniowanych przez użytkownika i zarządzania nimi (UDR).
 
 Można wdrożyć zabezpieczone centra skonfigurowane z wybranym przez partnera zabezpieczeń w wielu regionach świadczenia usługi Azure, aby uzyskać łączność i bezpieczeństwo użytkowników w dowolnym miejscu na świecie w tych regionach. Dzięki możliwości korzystania z oferty partnera zabezpieczeń na potrzeby ruchu aplikacji internetowych/SaaS oraz zapory platformy Azure dla ruchu prywatnego w zabezpieczonych centrach możesz teraz rozpocząć tworzenie swojej krawędzi zabezpieczeń na platformie Azure, która jest blisko globalnie dystrybuowanych użytkowników i aplikacji.
 
-W przypadku tej wersji zapoznawczej obsługiwane partnerzy zabezpieczeń to **rozwiązania Zscaler** i **iboss**. Obsługiwane regiony to WestCentralUS, NorthCentralUS, zachodnie, WestUS2 i wschód.
+W przypadku tej wersji zapoznawczej obsługiwane partnerzy zabezpieczeń to **rozwiązania Zscaler**, **Check Point**i **iboss**. Obsługiwane regiony to WestCentralUS, NorthCentralUS, zachodnie, WestUS2 i wschód.
 
-![Zaufani partnerzy w zakresie zabezpieczeń](media/trusted-security-partners/trusted-security-partners.png)
+![Dostawcy partnerów w zakresie zabezpieczeń](media/trusted-security-partners/trusted-security-partners.png)
 
 ## <a name="key-scenarios"></a>Najważniejsze scenariusze
 
@@ -80,4 +80,4 @@ Ponadto połączenia pakietu Office 365 są silnie zaszyfrowane w celu zachowani
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Wdróż zaufaną ofertę zabezpieczeń w zabezpieczonym centrum przy użyciu Menedżera zapory platformy Azure](deploy-trusted-security-partner.md).
+[Wdróż ofertę partnera zabezpieczeń w zabezpieczonym centrum przy użyciu Menedżera zapory platformy Azure](deploy-trusted-security-partner.md).

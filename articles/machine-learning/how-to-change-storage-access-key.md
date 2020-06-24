@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/06/2020
-ms.openlocfilehash: 0444ffd27b3a261268f04f0077cca3116521e6f7
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.date: 06/19/2020
+ms.openlocfilehash: 911fa7d509e756f482b2deefad11e35f9cb5ec01
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484511"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117951"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Ponowne generowanie kluczy dostępu do konta magazynu
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -85,7 +85,7 @@ Aby zaktualizować Azure Machine Learning, aby użyć nowego klucza, wykonaj nas
 
 1. Wygeneruj ponownie klucz. Aby uzyskać informacje na temat ponownego generowania klucza dostępu, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../storage/common/storage-account-keys-manage.md). Zapisz nowy klucz.
 
-1. Aby zaktualizować obszar roboczy pod kątem używania nowego klucza, wykonaj następujące czynności:
+1. Obszar roboczy Azure Machine Learning automatycznie zsynchronizuje nowy klucz i zacznie korzystać z niego po godzinie. Aby wymusić natychmiastowe zsynchronizowanie obszaru roboczego z nowym kluczem, wykonaj następujące czynności:
 
     1. Aby zalogować się do subskrypcji platformy Azure, która zawiera obszar roboczy, za pomocą następującego polecenia platformy Azure:
 

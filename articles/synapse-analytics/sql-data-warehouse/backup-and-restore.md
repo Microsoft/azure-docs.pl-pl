@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: ea9a9430f9abee6179bacd4f999b7eeca92a8129
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 28bbd6d237dc09a29f945c602afd904e0c50281d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020850"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214489"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure
 

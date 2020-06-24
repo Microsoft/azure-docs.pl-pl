@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: bd9d643708515855e81ac6729843388a690b2c45
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 52b97e772897289f0c54c4520da7d7af80f44dc3
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700960"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213729"
 ---
 # <a name="create-a-consulting-service-offer"></a>Tworzenie oferty usługi konsultingowej
 
@@ -109,6 +109,37 @@ W tym miejscu zdefiniujesz szczegóły oferty, które są wyświetlane w portalu
 
 > [!NOTE]
 > Szczegóły oferty nie muszą znajdować się w języku angielskim, jeśli opis oferty zaczyna się od frazy, &quot; Ta aplikacja jest dostępna tylko w języku [język inny niż angielski]. &quot; Istnieje również możliwość udostępnienia przydatnego linku do oferowania zawartości w języku innym niż ten, który jest używany w szczegółach dotyczących oferty.
+
+Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Marketplace (wszystkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
+
+:::image type="content" source="media/example-consulting-service-offer.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Logo
+2. Price
+3. Obszary rozwiązania
+4. Branże
+5. Nazwa oferty
+6. Podsumowanie
+7. Opis
+8. Zrzuty ekranu/wideo
+
+<br>Oto przykład sposobu wyświetlania informacji o ofercie w Microsoft AppSource (wszelkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
+
+:::image type="content" source="media/example-consulting-service-offer-appsource.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Logo
+2. Price
+3. Produkty
+4. Branże
+5. Nazwa oferty
+6. Podsumowanie
+7. Opis
+8. Zrzuty ekranu/wideo
+9. Dokumenty
 
 ### <a name="name"></a>Nazwa
 

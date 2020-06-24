@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 51660fb416aa9850381f515a3a31cc57519094b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66256977"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117985"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Arkusze Ściągawka zapytań Azure Cosmos DB
 
@@ -23,12 +23,12 @@ Wybieraj spośród plików z wielkością liter lub z wielkością a3.
 
 Pobierz [Azure Cosmos DB arkuszach o rozmiarze z Ściągawka](https://go.microsoft.com/fwlink/?LinkId=623215) , jeśli zamierzasz drukować do papieru o rozmiarze letter (8,5 "x 11").
 
-![Azure Cosmos DB zapytań z arkuszami Ściągawka — rozmiar Letter, z użyciem interfejsu SQL API, JavaScript, MongoDB, Gremlin i interfejs API tabel zapytań i funkcji](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png" alt-text="Azure Cosmos DB zapytań z arkuszami Ściągawka — rozmiar Letter, z użyciem interfejsu SQL API, JavaScript, MongoDB, Gremlin i interfejs API tabel zapytań i funkcji" border="false":::
 
 ## <a name="oversized-cheat-sheets"></a>Zbyt duże arkusze Ściągawka
 Pobierz [Ściągawka arkusze zapytań o rozmiarze a3 Azure Cosmos DB](https://go.microsoft.com/fwlink/?linkid=870413) , jeśli zamierzasz drukować przy użyciu drukarki ploterowej lub dużej skali na papierze o rozmiarze a3 (11,7 "x 16,5").
 
-![Azure Cosmos DB zapytań z arkuszami Ściągawka — rozmiaru a3, przy użyciu interfejsu SQL API, języka JavaScript, MongoDB, Gremlin i zapytań i funkcji interfejs API tabel](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB zapytań z arkuszami Ściągawka — rozmiaru a3, przy użyciu interfejsu SQL API, języka JavaScript, MongoDB, Gremlin i zapytań i funkcji interfejs API tabel" border="false":::
 
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać pomoc w pisaniu zapytań, zobacz następujące artykuły:

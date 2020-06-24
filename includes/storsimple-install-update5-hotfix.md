@@ -15,7 +15,7 @@ ms.locfileid: "67183428"
 
 Wykonaj następujące kroki, aby pobrać aktualizację oprogramowania z Wykazu usługi Microsoft Update.
 
-1. Uruchom program Internet Explorer i przejdź [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)do.
+1. Uruchom program Internet Explorer i przejdź do [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 2. Jeśli po raz pierwszy używasz Wykazu usługi Microsoft Update na danym komputerze, po wyświetleniu monitu o zainstalowanie dodatku Wykazu usługi Microsoft Update kliknij pozycję **Zainstaluj**.
 
     ![Instalowanie wykazu](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -51,7 +51,7 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
 4. Po wyświetleniu monitu podaj hasło. Przykładowe dane wyjściowe dotyczące instalacji aktualizacji stosowanych w pierwszej kolejności są pokazane poniżej. W przypadku pierwszej aktualizacji zamówienia należy wskazać określony plik.
 
     >[!NOTE] 
-    > Należy najpierw zainstalować _plik HcsSoftwareUpdate. exe_ . Po zakończeniu tej instalacji Zainstaluj program _CisMdsAgentUpdate. exe_.
+    > Należy najpierw zainstalować _HcsSoftwareUpdate.exe_ . Po zakończeniu tej instalacji zainstaluj _CisMdsAgentUpdate.exe_.
    
         ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
@@ -68,7 +68,7 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
 5. Wpisz **Y**, gdy zostanie wyświetlony monit o potwierdzenie instalacji poprawki.
 6. Monitoruj aktualizację za pomocą polecenia cmdlet `Get-HcsUpdateStatus`. Aktualizacja zakończy się najpierw na kontrolerze pasywnym. Gdy kontroler pasywny zostanie zaktualizowany, nastąpi przejście do trybu failover i aktualizacja zostanie zastosowana na drugim kontrolerze. Aktualizacja zostanie zakończona po zaktualizowaniu obu kontrolerów.
    
-    Następujące przykładowe dane wyjściowe pokazują aktualizację w toku. Jest `RunInprogress` to `True` , kiedy aktualizacja jest w toku.
+    Następujące przykładowe dane wyjściowe pokazują aktualizację w toku. `RunInprogress`Jest to, `True` Kiedy aktualizacja jest w toku.
 
     ```
     Controller0>Get-HcsUpdateStatus
@@ -79,7 +79,7 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
     Controller1Events   :
     ```
    
-     Następujące przykładowe dane wyjściowe wskazują, że aktualizacja została zakończona. `RunInProgress` Jest to `False` po zakończeniu aktualizacji.
+     Następujące przykładowe dane wyjściowe wskazują, że aktualizacja została zakończona. `RunInProgress`Jest to `False` po zakończeniu aktualizacji.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -105,13 +105,13 @@ Wykonaj następujące kroki, aby zainstalować i zweryfikować poprawki przeznac
      Jeśli numer wersji nie zmieni się po zastosowaniu aktualizacji, wskazuje to, że stosowanie poprawki nie powiodło się. Jeśli widzisz coś takiego, skontaktuj się z [pomocą techniczną firmy Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) w celu uzyskania dalszej pomocy.
      
      > [!IMPORTANT]
-     > Przed zastosowaniem następnej aktualizacji należy ponownie uruchomić `Restart-HcsController` kontroler Active przy użyciu polecenia cmdlet.
+     > Przed zastosowaniem następnej aktualizacji należy ponownie uruchomić kontroler Active przy użyciu `Restart-HcsController` polecenia cmdlet.
      
-8. Powtórz kroki 3-6, aby zainstalować agenta _CisMDSAgentupdate. exe_ pobranego do folderu _FirstOrderUpdate_ .
+8. Powtórz kroki 3-6, aby zainstalować agenta _CisMDSAgentupdate.exe_ pobranego do folderu _FirstOrderUpdate_ .
 8. Powtórz kroki 3-6, aby zainstalować aktualizacje drugiej kolejności. 
 
     > [!NOTE] 
-    > W przypadku aktualizacji drugiej kolejności można zainstalować wiele aktualizacji, uruchamiając polecenie `Start-HcsHotfix cmdlet` i wskazując folder, w którym znajdują się drugie aktualizacje kolejności. Polecenie cmdlet uruchomi wszystkie aktualizacje dostępne w tym folderze. Jeśli aktualizacja jest już zainstalowana, logika aktualizacji wykryje to i nie zastosuje tej aktualizacji.
+    > W przypadku aktualizacji drugiej kolejności można zainstalować wiele aktualizacji, uruchamiając `Start-HcsHotfix cmdlet` polecenie i wskazując folder, w którym znajdują się drugie aktualizacje kolejności. Polecenie cmdlet uruchomi wszystkie aktualizacje dostępne w tym folderze. Jeśli aktualizacja jest już zainstalowana, logika aktualizacji wykryje to i nie zastosuje tej aktualizacji.
 
     Po zainstalowaniu wszystkich poprawek użyj polecenia cmdlet `Get-HcsSystem`. Wersje powinny być następujące:
     

@@ -3,13 +3,13 @@ title: Konfigurowanie aplikacji ASP.NET Core systemu Linux
 description: Dowiedz się, jak skonfigurować wstępnie utworzony kontener ASP.NET Core dla aplikacji. W tym artykule przedstawiono najczęstsze zadania konfiguracyjne.
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/13/2019
-ms.openlocfilehash: b1d9e59109f5ace25abb9840b48e44ff03d394e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/02/2020
+ms.openlocfilehash: e009f5b1fc656f700b3f0e76dda6e545aed535d2
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78255910"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905769"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Konfigurowanie aplikacji ASP.NET Core systemu Linux dla Azure App Service
 
@@ -43,12 +43,12 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 Jeśli aplikacja zostanie wdrożona za pomocą usługi Git lub zip z włączonym automatyzacją kompilacji, App Service kroki automatyzacji kompilacji w następującej kolejności:
 
-1. Uruchom skrypt niestandardowy, jeśli został `PRE_BUILD_SCRIPT_PATH`określony przez.
+1. Uruchom skrypt niestandardowy, jeśli został określony przez `PRE_BUILD_SCRIPT_PATH` .
 1. Uruchom `dotnet restore` , aby przywrócić zależności NuGet.
 1. Uruchom `dotnet publish` , aby utworzyć plik binarny dla środowiska produkcyjnego.
-1. Uruchom skrypt niestandardowy, jeśli został `POST_BUILD_SCRIPT_PATH`określony przez.
+1. Uruchom skrypt niestandardowy, jeśli został określony przez `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`i `POST_BUILD_COMMAND` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND`. Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND`.
+`PRE_BUILD_COMMAND`i `POST_BUILD_COMMAND` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND` . Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND` .
 
 W poniższym przykładzie określono dwie zmienne do szeregu poleceń, oddzielone przecinkami.
 
@@ -81,8 +81,8 @@ namespace SomeNamespace
     
         public SomeMethod()
         {
-            // retrieve App Service app setting
-            var myAppSetting = _configuration["MySetting"];
+            // retrieve nested App Service app setting
+            var myHierarchicalConfig = _configuration["My:Hierarchical:Config:Data"];
             // retrieve App Service connection string
             var myConnString = _configuration.GetConnectionString("MyDbConnection");
         }
@@ -90,11 +90,18 @@ namespace SomeNamespace
 }
 ```
 
-W przypadku skonfigurowania ustawienia aplikacji o tej samej nazwie w App Service i w pliku *appSettings. JSON*na przykład wartość App Service ma pierwszeństwo przed wartością *appSettings. JSON* . Lokalna wartość *appSettings. JSON* umożliwia debugowanie aplikacji lokalnie, ale App Service wartość umożliwia uruchamianie aplikacji w produkcie z ustawieniami produkcyjnymi. Parametry połączenia działają w ten sam sposób. W ten sposób można zachować wpisy tajne aplikacji poza repozytorium kodu i uzyskać dostęp do odpowiednich wartości bez konieczności zmiany kodu.
+W przypadku skonfigurowania ustawienia aplikacji o tej samej nazwie w App Service i w *appsettings.jsna*przykład wartość App Service ma pierwszeństwo przed *appsettings.js* wartości. Lokalna *appsettings.jsna* wartość umożliwia debugowanie aplikacji lokalnie, ale wartość App Service umożliwia uruchamianie aplikacji w produkcie z ustawieniami produkcyjnymi. Parametry połączenia działają w ten sam sposób. W ten sposób można zachować wpisy tajne aplikacji poza repozytorium kodu i uzyskać dostęp do odpowiednich wartości bez konieczności zmiany kodu.
+
+> [!NOTE]
+> Należy zauważyć, że [dane hierarchicznej konfiguracji](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) w *appsettings.js* są dostępne przy użyciu `:` ogranicznika standardowego dla programu .NET Core. Aby zastąpić określone ustawienie konfiguracji hierarchicznej w App Service, w kluczu Ustaw nazwę ustawienia aplikacji o takim samym formacie. w [Cloud Shell](https://shell.azure.com)można uruchomić następujący przykład:
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings My:Hierarchical:Config:Data="some value"
+```
 
 ## <a name="get-detailed-exceptions-page"></a>Strona pobierania szczegółowych wyjątków
 
-Gdy aplikacja ASP.NET generuje wyjątek w debugerze programu Visual Studio, przeglądarka wyświetla szczegółową stronę wyjątku, ale w App Service tej stronie jest zastępowany przez ogólny błąd **protokołu HTTP 500** lub **Wystąpił błąd podczas przetwarzania żądania.** . Aby wyświetlić szczegółową stronę wyjątku w App Service, Dodaj ustawienie `ASPNETCORE_ENVIRONMENT` aplikacji do aplikacji, uruchamiając następujące polecenie w <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Gdy aplikacja ASP.NET generuje wyjątek w debugerze programu Visual Studio, przeglądarka wyświetla szczegółową stronę wyjątku, ale w App Service tej stronie jest zastępowany przez ogólny błąd **protokołu HTTP 500** lub **Wystąpił błąd podczas przetwarzania żądania.** . Aby wyświetlić szczegółową stronę wyjątku w App Service, Dodaj `ASPNETCORE_ENVIRONMENT` ustawienie aplikacji do aplikacji, uruchamiając następujące polecenie w <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -104,9 +111,9 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 W usłudze App Service [kończenie żądań SSL](https://wikipedia.org/wiki/TLS_termination_proxy) odbywa się w modułach równoważenia obciążenia sieciowego, dzięki czemu wszystkie żądania HTTPS docierają do aplikacji jako niezaszyfrowane żądania HTTP. Jeśli logika aplikacji musi wiedzieć, czy żądania użytkowników są szyfrowane, należy skonfigurować oprogramowanie pośredniczące w programie *Startup.cs*:
 
-- Skonfiguruj oprogramowanie pośredniczące w [programie ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) , aby `X-Forwarded-For` przekazywać nagłówki i `X-Forwarded-Proto` w `Startup.ConfigureServices`.
+- Skonfiguruj oprogramowanie pośredniczące w programie [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) , aby przekazywać `X-Forwarded-For` `X-Forwarded-Proto` nagłówki i w `Startup.ConfigureServices` .
 - Dodaj zakresy prywatnych adresów IP do znanych sieci, dzięki czemu oprogramowanie pośredniczące może ufać App Service Module równoważenia obciążenia.
-- Wywołaj metodę [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) w `Startup.Configure` elemencie przed wywołaniem innych middlewares.
+- Wywołaj metodę [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) w elemencie `Startup.Configure` przed wywołaniem innych middlewares.
 
 Umieszczenie wszystkich trzech elementów razem, kod wygląda podobnie do poniższego przykładu:
 
@@ -154,7 +161,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>Korzystanie z ustawień aplikacji
 
-W <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>Dodaj ustawienie aplikacji do aplikacji App Service, uruchamiając następujące polecenie interfejsu wiersza polecenia. Zastąp * \<wartość>nazwy aplikacji *, * \<>grupy zasobów *i * \<nazwę projektu>* z odpowiednimi wartościami.
+W <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>Dodaj ustawienie aplikacji do aplikacji App Service, uruchamiając następujące polecenie interfejsu wiersza polecenia. Zamień *\<app-name>* , *\<resource-group-name>* i *\<project-name>* z odpowiednimi wartościami.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -162,7 +169,26 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="access-diagnostic-logs"></a>Uzyskiwanie dostępu do dzienników diagnostycznych
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+ASP.NET Core udostępnia [wbudowanego dostawcę rejestrowania dla App Service](https://docs.microsoft.com/aspnet/core/fundamentals/logging/#azure-app-service). W *program.cs* projektu Dodaj dostawcę do aplikacji za pomocą `ConfigureLogging` metody rozszerzającej, jak pokazano w następującym przykładzie:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureLogging(logging =>
+        {
+            logging.AddAzureWebAppDiagnostics();
+        })
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        });
+```
+
+Następnie można konfigurować i generować dzienniki przy użyciu [standardowego wzorca .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
+
+Aby uzyskać więcej informacji na temat rozwiązywania problemów z ASP.NET Core aplikacjami w App Service, zobacz [Rozwiązywanie problemów ASP.NET Core na Azure App Service i usługach IIS](https://docs.microsoft.com/aspnet/core/test/troubleshoot-azure-iis)
 
 ## <a name="open-ssh-session-in-browser"></a>Otwórz sesję SSH w przeglądarce
 

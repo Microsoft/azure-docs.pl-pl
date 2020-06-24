@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c61bea7f3ca1105edfec54501c5f0725a5a10225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c5ef454871f242adb9de5e5c567c1a76e00478cc
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654111"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789943"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integracja infrastruktury Pulpit zdalny Gateway przy użyciu rozszerzenia serwera zasad sieciowych (NPS) i usługi Azure AD
 
@@ -130,13 +130,14 @@ W ramach konfiguracji rozszerzenia serwera NPS należy podać poświadczenia adm
 
 Zainstaluj rozszerzenie serwera NPS na serwerze z zainstalowaną rolą usług zasad sieciowych i dostępu sieciowego (NPS). Ta funkcja działa jako serwer RADIUS dla Twojego projektu.
 
-> [!Important]
-> Upewnij się, że rozszerzenia serwera NPS nie są zainstalowane na serwerze bramy Pulpit zdalny.
+> [!IMPORTANT]
+> Nie instaluj rozszerzenia serwera NPS na serwerze bramy Pulpit zdalny (RDG). Serwer RDG nie używa protokołu RADIUS z klientem, więc rozszerzenie nie może zinterpretować i wykonać uwierzytelniania MFA.
 >
+> Gdy serwer RDG i serwer zasad sieciowych z rozszerzeniem serwera NPS są różnymi serwerami, RDG używa wewnętrznie serwera NPS do komunikowania się z innymi serwerami NPS i używa usługi RADIUS jako protokołu do poprawnego komunikowania się.
 
 1. Pobierz [rozszerzenie serwera NPS](https://aka.ms/npsmfa).
-1. Skopiuj plik wykonywalny Instalatora (NpsExtnForAzureMfaInstaller. exe) na serwer NPS.
-1. Na serwerze NPS kliknij dwukrotnie **plik NpsExtnForAzureMfaInstaller. exe**. Jeśli zostanie wyświetlony monit, kliknij przycisk **Uruchom**.
+1. Skopiuj plik wykonywalny Instalatora (NpsExtnForAzureMfaInstaller.exe) na serwer NPS.
+1. Na serwerze NPS kliknij dwukrotnie **NpsExtnForAzureMfaInstaller.exe**. Jeśli zostanie wyświetlony monit, kliknij przycisk **Uruchom**.
 1. W oknie dialogowym rozszerzenia serwera NPS dla Instalatora usługi Azure MFA Przejrzyj postanowienia licencyjne dotyczące oprogramowania, zaznacz opcję Akceptuję **warunki i postanowienia licencyjne**, a następnie kliknij przycisk **Instaluj**.
 1. W oknie dialogowym rozszerzenia serwera NPS dla ustawienia usługi Azure MFA kliknij przycisk **Zamknij**.
 
@@ -157,10 +158,10 @@ Jeśli chcesz użyć własnych certyfikatów, musisz skojarzyć klucz publiczny 
 Aby użyć skryptu, podaj rozszerzenie przy użyciu poświadczeń administratora usługi Azure AD oraz wcześniej skopiowanego identyfikatora dzierżawy usługi Azure AD. Uruchom skrypt na każdym serwerze NPS, na którym zainstalowano rozszerzenie serwera NPS. Następnie wykonaj poniższe czynności:
 
 1. Otwórz wiersz poleceń administracyjnych programu Windows PowerShell.
-1. W wierszu polecenia programu PowerShell wpisz `cd 'c:\Program Files\Microsoft\AzureMfa\Config'`polecenie, a następnie naciśnij klawisz **Enter**.
-1. Wpisz `.\AzureMfaNpsExtnConfigSetup.ps1`polecenie, a następnie naciśnij klawisz **Enter**. Skrypt sprawdza, czy zainstalowano moduł Azure Active Directory PowerShell. Jeśli nie jest zainstalowany, skrypt instaluje moduł.
+1. W wierszu polecenia programu PowerShell wpisz `cd 'c:\Program Files\Microsoft\AzureMfa\Config'` polecenie, a następnie naciśnij klawisz **Enter**.
+1. Wpisz `.\AzureMfaNpsExtnConfigSetup.ps1` polecenie, a następnie naciśnij klawisz **Enter**. Skrypt sprawdza, czy zainstalowano moduł Azure Active Directory PowerShell. Jeśli nie jest zainstalowany, skrypt instaluje moduł.
 
-   ![Uruchamianie AzureMfaNpsExtnConfigSetup. ps1 w programie Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
+   ![Uruchamianie AzureMfaNpsExtnConfigSetup.ps1 w programie Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   
 1. Po zweryfikowaniu instalacji modułu PowerShell przez skrypt zostanie wyświetlone okno dialogowe Azure Active Directory module programu PowerShell. W oknie dialogowym wprowadź poświadczenia administratora usługi Azure AD i hasło, a następnie kliknij przycisk **Zaloguj**.
 
@@ -186,14 +187,14 @@ Pulpit zdalny zasady autoryzacji połączeń (RD CAP) określają wymagania doty
 
 1. Na serwerze bramy usług pulpitu zdalnego Otwórz **Menedżer serwera**.
 1. W menu kliknij pozycję **Narzędzia**, wskaż polecenie **usługi pulpitu zdalnego**, a następnie kliknij pozycję **Menedżer bramy pulpit zdalny**.
-1. W Menedżerze bramy usług pulpitu zdalnego kliknij prawym przyciskiem myszy pozycję ** \[nazwa\] serwera (lokalna)**, a następnie kliknij polecenie **Właściwości**.
+1. W Menedżerze bramy usług pulpitu zdalnego kliknij prawym przyciskiem myszy pozycję ** \[ Nazwa serwera \] (lokalna)**, a następnie kliknij polecenie **Właściwości**.
 1. W oknie dialogowym właściwości wybierz kartę **magazyn RD CAP** .
 1. Na karcie Magazyn RD CAP wybierz pozycję **serwer centralny z uruchomionym serwerem zasad sieciowych**. 
 1. W polu **Wprowadź nazwę lub adres IP dla serwera** , na którym działa serwer zasad sieciowych wpisz adres IP lub nazwę serwera serwera, na którym zainstalowano rozszerzenie serwera NPS.
 
    ![Wprowadź nazwę lub adres IP serwera NPS](./media/howto-mfa-nps-extension-rdg/image10.png)
   
-1. Kliknij pozycję **Add** (Dodaj).
+1. Kliknij pozycję **Dodaj**.
 1. W oknie dialogowym **wspólny klucz tajny** wprowadź wspólny klucz tajny, a następnie kliknij przycisk **OK**. Upewnij się, że ten wspólny klucz tajny jest rejestrowany i bezpieczny.
 
    >[!NOTE]

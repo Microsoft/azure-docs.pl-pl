@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 04de89624dd0e6857e96327bb408cf8700a1f6a2
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 9fba2a898809c7c4062e1c0115ffce60f5becfdf
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848885"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213820"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Tworzenie oferty Dynamics 365 Business Central
 
@@ -26,7 +26,7 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
 3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Dynamics 365 Business Central**.
 
-    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-dynamics-365-bc.png)
+    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-dynamics-365-business-central.png)
 
 > [!NOTE]
 > Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
@@ -60,7 +60,7 @@ Wystaw swoją ofertę bezpłatnie klientom, podając prawidłowy adres URL (pocz
 
 #### <a name="free-trial-listing"></a>Bezpłatna wersja próbna (lista)
 
-Utwórz listę ofert klientom z linkiem do bezpłatnej wersji próbnej, podając prawidłowy adres URL (począwszy od *protokołu HTTP* lub *https*), w którym można uzyskać wersję próbną.  Na przykład `https://contoso.com/trial/my-app`. Oferta z listą bezpłatnych wersji próbnych jest tworzona, zarządzana i konfigurowana przez usługę i nie ma subskrypcji zarządzanych przez firmę Microsoft.
+Utwórz listę ofert dla klientów z linkiem do bezpłatnej wersji próbnej, podając prawidłowy adres URL (zaczynający się od `http` lub `https` ), gdzie można pobrać wersję próbną.  Na przykład `https://contoso.com/trial/my-app`. Oferta z listą bezpłatnych wersji próbnych jest tworzona, zarządzana i konfigurowana przez usługę i nie ma subskrypcji zarządzanych przez firmę Microsoft.
 
 > [!NOTE]
 > Tokeny wysyłane przez aplikację za pomocą linku do wersji próbnej mogą być używane tylko w celu uzyskania informacji o użytkowniku za pomocą usługi Azure Active Directory (Azure AD) w celu zautomatyzowania tworzenia kont w aplikacji. Konta Microsoft nie są obsługiwane na potrzeby uwierzytelniania przy użyciu tego tokenu.
@@ -131,6 +131,23 @@ Jest to miejsce, w którym można definiować szczegóły oferty, takie jak nazw
 > [!NOTE]
 > Możesz podać szczegółowe informacje o ofercie tylko w jednym języku. Nie jest wymagane, aby być w języku angielskim, tak długo, jak opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Można także podać *adres URL linku pomocy* , aby zaoferować zawartość w języku innym niż ten, który jest używany w ofercie dotyczącej oferty.
 
+Oto przykład sposobu wyświetlania informacji o ofercie w Microsoft AppSource (wszelkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
+
+:::image type="content" source="media/example-d365-business-central.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Logo
+2. Produkty
+3. Kategorie
+4. Adres pomocy technicznej (link)
+5. Warunki użytkowania
+6. Zasady ochrony prywatności
+7. Nazwa oferty
+8. Podsumowanie
+9. Opis
+10. Zrzuty ekranu/wideo
+
 ### <a name="name"></a>Nazwa
 
 Nazwa wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty. To pole jest wstępnie wypełnione tekstem wprowadzonym dla **aliasu oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Ta nazwa może być znakiem towarowym (i może zawierać znaki towarowe lub autorskie). Nazwa nie może być dłuższa niż 50 znaków i nie może zawierać żadnych znaków emoji.
@@ -193,7 +210,7 @@ Dodaj zrzuty ekranu pokazujące, jak działa Twoja oferta. Wymagane są co najmn
 
 #### <a name="videos"></a>Filmy wideo
 
-Opcjonalnie możesz dodać maksymalnie pięć filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli)
+Opcjonalnie możesz dodać maksymalnie pięć filmów wideo, które demonstrują Twoją ofertę. Te filmy wideo powinny być hostowane w usłudze YouTube i/lub Vimeo. Dla każdej z nich wprowadź nazwę filmu wideo, jego adres URL i obraz miniatury filmu wideo (1280 x 720 pikseli).
 
 #### <a name="additional-marketplace-listing-resources"></a>Dodatkowe zasoby dotyczące wyświetlania w portalu Marketplace
 

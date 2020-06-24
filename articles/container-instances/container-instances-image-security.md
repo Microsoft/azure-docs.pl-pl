@@ -1,15 +1,15 @@
 ---
-title: Zabezpieczenia dla wystąpień kontenerów
+title: Zagadnienia dotyczące zabezpieczeń dla wystąpień kontenerów
 description: Zalecenia dotyczące zabezpieczania obrazów i wpisów tajnych Azure Container Instances i ogólne zagadnienia dotyczące zabezpieczeń dla dowolnej platformy kontenera
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 87fa28cf9bdb546a5f108284023a9f787645a1fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d339683c8864b85f7ccb1ac3c982f03aa7abf103
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457998"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907027"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Zagadnienia dotyczące zabezpieczeń Azure Container Instances
 
@@ -18,6 +18,9 @@ W tym artykule przedstawiono zagadnienia dotyczące zabezpieczeń związane z u�
 > [!div class="checklist"]
 > * **Zalecenia dotyczące zabezpieczeń** dotyczące zarządzania obrazami i wpisami tajnymi dla Azure Container Instances
 > * **Zagadnienia dotyczące ekosystemu kontenerów** w całym cyklu życia kontenera dla każdej platformy kontenera
+
+Aby zapoznać się z kompleksowymi zaleceniami, które pomogą ulepszyć stan bezpieczeństwa wdrożenia, zobacz [podstawy zabezpieczeń platformy Azure dla Container Instances](security-baseline.md).
+
 
 ## <a name="security-recommendations-for-azure-container-instances"></a>Zalecenia dotyczące zabezpieczeń Azure Container Instances
 
@@ -140,6 +143,8 @@ Należy zachować dokładną historię inspekcji dostępu administracyjnego do e
 * Dzienniki zasobów dla [Azure Container Instances](container-instances-log-analytics.md) i [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
 
 ## <a name="next-steps"></a>Następne kroki
+
+* Zapoznaj się z tematem [podstawy zabezpieczeń platformy Azure dla Container Instances](security-baseline.md) , aby uzyskać kompleksowe zalecenia, które pomogą ulepszyć stan bezpieczeństwa wdrożenia.
 
 * Dowiedz się więcej o korzystaniu z [Azure Security Center](../security-center/container-security.md) na potrzeby wykrywania zagrożeń w czasie rzeczywistym w środowiskach kontenerów.
 

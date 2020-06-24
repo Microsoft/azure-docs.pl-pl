@@ -6,17 +6,20 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655365"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906806"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Tworzenie pól niestandardowych w obszarze roboczym Log Analytics w Azure Monitor (wersja zapoznawcza)
 
 > [!NOTE]
 > W tym artykule opisano sposób analizowania danych tekstowych w obszarze roboczym Log Analytics w miarę ich zbierania. Zalecamy analizowanie danych tekstowych w filtrze zapytania po zebraniu zgodnie ze wskazówkami opisanymi w temacie [Analizowanie danych tekstowych w Azure monitor](../log-query/parse-text.md). Zapewnia kilka korzyści w porównaniu z użyciem pól niestandardowych.
+
+> [!IMPORTANT]
+> Pola niestandardowe zwiększają ilość danych zebranych w obszarze roboczym Log Analytics, co może zwiększyć koszt. Aby uzyskać szczegółowe informacje [, zobacz Zarządzanie użyciem i kosztami za pomocą dzienników Azure monitor](manage-cost-storage.md#pricing-model) .
 
 Funkcja **pól niestandardowych** Azure monitor pozwala na rozbudowanie istniejących rekordów w obszarze roboczym log Analytics przez dodanie własnych pól do przeszukiwania.  Pola niestandardowe są automatycznie wypełniane na podstawie danych wyodrębnionych z innych właściwości w tym samym rekordzie.
 
@@ -50,7 +53,7 @@ Pierwszym krokiem jest zidentyfikowanie rekordów, które będą uzyskać pole n
 ### <a name="step-2---perform-initial-extract"></a>Krok 2. wykonanie początkowego wyodrębnienia.
 Po zidentyfikowaniu rekordów, które będą miały pole niestandardowe, należy zidentyfikować dane, które mają zostać wyodrębnione.  Log Analytics będzie używać tych informacji do identyfikowania podobnych wzorców w podobnych rekordach.  W kroku po tym będzie można sprawdzić poprawność wyników i podać dalsze szczegóły dotyczące Log Analytics do użycia w analizie.
 
-1. Zaznacz tekst w przykładowym rekordzie, który ma zostać wypełniony pola niestandardowego.  Następnie zostanie wyświetlone okno dialogowe umożliwiające podanie nazwy i typu danych dla pola oraz wykonanie początkowego wyodrębnienia.  Znaki ** \_CF** zostaną automatycznie dołączone.
+1. Zaznacz tekst w przykładowym rekordzie, który ma zostać wypełniony pola niestandardowego.  Następnie zostanie wyświetlone okno dialogowe umożliwiające podanie nazwy i typu danych dla pola oraz wykonanie początkowego wyodrębnienia.  Znaki ** \_ CF** zostaną automatycznie dołączone.
 2. Kliknij pozycję **Wyodrębnij** , aby przeprowadzić analizę zebranych rekordów.  
 3. W sekcjach **Podsumowanie** i **wyniki wyszukiwania** są wyświetlane wyniki wyodrębniania, aby można było sprawdzić jego dokładność.  W obszarze **Podsumowanie** są wyświetlane kryteria służące do identyfikowania rekordów i liczby dla każdej z zidentyfikowanych wartości danych.  **Wyniki wyszukiwania** zawierają szczegółową listę rekordów spełniających kryteria.
 

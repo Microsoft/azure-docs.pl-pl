@@ -3,17 +3,17 @@ title: Wymagania dotyczące pakietu rysowania w programie Azure Maps Creator
 description: Dowiedz się więcej o wymaganiach dotyczących pakietów rysowania w celu przekonwertowania plików projektu funkcji na potrzeby mapowania danych przy użyciu usługi konwersji Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 6/09/2020
+ms.date: 6/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: cb34cb386939fc1160ee5a7db0007cfbf500ccb8
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: c8699ff86573084e3199b096b25dd5d97cce2985
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660622"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791575"
 ---
 # <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu do rysowania
 
@@ -34,7 +34,7 @@ Słownik terminów użytych w tym dokumencie.
 | Warstwa | Warstwa programu AutoCAD DWG.|
 | Poziom | Obszar budynku z zestawem podniesienia uprawnień. Na przykład piętro budynku. |
 | Linki XREF  |Plik w formacie programu AutoCAD DWG (. dwg) dołączony do podstawowego rysunku jako odwołanie zewnętrzne.  |
-| Cechy | Obiekt, który łączy geometrię z dodatkowymi informacjami o metadanych. |
+| Cecha | Obiekt, który łączy geometrię z dodatkowymi informacjami o metadanych. |
 | Klasy funkcji | Typowy plan dla funkcji. Na przykład jednostka jest klasą funkcji, a pakiet Office jest funkcją. |
 
 ## <a name="drawing-package-structure"></a>Struktura pakietu rysowania
@@ -169,12 +169,13 @@ Przykład warstwy Zonelabel może być traktowany jako warstwa ZONELABELS w [prz
 
 Folder zip musi zawierać plik manifestu na poziomie głównym katalogu, a plik musi mieć nazwę **manifest.jsna**. Opisano w nim pliki DWG umożliwiające przeanalizowanie zawartości przez [usługę konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) . Zostaną pozyskane tylko pliki zidentyfikowane przez manifest. Pliki znajdujące się w folderze ZIP, ale nie są poprawnie wymienione w manifeście, zostaną zignorowane.
 
-Ścieżki plików w obiekcie **buildingLevels** pliku manifestu muszą być względne względem katalogu głównego folderu zip. Nazwa pliku DWG musi być dokładnie zgodna z nazwą poziomu funkcji. Na przykład plik DWG dla poziomu "Basement" ma wartość "Basement. dwg". Plik DWG dla poziomu 2 zostałby nazwany jako "level_2. dwg". Jeśli nazwa poziomu zawiera spację, użyj znaku podkreślenia. 
+Ścieżki plików w obiekcie **buildingLevels** pliku manifestu muszą być względne względem katalogu głównego folderu zip. Nazwa pliku DWG musi być dokładnie zgodna z nazwą poziomu funkcji. Na przykład plik DWG dla poziomu "Basement" ma wartość "Basement. dwg". Plik DWG dla poziomu 2 zostałby nazwany jako "level_2. dwg". Jeśli nazwa poziomu zawiera spację, użyj znaku podkreślenia.
 
 Chociaż istnieją wymagania dotyczące korzystania z obiektów manifestu, nie wszystkie obiekty są wymagane. W poniższej tabeli przedstawiono wymagane i opcjonalne obiekty w wersji 1,1 [usługi konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Obiekt | Wymagane | Opis |
 | :----- | :------- | :------- |
+| version | true |Wersja schematu manifestu. Obecnie obsługiwana jest tylko wersja 1,1.|
 | directoryInfo | true | Przedstawia informacje o lokalizacji geograficznej i kontakcie. Można go również użyć do zaprojektowania geograficznego i informacji kontaktowych. |
 | buildingLevels | true | Określa poziomy budynków i pliki zawierające projekt poziomów. |
 | odwołanie georeferencyjne | true | Zawiera liczbowe informacje geograficzne dla rysowania obiektu. |
@@ -211,7 +212,7 @@ W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiekt
 |-----------|------|----------|-------------|
 |levelName    |ciąg    |true |    Nazwa poziomu w opisie. Na przykład: piętro 1, poczekalni, niebieskie parkingi, Basement i tak dalej.|
 |liczbą | liczba całkowita |    true | Numer porządkowy jest używany do określenia pionowej kolejności poziomów. Każda funkcja musi mieć poziom z liczbą porządkową 0. |
-|heightAboveFacilityAnchor | numeryczne |    fałsz |    Wysokość poziomu powyżej podłogi podłogowej w metrach. |
+|heightAboveFacilityAnchor | numeryczne | fałsz |    Wysokość poziomu nad kotwicą w metrach. |
 | verticalExtent | numeryczne | fałsz | Podłoga do wysokości sufitu (grubości) poziomu w licznikach. |
 |filename |    ciąg |    true |    Ścieżka systemu plików rysunku CAD dla poziomu budynku. Musi być względem katalogu głównego pliku zip budynku. |
 
@@ -253,7 +254,7 @@ W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiekt
 |verticalPenetrationDirection|    ciąg|    fałsz    |Jeśli `verticalPenetrationCategory` jest zdefiniowany, opcjonalnie Zdefiniuj prawidłowy kierunek podróży. Dozwolone wartości to `lowToHigh` , `highToLow` , `both` , i `closed` . Wartość domyślna to `both` .|
 | nonPublic | bool | fałsz | Wskazuje, czy jednostka jest otwarta publicznie. |
 | isRoutable | bool | fałsz | Gdy ustawiona `false` jest wartość, nie można przejść do jednostki, lub przez. Wartość domyślna to `true` . |
-| isOpenArea | bool | fałsz | Umożliwia nawigowanie przez agenta w celu przejścia do jednostki bez konieczności otwierania dołączonej do jednostki. Domyślnie ta wartość jest ustawiona na, `true` chyba że jednostka ma otwarte. |
+| isOpenArea | bool | fałsz | Zezwala agentowi nawigacyjnemu na przejście do jednostki bez konieczności otwierania dołączonej do jednostki. Domyślnie ta wartość jest ustawiona na `true` dla jednostek bez otwartych; `false` dla jednostek z otwartymi.  Ręczne ustawienie `isOpenArea` `false` w jednostce bez otwartych wyników powoduje ostrzeżenie. Wynika to z faktu, że jednostka, która nie będzie osiągalna przez agenta nawigowania.|
 
 ### <a name="the-zoneproperties-object"></a>Obiekt zoneProperties
 
@@ -265,6 +266,7 @@ W następnych sekcjach szczegółowo przedstawiono wymagania dla każdego obiekt
 |categoryName|    ciąg|    fałsz    |Nazwa kategorii. Aby uzyskać pełną listę kategorii, zobacz [Kategorie](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    ciąg|    fałsz    |Alternatywna nazwa strefy.  |
 |zoneNameSubtitle|    ciąg |    fałsz    |Podtytuł strefy. |
+|zoneSetId|    ciąg |    fałsz    | Ustaw identyfikator, aby ustanowić relację między wieloma strefami, aby można było wykonywać zapytania lub wybierać jako grupę. Na przykład strefy obejmujące wiele poziomów. |
 
 ### <a name="sample-drawing-package-manifest"></a>Przykładowy manifest pakietu rysowania
 

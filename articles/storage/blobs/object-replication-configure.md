@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 89a4c934a0245c39f6015a43d9de16db800691d8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170634"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888115"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Konfiguruj replikację obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -28,7 +28,9 @@ W tym artykule opisano sposób konfigurowania replikacji obiektów dla konta mag
 
 Przed skonfigurowaniem replikacji obiektów Utwórz źródłową i docelową konto magazynu, jeśli jeszcze nie istnieją. Oba konta muszą być kontami magazynu ogólnego przeznaczenia w wersji 2. Aby uzyskać więcej informacji, zobacz [Tworzenie konta usługi Azure Storage](../common/storage-account-create.md).
 
-Upewnij się również, że zarejestrowano dla następujących wersji zapoznawczych funkcji:
+Konto magazynu może stanowić konto źródłowe dla maksymalnie dwóch kont docelowych. A konto docelowe może zawierać nie więcej niż dwa konta źródłowe. Konta źródłowe i docelowe mogą znajdować się w różnych regionach. W celu replikowania danych do każdego z kont docelowych można skonfigurować oddzielne zasady replikacji.
+
+Przed rozpoczęciem upewnij się, że zarejestrowano dla następujących wersji zapoznawczych funkcji:
 
 - [Replikacja obiektów (wersja zapoznawcza)](object-replication-overview.md)
 - [Przechowywanie wersji obiektów BLOB (wersja zapoznawcza)](versioning-overview.md)
@@ -41,7 +43,7 @@ Przed skonfigurowaniem replikacji obiektów w Azure Portal należy utworzyć kon
 Aby utworzyć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 
 1. Przejdź do źródłowego konta magazynu w Azure Portal.
-1. W obszarze **Ustawienia**wybierz pozycję **replikacja obiektów**.
+1. W obszarze **BLOB Service**wybierz pozycję **replikacja obiektów**.
 1. Wybierz pozycję **Konfiguruj replikację**.
 1. Wybierz subskrypcję docelową i konto magazynu.
 1. W sekcji **pary kontenerów** wybierz kontener źródłowy z konta źródłowego i kontener docelowy z konta docelowego. Można utworzyć maksymalnie 10 par kontenerów dla każdej zasady replikacji.
@@ -64,7 +66,7 @@ Aby utworzyć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 
 1. Wybierz pozycję **Zapisz i Zastosuj** , aby utworzyć zasady replikacji i rozpocząć replikowanie danych.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby utworzyć zasady replikacji przy użyciu programu PowerShell, najpierw Zainstaluj wersję [2.0.1 — wersja zapoznawcza](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) modułu programu PowerShell AZ. Storage. Wykonaj następujące kroki, aby zainstalować moduł w wersji zapoznawczej:
 
@@ -241,7 +243,7 @@ Aby usunąć zasady replikacji w Azure Portal, wykonaj następujące kroki:
 1. Kliknij przycisk **więcej** obok nazwy zasad.
 1. Wybierz pozycję **Usuń reguły**.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Aby usunąć zasady replikacji, Usuń zasady z konta źródłowego i docelowego. Usunięcie zasad spowoduje również usunięcie skojarzonych z nią reguł.
 

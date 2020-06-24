@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 63fee90be773f61bfef73e21a272192eea5f789c
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 496f519ba5e4eb17060ee35ed86fba45c85336d6
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167489"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905735"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurowanie aplikacji Java systemu Linux dla usługi Azure App Service
 
@@ -44,7 +44,7 @@ Raporty o wydajności, wizualizacje ruchu i narzędzia dla kondycji są dostępn
 
 ### <a name="stream-diagnostic-logs"></a>Przesyłanie strumieniowe dzienników diagnostycznych
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 Aby uzyskać więcej informacji, zobacz [przesyłanie strumieniowe dzienników w Cloud Shell](../troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
@@ -280,7 +280,7 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 ### <a name="configure-new-relic"></a>Konfiguruj nowe Relic
 
 1. Utwórz konto NewRelic na [newrelic.com](https://newrelic.com/signup)
-2. Pobierz agenta Java z NewRelic, jego nazwa będzie wyglądać podobnie do *newrelic-Java-x. x. x. zip*.
+2. Pobierz agenta Java z NewRelic, będzie on miał nazwę pliku podobną do *newrelic-java-x.x.x.zip*.
 3. Skopiuj klucz licencji, który będzie potrzebny do późniejszego skonfigurowania agenta.
 4. Użyj protokołu [SSH do wystąpienia App Service](app-service-linux-ssh-support.md) i Utwórz nowy katalog */Home/site/wwwroot/APM*.
 5. Przekaż pliki agenta NewRelic języka Java rozpakowane do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/newrelic*.
@@ -292,7 +292,7 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 ### <a name="configure-appdynamics"></a>Konfigurowanie AppDynamics
 
 1. Utwórz konto AppDynamics na [AppDynamics.com](https://www.appdynamics.com/community/register/)
-2. Pobierz agenta Java z witryny internetowej AppDynamics nazwa pliku będzie podobna do *AppServerAgent-x. x. x. xxxxx. zip*
+2. Pobierz agenta Java z witryny internetowej AppDynamics nazwa pliku będzie podobna do *AppServerAgent-x.x.x.xxxxx.zip*
 3. Użyj protokołu [SSH do wystąpienia App Service](app-service-linux-ssh-support.md) i Utwórz nowy katalog */Home/site/wwwroot/APM*.
 4. Przekaż pliki agenta Java do katalogu w obszarze */Home/site/wwwroot/APM*. Pliki dla agenta powinny znajdować się w */Home/site/wwwroot/APM/AppDynamics*.
 5. W Azure Portal przejdź do aplikacji w App Service i Utwórz nowe ustawienie aplikacji.
@@ -306,7 +306,7 @@ W tej sekcji przedstawiono sposób łączenia aplikacji Java wdrożonych w syste
 
 ### <a name="starting-jar-apps"></a>Uruchamianie aplikacji JAR
 
-Domyślnie App Service oczekuje, że aplikacja JAR ma nazwę *App. jar*. Jeśli ma tę nazwę, zostanie ona uruchomiona automatycznie. W przypadku użytkowników Maven można ustawić nazwę JAR, dołączając ją do `<finalName>app</finalName>` `<build>` sekcji *pliku pom. XML*. [Można to zrobić w Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) przez ustawienie `archiveFileName` właściwości.
+Domyślnie App Service oczekuje, że aplikacja JAR ma nazwę *App. jar*. Jeśli ma tę nazwę, zostanie ona uruchomiona automatycznie. W przypadku użytkowników Maven można ustawić nazwę JAR, dołączając ją do `<finalName>app</finalName>` `<build>` sekcji *pom.xml*. [Można to zrobić w Gradle](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) przez ustawienie `archiveFileName` właściwości.
 
 Jeśli chcesz użyć innej nazwy dla systemu JAR, musisz również podać [polecenie uruchamiania](app-service-linux-faq.md#built-in-images) , które wykonuje plik JAR. Na przykład `java -jar my-jar-app.jar`. Możesz ustawić wartość dla polecenia startowego w portalu, w obszarze Konfiguracja > ustawienia ogólne lub z ustawieniem aplikacji o nazwie `STARTUP_COMMAND` .
 
@@ -327,7 +327,7 @@ App Service system Linux kieruje żądania przychodzące do portu 80, dlatego ap
 
 Te instrukcje dotyczą wszystkich połączeń z bazą danych. Musisz wypełnić symbole zastępcze nazwą klasy sterownika wybranej bazy danych i plikiem JAR. Dostarczono tabelę z nazwami klas i pobraniami sterowników dla wspólnych baz danych.
 
-| Baza danych   | Nazwa klasy sterownika                             | Sterownik JDBC                                                                      |
+| baza danych   | Nazwa klasy sterownika                             | Sterownik JDBC                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Pobierz](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Pobierz](https://dev.mysql.com/downloads/connector/j/) (wybierz pozycję "Platforma niezależna") |
@@ -350,9 +350,9 @@ Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikac
 
 #### <a name="application-level-data-sources"></a>Źródła danych na poziomie aplikacji
 
-1. Utwórz plik *Context. XML* w *META-INF/* katalogu projektu. Utwórz *plik META-INF/* katalog, jeśli nie istnieje.
+1. Utwórz plik *context.xml* w *META-INF/* katalogu projektu. Utwórz *plik META-INF/* katalog, jeśli nie istnieje.
 
-2. W *pliku Context. XML*Dodaj `Context` element, aby połączyć źródło danych z adresem JNDI. Zastąp `driverClassName` symbol zastępczy nazwą klasy sterownika z powyższej tabeli.
+2. W *context.xml*Dodaj element, `Context` Aby połączyć źródło danych z adresem JNDI. Zastąp `driverClassName` symbol zastępczy nazwą klasy sterownika z powyższej tabeli.
 
     ```xml
     <Context>
@@ -367,7 +367,7 @@ Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikac
     </Context>
     ```
 
-3. Zaktualizuj *plik Web. XML* aplikacji w taki sposób, aby korzystał ze źródła danych w aplikacji.
+3. Zaktualizuj *web.xml* aplikacji tak, aby korzystała ze źródła danych w aplikacji.
 
     ```xml
     <resource-env-ref>
@@ -378,9 +378,9 @@ Następnie ustal, czy źródło danych powinno być dostępne dla jednej aplikac
 
 #### <a name="shared-server-level-resources"></a>Udostępnione zasoby na poziomie serwera
 
-Dodanie udostępnionego źródła danych na poziomie serwera wymaga edytowania pliku tomcat. XML. Najpierw przekaż [skrypt uruchamiania](app-service-linux-faq.md#built-in-images) i Ustaw ścieżkę do skryptu w **Configuration**  >  **poleceniu uruchamiania**konfiguracji. Można przekazać skrypt uruchamiania przy użyciu [protokołu FTP](../deploy-ftp.md).
+Dodanie udostępnionego źródła danych na poziomie serwera wymaga edytowania server.xml tomcat. Najpierw przekaż [skrypt uruchamiania](app-service-linux-faq.md#built-in-images) i Ustaw ścieżkę do skryptu w **Configuration**  >  **poleceniu uruchamiania**konfiguracji. Można przekazać skrypt uruchamiania przy użyciu [protokołu FTP](../deploy-ftp.md).
 
-Skrypt uruchamiania wykona [przekształcenie XSL](https://www.w3schools.com/xml/xsl_intro.asp) do pliku Server. XML i wyprowadza wynikowy plik XML do `/usr/local/tomcat/conf/server.xml` . Skrypt uruchamiania powinien instalować libxslt za pośrednictwem APK. Plik XSL i skrypt uruchamiania można przekazać za pośrednictwem protokołu FTP. Poniżej znajduje się przykładowy skrypt uruchamiania.
+Skrypt uruchamiania wykona [przekształcenie XSL](https://www.w3schools.com/xml/xsl_intro.asp) do pliku server.xml i wyprowadza wynikowy plik XML do `/usr/local/tomcat/conf/server.xml` . Skrypt uruchamiania powinien instalować libxslt za pośrednictwem APK. Plik XSL i skrypt uruchamiania można przekazać za pośrednictwem protokołu FTP. Poniżej znajduje się przykładowy skrypt uruchamiania.
 
 ```sh
 # Install libxslt. Also copy the transform file to /home/tomcat/conf/
@@ -390,7 +390,7 @@ apk add --update libxslt
 xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
-Poniżej przedstawiono przykładowy plik XSL. Przykładowy plik XSL dodaje nowy węzeł łącznika do tomcat Server. XML.
+Poniżej przedstawiono przykładowy plik XSL. Przykładowy plik XSL dodaje nowy węzeł łącznika do server.xml tomcat.
 
 ```xml
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -524,7 +524,7 @@ Aby użyć Tomcat z Redis, musisz skonfigurować aplikację tak, aby korzystała
 
     Informacje o nazwie, porcie i kluczu dostępu do Azure Portal można znaleźć w sekcji **Właściwości** lub **klucze dostępu** swojego wystąpienia usługi.
 
-2. Utwórz lub zaktualizuj plik *src/Main/webapp/META-INF/Context. XML* aplikacji z następującą zawartością:
+2. Utwórz lub zaktualizuj plik *src/Main/webapp/META-INF/context.xml* aplikacji o następującej zawartości:
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -562,7 +562,7 @@ Aby użyć Tomcat z Redis, musisz skonfigurować aplikację tak, aby korzystała
 
 7. Przejdź do sekcji **Ustawienia zaawansowane** wystąpienia Redis i ustaw opcję **Zezwalaj na dostęp tylko za pośrednictwem protokołu SSL** na wartość **nie**. Dzięki temu wystąpienie App Service może komunikować się z pamięcią podręczną Redis za pośrednictwem infrastruktury platformy Azure.
 
-8. Zaktualizuj `azure-webapp-maven-plugin` konfigurację w pliku *pliku pom. XML* aplikacji, aby odwołać się do informacji o koncie Redis. Ten plik korzysta ze zmiennych środowiskowych ustawionych wcześniej w celu zachowania informacji o koncie z plików źródłowych.
+8. Zaktualizuj `azure-webapp-maven-plugin` konfigurację w pliku *pom.xml* aplikacji, aby odwołać się do informacji o koncie Redis. Ten plik korzysta ze zmiennych środowiskowych ustawionych wcześniej w celu zachowania informacji o koncie z plików źródłowych.
 
     W razie potrzeby zmień `1.9.1` na bieżącą wersję [wtyczki Maven dla usługi Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 

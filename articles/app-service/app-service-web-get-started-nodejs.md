@@ -1,29 +1,29 @@
 ---
-title: 'Szybki Start: Tworzenie aplikacji sieci Web w języku Node. js'
-description: Wdróż pierwszy Hello world środowiska Node. js, aby Azure App Service w ciągu kilku minut. Wdrażasz za pomocą Visual Studio Code, który jest jednym z wielu sposobów wdrożenia do App Service.
+title: 'Szybki Start: Tworzenie aplikacji sieci Web Node.js'
+description: Wdróż swoje pierwsze Node.js Hello world do Azure App Service w ciągu kilku minut. Wdrażasz za pomocą Visual Studio Code, który jest jednym z wielu sposobów wdrożenia do App Service.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.custom: mvc, devcenter, seodec18
-ms.openlocfilehash: df1e0809c0122eae593543cd193a6477b03d0938
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4f08068e0920eb8a9e93fbbf91cb352bb8860fe3
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "82690795"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905922"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Tworzenie aplikacji internetowej Node.js na platformie Azure 
 
-Rozpocznij pracę z Azure App Service przez utworzenie aplikacji node. js/Express lokalnie przy użyciu Visual Studio Code, a następnie wdrożenie aplikacji w chmurze. Ponieważ korzystasz z bezpłatnej warstwy App Service, nie poniesiesz żadnych kosztów, aby ukończyć ten przewodnik Szybki Start.
+Rozpocznij pracę z usługą Azure App Service, Node.js tworząc lokalnie aplikację/Express przy użyciu usługi Visual Studio Code i wdrażając aplikację w chmurze. Ponieważ korzystasz z bezpłatnej warstwy App Service, nie poniesiesz żadnych kosztów, aby ukończyć ten przewodnik Szybki Start.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
-- [Node. js i npm](https://nodejs.org). Uruchom polecenie, `node --version` Aby sprawdzić, czy jest zainstalowany węzeł Node. js.
+- [Node.js i npm](https://nodejs.org). Uruchom polecenie, `node --version` Aby sprawdzić, czy Node.js jest zainstalowana.
 - [Program Visual Studio Code](https://code.visualstudio.com/)
 - [Azure App Service rozszerzenie](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) Visual Studio Code.
 
-## <a name="clone-and-run-a-local-nodejs-application"></a>Klonowanie i uruchamianie lokalnej aplikacji node. js
+## <a name="clone-and-run-a-local-nodejs-application"></a>Klonowanie i uruchamianie lokalnej aplikacji Node.js
 
 1. Na komputerze lokalnym Otwórz Terminal i Sklonuj przykładowe repozytorium:
 
@@ -52,7 +52,7 @@ Rozpocznij pracę z Azure App Service przez utworzenie aplikacji node. js/Expres
 
 ## <a name="deploy-the-app-to-azure"></a>Wdrażanie aplikacji na platformie Azure
 
-W tej sekcji wdrażasz aplikację Node. js na platformie Azure przy użyciu VS Code i Azure App Service rozszerzenia.
+W tej sekcji wdrażasz aplikację Node.js na platformie Azure przy użyciu VS Code i rozszerzenia Azure App Service.
 
 1. Upewnij się, że jesteś w folderze *NodeJS-docs-Hello-World* , a następnie zacznij Visual Studio Code za pomocą następującego polecenia:
 
@@ -77,7 +77,7 @@ W tej sekcji wdrażasz aplikację Node. js na platformie Azure przy użyciu VS C
 
 1. Wpisz globalnie unikatową nazwę aplikacji sieci Web, a następnie naciśnij klawisz **Enter**. Nazwa musi być unikatowa w całej platformie Azure i używać tylko znaków alfanumerycznych ("A-Z", "A-z" i "0-9") oraz łączników ("-").
 
-1. W przypadku określania systemu Linux wybierz wersję środowiska Node. js po wyświetleniu monitu. Zalecana jest wersja **LTS** .
+1. W przypadku określania systemu Linux wybierz wersję Node.js po wyświetleniu monitu. Zalecana jest wersja **LTS** .
 
 1. Jeśli celem jest system Windows, postępuj zgodnie z dodatkowymi monitami:
     1. Wybierz pozycję **Utwórz nową grupę zasobów**, a następnie wprowadź nazwę grupy zasobów, na przykład `AppServiceQS-rg` .
@@ -96,7 +96,7 @@ W tej sekcji wdrażasz aplikację Node. js na platformie Azure przy użyciu VS C
 
 1. W przypadku wdrażania w systemie Linux wybierz opcję **Przeglądaj witrynę internetową** w wierszu polecenia, aby wyświetlić świeżo wdrożoną aplikację sieci Web po zakończeniu wdrażania. W przeglądarce powinna być wyświetlana wartość "Hello world!"
 
-1. W przypadku wdrażania w systemie Windows należy najpierw ustawić numer wersji środowiska Node. js dla aplikacji sieci Web:
+1. W przypadku wdrażania w systemie Windows należy najpierw ustawić numer wersji Node.js dla aplikacji sieci Web:
 
     1. W VS Code rozwiń węzeł nowej usługi App Service, kliknij prawym przyciskiem myszy pozycję **Ustawienia aplikacji**, a następnie wybierz pozycję **Dodaj nowe ustawienie...**:
 
@@ -156,7 +156,13 @@ Możesz wyświetlić dane wyjściowe dziennika (wywołania do `console.log` ) z 
 
 Gratulacje, udało Ci się ukończyć ten przewodnik Szybki Start.
 
-Następnie zapoznaj się z innymi rozszerzeniami platformy Azure.
+> [!div class="nextstepaction"]
+> [Samouczek: Node.js aplikacji za pomocą MongoDB](app-service-web-tutorial-nodejs-mongodb-app.md)
+
+> [!div class="nextstepaction"]
+> [Konfigurowanie aplikacji Node.js](configure-language-nodejs.md)
+
+Zapoznaj się z innymi rozszerzeniami platformy Azure.
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
@@ -165,3 +171,4 @@ Następnie zapoznaj się z innymi rozszerzeniami platformy Azure.
 * [Narzędzia Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 Lub uzyskać wszystkie te elementy, instalując [pakiet Node Pack dla platformy Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) .
+

@@ -9,14 +9,14 @@ editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: 45acac646fece808065d12081bdc28eff92a1b79
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 71516641ab5110511d58f7e453759271aff9885a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119332"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84705835"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Włącz rejestrowanie dla usług sieci Web Azure Machine Learning Studio (klasycznych)
 
@@ -42,7 +42,7 @@ Rejestrowanie można włączyć z poziomu portalu [usług sieci Web Azure Machin
 
    ![Wybierz poziom rejestrowania](./media/web-services-logging/enable-logging.png)
 
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz**.
 
 7. W przypadku klasycznych usług sieci Web Utwórz kontener **"ml-Diagnostics"** .
 

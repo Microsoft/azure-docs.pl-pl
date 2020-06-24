@@ -4,16 +4,16 @@ description: Dowiedz się, które systemy operacyjne mogą uruchamiać demona Az
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/10/2020
+ms.date: 06/19/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bafc0424d4d8e4e518bfc999dcb72f96ee9d6289
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: c7f8b0679f9d5e0cacfdcdb3b30f9d92d7fa8e27
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678651"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117968"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge obsługiwane systemy
 
@@ -105,7 +105,7 @@ Składniki IoT Edge można zainstalować lub zaktualizować osobno i są wsteczn
 
 | Wydanie | Demon zabezpieczeń | Centrum brzegowe<br>Agent graniczny | Libiothsm | Moby |
 |--|--|--|--|--|
-| **1.0.9** | 1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
+| **1.0.9** | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 | 1.0.9.3<br>1.0.9.2<br>1.0.9.1<br>1.0.9 |  |
 | **1.0.8** | 1.0.8 | 1.0.8.5<br>1.0.8.4<br>1.0.8.3<br>1.0.8.2<br>1.0.8.1<br>1.0.8 | 1.0.8 | 3.0.6 |
 | **1.0.7** | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 1.0.7.1<br>1.0.7 | 3.0.5<br>3.0.4 (ARMv7hl, CentOS) |
 | **1.0.6** | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 | 1.0.6.1<br>1.0.6 |  |

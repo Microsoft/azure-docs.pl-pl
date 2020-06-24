@@ -1,41 +1,41 @@
 ---
 title: Liczba Stanów dla zadań i węzłów
 description: Policz stan Azure Batch zadań i węzłów obliczeniowych, aby pomóc w zarządzaniu i monitorowaniu rozwiązań wsadowych.
-ms.date: 09/07/2018
+ms.date: 06/18/2020
 ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: d75ff1806f61b54bd058926f95c7c53b66aaf243
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: d702cb4ec34925e8b9ce6f0c2e47af81db149a3e
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780152"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299453"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorowanie rozwiązań wsadowych przez liczenie zadań i węzłów według stanu
 
-Do monitorowania i zarządzania rozwiązaniami Azure Batch o dużej skali potrzebne są dokładne liczby zasobów w różnych stanach. Azure Batch zapewnia wydajne operacje, aby uzyskać te liczniki dla *zadań* wsadowych i *węzłów obliczeniowych*. Użyj tych operacji zamiast potencjalnie czasochłonnych zapytań dotyczących list, które zwracają szczegółowe informacje o dużych kolekcjach zadań lub węzłów.
+Do monitorowania i zarządzania rozwiązaniami Azure Batch o dużej skali może być konieczne określenie liczby zasobów w różnych stanach. Azure Batch zapewnia wydajne operacje pobierania liczników zadań wsadowych i węzłów obliczeniowych. Można użyć tych operacji zamiast potencjalnie czasochłonnych zapytań list, które zwracają szczegółowe informacje o dużych kolekcjach zadań lub węzłów.
 
-* [Licznik zadania pobierania][rest_get_task_counts] pobiera zagregowaną liczbę aktywnych, uruchomionych i wykonanych zadań w ramach zadania oraz zadań, które zakończyły się powodzeniem lub niepowodzeniem. 
+- [Licznik zadania pobierania](https://docs.microsoft.com/rest/api/batchservice/job/gettaskcounts) pobiera zagregowaną liczbę aktywnych, uruchomionych i wykonanych zadań w ramach zadania oraz zadań, które zakończyły się powodzeniem lub niepowodzeniem. 
 
   Zliczając zadania w poszczególnych stanach, można łatwiej wyświetlać postęp zadania dla użytkownika lub wykrywać nieoczekiwane opóźnienia lub błędy, które mogą mieć wpływ na zadanie. Liczba zadań pobierania jest dostępna w ramach interfejsu API usługi Batch w wersji 2017 -06-01.5.1 oraz powiązanych zestawów SDK i narzędzi.
 
-* [Liczba węzłów puli listy][rest_get_node_counts] Pobiera liczbę węzłów obliczeniowych dedykowanych i o niskim priorytecie w każdej puli, które znajdują się w różnych stanach: Tworzenie, bezczynne, offline, zastępujące, ponowne uruchamianie, odtwarzanie obrazu, uruchamianie i inne. 
+- [Liczba węzłów puli listy](https://docs.microsoft.com/rest/api/batchservice/account/listpoolnodecounts) Pobiera liczbę węzłów obliczeniowych dedykowanych i o niskim priorytecie w każdej puli, które znajdują się w różnych stanach: Tworzenie, bezczynne, offline, zastępujące, ponowne uruchamianie, odtwarzanie obrazu, uruchamianie i inne.
 
   Zliczając węzły w każdym stanie, można określić, kiedy mają być potrzebne zasoby obliczeniowe do uruchamiania zadań, i zidentyfikować potencjalne problemy związane z pulami. Liczby węzłów puli list są dostępne w ramach interfejsu API usługi Batch w wersji 2018 r -03-01.6.1 oraz powiązanych zestawów SDK i narzędzi.
 
-Jeśli używasz wersji usługi, która nie obsługuje operacji licznika zadań ani liczby węzłów, zamiast tego użyj zapytania listy, aby obliczyć te zasoby. Należy również użyć zapytania listy, aby uzyskać informacje o innych zasobach wsadowych, takich jak aplikacje, pliki i zadania. Aby uzyskać więcej informacji na temat stosowania filtrów do wyświetlania zapytań, zobacz [Tworzenie zapytań w celu wydajnego wyświetlania listy zasobów usługi Batch](batch-efficient-list-queries.md).
+Należy pamiętać, że liczba zwracanych przez te operacje może być nieaktualna. Jeśli musisz mieć pewność, że liczba jest dokładna, użyj zapytania listy, aby obliczyć te zasoby. Lista zapytań umożliwia również uzyskiwanie informacji o innych zasobach wsadowych, takich jak aplikacje. Aby uzyskać więcej informacji na temat stosowania filtrów do wyświetlania zapytań, zobacz [Tworzenie zapytań w celu wydajnego wyświetlania listy zasobów usługi Batch](batch-efficient-list-queries.md).
 
 ## <a name="task-state-counts"></a>Liczba stanów zadań
 
 Operacja Pobierz licznik zadań zlicza zadania według następujących stanów:
 
 - **Aktywne** — zadanie, które jest kolejkowane i możliwe do uruchomienia, ale nie jest aktualnie przypisane do węzła obliczeniowego. Zadanie jest również `active` [zależne od zadania nadrzędnego](batch-task-dependencies.md) , które nie zostało jeszcze ukończone. 
-- **Uruchomienie** — zadanie, które zostało przypisane do węzła obliczeniowego, ale nie zostało jeszcze ukończone. Zadanie jest zliczane, `running` gdy jego stan ma wartość `preparing` lub `running` , co zostało wskazane przez polecenie [Pobierz informacje o zadaniu][rest_get_task] .
+- **Uruchomienie** — zadanie, które zostało przypisane do węzła obliczeniowego, ale nie zostało jeszcze ukończone. Zadanie jest zliczane, `running` gdy jego stan ma wartość `preparing` lub `running` , co zostało wskazane przez polecenie [Pobierz informacje o zadaniu](https://docs.microsoft.com/rest/api/batchservice/task/get) .
 - **Ukończono** — zadanie, które nie jest już do uruchomienia, ponieważ zostało zakończone pomyślnie, lub zakończone niepowodzeniem, a także wyczerpuje limit ponownych prób. 
-- **Powodzenie** — zadanie, którego wynikiem jest wykonanie zadania `success` . Partia zadań określa, czy zadanie zakończyło się pomyślnie, sprawdzając `TaskExecutionResult` Właściwość [executionInfo][rest_get_exec_info] właściwości.
+- **Powodzenie** — zadanie, którego wynikiem jest wykonanie zadania `success` . Partia zadań określa, czy zadanie zakończyło się pomyślnie, sprawdzając `TaskExecutionResult` Właściwość [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get) właściwości.
 - **Nie powiodło się** Zadanie, którego wynikiem jest wykonanie zadania `failure` .
 
-Poniższy przykład kodu platformy .NET pokazuje, jak pobrać liczbę zadań według stanu: 
+Poniższy przykład kodu platformy .NET pokazuje, jak pobrać liczbę zadań według stanu:
 
 ```csharp
 var taskCounts = await batchClient.JobOperations.GetJobTaskCountsAsync("job-1");
@@ -50,8 +50,7 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 Aby uzyskać liczniki zadań dla zadania, można użyć podobnego wzorca dla REST i innych obsługiwanych języków. 
 
 > [!NOTE]
-> Wersje interfejsu API usługi Batch przed 2018 r -08-01.7.0 również zwracają `validationStatus` Właściwość w odpowiedzi Get Task Counts. Ta właściwość wskazuje, czy partia sprawdza liczbę stanów w celu zapewnienia spójności z Stanami zgłoszonymi w interfejsie API zadań listy. Wartość `validated` wskazuje tylko, że partia sprawdzana pod kątem spójności co najmniej raz dla danego zadania. Wartość `validationStatus` właściwości nie wskazuje, czy liczniki, które pobierają liczby zadań zwracają są aktualne.
->
+> Wersje interfejsu API usługi Batch przed 2018 r -08-01.7.0 również zwracają `validationStatus` Właściwość w odpowiedzi Get Task Counts. Ta właściwość wskazuje, czy partia sprawdza liczbę stanów w celu zapewnienia spójności z Stanami zgłoszonymi w interfejsie API zadań listy. Wartość `validated` wskazuje tylko, że partia sprawdzana pod kątem spójności co najmniej raz dla danego zadania. Wartość `validationStatus` właściwości nie wskazuje, czy liczniki zwracające liczby zadań są aktualne.
 
 ## <a name="node-state-counts"></a>Liczba Stanów węzłów
 
@@ -66,7 +65,7 @@ Operacja zliczania węzłów puli listy zlicza węzły obliczeniowe według nast
 - Ponowne tworzenie **obrazu** — węzeł, na którym jest instalowany system operacyjny.
 - **Uruchamianie** — węzeł, w którym działa jedno lub więcej zadań (innych niż zadanie podrzędne).
 - **Uruchamianie** — węzeł, w którym jest uruchamiana usługa Batch. 
-- **StartTaskFailed** — węzeł, w którym [zadanie uruchomieniowe][rest_start_task] nie powiodło się i wyczerpuje wszystkie ponowne próby, i na którym `waitForSuccess` jest ustawiony w zadaniu startowym. Nie można użyć węzła do uruchamiania zadań.
+- **StartTaskFailed** — węzeł, w którym [zadanie uruchomieniowe](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) nie powiodło się i wyczerpuje wszystkie ponowne próby, i na którym `waitForSuccess` jest ustawiony w zadaniu startowym. Nie można użyć węzła do uruchamiania zadań.
 - **Nieznany** — węzeł, który utracił kontakt z usługą Batch i którego stan nie jest znany.
 - **Niezdatny do użytku** — węzeł, którego nie można użyć do wykonania zadania z powodu błędów.
 - **WaitingForStartTask** — węzeł, w którym uruchomiono zadanie uruchomieniowe uruchomione, ale `waitForSuccess` jest ustawiony, a zadanie uruchamiania nie zostało ukończone.
@@ -91,6 +90,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 Poniższy fragment kodu w języku C# pokazuje, jak wyświetlić listę liczb węzłów dla danej puli na bieżącym koncie.
 
 ```csharp
@@ -113,17 +113,8 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
 ```
 
 Możesz użyć podobnego wzorca dla REST i innych obsługiwanych języków, aby uzyskać liczbę węzłów dla pul.
- 
+
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
-* Aby uzyskać informacje o stosowaniu filtrów do zapytań dotyczących zasobów usługi Batch, zobacz [Tworzenie zapytań w celu wydajnego wyświetlania listy zasobów usługi Batch](batch-efficient-list-queries.md).
-
-
-[rest_get_task_counts]: /rest/api/batchservice/job/gettaskcounts
-[rest_get_node_counts]: /rest/api/batchservice/account/listpoolnodecounts
-[rest_get_task]: /rest/api/batchservice/task/get
-[rest_list_tasks]: /rest/api/batchservice/task/list
-[rest_get_exec_info]: /rest/api/batchservice/task/get
-[rest_start_task]: /rest/api/batchservice/pool/add#starttask
-
+- Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
+- Dowiedz się więcej na temat stosowania filtrów do zapytań, które tworzą listę zasobów wsadowych, zobacz [Tworzenie zapytań w celu wydajnego wyświetlania listy zasobów wsadowych](batch-efficient-list-queries.md)

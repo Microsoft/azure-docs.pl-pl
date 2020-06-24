@@ -1,24 +1,25 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 05/18/2020
+ms.date: 06/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 19d0be6a032868c6683cd5b6bbfa7f07306171fb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 643cf8fd400adf06bf61f070947bd78ba7be50eb
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683417"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242158"
 ---
-| Zasób | Podstawowy | Standardowa | Premium |
+| Zasób | Podstawowa | Standardowa (Standard) | Premium |
 |---|---|---|---|
-| Magazyn<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
-| Maksymalny rozmiar warstwy obrazu | 200 GiB | 200 GiB | 200 GiB |
+| Uwzględniony magazyn<sup>1</sup> (GIB) | 10 | 100 | 500 |
+| Limit magazynowania (TiB) | 20| 20 | 20 |
+| Maksymalny rozmiar warstwy obrazu (GiB) | 200 | 200 | 200 |
 | ReadOps na minutę<sup>2, 3</sup> | 1000 | 3000 | 10 000 |
 | WriteOps na minutę<sup>2, 4</sup> | 100 | 500 | 2000 |
 | Pobierz przepustowość<sup>2</sup> MB/s | 30 | 60 | 100 |
@@ -27,15 +28,15 @@ ms.locfileid: "83683417"
 | Replikacja geograficzna | Nie dotyczy | Nie dotyczy | [Obsługiwał][geo-replication] |
 | Zaufanie do zawartości | Nie dotyczy | Nie dotyczy | [Obsługiwał][content-trust] |
 | Prywatny link z prywatnymi punktami końcowymi | Nie dotyczy | Nie dotyczy | [Obsługiwał][plink] |
-| Dostęp do sieci wirtualnej punktu końcowego usługi | Nie dotyczy | Nie dotyczy | [Przeglądania][vnet] |
+| Dostęp do sieci wirtualnej punktu końcowego usługi | Nie dotyczy | Nie dotyczy | [Wersja zapoznawcza][vnet] |
 | Klucze zarządzane przez klienta | Nie dotyczy | Nie dotyczy | [Obsługiwał][cmk] |
-| Uprawnienia w zakresie repozytorium | Nie dotyczy | Nie dotyczy | [Przeglądania][token]|
+| Uprawnienia w zakresie repozytorium | Nie dotyczy | Nie dotyczy | [Wersja zapoznawcza][token]|
 | &bull;Żeton | Nie dotyczy | Nie dotyczy | 20 000 |
 | &bull;Mapy zakresu | Nie dotyczy | Nie dotyczy | 20 000 |
 | &bull;Repozytoria na mapę zakresu | Nie dotyczy | Nie dotyczy | 500 |
 
 
-<sup>1</sup> Określone limity magazynu to ilość *dołączonego* magazynu dla każdej warstwy. Opłata jest naliczana za dodatkową dzienną stawkę za GiB dla magazynu obrazów powyżej tych limitów. Aby uzyskać informacje o stawkach, zobacz [Cennik usługi Azure Container Registry][pricing].
+<sup>1</sup> magazyn uwzględniony w dziennej stawce dla każdej warstwy. W przypadku dodatkowego magazynu opłata jest naliczana za dodatkową dzienną stawkę za GiB, aż do limitu magazynu. Aby uzyskać informacje o stawkach, zobacz [Cennik usługi Azure Container Registry][pricing].
 
 <sup>2</sup>*ReadOps*, *WriteOps*i *przepustowość* są minimalnymi oszacowaniami. Azure Container Registry dąży do poprawy wydajności, ponieważ wymaga użycia.
 

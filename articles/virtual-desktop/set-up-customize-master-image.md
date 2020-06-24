@@ -4,16 +4,16 @@ description: Przygotowywanie, dostosowywanie i przekazywanie obrazu wzorca pulpi
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 31a2bcdcf7b21999ddf17170b024589204c0e9e5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611963"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212789"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twardego
 
@@ -63,9 +63,9 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 
 ## <a name="software-preparation-and-installation"></a>Przygotowanie oprogramowania i instalacja
 
-W tej sekcji opisano sposób przygotowania i instalacji usługi FSLogix oraz usługi Windows Defender oraz niektórych podstawowych opcji konfiguracji aplikacji i rejestru obrazu. 
+W tej sekcji opisano sposób przygotowania i instalacji usługi FSLogix oraz usługi Windows Defender oraz niektórych podstawowych opcji konfiguracji aplikacji i rejestru obrazu.
 
-Jeśli instalujesz pakiet Office 365 ProPlus i usługę OneDrive na maszynie wirtualnej, przejdź do pozycji [Zainstaluj pakiet Office na głównym obrazie wirtualnego dysku twardego](install-office-on-wvd-master-image.md) i postępuj zgodnie z instrukcjami, aby zainstalować aplikacje. Po zakończeniu Wróć do tego artykułu.
+Jeśli instalujesz Microsoft 365 aplikacje dla przedsiębiorstw i usługi OneDrive na maszynie wirtualnej, przejdź do pozycji [Zainstaluj pakiet Office na głównym obrazie wirtualnego dysku twardego](install-office-on-wvd-master-image.md) i postępuj zgodnie z instrukcjami, aby zainstalować aplikacje. Po zakończeniu Wróć do tego artykułu.
 
 Jeśli użytkownicy muszą uzyskać dostęp do określonych aplikacji biznesowych, zalecamy ich zainstalowanie po zakończeniu instrukcji tej sekcji.
 
@@ -87,7 +87,7 @@ Aby dowiedzieć się więcej o tym, jak skonfigurować usługę Windows Defender
 
 Aby wyłączyć aktualizacje automatyczne za pośrednictwem zasady grupy lokalnego:
 
-1. Otwórz **Edytor lokalnych zasad grupy\\Szablony administracyjne\\składników\\systemu Windows Windows Update**.
+1. Otwórz **Edytor lokalnych zasad grupy \\ Szablony administracyjne \\ składników systemu Windows \\ Windows Update**.
 2. Kliknij prawym przyciskiem myszy pozycję **Skonfiguruj automatyczną aktualizację** i ustaw ją na wartość **wyłączone**.
 
 Aby wyłączyć aktualizacje automatyczne, można również uruchomić następujące polecenie w wierszu polecenia.
@@ -113,7 +113,7 @@ Aby przekierować strefy czasowe:
 1. Na serwerze Active Directory Otwórz **Konsola zarządzania zasadami grupy**.
 2. Rozwiń domenę i zasady grupy obiekty.
 3. Kliknij prawym przyciskiem myszy **obiekt zasady grupy** , który został utworzony dla ustawień zasad grupy, a następnie wybierz polecenie **Edytuj**.
-4. W **Edytor zarządzania zasadami grupy**przejdź do węzła**zasady** >  **konfiguracji** > ,**Szablony administracyjne** > **składniki** > systemu Windows**usługi pulpitu zdalnego** > **pulpit zdalny Sesja hosta** > sesji**i przekierowania zasobów**.
+4. W **Edytor zarządzania zasadami grupy**przejdź do węzła zasady **konfiguracji**,  >  **Policies**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **usługi pulpitu zdalnego**  >  **pulpit zdalny Sesja hosta sesji**  >  **i przekierowania zasobów**.
 5. Włącz ustawienie **Zezwalaj na przekierowywanie strefy czasowej** .
 
 Możesz również uruchomić to polecenie na głównym obrazie, aby przekierować strefy czasowe:
@@ -136,7 +136,7 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 ### <a name="include-additional-language-support"></a>Uwzględnij dodatkową obsługę języka
 
-Ten artykuł nie obejmuje konfigurowania języka i obsługi regionalnej. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Ten artykuł nie obejmuje konfigurowania języka i obsługi regionalnej. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Dodawanie języków do obrazów systemu Windows](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
 - [Funkcje na żądanie](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)

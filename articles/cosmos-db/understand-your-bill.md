@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 34f55d628b4e334df4b3e74edfd3c0defbdeaa93
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647725"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114245"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informacje o rachunku za korzystanie z usługi Azure Cosmos DB
 
@@ -73,7 +73,7 @@ W przypadku zwiększenia elastycznej przepływności dla kontenera lub zestawu k
 
 * W miesiącu 720 godzin (24 godziny * 30 dni), jeśli w przypadku przepływności o pojemności 500 godz. została 1 200 RU/s, a w przypadku pozostałych usług 220 godz. o nieprzewidzianej przepływności to 22 200 RU/s, miesięczne rozliczenia: 500 x $0.096/godzina + 220 x $1.776/godzina = $438.72/miesiąc.
 
-![Przykład dedykowanej opłaty za przepływność](./media/understand-your-bill/bill-example1.png)
+:::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="Przykład dedykowanej opłaty za przepływność":::
 
 ### <a name="billing-example-containers-with-shared-throughput-mode"></a>Przykład rozliczania: kontenery z trybem przepływności udostępnionej
 
@@ -87,7 +87,7 @@ W przypadku zwiększenia elastycznej przepływności dla kontenera lub zestawu k
 
 * W miesiącu 720 godzin, jeśli dla przepływności przewidzianej przez 300 godz. została 120-K RU/s, a dla pozostałych usług 420 godz. zainicjowana przepływność wynosi 155 – K RU/s, zostanie wyświetlone miesięczne rozliczenie: 300 x $9.60/godzina + 420 x $12.40/Hour = $2 880 + $5 208 = $8088/miesiąc. 
 
-![Przykład wspólnej przepływności](./media/understand-your-bill/bill-example2.png)
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Przykład wspólnej przepływności":::
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>Przykłady rozliczeń z replikacją geograficzną i wieloma wzorcami  
 
@@ -177,11 +177,11 @@ Rozważmy poniższy przykład, w którym mamy wieloregionowe konto platformy Azu
 
 Na poniższej ilustracji przedstawiono wizualnie zmiany całkowitej alokowanej przepływności w czasie 720 godzin dla miesiąca. 
 
-![Przykład rzeczywistej żywotności](./media/understand-your-bill/bill-example3.png)
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Przykład rzeczywistej żywotności":::
 
 Łączny rachunek miesięczny (przy założeniu, że 30 dni/720 godzin w miesiącu) będzie obliczany w następujący sposób:
 
-|**Godziny**  |**RU/s** |**Element** |**Użycie (co godzinę)** |**Koszty** |
+|**Hours**  |**RU/s** |**Element** |**Użycie (co godzinę)** |**Koszty** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1:10 TYS. <br/>D2:30K <br/>C1:20 000 |Rachunek przepływności dla kontenera w regionie zachodnie stany USA (wszystkie regiony są zapisywalne)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
 | | |Opłaty za przepływność za 2 dodatkowe regiony: Wschodnie stany USA, Europa Północna (wszystkie regiony są zapisywalne)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2 880  |

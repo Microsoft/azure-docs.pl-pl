@@ -37,7 +37,7 @@ Po zastosowaniu aktualizacji trybu konserwacji do urządzenia StorSimple wszystk
 
     `Get-HcsUpdateStatus`
 
-    Jeśli `RunInProgress` jest `True`, aktualizacja jest nadal w toku. Jeśli `RunInProgress` tak `False`, oznacza to, że aktualizacja została ukończona.
+    Jeśli `RunInProgress` jest `True` , aktualizacja jest nadal w toku. Jeśli `RunInProgress` tak `False` , oznacza to, że aktualizacja została ukończona.
 
 5. Po pomyślnym zastosowaniu aktualizacji oprogramowania układowego dysku i ponownym uruchomieniu zaktualizowanego kontrolera Sprawdź wersję oprogramowania układowego dysku. Na stronie zaktualizowany kontroler wpisz:
 

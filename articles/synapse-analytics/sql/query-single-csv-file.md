@@ -5,16 +5,16 @@ services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f264a62428f919fe23797171926ddf63c585c42b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 628631fb7fddbc07dcb865e3d3badbfb608ad097
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234129"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214455"
 ---
 # <a name="query-csv-files"></a>Pliki CSV zapytania
 
@@ -179,6 +179,37 @@ WHERE
 
 > [!NOTE]
 > To zapytanie nie powiedzie się, jeśli ESCAPECHAR nie zostanie określony, ponieważ przecinek w "slov, enia" byłby traktowany jako ogranicznik pola zamiast części nazwy kraju/regionu. "Slov, enia" byłyby traktowane jak dwie kolumny. W związku z tym, konkretny wiersz może mieć jedną kolumnę więcej niż pozostałe wiersze, a jedna kolumna jest większa niż zdefiniowana w klauzuli WITH.
+
+### <a name="escaping-quoting-characters"></a>Znakowanie znaków ucieczki
+
+Poniższe zapytanie pokazuje, jak odczytywać plik z wierszem nagłówka z nowym wierszem w stylu systemu UNIX, kolumnami rozdzielanymi przecinkami oraz znakami podwójnego cudzysłowu w obrębie wartości. Zanotuj inną lokalizację pliku w porównaniu z innymi przykładami.
+
+Podgląd pliku:
+
+![Poniższe zapytanie pokazuje, jak odczytywać plik z wierszem nagłówka z nowym wierszem w stylu systemu UNIX, kolumnami rozdzielanymi przecinkami oraz znakami podwójnego cudzysłowu w obrębie wartości.](./media/query-single-csv-file/population-unix-hdr-escape-quoted.png)
+
+```sql
+SELECT *
+FROM OPENROWSET(
+        BULK 'csv/population-unix-hdr-escape-quoted/population.csv',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIELDTERMINATOR =',',
+        ROWTERMINATOR = '0x0a',
+        FIRSTROW = 2
+    )
+    WITH (
+        [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+        [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+        [year] smallint,
+        [population] bigint
+    ) AS [r]
+WHERE
+    country_name = 'Slovenia';
+```
+
+> [!NOTE]
+> Znak cudzysłowu musi być zmieniony przy użyciu innego znaku cudzysłowu. Znak quota może pojawić się w wartości kolumny tylko wtedy, gdy wartość jest hermetyzowana przy użyciu znaków cudzysłowu.
 
 ## <a name="tab-delimited-files"></a>Pliki rozdzielane tabulatorami
 

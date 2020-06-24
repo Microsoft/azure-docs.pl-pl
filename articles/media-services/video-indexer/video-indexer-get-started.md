@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 03/17/2020
 ms.author: juliako
-ms.openlocfilehash: 22b06ce99333750d48d1cb65d9f60779572723b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f6c3953947e6f7e84f4cf9b565d2f66648b177f7
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79499630"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130759"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Szybki Start: jak utworzyć konto i przekazać swoje pierwsze wideo
 
@@ -25,7 +25,7 @@ Podczas tworzenia konta w usłudze Video Indexer można wybrać konto bezpłatne
 
 ## <a name="sign-up-for-video-indexer"></a>Tworzenie konta w usłudze Video Indexer
 
-Aby rozpocząć tworzenie rozwiązań za pomocą usługi Video Indexer, przejdź do witryny internetowej usługi [Video Indexer](https://www.videoindexer.com) i utwórz konto.
+Aby rozpocząć tworzenie rozwiązań za pomocą usługi Video Indexer, przejdź do witryny internetowej usługi [Video Indexer](https://www.videoindexer.ai/) i utwórz konto.
 
 > [!NOTE]
 > Po rozpoczęciu korzystania z Video Indexer wszystkie przechowywane dane i przekazana zawartość są szyfrowane przy użyciu klucza zarządzanego przez firmę Microsoft.
@@ -52,7 +52,7 @@ Listę formatów plików, których można używać z Video Indexer, zawiera arty
 
     Po zakończeniu analizowania przez usługę Video Indexer otrzymasz powiadomienie z linkiem do tego pliku wideo i krótki opis tego, co znaleziono w tym nagraniu. Na przykład: osoby, tematy i wyniki przetwarzania OCR.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Aby uzyskać więcej informacji [, zobacz Przekazywanie i indeksowanie filmów wideo](upload-index-videos.md) .
 

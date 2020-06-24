@@ -1,24 +1,24 @@
 ---
-title: Szybki Start — Azure Key Vaulta Biblioteka kliencka dla środowiska Node. js (v4)
-description: Dowiedz się, jak tworzyć, pobierać i usuwać wpisy tajne z magazynu kluczy platformy Azure przy użyciu biblioteki klienckiej Node. js
+title: Szybki Start — Azure Key Vaulta Biblioteka kliencka dla Node.js (v4)
+description: Dowiedz się, jak tworzyć, pobierać i usuwać wpisy tajne z magazynu kluczy platformy Azure przy użyciu biblioteki klienta Node.js
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: d21ec8d025070bd748550cdfbc2aca5ae1f55c08
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 21add865818d73937aec241f8f60e20158202348
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983146"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125297"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Szybki Start: Azure Key Vaulta Biblioteka kliencka dla środowiska Node. js (v4)
+# <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Szybki Start: Azure Key Vault biblioteki klienckiej dla Node.js (v4)
 
-Rozpocznij pracę z biblioteką klienta Azure Key Vault dla środowiska Node. js. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
+Rozpocznij pracę z biblioteką kliencką Azure Key Vault Node.js. Wykonaj poniższe kroki, aby zainstalować pakiet i wypróbować przykładowy kod dla podstawowych zadań.
 
-Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Użyj Key Vault biblioteki klienta dla środowiska Node. js, aby:
+Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajnych używanych przez aplikacje i usługi w chmurze. Key Vault Node.js do:
 
 - Zwiększ bezpieczeństwo i kontrolę nad kluczami i hasłami.
 - Utwórz i zaimportuj klucze szyfrowania w kilka minut.
@@ -26,12 +26,12 @@ Usługa Azure Key Vault ułatwia ochronę kluczy kryptograficznych i kluczy tajn
 - Uprość i automatyzuj zadania dla certyfikatów TLS/SSL.
 - Użyj zweryfikowanej sprzętowych modułów zabezpieczeń poziomu 2 trybu FIPS 140-2.
 
-[API reference documentation](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | Pakiet[kodu](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault)[Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets) źródłowego biblioteki dokumentacji interfejsu API (npm) | 
+[Dokumentacja](/javascript/api/overview/azure/key-vault?view=azure-node-latest)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Bieżący [Node. js](https://nodejs.org) dla Twojego systemu operacyjnego.
+- Bieżąca [Node.js](https://nodejs.org) dla danego systemu operacyjnego.
 - [Interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub [Azure PowerShell](/powershell/azure/overview)
 
 W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) w oknie terminalu systemu Linux.
@@ -40,7 +40,7 @@ W tym przewodniku szybki start założono, że uruchomiono [interfejs wiersza po
 
 ### <a name="install-the-package"></a>Zainstaluj pakiet
 
-W oknie konsoli Zainstaluj bibliotekę Azure Key Vault Secret dla środowiska Node. js.
+W oknie konsoli Zainstaluj bibliotekę Azure Key Vault Secret dla Node.js.
 
 ```console
 npm install @azure/keyvault-secrets
@@ -69,12 +69,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 Najprostszym sposobem uwierzytelniania aplikacji opartej na chmurze jest tożsamość zarządzana; Aby uzyskać szczegółowe informacje [, zobacz używanie Azure Key Vault tożsamości zarządzanej App Service](../general/managed-identity.md) .
 
-W tym przewodniku szybki start można jednak utworzyć aplikację klasyczną, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Zasada usługi wymaga unikatowej nazwy w formacie "http://&lt;my-Unique-Service-Name&gt;".
+W tym przewodniku szybki start można jednak utworzyć aplikację klasyczną, która wymaga użycia nazwy głównej usługi i zasad kontroli dostępu. Nazwa główna usługi wymaga unikatowej nazwy w formacie "http:// &lt; My-Unique-Service-Principal-Name &gt; ".
 
-Utwórz zasadę usługi przy użyciu interfejsu wiersza polecenia platformy Azure [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
+Utwórz nazwę główną usługi przy użyciu interfejsu wiersza polecenia platformy Azure [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) :
 
 ```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
 Ta operacja zwróci serię par klucz/wartość. 
@@ -105,9 +105,9 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### <a name="set-environmental-variables"></a>Ustaw zmienne środowiskowe
 
-Metoda DefaultAzureCredential w naszej aplikacji opiera się na trzech zmiennych środowiskowych: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`i `AZURE_TENANT_ID`. Ustaw te zmienne na wartości clientId, clientSecret i tenantId zanotowane w kroku [Tworzenie jednostki usługi](#create-a-service-principal) przy użyciu `export VARNAME=VALUE` formatu. (Ustawia to zmienne dla bieżącej powłoki i procesów utworzonych na podstawie powłoki; aby trwale dodać te zmienne do środowiska, Edytuj `/etc/environment ` plik). 
+Metoda DefaultAzureCredential w naszej aplikacji opiera się na trzech zmiennych środowiskowych: `AZURE_CLIENT_ID` , `AZURE_CLIENT_SECRET` i `AZURE_TENANT_ID` . Ustaw te zmienne na wartości clientId, clientSecret i tenantId zanotowane w kroku [Tworzenie jednostki usługi](#create-a-service-principal) przy użyciu `export VARNAME=VALUE` formatu. (Ustawia to zmienne dla bieżącej powłoki i procesów utworzonych na podstawie powłoki; aby trwale dodać te zmienne do środowiska, Edytuj `/etc/environment ` plik). 
 
-Należy również zapisać nazwę magazynu kluczy jako zmienną środowiskową o nazwie `KEY_VAULT_NAME`.
+Należy również zapisać nazwę magazynu kluczy jako zmienną środowiskową o nazwie `KEY_VAULT_NAME` .
 
 ```console
 export AZURE_CLIENT_ID=<your-clientID>
@@ -121,9 +121,9 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 ## <a name="object-model"></a>Model obiektów
 
-Biblioteka klienta Azure Key Vault dla środowiska Node. js umożliwia zarządzanie kluczami i powiązanymi zasobami, takimi jak certyfikaty i wpisy tajne. Poniższe przykłady kodu pokazują, jak utworzyć klienta, ustawić wpis tajny, pobrać klucz tajny i usunąć wpis tajny.
+Azure Key Vault Biblioteka kliencka dla Node.js umożliwia zarządzanie kluczami i powiązanymi zasobami, takimi jak certyfikaty i wpisy tajne. Poniższe przykłady kodu pokazują, jak utworzyć klienta, ustawić wpis tajny, pobrać klucz tajny i usunąć wpis tajny.
 
-Cała Aplikacja konsolowa jest dostępna pod https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-appadresem.
+Cała Aplikacja konsolowa jest dostępna pod adresem https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app .
 
 ## <a name="code-examples"></a>Przykłady kodu
 
@@ -140,7 +140,7 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 Uwierzytelnianie w magazynie kluczy i tworzenie klienta magazynu kluczy zależy od zmiennych środowiskowych w powyższym kroku [Ustaw zmienne środowiskowe](#set-environmental-variables) i [konstruktora SecretClient](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#secretclient-string--tokencredential--pipelineoptions-). 
 
-Nazwa magazynu kluczy jest rozszerzana na identyfikator URI magazynu kluczy w formacie `https://<your-key-vault-name>.vault.azure.net`. 
+Nazwa magazynu kluczy jest rozszerzana na identyfikator URI magazynu kluczy w formacie `https://<your-key-vault-name>.vault.azure.net` . 
 
 ```javascript
 const keyVaultName = process.env["KEY_VAULT_NAME"];
@@ -172,7 +172,7 @@ Teraz można pobrać wcześniej ustawioną wartość za pomocą [metody Client. 
 const retrievedSecret = await client.getSecret(secretName);
  ```
 
-Wpis tajny jest teraz zapisywany jako `retrievedSecret.value`.
+Wpis tajny jest teraz zapisywany jako `retrievedSecret.value` .
 
 ### <a name="delete-a-secret"></a>Usuń klucz tajny
 
@@ -188,7 +188,7 @@ Możesz sprawdzić, czy klucz tajny został usunięty za pomocą polecenia [AZ T
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, możesz użyć interfejsu wiersza polecenia platformy Azure lub Azure PowerShell, aby usunąć magazyn kluczy i odpowiednią grupę zasobów.
 

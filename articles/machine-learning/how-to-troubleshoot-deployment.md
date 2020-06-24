@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 012d183a20e5fdcf39d72813051d745a3f9787a7
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 13ce9204ad09d2ecb4b149cf50696aa73d927314
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560123"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214370"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Rozwiązywanie problemów z wdrażaniem modeli przez platformę Docker za pomocą usługi Azure Kubernetes Service i Azure Container Instances 
 
@@ -211,7 +211,7 @@ Ustawienie poziomu rejestrowania na debugowanie może spowodować zarejestrowani
 
 ## <a name="function-fails-runinput_data"></a>Niepowodzenie funkcji: Uruchom (input_data)
 
-Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Na przykład:
+Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Przykład:
 
 ```python
 def run(input_data):
@@ -277,7 +277,7 @@ Aby uzyskać więcej informacji na temat ustawiania `autoscale_target_utilizatio
 
 Kod stanu 504 wskazuje, że upłynął limit czasu żądania. Domyślny limit czasu wynosi 1 minutę.
 
-Można zwiększyć limit czasu lub spróbować przyspieszyć usługę, modyfikując score.py w celu usunięcia niepotrzebnych wywołań. Jeśli te akcje nie rozrozwiązuje problemu, użyj informacji w tym artykule, aby debugować plik score.py. Kod może być w stanie zawieszonym lub nieskończoną pętlą.
+Można zwiększyć limit czasu lub spróbować przyspieszyć usługę, modyfikując score.py w celu usunięcia niepotrzebnych wywołań. Jeśli te akcje nie rozrozwiązuje problemu, użyj informacji w tym artykule, aby debugować plik score.py. Kod może być w stanie innym niż odpowiada lub nieskończona pętla.
 
 ## <a name="advanced-debugging"></a>Zaawansowane debugowanie
 
@@ -300,9 +300,9 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
 
 1. Aby skonfigurować VS Code do komunikowania się z obrazem platformy Docker, Utwórz nową konfigurację debugowania:
 
-    1. W obszarze VS Code wybierz menu __Debuguj__ , a następnie wybierz pozycję __Otwórz konfiguracje__. Zostanie otwarty plik o nazwie __Launch. JSON__ .
+    1. W obszarze VS Code wybierz menu __Debuguj__ , a następnie wybierz pozycję __Otwórz konfiguracje__. Plik o nazwie __launch.jsprzy__ otwieraniu.
 
-    1. W pliku __Launch. JSON__ Znajdź wiersz, który zawiera `"configurations": [` , i Wstaw następujący tekst po nim:
+    1. W __launch.js__ pliku Znajdź wiersz, który zawiera `"configurations": [` , i Wstaw następujący tekst po nim:
 
         ```json
         {
@@ -325,7 +325,7 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
 
         Ta sekcja dołącza do kontenera Docker przy użyciu portu 5678.
 
-    1. Zapisz plik __Launch. JSON__ .
+    1. Zapisz __launch.js__ pliku.
 
 ### <a name="create-an-image-that-includes-ptvsd"></a>Tworzenie obrazu zawierającego PTVSD
 

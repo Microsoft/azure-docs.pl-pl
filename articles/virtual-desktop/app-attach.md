@@ -4,22 +4,23 @@ description: Jak skonfigurować dołączenie aplikacji MSIX dla pulpitu wirtualn
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 05/11/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6544a0536a99261d1ebc13748a5365b9893e789
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605198"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204477"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurowanie dołączania aplikacji MSIX
 
 > [!IMPORTANT]
 > Dołączenie do aplikacji MSIX jest obecnie w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
+> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W tym temacie opisano sposób konfigurowania dołączania aplikacji MSIX w środowisku pulpitu wirtualnego systemu Windows.
 
@@ -29,11 +30,29 @@ Przed rozpoczęciem należy wykonać następujące czynności w celu skonfigurow
 
 - Dostęp do portalu niejawnego testera systemu Windows w celu uzyskania wersji systemu Windows 10 z obsługą interfejsów API dołączania aplikacji MSIX.
 - Działające wdrożenie pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak wdrożyć pulpit wirtualny systemu Windows, Skorzystaj z wersji 2019, zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Aby dowiedzieć się, jak wdrożyć wydanie systemu Windows Virtual Desktop wiosnę 2020, zobacz [Tworzenie puli hostów za pomocą Azure Portal](./create-host-pools-azure-marketplace.md).
+- Narzędzie MSIX pakowanie.
+- Udział sieciowy w wdrożeniu pulpitu wirtualnego systemu Windows, w którym będzie przechowywany pakiet MSIX.
 
-- Narzędzie MSIX pakowanie
-- Udział sieciowy w wdrożeniu pulpitu wirtualnego systemu Windows, w którym będzie przechowywany pakiet MSIX
+## <a name="get-the-os-image"></a>Pobierz obraz systemu operacyjnego
 
-## <a name="get-the-os-image-from-the-technology-adoption-program-tap-portal"></a>Pobieranie obrazu systemu operacyjnego z portalu programu wdrażania technologii (TAP)
+Najpierw należy uzyskać obraz systemu operacyjnego. Obraz systemu operacyjnego można uzyskać za pomocą Azure Portal. Jeśli jednak jesteś członkiem niejawnego programu testów systemu Windows, możesz zamiast tego skorzystać z portalu niejawnego testera systemu Windows.
+
+### <a name="get-the-os-image-from-the-azure-portal"></a>Pobierz obraz systemu operacyjnego z Azure Portal
+
+Aby uzyskać obraz systemu operacyjnego z Azure Portal:
+
+1. Otwórz [Azure Portal](https://portal.azure.com) i zaloguj się.
+
+2. Przejdź do pozycji **Utwórz maszynę wirtualną**.
+
+3. Na karcie **podstawowa** wybierz pozycję **Windows 10 Enterprise wiele sesji, wersja 2004**.
+
+4. Postępuj zgodnie z pozostałymi instrukcjami, aby zakończyć tworzenie maszyny wirtualnej.
+
+     >[!NOTE]
+     >Możesz użyć tej maszyny wirtualnej do bezpośredniego testowania dołączania aplikacji MSIX. Aby dowiedzieć się więcej, zapoznaj się z tematem [Generowanie pakietu dysku VHD lub VHDX dla MSIX](#generate-a-vhd-or-vhdx-package-for-msix). W przeciwnym razie zapoznaj się z tą sekcją.
+
+### <a name="get-the-os-image-from-the-windows-insider-portal"></a>Pobierz obraz systemu operacyjnego z portalu niejawnego testera systemu Windows
 
 Aby pobrać obraz systemu operacyjnego z portalu niejawnego testera systemu Windows:
 
@@ -45,30 +64,15 @@ Aby pobrać obraz systemu operacyjnego z portalu niejawnego testera systemu Wind
 2. Przewiń w dół do sekcji **Wybierz wersję** i wybierz pozycję **Windows 10 wersja zapoznawcza wersji zapoznawczej Enterprise (Fast) — Kompilacja 19041** lub nowsza.
 
 3. Wybierz pozycję **Potwierdź**, a następnie wybierz język, którego chcesz użyć, a następnie wybierz pozycję **Potwierdź** ponownie.
-    
+
      >[!NOTE]
      >W tej chwili w języku angielskim jest jedynym językiem, który został przetestowany przy użyciu funkcji. Można wybrać inne języki, ale mogą one nie być wyświetlane zgodnie z oczekiwaniami.
-    
+
 4. Po wygenerowaniu linku pobierania wybierz pozycję **64-bitowe pobieranie** i Zapisz ją na lokalnym dysku twardym.
 
-## <a name="get-the-os-image-from-the-azure-portal"></a>Pobierz obraz systemu operacyjnego z Azure Portal
+## <a name="prepare-the-vhd-image-for-azure"></a>Przygotowanie obrazu wirtualnego dysku twardego dla platformy Azure
 
-Aby uzyskać obraz systemu operacyjnego z Azure Portal:
-
-1. Otwórz [Azure Portal](https://portal.azure.com) i zaloguj się.
-
-2. Przejdź do pozycji **Utwórz maszynę wirtualną**.
-
-3. Na karcie **podstawowa** wybierz pozycję **Windows 10 Enterprise wiele sesji, wersja 2004**.
-      
-4. Postępuj zgodnie z pozostałymi instrukcjami, aby zakończyć tworzenie maszyny wirtualnej.
-
-     >[!NOTE]
-     >Możesz użyć tej maszyny wirtualnej do bezpośredniego testowania dołączania aplikacji MSIX. Aby dowiedzieć się więcej, zapoznaj się z tematem [Generowanie pakietu dysku VHD lub VHDX dla MSIX](#generate-a-vhd-or-vhdx-package-for-msix). W przeciwnym razie zapoznaj się z tą sekcją.
-
-## <a name="prepare-the-vhd-image-for-azure"></a>Przygotowanie obrazu wirtualnego dysku twardego dla platformy Azure 
-
-Przed rozpoczęciem należy utworzyć główny obraz wirtualnego dysku twardego. Jeśli nie utworzono jeszcze głównego obrazu wirtualnego dysku twardego, przejdź do [przygotowania i dostosowania głównego obrazu wirtualnego dysku twardego](set-up-customize-master-image.md) i postępuj zgodnie z instrukcjami w tym miejscu. 
+Następnie musisz utworzyć główny obraz wirtualnego dysku twardego. Jeśli nie utworzono jeszcze głównego obrazu wirtualnego dysku twardego, przejdź do [przygotowania i dostosowania głównego obrazu wirtualnego dysku twardego](set-up-customize-master-image.md) i postępuj zgodnie z instrukcjami w tym miejscu.
 
 Po utworzeniu głównego obrazu wirtualnego dysku twardego należy wyłączyć aktualizacje automatyczne dla aplikacji MSIX. Aby wyłączyć aktualizacje automatyczne, należy uruchomić następujące polecenia w wierszu polecenia z podwyższonym poziomem uprawnień:
 
@@ -90,7 +94,7 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-Po wyłączeniu funkcji Aktualizacje automatyczne należy włączyć funkcję Hyper-V, ponieważ w celu przełączenia i zamontowania wirtualnego dysku twardego na nośniku należy użyć polecenia mount-VHD. 
+Po wyłączeniu funkcji Aktualizacje automatyczne należy włączyć funkcję Hyper-V, ponieważ w celu przełączenia i zamontowania wirtualnego dysku twardego na nośniku należy użyć polecenia mount-VHD.
 
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
@@ -102,7 +106,7 @@ Następnie przygotuj dysk VHD maszyny wirtualnej dla platformy Azure i przekaż 
 
 Po przekazaniu wirtualnego dysku twardego na platformę Azure Utwórz pulę hostów opartą na tym nowym obrazie, postępując zgodnie z instrukcjami w temacie [Tworzenie puli hostów za pomocą samouczka Azure Marketplace](create-host-pools-azure-marketplace.md) .
 
-## <a name="prepare-the-application-for-msix-app-attach"></a>Przygotowywanie aplikacji do dołączenia do aplikacji MSIX 
+## <a name="prepare-the-application-for-msix-app-attach"></a>Przygotowywanie aplikacji do dołączenia do aplikacji MSIX
 
 Jeśli masz już pakiet MSIX, przejdź do [konfiguracji infrastruktury pulpitów wirtualnych systemu Windows](#configure-windows-virtual-desktop-infrastructure). Jeśli chcesz przetestować starsze aplikacje, postępuj zgodnie z instrukcjami w temacie [Tworzenie pakietu MSIX z poziomu Instalatora pulpitu na maszynie wirtualnej](/windows/msix/packaging-tool/create-app-package-msi-vm/) w celu przekonwertowania starszej aplikacji na pakiet MSIX.
 
@@ -185,7 +189,7 @@ Przed rozpoczęciem upewnij się, że udział sieciowy spełnia następujące wy
 - Udział jest zgodny z protokołem SMB.
 - Maszyny wirtualne będące częścią puli hostów sesji mają uprawnienia NTFS do udziału.
 
-### <a name="set-up-an-msix-app-attach-share"></a>Skonfiguruj udział dołączania aplikacji MSIX 
+### <a name="set-up-an-msix-app-attach-share"></a>Skonfiguruj udział dołączania aplikacji MSIX
 
 W środowisku pulpitu wirtualnego systemu Windows Utwórz udział sieciowy i Przenieś pakiet.
 
@@ -426,16 +430,16 @@ W każdym z tych skryptów automatycznych działa jedna faza dołączania skrypt
 
 ## <a name="use-packages-offline"></a>Korzystanie z pakietów w trybie offline
 
-Jeśli używasz pakietów z [Microsoft Store dla firm](https://businessstore.microsoft.com/) lub [Microsoft Store do edukacji](https://educationstore.microsoft.com/) w sieci lub na urządzeniach, które nie są połączone z Internetem, musisz pobrać licencje pakietów z Microsoft Store i zainstalować je na urządzeniu, aby pomyślnie uruchomić aplikację. Jeśli urządzenie jest w trybie online i może nawiązać połączenie z Microsoft Store dla firm, wymagane licencje należy pobrać automatycznie, ale jeśli jesteś w trybie offline, musisz ręcznie skonfigurować licencje. 
+Jeśli używasz pakietów z [Microsoft Store dla firm](https://businessstore.microsoft.com/) lub [Microsoft Store do edukacji](https://educationstore.microsoft.com/) w sieci lub na urządzeniach, które nie są połączone z Internetem, musisz pobrać licencje pakietów z Microsoft Store i zainstalować je na urządzeniu, aby pomyślnie uruchomić aplikację. Jeśli urządzenie jest w trybie online i może nawiązać połączenie z Microsoft Store dla firm, wymagane licencje należy pobrać automatycznie, ale jeśli jesteś w trybie offline, musisz ręcznie skonfigurować licencje.
 
-Aby zainstalować pliki licencji, należy użyć skryptu programu PowerShell, który wywołuje klasę MDM_EnterpriseModernAppManagement_StoreLicenses02_01 w dostawcy mostka WMI.  
+Aby zainstalować pliki licencji, należy użyć skryptu programu PowerShell, który wywołuje klasę MDM_EnterpriseModernAppManagement_StoreLicenses02_01 w dostawcy mostka WMI.
 
-Poniżej przedstawiono sposób konfigurowania licencji do użytku w trybie offline: 
+Poniżej przedstawiono sposób konfigurowania licencji do użytku w trybie offline:
 
 1. Pobierz pakiet aplikacji, licencje i wymagane platformy z Microsoft Store dla firm. Wymagane są zarówno zakodowane, jak i niezakodowane pliki licencji. Szczegółowe instrukcje dotyczące pobierania można znaleźć [tutaj](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 2. Zaktualizuj następujące zmienne w skrypcie dla kroku 3:
       1. `$contentID`jest wartością identyfikatorze z niezakodowanego pliku licencji (XML). Możesz otworzyć plik licencji w wybranym edytorze tekstu.
-      2. `$licenseBlob`to cały ciąg dla obiektu BLOB licencji w zakodowanym pliku licencji (bin). Możesz otworzyć zakodowany plik licencji w wybranym edytorze tekstu. 
+      2. `$licenseBlob`to cały ciąg dla obiektu BLOB licencji w zakodowanym pliku licencji (bin). Możesz otworzyć zakodowany plik licencji w wybranym edytorze tekstu.
 3. Uruchom następujący skrypt z wiersza polecenia administratora programu PowerShell. Dobrym miejscem do przeprowadzenia instalacji licencji jest koniec [skryptu przemieszczania](#stage-the-powershell-script) , który również należy uruchomić z poziomu monitu administratora.
 
 ```powershell
@@ -450,14 +454,14 @@ $contentID = "{'ContentID'_in_unencoded_license_file}"
 #TODO - Update $licenseBlob with the entire String in the encoded license file (.bin)
 $licenseBlob = "{Entire_String_in_encoded_license_file}"
 
-$session = New-CimSession 
+$session = New-CimSession
 
 #The final string passed into the AddLicenseMethod should be of the form <License Content="encoded license blob" />
-$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />' 
+$licenseString = '<License Content='+ '"' + $licenseBlob +'"' + ' />'
 
 $params = New-Object Microsoft.Management.Infrastructure.CimMethodParametersCollection
 $param = [Microsoft.Management.Infrastructure.CimMethodParameter]::Create("param",$licenseString ,"String", "In")
-$params.Add($param) 
+$params.Add($param)
 
 
 try
@@ -469,7 +473,7 @@ try
 catch [Exception]
 {
      write-host $_ | out-string
-}  
+}
 ```
 
 ## <a name="next-steps"></a>Następne kroki

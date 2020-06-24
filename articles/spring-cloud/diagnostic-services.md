@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 83b223ab2195516492d55ac85be6e7db0dffbd98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57850b45820ec259337a8ad5b67bfebfd6762c24
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176791"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790589"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizowanie dzienników i metryk przy użyciu ustawień diagnostycznych
 
@@ -174,3 +174,31 @@ AppPlatformLogsforSpring
 ### <a name="learn-more-about-querying-application-logs"></a>Dowiedz się więcej o wysyłaniu zapytań do dzienników aplikacji
 
 Azure Monitor zapewnia szeroką pomoc techniczną dotyczącą wykonywania zapytań dotyczących dzienników aplikacji przy użyciu Log Analytics. Aby dowiedzieć się więcej na temat tej usługi, zobacz [Rozpoczynanie pracy z kwerendami dzienników w Azure monitor](../azure-monitor/log-query/get-started-queries.md). Aby uzyskać więcej informacji na temat tworzenia zapytań w celu analizowania dzienników aplikacji, zobacz [Omówienie zapytań dzienników w Azure monitor](../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
+
+### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Jak skonwertować wielowierszowe ślady stosu Java w jeden wiersz?
+
+Istnieje obejście, aby przekonwertować dane śledzenia stosu wielowierszowego w jeden wiersz. Można zmodyfikować dane wyjściowe dziennika Java w celu ponownego sformatowania komunikatów śledzenia stosu, zastępując znaki nowego wiersza tokenem. W przypadku korzystania z biblioteki Logback języka Java można ponownie sformatować komunikaty śledzenia stosu, dodając `%replace(%ex){'[\r\n]+', '\\n'}%nopex` w następujący sposób:
+
+```xml
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                level: %level, message: "%logger{36}: %msg", exceptions: "%replace(%ex){'[\r\n]+', '\\n'}%nopex"%n
+            </pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>
+```
+Następnie można zastąpić token ponownie znakami nowego wiersza w Log Analytics w następujący sposób:
+
+```sql
+AppPlatformLogsforSpring
+| extend Log = array_strcat(split(Log, '\\n'), '\n')
+```
+Korzystanie z tej samej strategii dla innych bibliotek dzienników Java może być możliwe.

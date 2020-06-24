@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 548ebf5b0d5836383b74326516fbe47b1b25f60f
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76899950"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080187"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Szyfrowanie zawartości w usłudze Azure Wyszukiwanie poznawcze przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault
 
@@ -38,7 +38,7 @@ W tym przykładzie są używane następujące usługi.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) lub [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) jest używany na potrzeby zadań konfiguracyjnych.
 
-+ Do wywoływania interfejsu API REST można użyć programu [Poster](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) i [zestawu SDK platformy Azure wyszukiwanie poznawcze](https://aka.ms/search-sdk-preview) . W tej chwili nie ma obsługi szyfrowania zarządzanego przez klienta w portalu.
++ Do wywoływania interfejsu API REST można użyć programu [Poster](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) i [zestawu .NET SDK Preview](https://aka.ms/search-sdk-preview) . W tej chwili nie ma obsługi szyfrowania zarządzanego przez klienta w portalu.
 
 >[!Note]
 > Ze względu na charakter szyfrowania z użyciem funkcji klucze zarządzane przez klienta usługa Azure Wyszukiwanie poznawcze nie będzie mogła pobrać danych, jeśli klucz magazynu kluczy platformy Azure zostanie usunięty. Aby zapobiec utracie danych spowodowanym przez przypadkowe Key Vault usuwania kluczy, **należy** włączyć opcję usuwania nietrwałego i przeczyszczania w Key Vault, zanim będzie można jej użyć. Aby uzyskać więcej informacji, zobacz [Azure Key Vault usuwania nietrwałego](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   

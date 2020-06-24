@@ -8,14 +8,14 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 84b5cd8a59103f60249da861238acb45f8aa2fd5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 8644a4e7dc8973775d952581bfc57d266c79f1a5
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871697"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130793"
 ---
-# <a name="suppressing-alerts-from-azure-security-centers-threat-protection"></a>Pomijanie alertów z ochrony przed zagrożeniami w usłudze Azure Security Center
+# <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Pomijaj alerty z Azure Security Center ochrony przed zagrożeniami
 
 Na tej stronie wyjaśniono, jak można użyć reguł pomijania alertów, aby pominąć fałszywie dodatnie lub inne niepożądane alerty zabezpieczeń w Azure Security Center.
 
@@ -28,7 +28,7 @@ Na tej stronie wyjaśniono, jak można użyć reguł pomijania alertów, aby pom
     - ✔ National/suwerenny (US Gov, Chiny gov, inne gov)
 
 
-## <a name="introduction-to-suppression-rules"></a>Wprowadzenie do reguł pomijania
+## <a name="what-are-suppression-rules"></a>Co to są reguły pomijania?
 
 Składniki ochrony przed zagrożeniami Azure Security Center wykrywają zagrożenia w dowolnym obszarze środowiska i generują alerty zabezpieczeń.
 
@@ -45,7 +45,7 @@ Reguły pomijania definiują kryteria, dla których alerty powinny być automaty
 
 [![Strona alerty zabezpieczeń Azure Security Center z opcjami pomijania alertów](media/alerts-suppression-rules/alerts-screen-with-options.png)](media/alerts-suppression-rules/alerts-screen-with-options.png#lightbox)
 
-## <a name="creating-a-suppression-rule"></a>Tworzenie reguły pomijania
+## <a name="create-a-suppression-rule"></a>Tworzenie reguły pomijania
 
 Istnieje kilka sposobów, aby można było utworzyć reguły pomijające niepożądane alerty zabezpieczeń:
 
@@ -89,13 +89,13 @@ Aby utworzyć regułę bezpośrednio w Azure Portal:
 
 1. Zapisz regułę. 
 
-## <a name="editing-suppression-rules"></a>Edytowanie reguł pomijania
+## <a name="edit-a-suppression-rules"></a>Edytowanie reguł pomijania
 
 Aby edytować utworzone reguły, użyj strony reguły pomijania.
 
 1. Na stronie Alerty zabezpieczeń Security Center wybierz łącze **reguły pomijania** w górnej części strony.
 
-1. Na stronie reguły pomijania zostanie wyświetlona lista wszystkich dostępnych reguł zgodnie z aktualnie wybranymi subskrypcjami. 
+1. Zostanie otwarta strona reguły pomijania ze wszystkimi regułami dla wybranych subskrypcji.
 
     [![Lista reguł pomijania](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
@@ -103,13 +103,13 @@ Aby edytować utworzone reguły, użyj strony reguły pomijania.
 
 1. Wprowadź niezbędne zmiany i wybierz pozycję **Zastosuj**. 
 
-## <a name="deleting-suppression-rules"></a>Usuwanie reguł pomijania
+## <a name="delete-a-suppression-rule"></a>Usuwanie reguły pomijania
 
 Aby usunąć co najmniej jedną utworzoną regułę, użyj strony reguły pomijania.
 
 1. Na stronie Alerty zabezpieczeń Security Center wybierz łącze **reguły pomijania** w górnej części strony.
 
-1. Na stronie reguły pomijania zostanie wyświetlona lista wszystkich dostępnych reguł zgodnie z aktualnie wybranymi subskrypcjami. 
+1. Zostanie otwarta strona reguły pomijania ze wszystkimi regułami dla wybranych subskrypcji.
 
 1. Aby usunąć pojedynczą regułę, otwórz menu wielokropka (...) dla reguły i wybierz polecenie **Usuń**.
 
@@ -117,7 +117,7 @@ Aby usunąć co najmniej jedną utworzoną regułę, użyj strony reguły pomija
 
     ![Usuwanie co najmniej jednej reguły pomijania](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
-## <a name="viewing-alerts-that-have-been-suppressed"></a>Wyświetlanie alertów, które zostały pominięte
+## <a name="view-suppressed-alerts"></a>Wyświetl pominięte alerty
 
 Alerty zgodne z włączonymi regułami pomijania będą nadal generowane, ale ich stan zostanie ustawiony na **odrzucony**. Stan można sprawdzić w Azure Portal lub uzyskać dostęp do Security Center alertów zabezpieczeń. 
 
@@ -131,7 +131,7 @@ Użyj filtru Security Center, aby wyświetlić alerty, które zostały odrzucone
    [![Wyświetlanie odrzuconych alertów](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
 
 
-## <a name="using-the-api-to-create-and-manage-suppression-rules"></a>Tworzenie reguł pomijania i zarządzanie nimi za pomocą interfejsu API
+## <a name="create-and-manage-suppression-rules-with-the-api"></a>Tworzenie reguł pomijania i zarządzanie nimi za pomocą interfejsu API
 
 Można tworzyć, wyświetlać i usuwać reguły pomijania alertów za pośrednictwem interfejsu API REST Security Center. 
 

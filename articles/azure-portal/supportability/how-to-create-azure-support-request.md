@@ -6,15 +6,15 @@ author: ganganarayanan
 manager: scotthit
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: kfollis
-ms.openlocfilehash: 0bd1191c0b92203b100b1713971119ec828352ea
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 52205ec4f5aabc2eb858229d26bc4966441820aa
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835550"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763894"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Jak utworzyć żądanie pomocy technicznej dla platformy Azure
 

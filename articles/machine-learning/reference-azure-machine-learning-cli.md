@@ -8,14 +8,14 @@ ms.topic: reference
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 03/05/2020
+ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: d4eb0ec0d3c3becc4fddd5923cd040f3957732bc
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: cd636ed1ff4369360fb5faae02e8095983cad043
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434066"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214523"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Zainstaluj & Użyj rozszerzenia interfejsu wiersza polecenia dla Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -195,23 +195,7 @@ Następujące polecenia przedstawiają sposób pracy z zestawami danych w Azure 
 
     Aby uzyskać informacje dotyczące formatu pliku JSON używanego do definiowania zestawu danych, użyj `az ml dataset register --show-template` .
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml DataSet dataregister](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Archiwizuj aktywny lub przestarzały zestaw danych:
-
-    ```azurecli-interactive
-    az ml dataset archive -n dataset-name
-    ```
-
-    Aby uzyskać więcej informacji, zobacz [AZ ml DataSet Archive](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Zaniechanie zestawu danych:
-
-    ```azurecli-interactive
-    az ml dataset deprecate -d replacement-dataset-id -n dataset-to-deprecate
-    ```
-
-    Aby uzyskać więcej informacji, zobacz [AZ ml DataSet — przestarzałe](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Aby uzyskać więcej informacji, zobacz [AZ ml DataSet dataregister](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-register).
 
 + Wyświetl listę wszystkich zestawów danych w obszarze roboczym:
 
@@ -219,7 +203,7 @@ Następujące polecenia przedstawiają sposób pracy z zestawami danych w Azure 
     az ml dataset list
     ```
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml DataSet list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Aby uzyskać więcej informacji, zobacz [AZ ml DataSet list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-list).
 
 + Pobierz szczegóły zestawu danych:
 
@@ -227,15 +211,7 @@ Następujące polecenia przedstawiają sposób pracy z zestawami danych w Azure 
     az ml dataset show -n dataset-name
     ```
 
-    Aby uzyskać więcej informacji, zobacz [AZ ml DataSet show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
-
-+ Aktywuj ponownie zarchiwizowany lub przestarzały zestaw danych:
-
-    ```azurecli-interactive
-    az ml dataset reactivate -n dataset-name
-    ```
-
-    Aby uzyskać więcej informacji, zobacz [AZ ml DataSet reactivate](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
+    Aby uzyskać więcej informacji, zobacz [AZ ml DataSet show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-show).
 
 + Wyrejestruj zestaw danych:
 

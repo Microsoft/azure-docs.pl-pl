@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 1bb8300f1e54cf03563704cf00549ce9e09a3916
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71df5aa22eb93df6c98eb15f97ab017457946b80
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260165"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099065"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limity Azure Data Box Disk
 
@@ -56,6 +56,7 @@ Najnowsze informacje na temat limitów usługi Azure Storage i najlepszych rozwi
     - Można mieć tylko jeden dysk zarządzany o danej nazwie w grupie zasobów we wszystkich wstępnie utworzonych folderach i na wszystkich urządzeniach Data Box Disk. Oznacza to, że wirtualne dyski twarde przekazane do wstępnie utworzonych folderów powinny mieć unikatowe nazwy. Upewnij się, że dana nazwa nie jest zgodna z nazwą już istniejącego dysku zarządzanego w grupie zasobów. Jeśli wirtualne dyski twarde mają takie same nazwy, tylko jeden z nich zostanie przekonwertowany na dysk zarządzany o tej nazwie. Pozostałe wirtualne dyski twarde zostaną przekazane do przejściowego konta magazynu jako stronicowe obiekty blob.
     - Zawsze kopiuj wirtualne dyski twarde do jednego ze wstępnie utworzonych folderów. Jeśli skopiujesz dyski VHD do lokalizacji innej niż te foldery lub do folderu utworzonego przez siebie, wirtualne dyski twarde zostaną przekazane do konta usługi Azure Storage jako stronicowe obiekty blob i dyski niezarządzane.
     - Na potrzeby tworzenia dysków zarządzanych można przekazywać tylko stałe wirtualne dyski twarde. Dynamiczne dyski VHD, różnicowe dyski VHD i pliki VHDX nie są obsługiwane.
+    - Pliki inne niż VHD skopiowane do folderów z pretworzonym dyskiem zarządzanym nie zostaną przekonwertowane na dysk zarządzany.
 
 ## <a name="azure-storage-account-size-limits"></a>Limity rozmiaru konta usługi Azure Storage
 
@@ -83,14 +84,14 @@ Poniżej przedstawiono rozmiary obiektów platformy Azure, które mogą być zap
 | Jednostka                                       | Konwencje                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nazwy kontenerów dla blokowych obiektów blob i stronicowych obiektów BLOB <br> Nazwy plików udziału dla Azure Files | Musi być prawidłową nazwą DNS o długości od 3 do 63 znaków. <br>  Musi zaczynać się literą lub cyfrą. <br> Może zawierać tylko małe litery, cyfry i łącznik (-). <br> Bezpośrednio przed łącznikiem (-) i bezpośrednio po nim musi znajdować się cyfra lub litera. <br> Nazwy nie mogą zawierać sąsiadujących ze sobą łączników. |
-| Nazwy katalogów i plików dla usługi Azure Files     |<li> Zachowywanie wielkości liter, bez uwzględniania wielkości liter i nie może przekraczać 255 znaków. </li><li> Nie może kończyć się ukośnikiem (/). </li><li>Jeśli jest podany, zostanie automatycznie usunięta. </li><li> Następujące znaki są niedozwolone:<code>" \\ / : \| < > * ?</code></li><li> Zastrzeżone znaki adresów URL muszą być poprzedzone odpowiednim znakiem ucieczki. </li><li> Nieprawidłowe znaki ścieżki URL są niedozwolone. Punkty kodu, \\takie jak uE000, nie są prawidłowymi znakami Unicode. Niektóre znaki ASCII lub Unicode, takie jak znaki sterujące (0x00 do 0x1F \\, u0081 itp.), również są niedozwolone. Aby uzyskać reguły dotyczące ciągów Unicode w protokole HTTP/1.1, zobacz RFC 2616, sekcja 2,2: Basic rules i RFC 3987. </li><li> Następujące nazwy plików są niedozwolone: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK $, znak kropki (.) i dwa znaki kropki (..).</li>|
+| Nazwy katalogów i plików dla usługi Azure Files     |<li> Zachowywanie wielkości liter, bez uwzględniania wielkości liter i nie może przekraczać 255 znaków. </li><li> Nie może kończyć się ukośnikiem (/). </li><li>Jeśli jest podany, zostanie automatycznie usunięta. </li><li> Następujące znaki są niedozwolone:<code>" \\ / : \| < > * ?</code></li><li> Zastrzeżone znaki adresów URL muszą być poprzedzone odpowiednim znakiem ucieczki. </li><li> Nieprawidłowe znaki ścieżki URL są niedozwolone. Punkty kodu, takie jak \\ uE000, nie są prawidłowymi znakami Unicode. Niektóre znaki ASCII lub Unicode, takie jak znaki sterujące (0x00 do 0x1F, \\ u0081 itp.), również są niedozwolone. Aby uzyskać reguły dotyczące ciągów Unicode w protokole HTTP/1.1, zobacz RFC 2616, sekcja 2,2: Basic rules i RFC 3987. </li><li> Następujące nazwy plików są niedozwolone: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK $, znak kropki (.) i dwa znaki kropki (..).</li>|
 | Nazwy blokowych i stronicowych obiektów blob      | W nazwach obiektów blob jest rozróżniana wielkość liter. Mogą zawierać dowolną kombinację znaków. <br> Nazwa obiektu blob musi zawierać od 1 do 1024 znaków. <br> Zastrzeżone znaki adresów URL muszą być poprzedzone odpowiednim znakiem ucieczki. <br>Liczba segmentów ścieżki w nazwie obiektu blob nie może przekraczać 254. Segment ścieżki to ciąg znajdujący się pomiędzy następującymi po sobie znakami ogranicznika (na przykład ukośnikami „/”), co odpowiada nazwie katalogu wirtualnego. |
 
 ## <a name="managed-disk-naming-conventions"></a>Konwencje nazewnictwa dysków zarządzanych
 
 | Jednostka | Konwencje                                             |
 |-------------------|-----------------------------------------------------------|
-| Nazwy dysków zarządzanych       | <li> Nazwa musi mieć od 1 do 80 znaków. </li><li> Nazwa musi zaczynać się literą lub cyfrą, kończyć literą, cyfrą lub podkreśleniem. </li><li> Nazwa może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. </li><li>   Nazwa nie powinna zawierać spacji ani `/`.                                              |
+| Nazwy dysków zarządzanych       | <li> Nazwa musi mieć od 1 do 80 znaków. </li><li> Nazwa musi zaczynać się literą lub cyfrą, kończyć literą, cyfrą lub podkreśleniem. </li><li> Nazwa może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. </li><li>   Nazwa nie powinna zawierać spacji ani `/` .                                              |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -2,14 +2,14 @@
 title: Konfigurowanie zapory usługi Azure łańcucha bloków Workbench Database
 description: Dowiedz się, jak skonfigurować zaporę bazy danych usługi Azure łańcucha bloków Workbench w wersji zapoznawczej, aby umożliwić łączenie się z klientami zewnętrznymi i aplikacjami
 ms.date: 09/09/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: mmercuri
-ms.openlocfilehash: e6739b7ead9299f020465d3c50ed01826334ca76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc7a1dc7e4a083ef8f5f7650f29ed1430b32e88b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74325998"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214200"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Konfigurowanie zapory bazy danych usługi Azure Blockchain Workbench
 

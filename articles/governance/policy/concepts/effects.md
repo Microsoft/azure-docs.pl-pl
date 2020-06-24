@@ -1,14 +1,14 @@
 ---
 title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
-ms.date: 05/20/2020
+ms.date: 06/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: f077548f2de06ef35a80aea0e8e33718a18ff229
-ms.sourcegitcommit: c052c99fd0ddd1171a08077388d221482026cd58
+ms.openlocfilehash: 54c2a687c6386c075ef5802826bc60b87b4d3ee4
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84424350"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791422"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -22,22 +22,26 @@ Te efekty są obecnie obsługiwane w definicji zasad:
 - [Zablokuj](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Wyłączone](#disabled)
-- [EnforceOPAConstraint](#enforceopaconstraint) (wersja zapoznawcza)
-- [EnforceRegoPolicy](#enforceregopolicy) (wersja zapoznawcza)
 - [Modyfikuj](#modify)
+
+Następujące efekty są _przestarzałe_:
+
+- [EnforceOPAConstraint](#enforceopaconstraint)
+- [EnforceRegoPolicy](#enforceregopolicy)
+
+> [!IMPORTANT]
+> Zamiast efektów **EnforceOPAConstraint** lub **EnforceRegoPolicy** należy używać _inspekcji_ i _Odmów_ z trybem dostawcy zasobów `Microsoft.Kubernetes.Data` . Wbudowane definicje zasad zostały zaktualizowane. Gdy istniejące przypisania zasad tych wbudowanych definicji zasad są modyfikowane, należy zmienić parametr _efektu_ na wartość na zaktualizowanej liście _allowedValues_ .
 
 ## <a name="order-of-evaluation"></a>Kolejność obliczeń
 
-Żądania utworzenia lub zaktualizowania zasobu za pomocą usługi Azure Resource Manager są najpierw oceniane przez usługę Azure Policy. Azure Policy tworzy listę wszystkich przypisań, które są stosowane do zasobu, a następnie szacuje zasób dla każdej definicji. Azure Policy przetwarza kilka efektów przed przekazaniem żądania do odpowiedniego dostawcy zasobów. Wykonanie tej czynności zapobiega niepotrzebnemu przetwarzaniu przez dostawcę zasobów, gdy zasób nie spełnia zaprojektowanych kontrolek ładu Azure Policy.
+Żądania utworzenia lub zaktualizowania zasobu są oceniane przez Azure Policy pierwsze. Azure Policy tworzy listę wszystkich przypisań, które są stosowane do zasobu, a następnie szacuje zasób dla każdej definicji. W przypadku [trybu Menedżer zasobów](./definition-structure.md#resource-manager-modes)Azure Policy przetwarza kilka efektów przed wysłaniem żądania do odpowiedniego dostawcy zasobów. To zamówienie zapobiega niepotrzebnemu przetwarzaniu przez dostawcę zasobów, gdy zasób nie jest zgodny z zaprojektowanymi kontrolkami ładu Azure Policy. W [trybie dostawcy zasobów](./definition-structure.md#resource-provider-modes)dostawca zasobów zarządza oceną i wynikiem oraz raportuje wyniki z powrotem do Azure Policy.
 
 - **Wyłączone** jest najpierw zaznaczone, aby określić, czy reguła zasad powinna zostać oceniona.
-- Następnie są **oceniane i** **modyfikowane** . Ponieważ może on zmienić żądanie, wprowadzona zmiana może uniemożliwić wywoływanie inspekcji lub skutków odmowy.
+- Następnie są **oceniane i** **modyfikowane** . Ponieważ może on zmienić żądanie, wprowadzona zmiana może uniemożliwić wywoływanie inspekcji lub skutków odmowy. Efekty te są dostępne tylko w trybie Menedżer zasobów.
 - Następnie zostanie obliczone **odmowa** . Oceniając odmowę przed inspekcją, nie jest blokowane podwójne rejestrowanie niepożądanego zasobu.
-- **Inspekcja** jest następnie oceniana przed żądaniem przechodzenia do dostawcy zasobów.
+- **Inspekcja** jest szacowana jako Ostatnia.
 
-Gdy dostawca zasobów zwróci kod sukcesu, **AuditIfNotExists** i **DeployIfNotExists** , aby określić, czy wymagane jest dodatkowe rejestrowanie zgodności lub akcja.
-
-Obecnie nie ma żadnych kolejności oceny dla efektów **EnforceOPAConstraint** lub **EnforceRegoPolicy** .
+Gdy dostawca zasobów zwróci kod sukcesu w żądaniu w trybie Menedżer zasobów, **AuditIfNotExists** i **DeployIfNotExists** ocenę, aby określić, czy wymagane jest dodatkowe rejestrowanie zgodności lub akcja.
 
 ## <a name="append"></a>Append
 
@@ -88,28 +92,50 @@ Przykład 2: pojedyncze pary **pól/wartości** przy użyciu **\[\*\]** [aliasu]
 }
 ```
 
-
-
-
 ## <a name="audit"></a>Inspekcja
 
 Inspekcja służy do tworzenia zdarzenia ostrzegawczego w dzienniku aktywności podczas oceniania niezgodnego zasobu, ale nie zatrzymuje żądania.
 
 ### <a name="audit-evaluation"></a>Ocena inspekcji
 
-Inspekcja jest ostatnim efektem sprawdzonym przez Azure Policy podczas tworzenia lub aktualizowania zasobu. Azure Policy następnie wysyła zasób do dostawcy zasobów. Inspekcja działa tak samo dla żądania zasobu i cyklu oceny. Azure Policy dodaje `Microsoft.Authorization/policies/audit/action` operację do dziennika aktywności i oznacza zasób jako niezgodny.
+Inspekcja jest ostatnim efektem sprawdzonym przez Azure Policy podczas tworzenia lub aktualizowania zasobu. W przypadku trybu Menedżer zasobów Azure Policy następnie wysyła zasób do dostawcy zasobów. Inspekcja działa tak samo dla żądania zasobu i cyklu oceny. Azure Policy dodaje `Microsoft.Authorization/policies/audit/action` operację do dziennika aktywności i oznacza zasób jako niezgodny.
 
 ### <a name="audit-properties"></a>Właściwości inspekcji
 
-Efekt inspekcji nie ma żadnych dodatkowych właściwości do użycia w warunku **then** definicji zasad.
+W przypadku trybu Menedżer zasobów efekt inspekcji nie ma żadnych dodatkowych właściwości do użycia w warunku **then** definicji zasad.
+
+W przypadku trybu dostawcy zasobów dla programu `Microsoft.Kubernetes.Data` efekt inspekcji ma następujące dodatkowe właściwości podrzędne. **details**
+
+- **constraintTemplate** (wymagane)
+  - Szablon ograniczenia CustomResourceDefinition (CRD), który definiuje nowe ograniczenia. Szablon definiuje logikę rego, schemat ograniczenia i parametry ograniczenia, które są przekazane za pośrednictwem **wartości** z Azure Policy.
+- **ograniczenie** (wymagane)
+  - Implementacja CRD szablonu ograniczenia. Używa parametrów przesyłanych za pośrednictwem **wartości** jako `{{ .Values.<valuename> }}` . W przykładzie 2 poniżej te wartości są `{{ .Values.excludedNamespaces }}` i `{{ .Values.allowedContainerImagesRegex }}` .
+- **wartości** (opcjonalne)
+  - Definiuje wszelkie parametry i wartości, które mają zostać przekazane do ograniczenia. Każda wartość musi istnieć w szablonie ograniczenia CRD.
 
 ### <a name="audit-example"></a>Przykład inspekcji
 
-Przykład: używanie efektu inspekcji.
+Przykład 1: używanie efektu inspekcji dla trybów Menedżer zasobów.
 
 ```json
 "then": {
     "effect": "audit"
+}
+```
+
+Przykład 2: używanie efektu inspekcji dla trybu dostawcy zasobów `Microsoft.Kubernetes.Data` . Dodatkowe informacje w obszarze **szczegóły** definiują szablon ograniczenia i CRD, które mają być używane w Kubernetes w celu ograniczenia dozwolonych obrazów kontenerów.
+
+```json
+"then": {
+    "effect": "audit",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
 }
 ```
 
@@ -125,7 +151,7 @@ AuditIfNotExists jest uruchamiany po obsłudze żądania Create lub Update zasob
 
 Właściwość **Details** efektów AuditIfNotExists ma wszystkie właściwości, które definiują powiązane zasoby do dopasowania.
 
-- **Typ** [wymagane]
+- **Typ** (wymagany)
   - Określa typ powiązanego zasobu do dopasowania.
   - Jeśli **details. Type** jest typem zasobu poniżej zasobu warunku **if** , zasady zapytania dotyczące zasobów tego **typu** w zakresie szacowanego zasobu. W przeciwnym razie zapytania zasad w ramach tej samej grupy zasobów co obliczony zasób.
 - **Nazwa** (opcjonalnie)
@@ -185,17 +211,26 @@ Odmów służy do zapobiegania żądaniu zasobu, który nie jest zgodny ze zdefi
 
 ### <a name="deny-evaluation"></a>Odmowa oceny
 
-Podczas tworzenia lub aktualizowania dopasowanego zasobu Odmów uniemożliwia żądanie przed wysłaniem do dostawcy zasobów. Żądanie jest zwracane jako `403 (Forbidden)` . W portalu dostęp zabroniony może być wyświetlany jako stan wdrożenia, które zostało uniemożliwione przez przypisanie zasad.
+Podczas tworzenia lub aktualizowania dopasowanego zasobu w trybie Menedżer zasobów Odmów to żądanie przed wysłaniem go do dostawcy zasobów. Żądanie jest zwracane jako `403 (Forbidden)` . W portalu dostęp zabroniony może być wyświetlany jako stan wdrożenia, które zostało uniemożliwione przez przypisanie zasad. W przypadku trybu dostawcy zasobów dostawca zasobów zarządza oceną zasobu.
 
 W trakcie obliczania istniejących zasobów zasoby zgodne z definicją zasad Odmów są oznaczane jako niezgodne.
 
 ### <a name="deny-properties"></a>Właściwości Odmów
 
-Efekt odmowy nie ma żadnych dodatkowych właściwości do użycia w warunku **then** definicji zasad.
+W przypadku trybu Menedżer zasobów efekt odmowy nie ma żadnych dodatkowych właściwości do użycia w warunku **then** definicji zasad.
+
+W przypadku trybu dostawcy zasobów dla programu `Microsoft.Kubernetes.Data` efekt odmowy ma następujące dodatkowe właściwości podrzędne. **details**
+
+- **constraintTemplate** (wymagane)
+  - Szablon ograniczenia CustomResourceDefinition (CRD), który definiuje nowe ograniczenia. Szablon definiuje logikę rego, schemat ograniczenia i parametry ograniczenia, które są przekazane za pośrednictwem **wartości** z Azure Policy.
+- **ograniczenie** (wymagane)
+  - Implementacja CRD szablonu ograniczenia. Używa parametrów przesyłanych za pośrednictwem **wartości** jako `{{ .Values.<valuename> }}` . W przykładzie 2 poniżej te wartości są `{{ .Values.excludedNamespaces }}` i `{{ .Values.allowedContainerImagesRegex }}` .
+- **wartości** (opcjonalne)
+  - Definiuje wszelkie parametry i wartości, które mają zostać przekazane do ograniczenia. Każda wartość musi istnieć w szablonie ograniczenia CRD.
 
 ### <a name="deny-example"></a>Odmów przykładu
 
-Przykład: użycie efektu Odmów.
+Przykład 1: użycie efektu odmowy dla trybów Menedżer zasobów.
 
 ```json
 "then": {
@@ -203,6 +238,21 @@ Przykład: użycie efektu Odmów.
 }
 ```
 
+Przykład 2: użycie efektu Odmów dla trybu dostawcy zasobów `Microsoft.Kubernetes.Data` . Dodatkowe informacje w obszarze **szczegóły** definiują szablon ograniczenia i CRD, które mają być używane w Kubernetes w celu ograniczenia dozwolonych obrazów kontenerów.
+
+```json
+"then": {
+    "effect": "deny",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-allowed-images/constraint.yaml",
+        "values": {
+            "allowedContainerImagesRegex": "[parameters('allowedContainerImagesRegex')]",
+            "excludedNamespaces": "[parameters('excludedNamespaces')]"
+        }
+    }
+}
+```
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
@@ -222,7 +272,7 @@ W cyklu oceny definicje zasad z DeployIfNotExistsm efektem dopasowania zasobów 
 
 Właściwość **Details** efektu DeployIfNotExists ma wszystkie właściwości, które definiują powiązane zasoby do dopasowania oraz wdrożenie szablonu do wykonania.
 
-- **Typ** [wymagane]
+- **Typ** (wymagany)
   - Określa typ powiązanego zasobu do dopasowania.
   - Uruchamia się, próbując pobrać zasób poniżej zasobu warunku **if** , a następnie wykonać zapytania w tej samej grupie zasobów co zasób warunku **if** .
 - **Nazwa** (opcjonalnie)
@@ -246,14 +296,14 @@ Właściwość **Details** efektu DeployIfNotExists ma wszystkie właściwości,
   - Jeśli dowolny pasujący zasób ma wartość true, efekt jest spełniony i nie wyzwala wdrożenia.
   - Można użyć [Field ()], aby sprawdzić równoważność z wartościami w warunku **if** .
   - Można na przykład użyć do sprawdzenia, czy zasób nadrzędny (w warunku **if** ) znajduje się w tej samej lokalizacji zasobu co pasujący zasób powiązany.
-- **roleDefinitionIds** [wymagane]
+- **roleDefinitionIds** (wymagane)
   - Ta właściwość musi zawierać tablicę ciągów, które pasują do identyfikatora roli kontroli dostępu opartej na rolach dostępnej w ramach subskrypcji. Aby uzyskać więcej informacji, zobacz [korygowanie — Konfigurowanie definicji zasad](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (opcjonalnie)
   - Dozwolone wartości to _subskrypcja_ i _resourceName_.
   - Ustawia typ wdrożenia, które ma zostać wyzwolone. _Subskrypcja_ wskazuje [wdrożenie na poziomie subskrypcji](../../../azure-resource-manager/templates/deploy-to-subscription.md) _, Grupa_ zasobów wskazuje wdrożenie w grupie.
   - W przypadku korzystania z wdrożeń na poziomie subskrypcji należy określić właściwość _Location_ we _wdrożeniu_ .
   - Wartość domyślna to _resourceName_.
-- **Wdrożenie** [wymagane]
+- **Wdrożenie** (wymagane)
   - Ta właściwość powinna obejmować pełne wdrożenie szablonu, ponieważ zostanie przesłane do `Microsoft.Resources/deployments` interfejsu API Put. Aby uzyskać więcej informacji, zobacz [interfejs API REST wdrożeń](/rest/api/resources/deployments).
 
   > [!NOTE]
@@ -319,13 +369,12 @@ Ten efekt jest przydatny do testowania sytuacji lub w przypadku, gdy definicja z
 Alternatywą dla wyłączonego efektu jest **wymuszmode**, który jest ustawiany w przypisaniu zasad.
 Gdy **wymuszanie** jest _wyłączone_, nadal są oceniane zasoby. Rejestrowanie, takie jak dzienniki aktywności, i efekt zasad nie wystąpi. Aby uzyskać więcej informacji, zobacz [Tryb wymuszania przypisywania zasad](./assignment-structure.md#enforcement-mode).
 
-
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
 Ten efekt jest używany z _trybem_ definicji zasad `Microsoft.Kubernetes.Data` . Jest on używany do przekazywania reguł kontroli przyjęcia strażnika v3 zdefiniowanych za pomocą [platformy ograniczeń nieprzez](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) , aby [otworzyć agenta zasad](https://www.openpolicyagent.org/) (Nieprzez) do klastrów Kubernetes na platformie Azure.
 
 > [!NOTE]
-> [Azure Policy dla Kubernetes](./policy-for-kubernetes.md) jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad.
+> [Azure Policy dla Kubernetes](./policy-for-kubernetes.md) jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej z efektem **EnforceOPAConstraint** i pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceopaconstraint-evaluation"></a>Ocena EnforceOPAConstraint
 
@@ -336,11 +385,11 @@ Co 15 minut ukończono pełne skanowanie klastra i wyniki zgłoszone do Azure Po
 
 Właściwość **Details** efektu EnforceOPAConstraint ma właściwości SubProperties opisujące regułę kontroli dostępu strażnik v3.
 
-- **constraintTemplate** [wymagane]
+- **constraintTemplate** (wymagane)
   - Szablon ograniczenia CustomResourceDefinition (CRD), który definiuje nowe ograniczenia. Szablon definiuje logikę rego, schemat ograniczenia i parametry ograniczenia, które są przekazane za pośrednictwem **wartości** z Azure Policy.
-- **ograniczenie** [wymagane]
+- **ograniczenie** (wymagane)
   - Implementacja CRD szablonu ograniczenia. Używa parametrów przesyłanych za pośrednictwem **wartości** jako `{{ .Values.<valuename> }}` . W poniższym przykładzie te wartości są `{{ .Values.cpuLimit }}` i `{{ .Values.memoryLimit }}` .
-- **wartości** [opcjonalne]
+- **wartości** (opcjonalne)
   - Definiuje wszelkie parametry i wartości, które mają zostać przekazane do ograniczenia. Każda wartość musi istnieć w szablonie ograniczenia CRD.
 
 ### <a name="enforceopaconstraint-example"></a>Przykład EnforceOPAConstraint
@@ -381,7 +430,7 @@ Przykład: strażnik v3 reguła kontroli w celu ustawienia limitów zasobów pro
 Ten efekt jest używany z _trybem_ definicji zasad `Microsoft.ContainerService.Data` . Służy do przekazywania reguł kontroli wpływu strażnika v2 zdefiniowanych za pomocą [rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) , aby [otworzyć agenta zasad](https://www.openpolicyagent.org/) (Nieprzez) w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Azure Policy dla Kubernetes](./policy-for-kubernetes.md) jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej z efektem **EnforceRegoPolicy** i pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć zaktualizowanego efektu [EnforceOPAConstraint](#enforceopaconstraint) .
+> [Azure Policy dla Kubernetes](./policy-for-kubernetes.md) jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej z efektem **EnforceRegoPolicy** i pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceregopolicy-evaluation"></a>Ocena EnforceRegoPolicy
 
@@ -392,11 +441,11 @@ Co 15 minut ukończono pełne skanowanie klastra i wyniki zgłoszone do Azure Po
 
 Właściwość **Details** efektu EnforceRegoPolicy ma właściwości, które opisują regułę kontroli dostępu strażnik v2.
 
-- **policyId** [wymagane]
+- **policyId** (wymagane)
   - Unikatowa nazwa przenoszona jako parametr do reguły rego Admission Control.
-- **zasady** [wymagane]
+- **zasady** (wymagane)
   - Określa identyfikator URI reguły rego Admission Control.
-- **policyParameters** [opcjonalnie]
+- **policyParameters** (opcjonalnie)
   - Definiuje wszelkie parametry i wartości, które mają zostać przekazane do zasad regoymi.
 
 ### <a name="enforceregopolicy-example"></a>Przykład EnforceRegoPolicy
@@ -445,15 +494,21 @@ Gdy definicja zasad używająca efektu Modyfikuj jest uruchamiana w ramach cyklu
 
 Właściwość **Details** efektu Modyfikuj ma wszystkie właściwości, które definiują uprawnienia, które są konieczne do korygowania, oraz **operacje** , które służą do dodawania, aktualizowania lub usuwania wartości tagów.
 
-- **roleDefinitionIds** [wymagane]
+- **roleDefinitionIds** (wymagane)
   - Ta właściwość musi zawierać tablicę ciągów, które pasują do identyfikatora roli kontroli dostępu opartej na rolach dostępnej w ramach subskrypcji. Aby uzyskać więcej informacji, zobacz [korygowanie — Konfigurowanie definicji zasad](../how-to/remediate-resources.md#configure-policy-definition).
   - Zdefiniowana rola musi obejmować wszystkie operacje przyznane do roli [współautor](../../../role-based-access-control/built-in-roles.md#contributor) .
-- **operacje** [wymagane]
+- **conflictEffect** (opcjonalnie)
+  - Określa definicję zasad "WINS" w przypadku, gdy więcej niż jedna definicja zasad modyfikuje tę samą właściwość.
+    - W przypadku nowych lub zaktualizowanych zasobów definicja zasad z _Odmów_ ma pierwszeństwo. Definicje zasad z _inspekcją_ pomija wszystkie **operacje**. Jeśli więcej niż jedna definicja zasad ma _odmowę_, żądanie jest odrzucane jako konflikt. Jeśli wszystkie definicje zasad mają _inspekcję_, wówczas żadna z **operacji** w sprzecznych definicjach zasad nie zostanie przetworzona.
+    - W przypadku istniejących zasobów, jeśli więcej niż jedna definicja zasad ma _odmowę_, stan zgodności jest w _konflikcie_. Jeśli co najmniej jedna definicja zasad ma _odmowę_, każde przypisanie zwraca stan zgodności _niezgodny_.
+  - Dostępne wartości: _Inspekcja_, _Odmów_, _wyłączone_.
+  - Wartość domyślna to _Odmów_.
+- **operacje** (wymagane)
   - Tablica wszystkich operacji tagów do wykonania na pasujących zasobach.
   - Właściwości:
-    - **operacja** [wymagana]
+    - **operacja** (wymagana)
       - Definiuje akcję, która ma zostać podjęta względem pasującego zasobu. Dostępne opcje to: _addOrReplace_, _Add_, _Remove_. _Dodaj_ zachowania podobne do efektu [dołączania](#append) .
-    - **pole** [wymagane]
+    - **pole** (wymagane)
       - Tag do dodania, zastępowania lub usunięcia. Nazwy tagów muszą być zgodne z tą samą konwencją nazewnictwa dla innych [pól](./definition-structure.md#fields).
     - **wartość** (opcjonalnie)
       - Wartość, dla której ma zostać ustawiony tag.
@@ -528,6 +583,7 @@ Przykład 2: Usuń `env` tag i Dodaj `environment` tag lub Zastąp istniejące `
         "roleDefinitionIds": [
             "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
         ],
+        "conflictEffect": "deny",
         "operations": [
             {
                 "operation": "Remove",
@@ -542,8 +598,6 @@ Przykład 2: Usuń `env` tag i Dodaj `environment` tag lub Zastąp istniejące `
     }
 }
 ```
-
-
 
 ## <a name="layering-policy-definitions"></a>Definicje zasad dotyczących warstw
 

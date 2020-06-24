@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować wstępnie zbudowany kontener PHP d
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 9933205095587d9e8e0d8a5641d213f159512450
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 9e4237f1eecb9f6542aac946525ff4583e478c2e
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234950"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905701"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Konfigurowanie aplikacji PHP w systemie Linux dla Azure App Service
 
@@ -104,17 +104,17 @@ if (isset($_SERVER['X-Forwarded-Proto']) && $_SERVER['X-Forwarded-Proto'] === 'h
 
 Popularne platformy internetowe umożliwiają dostęp do informacji `X-Forwarded-*` w standardowym wzorcu aplikacji. Na platformie [CodeIgniter](https://codeigniter.com/) element [is_https()](https://github.com/bcit-ci/CodeIgniter/blob/master/system/core/Common.php#L338-L365) domyślnie sprawdza wartość `X_FORWARDED_PROTO`.
 
-## <a name="customize-phpini-settings"></a>Dostosuj ustawienia PHP. ini
+## <a name="customize-phpini-settings"></a>Dostosuj ustawienia php.ini
 
-Jeśli konieczne jest wprowadzenie zmian w instalacji PHP, można zmienić dowolne z [dyrektyw php. ini](https://www.php.net/manual/ini.list.php) , wykonując następujące kroki.
+Jeśli musisz wprowadzić zmiany w instalacji PHP, możesz zmienić dowolne z [php.ini dyrektyw](https://www.php.net/manual/ini.list.php) , wykonując następujące kroki.
 
 > [!NOTE]
-> Najlepszym sposobem wyświetlenia wersji języka PHP i bieżącej konfiguracji *php. ini* jest wywołanie [phpinfo ()](https://www.php.net/manual/function.phpinfo.php) w aplikacji.
+> Najlepszym sposobem na wyświetlenie wersji języka PHP i bieżącej konfiguracji *php.ini* jest wywołanie [phpinfo ()](https://php.net/manual/function.phpinfo.php) w aplikacji.
 >
 
 ### <a name="customize-non-php_ini_system-directives"></a><a name="Customize-non-PHP_INI_SYSTEM directives"></a>Dostosowywanie — dyrektywy inne niż PHP_INI_SYSTEM
 
-Aby dostosować dyrektywy PHP_INI_USER, PHP_INI_PERDIR i PHP_INI_ALL (zobacz [dyrektywy php. ini](https://www.php.net/manual/ini.list.php)), Dodaj plik *. htaccess* do katalogu głównego aplikacji.
+Aby dostosować dyrektywy PHP_INI_USER, PHP_INI_PERDIR i PHP_INI_ALL (patrz [dyrektywyphp.ini](https://www.php.net/manual/ini.list.php)), Dodaj plik *. htaccess* do katalogu głównego aplikacji.
 
 W pliku *. htaccess* Dodaj dyrektywy przy użyciu `php_value <directive-name> <value>` składni. Przykład:
 
@@ -134,7 +134,7 @@ Jako alternatywę dla korzystania z *. htaccess*można użyć [ini_set ()](https
 
 ### <a name="customize-php_ini_system-directives"></a><a name="customize-php_ini_system-directives"></a>Dostosuj dyrektywy PHP_INI_SYSTEM
 
-Aby dostosować dyrektywy PHP_INI_SYSTEM (zobacz sekcję [php. ini dyrektywy](https://www.php.net/manual/ini.list.php)), nie można użyć metody *. htaccess* . App Service zapewnia oddzielny mechanizm przy użyciu `PHP_INI_SCAN_DIR` Ustawienia aplikacji.
+Aby dostosować dyrektywy PHP_INI_SYSTEM (patrz [php.ini dyrektyw](https://www.php.net/manual/ini.list.php)), nie można użyć metody *. htaccess* . App Service zapewnia oddzielny mechanizm przy użyciu `PHP_INI_SCAN_DIR` Ustawienia aplikacji.
 
 Najpierw uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com) , aby dodać ustawienie aplikacji o nazwie `PHP_INI_SCAN_DIR` :
 
@@ -142,11 +142,11 @@ Najpierw uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d`jest domyślnym katalogiem, w którym znajduje się *plik php. ini* . `/home/site/ini`jest katalogiem niestandardowym, w którym zostanie dodany niestandardowy plik *. ini* . Wartości należy rozdzielić `:` .
+`/usr/local/etc/php/conf.d`jest domyślnym katalogiem, w którym istnieje *php.ini* . `/home/site/ini`jest katalogiem niestandardowym, w którym zostanie dodany niestandardowy plik *. ini* . Wartości należy rozdzielić `:` .
 
 Przejdź do sesji protokołu SSH sieci Web przy użyciu kontenera systemu Linux ( `https://<app-name>.scm.azurewebsites.net/webssh/host` ).
 
-Utwórz katalog w `/home/site` nazwie `ini` , a następnie utwórz plik *. ini* w `/home/site/ini` katalogu (na przykład *Settings. ini)* z dyrektywami, które chcesz dostosować. Użyj tej samej składni, która będzie używana w pliku *php. ini* . 
+Utwórz katalog w `/home/site` nazwie `ini` , a następnie utwórz plik *. ini* w `/home/site/ini` katalogu (na przykład *settings.ini)* z dyrektywami, które chcesz dostosować. Użyj tej samej składni, która będzie używana w pliku *php.ini* . 
 
 > [!TIP]
 > W wbudowanych kontenerach systemu Linux w App Service */Home* jest używany jako utrwalony magazyn udostępniony. 
@@ -164,10 +164,10 @@ Aby zmiany zaczęły obowiązywać, należy ponownie uruchomić aplikację.
 
 ## <a name="enable-php-extensions"></a>Włącz rozszerzenia PHP
 
-Wbudowane instalacje języka PHP zawierają najczęściej używane rozszerzenia. Dodatkowe rozszerzenia można włączyć w taki sam sposób, w jaki [dostosowuje się dyrektywy php. ini](#customize-php_ini_system-directives).
+Wbudowane instalacje języka PHP zawierają najczęściej używane rozszerzenia. Dodatkowe rozszerzenia można włączyć w taki sam sposób, w jaki [dostosowuje się php.ini dyrektyw](#customize-php_ini_system-directives).
 
 > [!NOTE]
-> Najlepszym sposobem wyświetlenia wersji języka PHP i bieżącej konfiguracji *php. ini* jest wywołanie [phpinfo ()](https://php.net/manual/function.phpinfo.php) w aplikacji.
+> Najlepszym sposobem na wyświetlenie wersji języka PHP i bieżącej konfiguracji *php.ini* jest wywołanie [phpinfo ()](https://php.net/manual/function.phpinfo.php) w aplikacji.
 >
 
 Aby włączyć dodatkowe rozszerzenia, wykonaj następujące czynności:
@@ -187,7 +187,7 @@ Aby zmiany zaczęły obowiązywać, należy ponownie uruchomić aplikację.
 
 ## <a name="access-diagnostic-logs"></a>Uzyskiwanie dostępu do dzienników diagnostycznych
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## <a name="open-ssh-session-in-browser"></a>Otwórz sesję SSH w przeglądarce
 
@@ -198,8 +198,8 @@ Aby zmiany zaczęły obowiązywać, należy ponownie uruchomić aplikację.
 Gdy działająca aplikacja PHP działa inaczej w App Service lub zawiera błędy, spróbuj wykonać następujące czynności:
 
 - [Dostęp do strumienia dzienników](#access-diagnostic-logs).
-- Przetestuj aplikację lokalnie w trybie produkcyjnym. App Service uruchamia aplikacje Node. js w trybie produkcyjnym, dlatego należy się upewnić, że projekt działa zgodnie z oczekiwaniami w trybie produkcyjnym lokalnie. Przykład:
-    - W zależności od pliku *Composer. JSON*można zainstalować różne pakiety dla trybu produkcyjnego ( `require` vs. `require-dev` ).
+- Przetestuj aplikację lokalnie w trybie produkcyjnym. App Service uruchamia aplikację w trybie produkcyjnym, dlatego należy się upewnić, że projekt działa zgodnie z oczekiwaniami w trybie produkcyjnym lokalnie. Przykład:
+    - W zależności od *composer.jsw systemie*można zainstalować różne pakiety dla trybu produkcyjnego ( `require` vs. `require-dev` ).
     - Niektóre platformy sieci Web mogą wdrażać pliki statyczne inaczej w trybie produkcyjnym.
     - Niektóre platformy sieci Web mogą używać niestandardowych skryptów uruchamiania podczas pracy w trybie produkcyjnym.
 - Uruchom aplikację w App Service w trybie debugowania. Na przykład w [platformy laravel](https://meanjs.org/)można skonfigurować aplikację do wyprowadzania komunikatów debugowania w środowisku produkcyjnym, [ustawiając `APP_DEBUG` ustawienie aplikacji na `true` ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).

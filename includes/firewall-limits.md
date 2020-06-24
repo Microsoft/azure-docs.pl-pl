@@ -1,25 +1,25 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 05/14/2020
+ms.date: 06/22/2020
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 4e00b0c46c79dc058d19076a396d055ba1d41b87
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: fe223030b98f95036f01cf69babdeb8a9a84dc2d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673530"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242108"
 ---
 | Zasób | Limit |
 | --- | --- |
 | Przepływność danych |30 GB/s<sup>1</sup> |
 |Reguły|10 000. Wszystkie typy reguł połączone.|
-|Maksymalna liczba reguł DNAT|298<br>Jeśli protokół reguły jest skonfigurowany dla protokołów TCP i UDP, liczy się jako dwie reguły.|
+|Maksymalna liczba reguł DNAT|298 dla jednego publicznego adresu IP.<br>Wszystkie dodatkowe publiczne adresy IP przyczyniają się do dostępnych portów, ale obniżają liczbę dostępnych reguł DNAT. Na przykład dwa publiczne adresy IP zezwalają na reguły DNAT 297. Jeśli protokół reguły jest skonfigurowany dla protokołów TCP i UDP, liczy się jako dwie reguły.|
 |Minimalny rozmiar AzureFirewallSubnet |/26|
 |Zakres portów w regułach sieci i aplikacji|1 - 65535|
 |Publiczne adresy IP|250 maksymalnie. Wszystkie publiczne adresy IP mogą być używane w regułach DNAT i wszystkie współtworzą dostęp do dostępnych portów.|

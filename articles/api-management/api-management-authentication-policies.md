@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: c9cf77971038a3d7d160180b93594736d3ca6200
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 8a92540ff2c57ff5c1aa827237a7341aecc1592b
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674231"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789263"
 ---
 # <a name="api-management-authentication-policies"></a>Zasady uwierzytelniania w usłudze API Management
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -118,12 +118,14 @@ W tym przykładzie certyfikat klienta jest ustawiany w zasadach, a nie pobierany
 -   **Zakresy zasad:** wszystkie zakresy  
 
 ##  <a name="authenticate-with-managed-identity"></a><a name="ManagedIdentity"></a>Uwierzytelnianie przy użyciu tożsamości zarządzanej  
- Zasady służą `authentication-managed-identity` do uwierzytelniania w usłudze wewnętrznej bazy danych przy użyciu tożsamości zarządzanej usługi API Management. Te zasady zasadniczo wykorzystują zarządzaną tożsamość do uzyskiwania tokenu dostępu z Azure Active Directory na potrzeby uzyskiwania dostępu do określonego zasobu. Po pomyślnym uzyskaniu tokenu zasady ustawili wartość tokenu w `Authorization` nagłówku przy użyciu `Bearer` schematu.
+ Zasady służą `authentication-managed-identity` do uwierzytelniania w usłudze zaplecza przy użyciu tożsamości zarządzanej. Te zasady zasadniczo wykorzystują zarządzaną tożsamość do uzyskiwania tokenu dostępu z Azure Active Directory na potrzeby uzyskiwania dostępu do określonego zasobu. Po pomyślnym uzyskaniu tokenu zasady ustawili wartość tokenu w `Authorization` nagłówku przy użyciu `Bearer` schematu.
+
+Do żądania tokenu można użyć zarówno tożsamości przypisanej do systemu, jak i dowolnej tożsamości przypisanej do użytkownika. Jeśli `client-id` nie podano tożsamości przypisanej do systemu, przyjmuje się. Jeśli `client-id` dla tej tożsamości przypisanej do użytkownika jest żądany token, na podstawie Azure Active Directory
   
 ### <a name="policy-statement"></a>Instrukcja zasad  
   
 ```xml  
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+<authentication-managed-identity resource="resource" client-id="clientid of user-assigned identity" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
 ### <a name="example"></a>Przykład  
@@ -180,7 +182,8 @@ W tym przykładzie certyfikat klienta jest ustawiany w zasadach, a nie pobierany
   
 |Nazwa|Opis|Wymagane|Domyślne|  
 |----------|-----------------|--------------|-------------|  
-|zasób|Ciąg. Identyfikator aplikacji docelowego internetowego interfejsu API (zabezpieczony zasób) w Azure Active Directory.|Tak|Nie dotyczy|  
+|zasób|Ciąg. Identyfikator aplikacji docelowego internetowego interfejsu API (zabezpieczony zasób) w Azure Active Directory.|Tak|Nie dotyczy|
+|Identyfikator klienta|Ciąg. Identyfikator aplikacji tożsamości przypisanej przez użytkownika w Azure Active Directory.|Nie|tożsamość przypisana przez system|
 |Output-token-Variable-Name|Ciąg. Nazwa zmiennej kontekstowej, która będzie otrzymywać wartość tokenu jako typ obiektu `string` . |Nie|Nie dotyczy|  
 |Ignoruj-błąd|Typu. W przypadku wybrania opcji `true` potok zasad będzie nadal wykonywany nawet wtedy, gdy nie zostanie uzyskany token dostępu.|Nie|fałsz|  
   

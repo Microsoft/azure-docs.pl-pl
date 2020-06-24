@@ -17,7 +17,7 @@ ms.locfileid: "67183429"
 
     ![Wybierz urządzenie](./media/storsimple-8000-install-update5-via-portal/update1.png)
 
-2. Przejdź do **ustawień urządzenia ustawienia** > **aktualizacje urządzeń**.
+2. Przejdź do **ustawień urządzenia ustawienia**  >  **aktualizacje urządzeń**.
 
     ![Kliknij pozycję Aktualizacje urządzeń](./media/storsimple-8000-install-update5-via-portal/update2.png)
 

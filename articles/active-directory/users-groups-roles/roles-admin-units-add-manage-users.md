@@ -6,7 +6,7 @@ documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.date: 04/16/2020
@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c2c5c083115440e1e4da203f39f2b32734458c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a57392b0072f6e6bb692ad0a28e6adf87f615eed
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684974"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732568"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Dodawanie użytkowników i zarządzanie nimi w jednostce administracyjnej w Azure Active Directory
 
@@ -96,11 +96,11 @@ Na panelu po lewej stronie wybierz pozycję **jednostki administracyjne** , aby 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Istnieją dwa sposoby usunięcia użytkownika z jednostki administracyjnej. W Azure Portal można otworzyć profil użytkownika, przechodząc do**użytkowników** **usługi Azure AD** > . Wybierz użytkownika, aby otworzyć profil użytkownika. Wybierz jednostkę administracyjną, z której chcesz usunąć użytkownika, a następnie wybierz pozycję **Usuń z jednostki administracyjnej**.
+Istnieją dwa sposoby usunięcia użytkownika z jednostki administracyjnej. W Azure Portal można otworzyć profil użytkownika, przechodząc do użytkowników **usługi Azure AD**  >  **Users**. Wybierz użytkownika, aby otworzyć profil użytkownika. Wybierz jednostkę administracyjną, z której chcesz usunąć użytkownika, a następnie wybierz pozycję **Usuń z jednostki administracyjnej**.
 
 ![Usuwanie użytkownika z jednostki administracyjnej z profilu użytkownika](./media/roles-admin-units-add-manage-users/user-remove-admin-units.png)
 
-Możesz również usunąć użytkownika w**jednostkach administracyjnych** **usługi Azure AD** > , wybierając jednostkę administracyjną, z której chcesz usunąć użytkowników. Wybierz użytkownika i wybierz pozycję **Usuń członka**.
+Możesz również usunąć użytkownika w **Azure AD**  >  **jednostkach administracyjnych** usługi Azure AD, wybierając jednostkę administracyjną, z której chcesz usunąć użytkowników. Wybierz użytkownika i wybierz pozycję **Usuń członka**.
   
 ![Usuń użytkownika na poziomie jednostki administracyjnej](./media/roles-admin-units-add-manage-users/admin-units-remove-user.png)
 

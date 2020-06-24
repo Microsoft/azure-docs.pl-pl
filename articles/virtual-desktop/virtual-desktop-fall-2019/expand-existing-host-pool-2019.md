@@ -4,16 +4,16 @@ description: Jak rozszerzyć istniejącą pulę hostów na nowe hosty sesji na p
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4313f36a0b250be9646c6658b98f15037374729
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 70ae4a014768976c7dcf81ffadf1066027fa06ad
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615528"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214285"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Rozwiń istniejącą pulę hostów przy użyciu nowych hostów sesji
 
@@ -57,12 +57,12 @@ Oto jak ponownie wdrożyć szablon Azure Resource Manager, aby rozszerzyć pulę
      - Jeśli utworzono początkową pulę hostów za pomocą oferty portalu Azure Marketplace, wybierz wdrożenie zaczynające się od **usług RDS. WVD-Host-Pool**.
      - Jeśli została utworzona pierwotna Pula hostów z szablonem Azure Resource Manager GitHub, wybierz wdrożenie o nazwie **Microsoft. Template**.
 6. Wybierz pozycję **Wdróż**ponownie.
-     
+
      >[!NOTE]
      >Jeśli szablon nie zostanie automatycznie wdrożony po wybraniu opcji **ponowne wdrażanie**, wybierz pozycję **szablon** w panelu po lewej stronie przeglądarki, a następnie wybierz pozycję **Wdróż**.
 
 7. Wybierz grupę zasobów zawierającą bieżące maszyny wirtualne hosta sesji w istniejącej puli hostów.
-     
+
      >[!NOTE]
      >Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że należy wybrać inną grupę zasobów, mimo że wprowadzona nazwa jest poprawna, wybierz inną grupę zasobów, a następnie wybierz oryginalną grupę zasobów.
 
@@ -85,7 +85,7 @@ Wszystkie wartości w tej sekcji powinny być zgodne z informacjami podanymi pod
 3.    W polu *region*wybierz ten sam region, w którym znajdują się maszyny wirtualne hosta sesji istniejącej puli hostów.
 4.    W polu *Nazwa Hostpool*wprowadź nazwę istniejącej puli hostów.
 5.    W *polu Typ pulpitu*wybierz typ pulpitu pasujący do istniejącej puli hostów.
-6.    W przypadku *domyślnych użytkowników pulpitu*wprowadź rozdzieloną przecinkami listę wszelkich dodatkowych użytkowników, którzy chcą zalogować się do klientów pulpitu wirtualnego systemu Windows i uzyskać dostęp do pulpitu po zakończeniu oferty portalu Azure Marketplace. Na przykład jeśli chcesz user3@contoso.com przypisać i user4@contoso.com uzyskać dostęp, wprowadź user3@contoso.com,.user4@contoso.com
+6.    W przypadku *domyślnych użytkowników pulpitu*wprowadź rozdzieloną przecinkami listę wszelkich dodatkowych użytkowników, którzy chcą zalogować się do klientów pulpitu wirtualnego systemu Windows i uzyskać dostęp do pulpitu po zakończeniu oferty portalu Azure Marketplace. Na przykład jeśli chcesz przypisać user3@contoso.com i user4@contoso.com uzyskać dostęp, wprowadź user3@contoso.com , user4@contoso.com .
 7.    Wybierz pozycję **Dalej: Skonfiguruj maszynę wirtualną**.
 
 >[!NOTE]
@@ -96,7 +96,7 @@ Wszystkie wartości w tej sekcji powinny być zgodne z informacjami podanymi pod
 Wszystkie wartości parametrów w tej sekcji powinny być zgodne z informacjami podanymi podczas pierwszego tworzenia puli hostów i maszyn wirtualnych hosta sesji, z wyjątkiem łącznej liczby maszyn wirtualnych. Liczba wprowadzonych maszyn wirtualnych to liczba maszyn wirtualnych w rozwiniętej puli hostów:
 
 1. Wybierz rozmiar maszyny wirtualnej odpowiadający istniejącym maszynom wirtualnym hosta sesji.
-    
+
     >[!NOTE]
     >Jeśli określony rozmiar maszyny wirtualnej nie jest wyświetlany w selektorze rozmiaru maszyny wirtualnej, jest to spowodowane tym, że nie zostało to jeszcze zrobione w narzędziu Azure Marketplace. Aby zażądać rozmiaru maszyny wirtualnej, Utwórz żądanie lub zagłosuj na istniejące żądanie na [forum Windows Virtual Desktop UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 

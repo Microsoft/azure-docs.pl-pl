@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 254c912114e3f1c7a495f389bc6a6416cbde7e11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 301f77d4eba7b1a63dd49de280de252bd9af1956
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77472455"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080481"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Dołącz zasób Cognitive Services do zestawu umiejętności na platformie Azure Wyszukiwanie poznawcze 
 
@@ -29,7 +29,7 @@ Usługa Azure Wyszukiwanie poznawcze ma zależność od Cognitive Services, w ty
 
 + Usługa Azure Wyszukiwanie poznawcze korzysta z klucza zasobu Cognitive Services podanym w zestawu umiejętności do rozliczania obrazów i wzbogacania tekstu. Do realizacji umiejętności rozliczanych jest [Cognitive Services cena płatności zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem.
 
-+ Wyodrębnianie obrazów to operacja Wyszukiwanie poznawcze platformy Azure, która występuje, gdy dokumenty są pęknięte przed wzbogacaniem. Wyodrębnianie obrazów jest rozliczane. Aby zapoznać się z cennikiem wyodrębniania obrazów, zobacz [stronę z cennikiem usługi Azure wyszukiwanie poznawcze](https://go.microsoft.com/fwlink/?linkid=2042400).
++ Wyodrębnianie obrazów to operacja Wyszukiwanie poznawcze platformy Azure, która występuje, gdy dokumenty są pęknięte przed wzbogacaniem. Wyodrębnianie obrazów jest rozliczane. Aby zapoznać się z cennikiem wyodrębniania obrazów, zobacz [stronę z cennikiem usługi Azure wyszukiwanie poznawcze](https://azure.microsoft.com/pricing/details/search/).
 
 + Wyodrębnianie tekstu występuje również podczas frazy do łamania dokumentu. Nie jest rozliczany.
 
@@ -108,9 +108,9 @@ Jeśli masz istniejący zestawu umiejętności, możesz dołączyć go do nowego
 
 ## <a name="attach-cognitive-services-programmatically"></a>Dołącz Cognitive Services programowo
 
-Gdy tworzysz zestawu umiejętności programowo, Dodaj `cognitiveServices` sekcję do zestawu umiejętności. W tej sekcji należy uwzględnić klucz zasobu Cognitive Services, który ma zostać skojarzony z zestawu umiejętności. Należy pamiętać, że zasób musi znajdować się w tym samym regionie co zasób Wyszukiwanie poznawcze platformy Azure. Należy również `@odata.type`uwzględnić i ustawić wartość `#Microsoft.Azure.Search.CognitiveServicesByKey`.
+Gdy tworzysz zestawu umiejętności programowo, Dodaj `cognitiveServices` sekcję do zestawu umiejętności. W tej sekcji należy uwzględnić klucz zasobu Cognitive Services, który ma zostać skojarzony z zestawu umiejętności. Należy pamiętać, że zasób musi znajdować się w tym samym regionie co zasób Wyszukiwanie poznawcze platformy Azure. Należy również uwzględnić `@odata.type` i ustawić wartość `#Microsoft.Azure.Search.CognitiveServicesByKey` .
 
-Poniższy przykład pokazuje ten wzorzec. Zwróć uwagę `cognitiveServices` na sekcję na końcu definicji.
+Poniższy przykład pokazuje ten wzorzec. Zwróć uwagę na `cognitiveServices` sekcję na końcu definicji.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06

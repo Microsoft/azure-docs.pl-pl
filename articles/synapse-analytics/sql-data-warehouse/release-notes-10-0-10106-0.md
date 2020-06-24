@@ -4,7 +4,7 @@ description: Informacje o wersji usługi Azure Synapse Analytics.
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 4/30/2020
 author: anumjs
 ms.author: anjangsh
@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: bf74e520340690c3dda71496360e5d9a2fe54ae8
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6e2247d448807413d425dfec5d572fa895041938
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115375"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206822"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Informacje o wersji usługi Azure Synapse Analytics
 
@@ -48,9 +48,9 @@ W przypadku ulepszeń narzędzi upewnij się, że w notatce wersji jest zainstal
 |**Izolacja obciążenia (GA)**|[Izolacja obciążeń](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation) jest teraz ogólnie dostępna.  Za poorednictwem [grup obciążeń](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) można zarezerwować i zawierać zasoby.  Istnieje również możliwość skonfigurowania limitów czasu zapytania, aby anulować przemijające zapytania.|
 |**Obciążenie portal zarządzania Experience (wersja zapoznawcza)**| Użytkownicy mogą konfigurować ustawienia zarządzania obciążeniem i zarządzać nimi za pośrednictwem Azure Portal.  Możliwa jest możliwość skonfigurowania [grup obciążeń](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) i [klasyfikatorów obciążeń](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-create-a-workload-classifier-portal) .|
 |**Zmień grupę obciążeń**|Możliwość korzystania z polecenia [ALTER obciążenie grupy](https://docs.microsoft.com/sql/t-sql/statements/alter-workload-group-transact-sql?view=azure-sqldw-latest) jest teraz dostępna.  Użyj polecenia ALTER, aby zmienić konfigurację istniejącej [grupy obciążeń](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-isolation).|
-|**Wykrywanie schematu automatycznego dla plików Parquet za pomocą polecenia COPY (wersja zapoznawcza)**|[Polecenie copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz wykrywanie schematu automatycznego podczas ładowania plików Parquet. Polecenie automatycznie wykryje Schemat pliku Parquet i utworzy tabelę przed obciążeniem. Skontaktuj się z następującą listą dystrybucyjną poczty e-mail, aby uzyskać listy dozwolonych: sqldwcopypreview@service.microsoft.com . |
-|**Załaduj złożone typy danych Parquet za pomocą polecenia COPY (wersja zapoznawcza)**|[Polecenie copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz ładowanie złożonych typów Parquet. Możesz ładować złożone typy, takie jak mapy i listy, do kolumn w postaci ciągów.  Skontaktuj się z następującą listą dystrybucyjną poczty e-mail, aby uzyskać listy dozwolonych: sqldwcopypreview@service.microsoft.com . |
-|**Wykrywanie autokompresji plików Parquet za pomocą polecenia COPY**|[Polecenie copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz funkcję automatycznego wykrywania metody kompresji dla plików Parquet.|
+|**Wykrywanie schematu automatycznego dla plików Parquet za pomocą polecenia COPY (wersja zapoznawcza)**|[Polecenie copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz wykrywanie schematu automatycznego podczas ładowania plików Parquet. Polecenie automatycznie wykryje Schemat pliku Parquet i utworzy tabelę przed obciążeniem. Aby włączyć tę funkcję, skontaktuj się z następującą listą dystrybucyjną poczty e-mail: sqldwcopypreview@service.microsoft.com . |
+|**Załaduj złożone typy danych Parquet za pomocą polecenia COPY (wersja zapoznawcza)**|[Polecenie copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz ładowanie złożonych typów Parquet. Możesz ładować złożone typy, takie jak mapy i listy, do kolumn w postaci ciągów.  Aby włączyć tę funkcję, skontaktuj się z następującą listą dystrybucyjną poczty e-mail: sqldwcopypreview@service.microsoft.com . |
+|**Wykrywanie autokompresji plików Parquet za pomocą polecenia COPY**|[Polecenie copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) obsługuje teraz funkcję automatycznego wykrywania metody kompresji dla plików Parquet. Aby włączyć tę funkcję, skontaktuj się z następującą listą dystrybucyjną poczty e-mail: sqldwcopypreview@service.microsoft.com .|
 |**Dodatkowe zalecenia dotyczące ładowania**|[Zalecenia dotyczące ładowania](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-recommendations) są teraz dostępne dla Synapse SQL. Otrzymuj aktywne powiadomienia, gdy należy podzielić pliki na maksymalną przepływność, umieścić konto magazynu w puli SQL lub zwiększyć rozmiar wsadu podczas korzystania z narzędzi do ładowania, takich jak SQLBulkCopy API lub BCP|
 |**Kolumnowy aktualizowalnej dystrybucji T-SQL (GA)**|Użytkownicy mogą teraz aktualizować dane przechowywane w kolumnie dystrybucja. Zapoznaj [się ze wskazówkami dotyczącymi projektowania tabel rozproszonych w puli SQL Synapse](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute) , aby uzyskać szczegółowe informacje.|
 |**Aktualizacja T-SQL/usuwanie z... Dołącz (GA)**|Teraz jest dostępna aktualizacja i usuwanie w oparciu o wyniki łączenia z inną tabelą. Aby uzyskać szczegółowe informacje, zobacz dokumentację dotyczącą [aktualizacji](https://docs.microsoft.com/sql/t-sql/queries/update-transact-sql?view=azure-sqldw-latest) i [usuwania](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql?view=azure-sqldw-latest) .|

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: de1a22ed6e9707767c0d097a9250f0bdd31414d5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b49dc6ef2bfee311bc3ca524a5ccb0a4e4b5ca9c
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788964"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84793682"
 ---
 ## <a name="create-an-image-gallery"></a>Tworzenie galerii obrazów 
 
@@ -30,7 +30,7 @@ az sig create --resource-group myGalleryRG --gallery-name myGallery
 
 ## <a name="share-the-gallery"></a>Udostępnianie galerii
 
-Możesz udostępniać obrazy między subskrypcjami przy użyciu Access Control opartej na rolach (RBAC). Możesz udostępniać obrazy w galerii, definicji obrazu lub wersji obrazu Leve. Każdy użytkownik, który ma uprawnienia do odczytu wersji obrazu, nawet między subskrypcjami, będzie mógł wdrożyć maszynę wirtualną przy użyciu wersji obrazu.
+Możesz udostępniać obrazy między subskrypcjami przy użyciu Access Control opartej na rolach (RBAC). Obrazy można udostępniać w galerii, definicji obrazu lub na poziomie wersji obrazu. Każdy użytkownik, który ma uprawnienia do odczytu wersji obrazu, nawet między subskrypcjami, będzie mógł wdrożyć maszynę wirtualną przy użyciu wersji obrazu.
 
 Zalecamy udostępnianie innym użytkownikom na poziomie galerii. Aby uzyskać identyfikator obiektu galerii, użyj [AZ SIG show](/cli/azure/sig#az-sig-show).
 
@@ -41,7 +41,7 @@ az sig show \
    --query id
 ```
 
-Użyj identyfikatora obiektu jako zakresu wraz z adresem e-mail i [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby dać użytkownikowi dostęp do galerii obrazów udostępnionych. `<email-address>` Zastąp `<gallery iD>` i własnymi informacjami.
+Użyj identyfikatora obiektu jako zakresu wraz z adresem e-mail i [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby dać użytkownikowi dostęp do galerii obrazów udostępnionych. Zastąp `<email-address>` i `<gallery iD>` własnymi informacjami.
 
 ```azurecli-interactive
 az role assignment create \

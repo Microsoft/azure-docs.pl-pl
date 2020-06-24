@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
-ms.openlocfilehash: 1a0624c01a3bb75c1a7b07b130345776417cf482
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: e17fa3e99de9f429fa279ba2e5413b60e9084de8
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484322"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125706"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Ciągłej integracji/ciągłego wdrażania w chmurze platformy Azure za pomocą akcji GitHub
 
@@ -21,7 +21,7 @@ Akcje usługi GitHub obsługują zautomatyzowany przepływ pracy tworzenia oprog
 Ten przykład wymaga [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="set-up-github-repository-and-authenticate"></a>Skonfiguruj repozytorium GitHub i uwierzytelniaj
-Musisz poświadczyć zasady usługi platformy Azure, aby autoryzować akcję logowania platformy Azure. Aby uzyskać poświadczenia platformy Azure, wykonaj następujące polecenia na komputerze lokalnym:
+Potrzebujesz poświadczenia jednostki usługi platformy Azure, aby autoryzować akcję logowania platformy Azure. Aby uzyskać poświadczenia platformy Azure, wykonaj następujące polecenia na komputerze lokalnym:
 ```
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
