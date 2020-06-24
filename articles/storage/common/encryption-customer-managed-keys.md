@@ -8,14 +8,14 @@ ms.service: storage
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b2755d5aa5dbaa669fa2fdd8b84596e040b5dd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50d889faa4d5b6659ac5358ba49cc49c8531a914
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81456825"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805373"
 ---
 # <a name="use-customer-managed-keys-with-azure-key-vault-to-manage-azure-storage-encryption"></a>Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage
 
@@ -80,12 +80,12 @@ Obracanie klucza nie wyzwala ponownego szyfrowania danych na koncie magazynu. Od
 
 W dowolnym momencie można odwołać dostęp do konta magazynu do klucza zarządzanego przez klienta. Po odwołaniu dostępu do kluczy zarządzanych przez klienta lub po wyłączeniu lub usunięciu klucza klienci nie mogą wywoływać operacji, które odczytują lub zapisują do obiektu BLOB lub jego metadanych. Próby wywołania dowolnej z następujących operacji zakończą się niepowodzeniem z kodem błędu 403 (dostęp zabroniony) dla wszystkich użytkowników:
 
-- [Wyświetl listę obiektów BLOB](/rest/api/storageservices/list-blobs), gdy zostanie `include=metadata` wywołana z parametrem identyfikatora URI żądania
+- [Wyświetl listę obiektów BLOB](/rest/api/storageservices/list-blobs), gdy zostanie wywołana z `include=metadata` parametrem identyfikatora URI żądania
 - [Pobierz obiekt BLOB](/rest/api/storageservices/get-blob)
 - [Pobieranie właściwości obiektu blob](/rest/api/storageservices/get-blob-properties)
 - [Pobierz metadane obiektu BLOB](/rest/api/storageservices/get-blob-metadata)
 - [Ustawianie metadanych obiektu BLOB](/rest/api/storageservices/set-blob-metadata)
-- [Obiekt BLOB Snapshot](/rest/api/storageservices/snapshot-blob), gdy jest `x-ms-meta-name` wywoływany z nagłówkiem żądania
+- [Obiekt BLOB Snapshot](/rest/api/storageservices/snapshot-blob), gdy jest wywoływany z `x-ms-meta-name` nagłówkiem żądania
 - [Kopiowanie obiektu blob](/rest/api/storageservices/copy-blob)
 - [Kopiuj obiekt BLOB z adresu URL](/rest/api/storageservices/copy-blob-from-url)
 - [Ustawianie warstwy obiektu blob](/rest/api/storageservices/set-blob-tier)
@@ -113,4 +113,4 @@ Klucze zarządzane przez klienta są również dostępne do zarządzania szyfrow
 - [Skonfiguruj klucze zarządzane przez klienta przy użyciu Key Vault na potrzeby szyfrowania usługi Azure Storage z poziomu Azure Portal](storage-encryption-keys-portal.md)
 - [Konfigurowanie kluczy zarządzanych przez klienta przy użyciu Key Vault na potrzeby szyfrowania usługi Azure Storage za pomocą programu PowerShell](storage-encryption-keys-powershell.md)
 - [Konfigurowanie kluczy zarządzanych przez klienta przy użyciu Key Vault na potrzeby szyfrowania usługi Azure Storage z poziomu interfejsu wiersza polecenia platformy Azure](storage-encryption-keys-cli.md)
-- [Szyfrowanie usługi Azure Storage dla danych magazynowanych](storage-service-encryption.md)
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](storage-service-encryption.md)

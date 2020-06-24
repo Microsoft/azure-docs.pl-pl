@@ -10,12 +10,12 @@ ms.service: dms
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 8607f1a687f2979c37c67099874288c6c5ead164
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64fb692c7ef896e643db603a6fbc3948cc4b3a11
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77647496"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749641"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Co to jest usługa Azure Database Migration Service?
 
@@ -23,7 +23,7 @@ Azure Database Migration Service to w pełni zarządzana usługa, która umożli
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>Migrowanie baz danych na platformę Azure przy użyciu znanych narzędzi
 
-Azure Database Migration Service integruje niektóre funkcje naszych istniejących narzędzi i usług. Zapewnia klientom kompleksowe rozwiązanie o wysokiej dostępności. Usługa używa [Data Migration Assistant](https://aka.ms/dma) do generowania raportów oceny, które zawierają zalecenia, które przeprowadzą Cię przez zmiany wymagane przed przeprowadzeniem migracji. Należy wykonać wszelkie wymagane korekty. Gdy wszystko będzie gotowe do rozpoczęcia procesu migracji, Azure Database Migration Service wykonuje wszystkie wymagane kroki. Możesz uruchomić proces migracji i spokojnie pozostawić go bez nadzoru, mając pewność, że podczas jego wykonywania zostaną wybrane najlepsze rozwiązania określone przez firmę Microsoft.
+Azure Database Migration Service integruje niektóre funkcje naszych istniejących narzędzi i usług. Zapewnia klientom kompleksowe rozwiązanie o wysokiej dostępności. Usługa używa [Data Migration Assistant](https://aka.ms/dma) do generowania raportów oceny, które zawierają zalecenia, które przeprowadzą Cię przez zmiany wymagane przed przeprowadzeniem migracji. Należy wykonać wszelkie wymagane korekty. Gdy wszystko będzie gotowe do rozpoczęcia procesu migracji, Azure Database Migration Service wykonuje wszystkie wymagane kroki. Możesz uruchomić proces migracji i spokojnie pozostawić go bez nadzoru, mając pewność, że podczas jego wykonywania zostaną wybrane najlepsze rozwiązania określone przez firmę Microsoft. 
 
 > [!NOTE]
 > Użycie Azure Database Migration Service do przeprowadzenia migracji w trybie online wymaga utworzenia wystąpienia na podstawie warstwy cenowej Premium.

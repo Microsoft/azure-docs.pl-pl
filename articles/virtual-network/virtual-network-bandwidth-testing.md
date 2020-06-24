@@ -7,17 +7,17 @@ documentationcenter: na
 author: steveesp
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 964b0bd543e887cce304d785d18a651f50bd4c45
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60743085"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708250"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Testowanie przepustowości/przepływności (NTTTCP)
 
@@ -30,7 +30,7 @@ Na potrzeby tego testu dwie maszyny wirtualne powinny znajdować się w tej same
 
 Zanotuj adres IP odbiorcy. Wywołajmy ten adres IP "a. b. c. r"
 
-Zanotuj liczbę rdzeni na maszynie wirtualnej. Wywołajmy to "\#liczba\_rdzeni"
+Zanotuj liczbę rdzeni na maszynie wirtualnej. Wywołajmy to " \# liczba \_ rdzeni"
 
 Uruchom test NTTTCP przez 300 sekund (lub 5 minut) na maszynie wirtualnej nadawcy i na maszynie wirtualnej odbiornika.
 
@@ -54,35 +54,35 @@ Parametry nadawcy: NTttcp-s 10.27.33.7-t 10-n 1-P 1
 
 Pobierz najnowszą wersję:<https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769>
 
-Lub wyszukaj go, jeśli przeniesiono <https://www.bing.com/search?q=ntttcp+download> \< :--najpierw należy nacisnąć
+Lub wyszukaj go, jeśli przeniesiono: <https://www.bing.com/search?q=ntttcp+download> \< --najpierw należy nacisnąć
 
-Rozważ umieszczenie NTTTCP w osobnym folderze, na przykład c\\: Tools
+Rozważ umieszczenie NTTTCP w osobnym folderze, na przykład c: \\ Tools
 
 #### <a name="allow-ntttcp-through-the-windows-firewall"></a>Zezwalaj na NTTTCP za pomocą zapory systemu Windows
 Na ODBIORNIKu Utwórz regułę zezwalania w zaporze systemu Windows, aby zezwolić na odbieranie ruchu NTTTCP. Najłatwiej zezwolić na cały program NTTTCP o nazwę zamiast zezwalać na ruch przychodzący do określonych portów TCP.
 
 Zezwalaj na NTttcp za pomocą zapory systemu Windows w następujący sposób:
 
-netsh advfirewall firewall add Rule program =\<Path\>\\NTttcp. exe Name = "NTttcp" Protocol = any dir = in Action = Allow Enable = Yes profil = any
+netsh advfirewall firewall add Rule program = \<PATH\> \\ntttcp.exe Name = "NTttcp" Protocol = any dir = in Action = Allow Enable = Yes profil = any
 
-Jeśli na przykład skopiowano plik NTttcp. exe do folderu "c:\\Tools", będzie to polecenie: 
+Na przykład, jeśli skopiowano ntttcp.exe do folderu "c: \\ Tools", będzie to polecenie: 
 
-netsh advfirewall firewall add Rule program = c:\\Tools\\NTttcp. exe Name = "NTttcp" Protocol = any dir = in Action = Allow Enable = Yes profil = any
+netsh advfirewall firewall add Rule program = c: \\ tools \\ntttcp.exe Name = "NTttcp" Protocol = any dir = in Action = Allow Enable = Yes profil = any
 
 #### <a name="running-ntttcp-tests"></a>Uruchamianie testów NTTTCP
 
 Uruchom NTTTCP na ODBIORNIKu (**Uruchom z polecenia cmd**, a nie z programu PowerShell):
 
-NTttcp-r – m [2\*\#liczba\_rdzeni],\*, a. b. c. r-t 300
+NTttcp-r – m [2 \* \# liczba \_ rdzeni], \* , a. b. c. r-t 300
 
 Jeśli maszyna wirtualna ma cztery rdzenie i adres IP 10.0.0.4, będzie wyglądać następująco:
 
-NTttcp-r – m 8,\*, 10.0.0.4-t 300
+NTttcp-r – m 8, \* , 10.0.0.4-t 300
 
 
 Uruchom NTTTCP na NADAWCy (**Uruchom z polecenia cmd**, a nie z programu PowerShell):
 
-NTttcp-s – m 8,\*, 10.0.0.4-t 300 
+NTttcp-s – m 8, \* , 10.0.0.4-t 300 
 
 Poczekaj na wyniki.
 
@@ -132,13 +132,13 @@ W tym scenariuszu należy włączyć tryb bez synchronizacji, aby można było u
 
 #### <a name="from-linux-to-windows"></a>W systemie Linux do systemu Windows:
 
-> \<odbiorników systemu Windows:
+Odbiornik \<Windows> :
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-> \<nadawcy systemu Linux:
+Nadawca \<Linux> :
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -146,13 +146,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### <a name="from-windows-to-linux"></a>W systemie Windows do systemu Linux:
 
-> \<odbiornika z systemem Linux:
+Odbiornik \<Linux> :
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-> \<systemu Windows nadawcy:
+Nadawca \<Windows> :
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

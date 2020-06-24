@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: efb25a16b5a3ae7de831436d255358aca19b828f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042190"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250716"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Wzorce dzierżawy bazy danych SaaS z wieloma dzierżawcami
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Każda baza danych dzierżawy jest wdrażana jako pojedyncza baza danych.  Ten m
 
 #### <a name="vendor-management"></a>Zarządzanie dostawcami
 
-Dostawca może uzyskać dostęp do wszystkich baz danych we wszystkich wystąpieniach aplikacji autonomicznej, nawet jeśli wystąpienia aplikacji są zainstalowane w różnych subskrypcjach dzierżawy.  Dostęp jest uzyskiwany za pośrednictwem połączeń SQL.  Ten dostęp z wielu wystąpień może umożliwić dostawcy scentralizowane zarządzanie schematami i zapytania obejmujące wiele baz danych na potrzeby raportowania lub analizy.  Jeśli jest to konieczne scentralizowane zarządzanie, należy wdrożyć wykaz, który mapuje identyfikatory dzierżawców na identyfikatory URI bazy danych.  Azure SQL Database udostępnia bibliotekę fragmentowania, która jest używana razem z bazą danych SQL w celu udostępnienia katalogu.  Biblioteka fragmentowania jest formalnie nazywana [biblioteką klienta Elastic Database][docu-elastic-db-client-library-536r].
+Dostawca może uzyskać dostęp do wszystkich baz danych we wszystkich wystąpieniach aplikacji autonomicznej, nawet jeśli wystąpienia aplikacji są zainstalowane w różnych subskrypcjach dzierżawy.  Dostęp jest uzyskiwany za pośrednictwem połączeń SQL.  Ten dostęp z wielu wystąpień może umożliwić dostawcy scentralizowane zarządzanie schematami i zapytania obejmujące wiele baz danych na potrzeby raportowania lub analizy.  Jeśli jest to konieczne scentralizowane zarządzanie, należy wdrożyć wykaz, który mapuje identyfikatory dzierżawców na identyfikatory URI bazy danych.  Azure SQL Database udostępnia bibliotekę fragmentowania, która jest używana razem w celu udostępnienia katalogu.  Biblioteka fragmentowania jest formalnie nazywana [biblioteką klienta Elastic Database][docu-elastic-db-client-library-536r].
 
 ## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Aplikacja wielodostępna z bazą danych na dzierżawcę
 
@@ -113,7 +113,7 @@ Inne funkcje zarządzania, które również skalują, obejmują:
 - Szyfrowanie na dysku.
 - Dane telemetryczne wydajności.
 
-#### <a name="automation"></a>Automatyzacja
+#### <a name="automation"></a>Automation
 
 Operacje zarządzania mogą być przetwarzane przy użyciu skryptów i oferowane przez model [DevOps][http-visual-studio-devops-485m] .  Operacje mogą nawet być zautomatyzowane i uwidaczniane w aplikacji.
 

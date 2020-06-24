@@ -374,7 +374,7 @@ Odmowa dostępu do udziału i pojawi się `New-PSDrive : Access is denied` komun
 
 Zamknij sesję pulpitu zdalnego dla maszyny wirtualnej *myVmPublic*.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) :
 

@@ -5,15 +5,15 @@ description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemó
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f5f5c16f3d6aa1d7115e99cbae0dbd6cd926b25a
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 5acf4ac1ec75d5cec057e4b66e3c6cbd8a463271
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202540"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808013"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Rozwiązywanie problemów z koligacją sesji usługi Azure Application Gateway
 
@@ -75,7 +75,7 @@ Jeśli aplikacja nie może obsłużyć koligacji opartej na plikach cookie, nale
 
 #### <a name="symptom"></a>Objaw
 
-Ustawienie koligacji opartej na plikach cookie jest włączone, gdy uzyskujesz dostęp do Application Gateway przy użyciu adresu URL krótkiej nazwy w programie Internet Explorer, `http://website` na przykład:, żądanie jest nadal odbijane między serwerami zaplecza.
+Ustawienie koligacji opartej na plikach cookie jest włączone, gdy uzyskujesz dostęp do Application Gateway przy użyciu adresu URL krótkiej nazwy w programie Internet Explorer, na przykład: `http://website` , żądanie jest nadal odbijane między serwerami zaplecza.
 
 Aby zidentyfikować ten problem, postępuj zgodnie z instrukcjami:
 
@@ -161,7 +161,7 @@ Narzędzia debugowania sieci Web, takie jak programu Fiddler, mogą ułatwić de
 
 Użyj wybranego debugera sieci Web. W tym przykładzie będziemy używać programu Fiddler do przechwytywania i analizowania ruchu HTTP lub https, postępuj zgodnie z instrukcjami:
 
-1. Pobierz narzędzie programu Fiddler na stronie <https://www.telerik.com/download/fiddler>.
+1. Pobierz narzędzie programu Fiddler na stronie <https://www.telerik.com/download/fiddler> .
 
     > [!NOTE]
     > Wybierz opcję Fiddler4, jeśli na komputerze przechwytującym jest zainstalowany program .NET 4. W przeciwnym razie wybierz pozycję Fiddler2.
@@ -174,7 +174,7 @@ Użyj wybranego debugera sieci Web. W tym przykładzie będziemy używać progra
 
     ![Rozwiązywanie problemów — sesja-koligacja-problemy-13](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
-4. Najprawdopodobniej interesuje Cię odszyfrowany ruch https i można włączyć odszyfrowywanie https, wybierając pozycję **Narzędzia** > **Opcje programu Fiddler**, a następnie zaznacz pole wyboru " **Szyfruj ruch https**".
+4. Najprawdopodobniej interesuje Cię odszyfrowany ruch https i można włączyć odszyfrowywanie https, wybierając pozycję **Narzędzia**  >  **Opcje programu Fiddler**, a następnie zaznacz pole wyboru " **Szyfruj ruch https**".
 
     ![Rozwiązywanie problemów — sesja-koligacja-problemy-14](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
@@ -182,7 +182,7 @@ Użyj wybranego debugera sieci Web. W tym przykładzie będziemy używać progra
 
     ![Rozwiązywanie problemów — sesja-koligacja-problemy-15](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-15.png)
 
-6. Po ponownym utworzeniu problemu Zapisz plik do przeglądu, wybierając kolejno pozycje **plik** > **Zapisz** > **wszystkie sesje.**.. 
+6. Po ponownym utworzeniu problemu Zapisz plik do przeglądu, wybierając kolejno pozycje **plik**  >  **Zapisz**  >  **wszystkie sesje.**.. 
 
     ![Rozwiązywanie problemów — sesja-koligacja-problemy-16](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-16.png)
 

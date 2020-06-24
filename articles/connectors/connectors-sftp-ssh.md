@@ -6,18 +6,27 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 06/17/2020
 tags: connectors
-ms.openlocfilehash: 7635d98bb48543dd07f05f34ea854af870876cc3
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927449"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807750"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorowanie i tworzenie plików SFTP oraz zarządzanie nimi za pomocą protokołów SSH i Azure Logic Apps
 
-Aby zautomatyzować zadania, które monitorują, tworzą, wysyłają i odbierają pliki na serwerze [zabezpieczonym protokół transferu plików (SFTP)](https://www.ssh.com/ssh/sftp/) przy użyciu protokołu [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) , można tworzyć i automatyzować przepływy pracy integracji przy użyciu Azure Logic Apps oraz łącznika SFTP-SSH. SFTP to protokół sieciowy, który zapewnia dostęp do plików, transfer plików i zarządzanie plikami za pośrednictwem dowolnego niezawodnego strumienia danych. Poniżej przedstawiono kilka przykładowych zadań, które można zautomatyzować:
+Aby zautomatyzować zadania, które monitorują, tworzą, wysyłają i odbierają pliki na serwerze [zabezpieczonym protokół transferu plików (SFTP)](https://www.ssh.com/ssh/sftp/) przy użyciu protokołu [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) , można tworzyć i automatyzować przepływy pracy integracji przy użyciu Azure Logic Apps oraz łącznika SFTP-SSH. SFTP to protokół sieciowy, który zapewnia dostęp do plików, transfer plików i zarządzanie plikami za pośrednictwem dowolnego niezawodnego strumienia danych.
+
+> [!NOTE]
+> Łącznik SFTP-SSH aktualnie nie obsługuje tych serwerów SFTP:
+> 
+> * IBM datapowershell
+> * OpenText Secure MFT
+> * OpenText GXS
+
+Poniżej przedstawiono kilka przykładowych zadań, które można zautomatyzować:
 
 * Monitoruj, gdy pliki są dodawane lub zmieniane.
 * Pobieranie, tworzenie, kopiowanie, zmienianie nazwy, aktualizowanie, wyświetlanie i usuwanie plików.
@@ -43,12 +52,12 @@ Aby uzyskać różnice między łącznikiem protokołu SFTP-SSH a łącznikiem S
   | Akcja | Obsługa fragmentów | Przesłoń obsługę rozmiaru fragmentu |
   |--------|------------------|-----------------------------|
   | **Kopiuj plik** | Nie | Nie dotyczy |
-  | **Utwórz plik** | Yes | Yes |
+  | **Utwórz plik** | Tak | Tak |
   | **Utwórz folder** | Nie dotyczy | Nie dotyczy |
   | **Usuń plik** | Nie dotyczy | Nie dotyczy |
   | **Wyodrębnij archiwum do folderu** | Nie dotyczy | Nie dotyczy |
-  | **Pobierz zawartość pliku** | Yes | Yes |
-  | **Pobierz zawartość pliku przy użyciu ścieżki** | Yes | Yes |
+  | **Pobierz zawartość pliku** | Tak | Tak |
+  | **Pobierz zawartość pliku przy użyciu ścieżki** | Tak | Tak |
   | **Pobierz metadane pliku** | Nie dotyczy | Nie dotyczy |
   | **Pobierz metadane pliku przy użyciu ścieżki** | Nie dotyczy | Nie dotyczy |
   | **Wyświetl listę plików w folderze** | Nie dotyczy | Nie dotyczy |
@@ -105,8 +114,8 @@ Protokół SFTP-SSH wyzwalacze działają przez sondowanie systemu plików SFTP 
 
 | Klient SFTP | Akcja |
 |-------------|--------|
-| WinSCP | Przejdź do pozycji **Opcje** > **Preferencje** > **transfer** > **Edycja** > **Zachowaj sygnaturę czasową** > **Wyłącz** |
-| FileZilla | Przejdź do **transferu** > **Zachowaj sygnatury czasowe transferowanych plików** > **wyłączone** |
+| WinSCP | Przejdź do pozycji **Opcje**  >  **Preferencje**  >  **transfer**  >  **Edycja**  >  **Zachowaj sygnaturę czasową**  >  **Wyłącz** |
+| FileZilla | Przejdź do **transferu**  >  **Zachowaj sygnatury czasowe transferowanych plików**  >  **wyłączone** |
 |||
 
 Gdy wyzwalacz odnajdzie nowy plik, wyzwalacz sprawdza, czy nowy plik jest zakończony i nie jest częściowo zapisany. Na przykład plik może mieć zmiany w toku, gdy wyzwalacz sprawdza serwer plików. Aby uniknąć powrotu częściowo zapisywanego pliku, wyzwalacz odnotowuje sygnaturę czasową dla pliku, który ma ostatnio wprowadzone zmiany, ale nie zwraca natychmiast tego pliku. Wyzwalacz zwraca plik tylko wtedy, gdy ponownie sonduje serwer. Czasami takie zachowanie może spowodować opóźnienie, który jest maksymalnie dwa razy interwał sondowania wyzwalacza.
@@ -133,7 +142,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
 ### <a name="windows-os"></a>System operacyjny Windows
 
-1. Jeśli jeszcze tego nie zrobiono, [Pobierz najnowsze narzędzie do generowania generatora (PuTTYgen. exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), a następnie uruchom narzędzie.
+1. Jeśli jeszcze tego nie zrobiono, [Pobierz najnowsze narzędzie do generowania generatora (puttygen.exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), a następnie uruchom narzędzie.
 
 1. Na tym ekranie wybierz pozycję **Załaduj**.
 
@@ -145,7 +154,7 @@ Jeśli klucz prywatny jest w formacie pobierania, który używa rozszerzenia naz
 
    ![Wybierz pozycję "Eksportuj klucz OpenSSH"](./media/connectors-sftp-ssh/export-openssh-key.png)
 
-1. Zapisz plik klucza prywatnego z rozszerzeniem nazwy `.pem` pliku.
+1. Zapisz plik klucza prywatnego z `.pem` rozszerzeniem nazwy pliku.
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia
 
@@ -155,7 +164,7 @@ W tej sekcji opisano zagadnienia dotyczące wyzwalaczy i akcji tego łącznika.
 
 ### <a name="create-file"></a>Utwórz plik
 
-Aby utworzyć plik na serwerze SFTP, możesz skorzystać z akcji **Utwórz plik** SFTP-SSH. Gdy ta akcja spowoduje utworzenie pliku, usługa Logic Apps automatycznie wywoła serwer SFTP w celu pobrania metadanych pliku. Jeśli jednak przeniesiesz nowo utworzony plik, zanim usługa Logic Apps będzie mogła nawiązać wywołanie w celu uzyskania metadanych, zostanie wyświetlony `404` komunikat o błędzie `'A reference was made to a file or folder which does not exist'`. Aby pominąć odczytywanie metadanych pliku po utworzeniu pliku, wykonaj kroki, aby [dodać i ustawić właściwość **Pobierz wszystkie metadane pliku** na wartość **nie**](#file-does-not-exist).
+Aby utworzyć plik na serwerze SFTP, możesz skorzystać z akcji **Utwórz plik** SFTP-SSH. Gdy ta akcja spowoduje utworzenie pliku, usługa Logic Apps automatycznie wywoła serwer SFTP w celu pobrania metadanych pliku. Jeśli jednak przeniesiesz nowo utworzony plik, zanim usługa Logic Apps będzie mogła nawiązać wywołanie w celu uzyskania metadanych, zostanie wyświetlony `404` komunikat o błędzie `'A reference was made to a file or folder which does not exist'` . Aby pominąć odczytywanie metadanych pliku po utworzeniu pliku, wykonaj kroki, aby [dodać i ustawić właściwość **Pobierz wszystkie metadane pliku** na wartość **nie**](#file-does-not-exist).
 
 <a name="connect"></a>
 
@@ -167,11 +176,11 @@ Aby utworzyć plik na serwerze SFTP, możesz skorzystać z akcji **Utwórz plik*
 
 1. W przypadku pustych aplikacji logiki w polu wyszukiwania wprowadź `sftp ssh` jako filtr. Na liście Wyzwalacze wybierz wyzwalacz, który chcesz.
 
-   — lub —
+   -lub-
 
    W przypadku istniejących aplikacji logiki w ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**. W polu wyszukiwania wprowadź `sftp ssh` jako filtr. Na liście Akcje wybierz żądaną akcję.
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. Podaj niezbędne szczegóły dotyczące połączenia.
 
@@ -179,13 +188,13 @@ Aby utworzyć plik na serwerze SFTP, możesz skorzystać z akcji **Utwórz plik*
    >
    > Po wprowadzeniu klucza prywatnego SSH we właściwości **prywatnego klucza SSH** wykonaj te dodatkowe kroki, aby upewnić się, że podajesz pełną i poprawną wartość dla tej właściwości. Nieprawidłowy klucz powoduje niepowodzenie połączenia.
 
-   Mimo że można użyć dowolnego edytora tekstu, poniżej przedstawiono przykładowe kroki pokazujące sposób prawidłowego kopiowania i wklejania klucza przy użyciu programu Notepad. exe jako przykładu.
+   Mimo że można użyć dowolnego edytora tekstu, poniżej przedstawiono przykładowe kroki, które pokazują, jak poprawnie skopiować i wkleić klucz przy użyciu Notepad.exe na przykład.
 
    1. Otwórz plik klucza prywatnego SSH w edytorze tekstu. W tych krokach użyto Notatnika jako przykładu.
 
    1. W menu **Edycja** Notatnik wybierz pozycję **Zaznacz wszystko**.
 
-   1. Wybierz pozycję **Edytuj** > **kopię**.
+   1. Wybierz pozycję **Edytuj**  >  **kopię**.
 
    1. W wyzwalaczu SFTP-SSH lub akcji, który został dodany, wklej *pełny* klucz skopiowany do właściwości **prywatnego klucza SSH** , która obsługuje wiele wierszy.  ***Upewnij się, że wkleisz*** klucz. ***Nie wprowadzaj ręcznie ani nie edytuj klucza***.
 
@@ -203,7 +212,7 @@ Aby zastąpić domyślne zachowanie adaptacyjne używane do rozdzielania, można
 
    ![Otwórz ustawienia protokołu SFTP-SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
-1. W obszarze **transfer zawartości**w właściwości **rozmiar fragmentu** wprowadź wartość całkowitą z `5` do `50`, na przykład: 
+1. W obszarze **transfer zawartości**w właściwości **rozmiar fragmentu** wprowadź wartość całkowitą z `5` do `50` , na przykład: 
 
    ![Określ rozmiar fragmentu do użycia zamiast niego](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
@@ -235,7 +244,7 @@ W tej sekcji opisano możliwe rozwiązania typowych błędów lub problemów.
 
 ### <a name="404-error-a-reference-was-made-to-a-file-or-folder-which-does-not-exist"></a>404 błąd: "odwołanie zostało wykonane do pliku lub folderu, który nie istnieje"
 
-Ten błąd może wystąpić, gdy aplikacja logiki utworzy nowy plik na serwerze SFTP za pośrednictwem akcji **tworzenia pliku** SFTP-SSH, ale nowo utworzony plik zostanie natychmiast przeniesiony przed uzyskaniem metadanych pliku przez usługę Logic Apps. Gdy aplikacja logiki uruchamia akcję **Utwórz plik** , usługa Logic Apps automatycznie WYWOŁA serwer SFTP w celu pobrania metadanych pliku. Jeśli jednak plik zostanie przeniesiony, usługa Logic Apps nie będzie już znajdować pliku, więc zostanie wyświetlony komunikat `404` o błędzie.
+Ten błąd może wystąpić, gdy aplikacja logiki utworzy nowy plik na serwerze SFTP za pośrednictwem akcji **tworzenia pliku** SFTP-SSH, ale nowo utworzony plik zostanie natychmiast przeniesiony przed uzyskaniem metadanych pliku przez usługę Logic Apps. Gdy aplikacja logiki uruchamia akcję **Utwórz plik** , usługa Logic Apps automatycznie WYWOŁA serwer SFTP w celu pobrania metadanych pliku. Jeśli jednak plik zostanie przeniesiony, usługa Logic Apps nie będzie już znajdować pliku, więc zostanie wyświetlony `404` komunikat o błędzie.
 
 Jeśli nie możesz uniknąć ani opóźnić przeniesienia pliku, możesz pominąć odczytywanie metadanych pliku po utworzeniu pliku, wykonując następujące czynności:
 

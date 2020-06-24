@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa7464c70593c83c708aba49235ecdde1be0cc9f
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276480"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807762"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Słownik Microsoft Azure: Słownik terminologii w chmurze na platformie Azure
 
@@ -31,7 +31,7 @@ Słownik Microsoft Azure jest krótkim słownikiem terminologii w chmurze dla pl
 
 ## <a name="account"></a>account
 Konto używane do uzyskiwania dostępu do subskrypcji platformy Azure i zarządzania nią. Często jest ono określane jako konto platformy Azure, chociaż może to być dowolne z nich: istniejąca, szkolna lub osobista konto Microsoft lub nazwa użytkownika i hasło pakietu Office 365. Możesz również utworzyć konto, aby zarządzać subskrypcją platformy Azure po zarejestrowaniu się w celu [korzystania z bezpłatnej wersji próbnej](https://azure.microsoft.com).  
-Zobacz [Rejestrowanie się w celu uzyskania subskrypcji platformy Azure przy użyciu konta i kont pakietu Office 365](cost-management-billing/manage/office-365-account-for-azure-subscription.md) , za [pomocą których można się zalogować](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+Zobacz [Rejestrowanie się w celu uzyskania subskrypcji platformy Azure przy użyciu konta Microsoft 365](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) i [kont, których możesz użyć do zalogowania](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)się.
 
 ## <a name="api-app"></a>Aplikacja interfejsu API
 Inna nazwa [aplikacji App Service](#app-service-app).
@@ -69,7 +69,7 @@ Proces automatycznego replikowania zawartości, takiej jak obiekty blob, tabele 
 Zobacz [aktywną replikację geograficzną dla Azure SQL Database](sql-database/sql-database-geo-replication-overview.md)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
-## <a name="image"></a>image
+## <a name="image"></a>image (obraz)
 Plik, który zawiera system operacyjny i konfigurację aplikacji, za pomocą którego można utworzyć dowolną liczbę maszyn wirtualnych. Na platformie Azure istnieją dwa typy obrazów: obraz maszyny wirtualnej i obraz systemu operacyjnego. Obraz maszyny wirtualnej zawiera system operacyjny i wszystkie dyski dołączone do maszyny wirtualnej po utworzeniu obrazu. Obraz systemu operacyjnego zawiera tylko uogólniony system operacyjny bez konfiguracji dysków danych.  
 Zobacz [nawigowanie i wybieranie obrazów maszyn wirtualnych z systemem Windows na platformie Azure przy użyciu programu PowerShell lub interfejsu wiersza polecenia](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -153,7 +153,7 @@ Zobacz [przegląd Virtual Network](virtual-network/virtual-networks-overview.md)
 ## <a name="web-app"></a>Aplikacja internetowa
 Inna nazwa [aplikacji App Service](#app-service-app).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Rozpoczynanie pracy z platformą Azure](https://azure.microsoft.com/get-started/)
 * [Centrum zasobów w chmurze](https://azure.microsoft.com/resources/)  

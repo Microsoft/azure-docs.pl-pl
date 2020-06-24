@@ -1,33 +1,36 @@
 ---
-title: Lista kontrolna tworzenia oferty SaaS — Marketing komercyjny dla platformy Azure
-description: Szczegóły, jakie można podać w procesie tworzenia oferty SaaS. — Komercyjne witryny Marketplace na platformie Azure
+title: Lista kontrolna tworzenia oferty SaaS w portalu komercyjnym firmy Microsoft
+description: Szczegóły, jakie można podać w procesie tworzenia oferty SaaS w centrum partnerskim.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 05/08/2020
+ms.openlocfilehash: c34eee74070dfb137311867615f55a7c89522cd5
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83850015"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708993"
 ---
-# <a name="saas-offer-creation-checklist"></a>Lista kontrolna tworzenia oferty SaaS
+# <a name="saas-offer-creation-checklist-in-partner-center"></a>Lista kontrolna tworzenia oferty SaaS w centrum partnerskim
 
-Proces tworzenia oferty SaaS przeprowadzi Cię przez wiele stron. Poniżej znajdują się szczegóły, które można podać na każdej stronie, z linkami do dodatkowych informacji na temat poszczególnych elementów.
+Proces tworzenia oferty SaaS przeprowadzi Cię przez wiele stron.  Poniżej znajdują się szczegóły, które można podać na każdej stronie, z linkami do dodatkowych informacji na temat poszczególnych elementów.
 
-Elementy wymagane do podania lub określenia są wymienione poniżej. Niektóre obszary są opcjonalne lub mają podane wartości domyślne, które można zmienić zgodnie z potrzebami. Nie musisz już korzystać z tych sekcji w podanej kolejności.
+Elementy wymagane do podania lub określenia są wymienione poniżej.  Niektóre obszary są opcjonalne lub mają podane wartości domyślne, które można zmienić zgodnie z potrzebami.  Nie musisz już korzystać z tych sekcji w podanej kolejności.
+
+>[!Note]
+>W przypadku tworzenia oferty SaaS z funkcją transakcyjnej upewnij się, że zaimplementowano integrację z [interfejsami API realizacji SaaS](./pc-saas-fulfillment-apis.md).  Integracja z interfejsami API jest jedynym sposobem zapewnienia poprawnego działania transactu w portalu Marketplace.
 
 | **Element**    | **Przeznaczenie**  |
 | :---------- | :-------------------|
 | [**Nowa oferta — modalne**](#new-offer-modal) | Zbiera informacje o tożsamości oferty.  |
 | [Strona konfiguracji oferty](#offer-setup-page) | Umożliwia korzystanie z kluczowych funkcji i wybór sposobu sprzedaży oferty przez firmę Microsoft.  |
 | [Strona właściwości](#properties-page) | Zdefiniuj kategorie i branże używane do grupowania oferty na rynkach Marketplace, umowy prawne wspierające Twoją ofertę i wersję aplikacji. |
-| [Strona z listą ofert](#offer-listing-page) | Zdefiniuj szczegóły oferty do wyświetlania w portalu Marketplace, w tym opisy oferty i zasobów marketingowych. |
-| [Strona podglądu](#preview-page) | Zdefiniuj ograniczonego odbiorcę w wersji zapoznawczej, aby wypróbować ofertę przed opublikowaniem oferty w szerszym gronie odbiorców w portalu Marketplace. |
-| [Strona konfiguracji technicznej oferty](#technical-configuration-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft. Zdefiniuj szczegóły techniczne (ścieżkę URL, element webhook, identyfikator dzierżawy i identyfikator aplikacji) używane do nawiązania połączenia z ofertą. |
+| [Strona z listą ofert](#offer-listing-page) | Zdefiniuj szczegóły oferty do wyświetlania w portalu Marketplace, w tym opisy oferty i zasobów marketingowych.|
+| [Strona podglądu](#preview-page) | Zdefiniuj ograniczonego odbiorcę w wersji zapoznawczej, aby wypróbować ofertę przed opublikowaniem oferty w szerszym gronie odbiorców w portalu Marketplace.|
+| [Strona konfiguracji technicznej oferty](#technical-configuration-page)  |  Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft.  Zdefiniuj szczegóły techniczne (adres URL strony docelowej, adres URL połączenia elementu webhook, identyfikator dzierżawy usługi Azure AD i identyfikator aplikacji usługi Azure AD), które są używane przez witrynę Marketplace do łączenia się z ofertą.  Te parametry są wymagane do poprawnego zintegrowania z realizacją SaaS oraz z użyciem mierzonych interfejsów API rozliczeń w portalu Marketplace.|
 | [**Nowy modalny plan**](#plan-identity-modal) | Zbiera informacje o tożsamości planu.  |
 | [Strona aukcji planu](#plan-listing-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft. Zdefiniuj szczegóły używane do wyświetlania planu w portalu Marketplace.  |
 | [Zaplanuj stronę dostępności & cennika](#plan-pricing--availability-page)  | Dostępne tylko w przypadku wybrania sprzedaży oferty przez firmę Microsoft.  Gromadzi informacje o cechach biznesowej (modelu cen), odbiorcach i dostępności dla każdego planu (wersji) oferty.  |

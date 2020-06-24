@@ -4,18 +4,18 @@ description: 'Dowiedz się, jak rozwiązywać problemy z błędem serwera Applic
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: a48ed39af243296bcb76cb61f1fe64e4e95ab7e7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801760"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808152"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Rozwiązywanie problemów z nieprawidłową bramą w usłudze Application Gateway
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=66c070b6-1c47-4c7f-b928-317a8c8b452f" target='_blank'>Zacznij</a></span><span class="has-padding-small">szybko rozwiązywać problemy, korzystając z naszego agenta wirtualnego do uruchamiania <b>zautomatyzowanej diagnostyki.</b> </span> Zasady zachowania <sub>poufności informacji</sub> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <div align="right"></div></a></span></p>
+
 Dowiedz się, jak rozwiązywać błędy nieprawidłowej bramy (502) otrzymane podczas korzystania z usługi Azure Application Gateway.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -93,7 +93,7 @@ Poniższa tabela zawiera listę wartości skojarzonych z domyślną sondą kondy
 
 * Upewnij się, że domyślna lokacja jest skonfigurowana i nasłuchuje na adresie 127.0.0.1.
 * Jeśli BackendHttpSetting określa port inny niż 80, należy skonfigurować domyślną lokację do nasłuchiwania na tym porcie.
-* Wywołanie `http://127.0.0.1:port` powinno zwrócić kod wyniku http 200. Ta wartość powinna zostać zwrócona w ciągu 30-sekundowego okresu limitu czasu.
+* Wywołanie `http://127.0.0.1:port` powinno zwrócić kod wyniku HTTP 200. Ta wartość powinna zostać zwrócona w ciągu 30-sekundowego okresu limitu czasu.
 * Upewnij się, że skonfigurowany port jest otwarty i że nie ma żadnych reguł zapory lub sieciowych grup zabezpieczeń platformy Azure, które blokują ruch przychodzący lub wychodzący na porcie skonfigurowanym.
 * Jeśli klasyczne maszyny wirtualne platformy Azure lub usługa w chmurze jest używana z nazwą FQDN lub publicznym adresem IP, należy się upewnić, że odpowiadający mu [punkt końcowy](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) jest otwarty.
 * Jeśli maszyna wirtualna jest skonfigurowana za pośrednictwem Azure Resource Manager i znajduje się poza siecią wirtualną, w której wdrożono bramę aplikacji, należy skonfigurować [sieciową grupę zabezpieczeń](../virtual-network/security-overview.md) tak, aby zezwalała na dostęp na żądanym porcie.
@@ -109,9 +109,9 @@ Dodawane są następujące dodatkowe właściwości:
 | Właściwość sondy | Opis |
 | --- | --- |
 | Nazwa |Nazwa sondy. Ta nazwa służy do odwoływania się do sondy w ustawieniach protokołu HTTP zaplecza. |
-| Protocol (Protokół) |Protokół używany do wysyłania sondy. Sonda używa protokołu zdefiniowanego w ustawieniach protokołu HTTP zaplecza |
+| Protokół |Protokół używany do wysyłania sondy. Sonda używa protokołu zdefiniowanego w ustawieniach protokołu HTTP zaplecza |
 | Host |Nazwa hosta do wysłania sondy. Dotyczy tylko sytuacji, gdy w bramie aplikacji skonfigurowano wiele witryn. Różni się to od nazwy hosta maszyny wirtualnej. |
-| Ścieżka |Ścieżka względna sondy. Prawidłowa ścieżka zaczyna się od znaku "/". Sonda jest wysyłana \<do\>protokołu:/\</\>hosta\<:\>\<ścieżka portu\> |
+| Ścieżka |Ścieżka względna sondy. Prawidłowa ścieżka zaczyna się od znaku "/". Sonda jest wysyłana do \<protocol\> :// \<host\> :\<port\>\<path\> |
 | Interval |Interwał sondy (w sekundach). Jest to przedział czasu między dwoma kolejnymi sondami. |
 | Limit czasu |Limit czasu sondy w sekundach. Jeśli prawidłowa odpowiedź nie zostanie odebrana w tym okresie, sonda zostanie oznaczona jako niepowodzenie. |
 | Próg złej kondycji |Liczba ponownych prób sondowania. Serwer zaplecza jest oznaczony jako wyłączony po kolejnej liczbie błędów sondy osiągnie próg złej kondycji. |
@@ -121,8 +121,8 @@ Dodawane są następujące dodatkowe właściwości:
 Sprawdź, czy niestandardowa sonda kondycji została prawidłowo skonfigurowana jako poprzednia tabela. Oprócz powyższych kroków rozwiązywania problemów należy również upewnić się, że:
 
 * Upewnij się, że sonda została prawidłowo określona zgodnie z [przewodnikiem](application-gateway-create-probe-ps.md).
-* Jeśli Brama aplikacji jest skonfigurowana dla jednej lokacji, domyślnie nazwa hosta powinna być określona jako `127.0.0.1`, chyba że jest skonfigurowana w sondie niestandardowej.
-* Upewnij się, że wywołanie http://\<host\>:\<ścieżka\>\<\> portu zwraca kod wyniku http 200.
+* Jeśli Brama aplikacji jest skonfigurowana dla jednej lokacji, domyślnie nazwa hosta powinna być określona jako `127.0.0.1` , chyba że jest skonfigurowana w sondie niestandardowej.
+* Upewnij się, że wywołanie http:// \<host\> : \<port\> \<path\> zwraca kod wyniku http 200.
 * Upewnij się, że interwał, limit czasu i UnhealtyThreshold znajdują się w akceptowalnych zakresach.
 * W przypadku korzystania z sondy HTTPS upewnij się, że serwer zaplecza nie wymaga SNI, konfigurując certyfikat rezerwowy na serwerze zaplecza.
 

@@ -4,11 +4,11 @@ description: Dowiedz się, jak używać interfejsu API REST do przywracania udzi
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.openlocfilehash: 1c3160491ef92c62745af1468556e7d5c30437fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252508"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710579"
 ---
 # <a name="restore-azure-file-shares-using-rest-api"></a>Przywracanie udziałów plików platformy Azure przy użyciu interfejsu API REST
 
@@ -378,7 +378,7 @@ Aby uzyskać pełną listę definicji treści żądania i innych szczegółów, 
 
 ### <a name="restore-to-original-location"></a>Przywróć do oryginalnej lokalizacji
 
-Następująca treść żądania polega na przywróceniu pliku *Restoretest. txt* w udziale plików *migracji pamięci* na koncie magazynu *afsaccount* .
+Następująca treść żądania polega na przywróceniu pliku *Restoretest.txt* w udziale plików *migracji pamięci* na koncie magazynu *afsaccount* .
 
 Utwórz treść żądania
 
@@ -404,7 +404,7 @@ Utwórz treść żądania
 
 ### <a name="restore-to-alternate-location"></a>Przywróć do lokalizacji alternatywnej
 
-Następująca treść żądania polega na przywróceniu pliku *Restoretest. txt* w udziale plików *migracji pamięci* na koncie magazynu *afsaccount* do folderu *restoredata* udziału plików *azurefiles1* na koncie magazynu *afaccount1* .
+Następująca treść żądania polega na przywróceniu pliku *Restoretest.txt* w udziale plików *migracji pamięci* na koncie magazynu *afsaccount* do folderu *restoredata* w udziale plików *azurefiles1* na koncie magazynu *afaccount1* .
 
 Utwórz treść żądania
 

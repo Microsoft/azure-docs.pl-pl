@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 850ace7af15ab37ab9a4a124d20ed4588771f4d4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 0b278841fc3693d79821d25caf7c9a208341dea1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594548"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242090"
 ---
 ## <a name="common-scenarios"></a>Typowe scenariusze
 Poniższe scenariusze mogą znacznie wzczerpać korzyści z rozszeregowania:
@@ -24,9 +24,11 @@ Poniższe scenariusze mogą znacznie wzczerpać korzyści z rozszeregowania:
 ## <a name="bursting-flow"></a>Przepływ na rozerwanie
 System przeciwstawny jest stosowany w taki sam sposób na poziomie maszyny wirtualnej i na poziomie dysku. Zasób, maszyna wirtualna lub dysk, rozpocznie się z pełnymi kredytami. Te kredyty umożliwią korzystanie z serii przez 30 minut przy maksymalnej szybkości serii. Kredyty na rozerwanie są gromadzone, gdy zasób jest uruchomiony w ramach limitów magazynowania na dysku wydajności. Dla wszystkich operacji we/wy i MB/s, których zasób jest używany, poniżej limitu wydajności rozpoczynającego się do sumowania kredytów. Jeśli zasób ma naliczane środki na korzystanie z obciążeń, a obciążenie wymaga dodatkowej wydajności, zasób może użyć tych kredytów do osiągnięcia wyższego poziomu wydajności w celu zapewnienia wydajności operacji we/wy dysku wymaganej do spełnienia wymagań.
 
+
+
 ![Diagram zasobników serii](media/managed-disks-bursting/bucket-diagram.jpg)
 
-Jednym ze sposobów na zanotowanie akumulacji seryjnej jest to, że jest to różne dla każdego zasobu, ponieważ jest ona oparta na nieużywanych operacjach IOPS i MB/s poniżej ich wartości wydajności. Oznacza to, że wyższe produkty bazowe wydajności mogą naliczać swoje ilości na rozerwanie szybciej niż niższe produkty bazowe. Na przykład dysk P1 z biegu jałowego bez aktywności spowoduje naliczenie 120 operacji we/wy na sekundę, podczas gdy dysk P20 naliczy 2 300 operacji we/wy na sekundę podczas fazy biegu.
+Na bieżąco z tym, w jaki sposób chcesz korzystać z 30 minut na rozerwanie. Można jej używać przez 30 minut po raz lub sporadycznie przez cały dzień. Gdy produkt zostanie wdrożony, jest gotowy do zapełnienia środków, a w przypadku wyczerpania kredytów trwa krócej niż dzień w celu ponownego zapełnienia środków. Można zbierać i poświęcać swoje kredyty na swoje rozliczanie według własnego uznania, a przedział 30-minutowy nie musi być zapełniony ponownie w ramach serii. Jednym ze sposobów na zanotowanie akumulacji seryjnej jest to, że jest to różne dla każdego zasobu, ponieważ jest ona oparta na nieużywanych operacjach IOPS i MB/s poniżej ich wartości wydajności. Oznacza to, że wyższe produkty bazowe wydajności mogą naliczać swoje ilości na rozerwanie szybciej niż niższe produkty bazowe. Na przykład dysk P1 z biegu jałowego bez aktywności spowoduje naliczenie 120 operacji we/wy na sekundę, podczas gdy dysk P20 naliczy 2 300 operacji we/wy na sekundę podczas fazy biegu.
 
 ## <a name="bursting-states"></a>Stany rozrywające
 Istnieją trzy stany, w których zasób może być używany z włączonym rozruchem:
@@ -70,7 +72,7 @@ Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 192 MB/s. Dys
 - 2 P10 dyski danych 
     - Liczba zainicjowanych MB/s: 250
 
- Po rozruchu początkowym aplikacja jest uruchamiana na maszynie wirtualnej i ma obciążenie niekrytyczne. To obciążenie wymaga 30 MB/s, które jest równomiernie rozłożone na wszystkie dyski ![: rozłożenie dysku maszyny wirtualnej, która nie jest w stanie bezczynności](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ Po rozruchu początkowym aplikacja jest uruchamiana na maszynie wirtualnej i ma obciążenie niekrytyczne. To obciążenie wymaga 30 MB/s, które jest równomiernie rozłożone na wszystkie dyski: rozłożenie ![ dysku maszyny wirtualnej, która nie jest w stanie bezczynności](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
 Następnie aplikacja musi przetworzyć zadanie wsadowe wymagające 600 MB/s. Standard_L8s_v2 serii, aby spełnić to żądanie, a następnie żądania dotyczące dysków można równomiernie rozłożyć na dyski P50:
 

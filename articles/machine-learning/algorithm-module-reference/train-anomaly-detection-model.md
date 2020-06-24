@@ -9,30 +9,28 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 78ed2d85729cce94e8dfa579545f558d2cfe4651
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73e8f0de9f879498acb71e97fa47c81b3447252d
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79502973"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749608"
 ---
-# <a name="train-anomaly-detection-model"></a>Trenowanie modelu wykrywania anomalii
+# <a name="train-anomaly-detection-model-module"></a>Moduł wykrywania anomalii szkolenia
 
-W tym artykule opisano, jak używać modułu **wykrywania anomalii** w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu utworzenia przeszkolonego modelu wykrywania anomalii.
+W tym artykule opisano, jak używać modułu wykrywania anomalii w programie Azure Machine Learning Designer (wersja zapoznawcza) w celu utworzenia przeszkolonego modelu wykrywania anomalii.
 
-Moduł przyjmuje jako wejściowy zestaw parametrów modelu dla modelu wykrywania anomalii i nieoznaczonego zestawu danych. Zwraca on szkolony model wykrywania anomalii wraz z zestawem etykiet dla danych szkoleniowych.  
+Moduł przyjmuje jako wejściowy zestaw parametrów dla modelu wykrywania anomalii i nieoznaczonego zestawu danych. Zwraca on szkolony model wykrywania anomalii wraz z zestawem etykiet dla danych szkoleniowych.  
 
-Aby uzyskać więcej informacji na temat algorytmów wykrywania anomalii w projektancie, zobacz następujące tematy: 
-
-+ [Wykrywanie anomalii oparte na analizie głównych składowych](pca-based-anomaly-detection.md)  
+Aby uzyskać więcej informacji na temat algorytmów wykrywania anomalii, które znajdują się w projektancie, zobacz [wykrywanie anomalii oparte na partnerstwie](pca-based-anomaly-detection.md).  
 
 ## <a name="how-to-configure-train-anomaly-detection-model"></a>Jak skonfigurować model wykrywania anomalii dla uczenia 
 
 1.  Dodaj moduł **wykrywania anomalii** do potoku w projektancie. Ten moduł można znaleźć w kategorii **wykrywania anomalii** .
 
-2. Połącz jeden z modułów przeznaczonych do wykrywania anomalii, takich jak [wykrywanie anomalii oparte na UPW](pca-based-anomaly-detection.md)
+2. Połącz jeden z modułów przeznaczonych do wykrywania anomalii, takich jak [wykrywanie anomalii oparte na UPW](pca-based-anomaly-detection.md).
 
-    Inne typy modeli nie są obsługiwane; przy uruchamianiu potoku zostanie wyświetlony błąd: wszystkie modele muszą mieć ten sam typ informacji.  
+    Inne typy modeli nie są obsługiwane. Po uruchomieniu potoku zostanie wyświetlony komunikat o błędzie "wszystkie modele muszą mieć ten sam typ informacji".  
 
 3.  Skonfiguruj moduł wykrywania anomalii, wybierając kolumnę etykieta i ustawiając inne parametry specyficzne dla algorytmu.  
 
@@ -46,9 +44,9 @@ Po zakończeniu szkolenia:
 
 + Aby wyświetlić parametry modelu, kliknij prawym przyciskiem myszy moduł i wybierz polecenie **Wizualizuj**. 
 
-+ Aby utworzyć prognozy, użyj [modelu oceny](score-model.md) z nowymi danymi wejściowymi.
++ Aby utworzyć prognozy, użyj modułu [oceny modelu](score-model.md) z nowymi danymi wejściowymi.
 
-+ Aby zapisać migawkę przeszkolonego modelu, wybierz moduł, a następnie kliknij ikonę **zarejestruj zestaw danych** na karcie dane **wyjściowe + dzienniki** na prawym panelu.   
++ Aby zapisać migawkę przeszkolonego modelu, wybierz moduł. Następnie wybierz ikonę **zarejestruj zestaw danych** na karcie dane **wyjściowe i dzienniki** na prawym panelu.   
 
  
 ## <a name="next-steps"></a>Następne kroki

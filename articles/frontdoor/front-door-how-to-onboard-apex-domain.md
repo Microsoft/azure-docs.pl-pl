@@ -4,20 +4,20 @@ description: Dowiedz się, jak dołączyć domenę główną lub Apex do istniej
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 4b74338f22a82d76ef13126ee0862b841bd89a99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878888"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743596"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Dołączanie domeny głównej lub wierzchołka na wierzchu drzwi
 Drzwi frontonu platformy Azure używają rekordów CNAME do weryfikowania własności domeny do dołączania domen niestandardowych. Ponadto drzwi tylne nie ujawniają adresu IP frontonu skojarzonego z Twoim profilem drzwi i dlatego nie można zmapować domeny Apex na adres IP, jeśli zamiarem jest dołączenie go do zewnętrznych drzwi platformy Azure.
 
-Protokół DNS uniemożliwia przypisanie rekordów CNAME w wierzchołku strefy. Na przykład jeśli Twoja domena to `contoso.com`; rekordy CNAME można utworzyć dla `somelabel.contoso.com`; ale nie można utworzyć rekordu CNAME `contoso.com` dla samego siebie. To ograniczenie powoduje problem dla właścicieli aplikacji, którzy mają aplikacje o zrównoważonym obciążeniu za drzwi platformy Azure. Ze względu na to, że użycie profilu front-drzwi wymaga utworzenia rekordu CNAME, nie jest możliwe wskazanie w profilu przednim drzwi ze wierzchołka strefy.
+Protokół DNS uniemożliwia przypisanie rekordów CNAME w wierzchołku strefy. Na przykład jeśli Twoja domena to `contoso.com` ; można utworzyć rekordy CNAME dla `somelabel.contoso.com` , ale nie można utworzyć rekordu CNAME dla `contoso.com` samego siebie. To ograniczenie powoduje problem dla właścicieli aplikacji, którzy mają aplikacje o zrównoważonym obciążeniu za drzwi platformy Azure. Ze względu na to, że użycie profilu front-drzwi wymaga utworzenia rekordu CNAME, nie jest możliwe wskazanie w profilu przednim drzwi ze wierzchołka strefy.
 
 Ten problem jest rozwiązywany przy użyciu rekordów aliasów na Azure DNS. W przeciwieństwie do rekordów CNAME, rekordy aliasów są tworzone w wierzchołku strefy, a właściciele aplikacji mogą jej używać do wskazywania rekordu wierzchołka strefy w profilu przednim, który ma publiczne punkty końcowe. Właściciele aplikacji wskazują ten sam profil przedni, który jest używany przez dowolną inną domenę w ramach strefy DNS. Na przykład, `contoso.com` i `www.contoso.com` może wskazywać na ten sam profil przedni drzwi. 
 
@@ -48,12 +48,12 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
     ![Rekord aliasu dla wierzchołka strefy](./media/front-door-apex-domain/front-door-apex-alias-record.png)
 
-6. Powyższy krok spowoduje utworzenie rekordu wierzchołka strefy wskazującego na zasób z Drzwiem, a także mapowania rekordu CNAME "afdverify" (przykład `afdverify.contosonews.com`-) `afdverify.<name>.azurefd.net` , do którego będzie używany do dołączania domeny w profilu przednim drzwi.
+6. Powyższy krok spowoduje utworzenie rekordu wierzchołka strefy wskazującego na zasób z Drzwiem, a także mapowania rekordu CNAME "afdverify" (przykład- `afdverify.contosonews.com` ), do `afdverify.<name>.azurefd.net` którego będzie używany do dołączania domeny w profilu przednim drzwi.
 
 ## <a name="onboard-the-custom-domain-on-your-front-door"></a>Dołącz domenę niestandardową do swoich drzwi
 
 1. Na karcie Projektant drzwi przednich kliknij ikonę "+" w sekcji hosty frontonu, aby dodać nową domenę niestandardową.
-2. Wprowadź nazwę domeny głównej lub Apex w polu Nazwa hosta niestandardowego, na przykład `contosonews.com`.
+2. Wprowadź nazwę domeny głównej lub Apex w polu Nazwa hosta niestandardowego, na przykład `contosonews.com` .
 3. Po sprawdzeniu poprawności mapowania CNAME z domeny do swoich pierwszych drzwi kliknij przycisk **Dodaj** , aby dodać domenę niestandardową.
 4. Kliknij przycisk **Zapisz** , aby przesłać zmiany.
 

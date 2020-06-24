@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: b46e8efb252224f83603000777b2e342f7e7ab9d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 19503fa2257f42cf896dbfb831d4165e329134b2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684446"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250353"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastruktura aktualizacji firmy Red Hat dla maszyn wirtualnych Red Hat Enterprise Linux na żądanie na platformie Azure
  Usługa [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) umożliwia dostawcom usług w chmurze, takim jak Azure, duplikowanie zawartości repozytorium w systemie Red Hat, tworzenie niestandardowych repozytoriów z zawartością specyficzną dla platformy Azure i udostępnianie ich dla maszyn wirtualnych użytkownika końcowego.
@@ -83,7 +83,7 @@ Repozytoria rozszerzonej pomocy technicznej aktualizacji (EUS) są dostępne dla
 >[!NOTE]
 > EUS nie są obsługiwane w dodatkach RHEL. Oznacza to, że w przypadku instalowania pakietu, który jest zazwyczaj dostępny w kanale RHEL Extras, nie będzie można wykonać tego działania w EUS. Cykl życia produktu Red Hat jest szczegółowo opisany w [tym miejscu](https://access.redhat.com/support/policy/updates/extras/).
 
-W czasie tego pisania EUS zakończyło się wsparcie dla RHEL <= 7,4. Aby uzyskać więcej informacji, zobacz sekcję "Red Hat Enterprise Linux więcej obsługi dodatków" w [dokumentacji Red Hat](https://access.redhat.com/support/policy/updates/errata/) .
+W czasie tego pisania EUS zakończyło się wsparcie dla RHEL <= 7,4. Aby uzyskać więcej informacji, zobacz sekcję "Red Hat Enterprise Linux Extended Maintenance" w [dokumentacji Red Hat](https://access.redhat.com/support/policy/updates/errata/#Long_Support) .
 * RHEL 7,4 EUS support zakończyła się 31 sierpnia 2019
 * RHEL 7,5 EUS — 30 kwietnia 2020
 * RHEL 7,6 EUS support to 31 października 2020
@@ -164,13 +164,18 @@ Jeśli używasz konfiguracji sieci, aby dodatkowo ograniczyć dostęp z maszyn w
 51.5.243.77
 51.4.228.145
 ```
+>[!NOTE]
+>Nowe obrazy dla instytucji rządowych usługi Azure USA, od stycznia 2020, będą używać publicznego adresu IP wymienionego powyżej nagłówka globalnego platformy Azure.
+
+>[!NOTE]
+>Należy również pamiętać, że platforma Azure (Niemcy) jest przestarzała na rzecz publicznych regionów Niemiec. Zalecenie dla klientów korzystających z platformy Azure (Niemcy) to rozpoczęcie od RHUI [publicznego.](https://docs.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#manual-update-procedure-to-use-the-azure-rhui-servers)
 
 ## <a name="azure-rhui-infrastructure"></a>Infrastruktura usługi Azure RHUI
 
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Aktualizacja wygasłego certyfikatu klienta RHUI na maszynie wirtualnej
 
-Jeśli używasz starszego obrazu maszyny wirtualnej RHEL, na przykład RHEL 7,4 (URN do obrazu: `RedHat:RHEL:7.4:7.4.2018010506` ), wystąpią problemy z połączeniem z usługą RHUI z powodu wygasłego certyfikatu klienta TLS/SSL. Wyświetlany błąd może wyglądać podobnie do _"element równorzędny protokołu SSL odrzucił certyfikat jako wygasły"_ lub _"błąd: nie można pobrać metadanych repozytorium (repomd. xml) dla repozytorium:... Sprawdź swoją ścieżkę i spróbuj ponownie "_. Aby rozwiązać ten problem, zaktualizuj pakiet klienta RHUI na maszynie wirtualnej przy użyciu następującego polecenia:
+Jeśli używasz starszego obrazu maszyny wirtualnej RHEL, na przykład RHEL 7,4 (URN do obrazu: `RedHat:RHEL:7.4:7.4.2018010506` ), wystąpią problemy z połączeniem z usługą RHUI z powodu wygasłego certyfikatu klienta TLS/SSL. Wyświetlany błąd może wyglądać podobnie do _"element równorzędny protokołu SSL odrzucił certyfikat jako wygasły"_ lub _"błąd: nie można pobrać metadanych repozytorium (repomd.xml) dla repozytorium:... Sprawdź swoją ścieżkę i spróbuj ponownie "_. Aby rozwiązać ten problem, zaktualizuj pakiet klienta RHUI na maszynie wirtualnej przy użyciu następującego polecenia:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'

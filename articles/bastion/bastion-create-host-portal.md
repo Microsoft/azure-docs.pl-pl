@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak utworzyć hosta usługi Azure bast
 services: bastion
 author: cherylmc
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1fa4b6a33b055f2042c9bf941a33ae03ead6ebde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d18d520419e77a225431d9c2a395f62411656537
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148339"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744276"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Tworzenie hosta usługi Azure bastionu przy użyciu portalu
 

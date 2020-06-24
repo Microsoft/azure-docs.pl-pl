@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 09558a8d1e4e2dc68cefd2c870f54e008d10b97b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e47440a54d733d0b5d849123633bf7e067fcd81
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083553"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805713"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Utwórz konto, które obsługuje klucze zarządzane przez klienta dla tabel i kolejek
 
@@ -138,8 +138,8 @@ Aby użyć programu PowerShell do utworzenia konta magazynu, które opiera się 
 
 Następnie utwórz konto magazynu ogólnego przeznaczenia w wersji 2, wywołując polecenie [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) z odpowiednimi parametrami:
 
-- Uwzględnij `-EncryptionKeyTypeForQueue` opcję i ustaw jej wartość na `Account` , aby użyć klucza szyfrowania konta do szyfrowania danych w usłudze queue storage.
-- Uwzględnij `-EncryptionKeyTypeForTable` opcję i ustaw jej wartość na `Account` , aby użyć klucza szyfrowania konta do szyfrowania danych w usłudze Table Storage.
+- Uwzględnij `-EncryptionKeyTypeForQueue` opcję i ustaw jej wartość na, aby `Account` użyć klucza szyfrowania konta do szyfrowania danych w usłudze queue storage.
+- Uwzględnij `-EncryptionKeyTypeForTable` opcję i ustaw jej wartość na, aby `Account` użyć klucza szyfrowania konta do szyfrowania danych w usłudze Table Storage.
 
 Poniższy przykład pokazuje, jak utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 skonfigurowane dla magazynu geograficznie nadmiarowego do odczytu (RA-GRS), które korzysta z klucza szyfrowania konta do szyfrowania danych zarówno dla magazynu kolejek, jak i tabeli. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
@@ -159,8 +159,8 @@ Aby użyć interfejsu wiersza polecenia platformy Azure do utworzenia konta maga
 
 Następnie utwórz konto magazynu ogólnego przeznaczenia w wersji 2, wywołując polecenie [AZ Storage account Create](/cli/azure/storage/account#az-storage-account-create) z odpowiednimi parametrami:
 
-- Uwzględnij `--encryption-key-type-for-queue` opcję i ustaw jej wartość na `Account` , aby użyć klucza szyfrowania konta do szyfrowania danych w usłudze queue storage.
-- Uwzględnij `--encryption-key-type-for-table` opcję i ustaw jej wartość na `Account` , aby użyć klucza szyfrowania konta do szyfrowania danych w usłudze Table Storage.
+- Uwzględnij `--encryption-key-type-for-queue` opcję i ustaw jej wartość na, aby `Account` użyć klucza szyfrowania konta do szyfrowania danych w usłudze queue storage.
+- Uwzględnij `--encryption-key-type-for-table` opcję i ustaw jej wartość na, aby `Account` użyć klucza szyfrowania konta do szyfrowania danych w usłudze Table Storage.
 
 Poniższy przykład pokazuje, jak utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 skonfigurowane dla magazynu geograficznie nadmiarowego do odczytu (RA-GRS), które korzysta z klucza szyfrowania konta do szyfrowania danych zarówno dla magazynu kolejek, jak i tabeli. Pamiętaj, aby zastąpić wartości symboli zastępczych w nawiasach własnymi wartościami:
 
@@ -222,11 +222,11 @@ Po utworzeniu konta, które opiera się na kluczu szyfrowania konta, zobacz jede
 
 ## <a name="verify-the-account-encryption-key"></a>Weryfikowanie klucza szyfrowania konta
 
-Aby sprawdzić, czy usługa na koncie magazynu korzysta z klucza szyfrowania konta, wywołaj polecenie [AZ Storage account](/cli/azure/storage/account#az-storage-account-show) dla interfejsu wiersza polecenia platformy Azure. To polecenie zwraca zestaw właściwości konta magazynu i ich wartości. Wyszukaj `keyType` pole dla każdej usługi we właściwości szyfrowania i sprawdź, czy jest ono ustawione na `Account`wartość.
+Aby sprawdzić, czy usługa na koncie magazynu korzysta z klucza szyfrowania konta, wywołaj polecenie [AZ Storage account](/cli/azure/storage/account#az-storage-account-show) dla interfejsu wiersza polecenia platformy Azure. To polecenie zwraca zestaw właściwości konta magazynu i ich wartości. Wyszukaj `keyType` pole dla każdej usługi we właściwości szyfrowania i sprawdź, czy jest ono ustawione na wartość `Account` .
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Aby sprawdzić, czy usługa na koncie magazynu korzysta z klucza szyfrowania konta, wywołaj polecenie [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . To polecenie zwraca zestaw właściwości konta magazynu i ich wartości. Wyszukaj `KeyType` pole dla każdej usługi we `Encryption` właściwości i sprawdź, czy jest ono ustawione na `Account`wartość.
+Aby sprawdzić, czy usługa na koncie magazynu korzysta z klucza szyfrowania konta, wywołaj polecenie [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) . To polecenie zwraca zestaw właściwości konta magazynu i ich wartości. Wyszukaj `KeyType` pole dla każdej usługi we `Encryption` właściwości i sprawdź, czy jest ono ustawione na wartość `Account` .
 
 ```powershell
 $account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
@@ -237,7 +237,7 @@ $account.Encryption.Services.Table
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby sprawdzić, czy usługa na koncie magazynu korzysta z klucza szyfrowania konta, wywołaj polecenie [AZ Storage account](/cli/azure/storage/account#az-storage-account-show) . To polecenie zwraca zestaw właściwości konta magazynu i ich wartości. Wyszukaj `keyType` pole dla każdej usługi we właściwości szyfrowania i sprawdź, czy jest ono ustawione na `Account`wartość.
+Aby sprawdzić, czy usługa na koncie magazynu korzysta z klucza szyfrowania konta, wywołaj polecenie [AZ Storage account](/cli/azure/storage/account#az-storage-account-show) . To polecenie zwraca zestaw właściwości konta magazynu i ich wartości. Wyszukaj `keyType` pole dla każdej usługi we właściwości szyfrowania i sprawdź, czy jest ono ustawione na wartość `Account` .
 
 ```azurecli
 az storage account show /
@@ -253,5 +253,5 @@ Nie dotyczy
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Szyfrowanie usługi Azure Storage dla danych magazynowanych](storage-service-encryption.md) 
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](storage-service-encryption.md) 
 - [Co to jest Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

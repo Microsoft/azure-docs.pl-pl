@@ -3,8 +3,8 @@ title: Konfigurowanie & zarządzanie odwołaniem do zawartości
 titleSuffix: Azure SQL Managed Instance
 description: Przewodnik dotyczący zawartości, który uczy się, jak skonfigurować i zarządzać wystąpieniem zarządzanym usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
-ms.openlocfilehash: 39e43368e41305e9cdd0a685ea98adde71244b33
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 23ce3272d99401340d784f88dd537baa55774a63
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216362"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708828"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Informacje o zawartości wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -47,7 +47,7 @@ W tym artykule można znaleźć odwołanie do zawartości do różnych przewodni
 ## <a name="feature-configuration"></a>Konfiguracja funkcji
 
 - [Konfigurowanie uwierzytelniania usługi Azure AD](../database/authentication-aad-configure.md)
-- [Konfigurowanie dostępu warunkowego](../database/conditional-access-configure.md)
+- [Konfigurowanie zasad dostępu warunkowego](../database/conditional-access-configure.md)
 - [Uwierzytelnianie wieloskładnikowe usługi Azure AD](../database/authentication-mfa-ssms-overview.md)
 - [Konfigurowanie uwierzytelniania wieloskładnikowego](../database/authentication-mfa-ssms-configure.md)
 - [Konfigurowanie zasad przechowywania danych czasowych](../database/temporal-tables-retention-policy.md)
@@ -77,7 +77,7 @@ W tym artykule można znaleźć odwołanie do zawartości do różnych przewodni
 
 ## <a name="develop-applications"></a>Tworzenie aplikacji
 
-- [Łączność](../database/connect-query-content-reference-guide.md#libraries)
+- [Połączenia](../database/connect-query-content-reference-guide.md#libraries)
 - [Korzystanie z łącznika Spark](../../cosmos-db/spark-connector.md)
 - [Uwierzytelnianie aplikacji](../database/application-authentication-get-client-id-keys.md)
 - [Korzystanie z usługi Batch w celu uzyskania lepszej wydajności](../performance-improve-use-batching.md)

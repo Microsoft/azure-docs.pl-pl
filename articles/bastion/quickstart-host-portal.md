@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak utworzyć hosta usługi Azure bast
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
-ms.openlocfilehash: a420a3253040fff8b767a81f298ede283c1d214b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c2780c8c99fd4568a7213b625ce785d3a99129c
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619250"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743987"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Szybki Start: Nawiązywanie połączenia z maszyną wirtualną przy użyciu prywatnego adresu IP i usługi Azure bastionu
 
@@ -34,7 +34,7 @@ Ten artykuł Szybki Start przedstawia sposób nawiązywania połączenia z maszy
 | Adresy AzureBastionSubnet |  10.1.254.0/27 |
 | Publiczny adres IP |  Tworzenie nowego elementu |
 | Nazwa publicznego adresu IP | VNet1BastionPIP  |
-| Jednostka SKU publicznego adresu IP |  Standardowa  |
+| Jednostka SKU publicznego adresu IP |  Standardowa (Standard)  |
 | Przypisanie  | Static |
 
 ## <a name="create-a-bastion-host"></a><a name="createvmset"></a>Tworzenie hosta bastionu
@@ -77,7 +77,7 @@ Po wdrożeniu bastionu w sieci wirtualnej, ekran zmieni się na stronę Połącz
 
    ![Połączenie RDP](./media/quickstart-host-portal/443-rdp.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy skończysz korzystać z sieci wirtualnej i maszyn wirtualnych, Usuń grupę zasobów i wszystkie zawarte w niej zasoby:
 

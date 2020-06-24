@@ -7,12 +7,12 @@ ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 16f89fa99c9619e3956a089763ece1b96aff4480
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5c26af74a392e3e6d3bb5557960b81604de7cdf3
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298129"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807793"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faktury za rejestracje w usłudze Azure Enterprise
 
@@ -224,7 +224,7 @@ Dla usług, w przypadku których strefa i region mają wpływ na ceny, poniższa
 | Strefa 2 | Wschodni region Azji i Pacyfiku <br> Południowo-Wschodni region Azji i Pacyfiku <br> Japonia Wschodnia <br> Japonia Zachodnia <br> Australia Wschodnia <br> Australia Południowo-Wschodnia | Azja i Pacyfik <br> Japonia <br> Ameryka Łacińska <br> Bliski Wschód/Afryka <br> Australia Wschodnia <br> Australia Południowo-Wschodnia |
 | Strefa 3 | Brazylia Południowa |   |
 
-Nie ma opłat za ruch wychodzący między usługami hostowanymi w tym samym centrum danych. Na przykład między usługami Office 365 i platformy Azure.
+Nie ma opłat za ruch wychodzący między usługami hostowanymi w tym samym centrum danych. Na przykład Microsoft 365 i Azure.
 
 ### <a name="monetary-commitment-and-unbilled-usage"></a>Zobowiązanie pieniężne i nierozliczone opłaty za użycie
 

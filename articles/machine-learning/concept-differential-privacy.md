@@ -9,18 +9,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.openlocfilehash: 9570724fdff3018c1dbcf76c15a9db8db0d68364
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: aa4fe715c18e582448ee7f642a6a75947356ab61
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447832"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982666"
 ---
 # <a name="preserve-data-privacy-by-using-differential-privacy-and-the-whitenoise-package"></a>Zachowanie prywatności danych przy użyciu różnicowej prywatności i pakietu WhiteNoise
 
 Dowiedz się, co to jest różnicowa Ochrona prywatności i jak pakiet WhiteNoise może pomóc w zaimplementowaniu różnych systemów prywatnych.
 
 Ponieważ ilość danych, które organizacja zbiera i używa do analiz, zwiększa się, dlatego nie ma obaw o prywatność i bezpieczeństwo. Analizy wymagają danych. Zazwyczaj im więcej danych służy do uczenia modeli, tym dokładniejsze są. Gdy dane osobowe są używane na potrzeby tych analiz, szczególnie ważne jest, aby były one prywatne przez cały czas użytkowania.
+
+> [!NOTE]
+> Należy pamiętać, że zmieniamy nazwy zestawu narzędzi i wprowadzamy nową nazwę w nadchodzących tygodniach. 
 
 ## <a name="how-differential-privacy-works"></a>Jak działa różnicowa Ochrona prywatności
 
@@ -53,10 +56,10 @@ Mimo że zachowanie prywatności powinno być celem, istnieje kompromis, gdy jes
 
 Implementacja różnicowych systemów prywatnych jest trudna. WhiteNoise to projekt open-source, który zawiera różne składniki służące do tworzenia globalnych, różnicowych systemów prywatnych. WhiteNoise składa się z następujących składników najwyższego poziomu:
 
-- Podstawowe
+- Core
 - System
 
-### <a name="core"></a>Podstawowe
+### <a name="core"></a>Core
 
 Biblioteka podstawowa obejmuje następujące mechanizmy ochrony prywatności dotyczące wdrażania systemu w trybie różnicowym:
 

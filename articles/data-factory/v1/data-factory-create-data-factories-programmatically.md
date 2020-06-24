@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e8a70955b36f11727019fe430f62e84d4f0c93c
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74931329"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248313"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Tworzenie i monitorowanie fabryk danych platformy Azure oraz zarządzanie nimi przy użyciu zestawu Azure Data Factory .NET SDK
 > [!NOTE]
@@ -50,7 +50,7 @@ Utwórz aplikację usługi Azure Active Directory, utwórz nazwę główną usł
     ```powershell
     Get-AzSubscription
     ```
-4. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ** &lt;ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure.
+4. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ** &lt; ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -120,7 +120,7 @@ Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Da
 3. W **konsoli menedżera pakietów** wykonaj następujące czynności:
    1. Uruchom następujące polecenie, aby zainstalować pakiet Fabryka danych: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Uruchom następujące polecenie, aby zainstalować pakiet Azure Active Directory (użyjesz interfejsu API usługi Active Directory w kodzie): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. Zastąp zawartość pliku **App. config** w projekcie następującą zawartością: 
+4. Zastąp zawartość pliku **App.config** w projekcie następującą zawartością: 
     
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -137,7 +137,7 @@ Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Da
         </appSettings>
     </configuration>
     ```
-5. W pliku App. config zaktualizuj wartości dla ** &lt;identyfikatora&gt;aplikacji**, ** &lt;hasła&gt;**, ** &lt;&gt;identyfikatora subskrypcji**i ** &lt;identyfikatora&gt; dzierżawy** przy użyciu własnych wartości.
+5. W pliku App.Config zaktualizuj wartości dla ** &lt; identyfikatora &gt; aplikacji**, ** &lt; hasła &gt; **, ** &lt; identyfikatora &gt; subskrypcji**i ** &lt; identyfikatora &gt; dzierżawy** przy użyciu własnych wartości.
 6. Dodaj następujące instrukcje **using** do pliku **program.cs** w projekcie.
 
     ```csharp
@@ -453,7 +453,7 @@ Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Da
     John, Doe
     Jane, Doe
     ```
-17. Uruchom przykład, klikając polecenie **Debuguj** -> **Rozpocznij debugowanie** w menu. Po wyświetleniu komunikatu **Pobieranie szczegółów uruchomienia wycinka danych** zaczekaj kilka minut, a następnie naciśnij klawisz **ENTER**.
+17. Uruchom przykład, klikając polecenie **Debuguj**  ->  **Rozpocznij debugowanie** w menu. Po wyświetleniu komunikatu **Pobieranie szczegółów uruchomienia wycinka danych** zaczekaj kilka minut, a następnie naciśnij klawisz **ENTER**.
 18. Użyj witryny Azure Portal, aby upewnić się, że fabryka danych **APITutorialFactory** została utworzona z następującymi artefaktami:
     * Połączona usługa: **AzureStorageLinkedService**
     * Zestaw danych: **DatasetBlobSource** i **DatasetBlobDestination**.
@@ -500,6 +500,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Zapoznaj się z poniższym przykładem tworzenia potoku przy użyciu zestawu .NET SDK, który kopiuje dane z usługi Azure Blob Storage do bazy danych Azure SQL: 
+Zapoznaj się z poniższym przykładem tworzenia potoku przy użyciu zestawu .NET SDK, który kopiuje dane z usługi Azure Blob Storage do Azure SQL Database: 
 
 - [Tworzenie potoku w celu skopiowania danych z Blob Storage do SQL Database](data-factory-copy-activity-tutorial-using-dotnet-api.md)

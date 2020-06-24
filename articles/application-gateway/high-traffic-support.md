@@ -4,15 +4,15 @@ description: Ten artykuł zawiera wskazówki dotyczące konfigurowania Applicati
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 56622ee2c014bd8dbca7c61ec00b927c56f63a40
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b96720ead2c7b7bc942efca32a8510f57c2dbcad
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83740403"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250252"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Obsługa dużego natężenia ruchu usługi Application Gateway
 

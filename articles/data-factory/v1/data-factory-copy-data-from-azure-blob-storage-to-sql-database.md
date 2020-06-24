@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7c81c4cd72a34f69632c2b1264ba2d276ff03de4
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6c8c93c8721527d506847e394a02fc4eb5a98c47
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118583"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248364"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Samouczek: kopiowanie danych z Blob Storage do SQL Database przy użyciu Data Factory
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 > * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
@@ -33,7 +33,7 @@ ms.locfileid: "84118583"
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Data Factory. Jeśli korzystasz z bieżącej wersji usługi Data Factory, zobacz [samouczek dotyczący działania kopiowania](../quickstart-create-data-factory-dot-net.md).
 
-W tym samouczku utworzysz fabrykę danych z potokiem służącym do kopiowania danych z usługi BLOB Storage do usługi SQL Database.
+W tym samouczku utworzysz fabrykę danych z potokiem służącym do kopiowania danych z magazynu obiektów BLOB do SQL Database.
 
 Działanie kopiowania wykonuje operację przenoszenia danych w usłudze Azure Data Factory. Jest obsługiwane przez globalnie dostępną usługę, która może kopiować dane między różnymi magazynami danych w sposób bezpieczny, niezawodny i skalowalny. Szczegółowe informacje dotyczące działania kopiowania znajdują się w artykule [Data Movement Activities](data-factory-data-movement-activities.md) (Działania przenoszenia danych).  
 
@@ -47,7 +47,7 @@ Przed rozpoczęciem pracy z tym samouczkiem należy spełnić następujące wyma
 
 * **Subskrypcja platformy Azure**.  Jeśli nie masz subskrypcji, możesz utworzyć konto bezpłatnej wersji próbnej w zaledwie kilka minut. Szczegółowe informacje można znaleźć w artykule dotyczącym [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) .
 * **Konto usługi Azure Storage**. Magazyn obiektów BLOB jest używany jako magazyn danych **źródłowych** w tym samouczku. Jeśli nie masz konta usługi Azure Storage, zapoznaj się z artykułem [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) , aby dowiedzieć się, jak go utworzyć.
-* **Azure SQL Database**. W tym samouczku używasz bazy danych Azure SQL Database jako **docelowego** magazynu danych. Jeśli nie masz bazy danych SQL Azure, której można użyć w samouczku, zobacz [jak utworzyć i skonfigurować Azure SQL Database](../../sql-database/sql-database-get-started.md) , aby go utworzyć.
+* **Azure SQL Database**. W tym samouczku używasz Azure SQL Database jako **docelowego** magazynu danych. Jeśli nie masz bazy danych w Azure SQL Database, której można użyć w samouczku, zobacz [jak utworzyć i skonfigurować bazę danych w Azure SQL Database](../../sql-database/sql-database-get-started.md) , aby ją utworzyć.
 * **SQL Server 2012/2014 lub Visual Studio 2013**. Za pomocą SQL Server Management Studio lub Visual Studio można utworzyć przykładową bazę danych i wyświetlić dane wynikowe w bazie danych.  
 
 ## <a name="collect-blob-storage-account-name-and-key"></a>Zbierz nazwę i klucz konta magazynu obiektów BLOB
@@ -66,7 +66,7 @@ Do wykonania tego samouczka potrzebna jest nazwa konta i klucz konta usługi Azu
 7. Zamknij wszystkie bloki, klikając przycisk **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Zbierz dane programu SQL Server, bazy danych, nazwy użytkowników
-Do wykonania tego samouczka potrzebne są nazwy logicznego serwera SQL, bazy danych i użytkownika. Zanotuj nazwy **serwera**, **bazy danych**i **użytkownika** usługi Azure SQL Database.
+Do wykonania tego samouczka potrzebne są nazwy logicznego serwera SQL, bazy danych i użytkownika. Zanotuj nazwy **serwerów**, **baz danych**i **użytkownika** Azure SQL Database.
 
 1. W **Azure Portal**kliknij pozycję **wszystkie usługi** po lewej stronie, a następnie wybierz pozycję **bazy danych SQL**.
 2. W **bloku bazy danych SQL**wybierz **bazę danych** , która ma być używana w tym samouczku. Zanotuj **nazwę bazy danych**.  
@@ -83,9 +83,9 @@ Upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** *
 4. Zamknij wszystkie bloki, klikając przycisk **X**.
 
 ## <a name="prepare-blob-storage-and-sql-database"></a>Przygotuj Blob Storage i SQL Database
-Teraz możesz przygotować usługę Azure Blob Storage i bazę danych SQL Azure na potrzeby samouczka, wykonując następujące czynności:  
+Teraz przygotuj magazyn obiektów blob platformy Azure i Azure SQL Database dla tego samouczka, wykonując następujące czynności:  
 
-1. Uruchom program Notatnik. Skopiuj poniższy tekst i Zapisz go jako **EMP. txt** do folderu **C:\ADFGetStarted** na dysku twardym.
+1. Uruchom program Notatnik. Skopiuj poniższy tekst i Zapisz go jako **emp.txt** do folderu **C:\ADFGetStarted** na dysku twardym.
 
     ```
     John, Doe
@@ -116,7 +116,7 @@ Wymagania wstępne zostały spełnione. Fabrykę danych można utworzyć, korzys
 
 * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-* [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+* [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)

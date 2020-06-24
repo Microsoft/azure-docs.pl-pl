@@ -4,12 +4,12 @@ description: Skonfiguruj akcję GitHub, która automatyzuje kroki do kompilowani
 ms.topic: article
 ms.date: 03/18/2020
 ms.custom: ''
-ms.openlocfilehash: 13397cee8197afc65b93c587ae1505e59cfdebc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fab0eff04d86428a7e3eba730373da72c903b0ff
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80258043"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744004"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Konfigurowanie akcji usługi GitHub w celu utworzenia wystąpienia kontenera
 
@@ -33,7 +33,7 @@ W tym artykule przedstawiono dwa sposoby konfigurowania przepływu pracy:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Konto usługi GitHub** — Utwórz konto, https://github.com Jeśli jeszcze go nie masz.
+* **Konto usługi GitHub** — Utwórz konto https://github.com , jeśli jeszcze go nie masz.
 * **Interfejs wiersza polecenia platformy Azure** — możesz użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure, aby ukończyć kroki interfejsu wiersza polecenia platformy Azure. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
 * **Azure Container Registry** — jeśli go nie masz, Utwórz rejestr kontenerów platformy Azure w warstwie Podstawowa przy użyciu [interfejsu wiersza polecenia platformy Azure](../container-registry/container-registry-get-started-azure-cli.md), [Azure Portal](../container-registry/container-registry-get-started-portal.md)lub innych metod. Zanotuj grupę zasobów używaną w ramach wdrożenia, która jest używana na potrzeby przepływu pracy usługi GitHub.
 
@@ -45,7 +45,7 @@ W tym artykule przedstawiono dwa sposoby konfigurowania przepływu pracy:
 
   ![Zrzut ekranu przedstawiający przycisk rozwidlenia (wyróżniony) w serwisie GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Upewnij się, że włączono akcje dla repozytorium. Przejdź do repozytorium z rozwidleniem i wybierz pozycję **Ustawienia** > **Akcje**. W obszarze **uprawnienia akcji**upewnij się, że wybrano **opcję Włącz akcje lokalne i inne osoby trzecie dla tego repozytorium** .
+* Upewnij się, że włączono akcje dla repozytorium. Przejdź do repozytorium z rozwidleniem i wybierz pozycję **Ustawienia**  >  **Akcje**. W obszarze **uprawnienia akcji**upewnij się, że wybrano **opcję Włącz akcje lokalne i inne osoby trzecie dla tego repozytorium** .
 
 ## <a name="configure-github-workflow"></a>Konfigurowanie przepływu pracy usługi GitHub
 
@@ -53,7 +53,7 @@ W tym artykule przedstawiono dwa sposoby konfigurowania przepływu pracy:
 
 W przepływie pracy usługi GitHub należy podać poświadczenia platformy Azure w celu uwierzytelnienia w interfejsie wiersza polecenia platformy Azure. Poniższy przykład tworzy jednostkę usługi z rolą współautor objętą zakresem grupy zasobów dla rejestru kontenerów.
 
-Najpierw Pobierz identyfikator zasobu grupy zasobów. Zastąp nazwę grupy w następującym [AZ Group Show][az-acr-show] polecenie:
+Najpierw Pobierz identyfikator zasobu grupy zasobów. Zastąp nazwę grupy w następującym [AZ Group Show][az-group-show] polecenie:
 
 ```azurecli
 groupId=$(az group show \
@@ -87,7 +87,7 @@ Dane wyjściowe są podobne do następujących:
 }
 ```
 
-Zapisz dane wyjściowe JSON, ponieważ są używane w późniejszym kroku. Należy również pamiętać, że `clientId`należy zaktualizować jednostkę usługi w następnej sekcji.
+Zapisz dane wyjściowe JSON, ponieważ są używane w późniejszym kroku. Należy również pamiętać, że należy `clientId` zaktualizować jednostkę usługi w następnej sekcji.
 
 ### <a name="update-service-principal-for-registry-authentication"></a>Aktualizowanie jednostki usługi na potrzeby uwierzytelniania w rejestrze
 
@@ -112,7 +112,7 @@ az role assignment create \
 
 ### <a name="save-credentials-to-github-repo"></a>Zapisz poświadczenia w repozytorium GitHub
 
-1. W interfejsie użytkownika usługi GitHub przejdź do repozytorium z rozwidleniem i wybierz pozycję **Ustawienia** > wpisy**tajne**. 
+1. W interfejsie użytkownika usługi GitHub przejdź do repozytorium z rozwidleniem i wybierz pozycję **Ustawienia**wpisy  >  **tajne**. 
 
 1. Wybierz pozycję **Dodaj nowy wpis tajny** , aby dodać następujące wpisy tajne:
 
@@ -120,15 +120,15 @@ az role assignment create \
 |---------|---------|
 |`AZURE_CREDENTIALS`     | Wszystkie dane wyjściowe JSON z tworzenia jednostki usługi |
 |`REGISTRY_LOGIN_SERVER`   | Nazwa serwera logowania w rejestrze (wszystkie małe litery). Przykład: *myregistry.Azure.CR.IO*        |
-|`REGISTRY_USERNAME`     |  `clientId` Z danych wyjściowych JSON z tworzenia jednostki usługi       |
-|`REGISTRY_PASSWORD`     |  `clientSecret` Z danych wyjściowych JSON z tworzenia jednostki usługi |
+|`REGISTRY_USERNAME`     |  `clientId`Z danych wyjściowych JSON z tworzenia jednostki usługi       |
+|`REGISTRY_PASSWORD`     |  `clientSecret`Z danych wyjściowych JSON z tworzenia jednostki usługi |
 | `RESOURCE_GROUP` | Nazwa grupy zasobów użytej do określania zakresu jednostki usługi |
 
 ### <a name="create-workflow-file"></a>Utwórz plik przepływu pracy
 
-1. W interfejsie użytkownika usługi GitHub wybierz pozycję **Akcje** > **Nowy przepływ pracy**.
+1. W interfejsie użytkownika usługi GitHub wybierz pozycję **Akcje**  >  **Nowy przepływ pracy**.
 1. Wybierz opcję **Skonfiguruj przepływ pracy samodzielnie**.
-1. W obszarze **Edytuj nowy plik**wklej następującą zawartość YAML, aby zastąpić przykładowy kod. Zaakceptuj domyślną nazwę pliku `main.yml`lub podaj wybraną nazwę pliku.
+1. W obszarze **Edytuj nowy plik**wklej następującą zawartość YAML, aby zastąpić przykładowy kod. Zaakceptuj domyślną nazwę pliku `main.yml` lub podaj wybraną nazwę pliku.
 1. Wybierz pozycję **Rozpocznij zatwierdzanie**, opcjonalnie Podaj krótkie i rozszerzone opisy zatwierdzenia, a następnie wybierz pozycję **Zatwierdź nowy plik**.
 
 ```yml
@@ -173,7 +173,7 @@ jobs:
 
 ### <a name="validate-workflow"></a>Sprawdź poprawność przepływu pracy
 
-Gdy zatwierdzisz plik przepływu pracy, przepływ pracy zostanie wyzwolony. Aby przejrzeć postęp przepływu pracy, przejdź do **akcji** > **przepływy pracy**. 
+Gdy zatwierdzisz plik przepływu pracy, przepływ pracy zostanie wyzwolony. Aby przejrzeć postęp przepływu pracy, przejdź do **akcji**  >  **przepływy pracy**. 
 
 ![Wyświetl postęp przepływu pracy](./media/container-instances-github-action/github-action-progress.png)
 
@@ -203,7 +203,7 @@ Po aprowizacji wystąpienia przejdź do nazwy FQDN kontenera w przeglądarce, ab
 
 ## <a name="use-deploy-to-azure-extension"></a>Korzystanie z rozszerzenia Deploy to Azure
 
-Alternatywnie można skonfigurować przepływ pracy za pomocą [rozszerzenia Wdróż do platformy Azure](https://github.com/Azure/deploy-to-azure-cli-extension) w interfejsie wiersza polecenia platformy Azure. `az container app up` Polecenie w rozszerzeniu pobiera parametry wejściowe od użytkownika w celu skonfigurowania przepływu pracy do wdrożenia w Azure Container Instances. 
+Alternatywnie można skonfigurować przepływ pracy za pomocą [rozszerzenia Wdróż do platformy Azure](https://github.com/Azure/deploy-to-azure-cli-extension) w interfejsie wiersza polecenia platformy Azure. `az container app up`Polecenie w rozszerzeniu pobiera parametry wejściowe od użytkownika w celu skonfigurowania przepływu pracy do wdrożenia w Azure Container Instances. 
 
 Przepływ pracy utworzony za pomocą interfejsu wiersza polecenia platformy Azure jest podobny do przepływu pracy, który można [utworzyć ręcznie za pomocą usługi GitHub](#configure-github-workflow).
 
@@ -264,7 +264,7 @@ Przepływ pracy wdraża wystąpienie kontenera platformy Azure z podstawową naz
 
 Aby wyświetlić stan przepływu pracy i wyniki każdego kroku w interfejsie użytkownika usługi GitHub, zobacz [Zarządzanie przebiegiem przepływu pracy](https://help.github.com/actions/configuring-and-managing-workflows/managing-a-workflow-run).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Zatrzymaj wystąpienie kontenera przy użyciu polecenia [az container delete][az-container-delete]:
 

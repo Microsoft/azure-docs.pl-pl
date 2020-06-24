@@ -5,15 +5,15 @@ description: Ten artykuł zawiera wskazówki dotyczące sposobu konfigurowania a
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 152f3c3254ab01c8aa61acd12c39bd98c8f55038
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74089508"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808053"
 ---
 # <a name="configure-app-service-with-application-gateway-using-powershell"></a>Konfigurowanie App Service z Application Gateway przy użyciu programu PowerShell
 

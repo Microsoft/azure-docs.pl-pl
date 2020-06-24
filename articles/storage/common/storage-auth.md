@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 8db6140789a9e4f46e368b913cacacd21609ccd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1db26e6e1308299325e15b4c856fc2ebbaed8326
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81529726"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807608"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autoryzowanie dostępu do danych w usłudze Azure Storage
 
@@ -25,11 +25,11 @@ W poniższej tabeli opisano opcje oferowane przez usługę Azure Storage do auto
 
 |  |Klucz współużytkowany (klucz konta magazynu)  |Sygnatura dostępu współdzielonego (SAS)  |Azure Active Directory (Azure AD)  |Active Directory Domain Services lokalnego (wersja zapoznawcza) |Anonimowy publiczny dostęp do odczytu  |
 |---------|---------|---------|---------|---------|---------|
-|Obiekty blob platformy Azure     |[Obsługiwane](/rest/api/storageservices/authorize-with-shared-key/)         |[Obsługiwane](storage-sas-overview.md)         |[Obsługiwane](storage-auth-aad.md)         |Nieobsługiwane|[Obsługiwane](../blobs/storage-manage-access-to-resources.md)         |
-|Azure Files (SMB)     |[Obsługiwane](/rest/api/storageservices/authorize-with-shared-key/)         |Nieobsługiwane         |[Obsługiwane tylko w przypadku usług domenowych w usłudze AAD](../files/storage-files-active-directory-overview.md)         |[Obsługiwane, należy synchronizować poświadczenia z usługą Azure AD](../files/storage-files-active-directory-overview.md)|Nieobsługiwane         |
-|Azure Files (REST)     |[Obsługiwane](/rest/api/storageservices/authorize-with-shared-key/)         |[Obsługiwane](storage-sas-overview.md)         |Nieobsługiwane         |Nieobsługiwane |Nieobsługiwane         |
-|Azure Queues     |[Obsługiwane](/rest/api/storageservices/authorize-with-shared-key/)         |[Obsługiwane](storage-sas-overview.md)         |[Obsługiwane](storage-auth-aad.md)         |Nieobsługiwane | Nieobsługiwane         |
-|Tabele platformy Azure     |[Obsługiwane](/rest/api/storageservices/authorize-with-shared-key/)         |[Obsługiwane](storage-sas-overview.md)         |Nieobsługiwane         |Nieobsługiwane| Nieobsługiwane         |
+|Obiekty blob platformy Azure     |[Obsługiwał](/rest/api/storageservices/authorize-with-shared-key/)         |[Obsługiwał](storage-sas-overview.md)         |[Obsługiwał](storage-auth-aad.md)         |Nieobsługiwane|[Obsługiwał](../blobs/storage-manage-access-to-resources.md)         |
+|Azure Files (SMB)     |[Obsługiwał](/rest/api/storageservices/authorize-with-shared-key/)         |Nieobsługiwane         |[Obsługiwane tylko w przypadku usług domenowych w usłudze AAD](../files/storage-files-active-directory-overview.md)         |[Obsługiwane, należy synchronizować poświadczenia z usługą Azure AD](../files/storage-files-active-directory-overview.md)|Nieobsługiwane         |
+|Azure Files (REST)     |[Obsługiwał](/rest/api/storageservices/authorize-with-shared-key/)         |[Obsługiwał](storage-sas-overview.md)         |Nieobsługiwane         |Nieobsługiwane |Nieobsługiwane         |
+|Azure Queues     |[Obsługiwał](/rest/api/storageservices/authorize-with-shared-key/)         |[Obsługiwał](storage-sas-overview.md)         |[Obsługiwał](storage-auth-aad.md)         |Nieobsługiwane | Nieobsługiwane         |
+|Tabele platformy Azure     |[Obsługiwał](/rest/api/storageservices/authorize-with-shared-key/)         |[Obsługiwał](storage-sas-overview.md)         |Nieobsługiwane         |Nieobsługiwane| Nieobsługiwane         |
 
 Każdą opcję autoryzacji można krótko opisać poniżej:
 

@@ -4,15 +4,15 @@ description: W tym artykule dowiesz się, jak włączyć i korzystać z dziennik
 services: bastion
 author: charwen
 ms.service: bastion
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 4b71dba02a311b8fa6a16645364f90d7632693a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82f92a6dc33173918102015c8cedea1755d77805
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131272"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744208"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Włącz i pracuj z dziennikami zasobów bastionu
 

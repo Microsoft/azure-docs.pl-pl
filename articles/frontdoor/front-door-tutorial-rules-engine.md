@@ -1,23 +1,23 @@
 ---
-title: Moje drzwi platformy Azure | Microsoft Docs
-description: Ten artykuł zawiera omówienie usługi Azure Front Door. Sprawdź, czy jest to właściwy wybór dla ruchu użytkowników z równoważeniem obciążenia dla aplikacji.
+title: Konfigurowanie aparatu reguł — drzwi platformy Azure
+description: W tym artykule opisano sposób konfigurowania aparatów reguł dla drzwi platformy Azure
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: 4574597c0b93f2985953bfbc815cca220ecc4f28
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: ed54f26f37617d420fae1aaf3f51853b0439a349
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515601"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743562"
 ---
 # <a name="configure-your-rules-engine"></a>Skonfiguruj aparat reguł 
 
@@ -34,7 +34,7 @@ ms.locfileid: "82515601"
 
 3. Kliknij pozycję **Dodaj regułę** , aby utworzyć pierwszą regułę. Następnie klikając pozycję **Dodaj warunek** lub **Dodaj akcję** , można zdefiniować regułę. 
     
-    *O*
+    *Uwagi:*
     - Aby usunąć warunek lub akcję z reguły, użyj kosza po prawej stronie określonego warunku lub akcji.
     - Aby utworzyć regułę, która ma zastosowanie do całego ruchu przychodzącego, nie określaj żadnych warunków. 
     - Aby zatrzymać ocenianie reguł po spełnieniu pierwszego warunku dopasowania, zaznacz pole **Zatrzymaj ocenę reguły**. 
@@ -45,7 +45,7 @@ ms.locfileid: "82515601"
 
 5. Po utworzeniu co najmniej jednej reguły naciśnij pozycję **Zapisz**. Ta akcja powoduje utworzenie konfiguracji aparatu reguł. 
 
-6. Po utworzeniu co najmniej jednej konfiguracji Skojarz konfigurację aparatu reguł z regułą trasy. Podczas gdy jedna konfiguracja może być stosowana do wielu reguł trasy, reguła trasy może zawierać tylko jedną konfigurację aparatu reguł. Aby utworzyć skojarzenie, przejdź do > **reguły tras** **projektanta drzwi**. Wybierz regułę trasy, do której chcesz dodać konfigurację aparatu reguł, przejdź do pozycji > **Konfiguracja aparatu reguły** **szczegółów trasy**, a następnie wybierz konfigurację, którą chcesz skojarzyć. 
+6. Po utworzeniu co najmniej jednej konfiguracji Skojarz konfigurację aparatu reguł z regułą trasy. Podczas gdy jedna konfiguracja może być stosowana do wielu reguł trasy, reguła trasy może zawierać tylko jedną konfigurację aparatu reguł. Aby utworzyć skojarzenie, przejdź do **Front Door designer**  >  **reguły tras**projektanta drzwi. Wybierz regułę trasy, do której chcesz dodać konfigurację aparatu reguł, przejdź do pozycji **Route details**  >  **Konfiguracja aparatu reguły**szczegółów trasy, a następnie wybierz konfigurację, którą chcesz skojarzyć. 
 
 ![Znajdź aparat reguł](./media/front-door-rules-engine/rules-engine-tutorial-5.png)
 
