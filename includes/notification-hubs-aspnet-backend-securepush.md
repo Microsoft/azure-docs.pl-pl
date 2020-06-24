@@ -92,7 +92,7 @@ ms.locfileid: "74260828"
     }
     ```
 
-Należy pamiętać, `Post` że metoda teraz nie wysyła wyskakujących powiadomień. Wysyła ono pierwotne powiadomienie, które zawiera tylko identyfikator powiadomienia, a nie poufną zawartość. Pamiętaj również, aby dodać komentarz do operacji wysyłania dla platform, dla których nie skonfigurowano poświadczeń w centrum powiadomień, ponieważ spowodują one błędy.
+Należy pamiętać, że `Post` Metoda teraz nie wysyła wyskakujących powiadomień. Wysyła ono pierwotne powiadomienie, które zawiera tylko identyfikator powiadomienia, a nie poufną zawartość. Pamiętaj również, aby dodać komentarz do operacji wysyłania dla platform, dla których nie skonfigurowano poświadczeń w centrum powiadomień, ponieważ spowodują one błędy.
 
 1. Teraz będziemy ponownie wdrażać tę aplikację w witrynie sieci Web platformy Azure w celu udostępnienia jej ze wszystkich urządzeń. Kliknij prawym przyciskiem myszy projekt **AppBackend** i wybierz polecenie **Publikuj**.
 2. Wybierz witrynę sieci Web platformy Azure jako element docelowy publikowania. Zaloguj się przy użyciu konta platformy Azure i wybierz istniejącą lub nową witrynę sieci Web i zanotuj Właściwość **docelowa adresu URL** na karcie **połączenie** . W dalszej części tego samouczka będziemy odwoływać się do tego adresu URL jako *punktu końcowego zaplecza* . Kliknij przycisk **Opublikuj**.

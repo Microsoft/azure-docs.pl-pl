@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 06/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6a4712f88a6f5351845233f4179e82e4b473ded
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 332ce90de334a384ee6017a12781d0ddb2ed4158
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266733"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126148"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integracja z partnerem pulpitu wirtualnego systemu Windows
 
@@ -33,12 +33,12 @@ Firma Citrix rozszerza wartość pulpitu wirtualnego systemu Windows z niezawodn
 
 ![Logo VMware](./media/partners/vmware.png)
 
-Usługa VMware Horizon Cloud w Microsoft Azure zapewnia organizacjom możliwość łączenia własnych wystąpień Microsoft Azure z prostą, intuicyjną płaszczyzną kontroli w chmurze, tworząc bezpieczną, kompleksową, hostowaną w chmurze rozwiązanie do dostarczania zwirtualizowanych aplikacji i pulpitów systemu Windows. Wraz z wydaniem pulpitu wirtualnego systemu Windows program VMware współpracujący z firmą Microsoft w celu zwiększenia funkcjonalności pulpitu wirtualnego systemu Windows do klientów korzystających z usługi Horizon w chmurze w Microsoft Azure. Ta funkcja będzie dostępna w wersji zapoznawczej Tech Preview do końca 2019.
- 
-Jako zatwierdzony dostawca korzyści z pulpitu wirtualnego systemu Windows zostaną rozszerzone na chmurę programu VMware Horizon na Microsoft Azure klientach, w tym Windows 10 Enterprise dla wielu sesji, Windows 7 z bezpłatnymi rozszerzonymi aktualizacjami zabezpieczeń na maksymalnie trzy lata i FSLogix. Ponadto klienci otrzymają funkcje klasy korporacyjnej w chmurze horyzontu, takie jak Obsługa szerokiego punktu końcowego. globalne, zoptymalizowane w chmurze brokering; elastyczne opcje i konfiguracje pulpitu; Zarządzanie środowiskiem użytkownika; i Obsługa środowisk hybrydowych.
+Chmura programu VMware Horizon w systemie Microsoft Azure to natywna usługa w chmurze, która umożliwia organizacjom szybkie wdrażanie zdalnych pulpitów i aplikacji z istniejących subskrypcji Microsoft Azure przy użyciu wszystkich funkcji platformy VMware. W chmurze horyzontu jest wykorzystywana płaszczyzna sterująca w poziomie, która zapewnia jeden interfejs zarządzania dla wszystkich środowisk, w środowisku lokalnym lub w chmurze. Pozwala to na wirtualizację pulpitu hybrydowego i pozwala klientom na przenoszenie obciążeń na platformę Azure we własnym tempie.
 
-- [Zarejestruj się w celu uzyskania wersji zapoznawczej chmury horyzontowej w Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
+Jako zatwierdzoną dostawcę usług pulpitu wirtualnego systemu Windows, program VMware może pomóc klientom, którzy chcą korzystać z pulpitu wirtualnego systemu Windows, przy jednoczesnym zachowaniu dodatkowych funkcji, które są dostępne w zakresie programu VMware, takich jak zintegrowane i łatwe w użyciu Zarządzanie oszczędzaniem, oparte na chmurze monitorowanie i najnowocześniejszy protokół. Te funkcje dostosowują się do zmieniających się warunków sieciowych na bieżąco w celu zapewnienia spójnego środowiska użytkownika. Chmura horyzontu VMware obejmuje również woluminy aplikacji VMware i Menedżera środowiska dynamicznego, które zawierają zaawansowane funkcje zarządzania środowiskiem aplikacji i środowiska użytkownika, które współpracują z aplikacjami MSIX i FSLogix.
+
 - [Przejdź do witryny sieci Web partnera](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+- [Przeczytaj dokumentację techniczną w chmurze technologii VMware Horizon](https://techzone.vmware.com/mastering-horizon-cloud-microsoft-azure).
 
 ## <a name="10zig"></a>10ZiG
 
@@ -102,6 +102,28 @@ deviceTRUST rozszerza wartość pulpitu wirtualnego systemu Windows z ich kontek
 
 - [Przejdź do witryny sieci Web partnera](https://devicetrust.com/wvd).
 
+## <a name="ekran-system"></a>System ekran
+
+![Logo systemu ekran](./media/partners/ekran.png)
+
+Ekran System to wartość pulpitu wirtualnego systemu Windows — Dodaj partnera, który umożliwia zespołom IT monitorowanie wszystkich działań użytkownika zdalnego na Microsoft Azure maszynach wirtualnych. Dzięki systemowi ekran można rejestrować aktywność ekranu dla każdej sesji użytkownika w opublikowanych aplikacjach lub pulpitach wirtualnych podczas zbierania szerokiego zakresu metadanych zabudowanych w kontekście, takich jak nazwy aplikacji, aktywne tytuły okien, odwiedzone adresy URL i nacionięcia klawiszy. Funkcje zaawansowane oferują szczegółowe możliwości wglądu i szybkie reagowanie na zdarzenia, co sprawia, że system ekran ma wydajne rozwiązanie do zarządzania zagrożeniami i zgodnością.  
+
+Unikatowy, swobodny Licencjonowanie punktów końcowych klientów systemu ekran jest zautomatyzowany do obsługi dynamicznej zmiany pulpitów wirtualnych. System ekran umożliwia automatyczne cofanie przypisywania licencji z usuniętych nietrwałych pulpitów wirtualnych i usuwanie ich z bazy danych. System ekran bezproblemowo integruje się z Azure Active Directory i wskaźnikiem na platformie Azure.
+
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yqY8).
+- [Przejdź do strony partnerskiej](https://www.ekransystem.com/product/supported-platforms/windows-virtual-desktop-monitoring).
+
+## <a name="flexxible-it"></a>Flexxible
+
+![Logo Flexxible IT](./media/partners/flexxible.png)
+
+Flexxible jest to wartość pulpitu wirtualnego systemu Windows — Dodaj partnera, który oferuje organizacjom możliwość szybkiego skalowania, monitorowania i wydajnego zarządzania infrastrukturą usług pulpitu wirtualnego systemu Windows i Citrix Workspace. Flexxible | Pakiet umożliwia administratorom IT inteligentne Inicjowanie i zarządzanie obciążeniami pulpitu wirtualnego systemu Windows w środowisku lokalnym i hostowanym na platformie Azure.
+ 
+Flexxible technologie rozszerzają wartość zarówno natywnego pulpitu wirtualnego systemu Windows, jak i obszaru roboczego Citrix, automatyzując typowe procesy w celu uproszczenia konfiguracji infrastruktury, aprowizacji komputerów stacjonarnych i codziennego zarządzania. W przypadku złożonych skryptów programu PowerShell lub czasochłonnych procesów ręcznych pakiet udostępnia skalowalne wdrożenie pulpitu, rozbudowane monitorowanie i raportowanie oraz bezpieczne zarządzanie delegowane. Te funkcje umożliwiają skoncentrowanie się na dostarczaniu ulepszonych poziomów usługi i jakości środowiska pulpitu wirtualnego systemu Windows dla użytkowników.
+
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7A).
+- [Przejdź do witryny sieci Web partnera](https://www.flexxible.com/suite-for-windows-virtual-desktop).
+
 ## <a name="hp"></a>FIRM
 
 ![Logo firmy HP](./media/partners/hp.png)
@@ -127,7 +149,7 @@ System operacyjny IGEL obsługuje wszystkie popularne aplikacje wirtualne, kompu
 
 ![Logo Ivanti](./media/partners/ivanti.png)
 
-Ivanti User Workspace Manager to usługa, która jest dołączana do usług pulpitu wirtualnego systemu Windows, która ułatwia wdrażanie komputerów i zarządzanie nimi, oddzielając dane użytkowników z pulpitu w celu zapewnienia bezproblemowej przenośności. Dzięki programowi Ivanti użytkownicy mogą dostarczać złożone projekty, takie jak migracja do systemu Windows 10, przyjmowanie pakietu Office 365 lub przenoszenie usług do chmury szybciej. 
+Ivanti User Workspace Manager to usługa, która jest dołączana do usług pulpitu wirtualnego systemu Windows, która ułatwia wdrażanie komputerów i zarządzanie nimi, oddzielając dane użytkowników z pulpitu w celu zapewnienia bezproblemowej przenośności. Dzięki programowi Ivanti użytkownicy mogą dostarczać złożone projekty, takie jak Migrowanie do systemu Windows 10, szybkie wdrażanie Microsoft 365 lub przenoszenie usług do chmury. 
 
 Gdy jest używany z pulpitem wirtualnym systemu Windows, Menedżer obszaru roboczego użytkownika Ivanti zapewnia proste, kontekstowe zarządzanie środowiska pulpitu użytkownika, eliminując długotrwałe czasy logowania i likwidowanie zasad grupy Nightmares. Ivanti szablony z menedżerem obszarów roboczych użytkowników upraszczają instalację dla użytkowników za pomocą agentów i istniejącej konsoli programu. Menedżer obszarów roboczych użytkowników Ivanti zapewnia wydajność, bezpieczne pulpity, które użytkownicy odkochają, oszczędzają pieniądze na serwerach, skuteczniej zarządzają użytkownikami i obniżają ryzyko bezpieczeństwa punktów końcowych. 
 
@@ -163,6 +185,7 @@ Usługa agregacji i dostarczania aplikacji Liquit umożliwia przedsiębiorstwom 
 
 Jako certyfikowany partner Integration Liquit pomaga przyspieszyć przejście do chmury bez opóźnień protokołu RIP i Zamień. Pulpit wirtualny systemu Windows umożliwia łatwe łączenie się z istniejącym środowiskiem, tworzenie obszaru roboczego i dostarczanie pulpitu. Następnie możesz Poświęć czas na migrację starych platform i wprowadzić zmiany na zapleczu bez konieczności obserwowanie użytkowników. Uzyskaj spójne środowisko użytkownika końcowego, elastyczną infrastrukturę i Zachowaj kontrolę nad aplikacjami bez względu na to, gdzie się znajdują.
 
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yol8).
 - [Przejdź do witryny sieci Web partnera](https://www.liquit.com/wvd/).
 
 ## <a name="login-vsi"></a>VSI logowania
@@ -235,6 +258,17 @@ RDPSoft to partner pulpitu wirtualnego systemu Windows, który zapewnia zaawanso
 Rozwiązania dowódców Pulpit zdalny RDPSoft ulepszają administrację pulpitów wirtualnych systemu Windows. Funkcje zarządzania w warstwie Premium upraszczają delegowanie zadań związanych z zarządzaniem pulpitem wirtualnym systemu Windows do pomocy technicznej personelowi, zapewniając pomoc zdalną, sesję użytkownika i zarządzanie procesami. W tym samym czasie pakiet dowódców Pulpit zdalny zbiera bogate metryki dotyczące wydajności i obciążenia użytkownika, działania i inspekcji, a następnie zapewnia jakość połączenia pulpitu wirtualnego systemu Windows (opóźnienie i przepustowość), Licencjonowanie i zabezpieczenia w centralnym wystąpieniu usługi Azure SQL Database do przeglądu. Dzięki RDPSoft bogate raporty historyczne i kompleksowe pulpity nawigacyjne są po prostu kliknięciami.
 
 - [Przejdź do witryny sieci Web partnera](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
+
+## <a name="rimo3"></a>Rimo3
+
+![Logo Rimo3](./media/partners/rimo3.png)
+
+Rimo3 rozszerza środowisko pulpitu wirtualnego systemu Windows, przyspieszając wdrażanie i ulepszając bieżące zarządzanie zmianami. Rimo3 wspiera zespoły IT z wiedzą, której potrzebują, aby obsłużyć teczkę aplikacji na potrzeby gotowości aplikacji do migracji na platformę Azure. Użytkownicy mogą dołączać aplikacje i testować je w celu szybkiego i bezproblemowe rozpoczęcieego obszaru roboczego pulpitów wirtualnych systemu Windows. Użytkownicy mogą również aktywnie zrozumieć wpływ wszelkich zmian w miarę, w jaki organizacja przedstawia nowe aplikacje i aktualizacje. Na koniec Administratorzy IT mogą wykorzystać możliwości testowania inteligentnego dymu Rimo3's i zautomatyzować testowanie funkcji bez przerywania sesji użytkowników.
+
+Rimo3 oferuje łatwą w użyciu, skalowalną, zautomatyzowaną platformę testowania aplikacji. Ta platforma obejmuje możliwości wszystkich trzech podstawowych testów aplikacji: zgodność, funkcjonalność i wydajność. Dzięki temu organizacje, Liderzy i zespoły mogą poprawiać ciągłość działania, wdrażać zmiany i optymalizować środowisko użytkownika.
+
+- [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
+- [Przejdź do witryny sieci Web partnera](https://rimo3.com/outcomes/).
 
 ## <a name="sepago"></a>sepago
 

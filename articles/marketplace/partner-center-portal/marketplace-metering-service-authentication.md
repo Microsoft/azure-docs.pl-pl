@@ -6,30 +6,30 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/13/2020
-ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: dd1c4e724e70507816aa4b6ba652adfb998a8cc0
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642317"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783405"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Strategie uwierzytelniania usługi pomiaru w portalu Marketplace
 
 Usługa pomiaru Marketplace obsługuje dwie strategie uwierzytelniania:
 
 * [Token zabezpieczający usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
-* [zarządzane tożsamości](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+* [Zarządzane tożsamości](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
 
 Wyjaśnimy, kiedy i jak używać różnych strategii uwierzytelniania do bezpiecznego przesyłania niestandardowych liczników przy użyciu usługi pomiaru Marketplace.
 
 ## <a name="using-the-azure-ad-security-token"></a>Korzystanie z tokenu zabezpieczeń usługi Azure AD
 
-Odpowiednie typy ofert to SaaS i aplikacje platformy Azure z typem planu zarządzanej aplikacji.  
+Odpowiednie typy ofert to transakcyjne SaaS i aplikacje platformy Azure z typem planu zarządzanej aplikacji.  
 
-Przesyłaj liczniki niestandardowe przy użyciu wstępnie zdefiniowanego identyfikatora aplikacji ustalonej do uwierzytelnienia.
+Prześlij niestandardowe liczniki przy użyciu wstępnie zdefiniowanego identyfikatora aplikacji usługi Azure AD do uwierzytelnienia.
 
-W przypadku ofert SaaS usługa Azure AD jest jedyną dostępną opcją.
+W przypadku ofert SaaS jest to jedyna dostępna opcja. Jest to obowiązkowy krok do opublikowania dowolnej oferty SaaS zgodnie z opisem w temacie [Rejestrowanie aplikacji SaaS](./pc-saas-registration.md).
 
 W przypadku aplikacji platformy Azure z zarządzanym planem aplikacji należy rozważyć użycie tej strategii w następujących przypadkach:
 
@@ -68,10 +68,10 @@ Aby uzyskać więcej informacji na temat tych tokenów, zobacz [Azure Active Dir
 
 |  **Nazwa właściwości**  |  **Wymagane**  |  **Opis**          |
 |  ------------------ |--------------- | ------------------------  |
-|  `Grant_type`       |   True         | Typ udzielania. Wartość domyślna to `client_credentials`. |
+|  `Grant_type`       |   True         | Typ udzielania. Użyj witryny `client_credentials`. |
 |  `Client_id`        |   True         | Identyfikator klienta/aplikacji skojarzony z aplikacją usługi Azure AD.|
-|  `client_secret`    |   True         | Hasło skojarzone z aplikacją usługi Azure AD.  |
-|  `Resource`         |   True         | Zasób docelowy, dla którego zażądano tokenu. Wartość domyślna to `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`.  |
+|  `client_secret`    |   True         | Wpis tajny skojarzony z aplikacją usługi Azure AD.  |
+|  `Resource`         |   True         | Zasób docelowy, dla którego zażądano tokenu. Użyj witryny `20e940b3-4c77-4b0b-9a53-9e16a1b010a7`. |
 | | | |
 
 #### <a name="response"></a>*Reakcji*
@@ -112,7 +112,7 @@ Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić si
 
 1. Upewnij się, że zarządzana tożsamość została skonfigurowana przy użyciu jednej z metod:
     * [Interfejs użytkownika Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    * [Interfejs](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
+    * [Interfejs wiersza polecenia](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
     * [Program PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
     * [Szablon Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
     * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
@@ -145,7 +145,7 @@ Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić si
 
     ```powershell
     # Get resourceUsageId from the managed app
-    $managedAppUrl = "https://management.azure.com/subscriptions/" + $metadata.compute.subscriptionId + "/resourceGroups/" + $metadata.compute.resourceGroupName + "/providers/Microsoft.Solutions/applications/" + $managedappId + "\?api-version=2019-07-01"
+    $managedAppUrl = "https://management.azure.com" + $managedappId + "\?api-version=2019-07-01"
     $ManagedApp = curl $managedAppUrl -H $Headers | Select-Object -Expand Content | ConvertFrom-Json
     # Use this resource ID to emit usage 
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
@@ -156,3 +156,4 @@ Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić si
 ## <a name="next-steps"></a>Następne kroki
 
 * [Tworzenie oferty aplikacji platformy Azure](./create-new-azure-apps-offer.md)
+* [Tworzenie oferty SaaS z transakcyjnymi](./offer-creation-checklist.md)

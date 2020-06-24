@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7c6dbd628b4c271815c0210f93d776338cb01275
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 6d82446a915863e6aa95cc79a421f86b8c4dd3a2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669685"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252648"
 ---
 # <a name="connect-and-query-azure-sql-edge-preview"></a>Łączenie i wykonywanie zapytań w usłudze Azure SQL Edge (wersja zapoznawcza)
 
-W usłudze Azure SQL Edge po wdrożeniu kontenera można nawiązać połączenie z aparatem bazy danych SQL z dowolnej z następujących lokalizacji:
+W usłudze Azure SQL Edge po wdrożeniu kontenera można nawiązać połączenie z aparatem bazy danych z dowolnej z następujących lokalizacji:
 
 - Wewnątrz kontenera
 - Z innego kontenera platformy Docker działającego na tym samym hoście

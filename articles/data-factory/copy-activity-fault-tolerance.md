@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: a44703aabc35131cf040892999409173638437a7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b172a6e15cbb22c3a0a16cb1e238ddfe45048bf
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658777"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130776"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Odporność na uszkodzenia w działaniu kopiowania w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -73,12 +73,27 @@ Podczas kopiowania plików binarnych między magazynami magazynów można włąc
 Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | -------- 
 skipErrorFile | Grupa właściwości, aby określić typy błędów, które mają zostać pominięte podczas przenoszenia danych. | | Nie
-fileMissing | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć pliki, które są usuwane przez inne aplikacje, gdy w tym czasie jest kopiowany ADF. <br/> -True: chcesz skopiować resztę, pomijając pliki usuwane przez inne aplikacje. <br/> -False: chcesz przerwać działanie kopiowania po usunięciu plików ze sklepu źródłowego w trakcie przenoszenia danych. <br/>Należy pamiętać, że właściwość jest ustawiona na wartość true jako domyślną. | True (domyślnie) <br/>False | Nie
+fileMissing | Jeden z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć pliki, które są usuwane przez inne aplikacje, gdy w tym czasie jest kopiowany ADF. <br/> -True: chcesz skopiować resztę, pomijając pliki usuwane przez inne aplikacje. <br/> -False: chcesz przerwać działanie kopiowania po usunięciu plików ze sklepu źródłowego w trakcie przenoszenia danych. <br/>Należy pamiętać, że właściwość jest ustawiona na wartość true jako domyślną. | True (domyślnie) <br/>Fałsz | Nie
 fileForbidden | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć określone pliki, gdy listy kontroli dostępu do tych plików lub folderów wymagają wyższego poziomu uprawnień niż połączenie skonfigurowane w podajniku ADF. <br/> -True: chcesz skopiować resztę, pomijając pliki. <br/> -False: chcesz przerwać działanie kopiowania po pobraniu problemu z uprawnieniami do folderów lub plików. | True <br/>False (domyślnie) | Nie
 dataInconsistency | Jedna z par klucz-wartość w zbiorze właściwości skipErrorFile, aby określić, czy chcesz pominąć niespójne dane między magazynem źródłowym i docelowym. <br/> -True: chcesz skopiować resztę, pomijając niespójne dane. <br/> -False: chcesz przerwać działanie kopiowania po znalezieniu niespójnych danych. <br/>Należy pamiętać, że właściwość jest prawidłowa tylko po ustawieniu validateDataConsistency jako true. | True <br/>False (domyślnie) | Nie
 logStorageSettings  | Grupa właściwości, które można określić, gdy mają być rejestrowane pominięte nazwy obiektów. | &nbsp; | Nie
 linkedServiceName | Połączona usługa [systemu Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) lub [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) do przechowywania plików dziennika sesji. | Nazwy `AzureBlobStorage` `AzureBlobFS` połączonej usługi lub typu, która odnosi się do wystąpienia używanego do przechowywania pliku dziennika. | Nie
 ścieżka | Ścieżka do plików dziennika. | Określ ścieżkę, która ma być używana do przechowywania plików dziennika. Jeśli nie podasz ścieżki, usługa utworzy dla Ciebie kontener. | Nie
+
+> [!NOTE]
+> Poniżej przedstawiono wymagania wstępne dotyczące włączania odporności błędów w działaniu kopiowania podczas kopiowania plików binarnych.
+> W przypadku pomijania określonych plików, gdy są usuwane z magazynu źródłowego:
+> - Źródłowy zestaw danych i zestaw danych ujścia muszą mieć format binarny i nie można określić typu kompresji. 
+> - Obsługiwane typy magazynów danych to Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, system plików, FTP, SFTP, Amazon S3, Google Cloud Storage i HDFS.
+> - W przypadku określenia wielu plików w źródłowym zestawie danych, które mogą być folderem, symbolem wieloznacznym lub listą plików, działanie Copy może pominąć określone pliki błędów. Jeśli jeden plik zostanie określony w źródłowym zestawie danych do skopiowania do miejsca docelowego, działanie kopiowania zakończy się niepowodzeniem, jeśli wystąpił błąd.
+>
+> W przypadku pomijania określonych plików, gdy ich dostęp jest zabroniony z magazynu źródłowego:
+> - Źródłowy zestaw danych i zestaw danych ujścia muszą mieć format binarny i nie można określić typu kompresji. 
+> - Obsługiwane typy magazynów danych to Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure File Storage, SFTP, Amazon S3 i HDFS.
+> - W przypadku określenia wielu plików w źródłowym zestawie danych, które mogą być folderem, symbolem wieloznacznym lub listą plików, działanie Copy może pominąć określone pliki błędów. Jeśli jeden plik zostanie określony w źródłowym zestawie danych do skopiowania do miejsca docelowego, działanie kopiowania zakończy się niepowodzeniem, jeśli wystąpił błąd.
+>
+> W przypadku pomijania określonych plików, gdy są one zweryfikowane jako niespójne między magazynem źródłowym i docelowym:
+> - W [tym miejscu](https://docs.microsoft.com/azure/data-factory/copy-activity-data-consistency)możesz uzyskać więcej szczegółowych informacji z dokumentu spójności danych.
 
 ### <a name="monitoring"></a>Monitorowanie 
 
@@ -123,7 +138,7 @@ Timestamp,Level,OperationName,OperationItem,Message
 2020-03-24 05:35:41.0209942,Warning,FileSkip,"bigfile.csv","File is skipped after read 322961408 bytes: ErrorCode=UserErrorSourceBlobNotExist,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=The required Blob is missing. ContainerName: https://transferserviceonebox.blob.core.windows.net/skipfaultyfile, path: bigfile.csv.,Source=Microsoft.DataTransfer.ClientLibrary,'." 
 2020-03-24 05:38:41.2595989,Warning,FileSkip,"3_nopermission.txt","File is skipped after read 0 bytes: ErrorCode=AdlsGen2OperationFailed,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=ADLS Gen2 operation failed for: Operation returned an invalid status code 'Forbidden'. Account: 'adlsgen2perfsource'. FileSystem: 'skipfaultyfilesforbidden'. Path: '3_nopermission.txt'. ErrorCode: 'AuthorizationPermissionMismatch'. Message: 'This request is not authorized to perform this operation using this permission.'. RequestId: '35089f5d-101f-008c-489e-01cce4000000'..,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Operation returned an invalid status code 'Forbidden',Source=,''Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message='Type=Microsoft.Azure.Storage.Data.Models.ErrorSchemaException,Message=Operation returned an invalid status code 'Forbidden',Source=Microsoft.DataTransfer.ClientLibrary,',Source=Microsoft.DataTransfer.ClientLibrary,'." 
 ```
-W powyższym dzienniku można zobaczyć, że BigFile. csv został pominięty z powodu usunięcia przez inną aplikację tego pliku podczas jego kopiowania przez ADF. I plik 3_nopermission. txt został pominięty, ponieważ nie można uzyskać do niego dostępu z powodu problemu z uprawnieniami.
+W powyższym dzienniku można zobaczyć, że bigfile.csv został pominięty z powodu usunięcia przez inną aplikację tego pliku, gdy plik ADF skopiował go. I 3_nopermission.txt został pominięty, ponieważ ADF nie może uzyskać do niego dostępu z powodu problemu z uprawnieniami.
 
 
 ## <a name="copying-tabular-data"></a>Kopiowanie danych tabelarycznych 

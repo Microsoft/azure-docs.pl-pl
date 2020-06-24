@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punk
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 91918bb053c1f26e33d08dde3b68debfcffe350e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 68fa3bb2b17da01004220f5876911fa3289a2e7c
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195748"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124991"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -192,9 +192,9 @@ W poniższej tabeli przedstawiono zgodność między systemami operacyjnymi serw
 | --------------- | ---- |
 | Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8.1 |
+| Windows Server 2012 z dodatkiem R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | Windows 7   |
+| Windows Server 2008 z dodatkiem R2 | Windows 7   |
 
 ### <a name="for-linux-os"></a>Dla systemu operacyjnego Linux
 
@@ -237,7 +237,7 @@ W przypadku uruchamiania skryptu na komputerze z ograniczonym dostępem upewnij 
 
 > [!NOTE]
 >
-> - Pobrana nazwa pliku skryptu będzie miała **nazwę geograficzną** , która ma zostać wypełniona w adresie URL. Dla exampple: pobrana Nazwa skryptu rozpoczyna się od \' VMName \' \_ \' geoname \' _ \' GUID \' , na przykład *ContosoVM_wcus_12345678*
+> - Pobrana nazwa pliku skryptu będzie miała **nazwę geograficzną** , która ma zostać wypełniona w adresie URL. Na przykład: pobrana Nazwa skryptu rozpoczyna się od \' VMName \' \_ \' geoname \' _ \' GUID \' , tak jak *ContosoVM_wcus_12345678*
 > - Adres URL miałaby wartość <https://pod01-rec2.wcus.backup.windowsazure.com> "
 >
 
@@ -258,7 +258,7 @@ Ponieważ proces odzyskiwania plików dołącza wszystkie dyski z kopii zapasowe
     - Upewnij się, że system operacyjny jest w wersji WS 2012 lub nowszej.
     - Upewnij się, że klucze rejestru zostały ustawione zgodnie z sugerowaną poniżej na serwerze przywracania, i upewnij się, że serwer jest ponownie uruchamiany. Liczba obok identyfikatora GUID może być z zakresu od 0001-0005. W poniższym przykładzie jest to 0,004. Przejdź przez ścieżkę klucza rejestru do sekcji parametry.
 
-    ![iSCSI-reg-Key-Changes. png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
 - HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
