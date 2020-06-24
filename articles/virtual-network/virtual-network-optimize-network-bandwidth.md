@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: be5f38bdeaf51dbe23006ecf30b4deb66aa7402a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86785ada1d5b55a1eaa7c81243dd0b6c39087e1c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75690885"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695967"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optymalizowanie przepływności sieci dla maszyn wirtualnych platformy Azure
 
@@ -29,7 +29,7 @@ Maszyny wirtualne platformy Azure mają domyślne ustawienia sieciowe, które mo
 
 Jeśli maszyna wirtualna z systemem Windows obsługuje [przyspieszone sieci](create-vm-accelerated-networking-powershell.md), włączenie tej funkcji będzie optymalną konfiguracją przepływności. W przypadku wszystkich innych maszyn wirtualnych z systemem Windows Korzystanie ze skalowania po stronie odbierającej (RSS) może osiągnąć wyższą maksymalną przepływność niż maszyna wirtualna bez funkcji RSS. Funkcja RSS może być domyślnie wyłączona na maszynie wirtualnej z systemem Windows. Aby określić, czy funkcja RSS jest włączona, i włączyć ją, jeśli jest ona aktualnie wyłączona, wykonaj następujące czynności:
 
-1. Sprawdź, `Get-NetAdapterRss` czy funkcja RSS jest włączona dla karty sieciowej za pomocą polecenia programu PowerShell. W poniższych przykładowych danych wyjściowych zwróconych z `Get-NetAdapterRss`funkcji RSS nie jest włączona.
+1. Sprawdź, czy funkcja RSS jest włączona dla karty sieciowej za pomocą `Get-NetAdapterRss` polecenia programu PowerShell. W poniższych przykładowych danych wyjściowych zwróconych z `Get-NetAdapterRss` funkcji RSS nie jest włączona.
 
     ```powershell
     Name                    : Ethernet
@@ -42,7 +42,7 @@ Jeśli maszyna wirtualna z systemem Windows obsługuje [przyspieszone sieci](cre
     Get-NetAdapter | % {Enable-NetAdapterRss -Name $_.Name}
     ```
     Poprzednie polecenie nie ma danych wyjściowych. Polecenie zmieniło ustawienia karty sieciowej, powodując utratę łączności tymczasowej przez około minutę. Podczas utraty łączności pojawia się okno dialogowe Ponowne łączenie. Połączenie jest zwykle przywracane po trzeciej próbie.
-3. Upewnij się, że funkcja RSS jest włączona na maszynie wirtualnej `Get-NetAdapterRss` , wprowadzając polecenie ponownie. Jeśli to się powiedzie, zwracane są następujące przykładowe dane wyjściowe:
+3. Upewnij się, że funkcja RSS jest włączona na maszynie wirtualnej, wprowadzając `Get-NetAdapterRss` polecenie ponownie. Jeśli to się powiedzie, zwracane są następujące przykładowe dane wyjściowe:
 
     ```powershell
     Name                    : Ethernet

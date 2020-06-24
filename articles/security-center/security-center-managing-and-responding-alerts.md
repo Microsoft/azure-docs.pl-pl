@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 8e44ce594375deeac47f037515d96c57d15c8359
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398400"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84769787"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Zarządzanie alertami zabezpieczeń i reagowanie na nie w usłudze Azure Security Center
 
@@ -58,21 +58,26 @@ Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzien
 
 1. Po przejrzeniu informacji kliknij zaatakowany zasób.
 
+    W lewym okienku na stronie alertu zabezpieczeń znajdują się ogólne informacje dotyczące alertu zabezpieczeń: tytuł, ważność, stan, czas działania, opis podejrzanego działania oraz zaatakowany zasób. Obok zasobu, którego dotyczy problem, są Tagi platformy Azure istotne dla zasobu. Użyj tych elementów do wywnioskowania kontekstu organizacyjnego zasobu podczas badania alertu.
+
+    Prawe okienko zawiera kartę **szczegóły alertu** zawierającą dalsze szczegóły alertu, który ułatwia badanie problemu: adresów IP, plików, procesów i nie tylko.
+     
     ![Sugestie dotyczące czynności, które należy wykonać, aby uzyskać informacje o alertach zabezpieczeń](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    Sekcja **Informacje ogólne** może oferować wgląd w to, co wyzwolił alert zabezpieczeń. Są w nim wyświetlane informacje, takie jak zasób docelowy, źródłowy adres IP (jeśli ma zastosowanie), jeśli alert jest nadal aktywny i zalecenia dotyczące sposobu korygowania.  
+    Również w prawym okienku jest karta **podjęcie akcji** . Użyj tej karty, aby wykonać dalsze działania dotyczące alertu zabezpieczeń. Akcje, takie jak:
+    - *Eliminowanie zagrożeń* — zawiera ręczne kroki korygowania dla tego alertu zabezpieczeń
+    - *Zapobiegaj atakom w przyszłości* — zawiera zalecenia dotyczące zabezpieczeń, które pomagają w zmniejszeniu podatności na ataki, zwiększyć bezpieczeństwo stan i w ten sposób zapobiec atakom w przyszłości
+    - *Wyzwalanie automatycznej odpowiedzi* — udostępnia opcję wyzwalania aplikacji logiki jako odpowiedzi na ten alert zabezpieczeń
+    - *Pomijaj podobne alerty* — oferuje opcję pomijania przyszłych alertów o podobnych cechach, jeśli alert nie jest odpowiedni dla Twojej organizacji.
 
-    > [!NOTE]
-    >W niektórych przypadkach źródłowy adres IP nie jest dostępny, a niektóre dzienniki zdarzeń zabezpieczeń systemu Windows nie zawierają adresu IP.
+    ![Przejmij kartę z akcją](./media/security-center-managing-and-responding-alerts/alert-take-action.png)
 
-1. Czynności naprawcze sugerowane w usłudze Security Center różnią się w zależności od alertu zabezpieczeń. Obserwuj je dla każdego alertu. 
 
-    W niektórych przypadkach w celu ograniczenia alertu zabezpieczeń może być konieczne użycie innych usług lub kontroli platformy Azure w celu zaimplementowania zalecanej korekty. 
 
-## <a name="see-also"></a>Zobacz także
 
-W tym dokumencie przedstawiono sposób konfigurowania zasad zabezpieczeń w Centrum zabezpieczeń. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń, zobacz następujące artykuły:
+## <a name="see-also"></a>Zobacz też
 
-- [Moduł Microsoft Learn dotyczący sposobu korzystania z funkcji alertów Azure Security Center do oglądania i reagowania na zagrożenia](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
-* [Alerty zabezpieczeń w Azure Security Center](security-center-alerts-overview.md).
-* [Obsługa zdarzeń związanych z zabezpieczeniami](security-center-incident.md)
+W tym dokumencie przedstawiono sposób wyświetlania alertów zabezpieczeń. Pokrewnych materiałów można znaleźć na następujących stronach:
+
+- [Konfigurowanie reguł pomijania alertów](alerts-suppression-rules.md)
+- [Automatyzowanie odpowiedzi na alerty i zalecenia z automatyzacją przepływu pracy](workflow-automation.md)

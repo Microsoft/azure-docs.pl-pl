@@ -3,25 +3,25 @@ title: Problem z instalowaniem łącznika agenta serwera proxy aplikacji | Micro
 description: Jak rozwiązywać problemy, które można napotkać podczas instalowania łącznika agenta serwera proxy aplikacji
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f73d46b612c1dcf94554e10b4820c3f2442248f
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82172410"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764693"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem z instalacją łącznika agenta serwera proxy aplikacji
 
@@ -48,7 +48,7 @@ Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zazwycza
 
 2.  Jeśli którykolwiek z tych portów nie powiedzie się, sprawdź, czy zapora lub serwer proxy zaplecza ma dostęp do wymaganych domen i portów, zobacz [Przygotowywanie środowiska lokalnego](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
-3.  Otwórz przeglądarkę (osobna karta) i przejdź do następującej strony sieci Web: `https://login.microsoftonline.com`upewnij się, że możesz zalogować się na tej stronie.
+3.  Otwórz przeglądarkę (osobna karta) i przejdź do następującej strony sieci Web: Upewnij się `https://login.microsoftonline.com` , że możesz zalogować się na tej stronie.
 
 ## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-certificate"></a>Sprawdź, czy maszyny i składniki zaplecza obsługują certyfikat zaufania serwera proxy aplikacji
 
@@ -67,7 +67,7 @@ Gdy instalacja łącznika nie powiedzie się, główną przyczyną jest zazwycza
 
 **Aby zweryfikować certyfikat klienta:**
 
-Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów można znaleźć w%ProgramData%\microsoft\Microsoft serwerze proxy aplikacji usługi AAD Connector\Config\TrustSettings.xml
+Sprawdź odcisk palca bieżącego certyfikatu klienta. Magazyn certyfikatów można znaleźć w usłudze%ProgramData%\microsoft\Microsoft Application proxy aplikacji usługi AAD Connector\Config\TrustSettings.xml
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -93,8 +93,8 @@ Postępuj zgodnie z instrukcjami, aby zweryfikować certyfikat:
 
 Postępuj zgodnie z instrukcjami, aby zweryfikować certyfikat:
 
-1. Pobierz [program PsTools. zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
-2. Wyodrębnij [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) z pakietu i uruchom **PsExec-i-u "NT AUTHORITY\NETWORK Service" cmd. exe** z wiersza polecenia z podwyższonym poziomem uprawnień.
+1. Pobierz [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
+2. Wyodrębnij [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) z pakietu i uruchom **PsExec-i-u "NT authority\network Service" cmd.exe** z wiersza polecenia z podwyższonym poziomem uprawnień.
 3. Uruchom **certmgr. msc** w nowo wyświetlonym wierszu polecenia
 2. W konsoli zarządzania rozwiń kontener osobisty i kliknij pozycję Certyfikaty.
 3. Lokalizowanie certyfikatu wystawionego przez **connectorregistrationca.msappproxy.NET**
@@ -120,7 +120,7 @@ Aby dowiedzieć się więcej na temat polecenia Register-AppProxyConnector, zoba
 
 **Aby sprawdzić, czy poświadczenia są poprawne:**
 
-Połącz się `https://login.microsoftonline.com` z tymi samymi poświadczeniami i używaj tych samych poświadczeń. Upewnij się, że logowanie zakończyło się pomyślnie. Rolę użytkownika można sprawdzić, przechodząc do **Azure Active Directory**  - &gt; **użytkowników i grup**  - &gt; **Wszyscy użytkownicy**. 
+Połącz się z `https://login.microsoftonline.com` tymi samymi poświadczeniami i używaj tych samych poświadczeń. Upewnij się, że logowanie zakończyło się pomyślnie. Rolę użytkownika można sprawdzić, przechodząc do **Azure Active Directory**  - &gt; **użytkowników i grup**  - &gt; **Wszyscy użytkownicy**. 
 
 Wybierz konto użytkownika, a następnie "rola katalogu" w menu wyników. Sprawdź, czy wybrana rola to "Administrator aplikacji". Jeśli nie możesz uzyskać dostępu do żadnych stron w ramach tych kroków, nie masz wymaganej roli.
 

@@ -4,12 +4,12 @@ description: Omówienie architektury Azure łańcucha bloków Workbench w wersji
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
-ms.openlocfilehash: aa972e8ae486d181f0c48df72ec89c925c940451
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef56d0fdac74bf447fce01e772abed8a2b07c27b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74324895"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253430"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Architektura usługi Azure Blockchain Workbench
 
@@ -43,12 +43,12 @@ Aby uzyskać więcej informacji, zobacz [przykładowe aplikacje klienckie usług
 
 ## <a name="gateway-service-api"></a>Interfejs API usługi bramy
 
-Łańcucha bloków Workbench obejmuje interfejs API usługi bramy opartej na protokole REST. Podczas zapisywania do łańcucha bloków interfejs API generuje i dostarcza komunikaty do brokera zdarzeń. Gdy interfejs API żąda danych, zapytania są wysyłane do bazy danych SQL spoza łańcucha. Baza danych SQL zawiera replikę danych w łańcuchu i metadane, które zawierają informacje o kontekście i konfiguracji dla obsługiwanych kontraktów inteligentnych. Zapytania zwracają wymagane dane z repliki spoza łańcucha w formacie, który został poinformowany o metadanych kontraktu.
+Łańcucha bloków Workbench obejmuje interfejs API usługi bramy opartej na protokole REST. Podczas zapisywania do łańcucha bloków interfejs API generuje i dostarcza komunikaty do brokera zdarzeń. Gdy interfejs API żąda danych, zapytania są wysyłane do bazy danych poza łańcuchem. Baza danych zawiera replikę danych i metadanych w łańcuchu, która zawiera informacje o kontekście i konfiguracji dla obsługiwanych kontraktów inteligentnych. Zapytania zwracają wymagane dane z repliki spoza łańcucha w formacie, który został poinformowany o metadanych kontraktu.
 
 Deweloperzy mogą uzyskać dostęp do interfejsu API usługi bramy w celu kompilowania lub integrowania rozwiązań łańcucha bloków bez polegania na aplikacjach klienckich łańcucha bloków Workbench.
 
 > [!NOTE]
-> Aby włączyć dostęp uwierzytelniony do interfejsu API, dwie aplikacje klienckie są rejestrowane w Azure Active Directory. Azure Active Directory wymaga oddzielnych rejestracji aplikacji poszczególnych typów aplikacji (natywnych i sieci Web). 
+> Aby włączyć dostęp uwierzytelniony do interfejsu API, dwie aplikacje klienckie są rejestrowane w Azure Active Directory. Azure Active Directory wymaga oddzielnych rejestracji aplikacji poszczególnych typów aplikacji (natywnych i sieci Web).
 
 ## <a name="message-broker-for-incoming-messages"></a>Broker komunikatów dla wiadomości przychodzących
 
@@ -70,7 +70,7 @@ Komunikaty technologii Distributed Ledger (DLT) zawierają metadane dla transakc
 
 ### <a name="database-consumer"></a>Użytkownik bazy danych
 
-Odbiorca bazy danych pobiera komunikaty z Service Bus i wypycha dane do dołączonej bazy danych, takiej jak SQL Database.
+Odbiorca bazy danych pobiera komunikaty z Service Bus i wypycha dane do dołączonej bazy danych, takiej jak baza danych w Azure SQL Database.
 
 ### <a name="storage-consumer"></a>Odbiorca magazynu
 
@@ -91,11 +91,11 @@ Routery transakcji i księgi uwzględniają podpisane transakcje i kierują je d
 Obserwator rozproszonej technologii księgi (DLT) monitoruje zdarzenia występujące na łańcuchach blokowych dołączonych do łańcucha bloków Workbench.
 Zdarzenia odzwierciedlają informacje istotne dla użytkowników indywidualnych i systemów. Na przykład tworzenie nowych wystąpień kontraktu, wykonywanie transakcji i zmiana stanu. Zdarzenia są przechwytywane i wysyłane do brokera komunikatów wychodzących, dzięki czemu mogą być używane przez użytkowników podrzędnych.
 
-Na przykład klient SQL monitoruje zdarzenia, wykorzystuje je i wypełnia bazę danych SQL z dołączonymi wartościami. Kopia umożliwia ponowne tworzenie repliki danych w łańcuchu w magazynie spoza łańcucha.
+Na przykład klient SQL monitoruje zdarzenia, wykorzystuje je i wypełnia bazę danych z uwzględnieniem zawartych wartości. Kopia umożliwia ponowne tworzenie repliki danych w łańcuchu w magazynie spoza łańcucha.
 
-## <a name="azure-sql-database"></a>Baza danych Azure SQL Database
+## <a name="azure-sql-database"></a>Azure SQL Database
 
-Usługa Azure SQL Database dołączona do łańcucha bloków Workbench przechowuje definicje kontraktu, metadane konfiguracji i replikę z dostępną przez program SQL do danych przechowywanych w łańcucha bloków. Te dane mogą być łatwo badane, wizualizowane lub analizowane przez bezpośrednie uzyskiwanie dostępu do bazy danych. Deweloperzy i inni użytkownicy mogą korzystać z bazy danych do raportowania, analizy lub innych integracji skoncentrowanych na danych. Na przykład użytkownicy mogą wizualizować dane transakcji przy użyciu Power BI.
+Baza danych dołączona do łańcucha bloków Workbench przechowuje definicje kontraktów, metadane konfiguracji i replikę danych z ułatwieniami dostępu do języka SQL przechowywanych w łańcucha bloków. Te dane mogą być łatwo badane, wizualizowane lub analizowane przez bezpośrednie uzyskiwanie dostępu do bazy danych. Deweloperzy i inni użytkownicy mogą korzystać z bazy danych do raportowania, analizy lub innych integracji skoncentrowanych na danych. Na przykład użytkownicy mogą wizualizować dane transakcji przy użyciu Power BI.
 
 Ten magazyn poza łańcuchem zapewnia organizacjom korporacyjnym możliwość wykonywania zapytań dotyczących danych w języku SQL, a nie w księdze łańcucha bloków. Ponadto dzięki standaryzacji standardowego schematu niezależny od z stosów technologicznych łańcucha bloków, magazyn poza łańcuchem umożliwia ponowne użycie raportów i innych artefaktów między projektami, scenariuszami i organizacjami.
 

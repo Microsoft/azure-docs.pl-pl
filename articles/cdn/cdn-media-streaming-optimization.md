@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 2931dffaaab2d06b2c06f03770a66d78d6466787
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f8dc5ef89c70cebce1d59fc389300b30dc828f6
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260483"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887606"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optymalizacja przesyłania strumieniowego multimediów przy użyciu Azure CDN 
  

@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 52758eab645fa0bb89cb499a5c617df62c21279e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 244cdf5329e26fc7d928998b734a539f086051ad
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429202"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193383"
 ---
 # <a name="what-is-delta-lake"></a>Co to jest różnica w usłudze Data Lake?
 
@@ -22,7 +22,7 @@ Usługa Azure Synapse Analytics jest zgodna z systemem Linux Foundation w system
 
 ## <a name="key-features"></a>Najważniejsze funkcje
 
-| Funkcja | Opis |
+| Cecha | Opis |
 | --- | --- |
 | **Transakcje KWASowe** | Jeziora dotyczące danych są zwykle wypełniane przez wiele procesów i potoków, a niektóre z nich zapisują dane jednocześnie przy użyciu operacji odczytu. Przed zmianą i dodaniem transakcji inżynierowie danych musieli przeprowadzić proces ręcznego błędu, aby zapewnić integralność danych. Zmiany w usłudze Data Lake zapewniają znane transakcje dotyczące KWAŚNych jezior. Zapewnia serializację, najwyższy poziom izolacji. Dowiedz się więcej na temat zmiany w usłudze Data [Lake: rozpakowywanie dziennika transakcji](https://databricks.com/blog/2019/08/21/diving-into-delta-lake-unpacking-the-transaction-log.html).|
 | **Skalowalność obsługi metadanych** | W przypadku danych Big Data nawet metadane mogą być "Big Data". Usługa Delta w usłudze Data Lake traktuje metadane podobnie jak dane, wykorzystując rozproszone możliwości przetwarzania w usłudze Spark do obsługi wszystkich metadanych. W związku z tym, w usłudze Delta Lake można obsłużyć tabele skalowania petabajtów z użyciem miliardów partycji i plików. |

@@ -5,17 +5,17 @@ description: Dowiedz się, jak używać modułu skryptu języka Python do używa
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: tracking-python, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 1d164a5ab3d1ea9c1b07f11ee074670d3e5124c5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 4afb6dca94642ab9b908a4f07ff5de56677626f2
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558904"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696307"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Wykonywanie skryptów w języku Python Machine Learning w Azure Machine Learning Studio (klasyczny)
 
@@ -75,13 +75,13 @@ Rozważmy na przykład plik Hello.py zawierający prostą funkcję "Hello, World
 
 ![Funkcja zdefiniowana przez użytkownika w pliku Hello.py](./media/execute-python-scripts/figure4.png)
 
-Następnie tworzymy plik Hello. zip, który zawiera Hello.py:
+Następnie tworzymy plik Hello.zip, który zawiera Hello.py:
 
 ![Plik zip zawierający kod języka Python zdefiniowany przez użytkownika](./media/execute-python-scripts/figure5.png)
 
-Przekaż plik zip jako zestaw danych do programu Studio (klasyczny). Następnie utwórz i uruchom eksperyment, który używa kodu Python w pliku Hello. zip przez dołączenie go do trzeciego portu wejściowego modułu **skryptu języka Python** , jak pokazano na poniższej ilustracji.
+Przekaż plik zip jako zestaw danych do programu Studio (klasyczny). Następnie utwórz i uruchom eksperyment, który używa kodu Python w pliku Hello.zip przez dołączenie go do trzeciego portu wejściowego modułu **skryptu języka Python** , jak pokazano na poniższej ilustracji.
 
-![Przykładowy eksperyment z Hello. zip jako dane wejściowe do modułu skryptu języka Python](./media/execute-python-scripts/figure6a.png)
+![Przykładowy eksperyment z Hello.zip jako dane wejściowe do modułu skryptu języka Python](./media/execute-python-scripts/figure6a.png)
 
 ![Zdefiniowany przez użytkownika kod języka Python przekazany jako plik zip](./media/execute-python-scripts/figure6b.png)
 

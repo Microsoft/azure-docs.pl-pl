@@ -5,9 +5,7 @@ services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
 manager: femila
-editor: jwargo
 keywords: Powiadomienie wypychane, powiadomienia wypychane, powiadomienia wypychane systemu iOS, powiadomienia wypychane systemu Android, wypychanie systemu iOS, wypychanie systemu Android
-ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -17,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 29ef1ec551169bb84680f343e38949f73724f5ae
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84307388"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255130"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Powiadomienia wypychane za pomocą usługi Azure Notification Hubs: często zadawane pytania
 
@@ -65,11 +63,11 @@ Przejdź do obszaru **[Azure portal]**  >  **nazw Notification Hubs** Azure Port
 
 ### <a name="which-server-side-platforms-do-you-support"></a>Które platformy po stronie serwera są obsługiwane?
 
-Zestawy SDK serwera są dostępne dla platform .NET, Java, Node. js, PHP i Python. Interfejsy API Notification Hubs są oparte na interfejsach REST, dzięki czemu możesz współpracować bezpośrednio z interfejsami API REST, jeśli używasz różnych platform lub nie potrzebujesz dodatkowej zależności. Aby uzyskać więcej informacji, przejdź do strony [Notification Hubs interfejsów API REST] .
+Zestawy SDK serwera są dostępne dla platform .NET, Java, Node.js, PHP i Python. Interfejsy API Notification Hubs są oparte na interfejsach REST, dzięki czemu możesz współpracować bezpośrednio z interfejsami API REST, jeśli używasz różnych platform lub nie potrzebujesz dodatkowej zależności. Aby uzyskać więcej informacji, przejdź do strony [Notification Hubs interfejsów API REST] .
 
 ### <a name="which-client-platforms-do-you-support"></a>Które platformy klienckie są obsługiwane?
 
-Powiadomienia wypychane są obsługiwane [dla systemów iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (za pośrednictwem Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) i Android oraz [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari)). Aby uzyskać więcej informacji, przejdź na stronę [samouczków Wprowadzenie Notification Hubs] .
+Powiadomienia wypychane są obsługiwane [dla systemów iOS](ios-sdk-get-started.md), [Android](notification-hubs-android-push-notification-google-fcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Android China (za pośrednictwem Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin [iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) i [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)oraz [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Aby uzyskać więcej informacji, zapoznaj się ze stroną [samouczków Wprowadzenie Notification Hubs](ios-sdk-get-started.md) .
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Czy są obsługiwane wiadomości tekstowe, wiadomości e-mail lub powiadomienia w sieci Web?
 
@@ -206,7 +204,6 @@ Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej in
 [Cennik Notification Hubs]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Interfejsy API REST Notification Hubs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Samouczki Notification Hubs Wprowadzenie]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Wskazówki dotyczące rejestracji zaplecza]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Wskazówki dotyczące rejestracji zaplecza 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx

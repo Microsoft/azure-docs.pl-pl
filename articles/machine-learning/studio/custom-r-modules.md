@@ -5,17 +5,17 @@ description: Dowiedz się, jak tworzyć i wdrażać niestandardowe moduły R w M
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 5fb628b1730f0811debf0ff8a6cd517b96f8ef53
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 90e654255691686225ddab3c294dcd62877d4622
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208435"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696409"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Definiowanie niestandardowych modułów R dla Azure Machine Learning Studio (klasyczny)
 
@@ -34,10 +34,10 @@ Niestandardowy moduł języka R jest definiowany przy użyciu pliku zip, który 
 Dodatkowe pliki pomocnicze mogą być również dołączone do pliku zip, który zapewnia funkcje, do których można uzyskać dostęp z modułu niestandardowego. Ta opcja jest omówiona w części **argumentów** **elementów Reference w pliku definicji XML** , po podaniu przykładu szybkiego startu.
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>Przykład szybkiego startu: Definiowanie, pakowanie i rejestrowanie niestandardowego modułu języka R
-Ten przykład ilustruje sposób konstruowania plików wymaganych przez niestandardowy moduł języka R, pakowania ich do pliku zip, a następnie rejestrowania modułu w obszarze roboczym Machine Learning. Przykładowy pakiet ZIP i pliki przykładowe można pobrać z [pliku Download CustomAddRows. zip](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+Ten przykład ilustruje sposób konstruowania plików wymaganych przez niestandardowy moduł języka R, pakowania ich do pliku zip, a następnie rejestrowania modułu w obszarze roboczym Machine Learning. Przykładowy pakiet ZIP i pliki przykładowe można pobrać z [pliku pobierania CustomAddRows.zip](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## <a name="the-source-file"></a>Plik źródłowy
-Rozważmy przykład niestandardowego modułu **dodawania wierszy** , który modyfikuje standardową implementację modułu **Dodaj wiersze** służącą do łączenia wierszy (obserwacje) z dwóch zestawów danych (ramek z danymi). Moduł standardowe **Dodawanie wierszy** dołącza wiersze drugiego wejściowego zestawu danych do końca pierwszego wejściowego zestawu danych przy użyciu `rbind` algorytmu. Dostosowana `CustomAddRows` funkcja w podobny sposób akceptuje dwa zestawy danych, ale również akceptuje parametr wymiany wartości logicznych jako dodatkowe dane wejściowe. Jeśli parametr swap ma wartość **false**, zwraca ten sam zestaw danych co standardowa implementacja. Ale jeśli parametr swap ma **wartość true**, funkcja dołącza wiersze pierwszego wejściowego zestawu danych do końca drugiego zestawu danych. Plik CustomAddRows. R, który zawiera implementację funkcji języka R `CustomAddRows` uwidocznioną w module **niestandardowego dodawania wierszy** , ma następujący kod R.
+Rozważmy przykład niestandardowego modułu **dodawania wierszy** , który modyfikuje standardową implementację modułu **Dodaj wiersze** służącą do łączenia wierszy (obserwacje) z dwóch zestawów danych (ramek z danymi). Moduł standardowe **Dodawanie wierszy** dołącza wiersze drugiego wejściowego zestawu danych do końca pierwszego wejściowego zestawu danych przy użyciu `rbind` algorytmu. Dostosowana `CustomAddRows` Funkcja w podobny sposób akceptuje dwa zestawy danych, ale również akceptuje parametr wymiany wartości logicznych jako dodatkowe dane wejściowe. Jeśli parametr swap ma wartość **false**, zwraca ten sam zestaw danych co standardowa implementacja. Ale jeśli parametr swap ma **wartość true**, funkcja dołącza wiersze pierwszego wejściowego zestawu danych do końca drugiego zestawu danych. Plik CustomAddRows. R, który zawiera implementację funkcji języka R `CustomAddRows` uwidocznioną w module **niestandardowego dodawania wierszy** , ma następujący kod R.
 
     CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
     {
@@ -92,7 +92,7 @@ Należy pamiętać, że wartość atrybutów **identyfikatora** elementów **wej
 Natomiast atrybut **ID** dla elementu **Output** nie odpowiada żadnym zmiennym w skrypcie języka R. Gdy jest wymagane więcej niż jedno wyjście, wystarczy zwrócić listę z funkcji R z wynikami umieszczonymi *w tej samej kolejności* , co elementy **wyjściowe** są zadeklarowane w pliku XML.
 
 ### <a name="package-and-register-the-module"></a>Pakowanie i Rejestrowanie modułu
-Zapisz te dwa pliki jako *CustomAddRows. R* i *CustomAddRows. XML* , a następnie zip te dwa pliki w pliku *CustomAddRows. zip* .
+Zapisz te dwa pliki jako *CustomAddRows. R* i *CustomAddRows.xml* , a następnie zapisuj dwa pliki w pliku *CustomAddRows.zip* .
 
 Aby zarejestrować je w obszarze roboczym Machine Learning, przejdź do obszaru roboczego w Azure Machine Learning Studio (klasyczny), kliknij przycisk **+ Nowy** u dołu i wybierz polecenie **moduł-> z pakietu zip** , aby załadować nowe **niestandardowe moduły dodawania wierszy** .
 
@@ -176,7 +176,7 @@ W przypadku niestandardowych modułów R identyfikator dla portu zip nie musi by
 
 W przypadku danych wyjściowych w niestandardowych modułach języka R wartość atrybutu **ID** nie musi odpowiadać żadnemu elementowi w skrypcie języka r, ale musi być unikatowa. W przypadku danych wyjściowych pojedynczego modułu wartość zwracana z funkcji R musi być typu *Data. Frame*. Aby wyprowadzić więcej niż jeden obiekt obsługiwanego typu danych, należy określić odpowiednie porty wyjściowe w pliku definicji XML, a obiekty muszą zostać zwrócone jako lista. Obiekty wyjściowe są przypisywane do portów wyjściowych od lewej do prawej, odzwierciedlając kolejność, w jakiej obiekty są umieszczane na zwracanej liście.
 
-Na przykład jeśli chcesz zmodyfikować **niestandardowy moduł dodawania wierszy** , aby wyprowadził oryginalne dwa zestawy danych, *pozycję DataSet1* i *DataSet2*, a także do nowego dołączonego elementu DataSet, *zestawu danych*(w kolejności od lewej do prawej, jako: *DataSet*, *pozycję DataSet1*, *DataSet2*), a następnie zdefiniuj porty wyjściowe w pliku CustomAddRows. XML w następujący sposób:
+Na przykład, jeśli chcesz zmodyfikować **niestandardowy moduł dodawania wierszy** , aby wyprowadził oryginalne dwa zestawy danych, *pozycję DataSet1* i *DataSet2*, a także do nowego dołączonego elementu DataSet, *zestawu danych*(w kolejności, od lewej do prawej, jako: *DataSet*, *pozycję DataSet1*, *DataSet2*), a następnie zdefiniuj porty wyjściowe w pliku CustomAddRows.xml w następujący sposób:
 
     <Ports> 
         <Output id="dataset" name="Dataset Out" type="DataTable"> 
@@ -281,13 +281,13 @@ Parametr modułu jest definiowany przy użyciu elementu podrzędnego **ARG** w s
   * **allowedTypes** — filtruje typy kolumn, z których można wybierać. Prawidłowe wartości to: 
     
     * Liczbowe
-    * Boolean
+    * Boolean (wartość logiczna)
     * Podzielone na kategorie
-    * String
+    * Ciąg
     * Etykieta
-    * Funkcja
+    * Cecha
     * Wynik
-    * Wszystkie
+    * Wszystko
   * **domyślne** ustawienia domyślne dla selektora kolumn są prawidłowe: 
     
     * Brak
@@ -310,7 +310,7 @@ Parametr modułu jest definiowany przy użyciu elementu podrzędnego **ARG** w s
     * AllLabel
     * AllFeature
     * AllScore
-    * Wszystkie
+    * Wszystko
 
 **Menu rozwijane**: Lista wyliczeniowa określona przez użytkownika (lista rozwijana). Elementy rozwijane są określone w elemencie **Properties** przy użyciu elementu **Item** . **Identyfikator** każdego **elementu** musi być unikatowy i prawidłową zmienną języka R. Wartość **nazwy** **elementu** służy zarówno jako wyświetlany tekst, jak i wartość, która jest przesyłana do funkcji języka R.
 
@@ -356,7 +356,7 @@ Plik pomocniczy RemoveDupNARows. R można uzyskać w funkcji CustomAddRows:
         return (dataset)
     }
 
-Następnie Przekaż plik zip zawierający "CustomAddRows. R", "CustomAddRows. xml" i "RemoveDupNARows. R" jako niestandardowy moduł języka R.
+Następnie Przekaż plik zip zawierający "CustomAddRows. R", "CustomAddRows.xml" i "RemoveDupNARows. R" jako niestandardowy moduł języka R.
 
 ## <a name="execution-environment"></a>Środowisko wykonawcze
 Środowisko wykonawcze dla skryptu języka R używa tej samej wersji języka R jak modułu **wykonywania skryptu języka r** i może korzystać z tych samych pakietów domyślnych. Możesz również dodać dodatkowe pakiety języka R do modułu niestandardowego, dołączając je do niestandardowego pakietu zip modułu. Po prostu załaduj je w skrypcie języka R tak samo jak w środowisku języka R. 

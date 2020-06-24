@@ -1,22 +1,22 @@
 ---
 title: Integrowanie aplikacji lokalnych z usługą Cloud App Security — Azure AD
 description: Skonfiguruj aplikację lokalną w Azure Active Directory do pracy z usługą Microsoft Cloud App Security (MCAS). Użyj Kontrola dostępu warunkowego aplikacji MCAS do monitorowania i kontrolowania sesji w czasie rzeczywistym na podstawie zasad dostępu warunkowego. Te zasady można stosować do aplikacji lokalnych, które używają serwera proxy aplikacji w Azure Active Directory (Azure AD).
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb97f9dd87277215a5d4708d3a6f49564c490204
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 889168782acabaafa4200a8ebd097e431a68ede3
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275494"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764574"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Konfigurowanie monitorowania dostępu do aplikacji w czasie rzeczywistym przy użyciu Microsoft Cloud App Security i Azure Active Directory
 Skonfiguruj aplikację lokalną w Azure Active Directory (Azure AD), aby używać Microsoft Cloud App Security (MCAS) do monitorowania w czasie rzeczywistym. MCAS używa Kontrola dostępu warunkowego aplikacji do monitorowania i kontrolowania sesji w czasie rzeczywistym na podstawie zasad dostępu warunkowego. Te zasady można stosować do aplikacji lokalnych, które używają serwera proxy aplikacji w Azure Active Directory (Azure AD).

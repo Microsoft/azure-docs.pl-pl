@@ -6,19 +6,19 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/16/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59983678c1b14d6aa87a7b500605e3abeb6a9b85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00fdd94e8a8cd4b8769260cd595dfee5ff898039
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81533546"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732622"
 ---
 # <a name="bulk-download-a-list-of-groups-in-azure-active-directory"></a>Pobierz zbiorczo listę grup w Azure Active Directory
 
@@ -27,7 +27,7 @@ Korzystając z portalu usługi Azure Active Directory (Azure AD), można zbiorcz
 ## <a name="to-download-a-list-of-groups"></a>Aby pobrać listę grup
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta administratora w organizacji.
-1. W usłudze Azure AD wybierz pozycję **grupy** > **Pobierz grupy**.
+1. W usłudze Azure AD wybierz pozycję **grupy**  >  **Pobierz grupy**.
 1. Na stronie **pobieranie grup** wybierz pozycję **Rozpocznij** , aby otrzymać plik CSV z listą Twoich grup.
 
    ![Polecenie Pobierz grupy znajduje się na stronie wszystkie grupy](./media/groups-bulk-download/bulk-download.png)

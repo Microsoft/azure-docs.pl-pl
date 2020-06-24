@@ -8,17 +8,17 @@ manager: mtillman
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: e6eda3b522a5b46cd82ef29ae493891a624d3272
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459291"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764013"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Tworzenie i udostępnianie pulpitów nawigacyjnych w witrynie Azure Portal
 
@@ -58,7 +58,7 @@ Teraz Zmodyfikujmy pulpit nawigacyjny, aby dodawać, zmieniać rozmiar i rozmies
 
 Aby dodać kafelki do pulpitu nawigacyjnego, wykonaj następujące kroki:
 
-1. Wybierz ![pozycję Edytuj](./media/azure-portal-dashboards/dashboard-edit-icon.png) ikonę **Edytuj** w nagłówku strony.
+1. Wybierz pozycję ![ Edytuj ikonę ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edytuj** w nagłówku strony.
 
     ![Zrzut ekranu przedstawiający edytowanie na pulpicie nawigacyjnym](./media/azure-portal-dashboards/dashboard-edit.png)
 
@@ -79,7 +79,7 @@ Istnieje alternatywny sposób dodawania kafelków do pulpitu nawigacyjnego. Wiel
 
 Aby zmienić rozmiar kafelka lub ponownie rozmieścić kafelki na pulpicie nawigacyjnym, wykonaj następujące kroki:
 
-1. Wybierz ![pozycję Edytuj](./media/azure-portal-dashboards/dashboard-edit-icon.png) ikonę **Edytuj** w nagłówku strony.
+1. Wybierz pozycję ![ Edytuj ikonę ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edytuj** w nagłówku strony.
 
 1. Wybierz menu kontekstowe w prawym górnym rogu kafelka. Następnie wybierz rozmiar kafelka. Kafelki obsługujące dowolny rozmiar obejmują również "uchwyt" w prawym dolnym rogu, które umożliwiają przeciągnięcie kafelka do żądanego rozmiaru.
 
@@ -106,7 +106,7 @@ Wszystkie kafelki, które muszą zostać skonfigurowane, są wyświetlane na tra
 
 Dane na pulpicie nawigacyjnym automatycznie pokazują aktywność dla ostatnich 24 godzin. Aby wyświetlić inny przedział czasu dla tylko tego kafelka, wykonaj następujące kroki:
 
-1. Wybierz pozycję **Dostosuj dane kafelków** z menu kontekstowego ![lub filtr](./media/azure-portal-dashboards/dashboard-filter.png) ikony filtru w lewym górnym rogu kafelka.
+1. Wybierz pozycję **Dostosuj dane kafelków** z menu kontekstowego lub ![ Filtr ikony filtru ](./media/azure-portal-dashboards/dashboard-filter.png) w lewym górnym rogu kafelka.
 
     ![Zrzut ekranu przedstawiający menu kontekstowe kafelka](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
@@ -126,7 +126,7 @@ Aby usunąć kafelek z pulpitu nawigacyjnego, wykonaj następujące kroki:
 
 * Wybierz menu kontekstowe w prawym górnym rogu kafelka, a następnie wybierz pozycję **Usuń z pulpitu nawigacyjnego**. Lub:
 
-* Wybierz ![pozycję Edytuj](./media/azure-portal-dashboards/dashboard-edit-icon.png) ikonę **Edytuj** , aby wprowadzić tryb dostosowywania. Umieść kursor w prawym górnym rogu kafelka, a następnie wybierz ![ikonę Usuń](./media/azure-portal-dashboards/dashboard-delete-icon.png) ikona Usuń, aby usunąć kafelek z pulpitu nawigacyjnego.
+* Wybierz pozycję ![ Edytuj ikonę ](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edytuj** , aby wprowadzić tryb dostosowywania. Umieść kursor w prawym górnym rogu kafelka, a następnie wybierz ![ ikonę Usuń ikona ](./media/azure-portal-dashboards/dashboard-delete-icon.png) Usuń, aby usunąć kafelek z pulpitu nawigacyjnego.
 
    ![Zrzut ekranu przedstawiający sposób usuwania kafelka z pulpitu nawigacyjnego](./media/azure-portal-dashboards/dashboard-delete-tile.png)
 
@@ -136,7 +136,7 @@ Aby użyć istniejącego pulpitu nawigacyjnego jako szablonu dla nowego pulpitu 
 
 1. Upewnij się, że widok pulpitu nawigacyjnego pokazuje pulpit nawigacyjny, który chcesz skopiować.
 
-1. W nagłówku strony ![](./media/azure-portal-dashboards/dashboard-clone.png) **Wybierz klonowanie ikony**klonowania.
+1. W nagłówku strony wybierz klonowanie ikony klonowania ![ ](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**.
 
 1. Kopia pulpitu nawigacyjnego o nazwie **klon** *nazwy pulpitu nawigacyjnego* otwiera się w trybie edycji. Aby zmienić nazwę i dostosować pulpit nawigacyjny, należy wykonać kroki opisane w tym artykule.
 
@@ -164,13 +164,13 @@ Aby znaleźć i otworzyć udostępniony pulpit nawigacyjny, wykonaj następując
 
     1. Wybierz pulpit nawigacyjny z listy udostępnionych pulpitów nawigacyjnych.
 
-## <a name="delete-a-dashboard"></a>Usunięcie pulpitu nawigacyjnego
+## <a name="delete-a-dashboard"></a>Usuwanie pulpitu nawigacyjnego
 
 Aby trwale usunąć prywatny lub udostępniony pulpit nawigacyjny, wykonaj następujące kroki:
 
 1. Wybierz pulpit nawigacyjny, który chcesz usunąć z listy obok nazwy pulpitu nawigacyjnego.
 
-1. Wybierz ![pozycję Usuń](./media/azure-portal-dashboards/dashboard-delete-icon.png) ikonę **Usuń** z nagłówka strony.
+1. Wybierz pozycję ![ Usuń ikonę ](./media/azure-portal-dashboards/dashboard-delete-icon.png) **Usuń** z nagłówka strony.
 
 1. W przypadku prywatnego pulpitu nawigacyjnego wybierz pozycję **OK** w oknie dialogowym potwierdzenia, aby usunąć pulpit nawigacyjny. W przypadku udostępnionego pulpitu nawigacyjnego w oknie dialogowym potwierdzenia zaznacz pole wyboru, aby potwierdzić, że opublikowany pulpit nawigacyjny nie będzie już widoczny dla innych użytkowników. Następnie wybierz przycisk **OK**.
 

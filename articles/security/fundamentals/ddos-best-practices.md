@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: terrylan
-ms.openlocfilehash: 8be1f1161ac1c4611ddb2a5ec61592394014c488
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87f1fcfa08ef2b7d2e4f72588eff8576c5ace146
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548684"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254297"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection — projektowanie odpornych rozwiązań
 
@@ -30,6 +30,7 @@ Oprócz podstawowej ochrony DDoS na platformie, [Azure DDoS Protection Standard]
 
 ![Rola Azure DDoS Protection w ochronie klientów i sieci wirtualnej od osoby atakującej](./media/ddos-best-practices/image1.png)
 
+Aby uzyskać zalecenia dotyczące zabezpieczeń dotyczące tej technologii, zobacz [podstawy zabezpieczeń platformy Azure dla DDoS Protection](ddos-protection-security-baseline.md).
 
 ## <a name="fundamental-best-practices"></a>Podstawowe najlepsze rozwiązania
 
@@ -97,7 +98,7 @@ DDoS Protection Standard uwidacznia rozbudowane dane telemetryczne za pośrednic
 
 ##### <a name="ddos-mitigation-policies"></a>Zasady ograniczania DDoS
 
-W Azure Portal wybierz pozycję **Monitoruj** > **metryki**. W okienku **metryk** wybierz grupę zasobów, wybierz typ zasobu **publiczny adres IP**, a następnie wybierz publiczny adres IP platformy Azure. Metryki DDoS są widoczne w okienku **Dostępne metryki** .
+W Azure Portal wybierz pozycję **Monitoruj**  >  **metryki**. W okienku **metryk** wybierz grupę zasobów, wybierz typ zasobu **publiczny adres IP**, a następnie wybierz publiczny adres IP platformy Azure. Metryki DDoS są widoczne w okienku **Dostępne metryki** .
 
 DDoS Protection standard stosuje trzy zasady ograniczania ryzyka (TCP SYN, TCP i UDP) dla każdego publicznego adresu IP chronionego zasobu w sieci wirtualnej z włączoną funkcją DDoS. Progi zasad można wyświetlić, wybierając pakiety przychodzące metryczne, **Aby wyzwolić DDoS ograniczenia**.
 
@@ -235,7 +236,7 @@ W tej architekturze w sieci wirtualnej jest włączony DDoS Protection Standard.
 
 #### <a name="paas-web-application"></a>Aplikacja internetowa PaaS
 
-Ta architektura referencyjna pokazuje, jak działa aplikacja Azure App Service w jednym regionie. Ta architektura pokazuje zestaw sprawdzonych rozwiązań dla aplikacji sieci Web, które używają [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) i [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
+Ta architektura referencyjna pokazuje, jak działa aplikacja Azure App Service w jednym regionie. Ta architektura pokazuje zestaw sprawdzonych rozwiązań dla aplikacji sieci Web, które używają [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/)   i [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
 W przypadku scenariuszy trybu failover jest ustawiany region w stanie wstrzymania.
 
 ![Diagram architektury referencyjnej dla aplikacji sieci Web PaaS](./media/ddos-best-practices/image11.png)
@@ -268,8 +269,7 @@ Więcej informacji na temat tej architektury referencyjnej można znaleźć w do
 
 ## <a name="next-steps"></a>Następne kroki
 
+* [Podstawa zabezpieczeń platformy Azure dla DDoS Protection](ddos-protection-security-baseline.md)
 * [Wspólna odpowiedzialność w chmurze](shared-responsibility.md)
-
 * [Strona produktu Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/)
-
 * [Dokumentacja Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview)

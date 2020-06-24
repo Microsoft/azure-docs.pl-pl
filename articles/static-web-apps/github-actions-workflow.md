@@ -2,17 +2,17 @@
 title: Przepływy pracy akcji GitHub dla Web Apps statycznej platformy Azure
 description: Dowiedz się, jak za pomocą repozytoriów usługi GitHub skonfigurować ciągłe wdrażanie w usłudze Azure static Web Apps.
 services: static-web-apps
-author: christiannwamba
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.author: chnwamba
-ms.openlocfilehash: e2cc1e20c20c17742f2bea56f4e87e8678e4cc03
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.author: cshoe
+ms.openlocfilehash: 4d69bb69081643e0223c23a9029aabb35c8d22ef
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434014"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254722"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Przepływy pracy akcji GitHub dla usługi Azure static Web Apps Preview
 
@@ -155,13 +155,13 @@ Wdrożenie zawsze wywołuje `npm install` przed dowolnym poleceniem niestandardo
 
 ## <a name="route-file-location"></a>Lokalizacja pliku tras
 
-Możesz dostosować przepływ pracy w celu wyszukania pliku [Routes. JSON](routes.md) w dowolnym folderze w repozytorium. Poniższe właściwości można zdefiniować w `with` sekcji zadania.
+Możesz dostosować przepływ pracy, aby wyszukać [routes.js](routes.md) w dowolnym folderze w repozytorium. Poniższe właściwości można zdefiniować w `with` sekcji zadania.
 
 | Właściwość            | Opis |
 |---------------------|-------------|
-| `routes_location` | Określa lokalizację katalogu, w którym znajduje się plik _Routes. JSON_ . Ta lokalizacja jest określana względem katalogu głównego repozytorium. |
+| `routes_location` | Określa lokalizację katalogu, w którym znajduje się _routes.js_ pliku. Ta lokalizacja jest określana względem katalogu głównego repozytorium. |
 
- Jawne informacje o lokalizacji pliku _Routes. JSON_ są szczególnie ważne, jeśli krok kompilacji platformy frontonu nie przenosi tego pliku do `app_artifact_location` domyślnego.
+ Jawne informacje o lokalizacji _routes.jsw_ pliku są szczególnie ważne, jeśli krok kompilacji platformy frontonu nie przenosi tego pliku do `app_artifact_location` domyślnego.
 
 ## <a name="next-steps"></a>Następne kroki
 

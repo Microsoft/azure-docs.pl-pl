@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fc5316e2d6509f3e4db9a6cba150efc42c8bc548
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266376"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201162"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie ładowania danych dla puli SQL Synapse
 
@@ -96,7 +96,7 @@ Podczas ładowania plików Parquet Użyj następującego mapowania typu danych S
 |                            INT64                             |                                       |      bigint      |
 |                            INT96                             |                                       |    datetime2     |
 |                     FIXED_LEN_BYTE_ARRAY                     |                                       |      binarny      |
-|                            BINARNY                            |                 KODOWANIA                  |     nvarchar     |
+|                            BINARNY                            |                 UTF8                  |     nvarchar     |
 |                            BINARNY                            |                PARAMETRY                 |     nvarchar     |
 |                            BINARNY                            |                 PODSTAWOWE                  |     nvarchar     |
 |                            BINARNY                            |                 INTERFEJSU                  | uniqueidentifier |
@@ -111,7 +111,7 @@ Podczas ładowania plików Parquet Użyj następującego mapowania typu danych S
 |                            ELEMENTEM                             |            INT (8, FAŁSZ)            |     tinyint      |
 |                            ELEMENTEM                             |            INT (16, FAŁSZ)             |       int        |
 |                            ELEMENTEM                             |           INT (32, false)            |      bigint      |
-|                            ELEMENTEM                             |                 DATE                  |       data       |
+|                            ELEMENTEM                             |                 DATE                  |       date       |
 |                            ELEMENTEM                             |                DOKŁADNOŚCI                |     decimal      |
 |                            ELEMENTEM                             |            CZAS (MŁYNER)             |       time       |
 |                            INT64                             |            INT (64, true)            |      bigint      |

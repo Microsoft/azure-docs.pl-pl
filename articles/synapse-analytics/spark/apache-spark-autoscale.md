@@ -7,13 +7,14 @@ ms.reviewer: euang
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
+ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 6a627dfed3886a99a458a67d793c3ebbbdd0fb19
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 86e9b7425c8c75495a17b66af710d2c55e6e59ca
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644867"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194284"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Automatyczne skalowanie pul Apache Spark usługi Azure Synapse Analytics
 

@@ -8,11 +8,11 @@ ms.author: bwren
 ms.date: 08/19/2019
 ms.custom: mvc, sec-javascript-october2019
 ms.openlocfilehash: 2e63b2ca0ee7246009068e6a2875795a14aeddb3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240338"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695372"
 ---
 # <a name="collect-data-from-an-azure-virtual-machine-with-azure-monitor"></a>Zbieranie danych z maszyny wirtualnej platformy Azure za pomocą Azure Monitor
 
@@ -77,7 +77,7 @@ Azure Monitor może zbierać zdarzenia z dzienników zdarzeń systemu Windows lu
 
 2. Wybierz pozycję **Dane**, a następnie pozycję **Dzienniki zdarzeń systemu Windows**.
 
-3. Dziennik zdarzeń dodaje się przez wpisanie nazwy dziennika.  Wpisz **system** , a następnie wybierz znak plus **+**.
+3. Dziennik zdarzeń dodaje się przez wpisanie nazwy dziennika.  Wpisz **system** , a następnie wybierz znak plus **+** .
 
 4. W tabeli zaznacz ważności **Błąd** i **Ostrzeżenie**.
 
@@ -97,7 +97,7 @@ Azure Monitor może zbierać zdarzenia z dzienników zdarzeń systemu Windows lu
 
 1. Wybierz dziennik **Syslog**.  
 
-2. Dziennik zdarzeń dodaje się przez wpisanie nazwy dziennika.  Wpisz **Dziennik** systemowy, a następnie wybierz **+** znak plus.  
+2. Dziennik zdarzeń dodaje się przez wpisanie nazwy dziennika.  Wpisz **Dziennik** systemowy, a następnie wybierz znak plus **+** .  
 
 3. W tabeli Usuń zaznaczenie **informacji o informacjach**dotyczących serwerów, **powiadomienia** i **debugowania**. 
 
@@ -127,7 +127,7 @@ Teraz, po włączeniu zbierania danych, uruchomimy proste przykładowe wyszukiwa
 
     ![Wynik przeszukiwania dzienników w usłudze Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Obszar roboczy usługi Log Analytics można usunąć, gdy nie jest już potrzebny. W tym celu wybierz utworzony wcześniej obszar roboczy Log Analytics i na stronie zasób wybierz pozycję **Usuń**.
 

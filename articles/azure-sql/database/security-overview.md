@@ -12,19 +12,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 6204600cde1b9776e5edbbe129d550065cebf331
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 78af56e0b6f9e8e195ab77fdc57da336dd170c25
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322111"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255062"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Omówienie funkcji zabezpieczeń wystąpienia zarządzanego w Azure SQL Database i SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W tym artykule przedstawiono podstawowe informacje dotyczące zabezpieczania warstwy danych aplikacji przy użyciu [Azure SQL Database](sql-database-paas-overview.md) i [wystąpienia zarządzanego Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md). Opisana poniżej strategia zabezpieczeń ma zastosowanie do opartego na warstwach podejścia do kompleksowej ochrony, jak pokazano na ilustracji poniżej, i przemieszcza się z zewnątrz w:
 
-![SQL-Security-Layer. png](./media/security-overview/sql-security-layer.png)
+![sql-security-layer.png](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
@@ -48,13 +48,13 @@ Reguły zapory adresów IP umożliwiają dostęp do baz danych na podstawie źr�
 > [!IMPORTANT]
 > Zarządzanie bazami danych i serwerami na platformie Azure jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji na temat tego artykułu, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../../role-based-access-control/overview.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Uwierzytelnianie to proces potwierdzania tożsamości użytkownika. Azure SQL Database i wystąpienie zarządzane SQL obsługują dwa typy uwierzytelniania:
 
 - **Uwierzytelnianie SQL**:
 
-    Uwierzytelnianie w usłudze SQL Database dotyczy uwierzytelniania użytkownika podczas nawiązywania połączenia z usługą Azure SQL Database lub wystąpieniem zarządzanym Azure SQL przy użyciu nazwy użytkownika i hasła. Podczas tworzenia serwera należy określić identyfikator logowania **administratora serwera** z nazwą użytkownika i hasłem. Korzystając z tych poświadczeń, **administrator serwera** może uwierzytelniać się w dowolnej bazie danych na tym serwerze lub wystąpieniu jako właściciel bazy danych. Następnie administrator serwera może utworzyć dodatkowe identyfikatory logowania i użytkowników SQL, które umożliwią użytkownikom łączenie się przy użyciu nazwy użytkownika i hasła.
+    Uwierzytelnianie SQL odnosi się do uwierzytelniania użytkownika podczas nawiązywania połączenia z usługą Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL przy użyciu nazwy użytkownika i hasła. Podczas tworzenia serwera należy określić identyfikator logowania **administratora serwera** z nazwą użytkownika i hasłem. Korzystając z tych poświadczeń, **administrator serwera** może uwierzytelniać się w dowolnej bazie danych na tym serwerze lub wystąpieniu jako właściciel bazy danych. Następnie administrator serwera może utworzyć dodatkowe identyfikatory logowania i użytkowników SQL, które umożliwią użytkownikom łączenie się przy użyciu nazwy użytkownika i hasła.
 
 - **Uwierzytelnianie Azure Active Directory**:
 
@@ -77,7 +77,7 @@ Najlepszym rozwiązaniem jest utworzenie ról niestandardowych w razie konieczno
 
 Zabezpieczenia na poziomie wiersza umożliwiają klientom kontrolowanie dostępu do wierszy w tabeli bazy danych na podstawie właściwości użytkownika wykonującego zapytanie (na przykład przynależności do grupy lub kontekstu wykonania). Zabezpieczenia na poziomie wiersza mogą również służyć do implementowania niestandardowych koncepcji zabezpieczeń opartych na etykietach. Aby uzyskać więcej informacji, zobacz [zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security).
 
-![Azure-Database-RLS. png](./media/security-overview/azure-database-rls.png)
+![azure-database-rls.png](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Ochrona przed zagrożeniami
 
@@ -91,7 +91,7 @@ SQL Database i inspekcja wystąpienia zarządzanego SQL śledzi działania bazy 
 
 Zaawansowana ochrona przed zagrożeniami analizuje dzienniki, aby wykrywać nietypowe zachowanie i potencjalnie szkodliwe próby dostępu do baz danych lub korzystania z nich. Alerty są tworzone dla podejrzanych działań, takich jak iniekcja kodu SQL, potencjalne filtrowanie danych i ataki typu "wymuszanie" i "anomalie" w wzorcach dostępu do przechwytywania eskalacji uprawnień i użycia poświadczeń naruszeń. Alerty są wyświetlane w [Azure Security Center](https://azure.microsoft.com/services/security-center/), w którym znajdują się szczegółowe informacje o podejrzanych działaniach, a także zalecenia dotyczące dalszych badań oraz działań związanych z ograniczeniami zagrożenia. Zaawansowaną ochronę przed zagrożeniami można włączyć dla każdego serwera w celu uzyskania dodatkowej opłaty. Aby uzyskać więcej informacji, zobacz [wprowadzenie do SQL Database zaawansowanej ochrony przed zagrożeniami](threat-detection-configure.md).
 
-![Azure-Database-TD. jpg](./media/security-overview/azure-database-td.jpg)
+![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>Ochrona informacji i szyfrowanie
 
@@ -122,13 +122,13 @@ Na platformie Azure wszystkie nowo utworzone bazy danych są szyfrowane domyśln
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted (szyfrowanie w użyciu)
 
-![Azure-Database-AE. png](./media/security-overview/azure-database-ae.png)
+![azure-database-ae.png](./media/security-overview/azure-database-ae.png)
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) to funkcja przeznaczona do ochrony poufnych danych przechowywanych w określonych kolumnach bazy danych w celu uzyskania dostępu (na przykład numerów kart kredytowych, krajowych numerów identyfikacyjnych lub danych, _które muszą być znane_ ). Dotyczy to administratorów bazy danych lub innych użytkowników uprzywilejowanych, którzy mają uprawnienia dostępu do bazy danych w celu wykonywania zadań związanych z zarządzaniem, ale nie muszą uzyskiwać dostępu do określonych danych w zaszyfrowanych kolumnach. Dane są zawsze szyfrowane, co oznacza, że zaszyfrowane dane są odszyfrowywane tylko do przetwarzania przez aplikacje klienckie z dostępem do klucza szyfrowania. Klucz szyfrowania nigdy nie jest ujawniany do SQL Database lub wystąpienia zarządzanego SQL i może być przechowywany w [magazynie certyfikatów systemu Windows](always-encrypted-certificate-store-configure.md) lub w [Azure Key Vault](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Dynamiczne maskowanie danych
 
-![Azure-Database-DDM. png](./media/security-overview/azure-database-ddm.png)
+![azure-database-ddm.png](./media/security-overview/azure-database-ddm.png)
 
 Dynamiczne maskowanie danych ogranicza narażenie na dane poufne przez zamaskowanie ich dla użytkowników bez uprawnień. Dynamiczne maskowanie danych automatycznie odnajduje potencjalnie wrażliwe dane w Azure SQL Database i wystąpieniu zarządzanym SQL, a także udostępnia zalecenia umożliwiające podjęcie odpowiednich działań w celu zamaskowania tych pól przy minimalnym wpływie na warstwę aplikacji. Jego działanie polega na zaciemnianiu poufnych danych w wyznaczonych polach bazy danych w zestawie wyników zapytania, przy czym dane w bazie danych pozostają bez zmian. Aby uzyskać więcej informacji, zobacz [wprowadzenie do SQL Database i dynamiczne maskowanie danych wystąpienia zarządzanego SQL](dynamic-data-masking-overview.md).
 

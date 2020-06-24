@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfcb00f56a3cc6f71729fbeaf317ce9447e120ed
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 2180451a1d0c377af1e6c3e7377e64d9cb62ef8c
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582609"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732059"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Przypisywanie ról niestandardowych z zakresem zasobów przy użyciu programu PowerShell w programie Azure Active Directory
 
@@ -52,7 +52,7 @@ Teraz możesz zacząć korzystać z poleceń cmdlet w module. Aby zapoznać się
 ## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Przypisywanie roli do użytkownika lub nazwy głównej usługi z zakresem zasobów
 
 1. Otwórz moduł programu PowerShell usługi Azure AD w wersji zapoznawczej.
-1. Zaloguj się, wykonując polecenie `Connect-AzureAD`.
+1. Zaloguj się, wykonując polecenie `Connect-AzureAD` .
 1. Utwórz nową rolę przy użyciu poniższego skryptu programu PowerShell.
 
 ``` PowerShell

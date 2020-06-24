@@ -2,22 +2,22 @@
 title: Konfigurowanie przepływu pracy zgody administratora — Azure Active Directory | Microsoft Docs
 description: Dowiedz się, jak skonfigurować sposób, w jaki użytkownicy końcowi zażądają dostępu do aplikacji, które wymagają zgody administratora.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430201"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763622"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Konfigurowanie przepływu pracy zgody administratora (wersja zapoznawcza)
 
@@ -155,7 +155,7 @@ Aby uzyskać więcej informacji na temat wyrażania zgody na aplikacje, zobacz [
 
 [Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje](configure-user-consent.md)
 
-[Przyznaj administratorowi zgodę na dostęp do aplikacji](grant-admin-consent.md)
+[Udzielanie zgody administratora całej dzierżawy dla aplikacji](grant-admin-consent.md)
 
 [Uprawnienia i zgoda na platformie tożsamości firmy Microsoft](../develop/active-directory-v2-scopes.md)
 

@@ -4,15 +4,16 @@ description: Artykuł objaśniający tożsamość zarządzaną w obszarze robocz
 author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
+ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ee0e6249acf3fbbab369d42ae691a5a826df1ee8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ffffe0889831cff239cafdc4d18d44f7bdaf4c45
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81425119"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194386"
 ---
 # <a name="azure-synapse-workspace-managed-identity-preview"></a>Tożsamość zarządzana obszaru roboczego usługi Azure Synapse (wersja zapoznawcza)
 

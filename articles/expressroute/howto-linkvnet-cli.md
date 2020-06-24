@@ -4,15 +4,15 @@ description: W tym artykule pokazano, jak połączyć sieci wirtualne (sieci wir
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: fdd809bcba703dbd8f9ee1e7c18185fd20e4586f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 133a586612f8a5b864c84400ece63d9ba6ccb150
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476138"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84729246"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Łączenie sieci wirtualnej z obwodem usługi ExpressRoute przy użyciu interfejsu wiersza polecenia
 
@@ -20,7 +20,7 @@ W tym artykule opisano łączenie sieci wirtualnych (sieci wirtualnych) z obwody
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [Narzędzia](expressroute-howto-linkvnet-arm.md)
+> * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-linkvnet-classic.md)
@@ -36,7 +36,7 @@ W tym artykule opisano łączenie sieci wirtualnych (sieci wirtualnych) z obwody
   * Postępuj zgodnie z instrukcjami, aby [utworzyć obwód usługi ExpressRoute](howto-circuit-cli.md) i mieć obwód włączony przez dostawcę połączenia. 
   * Upewnij się, że masz skonfigurowaną prywatną komunikację równorzędną Azure dla obwodu. Instrukcje dotyczące routingu można znaleźć w artykule [Konfigurowanie routingu](howto-routing-cli.md) . 
   * Upewnij się, że skonfigurowano prywatną komunikację równorzędną Azure. Komunikacja równorzędna BGP między siecią i firmą Microsoft musi być w stanie, aby można było włączyć kompleksową łączność.
-  * Upewnij się, że masz utworzoną sieć wirtualną i bramę sieci wirtualnej i została ona w pełni zainicjowana. Postępuj zgodnie z instrukcjami, aby [skonfigurować bramę sieci wirtualnej dla usługi ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Upewnij się, że `--gateway-type ExpressRoute`używasz.
+  * Upewnij się, że masz utworzoną sieć wirtualną i bramę sieci wirtualnej i została ona w pełni zainicjowana. Postępuj zgodnie z instrukcjami, aby [skonfigurować bramę sieci wirtualnej dla usługi ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Upewnij się, że używasz `--gateway-type ExpressRoute` .
 
 * Do obwodu standardowego ExpressRoute można połączyć maksymalnie 10 sieci wirtualnych. Wszystkie sieci wirtualne muszą znajdować się w tym samym regionie geopolitycznym w przypadku korzystania ze standardowego obwodu usługi ExpressRoute. 
 

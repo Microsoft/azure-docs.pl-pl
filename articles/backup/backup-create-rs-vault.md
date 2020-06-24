@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak utworzyć magazyny Recovery Servic
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: f1f1a66bd6e0fbd28be59b0211a1ac17f030022e
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 410ef023898cc57847b8e2f7a5153d50731e2d4c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298622"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764404"
 ---
 # <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
@@ -92,6 +92,7 @@ W przypadku tego procesu istnieją wpływ na ceny, w jakim znajduje się na pozi
 >- CRR to funkcja wyboru poziomu magazynu dla dowolnego magazynu GRS (domyślnie wyłączona).
 >- Po przypisaniu elementów kopii zapasowych w regionach pomocniczych może upłynąć do 48 godzin.
 >- Obecnie CRR jest obsługiwana tylko dla typu zarządzania kopiami zapasowymi — ARM Azure VM (klasyczna maszyna wirtualna platformy Azure nie będzie obsługiwana).  Gdy dodatkowe typy zarządzania obsługują CRR, zostaną one **automatycznie** zarejestrowane.
+>- Nie można obecnie przywrócić operacji przywracania między regionami do GRS lub LRS po zainicjowaniu ochrony po raz pierwszy. 
 
 ### <a name="configure-cross-region-restore"></a>Konfigurowanie przywracania między regionami
 

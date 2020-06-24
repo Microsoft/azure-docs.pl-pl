@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2020
+ms.date: 06/23/2020
 ms.author: shvija
-ms.openlocfilehash: 12ddc5fa74b7a1b42bbd64fde9ec3410b1c1e425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 588f01e84405cfa82afd84971dbcf06a958bf89d
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606732"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299368"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Apache Kafka Przewodnik rozwiązywania problemów dla Event Hubs
 W tym artykule przedstawiono wskazówki dotyczące rozwiązywania problemów, które mogą wystąpić podczas korzystania z Event Hubs dla Apache Kafka. 
 
 ## <a name="server-busy-exception"></a>Wyjątek zajętości serwera
-Może wystąpić wyjątek zajętości serwera z powodu ograniczenia Kafka. W przypadku Event Hubs klientów AMQP funkcja natychmiast zwraca wyjątek " **zajęty serwer** " podczas ograniczania usługi. Jest to równoważne komunikat "Spróbuj ponownie później". W Kafka, komunikaty są opóźnione przed ukończeniem. Długość opóźnienia jest zwracana w milisekundach, `throttle_time_ms` jak w odpowiedzi generowania/pobierania. W większości przypadków te opóźnione żądania nie są rejestrowane jako wyjątki ServerBusy na pulpitach nawigacyjnych Event Hubs. Zamiast tego należy użyć `throttle_time_ms` wartości odpowiedzi jako wskaźnika, że przepływność przekroczyła przydział przyznanego przydziału.
+Może wystąpić wyjątek zajętości serwera z powodu ograniczenia Kafka. W przypadku Event Hubs klientów AMQP funkcja natychmiast zwraca wyjątek " **zajęty serwer** " podczas ograniczania usługi. Jest to równoważne komunikat "Spróbuj ponownie później". W Kafka, komunikaty są opóźnione przed ukończeniem. Długość opóźnienia jest zwracana w milisekundach, jak `throttle_time_ms` w odpowiedzi generowania/pobierania. W większości przypadków te opóźnione żądania nie są rejestrowane jako wyjątki ServerBusy na pulpitach nawigacyjnych Event Hubs. Zamiast tego `throttle_time_ms` należy użyć wartości odpowiedzi jako wskaźnika, że przepływność przekroczyła przydział przyznanego przydziału.
 
 Jeśli ruch jest zbyt długi, usługa ma następujące zachowanie:
 
@@ -35,11 +35,11 @@ Jeśli ruch jest zbyt długi, usługa ma następujące zachowanie:
 ## <a name="no-records-received"></a>Nie odebrano żadnych rekordów
 Klienci mogą widzieć, że nie otrzymają żadnych rekordów i ciągle ponownego zrównoważenia. W tym scenariuszu klienci nie pobierają żadnych rekordów i ciągle ponownie zrównoważą. Nie ma wyjątku lub błędu, gdy wystąpi taka sytuacja, ale dzienniki Kafka pokazują, że odbiorcy będą mogli ponownie przyłączyć się do grupy i przypisywać partycje. Istnieje kilka możliwych przyczyn:
 
-- Upewnij się, że `request.timeout.ms` masz co najmniej zalecaną wartość 60000, a wartość `session.timeout.ms` jest równa co najmniej zalecanej wartości 30000. Zbyt niska wartość tych ustawień może spowodować przekroczenie limitu czasu przez klienta, co spowoduje ponowne zrównoważenie (co spowoduje więcej limitów czasu, co może spowodować dalsze ponowne zrównoważenie itd.) 
+- Upewnij się, że masz `request.timeout.ms` co najmniej zalecaną wartość 60000, a wartość jest równa co `session.timeout.ms` najmniej zalecanej wartości 30000. Zbyt niska wartość tych ustawień może spowodować przekroczenie limitu czasu przez klienta, co spowoduje ponowne zrównoważenie (co spowoduje więcej limitów czasu, co może spowodować dalsze ponowne zrównoważenie itd.) 
 - Jeśli Twoja konfiguracja jest zgodna z zalecanymi wartościami i nadal widzisz stałe ponowne bilansowanie, możesz otworzyć problem (Pamiętaj o uwzględnieniu całej konfiguracji w ramach problemu, aby można było pomóc debugować)!
 
 ## <a name="compressionmessage-format-version-issue"></a>Problem z wersją kompresji/komunikatu
-Kafka obsługuje kompresję, a Event Hubs dla Kafka obecnie nie. Błędy wskazujące, `The message format version on the broker does not support the request.`że wersja formatu wiadomości (na przykład) jest spowodowana próbą wysłania przez klienta skompresowanych komunikatów Kafka do naszych brokerów.
+Kafka obsługuje kompresję, a Event Hubs dla Kafka obecnie nie. Błędy wskazujące, że wersja formatu wiadomości (na przykład `The message format version on the broker does not support the request.` ) jest spowodowana próbą wysłania przez klienta skompresowanych komunikatów Kafka do naszych brokerów.
 
 Jeśli są wymagane skompresowane dane, Kompresuj dane przed wysłaniem ich do brokerów i dekompresowanie po odebraniu jest prawidłowym obejściem. Treść komunikatu jest po prostu tablicą bajtów do usługi, więc kompresja i dekompresja po stronie klienta nie spowoduje żadnych problemów.
 
@@ -66,7 +66,7 @@ Sprawdź następujące elementy, jeśli podczas korzystania z programu Kafka na 
 ## <a name="limits"></a>Limity
 Apache Kafka a Event Hubs Kafka. W większości przypadków Event Hubs ekosystemów Kafka ma takie same wartości domyślne, właściwości, kody błędów i ogólne zachowanie, które Apache Kafka wykonuje. Wystąpienia, w których te dwa jawnie różnią się (lub gdzie Event Hubs nakładają limit Kafka nie), są wymienione poniżej:
 
-- Maksymalna długość `group.id` właściwości to 256 znaków
+- Maksymalna długość `group.id` Właściwości to 256 znaków
 - Maksymalny rozmiar `offset.metadata.max.bytes` to 1024 bajtów
 - Zatwierdzenia przesunięcia są ograniczone o 4 wywołania/sekundę na partycję z maksymalnym rozmiarem dziennika wewnętrznego wynoszącym 1 MB
 

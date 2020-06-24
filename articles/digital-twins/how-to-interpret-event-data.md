@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4c95e686de23654688d0d7c3182c6565a907b750
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: e194c046cde623e0fcdd4c73ac24f2bf0755945c
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612963"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299436"
 ---
 # <a name="understand-event-data"></a>Informacje o zdarzeniach
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Różne zdarzenia w usłudze Azure Digital bliźniaczych reprezentacji dają **powiadomienia**, które umożliwiają zaplecze rozwiązania, gdy są wykonywane różne akcje. Są one następnie [kierowane](concepts-route-events.md) do różnych lokalizacji wewnątrz i na zewnątrz bliźniaczych reprezentacji cyfrowych platformy Azure, które mogą korzystać z tych informacji w celu podjęcia odpowiednich działań.
 
@@ -232,46 +235,6 @@ Oto przykład powiadomienia dotyczącego tworzenia lub usuwania relacji:
     "ownershipDepartment": "Operations"
 }
 ```
-
-### <a name="digital-twin-model-change-notifications"></a>Powiadomienia o zmianie modelu cyfrowej przędzy
-
-**Powiadomienia o zmianach modelu** są wyzwalane, gdy [model](concepts-models.md) DTDL (Digital bliźniaczych reprezentacji Definition Language) został przekazany, ponownie załadowany, poprawiony lub usunięty.
-
-#### <a name="properties"></a>Właściwości
-
-Poniżej przedstawiono pola w treści powiadomienia o zmianie modelu.
-
-| Nazwa    | Wartość |
-| --- | --- |
-| `id` | Identyfikator powiadomienia, na przykład identyfikator UUID lub licznik obsługiwany przez usługę. `source` + `id`jest unikatowy dla każdego oddzielnego zdarzenia |
-| `source` | Nazwa wystąpienia usługi IoT Hub lub Digital bliźniaczych reprezentacji platformy Azure, na przykład *MyHub.Azure-Devices.NET* lub *mydigitaltwins.westus2.azuredigitaltwins.NET* |
-| `specversion` | 1.0 |
-| `type` | `Microsoft.DigitalTwins.Model.Upload`<br>`Microsoft.DigitalTwins.Model.Reload`(Specyficzne dla centrum)<br>`Microsoft.DigitalTwins.Model.Patch`(Specyficzne dla centrum)<br>`Microsoft.DigitalTwins.Model.Decom`<br>`Microsoft.DigitalTwins.Model.Delete` |
-| `datacontenttype` | application/json |
-| `subject` | Identyfikator modelu w formularzu`dtmi:<domain>:<unique model identifier>;<model version number>` |
-| `time` | Sygnatura czasowa dla momentu wykonania operacji w modelu |
-| `sequence` | Wartość, która wyraża położenie zdarzenia w większej uporządkowanej sekwencji zdarzeń. Usługi muszą dodać numer sekwencyjny na wszystkich powiadomieniach, aby wskazać ich kolejność, lub zachować własne porządkowanie w inny sposób. Liczba sekwencji jest zwiększana wraz z każdym komunikatem. Zostanie zresetowany do 1, jeśli obiekt zostanie usunięty i utworzony ponownie z tym samym IDENTYFIKATORem. |
-| `sequencetype` | Więcej szczegółów na temat sposobu używania pola sekwencji. Na przykład ta właściwość może określać, że wartość musi być ze znakiem 32-bitową liczbą całkowitą, która zaczyna się od 1 i zwiększa się o 1 za każdym razem. |
-| `modelstatus` | Stan rozwiązania służący do rozpoznawania modelu. Możliwe wartości: powodzenie/NotFound/niepowodzenie (tylko IoT Hub) | 
-| `updatereason` | Aktualizuj przyczynę modelu w schemacie. Możliwe wartości: Utwórz/Zresetuj/Przesłoń (tylko IoT Hub) | 
-
-#### <a name="body-details"></a>Szczegóły treści
-
-Nie istnieje treść komunikatu dla akcji przekazywania, ponownego ładowania i stosowania poprawek do modeli. Użytkownik musi wykonać `GET` wywołanie w celu pobrania zawartości modelu. 
-
-Dla i `Model.Decom` , treść poprawki będzie w formacie poprawek JSON, podobnie jak wszystkie inne interfejsy API poprawek w powierzchni interfejsu API Digital bliźniaczych reprezentacji na platformie Azure. Aby zlikwidować model, należy użyć:
-
-```json
-[
-  {
-    "op": "replace",
-    "path": "/decommissionedState",
-    "value": true
-  }
-]
-```
-
-W przypadku `Model.Delete` , treść żądania jest taka sama jak `GET` żądanie i pobiera najnowszy stan przed usunięciem.
 
 ### <a name="digital-twin-change-notifications"></a>Powiadomienia o zmianach cyfrowych przędzy
 

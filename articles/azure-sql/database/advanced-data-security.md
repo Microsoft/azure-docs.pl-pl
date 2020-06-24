@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: 7efcc4a9ec7da2bdd4005c124d5d0e8dd03c4363
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 5a732683b52885173a60563f436b6ab01ea00710
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669702"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254110"
 ---
 # <a name="advanced-data-security"></a>Zaawansowane zabezpieczenia danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -62,7 +62,7 @@ Aby wyświetlić ustawienia reklam i zarządzać nimi, przejdź do pozycji **Zaa
 
 ![Ustawienia serwera](./media/advanced-data-security/server_settings.png)
 
-## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Zarządzanie ustawieniami usługi AD dla bazy danych SQL
+## <a name="4-manage-ads-settings-for-a-database"></a>4. Zarządzanie ustawieniami reklam dla bazy danych
 
 Aby zastąpić ustawienia reklamy dla konkretnej bazy danych, zaznacz pole wyboru **Włącz zaawansowane zabezpieczenia danych na poziomie bazy danych** . Tej opcji należy używać tylko w przypadku, gdy istnieje szczególny wymóg otrzymywania osobnych alertów dotyczących zaawansowanej ochrony przed zagrożeniami lub oceny luk w zabezpieczeniach dla pojedynczej bazy danych zamiast alertów i odebranych wyników dla wszystkich baz danych na serwerze lub w zarządzanym wystąpieniu.
 

@@ -2,22 +2,22 @@
 title: Logowanie się do aplikacji usługi Azure AD — platforma tożsamości firmy Microsoft
 description: Skonfiguruj połączone Logowanie jednokrotne do aplikacji usługi Azure AD Enterprise w usłudze Microsoft Identity platform (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfe4aeb17f482cc9d4126efc6d65d3f7d173536b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cfcece43ae1b7d7bcf0c38feba14f1e82b29f18
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063547"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763486"
 ---
 # <a name="configure-linked-sign-on"></a>Konfigurowanie połączonego logowania
 
@@ -31,7 +31,7 @@ Jeśli aplikacja nie została dodana do dzierżawy usługi Azure AD, zobacz [Dod
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako administrator aplikacji w chmurze lub administrator aplikacji dla dzierżawy usługi Azure AD.
 
-1. Przejdź do **Azure Active Directory** > **aplikacji przedsiębiorstwa**. Zostanie wyświetlona Losowa przykład aplikacji w dzierżawie usługi Azure AD. 
+1. Przejdź do **Azure Active Directory**  >  **aplikacji przedsiębiorstwa**. Zostanie wyświetlona Losowa przykład aplikacji w dzierżawie usługi Azure AD. 
 
 1. W menu **Typ aplikacji** wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Zastosuj**.
 

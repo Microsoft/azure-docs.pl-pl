@@ -3,16 +3,16 @@ title: Analizowanie kosztów platformy Azure za pomocą aplikacji usługi Power 
 description: W tym artykule wyjaśniono, jak zainstalować aplikację Azure Cost Management usługi Power BI i korzystać z niej.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/15/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 050df590827b94888c44826ac6391ff79ada1cfc
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 53340c72a6456b24b52cff6d7eda9d4a34db6564
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461603"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888203"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analizowanie kosztów za pomocą aplikacji Azure Cost Management usługi Power BI dla umów Enterprise Agreement (EA)
 
@@ -127,6 +127,27 @@ Aby uzyskać szczegółowe informacje dotyczące sposobu korzystania z tego rapo
 ## <a name="troubleshoot-problems"></a>Rozwiązywanie problemów
 
 Jeśli występują problemy z aplikacją Power BI, skorzystaj z poniższych informacji dotyczących rozwiązywania problemów, które mogą pomóc.
+
+### <a name="error-processing-the-data-in-the-dataset"></a>Błąd podczas przetwarzania danych w zestawie danych
+
+Może pojawić się komunikat o błędzie z informacją:
+
+```
+There was an error when processing the data in the dataset.
+Data source error: {"error":{"code":"ModelRefresh_ShortMessage_ProcessingError","pbi.error":{"code":"ModelRefresh_ShortMessage_ProcessingError","parameters":{},"details":[{"code":"Message","detail":{"type":1,"value":"We cannot convert the value \"Required Field: 'Enr...\" to type List."}}],"exceptionCulprit":1}}} Table: <TableName>.
+```
+
+Zamiast `<TableName>` zostanie wyświetlona nazwa tabeli.
+
+#### <a name="cause"></a>Przyczyna
+
+Domyślna wartość elementu **Zakres** (`Enrollment Number`) została zmieniona w połączeniu z usługą Cost Management.
+
+#### <a name="solution"></a>Rozwiązanie
+
+Połącz się ponownie z usługą Cost Management i ustaw wartość elementu **Zakres** na `Enrollment Number`. Nie wprowadzaj numeru rejestracyjnego organizacji. Zamiast tego wpisz `Enrollment Number` dokładnie tak, jak pojawia się na poniższej ilustracji.
+
+![Wprowadzanie informacji o rejestracji EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
 
 ### <a name="budgetamount-error"></a>Błąd BudgetAmount
 

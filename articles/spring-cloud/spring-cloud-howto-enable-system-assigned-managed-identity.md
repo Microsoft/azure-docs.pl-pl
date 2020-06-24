@@ -1,17 +1,17 @@
 ---
-title: Włącz tożsamość zarządzaną przypisaną przez system dla aplikacji w chmurze platformy Azure
+title: Włączanie tożsamości zarządzanej przypisanej przez system dla aplikacji w usłudze Azure Spring Cloud
 description: Jak włączyć tożsamość zarządzaną przypisaną przez system dla aplikacji.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.openlocfilehash: 81df4364324b03bb624e051fd71b25f0d6cdb049
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: c9b9eaf7447d30dfbec6b04ff00010e0e2992c8e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84172298"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254535"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Jak włączyć tożsamość zarządzaną przypisaną przez system dla aplikacji w chmurze platformy Azure
 Zarządzane tożsamości dla zasobów platformy Azure zapewniają automatycznie zarządzaną tożsamość w Azure Active Directory do zasobów platformy Azure, takich jak aplikacja w chmurze ze sprężyną Azure. Tej tożsamości można użyć do uwierzytelniania w dowolnej usłudze, która obsługuje uwierzytelnianie usługi Azure AD, bez poświadczeń w kodzie.
@@ -31,7 +31,7 @@ Aby skonfigurować tożsamość zarządzaną w [Azure Portal](https://portal.azu
 1. Utwórz aplikację w portalu, jak zwykle. Przejdź do niej w portalu.
 2. Przewiń w dół do grupy **ustawień** w okienku nawigacji po lewej stronie.
 3. Wybierz pozycję **tożsamość**.
-4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość *włączone*. Kliknij przycisk **Zapisz**.
+4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość *włączone*. Kliknij pozycję **Zapisz**.
 
  ![Tożsamość zarządzana w portalu](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -53,11 +53,11 @@ az spring-cloud app identity assign -n app_name -s service_name -g resource_grou
 ```
 
 ## <a name="obtain-tokens-for-azure-resources"></a>Uzyskaj tokeny dla zasobów platformy Azure
-Aplikacja może używać swojej tożsamości zarządzanej, aby uzyskiwać tokeny umożliwiające dostęp do innych zasobów chronionych przez usługę Azure AD, takich jak Azure Key Vault. Te tokeny reprezentują aplikację próbującą uzyskać dostęp do zasobu, a nie określonego użytkownika aplikacji.
+Aplikacja może używać swojej tożsamości zarządzanej, aby uzyskiwać tokeny umożliwiające dostęp do innych zasobów chronionych przez Azure Active Directory, takich jak Azure Key Vault. Te tokeny reprezentują aplikację próbującą uzyskać dostęp do zasobu, a nie określonego użytkownika aplikacji.
 
 Może być konieczne [skonfigurowanie zasobu docelowego, aby zezwalać na dostęp z poziomu aplikacji](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/howto-assign-access-portal). Jeśli na przykład zażądano tokenu dostępu do Key Vault, upewnij się, że dodano zasady dostępu zawierające tożsamość aplikacji. W przeciwnym razie wywołania Key Vault będą odrzucane, nawet jeśli zawierają token. Aby dowiedzieć się więcej o tym, które zasoby obsługują tokeny Azure Active Directory, zobacz [usługi platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
 
-Chmura sprężynowa platformy Azure ma ten sam punkt końcowy do pozyskiwania tokenów z maszyną wirtualną platformy Azure. Zapoznaj [się z tematem jak używać tokenu maszyny wirtualnej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) , aby poznać różne przykłady kodu i skryptów oraz wskazówki dotyczące ważnych tematów, takich jak obsługa wygaśnięcia tokenu i błędów HTTP.
+Chmura sprężynowa platformy Azure ma ten sam punkt końcowy do pozyskiwania tokenów z maszyną wirtualną platformy Azure. Zalecamy użycie zestawu SDK języka Java lub sprężyny uruchomieniowych rozruchu w celu uzyskania tokenu.  Zapoznaj [się z tematem jak używać tokenu maszyny wirtualnej](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token) , aby poznać różne przykłady kodu i skryptów oraz wskazówki dotyczące ważnych tematów, takich jak obsługa wygaśnięcia tokenu i błędów HTTP.
 
 Zalecane: Aby uzyskać tokeny, należy użyć zestawu Java SDK lub sprężynowego uruchamiania.  Zapoznaj się z przykładami w [następnych krokach](#next-steps).
 
@@ -82,3 +82,4 @@ az spring-cloud app identity remove -n app_name -s service_name -g resource_grou
 ## <a name="next-steps"></a>Następne kroki
 * [Jak używać tożsamości zarządzanych z zestawem SDK języka Java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 * [Dostęp do Azure Key Vault z tożsamościami zarządzanymi w rozruchie sprężynowym Starter](https://github.com/microsoft/azure-spring-boot/blob/master/azure-spring-boot-starters/azure-keyvault-secrets-spring-boot-starter/README.md#use-msi--managed-identities)
+* [Użyj Key Vault z App Service z tożsamość usługi zarządzanej](https://docs.microsoft.com/samples/azure-samples/app-service-msi-keyvault-dotnet/keyvault-msi-appservice-sample/)

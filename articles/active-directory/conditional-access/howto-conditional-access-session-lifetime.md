@@ -4,19 +4,19 @@ description: Dostosuj konfigurację sesji uwierzytelniania usługi Azure AD, w t
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7b551fcace5289b9ffd9fb131b5ba1120b3fdd2
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 72cc876e2fd695e40b3b9cf7d9a52d34dea2387c
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483678"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253260"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Skonfiguruj zarządzanie sesją uwierzytelniania z użyciem dostępu warunkowego
 

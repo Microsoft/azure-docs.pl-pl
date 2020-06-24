@@ -2,22 +2,22 @@
 title: Ustawienia plików cookie serwera proxy aplikacji — Azure Active Directory | Microsoft Docs
 description: Azure Active Directory (Azure AD) zawiera pliki cookie dostępu i sesji do uzyskiwania dostępu do aplikacji lokalnych za pomocą serwera proxy aplikacji. W tym artykule opisano sposób używania i konfigurowania ustawień plików cookie.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcedb24a0efdbabaaef150fc3d5aff07d210ce23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 656841fc8e62e81318ffd568069c0664192b1747
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481368"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764897"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Ustawienia plików cookie do uzyskiwania dostępu do aplikacji lokalnych w Azure Active Directory
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) zawiera pliki cookie dostępu i sesji do uzysk
 
 [Serwer proxy aplikacji](application-proxy.md) używa następujących ustawień dostępu i pliku cookie sesji.
 
-| Ustawienie pliku cookie | Domyślny | Opis | Zalecenia |
+| Ustawienie pliku cookie | Domyślne | Opis | Zalecenia |
 | -------------- | ------- | ----------- | --------------- |
 | Użyj pliku cookie tylko HTTP | **Nie** | **Wartość tak** umożliwia serwerowi proxy aplikacji dołączenie flagi HTTPOnly w nagłówkach odpowiedzi HTTP. Ta flaga zapewnia dodatkowe korzyści z zabezpieczeń, na przykład uniemożliwiają kopiowanie lub modyfikowanie plików cookie przez skrypty po stronie klienta.<br></br><br></br>Przed udostępnieniem ustawienia tylko protokołu HTTP serwer proxy aplikacji zaszyfrowany i przesyłający pliki cookie za pośrednictwem zabezpieczonego kanału TLS w celu ochrony przed modyfikacją. | Użyj **tak** ze względu na dodatkowe korzyści z zabezpieczeń.<br></br><br></br>**Nie** należy używać klientów ani agentów użytkowników, którzy wymagają dostępu do pliku cookie sesji. Na przykład użyj **nie** dla klienta RDP lub MTSC, który łączy się z serwerem bramy pulpit zdalny za pomocą serwera proxy aplikacji.|
 | Użyj bezpiecznego pliku cookie | **Nie** | **Wartość tak** umożliwia serwerowi proxy aplikacji uwzględnienie bezpiecznej flagi w nagłówkach odpowiedzi HTTP. Zabezpieczanie plików cookie zwiększa bezpieczeństwo przez przesyłanie plików cookie za pośrednictwem bezpiecznego kanału TLS, takiego jak HTTPS. Zapobiega to zastępowaniu plików cookie przez nieautoryzowane strony ze względu na przesłanie pliku cookie w postaci zwykłego tekstu. | Użyj **tak** ze względu na dodatkowe korzyści z zabezpieczeń.|
@@ -49,7 +49,7 @@ Ponadto, jeśli aplikacja zaplecza zawiera pliki cookie, które muszą być dost
 Aby ustawić ustawienia plików cookie przy użyciu Azure Portal:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
-2. Przejdź do **Azure Active Directory** > **Enterprise applications** aplikacje>dla przedsiębiorstw **wszystkie aplikacje**.
+2. Przejdź do **Azure Active Directory**   >  **aplikacje dla przedsiębiorstw**   >  **wszystkie aplikacje**.
 3. Wybierz aplikację, dla której chcesz włączyć ustawienie plików cookie.
 4. Kliknij pozycję **serwer proxy aplikacji**.
 5. W obszarze **Ustawienia dodatkowe**Ustaw dla ustawienia plik cookie **wartość tak** lub **nie**.

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6cc0508a63f26b955ac5e0ebf3ef58a184a35997
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63a2b462fe08cb37ca655aa91474601decce8000
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671631"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202844"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Niestandardowa Weryfikacja poczty e-mail w Azure Active Directory B2C
 
@@ -41,10 +41,10 @@ Następnie Zapisz klucz interfejsu API SendGrid w kluczu zasad Azure AD B2C, aby
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
 1. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje**wybierz `Manual`opcję.
+1. W obszarze **Opcje**wybierz opcję `Manual` .
 1. Wprowadź **nazwę** klucza zasad. Na przykład `SendGridSecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 1. W **kluczu tajnym**wprowadź wcześniej zarejestrowany klucz tajny klienta.
-1. W obszarze **użycie klucza**wybierz `Signature`opcję.
+1. W obszarze **użycie klucza**wybierz opcję `Signature` .
 1. Wybierz przycisk **Utwórz**.
 
 ## <a name="create-sendgrid-template"></a>Utwórz szablon SendGrid
@@ -52,10 +52,10 @@ Następnie Zapisz klucz interfejsu API SendGrid w kluczu zasad Azure AD B2C, aby
 Przy użyciu konta SendGrid i klucza interfejsu API SendGrid przechowywanego w kluczu zasad Azure AD B2C Utwórz [dynamiczny szablon transakcyjny](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/)SendGrid.
 
 1. W witrynie SendGrid Otwórz stronę [Szablony transakcyjne](https://sendgrid.com/dynamic_templates) i wybierz pozycję **Utwórz szablon**.
-1. Wprowadź unikatową nazwę szablonu, `Verification email` taką jak, a następnie wybierz pozycję **Zapisz**.
+1. Wprowadź unikatową nazwę szablonu, taką jak `Verification email` , a następnie wybierz pozycję **Zapisz**.
 1. Aby rozpocząć edytowanie nowego szablonu, wybierz pozycję **Dodaj wersję**.
 1. Wybierz **Edytor kodu** , a następnie **Kontynuuj**.
-1. W edytorze HTML wklej następujący szablon HTML lub użyj własnych. Parametry `{{otp}}` i `{{email}}` zostaną zamienione dynamicznie z wartością hasła jednorazowego i adresem e-mail użytkownika.
+1. W edytorze HTML wklej następujący szablon HTML lub użyj własnych. `{{otp}}`Parametry i `{{email}}` zostaną zamienione dynamicznie z wartością hasła jednorazowego i adresem e-mail użytkownika.
 
     ```HTML
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -151,18 +151,18 @@ Przy użyciu konta SendGrid i klucza interfejsu API SendGrid przechowywanego w k
     </html>
     ```
 
-1. Rozwiń pozycję **Ustawienia** po lewej stronie, a w polu **temat wiadomości e-mail**wprowadź `{{subject}}`wartość.
+1. Rozwiń pozycję **Ustawienia** po lewej stronie, a w polu **temat wiadomości e-mail**wprowadź wartość `{{subject}}` .
 1. Wybierz pozycję **Zapisz szablon**.
 1. Wróć do strony **Szablony transakcyjne** , wybierając strzałkę wstecz.
 1. Zapisz **Identyfikator** szablonu, który został utworzony do użycia w późniejszym kroku. Na przykład `d-989077fbba9746e89f3f6411f596fb96`. Ten identyfikator należy określić podczas [dodawania transformacji oświadczeń](#add-the-claims-transformation).
 
 ## <a name="add-azure-ad-b2c-claim-types"></a>Dodawanie Azure AD B2C typów roszczeń
 
-W zasadach Dodaj następujące typy roszczeń do `<ClaimsSchema>` elementu w `<BuildingBlocks>`elemencie.
+W zasadach Dodaj następujące typy roszczeń do `<ClaimsSchema>` elementu w elemencie `<BuildingBlocks>` .
 
 Te typy oświadczeń są niezbędne do generowania i weryfikowania adresu e-mail przy użyciu kodu hasła jednorazowego (OTP).
 
-```XML
+```xml
 <ClaimType Id="Otp">
   <DisplayName>Secondary One-time password</DisplayName>
   <DataType>string</DataType>
@@ -185,13 +185,13 @@ Następnie konieczne jest przekształcenie oświadczeń, aby uzyskać dane wyjś
 
 Struktura obiektu JSON jest definiowana przez identyfikatory w notacji kropkowej obiektu InputParameters i TransformationClaimTypes InputClaims. Liczby w zapisie kropkowym oznaczają tablice. Wartości pochodzą z wartości InputClaims i właściwości InputParameters "". Aby uzyskać więcej informacji na temat transformacji oświadczeń JSON, zobacz [przekształcenia oświadczeń JSON](json-transformations.md).
 
-Dodaj następującą transformację oświadczeń do `<ClaimsTransformations>` elementu w. `<BuildingBlocks>` Wprowadź następujące aktualizacje do przekształcenia XML oświadczeń:
+Dodaj następującą transformację oświadczeń do `<ClaimsTransformations>` elementu w `<BuildingBlocks>` . Wprowadź następujące aktualizacje do przekształcenia XML oświadczeń:
 
-* Zaktualizuj wartość `template_id` INPUTPARAMETER o identyfikator szablonu transakcyjnego SendGrid utworzonego wcześniej w [szablonie tworzenie SendGrid](#create-sendgrid-template).
-* Zaktualizuj wartość `from.email` adresu. Użyj prawidłowego adresu e-mail, aby pomóc w zapobieganiu oznaczania wiadomości e-mail weryfikacyjnej jako spamu.
-* Zaktualizuj wartość parametru wejściowego `personalizations.0.dynamic_template_data.subject` wiersza tematu z wierszem tematu odpowiednim dla Twojej organizacji.
+* Zaktualizuj `template_id` wartość InputParameter o identyfikator szablonu transakcyjnego SendGrid utworzonego wcześniej w [szablonie tworzenie SendGrid](#create-sendgrid-template).
+* Zaktualizuj `from.email` wartość adresu. Użyj prawidłowego adresu e-mail, aby pomóc w zapobieganiu oznaczania wiadomości e-mail weryfikacyjnej jako spamu.
+* Zaktualizuj wartość `personalizations.0.dynamic_template_data.subject` parametru wejściowego wiersza tematu z wierszem tematu odpowiednim dla Twojej organizacji.
 
-```XML
+```xml
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
@@ -213,9 +213,9 @@ Dodaj następującą transformację oświadczeń do `<ClaimsTransformations>` el
 
 ## <a name="add-datauri-content-definition"></a>Dodaj definicję zawartości DataUri
 
-Poniżej przekształceń oświadczeń w `<BuildingBlocks>`programie Dodaj następujący [ContentDefinition](contentdefinitions.md) , aby odwołać się do identyfikatora URI danych 2.0.0:
+Poniżej przekształceń oświadczeń w programie `<BuildingBlocks>` Dodaj następujący [ContentDefinition](contentdefinitions.md) , aby odwołać się do identyfikatora URI danych 2.0.0:
 
-```XML
+```xml
 <ContentDefinitions>
  <ContentDefinition Id="api.localaccountsignup">
     <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.0.0</DataUri>
@@ -229,16 +229,16 @@ Kontrolka wyświetlania weryfikacji służy do weryfikowania adresu e-mail z kod
 
 Ten przykładowy formant wyświetlania jest skonfigurowany do:
 
-1. Zbierz typ `email` zgłoszenia adresu od użytkownika.
-1. Poczekaj, aż użytkownik poda `verificationCode` typ zgłoszenia przy użyciu kodu wysłanego do użytkownika.
-1. `email` Zwróć zwrot do profilu technicznego z własnym potwierdzeniem, który ma odwołanie do tego formantu ekranu.
+1. Zbierz `email` Typ zgłoszenia adresu od użytkownika.
+1. Poczekaj, aż użytkownik poda `verificationCode` Typ zgłoszenia przy użyciu kodu wysłanego do użytkownika.
+1. Zwróć zwrot `email` do profilu technicznego z własnym potwierdzeniem, który ma odwołanie do tego formantu ekranu.
 1. Za pomocą `SendCode` akcji Wygeneruj kod OTP i Wyślij wiadomość e-mail z kodem OTP do użytkownika.
 
 ![Wyślij wiadomość e-mail z kodem weryfikacyjnym](media/custom-email/display-control-verification-email-action-01.png)
 
-W obszarze definicje zawartości nadal w `<BuildingBlocks>`ramach programu Dodaj do zasad następujący [formant DisplayControl](display-controls.md) typu [VerificationControl](display-control-verification.md) .
+W obszarze definicje zawartości nadal w ramach programu `<BuildingBlocks>` Dodaj do zasad następujący [formant DisplayControl](display-controls.md) typu [VerificationControl](display-control-verification.md) .
 
-```XML
+```xml
 <DisplayControls>
   <DisplayControl Id="emailVerificationControl" UserInterfaceControlType="VerificationControl">
     <DisplayClaims>
@@ -267,11 +267,11 @@ W obszarze definicje zawartości nadal w `<BuildingBlocks>`ramach programu Dodaj
 
 ## <a name="add-otp-technical-profiles"></a>Dodaj profile techniczne OTP
 
-Profil `GenerateOtp` techniczny generuje kod dla adresu e-mail. Profil `VerifyOtp` techniczny weryfikuje kod skojarzony z adresem e-mail. Można zmienić konfigurację formatu i czas wygaśnięcia hasła jednorazowego. Więcej informacji o profilach technicznych OTP znajduje się w temacie [Definiowanie profilu technicznego hasła jednorazowego](one-time-password-technical-profile.md).
+`GenerateOtp`Profil techniczny generuje kod dla adresu e-mail. `VerifyOtp`Profil techniczny weryfikuje kod skojarzony z adresem e-mail. Można zmienić konfigurację formatu i czas wygaśnięcia hasła jednorazowego. Więcej informacji o profilach technicznych OTP znajduje się w temacie [Definiowanie profilu technicznego hasła jednorazowego](one-time-password-technical-profile.md).
 
 Dodaj następujące profile techniczne do `<ClaimsProviders>` elementu.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>One time password technical profiles</DisplayName>
   <TechnicalProfiles>
@@ -313,9 +313,9 @@ Dodaj następujące profile techniczne do `<ClaimsProviders>` elementu.
 
 Profil techniczny interfejsu API REST generuje zawartość wiadomości e-mail (przy użyciu formatu SendGrid). Więcej informacji o profilach technicznych RESTful znajduje się w temacie [Definiowanie profilu technicznego RESTful](restful-technical-profile.md).
 
-Podobnie jak w przypadku profilów technicznych OTP, do `<ClaimsProviders>` elementu należy dodać następujące profile techniczne.
+Podobnie jak w przypadku profilów technicznych OTP, do elementu należy dodać następujące profile techniczne `<ClaimsProviders>` .
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
@@ -344,11 +344,11 @@ Podobnie jak w przypadku profilów technicznych OTP, do `<ClaimsProviders>` elem
 
 ## <a name="make-a-reference-to-the-displaycontrol"></a>Utwórz odwołanie do elementu DisplayControl
 
-W ostatnim kroku Dodaj odwołanie do utworzonego elementu DisplayControl. Jeśli używasz wcześniejszej wersji zasad Azure AD B2C, Zastąp istniejący `LocalAccountSignUpWithLogonEmail` własny profil techniczny z poniższymi zasadami. Ten profil techniczny jest `DisplayClaims` używany wraz z odwołaniem do elementu DisplayControl.
+W ostatnim kroku Dodaj odwołanie do utworzonego elementu DisplayControl. `LocalAccountSignUpWithLogonEmail`Jeśli używasz wcześniejszej wersji zasad Azure AD B2C, Zastąp istniejący własny profil techniczny z poniższymi zasadami. Ten profil techniczny `DisplayClaims` jest używany wraz z odwołaniem do elementu DisplayControl.
 
 Aby uzyskać więcej informacji, Zobacz Profil techniczny i [formant DisplayControl](display-controls.md)z [własnym potwierdzeniem](restful-technical-profile.md) .
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -395,14 +395,14 @@ Aby uzyskać więcej informacji, Zobacz Profil techniczny i [formant DisplayCont
 
 ## <a name="optional-localize-your-email"></a>Obowiązkowe Lokalizowanie poczty e-mail
 
-Aby zlokalizować tę wiadomość e-mail, musisz wysłać zlokalizowane ciągi do SendGrid lub dostawcę poczty e-mail. Na przykład lokalizowanie tematu wiadomości e-mail, treści, wiadomości z kodem lub podpisu wiadomości e-mail. W tym celu można użyć transformacji oświadczeń [GetLocalizedStringsTransformation](string-transformations.md) do kopiowania zlokalizowanych ciągów do typów oświadczeń. W transformacji `GenerateSendGridRequestBody` oświadczeń, która GENERUJE ładunek JSON, używa oświadczeń wejściowych, które zawierają zlokalizowane ciągi.
+Aby zlokalizować tę wiadomość e-mail, musisz wysłać zlokalizowane ciągi do SendGrid lub dostawcę poczty e-mail. Na przykład lokalizowanie tematu wiadomości e-mail, treści, wiadomości z kodem lub podpisu wiadomości e-mail. W tym celu można użyć transformacji oświadczeń [GetLocalizedStringsTransformation](string-transformations.md) do kopiowania zlokalizowanych ciągów do typów oświadczeń. W `GenerateSendGridRequestBody` transformacji oświadczeń, która generuje ładunek JSON, używa oświadczeń wejściowych, które zawierają zlokalizowane ciągi.
 
 1. W zasadach Zdefiniuj następujące oświadczenia ciągu: subject, Message, codeIntro i Signature.
 1. Zdefiniuj transformację oświadczeń [GetLocalizedStringsTransformation](string-transformations.md) , aby zastąpić zlokalizowane wartości ciągu do oświadczeń z kroku 1.
-1. Zmień transformację oświadczeń, `GenerateSendGridRequestBody` tak aby korzystała z oświadczeń wejściowych z poniższym FRAGMENTEM kodu XML.
-1. Zaktualizuj szablon SendGrind, tak aby korzystał z parametrów dynamicznych zamiast wszystkich ciągów, które będą lokalizowane przez Azure AD B2C.
+1. Zmień `GenerateSendGridRequestBody` transformację oświadczeń, tak aby korzystała z oświadczeń wejściowych z poniższym fragmentem kodu XML.
+1. Zaktualizuj szablon SendGrind, tak aby korzystał z parametrów dynamicznych zamiast wszystkich ciągów, które będą zlokalizowane przez Azure AD B2C.
 
-```XML
+```xml
 <ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />

@@ -3,25 +3,25 @@ title: Publikowanie natywnych aplikacji klienckich — Azure AD | Microsoft Docs
 description: W tym artykule opisano, jak włączyć natywne aplikacje klienckie do komunikowania się z łącznikiem usługi Azure serwer proxy aplikacji usługi Azure AD, aby zapewnić bezpieczny dostęp zdalny do aplikacji lokalnych.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 442e1515159afc1df79bb6f5f1f747ce0800fef7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ca5cdb592de29f8c5396a68a7c36e6994df906cc
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647237"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764812"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Jak włączyć natywne aplikacje klienckie do współdziałania z aplikacjami proxy
 
@@ -113,10 +113,10 @@ Informacje wymagane w przykładowym kodzie można znaleźć w portalu usługi Az
 
 | Wymagane informacje | Jak znaleźć je w portalu usługi Azure AD |
 | --- | --- |
-| \<> identyfikatora dzierżawy | **Azure Active Directory**  >  **Właściwości**  >  **Identyfikator katalogu** |
-| \<Identyfikator aplikacji natywnej> | **Rejestracja aplikacji**  >  *aplikacja*  >  natywna **Przegląd**  >  **Identyfikator aplikacji** |
-| \<> zakresu | **Rejestracja aplikacji**  >  *aplikacja*  >  natywna **Uprawnienia interfejsu api** > kliknij pozycję Interfejs API uprawnień (user_impersonation) > panel z napisem **user_impersonation** pojawia się po prawej stronie. > zakresem jest adres URL w polu edycji.
-| \<Adres URL aplikacji serwera proxy> | Zewnętrzny adres URL i ścieżka do interfejsu API
+| \<Tenant ID> | **Azure Active Directory**  >  **Właściwości**  >  **Identyfikator katalogu** |
+| \<App ID of the Native app> | **Rejestracja aplikacji**  >  *aplikacja*  >  natywna **Przegląd**  >  **Identyfikator aplikacji** |
+| \<Scope> | **Rejestracja aplikacji**  >  *aplikacja*  >  natywna **Uprawnienia interfejsu api** > kliknij pozycję Interfejs API uprawnień (user_impersonation) > panel z napisem **user_impersonation** pojawia się po prawej stronie. > zakresem jest adres URL w polu edycji.
+| \<Proxy App Url> | Zewnętrzny adres URL i ścieżka do interfejsu API
 
 Po edycji kodu MSAL za pomocą tych parametrów użytkownicy mogą uwierzytelniać się w natywnych aplikacjach klienckich nawet wtedy, gdy znajdują się poza siecią firmową.
 

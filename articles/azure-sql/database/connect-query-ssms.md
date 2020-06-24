@@ -13,12 +13,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 5ecf180b71c43d5df25d7c3c948a59482dd06a1c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3b601fbbc448ef909b0700ac887375147c42ecdd
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267311"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253617"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: korzystanie z programu SSMS do nawiązywania połączenia z usługą i zapytań Azure SQL Database lub wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Ukończenie tego przewodnika Szybki Start wymaga następujących elementów:
   |:--- |:--- |:---|:---|
   | Utwórz| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [Interfejs wiersza polecenia](scripts/create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [Program PowerShell](scripts/create-and-configure-database-powershell.md) | [Program PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [Program PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
+  || [Program PowerShell](scripts/create-and-configure-database-powershell.md) | [PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
   | Konfigurowanie | [Reguła zapory bazująca na adresach IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md)| [Łączność z maszyny wirtualnej](../managed-instance/connect-vm-instance-configure.md)|
   |||[Łączność ze środowiska lokalnego](../managed-instance/point-to-site-p2s-configure.md) | [Ustanawianie połączenia z programem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   |Ładowanie danych|Ładowanie bazy danych Adventure Works na potrzeby samouczka Szybki start|[Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
@@ -47,7 +47,7 @@ Ukończenie tego przewodnika Szybki Start wymaga następujących elementów:
   > [!IMPORTANT]
   > Skrypty zamieszczone w tym artykule korzystają z bazy danych Adventure Works. Za pomocą wystąpienia zarządzanego należy zaimportować bazę danych Adventure Works do bazy danych wystąpienia lub zmodyfikować skrypty znajdujące się w tym artykule, aby korzystały z bazy danych Wide World Importers.
 
-Jeśli po prostu chcesz uruchamiać niektóre zapytania ad hoc bez instalowania programu SSMS, zobacz [Szybki Start: Użyj edytora zapytań Azure Portal, aby wykonać zapytanie do bazy danych SQL](connect-query-portal.md).
+Jeśli po prostu chcesz uruchamiać niektóre zapytania ad hoc bez instalowania programu SSMS, zobacz [Szybki Start: Użyj edytora zapytań Azure Portal, aby wysyłać zapytania do bazy danych w programie Azure SQL Database](connect-query-portal.md).
 
 ## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem
 
@@ -77,7 +77,7 @@ W programie SSMS Połącz się z serwerem.
    | ------------ | ------------------ | ----------- |
    | **Typ serwera** | Aparat bazy danych | Wartość wymagana. |
    | **Nazwa serwera** | W pełni kwalifikowana nazwa serwera | Coś takiego jak: **servername.Database.Windows.NET**. |
-   | **Authentication** | Uwierzytelnianie programu SQL Server | W tym samouczku używane jest uwierzytelnianie SQL. |
+   | **Uwierzytelnianie** | Uwierzytelnianie programu SQL Server | W tym samouczku używane jest uwierzytelnianie SQL. |
    | **Zaloguj się** | Identyfikator użytkownika konta administratora serwera | Identyfikator użytkownika konta administratora serwera, którego użyto do utworzenia serwera. |
    | **Hasło** | Hasło konta administratora serwera | Hasło użytkownika konta administratora serwera, którego użyto do utworzenia serwera. |
    ||||

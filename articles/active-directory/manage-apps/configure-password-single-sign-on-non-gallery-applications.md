@@ -2,21 +2,21 @@
 title: Jak skonfigurować Logowanie jednokrotne haseł dla aplikacji usługi Azure AD | Microsoft Docs
 description: Jak skonfigurować Logowanie jednokrotne (SSO) haseł do aplikacji usługi Azure AD dla przedsiębiorstw w usłudze Microsoft Identity platform (Azure AD)
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2019
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 043adc309c3480865eb9aa7a7bff8d35e85bc78a
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063530"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763503"
 ---
 # <a name="configure-password-single-sign-on"></a>Konfigurowanie logowania jednokrotnego przy użyciu hasła
 
@@ -44,7 +44,7 @@ Jeśli aplikacja nie została dodana do dzierżawy usługi Azure AD, zobacz [Dod
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) jako administrator aplikacji w chmurze lub administrator aplikacji dla dzierżawy usługi Azure AD.
 
-2. Przejdź do **Azure Active Directory** > **aplikacji przedsiębiorstwa**. Zostanie wyświetlona Losowa przykład aplikacji w dzierżawie usługi Azure AD. 
+2. Przejdź do **Azure Active Directory**  >  **aplikacji przedsiębiorstwa**. Zostanie wyświetlona Losowa przykład aplikacji w dzierżawie usługi Azure AD. 
 
 3. W menu **Typ aplikacji** wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **Zastosuj**.
 
@@ -68,7 +68,7 @@ Jeśli aplikacja nie została dodana do dzierżawy usługi Azure AD, zobacz [Dod
 
 Jeśli próba analizy usługi Azure AD nie powiedzie się, można skonfigurować logowanie ręcznie.
 
-1. W obszarze ** \<nazwa aplikacji> konfiguracja**wybierz **pozycję \<skonfiguruj nazwę aplikacji> ustawienia logowania** jednokrotnego hasła, aby wyświetlić stronę **Konfigurowanie logowania** . 
+1. W obszarze ** \<application name> Konfiguracja**wybierz pozycję **Skonfiguruj \<application name> Ustawienia logowania** jednokrotnego hasła, aby wyświetlić stronę **Konfigurowanie logowania** . 
 
 2. Wybierz pozycję **ręcznie Wykryj pola logowania**. Pojawią się dodatkowe instrukcje opisujące Ręczne wykrywanie pól logowania.
 
@@ -81,11 +81,11 @@ Jeśli próba analizy usługi Azure AD nie powiedzie się, można skonfigurować
 5. Na karcie z podanym adresem URL przejdź przez proces logowania. Wypełnij pola Nazwa użytkownika i hasło, a następnie spróbuj się zalogować. (Nie musisz podawać prawidłowego hasła).
 
    Zostanie wyświetlony monit z pytaniem o zapisanie przechwyconych pól logowania.
-6. Kliknij przycisk **OK**. Rozszerzenie przeglądarki aktualizuje stronę ze stanem przechwytywania przy użyciu metadanych komunikatów, które **zostały zaktualizowane dla aplikacji**. Karta przeglądarka zostanie zamknięta.
+6. Wybierz przycisk **OK**. Rozszerzenie przeglądarki aktualizuje stronę ze stanem przechwytywania przy użyciu metadanych komunikatów, które **zostały zaktualizowane dla aplikacji**. Karta przeglądarka zostanie zamknięta.
 
 7. Na stronie Logowanie do **konfiguracji** usługi Azure AD wybierz pozycję OK. udało **Ci się pomyślnie zalogować się do aplikacji**.
 
-8. Kliknij przycisk **OK**.
+8. Wybierz przycisk **OK**.
 
 Po przechwyceniu strony logowania można przypisać użytkowników i grupy, a także skonfigurować zasady poświadczeń, podobnie jak regularne [aplikacje SSO hasła](what-is-single-sign-on.md).
 

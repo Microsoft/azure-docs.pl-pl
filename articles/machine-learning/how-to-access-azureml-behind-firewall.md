@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
 ms.custom: tracking-python
-ms.openlocfilehash: ab2bb3d94a740ca25be15b64895c52d5c038add3
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 31daec93352c0e142075a55c61f2b8d3a6d56fab
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552448"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080234"
 ---
 # <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Używanie obszaru roboczego za zaporą platformy Azure w celu Azure Machine Learning
 
 W tym artykule dowiesz się, jak skonfigurować zaporę platformy Azure do użycia z obszarem roboczym Azure Machine Learning.
 
-Za pomocą zapory platformy Azure można kontrolować dostęp do obszaru roboczego Azure Machine Learning i publicznego Internetu. Jeśli nie skonfigurowano go prawidłowo, Zapora może spowodować problemy z używaniem obszaru roboczego.
+Za pomocą zapory platformy Azure można kontrolować dostęp do obszaru roboczego Azure Machine Learning i publicznego Internetu. Jeśli nie skonfigurowano go prawidłowo, Zapora może spowodować problemy z używaniem obszaru roboczego. Istnieją różne nazwy hostów, które są używane w obszarze roboczym Azure Machine Learning, które są opisane w tym artykule.
 
 ## <a name="network-rules"></a>Reguły sieci
 
@@ -41,16 +41,18 @@ Hosty w tej sekcji należą do firmy Microsoft i zapewniają usługi wymagane do
 | ---- | ---- |
 | **\*. batchai.core.windows.net** | Klastry szkoleniowe |
 | **ml.azure.com** | Studio uczenia maszynowego Azure |
+| **default.exp-tas.com** | Używane przez Azure Machine Learning Studio |
 | **\*. azureml.ms** | Używane przez interfejsy API Azure Machine Learning |
-| **\*. experiments.azureml.net** | Używane przez eksperymenty działające w Azure Machine Learning|
+| **\*. experiments.azureml.net** | Używane przez eksperymenty działające w Azure Machine Learning |
 | **\*. modelmanagement.azureml.net** | Służy do rejestrowania i wdrażania modeli|
 | **mlworkspace.azure.ai** | Używane przez Azure Portal podczas wyświetlania obszaru roboczego |
 | **\*. aether.ms** | Używane podczas uruchamiania potoków Azure Machine Learning |
 | **\*. instances.azureml.net** | Wystąpienia obliczeniowe Azure Machine Learning |
+| **\*. instances.azureml.ms** | Wystąpienia obliczeniowe Azure Machine Learning, gdy w obszarze roboczym jest włączone łącze prywatne |
 | **windows.net** | Azure Blob Storage |
 | **vault.azure.net** | W usłudze Azure Key Vault |
-| **microsoft.com** | Podstawowe obrazy platformy Docker |
 | **azurecr.io** | Azure Container Registry |
+| **mcr.microsoft.com** | Microsoft Container Registry dla podstawowych obrazów platformy Docker |
 
 ## <a name="python-hosts"></a>Hosty języka Python
 

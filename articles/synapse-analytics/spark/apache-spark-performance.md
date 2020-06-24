@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 6ffe7f3d9faf82c892975e9ffa03b383d3610c36
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a4d95e57e3b72f8338da5c88f4ddfd57f66014cb
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424622"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194862"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optymalizowanie Apache Spark zadań (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -56,7 +56,7 @@ Najlepszym formatem wydajności jest Parquet z *kompresją przyciągania*, któr
 
 ## <a name="use-the-cache"></a>Użyj pamięci podręcznej
 
-Platforma Spark zapewnia własne natywne mechanizmy buforowania, które mogą być używane przez różne metody, `.persist()`takie `.cache()`jak, `CACHE TABLE`, i. Natywne buforowanie jest efektywne w przypadku małych zestawów danych oraz potoków ETL, w których należy buforować pośrednie wyniki. Jednak natywne buforowanie Spark nie działa prawidłowo z partycjonowaniem, ponieważ w pamięci podręcznej tabela nie zachowuje danych partycjonowania.
+Platforma Spark zapewnia własne natywne mechanizmy buforowania, które mogą być używane przez różne metody, takie jak `.persist()` , `.cache()` , i `CACHE TABLE` . Natywne buforowanie jest efektywne w przypadku małych zestawów danych oraz potoków ETL, w których należy buforować pośrednie wyniki. Jednak natywne buforowanie Spark nie działa prawidłowo z partycjonowaniem, ponieważ w pamięci podręcznej tabela nie zachowuje danych partycjonowania.
 
 ## <a name="use-memory-efficiently"></a>Wydajne korzystanie z pamięci
 
@@ -77,8 +77,8 @@ Apache Spark na platformie Azure Synapse korzysta z przędzy [Apache HADOOP](htt
 Aby rozwiązać komunikaty o braku pamięci, spróbuj wykonać następujące działania:
 
 * Przejrzyj DAGe w celu zarządzania nimi. Zredukuj dane źródłowe zmniejszania po stronie mapy (lub dzielenia), Maksymalizuj pojedyncze wartości losowe i Zmniejsz ilość wysyłanych danych.
-* Preferuj `ReduceByKey` ze stałym limitem pamięci `GroupByKey`na, który zapewnia agregacje, okna i inne funkcje, ale ma limit pamięci nieograniczonej Ann.
-* Preferuj `TreeReduce`, która wykonuje więcej pracy na wszystkich wykonawcach lub partycjach, `Reduce`do, które działają na sterowniku.
+* Preferuj `ReduceByKey` ze stałym limitem pamięci na `GroupByKey` , który zapewnia agregacje, okna i inne funkcje, ale ma limit pamięci nieograniczonej Ann.
+* Preferuj `TreeReduce` , która wykonuje więcej pracy na wszystkich wykonawcach lub partycjach, do `Reduce` , które działają na sterowniku.
 * Wykorzystanie ramek danych zamiast obiektów RDD niskiego poziomu.
 * Utwórz ComplexType, które hermetyzują akcje, takie jak "pierwsze N", różne agregacje lub operacje okienkowe.
 
@@ -105,11 +105,11 @@ Można używać partycjonowania i tworzenia pakietów jednocześnie.
 
 Jeśli masz wolne zadania w sprzężeniu lub losowo, przyczyną jest prawdopodobnie *pochylenie danych*, czyli asymetrii w danych zadania. Na przykład zadanie mapy może trwać 20 sekund, ale uruchomione jest zadanie, w którym dane są przyłączone lub przetworzone w postaci przełączenia. Aby naprawić pochylenie danych, należy pozbyć się całego klucza lub użyć *odizolowanej soli* tylko dla pewnego podzestawu kluczy. Jeśli używasz izolowanej soli, należy dodatkowo przefiltrować, aby odizolować podzbiór kluczy solonych w sprzężeniu mapy. Kolejną opcją jest wprowadzenie kolumny przedziału i wstępnego agregacji w zasobnikach.
 
-Innym czynnikiem powodującym powolne sprzężenie może być typ sprzężenia. Domyślnie platforma Spark używa typu `SortMerge` sprzężenia. Ten typ sprzężenia jest najlepiej dostosowany do dużych zestawów danych, ale jest w inny sposób obliczany, ponieważ należy najpierw posortować po lewej i prawej stronie danych przed ich scaleniem.
+Innym czynnikiem powodującym powolne sprzężenie może być typ sprzężenia. Domyślnie platforma Spark używa `SortMerge` typu sprzężenia. Ten typ sprzężenia jest najlepiej dostosowany do dużych zestawów danych, ale jest w inny sposób obliczany, ponieważ należy najpierw posortować po lewej i prawej stronie danych przed ich scaleniem.
 
-`Broadcast` Sprzężenie najlepiej nadaje się w przypadku mniejszych zestawów danych lub gdy jedna strona sprzężenia jest znacznie mniejsza od drugiej strony. Ten typ sprzężenia emituje jeden bok do wszystkich wykonawców, a więc wymaga więcej pamięci do emisji ogólnie.
+`Broadcast`Sprzężenie najlepiej nadaje się w przypadku mniejszych zestawów danych lub gdy jedna strona sprzężenia jest znacznie mniejsza od drugiej strony. Ten typ sprzężenia emituje jeden bok do wszystkich wykonawców, a więc wymaga więcej pamięci do emisji ogólnie.
 
-Można zmienić typ sprzężenia w konfiguracji przez ustawienie `spark.sql.autoBroadcastJoinThreshold`lub można ustawić wskazówkę sprzężenia przy użyciu interfejsów API Dataframe (`dataframe.join(broadcast(df2))`).
+Można zmienić typ sprzężenia w konfiguracji przez ustawienie lub można `spark.sql.autoBroadcastJoinThreshold` ustawić wskazówkę sprzężenia przy użyciu interfejsów API Dataframe ( `dataframe.join(broadcast(df2))` ).
 
 ```scala
 // Option 1
@@ -124,7 +124,7 @@ df1.join(broadcast(df2), Seq("PK")).
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Jeśli używasz tabel z przedziałem, możesz `Merge` dołączyć trzeci typ sprzężenia. Prawidłowo wstępnie podzielony i wstępnie posortowany zestaw danych pominie kosztowną fazę sortowania z `SortMerge` sprzężenia.
+Jeśli używasz tabel z przedziałem, możesz dołączyć trzeci typ sprzężenia `Merge` . Prawidłowo wstępnie podzielony i wstępnie posortowany zestaw danych pominie kosztowną fazę sortowania z `SortMerge` sprzężenia.
 
 Kolejność sprzężeń, szczególnie w bardziej złożonych zapytaniach. Zacznij od najbardziej wybiórczych sprzężeń. Ponadto należy przenieść sprzężenia, które zwiększają liczbę wierszy po agregacji, jeśli jest to możliwe.
 
@@ -160,7 +160,7 @@ Podczas uruchamiania współbieżnych zapytań należy wziąć pod uwagę nastę
 
 Monitoruj wydajność zapytań pod kątem wartości odstających lub innych problemów z wydajnością, przeglądając widok oś czasu, program SQL Graph, statystyki zadań i tak dalej. Czasami jeden lub kilka z wykonawców jest wolniejsze niż inne, a wykonywanie zadań trwa znacznie dłużej. Często odbywa się to w większych klastrach (> 30 węzłach). W takim przypadku należy podzielić pracę na większą liczbę zadań, aby harmonogram mógł wyrównać powolne zadania. 
 
-Na przykład należy mieć co najmniej dwa razy więcej zadań jako liczbę rdzeni wykonawców w aplikacji. Możesz również włączyć spekulacyjne wykonywanie zadań za pomocą `conf: spark.speculation = true`.
+Na przykład należy mieć co najmniej dwa razy więcej zadań jako liczbę rdzeni wykonawców w aplikacji. Możesz również włączyć spekulacyjne wykonywanie zadań za pomocą `conf: spark.speculation = true` .
 
 ## <a name="optimize-job-execution"></a>Optymalizuj wykonywanie zadania
 
@@ -170,7 +170,7 @@ Na przykład należy mieć co najmniej dwa razy więcej zadań jako liczbę rdze
 
 Klucz do wydajności zapytań Spark 2. x jest aparatem, który zależy od generacji całego etapu. W niektórych przypadkach generowanie kodu w całym etapie może być wyłączone. 
 
-Na przykład, jeśli w wyrażeniu agregacji jest używany niemodyfikowalny typ (`string`), `SortAggregate` pojawia się zamiast `HashAggregate`. Na przykład w celu uzyskania lepszej wydajności spróbuj wykonać następujące czynności, a następnie ponownie włączyć generowanie kodu:
+Na przykład, jeśli `string` w wyrażeniu agregacji jest używany niemodyfikowalny typ (), `SortAggregate` pojawia się zamiast `HashAggregate` . Na przykład w celu uzyskania lepszej wydajności spróbuj wykonać następujące czynności, a następnie ponownie włączyć generowanie kodu:
 
 ```sql
 MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))

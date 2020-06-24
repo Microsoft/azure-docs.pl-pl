@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: mnayak
-ms.openlocfilehash: 0ae06a1c3d486b5d5998b4c6d050d86f50910a0a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ba01b89b54dc7209449490059555f531f7616720
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598038"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193366"
 ---
 # <a name="what-is-routing-preference-preview"></a>Co to jest preferencja routingu (wersja zapoznawcza)?
 
@@ -65,11 +65,11 @@ Publiczny adres IP z wyborem preferencji routingu "Microsoft Global Network" mo�
 W przypadku usługi Storage podstawowe punkty końcowe zawsze używają **sieci globalnej firmy Microsoft**. Pomocnicze punkty końcowe można włączyć w **Internecie** jako wybór dla routingu ruchu. Obsługiwane usługi magazynu:
 
 * Obiekty blob
-* Pliki
-* Sieć Web
+* Files
+* Internet
 * Azure DataLake
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 Różnica między cenami w obu opcjach jest uwzględniana w cenach transferu danych wychodzących z Internetu. Funkcja routingu za pośrednictwem usługi **Microsoft Global Network** Data Transfer jest taka sama jak bieżąca cena wychodząca z Internetu. Aby uzyskać najnowsze informacje o cenach, odwiedź [stronę z cennikiem usługi Azure przepustowość](https://azure.microsoft.com/pricing/details/bandwidth/) . Do routingu za pośrednictwem **publicznej sieci Internet** jest niższa cena, jak pokazano w poniższej tabeli:
 
 | Region źródła ruchu wychodzącego | 0-5 GB na miesiąc | 5 GB — 10 TB/miesiąc | 10-50 TB/miesiąc | 50-150 TB/miesiąc | 150-500 TB/miesiąc |
@@ -88,7 +88,7 @@ Różnica między cenami w obu opcjach jest uwzględniana w cenach transferu dan
 
 Obsługa preferencji routingu jest dostępna w następujących regionach dla usług takich jak maszyna wirtualna i moduł równoważenia obciążenia dostępnego z Internetu, który korzysta z publicznego adresu IP dla ruchu wychodzącego z Internetu — Europa Północna, Europa Zachodnia, Francja Południowa, Południowe Zjednoczone Królestwo, Wschodnie stany USA, Północno-środkowe stany USA, Południowo-środkowe stany USA, zachodnie stany USA, zachodnie stany USA, Szwajcaria Zachodnia Niemcy Środkowo-Zachodnie Azja Południowo-Wschodnia,
 
-Obsługa preferencji routingu dla konta magazynu jest dostępna w następujących regionach świadczenia usługi Azure — Francja Południowa, Północno-środkowe stany USA i zachodnie stany USA.
+Obsługa preferencji routingu dla konta magazynu jest dostępna w następujących regionach świadczenia usługi Azure — Francja Południowa, Północno-środkowe stany USA, zachodnio-środkowe stany USA, Japonia Wschodnia, Japonia Zachodnia, Niemcy Środkowo-Zachodnie i Szwajcaria Zachodnia.
 ## <a name="limitations"></a>Ograniczenia
 
 * Preferencja routingu jest zgodna tylko z standardową jednostką SKU publicznego adresu IP. Podstawowa jednostka SKU publicznego adresu IP nie jest obsługiwana.

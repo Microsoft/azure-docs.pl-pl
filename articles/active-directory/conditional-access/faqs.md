@@ -4,20 +4,20 @@ description: Uzyskaj odpowiedzi na często zadawane pytania dotyczące dostępu 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 05/28/2020
+ms.topic: troubleshooting
+ms.date: 06/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1704fb50586168be6f960e62b918019cb67ce4c8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167812"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253243"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory często zadawane pytania dotyczące dostępu warunkowego
 
@@ -54,6 +54,12 @@ Usługa Microsoft Teams jest również obsługiwana osobno jako aplikacja w chmu
 Klienci stacjonarni Microsoft Teams dla systemów Windows i Mac obsługują nowoczesne uwierzytelnianie. Nowoczesne uwierzytelnianie umożliwia logowanie oparte na bibliotece uwierzytelniania Azure Active Directory (ADAL) do Microsoft Office aplikacji klienckich na różnych platformach.
 
 Aby uzyskać więcej informacji, zobacz artykuł, [zależności usługi dostępu warunkowego](service-dependencies.md) i Rozważ użycie zasad docelowej dla [aplikacji pakietu Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) .
+
+## <a name="why-are-some-tabs-not-working-in-microsoft-teams-after-enabling-conditional-access-policies"></a>Dlaczego niektóre karty nie działają w programie Microsoft Teams po włączeniu zasad dostępu warunkowego?
+
+Po włączeniu niektórych zasad dostępu warunkowego w dzierżawie w usłudze Microsoft Teams niektóre karty mogą przestać działać na komputerze klienckim zgodnie z oczekiwaniami. Jednak na kartach, których dotyczy ta funkcja, jest używany klient sieci Web Microsoft Teams. Takie karty mogą obejmować Power BI, formularze, VSTS, PowerApps i listę programu SharePoint.
+
+Aby wyświetlić karty, których to dotyczy, należy użyć klienta sieci Web programu Teams w programie Edge, Internet Explorer lub Chrome z zainstalowanym rozszerzeniem konta systemu Windows 10. Niektóre karty są zależne od uwierzytelniania w sieci Web, które nie działa w programie Microsoft Teams Client, gdy jest włączony dostęp warunkowy. Firma Microsoft współpracuje z partnerami, aby umożliwić korzystanie z tych scenariuszy. Na bieżąco włączono scenrarios obejmujący Planistę, program OneNote i strumień.
 
 ## <a name="next-steps"></a>Następne kroki
 

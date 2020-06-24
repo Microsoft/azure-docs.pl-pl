@@ -9,36 +9,23 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/11/2020
+ms.date: 06/22/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: be78681ba01cf98f087331a5a9a6c7974f3b1122
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 5415237a502116b597c1514f75f35203108237ec
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560251"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299079"
 ---
-# <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Zabezpiecz cykle życia uczenia maszynowego za pomocą prywatnych sieci wirtualnych
+# <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak izolować zadania eksperymentowania/szkolenia oraz zadania wnioskowania/oceniania w Azure Machine Learning w ramach Virtual Network platformy Azure. Zawarto również informacje na temat niektórych *zaawansowanych ustawień zabezpieczeń*, informacji, które nie są niezbędne dla podstawowych lub eksperymentalnych przypadków użycia.
-
-> [!WARNING]
-> Jeśli podstawowy magazyn znajduje się w sieci wirtualnej, użytkownicy nie będą mogli używać środowiska sieci Web programu Azure Machine Learning Studio, w tym:
-> - Przeciągnij i upuść projektanta
-> - Interfejs użytkownika do automatycznego uczenia maszynowego
-> - Interfejs użytkownika do etykietowania danych
-> - Interfejs użytkownika dla zestawów danych
-> - Notebooks
-> 
-> Jeśli spróbujesz, zostanie wyświetlony komunikat podobny do następującego błędu:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
-
-## <a name="what-is-a-vnet"></a>Co to jest sieć wirtualna?
+W tym artykule dowiesz się, jak zabezpieczyć cykl życia uczenia maszynowego, izolując Azure Machine Learning zadania szkoleniowe i wnioskowania w ramach usługi Azure Virtual Network (VNET). Azure Machine Learning bazują na innych usługach platformy Azure dla zasobów obliczeniowych, nazywanych również [celami obliczeniowymi](concept-compute-target.md), do uczenia i wdrażania modeli. Obiekty docelowe można tworzyć w ramach sieci wirtualnej. Na przykład można użyć obliczeń Azure Machine Learning do uczenia modelu, a następnie wdrożenia modelu w usłudze Azure Kubernetes Service (AKS). 
 
 **Sieć wirtualna** działa jako granica zabezpieczeń, izolowanie zasobów platformy Azure od publicznego Internetu. Możesz również dołączyć do sieci wirtualnej platformy Azure do sieci lokalnej. Dzięki dołączeniu sieci można bezpiecznie uczenie modeli i uzyskać dostęp do wdrożonych modeli w celu wnioskowania.
 
-Azure Machine Learning bazują na innych usługach platformy Azure dla zasobów obliczeniowych, nazywanych również [celami obliczeniowymi](concept-compute-target.md), do uczenia i wdrażania modeli. Obiekty docelowe można tworzyć w ramach sieci wirtualnej. Na przykład można użyć obliczeń Azure Machine Learning do uczenia modelu, a następnie wdrożenia modelu w usłudze Azure Kubernetes Service (AKS). 
-
+Jeśli **podstawowy magazyn znajduje się w sieci wirtualnej, użytkownicy nie będą mogli korzystać z środowiska sieci Web programu Azure Machine Learning Studio**, w tym z projektanta przeciągnij-n-upuść lub interfejsu użytkownika w celu automatycznego uczenia maszynowego, etykietowania danych i zestawów danych lub zintegrowanych notesów.  Jeśli spróbujesz, zostanie wyświetlony komunikat podobny do następującego błędu:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -57,7 +44,7 @@ Możesz również [włączyć link prywatny platformy Azure](how-to-configure-pr
 > [!TIP]
 > Możesz połączyć sieć wirtualną i połączenie prywatne, aby chronić komunikację między obszarem roboczym i innymi zasobami platformy Azure. Jednak niektóre kombinacje wymagają obszaru roboczego wersja Enterprise. Skorzystaj z poniższej tabeli, aby zrozumieć, jakie scenariusze wymagają wydania Enterprise Edition:
 >
-> | Scenariusz | Enterprise</br>bitowych | Podstawowy</br>bitowych |
+> | Scenariusz | Enterprise</br>bitowych | Podstawowa</br>bitowych |
 > | ----- |:-----:|:-----:| 
 > | Brak sieci wirtualnej lub prywatnego linku | ✔ | ✔ |
 > | Obszar roboczy bez linku prywatnego. Inne zasoby (z wyjątkiem Azure Container Registry) w sieci wirtualnej | ✔ | ✔ |
@@ -77,7 +64,7 @@ Możesz również [włączyć link prywatny platformy Azure](how-to-configure-pr
 
 <a id="amlcompute"></a>
 
-## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Wystąpienia klastrów obliczeniowych &
+## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Wystąpienia klastrów obliczeniowych & 
 
 Aby można było użyć [zarządzanego **obiektu docelowego obliczeń** Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) lub [ **wystąpienia** obliczeniowego Azure Machine Learning](concept-compute-instance.md) w sieci wirtualnej, należy spełnić następujące wymagania dotyczące sieci:
 
@@ -102,7 +89,9 @@ Aby można było użyć [zarządzanego **obiektu docelowego obliczeń** Azure Ma
 
 ### <a name="required-ports"></a><a id="mlcports"></a>Wymagane porty
 
-Środowisko obliczeniowe usługi Machine Learning obecnie używa usługi Azure Batch do aprowizacji maszyn wirtualnych w określonej sieci wirtualnej. Podsieć musi zezwalać na komunikację przychodzącą z usługi Batch. Ta komunikacja służy do planowania przebiegów w węzłach środowisko obliczeniowe usługi Machine Learning oraz do komunikowania się z usługą Azure Storage i innymi zasobami. Usługa Batch dodaje sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) na poziomie interfejsów sieciowych dołączonych do maszyn wirtualnych. Te sieciowe grupy zabezpieczeń automatycznie konfigurują reguły ruchu przychodzącego i wychodzącego, aby zezwolić na następujący ruch:
+Jeśli planujesz zabezpieczenie sieci wirtualnej przez ograniczenie ruchu sieciowego do/z publicznej sieci Internet, musisz zezwolić na komunikację przychodzącą z usługi Azure Batch.
+
+Usługa Batch dodaje sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) na poziomie interfejsów sieciowych dołączonych do maszyn wirtualnych. Te sieciowe grupy zabezpieczeń automatycznie konfigurują reguły ruchu przychodzącego i wychodzącego, aby zezwolić na następujący ruch:
 
 - Ruch przychodzący TCP na portach 29876 i 29877 z __tagu usługi__ __BatchNodeManagement__.
 
@@ -116,9 +105,10 @@ Aby można było użyć [zarządzanego **obiektu docelowego obliczeń** Azure Ma
 
 - Dla ruchu przychodzącego TCP wystąpienia obliczeniowego na porcie 44224 z __tagu usługi__ __AzureMachineLearning__.
 
-Zachowaj ostrożność przy modyfikowaniu lub dodawaniu reguły ruchu przychodzącego lub wychodzącego w sieciowych grupach zabezpieczeń skonfigurowanych za pomocą usługi Batch. Jeśli sieciowej grupy zabezpieczeń blokuje komunikację z węzłami obliczeniowymi, usługa COMPUTE ustawia stan węzłów obliczeniowych na niezdatny do użytku.
-
-Nie musisz określać sieciowych grup zabezpieczeń na poziomie podsieci, ponieważ usługa Azure Batch konfiguruje własny sieciowych grup zabezpieczeń. Jeśli jednak określona podsieć ma skojarzone sieciowych grup zabezpieczeń lub zaporę, skonfiguruj reguły zabezpieczeń dla ruchu przychodzącego i wychodzącego wymienione wcześniej.
+> [!IMPORTANT]
+> Zachowaj ostrożność przy modyfikowaniu lub dodawaniu reguły ruchu przychodzącego lub wychodzącego w sieciowych grupach zabezpieczeń skonfigurowanych za pomocą usługi Batch. Jeśli sieciowej grupy zabezpieczeń blokuje komunikację z węzłami obliczeniowymi, usługa COMPUTE ustawia stan węzłów obliczeniowych na niezdatny do użytku.
+>
+> Nie musisz określać sieciowych grup zabezpieczeń na poziomie podsieci, ponieważ usługa Azure Batch konfiguruje własny sieciowych grup zabezpieczeń. Jeśli jednak podsieć zawierająca Azure Machine Learning COMPUTE ma skojarzone sieciowych grup zabezpieczeń lub zaporę, należy również zezwolić na wymieniony wcześniej ruch.
 
 Konfiguracja reguły sieciowej grupy zabezpieczeń w Azure Portal przedstawiono na następujących obrazach:
 
@@ -435,6 +425,9 @@ Aby uzyskać więcej informacji na temat używania wewnętrznego modułu równow
 ## <a name="use-azure-container-instances-aci"></a>Użyj Azure Container Instances (ACI)
 
 Azure Container Instances są tworzone dynamicznie podczas wdrażania modelu. Aby umożliwić Azure Machine Learning tworzenia ACI wewnątrz sieci wirtualnej, należy włączyć __delegowanie podsieci__ dla podsieci używanej przez wdrożenie.
+
+> [!WARNING]
+> Aby można było używać Azure Container Instances wewnątrz sieci wirtualnej, Azure Container Registry (ACR) dla obszaru roboczego nie może być również w sieci wirtualnej.
 
 Aby użyć ACI w sieci wirtualnej z obszarem roboczym, wykonaj następujące czynności:
 

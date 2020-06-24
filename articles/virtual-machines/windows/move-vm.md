@@ -1,45 +1,45 @@
 ---
-title: Przenoszenie zasobu maszyny Wirtualnej systemu Windows na platformie Azure
-description: Przenoszenie maszyny Wirtualnej systemu Windows do innej subskrypcji platformy Azure lub grupy zasobów w modelu wdrażania Menedżera zasobów.
+title: Przenoszenie zasobu maszyny wirtualnej z systemem Windows na platformie Azure
+description: Przenieś maszynę wirtualną z systemem Windows do innej subskrypcji platformy Azure lub grupy zasobów w Menedżer zasobów model wdrażania.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 07/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 0c3f5541405d1fd983bbf988b99d2b4e10d8908c
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 6e156af2d4805ba310443a2acf6cc47d06a735eb
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865662"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84762330"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Przenoszenie maszyny wirtualnej z systemem Windows do innej subskrypcji platformy Azure lub grupy zasobów
-W tym artykule opisano, jak przenieść maszynę wirtualną systemu Windows (VM) między grupami zasobów lub subskrypcjami. Przejście między subskrypcjami może być przydatne, jeśli pierwotnie utworzono maszynę wirtualną w subskrypcji osobistej, a teraz chcesz przenieść ją do subskrypcji firmy, aby kontynuować pracę. Nie trzeba uruchamiać maszyny Wirtualnej, aby przenieść go i należy kontynuować pracę podczas przenoszenia.
+W tym artykule pokazano, jak przenieść maszynę wirtualną z systemem Windows między grupami zasobów lub subskrypcjami. Przenoszenie między subskrypcjami może być przydatne, jeśli pierwotnie utworzono maszynę wirtualną w prywatnej subskrypcji, a teraz chcesz przenieść ją do subskrypcji firmy, aby kontynuować pracę. Nie jest konieczne zatrzymanie maszyny wirtualnej w celu przeniesienia jej i kontynuowanie jej działania podczas przenoszenia.
 
 > [!IMPORTANT]
->Nowe identyfikatory zasobów są tworzone jako część przenoszenia. Po przeniesieniu maszyny Wirtualnej należy zaktualizować narzędzia i skrypty, aby użyć nowych identyfikatorów zasobów.
+>Nowe identyfikatory zasobów są tworzone w ramach przenoszenia. Po przeniesieniu maszyny wirtualnej należy zaktualizować narzędzia i skrypty w celu użycia nowych identyfikatorów zasobów.
 >
 >
 
 [!INCLUDE [virtual-machines-common-move-vm](../../../includes/virtual-machines-common-move-vm.md)]
 
-## <a name="use-powershell-to-move-a-vm"></a>Przenoszenie maszyny Wirtualnej za pomocą programu PowerShell
+## <a name="use-powershell-to-move-a-vm"></a>Przenoszenie maszyny wirtualnej przy użyciu programu PowerShell
 
-Aby przenieść maszynę wirtualną do innej grupy zasobów, należy się upewnić, że również przenieść wszystkie zasoby zależne. Aby uzyskać listę z identyfikatorem zasobu każdego z tych zasobów, należy użyć polecenia cmdlet [Get-AzResource.](https://docs.microsoft.com/powershell/module/az.resources/get-azresource)
+Aby przenieść maszynę wirtualną do innej grupy zasobów, należy upewnić się, że wszystkie zasoby zależne są również przeniesione. Aby uzyskać listę z IDENTYFIKATORem zasobu dla każdego z tych zasobów, należy użyć polecenia cmdlet [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) .
 
 ```azurepowershell-interactive
  Get-AzResource -ResourceGroupName myResourceGroup | Format-table -wrap -Property ResourceId
 ```
 
-Dane wyjściowe poprzedniego polecenia można użyć do utworzenia oddzielonej przecinkami listy identyfikatorów zasobów do [move-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) w celu przeniesienia każdego zasobu do miejsca docelowego.
+Możesz użyć danych wyjściowych poprzedniego polecenia, aby utworzyć listę rozdzielonych przecinkami identyfikatorów zasobów do [przenoszenia-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) , aby przenieść każdy zasób do miejsca docelowego.
 
 ```azurepowershell-interactive
 Move-AzResource -DestinationResourceGroupName "myDestinationResourceGroup" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
 
-Aby przenieść zasoby do innej subskrypcji, należy dołączyć **parametr -DestinationSubscriptionId.**
+Aby przenieść zasoby do innej subskrypcji, Dołącz parametr **-DestinationSubscriptionId** .
 
 ```azurepowershell-interactive
 Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
@@ -48,7 +48,7 @@ Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
 ```
 
 
-Gdy zostaniesz poproszony o potwierdzenie, że chcesz przenieść określone zasoby, wprowadź **Y,** aby potwierdzić.
+Gdy zostanie wyświetlony monit o potwierdzenie, że chcesz przenieść określone zasoby, wpisz **Y** , aby potwierdzić.
 
 ## <a name="next-steps"></a>Następne kroki
-Można przenieść wiele różnych typów zasobów między grupami zasobów i subskrypcji. Aby uzyskać więcej informacji, zobacz [Przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md).    
+Wiele różnych typów zasobów można przenosić między grupami zasobów i subskrypcjami. Aby uzyskać więcej informacji, zobacz [przenoszenie zasobów do nowej grupy zasobów lub subskrypcji](../../azure-resource-manager/management/move-resource-group-and-subscription.md).    

@@ -3,25 +3,25 @@ title: Tłumaczenie linków i adresów URL aplikacja usługi Azure AD proxy | Mi
 description: Obejmuje podstawowe informacje dotyczące łączników usługi Azure serwer proxy aplikacji usługi Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/15/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69533700"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764846"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Przekieruj linki stałe dla aplikacji opublikowanych przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -75,7 +75,7 @@ Po włączeniu translacji łączy usługa serwera proxy aplikacji przeszukuje ko
 
 Po uwierzytelnieniu, gdy serwer proxy przekazuje dane aplikacji do użytkownika, serwer proxy aplikacji skanuje aplikację pod kątem linków stałe i zastępuje je odpowiednimi opublikowanymi zewnętrznymi adresami URL.
 
-Serwer proxy aplikacji zakłada, że aplikacje są kodowane w formacie UTF-8. Jeśli tak się nie dzieje, określ typ kodowania w nagłówku odpowiedzi HTTP, np `Content-Type:text/html;charset=utf-8`..
+Serwer proxy aplikacji zakłada, że aplikacje są kodowane w formacie UTF-8. Jeśli tak się nie dzieje, określ typ kodowania w nagłówku odpowiedzi HTTP, np `Content-Type:text/html;charset=utf-8` ..
 
 ### <a name="which-links-are-affected"></a>Na jakie linki są one modyfikowane?
 
@@ -83,8 +83,8 @@ Funkcja tłumaczenia łączy wyszukuje tylko linki, które znajdują się w taga
 
 Istnieją dwa popularne typy linków wewnętrznych w aplikacjach lokalnych:
 
-- **Względne linki wewnętrzne** wskazujące na zasób udostępniony w strukturze plików lokalnych, takich `/claims/claims.html`jak. Te linki automatycznie pracują w aplikacjach publikowanych za pomocą serwera proxy aplikacji i nadal pracują z tłumaczeniem linków lub bez niego. 
-- **Stałe wewnętrzne linki** do innych aplikacji lokalnych, takich jak `http://expenses` lub opublikowanych plików, `http://expenses/logo.jpg`takich jak. Funkcja tłumaczenia łączy działa na łączach wewnętrznych stałe i zmienia je w taki sposób, aby wskazywały zewnętrzne adresy URL, do których użytkownicy zdalni muszą przejść.
+- **Względne linki wewnętrzne** wskazujące na zasób udostępniony w strukturze plików lokalnych, takich jak `/claims/claims.html` . Te linki automatycznie pracują w aplikacjach publikowanych za pomocą serwera proxy aplikacji i nadal pracują z tłumaczeniem linków lub bez niego. 
+- **Stałe wewnętrzne linki** do innych aplikacji lokalnych, takich jak `http://expenses` lub opublikowanych plików, takich jak `http://expenses/logo.jpg` . Funkcja tłumaczenia łączy działa na łączach wewnętrznych stałe i zmienia je w taki sposób, aby wskazywały zewnętrzne adresy URL, do których użytkownicy zdalni muszą przejść.
 
 Kompletna lista tagów kodu HTML, które serwer proxy aplikacji obsługuje tłumaczenie linków dla:
 * a
@@ -103,7 +103,7 @@ Kompletna lista tagów kodu HTML, które serwer proxy aplikacji obsługuje tłum
 * połącz
 * elementem
 * odpowiada
-* obiekt
+* object
 * skrypt
 * source
 * śledź
@@ -137,7 +137,7 @@ Jeśli potrzebujesz obsługi jednego z tych dwóch scenariuszy, Użyj tych samyc
 Wprowadzenie do tłumaczenia linków jest tak proste, jak kliknięcie przycisku:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator.
-2. Przejdź do pozycji **Azure Active Directory** > **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje** > wybierz aplikację, którą chcesz zarządzać > **serwerem proxy aplikacji**.
+2. Przejdź do pozycji **Azure Active Directory**  >  **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje** > wybierz aplikację, którą chcesz zarządzać > **serwerem proxy aplikacji**.
 3. Włącz opcję **tłumaczenie adresów URL w treści aplikacji** na **wartość tak**.
 
    ![Wybierz opcję tak, aby przetłumaczyć adresy URL w treści aplikacji](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)

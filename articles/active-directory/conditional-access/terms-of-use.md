@@ -4,19 +4,19 @@ description: Zacznij korzystać z Azure Active Directory warunki użytkowania, a
 services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2f06a7c88a7c17f5f93201192664c2d4a97564e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39e76468238a911c7a9e5543bf5063d1c7b6a8b8
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480967"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253328"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory warunki użytkowania
 
@@ -94,8 +94,8 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
    | Wygasanie od | Częstotliwość | Wynik |
    | --- | --- | --- |
-   | Dzisiejsza data  | Co miesiąc | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania, a następnie zaakceptować je ponownie co miesiąc. |
-   | Data w przyszłości  | Co miesiąc | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania. Po upływie tego czasu termin wysłane zostanie wygaśnie, a następnie użytkownicy muszą ponownie zaakceptować każdy miesiąc.  |
+   | Dzisiejsza data  | Miesięczne | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania, a następnie zaakceptować je ponownie co miesiąc. |
+   | Data w przyszłości  | Miesięczne | Rozpoczynając od dzisiaj, użytkownicy muszą zaakceptować warunki użytkowania. Po upływie tego czasu termin wysłane zostanie wygaśnie, a następnie użytkownicy muszą ponownie zaakceptować każdy miesiąc.  |
 
    Na przykład jeśli ustawisz wygaśnięcie, rozpoczynając od **1 stycznia** , a częstotliwość na **co miesiąc**, poniżej przedstawiono sposób wygaśnięcia może wystąpić w przypadku dwóch użytkowników:
 
@@ -129,7 +129,7 @@ Po sfinalizowaniu dokumentu z użyciem warunków użytkowania Użyj następując
 
     Niestandardowe zasady dostępu warunkowego umożliwiają szczegółowe warunki użytkowania, w dół do określonej aplikacji w chmurze lub grupy użytkowników. Aby uzyskać więcej informacji, zobacz [Szybki Start: Wymagaj akceptacji warunków użytkowania przed uzyskaniem dostępu do aplikacji w chmurze](require-tou.md).
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
    W przypadku wybrania niestandardowego szablonu dostępu warunkowego zostanie wyświetlony nowy ekran, który umożliwia utworzenie niestandardowych zasad dostępu warunkowego.
 
@@ -225,7 +225,7 @@ Można edytować niektóre szczegóły warunków użytkowania, ale nie można mo
 
    ![Okienko Edycja warunków użytkowania z pokazywaniem opcji Nazwa i rozwiń](./media/terms-of-use/edit-tou.png)
 
-1. Kliknij przycisk **Zapisz** , aby zapisać zmiany.
+1. Kliknij pozycję **Zapisz**, aby zapisać zmiany.
 
    Gdy zapiszesz zmiany, użytkownicy nie będą musieli ponownie akceptować tych zmian.
 
@@ -387,7 +387,7 @@ Odp.: można [przejrzeć wcześniej zaakceptowane warunki użytkowania](#how-use
 Odp.: w przypadku skonfigurowania warunków użytkowania usługi Azure AD i warunków [i postanowień usługi Intune](/intune/terms-and-conditions-create)użytkownik będzie musiał zaakceptować oba te czynności. Aby uzyskać więcej informacji, zapoznaj się z tematem [Wybieranie odpowiedniego rozwiązania dla wpisu w blogu organizacji](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **P: jakie punkty końcowe są używane przez usługę do uwierzytelniania?**<br />
-Odp.: Warunki użytkowania wykorzystuje następujące punkty końcowe do uwierzytelniania: https://tokenprovider.termsofuse.identitygovernance.azure.com i https://account.activedirectory.windowsazure.com. Jeśli Twoja organizacja ma listę adresów URL do rejestracji, konieczne będzie dodanie tych punktów końcowych do listy dozwolonych oraz punktów końcowych usługi Azure AD w celu zalogowania.
+Odp.: Warunki użytkowania wykorzystuje następujące punkty końcowe do uwierzytelniania: https://tokenprovider.termsofuse.identitygovernance.azure.com i https://account.activedirectory.windowsazure.com . Jeśli Twoja organizacja ma listę adresów URL do rejestracji, konieczne będzie dodanie tych punktów końcowych do listy dozwolonych oraz punktów końcowych usługi Azure AD w celu zalogowania.
 
 ## <a name="next-steps"></a>Następne kroki
 

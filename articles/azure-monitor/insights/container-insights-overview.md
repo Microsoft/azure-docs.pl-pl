@@ -2,13 +2,13 @@
 title: Omówienie Azure Monitor kontenerów | Microsoft Docs
 description: W tym artykule opisano Azure Monitor kontenerów monitorujących rozwiązanie AKS datacontainer Insights i wartość dostarczaną przez monitorowanie kondycji klastrów AKS i Container Instances na platformie Azure.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 5bd951f7dcb2def62893df48709f1e57bd340bb2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 05/21/2020
+ms.openlocfilehash: 709759d1a2b2eb5d8f919ed90e6525c664129f16
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118081"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770819"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Omówienie usługi Azure Monitor dla kontenerów
 
@@ -19,6 +19,7 @@ Azure Monitor for Containers to funkcja przeznaczona do monitorowania wydajnośc
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - Samozarządzane klastry Kubernetes hostowane w [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) lub lokalnie
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
+- [Usługa Azure ARC z włączonym Kubernetes](../../azure-arc/kubernetes/overview.md) (wersja zapoznawcza) 
 
 Azure Monitor dla kontenerów obsługuje klastry z systemem operacyjnym Linux i Windows Server 2019. 
 
@@ -46,9 +47,11 @@ Azure Monitor for Containers oferuje kompleksowe środowisko monitorowania wykor
     >Obsługa usługi Azure Red Hat OpenShift jest w tej chwili funkcją w publicznej wersji zapoznawczej.
     >
 
+* Monitoruj obciążenia kontenerów [wdrożone w usłudze Azure ARC z włączonym Kubernetes (wersja zapoznawcza)](../../azure-arc/kubernetes/overview.md).
+
 Główne różnice w monitorowaniu klastra z systemem Windows Server w porównaniu z klastrem systemu Linux są następujące:
 
-- System Windows nie ma metryki pamięci RSS i w związku z tym nie jest dostępna dla węzłów i kontenerów systemu Windows. Zestaw roboczy jest dostępny. Dowiedz się więcej o [zarządzaniu pamięcią w systemie Windows](https://docs.microsoft.com/windows/win32/memory/working-set).
+- System Windows nie ma metryki pamięci RSS i w związku z tym nie jest dostępny dla węzłów i kontenerów systemu Windows. Dostępna jest Metryka [zestawu roboczego](https://docs.microsoft.com/windows/win32/memory/working-set) .
 - Informacje o pojemności magazynu dyskowego nie są dostępne dla węzłów systemu Windows.
 - Dzienniki kontenerów nie są dostępne dla kontenerów uruchomionych w węzłach systemu Windows.
 - Obsługa funkcji danych na żywo (wersja zapoznawcza) jest dostępna z wyjątkiem dzienników kontenera systemu Windows.

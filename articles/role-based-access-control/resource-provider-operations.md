@@ -7,13 +7,13 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 05/04/2020
-ms.openlocfilehash: 5944dbaf6cfa4e760ffc00c9d43f73e29b9541dc
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/18/2020
+ms.openlocfilehash: 28313391201281b7c30617c4b910583194b2bcd2
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84656523"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080115"
 ---
 # <a name="azure-resource-providers-operations"></a>Operacje dostawców zasobów platformy Azure
 
@@ -195,6 +195,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Marketplace/privateStores/odczyt | Odczytuje PrivateStores. |
 > | Microsoft. Marketplace/privateStores/oferty/zapis | Tworzy ofertę w PrivateStore. |
 > | Microsoft. Marketplace/privateStores/oferty/usuwanie | Usuwa ofertę z PrivateStore. |
+> | Microsoft. Marketplace/privateStores/oferty/odczyt | Odczytuje oferty PrivateStore. |
 
 ### <a name="microsoftmarketplaceapps"></a>Microsoft. MarketplaceApps
 
@@ -268,7 +269,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Support/supportTickets/Communications/Read | Wyświetla jedną lub całą komunikację biletów pomocy technicznej |
 > | Microsoft. Support/supportTickets/Communications/Write | Dodaje nową komunikację do biletu pomocy technicznej |
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Compute
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -496,6 +497,7 @@ Usługa platformy Azure: [Virtual Machines](../virtual-machines/index.yml), [Vir
 > | Microsoft. COMPUTE/virtualMachines/Delete | Usuwa maszynę wirtualną |
 > | Microsoft. COMPUTE/virtualMachines/Start/akcja | Uruchamia maszynę wirtualną |
 > | Microsoft. COMPUTE/virtualMachines/wyłączenie/akcja | Wyłącza maszynę wirtualną. Pamiętaj, że opłaty za maszynę wirtualną będą kontynuowane. |
+> | Microsoft. COMPUTE/virtualMachines/Zastosuj ponownie/akcję | Ponowne zastosowanie bieżącego modelu maszyny wirtualnej |
 > | Microsoft. COMPUTE/virtualMachines/redeploy/Action | Ponownie wdraża maszynę wirtualną |
 > | Microsoft. COMPUTE/virtualMachines/restart/akcja | Uruchamia ponownie maszynę wirtualną |
 > | Microsoft. COMPUTE/virtualMachines/deallocate/Action | Wyłącza maszynę wirtualną i zwalnia zasoby obliczeniowe |
@@ -508,6 +510,7 @@ Usługa platformy Azure: [Virtual Machines](../virtual-machines/index.yml), [Vir
 > | Microsoft. COMPUTE/virtualMachines/installPatches/akcja | Instaluje dostępne poprawki aktualizacji systemu operacyjnego na maszynie wirtualnej na podstawie parametrów dostarczonych przez użytkownika. Wyniki oceny zawierające listę dostępnych poprawek zostaną również odświeżone w ramach tego elementu. |
 > | Microsoft. COMPUTE/virtualMachines/assessPatches/akcja | Ocenia maszynę wirtualną i znajduje listę dostępnych dla niej poprawek aktualizacji systemu operacyjnego. |
 > | Microsoft. COMPUTE/virtualMachines/cancelPatchInstallation/akcja | Anuluje trwającą operację Zainstaluj poprawkę aktualizacji systemu operacyjnego na maszynie wirtualnej. |
+> | Microsoft. COMPUTE/virtualMachines/simulateEviction/akcja | Symuluje wykluczanie dodatkowych maszyn wirtualnych |
 > | Microsoft. COMPUTE/virtualMachines/Extensions/Read | Pobierz właściwości rozszerzenia maszyny wirtualnej |
 > | Microsoft. COMPUTE/virtualMachines/Extensions/Write | Tworzy nowe rozszerzenie maszyny wirtualnej lub aktualizuje istniejące |
 > | Microsoft. COMPUTE/virtualMachines/Extensions/Delete | Usuwa rozszerzenie maszyny wirtualnej |
@@ -529,6 +532,7 @@ Usługa platformy Azure: [Virtual Machines](../virtual-machines/index.yml), [Vir
 > | Microsoft. COMPUTE/virtualMachineScaleSets/Skala/akcja | Sprawdź, czy istniejący zestaw skalowania maszyn wirtualnych może skalować w poziomie/skalować do określonej liczby wystąpień |
 > | Microsoft. COMPUTE/virtualMachineScaleSets/forceRecoveryServiceFabricPlatformUpdateDomainWalk/akcja | Ręcznie przechodzenie do domeny aktualizacji platformy zestawu skalowania maszyn wirtualnych usługi Service Fabric w celu zakończenia oczekującej aktualizacji, która jest zablokowana |
 > | Microsoft. COMPUTE/virtualMachineScaleSets/osRollingUpgrade/akcja | Uruchamia uaktualnienie stopniowe, aby przenieść wszystkie wystąpienia zestawu skalowania maszyn wirtualnych do najnowszej dostępnej wersji systemu operacyjnego obrazu platformy. |
+> | Microsoft. COMPUTE/virtualMachineScaleSets/setOrchestrationServiceState/akcja | Ustawia stan usługi aranżacji na podstawie akcji podanej w danych wejściowych operacji. |
 > | Microsoft. COMPUTE/virtualMachineScaleSets/rollingUpgrades/akcja | Anuluje stopniowe uaktualnianie zestawu skalowania maszyn wirtualnych |
 > | Microsoft. COMPUTE/virtualMachineScaleSets/Extensions/Read | Pobiera właściwości rozszerzenia zestawu skalowania maszyn wirtualnych |
 > | Microsoft. COMPUTE/virtualMachineScaleSets/Extensions/Write | Tworzy nowe rozszerzenie zestawu skalowania maszyn wirtualnych lub aktualizuje istniejące |
@@ -553,6 +557,7 @@ Usługa platformy Azure: [Virtual Machines](../virtual-machines/index.yml), [Vir
 > | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/redeploy/Action | Ponownie wdraża wystąpienie maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
 > | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/performMaintenance/Action | Przeprowadza planowaną konserwację na wystąpieniu maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
 > | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/UruchomPolecenie/Action | Wykonuje wstępnie zdefiniowany skrypt w wystąpieniu maszyny wirtualnej w zestawie skalowania maszyn wirtualnych. |
+> | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/simulateEviction/Action | Symuluje wykluczanie aktywnej maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
 > | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/rozszerzenia/odczyt | Pobierz właściwości rozszerzenia maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
 > | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/Extensions/Write | Tworzy nowe rozszerzenie maszyny wirtualnej w zestawie skalowania maszyn wirtualnych lub aktualizuje istniejące |
 > | Microsoft. COMPUTE/virtualMachineScaleSets/virtualMachines/rozszerzenia/Usuń | Usuwa rozszerzenie maszyny wirtualnej w zestawie skalowania maszyn wirtualnych |
@@ -775,12 +780,12 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/applicationGateways/getBackendHealthOnDemand/akcja | Pobiera kondycję zaplecza bramy aplikacji na żądanie dla danego ustawienia http i puli zaplecza |
 > | Microsoft. Network/applicationGateways/Start/akcja | Uruchamia bramę aplikacji |
 > | Microsoft. Network/applicationGateways/Stop/akcja | Kończy działanie bramy aplikacji |
+> | Microsoft. Network/applicationGateways/restart/akcja | Uruchamia ponownie bramę aplikacji |
 > | Microsoft. Network/applicationGateways/backendAddressPools/Join/Action | Sprzęga pulę adresów zaplecza bramy aplikacji. Brak alertów. |
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/odczyt | Pobiera Application Gateway połączeń PrivateEndpoint |
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/Write | Aktualizacje Application Gateway połączenia PrivateEndpoint |
 > | Microsoft. Network/applicationGateways/privateEndpointConnections/Delete | Usuwa połączenie Application Gateway PrivateEndpoint |
 > | Microsoft. Network/applicationGateways/privateLinkResources/odczyt | Pobiera zasoby elementu applicationgateway PrivateLink |
-> | Microsoft. Network/applicationGateways/privateLinkResources/resolvePrivateLinkServiceId/Action | Pobiera prywatny identyfikator łącza dla zasobu prywatnego linku bramy aplikacji |
 > | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/odczyt | Pobiera zasady WAF Application Gateway |
 > | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/Write | Application Gateway tworzy zasady WAFymi lub aktualizuje zasady Application Gateway WAF |
 > | Microsoft. Network/ApplicationGatewayWebApplicationFirewallPolicies/Delete | Usuwa zasady WAF Application Gateway |
@@ -817,6 +822,9 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/Connections/stoppacketcapture/Action | Powoduje zatrzymanie przechwytywania pakietu połączenia bramy Virtual Network. |
 > | Microsoft. Network/Connections/sharedKey/Read | Pobiera VirtualNetworkGatewayConnection SharedKey |
 > | Microsoft. Network/Connections/sharedKey/Write | Tworzy lub aktualizuje istniejące VirtualNetworkGatewayConnection SharedKey |
+> | Microsoft. Network/customIpPrefixes/odczyt | Pobiera niestandardową definicję prefiksu adresu IP |
+> | Microsoft. Network/customIpPrefixes/Write | Tworzy niestandardowy prefiks adresu IP lub aktualizuje istniejący niestandardowy prefiks adresu IP |
+> | Microsoft. Network/customIpPrefixes/Delete | Usuwa niestandardowy prefiks adresu IP |
 > | Microsoft. Network/ddosCustomPolicies/odczyt | Pobiera DDoS dostosowaną definicję zasad |
 > | Microsoft. Network/ddosCustomPolicies/Write | Tworzy dostosowane zasady DDoS lub aktualizuje istniejące dostosowane zasady DDoS |
 > | Microsoft. Network/ddosCustomPolicies/Delete | Usuwa zasady niestandardowe DDoS |
@@ -902,6 +910,7 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/firewallPolicies/odczyt | Pobiera zasady zapory |
 > | Microsoft. Network/firewallPolicies/Write | Tworzy zasady zapory lub aktualizuje istniejące zasady zapory |
 > | Microsoft. Network/firewallPolicies/Join/Action | Przyłącza zasady zapory. Brak alertów. |
+> | Microsoft. Network/firewallPolicies/certyfikaty/akcja | Generuj certyfikaty zasad zapory |
 > | Microsoft. Network/firewallPolicies/Delete | Usuwa zasady zapory |
 > | Microsoft. Network/firewallPolicies/ruleGroups/odczyt | Pobiera grupę reguł zasad zapory |
 > | Microsoft. Network/firewallPolicies/ruleGroups/Write | Tworzy grupę reguł zasad zapory lub aktualizuje istniejącą grupę reguł zasad zapory |
@@ -983,6 +992,9 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/Locations/supportedVirtualMachineSizes/Read | Pobiera obsługiwane rozmiary maszyn wirtualnych |
 > | Microsoft. Network/lokalizacje/użycia/odczyt | Pobiera metryki użycia zasobów |
 > | Microsoft. Network/Locations/virtualNetworkAvailableEndpointServices/Read | Pobiera listę dostępnych Virtual Network usług punktu końcowego |
+> | Microsoft. Network/masterCustomIpPrefixes/odczyt | Pobiera definicję wzorca niestandardowego prefiksu adresu IP |
+> | Microsoft. Network/masterCustomIpPrefixes/Write | Tworzy główny niestandardowy prefiks adresu IP lub aktualizuje istniejący główny niestandardowy prefiks adresu IP |
+> | Microsoft. Network/masterCustomIpPrefixes/Delete | Usuwa niestandardowy prefiks adresu IP |
 > | Microsoft. Network/natGateways/Join/Action | Sprzęga z bramą translatora adresów sieciowych |
 > | Microsoft. Network/natRuleCollections/odczyt | Pobiera NatRuleCollection zapory platformy Azure |
 > | Microsoft. Network/natRuleCollections/Write | CreatesOrUpdates NatRuleCollection zapory platformy Azure |
@@ -1182,6 +1194,9 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/virtualHubs/odczyt | Pobierz koncentrator wirtualny |
 > | Microsoft. Network/virtualHubs/Write | Tworzenie lub aktualizowanie koncentratora wirtualnego |
 > | Microsoft. Network/virtualHubs/effectiveRoutes/akcja | Pobiera obowiązującą trasę skonfigurowaną w koncentratorze wirtualnym |
+> | Microsoft. Network/virtualHubs/hubRouteTables/odczyt | Pobiera zasób podrzędny tabeli tras koncentratora wirtualnego |
+> | Microsoft. Network/virtualHubs/hubRouteTables/Write | Tworzy lub aktualizuje zasób podrzędny tabeli tras koncentratora wirtualnego |
+> | Microsoft. Network/virtualHubs/hubRouteTables/Delete | Usuwa zasób podrzędny tabeli tras koncentratora wirtualnego |
 > | Microsoft. Network/virtualHubs/hubVirtualNetworkConnections/odczyt | Pobierz HubVirtualNetworkConnection |
 > | Microsoft. Network/virtualHubs/hubVirtualNetworkConnections/Write | Utwórz lub zaktualizuj HubVirtualNetworkConnection |
 > | Microsoft. Network/virtualHubs/hubVirtualNetworkConnections/Delete | Usuwa element HubVirtualNetworkConnection |
@@ -1259,6 +1274,8 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/vpnGateways/Write | Bramy vpngateway. |
 > | Microsoft. Network/vpnGateways/Delete | Usuwa element bramy vpngateway. |
 > | Microsoft. Network/vpngateways/Reset/akcja | Resetuje bramy vpngateway |
+> | Microsoft. Network/vpngateways/startpacketcapture/akcja | Uruchom przechwytywanie pakietów bramy sieci VPN z uwzględnieniem zasobu |
+> | Microsoft. Network/vpngateways/stoppacketcapture/akcja | Zatrzymaj przechwytywanie pakietów bramy sieci VPN za pomocą adresie sasurl |
 > | Microsoft. Network/vpngateways/listvpnconnectionshealth/akcja | Pobiera kondycję połączenia dla wszystkich lub podzbioru połączeń na bramy vpngateway |
 > | Microsoft. Network/vpnGateways/vpnConnections/odczyt | Pobiera VpnConnection. |
 > | Microsoft. Network/vpnGateways/vpnConnections/Write | VpnConnection. |
@@ -1272,7 +1289,7 @@ Usługa platformy Azure: [Application Gateway](../application-gateway/index.yml)
 > | Microsoft. Network/vpnsites/Delete | Usuwa zasób witryny sieci VPN. |
 > | Microsoft. Network/vpnSites/vpnSiteLinks/odczyt | Pobiera łącze do witryny sieci VPN |
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 ### <a name="microsoftclassicstorage"></a>Microsoft. ClassicStorage
 
@@ -1410,7 +1427,7 @@ Usługa platformy Azure: [Azure NetApp Files](../azure-netapp-files/index.yml)
 > | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/Revert/Action | Przywróć wolumin do określonej migawki |
 > | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/BreakReplication/Action | Relacje replikacji woluminu Break |
 > | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/ReplicationStatus/Action | Odczytuje stan replikacji woluminu. |
-> | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/ReInitializeReplication/Action |  |
+> | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/ReInitializeReplication/Action | Próbuje ponownie zainicjować niezainicjowaną replikację |
 > | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/AuthorizeReplication/Action | Autoryzuj replikację woluminu źródłowego |
 > | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/ResyncReplication/Action | Ponownie zsynchronizuj replikację na woluminie docelowym |
 > | Microsoft. NetApp/netAppAccounts/capacityPools/Volumes/DeleteReplication/Action | Usuń replikację na woluminie docelowym |
@@ -1438,6 +1455,7 @@ Usługa platformy Azure: [Magazyn](../storage/index.yml)
 > | --- | --- |
 > | Microsoft. Storage/Register/Action | Rejestruje subskrypcję dostawcy zasobów magazynu i umożliwia tworzenie kont magazynu. |
 > | Microsoft. Storage/checknameavailability/Read | Sprawdza, czy nazwa konta jest prawidłowa i czy nie jest używana. |
+> | Microsoft. Storage/deletedAccounts/Read |  |
 > | Microsoft. Storage/Locations/deleteVirtualNetworkOrSubnets/Action | Powiadamia Microsoft. Storage, że sieć wirtualna lub podsieć jest usuwana |
 > | Microsoft. Storage/Locations/checknameavailability/Read | Sprawdza, czy nazwa konta jest prawidłowa i czy nie jest używana. |
 > | Microsoft. Storage/lokalizacje/użycia/odczyt | Zwraca limit i bieżącą liczbę użycia dla zasobów w określonej subskrypcji |
@@ -1454,7 +1472,7 @@ Usługa platformy Azure: [Magazyn](../storage/index.yml)
 > | Microsoft. Storage/storageAccounts/listAccountSas/akcja | Zwraca token sygnatury dostępu współdzielonego konta dla określonego konta magazynu. |
 > | Microsoft. Storage/storageAccounts/listServiceSas/akcja | Zwraca token sygnatury dostępu współdzielonego usługi dla określonego konta magazynu. |
 > | Microsoft. Storage/storageAccounts/Write | Tworzy konto magazynu z określonymi parametrami lub aktualizuje właściwości lub Tagi albo dodaje niestandardową domenę dla określonego konta magazynu. |
-> | Microsoft. Storage/storageAccounts/blobServices/odczyt |  |
+> | Microsoft. Storage/storageAccounts/blobServices/odczyt | Wyświetl listę usług BLOB Services |
 > | Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey/Action | Zwraca klucz delegowania użytkownika dla usługi BLOB Service |
 > | Microsoft. Storage/storageAccounts/blobServices/Write | Zwraca wynik właściwości Put usługi BLOB Service |
 > | Microsoft. Storage/storageAccounts/blobServices/odczyt | Zwraca statystykę lub właściwości usługi BLOB Service |
@@ -1479,26 +1497,29 @@ Usługa platformy Azure: [Magazyn](../storage/index.yml)
 > | Microsoft. Storage/storageAccounts/encryptionScopes/odczyt |  |
 > | Microsoft. Storage/storageAccounts/encryptionScopes/Write |  |
 > | Microsoft. Storage/storageAccounts/encryptionScopes/Write |  |
-> | Microsoft. Storage/storageAccounts/fileServices/udziały/akcja |  |
-> | Microsoft. Storage/storageAccounts/fileServices/odczyt |  |
-> | Microsoft. Storage/storageAccounts/fileServices/Write |  |
+> | Microsoft. Storage/storageAccounts/fileServices/udziały/akcja | Przywróć udział plików |
+> | Microsoft. Storage/storageAccounts/fileServices/odczyt | Wyświetl listę usług plików |
+> | Microsoft. Storage/storageAccounts/fileServices/Write | Umieść właściwości usługi plików |
 > | Microsoft. Storage/storageAccounts/fileServices/odczyt | Pobierz właściwości usługi plików |
-> | Microsoft. Storage/storageAccounts/fileServices/udziały/usuwanie |  |
-> | Microsoft. Storage/storageAccounts/fileServices/udziały/odczyt |  |
-> | Microsoft. Storage/storageAccounts/fileServices/udziały/odczyt |  |
-> | Microsoft. Storage/storageAccounts/fileServices/udziały/zapis |  |
-> | Microsoft. Storage/storageAccounts/localUsers/Delete |  |
-> | Microsoft. Storage/storageAccounts/localusers/listKeys/Action |  |
-> | Microsoft. Storage/storageAccounts/localusers/odczyt |  |
-> | Microsoft. Storage/storageAccounts/localusers/odczyt |  |
-> | Microsoft. Storage/storageAccounts/localusers/Write |  |
+> | Microsoft. Storage/storageAccounts/fileServices/udziały/usuwanie | Usuń udział plików |
+> | Microsoft. Storage/storageAccounts/fileServices/udziały/odczyt | Pobierz udział plików |
+> | Microsoft. Storage/storageAccounts/fileServices/udziały/odczyt | Wyświetl listę udziałów plików |
+> | Microsoft. Storage/storageAccounts/fileServices/udziały/zapis | Utwórz lub zaktualizuj udział plików |
+> | Microsoft. Storage/storageAccounts/inventoryPolicies/Delete |  |
+> | Microsoft. Storage/storageAccounts/inventoryPolicies/odczyt |  |
+> | Microsoft. Storage/storageAccounts/inventoryPolicies/Write |  |
+> | Microsoft. Storage/storageAccounts/localUsers/Delete | Usuń użytkownika lokalnego |
+> | Microsoft. Storage/storageAccounts/localusers/listKeys/Action | Wyświetlanie listy lokalnych kluczy użytkownika |
+> | Microsoft. Storage/storageAccounts/localusers/odczyt | Wyświetl listę użytkowników lokalnych |
+> | Microsoft. Storage/storageAccounts/localusers/odczyt | Pobierz użytkownika lokalnego |
+> | Microsoft. Storage/storageAccounts/localusers/Write | Utwórz lub zaktualizuj użytkownika lokalnego |
 > | Microsoft. Storage/storageAccounts/managementPolicies/Delete | Usuwanie zasad zarządzania kontami magazynu |
 > | Microsoft. Storage/storageAccounts/managementPolicies/odczyt | Pobierz Zasady konta zarządzania magazynem |
 > | Microsoft. Storage/storageAccounts/managementPolicies/Write | Umieść zasady zarządzania kontami magazynu |
-> | Microsoft. Storage/storageAccounts/objectReplicationPolicies/Delete |  |
-> | Microsoft. Storage/storageAccounts/objectReplicationPolicies/odczyt |  |
-> | Microsoft. Storage/storageAccounts/objectReplicationPolicies/odczyt |  |
-> | Microsoft. Storage/storageAccounts/objectReplicationPolicies/Write |  |
+> | Microsoft. Storage/storageAccounts/objectReplicationPolicies/Delete | Usuń zasady replikacji obiektów |
+> | Microsoft. Storage/storageAccounts/objectReplicationPolicies/odczyt | Pobierz zasady replikacji obiektów |
+> | Microsoft. Storage/storageAccounts/objectReplicationPolicies/odczyt | Wyświetl zasady replikacji obiektów |
+> | Microsoft. Storage/storageAccounts/objectReplicationPolicies/Write | Utwórz lub zaktualizuj zasady replikacji obiektów |
 > | Microsoft. Storage/storageAccounts/privateEndpointConnectionProxies/odczyt | Pobierz serwer proxy połączenia prywatnego punktu końcowego |
 > | Microsoft. Storage/storageAccounts/privateEndpointConnectionProxies/Delete | Usuwanie prywatnych serwerów proxy połączeń punktu końcowego |
 > | Microsoft. Storage/storageAccounts/privateEndpointConnectionProxies/Write | Umieść proxy połączeń prywatnych punktów końcowych |
@@ -1507,14 +1528,26 @@ Usługa platformy Azure: [Magazyn](../storage/index.yml)
 > | Microsoft. Storage/storageAccounts/privateEndpointConnections/odczyt | Pobierz połączenie prywatnego punktu końcowego |
 > | Microsoft. Storage/storageAccounts/privateEndpointConnections/Write | Umieść połączenie prywatnego punktu końcowego |
 > | Microsoft. Storage/storageAccounts/privateLinkResources/odczyt | Pobierz StorageAccount groupids |
+> | Microsoft. Storage/storageAccounts/queueServices/odczyt |  |
+> | Microsoft. Storage/storageAccounts/queueServices/Write |  |
 > | Microsoft. Storage/storageAccounts/queueServices/odczyt | Pobierz usługa kolejki właściwości |
 > | Microsoft. Storage/storageAccounts/queueServices/odczyt | Zwraca właściwości usługi kolejki lub dane statystyczne. |
 > | Microsoft. Storage/storageAccounts/queueServices/Write | Zwraca wynik ustawienia właściwości usługi kolejki |
+> | Microsoft. Storage/storageAccounts/queueServices/Queues/Delete |  |
+> | Microsoft. Storage/storageAccounts/queueServices/Queues/Read |  |
+> | Microsoft. Storage/storageAccounts/queueServices/Queues/Read |  |
+> | Microsoft. Storage/storageAccounts/queueServices/Queues/Write |  |
 > | Microsoft. Storage/storageAccounts/queueServices/Queues/Read | Zwraca kolejkę lub listę kolejek. |
 > | Microsoft. Storage/storageAccounts/queueServices/Queues/Write | Zwraca wynik zapisania kolejki |
 > | Microsoft. Storage/storageAccounts/queueServices/Queues/Delete | Zwraca wynik usunięcia kolejki. |
 > | Microsoft. Storage/storageAccounts/Services/diagnosticSettings/Write | Utwórz/zaktualizuj ustawienia diagnostyczne konta magazynu. |
+> | Microsoft. Storage/storageAccounts/tableServices/odczyt |  |
 > | Microsoft. Storage/storageAccounts/tableServices/odczyt | Pobierz Table service właściwości |
+> | Microsoft. Storage/storageAccounts/tableServices/Write |  |
+> | Microsoft. Storage/storageAccounts/tableServices/tabele/usuwanie |  |
+> | Microsoft. Storage/storageAccounts/tableServices/tabele/odczyt |  |
+> | Microsoft. Storage/storageAccounts/tableServices/tabele/odczyt |  |
+> | Microsoft. Storage/storageAccounts/tableServices/tabele/zapis |  |
 > | Microsoft. Storage/Usages/Read | Zwraca limit i bieżącą liczbę użycia dla zasobów w określonej subskrypcji |
 > | **Akcja dataaction** | **Opis** |
 > | Microsoft. Storage/storageAccounts/blobServices/kontenery/obiekty blob/odczyt | Zwraca obiekt BLOB lub listę obiektów BLOB |
@@ -1550,11 +1583,21 @@ Usługa platformy Azure: [Magazyn](../storage/index.yml)
 > | Microsoft. storagesync/Register/Action | Rejestruje subskrypcję dostawcy synchronizacji magazynu |
 > | Microsoft. storagesync/Unregister/Action | Wyrejestrowuje subskrypcję dostawcy synchronizacji magazynu |
 > | Microsoft. storagesync/Locations/checkNameAvailability/Action | Sprawdza, czy nazwa usługi synchronizacji magazynu jest prawidłowa i czy nie jest używana. |
+> | Microsoft. storagesync/Locations/operationresults/Read | Pobiera wynik operacji asynchronicznej |
+> | Microsoft. storagesync/Locations/Operations/Read | Pobiera stan operacji asynchronicznej platformy Azure |
 > | Microsoft. storagesync/lokalizacje/przepływy pracy/operacje/odczyt | Pobiera stan operacji asynchronicznej |
 > | Microsoft. storagesync/Operations/Read | Pobiera listę obsługiwanych operacji |
 > | Microsoft. storagesync/storageSyncServices/odczyt | Odczytaj wszystkie usługi synchronizacji magazynu |
 > | Microsoft. storagesync/storageSyncServices/Write | Utwórz lub zaktualizuj wszystkie usługi synchronizacji magazynu |
 > | Microsoft. storagesync/storageSyncServices/Delete | Usuń wszystkie usługi synchronizacji magazynu |
+> | Microsoft. storagesync/storageSyncServices/privateEndpointConnectionProxies/Validate/akcja | Sprawdź poprawność wszystkich prywatnych punktów końcowych ConnectionProxies |
+> | Microsoft. storagesync/storageSyncServices/privateEndpointConnectionProxies/Read | Odczytaj dowolny prywatny punkt końcowy ConnectionProxies |
+> | Microsoft. storagesync/storageSyncServices/privateEndpointConnectionProxies/Write | Tworzenie lub aktualizowanie dowolnego prywatnego punktu końcowego ConnectionProxies |
+> | Microsoft. storagesync/storageSyncServices/privateEndpointConnectionProxies/Delete | Usuwanie wszystkich prywatnych punktów końcowych ConnectionProxies |
+> | Microsoft. storagesync/storageSyncServices/privateEndpointConnections/Read | Odczytaj wszystkie połączenia prywatnego punktu końcowego |
+> | Microsoft. storagesync/storageSyncServices/privateEndpointConnections/Write | Utwórz lub zaktualizuj wszystkie połączenia prywatnego punktu końcowego |
+> | Microsoft. storagesync/storageSyncServices/privateEndpointConnections/Delete | Usuń wszystkie połączenia prywatnego punktu końcowego |
+> | Microsoft. storagesync/storageSyncServices/privateLinkResources/Read | Odczytaj wszystkie prywatne zasoby dotyczące linków |
 > | Microsoft. storagesync/storageSyncServices/Providers/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla usług synchronizacji magazynu |
 > | Microsoft. storagesync/storageSyncServices/registeredServers/Read | Odczytaj wszystkie zarejestrowane serwery |
 > | Microsoft. storagesync/storageSyncServices/registeredServers/Write | Utwórz lub zaktualizuj dowolny zarejestrowany serwer |
@@ -1760,7 +1803,7 @@ Usługa platformy Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft. StorSimple/menedżerowie/storageDomains/operationResults/Read | Wyświetla lub pobiera wyniki operacji |
 > | Microsoft. StorSimple/Operations/Read | Wyświetla lub pobiera operacje |
 
-## <a name="web"></a>Sieć Web
+## <a name="web"></a>Internet
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
@@ -1826,17 +1869,30 @@ Usługa platformy Azure: [Azure Maps](../azure-maps/index.yml)
 > | Microsoft. Maps/accounts/Write | Utwórz lub zaktualizuj konto Maps. |
 > | Microsoft. Maps/konta/odczyt | Pobierz konto Maps. |
 > | Microsoft. Maps/accounts/Delete | Usuń konto Maps. |
-> | Microsoft. Maps/accounts/listKeys/Action | Lista kluczy konta map |
-> | Microsoft. Maps/accounts/regenerateKey/Action | Generuj nowy klucz podstawowy lub pomocniczy konta mapy |
-> | Microsoft. Maps/accounts/eventGridFilters/Delete | Usuń filtr Event Grid |
+> | Microsoft. Maps/accounts/listKeys/Action | Lista mapowanie kluczy konta. |
+> | Microsoft. Maps/accounts/regenerateKey/Action | Generuj nowy klucz podstawowy lub pomocniczy konta map. |
+> | Microsoft. Maps/accounts/eventGridFilters/Delete | Usuń filtr Event Grid. |
 > | Microsoft. Maps/accounts/eventGridFilters/Read | Pobierz filtr Event Grid |
-> | Microsoft. Maps/accounts/eventGridFilters/Write | Utwórz lub zaktualizuj filtr Event Grid |
-> | Microsoft. Maps/accounts/privateAtlases/Delete | Usuwanie atlasu prywatnego |
-> | Microsoft. Maps/accounts/privateAtlases/Read | Uzyskaj Atlas prywatny |
-> | Microsoft. Maps/accounts/privateAtlases/Write | Tworzenie lub aktualizowanie szczytu prywatnego |
+> | Microsoft. Maps/accounts/eventGridFilters/Write | Utwórz lub zaktualizuj filtr Event Grid. |
+> | Microsoft. Maps/accounts/privateAtlases/Write | Utwórz lub zaktualizuj Atlas prywatny. |
+> | Microsoft. Maps/accounts/privateAtlases/Read | Zapoznaj się z prywatnym Atlasem. |
+> | Microsoft. Maps/accounts/privateAtlases/Delete | Usuń Atlas prywatny. |
 > | Microsoft. Maps/Operations/Read | Odczytaj operacje dostawcy |
 > | **Akcja dataaction** | **Opis** |
-> | Microsoft. Maps/konta/dane/odczyt | Przyznaje dostęp do odczytu do konta Maps. |
+> | Microsoft. Maps/konta/usługi/dane/odczyt | Umożliwia odczytywanie danych w usługach przekazywania danych i w Atlasie prywatnym. |
+> | Microsoft. Maps/konta/usługi/dane/usuwanie | Umożliwia usuwanie danych na potrzeby usług przekazywania danych i atlasów prywatnych |
+> | Microsoft. Maps/konta/usługi/dane/zapis | Umożliwia zapisywanie i aktualizowanie danych na potrzeby usług przekazywania danych i atlasów prywatnych. |
+> | Microsoft. Maps/konta/usługi/geolokalizacja/odczyt | Umożliwia odczytywanie danych dla usług geolokalizacyjnych. |
+> | Microsoft. Maps/accounts/Services/Mobility/Read | Umożliwia odczytywanie danych dla usług mobilności. |
+> | Microsoft. Maps/accounts/Services/Render/Read | Umożliwia odczytywanie danych dla usług renderowania. |
+> | Microsoft. Maps/accounts/Services/Route/Read | Umożliwia odczytywanie danych dla usług routingu. |
+> | Microsoft. Maps/accounts/Services/Search/Read | Umożliwia odczytywanie danych dla usług wyszukiwania. |
+> | Microsoft. Maps/accounts/Services/przestrzenny/Read | Umożliwia odczytywanie danych dla usług przestrzennych. |
+> | Microsoft. Maps/accounts/Services/przestrzenny/Write | Umożliwia zapisywanie danych dla usług przestrzennych, takich jak publikowanie zdarzeń. |
+> | Microsoft. Maps/accounts/Services/timezone/Read | Umożliwia odczytywanie danych dla usług strefy czasowej. |
+> | Microsoft. Maps/konta/usługi/ruch/odczyt | Umożliwia odczytywanie danych dla usług ruchu. |
+> | Microsoft. Maps/accounts/Services/turnbyturn/Read | Umożliwia odczytywanie danych dla usług TurnByTurn Services. |
+> | Microsoft. Maps/konta/usługi/Pogoda/odczyt | Umożliwia odczytywanie danych dla usług pogody. |
 
 ### <a name="microsoftmedia"></a>Microsoft. Media
 
@@ -1875,15 +1931,8 @@ Usługa platformy Azure: [Media Services](../media-services/index.yml)
 > | Microsoft. Media/MediaServices/eventGridFilters/Read | Odczytaj dowolny filtr Event Grid |
 > | Microsoft. Media/MediaServices/eventGridFilters/Write | Utwórz lub zaktualizuj dowolny filtr Event Grid |
 > | Microsoft. Media/MediaServices/eventGridFilters/Delete | Usuń dowolny filtr Event Grid |
+> | Microsoft. Media/MediaServices/keyDeliveryPrivateEndpointConnectionOperations/Read | Odczytaj wszystkie operacje połączenia prywatnego punktu końcowego dostarczania kluczy |
 > | Microsoft. Media/MediaServices/liveEventOperations/Read | Odczytaj wszystkie operacje na żywo dotyczące zdarzeń |
-> | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnectionProxies/Read | Odczytaj dowolny serwer proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
-> | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnectionProxies/Write | Utwórz serwer proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
-> | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnectionProxies/Delete | Usuń serwer proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
-> | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnectionProxies/Validate/akcja | Sprawdź poprawność serwera proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
-> | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnections/Read | Odczytaj każde połączenie na żywo prywatnego punktu końcowego |
-> | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnections/Write | Utwórz połączenie z prywatnym punktem końcowym zdarzenia na żywo |
-> | Microsoft. Media/MediaServices/liveEventPrivateEndpointConnections/Delete | Usuń połączenie prywatnego punktu końcowego zdarzenia na żywo |
-> | Microsoft. Media/MediaServices/liveEventPrivateLinkResources/Read | Odczytaj dowolny zasób prywatnego linku zdarzenia na żywo |
 > | Microsoft. Media/MediaServices/liveEvents/Read | Odczytaj dowolne wydarzenie na żywo |
 > | Microsoft. Media/MediaServices/liveEvents/Write | Utwórz lub zaktualizuj dowolne wydarzenie na żywo |
 > | Microsoft. Media/MediaServices/liveEvents/Delete | Usuń dowolne wydarzenie na żywo |
@@ -1893,6 +1942,14 @@ Usługa platformy Azure: [Media Services](../media-services/index.yml)
 > | Microsoft. Media/MediaServices/liveEvents/liveOutputs/Read | Odczytaj wszystkie dane wyjściowe na żywo |
 > | Microsoft. Media/MediaServices/liveEvents/liveOutputs/Write | Utwórz lub zaktualizuj wszystkie dane wyjściowe na żywo |
 > | Microsoft. Media/MediaServices/liveEvents/liveOutputs/Delete | Usuń wszystkie dane wyjściowe na żywo |
+> | Microsoft. Media/MediaServices/liveEvents/privateEndpointConnectionProxies/Read | Odczytaj dowolny serwer proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
+> | Microsoft. Media/MediaServices/liveEvents/privateEndpointConnectionProxies/Write | Utwórz serwer proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
+> | Microsoft. Media/MediaServices/liveEvents/privateEndpointConnectionProxies/Delete | Usuń serwer proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
+> | Microsoft. Media/MediaServices/liveEvents/privateEndpointConnectionProxies/Validate/Action | Sprawdź poprawność serwera proxy połączenia prywatnego punktu końcowego zdarzenia na żywo |
+> | Microsoft. Media/MediaServices/liveEvents/privateEndpointConnections/Read | Odczytaj każde połączenie na żywo prywatnego punktu końcowego |
+> | Microsoft. Media/MediaServices/liveEvents/privateEndpointConnections/Write | Utwórz połączenie z prywatnym punktem końcowym zdarzenia na żywo |
+> | Microsoft. Media/MediaServices/liveEvents/privateEndpointConnections/Delete | Usuń połączenie prywatnego punktu końcowego zdarzenia na żywo |
+> | Microsoft. Media/MediaServices/liveEvents/privateLinkResources/Read | Odczytaj dowolny zasób prywatnego linku zdarzenia na żywo |
 > | Microsoft. Media/MediaServices/liveOutputOperations/Read | Odczytaj wszystkie operacje wyjścia na żywo |
 > | Microsoft. Media/MediaServices/mediaGraphs/Read | Odczytaj dowolny Graf multimedialny |
 > | Microsoft. Media/MediaServices/mediaGraphs/Write | Utwórz lub zaktualizuj dowolny Graf multimedialny |
@@ -1914,14 +1971,14 @@ Usługa platformy Azure: [Media Services](../media-services/index.yml)
 > | Microsoft. Media/MediaServices/streamingEndpoints/Start/akcja | Uruchom wszystkie operacje punktu końcowego przesyłania strumieniowego |
 > | Microsoft. Media/MediaServices/streamingEndpoints/akcja | Zatrzymaj wszystkie operacje punktu końcowego przesyłania strumieniowego |
 > | Microsoft. Media/MediaServices/streamingEndpoints/Skala/akcja | Skaluj wszystkie operacje punktu końcowego przesyłania strumieniowego |
-> | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnectionProxies/Read | Odczytaj dowolny serwer proxy połączenia prywatnego punktu końcowego przesyłania strumieniowego |
-> | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnectionProxies/Write | Utwórz serwer proxy połączenia prywatnego punktu końcowego usługi przesyłania strumieniowego |
-> | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnectionProxies/Delete | Usuń serwer proxy połączenia prywatnego punktu końcowego przesyłania strumieniowego |
-> | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnectionProxies/Validate/Action | Weryfikuj serwer proxy połączenia prywatnego punktu końcowego przesyłania strumieniowego |
-> | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnections/Read | Odczytaj każde połączenie prywatnego punktu końcowego punktu końcowego przesyłania strumieniowego |
-> | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnections/Write | Utwórz połączenie prywatnego punktu końcowego usługi przesyłania strumieniowego |
-> | Microsoft. Media/MediaServices/streamingEndpoints/streamingEndpointPrivateEndpointConnections/Delete | Usuń połączenie prywatnego punktu końcowego usługi przesyłania strumieniowego |
-> | Microsoft. Media/MediaServices/streamingEndpoints/streamngEndpointPrivateLinkResources/Read | Odczytaj dowolny zasób prywatnego linku do przesyłania strumieniowego |
+> | Microsoft. Media/MediaServices/streamingEndpoints/privateEndpointConnectionProxies/Read | Odczytaj dowolny serwer proxy połączenia prywatnego punktu końcowego przesyłania strumieniowego |
+> | Microsoft. Media/MediaServices/streamingEndpoints/privateEndpointConnectionProxies/Write | Utwórz serwer proxy połączenia prywatnego punktu końcowego usługi przesyłania strumieniowego |
+> | Microsoft. Media/MediaServices/streamingEndpoints/privateEndpointConnectionProxies/Delete | Usuń serwer proxy połączenia prywatnego punktu końcowego przesyłania strumieniowego |
+> | Microsoft. Media/MediaServices/streamingEndpoints/privateEndpointConnectionProxies/Validate/Action | Weryfikuj serwer proxy połączenia prywatnego punktu końcowego przesyłania strumieniowego |
+> | Microsoft. Media/MediaServices/streamingEndpoints/privateEndpointConnections/Read | Odczytaj każde połączenie prywatnego punktu końcowego punktu końcowego przesyłania strumieniowego |
+> | Microsoft. Media/MediaServices/streamingEndpoints/privateEndpointConnections/Write | Utwórz połączenie prywatnego punktu końcowego usługi przesyłania strumieniowego |
+> | Microsoft. Media/MediaServices/streamingEndpoints/privateEndpointConnections/Delete | Usuń połączenie prywatnego punktu końcowego usługi przesyłania strumieniowego |
+> | Microsoft. Media/MediaServices/streamingEndpoints/privateLinkResources/Read | Odczytaj dowolny zasób prywatnego linku do przesyłania strumieniowego |
 > | Microsoft. Media/MediaServices/streamingLocators/Read | Odczytaj każdy lokalizator przesyłania strumieniowego |
 > | Microsoft. Media/MediaServices/streamingLocators/Write | Utwórz lub zaktualizuj lokalizator przesyłania strumieniowego |
 > | Microsoft. Media/MediaServices/streamingLocators/Delete | Usuń wszystkie lokalizatory przesyłania strumieniowego |
@@ -2079,6 +2136,7 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/hostingEnvironments/eventGridFilters/Delete | Usuń filtr Event Grid w środowisku hostingu. |
 > | Microsoft. Web/hostingEnvironments/eventGridFilters/odczyt | Pobierz filtr Event Grid w środowisku hostingu. |
 > | Microsoft. Web/hostingEnvironments/eventGridFilters/zapis | Umieść filtr Event Grid w środowisku hostingu. |
+> | Microsoft. Web/hostingenvironments/Health/odczyt | Pobierz szczegóły kondycji App Service Environment. |
 > | Microsoft. Web/hostingenvironments/inboundnetworkdependenciesendpoints/odczyt | Pobierz punkty końcowe sieci wszystkich zależności przychodzących. |
 > | Microsoft. Web/hostingenvironments/metricdefinitions/odczyt | Pobierz definicje metryk środowisk hostingu. |
 > | Microsoft. Web/hostingEnvironments/multiRolePools/odczyt | Pobierz właściwości puli frontonu w App Service Environment |
@@ -2120,6 +2178,7 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/dopuszczalna/odczyt | Pobierz właściwości planu App Service |
 > | Microsoft. Web/dopuszczalna/Write | Utwórz nowy plan App Service lub zaktualizuj istniejący |
 > | Microsoft. Web/dopuszczalna/Delete | Usuń istniejący plan App Service |
+> | Microsoft. Web/dopuszczalna/Join/Action | Sprzęga plan App Service |
 > | Microsoft. Web/dopuszczalna/restartSites/akcja | Uruchom ponownie wszystkie Web Apps w planie App Service |
 > | Microsoft. Web/dopuszczalna/możliwości/odczyt | Pobierz możliwości planów App Service. |
 > | Microsoft. Web/dopuszczalna/eventGridFilters/Delete | Usuń filtr Event Grid w farmie serwerów. |
@@ -2235,15 +2294,12 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/Sites/Functions/Keys/Write | Zaktualizuj klucze funkcji. |
 > | Microsoft. Web/Sites/funkcje/klucze/usuwanie | Usuń klucze funkcji. |
 > | Microsoft. Web/Sites/Functions/MasterKey/Read | Pobierz funkcje Web Apps MasterKey. |
-> | Microsoft. Web/Sites/Functions/Properties/Read | Odczytywanie właściwości Web Apps funkcji. |
-> | Microsoft. Web/Sites/Functions/Properties/Write | Aktualizowanie właściwości funkcji Web Apps. |
 > | Microsoft. Web/Sites/Functions/token/Read | Pobierz token funkcji Web Apps. |
 > | Microsoft. Web/Sites/Host/ListKeys/akcja | Lista kluczy hosta funkcji. |
 > | Microsoft. Web/Sites/Host/synchronizacja/akcja | Wyzwalacze funkcji synchronizacji. |
 > | Microsoft. Web/Sites/Host/listsyncstatus/akcja | Lista Stanów wyzwalaczy funkcji synchronizacji. |
 > | Microsoft. Web/Sites/Host/functionkeys/Write | Aktualizowanie kluczy funkcji hosta funkcji. |
 > | Microsoft. Web/Sites/Host/functionkeys/Delete | Usuń klucze funkcji hosta funkcji. |
-> | Microsoft. Web/Sites/Host/właściwości/odczyt | Odczytywanie właściwości hosta funkcji Web Apps Functions. |
 > | Microsoft. Web/Sites/Host/systemkeys/Write | Aktualizowanie kluczy systemu hosta funkcji. |
 > | Microsoft. Web/Sites/Host/systemkeys/Delete | Usuwanie funkcji klucze systemowe hosta. |
 > | Microsoft. Web/Sites/hostnamebindings/Delete | Usuń powiązania Web Apps nazwy hosta. |
@@ -2368,8 +2424,17 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/Sites/Slots/domainownershipidentifiers/Read | Pobierz identyfikatory własności domeny miejsc Web Apps. |
 > | Microsoft. Web/Sites/szczeliny/rozszerzenia/odczyt | Pobierz rozszerzenia Web Apps miejsc. |
 > | Microsoft. Web/Sites/szczeliny/rozszerzenia/zapis | Aktualizowanie rozszerzeń Web Apps miejsc. |
+> | Microsoft. Web/Sites/Slots/Functions/ListKeys/Action | Wyświetl klucze funkcji. |
 > | Microsoft. Web/Sites/Slots/Functions/Read | Pobierz funkcje Web Apps miejsc. |
 > | Microsoft. Web/Sites/Slots/Functions/listsecrets/Action | Wyświetl klucze tajne Web Apps funkcji miejsc. |
+> | Microsoft. Web/Sites/szczeliny/funkcje/klucze/zapis | Zaktualizuj klucze funkcji. |
+> | Microsoft. Web/Sites/szczeliny/funkcje/klucze/usuwanie | Usuń klucze funkcji. |
+> | Microsoft. Web/Sites/szczeliny/Host/ListKeys/akcja | Lista kluczy hosta funkcji. |
+> | Microsoft. Web/Sites/szczeliny/Host/synchronizacja/akcja | Wyzwalacze funkcji synchronizacji. |
+> | Microsoft. Web/Sites/Slots/Host/functionkeys/Write | Aktualizowanie kluczy funkcji hosta funkcji. |
+> | Microsoft. Web/Sites/Slots/Host/functionkeys/Delete | Usuń klucze funkcji hosta funkcji. |
+> | Microsoft. Web/Sites/Slots/Host/systemkeys/Write | Aktualizowanie kluczy systemu hosta funkcji. |
+> | Microsoft. Web/Sites/Slots/Host/systemkeys/Delete | Usuwanie funkcji klucze systemowe hosta. |
 > | Microsoft. Web/Sites/Slots/hostnamebindings/Delete | Usuń powiązania nazwy hosta Web Apps miejsc. |
 > | Microsoft. Web/Sites/Slots/hostnamebindings/Read | Pobierz powiązania nazwy hosta Web Apps miejsc. |
 > | Microsoft. Web/Sites/Slots/hostnamebindings/Write | Aktualizowanie powiązań nazwy hosta Web Apps miejsc. |
@@ -2435,6 +2500,28 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/SKU/odczyt | Pobierz jednostki SKU. |
 > | Microsoft. Web/sourcecontrols/odczyt | Pobierz kontrolę źródła. |
 > | Microsoft. Web/sourcecontrols/Write | Aktualizowanie kontroli źródła. |
+> | Microsoft. Web/staticSites/odczyt | Pobierz właściwości lokacji statycznej |
+> | Microsoft. Web/staticSites/Write | Utwórz nową lokację statyczną lub zaktualizuj istniejącą |
+> | Microsoft. Web/staticSites/Delete | Usuń istniejącą lokację statyczną |
+> | Microsoft. Web/staticSites/moje zaproszenie/akcja | Tworzy link invitiation dla użytkownika lokacji statycznej dla zestawu ról |
+> | Microsoft. Web/staticSites/listfunctionappsettings/akcja | Wyświetlanie listy ustawień aplikacji funkcji dla lokacji statycznej |
+> | Microsoft. Web/staticSites/Odłącz/akcja | Odłączanie lokacji statycznej z aktualnie połączonego repozytorium |
+> | Microsoft. Web/staticSites/GetUser/akcja | Pobieranie informacji o użytkowniku dla lokacji statycznej |
+> | Microsoft. Web/staticSites/listsecrets/akcja | Wyświetlanie wpisów tajnych dla lokacji statycznej |
+> | Microsoft. Web/staticSites/resetapikey/akcja | Zresetuj klucz interfejsu API dla lokacji statycznej |
+> | Microsoft. Web/staticSites/authproviders/listusers/Action | Wyświetlanie listy użytkowników dla witryny statycznej |
+> | Microsoft. Web/staticSites/authproviders/użytkownicy/usuwanie | Usuwanie użytkownika dla lokacji statycznej |
+> | Microsoft. Web/staticSites/authproviders/użytkownicy/zapis | Aktualizowanie użytkownika dla lokacji statycznej |
+> | Microsoft. Web/staticSites/kompilacja/odczyt | Pobierz kompilację dla lokacji statycznej |
+> | Microsoft. Web/staticSites/kompilacja/usuwanie | Usuń kompilację dla lokacji statycznej |
+> | Microsoft. Web/staticSites/builds/listfunctionappsettings/Action | Lista ustawień aplikacji funkcji dla kompilacji lokacji statycznej |
+> | Microsoft. Web/staticSites/kompilacja/konfiguracja/zapis | Utwórz lub zaktualizuj ustawienia aplikacji funkcji dla kompilacji lokacji statycznej |
+> | Microsoft. Web/staticSites/config/Write | Tworzenie lub aktualizowanie ustawień aplikacji funkcji dla lokacji statycznej |
+> | Microsoft. Web/staticSites/customdomains/zapis | Utwórz domenę niestandardową dla lokacji statycznej |
+> | Microsoft. Web/staticSites/customdomains/Delete | Usuwanie domeny niestandardowej dla lokacji statycznej |
+> | Microsoft. Web/staticSites/customdomains/odczyt | Wyświetlanie listy domen niestandardowych dla lokacji statycznej |
+> | Microsoft. Web/staticSites/customdomains/Validate/akcja | Weryfikowanie domeny niestandardowej można dodać do lokacji statycznej |
+> | Microsoft. Web/staticSites/Functions/Read | Wyświetlanie listy funkcji dla lokacji statycznej |
 
 ## <a name="containers"></a>Containers
 
@@ -2455,6 +2542,7 @@ Usługa platformy Azure: [Container Instances](../container-instances/index.yml)
 > | Microsoft. ContainerInstance/containerGroups/Containers/exec/akcja | Exec do określonego kontenera. |
 > | Microsoft. ContainerInstance/containerGroups/Containers/buildlogs/Read | Pobierz dzienniki kompilacji dla określonego kontenera. |
 > | Microsoft. ContainerInstance/containerGroups/Containers/Logs/odczyt | Pobierz dzienniki dla określonego kontenera. |
+> | Microsoft. ContainerInstance/containerGroups/operationResults/Read | Pobierz wynik operacji asynchronicznej |
 > | Microsoft. ContainerInstance/containerGroups/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne dla grupy kontenerów. |
 > | Microsoft. ContainerInstance/containerGroups/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne dla grupy kontenerów. |
 > | Microsoft. ContainerInstance/containerGroups/Providers/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla grupy kontenerów. |
@@ -2594,6 +2682,302 @@ Usługa platformy Azure: [Azure Kubernetes Service (AKS)](../aks/index.yml)
 > | Microsoft. ContainerService/openShiftManagedClusters/Write | Tworzy nowy klaster zarządzany przez przesunięcia lub aktualizuje istniejący |
 > | Microsoft. ContainerService/openShiftManagedClusters/Delete | Usuń otwarty klaster z zarządzaną przesunięciami |
 > | Microsoft. ContainerService/Operations/Read | Wyświetla listę operacji dostępnych w dostawcy zasobów Microsoft. ContainerService |
+> | **Akcja dataaction** | **Opis** |
+> | Microsoft. ContainerService/managedClusters/admissionregistration. k8s. IO/initializerconfigurations/Read | Odczytuje initializerconfigurations |
+> | Microsoft. ContainerService/managedClusters/admissionregistration. k8s. IO/initializerconfigurations/Write | Zapisuje initializerconfigurations |
+> | Microsoft. ContainerService/managedClusters/admissionregistration. k8s. IO/initializerconfigurations/Delete | Usuwa/usuwa zasób initializerconfigurationscollection |
+> | Microsoft. ContainerService/managedClusters/admissionregistration. k8s. IO/mutatingwebhookconfigurations/Read | Odczytuje mutatingwebhookconfigurations |
+> | Microsoft. ContainerService/managedClusters/admissionregistration. k8s. IO/mutatingwebhookconfigurations/Write | Zapisuje mutatingwebhookconfigurations |
+> | Microsoft. ContainerService/managedClusters/admissionregistration. k8s. IO/mutatingwebhookconfigurations/Delete | Usuwa mutatingwebhookconfigurations |
+> | Microsoft. ContainerService/managedClusters/admissionregistration. k8s. IO/validatingwebhookconfigurations/Read | Odczytuje validatingwebhookconfigurations |
+> | Microsoft. ContainerService/managedClusters/admissionregistration. k8s. IO/validatingwebhookconfigurations/Write | Zapisuje validatingwebhookconfigurations |
+> | Microsoft. ContainerService/managedClusters/admissionregistration. k8s. IO/validatingwebhookconfigurations/Delete | Usuwa validatingwebhookconfigurations |
+> | Microsoft. ContainerService/managedClusters/API/odczyt | Odczytuje interfejs API |
+> | Microsoft. ContainerService/managedClusters/API/V1/odczyt | Odczytuje interfejs API/v1 |
+> | Microsoft. ContainerService/managedClusters/apiextensions. k8s. IO/customresourcedefinitions/Read | Odczytuje customresourcedefinitions |
+> | Microsoft. ContainerService/managedClusters/apiextensions. k8s. IO/customresourcedefinitions/Write | Zapisuje customresourcedefinitions |
+> | Microsoft. ContainerService/managedClusters/apiextensions. k8s. IO/customresourcedefinitions/Delete | Usuwa customresourcedefinitions |
+> | Microsoft. ContainerService/managedClusters/apiregistration. k8s. IO/apiservices/Read | Odczytuje apiservices |
+> | Microsoft. ContainerService/managedClusters/apiregistration. k8s. IO/apiservices/Write | Zapisuje apiservices |
+> | Microsoft. ContainerService/managedClusters/apiregistration. k8s. IO/apiservices/Delete | Usuwa apiservices |
+> | Microsoft. ContainerService/managedClusters/API/odczyt | Odczytuje interfejsy API |
+> | Microsoft. ContainerService/managedClusters/API/admissionregistration. k8s. IO/Read | Odczytuje admissionregistration.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/admissionregistration. k8s. IO/V1/odczyt | Odczytuje admissionregistration.k8s.io/v1 |
+> | Microsoft. ContainerService/managedClusters/API/admissionregistration. k8s. IO/v1beta1/Read | Odczytuje admissionregistration.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/apiextensions. k8s. IO/Read | Odczytuje apiextensions.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/apiextensions. k8s. IO/V1/odczyt | Odczytuje apiextensions.k8s.io/v1 |
+> | Microsoft. ContainerService/managedClusters/API/apiextensions. k8s. IO/v1beta1/Read | Odczytuje apiextensions.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/apiregistration. k8s. IO/Read | Odczytuje apiregistration.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/apiregistration. k8s. IO/V1/odczyt | Odczytuje apiregistration.k8s.io/v1 |
+> | Microsoft. ContainerService/managedClusters/API/apiregistration. k8s. IO/v1beta1/Read | Odczytuje apiregistration.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/interfejsy API/aplikacje/odczyt | Odczytuje aplikacje |
+> | Microsoft. ContainerService/managedClusters/API/Apps/V1/odczyt | Odczytuje aplikacje/v1 |
+> | Microsoft. ContainerService/managedClusters/API/Apps/v1beta1/Read | Odczytuje aplikacje/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/Apps/v1beta2/Read | Odczytuje aplikacje/v1beta2 |
+> | Microsoft. ContainerService/managedClusters/interfejsy API/Authentication. k8s. IO/Read | Odczytuje authentication.k8s.io |
+> | Microsoft. ContainerService/managedClusters/interfejsy API/Authentication. k8s. IO/V1/odczyt | Odczytuje authentication.k8s.io/v1 |
+> | Microsoft. ContainerService/managedClusters/Apis/Authentication. k8s. IO/v1beta1/Read | Odczytuje authentication.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/Authorization. k8s. IO/Read | Odczytuje authorization.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/Authorization. k8s. IO/V1/odczyt | Odczytuje authorization.k8s.io/v1 |
+> | Microsoft. ContainerService/managedClusters/API/Authorization. k8s. IO/v1beta1/Read | Odczytuje authorization.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/interfejsy API/automatyczne skalowanie/odczyt | Odczytuje automatyczne skalowanie |
+> | Microsoft. ContainerService/managedClusters/interfejsy API/Skalowanie automatyczne/V1/odczyt | Odczytuje automatyczne skalowanie/v1 |
+> | Microsoft. ContainerService/managedClusters/API/automatyczne skalowanie/v2beta1/odczyt | Odczytuje automatyczne skalowanie/v2beta1 |
+> | Microsoft. ContainerService/managedClusters/API/automatyczne skalowanie/v2beta2/odczyt | Odczytuje automatyczne skalowanie/v2beta2 |
+> | Microsoft. ContainerService/managedClusters/API/Batch/Read | Odczytuje dane wsadowe |
+> | Microsoft. ContainerService/managedClusters/interfejsy API/Batch/V1/odczyt | Odczytuje partię/v1 |
+> | Microsoft. ContainerService/managedClusters/API/Batch/v1beta1/Read | Odczytuje dane wsadowe/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/Certificates. k8s. IO/Read | Odczytuje certificates.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/Certificates. k8s. IO/v1beta1/Read | Odczytuje certificates.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/interfejsy API/koordynując. k8s. IO/Read | Odczytuje coordination.k8s.io |
+> | Microsoft. ContainerService/managedClusters/interfejsy API/koordynacyjne. k8s. IO/V1/odczyt | Odczytuje koordynację/v1 |
+> | Microsoft. ContainerService/managedClusters/interfejsy API/koordynacyjne. k8s. IO/v1beta1/Read | Odczytuje coordination.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/Events. k8s. IO/Read | Odczytuje events.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/Events. k8s. IO/v1beta1/Read | Odczytuje events.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/interfejsy API/rozszerzenia/odczyt | Odczytuje rozszerzenia |
+> | Microsoft. ContainerService/managedClusters/API/Extensions/v1beta1/Read | Odczytuje rozszerzenia/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/Metrics. k8s. IO/Read | Odczytuje metrics.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/Metrics. k8s. IO/v1beta1/Read | Odczytuje metrics.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/Networking. k8s. IO/Read | Odczytuje networking.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/Networking. k8s. IO/V1/odczyt | Odczytuje sieci/v1 |
+> | Microsoft. ContainerService/managedClusters/API/Networking. k8s. IO/v1beta1/Read | Odczytuje networking.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/Node. k8s. IO/Read | Odczytuje node.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/Node. k8s. IO/v1beta1/Read | Odczytuje node.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/Policy/odczyt | Odczytuje zasady |
+> | Microsoft. ContainerService/managedClusters/API/Policy/v1beta1/Read | Odczytuje zasady/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/RBAC. Authorization. k8s. IO/Read | Odczytuje rbac.authorization.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/RBAC. Authorization. k8s. IO/V1/odczyt | Odczytuje RBAC. Authorization/v1 |
+> | Microsoft. ContainerService/managedClusters/API/RBAC. Authorization. k8s. IO/v1beta1/Read | Odczytuje rbac.authorization.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/Scheduling. k8s. IO/Read | Odczytuje scheduling.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/Scheduling. k8s. IO/V1/odczyt | Odczytuje planowanie/v1 |
+> | Microsoft. ContainerService/managedClusters/API/Scheduling. k8s. IO/v1beta1/Read | Odczytuje scheduling.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/API/Storage. k8s. IO/Read | Odczytuje storage.k8s.io |
+> | Microsoft. ContainerService/managedClusters/API/Storage. k8s. IO/V1/odczyt | Odczytuje magazyn/v1 |
+> | Microsoft. ContainerService/managedClusters/API/Storage. k8s. IO/v1beta1/Read | Odczytuje storage.k8s.io/v1beta1 |
+> | Microsoft. ContainerService/managedClusters/Apps/controllerrevisions/Read | Odczytuje controllerrevisions |
+> | Microsoft. ContainerService/managedClusters/Apps/controllerrevisions/Write | Zapisuje controllerrevisions |
+> | Microsoft. ContainerService/managedClusters/Apps/controllerrevisions/Delete | Usuwa controllerrevisions |
+> | Microsoft. ContainerService/managedClusters/Apps/daemonsets/Read | Odczytuje daemonsets |
+> | Microsoft. ContainerService/managedClusters/Apps/daemonsets/Write | Zapisuje daemonsets |
+> | Microsoft. ContainerService/managedClusters/Apps/daemonsets/Delete | Usuwa daemonsets |
+> | Microsoft. ContainerService/managedClusters/Apps/Deployments/Read | Odczytuje wdrożenia |
+> | Microsoft. ContainerService/managedClusters/Apps/Deployments/Write | Zapisuje wdrożenia |
+> | Microsoft. ContainerService/managedClusters/Apps/Deployments/Delete | Usuwa wdrożenia |
+> | Microsoft. ContainerService/managedClusters/Apps/replicasets/Read | Odczytuje replicasets |
+> | Microsoft. ContainerService/managedClusters/Apps/replicasets/Write | Zapisuje replicasets |
+> | Microsoft. ContainerService/managedClusters/Apps/replicasets/Delete | Usuwa replicasets |
+> | Microsoft. ContainerService/managedClusters/Apps/statefulsets/Read | Odczytuje statefulsets |
+> | Microsoft. ContainerService/managedClusters/Apps/statefulsets/Write | Zapisuje statefulsets |
+> | Microsoft. ContainerService/managedClusters/Apps/statefulsets/Delete | Usuwa statefulsets |
+> | Microsoft. ContainerService/managedClusters/Authentication. k8s. IO/tokenreviews/Write | Zapisuje tokenreviews |
+> | Microsoft. ContainerService/managedClusters/Authentication. k8s. IO/userextras/personifikacja/akcja | Personifikuj userextras |
+> | Microsoft. ContainerService/managedClusters/Authorization. k8s. IO/localsubjectaccessreviews/Write | Zapisuje localsubjectaccessreviews |
+> | Microsoft. ContainerService/managedClusters/Authorization. k8s. IO/selfsubjectaccessreviews/Write | Zapisuje selfsubjectaccessreviews |
+> | Microsoft. ContainerService/managedClusters/Authorization. k8s. IO/selfsubjectrulesreviews/Write | Zapisuje selfsubjectrulesreviews |
+> | Microsoft. ContainerService/managedClusters/Authorization. k8s. IO/subjectaccessreviews/Write | Zapisuje subjectaccessreviews |
+> | Microsoft. ContainerService/managedClusters/Skalowanie automatyczne/horizontalpodautoscalers/odczyt | Odczytuje horizontalpodautoscalers |
+> | Microsoft. ContainerService/managedClusters/Skalowanie automatyczne/horizontalpodautoscalers/zapis | Zapisuje horizontalpodautoscalers |
+> | Microsoft. ContainerService/managedClusters/automatyczne skalowanie/horizontalpodautoscalers/Delete | Usuwa horizontalpodautoscalers |
+> | Microsoft. ContainerService/managedClusters/Batch/cronjobs/Read | Odczytuje cronjobs |
+> | Microsoft. ContainerService/managedClusters/Batch/cronjobs/Write | Zapisuje cronjobs |
+> | Microsoft. ContainerService/managedClusters/Batch/cronjobs/Delete | Usuwa cronjobs |
+> | Microsoft. ContainerService/managedClusters/Batch/Jobs/Read | Odczytuje zadania |
+> | Microsoft. ContainerService/managedClusters/Batch/Jobs/Write | Zapisuje zadania |
+> | Microsoft. ContainerService/managedClusters/Batch/Jobs/Delete | Usuwa zadania |
+> | Microsoft. ContainerService/managedClusters/bindings/Write | Zapisuje powiązania |
+> | Microsoft. ContainerService/managedClusters/Certificates. k8s. IO/certificatesigningrequests/Read | Odczytuje certificatesigningrequests |
+> | Microsoft. ContainerService/managedClusters/Certificates. k8s. IO/certificatesigningrequests/Write | Zapisuje certificatesigningrequests |
+> | Microsoft. ContainerService/managedClusters/Certificates. k8s. IO/certificatesigningrequests/Delete | Usuwa certificatesigningrequests |
+> | Microsoft. ContainerService/managedClusters/componentstatuses/Read | Odczytuje componentstatuses |
+> | Microsoft. ContainerService/managedClusters/componentstatuses/Write | Zapisuje componentstatuses |
+> | Microsoft. ContainerService/managedClusters/componentstatuses/Delete | Usuwa componentstatuses |
+> | Microsoft. ContainerService/managedClusters/configmaps/Read | Odczytuje configmaps |
+> | Microsoft. ContainerService/managedClusters/configmaps/Write | Zapisuje configmaps |
+> | Microsoft. ContainerService/managedClusters/configmaps/Delete | Usuwa configmaps |
+> | Microsoft. ContainerService/managedClusters/koordynacyjne. k8s. IO/dzierżawy/odczyt | Odczytuje dzierżawy |
+> | Microsoft. ContainerService/managedClusters/koordynacyjn. k8s. IO/dzierżawy/zapis | Zapisuje dzierżawy |
+> | Microsoft. ContainerService/managedClusters/koordynacyjn. k8s. IO/dzierżawy/usuwanie | Usuwa dzierżawy |
+> | Microsoft. ContainerService/managedClusters/Endpoints/Read | Odczytuje punkty końcowe |
+> | Microsoft. ContainerService/managedClusters/Endpoints/Write | Zapisuje punkty końcowe |
+> | Microsoft. ContainerService/managedClusters/Endpoints/Delete | Usuwa punkty końcowe |
+> | Microsoft. ContainerService/managedClusters/Events/odczyt | Odczytuje zdarzenia |
+> | Microsoft. ContainerService/managedClusters/Events/zapis | Zapisuje zdarzenia |
+> | Microsoft. ContainerService/managedClusters/Events/usuwanie | Usuwa zdarzenia |
+> | Microsoft. ContainerService/managedClusters/Events. k8s. IO/Events/odczyt | Odczytuje zdarzenia |
+> | Microsoft. ContainerService/managedClusters/Events. k8s. IO/Events/Write | Zapisuje zdarzenia |
+> | Microsoft. ContainerService/managedClusters/Events. k8s. IO/Events/Delete | Usuwa zdarzenia |
+> | Microsoft. ContainerService/managedClusters/Extensions/daemonsets/Read | Odczytuje daemonsets |
+> | Microsoft. ContainerService/managedClusters/Extensions/daemonsets/Write | Zapisuje daemonsets |
+> | Microsoft. ContainerService/managedClusters/Extensions/daemonsets/Delete | Usuwa daemonsets |
+> | Microsoft. ContainerService/managedClusters/Extensions/Deployments/Read | Odczytuje wdrożenia |
+> | Microsoft. ContainerService/managedClusters/Extensions/Deployments/Write | Zapisuje wdrożenia |
+> | Microsoft. ContainerService/managedClusters/Extensions/Deployments/Delete | Usuwa wdrożenia |
+> | Microsoft. ContainerService/managedClusters/Extensions/ingresses/Read | Odczytuje ingresses |
+> | Microsoft. ContainerService/managedClusters/Extensions/ingresses/Write | Zapisuje ingresses |
+> | Microsoft. ContainerService/managedClusters/Extensions/ingresses/Delete | Usuwa ingresses |
+> | Microsoft. ContainerService/managedClusters/Extensions/networkpolicies/Read | Odczytuje networkpolicies |
+> | Microsoft. ContainerService/managedClusters/Extensions/networkpolicies/Write | Zapisuje networkpolicies |
+> | Microsoft. ContainerService/managedClusters/Extensions/networkpolicies/Delete | Usuwa networkpolicies |
+> | Microsoft. ContainerService/managedClusters/Extensions/podsecuritypolicies/Read | Odczytuje podsecuritypolicies |
+> | Microsoft. ContainerService/managedClusters/Extensions/podsecuritypolicies/Write | Zapisuje podsecuritypolicies |
+> | Microsoft. ContainerService/managedClusters/Extensions/podsecuritypolicies/Delete | Usuwa podsecuritypolicies |
+> | Microsoft. ContainerService/managedClusters/Extensions/replicasets/Read | Odczytuje replicasets |
+> | Microsoft. ContainerService/managedClusters/Extensions/replicasets/Write | Zapisuje replicasets |
+> | Microsoft. ContainerService/managedClusters/Extensions/replicasets/Delete | Usuwa replicasets |
+> | Microsoft. ContainerService/managedClusters/grupy/personifikacja/akcja | Personifikuj grupy |
+> | Microsoft. ContainerService/managedClusters/healthz/Read | Odczytuje healthz |
+> | Microsoft. ContainerService/managedClusters/healthz/autoregister — uzupełnianie/odczytywanie | Odczytuje autorejestrowanie — uzupełnianie |
+> | Microsoft. ContainerService/managedClusters/healthz/etcd/Read | Odczytuje etcd |
+> | Microsoft. ContainerService/managedClusters/healthz/log/Read | Odczytuje dziennik |
+> | Microsoft. ContainerService/managedClusters/healthz/ping/odczyt | Odczytuje polecenie ping |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/apiservice-openapi-Controller/Read | Odczytuje apiservice-openapi-Controller |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/apiservice-Registration-Controller/Read | Odczytuje apiservice-Registration-Controller |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/apiservice-status-available-Controller/Read | Odczytuje apiservice-status-available-Controller |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/Bootstrap-Controller/Read | Odczytuje-kontroler Bootstrap |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/CA-Registration/Read | Odczytuje urząd certyfikacji — Rejestracja |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/CRD-Informer-syncd/Read | Odczytuje CRD-Informer-Sync |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/Generic-apiserver-Start-informes/Read | Odczytuje ogólne-apiserver-Start-Informers |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/polecenia-apiserver-autoregistration/Read | Odczytuje polecenia-apiserver-autoregistration |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/RBAC/Bootstrap — role/odczyt | Odczytuje Bootstrap-role |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/Scheduling/Bootstrap-system-Priority-Classes/Read | Odczytuje dane Bootstrap-system-Priority-Classes |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/Start-apiextensions-controllers/Read | Odczytuje Start-apiextensions-controllers |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/Start-apiextensions-informes/Read | Odczytuje Start-apiextensions-Informer |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/Start-polecenia-agregator-informes/Read | Odczytuje wartości Start-polecenia-agregator-Informer |
+> | Microsoft. ContainerService/managedClusters/healthz/poststarthook/Start-polecenia-apiserver-przyjęcie-inicjator/odczyt | Odczytuje Start-polecenia-apiserver-Admission-inicjator |
+> | Microsoft. ContainerService/managedClusters/limitranges/Read | Odczytuje limitranges |
+> | Microsoft. ContainerService/managedClusters/limitranges/Write | Zapisuje limitranges |
+> | Microsoft. ContainerService/managedClusters/limitranges/Delete | Usuwa limitranges |
+> | Microsoft. ContainerService/managedClusters/Livez/Read | Odczytuje Livez |
+> | Microsoft. ContainerService/managedClusters/Livez/autoregister — uzupełnianie/odczytywanie | Odczytuje autorejestrowanie — uzupełnianie |
+> | Microsoft. ContainerService/managedClusters/Livez/etcd/Read | Odczytuje etcd |
+> | Microsoft. ContainerService/managedClusters/Livez/log/Read | Odczytuje dziennik |
+> | Microsoft. ContainerService/managedClusters/Livez/ping/odczyt | Odczytuje polecenie ping |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/apiservice-openapi-Controller/Read | Odczytuje apiservice-openapi-Controller |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/apiservice-Registration-Controller/Read | Odczytuje apiservice-Registration-Controller |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/apiservice-status-available-Controller/Read | Odczytuje apiservice-status-available-Controller |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/Bootstrap-Controller/Read | Odczytuje-kontroler Bootstrap |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/CA-Registration/Read | Odczytuje urząd certyfikacji — Rejestracja |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/CRD-Informer-syncd/Read | Odczytuje CRD-Informer-Sync |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/Generic-apiserver-Start-informes/Read | Odczytuje ogólne-apiserver-Start-Informers |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/polecenia-apiserver-autoregistration/Read | Odczytuje polecenia-apiserver-autoregistration |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/RBAC/Bootstrap — role/odczyt | Odczytuje Bootstrap-role |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/Scheduling/Bootstrap-system-Priority-Classes/Read | Odczytuje dane Bootstrap-system-Priority-Classes |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/Start-apiextensions-controllers/Read | Odczytuje Start-apiextensions-controllers |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/Start-apiextensions-informes/Read | Odczytuje Start-apiextensions-Informer |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/Start-polecenia-agregator-informes/Read | Odczytuje wartości Start-polecenia-agregator-Informer |
+> | Microsoft. ContainerService/managedClusters/Livez/poststarthook/Start-polecenia-apiserver-przyjęcie-inicjator/odczyt | Odczytuje Start-polecenia-apiserver-Admission-inicjator |
+> | Microsoft. ContainerService/managedClusters/Logs/odczyt | Odczytuje dzienniki |
+> | Microsoft. ContainerService/managedClusters/Metrics/odczyt | Odczytuje metryki |
+> | Microsoft. ContainerService/managedClusters/Metrics. k8s. IO/nodes/Read | Odczytuje węzły |
+> | Microsoft. ContainerService/managedClusters/Metrics. k8s. IO/zasobników/odczyt | Odczytuje/zasobniki |
+> | Microsoft. ContainerService/managedClusters/Namespaces/Read | Odczytuje przestrzenie nazw |
+> | Microsoft. ContainerService/managedClusters/Namespaces/Write | Zapisuje przestrzenie nazw |
+> | Microsoft. ContainerService/managedClusters/przestrzenie nazw/usuwanie | Usuwa przestrzenie nazw |
+> | Microsoft. ContainerService/managedClusters/Networking. k8s. IO/ingresses/Read | Odczytuje ingresses |
+> | Microsoft. ContainerService/managedClusters/Networking. k8s. IO/ingresses/Write | Zapisuje ingresses |
+> | Microsoft. ContainerService/managedClusters/Networking. k8s. IO/ingresses/Delete | Usuwa ingresses |
+> | Microsoft. ContainerService/managedClusters/Networking. k8s. IO/networkpolicies/Read | Odczytuje networkpolicies |
+> | Microsoft. ContainerService/managedClusters/Networking. k8s. IO/networkpolicies/Write | Zapisuje networkpolicies |
+> | Microsoft. ContainerService/managedClusters/Networking. k8s. IO/networkpolicies/Delete | Usuwa networkpolicies |
+> | Microsoft. ContainerService/managedClusters/Node. k8s. IO/runtimeclasses/Read | Odczytuje runtimeclasses |
+> | Microsoft. ContainerService/managedClusters/Node. k8s. IO/runtimeclasses/Write | Zapisuje runtimeclasses |
+> | Microsoft. ContainerService/managedClusters/Node. k8s. IO/runtimeclasses/Delete | Usuwa runtimeclasses |
+> | Microsoft. ContainerService/managedClusters/nodes/Read | Odczytuje węzły |
+> | Microsoft. ContainerService/managedClusters/nodes/Write | Zapisuje węzły |
+> | Microsoft. ContainerService/managedClusters/nodes/Delete | Usuwa węzły |
+> | Microsoft. ContainerService/managedClusters/openapi/v2/odczyt | Odczyty v2 |
+> | Microsoft. ContainerService/managedClusters/persistentvolumeclaims/Read | Odczytuje persistentvolumeclaims |
+> | Microsoft. ContainerService/managedClusters/persistentvolumeclaims/Write | Zapisuje persistentvolumeclaims |
+> | Microsoft. ContainerService/managedClusters/persistentvolumeclaims/Delete | Usuwa persistentvolumeclaims |
+> | Microsoft. ContainerService/managedClusters/persistentvolumes/Read | Odczytuje persistentvolumes |
+> | Microsoft. ContainerService/managedClusters/persistentvolumes/Write | Zapisuje persistentvolumes |
+> | Microsoft. ContainerService/managedClusters/persistentvolumes/Delete | Usuwa persistentvolumes |
+> | Microsoft. ContainerService/managedClusters/zasobniki/Odczytaj | Odczytuje/zasobniki |
+> | Microsoft. ContainerService/managedClusters//zasobniki/zapis | Zapisy — zasobniki |
+> | Microsoft. ContainerService/managedClusters/zasobniki/usuwanie | Usuwa zasobniki |
+> | Microsoft. ContainerService/managedClusters/podtemplates/Read | Odczytuje podtemplates |
+> | Microsoft. ContainerService/managedClusters/podtemplates/Write | Zapisuje podtemplates |
+> | Microsoft. ContainerService/managedClusters/podtemplates/Delete | Usuwa podtemplates |
+> | Microsoft. ContainerService/managedClusters/Policy/poddisruptionbudgets/odczyt | Odczytuje poddisruptionbudgets |
+> | Microsoft. ContainerService/managedClusters/Policy/poddisruptionbudgets/Write | Zapisuje poddisruptionbudgets |
+> | Microsoft. ContainerService/managedClusters/Policy/poddisruptionbudgets/Delete | Usuwa poddisruptionbudgets |
+> | Microsoft. ContainerService/managedClusters/Policy/podsecuritypolicies/odczyt | Odczytuje podsecuritypolicies |
+> | Microsoft. ContainerService/managedClusters/Policy/podsecuritypolicies/Write | Zapisuje podsecuritypolicies |
+> | Microsoft. ContainerService/managedClusters/Policy/podsecuritypolicies/Delete | Usuwa podsecuritypolicies |
+> | Microsoft. ContainerService/managedClusters/Policy/podsecuritypolicies/use/Action | Użyj akcji w podsecuritypolicies |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/clusterrolebindings/Read | Odczytuje clusterrolebindings |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/clusterrolebindings/Write | Zapisuje clusterrolebindings |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/clusterrolebindings/Delete | Usuwa clusterrolebindings |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/clusterroles/Read | Odczytuje clusterroles |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/clusterroles/Write | Zapisuje clusterroles |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/clusterroles/Delete | Usuwa clusterroles |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/clusterroles/bind/Action | Clusterroles powiązania |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/clusterroles/eskalację/akcję | Eskalowanie |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/rolebindings/Read | Odczytuje rolebindings |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/rolebindings/Write | Zapisuje rolebindings |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/rolebindings/Delete | Usuwa rolebindings |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/role/Read | Odczytuje role |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/role/Write | Zapisuje role |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/role/Delete | Usuwa role |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/role/bind/Action | Powiązania ról |
+> | Microsoft. ContainerService/managedClusters/RBAC. Authorization. k8s. IO/role/eskalacja/akcja | Przekazuje role |
+> | Microsoft. ContainerService/managedClusters/readyz/Read | Odczytuje readyz |
+> | Microsoft. ContainerService/managedClusters/readyz/autoregister — uzupełnianie/odczytywanie | Odczytuje autorejestrowanie — uzupełnianie |
+> | Microsoft. ContainerService/managedClusters/readyz/etcd/Read | Odczytuje etcd |
+> | Microsoft. ContainerService/managedClusters/readyz/log/Read | Odczytuje dziennik |
+> | Microsoft. ContainerService/managedClusters/readyz/ping/odczyt | Odczytuje polecenie ping |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/apiservice-openapi-Controller/Read | Odczytuje apiservice-openapi-Controller |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/apiservice-Registration-Controller/Read | Odczytuje apiservice-Registration-Controller |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/apiservice-status-available-Controller/Read | Odczytuje apiservice-status-available-Controller |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/Bootstrap-Controller/Read | Odczytuje-kontroler Bootstrap |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/CA-Registration/Read | Odczytuje urząd certyfikacji — Rejestracja |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/CRD-Informer-syncd/Read | Odczytuje CRD-Informer-Sync |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/Generic-apiserver-Start-informes/Read | Odczytuje ogólne-apiserver-Start-Informers |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/polecenia-apiserver-autoregistration/Read | Odczytuje polecenia-apiserver-autoregistration |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/RBAC/Bootstrap — role/odczyt | Odczytuje Bootstrap-role |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/Scheduling/Bootstrap-system-Priority-Classes/Read | Odczytuje dane Bootstrap-system-Priority-Classes |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/Start-apiextensions-controllers/Read | Odczytuje Start-apiextensions-controllers |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/Start-apiextensions-informes/Read | Odczytuje Start-apiextensions-Informer |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/Start-polecenia-agregator-informes/Read | Odczytuje wartości Start-polecenia-agregator-Informer |
+> | Microsoft. ContainerService/managedClusters/readyz/poststarthook/Start-polecenia-apiserver-przyjęcie-inicjator/odczyt | Odczytuje Start-polecenia-apiserver-Admission-inicjator |
+> | Microsoft. ContainerService/managedClusters/readyz/Shutdown/odczyt | Odczyty zamknięcia |
+> | Microsoft. ContainerService/managedClusters/replicationcontrollers/Read | Odczytuje replicationcontrollers |
+> | Microsoft. ContainerService/managedClusters/replicationcontrollers/Write | Zapisuje replicationcontrollers |
+> | Microsoft. ContainerService/managedClusters/replicationcontrollers/Delete | Usuwa replicationcontrollers |
+> | Microsoft. ContainerService/managedClusters/resetMetrics/Read | Odczytuje resetMetrics |
+> | Microsoft. ContainerService/managedClusters/resourcequotas/Read | Odczytuje resourcequotas |
+> | Microsoft. ContainerService/managedClusters/resourcequotas/Write | Zapisuje resourcequotas |
+> | Microsoft. ContainerService/managedClusters/resourcequotas/Delete | Usuwa resourcequotas |
+> | Microsoft. ContainerService/managedClusters/Scheduling. k8s. IO/priorityclasses/Read | Odczytuje priorityclasses |
+> | Microsoft. ContainerService/managedClusters/Scheduling. k8s. IO/priorityclasses/Write | Zapisuje priorityclasses |
+> | Microsoft. ContainerService/managedClusters/Scheduling. k8s. IO/priorityclasses/Delete | Usuwa priorityclasses |
+> | Microsoft. ContainerService/managedClusters/Secret/odczyt | Odczytuje wpisy tajne |
+> | Microsoft. ContainerService/managedClusters/Secret/Write | Zapisuje wpisy tajne |
+> | Microsoft. ContainerService/managedClusters/Secret/Delete | Usuwa wpisy tajne |
+> | Microsoft. ContainerService/managedClusters/serviceaccounts/Read | Odczytuje serviceaccounts |
+> | Microsoft. ContainerService/managedClusters/serviceaccounts/Write | Zapisuje serviceaccounts |
+> | Microsoft. ContainerService/managedClusters/serviceaccounts/Delete | Usuwa konta serviceaccounts |
+> | Microsoft. ContainerService/managedClusters/serviceaccounts/personifikacja/akcja | Personifikuj konta serviceaccounts |
+> | Microsoft. ContainerService/managedClusters/Services/odczyt | Odczytuje usługi |
+> | Microsoft. ContainerService/managedClusters/Services/zapis | Zapisuje usługi |
+> | Microsoft. ContainerService/managedClusters/Services/Delete | Usuwa usługi |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/csidrivers/Read | Odczytuje csidrivers |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/csidrivers/Write | Zapisuje csidrivers |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/csidrivers/Delete | Usuwa csidrivers |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/csinodes/Read | Odczytuje csinodes |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/csinodes/Write | Zapisuje csinodes |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/csinodes/Delete | Usuwa csinodes |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/storageclasses/Read | Odczytuje storageclasses |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/storageclasses/Write | Zapisuje storageclasses |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/storageclasses/Delete | Usuwa storageclasses |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/volumeattachments/Read | Odczytuje volumeattachments |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/volumeattachments/Write | Zapisuje volumeattachments |
+> | Microsoft. ContainerService/managedClusters/Storage. k8s. IO/volumeattachments/Delete | Usuwa volumeattachments |
+> | Microsoft. ContainerService/managedClusters/Swagger-API/Read | Odczytuje strukturę Swagger-API |
+> | Microsoft. ContainerService/managedClusters/Swagger — interfejs użytkownika/odczyt | Odczytuje strukturę Swagger — interfejs użytkownika |
+> | Microsoft. ContainerService/managedClusters/UI/odczyt | Odczytuje interfejs użytkownika |
+> | Microsoft. ContainerService/managedClusters/użytkownicy/personifikacja/akcja | Personifikuj użytkowników |
+> | Microsoft. ContainerService/managedClusters/Version/Read | Odczytuje wersję |
 
 ### <a name="microsoftdevspaces"></a>Microsoft. DevSpaces
 
@@ -2609,7 +2993,8 @@ Usługa platformy Azure: [Azure dev Spaces](../dev-spaces/index.yml)
 > | Microsoft. DevSpaces/controllers/listConnectionDetails/Action | Wyświetl szczegóły połączenia dla infrastruktury kontrolera Azure Dev Spaces |
 > | Microsoft. DevSpaces/Locations/checkContainerHostMapping/Action | Sprawdź istniejące mapowanie kontrolera dla hosta kontenera |
 > | Microsoft. DevSpaces/Locations/checkContainerHostMapping/Read | Sprawdź istniejące mapowanie kontrolera dla hosta kontenera |
-> | Microsoft. DevSpaces/Locations/operationresults/Read | Stan odczytu operacji asynchronicznej |
+> | Microsoft. DevSpaces/Locations/operationresults/Read | Odczyt wyniku operacji asynchronicznej |
+> | Microsoft. DevSpaces/Operations/Read | Wyświetl listę wszystkich obsługiwanych operacji dla dostawcy zasobów usługi Microsoft dev Spaces |
 
 ## <a name="databases"></a>Bazy danych
 
@@ -2635,6 +3020,9 @@ Usługa platformy Azure: [pamięć podręczna platformy Azure dla Redis](../azur
 > | Microsoft. cache/Redis/forceReboot/akcja | Wymuś ponowne uruchomienie wystąpienia pamięci podręcznej, potencjalnie z utratą danych. |
 > | Microsoft. cache/Redis/Stop/akcja | Zatrzymaj wystąpienie pamięci podręcznej. |
 > | Microsoft. cache/Redis/Start/akcja | Uruchom wystąpienie pamięci podręcznej. |
+> | Microsoft. cache/Redis/eventGridFilters/odczyt | Pobierz filtr Event Grid Redis Cache |
+> | Microsoft. cache/Redis/eventGridFilters/zapis | Aktualizowanie filtrów Event Grid Redis Cache |
+> | Microsoft. cache/Redis/eventGridFilters/Delete | Usuń filtry Event Grid Redis Cache |
 > | Microsoft. cache/Redis/firewallRules/odczyt | Pobieranie reguł zapory adresów IP Redis Cache |
 > | Microsoft. cache/Redis/firewallRules/zapis | Edytowanie reguł zapory adresów IP Redis Cache |
 > | Microsoft. cache/Redis/firewallRules/Delete | Usuwanie reguł zapory adresów IP Redis Cache |
@@ -2645,6 +3033,7 @@ Usługa platformy Azure: [pamięć podręczna platformy Azure dla Redis](../azur
 > | Microsoft. cache/Redis/patchSchedules/odczyt | Pobiera harmonogram stosowania poprawek Redis Cache |
 > | Microsoft. cache/Redis/patchSchedules/zapis | Modyfikowanie harmonogramu poprawek Redis Cache |
 > | Microsoft. cache/Redis/patchSchedules/Delete | Usuwanie harmonogramu poprawek Redis Cache |
+> | Microsoft. cache/redisEnterprise/Providers/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla pamięci podręcznej Redis przedsiębiorstwa |
 
 ### <a name="microsoftdatafactory"></a>Microsoft. DataFactory
 
@@ -2820,6 +3209,8 @@ Usługa platformy Azure: [Azure Database for MariaDB](../mariadb/index.yml)
 > | --- | --- |
 > | Microsoft. DBforMariaDB/Register/Action | Zarejestruj dostawcę zasobów MariaDB |
 > | Microsoft. DBforMariaDB/checkNameAvailability/Action | Sprawdź, czy dana nazwa serwera jest dostępna do aprowizacji na całym świecie dla danej subskrypcji. |
+> | Microsoft. DBforMariaDB/Locations/administratorAzureAsyncOperation/Read | Pobiera operacje w toku dla administratorów serwera MariaDB |
+> | Microsoft. DBforMariaDB/Locations/administratorOperationResults/Read | Zwróć wyniki operacji administratora serwera MariaDB |
 > | Microsoft. DBforMariaDB/Locations/azureAsyncOperation/Read | Zwróć wyniki operacji serwera MariaDB |
 > | Microsoft. DBforMariaDB/Locations/operationResults/Read | Zwróć wyniki operacji serwera MariaDB opartego na źródle zasobów |
 > | Microsoft. DBforMariaDB/Locations/operationResults/Read | Zwróć wyniki operacji serwera MariaDB |
@@ -2830,7 +3221,7 @@ Usługa platformy Azure: [Azure Database for MariaDB](../mariadb/index.yml)
 > | Microsoft. DBforMariaDB/Locations/privateEndpointConnectionProxyOperationResults/Read | Pobiera wynik operacji serwera proxy połączenia prywatnego punktu końcowego |
 > | Microsoft. DBforMariaDB/Locations/securityAlertPoliciesAzureAsyncOperation/Read | Zwróć listę wyników operacji wykrywania zagrożeń serwera. |
 > | Microsoft. DBforMariaDB/Locations/securityAlertPoliciesOperationResults/Read | Zwróć listę wyników operacji wykrywania zagrożeń serwera. |
-> | Microsoft. DBforMariaDB/Locations/serverKeyAzureAsyncOperation/Read | Pobiera operacje w toku dla kluczy serwera przezroczystego szyfrowania danych |
+> | Microsoft. DBforMariaDB/Locations/serverKeyAzureAsyncOperation/Read | Pobiera operacje w toku dotyczące kluczy serwera szyfrowania danych |
 > | Microsoft. DBforMariaDB/Locations/serverKeyOperationResults/Read | Pobiera operacje w toku dla kluczy serwera przezroczystego szyfrowania danych |
 > | Microsoft. DBforMariaDB/Operations/Read | Zwróć listę operacji MariaDB. |
 > | Microsoft. DBforMariaDB/performanceTiers/odczyt | Zwraca listę dostępnych warstw wydajności. |
@@ -2878,6 +3269,7 @@ Usługa platformy Azure: [Azure Database for MariaDB](../mariadb/index.yml)
 > | Microsoft. DBforMariaDB/serwery/repliki/odczyt | Pobierz repliki serwera MariaDB |
 > | Microsoft. DBforMariaDB/serwery/securityAlertPolicies/odczyt | Pobierz szczegóły zasad wykrywania zagrożeń serwera skonfigurowanych na danym serwerze |
 > | Microsoft. DBforMariaDB/serwery/securityAlertPolicies/zapis | Zmień zasady wykrywania zagrożeń serwera dla danego serwera |
+> | Microsoft. DBforMariaDB/serwery/securityAlertPolicies/odczyt | Pobieranie listy zasad wykrywania zagrożeń serwera skonfigurowanych dla danego serwera |
 > | Microsoft. DBforMariaDB/serwery/topQueryStatistics/odczyt | Zwróć listę statystyk zapytania dla najważniejszych zapytań. |
 > | Microsoft. DBforMariaDB/serwery/topQueryStatistics/odczyt | Zwróć statystykę zapytania |
 > | Microsoft. DBforMariaDB/serwery/virtualNetworkRules/odczyt | Zwróć listę reguł sieci wirtualnej lub pobiera właściwości dla określonej reguły sieci wirtualnej. |
@@ -2895,6 +3287,8 @@ Usługa platformy Azure: [Azure Database for MySQL](../mysql/index.yml)
 > | --- | --- |
 > | Microsoft. DBforMySQL/Register/Action | Zarejestruj dostawcę zasobów MySQL |
 > | Microsoft. DBforMySQL/checkNameAvailability/Action | Sprawdź, czy dana nazwa serwera jest dostępna do aprowizacji na całym świecie dla danej subskrypcji. |
+> | Microsoft. DBforMySQL/Locations/administratorAzureAsyncOperation/Read | Pobiera operacje w toku dla administratorów serwera MySQL |
+> | Microsoft. DBforMySQL/Locations/administratorOperationResults/Read | Zwróć wyniki operacji administratora serwera MySQL |
 > | Microsoft. DBforMySQL/Locations/azureAsyncOperation/Read | Zwróć wyniki operacji serwera MySQL |
 > | Microsoft. DBforMySQL/Locations/operationResults/Read | Zwróć wyniki operacji serwera MySQL na podstawie zasobów |
 > | Microsoft. DBforMySQL/Locations/operationResults/Read | Zwróć wyniki operacji serwera MySQL |
@@ -2906,7 +3300,7 @@ Usługa platformy Azure: [Azure Database for MySQL](../mysql/index.yml)
 > | Microsoft. DBforMySQL/Locations/securityAlertPoliciesAzureAsyncOperation/Read | Zwróć listę wyników operacji wykrywania zagrożeń serwera. |
 > | Microsoft. DBforMySQL/Locations/securityAlertPoliciesOperationResults/Read | Zwróć listę wyników operacji wykrywania zagrożeń serwera. |
 > | Microsoft. DBforMySQL/Locations/serverKeyAzureAsyncOperation/Read | Pobiera operacje w toku dla kluczy serwera przezroczystego szyfrowania danych |
-> | Microsoft. DBforMySQL/Locations/serverKeyOperationResults/Read | Pobiera operacje w toku dla kluczy serwera przezroczystego szyfrowania danych |
+> | Microsoft. DBforMySQL/Locations/serverKeyOperationResults/Read | Pobiera operacje w toku dotyczące kluczy serwera szyfrowania danych |
 > | Microsoft. DBforMySQL/Operations/Read | Zwróć listę operacji programu MySQL. |
 > | Microsoft. DBforMySQL/performanceTiers/odczyt | Zwraca listę dostępnych warstw wydajności. |
 > | Microsoft. DBforMySQL/serwery/queryTexts/akcja | Zwróć teksty dla listy zapytań |
@@ -2953,6 +3347,7 @@ Usługa platformy Azure: [Azure Database for MySQL](../mysql/index.yml)
 > | Microsoft. DBforMySQL/serwery/repliki/odczyt | Uzyskaj odczyt replik serwera MySQL |
 > | Microsoft. DBforMySQL/serwery/securityAlertPolicies/odczyt | Pobierz szczegóły zasad wykrywania zagrożeń serwera skonfigurowanych na danym serwerze |
 > | Microsoft. DBforMySQL/serwery/securityAlertPolicies/zapis | Zmień zasady wykrywania zagrożeń serwera dla danego serwera |
+> | Microsoft. DBforMySQL/serwery/securityAlertPolicies/odczyt | Pobieranie listy zasad wykrywania zagrożeń serwera skonfigurowanych dla danego serwera |
 > | Microsoft. DBforMySQL/serwery/topQueryStatistics/odczyt | Zwróć listę statystyk zapytania dla najważniejszych zapytań. |
 > | Microsoft. DBforMySQL/serwery/topQueryStatistics/odczyt | Zwróć statystykę zapytania |
 > | Microsoft. DBforMySQL/serwery/virtualNetworkRules/odczyt | Zwróć listę reguł sieci wirtualnej lub pobiera właściwości dla określonej reguły sieci wirtualnej. |
@@ -2970,6 +3365,8 @@ Usługa platformy Azure: [Azure Database for PostgreSQL](../postgresql/index.yml
 > | --- | --- |
 > | Microsoft. DBforPostgreSQL/Register/Action | Zarejestruj dostawcę zasobów PostgreSQL |
 > | Microsoft. DBforPostgreSQL/checkNameAvailability/Action | Sprawdź, czy dana nazwa serwera jest dostępna do aprowizacji na całym świecie dla danej subskrypcji. |
+> | Microsoft. DBforPostgreSQL/Locations/administratorAzureAsyncOperation/Read | Pobiera operacje w toku dla administratorów serwera PostgreSQL |
+> | Microsoft. DBforPostgreSQL/Locations/administratorOperationResults/Read | Zwróć wyniki operacji administratora serwera PostgreSQL |
 > | Microsoft. DBforPostgreSQL/Locations/azureAsyncOperation/Read | Zwróć wyniki operacji serwera PostgreSQL |
 > | Microsoft. DBforPostgreSQL/Locations/operationResults/Read | Zwróć wyniki operacji serwera PostgreSQL opartego na źródle zasobów |
 > | Microsoft. DBforPostgreSQL/Locations/operationResults/Read | Zwróć wyniki operacji serwera PostgreSQL |
@@ -2980,8 +3377,8 @@ Usługa platformy Azure: [Azure Database for PostgreSQL](../postgresql/index.yml
 > | Microsoft. DBforPostgreSQL/Locations/privateEndpointConnectionProxyOperationResults/Read | Pobiera wynik operacji serwera proxy połączenia prywatnego punktu końcowego |
 > | Microsoft. DBforPostgreSQL/Locations/securityAlertPoliciesAzureAsyncOperation/Read | Zwróć listę wyników operacji wykrywania zagrożeń serwera. |
 > | Microsoft. DBforPostgreSQL/Locations/securityAlertPoliciesOperationResults/Read | Zwróć listę wyników operacji wykrywania zagrożeń serwera. |
-> | Microsoft. DBforPostgreSQL/Locations/serverKeyAzureAsyncOperation/Read | Pobiera operacje w toku dla kluczy serwera przezroczystego szyfrowania danych |
-> | Microsoft. DBforPostgreSQL/Locations/serverKeyOperationResults/Read | Pobiera operacje w toku dla kluczy serwera przezroczystego szyfrowania danych |
+> | Microsoft. DBforPostgreSQL/Locations/serverKeyAzureAsyncOperation/Read | Pobiera operacje w toku dotyczące kluczy serwera szyfrowania danych |
+> | Microsoft. DBforPostgreSQL/Locations/serverKeyOperationResults/Read | Pobiera operacje w toku dotyczące kluczy serwera szyfrowania danych |
 > | Microsoft. DBforPostgreSQL/Operations/Read | Zwróć listę operacji PostgreSQL. |
 > | Microsoft. DBforPostgreSQL/performanceTiers/odczyt | Zwraca listę dostępnych warstw wydajności. |
 > | Microsoft. DBforPostgreSQL/serwery/queryTexts/akcja | Zwróć tekst zapytania |
@@ -3134,9 +3531,17 @@ Usługa platformy Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/Tables/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tabele/throughputSettings/Write | Aktualizowanie przepływności tabeli Cassandra. |
 > | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/Tables/throughputSettings/Read | Odczytaj Cassandraą przepływność tabeli. |
+> | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/Tables/throughputSettings/migrateToAutoscale/Action | Przeprowadź migrację oferty tabeli Cassandra na automatyczne skalowanie. |
+> | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/Tables/throughputSettings/migrateToManualThroughput/Action | Przeprowadź migrację oferty tabeli Cassandra do ręcznego przepływności. |
+> | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/Tables/throughputSettings/migrateToAutoscale/operationResults/Read | Stan odczytu operacji asynchronicznej. |
+> | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/Tables/throughputSettings/migrateToManualThroughput/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/tabele/throughputSettings/operationResults/Odczytaj | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings/Write | Zaktualizuj przepływność przestrzeni kluczy Cassandra. |
 > | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings/Read | Odczytaj Cassandraą przepływność przestrzeni kluczy. |
+> | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings/migrateToAutoscale/Action | Przeprowadź migrację oferty Cassandraej przestrzeni kluczy na automatyczne skalowanie. |
+> | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings/migrateToManualThroughput/Action | Przeprowadź migrację Cassandra miejsca na miejsce na ręczną przepływność. |
+> | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings/migrateToAutoscale/operationResults/Odczytaj | Stan odczytu operacji asynchronicznej. |
+> | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings/migrateToManualThroughput/operationResults/Odczytaj | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/throughputSettings/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/bazy danych/kolekcje/metricDefinitions/odczyt | Odczytuje definicje metryk kolekcji. |
 > | Microsoft.DocumentDB/databaseAccounts/bazy danych/kolekcje/metryki/odczyt | Odczytuje metryki kolekcji. |
@@ -3157,10 +3562,18 @@ Usługa platformy Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/Grafs/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/Grafs/throughputSettings/Write | Aktualizowanie przepływności grafu Gremlin. |
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/Grafs/throughputSettings/Read | Odczytaj przepływność grafu Gremlin. |
+> | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/Grafs/throughputSettings/migrateToAutoscale/Action | Przeprowadź migrację oferty grafu Gremlin na automatyczne skalowanie. |
+> | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/Grafs/throughputSettings/migrateToManualThroughput/Action | Przeprowadź migrację oferty grafu Gremlin do ręcznego przepływności. |
+> | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/Grafs/throughputSettings/migrateToAutoscale/operationResults/Read | Stan odczytu operacji asynchronicznej. |
+> | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/Grafs/throughputSettings/migrateToManualThroughput/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/Grafs/throughputSettings/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/throughputSettings/Write | Aktualizowanie przepływności bazy danych Gremlin. |
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/throughputSettings/Read | Odczytaj przepływność bazy danych Gremlin. |
+> | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/throughputSettings/migrateToAutoscale/Action | Przeprowadź migrację oferty bazy danych Gremlin na automatyczne skalowanie. |
+> | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/throughputSettings/migrateToManualThroughput/Action | Przeprowadź migrację oferty bazy danych Gremlin do ręcznego przepływności. |
+> | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/throughputSettings/migrateToAutoscale/operationResults/Odczytaj | Stan odczytu operacji asynchronicznej. |
+> | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/throughputSettings/migrateToManualThroughput/operationResults/Odczytaj | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/throughputSettings/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/metricDefinitions/odczyt | Odczytuje definicje metryk konta bazy danych. |
 > | Microsoft.DocumentDB/databaseAccounts/metryki/odczyt | Odczytuje metryki konta bazy danych. |
@@ -3173,10 +3586,18 @@ Usługa platformy Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/Collections/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/Collections/throughputSettings/Write | Aktualizowanie przepływności kolekcji MongoDB. |
 > | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/Collections/throughputSettings/Read | Odczytaj przepływność kolekcji MongoDB. |
+> | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/Collections/throughputSettings/migrateToAutoscale/Action | Migruj ofertę kolekcji MongoDB na automatyczne skalowanie. |
+> | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/Collections/throughputSettings/migrateToManualThroughput/Action | Migruj ofertę kolekcji MongoDB na ręczną przepływność. |
+> | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/Collections/throughputSettings/migrateToAutoscale/operationResults/Read | Stan odczytu operacji asynchronicznej. |
+> | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/Collections/throughputSettings/migrateToManualThroughput/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/Collections/throughputSettings/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings/Write | Aktualizowanie przepływności bazy danych MongoDB. |
 > | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings/Read | Odczytaj przepływność bazy danych MongoDB. |
+> | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings/migrateToAutoscale/Action | Przeprowadź migrację oferty bazy danych MongoDB na automatyczne skalowanie. |
+> | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings/migrateToManualThroughput/Action | Przeprowadź migrację oferty bazy danych MongoDB do ręcznego przepływności. |
+> | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings/migrateToAutoscale/operationResults/Odczytaj | Stan odczytu operacji asynchronicznej. |
+> | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings/migrateToManualThroughput/operationResults/Odczytaj | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/mongodbDatabases/throughputSettings/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces/zapis | Utwórz lub zaktualizuj obszar roboczy notesu |
 > | Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces/odczyt | Odczytywanie obszaru roboczego notesu |
@@ -3217,6 +3638,10 @@ Usługa platformy Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/Containers/storedProcedures/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/Containers/throughputSettings/Write | Zaktualizuj przepływność kontenera SQL. |
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/Containers/throughputSettings/Read | Odczytaj przepływność kontenera SQL. |
+> | Microsoft.DocumentDB/databaseAccounts/sqldatabases/Containers/throughputSettings/migrateToAutoscale/Action | Migruj ofertę kontenera SQL na automatyczne skalowanie. |
+> | Microsoft.DocumentDB/databaseAccounts/sqldatabases/Containers/throughputSettings/migrateToManualThroughput/Action | Przeprowadź migrację oferty przepływności bazy danych SQL do ręcznej przepływności. |
+> | Microsoft.DocumentDB/databaseAccounts/sqldatabases/Containers/throughputSettings/migrateToAutoscale/operationResults/Read | Stan odczytu operacji asynchronicznej. |
+> | Microsoft.DocumentDB/databaseAccounts/sqldatabases/Containers/throughputSettings/migrateToManualThroughput/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/Containers/throughputSettings/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/Containers/Triggers/Write | Utwórz lub zaktualizuj wyzwalacz SQL. |
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/Containers/Triggers/Read | Odczytaj wyzwalacz SQL lub Wyświetl listę wszystkich wyzwalaczy SQL. |
@@ -3229,6 +3654,10 @@ Usługa platformy Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/throughputSettings/Write | Aktualizowanie przepływności bazy danych SQL. |
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/throughputSettings/Read | Odczytaj przepływność bazy danych SQL. |
+> | Microsoft.DocumentDB/databaseAccounts/sqldatabases/throughputSettings/migrateToAutoscale/Action | Przeprowadź migrację oferty SQL Database do automatycznego skalowania. |
+> | Microsoft.DocumentDB/databaseAccounts/sqldatabases/throughputSettings/migrateToManualThroughput/Action | Przeprowadź migrację oferty przepływności bazy danych SQL do ręcznej przepływności. |
+> | Microsoft.DocumentDB/databaseAccounts/sqldatabases/throughputSettings/migrateToAutoscale/operationResults/Read | Stan odczytu operacji asynchronicznej. |
+> | Microsoft.DocumentDB/databaseAccounts/sqldatabases/throughputSettings/migrateToManualThroughput/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/sqldatabases/throughputSettings/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/tabele/zapis | Utwórz lub zaktualizuj tabelę. |
 > | Microsoft.DocumentDB/databaseAccounts/tabele/odczyt | Odczytaj tabelę lub listę wszystkich tabel. |
@@ -3236,6 +3665,10 @@ Usługa platformy Azure: [Azure Cosmos DB](../cosmos-db/index.yml)
 > | Microsoft.DocumentDB/databaseAccounts/tabele/operationResults/odczyt | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/tabele/throughputSettings/zapis | Aktualizowanie przepływności tabeli. |
 > | Microsoft.DocumentDB/databaseAccounts/tabele/throughputSettings/odczyt | Odczytaj tabelę przepływność. |
+> | Microsoft.DocumentDB/databaseAccounts/tabele/throughputSettings/migrateToAutoscale/Action | Przeprowadź migrację oferty tabeli do automatycznego skalowania. |
+> | Microsoft.DocumentDB/databaseAccounts/tabele/throughputSettings/migrateToManualThroughput/Action | Przeprowadź migrację oferty tabeli do programu do ręcznego przepływności. |
+> | Microsoft.DocumentDB/databaseAccounts/tabele/throughputSettings/migrateToAutoscale/operationResults/odczyt | Stan odczytu operacji asynchronicznej. |
+> | Microsoft.DocumentDB/databaseAccounts/tabele/throughputSettings/migrateToManualThroughput/operationResults/odczyt | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/tabele/throughputSettings/operationResults/Read | Stan odczytu operacji asynchronicznej. |
 > | Microsoft.DocumentDB/databaseAccounts/użycie/odczyt | Odczytuje użycie konta bazy danych. |
 > | Microsoft.DocumentDB/Locations/deleteVirtualNetworkOrSubnets/Action | Powiadamia Microsoft.DocumentDB, że VirtualNetwork lub podsieć jest usuwana |
@@ -3334,6 +3767,7 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/managedInstances/odczyt | Zwróć listę wystąpień zarządzanych lub pobiera właściwości dla określonego wystąpienia zarządzanego. |
 > | Microsoft. SQL/managedInstances/Write | Tworzy wystąpienie zarządzane o określonych parametrach lub aktualizuje właściwości lub Tagi dla określonego wystąpienia zarządzanego. |
 > | Microsoft. SQL/managedInstances/Delete | Usuwa istniejące wystąpienie zarządzane. |
+> | Microsoft. SQL/managedInstances/tryb failover/akcja | Klient rozpoczął pracę w trybie failover wystąpienia zarządzanego. |
 > | Microsoft. SQL/managedInstances/Administratorzy/odczyt | Pobiera listę administratorów wystąpienia zarządzanego. |
 > | Microsoft. SQL/managedInstances/Administratorzy/zapis | Tworzy lub aktualizuje administratora wystąpienia zarządzanego o określonych parametrach. |
 > | Microsoft. SQL/managedInstances/Administratorzy/usuwanie | Usuwa istniejącego administratora wystąpienia zarządzanego. |
@@ -3414,6 +3848,7 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/managedInstances/vulnerabilityAssessments/odczyt | Pobieranie zasad oceny luk w zabezpieczeniach w danym wystąpieniu zarządzanym |
 > | Microsoft. SQL/Operations/Read | Pobiera dostępne operacje REST |
 > | Microsoft. SQL/serwery/tdeCertificates/akcja | Utwórz/zaktualizuj certyfikat TDE |
+> | Microsoft. SQL/serwery/enableAzureADOnlyAuthentication/akcja | Włącz uwierzytelnianie tylko Azure Active Directory na serwerze logicznym |
 > | Microsoft. SQL/serwery/disableAzureADOnlyAuthentication/akcja | Wyłącz uwierzytelnianie tylko Azure Active Directory na serwerze logicznym |
 > | Microsoft. SQL/serwery/odczyt | Zwróć listę serwerów lub pobiera właściwości dla określonego serwera. |
 > | Microsoft. SQL/serwery/zapis | Tworzy serwer z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego serwera. |
@@ -3435,9 +3870,6 @@ Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), 
 > | Microsoft. SQL/serwery/auditingSettings/operationResults/odczyt | Pobierz wynik operacji ustawiania zasad inspekcji obiektu BLOB serwera |
 > | Microsoft. SQL/serwery/automaticTuning/odczyt | Zwraca ustawienia automatycznego dostrajania dla serwera. |
 > | Microsoft. SQL/serwery/automaticTuning/Write | Aktualizuje ustawienia dostrajania automatycznego dla serwera i zwraca zaktualizowane ustawienia |
-> | Microsoft. SQL/serwery/backupLongTermRetentionVaults/odczyt | Ta operacja służy do pobierania magazynu długoterminowego przechowywania kopii zapasowych. Zwraca informacje o magazynie zarejestrowanym na tym serwerze |
-> | Microsoft. SQL/serwery/backupLongTermRetentionVaults/Write | Ta operacja służy do rejestrowania magazynu długoterminowego przechowywania kopii zapasowej na serwerze programu. |
-> | Microsoft. SQL/serwery/backupLongTermRetentionVaults/Delete | Usuwa istniejący magazyn archiwum kopii zapasowych. |
 > | Microsoft. SQL/serwery/communicationLinks/odczyt | Zwróć listę linków komunikacyjnych określonego serwera. |
 > | Microsoft. SQL/serwery/communicationLinks/Write | Utwórz lub zaktualizuj łącze do komunikacji z serwerem. |
 > | Microsoft. SQL/serwery/communicationLinks/Delete | Usuwa istniejące łącze komunikacji z serwerem. |
@@ -4176,6 +4608,9 @@ Usługa platformy Azure: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/accounts/ContentModerator/termlists/terms/Write | Termin — Dodawanie warunku |
 > | Microsoft. CognitiveServices/accounts/ContentModerator/termlists/terms/Delete | Termin — usuwanie terminu — usuwa wszystkie warunki |
 > | Microsoft. CognitiveServices/accounts/ContentModerator/termlists/terms/Read | Termin — Pobierz wszystkie warunki |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/Action | Utwórz projekt. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/użytkownik/akcja | *NotDefined* |
+> | Microsoft. CognitiveServices/accounts/CustomVision/limit przydziału/akcja | *NotDefined* |
 > | Microsoft. CognitiveServices/accounts/CustomVision. przewidywania/projekty/akcja | Utwórz projekt. |
 > | Microsoft. CognitiveServices/accounts/CustomVision. przewidywania/użytkownik/akcja | *NotDefined* |
 > | Microsoft. CognitiveServices/accounts/CustomVision. przewidywania/przydział/akcja | *NotDefined* |
@@ -4246,6 +4681,77 @@ Usługa platformy Azure: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/accounts/CustomVision. przewidywania/dozwolonych/Delete | Usuwa użytkownika listy dozwolonych z określoną możliwością |
 > | Microsoft. CognitiveServices/accounts/CustomVision. przewidywania/dozwolonych/odczyt | Pobiera listę użytkowników listy dozwolonych z określoną możliwością |
 > | Microsoft. CognitiveServices/accounts/CustomVision. przewidywania/dozwolonych/Write | Aktualizuje lub tworzy użytkownika w dozwolonych z określoną możliwością |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Klasyfikuj/iteracje/obraz/akcja | Klasyfikowanie obrazu i zapisywanie wyniku. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Klasyfikuj/iteracje/URL/akcja | Klasyfikowanie adresu URL obrazu i zapisywanie wyniku. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Klasyfikuj/iteracje/Image/NoStore/Action | Klasyfikowanie obrazu bez zapisywania wyniku. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Klasyfikuj/iteracje/URL/NoStore/Action | Klasyfikowanie adresu URL obrazu bez zapisywania wyniku. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Detect/iteracje/obraz/akcja | Wykryj obiekty w obrazie i Zapisz wynik. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Detect/iteracje/URL/akcja | Wykryj obiekty w adresie URL obrazu i Zapisz wynik. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Detect/iteracje/Image/NoStore/Action | Wykrywaj obiekty w obrazie bez zapisywania wyników. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Detect/iteracje/URL/NoStore/Action | Wykryj obiekty w adresie URL obrazu bez zapisywania wyniku. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/domen/odczyt | Uzyskaj informacje o konkretnej domenie. Pobierz listę dostępnych domen. * |
+> | Microsoft. CognitiveServices/accounts/CustomVision/labelproposals/Setting/Action | Ustaw rozmiar puli dla pozycji etykieta. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/labelproposals/Setting/Read | Pobierz rozmiar puli dla propozycji etykiety dla tego projektu. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Project/migruje/Action | *NotDefined* |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/Action | Ten interfejs API akceptuje zawartość treści jako wieloczęściowy/form-Data i application/octet-stream. W przypadku korzystania z wieloczęściowego |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projekty/Tagi/akcja | Utwórz tag dla projektu. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/Delete | Usuń określony projekt. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/Read | Pobierz konkretny projekt. Pobierz swoje projekty. * |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/pociąg/akcja | Kolejkuje projekt do szkoleń. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/Write | Aktualizowanie określonego projektu. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/import/Action | Importuje projekt. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/artefakty/odczyt | Pobierz zawartość artefaktu z magazynu obiektów BLOB w oparciu o ścieżkę względną artefaktu w obiekcie blob. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/Export/Read | Eksportuje projekt. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projekty/obrazy/regiony/akcja | Ten interfejs API akceptuje partie regionów obrazu oraz opcjonalne Tagi, aby aktualizować istniejące obrazy z informacjami o regionie. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/Action | Ten interfejs API akceptuje partię plików i opcjonalnie Tagi do tworzenia obrazów. Istnieje limit wynoszący 64 obrazy i 20 tagów. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projekty/obrazy/przewidywania/akcja | Ten interfejs API tworzy partię obrazów z określonych zapowiadanych obrazów. Istnieje limit wynoszący 64 obrazy i 20 tagów. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/URL/Action | Ten interfejs API akceptuje wsadowe adresy URL i opcjonalne Tagi do tworzenia obrazów. Istnieje limit wynoszący 64 obrazy i 20 tagów. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projekty/obrazy/Tagi/akcja | Skojarz zestaw obrazów z zestawem tagów. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/Delete | Usuń obrazy z zestawu obrazów szkoleniowych. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/regionproposals/Action | Ten interfejs API będzie uzyskiwać propozycje regionów dla obrazu oraz zaufanie dla regionu. Zwraca pustą tablicę, jeśli nie znaleziono żadnych propozycji. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/sugerował/Action | Ten interfejs API spowoduje pobranie nieoznakowanych obrazów filtrowanych według sugerowanych identyfikatorów tagów. Zwraca pustą tablicę, jeśli nie znaleziono obrazów. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/Read | Ten interfejs API obsługuje przetwarzanie wsadowe i wybór zakresu. Domyślnie zwróci on tylko pierwsze 50 obrazów zgodnych z obrazami. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/Action | Ten interfejs API akceptuje partię identyfikatorów obrazów i metadanych w celu aktualizacji obrazów. Istnieje limit 64 obrazów. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/Count/Read | Filtrowanie dotyczy relacji i/lub. Na przykład, jeśli podane identyfikatory tagów są dla "Dog" i |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/ID/Read | Ten interfejs API zwróci zestaw obrazów dla określonych tagów i opcjonalnie iteracji. Jeśli nie określono iteracji, |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projekty/obrazy/regiony/usuwanie | Usuń zestaw regionów obrazu. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/Sugerowana/liczba/akcja | Ten interfejs API przyjmuje tagIds, aby uzyskać liczbę nieoznakowanych obrazów według sugerowanych tagów dla danego progu. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/Tagged/Read | Ten interfejs API obsługuje przetwarzanie wsadowe i wybór zakresu. Domyślnie zwróci on tylko pierwsze 50 obrazów zgodnych z obrazami. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/Tagged/Count/Read | Filtrowanie dotyczy relacji i/lub. Na przykład, jeśli podane identyfikatory tagów są dla "Dog" i |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projekty/obrazy/Tagi/usuwanie | Usuwanie zestawu tagów z zestawu obrazów. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images/Read | Ten interfejs API obsługuje przetwarzanie wsadowe i wybór zakresu. Domyślnie zwróci on tylko pierwsze 50 obrazów zgodnych z obrazami. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/images//Count/Read | Ten interfejs API zwraca obrazy, które nie mają tagów dla danego projektu i opcjonalnie iteracji. Jeśli nie określono iteracji, |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/iteracje/Delete | Usuń określoną iterację projektu. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/iteracje/eksport/akcja | Eksportuj przeszkolone iteracje. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/iteracje/odczyt | Pobierz określoną iterację. Pobierz iteracje dla projektu. * |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projekty/iteracje/publikowanie/akcja | Publikuj konkretną iterację. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/iteracje/Write | Zaktualizuj określoną iterację. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/iteracjis/Export/Read | Pobierz listę eksportów dla określonej iteracji. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/iteracjis/Read | Uzyskaj szczegółowe informacje o wydajności iteracji. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/iteracjis/Image/Read | Ten interfejs API obsługuje przetwarzanie wsadowe i wybór zakresu. Domyślnie zwróci on tylko pierwsze 50 obrazów zgodnych z obrazami. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/iteracjis/Performance/images/Count/Read | Filtrowanie dotyczy relacji i/lub. Na przykład, jeśli podane identyfikatory tagów są dla "Dog" i |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projekty/iteracje/publikowanie/usuwanie | Cofnij publikację określonej iteracji. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/przewidywania/usuwanie | Usuń zestaw zapowiadanych obrazów i powiązane z nimi wyniki przewidywania. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/przewidywania/kwerenda/akcja | Pobierz obrazy, które zostały wysłane do punktu końcowego przewidywania. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/Quicktest/Image/Action | Szybkie testowanie obrazu. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/Quicktest/URL/akcja | Szybkie testowanie adresu URL obrazu. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projekty/Tagi/usuwanie | Usuń tag z projektu. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/Tags/Read | Uzyskaj informacje dotyczące określonego tagu. Pobierz Tagi dla danego projektu i iteracji. * |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/Tags/Write | Zaktualizuj tag. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/tagsandregions/sugestie/akcja | Ten interfejs API będzie pobierać sugerowane Tagi i regiony dla tablicy/partii nieoznakowanych obrazów, a także pewności dla tagów. Zwraca pustą tablicę, jeśli nie znaleziono żadnych tagów. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/projects/uczenie/zaawansowane/akcja | Kolejkuje projekt na potrzeby szkolenia przy użyciu typu PipelineConfiguration i szkolenia. |
+> | Microsoft. CognitiveServices/accounts/CustomVision/limit przydziału/usuwanie | *NotDefined* |
+> | Microsoft. CognitiveServices/accounts/CustomVision/limit przydziału/odświeżanie/zapisywanie | *NotDefined* |
+> | Microsoft. CognitiveServices/accounts/CustomVision/użycie/przewidywania/użytkownik/odczyt | Uzyskaj użycie dla zasobu predykcyjnego dla użytkownika Oxford |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Usage/szkolenia/zasób/warstwa/odczyt | Pobierz użycie dla zasobu szkoleniowego dla użytkownika platformy Azure |
+> | Microsoft. CognitiveServices/accounts/CustomVision/Usage/Training/User/Read | Pobierz użycie dla zasobu szkoleniowego dla użytkownika Oxford |
+> | Microsoft. CognitiveServices/accounts/CustomVision/User/Delete | *NotDefined* |
+> | Microsoft. CognitiveServices/accounts/CustomVision/User/State/Write | Aktualizowanie stanu użytkownika |
+> | Microsoft. CognitiveServices/accounts/CustomVision/użytkownik/warstwa/zapis | *NotDefined* |
+> | Microsoft. CognitiveServices/accounts/CustomVision/users/Read | *NotDefined* |
+> | Microsoft. CognitiveServices/accounts/CustomVision/dozwolonych/Delete | Usuwa użytkownika listy dozwolonych z określoną możliwością |
+> | Microsoft. CognitiveServices/accounts/CustomVision/dozwolonych/Read | Pobiera listę użytkowników listy dozwolonych z określoną możliwością |
+> | Microsoft. CognitiveServices/accounts/CustomVision/dozwolonych/Write | Aktualizuje lub tworzy użytkownika w dozwolonych z określoną możliwością |
 > | Microsoft. CognitiveServices/accounts/EntitySearch/Search/Action | Pobierz jednostki i umieści wyniki dla danego zapytania. |
 > | Microsoft. CognitiveServices/accounts/Front/Detect/Action | Wykrywaj ludzkie twarze na obrazie, zwracają prostokąty twarzy i opcjonalnie z faceIds, dzielnicami i atrybutami. |
 > | Microsoft. CognitiveServices/accounts/Front/findsimilars/Action | Podaną faceId twarzy zapytania, aby wyszukiwać podobne buźki z tablicy faceId, listy twarzy lub dużej listy twarzy. faceId |
@@ -4312,6 +4818,22 @@ Usługa platformy Azure: [Cognitive Services](../cognitive-services/index.yml)
 > | Microsoft. CognitiveServices/accounts/NewsSearch/Search/Action | Uzyskaj artykuły z wiadomościami istotnymi dla danego zapytania. |
 > | Microsoft. CognitiveServices/accounts/NewsSearch/Trendingtopics/Action | Poznaj tematy trendów identyfikowane przez usługę Bing. Są to te same tematy widoczne na transparencie u dołu strony głównej usługi Bing. |
 > | Microsoft. CognitiveServices/accounts/QnAMaker/root/Action | QnA Maker |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/root/Action | QnA Maker |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/Alters/Read | Pobierz zmiany z środowiska uruchomieniowego. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/Alters/Write | Zastąp dane zmian. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/endpointkeys/Read | Pobiera klucze punktów końcowych dla punktu końcowego |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/endpointkeys/refreshkeys/Action | Ponowne generowanie klucza punktu końcowego. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/endpointsettings/Read | Pobiera ustawienia punktu końcowego dla punktu końcowego |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/endpointsettings/Write | Aktualizowanie punktu końcowego seettings dla punktu końcowego. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/bazy wiedzy/publikacja/akcja | Publikuje wszystkie zmiany w indeksie testu bazy wiedzy do jej indeksu produkcyjnego. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/bazy wiedzy/Usuń | Usuwa baza danych i wszystkie jej dane. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/Knowledge Bases/Read | Pobiera listę bazy wiedzy lub szczegóły konkretnej bazy wiedzy. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/bazy wiedzy/zapis | Operacja asynchroniczna do modyfikowania bazy wiedzy lub zastępowania zawartości bazy wiedzy. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/Knowledge Bases/generateanswer/Action | GenerateAnswer wywołanie zapytania do bazy wiedzy. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/bazy wiedzy/pociąg/akcja | Połącz połączenie, aby dodać sugestie do bazy wiedzy. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/bazy wiedzy/Utwórz/Zapisz | Operacja asynchroniczna do utworzenia nowej bazy wiedzy. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/bazy wiedzy/Pobierz/Odczytaj | Pobierz baza wiedzy. |
+> | Microsoft. CognitiveServices/accounts/QnAMaker. v2/Operations/Read | Pobiera szczegóły określonej długotrwałej operacji. |
 > | Microsoft. CognitiveServices/accounts/QnAMaker/Alters/Read | Pobierz zmiany z środowiska uruchomieniowego. |
 > | Microsoft. CognitiveServices/accounts/QnAMaker/Alters/Write | Zastąp dane zmian. |
 > | Microsoft. CognitiveServices/accounts/QnAMaker/endpointkeys/Read | Pobiera klucze punktów końcowych dla punktu końcowego |
@@ -4381,11 +4903,12 @@ Usługa platformy Azure: [usługa Machine Learning](../machine-learning/index.ym
 > | Microsoft. MachineLearningServices/lokalizacje/użycia/odczyt | Raport użycia dla zasobów obliczeniowych AML w ramach subskrypcji |
 > | Microsoft. MachineLearningServices/Locations/vmsizes/Read | Pobierz obsługiwane rozmiary maszyn wirtualnych |
 > | Microsoft. MachineLearningServices/Locations/workspaceOperationsStatus/Read | Pobiera stan określonej operacji obszaru roboczego |
+> | Microsoft. MachineLearningServices/Operations/Read | Pobierz wszystkie operacje dla dostawcy zasobów Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/odczyt | Pobiera Machine Learning Services obszary robocze |
 > | Microsoft. MachineLearningServices/obszary robocze/zapis | Tworzy lub aktualizuje Machine Learning Services obszary robocze |
 > | Microsoft. MachineLearningServices/obszary robocze/usuwanie | Usuwa obszary robocze Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/listKeys/akcja | Wyświetlanie wpisów tajnych dla obszaru roboczego Machine Learning Services |
-> | Microsoft. MachineLearningServices/obszary robocze/privateEndpointConnectionsApproval/akcja | Zatwierdź lub Odrzuć połączenie z prywatnym zasobem punktu końcowego dostawcy Microsoft. Network |
+> | Microsoft. MachineLearningServices/obszary robocze/resynckeys/akcja | Ponowne synchronizowanie wpisów tajnych dla obszaru roboczego Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/obliczenia/odczyt | Pobiera zasoby obliczeniowe w Machine Learning Services obszarach roboczych |
 > | Microsoft. MachineLearningServices/obszary robocze/obliczenia/zapis | Tworzy lub aktualizuje zasoby obliczeniowe w obszarze roboczym Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/obliczenia/usuwanie | Usuwa zasoby obliczeniowe w Machine Learning Services obszarach roboczych |
@@ -4394,6 +4917,10 @@ Usługa platformy Azure: [usługa Machine Learning](../machine-learning/index.ym
 > | Microsoft. MachineLearningServices/obszary robocze/obliczenia/uruchomienie/akcja | Uruchom zasób obliczeniowy w obszarze roboczym Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/obliczenia/akcja | Zatrzymaj zasób obliczeniowy w obszarze roboczym Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/obliczenia/ponowne uruchomienie/akcja | Uruchom ponownie zasób obliczeniowy w obszarze roboczym Machine Learning Services |
+> | Microsoft. MachineLearningServices/obszary robocze/obliczenia/applicationaccess/akcja | Dostęp do zasobów obliczeniowych w obszarze roboczym Machine Learning Services |
+> | Microsoft. MachineLearningServices/obszary robocze/połączenia/odczyt | Pobiera połączenia z obszarem roboczym Machine Learning Services |
+> | Microsoft. MachineLearningServices/obszary robocze/połączenia/zapis | Tworzy lub aktualizuje połączenia Machine Learning Services |
+> | Microsoft. MachineLearningServices/obszary robocze/połączenia/usuwanie | Usuwa połączenia Machine Learning Services |
 > | Microsoft. MachineLearningServices/Workspaces/datadriftdetectors/Read | Pobiera detektory dryfowania danych w Machine Learning Services obszarach roboczych |
 > | Microsoft. MachineLearningServices/Workspaces/datadriftdetectors/Write | Tworzy lub aktualizuje detektory dryfowania danych w obszarze roboczym Machine Learning Services |
 > | Microsoft. MachineLearningServices/Workspaces/datadriftdetectors/Delete | Usuwa detektory dryfowania danych w Machine Learning Services obszarach roboczych |
@@ -4427,6 +4954,7 @@ Usługa platformy Azure: [usługa Machine Learning](../machine-learning/index.ym
 > | Microsoft. MachineLearningServices/obszary robocze/eksperymenty/uruchomienia/Prześlij/akcja | Tworzy lub aktualizuje uruchomienia skryptów w obszarze roboczym Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/eksperymenty/uruchomienia/odczyt | Pobiera przebiegi w obszarze roboczym Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/eksperymenty/uruchomienia/zapisu | Tworzy lub aktualizuje uruchomienia w obszarze roboczym Machine Learning Services |
+> | Microsoft. MachineLearningServices/obszary robocze/funkcje/odczyt | Pobiera wszystkie włączone funkcje dla obszaru roboczego Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/etykiety/eksport/akcja | Eksportuj etykiety projektów etykietowania w Machine Learning Services obszarach roboczych |
 > | Microsoft. MachineLearningServices/obszary robocze/etykietowanie/etykiety/odczyt | Pobiera etykiety projektów etykietowania w Machine Learning Services obszarach roboczych |
 > | Microsoft. MachineLearningServices/obszary robocze/etykietowanie/etykiety/zapis | Tworzy etykiety projektów etykietowania w Machine Learning Services obszarach roboczych |
@@ -4460,14 +4988,6 @@ Usługa platformy Azure: [usługa Machine Learning](../machine-learning/index.ym
 > | Microsoft. MachineLearningServices/Workspaces/pipelinedrafts/Read | Pobiera wersje robocze potoku w Machine Learning Services obszarach roboczych |
 > | Microsoft. MachineLearningServices/Workspaces/pipelinedrafts/Write | Tworzy lub aktualizuje wersje robocze potoku w Machine Learning Services obszarach roboczych |
 > | Microsoft. MachineLearningServices/Workspaces/pipelinedrafts/Delete | Usuwa wersje robocze potoku w Machine Learning Services obszarach roboczych |
-> | Microsoft. MachineLearningServices/Workspaces/privateEndpointConnectionProxies/Read | Wyświetlanie stanu serwera proxy połączenia do prywatnego zasobu punktu końcowego dostawcy Microsoft. Network |
-> | Microsoft. MachineLearningServices/Workspaces/privateEndpointConnectionProxies/Write | Zmiana stanu serwera proxy połączenia na prywatny zasób punktu końcowego firmy Microsoft. Network Provider |
-> | Microsoft. MachineLearningServices/Workspaces/privateEndpointConnectionProxies/Delete | Usuwanie serwera proxy połączenia do prywatnego zasobu punktu końcowego dostawcy Microsoft. Network |
-> | Microsoft. MachineLearningServices/Workspaces/privateEndpointConnectionProxies/Validate/Action | Weryfikowanie serwera proxy połączenia do prywatnego zasobu punktu końcowego dostawcy Microsoft. Network |
-> | Microsoft. MachineLearningServices/Workspaces/privateEndpointConnections/Read | Wyświetlanie stanu połączenia z prywatnym zasobem punktu końcowego firmy Microsoft. Network Provider |
-> | Microsoft. MachineLearningServices/Workspaces/privateEndpointConnections/Write | Zmiana stanu połączenia z prywatnym zasobem punktu końcowego dostawcy Microsoft. Network |
-> | Microsoft. MachineLearningServices/Workspaces/privateEndpointConnections/Delete | Usuń połączenie z prywatnym zasobem punktu końcowego dostawcy Microsoft. Network |
-> | Microsoft. MachineLearningServices/Workspaces/privateLinkResources/Read | Pobiera dostępne zasoby prywatnego linku dla określonego wystąpienia Machine Learning Services obszarów roboczych |
 > | Microsoft. MachineLearningServices/obszary robocze/usługi/odczyt | Pobiera usługi w Machine Learning Services obszarach roboczych |
 > | Microsoft. MachineLearningServices/obszary robocze/usługi/ACI/zapis | Tworzy lub aktualizuje usługi ACI w obszarze roboczym Machine Learning Services |
 > | Microsoft. MachineLearningServices/obszary robocze/usługi/ACI/ListKeys/akcja | Wyświetla listę kluczy dla usług ACI w obszarze roboczym Machine Learning Services |
@@ -5152,26 +5672,8 @@ Usługa platformy Azure: [Event Grid](../event-grid/index.yml)
 > | Microsoft. EventGrid/operationResults/odczyt | Odczytaj wynik operacji |
 > | Microsoft. EventGrid/Operations/Read | Utwórz listę operacji EventGrid. |
 > | Microsoft. EventGrid/operationsStatus/odczyt | Odczytywanie stanu operacji |
-> | Microsoft. EventGrid/partnerNamespaces/Write | Utwórz lub zaktualizuj przestrzeń nazw partnera |
-> | Microsoft. EventGrid/partnerNamespaces/odczyt | Odczytaj przestrzeń nazw partnera |
-> | Microsoft. EventGrid/partnerNamespaces/Delete | Usuwanie przestrzeni nazw partnera |
-> | Microsoft. EventGrid/partnerNamespaces/listKeys/akcja | Lista kluczy dla przestrzeni nazw partnera |
-> | Microsoft. EventGrid/partnerNamespaces/regenerateKey/akcja | Wygeneruj ponownie klucz dla przestrzeni nazw partnera |
-> | Microsoft. EventGrid/partnerNamespaces/eventChannels/Read | Odczytaj kanał zdarzenia |
-> | Microsoft. EventGrid/partnerNamespaces/eventChannels/Write | Tworzenie lub aktualizowanie kanału zdarzeń |
-> | Microsoft. EventGrid/partnerNamespaces/eventChannels/Delete | Usuwanie kanału zdarzeń |
-> | Microsoft. EventGrid/partnerRegistrations/Write | Utwórz lub zaktualizuj rejestrację partnera |
-> | Microsoft. EventGrid/partnerRegistrations/odczyt | Odczytaj rejestrację partnera |
-> | Microsoft. EventGrid/partnerRegistrations/Delete | Usuwanie rejestracji partnera |
-> | Microsoft. EventGrid/partnerTopics/odczyt | Zapoznaj się z tematem partnera |
-> | Microsoft. EventGrid/partnerTopics/Write | Tworzenie lub aktualizowanie tematu partnera |
-> | Microsoft. EventGrid/partnerTopics/Delete | Usuwanie tematu partnera |
-> | Microsoft. EventGrid/partnerTopics/Activate/Action | Aktywuj temat partnera |
-> | Microsoft. EventGrid/partnerTopics/Dezaktywuj/akcja | Dezaktywuj temat partnera |
+> | Microsoft. EventGrid/partnerTopics/Providers/Microsoft. Insights/metricDefinitions/Read | Pobiera dostępne metryki dla tematów partnerskich |
 > | Microsoft. EventGrid/SKU/odczyt | Odczytaj definicje dostępnych jednostek SKU dla zasobów usługi Event Grid |
-> | Microsoft. EventGrid/systemTopics/odczyt | Odczytaj temat systemowy |
-> | Microsoft. EventGrid/systemTopics/Write | Tworzenie lub aktualizowanie tematu systemu |
-> | Microsoft. EventGrid/systemTopics/Delete | Usuwanie tematu systemu |
 > | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/diagnosticSettings/Read | Pobiera ustawienie diagnostyczne dla tematów systemowych |
 > | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/diagnosticSettings/Write | Tworzy lub aktualizuje ustawienie diagnostyczne dla tematów systemowych |
 > | Microsoft. EventGrid/systemTopics/Providers/Microsoft. Insights/logDefinitions/Read | Zezwala na dostęp do dzienników diagnostycznych |
@@ -5494,6 +5996,8 @@ Usługa platformy Azure: Azure Active Directory
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
 > | --- | --- |
+> | Microsoft. aadiam/azureADMetrics/odczyt | Odczytaj definicję metryki usługi Azure AD |
+> | Microsoft. aadiam/azureADMetrics/Write | Tworzenie i aktualizowanie definicji metryk usługi Azure AD |
 > | Microsoft. aadiam/diagnosticsettings/Write | Zapisywanie ustawień diagnostycznych |
 > | Microsoft. aadiam/diagnosticsettings/odczyt | Odczytywanie ustawień diagnostycznych |
 > | Microsoft. aadiam/diagnosticsettings/Delete | Usuwanie ustawień diagnostycznych |
@@ -5503,6 +6007,7 @@ Usługa platformy Azure: Azure Active Directory
 > | Microsoft. aadiam/privateLinkForAzureAD/odczyt | Odczytaj definicję zasad prywatnego linku |
 > | Microsoft. aadiam/privateLinkForAzureAD/Write | Tworzenie i aktualizowanie definicji zasad prywatnego linku |
 > | Microsoft. aadiam/privateLinkForAzureAD/Delete | Usuń definicję zasad prywatnego linku |
+> | Microsoft. aadiam/privateLinkForAzureAD/Delete | Usuń definicję metryk usługi Azure AD |
 > | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/Read | Odczytaj prywatne serwery proxy |
 > | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/Write | Tworzenie i aktualizowanie prywatnych serwerów proxy linków |
 > | Microsoft. aadiam/privateLinkForAzureAD/privateEndpointConnectionProxies/Delete | Usuwanie prywatnych serwerów proxy |
@@ -5561,7 +6066,7 @@ Usługa platformy Azure: [Azure Active Directory](../active-directory/index.yml)
 > | Microsoft. ADHybridHealthService/Services/Write | Tworzy wystąpienie usługi w dzierżawie. |
 > | Microsoft. ADHybridHealthService/usługi/odczyt | Odczytuje wystąpienia usługi w dzierżawie. |
 > | Microsoft. ADHybridHealthService/Services/Delete | Usuwa wystąpienie usługi w dzierżawie. |
-> | Microsoft. ADHybridHealthService/usługi/Servicemembers/akcja | Tworzy wystąpienie serwera w usłudze. |
+> | Microsoft. ADHybridHealthService/usługi/Servicemembers/akcja | Tworzy lub aktualizuje wystąpienie serwera w usłudze. |
 > | Microsoft. ADHybridHealthService/usługi/alerty/odczyt | Odczytuje alerty dla usługi. |
 > | Microsoft. ADHybridHealthService/usługi/alerty/odczyt | Odczytuje alerty dla usługi. |
 > | Microsoft. ADHybridHealthService/Services/checkservicefeatureavailibility/Read | Dana nazwa funkcji weryfikuje, czy usługa ma wszystkie elementy wymagane do korzystania z tej funkcji. |
@@ -5655,9 +6160,9 @@ Usługa platformy Azure: [Key Vault](../key-vault/index.yml)
 > | Microsoft./magazyny/magazynu/wpisy tajne/odczyty | Wyświetl właściwości wpisu tajnego, ale nie jego wartość. |
 > | Microsoft./magazyny/magazynu/wpisy tajne/zapis | Utwórz nowy wpis tajny lub zaktualizuj wartość istniejącego klucza tajnego. |
 > | **Akcja dataaction** | **Opis** |
-> | Microsoft./magazyny/magazynu/certificatecas/usuwanie | Usuwanie certyfikatu issuseer |
-> | Microsoft./magazyny/magazynu/certificatecas/odczyt | Odczytaj certyfikat issuseer |
-> | Microsoft./magazyny kluczy/magazynu/certificatecas/zapis | Zapisz certyfikat issuseer |
+> | Microsoft./magazyny/magazynu/certificatecas/usuwanie | Usuwanie wystawcy certyfikatu |
+> | Microsoft./magazyny/magazynu/certificatecas/odczyt | Odczytywanie wystawcy certyfikatu |
+> | Microsoft./magazyny kluczy/magazynu/certificatecas/zapis | Napisz wystawcę certyfikatu |
 > | Microsoft./magazyny kluczy/magazynu/certificatecontacts/zapis | Zarządzanie kontaktem z certyfikatem |
 > | Microsoft./magazyny kluczy/magazynu/Certyfikaty/usuwanie | Usuń certyfikat. |
 > | Microsoft./magazyny/magazynu/Certyfikaty/Odczytaj | Wyświetl listę certyfikatów w określonym magazynie kluczy lub Uzyskaj informacje o certyfikacie. |
@@ -5692,6 +6197,16 @@ Usługa platformy Azure: [Key Vault](../key-vault/index.yml)
 > | Microsoft.//magazyny/magazynu/wpisy tajne/readMetadata/akcja | Wyświetlaj listę lub Wyświetl właściwości wpisu tajnego, ale nie jego wartość. |
 > | Microsoft./magazyny/magazynu/wpisy tajne/getsecret/Action | Pobierz wartość wpisu tajnego. |
 > | Microsoft., magazyn/magazyny/wpisy tajne/niejawne/akcja | Utwórz nowy wpis tajny. |
+> | Microsoft./magazyny/magazynu/storageaccounts/odczyt | Odczytaj definicję zarządzanych kont magazynu i sygnatury dostępu współdzielonego. |
+> | Microsoft./magazyny kluczy/magazynu/storageaccounts/Set/Action | Utwórz lub zaktualizuj definicję zarządzanego konta magazynu. |
+> | Microsoft./magazyny/magazynu/storageaccounts/usuwanie | Usuń definicję zarządzanego konta magazynu. |
+> | Microsoft./magazyny kluczy/magazynu/storageaccounts/kopia zapasowa/akcja | Utwórz kopię zapasową definicji zarządzanego konta magazynu i jego sygnatury dostępu współdzielonego. |
+> | Microsoft./magazyny kluczy/storageaccounts/przeczyszczanie/akcja | Przeczyszczanie usuniętej nietrwałej definicji zarządzanego konta magazynu lub sygnatury dostępu współdzielonego. |
+> | Microsoft./magazyny/magazynu/storageaccounts/regeneratekey/akcja | Wygeneruj ponownie klucz dostępu zarządzanego konta magazynu. |
+> | Microsoft./magazyny kluczy/magazynu/storageaccounts/odzyskiwanie/akcja | Odzyskaj nietrwałe definicje zarządzanego konta magazynu lub skojarzenia zabezpieczeń (Sygnatura dostępu współdzielonego). |
+> | Microsoft./magazyny kluczy/magazynu/storageaccounts/Przywróć/akcja | Przywraca definicję zarządzanego konta magazynu i jego sygnatury dostępu współdzielonego. |
+> | Microsoft./magazyny kluczy/magazynu/storageaccounts/SAS/Set/Action | Utwórz lub zaktualizuj definicję SAS (Sygnatura dostępu współdzielonego) dla zarządzanego konta magazynu. |
+> | Microsoft./magazyny kluczy/magazynu/storageaccounts/SAS/Delete | Usuń definicję SAS (Sygnatura dostępu współdzielonego) dla zarządzanego konta magazynu. |
 
 ### <a name="microsoftsecurity"></a>Microsoft.Security
 
@@ -5821,8 +6336,10 @@ Usługa platformy Azure: [wskaźnik na platformie Azure](../sentinel/index.yml)
 > | Microsoft. SecurityInsights/incydenty/relacje/odczyt | Pobiera relację między incydentem a powiązanymi zasobami |
 > | Microsoft. SecurityInsights/incydenty/relacje/zapis | Aktualizuje relację między incydentem a powiązanymi zasobami |
 > | Microsoft. SecurityInsights/incydenty/relacje/usuwanie | Usuwa relację między incydentem a powiązanymi zasobami |
+> | Microsoft. SecurityInsights/Operations/Read | Pobiera operacje |
 > | Microsoft. SecurityInsights/Settings/Read | Pobiera ustawienia |
 > | Microsoft. SecurityInsights/Settings/Write | Ustawienia aktualizacji |
+> | Microsoft. SecurityInsights/Settings/Delete | Usuwa ustawienie |
 > | Microsoft. SecurityInsights/threatintelligence/odczyt | Pobiera analizę zagrożeń |
 > | Microsoft. SecurityInsights/threatintelligence/Write | Aktualizuje analizę zagrożeń |
 > | Microsoft. SecurityInsights/threatintelligence/Delete | Usuwa analizę zagrożeń |
@@ -6478,6 +6995,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/DiagnosticSettings/Write | Utwórz lub zaktualizuj ustawienie diagnostyczne zasobu |
 > | Microsoft. Insights/DiagnosticSettings/Delete | Usuń ustawienie diagnostyczne zasobu |
 > | Microsoft. Insights/DiagnosticSettings/Read | Odczytaj ustawienie diagnostyczne zasobu |
+> | Microsoft. Insights/DiagnosticSettingsCategories/Read | Odczytaj kategorie ustawień diagnostycznych |
 > | Microsoft. Insights/EventCategories/Read | Odczytaj dostępne kategorie zdarzeń dziennika aktywności |
 > | Microsoft. Insights/eventtypes/digestevents/Read | Odczytaj podsumowanie typu zdarzenia zarządzania |
 > | Microsoft. Insights/eventtypes/Values/odczyty | Odczytaj zdarzenia dziennika aktywności |
@@ -6650,6 +7168,9 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. Insights/Metrics/Providers/Metrics/Read | Odczytaj metryki |
 > | Microsoft. Insights/webskoroszyts/Write | Utwórz lub zaktualizuj skoroszyt prywatny |
 > | Microsoft. Insights/webskoroszyts/Read | Odczytaj prywatny skoroszyt |
+> | Microsoft. Insights/webskoroszyts/Read | Odczytaj prywatny skoroszyt |
+> | Microsoft. Insights/webskoroszyts/Write | Utwórz lub zaktualizuj skoroszyt prywatny |
+> | Microsoft. Insights/webskoroszyts/Delete | Usuwanie skoroszytu prywatnego |
 > | Microsoft. Insights/Operations/Read | Operacje odczytu |
 > | Microsoft. Insights/PrivateLinkScopeOperationStatuses/Read | Odczytywanie stanu operacji w zakresie linku prywatnego |
 > | Microsoft. Insights/PrivateLinkScopes/Read | Odczytaj prywatny zakres linków |
@@ -6697,7 +7218,8 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/klastry/odczyt | Pobierz klaster |
 > | Microsoft. OperationalInsights/klastry/zapis | Tworzenie lub aktualizowanie klastra |
 > | Microsoft. OperationalInsights/klastry/usuwanie | Usuwanie klastra |
-> | Microsoft. OperationalInsights/linkTargets/odczyt | Wyświetla listę istniejących kont, które nie są skojarzone z subskrypcją platformy Azure. Aby połączyć tę subskrypcję platformy Azure z obszarem roboczym, użyj identyfikatora klienta zwróconego przez tę operację we właściwości identyfikator klienta operacji Utwórz obszar roboczy. |
+> | Microsoft. OperationalInsights/deletedWorkspaces/odczyt | Wyświetla listę obszarów roboczych w niezmiennym okresie. |
+> | Microsoft. OperationalInsights/linkTargets/odczyt | Wyświetla listę obszarów roboczych w niezmiennym okresie. |
 > | Microsoft. operationalinsights/Locations/operationStatuses/Read | Uzyskaj Log Analytics stanu operacji asynchronicznej platformy Azure. |
 > | Microsoft. operationalinsights/Operations/Read | Wyświetla wszystkie dostępne operacje interfejsu API REST OperationalInsights. |
 > | Microsoft. OperationalInsights/obszary robocze/zapis | Tworzy nowy obszar roboczy lub łączy z istniejącym obszarem roboczym, podając identyfikator klienta z istniejącego obszaru roboczego. |
@@ -6713,6 +7235,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Analytics/Query/Schema/Read | Pobierz schemat wyszukiwania w wersji 2. |
 > | Microsoft. OperationalInsights/obszary robocze/interfejs API/kwerenda/akcja | Wyszukaj przy użyciu nowego aparatu. |
 > | Microsoft. OperationalInsights/Workspaces/API/Query/Schema/Read | Pobierz schemat wyszukiwania w wersji 2. |
+> | Microsoft. OperationalInsights/Workspaces/availableservicetiers/Read | Lista wszystkich dostępnych warstw usług dla obszaru roboczego. |
 > | Microsoft. OperationalInsights/Workspaces/configurationScopes/Read | Pobierz zakres konfiguracji |
 > | Microsoft. OperationalInsights/Workspaces/configurationScopes/Write | Ustaw zakres konfiguracji |
 > | Microsoft. OperationalInsights/Workspaces/configurationScopes/Delete | Usuń zakres konfiguracji |
@@ -6761,6 +7284,10 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/ADFTriggerRun/Read | Odczytaj dane z tabeli ADFTriggerRun |
 > | Microsoft. OperationalInsights/Workspaces/Query/ADReplicationResult/Read | Odczytaj dane z tabeli ADReplicationResult |
 > | Microsoft. OperationalInsights/Workspaces/Query/ADSecurityAssessmentRecommendation/Read | Odczytaj dane z tabeli ADSecurityAssessmentRecommendation |
+> | Microsoft. OperationalInsights/Workspaces/Query/ADTDigitalTwinsOperation/Read | Odczytaj dane z tabeli ADTDigitalTwinsOperation |
+> | Microsoft. OperationalInsights/Workspaces/Query/ADTEventRoutesOperation/Read | Odczytaj dane z tabeli ADTEventRoutesOperation |
+> | Microsoft. OperationalInsights/Workspaces/Query/ADTModelsOperation/Read | Odczytaj dane z tabeli ADTModelsOperation |
+> | Microsoft. OperationalInsights/Workspaces/Query/ADTQueryOperation/Read | Odczytaj dane z tabeli ADTQueryOperation |
 > | Microsoft. OperationalInsights/Workspaces/Query/AegDeliveryFailureLogs/Read | Odczytaj dane z tabeli AegDeliveryFailureLogs |
 > | Microsoft. OperationalInsights/Workspaces/Query/AegPublishFailureLogs/Read | Odczytaj dane z tabeli AegPublishFailureLogs |
 > | Microsoft. OperationalInsights/Workspaces/Query/alert/odczyt | Odczytaj dane z tabeli alertów |
@@ -6788,6 +7315,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/AppServiceEnvironmentPlatformLogs/Read | Odczytaj dane z tabeli AppServiceEnvironmentPlatformLogs |
 > | Microsoft. OperationalInsights/Workspaces/Query/AppServiceFileAuditLogs/Read | Odczytaj dane z tabeli AppServiceFileAuditLogs |
 > | Microsoft. OperationalInsights/Workspaces/Query/AppServiceHTTPLogs/Read | Odczytaj dane z tabeli AppServiceHTTPLogs |
+> | Microsoft. OperationalInsights/Workspaces/Query/AppServicePlatformLogs/Read | Odczytaj dane z tabeli AppServicePlatformLogs |
 > | Microsoft. OperationalInsights/Workspaces/Query/AppSystemEvents/Read | Odczytaj dane z tabeli AppSystemEvents |
 > | Microsoft. OperationalInsights/Workspaces/Query/AppTraces/Read | Odczytaj dane z tabeli AppTraces |
 > | Microsoft. OperationalInsights/Workspaces/Query/AuditLogs/Read | Odczytaj dane z tabeli AuditLogs |
@@ -6803,6 +7331,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/BaiClusterEvent/Read | Odczytaj dane z tabeli BaiClusterEvent |
 > | Microsoft. OperationalInsights/Workspaces/Query/BaiClusterNodeEvent/Read | Odczytaj dane z tabeli BaiClusterNodeEvent |
 > | Microsoft. OperationalInsights/Workspaces/Query/BaiJobEvent/Read | Odczytaj dane z tabeli BaiJobEvent |
+> | Microsoft. OperationalInsights/Workspaces/Query/BehaviorAnalytics/Read | Odczytaj dane z tabeli BehaviorAnalytics |
 > | Microsoft. OperationalInsights/Workspaces/Query/BlockchainApplicationLog/Read | Odczytaj dane z tabeli BlockchainApplicationLog |
 > | Microsoft. OperationalInsights/Workspaces/Query/BlockchainProxyLog/Read | Odczytaj dane z tabeli BlockchainProxyLog |
 > | Microsoft. OperationalInsights/Workspaces/Query/BoundPort/Read | Odczytaj dane z tabeli BoundPort |
@@ -6853,6 +7382,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/DHWipAppLearning/Read | Odczytaj dane z tabeli DHWipAppLearning |
 > | Microsoft. OperationalInsights/Workspaces/Query/DnsEvents/Read | Odczytaj dane z tabeli DnsEvents |
 > | Microsoft. OperationalInsights/Workspaces/Query/DnsInventory/Read | Odczytaj dane z tabeli DnsInventory |
+> | Microsoft. OperationalInsights/Workspaces/Query/Dynamics365Activity/Read | Odczytaj dane z tabeli Dynamics365Activity |
 > | Microsoft. OperationalInsights/Workspaces/Query/ETWEvent/Read | Odczytaj dane z tabeli ETWEvent |
 > | Microsoft. OperationalInsights/obszary robocze/zapytanie/zdarzenie/odczyt | Odczytaj dane z tabeli zdarzeń |
 > | Microsoft. OperationalInsights/Workspaces/Query/ExchangeAssessmentRecommendation/Read | Odczytaj dane z tabeli ExchangeAssessmentRecommendation |
@@ -6951,7 +7481,9 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/SecurityBaselineSummary/Read | Odczytaj dane z tabeli SecurityBaselineSummary |
 > | Microsoft. OperationalInsights/Workspaces/Query/SecurityDetection/Read | Odczytaj dane z tabeli SecurityDetection |
 > | Microsoft. OperationalInsights/Workspaces/Query/SecurityEvent/Read | Odczytaj dane z tabeli SecurityEvent |
+> | Microsoft. OperationalInsights/Workspaces/Query/SecurityIncident/Read | Odczytaj dane z tabeli SecurityIncident |
 > | Microsoft. OperationalInsights/Workspaces/Query/SecurityIoTRawEvent/Read | Odczytaj dane z tabeli SecurityIoTRawEvent |
+> | Microsoft. OperationalInsights/Workspaces/Query/SecurityNestedRecommendation/Read | Odczytaj dane z tabeli SecurityNestedRecommendation |
 > | Microsoft. OperationalInsights/Workspaces/Query/SecurityRecommendation/Read | Odczytaj dane z tabeli SecurityRecommendation |
 > | Microsoft. OperationalInsights/Workspaces/Query/ServiceFabricOperationalEvent/Read | Odczytaj dane z tabeli ServiceFabricOperationalEvent |
 > | Microsoft. OperationalInsights/Workspaces/Query/ServiceFabricReliableActorEvent/Read | Odczytaj dane z tabeli ServiceFabricReliableActorEvent |
@@ -6976,6 +7508,7 @@ Usługa platformy Azure: [Azure monitor](../azure-monitor/index.yml)
 > | Microsoft. OperationalInsights/Workspaces/Query/SysmonEvent/Read | Odczytaj dane z tabeli SysmonEvent |
 > | Microsoft. OperationalInsights/obszary robocze/zapytania/tabele. Custom/Read | Odczytywanie danych z dowolnego dziennika niestandardowego |
 > | Microsoft. OperationalInsights/Workspaces/Query/ThreatIntelligenceIndicator/Read | Odczytaj dane z tabeli ThreatIntelligenceIndicator |
+> | Microsoft. OperationalInsights/Workspaces/Query/TSIIngress/Read | Odczytaj dane z tabeli TSIIngress |
 > | Microsoft. OperationalInsights/Workspaces/Query/UAApp/Read | Odczytaj dane z tabeli UAApp |
 > | Microsoft. OperationalInsights/Workspaces/Query/UAComputer/Read | Odczytaj dane z tabeli UAComputer |
 > | Microsoft. OperationalInsights/Workspaces/Query/UAComputerRank/Read | Odczytaj dane z tabeli UAComputerRank |
@@ -7355,13 +7888,16 @@ Usługa platformy Azure: [Cost Management i rozliczanie](../cost-management-bill
 > | Microsoft. rozliczenia/billingAccounts/billingProfiles/invoiceSections/produkty/Przenieś/akcja |  |
 > | Microsoft. rozliczenia/billingAccounts/billingProfiles/invoiceSections/produkty/validateMoveEligibility/akcja |  |
 > | Microsoft. rozliczenia/billingAccounts/billingProfiles/arkusza cen/pobieranie/akcja |  |
+> | Microsoft. rozliczenia/billingAccounts/billingRoleAssignments/zapis |  |
 > | Microsoft. rozliczenia/billingAccounts/billingSubscriptions/odczyt |  |
 > | Microsoft. rozliczenia/billingAccounts/klienci/odczyt |  |
 > | Microsoft. rozliczenia/billingAccounts/klienci/billingPermissions/odczyt |  |
 > | Microsoft. rozliczenia/billingAccounts/działy/odczyt |  |
+> | Microsoft. rozliczenia/billingAccounts/działy/billingPermissions/odczyt |  |
+> | Microsoft. rozliczenia/billingAccounts/działy/billingRoleAssignments/zapis |  |
 > | Microsoft. rozliczenia/billingAccounts/enrollmentAccounts/odczyt |  |
 > | Microsoft. rozliczenia/billingAccounts/enrollmentAccounts/billingPermissions/odczyt |  |
-> | Microsoft. rozliczenia/billingAccounts/enrollmentDepartments/billingPermissions/odczyt |  |
+> | Microsoft. rozliczenia/billingAccounts/enrollmentAccounts/billingRoleAssignments/zapis |  |
 > | Microsoft. rozliczenia/billingAccounts/produkty/odczyt |  |
 > | Microsoft. rozliczenia/działy/odczyt |  |
 > | Microsoft. rozliczenia/faktury/pobieranie/akcja | Pobierz fakturę przy użyciu linku pobierania z listy |
@@ -7665,69 +8201,69 @@ Usługa platformy Azure: [Site Recovery](../site-recovery/index.yml)
 > | Akcja | Opis |
 > | --- | --- |
 > | Microsoft. RecoveryServices/Register/Action | Rejestruje subskrypcję dla danego dostawcy zasobów |
-> | Microsoft. RecoveryServices/Locations/backupPreValidateProtection/Action |  |
-> | Microsoft. RecoveryServices/Locations/backupStatus/Action | Sprawdź stan kopii zapasowej Recovery Services magazynów |
-> | Microsoft. RecoveryServices/Locations/backupValidateFeatures/Action | Weryfikuj funkcje |
+> | Microsoft. recoveryservices/Locations/backupPreValidateProtection/Action |  |
+> | Microsoft. recoveryservices/Locations/backupStatus/Action | Sprawdź stan kopii zapasowej Recovery Services magazynów |
+> | Microsoft. recoveryservices/Locations/backupValidateFeatures/Action | Weryfikuj funkcje |
 > | Microsoft. RecoveryServices/Locations/allocateStamp/Action | AllocateStamp jest operacją wewnętrzną używaną przez usługę |
 > | Microsoft. RecoveryServices/Locations/checkNameAvailability/Action | Sprawdź dostępność nazwy zasobu jest interfejsem API, aby sprawdzić, czy nazwa zasobu jest dostępna |
 > | Microsoft. RecoveryServices/Locations/allocatedStamp/Read | Operacja getallocatedstamp jest operacją wewnętrzną używaną przez usługę |
-> | Microsoft. RecoveryServices/Locations/backupProtectedItem/Write | Utwórz chroniony element kopii zapasowej |
-> | Microsoft. RecoveryServices/Locations/backupProtectedItems/Read | Zwraca listę wszystkich elementów chronionych. |
+> | Microsoft. recoveryservices/Locations/backupProtectedItem/Write | Utwórz chroniony element kopii zapasowej |
+> | Microsoft. recoveryservices/Locations/backupProtectedItems/Read | Zwraca listę wszystkich elementów chronionych. |
 > | Microsoft. RecoveryServices/Locations/operationStatus/Read | Pobiera stan operacji dla danej operacji |
 > | Microsoft. RecoveryServices/Operations/Read | Operacja zwraca listę operacji dla dostawcy zasobów |
-> | Microsoft. RecoveryServices/magazyny/backupJobsExport/akcja | Eksportuj zadania |
-> | Microsoft. RecoveryServices/magazyny/backupSecurityPIN/akcja | Zwraca informacje zabezpieczającego numeru PIN dla magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupValidateOperation/akcja | Sprawdź poprawność operacji dla chronionego elementu |
+> | Microsoft. recoveryservices/magazyny/backupJobsExport/akcja | Eksportuj zadania |
+> | Microsoft. recoveryservices/magazyny/backupSecurityPIN/akcja | Zwraca informacje zabezpieczającego numeru PIN dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupValidateOperation/akcja | Sprawdź poprawność operacji dla chronionego elementu |
 > | Microsoft. RecoveryServices/magazyny/zapis | Operacja Utwórz magazyn tworzy zasób platformy Azure typu "magazyn" |
 > | Microsoft. RecoveryServices/magazyny/odczyt | Operacja Pobierz magazyn pobiera obiekt reprezentujący zasób platformy Azure typu "magazyn" |
 > | Microsoft. RecoveryServices/magazyny/usuwanie | Operacja Usuń magazyn usuwa określony zasób platformy Azure typu "magazyn" |
-> | Microsoft. RecoveryServices/magazyny/backupconfig/odczyt | Zwraca konfigurację magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupconfig/zapis | Aktualizuje konfigurację magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupEncryptionConfigs/odczyt | Pobiera konfigurację szyfrowania zasobów kopii zapasowej. |
-> | Microsoft. RecoveryServices/magazyny/backupEncryptionConfigs/zapis | Aktualizuje konfigurację szyfrowania zasobów kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupEngines/odczyt | Zwraca wszystkie serwery zarządzania kopiami zapasowymi zarejestrowane w magazynie. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/refreshContainers/akcja | Odświeża listę kontenerów |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/backupProtectionIntent/usuwanie | Usuń zamiar ochrony kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/backupProtectionIntent/odczyt | Pobierz cel ochrony kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/backupProtectionIntent/zapis | Tworzenie opcji ochrony kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/operationResults/odczyt | Zwraca stan operacji |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/operationsStatus/odczyt | Zwraca stan operacji |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectableContainers/odczyt | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/usuwanie | Usuwa zarejestrowany kontener |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/zapytania/akcja | Wykonaj zapytanie dotyczące obciążeń w kontenerze |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/odczyt | Zwraca wszystkie zarejestrowane kontenery |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/zapis | Tworzy zarejestrowany kontener |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/Items/Read | Pobierz wszystkie elementy w kontenerze |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/operationResults/Read | Pobiera wynik operacji wykonanej na kontenerze ochrony. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/operationsStatus/Read | Pobiera stan operacji wykonanej na kontenerze ochrony. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/kopia zapasowa/akcja | Wykonuje kopię zapasową dla chronionego elementu. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/Delete | Usuwa chroniony element |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/Read | Zwraca szczegóły obiektu chronionego elementu |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/Write | Utwórz chroniony element kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/operationResults/odczyt | Pobiera wynik operacji wykonanej na elementach chronionych. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/operationsStatus/odczyt | Zwraca stan operacji wykonanej na elementach chronionych. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/Action | Zapewnij natychmiastowe odzyskiwanie elementu dla chronionego elementu |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/odczyt | Pobierz punkty odzyskiwania dla elementów chronionych. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/przywracanie/akcja | Przywracanie punktów odzyskiwania dla elementów chronionych. |
-> | Microsoft. RecoveryServices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/Action | Odwołaj natychmiastowe odzyskiwanie elementu dla chronionego elementu |
-> | Microsoft. RecoveryServices/magazyny/backupJobs/anulowanie/akcja | Anuluj zadanie |
-> | Microsoft. RecoveryServices/magazyny/backupJobs/odczyt | Zwraca wszystkie obiekty zadań |
-> | Microsoft. RecoveryServices/magazyny/backupJobs/operationResults/odczyt | Zwraca wynik operacji zadania. |
-> | Microsoft. RecoveryServices/magazyny/backupJobs/operationsStatus/odczyt | Zwraca stan operacji zadania. |
-> | Microsoft. RecoveryServices/magazyny/backupOperationResults/odczyt | Zwraca wynik operacji tworzenia kopii zapasowej dla magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupOperations/odczyt | Zwraca stan operacji kopii zapasowej dla magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupPolicies/usuwanie | Usuwanie zasad ochrony |
-> | Microsoft. RecoveryServices/magazyny/backupPolicies/odczyt | Zwraca wszystkie zasady ochrony |
-> | Microsoft. RecoveryServices/magazyny/backupPolicies/zapis | Tworzy zasady ochrony |
-> | Microsoft. RecoveryServices/magazyny/backupPolicies/operationResults/odczyt | Pobierz wyniki operacji zasad. |
-> | Microsoft. RecoveryServices/magazyny/backupPolicies/operacje/odczyt | Pobierz stan operacji zasad. |
-> | Microsoft. RecoveryServices/magazyny/backupProtectableItems/odczyt | Zwraca listę wszystkich elementów podlegających ochronie. |
-> | Microsoft. RecoveryServices/magazyny/backupProtectedItems/odczyt | Zwraca listę wszystkich elementów chronionych. |
-> | Microsoft. RecoveryServices/magazyny/backupProtectionContainers/odczyt | Zwraca wszystkie kontenery należące do subskrypcji |
-> | Microsoft. RecoveryServices/magazyny/backupProtectionIntents/odczyt | Wyświetl listę wszystkich intencji ochrony kopii zapasowej |
-> | Microsoft. RecoveryServices/magazyny/backupstorageconfig/odczyt | Zwraca konfigurację magazynu dla magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupstorageconfig/zapis | Aktualizuje konfigurację magazynu dla magazynu Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/backupUsageSummaries/odczyt | Zwraca podsumowania elementów chronionych i serwerów chronionych dla Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupconfig/odczyt | Zwraca konfigurację magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupconfig/zapis | Aktualizuje konfigurację magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupEncryptionConfigs/odczyt | Pobiera konfigurację szyfrowania zasobów kopii zapasowej. |
+> | Microsoft. recoveryservices/magazyny/backupEncryptionConfigs/zapis | Aktualizuje konfigurację szyfrowania zasobów kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupEngines/odczyt | Zwraca wszystkie serwery zarządzania kopiami zapasowymi zarejestrowane w magazynie. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/refreshContainers/akcja | Odświeża listę kontenerów |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/backupProtectionIntent/usuwanie | Usuń zamiar ochrony kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/backupProtectionIntent/odczyt | Pobierz cel ochrony kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/backupProtectionIntent/zapis | Tworzenie opcji ochrony kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/operationResults/odczyt | Zwraca stan operacji |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/operationsStatus/odczyt | Zwraca stan operacji |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectableContainers/odczyt | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/usuwanie | Usuwa zarejestrowany kontener |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/zapytania/akcja | Wykonaj zapytanie dotyczące obciążeń w kontenerze |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/odczyt | Zwraca wszystkie zarejestrowane kontenery |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/zapis | Tworzy zarejestrowany kontener |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/Items/Read | Pobierz wszystkie elementy w kontenerze |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/operationResults/Read | Pobiera wynik operacji wykonanej na kontenerze ochrony. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/operationsStatus/Read | Pobiera stan operacji wykonanej na kontenerze ochrony. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/kopia zapasowa/akcja | Wykonuje kopię zapasową dla chronionego elementu. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/Delete | Usuwa chroniony element |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/Read | Zwraca szczegóły obiektu chronionego elementu |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/Write | Utwórz chroniony element kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/operationResults/odczyt | Pobiera wynik operacji wykonanej na elementach chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/operationsStatus/odczyt | Zwraca stan operacji wykonanej na elementach chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/Action | Zapewnij natychmiastowe odzyskiwanie elementu dla chronionego elementu |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/odczyt | Pobierz punkty odzyskiwania dla elementów chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/przywracanie/akcja | Przywracanie punktów odzyskiwania dla elementów chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/Action | Odwołaj natychmiastowe odzyskiwanie elementu dla chronionego elementu |
+> | Microsoft. recoveryservices/magazyny/backupJobs/anulowanie/akcja | Anuluj zadanie |
+> | Microsoft. recoveryservices/magazyny/backupJobs/odczyt | Zwraca wszystkie obiekty zadań |
+> | Microsoft. recoveryservices/magazyny/backupJobs/operationResults/odczyt | Zwraca wynik operacji zadania. |
+> | Microsoft. recoveryservices/magazyny/backupJobs/operationsStatus/odczyt | Zwraca stan operacji zadania. |
+> | Microsoft. recoveryservices/magazyny/backupOperationResults/odczyt | Zwraca wynik operacji tworzenia kopii zapasowej dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupOperations/odczyt | Zwraca stan operacji kopii zapasowej dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupPolicies/usuwanie | Usuwanie zasad ochrony |
+> | Microsoft. recoveryservices/magazyny/backupPolicies/odczyt | Zwraca wszystkie zasady ochrony |
+> | Microsoft. recoveryservices/magazyny/backupPolicies/zapis | Tworzy zasady ochrony |
+> | Microsoft. recoveryservices/magazyny/backupPolicies/operationResults/odczyt | Pobierz wyniki operacji zasad. |
+> | Microsoft. recoveryservices/magazyny/backupPolicies/operacje/odczyt | Pobierz stan operacji zasad. |
+> | Microsoft. recoveryservices/magazyny/backupProtectableItems/odczyt | Zwraca listę wszystkich elementów podlegających ochronie. |
+> | Microsoft. recoveryservices/magazyny/backupProtectedItems/odczyt | Zwraca listę wszystkich elementów chronionych. |
+> | Microsoft. recoveryservices/magazyny/backupProtectionContainers/odczyt | Zwraca wszystkie kontenery należące do subskrypcji |
+> | Microsoft. recoveryservices/magazyny/backupProtectionIntents/odczyt | Wyświetl listę wszystkich intencji ochrony kopii zapasowej |
+> | Microsoft. recoveryservices/magazyny/backupstorageconfig/odczyt | Zwraca konfigurację magazynu dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupstorageconfig/zapis | Aktualizuje konfigurację magazynu dla magazynu Recovery Services. |
+> | Microsoft. recoveryservices/magazyny/backupUsageSummaries/odczyt | Zwraca podsumowania elementów chronionych i serwerów chronionych dla Recovery Services. |
 > | Microsoft. RecoveryServices/magazyny/certyfikaty/zapis | Operacja Aktualizuj certyfikat zasobu aktualizuje certyfikat poświadczeń zasobu/magazynu. |
 > | Microsoft. RecoveryServices/magazyny/extendedInformation/odczyt | Operacja Pobierz rozszerzone informacje pobiera rozszerzone informacje o obiekcie reprezentujące zasób platformy Azure typu? |
 > | Microsoft. RecoveryServices/magazyny/extendedInformation/zapis | Operacja Pobierz rozszerzone informacje pobiera rozszerzone informacje o obiekcie reprezentujące zasób platformy Azure typu? |
@@ -7736,14 +8272,14 @@ Usługa platformy Azure: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/magazyny/monitoringAlerts/zapis | Rozwiązuje alert. |
 > | Microsoft. RecoveryServices/magazyny/monitoringConfigurations/odczyt | Pobiera konfigurację powiadomień magazynu usługi Recovery Services. |
 > | Microsoft. RecoveryServices/magazyny/monitoringConfigurations/zapis | Konfiguruje powiadomienia e-mail dla magazynu usługi Recovery Services. |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/usuwanie | Poczekaj kilka minut, a następnie spróbuj ponownie wykonać operację. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft. |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/odczyt | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/weryfikacja/akcja | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/zapis | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnectionProxies/operationsStatus/odczyt | Pobierz wszystkie kontenery z ochroną |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnections/usuwanie | Usuń prywatne żądania punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnections/zapis | Zatwierdzanie lub odrzucanie prywatnych żądań punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
-> | Microsoft. RecoveryServices/magazyny/privateEndpointConnections/operationsStatus/odczyt | Zwraca stan operacji dla połączenia prywatnego punktu końcowego. |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/usuwanie | Poczekaj kilka minut, a następnie spróbuj ponownie wykonać operację. Jeśli problem będzie nadal występować, skontaktuj się z działem pomocy technicznej firmy Microsoft. |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/odczyt | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/weryfikacja/akcja | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/zapis | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnectionProxies/operationsStatus/odczyt | Pobierz wszystkie kontenery z ochroną |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnections/usuwanie | Usuń prywatne żądania punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnections/zapis | Zatwierdzanie lub odrzucanie prywatnych żądań punktów końcowych. To wywołanie jest wykonywane przez administratora kopii zapasowej. |
+> | Microsoft. recoveryservices/magazyny/privateEndpointConnections/operationsStatus/odczyt | Zwraca stan operacji dla połączenia prywatnego punktu końcowego. |
 > | Microsoft. RecoveryServices/magazyny/registeredIdentities/zapis | Operacji rejestrowania kontenera usługi można użyć do zarejestrowania kontenera z usługą odzyskiwania. |
 > | Microsoft. RecoveryServices/magazyny/registeredIdentities/odczyt | Operacja Pobierz kontenery umożliwia pobieranie kontenerów zarejestrowanych dla zasobu. |
 > | Microsoft. RecoveryServices/magazyny/registeredIdentities/usuwanie | Operacja Wyrejestruj kontener może służyć do wyrejestrowywania kontenera. |
@@ -7859,7 +8395,7 @@ Usługa platformy Azure: [Site Recovery](../site-recovery/index.yml)
 > | Microsoft. RecoveryServices/magazyny/replicationVaultSettings/odczyt | Odczytaj wszystkie  |
 > | Microsoft. RecoveryServices/magazyny/replicationVaultSettings/zapis | Utwórz lub zaktualizuj dowolne  |
 > | Microsoft. RecoveryServices/magazyny/replicationvCenters/odczyt | Odczytaj dowolne vCenter |
-> | Microsoft. RecoveryServices/magazyny/użycia/odczyt | Zwraca szczegóły użycia magazynu Recovery Servicesowego. |
+> | Microsoft. recoveryservices/magazyny/użycia/odczyt | Zwraca szczegóły użycia magazynu Recovery Servicesowego. |
 > | Microsoft. RecoveryServices/magazyny/użycia/odczyt | Odczytaj wszystkie użycia magazynu |
 > | Microsoft. RecoveryServices/magazyny/vaultTokens/odczyt | Operacja token magazynu umożliwia pobieranie tokenu magazynu dla operacji zaplecza na poziomie magazynu. |
 
@@ -7916,6 +8452,12 @@ Usługa platformy Azure: [Azure Resource Manager](../azure-resource-manager/inde
 > | Microsoft. resources/Tags/Read | Pobiera wszystkie znaczniki w zasobie. |
 > | Microsoft. resources/Tags/Write | Aktualizuje Tagi w zasobie, zastępując lub scalając istniejące Tagi nowym zestawem tagów lub usuwając istniejące Tagi. |
 > | Microsoft. resources/Tags/Delete | Usuwa wszystkie znaczniki w zasobie. |
+> | Microsoft. resources/templateSpecs/Read | Pobiera specyfikacje szablonu lub wyświetla listę |
+> | Microsoft. resources/templateSpecs/Write | Tworzy lub aktualizuje specyfikację szablonu |
+> | Microsoft. resources/templateSpecs/Delete | Usuwa specyfikację szablonu |
+> | Microsoft. resources/templateSpecs/wersje/odczyt | Pobiera specyfikacje szablonu lub wyświetla listę |
+> | Microsoft. resources/templateSpecs/Versions/Write | Tworzy lub aktualizuje wersję specyfikacji szablonu |
+> | Microsoft. resources/templateSpecs/Versions/Delete | Usuwa wersję specyfikacji szablonu |
 > | Microsoft. resources/dzierżawcy/odczyt | Pobiera listę dzierżawców. |
 
 ### <a name="microsoftscheduler"></a>Microsoft. Scheduler

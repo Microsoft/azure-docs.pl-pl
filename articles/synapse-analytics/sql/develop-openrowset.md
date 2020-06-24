@@ -5,16 +5,16 @@ services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c2a2d7059e24b37b0f47d0b568a3929f296d8c6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 2c5f65993909e142de6017b07591529cd7cb7b86
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560869"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200583"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Jak używać funkcji OPENROWSET z SQL na żądanie (wersja zapoznawcza)
 
@@ -49,7 +49,7 @@ Jest to szybka i łatwa metoda odczytywania zawartości plików bez wstępnej ko
     Ta opcja umożliwia skonfigurowanie lokalizacji konta magazynu w źródle danych i określenie metody uwierzytelniania, która ma być używana do uzyskiwania dostępu do magazynu. 
     
     > [!IMPORTANT]
-    > `OPENROWSET`bez `DATA_SOURCE` zapewnia szybki i łatwy sposób uzyskiwania dostępu do plików magazynu, ale oferuje ograniczoną liczbę opcji uwierzytelniania. Przykładowo podmiot zabezpieczeń usługi Azure AD może uzyskać dostęp do plików tylko przy użyciu [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) i nie może uzyskać dostępu do publicznie dostępnych plików. Jeśli potrzebujesz bardziej zaawansowanych opcji uwierzytelniania, użyj `DATA_SOURCE` opcji i zdefiniuj poświadczenia, które mają być używane do uzyskiwania dostępu do magazynu.
+    > `OPENROWSET`bez `DATA_SOURCE` zapewnia szybki i łatwy sposób uzyskiwania dostępu do plików magazynu, ale oferuje ograniczoną liczbę opcji uwierzytelniania. Na przykład podmioty zabezpieczeń usługi Azure AD mogą uzyskiwać dostęp do plików tylko przy użyciu [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) lub publicznie dostępnych plików. Jeśli potrzebujesz bardziej zaawansowanych opcji uwierzytelniania, użyj `DATA_SOURCE` opcji i zdefiniuj poświadczenia, które mają być używane do uzyskiwania dostępu do magazynu.
 
 
 ## <a name="security"></a>Zabezpieczenia
@@ -60,7 +60,8 @@ Administrator magazynu musi także umożliwić użytkownikowi dostęp do plików
 
 `OPENROWSET`Użyj następujących reguł, aby określić sposób uwierzytelniania do magazynu:
 - W programie `OPENROWSET` bez `DATA_SOURCE` mechanizmu uwierzytelniania zależy od typu obiektu wywołującego.
-  - Identyfikatory logowania usługi Azure AD mogą uzyskiwać dostęp do plików tylko przy użyciu własnej [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) , jeśli usługa Azure Storage umożliwia użytkownikowi usługi Azure AD dostęp do plików źródłowych (na przykład jeśli obiekt wywołujący ma uprawnienie czytnika magazynu w magazynie) i w przypadku [włączenia uwierzytelniania przekazującego usługi Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) w usłudze Synapse SQL.
+  - Każdy użytkownik może używać `OPENROWSET` bez `DATA_SOURCE` konieczności odczytywania publicznie dostępnych plików w usłudze Azure Storage.
+  - Identyfikatory logowania usługi Azure AD mogą uzyskiwać dostęp do chronionych plików przy użyciu własnej [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) , jeśli usługa Azure Storage umożliwia użytkownikowi usługi Azure AD dostęp do plików źródłowych (na przykład jeśli obiekt wywołujący ma `Storage Reader` uprawnienia do usługi Azure Storage).
   - Identyfikatory logowania SQL mogą być również używane `OPENROWSET` bez `DATA_SOURCE` uzyskiwania dostępu do publicznie dostępnych plików, plików chronionych przy użyciu tokenu SAS lub zarządzanej tożsamości obszaru roboczego Synapse. Należy [utworzyć poświadczenia o zakresie serwera](develop-storage-files-storage-access-control.md#examples) , aby umożliwić dostęp do plików magazynu. 
 - W programie `OPENROWSET` z `DATA_SOURCE` mechanizmem uwierzytelniania jest zdefiniowany w poświadczeniach o zakresie bazy danych przypisanych do źródła danych, do którego się odwołuje. Ta opcja umożliwia dostęp do dostępnego publicznie magazynu lub dostęp do magazynu przy użyciu tokenu SAS, zarządzanej tożsamości obszaru roboczego lub [tożsamości obiektu wywołującego usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (Jeśli obiekt wywołujący jest podmiotem zabezpieczeń usługi Azure AD). Jeśli `DATA_SOURCE` odwołuje się do usługi Azure Storage, która nie jest publiczna, należy [utworzyć poświadczenia w zakresie bazy danych](develop-storage-files-storage-access-control.md#examples) i odwołać się do nich w `DATA SOURCE` celu zezwolenia na dostęp do plików magazynu.
 
@@ -132,7 +133,7 @@ Jeśli określisz unstructured_data_path jako folder, zapytanie SQL na żądanie
 > [!NOTE]
 > W przeciwieństwie do usługi Hadoop i bazy danych SQL na żądanie nie zwraca podfolderów. Ponadto, w przeciwieństwie do platformy Hadoop i bazy danych SQL na żądanie, zwraca pliki, dla których nazwa pliku zaczyna się od podkreślenia (_) lub kropki (.).
 
-W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , zapytanie SQL na żądanie zwróci wiersze z elementu webdata. txt i _hidden. txt. Nie zwróci mydata2. txt i mydata3. txt, ponieważ znajdują się one w podfolderze.
+W poniższym przykładzie, jeśli unstructured_data_path = `https://mystorageaccount.dfs.core.windows.net/webdata/` , zapytanie SQL na żądanie zwróci wiersze z mydata.txt i _hidden.txt. Nie zwróci mydata2.txt i mydata3.txt, ponieważ znajdują się w podfolderze.
 
 ![Dane cykliczne dla tabel zewnętrznych](./media/develop-openrowset/folder-traversal.png)
 
@@ -177,7 +178,7 @@ ESCAPE_CHAR = "char"
 
 Określa znak w pliku, który jest używany do wyprowadzania samego siebie i wszystkich wartości ogranicznika w pliku. Jeśli po znaku ucieczki następuje wartość inna niż sama lub jakakolwiek z wartości ogranicznika, znak ucieczki jest usuwany podczas odczytywania wartości. 
 
-Parametr ESCAPE_CHAR zostanie zastosowany niezależnie od tego, czy FIELDQUOTE jest czy nie jest włączony. Nie będzie on używany do ucieczki znaku cudzysłowu. Znak cudzysłowu jest wyprowadzany z podwójnym cudzysłówem w równaniu z zachowaniem CSV programu Excel.
+Parametr ESCAPE_CHAR zostanie zastosowany niezależnie od tego, czy FIELDQUOTE jest czy nie jest włączony. Nie będzie on używany do ucieczki znaku cudzysłowu. Znak cudzysłowu musi być zmieniony przy użyciu innego znaku cudzysłowu. Znak quota może pojawić się w wartości kolumny tylko wtedy, gdy wartość jest hermetyzowana przy użyciu znaków cudzysłowu.
 
 FIRSTROW = "first_row" 
 
@@ -238,10 +239,6 @@ FROM
     ) AS [r]
 ```
 
-Jeśli pojawia się błąd informujący o tym, że pliki nie mogą być wymienione, należy włączyć dostęp do magazynu publicznego w Synapse SQL na żądanie:
-- Jeśli używasz logowania SQL, musisz [utworzyć poświadczenia z zakresem serwera, które umożliwią dostęp do magazynu publicznego](develop-storage-files-storage-access-control.md#examples).
-- Jeśli używasz podmiotu zabezpieczeń usługi Azure AD w celu uzyskania dostępu do magazynu publicznego, musisz [utworzyć poświadczenia z zakresem serwera, które umożliwią dostęp do magazynu publicznego](develop-storage-files-storage-access-control.md#examples) i wyłączyć uwierzytelnianie przy użyciu usługi [Azure AD Passthrough](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
-
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej przykładów, zobacz [Przewodnik Szybki Start](query-data-storage.md) dotyczący tworzenia zapytań dotyczących magazynu danych, aby dowiedzieć się, jak używać funkcji OPENROWSET do odczytu plików [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md)i [JSON](query-json-files.md) . Możesz również dowiedzieć się, jak zapisać wyniki zapytania w usłudze Azure Storage przy użyciu [CETAS](develop-tables-cetas.md).
+Aby uzyskać więcej przykładów, zobacz [Przewodnik Szybki Start dotyczący usługi Query Data Storage](query-data-storage.md) , aby dowiedzieć się, jak używać `OPENROWSET` programu do odczytywania formatów plików [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md)i [JSON](query-json-files.md) . Możesz również dowiedzieć się, jak zapisać wyniki zapytania w usłudze Azure Storage przy użyciu [CETAS](develop-tables-cetas.md).

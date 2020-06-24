@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 5a8b97e5bef57b29f388c86628f0af5d05e1724a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 502fbe3bc7b1de2038bc444ae5daf180cfc80203
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731658"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298994"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Krok 1. wdrażanie usługi przesyłania dalej dzienników
 
@@ -36,7 +36,7 @@ W tym kroku wyznaczysz i skonfigurujesz maszynę z systemem Linux, która będzi
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Użytkownik musi mieć podwyższony poziom uprawnień (sudo) na wyznaczeniu maszyny z systemem Linux.
-- Na komputerze z systemem Linux musi być zainstalowany język Python.<br>Użyj polecenia `python -version` , aby sprawdzić.
+- Na komputerze z systemem Linux musi być zainstalowany język Python.<br>Użyj `python -version` polecenia, aby sprawdzić.
 - Komputer z systemem Linux nie może być połączony z żadnym obszarem roboczym platformy Azure przed zainstalowaniem agenta Log Analytics.
 
 ## <a name="run-the-deployment-script"></a>Uruchamianie skryptu wdrażania
@@ -69,13 +69,13 @@ Wybierz demona dziennika systemu, aby wyświetlić odpowiedni opis.
 
 1. **Konfigurowanie demona dziennika systemowego:**
 
-    1. Otwiera port 514 dla komunikacji TCP przy użyciu pliku `/etc/rsyslog.conf`konfiguracji dziennika systemowego.
+    1. Otwiera port 514 dla komunikacji TCP przy użyciu pliku konfiguracji dziennika systemowego `/etc/rsyslog.conf` .
 
-    1. Konfiguruje demona do przesyłania dalej komunikatów CEF do agenta Log Analytics na porcie TCP 25226, wstawiając specjalny plik `security-config-omsagent.conf` konfiguracji do katalogu `/etc/rsyslog.d/`demona dziennika systemu.
+    1. Konfiguruje demona do przesyłania dalej komunikatów CEF do agenta Log Analytics na porcie TCP 25226, wstawiając specjalny plik konfiguracji `security-config-omsagent.conf` do katalogu demona dziennika systemu `/etc/rsyslog.d/` .
 
         Zawartość `security-config-omsagent.conf` pliku:
 
-            :rawmsg, regex, "CEF\|ASA" ~
+            :rawmsg, regex, "CEF"|"ASA"
             *.* @@127.0.0.1:25226
 
 1. **Ponowne uruchamianie demona dziennika systemu**
@@ -101,9 +101,9 @@ Wybierz demona dziennika systemu, aby wyświetlić odpowiedni opis.
 
 1. **Konfigurowanie demona dziennika systemowego:**
 
-    1. Otwiera port 514 dla komunikacji TCP przy użyciu pliku `/etc/syslog-ng/syslog-ng.conf`konfiguracji dziennika systemowego.
+    1. Otwiera port 514 dla komunikacji TCP przy użyciu pliku konfiguracji dziennika systemowego `/etc/syslog-ng/syslog-ng.conf` .
 
-    1. Konfiguruje demona do przesyłania dalej komunikatów CEF do agenta Log Analytics na porcie TCP 25226, wstawiając specjalny plik `security-config-omsagent.conf` konfiguracji do katalogu `/etc/syslog-ng/conf.d/`demona dziennika systemu.
+    1. Konfiguruje demona do przesyłania dalej komunikatów CEF do agenta Log Analytics na porcie TCP 25226, wstawiając specjalny plik konfiguracji `security-config-omsagent.conf` do katalogu demona dziennika systemu `/etc/syslog-ng/conf.d/` .
 
         Zawartość `security-config-omsagent.conf` pliku:
 

@@ -8,11 +8,11 @@ ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
 ms.openlocfilehash: 5b2e2c51eaa878ba0ce8bc31c001575acebe6919
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240156"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695253"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Wprowadzenie do usługi Azure Cosmos DB: Interfejs API tabel
 
@@ -43,7 +43,7 @@ Jeśli obecnie używasz usługi Azure Table Storage, po rozpoczęciu korzystania
 | Cennik | Optymalizacja pod kątem magazynu. | Optymalizacja pod kątem przepływności. |
 | Umowy SLA | 99,9% do 99,99% dostępności, w zależności od strategii replikacji. | 99,999% dostępności odczytu, 99,99% dostępności zapisu na koncie w jednym regionie i 99,999% o dostępności na kontach wieloregionowych. [Kompleksowe umowy SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) obejmujące dostępność, opóźnienia, przepływność i spójność. |
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Utwórz konto usługi Azure Cosmos DB w witrynie [Azure Portal](https://portal.azure.com). Następnie zapoznaj się z naszym [przewodnikiem Szybki Start dotyczącym korzystania z interfejsu API tabel przy użyciu programu .NET](create-table-dotnet.md). 
 
@@ -61,5 +61,5 @@ Oto kilka wskazówek ułatwiających rozpoczęcie pracy:
 * [Zestaw SDK tabeli Azure Cosmos DB .NET Standard](table-sdk-dotnet-standard.md)
 * [Zestaw SDK tabeli Azure Cosmos DB dla platformy .NET](table-sdk-dotnet.md)
 * [Zestaw SDK języka Java dla tabeli Azure Cosmos DB](table-sdk-java.md)
-* [Azure Cosmos DB tabeli SDK Node. js](table-sdk-nodejs.md)
+* [Zestaw SDK tabeli Azure Cosmos DB Node.js](table-sdk-nodejs.md)
 * [Azure Cosmos DB — zestaw SDK tabel dla języka Python](table-sdk-python.md)

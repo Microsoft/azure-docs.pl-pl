@@ -4,15 +4,15 @@ description: Azure DNS oferuje możliwość zarządzania zestawami rekordów DNS
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/6/2018
 ms.author: rohink
-ms.openlocfilehash: 4012b32eb2684126b8dc64b9e86bf35a016e9fba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 111d94db1cbec658daabfb1a4c38c8160d6f50b6
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76936843"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696835"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Zarządzanie rekordami i zestawami rekordów DNS przy użyciu Azure Portal
 
@@ -93,7 +93,7 @@ Rekordy NS i SOA tworzone automatycznie są zarządzane inaczej od innych typów
 
 ### <a name="modify-soa-records"></a>Modyfikuj rekordy SOA
 
-Nie można dodawać ani usuwać rekordów z automatycznie utworzonego rekordu SOA w obszarze wierzchołka strefy (nazwa = "\@"). Można jednak zmodyfikować dowolny z parametrów w rekordzie SOA (z wyjątkiem "host") i zestawem rekordów TTL.
+Nie można dodawać ani usuwać rekordów z automatycznie utworzonego rekordu SOA w obszarze wierzchołka strefy (nazwa = " \@ "). Można jednak zmodyfikować dowolny z parametrów w rekordzie SOA (z wyjątkiem "host") i zestawem rekordów TTL.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modyfikowanie rekordów NS w wierzchołku strefy
 
@@ -105,7 +105,7 @@ Należy zauważyć, że ma to zastosowanie tylko do zestawu rekordów NS w wierz
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Usuń zestawy rekordów SOA lub NS
 
-Nie można usunąć zestawów rekordów SOA i NS we wierzchołku strefy (nazwa = "\@"), które są tworzone automatycznie podczas tworzenia strefy. Są one usuwane automatycznie po usunięciu strefy.
+Nie można usunąć zestawów rekordów SOA i NS we wierzchołku strefy (nazwa = " \@ "), które są tworzone automatycznie podczas tworzenia strefy. Są one usuwane automatycznie po usunięciu strefy.
 
 ## <a name="next-steps"></a>Następne kroki
 

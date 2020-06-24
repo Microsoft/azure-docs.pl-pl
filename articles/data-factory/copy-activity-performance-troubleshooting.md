@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 6a7c04bec8a794a234f2f0c6fad75dc94c12d291
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: d339e68dcf49c74c508029fda3e7eb548ec92588
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668359"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770972"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Rozwiązywanie problemów z wydajnością działania kopiowania
 
@@ -57,7 +57,7 @@ Szczegóły wykonania i czasy trwania w dolnej części widoku monitorowanie dzi
 | --------------- | ------------------------------------------------------------ |
 | Kolejka           | Czas, który upłynął do momentu rzeczywistego uruchomienia działania kopiowania w środowisku Integration Runtime. |
 | Skrypt poprzedzający kopiowanie | Upłynęło czasu między działaniem kopiowania, rozpoczynającym się od działania funkcji IR i kopiowania, kończący wykonywanie skryptu przed kopiowaniem w magazynie danych ujścia. Zastosuj podczas konfigurowania skryptu przed kopiowaniem dla obiektów ujścia bazy danych, na przykład podczas zapisywania danych do Azure SQL Database Wyczyść przed skopiowaniem nowych danych. |
-| Transfer        | Czas, który upłynął między końcem poprzedniego kroku a środowiskiem IR transferu wszystkie dane ze źródła do ujścia. <br/>Należy zwrócić uwagę na podetapy w obszarze transfer równoległy, a niektóre operacje nie są teraz wyświetlane, np. analizowanie/generowanie formatu pliku.<br><br/>- **Czas do pierwszego bajtu:** Czas, który upłynął między końcem poprzedniego kroku a czasem, gdy środowisko IR odbierze pierwszy bajt z magazynu danych źródłowych. Dotyczy źródeł nieopartych na plikach.<br>- **Źródło listy:** Ilość czasu poświęcanego na Wyliczenie plików źródłowych lub partycji danych. Ten ostatni ma zastosowanie w przypadku konfigurowania opcji partycji dla źródeł baz danych, na przykład podczas kopiowania danych z baz danych, takich jak Oracle/SAP HANA/Teradata/Netezza/itd.<br/>-**Odczytywanie ze źródła:** Czas spędzony na pobieraniu danych ze źródłowego magazynu danych.<br/>- **Zapisywanie do ujścia:** Ilość czasu poświęcanego na zapisanie danych do magazynu danych ujścia. |
+| Transfer        | Czas, który upłynął między końcem poprzedniego kroku a środowiskiem IR transferu wszystkie dane ze źródła do ujścia. <br/>Należy zwrócić uwagę na podetapy w obszarze transfer równoległy, a niektóre operacje nie są teraz wyświetlane, np. analizowanie/generowanie formatu pliku.<br><br/>- **Czas do pierwszego bajtu:** Czas, który upłynął między końcem poprzedniego kroku a czasem, gdy środowisko IR odbierze pierwszy bajt z magazynu danych źródłowych. Dotyczy źródeł nieopartych na plikach.<br>- **Źródło listy:** Ilość czasu poświęcanego na Wyliczenie plików źródłowych lub partycji danych. Ten ostatni ma zastosowanie w przypadku konfigurowania opcji partycji dla źródeł baz danych, na przykład podczas kopiowania danych z baz danych, takich jak Oracle/SAP HANA/Teradata/Netezza/itd.<br/>-**Odczytywanie ze źródła:** Czas spędzony na pobieraniu danych ze źródłowego magazynu danych.<br/>- **Zapisywanie do ujścia:** Ilość czasu poświęcanego na zapisanie danych do magazynu danych ujścia. Zwróć uwagę na to, że w tym momencie niektóre łączniki nie mają tej metryki, w tym Azure Wyszukiwanie poznawcze, Azure Eksplorator danych, Azure Table Storage, Oracle, SQL Server, Common Data Service, Dynamics 365, Dynamics CRM, Salesforce/Cloud Service chmura. |
 
 ## <a name="troubleshoot-copy-activity-on-azure-ir"></a>Rozwiązywanie problemów z działaniem kopiowania na Azure IR
 
@@ -142,7 +142,7 @@ Gdy wydajność kopiowania nie spełnia oczekiwań, aby rozwiązywać problemy z
 
   - Zapoznaj się z trendem użycia procesora CPU i pamięci przez środowisko IR w Azure Portal-> stronie Przegląd > usługi Data Factory. Należy rozważyć [skalowanie w górę/](create-self-hosted-integration-runtime.md#high-availability-and-scalability) w poziomie środowiska IR, jeśli użycie procesora CPU jest wysokie lub dostępna pamięć jest niska.
 
-  - Należy zastosować najlepsze rozwiązanie do ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Na przykład:
+  - Należy zastosować najlepsze rozwiązanie do ładowania danych specyficznych dla łącznika, jeśli ma zastosowanie. Przykład:
 
     - Podczas kopiowania danych z programu [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP HANA](connector-sap-hana.md#sap-hana-as-source), [tabeli SAP](connector-sap-table.md#sap-table-as-source)i [oprogramowania SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source), Włącz opcje partycji danych, aby równolegle kopiować dane.
 

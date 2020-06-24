@@ -3,25 +3,25 @@ title: Publikowanie Pulpit zdalny z aplikacja usługi Azure AD serwerem proxy | 
 description: Obejmuje podstawowe informacje dotyczące łączników usługi Azure serwer proxy aplikacji usługi Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6ca64e2de5734c567173fc735776074f4c87fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34f3dcd607a7417932912528167a1120dbfd9b4f
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67108466"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764523"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publikowanie Pulpit zdalny przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -67,7 +67,7 @@ Po skonfigurowaniu usług pulpitu zdalnego i serwer proxy aplikacji usługi Azur
 ### <a name="publish-the-rd-host-endpoint"></a>Publikowanie punktu końcowego hosta usług pulpitu zdalnego
 
 1. [Opublikuj nową aplikację serwera proxy aplikacji](application-proxy-add-on-premises-application.md) o następujących wartościach:
-   - Wewnętrzny adres URL `https://\<rdhost\>.com/`:, `\<rdhost\>` gdzie jest wspólnym katalogiem głównym usług pulpitu zdalnego sieci Web i bramy usług pulpitu zdalnego.
+   - Wewnętrzny adres URL: `https://\<rdhost\>.com/` , gdzie `\<rdhost\>` jest wspólnym katalogiem głównym usług pulpitu zdalnego sieci Web i bramy usług pulpitu zdalnego.
    - Zewnętrzny adres URL: to pole jest wypełniane automatycznie na podstawie nazwy aplikacji, ale można ją modyfikować. Użytkownicy będą przechodzić do tego adresu URL, gdy uzyskują dostęp do usług pulpitu zdalnego.
    - Metoda wstępnego uwierzytelniania: Azure Active Directory
    - Tłumaczenie nagłówków adresów URL: nie
@@ -75,7 +75,7 @@ Po skonfigurowaniu usług pulpitu zdalnego i serwer proxy aplikacji usługi Azur
 3. Pozostaw metodę logowania jednokrotnego dla aplikacji, ponieważ logowanie jednokrotne w **usłudze Azure AD jest wyłączone**. Użytkownicy są monitowani o jednokrotne uwierzytelnienie w usłudze Azure AD i w sieci Web do usług pulpitu zdalnego, ale mają Logowanie jednokrotne do bramy usług pulpitu zdalnego.
 4. Wybierz **Azure Active Directory**, a następnie **rejestracje aplikacji**. Wybierz aplikację z listy.
 5. W obszarze **Zarządzaj**wybierz opcję **znakowanie**.
-6. Zaktualizuj pole **adres URL strony głównej** , aby wskazywało punkt końcowy sieci Web usług `https://\<rdhost\>.com/RDWeb`pulpitu zdalnego (na przykład).
+6. Zaktualizuj pole **adres URL strony głównej** , aby wskazywało punkt końcowy sieci Web usług pulpitu zdalnego (na przykład `https://\<rdhost\>.com/RDWeb` ).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Bezpośredni ruch RDS do serwera proxy aplikacji
 
@@ -91,13 +91,13 @@ Połącz się z wdrożeniem usług pulpitu zdalnego jako administrator i Zmień 
 
    ![Ekran właściwości wdrożenia na serwerze RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
-8. Uruchom to polecenie dla każdej kolekcji. Zastąp * \<yourcollectionname\> * i * \<proxyfrontendurl\> * własnymi informacjami. To polecenie umożliwia logowanie jednokrotne między usługami pulpitu zdalnego sieci Web i bramą usług pulpitu zdalnego, a następnie optymalizuje wydajność:
+8. Uruchom to polecenie dla każdej kolekcji. Zastąp *\<yourcollectionname\>* i *\<proxyfrontendurl\>* własnymi informacjami. To polecenie umożliwia logowanie jednokrotne między usługami pulpitu zdalnego sieci Web i bramą usług pulpitu zdalnego, a następnie optymalizuje wydajność:
 
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "<yourcollectionname>" -CustomRdpProperty "pre-authentication server address:s:<proxyfrontendurl>`nrequire pre-authentication:i:1"
    ```
 
-   **Przykład:**
+   **Na przykład:**
    ```
    Set-RDSessionCollectionConfiguration -CollectionName "QuickSessionCollection" -CustomRdpProperty "pre-authentication server address:s:https://remotedesktoptest-aadapdemo.msappproxy.net/`nrequire pre-authentication:i:1"
    ```

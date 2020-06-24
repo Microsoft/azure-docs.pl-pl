@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 131ecd010cba55f08199f713654792c0844a47e1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188736"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202300"
 ---
 # <a name="display-controls"></a>Kontrolki wyświetlania
 
@@ -34,7 +34,7 @@ Na poniższej ilustracji przedstawiono samodzielną stronę rejestracji z dwoma 
 
  W sekcji [Metadata](self-asserted-technical-profile.md#metadata) w [profilu technicznym](self-asserted-technical-profile.md), do którego istnieje odwołanie, [ContentDefinition](contentdefinitions.md) musi mieć `DataUri` ustawiony na stronę z wersją 2.0.0 lub wyższą. Przykład:
 
-```XML
+```xml
 <ContentDefinition Id="api.selfasserted">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -46,7 +46,7 @@ Na poniższej ilustracji przedstawiono samodzielną stronę rejestracji z dwoma 
 
 Element **DisplayControl** zawiera następujące atrybuty:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | Identyfikator | Tak | Identyfikator używany do kontrolki wyświetlania. Można się [do niego odwoływać](#referencing-display-controls). |
 | UserInterfaceControlType | Tak | Typ kontrolki wyświetlania. Obecnie obsługiwane jest [VerificationControl](display-control-verification.md) |
@@ -66,7 +66,7 @@ W kontrolce wyświetlania można użyć elementów **InputClaims** , aby wstępn
 
 Poniższy przykład wstępnie wypełnia adres e-mail, który ma być zweryfikowany za pomocą już istniejącego adresu.
 
-```XML
+```xml
 <DisplayControl Id="emailControl" UserInterfaceControlType="VerificationControl">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="emailAddress" />
@@ -78,11 +78,11 @@ Poniższy przykład wstępnie wypełnia adres e-mail, który ma być zweryfikowa
 
 Każdy typ kontrolki wyświetlania wymaga innego zestawu oświadczeń wyświetlania, [oświadczeń wyjściowych](#output-claims)i [akcji](#display-control-actions) , które mają zostać wykonane.
 
-Podobnie jak w przypadku **oświadczeń wyświetlanych** zdefiniowanych w [profilu technicznym z własnym potwierdzeniem](self-asserted-technical-profile.md#display-claims), oświadczenia wyświetlane reprezentują oświadczenia, które mają być zbierane od użytkownika w kontrolce wyświetlania. Element **ClaimType** , do którego istnieje odwołanie, musi określać element **UserInputType** dla typu danych wejściowych użytkownika obsługiwanego `TextBox` przez `DropdownSingleSelect`Azure AD B2C, na przykład lub. Jeśli wartość żądania wyświetlania jest wymagana przez **akcję**, należy ustawić **wymagany** atrybut `true` , aby wymusić użytkownikowi podanie wartości dla tego konkretnego żądania wyświetlania.
+Podobnie jak w przypadku **oświadczeń wyświetlanych** zdefiniowanych w [profilu technicznym z własnym potwierdzeniem](self-asserted-technical-profile.md#display-claims), oświadczenia wyświetlane reprezentują oświadczenia, które mają być zbierane od użytkownika w kontrolce wyświetlania. Element **ClaimType** , do którego istnieje odwołanie, musi określać element **UserInputType** dla typu danych wejściowych użytkownika obsługiwanego przez Azure AD B2C, na przykład `TextBox` lub `DropdownSingleSelect` . Jeśli wartość żądania wyświetlania jest wymagana przez **akcję**, należy ustawić **wymagany** atrybut, aby `true` wymusić użytkownikowi podanie wartości dla tego konkretnego żądania wyświetlania.
 
 Niektóre typy kontrolek wyświetlania są wymagane przez określone oświadczenia ekranu. Na przykład **VerificationCode** jest wymagany dla kontrolki Display typu **VerificationControl**. Użyj atrybutu **ControlClaimType** , aby określić, który DisplayClaim jest wyznaczono dla tego wymaganego żądania. Przykład:
 
-```XML
+```xml
 <DisplayClaim ClaimTypeReferenceId="otpCode" ControlClaimType="VerificationCode" Required="true" />
 ```
 
@@ -100,7 +100,7 @@ Akcja definiuje listę **profilów technicznych weryfikacji**. Są one używane 
 
 W poniższym przykładzie kod jest wysyłany w wiadomości e-mail lub wiadomości SMS na podstawie wybranego przez użytkownika żądania **mfaType** .
 
-```XML
+```xml
 <Action Id="SendCode">
   <ValidationClaimsExchange>
     <ValidationClaimsExchangeTechnicalProfile TechnicalProfileReferenceId="AzureMfa-SendSms">
@@ -131,7 +131,7 @@ Kontrolki wyświetlania są przywoływane w [wyświetlanych oświadczeniach](sel
 
 Przykład:
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
   ...
   <DisplayClaims>
