@@ -4,15 +4,15 @@ description: Kroki konfigurowania klientów OpenVPN na platformie Azure VPN Gate
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 09ff3ccebad0baa4148e68995254c818a29d7bd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdddf097265e7af688175688b6f3214413a90fdc
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80066051"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84984085"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Konfigurowanie klientów OpenVPN dla platformy Azure VPN Gateway
 

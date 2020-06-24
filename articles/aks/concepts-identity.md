@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259606"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690425"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opcje dostępu i tożsamości dla usługi Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ Bezpieczeństwo klastrów AKS można rozszerzyć przy użyciu integracji Azure A
 
 ![Integracja Azure Active Directory z klastrami AKS](media/concepts-identity/aad-integration.png)
 
-W przypadku klastrów AKS zintegrowanych z usługą Azure AD można udzielić użytkownikom lub grupom dostępu do zasobów Kubernetes w przestrzeni nazw lub w klastrze. Aby uzyskać kontekst `kubectl` konfiguracji, użytkownik może uruchomić polecenie [AZ AKS Get-Credentials][az-aks-get-credentials] . Gdy użytkownik będzie współdziałać z klastrem AKS przy `kubectl`użyciu programu, zostanie wyświetlony monit o zalogowanie się przy użyciu poświadczeń usługi Azure AD. Takie podejście zapewnia pojedyncze Źródło poświadczeń zarządzania kontami użytkowników i hasła. Użytkownik może uzyskać dostęp tylko do zasobów zdefiniowanych przez administratora klastra.
+W przypadku klastrów AKS zintegrowanych z usługą Azure AD można udzielić użytkownikom lub grupom dostępu do zasobów Kubernetes w przestrzeni nazw lub w klastrze. Aby uzyskać `kubectl` kontekst konfiguracji, użytkownik może uruchomić polecenie [AZ AKS Get-Credentials][az-aks-get-credentials] . Gdy użytkownik będzie współdziałać z klastrem AKS przy użyciu programu `kubectl` , zostanie wyświetlony monit o zalogowanie się przy użyciu poświadczeń usługi Azure AD. Takie podejście zapewnia pojedyncze Źródło poświadczeń zarządzania kontami użytkowników i hasła. Użytkownik może uzyskać dostęp tylko do zasobów zdefiniowanych przez administratora klastra.
 
 Uwierzytelnianie usługi Azure AD w klastrach AKS używa programu OpenID Connect Connect, czyli warstwy tożsamości opartej na protokole OAuth 2,0. Uwierzytelnianie OAuth 2,0 definiuje mechanizmy uzyskiwania i używania tokenów dostępu w celu uzyskiwania dostępu do chronionych zasobów, a ponadto OpenID Connect nawiązuje połączenie jako rozszerzenie procesu autoryzacji OAuth 2,0. Aby uzyskać więcej informacji na temat OpenID Connect Connect, zapoznaj [się z dokumentacją dotyczącą otwartych identyfikatorów][openid-connect]. Aby sprawdzić tokeny uwierzytelniania uzyskane z usługi Azure AD za pośrednictwem programu OpenID Connect Connect, klastry AKS używają uwierzytelniania tokenów elementu webhook. Aby uzyskać więcej informacji, zobacz [dokumentację uwierzytelniania tokenu elementu webhook][webhook-token-docs].
 

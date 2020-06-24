@@ -1,6 +1,6 @@
 ---
 title: Inspekcja usługi Azure SQL dla Azure SQL Database i usługi Azure Synapse Analytics
-description: Funkcja inspekcji usługi Azure SQL Database umożliwia śledzenie zdarzeń bazy danych w dzienniku inspekcji.
+description: Użyj inspekcji Azure SQL Database do śledzenia zdarzeń bazy danych w dzienniku inspekcji.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: d4ea36a0d24f120885472f07ade5f587361ae6fb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 26569606ce2aeb9d645f82e474b728cc4044ca93
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041563"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250948"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja Azure SQL Database i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ Ponadto inspekcja:
 > [!NOTE]
 > Aby uzyskać informacje na temat inspekcji wystąpienia zarządzanego usługi Azure SQL, zobacz następujący artykuł: [wprowadzenie do inspekcji wystąpienia zarządzanego SQL](../managed-instance/auditing-configure.md).
 
-## <a name="overview"></a><a id="overview"></a>Podsumowanie
+## <a name="overview"></a><a id="overview"></a>Omówienie
 
 Inspekcji SQL Database można użyć do:
 

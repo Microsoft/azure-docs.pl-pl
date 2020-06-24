@@ -4,15 +4,15 @@ description: Ten artykuł zawiera informacje na temat sposobów pokonania wspó�
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: alzam
-ms.openlocfilehash: 5500d993a4bf3c664f14182d983f9abed8ebb08a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e98fd0d57219599fb1c3934638a928542e4311a7
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398363"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983344"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Przejście do protokołu OpenVPN lub IKEv2 z SSTP
 
@@ -22,7 +22,7 @@ Połączenie bramy VPN Gateway typu punkt-lokacja pozwala utworzyć bezpieczne p
 
 Sieć VPN typu punkt-lokacja może korzystać z jednego z następujących protokołów:
 
-* **Protokół&reg; OpenVPN**, protokół VPN oparty na protokole SSL/TLS. Rozwiązanie sieci VPN z protokołem SSL może przeniknąć zapory, ponieważ większość zapór otwiera port TCP 443 wychodzący, który jest używany przez protokół SSL. OpenVPN można użyć do nawiązania połączenia z urządzeń z systemami Android, iOS (wersja 11,0 i nowsze), Windows, Linux i Mac (OSX wersje 10,13 i nowsze).
+* **OpenVPN &reg; Protokół**, protokół VPN oparty na protokole SSL/TLS. Rozwiązanie sieci VPN z protokołem SSL może przeniknąć zapory, ponieważ większość zapór otwiera port TCP 443 wychodzący, który jest używany przez protokół SSL. OpenVPN można użyć do nawiązania połączenia z urządzeń z systemami Android, iOS (wersja 11,0 i nowsze), Windows, Linux i Mac (OSX wersje 10,13 i nowsze).
 
 * **Protokół SSTP (Secure Socket Tunneling Protocol)**— własny protokół sieci VPN oparty na protokole SSL. Rozwiązanie sieci VPN z protokołem SSL może przeniknąć zapory, ponieważ większość zapór otwiera port TCP 443 wychodzący, który jest używany przez protokół SSL. Protokół SSTP jest obsługiwany tylko na urządzeniach z systemem Windows. Platforma Azure obsługuje wszystkie wersje systemu Windows, które mają protokół SSTP (system Windows 7 i nowsze). Protokół **SSTP obsługuje maksymalnie 128 połączeń współbieżnych niezależnie od jednostki SKU bramy**.
 

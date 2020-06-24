@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 0833215449c92a1710dcaf4f2fe13ce9a16685ba
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 6abb44012035f31f970a347687964afb0c715d29
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434047"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983374"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Informacje o wersji Azure Media Services v3
 
@@ -32,11 +32,11 @@ Aby zachować aktualność najnowszych zmian, ten artykuł zawiera informacje na
 ## <a name="known-issues"></a>Znane problemy
 
 > [!NOTE]
-> Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, przeglądać [zasoby](assets-concept.md)v3 i uzyskać informacje o uzyskiwaniu dostępu do interfejsów API. W przypadku wszystkich innych zadań zarządzania (na przykład transformacji i zadań) należy użyć [interfejsu API REST](https://aka.ms/ams-v3-rest-ref), interfejsu [wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+> Za pomocą [Azure Portal](https://portal.azure.com/) można zarządzać [zdarzeniami na żywo](live-events-outputs-concept.md)v3, wyświetlać [zasoby](assets-concept.md) v3 i zadania, uzyskiwać informacje o uzyskiwaniu dostępu do interfejsów API, szyfrować zawartość. W przypadku wszystkich innych zadań zarządzania (na przykład zarządzania transformami i zadaniami) należy użyć [interfejsu API REST](https://aka.ms/ams-v3-rest-ref), interfejsu [wiersza polecenia](https://aka.ms/ams-v3-cli-ref)lub jednego z obsługiwanych [zestawów SDK](media-services-apis-overview.md#sdks).
+>
+> Aby uzyskać szczegółowe informacje, zobacz: [ograniczenia Azure Portal dla Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
-Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md#known-issues).
-
-## <a name="june-2020"></a>Czerwiec 2020
+## <a name="june-2020"></a>Czerwiec 2020 r.
 
 ### <a name="live-video-analytics-on-iot-edge-preview-release"></a>Analiza wideo na żywo w wersji zapoznawczej IoT Edge
 
@@ -191,7 +191,7 @@ Media Services jest teraz dostępna w regionach Korei Środkowej i Korei Połudn
 
 Aby uzyskać więcej informacji, zobacz [chmury i regiony, w których istnieje Media Services v3](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Ulepszenia wydajności
+### <a name="performance-improvements"></a>Usprawnienia wydajności
 
 Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
@@ -207,7 +207,7 @@ Dodano aktualizacje, które obejmują ulepszenia wydajności Media Services.
 
 ## <a name="march-2019"></a>Marzec 2019 r.
 
-Pakowanie dynamiczne obsługuje teraz technologię Dolby Atmos. Aby uzyskać więcej informacji, zobacz [kodery-dekoder audio obsługiwane przez pakowanie dynamiczne](dynamic-packaging-overview.md#audio-codecs).
+Pakowanie dynamiczne obsługuje teraz technologię Dolby Atmos. Aby uzyskać więcej informacji, zobacz [kodery-dekoder audio obsługiwane przez pakowanie dynamiczne](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
 
 Teraz można określić listę filtrów zasobów lub kont, które mają zastosowanie do lokalizatora przesyłania strumieniowego. Aby uzyskać więcej informacji, zobacz [kojarzenie filtrów z lokalizatorem przesyłania strumieniowego](filters-concept.md#associating-filters-with-streaming-locator).
 
@@ -314,7 +314,7 @@ Uwierzytelnianie usługi Azure AD i Access Control oparte na rolach (RBAC) umoż
 
 #### <a name="client-sdks"></a>Zestawy SDK klienta  
 
-Języki obsługiwane w Media Services v3: .NET Core, Java, Node. js, Ruby, TypeScript, Python, go.
+Języki obsługiwane w Media Services v3: .NET Core, Java, Node.js, Ruby, TypeScript, Python, go.
 
 #### <a name="live-encoding-updates"></a>Aktualizacje kodowania na żywo
 
@@ -339,7 +339,7 @@ Można wyświetlić następujące ulepszenia Event Grid wsparcia:
 
 Obsługa szyfrowania CMAF i "cbcs" dla odtwarzaczy Apple HLS (iOS 11 +) i MPEG-PAUZ, które obsługują CMAF.
 
-### <a name="video-indexer"></a>Video Indexer
+### <a name="video-indexer"></a>Indeksator wideo
 
 Video Indexer wersja GA została ogłoszona w sierpniu. Aby uzyskać nowe informacje o aktualnie obsługiwanych funkcjach, zobacz [co to jest Video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 
@@ -370,11 +370,15 @@ Zestaw SDK platformy .NET zawiera następujące funkcje:
 
 ### <a name="known-issues"></a>Znane problemy
 
-* Podczas przesyłania zadania możesz określić, aby pozyskać źródło wideo przy użyciu adresów URL protokołu HTTPS, adresów URL SAS lub ścieżek do plików znajdujących się w usłudze Azure Blob Storage. Obecnie usługa AMS w wersji 3 nie obsługuje fragmentarycznego kodowania transferu przez adresy URL HTTPS.
+* Podczas przesyłania zadania możesz określić, aby pozyskać źródło wideo przy użyciu adresów URL protokołu HTTPS, adresów URL SAS lub ścieżek do plików znajdujących się w usłudze Azure Blob Storage. Obecnie Media Services wersja 3 nie obsługuje kodowania transferu fragmentarycznego za pośrednictwem adresów URL protokołu HTTPS.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Zadawaj pytania, Przekaż opinię, uzyskaj aktualizacje
 
 Zapoznaj się z artykułem [community Azure Media Services](media-services-community.md) , aby zobaczyć różne sposoby zadawania pytań, przekazać Opinie i uzyskać aktualizacje dotyczące Media Services.
+
+## <a name="see-also"></a>Zobacz też
+
+[Wskazówki dotyczące migracji dotyczące przenoszenia z Media Services V2 do wersji v3](migrate-from-v2-to-v3.md#known-issues).
 
 ## <a name="next-steps"></a>Następne kroki
 

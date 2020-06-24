@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1642c90f0a345bdaf5dd69ddb6c0e26c34faba91
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 62da43879b581d6737eee1310cf642e9692051de
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196003"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248449"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działania w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -156,7 +156,7 @@ Zasady mają wpływ na zachowanie działania w czasie wykonywania, w odróżnien
 | longRetryInterval |przedział_czasu |00:00:00 |Opóźnienie między długimi próbami ponowienia |
 
 ## <a name="sample-copy-pipeline"></a>Przykładowy potok kopiowania
-W poniższym przykładowym potoku występuje jedno działanie typu **Copy** w sekcji **activities**. W tym przykładzie [działanie copy](data-factory-data-movement-activities.md) kopiuje dane z usługi Azure Blob Storage do bazy danych Azure SQL Database.
+W poniższym przykładowym potoku występuje jedno działanie typu **Copy** w sekcji **activities**. W tym przykładzie [działanie Copy](data-factory-data-movement-activities.md) kopiuje dane z usługi Azure Blob storage do Azure SQL Database.
 
 ```json
 {

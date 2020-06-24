@@ -5,15 +5,15 @@ description: Bezpiecznie łącz klientów z systemami Windows, Mac OS X i Linux 
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: cherylmc
-ms.openlocfilehash: 013ebc2a1343c8eab3d477023e36660c93fa6da5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33f35dc2a8224f496e040b66b2b92bc4c2ec4682
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244487"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84984845"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Skonfiguruj połączenie sieci VPN typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure: Azure Portal
 
@@ -144,7 +144,7 @@ Pliki konfiguracji klienta sieci VPN zawierają ustawienia do konfigurowania urz
 >
 >
 
-1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Wybierz przycisk **Połącz**. Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Wybierz pozycję **Kontynuuj** , aby użyć podwyższonych uprawnień.
+1. Aby nawiązać połączenie z siecią wirtualną na komputerze klienckim, przejdź do połączeń sieci VPN i wyszukaj wcześniej utworzone połączenie sieci VPN. Połączenie będzie miało taką samą nazwę jak sieć wirtualna. Wybierz pozycję **Połącz**. Może pojawić się komunikat podręczny, który odwołuje się do użycia certyfikatu. Wybierz pozycję **Kontynuuj** , aby użyć podwyższonych uprawnień.
 
 2. Na stronie stanu **Połączenie** wybierz przycisk **Połącz**, aby rozpocząć połączenie. Jeśli widzisz ekran **Wybierz certyfikat**, sprawdź, czy wyświetlany certyfikat klienta to ten, który ma zostać użyty do nawiązania połączenia. Jeśli tak nie jest, użyj strzałki listy rozwijanej, aby wybrać poprawny certyfikat, a następnie wybierz przycisk **OK**.
 
@@ -159,7 +159,7 @@ Pliki konfiguracji klienta sieci VPN zawierają ustawienia do konfigurowania urz
 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Aby połączyć się z klienta sieci VPN na komputerze Mac
 
-W oknie dialogowym sieć Znajdź profil klienta, którego chcesz użyć, określ ustawienia z [VpnSettings. XML](point-to-site-vpn-client-configuration-azure-cert.md#installmac), a następnie wybierz pozycję **Połącz**.
+W oknie dialogowym sieć Znajdź profil klienta, którego chcesz użyć, określ ustawienia z [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac)a następnie wybierz pozycję **Połącz**.
 
 Aby uzyskać szczegółowe instrukcje, sprawdź [Install-Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) . Jeśli występują problemy z połączeniem, sprawdź, czy Brama sieci wirtualnej nie używa podstawowej jednostki SKU. Podstawowa jednostka SKU nie jest obsługiwana w przypadku klientów na komputery Mac.
 
