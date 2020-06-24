@@ -123,7 +123,7 @@ Poniżej przedstawiono sposób nawiązywania połączenia z serwerem SQL Databas
 7.  Opcjonalnie można utworzyć lub zbadać informacje z _przykładowej bazy danych_.
 8.  Zamknij Pulpit zdalny połączenie, aby _myVm {unikatowy}_.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych przy użyciu prywatnego punktu końcowego, Usuń grupę zasobów. Spowoduje to usunięcie prywatnego punktu końcowego i wszystkich powiązanych zasobów.
 

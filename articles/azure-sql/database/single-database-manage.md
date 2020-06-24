@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 0f348ea67583d10dae2ebc548a48b7e74b66a958
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343357"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254994"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Tworzenie serwerów i pojedynczych baz danych w programie Azure SQL Database oraz zarządzanie nimi
 
@@ -43,7 +43,7 @@ Aby utworzyć pojedynczy Azure SQL Database przy użyciu [Azure Portal](https://
 
 ## <a name="manage-an-existing-server"></a>Zarządzanie istniejącym serwerem
 
-Aby zarządzać istniejącym serwerem, przejdź do serwera przy użyciu różnych metod — na przykład z określonej strony bazy danych SQL, strony **serwery SQL** lub strony **wszystkie zasoby** .
+Aby zarządzać istniejącym serwerem, przejdź do serwera przy użyciu szeregu metod — na przykład z określonej strony bazy danych, strony **serwery SQL** lub strony **wszystkie zasoby** .
 
 Aby zarządzać istniejącą bazą danych, przejdź do strony **bazy danych SQL** , a następnie wybierz bazę danych, którą chcesz zarządzać. Poniższy zrzut ekranu pokazuje, jak rozpocząć ustawianie zapory na poziomie serwera dla bazy danych na stronie **Przegląd** dla bazy danych.
 

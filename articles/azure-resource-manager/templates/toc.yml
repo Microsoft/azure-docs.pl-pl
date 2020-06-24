@@ -14,6 +14,10 @@
       items:
         - name: Sztuczna inteligencja i uczenie maszynowe
           items:
+            - name: Cognitive Search
+              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Cognitive Services
+              href: ../../cognitive-services/resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Maszyna wirtualna do analizy danych
               href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Usługa Machine Learning
@@ -40,6 +44,8 @@
               href: ../../hdinsight/spark/apache-spark-jupyter-spark-sql.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Stream Analytics
               href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Synapse Analytics
+              href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Łańcuch bloków
           items:
             - name: Łańcuch bloków
@@ -130,8 +136,6 @@
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Sieć Web
           items:
-            - name: Cognitive Search
-              href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Notification Hubs
               href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Samouczki
@@ -293,6 +297,14 @@
           href: export-template-portal.md
         - name: Odnajdywanie zasobów
           href: view-resources.md
+    - name: Walidacja szablonów
+      items:
+        - name: Wdrożenie warunkowe
+          href: template-deploy-what-if.md
+        - name: Zestaw narzędzi do testowania
+          href: test-toolkit.md
+        - name: Przypadki testowe
+          href: test-cases.md
     - name: Wdrażanie szablonów
       items:
         - name: Wdrażanie — portal
@@ -309,8 +321,6 @@
           href: deploy-rest.md
         - name: Wdrażanie z repozytorium GitHub
           href: deploy-to-azure-button.md
-        - name: Wdrożenie warunkowe
-          href: template-deploy-what-if.md
         - name: Ponowne wdrażanie w przypadku błędu
           displayName: rollback
           href: rollback-on-error.md

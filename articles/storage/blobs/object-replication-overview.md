@@ -90,7 +90,7 @@ Włączenie kanału informacyjnego zmiany i przechowywanie wersji obiektów BLOB
 
 Możesz zarejestrować się w celu uzyskania podglądu replikacji obiektów przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Upewnij się, że rejestrujesz się również dla podglądów zmian i wersji zapoznawczych obiektów blob, jeśli jeszcze tego nie zrobiono.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby zarejestrować się w celu korzystania z wersji zapoznawczej przy użyciu programu PowerShell, uruchom następujące polecenia:
 
@@ -125,7 +125,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 Stan żądań rejestracji można sprawdzić przy użyciu programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 
 Aby sprawdzić stan żądań rejestracji przy użyciu programu PowerShell, uruchom następujące polecenia:
 

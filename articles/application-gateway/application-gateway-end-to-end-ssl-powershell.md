@@ -4,15 +4,15 @@ description: W tym artykule opisano sposób konfigurowania kompleksowego protoko
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 2b5d2687ce95ca7db139ae06ab83bc3ecee8cf8a
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: e35569a1dc5ce7c1cb2889ac3e2ca8f60f8ccd42
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628803"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808211"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Konfigurowanie kompleksowej usługi TLS przy użyciu Application Gateway z programem PowerShell
 

@@ -4,15 +4,15 @@ description: Skonfiguruj bramę sieci VPN opartą na trasach platformy Azure dla
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: 687c33e50a986cf8af08d0201fe0159a79cf02a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80123321"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84984621"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Łączenie bram sieci VPN platformy Azure z wieloma lokalnymi urządzeniami sieci VPN opartymi na zasadach przy użyciu programu PowerShell
 
@@ -38,7 +38,7 @@ Obecnie platforma Azure obsługuje oba tryby bram sieci VPN: bramy sieci VPN opa
 
 |                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**       |**RouteBased VPN Gateway**                          |
 | ---                      | ---                         | ---                              |---                                                 |
-| **Jednostka SKU bramy platformy Azure**    | Podstawowy                       | Podstawowy                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
+| **Jednostka SKU bramy platformy Azure**    | Podstawowa                       | Podstawowa                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Wersja IKE**          | IKEv1                       | IKEv2                            | Protokoły IKEv1 i IKEv2                         |
 | **Maksymalny. Połączenia S2S** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |

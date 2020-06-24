@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: pepogors
 ms.openlocfilehash: 31095a619fc4d756fa4ef9c29691d1d511d59ece
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282278"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692567"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostyka i monitorowanie wydajności dla niezawodnej komunikacji zdalnej usługi
 Niezawodne środowisko uruchomieniowe servicekomunikacji zdalnej nie emituje [liczników wydajności](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Umożliwiają one wgląd w działanie usługi servicekomunikacja zdalna i rozwiązywanie problemów i monitorowanie wydajności.
@@ -32,11 +32,11 @@ Aplikacja [Monitor wydajności systemu Windows](https://technet.microsoft.com/li
 Klaster, który ma dużą liczbę usług zdalnej usługi lub partycji, ma dużą liczbę wystąpień liczników wydajności. Nazwy wystąpień licznika wydajności mogą pomóc w zidentyfikowaniu konkretnej metody partycji i usługi (jeśli dotyczy), z którą skojarzone jest wystąpienie licznika wydajności.
 
 #### <a name="service-fabric-service-category"></a>Kategoria usługi Service Fabric
-W przypadku kategorii `Service Fabric Service`nazwy wystąpień liczników mają następujący format:
+W przypadku kategorii `Service Fabric Service` nazwy wystąpień liczników mają następujący format:
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) generowana za pomocą metody ze specyfikatorem formatu "D".
+*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metody ze specyfikatorem formatu "D".
 
 *ServiceReplicaOrInstanceId* to ciąg reprezentujący identyfikator Service Fabric repliki/wystąpienia, z którym jest skojarzone wystąpienie licznika wydajności.
 
@@ -49,7 +49,7 @@ Poniżej znajduje się przykład nazwy wystąpienia licznika dla licznika, któr
 W poprzednim przykładzie, `2740af29-78aa-44bc-a20b-7e60fb783264` jest reprezentacją ciągu Service Fabric identyfikator partycji, `635650083799324046` jest reprezentacją typu replika/InstanceId `5008379932` i jest 64-bitowym identyfikatorem, który jest generowany dla wewnętrznego użycia środowiska uruchomieniowego.
 
 #### <a name="service-fabric-service-method-category"></a>Kategoria metody usługi Service Fabric
-W przypadku kategorii `Service Fabric Service Method`nazwy wystąpień liczników mają następujący format:
+W przypadku kategorii `Service Fabric Service Method` nazwy wystąpień liczników mają następujący format:
 
 `MethodName_ServiceRuntimeMethodId_ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
@@ -57,7 +57,7 @@ W przypadku kategorii `Service Fabric Service Method`nazwy wystąpień licznikó
 
 *ServiceRuntimeMethodId* to ciąg reprezentujący 32-bitową liczbę całkowitą wygenerowaną przez środowisko uruchomieniowe usługi sieci szkieletowej do użytku wewnętrznego. Ta wartość jest uwzględniona w nazwie wystąpienia licznika wydajności, aby zapewnić jej unikatowość i uniknąć konfliktu z innymi nazwami wystąpień liczników wydajności. Użytkownicy nie powinni próbować interpretować tej części nazwy wystąpienia licznika wydajności.
 
-*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) generowana za pomocą metody ze specyfikatorem formatu "D".
+*ServiceFabricPartitionID* to ciąg reprezentujący identyfikator partycji Service Fabric, z którym jest skojarzone wystąpienie licznika wydajności. Identyfikator partycji jest identyfikatorem GUID, a jego reprezentacja w postaci ciągu jest generowana za pomocą [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) metody ze specyfikatorem formatu "D".
 
 *ServiceReplicaOrInstanceId* to ciąg reprezentujący identyfikator Service Fabric repliki/wystąpienia, z którym jest skojarzone wystąpienie licznika wydajności.
 
@@ -67,7 +67,7 @@ Poniżej znajduje się przykład nazwy wystąpienia licznika dla licznika, któr
 
 `ivoicemailboxservice.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486_5008380`
 
-W poprzednim przykładzie `ivoicemailboxservice.leavemessageasync` , jest nazwą metody, `2` jest 32-bitowy identyfikator wygenerowany dla wewnętrznego użytku środowiska uruchomieniowego, `89383d32-e57e-4a9b-a6ad-57c6792aa521` to ciąg reprezentujący identyfikator partycji Service Fabric,`635650083804480486` jest reprezentacją ciągu Service Fabric repliki/identyfikatora wystąpienia i `5008380` jest identyfikatorem 64-bitowym wygenerowanym dla wewnętrznego użycia środowiska uruchomieniowego.
+W poprzednim przykładzie, `ivoicemailboxservice.leavemessageasync` jest nazwą metody, `2` jest 32-bitowy identyfikator wygenerowany dla wewnętrznego użytku środowiska uruchomieniowego, `89383d32-e57e-4a9b-a6ad-57c6792aa521` to ciąg reprezentujący identyfikator partycji Service Fabric, `635650083804480486` jest reprezentacją ciągu Service Fabric repliki/identyfikatora wystąpienia i `5008380` jest identyfikatorem 64-bitowym wygenerowanym dla wewnętrznego użycia środowiska uruchomieniowego.
 
 ## <a name="list-of-performance-counters"></a>Lista liczników wydajności
 ### <a name="service-method-performance-counters"></a>Liczniki wydajności metody usługi

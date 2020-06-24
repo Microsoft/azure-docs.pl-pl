@@ -235,7 +235,7 @@ Aby uwierzytelnianie obsługiwane przez brokera działało, należy ustawić dzi
 
 W tym celu należy podać działanie (zazwyczaj główne) `WithParentActivityOrWindow(object parent)` jako obiekt nadrzędny. 
 
-**Na przykład:**
+**Przykład:**
 
 W wywołaniu tokenu pozyskiwania:
 

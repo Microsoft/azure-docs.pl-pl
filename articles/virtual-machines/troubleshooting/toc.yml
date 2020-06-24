@@ -91,6 +91,8 @@
           href: troubleshoot-reboot-loop.md
         - name: Blokada w trakcie aktualizacji systemu Windows
           href: troubleshoot-stuck-updating-boot-error.md
+        - name: Nieoczekiwane ponowne uruchomienie lub błąd
+          href: troubleshoot-unexpected-restart-error-during-vm-boot.md
         - name: Proces uruchamiania maszyny wirtualnej zablokował się
           href: troubleshoot-vm-boot-configure-update.md
         - name: Nie można uruchomić maszyny wirtualnej ze względu na menedżera rozruchu systemu Windows

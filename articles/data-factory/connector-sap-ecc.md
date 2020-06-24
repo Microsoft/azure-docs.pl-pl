@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/02/2019
-ms.openlocfilehash: ad26fca94527864af10bb0051336c372ea65b3e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/12/2020
+ms.openlocfilehash: 4bdcb2b4008f54ff0d84594e6f3b5a7b76944e65
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81413794"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987020"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Kopiowanie danych z systemu SAP ECC przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -62,7 +62,7 @@ Ogólnie rzecz biorąc, SAP ECC uwidacznia jednostki za pośrednictwem usług OD
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -72,9 +72,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi SAP ECC są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| `type` | `type` Właściwość musi być ustawiona na `SapEcc`wartość. | Tak |
+| `type` | `type`Właściwość musi być ustawiona na wartość `SapEcc` . | Tak |
 | `url` | Adres URL usługi SAP ECC OData. | Tak |
 | `username` | Nazwa użytkownika używana do nawiązywania połączenia z funkcją SAP ECC. | Nie |
 | `password` | Hasło w postaci zwykłego tekstu używane do nawiązywania połączenia z funkcją SAP ECC. | Nie |
@@ -107,11 +107,11 @@ Dla połączonej usługi SAP ECC są obsługiwane następujące właściwości:
 
 Aby zapoznać się z pełną listą sekcji i właściwości dostępnych do definiowania zestawów danych, zobacz [zestawy danych](concepts-datasets-linked-services.md). Poniższa sekcja zawiera listę właściwości obsługiwanych przez zestaw danych SAP ECC.
 
-Aby skopiować dane z protokołu SAP ECC, ustaw `type` Właściwość zestawu danych na `SapEccResource`.
+Aby skopiować dane z protokołu SAP ECC, ustaw `type` Właściwość zestawu danych na `SapEccResource` .
 
 Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | `path` | Ścieżka jednostki usługi SAP ECC OData. | Tak |
 
@@ -140,14 +140,15 @@ Aby zapoznać się z pełną listą sekcji i właściwości dostępnych do defin
 
 ### <a name="sap-ecc-as-a-source"></a>System SAP ECC jako źródło
 
-Aby skopiować dane z protokołu SAP ECC, należy `type` ustawić właściwość w `source` sekcji działania kopiowania na `SapEccSource`.
+Aby skopiować dane z protokołu SAP ECC, należy ustawić `type` Właściwość w `source` sekcji działania kopiowania na `SapEccSource` .
 
-W `source` sekcji działania kopiowania są obsługiwane następujące właściwości:
+W sekcji działania kopiowania są obsługiwane następujące właściwości `source` :
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| `type` | Właściwość sekcji działania kopiowania musi być ustawiona na `SapEccSource`wartość. `source` `type` | Tak |
+| `type` | `type`Właściwość sekcji działania kopiowania `source` musi być ustawiona na wartość `SapEccSource` . | Tak |
 | `query` | Opcje zapytania OData służące do filtrowania danych. Przykład:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>Łącznik SAP ECC kopiuje dane ze połączonego adresu URL:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Aby uzyskać więcej informacji, zobacz [składniki URL usługi OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Nie |
+| `httpRequestTimeout` | Limit czasu (wartość **TimeSpan** ) żądania HTTP w celu uzyskania odpowiedzi. Ta wartość jest przekroczeniem limitu czasu w celu uzyskania odpowiedzi, a nie limitu czasu odczytu danych odpowiedzi. Jeśli nie zostanie określony, wartość domyślna to **00:30:00** (30 minut). | Nie |
 
 ### <a name="example"></a>Przykład
 

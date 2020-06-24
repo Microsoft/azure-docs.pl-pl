@@ -5,12 +5,12 @@ author: erscorms
 ms.author: erscor
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: c35930a93751cc82c3145d414a2a09b3a1e90c53
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 17f98f452764abdc8458cdc38661d464ecb0a60d
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659835"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808543"
 ---
 # <a name="limitations"></a>Ograniczenia
 
@@ -26,9 +26,10 @@ Niektóre funkcje mają rozmiar, liczbę lub inne ograniczenia.
 * Łączna liczba dozwolonych obiektów pojedynczego typu (Entity, CutPlaneComponent itp.): 16 777 215.
 * Łączna liczba aktywnych płaszczyzn wycinania: 8.
 
-## <a name="materials"></a>Materiały
+## <a name="geometry"></a>Geometrii
 
 * Łączna liczba dozwolonych materiałów w elemencie zawartości: 65 535.
+* Maksymalny wymiar pojedynczej tekstury: 16 384 x 16 384. Większe tekstury źródłowe będą skalowane w dół w procesie konwersji.
 
 ## <a name="overall-number-of-polygons"></a>Ogólna liczba wielokątów
 
@@ -39,6 +40,7 @@ Dozwolona liczba wielokątów dla wszystkich załadowanych modeli zależy od roz
 |Standardowa| 20 000 000 |
 |tytułu| bez limitu |
 
+Aby uzyskać szczegółowe informacje na temat tego ograniczenia, zobacz rozdział [rozmiaru maszyny wirtualnej](../reference/vm-sizes.md) .
 
 ## <a name="platform-limitations"></a>Ograniczenia dotyczące platformy
 

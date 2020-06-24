@@ -1,5 +1,5 @@
 ---
-title: Delegowanie zarządzania aplikacjami uprawnienia — Azure AD | Microsoft Docs
+title: Delegowanie uprawnień administratora zarządzania aplikacjami — usługa Azure AD | Microsoft Docs
 description: Przyznawanie uprawnień do zarządzania dostępem do aplikacji w Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -8,18 +8,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251bc1c2277f9e43543f95c49d0b730a5a41c3d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2527e4e630e7bf9cce0c68261bfa1c1797fbf795
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253041"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731821"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegowanie uprawnień rejestracji aplikacji w Azure Active Directory
 
@@ -60,8 +60,8 @@ W niektórych przypadkach aplikacje dla przedsiębiorstw utworzone za pomocą ga
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Aby przypisać właściciela do aplikacji dla przedsiębiorstw
 
-1. Zaloguj się do [swojej organizacji usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)przy użyciu konta uprawniającego do administratora aplikacji lub administratora aplikacji w chmurze w organizacji.
-1. Na [stronie](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) rejestracje aplikacji organizacji wybierz aplikację, aby otworzyć stronę przegląd dla aplikacji.
+1. Zaloguj się do [swojej organizacji usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)   przy użyciu konta uprawniającego do administratora aplikacji lub administratora aplikacji w chmurze w organizacji.
+1. Na [stronie rejestracje aplikacji](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)   organizacji wybierz aplikację, aby otworzyć stronę przegląd dla aplikacji.
 1. Wybierz pozycję **właściciele** , aby wyświetlić listę właścicieli aplikacji.
 1. Wybierz pozycję **Dodaj** , aby wybrać co najmniej jednego właściciela, który ma zostać dodany do aplikacji.
 

@@ -2,21 +2,21 @@
 title: Zgłoś automatyczne Inicjowanie obsługi kont użytkowników w aplikacjach SaaS
 description: Dowiedz się, jak sprawdzić stan automatycznych zadań aprowizacji konta użytkownika i jak rozwiązywać problemy z obsługą poszczególnych użytkowników.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/09/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 102a0b60c917d5ee24177ac4b52e97fe72c343e7
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: a0c85226b5890fe0f5f2011110c1d7d20e3c2907
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593883"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782011"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Samouczek: Raportowanie dotyczące automatycznego aprowizacji kont użytkowników
 
@@ -40,7 +40,7 @@ W tym artykule opisano następujące warunki:
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Uzyskiwanie raportów aprowizacji z Azure Portal
 
-Aby uzyskać informacje o raportowaniu dla danej aplikacji, Rozpocznij od uruchomienia [Azure Portal](https://portal.azure.com) i **Azure Active Directory** &gt; dzienników aprowizacji **aplikacji** &gt; dla przedsiębiorstw **(wersja zapoznawcza)** w sekcji **działanie** . Możesz również przejść do aplikacji korporacyjnej, dla której skonfigurowano obsługę administracyjną. Na przykład w przypadku aprowizacji użytkowników do podniesienia uprawnień do serwisu LinkedIn ścieżka nawigacji do szczegółów aplikacji jest:
+Aby uzyskać informacje o raportowaniu dla danej aplikacji, Rozpocznij od uruchomienia [Azure Portal](https://portal.azure.com) i **Azure Active Directory** &gt; dzienników aprowizacji **aplikacji dla przedsiębiorstw** &gt; **(wersja zapoznawcza)** w sekcji **działanie** . Możesz również przejść do aplikacji korporacyjnej, dla której skonfigurowano obsługę administracyjną. Na przykład w przypadku aprowizacji użytkowników do podniesienia uprawnień do serwisu LinkedIn ścieżka nawigacji do szczegółów aplikacji jest:
 
 **Azure Active Directory > aplikacje dla przedsiębiorstw > wszystkie aplikacje > podnoszenie uprawnień do serwisu LinkedIn**
 
@@ -61,7 +61,7 @@ W tym miejscu możesz uzyskać dostęp do paska postępu aprowizacji i dziennik�
 
 ## <a name="provisioning-logs-preview"></a>Dzienniki aprowizacji (wersja zapoznawcza)
 
-Wszystkie działania wykonywane przez usługę aprowizacji są rejestrowane w [dziennikach aprowizacji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)usługi Azure AD. Możesz uzyskać dostęp do dzienników aprowizacji w Azure Portal, wybierając pozycję **Azure Active Directory** &gt; dzienniki aprowizacji **aplikacji** &gt; w przedsiębiorstwie **(wersja zapoznawcza)** w sekcji **działanie** . Możesz przeszukiwać dane aprowizacji na podstawie nazwy użytkownika lub identyfikatora w systemie źródłowym lub docelowym. Aby uzyskać szczegółowe informacje, zobacz [dzienniki aprowizacji (wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Zarejestrowane typy zdarzeń działania obejmują:
+Wszystkie działania wykonywane przez usługę aprowizacji są rejestrowane w [dziennikach aprowizacji](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)usługi Azure AD. Możesz uzyskać dostęp do dzienników aprowizacji w Azure Portal, wybierając pozycję **Azure Active Directory** &gt; dzienniki aprowizacji **aplikacji w przedsiębiorstwie** &gt; **(wersja zapoznawcza)** w sekcji **działanie** . Możesz przeszukiwać dane aprowizacji na podstawie nazwy użytkownika lub identyfikatora w systemie źródłowym lub docelowym. Aby uzyskać szczegółowe informacje, zobacz [dzienniki aprowizacji (wersja zapoznawcza)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context). Zarejestrowane typy zdarzeń działania obejmują:
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

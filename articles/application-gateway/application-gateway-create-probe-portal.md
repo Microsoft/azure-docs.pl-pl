@@ -5,15 +5,15 @@ description: Dowiedz się, jak utworzyć niestandardową sondę dla Application 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 15daf47a1cb44635932311e60b3690af9ff58677
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc599eef349c2d65483de18b0cc8c04c5c2e53ad
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74074605"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808213"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Tworzenie niestandardowej sondy dla Application Gateway przy użyciu portalu
 
@@ -44,13 +44,13 @@ Sondy są konfigurowane w procesie dwuetapowym za pomocą portalu. Pierwszym kro
 
 4. Na stronie **Dodawanie sondy kondycji** wprowadź wymagane informacje dotyczące sondy, a po zakończeniu wybierz **przycisk OK**.
 
-   |**Ustawienie** | **Wartościami** | **Szczegóły**|
+   |**Ustawienie** | **Wartość** | **Szczegóły**|
    |---|---|---|
    |**Nazwa**|customProbe|Ta wartość jest przyjazną nazwą dla sondy, która jest dostępna w portalu.|
-   |**Protokol**|HTTP lub HTTPS | Protokół używany przez sondę kondycji. |
+   |**Protokół**|HTTP lub HTTPS | Protokół używany przez sondę kondycji. |
    |**Host**|co contoso.com|Ta wartość jest nazwą hosta wirtualnego (inną niż nazwa hosta maszyny wirtualnej) działającą na serwerze aplikacji. Sonda jest wysyłana do (protokół)://(nazwa hosta):(port z httpsetting)/urlPath.  Ma to zastosowanie w przypadku, gdy na Application Gateway jest skonfigurowana wiele witryn. Jeśli Application Gateway jest skonfigurowany dla jednej lokacji, wprowadź wartość "127.0.0.1".|
    |**Wybierz nazwę hosta z ustawień protokołu HTTP zaplecza**|Tak lub Nie|Ustawia nagłówek *hosta* w sondie na nazwę hosta zasobu zaplecza w puli zaplecza skojarzoną z USTAWIENIEm http, z którym jest skojarzona ta sonda. Specjalne wymaganie w przypadku wielodostępnych punktów końcowych, takich jak usługa Azure App Service. [Dowiedz się więcej](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**Ścieżka**|/lub inną ścieżkę|Pozostała część pełnego adresu URL dla sondy niestandardowej. Prawidłowa ścieżka zaczyna się od znaku "/". Dla domyślnej ścieżki http:\//contoso.com samo użycie "/" |
+   |**Ścieżka**|/lub inną ścieżkę|Pozostała część pełnego adresu URL dla sondy niestandardowej. Prawidłowa ścieżka zaczyna się od znaku "/". Dla domyślnej ścieżki http: \/ /contoso.com samo użycie "/" |
    |**Interwał (s)**|30|Częstotliwość uruchamiania sondy w celu sprawdzenia kondycji. Nie zaleca się ustawiania wartości mniejszej niż 30 sekund.|
    |**Limit czasu (w sekundach)**|30|Czas, przez jaki sonda czeka przed upływem limitu czasu. Jeśli prawidłowa odpowiedź nie zostanie odebrana w tym okresie, sonda zostanie oznaczona jako niepowodzenie. Interwał limitu czasu musi być wystarczająco duży, aby można było wykonać wywołanie http, aby zapewnić dostępność strony kondycji zaplecza. Należy zauważyć, że wartość limitu czasu nie powinna być większa niż wartość "Interval" użyta w tym ustawieniu sondy lub wartość "Request timeout" w ustawieniach HTTP, która zostanie skojarzona z tą sondą.|
 |**Próg złej kondycji**|3|Liczba kolejnych nieudanych prób w złej kondycji. Próg można ustawić na wartość 1 lub większą.|
@@ -93,13 +93,13 @@ Sondy są konfigurowane w procesie dwuetapowym za pomocą portalu. Pierwszym kro
 
 4. W bloku **Dodawanie sondy kondycji** wprowadź wymagane informacje dotyczące sondy, a po zakończeniu wybierz **przycisk OK**.
 
-   |**Ustawienie** | **Wartościami** | **Szczegóły**|
+   |**Ustawienie** | **Wartość** | **Szczegóły**|
    |---|---|---|
    |**Nazwa**|customProbe|Ta wartość jest przyjazną nazwą dla sondy, która jest dostępna w portalu.|
-   |**Protokol**|HTTP lub HTTPS | Protokół używany przez sondę kondycji. |
+   |**Protokół**|HTTP lub HTTPS | Protokół używany przez sondę kondycji. |
    |**Host**|co contoso.com|Ta wartość jest nazwą hosta wirtualnego (inną niż nazwa hosta maszyny wirtualnej) działającą na serwerze aplikacji. Sonda jest wysyłana do (protokół)://(nazwa hosta):(port z httpsetting)/urlPath.  Ma to zastosowanie w przypadku, gdy na Application Gateway jest skonfigurowana wiele witryn. Jeśli Application Gateway jest skonfigurowany dla jednej lokacji, wprowadź wartość "127.0.0.1".|
    |**Wybierz nazwę hosta z ustawień protokołu HTTP zaplecza**|Tak lub Nie|Ustawia nagłówek *hosta* w sondie na nazwę hosta zasobu zaplecza w puli zaplecza skojarzoną z USTAWIENIEm http, z którym jest skojarzona ta sonda. Specjalne wymaganie w przypadku wielodostępnych punktów końcowych, takich jak usługa Azure App Service. [Dowiedz się więcej](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
-   |**Ścieżka**|/lub inną ścieżkę|Pozostała część pełnego adresu URL dla sondy niestandardowej. Prawidłowa ścieżka zaczyna się od znaku "/". Dla domyślnej ścieżki http:\//contoso.com samo użycie "/" |
+   |**Ścieżka**|/lub inną ścieżkę|Pozostała część pełnego adresu URL dla sondy niestandardowej. Prawidłowa ścieżka zaczyna się od znaku "/". Dla domyślnej ścieżki http: \/ /contoso.com samo użycie "/" |
    |**Interwał (s)**|30|Częstotliwość uruchamiania sondy w celu sprawdzenia kondycji. Nie zaleca się ustawiania wartości mniejszej niż 30 sekund.|
    |**Limit czasu (w sekundach)**|30|Czas, przez jaki sonda czeka przed upływem limitu czasu. Jeśli prawidłowa odpowiedź nie zostanie odebrana w tym okresie, sonda zostanie oznaczona jako niepowodzenie. Interwał limitu czasu musi być wystarczająco duży, aby można było wykonać wywołanie http, aby zapewnić dostępność strony kondycji zaplecza. Należy zauważyć, że wartość limitu czasu nie powinna być większa niż wartość "Interval" użyta w tym ustawieniu sondy lub wartość "Request timeout" w ustawieniach HTTP, która zostanie skojarzona z tą sondą.|
 |**Próg złej kondycji**|3|Liczba kolejnych nieudanych prób w złej kondycji. Próg można ustawić na wartość 1 lub większą.|

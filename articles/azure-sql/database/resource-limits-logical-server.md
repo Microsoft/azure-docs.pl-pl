@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 11/19/2019
-ms.openlocfilehash: c3f843de6eaa621ecdd04c5a3418dc0d620f841e
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/10/2020
+ms.openlocfilehash: eac5814eb977a01135ad2fcd9551b3475673dbca
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343391"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691764"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limity zasobów dla Azure SQL Database i serwerów analiz usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -53,15 +53,15 @@ W przypadku magazynów zasobów o pojedynczej bazie danych zapoznaj się z limit
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>Co się stanie po osiągnięciu limitów zasobów bazy danych
 
-### <a name="compute-dtus-and-edtus--vcores"></a>Obliczenia (DTU i jednostek eDTU/rdzeni wirtualnych)
+### <a name="compute-cpu"></a>Procesor obliczeniowy
 
-Gdy użycie obliczeniowe bazy danych (mierzone przez DTU i jednostek eDTU, lub rdzeni wirtualnych) stanie się wysokie, opóźnienia zapytań rosną, a kwerendy mogą nawet przekroczyć limit czasu. W tych warunkach zapytania mogą być umieszczane w kolejce przez usługę i są udostępniane zasoby do wykonania, ponieważ zasoby stają się bezpłatne.
+Gdy użycie procesora CPU obliczeniowej bazy danych stanie się wysokie, wzrasta opóźnienie zapytania, a kwerendy mogą nawet przekroczyć limit czasu. W tych warunkach zapytania mogą być umieszczane w kolejce przez usługę i są udostępniane zasoby do wykonania, ponieważ zasoby stają się bezpłatne.
 W przypadku wystąpienia dużej mocy obliczeniowej opcje ograniczenia obejmują:
 
 - Zwiększenie rozmiaru obliczeniowego bazy danych lub puli elastycznej w celu zapewnienia bazy danych większej ilości zasobów obliczeniowych. Zobacz [skalowanie zasobów pojedynczych baz danych](single-database-scale.md) i [skalowanie zasobów puli elastycznej](elastic-pool-scale.md).
-- Optymalizowanie zapytań w celu ograniczenia wykorzystania zasobów dla każdego zapytania. Aby uzyskać więcej informacji, zobacz [dostrajanie/podpowiedzi zapytań](performance-guidance.md#query-tuning-and-hinting).
+- Optymalizowanie zapytań w celu zmniejszenia użycia zasobów procesora CPU przez poszczególne zapytania. Aby uzyskać więcej informacji, zobacz [dostrajanie/podpowiedzi zapytań](performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
 Gdy używane miejsce na bazę danych osiągnie limit rozmiaru, wstawia i aktualizuje bazę danych, która zwiększa niepowodzenie rozmiaru danych, a klienci odbierają [komunikat o błędzie](troubleshoot-common-errors-issues.md). Instrukcje SELECT i DELETE kontynuują się pomyślnie.
 
@@ -82,7 +82,28 @@ W przypadku wystąpienia wysokiego poziomu sesji lub procesu wyłączania, opcje
 - Zmniejszenie ustawienia [MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (maksymalny stopień równoległości).
 - Optymalizacja obciążenia zapytania, aby zmniejszyć liczbę wystąpień i czas trwania blokowania zapytań.
 
-### <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Użycie zasobów według obciążeń użytkowników i procesów wewnętrznych
+### <a name="memory"></a>Memory (Pamięć)
+
+W przeciwieństwie do innych zasobów (procesora CPU, procesów roboczych, magazynu), osiągających limit pamięci nie wpływa negatywnie na wydajność zapytań i nie powoduje błędów i błędów. Jak opisano szczegółowo w [przewodniku dotyczącym architektury zarządzania pamięcią](https://docs.microsoft.com/sql/relational-databases/memory-management-architecture-guide), aparat bazy danych SQL Server często używa całej dostępnej pamięci, przez zaprojektowanie. Pamięć jest używana głównie do buforowania danych, aby uniknąć tańszego dostępu do magazynu. W związku z tym wyższe użycie pamięci zwykle zwiększa wydajność zapytań z powodu szybszego odczytu z pamięci, a nie wolniejszych odczytów z magazynu.
+
+Po uruchomieniu aparatu bazy danych, ponieważ obciążenie zaczyna odczytywać dane z magazynu, aparat bazy danych agresywnie buforuje dane w pamięci. Po tym początkowym okresie zwiększania i oczekiwane jest wyświetlanie `avg_memory_usage_percent` `avg_instance_memory_percent` kolumn i w tabeli [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) mają być zamknięte lub równe 100%, szczególnie w przypadku baz danych, które nie są bezczynne i nie mieszczą się w pełni w pamięci.
+
+Oprócz pamięci podręcznej danych pamięć jest używana w innych składnikach aparatu bazy danych. Gdy jest zapotrzebowanie na pamięć, a cała dostępna pamięć jest używana przez pamięć podręczną danych, aparat bazy danych dynamicznie zmniejsza rozmiar pamięci podręcznej danych, aby udostępnić pamięć innym składnikom, i dynamicznie zwiększa pamięć podręczną danych, gdy inne składniki zwolnią pamięć.
+
+W rzadkich przypadkach wystarczająco wysokie obciążenie może spowodować niespełnienie niewystarczającej ilości pamięci, co prowadzi do błędów braku pamięci. Może się to zdarzyć na dowolnym poziomie wykorzystania pamięci między 0% a 100%. Jest to bardziej duże wystąpienie w przypadku mniejszych rozmiarów obliczeniowych, które mają ograniczone ilości pamięci i/lub z obciążeniami, które używają większej ilości pamięci do przetwarzania zapytań, na przykład w przypadku [gęstych pul elastycznych](elastic-pool-resource-management.md).
+
+Gdy wystąpią błędy braku pamięci, opcje ograniczenia obejmują:
+- Zwiększenie warstwy usług lub rozmiaru obliczeniowego bazy danych lub puli elastycznej. Zobacz [skalowanie zasobów pojedynczych baz danych](single-database-scale.md) i [skalowanie zasobów puli elastycznej](elastic-pool-scale.md).
+- Optymalizowanie zapytań i konfiguracji w celu zmniejszenia wykorzystania pamięci. Typowe rozwiązania zostały opisane w poniższej tabeli.
+
+|Rozwiązanie|Opis|
+| :----- | :----- |
+|Zmniejszenie rozmiaru dotacji do pamięci|Aby uzyskać więcej informacji na temat przydziałów pamięci, zapoznaj się z wpisem w blogu [Informacje o rozłożeniu SQL Server pamięci](https://techcommunity.microsoft.com/t5/sql-server/understanding-sql-server-memory-grant/ba-p/383595) . Typowym rozwiązaniem w przypadku unikania nadmiernej ilości przydziałów pamięci jest aktualizowanie [statystyk](https://docs.microsoft.com/sql/relational-databases/statistics/statistics) . Pozwala to na dokładniejsze oszacowanie zużycia pamięci przez aparat zapytań, unikając niepotrzebnych uprawnień dużych ilości pamięci.</br></br>W bazach danych korzystających z poziomu zgodności 140 i nowszych aparat bazy danych może automatycznie dostosować rozmiar przydziału pamięci przy użyciu [informacji zwrotnych dotyczących przydziału pamięci w trybie wsadowym](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15#batch-mode-memory-grant-feedback). W przypadku baz danych korzystających z poziomu zgodności 150 i nowszych aparat bazy danych podobnie używa [opinii o przydzieleniu pamięci w trybie wiersza](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?view=sql-server-ver15#row-mode-memory-grant-feedback)w przypadku bardziej typowych zapytań w trybie wiersza. Ta wbudowana funkcja pomaga uniknąć błędów braku pamięci z powodu niepotrzebnych uprawnień dużych ilości pamięci.|
+|Zmniejsz rozmiar pamięci podręcznej planu zapytania|Aparat bazy danych buforuje plany zapytania w pamięci, aby uniknąć kompilowania planu zapytania dla każdego wykonywania zapytania. Aby uniknąć przeładowanie pamięci podręcznej planu zapytania spowodowanej przez plany buforowania, które są używane tylko raz, należy włączyć [konfigurację z zakresem bazy danych](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql)OPTIMIZE_FOR_AD_HOC_WORKLOADS.|
+|Zmniejsz rozmiar pamięci blokady|Aparat bazy danych używa pamięci do [blokad](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide#Lock_Engine). Jeśli to możliwe, unikaj dużych transakcji, które mogą uzyskać dużą liczbę blokad i spowodować duże użycie pamięci przez blokadę.|
+
+
+## <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Użycie zasobów według obciążeń użytkowników i procesów wewnętrznych
 
 Użycie procesora CPU i pamięci przez obciążenia użytkowników w każdej bazie danych jest zgłaszane w widokach [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database?view=azuresqldb-current) i [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database?view=azuresqldb-current) , w `avg_cpu_percent` i `avg_memory_usage_percent` kolumnach. W przypadku pul elastycznych użycie zasobów na poziomie puli jest raportowane w widoku [sys. elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) . Użycie procesora CPU przez obciążenie użytkownikami jest również raportowane za pośrednictwem `cpu_percent` metryki Azure monitor dla [pojedynczych baz danych](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserversdatabases) i [pul elastycznych](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) na poziomie puli.
 

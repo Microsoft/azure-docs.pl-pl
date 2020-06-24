@@ -4,19 +4,19 @@ description: Dowiedz się, jak wdrażać bezpieczne, zarządzane stacje robocze 
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d02b0299b6267fdd9d880d5bc0fe8c93d0edadc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c5fe1bf294c34afc2f7e0e0aa911dc05597ab9df
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672601"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252784"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Wdrażanie bezpiecznej, zarządzanej na platformie Azure stacji roboczej
 
@@ -29,7 +29,7 @@ Wybierz profil przed wdrożeniem rozwiązania. Można użyć wielu profilów jed
 > [!NOTE]
 > Zastosuj dowolne profile zgodnie z wymaganiami. Możesz przenieść do innego profilu, przypisując go w Microsoft Intune.
 
-| Profil | Małe | Rozszerzone | Wysoka | Wyspecjalizowany | Secure | Izolowany |
+| Profil | Małe | Rozszerzone | Wysoki | Wyspecjalizowany | Secure | Izolowany |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Użytkownik w usłudze Azure AD | Tak | Tak | Tak | Tak | Tak | Tak |
 | Usługa Intune — zarządzana | Tak | Tak | Tak | Tak | Tak | Tak |
@@ -63,19 +63,19 @@ Wymagaj uwierzytelniania wieloskładnikowego, co najmniej dla administratorów. 
 
 ### <a name="azure-ad-users-and-groups"></a>Użytkownicy i grupy usługi Azure AD
 
-1. W Azure Portal przejdź do **Azure Active Directory** > **użytkowników** > **nowy użytkownik**.
+1. W Azure Portal przejdź do **Azure Active Directory**  >  **użytkowników**  >  **nowy użytkownik**.
 1. Aby utworzyć administratora urządzenia, wykonaj czynności opisane w [samouczku Tworzenie użytkownika](/Intune/quickstart-create-user).
 1. Wprowadź:
 
    * **Nazwa** — administrator bezpiecznego stacji roboczej
    * **Nazwa użytkownika** - `secure-ws-admin@identityitpro.com`
-   * **Directory role** - **Administrator z ograniczoną** rolą katalogu i wybierz rolę **administratora usługi Intune** .
+   * **Rola katalogu**  -  **Ograniczony administrator** i wybierz rolę **administratora usługi Intune** .
 
 1. Wybierz przycisk **Utwórz**.
 
 Następnie utworzysz dwie grupy: Użytkownicy stacji roboczej i urządzenia stacji roboczej.
 
-W Azure Portal przejdź do **Azure Active Directory** > **grup** > **Nowa grupa**.
+W Azure Portal przejdź do **Azure Active Directory**  >  **grup**  >  **Nowa grupa**.
 
 1. W przypadku grupy Użytkownicy stacji roboczej możesz chcieć skonfigurować [Licencjonowanie oparte na grupach](../users-groups-roles/licensing-groups-assign.md) w celu zautomatyzowania aprowizacji licencji dla użytkowników.
 1. Dla grupy Użytkownicy stacji roboczej wpisz:
@@ -101,21 +101,21 @@ W Azure Portal przejdź do **Azure Active Directory** > **grup** > **Nowa grupa*
 
 Skonfiguruj ustawienia urządzeń w Active Directory, aby umożliwić grupie zabezpieczeń administracyjnych dołączanie urządzeń do domeny. Aby skonfigurować to ustawienie na podstawie Azure Portal:
 
-1. Przejdź do pozycji **Azure Active Directory** > **Devices** > **Ustawienia urządzenia**.
+1. Przejdź do pozycji **Azure Active Directory**  >  **Devices**  >  **Ustawienia urządzenia**.
 1. Wybierz opcję **wybrane** w obszarze **Użytkownicy mogą dołączać urządzenia do usługi Azure AD**, a następnie wybierz grupę "Bezpieczna użytkownicy stacji roboczych".
 
 #### <a name="removal-of-local-admin-rights"></a>Usuwanie praw administratora lokalnego
 
 Ta metoda wymaga, aby użytkownicy adresów VIP, DevOps i stacji roboczych na poziomie bezpiecznym nie mieli uprawnień administratora na swoich komputerach. Aby skonfigurować to ustawienie na podstawie Azure Portal:
 
-1. Przejdź do pozycji **Azure Active Directory** > **Devices** > **Ustawienia urządzenia**.
+1. Przejdź do pozycji **Azure Active Directory**  >  **Devices**  >  **Ustawienia urządzenia**.
 1. Wybierz pozycję **Brak** w obszarze **dodatkowi Administratorzy lokalni na urządzeniach dołączonych do usługi Azure AD**.
 
 #### <a name="require-multi-factor-authentication-to-join-devices"></a>Wymagaj uwierzytelniania wieloskładnikowego w celu dołączania urządzeń
 
 Aby bardziej zwiększyć proces dołączania urządzeń do usługi Azure AD:
 
-1. Przejdź do pozycji **Azure Active Directory** > **Devices** > **Ustawienia urządzenia**.
+1. Przejdź do pozycji **Azure Active Directory**  >  **Devices**  >  **Ustawienia urządzenia**.
 1. Wybierz pozycję **tak** w obszarze **Wymagaj uwierzytelniania wieloskładnikowego, aby dołączać urządzenia**.
 1. Wybierz pozycję **Zapisz**.
 
@@ -123,7 +123,7 @@ Aby bardziej zwiększyć proces dołączania urządzeń do usługi Azure AD:
 
 Z Azure Portal:
 
-1. Przejdź do**Microsoft Intune** **Azure Active Directory** > **Mobility (MDM i mam)** > .
+1. Przejdź do **Microsoft Intune Azure Active Directory**  >  **Mobility (MDM i mam)**  >  **Microsoft Intune**.
 1. Zmień ustawienie **zakresu użytkownika MDM** na **wszystkie**.
 1. Wybierz pozycję **Zapisz**.
 
@@ -143,7 +143,7 @@ Aby zapewnić, że urządzenia są w pełni skonfigurowane przed użyciem, usłu
 
 Z **Azure Portal**:
 
-1. Przejdź do **pozycji Microsoft Intune** > **rejestracji** > urządzeń Rejestracja**systemu Windows** > rejestrowanie ustawień**domyślnych** > **Ustawienia****strony** > .
+1. Przejdź do pozycji **Microsoft Intune**  >  **rejestracji urządzeń**Rejestracja  >  **systemu Windows**rejestrowanie  >  **Enrollment Status Page**  >  **Default**  >  **ustawień domyślnych ustawienia**strony.
 1. Ustaw opcję **Pokaż postęp instalacji profilu aplikacji** na **wartość tak**.
 1. Ustaw opcję **Blokuj użycie urządzenia, dopóki wszystkie aplikacje i profile nie zostaną zainstalowane** na **tak**.
 
@@ -153,26 +153,26 @@ Po utworzeniu grupy urządzeń należy utworzyć profil wdrożenia, aby skonfigu
 
 W usłudze Intune w Azure Portal:
 
-1. Wybierz pozycję **Rejestrowanie** > urządzenia**Profile** > wdrożenia**rejestracja** > systemu Windows**Utwórz profil**.
+1. Wybierz pozycję **Rejestrowanie urządzenia**  >  Profile wdrożenia**Rejestracja systemu Windows**  >  **Deployment Profiles**  >  **Utwórz profil**.
 1. Wprowadź:
 
    * Nazwa — **bezpieczny profil wdrożenia stacji roboczej**.
    * Opis — **wdrażanie bezpiecznych stacji roboczych**.
    * Ustaw pozycję **Konwertuj wszystkie urządzenia docelowe na rozwiązanie Autopilot** na **Tak**. To ustawienie gwarantuje, że wszystkie urządzenia na liście zostaną zarejestrowane przy użyciu usługi wdrażania rozwiązania Autopilot. Przetwarzanie rejestracji może potrwać do 48 godzin.
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 
    * W obszarze **Tryb wdrożenia**wybierz opcję **samodzielne wdrażanie (wersja zapoznawcza)**. Urządzenia z tym profilem są skojarzone z użytkownikiem, który zarejestrował urządzenie. Poświadczenia użytkownika są wymagane do rejestracji urządzenia. Należy pamiętać, że wdrożenie urządzenia w trybie **samodzielnego wdrażania** umożliwi wdrożenie laptopów w modelu udostępnionym. Przypisanie użytkownika nie zostanie wykonane, dopóki urządzenie nie zostanie przypisane do użytkownika po raz pierwszy. W związku z tym wszelkie zasady użytkownika, takie jak funkcja BitLocker, nie będą włączane do momentu ukończenia przypisania użytkownika. Aby uzyskać więcej informacji na temat sposobu logowania się na zabezpieczonym urządzeniu, zobacz [wybrane profile](/intune/device-profile-assign).
    * Pole **Dołącz do usługi Azure AD jako** powinno zawierać **przyłączone do usługi Azure AD** i być wyszarzone.
    * Wybierz język (region), typ konta użytkownika **Standard**. 
 
-1. Wybierz pozycję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 
    * Wybierz tag zakresu, jeśli został wstępnie skonfigurowany.
 
-1. Wybierz pozycję **Dalej**.
-1. Wybierz pozycję **przypisania** > **Przypisz do** > **wybranych grup**. W obszarze **Wybierz grupy do dołączenia**wybierz pozycję **bezpieczne stacje robocze**.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz przycisk **Dalej**.
+1. Wybierz pozycję **przypisania**  >  **Przypisz do**  >  **wybranych grup**. W obszarze **Wybierz grupy do dołączenia**wybierz pozycję **bezpieczne stacje robocze**.
+1. Wybierz przycisk **Dalej**.
 1. Wybierz pozycję **Utwórz**, aby utworzyć profil. Profil wdrażania rozwiązania Autopilot jest teraz dostępny do przypisania do urządzeń.
 
 Rejestracja urządzeń w programie autopilotaż zapewnia różne środowisko użytkownika w oparciu o typ i rolę urządzenia. W naszym przykładowym wdrożeniu przedstawiono model, w którym są wdrażane zbiorczo dane zabezpieczone i można je udostępnić, ale gdy jest używany po raz pierwszy, urządzenie jest przypisane do użytkownika. Aby uzyskać więcej informacji, zobacz [rejestracja urządzeń autopilotażowego usługi Intune](/intune/device-enrollment).
@@ -185,7 +185,7 @@ W tych wskazówkach zaleca się utworzenie nowego pierścienia aktualizacji i zm
 
 W witrynie Azure Portal:
 
-1. Przejdź do **Microsoft Intune** > **aktualizacje** > oprogramowania —**pierścienie aktualizacji systemu Windows 10**.
+1. Przejdź do **Microsoft Intune**  >  **aktualizacje oprogramowania**—  >  **pierścienie aktualizacji systemu Windows 10**.
 1. Wprowadź:
 
    * Nazwa — **aktualizacje stacji roboczej zarządzanej przez platformę Azure**
@@ -211,11 +211,11 @@ Usługa Windows Defender ATP i Microsoft Intune współdziałają ze sobą, aby 
 
 Aby skonfigurować integrację usługi Windows Defender ATP i usługi Intune, przejdź do Azure Portal.
 
-1. Przejdź do **Microsoft Intune** > **zgodności** > urządzeń z usługą**Windows Defender ATP**.
+1. Przejdź do **Microsoft Intune**  >  **zgodności urządzeń**z usługą  >  **Windows Defender ATP**.
 1. W kroku 1 w obszarze **Konfigurowanie programu Windows Defender ATP**wybierz pozycję **Połącz usługę Windows Defender atp, aby Microsoft Intune w Security Center Windows Defender**.
 1. W usłudze Windows Defender Security Center:
 
-   1. Wybierz pozycję **Ustawienia** > **Zaawansowane funkcje**.
+   1. Wybierz pozycję **Ustawienia** > **Funkcje zaawansowane**.
    1. W obszarze **połączenie Microsoft Intune**wybierz pozycję **włączone**.
    1. Wybierz pozycję **Zapisz preferencje**.
 
@@ -234,20 +234,20 @@ Aby pomyślnie ukończyć wzmacnianie rozwiązania, Pobierz i wykonaj odpowiedni
 | Niski poziom zabezpieczeń | Nie dotyczy | Nie dotyczy |
 | Ulepszone zabezpieczenia | https://aka.ms/securedworkstationgit | Ulepszona stacja robocza-Windows10-(1809). ps1 |
 | Wysoki poziom zabezpieczeń | https://aka.ms/securedworkstationgit | HighSecurityWorkstation-Windows10-(1809). ps1 |
-| Wyspecjalizowany | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-Windows10 (1803) SecurityBaseline. ps1 |
+| Wyspecjalizowany | https://github.com/pelarsen/IntunePowerShellAutomation | DeviceConfiguration_NCSC-Windows10 (1803) SecurityBaseline.ps1 |
 | Specjalna zgodność * | https://aka.ms/securedworkstationgit | DeviceCompliance_NCSC-Windows10 (1803). ps1 |
-| Secure | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809)-SecurityBaseline. ps1 |
+| Secure | https://aka.ms/securedworkstationgit | Secure-Workstation-Windows10-(1809) -SecurityBaseline.ps1 |
 
 \*Wyspecjalizowana zgodność to skrypt, który wymusza wyspecjalizowaną konfigurację podaną w NCSC Windows10 SecurityBaseline.
 
 Po pomyślnym wykonaniu skryptu można wprowadzać aktualizacje profilów i zasad w usłudze Intune. Skrypty rozszerzonego i bezpiecznego profilu tworzą zasady i profile, ale należy je przypisać do grupy urządzeń **bezpiecznych stacji roboczych** .
 
-* Poniżej znajdują się informacje o profilach konfiguracji urządzeń w usłudze Intune tworzonych przez skrypty: **Azure Portal** > **Microsoft Intune** > **Profile****konfiguracji** > urządzeń.
-* Tutaj można znaleźć zasady zgodności urządzeń w usłudze Intune utworzone przez skrypty: **Azure Portal** > **Microsoft Intune** >  > **zasady****zgodności urządzeń**.
+* Poniżej znajdują się informacje o profilach konfiguracji urządzeń w usłudze Intune tworzonych przez skrypty: **Azure Portal**  >  **Microsoft Intune**  >  **profile konfiguracji urządzeń**  >  **Profiles**.
+* Tutaj można znaleźć zasady zgodności urządzeń w usłudze Intune utworzone przez skrypty: **Azure Portal**  >  **Microsoft Intune**  >  **zasady zgodności urządzeń**  >  **Policies**.
 
 Aby zapoznać się ze zmianami wprowadzonymi przez skrypty, można wyeksportować profile. W ten sposób można określić dodatkowe zabezpieczenia, które mogą być wymagane, jak opisano w [dokumentacji SECCON](/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
-Uruchom skrypt `DeviceConfiguration_Export.ps1` eksportu danych usługi Intune z [repozytorium DeviceConfiguration GiuHub](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) , aby wyeksportować wszystkie bieżące profile usługi Intune.
+Uruchom skrypt eksportu danych usługi Intune `DeviceConfiguration_Export.ps1` z [repozytorium DeviceConfiguration GiuHub](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) , aby wyeksportować wszystkie bieżące profile usługi Intune.
 
 ## <a name="additional-configurations-and-hardening-to-consider"></a>Dodatkowe konfiguracje i Ograniczanie funkcjonalności do rozważenia
 
@@ -287,7 +287,7 @@ W niektórych sytuacjach aplikacje takie jak przeglądarka Google Chrome są wym
 
 1. Pobierz pakiet Chrome Instalatora w trybie offline [dla systemu Windows 64-bit](https://cloud.google.com/chrome-enterprise/browser/download/).
 1. Wyodrębnij pliki i zanotuj lokalizację `GoogleChromeStandaloneEnterprise64.msi` pliku.
-1. W **Azure Portal** przejdź do **Microsoft Intune** > **Client apps** > **aplikacje** > klienckie aplikacje**Dodaj**.
+1. W **Azure Portal** przejdź do **Microsoft Intune**  >  **Client apps**  >  **aplikacje**klienckie aplikacje  >  **Dodaj**.
 1. W obszarze **Typ aplikacji**wybierz **pozycję branżowe**.
 1. W obszarze **plik pakietu aplikacji**wybierz `GoogleChromeStandaloneEnterprise64.msi` plik z wyodrębnionej lokalizacji i wybierz **przycisk OK**.
 1. W obszarze **Informacje o aplikacji**Podaj opis i wydawcę. Wybierz przycisk **OK**.
@@ -313,15 +313,15 @@ Usługa Azure AD oferuje możliwość zarządzania i ograniczania, kto i co moż
 > [!NOTE]
 > Należy utworzyć grupę użytkowników i dołączyć użytkownika awaryjnego, który będzie mógł obejść zasady dostępu warunkowego. Naszym Przykładem mamy grupę zabezpieczeń o nazwie **BreakGlass awaryjne**
 
-1. Przejdź do **Azure Portal** > **Microsoft Intune** >  > **zasady dostępu warunkowego —****nowe zasady**.
+1. Przejdź do **Azure Portal**  >  **Microsoft Intune**  >  **zasady dostępu warunkowego —**  >  **nowe zasady**.
 1. Podaj **nazwę** zasad.
-1. Wybierz **użytkowników i grupy** > **Wybierz pozycję Użytkownicy i** grupy 
-1. Wybierz pozycję **Uwzględnij** > **role katalogu** > wybierz role > Administrator globalny, administrator ról uprzywilejowanych, administrator uwierzytelniania uprzywilejowanego, administrator zabezpieczeń, administrator zgodności, administrator dostępu warunkowego, administrator aplikacji, administrator aplikacji w chmurze, administrator usługi Intune
+1. Wybierz **użytkowników i grupy**  >  **Wybierz pozycję Użytkownicy i** grupy 
+1. Wybierz pozycję **Uwzględnij**  >  **role katalogu** > wybierz role > Administrator globalny, administrator ról uprzywilejowanych, administrator uwierzytelniania uprzywilejowanego, administrator zabezpieczeń, administrator zgodności, administrator dostępu warunkowego, administrator aplikacji, administrator aplikacji w chmurze, administrator usługi Intune
 1. Wybierz pozycję **Wyklucz** > wybierz pozycję **użytkownicy i grupy** > wybierz pozycję **wybierz wykluczonych użytkowników** , > wybierz grupę **BreakGlass awaryjnych** .
 1. Wybierz **aplikacje w chmurze lub akcje** > wybierz **wszystkie aplikacje w chmurze**
 1. Wybierz pozycję **warunki** > wybierz pozycję **platformy urządzeń** > wybierz pozycję Konfiguruj **tak** > wybierz pozycję **Wybierz platformy urządzeń** wybierz pozycję **Windows** .
 1. Wybierz pozycję **Kontrola dostępu** > wybierz pozycję **udziel dostępu** **tak** > wybierz pozycję **Wymagaj, aby urządzenie było oznaczone jako zgodne**. 
-1. Wybierz pozycję **Włącz zasady** > **na**
+1. Wybierz pozycję **Włącz zasady**  >  **na**
  
 Ten zestaw zasad pozwala upewnić się, że administratorzy muszą korzystać z zgodnego urządzenia z systemem Windows, które jest ustawiane przez usługę Intune i WDATP. 
 
@@ -333,17 +333,17 @@ Możesz również użyć programu PowerShell, aby zwiększyć możliwości zarz�
 
 Może być konieczne skonfigurowanie niektórych niestandardowych kontrolek i ustawień na bezpiecznych stacjach roboczych. Ten przykład zmienia tło stacji roboczej za pomocą programu PowerShell w celu łatwego identyfikowania urządzenia jako gotowej do użycia, bezpiecznej stacji roboczej.
 
-Skrypt [SetDesktopBackground. ps1](https://gallery.technet.microsoft.com/scriptcenter/Set-Desktop-Image-using-5430c9fb/) z centrum skryptów firmy Microsoft umożliwia systemowi Windows załadowanie tego [bezpłatnego, ogólnego obrazu tła](https://i.imgur.com/OAJ28zO.png) podczas uruchamiania.
+Skrypt [SetDesktopBackground.ps1](https://gallery.technet.microsoft.com/scriptcenter/Set-Desktop-Image-using-5430c9fb/) z centrum skryptów firmy Microsoft umożliwia systemowi Windows załadowanie tego [bezpłatnego, ogólnego obrazu tła](https://i.imgur.com/OAJ28zO.png) podczas uruchamiania.
 
 1. Pobierz skrypt na urządzenie lokalne.
 1. Zaktualizuj customerXXXX i lokalizację pobierania obrazu tła. W naszym przykładzie zamienimy customerXXXX na tło.
-1. Przejdź do **Azure Portal** > **Microsoft Intune** >  > skrypt > **Add****programu PowerShell****Konfiguracja urządzenia**.
+1. Przejdź do **Azure Portal**  >  **Microsoft Intune**  >  **Device configuration**  >  **skrypt programu PowerShell**Konfiguracja urządzenia  >  **Add**.
 1. Podaj **nazwę** skryptu i określ **lokalizację skryptu**.
 1. Wybierz pozycję **Konfiguruj**.
    1. Ustaw opcję **Uruchom ten skrypt przy użyciu poświadczeń zalogowanych** na **wartość tak**.
    1. Wybierz przycisk **OK**.
 1. Wybierz przycisk **Utwórz**.
-1. Wybierz pozycję **przypisania** > **Wybierz pozycję grupy**.
+1. Wybierz pozycję **przypisania**  >  **Wybierz pozycję grupy**.
    1. Dodaj do grupy zabezpieczeń **bezpieczne stacje robocze**.
    1. Wybierz pozycję **Zapisz**.
 
@@ -351,19 +351,19 @@ Skrypt [SetDesktopBackground. ps1](https://gallery.technet.microsoft.com/scriptc
 
 1. Aby zarejestrować urządzenie, potrzebne są następujące informacje:
    * **Numer seryjny** — znaleziono w obudowie urządzenia.
-   * **Identyfikator produktu systemu Windows** — znajduje się w obszarze **system** > **— informacje** z menu Ustawienia systemu Windows.
+   * **Identyfikator produktu systemu Windows** — znajduje się w obszarze **system**  >  **— informacje** z menu Ustawienia systemu Windows.
    * Można uruchomić [Get-WindowsAutoPilotInfo](https://aka.ms/Autopilotshell) , aby pobrać plik skrótu CSV ze wszystkimi wymaganymi informacjami na potrzeby rejestracji urządzeń.
    
-     Uruchom `Get-WindowsAutoPilotInfo – outputfile device1.csv` , aby uzyskać informacje wyjściowe w postaci pliku CSV, który można zaimportować do usługi Intune.
+     Uruchom, `Get-WindowsAutoPilotInfo – outputfile device1.csv` Aby uzyskać informacje wyjściowe w postaci pliku CSV, który można zaimportować do usługi Intune.
 
      > [!NOTE]
-     > Skrypt wymaga podniesionych uprawnień. Jest on uruchamiany jako element zdalny ze znakiem. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned` Polecenie umożliwia poprawne działanie skryptu.
+     > Skrypt wymaga podniesionych uprawnień. Jest on uruchamiany jako element zdalny ze znakiem. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`Polecenie umożliwia poprawne działanie skryptu.
 
    * Te informacje można zebrać, logując się do urządzenia z systemem Windows 10 w wersji 1809 lub nowszej. Odsprzedawca sprzętu może również dostarczyć te informacje.
-1. W **Azure Portal**przejdź do pozycji **Microsoft Intune** > **Rejestrowanie** > urządzenia**rejestracja** > systemu Windows**urządzenia — zarządzanie urządzeniami z systemem Windows**.
+1. W **Azure Portal**przejdź do pozycji **Microsoft Intune**  >  **Rejestrowanie urządzenia**  >  **Rejestracja systemu Windows**  >  **urządzenia — zarządzanie urządzeniami z systemem Windows**.
 1. Wybierz pozycję **Importuj** i wybierz plik CSV.
 1. Dodaj urządzenie do grupy zabezpieczeń **bezpieczne stacje robocze** .
-1. Na urządzeniu z systemem Windows 10, które chcesz skonfigurować, przejdź do > pozycji **Ustawienia systemu Windows****Aktualizacja & zabezpieczenia** > **.**
+1. Na urządzeniu z systemem Windows 10, które chcesz skonfigurować, przejdź do pozycji **Ustawienia systemu Windows**  >  **Aktualizacja & zabezpieczenia**  >  **Recovery**.
    1. Wybierz pozycję **Rozpocznij** w obszarze **Zresetuj ten komputer**.
    1. Postępuj zgodnie z monitami, aby zresetować i zmienić konfigurację urządzenia przy użyciu skonfigurowanych profilów i zasad zgodności.
 
@@ -424,26 +424,26 @@ Wdrażanie agenta MMA przy użyciu skryptu programu PowerShell usługi Intune
 
 1. Pobierz skrypt instalacyjny [na urządzenie lokalne](https://aka.ms/securedworkstationgit).
 1. Zaktualizuj parametry, **$WorkSpaceID** i **$WorkSpaceKey**
-1. Przejdź do **Azure Portal** > **Microsoft Intune** >  > skrypt > **Add****programu PowerShell****Konfiguracja urządzenia**.
+1. Przejdź do **Azure Portal**  >  **Microsoft Intune**  >  **Device configuration**  >  **skrypt programu PowerShell**Konfiguracja urządzenia  >  **Add**.
 1. Podaj **nazwę** skryptu i określ **lokalizację skryptu**.
 1. Wybierz pozycję **Konfiguruj**.
    1. Ustaw opcję **Uruchom ten skrypt przy użyciu poświadczeń zalogowanych** na **wartość tak**.
    1. Wybierz przycisk **OK**.
 1. Wybierz przycisk **Utwórz**.
-1. Wybierz pozycję **przypisania** > **Wybierz pozycję grupy**.
+1. Wybierz pozycję **przypisania**  >  **Wybierz pozycję grupy**.
    1. Dodaj do grupy zabezpieczeń **bezpieczne stacje robocze**.
    1. Wybierz pozycję **Zapisz**.
 
 Następnie należy skonfigurować Log Analytics, aby otrzymywać nowe dzienniki
 1. W **Azure Portal**przejdź do **log Analytics obszarze roboczym** > wybierz pozycję "monitorowanie bezpiecznych stacji roboczych"
-1. Wybieranie **ustawień** > **zaawansowanych dane** > **dzienników zdarzeń systemu Windows**
+1. Wybieranie **ustawień zaawansowanych**  >  **dane**  >  **dzienników zdarzeń systemu Windows**
 1. W obszarze **Zbierz zdarzenia z następujących dzienników zdarzeń** 
 1. Wprowadź:
    * "Microsoft-Windows-AppLocker/EXE i DLL" **> usunąć zaznaczenia**
    * "Microsoft-Windows-AppLocker/MSI i skrypt" > nie wybierać **informacji**
    * "Microsoft-Windows-AppLocker/spakowane App-Deployment" > nie wybierać **informacji**
    * "Microsoft-Windows-AppLocker/spakowane App-Execution" **> usunąć zaznaczenia**
-1. Wybierz pozycję **Zapisz**
+1. Wybierz pozycję **Zapisz**.
 
 Rejestrowanie aplikacji będzie dostępne w wybranym obszarze roboczym Log Analytics.
 
