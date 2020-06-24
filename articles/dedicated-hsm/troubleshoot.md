@@ -13,19 +13,19 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: fc7d4caecb2ca3d35d7b1b8d0cd5f9ff380d7674
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 80a215363a319b9ee082bd6c5e5f8004fc5b715b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310108"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209576"
 ---
 # <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 Dedykowana usługa HSM platformy Azure ma dwa różne zestawy reguł. Po pierwsze Rejestracja i wdrożenie na platformie Azure urządzeń HSM z ich podstawowymi składnikami sieciowymi. Na koniec konfiguracja urządzeń HSM w przygotowaniu do użycia/integracji z danym obciążeniem lub aplikacją. Mimo że urządzenia HSM sieci firmy Thales Luna są takie same na platformie Azure, jak w przypadku zakupu bezpośrednio od firmy Thales, fakt, że jest to zasób na platformie Azure, tworzy pewne unikatowe uwagi. Te zagadnienia i wszelkie wynikłe rozwiązania dotyczące rozwiązywania problemów oraz najlepsze rozwiązania są udokumentowane w tym miejscu, aby zapewnić wysoką widoczność i dostęp do krytycznych informacji. Gdy usługa jest używana, ostateczne informacje są dostępne za pośrednictwem żądań pomocy technicznej bezpośrednio do firmy Microsoft lub firmy Thales. 
 
 > [!NOTE]
-> Należy zauważyć, że przed wykonaniem jakiejkolwiek konfiguracji na nowo wdrożonym urządzeniu HSM, należy je zaktualizować przy użyciu wszelkich odpowiednich poprawek. Konkretna wymagana poprawka to [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) w portalu pomocy technicznej firmy Thales, który rozwiązuje problem z zawieszaniem się ponownego uruchomienia.
+> Należy zauważyć, że przed wykonaniem jakiejkolwiek konfiguracji na nowo wdrożonym urządzeniu HSM, należy je zaktualizować przy użyciu wszelkich odpowiednich poprawek. Konkretna wymagana poprawka to [KB0019789](https://supportportal.gemalto.com/csm?id=kb_article_view&sys_kb_id=19a81c8bdb9a1fc8d298728dae96197d&sysparm_article=KB0019789) w portalu pomocy technicznej firmy Thales, który rozwiązuje problem, w którym system przestaje odpowiadać podczas ponownego uruchamiania.
 
 ## <a name="hsm-registration"></a>Rejestracja modułu HSM
 
@@ -120,7 +120,7 @@ Należy zachować ostrożność podczas konfigurowania sieci w module HSM.  Modu
 
 ### <a name="hsm-device-reboot"></a>Ponowne uruchomienie urządzenia HSM
 
-Niektóre zmiany konfiguracji wymagają włączenia lub ponownego uruchomienia modułu HSM. Testy firmy Microsoft dotyczące modułu HSM na platformie Azure ustaliły, że w niektórych przypadkach ponowne uruchomienie może przestać odpowiadać. W takim przypadku należy utworzyć żądanie pomocy technicznej w Azure Portal zażądać twardego ponownego uruchomienia komputera, co może potrwać do 48 godzin, biorąc pod uwagę, że jest to proces ręczny w centrum danych platformy Azure.  Aby uniknąć tej sytuacji, upewnij się, że wdrożono poprawkę ponownego uruchamiania dostępną bezpośrednio z usługi firmy Thales. Zapoznaj się z artykułem [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) w plikach firmy Thales Luna Network HSM 7,2 dla zalecanej poprawki, aby rozwiązać problem z ponownym uruchomieniem systemu (Uwaga: konieczne będzie zarejestrowanie się w portalu pomocy technicznej firmy Thales do pobrania).
+Niektóre zmiany konfiguracji wymagają włączenia lub ponownego uruchomienia modułu HSM. Testy firmy Microsoft dotyczące modułu HSM na platformie Azure ustaliły, że w niektórych przypadkach ponowne uruchomienie może przestać odpowiadać. W takim przypadku należy utworzyć żądanie pomocy technicznej w Azure Portal zażądać twardego ponownego uruchomienia komputera, co może potrwać do 48 godzin, biorąc pod uwagę, że jest to proces ręczny w centrum danych platformy Azure.  Aby uniknąć tej sytuacji, upewnij się, że wdrożono poprawkę ponownego uruchamiania dostępną bezpośrednio z usługi firmy Thales. Zapoznaj się z artykułem [KB0019789](https://supportportal.gemalto.com/csm?sys_kb_id=d66911e2db4ffbc0d298728dae9619b0&id=kb_article_view&sysparm_rank=1&sysparm_tsqueryId=d568c35bdb9a4850d6b31f3b4b96199e&sysparm_article=KB0019789) w programie firmy Thales Luna Network HSM 7,2 pobieranie dla zalecanej poprawki, aby rozwiązać problem, w którym system przestaje odpowiadać podczas ponownego uruchamiania (Uwaga: należy zarejestrować się w portalu pomocy technicznej firmy Thales do pobrania).
 
 ### <a name="ntls-certificates-out-of-sync"></a>NTLS certyfikaty poza synchronizacją
 Klient może utracić połączenie z modułem HSM, gdy certyfikat wygaśnie lub został nadpisany przez aktualizacje konfiguracji. Konfiguracja klienta wymiany certyfikatów powinna być stosowana ponownie z każdym modułem HSM.

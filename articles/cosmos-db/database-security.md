@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8a0ef4c5abcd4c4137a878adf6a7fff9e80c2764
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0c8b984801a0db2af648b0711d95de34bc9386f
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273515"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114813"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Zabezpieczenia w usłudze Azure Cosmos DB — omówienie
 
@@ -25,7 +25,7 @@ Szyfrowanie w stanie spoczynku jest teraz dostępne dla dokumentów i kopii zapa
 
 Bezpieczeństwo danych jest współdzieloną odpowiedzialnością klienta i dostawcy bazy danych. W zależności od wybranego dostawcy bazy danych ilość odpowiedzialności może się różnić. W przypadku wybrania rozwiązania lokalnego należy udostępnić wszystkim użytkownikom końcowym ochronę fizyczną sprzętu, co nie jest łatwym zadaniem. W przypadku wybrania dostawcy bazy danych w chmurze PaaS, takiego jak Azure Cosmos DB, obszar zainteresowania znacznie zmniejszy się. Na poniższym obrazie, które zostały zapożyczone przez [współużytkowane obowiązki firmy Microsoft w celu uzyskania](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91) oficjalnego dokumentu w chmurze, pokazuje, jak Twoja odpowiedzialność maleje z dostawcą PaaS, takim jak Azure Cosmos DB.
 
-![Obowiązki dostawcy i klienta bazy danych](./media/database-security/nosql-database-security-responsibilities.png)
+:::image type="content" source="./media/database-security/nosql-database-security-responsibilities.png" alt-text="Obowiązki dostawcy i klienta bazy danych":::
 
 Na powyższym diagramie przedstawiono składniki zabezpieczeń w chmurze wysokiego poziomu, ale elementy, które trzeba zajmować się w przypadku rozwiązania bazy danych? I jak można porównać ze sobą rozwiązania?
 
@@ -73,13 +73,13 @@ Przyjrzyjmy się szczegółowo Dig.
 |Reagowanie na ataki|Po skontaktowaniu się z pomocą techniczną platformy Azure w celu zgłoszenia potencjalnego ataku zostanie rozpoczęty proces reagowania na zdarzenia z 5 etapami. Proces 5-etapowy polega na przywróceniu normalnego zabezpieczenia usługi i operacji tak szybko, jak to możliwe po wykryciu problemu i rozpoczęciu badania.<br><br>Dowiedz się więcej w [Microsoft Azure odpowiedzi na zabezpieczenia w chmurze](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Ogrodzenie geograficzne|Azure Cosmos DB zapewnia zarządzanie danymi dla suwerennych regionów (na przykład Niemiec, Chin, US Gov).|
 |Chronione obiekty|Dane w Azure Cosmos DB są przechowywane w dysków SSD w chronionych centrach danych platformy Azure.<br><br>Dowiedz się więcej w [globalnych centrach danych firmy Microsoft](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
-|Szyfrowanie HTTPS/SSL/TLS|Wszystkie połączenia do Azure Cosmos DB obsługują protokół HTTPS. Azure Cosmos DB obsługuje również protokół TLS 1,2.<br>Istnieje możliwość wymuszenia minimalnej wersji protokołu TLS po stronie serwera. Aby to zrobić, skontaktuj się [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)z firmą.|
+|Szyfrowanie HTTPS/SSL/TLS|Wszystkie połączenia do Azure Cosmos DB obsługują protokół HTTPS. Azure Cosmos DB obsługuje również protokół TLS 1,2.<br>Istnieje możliwość wymuszenia minimalnej wersji protokołu TLS po stronie serwera. Aby to zrobić, skontaktuj się z firmą [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com) .|
 |Szyfrowanie w spoczynku|Wszystkie dane przechowywane w Azure Cosmos DB są szyfrowane w stanie spoczynku. Dowiedz się więcej w temacie [szyfrowanie Azure Cosmos DB](./database-encryption-at-rest.md) w stanie spoczynku|
 |Serwery z poprawkami|Jako zarządzana baza danych Azure Cosmos DB eliminuje konieczność zarządzania i poprawiania serwerów, które są wykonywane automatycznie.|
 |Konta administracyjne z silnymi hasłami|Trudno jest sądzić, że nawet musimy wymienić ten wymóg, ale w przeciwieństwie do niektórych naszych konkurentów nie ma możliwości posiadania konta administracyjnego bez hasła w Azure Cosmos DB.<br><br> Zabezpieczenia przez uwierzytelnianie oparte na kluczach tajnych TLS i HMAC są domyślnie rozszerzania.|
 |Certyfikaty zabezpieczeń i ochrony danych| Najbardziej aktualną listę certyfikatów zawiera ogólna [Witryna zgodności platformy Azure](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) , a także najnowszy [dokument zgodności platformy Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) ze wszystkimi certyfikatami (Search for Cosmos). Aby uzyskać bardziej skoncentrowany odczyt, zapoznaj się z dniem 25 kwietnia 2018. [Azure #CosmosDB: Secure, Private, zgodny, który zawiera SOC 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High i wiele innych.
 
-Poniższy zrzut ekranu pokazuje, jak można użyć rejestrowania inspekcji i dzienników aktywności do monitorowania konta: ![dzienniki aktywności dla Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
+Poniższy zrzut ekranu pokazuje, jak można użyć rejestrowania inspekcji i dzienników aktywności do monitorowania konta: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="dzienniki aktywności dla Azure Cosmos DB":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -6,16 +6,16 @@ author: antvgski
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43fc32e910c51e8b70e15aa49584a18e5b703fca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c5bc4400e99fb1c24e321e623aaee523b9c7383
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631612"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210987"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Korzystanie z harmonogramów konserwacji do zarządzania aktualizacjami i konserwacją usług
 

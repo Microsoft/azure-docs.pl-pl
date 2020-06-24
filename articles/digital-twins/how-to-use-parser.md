@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6346c1d2adca697649ebe879b97766672a23ae29
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: cc6451d9be6c125d1b01bc5bb33fd553ce789f31
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613068"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263198"
 ---
 # <a name="dtdl-client-side-parser-library"></a>DTDL Biblioteka parserów po stronie klienta
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 [Modele](concepts-models.md) w usłudze Azure Digital bliźniaczych reprezentacji są zdefiniowane przy użyciu języka Digital bliźniaczych reprezentacji Definition Language (DTDL) opartego na notacji JSON. W przypadku, gdy pomocne jest przeanalizowanie modeli, biblioteka DTDL analiza jest dostępna w NuGet.org jako biblioteka po stronie klienta: [Microsoft. Azure. DigitalTwins. parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
 
@@ -39,7 +42,7 @@ Możliwości parsera obejmują:
 
 ## <a name="use-the-dtdl-validator-sample"></a>Użyj przykładowego modułu sprawdzania DTDL
 
-Dostępny jest przykładowy kod, który może weryfikować dokumenty modelu, aby upewnić się, że DTDL jest prawidłowy. Jest on oparty na bibliotece DTDL parser i ma język niezależny od. Znajdź tutaj: [DTDL moduł sprawdzania poprawności](https://github.com/Azure-Samples/DTDL-Validator).
+Dostępny jest przykładowy kod, który może weryfikować dokumenty modelu, aby upewnić się, że DTDL jest prawidłowy. Jest on oparty na bibliotece DTDL parser i ma język niezależny od. Znajdź tutaj: [DTDL moduł sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 Przykładowy moduł sprawdzania poprawności może służyć jako narzędzie wiersza polecenia do walidacji drzewa katalogów plików DTDL. Udostępnia również tryb interaktywny. Kod źródłowy pokazuje przykłady użycia biblioteki parsera.
 

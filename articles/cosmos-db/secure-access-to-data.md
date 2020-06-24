@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: f62ad6952170f22fe0f94a792a137f991a0e5026
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 70c7ae006c2ce7b91e1e47e12d9880ab48d42c76
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208724"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116472"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Zabezpieczanie dostępu do danych w usłudze Azure Cosmos DB
 
@@ -53,7 +53,7 @@ Proces obracania klucza głównego jest prosty.
 4. Sprawdź, czy nowy klucz podstawowy działa dla wszystkich zasobów. Proces rotacji kluczy może zająć dowolnego miejsca, w którym od czasu do godziny, w zależności od rozmiaru konta Cosmos DB.
 5. Zastąp klucz pomocniczy nowym kluczem podstawowym.
 
-![Rotacja klucza głównego w Azure Portal-demonstrowanie zabezpieczeń bazy danych NoSQL](./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Rotacja klucza głównego w Azure Portal-demonstrowanie zabezpieczeń bazy danych NoSQL" border="false":::
 
 ### <a name="code-sample-to-use-a-master-key"></a>Przykład kodu, aby użyć klucza głównego
 
@@ -97,13 +97,13 @@ Poniżej przedstawiono typowy Wzorzec projektowy, w którym tokeny zasobów mog�
 7. Aplikacja na telefon może nadal używać tokenu zasobu do bezpośredniego dostępu do zasobów Cosmos DB z uprawnieniami zdefiniowanymi przez token zasobu i dla interwału dozwolonego przez token zasobu.
 8. Po wygaśnięciu tokenu zasobu kolejne żądania otrzymują nieautoryzowany wyjątek 401.  W tym momencie Aplikacja telefoniczna przetworzy tożsamość i zażąda nowego tokenu zasobu.
 
-    ![Przepływ pracy tokenów zasobów Azure Cosmos DB](./media/secure-access-to-data/resourcekeyworkflow.png)
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Przepływ pracy tokenów zasobów Azure Cosmos DB" border="false":::
 
-Generowanie tokenów zasobów i zarządzanie nimi jest obsługiwane przez natywne biblioteki klienckie Cosmos DB. Jeśli jednak używasz REST, musisz utworzyć nagłówki żądania/uwierzytelniania. Aby uzyskać więcej informacji na temat tworzenia nagłówków uwierzytelniania dla usługi REST, zobacz [Access Control on Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) lub Code Source for the [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) lub [Node. js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+Generowanie tokenów zasobów i zarządzanie nimi jest obsługiwane przez natywne biblioteki klienckie Cosmos DB. Jeśli jednak używasz REST, musisz utworzyć nagłówki żądania/uwierzytelniania. Aby uzyskać więcej informacji na temat tworzenia nagłówków uwierzytelniania dla usługi REST, zobacz [Access Control on Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources) lub Code Source for the [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) lub [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 Przykład usługi warstwy środkowej używanej do generowania lub brokera tokenów zasobów można znaleźć w [aplikacji ResourceTokenBroker](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 
-## <a name="users"></a>Użytkownikowi<a id="users"></a>
+## <a name="users"></a>Użytkownicy<a id="users"></a>
 
 Azure Cosmos DB użytkownicy są skojarzeni z bazą danych Cosmos.  Każda baza danych może zawierać co najmniej zero Cosmos DB użytkowników. Poniższy przykład kodu pokazuje, jak utworzyć użytkownika Cosmos DB przy użyciu [zestawu Azure Cosmos DB .NET SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
 
@@ -163,7 +163,7 @@ Aby dodać do konta użytkownika dostęp do czytnika konta Azure Cosmos DB, nale
 4. W **polu Przypisz dostęp do**wybierz pozycję **użytkownik, Grupa lub aplikacja usługi Azure AD**.
 5. Wybierz użytkownika, grupę lub aplikację w katalogu, do którego chcesz udzielić dostępu.  Katalog można wyszukać według nazwy wyświetlanej, adresu e-mail lub identyfikatorów obiektów.
     Wybrany użytkownik, Grupa lub aplikacja pojawi się na liście wybranych członków.
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz**.
 
 Jednostka może teraz odczytywać Azure Cosmos DB zasoby.
 

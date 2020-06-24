@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: 688f04ecf951265b9015b9516d63cf3399adcdc1
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: f41b87f50dfac15c6228398a2c9d1c6ae470903d
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655458"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260937"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -28,6 +28,64 @@ Zabezpieczenia platformy Azure są aktywnie opracowywane i nieustannie odbieraj�
 - Funkcje uznane za przestarzałe
 
 Ta strona jest regularnie aktualizowana, więc często należy ją ponownie odwiedzać. Jeśli szukasz elementów starszych niż sześć miesięcy, znajdziesz je w [archiwum, co nowego w programie Azure Security Center](release-notes-archive.md).
+
+
+## <a name="june-2020"></a>Czerwiec 2020 r.
+
+### <a name="secure-score-api-preview"></a>Interfejs API usługi Secure Score (wersja zapoznawcza)
+
+Teraz możesz uzyskać dostęp do oceny za pośrednictwem [interfejsu API protokołu Secure Score](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (obecnie w wersji zapoznawczej). Metody interfejsu API zapewniają elastyczność umożliwiającą wykonywanie zapytań dotyczących danych i Tworzenie własnego mechanizmu raportowania z bezpiecznymi wynikami w czasie. Na przykład możesz użyć interfejsu API **Secure Scores** , aby uzyskać ocenę dla określonej subskrypcji. Ponadto można użyć interfejsu API **kontroli** zabezpieczeń, aby wyświetlić listę kontrolek bezpieczeństwa i bieżący wynik subskrypcji.
+
+Aby zapoznać się z przykładowymi narzędziami zewnętrznymi z bezpiecznym interfejsem API oceny, zapoznaj [się z obszarem "bezpieczeństwo" w naszej społeczności usługi GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+
+Dowiedz się więcej o [bezpiecznych kontrolach oceny i zabezpieczeń w Azure Security Center](secure-score-security-controls.md).
+
+
+
+### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview"></a>Zaawansowane zabezpieczenia danych dla maszyn SQL (Azure, innych chmur i Premium) (wersja zapoznawcza)
+
+Usługa Advanced Data Security Azure Security Center dla maszyn SQL chroni teraz serwery SQL hostowane na platformie Azure, w innych środowiskach w chmurze, a nawet na maszynach lokalnych. Rozszerza to ochronę natywnych serwerów SQL platformy Azure, aby w pełni obsługiwać środowiska hybrydowe.
+
+Zaawansowane zabezpieczenia danych zapewniają ocenę luk w zabezpieczeniach i zaawansowaną ochronę przed zagrożeniami dla maszyn SQL, wszędzie tam, gdzie się znajdują.
+
+Instalator obejmuje dwa kroki:
+
+1. Wdrożenie agenta Log Analytics na komputerze-hoście SQL Server w celu udostępnienia połączenia z kontem platformy Azure.
+
+1. Włączanie opcjonalnego pakietu na stronie cennika i ustawienia Security Center.
+
+Dowiedz się więcej o [zaawansowanych zabezpieczeniach danych dla maszyn SQL](security-center-iaas-advanced-data.md).
+
+
+
+### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Dwa nowe zalecenia dotyczące wdrażania agenta Log Analytics na maszynach usługi Azure ARC (wersja zapoznawcza)
+
+Dodano dwa nowe zalecenia ułatwiające wdrożenie [agenta log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) na maszynach usługi Azure Arc i zapewnienie ich ochrony przez Azure Security Center:
+
+- **Agenta Log Analytics należy zainstalować na komputerach z systemem Windows Azure ARC (wersja zapoznawcza)**
+- **Agent Log Analytics powinien być zainstalowany na komputerach z systemem Linux Azure ARC (wersja zapoznawcza)**
+
+Te nowe zalecenia pojawią się w tych samych czterech kontrolach zabezpieczeń, co istniejące (powiązane) zalecenie, **Agent monitorowania powinien być zainstalowany na maszynach**: skoryguj konfiguracje zabezpieczeń, Zastosuj adaptacyjną kontrolę aplikacji, Zastosuj aktualizacje systemu i Włącz program Endpoint Protection.
+
+Zalecenia obejmują również funkcję szybkiej naprawy, która ułatwia przyspieszenie procesu wdrożenia. 
+
+Dowiedz się więcej na temat tych dwóch nowych zaleceń w tabeli [zaleceń dotyczących obliczeń i aplikacji](recommendations-reference.md#recs-computeapp) .
+
+Dowiedz się więcej o tym, jak Azure Security Center używa agenta w [ramach agentów log Analytics?](https://docs.microsoft.com/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent)
+
+Dowiedz się więcej [na temat rozszerzeń dla maszyn usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+
+
+### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Nowe zalecenie dotyczące używania sieciowych grup zabezpieczeń do ochrony maszyn wirtualnych niepołączonych z Internetem
+
+Kontrola zabezpieczeń "implementacja najlepszych rozwiązań w zakresie zabezpieczeń" obejmuje teraz następujące nowe zalecenia:
+
+- **Maszyny wirtualne, które nie są dostępne w Internecie, powinny być chronione przy użyciu sieciowych grup zabezpieczeń**
+
+Istniejące zalecenie, dostępne **z Internetu maszyny wirtualne powinny być chronione za pomocą sieciowych grup zabezpieczeń**, nie rozróżniać się między maszynami wirtualnymi internetowymi i niepołączonymi z Internetem. Dla obu tych celów zostało wygenerowane zalecenie o wysokiej ważności, jeśli maszyna wirtualna nie została przypisana do sieciowej grupy zabezpieczeń. To nowe zalecenie oddziela maszyny niepołączone z Internetem, aby zmniejszyć liczbę fałszywych ostrzeżeń i uniknąć niepotrzebnych alertów o wysokiej ważności.
+
+Dowiedz się więcej z tabeli [zalecenia dotyczące sieci](recommendations-reference.md#recs-network) .
+
 
 
 ## <a name="may-2020"></a>Maj 2020 r.
@@ -119,7 +177,7 @@ Dwa nowe rekomendacje dodane do kontrolki są następujące:
 
 Dowiedz się więcej o funkcji Windows Defender Exploit Guard w temacie [Tworzenie i wdrażanie zasad funkcji Exploit Guard](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
-Dowiedz się więcej o kontrolkach zabezpieczeń w [ulepszonym zabezpieczeniu (wersja zapoznawcza) w Azure Security Center](secure-score-security-controls.md).
+Dowiedz się więcej o kontrolkach zabezpieczeń w [ulepszonym zabezpieczeniu (wersja zapoznawcza)](secure-score-security-controls.md).
 
 
 

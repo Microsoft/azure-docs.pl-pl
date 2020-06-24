@@ -3,15 +3,15 @@ title: Przetwarzanie bazy danych bez serwera z użyciem Azure Cosmos DB i Azure 
 description: Dowiedz się, jak Azure Cosmos DB i Azure Functions mogą być używane razem do tworzenia aplikacji komputerowych opartych na zdarzeniach.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 079c246f87bb8294f3c7ad6dea3391f5c67ba0ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6399da204ba930fad2dd3656d27a807a83b1b13
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985256"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263265"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Przetwarzanie baz danych bezserwerowe przy użyciu Azure Cosmos DB i Azure Functions
 
@@ -33,7 +33,7 @@ Azure Cosmos DB i Azure Functions umożliwiają integrację baz danych i aplikac
 
 Na poniższym diagramie przedstawiono każdą z tych trzech integracji: 
 
-![Jak integracja Azure Cosmos DB i Azure Functions](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-azure-functions-integration.png" alt-text="Jak integracja Azure Cosmos DB i Azure Functions" border="false":::
 
 Wyzwalacz Azure Functions, powiązania wejściowe i powiązania wyjściowe dla Azure Cosmos DB mogą być używane w następujących kombinacjach:
 
@@ -61,7 +61,7 @@ W implementacjach IoT można wywołać funkcję, gdy lampa Check Engine jest wy�
 
 Na poniższej ilustracji przedstawiono kod zapisany w Azure Portal dla tego wyzwalacza.
 
-![Utwórz wyzwalacz Azure Functions dla Cosmos DB w Azure Portal](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Utwórz wyzwalacz Azure Functions dla Cosmos DB w Azure Portal":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Przypadek użycia finansowego — wyzwalacz czasomierza i powiązanie wejściowe
 
@@ -75,13 +75,13 @@ W obszarze implementacje finansowe można wywołać funkcję, gdy saldo konta ba
 
 Poniższe obrazy przedstawiają kod w Azure Portal w tym scenariuszu.
 
-![Index. js dla wyzwalacza czasomierza dla scenariusza finansowego](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Index.js pliku dla wyzwalacza czasomierza dla scenariusza finansowego":::
 
-![Uruchom plik. CSX dla wyzwalacza czasomierza dla scenariusza finansowego](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Uruchom plik. CSX dla wyzwalacza czasomierza dla scenariusza finansowego":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Przypadek użycia gier — Azure Functions wyzwalacza i powiązania danych wyjściowych dla Cosmos DB 
 
-W grach podczas tworzenia nowego użytkownika można wyszukać innych użytkowników, którzy mogą je znać przy użyciu [interfejsu API Azure Cosmos DB Gremlin](graph-introduction.md). Następnie można napisać wyniki do programu [Azure Cosmos DB SQL Database], aby ułatwić jego pobieranie.
+W grach podczas tworzenia nowego użytkownika można wyszukać innych użytkowników, którzy mogą je znać przy użyciu [interfejsu API Azure Cosmos DB Gremlin](graph-introduction.md). Następnie można napisać wyniki do [Azure Cosmos DB lub bazy danych SQL]() , aby ułatwić ich pobieranie.
 
 **Implementacja:** Użyj wyzwalacza Azure Functions i powiązania wyjściowego dla Cosmos DB
 

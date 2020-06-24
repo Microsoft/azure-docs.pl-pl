@@ -3,12 +3,12 @@ title: Wzorce sieciowe dla Service Fabric platformy Azure
 description: Opisuje typowe wzorce sieci dla Service Fabric i sposób tworzenia klastra przy użyciu funkcji sieciowych platformy Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 065c311fffe409b20e02a3fddf1e9e7e6a82a2a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9114be5498bcb7fdec4e105ad6e3ff9fcc03a7c
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75466294"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106623"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric wzorców sieci
 Możesz zintegrować klaster usługi Azure Service Fabric z innymi funkcjami sieciowymi platformy Azure. W tym artykule przedstawiono sposób tworzenia klastrów, które korzystają z następujących funkcji:
@@ -68,7 +68,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Szablon Service Fabric
 
-W przykładach w tym artykule używamy pliku Service Fabric Template. JSON. Przed utworzeniem klastra można użyć Kreatora portalu standardowego w celu pobrania szablonu z portalu. Można również użyć jednego z [przykładowych szablonów](https://github.com/Azure-Samples/service-fabric-cluster-templates), takich jak [bezpieczny Service Fabric klaster z pięcioma węzłami](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
+W przykładach w tym artykule używamy template.jsService Fabric w systemie. Przed utworzeniem klastra można użyć Kreatora portalu standardowego w celu pobrania szablonu z portalu. Można również użyć jednego z [przykładowych szablonów](https://github.com/Azure-Samples/service-fabric-cluster-templates), takich jak [bezpieczny Service Fabric klaster z pięcioma węzłami](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure).
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>Istniejąca sieć wirtualna lub podsieć
@@ -100,13 +100,13 @@ W przykładach w tym artykule używamy pliku Service Fabric Template. JSON. Prze
             },*/
     ```
 
-2. `nicPrefixOverride` Atrybut komentarza do `Microsoft.Compute/virtualMachineScaleSets`elementu, ponieważ jest używana istniejąca podsieć i ta zmienna została wyłączona w kroku 1.
+2. Atrybut komentarza `nicPrefixOverride` do elementu `Microsoft.Compute/virtualMachineScaleSets` , ponieważ jest używana istniejąca podsieć i ta zmienna została wyłączona w kroku 1.
 
     ```json
             /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
     ```
 
-3. Zmień zmienną `vnetID` , aby wskazywała na istniejącą sieć wirtualną:
+3. Zmień `vnetID` zmienną, aby wskazywała na istniejącą sieć wirtualną:
 
     ```json
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
@@ -143,7 +143,7 @@ W przykładach w tym artykule używamy pliku Service Fabric Template. JSON. Prze
     },*/
     ```
 
-5. Dodaj komentarz do sieci wirtualnej z `dependsOn` atrybutu `Microsoft.Compute/virtualMachineScaleSets`, więc nie zależą od tworzenia nowej sieci wirtualnej:
+5. Dodaj komentarz do sieci wirtualnej z `dependsOn` atrybutu `Microsoft.Compute/virtualMachineScaleSets` , więc nie zależą od tworzenia nowej sieci wirtualnej:
 
     ```json
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -171,7 +171,7 @@ W przykładach w tym artykule używamy pliku Service Fabric Template. JSON. Prze
     C:>\Users\users>ping NOde1000000 -n 1
     ```
 
-Aby uzyskać inny przykład, zobacz [jeden, który nie jest specyficzny dla Service Fabric](https://github.com/gbowerman/azure-myriad/tree/master/existing-vnet).
+Aby uzyskać inny przykład, zobacz [jeden, który nie jest specyficzny dla Service Fabric](https://github.com/gbowerman/azure-myriad/tree/main/existing-vnet).
 
 
 <a id="staticpublicip"></a>
@@ -229,7 +229,7 @@ Aby uzyskać inny przykład, zobacz [jeden, który nie jest specyficzny dla Serv
     }, */
     ```
 
-5. Dodaj komentarz do adresu IP z `dependsOn` atrybutu `Microsoft.Network/loadBalancers`, więc nie zależą od tworzenia nowego adresu IP:
+5. Dodaj komentarz do adresu IP z `dependsOn` atrybutu `Microsoft.Network/loadBalancers` , więc nie zależą od tworzenia nowego adresu IP:
 
     ```json
     "apiVersion": "[variables('lbIPApiVersion')]",
@@ -243,7 +243,7 @@ Aby uzyskać inny przykład, zobacz [jeden, który nie jest specyficzny dla Serv
     "properties": {
     ```
 
-6. W `Microsoft.Network/loadBalancers` zasobie Zmień `publicIPAddress` element, `frontendIPConfigurations` aby odwoływać się do istniejącego statycznego adresu IP zamiast nowo utworzonego:
+6. W `Microsoft.Network/loadBalancers` zasobie Zmień element, `publicIPAddress` `frontendIPConfigurations` Aby odwoływać się do istniejącego statycznego adresu IP zamiast nowo utworzonego:
 
     ```json
                 "frontendIPConfigurations": [
@@ -327,7 +327,7 @@ Ten scenariusz zastępuje zewnętrzny moduł równoważenia obciążenia w domy�
     }, */
     ```
 
-4. Usuń atrybut adresu `dependsOn` IP `Microsoft.Network/loadBalancers`, dlatego nie zależą od tworzenia nowego adresu IP. Dodaj atrybut Sieć `dependsOn` wirtualna, ponieważ usługa równoważenia obciążenia jest teraz zależna od podsieci z sieci wirtualnej:
+4. Usuń atrybut adresu IP `dependsOn` `Microsoft.Network/loadBalancers` , dlatego nie zależą od tworzenia nowego adresu IP. Dodaj atrybut Sieć wirtualna `dependsOn` , ponieważ usługa równoważenia obciążenia jest teraz zależna od podsieci z sieci wirtualnej:
 
     ```json
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -340,7 +340,7 @@ Ten scenariusz zastępuje zewnętrzny moduł równoważenia obciążenia w domy�
                 ],
     ```
 
-5. Zmień `frontendIPConfigurations` ustawienie usługi równoważenia obciążenia z using na `publicIPAddress`, aby używać podsieci i. `privateIPAddress` `privateIPAddress`używa wstępnie zdefiniowanego statycznego wewnętrznego adresu IP. Aby użyć dynamicznego adresu IP, Usuń `privateIPAddress` element, a następnie zmień `privateIPAllocationMethod` na **dynamiczny**.
+5. Zmień ustawienie usługi równoważenia obciążenia `frontendIPConfigurations` z using na `publicIPAddress` , aby używać podsieci i `privateIPAddress` . `privateIPAddress`używa wstępnie zdefiniowanego statycznego wewnętrznego adresu IP. Aby użyć dynamicznego adresu IP, Usuń `privateIPAddress` element, a następnie zmień `privateIPAllocationMethod` na **dynamiczny**.
 
     ```json
                 "frontendIPConfigurations": [
@@ -487,7 +487,7 @@ W klastrze typu dwuwęzłowego jeden typ węzła znajduje się w zewnętrznym mo
     "inboundNatPools": [
     ```
 
-5. Dodaj drugi `Microsoft.Network/loadBalancers` zasób. Wygląda podobnie do wewnętrznego modułu równoważenia obciążenia utworzonego w sekcji [modułu równoważenia obciążenia tylko wewnętrznego](#internallb) , ale używa zmiennych modułu równoważenia obciążenia "-int" i implementuje tylko port 80 aplikacji. Spowoduje to również `inboundNatPools`usunięcie, aby zachować punkty końcowe protokołu RDP w publicznym module równoważenia obciążenia. Jeśli chcesz, aby protokół RDP był włączony w wewnętrznym module równoważenia `inboundNatPools` obciążenia, przejdź z zewnętrznego modułu równoważenia obciążenia do tego wewnętrznego modułu równoważenia obciążenia:
+5. Dodaj drugi `Microsoft.Network/loadBalancers` zasób. Wygląda podobnie do wewnętrznego modułu równoważenia obciążenia utworzonego w sekcji [modułu równoważenia obciążenia tylko wewnętrznego](#internallb) , ale używa zmiennych modułu równoważenia obciążenia "-int" i implementuje tylko port 80 aplikacji. Spowoduje to również usunięcie `inboundNatPools` , aby zachować punkty końcowe protokołu RDP w publicznym module równoważenia obciążenia. Jeśli chcesz, aby protokół RDP był włączony w wewnętrznym module równoważenia obciążenia, przejdź `inboundNatPools` z zewnętrznego modułu równoważenia obciążenia do tego wewnętrznego modułu równoważenia obciążenia:
 
     ```json
             /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
@@ -572,7 +572,7 @@ W klastrze typu dwuwęzłowego jeden typ węzła znajduje się w zewnętrznym mo
             },
     ```
 
-6. W `networkProfile` obszarze dla `Microsoft.Compute/virtualMachineScaleSets` zasobu Dodaj wewnętrzną pulę adresów zaplecza:
+6. W obszarze `networkProfile` dla `Microsoft.Compute/virtualMachineScaleSets` zasobu Dodaj wewnętrzną pulę adresów zaplecza:
 
     ```json
     "loadBalancerBackendAddressPools": [

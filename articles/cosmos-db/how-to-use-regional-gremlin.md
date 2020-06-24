@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/09/2019
-ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4880fa5bdccdc6416962e2f7e6da395f3db7be44
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78897863"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263599"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Regionalne punkty końcowe dla konta programu Azure Cosmos DB Graph
 Baza danych programu Azure Cosmos DB Graph jest [dystrybuowana globalnie](distribute-data-globally.md) , dzięki czemu aplikacje mogą używać wielu punktów końcowych odczytu. Aplikacje, które wymagają dostępu do zapisu w wielu lokalizacjach, powinny umożliwiać obsługę [wielu wzorców](how-to-multi-master.md) .
@@ -43,7 +43,7 @@ Konto globalnego konta bazy danych CNAME zawsze wskazuje prawidłowy region zapi
 
 Najprostszym sposobem uzyskania listy regionów dla konta Azure Cosmos DB Graph jest blok przegląd w Azure Portal. Będzie ona działała w przypadku aplikacji, które często nie zmieniają regionów lub aby można było zaktualizować listę za pomocą konfiguracji aplikacji.
 
-![Pobieranie regionów konta Cosmos DB Graph z portalu](./media/how-to-use-regional-gremlin/get-end-point-portal.png )
+:::image type="content" source="./media/how-to-use-regional-gremlin/get-end-point-portal.png " alt-text="Pobieranie regionów konta Cosmos DB Graph z portalu":::
 
 W poniższym przykładzie przedstawiono ogólne zasady dostępu do regionalnego punktu końcowego Gremlin. Aplikacja powinna rozważyć liczbę regionów, do których ma być wysyłany ruch, oraz liczbę odpowiednich klientów Gremlin do wystąpienia.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 022942778b714d5d66ce6eeb2c29351b11c66e40
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 79b6d7f84cd54979421357efa94c5c6de38fb4f1
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996248"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261396"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
@@ -39,6 +39,25 @@ Aby uzyskać więcej informacji na temat cen, zobacz [Cennik usługi Security Ce
 > Warstwa cenowa usługi log Analytics dla obszarów roboczych utworzonych przez Security Center nie ma wpływu na Security Center rozliczanie.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+## <a name="what-is-the-log-analytics-agent"></a>Co to jest Agent Log Analytics?
+
+Aby monitorować luki w zabezpieczeniach i zagrożeniach, Azure Security Center zależy od [agenta log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) — jest to ten sam Agent, który jest używany przez usługę Azure monitor. 
+
+Agent jest czasami określany jako Microsoft Monitoring Agent (lub "MMA"). 
+
+Agent zbiera informacje o różnych konfiguracjach związanych z zabezpieczeniami i dziennikach zdarzeń z połączonych maszyn, a następnie kopiuje dane do obszaru roboczego Log Analytics w celu dalszej analizy. Przykładami takich danych są: typ i wersja systemu operacyjnego, Dzienniki systemu operacyjnego (dzienniki zdarzeń systemu Windows), uruchomione procesy, Nazwa maszyny, adresy IP i zalogowany użytkownik.
+
+Upewnij się, że na komputerach jest uruchomiony jeden z obsługiwanych systemów operacyjnych dla agenta zgodnie z opisem na następujących stronach:
+
+* [Agent Log Analytics obsługujący systemy operacyjne Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+
+* [Agent Log Analytics dla systemów operacyjnych obsługiwanych przez system Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+
+Dowiedz się więcej o [danych zbieranych przez agenta log Analytics](security-center-enable-data-collection.md).
+
+
 
 
 ## <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-log-analytics-agent-installation"></a>Co kwalifikuje maszynę wirtualną do automatycznej aprowizacji instalacji agenta Log Analytics?

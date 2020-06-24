@@ -6,15 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 225221635f978e3d70cec4ce7e9d78d6b100b4fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50a9d5e3d3bbb608160ee160c5f1aede8f70e530
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618770"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262671"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Zabezpieczanie kluczy usługi Azure Cosmos przy użyciu usługi Azure Key Vault 
 
@@ -51,7 +51,7 @@ Następujące kroki są wymagane do przechowywania i odczytywania Azure Cosmos D
    * Podaj **nazwę** wpisu tajnego
    * Podaj parametry połączenia konta Cosmos DB w polu **wartość** . Następnie wybierz pozycję **Utwórz**.
 
-   ![Utwórz klucz tajny](./media/access-secrets-from-keyvault/create-a-secret.png)
+   :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Utwórz klucz tajny":::
 
 4. Po utworzeniu wpisu tajnego, otwórz go i skopiuj identyfikator tajny * *, który jest w następującym formacie. Ten identyfikator zostanie użyty w następnej sekcji. 
 
@@ -70,11 +70,11 @@ Następujące kroki są wymagane do przechowywania i odczytywania Azure Cosmos D
 
 5. Po wdrożeniu aplikacji. W Azure Portal przejdź do wdrożonej aplikacji sieci Web i Włącz **tożsamość usługi zarządzanej** dla tej aplikacji.  
 
-   ![Tożsamość usługi zarządzanej](./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png)
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Tożsamość usługi zarządzanej":::
 
 Jeśli aplikacja zostanie uruchomiona teraz, zostanie wyświetlony następujący błąd, ponieważ nie otrzymasz żadnych uprawnień do tej aplikacji w Key Vault.
 
-![Aplikacja wdrożona bez dostępu](./media/access-secrets-from-keyvault/app-deployed-without-access.png)
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Aplikacja wdrożona bez dostępu":::
 
 ## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>Zarejestruj aplikację & Udziel uprawnień do odczytu Key Vault
 
@@ -84,11 +84,11 @@ W tej sekcji rejestrujesz aplikację przy użyciu Azure Active Directory i nadaj
 
 2. Otwórz przystawkę **zasady dostępu**, wybierz pozycję **+ Dodaj nowy** Znajdź wdrożoną aplikację sieci Web, wybierz pozycję uprawnienia i wybierz pozycję **OK**.  
 
-   ![Dodawanie zasad dostępu](./media/access-secrets-from-keyvault/add-access-policy.png)
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Dodawanie zasad dostępu":::
 
 Teraz, po uruchomieniu aplikacji, można odczytać klucz tajny z Key Vault.
 
-![Aplikacja wdrożona przy użyciu klucza tajnego](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Aplikacja wdrożona przy użyciu klucza tajnego":::
  
 Analogicznie, możesz dodać użytkownika, aby uzyskać dostęp do magazynu kluczy. Musisz dodać siebie do Key Vault, wybierając pozycję **zasady dostępu** , a następnie przyznaj wszystkim uprawnienia wymagane do uruchomienia aplikacji w programie Visual Studio. Gdy ta aplikacja jest uruchomiona na komputerze stacjonarnym, zajmie Twoją tożsamość.
 

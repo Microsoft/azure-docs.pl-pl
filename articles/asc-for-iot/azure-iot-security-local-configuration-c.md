@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cd344b9bebb69af210c482f46af6b2dd7edf7816
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 842a69c27ceb0d56df5a7b49eb9922b88d8d4b32
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311706"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206941"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Omówienie pliku LocalConfiguration.json — agent oparty na języku C
 
@@ -29,7 +29,7 @@ Agent zabezpieczeń odczytuje konfigurację raz, podczas uruchamiania agenta.
 Konfiguracja znaleziona w lokalnym pliku konfiguracji zawiera konfigurację uwierzytelniania i inne konfiguracje powiązane z agentem.
 Plik zawiera konfiguracje "pary klucz-wartość" w notacji JSON, a konfiguracje są wypełniane podczas instalowania agenta.
 
-Domyślnie plik znajduje się w lokalizacji:/var/ASCIoTAgent/LocalConfiguration.json
+Domyślnie plik znajduje się w lokalizacji:/var/ASCIoTAgent/LocalConfiguration.jsna
 
 Zmiany w pliku konfiguracji są wykonywane po ponownym uruchomieniu agenta.
 
@@ -37,7 +37,7 @@ Zmiany w pliku konfiguracji są wykonywane po ponownym uruchomieniu agenta.
 
 | Nazwa konfiguracji | Możliwe wartości | Szczegóły |
 |:-----------|:---------------|:--------|
-| Identyfikator agenta | Identyfikator GUID | Unikatowy identyfikator agenta |
+| Identyfikator agenta | GUID | Unikatowy identyfikator agenta |
 | TriggerdEventsInterval | Ciąg ISO8601 | Interwał harmonogramu dla zbierania zdarzeń wyzwalanych |
 | Parametru | Ciąg ISO8601 | Czas przed upłynięciem limitu czasu połączenia z usługą IoThub |
 | Uwierzytelnianie | JsonObject | Konfiguracja uwierzytelniania. Ten obiekt zawiera wszystkie informacje, które są związane z uwierzytelnianiem w odniesieniu do IoTHub |
@@ -55,7 +55,7 @@ Zmiany w pliku konfiguracji są wykonywane po ponownym uruchomieniu agenta.
 
 ## <a name="security-agent-configurations-code-example"></a>Przykład kodu konfiguracji agenta zabezpieczeń
 
-```JSON
+```json
 {
     "Configuration" : {
         "AgentId" : "b97faf0a-0f57-471f-9dab-46a8e1764946",

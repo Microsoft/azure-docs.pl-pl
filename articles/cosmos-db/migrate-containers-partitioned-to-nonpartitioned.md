@@ -3,15 +3,15 @@ title: Migrowanie kontenerów usługi Azure Cosmos bez partycjonowania do konten
 description: Dowiedz się, jak migrować wszystkie istniejące kontenery niepartycjonowane do kontenerów partycjonowanych.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 742ef62895f3ef64e8fa22ab21d2947bee57776b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 619ec7e5510f9d3a5a17dcd5961fbd2182674df4
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77623352"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263487"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrowanie kontenerów bez partycjonowania do kontenerów partycjonowanych
 
@@ -38,7 +38,7 @@ W celu obsługi migracji Azure Cosmos DB udostępnia klucz partycji zdefiniowany
 }
 ```
 
-Po migracji kontenera można utworzyć dokumenty, wypełniając `_partitionKey` Właściwość wraz z innymi właściwościami dokumentu. `_partitionKey` Właściwość reprezentuje klucz partycji dokumentów.
+Po migracji kontenera można utworzyć dokumenty, wypełniając `_partitionKey` Właściwość wraz z innymi właściwościami dokumentu. `_partitionKey`Właściwość reprezentuje klucz partycji dokumentów.
 
 Wybór odpowiedniego klucza partycji jest ważny w celu optymalnego wykorzystania alokowanej przepływności. Aby uzyskać więcej informacji, zobacz artykuł [jak wybrać klucz partycji](partitioning-overview.md) .
 
@@ -95,7 +95,7 @@ Aby zapoznać się z kompletnym przykładem, zobacz repozytorium [.NET Samples][
                       
 ## <a name="migrate-the-documents"></a>Migrowanie dokumentów
 
-Mimo że definicja kontenera jest rozszerzona za pomocą właściwości klucza partycji, dokumenty w kontenerze nie są migrowane. Oznacza to, że ścieżka właściwości `/_partitionKey` klucza partycji systemowej nie jest automatycznie dodawana do istniejących dokumentów. Należy ponownie podzielić na partycje istniejące dokumenty, odczytując dokumenty, które zostały utworzone bez klucza partycji i ponownie zapisując je z `_partitionKey` właściwością w dokumentach.
+Mimo że definicja kontenera jest rozszerzona za pomocą właściwości klucza partycji, dokumenty w kontenerze nie są migrowane. Oznacza to, że ścieżka właściwości klucza partycji systemowej `/_partitionKey` nie jest automatycznie dodawana do istniejących dokumentów. Należy ponownie podzielić na partycje istniejące dokumenty, odczytując dokumenty, które zostały utworzone bez klucza partycji i ponownie zapisując je z `_partitionKey` właściwością w dokumentach.
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>Dostęp do dokumentów, które nie mają klucza partycji
 
@@ -122,7 +122,7 @@ Jeśli migrowany kontener jest używany przez najnowszą wersję zestawu SDK/v3 
 
 **Wykonywanie zapytania dotyczącego liczby elementów, które zostały wstawione bez klucza partycji przy użyciu zestawu SDK v3, może wymagać wyższego zużycia przepływności**
 
-W przypadku wykonywania zapytań z zestawu v3 SDK dla elementów, które są wstawiane przy użyciu zestawu SDK V2 lub elementów wstawionych przy użyciu zestawu v3 `PartitionKey.None` SDK z parametrem, zapytanie Count może zużywać więcej ru/ `PartitionKey.None` s, jeśli parametr jest podany w FeedOptions. Zaleca się, aby nie podawać `PartitionKey.None` parametru, jeśli żadne inne elementy nie są wstawiane z kluczem partycji.
+W przypadku wykonywania zapytań z zestawu v3 SDK dla elementów, które są wstawiane przy użyciu zestawu SDK V2 lub elementów wstawionych przy użyciu zestawu v3 SDK z `PartitionKey.None` parametrem, zapytanie Count może zużywać więcej ru/s, jeśli `PartitionKey.None` parametr jest podany w FeedOptions. Zaleca się, aby nie podawać `PartitionKey.None` parametru, jeśli żadne inne elementy nie są wstawiane z kluczem partycji.
 
 Jeśli nowe elementy są wstawiane z różnymi wartościami klucza partycji, wykonywanie zapytania o takie liczby elementów przez przekazanie odpowiedniego klucza w `FeedOptions` nie spowoduje problemów. Po wstawieniu nowych dokumentów z kluczem partycji, jeśli trzeba wykonać zapytanie tylko o liczbę dokumentów bez wartości klucza partycji, zapytanie może ponownie ponieść wyższy poziom RU/s podobne do regularnych kolekcji partycjonowanych.
 

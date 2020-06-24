@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 2f62af434a49d11cdc1acfc4a09b5bffbd69140b
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 566be788066db54f827bb4d6e46f0d832755ce26
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316705"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115675"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partycjonowanie w Azure Cosmos DB interfejs API Cassandra
 
@@ -53,7 +53,7 @@ CREATE TABLE uprofile.user (
 
 W tym projekcie definiujemy `id` pole jako klucz podstawowy. Klucz podstawowy pełni rolę identyfikatora rekordu w tabeli i jest również używany jako klucz partycji w Azure Cosmos DB. Jeśli klucz podstawowy został zdefiniowany w opisany wcześniej sposób, w każdej partycji będzie dostępny tylko jeden rekord. Spowoduje to nałożenie idealnie poziomowej i skalowalnej dystrybucji podczas zapisywania danych w bazie danych i jest idealnym rozwiązaniem dla przypadków użycia wyszukiwania klucz-wartość. Aplikacja powinna udostępnić klucz podstawowy za każdym razem, gdy odczytuje dane z tabeli, aby zmaksymalizować wydajność odczytu. 
 
-![partitions](./media/cassandra-partitioning/cassandra-partitioning.png)
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning.png" alt-text="Partition" border="false":::
 
 
 ## <a name="compound-primary-key"></a>Złożony klucz podstawowy
@@ -83,11 +83,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 Gdy dane są zwracane, są sortowane według klucza klastrowania zgodnie z oczekiwaniami w programie Apache Cassandra:
 
-![partitions](./media/cassandra-partitioning/select-from-pk.png)
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Partition":::
 
 Dzięki danemu modelowaniu wielu rekordów można przypisywać do każdej partycji, pogrupowane według użytkownika. W ten sposób można wydać zapytanie, które jest efektywnie kierowane przez `partition key` (w tym przypadku `user` ), aby uzyskać wszystkie komunikaty dla danego użytkownika. 
 
-![partitions](./media/cassandra-partitioning/cassandra-partitioning2.png)
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Partition" border="false":::
 
 
 ## <a name="composite-partition-key"></a>Klucz partycji złożonej

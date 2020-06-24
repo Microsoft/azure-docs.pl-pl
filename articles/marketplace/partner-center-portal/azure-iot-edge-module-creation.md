@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 14bbbb3cdbaa0074eaedaea81d273331fbd5abcd
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 9129eb905bbdc7d9be24f403f3b3bf318d6d6a6f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672599"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211373"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Tworzenie, Konfigurowanie i publikowanie oferty modułu IoT Edge w portalu Azure Marketplace
 
@@ -48,7 +48,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
+Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -111,7 +111,7 @@ Aby korzystać z kontraktu standardowego, zaznacz pole wyboru **Użyj kontraktu 
 > [!NOTE]
 > Po opublikowaniu oferty przy użyciu standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft nie można używać własnych niestandardowych warunków i postanowień. Oferuj swoje rozwiązanie w ramach standardowej umowy lub w ramach własnych warunków i postanowień.
 
-![Ilustruje użycie standardowego kontraktu dla komercyjnej witryny Marketplace firmy Microsoft.](./media/iot-edge-module-creation/iot-edge-module-standard-contract-checkbox.png)
+![Ilustruje użycie standardowego kontraktu dla komercyjnej witryny Marketplace firmy Microsoft.](media//iot-edge-module-standard-contract-checkbox.png)
 
 ##### <a name="your-own-terms-and-conditions"></a>Własne warunki i postanowienia
 
@@ -165,7 +165,7 @@ Wprowadź adres internetowy zasad zachowania poufności informacji organizacji. 
 Podaj uzupełniające dokumenty online dotyczące Twojej oferty. Możesz dodać maksymalnie 25 linków. Aby dodać łącze, wybierz pozycję **+ Dodaj łącze** , a następnie wykonaj następujące pola:
 
 - **Tytuł** — klienci będą widzieć tytuł na stronie szczegółów oferty.
-- **Link (adres URL)** — wprowadź link dla klientów, aby wyświetlić dokument w trybie online. Link musi rozpoczynać się od http://lub https://.
+- **Link (adres URL)** — wprowadź link dla klientów, aby wyświetlić dokument w trybie online. Link musi rozpoczynać się od `http://` lub `https://` .
 
 Upewnij się, że dodano co najmniej jeden link do dokumentacji i jeden link do zgodnych urządzeń IoT Edge z [wykazu urządzeń usługi Azure IoT](https://catalog.azureiotsolutions.com/).
 
@@ -194,7 +194,7 @@ Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy musz
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Udostępniaj pliki. png logo oferty w każdym z następujących czterech rozmiarów pikseli:
+Podaj pliki PNG logo oferty w każdym z następujących czterech rozmiarów pikseli:
 
 - **Mały (48 x 48)**
 - **Średni (90 x 90)**
@@ -209,29 +209,59 @@ Dodaj maksymalnie pięć zrzutów ekranu, które pokazują, jak działa Twoja of
 
 #### <a name="videos-optional"></a>Wideo (opcjonalnie)
 
-Dodaj do pięciu filmów wideo, które przedstawiają Twoją ofertę. Wprowadź nazwę filmu wideo, jego adres sieci Web i obraz miniatury PNG wideo o rozmiarze 1280 x 720 pikseli.
+Dodaj do pięciu filmów wideo, które przedstawiają Twoją ofertę. Wprowadź nazwę filmu wideo, jego adres internetowy oraz miniaturę obrazu PNG wideo o rozmiarze 1280 x 720 pikseli.
 
-#### <a name="offer-examples"></a>Przykłady dotyczące ofert
+#### <a name="marketplace--examples"></a>Przykłady dla witryny Marketplace
 
-W poniższych przykładach pokazano, jak pola list oferty pojawiają się w różnych miejscach oferty.
+Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Marketplace:
 
-Ten zrzut ekranu przedstawia stronę z **listą ofert** w witrynie Azure Marketplace.
+:::image type="content" source="media/example-iot-azure-marketplace-offer.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-offer-listing-page.png" alt-text="Przedstawia stronę aukcji oferty w witrynie Azure Marketplace.":::
+#### <a name="call-out-descriptions"></a>Opisy połączeń
 
-Ten zrzut ekranu przedstawia wyniki wyszukiwania w witrynie Azure Marketplace:
+1. Duże logo
+2. Kategorie
+3. Adres pomocy technicznej (link)
+4. Warunki i postanowienia
+5. Adres zasad ochrony prywatności (link)
+6. Nazwa
+7. Podsumowanie
+8. Opis
+9. Przydatne łącza
+10. Zrzuty ekranu/wideo
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-search-results.png" alt-text="Ilustruje wyniki wyszukiwania w witrynie Azure Marketplace.":::
+<br>Oto przykład sposobu wyświetlania informacji o ofercie w wynikach wyszukiwania w portalu Azure Marketplace:
 
-Ten zrzut ekranu przedstawia stronę z **listą ofert** w Azure Portal.
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w wynikach wyszukiwania w portalu Azure Marketplace.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-listing-page-azure-portal.png" alt-text="Ilustruje stronę z listą ofert w Azure Portal.":::
+#### <a name="call-out-descriptions"></a>Opisy połączeń
 
-Ten zrzut ekranu przedstawia wyniki wyszukiwania w Azure Portal.
+1. Małe logo
+2. Nazwa oferty
+3. Podsumowanie wyników wyszukiwania
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-search-results.png" alt-text="Ilustruje stronę z listą ofert w Azure Portal.":::
+<br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal:
 
-Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sekcji, wersja zapoznawcza.
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Nazwa
+2. Opis
+3. Przydatne łącza
+4. Zrzuty ekranu
+
+<br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal wynikach wyszukiwania:
+
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w wynikach wyszukiwania Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Małe logo
+2. Nazwa oferty
+3. Podsumowanie wyników wyszukiwania
+
+<br>Wybierz pozycję **Zapisz wersję roboczą** przed przejściem do następnej sekcji, wersja zapoznawcza.
 
 ## <a name="preview"></a>Wersja zapoznawcza
 
@@ -286,18 +316,18 @@ Wybierz przycisk **Utwórz**.
 
 Na tej karcie można skonfigurować chmurę, w której plan jest dostępny. Odpowiedzi na tej karcie mają wpływ na to, które pola są wyświetlane na innych kartach.
 
-#### <a name="cloud-availability"></a>Dostępność w chmurze
+#### <a name="azure-regions"></a>Regiony świadczenia usługi Azure
 
 Wszystkie plany dla ofert modułu IoT Edge są automatycznie udostępniane na **platformie Azure Global**.  Twój plan może być używany przez klientów we wszystkich globalnych regionach platformy Azure korzystających z portalu Marketplace. Aby uzyskać szczegółowe informacje, zobacz [dostępność geograficzna i obsługa waluty](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Wybierz opcję [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) , aby rozwiązanie było wyświetlane w tym miejscu. Jest to chmura społecznościowa dla instytucji rządowych, której dostęp jest kontrolowany przez klientów z federalnych, stanowych i lokalnych lub plemienneych instytucji rządowych, a także partnerów uprawnionych do ich używania. Wydawca jest odpowiedzialny za wszelkie kontrole zgodności, miary zabezpieczeń i najlepsze rozwiązania dla tej społeczności w chmurze. Azure Government używa fizycznie wyizolowanych centrów danych i sieci (znajdujących się tylko w Stanach Zjednoczonych). Przed [opublikowaniem](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) w celu Azure Government Przetestuj i Potwierdź swoje rozwiązanie w tym obszarze, ponieważ wyniki mogą się różnić. Aby przygotować i przetestować rozwiązanie, zażądaj konta próbnego od [Microsoft Azure Government wersji próbnej](https://azure.microsoft.com/global-infrastructure/government/request/).
+Wybierz opcję [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) , aby rozwiązanie było wyświetlane w tym miejscu. Jest to chmura społecznościowa dla instytucji rządowych, której dostęp jest kontrolowany przez klientów z federalnych, stanowych i lokalnych lub plemienneych instytucji rządowych, a także partnerów uprawnionych do ich używania. Wydawca jest odpowiedzialny za wszelkie kontrole zgodności, miary zabezpieczeń i najlepsze rozwiązania dla tej społeczności w chmurze. Azure Government używa fizycznie wyizolowanych centrów danych i sieci (znajdujących się tylko w Stanach Zjednoczonych). Przed [opublikowaniem](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) w celu Azure Government Przetestuj i Potwierdź swoje rozwiązanie w tym obszarze, ponieważ wyniki mogą się różnić. Aby przygotować i przetestować rozwiązanie, zażądaj konta próbnego od [Microsoft Azure Government wersji próbnej](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> Po opublikowaniu planu i udostępnieniu go w określonej chmurze nie można usunąć tej chmury.
+> Po opublikowaniu planu i udostępnieniu go w określonym regionie nie można usunąć tego regionu.
 
-#### <a name="azure-government-cloud-certifications"></a>Azure Government certyfikaty w chmurze
+#### <a name="azure-government-certifications"></a>Certyfikaty Azure Government
 
-Ta opcja jest widoczna tylko w przypadku wybrania opcji **Azure Government Cloud** w obszarze **dostępność w chmurze**.
+Ta opcja jest widoczna tylko wtedy, gdy **Azure Government** jest wybrana w obszarze **dostępność w chmurze**.
 
 Usługi Azure Government Services obsługują dane, które podlegają określonym przepisom i wymogom rządowym. Na przykład FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD P4 i CJIS. Aby zapewnić świadomość certyfikatów dla tych programów, możesz udostępnić do 100 linków opisujących certyfikaty. Mogą to być linki do Twoich aukcji bezpośrednio w programie lub do własnej witryny sieci Web. Te linki są widoczne tylko dla Azure Government klientów.
 
@@ -321,15 +351,25 @@ Po zakończeniu tych pól wybierz pozycję **Zapisz wersję roboczą** .
 
 #### <a name="plan-examples"></a>Przykłady planu
 
-W poniższych przykładach pokazano, jak pola listy planów są wyświetlane w różnych widokach.
+Oto przykładowe szczegóły dotyczące planu witryny Azure Marketplace (wszystkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
 
-Są to pola w portalu Azure Marketplace podczas wyświetlania szczegółów planu:
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustruje szczegóły planu witryny Azure Marketplace.":::
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-marketplace-plan-details.png" alt-text="Ilustruje pola wyświetlane podczas przeglądania szczegółów planu w portalu Azure Marketplace.":::
+#### <a name="call-out-descriptions"></a>Opisy połączeń
 
-Są to szczegóły planu dotyczące Azure Portal:
+1. Nazwa oferty
+2. Nazwa planu
+3. Opis planu
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-plan-details.png" alt-text="Ilustruje szczegóły planu na Azure Portal.":::
+<br>Poniżej przedstawiono przykładowe szczegóły planu Azure Portal (wszelkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
+
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustruje szczegóły planu Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Nazwa oferty
+2. Nazwa planu
+3. Opis planu
 
 ## <a name="availability"></a>Dostępność
 
@@ -364,11 +404,21 @@ Na karcie **szczegóły repozytorium obrazów** uzyskasz następujące informacj
 
 **Nazwa użytkownika administratora dla Azure Container Registry**: Podaj [nazwę użytkownika administratora](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account) skojarzoną z Azure Container Registryem zawierającym obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Aby uzyskać nazwę użytkownika i hasło administratora, ustaw właściwość z **obsługą administracyjną** na **wartość true** przy użyciu interfejsu wiersza polecenia (CLI) platformy Azure. Opcjonalnie możesz ustawić **użytkownika administracyjnego** , aby **włączyć** go w Azure Portal.
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Ilustruje okno dialogowe Aktualizowanie rejestru kontenerów.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustruje okno dialogowe Aktualizowanie rejestru kontenerów.":::
 
-**Hasło dla Azure Container Registry**: Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+#### <a name="call-out-description"></a>Opis połączenia
 
-:::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Ilustruje ekran klucz dostępu w Azure Portal.":::
+1. Administrator
+
+<br>**Hasło dla Azure Container Registry**: Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustruje ekran klucz dostępu w Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Klawisze dostępu
+2. Nazwa użytkownika
+3. Hasło
 
 **Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Nazwa repozytorium jest określana podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  **strony repozytoria**Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Należy pamiętać, że po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
 

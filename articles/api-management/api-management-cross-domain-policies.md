@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: b72abf4e208c57987375a105865046f194460058
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265989"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690323"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management cross domain policies (Zasady usługi API Management obejmujące różne domeny)
 Ten temat zawiera informacje dotyczące następujących zasad API Management. Aby uzyskać informacje na temat dodawania i konfigurowania zasad, zobacz [zasady w API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -53,18 +53,18 @@ Użyj `cross-domain` zasad, aby udostępnić interfejs API z klientów Adobe Fla
 
 ### <a name="elements"></a>Elementy
 
-|Nazwa|Opis|Wymagany|
+|Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |między domenami|Element główny. Elementy podrzędne muszą być zgodne ze [specyfikacją pliku zasad między domenami Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Tak|
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 - **Sekcje zasad:** przychodzące
 - **Zakresy zasad:** wszystkie zakresy
 
 ## <a name="cors"></a><a name="CORS"></a>SPECYFIKACJI
-`cors` Zasada dodaje obsługę funkcji udostępniania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce.
+`cors`Zasada dodaje obsługę funkcji udostępniania zasobów między źródłami (CORS) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce.
 
 Mechanizm CORS pozwala przeglądarce i serwerowi na współpracujące i określać, czy zezwolić na określone żądania między źródłami (tj. wywołania XMLHttpRequest wykonane ze skryptu JavaScript na stronie sieci Web do innych domen). Zapewnia to większą elastyczność niż Zezwalanie na żądania tego samego źródła, ale jest bezpieczniejsze niż Zezwalanie na wszystkie żądania między źródłami.
 
@@ -88,7 +88,7 @@ Mechanizm CORS pozwala przeglądarce i serwerowi na współpracujące i określa
 ```
 
 ### <a name="example"></a>Przykład
-W tym przykładzie pokazano, jak obsługiwać żądania przed inspekcją, takie jak te z niestandardowymi nagłówkami lub metodami innymi niż GET i POST. Aby obsługiwać niestandardowe nagłówki i dodatkowe zlecenia HTTP, użyj sekcji `allowed-methods` i `allowed-headers` , jak pokazano w poniższym przykładzie.
+W tym przykładzie pokazano, jak obsługiwać żądania przed inspekcją, takie jak te z niestandardowymi nagłówkami lub metodami innymi niż GET i POST. Aby obsługiwać niestandardowe nagłówki i dodatkowe zlecenia HTTP, użyj `allowed-methods` sekcji i, `allowed-headers` jak pokazano w poniższym przykładzie.
 
 ```xml
 <cors allow-credentials="true">
@@ -122,32 +122,32 @@ W tym przykładzie pokazano, jak obsługiwać żądania przed inspekcją, takie 
 
 ### <a name="elements"></a>Elementy
 
-|Nazwa|Opis|Wymagany|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |specyfikacji|Element główny.|Tak|Nie dotyczy|
-|dozwolone źródła|Zawiera `origin` elementy, które opisują dozwolone źródła dla żądań międzydomenowych. `allowed-origins`może zawierać pojedynczy `origin` element, który określa `*` , aby zezwolić na dowolne Źródło lub jeden lub więcej `origin` elementów, które zawierają identyfikator URI.|Tak|Nie dotyczy|
+|dozwolone źródła|Zawiera `origin` elementy, które opisują dozwolone źródła dla żądań międzydomenowych. `allowed-origins`może zawierać pojedynczy element, `origin` który określa `*` , aby zezwolić na dowolne Źródło lub jeden lub więcej `origin` elementów, które zawierają identyfikator URI.|Tak|Nie dotyczy|
 |połączenie pierwotne|Wartość może być `*` równa, aby zezwolić na wszystkie źródła lub identyfikator URI, który określa pojedyncze źródło. Identyfikator URI musi zawierać schemat, hosta i port.|Tak|Jeśli port zostanie pominięty w identyfikatorze URI, port 80 jest używany dla protokołu HTTP, a port 443 jest używany w przypadku protokołu HTTPS.|
 |dozwolone — metody|Ten element jest wymagany, jeśli dozwolone są metody inne niż GET lub POST. Zawiera `method` elementy, które określają obsługiwane zlecenia http. Wartość `*` wskazuje wszystkie metody.|Nie|Jeśli ta sekcja nie jest obecna, obsługiwane są pozycje GET i POST.|
-|method|Określa czasownik HTTP.|Jeśli sekcja jest `method` obecna, `allowed-methods` wymagany jest co najmniej jeden element.|Nie dotyczy|
+|method|Określa czasownik HTTP.|`method`Jeśli `allowed-methods` sekcja jest obecna, wymagany jest co najmniej jeden element.|Nie dotyczy|
 |dozwolone — nagłówki|Ten element zawiera `header` elementy określające nazwy nagłówków, które mogą zostać uwzględnione w żądaniu.|Nie|Nie dotyczy|
 |Uwidacznianie — nagłówki|Ten element zawiera `header` elementy określające nazwy nagłówków, które będą dostępne dla klienta.|Nie|Nie dotyczy|
-|nagłówek|Określa nazwę nagłówka.|Co najmniej jeden `header` element jest wymagany w `allowed-headers` lub `expose-headers` Jeśli sekcja jest obecna.|Nie dotyczy|
+|header|Określa nazwę nagłówka.|Co najmniej jeden `header` element jest wymagany w `allowed-headers` lub `expose-headers` Jeśli sekcja jest obecna.|Nie dotyczy|
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagany|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |Zezwalaj — poświadczenia|W `Access-Control-Allow-Credentials` nagłówku odpowiedzi na inspekcję wstępną zostanie ustawiona wartość tego atrybutu i będzie ona mieć wpływ na zdolność klienta do przesyłania poświadczeń w żądaniach międzydomenowych.|Nie|fałsz|
-|Inspekcja wstępna — wynik — maks. wiek|`Access-Control-Max-Age` Nagłówek w odpowiedzi na inspekcję wstępną zostanie ustawiony na wartość tego atrybutu i będzie miał wpływ na zdolność agenta użytkownika do buforowania przed lotem odpowiedzi.|Nie|0|
+|Inspekcja wstępna — wynik — maks. wiek|`Access-Control-Max-Age`Nagłówek w odpowiedzi na inspekcję wstępną zostanie ustawiony na wartość tego atrybutu i będzie miał wpływ na zdolność agenta użytkownika do buforowania przed lotem odpowiedzi.|Nie|0|
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 - **Sekcje zasad:** przychodzące
 - **Zakresy zasad:** wszystkie zakresy
 
 ## <a name="jsonp"></a><a name="JSONP"></a>JSONP
-`jsonp` Zasada dodaje kod JSON z obsługą dopełnienia (JSONP) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce JavaScript. JSONP to metoda używana w programach JavaScript do żądania danych z serwera w innej domenie. JSONP pomija ograniczenia wymuszane przez większość przeglądarek sieci Web, w których dostęp do stron sieci Web musi znajdować się w tej samej domenie.
+`jsonp`Zasada dodaje kod JSON z obsługą dopełnienia (JSONP) do operacji lub interfejsu API w celu zezwalania na wywołania międzydomenowe z klientów opartych na przeglądarce JavaScript. JSONP to metoda używana w programach JavaScript do żądania danych z serwera w innej domenie. JSONP pomija ograniczenia wymuszane przez większość przeglądarek sieci Web, w których dostęp do stron sieci Web musi znajdować się w tej samej domenie.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -163,21 +163,21 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 Jeśli wywołasz metodę bez parametru wywołania zwrotnego? CB = XXX, zwróci on zwykły kod JSON (bez otoki wywołania funkcji).
 
-Dodanie parametru `?cb=XXX` wywołania zwrotnego spowoduje zwrócenie wyniku JSONP, zawijanie oryginalnych wyników JSON wokół funkcji wywołania zwrotnego, takiej jak`XYZ('<json result goes here>');`
+Dodanie parametru wywołania zwrotnego `?cb=XXX` spowoduje zwrócenie wyniku JSONP, zawijanie oryginalnych wyników JSON wokół funkcji wywołania zwrotnego, takiej jak`XYZ('<json result goes here>');`
 
 ### <a name="elements"></a>Elementy
 
-|Nazwa|Opis|Wymagany|
+|Nazwa|Opis|Wymagane|
 |----------|-----------------|--------------|
 |JSONP|Element główny.|Tak|
 
 ### <a name="attributes"></a>Atrybuty
 
-|Nazwa|Opis|Wymagany|Domyślny|
+|Nazwa|Opis|Wymagane|Domyślne|
 |----------|-----------------|--------------|-------------|
 |wywołanie zwrotne-Nazwa parametru|Międzydomenowe wywołanie funkcji JavaScript poprzedzone prefiksem w pełni kwalifikowanej nazwy domeny, w której znajduje się funkcja.|Tak|Nie dotyczy|
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
 - **Sekcje zasad:** wychodzące

@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 5f2d1d517db9ab0e4ccfbfff1cef3a5a0de738c9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c4dbc63e8829d8a9ca3a3820fbb6675da4fad357
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267779"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207553"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Samouczek: Załaduj zestaw danych Taxicab Nowego Jorku
 
@@ -76,7 +76,7 @@ Wykonaj następujące kroki, aby utworzyć pustą bazę danych.
 
     ![Utwórz serwer](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
-5. Wybierz przycisk **Wybierz**.
+5. Wybierz pozycję **Wybierz**.
 
 6. Wybierz pozycję **poziom wydajności** , aby określić, czy magazyn danych to Gen1, czy Gen2, oraz liczbę jednostek magazynu danych.
 
@@ -147,7 +147,7 @@ Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-ma
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | Typ serwera    | Aparat bazy danych                            | Ta wartość jest wymagana                                       |
     | Nazwa serwera    | W pełni kwalifikowana nazwa serwera            | Nazwa powinna wyglądać następująco: **mynewserver-20180430.Database.Windows.NET**. |
-    | Authentication | Uwierzytelnianie programu SQL Server                  | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
+    | Uwierzytelnianie | Uwierzytelnianie programu SQL Server                  | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
     | Zaloguj się          | Konto administratora serwera                   | To konto określono podczas tworzenia serwera. |
     | Hasło       | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
 
@@ -492,7 +492,7 @@ Ta sekcja używa [instrukcji Copy do ładowania](https://docs.microsoft.com/sql/
 
     ![Wyświetlanie załadowanych tabel](./media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Opłaty są naliczane za zasoby obliczeniowe i dane załadowane do magazynu danych. Są one rozliczane osobno.
 
@@ -503,7 +503,7 @@ Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz magazyn danych.
 
-    ![Oczyszczanie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Gdy magazyn danych jest wstrzymany, widoczny jest przycisk **Uruchom**.  Aby wznowić obliczenia, wybierz pozycję **Uruchom**.
 

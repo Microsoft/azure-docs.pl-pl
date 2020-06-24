@@ -3,15 +3,15 @@ title: Samouczek Power BI dla łącznika Azure Cosmos DB
 description: Skorzystaj z tego samouczka Power BI, aby zaimportować dane JSON, utworzyć raporty usługi Insights i wizualizacji danych przy użyciu łącznika Azure Cosmos DB i Power BI.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 1dbdd428a54ebf38c7b880bb9530935c0f748226
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89d7e46563182bf7808eb118f4526571c631fa23
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69616808"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262518"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Wizualizowanie danych usługi Azure Cosmos DB przy użyciu łącznika usługi Power BI
 
@@ -46,7 +46,7 @@ Przed wykonaniem instrukcji przedstawionych w tym samouczku Power BI upewnij si�
 
       * **Przepływność kolekcji:** 1000 
 
-Aby udostępnić raporty w programie PowerBI.com, musisz mieć konto w usłudze PowerBI.com.  Aby dowiedzieć się więcej na temat Power BI i [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing)Power BI Pro, zobacz.
+Aby udostępnić raporty w programie PowerBI.com, musisz mieć konto w usłudze PowerBI.com.  Aby dowiedzieć się więcej na temat Power BI i Power BI Pro, zobacz [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing) .
 
 ## <a name="lets-get-started"></a>Zacznijmy
 W tym samouczku Załóżmy, że jesteś Geologist studium Volcanoes na całym świecie. Dane Volcano są przechowywane na koncie Azure Cosmos DB, a format dokumentu JSON jest następujący:
@@ -120,7 +120,7 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
     ![Samouczek Power BI dla łącznika Azure Cosmos DB Power BI — Lista współrzędnych](./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 7. Aby spłaszczyć tablicę współrzędnych, Utwórz **kolumnę niestandardową** o nazwie latlong.  Wybierz Wstążkę **Dodaj kolumnę** i kliknij **kolumnę niestandardową**.  Zostanie wyświetlone okno **kolumna niestandardowa** .
 8. Podaj nazwę nowej kolumny, np. LatLong.
-9. Następnie określ formułę niestandardową dla nowej kolumny.  W naszym przykładzie będziemy łączyć wartości szerokości i długości geograficznej oddzielone przecinkami, jak pokazano poniżej, przy użyciu następującej formuły `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`:. Kliknij przycisk **OK**.
+9. Następnie określ formułę niestandardową dla nowej kolumny.  W naszym przykładzie będziemy łączyć wartości szerokości i długości geograficznej oddzielone przecinkami, jak pokazano poniżej, przy użyciu następującej formuły: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Kliknij przycisk **OK**.
    
     Aby uzyskać więcej informacji na temat wyrażeń analizy danych (DAX), w tym funkcji języka DAX, zobacz [podstawy języka DAX w Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
@@ -132,7 +132,7 @@ Dane Volcano można pobrać z konta Azure Cosmos DB i wizualizować dane w rapor
     
     Jeśli w nowej kolumnie pojawia się błąd, upewnij się, że zastosowane kroki w obszarze Ustawienia zapytania są zgodne z następującą ilustracją:
     
-    ![Zastosowane kroki powinny być źródła, nawigacji, rozwinięte dokumenty, rozwinięte dokumenty. lokalizacja, dodano niestandardowe](./media/powerbi-visualize/power-bi-applied-steps.png)
+    :::image type="content" source="./media/powerbi-visualize/power-bi-applied-steps.png" alt-text="Zastosowane kroki powinny być źródła, nawigacji, rozwinięte dokumenty, rozwinięte dokumenty. lokalizacja, dodano niestandardowe":::
     
     Jeśli czynności są różne, Usuń dodatkowe kroki i spróbuj ponownie dodać kolumnę niestandardową. 
 
@@ -179,11 +179,11 @@ Teraz, gdy masz raport, możesz go udostępnić w witrynie PowerBI.com
 
 Po opublikowaniu raportu z Power BI Desktop do PowerBI.com generuje on **raport** i **zestaw danych** w dzierżawie PowerBI.com. Na przykład po opublikowaniu raportu o nazwie **PowerBITutorial** do PowerBI.com zobaczysz PowerBITutorial w sekcjach **raporty** i **zestawy danych** na PowerBI.com.
 
-   ![Zrzut ekranu przedstawiający nowy raport i zestaw danych w PowerBI.com](./media/powerbi-visualize/powerbi-reports-datasets.png)
+   :::image type="content" source="./media/powerbi-visualize/powerbi-reports-datasets.png" alt-text="Zrzut ekranu przedstawiający nowy raport i zestaw danych w PowerBI.com":::
 
 Aby utworzyć udostępniony pulpit nawigacyjny, kliknij przycisk **Przypnij stronę dynamiczną** w raporcie PowerBI.com.
 
-   ![Zrzut ekranu przedstawiający nowy raport i zestaw danych w PowerBI.com](./media/powerbi-visualize/power-bi-pin-live-tile.png)
+   :::image type="content" source="./media/powerbi-visualize/power-bi-pin-live-tile.png" alt-text="Zrzut ekranu przedstawiający nowy raport i zestaw danych w PowerBI.com":::
 
 Następnie postępuj zgodnie z instrukcjami w temacie [Przypinanie kafelka z raportu](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) , aby utworzyć nowy pulpit nawigacyjny. 
 
@@ -194,13 +194,13 @@ There are two ways to refresh data, ad hoc and scheduled.
 
 For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
 
-![Screenshot of Refresh Now in PowerBI.com](./media/powerbi-visualize/power-bi-refresh-now.png)
+:::image type="content" source="./media/powerbi-visualize/power-bi-refresh-now.png" alt-text="Screenshot of Refresh Now in PowerBI.com":::
 
 For a scheduled refresh, do the following.
 
 1. Click **Schedule Refresh** in the action list. 
 
-    ![Screenshot of the Schedule Refresh in PowerBI.com](./media/powerbi-visualize/power-bi-schedule-refresh.png)
+    :::image type="content" source="./media/powerbi-visualize/power-bi-schedule-refresh.png" alt-text="Screenshot of the Schedule Refresh in PowerBI.com":::
 2. In the **Settings** page, expand **Data source credentials**. 
 3. Click on **Edit credentials**. 
    

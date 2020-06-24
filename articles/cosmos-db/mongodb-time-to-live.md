@@ -5,14 +5,14 @@ author: sivethe
 ms.author: sivethe
 ms.service: cosmos-db
 ms.devlang: javascript
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 12/26/2018
-ms.openlocfilehash: cd6cb68014eea00077328f39c2c9bf0a1f7fb679
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0fe0c9e41a5787a963920d300cd99ecaf8803019
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "61330697"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262773"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Wygasanie danych za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
 

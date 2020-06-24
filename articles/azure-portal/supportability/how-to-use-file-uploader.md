@@ -5,15 +5,15 @@ author: genlin
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: genli
-ms.openlocfilehash: ac8dffe3b1200f3925478f968170498ee744bb79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 097434a736a6a5396f6c0ee930ea18e9b0bd46ec
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76548972"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763843"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure nowe wskazówki dotyczące narzędzia do przekazywania plików żądania obsługi
 

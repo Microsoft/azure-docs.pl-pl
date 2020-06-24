@@ -5,14 +5,14 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2019
-ms.openlocfilehash: b65bc6097d4841c79a68d4313ac7a3f89f6d1dbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 735c68a3aec4d7bbb5626497de445f61e375b34b
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065930"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263402"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitoruj i Debuguj przy użyciu metryk w Azure Cosmos DB
 
@@ -26,7 +26,7 @@ W tym artykule przedstawiono typowe przypadki użycia oraz sposób, w jaki metry
 
 1. Otwórz okienko **metryki** . Domyślnie w okienku metryki są wyświetlane metryki magazynu, indeksu, jednostki żądań dla wszystkich baz danych na koncie usługi Azure Cosmos. Można filtrować te metryki na bazę danych, kontener lub region. Można również filtrować metryki z określoną szczegółowością czasu. Więcej informacji na temat przepływności, magazynu, dostępności, opóźnień i metryk spójności znajdują się na oddzielnych kartach. 
 
-   ![Cosmos DB metryki wydajności w Azure Portal](./media/use-metrics/performance-metrics.png)
+   :::image type="content" source="./media/use-metrics/performance-metrics.png" alt-text="Cosmos DB metryki wydajności w Azure Portal":::
 
 Następujące metryki są dostępne w okienku **metryki** : 
 
@@ -50,7 +50,7 @@ Aby rozpocząć, należy przejść do [Azure Portal](https://portal.azure.com) i
 
 Najbardziej typowym kodem stanu błędu jest 429 (ograniczanie szybkości/ograniczanie przepustowości). Ten błąd oznacza, że żądania Azure Cosmos DB przekraczają przepływność zainicjowaną. Najbardziej typowym rozwiązaniem tego problemu jest [skalowanie w górę jednostek ru](./set-throughput.md) dla danej kolekcji.
 
-![Liczba żądań na minutę](media/use-metrics/metrics-12.png)
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Liczba żądań na minutę":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Określanie rozkładu przepływności między partycjami
 
@@ -64,11 +64,11 @@ Nierówna dystrybucja przepływności może spowodować powstanie partycji na *g
 
 Posiadanie odpowiedniej kardynalności partycji jest niezbędne dla każdej skalowalnej aplikacji. Aby określić dystrybucję magazynu dla dowolnego kontenera partycjonowanego podzielonego na partycje, przejdź do bloku metryki w [Azure Portal](https://portal.azure.com). Na karcie Magazyn zostanie wyświetlona wartość podział magazynu w magazynie dane i indeks używane przez wykres najważniejszych kluczy partycji. Poniższa ilustracja przedstawia słabą dystrybucję magazynu danych, jak pokazano na partycji skośnej po lewej stronie.
 
-![Przykład słabej dystrybucji danych](media/use-metrics/metrics-07.png)
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Przykład słabej dystrybucji danych":::
 
 Możesz przyczynić się, że klucz partycji pochyla dystrybucję, klikając partycję na wykresie.
 
-![Klucz partycji pochyla rozkład](media/use-metrics/metrics-05.png)
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Klucz partycji pochyla rozkład":::
 
 Po zidentyfikowaniu, który klucz partycji powoduje pochylenie w dystrybucji, może być konieczne ponowne partycjonowanie kontenera przy użyciu bardziej rozproszonego klucza partycji. Aby uzyskać więcej informacji na temat partycjonowania w Azure Cosmos DB, zobacz [partycja i skalowanie w Azure Cosmos DB](./partition-data.md).
 

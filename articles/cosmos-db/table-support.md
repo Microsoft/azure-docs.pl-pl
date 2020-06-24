@@ -3,17 +3,17 @@ title: Pomoc techniczna usługi Azure Table Storage w usłudze Azure Cosmos DB
 description: Dowiedz się, jak Azure Cosmos DB interfejs API tabel i tabele usługi Azure Storage współpracują z tym samym modelem danych tabeli i operacjami
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.topic: overview
+ms.topic: how-to
 ms.date: 05/21/2020
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 6f10763f6906f67a3378d54df0574060294ef87d
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 28c58251d9a30b3bae9d958c32c4d6a71f86aaae
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800390"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263215"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Programowanie za pomocą interfejsu API tabel usługi Azure Cosmos DB oraz usługi Azure Table Storage
 
@@ -31,7 +31,7 @@ W tej chwili [interfejs API tabel usługi Azure Cosmos DB](table-introduction.md
 
 * [Zestaw Java SDK](table-sdk-java.md): ten zestaw SDK usługi Azure Storage umożliwia łączenie się z kontami Azure Cosmos dB przy użyciu interfejs API tabel.
 
-* [Zestaw SDK środowiska Node. js](table-sdk-nodejs.md): ten zestaw SDK usługi Azure Storage umożliwia łączenie się z kontami Azure Cosmos dB przy użyciu interfejs API tabel.
+* [Node.js SDK](table-sdk-nodejs.md): ten zestaw SDK usługi Azure Storage umożliwia łączenie się z kontami Azure Cosmos dB przy użyciu interfejs API tabel.
 
 
 Dodatkowe informacje dotyczące pracy z interfejsem API tabel są dostępne w artykule: [Często zadawane pytania: programowanie przy użyciu interfejsu API tabel](table-api-faq.md).
@@ -43,7 +43,7 @@ Magazyn tabel Azure oferuje do programowania następujące zestawy SDK:
 - Biblioteka [Microsoft. Azure. Storage. blob](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/), [Microsoft. Azure. Storage. File](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/), [Microsoft. Azure. Storage. Queue](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)i [Microsoft. Azure. Storage. Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) librarys umożliwia korzystanie z usługi Azure Table Storage. Jeśli używasz interfejs API tabel w Azure Cosmos DB, możesz zamiast tego użyć biblioteki [Microsoft. Azure. CosmosDB. Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table/) .
 - [Zestaw SDK języka Python](https://github.com/Azure/azure-cosmos-table-python). Zestaw SDK tabeli Azure Cosmos DB dla języka Python obsługuje usługę Table Storage (ponieważ Table Storage platformy Azure i interfejs API tabel Cosmos DB współdzielą te same funkcje i możliwości, a w celu factorize naszych wysiłków związanych z programowaniem zestawów SDK zalecamy użycie tego zestawu SDK).
 - [Zestaw SDK usługi Azure Storage dla języka Java](https://github.com/azure/azure-storage-java). Ten zestaw SDK usługi Azure Storage zapewnia bibliotekę klienta w środowisku Java do pracy z usługą Azure Table Storage.
-- [Zestaw SDK środowiska Node. js](https://github.com/Azure/azure-storage-node). Zestaw SDK zawiera pakiet Node.js i bibliotekę klienta JavaScript zgodną z przeglądarką, aby korzystać z usługi Table Storage.
+- [Node.js SDK](https://github.com/Azure/azure-storage-node). Zestaw SDK zawiera pakiet Node.js i bibliotekę klienta JavaScript zgodną z przeglądarką, aby korzystać z usługi Table Storage.
 - [Moduł programu PowerShell AzureRmStorageTable ](https://www.powershellgallery.com/packages/AzureRmStorageTable). Ten moduł programu PowerShell zawiera polecenia cmdlet do pracy z tabelami usługi Storage.
 - [Biblioteka klienta usługi Azure Storage dla języka C++](https://github.com/Azure/azure-storage-cpp/). Ta biblioteka umożliwia tworzenie aplikacji w usłudze Azure Storage.
 - [Biblioteka klienta tabel usługi Azure Storage dla Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Ten projekt zapewnia pakiet Ruby, który ułatwia dostęp do tabel usługi Azure Storage.

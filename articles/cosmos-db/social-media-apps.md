@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 8428e417f5f86edca77edae6ca4b7ef84e5ff425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b121d7f5f1ad626f80a03ebe6cd47a932c209672
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73827296"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116437"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Przechodzenie do społeczności Azure Cosmos DB
 
@@ -25,7 +25,7 @@ W jaki sposób można przechowywać te dane i gdzie?
 
 Być może masz doświadczenie w bazach danych SQL lub masz koncepcję [modelowania danych relacyjnych](https://en.wikipedia.org/wiki/Relational_model). Możesz rozpocząć rysowanie w następujący sposób:
 
-![Diagram ilustrujący względny model relacyjny](./media/social-media-apps/social-media-apps-sql.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-sql.png" alt-text="Diagram ilustrujący względny model relacyjny" border="false":::
 
 Doskonale znormalizowana i łatwa struktura danych... to nie skalowanie.
 
@@ -157,7 +157,7 @@ Przechodźmy na przykład informacje o użytkowniku:
 
 Przeglądając te informacje, można szybko wykryć, które są krytycznymi informacjami, a tym samym nie, tworząc "drabinę":
 
-![Diagram wzorca drabiny](./media/social-media-apps/social-media-apps-ladder.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-ladder.png" alt-text="Diagram wzorca drabiny" border="false":::
 
 Najmniejszy krok jest nazywany UserChunk, minimalną ilością informacji identyfikujących użytkownika i używaną do duplikacji danych. Zmniejszając rozmiar zduplikowanych danych tylko do informacji, które będą wyświetlane, można zmniejszyć możliwość aktualizowania.
 
@@ -188,7 +188,7 @@ A wpis będzie wyglądać następująco:
         }
     }
 
-Gdy Edycja nastąpi w przypadku, gdy ma to na przykład atrybut fragmentu, można łatwo znaleźć odpowiednie dokumenty. Po prostu Użyj zapytań wskazujących atrybuty indeksowane, takie jak `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"`, a następnie zaktualizuj fragmenty.
+Gdy Edycja nastąpi w przypadku, gdy ma to na przykład atrybut fragmentu, można łatwo znaleźć odpowiednie dokumenty. Po prostu Użyj zapytań wskazujących atrybuty indeksowane, takie jak `SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"` , a następnie zaktualizuj fragmenty.
 
 ## <a name="the-search-box"></a>Pole wyszukiwania
 
@@ -230,7 +230,7 @@ Cosmos DB będą uruchamiać zapytania (łącznie z [agregacjami](https://azure.
 
 Od momentu ostatecznie zwiększy się ruch, a użycie zasobów (mierzone w [jednostek ru](request-units.md), lub jednostki żądań) zwiększy się. Często przeczytasz i zapisujesz w miarę zwiększania się bazy danych. Baza użytkownika zacznie tworzyć i czytać więcej zawartości. Dzięki temu możliwość **skalowania przepływności** jest istotna. Zwiększenie jednostek ru jest łatwe. Można to zrobić za pomocą kilku kliknięć na Azure Portal lub przez [wystawienie poleceń za pomocą interfejsu API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
-![Skalowanie w górę i Definiowanie klucza partycji](./media/social-media-apps/social-media-apps-scaling.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Skalowanie w górę i Definiowanie klucza partycji":::
 
 Co się stanie, jeśli problemy są lepsze? Załóżmy, że użytkownicy z innego regionu, kraju lub kontynentu zauważają platformę i zaczynają z niej korzystać. To świetny niespodziewany!
 
@@ -240,13 +240,13 @@ Cosmos DB umożliwia [globalną replikację danych](../cosmos-db/tutorial-global
 
 W przypadku globalnej replikacji danych należy upewnić się, że klienci mogą korzystać z niej. W przypadku korzystania z frontonu sieci Web lub uzyskiwania dostępu do interfejsów API z klientów mobilnych można wdrożyć [usługę Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) i sklonować Azure App Service we wszystkich żądanych regionach przy użyciu konfiguracji wydajności do obsługi rozszerzonego globalnego pokrycia. Gdy klienci uzyskują dostęp do frontonu lub interfejsów API, będą kierowani do najbliższej App Service, która z kolei nawiąże połączenie z lokalną repliką Cosmos DB.
 
-![Dodawanie globalnego pokrycia do platformy społecznościowej](./media/social-media-apps/social-media-apps-global-replicate.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-global-replicate.png" alt-text="Dodawanie globalnego pokrycia do platformy społecznościowej" border="false":::
 
 ## <a name="conclusion"></a>Podsumowanie
 
 W tym artykule przedstawiono część niedrogiego tworzenia sieci społecznościowych na platformie Azure. zapewnia ona wyniki poprzez zachęcanie do korzystania z wielowarstwowego rozwiązania magazynu i dystrybucji danych o nazwie "drabina".
 
-![Diagram interakcji między usługami platformy Azure dla sieci społecznościowych](./media/social-media-apps/social-media-apps-azure-solution.png)
+:::image type="content" source="./media/social-media-apps/social-media-apps-azure-solution.png" alt-text="Diagram interakcji między usługami platformy Azure dla sieci społecznościowych" border="false":::
 
 W rzeczywistości jest to, że dla tego rodzaju scenariuszy nie ma punktora Silver. Jest to synergia utworzona przez połączenie doskonałych usług, które pozwalają nam budować wspaniałe środowiska: szybkość i swoboda Azure Cosmos DB zapewniania doskonałej aplikacji społecznościowej, analizy za pierwszą klasą rozwiązania do wyszukiwania, takiego jak Azure Wyszukiwanie poznawcze, elastyczności App Services platformy Azure do hostowania nienawet aplikacji języka niezależny od, ale zaawansowane procesy w tle i rozszerzalny magazyny platformy Azure oraz Azure SQL Database do przechowywania dużych ilości danych i możliwości analitycznych w usłudze Azure Machine Zapoznaj się z artykułem dotyczącym tworzenia wiedzy i analizy, dzięki której możesz dostarczać opinie dotyczące procesów i pomóc nam w dostarczaniu odpowiedniej zawartości do odpowiednich użytkowników.
 

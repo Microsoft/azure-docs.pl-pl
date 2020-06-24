@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/06/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9763cc0d93e6731bb42bcc55f9d8bf9463e2b0dd
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: eaa78637a2a88c1fceddf5b7ac9cd928ed8a444a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434683"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261481"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Zarządzanie dostępem do obszaru roboczego Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Obszar roboczy Azure Machine Learning jest zasobem platformy Azure. Podobnie jak
 
 | Rola | Poziom dostępu |
 | --- | --- |
-| **Czytelnik** | Akcje tylko do odczytu w obszarze roboczym. Czytelnicy mogą wyświetlać i przeglądać zasoby w obszarze roboczym, ale nie mogą tworzyć ani aktualizować tych zasobów. |
+| **Czytelnik** | Akcje tylko do odczytu w obszarze roboczym. Czytelnicy mogą wyświetlać i przeglądać zasoby (w tym poświadczenia [magazynu](how-to-access-data.md) danych) w obszarze roboczym, ale nie mogą tworzyć ani aktualizować tych zasobów. |
 | **Współautor** | Wyświetlanie, tworzenie, edytowanie lub usuwanie (jeśli dotyczy) zasobów w obszarze roboczym. Można na przykład utworzyć eksperyment, utworzyć lub dołączyć klaster obliczeniowy, przesłać przebieg i wdrożyć usługę sieci Web. |
 | **Właściciel** | Pełny dostęp do obszaru roboczego, w tym możliwość wyświetlania, tworzenia, edytowania lub usuwania (jeśli dotyczy) zasobów w obszarze roboczym. Ponadto można zmienić przypisania ról. |
 
@@ -42,7 +42,7 @@ Aby uzyskać więcej informacji na temat określonych ról wbudowanych, zobacz [
 
 Jeśli jesteś właścicielem obszaru roboczego, możesz dodawać i usuwać role dla obszaru roboczego. Możesz również przypisywać role do użytkowników. Skorzystaj z poniższych linków, aby dowiedzieć się, jak zarządzać dostępem:
 - [Interfejs użytkownika Azure Portal](/azure/role-based-access-control/role-assignments-portal)
-- [Program PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+- [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Interfejs wiersza polecenia platformy Azure](/azure/role-based-access-control/role-assignments-cli)
 - [Interfejs API REST](/azure/role-based-access-control/role-assignments-rest)
 - [Szablony usługi Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
@@ -58,6 +58,9 @@ az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
+
+> [!NOTE]
+> polecenie "AZ ml Workspace Share" nie działa w przypadku konta federacyjnego przez Azure Active Directory B2B. Zamiast polecenia Użyj portalu interfejsu użytkownika platformy Azure.
 
 ## <a name="create-custom-role"></a>Tworzenie roli niestandardowej
 

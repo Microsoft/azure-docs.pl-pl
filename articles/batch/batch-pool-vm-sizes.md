@@ -2,14 +2,14 @@
 title: Wybierz rozmiary maszyn wirtualnych dla pul
 description: Jak wybierać dostępne rozmiary maszyn wirtualnych dla węzłów obliczeniowych w pulach Azure Batch
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 06/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1e3bcc51fafe10f4a753bdc79795f9afd00821d7
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c1621bbbe6676144176636346f3f5c34db169b7a
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323828"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693162"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Wybieranie rozmiaru maszyny wirtualnej dla węzłów obliczeniowych w puli Azure Batch
 
@@ -37,9 +37,11 @@ Pule wsadowe w konfiguracji maszyny wirtualnej obsługują niemal wszystkie rozm
 | Dv3, Dsv3 | Wszystkie rozmiary |
 | Dav4<sup>1</sup> | Brak — nie jest jeszcze dostępna |
 | Dasv4<sup>1</sup> | Wszystkie rozmiary, z wyjątkiem Standard_D48as_v4, Standard_D64as_v4 Standard_D96as_v4 |
+| Ddv4, Ddsv4 |  Brak — nie jest jeszcze dostępna |
 | EV3, Esv3 | Wszystkie rozmiary, z wyjątkiem E64is_v3 i E64i_v3 |
 | Eav4<sup>1</sup> | Wszystkie rozmiary, z wyjątkiem Standard_E48a_v4, Standard_E64a_v4 Standard_E96a_v4 |
 | Easv4<sup>1</sup> | Wszystkie rozmiary, z wyjątkiem Standard_E48as_v4, Standard_E64as_v4 Standard_E96as_v4 |
+| Edv4, Edsv4 |  Brak — nie jest jeszcze dostępna |
 | F, FS | Wszystkie rozmiary |
 | Fsv2 | Wszystkie rozmiary |
 | G, GS | Wszystkie rozmiary |

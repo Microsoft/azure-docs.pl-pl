@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/30/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 17b8ce04cb5029d1bea11344617bf65718ca579c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3fcf19ffdce57051e86d6e4bab37d719c91a8a1f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653031"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206632"
 ---
 # <a name="synapse-sql-recommendations"></a>Synapse zalecenia dotyczące języka SQL
 

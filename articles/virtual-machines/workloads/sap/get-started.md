@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/10/2020
+ms.date: 06/22/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfe61c7e461d6598277aa9b38eafc16194b08bf1
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: f79eabd960238b52c146d89af8aef050aab427c3
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672123"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207179"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -112,6 +112,8 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 06/22/2020: Dodaj kroki instalacji dla nowego rozszerzenia maszyny wirtualnej dla SAP do [przewodnika wdrażania](deployment-guide.md)
+- 06/16/2020: zmiana [łączności publicznej punktu końcowego dla maszyn wirtualnych przy użyciu usługi Azure Standard ILB w scenariuszach dotyczących oprogramowania SAP ha](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) aby dodać link do usługi SUSE Public Cloud infrastructure 101 Documentation 
 - 06/10/2020: Dodawanie nowych jednostek SKU do [dostępnych jednostek SKU dla](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) [architektury magazynu i SAP HANA (duże wystąpienia)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture)
 - 05/21/2020: zmiana podczas [konfigurowania Pacemaker na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) i [KONFIGUROWANIA Pacemaker na RHEL na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) w celu dodania linku do [łączności z publicznym punktem końcowym dla maszyn wirtualnych przy użyciu usługi Azure Standard ILB w scenariuszach dotyczących oprogramowania SAP ha](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
 - 05/19/2020: Dodaj ważny komunikat, aby nie używać grupy woluminów głównych przy użyciu LVM dla woluminów związanych z [platformą HANA SAP HANA w konfiguracjach magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)

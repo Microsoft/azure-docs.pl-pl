@@ -2,13 +2,13 @@
 title: Przegląd szablonów
 description: Opisuje zalety korzystania z szablonów Azure Resource Manager na potrzeby wdrażania zasobów.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/22/2020
+ms.openlocfilehash: 4cdd0751feea6a3ade7183311831c7ed2b0f1b70
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086338"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210222"
 ---
 # <a name="what-are-arm-templates"></a>Co to są szablony usługi ARM?
 
@@ -129,3 +129,4 @@ Informacje dotyczące szablonów zagnieżdżonych można znaleźć w temacie [Us
 * Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz [Samouczek: Tworzenie i wdrażanie pierwszego szablonu usługi ARM](template-tutorial-create-first-template.md).
 * Informacje o właściwościach w plikach szablonów można znaleźć w temacie [Omówienie struktury i składni szablonów usługi ARM](template-syntax.md).
 * Aby dowiedzieć się więcej na temat eksportowania szablonów, zobacz [Szybki Start: Tworzenie i wdrażanie szablonów ARM przy użyciu Azure Portal](quickstart-create-templates-use-the-portal.md).
+* Odpowiedzi na często zadawane pytania można znaleźć w sekcji [często zadawanych pytań dotyczących szablonów ARM](frequently-asked-questions.md).

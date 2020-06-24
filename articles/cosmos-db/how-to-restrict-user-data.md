@@ -3,15 +3,15 @@ title: Ograniczanie dostępu użytkowników do operacji na danych tylko przy uż
 description: Dowiedz się, jak ograniczyć dostęp do operacji na danych tylko przy użyciu Azure Cosmos DB
 author: voellm
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
-ms.openlocfilehash: 03cad9e4c3752b5f35be785a6280bf18aaa14860
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88899dc697839b16c2b0cd24ac9233f87da26b41
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74980376"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261226"
 ---
 # <a name="restrict-user-access-to-data-operations-only"></a>Ograniczanie dostępu użytkowników tylko do operacji na danych
 
@@ -19,7 +19,9 @@ W Azure Cosmos DB istnieją dwa sposoby uwierzytelniania interakcji z usługą b
 - Używanie tożsamości Azure Active Directory podczas korzystania z Azure Portal,
 - Używanie [kluczy](secure-access-to-data.md#master-keys) Azure Cosmos DB lub [tokenów zasobów](secure-access-to-data.md#resource-tokens) podczas wystawiania wywołań z interfejsów API i zestawów SDK.
 
-Każda metoda uwierzytelniania zapewnia dostęp do różnych zestawów operacji, z pewnym nakładaniem: ![podział operacji na typ uwierzytelniania](./media/how-to-restrict-user-data/operations.png)
+Każda metoda uwierzytelniania zapewnia dostęp do różnych zestawów operacji, z pewnym nakładaniem:
+
+:::image type="content" source="./media/how-to-restrict-user-data/operations.png" alt-text="Podział operacji na typ uwierzytelniania" border="false":::
 
 W niektórych scenariuszach może być konieczne ograniczenie niektórych użytkowników organizacji do wykonywania operacji na danych (to znaczy żądania CRUD i zapytania). Jest to zazwyczaj przypadek dla deweloperów, którzy nie muszą tworzyć ani usuwać zasobów, ani zmieniać zainicjowanej przepływności kontenerów, nad którymi pracują.
 
@@ -36,7 +38,7 @@ W skryptach programu PowerShell w kolejnych sekcjach Zastąp następujące symbo
 - `$MySubscriptionId`— Identyfikator subskrypcji zawierający konto usługi Azure Cosmos, w którym chcesz ograniczyć uprawnienia. Na przykład: `e5c8766a-eeb0-40e8-af56-0eb142ebf78e`.
 - `$MyResourceGroupName`— Grupa zasobów zawierająca konto usługi Azure Cosmos. Na przykład: `myresourcegroup`.
 - `$MyAzureCosmosDBAccountName`— Nazwa konta usługi Azure Cosmos. Na przykład: `mycosmosdbsaccount`.
-- `$MyUserName`-Identyfikator logowania (username@domain) użytkownika, dla którego chcesz ograniczyć dostęp. Na przykład: `cosmosdbuser@contoso.com`.
+- `$MyUserName`-Identyfikator logowania ( username@domain ) użytkownika, dla którego chcesz ograniczyć dostęp. Na przykład: `cosmosdbuser@contoso.com`.
 
 ## <a name="select-your-azure-subscription"></a>Wybierz subskrypcję platformy Azure
 
@@ -49,7 +51,7 @@ Select-AzSubscription $MySubscriptionId
 
 ## <a name="create-the-custom-azure-active-directory-role"></a>Utwórz niestandardową rolę Azure Active Directory
 
-Poniższy skrypt tworzy przypisanie roli Azure Active Directory z dostępem "klucz Only" dla kont usługi Azure Cosmos. Rola jest oparta na [rolach niestandardowych dla zasobów platformy Azure](../role-based-access-control/custom-roles.md) i [szczegółowych akcjach dla Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Te role i akcje są częścią przestrzeni `Microsoft.DocumentDB` nazw Azure Active Directory.
+Poniższy skrypt tworzy przypisanie roli Azure Active Directory z dostępem "klucz Only" dla kont usługi Azure Cosmos. Rola jest oparta na [rolach niestandardowych dla zasobów platformy Azure](../role-based-access-control/custom-roles.md) i [szczegółowych akcjach dla Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb). Te role i akcje są częścią `Microsoft.DocumentDB` przestrzeni nazw Azure Active Directory.
 
 1. Najpierw Utwórz dokument JSON o nazwie `AzureCosmosKeyOnlyAccess.json` z następującą zawartością:
 

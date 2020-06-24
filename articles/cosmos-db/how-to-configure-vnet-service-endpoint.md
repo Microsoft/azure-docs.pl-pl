@@ -3,15 +3,15 @@ title: Konfigurowanie dostępu opartego na sieci wirtualnej dla konta usługi Az
 description: W tym dokumencie opisano kroki wymagane do skonfigurowania punktu końcowego usługi sieci wirtualnej dla Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: mjbrown
-ms.openlocfilehash: 904b976b5e5c811912df9421dc64be1617b30b44
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: a061676714c35b4e8868ce3df9c71be05297ba99
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84431721"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261668"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Konfigurowanie dostępu z sieci wirtualnych (VNet)
 
@@ -42,11 +42,11 @@ W poniższych sekcjach opisano sposób konfigurowania punktu końcowego usługi 
 
 1. Wybierz **subskrypcję** , z której chcesz dodać sieć wirtualną platformy Azure. Wybierz **sieci wirtualne** i **podsieci** platformy Azure, dla których chcesz zapewnić dostęp do konta Azure Cosmos DB. Następnie wybierz pozycję **Włącz** , aby włączyć wybrane sieci z punktami końcowymi usługi dla elementu "Microsoft. AzureCosmosDB". Po zakończeniu wybierz pozycję **Dodaj**.
 
-   ![Wybierz sieć wirtualną i podsieć](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Wybierz sieć wirtualną i podsieć":::
 
 1. Po włączeniu konta Azure Cosmos DB dostępu z sieci wirtualnej zezwoli on na ruch tylko z tej wybranej podsieci. Dodana Sieć wirtualna i podsieć powinna zostać wyświetlona, jak pokazano na poniższym zrzucie ekranu:
 
-   ![Pomyślnie skonfigurowano sieć wirtualną i podsieć](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Pomyślnie skonfigurowano sieć wirtualną i podsieć":::
 
 > [!NOTE]
 > Aby włączyć punkty końcowe usługi sieci wirtualnej, wymagane są następujące uprawnienia do subskrypcji:
@@ -66,7 +66,7 @@ Poniżej przedstawiono wskazówki dotyczące rejestrowania subskrypcji przy uży
 
 1. Podaj szczegóły wymagane do utworzenia nowej sieci wirtualnej, a następnie wybierz pozycję **Utwórz**. Podsieć zostanie utworzona z punktem końcowym usługi dla "Microsoft. AzureCosmosDB".
 
-   ![Wybierz sieć wirtualną i podsieć dla nowej sieci wirtualnej](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Wybierz sieć wirtualną i podsieć dla nowej sieci wirtualnej":::
 
 Jeśli konto Azure Cosmos DB jest używane przez inne usługi platformy Azure, takie jak Azure Wyszukiwanie poznawcze lub dostęp za pośrednictwem usług Stream Analytics lub Power BI, zezwolisz na dostęp poprzez wybranie opcji **Akceptuj połączenia z poziomu globalnych centrów danych platformy Azure**.
 
@@ -80,7 +80,7 @@ Aby mieć pewność, że masz dostęp do metryk Azure Cosmos DB z poziomu portal
 
 1. Aby usunąć regułę sieci wirtualnej lub podsieci, wybierz pozycję **...** obok sieci wirtualnej lub podsieci, a następnie wybierz pozycję **Usuń**.
 
-   ![Usuwanie sieci wirtualnej](./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Usuwanie sieci wirtualnej":::
 
 1. Aby zastosować zmiany, wybierz pozycję **Zapisz**.
 

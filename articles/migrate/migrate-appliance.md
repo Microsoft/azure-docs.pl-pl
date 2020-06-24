@@ -3,12 +3,12 @@ title: Urządzenie usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 8d385e956aaa2888d72d711571fa8e7cb91da772
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: a57ca67c89078143eba42d94e8d96e004200041a
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323811"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106566"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -47,8 +47,8 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 **Obsługiwane wdrożenie** | Wdróż jako maszynę wirtualną VMware przy użyciu szablonu komórki jajowe.<br/><br/> Wdróż aplikację jako maszynę wirtualną VMware lub maszynę fizyczną przy użyciu skryptu instalacyjnego programu PowerShell.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
 **Limity odnajdywania** | Urządzenie może wykryć do 10 000 maszyn wirtualnych VMware na vCenter Server.<br/> Urządzenie może połączyć się z pojedynczym vCenter Server.
-**Szablon komórki jajowe** | Pobierz z portalu lub z programu https://aka.ms/migrate/appliance/vmware .<br/><br/> Rozmiar pobieranych plików to 11,2 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
-**Skrypt programu PowerShell** | [Pobieranie](https://go.microsoft.com/fwlink/?linkid=2105112)skryptu.<br/><br/> 
+**Szablon komórki jajowe** | Pobierz z portalu lub z programu https://aka.ms/migrate/appliance/vmware .<br/><br/> Rozmiar pobieranych plików to 10,9 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
+**Skrypt programu PowerShell** | Zapoznaj się z tym [artykułem](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-vmware).<br/><br/> 
 **Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na maszynie wirtualnej VMware, konieczne jest posiadanie wystarczającej ilości zasobów na vCenter Server do przydzielenia maszyny wirtualnej spełniającej wymagania.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.
 **Wymagania dotyczące oprogramowania VMware** | W przypadku wdrożenia urządzenia jako maszyny wirtualnej VMware należy je wdrożyć na hoście ESXi z systemem w wersji 5,5 lub nowszej.<br/><br/> vCenter Server uruchomione 5,5, 6,0, 6,5 lub 6,7.
 **VDDK (migracja bez wykorzystania agentów)** | W przypadku wdrożenia urządzenia jako maszyny wirtualnej VMware i korzystania z migracji bez agenta należy zainstalować na maszynie wirtualnej urządzenia VMware vSphere VDDK.
@@ -68,8 +68,8 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
 **Limity odnajdywania** | Urządzenie może wykryć do 5000 maszyn wirtualnych funkcji Hyper-V.<br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
 **Szablon wirtualnego dysku twardego** | Folder spakowany zawierający dysk VHD. Pobierz z portalu lub z programu https://aka.ms/migrate/appliance/hyperv .<br/><br/> Rozmiar pobieranych plików wynosi 10 GB.<br/><br/> Pobrany szablon urządzenia zawiera licencję ewaluacyjną systemu Windows Server 2016, która jest ważna przez 180 dni. Jeśli okres próbny zbliża się do wygaśnięcia, zalecamy pobranie i wdrożenie nowego urządzenia albo Aktywowanie licencji na maszynę wirtualną urządzenia.
-**Skrypt programu PowerShell** | [Pobieranie](https://go.microsoft.com/fwlink/?linkid=2105112)skryptu.<br/><br/> 
-**Oprogramowanie/sprzęt***   |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane jako maszyna wirtualna funkcji Hyper-V, na hoście funkcji Hyper-V jest wystarczająca ilość zasobów do przydzielenia 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca do magazynowania oraz przełącznik zewnętrzny dla maszyny wirtualnej urządzenia.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe. 
+**Skrypt programu PowerShell** | Zapoznaj się z tym [artykułem](https://docs.microsoft.com/azure/migrate/deploy-appliance-script#set-up-the-appliance-for-hyper-v).<br/><br/> 
+**Oprogramowanie/sprzęt***   |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane jako maszyna wirtualna funkcji Hyper-V, na hoście funkcji Hyper-V jest wystarczająca ilość zasobów do przydzielenia 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca do magazynowania oraz przełącznik zewnętrzny dla maszyny wirtualnej urządzenia.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe. 
 **Wymagania dotyczące funkcji Hyper-V** | Jeśli urządzenie zostanie wdrożone przy użyciu szablonu VHD, maszyna wirtualna z urządzeniem udostępniona przez Azure Migrate jest maszyną wirtualną funkcji Hyper-V w wersji 5,0.<br/><br/> Na hoście funkcji Hyper-V musi być uruchomiony system Windows Server 2012 R2 lub nowszy. 
 **Wartość skrótu — wirtualny dysk twardy** | [Sprawdź](tutorial-assess-hyper-v.md#verify-security) wartości skrótu szablonu wirtualnego dysku twardego.
 **Wartość skrótu — skrypt programu PowerShell** | [Sprawdź](deploy-appliance-script.md#verify-file-security) wartości skrótu skryptu programu PowerShell.
@@ -83,9 +83,9 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących urządzeń Azure Mig
 **Składniki urządzenia** | Urządzenie ma następujące składniki: <br/><br/> - **Aplikacja zarządzania**: jest to aplikacja internetowa do wprowadzania danych przez użytkownika podczas wdrażania urządzenia. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/> - **Agent odnajdywania**: Agent zbiera dane konfiguracji maszyny. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Agent oceny**: Agent zbiera dane wydajności. Używane podczas oceniania maszyn do migracji na platformę Azure.<br/>- **Usługa Autoaktualizacja**: aktualizuje składniki urządzenia (jest uruchamiany co 24 godziny).
 **Obsługiwane wdrożenie** | Wdróż jako dedykowaną maszynę fizyczną lub maszynę wirtualną przy użyciu skryptu instalacyjnego programu PowerShell. Skrypt jest dostępny do pobrania z portalu.
 **Obsługa projektu** |  Urządzenie może być skojarzone z pojedynczym projektem. <br/> Dowolna liczba urządzeń może być skojarzona z pojedynczym projektem.<br/> 
-**Limity odnajdywania** | Urządzenie może wykryć do 250 serwerów fizycznych.
-**Skrypt programu PowerShell** | Pobierz skrypt (AzureMigrateInstaller. ps1) w folderze spakowanym z portalu. [Dowiedz się więcej](tutorial-assess-physical.md#set-up-the-appliance). Alternatywnie możesz [pobrać bezpośrednio](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Rozmiar pobieranych plików to 59,7 MB.
-**Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 32 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.<br/> Uruchamianie urządzenia na komputerze z systemem Windows Server 2019 nie jest obsługiwane.
+**Limity odnajdywania** | Urządzenie może wykryć do 1000 serwerów fizycznych.
+**Skrypt programu PowerShell** | Pobierz skrypt (AzureMigrateInstaller.ps1) w folderze spakowanym z portalu. [Dowiedz się więcej](tutorial-assess-physical.md#set-up-the-appliance). Alternatywnie możesz [pobrać bezpośrednio](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Rozmiar pobieranych plików to 63,1 MB.
+**Oprogramowanie/sprzęt** |  Urządzenie powinno działać na komputerze z systemem Windows Server 2016, 16 GB pamięci RAM, 8 procesorów wirtualnych vCPU, około 80 GB miejsca na dysku i zewnętrznym przełączniku wirtualnym.<br/> Urządzenie musi mieć statyczny lub dynamiczny adres IP i wymaga dostępu do Internetu, bezpośrednio lub za pomocą serwera proxy.<br/><br/> Jeśli urządzenie jest uruchamiane na komputerze fizycznym, upewnij się, że jest uruchomiony system Windows Server 2016 i spełnia wymagania sprzętowe.<br/> Uruchamianie urządzenia na komputerze z systemem Windows Server 2019 nie jest obsługiwane.
 **Wartość skrótu** | [Sprawdź](deploy-appliance-script.md#verify-file-security) wartości skrótu skryptu programu PowerShell.
 
 ## <a name="url-access"></a>Dostęp do adresu URL
@@ -148,18 +148,18 @@ Poniżej znajduje się pełna lista metadanych maszyn wirtualnych VMware, które
 **DATA** | **PRZECIW**
 --- | --- 
 **Szczegóły maszyny** | 
-Identyfikator maszyny wirtualnej | maszyn. Config. InstanceUuid 
-Nazwa maszyny wirtualnej | maszyn. Config.Name
+Identyfikator maszyny wirtualnej | vm.Config. InstanceUuid 
+Nazwa maszyny wirtualnej | vm.Config. Nazwij
 Identyfikator vCenter Server | VMwareClient. Instance. UUID
-Opis maszyny wirtualnej | maszyn. Summary. config. Annotation
+Opis maszyny wirtualnej | vm.Summary.Config. Wskazani
 Nazwa produktu licencji | maszyn. Client. servicecontent. LicenseProductName
 Typ systemu operacyjnego | maszyn. SummaryConfig.GuestFullName
-Typ rozruchu | maszyn. Config. oprogramowanie układowe
-Liczba rdzeni | maszyn. Config. Hardware. NumCPU
-Pamięć (MB) | maszyn. Config. Hardware. MemoryMB
-Liczba dysków | maszyn. Config. Hardware. Device. ToList — (). FindAll (x = > to VirtualDisk). Count
-Lista rozmiarów dysku | maszyn. Config. Hardware. Device. ToList — (). FindAll (x = > jest VirtualDisk)
-Lista kart sieciowych | maszyn. Config. Hardware. Device. ToList — (). FindAll (x = > to VirtualEthernet). Count
+Typ rozruchu | vm.Config. Wbudowane
+Liczba rdzeni | vm.Config. Sprzęt. NumCPU
+Pamięć (MB) | vm.Config. Sprzęt. MemoryMB
+Liczba dysków | vm.Config. Sprzęt. Device. ToList — (). FindAll (x => to VirtualDisk). Count
+Lista rozmiarów dysku | vm.Config. Sprzęt. Device. ToList — (). FindAll (x => jest VirtualDisk)
+Lista kart sieciowych | vm.Config. Sprzęt. Device. ToList — (). FindAll (x => to VirtualEthernet). Count
 Wykorzystanie procesora | CPU. Usage. Average
 Użycie pamięci |MEM. Usage. Average
 **Szczegóły dysku** | 
@@ -424,7 +424,7 @@ Oto dane wydajności systemu Windows Server, które urządzenie zbiera i wysyła
 
 **Dane** | **Klasa WMI** | **Właściwość klasy usługi WMI**
 --- | --- | ---
-Użycie procesora | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Użycie procesora CPU | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
 Użycie pamięci | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
 Liczba kart sieciowych | Win32_PerfFormattedData_Tcpip_NetworkInterface | Pobierz liczbę urządzeń sieciowych.
 Odebrane dane na kartę sieciową | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
@@ -438,7 +438,7 @@ Poniżej przedstawiono dane wydajności serwera z systemem Linux, które urządz
 
 **Dane** | **Linux** 
 --- | --- 
-Użycie procesora | /proc/stat/Cat| /proc/stat procesora grep
+Użycie procesora CPU | /proc/stat/Cat| /proc/stat procesora grep
 Użycie pamięci | bezpłatny \| grep MEM \| AWK "{Print $3/$ 2 * 100,0}"
 Liczba kart sieciowych | lshw — Klasa \| ETH grep [0-60], Sieć \| 1
 Odebrane dane na kartę sieciową | Kot/sys/Class/NET/ETH $ nic/Statystyka/rx_bytes
@@ -505,8 +505,8 @@ Aby zaewidencjonować Panel sterowania:
 
 W przypadku korzystania ze starszej wersji programu należy odinstalować usługę i ręcznie ją zaktualizować do najnowszej wersji.
 
-1. Aby sprawdzić dostępność najnowszych wersji usługi dla urządzeń, [Pobierz](https://aka.ms/latestapplianceservices) plik LatestComponents. JSON.
-2.    Po pobraniu otwórz plik LatestComponents. JSON w Notatniku.
+1. Aby sprawdzić dostępność najnowszych wersji usługi dla urządzeń, [pobierz](https://aka.ms/latestapplianceservices) LatestComponents.jspliku.
+2.    Po pobraniu otwórz LatestComponents.jsplik w Notatniku.
 3. Znajdź najnowszą wersję usługi w pliku i link do pobierania. Przykład:
 
     "Name": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
@@ -514,7 +514,7 @@ W przypadku korzystania ze starszej wersji programu należy odinstalować usług
 4.    Pobierz najnowszą wersję nieaktualnej usługi przy użyciu linku pobierania w pliku.
 5. Po pobraniu programu uruchom następujące polecenie w oknie polecenia administratora, aby sprawdzić integralność pobranego pliku MSI.
 
-    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Na przykład: C: \> certutil-HashFile C:\USERS\PUBLIC\DOWNLOADS\MICROSOFTAZUREAPPLIANCECONFIGURATIONMANAGER.msi MD5
+    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Na przykład: C: \> certutil-HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
 
 5. Sprawdź, czy dane wyjściowe polecenia są zgodne z wpisem wartości skrótu dla usługi w pliku (na przykład wartość skrótu MD5 powyżej).
 6. Teraz uruchom plik MSI, aby zainstalować usługę. Jest to instalacja dyskretna, a okno instalacji zostaje zamknięte po zakończeniu.

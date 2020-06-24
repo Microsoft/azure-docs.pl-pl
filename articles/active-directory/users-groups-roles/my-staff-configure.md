@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
-ms.topic: article
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.date: 05/08/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 791f2e9bf825bb0a1d1ce555c9fbd879106213df
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 40d1efd5d5e8dc5fed07bf5b9ab1cfa70927b5cf
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995824"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732586"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Zarządzanie użytkownikami za pomocą mojego personelu (wersja zapoznawcza)
 
@@ -54,7 +54,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 Po skonfigurowaniu określania zespołu, możesz zastosować ten zakres do użytkowników, którzy uzyskują dostęp do mojego personelu. Tylko użytkownicy, którym przypisano rolę administracyjną, mogą uzyskać dostęp do mojego personelu. Aby włączyć personel, wykonaj następujące czynności:
 
 1. Zaloguj się do Azure Portal jako administrator użytkownika.
-2. Przejdź do **Azure Active Directory** > **Ustawienia** > **User feature previews** > użytkownika wersje**zapoznawcze funkcji użytkownika Zarządzaj ustawieniami wersji zapoznawczej funkcji użytkownika**.
+2. Przejdź do **Azure Active Directory**  >  **Ustawienia użytkownika**wersje  >  **User feature previews**  >  **zapoznawcze funkcji użytkownika Zarządzaj ustawieniami wersji zapoznawczej funkcji użytkownika**.
 3. W obszarze **Administratorzy mogą uzyskać dostęp do mojego personelu**, możesz wybrać opcję Włącz dla wszystkich użytkowników, wybranych użytkowników lub bez dostępu użytkownika.
 
 > [!Note]
@@ -80,7 +80,7 @@ Zdecydowanie zalecamy ochronę mojego personelu przy użyciu [zasad dostępu war
 
 ## <a name="using-my-staff"></a>Korzystanie z mojego personelu
 
-Gdy użytkownik przechodzi do mojego pracownika, są wyświetlane nazwy [jednostek administracyjnych](directory-administrative-units.md) , do których mają uprawnienia administracyjne. W [dokumentacji użytkownika mojego personelu](../user-help/my-staff-team-manager.md)do odwoływania się do jednostek administracyjnych używamy terminu "lokalizacja". Jeśli uprawnienia administratora nie mają zakresu funkcji AU, uprawnienia są stosowane w całej organizacji. Po włączeniu mojego pracownika użytkownicy, którzy zostali włączeni i mają przypisaną rolę administracyjną, mogą uzyskać do niej dostęp [https://mystaff.microsoft.com](https://mystaff.microsoft.com). Można wybrać pozycję "Uruchom", aby wyświetlić użytkowników w tej funkcji, i wybrać użytkownika, aby otworzyć swój profil.
+Gdy użytkownik przechodzi do mojego pracownika, są wyświetlane nazwy [jednostek administracyjnych](directory-administrative-units.md) , do których mają uprawnienia administracyjne. W [dokumentacji użytkownika mojego personelu](../user-help/my-staff-team-manager.md)do odwoływania się do jednostek administracyjnych używamy terminu "lokalizacja". Jeśli uprawnienia administratora nie mają zakresu funkcji AU, uprawnienia są stosowane w całej organizacji. Po włączeniu mojego pracownika użytkownicy, którzy zostali włączeni i mają przypisaną rolę administracyjną, mogą uzyskać do niej dostęp [https://mystaff.microsoft.com](https://mystaff.microsoft.com) . Można wybrać pozycję "Uruchom", aby wyświetlić użytkowników w tej funkcji, i wybrać użytkownika, aby otworzyć swój profil.
 
 ## <a name="reset-a-users-password"></a>Resetowanie hasła użytkownika
 
@@ -130,5 +130,5 @@ Dzienniki inspekcji można wyświetlić w przypadku akcji podejmowanych w obszar
 
 ## <a name="next-steps"></a>Następne kroki
 
-[My Staff user documentation](../user-help/my-staff-team-manager.md)
-[Dokumentacja](directory-administrative-units.md) dotycząca użytkowników w dokumentacji dotyczącej pracowników
+[Dokumentacja dotycząca](../user-help/my-staff-team-manager.md) 
+ użytkowników mojego personelu [Dokumentacja jednostek administracyjnych](directory-administrative-units.md)

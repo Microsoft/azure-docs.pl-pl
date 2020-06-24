@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: 45c1f9b5425b7e826776dc0f52681c67846bfdc5
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 2c9af8c0839b56d5512bb17776182b3515a7d544
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218172"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115334"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji interfejs API tabel przy użyciu zestawu .NET SDK i Azure Cosmos DB 
 
@@ -73,7 +73,7 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
 
 1. W programie Visual Studio wybierz z menu **Plik** pozycję **Otwórz**, a następnie wybierz pozycję **Projekt/Rozwiązanie**. 
 
-   ![Otwieranie rozwiązania](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-open-solution.png" alt-text="Otwieranie rozwiązania"::: 
 
 2. Przejdź do folderu, w którym Sklonowano przykładową aplikację, a następnie otwórz plik TableStorage. sln.
 
@@ -103,9 +103,9 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Parametry połączenia**. Użyj przycisku kopiowania po prawej stronie okna, aby skopiować **PODSTAWOWE PARAMETRY POŁĄCZENIA**.
 
-   ![Wyświetlanie i kopiowanie PODSTAWOWYCH PARAMETRÓW POŁĄCZENIA w okienku parametrów połączenia](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="Wyświetlanie i kopiowanie PODSTAWOWYCH PARAMETRÓW POŁĄCZENIA w okienku parametrów połączenia":::
 
-2. W programie Visual Studio Otwórz plik **Settings. JSON** . 
+2. W programie Visual Studio Otwórz **Settings.js** pliku. 
 
 3. Wklej **podstawowe parametry połączenia** z portalu do wartości StorageConnectionString. Wklej parametry wewnątrz cudzysłowów.
 
@@ -115,7 +115,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
    }
    ```
 
-4. Naciśnij kombinację klawiszy CTRL + S, aby zapisać plik **Settings. JSON** .
+4. Naciśnij kombinację klawiszy CTRL + S, aby zapisać **Settings.js** pliku.
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. 
 
@@ -123,27 +123,27 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 1. W programie Visual Studio kliknij prawym przyciskiem myszy projekt **CosmosTableSamples** w **Eksplorator rozwiązań** a następnie kliknij pozycję **Zarządzaj pakietami NuGet**. 
 
-   ![Zarządzanie pakietami NuGet](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-manage-nuget.png" alt-text="Zarządzanie pakietami NuGet":::
 
 2. W polu **wyszukiwania** NuGet wpisz Microsoft. Azure. Cosmos. Table. Spowoduje to wyszukanie biblioteki klienta interfejsu API tabeli usługi Cosmos DB. Ta biblioteka jest obecnie dostępna dla .NET Framework i .NET Standard. 
    
-   ![Karta Przeglądaj pakietu NuGet](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-nuget-browse.png" alt-text="Karta Przeglądaj pakietu NuGet":::
 
 3. Kliknij przycisk **Instaluj** , aby zainstalować bibliotekę **Microsoft. Azure. Cosmos. Table** . Spowoduje to zainstalowanie pakietu interfejsu API tabeli usługi Azure Cosmos DB oraz wszystkich zależności.
 
 4. Po uruchomieniu całej aplikacji przykładowe dane są wstawiane do jednostki tabeli i usuwane na końcu, aby nie były widoczne żadne dane wstawione w przypadku uruchomienia całego przykładu. Można jednak wstawić kilka punktów przerwania, aby wyświetlić dane. Otwórz plik BasicSamples.cs i kliknij prawym przyciskiem myszy wiersz 52, wybierz **punkt przerwania**, a następnie wybierz polecenie **Wstaw punkt przerwania**. Wstaw kolejny punkt przerwania w wierszu 55.
 
-   ![Dodawanie punktu przerwania](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="Dodawanie punktu przerwania"::: 
 
 5. Naciśnij klawisz F5, aby uruchomić aplikację. W oknie konsoli jest wyświetlana nazwa nowej tabeli bazy danych (w tym przypadku demoa13b1) w Azure Cosmos DB. 
     
-   ![Dane wyjściowe konsoli](media/create-table-dotnet/azure-cosmosdb-console.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="Dane wyjściowe konsoli":::
 
    Po dotarciu do pierwszego punktu przerwania wróć do Eksploratora danych w witrynie Azure Portal. Kliknij przycisk **Odśwież**, rozwiń tabelę demo* i kliknij pozycję **Jednostki**. Karta **Jednostki** po prawej stronie zawiera nową jednostkę dodaną dla Waltera Harpa. Zauważ, że numer telefonu nowej jednostki to 425-555-0101.
 
-   ![Nowa jednostka](media/create-table-dotnet/azure-cosmosdb-entity.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="Nowa jednostka":::
     
-   Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że nie można znaleźć pliku Settings. JSON podczas uruchamiania projektu, można go rozwiązać, dodając następujący wpis XML do ustawień projektu. Kliknij prawym przyciskiem myszy pozycję CosmosTableSamples, wybierz pozycję Edytuj CosmosTableSamples. csproj i Dodaj następujący element: 
+   Jeśli zostanie wyświetlony komunikat o błędzie z informacją, że nie można odnaleźć Settings.jsw pliku podczas uruchamiania projektu, można go rozwiązać, dodając następujący wpis XML do ustawień projektu. Kliknij prawym przyciskiem myszy pozycję CosmosTableSamples, wybierz pozycję Edytuj CosmosTableSamples. csproj i Dodaj następujący element: 
 
    ```csharp
      <ItemGroup>
@@ -170,7 +170,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

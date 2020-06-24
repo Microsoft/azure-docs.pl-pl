@@ -4,15 +4,15 @@ description: Niektóre serie jednostek SKU są niedostępne dla wybranej subskry
 services: Azure Supportability
 author: stevendotwang
 ms.service: azure-supportability
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: 6a88cb4ff2385edd3c867c84774df1d0e21422be
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 87533b2e0c1397d0b8b2e9a89450a80a75c5e348
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835992"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763826"
 ---
 # <a name="region-or-sku-unavailable"></a>Region lub jednostka SKU jest niedostępna
 

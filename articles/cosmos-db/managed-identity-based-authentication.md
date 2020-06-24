@@ -3,16 +3,16 @@ title: Jak uzyskać dostęp do danych Azure Cosmos DB za pomocą zarządzanej to
 description: Dowiedz się, jak skonfigurować tożsamość zarządzaną przez system Azure Active Directory (tożsamość usługi zarządzanej) w celu uzyskania dostępu do kluczy z Azure Cosmos DB.
 author: j-patrick
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: 8136ad7a1fe29bc3394e959c10aafc52988c0a23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b277ae91dbdd747aba012d6e7302ed6cba61d938
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641223"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262271"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Korzystanie z zarządzanych tożsamości przypisanych do systemu w celu uzyskiwania dostępu do danych Azure Cosmos DB
 
@@ -28,13 +28,13 @@ W tym kroku przypiszesz tożsamość zarządzaną przypisaną przez system do ap
 
 1. W [Azure Portal](https://portal.azure.com/)Otwórz okienko **funkcji platformy Azure** i przejdź do aplikacji funkcji. 
 
-1. Otwórz kartę > **tożsamość** **funkcji platformy**: 
+1. Otwórz kartę **tożsamość funkcji platformy**  >  **Identity** : 
 
-   ![Zrzut ekranu przedstawiający funkcje platformy i opcje tożsamości dla aplikacji funkcji.](./media/managed-identity-based-authentication/identity-tab-selection.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Zrzut ekranu przedstawiający funkcje platformy i opcje tożsamości dla aplikacji funkcji.":::
 
 1. Na karcie **tożsamość** **Włącz pozycję** **stan** tożsamości systemu i wybierz pozycję **Zapisz**. Okienko **tożsamość** powinno wyglądać następująco:  
 
-   ![Zrzut ekranu przedstawiający stan tożsamości systemu ustawiony na wartość włączone.](./media/managed-identity-based-authentication/identity-tab-system-managed-on.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Zrzut ekranu przedstawiający stan tożsamości systemu ustawiony na wartość włączone.":::
 
 ## <a name="grant-access-to-your-azure-cosmos-account"></a>Udzielanie dostępu do konta usługi Azure Cosmos
 
@@ -55,19 +55,19 @@ W tym scenariuszu aplikacja funkcji odczyta temperaturę Aquarium, a następnie 
 
 1. Zaloguj się do Azure Portal i przejdź do swojego konta Azure Cosmos DB. Otwórz okienko **Kontrola dostępu (IAM)** , a następnie kartę **przypisania ról** :
 
-   ![Zrzut ekranu przedstawiający okienko kontroli dostępu i kartę przypisania roli.](./media/managed-identity-based-authentication/cosmos-db-iam-tab.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Zrzut ekranu przedstawiający okienko kontroli dostępu i kartę przypisania roli.":::
 
-1. Wybierz pozycję **+ Dodaj** > **przypisanie roli**.
+1. Wybierz pozycję **+ Dodaj** > **Dodaj przypisanie roli**.
 
 1. Zostanie otwarty panel **Dodawanie przypisania roli** z prawej strony:
 
-   ![Zrzut ekranu przedstawiający okienko Dodawanie przypisania roli.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png)
+   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Zrzut ekranu przedstawiający okienko Dodawanie przypisania roli.":::
 
    * **Rola**: Wybierz **współautor konta DocumentDB**
    * **Przypisz dostęp do**: w podsekcji **Wybieranie tożsamości zarządzanej przez system** wybierz pozycję **aplikacja funkcji**.
    * **Wybierz**: okienko zostanie wypełnione wszystkimi aplikacjami funkcji w subskrypcji, które mają **tożsamość systemu zarządzanego**. W takim przypadku wybierz aplikację funkcji **FishTankTemperatureService** : 
 
-      ![Zrzut ekranu przedstawiający okienko Dodawanie przypisania roli z przykładami.](./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png)
+      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Zrzut ekranu przedstawiający okienko Dodawanie przypisania roli z przykładami.":::
 
 1. Po wybraniu aplikacji funkcji wybierz pozycję **Zapisz**.
 
@@ -112,7 +112,7 @@ namespace Monitor
 }
 ```
 
-Użyjesz biblioteki [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) , aby uzyskać token zarządzanej tożsamości przypisany do systemu. Aby poznać inne sposoby uzyskiwania tokenu i dowiedzieć się więcej o `Microsoft.Azure.Service.AppAuthentication` bibliotece, zobacz artykuł dotyczący uwierzytelniania między [usługami](../key-vault/general/service-to-service-authentication.md) .
+Użyjesz biblioteki [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) , aby uzyskać token zarządzanej tożsamości przypisany do systemu. Aby poznać inne sposoby uzyskiwania tokenu i dowiedzieć się więcej o `Microsoft.Azure.Service.AppAuthentication` bibliotece, zobacz artykuł dotyczący [uwierzytelniania między usługami](../key-vault/general/service-to-service-authentication.md) .
 
 
 ```csharp

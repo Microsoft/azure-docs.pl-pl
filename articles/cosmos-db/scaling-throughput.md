@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 440f23afcd08326261be30432ad1f0ecb16f55fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4cc8f2c90e74b5b3ab6df3169df0524f1134b66e
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873509"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113606"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Globalne skalowanie aprowizowanej przepływności 
 
 W Azure Cosmos DB, obsługiwana przepływność jest reprezentowana jako jednostki żądań na sekundę (RU/s lub w formacie plural jednostek ru). Jednostek ru Zmierz koszt operacji odczytu i zapisu w kontenerze Cosmos, jak pokazano na poniższej ilustracji:
 
-![Jednostki żądania](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
+:::image type="content" source="./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png" alt-text="Jednostki żądania" border="false":::
 
 Można udostępnić jednostek RU w kontenerze Cosmos lub bazie danych Cosmos. Jednostek ru udostępniane w kontenerze są dostępne wyłącznie dla operacji wykonywanych w tym kontenerze. Jednostek ru udostępniane w bazie danych są współdzielone przez wszystkie kontenery w tej bazie danych (z wyjątkiem kontenerów z wyłącznie przypisanymi jednostek ru).
 

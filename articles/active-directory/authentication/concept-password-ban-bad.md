@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ef127d120b32f5344bce0f68d79f48401087f0ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264000"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84691067"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminate bad passwords in your organization (Eliminowanie nieprawidłowych haseł w organizacji)
 
@@ -111,7 +111,7 @@ Normalizacja ma dwie części.  Po pierwsze wielkie litery są zmieniane na mał
 | '$'  | przeglądarki |
 | '\@'  | z |
 
-Przykład: Załóżmy, że hasło "puste" jest zabronione, a użytkownik próbuje zmienić hasło na "Bl@nK". Chociaż "Bl@nk" nie jest jawnie zakazany, proces normalizacji konwertuje to hasło na "puste", które jest zakazanym hasłem.
+Przykład: Załóżmy, że hasło "puste" jest zabronione, a użytkownik próbuje zmienić hasło na " Bl@nK ". Chociaż " Bl@nk " nie jest jawnie zakazany, proces normalizacji konwertuje to hasło na "puste", które jest zakazanym hasłem.
 
 ### <a name="step-2-check-if-password-is-considered-banned"></a>Krok 2. Sprawdzanie, czy hasło jest uznawane za zabronione
 
@@ -147,7 +147,7 @@ Po normalizacji to hasło przyjmuje wartość "contosoblank12". Proces dopasowyw
 
 [contoso] + [puste] + [1] + [2] = 4 punkty, ponieważ to hasło znajduje się poniżej pięciu (5) punktów, zostanie odrzucone.
 
-Przykład: użytkownik zmienia swoje hasło na "ContoS0Bl@nkf9!".
+Przykład: użytkownik zmienia swoje hasło na " ContoS0Bl@nkf9 !".
 
 Po normalizacji to hasło zmieni się na "contosoblankf9!". Proces dopasowywania stwierdza, że to hasło zawiera dwa zabronione hasła: contoso i blank. To hasło otrzymuje wynik:
 

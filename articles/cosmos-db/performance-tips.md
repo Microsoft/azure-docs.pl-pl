@@ -3,22 +3,22 @@ title: Porady dotyczące wydajności Azure Cosmos DB dla zestawu .NET SDK V2
 description: Dowiedz się więcej na temat opcji konfiguracji klienta, aby zwiększyć wydajność Azure Cosmos DB .NET V2 SDK.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 06/04/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: sngun
-ms.openlocfilehash: 07ca4674c1b8dafc9c02ff8fdf82de330862de73
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: fce6cd441214cff4c76b05f8a2b6cb630613a66f
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84674027"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263436"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB i .NET SDK V2
 
 > [!div class="op_single_selector"]
 > * [Zestaw .NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
-> * [Zestaw .NET SDK V2](performance-tips.md)
-> * [Zestaw Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [.NET SDK 2](performance-tips.md)
+> * [Java SDK 4](performance-tips-java-sdk-v4-sql.md)
 > * [Async Java SDK 2](performance-tips-async-java.md)
 > * [Sync Java SDK 2](performance-tips-java.md)
 
@@ -93,8 +93,8 @@ Azure Cosmos DB oferuje prosty, otwarty model programowania RESTful za pośredni
 W przypadku zestawu SDK Microsoft.Azure.DocumentDB można skonfigurować tryb połączenia podczas konstruowania `DocumentClient` wystąpienia przy użyciu `ConnectionPolicy` parametru. W przypadku korzystania z trybu bezpośredniego można również ustawić `Protocol` za pomocą `ConnectionPolicy` parametru.
 
 ```csharp
-var serviceEndpoint = new Uri("https://contoso.documents.net");
-var authKey = "your authKey from the Azure portal";
+Uri serviceEndpoint = new Uri("https://contoso.documents.net");
+string authKey = "your authKey from the Azure portal";
 DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
 new ConnectionPolicy
 {
@@ -105,7 +105,18 @@ new ConnectionPolicy
 
 Ponieważ protokół TCP jest obsługiwany tylko w trybie bezpośrednim, w przypadku korzystania z trybu bramy protokół HTTPS jest zawsze używany do komunikowania się z bramą, a `Protocol` wartość w `ConnectionPolicy` jest ignorowana.
 
-![Zasady połączenia Azure Cosmos DB](./media/performance-tips/connection-policy.png)
+:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Zasady połączenia Azure Cosmos DB" border="false":::
+
+**Tymczasowe wyczerpanie portów**
+
+Jeśli w wystąpieniach jest wyświetlany wysoki poziom połączenia lub wysokie użycie portów, należy najpierw sprawdzić, czy wystąpienia klienta są pojedynczymi. Innymi słowy, wystąpienia klienta powinny być unikatowe w okresie istnienia aplikacji.
+
+W przypadku uruchamiania w protokole TCP klient optymalizuje się pod kątem opóźnienia przy użyciu połączeń długotrwałych zamiast protokołu HTTPS, który kończy połączenia po 2 minutach braku aktywności.
+
+W scenariuszach, w których masz dostęp rozrzedzony i jeśli zauważysz wyższą liczbę połączeń w porównaniu z dostępem do trybu bramy, możesz:
+
+* Skonfiguruj Właściwość [ConnectionPolicy. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.portreusemode) na wartość `PrivatePortPool` (efektywna w przypadku wersji Framework>= 4.6.1 i .net core w wersji >= 2,0): Ta właściwość umożliwia zestawowi SDK użycie niewielkiej puli tymczasowych portów dla różnych Azure Cosmos DB docelowych punktów końcowych.
+* Należy skonfigurować właściwość [ConnectionPolicy. IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.idletcpconnectiontimeout) , która nie może być większa niż 10 minut. Zalecane wartości są z zakresu od 20 minut do 24 godzin.
 
 **Wywołaj OpenAsync, aby uniknąć opóźnień uruchamiania przy pierwszym żądaniu**
 
@@ -121,7 +132,8 @@ Domyślnie pierwsze żądanie ma większe opóźnienia, ponieważ musi pobrać t
 
 Jeśli to możliwe, należy umieścić wszystkie aplikacje, które wywołują Azure Cosmos DB w tym samym regionie, co baza danych Azure Cosmos DB. Oto przybliżone porównanie: wywołania Azure Cosmos DB w tym samym regionie zakończyły się w ciągu 1 ms do 2 MS, ale opóźnienie między zachodnim i wschodnim wybrzeżem USA jest większe niż 50 ms. To opóźnienie może się różnić od żądania do żądania, w zależności od trasy podjętej przez żądanie przesyłanej z klienta do granicy centrum danych platformy Azure. Najniższe możliwe opóźnienie można uzyskać, upewniając się, że aplikacja wywołująca znajduje się w tym samym regionie platformy Azure, co punkt końcowy Azure Cosmos DB aprowizacji. Aby uzyskać listę dostępnych regionów, zobacz [regiony platformy Azure](https://azure.microsoft.com/regions/#services).
 
-![Zasady ](./media/performance-tips/same-region.png) połączenia Azure Cosmos DB<a id="increase-threads"></a>
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Zasady połączenia Azure Cosmos DB" border="false":::
+   <a id="increase-threads"></a>
 
 **Zwiększenie liczby wątków/zadań**
 
@@ -196,7 +208,7 @@ Aby zmniejszyć liczbę podróży sieci wymaganych do pobrania wszystkich stosow
 > [!NOTE] 
 > `maxItemCount`Właściwość nie powinna być używana tylko do dzielenia na strony. Jego głównym zastosowaniem jest poprawa wydajności zapytań przez zmniejszenie maksymalnej liczby elementów zwracanych na jednej stronie.  
 
-Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Na przykład:
+Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Przykład:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });

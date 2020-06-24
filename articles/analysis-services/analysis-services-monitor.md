@@ -8,11 +8,11 @@ ms.date: 03/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: aaa3a6d128fe7dd466f6f60ab515f05fa38ba63b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252807"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690380"
 ---
 # <a name="monitor-server-metrics"></a>Monitorowanie metryk serwera
 
@@ -45,7 +45,7 @@ Użyj tej tabeli, aby określić, które metryki najlepiej sprawdzają się w sc
 |mashup_engine_memory_metric|Pamięć aparatu M|Bajty|Średnia|Użycie pamięci przez procesy aparatu mashupów|
 |mashup_engine_qpu_metric|M QPU aparatu|Liczba|Średnia|QPU użycie przez procesy aparatu mashupów|
 |memory_metric|Memory (Pamięć)|Bajty|Średnia|Memory (pamięć). Zakres 0-25 GB dla S1, 0-50 GB dla S2 i 0-100 GB dla S4|
-|memory_thrashing_metric|Przeładowywanie pamięci|Wartość procentowa|Średnia|Średnia pamięć migotanie.|
+|memory_thrashing_metric|Przeładowywanie pamięci|Procent|Średnia|Średnia pamięć migotanie.|
 |CleanerCurrentPrice|Pamięć: bieżąca cena oczyszczarki|Liczba|Średnia|Bieżąca cena pamięci, $/Byte/Time, znormalizowana do 1000.|
 |CleanerMemoryNonshrinkable|Pamięć: pamięć oczyszczarki niemożliwa do zmniejszenia|Bajty|Średnia|Ilość pamięci (w bajtach), która nie podlega wyprzeczyszczaniu przez oczyszczarkę w tle.|
 |CleanerMemoryShrinkable|Pamięć: zmniejszanie ilości pamięci czyszczącej|Bajty|Średnia|Ilość pamięci, w bajtach, podlegająca przeczyszczaniu przez oczyszczarkę w tle.|
@@ -58,7 +58,7 @@ Użyj tej tabeli, aby określić, które metryki najlepiej sprawdzają się w sc
 |virtual_bytes_metric|Bajty wirtualne |Bajty|Średnia|Bieżący rozmiar wirtualnej przestrzeni adresowej używanej przez proces aparatu i procesy kontenera mashupów Analysis Services.|
 |mashup_engine_private_bytes_metric|Liczba prywatnych bajtów aparatu M |Bajty|Średnia|Łączna ilość pamięci w procesach kontenera programu mashup pamięć została przydzielona, bez uwzględnienia pamięci współdzielonej z innymi procesami.|
 |mashup_engine_virtual_bytes_metric|Liczba bajtów wirtualnych aparatu M |Bajty|Średnia|Bieżący rozmiar wirtualnej przestrzeni adresowej, z której korzystają procesy kontenera mashupu.|
-|Limit przydziału|Pamięć: limit przydziału|Bajty|Średnia|Bieżący limit pamięci (w bajtach). Przydział pamięci jest również nazywany przydziałem pamięci lub rezerwacją pamięci.|
+|limit przydziału|Pamięć: limit przydziału|Bajty|Średnia|Bieżący limit pamięci (w bajtach). Przydział pamięci jest również nazywany przydziałem pamięci lub rezerwacją pamięci.|
 |QuotaBlocked|Pamięć: zablokowany limit przydziału|Liczba|Średnia|Bieżąca liczba żądań przydziałów blokowanych do momentu zwolnienia innych limitów przydziału pamięci.|
 |VertiPaqNonpaged|Pamięć: VertiPaq niestronicowana|Bajty|Średnia|Bajty pamięci zablokowane w zestawie roboczym do użycia przez aparat w pamięci.|
 |VertiPaqPaged|Pamięć: stronicowana na stronie VertiPaq|Bajty|Średnia|Bajty stronicowanej pamięci w użyciu dla danych w pamięci.|

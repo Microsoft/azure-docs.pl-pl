@@ -11,15 +11,15 @@ ms.date: 12/05/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83e172e61411c7c1c098706b5ff4566f565d6bf1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 568f284a22f170c2a6a0d60d9e2cfed0645937ba
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66253856"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261379"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Co to jest synchronizacja skrótów haseł w usłudze Azure AD?
-Synchronizacja skrótów haseł to jedna z metod logowania używana do zapewnienia tożsamości hybrydowej. Program Azure AD Connect synchronizuje skróty haseł użytkowników z lokalnego wystąpienia usługi Active Directory do wystąpienia usługi Azure AD w chmurze.
+Synchronizacja skrótów haseł to jedna z metod logowania używana do zapewnienia tożsamości hybrydowej. Azure AD Connect synchronizuje skrót skrótu hasła użytkownika z wystąpienia lokalnego Active Directory do wystąpienia usługi Azure AD opartego na chmurze.
 
 Synchronizacja skrótów haseł jest rozszerzeniem funkcji synchronizacji katalogów zaimplementowanej przez Azure AD Connect Sync. Ta funkcja służy do logowania się do usług Azure AD, takich jak Office 365. Aby zalogować w usłudze, użyj tego samego hasła, którego używasz do zalogowania się w lokalnym wystąpieniu usługi Active Directory.
 

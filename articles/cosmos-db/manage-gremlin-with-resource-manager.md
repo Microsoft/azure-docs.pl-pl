@@ -3,15 +3,15 @@ title: Szablony Menedżer zasobów dla interfejsu API usługi Azure Cosmos DB Gr
 description: Użyj szablonów Azure Resource Manager, aby utworzyć i skonfigurować interfejs API usługi Azure Cosmos DB Gremlin.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0f807213d68e2731e784198f8ce968cdea9b3957
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 71f98e0ea9b5ca3a0c20c3977530d5235a4d6ccf
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684813"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262410"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejsu API usługi Azure Cosmos DB Gremlin przy użyciu szablonów Azure Resource Manager
 
@@ -33,7 +33,7 @@ Aby utworzyć dowolny z poniższych zasobów Azure Cosmos DB, Skopiuj poniższy 
 
 Ten szablon utworzy konto usługi Azure Cosmos dla interfejsu API Gremlin z bazą danych i grafem o przepływności skalowania automatycznego. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[![Wdróż na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin-autoscale%2Fazuredeploy.json)
+[![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-gremlin-autoscale/azuredeploy.json":::
 
@@ -43,7 +43,7 @@ Ten szablon utworzy konto usługi Azure Cosmos dla interfejsu API Gremlin z baz�
 
 Ten szablon spowoduje utworzenie konta usługi Azure Cosmos dla interfejsu API Gremlin z użyciem bazy danych i grafu przy użyciu standardowej (ręcznej) przepływności. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[![Wdróż na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin%2Fazuredeploy.json)
+[![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-gremlin%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json":::
 

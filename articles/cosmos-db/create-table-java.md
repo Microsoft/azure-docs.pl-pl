@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 979f93ef19a2c2aec96c51f81f412468070f7b1d
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 88a98c05b09d8e76159199fd5035a15d62bc293b
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84218009"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85115119"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Szybki Start: Tworzenie aplikacji Java do zarządzania danymi interfejs API tabel Azure Cosmos DB
 
@@ -159,7 +159,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 1. Na koncie Azure Cosmos DB w [Azure Portal](https://portal.azure.com/)wybierz pozycję **Parametry połączenia**. 
 
-   ![Wyświetlanie informacji o parametrach połączenia w okienku parametrów połączenia](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
+   :::image type="content" source="./media/create-table-java/cosmos-db-quickstart-connection-string.png" alt-text="Wyświetlanie informacji o parametrach połączenia w okienku parametrów połączenia":::
 
 2. Skopiuj PODSTAWOWE PARAMETRY POŁĄCZENIA przy użyciu przycisku kopiowania po prawej stronie.
 
@@ -204,7 +204,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

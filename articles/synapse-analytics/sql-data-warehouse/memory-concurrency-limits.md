@@ -6,17 +6,17 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: cd2511dcbf2e387a6f324742219b81c927b534af
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 443ac9ee1c2f05cf90e866793449220d71e37b89
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636389"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210665"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limity pamięci i współbieżności dla usługi Azure Synapse Analytics
 

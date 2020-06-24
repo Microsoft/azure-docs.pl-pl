@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839213"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116302"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indeksowanie danych geoprzestrzennych przy użyciu Azure Cosmos DB
 
@@ -34,11 +34,11 @@ Można przełączać między rodzajami przestrzennymi **geograficznymi** i **geo
 
 Poniżej przedstawiono sposób ustawiania **konfiguracji geoprzestrzennej** w **Eksplorator danych** w Azure Portal:
 
-![Ustawianie konfiguracji geoprzestrzennej](./media/sql-query-geospatial-index/geospatial-configuration.png)
+:::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Ustawianie konfiguracji geoprzestrzennej":::
 
 Możesz również zmodyfikować `geospatialConfig` w zestawie SDK platformy .NET, aby dostosować **konfigurację geoprzestrzenną**:
 
-Jeśli nie `geospatialConfig` zostanie określony, domyślnie będzie to typ danych Geografia. Po zmodyfikowaniu `geospatialConfig`wszystkie istniejące dane geograficzne w kontenerze zostaną ponownie indeksowane.
+Jeśli nie zostanie określony, `geospatialConfig` domyślnie będzie to typ danych Geografia. Po zmodyfikowaniu `geospatialConfig` wszystkie istniejące dane geograficzne w kontenerze zostaną ponownie indeksowane.
 
 Oto przykład modyfikacji typu danych geoprzestrzennych do `geometry` przez ustawienie `geospatialConfig` właściwości i dodanie elementu **boundingBox**:
 
@@ -107,7 +107,7 @@ Poniższy fragment kodu JSON przedstawia zasady indeksowania z włączonym indek
 
 ## <a name="geometry-data-indexing-examples"></a>Przykłady indeksowania danych geometrycznych
 
-W przypadku typu danych **geometria** , podobnego do typu danych Geografia, należy określić odpowiednie ścieżki i typy do indeksowania. Ponadto należy również określić `boundingBox` w ramach zasad indeksowania, aby wskazać żądany obszar do indeksowania dla tej konkretnej ścieżki. Każda ścieżka geoprzestrzenna wymaga`boundingBox`własnych.
+W przypadku typu danych **geometria** , podobnego do typu danych Geografia, należy określić odpowiednie ścieżki i typy do indeksowania. Ponadto należy również określić `boundingBox` w ramach zasad indeksowania, aby wskazać żądany obszar do indeksowania dla tej konkretnej ścieżki. Każda ścieżka geoprzestrzenna wymaga własnych `boundingBox` .
 
 Pole ograniczenia składa się z następujących właściwości:
 
@@ -120,7 +120,7 @@ Pole ograniczenia jest wymagane, ponieważ dane geometryczne zajmuje płaszczyzn
 
 Utwórz pole ograniczenia, które zawiera wszystkie (lub najwięcej) danych. Tylko operacje obliczane na obiektach, które znajdują się w całości wewnątrz pola ograniczenia, będą mogły korzystać z indeksu przestrzennego. Nadanie pola powiązanego większym niż potrzeba będzie negatywnie wpływać na wydajność zapytań.
 
-Oto przykładowe zasady indeksowania, które indeksuje dane **geometrii** z **geospatialConfig** ustawioną `geometry`na:
+Oto przykładowe zasady indeksowania, które indeksuje dane **geometrii** z **geospatialConfig** ustawioną na `geometry` :
 
 ```json
  {
@@ -159,7 +159,7 @@ Oto przykładowe zasady indeksowania, które indeksuje dane **geometrii** z **ge
 Powyższe zasady indeksowania mają **boundingBox** (-10, 10) dla współrzędnych x i (-20, 20) dla współrzędnych y. Kontener z powyższymi zasadami indeksowania będzie indeksować wszystkie punkty, wielokąty, wielowielokątne i LineStrings, które znajdują się w całości w tym regionie.
 
 > [!NOTE]
-> Próba dodania zasad indeksowania z **boundingBox** do kontenera z `geography` typem danych zakończy się niepowodzeniem. Przed dodaniem BoundingBox należy zmodyfikować **geospatialConfig** kontenera. **boundingBox** `geometry` Można dodać dane i zmodyfikować pozostałe zasady indeksowania (takie jak ścieżki i typy) przed lub po wybraniu typu danych geoprzestrzennych dla kontenera.
+> Próba dodania zasad indeksowania z **boundingBox** do kontenera z `geography` typem danych zakończy się niepowodzeniem. **geospatialConfig** `geometry` Przed dodaniem **boundingBox**należy zmodyfikować geospatialConfig kontenera. Można dodać dane i zmodyfikować pozostałe zasady indeksowania (takie jak ścieżki i typy) przed lub po wybraniu typu danych geoprzestrzennych dla kontenera.
 
 ## <a name="next-steps"></a>Następne kroki
 

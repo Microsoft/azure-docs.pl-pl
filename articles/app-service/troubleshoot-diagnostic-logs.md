@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: e945fd77c2615e6f5213a9aa4fc996f0c4d2f3dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b415c9582af2303451a8076307f07ee92ac08d0
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770000"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261345"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Włączanie rejestrowania diagnostycznego dla aplikacji w Azure App Service
 ## <a name="overview"></a>Omówienie
@@ -46,10 +46,10 @@ Aby włączyć rejestrowanie aplikacji dla aplikacji systemu Windows w [Azure Po
 
 Wybierz opcję **włączone** dla **rejestrowania aplikacji (system plików)** lub **rejestrowania aplikacji (BLOB)** lub obu tych metod. 
 
-Opcja systemu **plików** służy do tymczasowego debugowania i wyłącza się w ciągu 12 godzin. Opcja **obiektu BLOB** służy do rejestrowania długoterminowego i wymaga kontenera magazynu obiektów BLOB do zapisu dzienników.  Opcja **obiektu BLOB** zawiera również dodatkowe informacje w komunikatach dziennika, takie jak identyfikator wystąpienia pierwotnej maszyny wirtualnej komunikatu dziennika (`InstanceId`), identyfikator wątku (`Tid`) i bardziej szczegółowe sygnatura czasowa ([`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks)).
+Opcja systemu **plików** służy do tymczasowego debugowania i wyłącza się w ciągu 12 godzin. Opcja **obiektu BLOB** służy do rejestrowania długoterminowego i wymaga kontenera magazynu obiektów BLOB do zapisu dzienników.  Opcja **obiektu BLOB** zawiera również dodatkowe informacje w komunikatach dziennika, takie jak identyfikator wystąpienia pierwotnej maszyny wirtualnej komunikatu dziennika ( `InstanceId` ), identyfikator wątku ( `Tid` ) i bardziej szczegółowe sygnatura czasowa ( [`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) ).
 
 > [!NOTE]
-> Obecnie tylko Dzienniki aplikacji .NET mogą być zapisywane w magazynie obiektów BLOB. Java, PHP, Node. js Dzienniki aplikacji w języku Python mogą być przechowywane tylko w systemie plików App Service (bez modyfikacji kodu do zapisu dzienników do magazynu zewnętrznego).
+> Obecnie tylko Dzienniki aplikacji .NET mogą być zapisywane w magazynie obiektów BLOB. Java, PHP, Node.js, Dzienniki aplikacji Python mogą być przechowywane tylko w systemie plików App Service (bez modyfikacji kodu do zapisu dzienników do magazynu zewnętrznego).
 >
 > Ponadto, jeśli [ponownie wygenerujesz klucze dostępu konta magazynu](../storage/common/storage-create-storage-account.md), należy zresetować odpowiednią konfigurację rejestrowania, aby użyć zaktualizowanych kluczy dostępu. W tym celu:
 >
@@ -62,9 +62,9 @@ Wybierz **poziom**lub poziom szczegółów do zarejestrowania. W poniższej tabe
 
 | Poziom | Uwzględnione kategorie |
 |-|-|
-|**Wyłączony** | Brak |
+|**Wyłączone** | Brak |
 |**Błąd** | Błąd, krytyczny |
-|**Wyświetlania** | Ostrzeżenie, błąd, krytyczny|
+|**Ostrzeżenie** | Ostrzeżenie, błąd, krytyczny|
 |**Informacje** | Informacje, ostrzeżenie, błąd, krytyczne|
 |**Pełne** | Trace, Debug, info, Warning, Error, krytyczny (wszystkie kategorie) |
 
@@ -171,7 +171,7 @@ W przypadku aplikacji systemu Windows plik ZIP zawiera zawartość katalogu *D:\
 | **Dzienniki aplikacji** |*/LogFiles/Application/* | Zawiera co najmniej jeden plik tekstowy. Format komunikatów dziennika zależy od używanego dostawcy rejestrowania. |
 | **Ślady nieudanych żądań** | */LogFiles/W3SVC#########/* | Zawiera pliki XML i plik XSL. Można wyświetlić sformatowane pliki XML w przeglądarce. |
 | **Szczegółowe dzienniki błędów** | */LogFiles/DetailedErrors/* | Zawiera pliki błędów HTM. Pliki HTM można wyświetlić w przeglądarce.<br/>Innym sposobem wyświetlania śladów niepomyślnych żądań jest przechodzenie do strony aplikacji w portalu. Z menu po lewej stronie wybierz opcję **Diagnozuj i rozwiąż problemy**, a następnie wyszukaj **dzienniki śledzenia niepomyślnych żądań**, a następnie kliknij ikonę, aby przeglądać i wyświetlić odpowiedni ślad. |
-| **Dzienniki serwera sieci Web** | */LogFiles/http/RawLogs/* | Zawiera pliki tekstowe sformatowane przy użyciu [rozszerzonego formatu W3C plików dziennika](/windows/desktop/Http/w3c-logging). Te informacje można odczytać za pomocą edytora tekstu lub narzędzia, takiego jak [parser dzienników](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service nie obsługuje pól `s-computername`, `s-ip`, ani `cs-version` . |
+| **Dzienniki serwera sieci Web** | */LogFiles/http/RawLogs/* | Zawiera pliki tekstowe sformatowane przy użyciu [rozszerzonego formatu W3C plików dziennika](/windows/desktop/Http/w3c-logging). Te informacje można odczytać za pomocą edytora tekstu lub narzędzia, takiego jak [parser dzienników](https://go.microsoft.com/fwlink/?LinkId=246619).<br/>App Service nie obsługuje `s-computername` pól, `s-ip` , ani `cs-version` . |
 | **Dzienniki wdrożenia** | */LogFiles/git/* i */Deployments/* | Zawiera dzienniki wygenerowane przez wewnętrzne procesy wdrażania, a także dzienniki wdrożeń usługi git. |
 
 ## <a name="send-logs-to-azure-monitor-preview"></a>Wyślij dzienniki do Azure Monitor (wersja zapoznawcza)
@@ -193,6 +193,8 @@ W poniższej tabeli przedstawiono obsługiwane typy i opisy dzienników:
 | AppServiceAuditLogs | Tak | Tak | Działanie logowania za pośrednictwem protokołu FTP i kudu |
 | AppServiceFileAuditLogs | Tak | TBD | Zmiany plików za pośrednictwem protokołu FTP i kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Dzienniki aplikacji |
+| AppServiceIPSecAuditLogs  | Tak | Tak | Żądania z reguł adresów IP |
+| AppServicePlatformLogs  | TBA | Tak | Dzienniki kontenerów |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Następne kroki
 * [Wysyłanie zapytań do dzienników przy użyciu Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

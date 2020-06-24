@@ -3,21 +3,21 @@ title: Współużytkowanie zasobów między źródłami (CORS) w Azure Cosmos DB
 description: W tym artykule opisano sposób konfigurowania współużytkowania zasobów między źródłami (CORS) w Azure Cosmos DB przy użyciu szablonów Azure Portal i Azure Resource Manager.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 7a487cb10965a379a0a418efaa061be88c5d10dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 331b78737000a51b09d393160f07150f81058412
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77082976"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261651"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Skonfiguruj współużytkowanie zasobów między źródłami (CORS)
 
 Współużytkowanie zasobów między źródłami (CORS) to funkcja protokołu HTTP, która umożliwia aplikacji sieci Web działającej w ramach jednej domeny dostęp do zasobów w innej domenie. Przeglądarki sieci Web implementują ograniczenie zabezpieczeń nazywane zasadami tego samego źródła, które uniemożliwiają stronie sieci Web wywoływanie interfejsów API w innej domenie. Jednak mechanizm CORS zapewnia bezpieczny sposób, aby umożliwić domenie pochodzenia wywoływanie interfejsów API w innej domenie. Interfejs API Core (SQL) w Azure Cosmos DB obsługuje teraz funkcję współużytkowania zasobów między źródłami (CORS) przy użyciu nagłówka "allowedOrigins". Po włączeniu obsługi mechanizmu CORS dla konta usługi Azure Cosmos są oceniane tylko uwierzytelnione żądania, aby określić, czy są dozwolone zgodnie z określonymi regułami.
 
-Ustawienia udostępniania zasobów między źródłami (CORS) można skonfigurować z poziomu Azure Portal lub szablonu Azure Resource Manager. W przypadku kont usługi Cosmos przy użyciu interfejsu API Core (SQL) Azure Cosmos DB obsługuje bibliotekę języka JavaScript działającą w środowiskach Node. js i opartych na przeglądarce. Ta biblioteka może teraz korzystać z obsługi mechanizmu CORS w przypadku korzystania z trybu bramy. Do korzystania z tej funkcji nie jest wymagana konfiguracja po stronie klienta. W przypadku obsługi mechanizmu CORS zasoby z przeglądarki mogą bezpośrednio uzyskać dostęp do Azure Cosmos DB za pośrednictwem [biblioteki JavaScript](https://www.npmjs.com/package/@azure/cosmos) lub bezpośrednio z [interfejsu API REST](https://docs.microsoft.com/rest/api/cosmos-db/) w przypadku prostych operacji.
+Ustawienia udostępniania zasobów między źródłami (CORS) można skonfigurować z poziomu Azure Portal lub szablonu Azure Resource Manager. W przypadku kont usługi Cosmos przy użyciu interfejsu API Core (SQL) Azure Cosmos DB obsługuje bibliotekę języka JavaScript działającą w środowiskach Node.js i opartych na przeglądarce. Ta biblioteka może teraz korzystać z obsługi mechanizmu CORS w przypadku korzystania z trybu bramy. Do korzystania z tej funkcji nie jest wymagana konfiguracja po stronie klienta. W przypadku obsługi mechanizmu CORS zasoby z przeglądarki mogą bezpośrednio uzyskać dostęp do Azure Cosmos DB za pośrednictwem [biblioteki JavaScript](https://www.npmjs.com/package/@azure/cosmos) lub bezpośrednio z [interfejsu API REST](https://docs.microsoft.com/rest/api/cosmos-db/) w przypadku prostych operacji.
 
 > [!NOTE]
 > Obsługa mechanizmu CORS jest odpowiednia i obsługiwana dla interfejsu API Azure Cosmos DB Core (SQL). Nie ma zastosowania do Azure Cosmos DB interfejsów API dla Cassandra, Gremlin lub MongoDB, ponieważ te protokoły nie używają protokołu HTTP do komunikacji klient-serwer.
@@ -28,12 +28,12 @@ Wykonaj następujące kroki, aby włączyć współużytkowanie zasobów między
 
 1. Przejdź do konta usługi Azure Cosmos DB. Otwórz blok **CORS** .
 
-2. Określ rozdzieloną przecinkami listę źródeł, które mogą nawiązywać wywołania między źródłami do konta Azure Cosmos DB. Na przykład `https://www.mydomain.com` `https://mydomain.com`,, `https://api.mydomain.com`. Możesz również użyć symbolu wieloznacznego\*"", aby zezwolić na wszystkie źródła i wybrać opcję **Prześlij**. 
+2. Określ rozdzieloną przecinkami listę źródeł, które mogą nawiązywać wywołania między źródłami do konta Azure Cosmos DB. Na przykład, `https://www.mydomain.com` , `https://mydomain.com` `https://api.mydomain.com` . Możesz również użyć symbolu wieloznacznego " \* ", aby zezwolić na wszystkie źródła i wybrać opcję **Prześlij**. 
 
    > [!NOTE]
    > Obecnie nie można używać symboli wieloznacznych jako części nazwy domeny. Na przykład `https://*.mydomain.net` format nie jest jeszcze obsługiwany. 
 
-   ![Włącz udostępnianie zasobów między źródłami przy użyciu Azure Portal](./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png)
+   :::image type="content" source="./media/how-to-configure-cross-origin-resource-sharing/enable-cross-origin-resource-sharing-using-azure-portal.png" alt-text="Włącz udostępnianie zasobów między źródłami przy użyciu Azure Portal":::
 
 ## <a name="enable-cors-support-from-resource-manager-template"></a>Włączanie obsługi mechanizmu CORS przy użyciu szablonu Menedżer zasobów
 
@@ -61,7 +61,7 @@ Aby włączyć mechanizm CORS przy użyciu szablonu Menedżer zasobów, należy 
 
 ## <a name="using-the-azure-cosmos-db-javascript-library-from-a-browser"></a>Korzystanie z Azure Cosmos DB biblioteki JavaScript z przeglądarki
 
-Obecnie Biblioteka Azure Cosmos DB JavaScript ma tylko wersję CommonJS biblioteki, która została dostarczona z jej pakietem. Aby użyć tej biblioteki z przeglądarki, należy użyć narzędzia, takiego jak ROLLUP lub WebPack, aby utworzyć bibliotekę zgodną z przeglądarką. Niektóre biblioteki Node. js powinny mieć dla nich makiety przeglądarki. Poniżej znajduje się przykładowy plik konfiguracji pakietu WebPack z niezbędnymi ustawieniami makiety.
+Obecnie Biblioteka Azure Cosmos DB JavaScript ma tylko wersję CommonJS biblioteki, która została dostarczona z jej pakietem. Aby użyć tej biblioteki z przeglądarki, należy użyć narzędzia, takiego jak ROLLUP lub WebPack, aby utworzyć bibliotekę zgodną z przeglądarką. Niektóre biblioteki Node.js powinny mieć dla nich makiety przeglądarki. Poniżej znajduje się przykładowy plik konfiguracji pakietu WebPack z niezbędnymi ustawieniami makiety.
 
 ```javascript
 const path = require("path");
