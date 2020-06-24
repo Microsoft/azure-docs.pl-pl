@@ -16,11 +16,11 @@ Poniżej znajduje się lista obsługiwanych kont magazynu i typów magazynów dl
 
 | **Konto magazynu/obsługiwane typy magazynów** | **Blokowy obiekt blob** |**Obiekt BLOB strony*** |**Pliki platformy Azure** |**Uwagi**|
 | --- | --- | -- | -- | -- |
-| Standard klasyczny | Tak | Tak | Tak |
-| Standard do ogólnego przeznaczenia w wersji 1  | Tak | Tak | Tak | Obsługiwane są zarówno gorąca, jak i chłodna.|
-| Ogólnego przeznaczenia w wersji 1 Premium  |  | Tak| | |
-| Standard ogólnego przeznaczenia w wersji 2  | Tak | Tak | Tak | Obsługiwane są zarówno gorąca, jak i chłodna.|
-| Ogólnego przeznaczenia w wersji 2 Premium  |  |Tak | | |
-| BLOB Storage Standard |Tak | | |Obsługiwane są zarówno gorąca, jak i chłodna. |
+| Standard klasyczny | T | T | T |
+| Standard do ogólnego przeznaczenia w wersji 1  | T | T | T | Obsługiwane są zarówno gorąca, jak i chłodna.|
+| Ogólnego przeznaczenia w wersji 1 Premium  |  | T| | |
+| Standard ogólnego przeznaczenia w wersji 2  | T | T | T | Obsługiwane są zarówno gorąca, jak i chłodna.|
+| Ogólnego przeznaczenia w wersji 2 Premium  |  |T | | |
+| BLOB Storage Standard |T | | |Obsługiwane są zarówno gorąca, jak i chłodna. |
 
 \**— Dane przekazane do stronicowych obiektów BLOB muszą być 512 bajtami wyrównanymi, takimi jak wirtualne dyski twarde.*

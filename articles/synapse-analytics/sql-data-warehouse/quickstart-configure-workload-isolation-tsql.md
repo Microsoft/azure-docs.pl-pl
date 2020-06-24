@@ -6,17 +6,17 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7f0aabf4bd18f82c247a43931e02e4b6890b2ef4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9132c9609961053e7f60344dc387b2a8d01bd6b9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650688"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212993"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Szybki Start: Konfigurowanie izolacji obciążenia przy użyciu języka T-SQL
 

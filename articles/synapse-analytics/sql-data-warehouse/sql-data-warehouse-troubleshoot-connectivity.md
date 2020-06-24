@@ -6,17 +6,17 @@ author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 855f0782f1979f91fcd83bcc469d8d2feaf8c643
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 33cc0c33f90d68ac3396f1366d4ff8437563eda1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015705"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213894"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Rozwiązywanie problemów z łącznością w puli SQL Synapse
 

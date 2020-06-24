@@ -6,17 +6,17 @@ author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0ac17579a1afedc3391b20f336ea9563b1c2d8f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0515827ab2d93c76ea91e95c2d53a44273b5633b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80350131"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213792"
 ---
 # <a name="azure-synapse-analytics---sql-pool-videos"></a>Azure Synapse Analytics — wideo z puli SQL
 
@@ -33,6 +33,6 @@ Aby rozpocząć, wybierz poniższe wideo z omówieniem, aby dowiedzieć się wi�
 
 Dodatkowe filmy wideo opisujące konkretne funkcje można wyświetlać w: 
 - [YouTube: Zaawansowana analiza na platformie Azure](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2)
-- [Wideo na platformie Azure](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse)
+- [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse)
 
 

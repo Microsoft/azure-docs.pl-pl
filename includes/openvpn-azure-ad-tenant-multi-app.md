@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -128,7 +128,7 @@ W tym kroku zarejestrowano dodatkowe aplikacje dla różnych użytkowników i gr
 
 Przypisz użytkowników do aplikacji.
 
-1. W obszarze **Azure AD-> aplikacje dla przedsiębiorstw**wybierz nowo zarejestrowanej aplikacji i kliknij pozycję **Właściwości**. Upewnij się, że **przypisanie użytkownika jest wymagane?** ma ustawioną **wartość tak**. Kliknij przycisk **Zapisz**.
+1. W obszarze **Azure AD-> aplikacje dla przedsiębiorstw**wybierz nowo zarejestrowanej aplikacji i kliknij pozycję **Właściwości**. Upewnij się, że **przypisanie użytkownika jest wymagane?** ma ustawioną **wartość tak**. Kliknij pozycję **Zapisz**.
 
     ![Sieć VPN platformy Azure](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
 

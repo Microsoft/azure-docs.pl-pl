@@ -6,21 +6,21 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: e681e8ad655c31d5078b56b8f1a49cfd7c664533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742639"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213979"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Używanie tożsamości do tworzenia kluczy zastępczych w puli Synapse SQL
 
-Zalecenia i przykłady dotyczące używania właściwości IDENTITY do tworzenia kluczy zastępczych w tabelach w puli SQL Synapse.
+W tym artykule znajdziesz zalecenia i przykłady dotyczące używania właściwości IDENTITY do tworzenia kluczy zastępczych w tabelach w puli SQL Synapse.
 
 ## <a name="what-is-a-surrogate-key"></a>Co to jest klucz zastępczy
 
@@ -44,7 +44,7 @@ WITH
 ;
 ```
 
-Można następnie użyć `INSERT..SELECT` , aby wypełnić tabelę.
+Można następnie użyć, `INSERT..SELECT` Aby wypełnić tabelę.
 
 W tym pozostałej części tej sekcji przedstawiono wszystkie szczegóły wdrożenia, aby ułatwić zrozumienie ich w pełni.  
 
@@ -77,11 +77,11 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-W poprzednim przykładzie dwa wiersze wyładowywane w dystrybucji 1. Pierwszy wiersz ma wartość zastępczą 1 w kolumnie `C1`, a drugi wiersz ma wartość zastępczą 61. Obie te wartości zostały wygenerowane przez właściwość IDENTITY. Jednak alokacja wartości nie jest ciągła. To zachowanie jest celowe.
+W poprzednim przykładzie dwa wiersze wyładowywane w dystrybucji 1. Pierwszy wiersz ma wartość zastępczą 1 w kolumnie `C1` , a drugi wiersz ma wartość zastępczą 61. Obie te wartości zostały wygenerowane przez właściwość IDENTITY. Jednak alokacja wartości nie jest ciągła. To zachowanie jest celowe.
 
 ### <a name="skewed-data"></a>Skośne dane
 
-Zakres wartości dla typu danych jest równomiernie rozłożony przez dystrybucje. Jeśli tabela rozproszona pogorszy się od pochylonych danych, zakres wartości dostępnych dla tego elementu DataType może zostać przedwcześnie wyczerpany. Na przykład, jeśli wszystkie dane kończą się w ramach jednej dystrybucji, efektywnie tabela ma dostęp tylko do jednej sixtieth wartości typu danych. Z tego powodu właściwość IDENTITY jest ograniczona tylko do `INT` typów `BIGINT` danych.
+Zakres wartości dla typu danych jest równomiernie rozłożony przez dystrybucje. Jeśli tabela rozproszona pogorszy się od pochylonych danych, zakres wartości dostępnych dla tego elementu DataType może zostać przedwcześnie wyczerpany. Na przykład, jeśli wszystkie dane kończą się w ramach jednej dystrybucji, efektywnie tabela ma dostęp tylko do jednej sixtieth wartości typu danych. Z tego powodu właściwość IDENTITY jest ograniczona `INT` `BIGINT` tylko do typów danych.
 
 ### <a name="selectinto"></a>Wybierz pozycję.. PRZEKSZTAŁCA
 
@@ -96,7 +96,7 @@ Jeśli którykolwiek z tych warunków ma wartość true, kolumna zostanie utworz
 
 ### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
-CREATE TABLE jako SELECT (CTAS) ma takie samo zachowanie SQL Server, które zostało udokumentowane w przypadku WYBRANia.. Przekształca. Nie można jednak określić właściwości IDENTITY w definicji kolumny `CREATE TABLE` części instrukcji. Nie można również użyć funkcji IDENTITY w `SELECT` części CTAs. Aby wypełnić tabelę, należy użyć `CREATE TABLE` do zdefiniowania tabeli, a następnie `INSERT..SELECT` jej wypełnienia.
+CREATE TABLE jako SELECT (CTAS) ma takie samo zachowanie SQL Server, które zostało udokumentowane w przypadku WYBRANia.. Przekształca. Nie można jednak określić właściwości IDENTITY w definicji kolumny `CREATE TABLE` części instrukcji. Nie można również użyć funkcji IDENTITY w `SELECT` części CTAs. Aby wypełnić tabelę, należy użyć `CREATE TABLE` do zdefiniowania tabeli, a następnie jej `INSERT..SELECT` wypełnienia.
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Jawne wstawianie wartości do kolumny tożsamości
 
@@ -212,7 +212,7 @@ Kolumna C1 jest TOŻSAMOŚCIą we wszystkich następujących zadaniach.
 
 ### <a name="find-the-highest-allocated-value-for-a-table"></a>Znajdź najwyższą przydzieloną wartość dla tabeli
 
-Użyj funkcji `MAX()` , aby określić największą wartość przydzieloną dla rozproszonej tabeli:
+Użyj `MAX()` funkcji, aby określić największą wartość przydzieloną dla rozproszonej tabeli:
 
 ```sql
 SELECT MAX(C1)

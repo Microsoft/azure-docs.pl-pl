@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: e56b526dff9e18f19275cb248fd6955dd680324f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ebd55151a4b1656ec1187117b7c4b6da9d37e161
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605102"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298468"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzuj dostęp do bazy danych do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -91,7 +91,7 @@ W tym momencie serwer lub wystąpienie zarządzane jest konfigurowane tylko na p
 
   - Utwórz dodatkową nazwę logowania SQL w bazie danych Master.
   - Utwórz konto użytkownika w bazie danych Master skojarzonej z nowym logowaniem.
-  - Dodaj konto użytkownika do programu `dbmanager` , `loginmanager` roli lub obu w `master` bazie danych, korzystając z instrukcji [ALTER Server role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (dla usługi Azure Synapse, użyj instrukcji [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) ).
+  - Dodaj konto użytkownika do elementu `dbmanager` , `loginmanager` roli lub obu w `master` bazie danych przy użyciu instrukcji [ALTER role](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) (dla usługi Azure Synapse, użyj instrukcji [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) ).
 
   > [!NOTE]
   > `dbmanager``loginmanager`role i **nie** odnoszą się do wdrożeń wystąpienia zarządzanego SQL.
@@ -155,7 +155,7 @@ Po utworzeniu konta użytkownika w bazie danych, na podstawie nazwy logowania lu
 
 Wydajne zarządzanie dostępem korzysta z uprawnień przypisanych do Active Directory grup zabezpieczeń i stałych lub niestandardowych ról zamiast do poszczególnych użytkowników.
 
-- W przypadku korzystania z uwierzytelniania Azure Active Directory należy umieścić Azure Active Directory użytkowników w Azure Active Directory grupie zabezpieczeń. Utwórz użytkownika zawartej bazy danych dla tej grupy. Umieść co najmniej jednego użytkownika bazy danych w niestandardowej roli bazy danych z określonymi uprawnieniami, które są odpowiednie dla tej grupy użytkowników.
+- W przypadku korzystania z uwierzytelniania Azure Active Directory należy umieścić Azure Active Directory użytkowników w Azure Active Directory grupie zabezpieczeń. Utwórz użytkownika zawartej bazy danych dla tej grupy. Dodaj co najmniej jednego użytkownika bazy danych jako członka do niestandardowych lub wbudowanych ról bazy danych z określonymi uprawnieniami właściwymi dla tej grupy użytkowników.
 
 - W przypadku korzystania z uwierzytelniania SQL należy utworzyć użytkowników zawartej bazy danych w bazie danych programu. Umieść co najmniej jednego użytkownika bazy danych w niestandardowej roli bazy danych z określonymi uprawnieniami, które są odpowiednie dla tej grupy użytkowników.
 

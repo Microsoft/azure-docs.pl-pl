@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 02a6bba2dd4162a1cd9f05249174c2174a85b931
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a13a873fff8f471f7c82775736a34ef9f74aaea2
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043688"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743528"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Włączanie dostrajania automatycznego w Azure Portal do monitorowania zapytań i zwiększania wydajności obciążeń
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,6 @@ ms.locfileid: "84043688"
 Azure SQL Database automatycznie zarządza usługami danych, które stale monitorują zapytania i identyfikują akcję, którą można wykonać w celu zwiększenia wydajności obciążeń. Możesz przejrzeć zalecenia i ręcznie zastosować je lub zezwolić Azure SQL Database automatycznie stosować akcje naprawcze — jest to nazywane **trybem dostrajania automatycznego**.
 
 Dostrajanie automatyczne można włączyć na serwerze lub na poziomie bazy danych za pomocą:
-
 
 - [Azure Portal](automatic-tuning-enable.md#azure-portal)
 - Wywołania [interfejsu API REST](automatic-tuning-enable.md#rest-api)
@@ -42,7 +41,7 @@ Dostrajanie automatyczne można włączyć na serwerze lub na poziomie bazy dany
 Na poziomie serwera można wybrać opcję Dziedzicz konfigurację dostrajania automatycznego z "ustawień domyślnych platformy Azure" lub nie odziedziczyć konfiguracji. Ustawienia domyślne platformy Azure to FORCE_LAST_GOOD_PLAN są włączone, CREATE_INDEX jest wyłączone, a DROP_INDEX jest wyłączone.
 
 > [!IMPORTANT]
-> Od marca 2020 ustawienia domyślne platformy Azure na potrzeby dostrajania automatycznego są następujące:
+> Od marca 2020 nowe ustawienia domyślne platformy Azure na potrzeby dostrajania automatycznego są następujące:
 >
 > - FORCE_LAST_GOOD_PLAN = włączone, CREATE_INDEX = wyłączone i DROP_INDEX = wyłączone.
 > - Istniejące serwery bez skonfigurowanych preferencji automatycznego dostrajania są automatycznie konfigurowane do DZIEDZICZenia ustawień domyślnych platformy Azure. Dotyczy to wszystkich klientów, którzy obecnie mają ustawienia serwera na potrzeby dostrajania automatycznego w niezdefiniowanym stanie.

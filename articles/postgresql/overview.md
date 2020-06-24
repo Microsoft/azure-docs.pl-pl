@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/25/2019
-ms.openlocfilehash: 9ea0610811f6906526afe55d577e04a8decd5f49
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: deb720638e0921762eb9c5800d218c3cfccb7f55
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74481668"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213605"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Co to jest usługa Azure Database for PostgreSQL?
 Azure Database for PostgreSQL to usługa relacyjnej bazy danych w chmurze firmy Microsoft skompilowanej dla deweloperów. Jest on oparty na wersji społecznościowej aparatu bazy danych [PostgreSQL](https://www.postgresql.org/) Open Source i jest dostępny w dwóch opcjach wdrażania: pojedynczy serwer i funkcja do skalowania (Citus).
@@ -52,6 +52,6 @@ Ponadto należy wziąć pod uwagę następujące kwestie dotyczące kontaktu:
 - Aby przekazać opinię lub poprosić o nowe funkcje, utwórz wpis w platformie [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Następne kroki
-- Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/postgresql/) , aby obporównania kosztów i kalkulatory.
+- Zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/postgresql/) , aby obporównania kosztów i kalkulatory. Zarówno opcje wdrożenia [pojedynczego serwera,](concept-reserved-pricing.md) [jak i ze](concepts-hyperscale-reserved-pricing.md) skalowaniem (Citus) oferują również płatne rabaty za wystąpienia zarezerwowane
 - Zacznij od utworzenia pierwszej Azure Database for PostgreSQL [pojedynczego serwera](./quickstart-create-server-database-portal.md) lub [skalowania (Citus)](./quickstart-create-hyperscale-portal.md)
 - Skompiluj pierwszą aplikację w języku Python, PHP, Ruby, C\#, Java, Node.js: [Biblioteki połączeń](./concepts-connection-libraries.md)

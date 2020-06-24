@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b07ffe92a5dd0c105188fab55bc679c04f660ed2
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: d8f03d714ab44dc01d9e138a63a89892ead60fe9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300964"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249469"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>Szybki Start: Tworzenie aplikacji Java na Azure App Service w systemie Windows
 
@@ -38,7 +38,7 @@ ms.locfileid: "84300964"
 Wykonaj następujące polecenie narzędzia Maven w wierszu polecenia usługi Cloud Shell, aby utworzyć nową aplikację o nazwie `helloworld`:
 
 ```bash
-mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp -Dversion=1.0-SNAPSHOT
+mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
 Następnie zmień katalog roboczy na folder projektu:
@@ -49,6 +49,8 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Konfigurowanie wtyczki Maven
 
+Proces wdrażania w celu Azure App Service może uzyskać poświadczenia platformy Azure automatycznie z poziomu interfejsu wiersza polecenia platformy Azure. Jeśli nie masz zainstalowanego interfejsu wiersza polecenia platformy Azure, wtyczka Maven zarejestruje Cię przy użyciu logowania OAuth lub urządzenia. W razie potrzeby Sprawdź szczegółowe informacje dotyczące [uwierzytelniania przy użyciu wtyczek Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) .
+
 Można uruchomić następujące polecenie Maven w wierszu polecenia, aby skonfigurować wdrożenie, wybrać **"2"** dla **systemu operacyjnego Windows** w pierwszym kroku, a następnie zaakceptować konfigurację domyślną, naciskając klawisz **Enter** do momentu uzyskania monitu o **potwierdzenie (t/N)** , a następnie nacisnąć klawisz **"Y"** i konfigurację. 
 
 ```bash
@@ -57,7 +59,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 
 Przykładowy proces wygląda następująco:
 
-```cmd
+```console
 ~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 [INFO] Scanning for projects...
 [INFO]
@@ -177,7 +179,7 @@ Po zakończeniu wdrażania w przeglądarce internetowej przejdź do wdrożonej a
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]
-> [Nawiązywanie połączenia z usługą Azure SQL Database przy użyciu języka Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Nawiązywanie połączenia z Azure SQL Database przy użyciu języka Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z usługą Azure DB for MySQL za pomocą języka Java](/azure/mysql/connect-java)

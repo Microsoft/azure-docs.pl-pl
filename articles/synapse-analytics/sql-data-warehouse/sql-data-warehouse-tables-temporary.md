@@ -6,16 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5f10b987fa8783084b14774b9bce5e857f3c59c4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a32ddf682504bc1e09329efb0803a46c9a9fd03b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650477"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213877"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Tabele tymczasowe w puli SQL Synapse
 Ten artykuł zawiera podstawowe wskazówki dotyczące używania tabel tymczasowych i wyróżniania zasad tabel tymczasowych na poziomie sesji. 
@@ -37,7 +37,7 @@ W przypadku zasobu puli SQL tabele tymczasowe oferują korzyść wydajności, po
 
 ### <a name="create-a-temporary-table"></a>Tworzenie tabeli tymczasowej
 
-Tabele tymczasowe są tworzone przez utworzenie prefiksu nazwy tabeli z `#` .  Na przykład:
+Tabele tymczasowe są tworzone przez utworzenie prefiksu nazwy tabeli z `#` .  Przykład:
 
 ```sql
 CREATE TABLE #stats_ddl

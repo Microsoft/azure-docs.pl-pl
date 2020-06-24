@@ -6,16 +6,16 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 3ffdf7a66c2562b43fc2ed02bb088ab1095118fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87c7eaa57f9da87bd83f89953afc09632d42b1f8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416154"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213401"
 ---
 # <a name="using-stored-procedures-in-synapse-sql-pool"></a>Korzystanie z procedur składowanych w puli Synapse SQL
 
@@ -72,9 +72,9 @@ GO
 EXEC prc_nesting
 ```
 
-Pula SQL nie obsługuje obecnie [programu@NESTLEVEL@](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). W związku z tym należy śledzić poziom zagnieżdżenia. Jest mało prawdopodobne, że zostanie przekroczony limit ośmiu poziomów zagnieżdżenia. Ale jeśli to zrobisz, musisz ponownie obsłużyć swój kod, aby dopasować poziomy zagnieżdżenia w ramach tego limitu.
+Pula SQL nie obsługuje obecnie [programu @NESTLEVEL @](/sql/t-sql/functions/nestlevel-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). W związku z tym należy śledzić poziom zagnieżdżenia. Jest mało prawdopodobne, że zostanie przekroczony limit ośmiu poziomów zagnieżdżenia. Ale jeśli to zrobisz, musisz ponownie obsłużyć swój kod, aby dopasować poziomy zagnieżdżenia w ramach tego limitu.
 
-## <a name="insertexecute"></a>Wstaw.. WYKONANA
+## <a name="insertexecute"></a>INSERT..EXEUROCZE
 
 Pula SQL nie zezwala na używanie zestawu wyników procedury składowanej z instrukcją INSERT. Istnieje jednak alternatywna metoda, której można użyć. Aby zapoznać się z przykładem, zapoznaj się z artykułem dotyczącym [tabel tymczasowych](sql-data-warehouse-tables-temporary.md).
 

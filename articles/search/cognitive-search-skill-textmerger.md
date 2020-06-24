@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 98ea416305f080850d85498f74693eb2d45b0944
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.openlocfilehash: f713eb71d375a3388c4b238656355595354b9806
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162348"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982020"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Umiejętność scalania tekstu
 
@@ -31,8 +31,8 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| insertPreTag  | Ciąg do uwzględnienia przed każdym wstawieniem. Wartością domyślną jest `" "`. Aby pominąć miejsce, ustaw wartość na `""`.  |
-| insertPostTag | Ciąg do uwzględnienia po każdym wstawieniu. Wartością domyślną jest `" "`. Aby pominąć miejsce, ustaw wartość na `""`.  |
+| `insertPreTag`    | Ciąg do uwzględnienia przed każdym wstawieniem. Wartość domyślna to `" "`. Aby pominąć miejsce, ustaw wartość na `""` .  |
+| `insertPostTag`   | Ciąg do uwzględnienia po każdym wstawieniu. Wartość domyślna to `" "`. Aby pominąć miejsce, ustaw wartość na `""` .  |
 
 
 ##  <a name="sample-input"></a>Przykładowe dane wejściowe
@@ -55,7 +55,7 @@ Dokument JSON, który zapewnia użyteczne dane wejściowe dla tego umiejętnośc
 ```
 
 ##  <a name="sample-output"></a>Przykładowe dane wyjściowe
-Ten przykład pokazuje dane wyjściowe poprzedniej wartości wejściowej, przy założeniu, że *insertPreTag* jest `" "`ustawiona na, a *insertPostTag* jest `""`ustawiona na. 
+Ten przykład pokazuje dane wyjściowe poprzedniej wartości wejściowej, przy założeniu, że *insertPreTag* jest ustawiona na `" "` , a *insertPostTag* jest ustawiona na `""` . 
 
 ```json
 {
@@ -108,18 +108,22 @@ Poniższy przykład zestawu umiejętności używa umiejętności OCR do wyodręb
       "insertPostTag": " ",
       "inputs": [
         {
-          "name":"text", "source": "/document/content"
+          "name":"text", 
+          "source": "/document/content"
         },
         {
-          "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
+          "name": "itemsToInsert", 
+          "source": "/document/normalized_images/*/text"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", 
+          "source": "/document/normalized_images/*/contentOffset" 
         }
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetName" : "merged_text"
+          "name": "mergedText", 
+          "targetName" : "merged_text"
         }
       ]
     }
@@ -140,7 +144,7 @@ W powyższym przykładzie przyjęto założenie, że istnieje znormalizowane pol
 }
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

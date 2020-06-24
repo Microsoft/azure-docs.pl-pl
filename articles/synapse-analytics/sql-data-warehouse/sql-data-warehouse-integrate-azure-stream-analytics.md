@@ -6,19 +6,19 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 2/5/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e281f8a1fb3959256d836134b4c59f5399deb9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90e339ba8454dfdfc3f724ea12932a3e8e5912c2
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633297"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213350"
 ---
-# <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Używanie Azure Stream Analytics z usługą Azure Synapse Analytics
+# <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Używanie usługi Azure Stream Analytics z usługą Azure Synapse Analytics
 
 Azure Stream Analytics to w pełni zarządzana usługa dostarczająca wysoce opóźnienia i skalowalne, skomplikowane przetwarzanie złożone przetwarzania zdarzeń na danych przesyłanych strumieniowo w chmurze. Podstawowe informacje można uzyskać, odczytując [wprowadzenie do Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Następnie można dowiedzieć się, jak utworzyć kompleksowe rozwiązanie przy użyciu Stream Analytics, postępując zgodnie z samouczkiem [Rozpoczynanie pracy przy użyciu Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
@@ -102,7 +102,7 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 Na Azure Portal zadania Stream Analytics kliknij nazwę zadania.  Kliknij przycisk ***Testuj*** w okienku ***Szczegóły danych wyjściowych*** .
 
-![Przycisk Testuj na Outpout szczegóły](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) po pomyślnym nawiązaniu połączenia z bazą danych w portalu zostanie wyświetlone powiadomienie.
+![Przycisk Testuj na Outpout szczegóły ](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png) po pomyślnym nawiązaniu połączenia z bazą danych w portalu zostanie wyświetlone powiadomienie.
 
 ### <a name="step-6"></a>Krok 6
 

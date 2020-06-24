@@ -4,16 +4,16 @@ description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows p
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 636a31cdb657ca95ea9ea0da6bb85caa61425e5a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 802e957c9473276dfa73a3ffd93fdd7c526dbf26
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614995"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213248"
 ---
 # <a name="connect-with-the-android-client"></a>Łączenie się z klientem systemu Android
 
@@ -37,11 +37,11 @@ Zasubskrybuj źródło danych dostarczone przez administratora, aby uzyskać lis
 
 Aby subskrybować źródło danych:
 
-1. W centrum połączenia naciśnij **+** pozycję, a następnie naciśnij pozycję **zdalne źródło zasobów**.
+1. W centrum połączenia naciśnij pozycję **+** , a następnie naciśnij pozycję **zdalne źródło zasobów**.
 2. Wprowadź adres URL źródła danych w polu **adres URL źródła danych** . Adres URL źródła danych może być adresem URL lub adresem e-mail.
-   - Jeśli używasz adresu URL, użyj tego administratora, zwykle <https://rdweb.wvd.microsoft.com>.
+   - Jeśli używasz adresu URL, użyj tego administratora, zwykle <https://rdweb.wvd.microsoft.com> .
    - Aby użyć poczty e-mail, wprowadź swój adres e-mail. Klient będzie szukać adresu URL skojarzonego z Twoim adresem e-mail, jeśli administrator skonfigurował serwer w taki sposób.
-3. Naciśnij przycisk **dalej**.
+3. Naciśnij pozycję **DALEJ**.
 4. Po wyświetleniu monitu podaj swoje poświadczenia.
    - W polu **Nazwa użytkownika**Nadaj nazwę użytkownikowi uprawnienia dostępu do zasobów.
    - W polu **hasło**Podaj hasło skojarzone z nazwą użytkownika.

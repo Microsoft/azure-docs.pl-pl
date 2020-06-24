@@ -14,9 +14,9 @@ ms.locfileid: "75468723"
 ### <a name="azure-storage-linked-service"></a>Połączona usługa Azure Storage
 **Połączona usługa Azure Storage** umożliwia łączenie konta usługi Azure Storage z usługą Azure Data Factory przy użyciu **klucza konta**, który zapewnia fabrykę danych z dostępem globalnym do usługi Azure Storage. Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej usługi Azure Storage.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość Type musi mieć wartość: **AzureStorage** |Tak |
+| typ |Właściwość Type musi mieć wartość: **AzureStorage** |Tak |
 | Parametry połączenia |Określ informacje, które są konieczne do nawiązania połączenia z usługą Azure Storage dla właściwości connectionString. |Tak |
 
 Aby uzyskać informacje na temat pobierania kluczy dostępu do konta magazynu, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../articles/storage/common/storage-account-keys-manage.md).
@@ -47,9 +47,9 @@ Sygnatura dostępu współdzielonego (SAS, shared access signature) zapewnia del
 
 Połączona usługa Azure Storage SAS umożliwia łączenie konta usługi Azure Storage z fabryką danych platformy Azure przy użyciu sygnatury dostępu współdzielonego (SAS). Zapewnia ona fabrykę danych z ograniczonym dostępnym przez czas dostępem do wszystkich/konkretnych zasobów (BLOB/Container) w magazynie. Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej usługi Azure Storage SAS. 
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Właściwość Type musi mieć wartość: **AzureStorageSas** |Tak |
+| typ |Właściwość Type musi mieć wartość: **AzureStorageSas** |Tak |
 | sasUri |Określ identyfikator URI sygnatury dostępu współdzielonego do zasobów usługi Azure Storage, takich jak obiekt BLOB, kontener lub tabela.  |Tak |
 
 **Przykład:**

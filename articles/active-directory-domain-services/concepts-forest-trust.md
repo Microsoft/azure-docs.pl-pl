@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 903881a1d15c1f043e381f50e5b69d661cd08192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d5c0878a5999f1d7d716d8caaf9f3fffa5e401dc
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476437"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982366"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Jak działają relacje zaufania dla lasów zasobów w Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ Zaufanie lasu można utworzyć tylko między domeną główną lasu w jednym les
 
 Na poniższym diagramie przedstawiono dwie oddzielne relacje zaufania lasów między trzema AD DS lasami w jednej organizacji.
 
-![Diagram relacji zaufania lasów w ramach jednej organizacji](./media/concepts-forest-trust/forest-trusts.png)
+![Diagram relacji zaufania lasów w ramach jednej organizacji](./media/concepts-forest-trust/forest-trusts-diagram.png)
 
 Ta Przykładowa konfiguracja zapewnia następujący dostęp:
 
@@ -162,7 +162,7 @@ Gdy stacja robocza w jednym lesie próbuje uzyskać dostęp do danych na kompute
 
 Poniższy diagram i kroki zawierają szczegółowy opis procesu uwierzytelniania Kerberos, który jest używany, gdy komputery z systemem Windows próbują uzyskać dostęp do zasobów z komputera znajdującego się w innym lesie.
 
-![Diagram procesu Kerberos w ramach zaufania lasu](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![Diagram procesu Kerberos w ramach zaufania lasu](media/concepts-forest-trust/kerberos-over-forest-trust-process-diagram.png)
 
 1. *Użytkownik1* loguje się do *Workstation1* przy użyciu poświadczeń z domeny *Europe.tailspintoys.com* . Użytkownik próbuje uzyskać dostęp do zasobu udostępnionego w *FileServer1* znajdującym się w lesie *USA.wingtiptoys.com* .
 
@@ -276,7 +276,7 @@ Administratorzy mogą używać *domen Active Directory i relacji zaufania*, *net
 
 Aby dowiedzieć się więcej o lasach zasobów, zobacz [jak działają relacje zaufania lasów na platformie Azure AD DS?][concepts-trust]
 
-Aby rozpocząć tworzenie domeny zarządzanej AD DS platformy Azure przy użyciu lasu zasobów, zobacz [Tworzenie i Konfigurowanie domeny zarządzanej AD DS platformy Azure][tutorial-create-advanced]. Następnie można [utworzyć zaufanie lasu wychodzącego do domeny lokalnej (wersja zapoznawcza)][create-forest-trust].
+Aby rozpocząć tworzenie domeny zarządzanej z lasem zasobów, zobacz [Tworzenie i Konfigurowanie domeny zarządzanej AD DS platformy Azure][tutorial-create-advanced]. Następnie można [utworzyć zaufanie lasu wychodzącego do domeny lokalnej (wersja zapoznawcza)][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

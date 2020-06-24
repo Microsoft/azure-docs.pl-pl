@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 04/24/2020
-ms.openlocfilehash: ede385670dec6629cc3e75a9d09c0ceb14362bdc
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 06/11/2020
+ms.openlocfilehash: 7d631698f7c00a838f28d55b6b26055e686d27db
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119381"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977003"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Łączniki dla usługi Azure Logic Apps
 
@@ -106,7 +106,7 @@ Logic Apps udostępnia wbudowane akcje uruchamiania własnego kodu w przepływie
 
 |   |   |   |   |
 |---|---|---|---|
-| [![Ikona interfejsu API ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | Wywołaj usługi Azure Functions, które uruchamiają niestandardowe fragmenty kodu (C# lub Node. js) z aplikacji logiki. | [![][inline-code-icon]<br>**Wbudowany kod** ikony interfejsu API][inline-code-doc] | Dodawanie i uruchamianie fragmentów kodu JavaScript z aplikacji logiki. |
+| [![Ikona interfejsu API ][azure-functions-icon]<br> **Azure Functions**][azure-functions-doc] | Wywołaj usługi Azure Functions, które uruchamiają niestandardowe fragmenty kodu (C# lub Node.js) z aplikacji logiki. | [![][inline-code-icon]<br>**Wbudowany kod** ikony interfejsu API][inline-code-doc] | Dodawanie i uruchamianie fragmentów kodu JavaScript z aplikacji logiki. |
 |||||
 
 ### <a name="control-workflow"></a>Przepływ pracy sterowania
@@ -243,6 +243,12 @@ Aby wywołać interfejsy API, które uruchamiają kod niestandardowy lub nie są
 > Łączniki niestandardowe utworzone w ramach ISE nie współpracują z lokalną bramą danych. Jednak te łączniki mogą bezpośrednio uzyskiwać dostęp do lokalnych źródeł danych, które są połączone z siecią wirtualną platformy Azure hostującym ISE. W związku z tym aplikacje logiki w ISE najprawdopodobniej nie potrzebują bramy danych podczas komunikowania się z tymi zasobami.
 >
 > Aby uzyskać więcej informacji na temat tworzenia ISEs, zobacz [nawiązywanie połączenia z sieciami wirtualnymi platformy Azure z Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+
+<a name="block-connections"></a>
+
+## <a name="block-creating-connections"></a>Blokuj tworzenie połączeń
+
+Jeśli Twoja organizacja nie zezwala na łączenie się z określonymi zasobami przy użyciu ich łączników w Azure Logic Apps, można [zablokować możliwość tworzenia tych połączeń](../logic-apps/block-connections-connectors.md) dla określonych łączników w przepływach pracy aplikacji logiki przy użyciu [Azure Policy](../governance/policy/overview.md). Aby uzyskać więcej informacji, zobacz [blok połączeń utworzonych przez określone łączniki w Azure Logic Apps](../logic-apps/block-connections-connectors.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -476,4 +482,3 @@ Aby wywołać interfejsy API, które uruchamiają kod niestandardowy lub nie są
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Koduj komunikaty korzystające z protokołu X12"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Przekształcanie komunikatów XML"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Weryfikowanie komunikatów XML"
-

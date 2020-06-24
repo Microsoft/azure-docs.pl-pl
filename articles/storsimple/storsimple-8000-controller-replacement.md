@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dd2f6fcc9b2f5d716566e91e89487969613d1005
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267926"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704339"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Zastępowanie modułu kontrolera na urządzeniu StorSimple
 ## <a name="overview"></a>Omówienie
@@ -31,7 +31,7 @@ W tym samouczku wyjaśniono sposób usuwania i zastępowania jednego lub obu mod
 > Aby zapobiec uszkodzeniu urządzenia StorSimple, nie należy wysunąć kontrolera, dopóki diody LED nie będą wyświetlane jako jedna z następujących:
 > 
 > * Wszystkie sygnalizatory są wyłączone.
-> * Dioda LED ![3, zielonego](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png)znacznika ![wyboru i czerwona](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) ikona krzyżyka są MIGAne i dioda LED 0 i dioda LED 7 są **włączone**.
+> * Dioda LED 3, ![ zielonego znacznika wyboru ](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png) i ![ czerwona ikona krzyżyka ](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) są migane i dioda LED 0 i dioda LED 7 są **włączone**.
 
 
 W poniższej tabeli przedstawiono obsługiwane scenariusze wymiany kontrolerów.
@@ -105,7 +105,7 @@ Jeśli jeden z kontrolerów na urządzeniu Microsoft Azure StorSimple nie powied
 > [!NOTE]
 > Jeśli urządzenie jest monitorowane za pośrednictwem konsoli szeregowej, można zobaczyć wiele ponownych uruchomień, gdy kontroler odzyska odzyskiwanie z procedury zastępczej. Gdy zostanie wyświetlone menu konsoli szeregowej, wiadomo, że zastępowanie zostało zakończone. Jeśli menu nie jest wyświetlane w ciągu dwóch godzin od zastępowania kontrolera, [skontaktuj się z pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md).
 >
-> Począwszy od aktualizacji Update 4, można także użyć polecenia `Get-HCSControllerReplacementStatus` cmdlet w interfejsie programu Windows PowerShell urządzenia do monitorowania stanu procesu zastępowania kontrolera.
+> Począwszy od aktualizacji Update 4, można także użyć polecenia cmdlet `Get-HCSControllerReplacementStatus` w interfejsie programu Windows PowerShell urządzenia do monitorowania stanu procesu zastępowania kontrolera.
 > 
 
 ## <a name="replace-both-controllers"></a>Zastąp oba kontrolery
@@ -195,7 +195,7 @@ Aby zainstalować moduł kontrolera dostarczone fabrycznie po usunięciu wadliwe
    > [!NOTE]
    > Aby można było aktywować kontroler i DIODa, może upłynąć do 5 minut.
   
-5. Aby sprawdzić, czy zastępowanie zakończyło się pomyślnie, w Azure Portal przejdź do urządzenia, a następnie przejdź do pozycji **Monitoruj** > **kondycję sprzętu**i upewnij się, że zarówno kontroler 0, jak i kontroler 1 są w dobrej kondycji (stan jest zielony).
+5. Aby sprawdzić, czy zastępowanie zakończyło się pomyślnie, w Azure Portal przejdź do urządzenia, a następnie przejdź do pozycji **Monitoruj**  >  **kondycję sprzętu**i upewnij się, że zarówno kontroler 0, jak i kontroler 1 są w dobrej kondycji (stan jest zielony).
 
 ## <a name="identify-the-active-controller-on-your-device"></a>Identyfikowanie aktywnego kontrolera na urządzeniu
 Istnieje wiele sytuacji, takich jak rejestracja urządzeń po raz pierwszy lub zastąpienie kontrolera, które wymagają zlokalizowania aktywnego kontrolera na urządzeniu StorSimple. Aktywny kontroler przetwarza wszystkie operacje sprzętowe i sieciowe na dysku. Można użyć dowolnej z poniższych metod identyfikacji aktywnego kontrolera:
@@ -207,7 +207,7 @@ Istnieje wiele sytuacji, takich jak rejestracja urządzeń po raz pierwszy lub z
 Każda z tych procedur została opisana dalej.
 
 ### <a name="use-the-azure-portal-to-identify-the-active-controller"></a>Użyj Azure Portal, aby zidentyfikować aktywnego kontrolera
-W Azure Portal przejdź do urządzenia, a następnie **Monitoruj** > **kondycję sprzętu**i przewiń do sekcji **Kontrolery** . W tym miejscu możesz sprawdzić, który kontroler jest aktywny.
+W Azure Portal przejdź do urządzenia, a następnie **Monitoruj**  >  **kondycję sprzętu**i przewiń do sekcji **Kontrolery** . W tym miejscu możesz sprawdzić, który kontroler jest aktywny.
 
 ![Identyfikowanie aktywnego kontrolera w Azure Portal](./media/storsimple-controller-replacement/IC752072.png)
 

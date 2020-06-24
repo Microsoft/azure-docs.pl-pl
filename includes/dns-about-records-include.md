@@ -13,9 +13,9 @@ ms.locfileid: "73832050"
 ---
 ### <a name="record-names"></a>Nazwy rekordów
 
-W usłudze DNS platformy Azure rekordy są określane przy użyciu nazw względnych. *W pełni kwalifikowana* nazwa domeny (FQDN) zawiera nazwę strefy, której nie zawiera nazwa *względna*. Na przykład względna nazwa `www` rekordu w strefie `contoso.com` daje w pełni kwalifikowaną nazwę `www.contoso.com`rekordu.
+W usłudze DNS platformy Azure rekordy są określane przy użyciu nazw względnych. *W pełni kwalifikowana* nazwa domeny (FQDN) zawiera nazwę strefy, której nie zawiera nazwa *względna*. Na przykład względna nazwa rekordu `www` w strefie daje w `contoso.com` pełni kwalifikowaną nazwę rekordu `www.contoso.com` .
 
-Rekord *wierzchołka* to rekord DNS w katalogu głównym (*wierzchołku*) strefy DNS. Na przykład w strefie `contoso.com`DNS rekord wierzchołka ma również w pełni kwalifikowaną nazwę `contoso.com` (jest to czasami nazywane domeną bez pozostałej). *naked*  Zgodnie z Konwencją nazwa względna\@"" jest używana do reprezentowania rekordów wierzchołków.
+Rekord *wierzchołka* to rekord DNS w katalogu głównym (*wierzchołku*) strefy DNS. Na przykład w strefie DNS `contoso.com` rekord wierzchołka ma również w pełni kwalifikowaną nazwę `contoso.com` (jest to czasami nazywane domeną bez pozostałej). *naked*  Zgodnie z Konwencją nazwa względna " \@ " jest używana do reprezentowania rekordów wierzchołków.
 
 ### <a name="record-types"></a>Typy rekordów
 

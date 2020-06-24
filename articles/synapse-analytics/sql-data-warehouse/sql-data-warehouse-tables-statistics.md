@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6f2af87cf5cef1b5a80bc16d962fba579b4ff309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3684b9b87dce24ba7ac1a9b672f7fd6dd446ab46
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985868"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213911"
 ---
 # <a name="table-statistics-in-synapse-sql-pool"></a>Statystyka tabeli w puli SQL Synapse
 
@@ -156,7 +156,7 @@ Następujące zasady dotyczące identyfikatorów GUID są dostępne do aktualizo
 - Skup się na kolumnach uczestniczących w klauzulach JOIN, GROUP BY, ORDER BY i DISTINCT.
 - Należy rozważyć aktualizowanie kolumn "Ascending Key", takich jak daty transakcji, ponieważ te wartości nie zostaną uwzględnione w histogramie statystyki.
 - Należy rozważyć częste Aktualizowanie statycznych kolumn dystrybucji.
-- Należy pamiętać, że każdy obiekt statystyki jest aktualizowany w kolejności. Po prostu `UPDATE STATISTICS <TABLE_NAME>` implementacja nie zawsze jest idealnym rozwiązaniem, szczególnie w przypadku szerokich tabel zawierających wiele obiektów statystyk.
+- Należy pamiętać, że każdy obiekt statystyki jest aktualizowany w kolejności. Po prostu implementacja `UPDATE STATISTICS <TABLE_NAME>` nie zawsze jest idealnym rozwiązaniem, szczególnie w przypadku szerokich tabel zawierających wiele obiektów statystyk.
 
 Aby uzyskać więcej informacji, zobacz [oszacowanie kardynalności](/sql/relational-databases/performance/cardinality-estimation-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -236,13 +236,13 @@ Aby utworzyć obiekt statystyk z wieloma kolumnami, należy użyć powyższych p
 > [!NOTE]
 > Histogram, który jest używany do oszacowania liczby wierszy w wyniku zapytania, jest dostępny tylko dla pierwszej kolumny wymienionej w definicji obiektu statystyki.
 
-W tym przykładzie histogram znajduje się w *kategorii Product\_(produkt*). Statystyki między kolumnami są obliczane na *podstawie\_kategorii produktu* i *sub_category produktu\_*:
+W tym przykładzie histogram znajduje się w * \_ kategorii Product (produkt*). Statystyki między kolumnami są obliczane na *podstawie \_ kategorii produktu* i * \_ sub_category produktu*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-Ponieważ istnieje korelacja między *kategorią\_produktu* a *\_podrzędną\_kategorią produktu*, obiekt statystyk wielokolumnowych może być przydatny, jeśli dostęp do tych kolumn odbywa się w tym samym czasie.
+Ponieważ istnieje korelacja między * \_ kategorią produktu* a * \_ podrzędną \_ kategorią produktu*, obiekt statystyk wielokolumnowych może być przydatny, jeśli dostęp do tych kolumn odbywa się w tym samym czasie.
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>Tworzenie statystyk dla wszystkich kolumn w tabeli
 
@@ -493,7 +493,7 @@ AND     st.[user_created] = 1
 
 Polecenie DBCC SHOW_STATISTICS () pokazuje dane przechowywane w obiekcie statystyk. Te dane wchodzą w skład trzech części:
 
-- Nagłówek
+- Header
 - Wektor gęstości
 - Histogram
 

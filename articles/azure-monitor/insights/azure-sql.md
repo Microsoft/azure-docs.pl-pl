@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 80c03661970ec218dd8b36664ecb67623068ac5d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: d1f8a30145cc0d61f110c0f47459a4f1db03325b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116548"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249419"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitoruj Azure SQL Database przy użyciu Azure SQL Analytics (wersja zapoznawcza)
 
@@ -45,24 +45,24 @@ W poniższej tabeli przedstawiono opcje obsługiwane przez dwie wersje pulpitu n
 
 | Opcja Azure SQL Analytics | Opis | Obsługa SQL Database | Obsługa wystąpienia zarządzanego SQL |
 | --- | ------- | ----- | ----- |
-| Zasób według typu | Perspektywa, która zlicza wszystkie monitorowane zasoby. | Tak | Yes |
-| Insights | Zapewnia hierarchiczne przechodzenie do szczegółów w Intelligent Insights wydajności. | Tak | Yes |
-| Errors | Zawiera hierarchiczne przechodzenie do szczegółów błędów SQL, które wystąpiły w bazach danych. | Tak | Yes |
+| Zasób według typu | Perspektywa, która zlicza wszystkie monitorowane zasoby. | Tak | Tak |
+| Insights | Zapewnia hierarchiczne przechodzenie do szczegółów w Intelligent Insights wydajności. | Tak | Tak |
+| Errors | Zawiera hierarchiczne przechodzenie do szczegółów błędów SQL, które wystąpiły w bazach danych. | Tak | Tak |
 | Limity czasu | Zawiera hierarchiczne przekroczenia limitów czasu SQL, które wystąpiły w bazach danych. | Yes | Nie |
 | Bloki | Zawiera hierarchiczne przechodzenie do szczegółów w blokach SQL, które wystąpiły w bazach danych. | Yes | Nie |
 | Oczekiwanie na bazę danych | Zawiera hierarchiczne przechodzenie do szczegółów na poziomie bazy danych. Zawiera podsumowanie łącznego czasu oczekiwania i czasu oczekiwania na typ oczekiwania. |Yes | Nie |
-| Czas trwania zapytania | Zawiera hierarchiczne przechodzenie do szczegółów w statystyce wykonywania zapytania, takich jak czas trwania zapytania, użycie procesora CPU, użycie operacji we/wy danych, użycie operacji we/wy dziennika. | Tak | Yes |
-| Query waits (Czas oczekiwania na zapytania) | Zawiera hierarchiczne przechodzenie do szczegółów w celu uwzględnienia statystyk oczekiwania na zapytanie według kategorii oczekiwania. | Tak | Yes |
+| Czas trwania zapytania | Zawiera hierarchiczne przechodzenie do szczegółów w statystyce wykonywania zapytania, takich jak czas trwania zapytania, użycie procesora CPU, użycie operacji we/wy danych, użycie operacji we/wy dziennika. | Tak | Tak |
+| Query waits (Czas oczekiwania na zapytania) | Zawiera hierarchiczne przechodzenie do szczegółów w celu uwzględnienia statystyk oczekiwania na zapytanie według kategorii oczekiwania. | Tak | Tak |
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 Aby dodać Azure SQL Analytics (wersja zapoznawcza) do obszaru roboczego Log Analytics, należy użyć procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](../../azure-monitor/insights/solutions.md) .
 
-### <a name="configure-azure-sql-databases-to-stream-diagnostics-telemetry"></a>Konfigurowanie baz danych usługi Azure SQL Database do telemetrii diagnostyki przesyłania strumieniowego
+### <a name="configure-azure-sql-database-to-stream-diagnostics-telemetry"></a>Konfigurowanie Azure SQL Database do przesyłania danych telemetrycznych diagnostyki
 
 Po utworzeniu rozwiązania Azure SQL Analytics w obszarze roboczym należy **skonfigurować wszystkie** zasoby, które mają być monitorowane, aby przesyłać strumieniowo dane telemetryczne diagnostyki do Azure SQL Analytics. Postępuj zgodnie ze szczegółowymi instrukcjami na tej stronie:
 
-- Włącz Diagnostyka Azure na potrzeby usługi Azure SQL Database, aby [przesyłać dane telemetryczne diagnostyki do Azure SQL Analytics](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
+- Włącz Diagnostyka Azure dla bazy danych, aby [przesyłać dane telemetryczne diagnostyki do Azure SQL Analytics](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
 Powyższa Strona zawiera również instrukcje dotyczące włączania obsługi monitorowania wielu subskrypcji platformy Azure z jednego obszaru roboczego Azure SQL Analytics jako pojedynczego okienka.
 

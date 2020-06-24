@@ -6,17 +6,17 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 6f697cf205af9bdfaadfe20e123bcf0b4935c90f
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: b2ae3aa77383888c320ed58e03e73b2e306feeba
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83829991"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213775"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Rozwiązywanie problemów z usługą SQL Synapse w usłudze Azure Synapse Analytics
 
@@ -36,7 +36,7 @@ W tym artykule wymieniono typowe problemy dotyczące rozwiązywania problemów w
 
 | Problem                                                        | Rozwiązanie                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| W Eksploratorze obiektów programu Visual Studio brakuje użytkowników usługi Azure AD           | To jest znany problem.  Aby obejść ten element, Wyświetl użytkowników w obszarze [sys. database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Zobacz [uwierzytelnianie w usłudze Azure Synapse](sql-data-warehouse-authentication.md) , aby dowiedzieć się więcej o korzystaniu z Azure Active Directory z pulą SQL Synapse. |
+| W Eksploratorze obiektów programu Visual Studio brakuje użytkowników usługi Azure AD           | Jest to znany problem.  Aby obejść ten element, Wyświetl użytkowników w obszarze [sys. database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Zobacz [uwierzytelnianie w usłudze Azure Synapse](sql-data-warehouse-authentication.md) , aby dowiedzieć się więcej o korzystaniu z Azure Active Directory z pulą SQL Synapse. |
 | Ręczne wykonywanie skryptów, Używanie kreatora skryptów lub Nawiązywanie połączenia za pośrednictwem programu SSMS jest powolne, nie odpowiada ani nie produkuje błędów | Upewnij się, że utworzono użytkowników w bazie danych Master. W obszarze Opcje obsługi skryptów upewnij się również, że wersja aparatu jest ustawiona na wartość "Microsoft Azure SQL Data Warehouse Edition", a typ aparatu to "Microsoft Azure SQL Database". |
 | Generowanie skryptów kończy się niepowodzeniem w programie SSMS                               | Generowanie skryptu dla puli SQL Synapse kończy się niepowodzeniem, jeśli opcja "Generuj skrypt dla obiektów zależnych" ma wartość "true". Aby obejść ten krok, użytkownicy muszą ręcznie przejść do **opcji narzędzia-> Options->Eksplorator obiektów SQL Server-> generować skrypt dla opcji zależnych i ustawić na wartość false** . |
 

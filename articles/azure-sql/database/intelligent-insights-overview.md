@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 133ca6503a2e0fa9ff19fa55cf126b9556b741e0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/12/2020
+ms.openlocfilehash: 937eee69c17d207dc348a25fe2a5e6611480db0f
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344054"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743460"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights przy użyciu AI do monitorowania i rozwiązywania problemów z wydajnością bazy danych (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -73,10 +73,13 @@ Dostępne opcje Intelligent Insights są następujące:
 
 | Opcja Intelligent Insights | Obsługa Azure SQL Database | Obsługa wystąpień zarządzanych Azure SQL |
 | :----------------------------- | ----- | ----- |
-| **Skonfiguruj Intelligent Insights** — Skonfiguruj Intelligent Insights analizę dla baz danych. | Yes | Yes |
-| Usługi **Stream Insights do Azure SQL Analytics** — szczegółowe informacje o usłudze Stream Azure SQL Analytics. | Yes | Yes |
-| **Usługa Stream Insights w usłudze Azure Event Hubs** — szczegółowe informacje o usłudze Stream Event Hubs w celu uzyskania dalszych integracji niestandardowych. | Yes | Yes |
-| **Usługa Stream Insights w usłudze Azure Storage** — szczegółowe informacje o usłudze Stream w usłudze Azure Storage w celu przeprowadzenia dalszej analizy i długoterminowej archiwizacji. | Yes | Yes |
+| **Skonfiguruj Intelligent Insights** — Skonfiguruj Intelligent Insights analizę dla baz danych. | Tak | Tak |
+| Usługi **Stream Insights do Azure SQL Analytics** — szczegółowe informacje o usłudze Stream Azure SQL Analytics. | Tak | Tak |
+| **Usługa Stream Insights w usłudze Azure Event Hubs** — szczegółowe informacje o usłudze Stream Event Hubs w celu uzyskania dalszych integracji niestandardowych. | Tak | Tak |
+| **Usługa Stream Insights w usłudze Azure Storage** — szczegółowe informacje o usłudze Stream w usłudze Azure Storage w celu przeprowadzenia dalszej analizy i długoterminowej archiwizacji. | Tak | Tak |
+
+> [!NOTE]
+> Usługa Intelligent Insights to funkcja w wersji zapoznawczej, która nie jest dostępna w następujących regionach: Europa Zachodnia, Europa Północna, zachodnie stany USA 1 i Wschodnie stany USA 1.
 
 ## <a name="configure-the-export-of-the-intelligent-insights-log"></a>Konfigurowanie eksportu dziennika Intelligent Insights
 

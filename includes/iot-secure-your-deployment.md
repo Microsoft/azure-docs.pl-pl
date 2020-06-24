@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: iot-fundamentals
 author: robinsh
 ms.service: iot-fundamentals
@@ -51,9 +51,9 @@ Każda IoT Hub ma [Rejestr tożsamości](../articles/iot-hub/iot-hub-devguide-id
 
 [IoT Hub obsługuje protokoły takie jak MQTT, AMQP i http](../articles//iot-hub/iot-hub-devguide-security.md). Każdy z tych protokołów używa tokenów zabezpieczających z urządzenia IoT do IoT Hub w różny sposób:
 
-* AMQP: SASL PLAIN i AMQP zabezpieczenia oparte na oświadczeniach`{policyName}@sas.root.{iothubName}` (z tokenami na poziomie Centrum IoT Hub) `{deviceId}` z tokenami z zakresem urządzeń).
+* AMQP: SASL PLAIN i AMQP zabezpieczenia oparte na oświadczeniach (z tokenami na `{policyName}@sas.root.{iothubName}` poziomie Centrum IoT, `{deviceId}` z tokenami w zakresie urządzeń).
 
-* MQTT: Połącz pakiet używa `{deviceId}` jako `{ClientId}`, `{IoThubhostname}/{deviceId}` w polu **Nazwa użytkownika** i token sygnatury dostępu współdzielonego w polu **hasło** .
+* MQTT: Połącz pakiet używa `{deviceId}` jako `{ClientId}` , `{IoThubhostname}/{deviceId}` w polu **Nazwa użytkownika** i token sygnatury dostępu współdzielonego w polu **hasło** .
 
 * HTTP: prawidłowy token znajduje się w nagłówku żądania autoryzacji.
 
@@ -73,7 +73,7 @@ Przepływ obsługi urządzenia wysokiego poziomu:
 
 ### <a name="root-certificate-on-device"></a>Certyfikat główny na urządzeniu
 
-Podczas ustanawiania bezpiecznego połączenia TLS z IoT Hub urządzenie IoT uwierzytelnia IoT Hub przy użyciu certyfikatu głównego, który jest częścią zestawu SDK urządzenia. W przypadku zestawu SDK klienta C certyfikat znajduje się w folderze "\\certyfikaty C\\" w katalogu głównym repozytorium. Chociaż te certyfikaty główne są długotrwałe, nadal mogły wygasnąć lub zostać odwołane. Jeśli nie ma możliwości aktualizacji certyfikatu na urządzeniu, urządzenie może nie być w stanie połączyć się z IoT Hub (ani z żadną inną usługą w chmurze). Posiadanie środka do aktualizowania certyfikatu głównego, gdy urządzenie IoT zostanie wdrożone skutecznie zmniejsza to ryzyko.
+Podczas ustanawiania bezpiecznego połączenia TLS z IoT Hub urządzenie IoT uwierzytelnia IoT Hub przy użyciu certyfikatu głównego, który jest częścią zestawu SDK urządzenia. W przypadku zestawu SDK klienta C certyfikat znajduje się w folderze " \\ \\ Certyfikaty C" w katalogu głównym repozytorium. Chociaż te certyfikaty główne są długotrwałe, nadal mogły wygasnąć lub zostać odwołane. Jeśli nie ma możliwości aktualizacji certyfikatu na urządzeniu, urządzenie może nie być w stanie połączyć się z IoT Hub (ani z żadną inną usługą w chmurze). Posiadanie środka do aktualizowania certyfikatu głównego, gdy urządzenie IoT zostanie wdrożone skutecznie zmniejsza to ryzyko.
 
 ## <a name="securing-the-connection"></a>Zabezpieczanie połączenia
 
@@ -91,7 +91,7 @@ Usługa Azure IoT Hub umożliwia definiowanie [zasad kontroli dostępu](../artic
 
 * **DeviceConnect**. Przyznaje dostęp do punktów końcowych dostępnych dla urządzenia. Na przykład przyznaje uprawnienia do wysyłania komunikatów z urządzenia do chmury i otrzymywania komunikatów z chmury do urządzenia. To uprawnienie jest używane przez urządzenia.
 
-Istnieją dwa sposoby uzyskania uprawnień **DeviceConnect** IoT Hub z [tokenami zabezpieczający](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)przy użyciu klucza tożsamości urządzenia lub klucza dostępu współdzielonego. Ponadto należy pamiętać, że wszystkie funkcje dostępne z urządzeń są udostępniane przez projektowanie w punktach końcowych z prefiksem `/devices/{deviceId}`.
+Istnieją dwa sposoby uzyskania uprawnień **DeviceConnect** IoT Hub z [tokenami zabezpieczający](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)przy użyciu klucza tożsamości urządzenia lub klucza dostępu współdzielonego. Ponadto należy pamiętać, że wszystkie funkcje dostępne z urządzeń są udostępniane przez projektowanie w punktach końcowych z prefiksem `/devices/{deviceId}` .
 
 [Składniki usługi mogą generować tylko tokeny zabezpieczające](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components) przy użyciu zasad dostępu współdzielonego, przyznając odpowiednie uprawnienia.
 
@@ -103,7 +103,7 @@ Dane pozyskane przez usługę Azure IoT Hub mogą być używane przez różne us
 
 * [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Przetwarzanie strumienia w czasie rzeczywistym w chmurze, które pozwala szybko opracowywać i wdrażać rozwiązanie do analizy o niskich kosztach w celu odkrywania szczegółowych informacji z urządzeń, czujników, infrastruktury i aplikacji. Dane z tej w pełni zarządzanej usługi mogą być skalowane do dowolnego woluminu i nadal osiągać wysoką przepływność, małe opóźnienia i odporność.
 
-* [Azure App Services](https://azure.microsoft.com/services/app-service/): platforma w chmurze umożliwiająca tworzenie zaawansowanych aplikacji sieci Web i mobilnych, które łączą się z danymi w dowolnym miejscu; w chmurze lub lokalnie. Twórz atrakcyjne aplikacje mobilne dla systemów iOS, Android i Windows. Integracja z oprogramowaniem jako usługą (SaaS) i aplikacjami przedsiębiorstwa dzięki wbudowanej łączności z dziesiątami z wielu usług w chmurze i aplikacji dla przedsiębiorstw. Kod w ulubionym języku i środowisku IDE (.NET, Node. js, PHP, Python lub Java) do tworzenia aplikacji sieci Web i interfejsów API szybciej niż kiedykolwiek.
+* [Azure App Services](https://azure.microsoft.com/services/app-service/): platforma w chmurze umożliwiająca tworzenie zaawansowanych aplikacji sieci Web i mobilnych, które łączą się z danymi w dowolnym miejscu; w chmurze lub lokalnie. Twórz atrakcyjne aplikacje mobilne dla systemów iOS, Android i Windows. Integracja z oprogramowaniem jako usługą (SaaS) i aplikacjami przedsiębiorstwa dzięki wbudowanej łączności z dziesiątami z wielu usług w chmurze i aplikacji dla przedsiębiorstw. Twórz kod w ulubionym języku i środowisku IDE (.NET, Node.js, PHP, Python lub Java), aby szybciej tworzyć aplikacje sieci Web i interfejsy API.
 
 * [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): funkcja Logic Apps Azure App Service umożliwia integrację rozwiązania IoT z istniejącymi systemami biznesowymi i automatyzowanie procesów przepływu pracy. Logic Apps umożliwia deweloperom projektowanie przepływów pracy rozpoczynających się od wyzwalacza, a następnie wykonanie serii kroków — reguł i akcji, które używają zaawansowanych łączników do integracji z procesami biznesowymi. Logic Apps oferuje wbudowaną łączność z obszernym ekosystemem aplikacji SaaS, opartych na chmurze i lokalnych.
 

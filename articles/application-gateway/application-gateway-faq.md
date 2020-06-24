@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 7b90748ae29a98038d96e5e3a827413637a98d47
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668240"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982003"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -73,7 +73,13 @@ W przypadku jednostki SKU v2 Otwórz zasób publicznego adresu IP i wybierz pozy
 
 *Limit czasu utrzymywania aktywności* określa, jak długo Application Gateway będzie czekać na wysłanie przez klienta kolejnego żądania HTTP przed ponownym użyciem lub zamknięciem. *Limit czasu bezczynności protokołu TCP* określa, jak długo połączenie TCP jest przechowywane w przypadku braku aktywności. 
 
-*Limit czasu utrzymywania aktywności* w jednostce SKU Application Gateway v1 wynosi 120 sekund, a w jednostce SKU v2 jest 75 sekund. *Limit czasu bezczynności protokołu TCP* to domyślna wartość 4-minutowa w WIRTUALNYm adresie IP frontonu (VIP) zarówno w wersji 1, jak i w wersji 2 programu Application Gateway. Nie można zmienić tych wartości.
+*Limit czasu utrzymywania aktywności* w jednostce SKU Application Gateway v1 wynosi 120 sekund, a w jednostce SKU v2 jest 75 sekund. *Limit czasu bezczynności protokołu TCP* to domyślna wartość 4-minutowa w WIRTUALNYm adresie IP frontonu (VIP) zarówno w wersji 1, jak i w wersji 2 programu Application Gateway. Wartość limitu czasu bezczynności protokołu TCP można skonfigurować w przypadku bram aplikacji w wersji 1 i v2, które mają miejsce w zakresie od 4 do 30 minut. W przypadku bram aplikacji V1 i v2 należy przejść do publicznego adresu IP Application Gateway i zmienić limit czasu bezczynności protokołu TCP w bloku "Konfiguracja" publicznego adresu IP w portalu. Możesz ustawić wartość limitu czasu bezczynności protokołu TCP dla publicznego adresu IP za pomocą programu PowerShell, uruchamiając następujące polecenia: 
+
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
+```
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>Czy nazwa adresu IP lub DNS jest zmieniana w okresie istnienia bramy aplikacji?
 
@@ -160,7 +166,7 @@ Tak. Można skonfigurować opróżnianie połączenia w celu zmiany elementów c
 
 Tak.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Czy Application Gateway jest zawsze wdrożona w sieci wirtualnej?
 

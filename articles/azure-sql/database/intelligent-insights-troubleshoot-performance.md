@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 9b92454abcb985a21952389f9f618c1f58d45182
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/12/2020
+ms.openlocfilehash: da29b5427b2258a32e87977289689949a47f3d8e
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344785"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84743443"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Rozwiązywanie problemów z wydajnością Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL w programie Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,6 +25,8 @@ Ta strona zawiera informacje dotyczące Azure SQL Database i problemów z wydajn
 
 > [!NOTE]
 > Aby uzyskać szybki Przewodnik rozwiązywania problemów dotyczących wydajności przy użyciu Intelligent Insights, zapoznaj się ze schematem blokowym [przepływu rozwiązywania problemów](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) w tym dokumencie.
+>
+> Usługa Intelligent Insights to funkcja w wersji zapoznawczej, która nie jest dostępna w następujących regionach: Europa Zachodnia, Europa Północna, zachodnie stany USA 1 i Wschodnie stany USA 1.
 
 ## <a name="detectable-database-performance-patterns"></a>Wykryte wzorce wydajności bazy danych
 
@@ -35,7 +37,7 @@ Intelligent Insights automatycznie wykrywa problemy z wydajnością w zależnoś
 | [Osiąganie limitów zasobów](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Limity zasobów dotyczące użycia dostępnych zasobów (DTU), wątków roboczych bazy danych lub sesji logowania do bazy danych dostępnych w monitorowanej subskrypcji osiągnęły. Ma to wpływ na wydajność. | Użycie zasobów procesora CPU zbliża się do limitów zasobów. Ma to wpływ na wydajność bazy danych. |
 | [Wzrost obciążenia](intelligent-insights-troubleshoot-performance.md#workload-increase) | Wykryto wzrost obciążenia lub ciągłe gromadzenie obciążeń w bazie danych. Ma to wpływ na wydajność. | Wykryto wzrost obciążenia. Ma to wpływ na wydajność bazy danych. |
 | [Wykorzystanie pamięci](intelligent-insights-troubleshoot-performance.md#memory-pressure) | Pracownicy, którzy zażądali przydzielenia pamięci, muszą oczekiwać na alokacje pamięci przez statystycznie znaczny czas lub zwiększony akumulację pracowników, którzy zażądali przyznanych pamięci. Ma to wpływ na wydajność. | Pracownicy, którzy zażądali przydzielenia pamięci, oczekują na alokacje pamięci przez statystycznie znaczący czas. Ma to wpływ na wydajność bazy danych. |
-| [Blokowan](intelligent-insights-troubleshoot-performance.md#locking) | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność. | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność bazy danych. |
+| [Blokowanie](intelligent-insights-troubleshoot-performance.md#locking) | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność. | Wykryto nadmierne blokowanie bazy danych wpływające na wydajność bazy danych. |
 | [Zwiększono MAXDOP](intelligent-insights-troubleshoot-performance.md#increased-maxdop) | Wartość opcji maksymalny stopień równoległości (MAXDOP) została zmieniona na wydajność wykonywania zapytania. Ma to wpływ na wydajność. | Wartość opcji maksymalny stopień równoległości (MAXDOP) została zmieniona na wydajność wykonywania zapytania. Ma to wpływ na wydajność. |
 | [Rywalizacja o PAGELATCH](intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | Wiele wątków jednocześnie próbuje uzyskać dostęp do tych samych stron buforu danych znajdujących się w pamięci, co spowodowało zwiększenie czasu oczekiwania i spowodowanie rywalizacji o PAGELATCH. Ma to wpływ na wydajność. | Wiele wątków jednocześnie próbuje uzyskać dostęp do tych samych stron buforu danych znajdujących się w pamięci, co spowodowało zwiększenie czasu oczekiwania i spowodowanie rywalizacji o PAGELATCH. Ma to wpływ na wydajność bazy danych. |
 | [Brakujący indeks](intelligent-insights-troubleshoot-performance.md#missing-index) | Wykryto brakujący indeks mający wpływ na wydajność. | Wykryto brakujący indeks mający wpływ na wydajność bazy danych. |

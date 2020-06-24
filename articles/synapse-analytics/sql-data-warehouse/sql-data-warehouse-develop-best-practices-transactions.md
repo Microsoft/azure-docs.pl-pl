@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0139c581e6660622f1ab6db9f407725816377a6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7fa9336a7a90ab73d3dc60c6c865ebadfb2af1e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633559"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213503"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Optymalizowanie transakcji w programie SQL Synapse
 
@@ -85,7 +85,7 @@ Warto zauważyć, że wszystkie zapisy do aktualizacji pomocniczych lub nieklast
 
 ## <a name="optimizing-deletes"></a>Optymalizowanie usunięć
 
-Usuwanie jest operacją w pełni zarejestrowana.  Jeśli konieczne jest usunięcie dużej ilości danych w tabeli lub partycji, często jest to bardziej zrozumiałe dla `SELECT` danych, które mają być przechowywane, które mogą być uruchamiane jako zarejestrowane minimalnie.  Aby wybrać dane, Utwórz nową tabelę z [CTAs](sql-data-warehouse-develop-ctas.md).  Po utworzeniu Użyj [nazwy](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby zamienić starą tabelę na nowo utworzoną tabelę.
+Usuwanie jest operacją w pełni zarejestrowana.  Jeśli konieczne jest usunięcie dużej ilości danych w tabeli lub partycji, często jest to bardziej zrozumiałe dla danych, które mają `SELECT` być przechowywane, które mogą być uruchamiane jako zarejestrowane minimalnie.  Aby wybrać dane, Utwórz nową tabelę z [CTAs](sql-data-warehouse-develop-ctas.md).  Po utworzeniu Użyj [nazwy](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) , aby zamienić starą tabelę na nowo utworzoną tabelę.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -410,7 +410,7 @@ END
 Synapse SQL umożliwia [wstrzymywanie, wznawianie i skalowanie](sql-data-warehouse-manage-compute-overview.md) puli SQL na żądanie. W przypadku wstrzymania lub skalowania puli SQL należy zrozumieć, że wszystkie transakcje związane z lotem są kończone natychmiastowo; powoduje wycofywanie wszelkich otwartych transakcji. Jeśli obciążenie wystawiło długotrwałą i niekompletną modyfikację danych przed operacją wstrzymania lub skalowania, należy to zrobić. To cofnięcie może mieć wpływ na czas oczekiwania na wstrzymanie lub skalowanie puli SQL.
 
 > [!IMPORTANT]
-> Zarówno `UPDATE` , `DELETE` jak i są w pełni zarejestrowane operacje, więc operacje cofania/ponawiania mogą trwać znacznie dłużej niż równoważne operacje, które nie zostały zarejestrowane w sposób minimalny.
+> Zarówno `UPDATE` , jak i `DELETE` są w pełni zarejestrowane operacje, więc operacje cofania/ponawiania mogą trwać znacznie dłużej niż równoważne operacje, które nie zostały zarejestrowane w sposób minimalny.
 
 Najlepszym scenariuszem jest umożliwienie wykonywania transakcji modyfikacji danych lotu przed zawstrzymywaniem lub skalowaniem puli SQL. Jednak ten scenariusz może nie zawsze być praktyczny. Aby zmniejszyć ryzyko długotrwałego wycofywania, należy wziąć pod uwagę jedną z następujących opcji:
 

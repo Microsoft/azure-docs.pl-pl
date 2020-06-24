@@ -6,12 +6,12 @@ author: lachie83
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: 6ffc9daaf1b87fc9fb6ebbb0f2787f07282afe5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56416b540072359169e4eb6da67f15588fc4daf4
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632402"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298688"
 ---
 # <a name="http-application-routing"></a>Routing aplikacji protokołu HTTP
 
@@ -38,7 +38,7 @@ az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addo
 ```
 
 > [!TIP]
-> Jeśli chcesz włączyć wiele dodatków, podaj je jako listę rozdzieloną przecinkami. Aby na przykład włączyć Routing i monitorowanie aplikacji HTTP, użyj formatu `--enable-addons http_application_routing,monitoring`.
+> Jeśli chcesz włączyć wiele dodatków, podaj je jako listę rozdzieloną przecinkami. Aby na przykład włączyć Routing i monitorowanie aplikacji HTTP, użyj formatu `--enable-addons http_application_routing,monitoring` .
 
 Routing protokołu HTTP można także włączyć w istniejącym klastrze AKS przy użyciu polecenia [AZ AKS Enable-dodatkis][az-aks-enable-addons] . Aby włączyć routing HTTP w istniejącym klastrze, Dodaj `--addons` parametr i określ *http_application_routing* , jak pokazano w następującym przykładzie:
 
@@ -46,16 +46,17 @@ Routing protokołu HTTP można także włączyć w istniejącym klastrze AKS prz
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-Po wdrożeniu lub zaktualizowaniu klastra użyj polecenia [AZ AKS show][az-aks-show] , aby pobrać nazwę strefy DNS. Ta nazwa jest wymagana do wdrażania aplikacji w klastrze AKS.
+Po wdrożeniu lub zaktualizowaniu klastra użyj polecenia [AZ AKS show][az-aks-show] , aby pobrać nazwę strefy DNS. 
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 ```
 
-Wynik
+Ta nazwa jest wymagana do wdrażania aplikacji w klastrze AKS i jest pokazana w następujących przykładowych danych wyjściowych:
 
+```console
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
-
+```
 
 ## <a name="deploy-http-routing-portal"></a>Wdrażanie routingu HTTP: Portal
 
@@ -77,7 +78,6 @@ annotations:
 ```
 
 Utwórz plik o nazwie **Samples-http-Application-Routing. YAML** i skopiuj go do poniższego YAML. W wierszu 43 zaktualizuj `<CLUSTER_SPECIFIC_DNS_ZONE>` nazwę strefy DNS zebraną w poprzednim kroku tego artykułu.
-
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -136,6 +136,12 @@ spec:
 ```
 
 Użyj polecenia [polecenia kubectl Apply][kubectl-apply] , aby utworzyć zasoby.
+
+```bash
+kubectl apply -f samples-http-application-routing.yaml
+```
+
+W poniższym przykładzie przedstawiono utworzone zasoby:
 
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
@@ -262,7 +268,13 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 ## <a name="clean-up"></a>Czyszczenie
 
-Usuń skojarzone obiekty Kubernetes utworzone w tym artykule.
+Usuń skojarzone obiekty Kubernetes utworzone w tym artykule przy użyciu programu `kubectl delete` .
+
+```bash
+kubectl delete -f samples-http-application-routing.yaml
+```
+
+Przykładowe dane wyjściowe pokazują, że obiekty Kubernetes zostały usunięte.
 
 ```bash
 $ kubectl delete -f samples-http-application-routing.yaml

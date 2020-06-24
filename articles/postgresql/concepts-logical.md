@@ -5,19 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: ef7c5644ad8ec1e3816f20d4e5db9ad7d39a4609
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 06/22/2020
+ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634583"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213690"
 ---
 # <a name="logical-decoding"></a>Dekodowanie logiczne
  
 [Dekodowanie logiczne w programie PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) umożliwia przesyłanie strumieniowe zmian danych do użytkowników zewnętrznych. Dekodowanie logiczne jest popularne w przypadku scenariuszy przesyłania strumieniowego zdarzeń i przechwytywania zmian danych.
 
-Dekodowanie logiczne używa wtyczki wyjściowej do przekonwertowania dziennika zapisu z wyprzedzeniem (WAL) Postgres na format możliwy do odczytu. Azure Database for PostgreSQL oferuje dwa wtyczki wyjściowe: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) i [wal2json](https://github.com/eulerto/wal2json).
+Dekodowanie logiczne używa wtyczki wyjściowej do przekonwertowania dziennika zapisu z wyprzedzeniem (WAL) Postgres na format możliwy do odczytu. Azure Database for PostgreSQL udostępnia wtyczki danych wyjściowych [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) i pgoutput. pgoutput jest udostępniana przez Postgres z Postgres w wersji 10.
+
+Aby zapoznać się z omówieniem działania dekodowania logicznego Postgres, [odwiedź nasz blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421). 
 
 > [!NOTE]
 > Dekodowanie logiczne jest w publicznej wersji zapoznawczej na Azure Database for PostgreSQL-pojedynczym serwerze.

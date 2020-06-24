@@ -12,7 +12,7 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "67839763"
 ---
-| Numer portu.| Do lub do zewnątrz | Zakres portów| Wymagany| Uwagi |   |
+| Numer portu.| Do lub do zewnątrz | Zakres portów| Wymagane| Uwagi |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80 (HTTP)|W|Sieć LAN|Tak|Ten port służy do nawiązywania połączenia z interfejsami API REST magazynu w blogu urządzenie Data Box za pośrednictwem protokołu HTTP. W przypadku braku połączenia z interfejsami API REST spowoduje to automatyczne przekierowanie do lokalnego interfejsu użytkownika sieci Web ponad 8443. |
 | TCP 443 (HTTPS)|W|Sieć LAN|Tak|Ten port służy do nawiązywania połączenia z interfejsami API REST magazynu w blogu urządzenie Data Box za pośrednictwem protokołu HTTPS. W przypadku braku połączenia z interfejsami API REST spowoduje to automatyczne przekierowanie do lokalnego interfejsu użytkownika sieci Web ponad 8443. |

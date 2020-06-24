@@ -4,18 +4,18 @@ description: Dowiedz się, jak przekazać mapy źródłowe do własnego kontener
 ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
-ms.date: 03/04/2020
-ms.openlocfilehash: 4b452b31338760a8f53eed54420319101836bc00
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: d5f01bb3034ab060227230071a21284177840e83
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474887"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249741"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Obsługa mapy źródłowej dla aplikacji JavaScript
 
 Application Insights obsługuje przekazywanie map źródłowych do własnego kontenera obiektów BLOB konta magazynu.
-Mapy źródłowe mogą służyć do unminify stosów wywołań znajdujących się na stronie szczegółów transakcji końca do końca. Każdy wyjątek wysyłany przez [zestaw SDK języka JavaScript][ApplicationInsights-JS] lub [zestaw Node. js SDK][ApplicationInsights-Node.js] może być unminified z mapami źródłowymi.
+Mapy źródłowe mogą służyć do unminify stosów wywołań znajdujących się na stronie szczegółów transakcji końca do końca. Każdy wyjątek wysyłany przez [zestaw SDK języka JavaScript][ApplicationInsights-JS] lub [zestawNode.js SDK][ApplicationInsights-Node.js] może być unminified z mapami źródłowymi.
 
 ![Unminify stos wywołań przez połączenie z kontem magazynu](./media/source-map-support/details-unminify.gif)
 
@@ -24,14 +24,16 @@ Mapy źródłowe mogą służyć do unminify stosów wywołań znajdujących si�
 Jeśli masz już istniejące konto magazynu lub kontener obiektów blob, możesz pominąć ten krok.
 
 1. [Tworzenie nowego konta magazynu][create storage account]
-2. [Utwórz kontener obiektów BLOB na][create blob container] koncie magazynu. Upewnij się, że ustawienie "publiczny poziom dostępu" ma `Private`wartość, aby upewnić się, że mapy źródłowe nie są publicznie dostępne.
+2. [Utwórz kontener obiektów BLOB na][create blob container] koncie magazynu. Upewnij się, że ustawienie "publiczny poziom dostępu" ma wartość `Private` , aby upewnić się, że mapy źródłowe nie są publicznie dostępne.
 
 > [!div class="mx-imgBorder"]
 >![Poziom dostępu do kontenera musi być ustawiony na wartość prywatny](./media/source-map-support/container-access-level.png)
 
 ## <a name="push-your-source-maps-to-your-blob-container"></a>Wypchnij mapy źródłowe do kontenera obiektów BLOB
 
-Potoku ciągłego wdrażania należy zintegrować z kontem magazynu przez skonfigurowanie go do automatycznego przekazywania mapowań źródłowych do skonfigurowanego kontenera obiektów BLOB. Nie należy przekazywać map źródłowych do podfolderu w kontenerze obiektów BLOB. obecnie Mapa źródłowa zostanie pobrana tylko z folderu głównego.
+Potoku ciągłego wdrażania należy zintegrować z kontem magazynu przez skonfigurowanie go do automatycznego przekazywania mapowań źródłowych do skonfigurowanego kontenera obiektów BLOB.
+
+Mapy źródeł można przekazać do kontenera Blob Storage z tą samą strukturą folderów, które zostały skompilowane & wdrożone za pomocą programu. Typowym przypadkiem użycia jest przedrostek folderu wdrożenia z jego wersją, np. `1.2.3/static/js/main.js` . Gdy unminifying za pośrednictwem kontenera obiektów blob platformy Azure `sourcemaps` , zostanie podjęta próba pobrania mapy źródłowej znajdującej się w `sourcemaps/1.2.3/static/js/main.js.map` .
 
 ### <a name="upload-source-maps-via-azure-pipelines-recommended"></a>Przekaż mapy źródłowe za pośrednictwem Azure Pipelines (zalecane)
 
@@ -74,8 +76,8 @@ Każdy użytkownik w portalu korzystający z tej funkcji musi być co najmniej p
 ### <a name="source-map-not-found"></a>Nie znaleziono mapy źródłowej
 
 1. Sprawdź, czy odpowiednia mapa źródłowa jest przekazywana do poprawnego kontenera obiektów BLOB
-2. Sprawdź, czy plik mapy źródłowej jest nazwany po pliku JavaScript, do którego jest mapowany, z `.map`sufiksem.
-    - Na przykład `/static/js/main.4e2ca5fa.chunk.js` program przeszuka wyszukiwanie obiektu BLOB o nazwie`main.4e2ca5fa.chunk.js.map`
+2. Sprawdź, czy plik mapy źródłowej jest nazwany po pliku JavaScript, do którego jest mapowany, z sufiksem `.map` .
+    - Na przykład program przeszuka `/static/js/main.4e2ca5fa.chunk.js` Wyszukiwanie obiektu BLOB o nazwie`main.4e2ca5fa.chunk.js.map`
 3. Sprawdź konsolę przeglądarki, aby sprawdzić, czy występują błędy. Uwzględnij ją w dowolnym biletu pomocy technicznej.
 
 ## <a name="next-steps"></a>Następne kroki

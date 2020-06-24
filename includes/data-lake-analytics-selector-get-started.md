@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
@@ -17,8 +17,8 @@ ms.locfileid: "79474496"
 ---
 > [!div class="op_single_selector"]
 > * [Portal](../articles/data-lake-analytics/data-lake-analytics-get-started-portal.md)
-> * [PowerShell](../articles/data-lake-analytics/data-lake-analytics-get-started-powershell.md)
-> * [Visual Studio](../articles/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)
+> * [Program PowerShell](../articles/data-lake-analytics/data-lake-analytics-get-started-powershell.md)
+> * [Program Visual Studio](../articles/data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md)
 > * [Interfejs wiersza polecenia platformy Azure](../articles/data-lake-analytics/data-lake-analytics-get-started-cli.md)
 > 
 > 

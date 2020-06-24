@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 06/22/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5bc433615b19b36681796056ff4baf95d080d457
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 9502194b2020723801469b511f46d3e806290ba5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629416"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213996"
 ---
 # <a name="azure-storage-redundancy"></a>Nadmiarowość usługi Azure Storage
 
@@ -120,13 +120,15 @@ Aby uzyskać informacje na temat cen, zobacz szczegóły cennika [obiektów BLOB
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>Dostęp do odczytu do danych w regionie pomocniczym
 
-Magazyn Geograficznie nadmiarowy (z GRS lub GZRS) replikuje dane do innej lokalizacji fizycznej w regionie pomocniczym, aby zapewnić ochronę przed awarią regionalną. Jednak te dane są dostępne do odczytu tylko wtedy, gdy klient lub firma Microsoft zainicjuje przejście w tryb failover z regionu podstawowego do pomocniczego. Po włączeniu dostępu do odczytu do regionu pomocniczego dane są dostępne do odczytu, jeśli region podstawowy stał się niedostępny. Aby uzyskać dostęp do odczytu do regionu pomocniczego, Włącz magazyn Geograficznie nadmiarowy z dostępem do odczytu (RA-GRS) lub strefę geograficzną z dostępem do odczytu (RA-GZRS).
+Magazyn Geograficznie nadmiarowy (z GRS lub GZRS) replikuje dane do innej lokalizacji fizycznej w regionie pomocniczym, aby zapewnić ochronę przed awarią regionalną. Jednak te dane są dostępne do odczytu tylko wtedy, gdy klient lub firma Microsoft zainicjuje przejście w tryb failover z regionu podstawowego do pomocniczego. Po włączeniu dostępu do odczytu do regionu pomocniczego dane są dostępne do odczytu przez cały czas, łącznie z sytuacją, w której region podstawowy stał się niedostępny. Aby uzyskać dostęp do odczytu do regionu pomocniczego, Włącz magazyn Geograficznie nadmiarowy z dostępem do odczytu (RA-GRS) lub strefę geograficzną z dostępem do odczytu (RA-GZRS).
 
 ### <a name="design-your-applications-for-read-access-to-the-secondary"></a>Projektowanie aplikacji na potrzeby dostępu do odczytu do pomocniczego
 
-Jeśli konto magazynu jest skonfigurowane pod kątem dostępu do odczytu do regionu pomocniczego, można zaprojektować aplikacje w celu bezproblemowego przesunięcia danych z regionu pomocniczego, jeśli region podstawowy stanie się niedostępny z jakiegokolwiek powodu. Region pomocniczy jest zawsze dostępny dla dostępu do odczytu, dzięki czemu można testować aplikację, aby upewnić się, że zostanie ona odczytana z dodatkowej w przypadku awarii. Aby uzyskać więcej informacji o sposobach projektowania aplikacji pod kątem wysokiej dostępności, zobacz [Korzystanie z nadmiarowości geograficznej w celu projektowania aplikacji o dużym dostępności](geo-redundant-design.md).
+Jeśli konto magazynu jest skonfigurowane pod kątem dostępu do odczytu do regionu pomocniczego, można zaprojektować aplikacje w celu bezproblemowego przesunięcia danych z regionu pomocniczego, jeśli region podstawowy stanie się niedostępny z jakiegokolwiek powodu. 
 
-Po włączeniu dostępu do odczytu do elementu pomocniczego dane można odczytać z pomocniczego punktu końcowego, a także z podstawowego punktu końcowego dla konta magazynu. Pomocniczy punkt końcowy dołącza sufiks *— pomocniczy* do nazwy konta. Na przykład, jeśli podstawowy punkt końcowy usługi BLOB Storage ma wartość `myaccount.blob.core.windows.net` , pomocniczy punkt końcowy to `myaccount-secondary.blob.core.windows.net` . Klucze dostępu do konta magazynu są takie same dla podstawowych i pomocniczych punktów końcowych.
+Region pomocniczy jest dostępny do odczytu po włączeniu usługi RA-GRS lub RA-GZRS, dzięki czemu można testować aplikację z wyprzedzeniem, aby upewnić się, że zostanie prawidłowo odczytana z poziomu pomocniczego w przypadku awarii. Aby uzyskać więcej informacji o sposobach projektowania aplikacji pod kątem wysokiej dostępności, zobacz [Korzystanie z nadmiarowości geograficznej w celu projektowania aplikacji o dużym dostępności](geo-redundant-design.md).
+
+Gdy dostęp do odczytu jest włączony, aplikacja może zostać odczytana z pomocniczego punktu końcowego, a także z podstawowego punktu końcowego. Pomocniczy punkt końcowy dołącza sufiks *— pomocniczy* do nazwy konta. Na przykład, jeśli podstawowy punkt końcowy usługi BLOB Storage ma wartość `myaccount.blob.core.windows.net` , pomocniczy punkt końcowy to `myaccount-secondary.blob.core.windows.net` . Klucze dostępu do konta magazynu są takie same dla podstawowych i pomocniczych punktów końcowych.
 
 ### <a name="check-the-last-sync-time-property"></a>Sprawdzanie właściwości czasu ostatniej synchronizacji
 

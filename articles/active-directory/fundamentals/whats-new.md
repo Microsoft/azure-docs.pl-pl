@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 019a03103122d35f6d4bf1b817ddc80f91f4c568
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 4b0f0ed5a36af0890577fcc6fd097698c147c0d6
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220890"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298110"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -40,6 +40,30 @@ Ta strona jest aktualizowana co miesiąc, dlatego należy ją regularnie odwiedz
 ---
 
 ## <a name="may-2020"></a>Maj 2020 r.
+
+### <a name="retirement-of-properties-in-signins-riskyusers-and-riskdetections-apis"></a>Wycofanie właściwości w interfejsach API signIns, riskyUsers i riskDetections
+
+**Typ:** Planowanie zmiany  
+**Kategoria usługi:** Ochrona tożsamości  
+**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
+
+Obecnie wyliczane typy są używane do reprezentowania właściwości ryzyka w interfejsie API riskDetections i riskyUserHistoryItem (w wersji zapoznawczej). Typy wyliczeniowe są również używane dla właściwości riskEventTypes w interfejsie API signIns. Dzięki temu będą one reprezentować te właściwości jako ciągi. 
+
+Klienci powinni przejść do właściwości riskEventType w interfejsie API beta riskDetections i riskyUserHistoryItem oraz do riskEventTypes_v2 właściwości w interfejsie API signIns beta do 9 września 2020. W tej chwili będziemy wycofywane bieżące właściwości ryzyka i riskEventTypes. Aby uzyskać więcej informacji, zobacz [zmiany właściwości zdarzeń ryzyka i interfejsów API ochrony tożsamości na Microsoft Graph](https://developer.microsoft.com/graph/blogs/changes-to-risk-event-properties-and-identity-protection-apis-on-microsoft-graph/).
+
+--- 
+
+### <a name="deprecation-of-riskeventtypes-property-in-signins-v10-api-on-microsoft-graph"></a>Przestarzała Właściwość riskEventTypes w interfejsie API signIns v 1.0 na Microsoft Graph
+
+**Typ:** Planowanie zmiany  
+**Kategoria usługi:** Reporting  
+**Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
+
+Typy wyliczeniowe będą przełączane do typów ciągów podczas reprezentowania właściwości zdarzenia ryzyka w Microsoft Graph września 2020. Ta zmiana nie będzie miała wpływu na interfejsy API w wersji zapoznawczej, ale również ma wpływ na interfejs API signIns w środowisku produkcyjnym.
+
+Wprowadzono nową właściwość riskEventsTypes_v2 (String) do interfejsu API signIns 1.0. Bieżąca Właściwość riskEventTypes (enum) zostanie wycofana w dniu 11 czerwca 2022 zgodnie z naszymi zasadami dotyczącymi przestarzałych Microsoft Graph. Klienci powinni przejść do właściwości riskEventTypes_v2 w interfejsie API signIns v 1.0 do 11 czerwca 2022. Aby uzyskać więcej informacji, zapoznaj się z tematem [przestarzałe właściwości riskEventTypes w interfejsie API signIns v 1.0 na Microsoft Graph](https://developer.microsoft.com/graph/blogs/deprecation-of-riskeventtypes-property-in-signins-v1-0-api-on-microsoft-graph//).
+
+--- 
 
 ### <a name="upcoming-changes-to-mfa-email-notifications"></a>Nadchodzące zmiany powiadomień e-mail usługi MFA
 
@@ -255,7 +279,7 @@ Weryfikacja wydawcy (wersja zapoznawcza) pomaga administratorom i użytkownikom 
 
 **Typ:** Zmieniono **kategorię usługi funkcji:** uwierzytelnianie **możliwości produktu:** środowisko programistyczne
 
-Ze względu na to, że istnieją [ograniczenia dotyczące plików cookie innych firm, takie jak Safari itp](https://docs.microsoft.com/azure/active-directory/develop/reference-third-party-cookies-spas), Usługa aplikacji jednostronicowych będzie musiała używać przepływu kodu autoryzacji zamiast przepływu niejawnego do obsługi logowania jednokrotnego. MSAL. js v 2. x będzie teraz obsługiwał przepływ kodu autoryzacji. Istnieją odpowiednie aktualizacje Azure Portal, aby można było zaktualizować SPA w taki sposób, aby były typu "Spa" i używają przepływu kodu uwierzytelniania. Aby uzyskać wskazówki, zobacz [Przewodnik Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript Spa przy użyciu przepływu kodu uwierzytelniania](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript-auth-code).
+Ze względu na to, że istnieją [ograniczenia dotyczące plików cookie innych firm, takie jak Safari itp](https://docs.microsoft.com/azure/active-directory/develop/reference-third-party-cookies-spas), Usługa aplikacji jednostronicowych będzie musiała używać przepływu kodu autoryzacji zamiast przepływu niejawnego do obsługi logowania jednokrotnego. MSAL.js v 2. x będzie teraz obsługiwał przepływ kodu autoryzacji. Istnieją odpowiednie aktualizacje Azure Portal, aby można było zaktualizować SPA w taki sposób, aby były typu "Spa" i używają przepływu kodu uwierzytelniania. Aby uzyskać wskazówki, zobacz [Przewodnik Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w usłudze JavaScript Spa przy użyciu przepływu kodu uwierzytelniania](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-javascript-auth-code).
 
 ---
 

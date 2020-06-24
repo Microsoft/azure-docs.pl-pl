@@ -7,17 +7,17 @@ author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: rohink
-ms.openlocfilehash: 6d720067b619b0d871899f2ac9025a9d8ab24d95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0585c755e8dd9a6625a8259dc71ca521f156afb
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82130766"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704067"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Rozwiązywanie problemów ze stanem obniżonej wydajności usługi Azure Traffic Manager
 
@@ -35,7 +35,7 @@ Jeśli kondycja Traffic Manager wyświetla stan **nieaktywny** , wówczas oba pu
 * Odpowiedź przekierowania 30x jest traktowana jako błąd, chyba że określono jako prawidłowy kod odpowiedzi w zakresie [kodów stanu oczekiwanego](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring#configure-endpoint-monitoring) w ramach twojego profilu Traffic Manager. Traffic Manager nie sonduje elementu docelowego przekierowania.
 * W przypadku sond HTTPs Błędy certyfikatów są ignorowane.
 * Rzeczywista zawartość ścieżki sondy nie ma znaczenia, o ile jest zwracana 200. Badanie adresu URL do pewnej zawartości statycznej, takiej jak "/favicon.ico", jest typową techniką. Zawartość dynamiczna, podobnie jak strony ASP, może nie zawsze zwracać 200 nawet wtedy, gdy aplikacja jest w dobrej kondycji.
-* Najlepszym rozwiązaniem jest ustawienie dla ścieżki sondy elementu, który ma wystarczającą logikę, aby określić, że lokacja jest w górę lub w dół. W poprzednim przykładzie, ustawiając ścieżkę na "/favicon.ico", tylko test w3wp. exe odpowiada. To sondowanie może nie wskazywać, że aplikacja sieci Web jest w dobrej kondycji. Lepszym rozwiązaniem jest ustawienie ścieżki do elementu, takiego jak "/Probe.aspx", który ma logikę do określenia kondycji lokacji. Można na przykład użyć liczników wydajności do użycia procesora CPU lub zmierzyć liczbę żądań zakończonych niepowodzeniem. Możesz też próbować uzyskać dostęp do zasobów bazy danych lub stanu sesji, aby upewnić się, że aplikacja sieci Web działa.
+* Najlepszym rozwiązaniem jest ustawienie dla ścieżki sondy elementu, który ma wystarczającą logikę, aby określić, że lokacja jest w górę lub w dół. W poprzednim przykładzie, przez ustawienie ścieżki na "/favicon.ico", tylko testuje, że w3wp.exe odpowiada. To sondowanie może nie wskazywać, że aplikacja sieci Web jest w dobrej kondycji. Lepszym rozwiązaniem jest ustawienie ścieżki do elementu, takiego jak "/Probe.aspx", który ma logikę do określenia kondycji lokacji. Można na przykład użyć liczników wydajności do użycia procesora CPU lub zmierzyć liczbę żądań zakończonych niepowodzeniem. Możesz też próbować uzyskać dostęp do zasobów bazy danych lub stanu sesji, aby upewnić się, że aplikacja sieci Web działa.
 * Jeśli wszystkie punkty końcowe w profilu mają obniżoną wydajność, Traffic Manager traktuje wszystkie punkty końcowe jako zdrowe i kieruje ruch do wszystkich punktów końcowych. Takie zachowanie zapewnia, że problemy z mechanizmem sondowania nie powodują kompletnego przestoju usługi.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
@@ -48,7 +48,7 @@ Aby rozwiązać problem z awarią sondy, potrzebne jest narzędzie, które pokaz
 
 Ponadto możesz użyć karty sieć narzędzi debugowania F12 w programie Internet Explorer, aby wyświetlić odpowiedzi HTTP.
 
-W tym przykładzie chcemy zobaczyć odpowiedź z naszego adresu URL sondy: http:\//watestsdp2008r2.cloudapp.NET:80/Probe. Poniższy przykład programu PowerShell ilustruje ten problem.
+W tym przykładzie chcemy zobaczyć odpowiedź z naszego adresu URL sondy: http: \/ /watestsdp2008r2.cloudapp.NET:80/Probe. Poniższy przykład programu PowerShell ilustruje ten problem.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

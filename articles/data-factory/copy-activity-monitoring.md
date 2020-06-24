@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 3ed1a952cb640fcd64808ba49e1a0937d71d769f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 4e7828810a069756d1a0cde55ab47915ad11acc5
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655646"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249707"
 ---
 # <a name="monitor-copy-activity"></a>Monitorowanie działania kopiowania
 
@@ -58,16 +58,16 @@ Szczegóły wykonania działania kopiowania i charakterystyki wydajności są r�
 | filesWritten | Liczba plików, które zostały zapełnione/przekazane do ujścia opartego na plikach. | Wartość Int64 (brak jednostki) |
 | sourcePeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych w źródłowym magazynie danych podczas uruchomienia działania kopiowania. | Wartość Int64 (brak jednostki) |
 | sinkPeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych do magazynu danych ujścia podczas uruchomienia działania kopiowania. | Wartość Int64 (brak jednostki) |
-| rowsRead | Liczba wierszy odczytanych ze źródła (nie dotyczy kopiowania binarnego). | Wartość Int64 (brak jednostki) |
-| rowsCopied | Liczba wierszy skopiowanych do ujścia (nie dotyczy kopiowania binarnego). | Wartość Int64 (brak jednostki) |
+| rowsRead | Liczba wierszy odczytanych ze źródła. Ta Metryka nie ma zastosowania w przypadku kopiowania plików jako-jest bez analizy, na przykład gdy źródła i ujścia danych są typu binarnego, lub innego typu formatu z identycznymi ustawieniami. | Wartość Int64 (brak jednostki) |
+| rowsCopied | Liczba wierszy skopiowanych do ujścia. Ta Metryka nie ma zastosowania w przypadku kopiowania plików jako-jest bez analizy, na przykład gdy źródła i ujścia danych są typu binarnego, lub innego typu formatu z identycznymi ustawieniami.  | Wartość Int64 (brak jednostki) |
 | rowsSkipped | Liczba niezgodnych wierszy, które zostały pominięte. Aby można było pominąć niezgodne wiersze, można ustawić `enableSkipIncompatibleRow` wartość true. | Wartość Int64 (brak jednostki) |
 | copyDuration | Czas trwania kopiowania. | Wartość Int32 (w sekundach) |
 | danych | Szybkość transferu danych. | Liczba zmiennoprzecinkowa w KB/s |
 | sourcePeakConnections | Szczytowa liczba jednoczesnych połączeń ustanowionych w źródłowym magazynie danych podczas uruchomienia działania kopiowania. | Wartość Int32 (brak jednostki) |
 | sinkPeakConnections| Szczytowa liczba jednoczesnych połączeń ustanowionych do magazynu danych ujścia podczas uruchomienia działania kopiowania.| Wartość Int32 (brak jednostki) |
-| sqlDwPolyBase | Określa, czy baza danych jest używana, gdy dane są kopiowane do SQL Data Warehouse. | Boolean |
-| redshiftUnload | Czy ZWALNIAnie jest używane, gdy dane są kopiowane z RedShift. | Boolean |
-| hdfsDistcp | Określa, czy pomocą distcp jest używany, gdy dane są kopiowane z systemu plików HDFS. | Boolean |
+| sqlDwPolyBase | Określa, czy baza danych jest używana, gdy dane są kopiowane do SQL Data Warehouse. | Wartość logiczna |
+| redshiftUnload | Czy ZWALNIAnie jest używane, gdy dane są kopiowane z RedShift. | Wartość logiczna |
+| hdfsDistcp | Określa, czy pomocą distcp jest używany, gdy dane są kopiowane z systemu plików HDFS. | Wartość logiczna |
 | effectiveIntegrationRuntime | Środowisko Integration Runtime (IR) lub środowisko uruchomieniowe służące do włączania uruchomienia działania w formacie `<IR name> (<region if it's Azure IR>)` . | Tekst (ciąg) |
 | usedDataIntegrationUnits | Efektywna jednostka integracji danych podczas kopiowania. | Wartość Int32 |
 | usedParallelCopies | Efektywna parallelCopies podczas kopiowania. | Wartość Int32 |

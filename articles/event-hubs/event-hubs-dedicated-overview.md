@@ -3,24 +3,19 @@ title: Omówienie dedykowanych centrów zdarzeń — Azure Event Hubs | Microsof
 description: Ten artykuł zawiera omówienie dedykowanych Event Hubs platformy Azure, które oferują wdrożenia z jedną dzierżawą centrów zdarzeń.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
+author: spelluru
 ms.assetid: ''
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
+ms.openlocfilehash: 145fc759b236019630b8942c677dbdd562331e4c
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72516749"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298739"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Omówienie Event Hubs — warstwa Dedykowana
 
@@ -50,10 +45,10 @@ W przypadku dużych ilości danych wejściowych (>100 TUs) klaster jest kosztem 
 
 W przypadku oferty Event Hubs — warstwa Dedykowana jest naliczana stała cena miesięczna, a co najmniej 4 godziny użytkowania. Warstwa dedykowana oferuje wszystkie funkcje planu Standard, ale z możliwością skalowania w przedsiębiorstwie i limitami dla klientów wymagających obciążeń. 
 
-| Funkcja | Standardowa | Dedykowane |
+| Cecha | Standardowa (Standard) | Dedykowane |
 | --- |:---:|:---:|
 | Przepustowość | 20 TUs (do 40 TUs) | 20 jednostek |
-| Namespaces |  1 | 50 na CU |
+| Przestrzenie nazw |  1 | 50 na CU |
 | Event Hubs |  10 na przestrzeń nazw | 1000 na przestrzeń nazw |
 | Zdarzenia związane z transferem danych przychodzących | Płatność za milion zdarzeń | Dołączono |
 | Rozmiar komunikatu | 1 000 000 bajtów | 1 000 000 bajtów |

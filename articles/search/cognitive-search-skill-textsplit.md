@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.openlocfilehash: 558f7ef250c99d85cb957162b6d098e586bc0fc4
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/17/2020
+ms.openlocfilehash: 52aaeb01fef551eee350c6db662c2690ef7b3e78
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433243"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84981952"
 ---
 # <a name="text-split-cognitive-skill"></a>Umiejętność rozdzielania tekstu
 
@@ -31,23 +31,23 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| textsplitmode      | "Strony" lub "zdania" | 
-| maximumPageLength | Jeśli textsplitmode ma wartość "Pages", odnosi się do maksymalnej długości strony, która jest mierzona przez `String.Length` . Wartość minimalna to 300.  Jeśli element textsplitmode ma wartość "Pages", algorytm podejmie próbę podzielenia tekstu na fragmenty o rozmiarze co najwyżej "maximumPageLength". W takim przypadku algorytm będzie optymalnie dzielić zdanie na granicy zdania, więc rozmiar fragmentu może być nieco mniejszy niż "maximumPageLength". | 
-| defaultLanguageCode   | obowiązkowe Jeden z następujących kodów języka: `da, de, en, es, fi, fr, it, ko, pt` . Wartość domyślna to angielski (EN). Kilka kwestii, które należy wziąć pod uwagę:<ul><li>Jeśli przekażesz format languagecode-CountryCode, zostanie użyta tylko część languagecode formatu.</li><li>Jeśli język nie znajduje się na poprzedniej liście, podzielona umiejętność zrywa tekst w granicach znaku.</li><li>Udostępnianie kodu języka jest przydatne, aby uniknąć wycinania wyrazu w połowie dla języków innych niż odstępy, takich jak chińskie, Japońskie i koreański.</li><li>Jeśli nie znasz języka (tj. musisz podzielić tekst na dane wejściowe na [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), wartość domyślna języka angielskiego (EN) powinna być wystarczająca. </li></ul>  |
+| `textSplitMode`    | "Strony" lub "zdania" | 
+| `maximumPageLength` | Jeśli textsplitmode ma wartość "Pages", odnosi się do maksymalnej długości strony, która jest mierzona przez `String.Length` . Wartość minimalna to 300.  Jeśli element textsplitmode ma wartość "Pages", algorytm podejmie próbę podzielenia tekstu na fragmenty o rozmiarze co najwyżej "maximumPageLength". W takim przypadku algorytm będzie optymalnie dzielić zdanie na granicy zdania, więc rozmiar fragmentu może być nieco mniejszy niż "maximumPageLength". | 
+| `defaultLanguageCode` | obowiązkowe Jeden z następujących kodów języka: `da, de, en, es, fi, fr, it, ko, pt` . Wartość domyślna to angielski (EN). Kilka kwestii, które należy wziąć pod uwagę:<ul><li>Jeśli przekażesz format languagecode-CountryCode, zostanie użyta tylko część languagecode formatu.</li><li>Jeśli język nie znajduje się na poprzedniej liście, podzielona umiejętność zrywa tekst w granicach znaku.</li><li>Udostępnianie kodu języka jest przydatne, aby uniknąć wycinania wyrazu w połowie dla języków innych niż odstępy, takich jak chińskie, Japońskie i koreański.</li><li>Jeśli nie znasz języka (tj. musisz podzielić tekst na dane wejściowe na [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), wartość domyślna języka angielskiego (EN) powinna być wystarczająca. </li></ul>  |
 
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
 | Nazwa parametru       | Opis      |
 |----------------------|------------------|
-| tekst  | Tekst, który ma zostać podzielony na podciąg. |
-| languageCode  | Obowiązkowe Kod języka dla dokumentu. Jeśli nie znasz języka (tj. musisz podzielić tekst na dane wejściowe na [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), możesz bezpiecznie usunąć te dane wejściowe.  |
+| `text`    | Tekst, który ma zostać podzielony na podciąg. |
+| `languageCode`    | Obowiązkowe Kod języka dla dokumentu. Jeśli nie znasz języka (tj. musisz podzielić tekst na dane wejściowe na [LanguageDetectionSkill](cognitive-search-skill-language-detection.md)), możesz bezpiecznie usunąć te dane wejściowe.  |
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności 
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| textitems | Tablica podciągów, które zostały wyodrębnione. |
+| `textItems`   | Tablica podciągów, które zostały wyodrębnione. |
 
 
 ##  <a name="sample-definition"></a>Definicja Przykładowa

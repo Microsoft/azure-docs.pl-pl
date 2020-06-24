@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 8619366580dd77ae12c4c101c183532fec4da04a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430840"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982173"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Aktualizacje dokumentacji Azure Media Services v3
 
@@ -24,9 +24,13 @@ ms.locfileid: "84430840"
 
 W tym artykule omówiono najnowsze aktualizacje dokumentacji programu Media Services v3.
 
-## <a name="june-2020"></a>Czerwiec 2020
+## <a name="june-2020"></a>Czerwiec 2020 r.
 
-Wersja zapoznawcza usługi Analiza filmów wideo na żywo na IoT Edge powiodła się. Szczegółowe informacje znajdują się w dokumentacji [dotyczącej analizy filmów wideo na żywo w IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) .
+* Wersja zapoznawcza usługi Analiza filmów wideo na żywo na IoT Edge powiodła się. Szczegółowe informacje znajdują się w dokumentacji [dotyczącej analizy filmów wideo na żywo w IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) .
+* Nowe Przewodniki Szybki Start:
+
+    * [Przekazywanie, kodowanie i przesyłanie strumieniowe zawartości za pomocą portalu](manage-assets-quickstart.md)
+    * [Szyfrowanie zawartości przy użyciu portalu](encrypt-content-quickstart.md)
 
 ## <a name="april-2020"></a>Kwiecień 2020 r.
 

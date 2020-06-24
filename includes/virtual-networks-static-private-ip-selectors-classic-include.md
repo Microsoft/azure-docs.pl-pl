@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-network
 author: genlin
 ms.service: virtual-network
@@ -17,7 +17,7 @@ ms.locfileid: "67183141"
 ---
 > [!div class="op_single_selector"]
 > * [Azure Portal](../articles/virtual-network/virtual-networks-static-private-ip-arm-pportal.md)
-> * [PowerShell](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)
+> * [Program PowerShell](../articles/virtual-network/virtual-networks-static-private-ip-arm-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](../articles/virtual-network/virtual-networks-static-private-ip-arm-cli.md)
 > * [Azure Portal (klasyczny)](../articles/virtual-network/virtual-networks-static-private-ip-classic-pportal.md)
 > * [PowerShell (klasyczny)](../articles/virtual-network/virtual-networks-static-private-ip-classic-ps.md)

@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 17c0e02aa091d1271967b5a238f71123cc7aeede
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322673"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249282"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nowa usługa DBA w chmurze — zarządzanie Azure SQL Database po migracji
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -65,7 +65,7 @@ Nie można tworzyć kopii zapasowych na Azure SQL Database, ponieważ nie jest t
 
 |Warstwa usług|Okres przechowywania w dniach|
 |---|:---:|
-|Podstawowy|7|
+|Podstawowa|7|
 |Standardowa (Standard)|35|
 |Premium|35|
 |||
@@ -133,7 +133,7 @@ Reguły zapory można tworzyć na poziomie serwera lub na poziomie bazy danych. 
 
 #### <a name="service-endpoints"></a>Punkty końcowe usługi
 
-Domyślnie baza danych SQL jest skonfigurowana do "Zezwalaj na dostęp usług platformy Azure do serwera", co oznacza, że każda maszyna wirtualna na platformie Azure może próbować nawiązać połączenie z bazą danych. Te próby będą nadal musiały zostać uwierzytelnione. Jeśli jednak nie chcesz, aby baza danych była dostępna przez żadne adresy IP platformy Azure, możesz wyłączyć opcję "Zezwalaj na dostęp do serwera usług platformy Azure". Ponadto możesz skonfigurować [punkty końcowe usługi sieci wirtualnej](vnet-service-endpoint-rule-overview.md).
+Domyślnie baza danych jest skonfigurowana do "Zezwalaj usługom platformy Azure na dostęp do serwera", co oznacza, że każda maszyna wirtualna na platformie Azure może próbować nawiązać połączenie z bazą danych. Te próby będą nadal musiały zostać uwierzytelnione. Jeśli jednak nie chcesz, aby baza danych była dostępna przez żadne adresy IP platformy Azure, możesz wyłączyć opcję "Zezwalaj na dostęp do serwera usług platformy Azure". Ponadto możesz skonfigurować [punkty końcowe usługi sieci wirtualnej](vnet-service-endpoint-rule-overview.md).
 
 Punkty końcowe usługi (SE) umożliwiają uwidocznienie krytycznych zasobów platformy Azure tylko do własnej prywatnej sieci wirtualnej na platformie Azure. Dzięki temu można zasadniczo wyeliminować publiczny dostęp do Twoich zasobów. Ruch między siecią wirtualną do platformy Azure pozostaje w sieci szkieletowej platformy Azure. Bez wymuszania routingu pakietów wymuszonego tunelowania. Twoja sieć wirtualna wymusza ruch internetowy do organizacji i ruch usługi platformy Azure, aby przejść do tej samej trasy. Za pomocą punktów końcowych usługi można zoptymalizować ten sposób, ponieważ pakiety są przesyłane bezpośrednio z sieci wirtualnej do usługi w sieci szkieletowej platformy Azure.
 
@@ -285,7 +285,7 @@ Można wykonać zapytanie dotyczące widoku dynamicznego zarządzania [sys. dm_d
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Mi obserwowanie problemy z wydajnością: w jaki sposób metodologia rozwiązywania problemów SQL Database różni się od SQL Server
 
-Główna część technik rozwiązywania problemów, która powinna być używana do diagnozowania problemów z wydajnością zapytań i bazy danych, pozostaje taka sama. Gdy wszystkie te same aparaty bazy danych SQL mają uprawnienia do chmury. Jednak platforma Azure SQL Database została wbudowana w "inteligencję". Może ułatwić rozwiązywanie problemów i diagnozowanie problemów z wydajnością. Może również wykonywać niektóre z tych działań naprawczych w Twoim imieniu, a w niektórych przypadkach automatycznie naprawiać je.
+Główna część technik rozwiązywania problemów, która powinna być używana do diagnozowania problemów z wydajnością zapytań i bazy danych, pozostaje taka sama. Gdy wszystkie te same aparaty bazy danych mają uprawnienia do chmury. Jednak platforma Azure SQL Database została wbudowana w "inteligencję". Może ułatwić rozwiązywanie problemów i diagnozowanie problemów z wydajnością. Może również wykonywać niektóre z tych działań naprawczych w Twoim imieniu, a w niektórych przypadkach automatycznie naprawiać je.
 
 Twoje podejście do rozwiązywania problemów z wydajnością może znacząco korzystać z funkcji inteligentnych, takich jak [szczegółowe informacje o wydajności zapytań (QPI)](query-performance-insight-use.md) i [Database Advisor](database-advisor-implement-performance-recommendations.md) w połączeniu z tym, że różnica w metodologii różni się w tym aspekcie — nie trzeba już ręcznie wykonywać ręcznych informacji, które mogą pomóc w rozwiązaniu problemu. Platforma działa dla Ciebie. Przykładem jest QPI. Za pomocą QPI można przechodzić do szczegółów na poziomie zapytania i przeglądać trendy historyczne i dowiedzieć się, jak dokładnie kwerenda uległa pogorszeniu. Database Advisor zawiera zalecenia dotyczące zagadnień, które mogą pomóc w ulepszaniu ogólnej wydajności, podobnie jak w przypadku brakujących indeksów, upuszczania indeksów, parametryzacja zapytań itp.
 

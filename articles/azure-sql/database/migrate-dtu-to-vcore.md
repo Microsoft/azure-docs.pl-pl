@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 05/28/2020
-ms.openlocfilehash: 4802e9e6fa2fdd918266d3ddc58b783bdb6bb83e
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 0193e7f7001fb8f63794a379c4d2b8e28abd5c0f
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258471"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297872"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrowanie Azure SQL Database z modelu opartego na jednostkach DTU do modelu opartego na rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Oprócz liczby rdzeni wirtualnych (logiczne procesory CPU) i generowania sprzęt
 - W przypadku tej samej generacji sprzętowej i limitów zasobów rdzeni wirtualnych, liczby operacji we/wy oraz przepływności dziennika transakcji dla baz danych rdzeń wirtualny są często większe niż w przypadku baz danych DTU. W przypadku obciążeń związanych we/wy można obniżyć liczbę rdzeni wirtualnych w modelu rdzeń wirtualny, aby osiągnąć ten sam poziom wydajności. Limity zasobów dla baz danych DTU i rdzeń wirtualny w wartościach bezwzględnych są ujawniane w widoku [sys. dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) . Porównanie tych wartości między bazą danych jednostek DTU do migracji a bazą danych rdzeń wirtualny przy użyciu przybliżonego celu usługi pomoże Ci dokładniej wybrać cel usługi rdzeń wirtualny.
 - Zapytanie mapowania zwraca również ilość pamięci na rdzeń dla bazy danych DTU lub elastycznej puli do migracji oraz dla każdej generacji sprzętu w modelu rdzeń wirtualny. Zapewnienie podobnej lub wyższej całkowitej ilości pamięci po migracji do rdzeń wirtualny jest istotne dla obciążeń wymagających dużej ilości pamięci podręcznej danych w celu osiągnięcia wystarczającej wydajności lub obciążeń, które wymagają dużych przydziałów pamięci do przetwarzania zapytań. W przypadku takich obciążeń, w zależności od rzeczywistej wydajności, może być konieczne zwiększenie liczby rdzeni wirtualnych, aby uzyskać wystarczającą ilość pamięci.
 - W przypadku wybrania celu usługi rdzeń wirtualny należy wziąć pod uwagę [historyczne wykorzystanie zasobów](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) bazy danych DTU. Bazy danych DTU ze spójnie używanymi zasobami procesora CPU mogą wymagać mniejszej liczby rdzeni wirtualnych niż zwracana przez zapytanie mapowania. W przypadku baz danych DTU, w których spójne użycie procesora CPU powoduje, że niewystarczająca wydajność obciążeń może wymagać więcej rdzeni wirtualnych niż zwracanych przez zapytanie.
-- W przypadku migrowania baz danych z użyciem sporadycznych lub nieprzewidywalnych wzorców użycia należy rozważyć użycie warstwy obliczeń [Bezserwerowych](serverless-tier-overview.md) .
+- W przypadku migrowania baz danych z użyciem sporadycznych lub nieprzewidywalnych wzorców użycia należy rozważyć użycie warstwy obliczeń [Bezserwerowych](serverless-tier-overview.md) .  Należy zauważyć, że maksymalna liczba współbieżnych procesów roboczych (żądań) w bezserwerowym wyniesieniu do 75% limitu zainicjowanego obliczeń dla tej samej liczby skonfigurowanych maksymalnych rdzeni wirtualnych.  Ponadto Maksymalna ilość pamięci dostępnej w ramach serwera to 3 GB, a maksymalna liczba skonfigurowanych rdzeni wirtualnych; na przykład Maksymalna pamięć to 120 GB, gdy konfigurowane są maksymalnie 40 rdzeni wirtualnych.   
 - W modelu rdzeń wirtualny obsługiwany maksymalny rozmiar bazy danych może się różnić w zależności od generacji sprzętu. W przypadku dużych baz danych sprawdź obsługiwane maksymalne rozmiary w modelu rdzeń wirtualny dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).
 - W przypadku pul elastycznych modele [jednostek DTU](resource-limits-dtu-elastic-pools.md) i [rdzeń wirtualny](resource-limits-vcore-elastic-pools.md) mają różnice w maksymalnej obsługiwanej liczbie baz danych na pulę. Należy wziąć pod uwagę podczas migrowania pul elastycznych z wieloma bazami danych.
 - Niektóre generacje sprzętu mogą nie być dostępne w każdym regionie. Sprawdź dostępność w obszarze [generacja sprzętu](service-tiers-vcore.md#hardware-generations).

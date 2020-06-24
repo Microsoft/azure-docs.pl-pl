@@ -5,12 +5,12 @@ description: Dowiedz się, jak zainstalować i skonfigurować kontroler NGINX In
 services: container-service
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: dce3cf4e7db45b00b29469524d7576f6065ebaf4
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: e909a65488ff2651ed3a16943a81747fac6ece0f
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561934"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298535"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Tworzenie kontrolera ruchu przychodzącego HTTPS i używanie własnych certyfikatów protokołu TLS w usłudze Azure Kubernetes Service (AKS)
 
@@ -57,7 +57,13 @@ helm install nginx-ingress stable/nginx-ingress \
 
 Podczas instalacji jest tworzony publiczny adres IP platformy Azure dla kontrolera transferu danych przychodzących. Ten publiczny adres IP jest statyczny dla okresu istnienia kontrolera transferu danych przychodzących. Jeśli usuniesz kontroler transferu danych przychodzących, przypisanie publicznego adresu IP zostanie utracone. Jeśli następnie utworzysz dodatkowy kontroler transferu danych przychodzących, zostanie przypisany nowy publiczny adres IP. Jeśli chcesz zachować publiczny adres IP, możesz utworzyć kontroler transferu danych przychodzących [ze statycznym publicznym adresem IP][aks-ingress-static-tls].
 
-Aby uzyskać publiczny adres IP, użyj `kubectl get service` polecenia. Przypisanie adresu IP do usługi może potrwać kilka minut.
+Aby uzyskać publiczny adres IP, użyj `kubectl get service` polecenia.
+
+```console
+kubectl get service -l app=nginx-ingress --namespace ingress-basic
+```
+
+Przypisanie adresu IP do usługi może potrwać kilka minut.
 
 ```
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
@@ -73,11 +79,11 @@ Nie utworzono jeszcze żadnych reguł dotyczących transferu danych przychodząc
 
 ## <a name="generate-tls-certificates"></a>Generuj certyfikaty TLS
 
-W tym artykule wygenerujemy certyfikat z podpisem własnym za pomocą `openssl`usługi. Do użycia w środowisku produkcyjnym należy zażądać certyfikatu zaufanego, podpisanego za pomocą dostawcy lub własnego urzędu certyfikacji. W następnym kroku zostanie wygenerowany *wpis tajny* Kubernetes przy użyciu certyfikatu TLS i klucza prywatnego wygenerowanego przez OpenSSL.
+W tym artykule wygenerujemy certyfikat z podpisem własnym za pomocą usługi `openssl` . Do użycia w środowisku produkcyjnym należy zażądać certyfikatu zaufanego, podpisanego za pomocą dostawcy lub własnego urzędu certyfikacji. W następnym kroku zostanie wygenerowany *wpis tajny* Kubernetes przy użyciu certyfikatu TLS i klucza prywatnego wygenerowanego przez OpenSSL.
 
 Poniższy przykład generuje 2048-bitowy certyfikat x509 certyfikatu RSA ważny przez 365 dni o nazwie *AKS-Ingress-TLS. CRT*. Plik klucza prywatnego ma nazwę *AKS-Ingress-TLS. Key*. Wpis tajny Kubernetes TLS wymaga obu tych plików.
 
-Ten artykuł działa z wspólną nazwą podmiotu *demo.Azure.com* i nie trzeba go zmieniać. Do użycia w środowisku produkcyjnym Określ własne wartości organizacyjne `-subj` dla parametru:
+Ten artykuł działa z wspólną nazwą podmiotu *demo.Azure.com* i nie trzeba go zmieniać. Do użycia w środowisku produkcyjnym Określ własne wartości organizacyjne dla `-subj` parametru:
 
 ```console
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
@@ -181,7 +187,7 @@ spec:
     app: ingress-demo
 ```
 
-Uruchom dwie aplikacje demonstracyjne przy `kubectl apply`użyciu:
+Uruchom dwie aplikacje demonstracyjne przy użyciu `kubectl apply` :
 
 ```console
 kubectl apply -f aks-helloworld.yaml --namespace ingress-basic
@@ -190,9 +196,9 @@ kubectl apply -f ingress-demo.yaml --namespace ingress-basic
 
 ## <a name="create-an-ingress-route"></a>Tworzenie trasy transferu danych przychodzących
 
-Obie aplikacje są teraz uruchomione w klastrze Kubernetes, ale są skonfigurowane za pomocą usługi typu `ClusterIP`. W związku z tym aplikacje nie są dostępne z Internetu. Aby udostępnić je publicznie, utwórz zasób Kubernetes. Zasób danych przychodzących konfiguruje reguły, które kierują ruch do jednej z dwóch aplikacji.
+Obie aplikacje są teraz uruchomione w klastrze Kubernetes, ale są skonfigurowane za pomocą usługi typu `ClusterIP` . W związku z tym aplikacje nie są dostępne z Internetu. Aby udostępnić je publicznie, utwórz zasób Kubernetes. Zasób danych przychodzących konfiguruje reguły, które kierują ruch do jednej z dwóch aplikacji.
 
-W poniższym przykładzie ruch do adresu `https://demo.azure.com/` jest kierowany do usługi o nazwie. `aks-helloworld` Ruch do adresu `https://demo.azure.com/hello-world-two` jest kierowany do `ingress-demo` usługi. W tym artykule nie trzeba zmieniać tych nazw demonstracyjnych hostów. W celu użycia w środowisku produkcyjnym Podaj nazwy określone jako część procesu żądania certyfikatu i generacji.
+W poniższym przykładzie ruch do adresu `https://demo.azure.com/` jest kierowany do usługi o nazwie `aks-helloworld` . Ruch do adresu `https://demo.azure.com/hello-world-two` jest kierowany do `ingress-demo` usługi. W tym artykule nie trzeba zmieniać tych nazw demonstracyjnych hostów. W celu użycia w środowisku produkcyjnym Podaj nazwy określone jako część procesu żądania certyfikatu i generacji.
 
 > [!TIP]
 > Jeśli nazwa hosta określona w procesie żądania certyfikatu, Nazwa nazwy POSPOLITej nie jest zgodna z hostem zdefiniowanym w marszrucie transferu danych przychodzących, kontroler usług przychodzących wyświetla komunikat o *fałszywej certyfikacji kontrolera Kubernetes* . Upewnij się, że certyfikat i nazwy hosta trasy wejściowej są zgodne.
@@ -231,6 +237,12 @@ spec:
 
 Utwórz zasób transferu danych przychodzących przy użyciu `kubectl apply -f hello-world-ingress.yaml` polecenia.
 
+```console
+kubectl apply -f hello-world-ingress.yaml
+```
+
+Przykładowe dane wyjściowe pokazują, że tworzony jest zasób transferu danych przychodzących.
+
 ```
 $ kubectl apply -f hello-world-ingress.yaml
 
@@ -245,7 +257,7 @@ Aby przetestować certyfikaty przy użyciu naszego *demo.Azure.comego* hosta, u�
 curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
 ```
 
-Nie dostarczono żadnej dodatkowej ścieżki z adresem, dlatego kontroler transferu danych przychodzących jest domyślnie */* kierowany do trasy. Zostanie zwrócona pierwsza aplikacja demonstracyjna, jak pokazano w następujących wąskich przykładowych danych wyjściowych:
+Nie dostarczono żadnej dodatkowej ścieżki z adresem, dlatego kontroler transferu danych przychodzących jest domyślnie kierowany do */* trasy. Zostanie zwrócona pierwsza aplikacja demonstracyjna, jak pokazano w następujących wąskich przykładowych danych wyjściowych:
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:40.87.46.190 https://demo.azure.com
@@ -272,7 +284,7 @@ Parametr *-v* w naszym `curl` poleceniu zapisuje pełne informacje, w tym otrzym
 [...]
 ```
 
-Teraz dodaj ścieżkę */Hello-World-Two* do adresu, na przykład `https://demo.azure.com/hello-world-two`. Zostanie zwrócona druga aplikacja demonstracyjna z tytułem niestandardowym, jak pokazano w następujących wąskich przykładowych danych wyjściowych:
+Teraz dodaj ścieżkę */Hello-World-Two* do adresu, na przykład `https://demo.azure.com/hello-world-two` . Zostanie zwrócona druga aplikacja demonstracyjna z tytułem niestandardowym, jak pokazano w następujących wąskich przykładowych danych wyjściowych:
 
 ```
 $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/hello-world-two
@@ -286,7 +298,7 @@ $ curl -v -k --resolve demo.azure.com:443:137.117.36.18 https://demo.azure.com/h
 [...]
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W tym artykule użyto Helm do zainstalowania składników przychodzących i przykładowych aplikacji. Po wdrożeniu wykresu Helm są tworzone różne zasoby Kubernetes. Do tych zasobów należą między innymi: zasoby, wdrożenia i usługi. Aby wyczyścić te zasoby, można usunąć całą przykładową przestrzeń nazw lub poszczególne zasoby.
 
@@ -300,7 +312,13 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Usuń zasoby pojedynczo
 
-Alternatywnie, bardziej szczegółowe podejście polega na usunięciu utworzonych poszczególnych zasobów. Utwórz listę wersji Helm za pomocą `helm list` polecenia. Poszukaj wykresu o nazwie *Nginx-* przychodzących, jak pokazano w następujących przykładowych danych wyjściowych:
+Alternatywnie, bardziej szczegółowe podejście polega na usunięciu utworzonych poszczególnych zasobów. Utwórz listę wersji Helm za pomocą `helm list` polecenia. 
+
+```console
+helm list --namespace ingress-basic
+```
+
+Poszukaj wykresu o nazwie *Nginx-* przychodzących, jak pokazano w następujących przykładowych danych wyjściowych:
 
 ```
 $ helm list --namespace ingress-basic
@@ -309,7 +327,13 @@ NAME                    NAMESPACE       REVISION        UPDATED                 
 nginx-ingress           ingress-basic   1               2020-01-06 19:55:46.358275 -0600 CST    deployed        nginx-ingress-1.27.1    0.26.1 
 ```
 
-Odinstaluj wydania za pomocą `helm uninstall` polecenia. Poniższy przykład Odinstalowuje wdrożenie NGINX.
+Odinstaluj wydania za pomocą `helm uninstall` polecenia. 
+
+```console
+helm uninstall nginx-ingress --namespace ingress-basic
+```
+
+Poniższy przykład Odinstalowuje wdrożenie NGINX.
 
 ```
 $ helm uninstall nginx-ingress --namespace ingress-basic

@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 01ed6d836e5d6bfe139e4a21a0ff6a9708c261d3
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006445"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977929"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Czy użytkownik musi dysponować centrum i szprychą z urządzeniami z systemem SD/WAN/VPN, aby można było korzystać z wirtualnej sieci WAN platformy Azure?
 
@@ -32,7 +32,7 @@ Każda brama ma dwa wystąpienia, podział odbywa się tak, że każde wystąpie
 Dostępne są dwie opcje dodawania serwerów DNS dla klientów P2S.
 
 1. Otwórz bilet pomocy technicznej w firmie Microsoft i Dodaj serwery DNS do centrum
-2. Lub, jeśli używasz klienta sieci VPN platformy Azure dla systemu Windows 10, możesz zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers>\<serwer DNS> \</DNSServer>\</dnsservers>** tagów przed zaimportowaniem.
+2. Lub, jeśli używasz klienta sieci VPN platformy Azure dla systemu Windows 10, możesz zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** znaczniki przed jego zaimportowaniem.
 
 ```
 <azvpnprofile>
@@ -135,7 +135,7 @@ Tak. Zobacz stronę z [cennikiem](https://azure.microsoft.com/pricing/details/vi
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>W jaki sposób partnerzy, którzy nie są wymienieni na liście partnerów uruchomienia, mogą dołączyć do programu?
 
-Wszystkie wirtualne interfejsy API sieci WAN są otwarte. Możesz przejść do dokumentacji, aby ocenić wykonalność techniczną. Jeśli masz jakieś pytania, Wyślij wiadomość e-mail na azurevirtualwan@microsoft.comadres. Idealny partner powinien dysponować urządzeniem, które można aprowizować na potrzeby połączeń IKEv1 lub IKEv2 IPSec.
+Wszystkie wirtualne interfejsy API sieci WAN są otwarte. Możesz przejść do dokumentacji, aby ocenić wykonalność techniczną. Jeśli masz jakieś pytania, Wyślij wiadomość e-mail na adres azurevirtualwan@microsoft.com . Idealny partner powinien dysponować urządzeniem, które można aprowizować na potrzeby połączeń IKEv1 lub IKEv2 IPSec.
 
 ### <a name="what-if-a-device-i-am-using-is-not-in-the-virtual-wan-partner-list-can-i-still-use-it-to-connect-to-azure-virtual-wan-vpn"></a>Co zrobić, jeśli urządzenie, którego używam, nie znajduje się na liście wirtualnych partnerów sieci WAN? Czy nadal mogę używać go do nawiązywania połączenia z wirtualną siecią WAN platformy Azure?
 
@@ -212,9 +212,14 @@ Koncentrator wirtualny może propagować rozpoznajenie trasy domyślnej do sieci
 ### <a name="how-does-the-virtual-hub-in-a-virtual-wan-select-the-best-path-for-a-route-from-multiple-hubs"></a>Jak koncentrator wirtualny w wirtualnej sieci WAN wybiera najlepszą ścieżkę dla trasy z wielu centrów
 
 Jeśli koncentrator wirtualny nauczy się tej samej trasy z wielu centrów zdalnych, kolejność, w której jest ona poddana decyzji, jest następująca
-1) Źródło trasy a) trasy sieci — prefiksy VNET bezpośrednio poznani przez bramy koncentratora wirtualnego b) trasy InterHub (trasy statycznie skonfigurowane) c) BGP d)
-2)  Metryka trasy: wirtualne sieci WAN preferują ExpressRoute za pośrednictwem sieci VPN. Element równorzędny ExpressRoute ma wyższą wagę w porównaniu do elementu równorzędnego sieci VPN
-3)  Długość ścieżki
+1. Najdłuższy odpowiednik prefiksu
+2. Trasy lokalne przez Interhub
+3. Trasy statyczne za pośrednictwem protokołu BGP
+4. ExpressRoute (ER) za pośrednictwem sieci VPN
+5. Długość ścieżki
+
+Przesyłanie między elementami ER a ER jest zawsze realizowane za pośrednictwem globalnego połączenia z powodu tego, czy żądanie jest realizowane za pośrednictwem usługi ER w jednym koncentratorze, a w koncentratorze zdalnym jest dostępna sieć VPN i ER, Sieć VPN będzie preferowana za pośrednictwem elementu ER z koncentratora zdalnego w celu uzyskania dostępu do punktu końcowego połączonego za pośrednictwem sieci VPN lub ER w koncentrator
+
 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Czy w wirtualnej sieci WAN jest obsługiwane protokół IPv6?
 

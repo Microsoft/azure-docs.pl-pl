@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 16b44b3a4496e98f8b6b643bf76aa5aa7ce593c6
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 6ddf3db422a192b82b8d67e8e532a9ae0030d6f7
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849097"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212528"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Tworzenie aplikacji Power BI dla Microsoft AppSource
 
@@ -26,7 +26,7 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
 3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Power BI aplikacji usługi**.
 
-   ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-pbi-app.png)
+   ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
 > Po opublikowaniu oferty zmiany wprowadzone w centrum partnerskim są wyświetlane w obszarze witryny w sklepie po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie publikować po wprowadzeniu zmian.
@@ -70,7 +70,7 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
 
     - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [SalesForce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
     > Jeśli Twój system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
@@ -145,6 +145,24 @@ Zdefiniuj szczegóły witryny Marketplace (takie jak nazwa oferty, opis i obrazy
 > [!NOTE]
 > Szczegóły oferty nie muszą znajdować się w języku angielskim, jeśli opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Istnieje również możliwość udostępnienia przydatnego linku do oferowania zawartości w języku innym niż ten, który jest używany na liście ofert.
 
+Oto przykład sposobu wyświetlania informacji o ofercie w Microsoft AppSource (wszelkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
+
+:::image type="content" source="media/example-power-bi-app.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Logo
+2. Produkty
+3. Kategorie
+4. Branże
+5. Adres pomocy technicznej (link)
+6. Warunki użytkowania
+7. Zasady ochrony prywatności
+8. Nazwa oferty
+9. Podsumowanie
+10. Opis
+11. Zrzuty ekranu/wideo
+
 ### <a name="name"></a>Nazwa
 
 Wprowadzona nazwa zostanie wyświetlona jako tytuł oferty. To pole jest wstępnie wypełnione tekstem wprowadzonym w polu **alias oferty** podczas tworzenia oferty. Tę nazwę można później zmienić.
@@ -202,11 +220,11 @@ Podaj co najmniej jeden i maksymalnie trzy powiązane dokumenty marketingowe w f
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Rozmyte obrazy zostaną odrzucone.
 
 >[!NOTE]
->Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
+>Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje `https://upload.xboxlive.com` usługi używanej przez centrum partnerskie.
 
 #### <a name="store-logos"></a>Logo sklepu
 
-Udostępniaj pliki PNG logo oferty w postaci dwóch pikseli:
+Udostępniaj pliki PNG logo swojej oferty w dwóch rozmiarach pikseli:
 - **Mały** (48 x 48)
 - **Duże** (216 x 216)
 
