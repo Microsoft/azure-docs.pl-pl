@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek — Apache Spark usługi Azure Synapse Analytics: Apache Spark definicję zadania dla Synapse'
+title: 'Samouczek: Tworzenie definicji zadania Apache Spark w programie Synapse Studio'
 description: Samouczek — Użyj usługi Azure Synapse Analytics, aby utworzyć definicje zadań platformy Spark i przesłać je do Apache Spark dla puli analiz Synapse Azure.
 author: hrasheed-msft
 ms.author: jejiang
@@ -7,171 +7,187 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
+ms.subservice: ''
 ms.date: 04/15/2020
-ms.openlocfilehash: 5fc9dffaa73d195c842381b6682a00e9834c0fe7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3311a9a92cc5e63a6fa20e4dd0d2af00fdacc95c
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587939"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194488"
 ---
-# <a name="tutorial-use-azure-synapse-analytics-to-create-apache-spark-job-definitions-for-synapse-spark-pools"></a>Samouczek: korzystanie z usługi Azure Synapse Analytics do tworzenia definicji zadań Apache Spark dla pul Synapse Spark
+# <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Samouczek: Tworzenie definicji zadania Apache Spark w programie Synapse Studio
 
-W tym samouczku pokazano, jak utworzyć definicje zadań platformy Spark za pomocą usługi Azure Synapse Analytics, a następnie przesłać je do puli Synapse Spark. Możesz użyć wtyczki na kilka sposobów:
+W tym samouczku pokazano, jak utworzyć definicje zadań Apache Spark za pomocą usługi Azure Synapse Studio, a następnie przesłać je do puli Apache Spark.
 
-* Utwórz i prześlij definicję zadania platformy Spark w puli Synapse Spark.
-* Wyświetl szczegóły zadania po przeprowadzeniu.
+Ten samouczek obejmuje następujące zadania:
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
-
-> [!div class="checklist"]
->
-> * Utwórz i prześlij definicję zadania platformy Spark w puli Synapse Spark.
-> * Wyświetl szczegóły zadania po przeprowadzeniu.
+* Tworzenie definicji zadania Apache Spark dla PySpark (Python)
+* Utwórz definicję zadania Apache Spark dla platformy Spark (Scala)
+* Tworzenie definicji zadania Apache Spark dla platformy .NET Spark (C#)
+* Prześlij definicję zadania Apache Spark jako zadanie wsadowe
+* Dodawanie definicji zadania Apache Spark do potoku
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
+Przed rozpoczęciem pracy z tym samouczkiem upewnij się, że zostały spełnione następujące wymagania:
+
 * Obszar roboczy analizy usługi Azure Synapse. Aby uzyskać instrukcje, zobacz [Tworzenie obszaru roboczego usługi Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
+* Pula Apache Spark
+* Konto magazynu ADLS Gen2. Musisz być właścicielem danych obiektów blob magazynu dla systemu plików ADLS Gen2, z którym chcesz współpracować. Jeśli nie, musisz dodać uprawnienie ręcznie.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="create-an-apache-spark-job-definition-for-pyspark-python"></a>Tworzenie definicji zadania Apache Spark dla PySpark (Python)
 
-Przed przesłaniem definicji zadania platformy Spark musisz być właścicielem danych obiektów blob magazynu dla systemu plików ADLS Gen2, z którym chcesz współpracować. Jeśli nie, musisz dodać uprawnienie ręcznie.
+W tej sekcji utworzysz definicję zadania Apache Spark dla PySpark (Python).
 
-### <a name="scenario-1-add-permission"></a>Scenariusz 1: Dodawanie uprawnienia
+1. Otwórz [usługę Azure Synapse Studio](https://web.azuresynapse.net/).
 
-1. Otwórz [Microsoft Azure](https://ms.portal.azure.com), a następnie otwórz konto magazynu.
+2. Możesz przejść do [plików przykładowych, aby utworzyć definicje zadań Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) **WORDCOUNT. jar** i **shakespear.txt**. Następnie Przekaż te pliki do usługi Azure Storage: kliknij pozycję **dane**, wybierz pozycję **konta magazynu**i przekaż powiązane pliki do systemu plików ADLS Gen2. Pomiń ten krok, jeśli Twoje pliki znajdują się już w usłudze Azure Storage. 
 
-2. Kliknij pozycję **kontenery**, a następnie Utwórz **system plików**. W tym samouczku użyto regionu `sparkjob`.
+     ![Przekaż plik Python](./media/apache-spark-job-definitions/upload-python-file.png)
 
-    ![Kliknij przycisk Prześlij, aby przesłać definicję zadania platformy Spark](./media/apache-spark-job-definitions/open-azure-container.png)
+3. Kliknij pozycję **opracowywanie** centrum, wybierz pozycję **definicje zadań platformy Spark** w okienku po lewej stronie, kliknij pozycję "..." Węzeł akcji obok **definicji zadania platformy Spark**, a następnie wybierz pozycję **Nowa definicja zadania platformy Spark** w menu kontekstowym.
 
-    ![Okno dialogowe przesyłanie danych platformy Spark](./media/apache-spark-job-definitions/create-new-filesystem.png)
+     ![Utwórz nową definicję dla języka Python](./media/apache-spark-job-definitions/create-new-definition.png)
 
-3. Otwórz `sparkjob` program, kliknij pozycję **Access Control (IAM)**, a następnie kliknij pozycję **Dodaj** i wybierz pozycję **Dodaj przypisanie roli**.
+4. Wybierz pozycję **PySpark (Python)** z listy rozwijanej Język w oknie głównym definicji zadania Apache Spark.
 
-    ![Kliknij przycisk Prześlij, aby przesłać definicję zadania platformy Spark](./media/apache-spark-job-definitions/add-role-assignment-01.png)
+5. Uzupełnij informacje dotyczące definicji zadania Apache Spark. Możesz skopiować przykładowe informacje.
 
-    ![Kliknij przycisk Prześlij, aby przesłać definicję zadania platformy Spark](./media/apache-spark-job-definitions/add-role-assignment-02.png)
+     |  Właściwość   | Opis   |  
+     | ----- | ----- |  
+     |Nazwa definicji zadania| Wprowadź nazwę dla definicji zadania Apache Spark. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana. Northwind`job definition sample`|
+     |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik PR z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. Northwind`abfss://azureportaldeploy@storageaccountname.dfs.core.windows.net/synapse/workspaces/workspace name/batchjobs/python/fileexists.py`|
+     |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania. Northwind`shakespeare.txt`|
+     |Pliki referencyjne| Dodatkowe pliki używane do celów referencyjnych w pliku definicji głównej. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. Northwind`abfss://azureportaldeploy@storageaccountname.dfs.core.windows.net/synapse/workspaces/workspace name/batchjobs/python/shakespeare.txt`|
+     |Pula platformy Spark| Zadanie zostanie przesłane do wybranej puli Apache Spark.|
+     |Wersja platformy Spark| Wersja Apache Spark, w której jest uruchomiona Pula Apache Spark.|
+     |Wykonawców| Liczba modułów wykonujących, które mają być podane w określonej puli Apache Spark dla zadania.|
+     |Rozmiar wykonawcy| Liczba rdzeni i pamięci, które mają być używane dla wykonawców podanych w określonej puli Apache Spark dla tego zadania.|  
+     |Rozmiar sterownika| Liczba rdzeni i pamięci, które mają być używane dla sterownika określonego w określonej puli Apache Spark dla tego zadania.|
 
-4. Kliknij pozycję **przypisania ról**, wprowadź nazwę użytkownika, a następnie sprawdź pozycję rola użytkownika.
+     ![Ustawianie wartości definicji zadania platformy Spark dla języka Python](./media/apache-spark-job-definitions/create-py-definition.png)
 
-    ![Kliknij przycisk Prześlij, aby przesłać definicję zadania platformy Spark](./media/apache-spark-job-definitions/verify-user-role.png)
+6. Wybierz pozycję **Publikuj** , aby zapisać definicję zadania Apache Spark.
 
-### <a name="scenario-2-prepare-folder-structure"></a>Scenariusz 2: Przygotowanie struktury folderów
+     ![Publikowanie definicji z pr](./media/apache-spark-job-definitions/publish-py-definition.png)
 
-Przed przesłaniem definicji zadania platformy Spark, jedno zadanie, które należy wykonać, przekazuje pliki do ADLS Gen2 i przygotowywania struktury folderów. W programie Synapse Studio używamy węzła Storage do przechowywania plików.
+## <a name="create-an-apache-spark-job-definition-for-apache-sparkscala"></a>Utwórz definicję zadania Apache Spark dla Apache Spark (Scala)
 
-1. Otwórz [usługę Azure Synapse Analytics](https://web.azuresynapse.net/).
+W tej sekcji utworzysz definicję zadania Apache Spark dla Apache Spark (Scala).
 
-2. Kliknij pozycję **dane**, wybierz pozycję **konta magazynu**i przekaż odpowiednie pliki do systemu plików ADLS Gen2. Obsługujemy Scala, Java, .NET i Python. Ten samouczek używa przykładu na rysunku jako demonstracji, można zmienić strukturę projektu w miarę potrzeb.
+ 1. Otwórz [usługę Azure Synapse Studio](https://web.azuresynapse.net/).
 
-    ![Ustaw wartość definicji zadania platformy Spark](./media/apache-spark-job-definitions/prepare-project-structure.png)
+ 2. Możesz przejść do [plików przykładowych, aby utworzyć definicje zadań Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) **WORDCOUNT. jar** i **shakespear.txt**. Następnie Przekaż te pliki do usługi Azure Storage: kliknij pozycję **dane**, wybierz pozycję **konta magazynu**i przekaż powiązane pliki do systemu plików ADLS Gen2. Pomiń ten krok, jeśli Twoje pliki znajdują się już w usłudze Azure Storage. 
+ 
+     ![Przygotuj strukturę Scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
-## <a name="create-a-spark-job-definition"></a>Tworzenie definicji zadania platformy Spark
+ 3. Kliknij pozycję **opracowywanie** centrum, wybierz pozycję **definicje zadań platformy Spark** w okienku po lewej stronie, kliknij pozycję "..." Węzeł akcji obok **definicji zadania platformy Spark**, a następnie wybierz pozycję **Nowa definicja zadania platformy Spark** w menu kontekstowym.
+     ![Utwórz nową definicję dla Scala](./media/apache-spark-job-definitions/create-new-definition.png)
 
-1. Otwórz [usługę Azure Synapse Analytics](https://web.azuresynapse.net/)i wybierz pozycję **Utwórz**.
+ 4. Z listy rozwijanej Język wybierz pozycję **Spark (Scala)** , a następnie w oknie głównym definicji zadania Apache Spark.
 
-2. W okienku po lewej stronie wybierz pozycję **definicje zadań platformy Spark** .
+ 5. Uzupełnij informacje dotyczące definicji zadania Apache Spark. Możesz skopiować przykładowe informacje.
 
-3. Kliknij węzeł **Akcje** po prawej stronie "Definicje zadań platformy Spark".
+     |  Właściwość   | Opis   |  
+     | ----- | ----- |  
+     |Nazwa definicji zadania| Wprowadź nazwę dla definicji zadania Apache Spark. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana. Northwind`job definition sample`|
+     |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik JAR z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. Northwind`abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/wordcount.jar`|
+     |Nazwa klasy głównej| W pełni kwalifikowany identyfikator lub główna Klasa, która znajduje się w głównym pliku definicji. Northwind`WordCount`|
+     |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania. Northwind`abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/shakespeare.txt abfss://sparkjob@storageaccountname.dfs.core.windows.net/scala/wordcount/result`|
+     |Pliki referencyjne| Dodatkowe pliki używane do celów referencyjnych w pliku definicji głównej. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu.|
+     |Pula platformy Spark| Zadanie zostanie przesłane do wybranej puli Apache Spark.|
+     |Wersja platformy Spark| Wersja Apache Spark, w której jest uruchomiona Pula Apache Spark.|
+     |Wykonawców| Liczba modułów wykonujących, które mają być podane w określonej puli Apache Spark dla zadania.|  
+     |Rozmiar wykonawcy| Liczba rdzeni i pamięci, które mają być używane dla wykonawców podanych w określonej puli Apache Spark dla tego zadania.|
+     |Rozmiar sterownika| Liczba rdzeni i pamięci, które mają być używane dla sterownika określonego w określonej puli Apache Spark dla tego zadania.|
 
-     ![Utwórz nową definicję zadania platformy Spark](./media/apache-spark-job-definitions/create-new-definition-01.png)
+     ![Ustaw wartość definicji zadania platformy Spark dla Scala](./media/apache-spark-job-definitions/create-scala-definition.png)
 
-4. Z listy rozwijanej **Akcje** wybierz pozycję **Nowa definicja zadania platformy Spark**
+ 6. Wybierz pozycję **Publikuj** , aby zapisać definicję zadania Apache Spark.
 
-     ![Utwórz nową definicję zadania platformy Spark](./media/apache-spark-job-definitions/create-new-definition-02.png)
+     ![Publikuj definicję Scala](./media/apache-spark-job-definitions/publish-scala-definition.png)
 
-5. W oknie Nowa definicja zadania platformy Spark wybierz pozycję język, a następnie podaj następujące informacje:  
 
-   * Wybierz **Język** jako **Spark (Scala)**.
+## <a name="create-an-apache-spark-job-definition-for-net-sparkc"></a>Tworzenie definicji zadania Apache Spark dla platformy .NET Spark (C#)
 
-    |  Właściwość   | Opis   |  
-    | ----- | ----- |  
-    |Nazwa definicji zadania| Wprowadź nazwę definicji zadania platformy Spark.  W tym samouczku użyto regionu `job definition sample`. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana.|  
-    |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik JAR z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. |
-    |Nazwa klasy głównej| W pełni kwalifikowany identyfikator lub główna Klasa, która znajduje się w głównym pliku definicji.|
-    |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania.|
-    |Pliki referencyjne| Dodatkowe pliki używane do celów referencyjnych w pliku definicji głównej. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu.|
-    |Pula platformy Spark| Zadanie zostanie przesłane do wybranej puli platformy Spark.|
-    |Wersja platformy Spark| Wersja platformy Spark, w której działa Pula platformy Spark.|
-    |Wykonawców| Liczba modułów wykonujących, które mają być podane w określonej puli platformy Spark dla zadania.|
-    |Rozmiar wykonawcy| Liczba rdzeni i pamięci, które mają być używane dla wykonawców podanych w określonej puli Spark dla tego zadania.|  
-    |Rozmiar sterownika| Liczba rdzeni i pamięci, które mają być używane dla sterownika określonego w określonej puli Spark dla tego zadania.|
+W tej sekcji utworzysz definicję zadania Apache Spark dla platformy .NET Spark (C#).
+ 1. Otwórz [usługę Azure Synapse Studio](https://web.azuresynapse.net/).
 
-    ![Ustaw wartość definicji zadania platformy Spark](./media/apache-spark-job-definitions/create-scala-definition.png)
+ 2. Możesz przejść do [plików przykładowych, aby utworzyć Apache Spark definicje zadań](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) do pobierania **wordcount.zip** i **shakespear.txt**. Następnie Przekaż te pliki do usługi Azure Storage: kliknij pozycję **dane**, wybierz pozycję **konta magazynu**i przekaż powiązane pliki do systemu plików ADLS Gen2. Pomiń ten krok, jeśli Twoje pliki znajdują się już w usłudze Azure Storage. 
 
-   * Wybierz **Język** jako **PySpark (Python)**.
+     ![Przygotuj strukturę dotnet](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
-    |  Właściwość   | Opis   |  
-    | ----- | ----- |  
-    |Nazwa definicji zadania| Wprowadź nazwę definicji zadania platformy Spark.  W tym samouczku użyto regionu `job definition sample`. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana.|  
-    |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik PR z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu.|
-    |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania.|
-    |Pliki referencyjne| Dodatkowe pliki używane do celów referencyjnych w pliku definicji głównej. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu.|
-    |Pula platformy Spark| Zadanie zostanie przesłane do wybranej puli platformy Spark.|
-    |Wersja platformy Spark| Wersja platformy Spark, w której działa Pula platformy Spark.|
-    |Wykonawców| Liczba modułów wykonujących, które mają być podane w określonej puli platformy Spark dla zadania.|
-    |Rozmiar wykonawcy| Liczba rdzeni i pamięci, które mają być używane dla wykonawców podanych w określonej puli Spark dla tego zadania.|  
-    |Rozmiar sterownika| Liczba rdzeni i pamięci, które mają być używane dla sterownika określonego w określonej puli Spark dla tego zadania.|
+ 3. Kliknij pozycję **opracowywanie** centrum, wybierz pozycję **definicje zadań platformy Spark** w okienku po lewej stronie, kliknij pozycję "..." Węzeł akcji obok **definicji zadania platformy Spark**, a następnie wybierz pozycję **Nowa definicja zadania platformy Spark** w menu kontekstowym.
 
-    ![Ustaw wartość definicji zadania platformy Spark](./media/apache-spark-job-definitions/create-py-definition.png)
+     ![Utwórz nową definicję dla dotnet](./media/apache-spark-job-definitions/create-new-definition.png)
 
-   * Wybierz **Język** jako **.NET Spark (C#/f #)**.
+ 4. Wybierz pozycję **.NET Spark (C#/f #)** z listy rozwijanej Język w oknie głównym definicji zadania Apache Spark.
 
-    |  Właściwość   | Opis   |  
-    | ----- | ----- |  
-    |Nazwa definicji zadania| Wprowadź nazwę definicji zadania platformy Spark.  W tym samouczku użyto regionu `job definition sample`. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana.|  
-    |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik ZIP, który zawiera aplikację platformy .NET dla platformy Spark (czyli główny plik wykonywalny, biblioteki DLL zawierające funkcje zdefiniowane przez użytkownika i inne wymagane pliki) z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu.|
-    |Główny plik wykonywalny| Główny plik wykonywalny w pliku ZIP definicji głównej.|
-    |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania.|
-    |Pliki referencyjne| Dodatkowe pliki, które są używane przez węzły procesu roboczego do wykonywania aplikacji platformy .NET dla platformy Spark, które nie znajdują się w pliku ZIP definicji głównej (to jest, zależne Jars, dodatkowe biblioteki DLL funkcji zdefiniowane przez użytkownika i inne pliki konfiguracyjne). Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu.|
-    |Pula platformy Spark| Zadanie zostanie przesłane do wybranej puli platformy Spark.|
-    |Wersja platformy Spark| Wersja platformy Spark, w której działa Pula platformy Spark.|
-    |Wykonawców| Liczba modułów wykonujących, które mają być podane w określonej puli platformy Spark dla zadania.|
-    |Rozmiar wykonawcy| Liczba rdzeni i pamięci, które mają być używane dla wykonawców podanych w określonej puli Spark dla tego zadania.|  
-    |Rozmiar sterownika| Liczba rdzeni i pamięci, które mają być używane dla sterownika określonego w określonej puli Spark dla tego zadania.|
+ 5. Uzupełnij informacje dotyczące definicji zadania Apache Spark. Możesz skopiować przykładowe informacje.
+     |  Właściwość   | Opis   |  
+     | ----- | ----- |  
+     |Nazwa definicji zadania| Wprowadź nazwę dla definicji zadania Apache Spark. Tę nazwę można aktualizować w dowolnym momencie, dopóki nie zostanie opublikowana. Northwind`job definition sample`|
+     |Plik definicji głównej| Główny plik używany do zadania. Wybierz plik ZIP, który zawiera aplikację platformy .NET dla Apache Spark (czyli główny plik wykonywalny, biblioteki DLL zawierające funkcje zdefiniowane przez użytkownika i inne wymagane pliki) z magazynu. Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu. Northwind`abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/wordcount.zip`|
+     |Główny plik wykonywalny| Główny plik wykonywalny w pliku ZIP definicji głównej. Northwind`WordCount`|
+     |Argumenty wiersza polecenia| Opcjonalne argumenty do zadania. Northwind`abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/shakespeare.txt abfss://sparkjob@storageaccountname.dfs.core.windows.net/dotnet/wordcount/result`|
+     |Pliki referencyjne| Dodatkowe pliki, które są używane przez węzły procesu roboczego do wykonywania programu .NET for Apache Spark, które nie znajdują się w pliku ZIP definicji głównej (to jest, zależne od Jars, dodatkowe biblioteki DLL funkcji zdefiniowanych przez użytkownika i inne pliki konfiguracyjne). Możesz wybrać opcję **Przekaż plik** , aby przekazać plik do konta magazynu.|
+     |Pula platformy Spark| Zadanie zostanie przesłane do wybranej puli Apache Spark.|
+     |Wersja platformy Spark| Wersja Apache Spark, w której jest uruchomiona Pula Apache Spark.|
+     |Wykonawców| Liczba modułów wykonujących, które mają być podane w określonej puli Apache Spark dla zadania.|  
+     |Rozmiar wykonawcy| Liczba rdzeni i pamięci, które mają być używane dla wykonawców podanych w określonej puli Apache Spark dla tego zadania.|
+     |Rozmiar sterownika| Liczba rdzeni i pamięci, które mają być używane dla sterownika określonego w określonej puli Apache Spark dla tego zadania.|
 
-    ![Ustaw wartość definicji zadania platformy Spark](./media/apache-spark-job-definitions/create-net-definition.png)
+     ![Ustawianie wartości definicji zadania platformy Spark dla programu dotnet](./media/apache-spark-job-definitions/create-net-definition.png)
 
-6. Wybierz pozycję **Publikuj** , aby zapisać definicję zadania platformy Spark.
+ 6. Wybierz pozycję **Publikuj** , aby zapisać definicję zadania Apache Spark.
 
-    ![Publikuj definicję zadania platformy Spark](./media/apache-spark-job-definitions/publish-net-definition.png)
+      ![Publikuj definicję dotnet](./media/apache-spark-job-definitions/publish-net-definition.png)
 
-## <a name="submit-a-spark-job-definition"></a>Prześlij definicję zadania platformy Spark
+## <a name="submit-an-apache-spark-job-definition-as-a-batch-job"></a>Prześlij definicję zadania Apache Spark jako zadanie wsadowe
 
-Po utworzeniu definicji zadania platformy Spark można przesłać ją do puli Synapse Spark. Przed podjęciem próby pobrania próbek w tej części upewnij się, że wykonano czynności opisane w temacie **Get-Started** .
+Po utworzeniu definicji zadania Apache Spark można przesłać ją do puli Apache Spark. Upewnij się, że jesteś właścicielem danych obiektów blob magazynu ADLS Gen2 systemie plików, z którym chcesz współpracować. Jeśli nie, musisz dodać uprawnienie ręcznie.
 
-### <a name="scenario-1-submit-spark-job-definition"></a>Scenariusz 1: przesyłanie definicji zadania platformy Spark
-
-1. Aby otworzyć okno definicji zadania platformy Spark, kliknij je.
+### <a name="scenario-1-submit-apache-spark-job-definition"></a>Scenariusz 1. przesyłanie Apache Spark definicji zadania
+ 1. Aby otworzyć okno definicji zadania platformy Apache Spark, kliknij je.
 
       ![Otwórz definicję zadania platformy Spark do przesłania ](./media/apache-spark-job-definitions/open-spark-definition.png)
 
-2. Kliknij przycisk **Prześlij** ikonę, aby przesłać projekt do wybranej puli platformy Spark. Możesz kliknąć kartę **URL monitorowania platformy Spark** , aby zobaczyć LogQuery aplikacji platformy Spark.
+ 2. Kliknij przycisk **Prześlij** ikonę, aby przesłać projekt do wybranej puli Apache Spark. Możesz kliknąć kartę **URL monitorowania platformy Spark** , aby zobaczyć LogQuery aplikacji Apache Spark.
 
     ![Kliknij przycisk Prześlij, aby przesłać definicję zadania platformy Spark](./media/apache-spark-job-definitions/submit-spark-definition.png)
 
     ![Okno dialogowe przesyłanie danych platformy Spark](./media/apache-spark-job-definitions/submit-definition-result.png)
 
-### <a name="scenario-2-view-spark-job-running-progress"></a>Scenariusz 2: wyświetlenie postępu wykonywania zadania platformy Spark
+### <a name="scenario-2-view-apache-spark-job-running-progress"></a>Scenariusz 2. Wyświetlanie Apache Spark zadania w toku
 
-1. Kliknij pozycję **monitor**, a następnie wybierz opcję **aplikacje Spark** . Przesłaną aplikację platformy Spark można znaleźć.
+ 1. Kliknij pozycję **monitor**, a następnie wybierz opcję **aplikacje Spark** . Możesz znaleźć przesłaną aplikację Apache Spark.
 
-    ![Wyświetl aplikację platformy Spark](./media/apache-spark-job-definitions/view-spark-application.png)
+     ![Wyświetl aplikację platformy Spark](./media/apache-spark-job-definitions/view-spark-application.png)
 
-2. Następnie kliknij pozycję Aplikacja platformy Spark, **LogQuery** okno. Postęp wykonywania zadania można wyświetlić z **LogQuery**.
-
-    ![Wyświetl LogQuery aplikacji platformy Spark](./media/apache-spark-job-definitions/view-job-log-query.png)
+ 2. Następnie kliknij pozycję Aplikacja Apache Spark, **LogQuery** okno. Postęp wykonywania zadania można wyświetlić z **LogQuery**.
+     
+     ![Wyświetl LogQuery aplikacji platformy Spark](./media/apache-spark-job-definitions/view-job-log-query.png)
 
 ### <a name="scenario-3-check-output-file"></a>Scenariusz 3: Sprawdzanie pliku wyjściowego
 
  1. Kliknij pozycję **dane**, a następnie wybierz pozycję **konta magazynu**. Po pomyślnym uruchomieniu można przejść do obszaru magazyn ADLS Gen2 i sprawdź, czy są generowane dane wyjściowe.
 
-    ![Wyświetl plik wyjściowy](./media/apache-spark-job-definitions/view-output-file.png)
+     ![Wyświetl plik wyjściowy](./media/apache-spark-job-definitions/view-output-file.png)
+
+## <a name="add-an-apache-spark-job-definition-into-pipeline"></a>Dodawanie definicji zadania Apache Spark do potoku
+
+W tej sekcji dodasz definicję zadania Apache Spark do potoku.
+
+ 1. Otwórz istniejącą definicję zadania Apache Spark.
+
+ 2. Kliknij ikonę w prawym górnym rogu Apache Spark definicji zadania, wybierz pozycję **istniejący potok**lub **Nowy potok**. Więcej informacji można znaleźć na stronie potoku.
+
+     ![Dodaj do potoku](./media/apache-spark-job-definitions/add-to-pipeline01.png)
+
+     ![Dodaj do potoku](./media/apache-spark-job-definitions/add-to-pipeline02.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku pokazano, jak utworzyć definicje zadań platformy Spark za pomocą usługi Azure Synapse Analytics, a następnie przesłać je do puli Synapse Spark. Następnie możesz użyć usługi Azure Synapse Analytics, aby utworzyć Power BI zestawy danych i zarządzać Power BI danymi. 
+W tym samouczku pokazano, jak utworzyć definicje zadań Apache Spark za pomocą usługi Azure Synapse Studio, a następnie przesłać je do puli Apache Spark. Następnie można użyć usługi Azure Synapse Studio do tworzenia zestawów danych Power BI i zarządzania Power BI danymi.
 
-- [Łączenie się z danymi w programie Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-connect-to-data)
-- [Wizualizowanie przy użyciu usługi Power BI](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

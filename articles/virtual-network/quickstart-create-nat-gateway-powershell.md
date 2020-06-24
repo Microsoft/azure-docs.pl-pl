@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie bramy translatora adresów sieciowych — Azure PowerShell'
+title: 'Samouczek: Tworzenie bramy translatora adresów sieciowych — Azure PowerShell'
 titlesuffix: Azure Virtual Network NAT
 description: W tym przewodniku szybki start pokazano, jak utworzyć bramę NAT przy użyciu Azure PowerShell
 services: virtual-network
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 4878707524c7c7083035163ae2709334cc83e039
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 1c6a9fff7b3bafc927b0d032dc7345c262f6037c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342217"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707484"
 ---
-# <a name="quickstart-create-a-nat-gateway-using-azure-powershell"></a>Szybki Start: Tworzenie bramy NAT przy użyciu Azure PowerShell
+# <a name="tutorial-create-a-nat-gateway-using-azure-powershell"></a>Samouczek: Tworzenie bramy NAT przy użyciu Azure PowerShell
 
-Ten przewodnik Szybki Start przedstawia sposób korzystania z usługi Azure Virtual Network translator adresów sieciowych. Utworzysz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyny wirtualnej na platformie Azure. 
+W tym samouczku przedstawiono sposób korzystania z usługi Azure Virtual Network translatora adresów sieciowych. Utworzysz bramę translatora adresów sieciowych, aby zapewnić łączność wychodzącą dla maszyny wirtualnej na platformie Azure. 
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -271,7 +271,7 @@ ssh azureuser@<ip-address-destination>
 
 Teraz można przystąpić do korzystania z usługi translatora adresów sieciowych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i wszystkie zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) .
 

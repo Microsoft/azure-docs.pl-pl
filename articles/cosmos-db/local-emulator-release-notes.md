@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ab31daafe496f1aaad2bbc8075b2514d9e57e997
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747008"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687178"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos emulator — informacje o wersji i pobrania
 
@@ -22,9 +22,13 @@ W tym artykule przedstawiono informacje o wersji emulatora usługi Azure Cosmos 
 | | |
 |---------|---------|
 |**Pobieranie pliku MSI**|[Centrum pobierania Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Wprowadzenie**|[Opracowywanie lokalnie za pomocą emulatora usługi Azure Cosmos](local-emulator.md)|
+|**Rozpoczęcie pracy**|[Opracowywanie lokalnie za pomocą emulatora usługi Azure Cosmos](local-emulator.md)|
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
+
+### <a name="2111"></a>2.11.1
+
+- W tej wersji rozwiązano kilka usterek związanych z Eksplorator danychami emulatora. W niektórych przypadkach w przypadku używania emulatora Eksplorator danych za pośrednictwem przeglądarki sieci Web nie można nawiązać połączenia z punktem końcowym emulatora usługi Cosmos i wszystkie powiązane akcje, takie jak tworzenie bazy danych lub kontenera, będą się kończyły niepowodzeniem. Drugi problem rozwiązany jest związany z tworzeniem elementu z pliku JSON przy użyciu akcji przekazywania Eksplorator danych.
 
 ### <a name="2110"></a>2.11.0
 

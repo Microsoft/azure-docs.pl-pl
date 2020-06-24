@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 5bd9f5316f8b8799633de8c0c84c61424c0e4f4a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238902"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699621"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Uruchamianie próbnego odzyskiwania na platformie Azure
 
@@ -69,7 +69,7 @@ Po uruchomieniu próby przejścia w tryb failover wykonywane są następujące o
 
 Uruchom testowe przełączenie w tryb failover w następujący sposób:
 
-1. W obszarze **Ustawienia** > **zreplikowane elementy**kliknij maszynę wirtualną > **i przetestuj tryb failover**.
+1. W obszarze **Ustawienia**  >  **zreplikowane elementy**kliknij maszynę wirtualną > **i przetestuj tryb failover**.
 2. Na potrzeby tego samouczka wybierz punkt odzyskiwania **Najnowszy przetworzony**. Spowoduje to przełączenie maszyny wirtualnej w tryb failover do najnowszego dostępnego punktu w czasie. Wyświetlana jest sygnatura czasowa. Ta opcja zapewnia niską wartość celu czasu odzyskiwania (RTO, Recovery Time Objective), ponieważ nie trzeba poświęcać czasu na przetwarzanie danych.
 3. W obszarze **Test pracy w trybie failover** wybierz sieć platformy Azure, z którą maszyny wirtualne platformy Azure zostaną połączone po przejściu w tryb failover.
 4. Kliknij przycisk **OK**, aby rozpocząć tryb failover. Możesz śledzić postęp, klikając maszynę wirtualną i otwierając jej właściwości. Możesz też kliknąć zadanie **Testowe przełączenie w tryb failover** po wybraniu pozycji nazwa magazynu > **Ustawienia** > **Zadania** >
@@ -87,6 +87,6 @@ Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure przy użyciu
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Uruchamianie trybu failover i powrotu po awarii dla maszyn wirtualnych](vmware-azure-tutorial-failover-failback.md)
-> VMware
-> [Uruchamianie trybu failover i powrotu po awarii dla maszyn wirtualnych funkcji Hyper-V](hyper-v-azure-failover-failback-tutorial.md)[Uruchamianie trybu failover i powrotu po awarii dla komputerów fizycznych](physical-to-azure-failover-failback.md)
+> [Uruchamianie trybu failover i powrotu po awarii dla maszyn wirtualnych VMware](vmware-azure-tutorial-failover-failback.md) 
+>  [Uruchamianie trybu failover i powrotu po awarii dla maszyn wirtualnych](hyper-v-azure-failover-failback-tutorial.md) 
+>  funkcji Hyper-V [Uruchamianie trybu failover i powrotu po awarii dla maszyn fizycznych](physical-to-azure-failover-failback.md)

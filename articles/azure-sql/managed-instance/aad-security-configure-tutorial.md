@@ -2,7 +2,7 @@
 title: Zabezpieczenia wystąpienia zarządzanego SQL z podmiotami zabezpieczeń serwera usługi Azure AD (logowania)
 description: Dowiedz się więcej o technikach i funkcjach zabezpieczania wystąpienia zarządzanego usługi Azure SQL i używania podmiotów zabezpieczeń serwera Azure AD (logowania)
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 5152f78b428008d3f9a76264f2253167e6c5a138
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219816"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706447"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Samouczek: zabezpieczenia w wystąpieniu zarządzanym usługi Azure SQL przy użyciu podmiotów zabezpieczeń serwera usługi Azure AD (nazwy logowania)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ Wystąpienie zarządzane usługi Azure SQL zapewnia niemal wszystkie funkcje zab
 - Stosowanie autoryzacji za pośrednictwem członkostwa i uprawnień opartych na rolach.
 - Włączanie funkcji zabezpieczeń.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >

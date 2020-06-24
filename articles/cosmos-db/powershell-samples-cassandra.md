@@ -3,15 +3,15 @@ title: Przykłady Azure PowerShell dla Azure Cosmos DB interfejs API Cassandra
 description: Pobierz przykłady Azure PowerShell, aby wykonywać różne typowe zadania w Azure Cosmos DB kontach interfejs API Cassandra
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/13/2020
+ms.topic: how-to
+ms.date: 06/12/2020
 ms.author: mjbrown
-ms.openlocfilehash: 860d3c5e9fda8bc2a5eb5b07939875ed46b6e7e1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2efc652c936e7949147bf77ccc1548308734a467
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649752"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260682"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---cassandra-api"></a>Przykłady Azure PowerShell dla Azure Cosmos DB interfejs API Cassandra
 
@@ -30,4 +30,5 @@ Poniższa tabela zawiera linki do przykładowych skryptów Azure PowerShell dla 
 |[Zmiana priorytetu trybu failover lub wyzwolenie trybu failover](scripts/powershell/common/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Zmień priorytet pracy w trybie failover dla konta usługi Azure Cosmos lub Wyzwól ręczną pracę awaryjną. |
 |[Klucze kont lub parametry połączenia](scripts/powershell/common/ps-account-keys-connection-strings.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Pobierz klucze podstawowe i pomocnicze, parametry połączenia lub ponownie Wygeneruj klucz konta dla konta usługi Azure Cosmos. |
 |[Tworzenie konta Cosmos za pomocą zapory IP](scripts/powershell/common/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Utwórz konto usługi Azure Cosmos z włączoną zaporą IP. |
+|[Zablokuj zasoby przed usunięciem](scripts/powershell/cassandra/powershell-cassandra-lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Zapobiegaj usunięciu zasobów z blokadami zasobów. |
 |||

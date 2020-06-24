@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: 9b2091c7acd42d4c967ec5baef82d970344f9231
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 30e3f901d9feca07902e20c87f4fbf5b6979a11b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85081580"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299487"
 ---
-# <a name="create-a-cognitive-services-resource-using-an-azure-resource-manager-template"></a>Tworzenie zasobu Cognitive Services przy użyciu szablonu Azure Resource Manager
+# <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Szybki Start: Tworzenie zasobu Cognitive Services przy użyciu szablonu ARM
 
 Ten artykuł służy do tworzenia i wdrażania zasobów Cognitive Services przy użyciu szablonu Azure Resource Manager (ARM). Ten zasób usługi wiele usług umożliwia:
 * Dostęp do wielu Cognitive Services platformy Azure za pomocą jednego klucza i punktu końcowego.
@@ -24,23 +24,24 @@ Ten artykuł służy do tworzenia i wdrażania zasobów Cognitive Services przy 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
 
-## <a name="prerequisites"></a>Wymagania wstępne 
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cognitive-services-universalkey%2Fazuredeploy.json)
 
-* Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services)
+## <a name="prerequisites"></a>Wymagania wstępne
 
-## <a name="create-a-cognitive-services-resource"></a>Tworzenie zasobu usług Cognitive Services
+* Jeśli nie masz subskrypcji platformy Azure, [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/cognitive-services).
 
-### <a name="review-the-template"></a>Przegląd szablonu
+## <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów ARM szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/).
 
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json" highlight="27-41":::
 
 Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 * [Microsoft. CognitiveServices/accounts](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts): tworzy zasób Cognitive Services.
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
@@ -63,7 +64,6 @@ Jeden zasób platformy Azure jest zdefiniowany w szablonie:
 
 3. Wybierz pozycję **Przeglądanie + tworzenie**, a następnie pozycję **Utwórz**. Po pomyślnym zakończeniu wdrażania zasobu zostanie wyróżniony przycisk **Przejdź do zasobu** .
 
-    
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/CLI)
 
@@ -97,7 +97,7 @@ Po zakończeniu wdrożenia będzie można kliknąć przycisk **Przejdź do zasob
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/CLI)
 
-Korzystając z interfejsu wiersza polecenia platformy Azure, uruchom następujący skrypt i wprowadź nazwę utworzonej wcześniej grupy zasobów. 
+Korzystając z interfejsu wiersza polecenia platformy Azure, uruchom następujący skrypt i wprowadź nazwę utworzonej wcześniej grupy zasobów.
 
 ```azurecli-interactive
 echo "Enter the resource group where the Cognitive Services resource exists:" &&

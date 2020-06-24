@@ -2,7 +2,7 @@
 title: Skonfiguruj replikację transakcyjną między wystąpieniem zarządzanym usługi Azure SQL i SQL Server
 description: Samouczek, który konfiguruje replikację między wystąpieniem zarządzanym przez wydawcę, wystąpieniem zarządzanym przez dystrybutora i subskrybentem SQL Server na maszynie wirtualnej platformy Azure oraz niezbędnymi składnikami sieciowymi, takimi jak prywatna strefa DNS i Komunikacja równorzędna sieci VPN.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.topic: tutorial
@@ -10,17 +10,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: a34ac27459a84048ac5fc9ef10f6f55def6cec78
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 8a6f21d6b02d555456bb70a16b353e5cdbd52fd4
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221336"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708522"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Samouczek: Konfigurowanie replikacji transakcyjnej między wystąpieniem zarządzanym usługi Azure SQL i SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -277,12 +277,12 @@ Po skonfigurowaniu dystrybucji możesz teraz utworzyć publikację. Aby to zrobi
 1. Nawiąż połączenie z `sql-mi-publisher` wystąpieniem zarządzanym.
 1. W **Eksplorator obiektów**rozwiń węzeł **replikacja** , a następnie kliknij prawym przyciskiem myszy folder **publikacja lokalna** . Wybierz **nową publikację.**..
 1. Wybierz pozycję **dalej** , aby przejść poza stronę powitalną.
-1. Na stronie **baza danych publikacji** wybierz `ReplTutorial` utworzoną wcześniej bazę danych. Wybierz opcję **Dalej**.
-1. Na stronie **Typ publikacji** wybierz pozycję **publikacja transakcyjna**. Wybierz opcję **Dalej**.
-1. Na stronie **artykuły** zaznacz pole wyboru obok pozycji **tabele**. Wybierz opcję **Dalej**.
+1. Na stronie **baza danych publikacji** wybierz `ReplTutorial` utworzoną wcześniej bazę danych. Wybierz przycisk **Dalej**.
+1. Na stronie **Typ publikacji** wybierz pozycję **publikacja transakcyjna**. Wybierz przycisk **Dalej**.
+1. Na stronie **artykuły** zaznacz pole wyboru obok pozycji **tabele**. Wybierz przycisk **Dalej**.
 1. Na stronie **Filtruj wiersze tabeli** wybierz pozycję **dalej** bez dodawania filtrów.
-1. Na stronie **Agent migawek** zaznacz pole wyboru obok pozycji **Utwórz migawkę natychmiast i Zachowaj dostępność migawki w celu zainicjowania subskrypcji**. Wybierz opcję **Dalej**.
-1. Na stronie **zabezpieczenia agenta** wybierz pozycję **Ustawienia zabezpieczeń..**.. Podaj poświadczenia logowania SQL Server, które mają być używane dla agenta migawek, i Połącz się z wydawcą. Wybierz **przycisk OK** , aby zamknąć stronę **zabezpieczenia agenta migawek** . Wybierz opcję **Dalej**.
+1. Na stronie **Agent migawek** zaznacz pole wyboru obok pozycji **Utwórz migawkę natychmiast i Zachowaj dostępność migawki w celu zainicjowania subskrypcji**. Wybierz przycisk **Dalej**.
+1. Na stronie **zabezpieczenia agenta** wybierz pozycję **Ustawienia zabezpieczeń..**.. Podaj poświadczenia logowania SQL Server, które mają być używane dla agenta migawek, i Połącz się z wydawcą. Wybierz **przycisk OK** , aby zamknąć stronę **zabezpieczenia agenta migawek** . Wybierz przycisk **Dalej**.
 
    ![Konfiguruj zabezpieczenia agenta migawek](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
@@ -341,7 +341,7 @@ Use ReplTutorial
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 1. Przejdź do grupy zasobów w [Azure Portal](https://portal.azure.com).
 1. Wybierz wystąpienia zarządzane, a następnie wybierz pozycję **Usuń**. Wpisz `yes` w polu tekstowym, aby potwierdzić, że chcesz usunąć zasób, a następnie wybierz pozycję **Usuń**. Ten proces może potrwać trochę czasu w tle, a do momentu ukończenia nie będzie można usunąć *klastra wirtualnego* ani żadnych innych zasobów zależnych. Monitoruj pozycję Usuń na karcie **działanie** , aby potwierdzić, że zarządzane wystąpienie zostało usunięte.

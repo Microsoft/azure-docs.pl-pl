@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: bc25ba6d95fe58a80c90881c6ad60cdb8801cce4
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: 7d91348b727c1c43f010ec9f60ae9abd33978ce8
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780593"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85257520"
 ---
 # <a name="tutorial-add-faceted-navigation-using-the-net-sdk"></a>Samouczek: Dodawanie nawigacji aspektowej przy użyciu zestawu .NET SDK
 
@@ -21,7 +21,7 @@ Zestawy reguł służą do ułatwienia nawigacji, dostarczając użytkownikowi z
 
 Ten samouczek kompiluje się do projektu stronicowania utworzonego w [samouczku języka C#: wyniki wyszukiwania stronicowania — Samouczek platformy Azure wyszukiwanie poznawcze](tutorial-csharp-paging.md) .
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Ustaw właściwości modelu jako _Isuderzający_
 > * Dodawanie nawigacji aspektu do aplikacji
@@ -109,7 +109,7 @@ Potrzebujemy kontrolera do przekazania list aspektów do widoku. Musimy zachowa�
 
 Kontroler główny wymaga jednej nowej akcji, **aspektu**i aktualizacji istniejącego **indeksu** oraz akcji **strony** , a także aktualizacji metody **RunQueryAsync** .
 
-1. Otwórz plik kontrolera głównego i Dodaj instrukcję **using** , aby włączyć konstrukcję **ciągu&lt;&gt; list** .
+1. Otwórz plik kontrolera głównego i Dodaj instrukcję **using** , aby włączyć konstrukcję ** &lt; ciągu &gt; list** .
 
     ```cs
     using System.Collections.Generic;
@@ -344,7 +344,7 @@ Widok będzie wymagał pewnych znaczących zmian.
     }
     ```
 
-2. W przypadku widoku organizujemy dane wyjściowe w tabeli, aby starannie wyrównać listy aspektów po lewej stronie i wyniki po prawej stronie. Otwórz plik index. cshtml. Zastąp całą zawartość tagów treści &lt;&gt; HTML poniższym kodem.
+2. W przypadku widoku organizujemy dane wyjściowe w tabeli, aby starannie wyrównać listy aspektów po lewej stronie i wyniki po prawej stronie. Otwórz plik index. cshtml. Zastąp całą zawartość &lt; tagów treści HTML &gt; poniższym kodem.
 
     ```cs
     <body>

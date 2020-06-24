@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych'
+title: 'Samouczek: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych'
 titleSuffix: Azure Virtual Network NAT
 description: W tym przewodniku szybki start pokazano, jak utworzyć bramę NAT przy użyciu szablonu Azure Resource Manager.
 services: load-balancer
@@ -10,20 +10,20 @@ Customer intent: I want to create a NAT gateway by using an Azure Resource Manag
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: quickstart
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 5e0d62885598aea6f1656d0cdcef5f0c3406e7dd
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: fbc8b48f4ff6a6df687d45a53008a159c5322084
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84341035"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703574"
 ---
-# <a name="quickstart-create-a-nat-gateway---resource-manager-template"></a>Szybki Start: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych
+# <a name="tutorial-create-a-nat-gateway---resource-manager-template"></a>Samouczek: Tworzenie Menedżer zasobów szablonu bramy translatora adresów sieciowych
 
 Rozpocznij pracę z Virtual Network translatora adresów sieciowych przy użyciu szablonu Azure Resource Manager.  Ten szablon służy do wdrażania sieci wirtualnej, zasobu bramy translatora adresów sieciowych i Ubuntu maszyny wirtualnej. Maszyna wirtualna Ubuntu jest wdrażana w podsieci skojarzonej z zasobem bramy translatora adresów sieciowych.
 
@@ -117,7 +117,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
     ![Grupa zasobów Virtual Network translator adresów sieciowych](./media/quick-create-template/nat-gateway-template-rg.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 **Interfejs wiersza polecenia platformy Azure**
 

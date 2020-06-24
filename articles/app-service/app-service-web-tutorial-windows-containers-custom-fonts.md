@@ -4,12 +4,12 @@ description: Dowiedz się, jak przeprowadzić migrację niestandardowego kontene
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 74cb88bc1ace87155a35163ca8f9d3d6c4242ae0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8e755c5b9a57eb66fc47364fb2fcdcbe30c2d09e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80046615"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205626"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrowanie aplikacji ASP.NET do usługi Azure App Service za pomocą kontenera Windows (wersja zapoznawcza)
 
@@ -25,12 +25,12 @@ W celu ukończenia tego samouczka:
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Zainstaluj program Docker for Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Przełącz platformę Docker na potrzeby uruchamiania kontenerów systemu Windows</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Zainstaluj program Visual Studio 2019</a> przy użyciu obciążeń **ASP.NET oraz tworzenia aplikacji sieci Web** i **platformy Azure** . Jeśli zainstalowano już program Visual Studio 2019:
-    - Zainstaluj najnowsze aktualizacje w programie Visual Studio, klikając pozycję **Pomoc** > **Sprawdź dostępność aktualizacji**.
-    - Dodaj obciążenia w programie Visual Studio, klikając kolejno pozycje **Narzędzia** > **Pobierz narzędzia i funkcje**.
+    - Zainstaluj najnowsze aktualizacje w programie Visual Studio, klikając pozycję **Pomoc**  >  **Sprawdź dostępność aktualizacji**.
+    - Dodaj obciążenia w programie Visual Studio, klikając kolejno pozycje **Narzędzia**  >  **Pobierz narzędzia i funkcje**.
 
 ## <a name="set-up-the-app-locally"></a>Lokalne konfigurowanie aplikacji
 
-### <a name="download-the-sample"></a>Pobierz przykład
+### <a name="download-the-sample"></a>Pobieranie przykładu
 
 Ten krok umożliwia skonfigurowanie lokalnego projektu platformy .NET.
 
@@ -61,7 +61,7 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CustomFon
 
 ![Okno dialogowe Nowy projekt ASP.NET](media/app-service-web-tutorial-windows-containers-custom-fonts/enable-container-orchestration.png)
 
-Wybierz pozycję **Docker Compose** > **OK**.
+Wybierz pozycję **Docker Compose**  >  **OK**.
 
 Projekt jest teraz skonfigurowany do uruchamiania w kontenerze systemu Windows. Plik _Dockerfile_ został dodany do projektu **CustomFontSample**, a projekt **docker-compose** został dodany do rozwiązania. 
 
@@ -69,13 +69,13 @@ W Eksploratorze rozwiązań otwórz plik **Dockerfile**.
 
 Konieczne będzie użycie [obsługiwanego obrazu nadrzędnego](app-service-web-get-started-windows-container.md#use-a-different-parent-image). Zmień obraz nadrzędny, zastępując wiersz `FROM` następującym kodem:
 
-```Dockerfile
+```dockerfile
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 Na końcu pliku dodaj następujący wiersz, a następnie zapisz plik:
 
-```Dockerfile
+```dockerfile
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
@@ -97,7 +97,7 @@ W Eksploratorze rozwiązań kliknij prawym przyciskiem myszy projekt **CustomFon
 
 ### <a name="create-registry-and-publish"></a>Tworzenie rejestru i publikowanie
 
-W Kreatorze publikacji wybierz pozycję **Container Registry** > **Utwórz nowy Azure Container Registry** > **Publikuj**.
+W Kreatorze publikacji wybierz pozycję **Container Registry**  >  **Utwórz nowy Azure Container Registry**  >  **Publikuj**.
 
 ![Okno dialogowe Nowy projekt ASP.NET](media/app-service-web-tutorial-windows-containers-custom-fonts/create-registry.png)
 
@@ -115,7 +115,7 @@ Skonfiguruj nowy rejestr kontenerów, korzystając z sugerowanych wartości z po
 | ----------------- | ------------ | ----|
 |**Prefiks DNS**| Zachowaj wygenerowaną nazwę rejestru lub zmień ją na inną unikatową nazwę. |  |
 |**Grupa zasobów**| Kliknij pozycję **Nowy**, wpisz **myResourceGroup** i kliknij przycisk **OK**. |  |
-|**Magazyn**| Podstawowy | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Podstawowa | [Warstwy cenowe](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Lokalizacja rejestru**| Europa Zachodnia | |
 
 ![Konfigurowanie rejestru kontenerów platformy Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
@@ -128,7 +128,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
-Z menu po lewej stronie wybierz pozycję **Utwórz zasób** > **Sieć Web** > **Web App for Containers**.
+Z menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **Sieć Web**  >  **Web App for Containers**.
 
 ### <a name="configure-app-basics"></a>Konfigurowanie podstaw aplikacji
 
@@ -156,7 +156,7 @@ Na karcie **Docker** Skonfiguruj niestandardowy kontener systemu Windows, jak po
 | ----------------- | ------------ |
 |**Źródło obrazu**| Rejestr kontenerów platformy Azure |
 |**Secret**| Wybierz [utworzony wcześniej rejestr](#publish-to-azure-container-registry). |
-|**Obraz**| customfontsample |
+|**Image (Obraz)**| customfontsample |
 |**Tag**| najnowsza |
 
 ### <a name="complete-app-creation"></a>Kończenie tworzenia aplikacji
@@ -185,7 +185,7 @@ Poczekaj kilka minut i spróbuj ponownie. Powinna zostać wyświetlona strona g�
 
 ## <a name="see-container-start-up-logs"></a>Wyświetlanie dzienników uruchamiania kontenera
 
-Może upłynąć trochę czasu, zanim kontener systemu Windows zostanie załadowany. Aby zobaczyć postęp, przejdź do poniższego adresu URL, zastępując * \<nazwę aplikacji>* nazwą aplikacji.
+Może upłynąć trochę czasu, zanim kontener systemu Windows zostanie załadowany. Aby zobaczyć postęp, przejdź do poniższego adresu URL, zastępując *\<app-name>* nazwę aplikacji.
 ```
 https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
@@ -201,4 +201,3 @@ Przesyłane strumieniowo dzienniki wyglądają następująco:
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container ready
 14/09/2018 23:18:03.823 INFO - Site: fonts-win-container - Container start-up and configuration completed successfully
 ```
-

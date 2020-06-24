@@ -9,11 +9,11 @@ ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238860"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704254"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Przygotowywanie lokalnych serwerów VMware do odzyskiwania po awarii na platformie Azure
 
@@ -93,7 +93,7 @@ Aby nawiązać połączenie z maszynami wirtualnymi z systemem Windows przy uży
 - **Dostęp do Internetu**. Przed włączeniem trybu failover włącz protokół RDP na lokalnej maszynie wirtualnej. Upewnij się, że reguły TCP i UDP zostały dodane do profilu **publicznego** oraz że w pozycji **Zapora systemu Windows** > **Dozwolone aplikacje** zezwolono na użycie protokołu RDP we wszystkich profilach.
 - **Dostęp do sieci VPN typu lokacja-lokacja**:
     - Przed przejściem do trybu failover włącz protokół RDP na maszynie lokalnej.
-    - Protokół RDP powinien być dozwolony w przypadku -> **aplikacji i funkcji dozwolonych** przez **zaporę systemu Windows**w przypadku sieci **z domeną i siecią prywatną** .
+    - Protokół RDP powinien być dozwolony w **Windows Firewall**  ->  przypadku**aplikacji i funkcji dozwolonych** przez zaporę systemu Windows w przypadku sieci **z domeną i siecią prywatną** .
     - Upewnij się, że zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135).
 - Podczas wyzwalania trybu failover na maszynie wirtualnej nie powinno być żadnych oczekujących aktualizacji systemu Windows. Jeśli tak się stanie, nie będzie można zalogować się do maszyny wirtualnej do momentu ukończenia aktualizacji.
 - Na maszynie wirtualnej platformy Azure z systemem Windows po przejściu do trybu failover sprawdź **diagnostykę rozruchu**, aby wyświetlić zrzut ekranu maszyny wirtualnej. Jeśli nie możesz się połączyć, upewnij się, że maszyna wirtualna jest uruchomiona, i przejrzyj te [porady dotyczące rozwiązywania problemów](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
@@ -116,5 +116,5 @@ Jeśli planujesz powrót po awarii do lokacji lokalnej, istnieje kilka [wymagań
 
 Skonfiguruj odzyskiwanie po awarii. Jeśli wykonujesz replikację wielu maszyn wirtualnych, Zaplanuj pojemność.
 > [!div class="nextstepaction"]
-> [Skonfiguruj odzyskiwanie po awarii na platformie Azure dla maszyn wirtualnych](vmware-azure-tutorial.md)
-> VMware, które[wykonują planowanie pojemności](site-recovery-deployment-planner.md).
+> [Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych VMware](vmware-azure-tutorial.md) 
+>  [Wykonaj planowanie pojemności](site-recovery-deployment-planner.md).

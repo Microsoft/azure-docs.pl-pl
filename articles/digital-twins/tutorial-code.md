@@ -1,5 +1,5 @@
 ---
-title: Kod aplikacji klienckiej
+title: Kodowanie aplikacji klienckiej
 titleSuffix: Azure Digital Twins
 description: Samouczek, w którym można napisać minimalny kod aplikacji klienckiej przy użyciu zestawu SDK platformy .NET (C#).
 author: cschormann
@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 7e057d6d973eedd3ac53fd7b2ea228470e9123d7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 170901f3410c85ab53a306529053e611b36fa8ec
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613368"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298399"
 ---
 # <a name="coding-with-the-azure-digital-twins-apis"></a>Kodowanie za pomocą cyfrowych interfejsów API usługi Azure bliźniaczych reprezentacji
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 W przypadku deweloperów pracujących z usługą Azure Digital bliźniaczych reprezentacji można napisać aplikację kliencką do współdziałania z ich wystąpieniem usługi Azure Digital bliźniaczych reprezentacji. Ten samouczek ukierunkowany na dewelopera zawiera wprowadzenie do programowania w usłudze Azure Digital bliźniaczych reprezentacji, przy użyciu [biblioteki klienckiej Digital bliźniaczyej usługi Azure IoT dla platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Przeprowadzi Cię przez proces pisania aplikacji klienckiej w języku C# krok po kroku, rozpoczynając od podstaw.
 
@@ -99,8 +102,8 @@ W pierwszej kolejności aplikacja musi być uwierzytelniana w usłudze Azure Dig
 
 Aby można było przeprowadzić uwierzytelnianie, potrzebne są trzy informacje:
 * *Identyfikator katalogu (dzierżawcy)* dla subskrypcji
-* *Identyfikator aplikacji (klienta)* utworzony podczas wcześniejszego konfigurowania wystąpienia usługi
-* *Nazwa hosta* wystąpienia usługi
+* *Identyfikator aplikacji (klienta)* utworzony podczas wcześniejszego konfigurowania wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+* *Nazwa hosta* wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
 >[!TIP]
 > Jeśli nie znasz *identyfikatora katalogu (dzierżawy)*, możesz go uzyskać, uruchamiając następujące polecenie w [Azure Cloud Shell](https://shell.azure.com):
@@ -148,7 +151,7 @@ Usługa Azure Digital bliźniaczych reprezentacji nie ma słownika domeny wewnę
 
 Pierwszym krokiem tworzenia rozwiązania Digital bliźniaczych reprezentacji na platformie Azure jest zdefiniowanie co najmniej jednego modelu w pliku DTDL.
 
-W katalogu, w którym został utworzony projekt, Utwórz nowy plik *JSON* o nazwie *SampleModel. JSON*. Wklej w następującej treści pliku: 
+W katalogu, w którym został utworzony projekt, Utwórz nowy plik *JSON* o nazwie *SampleModel.json*. Wklej w następującej treści pliku: 
 
 ```json
 {
@@ -174,7 +177,7 @@ W katalogu, w którym został utworzony projekt, Utwórz nowy plik *JSON* o nazw
 > Jeśli używasz programu Visual Studio na potrzeby tego samouczka, możesz chcieć wybrać nowo utworzony plik JSON i ustawić właściwość *Kopiuj do katalogu wyjściowego* w Inspektorze właściwości, aby *skopiować w przypadku, gdy nowszy* lub *Kopiuj zawsze*. Umożliwi to programowi Visual Studio znalezienie pliku JSON z domyślną ścieżką podczas uruchamiania programu przy użyciu klawisza **F5** w pozostałej części tego samouczka.
 
 > [!TIP] 
-> Istnieje [przykład modułu sprawdzania poprawności](https://github.com/Azure-Samples/DTDL-Validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [: analizowanie i weryfikowanie modeli](how-to-use-parser.md).
+> Istnieje [przykład modułu sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [: analizowanie i weryfikowanie modeli](how-to-use-parser.md).
 
 Następnie Dodaj więcej kodu do *program.cs* , aby przekazać model, który został właśnie utworzony w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji.
 
@@ -216,8 +219,7 @@ W oknie polecenia Uruchom program za pomocą tego polecenia:
 ```cmd/sh
 dotnet run
 ```
-
-Zobaczysz, że teraz nie ma danych wyjściowych wskazujących, że wywołanie zakończyło się pomyślnie. 
+"Przekaż model" zostanie wydrukowany w danych wyjściowych, ale nie ma jeszcze żadnych danych wyjściowych, aby wskazać, czy modele zostały pomyślnie przekazane.
 
 Aby dodać instrukcję Print wskazującą, czy modele zostały pomyślnie przekazane, Dodaj następujący kod bezpośrednio po poprzedniej sekcji:
 
@@ -291,24 +293,19 @@ using System.Text.Json;
 Następnie Dodaj następujący kod na końcu `Main` metody, aby utworzyć i zainicjować trzy bliźniaczych reprezentacji cyfrowe w oparciu o ten model.
 
 ```csharp
-// Initialize twin metadata
-var meta = new Dictionary<string, object>
-{
-    { "$model", "dtmi:com:contoso:SampleModel;1" },
-};
-// Initialize the twin properties
-var initData = new Dictionary<string, object>
-{
-    { "$metadata", meta },
-    { "data", "Hello World!" }
-};
+// Initialize twin data
+BasicDigitalTwin twinData = new BasicDigitalTwin();
+twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+twinData.CustomProperties.Add("data", $"Hello World!");
+
 string prefix="sampleTwin-";
 for(int i=0; i<3; i++) {
     try {
-        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(initData));
+        twinData.Id = $"{prefix}{i}";
+        await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
         Console.WriteLine($"Created twin: {prefix}{i}");
     } catch(RequestFailedException rex) {
-        Console.WriteLine($"Create twin: {rex.Status}:{rex.Message}");  
+        Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
     }
 }
 ```
@@ -449,6 +446,7 @@ namespace minimal
             var typeList = new List<string>();
             string dtdl = File.ReadAllText("SampleModel.json");
             typeList.Add(dtdl);
+
             // Upload the model to the service
             try {
                 await client.CreateModelsAsync(typeList);
@@ -462,21 +460,16 @@ namespace minimal
                 Console.WriteLine($"Type name: {md.DisplayName}: {md.Id}");
             }
 
-            // Initialize twin metadata
-            var meta = new Dictionary<string, object>
-            {
-                { "$model", "dtmi:com:contoso:SampleModel;1" },
-            };
-            // Initialize the twin properties
-            var initData = new Dictionary<string, object>
-            {
-                { "$metadata", meta },
-                { "data", "Hello World!" }
-            };
+            // Initialize twin data
+            BasicDigitalTwin twinData = new BasicDigitalTwin();
+            twinData.Metadata.ModelId = "dtmi:com:contoso:SampleModel;1";
+            twinData.CustomProperties.Add("data", $"Hello World!");
+    
             string prefix="sampleTwin-";
             for(int i=0; i<3; i++) {
                 try {
-                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(initData));
+                    twinData.Id = $"{prefix}{i}";
+                    await client.CreateDigitalTwinAsync($"{prefix}{i}", JsonSerializer.Serialize(twinData));
                     Console.WriteLine($"Created twin: {prefix}{i}");
                 } catch(RequestFailedException rex) {
                     Console.WriteLine($"Create twin error: {rex.Status}:{rex.Message}");  
@@ -538,7 +531,7 @@ namespace minimal
     }
 }
 ```
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
  
 Wystąpienie używane w tym samouczku można ponownie wykorzystać w następnym samouczku, [samouczku: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej](tutorial-command-line-app.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane wystąpienie usługi Azure Digital bliźniaczych reprezentacji.
  

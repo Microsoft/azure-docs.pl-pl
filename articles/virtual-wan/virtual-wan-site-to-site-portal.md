@@ -9,11 +9,11 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239686"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687926"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Samouczek: tworzenie połączenia lokacja-lokacja przy użyciu usługi Azure Virtual WAN
 
@@ -57,7 +57,7 @@ Przejdź w przeglądarce do witryny Azure Portal i zaloguj się przy użyciu kon
 2. Z wyników wybierz pozycję **wirtualna sieć WAN** . Na stronie wirtualna sieć WAN kliknij przycisk **Utwórz** , aby otworzyć stronę tworzenie sieci WAN.
 3. Na stronie **Tworzenie sieci WAN** na karcie **podstawowe** wypełnij następujące pola:
 
-   ![Wirtualna sieć WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
+   ![Virtual WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
 
    * **Subskrypcja** — wybierz subskrypcję, która ma być używana.
    * **Grupa zasobów** — Utwórz nową lub Użyj istniejącej.

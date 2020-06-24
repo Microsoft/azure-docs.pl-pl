@@ -2,18 +2,19 @@
 title: Samouczek — Azure Toolkit for IntelliJ (aplikacja Spark)
 description: Samouczek — Użyj Azure Toolkit for IntelliJ do opracowania aplikacji platformy Spark, które są zapisywane w Scala, i prześlij je do puli Apache Spark (wersja zapoznawcza).
 services: synapse-analytics
-author: v-jiche
-ms.author: v-jiche
+author: hrasheed-msft
+ms.author: jejiang
 ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
+ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 3971d49befd228c111b1a8da5fce44e25abfaa65
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: cd180996434463959cd6f40a115902db358a3091
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657837"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194950"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-intellij-using-a-synapse-workspace"></a>Samouczek: Tworzenie aplikacji Apache Spark za pomocą IntelliJ przy użyciu obszaru roboczego Synapse
 
@@ -146,7 +147,7 @@ Po utworzeniu aplikacji Scala można uruchomić ją zdalnie.
     |Argumenty wiersza polecenia|W razie potrzeby można wprowadzać argumenty rozdzielone spacją dla klasy głównej.|
     |Odwołania do Jars i plików, do których istnieją odwołania|Możesz wprowadzić ścieżki do przywoływanych Jars i plików, jeśli istnieją. Można również przeglądać pliki w wirtualnym systemie plików platformy Azure, który obecnie obsługuje tylko ADLS Gen2 klaster. Aby uzyskać więcej informacji: [Apache Spark konfiguracja](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) i [sposób przekazywania zasobów do klastra](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Magazyn przekazywania zadań|Rozwiń, aby wyświetlić dodatkowe opcje.|
-    |Typ magazynu|Wybierz pozycję **Użyj obiektów blob platformy Azure do przekazania** z listy rozwijanej.|
+    |Typ magazynu|Wybierz pozycję **Użyj obiektu blob platformy Azure, aby przekazać** lub **użyć domyślnego konta magazynu klastra do przekazania** z listy rozwijanej.|
     |Konto magazynu|Wprowadź konto magazynu.|
     |Klucz magazynu|Wprowadź klucz magazynu.|
     |Kontener magazynu|Z listy rozwijanej wybierz kontener magazynu, po wprowadzeniu **konta magazynu** i **klucza magazynu** .|
@@ -250,6 +251,7 @@ Jest on obsługiwany tylko w systemach IntelliJ 2018,2 i 2018,3.
 
     |Właściwość |Wartość |
     |----|----|
+    |Nazwa klasy głównej| Wybierz nazwę klasy głównej.| 
     |Pule platformy Spark|Wybierz pule platformy Spark, na których chcesz uruchomić aplikację.|
     ||
 
