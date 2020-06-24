@@ -2,8 +2,8 @@
 title: Co to jest wystąpienie zarządzane Azure SQL?
 description: Dowiedz się, jak wystąpienie zarządzane usługi Azure SQL zapewnia niemal 100% zgodność z najnowszym aparatem bazy danych SQL Server (Enterprise Edition)
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 2f7422d01b2058cafed33c9d10118f78d35727df
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: db476d32d3b087e86329f8ed40446caf122c0a00
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84337788"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944801"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Co to jest wystąpienie zarządzane Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -50,18 +50,18 @@ Wystąpienie zarządzane SQL łączy najlepsze funkcje, które są dostępne zar
 
 W poniższej tabeli przedstawiono najważniejsze funkcje wystąpienia zarządzanego SQL:
 
-|Cechy | Opis|
+|Cecha | Opis|
 |---|---|
 | Wersja SQL Server/kompilacja | Aparat bazy danych SQL Server (Najnowsza stabilna) |
-| Zarządzane automatyczne kopie zapasowe | Yes |
-| Wbudowane wystąpienie i monitorowanie bazy danych oraz metryki | Yes |
-| Automatyczne stosowanie poprawek oprogramowania | Yes |
-| Najnowsze funkcje aparatu bazy danych | Yes |
+| Zarządzane automatyczne kopie zapasowe | Tak |
+| Wbudowane wystąpienie i monitorowanie bazy danych oraz metryki | Tak |
+| Automatyczne stosowanie poprawek oprogramowania | Tak |
+| Najnowsze funkcje aparatu bazy danych | Tak |
 | Liczba plików danych (wierszy) na bazę danych | Wiele |
 | Liczba plików dziennika (dzienników) na bazę danych | 1 |
-| Wdrożenie Azure Resource Manager sieci wirtualnej | Yes |
+| Wdrożenie Azure Resource Manager sieci wirtualnej | Tak |
 | Model wdrażania klasycznego sieci wirtualnej | Nie |
-| Obsługa portalu | Yes|
+| Obsługa portalu | Tak|
 | Wbudowana usługa integracji (SSIS) | Nie — SSIS jest częścią [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Wbudowana usługa analizy (SSAS) | Nie — SSAS jest osobnym [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | Wbudowana usługa raportowania (SSRS) | Nie — zamiast tego użyj raportów z podziałem na strony [Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) lub HOSTOWANIE usług SSRS na maszynie wirtualnej platformy Azure. Chociaż wystąpienie zarządzane SQL nie może uruchamiać usług SSRS jako usługi, może hostować bazy danych wykazu usług SSRS 2019 dla zewnętrznego serwera raportowania przy użyciu uwierzytelniania SQL Server. |
@@ -142,18 +142,18 @@ W poniższej tabeli zestawiono operacje i typowe ogólne czasy trwania:
 
 |Kategoria  |Operacja  |Segment długotrwały  |Szacowany czas trwania  |
 |---------|---------|---------|---------|
-|**Wdrożenie** |Pierwsze wystąpienie w pustej podsieci|Tworzenie klastra wirtualnego|90% operacji zakończonych w ciągu 4 godzin.|
-|Wdrożenie |Pierwsze wystąpienie innej generacji sprzętu w niepustej podsieci (na przykład pierwsze wystąpienie generacji 5 w podsieci z wystąpieniami generacji 4)|Tworzenie klastra wirtualnego *|90% operacji zakończonych w ciągu 4 godzin.|
-|Wdrożenie |Pierwsze utworzenie wystąpienia 4 rdzeni wirtualnych w pustej lub niepustej podsieci|Tworzenie klastra wirtualnego * *|90% operacji zakończonych w ciągu 4 godzin.|
-|Wdrożenie |Kolejne Tworzenie wystąpienia w niepustej podsieci (drugi, trzeci itp. wystąpienie)|Zmienianie rozmiarów klastra wirtualnego|90% operacji zakończonych w ciągu 2,5 godzin.|
+|**wdrażania** |Pierwsze wystąpienie w pustej podsieci|Tworzenie klastra wirtualnego|90% operacji zakończonych w ciągu 4 godzin.|
+|wdrażania |Pierwsze wystąpienie innej generacji sprzętu w niepustej podsieci (na przykład pierwsze wystąpienie generacji 5 w podsieci z wystąpieniami generacji 4)|Tworzenie klastra wirtualnego *|90% operacji zakończonych w ciągu 4 godzin.|
+|wdrażania |Pierwsze utworzenie wystąpienia 4 rdzeni wirtualnych w pustej lub niepustej podsieci|Tworzenie klastra wirtualnego * *|90% operacji zakończonych w ciągu 4 godzin.|
+|wdrażania |Kolejne Tworzenie wystąpienia w niepustej podsieci (drugi, trzeci itp. wystąpienie)|Zmienianie rozmiarów klastra wirtualnego|90% operacji zakończonych w ciągu 2,5 godzin.|
 |**Aktualizacja** |Zmiana właściwości wystąpienia (hasło administratora, logowanie do usługi Azure AD, flaga Korzyść użycia hybrydowego platformy Azure)|Nie dotyczy|Do 1 minuty.|
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia warstwy usług)|Dołączanie plików bazy danych|90% operacji zakończonych w ciągu 5 minut.|
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy warstwy usług)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
-|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia)|— Zmienianie rozmiarów klastra wirtualnego<br>— Dołączanie plików bazy danych|90% operacji zakończonych w ciągu 2,5 godzin.|
-|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
-|Aktualizacja |Skalowanie wystąpienia w dół do 4 rdzeni wirtualnych (Ogólnego przeznaczenia)|— Zmienianie rozmiarów klastra wirtualnego (jeśli jest wykonywane po raz pierwszy, może to wymagać utworzenia klastra wirtualnego * *)<br>— Dołączanie plików bazy danych|90% operacji zakończonych w 4 h 5 min. * *|
-|Aktualizacja |Skalowanie wystąpienia w dół do 4 rdzeni wirtualnych (Krytyczne dla działania firmy)|— Zmienianie rozmiarów klastra wirtualnego (jeśli jest wykonywane po raz pierwszy, może to wymagać utworzenia klastra wirtualnego * *)<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 4 godzin od czasu do wypełniania wszystkich baz danych (220 GB/godz.).|
-|Aktualizacja |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
+|Aktualizowanie |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia warstwy usług)|Dołączanie plików bazy danych|90% operacji zakończonych w ciągu 5 minut.|
+|Aktualizowanie |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy warstwy usług)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
+|Aktualizowanie |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia)|— Zmienianie rozmiarów klastra wirtualnego<br>— Dołączanie plików bazy danych|90% operacji zakończonych w ciągu 2,5 godzin.|
+|Aktualizowanie |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
+|Aktualizowanie |Skalowanie wystąpienia w dół do 4 rdzeni wirtualnych (Ogólnego przeznaczenia)|— Zmienianie rozmiarów klastra wirtualnego (jeśli jest wykonywane po raz pierwszy, może to wymagać utworzenia klastra wirtualnego * *)<br>— Dołączanie plików bazy danych|90% operacji zakończonych w 4 h 5 min. * *|
+|Aktualizowanie |Skalowanie wystąpienia w dół do 4 rdzeni wirtualnych (Krytyczne dla działania firmy)|— Zmienianie rozmiarów klastra wirtualnego (jeśli jest wykonywane po raz pierwszy, może to wymagać utworzenia klastra wirtualnego * *)<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 4 godzin od czasu do wypełniania wszystkich baz danych (220 GB/godz.).|
+|Aktualizowanie |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót)|— Zmienianie rozmiarów klastra wirtualnego<br>-Zawsze włączone Określanie rozrzutu grupy dostępności|90% operacji zakończonych w ciągu 2,5 godzin + Time do wypełniania wszystkich baz danych (220 GB/godz.).|
 |**Usunięcie**|Usunięcie wystąpienia|Kopia zapasowa dziennika dla wszystkich baz danych|90% operacji zakończonych w ciągu do 1 minuty.<br>Uwaga: Jeśli ostatnie wystąpienie w podsieci zostanie usunięte, ta operacja spowoduje zaplanowanie usunięcia klastra wirtualnego po upływie 12 godzin. * * *|
 |Usunięcie|Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika)|Usuwanie klastra wirtualnego|90% operacji zakończonych w maksymalnie 1,5 godzinach.|
 
@@ -165,12 +165,12 @@ W poniższej tabeli zestawiono operacje i typowe ogólne czasy trwania:
 
 ### <a name="instance-availability-during-management-operations"></a>Dostępność wystąpienia podczas operacji zarządzania
 
-Wystąpienie zarządzane SQL nie jest dostępne dla aplikacji klienckich podczas operacji wdrażania i usuwania.
-
-Wystąpienie zarządzane SQL jest dostępne podczas operacji aktualizacji, z wyjątkiem krótkich przestojów spowodowanych przez pracę w trybie failover, które są wykonywane po zakończeniu aktualizacji. Zwykle trwa to 10 sekund nawet w przypadku przerwanych długotrwałych transakcji, dzięki czemu możliwe jest [szybsze odzyskiwanie bazy danych](../accelerated-database-recovery.md).
+Wystąpienie zarządzane SQL **jest dostępne podczas operacji aktualizacji**, z wyjątkiem krótkich przestojów spowodowanych przez pracę w trybie failover, które są wykonywane po zakończeniu aktualizacji. Zwykle trwa to 10 sekund nawet w przypadku przerwanych długotrwałych transakcji, dzięki czemu możliwe jest [szybsze odzyskiwanie bazy danych](../accelerated-database-recovery.md).
 
 > [!IMPORTANT]
 > Nie jest zalecane skalowanie zasobów obliczeniowych lub magazynu wystąpienia zarządzanego usługi Azure SQL ani zmiana warstwy usług w tym samym czasie z długotrwałymi transakcjami (Importowanie danych, zadania przetwarzania danych, ponowne kompilowanie indeksu itp.). Praca w trybie failover bazy danych, która zostanie wykonana na końcu operacji, spowoduje anulowanie wszystkich bieżących transakcji.
+
+Wystąpienie zarządzane SQL nie jest dostępne dla aplikacji klienckich podczas operacji wdrażania i usuwania.
 
 ### <a name="management-operations-cross-impact"></a>Wpływ operacji zarządzania
 
@@ -191,12 +191,12 @@ Poniższa tabela zawiera podsumowanie możliwości anulowania określonych opera
 
 Kategoria  |Operacja  |Można anulować  |Szacowany czas trwania anulowania  |
 |---------|---------|---------|---------|
-|Wdrożenie |Tworzenie wystąpienia |Nie |  |
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia) |Nie |  |
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy) |Yes |90% operacji zakończonych w ciągu 5 minut. |
-|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia) |Yes |90% operacji zakończonych w ciągu 5 minut. |
-|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy) |Yes |90% operacji zakończonych w ciągu 5 minut. |
-|Aktualizacja |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót) |Yes |90% operacji zakończonych w ciągu 5 minut. |
+|wdrażania |Tworzenie wystąpienia |Nie |  |
+|Aktualizowanie |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia) |Nie |  |
+|Aktualizowanie |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut. |
+|Aktualizowanie |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia) |Tak |90% operacji zakończonych w ciągu 5 minut. |
+|Aktualizowanie |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut. |
+|Aktualizowanie |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót) |Tak |90% operacji zakończonych w ciągu 5 minut. |
 |Usuń |Usunięcie wystąpienia |Nie |  |
 |Usuń |Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika) |Nie |  |
 
@@ -259,7 +259,7 @@ Wprowadzono nową składnię do tworzenia podmiotów zabezpieczeń serwera usłu
 
 Wystąpienie zarządzane SQL umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft z [integracją Azure Active Directory](../database/authentication-aad-overview.md). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Azure Active Directory obsługuje [uwierzytelnianie wieloskładnikowe](../database/authentication-mfa-ssms-configure.md) w celu zwiększenia bezpieczeństwa danych i aplikacji podczas obsługi logowania jednokrotnego.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Uwierzytelnianie wystąpienia zarządzanego SQL dotyczy sposobu, w jaki użytkownicy udowadniają swoją tożsamość podczas łączenia się z bazą danych. Wystąpienie zarządzane SQL obsługuje dwa typy uwierzytelniania:  
 

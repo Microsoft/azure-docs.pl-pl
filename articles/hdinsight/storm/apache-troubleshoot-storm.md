@@ -10,11 +10,11 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79271930"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700369"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Rozwiązywanie problemów z Apache Storm przy użyciu usługi Azure HDInsight
 
@@ -46,9 +46,9 @@ Podczas tworzenia topologii odczytanych z usługi Azure Event Hubs przy użyciu 
 
 Dane punktów kontrolnych dla przesunięć są przechowywane przez centrum zdarzeń elementu Spout w dozorcy w dwóch ścieżkach głównych:
 
-- Nietransakcyjne punkty kontrolne elementu Spout są przechowywane w `/eventhubspout`.
+- Nietransakcyjne punkty kontrolne elementu Spout są przechowywane w `/eventhubspout` .
 
-- Dane transakcyjnego punktu kontrolnego elementu Spout `/transactional`są przechowywane w.
+- Dane transakcyjnego punktu kontrolnego elementu Spout są przechowywane w `/transactional` .
 
 ### <a name="how-to-restore"></a>Jak przywrócić
 
@@ -65,7 +65,7 @@ Polecenie eksportu zapisuje metadane w ścieżce rozproszony system plików Apac
 #### <a name="export-offset-metadata"></a>Eksportowanie metadanych przesunięcia
 
 1. Użyj protokołu SSH, aby przejść do klastra dozorcy w klastrze, z którego ma zostać wyeksportowane przesunięcie punktu kontrolnego.
-2. Uruchom następujące polecenie (po zaktualizowaniu ciągu wersji HDP), aby wyeksportować dane przesunięcia dozorcy do ścieżki `/stormmetadta/zkdata` HDFS:
+2. Uruchom następujące polecenie (po zaktualizowaniu ciągu wersji HDP), aby wyeksportować dane przesunięcia dozorcy do `/stormmetadta/zkdata` ścieżki HDFS:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -74,7 +74,7 @@ Polecenie eksportu zapisuje metadane w ścieżce rozproszony system plików Apac
 #### <a name="import-offset-metadata"></a>Importuj metadane przesunięcia
 
 1. Użyj protokołu SSH, aby przejść do klastra dozorcy w klastrze, z którego należy zaimportować przesunięcie punktu kontrolnego.
-2. Uruchom następujące polecenie (po zaktualizowaniu ciągu wersji HDP), aby zaimportować dane przesunięcia dozorcy z ścieżki `/stormmetadata/zkdata` HDFS do serwera dozorcy w klastrze docelowym:
+2. Uruchom następujące polecenie (po zaktualizowaniu ciągu wersji HDP), aby zaimportować dane przesunięcia dozorcy z ścieżki HDFS `/stormmetadata/zkdata` do serwera dozorcy w klastrze docelowym:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -91,9 +91,9 @@ Polecenie eksportu zapisuje metadane w ścieżce rozproszony system plików Apac
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>Jak mogę zlokalizować plików binarnych burzy w klastrze?
 
-Pliki binarne burzy dla bieżącego stosu HDP znajdują się w `/usr/hdp/current/storm-client`. Lokalizacja jest taka sama w przypadku węzłów głównych i węzłów procesu roboczego.
+Pliki binarne burzy dla bieżącego stosu HDP znajdują się w `/usr/hdp/current/storm-client` . Lokalizacja jest taka sama w przypadku węzłów głównych i węzłów procesu roboczego.
 
-Może istnieć wiele plików binarnych dla określonych wersji HDP w/usr/HDP (na przykład `/usr/hdp/2.5.0.1233/storm`). `/usr/hdp/current/storm-client` Folder jest symlinked do najnowszej wersji działającej w klastrze.
+Może istnieć wiele plików binarnych dla określonych wersji HDP w/usr/HDP (na przykład `/usr/hdp/2.5.0.1233/storm` ). `/usr/hdp/current/storm-client`Folder jest symlinked do najnowszej wersji działającej w klastrze.
 
 Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z klastrem usługi HDInsight przy użyciu protokołu SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) i [Apache Storm](https://storm.apache.org/).
 
@@ -157,13 +157,13 @@ Aby zidentyfikować pliki konfiguracji [Apache Log4J 2](https://logging.apache.o
 
 ### <a name="on-head-nodes"></a>Na węzłach głównych
 
-Konfiguracja Nimbus Log4J jest odczytana `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`z.
+Konfiguracja Nimbus Log4J jest odczytana z `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
 
 ### <a name="on-worker-nodes"></a>Na węzłach procesu roboczego
 
-Konfiguracja Log4J opiekuna jest odczytywana `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`z.
+Konfiguracja Log4J opiekuna jest odczytywana z `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
 
-Plik konfiguracji Log4J procesu roboczego jest odczytywany `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`z programu.
+Plik konfiguracji Log4J procesu roboczego jest odczytywany z programu `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml` .
 
 Pokazują`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
@@ -172,9 +172,9 @@ Pokazują`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 
 ## <a name="not-a-leader-exception"></a>To nie jest wyjątek lidera
 
-Podczas przesyłania topologii użytkownik może otrzymać komunikat o błędzie podobny do: `Topology submission exception, cause not a leader, the current leader is NimbusInfo`.
+Podczas przesyłania topologii użytkownik może otrzymać komunikat o błędzie podobny do: `Topology submission exception, cause not a leader, the current leader is NimbusInfo` .
 
-Aby rozwiązać ten problem, użytkownik może potrzebować zaplikować bilet w celu ponownego uruchomienia lub ponownego uruchomienia węzłów. Aby uzyskać więcej informacji, [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)Zobacz.
+Aby rozwiązać ten problem, użytkownik może potrzebować zaplikować bilet w celu ponownego uruchomienia lub ponownego uruchomienia węzłów. Aby uzyskać więcej informacji, zobacz [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
 
 ---
 
@@ -184,6 +184,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 - Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-- Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+- Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 - Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

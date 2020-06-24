@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 22d1b6e2344256b52cfdbc48720a680a770a4216
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d2cd98a9af75b5f3a6ca084dbfd4c144e06643d
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77132163"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733793"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Rozwiązywanie problemów z łącznością za pośrednictwem protokołu LDAP w Azure Active Directory Domain Services domeny zarządzanej
 
@@ -26,18 +26,18 @@ Ten artykuł pomaga w rozwiązywaniu problemów z bezpiecznym dostępem do proto
 
 ## <a name="common-connection-issues"></a>Typowe problemy z połączeniem
 
-Jeśli masz problemy z nawiązywaniem połączenia z domeną zarządzaną platformy Azure AD DS przy użyciu protokołu Secure LDAP, zapoznaj się z następującymi krokami rozwiązywania problemów. Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połączenie z domeną zarządzaną AD DS platformy Azure:
+Jeśli masz problemy z nawiązywaniem połączenia z domeną zarządzaną platformy Azure AD DS przy użyciu protokołu Secure LDAP, zapoznaj się z następującymi krokami rozwiązywania problemów. Po każdym kroku rozwiązywania problemów spróbuj ponownie nawiązać połączenie z domeną zarządzaną:
 
 * Łańcuch wystawcy certyfikatu bezpiecznego protokołu LDAP musi być zaufany na kliencie. Główny urząd certyfikacji (CA) można dodać do magazynu zaufanych certyfikatów głównych na kliencie, aby ustanowić relację zaufania.
     * Należy się upewnić, że [Certyfikaty są eksportowane i stosowane na komputerach klienckich][client-cert].
 * Sprawdź, czy certyfikat bezpiecznego protokołu LDAP dla domeny zarządzanej ma nazwę DNS w *temacie* lub *Alternatywna nazwa podmiotu* .
     * Przejrzyj [wymagania dotyczące bezpiecznego certyfikatu LDAP][certs-prereqs] i w razie potrzeby Utwórz certyfikat zastępczy.
-* Sprawdź, czy klient LDAP, taki jak *Ldp. exe* , łączy się z bezpiecznym punktem końcowym protokołu LDAP przy użyciu nazwy DNS, a nie adresu IP.
-    * Certyfikat zastosowany do domeny zarządzanej usługi Azure AD DS nie obejmuje adresów IP usługi, tylko nazw DNS.
-* Sprawdź nazwę DNS, z którą łączy się klient LDAP. Musi on zostać rozpoznany jako publiczny adres IP dla bezpiecznego protokołu LDAP w domenie zarządzanej AD DS platformy Azure.
+* Sprawdź, czy klient LDAP, taki jak *ldp.exe* nawiązuje połączenie z punktem końcowym bezpiecznego protokołu LDAP przy użyciu nazwy DNS, a nie adresu IP.
+    * Certyfikat stosowany do domeny zarządzanej nie obejmuje adresów IP usługi, tylko nazw DNS.
+* Sprawdź nazwę DNS, z którą łączy się klient LDAP. Musi on zostać rozpoznany jako publiczny adres IP dla bezpiecznego protokołu LDAP w domenie zarządzanej.
     * Jeśli nazwa DNS jest rozpoznawana jako wewnętrzny adres IP, Zaktualizuj rekord DNS, aby mógł zostać rozpoznany jako zewnętrzny adres IP.
 * W przypadku łączności zewnętrznej Grupa zabezpieczeń sieci musi zawierać regułę umożliwiającą ruch do portu TCP 636 z Internetu.
-    * Jeśli można nawiązać połączenie z domeną zarządzaną platformy Azure AD DS przy użyciu bezpiecznego protokołu LDAP z zasobów podłączonych bezpośrednio do sieci wirtualnej, ale nie połączeń zewnętrznych, należy się upewnić, że [utworzono regułę sieciowej grupy zabezpieczeń, która zezwala na bezpieczny ruch protokołu LDAP][ldaps-nsg].
+    * Jeśli można nawiązać połączenie z domeną zarządzaną przy użyciu protokołu Secure LDAP z zasobów podłączonych bezpośrednio do sieci wirtualnej, ale nie połączeń zewnętrznych, należy się upewnić, że utworzono [regułę sieciowej grupy zabezpieczeń, aby zezwolić na bezpieczny ruch z użyciem protokołu LDAP][ldaps-nsg].
 
 ## <a name="next-steps"></a>Następne kroki
 

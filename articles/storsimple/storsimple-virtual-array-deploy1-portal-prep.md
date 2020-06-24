@@ -9,11 +9,11 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254536"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84698958"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Wdróż wirtualną macierz StorSimple — Przygotuj Azure Portal
 
@@ -30,7 +30,7 @@ Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia admi
 
 Informacje publikowane w tym artykule dotyczą wdrażania tablic wirtualnych StorSimple w chmurze Azure Portal i Microsoft Azure Government.
 
-### <a name="get-started"></a>Wprowadzenie
+### <a name="get-started"></a>Rozpoczęcie pracy
 Przepływ pracy wdrożenia polega na przygotowaniu portalu, aprowizacji macierzy wirtualnej w środowisku zwirtualizowanym i zakończeniu instalacji. Aby rozpocząć pracę z wdrożeniem macierzy wirtualnej StorSimple jako serwerem plików lub serwerem iSCSI, należy zapoznać się z poniższymi zasobami.
 
 #### <a name="deployment-articles"></a>Artykuły dotyczące wdrażania
@@ -127,7 +127,7 @@ Wykonaj poniższe czynności w witrynie [Azure Portal](https://portal.azure.com/
 
 #### <a name="to-get-the-virtual-array-image"></a>Aby uzyskać obraz macierzy wirtualnej
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/). 
 2. W Azure Portal kliknij pozycję **przeglądaj > menedżerów urządzeń StorSimple**.
 3. Wybierz istniejącą usługę StorSimple Menedżer urządzeń. W bloku **StorSimple Menedżer urządzeń** kliknij pozycję **Szybki Start**. 
 4. Kliknij link odpowiadający obrazowi, który chcesz pobrać z centrum pobierania Microsoft. Pliki obrazów mają rozmiar około 4,8 GB.

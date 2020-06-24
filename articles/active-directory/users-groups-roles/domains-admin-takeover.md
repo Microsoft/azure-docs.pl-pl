@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36c7bb426a329a54f333b76e028b884204543014
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 0cd2de0929b22dda6e566316c4eda966d8d62e24
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582975"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732654"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Przejmowanie niezarządzanego katalogu jako administrator w Azure Active Directory
 
@@ -28,9 +28,9 @@ W tym artykule opisano dwa sposoby przejęcia nazwy domeny DNS w niezarządzanym
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Zdecyduj, jak chcesz przejąć niezarządzany katalog
 Podczas procesu przejęcia przez administratora możesz udowodnić własność w sposób opisany w artykule [Dodawanie niestandardowej nazwy domeny do usługi Azure AD](../fundamentals/add-custom-domain.md). W kolejnych sekcjach objaśniono środowisko pracy administratora bardziej szczegółowo, ale w tym miejscu znajduje się podsumowanie:
 
-* W przypadku wykonania [„wewnętrznego” przejęcia przez administratora](#internal-admin-takeover) niezarządzanego katalogu platformy Azure użytkownik jest dodawany jako administrator globalny katalogu niezarządzanego. Żadni inni użytkownicy, domeny ani plany usługi nie są migrowane do żadnego innego katalogu, którym administruje.
+* Podczas przeprowadzania ["wewnętrznego" przejęcia przez administratora](#internal-admin-takeover) niezarządzanego katalogu platformy Azure zostanie on dodany jako Administrator globalny katalogu niezarządzanego. Użytkownicy, domeny ani plany usług nie są migrowane do żadnych innych administrowanych przez Ciebie katalogów.
 
-* W przypadku wykonania [„zewnętrznego” przejęcia przez administratora](#external-admin-takeover) niezarządzanego katalogu platformy Azure dodajesz nazwę domeny DNS katalogu niezarządzanego do swojego zarządzanego katalogu platformy Azure. W przypadku dodania nazwy domeny mapowanie użytkowników do zasobów jest tworzone w Twoim zarządzanym katalogu usługi Azure, dzięki czemu użytkownicy mogą nadal bez przeszkód uzyskiwać dostęp do usług. 
+* W przypadku wykonywania ["zewnętrznej" przejęcia przez administratora](#external-admin-takeover) niezarządzanego katalogu platformy Azure należy dodać nazwę domeny DNS niezarządzanego katalogu do zarządzanego katalogu platformy Azure. W przypadku dodania nazwy domeny mapowanie użytkowników do zasobów jest tworzone w Twoim zarządzanym katalogu usługi Azure, dzięki czemu użytkownicy mogą nadal bez przeszkód uzyskiwać dostęp do usług. 
 
 ## <a name="internal-admin-takeover"></a>Przejęcie przez administratora wewnętrznego
 
@@ -38,7 +38,7 @@ Niektóre produkty, które obejmują programy SharePoint i OneDrive, takie jak O
 
 1. Utwórz kontekst użytkownika w organizacji niezarządzanej za pomocą rejestracji w usłudze Power BI. W przypadku wygody przykładu te kroki zakładają tę ścieżkę.
 
-2. Otwórz [witrynę Power BI](https://powerbi.com) i wybierz pozycję **Rozpocznij bezpłatnie**. Wprowadź konto użytkownika, które używa nazwy domeny dla organizacji; na przykład `admin@fourthcoffee.xyz`. Po wprowadzeniu kodu weryfikacyjnego Sprawdź swój adres e-mail, aby uzyskać kod potwierdzający.
+2. Otwórz [witrynę Power BI](https://powerbi.com) i wybierz pozycję **Rozpocznij bezpłatnie**. Wprowadź konto użytkownika, które używa nazwy domeny dla organizacji; na przykład `admin@fourthcoffee.xyz` . Po wprowadzeniu kodu weryfikacyjnego Sprawdź swój adres e-mail, aby uzyskać kod potwierdzający.
 
 3. W wiadomości e-mail z potwierdzeniem z Power BI wybierz pozycję **tak**.
 
@@ -57,13 +57,13 @@ Po wykonaniu powyższych kroków jesteś teraz administratorem globalnym z czwar
 ### <a name="adding-the-domain-name-to-a-managed-organization-in-azure-ad"></a>Dodawanie nazwy domeny do zarządzanej organizacji w usłudze Azure AD
 
 1. Otwórz [Centrum administracyjne Microsoft 365](https://admin.microsoft.com).
-2. Wybierz kartę **Użytkownicy** , a następnie utwórz nowe konto użytkownika o nazwie *fourthcoffeexyz.onmicrosoft.com użytkownika\@* , która nie używa niestandardowej nazwy domeny. 
+2. Wybierz kartę **Użytkownicy** , a następnie utwórz nowe konto użytkownika o nazwie * \@ fourthcoffeexyz.onmicrosoft.com użytkownika* , która nie używa niestandardowej nazwy domeny. 
 3. Upewnij się, że nowe konto użytkownika ma uprawnienia administratora globalnego dla organizacji usługi Azure AD.
 4. Otwórz kartę **domeny** w centrum administracyjnym Microsoft 365, wybierz nazwę domeny i wybierz pozycję **Usuń**. 
   
    ![Usuń nazwę domeny z pakietu Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Jeśli w pakiecie Office 365 istnieją wszyscy użytkownicy lub grupy, które odwołują się do usuniętej nazwy domeny, należy zmienić ich nazwy na domenę. onmicrosoft.com. Jeśli wymusisz usunięcie nazwy domeny, wszyscy użytkownicy będą automatycznie zmieniać nazwy, w tym przykładzie *do\@fourthcoffeexyz.onmicrosoft.com użytkownika*.
+5. Jeśli w pakiecie Office 365 istnieją wszyscy użytkownicy lub grupy, które odwołują się do usuniętej nazwy domeny, należy zmienić ich nazwy na domenę. onmicrosoft.com. Jeśli wymusisz usunięcie nazwy domeny, wszyscy użytkownicy będą automatycznie zmieniać nazwy, w tym przykładzie *do \@ fourthcoffeexyz.onmicrosoft.com użytkownika*.
   
 6. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu konta, które jest administratorem globalnym dla organizacji usługi Azure AD.
   
@@ -72,7 +72,7 @@ Po wykonaniu powyższych kroków jesteś teraz administratorem globalnym z czwar
    ![domena została zweryfikowana jako dodana do usługi Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Wszyscy użytkownicy Power BI lub usługi Azure Rights Management, którzy mają licencje przypisane w organizacji pakietu Office 365, muszą zapisać swoje pulpity nawigacyjne, jeśli nazwa domeny zostanie usunięta. Muszą oni zalogować się przy użyciu nazwy użytkownika, takiej jak *\@User fourthcoffeexyz.onmicrosoft.com* zamiast *User\@fourthcoffee. xyz*.
+> Wszyscy użytkownicy Power BI lub usługi Azure Rights Management, którzy mają licencje przypisane w organizacji pakietu Office 365, muszą zapisać swoje pulpity nawigacyjne, jeśli nazwa domeny zostanie usunięta. Muszą oni zalogować się przy użyciu nazwy użytkownika, takiej jak *user \@ fourthcoffeexyz.onmicrosoft.com* zamiast *User \@ fourthcoffee. xyz*.
 
 ## <a name="external-admin-takeover"></a>Przejęcie przez administratora zewnętrznego
 
@@ -113,7 +113,7 @@ Mimo że usługi RMS dla użytkowników indywidualnych są przeznaczone do obsł
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Polecenia cmdlet programu PowerShell dla usługi Azure AD dla opcji ForceTakeover
 Można wyświetlić te polecenia cmdlet używane w [przykładowym programie PowerShell](#powershell-example).
 
-cmdlet | Sposób użycia
+cmdlet | Użycie
 ------- | -------
 `connect-msolservice` | Po wyświetleniu monitu zaloguj się do zarządzanej organizacji.
 `get-msoldomain` | Pokazuje nazwy domen skojarzone z bieżącą organizacją.

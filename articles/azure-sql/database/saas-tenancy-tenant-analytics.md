@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 3078cf7a7b16d5932e861f28a352002aa01cea45
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7f0f5e0d1b4dec493d9c8157214ade4299e4a14f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041994"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252070"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analiza wielu dzierżawców przy użyciu wyodrębnionych aplikacji z jedną dzierżawą
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -87,10 +87,10 @@ W tym samouczku analiza jest wykonywana na danych sprzedaży biletów. W bieżą
 Często istnieje wiele transakcyjnych baz danych, które razem przechowują wszystkie dane dzierżawy. Należy agregować dane dzierżawy z wielu transakcyjnych baz danych w jednym sklepie analitycznym. Agregacja umożliwia wydajne wykonywanie zapytań dotyczących danych. W tym samouczku Azure SQL Database jest używany do przechowywania zagregowanych danych.
 
 W poniższych krokach zostanie wdrożony magazyn analityczny o nazwie **tenantanalytics**. Wdrożono również wstępnie zdefiniowane tabele, które są umieszczane w dalszej części tego samouczka:
-1. W programie PowerShell ISE Otwórz pozycję *. ..\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
+1. W programie PowerShell ISE Otwórz *..\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
 2. Ustaw zmienną $DemoScenario w skrypcie, aby pasowała do wybranego sklepu analitycznego:
-    - Aby użyć bazy danych SQL bez magazynu kolumn, ustaw **$DemoScenario**  =  **2**
-    - Aby użyć bazy danych SQL z magazynem kolumn, ustaw **$DemoScenario**  =  **3**  
+    - Aby użyć SQL Database bez magazynu kolumn, ustaw **$DemoScenario**  =  **2**
+    - Aby użyć SQL Database z magazynem kolumn, ustaw **$DemoScenario**  =  **3**  
 3. Naciśnij klawisz **F5** , aby uruchomić skrypt demonstracyjny (wywołujący skrypt *Deploy-TenantAnalytics \<XX> . ps1* ), który tworzy magazyn analizy dzierżawców. 
 
 Teraz, gdy aplikacja została wdrożona i uzupełniona o interesujące dane dzierżawy, [użyj SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) do połączenia serwerów **tenants1-DPT- &lt; User &gt; ** i **Catalog-DPT- &lt; Users &gt; ** przy użyciu funkcji login = *Developer*, Password = *P \@ ssword1*. Zobacz [samouczek wprowadzający](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) , aby uzyskać więcej wskazówek.

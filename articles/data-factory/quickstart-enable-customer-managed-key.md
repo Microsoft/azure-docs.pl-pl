@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: fa1ce8516223b725c1efcb7e27d4726bbadfe62e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a5d36ad92299ea079a6d7ba8c7ff924b8c4c42f5
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655053"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252478"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Szyfrowanie Azure Data Factory przy użyciu kluczy zarządzanych przez klienta
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory szyfruje przechowywane dane, w tym Definicje jednostek, wszystkie dane w pamięci podręcznej podczas uruchamiania są w toku, a dane są buforowane na potrzeby podglądu danych. Domyślnie dane są szyfrowane przy użyciu losowo generowanego klucza zarządzanego przez firmę Microsoft, który jest jednoznacznie przypisany do fabryki danych. Aby uzyskać dodatkowe gwarancje bezpieczeństwa, można teraz włączyć Bring Your Own Key (BYOK) z funkcją klucze zarządzane przez klienta w Azure Data Factory. W przypadku określenia klucza zarządzanego przez klienta Data Factory szyfrowania danych klienta przy użyciu __zarówno__ klucza systemu fabryki, jak i CMK. Brak żadnego z nich spowoduje odmowa dostępu do danych i fabryki.
+Azure Data Factory szyfruje przechowywane dane, w tym Definicje jednostek, wszystkie dane w pamięci podręcznej podczas uruchamiania są w toku, a dane są buforowane na potrzeby podglądu danych. Domyślnie dane są szyfrowane przy użyciu losowo generowanego klucza zarządzanego przez firmę Microsoft, który jest unikatowy dla fabryki danych. Aby uzyskać dodatkowe gwarancje bezpieczeństwa, można teraz włączyć Bring Your Own Key (BYOK) z funkcją klucze zarządzane przez klienta w Azure Data Factory. W przypadku określenia klucza zarządzanego przez klienta Data Factory szyfrowania danych klienta przy użyciu __zarówno__ klucza systemu fabryki, jak i CMK. Brak żadnego z nich spowoduje odmowa dostępu do danych i fabryki.
 
 Azure Key Vault jest wymagane do przechowywania kluczy zarządzanych przez klienta. Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Magazyn kluczy i Data Factory muszą znajdować się w tej samej dzierżawie Azure Active Directory (Azure AD) i w tym samym regionie, ale mogą znajdować się w różnych subskrypcjach. Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md)
 

@@ -36,6 +36,8 @@
       items:
         - name: Jak działa uwierzytelnianie wieloskładnikowe
           href: concept-mfa-howitworks.md
+        - name: Monity i okres istnienia sesji
+          href: concepts-azure-multi-factor-authentication-prompts-session-lifetime.md
         - name: Rezydencja danych
           href: concept-mfa-data-residency.md
         - name: Licencje

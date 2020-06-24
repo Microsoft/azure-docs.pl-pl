@@ -1,18 +1,18 @@
 ---
-title: Jak działa proces lokalny z Kubernetes
+title: Jak działa proces lokalny z usługą Kubernetes
 services: azure-dev-spaces
 ms.date: 06/02/2020
 ms.topic: conceptual
 description: Opisuje procesy związane z używaniem procesu lokalnego z usługą Kubernetes w celu połączenia komputera deweloperskiego z klastrem Kubernetes
 keywords: Proces lokalny z Kubernetes, Azure Dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers
-ms.openlocfilehash: 443783eb7f5359318cf8efbec8b6466a80fa1e85
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: dd126fc55a86b1de115239a31e5adb7b1d264846
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84316600"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974425"
 ---
-# <a name="how-local-process-with-kubernetes-works"></a>Jak działa proces lokalny z Kubernetes
+# <a name="how-local-process-with-kubernetes-works"></a>Jak działa proces lokalny z usługą Kubernetes
 
 Proces lokalny z programem Kubernetes umożliwia uruchamianie i debugowanie kodu na komputerze deweloperskim, przy jednoczesnym połączeniu z klastrem Kubernetes z pozostałą częścią aplikacji lub usług. Na przykład jeśli masz dużą architekturę mikrousług z wieloma zależnymi usługami i bazami danych, replikowanie tych zależności na komputerze deweloperskim może być trudne. Ponadto Kompilowanie i wdrażanie kodu w klastrze Kubernetes dla każdej zmiany kodu podczas programowania w pętli wewnętrznej może być powolne, czasochłonne i trudne do użycia z debugerem.
 
@@ -42,6 +42,15 @@ Po nawiązaniu połączenia z klastrem można uruchomić i debugować kod natywn
 ## <a name="diagnostics-and-logging"></a>Diagnostyka i rejestrowanie
 
 W przypadku korzystania z procesu lokalnego z Kubernetes w celu nawiązania połączenia z klastrem dzienniki diagnostyczne z klastra są rejestrowane w [katalogu tymczasowym][azds-tmp-dir]komputera deweloperskiego. Za pomocą Visual Studio Code można także użyć polecenia *Pokaż informacje diagnostyczne* , aby wydrukować bieżące zmienne środowiskowe i wpisy DNS z klastra.
+
+## <a name="limitations"></a>Ograniczenia
+
+Proces lokalny z Kubernetes ma następujące ograniczenia:
+
+* Proces lokalny z usługą Kubernetes przekierowuje ruch dla jednej usługi do komputera deweloperskiego. Nie można użyć procesu lokalnego z usługą Kubernetes w celu przekierowania wielu usług w tym samym czasie.
+* Aby można było połączyć się z tą usługą, usługa musi być objęta usługą. Nie można nawiązać połączenia z usługą z wieloma zasobnikami, takimi jak usługa z replikami.
+* W przypadku procesu lokalnego z usługą Kubernetes w celu pomyślnego nawiązania połączenia na komputerze może znajdować się tylko jeden kontener uruchomiony w tym pod. Proces lokalny z usługą Kubernetes nie może połączyć się z usługami za pomocą zasobników z dodatkowymi kontenerami, takimi jak kontenery przyczepek z systemem.
+* Proces lokalny z Kubernetes wymaga podniesionych uprawnień do uruchamiania na komputerze deweloperskim, aby można było edytować plik Hosts.
 
 ## <a name="next-steps"></a>Następne kroki
 

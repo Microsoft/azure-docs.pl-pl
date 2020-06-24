@@ -13,12 +13,12 @@ ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 9e35ba5a3f3705a52e80262da9bbfbfda489bf83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a4f98b3c569147699432aa4bdcdd44b0b16b3af
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050377"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297447"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Plik konfiguracji biblioteki uwierzytelniania firmy Microsoft dla systemu Android
 
@@ -30,14 +30,14 @@ Ten artykuł pomoże zrozumieć różne ustawienia w pliku konfiguracji oraz spo
 
 ### <a name="general-settings"></a>Ustawienia ogólne
 
-| Właściwość | Typ danych | Wymagany | Uwagi |
+| Właściwość | Typ danych | Wymagane | Uwagi |
 |-----------|------------|-------------|-------|
 | `client_id` | Ciąg | Tak | Identyfikator klienta aplikacji na [stronie rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | Ciąg | Tak | Identyfikator URI przekierowania aplikacji ze [strony rejestracji aplikacji](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | Lista\<> urzędu | Nie | Lista urzędów, których potrzebuje aplikacja |
-| `authorization_user_agent` | AuthorizationAgent (enum) | Nie | Możliwe wartości: `DEFAULT`, `BROWSER`,`WEBVIEW` |
+| `authorities` | Staw\<Authority> | Nie | Lista urzędów, których potrzebuje aplikacja |
+| `authorization_user_agent` | AuthorizationAgent (enum) | Nie | Możliwe wartości: `DEFAULT` , `BROWSER` ,`WEBVIEW` |
 | `http` | HttpConfiguration | Nie | Skonfiguruj `HttpUrlConnection` `connect_timeout` i`read_timeout` |
-| `logging` | LoggingConfiguration | Nie | Określa poziom szczegółowości rejestrowania. Konfiguracje opcjonalne obejmują: `pii_enabled`, która przyjmuje wartość logiczną `log_level`, i, która przyjmuje `ERROR`, `WARNING`, `INFO`lub. `VERBOSE` |
+| `logging` | LoggingConfiguration | Nie | Określa poziom szczegółowości rejestrowania. Konfiguracje opcjonalne obejmują: `pii_enabled` , która przyjmuje wartość logiczną, i `log_level` , która przyjmuje `ERROR` , `WARNING` , `INFO` lub `VERBOSE` . |
 
 ### <a name="client_id"></a>client_id
 
@@ -49,7 +49,7 @@ Identyfikator URI przekierowania zarejestrowany podczas rejestrowania aplikacji.
 
 ### <a name="authorities"></a>wykazu
 
-Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejscu MSAL również wysyła zapytanie do firmy Microsoft w celu uzyskania listy chmur i urzędów znanych firmie Microsoft. Na tej liście urzędów Określ typ urzędu i wszelkie dodatkowe parametry opcjonalne, takie jak `"audience"`, które powinny być wyrównane z odbiorcami aplikacji w oparciu o rejestrację aplikacji. Poniżej przedstawiono przykładową listę urzędów:
+Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejscu MSAL również wysyła zapytanie do firmy Microsoft w celu uzyskania listy chmur i urzędów znanych firmie Microsoft. Na tej liście urzędów Określ typ urzędu i wszelkie dodatkowe parametry opcjonalne, takie jak `"audience"` , które powinny być wyrównane z odbiorcami aplikacji w oparciu o rejestrację aplikacji. Poniżej przedstawiono przykładową listę urzędów:
 
 ```javascript
 // Example AzureAD and Personal Microsoft Account
@@ -101,19 +101,19 @@ Lista znanych i zaufanych urzędów. Oprócz urzędów wymienionych w tym miejsc
 
 #### <a name="authority-properties"></a>Właściwości urzędu
 
-| Właściwość | Typ danych  | Wymagany | Uwagi |
+| Właściwość | Typ danych  | Wymagane | Uwagi |
 |-----------|-------------|-----------|--------|
-| `type` | Ciąg | Tak | Odzwierciedla grupę odbiorców lub konto, do którego należy aplikacja. Możliwe wartości: `AAD`,`B2C` |
-| `audience` | Obiekt | Nie | Stosuje się tylko wtedy,`AAD`gdy typ =. Określa tożsamość, która jest przeznaczona dla aplikacji. Użyj wartości z rejestracji aplikacji |
-| `authority_url` | Ciąg | Tak | Wymagane tylko wtedy, gdy`B2C`typ =. Określa adres URL urzędu lub zasady, które powinny być używane przez aplikację  |
+| `type` | Ciąg | Tak | Odzwierciedla grupę odbiorców lub konto, do którego należy aplikacja. Możliwe wartości: `AAD` ,`B2C` |
+| `audience` | Obiekt | Nie | Stosuje się tylko wtedy, gdy typ = `AAD` . Określa tożsamość, która jest przeznaczona dla aplikacji. Użyj wartości z rejestracji aplikacji |
+| `authority_url` | Ciąg | Tak | Wymagane tylko wtedy, gdy typ = `B2C` . Określa adres URL urzędu lub zasady, które powinny być używane przez aplikację  |
 | `default` | wartość logiczna | Tak | Jeden `"default":true` jest wymagany w przypadku określenia co najmniej jednego urzędu. |
 
 #### <a name="audience-properties"></a>Właściwości odbiorców
 
-| Właściwość | Typ danych  | Wymagany | Uwagi |
+| Właściwość | Typ danych  | Wymagane | Uwagi |
 |-----------|-------------|------------|-------|
-| `type` | Ciąg | Tak | Określa odbiorców, do których aplikacja chce kierować. Możliwe wartości: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`,`AzureADMyOrg` |
-| `tenant_id` | Ciąg | Tak | Wymagane tylko wtedy `"type":"AzureADMyOrg"`, gdy. Opcjonalne dla innych `type` wartości. Może to być domena dzierżawy, taka `contoso.com`jak lub identyfikator dzierżawy, taki `72f988bf-86f1-41af-91ab-2d7cd011db46`jak). |
+| `type` | Ciąg | Tak | Określa odbiorców, do których aplikacja chce kierować. Możliwe wartości: `AzureADandPersonalMicrosoftAccount` , `PersonalMicrosoftAccount` , `AzureADMultipleOrgs` ,`AzureADMyOrg` |
+| `tenant_id` | Ciąg | Tak | Wymagane tylko wtedy, gdy `"type":"AzureADMyOrg"` . Opcjonalne dla innych `type` wartości. Może to być domena dzierżawy, taka jak `contoso.com` lub identyfikator dzierżawy, taki jak `72f988bf-86f1-41af-91ab-2d7cd011db46` ). |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
@@ -126,19 +126,19 @@ Możliwe wartości:
 
 ### <a name="multiple_clouds_supported"></a>multiple_clouds_supported
 
-W przypadku klientów, którzy obsługują wiele chmur narodowych, określ `true`. Platforma tożsamości firmy Microsoft będzie następnie automatycznie przekierowywać do właściwej chmury krajowej podczas autoryzacji i wykupu. Aby określić chmurę krajową konta zalogowanego, można sprawdzić urząd skojarzony z `AuthenticationResult`. Należy pamiętać, `AuthenticationResult` że program nie udostępnia krajowego adresu punktu końcowego dla zasobu, dla którego zażądano tokenu.
+W przypadku klientów, którzy obsługują wiele chmur narodowych, określ `true` . Platforma tożsamości firmy Microsoft będzie następnie automatycznie przekierowywać do właściwej chmury krajowej podczas autoryzacji i wykupu. Aby określić chmurę krajową konta zalogowanego, można sprawdzić urząd skojarzony z `AuthenticationResult` . Należy pamiętać, że program `AuthenticationResult` nie udostępnia krajowego adresu punktu końcowego dla zasobu, dla którego zażądano tokenu.
 
 ### <a name="broker_redirect_uri_registered"></a>broker_redirect_uri_registered
 
-Wartość logiczna wskazująca, czy używasz usługi Microsoft Identity Broker zgodnej z identyfikatorem URI przekierowania brokera. Ustaw na `false` , jeśli nie chcesz używać brokera w aplikacji.
+Wartość logiczna wskazująca, czy używasz usługi Microsoft Identity Broker zgodnej z identyfikatorem URI przekierowania brokera. Ustaw na, `false` Jeśli nie chcesz używać brokera w aplikacji.
 
-Jeśli używasz urzędu usługi AAD z zestawem odbiorców ustawionym `"MicrosoftPersonalAccount"`na, Broker nie będzie używany.
+Jeśli używasz urzędu usługi AAD z zestawem odbiorców ustawionym na `"MicrosoftPersonalAccount"` , Broker nie będzie używany.
 
 ### <a name="http"></a>http
 
 Skonfiguruj ustawienia globalne limitów czasu HTTP, takie jak:
 
-| Właściwość | Typ danych | Wymagany | Uwagi |
+| Właściwość | Typ danych | Wymagane | Uwagi |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | int | Nie | Czas w milisekundach |
 | `read_timeout` | int | Nie | Czas w milisekundach |
@@ -147,10 +147,10 @@ Skonfiguruj ustawienia globalne limitów czasu HTTP, takie jak:
 
 Następujące ustawienia globalne dotyczą rejestrowania:
 
-| Właściwość | Typ danych  | Wymagany | Uwagi |
+| Właściwość | Typ danych  | Wymagane | Uwagi |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | wartość logiczna | Nie | Czy emitować dane osobowe |
-| `log_level`   | wartość logiczna | Nie | Które komunikaty dziennika do danych wyjściowych |
+| `log_level`   | ciąg | Nie | Komunikaty dziennika do danych wyjściowych. Obsługiwane poziomy dziennika obejmują `ERROR` , `WARNING` , `INFO` , i `VERBOSE` . |
 | `logcat_enabled` | wartość logiczna | Nie | Określa, czy oprócz interfejsu rejestrowania ma być wyprowadzane wyjście do dziennika Cat |
 
 ### <a name="account_mode"></a>account_mode
@@ -340,8 +340,8 @@ Poniższy przykład ilustruje podstawową konfigurację, która określa identyf
 
 ## <a name="how-to-use-a-configuration-file"></a>Jak używać pliku konfiguracji
 
-1. Utwórz plik konfiguracji. Zalecamy utworzenie niestandardowego pliku konfiguracji w programie `res/raw/auth_config.json`. Ale możesz ją umieścić w dowolnym miejscu.
-2. Poinformuj MSAL o tym, gdzie należy wyszukać konfigurację `PublicClientApplication`podczas konstruowania. Przykład:
+1. Utwórz plik konfiguracji. Zalecamy utworzenie niestandardowego pliku konfiguracji w programie `res/raw/auth_config.json` . Ale możesz ją umieścić w dowolnym miejscu.
+2. Poinformuj MSAL o tym, gdzie należy wyszukać konfigurację podczas konstruowania `PublicClientApplication` . Przykład:
 
    ```java
    //On Worker Thread

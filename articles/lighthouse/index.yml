@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 04/14/2020
-  ms.openlocfilehash: e62db32a20c4124f64e7c77d626099905a960815
-  ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+  ms.openlocfilehash: 3d06144a9b0a39e7fe0dfbaf7fbdd789ef439336
+  ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "83871799"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85297838"
 landingContent:
 - title: Azure Lighthouse — informacje
   linkLists:
@@ -71,15 +71,17 @@ landingContent:
       url: ./how-to/view-manage-customers.md
     - text: Wyświetlanie dostawców usług i zarządzanie nimi
       url: ./how-to/view-manage-service-providers.md
-- title: Praca z usługami platformy Azure
+- title: Praca z usługami platformy Azure na dużą skalę
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Używanie dzienników usługi Azure Monitor na dużą skalę
+    - text: Zarządzanie obszarami roboczymi usługi Azure Sentinel
+      url: ./how-to/manage-sentinel-workspaces.md
+    - text: Korzystanie z dzienników usługi Azure Monitor
       url: ./how-to/monitor-at-scale.md
     - text: Monitorowanie zmian delegacji
       url: ./how-to/monitor-at-scale.md
-    - text: Wdrażanie usługi Azure Policy na dużą skalę
+    - text: Wdrażanie usługi Azure Policy
       url: ./how-to/policy-at-scale.md
     - text: Wdrażanie zasad, które można skorygować
       url: ./how-to/deploy-policy-remediation.md

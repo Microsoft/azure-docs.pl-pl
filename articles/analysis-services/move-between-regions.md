@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 32b310a2e74fc6f120dce90047da08380b776879
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ff012dc78f3981b6fb5fdbd8a5bde45083dd997b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680231"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699434"
 ---
 # <a name="move-analysis-services-to-a-different-region"></a>Przenieś Analysis Services do innego regionu
 
@@ -279,7 +279,7 @@ Opcjonalnie: [Alm Toolkit](http://alm-toolkit.com/) to narzędzie *Open Source* 
 
 :::image type="content" source="media/move-between-regions/alm-toolkit.png" alt-text="Zestaw narzędzi ALM Toolkit":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po sprawdzeniu, czy aplikacje klienckie mogą nawiązywać połączenie z nowym serwerem, a wszystkie skrypty automatyzacji są wykonywane prawidłowo, Usuń serwer źródłowy. 
 
