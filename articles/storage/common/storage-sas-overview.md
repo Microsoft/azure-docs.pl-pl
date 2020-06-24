@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 680c1b036b9b41edb1115f478fd5dc8f63ea1d02
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b853817b670f59bbfeef9ecd81c70dc63cbd367b
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688043"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804616"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Udzielanie ograniczonego dostępu do zasobów usługi Azure Storage za pomocą sygnatur dostępu współdzielonego (SAS)
 
@@ -43,7 +43,7 @@ Usługa Azure Storage obsługuje trzy typy sygnatur dostępu współdzielonego:
 Sygnatura dostępu współdzielonego może przyjmować jedną z dwóch form:
 
 - **Sygnatury dostępu współdzielonego ad hoc:** Podczas tworzenia SYGNATURy dostępu współdzielonego ad hoc są wszystkie określone w identyfikatorze URI sygnatury dostępu współdzielonego (lub implikowane, jeśli czas rozpoczęcia zostanie pominięty). Każdy typ SYGNATURy dostępu współdzielonego może być sygnaturą dostępu współdzielonego ad hoc.
-- **SAS usługi z zapisanymi zasadami dostępu:** Przechowywane zasady dostępu są definiowane w kontenerze zasobów, który może być kontenerem obiektów blob, tabelą, kolejką lub udziałem plików. Przechowywane zasady dostępu mogą służyć do zarządzania ograniczeniami dla co najmniej jednego sygnatury dostępu współdzielonego usługi. W przypadku kojarzenia sygnatury dostępu współdzielonego usługi z przechowywanymi zasadami, skojarzenie SAS dziedziczy ograniczenia&mdash;czas rozpoczęcia, czas wygaśnięcia i&mdash;uprawnienia zdefiniowane dla przechowywanych zasad dostępu.
+- **SAS usługi z zapisanymi zasadami dostępu:** Przechowywane zasady dostępu są definiowane w kontenerze zasobów, który może być kontenerem obiektów blob, tabelą, kolejką lub udziałem plików. Przechowywane zasady dostępu mogą służyć do zarządzania ograniczeniami dla co najmniej jednego sygnatury dostępu współdzielonego usługi. W przypadku kojarzenia sygnatury dostępu współdzielonego usługi z przechowywanymi zasadami, skojarzenie SAS dziedziczy ograniczenia &mdash; czas rozpoczęcia, czas wygaśnięcia i uprawnienia &mdash; zdefiniowane dla przechowywanych zasad dostępu.
 
 > [!NOTE]
 > Sygnatura dostępu współdzielonego użytkownika lub sygnatury dostępu współdzielonego konta musi być ad hoc. Przechowywane zasady dostępu nie są obsługiwane w przypadku skojarzeń zabezpieczeń delegowania użytkownika lub konta SAS.

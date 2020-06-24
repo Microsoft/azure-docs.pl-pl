@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 135c58a665779ffaad8750ffe618bdbe38639b66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db05c7a5a45221485ecb62c2c90d56be52d5ef48
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681495"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808605"
 ---
 # <a name="convert-models"></a>Konwertowanie modeli
 
@@ -38,6 +38,11 @@ Istnieją niewielkie różnice między formatami w odniesieniu do konwersji wła
     - lub dostarczając *sygnaturę dostępu współdzielonego (SAS)*.
 
 Wszystkie dane modelu (dane wejściowe i wyjściowe) są przechowywane w usłudze Azure Blob Storage. Zdalne renderowanie na platformie Azure zapewnia pełną kontrolę nad zarządzaniem zasobami.
+
+## <a name="pricing"></a>Cennik
+
+Informacje o cenach konwersji można znaleźć na stronie [cennika renderowania zdalnego](https://azure.microsoft.com/pricing/details/remote-rendering) .
+
 
 ## <a name="conversion-parameters"></a>Parametry konwersji
 

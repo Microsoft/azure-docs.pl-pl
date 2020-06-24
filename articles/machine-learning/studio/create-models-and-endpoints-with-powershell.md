@@ -5,17 +5,17 @@ description: Użyj programu PowerShell, aby utworzyć wiele modeli Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 145ee5b458927fc4e3cda5277de614383181eed5
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 43f797981c6e3d32cdd5083f4ee1e16359667bdd
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465698"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696494"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Tworzenie wielu punktów końcowych usługi sieci Web na podstawie jednego eksperymentu z ML Studio (klasyczny) i programu PowerShell
 
@@ -42,7 +42,7 @@ Skorzystaj z przykładowego [eksperymentu szkoleniowego](https://gallery.azure.a
 > 
 > 
 
-Eksperyment używa modułu **Import danych** do importowania zestawu danych szkoleniowych *customer001. csv* z konta usługi Azure Storage. Załóżmy, że zebrano zbiory danych szkoleń ze wszystkich lokalizacji dzierżawy rowerów i zapisano je w tej samej lokalizacji magazynu obiektów blob z nazwami plików z *rentalloc001. csv* do *rentalloc10. csv*.
+Eksperyment używa modułu **Import danych** do importowania zestawu danych szkoleniowych *customer001.csv* z konta usługi Azure Storage. Załóżmy, że zebrano zbiory danych szkoleń ze wszystkich lokalizacji dzierżawy rowerów i zapisano je w tej samej lokalizacji magazynu obiektów blob z nazwami plików od *rentalloc001.csv* do *rentalloc10.csv*.
 
 ![Moduł czytnika importuje dane z obiektu blob platformy Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
@@ -54,7 +54,7 @@ Można to zrobić na inne sposoby. Możesz użyć zapytania SQL z parametrem us�
 
 ![Przeszkolone dane wyjściowe modułu modelu do modułu wyjściowego usługi sieci Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
-Teraz Uruchommy ten eksperyment szkoleniowy przy użyciu domyślnej wartości *rental001. csv* jako zestawu danych szkoleniowych. Jeśli wyświetli się dane wyjściowe modułu **szacowania** (kliknij dane wyjściowe i wybierz polecenie **wizualizator**), zobaczysz znośnego wydajność *AUC* = 0,91. W tym momencie możesz przystąpić do wdrożenia usługi sieci Web z tego eksperymentu szkoleniowego.
+Teraz Uruchommy ten eksperyment szkoleniowy przy użyciu wartości domyślnej *rental001.csv* jako zestawu danych szkoleniowych. Jeśli wyświetli się dane wyjściowe modułu **szacowania** (kliknij dane wyjściowe i wybierz polecenie **wizualizator**), zobaczysz znośnego wydajność *AUC* = 0,91. W tym momencie możesz przystąpić do wdrożenia usługi sieci Web z tego eksperymentu szkoleniowego.
 
 ## <a name="deploy-the-training-and-scoring-web-services"></a>Wdrażanie usług sieci Web szkoleń i oceniania
 Aby wdrożyć usługę szkoleniową sieci Web, kliknij przycisk **Skonfiguruj usługę sieci Web** pod kanwą eksperymentu i wybierz pozycję **Wdróż usługę sieci Web**. Wywołaj tę usługę sieci Web "szkolenia z zakresu roweru".
@@ -87,7 +87,7 @@ Następnie uruchom następujące polecenie programu PowerShell:
         Add-AmlWebServiceEndpoint -WebServiceId $scoringSvc.Id -EndpointName $endpointName -Description $endpointName     
     }
 
-Teraz utworzono 10 punktów końcowych i wszystkie zawierają ten sam szkolony model przeszkolony w *customer001. csv*. Można je wyświetlić w Azure Portal.
+Teraz utworzono 10 punktów końcowych i wszystkie zawierają ten sam szkolony model szkolony na *customer001.csv*. Można je wyświetlić w Azure Portal.
 
 ![Wyświetlanie listy modeli szkolonych w portalu](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 

@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kaanan
-ms.openlocfilehash: 56288a65dc9e5b12a12393965b9670e394146181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9460208d66e859f5fe1ce0e9ae4d62087ea3f4ff
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234971"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696022"
 ---
 # <a name="work-with-a-virtual-network-tap-using-the-azure-cli"></a>Współpraca z siecią wirtualną przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -28,7 +28,7 @@ Usługa Azure Virtual Network TAP (punkt dostępu terminalu) umożliwia ciągł�
 
 ## <a name="create-a-virtual-network-tap-resource"></a>Utwórz zasób TAP sieci wirtualnej
 
-Zapoznaj się z [wymaganiami wstępnymi](virtual-network-tap-overview.md#prerequisites) przed utworzeniem zasobu TAP sieci wirtualnej. Poniższe polecenia można uruchomić w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia platformy Azure (CLI) na komputerze. Azure Cloud Shell to bezpłatna interaktywna powłoka, która nie wymaga instalacji interfejsu wiersza polecenia platformy Azure na komputerze. Musisz zalogować się do platformy Azure przy użyciu konta, które ma odpowiednie [uprawnienia](virtual-network-tap-overview.md#permissions). Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.46 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). Sieć wirtualna TAP jest obecnie dostępna jako rozszerzenie. Aby zainstalować rozszerzenie, należy je uruchomić `az extension add -n virtual-network-tap`. Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz też uruchomić `az login` polecenie, aby utworzyć połączenie z platformą Azure.
+Zapoznaj się z [wymaganiami wstępnymi](virtual-network-tap-overview.md#prerequisites) przed utworzeniem zasobu TAP sieci wirtualnej. Poniższe polecenia można uruchomić w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia platformy Azure (CLI) na komputerze. Azure Cloud Shell to bezpłatna interaktywna powłoka, która nie wymaga instalacji interfejsu wiersza polecenia platformy Azure na komputerze. Musisz zalogować się do platformy Azure przy użyciu konta, które ma odpowiednie [uprawnienia](virtual-network-tap-overview.md#permissions). Ten artykuł wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.46 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure 2.0](/cli/azure/install-azure-cli). Sieć wirtualna TAP jest obecnie dostępna jako rozszerzenie. Aby zainstalować rozszerzenie, należy je uruchomić `az extension add -n virtual-network-tap` . Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz też uruchomić polecenie `az login` , aby utworzyć połączenie z platformą Azure.
 
 1. Pobierz identyfikator subskrypcji do zmiennej, która jest używana w kolejnym kroku:
 

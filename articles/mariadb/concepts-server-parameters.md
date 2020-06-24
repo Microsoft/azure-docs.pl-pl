@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 3141bb3652cfa44c42125fe95f038582108a963f
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 5ea5a94c73adda1328b97c3e985c4b6ac614d1b9
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637137"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255028"
 ---
 # <a name="server-parameters-in-azure-database-for-mariadb"></a>Parametry serwera w Azure Database for MariaDB
 
@@ -84,8 +84,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
-|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
 |Ogólnego przeznaczenia|2|262144|128|268435455|
 |Ogólnego przeznaczenia|4|262144|128|536870912|
 |Ogólnego przeznaczenia|8|262144|128|1073741824|
@@ -124,14 +124,17 @@ Gdy połączenia przekroczą limit, może zostać wyświetlony następujący bł
 
 Tworzenie nowych połączeń klientów do MariaDB trwa po upływie czasu i po jego ustanowieniu te połączenia zajmują zasoby bazy danych, nawet jeśli są bezczynne. Większość aplikacji żąda wielu krótkich połączeń, które są związane z tą sytuacją. Wynikiem jest mniej zasobów dostępnych dla rzeczywistego obciążenia, co prowadzi do zmniejszenia wydajności. Pulę połączenia, który zmniejsza bezczynne połączenia i ponownie używa istniejących połączeń, będzie pomóc w uniknięciu tego działania. Aby dowiedzieć się więcej o konfigurowaniu ProxySQL, odwiedź nasz [wpis w blogu](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
+>[!Note]
+>ProxySQL to narzędzie społecznościowe Open Source. Jest ona obsługiwana przez firmę Microsoft w oparciu o najlepszy nakład pracy. Aby uzyskać pomoc techniczną z wiarygodnymi wskazówkami, możesz oszacować i skontaktować się z [pomocą techniczną produktu ProxySQL](https://proxysql.com/services/support/).
+
 ### <a name="max_heap_table_size"></a>max_heap_table_size
 
 Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-variables/#max_heap_table_size) , aby dowiedzieć się więcej o tym parametrze.
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
-|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
 |Ogólnego przeznaczenia|2|16777216|16384|268435455|
 |Ogólnego przeznaczenia|4|16777216|16384|536870912|
 |Ogólnego przeznaczenia|8|16777216|16384|1073741824|
@@ -152,8 +155,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|* * Wartość maksymalna * *|
 |---|---|---|---|---|
-|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
-|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
 |Ogólnego przeznaczenia|2|0|0|16777216|
 |Ogólnego przeznaczenia|4|0|0|33554432|
 |Ogólnego przeznaczenia|8|0|0|67108864|
@@ -172,8 +175,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
-|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
 |Ogólnego przeznaczenia|2|524288|32768|4194304|
 |Ogólnego przeznaczenia|4|524288|32768|8388608|
 |Ogólnego przeznaczenia|8|524288|32768|16777216|
@@ -192,8 +195,8 @@ Zapoznaj się z [dokumentacją MariaDB](https://mariadb.com/kb/en/server-system-
 
 |**Warstwa cenowa**|**Rdzeń wirtualny**|**Wartość domyślna (w bajtach)**|**Wartość minimalna (w bajtach)**|**Maksymalna wartość (w bajtach)**|
 |---|---|---|---|---|
-|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
-|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|Brak|Brak|
+|Podstawowa|1|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
+|Podstawowa|2|Nie można skonfigurować w warstwie Podstawowa|Nie dotyczy|Nie dotyczy|
 |Ogólnego przeznaczenia|2|16777216|1024|67108864|
 |Ogólnego przeznaczenia|4|16777216|1024|134217728|
 |Ogólnego przeznaczenia|8|16777216|1024|268435456|

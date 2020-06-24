@@ -94,7 +94,7 @@ W przypadku korzystania z jednej z następujących usług platformy Azure jako �
 - Azure Media Services
 - Azure Virtual Machines
 - Virtual Network
-- Load Balancer
+- Moduł równoważenia obciążenia
 - Application Gateway
 - System DNS platformy Azure
 - ExpressRoute

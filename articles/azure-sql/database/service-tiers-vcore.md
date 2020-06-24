@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 1f7d0d411ffbff6aad7d134711a0190251f68aa8
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 3a359e4b3523615623c76d48c1aafd7aa95a5277
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324440"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255045"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Rdzeń wirtualny model — Omówienie — Azure SQL Database i wystąpienie zarządzane Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,7 +34,7 @@ Opcje warstwy usług w modelu rdzeń wirtualny obejmują Ogólnego przeznaczenia
 ||**Ogólnego przeznaczenia**|**Krytyczne dla działania firmy**|**Hiperskala**|
 |---|---|---|---|
 |Najlepsze dla|Większość obciążeń firmowych. Oferuje zorientowane na budżety, zrównoważone i skalowalne Opcje obliczeniowe i magazynowe. |Oferuje aplikacjom biznesowym największą odporność na błędy przy użyciu kilku izolowanych replik i zapewnia największą wydajność operacji we/wy na replikę bazy danych.|Większość obciążeń firmowych z wysoce skalowalnym magazynem i wymaganiami dotyczącymi skali odczytu.  Zapewnia wyższą odporność na błędy, umożliwiając konfigurację wielu izolowanych replik baz danych. |
-|Magazyn|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
+|Storage|Używa magazynu zdalnego.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Obliczenia bezserwerowe**:<br/>5 GB — 3 TB<br/>**Wystąpienie zarządzane SQL**: 32 GB – 8 TB |Używa lokalnego magazynu SSD.<br/>**SQL Database Obliczanie zainicjowane**:<br/>5 GB – 4 TB<br/>**Wystąpienie zarządzane SQL**:<br/>32 GB — 4 TB |Elastyczna automatyczne zwiększanie magazynu zgodnie z wymaganiami. Obsługuje do 100 TB pamięci masowej. Używa lokalnego magazynu SSD dla lokalnej pamięci podręcznej puli buforów i lokalnego magazynu danych. Używa magazynu zdalnego platformy Azure jako końcowego długoterminowego magazynu danych. |
 |Operacje we/wy i przepływność (przybliżona)|**SQL Database**: Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).<br/>**Wystąpienie zarządzane SQL**: zobacz [Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Zobacz limity zasobów dla [pojedynczych baz danych](resource-limits-vcore-single-databases.md) i [pul elastycznych](resource-limits-vcore-elastic-pools.md).|Skalowanie jest architekturą wielowarstwową z buforowaniem na wielu poziomach. Efektywne operacje we/wy i przepływność będą zależeć od obciążenia.|
 |Dostępność|1 replika, brak replik w skali odczytu|3 repliki, 1 [replika w skali odczytu](read-scale-out.md),<br/>Strefa — nadmiarowa wysoka dostępność (HA)|1 replika odczytu i zapisu oraz 0-4 [replik w skali odczytu](read-scale-out.md)|
 |Tworzenie kopii zapasowych|[Magazyn Geograficznie nadmiarowy do odczytu (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 dni (domyślnie 7 dni)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 dni (domyślnie 7 dni)|Tworzenie kopii zapasowych opartych na migawce w magazynie zdalnym platformy Azure. Przywraca używanie tych migawek do szybkiego odzyskiwania. Kopie zapasowe są natychmiast i nie wpływają na wydajność obliczeń we/wy. Przywracanie odbywa się szybko i nie jest operacją o rozmiarze danych (w minutach, a nie w godzinach lub dniach).|
@@ -91,10 +91,11 @@ Seria Fsv2 jest obsługiwana tylko w warstwie Ogólnego przeznaczenia.  W przypa
 - Seria M to zoptymalizowana pod kątem pamięci opcja sprzętowa dla obciążeń wymagających większej ilości pamięci i wyższych limitów obliczeń niż zapewniana przez 5 rdzeń.
 - Seria M zapewnia 29 GB na rdzeń wirtualny i 128 rdzeni wirtualnych, co zwiększa limit pamięci względem 5 rdzeń przez 8x do niemal 4 TB.
 
-Seria M jest obsługiwana tylko w warstwie Krytyczne dla działania firmy i nie obsługuje nadmiarowości strefy.
+Seria M jest obsługiwana tylko w warstwie Krytyczne dla działania firmy i nie obsługuje nadmiarowości strefy.  Subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA).  W przypadku regionów, w których jest dostępna Seria M, zobacz [dostępność serii m](#m-series).
 
-Aby włączyć sprzęt serii M dla subskrypcji i regionu, należy otworzyć żądanie obsługi. Subskrypcja musi być płatnym typem oferty, w tym płatności zgodnie z rzeczywistym użyciem lub Umowa Enterprise (EA).  Jeśli żądanie pomocy technicznej zostanie zatwierdzone, wybór i środowisko aprowizacji serii M są zgodne z tym samym wzorcem, co w przypadku innych generacji sprzętowych. W przypadku regionów, w których jest dostępna Seria M, zobacz [dostępność serii m](#m-series).
-
+<!--
+To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
+-->
 
 ### <a name="compute-and-memory-specifications"></a>Specyfikacje obliczeniowe i pamięci
 
@@ -112,7 +113,7 @@ Aby uzyskać więcej informacji na temat limitów zasobów, zobacz [limity zasob
 
 ### <a name="selecting-a-hardware-generation"></a>Wybieranie generowania sprzętu
 
-W Azure Portal można wybrać generowanie sprzętu dla bazy danych lub puli w SQL Database w momencie tworzenia lub można zmienić generowanie sprzętu istniejącej bazy danych lub puli SQL.
+W Azure Portal można wybrać generowanie sprzętu dla bazy danych lub puli w SQL Database w momencie tworzenia lub można zmienić generowanie sprzętu istniejącej bazy danych lub puli.
 
 **Aby wybrać generowanie sprzętu podczas tworzenia SQL Database lub puli**
 
@@ -155,7 +156,7 @@ Na stronie wystąpienie zarządzane SQL Wybierz pozycję **warstwa cenowa** link
 
 Na stronie **warstwa cenowa** będzie można zmienić generowanie sprzętu zgodnie z opisem w poprzednich krokach.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Użyj poniższego skryptu programu PowerShell:
 
@@ -193,32 +194,33 @@ Seria Fsv2 jest dostępna w następujących regionach: Australia Środkowa, Aust
 #### <a name="m-series"></a>Seria M
 
 Seria M jest dostępna w następujących regionach: Wschodnie stany USA, Europa Północna, Europa Zachodnia, zachodnie stany USA 2.
-Seria M może również mieć ograniczoną dostępność w dodatkowych regionach. Możesz zażądać innego regionu niż wymienione tutaj, ale realizacja w innym regionie może nie być możliwa.
+<!--
+M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
 
-Aby włączyć dostępność serii M w ramach subskrypcji, musisz uzyskać dostęp do żądania, podając [nowe żądanie pomocy technicznej](#create-a-support-request-to-enable-m-series).
+To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
 
 
-##### <a name="create-a-support-request-to-enable-m-series"></a>Utwórz żądanie obsługi, aby włączyć serię M: 
+##### Create a support request to enable M-series: 
 
-1. Wybierz pozycję **Pomoc i obsługa techniczna** w portalu.
-2. Wybierz pozycję **Nowe żądanie obsługi**.
+1. Select **Help + support** in the portal.
+2. Select **New support request**.
 
-Na stronie **podstawowe** podaj następujące informacje:
+On the **Basics** page, provide the following:
 
-1. W obszarze **typ problemu**wybierz pozycję **usługi i limity subskrypcji (przydziały)**.
-2. W przypadku **subskrypcji** = wybierz subskrypcję, aby włączyć serie M.
-3. W obszarze **Typ limitu przydziału**wybierz pozycję **baza danych SQL**.
-4. Wybierz pozycję **dalej** , aby przejść do strony **szczegółów** .
+1. For **Issue type**, select **Service and subscription limits (quotas)**.
+2. For **Subscription** = select the subscription to enable M-series.
+3. For **Quota type**, select **SQL database**.
+4. Select **Next** to go to the **Details** page.
 
-Na stronie **szczegóły** podaj następujące informacje:
+On the **Details** page, provide the following:
 
-1. W sekcji **Szczegóły problemu** wybierz łącze **Podaj szczegóły** . 
-2. W obszarze **typ przydziału SQL Database** wybierz pozycję **Seria M**.
-3. W polu **region**wybierz region, w którym ma zostać włączona Seria M.
-    W przypadku regionów, w których jest dostępna Seria M, zobacz [dostępność serii m](#m-series).
+1. In the **PROBLEM DETAILS** section select the **Provide details** link. 
+2. For **SQL Database quota type** select **M-series**.
+3. For **Region**, select the region to enable M-series.
+    For regions where M-series is available, see [M-series availability](#m-series).
 
-Zatwierdzone żądania pomocy technicznej są zwykle spełnione w ciągu 5 dni roboczych.
-
+Approved support requests are typically fulfilled within 5 business days.
+-->
 
 ## <a name="next-steps"></a>Następne kroki
 

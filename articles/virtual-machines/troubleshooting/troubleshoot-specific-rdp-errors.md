@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: 851c5eb4ebfee4e4a4836a07b51578dd2b0c68cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266873"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701885"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Rozwiązywanie problemów z określonymi komunikatami o błędach protokołu RDP dla maszyny wirtualnej z systemem Windows na platformie Azure
 W przypadku korzystania z Pulpit zdalny połączenia z maszyną wirtualną z systemem Windows na platformie Azure może zostać wyświetlony konkretny komunikat o błędzie. W tym artykule opisano niektóre typowe komunikaty o błędach, a także kroki rozwiązywania problemów. Jeśli masz problemy z nawiązywaniem połączenia z maszyną wirtualną przy użyciu protokołu RDP, ale nie napotkasz określonego komunikatu o błędzie, zobacz [Przewodnik rozwiązywania problemów dla Pulpit zdalny](troubleshoot-rdp-connection.md).
@@ -69,7 +69,7 @@ Część adresu tego pliku RDP ma:
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Wystąpił błąd uwierzytelniania. Nie można skontaktować się z urzędem zabezpieczeń lokalnych.
 Przyczyna: docelowa maszyna wirtualna nie może zlokalizować urzędu zabezpieczeń w części nazwy użytkownika poświadczeń.
 
-Jeśli nazwa użytkownika ma postać *SecurityAuthority*\\*username* (przykład: CORP\User1.), część *SecurityAuthority* to nazwa komputera maszyny wirtualnej (dla urzędu zabezpieczeń lokalnych) lub nazwa domeny Active Directory.
+Jeśli nazwa użytkownika ma postać *SecurityAuthority* \\ *username* (przykład: CORP\User1.), część *SecurityAuthority* to nazwa komputera maszyny wirtualnej (dla urzędu zabezpieczeń lokalnych) lub nazwa domeny Active Directory.
 
 Możliwe rozwiązania:
 
@@ -84,8 +84,8 @@ Przyczyna: docelowa maszyna wirtualna nie może zweryfikować nazwy konta i has�
 
 Komputer z systemem Windows może sprawdzać poprawność poświadczeń konta lokalnego lub konta domeny.
 
-* W przypadku kont lokalnych użyj składni *ComputerName*\\*nazwy użytkownika* ComputerName (przykład: SQL1\Admin4798).
-* W przypadku kont domeny użyj składni *nazwa_domeny*\\*nazwy użytkownika* (przykład: CONTOSO\peterodman).
+* W przypadku kont lokalnych użyj składni *ComputerName* \\ *nazwy użytkownika* ComputerName (przykład: SQL1\Admin4798).
+* W przypadku kont domeny użyj składni *nazwa_domeny* \\ *nazwy użytkownika* (przykład: CONTOSO\peterodman).
 
 Jeśli Twoja maszyna wirtualna została podwyższona do kontrolera domeny w nowym lesie Active Directory, konto administratora lokalnego, które zostało zalogowane, jest konwertowane na równoważne konto z tym samym hasłem w nowym lesie i domenie. Konto lokalne jest następnie usuwane.
 

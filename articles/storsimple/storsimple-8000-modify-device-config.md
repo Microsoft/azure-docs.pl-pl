@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267692"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84702230"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Modyfikowanie konfiguracji urządzenia StorSimple przy użyciu usługi StorSimple Menedżer urządzeń
 
@@ -65,7 +65,7 @@ Urządzenie musi zsynchronizować czas, aby można było uwierzytelnić się u d
 
  Z listy rozwijanej wybierz swoją strefę czasową. Można określić maksymalnie dwa serwery protokołu NTP (Network Time Protocol):
 
- - **Podstawowy serwer NTP** — konfiguracja jest wymagana i jest określana podczas konfigurowania urządzenia za pomocą program Windows PowerShell dla usługi StorSimple. Jako serwer NTP można określić domyślny serwer **Time.Windows.com** systemu Windows Server. Konfigurację podstawowego serwera NTP można wyświetlić za pomocą Azure Portal, ale w celu jego zmiany należy użyć interfejsu programu Windows PowerShell. Użyj polecenia `Set-HcsNTPClientServerAddress` cmdlet, aby zmodyfikować podstawowy serwer NTP na urządzeniu. Aby uzyskać więcej informacji, przejdź do składni polecenia cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) .
+ - **Podstawowy serwer NTP** — konfiguracja jest wymagana i jest określana podczas konfigurowania urządzenia za pomocą program Windows PowerShell dla usługi StorSimple. Jako serwer NTP można określić domyślny serwer **Time.Windows.com** systemu Windows Server. Konfigurację podstawowego serwera NTP można wyświetlić za pomocą Azure Portal, ale w celu jego zmiany należy użyć interfejsu programu Windows PowerShell. Użyj `Set-HcsNTPClientServerAddress` polecenia cmdlet, aby zmodyfikować podstawowy serwer NTP na urządzeniu. Aby uzyskać więcej informacji, przejdź do składni polecenia cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) .
 
 - **Pomocniczy serwer NTP** — konfiguracja jest opcjonalna. Za pomocą portalu można skonfigurować pomocniczy serwer NTP.
 
@@ -85,9 +85,9 @@ Serwer DNS jest używany, gdy urządzenie próbuje skomunikować się z dostawc�
 
 Aby zapewnić wysoką dostępność, należy skonfigurować zarówno podstawowy, jak i pomocniczy serwer DNS podczas początkowego wdrażania urządzenia.
 
-**Podstawowy serwer DNS** — Użyj program Windows PowerShell dla usługi StorSimple, aby najpierw określić podstawowy serwer DNS podczas początkowej konfiguracji. Podstawowy serwer DNS można skonfigurować ponownie tylko za pomocą interfejsu programu Windows PowerShell. Użyj polecenia `Set-HcsDNSClientServerAddress` cmdlet, aby zmodyfikować podstawowy serwer DNS urządzenia. Aby uzyskać więcej informacji, przejdź do składni polecenia cmdlet [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) .
+**Podstawowy serwer DNS** — Użyj program Windows PowerShell dla usługi StorSimple, aby najpierw określić podstawowy serwer DNS podczas początkowej konfiguracji. Podstawowy serwer DNS można skonfigurować ponownie tylko za pomocą interfejsu programu Windows PowerShell. Użyj `Set-HcsDNSClientServerAddress` polecenia cmdlet, aby zmodyfikować podstawowy serwer DNS urządzenia. Aby uzyskać więcej informacji, przejdź do składni polecenia cmdlet [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) .
 
-**Pomocniczy serwer DNS** — aby zmodyfikować pomocniczy serwer DNS, należy `Set-HcsDNSClientServerAddress` użyć polecenia cmdlet w interfejsie programu Windows PowerShell w bloku ustawienia urządzenia lub **sieci** urządzenia StorSimple w Azure Portal.
+**Pomocniczy serwer DNS** — aby zmodyfikować pomocniczy serwer DNS, należy użyć `Set-HcsDNSClientServerAddress` polecenia cmdlet w interfejsie programu Windows PowerShell w bloku ustawienia urządzenia lub **sieci** urządzenia StorSimple w Azure Portal.
 
 Aby zmodyfikować pomocniczy serwer DNS w Azure Portal, wykonaj następujące czynności.
 

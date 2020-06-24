@@ -6,14 +6,15 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: f515d3ad832db7f78f98111ab67628a2874033ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: shvija
+ms.openlocfilehash: 055422f4067b7f27ee046a3a00b168db14d13046
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459138"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297413"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Skonfiguruj klucze zarządzane przez klienta do szyfrowania danych Event Hubs platformy Azure przechowywanych przy użyciu Azure Portal
 Usługa Azure Event Hubs zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Event Hubs opiera się na usłudze Azure Storage do przechowywania danych i domyślnie wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
@@ -41,7 +42,7 @@ Aby włączyć klucze zarządzane przez klienta w Azure Portal, wykonaj następu
 1. Na stronie **Ustawienia** obszaru nazw Event Hubs wybierz pozycję **szyfrowanie**. 
 1. Wybierz **szyfrowanie klucza zarządzanego przez klienta** , jak pokazano na poniższej ilustracji. 
 
-    ![Włącz klucz zarządzany przez klienta](./media/configure-customer-managed-key/enable-customer-managed-key.png)
+    ![Włączanie klucza zarządzanego przez klienta](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 ## <a name="set-up-a-key-vault-with-keys"></a>Konfigurowanie magazynu kluczy z kluczami
 Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarządzany przez klienta z przestrzenią nazw platformy Azure Event Hubs. Event Hubs obsługuje tylko Azure Key Vault. Po włączeniu opcji **szyfrowania z kluczem zarządzanym przez klienta** w poprzedniej sekcji należy zaimportować klucz do Azure Key Vault. Ponadto klucze muszą mieć **nietrwałe usuwanie** i nie można ich **czyścić** skonfigurować dla klucza. Te ustawienia można skonfigurować przy użyciu [programu PowerShell](../key-vault/general/soft-delete-powershell.md) lub [interfejsu wiersza polecenia](../key-vault/general/soft-delete-cli.md#enabling-purge-protection).
@@ -107,7 +108,7 @@ Wszystkie dzienniki są przechowywane w formacie JavaScript Object Notation (JSO
 | resourceId | Identyfikator zasobu Azure Resource Manager |
 | keyVault | Pełna nazwa magazynu kluczy. |
 | key | Nazwa klucza służąca do szyfrowania przestrzeni nazw Event Hubs. |
-| Wersja | Używana wersja klucza. |
+| version | Używana wersja klucza. |
 | operacje | Operacja wykonywana na kluczu w magazynie kluczy. Na przykład Wyłącz/Włącz klucz, Zawijaj lub Odpakuj |
 | kod | Kod, który jest skojarzony z operacją. Przykład: kod błędu, 404 oznacza, że nie znaleziono klucza. |
 | message | Dowolny komunikat o błędzie skojarzony z operacją |
@@ -155,7 +156,7 @@ W tej sekcji przedstawiono sposób wykonywania następujących zadań przy użyc
 ### <a name="create-an-event-hubs-cluster-and-namespace-with-managed-service-identity"></a>Tworzenie klastra Event Hubs i przestrzeni nazw z tożsamością usługi zarządzanej
 W tej sekcji przedstawiono sposób tworzenia przestrzeni nazw platformy Azure Event Hubs z tożsamością usługi zarządzanej przy użyciu szablonu Azure Resource Manager i programu PowerShell. 
 
-1. Utwórz szablon Azure Resource Manager, aby utworzyć przestrzeń nazw Event Hubs z tożsamością usługi zarządzanej. Nazwij plik: **CreateEventHubClusterAndNamespace. JSON**: 
+1. Utwórz szablon Azure Resource Manager, aby utworzyć przestrzeń nazw Event Hubs z tożsamością usługi zarządzanej. Nazwij plik: **CreateEventHubClusterAndNamespace.jsna**: 
 
     ```json
     {
@@ -224,7 +225,7 @@ W tej sekcji przedstawiono sposób tworzenia przestrzeni nazw platformy Azure Ev
        }
     }
     ```
-2. Utwórz plik parametrów szablonu o nazwie: **CreateEventHubClusterAndNamespaceParams. JSON**. 
+2. Utwórz plik parametrów szablonu o nazwie: **CreateEventHubClusterAndNamespaceParams.jsna**. 
 
     > [!NOTE]
     > Zastąp następujące wartości: 
@@ -289,7 +290,7 @@ Wykonano następujące kroki:
 
 W tym kroku zostanie zaktualizowana przestrzeń nazw Event Hubs przy użyciu informacji o magazynie kluczy. 
 
-1. Utwórz plik JSON o nazwie **CreateEventHubClusterAndNamespace. JSON** z następującą zawartością: 
+1. Utwórz plik JSON o nazwie **CreateEventHubClusterAndNamespace.js** przy użyciu następującej zawartości: 
 
     ```json
     {
@@ -361,7 +362,7 @@ W tym kroku zostanie zaktualizowana przestrzeń nazw Event Hubs przy użyciu inf
     }
     ``` 
 
-2. Utwórz plik parametrów szablonu: **UpdateEventHubClusterAndNamespaceParams. JSON**. 
+2. Utwórz plik parametrów szablonu: **UpdateEventHubClusterAndNamespaceParams.json**. 
 
     > [!NOTE]
     > Zastąp następujące wartości: 
@@ -423,7 +424,7 @@ Poniżej przedstawiono kody typowych błędów, które należy wyszukać, gdy w�
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
 - [Przegląd usługi Event Hubs](event-hubs-about.md)
-- [Omówienie usługi Key Vault](../key-vault/general/overview.md)
+- [Przegląd Key Vault](../key-vault/general/overview.md)
 
 
 

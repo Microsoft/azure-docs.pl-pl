@@ -157,8 +157,16 @@
       href: ../policy-samples.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
 - name: Pojęcia
   items:
-    - name: Obrazy
-      href: shared-image-galleries.md
+    - name: Obrazowanie
+      items:
+        - name: Omówienie
+          href: imaging.md
+        - name: Inicjowanie obsługi
+          href: provisioning.md
+        - name: Udostępnione galerie obrazów
+          href: shared-image-galleries.md
+        - name: Kreator obrazów
+          href: image-builder-overview.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regiony
@@ -415,6 +423,50 @@
     - name: Korzystanie z obrazów
       displayName: 'SIG, AMI, image'
       items:
+        - name: Wymagania specyficzne dla dystrybucji
+          items:
+            - name: Ogólne kroki
+              href: create-upload-generic.md
+            - name: Ubuntu
+              href: create-upload-ubuntu.md
+            - name: CentOS
+              href: create-upload-centos.md
+            - name: Red Hat
+              href: redhat-create-upload-vhd.md
+            - name: Debian
+              href: debian-create-upload-vhd.md
+            - name: SUSE
+              href: suse-create-upload-vhd.md
+            - name: Oracle Linux
+              href: oracle-create-upload-vhd.md
+            - name: OpenBSD
+              href: create-upload-openbsd.md
+            - name: FreeBSD
+              href: freebsd-intro-on-azure.md
+        - name: Używanie pakietu cloud-init
+          items:
+            - name: Omówienie pakietu cloud-init
+              href: using-cloud-init.md
+            - name: Szczegółowe omówienie
+              href: cloud-init-deep-dive.md
+            - name: Rozwiązywanie problemów
+              href: cloud-init-troubleshooting.md
+            - name: Konfigurowanie nazwy hosta maszyny wirtualnej
+              href: cloudinit-update-vm-hostname.md
+            - name: Aktualizowanie pakietów na maszynie wirtualnej
+              href: cloudinit-update-vm.md
+            - name: Dodawanie użytkownika do maszyny wirtualnej
+              href: cloudinit-add-user.md
+            - name: Konfigurowanie pliku wymiany
+              href: cloudinit-configure-swapfile.md
+            - name: Uruchamianie istniejącego skryptu powłoki systemowej
+              href: cloudinit-bash-script.md
+            - name: Przygotowywanie istniejącej maszyny wirtualnej do korzystania z pakietu cloud-init
+              href: cloudinit-prepare-custom-image.md
+        - name: Tworzenie obrazów bez
+          href: no-agent.md
+        - name: Wyłączanie aprowizacji agenta systemu Linux
+          href: disable-provisioning.md
         - name: Galerie obrazów udostępnionych
           items:
             - name: Interfejs wiersza polecenia
@@ -480,8 +532,6 @@
               href: ../image-version-encryption.md
         - name: Konstruktor obrazów (wersja zapoznawcza)
           items:
-            - name: Omówienie
-              href: image-builder-overview.md
             - name: Interfejs wiersza polecenia platformy Azure
               href: image-builder.md
             - name: Dokumentacja szablonu usługi Resource Manager
@@ -495,27 +545,7 @@
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Znajdowanie obrazów i korzystanie z nich
           href: cli-ps-findimage.md
-        - name: Tworzenie obrazu niestandardowego
-          items:
-            - name: Ogólne kroki
-              href: create-upload-generic.md
-            - name: Ubuntu
-              href: create-upload-ubuntu.md
-            - name: CentOS
-              href: create-upload-centos.md
-            - name: Red Hat
-              href: redhat-create-upload-vhd.md
-            - name: Debian
-              href: debian-create-upload-vhd.md
-            - name: SUSE
-              href: suse-create-upload-vhd.md
-            - name: Oracle Linux
-              href: oracle-create-upload-vhd.md
-            - name: OpenBSD
-              href: create-upload-openbsd.md
-            - name: FreeBSD
-              href: freebsd-intro-on-azure.md
-        - name: Przechwytywanie maszyny wirtualnej do obrazu
+        - name: Przechwytywanie maszyny wirtualnej do obrazu zarządzanego
           href: capture-image.md
         - name: Tworzenie obrazu za pomocą usługi Packer
           href: build-image-with-packer.md
@@ -813,22 +843,6 @@
               href: /azure/developer/terraform/install-configure
             - name: Tworzenie pełnej maszyny wirtualnej
               href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
-        - name: Cloud-init
-          items:
-            - name: Omówienie pakietu cloud-init
-              href: using-cloud-init.md
-            - name: Konfigurowanie nazwy hosta maszyny wirtualnej
-              href: cloudinit-update-vm-hostname.md
-            - name: Aktualizowanie pakietów na maszynie wirtualnej
-              href: cloudinit-update-vm.md
-            - name: Dodawanie użytkownika do maszyny wirtualnej
-              href: cloudinit-add-user.md
-            - name: Konfigurowanie pliku wymiany
-              href: cloudinit-configure-swapfile.md
-            - name: Uruchamianie istniejącego skryptu powłoki systemowej
-              href: cloudinit-bash-script.md
-            - name: Przygotowywanie istniejącej maszyny wirtualnej do korzystania z pakietu cloud-init
-              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: /azure/developer/jenkins/overview
           items:

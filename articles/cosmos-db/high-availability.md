@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ae20a0372c5808cc2265a4fae63b79ef2bb71605
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c3f3eddf57b559d9e8f4837db453232308869767
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125506"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118053"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Wysoka dostępność w usłudze Azure Cosmos DB
 
 Azure Cosmos DB w sposób przezroczysty replikuje dane do wszystkich regionów świadczenia usługi Azure skojarzonych z Twoim kontem Cosmos. Cosmos DB wykorzystuje wiele warstw nadmiarowości danych, jak pokazano na poniższej ilustracji:
 
-![Partycjonowanie fizyczne](./media/high-availability/cosmosdb-data-redundancy.png)
+:::image type="content" source="./media/high-availability/cosmosdb-data-redundancy.png" alt-text="Partycjonowanie fizyczne" border="false":::
 
 - Dane w kontenerach Cosmos są [podzielone na partycje w poziomie](partitioning-overview.md).
 
@@ -89,7 +89,7 @@ Ta funkcja jest dostępna w: *Południowe Zjednoczone Królestwo, Azja Południo
 
 Poniższa tabela zawiera podsumowanie możliwości wysokiej dostępności różnych konfiguracji konta:
 
-|Wskaźnik KPI  |Pojedynczy region bez Strefy dostępności (nie AZ)  |Pojedynczy region z Strefy dostępności (AZ)  |Zapisy w wielu regionach z Strefy dostępności (AZ, 2 regiony) — najbardziej zalecanym ustawieniem |
+|KPI  |Pojedynczy region bez Strefy dostępności (nie AZ)  |Pojedynczy region z Strefy dostępności (AZ)  |Zapisy w wielu regionach z Strefy dostępności (AZ, 2 regiony) — najbardziej zalecanym ustawieniem |
 |---------|---------|---------|---------|
 |Umowa SLA dotycząca dostępności zapisu | 99,99% | 99,99% | 99.999% |
 |Umowa SLA dotycząca dostępności odczytu  | 99,99% | 99,99% | 99.999% |
@@ -128,7 +128,7 @@ az cosmosdb create \
 
 Strefy dostępności można włączyć przy użyciu Azure Portal podczas tworzenia konta usługi Azure Cosmos. Podczas tworzenia konta, upewnij się, że włączono **geograficzną**i **Wieloregionową zapis**, i wybierz region, w którym strefy dostępności są obsługiwane:
 
-![Włącz Strefy dostępności przy użyciu Azure Portal](./media/high-availability/enable-availability-zones-using-portal.png) 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Włącz Strefy dostępności przy użyciu Azure Portal"::: 
 
 ## <a name="building-highly-available-applications"></a>Tworzenie aplikacji o wysokiej dostępności
 

@@ -4,15 +4,15 @@ description: W tym artykule przedstawiono procedurę przenoszenia publicznej kom
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: fc5740fef87497d881f689f888e446dbf4d100e1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2f6b3ec93498ab58ba67a2ca08199feaa2da73ef
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019455"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738366"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Move a public peering to Microsoft peering (Przechodzenie z publicznej komunikacji równorzędnej do komunikacji równorzędnej firmy Microsoft)
 

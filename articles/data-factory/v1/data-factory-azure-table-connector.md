@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 462d54a9d89d6f03aed5e221fa02609da786c8c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260451"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84702315"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Przenoszenie danych do i z tabeli platformy Azure przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -60,7 +60,7 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania ze
 
 Sekcja typeProperties jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja **typeProperties** zestawu danych typu **Azure** ma następujące właściwości.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | tableName |Nazwa tabeli w wystąpieniu bazy danych tabel platformy Azure, do której odwołuje się połączona usługa. |Tak. Gdy tabelaname jest określona bez azureTableSourceQuery, wszystkie rekordy z tabeli są kopiowane do lokalizacji docelowej. Jeśli określono również azureTableSourceQuery, rekordy z tabeli, która spełnia zapytanie, są kopiowane do miejsca docelowego. |
 
@@ -79,10 +79,10 @@ Właściwości dostępne w sekcji typeProperties działania z drugiej strony ró
 
 **AzureTableSource** obsługuje następujące właściwości w sekcji typeProperties:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | azureTableSourceQuery |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania w tabeli platformy Azure. Zobacz przykłady w następnej sekcji. |Nie. Gdy tabelaname jest określona bez azureTableSourceQuery, wszystkie rekordy z tabeli są kopiowane do lokalizacji docelowej. Jeśli określono również azureTableSourceQuery, rekordy z tabeli, która spełnia zapytanie, są kopiowane do miejsca docelowego. |
-| azureTableSourceIgnoreTableNotFound |Wskazuje, czy w trakcie połknięcia wyjątek tabeli nie istnieje. |Prawda<br/>FAŁSZ |Nie |
+| azureTableSourceIgnoreTableNotFound |Wskazuje, czy w trakcie połknięcia wyjątek tabeli nie istnieje. |Prawda<br/>Fałsz |Nie |
 
 ### <a name="azuretablesourcequery-examples"></a>Przykłady azureTableSourceQuery
 Jeśli kolumna tabeli platformy Azure jest typu String:
@@ -99,7 +99,7 @@ Jeśli kolumna tabeli platformy Azure jest typu DateTime:
 
 **AzureTableSink** obsługuje następujące właściwości w sekcji typeProperties:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | azureTableDefaultPartitionKeyValue |Domyślna wartość klucza partycji, która może być używana przez ujścia. |Wartość ciągu. |Nie |
 | azureTablePartitionKeyName |Określ nazwę kolumny, której wartości są używane jako klucze partycji. Jeśli nie zostanie określony, AzureTableDefaultPartitionKeyValue jest używany jako klucz partycji. |Nazwa kolumny. |Nie |
@@ -483,7 +483,7 @@ Podczas przeniesienia danych do & z tabeli platformy Azure następujące [mapowa
 | EDM. GUID |Guid (identyfikator GUID) |128-bitowy unikatowy identyfikator globalny. |
 | Edm.Int32 |Int32 |32-bitowa liczba całkowita. |
 | Edm.Int64 |Int64 |64-bitowa liczba całkowita. |
-| Edm.String |String |Wartość zakodowana w formacie UTF-16. Wartości ciągu mogą należeć do 64 KB. |
+| Edm.String |Ciąg |Wartość zakodowana w formacie UTF-16. Wartości ciągu mogą należeć do 64 KB. |
 
 ### <a name="type-conversion-sample"></a>Przykład konwersji typu
 Poniższy przykład służy do kopiowania danych z obiektu blob platformy Azure do tabeli platformy Azure z konwersjemi typów.

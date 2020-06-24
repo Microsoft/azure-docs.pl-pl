@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: 198cbb9f66ec5c6b84ed3cc4f20898495d8c126f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1d3441847fc47146418265804457c37c693bd60b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560827"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297022"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus powiązanie danych wyjściowych dla Azure Functions
 
@@ -38,9 +38,9 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Poniższy przykład przedstawia Service Bus powiązanie danych wyjściowych w pliku *Function. JSON* oraz [funkcję skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja używa wyzwalacza czasomierza do wysyłania komunikatu kolejki co 15 sekund.
+Poniższy przykład przedstawia Service Bus powiązanie danych wyjściowych w *function.js* pliku i [funkcji skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja używa wyzwalacza czasomierza do wysyłania komunikatu kolejki co 15 sekund.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -89,9 +89,9 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Poniższy przykład przedstawia Service Bus powiązanie danych wyjściowych w pliku *Function. JSON* i [funkcję języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja używa wyzwalacza czasomierza do wysyłania komunikatu kolejki co 15 sekund.
+Poniższy przykład przedstawia Service Bus powiązanie danych wyjściowych w *function.js* pliku i [funkcji języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja używa wyzwalacza czasomierza do wysyłania komunikatu kolejki co 15 sekund.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -143,7 +143,7 @@ module.exports = function (context, myTimer) {
 
 Poniższy przykład ilustruje sposób zapisywania do kolejki Service Bus w języku Python.
 
-Definicja powiązania Service Bus jest zdefiniowana w *funkcji Function. JSON* , w której *Typ* jest ustawiony na `serviceBus` .
+Definicja powiązania Service Bus jest definiowana w *function.jsw* przypadku, gdy *Typ* jest ustawiony na `serviceBus` .
 
 ```json
 {
@@ -276,11 +276,11 @@ Atrybuty nie są obsługiwane przez język Python.
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `ServiceBus` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `ServiceBus` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź** | nie dotyczy | Musi być ustawiona na wartość "serviceBus". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal.|
 |**wskazywa** | nie dotyczy | Musi być ustawiona na wartość "out". Ta właściwość jest ustawiana automatycznie podczas tworzenia wyzwalacza w Azure Portal. |
@@ -305,7 +305,7 @@ Użyj następujących typów parametrów dla powiązania danych wyjściowych:
 * `out byte[]`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu.
 * `out BrokeredMessage`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu (dla funkcji 1. x)
 * `out Message`-Jeśli wartość parametru ma wartość null, gdy funkcja zostanie zakończona, funkcja nie tworzy komunikatu (dla funkcji 2. x i wyższych)
-* `ICollector<T>`lub `IAsyncCollector<T>` — w celu utworzenia wielu komunikatów. Tworzony jest komunikat podczas wywoływania `Add` metody.
+* `ICollector<T>`lub `IAsyncCollector<T>` (dla metod asynchronicznych) — do tworzenia wielu komunikatów. Tworzony jest komunikat podczas wywoływania `Add` metody.
 
 Podczas pracy z funkcjami języka C#:
 
@@ -353,12 +353,12 @@ Użyj [zestawu SDK Azure Service Bus](https://docs.microsoft.com/azure/service-b
 
 <a name="host-json"></a>  
 
-## <a name="hostjson-settings"></a>Ustawienia pliku host. JSON
+## <a name="hostjson-settings"></a>host.jsustawień
 
-W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiązania w wersji 2. x i nowszych. Poniższy przykładowy plik host. JSON zawiera tylko ustawienia dla tego powiązania. Aby uzyskać więcej informacji na temat ustawień konfiguracji globalnej, zobacz [Dokumentacja pliku host. JSON dla wersji Azure Functions](functions-host-json.md).
+W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiązania w wersji 2. x i nowszych. Przykład host.jsw pliku poniżej zawiera tylko ustawienia dla tego powiązania. Aby uzyskać więcej informacji na temat ustawień konfiguracji globalnej, zobacz [host.json Reference for Azure Functions Version](functions-host-json.md).
 
 > [!NOTE]
-> Aby uzyskać odwołanie do pliku host. JSON w funkcjach 1. x, zobacz informacje dotyczące pliku [host. JSON dla Azure Functions 1. x](functions-host-json-v1.md).
+> Aby uzyskać informacje na temat host.jsw funkcjach 1. x, zobacz [host.json Reference for Azure Functions 1. x](functions-host-json-v1.md).
 
 ```json
 {

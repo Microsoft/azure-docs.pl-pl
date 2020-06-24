@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 05/25/2020
+ms.date: 06/16/2020
 ms.author: jlian
-ms.openlocfilehash: 7d7e04c526f7327a000ac26e255d2c8363c01f5c
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: bf193859c140001def83a18ca7965d9cbd312b02
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871231"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907537"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub obsługa sieci wirtualnych z linkiem prywatnym i tożsamością zarządzaną
 
@@ -91,6 +91,76 @@ Aby zezwolić innym usługom na znalezienie Centrum IoT jako zaufanej usługi fi
 1. W obszarze **stan**wybierz pozycję **włączone**, a następnie kliknij pozycję **Zapisz**.
 
     :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Zrzut ekranu przedstawiający sposób włączania tożsamości zarządzanej dla IoT Hub":::
+
+### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Przypisywanie tożsamości zarządzanej do IoT Hub podczas tworzenia przy użyciu szablonu ARM
+
+Aby przypisać tożsamość zarządzaną do centrum IoT w czasie aprowizacji zasobów, użyj szablonu ARM poniżej:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Devices/IotHubs",
+      "apiVersion": "2020-03-01",
+      "name": "<provide-a-valid-resource-name>",
+      "location": "<any-of-supported-regions>",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "sku": {
+        "name": "<your-hubs-SKU-name>",
+        "tier": "<your-hubs-SKU-tier>",
+        "capacity": 1
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-02-01",
+      "name": "updateIotHubWithKeyEncryptionKey",
+      "dependsOn": [
+        "<provide-a-valid-resource-name>"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "0.9.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Devices/IotHubs",
+              "apiVersion": "2020-03-01",
+              "name": "<provide-a-valid-resource-name>",
+              "location": "<any-of-supported-regions>",
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "sku": {
+                "name": "<your-hubs-SKU-name>",
+                "tier": "<your-hubs-SKU-tier>",
+                "capacity": 1
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+Po podstawianiu wartości dla zasobu, `name` `location` `SKU.name` i `SKU.tier` można użyć interfejsu wiersza polecenia platformy Azure do wdrożenia zasobu w istniejącej grupie zasobów przy użyciu:
+
+```azurecli-interactive
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+```
+
+Po utworzeniu zasobu można pobrać tożsamość usługi zarządzanej przypisanej do centrum przy użyciu interfejsu wiersza polecenia platformy Azure:
+
+```azurecli-interactive
+az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
+```
 
 ### <a name="pricing-for-managed-identity"></a>Cennik dla tożsamości zarządzanej
 
@@ -196,11 +266,11 @@ await registryManager.ExportDevicesAsync(
     cancellationToken);
 ```
 
-Aby użyć tej wersji zestawów SDK usługi Azure IoT z obsługą sieci wirtualnej dla języków C#, Java i Node. js:
+Aby użyć tej wersji zestawów SDK usługi Azure IoT z obsługą sieci wirtualnej dla języków C#, Java i Node.js:
 
 1. Utwórz zmienną środowiskową o nazwie `EnableStorageIdentity` i ustaw jej wartość na `1` .
 
-2. Pobierz zestaw SDK: [Java](https://aka.ms/vnetjavasdk)  |  [C#](https://aka.ms/vnetcsharpsdk)  |  [Node. js](https://aka.ms/vnetnodesdk)
+2. Pobierz zestaw SDK: [Java](https://aka.ms/vnetjavasdk)  |  [C#](https://aka.ms/vnetcsharpsdk)  |  [Node.js](https://aka.ms/vnetnodesdk)
  
 W przypadku języka Python Pobierz naszą ograniczoną wersję z usługi GitHub.
 

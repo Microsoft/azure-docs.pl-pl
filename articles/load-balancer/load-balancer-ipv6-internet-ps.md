@@ -9,22 +9,22 @@ keywords: IPv6, moduł równoważenia obciążenia platformy Azure, podwójny st
 ms.service: load-balancer
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 79fc74cc946578ffe91629065ddd03e43aa76957
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 8553c54b60d1d4e60e28bcb3006bcc804dbc39ad
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629477"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803705"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Wprowadzenie do tworzenia modułu równoważenia obciążenia połączonego z Internetem przy użyciu protokołu IPv6 dla Menedżer zasobów
 
 > [!div class="op_single_selector"]
-> * [PowerShell](load-balancer-ipv6-internet-ps.md)
+> * [Program PowerShell](load-balancer-ipv6-internet-ps.md)
 > * [Interfejs wiersza polecenia platformy Azure](load-balancer-ipv6-internet-cli.md)
 > * [Szablon](load-balancer-ipv6-internet-template.md)
 
@@ -102,7 +102,7 @@ Upewnij się, że masz najnowszą wersję produkcyjną modułu Azure Resource Ma
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Tworzenie zasobów publicznego adresu IP (PIP) platformy Azure dla puli adresów IP frontonu. Przed uruchomieniem poniższych poleceń należy zmienić `-DomainNameLabel` wartość parametru. Wartość musi być unikatowa w regionie świadczenia usługi Azure.
+2. Tworzenie zasobów publicznego adresu IP (PIP) platformy Azure dla puli adresów IP frontonu. `-DomainNameLabel`Przed uruchomieniem poniższych poleceń należy zmienić wartość parametru. Wartość musi być unikatowa w regionie świadczenia usługi Azure.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4

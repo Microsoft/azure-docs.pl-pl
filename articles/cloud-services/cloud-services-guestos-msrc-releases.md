@@ -10,39 +10,75 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/2/2020
+ms.date: 6/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: 89344c38c719a06d8241ec34136a75c96de9f901
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 6cde6470a8e533879de72307b8f00c70f9f165a1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84322876"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737465"
 ---
 # <a name="azure-guest-os"></a>System operacyjny gościa platformy Azure
 W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Response Center (MSRC) zastosowane do systemu operacyjnego gościa platformy Azure. Przeszukaj ten artykuł, aby ustalić, czy dana aktualizacja dotyczy systemu operacyjnego gościa, którego używasz. Aktualizacje są zawsze przenoszone dla określonej [rodziny][family-explain] , w której zostały wprowadzone.
+
+## <a name="june-2020-guest-os"></a>OS systemu operacyjnego gościa 2020
+">[!NOTE]
+>System operacyjny gościa w czerwcu jest obecnie wdrażany na maszynach wirtualnych usługi w chmurze skonfigurowanych do aktualizacji automatycznych. Po zakończeniu wprowadzania ta wersja zostanie udostępniona do ręcznego aktualizowania za pomocą plików Azure Portal i konfiguracji. W systemie operacyjnym gościa w kwietniu uwzględniono następujące poprawki. Ta lista może ulec zmianie ".
+
+
+| Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
+| --- | --- | --- | --- | --- |
+|  Rel 20-06  |  [4561603]  |  Internet Explorer  |  2,99, 3,86, 4,79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561616]  |  Najnowsza aktualizacja zbiorcza (LCU)  |  5,44  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561608]  |  Najnowsza aktualizacja zbiorcza (LCU)  |  6,20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562030]  |  Obsługa aktualizacji stosu  |  2,99  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561643]  |  Zestawienie miesięczne  |  2,99  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562252]  |  Obsługa aktualizacji stosu  |  3,86  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561612]  |  Zestawienie miesięczne  |  3,86  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561600]  |  Flash  |  3,86, 4,79, 5,44, 6,20  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562253]  |  Obsługa aktualizacji stosu  |  4,79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4561666]  |  Zestawienie miesięczne  |  4,79  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562561]  |  Obsługa aktualizacji stosu  |  5,44  |  Jun 9, 2020  |
+|  Rel 20-06  |  [4562562]  |  Obsługa aktualizacji stosu  |  6,20  |  Jun 9, 2020  |
+
+
+
+[4561603]: https://support.microsoft.com/kb/4561603
+[4561616]: https://support.microsoft.com/kb/4561616
+[4561608]: https://support.microsoft.com/kb/4561608
+[4562030]: https://support.microsoft.com/kb/4562030
+[4561643]: https://support.microsoft.com/kb/4561643
+[4562252]: https://support.microsoft.com/kb/4562252
+[4561612]: https://support.microsoft.com/kb/4561612
+[4561600]: https://support.microsoft.com/kb/4561600
+[4562253]: https://support.microsoft.com/kb/4562253
+[4561666]: https://support.microsoft.com/kb/4561666
+[4562561]: https://support.microsoft.com/kb/4562561
+[4562562]: https://support.microsoft.com/kb/4562562
+
 
 ## <a name="may-2020-guest-os"></a>System operacyjny gościa 2020
 
 
 | Kategoria produktu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-|  Rel 20-05   |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 maja 2020  |
-|  Rel 20-05   |  [4556813]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  [5,43]  |  12 maja 2020  |
-|  Rel 20-05   |  [4551853]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  [6,19]  |  12 maja 2020  |
-|  Rel 20-05   |  [4552940]  |  Zestawienie miesięczne   |  [2,98]  |  12 maja 2020  |
-|  Rel 20-05   |  [4556836]  |  Zestawienie miesięczne   |  [2,98]  |  12 maja 2020  |
-|  Rel 20-05   |  [4555449]  |  Obsługa aktualizacji stosu   |  [2,98]  |  12 maja 2020  |
-|  Rel 20-05   |  [4552920]  |  Zestawienie miesięczne   |  [2,98]  |  12 maja 2020  |
-|  Rel 20-05   |  [4552979]  |  Zestawienie miesięczne   |  [3,85]  |  12 maja 2020  |
-|  Rel 20-05   |  [4556840]  |  Zestawienie miesięczne   |  [3,85]  |  12 maja 2020  |
-|  Rel 20-05   |  [4552947]  |  Zestawienie miesięczne   |  [3,85]  |  12 maja 2020  |
-|  Rel 20-05   |  [4552982]  |  Zestawienie miesięczne   |  [3,85]  |  12 maja 2020  |
-|  Rel 20-05   |  [4552946]  |  Zestawienie miesięczne   |  [4,78]  |  12 maja 2020  |
-|  Rel 20-05   |  [4556846]  |  Zestawienie miesięczne   |  [4,78]  |  12 maja 2020  |
-|  Rel 20-05   |  [4550994]  |  Obsługa aktualizacji stosu   |  [5,43]  |  14 kwietnia 2020  |
-|  Rel 20-05   |  [4552924]  |  Zestawienie miesięczne   |  [6,19]  |  12 maja 2020  |
-|  Rel 20-05   |  [4549947]  |  Obsługa aktualizacji stosu   |  [6,19]  |  14 kwietnia 2020  |
+|  Rel 20-05  |  [4556798]  |  Internet Explorer   |  [2,98], [3,85], [4,78]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4556813]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  [5,43]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4551853]  |  Najnowsza aktualizacja zbiorcza (LCU)   |  [6,19]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4552940]  |  Zestawienie miesięczne   |  [2,98]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4556836]  |  Zestawienie miesięczne   |  [2,98]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4555449]  |  Obsługa aktualizacji stosu   |  [2,98]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4552920]  |  Zestawienie miesięczne   |  [2,98]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4552979]  |  Zestawienie miesięczne   |  [3,85]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4556840]  |  Zestawienie miesięczne   |  [3,85]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4552947]  |  Zestawienie miesięczne   |  [3,85]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4552982]  |  Zestawienie miesięczne   |  [3,85]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4552946]  |  Zestawienie miesięczne   |  [4,78]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4556846]  |  Zestawienie miesięczne   |  [4,78]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4550994]  |  Obsługa aktualizacji stosu   |  [5,43]  |  14 kwietnia 2020  |
+|  Rel 20-05  |  [4552924]  |  Zestawienie miesięczne   |  [6,19]  |  12 maj 2020 r.  |
+|  Rel 20-05  |  [4549947]  |  Obsługa aktualizacji stosu   |  [6,19]  |  14 kwietnia 2020  |
 
 
 [4556798]: https://support.microsoft.com/kb/4556798
@@ -66,6 +102,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 [4,78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
 [5,43]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
 [6,19]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+
 
 ## <a name="april-2020-guest-os"></a>System operacyjny gościa z kwietnia 2020
 
@@ -1375,7 +1412,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS16-065 |[3156757] |Aktualizacja zabezpieczeń dla .NET Framework |4,32, 3,39, 2,51 |10 maja 2016 |
 | MS16 — 067 |[3155784] |Aktualizacja zabezpieczeń sterownika programu Volume Manager |4,32, 3,39 |10 maja 2016 |
 | Nie dotyczy |[3148851] |Zmiany strefy czasowej dla Rosji w systemie Windows  |4,32, 3,39, 2,51 |10 maja 2016 |
-| Nie dotyczy |[3133977] |Funkcja BitLocker nie może szyfrować dysków z powodu awarii usługi w procesie Svchost. exe w systemie Windows 7 lub Windows Server 2008 R2  |2,51 |10 maja 2016 |
+| Nie dotyczy |[3133977] |Funkcja BitLocker nie może szyfrować dysków ze względu na awarie usługi w procesie svchost.exe w systemie Windows 7 lub Windows Server 2008 R2  |2,51 |10 maja 2016 |
 | Nie dotyczy |[3133681] |Maszyny wirtualne nie odpowiadają na operacje w programie SCVMM w systemie Windows Server 2012 R2  |4,32 |10 maja 2016 |
 | Nie dotyczy |[3123245] |Aktualizacja usprawnia identyfikację wyczerpania portów w systemie Windows Server 2012 R2  |4,32 |10 maja 2016 |
 | Nie dotyczy |[Wyłącz RC4] | Poradnik zabezpieczeń firmy Microsoft: Aktualizacja dotycząca wyłączania RC4  |4,32, 3,39, 2,51 |10 maja 2016 |
@@ -1506,7 +1543,7 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS15 — 075 |[3072633] |Luki w zabezpieczeniach OLE mogą pozwolić na podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
 | MS15 — 076 |[3067505] |Luka w zabezpieczeniach w zdalnym wywołaniu procedury systemu Windows umożliwia podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
 | MS15 — 077 |[3077657] |Luka w zabezpieczeniach sterownika czcionki ATM może pozwolić na podniesienie uprawnień |4,22, 3,29, 2,41 |14 lipca 2015 |
-| NA |[3057154] |Aktualizowanie w celu ograniczenia użycia szyfrowania DES |4,22, 3,29, 2,41 |14 lipca 2015 |
+| Nie dotyczy |[3057154] |Aktualizowanie w celu ograniczenia użycia szyfrowania DES |4,22, 3,29, 2,41 |14 lipca 2015 |
 
 ## <a name="june-2015-guest-os"></a>OS systemu operacyjnego gościa 2015
 | Identyfikator biuletynu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
@@ -1539,12 +1576,12 @@ W poniższych tabelach przedstawiono aktualizacje firmy Microsoft Security Respo
 | MS15 — 040 |[3045711] |Luki w zabezpieczeniach usług AD FS mogą umożliwić ujawnienie informacji |4,20, 3,27, 2,39 |Kwi 17, 2015 |
 | MS15 — 041 |[3048010] |Luki w zabezpieczeniach .NET Framework mogą umożliwić ujawnienie informacji |4,20, 3,27, 2,39 |Kwi 17, 2015 |
 | MS15 — 042 |[3047234] |Luka w zabezpieczeniach w systemie Windows Hyper-V umożliwia odmowę usługi |4,20, 3,27, 2,39 |Kwi 17, 2015 |
-| NA |[3045755] |Aktualizowanie w celu usprawnienia uwierzytelniania protokołu PKU2U |4,20, 3,27, 2,39 |Kwi 17, 2015 |
+| Nie dotyczy |[3045755] |Aktualizowanie w celu usprawnienia uwierzytelniania protokołu PKU2U |4,20, 3,27, 2,39 |Kwi 17, 2015 |
 
 ## <a name="april-2015-guest-os"></a>System operacyjny gościa z kwietnia 2015
 | Identyfikator biuletynu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |
 | --- | --- | --- | --- | --- |
-| [MS15 — 034] |[3042553] |Luka w zabezpieczeniach w pliku HTTP. sys umożliwia zdalne wykonywanie kodu |4,19, 3,26, 2,38 |Kwi 17, 2015 |
+| [MS15 — 034] |[3042553] |Luka w zabezpieczeniach HTTP.sys może umożliwić zdalne wykonywanie kodu |4,19, 3,26, 2,38 |Kwi 17, 2015 |
 
 ## <a name="march-2015-guest-os"></a>System operacyjny gościa 2015 marca
 | Identyfikator biuletynu | Nadrzędny artykuł bazy wiedzy | Opis luki w zabezpieczeniach | System operacyjny gościa | Data wprowadzenia po raz pierwszy |

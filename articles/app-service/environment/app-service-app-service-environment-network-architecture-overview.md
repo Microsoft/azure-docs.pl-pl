@@ -8,11 +8,11 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243850"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84701817"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>Omówienie architektury sieci App Service środowisk
 Środowiska App Service są zawsze tworzone w ramach podsieci [sieci wirtualnej][virtualnetwork] — aplikacje działające w App Service Environment mogą komunikować się z prywatnymi punktami końcowymi znajdującymi się w tej samej topologii sieci wirtualnej.  Ponieważ klienci mogą blokować części swojej infrastruktury sieci wirtualnej, ważne jest zrozumienie typów przepływów komunikacji sieciowej występujących w App Service Environment.

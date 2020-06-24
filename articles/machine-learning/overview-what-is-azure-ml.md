@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: tracking-python
-ms.openlocfilehash: ebc30f995c44685dfd58e627706e4ca60e8ecfd5
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c4969628bb80d63cafc9537ec511ac218ff87ca7
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556813"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738298"
 ---
 # <a name="what-is-azure-machine-learning"></a>Co to jest usługa Azure Machine Learning?
 
@@ -124,16 +124,11 @@ Twoje konto usługi Azure Storage, cele obliczeniowe i inne zasoby mogą być be
 ## <a name="basic--enterprise-editions"></a><a name="sku"></a>Wersje Basic & Enterprise
 
 Azure Machine Learning oferuje dwie wersje dostosowane do potrzeb uczenia maszynowego:
-+ Podstawowa (ogólnie dostępna)
-+ Enterprise (wersja zapoznawcza)
++ **Podstawowa**: doskonałe dla opracowywania aplikacji typu "open source" w skali chmury przy użyciu pierwszego środowiska.
 
-Te wersje określają, które narzędzia uczenia maszynowego są dostępne dla deweloperów i naukowców danych z ich obszaru roboczego.   
++ **Enterprise**: wszystkie podstawowe oraz interfejs sieci Web (Studio) + bezpieczne, kompleksowe zarządzanie cyklem życia ml dla wszystkich poziomów umiejętności.
 
-Podstawowe obszary robocze umożliwiają kontynuowanie korzystania z Azure Machine Learning i płatność tylko za zasoby platformy Azure używane w ramach procesu uczenia maszynowego. W obszarze roboczym wersji Enterprise Edition będą naliczane opłaty za użycie platformy Azure, gdy wersja jest w wersji zapoznawczej. Dowiedz się więcej o tym, co jest dostępne w [przeglądzie Azure Machine Learning wersji & stronie cennika](https://azure.microsoft.com/pricing/details/machine-learning/). 
-
-Wydanie jest przypisywane po każdym utworzeniu obszaru roboczego. Wcześniej istniejące obszary robocze zostały przekonwertowane na wersję podstawową. Wersja podstawowa obejmuje wszystkie funkcje, które są już ogólnie dostępne od października 2019. Wszystkie eksperymenty w tych obszarach roboczych, które zostały skompilowane przy użyciu funkcji wersji Enterprise Edition, będą nadal dostępne w trybie tylko do odczytu do momentu uaktualnienia do wersji Enterprise. Dowiedz się, jak [uaktualnić podstawowy obszar roboczy do wersji Enterprise](how-to-manage-workspace.md#upgrade). 
-
-W tym czasie klienci są zobowiązani do ponoszenia kosztów związanych z obliczeniami i innymi zasobami platformy Azure.
+Aby dowiedzieć się więcej o tych wersjach i ich możliwościach, Przeczytaj [artykuł "Azure Machine Learning wersje"](concept-editions.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

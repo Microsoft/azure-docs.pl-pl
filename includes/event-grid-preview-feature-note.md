@@ -28,7 +28,7 @@ W [CloudShell](/azure/cloud-shell/quickstart):
 
 W przypadku instalacji lokalnej:
 
-1. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Upewnij się, że masz najnowszą wersję, sprawdzając ją `az --version`.
+1. [Zainstaluj interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Upewnij się, że masz najnowszą wersję, sprawdzając ją `az --version` .
 1. Odinstaluj poprzednie wersje rozszerzenia`az extension remove -n eventgrid`
 1. Zainstaluj `eventgrid` rozszerzenie za pomocą`az extension add -n eventgrid`
 

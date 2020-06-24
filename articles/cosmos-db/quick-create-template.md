@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 273305894e05b397d0f48acd7a483a9fdfc247ef
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e626f6e5b65e369c3c77900cd46f2b86cd6f9d52
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324044"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118002"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>Szybki Start: Tworzenie Azure Cosmos DB i kontenera przy użyciu szablonu Azure Resource Manager
 
@@ -41,11 +41,11 @@ Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybki
 
 Trzy zasoby platformy Azure są zdefiniowane w szablonie:
 
-* [Microsoft. DocumentDB/databaseAccounts](/azure/templates/microsoft.documentdb/databaseaccounts): Tworzenie konta Azure Cosmos.
+* [Microsoft.DocumentDB/databaseAccounts](/azure/templates/microsoft.documentdb/databaseaccounts): Utwórz konto platformy Azure Cosmos.
 
-* [Microsoft. DocumentDB/databaseAccounts/Sqldatabases](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases): Tworzenie bazy danych Azure Cosmos.
+* [Microsoft.DocumentDB/databaseAccounts/Sqldatabases](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases): Tworzenie bazy danych Azure Cosmos.
 
-* [Microsoft. DocumentDB/databaseAccounts/Sqldatabases/Containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Tworzenie kontenera usługi Azure Cosmos.
+* [Microsoft.DocumentDB/databaseAccounts/Sqldatabases/Containers](/azure/templates/microsoft.documentdb/databaseaccounts/sqldatabases/containers): Tworzenie kontenera usługi Azure Cosmos.
 
 Więcej przykładów szablonów Azure Cosmos DB można znaleźć w [galerii szablonów szybkiego startu](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
 
@@ -53,11 +53,11 @@ Więcej przykładów szablonów Azure Cosmos DB można znaleźć w [galerii szab
 
 1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon tworzy konto usługi Azure Cosmos, bazę danych i kontener.
 
-   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
+   [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Wdrażanie na platformie Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 2. Wybierz lub wprowadź następujące wartości.
 
-   ![Szablon Menedżer zasobów, integracja Azure Cosmos DB, wdrażanie portalu](./media/quick-create-template/create-cosmosdb-using-template-portal.png)
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Szablon Menedżer zasobów, integracja Azure Cosmos DB, wdrażanie portalu":::
 
     O ile nie zostanie on określony, użyj wartości domyślnych, aby utworzyć zasoby usługi Azure Cosmos.
 
@@ -78,7 +78,7 @@ Więcej przykładów szablonów Azure Cosmos DB można znaleźć w [galerii szab
 
 3. Wybierz pozycję **Kup**. Po pomyślnym wdrożeniu konta usługi Azure Cosmos otrzymasz powiadomienie:
 
-   ![Menedżer zasobów szablon, integracja Cosmos DB, wdrażanie powiadomienia portalu](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Menedżer zasobów szablon, integracja Cosmos DB, wdrażanie powiadomienia portalu":::
 
 Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -108,7 +108,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli planujesz kontynuować pracę z kolejnymi samouczkami, możesz pozostawić te zasoby na miejscu.
+Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, możesz pozostawić te zasoby na miejscu.
 Gdy grupa zasobów nie będzie już konieczna, usuń ją, usuwając konto usługi Azure Cosmos i powiązane zasoby. Aby usunąć grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell:
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)

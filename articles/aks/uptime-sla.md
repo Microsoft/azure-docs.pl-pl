@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b360f36dfc80033ac95e4face438b66eed33cec4
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299557"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945515"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Umowa SLA dla usługi Azure Kubernetes Service (AKS)
 
@@ -23,13 +23,20 @@ Klienci mogą nadal tworzyć nieograniczoną liczbę bezpłatnych klastrów z ce
 > [!Important]
 > W przypadku klastrów mających blokadę [ruchu wychodzącego, zobacz Ograniczanie ruch wyjście](limit-egress-traffic.md) do otwierania odpowiednich portów.
 
+## <a name="region-availability"></a>Dostępność w danym regionie
+
+Umowa SLA na czas działania jest dostępna w regionach publicznych, w których [AKS jest obsługiwany](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government nie jest obecnie obsługiwana.
+* Nie jest to obecnie obsługiwane.
+
 ## <a name="sla-terms-and-conditions"></a>Warunki i postanowienia umowy SLA
 
 Umowa SLA na czas pracy to płatna funkcja i włączona na klaster. Cennik umowy SLA na czas pracy jest określany przez liczbę klastrów dyskretnych, a nie przez rozmiar poszczególnych klastrów. Aby uzyskać więcej informacji, możesz wyświetlić [szczegóły cennika umowy SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) .
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Interfejs wiersza polecenia platformy Azure w wersji 2.7.0 lub nowszej
+* Instalowanie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) w wersji 2.7.0 lub nowszej
 
 ## <a name="creating-a-cluster-with-uptime-sla"></a>Tworzenie klastra z umową SLA
 

@@ -11,28 +11,28 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "79486060"
 ---
-Wpisy w `deploymentconfig.json` dokumencie są mapowane na parametry [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON a parametrami metody:
+Wpisy w dokumencie są `deploymentconfig.json` mapowane na parametry [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). W poniższej tabeli opisano mapowanie między jednostkami w dokumencie JSON a parametrami metody:
 
 | Jednostka JSON | Parametr metody | Opis |
 | ----- | ----- | ----- |
-| `computeType` | Nie dotyczy | Docelowy zasób obliczeniowy. Dla AKS wartość musi być `aks`. |
+| `computeType` | Nie dotyczy | Docelowy zasób obliczeniowy. Dla AKS wartość musi być `aks` . |
 | `autoScaler` | Nie dotyczy | Zawiera elementy konfiguracji skalowania automatycznego. Zobacz tabelę skalowania automatycznego. |
-| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Określa, czy włączyć skalowanie automatyczne dla usługi sieci Web. `numReplicas`  = Jeśli `0`, `True`; w przeciwnym `False`razie. |
-| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Minimalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web. Wartość domyślna `1`. |
-| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Maksymalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web. Wartość domyślna `10`. |
-| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Jak często automatyczne skalowanie próbuje skalować tę usługę sieci Web. Wartość domyślna `1`. |
-| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Użycie docelowe (w procentach z 100), które ma być podejmowane przez Autoskalowanie dla tej usługi sieci Web. Wartość domyślna `70`. |
+| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Określa, czy włączyć skalowanie automatyczne dla usługi sieci Web. Jeśli `numReplicas`  =  `0` `True` ; w przeciwnym razie, `False` . |
+| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Minimalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web. Wartość domyślna `1` . |
+| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Maksymalna liczba kontenerów, które mają być używane podczas automatycznego skalowania tej usługi sieci Web. Wartość domyślna `10` . |
+| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Jak często automatyczne skalowanie próbuje skalować tę usługę sieci Web. Wartość domyślna `1` . |
+| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Użycie docelowe (w procentach z 100), które ma być podejmowane przez Autoskalowanie dla tej usługi sieci Web. Wartość domyślna `70` . |
 | `dataCollection` | Nie dotyczy | Zawiera elementy konfiguracji do zbierania danych. |
-| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Określa, czy włączyć zbieranie danych modelu dla usługi sieci Web. Wartość domyślna `False`. |
-| `authEnabled` | `auth_enabled` | Określa, czy należy włączyć uwierzytelnianie klucza dla usługi sieci Web. Oba `tokenAuthEnabled` i `authEnabled` nie mogą `True`być. Wartość domyślna `True`. |
-| `tokenAuthEnabled` | `token_auth_enabled` | Określa, czy włączyć uwierzytelnianie tokenu dla usługi sieci Web. Oba `tokenAuthEnabled` i `authEnabled` nie mogą `True`być. Wartość domyślna `False`. |
+| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Określa, czy włączyć zbieranie danych modelu dla usługi sieci Web. Wartość domyślna `False` . |
+| `authEnabled` | `auth_enabled` | Określa, czy należy włączyć uwierzytelnianie klucza dla usługi sieci Web. Oba `tokenAuthEnabled` i `authEnabled` nie mogą być `True` . Wartość domyślna `True` . |
+| `tokenAuthEnabled` | `token_auth_enabled` | Określa, czy włączyć uwierzytelnianie tokenu dla usługi sieci Web. Oba `tokenAuthEnabled` i `authEnabled` nie mogą być `True` . Wartość domyślna `False` . |
 | `containerResourceRequirements` | Nie dotyczy | Kontener dla jednostek procesora i pamięci. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | Liczba rdzeni procesora CPU do przydzielenia dla tej usługi sieci Web. Wartości domyślne`0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | Ilość pamięci (w GB) do przydzielenia dla tej usługi sieci Web. Wartooć`0.5` |
-| `appInsightsEnabled` | `enable_app_insights` | Określa, czy należy włączyć rejestrowanie Application Insights dla usługi sieci Web. Wartość domyślna `False`. |
-| `scoringTimeoutMs` | `scoring_timeout_ms` | Limit czasu wymuszania dla wywołań oceniania do usługi sieci Web. Wartość domyślna `60000`. |
-| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Maksymalna liczba współbieżnych żądań na węzeł dla tej usługi sieci Web. Wartość domyślna `1`. |
-| `maxQueueWaitMs` | `max_request_wait_time` | Maksymalny czas pozostawania żądania w kolejce Thee (w milisekundach) przed zwróceniem błędu 503. Wartość domyślna `500`. |
+| `appInsightsEnabled` | `enable_app_insights` | Określa, czy należy włączyć rejestrowanie Application Insights dla usługi sieci Web. Wartość domyślna `False` . |
+| `scoringTimeoutMs` | `scoring_timeout_ms` | Limit czasu wymuszania dla wywołań oceniania do usługi sieci Web. Wartość domyślna `60000` . |
+| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Maksymalna liczba współbieżnych żądań na węzeł dla tej usługi sieci Web. Wartość domyślna `1` . |
+| `maxQueueWaitMs` | `max_request_wait_time` | Maksymalny czas pozostawania żądania w kolejce Thee (w milisekundach) przed zwróceniem błędu 503. Wartość domyślna `500` . |
 | `numReplicas` | `num_replicas` | Liczba kontenerów do przydzielenia dla tej usługi sieci Web. Brak wartości domyślnej. Jeśli ten parametr nie jest ustawiony, automatyczne skalowanie jest domyślnie włączone. |
 | `keys` | Nie dotyczy | Zawiera elementy konfiguracji dla kluczy. |
 | &emsp;&emsp;`primaryKey` | `primary_key` | Podstawowy klucz uwierzytelniania, który ma być używany dla tej usługi sieci Web |

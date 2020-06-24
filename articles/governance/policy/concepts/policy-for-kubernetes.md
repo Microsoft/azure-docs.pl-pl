@@ -1,14 +1,14 @@
 ---
 title: Wersja zapoznawcza — Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie. Jest to funkcja w wersji zapoznawczej.
-ms.date: 05/20/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9969bed9cb7c84faf9736bff2fb8337dc05d1bb0
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: ab18b85fc24deb58a6c65ca038d47120056eaa75
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221157"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791711"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Opis Azure Policy klastrów Kubernetes (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Azure Policy for Kubernetes obsługuje następujące środowiska klastra:
 - [Aparat AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Azure Policy dla Kubernetes jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej z efektem **EnforceRegoPolicy** i pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć zaktualizowanego efektu [EnforceOPAConstraint](./effects.md#enforceopaconstraint) .
+> Azure Policy dla Kubernetes jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej ze skutkami **EnforceOPAConstraint** i **EnforceRegoPolicy** oraz pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć trybu _inspekcji_ efektów i _Odmów_ przy użyciu dostawcy zasobów `Microsoft.Kubernetes.Data` .
 
 ## <a name="overview"></a>Omówienie
 
@@ -370,7 +370,7 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="policy-language"></a>Język zasad
 
-Azure Policy struktura języka dla zarządzania Kubernetes jest zgodna z istniejącymi definicjami zasad. Efekt _EnforceOPAConstraint_ służy do zarządzania klastrami Kubernetes i zawiera szczegółowe właściwości specyficzne dla pracy z [platformą ograniczeń nieprzez](https://github.com/open-policy-agent/frameworks/tree/master/constraint) i strażnikiem v3. Aby uzyskać szczegółowe informacje i przykłady, zobacz efekt [EnforceOPAConstraint](./effects.md#enforceopaconstraint) .
+Azure Policy struktura języka dla zarządzania Kubernetes jest zgodna z istniejącymi definicjami zasad. W [trybie dostawcy zasobów](./definition-structure.md#resource-provider-modes) `Microsoft.Kubernetes.Data` , [Inspekcja](./effects.md#audit) efektów i [Odmów](./effects.md#deny) są używane do zarządzania klastrami Kubernetes. _Inspekcja_ i _Odmów_ muszą podawać właściwości **szczegółów** charakterystyczne dla pracy z [nieprzez ograniczeń środowiska](https://github.com/open-policy-agent/frameworks/tree/master/constraint) i strażnik v3.
 
 W ramach właściwości _szczegóły. constraintTemplate_ i _szczegóły. ograniczenia_ w definicji zasad Azure Policy przekazuje identyfikatory URI tych [CustomResourceDefinitions](https://github.com/open-policy-agent/gatekeeper#constraint-templates) (CRD) do dodatku. Rego to język, w którym NIEPRZEZ i strażnik obsługuje walidację żądania do klastra Kubernetes. Dzięki obsłudze istniejącej normy Kubernetes Management Azure Policy umożliwia ponowne użycie istniejących reguł i sparowanie ich z Azure Policy na potrzeby ujednoliconego środowiska raportowania zgodności z chmurą. Aby uzyskać więcej informacji, zobacz [co to jest rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
@@ -402,7 +402,7 @@ Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą
 
    - **Wyłączone** — nie Wymuszaj zasad w klastrze. Żądania odmowy Kubernetes z naruszeniami nie są odrzucane. Wyniki oceny zgodności są nadal dostępne. Podczas wdrażania nowych definicji zasad do uruchamiania klastrów, opcja _wyłączone_ jest przydatna do testowania definicji zasad, ponieważ żądania dopuszczenia z naruszeniami nie są odrzucane.
 
-1. Wybierz opcję **Dalej**. 
+1. Wybierz przycisk **Dalej**. 
 
 1. Ustaw **wartości parametrów** 
 

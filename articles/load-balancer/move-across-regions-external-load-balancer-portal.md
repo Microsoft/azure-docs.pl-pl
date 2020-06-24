@@ -3,15 +3,15 @@ title: Przenoszenie zewnętrznego modułu równoważenia obciążenia platformy 
 description: Użyj szablonu Azure Resource Manager, aby przenieść zewnętrzny moduł równoważenia obciążenia z jednego regionu świadczenia usługi Azure do innego przy użyciu Azure Portal.
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5cd5ce2635ce05c4d5962f12ddc3945342897ecd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0598f21cddbaeef6b3cd10cd77250eeae8bd34bf
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638531"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808706"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Przenoszenie zewnętrznego modułu równoważenia obciążenia do innego regionu przy użyciu Azure Portal
 
@@ -43,9 +43,9 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Grupy zasobów**.
 2. Znajdź grupę zasobów zawierającą źródłowy publiczny adres IP i wybierz ją.
-3. Wybierz kolejno pozycje **Ustawienia** > **Eksportuj szablon**.
+3. Wybierz kolejno pozycje **Ustawienia**  >  **Eksportuj szablon**.
 4. Wybierz pozycję **Wdróż** w obszarze **Eksportuj szablon**.
-5. Wybierz pozycję **szablon** > **Edytuj parametry** , aby otworzyć plik Parameters. JSON w edytorze online.
+5. Wybierz pozycję **szablon**  >  **Edytuj parametry** , aby otworzyć parameters.jsw pliku w edytorze online.
 8. Aby edytować parametr publicznej nazwy IP, należy zmienić właściwość **Value** w obszarze **Parameters** z publicznej publicznego adresu IP na nazwę docelowego publicznego adresu IP. Ujmij nazwę w cudzysłów.
 
     ```json
@@ -63,7 +63,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
 
     Wybierz pozycję **Zapisz** w edytorze.
 
-9.  Wybierz **szablon** > **Edytuj szablon** , aby otworzyć plik Template. JSON w edytorze online.
+9.  Wybierz **szablon**  >  **Edytuj szablon** , aby otworzyć template.jsw pliku w edytorze online.
 
 10. Aby edytować region docelowy, do którego zostanie przeniesiony publiczny adres IP, Zmień właściwość **lokalizacji** w obszarze **zasoby**:
 
@@ -95,7 +95,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
     
 12. W zależności od wymagań można także zmienić inne parametry szablonu, jeśli chcesz lub zachodzi taka potrzeba:
 
-    * **Jednostka SKU**. Możesz zmienić jednostkę SKU publicznego adresu IP w konfiguracji z warstwy Standardowa na podstawowa lub z warstwy Podstawowa na standardowa, zmieniając właściwość **name** w obszarze **SKU** w pliku Template. JSON:
+    * **Jednostka SKU**. Możesz zmienić jednostkę SKU publicznego adresu IP w konfiguracji z warstwy Standardowa na podstawowa lub z warstwy Podstawowa na standardowa, zmieniając właściwość **name** w obszarze **SKU** w template.jspliku:
 
         ```json
           "resources": [
@@ -141,11 +141,11 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
  
 13. Wybierz pozycję **Zapisz** w edytorze online.
 
-14. Wybierz pozycję**subskrypcja** **podstawy** > , aby wybrać subskrypcję, w której zostanie wdrożony docelowy publiczny adres IP.
+14. Wybierz **BASICS**pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy publiczny adres IP.
 
-15. Wybierz pozycję podstawową**grupę zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy publiczny adres IP. **BASICS** >  Możesz wybrać pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego publicznego adresu IP. Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego źródłowego publicznego adresu IP.
+15. Wybierz **pozycję podstawową**  >  **grupę zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy publiczny adres IP. Możesz wybrać pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego publicznego adresu IP. Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego źródłowego publicznego adresu IP.
 
-16. Sprawdź, czy**Lokalizacja** **podstawy** > jest ustawiona na lokalizację docelową, w której ma zostać wdrożony publiczny adres IP.
+16. Sprawdź, **BASICS**czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony publiczny adres IP.
 
 17. W obszarze **Ustawienia**Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów.
 
@@ -159,9 +159,9 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i wybierz pozycję **Grupy zasobów**.
 2. Znajdź grupę zasobów zawierającą źródłowy zewnętrzny moduł równoważenia obciążenia i wybierz ją.
-3. Wybierz kolejno pozycje **Ustawienia** > **Eksportuj szablon**.
+3. Wybierz kolejno pozycje **Ustawienia**  >  **Eksportuj szablon**.
 4. Wybierz pozycję **Wdróż** w obszarze **Eksportuj szablon**.
-5. Wybierz pozycję **szablon** > **Edytuj parametry** , aby otworzyć plik Parameters. JSON w edytorze online.
+5. Wybierz pozycję **szablon**  >  **Edytuj parametry** , aby otworzyć parameters.jsw pliku w edytorze online.
 
 5. Aby edytować parametr nazwy zewnętrznego modułu równoważenia obciążenia, Zmień **wartość** właściwości Nazwa źródłowego zewnętrznego modułu równoważenia obciążenia na nazwę docelowego zewnętrznego modułu równoważenia obciążenia. Ujmij nazwę w cudzysłów.
 
@@ -178,11 +178,11 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
 
     ```
 
-6.  Aby edytować wartość docelowego publicznego adresu IP, który został przeniesiony w powyższych krokach, należy najpierw uzyskać identyfikator zasobu, a następnie wkleić go do pliku Parameters. JSON. Aby uzyskać identyfikator:
+6.  Aby edytować wartość docelowego publicznego adresu IP, który został przeniesiony w powyższych krokach, najpierw należy uzyskać identyfikator zasobu, a następnie wkleić go do parameters.jsna pliku. Aby uzyskać identyfikator:
 
     1. W innej karcie lub oknie przeglądarki Zaloguj się do [Azure Portal](https://portal.azure.com) i wybierz pozycję **grupy zasobów**.
     2. Znajdź docelową grupę zasobów zawierającą publiczny adres IP, który został przeniesiony w powyższych krokach. Wybierz ją.
-    3. Wybierz pozycję **Ustawienia** > **Właściwości**.
+    3. Wybierz pozycję **Ustawienia**  >  **Właściwości**.
     4. W bloku po prawej stronie zaznacz **Identyfikator zasobu** i skopiuj go do Schowka. Alternatywnie możesz wybrać opcję **Kopiuj do schowka** z prawej strony ścieżki **identyfikatora zasobu** .
     5. Wklej identyfikator zasobu do właściwości **wartość** w edytorze **parametrów edycji** , który jest otwarty w innym oknie przeglądarki lub karcie:
 
@@ -202,7 +202,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
     6. Wybierz pozycję **Zapisz** w edytorze online.
 
 
-7.  Jeśli skonfigurowano wychodzące reguły NAT i dla modułu równoważenia obciążenia, w tym pliku zobaczysz trzeci wpis dla zewnętrznego identyfikatora publicznego adresu IP. Powtórz poprzednie kroki w **regionie docelowym** , aby uzyskać identyfikator wychodzącego publicznego adresu IP. Wklej ten identyfikator do pliku Parameters. JSON:
+7.  Jeśli skonfigurowano wychodzące reguły NAT i dla modułu równoważenia obciążenia, w tym pliku zobaczysz trzeci wpis dla zewnętrznego identyfikatora publicznego adresu IP. Powtórz poprzednie kroki w **regionie docelowym** , aby uzyskać identyfikator wychodzącego publicznego adresu IP. Wklej ten identyfikator do parameters.jsw pliku:
 
     ```json
             "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -223,8 +223,8 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
         },
     ```
 
-8.  Wybierz **szablon** > **Edytuj szablon** , aby otworzyć plik Template. JSON w edytorze online.
-9.  Aby edytować region docelowy, do którego zostanie przeniesiona konfiguracja zewnętrznego modułu równoważenia obciążenia, Zmień właściwość **Location** w obszarze **zasoby** w pliku Template. JSON:
+8.  Wybierz **szablon**  >  **Edytuj szablon** , aby otworzyć template.jsw pliku w edytorze online.
+9.  Aby edytować region docelowy, do którego zostanie przeniesiona konfiguracja zewnętrznego modułu równoważenia obciążenia, Zmień właściwość **Location** w obszarze **zasoby** w template.jsw pliku:
 
     ```json
         "resources": [
@@ -243,7 +243,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
 
 11. W zależności od wymagań można także zmienić inne parametry szablonu, jeśli chcesz lub zachodzi taka potrzeba:
 
-    * **Jednostka SKU**. Można zmienić jednostkę SKU zewnętrznego modułu równoważenia obciążenia w konfiguracji z warstwy Standardowa na podstawowa lub z warstwy Podstawowa na standardowa, zmieniając właściwość **name** w obszarze **SKU** w pliku Template. JSON:
+    * **Jednostka SKU**. Można zmienić jednostkę SKU zewnętrznego modułu równoważenia obciążenia w konfiguracji z warstwy Standardowa na podstawowa lub z warstwy Podstawowa na standardowa, zmieniając właściwość **name** w obszarze **SKU** template.jsw pliku:
 
         ```json
         "resources": [
@@ -259,7 +259,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
         ```
       Aby uzyskać informacje dotyczące różnic między usługą równoważenia obciążenia Basic i standardowymi jednostkami SKU, zobacz [Omówienie usługi Azure usługa Load Balancer w warstwie Standardowa](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
-    * **Reguły równoważenia obciążenia**. Można dodawać lub usuwać reguły równoważenia obciążenia w konfiguracji przez dodawanie lub usuwanie wpisów w sekcji **loadBalancingRules** pliku Template. JSON:
+    * **Reguły równoważenia obciążenia**. Można dodawać lub usuwać reguły równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów w template.jssekcji **loadBalancingRules** w pliku:
 
         ```json
         "loadBalancingRules": [
@@ -291,7 +291,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
         ```
        Aby uzyskać informacje na temat reguł równoważenia obciążenia, zobacz [co to jest Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 
-    * **Sondy**. Można dodać lub usunąć sondę modułu równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów w sekcji **sondy** w pliku Template. JSON:
+    * **Sondy**. Możesz dodać lub usunąć sondę dla modułu równoważenia obciążenia w konfiguracji przez dodanie lub usunięcie wpisów w sekcji **sondy** template.jsw pliku:
 
         ```json
         "probes": [
@@ -311,7 +311,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
         ```
        Aby uzyskać więcej informacji, zobacz [Load Balancer sondy kondycji](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
-    * **Reguły NAT dla ruchu przychodzącego**. Można dodać lub usunąć reguły NAT dla ruchu przychodzącego dla modułu równoważenia obciążenia przez dodanie lub usunięcie wpisów w sekcji **inboundNatRules** pliku Template. JSON:
+    * **Reguły NAT dla ruchu przychodzącego**. Można dodać lub usunąć reguły NAT dla ruchu przychodzącego dla modułu równoważenia obciążenia przez dodanie lub usunięcie wpisów w template.jssekcji **inboundNatRules** w pliku:
 
         ```json
         "inboundNatRules": [
@@ -333,7 +333,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
                     }
                 ]
         ```
-        Aby ukończyć Dodawanie lub usuwanie reguły NAT dla ruchu przychodzącego, reguła musi być obecna lub usunięta jako właściwość **typu** na końcu pliku Template. JSON:
+        Aby ukończyć Dodawanie lub usuwanie reguły NAT dla ruchu przychodzącego, reguła musi być obecna lub usunięta jako właściwość **typu** na końcu template.jsw pliku:
 
         ```json
         {
@@ -359,7 +359,7 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
         ```
         Aby uzyskać informacje na temat reguł NAT dla ruchu przychodzącego, zobacz [co to jest Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
 
-    * **Reguły ruchu wychodzącego**. Możesz dodawać lub usuwać reguły wychodzące w konfiguracji, edytując Właściwość **outboundRules** w pliku Template. JSON:
+    * **Reguły ruchu wychodzącego**. Możesz dodać lub usunąć reguły wychodzące w konfiguracji, edytując Właściwość **outboundRules** w template.jsw pliku:
 
         ```json
         "outboundRules": [
@@ -389,11 +389,11 @@ W poniższych procedurach pokazano, jak przygotować zewnętrzny moduł równowa
 
 12. Wybierz pozycję **Zapisz** w edytorze online.
 
-13. Wybierz pozycję**subskrypcja** **podstawy** > , aby wybrać subskrypcję, w której zostanie wdrożony docelowy zewnętrzny moduł równoważenia obciążenia.
+13. Wybierz **BASICS**pozycję  >  **subskrypcja** podstawy, aby wybrać subskrypcję, w której zostanie wdrożony docelowy zewnętrzny moduł równoważenia obciążenia.
 
-15. Wybierz pozycję podstawową**grupę zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy moduł równoważenia obciążenia. **BASICS** >  Możesz wybrać pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego zewnętrznego modułu równoważenia obciążenia. Możesz też wybrać istniejącą grupę zasobów utworzoną wcześniej dla publicznego adresu IP. Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego źródłowego zewnętrznego modułu równoważenia obciążenia.
+15. Wybierz **pozycję podstawową**  >  **grupę zasobów** , aby wybrać grupę zasobów, w której zostanie wdrożony docelowy moduł równoważenia obciążenia. Możesz wybrać pozycję **Utwórz nowy** , aby utworzyć nową grupę zasobów dla docelowego zewnętrznego modułu równoważenia obciążenia. Możesz też wybrać istniejącą grupę zasobów utworzoną wcześniej dla publicznego adresu IP. Upewnij się, że nazwa nie jest taka sama jak źródłowa Grupa zasobów istniejącego źródłowego zewnętrznego modułu równoważenia obciążenia.
 
-16. Sprawdź, czy**Lokalizacja** **podstawy** > jest ustawiona na lokalizację docelową, w której ma zostać wdrożony zewnętrzny moduł równoważenia obciążenia.
+16. Sprawdź, **BASICS**czy  >  **Lokalizacja** podstawy jest ustawiona na lokalizację docelową, w której ma zostać wdrożony zewnętrzny moduł równoważenia obciążenia.
 
 17. W obszarze **Ustawienia**Sprawdź, czy nazwa jest zgodna z nazwą wprowadzoną wcześniej w edytorze parametrów. Sprawdź, czy identyfikatory zasobów są wypełnione dla wszystkich publicznych adresów IP w konfiguracji.
 

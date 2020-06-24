@@ -128,7 +128,7 @@ Aby edytować szczegóły powiadomień, wykonaj następujące czynności.
 |Pobrane     |Przesyłka zwrotna została pobrana. <br> Po odebraniu przesyłki w centrum danych Azure dane zostaną automatycznie przekazane na platformę Azure.         |
 |Odebrano     | Twoje dyski zostały odebrane w centrum danych Azure. Wkrótce rozpocznie się kopiowanie danych.        |
 |Skopiowane dane     |Kopiowanie danych jest w toku.<br> Poczekaj na zakończenie kopiowania danych.         |
-|Ukończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
+|Zakończone       |Zamówienie zostało pomyślnie zrealizowane.<br> Przed usunięciem danych lokalnych z serwerów upewnij się, że Twoje dane znajdują się na platformie Azure.         |
 |Zakończone z błędami| Kopiowanie danych zostało ukończone, ale wystąpiły błędy. <br> Zapoznaj się z dziennikami błędów na potrzeby przekazywania, używając ścieżki podanej w **przeglądzie**. Aby uzyskać więcej informacji, przejdź do pozycji [Pobierz dzienniki błędów przekazywania](data-box-disk-troubleshoot-upload.md#download-logs).   |
 |Anulowane            |Twoje zamówienie zostało anulowane. <br> Zamówienie mogło zostać anulowane przez Ciebie lub, w przypadku wystąpienia błędu, przez usługę.     |
 

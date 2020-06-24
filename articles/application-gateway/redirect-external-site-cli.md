@@ -4,15 +4,15 @@ description: Dowiedz się, jak utworzyć bramę aplikacji, która przekierowuje 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: fc955b4959bb20628463f7699a0b66ec2b89a393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b671af46d34e3b45796186cd10282d060fa8c537
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74011609"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804667"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Tworzenie bramy aplikacji z przekierowaniami zewnętrznymi przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -25,7 +25,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Tworzenie reguły odbiornika i przekierowywania
 > * Tworzenie bramy aplikacji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -88,7 +88,7 @@ Tworzenie bramy aplikacji może potrwać kilka minut. Po utworzeniu bramy aplika
 
 ### <a name="add-the-redirection-configuration"></a>Dodawanie konfiguracji przekierowania
 
-Dodaj konfigurację przekierowania, która wysyła ruch *z\.consoto.org www* do odbiornika dla *sieci\.Web contoso.com* do bramy aplikacji za pomocą polecenia [AZ Network Application-Gateway redirect-config Create](/cli/azure/network/application-gateway/redirect-config).
+Dodaj konfigurację przekierowania, która wysyła ruch *z \. consoto.org www* do odbiornika dla *sieci Web \. contoso.com* do bramy aplikacji za pomocą polecenia [AZ Network Application-Gateway redirect-config Create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

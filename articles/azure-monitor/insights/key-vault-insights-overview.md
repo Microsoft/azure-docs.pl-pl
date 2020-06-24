@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 97bea90e67b9449a8f5fd7b333b9ac149abef2f8
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300449"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945464"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorowanie usługi magazynu kluczy za pomocą Azure Monitor dla Key Vault (wersja zapoznawcza)
 Azure Monitor dla Key Vault (wersja zapoznawcza) zapewnia kompleksowe monitorowanie magazynów kluczy, udostępniając ujednolicony widok żądań Key Vault, wydajności, błędów i opóźnień.
@@ -158,55 +158,51 @@ Można skonfigurować wiele subskrypcji i omówienia magazynu kluczy lub skorosz
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
+Ogólne wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule dotyczącym szczegółowych informacji o [rozwiązywaniu problemów](troubleshoot-workbooks.md)opartych na skoroszycie.
+
 Ta sekcja pomoże Ci w diagnozowaniu i rozwiązywaniu problemów z typowymi problemami, które mogą wystąpić podczas korzystania z Azure Monitor dla Key Vault (wersja zapoznawcza). Skorzystaj z poniższej listy, aby znaleźć informacje istotne dla danego problemu.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Rozwiązywanie problemów z wydajnością lub niepowodzeń
 
 Aby ułatwić rozwiązywanie problemów związanych z magazynem kluczy, które można zidentyfikować za pomocą Azure Monitor dla Key Vault (wersja zapoznawcza), zobacz [dokumentację Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
-### <a name="why-can-i-only-see-200-key-vaults"></a>Dlaczego można zobaczyć tylko magazyny kluczy 200?
+### <a name="why-can-i-only-see-200-key-vaults"></a>Dlaczego można zobaczyć tylko magazyny kluczy 200
 
 Istnieje limit 200 magazynów kluczy, które można wybrać i wyświetlić. Bez względu na liczbę wybranych subskrypcji liczba wybranych magazynów kluczy ma limit wynoszący 200.
 
-### <a name="what-will-happen-when-a-pinned-item-is-clicked"></a>Co się stanie po kliknięciu przypiętego elementu?
-
-Po kliknięciu przypiętego elementu na pulpicie nawigacyjnym zostanie otwarty jeden z dwóch elementów:
-* Jeśli szczegółowe informacje zostały zapisane — spowoduje to otwarcie wystąpienia usługi Insights, z którego zapisano kod PIN.
-* Jeśli szczegółowe dane zostały niezapisane — spowoduje to otwarcie nowego domyślnego wystąpienia usługi Insights.
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Dlaczego nie widzę wszystkich moich subskrypcji w selektorze subskrypcji?
+### <a name="why-dont-i-see-all-my-subscriptions-in-the-subscription-picker"></a>Dlaczego nie widzę wszystkich moich subskrypcji w selektorze subskrypcji
 
 Wyświetlamy tylko te subskrypcje, które zawierają magazyny kluczy, wybrane z wybranego filtru subskrypcji, które są wybrane w "katalogu i subskrypcji" w nagłówku Azure Portal.
 
 ![Zrzut ekranu filtru subskrypcji](./media/key-vaults-insights-overview/Subscriptions.png)
 
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Otrzymuję komunikat o błędzie informujący o tym, że "zapytanie przekracza maksymalną dozwoloną liczbę obszarów roboczych/regionów"?
+### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Otrzymuję komunikat o błędzie informujący o tym, że "zapytanie przekracza maksymalną dozwoloną liczbę obszarów roboczych/regionów", co zrobić teraz
 
 Obecnie istnieje ograniczenie do 25 regionów i 200 obszarów roboczych, aby wyświetlić dane, należy zmniejszyć liczbę subskrypcji i/lub grup zasobów.
 
-### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Chcę wprowadzić zmiany lub dodać dodatkowe wizualizacje do Key Vault szczegółowych informacji, jak to zrobić?
+### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Chcę wprowadzić zmiany lub dodać dodatkowe wizualizacje do Key Vault szczegółowych informacji, jak to zrobić
 
 Aby wprowadzić zmiany, wybierz pozycję "Edytuj tryb", aby zmodyfikować skoroszyt, a następnie Zapisz swoją służbę jako nowy skoroszyt powiązany z określoną subskrypcją i grupą zasobów.
 
-### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Co to jest ziarno czasu, gdy przypinam wszystkie części skoroszytów?
+### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Co to jest ziarno czasu, gdy przypinam wszystkie części skoroszytów
 
 Wykorzystujemy ziarno czasu "Auto", dlatego zależy od tego, jaki zakres czasu jest wybrany.
 
-### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Jaki jest zakres czasu, gdy dowolna część skoroszytu jest przypięta?
+### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Jaki jest zakres czasu, gdy dowolna część skoroszytu jest przypięta
 
 Zakres czasu zależy od ustawień pulpitu nawigacyjnego.
 
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Dlaczego nie widzę żadnych danych Key Vault w sekcjach opóźnienia & operacji?
+### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Dlaczego nie widzę żadnych danych dla Key Vault w sekcji opóźnienia & operacji
 
 Aby wyświetlić dane oparte na dziennikach, należy włączyć dzienniki dla każdego z magazynów kluczy, które mają być monitorowane. Można to zrobić w ustawieniach diagnostycznych dla każdego magazynu kluczy. Konieczne będzie wysłanie danych do określonego obszaru roboczego Log Analytics.
 
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Mam już włączone dzienniki dla mojego Key Vault, dlaczego nadal nie mogę zobaczyć moich danych w trakcie opóźnienia & operacji?
+### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Mam już włączone dzienniki dla mojego Key Vault, dlaczego nadal nie mogę zobaczyć moich danych w obszarze opóźnienia & operacji
 
 Obecnie dzienniki diagnostyczne nie działają z mocą wsteczną, więc dane zostaną uruchomione dopiero po wykonaniu akcji związanych z magazynami kluczy. W związku z tym może upłynąć trochę czasu od godzin do dnia, w zależności od aktywnego magazynu kluczy.
 
 Ponadto jeśli masz wybraną dużą liczbę magazynów kluczy i subskrypcji, możesz nie być w stanie wyświetlać danych z powodu ograniczeń zapytania. Aby można było wyświetlić dane, może być konieczne zmniejszenie liczby wybranych subskrypcji lub magazynów kluczy. 
 
-### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>Co zrobić, jeśli chcę zobaczyć inne dane lub utworzyć własne wizualizacje? Jak mogę wprowadzić zmiany w usłudze Key Vault Insights?
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>Co zrobić, jeśli chcę zobaczyć inne dane lub utworzyć własne wizualizacje? Jak mogę wprowadzić zmiany w usłudze Key Vault Insights
 
 Istniejący skoroszyt można edytować za pomocą trybu edycji, a następnie zapisać swoją służbę jako nowy skoroszyt, który będzie zawierał wszystkie nowe zmiany.
 
