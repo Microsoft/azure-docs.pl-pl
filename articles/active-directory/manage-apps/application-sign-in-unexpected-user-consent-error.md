@@ -3,25 +3,25 @@ title: Nieoczekiwany błąd podczas wyrażania zgody na aplikację | Microsoft D
 description: Omawia błędy, które mogą wystąpić podczas procesu wyrażania zgody na aplikację i co można zrobić z nimi
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea14e02920cf7ba6c5e0a7b415cb92137c915576
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80519704"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763758"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Nieoczekiwany błąd podczas wyrażania zgody na aplikację
 
@@ -32,35 +32,35 @@ Wiele aplikacji, które integrują się z Azure Active Directory wymaga uprawnie
 Niektóre warunki muszą być spełnione, aby użytkownik mógł wyrazić zgodę na uprawnienia wymagane przez aplikację. Jeśli te warunki nie są spełnione, mogą wystąpić następujące błędy.
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Błąd żądania nieautoryzowanych uprawnień
-* **AADSTS90093:** &lt;clientAppDisplayName&gt; żąda co najmniej jednego uprawnienia, które nie jest autoryzowane do przyznania. Skontaktuj się z administratorem, który może wyrazić zgodę na tę aplikację w Twoim imieniu.
-* **AADSTS90094:** &lt;clientAppDisplayName&gt; wymaga uprawnień dostępu do zasobów w organizacji, które mogą przyznawać tylko Administratorzy. Poproś administratora o udzielenie uprawnienia do tej aplikacji, aby można było z niej korzystać.
+* **AADSTS90093:** &lt; clientAppDisplayName &gt; żąda co najmniej jednego uprawnienia, które nie jest autoryzowane do przyznania. Skontaktuj się z administratorem, który może wyrazić zgodę na tę aplikację w Twoim imieniu.
+* **AADSTS90094:** &lt; clientAppDisplayName &gt; musi mieć uprawnienia dostępu do zasobów w organizacji, które mogą przyznawać tylko Administratorzy. Poproś administratora o udzielenie uprawnienia do tej aplikacji, aby można było z niej korzystać.
 
 Ten błąd występuje, gdy użytkownik, który nie jest administratorem firmy, próbuje użyć aplikacji, która żąda uprawnień, które może udzielić tylko administrator. Ten błąd może zostać rozwiązany przez administratora, który udziela dostępu do aplikacji w imieniu swojej organizacji.
 
 Ten błąd może również wystąpić, gdy użytkownik nie jest w stanie przesłać do aplikacji z powodu wykrycia przez firmę Microsoft, że żądanie uprawnień jest ryzykowne. W takim przypadku zdarzenie inspekcji zostanie również zarejestrowane z kategorią "ApplicationManagement", typ działania "Zgoda na aplikację" i Przyczyna stanu "wykryto ryzykowną aplikację".
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Zasady uniemożliwiają udzielenie błędu uprawnień
-* **AADSTS90093:** Administrator usługi &lt;tenantDisplayName&gt; ustawił zasady, które uniemożliwiają przyznanie &lt;nazwy aplikacji&gt; , do której żądają uprawnienia. Skontaktuj się z administratorem &lt;tenantDisplayName&gt;, który może udzielić uprawnień do tej aplikacji w Twoim imieniu.
+* **AADSTS90093:** Administrator usługi &lt; tenantDisplayName &gt; ustawił zasady, które uniemożliwiają przyznanie &lt; nazwy aplikacji &gt; , do której żądają uprawnienia. Skontaktuj się z administratorem &lt; tenantDisplayName &gt; , który może udzielić uprawnień do tej aplikacji w Twoim imieniu.
 
 Ten błąd występuje, gdy administrator firmy wyłącza możliwość wyrażania zgody użytkowników na aplikacje, a następnie użytkownik niebędący administratorem próbuje użyć aplikacji, która wymaga zgody. Ten błąd może zostać rozwiązany przez administratora, który udziela dostępu do aplikacji w imieniu swojej organizacji.
 
 ## <a name="intermittent-problem-error"></a>Błąd sporadycznego problemu
-* **AADSTS90090:** Wygląda na to, że proces logowania napotkał sporadyczny problem podczas rejestrowania uprawnień, które próbowano udzielić &lt;clientAppDisplayName.&gt; Spróbuj ponownie później.
+* **AADSTS90090:** Wygląda na to, że proces logowania napotkał sporadyczny problem podczas rejestrowania uprawnień, które próbowano udzielić &lt; clientAppDisplayName &gt; . Spróbuj ponownie później.
 
 Ten błąd wskazuje, że wystąpił sporadyczny problem po stronie usługi. Można rozwiązać ten problem, próbując ponownie wyrazić zgodę na aplikację.
 
 ## <a name="resource-not-available-error"></a>Błąd niedostępnego zasobu
-* **AADSTS65005:** Aplikacja &lt;clientAppDisplayNamea&gt; żądane uprawnienia dostępu do resourceAppDisplayName &lt;&gt; zasobów, która jest niedostępna. 
+* **AADSTS65005:** Aplikacja &lt; clientAppDisplayNamea &gt; żądane uprawnienia dostępu do resourceAppDisplayName zasobów &lt; &gt; , która jest niedostępna. 
 
 Skontaktuj się z deweloperem aplikacji.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>Zasób nie jest dostępny w przypadku błędu dzierżawy
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; żąda dostępu do &lt;zasobu resourceAppDisplayName&gt; , który nie jest dostępny w Twojej organizacji &lt;tenantDisplayName.&gt; 
+* **AADSTS65005:** &lt; clientAppDisplayName &gt; żąda dostępu do zasobu &lt; resourceAppDisplayName &gt; , który nie jest dostępny w organizacji &lt; tenantDisplayName &gt; . 
 
-Upewnij się, że ten zasób jest dostępny, lub skontaktuj &lt;się&gt;z administratorem tenantDisplayName.
+Upewnij się, że ten zasób jest dostępny, lub skontaktuj się z administratorem &lt; tenantDisplayName &gt; .
 
 ## <a name="permissions-mismatch-error"></a>Błąd niezgodności uprawnień
-* **AADSTS65005:** Aplikacja zażądała zgody na dostęp &lt;do&gt;resourceAppDisplayName zasobów. To żądanie nie powiodło się, ponieważ nie pasuje do sposobu, w jaki aplikacja została wstępnie skonfigurowana podczas rejestracji aplikacji. Skontaktuj się z dostawcą aplikacji. * *
+* **AADSTS65005:** Aplikacja zażądała zgody na dostęp do &lt; resourceAppDisplayName zasobów &gt; . To żądanie nie powiodło się, ponieważ nie pasuje do sposobu, w jaki aplikacja została wstępnie skonfigurowana podczas rejestracji aplikacji. Skontaktuj się z dostawcą aplikacji. * *
 
 Te błędy są wykonywane, gdy aplikacja, którą użytkownik próbuje wyrazić zgodę, żąda uprawnień dostępu do aplikacji zasobów, której nie można znaleźć w katalogu organizacji (dzierżawy). Ta sytuacja może wystąpić z kilku powodów:
 

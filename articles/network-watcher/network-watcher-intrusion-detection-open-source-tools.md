@@ -8,23 +8,23 @@ author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 1bd823d94552d1e920b367b6576b0e3bb74aefb2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a7b4d8c3d2e2b33d8e2a9936670992b1c922b6a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474931"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737363"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Wykrywanie intruzów w sieci za pomocą Network Watcher i narzędzi open source
 
 Przechwytywanie pakietów to kluczowy składnik służący do implementowania systemów wykrywania dostępu do sieci (identyfikatorów) i wykonywania monitorowania zabezpieczeń sieci (NSM). Istnieje kilka narzędzi identyfikatorów Open Source, które przetwarzają przechwycenia pakietów i szukają podpisów możliwych intruzów sieci i złośliwych działań. Za pomocą przechwytywania pakietów dostarczonych przez Network Watcher można analizować sieć pod kątem wszelkich szkodliwych intruzów lub luk w zabezpieczeniach.
 
-Jednym z takich narzędzi typu "open source" jest suricata, ponieważ aparat identyfikatorów używa zestawów reguł do monitorowania ruchu sieciowego i wyzwalania alertów po wystąpieniu podejrzanych zdarzeń. Suricata oferuje aparat wielowątkowy, co oznacza, że może przeprowadzać analizę ruchu sieciowego dzięki zwiększonej szybkości i wydajności. Aby uzyskać więcej informacji na temat Suricata i jego możliwości, odwiedź witrynę https://suricata-ids.org/sieci Web pod adresem.
+Jednym z takich narzędzi typu "open source" jest suricata, ponieważ aparat identyfikatorów używa zestawów reguł do monitorowania ruchu sieciowego i wyzwalania alertów po wystąpieniu podejrzanych zdarzeń. Suricata oferuje aparat wielowątkowy, co oznacza, że może przeprowadzać analizę ruchu sieciowego dzięki zwiększonej szybkości i wydajności. Aby uzyskać więcej informacji na temat Suricata i jego możliwości, odwiedź witrynę sieci Web pod adresem https://suricata-ids.org/ .
 
 ## <a name="scenario"></a>Scenariusz
 
@@ -48,7 +48,7 @@ W przypadku wszystkich innych metod instalacji odwiedź witrynęhttps://suricata
     sudo sudo apt-get install suricata
     ```
 
-1. Aby sprawdzić poprawność instalacji, uruchom `suricata -h` polecenie, aby wyświetlić pełną listę poleceń.
+1. Aby sprawdzić poprawność instalacji, uruchom polecenie, `suricata -h` Aby wyświetlić pełną listę poleceń.
 
 ### <a name="download-the-emerging-threats-ruleset"></a>Pobierz zestaw reguł zagrożeń
 
@@ -80,7 +80,7 @@ Chociaż dzienniki wytwarzane przez program Suricata zawierają cenne informacje
 
 #### <a name="install-elasticsearch"></a>Zainstaluj Elasticsearch
 
-1. Stos elastyczny z wersji 5,0 i nowszej wymaga języka Java 8. Uruchom polecenie `java -version` , aby sprawdzić wersję. Jeśli nie masz zainstalowanego języka Java, zapoznaj się z dokumentacją na [platformie Azure-Suppored zestawy JDK](https://aka.ms/azure-jdks).
+1. Stos elastyczny z wersji 5,0 i nowszej wymaga języka Java 8. Uruchom polecenie, `java -version` Aby sprawdzić wersję. Jeśli nie masz zainstalowanego języka Java, zapoznaj się z dokumentacją na [platformie Azure-Suppored zestawy JDK](https://aka.ms/azure-jdks).
 
 1. Pobierz poprawny pakiet binarny dla Twojego systemu:
 
@@ -125,13 +125,13 @@ Dalsze instrukcje dotyczące instalowania wyszukiwania elastycznego można znale
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Następnie musimy skonfigurować logstash do odczytu z danych wyjściowych pliku Wigilia. JSON. Utwórz plik logstash. conf przy użyciu:
+1. Następnie należy skonfigurować logstash do odczytu z danych wyjściowych eve.jspliku. Utwórz plik logstash. conf przy użyciu:
 
     ```
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-1. Dodaj następującą zawartość do pliku (Upewnij się, że ścieżka do pliku Wigilia. JSON jest poprawna):
+1. Dodaj następującą zawartość do pliku (Upewnij się, że ścieżka do eve.jsw pliku jest poprawna):
 
     ```ruby
     input {
@@ -203,7 +203,7 @@ Dalsze instrukcje dotyczące instalowania wyszukiwania elastycznego można znale
     }
     ```
 
-1. Upewnij się, że nadajesz odpowiednie uprawnienia do pliku Wigilia. JSON, aby logstash mógł pozyskiwać plik.
+1. Upewnij się, że nadajesz odpowiednie uprawnienia do eve.jsw pliku, aby logstash mógł pozyskiwać plik.
     
     ```
     sudo chmod 775 /var/log/suricata/eve.json

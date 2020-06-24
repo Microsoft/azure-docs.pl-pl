@@ -3,17 +3,17 @@ title: Użyj wizualizatora błędów rysowania Azure Maps
 description: Ten artykuł zawiera informacje na temat wizualizacji ostrzeżeń i błędów zwracanych przez interfejs API konwersji twórców.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 7e43995c4221127580333c3f013fcb209730f863
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681957"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791127"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Korzystanie z Azure Maps wizualizatora błędów rysowania
 
@@ -58,16 +58,16 @@ W tym samouczku jest stosowana aplikacja programu [Poster](https://www.postman.c
 
 W ramach pobranego spakowanego pakietu z linku znajdują się `diagnosticPackageLocation` dwa pliki.
 
-* _VisualizationTool. zip_: zawiera kod źródłowy, nośnik i stronę sieci Web wizualizatora błędu rysowania.
-* _ConversionWarningsAndErrors. JSON_: zawiera sformatowaną listę ostrzeżeń, błędów i dodatkowych szczegółów, które są używane przez wizualizator błędu rysowania.
+* _VisualizationTool.zip_: zawiera kod źródłowy, nośnik i stronę sieci Web wizualizatora błędu rysowania.
+* _ConversionWarningsAndErrors.js_: zawiera sformatowaną listę ostrzeżeń, błędów i dodatkowych szczegółów, które są używane przez wizualizator błędów rysowania.
 
-Rozpakuj folder _VisualizationTool. zip_ . Zawiera następujące elementy:
+Rozpakuj folder _VisualizationTool.zip_ . Zawiera następujące elementy:
 
 * folder _zasobów_ : zawiera obrazy i pliki multimedialne
 * folder _statyczny_ : kod źródłowy
-* _index. html_ : aplikacja sieci Web.
+* Plik _index.html_ : aplikacja sieci Web.
 
-Otwórz plik _index. html_ przy użyciu dowolnej z poniższych przeglądarek z odpowiednimi numerami wersji. Możesz użyć innej wersji, jeśli wersja oferuje równie zgodne zachowanie jak wyświetlana wersja.
+Otwórz plik _index.html_ przy użyciu dowolnej z poniższych przeglądarek z odpowiednimi numerami wersji. Możesz użyć innej wersji, jeśli wersja oferuje równie zgodne zachowanie jak wyświetlana wersja.
 
 * Microsoft Edge 80
 * Przeglądarka Safari 13
@@ -78,15 +78,15 @@ Otwórz plik _index. html_ przy użyciu dowolnej z poniższych przeglądarek z o
 
 Po uruchomieniu narzędzia wizualizatora błędów rysowania zostanie wyświetlona strona przekazywania. Strona przekazywanie zawiera pole przeciągnij i upuść. Pole upuszczania & przeciągnij również działa jako przycisk, który uruchamia okno dialogowe Eksploratora plików.
 
-![Aplikacja wizualizatora błędów rysowania — Strona początkowa](./media/drawing-errors-visualizer/start-page.png)
+:::image type="content" source="./media/drawing-errors-visualizer/start-page.png" alt-text="Aplikacja wizualizatora błędów rysowania — Strona początkowa":::
 
-Plik _ConversionWarningsAndErrors. JSON_ został umieszczony w katalogu głównym pobranego katalogu. Aby załadować plik _ConversionWarningsAndErrors. JSON_ , możesz albo przeciągnąć do pola pozycję & upuścić lub kliknąć pole, znaleźć plik w oknie dialogowym Eksploratora plików, a następnie przekazać plik.
+_ConversionWarningsAndErrors.jsw_ pliku został umieszczony w katalogu głównym pobranego katalogu. Aby załadować _ConversionWarningsAndErrors.js_ , możesz przeciągnąć & usunąć plik do pola lub kliknąć pole, znaleźć plik w oknie dialogowym Eksploratora plików, a następnie przekazać plik.
 
-![Wizualizator błędu rysowania — przeciąganie i upuszczanie w celu załadowania danych](./media/drawing-errors-visualizer/loading-data.gif)
+:::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Wizualizator błędu rysowania — przeciąganie i upuszczanie w celu załadowania danych":::
 
-Po załadowaniu pliku _ConversionWarningsAndErrors. JSON_ zostanie wyświetlona lista błędów i ostrzeżeń pakietu rysowania. Każdy błąd lub ostrzeżenie jest określany na podstawie warstwy, poziomu i komunikatu szczegółowego. Możesz teraz przejść do każdego błędu, aby uzyskać więcej szczegółowych informacji na temat sposobu rozwiązania błędu.  
+Po załadowaniu pliku _ConversionWarningsAndErrors.js_ zostanie wyświetlona lista błędów i ostrzeżeń pakietu rysowania. Każdy błąd lub ostrzeżenie jest określany na podstawie warstwy, poziomu i komunikatu szczegółowego. Aby wyświetlić szczegółowe informacje dotyczące błędu lub ostrzeżenia, kliknij link **szczegóły** . Sekcja, która może zostać przemieszczona, zostanie wyświetlona poniżej listy. Możesz teraz przejść do każdego błędu, aby uzyskać więcej szczegółowych informacji na temat sposobu rozwiązania błędu.
 
-![Wizualizator błędu aplikacji — błędy i ostrzeżenia](./media/drawing-errors-visualizer/errors.png)
+:::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Wizualizator błędu aplikacji — błędy i ostrzeżenia":::
 
 ## <a name="next-steps"></a>Następne kroki
 

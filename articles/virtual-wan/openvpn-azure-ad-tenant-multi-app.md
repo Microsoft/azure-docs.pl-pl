@@ -155,7 +155,7 @@ Użyj tego [linku](https://go.microsoft.com/fwlink/?linkid=2117554) , aby pobra�
 
 3. W sekcji dotyczącej koncentratorów i połączeń możesz wyświetlić stan koncentratora, lokację, region, stan połączenia sieci VPN oraz bajty przychodzące i wychodzące.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów i zawarte w niej zasoby nie będą już potrzebne, można je usunąć za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Zastąp wartość „myResourceGroup” nazwą grupy zasobów, a następnie uruchom następujące polecenie programu PowerShell:
 

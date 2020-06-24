@@ -4,15 +4,15 @@ description: Na tej stronie przedstawiono zalecenia dotyczące architektury twor
 services: networking
 author: rambk
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
-ms.openlocfilehash: a6a22b667bc66d6ee69bfbd7ad1db88f72d8df0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb6ebdcae837216efac5b9333789dee032219251
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687824"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738094"
 ---
 # <a name="using-s2s-vpn-as-a-backup-for-expressroute-private-peering"></a>Używanie sieci VPN S2S jako kopii zapasowej dla prywatnej komunikacji równorzędnej ExpressRoute
 

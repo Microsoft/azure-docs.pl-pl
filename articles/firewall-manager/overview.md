@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 03/13/2020
+ms.date: 06/11/2020
 ms.author: victorh
-ms.openlocfilehash: 149782f627d586e927c828506a7d4f1b5437b987
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bef948def487e2b60764641e6cf38a3e122e2f87
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79366278"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792165"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Co to jest wersja zapoznawcza usługi Azure firewall Manager?
 
@@ -22,7 +22,7 @@ Menedżer zapory Azure w wersji zapoznawczej to usługa zarządzania zabezpiecze
 
 Menedżer zapory może zapewnić zarządzanie zabezpieczeniami dla dwóch typów architektury sieci:
 
-- **bezpieczny koncentrator wirtualny**
+- **Bezpieczny koncentrator wirtualny**
 
    [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) to zasób zarządzany przez firmę Microsoft, który umożliwia łatwe tworzenie architektur Hub i szprych. Gdy zasady zabezpieczeń i routingu są skojarzone z takim centrum, jest ono nazywane *[bezpiecznym koncentratorem wirtualnym](secured-virtual-hub.md)*. 
 - **Sieć wirtualna centrum**
@@ -31,7 +31,7 @@ Menedżer zapory może zapewnić zarządzanie zabezpieczeniami dla dwóch typów
 
 Aby zapoznać się ze szczegółowym porównaniem bezpiecznych architektur wirtualnych *centrów wirtualnych* i *koncentratorów* , zobacz [co to są opcje architektury usługi Azure firewall Manager?](vhubs-and-vnets.md).
 
-![Zapora — Menedżer](media/overview/firewallmanagerv5.png)
+![Zapora — Menedżer](media/overview/trusted-security-partners.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Funkcje w wersji zapoznawczej Menedżera zapory platformy Azure
 

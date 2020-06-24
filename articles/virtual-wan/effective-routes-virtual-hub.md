@@ -4,15 +4,15 @@ description: Wyświetl efektywne trasy dla koncentratora wirtualnego w wirtualne
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7f0785f8ce2528d0c17a8aca520212df931bf394
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: c7d436f2aecb021a7848ef0455a3f1c834cc38c1
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343374"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750544"
 ---
 # <a name="view-effective-routes-of-a-virtual-hub"></a>Wyświetlanie efektywnych tras koncentratora wirtualnego
 

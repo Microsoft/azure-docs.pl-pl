@@ -2,13 +2,13 @@
 title: Usuwanie w trybie pełnym
 description: Pokazuje, jak typy zasobów obsługują usuwanie w trybie pełnym w szablonach Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: e0250b289ce7a228d844023c3e1d1110438b3afc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/15/2020
+ms.openlocfilehash: 4c16b8a0ffa1a4756a3063ca63f8c0eae2166f3e
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80802573"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791167"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Usuwanie zasobów platformy Azure na potrzeby wdrożeń w trybie pełnym
 
@@ -34,11 +34,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. zaświadczanie](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft. Automation](#microsoftautomation)
-> - [Microsoft. Azconfig](#microsoftazconfig)
+> - [Microsoft. Automatyczna synchronizacja](#microsoftavs)
 > - [Microsoft. Azure. Genewa](#microsoftazuregeneva)
 > - [Microsoft. usługi azureactivedirectory](#microsoftazureactivedirectory)
 > - [Microsoft. AzureData](#microsoftazuredata)
 > - [Microsoft. AzureStack](#microsoftazurestack)
+> - [Microsoft. AzureStackHCI](#microsoftazurestackhci)
+> - [Microsoft. AzureStackResourceMonitor](#microsoftazurestackresourcemonitor)
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft. rozliczenia](#microsoftbilling)
 > - [Microsoft. BingMaps](#microsoftbingmaps)
@@ -50,6 +52,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. Pojemność](#microsoftcapacity)
 > - [Microsoft. CDN](#microsoftcdn)
 > - [Microsoft. CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft. ChangeAnalysis](#microsoftchangeanalysis)
 > - [Microsoft.ClassicCompute](#microsoftclassiccompute)
 > - [Microsoft. ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
 > - [Microsoft. ClassicNetwork](#microsoftclassicnetwork)
@@ -72,6 +75,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft. kontach datalakestore](#microsoftdatalakestore)
 > - [Migracja Microsoft.](#microsoftdatamigration)
+> - [Microsoft. dataprotection](#microsoftdataprotection)
 > - [Microsoft. dataudział](#microsoftdatashare)
 > - [Microsoft. DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft. DBforMySQL](#microsoftdbformysql)
@@ -82,12 +86,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. DevOps](#microsoftdevops)
 > - [Microsoft. DevSpaces](#microsoftdevspaces)
 > - [Microsoft. wspólny](#microsoftdevtestlab)
-> - [Microsoft. DocumentDB](#microsoftdocumentdb)
+> - [Microsoft. DigitalTwins](#microsoftdigitaltwins)
+> - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft. DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft. DynamicsLcs](#microsoftdynamicslcs)
 > - [Microsoft. EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft. EventGrid](#microsofteventgrid)
 > - [Microsoft. EventHub](#microsofteventhub)
+> - [Microsoft. eksperymentowanie](#microsoftexperimentation)
 > - [Microsoft. Falcon](#microsoftfalcon)
 > - [Microsoft. Features](#microsoftfeatures)
 > - [Microsoft. Gallery](#microsoftgallery)
@@ -99,6 +105,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. HealthcareApis](#microsofthealthcareapis)
 > - [Microsoft. HybridCompute](#microsofthybridcompute)
 > - [Microsoft. HybridData](#microsofthybriddata)
+> - [Microsoft. HybridNetwork](#microsofthybridnetwork)
 > - [Microsoft. Hydra](#microsofthydra)
 > - [Microsoft. ImportExport](#microsoftimportexport)
 > - [Microsoft.Intune](#microsoftintune)
@@ -106,6 +113,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. IoTSpaces](#microsoftiotspaces)
 > - [Microsoft. kluczy — magazyn](#microsoftkeyvault)
 > - [Microsoft. Kubernetes](#microsoftkubernetes)
+> - [Microsoft. KubernetesConfiguration](#microsoftkubernetesconfiguration)
 > - [Microsoft.Kusto](#microsoftkusto)
 > - [Microsoft. LabServices](#microsoftlabservices)
 > - [Microsoft. Logic](#microsoftlogic)
@@ -113,6 +121,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft. Maintenance](#microsoftmaintenance)
 > - [Microsoft. ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft. ManagedNetwork](#microsoftmanagednetwork)
 > - [Microsoft. ManagedServices](#microsoftmanagedservices)
 > - [Microsoft. Management](#microsoftmanagement)
 > - [Microsoft. Maps](#microsoftmaps)
@@ -137,10 +146,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. PowerBI](#microsoftpowerbi)
 > - [Microsoft. PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft. ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft. ProviderHub](#microsoftproviderhub)
 > - [Microsoft. Quantum](#microsoftquantum)
 > - [Microsoft. RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft. RedHatOpenShift](#microsoftredhatopenshift)
 > - [Microsoft. Relay](#microsoftrelay)
-> - [Microsoft. RemoteApp](#microsoftremoteapp)
 > - [Microsoft. ResourceGraph](#microsoftresourcegraph)
 > - [Microsoft. ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft. resources](#microsoftresources)
@@ -149,15 +159,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft. SecurityGraph](#microsoftsecuritygraph)
 > - [Microsoft. SecurityInsights](#microsoftsecurityinsights)
+> - [Microsoft. SerialConsole](#microsoftserialconsole)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft. servicefabric](#microsoftservicefabric)
 > - [Microsoft. ServiceFabricMesh](#microsoftservicefabricmesh)
 > - [Microsoft. Services](#microsoftservices)
 > - [Microsoft. SignalRService](#microsoftsignalrservice)
-> - [Microsoft. SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft. SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft. Solutions](#microsoftsolutions)
-> - [Microsoft. SpoolService](#microsoftspoolservice)
 > - [Microsoft. SQL](#microsoftsql)
 > - [Microsoft. SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
@@ -169,12 +178,20 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > - [Microsoft. StorSimple](#microsoftstorsimple)
 > - [Microsoft. StreamAnalytics](#microsoftstreamanalytics)
 > - [Microsoft. Subscription](#microsoftsubscription)
+> - [Microsoft. Synapse](#microsoftsynapse)
 > - [Microsoft. TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft. token](#microsofttoken)
+> - [Microsoft. VirtualMachineImages](#microsoftvirtualmachineimages)
+> - [Microsoft. VMware](#microsoftvmware)
 > - [Microsoft. VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft. VMwareOnAzure](#microsoftvmwareonazure)
 > - [Microsoft. VnfManager](#microsoftvnfmanager)
+> - [Microsoft. VSOnline](#microsoftvsonline)
 > - [Microsoft. Web](#microsoftweb)
 > - [Microsoft. WindowsDefenderATP](#microsoftwindowsdefenderatp)
+> - [Microsoft. WindowsESU](#microsoftwindowsesu)
 > - [Microsoft. WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft. WorkloadBuilder](#microsoftworkloadbuilder)
 > - [Microsoft. Monitor obciążenia został](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft. AAD
@@ -203,7 +220,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | anonymousapiusers | Nie |
 > | konfiguracja | Nie |
 > | dzienniki | Nie |
-> | reports | Nie |
+> | raporty | Nie |
 > | servicehealthmetrics | Nie |
 > | services | Nie |
 
@@ -262,13 +279,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | Spring | Tak |
+> | Sprężynowe/aplikacje | Nie |
+> | Sprężynowe/aplikacje/wdrożenia | Nie |
 
 ## <a name="microsoftattestation"></a>Microsoft. zaświadczanie
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
-> | attestationProviders | Nie |
+> | attestationProviders | Tak |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
@@ -285,7 +304,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | policyAssignments | Nie |
 > | policyDefinitions | Nie |
 > | policySetDefinitions | Nie |
+> | privateLinkAssociations | Nie |
 > | providerOperations | Nie |
+> | resourceManagementPrivateLinks | Nie |
 > | roleAssignments | Nie |
 > | roleAssignmentsUsageMetrics | Nie |
 > | roleDefinitions | Nie |
@@ -305,13 +326,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | automationAccounts / softwareUpdateConfigurations | Nie |
 > | automationAccounts/elementy webhook | Nie |
 
-## <a name="microsoftazconfig"></a>Microsoft. Azconfig
+## <a name="microsoftavs"></a>Microsoft. Automatyczna synchronizacja
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
-> | configurationStores | Tak |
-> | configurationStores / eventGridFilters | Nie |
+> | privateClouds | Tak |
+> | privateClouds/autoryzacje | Nie |
+> | privateClouds/klastry | Nie |
+> | privateClouds / hcxEnterpriseSites | Nie |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft. Azure. Genewa
 
@@ -336,9 +359,12 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
+> | Kontrolery datacontrollers | Tak |
 > | hybridDataManagers | Tak |
 > | postgresInstances | Tak |
 > | Wystąpienia sqlinstances | Tak |
+> | sqlManagedInstances | Tak |
+> | sqlServerInstances | Tak |
 > | sqlServerRegistrations | Tak |
 > | sqlServerRegistrations/SQLServers | Nie |
 
@@ -351,6 +377,20 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | rejestracje | Tak |
 > | rejestracje/customerSubscriptions | Nie |
 > | rejestracje/produkty | Nie |
+
+## <a name="microsoftazurestackhci"></a>Microsoft. AzureStackHCI
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | oparty | Tak |
+
+## <a name="microsoftazurestackresourcemonitor"></a>Microsoft. AzureStackResourceMonitor
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | storageAccountMonitor | Tak |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -506,6 +546,12 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | Redis | Tak |
+> | Redis/EventGridFilters | Nie |
+> | Redis/privateEndpointConnectionProxies | Nie |
+> | Redis/privateEndpointConnectionProxies/Weryfikuj | Nie |
+> | Redis/privateEndpointConnections | Nie |
+> | Redis/privateLinkResources | Nie |
+> | redisEnterprise | Tak |
 
 ## <a name="microsoftcapacity"></a>Microsoft. Pojemność
 
@@ -557,6 +603,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | certificateOrders | Tak |
 > | certificateOrders/certyfikaty | Nie |
 > | validateCertificateRegistrationInformation | Nie |
+
+## <a name="microsoftchangeanalysis"></a>Microsoft. ChangeAnalysis
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | profil | Nie |
+> | resourceChanges | Nie |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -653,6 +707,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | availabilitySets | Tak |
+> | diskAccesses | Tak |
 > | diskEncryptionSets | Tak |
 > | dysku | Tak |
 > | znajduj | Tak |
@@ -672,9 +727,11 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | sharedVMImages/wersje | Nie |
 > | Migawki | Tak |
 > | sshPublicKeys | Tak |
+> | swiftlets | Tak |
 > | virtualMachines | Tak |
 > | virtualMachines/rozszerzenia | Tak |
 > | virtualMachines/metricDefinitions | Nie |
+> | virtualMachines/runCommands | Tak |
 > | virtualMachineScaleSets | Tak |
 > | virtualMachineScaleSets/rozszerzenia | Nie |
 > | virtualMachineScaleSets/networkInterfaces | Nie |
@@ -697,16 +754,17 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Prognozy | Nie |
 > | ilości | Nie |
 > | Platform handlowych | Nie |
-> | Arkusze cen | Nie |
+> | Pricesheets | Nie |
 > | wyrobów | Nie |
 > | ReservationDetails | Nie |
+> | ReservationRecommendationDetails | Nie |
 > | ReservationRecommendations | Nie |
 > | ReservationSummaries | Nie |
 > | ReservationTransactions | Nie |
 > | Tagi | Nie |
 > | dzierżaw | Nie |
-> | Warunki | Nie |
-> | UsageDetails | Nie |
+> | Terminologia | Nie |
+> | UsageDetails (Szczegóły użycia) | Nie |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
@@ -729,10 +787,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | rejestry/buildTasks | Tak |
 > | rejestry/buildTasks/kroki | Nie |
 > | rejestry/eventGridFilters | Nie |
+> | rejestry/exportPipelines | Nie |
 > | rejestry/generateCredentials | Nie |
 > | rejestry/getBuildSourceUploadUrl | Nie |
 > | rejestry/getpoświadczenia | Nie |
 > | rejestry/importImage | Nie |
+> | rejestry/importPipelines | Nie |
+> | rejestry/pipelineRuns | Nie |
 > | rejestry/privateEndpointConnectionProxies | Nie |
 > | rejestry/privateEndpointConnectionProxies/weryfikacja | Nie |
 > | rejestry/privateEndpointConnections | Nie |
@@ -745,7 +806,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | rejestry/uruchomienia/Anuluj | Nie |
 > | rejestry/scheduleRun | Nie |
 > | rejestry/scopeMaps | Nie |
-> | rejestry/taskRuns | Tak |
+> | rejestry/taskRuns | Nie |
 > | rejestry/zadania | Tak |
 > | rejestry/tokeny | Nie |
 > | rejestry/updatePolicies | Nie |
@@ -772,6 +833,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Budżety | Nie |
 > | CloudConnectors | Nie |
 > | Łączniki | Tak |
+> | costAllocationRules | Nie |
 > | Działy | Nie |
 > | Wymiary | Nie |
 > | EnrollmentAccounts | Nie |
@@ -844,7 +906,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | wykazy danych/źródła danych | Nie |
 > | wykazy danych/źródła danych/skany | Nie |
 > | wykazy danych/źródła danych/skany/zestawy danych | Nie |
+> | wykazy danych/źródła danych/skanowania/filtry | Nie |
 > | wykazy danych/źródła danych/skanowania/wyzwalacze | Nie |
+> | webcatalogs/scanrulesets | Nie |
 
 ## <a name="microsoftdatafactory"></a>Microsoft. DataFactory
 
@@ -885,6 +949,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | services | Tak |
 > | usługi/projekty | Tak |
+
+## <a name="microsoftdataprotection"></a>Microsoft. dataprotection
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | BackupVaults | Tak |
 
 ## <a name="microsoftdatashare"></a>Microsoft. dataudział
 
@@ -1023,7 +1094,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Labs/virtualMachines | Tak |
 > | Uruchamianie | Tak |
 
-## <a name="microsoftdocumentdb"></a>Microsoft. DocumentDB
+## <a name="microsoftdigitaltwins"></a>Microsoft. DigitalTwins
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | digitalTwinsInstances | Tak |
+> | digitalTwinsInstances/punkty końcowe | Nie |
+
+## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
@@ -1090,6 +1169,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | przestrzenie nazw/eventhubs/reguł autoryzacji | Nie |
 > | przestrzenie nazw/eventhubs/consumergroups | Nie |
 > | przestrzenie nazw/networkrulesets | Nie |
+
+## <a name="microsoftexperimentation"></a>Microsoft. eksperymentowanie
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | experimentWorkspaces | Tak |
 
 ## <a name="microsoftfalcon"></a>Microsoft. Falcon
 
@@ -1175,6 +1261,12 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | services | Tak |
+> | usługi/iomtconnectors | Nie |
+> | usługi/iomtconnectors/połączenia | Nie |
+> | usługi/iomtconnectors/mapowania | Nie |
+> | usługi/privateEndpointConnectionProxies | Nie |
+> | usługi/privateEndpointConnections | Tak |
+> | usługi/privateLinkResources | Tak |
 
 ## <a name="microsofthybridcompute"></a>Microsoft. HybridCompute
 
@@ -1190,6 +1282,19 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | datamanagers | Tak |
+
+## <a name="microsofthybridnetwork"></a>Microsoft. HybridNetwork
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | devices | Tak |
+> | registeredSubscriptions | Nie |
+> | dostawców | Nie |
+> | dostawcy/jednostki SKU | Nie |
+> | dostawcy/vnfs | Nie |
+> | virtualNetworkFunctionSkus | Nie |
+> | vnfs | Tak |
 
 ## <a name="microsofthydra"></a>Microsoft. Hydra
 
@@ -1236,6 +1341,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | deletedVaults | Nie |
 > | hsmPools | Tak |
+> | managedHSMs | Tak |
 > | magazynów | Tak |
 > | magazyny/accessPolicies | Nie |
 > | magazyny/eventGridFilters | Nie |
@@ -1247,6 +1353,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | connectedClusters | Tak |
+> | registeredSubscriptions | Nie |
+
+## <a name="microsoftkubernetesconfiguration"></a>Microsoft. KubernetesConfiguration
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | sourceControlConfigurations | Nie |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
@@ -1318,6 +1432,16 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | Tożsamości | Nie |
 > | Resourceidentity | Tak |
+
+## <a name="microsoftmanagednetwork"></a>Microsoft. ManagedNetwork
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | managedNetworks | Tak |
+> | managedNetworks / managedNetworkGroups | Tak |
+> | managedNetworks / managedNetworkPeeringPolicies | Tak |
+> | powiadomienie | Tak |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft. ManagedServices
 
@@ -1402,12 +1526,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | MediaServices/liveEventOperations | Nie |
 > | MediaServices/liveEvents | Tak |
 > | MediaServices/liveEvents/liveOutputs | Nie |
+> | MediaServices/liveEvents/privateEndpointConnectionProxies | Nie |
 > | MediaServices/liveOutputOperations | Nie |
 > | MediaServices/mediaGraphs | Nie |
 > | MediaServices/streamingEndpointOperations | Nie |
 > | MediaServices/streamingEndpoints | Tak |
+> | MediaServices/streamingEndpoints/privateEndpointConnectionProxies | Nie |
 > | MediaServices/streamingLocators | Nie |
 > | MediaServices/streamingPolicies | Nie |
+> | MediaServices/streamingPrivateEndpointConnectionProxyOperations | Nie |
 > | MediaServices/transformacje | Nie |
 > | MediaServices/transformacje/zadania | Nie |
 
@@ -1497,6 +1624,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | networkSecurityGroups | Tak |
 > | networkWatchers | Tak |
 > | networkWatchers / connectionMonitors | Tak |
+> | networkWatchers / flowLogs | Tak |
 > | networkWatchers/soczewki | Tak |
 > | networkWatchers / pingMeshes | Tak |
 > | p2sVpnGateways | Tak |
@@ -1526,6 +1654,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | virtualHubs | Tak |
 > | virtualNetworkGateways | Tak |
 > | virtualNetworks | Tak |
+> | virtualNetworks/podsieci | Nie |
 > | virtualNetworkTaps | Tak |
 > | virtualWans | Tak |
 > | vpnGateways | Tak |
@@ -1570,6 +1699,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | oparty | Tak |
+> | deletedWorkspaces | Nie |
 > | linkTargets | Nie |
 > | storageInsightConfigs | Nie |
 > | obszary robocze | Tak |
@@ -1577,6 +1707,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | obszary robocze/źródła danych | Nie |
 > | obszary robocze/linkedServices | Nie |
 > | obszary robocze/linkedStorageAccounts | Nie |
+> | obszary robocze/metadane | Nie |
 > | obszary robocze/zapytanie | Nie |
 > | obszary robocze/scopedPrivateLinkProxies | Nie |
 
@@ -1643,6 +1774,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | Konta | Tak |
 
+## <a name="microsoftproviderhub"></a>Microsoft. ProviderHub
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | providerRegistrations | Nie |
+> | providerRegistrations / resourceTypeRegistrations | Nie |
+> | wprowadzanie | Tak |
+
 ## <a name="microsoftquantum"></a>Microsoft. Quantum
 
 > [!div class="mx-tableFixed"]
@@ -1658,6 +1798,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | backupProtectedItems | Nie |
 > | magazynów | Tak |
 
+## <a name="microsoftredhatopenshift"></a>Microsoft. RedHatOpenShift
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | OpenShiftClusters | Tak |
+
 ## <a name="microsoftrelay"></a>Microsoft. Relay
 
 > [!div class="mx-tableFixed"]
@@ -1667,19 +1814,9 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | przestrzenie nazw/reguł autoryzacji | Nie |
 > | przestrzenie nazw/hybridconnections | Nie |
 > | przestrzenie nazw/hybridconnections/reguł autoryzacji | Nie |
+> | przestrzenie nazw/privateEndpointConnections | Nie |
 > | przestrzenie nazw/wcfrelays | Nie |
 > | przestrzenie nazw/wcfrelays/reguł autoryzacji | Nie |
-
-## <a name="microsoftremoteapp"></a>Microsoft. RemoteApp
-
-> [!div class="mx-tableFixed"]
-> | Typ zasobu | Usuwanie w trybie pełnym |
-> | ------------- | ----------- |
-> | Konta | Nie |
-> | Kolekcje | Tak |
-> | Kolekcje/aplikacje | Nie |
-> | Kolekcje/SecurityPrincipals | Nie |
-> | templateImages | Nie |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft. ResourceGraph
 
@@ -1712,6 +1849,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
+> | calculateTemplateHash | Nie |
 > | komputerów | Nie |
 > | wdrożenia/operacje | Nie |
 > | deploymentScripts | Tak |
@@ -1721,6 +1859,8 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | dostawców | Nie |
 > | resourceGroups | Nie |
 > | opłaty | Nie |
+> | templateSpecs | Tak |
+> | templateSpecs/wersje | Tak |
 > | dzierżaw | Nie |
 
 ## <a name="microsoftsaas"></a>Microsoft. SaaS
@@ -1747,6 +1887,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | adaptiveNetworkHardenings | Nie |
 > | advancedThreatProtectionSettings | Nie |
 > | alerts | Nie |
+> | alertsSuppressionRules | Nie |
 > | allowedConnections | Nie |
 > | applicationWhitelistings | Nie |
 > | assessmentMetadata | Nie |
@@ -1765,7 +1906,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | iotSecuritySolutions / analyticsModels / aggregatedAlerts | Nie |
 > | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | Nie |
 > | jitNetworkAccessPolicies | Nie |
-> | networkData | Nie |
 > | policies | Nie |
 > | cen | Nie |
 > | regulatoryComplianceStandards | Nie |
@@ -1803,6 +1943,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | agregacji | Nie |
 > | alertRules | Nie |
 > | alertRuleTemplates | Nie |
+> | automationRules | Nie |
 > | zakładki | Nie |
 > | padkach | Nie |
 > | Połączenia dataconnecters | Nie |
@@ -1812,6 +1953,14 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | zdarzenia | Nie |
 > | officeConsents | Nie |
 > | settings | Nie |
+> | threatIntelligence | Nie |
+
+## <a name="microsoftserialconsole"></a>Microsoft. SerialConsole
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | consoleServices | Nie |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
@@ -1880,13 +2029,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | SignalR | Tak |
 > | Sygnalizujący/eventGridFilters | Nie |
 
-## <a name="microsoftsiterecovery"></a>Microsoft. SiteRecovery
-
-> [!div class="mx-tableFixed"]
-> | Typ zasobu | Usuwanie w trybie pełnym |
-> | ------------- | ----------- |
-> | SiteRecoveryVault | Tak |
-
 ## <a name="microsoftsoftwareplan"></a>Microsoft. SoftwarePlan
 
 > [!div class="mx-tableFixed"]
@@ -1902,14 +2044,6 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | applicationDefinitions | Tak |
 > | aplikacje | Tak |
 > | jitRequests | Tak |
-
-## <a name="microsoftspoolservice"></a>Microsoft. SpoolService
-
-> [!div class="mx-tableFixed"]
-> | Typ zasobu | Usuwanie w trybie pełnym |
-> | ------------- | ----------- |
-> | registeredSubscriptions | Nie |
-> | bufory | Tak |
 
 ## <a name="microsoftsql"></a>Microsoft. SQL
 
@@ -2025,6 +2159,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
+> | oparty | Tak |
 > | streamingjobs | Tak |
 
 ## <a name="microsoftsubscription"></a>Microsoft. Subscription
@@ -2040,6 +2175,17 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | SubscriptionOperations | Nie |
 > | opłaty | Nie |
 
+## <a name="microsoftsynapse"></a>Microsoft. Synapse
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | privateLinkHubs | Tak |
+> | obszary robocze | Tak |
+> | obszary robocze/bigDataPools | Tak |
+> | obszary robocze/operationStatuses | Nie |
+> | obszary robocze/pule | Tak |
+
 ## <a name="microsofttimeseriesinsights"></a>Microsoft. TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
@@ -2050,6 +2196,36 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | środowiska/źródła zdarzeń | Tak |
 > | środowiska/referenceDataSets | Tak |
 
+## <a name="microsofttoken"></a>Microsoft. token
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | przechowywać | Tak |
+> | Sklepy/accessPolicies | Nie |
+> | Sklepy/usługi | Nie |
+> | Sklepy/usługi/tokeny | Nie |
+
+## <a name="microsoftvirtualmachineimages"></a>Microsoft. VirtualMachineImages
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | imageTemplates | Tak |
+> | imageTemplates / runOutputs | Nie |
+
+## <a name="microsoftvmware"></a>Microsoft. VMware
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | ArcZones | Tak |
+> | ResourcePools | Tak |
+> | Serwery vCenter | Tak |
+> | VirtualMachines | Tak |
+> | VirtualMachineTemplates | Tak |
+> | VirtualNetworks | Tak |
+
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft. VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
@@ -2058,6 +2234,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | dedicatedCloudNodes | Tak |
 > | dedicatedCloudServices | Tak |
 > | virtualMachines | Tak |
+
+## <a name="microsoftvmwareonazure"></a>Microsoft. VMwareOnAzure
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | privateClouds | Tak |
 
 ## <a name="microsoftvnfmanager"></a>Microsoft. VnfManager
 
@@ -2071,6 +2254,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | dostawcy/vnfs | Nie |
 > | virtualNetworkFunctionSkus | Nie |
 > | vnfs | Tak |
+
+## <a name="microsoftvsonline"></a>Microsoft. VSOnline
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | Konta | Tak |
+> | pakiety | Tak |
+> | registeredSubscriptions | Nie |
 
 ## <a name="microsoftweb"></a>Microsoft. Web
 
@@ -2127,12 +2319,29 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | diagnosticSettings | Nie |
 > | diagnosticSettingsCategories | Nie |
 
+## <a name="microsoftwindowsesu"></a>Microsoft. WindowsESU
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | multipleActivationKeys | Tak |
+
 ## <a name="microsoftwindowsiot"></a>Microsoft. WindowsIoT
 
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Usuwanie w trybie pełnym |
 > | ------------- | ----------- |
 > | DeviceServices | Tak |
+
+## <a name="microsoftworkloadbuilder"></a>Microsoft. WorkloadBuilder
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Usuwanie w trybie pełnym |
+> | ------------- | ----------- |
+> | obciążeń | Tak |
+> | obciążenia/wystąpienia | Nie |
+> | obciążenia/wersje | Nie |
+> | obciążenia/wersje/artefakty | Nie |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft. Monitor obciążenia został
 
@@ -2148,4 +2357,4 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać te same dane jak plik z wartościami rozdzielanymi przecinkami, Pobierz [Complete-Mode-deletion. csv](https://github.com/tfitzmac/resource-capabilities/blob/master/complete-mode-deletion.csv).
+Aby uzyskać te same dane w postaci pliku wartości rozdzielanych przecinkami, Pobierz [complete-mode-deletion.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/complete-mode-deletion.csv).

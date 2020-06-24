@@ -5,15 +5,15 @@ description: Informacje o dziennikach i metrykach wirtualnych sieci WAN platform
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7fa5353449db04184c60be79adece63489de0a74
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 4ce5bc3b4e5ccd26ec3f6b35c995ebe2274042c5
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466208"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749725"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Dzienniki i metryki wirtualnych sieci WAN platformy Azure
 

@@ -2,21 +2,21 @@
 title: Opracowywanie punktu końcowego Standard scim na potrzeby aprowizacji użytkowników w aplikacjach z usługi Azure AD
 description: System do zarządzania tożsamościami między domenami (standard scim) zapewnia standaryzację automatycznej aprowizacji użytkowników. Dowiedz się, jak opracowywać punkt końcowy Standard scim, zintegrować interfejs API Standard scim z usługą Azure Active Directory i rozpocząć automatyzację użytkowników i grup aprowizacji w aplikacjach w chmurze.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/07/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 712d098ee5a10d0d99319796f24811e5805b7854
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: b08509bed6b26cb56caebd4dc47fc3b7ac84ce27
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84508883"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117322"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -100,7 +100,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 |IDPracownika|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|
 | Faks-numer telefonu |numer telefonu [typ EQ "Fax"]. wartość |
 | givenName |Nazwa. imię |
-| Stanowiska |title |
+| Stanowiska |tytuł |
 | mail (poczta) |wiadomości e-mail [Type EQ "Work"]. Value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager |
@@ -1194,7 +1194,8 @@ Specyfikacja Standard scim nie definiuje schematu specyficznego dla Standard sci
 |Przyznanie kodu autoryzacji OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania.  Rzeczywisty użytkownik musi być obecny podczas wstępnej autoryzacji, co umożliwia dodanie poziomu odpowiedzialności. |Wymaga, aby użytkownik był obecny. Jeśli użytkownik opuści organizację, token jest nieprawidłowy, a autoryzacja będzie musiała zostać ukończona ponownie.|Obsługiwane w przypadku aplikacji w galerii. Obsługa aplikacji innych niż Galeria jest w toku.|
 |Przyznanie poświadczeń klienta OAuth|Tokeny dostępu są znacznie krótsze niż hasła i mają mechanizm zautomatyzowanego odświeżania, który nie ma tokenów okaziciela o długim czasie trwania. Zarówno kod autoryzacji przydzielenia, jak i poświadczenia klienta umożliwiają tworzenie tego samego typu tokenu dostępu, więc przechodzenie między tymi metodami jest niewidoczne dla interfejsu API.  Inicjowanie obsługi może być całkowicie zautomatyzowane i nowe tokeny mogą być wymagane w trybie dyskretnym bez interakcji z użytkownikiem. ||Nieobsługiwane w przypadku aplikacji Galeria i innych niż Galeria. Pomoc techniczna znajduje się w naszej zaległości.|
 
-[!NOTE] Nie zaleca się pozostawienia pustego pola tokenu w interfejsie użytkownika niestandardowej aplikacji konfiguracji aprowizacji usługi Azure AD. Wygenerowany token jest przeznaczony głównie do celów testowych.
+> [!NOTE]
+> Nie zaleca się pozostawienia pustego pola tokenu w interfejsie użytkownika niestandardowej aplikacji konfiguracji aprowizacji usługi Azure AD. Wygenerowany token jest przeznaczony głównie do celów testowych.
 
 **Przepływ przyznania kodu autoryzacji OAuth:** Usługa aprowizacji obsługuje [przyznawanie kodu autoryzacji](https://tools.ietf.org/html/rfc6749#page-24). Po przesłaniu żądania opublikowania aplikacji w galerii nasz zespół będzie mógł zebrać następujące informacje:
 *  Adres URL autoryzacji: adres URL klienta, aby uzyskać autoryzację od właściciela zasobu za pośrednictwem przekierowania agenta użytkownika. Użytkownik zostanie przekierowany do tego adresu URL, aby autoryzować dostęp. Należy pamiętać, że ten adres URL nie jest obecnie konfigurowalny dla dzierżawy.

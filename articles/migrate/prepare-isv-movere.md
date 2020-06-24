@@ -2,13 +2,13 @@
 title: Przygotuj Azure Migrate do pracy z narzędziami niezależnego dostawcy oprogramowania/przenoszenia
 description: W tym artykule opisano sposób przygotowania Azure Migrate do pracy z narzędziem niezależnego dostawcy oprogramowania lub przenoszenia, a następnie rozpoczęcia korzystania z narzędzia.
 ms.topic: how-to
-ms.date: 05/07/2020
-ms.openlocfilehash: 9513e783d4f9d7be83f1434d4dd9011844af8993
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 06/10/2020
+ms.openlocfilehash: d414c3db92315f7ca1b60bf43fa35b7880c34ccf
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682650"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770377"
 ---
 # <a name="prepare-to-work-with-an-isv-tool-or-movere"></a>Przygotowanie do pracy z narzędziem niezależnego dostawcy oprogramowania lub przenoszenia
 
@@ -37,7 +37,19 @@ W ramach subskrypcji platformy Azure Twoje konto musi mieć dostęp do **program
 2. Wybierz odpowiednią subskrypcję. Jeśli go nie widzisz, wybierz **Filtr subskrypcje globalne**. 
 3. Wybierz pozycję **Moje uprawnienia**. Następnie wybierz **pozycję kliknij tutaj, aby wyświetlić pełne szczegóły dostępu dla tej subskrypcji**.
 4. W **widoku przypisania ról**  >  **View**Sprawdź uprawnienia. Jeśli Twoje konto nie ma uprawnień, poprosimy administratora subskrypcji o dodanie do roli [administratora dostępu użytkownika](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) lub roli [właściciela](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) .
- 
+
+## <a name="allow-access-to-urls"></a>Zezwalanie na dostęp do adresów URL
+
+W przypadku narzędzi niezależnych dostawców oprogramowania i usługi Azure Database Asystent migracji zezwalać na dostęp do adresów URL chmury publicznej podsumowujących w tabeli. Jeśli używasz serwera proxy opartego na adresie URL do łączenia się z Internetem, upewnij się, że serwer proxy rozpoznaje wszystkie rekordy CNAME otrzymane podczas wyszukiwania adresów URL. 
+
+**Adres URL** | **Szczegóły**
+--- | ---
+*.portal.azure.com  | Przejdź do witryny Azure Portal. 
+*.windows.net<br/> *.msftauth.net<br/> *.msauth.net <br/> *.microsoft.com<br/> *.live.com   | Zaloguj się do subskrypcji platformy Azure. 
+*.microsoftonline.com<br/> *.microsoftonline-p.com | Utwórz aplikacje Azure Active Directory (AD) dla urządzenia, aby komunikować się z Azure Migrate. 
+management.azure.com | Wykonywanie Azure Resource Manager wywołań do projektu Azure Migrate.
+*.servicebus.windows.net | Komunikacja między urządzeniem a centrum EventHub na potrzeby wysyłania wiadomości.
+
 
 ## <a name="start-using-the-tool"></a>Rozpocznij korzystanie z narzędzia
 

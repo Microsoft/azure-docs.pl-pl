@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a5aaef50f12bfec89cf5e883ed6b1c85fa984ad6
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 1e8a2bc6f9a8103440b68f2e8d2de9328ed00145
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995977"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118614"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurowanie Azure Key Vault przy użyciu rotacji kluczy i inspekcji
 
@@ -170,9 +170,6 @@ Po uruchomieniu aplikacji należy teraz uwierzytelniać się w usłudze Azure Ac
 
 ## <a name="key-rotation-using-azure-automation"></a>Rotacja kluczy przy użyciu Azure Automation
 
-> [!IMPORTANT]
-> Elementy Runbook Azure Automation nadal wymagają użycia `AzureRM` modułu.
-
 Teraz można przystąpić do konfigurowania strategii rotacji dla wartości przechowywanych jako Key Vault Secret. Wpisy tajne można obracać na kilka sposobów:
 
 - W ramach procesu ręcznego
@@ -273,14 +270,14 @@ Następnym krokiem jest [utworzenie kolejki Azure Service Bus](../../service-bus
 
 1. Utwórz Service Bus przestrzeń nazw (Jeśli masz już tę, której chcesz użyć, przejdź do kroku 2).
 2. Przejdź do wystąpienia Service Bus w Azure Portal i wybierz przestrzeń nazw, w której chcesz utworzyć kolejkę.
-3. Wybierz pozycję **Utwórz zasób** > **integracja dla przedsiębiorstw** > **Service Bus**, a następnie wprowadź wymagane szczegóły.
+3. Wybierz pozycję **Utwórz zasób**  >  **integracja dla przedsiębiorstw**  >  **Service Bus**, a następnie wprowadź wymagane szczegóły.
 4. Znajdź Service Bus informacje o połączeniu, wybierając przestrzeń nazw, a następnie wybierając pozycję **Informacje o połączeniu**. Te informacje będą potrzebne w następnej sekcji.
 
 Następnie [Utwórz funkcję platformy Azure](../../azure-functions/functions-create-first-azure-function.md) w celu sondowania dzienników magazynu kluczy w ramach konta magazynu i pobrania nowych zdarzeń. Ta funkcja zostanie wyzwolona zgodnie z harmonogramem.
 
 Aby utworzyć aplikację funkcji platformy Azure, wybierz pozycję **Utwórz zasób**, Wyszukaj w witrynie Marketplace **aplikacja funkcji**, a następnie wybierz pozycję **Utwórz**. Podczas tworzenia możesz użyć istniejącego planu hostingu lub utworzyć nowy. Możesz również wybrać opcję hostingu dynamicznego. Aby uzyskać więcej informacji na temat opcji hostingu dla Azure Functions, zobacz [Jak skalować Azure Functions](../../azure-functions/functions-scale.md).
 
-Po utworzeniu aplikacji funkcji platformy Azure przejdź do niej, a następnie wybierz scenariusz **czasomierz** i **C\# ** dla języka. Następnie wybierz pozycję **Utwórz tę funkcję**.
+Po utworzeniu aplikacji funkcji platformy Azure przejdź do niej, a następnie wybierz scenariusz **czasomierz** i **C \# ** dla języka. Następnie wybierz pozycję **Utwórz tę funkcję**.
 
 ![Azure Functions blok początkowy](../media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -400,15 +397,15 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 
 Funkcja pobiera najnowszy plik dziennika z konta magazynu, w którym zapisywane są dzienniki magazynu kluczy, pobiera najnowsze zdarzenia z tego pliku i umieszcza je w kolejce Service Bus. 
 
-Ponieważ pojedynczy plik może mieć wiele zdarzeń, należy utworzyć plik synchroniz. txt, który funkcja sprawdza także, aby określić sygnaturę czasową ostatniego zdarzenia, które zostało pobrane. Użycie tego pliku gwarantuje, że te same zdarzenia nie będą wypychane wielokrotnie. 
+Ponieważ pojedynczy plik może mieć wiele zdarzeń, należy utworzyć plik sync.txt, który funkcja sprawdza także, aby określić sygnaturę czasową ostatniego zdarzenia, które zostało pobrane. Użycie tego pliku gwarantuje, że te same zdarzenia nie będą wypychane wielokrotnie. 
 
-Plik Sync. txt zawiera sygnaturę czasową ostatniego zdarzenia. Po załadowaniu dzienników muszą one być sortowane na podstawie ich sygnatur czasowych, aby upewnić się, że są one prawidłowo uporządkowane.
+Plik sync.txt zawiera sygnaturę czasową ostatniego zdarzenia. Po załadowaniu dzienników muszą one być sortowane na podstawie ich sygnatur czasowych, aby upewnić się, że są one prawidłowo uporządkowane.
 
 W przypadku tej funkcji odwołujemy się do kilku dodatkowych bibliotek, które nie są dostępne w Azure Functions. Aby uwzględnić te biblioteki, musimy Azure Functions, aby ściągnąć je za pomocą narzędzia NuGet. W polu **kod** wybierz pozycję **Wyświetl pliki**.
 
 ![Opcja "Wyświetl pliki"](../media/keyvault-keyrotation/Azure_Functions_ViewFiles.png)
 
-Dodaj plik o nazwie Project. JSON z następującą zawartością:
+Dodaj plik o nazwie project.jsprzy użyciu następującej zawartości:
 
 ```json
     {
@@ -425,11 +422,11 @@ Dodaj plik o nazwie Project. JSON z następującą zawartością:
 
 Po wybraniu opcji **zapisz**Azure Functions pobierze wymagane pliki binarne.
 
-Przejdź do karty **integracja** i nadaj parametry Czasomierzowi zrozumiałą nazwę, która ma być używana w ramach funkcji. W poprzednim kodzie funkcja oczekuje czasomierza, który ma *zostać wywołany*. Określ [wyrażenie firmy CRONUS](../../app-service/webjobs-create.md#CreateScheduledCRON) dla czasomierza w następujący sposób `0 * * * * *`:. To wyrażenie spowoduje uruchomienie funkcji raz na minutę.
+Przejdź do karty **integracja** i nadaj parametry Czasomierzowi zrozumiałą nazwę, która ma być używana w ramach funkcji. W poprzednim kodzie funkcja oczekuje czasomierza, który ma *zostać wywołany*. Określ [wyrażenie firmy CRONUS](../../app-service/webjobs-create.md#CreateScheduledCRON) dla czasomierza w następujący sposób: `0 * * * * *` . To wyrażenie spowoduje uruchomienie funkcji raz na minutę.
 
-Na tej samej karcie **integracja** Dodaj dane wejściowe typu **Azure Blob Storage**. Dane wejściowe będą wskazywały na plik Sync. txt zawierający sygnaturę czasową ostatniego zdarzenia, przeszukiwanego przez funkcję. Te dane wejściowe będą dostępne w ramach funkcji przy użyciu nazwy parametru. W powyższym kodzie dane wejściowe magazynu obiektów blob platformy Azure oczekują nazwy parametru, który ma być *inputBlob*. Wybierz konto magazynu, na którym będzie znajdować się plik Sync. txt (może to być takie samo lub inne konto magazynu). W polu Ścieżka podaj ścieżkę do pliku w formacie `{container-name}/path/to/sync.txt`.
+Na tej samej karcie **integracja** Dodaj dane wejściowe typu **Azure Blob Storage**. Dane wejściowe będą wskazywały plik sync.txt, który zawiera sygnaturę czasową ostatniego zdarzenia przeszukiwanego przez funkcję. Te dane wejściowe będą dostępne w ramach funkcji przy użyciu nazwy parametru. W powyższym kodzie dane wejściowe magazynu obiektów blob platformy Azure oczekują nazwy parametru, który ma być *inputBlob*. Wybierz konto magazynu, na którym będzie znajdować się plik sync.txt (może to być takie samo lub inne konto magazynu). W polu Ścieżka podaj ścieżkę do pliku w formacie `{container-name}/path/to/sync.txt` .
 
-Dodaj dane wyjściowe typu **Azure Blob Storage**. Dane wyjściowe będą wskazywały plik Sync. txt, który został zdefiniowany w danych wejściowych. Dane wyjściowe są używane przez funkcję w celu zapisania sygnatury czasowej ostatniego zdarzenia. Poprzedni kod oczekuje, że ten parametr jest wywoływany *outputBlob*.
+Dodaj dane wyjściowe typu **Azure Blob Storage**. Dane wyjściowe będą wskazywały plik sync.txt, który został zdefiniowany w danych wejściowych. Dane wyjściowe są używane przez funkcję w celu zapisania sygnatury czasowej ostatniego zdarzenia. Poprzedni kod oczekuje, że ten parametr jest wywoływany *outputBlob*.
 
 Funkcja jest teraz gotowa. Upewnij się, że przełączono z powrotem do karty **programowanie** i Zapisz kod. Sprawdź okno danych wyjściowych pod kątem błędów kompilacji i popraw je w razie potrzeby. W przypadku kompilowania kodu, kod powinien teraz sprawdzać dzienniki magazynu kluczy co minutę i wypchnąć nowe zdarzenia do zdefiniowanej kolejki Service Bus. Informacje o rejestrowaniu powinny być widoczne w oknie dziennika przy każdym wyzwoleniu funkcji.
 
@@ -437,7 +434,7 @@ Funkcja jest teraz gotowa. Upewnij się, że przełączono z powrotem do karty *
 
 Następnie musisz utworzyć aplikację logiki platformy Azure, która pobiera zdarzenia, które funkcja jest wypychana do kolejki Service Bus, analizuje zawartość i wysyła wiadomość e-mail na podstawie dopasowanego warunku.
 
-[Utwórz aplikację logiki](../../logic-apps/quickstart-create-first-logic-app-workflow.md) , wybierając kolejno pozycje **Utwórz zasób** > **Integration** > **Aplikacje logiki**.
+[Utwórz aplikację logiki](../../logic-apps/quickstart-create-first-logic-app-workflow.md) , wybierając kolejno pozycje **Utwórz zasób**  >  **Integration**  >  **Aplikacje logiki**.
 
 Po utworzeniu aplikacji logiki przejdź do niej, a następnie wybierz pozycję **Edytuj**. W edytorze aplikacji logiki wybierz **kolejno pozycje Service Bus Queue** i wprowadź poświadczenia Service Bus, aby połączyć je z kolejką.
 

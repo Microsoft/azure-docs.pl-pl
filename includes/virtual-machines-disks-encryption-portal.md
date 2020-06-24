@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -21,10 +21,10 @@ Skonfigurowanie kluczy zarządzanych przez klienta dla dysków będzie wymagało
 
 #### <a name="setting-up-your-azure-key-vault"></a>Konfigurowanie Azure Key Vault
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 1. Wyszukaj i wybierz pozycję **magazyny kluczy**.
 
-    [![SSE-Key-Vault-Portal-Search. png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
+    [![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
     > Aby wdrożenie zakończyło się pomyślnie, w tym samym regionie i w ramach subskrypcji musi znajdować się Twój Magazyn kluczy platformy Azure, zestaw szyfrowania dysków, maszyna wirtualna, dyski i migawki.

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2851968b102bdcbae95a81352439f39f5837020b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2398e95d9a119fe24c97f3887d16aa5b86c6ac76
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191791"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119311"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Poziomy spójności i interfejsy API usługi Azure Cosmos DB
 
@@ -32,7 +32,7 @@ W przeciwieństwie do Azure Cosmos DB technologia Apache Cassandra nie zapewnia 
 
 W poniższej tabeli przedstawiono, jak natywne poziomy spójności Cassandra są mapowane na poziomy spójności Azure Cosmos DB podczas korzystania interfejs API Cassandra:  
 
-[![Mapowanie modelu spójności Cassandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png" alt-text="Mapowanie modelu spójności Cassandra" lightbox="./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png" :::
 
 ## <a name="mapping-between-mongodb-and-azure-cosmos-db-consistency-levels"></a><a id="mongo-mapping"></a>Mapowanie między MongoDB i Azure Cosmos DB poziomów spójności
 
@@ -50,7 +50,7 @@ Podczas korzystania z interfejsu API Azure Cosmos DB dla MongoDB:
 
 W poniższej tabeli pokazano, w jaki sposób natywne zagadnienia dotyczące zapisu/odczytu MongoDB są mapowane na poziomy spójności usługi Azure Cosmos w przypadku korzystania z interfejsu API Azure Cosmos DB dla MongoDB:
 
-[![Mapowanie modelu spójności MongoDB](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+:::image type="content" source="./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png" alt-text="Mapowanie modelu spójności MongoDB" lightbox= "./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png":::
 
 ## <a name="next-steps"></a>Następne kroki
 

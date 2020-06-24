@@ -1,32 +1,30 @@
 ---
-title: Zarządzanie łącznikami interfejsu API w przepływach rejestracji samoobsługowej
-description: Używanie łączników interfejsu API do dostosowywania i zwiększania przepływów użytkowników samoobsługowego rejestrowania
+title: Informacje o łącznikach interfejsu API w przepływach rejestracji samoobsługowej — Azure AD
+description: Za pomocą łączników interfejsu API usługi Azure Active Directory (Azure AD) można dostosowywać i zwiększać przepływy użytkowników samoobsługowego rejestrowania przy użyciu interfejsów API sieci Web.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45bb22f5f6c15e326bed2524fbc541cbdec26a70
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 1c5e546c6eac77c4952a0d32d360f49d4251d49d
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680161"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905181"
 ---
 # <a name="use-api-connectors-to-customize-and-extend-self-service-sign-up"></a>Używanie łączników interfejsu API do dostosowywania i zwiększania rejestracji samoobsługowej 
 
 ## <a name="overview"></a>Omówienie 
 Deweloperem lub administratorem IT można używać łączników interfejsu API do integrowania [przepływów użytkowników samoobsługi rejestracji](self-service-sign-up-overview.md) z systemami zewnętrznymi przy użyciu interfejsów API sieci Web. Łączniki interfejsu API można na przykład używać do następujących celów:
 
-- [**Integruj z niestandardowymi przepływami pracy zatwierdzania**](self-service-sign-up-add-approvals.md). Połącz się z niestandardowym systemem zatwierdzania w celu zarządzania tworzeniem kont.
-<!-- - [**Perform identity proofing**](code-samples-self-service-sign-up.md#identity-proofing). Use an identity proofing and verification service to add an extra level of security to account creation decisions. -->
-- **Wykonaj**weryfikację tożsamości. Aby dodać dodatkowy poziom zabezpieczeń do podejmowania decyzji dotyczących tworzenia kont, należy użyć usługi weryfikacji tożsamości i sprawdzenia.
+- [**Integruj z niestandardowym przepływem pracy zatwierdzania**](self-service-sign-up-add-approvals.md). Połącz się z niestandardowym systemem zatwierdzania w celu zarządzania tworzeniem kont.
+- [**Przeprowadź weryfikację tożsamości**](code-samples-self-service-sign-up.md#identity-verification). Aby dodać dodatkowy poziom zabezpieczeń do decyzji o tworzeniu konta, należy użyć usługi weryfikacji tożsamości.
 - **Sprawdź poprawność danych wejściowych użytkownika**. Sprawdź poprawność nieprawidłowo sformułowanych lub nieprawidłowych danych użytkownika. Na przykład można sprawdzić poprawność danych dostarczonych przez użytkownika do istniejących danych w zewnętrznym magazynie danych lub na liście dozwolonych wartości. Jeśli jest nieprawidłowy, można polecić użytkownikowi podanie prawidłowych danych lub uniemożliwić użytkownikowi kontynuowanie przepływu rejestracji.
 - **Zastąp atrybuty użytkownika**. Ponownie sformatuj lub Przypisz wartość do atrybutu zebranego od użytkownika. Na przykład, jeśli użytkownik wprowadzi imię i nazwisko we wszystkich małych i wielkich literach, można sformatować nazwę tylko przy użyciu pierwszej litery. 
 <!-- - **Enrich user data**. Integrate with your external cloud systems that store user information to integrate them with the sign-up flow. For example, your API can receive the user's email address, query a CRM system, and return the user's loyalty number. Returned claims can be used to pre-fill form fields or return additional data in the application token.  -->
@@ -56,18 +54,12 @@ W obu tych przypadkach łączniki interfejsu API są wywoływane podczas rejestr
 
 - Sprawdź poprawność danych wejściowych użytkownika i poproszenie użytkownika o ponowne przesłanie danych.
 - Zablokuj rejestrację użytkownika na podstawie danych wprowadzonych przez użytkownika.
-- Wykonaj weryfikację tożsamości.
+- Przeprowadź weryfikację tożsamości.
 - Wykonaj zapytanie dotyczące zewnętrznych systemów dla istniejących danych o użytkowniku, aby je zwracały w tokenie aplikacji lub przechowywać w usłudze Azure AD.
 
 <!-- > [!IMPORTANT]
 > If an invalid response is returned or another error occurs (for example, a network error), the user will be redirected to the app with the error re -->
 
-## <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
-
-### <a name="how-do-i-integrate-with-an-existing-api-endpoint"></a>Jak mogę zintegrować z istniejącym punktem końcowym interfejsu API?
-[Wyzwalacza http w Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp) można używać jako prostego sposobu wywoływania i wywoływania innych interfejsów API sieci Web.
-
 ## <a name="next-steps"></a>Następne kroki
 - Dowiedz się, jak [dodać łącznik interfejsu API do przepływu użytkownika](self-service-sign-up-add-api-connector.md)
 - Dowiedz się, jak [dodać niestandardowy system zatwierdzania do](self-service-sign-up-add-approvals.md) samoobsługowego tworzenia konta
-<!--#TODO: Make doc, link.-->

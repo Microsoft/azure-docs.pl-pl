@@ -3,20 +3,19 @@ title: Obsługa migracji serwera fizycznego w Azure Migrate
 description: Dowiedz się więcej o obsłudze migracji serwera fizycznego w Azure Migrate.
 ms.topic: conceptual
 ms.custom: fasttrack-edit
-ms.date: 01/07/2020
-ms.openlocfilehash: 8f8b94ab77a1eef8e771384f5d69da98a1d7ae6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/14/2020
+ms.openlocfilehash: fe23989845d3c0b229a194c9a2a58f879b757811
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80520278"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770343"
 ---
 # <a name="support-matrix-for-physical-server-migration"></a>Macierz obsługi dla migracji serwera fizycznego
 
 Ten artykuł zawiera podsumowanie ustawień i ograniczeń dotyczących migracji serwerów fizycznych z [Azure Migrate: Migracja serwera](migrate-services-overview.md#azure-migrate-server-migration-tool) . Jeśli szukasz informacji na temat oceniania serwerów fizycznych do migracji na platformę Azure, zapoznaj się z [matrycą pomocy technicznej](migrate-support-matrix-physical.md)dotyczącej oceny.
 
-
-## <a name="overview"></a>Omówienie
+## <a name="migrating-machines-as-physical"></a>Migrowanie maszyn jako fizycznych
 
 Maszyny lokalne można migrować jako serwery fizyczne przy użyciu replikacji opartej na agentach. Za pomocą tego narzędzia można migrować szeroką gamę maszyn na platformę Azure:
 
@@ -86,7 +85,7 @@ Udostępniony wirtualny dysk twardy | Nieobsługiwane. | Sprawdzanie kończy si�
 Dysk FC | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Funkcja BitLocker | Nieobsługiwane. | Aby włączyć replikację dla maszyny, należy wyłączyć funkcję BitLocker.
 Nazwa maszyny wirtualnej | Od 1 do 63 znaków.<br/> Ograniczone do liter, cyfr i łączników.<br/><br/> Nazwa maszyny musi rozpoczynać się i kończyć literą lub cyfrą. |  Zaktualizuj wartość we właściwościach komputera w Site Recovery.
-Połącz po migracji — Windows | Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure z systemem Windows po migracji:<br/> -Przed migracją włącza protokół RDP na lokalnej maszynie wirtualnej. Upewnij się, że reguły TCP i UDP zostały dodane do profilu **publicznego** oraz że w pozycji **Zapora systemu Windows** > **Dozwolone aplikacje** zezwolono na użycie protokołu RDP we wszystkich profilach.<br/> W celu uzyskania dostępu do sieci VPN typu lokacja- -> lokacja Włącz protokół RDP i Zezwalaj na używanie protokołu RDP w **zaporze systemu Windows****dozwolone aplikacje i funkcje** dla sieci **i** połączeń sieciowych. Ponadto sprawdź, czy zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](prepare-for-migration.md). |
+Połącz po migracji — Windows | Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure z systemem Windows po migracji:<br/> -Przed migracją włącza protokół RDP na lokalnej maszynie wirtualnej. Upewnij się, że reguły TCP i UDP zostały dodane do profilu **publicznego** oraz że w pozycji **Zapora systemu Windows** > **Dozwolone aplikacje** zezwolono na użycie protokołu RDP we wszystkich profilach.<br/> W celu uzyskania dostępu do sieci VPN typu lokacja-lokacja Włącz protokół RDP i Zezwalaj na używanie protokołu RDP w **zaporze systemu Windows**  ->  **dozwolone aplikacje i funkcje** dla sieci **i** połączeń sieciowych. Ponadto sprawdź, czy zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](prepare-for-migration.md). |
 Połącz po migracji — system Linux | Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure po migracji przy użyciu protokołu SSH:<br/> Przed migracją na maszynie lokalnej Sprawdź, czy usługa Secure Shell jest ustawiona do uruchamiania, oraz czy reguły zapory zezwalają na połączenie SSH.<br/> Po przejściu w tryb failover na maszynie wirtualnej platformy Azure Zezwól na połączenia przychodzące do portu SSH dla reguł sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover oraz dla podsieci platformy Azure, do której jest podłączona. Dodatkowo Dodaj publiczny adres IP dla maszyny wirtualnej. |  
 
 

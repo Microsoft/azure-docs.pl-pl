@@ -7,25 +7,25 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 9612afdb63c6988c0027f003caeacd456b5e50e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40f970478b0dd12f6e53c632713051496d412338
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840948"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736751"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Konfigurowanie dzienników przepływu sieciowych grup zabezpieczeń przy użyciu programu PowerShell
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
-> - [Narzędzia](network-watcher-nsg-flow-logging-powershell.md)
+> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-nsg-flow-logging-cli.md)
-> - [INTERFEJS API REST](network-watcher-nsg-flow-logging-rest.md)
+> - [Interfejs API REST](network-watcher-nsg-flow-logging-rest.md)
 
 Dzienniki przepływu sieciowych grup zabezpieczeń są funkcją Network Watcher, która umożliwia wyświetlanie informacji dotyczących ruchu przychodzącego i wychodzącego IP za pomocą sieciowej grupy zabezpieczeń. Te dzienniki przepływów są zapisywane w formacie JSON i pokazują przepływy wychodzące i przychodzące dla każdej reguły, karta sieciowa przepływu ma zastosowanie do, 5-informacje o spójnej kolekcji przepływu (źródłowy/docelowy adres IP, port źródłowy/docelowy, protokół) i jeśli ruch był dozwolony lub zabroniony.
 
