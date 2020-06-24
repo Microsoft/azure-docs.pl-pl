@@ -4,15 +4,15 @@ description: Jak wyłączyć i włączyć komunikację równorzędną obwodu Exp
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2018
 ms.author: charwen
-ms.openlocfilehash: 9f32eb439872de9e4687d046745c03bafd86b2fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc4266a92d510ac84118922f7db09c99234045b3
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75941733"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735255"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Resetowanie komunikacji równorzędnej obwodu ExpressRoute
 

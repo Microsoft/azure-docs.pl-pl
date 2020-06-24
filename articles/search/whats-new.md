@@ -7,19 +7,23 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/19/2020
-ms.openlocfilehash: f8ddc3ef56aefc6ea613af19d91cd0122435efd7
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/08/2020
+ms.openlocfilehash: 97defe2af5b82cccbaf289ccbd805b608b978a43
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344207"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736088"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
 Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
 ## <a name="feature-announcements"></a>Anonse funkcji
+
+### <a name="june-2020"></a>Czerwiec 2020 r.
+
+Azure Machine Learning umiejętność to nowy typ umiejętności do integrowania punktu końcowego inferencing z Azure Machine Learning. Środowisko portalu obsługuje odnajdywanie i integrację punktu końcowego Azure Machine Learning w ramach Wyszukiwanie poznawcze zestawu umiejętności. Odnajdywanie wymaga, aby Wyszukiwanie poznawcze i usługi Azure ML zostały wdrożone w tej samej subskrypcji. Aby zarejestrować się w wersji zapoznawczej AML, [Wypełnij formularz](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft Build)
 
@@ -74,7 +78,7 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 + W indeksatorach są teraz obsługiwane [Azure Data Lake Storage Gen2 (wersja zapoznawcza)](search-howto-index-azure-data-lake-storage.md) [Cosmos DB, interfejs API Gremlin (wersja](search-howto-index-cosmosdb.md)zapoznawcza) i [Cosmos DB interfejs API Cassandra (wersja zapoznawcza)](search-howto-index-cosmosdb.md) . Możesz zarejestrować się, korzystając z [tego formularza](https://aka.ms/azure-cognitive-search/indexer-preview). Po zaakceptowaniu w programie w wersji zapoznawczej otrzymasz wiadomość e-mail z potwierdzeniem.
 
-### <a name="july-2019"></a>Lipiec 2019
+### <a name="july-2019"></a>Lipiec 2019 r.
 
 + Ogólnie dostępna w [chmurze Azure Government](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
 

@@ -3,8 +3,8 @@ title: Planowanie wdrożenia serwer proxy aplikacji usługi Azure Active Directo
 description: Kompleksowy przewodnik planowania wdrażania serwera proxy aplikacji w organizacji
 services: active-directory
 documentationcenter: azure
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: baselden
-ms.custom: has-adal-ref
-ms.openlocfilehash: 040ad734cdf3b2d382baa55006fbda02fdcf457d
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.author: kenwith
+ms.openlocfilehash: a1cf2b57665cad4dd09639579b42b29a288eeca1
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169512"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975575"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planowanie wdrożenia usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -254,7 +253,7 @@ Odczytuj Logowanie jednokrotne [do aplikacji w usłudze Azure AD](what-is-single
 
 ###  <a name="working-with-other-types-of-applications"></a>Praca z innymi typami aplikacji
 
-Usługa Azure serwer proxy aplikacji usługi Azure AD może również obsługiwać aplikacje opracowane do korzystania z biblioteki uwierzytelniania firmy Microsoft ([MSAL](https://azure.microsoft.com/blog/start-writing-applications-today-with-the-new-microsoft-authentication-sdks/)). Obsługuje natywne aplikacje klienckie przez konsumowanie tokenów wystawionych przez usługę Azure AD odebrane w nagłówku żądania klienta w celu przeprowadzenia wstępnego uwierzytelniania w imieniu użytkowników.
+Usługa Azure serwer proxy aplikacji usługi Azure AD może również obsługiwać aplikacje opracowane do korzystania z [biblioteki uwierzytelniania firmy Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview). Obsługuje natywne aplikacje klienckie przez konsumowanie tokenów wystawionych przez usługę Azure AD odebrane w nagłówku żądania klienta w celu przeprowadzenia wstępnego uwierzytelniania w imieniu użytkowników.
 
 Przeczytaj artykuł [Publikowanie natywnych i mobilnych aplikacji klienckich](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-native-client) oraz [aplikacji opartych na oświadczeniach](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-claims-aware-apps) , aby dowiedzieć się więcej o dostępnych konfiguracjach serwera proxy aplikacji.
 

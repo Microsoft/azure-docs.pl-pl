@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: d29689b088759b73465b24d06d4341571b599782
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 971ec1fcda87a9db61147133604dd0e28cc4d102
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714053"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976170"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Często zadawane pytania i znane problemy związane z tożsamościami zarządzanymi dla zasobów platformy Azure
 
@@ -32,6 +32,24 @@ ms.locfileid: "83714053"
 
 > [!NOTE]
 > Tożsamości zarządzane dla zasobów platformy Azure to nowa nazwa usługi znanej wcześniej jako Tożsamość usługi zarządzanej (MSI).
+
+
+### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>Jak można znaleźć zasoby, które mają zarządzaną tożsamość?
+
+Listę zasobów, które mają tożsamość zarządzaną przypisaną przez system, można znaleźć za pomocą następującego polecenia platformy Azure: 
+
+`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
+
+
+
+
+### <a name="do-managed-identities-have-a-backing-app-object"></a>Czy zarządzane tożsamości mają obiekt aplikacji zapasowej?
+
+Nie. Tożsamości zarządzane i rejestracje aplikacja usługi Azure AD nie są takie same w katalogu. 
+
+Rejestracje aplikacji mają dwa składniki: obiekt aplikacji + obiekt główny usługi. Zarządzane tożsamości dla zasobów platformy Azure mają tylko jeden z tych składników: obiekt główny usługi. 
+
+Tożsamości zarządzane nie mają obiektu aplikacji w katalogu, który jest często używany do przyznawania uprawnień aplikacji dla programu MS Graph. Zamiast tego należy przydzielić uprawnienia programu MS Graph do zarządzanych tożsamości bezpośrednio do jednostki usługi.  
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Czy zarządzane tożsamości dla zasobów platformy Azure współpracują z usługą Azure Cloud Services?
 

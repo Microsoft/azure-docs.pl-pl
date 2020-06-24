@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257526"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699060"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Uruchamianie testu pracy w trybie failover (do testowania odzyskiwania po awarii) na platformie Azure 
 
@@ -28,7 +28,7 @@ W tej procedurze opisano, jak uruchomić test pracy w trybie failover dla planu 
 ![Test pracy w trybie failover](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
-1. W Site Recovery w Azure Portal kliknij kolejno pozycje **plany** > odzyskiwania*recoveryplan_name* > **test pracy w trybie failover**.
+1. W Site Recovery w Azure Portal kliknij kolejno pozycje **plany odzyskiwania**  >  *recoveryplan_name*  >  **test pracy w trybie failover**.
 2. Wybierz **punkt odzyskiwania** , do którego ma zostać przełączona praca awaryjna. Możesz użyć jednej z następujących opcji:
     - **Najnowsza przetworzony**: Ta opcja powoduje przełączenie w tryb failover wszystkich maszyn wirtualnych w planie do najnowszego punktu odzyskiwania przetworzonego przez Site Recovery. Aby wyświetlić najnowszy punkt odzyskiwania dla określonej maszyny wirtualnej, sprawdź **najnowsze punkty odzyskiwania** w ustawieniach maszyny wirtualnej. Ta opcja zapewnia niską wartość celu czasu odzyskiwania, ponieważ nie wymaga przetwarzania nieprzetworzonych danych.
     - **Najnowsza spójna dla aplikacji**: Ta opcja powoduje przełączenie w tryb failover wszystkich maszyn wirtualnych w planie do ostatniego punktu odzyskiwania spójnego na poziomie aplikacji przetworzonego przez Site Recovery. Aby wyświetlić najnowszy punkt odzyskiwania dla określonej maszyny wirtualnej, sprawdź **najnowsze punkty odzyskiwania** w ustawieniach maszyny wirtualnej.
@@ -105,7 +105,7 @@ Jeśli chcesz nawiązać połączenie z maszynami wirtualnymi platformy Azure pr
 
 **Tryb failover** | **Lokalizacja** | **Akcje**
 --- | --- | ---
-**Maszyna wirtualna platformy Azure z systemem Windows** | Maszyna lokalna przed przejściem w tryb failover | Aby uzyskać dostęp do maszyny wirtualnej platformy Azure za pośrednictwem Internetu, Włącz protokół RDP i upewnij się, że reguły TCP i UDP są dodawane do **publicznej**wersji, a dla wszystkich profilów w**aplikacjach** >  **zapory systemu Windows**dozwolony jest protokół RDP.<br/><br/> Aby uzyskać dostęp do maszyny wirtualnej platformy Azure za pośrednictwem połączenia lokacja-lokacja, -> Włącz protokół RDP na maszynie i upewnij się, że w **zaporze systemu Windows****dozwolone aplikacje i funkcje**są dozwolone w przypadku **domen i sieci prywatnych** .<br/><br/>  Upewnij się, że zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135).<br/><br/> Upewnij się, że nie ma żadnych oczekujących aktualizacji systemu Windows na maszynie wirtualnej podczas wyzwalania trybu failover. System Windows Update może zostać uruchomiony po przełączeniu w tryb failover i nie będzie można zalogować się na maszynie wirtualnej do momentu zakończenia aktualizacji.
+**Maszyna wirtualna platformy Azure z systemem Windows** | Maszyna lokalna przed przejściem w tryb failover | Aby uzyskać dostęp do maszyny wirtualnej platformy Azure za pośrednictwem Internetu, Włącz protokół RDP i upewnij się, że reguły TCP i UDP są dodawane do **publicznej**wersji, a dla wszystkich profilów w aplikacjach **zapory systemu Windows**  >  **dozwolony**jest protokół RDP.<br/><br/> Aby uzyskać dostęp do maszyny wirtualnej platformy Azure za pośrednictwem połączenia lokacja-lokacja, Włącz protokół RDP na maszynie i upewnij się, że w **zaporze systemu Windows**  ->  **dozwolone aplikacje i funkcje**są dozwolone w przypadku **domen i sieci prywatnych** .<br/><br/>  Upewnij się, że zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](https://support.microsoft.com/kb/3031135).<br/><br/> Upewnij się, że nie ma żadnych oczekujących aktualizacji systemu Windows na maszynie wirtualnej podczas wyzwalania trybu failover. System Windows Update może zostać uruchomiony po przełączeniu w tryb failover i nie będzie można zalogować się na maszynie wirtualnej do momentu zakończenia aktualizacji.
 **Maszyna wirtualna platformy Azure z systemem Windows** | Maszyna wirtualna platformy Azure po przejściu w tryb failover |  [Dodaj publiczny adres IP](https://aka.ms/addpublicip) dla maszyny wirtualnej.<br/><br/> Reguły sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover (i podsieci platformy Azure, z którą jest połączona) muszą zezwalać na połączenia przychodzące do portu RDP.<br/><br/> Sprawdź **diagnostykę rozruchu** , aby zweryfikować zrzut ekranu maszyny wirtualnej.<br/><br/> Jeśli nie możesz się połączyć, sprawdź, czy maszyna wirtualna jest uruchomiona, i przejrzyj te [wskazówki dotyczące rozwiązywania problemów](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Maszyna wirtualna platformy Azure z systemem Linux** | Maszyna lokalna przed przejściem w tryb failover | Upewnij się, że usługa Secure Shell na maszynie wirtualnej jest uruchamiana automatycznie przy rozruchu systemu.<br/><br/> Sprawdź, czy reguły zapory zezwalają na połączenie SSH.
 **Maszyna wirtualna platformy Azure z systemem Linux** | Maszyna wirtualna platformy Azure po przejściu w tryb failover | Reguły sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover (i podsieci platformy Azure, z którą jest połączona) muszą zezwalać na połączenia przychodzące do portu SSH.<br/><br/> [Dodaj publiczny adres IP](https://aka.ms/addpublicip) dla maszyny wirtualnej.<br/><br/> Sprawdź **diagnostykę rozruchu** dla zrzutu ekranu maszyny wirtualnej.<br/><br/>

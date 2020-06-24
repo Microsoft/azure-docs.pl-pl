@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267588"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699119"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Rozpakowywanie, montowanie w stojaku i Podłączanie kabli do urządzenia z systemem StorSimple 8100
 
@@ -27,7 +27,7 @@ Poniższe kroki zawierają szczegółowe instrukcje dotyczące rozpakowywania ur
 ### <a name="prepare-to-unpack-your-device"></a>Przygotowanie do rozpakowania urządzenia
 Przed rozpakowaniem urządzenia zapoznaj się z poniższymi informacjami.
 
-![Ostrzeżenie ikony](./media/storsimple-safety/IC740879.png)![](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) dużej grubości ikony ostrzeżenia **!**
+![](./media/storsimple-safety/IC740879.png)![Ostrzeżenie ikony dużej grubości ikony ostrzeżenia ](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **!**
 
 1. Upewnij się, że masz dwie osoby, aby zarządzać wagą obudowy, jeśli jest ona obsługiwana ręcznie. W pełni skonfigurowana obudowa może ważyć do 32 kg (70 funtów).
 2. Umieść pudełko na płaskiej, poziomej powierzchni.
@@ -83,7 +83,7 @@ Urządzenie musi być zainstalowane w standardowym stojaku 19-calowym, które ma
 2. Upewnij się, że lokacja, w której zamierzasz skonfigurować, ma moc standardową AC od niezależnego źródła lub z jednostki dystrybucji zasilania w stojaku (PDU) z zasilaczem UPS.
 3. Upewnij się, że jedno gniazdo 2U jest dostępne w stojaku, w którym zamierzasz zainstalować urządzenie.
 
-![Ostrzeżenie ikony](./media/storsimple-safety/IC740879.png)![](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) dużej grubości ikony ostrzeżenia **!**
+![](./media/storsimple-safety/IC740879.png)![Ostrzeżenie ikony dużej grubości ikony ostrzeżenia ](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **!**
 
 Upewnij się, że masz dwie osoby, które mają być dostępne do zarządzania wagą, jeśli ręcznie obsługujesz konfigurację urządzenia. W pełni skonfigurowana obudowa może ważyć do 32 kg (70 funtów).
 

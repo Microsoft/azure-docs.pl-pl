@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ramamill
 ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257877"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699927"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Konfigurowanie serwera konfiguracji na potrzeby odzyskiwania po awarii serwerów fizycznych na platformę Azure
 
@@ -36,7 +36,7 @@ W poniższej tabeli przedstawiono minimalne wymagania dotyczące sprzętu, oprog
 ## <a name="choose-your-protection-goals"></a>Wybierz cele ochrony
 
 1. W Azure Portal przejdź do bloku magazyny **Recovery Services** i wybierz swój magazyn.
-2. W menu **zasób** magazynu kliknij **wprowadzenie** > **Site Recovery** > **krok 1: przygotowanie** > **celu ochrony**infrastruktury.
+2. W menu **zasób** magazynu kliknij **wprowadzenie**  >  **Site Recovery**  >  **krok 1: przygotowanie**  >  **celu ochrony**infrastruktury.
 
     ![Wybieranie celów](./media/physical-azure-set-up-source/choose-goals.png)
 3. W obszarze **cel ochrony**wybierz pozycję **na platformie Azure** , a **nie zwirtualizowany/inny**, a następnie kliknij przycisk **OK**.

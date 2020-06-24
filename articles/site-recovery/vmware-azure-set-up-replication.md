@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257123"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84699604"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>Konfigurowanie zasad replikacji dla odzyskiwania po awarii oprogramowania VMware i zarządzanie nimi
 
@@ -20,7 +20,7 @@ W tym artykule opisano sposób konfigurowania zasad replikacji w przypadku repli
 
 ## <a name="create-a-policy"></a>Tworzenie zasad
 
-1. Wybierz pozycję **Zarządzaj** > **infrastrukturą Site Recovery**.
+1. Wybierz pozycję **Zarządzaj**  >  **infrastrukturą Site Recovery**.
 2. W programie **dla oprogramowania VMware i maszyn fizycznych**wybierz pozycję **zasady replikacji**.
 3. Kliknij pozycję **+ zasady replikacji**, a następnie określ nazwę zasad.
 4. W polu **próg punktu odzyskiwania**Określ limit celu punktu odzyskiwania. Alerty są generowane, gdy Ciągła replikacja przekracza ten limit.
@@ -49,11 +49,11 @@ Możesz zmodyfikować zasady replikacji po jej utworzeniu.
 - Jeśli chcesz skojarzyć zreplikowane maszyny z innymi zasadami replikacji, musisz wyłączyć i ponownie włączyć ochronę odpowiednich maszyn.
 
 Edytuj zasady w następujący sposób:
-1. Wybierz pozycję **Zarządzaj** > **zasadami replikacji****Site Recovery infrastruktura** > .
+1. Wybierz pozycję **Zarządzaj**  >  **Site Recovery Infrastructure**  >  **zasadami replikacji**Site Recovery infrastruktura.
 2. Wybierz zasady replikacji, które chcesz zmodyfikować.
 3. Kliknij pozycję **Edytuj ustawienia**, a następnie w razie potrzeby zaktualizuj odpowiednie pola próg/czas przechowywania punktu odzyskiwania/częstotliwość migawek dla aplikacji.
 4. Jeśli chcesz wyłączyć generowanie punktów spójności aplikacji, wybierz wartość "off" na liście rozwijanej **częstotliwości migawek spójnej na poziomie aplikacji**.
-5. Kliknij przycisk **Zapisz**. Zasady powinny zostać zaktualizowane w ciągu 30 do 60 sekund.
+5. Kliknij pozycję **Zapisz**. Zasady powinny zostać zaktualizowane w ciągu 30 do 60 sekund.
 
 
 

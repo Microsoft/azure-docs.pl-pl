@@ -42,9 +42,9 @@ Użyj Azure Portal lub PowerShell, aby skonfigurować ustawienia synchronizacji 
 
 | Akcja | | |
 |--|--|--|
-| Tworzenie domeny zarządzanej i Konfigurowanie synchronizacji w zakresie | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| Modyfikuj synchronizację w zakresie | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| Wyłącz synchronizację z zakresem | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Tworzenie domeny zarządzanej i Konfigurowanie synchronizacji w zakresie | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [Program PowerShell](#enable-scoped-synchronization-using-powershell) |
+| Modyfikuj synchronizację w zakresie | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [Program PowerShell](#modify-scoped-synchronization-using-powershell) |
+| Wyłącz synchronizację z zakresem | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [Program PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > Zmiana zakresu synchronizacji powoduje, że zarządzana domena ponownie zsynchronizuje wszystkie dane. Obowiązują następujące zastrzeżenia:

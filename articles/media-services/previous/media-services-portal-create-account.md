@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 1904ed9707859f0d00bca3b6e3aef90d1346cea5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3839efecc1f5c645e8365ca6441731868412371e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78331506"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976850"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Tworzenie konta usługi Media Services przy użyciu witryny Azure Portal
 
@@ -27,8 +27,6 @@ ms.locfileid: "78331506"
 > Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
 Portal Azure umożliwia szybkie utworzenie konta usługi Azure Media Services (AMS). Korzystając z konta, możesz uzyskiwać dostęp do usługi Media Services, która umożliwia przechowywanie, szyfrowanie, kodowanie i przesyłanie strumieniowe zawartości oraz zarządzanie nią na platformie Azure. Podczas tworzenia konta usługi Media Services możesz również utworzyć skojarzone konto magazynu (lub użyć istniejącego konta). Jeśli usuniesz konto usługi Media Services, obiekty blob na powiązanym koncie magazynu nie zostaną usunięte.
-
-Podstawowym kontem magazynu może być konto Ogólnego przeznaczenia, wersja 1 lub Ogólnego przeznaczenia, wersja 2. Obecnie witryna Azure Portal umożliwia tylko wybranie wersji 1, lecz można dodać wersję 2 podczas tworzenia konta przy użyciu programu Powershell lub interfejsu API. Aby uzyskać więcej informacji dotyczących typów magazynu, zobacz [About Azure storage accounts](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) (Informacje o kontach usługi Azure Storage).
 
 Konto usług Media Services i wszystkie skojarzone konta magazynu muszą być w tej samej subskrypcji platformy Azure. Zdecydowanie zaleca się używanie kont magazynu znajdujących się w tej samej lokalizacji co konto usługi Media Services, aby uniknąć dodatkowych opóźnień i kosztów danych wychodzących.
 
@@ -46,7 +44,7 @@ Do wykonania kroków tego samouczka potrzebne jest konto platformy Azure. Aby uz
 W tej sekcji opisano kroki w procesie tworzenia konta usługi AMS.
 
 1. Zaloguj się do [witryny Azure Portal](https://portal.azure.com/).
-2. Kliknij pozycję **+ Utwórz** > **nośnik** > zasobów**Media Services**.
+2. Kliknij pozycję **+ Utwórz**  >  **nośnik**zasobów  >  **Media Services**.
 3. Na stronie **TWORZENIE KONTA USŁUGI MEDIA SERVICES** wprowadź wymagane wartości.
 
    1. W polu **Nazwa konta** wprowadź nazwę nowego konta usługi AMS. Nazwa konta usługi Media Services składa się z małych liter i cyfr (bez spacji) i może zawierać od 3 do 24 znaków.
@@ -77,6 +75,6 @@ Jeśli planujesz uzyskiwać dostęp do interfejsu API usługi AMS programowo, zo
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

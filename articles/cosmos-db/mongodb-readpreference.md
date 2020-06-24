@@ -161,7 +161,7 @@ Zapoznaj się z odpowiednimi przykładowymi repozytoriami aplikacji dla innych p
 
 W tym artykule wyjaśniono, jak globalnie dystrybuować operacje odczytu przy użyciu preferencji odczytu z interfejsem API Azure Cosmos DB dla MongoDB.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń wszystkie zasoby utworzone w tym artykule w Azure Portal, wykonując następujące czynności:
 

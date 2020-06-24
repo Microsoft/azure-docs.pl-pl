@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8fa352d81a6df70634c00978a3db155d5fb0d7e
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: d2242dc3a80287b36554298fa1a15afb894c9ac1
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217004"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976204"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -2095,8 +2095,6 @@ Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Int
 
 Nasza Aktualizacja z usługi OpenID Connect nawiązuje połączenie z protokołem uwierzytelniania OAuth 2,0 dla tego protokołu, nie trzeba już wykonywać żadnych dodatkowych czynności konfiguracyjnych, aby używać Tableau z serwerem proxy aplikacji. Ta zmiana protokołu pomaga również lepiej obsługiwać serwer proxy aplikacji, używając tylko przekierowań HTTP, które są powszechnie obsługiwane w języku JavaScript i w tagach HTML.
 
-Aby uzyskać więcej informacji na temat naszego natywnej obsługi Tableau, zobacz [Azure serwer proxy aplikacji usługi Azure AD teraz z natywną obsługą Tableau](https://blogs.technet.microsoft.com/applicationproxyblog/2018/08/14/azure-ad-application-proxy-now-with-native-tableau-support).
-
 ---
 
 ### <a name="new-support-to-add-google-as-an-identity-provider-for-b2b-guest-users-in-azure-active-directory-preview"></a>Nowe wsparcie do dodawania usługi Google jako dostawcy tożsamości dla użytkowników gościa B2B w Azure Active Directory (wersja zapoznawcza)
@@ -3022,7 +3020,7 @@ Azure AD Connect jest preferowanym narzędziem do synchronizowania danych międz
 
 Ta wersja obejmuje następujące aktualizacje i zmiany:
 
-**Rozwiązane problemy**
+**Rozwiązano problemy**
 
 - Naprawianie okna chronometrażu zadań w tle dla strony filtrowania partycji podczas przełączania na następną stronę.
 
@@ -3032,7 +3030,7 @@ Ta wersja obejmuje następujące aktualizacje i zmiany:
 
 - Rozwiązano problem polegający na tym, że certyfikaty z symbolami wieloznacznymi sieci SAN kończą się niepowodzeniem.
 
-- Naprawiono usterkę powodującą awarię MIIServer. exe podczas eksportowania łącznika usługi AAD.
+- Naprawiono usterkę powodującą miiserver.exe awarię podczas eksportowania łącznika usługi AAD.
 
 - Naprawiono usterkę polegającą na tym, że podczas uruchamiania w kontrolerze domeny zostało zarejestrowane złe hasło przy użyciu Kreatora połączenia usługi AAD, aby zmienić konfigurację
 

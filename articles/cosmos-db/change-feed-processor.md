@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 584fc48aad6a64f8df54088e6dbfd990e8e112e8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4325f75ac8181e088d64e53d3f65e085a09c0224
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655302"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119413"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesor zestawienia zmian w usłudze Azure Cosmos DB
 
@@ -23,19 +23,19 @@ Główną zaletą biblioteki procesora kanału informacyjnego jest zachowanie od
 
 ## <a name="components-of-the-change-feed-processor"></a>Składniki procesora źródła zmian
 
-Istnieją cztery główne składniki implementacji procesora kanału informacyjnego zmiany:
+Są cztery główne składniki implementacji procesora zestawienia zmian:
 
-1. **Monitorowany kontener:** Monitorowany kontener zawiera dane, z których jest generowane strumieniowe źródło zmian. Wszystkie wstawienia i aktualizacje monitorowanego kontenera są odzwierciedlone w kanale zmian kontenera.
+1. **Monitorowany kontener:** Monitorowany kontener zawiera dane, na podstawie których jest generowane zestawienie zmian. Wszystkie wstawienia i aktualizacje monitorowanego kontenera są odzwierciedlone w jego zestawieniu zmian.
 
-1. **Kontener dzierżawy:** Kontener dzierżawy działa jako magazyn stanów i koordynuje przetwarzanie źródła zmian przez wielu pracowników. Kontener dzierżawy może być przechowywany na tym samym koncie co monitorowany kontener lub na osobnym koncie.
+1. **Kontener dzierżawy:** Kontener dzierżawy działa jako magazyn stanów i koordynuje przetwarzanie zestawienia zmian przez wielu pracowników. Kontener dzierżawy może być przechowywany na tym samym koncie co monitorowany kontener lub na osobnym koncie.
 
-1. **Host:** Host jest wystąpieniem aplikacji korzystającym z procesora źródła zmian do nasłuchiwania zmian. Wiele wystąpień z tą samą konfiguracją dzierżawy może działać równolegle, ale każde wystąpienie powinno mieć inną **nazwę wystąpienia**.
+1. **Host:** Host to wystąpienie aplikacji korzystające z procesora zestawienia zmian do nasłuchiwania zmian. Wiele wystąpień z tą samą konfiguracją dzierżawy może działać równolegle, ale każde wystąpienie powinno mieć inną **nazwę wystąpienia**.
 
-1. **Delegat:** Delegat to kod, który definiuje, co ty i dla deweloperów chce wykonać przy każdej partii zmian, które procesor kanału informacyjnego zmian odczytuje. 
+1. **Obiekt delegowany:** Obiekt delegowany to kod, który definiuje, co ty jako deweloper zrobisz z każdą partią zmian odczytywanych przez procesor zestawienia zmian. 
 
 Aby dowiedzieć się więcej o tym, jak te cztery elementy procesora źródła zmian współpracują ze sobą, przyjrzyjmy się przykładowi na poniższym diagramie. Monitorowany kontener przechowuje dokumenty i używa jako klucza partycji "miasto". Zobaczymy, że wartości klucza partycji są dystrybuowane w zakresach zawierających elementy. Istnieją dwa wystąpienia hosta, a procesor kanału informacyjnego zmiany przypisuje różne zakresy wartości klucza partycji do każdego wystąpienia, aby zmaksymalizować rozkład obliczeń. Każdy zakres jest odczytywany równolegle, a jego postęp jest obsługiwany niezależnie od innych zakresów w kontenerze dzierżawy.
 
-![Przykładowy procesor źródła zmian](./media/change-feed-processor/changefeedprocessor.png)
+:::image type="content" source="./media/change-feed-processor/changefeedprocessor.png" alt-text="Przykładowy procesor źródła zmian" border="false":::
 
 ## <a name="implementing-the-change-feed-processor"></a>Implementacja procesora źródła zmian
 
@@ -56,7 +56,7 @@ Wywołanie `Build` spowoduje udostępnienie wystąpienia procesora, które możn
 
 ## <a name="processing-life-cycle"></a>Cykl życia przetwarzania
 
-Normalny cykl życia wystąpienia hosta to:
+Normalny cykl życiowy wystąpienia hosta wygląda następująco:
 
 1. Przeczytaj Źródło zmian.
 1. W przypadku braku zmian w stanie uśpienia przez wstępnie zdefiniowany czas (dostosowywalny `WithPollInterval` w programie w ramach konstruktora) i przejdź do #1.
@@ -83,7 +83,7 @@ Jak wspomniano wcześniej, w jednostce wdrożenia może istnieć co najmniej jed
 
 1. Wszystkie wystąpienia powinny mieć tę samą konfigurację kontenera dzierżawy.
 1. Wszystkie wystąpienia powinny być takie same `processorName` .
-1. Każde wystąpienie musi mieć inną nazwę wystąpienia ( `WithInstanceName` ).
+1. Każde wystąpienie musi mieć inną nazwę (`WithInstanceName`).
 
 Jeśli te trzy warunki mają zastosowanie, procesor kanału informacyjnego zmiany będzie używać algorytmu dystrybucji równej, dystrybuuje wszystkie dzierżawy w kontenerze dzierżawy do wszystkich uruchomionych wystąpień tej jednostki wdrożenia i obliczeń zrównoleglanie. Jedna dzierżawa może należeć tylko do jednego wystąpienia w danym momencie, więc Maksymalna liczba wystąpień jest równa liczbie dzierżaw.
 

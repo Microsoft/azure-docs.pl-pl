@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/18/2019
-ms.openlocfilehash: e9755c8a895dc441fc037a07dd36a1d1c07ce5fa
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.date: 06/17/2020
+ms.openlocfilehash: 19560c3746c67f8eb8ae789b3d6009e8f2fa74d3
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324559"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976816"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Azure SQL Database i reguły zapory adresów IP dla usługi Azure Synapse
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -102,6 +102,14 @@ Aby umożliwić aplikacjom hostowanym na platformie Azure Łączenie się z prog
 
 > [!IMPORTANT]
 > Ta opcja umożliwia skonfigurowanie zapory w taki sposób, aby zezwalała na wszystkie połączenia z platformy Azure, w tym połączenia z subskrypcji innych klientów. W przypadku wybrania tej opcji upewnij się, że uprawnienia logowania i użytkownika ograniczają dostęp tylko do autoryzowanych użytkowników.
+
+## <a name="permissions"></a>Uprawnienia
+
+Aby móc tworzyć reguły zapory IP dla usługi Azure SQL Server i zarządzać nimi, musisz być:
+
+- w roli [współautor SQL Server](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+- w roli [programu SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager)
+- Właściciel zasobu, który zawiera SQL Server platformy Azure
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Tworzenie reguł zapory adresów IP i zarządzanie nimi
 

@@ -5,15 +5,15 @@ services: event-hubs
 author: spelluru
 manager: ''
 ms.author: spelluru
-ms.date: 03/31/2020
+ms.date: 06/23/2020
 ms.topic: article
 ms.service: event-hubs
-ms.openlocfilehash: b4d9dc51451a06b2c87ddce78547655b51c6fabd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7486c251784b345351669bda6f0eb2309977728
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729624"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297464"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Przewodnik dla deweloperów Apache Kafka dla platformy Azure Event Hubs
 Ten artykuł zawiera linki do artykułów opisujących sposób integrowania aplikacji Apache Kafka z usługą Azure Event Hubs. 
@@ -53,14 +53,14 @@ Zobacz następujące samouczki w witrynie GitHub:
 | [Połącz](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect) | Ten dokument przeprowadzi Cię przez integrację Kafka z usługą Azure Event Hubs i wdrożeniem podstawowych łączników FileStreamSource i FileStreamSink. Chociaż te łączniki nie są przeznaczone do użytku w środowisku produkcyjnym, przedstawiają kompleksowy scenariusz Kafkaego połączenia, w którym platforma Azure Event Hubs jest zamaskowane jako Broker Kafka.| 
 | [Filebeat](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/filebeat) | Ten dokument przeprowadzi Cię przez integrację Filebeat i Event Hubs za pośrednictwem danych wyjściowych Kafka Filebeat. | 
 | [Flink](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/flink) | W tym samouczku pokazano, jak połączyć Apache Flink z Event Hubs z włączoną funkcją Kafka, bez konieczności zmiany klientów protokołu lub uruchamiania własnych klastrów. | 
-| [Pozostało](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/fluentd) | Ten dokument przeprowadzi Cię przez integrację pochodzącą i Event Hubs `out_kafka` przy użyciu wtyczki danych wyjściowych dla produktu Fluent. |
+| [Pozostało](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/fluentd) | Ten dokument przeprowadzi Cię przez integrację pochodzącą i Event Hubs przy użyciu `out_kafka` wtyczki danych wyjściowych dla produktu Fluent. |
 | [Interop](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop) | W tym samouczku przedstawiono sposób wymiany zdarzeń między konsumentami i producentami przy użyciu różnych protokołów. |
 | [Logstash](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/logstash) | Ten samouczek przeprowadzi Cię przez integrację logstash z Event Hubs z włączoną obsługą Kafka przy użyciu wtyczek logstash Kafka Input/Output. | 
 | [Narzędzia MirrorMaker](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker) | W tym samouczku pokazano, jak centrum zdarzeń i Kafka narzędzia MirrorMaker mogą zintegrować istniejący potok Kafka z platformą Azure przez dublowanie strumienia danych wejściowych Kafka w usłudze Event Hubs. |
 | [NiFi](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/nifi) | Ten samouczek pokazuje, jak połączyć Apache NiFi z przestrzenią nazw Event Hubs. | 
 | [OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth) | Przewodniki Szybki Start pokazują, jak utworzyć i nawiązać połączenie z punktem końcowym Event Hubs Kafka za pomocą przykładowego producenta i konsumenta pisanego w językach programowania języka Java. |
 | [Rejestr schematu z niefluent](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/schema-registry) | Ten samouczek przeprowadzi Cię przez integrację rejestru schematu i Event Hubs dla Kafka. | 
-| [platforma Spark](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark) | W tym samouczku przedstawiono sposób łączenia aplikacji platformy Spark z centrum zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów Kafka. | 
+| [Spark](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/spark) | W tym samouczku przedstawiono sposób łączenia aplikacji platformy Spark z centrum zdarzeń bez zmiany klientów protokołu lub uruchamiania własnych klastrów Kafka. | 
 
 ### <a name="tutorials-in-docs"></a>Samouczki w witrynie DOCS
 Zobacz również samouczek: [proces Apache Kafka dla zdarzeń Event Hubs za pomocą usługi Stream Analytics](event-hubs-kafka-stream-analytics.md) w tym zestawie zawartości, który pokazuje, jak przesyłać strumieniowo dane do Event Hubs i przetwarzać je z Azure Stream Analytics.

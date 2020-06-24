@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c16dd4345e62fa9e826e657cce9a752186ec1b82
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: bca8ccaf06fb63b9029b93a8c59a6304139c8ff1
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628661"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976884"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funkcje i terminologia w usłudze Azure Event Hubs
 
@@ -56,7 +56,7 @@ Usługa Event Hubs zapewnia, że wszystkie zdarzenia współużytkujące wartoś
 Usługa Event Hubs umożliwia szczegółową kontrolę nad wydawcami zdarzeń za pomocą *zasad wydawcy*. Zasady wydawcy to funkcje środowiska uruchomieniowego zaprojektowane w celu ułatwienia działania dużej liczby niezależnych wydawców zdarzeń. Dzięki zasadom wydawcy każdy wydawca używa swojego unikatowego identyfikatora podczas publikowania zdarzeń w centrum zdarzeń przy użyciu następującego mechanizmu:
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
+//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
 ```
 
 Nie jest konieczne wcześniejsze tworzenie nazw wydawców, ale muszą one być zgodne z tokenem sygnatury dostępu współdzielonego użytym podczas publikowania zdarzenia w celu zapewnienia niezależnych tożsamości wydawcy. Podczas używania zasad wydawcy wartość **PartitionKey** jest ustawiana na nazwę wydawcy. Aby zapewnić prawidłowe działanie, te wartości muszą być zgodne.
@@ -85,12 +85,13 @@ W architekturze przetwarzania strumieni każda aplikacja podrzędna odpowiada gr
 
 Na partycji dla każdej grupy odbiorców może znajdować się maksymalnie 5 współbieżnych czytników. jednak **zaleca się, aby tylko jeden aktywny odbiornik został skonfigurowany na partycji dla każdej grupy odbiorców**. W ramach jednej partycji każdy czytelnik otrzymuje wszystkie komunikaty. Jeśli masz wielu czytników na tej samej partycji, przetwórz zduplikowane komunikaty. Musisz obsłużyć to w kodzie, który nie może być prosty. Jest to jednak prawidłowe podejście w niektórych scenariuszach.
 
+Niektórzy klienci oferowani przez zestawy SDK platformy Azure są inteligentnymi agentami konsumenckimi, którzy automatycznie zarządzają szczegółami, aby zapewnić, że każda partycja ma jeden czytnik i że są odczytywane wszystkie partycje centrum zdarzeń. Dzięki temu kod może skupić się na przetwarzaniu zdarzeń odczytywanych z centrum zdarzeń, aby można było zignorować wiele szczegółów partycji. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z partycją](#connect-to-a-partition).
 
-Oto przykłady konwencji identyfikatora URI grupy odbiorców:
+W poniższych przykładach przedstawiono Konwencję identyfikatora URI grupy odbiorców:
 
 ```http
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #1]
-//[my namespace].servicebus.windows.net/[event hub name]/[Consumer Group #2]
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
 ```
 
 Na poniższym rysunku przedstawiono architekturę przetwarzania strumienia usługi Event Hubs:
@@ -122,7 +123,12 @@ Wszyscy klienci Event Hubs nawiązują połączenie za pośrednictwem sesji AMQP
 
 #### <a name="connect-to-a-partition"></a>Nawiązywanie połączenia z partycją
 
-Częstą praktyką jest, aby podczas nawiązywania połączenia z partycjami używany był mechanizm dzierżawienia w celu skoordynowania połączeń czytników z określonymi partycjami. Dzięki temu możliwe jest, aby dla każdej partycji w grupie odbiorców istniał tylko jeden aktywny czytnik. Tworzenie punktów kontrolnych, dzierżawienie i zarządzanie czytnikami jest upraszczane przez użycie klasy [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) dla klientów programu .NET. Host procesora zdarzeń to inteligentny agent odbiorcy.
+W przypadku nawiązywania połączenia z partycjami często używany jest mechanizm dzierżawienia w celu koordynowania połączeń czytnika z określonymi partycjami. W ten sposób można dla każdej partycji w grupie odbiorców mieć tylko jeden aktywny czytnik. Tworzenie punktów kontrolnych, dzierżawienie i zarządzanie czytnikami są uproszczone przy użyciu klientów w ramach zestawów SDK Event Hubs, które pełnią rolę inteligentnych agentów konsumenckich. Są to:
+
+- [EventProcessorClient](/dotnet/api/azure.messaging.eventhubs.eventprocessorclient) dla platformy .NET
+- [EventProcessorClient](/java/api/com.azure.messaging.eventhubs.eventprocessorclient) dla języka Java
+- [EventHubConsumerClient](/python/api/azure-eventhub/azure.eventhub.aio.eventhubconsumerclient) dla języka Python
+- [EventHubSoncumerClient](/javascript/api/@azure/event-hubs/eventhubconsumerclient) dla języka JavaScript/TypeScript
 
 #### <a name="read-events"></a>Zdarzenia odczytywania
 
@@ -142,13 +148,11 @@ Zarządzanie przesunięciem jest Twoim obowiązkiem.
 Aby uzyskać więcej informacji na temat usługi Event Hubs, skorzystaj z następujących linków:
 
 - Rozpoczynanie pracy z usługą Event Hubs
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [.NET](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
     - [JavaScript](get-started-java-send-v2.md)
 * [Przewodnik programowania Event Hubs](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md) (Dostępność i spójność w usłudze Event Hubs)
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)
-* [Przykłady Event Hubs][]
-
-[Przykłady Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+* [Przykłady Event Hubs](event-hubs-samples.md)

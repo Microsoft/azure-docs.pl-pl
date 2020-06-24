@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
-ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 68798cf98bf01697e5d854f5b539c1c381642c3c
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71258049"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735034"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Znane problemy: Secure LDAP alertów w Azure Active Directory Domain Services
 
@@ -32,7 +32,7 @@ Ten artykuł ułatwia zrozumienie i rozwiązywanie typowych alertów z bezpieczn
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Po włączeniu bezpiecznego protokołu LDAP zaleca się utworzenie dodatkowych reguł, które ograniczają dostęp do określonych adresów IP dla ruchu przychodzącego. Te reguły chronią domenę zarządzaną AD DS platformy Azure przed atakami polegającymi na wymuszeniu. Aby zaktualizować grupę zabezpieczeń sieci w celu ograniczenia dostępu do portu 636 protokołu TCP dla bezpiecznego protokołu LDAP, wykonaj następujące czynności:
+Po włączeniu bezpiecznego protokołu LDAP zaleca się utworzenie dodatkowych reguł, które ograniczają dostęp do określonych adresów IP dla ruchu przychodzącego. Te reguły chronią domenę zarządzaną przed atakami polegającymi na wymuszeniu. Aby zaktualizować grupę zabezpieczeń sieci w celu ograniczenia dostępu do portu 636 protokołu TCP dla bezpiecznego protokołu LDAP, wykonaj następujące czynności:
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **sieciowe grupy zabezpieczeń**.
 1. Wybierz grupę zabezpieczeń sieci skojarzoną z domeną zarządzaną, taką jak *AADDS-contoso.com-sieciowej grupy zabezpieczeń*, a następnie wybierz pozycję **reguły zabezpieczeń dla ruchu przychodzącego**
@@ -43,7 +43,7 @@ Po włączeniu bezpiecznego protokołu LDAP zaleca się utworzenie dodatkowych r
 1. Określ priorytet reguły, a następnie wprowadź nazwę, taką jak *RestrictLDAPS*.
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Dodaj** , aby utworzyć regułę.
 
-Kondycja domeny zarządzanej na platformie Azure AD DS automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
+Kondycja domeny zarządzanej automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
 
 > [!TIP]
 > Port TCP 636 nie jest jedyną regułą wymaganą do bezproblemowego działania usługi Azure AD DS. Aby dowiedzieć się więcej, zobacz [sieciowe grupy zabezpieczeń i wymagane porty platformy Azure AD DS](network-considerations.md#network-security-groups-and-required-ports).

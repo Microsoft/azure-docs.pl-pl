@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: d6aa1fc1e5978f59fc01dd41a89800629fa60ded
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611997"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735102"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Wiele sesji systemu Windows 10 Enterprise — często zadawane pytania
 
@@ -53,7 +53,7 @@ Wielosesyjna obsługa systemu Windows 10 Enterprise jest obecnie obsługiwana w 
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Gdzie mogę znaleźć obraz wielosesyjny dla systemu Windows 10 Enterprise?
 
-Wiele sesji systemu Windows 10 Enterprise znajduje się w galerii platformy Azure. Aby je znaleźć, przejdź do Azure Portal i Wyszukaj pozycję Windows 10 Enterprise for Virtual Desktops Release. Aby zapoznać się z obrazem zintegrowanym z pakietem Office Pro Plus, przejdź do Azure Portal i Wyszukaj pozycję Microsoft Windows 10 + Office 365 ProPlus.
+Wiele sesji systemu Windows 10 Enterprise znajduje się w galerii platformy Azure. Aby je znaleźć, przejdź do Azure Portal i Wyszukaj pozycję Windows 10 Enterprise for Virtual Desktops Release. Aby zapoznać się z obrazem zintegrowanym z Microsoft 365 aplikacjami dla przedsiębiorstw, przejdź do Azure Portal i Wyszukaj **aplikacje Microsoft Windows 10 i Microsoft 365 dla przedsiębiorstw**.
 
 ## <a name="which-windows-10-enterprise-multi-session-image-should-i-use"></a>Którego obrazu z obsługą wielu sesji systemu Windows 10 Enterprise należy używać?
 
@@ -92,7 +92,7 @@ Możesz wyłączyć aplikację Microsoft Store, aby upewnić się, że użytkown
 Aby wyłączyć aplikację ze sklepu:
 
 1. Utwórz nowy zasady grupy.
-2. Wybierz pozycję **Konfiguracja** > komputera**Szablony administracyjne** > **składniki systemu Windows**.
+2. Wybierz pozycję **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**.
 3. Wybierz pozycję **sklep**.
 4. Wybierz pozycję **aplikacja ze sklepu**.
 5. Wybierz pozycję **wyłączone**, a następnie wybierz przycisk **OK**.

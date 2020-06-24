@@ -39,7 +39,7 @@ Kategoria **B2C** w dziennikach inspekcji zawiera następujące typy działań:
 |Aplikacja | Tworzenie, odczytywanie, aktualizowanie i usuwanie (CRUD) operacji na aplikacjach B2C. |
 |Klucz |Operacje CRUD na kluczach przechowywanych w kontenerze kluczy B2C. |
 |Zasób |CRUD operacji na zasobach B2C. Na przykład zasady i dostawcy tożsamości.
-|Uwierzytelnianie |Weryfikowanie poświadczeń użytkownika i wystawianie tokenów.|
+|Authentication |Weryfikowanie poświadczeń użytkownika i wystawianie tokenów.|
 
 W przypadku działań CRUD obiektów użytkownika zapoznaj się z kategorią **katalogu podstawowego** .
 

@@ -77,6 +77,8 @@
           href: ./afds/waf-front-door-geo-filtering.md
         - name: Często zadawane pytania
           href: ./afds/waf-faq.md
+    - name: Zapora aplikacji internetowej i usługa Azure Policy
+      href: ./shared/waf-azure-policy.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Application Gateway
