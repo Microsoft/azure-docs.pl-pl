@@ -1,24 +1,24 @@
 ---
 title: Wbudowane definicje zasad dla Azure Service Bus Messaging
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Service Bus komunikatów. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 7d81625fef2836160d71f8f97cf7ed37456c621e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: c67d78a668118b8e8db00b7680956214042150e6
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234191"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888186"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-service-bus-messaging"></a>Azure Policy wbudowane definicje zasad dla Azure Service Bus komunikatów
+# <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Azure Policy wbudowane definicje dla Azure Service Bus komunikatów
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Service Bus komunikatów. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-service-bus-messaging"></a>Azure Service Bus Messaging
 

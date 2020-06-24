@@ -46,8 +46,12 @@
                   href: data-box-system-requirements-rest.md
             - name: Poznawanie ograniczeń
               href: data-box-limits.md
-            - name: Przegląd zabezpieczeń
-              href: data-box-security.md
+            - name: Zabezpieczenia
+              items:
+                - name: Punkt odniesienia zabezpieczeń
+                  href: security-baseline.md
+                - name: Przegląd zabezpieczeń
+                  href: data-box-security.md
             - name: Często zadawane pytania
               href: data-box-faq.md
         - name: Instrukcje

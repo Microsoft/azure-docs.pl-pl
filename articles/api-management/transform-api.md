@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a9c6897937b73786367accc33e985a268907226
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6b446fe83ad37dfe9edbe55fcb1b5b42aa578274
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81258749"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100363"
 ---
 # <a name="transform-and-protect-your-api"></a>Przekształcanie i ochrona interfejsu API
 
@@ -26,7 +26,7 @@ Samouczek przedstawia sposób przekształcania interfejsu API, aby nie ujawniał
 
 W tym samouczku przedstawiono również, jak łatwo można dodawać ochronę do interfejsu API zaplecza dzięki konfigurowaniu liczby wywołań i przydziałów za pomocą usługi Azure API Management. Na przykład możesz ograniczyć liczbę wywołań dla interfejsu API, aby nie był on nadmiernie obciążany przez deweloperów. Aby uzyskać więcej informacji, zobacz [Zasady zarządzania interfejsem API](api-management-policies.md)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -75,12 +75,12 @@ Oryginalna odpowiedź powinna wyglądać następująco:
 2. W górnej części ekranu wybierz kartę **Projektowanie**.
 3. Wybierz opcję **Wszystkie operacje**.
 4. W sekcji **Przetwarzanie danych wychodzących** kliknij ikonę **</>**.
-5. Umieść kursor wewnątrz elementu ** &lt;wychodzącego&gt; ** .
+5. Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** .
 6. W okienku po prawej stronie w obszarze **Zasady przekształcania** kliknij dwukrotnie opcję **+ Ustaw nagłówek HTTP** (aby wstawić dwa fragmenty kodu zasad).
 
    ![Zasady](./media/transform-api/transform-api.png)
 
-7. Zmodyfikuj kod ** \<>wychodzącego** , aby wyglądać następująco:
+7. Zmodyfikuj swój **\<outbound>** kod, aby wyglądać następująco:
 
        <set-header name="X-Powered-By" exists-action="delete" />
        <set-header name="X-AspNet-Version" exists-action="delete" />
@@ -112,11 +112,8 @@ Aby zobaczyć oryginalną odpowiedź:
 2.  Wybierz opcję **Wszystkie operacje**.
 3.  W górnej części ekranu wybierz kartę **Projektowanie**.
 4.  W sekcji **Przetwarzanie danych wychodzących** kliknij ikonę **</>**.
-5.  Umieść kursor wewnątrz elementu ** &lt;wychodzącego&gt; ** , a następnie kliknij przycisk **Wstaw zasady** w prawym górnym rogu.
-6.  W oknie po prawej stronie w obszarze **Zasady przekształcania** kliknij opcję **+ Znajdź i zastąp ciąg w treści**.
-7.  Zmodyfikuj kod **find-and-replace** (w elemencie **\<outbound\>**), aby zastąpić adres URL i dopasować go do bramy APIM. Przykład:
-
-        <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
+5.  Umieść kursor wewnątrz elementu ** &lt; wychodzącego &gt; ** , a następnie kliknij przycisk **Pokaż fragmenty kodu** w prawym górnym rogu.
+6.  W oknie po prawej stronie w obszarze **zasady przekształcania**kliknij pozycję **Maskuj adresy URL w obszarze zawartość**.
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Ochrona interfejsu API poprzez dodanie zasad limitu szybkości (ograniczanie przepustowości)
 
@@ -128,9 +125,9 @@ W tej sekcji przedstawiono sposób dodawania zabezpieczeń do interfejsu API zap
 2.  Wybierz opcję **Wszystkie operacje**.
 3.  W górnej części ekranu wybierz kartę **Projektowanie**.
 4.  W sekcji **Przetwarzanie danych przychodzących** kliknij ikonę **</>**.
-5.  Umieść kursor wewnątrz elementu ** &lt;przychodzącego&gt; ** .
+5.  Umieść kursor wewnątrz elementu ** &lt; przychodzącego &gt; ** .
 6.  W oknie po prawej stronie w obszarze **Zasady ograniczeń dostępu** kliknij opcję **+ Ogranicz liczbę wywołań na klucz**.
-7.  Zmodyfikuj kod **rate-limit-by-key** (w elemencie **\<inbound\>**) do następującego:
+7.  Zmodyfikuj kod **Rate-limit-by-Key** (w **\<inbound\>** elemencie) do następującego kodu:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
@@ -195,7 +192,7 @@ Pozostała część tej sekcji testuje przekształcenia zasad ustawione w tym ar
 
     ![Ograniczanie przepływności](./media/transform-api/test-throttling.png)
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
 

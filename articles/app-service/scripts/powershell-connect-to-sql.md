@@ -6,16 +6,16 @@ ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
 ms.topic: sample
 ms.date: 03/20/2017
 ms.custom: mvc
-ms.openlocfilehash: e050675282d8a7784d31aaf45a564da991ff6e63
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9086e00e4b6caf89ab249bbf25ca03a6f068ba49
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020034"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85248302"
 ---
-# <a name="connect-an-app-service-app-to-a-sql-database"></a>Łączenie aplikacji usługi App Service z usługą SQL Database
+# <a name="connect-an-app-service-app-to-sql-database"></a>Łączenie aplikacji App Service z SQL Database
 
-Z tego scenariusza dowiesz się, jak utworzyć bazę danych Azure SQL Database i aplikację usługi App Service. Następnie połączysz bazę danych SQL Database z aplikacją przy użyciu ustawień aplikacji.
+W tym scenariuszu dowiesz się, jak utworzyć bazę danych w Azure SQL Database i aplikacji App Service. Następnie nawiążesz połączenie z bazą danych z aplikacją przy użyciu ustawień aplikacji.
 
 W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdującej się w [przewodniku Azure PowerShell](/powershell/azure/overview), a następnie uruchom polecenie, `Connect-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
@@ -23,7 +23,7 @@ W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujące
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to a SQL database")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/connect-to-sql/connect-to-sql.ps1?highlight=13 "Connect an app to SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Czyszczenie wdrożenia 
 

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: 6f8431bfd3be75651f3a08fe9b07fc3902436331
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d29f97bf421804fb234ce8d86c66c12b01854681
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657294"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113805"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Samouczek: Tworzenie aplikacji sieci Web w języku Java przy użyciu Azure Cosmos DB i interfejsu API SQL
 
@@ -32,7 +32,7 @@ W tym samouczku aplikacji internetowej w języku Java pokazano, jak przy użyciu
 
 W tym samouczku aplikacji w języku Java pokazano, jak utworzyć aplikację do zarządzania zadaniami opartą na sieci Web, która pozwala na tworzenie, pobieranie i oznaczanie zadań jako ukończonych, jak pokazano na poniższej ilustracji. Każde z zadań z listy zadań do wykonania będzie przechowywane jako dokument JSON w usłudze Azure Cosmos DB.
 
-![Aplikacja My ToDo List w języku Java](./media/sql-api-java-application/image1.png)
+:::image type="content" source="./media/sql-api-java-application/image1.png" alt-text="Aplikacja My ToDo List w języku Java":::
 
 > [!TIP]
 > Ten samouczek tworzenia aplikacji zakłada, że masz już pewne doświadczenie w korzystaniu z języka Java. Jeśli nie znasz języka Java lub [wstępnie wymaganych narzędzi](#Prerequisites), zalecamy pobranie kompletnego projektu [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) z usługi GitHub i skompilowanie go zgodnie z [instrukcjami znajdującymi się na końcu artykułu](#GetProject). Po jego skompilowaniu możesz przejrzeć ten artykuł, aby przeanalizować kod w kontekście projektu.  
@@ -66,7 +66,7 @@ Aby utworzyć aplikację JSP:
 
 1. Najpierw zaczniemy od utworzenia projektu Java. Uruchom środowisko Eclipse, a następnie w menu **File** (Plik) kliknij polecenie **New** (Nowy), a potem kliknij polecenie **Dynamic Web Project** (Dynamiczny projekt sieci Web). Jeśli **dynamiczny projekt sieci Web** nie jest wyświetlany na liście dostępnych projektów, wykonaj następujące czynności: kliknij pozycję **plik**, kliknij pozycję **Nowy**, kliknij pozycję **projekt**..., rozwiń węzeł **Sieć Web**, kliknij pozycję **dynamiczny projekt sieci Web**, a następnie kliknij przycisk **dalej**.
    
-    ![Tworzenie aplikacji Java JSP](./media/sql-api-java-application/image10.png)
+    :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="Tworzenie aplikacji Java JSP":::
 
 1. Wprowadź nazwę projektu w polu **Project name** (Nazwa projektu) i z menu rozwijanego **Target Runtime** (Docelowe środowisko uruchomieniowe) opcjonalnie wybierz wartość (np. Apache Tomcat v7.0), a następnie kliknij przycisk **Finish** (Zakończ). Wybranie docelowego środowiska uruchomieniowego umożliwia uruchamianie projektu lokalnie za pośrednictwem środowiska Eclipse.
 
@@ -74,11 +74,11 @@ Aby utworzyć aplikację JSP:
 
 1. W oknie dialogowym **New JSP File** (Nowy plik JSP) nazwij plik **index.jsp**. Pozostaw folder **WebContent** jako folder nadrzędny, w sposób pokazany na poniższej ilustracji, a następnie kliknij przycisk **Next** (Dalej).
    
-    ![Tworzenie nowego pliku JSP — samouczek aplikacji internetowej w języku Java](./media/sql-api-java-application/image11.png)
+    :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Tworzenie nowego pliku JSP — samouczek aplikacji internetowej w języku Java":::
 
 1. W oknie dialogowym **Select JSP Template** (Wybierz szablon pliku JSP) na potrzeby tego samouczka wybierz szablon **New JSP File (html)**, a następnie kliknij przycisk **Finish** (Zakończ).
 
-1. Gdy plik *index. jsp* zostanie otwarty w przezaćmieniu, Dodaj tekst do wyświetlania **Hello World!** wewnątrz istniejącego elementu `<body>`. Zaktualizowana zawartość elementu `<body>` powinna wyglądać podobnie do następującego kodu:
+1. Gdy plik *index.jsp* zostanie otwarty w oknie przezaćmienie, Dodaj tekst do wyświetlenia **Hello World!** wewnątrz istniejącego elementu `<body>`. Zaktualizowana zawartość elementu `<body>` powinna wyglądać podobnie do następującego kodu:
 
    ```html
    <body>
@@ -86,7 +86,7 @@ Aby utworzyć aplikację JSP:
    </body>
    ```
 
-1. Zapisz plik *index. jsp* .
+1. Zapisz plik *pindex.js* .
 
 1. Jeśli docelowe środowisko uruchomieniowe zostało ustawione w kroku 2, możesz kliknąć pozycję **Project** (Projekt), a następnie pozycję **Run** (Uruchom), aby uruchomić aplikację JSP lokalnie:
 
@@ -110,7 +110,7 @@ Najprostszym sposobem pobrania zestawu SDK Java usługi SQL i jego zależności 
    * W polu **Identyfikator artefaktu** wprowadź `azure-cosmos` .
    * W polu **wersja** wprowadź wartość `4.0.1-beta.1` .
   
-   Można też dodać kod XML zależności dla identyfikatora grupy i identyfikatora artefaktu bezpośrednio do pliku *pliku pom. XML* :
+   Można też dodać kod XML zależności dla identyfikatora grupy i identyfikatora artefaktu bezpośrednio do pliku *pom.xml* :
 
    ```xml
    <dependency>
@@ -120,7 +120,7 @@ Najprostszym sposobem pobrania zestawu SDK Java usługi SQL i jego zależności 
    </dependency>
    ```
 
-1. Kliknij przycisk **OK** , a Maven zainstaluje zestaw SQL Java SDK lub Zapisz plik pliku pom. XML.
+1. Kliknij przycisk **OK** , a Maven zainstaluje zestaw SQL Java SDK lub zapisz plik pom.xml.
 
 ## <a name="use-the-azure-cosmos-db-service-in-your-java-application"></a><a id="UseService"></a>Korzystanie z usługi Azure Cosmos DB w aplikacji Java
 
@@ -174,7 +174,7 @@ Następnie utwórz serwletu, aby kierować żądania HTTP do kontrolera. Utwórz
 
 Teraz, gdy już zakończysz pracę z usługą, wszystko to jest możliwe do skompilowania szybkiego interfejsu użytkownika i przełączenia go do obiektu DAO.
 
-1. Potrzebujesz interfejsu użytkownika sieci Web do wyświetlania użytkownikowi. Napiszmy ponownie *indeks. jsp* został utworzony wcześniej przy użyciu następującego kodu:
+1. Potrzebujesz interfejsu użytkownika sieci Web do wyświetlania użytkownikowi. Napiszmy ponownie *index.jsp* utworzony wcześniej przy użyciu następującego kodu:
 
    :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/WebContent/index.jsp":::
 
@@ -251,4 +251,4 @@ Wszystkie przykłady w tym samouczku są zawarte w projekcie [todo](https://gith
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie aplikacji node. js za pomocą Azure Cosmos DB](sql-api-nodejs-application.md)
+> [Tworzenie aplikacji node.js przy użyciu Azure Cosmos DB](sql-api-nodejs-application.md)

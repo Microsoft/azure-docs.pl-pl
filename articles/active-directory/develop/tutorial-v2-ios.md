@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/30/2019
+ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1dd0bc589b8290172d18482b36baf30c24d099b4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83640570"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84904766"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Logowanie użytkowników i wywoływanie Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -48,7 +48,7 @@ Ten samouczek dotyczy zarówno aplikacji dla systemu iOS, jak i macOS. Należy z
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Do skompilowania aplikacji w tym przewodniku jest wymagane XCode w wersji 11. x lub nowszej. XCode można pobrać z [witryny sieci Web iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "Adres URL pobierania XCode").
+- Do skompilowania aplikacji w tym przewodniku jest wymagane XCode w wersji 11. x lub nowszej. XCode można pobrać ze [sklepu Mac App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "Adres URL pobierania XCode").
 - Biblioteka uwierzytelniania firmy Microsoft ([MSAL. Framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Można użyć Menedżera zależności lub ręcznie dodać bibliotekę. W poniższych instrukcjach pokazano, jak to zrobić.
 
 Ten samouczek spowoduje utworzenie nowego projektu. Jeśli chcesz zamiast tego pobrać ukończony samouczek, Pobierz kod:
@@ -624,9 +624,9 @@ Aby uzyskać zaktualizowany token w trybie dyskretnym, Dodaj następujący kod d
 
 Gdy masz token, aplikacja może używać go w nagłówku HTTP w celu uzyskania autoryzowanego żądania do Microsoft Graph:
 
-| klucz nagłówka    | value                 |
+| klucz nagłówka    | wartość                 |
 | ------------- | --------------------- |
-| Autoryzacja | \<> tokenu dostępu okaziciela |
+| Autoryzacja | Elementu nośnego\<access-token> |
 
 Dodaj następujący kod do `ViewController` klasy:
 

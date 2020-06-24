@@ -6,8 +6,6 @@ keywords: powiadomienia wypychane w systemie ios, wiadomości wypychane, powiado
 documentationcenter: xamarin
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
@@ -18,12 +16,12 @@ ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 07417427385806e61db0d7d83624d923e92eb693
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c3bab449f6c6807028e6d1bcf1563cf29b96d0f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80127009"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255487"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Samouczek: wysyłanie powiadomień wypychanych do aplikacji platformy Xamarin. iOS przy użyciu usługi Azure Notification Hubs
 
@@ -73,11 +71,11 @@ Wykonanie czynności opisanych w tym samouczku jest wymaganiem wstępnym dla wsz
 
     ![Visual Studio — konfiguracja aplikacji systemu iOS][32]
 
-4. W widoku rozwiązania kliknij dwukrotnie przycisk `Entitlements.plist` i upewnij się, że włączono opcję **Włącz powiadomienia wypychane** .
+4. W widoku rozwiązania kliknij dwukrotnie przycisk i upewnij się, że włączono opcję `Entitlements.plist` **Włącz powiadomienia wypychane** .
 
     ![Visual Studio — konfigurowanie uprawnień systemu iOS][33]
 
-5. Dodaj pakiet składnika Azure Messaging. W widoku rozwiązania kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj** > **Dodaj pakiety NuGet**. Wyszukaj pakiet **Xamarin.Azure.NotificationHubs.iOS** i dodaj go do projektu.
+5. Dodaj pakiet składnika Azure Messaging. W widoku rozwiązania kliknij prawym przyciskiem myszy projekt i wybierz polecenie **Dodaj**  >  **Dodaj pakiety NuGet**. Wyszukaj pakiet **Xamarin.Azure.NotificationHubs.iOS** i dodaj go do projektu.
 
 6. Dodaj nowy plik do klasy, nadaj mu nazwę `Constants.cs`, dodaj następujące zmienne i zastąp symbole zastępcze literału ciągu przy użyciu zanotowanych wcześniej wartości `hubname` i `DefaultListenSharedAccessSignature`.
 

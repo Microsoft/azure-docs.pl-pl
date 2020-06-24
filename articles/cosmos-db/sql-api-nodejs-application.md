@@ -1,5 +1,5 @@
 ---
-title: 'Samouczek: Tworzenie aplikacji sieci Web Node. js przy użyciu zestawu Azure Cosmos DB JavaScript SDK do zarządzania danymi interfejsu API SQL'
+title: 'Samouczek: Tworzenie aplikacji internetowej Node.js za pomocą Azure Cosmos DB SDK języka JavaScript do zarządzania danymi interfejsu API SQL'
 description: W tym samouczku środowiska Node.js przedstawiono, jak przy użyciu usługi Microsoft Azure Cosmos DB przechowywać dane i uzyskiwać do nich dostęp z poziomu aplikacji internetowej Node.js Express hostowanej w funkcji Web Apps usługi Microsoft Azure App Service.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 9257a87c69e98db1107528551fe9ce0553c50f75
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: b85a70b6d2feba68ed5a766ad05bc6aa22f597f8
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858152"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85114694"
 ---
-# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji sieci Web Node. js przy użyciu zestawu SDK języka JavaScript do zarządzania kontem interfejsu API SQL w programie Azure Cosmos DB 
+# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji internetowej Node.js przy użyciu zestawu JavaScript SDK do zarządzania kontem interfejsu API SQL w programie Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -41,7 +41,7 @@ Ten samouczek obejmuje następujące zadania:
 
 Przed wykonaniem instrukcji zawartych w tym artykule upewnij się, że masz następujące zasoby:
 
-* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -84,7 +84,7 @@ Teraz nauczysz się, jak utworzyć podstawowy projekt aplikacji Hello World w ś
 
 1. Swoją nową aplikację możesz wyświetlić, przechodząc w przeglądarce na adres `http://localhost:3000`.
    
-   ![Poznaj środowisko Node.js — zrzut ekranu aplikacji Hello World w oknie przeglądarki](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
+   :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-express.png" alt-text="Poznaj środowisko Node.js — zrzut ekranu aplikacji Hello World w oknie przeglądarki":::
 
    Zatrzymaj aplikację za pomocą klawiszy CTRL + C w oknie terminalu i wybierz pozycję **y** , aby zakończyć zadanie usługi Batch.
 
@@ -92,7 +92,7 @@ Teraz nauczysz się, jak utworzyć podstawowy projekt aplikacji Hello World w ś
 
 Plik **package.json** jest jednym z plików utworzonych w folderze głównym projektu. Ten plik zawiera listę dodatkowych modułów, które są wymagane dla aplikacji Node.js. Podczas wdrażania tej aplikacji na platformie Azure ten plik służy do określania, które moduły mają być zainstalowane na platformie Azure w celu obsługi tej aplikacji. Zainstaluj jeszcze 2 pakiety na potrzeby tego samouczka.
 
-1. Zainstaluj moduł ** \@Azure/Cosmos** za pośrednictwem usługi npm. 
+1. Zainstaluj moduł ** \@ Azure/Cosmos** za pośrednictwem usługi npm. 
 
    ```bash
    npm install @azure/cosmos
@@ -106,7 +106,7 @@ Teraz, po wykonaniu wstępnej instalacji i konfiguracji, napiszesz kod, który j
 
 2. W katalogu **models** utwórz nowy plik o nazwie **taskDao.js**. Ten plik zawiera kod wymagany do utworzenia bazy danych i kontenera. Definiuje także metody odczytu, aktualizacji, tworzenia i znajdowania zadań w usłudze Azure Cosmos DB. 
 
-3. Skopiuj następujący kod do pliku **taskDao. js** :
+3. Skopiuj następujący kod do pliku **taskDao.js** :
 
    ```javascript
     // @ts-check
@@ -438,7 +438,7 @@ Teraz, gdy masz utworzoną aplikację, możesz uruchomić ją lokalnie, wykonuj�
 
 1. Aby przetestować aplikację na komputerze lokalnym, w terminalu uruchom polecenie `npm start`, aby uruchomić aplikację, a następnie odśwież stronę przeglądarki `http://localhost:3000`. Strona powinna teraz wyglądać jak pokazano na poniższym zrzucie ekranu:
    
-    ![Zrzut ekranu aplikacji MyTodo List w oknie przeglądarki](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png" alt-text="Zrzut ekranu aplikacji MyTodo List w oknie przeglądarki":::
 
     > [!TIP]
     > W przypadku wystąpienia błędu dotyczącego wcięcia w pliku layout.jade bądź index.jade upewnij się, że dwa pierwsze wiersze w obu plikach są wyrównane do lewej, bez spacji. Jeśli przed dwoma pierwszymi wierszami występują spacje, usuń je, zapisz oba pliki, a następnie odśwież okno przeglądarki. 
@@ -447,7 +447,7 @@ Teraz, gdy masz utworzoną aplikację, możesz uruchomić ją lokalnie, wykonuj�
 
 3. Ta strona powinna zostać zaktualizowana w celu wyświetlenia nowo utworzonego elementu na liście ToDo.
    
-    ![Zrzut ekranu aplikacji z nowym elementem na liście ToDo](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
+    :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Zrzut ekranu aplikacji z nowym elementem na liście ToDo":::
 
 4. Aby zakończyć zadanie, zaznacz pole wyboru w kolumnie Complete (Zakończ), a następnie wybierz pozycję **Update tasks** (Aktualizuj zadania). Spowoduje to zaktualizowanie utworzonego już dokumentu i usunięcie go z widoku.
 
@@ -473,7 +473,7 @@ Gdy aplikacja działa prawidłowo w środowisku lokalnym, możesz wdrożyć ją 
 
 4. W ciągu kilku sekund aplikacja internetowa zostanie opublikowana i uruchomiona w przeglądarce.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz usunąć grupę zasobów, konto usługi Azure Cosmos DB oraz wszystkie powiązane zasoby, gdy nie będą już potrzebne. Aby to zrobić, wybierz grupę zasobów używaną w przypadku konta usługi Azure Cosmos DB, wybierz pozycję **Usuń**, a następnie potwierdź nazwę grupy zasobów, którą chcesz usunąć.
 

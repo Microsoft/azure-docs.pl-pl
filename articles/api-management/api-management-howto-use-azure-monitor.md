@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: bee93cf84f4beda0684127102942447630219881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 989608b9a087599ab73864ae2605fbffcf3221d9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128842"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982054"
 ---
 # <a name="monitor-published-apis"></a>Monitorowanie opublikowanych interfejsów API
 
 Dzięki usłudze Azure Monitor możesz wykonywać wizualizacje i zapytania, ustalać trasy, archiwizować i podejmować działania dotyczące metryk lub dzienników pochodzących z zasobów platformy Azure.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie dzienników aktywności
@@ -43,14 +43,13 @@ W poniższym filmie wideo pokazano, jak monitorować usługę API Management prz
 
 ## <a name="view-metrics-of-your-apis"></a>Wyświetlanie metryk interfejsów API
 
-Usługa API Management emituje metryki co minutę, oferując wgląd w stan i kondycję interfejsów API w czasie zbliżonym do rzeczywistego. Poniżej znajduje się podsumowanie niektórych dostępnych metryk:
+Usługa API Management emituje metryki co minutę, oferując wgląd w stan i kondycję interfejsów API w czasie zbliżonym do rzeczywistego. Poniżej znajdują się dwa najczęściej używane metryki. Aby uzyskać listę wszystkich dostępnych metryk, zobacz [obsługiwane metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
 
 * Pojemność: ułatwia podejmowanie decyzji dotyczących uaktualniania/obniżania wersji usług APIM. Metryka jest emitowana co minutę i odzwierciedla pojemność bramy w momencie raportowania. Wartość metryki należy do zakresu od 0 do 100 i jest obliczana w oparciu o zasoby bramy, takie jak wykorzystanie procesora i pamięci.
-* Całkowita liczba żądań bramy: liczba żądań interfejsu API w danym okresie. 
-* Żądania bramy zakończone powodzeniem: liczba żądań interfejsu API, które otrzymały kody odpowiedzi HTTP informujące o powodzeniu, w tym 304, 307 i mniejsze niż 301 (na przykład 200).
-* Żądania bramy zakończone niepowodzeniem: liczba żądań interfejsu API, które otrzymały kody odpowiedzi HTTP informujące o błędzie, w tym 400 i większe niż 500.
-* Nieautoryzowane żądania bramy: liczba żądań interfejsu API, które otrzymały kody odpowiedzi HTTP, w tym 401, 403 i 429.
-* Inne żądania bramy: liczba żądań interfejsu API, które otrzymały kody odpowiedzi HTTP nienależące do żadnej z powyższych kategorii (na przykład 418).
+* Żądania: ułatwia analizowanie ruchu interfejsu API przechodzącego przez usługi APIM. Metryka jest emitowana na minutę i zgłasza liczbę żądań bramy z wymiarami, w tym kodami odpowiedzi, lokalizacjami, nazwą hosta i błędami. 
+
+> [!IMPORTANT]
+> Następujące metryki zostały wycofane z maja 2019 i zostaną wycofane w sierpniu 2023: całkowita liczba żądań bramy, pomyślne żądania bramy, nieautoryzowane żądania bramy, Nieudane żądania bramy, inne żądania bramy. Przeprowadź migrację do metryki żądań, która zapewnia równoważną funkcjonalność.
 
 ![wykres metryk](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
@@ -60,9 +59,9 @@ Aby uzyskać dostęp do metryk:
 
     ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
-1. Z listy rozwijanej wybierz interesujące Cię metryki. Na przykład **żądania**. 
-1. Wykres przedstawia łączną liczbę wywołań interfejsu API.
-1. Wykres może być filtrowany przy użyciu wymiarów metryk **żądań** . Na przykład kliknij pozycję **Dodaj filtr**, wybierz pozycję **kod odpowiedzi zaplecza**, wprowadź 500 jako wartość. Teraz wykres pokazuje liczbę żądań, które zakończyły się niepowodzeniem w zapleczu interfejsu API.   
+2. Z listy rozwijanej wybierz interesujące Cię metryki. Na przykład **żądania**. 
+3. Wykres przedstawia łączną liczbę wywołań interfejsu API.
+4. Wykres może być filtrowany przy użyciu wymiarów metryk **żądań** . Na przykład kliknij pozycję **Dodaj filtr**, wybierz pozycję **kod odpowiedzi zaplecza**, wprowadź 500 jako wartość. Teraz wykres pokazuje liczbę żądań, które zakończyły się niepowodzeniem w zapleczu interfejsu API.   
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Konfigurowanie reguły alertu na potrzeby nieautoryzowanego żądania
 
@@ -188,8 +187,8 @@ API Management obecnie udostępnia dzienniki zasobów (wsadowe co godzinę) doty
 | correlationId | ciąg | Unikatowy identyfikator żądania HTTP przypisany przez usługę API Management |
 | location | ciąg | Nazwa regionu platformy Azure, w którym znajdowała się brama przetwarzająca żądanie |
 | httpStatusCodeCategory | ciąg | Kategoria kodu stanu odpowiedzi HTTP: Powodzenie (301 lub mniej albo 304 lub 307), Bez autoryzacji (401, 403, 429), Błąd (400, od 500 do 600), Inne |
-| resourceId | ciąg | Identyfikator subskrypcji API Management zasobów/SUBSCRIPTIONS/\<> grupy zasobów/RESOURCEGROUPS/\<>/Providers/Microsoft. APIMANAGEMENT/usługa/\<nazwa> |
-| properties | obiekt | Właściwości bieżącego żądania |
+| resourceId | ciąg | Identyfikator zasobu API Management/SUBSCRIPTIONS/ \<subscription> /RESOURCEGROUPS/ \<resource-group> /providers/Microsoft. APIMANAGEMENT/SERVICE/\<name> |
+| properties | object | Właściwości bieżącego żądania |
 | method | ciąg | Metoda HTTP żądania przychodzącego |
 | url | ciąg | Adres URL żądania przychodzącego |
 | clientProtocol | ciąg | Wersja protokołu HTTP żądania przychodzącego |
@@ -210,9 +209,9 @@ API Management obecnie udostępnia dzienniki zasobów (wsadowe co godzinę) doty
 | userId | ciąg | Identyfikator jednostki użytkownika dla bieżącego żądania | 
 | apimSubscriptionId | ciąg | Identyfikator jednostki subskrypcji dla bieżącego żądania | 
 | backendId | ciąg | Identyfikator jednostki zaplecza dla bieżącego żądania | 
-| LastError | obiekt | Ostatni błąd przetwarzania żądania | 
+| LastError | object | Ostatni błąd przetwarzania żądania | 
 | elapsed | liczba całkowita | Liczba milisekund upływających od momentu odebrania żądania przez bramę i momentu wystąpienia błędu | 
-| source | ciąg | Nazwa wewnętrznej procedury obsługi przetwarzania lub zasad, które spowodowały błąd | 
+| source | string | Nazwa wewnętrznej procedury obsługi przetwarzania lub zasad, które spowodowały błąd | 
 | scope | ciąg | Zakres dokumentu zasad zawierający zasady, które spowodowały błąd | 
 | section | ciąg | Sekcja dokumentu zasad zawierająca zasady, które spowodowały błąd | 
 | reason | ciąg | Przyczyna błędu | 

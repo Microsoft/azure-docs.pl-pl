@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 93bedbf4275dacc3ec84e6df9c55e7e9a7b9d632
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a2fe1c7c1ac8799d615c26fdaee40b92bf3e294b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780916"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212500"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Informacje o wersji: zestaw SDK urządzeń mowy
 
@@ -39,10 +39,10 @@ W poniższych sekcjach przedstawiono zmiany w najnowszych wersjach.
 
 - System Linux ARM jest teraz obsługiwany.
 - Dostępne są początkowe pliki binarne dla [zestawu DDK systemu roobo v2](https://aka.ms/sdsdk-download-roobov2) (Linux arm64).
-- Użytkownicy systemu Windows mogą `AudioConfig.fromDefaultMicrophoneInput()` użyć `AudioConfig.fromMicrophoneInput(deviceName)` programu lub, aby określić mikrofon, który ma być używany.
+- Użytkownicy systemu Windows mogą użyć programu `AudioConfig.fromDefaultMicrophoneInput()` lub `AudioConfig.fromMicrophoneInput(deviceName)` , aby określić mikrofon, który ma być używany.
 - Rozmiar biblioteki został zoptymalizowany.
 - Obsługa rozpoznawania wieloskładnikowego przy użyciu tego samego obiektu rozpoznawania mowy/konwersji.
-- Usuń sporadyczne zawieszenie, które nastąpiło podczas zatrzymywania rozpoznawania.
+- Rozwiąż problem okazjonalny, gdy proces przestanie odpowiadać podczas zatrzymywania rozpoznawania.
 - Przykładowe aplikacje zawierają teraz przykładowy plik uczestników. właściwości, aby przedstawić format pliku.
 - Zaktualizowano składnik [zestawu Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) do wersji 1.7.0. Aby uzyskać więcej informacji, zobacz informacje o [wersji](https://aka.ms/csspeech/whatsnew).
 

@@ -6,24 +6,22 @@ documentationcenter: android
 keywords: powiadomienia wypychane, powiadomienie wypychane, powiadomienia wypychane w systemie android, firebase cloud messaging
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 02298560-da61-4bbb-b07c-e79bd520e420
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/11/2019
+ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7dbe9faabcb7a46ae3862ac7da6504b6b0407d86
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 244e9d9136705eeef27680d2fa590d283abb6467
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170447"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255470"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Samouczek: wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu zestawu Firebase SDK w wersji 0,6
 
@@ -102,7 +100,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
     ![Menedżer zestawów Android SDK — wybrane usługi Google Play](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
 3. Jeśli zobaczysz okno dialogowe **Potwierdzanie zmiany**, wybierz przycisk **OK**. Instalator składników zainstaluje żądane składniki. Wybierz przycisk **Finish** (Zakończ) po zainstalowaniu składników.
 4. Wybierz przycisk **OK**, aby zamknąć okno dialogowe **Settings for New Projects** (Ustawienia nowego projektu).  
-1. Otwórz plik pliku AndroidManifest. XML, a następnie Dodaj następujący tag do znacznika *aplikacji* .
+1. Otwórz plik AndroidManifest.xml, a następnie Dodaj następujący tag do znacznika *aplikacji* .
 
     ```xml
     <meta-data android:name="com.google.android.gms.version"
@@ -144,7 +142,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
     ```
 3. Wybierz pozycję **Sync Now** (Synchronizuj teraz) na pasku narzędzi.
 
-### <a name="update-the-androidmanifestxml-file"></a>Aktualizowanie pliku pliku AndroidManifest. XML
+### <a name="update-the-androidmanifestxml-file"></a>Aktualizowanie pliku AndroidManifest.xml
 
 1. Po otrzymaniu tokenu rejestracji usługi FCM można użyć go do [zarejestrowania się w usłudze Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). Ta rejestracja jest obsługiwana w tle przy użyciu `IntentService` nazwy `RegistrationIntentService` . Ta usługa odświeża również token rejestracji FCM. Należy również utworzyć klasę o nazwie `FirebaseService` jako podklasę `FirebaseMessagingService` i zastąpić `onMessageReceived` metodę, aby otrzymywać i obsługiwać powiadomienia. 
 
@@ -407,7 +405,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
     }
     ```
 
-9. Metoda `ToastNotify` używa kontrolki *"Hello World"* `TextView` do trwałego zgłaszania stanu i powiadomień w aplikacji. W układzie **res**  >  **layout**  >  **activity_main. XML** , Dodaj następujący identyfikator dla tej kontrolki.
+9. Metoda `ToastNotify` używa kontrolki *"Hello World"* `TextView` do trwałego zgłaszania stanu i powiadomień w aplikacji. W obszarze Układ **zasobów**  >  **layout**  >  **activity_main.xml** układ Dodaj następujący identyfikator dla tej kontrolki.
 
     ```java
     android:id="@+id/text_hello"
@@ -415,7 +413,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
 
     ![Azure Notification Hubs — Wysyłanie testowe](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
-10. Następnie Dodaj podklasę dla odbiorcy zdefiniowanego w pliku AndroidManifest. XML. Dodaj kolejną nową klasę o nazwie `FirebaseService` do projektu.
+10. Następnie Dodaj podklasę dla odbiorcy zdefiniowanego w AndroidManifest.xml. Dodaj kolejną nową klasę o nazwie `FirebaseService` do projektu.
 
 11. Dodaj następujące instrukcje import u góry pliku `FirebaseService.java`:
 
@@ -522,7 +520,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
     }
     ```
 
-13. W Android Studio na pasku menu wybierz kolejno opcje **Kompiluj**  >  **Skompiluj projekt** , aby upewnić się, że w kodzie nie występują błędy. Jeśli zostanie wyświetlony komunikat o błędzie o `ic_launcher` ikonie, Usuń następujące instrukcje z pliku pliku AndroidManifest. XML: 
+13. W Android Studio na pasku menu wybierz kolejno opcje **Kompiluj**  >  **Skompiluj projekt** , aby upewnić się, że w kodzie nie występują błędy. Jeśli zostanie wyświetlony komunikat o błędzie o `ic_launcher` ikonie, Usuń następujące instrukcje z pliku AndroidManifest.xml: 
 
     ```
         android:icon="@mipmap/ic_launcher"
@@ -544,7 +542,7 @@ Powiadomienia wypychane można wysyłać z [Azure Portal] , wykonując następuj
 
 1. W Azure Portal na stronie Centrum powiadomień centrum, wybierz pozycję **Testuj Wyślij** w sekcji **Rozwiązywanie problemów** .
 3. W pozycji **Platformy** wybierz opcję **Android**.
-4. Wybierz pozycję **Wyślij**.  Nie zobaczysz jeszcze powiadomienia na urządzeniu z systemem Android, ponieważ na nim nie uruchomiono aplikacji mobilnej. Po uruchomieniu aplikacji mobilnej ponownie wybierz przycisk **Wyślij** , aby zobaczyć komunikat powiadomienia.
+4. Wybierz pozycję **Send** (Wyślij).  Nie zobaczysz jeszcze powiadomienia na urządzeniu z systemem Android, ponieważ na nim nie uruchomiono aplikacji mobilnej. Po uruchomieniu aplikacji mobilnej ponownie wybierz przycisk **Wyślij** , aby zobaczyć komunikat powiadomienia.
 5. Zobacz wynik operacji na liście u dołu.
 
     ![Azure Notification Hubs — Wysyłanie testowe](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
@@ -556,11 +554,13 @@ Powiadomienia wypychane można wysyłać z [Azure Portal] , wykonując następuj
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ### <a name="run-the-mobile-app-on-emulator"></a>Uruchamianie aplikacji mobilnej na emulatorze
+
 Przed przetestowaniem powiadomień wypychanych wewnątrz emulatora upewnij się, że obraz emulatora obsługuje poziom interfejsu API Google wybrany dla aplikacji. Jeśli obraz nie obsługuje natywnych interfejsów API Google, może wystąpić wyjątek **usługi \_ niedostępne \_ ** .
 
 Upewnij się również, że konto Google zostało dodane do działającego emulatora w obszarze **Ustawienia**  >  **konta**. W przeciwnym razie próby zarejestrowania się w usłudze FCM mogą spowodować **wyjątek \_ niepowodzenia uwierzytelniania** .
 
 ## <a name="next-steps"></a>Następne kroki
+
 W tym samouczku użyto usługi Firebase Cloud Messaging do rozgłaszania powiadomień do wszystkich urządzeń z systemem Android, które zostały zarejestrowane w usłudze. Aby dowiedzieć się, jak wysyłać powiadomienia push do konkretnych urządzeń, przejdź do następującego samouczka:
 
 > [!div class="nextstepaction"]

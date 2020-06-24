@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.custom: designer
-ms.openlocfilehash: f6d684829092d8be97785c46058186f3ca5542b2
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2fab23e9f765d9ab4908cc4be69d8b747c6856b9
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119035"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790538"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Samouczek: przewidywanie ceny za samochód przy użyciu projektanta (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Można ustawić **domyślny obiekt docelowy obliczeń** dla całego potoku, co s
     Jeśli masz już dostępny element docelowy obliczeń, możesz wybrać go do uruchomienia tego potoku.
 
     > [!NOTE]
-    > Projektant może uruchamiać eksperymenty szkoleniowe dotyczące Azure Machine Learning obliczeń i Azure Machine Learning obiektów docelowych wystąpienia obliczeniowego. Inne elementy docelowe obliczeń nie będą wyświetlane.
+    > Projektant może uruchamiać eksperymenty szkoleniowe tylko na Azure Machine Learning obliczeniowych i Azure Machine Learning wystąpieniach obliczeniowych, ale nie będą wyświetlane inne obiekty docelowe obliczeń.
 
 1. Wprowadź nazwę zasobu obliczeniowego.
 
@@ -173,7 +173,7 @@ Zestaw danych nadal ma brakujące wartości po usunięciu kolumny **znormalizowa
 
 1. W wyświetlonym oknie **kolumny do oczyszczenia** rozwiń menu rozwijane obok pozycji **Dołącz**. Zaznacz, **wszystkie kolumny**
 
-1. Wybierz pozycję **Zapisz**
+1. Wybierz pozycję **Zapisz**.
 
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję **Usuń cały wiersz** w obszarze **Tryb czyszczenia**.
 

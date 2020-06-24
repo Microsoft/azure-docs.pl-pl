@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6ac2fd0ef3414f5b9d7f6551628264b4724b037
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 8a20d7cb05f4529d5aa8a115b7d1db6e4d812be0
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234330"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100858"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Samouczek: Tworzenie puli hostów przy użyciu Azure Portal
 
@@ -41,7 +41,7 @@ Należy również znać następujące kwestie:
 - Miejsce źródłowe obrazu, którego chcesz użyć, to. Czy pochodzi ona z galerii platformy Azure lub jest obrazem niestandardowym?
 - Poświadczenia dołączania do domeny.
 
-Upewnij się również, że zarejestrowano dostawcę zasobów Microsoft. DesktopVirtualization. Jeśli jeszcze tego nie zrobiono, przejdź do pozycji **subskrypcje** , wybierz nazwę subskrypcji domenie niestandardowej, a następnie wybierz pozycję **dostawcy zasobów platformy Azure**.
+Upewnij się również, że zarejestrowano dostawcę zasobów Microsoft. DesktopVirtualization. Jeśli jeszcze tego nie zrobiono, przejdź do pozycji **subskrypcje**, wybierz nazwę subskrypcji, a następnie wybierz pozycję **dostawcy zasobów platformy Azure**.
 
 Podczas tworzenia puli hostów pulpitu wirtualnego systemu Windows przy użyciu szablonu Azure Resource Manager można utworzyć maszynę wirtualną z poziomu galerii platformy Azure, obrazu zarządzanego lub niezarządzanego obrazu. Aby dowiedzieć się więcej na temat tworzenia obrazów maszyn wirtualnych, zobacz [Przygotowywanie wirtualnego dysku twardego systemu Windows lub dysku VHDX do przekazania do platformy Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) i [Tworzenie zarządzanego obrazu maszyny wirtualnej na platformie Azure](../virtual-machines/windows/capture-image-resource.md).
 
@@ -111,7 +111,7 @@ Aby skonfigurować maszynę wirtualną w ramach procesu instalacji puli hostów:
 
     - W przypadku wybrania opcji **Galeria**wybierz z menu rozwijanego jeden z zalecanych obrazów:
 
-      - Wiele sesji systemu Windows 10 Enterprise, wersja 1909 + Office 365 ProPlus — Gen 1
+      - Wiele sesji systemu Windows 10 Enterprise, wersja 1909 + Microsoft 365 aplikacje dla przedsiębiorstw — Gen 1
       - Wiele sesji systemu Windows 10 Enterprise, wersja 1909 — Gen 1
       - Windows Server 2019 Datacenter — Gen1
 
@@ -154,7 +154,7 @@ Proces instalacji puli hostów domyślnie tworzy grupę aplikacji klasycznych. A
 
 Aby zarejestrować grupę aplikacji klasycznych w obszarze roboczym:
 
-1. Wybierz pozycję **tak**.
+1. Wybierz pozycję **Tak**.
 
    Jeśli wybierzesz opcję **nie**, możesz zarejestrować grupę aplikacji później, ale zalecamy przeprowadzenie rejestracji obszaru roboczego, gdy tylko będzie to możliwe, aby Pula hostów działała prawidłowo.
 
@@ -169,7 +169,7 @@ Aby zarejestrować grupę aplikacji klasycznych w obszarze roboczym:
      >[!NOTE]
      >Proces przegląd + tworzenie weryfikacji nie sprawdza, czy hasło spełnia standardy zabezpieczeń lub czy architektura jest poprawna, dlatego należy sprawdzić ewentualne problemy z jednym z tych elementów. 
 
-5. Przejrzyj informacje o wdrożeniu, aby upewnić się, że wszystko wygląda poprawnie. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**. Spowoduje to uruchomienie procesu wdrażania, który tworzy następujące obiekty:
+5. Przejrzyj informacje o wdrożeniu, aby upewnić się, że wszystko wygląda poprawnie. Gdy wszystko będzie gotowe, wybierz przycisk **Utwórz**. Spowoduje to uruchomienie procesu wdrażania, który tworzy następujące obiekty:
 
      - Twoja nowa pula hostów.
      - Grupa aplikacji klasycznych.

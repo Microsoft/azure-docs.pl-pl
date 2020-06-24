@@ -9,14 +9,14 @@ ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.custom: mvc
-ms.openlocfilehash: f77aacbddc5b3dcb5da62e5e87405477d47e7001
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ac9bf7edf6e3973dd2f1f917d26ac280be4648e3
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672327"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945651"
 ---
 # <a name="secure-access-to-application-data"></a>Bezpieczny dostęp do danych aplikacji
 
@@ -135,11 +135,13 @@ W poprzednim zadaniu użyto następujących klas, właściwości i metod:
 |[UriBuilder](/dotnet/api/system.uribuilder) | [Zapytanie](/dotnet/api/system.uribuilder.query) |  |
 |[Lista](/dotnet/api/system.collections.generic.list-1) | | [Dodaj](/dotnet/api/system.collections.generic.list-1.add) |
 
-## <a name="server-side-encryption"></a>Szyfrowanie po stronie serwera
+## <a name="azure-storage-encryption"></a>Szyfrowanie w usłudze Azure Storage
 
-[Szyfrowanie usługi Azure Storage (SSE)](../common/storage-service-encryption.md) pomaga chronić dane. Usługa SSE szyfruje dane magazynowane, obsługując szyfrowanie, odszyfrowywanie i zarządzanie kluczami. Wszystkie dane są szyfrowane za pomocą 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych.
+[Szyfrowanie usługi Azure Storage](../common/storage-service-encryption.md) pomaga chronić dane i zabezpieczać je, szyfrując dane przechowywane i obsługując szyfrowanie i odszyfrowywanie. Wszystkie dane są szyfrowane za pomocą 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych.
 
-Usługa SSE automatycznie szyfruje dane we wszystkich warstwach wydajności (Standardowa i Premium), wszystkich modelach wdrażania (model usługi Azure Resource Manager i model klasyczny) oraz wszystkich usługach Azure Storage (Blob, Queue, Table i File). 
+Możesz wybrać opcję posiadania przez firmę Microsoft zarządzania kluczami szyfrowania lub można przenieść własne klucze z kluczami zarządzanymi przez klienta za pomocą Azure Key Vault. Aby uzyskać więcej informacji, zobacz [Używanie kluczy zarządzanych przez klienta w usłudze Azure Key Vault do zarządzania szyfrowaniem usługi Azure Storage](../common/encryption-customer-managed-keys.md).
+
+Szyfrowanie usługi Azure Storage automatycznie szyfruje dane we wszystkich warstwach wydajności (standard i Premium), wszystkich modelach wdrażania (Azure Resource Manager i klasyczny) oraz wszystkich usługach Azure Storage (obiektów blob, kolejek, tabel i plików).
 
 ## <a name="enable-https-only"></a>Włączanie używania tylko protokołu HTTPS
 
