@@ -5,20 +5,23 @@ services: automation
 ms.subservice: update-management
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/11/2019
+ms.date: 06/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: ae8c4f09c0133dde7b0a73b7c2fcd0a28aa22ae3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2bcf2518ab7f4e5a3648b508e42868fd5bb1a863
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013201"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84817223"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integracja Update Management z punktem końcowym systemu Windows Configuration Manager
 
 Klienci, którzy zainwestowali w program Microsoft Endpoint Configuration Manager w celu zarządzania komputerami, serwerami i urządzeniami przenośnymi, również polegają na jej sile i dojrzałości w zarządzaniu aktualizacjami oprogramowania w ramach cyklu zarządzania aktualizacjami oprogramowania (SUM).
 
 Można zgłaszać i aktualizować zarządzane serwery z systemem Windows, tworząc i wstępnie przemieszczając wdrożenia aktualizacji oprogramowania w punkcie końcowym systemu Windows Configuration Manager i uzyskując szczegółowy stan ukończonych wdrożeń aktualizacji przy użyciu [Update Management](automation-update-management.md). W przypadku używania Configuration Manager punktu końcowego systemu Windows do raportowania zgodności aktualizacji, ale nie do zarządzania wdrożeniami aktualizacji z serwerami z systemem Windows, można kontynuować raportowanie do programu Configuration Manager, podczas gdy aktualizacje zabezpieczeń są zarządzane za pomocą Azure Automation Update Management.
+
+>[!NOTE]
+>Chociaż Update Management obsługuje ocenę aktualizacji i stosowanie poprawek systemu Windows Server 2008 R2, nie obsługuje klientów zarządzanych przez punkt końcowy Configuration Manager z tym systemem operacyjnym.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

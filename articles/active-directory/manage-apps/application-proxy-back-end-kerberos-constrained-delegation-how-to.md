@@ -3,25 +3,25 @@ title: Rozwiązywanie problemów z ograniczonym delegowaniem protokołu Kerberos
 description: Rozwiązywanie problemów dotyczących konfiguracji ograniczonego delegowania protokołu Kerberos dla serwera proxy aplikacji
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d086d816be17699989aafda144493d80837188b
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275694"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760443"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Rozwiązywanie problemów dotyczących konfiguracji ograniczonego delegowania protokołu Kerberos dla serwera proxy aplikacji
 
@@ -66,7 +66,7 @@ Oba te obrazy przedstawiają ten sam objaw: awaria logowania jednokrotnego. Odmo
 
 Sposób rozwiązywania problemów zależy od problemu i symptomów. Przed przeprowadzeniem dalszych czynności zapoznaj się z następującymi artykułami. Zapewniają przydatne informacje dotyczące rozwiązywania problemów:
 
-- [Rozwiązywanie problemów z serwerem proxy aplikacji i komunikatów o błędach](application-proxy-troubleshoot.md)
+- [Rozwiązywanie problemów z serwerem proxy aplikacji i problemów związanych z komunikatami o błędach](application-proxy-troubleshoot.md)
 - [Błędy i objawy protokołu Kerberos](application-proxy-troubleshoot.md#kerberos-errors)
 - [Praca z logowaniem jednokrotnym w przypadku tożsamości lokalnych i w chmurze nie jest identyczna](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
@@ -86,7 +86,7 @@ Jak wspomniano wcześniej, komunikaty o błędach przeglądarki zawierają pewne
 
 ![Przykład: nieprawidłowy błąd konfiguracji KCD](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-Odpowiednie wpisy widoczne w dzienniku zdarzeń są wyświetlane jako zdarzenia 13019 lub 12027. Znajdź dzienniki zdarzeń łącznika w &gt; obszarze **Dzienniki aplikacji i usług** **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **admin**.
+Odpowiednie wpisy widoczne w dzienniku zdarzeń są wyświetlane jako zdarzenia 13019 lub 12027. Znajdź dzienniki zdarzeń łącznika w obszarze **Dzienniki aplikacji i usług** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connector** &gt; **admin**.
 
 ![Zdarzenie 13019 z dziennika zdarzeń serwera proxy aplikacji](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 

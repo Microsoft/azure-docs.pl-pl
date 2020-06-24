@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: c315961a-fa33-45cf-82b9-4551e70d32dd
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: 79efe3cef82a166ca6b56dea5cb07f15a5325083
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9f5b535a341956e5675ba96ba9570bd3f2ff3443
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650327"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710953"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Używanie dynamicznej usługi DNS do rejestrowania nazw hostów na własnym serwerze DNS
 
@@ -35,7 +35,7 @@ Przyłączone do domeny klienci systemu Windows rejestrują adresy IP przy użyc
 ## <a name="linux-clients"></a>Klienci z systemem Linux
 Klienci z systemem Linux zazwyczaj nie rejestrują się na serwerze DNS podczas uruchamiania, zakładają, że serwer DHCP go wykonuje. Serwery DHCP platformy Azure nie mają poświadczeń do rejestrowania rekordów na serwerze DNS. Do wysyłania aktualizacji DDNS można użyć narzędzia o nazwie `nsupdate` , które jest zawarte w pakiecie bind. Ponieważ protokół DDNS jest ustandaryzowany, można go używać `nsupdate` nawet wtedy, gdy nie używasz funkcji bind na serwerze DNS.
 
-Możesz użyć punktów zaczepienia dostarczonych przez klienta DHCP, aby utworzyć i zachować wpis nazwy hosta na serwerze DNS. Podczas cyklu DHCP Klient wykonuje skrypty w */etc/DHCP/dhclient-Exit-Hooks.d/*. Możesz użyć punktów zaczepienia, aby zarejestrować nowy adres IP przy użyciu `nsupdate` . Na przykład:
+Możesz użyć punktów zaczepienia dostarczonych przez klienta DHCP, aby utworzyć i zachować wpis nazwy hosta na serwerze DNS. Podczas cyklu DHCP Klient wykonuje skrypty w */etc/DHCP/dhclient-Exit-Hooks.d/*. Możesz użyć punktów zaczepienia, aby zarejestrować nowy adres IP przy użyciu `nsupdate` . Przykład:
 
 ```bash
 #!/bin/sh

@@ -3,14 +3,14 @@ title: Zarządzanie elementami Runbook w Azure Automation
 description: W tym artykule opisano sposób zarządzania elementami Runbook w programie Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/14/2019
+ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 93b34af0baed89fd312948aeffe8ea4ac8ef806c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9202eae49175615c4fffcd0b006ddda6e8281292
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834700"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718312"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Zarządzanie elementami Runbook w Azure Automation
 
@@ -46,7 +46,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importowanie elementu Runbook
 
-Możesz zaimportować skrypt przepływu pracy programu PowerShell lub programu PowerShell (**. ps1**), graficzny element Runbook (**. graphrunbook**) lub skrypt python 2 (**. PR**), aby utworzyć własny element Runbook.  Należy określić [Typ elementu Runbook](automation-runbook-types.md) , który jest tworzony podczas importowania, biorąc pod uwagę poniższe zagadnienia.
+Możesz zaimportować skrypt przepływu pracy programu PowerShell lub programu PowerShell (**. ps1**), graficzny element Runbook (**. graphrunbook**) lub skrypt python 2 (**. PR**), aby utworzyć własny element Runbook. Należy określić [Typ elementu Runbook](automation-runbook-types.md) , który jest tworzony podczas importowania, biorąc pod uwagę poniższe zagadnienia.
 
 * Plik **. ps1** , który nie zawiera przepływu pracy, można zaimportować do [elementu Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks) lub [elementu Runbook przepływu pracy programu PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Jeśli zaimportujesz go do elementu Runbook przepływu pracy programu PowerShell, zostanie on przekonwertowany na przepływ pracy. W takim przypadku Komentarze są zawarte w elemencie Runbook w celu opisania wprowadzonych zmian.
 
@@ -54,7 +54,7 @@ Możesz zaimportować skrypt przepływu pracy programu PowerShell lub programu P
 
 * Nie należy importować pliku **. ps1** zawierającego przepływ pracy programu PowerShell do [elementu Runbook programu PowerShell](automation-runbook-types.md#powershell-runbooks), ponieważ aparat skryptu programu PowerShell nie może go rozpoznać.
 
-* Zaimportuj plik **. graphrunbook** do nowego [graficznego elementu Runbook](automation-runbook-types.md#graphical-runbooks). 
+* Zaimportuj plik **. graphrunbook** do nowego [graficznego elementu Runbook](automation-runbook-types.md#graphical-runbooks).
 
 ### <a name="import-a-runbook-from-the-azure-portal"></a>Importuj element Runbook z Azure Portal
 
@@ -69,7 +69,7 @@ Aby zaimportować plik skryptu do Azure Automation, można użyć poniższej pro
 4. Kliknij pozycję **plik Runbook** i wybierz plik do zaimportowania.
 5. Jeśli pole **Nazwa** jest włączone, istnieje możliwość zmiany nazwy elementu Runbook. Nazwa musi zaczynać się od litery i może zawierać litery, cyfry, podkreślenia i kreski.
 6. [Typ elementu Runbook](automation-runbook-types.md) jest wybierany automatycznie, ale można zmienić typ po wprowadzeniu odpowiednich ograniczeń do konta.
-7. Kliknij przycisk **Utwórz**. Nowy element Runbook zostanie wyświetlony na liście elementów Runbook dla konta usługi Automation.
+7. Kliknij pozycję **Utwórz**. Nowy element Runbook zostanie wyświetlony na liście elementów Runbook dla konta usługi Automation.
 8. Aby można było uruchomić [element Runbook,](#publish-a-runbook) należy go opublikować.
 
 > [!NOTE]
@@ -161,7 +161,7 @@ $connection = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 -ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
 
-$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
+$AzureContext = Get-AzSubscription -SubscriptionId $connection.SubscriptionID
 
 # Check for already running or new runbooks
 $runbookName = "<RunbookName>"
@@ -192,7 +192,7 @@ Jeśli element Runbook jest zwykle uruchamiany w ramach ograniczenia czasu, nale
 
 ## <a name="work-with-multiple-subscriptions"></a>Praca z wieloma subskrypcjami
 
-Element Runbook musi mieć możliwość pracy z [subskrypcjami](automation-runbook-execution.md#subscriptions). Aby na przykład obsłużyć wiele subskrypcji, element Runbook używa polecenia cmdlet [disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . To polecenie cmdlet zapewnia, że kontekst uwierzytelniania nie zostanie pobrany z innego elementu Runbook działającego w tej samej piaskownicy. Element Runbook używa również `AzContext` parametru w poleceniach cmdlet AZ module i przekazuje go w odpowiednim kontekście.
+Element Runbook musi mieć możliwość pracy z [subskrypcjami](automation-runbook-execution.md#subscriptions). Aby na przykład obsłużyć wiele subskrypcji, element Runbook używa polecenia cmdlet [disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . To polecenie cmdlet zapewnia, że kontekst uwierzytelniania nie zostanie pobrany z innego elementu Runbook działającego w tej samej piaskownicy. Element Runbook używa również `Get-AzContext` polecenia cmdlet w celu pobrania kontekstu bieżącej sesji i przypisania go do zmiennej `$AzureContext` .
 
 ```powershell
 # Ensures that you do not inherit an AzContext in your runbook
@@ -204,7 +204,7 @@ Connect-AzAccount -ServicePrincipal `
 -ApplicationId $Conn.ApplicationID `
 -CertificateThumbprint $Conn.CertificateThumbprint
 
-$context = Get-AzContext
+$AzureContext = Get-AzContext
 
 $ChildRunbookName = 'ChildRunbookDemo'
 $AutomationAccountName = 'myAutomationAccount'
@@ -214,7 +214,7 @@ Start-AzAutomationRunbook `
     -ResourceGroupName $ResourceGroupName `
     -AutomationAccountName $AutomationAccountName `
     -Name $ChildRunbookName `
-    -DefaultProfile $context
+    -DefaultProfile $AzureContext
 ```
 
 ## <a name="work-with-a-custom-script"></a>Pracuj ze skryptem niestandardowym

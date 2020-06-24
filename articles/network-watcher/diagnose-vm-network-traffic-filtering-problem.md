@@ -17,18 +17,18 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b88a855f1f486a94bb591e3d2a72b49a9a8500db
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241598"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709219"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Szybki start: diagnozowanie problemu z filtrowaniem ruchu sieciowego maszyny wirtualnej przy użyciu witryny Azure Portal
 
 W tym przewodniku Szybki start wdrożysz maszynę wirtualną, a następnie sprawdzisz komunikację z adresem IP i adresem URL oraz komunikację z adresu IP. Określisz przyczynę niepowodzenia komunikacji oraz sposób rozwiązania problemu.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
@@ -44,7 +44,7 @@ Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
     |---|---|
     |Nazwa|myVm|
     |Nazwa użytkownika| Wprowadź wybraną nazwę użytkownika.|
-    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać [zdefiniowane wymagania dotyczące złożoności](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Hasło| Wprowadź wybrane hasło. Hasło musi mieć co najmniej 12 znaków i spełniać zdefiniowane wymagania dotyczące złożoności.|
     |Subskrypcja| Wybierz subskrypcję.|
     |Grupa zasobów| Wybierz pozycję **Utwórz nową**, a następnie wprowadź nazwę **myResourceGroup**.|
     |Lokalizacja| Wybierz **Wschodnie stany USA**|
@@ -59,7 +59,7 @@ Aby przetestować komunikację sieciową za pomocą usługi Network Watcher, naj
 
 ### <a name="enable-network-watcher"></a>Włączanie usługi Network Watcher
 
-Jeśli masz już włączoną usługę Network Watcher co najmniej w jednym regionie, przejdź do sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify).
+Jeśli masz już włączony obserwator sieciowy w co najmniej jednym regionie, przejdź do obszaru [Użyj weryfikacji przepływu IP](#use-ip-flow-verify).
 
 1. W portalu wybierz pozycję **Wszystkie usługi**. W **polu filtru** wprowadź ciąg *Network Watcher*. Gdy w wynikach pojawi się nazwa **Network Watcher**, wybierz ją.
 2. Włącz usługę Network Watcher w regionie Wschodnie stany USA, ponieważ to tam wdrożono maszynę wirtualną w poprzednim kroku. Wybierz węzeł **Regiony**, aby go rozwinąć, a następnie wybierz symbol **...** z prawej strony pozycji **Wschodnie stany USA**, jak pokazano na poniższej ilustracji:
@@ -81,7 +81,7 @@ Podczas tworzenia maszyny wirtualnej platforma Azure domyślnie zezwala na i blo
     | Grupa zasobów    | Wybierz pozycję myResourceGroup                                                                            |
     | Maszyna wirtualna   | Wybierz pozycję myVm                                                                                       |
     | Interfejs sieciowy | myvm — nazwa interfejsu sieciowego utworzonego w portalu podczas tworzenia maszyny wirtualnej jest inna. |
-    | Protocol (Protokół)          | TCP                                                                                               |
+    | Protokół          | TCP                                                                                               |
     | Kierunek         | Wychodzący                                                                                          |
     | Lokalny adres IP  | 10.0.0.4                                                                                          |
     | Port lokalny      | 60000                                                                                                |
@@ -98,23 +98,23 @@ Gdy już wiesz, które reguły zabezpieczeń zezwalają na ruch lub blokują ruc
 
 ## <a name="view-details-of-a-security-rule"></a>Wyświetlanie szczegółów reguły zabezpieczeń
 
-1. Aby ustalić, dlaczego reguły wymienione w krokach 3–5 sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) zezwalają na komunikację lub ją blokują, zapoznaj się z aktywnymi regułami zabezpieczeń interfejsu sieciowego w maszynie wirtualnej. W polu wyszukiwania w górnej części portalu wpisz ciąg *myvm*. Gdy interfejs sieciowy **myvm** (lub interfejs sieciowy o innej nazwie) pojawi się w wynikach wyszukiwania, wybierz go.
+1. Aby ustalić, dlaczego reguły wymienione w krokach 3–5 sekcji **Korzystanie z weryfikowania przepływu adresów IP** zezwalają na komunikację lub ją blokują, zapoznaj się z aktywnymi regułami zabezpieczeń interfejsu sieciowego w maszynie wirtualnej. W polu wyszukiwania w górnej części portalu wpisz ciąg *myvm*. Gdy interfejs sieciowy **myvm** (lub interfejs sieciowy o innej nazwie) pojawi się w wynikach wyszukiwania, wybierz go.
 2. Wybierz pozycję **Aktywne reguły zabezpieczeń** w obszarze **Pomoc techniczna i rozwiązywanie problemów**, jak pokazano na poniższej ilustracji:
 
     ![Aktywne reguły zabezpieczeń](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
-    W kroku 3 sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) okazało się, że komunikacja jest dozwolona dzięki regule **AllowInternetOutbound**. Na poprzedniej ilustracji widać, że **miejscem docelowym** dla tej reguły jest **Internet**. Nie jest jednak jasne, jak adres 13.107.21.200, który był testowany w kroku 3 sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify), jest związany z **Internetem**.
+    W kroku 3 sekcji **Korzystanie z weryfikowania przepływu adresów IP** okazało się, że komunikacja jest dozwolona dzięki regule **AllowInternetOutbound**. Na poprzedniej ilustracji widać, że **miejscem docelowym** dla tej reguły jest **Internet**. Nie jest jednak jasne, jak adres 13.107.21.200, który był testowany w kroku 3 sekcji **Korzystanie z weryfikowania przepływu adresów IP**, jest związany z **Internetem**.
 3. Wybierz regułę **AllowInternetOutBound**, a następnie wybierz pozycję **Miejsce docelowe**, jak pokazano na poniższej ilustracji:
 
     ![Prefiksy reguły zabezpieczeń](./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png)
 
     Jednym z prefiksów na liście jest prefiks **12.0.0.0/6**, który obejmuje zakres adresów IP 12.0.0.1-15.255.255.254. Ponieważ adres 13.107.21.200 mieści się w tym zakresie adresów, reguła **AllowInternetOutBound** zezwala na ruch wychodzący. Ponadto na ilustracji w kroku 2 nie ma żadnych reguł o wyższym priorytecie (niższym numerze), które przesłaniają tę regułę. Zamknij okno **Prefiksy adresów**. Aby blokować komunikację wychodzącą z adresem 13.107.21.200, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która blokuje ruch wychodzący na porcie 80 do tego adresu IP.
-4. Gdy w kroku 4 sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) uruchomiliśmy test ruchu wychodzącego do adresu 172.131.0.100, okazało się, że komunikacja została zablokowana przez regułę **DefaultOutboundDenyAll**. Ta reguła jest równoważna regule **DenyAllOutBound** pokazanej na ilustracji w kroku 2, w której jako **miejsce docelowe** podano prefiks **0.0.0.0/0**. Reguła blokuje komunikację wychodzącą z adresem 172.131.0.100, ponieważ ten adres nie mieści się w ramach prefiksu **Miejsce docelowe** żadnej innej **reguły ruchu wychodzącego** widocznej na ilustracji. Aby zezwolić na komunikację wychodzącą, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która zezwala na ruch wychodzący na porcie 80 do adresu 172.131.0.100.
-5. Gdy w kroku 5 sekcji [Korzystanie z weryfikowania przepływu adresów IP](#use-ip-flow-verify) uruchomiliśmy test ruchu przychodzącego z adresu 172.131.0.100, okazało się, że komunikacja została zablokowana przez regułę **DefaultInboundDenyAll**. Ta reguła jest równoważna regule **DenyAllInBound** pokazanej na ilustracji w kroku 2. Następuje wymuszenie reguły **DenyAllInBound**, ponieważ nie istnieje inna reguła o wyższym priorytecie, która zezwala na ruch przychodzący do maszyny wirtualnej na porcie 80 z adresu 172.31.0.100. Aby zezwolić na komunikację przychodzącą, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która zezwala na ruch przychodzący na porcie 80 z adresu 172.31.0.100.
+4. Gdy w kroku 4 sekcji **Korzystanie z weryfikowania przepływu adresów IP** uruchomiliśmy test ruchu wychodzącego do adresu 172.131.0.100, okazało się, że komunikacja została zablokowana przez regułę **DefaultOutboundDenyAll**. Ta reguła jest równoważna regule **DenyAllOutBound** pokazanej na ilustracji w kroku 2, w której jako **miejsce docelowe** podano prefiks **0.0.0.0/0**. Reguła blokuje komunikację wychodzącą z adresem 172.131.0.100, ponieważ ten adres nie mieści się w ramach prefiksu **Miejsce docelowe** żadnej innej **reguły ruchu wychodzącego** widocznej na ilustracji. Aby zezwolić na komunikację wychodzącą, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która zezwala na ruch wychodzący na porcie 80 do adresu 172.131.0.100.
+5. Gdy w kroku 5 sekcji **Korzystanie z weryfikowania przepływu adresów IP** uruchomiliśmy test ruchu przychodzącego z adresu 172.131.0.100, okazało się, że komunikacja została zablokowana przez regułę **DefaultInboundDenyAll**. Ta reguła jest równoważna regule **DenyAllInBound** pokazanej na ilustracji w kroku 2. Następuje wymuszenie reguły **DenyAllInBound**, ponieważ nie istnieje inna reguła o wyższym priorytecie, która zezwala na ruch przychodzący do maszyny wirtualnej na porcie 80 z adresu 172.31.0.100. Aby zezwolić na komunikację przychodzącą, możesz dodać regułę zabezpieczeń o wyższym priorytecie, która zezwala na ruch przychodzący na porcie 80 z adresu 172.31.0.100.
 
 Za pomocą testów w tym przewodniku Szybki start przetestowano konfigurację platformy Azure. Jeśli testy zwróciły oczekiwane wyniki, ale nadal występują problemy z siecią, upewnij się, że między maszyną wirtualną a punktem końcowym, z którym się komunikujesz, nie znajduje się zapora oraz że system operacyjny maszyny wirtualnej nie ma zapory, która zezwala na komunikację lub ją blokuje.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów i wszystkie znajdujące się w niej zasoby nie będą już potrzebne, usuń je:
 

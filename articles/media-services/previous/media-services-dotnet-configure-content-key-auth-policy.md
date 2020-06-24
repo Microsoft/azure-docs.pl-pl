@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251208"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712398"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>Konfigurowanie zasad autoryzacji klucza zawartości
 
@@ -38,7 +38,7 @@ Usługa Media Services obsługuje wiele sposobów uwierzytelniania użytkownikó
 
 Media Services nie zapewnia usługi STS. Możesz utworzyć niestandardową usługę STS lub użyć usługi Azure Access Control Service do wystawiania tokenów. Usługa STS musi być skonfigurowana w taki sposób, aby utworzyć token podpisany przy użyciu określonego klucza i wystawiać oświadczenia określone w konfiguracji ograniczeń tokenu (zgodnie z opisem w tym artykule). Jeśli token jest prawidłowy i oświadczenia w tokenie są zgodne z tymi skonfigurowanymi dla klucza zawartości, usługa dostarczania kluczy Media Services Zwraca klucz szyfrowania do klienta.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Uwierzytelnianie tokenu JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 - [Integrowanie Azure Media Services OWIN aplikacji opartych na MVC z Azure Active Directory i ograniczanie dostarczania kluczy zawartości na podstawie oświadczeń JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)
@@ -51,7 +51,7 @@ Aby uzyskać więcej informacji zobacz następujące artykuły:
 * Usługa dostarczania kluczy buforuje ContentKeyAuthorizationPolicy i powiązane z nią obiekty (opcje i ograniczenia zasad) przez 15 minut. Można utworzyć ContentKeyAuthorizationPolicy i określić, aby użyć ograniczenia tokenu, przetestować je, a następnie zaktualizować zasady do ograniczenia Open. Ten proces trwa około 15 minut przed przełączeniem zasad do otwartej wersji zasad.
 * W przypadku dodania lub zaktualizowania zasad dostarczania elementów zawartości należy usunąć skojarzony lokalizator (jeśli istnieje) i utworzyć nowy.
 * Obecnie nie można szyfrować pobrań progresywnych.
-* Punkt końcowy przesyłania strumieniowego Media Services ustawia wartość nagłówka "Access-Control-Allow-Origin" w odpowiedzi na inspekcję wstępną jako symbol wieloznaczny "\*". Ta wartość działa dobrze w przypadku większości graczy, w tym Azure Media Player, roku i JWPlayer i innych. Jednak niektórzy gracze korzystający z dashjs nie działają, ponieważ z trybem poświadczeń ustawionym na "include", XMLHttpRequest w ich dashjs nie zezwalają na\*symbol wieloznaczny "" jako wartość elementu "Access-Control-Allow-Origin". Aby obejść to ograniczenie w dashjs, w przypadku hostowania klienta programu z jednej domeny, Media Services może określić tę domenę w nagłówku odpowiedzi inspekcji wstępnej. Aby uzyskać pomoc, Otwórz bilet pomocy technicznej za pomocą Azure Portal.
+* Punkt końcowy przesyłania strumieniowego Media Services ustawia wartość nagłówka "Access-Control-Allow-Origin" w odpowiedzi na inspekcję wstępną jako symbol wieloznaczny " \* ". Ta wartość działa dobrze w przypadku większości graczy, w tym Azure Media Player, roku i JWPlayer i innych. Jednak niektórzy gracze korzystający z dashjs nie działają, ponieważ z trybem poświadczeń ustawionym na "include", XMLHttpRequest w ich dashjs nie zezwalają na symbol wieloznaczny " \* " jako wartość elementu "Access-Control-Allow-Origin". Aby obejść to ograniczenie w dashjs, w przypadku hostowania klienta programu z jednej domeny, Media Services może określić tę domenę w nagłówku odpowiedzi inspekcji wstępnej. Aby uzyskać pomoc, Otwórz bilet pomocy technicznej za pomocą Azure Portal.
 
 ## <a name="aes-128-dynamic-encryption"></a>Szyfrowanie dynamiczne AES-128
 ### <a name="open-restriction"></a>Otwórz ograniczenie
@@ -434,7 +434,7 @@ Aby uzyskać token testowy oparty na ograniczeniu tokenu, który został użyty 
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Następne kroki

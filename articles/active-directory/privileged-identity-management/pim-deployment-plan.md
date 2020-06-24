@@ -14,12 +14,12 @@ ms.date: 04/28/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51a60d307ca7dac139db0097283fc08e9e41624c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ac3f9adbb3b83345fe14df39014c6119e97ba7f9
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233537"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886101"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Wdróż Azure AD Privileged Identity Management (PIM)
 
@@ -52,7 +52,8 @@ Aby można było korzystać z Privileged Identity Management, katalog musi mieć
 
 - Usługa Azure AD — warstwa Premium P2
 - Enterprise Mobility + Security (EMS) E5
-- Microsoft 365 M5
+- Microsoft 365 Education A5
+- Microsoft 365 Enterprise E5
 
 Aby uzyskać więcej informacji, zobacz [wymagania licencyjne do używania Privileged Identity Management](subscription-requirements.md).
 
@@ -250,9 +251,9 @@ Przed zaimplementowaniem rozwiązania Privileged Identity Management warto podwy
 
 | Rola | Wymaganie uwierzytelniania wieloskładnikowego | Powiadomienie | Wymagaj zatwierdzenia | Approver | Czas trwania aktywacji | Administrator aktywny | Aktywne wygaśnięcie | Kwalifikujące się wygaśnięcie |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Właściciel krytycznych subskrypcji | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Inni właściciele subskrypcji | 1 godzina | Brak | n/d | 3 miesiące |
-| Administrator dostępu użytkowników z mniej krytycznymi subskrypcjami | :heavy_check_mark: | :heavy_check_mark: | y | Brak | 1 godzina | Brak | n/d | 3 miesiące |
-| Współautor maszyny wirtualnej | y | :heavy_check_mark: | y | Brak | 3 godziny | Brak | n/d | 6 miesięcy |
+| Właściciel krytycznych subskrypcji | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Inni właściciele subskrypcji | 1 godzina | Brak | nie dotyczy | 3 miesiące |
+| Administrator dostępu użytkowników z mniej krytycznymi subskrypcjami | :heavy_check_mark: | :heavy_check_mark: | y | Brak | 1 godzina | Brak | nie dotyczy | 3 miesiące |
+| Współautor maszyny wirtualnej | y | :heavy_check_mark: | y | Brak | 3 godziny | Brak | nie dotyczy | 6 miesięcy |
 
 W poniższej tabeli opisano poszczególne ustawienia.
 

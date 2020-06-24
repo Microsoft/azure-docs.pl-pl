@@ -4,11 +4,11 @@ description: W tym artykule opisano sposób przywracania SQL Server baz danych, 
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252456"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687433"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Przywracanie SQL Server baz danych na maszynach wirtualnych platformy Azure
 
@@ -95,7 +95,7 @@ Przywróć w następujący sposób:
 
 ### <a name="restore-and-overwrite"></a>Przywróć i Zastąp
 
-1. W menu **Przywróć konfigurację** w obszarze **gdzie można przywrócić**wybierz pozycję **Zastąp bazę danych** > **OK**.
+1. W menu **Przywróć konfigurację** w obszarze **gdzie można przywrócić**wybierz pozycję **Zastąp bazę danych**  >  **OK**.
 
     ![Wybieranie pozycji Zastąp bazę danych](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 

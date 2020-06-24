@@ -4,11 +4,11 @@ description: Ten artykuł zawiera wprowadzenie do uaktualniania aplikacji Servic
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 2dc484b49c5250510e5f018cbbc2da107573d452
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259047"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710324"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric uaktualniania aplikacji
 Aplikacja Service Fabric platformy Azure to zbiór usług. Podczas uaktualniania Service Fabric porównuje nowy [manifest aplikacji](service-fabric-application-and-service-manifests.md) z poprzednią wersją i określa, które usługi w aplikacji wymagają aktualizacji. Service Fabric porównuje numery wersji w manifestach usługi z numerami wersji w poprzedniej wersji. Jeśli usługa nie uległa zmianie, ta usługa nie zostanie uaktualniona.
@@ -49,7 +49,7 @@ Po wycofaniu uaktualnienia aplikacji domyślne parametry usługi są przywracane
 > Ustawienie konfiguracji klastra [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) musi mieć *wartość true* , aby włączyć reguły 2) i 3) powyżej (domyślna aktualizacja i usuwanie usługi). Ta funkcja jest obsługiwana w Service Fabric wersja 5,5.
 
 ## <a name="upgrading-multiple-applications-with-https-endpoints"></a>Uaktualnianie wielu aplikacji za pomocą punktów końcowych HTTPS
-Należy zachować ostrożność, aby nie używać tego **samego portu** dla różnych wystąpień tej samej aplikacji podczas korzystania z protokołu HTTP**S**. Przyczyną jest to, że Service Fabric nie będzie można uaktualnić certyfikatu dla jednego z wystąpień aplikacji. Na przykład jeśli aplikacja 1 lub aplikacja 2 chcą uaktualnić certyfikat 1 do certyfikatu 2. Po uaktualnieniu program Service Fabric mógł oczyścić rejestrację certyfikatu 1 za pomocą protokołu HTTP. sys, nawet jeśli inna aplikacja nadal używa tego programu. Aby temu zapobiec, Service Fabric wykryje, że na porcie jest już zarejestrowane inne wystąpienie aplikacji z certyfikatem (z powodu pliku http. sys) i operacja kończy się niepowodzeniem.
+Należy zachować ostrożność, aby nie używać tego **samego portu** dla różnych wystąpień tej samej aplikacji podczas korzystania z protokołu HTTP**S**. Przyczyną jest to, że Service Fabric nie będzie można uaktualnić certyfikatu dla jednego z wystąpień aplikacji. Na przykład jeśli aplikacja 1 lub aplikacja 2 chcą uaktualnić certyfikat 1 do certyfikatu 2. Po uaktualnieniu program Service Fabric mógł oczyścić rejestrację certyfikatu 1 z http.sys nawet wtedy, gdy nadal używa jej inna aplikacja. Aby temu zapobiec, Service Fabric wykryje, że na porcie jest już zarejestrowane inne wystąpienie aplikacji z certyfikatem (ze względu na http.sys) i operacja zakończy się niepowodzeniem.
 
 Dlatego Service Fabric nie obsługuje uaktualniania dwóch różnych usług przy użyciu tego **samego portu** w różnych wystąpieniach aplikacji. Innymi słowy, nie można używać tego samego certyfikatu w różnych usługach na tym samym porcie. Jeśli musisz mieć współużytkowany certyfikat na tym samym porcie, musisz się upewnić, że usługi są umieszczone na różnych komputerach z ograniczeniami umieszczania. Lub Rozważ użycie Service Fabric portów dynamicznych, jeśli jest to możliwe dla każdej usługi w każdym wystąpieniu aplikacji. 
 

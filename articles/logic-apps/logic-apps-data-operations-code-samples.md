@@ -7,17 +7,17 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.openlocfilehash: c56c31bb6f56efb10808ce25b6b232089391e831
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270526"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712449"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Przykłady kodu operacji danych dla Azure Logic Apps
 
 Oto przykłady kodu dla definicji akcji operacji danych w artykule [wykonywanie operacji na danych](../logic-apps/logic-apps-perform-data-operations.md). Możesz użyć tych przykładów, jeśli chcesz wypróbować przykłady przy użyciu własnej definicji przepływu pracy aplikacji logiki, subskrypcji platformy Azure i połączeń interfejsu API. Po prostu skopiuj i wklej te definicje akcji w edytorze widoku kodu dla definicji przepływu pracy aplikacji logiki, a następnie zmodyfikuj definicje dla określonego przepływu pracy. 
 
-W oparciu o standardy JavaScript Object Notation (JSON) te definicje akcji są wyświetlane w kolejności alfabetycznej. Jednak w Projektancie aplikacji logiki każda definicja jest wyświetlana w prawidłowej kolejności w ramach przepływu pracy, ponieważ `runAfter` właściwość każdej definicji akcji określa kolejność uruchamiania.
+W oparciu o standardy JavaScript Object Notation (JSON) te definicje akcji są wyświetlane w kolejności alfabetycznej. Jednak w Projektancie aplikacji logiki każda definicja jest wyświetlana w prawidłowej kolejności w ramach przepływu pracy, ponieważ właściwość każdej definicji akcji `runAfter` określa kolejność uruchamiania.
 
 <a name="compose-action-example"></a>
 
@@ -322,7 +322,7 @@ Aby wypróbować [przykładową akcję **Przeanalizuj dane JSON** ](../logic-app
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>Wybierz
+## <a name="select"></a>Wybierz pozycję
 
 Aby wypróbować [przykład działania **SELECT** ](../logic-apps/logic-apps-perform-data-operations.md#select-action), poniżej przedstawiono definicje akcji, których można użyć:
 

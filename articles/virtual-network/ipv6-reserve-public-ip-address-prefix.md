@@ -7,17 +7,17 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 9a0dd56842174d89688c862397c373326ef50d1f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eecfebc90c28b650af0cef4ee0e4ddc227af0e8c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420540"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711497"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>Zastrzeganie publicznego prefiksu adresu IPv6
 Protokół IPv6 dla usługi Azure Virtual Network (VNet) umożliwia hostowanie aplikacji na platformie Azure z łącznością IPv6 i IPv4 zarówno w ramach sieci wirtualnej, jak i z Internetu. Oprócz rezerwowania pojedynczych adresów IPv6 można zarezerwować ciągłe zakresy adresów IPv6 platformy Azure (nazywane prefiksem IP). W tym artykule opisano sposób tworzenia publicznych adresów IP i zakresów adresów IPv6 przy użyciu Azure PowerShell i interfejsu wiersza polecenia.
@@ -87,7 +87,7 @@ az network public-ip prefix create \
 
 ### <a name="using-azure-powershell"></a>Korzystanie z programu Azure PowerShell
 
- Można utworzyć statyczny publiczny adres IP IPv6 z zastrzeżonego prefiksu przez `-PublicIpPrefix` dodanie argumentu podczas tworzenia publicznego adresu IP przy użyciu Azure PowerShell. W poniższym przykładzie przyjęto założenie, że prefiks został utworzony i zapisany w zmiennej programu PowerShell o nazwie: *$MyOwnIPv 6prefix*.
+ Można utworzyć statyczny publiczny adres IP IPv6 z zastrzeżonego prefiksu przez dodanie `-PublicIpPrefix` argumentu podczas tworzenia publicznego adresu IP przy użyciu Azure PowerShell. W poniższym przykładzie przyjęto założenie, że prefiks został utworzony i zapisany w zmiennej programu PowerShell o nazwie: *$MyOwnIPv 6prefix*.
 
 ```azurepowershell:  
  $MyIPv6PublicIPFromMyReservedPrefix = New-AzPublicIpAddress \

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: 62c7a3ecec3f941971cad552af2e36f63ab67c60
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 1fee761c8377824773fa56ba25edd2a779c33547
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84485108"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710222"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Macierz obsługi odzyskiwania po awarii lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure
 
@@ -32,14 +32,13 @@ Funkcja Hyper-V bez Virtual Machine Manager | Odzyskiwanie po awarii można prze
 
 **Serwer** | **Wymagania** | **Szczegóły**
 --- | --- | ---
-Funkcja Hyper-V (uruchomiona bez Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 z najnowszymi aktualizacjami (w tym instalacja Server Core systemów operacyjnych) | Jeśli już skonfigurowano system Windows Server 2012 R2 z/lub SCVMM 2012 R2 z Azure Site Recovery i planujesz uaktualnić system operacyjny, postępuj zgodnie z [dokumentacją.](upgrade-2012R2-to-2016.md)
-Funkcja Hyper-V (uruchomiona z Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016 Virtual Machine Manager 2012 R2 (w tym systemy operacyjne instalacji Server Core) | Jeśli Virtual Machine Manager jest używany, hosty systemu Windows Server 2019 powinny być zarządzane w Virtual Machine Manager 2019. Podobnie hosty systemu Windows Server 2016 powinny być zarządzane w Virtual Machine Manager 2016.
+Funkcja Hyper-V (uruchomiona bez Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 z najnowszymi aktualizacjami (w tym z instalacją Server Core systemów operacyjnych, z wyjątkiem systemu Windows Server 2019) | Jeśli już skonfigurowano system Windows Server 2012 R2 z/lub SCVMM 2012 R2 z Azure Site Recovery i planujesz uaktualnić system operacyjny, postępuj zgodnie z [dokumentacją.](upgrade-2012R2-to-2016.md)
+Funkcja Hyper-V (uruchomiona z Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016 Virtual Machine Manager 2012 R2 (w tym systemy operacyjne z instalacją Server Core), z wyjątkiem Virtual Machine Manager 2019) | Jeśli Virtual Machine Manager jest używany, hosty systemu Windows Server 2019 powinny być zarządzane w Virtual Machine Manager 2019. Podobnie hosty systemu Windows Server 2016 powinny być zarządzane w Virtual Machine Manager 2016.
 
 > [!NOTE]
 >
 > - Upewnij się, że na serwerze lokalnym jest zainstalowany .NET Framework 4.6.2 lub nowszy.
-> - Powrót po awarii nie jest obsługiwany w wersji Server Core systemu Windows Server 2019.
-> - Powrót po awarii do alternatywnej lokalizacji nie jest obsługiwany w przypadku hostów z systemem Windows Server 2019.
+> - Tryb failover i powrót po awarii do lokalizacji alternatywnej lub oryginalnej lokalizacji, w której działa program lub bez Virtual Machine Manager, nie jest obsługiwany w wersji Server Core systemu Windows Server 2019.
 
 ## <a name="replicated-vms"></a>Zreplikowane maszyny wirtualne
 
@@ -145,7 +144,7 @@ Modyfikowanie konta magazynu | Nie. Nie można zmodyfikować docelowego konta us
 
 ## <a name="azure-compute-features"></a>Funkcje obliczeniowe platformy Azure
 
-**Cechy** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
+**Funkcja** | **Funkcja Hyper-V z Virtual Machine Manager** | **Funkcja Hyper-V bez Virtual Machine Manager**
 --- | --- | ---
 Zestawy dostępności | Tak | Tak
 Centralny | Tak | Tak  

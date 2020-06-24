@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
 ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257903"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710273"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizowanie raportu Planista wdrażania usługi Azure Site Recovery
 W tym artykule omówiono arkusze zawarte w raporcie programu Excel wygenerowanym przez Planistę wdrażania usługi Azure Site Recovery w przypadku scenariusza dotyczącego funkcji Hyper-V na platformie Azure.
@@ -187,7 +187,7 @@ Raport programu Excel generowany przez Planistę wdrażania usługi Site Recover
 * 1025 GB do 2048 GB — P40.
 * 2049 GB do 4095 GB — P50.
 
-Na przykład jeśli charakterystyki obciążenia dysku są umieszczone w kategorii P20 lub P30, ale rozmiar mapuje go na niższy typ dysku magazynu Premium, narzędzie oznacza tę maszynę wirtualną jako **tak**\*. Narzędzie zaleca również zmianę rozmiaru dysku źródłowego tak, aby mieścił się w zalecanym typie dysku Premium Storage lub zmianę docelowego typu dysku po zakończeniu pracy w trybie failover.
+Na przykład jeśli charakterystyki obciążenia dysku są umieszczone w kategorii P20 lub P30, ale rozmiar mapuje go na niższy typ dysku magazynu Premium, narzędzie oznacza tę maszynę wirtualną jako **tak** \* . Narzędzie zaleca również zmianę rozmiaru dysku źródłowego tak, aby mieścił się w zalecanym typie dysku Premium Storage lub zmianę docelowego typu dysku po zakończeniu pracy w trybie failover.
 
 **Typ magazynu**: dostępne typy magazynu to Standardowa i Premium.
 

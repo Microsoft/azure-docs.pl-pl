@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 05/09/2018
 ms.author: alkohli
 ms.openlocfilehash: efc116c278bfe72419800603a3b365f461fe0a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267965"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711803"
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>Konfigurowanie protokołu CHAP dla urządzenia StorSimple
 
@@ -59,7 +59,7 @@ W przypadku uwierzytelniania jednokierunkowego element docelowy uwierzytelnia in
    3. Potwierdź hasło.
 
        ![Inicjator protokołu CHAP](./media/storsimple-8000-configure-chap/configure-chap6.png)
-3. Kliknij przycisk **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK**, aby zapisać zmiany.
+3. Kliknij pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK**, aby zapisać zmiany.
 
 #### <a name="to-configure-one-way-authentication-on-the-windows-host-server"></a>Aby skonfigurować jednokierunkowe uwierzytelnianie na serwerze hosta z systemem Windows
 1. Na serwerze hosta systemu Windows uruchom inicjatora iSCSI.
@@ -113,7 +113,7 @@ W przypadku uwierzytelniania dwukierunkowego obiekt docelowy uwierzytelnia inicj
    3. Potwierdź hasło.
 
        ![Inicjator protokołu CHAP](./media/storsimple-8000-configure-chap/configure-chap11.png)
-4. Kliknij przycisk **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK**, aby zapisać zmiany.
+4. Kliknij pozycję **Zapisz**. Zostanie wyświetlony komunikat z potwierdzeniem. Kliknij przycisk **OK**, aby zapisać zmiany.
 
 #### <a name="to-configure-bidirectional-authentication-on-the-windows-host-server"></a>Aby skonfigurować uwierzytelnianie dwukierunkowe na serwerze hosta z systemem Windows
 
@@ -127,7 +127,7 @@ W przypadku uwierzytelniania dwukierunkowego obiekt docelowy uwierzytelnia inicj
       
        ![klucz tajny wzajemnego protokołu CHAP inicjatora iSCSI](./media/storsimple-configure-chap/IC740949.png)
 5. Kliknij kartę **obiekty docelowe** .
-6. Kliknij przycisk **Połącz** . 
+6. Kliknij przycisk **Połącz**. 
 7. W oknie dialogowym **łączenie z miejscem docelowym** kliknij przycisk **Zaawansowane**.
 8. W oknie dialogowym **Właściwości zaawansowane** :
    

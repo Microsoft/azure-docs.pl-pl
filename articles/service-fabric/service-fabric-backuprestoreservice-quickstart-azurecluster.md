@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
 ms.openlocfilehash: f56fcb7d1dde700d954c3b55bcf8cd7759893521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259008"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712466"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Okresowe tworzenie kopii zapasowych i przywracanie w klastrze Service Fabric platformy Azure
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Service Fabric udostępnia zestaw interfejsów API do osiągnięcia następując
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Upewnij się, że klaster jest połączony przy `Connect-SFCluster` użyciu polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
+* Upewnij się, że klaster jest połączony przy użyciu `Connect-SFCluster` polecenia przed wykonaniem dowolnego żądania konfiguracji przy użyciu modułu Microsoft. servicefabric. PowerShell. http.
 
 ```powershell
 
@@ -68,7 +68,7 @@ Service Fabric udostępnia zestaw interfejsów API do osiągnięcia następując
 
 ### <a name="using-azure-portal"></a>Korzystanie z witryny Azure Portal
 
-Włącz `Include backup restore service` pole wyboru w `+ Show optional settings` obszarze `Cluster Configuration` na karcie.
+Włącz `Include backup restore service` pole wyboru w obszarze `+ Show optional settings` na `Cluster Configuration` karcie.
 
 ![Włączanie usługi przywracania kopii zapasowych przy użyciu portalu][1]
 
@@ -88,7 +88,7 @@ Najpierw należy włączyć _usługę tworzenia kopii zapasowych i przywracania_
     }
     ```
 
-2. Teraz Włącz _usługę tworzenia kopii zapasowych i przywracania_ , dodając `addonFeatures` następującą `properties` sekcję w sekcji, jak pokazano w poniższym fragmencie kodu: 
+2. Teraz Włącz _usługę tworzenia kopii zapasowych i przywracania_ , dodając następującą `addonFeatures` sekcję w `properties` sekcji, jak pokazano w poniższym fragmencie kodu: 
 
     ```json
         "properties": {
@@ -116,23 +116,23 @@ Najpierw należy włączyć _usługę tworzenia kopii zapasowych i przywracania_
     }
     ```
 
-4. Po zaktualizowaniu szablonu klastra z poprzednimi zmianami zastosuj je i pozwól na ukończenie wdrożenia/uaktualnienia. Po zakończeniu _usługa tworzenia kopii zapasowych i przywracania_ jest uruchamiana w klastrze. Identyfikator URI tej usługi to `fabric:/System/BackupRestoreService` usługa, która może znajdować się w sekcji usługi systemowej w Eksploratorze Service Fabric. 
+4. Po zaktualizowaniu szablonu klastra z poprzednimi zmianami zastosuj je i pozwól na ukończenie wdrożenia/uaktualnienia. Po zakończeniu _usługa tworzenia kopii zapasowych i przywracania_ jest uruchamiana w klastrze. Identyfikator URI tej usługi to usługa `fabric:/System/BackupRestoreService` , która może znajdować się w sekcji usługi systemowej w eksploratorze Service Fabric. 
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Włączanie okresowej kopii zapasowej dla niezawodnej usługi stanowej i Reliable Actors
 Wykonajmy kroki, aby włączyć okresowe tworzenie kopii zapasowej dla niezawodnej usługi stanowej i Reliable Actors. W tych krokach przyjęto założenie
 - Klaster jest skonfigurowany przy użyciu zabezpieczeń X. 509 z _usługą tworzenia kopii zapasowych i przywracania_.
-- W klastrze wdrożono niezawodne usługi stanowe. Na potrzeby tego przewodnika Szybki Start identyfikator URI aplikacji jest `fabric:/SampleApp` i identyfikator URI niezawodnej usługi stanowej należącej do tej `fabric:/SampleApp/MyStatefulService`aplikacji. Ta usługa jest wdrażana z jedną partycją i IDENTYFIKATORem partycji `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
+- W klastrze wdrożono niezawodne usługi stanowe. Na potrzeby tego przewodnika Szybki Start identyfikator URI aplikacji jest `fabric:/SampleApp` i identyfikator URI niezawodnej usługi stanowej należącej do tej aplikacji `fabric:/SampleApp/MyStatefulService` . Ta usługa jest wdrażana z jedną partycją i IDENTYFIKATORem partycji `974bd92a-b395-4631-8a7f-53bd4ae9cf22` .
 - Certyfikat klienta z rolą administratora programu jest instalowany w _mojej_ (_osobistej_) lokalizacji magazynu certyfikatów _CurrentUser_ na komputerze, na którym będą wywoływane poniższe skrypty. Ten przykład używa `1b7ebe2174649c45474a4819dafae956712c31d3` odcisku palca tego certyfikatu. Aby uzyskać więcej informacji na temat certyfikatów klientów, zobacz [kontroli dostępu opartej na rolach dla klientów Service Fabric](service-fabric-cluster-security-roles.md).
 
 ### <a name="create-backup-policy"></a>Tworzenie zasad kopii zapasowych
 
 Pierwszym krokiem jest utworzenie zasad tworzenia kopii zapasowych z opisem harmonogramu kopii zapasowych, docelowego magazynu dla danych kopii zapasowej, nazwy zasad i maksymalnych przyrostowych kopii zapasowych, które będą dozwolone przed wyzwalaniem pełnych zasad tworzenia kopii zapasowych i przechowywania kopii zapasowych 
 
-W przypadku magazynu kopii zapasowych Użyj utworzonego powyżej konta usługi Azure Storage. Kontener `backup-container` jest skonfigurowany do przechowywania kopii zapasowych. Kontener o tej nazwie zostanie utworzony, jeśli jeszcze nie istnieje, podczas przekazywania kopii zapasowej. Wypełnij `ConnectionString` prawidłowymi parametrami połączenia dla konta usługi Azure Storage, zastępując `account-name` je nazwą konta magazynu i `account-key` kluczem konta magazynu.
+W przypadku magazynu kopii zapasowych Użyj utworzonego powyżej konta usługi Azure Storage. Kontener `backup-container` jest skonfigurowany do przechowywania kopii zapasowych. Kontener o tej nazwie zostanie utworzony, jeśli jeszcze nie istnieje, podczas przekazywania kopii zapasowej. Wypełnij `ConnectionString` prawidłowymi parametrami połączenia dla konta usługi Azure Storage, zastępując je `account-name` nazwą konta magazynu i `account-key` kluczem konta magazynu.
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell przy użyciu modułu Microsoft. servicefabric. PowerShell. http
 
-Wykonaj następujące polecenia cmdlet programu PowerShell, aby utworzyć nowe zasady tworzenia kopii zapasowych. Zastąp `account-name` ciąg nazwą konta magazynu i `account-key` kluczem konta magazynu.
+Wykonaj następujące polecenia cmdlet programu PowerShell, aby utworzyć nowe zasady tworzenia kopii zapasowych. Zastąp ciąg `account-name` nazwą konta magazynu i `account-key` kluczem konta magazynu.
 
 ```powershell
 
@@ -142,7 +142,7 @@ New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrem
 
 #### <a name="rest-call-using-powershell"></a>Wywołanie REST przy użyciu programu PowerShell
 
-Wykonaj następujący skrypt programu PowerShell w celu wywołania wymaganego interfejsu API REST w celu utworzenia nowych zasad. Zastąp `account-name` ciąg nazwą konta magazynu i `account-key` kluczem konta magazynu.
+Wykonaj następujący skrypt programu PowerShell w celu wywołania wymaganego interfejsu API REST w celu utworzenia nowych zasad. Zastąp ciąg `account-name` nazwą konta magazynu i `account-key` kluczem konta magazynu.
 
 ```powershell
 $StorageInfo = @{
@@ -198,7 +198,7 @@ Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupP
 ```
 #### <a name="rest-call-using-powershell"></a>Wywołanie REST przy użyciu programu PowerShell
 
-Wykonaj następujący skrypt programu PowerShell, aby wywołać wymagany interfejs API REST w celu skojarzenia zasad `BackupPolicy1` tworzenia kopii zapasowych o nazwie `SampleApp`utworzonej w powyższym kroku z aplikacją.
+Wykonaj następujący skrypt programu PowerShell, aby wywołać wymagany interfejs API REST w celu skojarzenia zasad tworzenia kopii zapasowych o nazwie `BackupPolicy1` utworzonej w powyższym kroku z aplikacją `SampleApp` .
 
 ```powershell
 $BackupPolicyReference = @{
@@ -241,7 +241,7 @@ Get-SFApplicationBackupList -ApplicationId WordCount
 
 #### <a name="rest-call-using-powershell"></a>Wywołanie REST przy użyciu programu PowerShell
 
-Wykonaj następujący skrypt programu PowerShell, aby wywołać interfejs API protokołu HTTP, aby wyliczyć kopie zapasowe `SampleApp` utworzone dla wszystkich partycji w aplikacji.
+Wykonaj następujący skrypt programu PowerShell, aby wywołać interfejs API protokołu HTTP, aby wyliczyć kopie zapasowe utworzone dla wszystkich partycji w `SampleApp` aplikacji.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"

@@ -5,20 +5,20 @@ description: W tym artykule przedstawiono sposób wdrażania zestawów skalowani
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 6a751fa193c8dd530707f790af0292d536a6f47d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f969d7edc22c9c36481ca42449193af5f8c7b0d9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420456"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710001"
 ---
 # <a name="deploy-virtual-machine-scale-sets-with-ipv6-in-azure"></a>Wdrażanie zestawów skalowania maszyn wirtualnych przy użyciu protokołu IPv6 na platformie Azure
 

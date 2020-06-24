@@ -11,25 +11,23 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: fd4804ccbd98bd3cab9f5b55c56274f8cbc34c65
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 6ea7709d1385eff3d538d69b25a9b31b88e7b904
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84051024"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718006"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Użyj Resource Health do rozwiązywania problemów z łącznością dla Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-## <a name="overview"></a>Omówienie
-
-[Resource Health](../../service-health/resource-health-overview.md#get-started) dla Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL ułatwiają diagnozowanie i uzyskiwanie pomocy technicznej, gdy problem z platformą Azure ma wpływ na zasoby SQL. Informuje o bieżącej i wcześniejszej kondycji zasobów oraz pomaga uniknąć problemów. Usługa Resource Health oferuje pomoc techniczną w przypadku problemów z usługą platformy Azure.
+[Resource Health](../../service-health/resource-health-overview.md#get-started) dla Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL ułatwiają diagnozowanie i uzyskiwanie pomocy technicznej, gdy problem z platformą Azure ma wpływ na zasoby SQL. Informuje o bieżącej i wcześniejszej kondycji zasobów oraz pomaga uniknąć problemów. Resource Health zapewnia pomoc techniczną, gdy potrzebujesz pomocy dotyczącej problemów z usługą platformy Azure.
 
 ![Omówienie](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-overview.jpg)
 
 ## <a name="health-checks"></a>Kontrole kondycji
 
-Resource Health określa kondycję zasobu SQL, sprawdzając powodzenie i niepowodzenie logowania do zasobu. Obecnie Resource Health dla zasobu SQL Database tylko analizuje błędy logowania z powodu błędu systemu, a nie błędu użytkownika. Stan Resource Health jest aktualizowany co 1-2 minut.
+Resource Health określa kondycję zasobu SQL, sprawdzając powodzenie i niepowodzenie logowania do zasobu. Obecnie Resource Health dla zasobu SQL Database tylko analizuje błędy logowania z powodu błędu systemu, a nie błędu użytkownika. Stan Resource Health jest aktualizowany co 1 do 2 minut.
 
 ## <a name="health-states"></a>Stany kondycji
 
@@ -59,7 +57,7 @@ Stan kondycji **nieznany** wskazuje, że Resource Health nie otrzymał informacj
 
 ## <a name="historical-information"></a>Informacje historyczne
 
-Możesz uzyskać dostęp do 14 dni historii kondycji w sekcji Historia kondycji Resource Health. Sekcja zawiera również przyczynę przestoju (jeśli jest dostępna) dla przestojów raportowanych przez Resource Health. Obecnie platforma Azure pokazuje przestoje dla zasobu bazy danych z dokładnością do dwóch minut. W rzeczywistości przestój trwa prawdopodobnie krócej niż minutę — średni czas to 8 s.
+Możesz uzyskać dostęp do 14 dni historii kondycji w sekcji Historia kondycji Resource Health. Sekcja zawiera również przyczynę przestoju (jeśli jest dostępna) dla przestojów raportowanych przez Resource Health. Obecnie platforma Azure pokazuje przestoje dla zasobu bazy danych z dokładnością do dwóch minut. W rzeczywistości przestój trwa prawdopodobnie mniej niż minutę. Średnia wynosi 8 sekund.
 
 ### <a name="downtime-reasons"></a>Przyczyny przestoju
 
@@ -67,7 +65,7 @@ Gdy baza danych ulegnie awarii, analiza jest przeprowadzana w celu ustalenia prz
 
 #### <a name="planned-maintenance"></a>Planowana konserwacja
 
-Infrastruktura platformy Azure okresowo przeprowadza planowaną konserwację — uaktualnianie składników sprzętowych i programowych w centrum danych. Podczas gdy baza danych jest w trakcie konserwacji, program SQL może zakończyć niektóre istniejące połączenia i odrzucić nowe. Błędy logowania występujące podczas planowanej konserwacji są zwykle przejściowe i [logika ponowień](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) pomaga zmniejszyć wpływ. Jeśli błędy logowania będą nadal występować, skontaktuj się z pomocą techniczną.
+Infrastruktura platformy Azure okresowo przeprowadza planowaną konserwację — uaktualnienie składników sprzętowych lub programowych w centrum danych. Podczas gdy baza danych jest w trakcie konserwacji, usługa Azure SQL może zakończyć niektóre istniejące połączenia i odrzucić nowe. Błędy logowania występujące podczas planowanej konserwacji są zwykle przejściowe i [logika ponawiania](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors) pomaga zmniejszyć wpływ. Jeśli nadal występują błędy logowania, skontaktuj się z pomocą techniczną.
 
 #### <a name="reconfiguration"></a>Ponowne konfigurowanie
 
@@ -75,8 +73,8 @@ Ponowne konfiguracje są uznawane za przejściowe i oczekują od czasu do czasu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [logice ponawiania prób w przypadku błędów przejściowych](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)
-- [Troubleshoot, diagnose, and prevent SQL connection errors](troubleshoot-common-connectivity-issues.md) (Rozwiązywanie problemów, diagnozowanie i zapobieganie błędom połączeń SQL)
-- Dowiedz się więcej o [konfigurowaniu Resource Health alertów](../../service-health/resource-health-alert-arm-template-guide.md)
-- Zapoznaj się z omówieniem [Resource Health](../../application-gateway/resource-health-overview.md)
-- [Często zadawane pytania dotyczące usługi Resource Health](../../service-health/resource-health-faq.md)
+- Dowiedz się więcej o [logice ponawiania prób w przypadku błędów przejściowych](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
+- [Rozwiązywanie problemów, diagnozowanie i zapobieganie błędom połączeń SQL](troubleshoot-common-connectivity-issues.md).
+- Dowiedz się więcej o [konfigurowaniu alertów Resource Health](../../service-health/resource-health-alert-arm-template-guide.md).
+- Zapoznaj się z omówieniem [Resource Health](../../application-gateway/resource-health-overview.md).
+- Przejrzyj [Resource Health często zadawane pytania](../../service-health/resource-health-faq.md).

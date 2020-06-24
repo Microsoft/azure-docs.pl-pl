@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e030bd1124a93c667070a2b58f2f0e1c10c7d3a6
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683058"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718561"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -26,7 +26,7 @@ W przypadku korzystania z usługi w chmurze najlepszym rozwiązaniem jest ograni
 > [!NOTE]
 > Informacje przedstawione w tym artykule współdziałają z Azure Machine Learning Python SDK w wersji 1.0.83.1 lub nowszej.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 
 Uwierzytelnianie wieloskładnikowe jest obsługiwane, jeśli Azure Active Directory (Azure AD) jest skonfigurowany do korzystania z niego. Oto proces uwierzytelniania:
 
@@ -146,7 +146,7 @@ Aby użyć własnych kluczy (zarządzanych przez klienta) do zaszyfrowania wyst�
 
 Aby włączyć obsługę administracyjną wystąpienia Cosmos DB w ramach subskrypcji z kluczami zarządzanymi przez klienta, wykonaj następujące czynności:
 
-* Zarejestruj Azure Machine Learning i Azure Cosmos DB dostawców zasobów w subskrypcji, jeśli jeszcze nie zostało to zrobione.
+* Zarejestruj dostawców zasobów Microsoft. MachineLearning i Microsoft.DocumentDB w ramach subskrypcji, jeśli jeszcze nie zostało to zrobione.
 
 * Autoryzuj aplikację Machine Learning (w temacie Zarządzanie tożsamościami i dostępem) z uprawnieniami współautora w ramach subskrypcji.
 
@@ -317,7 +317,7 @@ Skojarzona z obszarem roboczym Azure Machine Learning to katalogi (eksperymenty)
 
 [![Przepływ pracy migawek kodu](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
 
-### <a name="training"></a>Szkolenie
+### <a name="training"></a>Szkolenia
 
 Na poniższym diagramie przedstawiono przepływ pracy szkoleniowej.
 

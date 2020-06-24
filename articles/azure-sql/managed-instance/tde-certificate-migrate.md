@@ -2,7 +2,7 @@
 title: Migrowanie wystąpienia zarządzanego przez certyfikat TDE
 description: Migrowanie certyfikatu ochrona klucza szyfrowania bazy danych za pomocą Transparent Data Encryption do wystąpienia zarządzanego usługi Azure SQL
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: d2f5439874590db0f2775667d91586c51d6c43b3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: c9a9b42d6f6d8c89847b03f5eda858c75d198c58
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660323"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711395"
 ---
 # <a name="migrate-a-certificate-of-a-tde-protected-database-to-azure-sql-managed-instance"></a>Migrowanie certyfikatu chronionej bazy danych TDE do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ Do wykonania kroków opisanych w tym artykule potrzebne jest spełnienie następ
 * Narzędzie wiersza polecenia [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) zainstalowane na serwerze lokalnym lub innym komputerze z dostępem do certyfikatu wyeksportowanego jako plik. Narzędzie Pvk2Pfx jest częścią [zestawu sterowników przedsiębiorstwa systemu Windows](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), czyli środowiska wiersza polecenia.
 * Zainstalowany program [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) w wersji 5.0 lub nowszej.
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Upewnij się, że masz:
 
@@ -131,7 +131,7 @@ Jeśli certyfikat jest przechowywany w magazynie certyfikatów na komputerze lok
 
 ## <a name="upload-the-certificate-to-azure-sql-managed-instance-using-an-azure-powershell-cmdlet"></a>Przekaż certyfikat do wystąpienia zarządzanego usługi Azure SQL za pomocą polecenia cmdlet Azure PowerShell
 
-# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 1. Rozpocznij od kroków przygotowawczych w programie PowerShell:
 

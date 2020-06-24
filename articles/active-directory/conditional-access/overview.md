@@ -1,5 +1,5 @@
 ---
-title: Co to jest dostęp warunkowy w Azure Active Directory?
+title: Co to jest dostęp warunkowy w usłudze Azure Active Directory?
 description: Dowiedz się, jak dostęp warunkowy jest sercem nowej płaszczyzny kontroli sterowanej tożsamością.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 0e13fcba4b961efb6a839f95ad0e8100382619c0
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: fb8687c091e8c34ad1fbae2a50981327b3994b6e
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798242"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051952"
 ---
 # <a name="what-is-conditional-access"></a>Co to jest dostęp warunkowy?
 
@@ -93,7 +93,7 @@ Dowiedz się, w jaki sposób inne organizacje używają dostępu warunkowego us�
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Klienci z [licencjami Microsoft 365 Business](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) również mają dostęp do funkcji dostępu warunkowego. 
+Klienci z [licencjami na Microsoft 365 Business Premium](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) mają również dostęp do funkcji dostępu warunkowego. 
 
 ## <a name="next-steps"></a>Następne kroki
 

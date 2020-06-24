@@ -1,5 +1,5 @@
 ---
-title: Wprowadzenie do wzbogacania AI
+title: Pojęcia dotyczące wzbogacania AI
 titleSuffix: Azure Cognitive Search
 description: Wyodrębnianie zawartości, przetwarzanie języka naturalnego (NLP) i przetwarzanie obrazów są używane do tworzenia zawartości z możliwością wyszukiwania w indeksach Wyszukiwanie poznawcze platformy Azure ze wstępnie zdefiniowanymi umiejętnościami poznawczymi i niestandardowymi algorytmami AI.
 manager: nitinme
@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2020
-ms.openlocfilehash: cdff42c6ff0cadb5ce4b3d7fc469d648349d1e88
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/18/2020
+ms.openlocfilehash: 196562d376b8268ecf47f8133a5b1c8a122c38c5
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84265203"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052268"
 ---
-# <a name="getting-started-with-ai-enrichment"></a>Wprowadzenie do wzbogacania AI
+# <a name="ai-enrichment-in-azure-cognitive-search"></a>Wzbogacanie AI na platformie Azure Wyszukiwanie poznawcze
 
-Wzbogacanie AI jest funkcją indeksowania Wyszukiwanie poznawcze platformy Azure służącą do wyodrębniania tekstu z obrazów, obiektów blob i innych źródeł danych bez struktury. Wzbogacanie i wyodrębnianie zwiększa możliwości wyszukiwania zawartości w [indeksie](search-what-is-an-index.md) lub [magazynie wiedzy](knowledge-store-concept-intro.md). Wyodrębnianie i wzbogacanie są implementowane przy użyciu *umiejętności poznawczych* dołączanych do potoku indeksowania. Umiejętności poznawcze wbudowane w usługę należą do następujących kategorii: 
+Wzbogacanie AI to rozszerzenie [indeksatorów](search-indexer-overview.md) , które mogą służyć do wyodrębniania tekstu z obrazów, obiektów blob i innych źródeł danych bez struktury. Wzbogacanie i wyodrębnianie sprawia, że zawartość może być bardziej przeszukiwana w obiektach wyjściowych indeksatora, w [indeksie wyszukiwania](search-what-is-an-index.md) lub w [sklepie z bazami wiedzy](knowledge-store-concept-intro.md). 
+
+Wyodrębnianie i wzbogacanie są implementowane przy użyciu *umiejętności poznawczych* dołączonych do potoku opartego na indeksatorze. Możesz korzystać z wbudowanych umiejętności firmy Microsoft lub osadzać zewnętrzne przetwarzanie w [*niestandardowych umiejętnościach*](cognitive-search-create-custom-skill-example.md) , które tworzysz. Przykłady niestandardowej umiejętności mogą być niestandardowym modułem jednostki lub klasyfikatorem dokumentu przeznaczonym dla konkretnej domeny, takiej jak finanse, publikacje naukowe lub medycyna.
+
+Wbudowane umiejętności należą do następujących kategorii: 
 
 + Umiejętności **przetwarzania języka naturalnego** obejmują [rozpoznawanie jednostek](cognitive-search-skill-entity-recognition.md), [wykrywanie języka](cognitive-search-skill-language-detection.md), [wyodrębnianie kluczowych fraz](cognitive-search-skill-keyphrases.md), manipulowanie tekstem, [wykrywanie tonacji](cognitive-search-skill-sentiment.md)i [wykrywanie](cognitive-search-skill-pii-detection.md)wielu osób. Dzięki tym umiejętnościom tekst bez struktury jest mapowany jako pola z możliwością wyszukiwania i filtrowania w indeksie.
 
@@ -25,9 +29,9 @@ Wzbogacanie AI jest funkcją indeksowania Wyszukiwanie poznawcze platformy Azure
 
 ![Diagram potoku wzbogacania](./media/cognitive-search-intro/cogsearch-architecture.png "Przegląd potoku wzbogacania")
 
-Umiejętności poznawcze w usłudze Azure Wyszukiwanie poznawcze opierają się na wstępnie szkolonych modelach uczenia maszynowego w interfejsy API usług Cognitive Services: [Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) i [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). 
+Wbudowane umiejętności na platformie Azure Wyszukiwanie poznawcze opierają się na wstępnie szkolonych modelach uczenia maszynowego w interfejsy API usług Cognitive Services: [Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) i [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). Możesz dołączyć zasób Cognitive Services, jeśli chcesz korzystać z tych zasobów podczas przetwarzania zawartości.
 
-Przetwarzanie języka naturalnego i obrazu jest stosowane w fazie pozyskiwania danych, a wyniki stają się częścią kompozycji dokumentu w indeksie wyszukiwania na platformie Azure Wyszukiwanie poznawcze. Dane są źródłem danych jako zestaw danych platformy Azure, a następnie wypychane za pośrednictwem potoku indeksowania przy użyciu zależnych [umiejętności](cognitive-search-predefined-skills.md) , które są potrzebne. Architektura jest rozszerzalna, dlatego jeśli wbudowane umiejętności nie są wystarczające, można tworzyć i dołączać [niestandardowe umiejętności](cognitive-search-create-custom-skill-example.md) umożliwiające integrację przetwarzania niestandardowego. Przykłady mogą być niestandardowym modułem jednostki lub klasyfikatorem dokumentu przeznaczonym dla konkretnej domeny, takiej jak finanse, publikacje naukowe lub medycyna.
+Przetwarzanie języka naturalnego i obrazu jest stosowane w fazie pozyskiwania danych, a wyniki stają się częścią kompozycji dokumentu w indeksie wyszukiwania na platformie Azure Wyszukiwanie poznawcze. Dane są źródłem danych jako zestaw danych platformy Azure, a następnie wypychane za pośrednictwem potoku indeksowania przy użyciu zależnych [umiejętności](cognitive-search-predefined-skills.md) , które są potrzebne.  
 
 ## <a name="when-to-use-ai-enrichment"></a>Kiedy używać wzbogacenia AI
 
@@ -55,8 +59,7 @@ Ponadto możesz rozważyć dodanie niestandardowej umiejętności, jeśli masz k
 
 Umiejętności niestandardowe mogą obsługiwać bardziej złożone scenariusze, takie jak rozpoznawanie formularzy lub wykrywanie jednostek niestandardowych przy użyciu udostępnianego modelu i zawijania w [niestandardowym interfejsie sieci Web](cognitive-search-custom-skill-interface.md). Kilka przykładów umiejętności niestandardowych obejmuje [aparat rozpoznawania formularzy](/azure/cognitive-services/form-recognizer/overview), integrację [interfejs API wyszukiwania jednostek Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example)i [niestandardowego rozpoznawania jednostek](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-
-## <a name="steps-in-an-enrichment-pipeline"></a>Kroki potoku wzbogacania
+<a name="enrichment-steps">Kroki # # w potoku wzbogacania</a>
 
 Potok wzbogacania jest oparty na [*indeksatorach*](search-indexer-overview.md). Indeksatory wypełniają indeks na podstawie mapowań pola do pola między indeksem a źródłem danych na potrzeby łamania dokumentów. Umiejętności, które są teraz dołączone do indeksatorów, przechwytuje i wzbogacają dokumenty zależnie od zdefiniowanych zestawu umiejętności. Po indeksowaniu możesz uzyskać dostęp do zawartości za pośrednictwem żądań wyszukiwania przez wszystkie [typy zapytań obsługiwane przez usługę Azure wyszukiwanie poznawcze](search-query-overview.md).  Jeśli jesteś nowym indeksatorem, ta sekcja przeprowadzi Cię przez kroki.
 

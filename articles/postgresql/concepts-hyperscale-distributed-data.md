@@ -8,18 +8,18 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ade7632dc042741a07bdb59e34e30b3fb464e0e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243655"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710358"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Dane rozproszone w Azure Database for PostgreSQL — skalowanie (Citus)
 
 W tym artykule opisano trzy typy tabel w Azure Database for PostgreSQL — funkcja Citus).
 Pokazuje, jak tabele rozproszone są przechowywane jako fragmentów, i sposób, w jaki fragmentów są umieszczane w węzłach.
 
-## <a name="table-types"></a>Typy tabel
+## <a name="table-types"></a>Typy table
 
 Istnieją trzy typy tabel w grupie serwerów ze skalą (Citus), z których każdy jest używany do różnych celów.
 
@@ -51,7 +51,7 @@ Dobrym kandydatem do tabel lokalnych byłyby małe tabele administracyjne, któr
 
 W poprzedniej sekcji opisano, jak tabele rozproszone są przechowywane jako fragmentów w węzłach procesu roboczego. W tej sekcji omówiono więcej szczegółów technicznych.
 
-Tabela `pg_dist_shard` metadanych w koordynatorze zawiera wiersz dla każdej fragmentu tabeli rozproszonej w systemie. Wiersz jest zgodny z IDENTYFIKATORem fragmentu z zakresem liczb całkowitych w przestrzeni skrótów (shardminvalue, shardmaxvalue).
+`pg_dist_shard`Tabela metadanych w koordynatorze zawiera wiersz dla każdej fragmentu tabeli rozproszonej w systemie. Wiersz jest zgodny z IDENTYFIKATORem fragmentu z zakresem liczb całkowitych w przestrzeni skrótów (shardminvalue, shardmaxvalue).
 
 ```sql
 SELECT * from pg_dist_shard;
@@ -64,13 +64,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Jeśli węzeł koordynatora chce określić, które fragmentu przechowuje wiersz `github_events`, miesza wartość kolumny dystrybucji w wierszu. Następnie węzeł sprawdzi, który zakres\'fragmentu zawiera wartość zmieszaną. Zakresy są zdefiniowane, aby obraz funkcji skrótu był ich rozłącznym złożeniem.
+Jeśli węzeł koordynatora chce określić, które fragmentu przechowuje wiersz `github_events` , miesza wartość kolumny dystrybucji w wierszu. Następnie węzeł sprawdzi, który \' zakres fragmentu zawiera wartość zmieszaną. Zakresy są zdefiniowane, aby obraz funkcji skrótu był ich rozłącznym złożeniem.
 
 ### <a name="shard-placements"></a>Fragmentu
 
-Załóżmy, że fragmentu 102027 jest skojarzony z danym wierszem. Wiersz jest odczytywany lub zapisywana w tabeli o `github_events_102027` nazwie w jednym z procesów roboczych. Który proces roboczy? Jest to określane całkowicie przez tabele metadanych. Mapowanie elementu fragmentu na proces roboczy jest nazywane rozmieszczeniem fragmentu.
+Załóżmy, że fragmentu 102027 jest skojarzony z danym wierszem. Wiersz jest odczytywany lub zapisywana w tabeli o nazwie `github_events_102027` w jednym z procesów roboczych. Który proces roboczy? Jest to określane całkowicie przez tabele metadanych. Mapowanie elementu fragmentu na proces roboczy jest nazywane rozmieszczeniem fragmentu.
 
-Węzeł koordynator ponownie zapisuje zapytania do fragmentów odwołujących się do określonych tabel, `github_events_102027` takich jak i uruchamia te fragmenty na odpowiednich procesach roboczych. Oto przykład zapytania uruchamianego w tle, aby znaleźć węzeł przechowujący fragmentu o IDENTYFIKATORze 102027.
+Węzeł koordynator ponownie zapisuje zapytania do fragmentów odwołujących się do określonych tabel, takich jak `github_events_102027` i uruchamia te fragmenty na odpowiednich procesach roboczych. Oto przykład zapytania uruchamianego w tle, aby znaleźć węzeł przechowujący fragmentu o IDENTYFIKATORze 102027.
 
 ```sql
 SELECT

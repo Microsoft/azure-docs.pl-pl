@@ -16,11 +16,11 @@ ms.date: 03/18/2019
 ms.author: xpouyat
 ms.reviewer: anilmur;juliako
 ms.openlocfilehash: 27bdf82d4515678e28eadf07fe325860fe5df063
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251000"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712347"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Korzystanie z wielu plików wejściowych i właściwości składników przy użyciu kodera Premium
 ## <a name="overview"></a>Omówienie
@@ -97,7 +97,7 @@ Przykład:
 ```
 
 ### <a name="property-with-an-xml-value"></a>Właściwość z wartością XML
-Aby ustawić właściwość, która oczekuje wartości XML, Hermetyzuj przy użyciu `<![CDATA[ and ]]>`.
+Aby ustawić właściwość, która oczekuje wartości XML, Hermetyzuj przy użyciu `<![CDATA[ and ]]>` .
 
 Przykład:
 
@@ -131,7 +131,7 @@ Przykład:
 ```
 
 > [!NOTE]
-> Upewnij się, że nie należy umieszczać powrotu karetki `<![CDATA[`tuż po.
+> Upewnij się, że nie należy umieszczać powrotu karetki tuż po `<![CDATA[` .
 
 ### <a name="propertypath-value"></a>propertyPath wartość
 W poprzednich przykładach propertyPath była "/Media pliku Input/filename" lub "/inactiveTimeout" lub "clipListXml".
@@ -272,10 +272,10 @@ Z dodatkowym przycinaniem dokładnej ramki:
 ## <a name="example-1--overlay-an-image-on-top-of-the-video"></a>Przykład 1: nakładanie obrazu na obraz wideo
 
 ### <a name="presentation"></a>Prezentacja
-Rozważmy przykład, w którym chcesz nałożyć obraz logo na wejściowy film wideo podczas kodowania wideo. W tym przykładzie wejściowy film wideo ma nazwę "Microsoft_HoloLens_Possibilities_816p24. mp4", a logo nosi nazwę "logo. png". Należy wykonać następujące czynności:
+Rozważmy przykład, w którym chcesz nałożyć obraz logo na wejściowy film wideo podczas kodowania wideo. W tym przykładzie wejściowy film wideo ma nazwę "Microsoft_HoloLens_Possibilities_816p24.mp4", a logo ma nazwę "logo.png". Należy wykonać następujące czynności:
 
 * Utwórz zasób przepływu pracy przy użyciu pliku przepływu pracy (zobacz Poniższy przykład).
-* Utwórz zasób multimedialny, który zawiera dwa pliki: MyInputVideo. mp4 jako plik podstawowy i weblogo. png.
+* Utwórz zasób multimedialny, który zawiera dwa pliki: MyInputVideo.mp4 jako plik podstawowy i MyLogo.png.
 * Wyślij zadanie do Media Encoder Premium Workflow procesora multimediów z powyższymi zasobami wejściowymi i określ następujący ciąg konfiguracyjny.
 
 Konfiguracja:
@@ -299,7 +299,7 @@ W powyższym przykładzie nazwa pliku wideo jest wysyłana do składnika danych 
 ### <a name="step-by-step-workflow-creation"></a>Tworzenie przepływu pracy krok po kroku
 Poniżej przedstawiono procedurę tworzenia przepływu pracy, który pobiera dwa pliki jako dane wejściowe: wideo i obraz. Obraz zostanie nałożony na wierzchu wideo.
 
-Otwórz **Projektant przepływu pracy** i wybierz pozycję **plik** > **Nowy obszar roboczy** > **transkodowanie plan**.
+Otwórz **Projektant przepływu pracy** i wybierz pozycję **plik**  >  **Nowy obszar roboczy**  >  **transkodowanie plan**.
 
 Nowy przepływ pracy pokazuje trzy elementy:
 
@@ -442,7 +442,7 @@ Aby zakodować, wykonaj następujące kroki:
 * Utwórz element zawartości Media Services przy użyciu pliku MXF i plików audio (od 0 do 18 plików audio).
 * Upewnij się, że plik MXF jest ustawiony jako plik podstawowy.
 * Tworzenie zadania i zadania przy użyciu procesora kodera przepływu pracy w warstwie Premium. Użyj dostarczonego przepływu pracy (MultiMP4-1080p-19audio-v1. Workflow).
-* Przekaż dane setruntime. XML do zadania (Jeśli używasz Eksploratora Azure Media Services, użyj przycisku "Przekaż dane XML do przepływu pracy").
+* Przekaż setruntime.xml dane do zadania (Jeśli korzystasz z Eksploratora Azure Media Services, użyj przycisku "Przekaż dane XML do przepływu pracy").
   * Zaktualizuj dane XML, aby określić prawidłowe nazwy plików i Tagi języka.
   * Przepływ pracy zawiera składniki audio o nazwie audio 1 do audio 18.
   * RFC5646 jest obsługiwany dla tagu języka.
@@ -466,7 +466,7 @@ Aby zakodować, wykonaj następujące kroki:
 
 * Zakodowany element zawartości będzie zawierać ścieżki audio w wielu językach, a ścieżki powinny być wybierane w Azure Media Player.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Wprowadzenie kodowania Premium w Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Jak używać kodowania Premium w Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [Kodowanie zawartości na żądanie za pomocą Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
@@ -477,5 +477,5 @@ Aby zakodować, wykonaj następujące kroki:
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

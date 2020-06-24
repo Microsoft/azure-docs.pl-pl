@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265586"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686226"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
-> * [Narzędzia](data-lake-store-get-started-powershell.md)
+> * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli-2.0.md)
 >
 >
@@ -56,7 +56,7 @@ Przed przystąpieniem do wykonywania kroków opisanych w tym samouczku musisz mi
 
         Aby uzyskać więcej informacji, zobacz [szyfrowanie danych w Azure Data Lake Storage Gen1](./data-lake-store-encryption.md).
 
-4. Kliknij przycisk **Utwórz**. Jeśli wybrano opcję przypięcia konta do pulpitu nawigacyjnego, nastąpi powrót do pulpitu nawigacyjnego i zobaczysz postęp aprowizacji Data Lake Storage Gen1 konta. Po zainicjowaniu obsługi konta Data Lake Storage Gen1 zostanie wyświetlony blok konta.
+4. Kliknij pozycję **Utwórz**. Jeśli wybrano opcję przypięcia konta do pulpitu nawigacyjnego, nastąpi powrót do pulpitu nawigacyjnego i zobaczysz postęp aprowizacji Data Lake Storage Gen1 konta. Po zainicjowaniu obsługi konta Data Lake Storage Gen1 zostanie wyświetlony blok konta.
 
 ## <a name="assign-permissions-to-azure-key-vault"></a><a name="assign-permissions-to-azure-key-vault"></a>Przypisywanie uprawnień do usługi Azure Key Vault
 

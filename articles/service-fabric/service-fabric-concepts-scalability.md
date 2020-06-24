@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: masnider
 ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282564"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710698"
 ---
 # <a name="scaling-in-service-fabric"></a>Skalowanie w Service Fabric
 Usługa Azure Service Fabric ułatwia tworzenie skalowalnych aplikacji przez zarządzanie usługami, partycjami i replikami w węzłach klastra. Uruchamianie wielu obciążeń na tym samym sprzęcie pozwala na maksymalne wykorzystanie zasobów, ale również zapewnia elastyczność w zakresie skalowania obciążeń. Ten film wideo Channel 9 opisuje, jak można tworzyć skalowalne aplikacje mikrousług:
@@ -27,7 +27,7 @@ Skalowanie w Service Fabric jest realizowane na kilka różnych sposobów:
 6. Skalowanie przy użyciu metryk Menedżer zasobów klastra
 
 ## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>Skalowanie przez tworzenie lub usuwanie bezstanowych wystąpień usługi
-Jednym z najprostszych sposobów skalowania w ramach Service Fabric współpracuje z usługami bezstanowymi. Podczas tworzenia usługi bezstanowej uzyskasz możliwość zdefiniowania `InstanceCount`. `InstanceCount`definiuje, ile uruchomionych kopii kodu usługi jest tworzonych podczas uruchamiania usługi. Załóżmy na przykład, że w klastrze znajdują się węzły 100. Załóżmy również, że usługa została utworzona z `InstanceCount` 10. W czasie wykonywania te 10 uruchomione kopie kodu mogły być zbyt zajęte (lub nie mogą być zbyt małe). Jednym ze sposobów skalowania obciążenia jest zmiana liczby wystąpień. Na przykład część kodu monitorowania lub zarządzania może zmienić istniejącą liczbę wystąpień na 50 lub 5, w zależności od tego, czy obciążenie wymaga skalowania w poziomie, czy w dół na podstawie obciążenia. 
+Jednym z najprostszych sposobów skalowania w ramach Service Fabric współpracuje z usługami bezstanowymi. Podczas tworzenia usługi bezstanowej uzyskasz możliwość zdefiniowania `InstanceCount` . `InstanceCount`definiuje, ile uruchomionych kopii kodu usługi jest tworzonych podczas uruchamiania usługi. Załóżmy na przykład, że w klastrze znajdują się węzły 100. Załóżmy również, że usługa została utworzona z `InstanceCount` 10. W czasie wykonywania te 10 uruchomione kopie kodu mogły być zbyt zajęte (lub nie mogą być zbyt małe). Jednym ze sposobów skalowania obciążenia jest zmiana liczby wystąpień. Na przykład część kodu monitorowania lub zarządzania może zmienić istniejącą liczbę wystąpień na 50 lub 5, w zależności od tego, czy obciążenie wymaga skalowania w poziomie, czy w dół na podstawie obciążenia. 
 
 C#:
 
@@ -63,7 +63,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## <a name="scaling-by-creating-or-removing-new-named-services"></a>Skalowanie przez tworzenie lub usuwanie nowych nazwanych usług
 Nazwane wystąpienie usługi jest określonym wystąpieniem typu usługi (zobacz [Service Fabric cyklu życia aplikacji](service-fabric-application-lifecycle.md)) w przypadku niektórych nazwanych wystąpień aplikacji w klastrze. 
 
-Nowe nazwane wystąpienia usługi można utworzyć (lub usunąć), ponieważ usługi stają się bardziej lub mniej zajęte. Pozwala to na rozproszenie żądań w większej liczbie wystąpień usługi, zwykle umożliwiając zmniejszenie obciążeń istniejących usług. Podczas tworzenia usług klaster Service Fabric Menedżer zasobów umieści usługi w klastrze w sposób rozproszony. Dokładne decyzje podlegają [metrykom](service-fabric-cluster-resource-manager-metrics.md) w klastrze i innymi regułami umieszczania. Usługi można tworzyć na kilka różnych sposobów, ale najczęściej są one za pomocą akcji administracyjnych, takich jak ktoś [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)wywołujący lub wywołujący [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet)kod. `CreateServiceAsync`może być nawet wywoływana z innych usług uruchomionych w klastrze.
+Nowe nazwane wystąpienia usługi można utworzyć (lub usunąć), ponieważ usługi stają się bardziej lub mniej zajęte. Pozwala to na rozproszenie żądań w większej liczbie wystąpień usługi, zwykle umożliwiając zmniejszenie obciążeń istniejących usług. Podczas tworzenia usług klaster Service Fabric Menedżer zasobów umieści usługi w klastrze w sposób rozproszony. Dokładne decyzje podlegają [metrykom](service-fabric-cluster-resource-manager-metrics.md) w klastrze i innymi regułami umieszczania. Usługi można tworzyć na kilka różnych sposobów, ale najczęściej są one za pomocą akcji administracyjnych, takich jak ktoś wywołujący [`New-ServiceFabricService`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) lub wywołujący kod [`CreateServiceAsync`](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.servicemanagementclient.createserviceasync?view=azure-dotnet) . `CreateServiceAsync`może być nawet wywoływana z innych usług uruchomionych w klastrze.
 
 Dynamiczne tworzenie usług może być używane we wszystkich różnych scenariuszach i jest typowym wzorcem. Rozważmy na przykład usługę stanową, która reprezentuje konkretny przepływ pracy. Wywołania reprezentujące prace będą wyświetlane w tej usłudze, a ta usługa będzie wykonywała kroki do tego przepływu pracy i rejestrowania postępu. 
 

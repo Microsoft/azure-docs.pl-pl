@@ -7,11 +7,11 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283942"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710375"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Wykonywanie operacji na danych w Azure Logic Apps
 
@@ -34,8 +34,8 @@ Te akcje pomagają w pracy z danymi w tablicach.
 | [**Utwórz tabelę CSV**](#create-csv-table-action) | Utwórz tabelę wartości rozdzielanych przecinkami (CSV) z tablicy. |
 | [**Utwórz tabelę HTML**](#create-html-table-action) | Utwórz tabelę HTML z tablicy. |
 | [**Filtruj tablicę**](#filter-array-action) | Utwórz podzestaw tablicy z tablicy na podstawie określonego filtru lub warunku. |
-| [**Złącza**](#join-action) | Utwórz ciąg ze wszystkich elementów w tablicy i oddziel każdy element z określonym znakiem. |
-| [**Wybierz**](#select-action) | Utwórz tablicę na podstawie określonych właściwości dla wszystkich elementów w innej tablicy. |
+| [**Join**](#join-action) | Utwórz ciąg ze wszystkich elementów w tablicy i oddziel każdy element z określonym znakiem. |
+| [**Wybierz pozycję**](#select-action) | Utwórz tablicę na podstawie określonych właściwości dla wszystkich elementów w innej tablicy. |
 ||| 
 
 **Akcje JSON**
@@ -44,7 +44,7 @@ Te akcje pomagają w pracy z danymi w formacie JavaScript Object Notation (JSON)
 
 | Akcja | Opis |
 |--------|-------------|
-| [**Compose**](#compose-action) | Utwórz wiadomość lub ciąg z wielu wejść, które mogą mieć różne typy danych. Następnie można użyć tego ciągu jako pojedynczej wartości wejściowej, zamiast wielokrotnie wprowadzać te same dane wejściowe. Na przykład można utworzyć pojedynczy komunikat JSON z różnych danych wejściowych. |
+| [**Redagowanie**](#compose-action) | Utwórz wiadomość lub ciąg z wielu wejść, które mogą mieć różne typy danych. Następnie można użyć tego ciągu jako pojedynczej wartości wejściowej, zamiast wielokrotnie wprowadzać te same dane wejściowe. Na przykład można utworzyć pojedynczy komunikat JSON z różnych danych wejściowych. |
 | [**Analiza JSON**](#parse-json-action) | Utwórz przyjazne dla użytkownika tokeny danych dla właściwości w zawartości JSON, aby łatwiej używać właściwości w aplikacjach logiki. |
 |||
 
@@ -90,7 +90,7 @@ Aby wypróbować przykład, wykonaj następujące kroki przy użyciu projektanta
 
      ![Wybierz pozycję "nowy krok" dla akcji "Zredaguj"](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
 
-   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak**+** plus (). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
+   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `compose` jako filtr. Z listy Akcje wybierz akcję **Zredaguj** .
 
@@ -148,7 +148,7 @@ Jeśli wolisz pracować w edytorze widoku kodu, możesz skopiować przykłady **
 
      ![Wybierz pozycję "nowy krok" dla akcji "Utwórz tabelę CSV"](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak**+** plus (). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
+   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `create csv table` jako filtr. Z listy Akcje wybierz akcję **Utwórz tabelę CSV** .
 
@@ -219,7 +219,7 @@ W akcji Zachowaj pustą kolumnę **nagłówka** . W każdym wierszu w kolumnie *
 
 #### <a name="work-in-code-view"></a>Pracuj w widoku kodu
 
-W definicji JSON akcji w `columns` tablicy Ustaw `header` właściwość na pusty ciąg. Dla każdej `value` właściwości należy odwoływać się do każdej właściwości tablicy, która ma zostać wybrana.
+W definicji JSON akcji w `columns` tablicy Ustaw `header` Właściwość na pusty ciąg. Dla każdej `value` właściwości należy odwoływać się do każdej właściwości tablicy, która ma zostać wybrana.
 
 1. Na pasku narzędzi projektanta wybierz **Widok kod**.
 
@@ -299,7 +299,7 @@ Jeśli wolisz pracować w edytorze widoku kodu, możesz skopiować przykładowe 
 
      ![Wybierz pozycję "nowy krok" dla akcji "Utwórz tabelę HTML"](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak**+** plus (). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
+   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `create html table` jako filtr. Z listy Akcje wybierz akcję **Utwórz tabelę HTML** .
 
@@ -370,7 +370,7 @@ W akcji Zachowaj pustą kolumnę **nagłówka** . W każdym wierszu w kolumnie *
 
 #### <a name="work-in-code-view"></a>Pracuj w widoku kodu
 
-W definicji JSON akcji w `columns` tablicy Ustaw `header` właściwość na pusty ciąg. Dla każdej `value` właściwości należy odwoływać się do każdej właściwości tablicy, która ma zostać wybrana.
+W definicji JSON akcji w `columns` tablicy Ustaw `header` Właściwość na pusty ciąg. Dla każdej `value` właściwości należy odwoływać się do każdej właściwości tablicy, która ma zostać wybrana.
 
 1. Na pasku narzędzi projektanta wybierz **Widok kod**.
 
@@ -464,7 +464,7 @@ Jeśli wolisz pracować w edytorze widoku kodu, możesz skopiować przykładową
 
      ![Wybierz pozycję "nowy krok" dla akcji "Filtruj tablicę"](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
-   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak**+** plus (). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
+   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W polu wyszukiwania wprowadź `filter array` jako filtr. Z listy Akcje wybierz akcję **Filtruj tablicę** .
 
@@ -478,7 +478,7 @@ Jeśli wolisz pracować w edytorze widoku kodu, możesz skopiować przykładową
 
 1. Dla warunku Określ elementy tablicy do porównania, wybierz operator porównania i określ wartość porównania.
 
-   W tym przykładzie funkcja `item()` jest wykorzystywana do uzyskiwania dostępu do każdego elementu w tablicy, podczas gdy akcja **Filtruj tablicę** wyszukuje elementy tablicy, których wartość jest większa niż jeden:
+   W tym przykładzie funkcja jest wykorzystywana `item()` do uzyskiwania dostępu do każdego elementu w tablicy, podczas gdy akcja **Filtruj tablicę** wyszukuje elementy tablicy, których wartość jest większa niż jeden:
 
    ![Zakończono przykład akcji "Filtruj tablicę"](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
@@ -526,7 +526,7 @@ Jeśli wolisz pracować w edytorze widoku kodu, możesz skopiować przykładowe 
 
      ![SSelect "nowy krok" dla akcji "join"](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
 
-   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak**+** plus (). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
+   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W polu wyszukiwania wprowadź `join` jako filtr. Z listy Akcje wybierz pozycję Ta akcja: **Dołącz**
 
@@ -586,7 +586,7 @@ Jeśli wolisz pracować w edytorze widoku kodu, możesz skopiować przykładowe 
 
      ![Wybierz pozycję "nowy krok" dla akcji "Analiza JSON"](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
-   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak**+** plus (). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
+   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W polu wyszukiwania wprowadź `parse json` jako filtr. Z listy Akcje wybierz akcję **Przeanalizuj dane JSON** .
 
@@ -661,7 +661,7 @@ Jeśli wolisz pracować w edytorze widoku kodu, możesz skopiować przykład **w
 
      ![Wybierz pozycję "nowy krok" dla akcji "Select"](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
-   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak**+** plus (). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
+   * Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę łączącą, aby pojawił się znak plus ( **+** ). Wybierz znak plus, a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W obszarze **Wybierz akcję**wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `select` jako filtr. Z listy Akcje wybierz akcję **Wybierz** .
 
@@ -675,7 +675,7 @@ Jeśli wolisz pracować w edytorze widoku kodu, możesz skopiować przykład **w
 
 1. W kolumnie po lewej stronie pola **mapy** Podaj nazwę właściwości, która ma zostać przypisana do każdej wartości w tablicy źródłowej. W kolumnie po prawej stronie Określ wyrażenie reprezentujące wartość, do której chcesz przypisać właściwość.
 
-   W tym przykładzie określono "Product_ID" jako nazwę właściwości, aby przypisać każdą wartość w tablicy liczb całkowitych przy `item()` użyciu funkcji w wyrażeniu, która uzyskuje dostęp do każdego elementu tablicy. 
+   W tym przykładzie określono "Product_ID" jako nazwę właściwości, aby przypisać każdą wartość w tablicy liczb całkowitych przy użyciu `item()` funkcji w wyrażeniu, która uzyskuje dostęp do każdego elementu tablicy. 
 
    ![Określ właściwość i wartości obiektu JSON, aby utworzyć tablicę](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 
@@ -697,7 +697,7 @@ Aby sprawdzić, czy Akcja **Wybierz** powoduje utworzenie oczekiwanych wyników,
 
    `@actionBody('Select')`
 
-   W tym przykładzie zostanie użyta akcja **Wyślij wiadomość e-mail** w programie Outlook 365, która zawiera `@actionBody('Select')` dane wyjściowe z wyrażenia w treści wiadomości e-mail:
+   W tym przykładzie zostanie użyta akcja **Wyślij wiadomość e-mail** w programie Outlook 365, która zawiera dane wyjściowe z `@actionBody('Select')` wyrażenia w treści wiadomości e-mail:
 
    ![Wyniki akcji z akcji "Select"](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 

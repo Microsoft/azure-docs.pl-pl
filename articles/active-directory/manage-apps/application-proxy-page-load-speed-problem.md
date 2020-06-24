@@ -3,25 +3,25 @@ title: Ładowanie aplikacji serwera proxy aplikacji trwa zbyt długo | Microsoft
 description: Rozwiązywanie problemów z wydajnością ładowania stron serwer proxy aplikacji usługi Azure AD platformy Azure
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ac1182d719d7c90129115e1fadf94f4f86a28e8
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: bff9873742d5d660f563eebcb58ff9bcca940d24
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "65782647"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760183"
 ---
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Ładowanie aplikacji serwera proxy aplikacji trwa zbyt długo
 
@@ -35,7 +35,7 @@ Oprócz topologii sieci nie są obecnie dostępne dalsze zalecenia dotyczące do
 Centra danych z usługą serwera proxy aplikacji można znaleźć za pomocą [Narzędzia Test portów łączników](https://aadap-portcheck.connectorporttest.msappproxy.net/). 
 
 ## <a name="feedback-on-application-proxy-data-center-locations"></a>Opinie dotyczące lokalizacji centrów danych serwera proxy aplikacji 
-Mogą istnieć centra danych platformy Azure, które jeszcze nie obejmują serwera proxy aplikacji, ale doprowadziłoby do poprawy opóźnienia. Wyślij lokalizację centrum danych do aadapfeedback@microsoft.comprogramu. Firma Microsoft korzysta z opinii na temat planów rozszerzania.
+Mogą istnieć centra danych platformy Azure, które jeszcze nie obejmują serwera proxy aplikacji, ale doprowadziłoby do poprawy opóźnienia. Wyślij lokalizację centrum danych do programu aadapfeedback@microsoft.com . Firma Microsoft korzysta z opinii na temat planów rozszerzania.
 
 Firma Microsoft pracuje nad dodatkowymi możliwościami w celu poprawy opóźnień. Po udostępnieniu tych ulepszeń dokumentacja zostanie zaktualizowana.
 

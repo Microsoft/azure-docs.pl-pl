@@ -5,18 +5,18 @@ description: Możesz eksportować i usuwać dane użytkownika w ramach produktu 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 05/25/2018
 ms.reviewer: jmartens, mldocs
-ms.openlocfilehash: 03341b9e663398f2c42266dead0d2dd01e97c3f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 429ba2ae44788430bfa9d308b8de5daff25954d0
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204549"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711174"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>Wyświetlanie i usuwanie danych użytkownika w ramach produktu z Azure AI Gallery
 
@@ -38,7 +38,7 @@ Możesz wyświetlić elementy opublikowane za pomocą interfejsu użytkownika Az
 
 ## <a name="use-the-ai-gallery-catalog-api-to-view-your-data"></a>Wyświetlanie danych za pomocą interfejsu API wykazu galerii AI
 
-Można programowo przeglądać dane zbierane za pomocą interfejsu API wykazu galerii AI, który jest dostępny pod https://catalog.cortanaanalytics.com/entitiesadresem. Aby wyświetlić dane, musisz mieć identyfikator autora. Aby wyświetlić nieznajdujące się na liście jednostki za pomocą interfejsu API wykazu, wymagany jest token dostępu.
+Można programowo przeglądać dane zbierane za pomocą interfejsu API wykazu galerii AI, który jest dostępny pod adresem https://catalog.cortanaanalytics.com/entities . Aby wyświetlić dane, musisz mieć identyfikator autora. Aby wyświetlić nieznajdujące się na liście jednostki za pomocą interfejsu API wykazu, wymagany jest token dostępu.
 
 Odpowiedzi wykazu są zwracane w formacie JSON.
 
@@ -47,7 +47,7 @@ Identyfikator autora jest oparty na adresie e-mail używanym podczas publikowani
 
 1.    Zaloguj się do [Azure AI Gallery](https://gallery.azure.ai/).
 2.    Kliknij obraz profilu w prawym górnym rogu, a następnie nazwę konta do załadowania strony profilu.
-3.    Adres URL na pasku adresu zawiera następujący `authorId=`identyfikator alfanumeryczny. Na przykład dla adresu URL:`https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+3.    Adres URL na pasku adresu zawiera następujący identyfikator alfanumeryczny `authorId=` . Na przykład dla adresu URL:`https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     Identyfikator autora:`99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
 
@@ -55,13 +55,13 @@ Identyfikator autora jest oparty na adresie e-mail używanym podczas publikowani
 
 Do wyświetlania jednostek nieznajdujących się na liście za pomocą interfejsu API wykazu jest wymagany token dostępu. Bez tokenu dostępu użytkownicy nadal mogą wyświetlać jednostki publiczne i inne informacje o użytkowniku.
 
-Aby uzyskać token dostępu, należy sprawdzić `DataLabAccessToken` nagłówek żądania HTTP, które przeglądarka UDOSTĘPNI w interfejsie API katalogu podczas logowania:
+Aby uzyskać token dostępu, należy sprawdzić `DataLabAccessToken` nagłówek żądania HTTP, które przeglądarka udostępni w interfejsie API katalogu podczas logowania:
 
 1.    Zaloguj się do [Azure AI Gallery](https://gallery.azure.ai/).
 2.    Kliknij obraz profilu w prawym górnym rogu, a następnie nazwę konta do załadowania strony profilu.
 3.    Otwórz okienko Narzędzia deweloperskie przeglądarki, naciskając klawisz F12, wybierz kartę Sieć i Odśwież stronę. 
 4. Przefiltruj żądania w *wykazie* ciągów, wpisując je w polu tekstowym filtr.
-5.    W obszarze żądania kierowane do `https://catalog.cortanaanalytics.com/entities`adresu URL Znajdź żądanie Get i wybierz kartę *nagłówki* . Przewiń w dół do sekcji *żądania nagłówków* .
+5.    W obszarze żądania kierowane do adresu URL `https://catalog.cortanaanalytics.com/entities` Znajdź żądanie Get i wybierz kartę *nagłówki* . Przewiń w dół do sekcji *żądania nagłówków* .
 6.    Pod nagłówkiem `DataLabAccessToken` jest alfanumeryczny token. Aby zapewnić bezpieczeństwo danych, nie udostępniaj tego tokenu.
 
 ### <a name="view-user-information"></a>Wyświetlanie informacji o użytkowniku
@@ -82,7 +82,7 @@ Zwraca odpowiedź, taką jak:
 
 Interfejs API wykazu przechowuje informacje o opublikowanych jednostkach do Azure AI Gallery, które można także wyświetlić bezpośrednio w [witrynie sieci Web galerii AI](https://gallery.azure.ai/). 
 
-Aby wyświetlić opublikowane jednostki, odwiedź następujący adres URL, zastępując `[AuthorId]` [Identyfikator autora uzyskany powyżej.](#get-an-author-id)
+Aby wyświetlić opublikowane jednostki, odwiedź następujący adres URL, zastępując `[AuthorId]` Identyfikator autora uzyskany powyżej. [Get an author ID](#get-an-author-id)
 
     https://catalog.cortanaanalytics.com/entities?$filter=author/id eq '[AuthorId]'
 
@@ -95,7 +95,7 @@ Przykład:
 To zapytanie wyświetla tylko jednostki publiczne. Aby wyświetlić wszystkie jednostki, w tym nieznajdujące się na liście, podaj token dostępu uzyskany w poprzedniej sekcji.
 
 1.    Za pomocą narzędzia takiego jak [Poster](https://www.getpostman.com)Utwórz żądanie HTTP GET w adresie URL wykazu, zgodnie z opisem w artykule [pobieranie tokenu dostępu](#get-your-access-token).
-2.    Tworzenie nagłówka żądania HTTP o nazwie `DataLabAccessToken`z wartością ustawioną na token dostępu.
+2.    Tworzenie nagłówka żądania HTTP o nazwie `DataLabAccessToken` z wartością ustawioną na token dostępu.
 3.    Prześlij żądanie HTTP.
 
 > [!TIP]

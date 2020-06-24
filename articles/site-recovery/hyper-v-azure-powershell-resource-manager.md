@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: sutalasi
 ms.openlocfilehash: 6499c986bef965848303ee9833fd59f5e3f0889c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257994"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710239"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurowanie odzyskiwania po awarii na platformie Azure dla maszyn wirtualnych funkcji Hyper-V przy użyciu programu PowerShell i Azure Resource Manager
 
@@ -44,7 +44,7 @@ Ponadto w konkretnym przykładzie opisanym w tym artykule są spełnione następ
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>Krok 1. Logowanie do konta platformy Azure
 
-1. Otwórz konsolę programu PowerShell i Uruchom to polecenie, aby zalogować się do konta platformy Azure. Polecenie cmdlet wyświetla stronę internetową z prośbą o poświadczenia konta: `Connect-AzAccount`.
+1. Otwórz konsolę programu PowerShell i Uruchom to polecenie, aby zalogować się do konta platformy Azure. Polecenie cmdlet wyświetla stronę internetową z prośbą o poświadczenia konta: `Connect-AzAccount` .
    - Alternatywnie możesz uwzględnić poświadczenia konta jako parametr w `Connect-AzAccount` poleceniu cmdlet, używając parametru **Credential** .
    - Jeśli jesteś partnerem programu CSP działającym w imieniu dzierżawy, określ klienta jako dzierżawcę przy użyciu nazwy domeny głównej tenantID lub dzierżawcy. Na przykład: `Connect-AzAccount -Tenant "fabrikam.com"`
 1. Skojarz subskrypcję, której chcesz używać z kontem, ponieważ konto może mieć kilka subskrypcji:
@@ -73,7 +73,7 @@ Ponadto w konkretnym przykładzie opisanym w tym artykule są spełnione następ
 
 ## <a name="step-2-set-up-the-vault"></a>Krok 2. Konfigurowanie magazynu
 
-1. Utwórz Azure Resource Manager grupę zasobów, w której chcesz utworzyć magazyn, lub Użyj istniejącej grupy zasobów. Utwórz nową grupę zasobów w następujący sposób. `$ResourceGroupName` Zmienna zawiera nazwę grupy zasobów, którą chcesz utworzyć, a zmienna $Geo zawiera region świadczenia usługi Azure, w którym ma zostać utworzona grupa zasobów (na przykład "Brazylia Południowa").
+1. Utwórz Azure Resource Manager grupę zasobów, w której chcesz utworzyć magazyn, lub Użyj istniejącej grupy zasobów. Utwórz nową grupę zasobów w następujący sposób. `$ResourceGroupName`Zmienna zawiera nazwę grupy zasobów, którą chcesz utworzyć, a zmienna $Geo zawiera region świadczenia usługi Azure, w którym ma zostać utworzona grupa zasobów (na przykład "Brazylia Południowa").
 
    ```azurepowershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $Geo
@@ -130,7 +130,7 @@ Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 
 Jeśli używasz serwera podstawowego funkcji Hyper-V, Pobierz plik Instalatora i wykonaj następujące kroki:
 
-1. Wyodrębnij pliki z _AzureSiteRecoveryProvider. exe_ do katalogu lokalnego, uruchamiając następujące polecenie:
+1. Wyodrębnij pliki z _AzureSiteRecoveryProvider.exe_ do katalogu lokalnego, uruchamiając następujące polecenie:
 
    ```console
    AzureSiteRecoveryProvider.exe /x:. /q
@@ -240,9 +240,9 @@ Przed rozpoczęciem należy określić konto magazynu w tym samym regionie świa
 > Jeśli chcesz przeprowadzić replikację do CMK dysków zarządzanych na platformie Azure, wykonaj następujące czynności za pomocą polecenia AZ PowerShell 3.3.0 i nowszego:
 >
 > 1. Włącz tryb failover na dyskach zarządzanych przez zaktualizowanie właściwości maszyny wirtualnej
-> 1. Użyj polecenia `Get-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet, aby pobrać identyfikator dysku dla każdego dysku chronionego elementu
+> 1. Użyj `Get-AzRecoveryServicesAsrReplicationProtectedItem` polecenia cmdlet, aby pobrać identyfikator dysku dla każdego dysku chronionego elementu
 > 1. Utwórz obiekt słownika przy użyciu `New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"` polecenia cmdlet, aby zawierać mapowanie identyfikatora dysku na zestaw szyfrowania dysków. Te zestawy szyfrowania dysków są wstępnie utworzone przez użytkownika w regionie docelowym.
-> 1. Zaktualizuj właściwości maszyny wirtualnej za `Set-AzRecoveryServicesAsrReplicationProtectedItem` pomocą polecenia cmdlet, przechodząc do obiektu dictionary w parametrze **DiskIdToDiskEncryptionSetMap** .
+> 1. Zaktualizuj właściwości maszyny wirtualnej za pomocą `Set-AzRecoveryServicesAsrReplicationProtectedItem` polecenia cmdlet, przechodząc do obiektu dictionary w parametrze **DiskIdToDiskEncryptionSetMap** .
 
 ## <a name="step-8-run-a-test-failover"></a>Krok 8. Uruchamianie testu pracy w trybie failover
 

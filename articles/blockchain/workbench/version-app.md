@@ -2,14 +2,14 @@
 title: Przechowywanie wersji aplikacji łańcucha bloków — Azure łańcucha bloków Workbench
 description: Jak korzystać z wersji aplikacji w usłudze Azure łańcucha bloków Workbench w wersji zapoznawczej.
 ms.date: 11/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: brendal
-ms.openlocfilehash: 45219790cf0cd064e0fcd456e262b2f93aa03ac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a70112fd0ab6e2f664ca48265c121936b01e58b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74323908"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209882"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Wersja aplikacji Azure łańcucha bloków Workbench Preview
 

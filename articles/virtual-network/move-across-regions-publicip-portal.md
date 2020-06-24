@@ -4,15 +4,15 @@ description: Użyj szablonu, aby przenieść konfigurację publicznego adresu IP
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: a4fd5da3c910b10c81caccde307df0fd36e2fa78
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 23fe515ddfdecb9ef168dd662e3fa2d91ece688f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235409"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711480"
 ---
 # <a name="move-azure-public-ip-configuration-to-another-region-using-the-azure-portal"></a>Przenoszenie konfiguracji publicznego adresu IP platformy Azure do innego regionu przy użyciu Azure Portal
 
@@ -45,7 +45,7 @@ Poniższe kroki pokazują, jak przygotować publiczny adres IP do przenoszenia k
 2. Znajdź grupę zasobów zawierającą źródłowy publiczny adres IP, a następnie kliknij ją.
 3. Wybierz pozycję > **Ustawienia**  >  **Eksportuj szablon**.
 4. Wybierz pozycję **Wdróż** w bloku **Eksportuj szablon** .
-5. Kliknij pozycję **szablon**  >  **Edytuj parametry** , aby otworzyć plik **Parameters. JSON** w edytorze online.
+5. Kliknij pozycję **szablon**  >  **Edytuj parametry** , aby otworzyć **parameters.jsw** pliku w edytorze online.
 8. Aby edytować parametr publicznej nazwy IP, Zmień właściwość w polu **parameters**  >  **wartość** parametrów ze źródłowej publicznej nazwy IP na nazwę docelowego publicznego adresu IP, upewnij się, że nazwa jest cudzysłowem:
 
     ```json
@@ -62,7 +62,7 @@ Poniższe kroki pokazują, jak przygotować publiczny adres IP do przenoszenia k
     ```
 8.  Kliknij przycisk **Zapisz** w edytorze.
 
-9.  Kliknij pozycję **szablon**  >  **Edytuj szablon** , aby otworzyć plik **Template. JSON** w edytorze online.
+9.  Kliknij pozycję **szablon**  >  **Edytuj szablon** , aby otworzyć **template.jsw** pliku w edytorze online.
 
 10. Aby edytować region docelowy, w którym zostanie przeniesiony publiczny adres IP, Zmień właściwość **lokalizacji** w obszarze **zasoby**:
 
@@ -94,7 +94,7 @@ Poniższe kroki pokazują, jak przygotować publiczny adres IP do przenoszenia k
 
 12. W przypadku wybrania opcji i opcjonalnych w zależności od wymagań można także zmienić inne parametry szablonu:
 
-    * **Jednostka SKU** — można zmienić jednostkę SKU publicznego adresu IP w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na standardowa, zmieniając właściwość Nazwa **jednostki SKU**  >  **name** w pliku **Template. JSON** :
+    * **Jednostka SKU** — można zmienić jednostkę SKU publicznego adresu IP w konfiguracji z warstwy Standardowa na podstawowa lub podstawowa na Standard, zmieniając właściwość Nazwa **jednostki SKU**  >  **name** w **template.jsw** pliku:
 
         ```json
           "resources": [

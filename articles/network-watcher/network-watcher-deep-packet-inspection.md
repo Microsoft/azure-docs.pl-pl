@@ -7,17 +7,17 @@ author: damendo
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 7d32043ca73e9cf810b3eab5e65cb4b42b599d18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a4debda712636e577639b84845dda6b9b4228a1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152928"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725059"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspekcja pakietów przy użyciu usługi Azure Network Watcher
 
@@ -77,7 +77,7 @@ W tym przykładzie przeglądamy poprzedni uruchomioną funkcję przechwytywania 
 
 ### <a name="step-1"></a>Krok 1
 
-Korzystanie z tego samego przechwycenia w poprzednim scenariuszu kliknij**hierarchię protokołu** **statystyk** > 
+Korzystanie z tego samego przechwycenia w poprzednim **Statistics**scenariuszu kliknij  >  **hierarchię protokołu** statystyk
 
 ![menu hierarchii protokołów][2]
 
@@ -93,7 +93,7 @@ Informacje o typach ruchu, punktach końcowych i portach przekazywanych przez pr
 
 ### <a name="step-1"></a>Krok 1
 
-Przy użyciu tego samego przechwycenia w poprzednim scenariuszu kliknij pozycję **statystyki** > **IPv4** > **miejsca docelowe i porty**
+Przy użyciu tego samego przechwycenia w poprzednim scenariuszu kliknij pozycję **statystyki**  >  **IPv4**  >  **miejsca docelowe i porty**
 
 ![okno przechwytywania pakietów][4]
 

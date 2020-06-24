@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: 96177686e78a0595ac4ad49b9969b22d862facd6
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77498374"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051738"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Jak ponownie skompilować indeks na platformie Azure Wyszukiwanie poznawcze
 
@@ -21,7 +21,17 @@ W tym artykule wyjaśniono, jak ponownie skompilować indeks usługi Azure Wyszu
 
 *Odbudowanie* odwołuje się do porzucania i ponownego tworzenia fizycznych struktur danych skojarzonych z indeksem, w tym wszystkich odwróconych indeksów opartych na polach. W usłudze Azure Wyszukiwanie poznawcze nie można porzucić i ponownie utworzyć poszczególnych pól. Aby ponownie skompilować indeks, należy usunąć wszystkie magazyny pól, utworzyć je ponownie na podstawie istniejącego lub zmienionego schematu indeksu, a następnie ponownie wypełnić dane wypchnięte do indeksu lub pobrać ze źródeł zewnętrznych. 
 
-Często można ponownie skompilować indeksy podczas opracowywania, ale może być również konieczne odbudowanie indeksu poziomu produkcyjnego w celu uwzględnienia zmian strukturalnych, takich jak dodawanie typów złożonych lub dodawanie pól do sugestii.
+Często można skompilować ponownie indeksy podczas tworzenia w trakcie wykonywania iteracji względem projektu indeksu, ale może być również konieczne odbudowanie indeksu poziomu produkcyjnego w celu uwzględnienia zmian strukturalnych, takich jak dodawanie typów złożonych lub dodawanie pól do sugestii.
+
+## <a name="rebuild-versus-refresh"></a>"Kompiluj ponownie" zamiast "Odśwież"
+
+Nie należy mylić odbudowy z odświeżaniem zawartości indeksu przy użyciu nowych, zmodyfikowanych lub usuniętych dokumentów. Odświeżenie korpus wyszukiwania jest niemal nadawane w każdej aplikacji wyszukiwania, z pewnymi scenariuszami wymagającymi aktualizacji do minuty (na przykład gdy korpus wyszukiwania musi odzwierciedlać zmiany spisu w aplikacji online Sales).
+
+Tak długo, jak struktura indeksu nie jest zmieniana, można odświeżyć indeks przy użyciu tych samych metod, które zostały wcześniej użyte do załadowania indeksu:
+
+* W przypadku indeksowania w trybie push należy wywołać [Dodawanie, aktualizowanie lub usuwanie dokumentów](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) , aby wypchnąć zmiany do indeksu.
+
+* W przypadku indeksatorów można [zaplanować wykonywanie indeksatora](search-howto-schedule-indexers.md) i użyć funkcji śledzenia zmian lub sygnatur czasowych, aby zidentyfikować różnicę. Jeśli aktualizacje muszą być odzwierciedlone szybciej niż to, w którym można zarządzać harmonogramem, możesz zamiast tego użyć indeksowania w trybie push.
 
 ## <a name="rebuild-conditions"></a>Warunki ponownego kompilowania
 
@@ -85,7 +95,7 @@ Aby sprawdzić zaktualizowaną zawartość, można użyć [Eksploratora wyszukiw
 
 Jeśli dodano lub zmieniono nazwę pola, użyj [$SELECT](search-query-odata-select.md) , aby zwrócić to pole:`search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Omówienie indeksatora](search-indexer-overview.md)
 + [Indeksowanie dużych zestawów danych na dużą skalę](search-howto-large-index.md)

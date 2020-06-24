@@ -2,14 +2,14 @@
 title: Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 description: Użyj rozwiązania Ethereum The-Authority Consortium do wdrożenia i skonfigurowania wieloskładnikowej sieci Ethereum konsorcjum na platformie Azure
 ms.date: 06/04/2020
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: 2be87dec252aa927c6b1acfc6cb1aa23bf7d2620
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 127aa860fe0c80f4d12a373c00ad2f53447c3497
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84434348"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85210120"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Wdróż szablon rozwiązania typu "Weryfikacja urzędu certyfikacji Ethereum" na platformie Azure
 
@@ -78,11 +78,11 @@ W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób** w 
 
 Wybierz pozycję **łańcucha bloków**  >  **Ethereum weryfikacji urzędu certyfikacji (wersja zapoznawcza)**.
 
-### <a name="basics"></a>Informacje podstawowe
+### <a name="basics"></a>Podstawy
 
 W obszarze **podstawowe**Określ wartości parametrów standardowych dla każdego wdrożenia.
 
-![Informacje podstawowe](./media/ethereum-poa-deployment/basic-blade.png)
+![Podstawy](./media/ethereum-poa-deployment/basic-blade.png)
 
 Parametr | Opis | Przykładowa wartość
 ----------|-------------|--------------
@@ -163,8 +163,8 @@ Parametr | Opis | Przykładowa wartość
 Monitorowanie | Opcja włączania monitorowania | Włącz
 Nawiązywanie połączenia z istniejącymi dziennikami Azure Monitor | Opcja tworzenia nowego wystąpienia dzienników Azure Monitor lub łączenia istniejącego wystąpienia | Tworzenie nowego elementu
 Lokalizacja | Region, w którym jest wdrożone nowe wystąpienie | Wschodnie stany USA
-Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor||NA
-Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor||NA
+Istniejący identyfikator obszaru roboczego usługi log Analytics (Połącz z istniejącymi dziennikami Azure Monitor = Dołącz istniejący)|Identyfikator obszaru roboczego istniejącego wystąpienia dzienników Azure Monitor||Nie dotyczy
+Istniejący klucz podstawowy usługi log Analytics (łączenie z istniejącymi dziennikami Azure Monitor = Połącz istniejące)|Klucz podstawowy używany do nawiązywania połączenia z istniejącym wystąpieniem dzienników Azure Monitor||Nie dotyczy
 
 Wybierz przycisk **OK**.
 
@@ -558,7 +558,7 @@ W poniższym przykładzie utworzysz prosty kontrakt inteligentny. Użyj Truffle,
 #### <a name="prerequisites"></a>Wymagania wstępne
 
 * Zainstaluj środowisko [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Środowisko Python jest niezbędne dla Truffle i Web3. Wybierz opcję Zainstaluj, aby dołączyć Język Python do ścieżki.
-* Zainstaluj Truffle v 5.0.5 `npm install -g truffle@v5.0.5` . Truffle wymaga zainstalowania kilku narzędzi, w tym [Node. js](https://nodejs.org), [git](https://git-scm.com/). Aby uzyskać więcej informacji, zobacz [dokumentację Truffle](https://github.com/trufflesuite/truffle).
+* Zainstaluj Truffle v 5.0.5 `npm install -g truffle@v5.0.5` . Truffle wymaga zainstalowania kilku narzędzi, w tym [Node.js](https://nodejs.org), [git](https://git-scm.com/). Aby uzyskać więcej informacji, zobacz [dokumentację Truffle](https://github.com/trufflesuite/truffle).
 
 ### <a name="create-truffle-project"></a>Utwórz projekt Truffle
 
@@ -648,7 +648,7 @@ Truffle używa skryptów migracji do wdrożenia inteligentnych kontraktów w sie
 Po wdrożeniu kontraktu inteligentnego można wysłać transakcję, aby wywołać funkcję.
 
 1. W katalogu projektu Truffle Utwórz nowy plik o nazwie `sendtransaction.js` .
-1. Dodaj następującą zawartość do **sendtransaction. js**.
+1. Dodaj następującą zawartość do **sendtransaction.js**.
 
     ``` javascript
     var postBox = artifacts.require("postBox");

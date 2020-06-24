@@ -4,15 +4,15 @@ description: Dowiedz się, jak ustawiać zmienne środowiskowe w kontenerach uru
 ms.topic: article
 ms.date: 04/17/2019
 ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247230"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84686736"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Ustawianie zmiennych środowiskowych w wystąpieniach kontenerów
 
-Ustawienie zmiennych środowiskowych w wystąpieniach kontenerów umożliwia udostępnienie dynamicznej konfiguracji aplikacji lub skryptu uruchamianego przez kontener. Jest to podobne do argumentu `--env` wiersza polecenia do `docker run`. 
+Ustawienie zmiennych środowiskowych w wystąpieniach kontenerów umożliwia udostępnienie dynamicznej konfiguracji aplikacji lub skryptu uruchamianego przez kontener. Jest to podobne do `--env` argumentu wiersza polecenia do `docker run` . 
 
 Aby ustawić zmienne środowiskowe w kontenerze, należy je określić podczas tworzenia wystąpienia kontenera. W tym artykule przedstawiono przykłady ustawiania zmiennych środowiskowych podczas uruchamiania kontenera za pomocą [interfejsu wiersza polecenia platformy Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)i [Azure Portal](#azure-portal-example). 
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Aby zmodyfikować dane wyjściowe, należy uruchomić drugi kontener z dodanym `--environment-variables` argumentem, określając wartości zmiennych *NumWords* i *minLength* . (W tym przykładzie przyjęto założenie, że interfejs wiersza polecenia jest uruchamiany w bash Shell lub Azure Cloud Shell. W przypadku korzystania z wiersza polecenia systemu Windows należy określić zmienne z podwójnymi cudzysłowami, takimi jak `--environment-variables "NumWords"="5" "MinLength"="8"`.).
+Aby zmodyfikować dane wyjściowe, należy uruchomić drugi kontener z `--environment-variables` dodanym argumentem, określając wartości zmiennych *NumWords* i *minLength* . (W tym przykładzie przyjęto założenie, że interfejs wiersza polecenia jest uruchamiany w bash Shell lub Azure Cloud Shell. W przypadku korzystania z wiersza polecenia systemu Windows należy określić zmienne z podwójnymi cudzysłowami, takimi jak `--environment-variables "NumWords"="5" "MinLength"="8"` .).
 
 ```azurecli-interactive
 az container create \
@@ -83,7 +83,7 @@ Dane wyjściowe kontenerów pokazują, jak zmodyfikowano zachowanie skryptu drug
 
 ## <a name="azure-powershell-example"></a>Przykład Azure PowerShell
 
-Ustawianie zmiennych środowiskowych w programie PowerShell jest podobne do interfejsu wiersza polecenia, `-EnvironmentVariable` ale przy użyciu argumentu wiersz poleceń.
+Ustawianie zmiennych środowiskowych w programie PowerShell jest podobne do interfejsu wiersza polecenia, ale przy użyciu `-EnvironmentVariable` argumentu wiersz poleceń.
 
 Najpierw uruchom kontener [ACI-WORDCOUNT][aci-wordcount] w konfiguracji domyślnej przy użyciu tego nowego polecenia [-AzContainerGroup][new-Azcontainergroup] :
 
@@ -94,7 +94,7 @@ New-AzContainerGroup `
     -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
-Teraz uruchom następujące polecenie [New-AzContainerGroup][new-Azcontainergroup] . Ten element określa zmienne środowiskowe *NumWords* i *minLength* po wypełnieniu zmiennej tablicowej `envVars`:
+Teraz uruchom następujące polecenie [New-AzContainerGroup][new-Azcontainergroup] . Ten element określa zmienne środowiskowe *NumWords* i *minLength* po wypełnieniu zmiennej tablicowej `envVars` :
 
 ```azurepowershell-interactive
 $envVars = @{'NumWords'='5';'MinLength'='8'}
@@ -144,7 +144,7 @@ Azure:\
 Aby ustawić zmienne środowiskowe podczas uruchamiania kontenera w Azure Portal, należy je określić na stronie **Zaawansowane** podczas tworzenia kontenera.
 
 1. Na stronie **Zaawansowane** Ustaw **zasady ponownego uruchamiania** na *Niepowodzenie*
-2. W obszarze **zmienne środowiskowe**wprowadź `NumWords` wartość `5` dla pierwszej zmiennej, a następnie wprowadź `MinLength` wartość `8` dla drugiej zmiennej. 
+2. W obszarze **zmienne środowiskowe**wprowadź `NumWords` wartość `5` dla pierwszej zmiennej, a `MinLength` następnie wprowadź wartość `8` dla drugiej zmiennej. 
 1. Wybierz pozycję **Przegląd + Utwórz** , aby sprawdzić, a następnie wdrożyć kontener.
 
 ![Strona portalu przedstawiająca przycisk włączania zmiennych środowiskowych i pól tekstowych][portal-env-vars-01]
@@ -229,7 +229,7 @@ Za pomocą polecenia [AZ Container exec][az-container-exec] , które umożliwia 
 az container exec --resource-group myResourceGroup --name securetest --exec-command "/bin/bash"
 ```
 
-Po otwarciu interaktywnej powłoki w kontenerze możesz uzyskać dostęp do wartości `SECRET` zmiennej:
+Po otwarciu interaktywnej powłoki w kontenerze możesz uzyskać dostęp do `SECRET` wartości zmiennej:
 
 ```console
 root@caas-ef3ee231482549629ac8a40c0d3807fd-3881559887-5374l:/# echo $SECRET

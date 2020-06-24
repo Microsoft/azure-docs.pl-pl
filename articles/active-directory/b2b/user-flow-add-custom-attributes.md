@@ -1,37 +1,39 @@
 ---
-title: Dodawanie atrybutów niestandardowych dla przepływów użytkowników usługi Azure AD
+title: Dodawanie niestandardowych atrybutów do samoobsługowego przepływu rejestracji — Azure AD
 description: Dowiedz się więcej o dostosowywaniu atrybutów dla przepływów użytkownika samoobsługowego rejestrowania.
 services: active-directory
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/16/2020
 ms.author: mimart
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b0acd84112e9fd997cb0d60a914da9528cffd9a
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: fbf5b758059dc44f17afba191e49fc170e38feef
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673041"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886414"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definiowanie atrybutów niestandardowych dla przepływów użytkowników (wersja zapoznawcza)
-|     |
-| --- |
-| Funkcja niestandardowych atrybutów użytkownika jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.|
-|     |
+
+|      |
+| ---- |
+| Funkcja niestandardowych atrybutów użytkownika jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure. |
+|      |
 
 Dla każdej aplikacji mogą istnieć różne wymagania dotyczące informacji, które mają być zbierane podczas tworzenia konta. Usługa Azure AD zawiera wbudowany zestaw informacji przechowywanych w atrybutach, takich jak imię, nazwisko, miejscowość i kod pocztowy. Za pomocą usługi Azure AD można rozciągnąć zestaw atrybutów przechowywanych na koncie gościa, gdy użytkownik zewnętrzny zarejestruje się za pomocą przepływu użytkownika.
 
-Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_<aad-extensions-app-id>_attributename` . Na przykład:
+Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_<extensions-app-id>_attributename` . Przykład:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
-`<aad-extensions-app-id>`Jest on specyficzny dla Twojej dzierżawy. Aby znaleźć ten identyfikator, przejdź do Azure Active Directory > Rejestracje aplikacji > wszystkie aplikacje. Wyszukaj aplikację rozpoczynającą się od "AAD-Extensions-App" i wybierz ją. Na stronie Przegląd aplikacji Zanotuj identyfikator aplikacji (klienta).
+`<extensions-app-id>`Jest on specyficzny dla Twojej dzierżawy. Aby znaleźć ten identyfikator, przejdź do Azure Active Directory > Rejestracje aplikacji > wszystkie aplikacje. Wyszukaj aplikację rozpoczynającą się od "AAD-Extensions-App" i wybierz ją. Na stronie Przegląd aplikacji Zanotuj identyfikator aplikacji (klienta).
 
 ## <a name="create-a-custom-attribute"></a>Tworzenie atrybutu niestandardowego
 

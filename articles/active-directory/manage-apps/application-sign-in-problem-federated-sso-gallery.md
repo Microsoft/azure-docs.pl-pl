@@ -3,27 +3,27 @@ title: Problemy z logowaniem do federacyjnej aplikacji galerii logowania jednokr
 description: Wskazówki dotyczące określonych błędów podczas logowania do aplikacji skonfigurowanej do federacyjnego logowania jednokrotnego opartego na protokole SAML za pomocą usługi Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/18/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 874d273e26a728afc0a1dc1a16852016797067ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c2dc73038151297952dc208031b4a3b6dbcf146
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77367904"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84759321"
 ---
-# <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemy z logowaniem do aplikacji galerii skonfigurowanej do federacyjnego logowania jednokrotnego
+# <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemy z logowaniem do aplikacji galerii skonfigurowanej do obsługi federacyjnego logowania jednokrotnego
 
 Aby rozwiązać problemy związane z logowaniem poniżej, zalecamy wykonanie poniższych sugestii w celu uzyskania lepszej diagnostyki i zautomatyzowania kroków rozwiązania:
 
@@ -33,15 +33,15 @@ Aby rozwiązać problemy związane z logowaniem poniżej, zalecamy wykonanie pon
 
 ## <a name="application-not-found-in-directory"></a>Nie znaleziono aplikacji w katalogu
 
-*Błąd AADSTS70001: w katalogu nie znaleziono aplikacji o\/identyfikatorze "https:/contoso.com"*.
+*Błąd AADSTS70001: \/ w katalogu nie znaleziono aplikacji o identyfikatorze "https:/contoso.com"*.
 
 **Możliwa przyczyna**
 
-`Issuer` Atrybut wysłany z aplikacji do usługi Azure AD w żądaniu SAML nie jest zgodny z wartością identyfikatora, która jest skonfigurowana dla aplikacji w usłudze Azure AD.
+`Issuer`Atrybut wysłany z aplikacji do usługi Azure AD w ŻĄDANIU SAML nie jest zgodny z wartością identyfikatora, która jest skonfigurowana dla aplikacji w usłudze Azure AD.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
-Upewnij się, `Issuer` że atrybut w żądaniu SAML jest zgodny z wartością identyfikatora skonfigurowaną w usłudze Azure AD. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal przy użyciu rozszerzenia moje aplikacje bezpieczne przeglądarki, nie musisz wykonywać tych czynności ręcznie.
+Upewnij się, że `Issuer` atrybut w ŻĄDANIU SAML jest zgodny z wartością identyfikatora skonfigurowaną w usłudze Azure AD. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal przy użyciu rozszerzenia moje aplikacje bezpieczne przeglądarki, nie musisz wykonywać tych czynności ręcznie.
 
 1.  Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator**.
 
@@ -63,15 +63,15 @@ Upewnij się, `Issuer` że atrybut w żądaniu SAML jest zgodny z wartością id
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>Adres odpowiedzi nie jest zgodny z adresami odpowiedzi skonfigurowanymi dla aplikacji
 
-*Błąd AADSTS50011: adres odpowiedzi "https:\//contoso.com" nie jest zgodny z adresami odpowiedzi skonfigurowanymi dla aplikacji*
+*Błąd AADSTS50011: adres odpowiedzi "https: \/ /contoso.com" nie jest zgodny z adresami odpowiedzi skonfigurowanymi dla aplikacji*
 
 **Możliwa przyczyna**
 
-`AssertionConsumerServiceURL` Wartość w żądaniu SAML nie jest zgodna z wartością adresu URL odpowiedzi lub wzorcem skonfigurowanym w usłudze Azure AD. `AssertionConsumerServiceURL` Wartość w żądaniu SAML jest adresem URL widocznym w błędzie.
+`AssertionConsumerServiceURL`Wartość w ŻĄDANIU SAML nie jest zgodna z wartością adresu URL odpowiedzi lub wzorcem skonfigurowanym w usłudze Azure AD. `AssertionConsumerServiceURL`Wartość w ŻĄDANIU SAML jest adresem URL widocznym w błędzie.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
-Upewnij się, `AssertionConsumerServiceURL` że wartość w żądaniu SAML jest zgodna z wartością adresu URL odpowiedzi skonfigurowaną w usłudze Azure AD. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal przy użyciu rozszerzenia moje aplikacje bezpieczne przeglądarki, nie musisz wykonywać tych czynności ręcznie.
+Upewnij się, że `AssertionConsumerServiceURL` wartość w ŻĄDANIU SAML jest zgodna z wartością adresu URL odpowiedzi skonfigurowaną w usłudze Azure AD. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal przy użyciu rozszerzenia moje aplikacje bezpieczne przeglądarki, nie musisz wykonywać tych czynności ręcznie.
 
 1.  Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator**.
 
@@ -87,19 +87,19 @@ Upewnij się, `AssertionConsumerServiceURL` że wartość w żądaniu SAML jest 
 
 1.  Wybierz aplikację, którą chcesz skonfigurować do logowania jednokrotnego.
 
-1.  Po załadowaniu aplikacji otwórz **podstawową konfigurację protokołu SAML**. Sprawdź lub zaktualizuj wartość w polu tekstowym adres URL odpowiedzi, aby dopasować `AssertionConsumerServiceURL` wartość w żądaniu SAML.    
+1.  Po załadowaniu aplikacji otwórz **podstawową konfigurację protokołu SAML**. Sprawdź lub zaktualizuj wartość w polu tekstowym adres URL odpowiedzi, aby dopasować `AssertionConsumerServiceURL` wartość w ŻĄDANIU SAML.    
     
 Po zaktualizowaniu wartości adresu URL odpowiedzi w usłudze Azure AD, która jest zgodna z wartością wysyłaną przez aplikację w żądaniu SAML, powinno być możliwe zalogowanie się do aplikacji.
 
 ## <a name="user-not-assigned-a-role"></a>Użytkownik nie ma przypisanej roli
 
-*Błąd AADSTS50105: zalogowany użytkownik "brian\@contoso.com" nie jest przypisany do roli dla aplikacji*.
+*Błąd AADSTS50105: zalogowany użytkownik "brian \@ contoso.com" nie jest przypisany do roli dla aplikacji*.
 
 **Możliwa przyczyna**
 
 Użytkownikowi nie udzielono dostępu do aplikacji w usłudze Azure AD.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Aby bezpośrednio przypisać co najmniej jednego użytkownika do aplikacji, wykonaj poniższe czynności. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal przy użyciu rozszerzenia moje aplikacje bezpieczne przeglądarki, nie musisz wykonywać tych czynności ręcznie.
 
@@ -148,7 +148,7 @@ Usługa Azure AD nie obsługuje żądania SAML wysłanego przez aplikację na po
 -   Brak wymaganych pól w żądaniu SAML
 -   Zakodowana metoda żądania SAML
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 1. Przechwyć żądanie SAML. Postępuj zgodnie z samouczkiem jak debugować Logowanie jednokrotne oparte na protokole [SAML do aplikacji w usłudze Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md) , aby dowiedzieć się, jak przechwycić żądanie SAML.
 
@@ -166,11 +166,11 @@ Dostawca aplikacji powinien sprawdzić, czy obsługują one implementację proto
 
 **Możliwa przyczyna**
 
-`Issuer` Atrybut wysłany z aplikacji do usługi Azure AD w żądaniu SAML nie jest zgodny z wartością identyfikatora skonfigurowaną dla aplikacji w usłudze Azure AD.
+`Issuer`Atrybut wysłany z aplikacji do usługi Azure AD w ŻĄDANIU SAML nie jest zgodny z wartością identyfikatora skonfigurowaną dla aplikacji w usłudze Azure AD.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
-Upewnij się, `Issuer` że atrybut w żądaniu SAML jest zgodny z wartością identyfikatora skonfigurowaną w usłudze Azure AD. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal z rozszerzeniem my Apps Secure Browser, nie musisz wykonać następujących czynności ręcznie:
+Upewnij się, że `Issuer` atrybut w ŻĄDANIU SAML jest zgodny z wartością identyfikatora skonfigurowaną w usłudze Azure AD. Jeśli używasz [środowiska testowego](../azuread-dev/howto-v1-debug-saml-sso-issues.md) w Azure Portal z rozszerzeniem my Apps Secure Browser, nie musisz wykonać następujących czynności ręcznie:
 
 1.  Otwórz [**Azure Portal**](https://portal.azure.com/) i zaloguj się jako **administrator globalny** lub **współadministrator**.
 
@@ -197,7 +197,7 @@ Upewnij się, `Issuer` że atrybut w żądaniu SAML jest zgodny z wartością id
 
 Obiekt aplikacji jest uszkodzony, a usługa Azure AD nie rozpoznaje certyfikatu skonfigurowanego dla aplikacji.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Aby usunąć i utworzyć nowy certyfikat, wykonaj następujące czynności:
 
@@ -233,7 +233,7 @@ Aby usunąć i utworzyć nowy certyfikat, wykonaj następujące czynności:
 
 Usługa Azure AD nie mogła zidentyfikować żądania SAML w parametrach adresu URL w żądaniu HTTP. Może się tak zdarzyć, jeśli aplikacja nie korzysta z powiązania przekierowania HTTP podczas wysyłania żądania SAML do usługi Azure AD.
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Aplikacja musi wysłać żądanie SAML zakodowane w nagłówku lokalizacji przy użyciu powiązania przekierowywania HTTP. Aby dowiedzieć się więcej o sposobie implementacji tego rozwiązania, zapoznaj się z sekcją powiązania przekierowania HTTP w [dokumencie specyfikacji protokołu SAML](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
 
@@ -241,11 +241,11 @@ Aplikacja musi wysłać żądanie SAML zakodowane w nagłówku lokalizacji przy 
 
 **Możliwa przyczyna**
 
-W trakcie logowania jednokrotnego, jeśli żądanie logowania nie zawiera jawnego adresu URL odpowiedzi (adresu URL usługi Konsumenckej potwierdzenia), usługa Azure AD wybierze dowolny ze skonfigurowanych adresów URL dla tej aplikacji. Nawet jeśli dla aplikacji jest skonfigurowany jawny adres URL odpowiedzi, użytkownik może mieć możliwość przekierowania https://127.0.0.1:444. 
+W trakcie logowania jednokrotnego, jeśli żądanie logowania nie zawiera jawnego adresu URL odpowiedzi (adresu URL usługi Konsumenckej potwierdzenia), usługa Azure AD wybierze dowolny ze skonfigurowanych adresów URL dla tej aplikacji. Nawet jeśli dla aplikacji jest skonfigurowany jawny adres URL odpowiedzi, użytkownik może mieć możliwość przekierowania https://127.0.0.1:444 . 
 
 Podczas dodawania tej aplikacji jako aplikacji spoza galerii usługa Azure Active Directory utworzyła ten adres URL odpowiedzi jako wartość domyślną. To działanie zostało zmienione i usługa Azure Active Directory nie dodaje już domyślnie tego adresu URL. 
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Usuń nieużywane adresy URL odpowiedzi skonfigurowane dla aplikacji.
 

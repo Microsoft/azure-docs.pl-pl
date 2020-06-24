@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: 7314559849f0b2019820ec3cb4fb10c684d330d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd288cfb78bb97bd5c05c1cc59af3c082ab549a2
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458441"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687008"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Skonfiguruj klucze zarządzane przez klienta, aby szyfrować dane przechowywane w środowiskach usługi Integration Environment (ISEs) w Azure Logic Apps
 
@@ -27,7 +27,7 @@ W tym temacie przedstawiono sposób konfigurowania i określania własnego klucz
 
 * Klucz zarządzany przez klienta można określić tylko w *przypadku tworzenia ISE*, a nie później. Nie można wyłączyć tego klucza po utworzeniu ISE. Obecnie nie istnieje żadna pomoc dla rotacji klucza zarządzanego przez klienta dla ISE.
 
-* Aby obsługiwały klucze zarządzane przez klienta, ISE wymaga, aby była włączona [tożsamość zarządzana przez system](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) . Ta tożsamość pozwala ISE uwierzytelniać dostęp do zasobów w innych dzierżawach usługi Azure Active Directory (Azure AD), dzięki czemu nie musisz logować się przy użyciu swoich poświadczeń.
+* Aby obsługiwały klucze zarządzane przez klienta, ISE wymaga, aby była włączona [tożsamość zarządzana przez system](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) . Ta tożsamość pozwala ISE uwierzytelniać dostęp do zasobów w innych dzierżawach usługi Azure Active Directory (Azure AD), dzięki czemu nie musisz logować się przy użyciu swoich poświadczeń.
 
 * Obecnie aby utworzyć element ISE, który obsługuje klucze zarządzane przez klienta i ma włączoną swoją tożsamość przypisaną do systemu, należy wywołać interfejs API REST Logic Apps przy użyciu żądania HTTPS PUT.
 
@@ -47,7 +47,7 @@ W tym temacie przedstawiono sposób konfigurowania i określania własnego klucz
   |----------|-------|
   | **Typ klucza** | RSA |
   | **Rozmiar klucza RSA** | 2048 |
-  | **Dostępny** | Tak |
+  | **Włączone** | Tak |
   |||
 
   ![Tworzenie klucza szyfrowania zarządzanego przez klienta](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -80,7 +80,7 @@ Wdrożenie zazwyczaj trwa w ciągu dwóch godzin. Czasami wdrożenie może trwa�
 
 W nagłówku żądania uwzględnij następujące właściwości:
 
-* `Content-type`: Ustaw tę wartość właściwości na `application/json`.
+* `Content-type`: Ustaw tę wartość właściwości na `application/json` .
 
 * `Authorization`: Ustaw tę wartość właściwości na token okaziciela dla klienta, który ma dostęp do subskrypcji platformy Azure lub grupy zasobów, której chcesz użyć.
 
@@ -203,7 +203,7 @@ W przypadku tego zadania można użyć polecenia Azure PowerShell [Set-AzKeyVaul
 
 1. W [Azure Portal](https://portal.azure.com)Otwórz swój magazyn kluczy platformy Azure.
 
-1. W menu Magazyn kluczy wybierz pozycję **zasady** > dostępu**Dodaj zasady dostępu**, na przykład:
+1. W menu Magazyn kluczy wybierz pozycję **zasady dostępu**  >  **Dodaj zasady dostępu**, na przykład:
 
    ![Dodawanie zasad dostępu dla tożsamości zarządzanej przypisanej przez system](./media/customer-managed-keys-integration-service-environment/add-ise-access-policy-key-vault.png)
 
@@ -219,7 +219,7 @@ W przypadku tego zadania można użyć polecenia Azure PowerShell [Set-AzKeyVaul
 
       ![Wybierz pozycję "Zarządzanie kluczami" > "uprawnienia klucza"](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
 
-   1. W obszarze **wybór podmiotu zabezpieczeń**wybierz pozycję **nie wybrano**. Po otwarciu okienka **podmiotu zabezpieczeń** w polu wyszukiwania Znajdź i wybierz swój ISE. Gdy skończysz, wybierz **pozycję Wybierz** > **Dodaj**.
+   1. W obszarze **wybór podmiotu zabezpieczeń**wybierz pozycję **nie wybrano**. Po otwarciu okienka **podmiotu zabezpieczeń** w polu wyszukiwania Znajdź i wybierz swój ISE. Gdy skończysz, wybierz **pozycję Wybierz**  >  **Dodaj**.
 
       ![Wybierz ISE do użycia jako podmiot zabezpieczeń](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
 

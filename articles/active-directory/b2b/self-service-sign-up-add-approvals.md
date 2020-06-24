@@ -1,22 +1,22 @@
 ---
-title: Łączniki interfejsu API dla niestandardowych przepływów pracy zatwierdzania w ramach samoobsługowego rejestrowania tożsamości zewnętrznych — Azure AD
+title: Dodawanie niestandardowych zatwierdzeń do samoobsługowego przepływu rejestracji — Azure AD
 description: Dodaj łączniki interfejsu API dla niestandardowych przepływów pracy zatwierdzania w ramach samoobsługowego rejestrowania tożsamości, Azure Active Directory (Azure AD)
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e172f2041e7339a69648bfb84c0955eec15a0bc6
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 45a08ff8d1f796cec2d4562ae64392253a539416
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680063"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886494"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Dodawanie niestandardowego przepływu pracy zatwierdzenia do rejestracji samoobsługowej
 
@@ -34,7 +34,7 @@ Musisz zarejestrować system zatwierdzania jako aplikację w dzierżawie usługi
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD.
 2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
-4. Wprowadź **nazwę** aplikacji, na przykład *zatwierdzenia rejestracji*.
+4. Wprowadź **nazwę** aplikacji, na przykład _zatwierdzenia rejestracji_.
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
@@ -46,11 +46,11 @@ Musisz zarejestrować system zatwierdzania jako aplikację w dzierżawie usługi
 7. Na stronie **uprawnienia interfejsu API żądania** wybierz pozycję **Microsoft Graph**, a następnie wybierz pozycję **uprawnienia aplikacji**.
 8. W obszarze **Wybierz uprawnienia**rozwiń pozycję **użytkownik**, a następnie zaznacz pole wyboru **User. ReadWrite. All** . To uprawnienie umożliwia systemowi zatwierdzania Tworzenie użytkownika po zatwierdzeniu. Następnie wybierz pozycję **Dodaj uprawnienia**.
 
-    ![Rejestrowanie strony aplikacji](media/self-service-sign-up-add-approvals/request-api-permissions.png)
+   ![Rejestrowanie strony aplikacji](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
 9. Na stronie **uprawnienia interfejsu API** wybierz opcję **Przyznaj zgodę administratora na nazwę dzierżawy**, a następnie wybierz pozycję **tak**.
 10. W obszarze **Zarządzaj** w menu po lewej stronie wybierz pozycję **Certyfikaty & wpisy tajne**, a następnie wybierz pozycję **nowy klucz tajny klienta**.
-11. Wprowadź **Opis** wpisu tajnego, na przykład *zatwierdzenie klucza tajnego klienta*i wybierz czas **wygaśnięcia**klucza tajnego klienta. Następnie wybierz pozycję **Dodaj**.
+11. Wprowadź **Opis** wpisu tajnego, na przykład _zatwierdzenie klucza tajnego klienta_i wybierz czas **wygaśnięcia**klucza tajnego klienta. Następnie wybierz pozycję **Dodaj**.
 12. Skopiuj wartość klucza tajnego klienta.
 
     ![Skopiuj klucz tajny klienta do użycia w systemie zatwierdzania](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -63,11 +63,11 @@ Następnie utworzysz [Łączniki interfejsu API](self-service-sign-up-add-api-co
 
 - **Sprawdź stan zatwierdzenia**. Wyślij wywołanie do systemu zatwierdzania natychmiast po zalogowaniu się użytkownika przy użyciu dostawcy tożsamości w celu sprawdzenia, czy użytkownik ma istniejące żądanie zatwierdzenia lub zostało już odrzucone. Jeśli system zatwierdzania tylko podejmuje decyzje dotyczące automatycznego zatwierdzania, ten łącznik interfejsu API może nie być wymagany. Poniżej znajduje się przykład łącznika interfejsu API "Sprawdzanie stanu zatwierdzenia".
 
-   ![Sprawdź konfigurację łącznika interfejsu API stanu zatwierdzenia](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
+  ![Sprawdź konfigurację łącznika interfejsu API stanu zatwierdzenia](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
 - **Żądaj zatwierdzenia** — Wyślij wywołanie do systemu zatwierdzania po zakończeniu przez użytkownika strony kolekcji atrybutów, ale przed utworzeniem konta użytkownika, aby zażądać zatwierdzenia. Żądanie zatwierdzenia można automatycznie udzielić lub ręcznie przejrzeć. Poniżej przedstawiono przykład łącznika interfejsu API "Żądaj zatwierdzenia". Wybierz wszelkie **oświadczenia, które mają zostać wysłane** przez system zatwierdzania, aby podjąć decyzję o zatwierdzeniu.
 
-   ![Zażądaj konfiguracji łącznika interfejsu API zatwierdzania](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
+  ![Zażądaj konfiguracji łącznika interfejsu API zatwierdzania](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
 Aby utworzyć te łączniki, wykonaj kroki opisane w temacie [Tworzenie łącznika interfejsu API](self-service-sign-up-add-api-connector.md#create-an-api-connector).
 
@@ -80,8 +80,9 @@ Teraz można dodać łączniki interfejsu API do samoobsługowego przepływu uż
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
 4. Wybierz pozycję **przepływy użytkownika (wersja zapoznawcza)**, a następnie wybierz przepływ użytkownika, dla którego chcesz włączyć łącznik interfejsu API.
 5. Wybierz pozycję **Łączniki interfejsu API**, a następnie wybierz punkty końcowe interfejsu API, które mają być wywoływane, w następujących krokach przepływu użytkownika:
-   - **Po zalogowaniu się przy użyciu dostawcy tożsamości**: wybierz łącznik interfejsu API stanu zatwierdzenia, na przykład *Sprawdź stan zatwierdzenia*.
-   - **Przed utworzeniem użytkownika**: wybierz łącznik interfejsu API żądania zatwierdzenia, na przykład *Zażądaj zatwierdzenia*.
+
+   - **Po zalogowaniu się przy użyciu dostawcy tożsamości**: wybierz łącznik interfejsu API stanu zatwierdzenia, na przykład _Sprawdź stan zatwierdzenia_.
+   - **Przed utworzeniem użytkownika**: wybierz łącznik interfejsu API żądania zatwierdzenia, na przykład _Zażądaj zatwierdzenia_.
 
    ![Dodawanie interfejsów API do przepływu użytkownika](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
@@ -182,7 +183,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -191,7 +192,7 @@ Content-type: application/json
 
 Punkt końcowy interfejsu API **zatwierdzania żądań** powinien zwrócić odpowiedź kontynuacji, jeśli:
 
-- Użytkownik może zostać ***automatycznie zatwierdzony***.
+- Użytkownik może zostać **_automatycznie zatwierdzony_**.
 
 Poniżej przedstawiono przykład odpowiedzi kontynuacji:
 
@@ -273,7 +274,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -298,19 +299,19 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value"
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value"
 }
 ```
 
-| Parametr  | Wymagane | Opis |
-|---|---|---|
-| userPrincipalName | Tak | Mogą być generowane przez pobranie `email_address` zgłoszenia do interfejsu API, zastąpienie `@` znaku znakiem `_` i wstępnie do `#EXT@<tenant-name>.onmicrosoft.com` . |
-| accountEnabled  | Tak  | Musi być ustawiony na `true` .  |
-| mail (poczta)  | Tak | Odpowiednik `email_address` żądania wysłanego do interfejsu API. |
-| userType | Tak | Musi być `Guest` . Wyznacza tego użytkownika jako użytkownika-gościa. |
-| osob  | Tak  | Informacje o tożsamości federacyjnej. |
-| \<otherBuiltInAttribute>  | Nie  | Inne wbudowane atrybuty, takie jak `displayName` , `city` i inne. Nazwy parametrów są takie same jak parametry wysyłane przez łącznik interfejsu API.|
-| \<extension_\<aad-extensions-app-id>\_CustomAttribute,> | Nie | Atrybuty niestandardowe użytkownika. Nazwy parametrów są takie same jak parametry wysyłane przez łącznik interfejsu API. |
+| Parametr                                           | Wymagane | Opis                                                                                                                                                            |
+| --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userPrincipalName                                   | Tak      | Mogą być generowane przez pobranie `email_address` zgłoszenia do interfejsu API, zastąpienie `@` znaku znakiem `_` i wstępnie do `#EXT@<tenant-name>.onmicrosoft.com` . |
+| accountEnabled                                      | Tak      | Musi być ustawiony na `true` .                                                                                                                                                 |
+| mail (poczta)                                                | Tak      | Odpowiednik `email_address` żądania wysłanego do interfejsu API.                                                                                                               |
+| userType                                            | Tak      | Musi być `Guest` . Wyznacza tego użytkownika jako użytkownika-gościa.                                                                                                                 |
+| osob                                          | Tak      | Informacje o tożsamości federacyjnej.                                                                                                                                    |
+| \<otherBuiltInAttribute>                            | Nie       | Inne wbudowane atrybuty, takie jak `displayName` , `city` i inne. Nazwy parametrów są takie same jak parametry wysyłane przez łącznik interfejsu API.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | Nie       | Atrybuty niestandardowe użytkownika. Nazwy parametrów są takie same jak parametry wysyłane przez łącznik interfejsu API.                                                            |
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>Dla użytkownika federacyjnego Azure Active Directory
 
@@ -326,7 +327,7 @@ Content-type: application/json
  "email_address": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -334,11 +335,11 @@ Content-type: application/json
 2. System zatwierdzania tworzy zaproszenie przy użyciu `email_address` dostarczonego przez łącznik interfejsu API.
 
 ```http
-POST https://graph.microsoft.com/v1.0/invitations 
+POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com", 
+    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
     "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
@@ -366,11 +367,11 @@ Content-type: application/json
 {
     "displayName": "John Smith",
     "city": "Redmond",
-    "extension_<aad-extensions-app-id>_AttributeName": "custom attribute value"
+    "extension_<extensions-app-id>_AttributeName": "custom attribute value"
 }
 ```
 
-<!-- ## Next steps -->
-<!-- - See an example approval system with the [Woodgrove self-service sign-up for guest users sample](code-samples-self-service-sign-up.md#custom-approval-system).  -->
-<!--TODO: link to sample-->
+## <a name="next-steps"></a>Następne kroki
 
+- Rozpocznij pracę z naszymi [przykładami szybkiego startu usługi Azure Functions](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
+- Zapoznaj [się z przykładem samoobsługowego rejestrowania się dla użytkowników-Gości przy użyciu ręcznego zatwierdzania](code-samples-self-service-sign-up.md#custom-approval-workflows). 

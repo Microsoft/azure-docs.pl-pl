@@ -2,22 +2,22 @@
 title: Dodaj aplikację bez galerii — platforma tożsamości firmy Microsoft | Microsoft Docs
 description: Dodaj aplikację spoza galerii do dzierżawy usługi Azure AD.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9691ecb8d742952ba4364dcda2b62c3829f79d60
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063615"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760324"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Dodawanie aplikacji nieznajdującej się na liście (bez galerii) do organizacji usługi Azure AD
 
@@ -34,7 +34,7 @@ W tym artykule opisano sposób dodawania aplikacji spoza galerii do aplikacji dl
 
 1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com/) przy użyciu konta administratora platformy tożsamości firmy Microsoft.
 
-2. Wybierz pozycję **aplikacje** > dla przedsiębiorstw**Nowa aplikacja**.
+2. Wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **Nowa aplikacja**.
 
 3. (Opcjonalne, ale zalecane) W polu wyszukiwania **Przejrzyj galerię usługi Azure AD** wprowadź nazwę wyświetlaną aplikacji. 
 

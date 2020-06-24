@@ -10,11 +10,11 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281004"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710868"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Samouczek: publikowanie, subskrybowanie zdarzeń lokalnie
 
@@ -118,7 +118,7 @@ Zachowaj trasy domyślne, a następnie wybierz pozycję **dalej** , aby przejś�
 
 Jako wydawca zdarzenia musisz utworzyć temat dotyczący siatki zdarzeń. W Azure Event Grid temat dotyczy punktu końcowego, w którym wydawcy mogą wysyłać zdarzenia do programu.
 
-1. Utwórz plik temat. JSON z następującą zawartością. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md).
+1. Utwórz topic.jsprzy użyciu następującej zawartości. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md).
 
     ```json
         {
@@ -129,7 +129,7 @@ Jako wydawca zdarzenia musisz utworzyć temat dotyczący siatki zdarzeń. W Azur
         }
     ```
 
-1. Uruchom następujące polecenie, aby utworzyć temat z siatką zdarzeń. Upewnij się, że został wyświetlony kod stanu HTTP `200 OK`.
+1. Uruchom następujące polecenie, aby utworzyć temat z siatką zdarzeń. Upewnij się, że został wyświetlony kod stanu HTTP `200 OK` .
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
@@ -163,7 +163,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
-1. Utwórz plik Subscription. JSON z następującą zawartością. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md)
+1. Utwórz subscription.jsprzy użyciu następującej zawartości. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md)
 
     ```json
         {
@@ -180,7 +180,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
 
     >[!NOTE]
     > Właściwość **EndpointType** określa, że subskrybent jest elementem **webhook**.  **EndpointUrl** określa adres URL, pod którym subskrybent nasłuchuje zdarzeń. Ten adres URL odnosi się do wdrożonego wcześniej przykładu subskrybenta platformy Azure.
-2. Uruchom następujące polecenie, aby utworzyć subskrypcję tematu. Upewnij się, że został wyświetlony kod stanu HTTP `200 OK`.
+2. Uruchom następujące polecenie, aby utworzyć subskrypcję tematu. Upewnij się, że został wyświetlony kod stanu HTTP `200 OK` .
 
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
@@ -212,7 +212,7 @@ Subskrybenci mogą rejestrować się w przypadku zdarzeń opublikowanych w temac
 
 ## <a name="publish-an-event"></a>Publikowanie zdarzenia
 
-1. Utwórz plik Event. JSON z następującą zawartością. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md).
+1. Utwórz event.jsprzy użyciu następującej zawartości. Aby uzyskać szczegółowe informacje o ładunku, zapoznaj się z naszą [dokumentacją interfejsu API](api.md).
 
     ```json
         [

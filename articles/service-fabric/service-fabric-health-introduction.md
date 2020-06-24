@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282421"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712194"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Wprowadzenie do monitorowania kondycji usługi Service Fabric
 Na platformie Azure Service Fabric wprowadzono model kondycji, który zapewnia rozbudowane, elastyczne i rozszerzalne oceny kondycji oraz raportowanie. Model umożliwia monitorowanie stanu klastra i usług działających w czasie niemal w czasie rzeczywistym. Możesz łatwo uzyskać informacje o kondycji i rozwiązać potencjalne problemy, zanim staną się one kaskadowe i powodują ogromne przestoje. W typowym modelu usługi wysyłają raporty na podstawie widoków lokalnych, a informacje te są agregowane w celu zapewnienia ogólnego widoku poziomu klastra.
@@ -101,7 +101,7 @@ Poniższy przykład to fragment z manifestu klastra. Aby zdefiniować wpisy na m
 ```
 
 ### <a name="application-health-policy"></a>Zasady dotyczące kondycji aplikacji
-[Zasady kondycji aplikacji](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) opisują sposób obliczania agregacji zdarzeń i Stanów podrzędnych w przypadku aplikacji i ich elementów podrzędnych. Można ją zdefiniować w manifeście aplikacji, **ApplicationManifest. XML**, w pakiecie aplikacji. Jeśli nie określono żadnych zasad, Service Fabric zakłada, że jednostka jest w złej kondycji, jeśli ma raport o kondycji lub podrzędny stan kondycji ostrzeżenia lub błędu.
+[Zasady kondycji aplikacji](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) opisują sposób obliczania agregacji zdarzeń i Stanów podrzędnych w przypadku aplikacji i ich elementów podrzędnych. Można ją zdefiniować w manifeście aplikacji, **ApplicationManifest.xml**w pakiecie aplikacji. Jeśli nie określono żadnych zasad, Service Fabric zakłada, że jednostka jest w złej kondycji, jeśli ma raport o kondycji lub podrzędny stan kondycji ostrzeżenia lub błędu.
 Konfigurowalne zasady są następujące:
 
 * [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Określa, czy raporty kondycji ostrzeżeń mają być traktowane jako błędy podczas oceny kondycji. Wartość domyślna: false.
@@ -179,7 +179,7 @@ Po przeprowadzeniu oceny wszystkich elementów podrzędnych przez magazyn kondyc
 ## <a name="health-reporting"></a>Raportowanie kondycji
 Składniki systemowe, aplikacje sieci szkieletowej systemu i wewnętrzne/zewnętrzne alarmy mogą raportować względem jednostek Service Fabric. Raporty umożliwiają *lokalne* Określanie kondycji monitorowanych jednostek na podstawie warunków, które są monitorowane. Nie muszą oni przeglądać stanu globalnego ani zagregowanych danych. Odpowiednie zachowanie ma na celu posiadanie prostych raportów, a nie złożone organizmy, które wymagają poszukania wielu rzeczy w celu wywnioskowania, jakie informacje należy wysłać.
 
-Aby wysłać dane o kondycji do magazynu kondycji, musi on identyfikować jednostkę, której to dotyczy, i utworzyć raport kondycji. Aby wysłać raport, użyj interfejsu API [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) , raportów usługi API Health, które są `Partition` uwidocznione na `CodePackageActivationContext` obiektach, poleceniach cmdlet programu PowerShell lub Rest.
+Aby wysłać dane o kondycji do magazynu kondycji, musi on identyfikować jednostkę, której to dotyczy, i utworzyć raport kondycji. Aby wysłać raport, użyj interfejsu API [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) , raportów usługi API Health, które są uwidocznione na `Partition` `CodePackageActivationContext` obiektach, poleceniach CMDLET programu PowerShell lub Rest.
 
 ### <a name="health-reports"></a>Raporty dotyczące kondycji
 [Raporty kondycji](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) dla każdej jednostki w klastrze zawierają następujące informacje:
