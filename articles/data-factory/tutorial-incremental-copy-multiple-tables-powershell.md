@@ -1,6 +1,6 @@
 ---
 title: Przyrostowe kopiowanie wielu tabel przy użyciu programu PowerShell
-description: W tym samouczku utworzysz potok Azure Data Factory, który stopniowo kopiuje dane różnicowe z wielu tabel w bazie danych SQL Server do Azure SQL Database.
+description: W tym samouczku utworzysz potok Azure Data Factory, który przyrostowo kopiuje dane różnicowe z wielu tabel w bazie danych SQL Server do bazy danych w Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 01/30/2020
-ms.openlocfilehash: ef756f1b9b96f0e8fe9b77e6ae8f00f077fd1b88
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.date: 06/10/2020
+ms.openlocfilehash: e7846ae0f52dfee4260838302d55213d2791eb07
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559602"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250965"
 ---
-# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database-using-powershell"></a>Przyrostowe ładowanie danych z wielu tabel w SQL Server do Azure SQL Database przy użyciu programu PowerShell
+# <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Przyrostowe ładowanie danych z wielu tabel w SQL Server do Azure SQL Database przy użyciu programu PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym samouczku utworzysz fabrykę danych Azure z potokiem, który ładuje dane różnicowe z wielu tabel w bazie danych SQL Server do Azure SQL Database.    
+W tym samouczku utworzysz fabrykę danych platformy Azure z potokiem, który ładuje dane różnicowe z wielu tabel w bazie danych SQL Server, aby Azure SQL Database.    
 
 Ten samouczek obejmuje następujące procedury:
 
@@ -70,7 +70,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **SQL Server**. Baza danych SQL Server jest używana jako źródłowy magazyn danych w tym samouczku. 
-* **Azure SQL Database**. Jako magazyn danych ujścia używana jest baza danych SQL. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). 
+* **Azure SQL Database**. Baza danych programu jest używana w Azure SQL Database jako magazyn danych ujścia. Jeśli nie masz bazy danych SQL, zapoznaj się z tematem [Tworzenie bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) . 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Tworzenie tabel źródłowych w bazie danych SQL Server
 
@@ -117,7 +117,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 2. W **Eksplorator serwera (SSMS)** lub w **okienku połączenia (Azure Data Studio)** kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie **nowe zapytanie**.
 
-3. Uruchom następujące polecenie SQL względem bazy danych SQL w celu utworzenia tabel o nazwach `customer_table` i `project_table`:  
+3. Uruchom następujące polecenie SQL względem bazy danych w celu utworzenia tabel o nazwach `customer_table` i `project_table`:  
 
     ```sql
     create table customer_table
@@ -134,9 +134,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     );
     ```
 
-### <a name="create-another-table-in-the-azure-sql-database-to-store-the-high-watermark-value"></a>Utwórz kolejną tabelę w Azure SQL Database do przechowywania wartości górnego limitu
+### <a name="create-another-table-in-azure-sql-database-to-store-the-high-watermark-value"></a>Utwórz kolejną tabelę w Azure SQL Database do przechowywania wartości górnego limitu
 
-1. Uruchom następujące polecenie SQL względem bazy danych SQL, aby utworzyć tabelę o nazwie `watermarktable` w celu przechowywania wartości limitu: 
+1. Uruchom następujące polecenie SQL względem bazy danych, aby utworzyć tabelę o nazwie `watermarktable` do przechowywania wartości limitu: 
     
     ```sql
     create table watermarktable
@@ -159,7 +159,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ### <a name="create-a-stored-procedure-in-the-azure-sql-database"></a>Utwórz procedurę przechowywaną w Azure SQL Database 
 
-Uruchom następujące polecenie, aby utworzyć procedurę składowaną w bazie danych SQL. Ta procedura składowana służy do aktualizowania wartość limitu po każdym uruchomieniu potoku. 
+Uruchom następujące polecenie, aby utworzyć procedurę przechowywaną w bazie danych. Ta procedura składowana służy do aktualizowania wartość limitu po każdym uruchomieniu potoku. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -175,9 +175,9 @@ END
 
 ```
 
-### <a name="create-data-types-and-additional-stored-procedures-in-the-azure-sql-database"></a>Tworzenie typów danych i dodatkowych procedur składowanych w Azure SQL Database
+### <a name="create-data-types-and-additional-stored-procedures-in-azure-sql-database"></a>Tworzenie typów danych i dodatkowych procedur składowanych w Azure SQL Database
 
-Uruchom następujące zapytanie, aby utworzyć dwie procedury składowane i dwa typy danych w bazie danych SQL. Służą one do scalania danych z tabel źródłowych w tabelach docelowych. 
+Uruchom następujące zapytanie, aby utworzyć dwie procedury składowane i dwa typy danych w bazie danych. Służą one do scalania danych z tabel źródłowych w tabelach docelowych. 
 
 Aby ułatwić rozpoczęcie podróży, należy bezpośrednio użyć tych procedur składowanych przekazujących dane różnicowe za pośrednictwem zmiennej tabeli, a następnie scalić je z magazynem docelowym. Należy zachować ostrożność, ponieważ w zmiennej tabeli nie jest oczekiwana "duża liczba wierszy różnicowych (więcej niż 100).  
 
@@ -283,19 +283,19 @@ Pamiętaj o następujących kwestiach:
 
 * Aby utworzyć wystąpienia usługi Data Factory, konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli współautora lub właściciela albo administratorem subskrypcji platformy Azure.
 
-* Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (Azure HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
+* Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, SQL Database, wystąpienie zarządzane SQL itd.) i obliczenia (Azure HDInsight itp.) używane przez fabrykę danych mogą znajdować się w innych regionach.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
 
-Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tej sekcji utworzysz połączone usługi do bazy danych SQL Server i Azure SQL Database. 
+Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tej sekcji utworzysz połączone usługi do bazy danych SQL Server i bazy danych programu w Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Tworzenie usługi połączonej z serwerem SQL Server
 
 W tym kroku połączysz bazę danych SQL Server z fabryką danych.
 
-1. Utwórz plik JSON o nazwie **SqlServerLinkedService. JSON** w folderze C:\ADFTutorials\IncCopyMultiTableTutorial (Utwórz foldery lokalne, jeśli jeszcze nie istnieją) z następującą zawartością. Wybierz właściwą sekcję na podstawie uwierzytelniania używanego do nawiązywania połączenia z programem SQL Server.  
+1. Utwórz plik JSON o nazwie **SqlServerLinkedService.js** w folderze C:\ADFTutorials\IncCopyMultiTableTutorial (Utwórz foldery lokalne, jeśli jeszcze nie istnieją) z następującą zawartością. Wybierz właściwą sekcję na podstawie uwierzytelniania używanego do nawiązywania połączenia z programem SQL Server.  
 
     > [!IMPORTANT]
     > Wybierz właściwą sekcję na podstawie uwierzytelniania używanego do nawiązywania połączenia z programem SQL Server.
@@ -372,9 +372,9 @@ W tym kroku połączysz bazę danych SQL Server z fabryką danych.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerLinkedService
     ```
 
-### <a name="create-the-sql-database-linked-service"></a>Tworzenie połączonej usługi bazy danych SQL
+### <a name="create-the-sql-database-linked-service"></a>Tworzenie połączonej usługi SQL Database
 
-1. Utwórz plik JSON o nazwie **AzureSQLDatabaseLinkedService. JSON** w folderze C:\ADFTutorials\IncCopyMultiTableTutorial o następującej zawartości. (Utwórz folder ADF, jeśli jeszcze nie istnieje). &lt; &gt; &lt; Przed zapisaniem pliku Zastąp wartości ServerName, nazwa bazy danych &gt; , &lt; Nazwa użytkownika &gt; i &lt; hasło &gt; nazwą bazy danych SQL Server, nazwą bazy danych, nazwą użytkownika i hasłem. 
+1. Utwórz plik JSON o nazwie **AzureSQLDatabaseLinkedService.js** w folderze C:\ADFTutorials\IncCopyMultiTableTutorial o następującej zawartości. (Utwórz folder ADF, jeśli jeszcze nie istnieje). &lt; &gt; &lt; Przed zapisaniem pliku Zastąp wartości ServerName, nazwa bazy danych &gt; , &lt; Nazwa użytkownika &gt; i &lt; hasło &gt; nazwą bazy danych SQL Server, nazwą bazy danych, nazwą użytkownika i hasłem. 
 
     ```json
     {  
@@ -411,7 +411,7 @@ W tym kroku utworzysz zestawy danych reprezentujące źródło danych, docelową
 
 ### <a name="create-a-source-dataset"></a>Tworzenie zestawu danych źródłowych
 
-1. Utwórz plik JSON o nazwie **SourceDataset. JSON** w tym samym folderze o następującej zawartości: 
+1. Utwórz plik JSON o nazwie **SourceDataset.js** w tym samym folderze o następującej zawartości: 
 
     ```json
     {  
@@ -453,7 +453,7 @@ W tym kroku utworzysz zestawy danych reprezentujące źródło danych, docelową
 
 ### <a name="create-a-sink-dataset"></a>Tworzenie ujścia zestawu danych
 
-1. Utwórz plik JSON o nazwie **SinkDataset. JSON** w tym samym folderze o następującej zawartości. Element tableName jest dynamicznie ustawiany przez potok w czasie wykonywania. Działanie ForEach w potoku przeprowadza iterację po liście nazw i przekazuje nazwę tabeli do tego zestawu danych w każdej iteracji. 
+1. Utwórz plik JSON o nazwie **SinkDataset.js** w tym samym folderze o następującej zawartości. Element tableName jest dynamicznie ustawiany przez potok w czasie wykonywania. Działanie ForEach w potoku przeprowadza iterację po liście nazw i przekazuje nazwę tabeli do tego zestawu danych w każdej iteracji. 
 
     ```json
     {  
@@ -502,7 +502,7 @@ W tym kroku utworzysz zestawy danych reprezentujące źródło danych, docelową
 
 W tym kroku utworzysz zestaw danych do przechowywania wartości górnego limitu. 
 
-1. Utwórz plik JSON o nazwie **WatermarkDataset. JSON** w tym samym folderze o następującej zawartości: 
+1. Utwórz plik JSON o nazwie **WatermarkDataset.js** w tym samym folderze o następującej zawartości: 
 
     ```json
     {
@@ -549,7 +549,7 @@ Potok przyjmuje listę nazw tabel jako parametr. **Działanie foreach** iteruje 
 
 ### <a name="create-the-pipeline"></a>Tworzenie potoku
 
-1. Utwórz plik JSON o nazwie **IncrementalCopyPipeline. JSON** w tym samym folderze o następującej zawartości: 
+1. Utwórz plik JSON o nazwie **IncrementalCopyPipeline.js** w tym samym folderze o następującej zawartości: 
 
     ```json
     {  
@@ -783,7 +783,7 @@ Potok przyjmuje listę nazw tabel jako parametr. **Działanie foreach** iteruje 
  
 ## <a name="run-the-pipeline"></a>Uruchamianie potoku
 
-1. Utwórz plik parametrów o nazwie **Parameters. JSON** w tym samym folderze o następującej zawartości:
+1. Utwórz plik parametrów o nazwie **Parameters.js** w tym samym folderze o następującej zawartości:
 
     ```json
     {

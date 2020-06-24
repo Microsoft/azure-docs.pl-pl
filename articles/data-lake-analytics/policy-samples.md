@@ -1,24 +1,24 @@
 ---
 title: Wbudowane definicje zasad dla Azure Data Lake Analytics
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Data Lake Analytics. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 58ffee557127bebb8b8d26be0ae87ab55f767b2b
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: ff6807e4a66bde49fea39853b2b2867c7d0924c3
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234429"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887392"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-data-lake-analytics"></a>Azure Policy wbudowane definicje zasad dla Azure Data Lake Analytics
+# <a name="azure-policy-built-in-definitions-for-azure-data-lake-analytics"></a>Azure Policy wbudowane definicje Azure Data Lake Analytics
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla Azure Data Lake Analytics. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 28765d3a4a0812f6f3631427432105fdc4650808
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652205"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126233"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu
 
@@ -60,10 +60,10 @@ Identyfikator objectId aplikacji odpowiada skojarzonej z nią jednostce usługi.
 
 Istnieją dwa sposoby uzyskania identyfikatora objectId dla aplikacji.  Pierwszy polega na zarejestrowaniu aplikacji w Azure Active Directory. Aby to zrobić, wykonaj kroki opisane w sekcji Szybki Start [zarejestruj aplikację na platformie tożsamości firmy Microsoft](../../active-directory/develop/quickstart-register-app.md). Po zakończeniu rejestracji identyfikator objectID zostanie wyświetlony jako "Identyfikator aplikacji".
 
-Drugim jest utworzenie jednostki usługi w oknie terminalu. Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i podaj unikatową nazwę zasady usługi do flagi-n w formacie "http:// &lt; My-Unique-Service-Name &gt; ".
+Drugim jest utworzenie jednostki usługi w oknie terminalu. Za pomocą polecenia [AZ AD Sp Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) i podaj unikatową nazwę główną usługi dla flagi-n w formacie "http:// &lt; My-Unique-Service-Principal-Name &gt; ".
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
+az ad sp create-for-rbac -n "http://<my-unique-service-principal-name"
 ```
 
 Identyfikator objectId zostanie wyświetlony w danych wyjściowych jako `clientID` .
@@ -72,7 +72,7 @@ Za pomocą Azure PowerShell Użyj polecenia cmdlet [New-AzADServicePrincipal](/p
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
+New-AzADServicePrincipal -DisplayName <my-unique-service-principal-name>
 ```
 
 Identyfikator objectId zostanie wyświetlony w danych wyjściowych jako `Id` (nie `ApplicationId` ).

@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: ecd78cdc534b68d913b6b5114a04ad2720796665
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1f63b8adfabb9de427fd19a992f913d032aa9d8b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658171"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251526"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla Azure SQL Database i wystąpienia zarządzanego SQL 
  
@@ -39,15 +39,15 @@ Poniższa tabela zawiera linki do przykładów skryptów interfejsu wiersza pole
 |---|---|
 |**Tworzenie baz danych w Azure SQL Database**||
 | [Tworzenie pojedynczej bazy danych i konfigurowanie reguły zapory](scripts/create-and-configure-database-cli.md) | Tworzy SQL Database i konfiguruje regułę zapory na poziomie serwera. |
-| [Tworzenie pul elastycznych i przenoszenie baz danych w puli](scripts/move-database-between-elastic-pools-cli.md) | Tworzy elastyczne pule, przenosi bazy danych SQL w puli i zmienia rozmiary obliczeniowe. |
+| [Tworzenie pul elastycznych i przenoszenie baz danych w puli](scripts/move-database-between-elastic-pools-cli.md) | Tworzy elastyczne pule, przenosi bazy danych w puli i zmienia rozmiary obliczeniowe. |
 |**Skalowanie baz danych w Azure SQL Database**||
 | [Skalowanie pojedynczej bazy danych](scripts/monitor-and-scale-database-cli.md) | Skaluje bazę danych w SQL Database do innego rozmiaru obliczeniowego po wykonaniu zapytania o informacje o rozmiarze dla bazy danych. |
 | [Skalowanie puli elastycznej](scripts/scale-pool-cli.md) | Skaluje pulę elastyczną SQL do innego rozmiaru obliczeniowego. |
 |**Konfigurowanie replikacji geograficznej i trybu failover**||
 | [Dodawanie pojedynczej bazy danych do grupy trybu failover](scripts/add-database-to-failover-group-cli.md)| Tworzy bazę danych i grupę trybu failover, dodaje bazę danych do grupy trybu failover, a następnie testuje tryb failover na serwerze pomocniczym. |
 | [Konfigurowanie grupy trybu failover dla puli elastycznej](../../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md) | Tworzy bazę danych, dodaje ją do puli elastycznej, dodaje pulę elastyczną do grupy trybu failover, a następnie testuje tryb failover na serwerze pomocniczym. |
-| [Konfigurowanie i przełączanie pojedynczej bazy danych za pomocą funkcji aktywnej replikacji geograficznej](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Konfiguruje aktywną replikację geograficzną dla bazy danych Azure SQL Database i przełączenie jej w tryb failover do repliki pomocniczej. |
-| [Konfigurowanie i przełączanie w tryb failover bazy danych w puli przy użyciu aktywnej replikacji geograficznej](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Konfiguruje aktywną replikację geograficzną dla bazy danych Azure SQL Database w elastycznej puli SQL, a następnie przełącza ją w tryb failover do repliki pomocniczej. |
+| [Konfigurowanie i przełączanie pojedynczej bazy danych za pomocą funkcji aktywnej replikacji geograficznej](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Umożliwia skonfigurowanie aktywnej replikacji geograficznej dla bazy danych w Azure SQL Database i przełączenie jej w tryb failover do repliki pomocniczej. |
+| [Konfigurowanie i przełączanie w tryb failover bazy danych w puli przy użyciu aktywnej replikacji geograficznej](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Konfiguruje aktywną replikację geograficzną dla bazy danych w puli elastycznej, a następnie przełącza ją w tryb failover do repliki pomocniczej. |
 | **Inspekcja i wykrywanie zagrożeń** |
 | [Konfigurowanie inspekcji i wykrywanie zagrożeń](../../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md)| Konfiguruje zasady inspekcji i wykrywania zagrożeń dla bazy danych w Azure SQL Database. |
 | **Tworzenie kopii zapasowej, przywracanie, kopiowanie i Importowanie bazy danych**||

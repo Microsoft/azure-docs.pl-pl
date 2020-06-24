@@ -1,25 +1,25 @@
 ---
 title: Wbudowane definicje zasad dla Azure SQL Database
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla wystąpienia zarządzanego Azure SQL Database i SQL. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-samples
-ms.openlocfilehash: ff131f93df07325aec99e6e3e7aa3a9ddd284e28
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: fc768870e02098e208b55aabd854093d9d66ba1d
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84231320"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887283"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-sql-database--sql-managed-instance"></a>Azure Policy wbudowane definicje zasad dla Azure SQL Database & wystąpienie zarządzane SQL
+# <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Azure Policy wbudowane definicje Azure SQL Database & wystąpieniu zarządzanym SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Ta strona jest indeksem [Azure Policy](../../governance/policy/overview.md) wbudowanych definicji zasad dla wystąpienia zarządzanego Azure SQL Database i SQL. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-sql-database--sql-managed-instance"></a>Azure SQL Database & wystąpienie zarządzane SQL 
 

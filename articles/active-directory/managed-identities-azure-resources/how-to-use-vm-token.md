@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a58103bad3914bd0c0c6e70f8e3d2882271e1070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 48f5688a42a240fa2690eed48ab32d483f96a5b7
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049208"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694131"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Jak używać tożsamości zarządzanych dla zasobów platformy Azure na maszynie wirtualnej platformy Azure w celu uzyskania tokenu dostępu 
 
@@ -45,7 +45,7 @@ Jeśli planujesz użyć przykładów Azure PowerShell w tym artykule, pamiętaj,
 
 ## <a name="overview"></a>Omówienie
 
-Aplikacja kliencka może zażądać tożsamości zarządzanych dla [tokenu dostępu tylko do aplikacji](../develop/developer-glossary.md#access-token) platformy Azure w celu uzyskania dostępu do danego zasobu. Token jest [oparty na tożsamościach zarządzanych dla jednostki usługi Azure Resources](overview.md#how-does-the-managed-identities-for-azure-resources-work). W związku z tym klient nie musi rejestrować się w celu uzyskania tokenu dostępu w ramach własnej nazwy głównej usługi. Token jest odpowiedni do użycia jako token okaziciela w [wywołaniach między usługami wymagającymi poświadczeń klienta](../develop/v2-oauth2-client-creds-grant-flow.md).
+Aplikacja kliencka może zażądać tożsamości zarządzanych dla [tokenu dostępu tylko do aplikacji](../develop/developer-glossary.md#access-token) platformy Azure w celu uzyskania dostępu do danego zasobu. Token jest [oparty na tożsamościach zarządzanych dla jednostki usługi Azure Resources](overview.md#managed-identity-types). W związku z tym klient nie musi rejestrować się w celu uzyskania tokenu dostępu w ramach własnej nazwy głównej usługi. Token jest odpowiedni do użycia jako token okaziciela w [wywołaniach między usługami wymagającymi poświadczeń klienta](../develop/v2-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |
@@ -74,8 +74,8 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | ------- | ----------- |
 | `GET` | Czasownik HTTP wskazujący, że chcesz pobrać dane z punktu końcowego. W tym przypadku token dostępu OAuth. | 
 | `http://169.254.169.254/metadata/identity/oauth2/token` | Zarządzane tożsamości dla punktu końcowego zasobów platformy Azure dla Instance Metadata Service. |
-| `api-version`  | Parametr ciągu zapytania, wskazujący wersję interfejsu API dla punktu końcowego IMDS. Użyj interfejsu API w `2018-02-01` wersji lub nowszej. |
-| `resource` | Parametr ciągu zapytania, wskazujący identyfikator URI aplikacji dla zasobu docelowego. Pojawia się również w porozumieniu `aud` (odbiorcy) wystawionego tokenu. Ten przykład żąda tokenu w celu uzyskania dostępu do Azure Resource Manager, który ma identyfikator URI aplikacji `https://management.azure.com/`. |
+| `api-version`  | Parametr ciągu zapytania, wskazujący wersję interfejsu API dla punktu końcowego IMDS. Użyj interfejsu API w wersji `2018-02-01` lub nowszej. |
+| `resource` | Parametr ciągu zapytania, wskazujący identyfikator URI aplikacji dla zasobu docelowego. Pojawia się również w `aud` porozumieniu (odbiorcy) wystawionego tokenu. Ten przykład żąda tokenu w celu uzyskania dostępu do Azure Resource Manager, który ma identyfikator URI aplikacji `https://management.azure.com/` . |
 | `Metadata` | Pole nagłówka żądania HTTP wymagane przez zarządzane tożsamości dla zasobów platformy Azure jako środki zaradcze związane z atakiem z fałszerstwem żądania po stronie serwera (SSRF). Ta wartość musi być ustawiona na wartość "true" w przypadku małych liter. |
 | `object_id` | Obowiązkowe Parametr ciągu zapytania, wskazujący object_id tożsamości zarządzanej, dla której ma być token. Wymagane, jeśli maszyna wirtualna ma wiele zarządzanych tożsamości przypisanych przez użytkownika.|
 | `client_id` | Obowiązkowe Parametr ciągu zapytania, wskazujący client_id tożsamości zarządzanej, dla której ma być token. Wymagane, jeśli maszyna wirtualna ma wiele zarządzanych tożsamości przypisanych przez użytkownika.|
@@ -92,7 +92,7 @@ Metadata: true
 | ------- | ----------- |
 | `GET` | Czasownik HTTP wskazujący, że chcesz pobrać dane z punktu końcowego. W tym przypadku token dostępu OAuth. | 
 | `http://localhost:50342/oauth2/token` | Zarządzane tożsamości dla punktu końcowego zasobów platformy Azure, gdzie 50342 jest portem domyślnym i można skonfigurować. |
-| `resource` | Parametr ciągu zapytania, wskazujący identyfikator URI aplikacji dla zasobu docelowego. Pojawia się również w porozumieniu `aud` (odbiorcy) wystawionego tokenu. Ten przykład żąda tokenu w celu uzyskania dostępu do Azure Resource Manager, który ma identyfikator URI aplikacji `https://management.azure.com/`. |
+| `resource` | Parametr ciągu zapytania, wskazujący identyfikator URI aplikacji dla zasobu docelowego. Pojawia się również w `aud` porozumieniu (odbiorcy) wystawionego tokenu. Ten przykład żąda tokenu w celu uzyskania dostępu do Azure Resource Manager, który ma identyfikator URI aplikacji `https://management.azure.com/` . |
 | `Metadata` | Pole nagłówka żądania HTTP wymagane przez zarządzane tożsamości dla zasobów platformy Azure jako środki zaradcze związane z atakiem z fałszerstwem żądania po stronie serwera (SSRF). Ta wartość musi być ustawiona na wartość "true" w przypadku małych liter.|
 | `object_id` | Obowiązkowe Parametr ciągu zapytania, wskazujący object_id tożsamości zarządzanej, dla której ma być token. Wymagane, jeśli maszyna wirtualna ma wiele zarządzanych tożsamości przypisanych przez użytkownika.|
 | `client_id` | Obowiązkowe Parametr ciągu zapytania, wskazujący client_id tożsamości zarządzanej, dla której ma być token. Wymagane, jeśli maszyna wirtualna ma wiele zarządzanych tożsamości przypisanych przez użytkownika.|
@@ -115,12 +115,12 @@ Content-Type: application/json
 
 | Element | Opis |
 | ------- | ----------- |
-| `access_token` | Żądany token dostępu. Podczas wywoływania bezpiecznego interfejsu API REST token jest osadzony w polu nagłówka `Authorization` żądania jako token "Bearer", dzięki czemu interfejs API może uwierzytelniać obiekt wywołujący. | 
+| `access_token` | Żądany token dostępu. Podczas wywoływania bezpiecznego interfejsu API REST token jest osadzony w `Authorization` polu nagłówka żądania jako token "Bearer", dzięki czemu interfejs API może uwierzytelniać obiekt wywołujący. | 
 | `refresh_token` | Nieużywane przez zarządzane tożsamości dla zasobów platformy Azure. |
 | `expires_in` | Liczba sekund, przez jaką token dostępu pozostaje prawidłowy, przed wygaśnięciem, od momentu wystawienia. Czas wystawienia można znaleźć w ramach `iat` żądania tokenu. |
 | `expires_on` | Wartość TimeSpan w przypadku wygaśnięcia tokenu dostępu. Data jest reprezentowana jako liczba sekund od "1970-01-01T0:0: 0Z UTC" (odpowiada na `exp` żądania tokenu). |
 | `not_before` | Przedział czasu, gdy token dostępu zaczyna obowiązywać i można go zaakceptować. Data jest reprezentowana jako liczba sekund od "1970-01-01T0:0: 0Z UTC" (odpowiada na `nbf` żądania tokenu). |
-| `resource` | Zasób, dla którego zażądano tokenu dostępu, który jest `resource` zgodny z parametrem ciągu zapytania żądania. |
+| `resource` | Zasób, dla którego zażądano tokenu dostępu, który jest zgodny z `resource` parametrem ciągu zapytania żądania. |
 | `token_type` | Typ tokenu, który jest tokenem dostępu "Bearer", co oznacza, że zasób może zapewnić dostęp do okaziciela tego tokenu. |
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Uzyskiwanie tokenu przy użyciu biblioteki Microsoft. Azure. Services. AppAuthentication dla platformy .NET
@@ -303,7 +303,7 @@ func main() {
 W poniższym przykładzie pokazano, jak używać zarządzanych tożsamości dla punktu końcowego REST zasobów platformy Azure z poziomu klienta programu PowerShell, aby:
 
 1. Uzyskaj token dostępu.
-2. Użyj tokenu dostępu, aby wywołać interfejs API REST Azure Resource Manager i uzyskać informacje o maszynie wirtualnej. Pamiętaj, aby zastąpić identyfikator subskrypcji, nazwę grupy zasobów i nazwę maszyny wirtualnej odpowiednio dla `<SUBSCRIPTION-ID>`, `<RESOURCE-GROUP>`i. `<VM-NAME>`
+2. Użyj tokenu dostępu, aby wywołać interfejs API REST Azure Resource Manager i uzyskać informacje o maszynie wirtualnej. Pamiętaj, aby zastąpić identyfikator subskrypcji, nazwę grupy zasobów i nazwę maszyny wirtualnej `<SUBSCRIPTION-ID>` odpowiednio dla, `<RESOURCE-GROUP>` i `<VM-NAME>` .
 
 ```azurepowershell
 Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Headers @{Metadata="true"}
@@ -354,11 +354,11 @@ Zarządzane tożsamości punktu końcowego zasobów platformy Azure sygnalizują
 
 | Kod stanu | Przyczyna błędu | Jak obsłużyć |
 | ----------- | ------------ | ------------- |
-| nie znaleziono 404. | Trwa aktualizowanie punktu końcowego IMDS. | Ponów próbę, używając expontential wycofywania. Zobacz wskazówki poniżej. |
+| nie znaleziono 404. | Trwa aktualizowanie punktu końcowego IMDS. | Ponów próbę, używając wykładniczej wycofywania. Zobacz wskazówki poniżej. |
 | 429 zbyt wiele żądań. |  Osiągnięto limit dławienia IMDS. | Ponów próbę, używając wykładniczej wycofywania. Zobacz wskazówki poniżej. |
 | 4xx Błąd w żądaniu. | Co najmniej jeden z parametrów żądania był niepoprawny. | Nie ponawiaj próby.  Aby uzyskać więcej informacji, zapoznaj się ze szczegółami błędu.  Błędy 4xx są błędy czasu projektowania.|
 | 5xx błąd przejściowy z usługi. | Zarządzane tożsamości dla podsystemu zasobów platformy Azure lub Azure Active Directory zwróciło błąd przejściowy. | Można bezpiecznie ponowić próbę po odczekaniu przez co najmniej 1 sekundę.  Jeśli spróbujesz zbyt szybko lub zbyt często, IMDS i/lub usługa Azure AD może zwrócić błąd limitu szybkości (429).|
-| timeout | Trwa aktualizowanie punktu końcowego IMDS. | Ponów próbę, używając expontential wycofywania. Zobacz wskazówki poniżej. |
+| timeout | Trwa aktualizowanie punktu końcowego IMDS. | Ponów próbę, używając wykładniczej wycofywania. Zobacz wskazówki poniżej. |
 
 Jeśli wystąpi błąd, odpowiadająca treść odpowiedzi HTTP zawiera kod JSON z szczegółowymi informacjami o błędzie:
 
@@ -371,17 +371,17 @@ Jeśli wystąpi błąd, odpowiadająca treść odpowiedzi HTTP zawiera kod JSON 
 
 Ta sekcja dokumentuje możliwe odpowiedzi na błędy. Stan "200 OK" jest pomyślną odpowiedzią, a token dostępu jest zawarty w kodzie JSON treści odpowiedzi, w elemencie access_token.
 
-| Kod stanu | Error | Opis błędu | Rozwiązanie |
+| Kod stanu | Błąd | Opis błędu | Rozwiązanie |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Nieprawidłowe żądanie | invalid_resource | AADSTS50001: aplikacja o nazwie * \<URI\> * nie została znaleziona w dzierżawie o nazwie * \<dzierżawca-ID\>*. Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy lub nie została wysłana przez żadnego użytkownika w dzierżawie. Być może wysłano żądanie uwierzytelnienia do niewłaściwej dzierżawy. \ | (Tylko system Linux) |
-| 400 Nieprawidłowe żądanie | bad_request_102 | Nie określono wymaganego nagłówka metadanych | W żądaniu `Metadata` brakuje pola nagłówka żądania lub jest ono sformatowane nieprawidłowo. Wartość musi być określona jako `true`, we wszystkich małych przypadkach. Zapoznaj się z przykładem "Przykładowe żądanie" w poprzedniej sekcji REST.|
-| 401 — nieautoryzowane | unknown_source | Nieznany źródłowy * \<identyfikator URI\>* | Sprawdź, czy identyfikator URI żądania HTTP GET jest poprawnie sformatowany. `scheme:host/resource-path` Część musi być określona jako `http://localhost:50342/oauth2/token`. Zapoznaj się z przykładem "Przykładowe żądanie" w poprzedniej sekcji REST.|
+| 400 Nieprawidłowe żądanie | invalid_resource | AADSTS50001: Nazwa aplikacji *\<URI\>* nie została znaleziona w dzierżawie o nazwie *\<TENANT-ID\>* . Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy lub żaden użytkownik w dzierżawie nie wyraził odpowiedniej zgody. Być może wysłano żądanie uwierzytelnienia do niewłaściwej dzierżawy. \ | (Tylko system Linux) |
+| 400 Nieprawidłowe żądanie | bad_request_102 | Nie określono wymaganego nagłówka metadanych | `Metadata`W żądaniu brakuje pola nagłówka żądania lub jest ono sformatowane nieprawidłowo. Wartość musi być określona jako `true` , we wszystkich małych przypadkach. Zapoznaj się z przykładem "Przykładowe żądanie" w poprzedniej sekcji REST.|
+| 401 — nieautoryzowane | unknown_source | Nieznane Źródło*\<URI\>* | Sprawdź, czy identyfikator URI żądania HTTP GET jest poprawnie sformatowany. `scheme:host/resource-path`Część musi być określona jako `http://localhost:50342/oauth2/token` . Zapoznaj się z przykładem "Przykładowe żądanie" w poprzedniej sekcji REST.|
 |           | invalid_request | W żądaniu brakuje wymaganego parametru, zawiera on nieprawidłową wartość parametru, zawiera parametr więcej niż jeden raz lub jest nieprawidłowo sformułowany. |  |
 |           | unauthorized_client | Klient nie ma autoryzacji do żądania tokenu dostępu za pomocą tej metody. | Spowodowane przez żądanie, które nie używało lokalnego sprzężenia zwrotnego do wywołania rozszerzenia lub na maszynie wirtualnej, która nie ma prawidłowo skonfigurowanych tożsamości zarządzanych dla zasobów platformy Azure. Aby uzyskać pomoc dotyczącą konfiguracji maszyny wirtualnej [, zobacz Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md) . |
 |           | access_denied | Właściciel zasobu lub serwer autoryzacji odrzucił żądanie. |  |
 |           | unsupported_response_type | Serwer autoryzacji nie obsługuje uzyskiwania tokenu dostępu przy użyciu tej metody. |  |
 |           | invalid_scope | Żądany zakres jest nieprawidłowy, nieznany lub źle sformułowany. |  |
-| Błąd wewnętrzny serwera 500 | unknown | Nie można pobrać tokenu z usługi Active Directory. Aby uzyskać szczegółowe informacje, zobacz dzienniki w * \<ścieżce pliku\>* | Sprawdź, czy na maszynie wirtualnej została włączona tożsamość zarządzana dla zasobów platformy Azure. Aby uzyskać pomoc dotyczącą konfiguracji maszyny wirtualnej [, zobacz Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md) .<br><br>Sprawdź również, czy identyfikator URI żądania HTTP GET jest poprawnie sformatowany, szczególnie identyfikator URI zasobu określony w ciągu zapytania. Zapoznaj się z sekcją "Przykładowe żądanie" w poprzedniej sekcji REST, aby zapoznać się z przykładem lub [usługami platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](services-support-msi.md) w celu uzyskania listy usług i odpowiednich identyfikatorów zasobów.
+| Błąd wewnętrzny serwera 500 | unknown | Nie można pobrać tokenu z usługi Active Directory. Aby uzyskać szczegółowe informacje, zobacz dzienniki*\<file path\>* | Sprawdź, czy na maszynie wirtualnej została włączona tożsamość zarządzana dla zasobów platformy Azure. Aby uzyskać pomoc dotyczącą konfiguracji maszyny wirtualnej [, zobacz Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej przy użyciu Azure Portal](qs-configure-portal-windows-vm.md) .<br><br>Sprawdź również, czy identyfikator URI żądania HTTP GET jest poprawnie sformatowany, szczególnie identyfikator URI zasobu określony w ciągu zapytania. Zapoznaj się z sekcją "Przykładowe żądanie" w poprzedniej sekcji REST, aby zapoznać się z przykładem lub [usługami platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](services-support-msi.md) w celu uzyskania listy usług i odpowiednich identyfikatorów zasobów.
 
 ## <a name="retry-guidance"></a>Wskazówki dotyczące ponawiania prób 
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: spelluru
-ms.openlocfilehash: e6733bdc91ba26d52366de09ed6bc255dcd4ff98
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 76d63b508705bf426b8fc86b3d27d75241d6f246
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610821"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212211"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Samouczek: przesyłanie strumieniowe danych Big Data do magazynu danych
 Usługa Azure [Event Grid](overview.md) jest inteligentną usługą routingu zdarzeń, która umożliwia reagowanie na powiadomienia (zdarzenia) z aplikacji i usług. Może na przykład spowodować, że funkcja platformy Azure będzie przetwarzać dane centrum zdarzeń, które zostały przechwycone przez usługę Azure Blob Storage lub usługę Azure Data Lake Storage, a także przeprowadzać migrację danych do innych repozytoriów danych. W tym [przykładzie integracji usług Event Hubs i Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) pokazano, jak bezproblemowo przeprowadzić migrację przechwyconych danych usługi Event Hubs z magazynu obiektów blob do usługi SQL Data Warehouse przy użyciu usług Event Hubs i Event Grid.
@@ -45,7 +45,7 @@ W tym artykule wykonasz następujące kroki:
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
-* [Program Visual studio 2019](https://www.visualstudio.com/vs/) z obciążeniami dla: Programowanie aplikacji klasycznych platformy .NET, programowanie platformy Azure, programowanie ASP.NET i sieci Web, programowanie w języku Node. js i programowanie w języku Python.
+* [Program Visual studio 2019](https://www.visualstudio.com/vs/) z obciążeniami dla: Programowanie aplikacji klasycznych platformy .NET, programowanie na platformie Azure, programowanie ASP.NET i sieci Web, programowanie Node.js i programowanie w języku Python.
 * Pobierz na komputer [przykładowy projekt EventHubsCaptureEventGridDemo](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).
 
 ## <a name="deploy-the-infrastructure"></a>Wdrażanie infrastruktury
@@ -60,7 +60,7 @@ W tym kroku wdrożysz wymaganą infrastrukturę za pomocą [szablonu usługi Res
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Uruchamianie usługi Azure Cloud Shell w witrynie Azure Portal
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. Wybierz przycisk **Cloud Shell** u góry.
 
     ![Azure Portal](media/event-grid-event-hubs-integration/azure-portal.png)
@@ -173,7 +173,7 @@ Utwórz tabelę w swoim magazynie danych, uruchamiając skrypt [CreateDataWareho
 2. Na stronie magazynu danych SQL wybierz pozycję **Edytor zapytań (wersja zapoznawcza)** w menu po lewej stronie. 
 
     ![Strona magazynu danych SQL](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
-2. Wprowadź nazwę **użytkownika** i **hasło** dla serwera SQL, a następnie wybierz pozycję **OK**. W celu pomyślnego zalogowania się do programu SQL Server masz wiele potrzebnych adresów IP klienta. 
+2. Wprowadź nazwę **użytkownika** i **hasło** dla serwera SQL, a następnie wybierz pozycję **OK**. Może być konieczne dodanie adresu IP klienta do zapory, aby pomyślnie zalogować się do programu SQL Server. 
 
     ![Uwierzytelnianie serwera SQL](media/event-grid-event-hubs-integration/sql-server-authentication.png)
 4. W oknie zapytania skopiuj i uruchom następujący skrypt SQL: 
@@ -280,7 +280,7 @@ Konfiguracja centrum zdarzeń, magazynu danych SQL, aplikacji funkcji platformy 
    private const string EventHubName = "hubdatamigration";
    ```
 
-6. Skompiluj rozwiązanie. Uruchom aplikację **WindTurbineGenerator. exe** . 
+6. Skompiluj rozwiązanie. Uruchom aplikację **WindTurbineGenerator.exe** . 
 7. Po kilku minutach wyślij zapytanie do tabeli w magazynie danych dla migrowanych danych.
 
     ![Wyniki zapytania](media/event-grid-event-hubs-integration/query-results.png)

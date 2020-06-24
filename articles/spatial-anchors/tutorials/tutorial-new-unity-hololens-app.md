@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 07/05/2019
+ms.date: 06/22/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a3a81cdfa9e3c6659c870b184cda4ebe6f7f805a
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: ee8b8c2931d006dbb3d472b545030d3aff79c56a
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429669"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297991"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Samouczek: instrukcje krok po kroku dotyczące tworzenia nowej aplikacji HoloLens Unity przy użyciu kotwic przestrzennych platformy Azure
 
@@ -101,7 +101,7 @@ Najpierw Dodaj następujące Importy do `Assembly-CSharp (Universal Windows)\Scr
 
 Następnie Dodaj następujące zmienne elementów członkowskich do `AzureSpatialAnchorsScript` klasy:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-42,48-52,60-79)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=26-47,53-57,65-84)]
 
 Przed kontynuowaniem musimy ustawić PREFAB sferę utworzoną na naszej zmiennej składowej spherePrefab. Wróć do **aparatu Unity**.
 1. W aparacie **Unity**wybierz obiekt **MixedRealityCloud** w okienku **Hierarchia** .
@@ -111,15 +111,15 @@ Teraz należy mieć rolę PREFAB **Sphere** w skrypcie. Skompiluj z **aparatu Un
 
 W programie **Visual Studio**ponownie otwórz program `AzureSpatialAnchorsScript.cs` . Dodaj następujący kod do `Start()` metody. Ten kod zostanie poddany `GestureRecognizer` , który zostanie wykryty w przypadku naciskania i wyłączania powietrza `HandleTap` .
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-90,93&highlight=4-10)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-95,98&highlight=4-10)]
 
 Teraz musimy dodać następującą `HandleTap()` metodę poniżej `Update()` . Spowoduje to rzutowanie promienia i uzyskanie punktu trafień, w którym należy umieścić sferę.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-277,299-300,304-312)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-283,305-306,310-318)]
 
 Teraz musimy utworzyć sferę. Sfera będzie początkowo Biała, ale ta wartość zostanie później zmieniona na. Dodaj następującą `CreateAndSaveSphere()` metodę:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-325,390)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-331,396)]
 
 Uruchom aplikację z **programu Visual Studio** , aby zweryfikować ją jeszcze raz. Tym razem naciśnij ekran, aby utworzyć & umieścić białą sferę na wybranej powierzchni.
 
@@ -129,15 +129,15 @@ Podczas pracy z systemem Unity wszystkie interfejsy API aparatu Unity, na przyk�
 
 Dodajmy zmienną członkowską dispatchQueue, która jest kolejką akcji. Będziemy wypychać akcje do kolejki, a następnie dekolejkować i uruchamiać akcje w głównym wątku.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=38-51&highlight=6-9)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=43-56&highlight=6-9)]
 
 Następnie Dodajmy sposób dodawania akcji do kolejki. Dodaj `QueueOnUpdate()` bezpośrednio po `Update()` :
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=107-117)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=112-122)]
 
 Teraz użyjemy pętli Update (), aby sprawdzić, czy w kolejce występuje akcja. W takim przypadku zostanie on usunięty z kolejki i zostanie uruchomiony.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=95-105&highlight=4-10)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=100-110&highlight=4-10)]
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Pobierz zestaw SDK zakotwiczeń przestrzennych platformy Azure
 
@@ -165,37 +165,37 @@ W rozwiązaniu **programu Visual Studio** Dodaj następujący import do programu
 
 Następnie Dodaj następujące zmienne członkowskie do `AzureSpatialAnchorsScript` klasy:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=48-63&highlight=6-11)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=53-68&highlight=6-11)]
 
 ## <a name="attach-a-local-azure-spatial-anchor-to-the-local-anchor"></a>Dołącz lokalną kotwicę przestrzenną platformy Azure do lokalnej kotwicy
 
 Skonfigurujmy CloudSpatialAnchorSession zakotwiczenia przestrzennego platformy Azure. Zaczniemy od dodania następującej `InitializeSession()` metody wewnątrz `AzureSpatialAnchorsScript` klasy. Po wywołaniu zagwarantuje, że sesja kotwic Azure przestrzenny zostanie utworzona i poprawnie zainicjowana podczas uruchamiania aplikacji.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=174-202,205-209)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=179-208,211-215)]
 
 Teraz musimy napisać kod obsługujący wywołania delegatów. Będziemy w dalszym ciągu dodawać do nich dodatkowe elementy.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=211-226)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=217-232)]
 
 Teraz przejdźmy `initializeSession()` do metody `Start()` .
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=81-93&highlight=12)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=86-98&highlight=12)]
 
 Na koniec Dodaj następujący kod do `CreateAndSaveSphere()` metody. Dołączy lokalną kotwicę platformy Azure do sfery, która jest umieszczana w świecie rzeczywistym.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-338,390&highlight=14-25)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-344,396&highlight=14-25)]
 
-Przed przeprowadzeniem dalszych dalszych czynności należy utworzyć identyfikator i klucz konta zakotwiczeń przestrzennych platformy Azure, jeśli jeszcze tego nie zrobiono. Aby je uzyskać, postępuj zgodnie z poniższą sekcją.
+Przed przeprowadzeniem dalszych dalszych czynności należy utworzyć konto zakotwiczeń przestrzennych platformy Azure, aby uzyskać identyfikator konta, klucz i domenę, jeśli nie zostały one jeszcze zainstalowane. Aby je uzyskać, postępuj zgodnie z poniższą sekcją.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="upload-your-local-anchor-into-the-cloud"></a>Przekaż lokalne zakotwiczenie do chmury
 
-Po określeniu identyfikatora i klucza konta zakotwiczeń przestrzennych platformy Azure przejdź i wklej do `Account Id` `SpatialAnchorsAccountId` `Account Key` `SpatialAnchorsAccountKey` .
+Gdy masz swój identyfikator konta, klucz i domenę usługi Azure przestrzenny, przejdź i wklej do `Account Id` `SpatialAnchorsAccountId` , do `Account Key` `SpatialAnchorsAccountKey` , i do `Account Domain` `SpatialAnchorsAccountDomain` .
 
 Na koniec przychodźmy wszystko razem. W `SpawnNewAnchoredObject()` metodzie Dodaj następujący kod. Wywołanie metody będzie możliwe zaraz po `CreateAnchorAsync()` utworzeniu sfery. Po powrocie metody kod poniżej wykona jedną aktualizację ostateczną do sfery, zmieniając jej kolor na niebieską.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=314-391&highlight=26-77)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
 Uruchom aplikację z **programu Visual Studio** jeszcze raz. Poruszaj się po głowie, a następnie naciśnij pozycję Air, aby umieścić swoją sferę. Gdy mamy wystarczającą liczbę ramek, sfera zmieni się na żółtą i rozpocznie się przekazywanie do chmury. Po zakończeniu przekazywania sfera zmieni kolor na niebieski. Opcjonalnie można również użyć okna danych wyjściowych w **programie Visual Studio** do monitorowania komunikatów dziennika wysyłanych przez aplikację. Będziesz w stanie obejrzeć zalecenia dotyczące tworzenia postępów, a także identyfikator kotwicy zwracanej przez chmurę po zakończeniu przekazywania.
 
@@ -210,20 +210,20 @@ Jedno zakotwiczenie zostanie przekazane do chmury. wszystko jest gotowe do ponow
 * Zainicjuj `CloudSpatialAnchorSession` ponownie. Możemy to zrobić, aby upewnić się, że zakotwiczenie, które zamierzamy znaleźć, pochodzi z chmury, a nie jako zakotwiczenia lokalnego.
 * Utwórz **obserwatora** , który będzie szukać zakotwiczenia przekazanego do zakotwiczeń przestrzennych platformy Azure.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=267-305&highlight=13-31,35-36)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=273-311&highlight=13-31,35-36)]
 
 Dodajmy teraz nasze `ResetSession()` metody i `CleanupObjects()` . Można je umieścić poniżej`QueueOnUpdate()`
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=119-172)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=124-177)]
 
 Teraz musimy podłączyć kod, który zostanie wywołany, gdy zakotwiczenie zakotwiczenia dla programu znajduje się w lokalizacji. W programie `InitializeSession()` Dodaj następujące wywołania zwrotne:
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=200-206&highlight=4-5)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=206-212&highlight=4-5)]
 
 
 Teraz pozwala dodać kod, który zostanie utworzony, & umieścić zieloną sferę po zlokalizowaniu CloudSpatialAnchor. Spowoduje to również ponowne włączenie ekranu, aby można było wielokrotnie powtórzyć cały scenariusz: Utwórz kolejną kotwicę lokalną, przekaż ją i Znajdź ponownie.
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=228-265)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
 To wszystko. Uruchom aplikację z **programu Visual Studio** po raz ostatni, aby wypróbować cały scenariusz do końca. Poruszaj się po urządzeniu i umieść swoją białą sferę. Następnie kontynuuj przesuwanie głowy, aby przechwycić dane środowiska do momentu, gdy sfera zmieni kolor na żółty. Twoje lokalne zakotwiczenie zostanie przekazane, a SFERA zmieni kolor na niebiesko. Na koniec naciśnij swój ekran jeszcze raz, aby lokalne zakotwiczenie zostało usunięte, a następnie będziemy wysyłać zapytania o jego odpowiednik w chmurze. Kontynuuj przenoszenie urządzenia do momentu, gdy zakotwiczenie chmury nie zostanie umieszczone. Zielona kula powinna pojawić się w poprawnej lokalizacji i można wypłukać & powtórzyć cały scenariusz ponownie.
 

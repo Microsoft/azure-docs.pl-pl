@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: bb2679d0f681ae82bbe1a50671bd2ff70a239dfb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 3bd2744c651544fc7dfe41b350168a7f387c0928
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194502"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254458"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do usługi Azure Blob Storage przy użyciu programu PowerShell
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Przyrostowe ładowanie danych z Azure SQL Database do magazynu obiektów blob platformy Azure przy użyciu programu PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym samouczku utworzysz fabrykę danych Azure Data Factory z potokiem, który ładuje dane różnicowe z tabeli w bazie danych Azure SQL Database do magazynu Azure Blob Storage.
+W tym samouczku utworzysz fabrykę danych Azure przy użyciu potoku ładującego dane różnicowe z tabeli w Azure SQL Database do magazynu obiektów blob platformy Azure.
 
 Ten samouczek obejmuje następujące procedury:
 
@@ -63,7 +63,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. Baza danych jest używana jako źródłowy magazyn danych. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure SQL Database**. Baza danych jest używana jako źródłowy magazyn danych. Jeśli nie masz bazy danych w Azure SQL Database, zobacz [Tworzenie elementu dataqbase w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) , aby uzyskać instrukcje.
 * **Usługa Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych ujścia. Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie adftutorial. 
 * **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -192,11 +192,11 @@ Pamiętaj o następujących kwestiach:
     ```
 
 * Aby utworzyć wystąpienia usługi Data Factory, konto użytkownika używane do logowania się na platformie Azure musi być członkiem roli współautora lub właściciela albo administratorem subskrypcji platformy Azure.
-* Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (usługa Storage, SQL Database itp.) i jednostki obliczeniowe (Azure HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
+* Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (magazyn, SQL Database, wystąpienie zarządzane Azure SQL i tak dalej) oraz obliczenia (Azure HDInsight itp.) używane przez fabrykę danych mogą znajdować się w innych regionach.
 
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
-Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tej sekcji utworzysz usługi połączone ze swoim kontem magazynu i bazą danych SQL.
+Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tej sekcji utworzysz połączone usługi na koncie magazynu i SQL Database.
 
 ### <a name="create-a-storage-linked-service"></a>Tworzenie połączonej usługi Storage
 1. W folderze C:\ADF utwórz plik JSON o nazwie AzureStorageLinkedService.json z następującą zawartością. (Utwórz folder ADF, jeśli jeszcze nie istnieje). `<accountName>` `<accountKey>` Przed zapisaniem pliku Zastąp wartości i nazwą i kluczem konta magazynu.
@@ -732,7 +732,7 @@ W ramach tego samouczka wykonano następujące procedury:
 > * Uruchamianie potoku.
 > * Monitorowanie uruchomienia potoku.
 
-W tym samouczku potok skopiował dane z jednej tabeli w bazie danych SQL do magazynu Blob Storage. Przejdź do następującego samouczka, aby dowiedzieć się, jak skopiować dane z wielu tabel w bazie danych SQL Server, aby SQL Database.
+W tym samouczku potok skopiował dane z pojedynczej tabeli w Azure SQL Database do magazynu obiektów BLOB. Przejdź do następującego samouczka, aby dowiedzieć się, jak skopiować dane z wielu tabel w bazie danych SQL Server, aby SQL Database.
 
 > [!div class="nextstepaction"]
 >[Przyrostowe ładowanie danych z wielu tabel w programie SQL Server do bazy danych Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)

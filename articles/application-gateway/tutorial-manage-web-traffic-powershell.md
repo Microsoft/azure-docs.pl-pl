@@ -4,16 +4,16 @@ description: Dowiedz się, jak utworzyć bramę aplikacji przy użyciu zestawu s
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a313296a9a19aa762803652a3b139cdac7ca3a58
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: cb45f4a19cf36fe291ffe7299a46a44a245fbb8f
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68359923"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806194"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Zarządzanie ruchem internetowym przy użyciu bramy aplikacji za pomocą programu Azure PowerShell
 
@@ -28,7 +28,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 Jeśli wolisz, możesz wykonać tę procedurę za pomocą [interfejsu wiersza polecenia platformy Azure](tutorial-manage-web-traffic-cli.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -248,7 +248,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/tutorial-manage-web-traffic-powershell/tutorial-iistest.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, Brama aplikacji i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

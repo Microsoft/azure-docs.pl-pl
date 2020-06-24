@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: 7d453b2724c308e48366d653a51d9e6aa8e82c96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dac018db1737b0395f78955d16dd753c6ac2f359
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415922"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252665"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integracja danych przy użyciu Azure Data Factory i udziału danych platformy Azure
 
@@ -22,9 +22,9 @@ Jako że klienci logują się do nowoczesnych magazynów danych i projektów ana
 
 W celu zapewnienia kompleksowego wglądu w dane w postaci ETL/ELT w celu utworzenia obszernego widoku danych ulepszenia w Azure Data Factory umożliwią inżynierom danych dołączenie większej ilości danych, a tym samym zwiększenie wartości do przedsiębiorstwa. Udział danych platformy Azure umożliwi prowadzenie biznesowego udostępniania w biznesie.
 
-W tej warsztatie będziesz używać Azure Data Factory (ADF) do pozyskiwania danych z bazy danych Azure SQL Database (SQL DB) do Azure Data Lake Storage Gen2 (ADLS Gen2). Po pobraniu danych z usługi Lake przekształćsz je za pośrednictwem mapowania przepływów danych, natywnej usługi transformacji fabryki danych i ujścia do usługi Azure Synapse Analytics (dawniej SQL DW). Następnie udostępnimy tabelę z przekształconymi danymi wraz z dodatkowymi danymi za pomocą udziału danych platformy Azure. 
+W tej warsztatie będziesz używać Azure Data Factory (ADF) do pozyskiwania danych z Azure SQL Database do Azure Data Lake Storage Gen2 (ADLS Gen2). Po pobraniu danych z usługi Lake przekształćsz je za pośrednictwem mapowania przepływów danych, natywnej usługi transformacji fabryki danych i ujścia do usługi Azure Synapse Analytics (dawniej SQL DW). Następnie udostępnimy tabelę z przekształconymi danymi wraz z dodatkowymi danymi za pomocą udziału danych platformy Azure. 
 
-Dane używane w tym laboratorium to dane z taksówki w Nowym Jorku. Aby zaimportować ją do usługi Azure SQL Database, Pobierz [plik taksówka-dane BACPAC](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
+Dane używane w tym laboratorium to dane z taksówki w Nowym Jorku. Aby zaimportować go do bazy danych w SQL Database, Pobierz [plik taksówka-dane BACPAC](https://github.com/djpmsft/ADF_Labs/blob/master/sample-data/taxi-data.bacpac).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -146,7 +146,7 @@ Zestaw danych źródłowych został pomyślnie utworzony. Upewnij się, że w us
 1. W okienku wybierz Format wybierz pozycję **DelimitedText** podczas zapisywania do pliku CSV. Kliknij przycisk Kontynuuj.
 
     ![Portal](media/lab-data-flow-data-share/copy9.png)
-1. Nazwij zestaw danych ujścia "TripDataCSV". Wybierz pozycję "ADLSGen2" jako połączoną usługę. Wprowadź miejsce zapisania pliku CSV. Można na przykład napisać dane do pliku `trip-data.csv` w kontenerze. `staging-container` Ustaw **pierwszy wiersz jako nagłówek** na wartość true, ponieważ chcesz, aby dane wyjściowe miały nagłówki. Ponieważ plik nie istnieje jeszcze w miejscu docelowym, ustaw dla opcji **Importuj schemat** **wartość Brak**. Po zakończeniu kliknij przycisk OK.
+1. Nazwij zestaw danych ujścia "TripDataCSV". Wybierz pozycję "ADLSGen2" jako połączoną usługę. Wprowadź miejsce zapisania pliku CSV. Można na przykład napisać dane do pliku `trip-data.csv` w kontenerze `staging-container` . Ustaw **pierwszy wiersz jako nagłówek** na wartość true, ponieważ chcesz, aby dane wyjściowe miały nagłówki. Ponieważ plik nie istnieje jeszcze w miejscu docelowym, ustaw dla opcji **Importuj schemat** **wartość Brak**. Po zakończeniu kliknij przycisk OK.
 
     ![Portal](media/lab-data-flow-data-share/copy10.png)
 
@@ -226,7 +226,7 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
     ![Portal](media/lab-data-flow-data-share/join1.png)
 1. Nazwij transformację join "InnerJoinWithTripFares". Wybierz pozycję "TripFaresSQL" z listy rozwijanej odpowiedniego strumienia. Wybierz pozycję **wewnętrzne** jako typ sprzężenia. Aby dowiedzieć się więcej o różnych typach sprzężeń w mapowaniu przepływu danych, zobacz [typy sprzężeń](https://docs.microsoft.com/azure/data-factory/data-flow-join#join-types).
 
-    Wybierz kolumny, które mają być zgodne z każdym strumieniem za pomocą listy rozwijanej **warunki sprzężenia** . Aby dodać dodatkowy warunek sprzężenia, kliknij ikonę znaku plus obok istniejącego warunku. Domyślnie wszystkie warunki sprzężenia są łączone za pomocą operatora i, co oznacza, że wszystkie warunki muszą zostać spełnione w celu dopasowania. W tym laboratorium chcemy dopasować kolumny `medallion`, `hack_license`, i `vendor_id``pickup_datetime`
+    Wybierz kolumny, które mają być zgodne z każdym strumieniem za pomocą listy rozwijanej **warunki sprzężenia** . Aby dodać dodatkowy warunek sprzężenia, kliknij ikonę znaku plus obok istniejącego warunku. Domyślnie wszystkie warunki sprzężenia są łączone za pomocą operatora i, co oznacza, że wszystkie warunki muszą zostać spełnione w celu dopasowania. W tym laboratorium chcemy dopasować kolumny `medallion` , `hack_license` , `vendor_id` i`pickup_datetime`
 
     ![Portal](media/lab-data-flow-data-share/join2.png)
 1. Sprawdź, czy pomyślnie dołączono 25 kolumn wraz z podglądem danych.
@@ -250,15 +250,15 @@ Przepływ danych utworzony w tym kroku wewnętrzny przyłączy zestaw danych "Tr
     ![Portal](media/lab-data-flow-data-share/agg3.png)
 1. Aby wprowadzić wyrażenie agregacji, kliknij niebieskie pole z etykietą **wprowadź wyrażenie**. Spowoduje to otwarcie konstruktora wyrażeń przepływu danych, narzędzia służącego do wizualnego tworzenia wyrażeń przepływu danych przy użyciu schematu wejściowego, wbudowanych funkcji i operacji oraz parametrów zdefiniowanych przez użytkownika. Aby uzyskać więcej informacji o możliwościach konstruktora wyrażeń, zobacz dokumentację programu [Expression Builder](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
 
-    Aby uzyskać średnią opłatę, użyj `avg()` funkcji agregacji do agregowania rzutowania `total_amount` kolumny do liczby `toInteger()`całkowitej za pomocą. W języku wyrażeń przepływu danych jest to zdefiniowane jako `avg(toInteger(total_amount))`. Po zakończeniu kliknij przycisk **Zapisz i Zakończ** .
+    Aby uzyskać średnią opłatę, użyj `avg()` funkcji agregacji do agregowania `total_amount` rzutowania kolumny do liczby całkowitej za pomocą `toInteger()` . W języku wyrażeń przepływu danych jest to zdefiniowane jako `avg(toInteger(total_amount))` . Po zakończeniu kliknij przycisk **Zapisz i Zakończ** .
 
     ![Portal](media/lab-data-flow-data-share/agg4.png)
-1. Aby dodać dodatkowe wyrażenie agregacji, kliknij ikonę znaku plus obok pozycji `average_fare`. Wybierz pozycję **Dodaj kolumnę**.
+1. Aby dodać dodatkowe wyrażenie agregacji, kliknij ikonę znaku plus obok pozycji `average_fare` . Wybierz pozycję **Dodaj kolumnę**.
 
     ![Portal](media/lab-data-flow-data-share/agg5.png)
 1. W polu tekstowym **Dodaj lub zaznacz kolumnę**wpisz "total_trip_distance". Jak w ostatnim kroku, Otwórz konstruktora wyrażeń, aby wprowadzić wyrażenie.
 
-    Aby uzyskać łączną odległość podróży, użyj funkcji `sum()` agregacji, aby agregować `trip_distance` rzutowanie kolumny na liczbę całkowitą `toInteger()`z. W języku wyrażeń przepływu danych jest to zdefiniowane jako `sum(toInteger(trip_distance))`. Po zakończeniu kliknij przycisk **Zapisz i Zakończ** .
+    Aby uzyskać łączną odległość podróży, użyj `sum()` funkcji agregacji, aby agregować `trip_distance` rzutowanie kolumny na liczbę całkowitą z `toInteger()` . W języku wyrażeń przepływu danych jest to zdefiniowane jako `sum(toInteger(trip_distance))` . Po zakończeniu kliknij przycisk **Zapisz i Zakończ** .
 
     ![Portal](media/lab-data-flow-data-share/agg6.png)
 1. Przetestuj logikę transformacji na karcie **Podgląd danych** . Jak widać, istnieje znacznie mniej wierszy i kolumn niż poprzednio. Tylko trzy kolumny Grupuj według i agregacji zdefiniowane w tym przekształceniu są kontynuowane. Ponieważ w przykładzie istnieje tylko pięć grup typów płatności, są zwracane tylko pięć wierszy.
@@ -336,7 +336,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
     ![Szczegóły udostępniania](media/lab-data-flow-data-share/ads-details.png)
 
-1. Wybierz przycisk **Kontynuuj**. 
+1. Wybierz pozycję **Continue** (Kontynuuj). 
 
 1. Wybierz pozycję **Dodaj zestawy danych** 
 
@@ -390,7 +390,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
         ![Dodawanie adresatów](media/lab-data-flow-data-share/add-recipients.png)
 
-    1. Dodaj do fikcyjnego konsumenta danych o nazwie *janedoe@fabrikam.com*.
+    1. Dodaj do fikcyjnego konsumenta danych o nazwie *janedoe@fabrikam.com* .
 
 1. Na tym ekranie można skonfigurować ustawienie migawki dla konsumenta danych. Dzięki temu będą one otrzymywać regularne aktualizacje danych w określonym przez siebie interwale. 
 
@@ -412,7 +412,7 @@ Po utworzeniu udziału danych następnie Przełącz systemy i Zostań *konsument
 
     ![Oczekujące zaproszenia](media/lab-data-flow-data-share/pending-invites.png)
 
-1. Wybierz zaproszenie do *janedoe@fabrikam.com*. Wybierz pozycję Usuń. Jeśli odbiorca nie zaakceptował jeszcze zaproszenia, nie będzie już można tego robić. 
+1. Wybierz zaproszenie do *janedoe@fabrikam.com* . Wybierz pozycję Usuń. Jeśli odbiorca nie zaakceptował jeszcze zaproszenia, nie będzie już można tego robić. 
 
 1. Wybierz kartę **historia** . Nic nie jest jeszcze wyświetlane, ponieważ odbiorca danych nie zaakceptował jeszcze zaproszenia i wyzwolił migawkę. 
 

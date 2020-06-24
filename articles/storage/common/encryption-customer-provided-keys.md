@@ -8,14 +8,14 @@ ms.service: storage
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: c8a5555c5c33255fdc5902a115e7e9103a4e936f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e5a85bcc4ded3b4bf3fcbcaf095d7c8ef01c458
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79410066"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805317"
 ---
 # <a name="provide-an-encryption-key-on-a-request-to-blob-storage-preview"></a>Podaj klucz szyfrowania w żądaniu do magazynu obiektów BLOB (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Klienci wysyłający żądania do usługi Azure Blob Storage mają możliwość 
 
 Gdy aplikacja kliencka udostępnia klucz szyfrowania w żądaniu, usługa Azure Storage wykonuje szyfrowanie i odszyfrowywanie w niewidoczny sposób podczas odczytywania i zapisywania danych obiektów BLOB. Usługa Azure Storage zapisuje skrót SHA-256 klucza szyfrowania obok zawartości obiektu BLOB. Skrót jest używany do sprawdzania, czy wszystkie kolejne operacje dotyczące obiektu BLOB używają tego samego klucza szyfrowania.
 
-Usługa Azure Storage nie przechowuje klucza szyfrowania, który jest wysyłany przez klienta wraz z żądaniem, ani nie zarządza nim. Klucz jest bezpiecznie odrzucony zaraz po zakończeniu procesu szyfrowania lub odszyfrowywania.
+Usługa Azure Storage nie przechowuje klucza szyfrowania, który jest wysyłany przez klienta wraz z żądaniem, ani nie zarządza nim. Klucz jest bezpiecznie odrzucany zaraz po zakończeniu procesu szyfrowania lub odszyfrowywania.
 
 Gdy klient tworzy lub aktualizuje obiekt BLOB przy użyciu klucza dostarczonego przez klienta w żądaniu, kolejne żądania odczytu i zapisu dla tego obiektu BLOB muszą również dostarczyć klucz. Jeśli nie podano klucza dla żądania obiektu BLOB, który został już zaszyfrowany za pomocą klucza dostarczonego przez klienta, żądanie kończy się niepowodzeniem z kodem błędu 409 (konflikt).
 
@@ -77,4 +77,4 @@ Aby obrócić klucz szyfrowania, który został użyty do zaszyfrowania obiektu 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Określ klucz dostarczony przez klienta w żądaniu do magazynu obiektów BLOB za pomocą platformy .NET](../blobs/storage-blob-customer-provided-key.md)
-- [Szyfrowanie usługi Azure Storage dla danych magazynowanych](storage-service-encryption.md)
+- [Szyfrowanie w usłudze Azure Storage dla danych magazynowanych](storage-service-encryption.md)

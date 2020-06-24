@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 499bf25f06030ae9fc5c1f8381ef4cd6ff6873dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 857d6cdc26e41f5ea7b1d66aaff6efb4056c47c4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535625"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254501"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Przykłady interfejsu wiersza polecenia dla usługi Azure App Service
 
@@ -35,7 +35,7 @@ Poniższa tabela zawiera linki do skryptów bash utworzonych za pomocą interfej
 |**Ochrona aplikacji**||
 | [Integracja z usługą Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację App Service i integruje ją z Application Gateway przy użyciu punktu końcowego usługi i ograniczeń dostępu. |
 |**Łączenie aplikacji z zasobami**||
-| [Łączenie aplikacji z programem SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service i bazę danych SQL, a następnie dodaje parametry połączenia z bazą danych do ustawień aplikacji. |
+| [Łączenie aplikacji z programem SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację App Service i bazę danych w Azure SQL Database, a następnie dodaje parametry połączenia z bazą danych do ustawień aplikacji. |
 | [Łączenie aplikacji z kontem magazynu](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Tworzy aplikację usługi App Service i konto magazynu, a następnie dodaje parametry połączenia z magazynem do ustawień aplikacji. |
 | [Łączenie aplikacji z usługą Azure Cache for Redis](./scripts/cli-connect-to-redis.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację usługi App Service i usługę Azure Cache for Redis, a następnie dodaje szczegóły połączenia z serwerem Redis do ustawień aplikacji. |
 | [Łączenie aplikacji z usługą Cosmos DB](./scripts/cli-connect-to-documentdb.md?toc=%2fcli%2fazure%2ftoc.json) | Tworzy aplikację usługi App Service i usługę Cosmos DB, a następnie dodaje szczegóły połączenia z usługą Cosmos DB do ustawień aplikacji. |

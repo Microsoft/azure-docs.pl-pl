@@ -9,15 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7aa7c33a94980081efa3bc54422389aef7defa61
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 6c0518e12a2c654b8f971db3a6733b0e64f80a1f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235019"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254054"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Samouczek: synchronizacja danych z programu SQL Edge do Azure SQL Database przy użyciu SQL Data Sync
-
 
 W tym samouczku dowiesz się, jak używać *grupy synchronizacji* SQL Data Sync Azure do przyrostowej synchronizacji danych z usługi Azure SQL Edge do Azure SQL Database. SQL Data Sync to usługa oparta na Azure SQL Database, która pozwala synchronizować dane, które są wybierane dwukierunkowo dla wielu baz danych w Azure SQL Database i SQL Server wystąpieniach. Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz [Azure SQL Data Sync](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md).
 
@@ -29,7 +28,7 @@ Ten samouczek wymaga komputera z systemem Windows, który został skonfigurowany
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Utworzenie bazy danych Azure SQL Database. Aby uzyskać informacje na temat sposobu tworzenia bazy danych Azure SQL Database przy użyciu Azure Portal, zobacz [Tworzenie pojedynczej bazy danych w programie Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
+* Utwórz bazę danych w Azure SQL Database. Aby uzyskać informacje na temat sposobu tworzenia bazy danych przy użyciu Azure Portal, zobacz [Tworzenie pojedynczej bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
 * Utwórz tabele i inne niezbędne obiekty we wdrożeniu Azure SQL Database.
 
@@ -37,9 +36,9 @@ Ten samouczek wymaga komputera z systemem Windows, który został skonfigurowany
 
 * Zarejestruj wystąpienie usługi Azure SQL Edge przy użyciu agenta synchronizacji danych dla platformy Azure SQL Data Sync. Aby uzyskać więcej informacji, zobacz [Dodawanie bazy danych SQL Server](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-on-prem).
 
-## <a name="sync-data-between-an-azure-sql-database-and-sql-edge"></a>Synchronizowanie danych między bazą danych SQL Azure a programem SQL Edge
+## <a name="sync-data-between-a-database-in-azure-sql-database-and-sql-edge"></a>Synchronizowanie danych między bazą danych w Azure SQL Database i SQL Edge
 
-Konfigurowanie synchronizacji między bazą danych Azure SQL Database i wystąpieniem programu SQL Edge przy użyciu SQL Data Sync obejmuje trzy kluczowe kroki:  
+Konfigurowanie synchronizacji między bazą danych w Azure SQL Database i wystąpieniem programu SQL Edge przy użyciu SQL Data Sync obejmuje trzy kluczowe kroki:  
 
 
 1. Użyj Azure Portal, aby utworzyć grupę synchronizacji. Aby uzyskać więcej informacji, zobacz [Tworzenie grupy synchronizacji](../azure-sql/database/sql-data-sync-sql-server-configure.md#create-sync-group). Pojedynczej bazy danych można użyć do utworzenia wielu grup synchronizacji w celu synchronizowania danych z różnych wystąpień programu SQL Edge do co najmniej jednej *bazy danych w* Azure SQL Database. 
@@ -48,7 +47,7 @@ Konfigurowanie synchronizacji między bazą danych Azure SQL Database i wystąpi
 
 3. Skonfiguruj grupę synchronizacji, aby wybrać tabele, które będą częścią synchronizacji. Aby uzyskać więcej informacji, zobacz [Konfigurowanie grupy synchronizacji](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-sync-members).
 
-Po wykonaniu powyższych kroków będziesz mieć grupę synchronizacji obejmującą bazę danych SQL Azure i wystąpienie programu SQL Edge.
+Po wykonaniu powyższych kroków będziesz mieć grupę synchronizacji zawierającą bazę danych w Azure SQL Database i wystąpieniem programu SQL Edge.
 
 Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz następujące artykuły:
 

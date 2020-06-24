@@ -1,6 +1,6 @@
 ---
 title: Użyj Azure Portal, aby utworzyć potok fabryki danych
-description: Ten samouczek zawiera instrukcje krok po kroku dotyczące tworzenia fabryki danych z potokiem za pomocą witryny Azure Portal. Potok używa działania kopiowania do kopiowania danych z usługi Azure Blob Storage do bazy danych Azure SQL Database.
+description: Ten samouczek zawiera instrukcje krok po kroku dotyczące tworzenia fabryki danych z potokiem za pomocą witryny Azure Portal. Potok używa działania kopiowania do kopiowania danych z usługi Azure Blob Storage do Azure SQL Database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 16b5eeb33f8be07d6257d8d7957ea2526ab9d3f1
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248621"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253970"
 ---
-# <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Azure Blob Storage do bazy danych SQL za pomocą usługi Azure Data Factory
+# <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Azure Blob Storage do bazy danych w Azure SQL Database przy użyciu Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym samouczku utworzysz fabrykę danych przy użyciu interfejsu użytkownika usługi Azure Data Factory. Potok w tej fabryce danych kopiuje dane z usługi Azure Blob Storage do bazy danych Azure SQL Database. Wzorzec konfiguracji w tym samouczku ma zastosowanie do kopiowania danych z magazynu opartego na plikach do relacyjnego magazynu danych. Aby zapoznać się z listą magazynów danych obsługiwanych jako źródła i ujścia, zobacz tabelę zawierającą [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).
+W tym samouczku utworzysz fabrykę danych przy użyciu interfejsu użytkownika usługi Azure Data Factory. Potok w tej fabryce danych kopiuje dane z usługi Azure Blob Storage do bazy danych w Azure SQL Database. Wzorzec konfiguracji w tym samouczku ma zastosowanie do kopiowania danych z magazynu opartego na plikach do relacyjnego magazynu danych. Aby zapoznać się z listą magazynów danych obsługiwanych jako źródła i ujścia, zobacz tabelę zawierającą [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE]
 > - Jeśli jesteś nowym użytkownikiem usługi Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
@@ -41,7 +41,7 @@ Ten samouczek obejmuje wykonanie następujących kroków:
 ## <a name="prerequisites"></a>Wymagania wstępne
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto platformy Azure](https://azure.microsoft.com/free/) .
 * **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych będący *źródłem*. Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu platformy Azure](../storage/common/storage-account-create.md).
-* **Azure SQL Database**. Baza danych jest używana jako magazyn danych będący *ujściem*. Jeśli nie masz bazy danych SQL Azure, zobacz [Tworzenie bazy danych SQL](../azure-sql/database/single-database-create-quickstart.md) w celu wykonania czynności.
+* **Azure SQL Database**. Baza danych jest używana jako magazyn danych będący *ujściem*. Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z instrukcjami [tworzenia bazy danych w Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) .
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Tworzenie obiektu blob i tabeli SQL
 
@@ -61,7 +61,7 @@ Teraz przygotuj swój magazyn obiektów blob i bazę danych SQL na potrzeby tego
 
 #### <a name="create-a-sink-sql-table"></a>Tworzenie tabeli SQL ujścia
 
-1. Utwórz tabelę **dbo.emp** w bazie danych SQL przy użyciu poniższego skryptu SQL:
+1. Użyj poniższego skryptu SQL, aby utworzyć tabelę **dbo. EMP** w bazie danych:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -97,7 +97,7 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
 6. W obszarze **Wersja** wybierz pozycję **V2**.
 7. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Wybierz pozycję **Utwórz**.
+8. Wybierz przycisk **Utwórz**.
 9. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony Fabryka danych.
 10. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
@@ -139,7 +139,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
 1. Po utworzeniu połączonej usługi zostanie ona wyłączona z powrotem do strony **Ustawianie właściwości** . Wybierz przycisk **Przeglądaj** obok pozycji **Ścieżka pliku**.
 
-1. Przejdź do folderu **adftutorial/Input** , wybierz plik **EMP. txt** , a następnie wybierz przycisk **OK**.
+1. Przejdź do folderu **adftutorial/Input** , wybierz plik **emp.txt** , a następnie wybierz przycisk **OK**.
 
 1. Wybierz przycisk **OK**. Automatycznie przechodzi do strony potoku. Na karcie **Źródło** upewnij się, że wybrano opcję **SourceBlobDataset** . Aby wyświetlić podgląd danych na tej stronie, wybierz pozycję **Podgląd danych**.
 
@@ -154,7 +154,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
 1. W oknie dialogowym **Nowy zestaw danych** wprowadź wartość "SQL" w polu wyszukiwania, aby odfiltrować łączniki, wybierz pozycję **Azure SQL Database**, a następnie wybierz pozycję **Kontynuuj**. W tym samouczku skopiujesz dane do bazy danych SQL.
 
-1. W oknie dialogowym **Ustawianie właściwości** wpisz **OutputSqlDataset** w polu Nazwa. Z listy rozwijanej **połączona usługa** wybierz pozycję **+ Nowy**. Zestaw danych musi być skojarzony z połączoną usługą. Połączona usługa ma parametry połączenia, których usługa Data Factory używa do nawiązywania połączenia z usługą SQL Database w środowisku uruchomieniowym. Zestaw danych określa kontener, folder i plik (opcjonalnie), do którego dane są kopiowane.
+1. W oknie dialogowym **Ustawianie właściwości** wpisz **OutputSqlDataset** w polu Nazwa. Z listy rozwijanej **połączona usługa** wybierz pozycję **+ Nowy**. Zestaw danych musi być skojarzony z połączoną usługą. Połączona usługa ma parametry połączenia, których Data Factory używa do nawiązywania połączenia z SQL Database w czasie wykonywania. Zestaw danych określa kontener, folder i plik (opcjonalnie), do którego dane są kopiowane.
 
 1. W oknie dialogowym **Nowa połączona usługa (Azure SQL Database)** wykonaj następujące czynności:
 
@@ -162,7 +162,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
     b. W polu **Nazwa serwera** wybierz swoje wystąpienie programu SQL Server.
 
-    d. W polu **Nazwa bazy danych** wybierz swoją usługę SQL Database.
+    c. W obszarze **Nazwa bazy danych**wybierz swoją bazę danych.
 
     d. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika.
 
@@ -209,7 +209,7 @@ W tym kroku ręcznie wyzwolisz potok, który został opublikowany w poprzednim k
 
     [![Monitorowanie uruchomień działania](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png)](./media/tutorial-copy-data-portal/view-activity-runs-inline-and-expended.png#lightbox)
 
-1. Sprawdź, czy dodano jeszcze dwa wiersze do tabeli **emp** w bazie danych SQL.
+1. Sprawdź, czy dodano dwa więcej wierszy do tabeli **EMP** w bazie danych.
 
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Wyzwalanie potoku zgodnie z harmonogramem
 W tym kroku utworzysz wyzwalacz harmonogramu potoku. Wyzwalacz uruchamia potok zgodnie z określonym harmonogramem, na przykład co godzinę lub codziennie. W tym miejscu ustawisz wyzwalacz do uruchomienia co minutę, aż do określonej daty/godziny zakończenia.
@@ -226,7 +226,7 @@ W tym kroku utworzysz wyzwalacz harmonogramu potoku. Wyzwalacz uruchamia potok z
 
     b. W obszarze **Koniec** wybierz pozycję **W dniu**.
 
-    d. W obszarze **Dzień zakończenia** wybierz listę rozwijaną.
+    c. W obszarze **Dzień zakończenia** wybierz listę rozwijaną.
 
     d. Wybierz opcję **Bieżący dzień**. Domyślnie dzień zakończenia jest ustawiony na następny dzień.
 

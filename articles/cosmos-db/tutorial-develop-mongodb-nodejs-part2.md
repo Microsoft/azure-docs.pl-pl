@@ -1,5 +1,5 @@
 ---
-title: Tworzenie aplikacji node. js Express za pomocą interfejsu API Azure Cosmos DB dla MongoDB (part2)
+title: Tworzenie aplikacji Node.js Express za pomocą interfejsu API Azure Cosmos DB dla MongoDB (part2)
 description: Część 2 z serii samouczków o tworzeniu aplikacji bazy danych MongoDB przy użyciu usługi Angular i języka Node dla usługi Azure Cosmos DB przy użyciu dokładnie tych samych interfejsów API, które były używane dla bazy danych MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75441132"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119175"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Tworzenie aplikacji Angular przy użyciu interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB — tworzenie aplikacji Node.js Express
 
@@ -163,7 +163,7 @@ Dla tego samouczka wymagane są również następujące elementy:
 
     Ta odpowiedź pokazuje, że aplikacja została uruchomiona i działa lokalnie. 
 
-    ![Narzędzie Postman przedstawiające żądanie i odpowiedź](./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png)
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part2/azure-cosmos-db-postman.png" alt-text="Narzędzie Postman przedstawiające żądanie i odpowiedź":::
 
 
 ## <a name="next-steps"></a>Następne kroki

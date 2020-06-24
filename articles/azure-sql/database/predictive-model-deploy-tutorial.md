@@ -14,21 +14,22 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86c73944753126aa3fb5c14c8d6626a449365c64
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 84c0f6564fc9ab8abc43205b58d9445cda82a2da
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053327"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253821"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Wdrażanie modelu predykcyjnego w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza)
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-W trzeciej części tego samouczka z trzema częściami zostanie wdrożony model predykcyjny opracowany w języku R w usłudze SQL Database przy użyciu Azure SQL Database Machine Learning Services (wersja zapoznawcza).
+W drugiej części tego samouczka z trzema częściami zostanie wdrożony model predykcyjny, opracowany w języku R, do bazy danych w Azure SQL Database przy użyciu Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-Utworzysz procedurę składowaną z osadzonym skryptem języka R, który wykonuje przewidywania przy użyciu modelu. Ponieważ model jest wykonywany w usłudze Azure SQL Database, można łatwo go przeszkolić do danych przechowywanych w bazie danych.
+Utworzysz procedurę składowaną z osadzonym skryptem języka R, który wykonuje przewidywania przy użyciu modelu. Ponieważ model jest wykonywany w bazie danych programu, można łatwo go przeszkolić do danych przechowywanych w bazie danych.
 
 W tym artykule przy użyciu skryptów języka R, które zostały opracowane w częściach jeden i dwa, dowiesz się, jak:
 
@@ -200,7 +201,7 @@ RentalCount_Predicted
 332.571428571429
 ```
 
-Pomyślnie utworzono, przeszkolony i wdrożono model w usłudze Azure SQL Database. Następnie ten model jest używany w procedurze składowanej do przewidywania wartości na podstawie nowych danych.
+Pomyślnie utworzono, przeszkolony i wdrożono model w bazie danych w Azure SQL Database. Następnie ten model jest używany w procedurze składowanej do przewidywania wartości na podstawie nowych danych.
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 

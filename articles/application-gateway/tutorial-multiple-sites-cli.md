@@ -5,20 +5,20 @@ description: Dowiedz się, jak utworzyć bramę aplikacji hostującą wiele witr
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0a92d0f7d17f6bb83efbe94434c25072975dbe57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a559ec7f9138810611841eed4a035f30662bc39
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74047353"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806270"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>tworzenie bramy aplikacji hostującej wiele witryn internetowych przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Za pomocą interfejsu wiersza polecenia platformy Azure podczas tworzenia [bramy aplikacji](overview.md) możesz [skonfigurować hostowanie wielu witryn internetowych](multiple-site-overview.md). W tym artykule opisano Definiowanie pul adresów zaplecza przy użyciu zestawów skalowania maszyn wirtualnych. Następnie, bazując na należących do Ciebie domenach, skonfigurujesz odbiorniki i reguły, aby się upewnić, że ruch internetowy dociera do odpowiednich serwerów w pulach. W tym artykule przyjęto założenie, że posiadasz wiele domen i używasz przykładowych *contoso.com www\.* i *www\.fabrikam.com*.
+Za pomocą interfejsu wiersza polecenia platformy Azure podczas tworzenia [bramy aplikacji](overview.md) możesz [skonfigurować hostowanie wielu witryn internetowych](multiple-site-overview.md). W tym artykule opisano Definiowanie pul adresów zaplecza przy użyciu zestawów skalowania maszyn wirtualnych. Następnie, bazując na należących do Ciebie domenach, skonfigurujesz odbiorniki i reguły, aby się upewnić, że ruch internetowy dociera do odpowiednich serwerów w pulach. W tym artykule przyjęto założenie, że posiadasz wiele domen i używasz przykładowych * \. contoso.com www* i *www \. fabrikam.com*.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -34,7 +34,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -236,7 +236,7 @@ Użycie rekordów A nie jest zalecane, ponieważ adres VIP może ulec zmianie po
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Wpisz nazwę swojej domeny na pasku adresu przeglądarki. Na przykład http:\//www.contoso.com.
+Wpisz nazwę swojej domeny na pasku adresu przeglądarki. Na przykład http: \/ /www.contoso.com.
 
 ![Testowanie witryny contoso w bramie aplikacji](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 
@@ -244,7 +244,7 @@ Zmień adres na drugą domenę. Powinny zostać wyświetlone informacje, jak w n
 
 ![Testowanie witryny fabrikam w bramy aplikacji](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest2.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, brama aplikacji i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć.
 

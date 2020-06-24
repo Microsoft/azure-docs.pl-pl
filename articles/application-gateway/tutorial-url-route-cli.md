@@ -4,16 +4,16 @@ description: W tym artykule dowiesz się, jak kierować ruchem internetowym na p
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b6bc0b00579bdef0a358f756b8cf2b6034aca017
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: fc32dd5c477a76a20bc3a641ec8761e95c129554
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68688177"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805884"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Kierowanie ruchu internetowego na podstawie adresu URL przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -33,7 +33,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 Jeśli wolisz, możesz wykonać tę procedurę przy użyciu [Azure PowerShell](tutorial-url-route-powershell.md) lub [Azure Portal](create-url-route-portal.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -98,7 +98,7 @@ az network application-gateway create \
  Tworzenie bramy aplikacji może potrwać kilka minut. Po utworzeniu bramy aplikacji możesz zauważyć następujące nowe funkcje:
 
 
-|Funkcja  |Opis  |
+|Cecha  |Opis  |
 |---------|---------|
 |appGatewayBackendPool     |Brama aplikacji musi mieć co najmniej jedną pulę adresów zaplecza.|
 |appGatewayBackendHttpSettings     |Określa, że port 80 i protokół HTTP są używane do komunikacji.|
@@ -236,7 +236,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Aby uzyskać publiczny adres IP bramy aplikacji, użyj polecenia az network public-ip show. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Takie jak, `http://40.121.222.19` `http://40.121.222.19:8080/images/test.htm`, lub `http://40.121.222.19:8080/video/test.htm`.
+Aby uzyskać publiczny adres IP bramy aplikacji, użyj polecenia az network public-ip show. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Takie jak, `http://40.121.222.19` , `http://40.121.222.19:8080/images/test.htm` lub `http://40.121.222.19:8080/video/test.htm` .
 
 ```azurecli-interactive
 az network public-ip show \
@@ -248,15 +248,15 @@ az network public-ip show \
 
 ![Testowanie podstawowego adresu URL w bramie aplikacji](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-Zmień adres URL na http://&lt;IP-address&gt;: 8080/images/test.html, zastępując adres IP adresem &lt;IP&gt;i powinien wyglądać podobnie do następującego przykładu:
+Zmień adres URL na http:// &lt; IP-Address &gt; : 8080/images/test.html, zastępując adres IP adresem &lt; IP &gt; i powinien wyglądać podobnie do poniższego przykładu:
 
 ![Testowanie adresu URL obrazów w bramie aplikacji](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 
-Zmień adres URL na http://&lt;IP-address&gt;: 8080/Video/test.html, zastępując adres IP adresem &lt;IP&gt;i powinien wyglądać podobnie do poniższego przykładu.
+Zmień adres URL na http:// &lt; IP-Address &gt; : 8080/video/test.html, zastępując adres IP adresem &lt; IP &gt; i powinien wyglądać podobnie do poniższego przykładu.
 
 ![Testowanie adresu URL wideo w bramie aplikacji](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, brama aplikacji i wszystkie pokrewne zasoby nie będą już potrzebne, można je usunąć.
 

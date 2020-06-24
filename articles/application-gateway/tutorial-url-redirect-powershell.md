@@ -6,13 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: c577859f6e8a44dd3573537aecadba638a5f6fa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 7a0e29d3fc90d50f23247a9c11cd4846aa4fb158
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80059383"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84806029"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowywaniem na podstawie ścieżki URL za pomocą programu Azure PowerShell
 
@@ -32,7 +32,7 @@ Poniższy przykład przedstawia kierowanie ruchu w witrynie, przychodzącego z p
 
 Jeśli wolisz, możesz wykonać tę procedurę za pomocą [interfejsu wiersza polecenia platformy Azure](tutorial-url-redirect-cli.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -491,7 +491,7 @@ for ($i=1; $i -le 3; $i++)
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Aby uzyskać publiczny adres IP bramy aplikacji, można użyć [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) . Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Takie jak, `http://52.168.55.24` `http://52.168.55.24:8080/images/test.htm` `http://52.168.55.24:8080/video/test.htm`,, lub `http://52.168.55.24:8081/images/test.htm`.
+Aby uzyskać publiczny adres IP bramy aplikacji, można użyć [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) . Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki. Takie jak,,, `http://52.168.55.24` `http://52.168.55.24:8080/images/test.htm` `http://52.168.55.24:8080/video/test.htm` lub `http://52.168.55.24:8081/images/test.htm` .
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -509,7 +509,7 @@ Zmień adres URL na http://&lt;adres-ip&gt;:8080/video/test.htm, zamieniając ci
 
 Zmień adres URL na http://&lt;adres-ip&gt;:8081/images/test.htm, zamieniając ciąg &lt;adres-ip&gt; na odpowiedni adres IP. Ruch powinien być przekierowywany z powrotem do puli zaplecza obrazów pod adresem http://&lt;adres-ip&gt;:8080/images.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, Brama aplikacji i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je za pomocą polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

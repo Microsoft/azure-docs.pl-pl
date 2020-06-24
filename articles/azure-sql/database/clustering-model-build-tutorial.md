@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7d0bc787f1ae4444849a1483d6323f8a098ae1e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 115688eeccab3a48bf4234f00124bcd6bc950853
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053411"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251441"
 ---
 # <a name="tutorial-build-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Tworzenie modelu klastrowania w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-W drugiej części tej serii samouczków z trzema częściami utworzysz model K-oznaczający, że w języku R zostanie wykonane tworzenie klastrów. W następnej części tej serii ten model zostanie wdrożony w bazie danych SQL za pomocą Azure SQL Database Machine Learning Services (wersja zapoznawcza).
+W drugiej części tej serii samouczków z trzema częściami utworzysz model K-oznaczający, że w języku R zostanie wykonane tworzenie klastrów. W następnej części tej serii ten model zostanie wdrożony w bazie danych programu w Azure SQL Database z Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -36,9 +36,9 @@ W tym artykule dowiesz się, jak:
 > * Wykonaj klaster
 > * Analiza wyników
 
-W [części pierwszej](clustering-model-prepare-data-tutorial.md)przedstawiono sposób przygotowania danych z bazy danych Azure SQL Database w celu przeprowadzenia klastrowania.
+W [części pierwszej](clustering-model-prepare-data-tutorial.md)przedstawiono sposób przygotowania danych z bazy danych w celu przeprowadzenia klastrowania.
 
-W [trzeciej części](clustering-model-deploy-tutorial.md)dowiesz się, jak utworzyć procedurę przechowywaną w bazie danych Azure SQL Database, która może wykonywać klastry w języku R na podstawie nowych danych.
+W [trzeciej części](clustering-model-deploy-tutorial.md)dowiesz się, jak utworzyć procedurę składowaną, która może wykonywać klastrowanie w języku R na podstawie nowych danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

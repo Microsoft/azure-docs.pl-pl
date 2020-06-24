@@ -14,12 +14,12 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 764d0131b0b8074a210bd9eb7f806f5d1a32fa1f
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: b42dba59e061eee0472d39f324b7474d7d829310
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324236"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250727"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Dodaj pakiet języka R do Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ W tym artykule wyjaśniono, jak dodać pakiet języka R do Azure SQL Database Ma
 
 ## <a name="list-r-packages"></a>Pakiety języka R
 
-Firma Microsoft udostępnia wiele pakietów języka R wstępnie zainstalowanych z Machine Learning Services w bazie danych SQL Azure.
+Firma Microsoft udostępnia wiele pakietów języka R wstępnie zainstalowanych z Machine Learning Services w Azure SQL Database.
 Listę zainstalowanych pakietów języka R można wyświetlić, uruchamiając następujące polecenie w Azure Data Studio lub SSMS.
 
 1. Otwórz Azure Data Studio lub SSMS i Połącz się z Azure SQL Database.
@@ -60,7 +60,7 @@ Listę zainstalowanych pakietów języka R można wyświetlić, uruchamiając na
 
 Dane wyjściowe powinny wyglądać podobnie do poniższego.
 
-**Uzyskane**
+**Wyniki**
 
 ![Zainstalowane pakiety w języku R](./media/machine-learning-services-add-r-packages/r-installed-packages.png)
 
@@ -90,7 +90,7 @@ W poniższym przykładzie zostanie zainstalowany pakiet **[glue](https://cran.r-
     ```
 
     > [!TIP]
-    > Jeśli wystąpi błąd, "R" nie jest rozpoznawany jako polecenie wewnętrzne lub zewnętrzne, program wykonywalny lub plik wsadowy, prawdopodobnie oznacza to, że ścieżka do języka R. exe nie jest uwzględniona w zmiennej środowiskowej **Path** w systemie Windows. Możesz dodać ścieżkę do zmiennej środowiskowej lub przejdź do folderu w wierszu polecenia (na przykład `cd C:\Program Files\R\R-3.5.3\bin` ), a następnie ponów próbę wykonania tego polecenia.
+    > Jeśli wystąpi błąd, "R" nie jest rozpoznawany jako polecenie wewnętrzne lub zewnętrzne, program wykonywalny lub plik wsadowy, prawdopodobnie oznacza to, że ścieżka do R.exe nie jest uwzględniona w zmiennej środowiskowej **Path** w systemie Windows. Możesz dodać ścieżkę do zmiennej środowiskowej lub przejdź do folderu w wierszu polecenia (na przykład `cd C:\Program Files\R\R-3.5.3\bin` ), a następnie ponów próbę wykonania tego polecenia.
 
 ### <a name="add-the-package"></a>Dodaj pakiet
 
@@ -121,7 +121,7 @@ r<-sql_installed.packages(connectionString = connection, fields=c("Package", "Ve
 View(r)
 ```
 
-**Uzyskane**
+**Wyniki**
 
 ![Zawartość tabeli RTestData](./media/machine-learning-services-add-r-packages/r-verify-package-install.png)
 
@@ -151,7 +151,7 @@ Po zainstalowaniu pakietu można go użyć w skrypcie języka R za pomocą **sp_
 
     Na karcie **komunikaty** zostanie wyświetlony następujący wynik.
 
-    **Uzyskane**
+    **Wyniki**
 
     ```text
     My name is Fred, my age next year is 51, my anniversary is Sunday, June 14, 2020.
@@ -166,7 +166,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Innym sposobem na zainstalowanie pakietu języka R w usłudze Azure SQL Database jest przekazanie pakietu języka R z strumienia bajtów przy użyciu instrukcji **Create External Library** T-SQL. Zobacz [Tworzenie biblioteki z strumienia bajtów](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) w dokumentacji [tworzenia biblioteki zewnętrznej](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) .
+> Innym sposobem instalacji pakietu języka R w celu Azure SQL Database jest przekazanie pakietu języka R z strumienia bajtów przy użyciu instrukcji **Create External Library** T-SQL. Zobacz [Tworzenie biblioteki z strumienia bajtów](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) w dokumentacji [tworzenia biblioteki zewnętrznej](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql) .
 
 ## <a name="next-steps"></a>Następne kroki
 

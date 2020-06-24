@@ -6,12 +6,12 @@ ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
 ms.date: 03/08/2017
 ms.custom: mvc
-ms.openlocfilehash: f289bd453f2387282402394c807fe9700151f221
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6300b9fe10d7b12d71f87adec85d3a86658a8c97
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81532429"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254484"
 ---
 # <a name="powershell-samples-for-azure-app-service"></a>Przykłady dla programu Azure PowerShell — Azure App Service
 
@@ -32,7 +32,7 @@ Poniższa tabela zawiera linki do skryptów programu PowerShell skompilowanych z
 | [Ręczne skalowanie aplikacji](./scripts/powershell-scale-manual.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Tworzy aplikację usługi App Service i skaluje ją na 2 wystąpienia. |
 | [Skalowanie aplikacji na całym świecie przy użyciu architektury wysokiej dostępności](./scripts/powershell-scale-high-availability.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Tworzy dwie aplikacje usługi App Service w dwóch różnych regionach geograficznych i udostępnia je za pośrednictwem pojedynczego punktu końcowego przy użyciu usługi Azure Traffic Manager. |
 |**Łączenie aplikacji z zasobami**||
-| [Łączenie aplikacji z programem SQL Database](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy aplikację usługi App Service i bazę danych SQL, a następnie dodaje parametry połączenia z bazą danych do ustawień aplikacji. |
+| [Łączenie aplikacji z programem SQL Database](./scripts/powershell-connect-to-sql.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy aplikację App Service i bazę danych w Azure SQL Database, a następnie dodaje parametry połączenia z bazą danych do ustawień aplikacji. |
 | [Łączenie aplikacji z kontem magazynu](./scripts/powershell-connect-to-storage.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Tworzy aplikację usługi App Service i konto magazynu, a następnie dodaje parametry połączenia z magazynem do ustawień aplikacji. |
 |**Tworzenie i przywracanie kopii zapasowej aplikacji**||
 | [Tworzenie kopii zapasowej aplikacji](./scripts/powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Tworzy aplikację usługi App Service oraz jej jednorazową kopię zapasową. |

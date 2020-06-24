@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: Przygotowywanie danych do przeprowadzenia klastrowania w języku R'
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: W pierwszej części tej serii samouczków można przygotować dane z usługi Azure SQL Database w celu przeprowadzenia klastrowania w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza).
+description: W pierwszej części tej serii samouczków z trzema częściami przygotujesz dane z bazy danych programu w Azure SQL Database, aby wykonać klastrowanie w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c06e1b13f87972cbcd50e888edf55158b77881d8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a23dbd150dbe8ab05e0d4cf1f3decd67a856cbf4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053393"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251254"
 ---
 # <a name="tutorial-prepare-data-to-perform-clustering-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Przygotowywanie danych do przeprowadzenia klastrowania w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-W pierwszej części tej serii samouczków z trzema częściami zaimportujesz i przygotujesz dane z bazy danych Azure SQL Database przy użyciu języka R. W dalszej części tej serii będziesz używać tych danych do uczenia i wdrażania modelu klastrowania w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza).
+W pierwszej części tej serii samouczków z trzema częściami zaimportujesz i przygotujesz dane z bazy danych w Azure SQL Database przy użyciu języka R. W dalszej części tej serii będziesz używać tych danych do uczenia i wdrażania modelu klastrowania w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -32,7 +32,7 @@ W pierwszej części tej serii samouczków z trzema częściami zaimportujesz i 
 Aby przeprowadzić klastrowanie klientów w zestawie danych zakupów i zwrotów produktów, należy użyć algorytmu **K-oznaczania** . Klienci korzystający z klastrów mogą skupić wysiłki marketingowe bardziej wydajnie, przeznaczoną dla konkretnych grup.
 K-oznacza, że usługa klastrowania jest *nienadzorowanym algorytmem uczenia* , który szuka wzorców danych na podstawie podobieństw.
 
-W części jednej i dwóch tej serii utworzysz skrypty języka R w programie RStudio, aby przygotować dane i szkolić model uczenia maszynowego. Następnie w części trzeciej można uruchamiać te skrypty języka R w bazie danych SQL przy użyciu procedur składowanych.
+W części jednej i dwóch tej serii utworzysz skrypty języka R w programie RStudio, aby przygotować dane i szkolić model uczenia maszynowego. Następnie w części trzeciej można uruchamiać te skrypty języka R wewnątrz bazy danych za pomocą procedur składowanych.
 
 W tym artykule dowiesz się, jak:
 
@@ -40,11 +40,11 @@ W tym artykule dowiesz się, jak:
 >
 > * Importowanie przykładowej bazy danych do Azure SQL Database
 > * Oddzielni klienci i różne wymiary przy użyciu języka R
-> * Ładowanie danych z bazy danych Azure SQL Database do ramki danych języka R
+> * Ładowanie danych z bazy danych do ramki danych języka R
 
 W [części](clustering-model-build-tutorial.md)drugiej dowiesz się, jak utworzyć i szkolić model klastra K-oznaczania w języku R.
 
-W [trzeciej części](clustering-model-deploy-tutorial.md)dowiesz się, jak utworzyć procedurę przechowywaną w bazie danych Azure SQL Database, która może wykonywać klastry w języku R na podstawie nowych danych.
+W [trzeciej części](clustering-model-deploy-tutorial.md)dowiesz się, jak utworzyć procedurę składowaną, która może wykonywać klastrowanie w języku R na podstawie nowych danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -68,7 +68,7 @@ Przykładowy zestaw danych używany w tym samouczku został zapisany w pliku kop
 
 1. Pobierz plik [tpcxbb_1gb. BACPAC](https://sqlchoice.blob.core.windows.net/sqlchoice/static/tpcxbb_1gb.bacpac).
 
-1. Postępuj zgodnie z instrukcjami w temacie [Importowanie pliku BACPAC, aby utworzyć bazę danych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-import)przy użyciu następujących szczegółów:
+1. Postępuj zgodnie z instrukcjami w temacie [Importowanie pliku BACPAC do bazy danych w Azure SQL Database lub wystąpienia zarządzanego usługi Azure SQL](../../azure-sql/database/database-import.md), korzystając z następujących szczegółów:
 
    * Importuj z pobranego pliku **tpcxbb_1gb. BACPAC**
    * W publicznej wersji zapoznawczej wybierz konfigurację **5 rdzeń/rdzeń wirtualny** dla nowej bazy danych.
@@ -211,9 +211,9 @@ W Azure Portal wykonaj następujące kroki:
 
 W pierwszej części tej serii samouczków zostały wykonane następujące czynności:
 
-* Importowanie przykładowej bazy danych do usługi Azure SQL Database
+* Importowanie przykładowej bazy danych do bazy danych w Azure SQL Database
 * Oddzielni klienci i różne wymiary przy użyciu języka R
-* Ładowanie danych z bazy danych Azure SQL Database do ramki danych języka R
+* Ładowanie danych z bazy danych do ramki danych języka R
 
 Aby utworzyć model uczenia maszynowego, który używa tych danych klienta, wykonaj dwie części tej serii samouczków:
 

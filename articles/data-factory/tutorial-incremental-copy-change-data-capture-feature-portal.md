@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754fb27d03aebf6029d3ae2f22e748db87a89753
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ca6b0ff197c21dd41521d2aa6106aa3b0df2d177
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325996"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249491"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Przyrostowe ładowanie danych z wystąpienia zarządzanego usługi Azure SQL do usługi Azure Storage przy użyciu funkcji przechwytywania zmian danych
 
@@ -55,7 +55,8 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 * **Azure SQL Database wystąpienia zarządzanego**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz wystąpienia zarządzanego Azure SQL Database, zapoznaj się z artykułem [tworzenie Azure SQL Database wystąpienia zarządzanego](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) , aby zapoznać się z krokami.
 * **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych **źródłowych**. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie **RAW**. 
 
-### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Tworzenie tabeli danych źródłowych w bazie danych Azure SQL Database
+### <a name="create-a-data-source-table-in-azure-sql-database"></a>Tworzenie tabeli źródła danych w Azure SQL Database
+
 1. Uruchom **SQL Server Management Studio**i nawiąż połączenie z serwerem usługi Azure SQL Managed Instances.
 2. W **Eksploratorze serwera** kliknij prawym przyciskiem używaną **bazę danych**, a następnie wybierz pozycję **Nowe zapytanie**.
 3. Uruchom następujące polecenie SQL względem bazy danych wystąpień zarządzanych Azure SQL, aby utworzyć tabelę o nazwie `customers` jako magazyn źródła danych.  
@@ -123,7 +124,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md) (Używanie grup zasobów do zarządzania zasobami platformy Azure).  
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 6. Usuń zaznaczenie opcji **Włącz git**.     
-7. Kliknij przycisk **Utwórz**.
+7. Kliknij pozycję **Utwórz**.
 8. Po zakończeniu wdrażania kliknij pozycję **Przejdź do zasobu** .
 
    ![Strona główna fabryki danych](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
