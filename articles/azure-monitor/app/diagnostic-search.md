@@ -4,11 +4,11 @@ description: Wyszukiwanie i filtrowanie nieprzetworzonej telemetrii wysyłanej p
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275986"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695661"
 ---
 # <a name="using-search-in-application-insights"></a>Korzystanie z wyszukiwania w Application Insights
 
@@ -56,12 +56,12 @@ Otwórz menu rozwijane typy zdarzeń i wybierz typy zdarzeń, które chcesz wyś
 
 Typy zdarzeń są następujące:
 
-* **Śledzenie** - [dzienników diagnostycznych](../../azure-monitor/app/asp-net-trace-logs.md) , w tym TrackTrace, log4Net, nLOG i system. Diagnostics. Trace.
+* **Śledzenie**  -  [Dzienniki diagnostyczne](../../azure-monitor/app/asp-net-trace-logs.md) , w tym wywołania TrackTrace, Log4Net, nLOG i system. Diagnostics. Trace.
 * Żądania **żądania** — http odbierane przez aplikację serwera, w tym strony, skrypty, obrazy, pliki stylów i dane. Te zdarzenia są używane do tworzenia wykresów przeglądów żądań i odpowiedzi.
-* **Page View** - [Dane telemetryczne wyświetlania stron wysyłane przez klienta sieci Web](../../azure-monitor/app/javascript.md), używane do tworzenia raportów widoku strony.
+* **Widok strony**  -  [Dane telemetryczne wysyłane przez klienta sieci Web](../../azure-monitor/app/javascript.md), używane do tworzenia raportów widoku strony.
 * **Zdarzenie niestandardowe** — w przypadku wstawienia wywołań do poleceń trackEvent () w celu [monitorowania użycia](../../azure-monitor/app/api-custom-events-metrics.md)można wyszukiwać je w tym miejscu.
 * **Exception** Nieprzechwycone [wyjątki na serwerze](../../azure-monitor/app/asp-net-exceptions.md)oraz te, które są rejestrowane za pomocą funkcji trackexception ().
-* **Dependency** - [Wywołania zależności od aplikacji serwera](../../azure-monitor/app/asp-net-dependencies.md) do innych usług, takich jak interfejsy API REST lub bazy danych, oraz wywołania AJAX z [kodu klienta](../../azure-monitor/app/javascript.md).
+* **Zależność**  -  [Wywołania z aplikacji serwerowej](../../azure-monitor/app/asp-net-dependencies.md) do innych usług, takich jak interfejsy API REST lub bazy danych, oraz wywołania AJAX z [kodu klienta](../../azure-monitor/app/javascript.md).
 * **Dostępność** — wyniki [testów dostępności](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtrowanie wartości właściwości
@@ -92,7 +92,7 @@ Może zajść potrzeba ustawienia zakresu czasu, ponieważ wyszukiwanie w króts
 
 Wyszukaj kompletne słowa, nie podciągi. Znaki specjalne należy ująć w cudzysłów.
 
-| String | *Nie* znaleziono | Znaleziono |
+| Ciąg | *Nie* znaleziono | Znaleziono |
 | --- | --- | --- |
 | HomeController. informacje |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |Stany Zjednoczone|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`

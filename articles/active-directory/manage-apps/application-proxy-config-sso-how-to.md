@@ -3,32 +3,32 @@ title: Jak skonfigurować Logowanie jednokrotne do aplikacji serwera proxy aplik
 description: Jak można szybko skonfigurować Logowanie jednokrotne do aplikacji serwera proxy aplikacji
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/12/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589b3e51f27147f0a0432b61c22a024c202e388b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb3d1d921be858531372130264e777f8c04a9328
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76712021"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764948"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Jak skonfigurować Logowanie jednokrotne do aplikacji serwera proxy aplikacji
 
 Logowanie jednokrotne (SSO) umożliwia użytkownikom dostęp do aplikacji bez wielokrotnego uwierzytelniania. Umożliwia ona pojedyncze uwierzytelnianie w chmurze, w odniesieniu do Azure Active Directory i umożliwia usłudze lub łącznikowi personifikację użytkownika w celu wykonania wszelkich dodatkowych wyzwań związanych z uwierzytelnianiem aplikacji.
 
 ## <a name="how-to-configure-single-sign-on"></a>Jak skonfigurować Logowanie jednokrotne
-Aby skonfigurować Logowanie jednokrotne, najpierw upewnij się, że aplikacja została skonfigurowana pod kątem wstępnego uwierzytelniania za pomocą Azure Active Directory. Aby przeprowadzić tę konfigurację, przejdź do pozycji **Azure Active Directory**  - &gt; **aplikacje**  - &gt; dla przedsiębiorstw **wszystkie aplikacje**  - &gt; ** - &gt; serwer proxy aplikacji**aplikacji. Na tej stronie zostanie wyświetlone pole "wstępne uwierzytelnianie" i upewnij się, że jest ono ustawione na wartość "Azure Active Directory. 
+Aby skonfigurować Logowanie jednokrotne, najpierw upewnij się, że aplikacja została skonfigurowana pod kątem wstępnego uwierzytelniania za pomocą Azure Active Directory. Aby przeprowadzić tę konfigurację, przejdź do pozycji **Azure Active Directory**  - &gt; **aplikacje dla przedsiębiorstw**  - &gt; **wszystkie aplikacje**  - &gt; ** - &gt; serwer proxy aplikacji**aplikacji. Na tej stronie zostanie wyświetlone pole "wstępne uwierzytelnianie" i upewnij się, że jest ono ustawione na wartość "Azure Active Directory. 
 
 Aby uzyskać więcej informacji na temat metod wstępnego uwierzytelniania, zobacz krok 4 [dokumentu publikowanie aplikacji](application-proxy-add-on-premises-application.md).
 

@@ -3,25 +3,25 @@ title: Niestandardowa strona główna dla opublikowanych aplikacji — serwer pr
 description: Obejmuje podstawowe informacje dotyczące łączników usługi Azure serwer proxy aplikacji usługi Azure AD
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1621b273f617955a374ed46d9c215ba99e5b2913
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e7e3a6666d467045b733b5401476fd83c93be19
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74275594"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764880"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Ustawianie niestandardowej strony głównej dla opublikowanych aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -31,9 +31,9 @@ Gdy użytkownik uruchomi aplikację, jest domyślnie skierowana do adresu URL do
 
 Poniżej przedstawiono scenariusz, w którym wyjaśniono, dlaczego firma ustawi niestandardową stronę główną:
 
-- W sieci firmowej użytkownik przechodzi `https://ExpenseApp/login/login.aspx` do logowania i uzyskiwania dostępu do aplikacji.
+- W sieci firmowej użytkownik przechodzi do `https://ExpenseApp/login/login.aspx` logowania i uzyskiwania dostępu do aplikacji.
 - Ponieważ istnieją inne zasoby (takie jak obrazy), których serwer proxy aplikacji musi uzyskać dostęp na najwyższym poziomie struktury folderów, należy opublikować aplikację przy użyciu `https://ExpenseApp` wewnętrznego adresu URL.
-- Domyślnym zewnętrznym adresem URL `https://ExpenseApp-contoso.msappproxy.net`jest, który nie pobiera zewnętrznego użytkownika do strony logowania.
+- Domyślnym zewnętrznym adresem URL jest `https://ExpenseApp-contoso.msappproxy.net` , który nie pobiera zewnętrznego użytkownika do strony logowania.
 - Chcesz ustawić `https://ExpenseApp-contoso.msappproxy.net/login/login.aspx` jako adres URL strony głównej, dlatego użytkownik zewnętrzny zobaczy najpierw stronę logowania.
 
 > [!NOTE]
@@ -45,7 +45,7 @@ Przed ustawieniem adresu URL strony głównej należy pamiętać o następujący
 
 - Określona ścieżka musi być ścieżką poddomenową adresu URL domeny głównej.
 
-  Na przykład, jeśli adres URL domeny głównej to `https://apps.contoso.com/app1/`, adres URL strony głównej, który zostanie skonfigurowany, musi zaczynać się od. `https://apps.contoso.com/app1/`
+  Na przykład, jeśli adres URL domeny głównej to `https://apps.contoso.com/app1/` , adres URL strony głównej, który zostanie skonfigurowany, musi zaczynać się od `https://apps.contoso.com/app1/` .
 
 - Jeśli wprowadzisz zmiany w opublikowanej aplikacji, zmiana może zresetować wartość adresu URL strony głównej. Po zaktualizowaniu aplikacji w przyszłości należy ponownie sprawdzić i w razie potrzeby zaktualizować adres URL strony głównej.
 
@@ -105,7 +105,7 @@ Uzyskasz identyfikator ObjectId aplikacji, wyszukując aplikację według nazwy 
    Connect-AzureAD
    ```
 
-1. Znajdź aplikację. Ten przykład używa programu PowerShell, aby znaleźć obiekt ObjectId przez wyszukanie aplikacji z nazwą wyświetlaną `SharePoint`.
+1. Znajdź aplikację. Ten przykład używa programu PowerShell, aby znaleźć obiekt ObjectId przez wyszukanie aplikacji z nazwą wyświetlaną `SharePoint` .
 
    ```powershell
    Get-AzureADApplication | Where-Object { $_.DisplayName -eq "SharePoint" } | Format-List DisplayName, Homepage, ObjectId
@@ -127,7 +127,7 @@ Uzyskasz identyfikator ObjectId aplikacji, wyszukując aplikację według nazwy 
 
 ### <a name="update-the-home-page-url"></a>Zaktualizuj adres URL strony głównej
 
-Utwórz adres URL strony głównej i zaktualizuj aplikację przy użyciu tej wartości. Kontynuuj korzystanie z tego samego okna programu PowerShell lub jeśli używasz nowego okna programu PowerShell, zaloguj się ponownie do modułu usługi Azure AD przy użyciu `Connect-AzureAD`polecenia. Następnie wykonaj poniższe czynności:
+Utwórz adres URL strony głównej i zaktualizuj aplikację przy użyciu tej wartości. Kontynuuj korzystanie z tego samego okna programu PowerShell lub jeśli używasz nowego okna programu PowerShell, zaloguj się ponownie do modułu usługi Azure AD przy użyciu polecenia `Connect-AzureAD` . Następnie wykonaj poniższe czynności:
 
 1. Utwórz zmienną do przechowywania wartości ObjectId skopiowanej w poprzedniej sekcji. (Zastąp wartość ObjectId użytą dla tego przykładu programu SharePoint wartością identyfikatora obiektu aplikacji).
 
@@ -147,7 +147,7 @@ Utwórz adres URL strony głównej i zaktualizuj aplikację przy użyciu tej war
    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
    ```
 
-1. Ustaw adres URL strony głównej na żądaną wartość. Wartość musi być ścieżką poddomeny opublikowanej aplikacji. Jeśli na przykład zmienisz adres URL strony głównej z `https://sharepoint-iddemo.msappproxy.net/` na `https://sharepoint-iddemo.msappproxy.net/hybrid/`, użytkownicy aplikacji przejdą bezpośrednio do niestandardowej strony głównej.
+1. Ustaw adres URL strony głównej na żądaną wartość. Wartość musi być ścieżką poddomeny opublikowanej aplikacji. Jeśli na przykład zmienisz adres URL strony głównej z `https://sharepoint-iddemo.msappproxy.net/` na `https://sharepoint-iddemo.msappproxy.net/hybrid/` , użytkownicy aplikacji przejdą bezpośrednio do niestandardowej strony głównej.
 
    ```powershell
    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"

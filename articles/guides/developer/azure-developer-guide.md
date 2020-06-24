@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245007"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84695083"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -80,7 +80,7 @@ Ze względu na poziom kontroli z maszynami wirtualnymi można uruchamiać szerok
 
 #### <a name="azure-functions-serverless"></a>Azure Functions (bezserwerowo)
 
-Zamiast martwić się o tworzenie całej aplikacji lub infrastruktury do uruchamiania kodu oraz zarządzanie nią, co zrobić, jeśli udało Ci się napisać kod i uruchomić go w odpowiedzi na zdarzenia lub zgodnie z harmonogramem?  [Azure Functions](../../azure-functions/functions-overview.md) to oferta w stylu "bezserwerowa", która pozwala pisać tylko kod, którego potrzebujesz. Za pomocą funkcji można wyzwolić wykonywanie kodu z żądaniami HTTP, elementami webhook, zdarzeniami usługi w chmurze lub zgodnie z harmonogramem. Możesz zakodować w wybranym języku programistycznym, takim jak C\#, F\#, Node. js, Python lub php. Korzystając z rozliczeń, płacisz tylko za czas wykonywania kodu, a platforma Azure skaluje się w razie potrzeby.
+Zamiast martwić się o tworzenie całej aplikacji lub infrastruktury do uruchamiania kodu oraz zarządzanie nią, co zrobić, jeśli udało Ci się napisać kod i uruchomić go w odpowiedzi na zdarzenia lub zgodnie z harmonogramem?  [Azure Functions](../../azure-functions/functions-overview.md) to oferta w stylu "bezserwerowa", która pozwala pisać tylko kod, którego potrzebujesz. Za pomocą funkcji można wyzwolić wykonywanie kodu z żądaniami HTTP, elementami webhook, zdarzeniami usługi w chmurze lub zgodnie z harmonogramem. Możesz zakodować w wybranym języku programistycznym, takim jak C \# , F \# , Node.js, Python lub php. Korzystając z rozliczeń, płacisz tylko za czas wykonywania kodu, a platforma Azure skaluje się w razie potrzeby.
 
 > **Kiedy używać**: Użyj Azure Functions, gdy masz kod, który jest wyzwalany przez inne usługi platformy Azure, za pośrednictwem zdarzeń opartych na sieci Web lub zgodnie z harmonogramem. Możesz również użyć funkcji, jeśli nie potrzebujesz nakładu pracy kompletnego hostowanego projektu lub jeśli chcesz zanieść tylko za czas działania kodu. Aby dowiedzieć się więcej, zobacz [Azure Functions Omówienie](../../azure-functions/functions-overview.md).
 >
@@ -96,7 +96,7 @@ Azure Service Fabric to platforma systemów rozproszonych. Ta platforma ułatwia
 * Wdrażanie
 * Monitorowanie
 * Uaktualnianie/stosowanie poprawek
-* Usunąć
+* Usuwanie
 
 Aplikacje, które są uruchamiane w udostępnionej puli maszyn, mogą być uruchamiane w miarę potrzeby na setkach lub tysiącach maszyn.
 

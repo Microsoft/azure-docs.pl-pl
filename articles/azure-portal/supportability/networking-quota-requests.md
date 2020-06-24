@@ -4,15 +4,15 @@ description: Zwiększanie limitu sieci
 author: anavinahar
 ms.author: anavin
 ms.date: 01/23/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9b5c7043b06172c2d4931ca1c3fd3ac5d0e80883
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acb05da0255445de31e08f2724dcb484a3e05b17
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76547809"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764269"
 ---
 # <a name="networking-limit-increase"></a>Zwiększanie limitu sieci
 
@@ -37,7 +37,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi p
 
     ![Pomoc i obsługa techniczna](./media/networking-quota-request/help-plus-support.png)
 
-1. Wybierz pozycję **nowe żądanie obsługi**.
+1. Wybierz pozycję **Nowe żądanie obsługi**.
 
     ![Nowe żądanie pomocy technicznej](./media/networking-quota-request/new-support-request.png)
 
@@ -69,9 +69,9 @@ Postępuj zgodnie z poniższymi instrukcjami, aby utworzyć żądanie obsługi p
 
 Postępuj zgodnie z tymi instrukcjami, aby utworzyć żądanie pomocy technicznej przy użyciu usługi **Usage + limit przydziału** w Azure Portal.
 
-1. W https://portal.azure.comprogramie Wyszukaj i wybierz pozycję **subskrypcje**.
+1. W programie https://portal.azure.com Wyszukaj i wybierz pozycję **subskrypcje**.
 
-    ![Subscriptions](./media/networking-quota-request/search-for-suscriptions.png)
+    ![Subskrypcje](./media/networking-quota-request/search-for-suscriptions.png)
 
 1. Wybierz subskrypcję, która wymaga zwiększenia limitu przydziału.
 

@@ -2,13 +2,13 @@
 title: Obsługa migracji oprogramowania VMware w Azure Migrate
 description: Dowiedz się więcej o obsłudze migracji maszyn wirtualnych VMware w Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.openlocfilehash: ed51361ca4d605487a5d273505df21780003bdbb
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.date: 06/08/2020
+ms.openlocfilehash: c4184628739b6c47b35263fe99285b05b9e0a190
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140484"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84769731"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Macierz obsługi migracji VMware
 
@@ -19,8 +19,8 @@ W tym artykule przedstawiono podsumowanie ustawień i ograniczeń dotyczących m
 
 Maszyny wirtualne programu VMware można migrować na kilka sposobów:
 
-- Z migracją bez agenta: Migruj maszyny wirtualne, nie trzeba instalować żadnych elementów. Należy wdrożyć [urządzenie Azure Migrate](migrate-appliance.md) na potrzeby migracji bez agentów.
-- W przypadku migracji opartej na agentach: Zainstaluj agenta na maszynie wirtualnej na potrzeby replikacji. W przypadku migracji opartej na agentach należy wdrożyć [urządzenie do replikacji](migrate-replication-appliance.md).
+- **Korzystanie z migracji bez wykorzystania agentów**: Migruj maszyny wirtualne, aby nie trzeba było instalować żadnych elementów. Należy wdrożyć [urządzenie Azure Migrate](migrate-appliance.md) na potrzeby migracji bez agentów.
+- **Przy użyciu migracji opartej na agentach**: Zainstaluj agenta na maszynie wirtualnej na potrzeby replikacji. W przypadku migracji opartej na agentach należy wdrożyć [urządzenie do replikacji](migrate-replication-appliance.md).
 
 Zapoznaj się z [tym artykułem](server-migrate-overview.md) , aby ustalić, która metoda ma być używana.
 
@@ -29,22 +29,31 @@ Zapoznaj się z [tym artykułem](server-migrate-overview.md) , aby ustalić, kt�
 - Można wybrać maksymalnie 10 maszyn wirtualnych na potrzeby replikacji. Jeśli chcesz migrować więcej maszyn, wykonaj replikację w grupach o wartości 10.
 - W przypadku migracji programu VMware bez agenta można jednocześnie uruchomić do 300 replikacji.
 
-## <a name="agentless-vmware-servers"></a>Bez agenta — serwery VMware
+## <a name="agentless-migration"></a>Migracja bez wykorzystania agentów 
+
+Ta sekcja podsumowuje wymagania dotyczące migracji bez wykorzystania agentów.
+
+### <a name="vmware-requirements-agentless"></a>Wymagania dotyczące oprogramowania VMware (bez wykorzystania agentów)
+
+Tabela podsumowuje wymagania funkcji hypervisor programu VMware.
 
 **VMware** | **Szczegóły**
 --- | ---
 **VMware vCenter Server** | Wersja 5,5, 6,0, 6,5 lub 6,7.
 **VMware vSphere hosta ESXI** | Wersja 5,5, 6,0, 6,5 lub 6,7.
-**uprawnienia vCenter Server** | Migracja bez agentów używa [urządzenia migracji](migrate-appliance.md). Urządzenie musi mieć następujące uprawnienia:<br/><br/> - **Magazyn danych. Browse**: umożliwia przeglądanie plików dzienników maszyn wirtualnych w celu rozwiązywania problemów z tworzeniem i usuwaniem migawki.<br/><br/> - **Datastore. LowLevelFileOperations**: Zezwalaj na operacje odczytu/zapisu/usuwania/zmiany nazwy w przeglądarce magazynu danych, aby rozwiązywać problemy z tworzeniem i usuwaniem migawki.<br/><br/> - **VirtualMachine. Configuration. DiskChangeTracking**: Zezwalaj na włączanie lub wyłączanie śledzenia zmian dysków maszyn wirtualnych w celu ściągania zmienionych bloków danych między migawkami.<br/><br/> - **VirtualMachine. Configuration. DiskLease**: Zezwalaj na operacje dzierżawy dysku dla maszyny wirtualnej w celu odczytania dysku przy użyciu VMware vSphere wirtualnego zestawu SDK (VDDK).<br/><br/> - **VirtualMachine. Provisioning. AllowDiskAccess**: (w odniesieniu do vSphere 6,0 i nowsze) Zezwalaj na otwieranie dysku na maszynie wirtualnej w celu uzyskania losowego dostępu do odczytu na dysku przy użyciu VDDK.<br/><br/> - **VirtualMachine. Provisioning. AllowReadOnlyDiskAccess**: Zezwól na otwieranie dysku na maszynie wirtualnej w celu odczytania dysku przy użyciu VDDK.<br/><br/> - **VirtualMachine. Provisioning. AllowDiskRandomAccess**: Zezwól na otwieranie dysku na maszynie wirtualnej w celu odczytania dysku przy użyciu VDDK.<br/><br/> - **VirtualMachine. Provisioning. AllowVirtualMachineDownload**: zezwala na operacje odczytu plików SKOJARZONYCH z maszyną wirtualną, pobieranie dzienników i rozwiązywanie problemów w przypadku wystąpienia błędu.<br/><br/> -* * VirtualMachine. SnapshotManagement. * * *: umożliwia tworzenie migawek maszyn wirtualnych i zarządzanie nimi na potrzeby replikacji.<br/><br/> - **Maszyna wirtualna. Interaction. Zasilanie wyłączone**: umożliwia wyłączenie maszyny wirtualnej podczas migracji na platformę Azure.
+**uprawnienia vCenter Server** | Migracja bez agentów używa [urządzenia migracji](migrate-appliance.md). Urządzenie musi mieć następujące uprawnienia w vCenter Server:<br/><br/> - **Magazyn danych. Browse**: umożliwia przeglądanie plików dzienników maszyn wirtualnych w celu rozwiązywania problemów z tworzeniem i usuwaniem migawki.<br/><br/> - **Datastore. LowLevelFileOperations**: Zezwalaj na operacje odczytu/zapisu/usuwania/zmiany nazwy w przeglądarce magazynu danych, aby rozwiązywać problemy z tworzeniem i usuwaniem migawki.<br/><br/> - **VirtualMachine.Configwersja. DiskChangeTracking**: Zezwalaj na włączanie lub wyłączanie śledzenia zmian dysków maszyn wirtualnych w celu ściągania zmienionych bloków danych między migawkami.<br/><br/> - **VirtualMachine.Configwersja. DiskLease**: Zezwalaj na operacje dzierżawy dysku dla maszyny wirtualnej w celu odczytania dysku przy użyciu VMware vSphere wirtualnego dysku twardego (VDDK).<br/><br/> - **VirtualMachine. Provisioning. AllowDiskAccess**: (w odniesieniu do vSphere 6,0 i nowsze) Zezwalaj na otwieranie dysku na maszynie wirtualnej w celu uzyskania losowego dostępu do odczytu na dysku przy użyciu VDDK.<br/><br/> - **VirtualMachine. Provisioning. AllowReadOnlyDiskAccess**: Zezwól na otwieranie dysku na maszynie wirtualnej w celu odczytania dysku przy użyciu VDDK.<br/><br/> - **VirtualMachine. Provisioning. AllowDiskRandomAccess**: Zezwól na otwieranie dysku na maszynie wirtualnej w celu odczytania dysku przy użyciu VDDK.<br/><br/> - **VirtualMachine. Provisioning. AllowVirtualMachineDownload**: zezwala na operacje odczytu plików SKOJARZONYCH z maszyną wirtualną, pobieranie dzienników i rozwiązywanie problemów w przypadku wystąpienia błędu.<br/><br/> -* * VirtualMachine. SnapshotManagement. * * *: umożliwia tworzenie migawek maszyn wirtualnych i zarządzanie nimi na potrzeby replikacji.<br/><br/> - **Maszyna wirtualna. Interaction. Zasilanie wyłączone**: umożliwia wyłączenie maszyny wirtualnej podczas migracji na platformę Azure.
 
 
 
-## <a name="agentless-vmware-vms"></a>Bez agenta — maszyny wirtualne VMware
+### <a name="vm-requirements-agentless"></a>Wymagania dotyczące maszyny wirtualnej (bez wykorzystania agentów)
+
+W tabeli zestawiono wymagania dotyczące migracji bez agentów dla maszyn wirtualnych VMware.
 
 **Pomoc techniczna** | **Szczegóły**
 --- | ---
-**Obsługiwane systemy operacyjne** | Systemy operacyjne [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) i [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , które są obsługiwane przez platformę Azure, można migrować za pomocą migracji bez wykorzystania agentów.
-**Wymagane zmiany dotyczące platformy Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby mogły być uruchamiane na platformie Azure. Azure Migrate automatycznie wprowadza te zmiany w następujących systemach operacyjnych:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> W przypadku innych systemów operacyjnych należy ręcznie wprowadzić zmiany przed migracją. Odpowiednie artykuły zawierają instrukcje, jak to zrobić.
+**Obsługiwane systemy operacyjne** | Można migrować systemy operacyjne [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) i [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , które są obsługiwane przez platformę Azure.
+**Maszyny wirtualne z systemem Windows na platformie Azure** | Przed rozpoczęciem migracji może być konieczne [wprowadzenie pewnych zmian](prepare-for-migration.md#verify-required-changes-before-migrating) na maszynach wirtualnych. 
+**Maszyny wirtualne z systemem Linux na platformie Azure** | Niektóre maszyny wirtualne mogą wymagać zmian, aby mogły być uruchamiane na platformie Azure.<br/><br/> W przypadku systemu Linux Azure Migrate automatycznie wprowadza zmiany w następujących systemach operacyjnych:<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 +<br/> -CentOS 6.5 +, 7.0 +</br> -SUSE Linux Enterprise Server 12 SP1 +<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8. W przypadku innych systemów operacyjnych należy ręcznie wprowadzić [wymagane zmiany](prepare-for-migration.md#verify-required-changes-before-migrating) .
 **Rozruch systemu Linux** | Jeśli/Boot znajduje się na dedykowanej partycji, powinien znajdować się na dysku systemu operacyjnego i nie można go rozłożyć na wiele dysków.<br/> Jeśli/boot jest częścią partycji głównej (/), partycja "/" powinna znajdować się na dysku systemu operacyjnego i nie może obejmować innych dysków.
 **Rozruch z interfejsem UEFI** | Maszyny wirtualne z rozruchem UEFI nie są obsługiwane w przypadku migracji.
 **Rozmiar dysku** | dysk systemu operacyjnego: 2 TB; 8 TB dla dysków z danymi.
@@ -63,7 +72,7 @@ Zapoznaj się z [tym artykułem](server-migrate-overview.md) , aby ustalić, kt�
 **Równoczesna replikacja** | 300 maszyn wirtualnych na vCenter Server. Jeśli masz więcej, Migruj je w partiach 300.
 
 
-## <a name="agentless-azure-migrate-appliance"></a>Urządzenie Azure Migrate bez agenta 
+### <a name="appliance-requirements-agentless"></a>Wymagania dotyczące urządzenia (bez agentów)
 
 Migracja bez agentów używa [urządzenia Azure Migrate](migrate-appliance.md). Urządzenie można wdrożyć jako maszynę wirtualną VMWare przy użyciu szablonu komórki jajowe zaimportowanego do vCenter Server lub przy użyciu [skryptu programu PowerShell](deploy-appliance-script.md).
 
@@ -71,7 +80,7 @@ Migracja bez agentów używa [urządzenia Azure Migrate](migrate-appliance.md). 
 - Uzyskaj informacje o adresach URL, do których urządzenie musi uzyskać dostęp w chmurach [publicznych](migrate-appliance.md#public-cloud-urls) i [administracji rządowej](migrate-appliance.md#government-cloud-urls) .
 - W Azure Government należy wdrożyć urządzenie [przy użyciu skryptu](deploy-appliance-script-government.md).
 
-## <a name="agentless-ports"></a>Porty bez agentów
+### <a name="port-requirements-agentless"></a>Wymagania dotyczące portów (bez wykorzystania agentów)
 
 **Urządzenie** | **Połączenie**
 --- | ---
@@ -79,8 +88,14 @@ Wprowadzony | Połączenia wychodzące na porcie 443 do przekazywania replikowan
 Serwer vCenter | Połączenia przychodzące na porcie 443, aby umożliwić organizowanie replikacji — tworzenie migawek, kopiowanie danych i migawki wersji
 Host vSphere/EXSI | Ruch przychodzący na porcie TCP 902 dla urządzenia do replikowania danych z migawek.
 
+## <a name="agent-based-migration"></a>Migracja oparta na agencie 
 
-## <a name="agent-based-vmware-servers"></a>Serwery VMware oparte na agentach
+
+Ta sekcja podsumowuje wymagania dotyczące migracji opartej na agencie.
+
+
+### <a name="vmware-requirements-agent-based"></a>Wymagania dotyczące oprogramowania VMware (oparte na agentach)
+
 W tej tabeli zestawiono wsparcie oceny i ograniczenia dotyczące serwerów wirtualizacji VMware.
 
 **Wymagania dotyczące oprogramowania VMware** | **Szczegóły**
@@ -89,7 +104,7 @@ W tej tabeli zestawiono wsparcie oceny i ograniczenia dotyczące serwerów wirtu
 **VMware vSphere hosta ESXI** | Wersja 5,5, 6,0, 6,5 lub 6,7.
 **uprawnienia vCenter Server** | Konto tylko do odczytu dla vCenter Server.
 
-## <a name="agent-based-vmware-vms"></a>Maszyny wirtualne VMware oparte na agentach
+### <a name="vm-requirements-agent-based"></a>Wymagania dotyczące maszyny wirtualnej (oparte na agentach)
 
 Ta tabela zawiera podsumowanie obsługi maszyn wirtualnych VMware na potrzeby migracji na maszynę wirtualną VMware przy użyciu migracji opartej na agentach.
 
@@ -119,7 +134,7 @@ Ta tabela zawiera podsumowanie obsługi maszyn wirtualnych VMware na potrzeby mi
 
 
 
-## <a name="agent-based-replication-appliance"></a>Urządzenie do replikacji oparte na agencie 
+### <a name="appliance-requirements-agent-based"></a>Wymagania dotyczące urządzeń (oparte na agentach)
 
 Po skonfigurowaniu urządzenia do replikacji przy użyciu szablonu komórki jajowe dostarczonego w centrum Azure Migrate na urządzeniu jest uruchomiony system Windows Server 2016 i jest zgodny z wymaganiami dotyczącymi obsługi. Jeśli urządzenie replikacji zostanie skonfigurowane ręcznie na serwerze fizycznym, upewnij się, że jest ono zgodne z wymaganiami.
 
@@ -128,7 +143,7 @@ Po skonfigurowaniu urządzenia do replikacji przy użyciu szablonu komórki jajo
 - Informacje o adresach URL, których urządzenie replikacji musi uzyskać dostęp w chmurach publicznych i [administracji](migrate-replication-appliance.md#azure-government-url-access) [publicznej](migrate-replication-appliance.md#url-access) .
 - Zapoznaj się z [portami](migrate-replication-appliance.md#port-access) , do których urządzenie replikacji musi uzyskać dostęp.
 
-## <a name="agent-based-ports"></a>Porty oparte na agentach
+### <a name="port-requirements-agent-based"></a>Wymagania dotyczące portów (oparte na agentach)
 
 **Urządzenie** | **Połączenie**
 --- | ---
@@ -138,23 +153,23 @@ Serwer przetwarzania | Serwer przetwarzania odbiera dane replikacji, optymalizuj
 
 ## <a name="azure-vm-requirements"></a>Wymagania dotyczące maszyny wirtualnej platformy Azure
 
-Wszystkie lokalne maszyny wirtualne replikowane na platformę Azure muszą spełniać wymagania dotyczące maszyny wirtualnej platformy Azure podsumowane w tej tabeli. Gdy Site Recovery uruchamia sprawdzanie wymagań wstępnych dotyczących replikacji, sprawdzenie zakończy się niepowodzeniem, jeśli niektóre wymagania nie zostaną spełnione.
+Wszystkie lokalne maszyny wirtualne replikowane na platformę Azure przy użyciu programu bez agenta lub migracji opartej na agencie muszą spełniać wymagania maszyny wirtualnej platformy Azure, które zostały podsumowane w tej tabeli. 
 
-**Składnik** | **Wymagania** | **Szczegóły**
+**Składnik** | **Wymagania** 
 --- | --- | ---
-System operacyjny gościa | Weryfikuje obsługiwane systemy operacyjne VMware VM do migracji.<br/> Możliwe jest Migrowanie dowolnego obciążenia działającego w obsługiwanym systemie operacyjnym. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Architektura systemu operacyjnego gościa | 64-bitowa. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Rozmiar dysku systemu operacyjnego | Do 2 048 GB. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Liczba dysków systemu operacyjnego | 1 | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Liczba dysków danych | 64 lub mniej. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Rozmiar dysku danych | Do 4 095 GB | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Karty sieciowe | Obsługiwane są wiele kart. |
-Udostępniony wirtualny dysk twardy | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Dysk FC | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Funkcja BitLocker | Nieobsługiwane. | Aby włączyć replikację dla maszyny, należy wyłączyć funkcję BitLocker.
-Nazwa maszyny wirtualnej | Od 1 do 63 znaków.<br/> Ograniczone do liter, cyfr i łączników.<br/><br/> Nazwa maszyny musi rozpoczynać się i kończyć literą lub cyfrą. |  Zaktualizuj wartość we właściwościach komputera w Site Recovery.
-Połącz po migracji — Windows | Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure z systemem Windows po migracji:<br/> -Przed migracją włącza protokół RDP na lokalnej maszynie wirtualnej. Upewnij się, że reguły TCP i UDP zostały dodane do profilu **publicznego** oraz że w pozycji **Zapora systemu Windows** > **Dozwolone aplikacje** zezwolono na użycie protokołu RDP we wszystkich profilach.<br/> W celu uzyskania dostępu do sieci VPN typu lokacja-lokacja Włącz protokół RDP i Zezwalaj na używanie protokołu RDP w **zaporze systemu Windows**  ->  **dozwolone aplikacje i funkcje** dla sieci **i** połączeń sieciowych. Ponadto sprawdź, czy zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](prepare-for-migration.md). |
-Połącz po migracji — system Linux | Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure po migracji przy użyciu protokołu SSH:<br/> Przed migracją na maszynie lokalnej Sprawdź, czy usługa Secure Shell jest ustawiona do uruchamiania, oraz czy reguły zapory zezwalają na połączenie SSH.<br/> Po przejściu w tryb failover na maszynie wirtualnej platformy Azure Zezwól na połączenia przychodzące do portu SSH dla reguł sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover oraz dla podsieci platformy Azure, do której jest podłączona. Dodatkowo Dodaj publiczny adres IP dla maszyny wirtualnej. |  
+System operacyjny gościa | Weryfikuje obsługiwane systemy operacyjne VMware VM do migracji.<br/> Możliwe jest Migrowanie dowolnego obciążenia działającego w obsługiwanym systemie operacyjnym. 
+Architektura systemu operacyjnego gościa | 64-bitowa. 
+Rozmiar dysku systemu operacyjnego | Do 2 048 GB. 
+Liczba dysków systemu operacyjnego | 1 
+Liczba dysków danych | 64 lub mniej. 
+Rozmiar dysku danych | Do 4 095 GB 
+Karty sieciowe | Obsługiwane są wiele kart.
+Udostępniony wirtualny dysk twardy | Nieobsługiwane. 
+Dysk FC | Nieobsługiwane. 
+Funkcja BitLocker | Nieobsługiwane.<br/><br/> Funkcja BitLocker musi być wyłączona przed przeprowadzeniem migracji maszyny.
+Nazwa maszyny wirtualnej | Od 1 do 63 znaków.<br/><br/> Ograniczone do liter, cyfr i łączników.<br/><br/> Nazwa maszyny musi rozpoczynać się i kończyć literą lub cyfrą. 
+Połącz po migracji — Windows | Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure z systemem Windows po migracji:<br/><br/> — Przed migracją Włącz protokół RDP na lokalnej maszynie wirtualnej.<br/><br/> Upewnij się, że reguły TCP i UDP zostały dodane do profilu **publicznego** oraz że w pozycji **Zapora systemu Windows** > **Dozwolone aplikacje** zezwolono na użycie protokołu RDP we wszystkich profilach.<br/><br/> W celu uzyskania dostępu do sieci VPN typu lokacja-lokacja Włącz protokół RDP i Zezwalaj na używanie protokołu RDP w **zaporze systemu Windows**  ->  **dozwolone aplikacje i funkcje** dla sieci **i** połączeń sieciowych.<br/><br/> Ponadto sprawdź, czy zasady sieci SAN systemu operacyjnego są ustawione na **OnlineAll**. [Dowiedz się więcej](prepare-for-migration.md).
+Połącz po migracji — system Linux | Aby nawiązać połączenie z maszynami wirtualnymi platformy Azure po migracji przy użyciu protokołu SSH:<br/><br/> Przed migracją na maszynie lokalnej Sprawdź, czy usługa Secure Shell jest ustawiona do uruchamiania, oraz czy reguły zapory zezwalają na połączenie SSH.<br/><br/> Po przejściu w tryb failover na maszynie wirtualnej platformy Azure Zezwól na połączenia przychodzące do portu SSH dla reguł sieciowej grupy zabezpieczeń na maszynie wirtualnej w trybie failover oraz dla podsieci platformy Azure, do której jest podłączona.<br/><br/> Dodatkowo Dodaj publiczny adres IP dla maszyny wirtualnej.  
 
 
 ## <a name="next-steps"></a>Następne kroki

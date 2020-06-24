@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 84efe294533186fdcf2e0a3356a7d6b01eccaf5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea8492ff5a25eb72b0a842c4da82ed78c89863f8
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654389"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733827"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Typowe błędy i kroki rozwiązywania problemów dla Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ W tym artykule przedstawiono procedurę rozwiązywania problemów z typowymi pro
 
 Jeśli masz problemy z włączeniem usługi Azure AD DS, przejrzyj następujące typowe błędy i wykonaj kroki, aby je rozwiązać:
 
-| **Przykładowy komunikat o błędzie** | **Rozdzielczość** |
+| **Przykładowy komunikat o błędzie** | **Rozwiązanie** |
 | --- |:--- |
 | *Nazwa aaddscontoso.com jest już używana w tej sieci. Określ nazwę, która nie jest używana.* |[Konflikt nazw domen w sieci wirtualnej](troubleshoot.md#domain-name-conflict) |
 | *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Usługa nie ma wystarczających uprawnień do aplikacji o nazwie "Azure AD Domain Services Sync". Usuń aplikację o nazwie "Azure AD Domain Services Sync", a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.* |[Usługi domenowe nie mają wystarczających uprawnień do aplikacji do synchronizacji Azure AD Domain Services](troubleshoot.md#inadequate-permissions) |
@@ -41,11 +41,11 @@ Jeśli masz problemy z włączeniem usługi Azure AD DS, przejrzyj następujące
 
 *Nazwa aaddscontoso.com jest już używana w tej sieci. Określ nazwę, która nie jest używana.*
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Sprawdź, czy nie masz istniejącego środowiska AD DS o tej samej nazwie domeny w tej samej lub równorzędnej sieci wirtualnej. Na przykład może istnieć AD DS domena o nazwie *aaddscontoso.com* , która jest uruchamiana na maszynach wirtualnych platformy Azure. Gdy próbujesz włączyć domenę zarządzaną platformy Azure AD DS z tą samą nazwą domeny *aaddscontoso.com* w sieci wirtualnej, żądana operacja nie powiedzie się.
 
-Ten błąd jest spowodowany konfliktami nazw dla nazwy domeny w sieci wirtualnej. Wyszukiwanie DNS sprawdza, czy istniejące środowisko AD DS reaguje na żądaną nazwę domeny. Aby rozwiązać ten problem, użyj innej nazwy, aby skonfigurować domenę zarządzaną platformy Azure AD DS, lub Usuń obsługę administracyjną istniejącej domeny AD DS i spróbuj ponownie, aby włączyć usługę Azure AD DS.
+Ten błąd jest spowodowany konfliktami nazw dla nazwy domeny w sieci wirtualnej. Wyszukiwanie DNS sprawdza, czy istniejące środowisko AD DS reaguje na żądaną nazwę domeny. Aby rozwiązać ten problem, użyj innej nazwy do skonfigurowania domeny zarządzanej lub Wycofaj obsługę administracyjną istniejącej AD DS domeny, a następnie spróbuj ponownie włączyć usługę Azure AD DS.
 
 ### <a name="inadequate-permissions"></a>Niewystarczające uprawnienia
 
@@ -53,7 +53,7 @@ Ten błąd jest spowodowany konfliktami nazw dla nazwy domeny w sieci wirtualnej
 
 *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Usługa nie ma wystarczających uprawnień do aplikacji o nazwie "Azure AD Domain Services Sync". Usuń aplikację o nazwie "Azure AD Domain Services Sync", a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.*
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Sprawdź, czy w katalogu usługi Azure AD znajduje się aplikacja o nazwie *Azure AD Domain Services Sync* . Jeśli ta aplikacja istnieje, usuń ją, a następnie spróbuj ponownie, aby włączyć usługę Azure AD DS. Aby wyszukać istniejącą aplikację i usunąć ją w razie potrzeby, wykonaj następujące czynności:
 
@@ -68,7 +68,7 @@ Sprawdź, czy w katalogu usługi Azure AD znajduje się aplikacja o nazwie *Azur
 
 *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Aplikacja usług domenowych w dzierżawie usługi Azure AD nie ma wymaganych uprawnień, aby włączyć usługi domenowe. Usuń aplikację z identyfikatorem aplikacji d87dcbc6-a371-462e-88e3-28ad15ec4e64, a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.*
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Sprawdź, czy masz istniejącą aplikację o nazwie *AzureActiveDirectoryDomainControllerServices* z identyfikatorem aplikacji *d87dcbc6-a371-462e-88e3-28ad15ec4e64* w katalogu usługi Azure AD. Jeśli ta aplikacja istnieje, usuń ją, a następnie spróbuj ponownie, aby włączyć usługę Azure AD DS.
 
@@ -112,7 +112,7 @@ if ($sp -ne $null)
 
 *Nie można włączyć usług domenowych w tej dzierżawie usługi Azure AD. Aplikacja Microsoft Azure AD jest wyłączona w dzierżawie usługi Azure AD. Włącz aplikację przy użyciu identyfikatora aplikacji 00000002-0000-0000-C000-000000000000, a następnie spróbuj włączyć usługi domenowe dla dzierżawy usługi Azure AD.*
 
-**Rozdzielczość**
+**Rozwiązanie**
 
 Sprawdź, czy aplikacja została wyłączona z identyfikatorem *00000002-0000-0000-C000-000000000000*. Ta aplikacja jest aplikacją Microsoft Azure AD i zapewnia interfejs API programu Graph dostęp do dzierżawy usługi Azure AD. Aby zsynchronizować dzierżawę usługi Azure AD, ta aplikacja musi być włączona.
 
@@ -126,9 +126,9 @@ Aby sprawdzić stan tej aplikacji i włączyć ją w razie potrzeby, wykonaj nas
 
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Użytkownicy nie mogą zalogować się do domeny zarządzanej usług Azure AD Domain Services
 
-Jeśli co najmniej jeden użytkownik w dzierżawie usługi Azure AD nie może zalogować się do domeny zarządzanej usługi Azure AD DS, wykonaj następujące kroki rozwiązywania problemów:
+Jeśli co najmniej jeden użytkownik w dzierżawie usługi Azure AD nie może zalogować się do domeny zarządzanej, wykonaj następujące kroki rozwiązywania problemów:
 
-* **Format poświadczeń** — spróbuj użyć formatu UPN w celu określenia poświadczeń, takich jak `dee@aaddscontoso.onmicrosoft.com`. Format nazwy UPN jest zalecanym sposobem określania poświadczeń w usłudze Azure AD DS. Upewnij się, że ta nazwa UPN została prawidłowo skonfigurowana w usłudze Azure AD.
+* **Format poświadczeń** — spróbuj użyć formatu UPN w celu określenia poświadczeń, takich jak `dee@aaddscontoso.onmicrosoft.com` . Format nazwy UPN jest zalecanym sposobem określania poświadczeń w usłudze Azure AD DS. Upewnij się, że ta nazwa UPN została prawidłowo skonfigurowana w usłudze Azure AD.
 
     Nazwa *sAMAccountName* dla Twojego konta, taka jak *AADDSCONTOSO\driley* , może być generowana automatycznie, jeśli istnieje wielu użytkowników z tym samym prefiksem nazwy UPN w dzierżawie lub jeśli prefiks nazwy UPN jest zbyt długi. W związku z tym format *sAMAccountName* dla konta może być inny niż oczekiwany lub używany w domenie lokalnej.
 
@@ -148,24 +148,24 @@ Jeśli co najmniej jeden użytkownik w dzierżawie usługi Azure AD nie może za
     * **Konta tylko w chmurze**: Jeśli konto użytkownika, którego to dotyczy, jest kontem użytkownika tylko w chmurze, upewnij się, że [użytkownik zmienił hasło po włączeniu usługi Azure AD DS][cloud-only-passwords]. To zresetowanie hasła powoduje wygenerowanie wymaganych skrótów poświadczeń dla Azure AD Domain Services.
 
 * **Sprawdź, czy konto użytkownika jest aktywne**: domyślnie pięć nieudanych prób wprowadzenia hasła w ciągu 2 minut w domenie zarządzanej powoduje zablokowanie konta użytkownika przez 30 minut. Użytkownik nie może się zalogować, gdy konto jest zablokowane. Po 30 minutach konto użytkownika zostanie automatycznie odblokowane.
-  * Nieprawidłowe próby wprowadzenia hasła w domenie zarządzanej usługi Azure AD DS nie Zablokuj konta użytkownika w usłudze Azure AD. Konto użytkownika jest blokowane tylko w domenie zarządzanej. Sprawdź stan konta użytkownika w *konsoli administracyjnej Active Directory (usługach ADAC)* przy użyciu [maszyny wirtualnej zarządzania][management-vm], a nie w usłudze Azure AD.
+  * Nieprawidłowe próby hasła w domenie zarządzanej nie Zablokuj konta użytkownika w usłudze Azure AD. Konto użytkownika jest blokowane tylko w domenie zarządzanej. Sprawdź stan konta użytkownika w *konsoli administracyjnej Active Directory (usługach ADAC)* przy użyciu [maszyny wirtualnej zarządzania][management-vm], a nie w usłudze Azure AD.
   * Możesz również [skonfigurować szczegółowe zasady haseł][password-policy] , aby zmienić domyślny próg blokady i czas trwania.
 
-* **Konta zewnętrzne** — Sprawdź, czy konto użytkownika, którego to dotyczy, nie jest kontem zewnętrznym w dzierżawie usługi Azure AD. Przykłady kont zewnętrznych obejmują konta Microsoft, takie `dee@live.com` jak konta użytkowników, z zewnętrznego katalogu usługi Azure AD. Usługa Azure AD DS nie przechowuje poświadczeń dla kont użytkowników zewnętrznych, dlatego nie może zalogować się do domeny zarządzanej.
+* **Konta zewnętrzne** — Sprawdź, czy konto użytkownika, którego to dotyczy, nie jest kontem zewnętrznym w dzierżawie usługi Azure AD. Przykłady kont zewnętrznych obejmują konta Microsoft, takie jak `dee@live.com` konta użytkowników, z zewnętrznego katalogu usługi Azure AD. Usługa Azure AD DS nie przechowuje poświadczeń dla kont użytkowników zewnętrznych, dlatego nie może zalogować się do domeny zarządzanej.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Istnieje co najmniej jeden alert w domenie zarządzanej
 
-Jeśli istnieją aktywne alerty w domenie zarządzanej usługi Azure AD DS, może to uniemożliwić poprawne działanie procesu uwierzytelniania.
+Jeśli w domenie zarządzanej istnieją aktywne alerty, może to uniemożliwić poprawne działanie procesu uwierzytelniania.
 
-Aby sprawdzić, czy istnieją aktywne alerty, [Sprawdź stan kondycji domeny zarządzanej AD DS platformy Azure][check-health]. Jeśli są wyświetlane alerty, [Rozwiąż problemy i Rozwiąż je][troubleshoot-alerts].
+Aby sprawdzić, czy istnieją aktywne alerty, [Sprawdź stan kondycji domeny zarządzanej][check-health]. Jeśli są wyświetlane alerty, [Rozwiąż problemy i Rozwiąż je][troubleshoot-alerts].
 
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Users removed from your Azure AD tenant are not removed from your managed domain (Użytkownicy usunięci z dzierżawy usługi Azure AD nie są usuwani z domeny zarządzanej)
 
-Usługa Azure AD chroni przed przypadkowym usunięciem obiektów użytkowników. Po usunięciu konta użytkownika z dzierżawy usługi Azure AD odpowiedni obiekt użytkownika zostanie przeniesiony do kosza. Gdy ta operacja usuwania zostanie zsynchronizowana z domeną zarządzaną AD DS platformy Azure, odpowiednie konto użytkownika zostanie oznaczone jako wyłączone. Ta funkcja ułatwia odzyskiwanie lub cofanie usunięcia konta użytkownika.
+Usługa Azure AD chroni przed przypadkowym usunięciem obiektów użytkowników. Po usunięciu konta użytkownika z dzierżawy usługi Azure AD odpowiedni obiekt użytkownika zostanie przeniesiony do kosza. Gdy ta operacja usuwania zostanie zsynchronizowana z domeną zarządzaną, odpowiednie konto użytkownika zostanie oznaczone jako wyłączone. Ta funkcja ułatwia odzyskiwanie lub cofanie usunięcia konta użytkownika.
 
-Konto użytkownika pozostaje w stanie wyłączenia w domenie zarządzanej AD DS platformy Azure, nawet jeśli utworzysz ponownie konto użytkownika z tą samą nazwą UPN w katalogu usługi Azure AD. Aby usunąć konto użytkownika z domeny zarządzanej usługi Azure AD DS, należy wymusić usunięcie go z dzierżawy usługi Azure AD.
+Konto użytkownika pozostaje w stanie wyłączenia w domenie zarządzanej, nawet jeśli ponownie utworzysz konto użytkownika z tą samą nazwą UPN w katalogu usługi Azure AD. Aby usunąć konto użytkownika z domeny zarządzanej, należy wymusić usunięcie go z dzierżawy usługi Azure AD.
 
-Aby w pełni usunąć konto użytkownika z domeny zarządzanej AD DS platformy Azure, Usuń użytkownika trwale z dzierżawy usługi Azure AD za pomocą polecenia cmdlet [Remove-MsolUser][Remove-MsolUser] programu `-RemoveFromRecycleBin` PowerShell z parametrem.
+Aby w pełni usunąć konto użytkownika z domeny zarządzanej, trwale Usuń użytkownika z dzierżawy usługi Azure AD za pomocą polecenia cmdlet [Remove-MsolUser][Remove-MsolUser] programu PowerShell z `-RemoveFromRecycleBin` parametrem.
 
 ## <a name="next-steps"></a>Następne kroki
 

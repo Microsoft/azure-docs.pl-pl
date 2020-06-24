@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: e5db52d1e28a7db5594b3b2a16bc145d0a50e2e3
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310261"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84765084"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Zarządzanie dostępem do obszarów roboczych, danych i potoków
 
@@ -169,14 +169,7 @@ Aby udzielić dostępu użytkownikowi do **jednego** SQL Database, wykonaj nast�
 > *db_datareader* i *db_datawriter* mogą współdziałać z uprawnieniami do odczytu i zapisu, jeśli udzielanie *db_owner* nie pożądane.
 > Aby użytkownik platformy Spark mógł odczytywać i zapisywać dane bezpośrednio z platformy Spark do/z puli SQL, wymagane jest uprawnienie *db_owner* .
 
-Po utworzeniu użytkowników Sprawdź, czy SQL na żądanie może wysyłać zapytania do konta magazynu:
-
-- Uruchom następujące polecenie dotyczące **głównej** bazy danych SQL na żądanie:
-
-    ```sql
-    CREATE CREDENTIAL [https://<storageaccountname>.dfs.core.windows.net]
-    WITH IDENTITY='User Identity';
-    ```
+Po utworzeniu użytkowników Sprawdź, czy SQL na żądanie może wysyłać zapytania do konta magazynu.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>Kontrola dostępu do przebiegów potoku obszaru roboczego
 

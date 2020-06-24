@@ -2,21 +2,21 @@
 title: Debugowanie łączników serwera proxy aplikacji — Azure Active Directory | Microsoft Docs
 description: Problemy z debugowaniem przy użyciu łączników serwera proxy aplikacji Azure Active Directory (Azure AD).
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/21/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: c041578932bd33eb0a2d3afc18a35c2c0458dc8b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9254e0ce9f27d95edb01359e53888078c1087381
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72311850"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764657"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Problemy z debugowaniem łącznika serwera proxy aplikacji 
 
@@ -32,7 +32,7 @@ Aby uzyskać więcej informacji na temat serwera proxy aplikacji i korzystania z
 - [Dostęp zdalny do aplikacji lokalnych przy użyciu serwera proxy aplikacji](application-proxy.md)
 - [Łączniki serwera proxy aplikacji](application-proxy-connectors.md)
 - [Instalowanie i rejestrowanie łącznika](application-proxy-add-on-premises-application.md)
-- [Rozwiązywanie problemów z serwerem proxy aplikacji i komunikatów o błędach](application-proxy-troubleshoot.md)
+- [Rozwiązywanie problemów z serwerem proxy aplikacji i problemów związanych z komunikatami o błędach](application-proxy-troubleshoot.md)
 
 ## <a name="flowchart-for-connector-issues"></a>Schemat blokowy dotyczący problemów z łącznikiem
 
