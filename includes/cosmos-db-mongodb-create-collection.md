@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: cosmos-db
 author: LuisBosquez
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: lbosq
 ms.custom: include file
-ms.openlocfilehash: 0f471c5aefdb39396ea189984d32a9e8f5419182
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 8d12645bd302a7ea808f13c07e2a72f66846bad7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84200302"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85121369"
 ---
 Teraz można użyć narzędzia Eksplorator danych w Azure Portal, aby utworzyć interfejs API Azure Cosmos DB dla bazy danych i kontenera MongoDB. 
 
@@ -21,7 +21,7 @@ Teraz można użyć narzędzia Eksplorator danych w Azure Portal, aby utworzyć 
     
     Obszar **Dodaj kontener** jest wyświetlany po prawej stronie, może być konieczne przewinięcie w prawo w celu wyświetlenia go.
 
-    ![Eksplorator danych w witrynie Azure Portal, okienko Dodawanie kontenera](./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png)
+    :::image type="content" source="./media/cosmos-db-create-collection/azure-cosmosdb-mongodb-data-explorer.png" alt-text="Eksplorator danych w witrynie Azure Portal, okienko Dodawanie kontenera":::
 
 2. Na stronie **Dodawanie kontenera** wprowadź ustawienia dla nowego kontenera.
 

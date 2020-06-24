@@ -8,17 +8,17 @@ author: damendo
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 835b3a69e779b536961110b674ae67f4e8c13ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 632a1eb7b7ac53bd3d7df3f2722d6e53277c7926
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76845057"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738757"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnozowanie połączeń lokalnych za pośrednictwem bram sieci VPN
 
@@ -65,16 +65,16 @@ Po zakończeniu działania polecenia cmdlet możesz przejść do lokalizacji mag
 
 ![1][1]
 
-Otwórz plik o nazwie IKEErrors. txt i wyświetli następujący błąd, wskazując problem z błędną konfiguracją ustawienia lokalnego protokołu IKE.
+Otwórz plik o nazwie IKEErrors.txt i wyświetla następujący błąd, wskazując problem z błędną konfiguracją ustawienia lokalnego protokołu IKE.
 
 ```
 Error: On-premises device rejected Quick Mode settings. Check values.
      based on log : Peer sent NO_PROPOSAL_CHOSEN notify
 ```
 
-Możesz uzyskać szczegółowe informacje z Scrubbed-wfpdiag. txt dotyczące błędu, tak jak w tym przypadku wzmianki o tym, że `ERROR_IPSEC_IKE_POLICY_MATCH` klient nie działa prawidłowo.
+Aby uzyskać szczegółowe Scrubbed-wfpdiag.txt informacje o błędzie, jak w tym przypadku, oznacza to, że `ERROR_IPSEC_IKE_POLICY_MATCH` Klient nie działa prawidłowo.
 
-Inną częstą błędną konfiguracją jest określenie nieprawidłowych kluczy współużytkowanych. Jeśli w poprzednim przykładzie określono różne klucze wspólne, IKEErrors. txt pokazuje następujący błąd: `Error: Authentication failed. Check shared key`.
+Inną częstą błędną konfiguracją jest określenie nieprawidłowych kluczy współużytkowanych. Jeśli w powyższym przykładzie określono różne klucze wspólne, IKEErrors.txt pokazuje następujący błąd: `Error: Authentication failed. Check shared key` .
 
 Funkcja rozwiązywania problemów z usługą Azure Network Watcher umożliwia diagnozowanie i rozwiązywanie problemów z VPN Gateway i połączeniem przy użyciu prostego polecenia cmdlet programu PowerShell. Obecnie obsługujemy diagnozowanie następujących warunków i pracujemy nad dodaniem większej ilości warunków.
 

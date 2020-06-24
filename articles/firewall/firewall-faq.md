@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.author: victorh
-ms.openlocfilehash: f8bfc163fbf32a2083b6e9250daaf5ea2629d10a
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: cf896f6783cca0a61892c43860328d87ada56a9c
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509240"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791490"
 ---
 # <a name="azure-firewall-faq"></a>Często zadawane pytania dotyczące zapory platformy Azure
 
@@ -88,7 +88,7 @@ Zobacz [Cennik usługi Azure firewall](https://azure.microsoft.com/pricing/detai
 
 Można użyć Azure PowerShell *alokacji* i *alokacji* metod.
 
-Na przykład:
+Przykład:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -176,7 +176,7 @@ Początkowa przepustowość zapory platformy Azure to 2,5 – 3 GB/s i jest skal
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Jak długo trwa skalowanie w poziomie zapory platformy Azure?
 
-Usługa Azure firewall stopniowo skaluje się, gdy średnia przepustowość lub użycie procesora CPU wynosi 60%. Skalowanie w poziomie trwa od 5 do siedmiu minut. Podczas testowania wydajności upewnij się, że testujesz przez co najmniej 10 do 15 minut i zainicjuj nowe połączenia, aby korzystać z nowo utworzonych węzłów zapory.
+Usługa Azure firewall stopniowo skaluje się, gdy średnia przepustowość lub użycie procesora CPU wynosi 60%. Skalowanie w poziomie trwa od 5 do siedmiu minut. Podczas testowania wydajności upewnij się, że testujesz przez co najmniej 10 do 15 minut, i Rozpocznij nowe połączenia, aby korzystać z nowo utworzonych węzłów zapory.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Czy Zapora platformy Azure domyślnie zezwala na dostęp do Active Directory?
 
@@ -215,3 +215,7 @@ Tak. Aby uzyskać więcej informacji, zobacz [limity subskrypcji i usług platfo
 ## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Czy mogę przenieść grupę adresów IP do innej grupy zasobów?
 
 Nie, przeniesienie grupy adresów IP do innej grupy zasobów nie jest obecnie obsługiwane.
+
+## <a name="what-is-the-tcp-idle-timeout-for-azure-firewall"></a>Jaki jest limit czasu bezczynności TCP dla zapory platformy Azure?
+
+Standardowe zachowanie zapory sieciowej polega na zapewnieniu aktywności połączeń TCP i niezwłocznego ich zamknięcia w przypadku braku aktywności. Limit czasu bezczynności protokołu TCP zapory platformy Azure to cztery minuty. Tego ustawienia nie można skonfigurować. Jeśli okres braku aktywności jest dłuższy niż wartość limitu czasu, nie ma gwarancji, że sesja TCP lub HTTP jest utrzymywana. Typowym zastosowaniem jest utrzymywanie aktywności protokołu TCP. Ta metoda utrzymuje, że połączenie jest aktywne przez dłuższy czas. Aby uzyskać więcej informacji, zobacz [przykłady dla platformy .NET](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).

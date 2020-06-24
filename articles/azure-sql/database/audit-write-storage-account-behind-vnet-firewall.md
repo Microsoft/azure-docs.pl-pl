@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 06/09/2020
+ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 7e03f8436d432ffb4e20a442261ccf18c57a3934
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 7b8c6e09616f261c371b010b38d2c0f81376a6f9
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628169"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944768"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Inspekcja zapisu na koncie magazynu za siecią wirtualną i zaporą
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -85,7 +85,7 @@ Aby skonfigurować inspekcję SQL do zapisywania zdarzeń na koncie magazynu za 
 
 1. Zarejestruj serwer w usłudze Azure Active Directory (Azure AD). Użyj programu PowerShell lub interfejsu API REST.
 
-   **Program PowerShell**
+   **PowerShell**
 
    ```powershell
    Connect-AzAccount
@@ -145,6 +145,18 @@ Aby skonfigurować inspekcję SQL do zapisywania zdarzeń na koncie magazynu za 
 
 - [Tworzenie lub aktualizowanie zasad inspekcji bazy danych (Set-AzSqlDatabaseAudit)](/powershell/module/az.sql/set-azsqldatabaseaudit)
 - [Tworzenie lub aktualizowanie zasad inspekcji serwera (Set-AzSqlServerAudit)](/powershell/module/az.sql/set-azsqlserveraudit)
+
+## <a name="using-azure-resource-manager-template"></a>Korzystanie z szablonu usługi Azure Resource Manager
+
+Inspekcję można skonfigurować do zapisywania zdarzeń bazy danych na koncie magazynu za siecią wirtualną i zaporą przy użyciu szablonu [Azure Resource Manager](../../azure-resource-manager/management/overview.md) , jak pokazano w następującym przykładzie:
+
+> [!IMPORTANT]
+> Aby można było używać konta magazynu za siecią wirtualną i zaporą, należy ustawić parametr **isStorageBehindVnet** na wartość true.
+
+- [Wdrożenie serwera SQL platformy Azure z włączoną inspekcją w celu zapisania dzienników inspekcji do magazynu obiektów BLOB](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+
+> [!NOTE]
+> Połączony przykład znajduje się w zewnętrznym repozytorium publicznym i ma charakter "AS IS", bez rękojmi i nie jest obsługiwany w ramach żadnego programu lub usługi pomocy technicznej firmy Microsoft.
 
 ## <a name="next-steps"></a>Następne kroki
 

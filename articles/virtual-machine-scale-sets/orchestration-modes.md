@@ -9,14 +9,17 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198407"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737006"
 ---
-# <a name="orchestration-mode-preview"></a>Tryb aranżacji (wersja zapoznawcza)
+# <a name="orchestration-modes-preview"></a>Tryby aranżacji (wersja zapoznawcza)
+
+> [!CAUTION]
+> Dziękujemy za wszystkich osoby, które uczestniczyły w tej publicznej wersji zapoznawczej. Mogliśmy zebrać cenne opinie z naszej społeczności. Ta wersja zapoznawcza jest teraz **ZAMKNIĘTA** dla nowych uczestników, aby można było zintegrować Opinie. Będziemy aktualizować to miejsce przy użyciu nowych informacji.
 
 Zestawy skalowania maszyn wirtualnych stanowią logiczne grupowanie maszyn wirtualnych zarządzanych przez platformę. Zestawy skalowania umożliwiają utworzenie modelu konfiguracji maszyny wirtualnej, automatyczne dodanie lub usunięcie dodatkowych wystąpień na podstawie obciążenia procesora lub pamięci oraz automatyczne uaktualnienie do najnowszej wersji systemu operacyjnego. Tradycyjnie zestawy skalowania umożliwiają tworzenie maszyn wirtualnych przy użyciu modelu konfiguracji maszyny wirtualnej dostarczonego w momencie tworzenia zestawu skalowania, a zestaw skalowania może zarządzać wyłącznie maszynami wirtualnymi utworzonymi niejawnie na podstawie modelu konfiguracji.
 
@@ -41,7 +44,7 @@ Zestawy skalowania maszyn wirtualnych będą obsługiwały dwa różne tryby ara
 
 |                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Model konfiguracji maszyny wirtualnej      | Brak                                       | Wymagany |
+| Model konfiguracji maszyny wirtualnej      | Brak                                       | Wymagane |
 | Dodawanie nowej maszyny wirtualnej do zestawu skalowania  | Maszyny wirtualne są jawnie dodawane do zestawu skalowania podczas tworzenia maszyny wirtualnej. | Maszyny wirtualne są niejawnie tworzone i dodawane do zestawu skalowania na podstawie modelu konfiguracji maszyny wirtualnej, liczby wystąpień i reguł skalowania automatycznego | |
 | Usuwanie maszyny wirtualnej                   | Maszyny wirtualne muszą zostać usunięte pojedynczo, zestaw skalowania nie zostanie usunięty, jeśli zawiera on maszyny wirtualne. | Maszyny wirtualne można usuwać pojedynczo, usuwając zestaw skalowania spowoduje usunięcie wszystkich wystąpień maszyn wirtualnych.  |
 | Dołączanie/Odłączanie maszyn wirtualnych           | Nieobsługiwane                              | Nieobsługiwane |

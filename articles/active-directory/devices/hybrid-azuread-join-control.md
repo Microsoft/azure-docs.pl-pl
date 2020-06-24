@@ -4,19 +4,19 @@ description: Dowiedz się, jak przeprowadzić kontrolowane weryfikację hybrydow
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f43db805ccbb7d4e546c51bbe39350f4bbba2efb
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 66b216e5e511d2d80378ee7e2d124dccbc7abcb7
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "80049977"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252716"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrolowana walidacja przyłączenia do hybrydowej usługi Azure AD
 
@@ -42,7 +42,7 @@ Użyj edytora interfejsów Active Directory Services (ADSI Edit), aby zmodyfikow
 
 1. Uruchom **Edytor ADSI Edycja** aplikacji klasycznych z i administracyjnej stacji roboczej lub kontrolera domeny jako administrator przedsiębiorstwa.
 1. Nawiąż połączenie z **kontekstem nazewnictwa konfiguracji** domeny.
-1. Przejdź do **CN = Configuration, DC = contoso, DC = com** > **CN = Services** > **CN = Konfiguracja rejestracji urządzeń**
+1. Przejdź do **CN = Configuration, DC = contoso, DC = com**  >  **CN = Services**  >  **CN = Konfiguracja rejestracji urządzeń**
 1. Kliknij prawym przyciskiem myszy obiekt liścia **CN = 62a0ff2e-97B9-4513-943f-0d221bd30080** i wybierz polecenie **Właściwości**
    1. Wybierz **słowa kluczowe** z okna **edytora atrybutów** , a następnie kliknij przycisk **Edytuj** .
    1. Wybierz wartości **azureADId** i **azureADName** (po jednym naraz), a następnie kliknij przycisk **Usuń** .
@@ -55,17 +55,17 @@ Użyj poniższego przykładu, aby utworzyć obiekt zasady grupy (GPO) w celu wdr
 
 1. Otwórz konsolę zarządzania zasady grupy i Utwórz nowy obiekt zasady grupy w domenie.
    1. Podaj nazwę nowo utworzonego obiektu zasad grupy (na przykład ClientSideSCP).
-1. Edytuj obiekt zasad grupy i znajdź następującą ścieżkę:**Preferencje** >  **konfiguracji** > komputera > **Rejestr** **ustawień systemu Windows**
-1. Kliknij prawym przyciskiem myszy rejestr i wybierz pozycję **Nowy** > **element rejestru**
+1. Edytuj obiekt zasad grupy i znajdź następującą ścieżkę: **Preferencje konfiguracji komputera**  >  **Preferences**  >  **rejestr ustawień systemu Windows**  >  **Registry**
+1. Kliknij prawym przyciskiem myszy rejestr i wybierz pozycję **Nowy**  >  **element rejestru**
    1. Na karcie **Ogólne** skonfiguruj następujące ustawienia:
       1. Akcja: **Aktualizacja**
       1. Gałąź: **HKEY_LOCAL_MACHINE**
       1. Ścieżka klucza: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nazwa wartości: **TenantId**
       1. Typ wartości: **REG_SZ**
-      1. Dane wartości: identyfikator GUID lub **katalog** Twojego wystąpienia usługi Azure AD (tę wartość można znaleźć w **Azure Portal** > **Azure Active Directory** > **Właściwości** > **katalogu**
+      1. Dane wartości: identyfikator GUID lub **katalog** Twojego wystąpienia usługi Azure AD (tę wartość można znaleźć w **Azure Portal**  >  **Azure Active Directory**  >  **Właściwości**  >  **katalogu**
    1. Kliknij przycisk **OK** .
-1. Kliknij prawym przyciskiem myszy rejestr i wybierz pozycję **Nowy** > **element rejestru**
+1. Kliknij prawym przyciskiem myszy rejestr i wybierz pozycję **Nowy**  >  **element rejestru**
    1. Na karcie **Ogólne** skonfiguruj następujące ustawienia:
       1. Akcja: **Aktualizacja**
       1. Gałąź: **HKEY_LOCAL_MACHINE**

@@ -2,23 +2,23 @@
 title: Dostęp zdalny do aplikacji lokalnych — serwer proxy aplikacji usługi Azure AD platformy Azure
 description: Serwer proxy aplikacji Azure Active Directory zapewnia bezpieczny dostęp zdalny do lokalnych aplikacji sieci Web. Po jednokrotnym zalogowaniu się do usługi Azure AD użytkownicy mogą uzyskiwać dostęp do aplikacji w chmurze i lokalnych przy użyciu zewnętrznego adresu URL lub wewnętrznego portalu aplikacji. Na przykład serwer proxy aplikacji może zapewnić dostęp zdalny i logowanie jednokrotne do aplikacji Pulpit zdalny, SharePoint, Teams, Tableau, Qlik i LOB.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5ba82b34da8e4c3156d6854934ad873428bf121a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 20b186c75358344e6e995b24b8e54e308c8653d2
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168730"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975422"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Zdalny dostęp do aplikacji lokalnych przy użyciu serwera proxy aplikacji Azure Active Directory
 
@@ -71,5 +71,3 @@ Na poniższym diagramie pokazano, w jaki sposób usługa Azure AD i serwer proxy
 
 ## <a name="next-steps"></a>Następne kroki
 Aby rozpocząć korzystanie z serwera proxy aplikacji, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego za pośrednictwem serwera proxy aplikacji](application-proxy-add-on-premises-application.md).
-
-Najnowsze wiadomości i aktualizacje można znaleźć na blogu dotyczącym [serwera proxy aplikacji](https://blogs.technet.com/b/applicationproxyblog/)

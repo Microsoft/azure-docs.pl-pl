@@ -5,17 +5,17 @@ description: Jak wdrożyć obszar roboczy dla Azure Machine Learning Studio (kla
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 1ce147ac6c9b21176c738c21114c331b56bf667f
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8a6ec4c8f5e59546c0ec5ee3cdd128e70d89802b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118470"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84696273"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Wdróż obszar roboczy Azure Machine Learning Studio (klasyczny) przy użyciu Azure Resource Manager
 
@@ -76,7 +76,7 @@ Następujący szablon używa nazwy grupy zasobów do wygenerowania nazwy konta m
 }
 
 ```
-Zapisz ten szablon jako plik mlworkspace. JSON w obszarze c:\Temp\.
+Zapisz ten szablon jako mlworkspace.jsw pliku w obszarze c:\Temp\.
 
 ### <a name="deploy-the-resource-group-based-on-the-template"></a>Wdróż grupę zasobów na podstawie szablonu
 

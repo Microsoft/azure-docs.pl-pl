@@ -13,11 +13,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a638184d5232de916ebd25360147301a93309dd9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260516"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84702298"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Przenoszenie danych do i z Azure Cosmos DB przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -58,7 +58,7 @@ Poniższa tabela zawiera opis elementów JSON specyficznych dla Azure Cosmos DB 
 
 | **Właściwość** | **Opis** | **Wymagane** |
 | --- | --- | --- |
-| type |Właściwość Type musi mieć wartość: **DocumentDb** |Tak |
+| typ |Właściwość Type musi mieć wartość: **DocumentDb** |Tak |
 | Parametry połączenia |Określ informacje, które są konieczne do nawiązania połączenia z bazą danych Azure Cosmos DB. |Tak |
 
 Przykład:

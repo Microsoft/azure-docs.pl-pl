@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: aschhab
-ms.openlocfilehash: 38187bef1d9c73b20c3b1930f97e7dae2468c889
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 125132aec8e822bf6694076e9ff6029744608c1a
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673449"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975303"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus — często zadawane pytania
 
@@ -63,7 +63,7 @@ Aby znaleźć listę prawidłowych adresów IP dla połączeń, wykonaj następu
 1. Uruchom następujące polecenie w wierszu polecenia: 
 
     ```
-    nslookup <YourNamespaceName>.servicebus.windows.net
+    nslookup <YourNamespaceName>.cloudapp.net
     ```
 2. Zanotuj adres IP zwrócony w `Non-authoritative answer` . Ten adres IP jest statyczny. Jedyną momentem, gdy będzie ona zmieniana, jest przywrócenie przestrzeni nazw w innym klastrze.
 
@@ -72,14 +72,14 @@ Jeśli używasz nadmiarowości strefy dla przestrzeni nazw, musisz wykonać kilk
 1. Najpierw uruchom polecenie nslookup w przestrzeni nazw.
 
     ```
-    nslookup <yournamespace>.servicebus.windows.net
+    nslookup <yournamespace>.cloudapp.net
     ```
 2. Zanotuj nazwę w sekcji **Nieautorytatywna odpowiedź** , która znajduje się w jednym z następujących formatów: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Uruchom polecenie nslookup dla każdego z sufiksów S1, S2 i S3, aby uzyskać adresy IP wszystkich trzech wystąpień uruchomionych w trzech strefach dostępności, 
 

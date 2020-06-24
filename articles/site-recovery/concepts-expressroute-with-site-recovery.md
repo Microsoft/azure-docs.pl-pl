@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258007"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84700889"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Usługa Azure ExpressRoute z Azure Site Recovery
 
@@ -46,7 +46,7 @@ Zapewni to, że ruch związany z replikacją odbywa się za pomocą ExpressRoute
 
 Gdy maszyny wirtualne lub serwery zostaną przełączone w tryb failover do sieci wirtualnej platformy Azure, możesz uzyskać do nich dostęp przy użyciu [prywatnej komunikacji równorzędnej](../expressroute/expressroute-circuit-peerings.md#privatepeering). 
 
-Połączony scenariusz jest przedstawiony na poniższym diagramie: ![lokalne na platformie Azure z ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
+Połączony scenariusz jest przedstawiony na poniższym diagramie: ![ lokalne na platformie Azure z ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Replikacja z platformy Azure do platformy Azure za pomocą ExpressRoute
 

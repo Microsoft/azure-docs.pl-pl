@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/18/2018
+ms.date: 06/17/2020
 ms.author: yexu
-ms.openlocfilehash: df078673aed60086a88961ff64f9bfa596d96346
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a10f7c3dda4d16a264cf52f9fddcf2bf0ed93348
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414084"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84907515"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Narzędzie do kopiowanie danych w usłudze Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -37,7 +37,7 @@ W poniższej tabeli przedstawiono wskazówki dotyczące sytuacji, w których nal
 
 Aby uruchomić narzędzie Kopiowanie danych, kliknij kafelek **Kopiowanie danych** na stronie głównej fabryki danych.
 
-![Wprowadzenie do narzędzia do Kopiowanie danych](./media/copy-data-tool/get-started-page.png)
+![Wprowadzenie do narzędzia do Kopiowanie danych](./media/doc-common-process/get-started-page.png)
 
 
 ## <a name="intuitive-flow-for-loading-data-into-a-data-lake"></a>Intuicyjny przepływ do ładowania danych do usługi Data Lake

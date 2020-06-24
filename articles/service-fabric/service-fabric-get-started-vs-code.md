@@ -6,11 +6,11 @@ ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258488"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692602"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric Visual Studio Code
 
@@ -56,7 +56,7 @@ Następujące wymagania wstępne muszą być zainstalowane na potrzeby programow
 2. Kliknij ikonę rozszerzenia na **pasku działania** po lewej stronie vs Code. Wyszukaj ciąg "Service Fabric". Kliknij przycisk **Instaluj** dla rozszerzenia Service Fabric Reliable Services.
 
 ## <a name="commands"></a>Polecenia
-Rozszerzenie Service Fabric Reliable Services dla VS Code zawiera wiele poleceń, które ułatwiają deweloperom tworzenie i wdrażanie projektów Service Fabric. Możesz wywołać polecenia z **palety poleceń** , naciskając klawisz `(Ctrl + Shift + p)`, wpisując nazwę polecenia na pasku wprowadzania i wybierając odpowiednie polecenie z listy monitów. 
+Rozszerzenie Service Fabric Reliable Services dla VS Code zawiera wiele poleceń, które ułatwiają deweloperom tworzenie i wdrażanie projektów Service Fabric. Możesz wywołać polecenia z **palety poleceń** , naciskając klawisz `(Ctrl + Shift + p)` , wpisując nazwę polecenia na pasku wprowadzania i wybierając odpowiednie polecenie z listy monitów. 
 
 * Service Fabric: Tworzenie aplikacji 
 * Service Fabric: publikowanie aplikacji 
@@ -87,10 +87,10 @@ Polecenie **Service Fabric: Create Application** tworzy nową aplikację Service
 5.  Nowa usługa zostanie wyświetlona w katalogu projektu. 
 
 ### <a name="service-fabric-publish-application"></a>Service Fabric: publikowanie aplikacji
-**Service Fabric: Publish Application** polecenie wdraża aplikację Service Fabric w klastrze zdalnym. Klaster docelowy może być bezpiecznym lub niezabezpieczonym klastrem. Jeśli parametry nie są ustawione w pliku Cloud. JSON, aplikacja jest wdrażana w klastrze lokalnym.
+**Service Fabric: Publish Application** polecenie wdraża aplikację Service Fabric w klastrze zdalnym. Klaster docelowy może być bezpiecznym lub niezabezpieczonym klastrem. Jeśli parametry nie są ustawione w Cloud.json, aplikacja zostanie wdrożona w klastrze lokalnym.
 
-1.  Podczas pierwszego kompilowania aplikacji jest generowany plik Cloud. JSON w katalogu projektu.
-2.  Wprowadź wartości dla klastra, z którym chcesz nawiązać połączenie, w pliku Cloud. JSON.
+1.  Podczas pierwszego kompilowania aplikacji jest generowany Cloud.jsw pliku w katalogu projektu.
+2.  Wprowadź wartości dla klastra, z którym chcesz nawiązać połączenie w Cloud.jspliku.
 3.  Wybierz polecenie **Service Fabric: Publikuj aplikację** .
 4.  Aby upewnić się, że aplikacja została zainstalowana, Wyświetl klaster docelowy z Service Fabric Explorer. 
 
@@ -98,8 +98,8 @@ Polecenie **Service Fabric: Create Application** tworzy nową aplikację Service
 **Service Fabric: Deploy aplikacji** polecenie wdraża aplikację Service Fabric w klastrze lokalnym. Przed użyciem polecenia upewnij się, że klaster lokalny jest uruchomiony. 
 
 1. Wybierz polecenie **Service Fabric: Wdróż aplikację**
-2. Wyświetl klaster lokalny z Service Fabric Explorer (http:\//localhost: 19080/Explorer), aby upewnić się, że aplikacja została zainstalowana. Może to potrwać pewien czas.
-3. Możesz również użyć **Service Fabric: Publikuj** polecenie bez parametrów ustawionych w pliku Cloud. JSON do wdrożenia w klastrze lokalnym.
+2. Wyświetl klaster lokalny z Service Fabric Explorer (http: \/ /localhost: 19080/Explorer), aby upewnić się, że aplikacja została zainstalowana. Może to potrwać pewien czas.
+3. Możesz również użyć **Service Fabric: Publikuj** polecenie bez parametrów ustawionych w Cloud.jspliku, aby wdrożyć w klastrze lokalnym.
 
 > [!NOTE]
 > Wdrażanie aplikacji Java w klastrze lokalnym nie jest obsługiwane na maszynach z systemem Windows.

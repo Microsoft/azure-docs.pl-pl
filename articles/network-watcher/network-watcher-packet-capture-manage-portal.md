@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: damendo
-ms.openlocfilehash: d7a61438187534a05a7d3f0307a1a4ded89fc147
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 28d5ae1451b97c19576baa3f9760b8f784db3175
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204087"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736734"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher przy użyciu portalu
 
@@ -79,7 +79,7 @@ Po upływie limitu czasu skonfigurowanego dla przechwycenia pakietu przechwyceni
 ## <a name="delete-a-packet-capture"></a>Usuwanie przechwytywania pakietu
 
 1. W widoku przechwytywania pakietów wybierz pozycję **...** po prawej stronie przechwytywania pakietów lub kliknij prawym przyciskiem myszy istniejący przechwycenie pakietu, a następnie wybierz polecenie **Usuń**.
-2. Zostanie wyświetlony monit o potwierdzenie, że chcesz usunąć przechwycenie pakietu. Wybierz pozycję **tak**.
+2. Zostanie wyświetlony monit o potwierdzenie, że chcesz usunąć przechwycenie pakietu. Wybierz pozycję **Tak**.
 
 > [!NOTE]
 > Usunięcie przechwycenia pakietu nie powoduje usunięcia pliku przechwytywania na koncie magazynu ani na maszynie wirtualnej.

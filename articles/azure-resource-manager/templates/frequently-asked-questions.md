@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/30/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 380e65d3f3d659d8fa6f339a9dfd45263f711541
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84325901"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296869"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Często zadawane pytania dotyczące szablonów ARM
 
@@ -128,7 +128,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 
 * **Czy nadal mogę używać niestandardowych rozszerzeń skryptów i konfiguracji żądanego stanu (DSC)?**
 
-  Te opcje są nadal dostępne i nie zostały zmienione. Skrypty wdrażania są przeznaczone do wykonywania akcji, które nie są powiązane z gościem maszyny wirtualnej. Jeśli potrzebujesz uruchomić skrypt w systemie operacyjnym hosta na maszynie wirtualnej, lepszym wyborem może być rozszerzenie skryptu klienta i/lub Konfiguracja DSC. Jednak skrypty wdrażania mają zalety, takie jak ustawienie czasu trwania.
+  Te opcje są nadal dostępne i nie zostały zmienione. Skrypty wdrażania są przeznaczone do wykonywania akcji, które nie są powiązane z gościem maszyny wirtualnej. Jeśli konieczne jest uruchomienie skryptu w systemie operacyjnym hosta na maszynie wirtualnej, lepszym wyborem może być rozszerzenie niestandardowego skryptu i/lub DSC. Jednak skrypty wdrażania mają zalety, takie jak ustawienie czasu trwania.
 
 * **Czy skrypty wdrażania są obsługiwane w Azure Government?**
 

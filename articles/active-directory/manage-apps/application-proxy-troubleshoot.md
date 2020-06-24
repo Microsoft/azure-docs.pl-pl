@@ -3,27 +3,27 @@ title: Rozwiązywanie problemów z serwerem proxy aplikacji | Microsoft Docs
 description: Obejmuje rozwiązywanie problemów dotyczących błędów w usłudze Azure serwer proxy aplikacji usługi Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 06/24/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
-ms.custom: H1Hack27Feb2017; it-pro
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7be9a17bed2a39d16f813332c2d6effc03393264
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43ac046f3480b08fdc3b8d582d9e724f4b9b93d5
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244227"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975439"
 ---
-# <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Rozwiązywanie problemów z serwerem proxy aplikacji i komunikatów o błędach
+# <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Rozwiązywanie problemów z serwerem proxy aplikacji i problemów związanych z komunikatami o błędach
 
 W przypadku rozwiązywania problemów z serwerem proxy aplikacji zalecamy rozpoczęcie od przejrzenia przepływu rozwiązywania problemów, [Debugowanie problemów dotyczących łącznika serwera proxy aplikacji](application-proxy-debug-connectors.md)w celu ustalenia, czy łączniki serwera proxy aplikacji są prawidłowo skonfigurowane. Jeśli nadal występują problemy z nawiązywaniem połączenia z aplikacją, postępuj zgodnie z przepływem rozwiązywania problemów, aby [debugować problemy aplikacji serwera proxy aplikacji](application-proxy-debug-apps.md).
 
@@ -31,15 +31,13 @@ Jeśli wystąpią błędy podczas uzyskiwania dostępu do opublikowanej aplikacj
 
 * Otwórz konsolę usług systemu Windows. Sprawdź, czy usługa **łącznika serwera proxy aplikacji usługi Microsoft AAD** jest włączona i uruchomiona. Warto również zapoznać się ze stroną właściwości usługi serwera proxy aplikacji, jak pokazano na poniższej ilustracji:  
   ![Zrzut ekranu okno Właściwości łącznika serwera proxy aplikacji usługi Microsoft AAD](./media/application-proxy-troubleshoot/connectorproperties.png)
-* Otwórz Podgląd zdarzeń i Wyszukaj zdarzenia łącznika serwera > proxy aplikacji w obszarze **Dzienniki aplikacji i usług****Microsoft** > **AadApplicationProxy** > **Connector** > **admin**.
+* Otwórz Podgląd zdarzeń i Wyszukaj zdarzenia łącznika serwera proxy aplikacji w obszarze **Dzienniki aplikacji i usług**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**  >  **admin**.
 * W razie konieczności bardziej szczegółowe dzienniki są dostępne przez [włączenie dzienników sesji łącznika serwera proxy aplikacji](application-proxy-connectors.md#under-the-hood).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>Strona nie jest prawidłowo renderowana
 Mogą występować problemy z renderowaniem aplikacji lub działać nieprawidłowo bez uzyskiwania określonych komunikatów o błędach. Taka sytuacja może wystąpić, jeśli opublikowano ścieżkę artykułu, ale aplikacja wymaga zawartości, która istnieje poza tą ścieżką.
 
-Na przykład, Jeśli opublikujesz ścieżkę `https://yourapp/app` , ale aplikacja wywołuje obrazy w `https://yourapp/media`, nie będą renderowane. Upewnij się, że aplikacja została opublikowana przy użyciu ścieżki najwyższego poziomu, której potrzebujesz do uwzględnienia całej odpowiedniej zawartości. W tym przykładzie będzie to możliwe `http://yourapp/`.
-
-Jeśli zmienisz ścieżkę, aby uwzględnić zawartość przywoływaną, ale nadal będziesz mieć dostęp do bardziej szczegółowego linku w ścieżce, zobacz wpis w blogu [Ustawianie odpowiedniego linku dla aplikacji serwera proxy aplikacji w panelu dostępu do usługi Azure AD i uruchamiania aplikacji pakietu Office 365](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/).
+Na przykład, Jeśli opublikujesz ścieżkę `https://yourapp/app` , ale aplikacja wywołuje obrazy w `https://yourapp/media` , nie będą renderowane. Upewnij się, że aplikacja została opublikowana przy użyciu ścieżki najwyższego poziomu, której potrzebujesz do uwzględnienia całej odpowiedniej zawartości. W tym przykładzie będzie to możliwe `http://yourapp/` .
 
 ## <a name="connector-errors"></a>Błędy łącznika
 
@@ -49,13 +47,13 @@ Jeśli rejestracja kończy się niepowodzeniem podczas instalacji kreatora łąc
 
 Po znalezieniu błędu łącznika z dziennika zdarzeń Użyj tej tabeli typowych błędów, aby rozwiązać ten problem:
 
-| Error | Zalecane czynności |
+| Błąd | Zalecane czynności |
 | ----- | ----------------- |
 | Rejestracja łącznika nie powiodła się: Upewnij się, że włączono serwer proxy aplikacji w usłudze Azure portal zarządzania oraz że wprowadzono Active Directory nazwę użytkownika i hasło. Błąd: Wystąpił jeden lub więcej błędów. | Jeśli zamknięto okno rejestracji bez logowania do usługi Azure AD, ponownie uruchom Kreatora łącznika i zarejestruj łącznik. <br><br> Jeśli okno rejestracja zostanie otwarte, a następnie natychmiast zamknięte bez zezwolenia na zalogowanie, prawdopodobnie ten błąd wystąpi. Ten błąd występuje, gdy w systemie wystąpi błąd sieciowy. Upewnij się, że można nawiązać połączenie z przeglądarki z publiczną witryną sieci Web i że porty są otwarte zgodnie z [wymaganiami wstępnymi serwera proxy aplikacji](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 | W oknie rejestracji jest wyświetlany komunikat o błędzie "Wyczyść". Nie można przeprowadzić | Jeśli ten błąd jest wyświetlany, a następnie okno zostało zamknięte, wprowadzono nieprawidłową nazwę użytkownika lub hasło. Próbuj ponownie. |
-| Rejestracja łącznika nie powiodła się: Upewnij się, że włączono serwer proxy aplikacji w usłudze Azure portal zarządzania oraz że wprowadzono Active Directory nazwę użytkownika i hasło. Błąd: "AADSTS50059: nie znaleziono informacji identyfikacyjnych dzierżawy w żądaniu lub IMPLIKOWANYCH przez żadne podane poświadczenia i wyszukiwanie według nazwy głównej identyfikatora URI usługi nie powiodło się. | Podjęto próbę zalogowania się przy użyciu konta Microsoft, a nie domeny, która jest częścią identyfikatora organizacji katalogu, do którego próbujesz uzyskać dostęp. Upewnij się, że administrator jest częścią tej samej nazwy domeny co domena dzierżawy, na przykład jeśli domena usługi Azure AD to contoso.com, administrator powinien mieć admin@contoso.comwartość. |
-| Nie można pobrać bieżących zasad wykonywania dla uruchomionych skryptów programu PowerShell. | Jeśli instalacja łącznika nie powiedzie się, upewnij się, że zasady wykonywania programu PowerShell nie są wyłączone. <br><br>1. Otwórz Edytor zasady grupy.<br>2. Przejdź do **pozycji Konfiguracja** > **Szablony administracyjne** > **składniki** > systemu Windows**PowerShell** i kliknij dwukrotnie pozycję **Włącz wykonywanie skryptów**.<br>3. zasady wykonywania można ustawić jako **Nieskonfigurowane** lub **włączone**. W przypadku wybrania opcji **włączone**upewnij się, że w obszarze Opcje zasady wykonywania są ustawione na **Zezwalaj na skrypty lokalne i zdalne podpisywane skrypty** lub **Zezwalaj na wszystkie skrypty**. |
-| Pobranie konfiguracji przez łącznik nie powiodło się. | Certyfikat klienta łącznika, który jest używany na potrzeby uwierzytelniania, wygasł. Taka sytuacja może również wystąpić, jeśli masz łącznik zainstalowany za serwerem proxy. W takim przypadku łącznik nie może uzyskać dostępu do Internetu i nie będzie mógł udostępniać aplikacji użytkownikom zdalnym. Odnowić zaufanie ręcznie `Register-AppProxyConnector` przy użyciu polecenia cmdlet w programie Windows PowerShell. Jeśli łącznik znajduje się za serwerem proxy, konieczne jest przyznanie dostępu do Internetu kontom łącznika "usługi sieciowe" i "System lokalny". Można to osiągnąć przez przyznanie im dostępu do serwera proxy lub przez ustawienie ich w celu obejścia serwera proxy. |
+| Rejestracja łącznika nie powiodła się: Upewnij się, że włączono serwer proxy aplikacji w usłudze Azure portal zarządzania oraz że wprowadzono Active Directory nazwę użytkownika i hasło. Błąd: "AADSTS50059: nie znaleziono informacji identyfikacyjnych dzierżawy w żądaniu lub IMPLIKOWANYCH przez żadne podane poświadczenia i wyszukiwanie według nazwy głównej identyfikatora URI usługi nie powiodło się. | Podjęto próbę zalogowania się przy użyciu konta Microsoft, a nie domeny, która jest częścią identyfikatora organizacji katalogu, do którego próbujesz uzyskać dostęp. Upewnij się, że administrator jest częścią tej samej nazwy domeny co domena dzierżawy, na przykład jeśli domena usługi Azure AD to contoso.com, administrator powinien mieć wartość admin@contoso.com . |
+| Nie można pobrać bieżących zasad wykonywania dla uruchomionych skryptów programu PowerShell. | Jeśli instalacja łącznika nie powiedzie się, upewnij się, że zasady wykonywania programu PowerShell nie są wyłączone. <br><br>1. Otwórz Edytor zasady grupy.<br>2. Przejdź do pozycji **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **PowerShell** i kliknij dwukrotnie pozycję **Włącz wykonywanie skryptów**.<br>3. zasady wykonywania można ustawić jako **Nieskonfigurowane** lub **włączone**. W przypadku wybrania opcji **włączone**upewnij się, że w obszarze Opcje zasady wykonywania są ustawione na **Zezwalaj na skrypty lokalne i zdalne podpisywane skrypty** lub **Zezwalaj na wszystkie skrypty**. |
+| Pobranie konfiguracji przez łącznik nie powiodło się. | Certyfikat klienta łącznika, który jest używany na potrzeby uwierzytelniania, wygasł. Taka sytuacja może również wystąpić, jeśli masz łącznik zainstalowany za serwerem proxy. W takim przypadku łącznik nie może uzyskać dostępu do Internetu i nie będzie mógł udostępniać aplikacji użytkownikom zdalnym. Odnowić zaufanie ręcznie przy użyciu `Register-AppProxyConnector` polecenia cmdlet w programie Windows PowerShell. Jeśli łącznik znajduje się za serwerem proxy, konieczne jest przyznanie dostępu do Internetu kontom łącznika "usługi sieciowe" i "System lokalny". Można to osiągnąć przez przyznanie im dostępu do serwera proxy lub przez ustawienie ich w celu obejścia serwera proxy. |
 | Rejestracja łącznika nie powiodła się: Upewnij się, że jesteś administratorem aplikacji Active Directory, aby zarejestrować łącznik. Błąd: "żądanie rejestracji zostało odrzucone." | Alias, za pomocą którego próbujesz się zalogować, nie jest administratorem w tej domenie. Łącznik jest zawsze instalowany dla katalogu, który jest właścicielem domeny użytkownika. Upewnij się, że konto administratora, za pomocą którego próbujesz się zalogować, ma co najmniej uprawnienia administratora aplikacji do dzierżawy usługi Azure AD. |
 | Łącznik nie może nawiązać połączenia z usługą ze względu na problemy z siecią. Łącznik próbował uzyskać dostęp do następującego adresu URL. | Łącznik nie może nawiązać połączenia z usługą serwera proxy aplikacji w chmurze. Może się tak zdarzyć, jeśli masz regułę zapory blokującą połączenie. Upewnij się, że masz dozwolony dostęp do poprawnych portów i adresów URL wymienionych w [wymaganiach wstępnych serwera proxy aplikacji](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). |
 
@@ -63,9 +61,9 @@ Po znalezieniu błędu łącznika z dziennika zdarzeń Użyj tej tabeli typowych
 
 W tej tabeli opisano bardziej typowe błędy, które pochodzą z instalacji i konfiguracji protokołu Kerberos, a także przedstawiono sugestie dotyczące rozwiązania.
 
-| Error | Zalecane czynności |
+| Błąd | Zalecane czynności |
 | ----- | ----------------- |
-| Nie można pobrać bieżących zasad wykonywania dla uruchomionych skryptów programu PowerShell. | Jeśli instalacja łącznika nie powiedzie się, upewnij się, że zasady wykonywania programu PowerShell nie są wyłączone.<br><br>1. Otwórz Edytor zasady grupy.<br>2. Przejdź do **pozycji Konfiguracja** > **Szablony administracyjne** > **składniki** > systemu Windows**PowerShell** i kliknij dwukrotnie pozycję **Włącz wykonywanie skryptów**.<br>3. zasady wykonywania można ustawić jako **Nieskonfigurowane** lub **włączone**. W przypadku wybrania opcji **włączone**upewnij się, że w obszarze Opcje zasady wykonywania są ustawione na **Zezwalaj na skrypty lokalne i zdalne podpisywane skrypty** lub **Zezwalaj na wszystkie skrypty**. |
+| Nie można pobrać bieżących zasad wykonywania dla uruchomionych skryptów programu PowerShell. | Jeśli instalacja łącznika nie powiedzie się, upewnij się, że zasady wykonywania programu PowerShell nie są wyłączone.<br><br>1. Otwórz Edytor zasady grupy.<br>2. Przejdź do pozycji **Konfiguracja komputera**  >  **Szablony administracyjne**  >  **składniki systemu Windows**  >  **PowerShell** i kliknij dwukrotnie pozycję **Włącz wykonywanie skryptów**.<br>3. zasady wykonywania można ustawić jako **Nieskonfigurowane** lub **włączone**. W przypadku wybrania opcji **włączone**upewnij się, że w obszarze Opcje zasady wykonywania są ustawione na **Zezwalaj na skrypty lokalne i zdalne podpisywane skrypty** lub **Zezwalaj na wszystkie skrypty**. |
 | 12008 — usługa Azure AD przekroczyła maksymalną liczbę dozwolonych prób uwierzytelnienia Kerberos do serwera wewnętrznej bazy danych. | Ten błąd może wskazywać na niepoprawną konfigurację między usługą Azure AD a serwerem aplikacji zaplecza lub problem w konfiguracji czasu i daty na obu komputerach. Serwer wewnętrznej bazy danych odrzucił bilet protokołu Kerberos utworzony przez usługę Azure AD. Sprawdź, czy usługa Azure AD i serwer aplikacji zaplecza są prawidłowo skonfigurowane. Upewnij się, że konfiguracja czasu i daty w usłudze Azure AD i serwerze aplikacji zaplecza są zsynchronizowane. |
 | 13016 — usługa Azure AD nie może pobrać biletu protokołu Kerberos w imieniu użytkownika, ponieważ nie ma nazwy UPN w tokenie brzegowym ani w pliku cookie dostępu. | Istnieje problem z konfiguracją usługi STS. Napraw Konfiguracja oświadczenia nazwy UPN w usłudze STS. |
 | 13019 — usługa Azure AD nie może pobrać biletu protokołu Kerberos w imieniu użytkownika z powodu następującego ogólnego błędu interfejsu API. | To zdarzenie może wskazywać niepoprawną konfigurację między usługą Azure AD a serwerem kontrolera domeny lub problem w konfiguracji czasu i daty na obu komputerach. Kontroler domeny odrzucił bilet Kerberos utworzony przez usługę Azure AD. Sprawdź, czy usługa Azure AD i serwer aplikacji zaplecza są prawidłowo skonfigurowane, szczególnie w konfiguracji SPN. Upewnij się, że usługa Azure AD jest przyłączona do tej samej domeny, co kontroler domeny, aby upewnić się, że kontroler domeny ustanawia relację zaufania z usługą Azure AD. Upewnij się, że konfiguracja czasu i daty w usłudze Azure AD i kontrolerze domeny są zsynchronizowane. |
@@ -76,7 +74,7 @@ W tej tabeli opisano bardziej typowe błędy, które pochodzą z instalacji i ko
 
 Ta lista zawiera błędy, które użytkownicy końcowi mogą napotkać podczas próby uzyskania dostępu do aplikacji i niepowodzenia. 
 
-| Error | Zalecane czynności |
+| Błąd | Zalecane czynności |
 | ----- | ----------------- |
 | Witryna sieci Web nie może wyświetlić strony. | Ten błąd może wystąpić podczas próby uzyskania dostępu do opublikowanej aplikacji, gdy aplikacja jest aplikacją IWA. Zdefiniowana nazwa SPN tej aplikacji może być niepoprawna. W przypadku aplikacji IWA upewnij się, że nazwa SPN skonfigurowana dla tej aplikacji jest prawidłowa. |
 | Witryna sieci Web nie może wyświetlić strony. | Użytkownik może uzyskać ten błąd podczas próby uzyskania dostępu do opublikowanej aplikacji, jeśli aplikacja jest aplikacją OWA. Może to być spowodowane jedną z następujących czynności:<br><li>Zdefiniowana nazwa SPN dla tej aplikacji jest niepoprawna. Upewnij się, że nazwa SPN skonfigurowana dla tej aplikacji jest poprawna.</li><li>Użytkownik próbujący uzyskać dostęp do aplikacji używa konto Microsoft, a nie odpowiedniego konta firmowego do zalogowania się lub użytkownik jest użytkownikiem-gościem. Upewnij się, że użytkownik loguje się przy użyciu konta firmowego zgodnego z domeną opublikowanej aplikacji. Użytkownicy i Goście konta Microsoft nie mogą uzyskać dostępu do aplikacji IWA.</li><li>Użytkownik próbujący uzyskać dostęp do aplikacji nie został poprawnie zdefiniowany dla tej aplikacji na stronie lokalnej. Upewnij się, że ten użytkownik ma odpowiednie uprawnienia zdefiniowane dla tej aplikacji zaplecza na maszynie lokalnej. |
@@ -89,7 +87,7 @@ Ta lista zawiera błędy, które użytkownicy końcowi mogą napotkać podczas p
 
 Jeśli wystąpi błąd lub problem z usługą Azure serwer proxy aplikacji usługi Azure AD, która nie jest wymieniona w tym przewodniku rozwiązywania problemów, chcemy wiedzieć o tym. Wyślij wiadomość e-mail do [zespołu ds. opinii](mailto:aadapfeedback@microsoft.com) z informacjami o napotkanym błędzie.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Włącz serwer proxy aplikacji dla Azure Active Directory](application-proxy-add-on-premises-application.md)
 * [Publikowanie aplikacji za pomocą serwera proxy aplikacji](application-proxy-add-on-premises-application.md)
 * [Włącz logowanie jednokrotne](application-proxy-configure-single-sign-on-with-kcd.md)

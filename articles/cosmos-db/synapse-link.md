@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 709b442fde94d88adc7fe4cce16ee1a50bf06c6b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1acb01ceb9747fa833e998bd5501ce8a8a51babb
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674336"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119464"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Co to jest link usługi Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)?
 
@@ -25,7 +25,7 @@ Korzystając z [Azure Cosmos DB analitycznego](analytical-store-introduction.md)
 
 Na poniższej ilustracji przedstawiono integrację usługi Azure Synapse z usługami Azure Cosmos DB i Azure Synapse Analytics: 
 
-![Diagram architektury dla integracji usługi Azure Synapse Analytics z usługą Azure Cosmos DB](./media/synapse-link/synapse-analytics-cosmos-db-architecture.png)
+:::image type="content" source="./media/synapse-link/synapse-analytics-cosmos-db-architecture.png" alt-text="Diagram architektury dla integracji usługi Azure Synapse Analytics z usługą Azure Cosmos DB" border="false":::
 
 ## <a name="benefits"></a><a id="synapse-link-benefits"></a>Korzysta
 
@@ -105,7 +105,7 @@ Aby uzyskać więcej informacji o obsłudze środowiska uruchomieniowego usługi
 
 Łącze Synapse jest zalecane w następujących przypadkach:
 
-* Jeśli jesteś Azure Cosmos DB klientem i chcesz uruchamiać analizy, analizy biznesowej i uczenia maszynowego na danych operacyjnych. W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko analityczne bez wpływu na przepływność zainicjowaną przez magazyn transakcyjny. Na przykład:
+* Jeśli jesteś Azure Cosmos DB klientem i chcesz uruchamiać analizy, analizy biznesowej i uczenia maszynowego na danych operacyjnych. W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko analityczne bez wpływu na przepływność zainicjowaną przez magazyn transakcyjny. Przykład:
 
   * Jeśli używasz analizy lub analizy biznesowej Azure Cosmos DB danych operacyjnych bezpośrednio przy użyciu osobnych łączników, lub
 
@@ -126,7 +126,7 @@ W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko 
 
 * Uzyskiwanie dostępu do Sklepu Azure Cosmos DB Analytics z zainicjowaną obsługą SQL Synapse nie jest obecnie dostępne.
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 Model rozliczeń łącza usługi Azure Synapse obejmuje koszty związane z korzystaniem z magazynu analitycznego Azure Cosmos DB i środowiska uruchomieniowego Synapse. Aby dowiedzieć się więcej, zapoznaj się z artykułami dotyczącymi [cen sklepu analitycznego Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) i [cennika usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/) .
 
@@ -134,12 +134,12 @@ Model rozliczeń łącza usługi Azure Synapse obejmuje koszty związane z korzy
 
 Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
-* [Omówienie magazynu analitycznego Azure Cosmos DB](analytical-store-introduction.md)
+* [Omówienie magazynu analitycznego usługi Azure Cosmos DB](analytical-store-introduction.md)
 
-* [Rozpocznij pracę z linkiem usługi Azure Synapse dla Azure Cosmos DB](configure-synapse-link.md)
+* [Rozpoczynanie pracy z usługą Azure Synapse Link dla usługi Azure Cosmos DB](configure-synapse-link.md)
  
-* [Co jest obsługiwane w czasie wykonywania usługi Azure Synapse Analytics](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
+* [Co jest obsługiwane w środowisku uruchomieniowym usługi Azure Synapse Analytics](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
 
-* [Często zadawane pytania dotyczące usługi Azure Synapse link dla Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
-* [Link usługi Azure Synapse dla przypadków użycia Azure Cosmos DB](synapse-link-use-cases.md)
+* [Przypadki użycia usługi Azure Synapse Link dla usługi Azure Cosmos DB](synapse-link-use-cases.md)

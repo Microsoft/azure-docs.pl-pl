@@ -4,15 +4,15 @@ description: Ten artykuł ułatwia łączenie obwodów usługi ExpressRoute w ce
 services: expressroute
 author: jaredr80
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: jaredro
-ms.openlocfilehash: 587a17659a412d6f894faf5a744a7d9c444935c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ddf4625b8e638f7cb13999136ec5aa1afc99418a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656747"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738417"
 ---
 # <a name="configure-expressroute-global-reach"></a>Konfigurowanie usługi ExpressRoute Global Reach
 

@@ -4,12 +4,12 @@ description: Dowiedz się, jakie porty i adresy są wymagane do sterowania ruche
 services: container-service
 ms.topic: article
 ms.date: 03/10/2020
-ms.openlocfilehash: 724d270b5ea18dbbd30ff2587e8bea5ee126a9ec
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 88be26bb22cf539309ce67716101d7386d9d0513
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84264413"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945566"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Sterowanie ruchem wychodzącym węzłów klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -173,7 +173,7 @@ Następujące reguły dotyczące nazwy FQDN/aplikacji są wymagane do korzystani
 | Nazwa FQDN                                    | Port      | Użycie      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS: 443 | Aby zainstalować pliki binarne powiązane z systemem Windows |
-| mp.microsoft.com, www <span></span> . msftconnecttest.com, ctldl.windowsupdate.com | HTTP: 80 | Aby zainstalować pliki binarne powiązane z systemem Windows |
+| *. mp.microsoft.com, www <span></span> . msftconnecttest.com, ctldl.windowsupdate.com | HTTP: 80 | Aby zainstalować pliki binarne powiązane z systemem Windows |
 | kms.core.windows.net | TCP: 1688 | Aby zainstalować pliki binarne powiązane z systemem Windows |
 
 ## <a name="next-steps"></a>Następne kroki

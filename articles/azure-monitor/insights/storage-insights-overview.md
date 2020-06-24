@@ -3,15 +3,15 @@ title: Monitorowanie usług Azure Storage za pomocą Azure Monitor dla magazynu 
 description: W tym artykule opisano Azure Monitor funkcji Storage, która zapewnia administratorom magazynu szybkie zrozumienie problemów z wydajnością i wykorzystaniem ich kont usługi Azure Storage.
 ms.subservice: ''
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: e69e00eb9db43a76af1d6e541f44f750452cf858
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800071"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84944495"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorowanie usługi magazynu za pomocą Azure Monitor dla magazynu
 
@@ -228,6 +228,8 @@ W tym przykładzie pracujemy ze skoroszytem pojemności konta magazynu i ukazuj�
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
+Ogólne wskazówki dotyczące rozwiązywania problemów można znaleźć w artykule dotyczącym szczegółowych informacji o [rozwiązywaniu problemów](troubleshoot-workbooks.md)opartych na skoroszycie.
+
 Ta sekcja pomoże w diagnozowaniu i rozwiązywaniu problemów z typowymi problemami, które mogą wystąpić podczas korzystania z Azure Monitor dla magazynu. Skorzystaj z poniższej listy, aby znaleźć informacje istotne dla danego problemu.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Rozwiązywanie problemów z wydajnością, pojemnością lub dostępnością
@@ -237,24 +239,6 @@ Aby ułatwić rozwiązywanie problemów związanych z magazynem, które są iden
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Dlaczego można zobaczyć tylko konta magazynu 200?
 
 Liczba wybranych kont magazynu ma limit 200, niezależnie od liczby wybranych subskrypcji.
-
-### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>Co się stanie po kliknięciu ostatnio przypiętego kafelka na pulpicie nawigacyjnym?
-
-* Jeśli klikniesz w dowolnym miejscu kafelka, przejdziesz do karty, z której został przypięty kafelek. Na przykład w przypadku przypinania grafu na karcie "przegląd konta magazynu" po kliknięciu tego kafelka na pulpicie nawigacyjnym zostanie otwarty ten widok domyślny, jednak w przypadku przypinania grafu ze swojej zapisanej kopii zostanie otwarty widok zapisanej kopii.
-* Ikona filtru w lewym górnym rogu tytułu otwiera kartę "Konfigurowanie ustawień kafelków".
-* Ikona wielokropka w prawym górnym rogu będzie zawierać opcje "Dostosowywanie danych tytułu", "Dostosowywanie", "Odśwież" i "Usuwanie z pulpitu nawigacyjnego".
-
-### <a name="what-happens-when-i-save-a-workbook"></a>Co się stanie, gdy zapisuję skoroszyt?
-
-* Po zapisaniu skoroszytu można utworzyć nową kopię skoroszytu z wprowadzonymi zmianami i zmienić tytuł. Zapisywanie nie zastępuje skoroszytu, bieżący skoroszyt będzie zawsze widokiem domyślnym.
-* **Niezapisany** skoroszyt jest tylko widokiem domyślnym.
-
-
-### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>Dlaczego nie widzę wszystkich moich subskrypcji w portalu?
-
-W portalu zostaną wyświetlone tylko dane dla wybranych subskrypcji podczas uruchamiania portalu. Aby zmienić wybrane subskrypcje, przejdź do prawego górnego rogu i kliknij Notes z ikoną filtru. Spowoduje to wyświetlenie karty katalog i subskrypcje.
-
-![Katalog i subskrypcja](./media/storage-insights-overview/fqa3.png)
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>Jak zmienić kolorowanie i próg dostępności?
 
@@ -273,7 +257,7 @@ Obecnie pokazywane są maksymalnie trzy różne typy błędów, a pozostałe bł
 
     ![Przejdź do metryk i kliknij pozycję Edytuj w pozycji "transakcje, sumy"](./media/storage-insights-overview/fqa7.png)
 
-1. Następnie zmień liczbę podziałów.
+3. Następnie zmień liczbę podziałów.
 
     ![Wybierz parametry metryki "](./media/storage-insights-overview/fqa7-2.png)
 
@@ -282,37 +266,6 @@ Jeśli chcesz zobaczyć n różne typy błędów niż określa splitByLimit jako
 ###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>Mój skoroszyt został zapisany na pewnym koncie magazynu. Dlaczego nie mogę znaleźć tego teraz?
 
 Każdy skoroszyt jest zapisywany na koncie magazynu, w którym został zapisany. Spróbuj znaleźć określone konto magazynu, w którym zapisano skoroszyt. W przeciwnym razie nie ma możliwości znalezienia określonego skoroszytu bez znajomości zasobu (konto magazynu).
-
-### <a name="what-is-time-range"></a>Co to jest zakres czasu?
-
-Zakres czasu pokazuje dane z określonego przedziału czasu. Na przykład jeśli zakres czasu wynosi 24 godziny, to pokazuje dane z ostatnich 24 godzin.
-
-### <a name="what-is-time-granularity-time-grain"></a>Co to jest stopień szczegółowości czasu (ziarno czasu)?
-
-Stopień szczegółowości czasu to różnica czasu między dwoma punktami danych. Na przykład, jeśli ziarno czasu jest ustawione na 1 sekundę, oznacza to, że metryki są zbierane w każdej sekundzie.
-
-### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>Jaki jest stopień szczegółowości czasu, gdy przypinam wszystkie części skoroszytów do pulpitu nawigacyjnego?
-
-Domyślny stopień szczegółowości czasu jest ustawiony na automatyczny, obecnie nie można go zmienić.
-
-### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>Jak mogę zmienić przedział czasu/godziny dla kroku skoroszytu na moim pulpicie nawigacyjnym?
-
-Domyślnie zakres TimeSpan/czasu na kafelku pulpitu nawigacyjnego jest ustawiony na 24 godziny, aby zmienić Kliknięcie wielokropka w prawym górnym rogu, wybierz pozycję **Dostosuj dane kafelka**, zaznacz pole wyboru Zastąp ustawienia czasowe pulpitu nawigacyjnego na poziomie tytułu, a następnie wybierz przedział czasu przy użyciu menu rozwijanego.  
-
-![Wybierz wielokropek w prawym górnym rogu kafelka i wybierz pozycję Dostosuj te dane](./media/storage-insights-overview/fqa-data-settings.png)
-
-![Na stronie Konfiguruj ustawienia kafelków wybierz listę rozwijaną TimeSpan, aby zmienić zakres czasu/godziny](./media/storage-insights-overview/fqa-timespan.png)
-
-### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>Jak mogę zmienić tytuł skoroszytu lub krok, który został przypięty do pulpitu nawigacyjnego?
-
-Tytuł lub krok skoroszytu, który jest przypięty do pulpitu nawigacyjnego, zachowuje tę samą nazwę w skoroszycie. Aby zmienić tytuł, musisz zapisać własną kopię skoroszytu. Następnie będzie można nazwać skoroszyt przed naciśnięciem przycisku Zapisz.
-
-![Wybierz pozycję Zapisz u góry, aby zapisać kopię skoroszytu i zmienić jej nazwę](./media/storage-insights-overview/fqa-change-workbook-name.png)
-
-Aby zmienić nazwę kroku w zapisanym skoroszycie, wybierz opcję Edytuj w obszarze tego kroku, a następnie wybierz koła zębatego u dołu ustawień.
-
-![Wybierz pozycję Edytuj u dołu kroku skoroszytu, aby otworzyć ustawienia ](./media/storage-insights-overview/fqa-edit.png)
- ![ w obszarze Ustawienia wybierz koła zębatego u dołu, aby zmienić nazwę kroku.](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

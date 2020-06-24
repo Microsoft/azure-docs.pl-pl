@@ -8,18 +8,18 @@ manager: mtillman
 ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 88cb1e9893e0ca058e57ce12f00747a59248fb19
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 3e4d2dca6817951f2f06a86c4338106f194b7751
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735695"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790963"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Dodawanie i usuwanie przypisań ról platformy Azure przy użyciu Azure Portal
 
@@ -61,13 +61,13 @@ W celu udzielenia dostępu do zasobu platformy Azure w usłudze Azure RBAC nale�
 
 1. Kliknij konkretny zasób dla tego zakresu.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+1. Kliknij pozycję **Kontrola dostępu (IAM)** .
 
 1. Kliknij kartę **przypisania roli** , aby wyświetlić przypisania ról w tym zakresie.
 
     ![Kontrola dostępu (IAM) i przypisywanie ról — karta](./media/role-assignments-portal/role-assignments.png)
 
-1. Kliknij przycisk **Dodaj** > **Dodaj przypisanie roli**.
+1. Kliknij przycisk **Dodaj**  >  **Dodaj przypisanie roli**.
 
    Jeśli nie masz uprawnień do przypisywania ról, opcja Dodaj przypisanie roli będzie wyłączona.
 
@@ -95,13 +95,13 @@ Aby użytkownik był administratorem subskrypcji platformy Azure, przypisz im ro
 
 1. Kliknij subskrypcję, do której chcesz udzielić dostępu.
 
-1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+1. Kliknij pozycję **Kontrola dostępu (IAM)** .
 
 1. Kliknij kartę **przypisania ról** , aby wyświetlić przypisania ról dla tej subskrypcji.
 
     ![Kontrola dostępu (IAM) i przypisywanie ról — karta](./media/role-assignments-portal/role-assignments.png)
 
-1. Kliknij przycisk **Dodaj** > **Dodaj przypisanie roli**.
+1. Kliknij przycisk **Dodaj**  >  **Dodaj przypisanie roli**.
 
    Jeśli nie masz uprawnień do przypisywania ról, opcja Dodaj przypisanie roli będzie wyłączona.
 

@@ -1,33 +1,33 @@
 ---
-title: Wdrażanie zaufanego partnera zabezpieczeń Menedżera zapory platformy Azure
-description: Dowiedz się, jak wdrożyć zaufaną ochronę Menedżera zapory platformy Azure przy użyciu Azure Portal.
+title: Wdróż dostawcę partnera zabezpieczeń Menedżera zapory platformy Azure
+description: Dowiedz się, jak wdrożyć dostawcę partnera zabezpieczeń Menedżera zapory platformy Azure przy użyciu Azure Portal.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 06/15/2020
 ms.author: victorh
-ms.openlocfilehash: bcea9a8674e4b1979698b7d28eb4192172b0dc11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e06f8e3adaedbc8847aacba0ca4ad9c6a172c9b7
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73931304"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791694"
 ---
-# <a name="deploy-a-trusted-security-partner-preview"></a>Wdrażanie zaufanego partnera w zakresie zabezpieczeń (wersja zapoznawcza)
+# <a name="deploy-a-security-partner-provider-preview"></a>Wdrażanie dostawcy partnera zabezpieczeń (wersja zapoznawcza)
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-*Zaufani partnerzy zabezpieczeń* w usłudze Azure firewall Manager umożliwiają używanie znanych, najlepszych w swojej organizacji ofert typu "zabezpieczenia jako usługa" (SECaaS) innych firm, aby chronić dostęp do Internetu użytkownikom.
+*Dostawcy usług partnerskich zabezpieczeń* w usłudze Azure firewall Manager mogą korzystać z znanych, najlepszych w użyciu ofert związanych z zabezpieczeniami w ramach usługi SECaaS (Security-as-a-Service) w celu ochrony dostępu do Internetu użytkownikom.
 
 Aby dowiedzieć się więcej o obsługiwanych scenariuszach i wskazówkach dotyczących najlepszych rozwiązań, zobacz [co to są zaufani partnerzy zabezpieczeń (wersja zapoznawcza)?](trusted-security-partners.md).
 
-W tej wersji zapoznawczej są **rozwiązania Zscaler** i **iboss** obsługiwane przez partnerów zabezpieczeń. Obsługiwane regiony to WestCentralUS, NorthCentralUS, zachodnie, WestUS2 i wschód.
+W tej wersji zapoznawczej są **rozwiązania Zscaler**, **punkty Check**i **iboss** . Obsługiwane regiony to WestCentralUS, NorthCentralUS, zachodnie, WestUS2 i wschód.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!IMPORTANT]
-> Wersja zapoznawcza Menedżera zapory platformy Azure musi być `Register-AzProviderFeature` jawnie włączona za pomocą polecenia programu PowerShell.
+> Wersja zapoznawcza Menedżera zapory platformy Azure musi być jawnie włączona za pomocą `Register-AzProviderFeature` polecenia programu PowerShell.
 
 W wierszu polecenia programu PowerShell uruchom następujące polecenia:
 
@@ -41,6 +41,8 @@ Ukończenie rejestracji funkcji może potrwać do 30 minut. Uruchom następując
 
 ## <a name="deploy-a-third-party-security-provider-in-a-new-hub"></a>Wdróż dostawcę zabezpieczeń innych firm w nowym centrum
 
+Pomiń tę sekcję, Jeśli wdrażasz dostawcę innej firmy w istniejącym centrum.
+
 1. Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 2. W polu **wyszukiwania**wpisz **Menedżer zapory** i wybierz go w obszarze **usługi**.
 3. Przejdź do **wprowadzenie**. Wybierz pozycję **Utwórz zabezpieczone centrum wirtualne**. 
@@ -51,9 +53,9 @@ Ukończenie rejestracji funkcji może potrwać do 30 minut. Uruchom następując
    > Zaufani partnerzy zabezpieczeń łączą się z centrum przy użyciu tuneli VPN Gateway. Po usunięciu VPN Gateway połączenia z zaufanymi partnerami zabezpieczeń zostaną utracone.
 7. Jeśli chcesz wdrożyć zaporę platformy Azure, aby odfiltrować ruch prywatny razem z dostawcą usług innych firm w celu filtrowania ruchu internetowego, wybierz zasady zapory platformy Azure. Zapoznaj się z [obsługiwanymi scenariuszami](trusted-security-partners.md#key-scenarios).
 8. Jeśli chcesz wdrożyć dostawcę zabezpieczeń innych firm w centrum, wybierz opcję **Zapora systemu Azure: włączone/wyłączone** , aby ustawić ustawienie na **wyłączone**. 
-9. Wybierz pozycję **Dalej: zaufani partnerzy zabezpieczeń**.
-10. Wybierz pozycję **zaufany partner zabezpieczeń** , aby ustawić go jako **włączony**. Wybierz partnera. 
-11. Wybierz pozycję **Dalej**. 
+9. Wybierz pozycję **Dalej: dostawca partnera zabezpieczeń**.
+10. Wybierz **dostawcę partnera zabezpieczeń** , aby ustawić go jako **włączony**. Wybierz partnera. 
+11. Wybierz przycisk **Dalej**. 
 12. Przejrzyj zawartość, a następnie wybierz pozycję **Utwórz**.
 
 Wdrożenie bramy sieci VPN może potrwać ponad 30 minut.
@@ -75,20 +77,25 @@ Należy pamiętać, że należy wdrożyć bramę sieci VPN, aby przekonwertować
 
 Aby skonfigurować tunele do VPN Gateway koncentratora wirtualnego, dostawcy innych firm muszą mieć prawa dostępu do centrum. W tym celu Skojarz jednostkę usługi z subskrypcją lub grupą zasobów i Udziel praw dostępu. Następnie należy podać te poświadczenia innym firmom przy użyciu portalu.
 
+### <a name="create-and-authorize-a-service-principal"></a>Tworzenie i Autoryzowanie jednostki usługi
+
 1. Utwórz nazwę główną usługi Azure Active Directory (AD): możesz pominąć adres URL przekierowania. 
 
-   [Instrukcje: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
 2. Dodawanie praw dostępu i zakresu dla jednostki usługi.
-   [Instrukcje: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
 
    > [!NOTE]
    > Możesz ograniczyć dostęp tylko do grupy zasobów, aby uzyskać bardziej szczegółową kontrolę.
-3. Postępuj zgodnie z [rozwiązania Zscaler: konfigurowanie Microsoft Azure wirtualnej integracji sieci WAN](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration) , aby:
 
-   - Zaloguj się do portalu dla partnerów i Dodaj swoje poświadczenia, aby zapewnić zaufanemu partnerowi dostęp do bezpiecznego centrum.
-   - Zsynchronizuj koncentratory wirtualne w portalu partnerskim i skonfiguruj tunel do koncentratora wirtualnego. Możesz to zrobić po sprawdzeniu poprawności poświadczeń uwierzytelniania usługi Azure AD.
+### <a name="visit-partner-portal"></a>Odwiedź portal dla partnerów
+
+1. Postępuj zgodnie z instrukcjami dostarczonymi przez partnera, aby zakończyć instalację. Obejmuje to przesyłanie informacji usługi AAD w celu wykrywania i łączenia się z centrum, aktualizowania zasad ruchu wychodzącego oraz sprawdzania stanu i dzienników łączności.
+
+   - [Rozwiązania Zscaler: Skonfiguruj integrację wirtualnej sieci WAN Microsoft Azure](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
+   - [Check Point: konfigurowanie Microsoft Azure integracji wirtualnej sieci WAN](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/CloudGuard-Connect-Azure-Virtual-WAN/Default.htm).
    
-4. Stan tworzenia tunelu można sprawdzić w portalu Azure Virtual WAN na platformie Azure. Po pobraniu przez tunele **połączenia** na platformie Azure i w portalu dla partnerów przejdź do następnych kroków, aby skonfigurować trasy do wybierania gałęzi i sieci wirtualnych powinny wysyłać ruch internetowy do partnera.
+2. Stan tworzenia tunelu można sprawdzić w portalu Azure Virtual WAN na platformie Azure. Po pobraniu przez tunele **połączenia** na platformie Azure i w portalu dla partnerów przejdź do następnych kroków, aby skonfigurować trasy do wybierania gałęzi i sieci wirtualnych powinny wysyłać ruch internetowy do partnera.
 
 ## <a name="configure-route-settings"></a>Konfigurowanie ustawień trasy
 
@@ -116,7 +123,3 @@ Po zakończeniu kroków ustawień trasy maszyny wirtualne sieci wirtualnej oraz 
 ## <a name="next-steps"></a>Następne kroki
 
 - [Samouczek: Zabezpieczanie sieci w chmurze za pomocą usługi Azure firewall Manager w wersji zapoznawczej przy użyciu Azure Portal](secure-cloud-network.md)
-
-
-
-

@@ -2,7 +2,7 @@
 title: Skonfiguruj minimalne wystąpienie zarządzane przez protokół TLS
 description: Dowiedz się, jak skonfigurować minimalną wersję protokołu TLS dla wystąpienia zarządzanego
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: security
 ms.custom: ''
 ms.topic: conceptual
@@ -10,17 +10,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: ''
 ms.date: 05/25/2020
-ms.openlocfilehash: 309649fe099d5226ba6a4972e22a4e3d7ff0e526
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 7982cb80c253ec3966319528e39390920c653e38
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267124"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84974266"
 ---
 # <a name="configure-minimal-tls-version-in-azure-sql-managed-instance"></a>Skonfiguruj minimalną wersję protokołu TLS w wystąpieniu zarządzanym usługi Azure SQL
 Ustawienie wersji minimalnej [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) umożliwia klientom kontrolowanie wersji protokołu TLS używanej przez swoje wystąpienie zarządzane usługi Azure SQL.
 
-Obecnie obsługujemy protokoły TLS 1,0, 1,1 i 1,2. Ustawienie minimalnej wersji protokołu TLS zapewnia, że są obsługiwane kolejne nowsze wersje protokołu TLS. Na przykład wybranie wersji TLS większej niż 1,1. oznacza, że akceptowane są tylko połączenia z protokołem TLS 1,1 i 1,2, a protokół TLS 1,0 jest odrzucany. Po przetestowaniu w celu potwierdzenia, że obsługuje ona aplikacje, zalecamy ustawienie minimalnej wersji protokołu TLS na 1,2, ponieważ zawiera ona poprawki dla luk w zabezpieczeniach znalezionych w poprzednich wersjach, a to najwyższa wersja protokołu TLS obsługiwana w wystąpieniu zarządzanym usługi Azure SQL.
+Obecnie obsługujemy protokoły TLS 1,0, 1,1 i 1,2. Ustawienie minimalnej wersji protokołu TLS zapewnia, że są obsługiwane kolejne nowsze wersje protokołu TLS. Na przykład wybranie wersji TLS większej niż 1,1. oznacza, że akceptowane są tylko połączenia z protokołem TLS 1,1 i 1,2, a protokół TLS 1,0 jest odrzucany. Po przetestowaniu w celu potwierdzenia, że obsługuje ona aplikacje, zalecamy ustawienie minimalnej wersji protokołu TLS na 1,2, ponieważ zawiera ona poprawki dla luk w zabezpieczeniach znalezionych w poprzednich wersjach i to najwyższa wersja protokołu TLS obsługiwana w wystąpieniu zarządzanym Azure SQL.
 
 W przypadku klientów mających aplikacje korzystające ze starszych wersji protokołu TLS zalecamy ustawienie minimalnej wersji protokołu TLS zgodnie z wymaganiami aplikacji. W przypadku klientów korzystających z aplikacji do łączenia się z nieszyfrowanym połączeniem nie zaleca się stosowania żadnej minimalnej wersji protokołu TLS. 
 

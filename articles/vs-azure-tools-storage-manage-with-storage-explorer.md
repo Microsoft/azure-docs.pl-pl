@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
-ms.openlocfilehash: 11166d5578b90fe6ec936389bcd173c4c26b4852
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: f588ed6d35f3f8882d546b78ff833d62f33ac0a4
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171246"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84975269"
 ---
 # <a name="get-started-with-storage-explorer"></a>Wprowadzenie do Eksploratora usługi Storage
 
@@ -55,9 +55,9 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 Eksplorator usługi Storage jest również dostępny jako pobieranie *tar. gz* . Należy ręcznie zainstalować zależności. Następujące dystrybucje pomocy technicznej systemu Linux — instalacja *tar. gz* :
 
+* Ubuntu 20,04 x64
 * Ubuntu 18,04 x64
 * Ubuntu 16,04 x64
-* Ubuntu 14,04 x64
 
 Instalacja *. tar. gz* może współpracować z innymi dystrybucjami, ale tylko te wymienione na liście są oficjalnie obsługiwane.
 

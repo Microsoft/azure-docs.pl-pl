@@ -59,6 +59,8 @@
           href: automation-config-aws-account.md
         - name: Konfigurowanie uwierzytelniania przy użyciu usługi Azure AD
           href: automation-use-azure-ad.md
+        - name: Zarządzanie rekordem DNS używanym przez usługę Automation
+          href: how-to/automation-region-dns-records.md
         - name: Zarządzanie kontem Uruchom jako usługi Automation
           href: manage-runas-account.md
         - name: Zarządzanie uprawnieniami ról i zabezpieczeniami
@@ -282,7 +284,7 @@
         - name: Integracja z usługami Event Grid i Microsoft Teams
           href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md
         - name: Automatyzacja uruchamiania/zatrzymywania środowiska Azure-SSIS IR
-          href: '../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir'
+          href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Dokumentacja
   items:
     - name: Moduł Az programu Azure PowerShell

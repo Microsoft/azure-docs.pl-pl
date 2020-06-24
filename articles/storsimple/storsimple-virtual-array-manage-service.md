@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 2ff987448e3900c2a533789b2f38fd3ced71ce72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267458"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84698941"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>Wdróż usługę StorSimple Menedżer urządzeń dla macierzy wirtualnej StorSimple
 
@@ -73,7 +73,7 @@ Wykonaj następujące kroki, aby usunąć usługę.
 1. Przejdź do sekcji **Wszystkie zasoby**. Wyszukaj usługę StorSimple Menedżer urządzeń. Wybierz usługę, którą chcesz usunąć.
    
     ![Wybierz usługę do usunięcia](./media/storsimple-virtual-array-manage-service/deleteservice2.png)
-2. Przejdź do pulpitu nawigacyjnego usługi, aby upewnić się, że nie ma żadnych urządzeń podłączonych do usługi. Jeśli nie ma żadnych urządzeń zarejestrowanych w usłudze, zobaczysz również komunikat transparentu. Kliknij przycisk **Usuń**.
+2. Przejdź do pulpitu nawigacyjnego usługi, aby upewnić się, że nie ma żadnych urządzeń podłączonych do usługi. Jeśli nie ma żadnych urządzeń zarejestrowanych w usłudze, zobaczysz również komunikat transparentu. Kliknij polecenie **Usuń**.
    
     ![Usuń usługę](./media/storsimple-virtual-array-manage-service/deleteservice3.png)
 

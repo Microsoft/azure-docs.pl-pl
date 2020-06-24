@@ -4,16 +4,16 @@ description: Ta strona zawiera ustandaryzowaną metodę testowania wydajności �
 services: expressroute
 author: tracsman
 ms.service: expressroute
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5390915436d38939b83a1599f8fb564cfbd11bdb
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74869650"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738247"
 ---
 # <a name="troubleshooting-network-performance"></a>Rozwiązywanie problemów z wydajnością sieci
 ## <a name="overview"></a>Omówienie
@@ -53,7 +53,7 @@ Na powyższym diagramie po lewej stronie znajduje się sieć firmowa. W zależno
 
 Ze względu na złożoność tych trzech różnych środowisk sieciowych wysokiego poziomu, często najlepiej jest zacząć od krawędzi i próbować pokazać, gdzie wydajność jest dobra i gdzie ulega obniżeniu. Takie podejście może pomóc w zidentyfikowaniu domeny routingu problemu trzech, a następnie skoncentrowaniu się na tym konkretnym środowisku.
 
-## <a name="tools"></a>Narzędzia
+## <a name="tools"></a>narzędzia
 Większość problemów z siecią można analizować i izolować przy użyciu podstawowych narzędzi, takich jak ping i traceroute. Jest to rzadki przypadek, w którym należy przeanalizować pakiet, np. program Wireshark. Aby pomóc w rozwiązywaniu problemów, zestaw narzędzi Azure Connectivity Toolkit (AzureCT) został opracowany w celu umieszczenia niektórych z tych narzędzi w łatwym pakiecie. W przypadku testów wydajnościowych chcę używać iPerf i PSPing. iPerf to powszechnie używane narzędzie i działa w większości systemów operacyjnych. iPerf jest dobre dla podstawowych testów wydajności i jest dość łatwe w użyciu. PSPing to narzędzie ping opracowane przez program SysInternals. PSPing to prosty sposób na wykonywanie protokołu ICMP i poleceń ping protokołu TCP w jednym z nich. Oba te narzędzia są lekkie i są "zainstalowane" po prostu dodając polecenie ping do pliku do katalogu na hoście.
 
 Wszystkie te narzędzia i metody zostały zawinięte do modułu programu PowerShell (AzureCT), który można zainstalować i użyć.

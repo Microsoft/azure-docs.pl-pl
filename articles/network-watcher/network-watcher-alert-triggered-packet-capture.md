@@ -8,17 +8,17 @@ author: damendo
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76842941"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84738060"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Używanie funkcji przechwytywania pakietów do aktywnego monitorowania sieci z alertami i Azure Functions
 
@@ -68,13 +68,13 @@ W tym scenariuszu są przeprowadzane następujące czynności:
 
 Pierwszym krokiem jest utworzenie funkcji platformy Azure w celu przetworzenia alertu i utworzenia przechwycenia pakietu.
 
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób** > **aplikacja funkcji****obliczeniowy** > .
+1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Utwórz zasób**  >  **aplikacja funkcji obliczeniowy**  >  **Function App**.
 
     ![Tworzenie aplikacji funkcji][1-1]
 
 2. W bloku **aplikacja funkcji** wprowadź następujące wartości, a następnie wybierz pozycję **OK** , aby utworzyć aplikację:
 
-    |**Ustawienie** | **Wartościami** | **Szczegóły** |
+    |**Ustawienie** | **Wartość** | **Szczegóły** |
     |---|---|---|
     |**Nazwa aplikacji**|PacketCaptureExample|Nazwa aplikacji funkcji.|
     |**Subskrypcja**|[Twoja subskrypcja] Subskrypcja, dla której ma zostać utworzona aplikacja funkcji.||
@@ -83,11 +83,11 @@ Pierwszym krokiem jest utworzenie funkcji platformy Azure w celu przetworzenia a
     |**Lokalizacja**|Środkowe stany USA| Region, w którym ma zostać utworzona aplikacja funkcji.|
     |**Konto magazynu**|automatycznie generowanych| Konto magazynu, które Azure Functions potrzeby magazynowania ogólnego przeznaczenia.|
 
-3. W bloku **aplikacje funkcji PacketCaptureExample** wybierz pozycję **funkcje** >  >**+****Funkcja niestandardowa**.
+3. W bloku **aplikacje funkcji PacketCaptureExample** wybierz pozycję **funkcje**  >  **Funkcja niestandardowa**  > **+** .
 
 4. Wybierz pozycję **HttpTrigger — PowerShell**, a następnie wprowadź pozostałe informacje. Na koniec aby utworzyć funkcję, wybierz pozycję **Utwórz**.
 
-    |**Ustawienie** | **Wartościami** | **Szczegóły** |
+    |**Ustawienie** | **Wartość** | **Szczegóły** |
     |---|---|---|
     |**Scenariusz**|Eksperymentalne|Typ scenariusza|
     |**Nadawanie nazwy funkcji**|AlertPacketCapturePowerShell|Nazwa funkcji|
@@ -120,7 +120,7 @@ Aby użyć Network Watcher poleceń cmdlet programu PowerShell, Przekaż najnows
 
      ![Foldery programu PowerShell][functions5]
 
-1. Wybierz pozycję >  **Ustawienia aplikacji funkcji****Przejdź do Edytor usługi App Service**.
+1. Wybierz pozycję **Ustawienia aplikacji funkcji**  >  **Przejdź do Edytor usługi App Service**.
 
     ![Ustawienia aplikacji funkcji][functions2]
 
@@ -246,7 +246,7 @@ $Encryptedpassword
 
 ### <a name="store-the-environment-variables"></a>Przechowuj zmienne środowiskowe
 
-1. Przejdź do aplikacji funkcji. Następnie wybierz kolejno pozycje **Funkcja ustawienia** > aplikacji**Skonfiguruj ustawienia aplikacji**.
+1. Przejdź do aplikacji funkcji. Następnie wybierz kolejno pozycje **Funkcja ustawienia aplikacji**  >  **Skonfiguruj ustawienia aplikacji**.
 
     ![Konfigurowanie ustawień aplikacji][functions11]
 
@@ -342,7 +342,7 @@ Alerty można skonfigurować w taki sposób, aby powiadamiać osoby, gdy określ
 
 Przejdź do istniejącej maszyny wirtualnej, a następnie Dodaj regułę alertu. Bardziej szczegółową dokumentację dotyczącą konfigurowania alertów można znaleźć [w temacie Tworzenie alertów w Azure monitor dla usług platformy Azure — Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md). Wprowadź następujące wartości w bloku **reguła alertu** , a następnie wybierz przycisk **OK**.
 
-  |**Ustawienie** | **Wartościami** | **Szczegóły** |
+  |**Ustawienie** | **Wartość** | **Szczegóły** |
   |---|---|---|
   |**Nazwa**|TCP_Segments_Sent_Exceeded|Nazwa reguły alertu.|
   |**Opis**|Liczba wysłanych segmentów TCP przekroczyła próg|Opis reguły alertu.|

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 5dcdb03a6d4ec4f448108dbd771a44f362aa7f20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db5363c5d8adaf29e2c460d9ce36afa2d29ae8e7
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277584"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791660"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Rozwiązywanie typowych problemów z chmurą wiosenną platformy Azure
 
@@ -35,7 +35,7 @@ Powiązania usługi mogą również powodować błędy uruchomienia aplikacji. A
 
 > "Java. SQL. SQLException: wartość strefy czasowej" Coordinated Universal Time "nie została rozpoznana lub reprezentuje więcej niż jedną strefę czasową".
 
-Aby naprawić ten błąd, przejdź `server parameters` do wystąpienia MySQL i Zmień `time_zone` wartość z *system* na *+ 0:00*.
+Aby naprawić ten błąd, przejdź do `server parameters` wystąpienia MySQL i Zmień `time_zone` wartość z *SYSTEM* na *+ 0:00*.
 
 
 ### <a name="my-application-crashes-or-throws-an-unexpected-error"></a>Moja aplikacja ulega awarii lub zgłasza nieoczekiwany błąd
@@ -49,7 +49,7 @@ Gdy debugujesz awarie aplikacji, Zacznij od sprawdzenia stanu uruchomienia i sta
 
   - `TomcatErrorCount`(_tomcat. Global. Error_): w tym miejscu są zliczane wszystkie wyjątki aplikacji wiosennej. Jeśli ta liczba jest duża, przejdź do usługi Azure Log Analytics w celu sprawdzenia dzienników aplikacji.
 
-  - `AppMemoryMax`(_JVM. Memory. Max_): Maksymalna ilość pamięci dostępnej dla aplikacji. Kwota może być niezdefiniowana lub może ulec zmianie w czasie, jeśli jest zdefiniowana. Jeśli jest zdefiniowana, ilość używanej i zadeklarowanej pamięci jest zawsze mniejsza lub równa max. Jednak alokacja pamięci może zakończyć się niepowodzeniem `OutOfMemoryError` z komunikatem, jeśli alokacja próbuje zwiększyć używaną pamięć, która jest *używana > zatwierdzone*, nawet jeśli *użyto <= Max* jest nadal true. W takiej sytuacji spróbuj zwiększyć maksymalny rozmiar sterty przy użyciu `-Xmx` parametru.
+  - `AppMemoryMax`(_JVM. Memory. Max_): Maksymalna ilość pamięci dostępnej dla aplikacji. Kwota może być niezdefiniowana lub może ulec zmianie w czasie, jeśli jest zdefiniowana. Jeśli jest zdefiniowana, ilość używanej i zadeklarowanej pamięci jest zawsze mniejsza lub równa max. Jednak alokacja pamięci może zakończyć się niepowodzeniem z `OutOfMemoryError` komunikatem, jeśli alokacja próbuje zwiększyć używaną pamięć, która jest *używana > zatwierdzone*, nawet jeśli *użyto <= Max* jest nadal true. W takiej sytuacji spróbuj zwiększyć maksymalny rozmiar sterty przy użyciu `-Xmx` parametru.
 
   - `AppMemoryUsed`(_JVM. Memory. użyty_): ilość pamięci w bajtach, która jest obecnie używana przez aplikację. W przypadku normalnej aplikacji Java do załadowania ta seria metryk tworzy wzorzec *powoduje piłokształtny* , w którym użycie pamięci stale rośnie i zmniejsza się w małych przyrostach i nagle porzuca dużo, a następnie wzorzec powtarza się. Ta seria metryk występuje ze względu na wyrzucanie elementów bezużytecznych wewnątrz maszyny wirtualnej Java, gdzie akcje kolekcji reprezentują porzucenia wzorca powoduje piłokształtny.
     
@@ -111,7 +111,7 @@ Ale jeśli spróbujesz skonfigurować wystąpienie usługi chmurowej Azure sprę
 
 Jeśli chcesz skonfigurować wystąpienie usługi w chmurze Azure wiosny przy użyciu szablonu Menedżer zasobów, najpierw zapoznaj się z tematem [Struktura i składnia Azure Resource Manager szablonów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 
-Nazwa wystąpienia usługi w chmurze wiosennej na platformie Azure zostanie użyta do żądania nazwy domeny podrzędnej w `azureapps.io`programie, więc instalacja nie powiedzie się, jeśli wystąpi konflikt nazw z istniejącą. Więcej szczegółów można znaleźć w dziennikach aktywności.
+Nazwa wystąpienia usługi w chmurze wiosennej na platformie Azure zostanie użyta do żądania nazwy domeny podrzędnej w `azureapps.io` programie, więc instalacja nie powiedzie się, jeśli wystąpi konflikt nazw z istniejącą. Więcej szczegółów można znaleźć w dziennikach aktywności.
 
 ### <a name="i-cant-deploy-a-jar-package"></a>Nie można wdrożyć pakietu JAR
 
@@ -158,9 +158,9 @@ Zmienne środowiskowe informują platformę chmurową Azure ze sprężyną, dzi�
 > [!WARNING]
 > Ta procedura udostępnia zmienne środowiskowe za pomocą punktu końcowego testu.  Nie należy przechodzić, jeśli punkt końcowy testu jest publicznie dostępny lub jeśli przypisano nazwę domeny do aplikacji.
 
-1. Przejdź do pozycji `https://<your application test endpoint>/actuator/health` (Plik > Nowy > Inny).  
+1. Przejdź do witryny `https://<your application test endpoint>/actuator/health`.  
     - Odpowiedź podobna do `{"status":"UP"}` wskazuje, że punkt końcowy został włączony.
-    - Jeśli odpowiedź jest ujemna, uwzględnij następujące zależności w pliku *pliku pom. XML* :
+    - Jeśli odpowiedź jest ujemna, Uwzględnij w pliku *POM.xml* następujący zależność:
 
         ```xml
             <dependency>
@@ -169,7 +169,7 @@ Zmienne środowiskowe informują platformę chmurową Azure ze sprężyną, dzi�
             </dependency>
         ```
 
-1. Po włączeniu punktu końcowego uruchamiającego uruchamianie sprężyny przejdź do Azure Portal i Wyszukaj stronę Konfiguracja aplikacji.  Dodaj zmienną środowiskową o nazwie `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` i wartości. `*` 
+1. Po włączeniu punktu końcowego uruchamiającego uruchamianie sprężyny przejdź do Azure Portal i Wyszukaj stronę Konfiguracja aplikacji.  Dodaj zmienną środowiskową o nazwie `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` i wartości `*` . 
 
 1. Uruchom ponownie aplikację.
 
@@ -189,16 +189,18 @@ Zmienne środowiskowe informują platformę chmurową Azure ze sprężyną, dzi�
     }
     ```
 
-Wyszukaj węzeł podrzędny o nazwie `systemEnvironment`.  Ten węzeł zawiera zmienne środowiskowe aplikacji.
+Wyszukaj węzeł podrzędny o nazwie `systemEnvironment` .  Ten węzeł zawiera zmienne środowiskowe aplikacji.
 
 > [!IMPORTANT]
-> Pamiętaj, aby wycofać narażenie zmiennych środowiskowych przed udostępnieniem aplikacji publicznie.  Przejdź do Azure Portal, Wyszukaj stronę Konfiguracja aplikacji i Usuń tę zmienną środowiskową: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`.
+> Pamiętaj, aby wycofać narażenie zmiennych środowiskowych przed udostępnieniem aplikacji publicznie.  Przejdź do Azure Portal, Wyszukaj stronę Konfiguracja aplikacji i Usuń tę zmienną środowiskową: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` .
 
 ### <a name="i-cant-find-metrics-or-logs-for-my-application"></a>Nie mogę znaleźć metryk lub dzienników dla mojej aplikacji
 
 Przejdź do pozycji **Zarządzanie aplikacjami** , aby upewnić się, że Stany aplikacji są _uruchomione_ i w _górę_.
 
-Jeśli są wyświetlane metryki z _JVM_ , ale nie metryki z _Tomcat_, sprawdź, czy `spring-boot-actuator` zależność jest włączona w pakiecie aplikacji i czy pomyślnie się uruchamia.
+Zaznacz, aby zobaczyć, że w pakiecie aplikacji jest włączona funkcja Pogoda _JMX_ . Tę funkcję można włączyć za pomocą właściwości konfiguracja `spring.jmx.enabled=true` .  
+
+Sprawdź, czy `spring-boot-actuator` zależność jest włączona w pakiecie aplikacji i czy została pomyślnie zainicjowana.
 
 ```xml
 <dependency>

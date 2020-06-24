@@ -10,17 +10,17 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 58e7a46633b7bbdd6074fa7e511569ff9e2aebdf
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ac5c19866a164bbc927d23495e9d6ec9a1ef6bfe
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996593"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790708"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Rozwiązywanie problemów z usługą Azure RBAC
 
@@ -51,7 +51,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Problemy z przypisaniami ról platformy Azure
 
-- Jeśli nie można dodać przypisania roli w Azure Portal na **kontroli dostępu (IAM)** , ponieważ opcja **Dodaj** > **przypisanie roli** jest wyłączona lub z powodu błędu uprawnień "klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji", sprawdź, czy zalogowano się przy użyciu użytkownika, do którego przypisano rolę z `Microsoft.Authorization/roleAssignments/write` uprawnieniem, takim jak [właściciel](built-in-roles.md#owner) lub [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) w zakresie, w którym próbujesz przypisać rolę.
+- Jeśli nie można dodać przypisania roli w Azure Portal na **kontroli dostępu (IAM)** , ponieważ opcja **Dodaj**  >  **przypisanie roli** jest wyłączona lub z powodu błędu uprawnień "klient z identyfikatorem obiektu nie ma autoryzacji do wykonania akcji", sprawdź, czy zalogowano się przy użyciu użytkownika, do którego przypisano rolę z `Microsoft.Authorization/roleAssignments/write` uprawnieniem, takim jak [właściciel](built-in-roles.md#owner) lub [administrator dostępu użytkowników](built-in-roles.md#user-access-administrator) w zakresie, w którym próbujesz przypisać rolę.
 
 ## <a name="problems-with-custom-roles"></a>Problemy z rolami niestandardowymi
 
@@ -63,7 +63,7 @@ $ras.Count
 
 ## <a name="custom-roles-and-management-groups"></a>Role niestandardowe i grupy zarządzania
 
-- W `AssignableScopes` roli niestandardowej można zdefiniować tylko jedną grupę zarządzania. Dodawanie grupy zarządzania do `AssignableScopes` programu jest obecnie w wersji zapoznawczej.
+- W roli niestandardowej można zdefiniować tylko jedną grupę zarządzania `AssignableScopes` . Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej.
 - Ról niestandardowych z `DataActions` nie można przypisać do zakresu grupy zarządzania.
 - Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli.
 - Aby uzyskać więcej informacji na temat ról niestandardowych i grup zarządzania, zobacz [organizowanie zasobów przy użyciu grup zarządzania platformy Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
@@ -98,7 +98,7 @@ Jeśli użytkownik ostatnio zaprosił użytkownika podczas tworzenia przypisania
 
 Jeśli jednak ten podmiot zabezpieczeń nie jest ostatnio zaproszonym użytkownikiem, może być usuniętym podmiotem zabezpieczeń. Jeśli przypiszesz rolę do podmiotu zabezpieczeń, a następnie usuniesz ten podmiot zabezpieczeń bez wcześniejszego usunięcia przypisania roli, podmiot zabezpieczeń będzie wymieniony jako **tożsamość nie zostanie znaleziona** i **nieznany** typ.
 
-Jeśli lista tego przypisania roli zostanie wyświetlona przy użyciu Azure PowerShell, może `DisplayName` być widoczny `ObjectType` pusty i ustawiony jako **nieznany**. Na przykład polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) zwraca przypisanie roli podobne do następujących danych wyjściowych:
+Jeśli lista tego przypisania roli zostanie wyświetlona przy użyciu Azure PowerShell, może być widoczny pusty `DisplayName` i `ObjectType` ustawiony jako **nieznany**. Na przykład polecenie [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) zwraca przypisanie roli podobne do następujących danych wyjściowych:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -112,7 +112,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Podobnie jeśli zostanie wyświetlone to przypisanie roli przy użyciu interfejsu wiersza polecenia platformy Azure, może zostać `principalName`wyświetlony pusty. Na przykład [AZ role list przypisanie](/cli/azure/role/assignment#az-role-assignment-list) zwraca przypisanie roli, które jest podobne do następujących danych wyjściowych:
+Podobnie jeśli zostanie wyświetlone to przypisanie roli przy użyciu interfejsu wiersza polecenia platformy Azure, może zostać wyświetlony pusty `principalName` . Na przykład [AZ role list przypisanie](/cli/azure/role/assignment#az-role-assignment-list) zwraca przypisanie roli, które jest podobne do następujących danych wyjściowych:
 
 ```
 {
@@ -153,7 +153,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 Czasami Azure Resource Manager buforuje konfiguracje i dane w celu zwiększenia wydajności. Dodanie lub usunięcie przypisań ról może potrwać do 30 minut, aby zmiany zaczęły obowiązywać. Jeśli używasz Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure, możesz wymusić odświeżenie zmian przypisania roli przez wylogowanie się i zalogowanie się. W przypadku wprowadzania zmian przypisywania ról przy użyciu wywołań interfejsu API REST można wymusić odświeżenie tokenu dostępu.
 
-Jeśli dodajesz lub usuniesz przypisanie roli w zakresie grupy zarządzania i rola ma `DataActions`, dostęp na płaszczyźnie danych może nie być aktualizowany przez kilka godzin. Dotyczy to tylko zakresu grupy zarządzania i płaszczyzny danych.
+Jeśli dodajesz lub usuniesz przypisanie roli w zakresie grupy zarządzania i rola ma `DataActions` , dostęp na płaszczyźnie danych może nie być aktualizowany przez kilka godzin. Dotyczy to tylko zakresu grupy zarządzania i płaszczyzny danych.
 
 ## <a name="web-app-features-that-require-write-access"></a>Funkcje aplikacji sieci Web, które wymagają dostępu do zapisu
 

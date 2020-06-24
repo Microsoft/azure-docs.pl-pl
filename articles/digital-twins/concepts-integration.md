@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ba4188445f9bdf791ef760936bd27ac0f507fb4c
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: e266e9f8738a0c7d06c1f3b3f7213ad807e179fc
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613236"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737176"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integrowanie usługi Azure Digital bliźniaczych reprezentacji z innymi usługami
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Usługa Azure Digital bliźniaczych reprezentacji jest zwykle używana razem z innymi usługami. Korzystając z [**tras zdarzeń**](concepts-route-events.md), usługa Azure Digital bliźniaczych reprezentacji odbiera dane z usług nadrzędnych, takich jak [IoT Hub](../iot-hub/about-iot-hub.md), które są używane do dostarczania telemetrii i powiadomień. Usługa Azure Digital bliźniaczych reprezentacji umożliwia również kierowanie danych do usług podrzędnych na potrzeby magazynów, integracji przepływów pracy, analiz i innych. 
 

@@ -1,0 +1,82 @@
+### YamlMime:Landing
+title: Dokumentacja zestawu Azure Kinect DK
+summary: Azure Kinect DK to zestaw dla deweloperów z zaawansowanymi czujnikami AI udostępniający złożone modele przetwarzania obrazów i mowy. Kinect to niewielkie urządzenie zawierające czujnik głębi, przestrzenną macierz mikrofonów z kamerą i czujnik orientacji, które oferuje wiele trybów, opcji i zestawów SDK.
+metadata:
+  title: Dokumentacja zestawu Azure Kinect DK
+  description: Azure Kinect DK to zestaw dla deweloperów z zaawansowanymi czujnikami AI udostępniający złożone modele przetwarzania obrazów i mowy. Kinect to niewielkie urządzenie zawierające czujnik głębi, przestrzenną macierz mikrofonów z kamerą i czujnik orientacji, które oferuje wiele trybów, opcji i zestawów SDK.
+  ms.prod: kinect-dk
+  ms.topic: landing-page
+  author: tesych
+  ms.author: tesych
+  ms.date: 03/11/2020
+  ms.openlocfilehash: f1691507d75d6de630f3c5a48cd59c8cc22b5999
+  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 03/31/2020
+  ms.locfileid: "85277904"
+landingContent:
+- title: Informacje o zestawie Azure Kinect DK
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest zestaw Azure Kinect DK?
+      url: about-azure-kinect-dk.md
+  - linkListType: reference
+    links:
+    - text: Specyfikacja sprzętu
+      url: hardware-specification.md
+    - text: Wymagania systemowe
+      url: system-requirements.md
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Azure Kinect Sensor SDK
+      url: sensor-sdk-download.md
+    - text: Azure Kinect Body Tracking SDK
+      url: body-sdk-download.md
+  - linkListType: quickstart
+    links:
+    - text: Konfigurowanie zestawu Azure Kinect DK
+      url: set-up-azure-kinect-dk.md
+    - text: Rejestrowanie strumieni z czujników w pliku
+      url: record-sensor-streams-file.md
+    - text: Tworzenie pierwszej aplikacji Azure Kinect
+      url: build-first-app.md
+    - text: Konfigurowanie zestawu Body Tracking SDK
+      url: body-sdk-setup.md
+    - text: Tworzenie pierwszej aplikacji śledzącej ciało
+      url: build-first-body-app.md
+- title: Używanie zestawu Sensor SDK
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Znajdowanie, a następnie otwieranie urządzenia
+      url: find-then-open-device.md
+    - text: Pobieranie danych obrazów
+      url: about-sensor-sdk.md
+    - text: Uzyskiwanie dostępu do mikrofonu
+      url: access-mics.md
+    - text: Rejestrowanie i odtwarzanie
+      url: record-playback-api.md
+- title: Używanie zestawu Body Tracking SDK
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Pobieranie wyników śledzenia ciała
+      url: get-body-tracking-results.md
+    - text: Uzyskiwanie dostępu do danych w klatce ciała
+      url: access-data-body-frame.md
+- title: Dokumentacja
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Interfejs API zestawu Sensor SDK
+      url: https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/index.html
+    - text: Interfejs API zestawu Body Tracking SDK
+      url: https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/index.html
+    - text: Usługi przetwarzania obrazów
+      url: https://azure.microsoft.com/services/cognitive-services/directory/vision/
+    - text: Usługi mowy
+      url: https://docs.microsoft.com/azure/cognitive-services/speech-service/

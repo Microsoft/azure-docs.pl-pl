@@ -1,18 +1,18 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 06/15/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dbac1f4fad940b817befa3a45447cf7367c28c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 64433f3233e249059c1c2d180a03e0a221924f15
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84317693"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84793648"
 ---
 Korzystanie z maszyn wirtualnych na miejscu pozwala korzystać z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure wymaga przywrócenia pojemności, infrastruktura platformy Azure wyłączy maszyny wirtualne. W związku z tym maszyny wirtualne są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
 
@@ -43,9 +43,22 @@ Następujące rozmiary maszyn wirtualnych nie są obsługiwane w przypadku maszy
  - Seria B
  - Promocja wersji dowolnego rozmiaru (na przykład Dv2, NV, w obszarze rozmiary promocji)
 
-Na maszynach wirtualnych nie można obecnie używać tymczasowych dysków systemu operacyjnego.
-
 Dodatkowe maszyny wirtualne można wdrożyć w dowolnym regionie, z wyjątkiem Microsoft Azure Chinach 21Vianet.
+
+Niektóre kanały subskrypcji nie są obsługiwane:
+
+<a name="channel"></a>
+
+| Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
+|------------------------------|-----------------------------------|
+| Enterprise Agreement         | Tak                               |
+| Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
+| Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Korzyści                     | Niedostępne                     |
+| Sponsorowan                    | Niedostępne                     |
+| Bezpłatna wersja próbna                   | Niedostępne                     |
+
+
 
 ## <a name="pricing"></a>Cennik
 
@@ -75,23 +88,6 @@ Odp **.:** Maszyny wirtualne na miejscu będą mieć oddzielną pulę przydział
 **P:** Czy mogę zażądać dodatkowego przydziału na miejscu?
 
 Odp **.:** Tak, będzie można przesłać żądanie w celu zwiększenia limitu przydziału dla maszyn wirtualnych na miejscu za pośrednictwem [standardowego procesu żądania limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
-
-
-**P:** Jakie kanały obsługują maszyny wirtualne na miejscu?
-
-Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych maszyn wirtualnych.
-
-<a name="channel"></a>
-
-| Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
-|------------------------------|-----------------------------------|
-| Enterprise Agreement         | Tak                               |
-| Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
-| Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Umowa klienta firmy Microsoft | Tak                               |
-| Korzyści                     | Niedostępne                     |
-| Sponsorowan                    | Tak                               |
-| Bezpłatna wersja próbna                   | Niedostępne                     |
 
 
 **P:** Gdzie mogę publikować pytania?

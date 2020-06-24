@@ -1,5 +1,5 @@
 ---
-title: Zabezpieczenia rozwiązań Digital bliźniaczych reprezentacji na platformie Azure
+title: Zabezpieczenia rozwiązań usługi Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Poznaj najlepsze rozwiązania w zakresie zabezpieczeń dzięki usłudze Azure Digital bliźniaczych reprezentacji.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 1464d1b8da4b9f0389b192f0876ed52ad5e4ad44
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 1a54ec54823d8d002344e26f97db7043433f6da0
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613012"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736853"
 ---
 # <a name="secure-azure-digital-twins-with-role-based-access-control"></a>Zabezpieczanie usługi Azure Digital bliźniaczych reprezentacji z kontrolą dostępu opartą na rolach
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 W celu zapewnienia bezpieczeństwa usługa Azure Digital bliźniaczych reprezentacji zapewnia precyzyjną kontrolę dostępu do określonych danych, zasobów i akcji we wdrożeniu. Robi to za pośrednictwem szczegółowej strategii zarządzania rolami i uprawnieniami o nazwie **kontroli dostępu opartej na rolach (RBAC)**. W [tym miejscu](../role-based-access-control/overview.md)możesz zapoznać się z ogólnymi zasadami RBAC dla platformy Azure.
 

@@ -6,48 +6,62 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 98fc339e473ffb2bf54e7119634e93046cca1ef3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28a6ea4ed40df909b4d74ff52703babb8e8cd949
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79415662"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84791750"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Zarządzanie zdarzeniami zabezpieczeń w Azure Security Center
 
-Klasyfikacja i badanie alertów zabezpieczeń może być czasochłonne dla nawet najbardziej wykwalifikowanych analityków zabezpieczeń, a dla wielu z nich trudno wiedzieć, gdzie zacząć. Używając [analizy](security-center-detection-capabilities.md) w celu powiązania informacji z różnych [alertów zabezpieczeń](security-center-managing-and-responding-alerts.md), usługa Security Center może dostarczyć pojedynczego widoku kampanii ataku i wszystkich powiązanych alertów — dzięki temu można szybko dowiedzieć się, jakie akcje zostały podjęte przez osobę atakującą i na jakie zasoby miały wpływ.
+Segregowania i badanie alertów zabezpieczeń może być czasochłonne dla nawet najbardziej wykwalifikowanych analityków zabezpieczeń. Dla wielu, trudno jest wiedzieć, gdzie zacząć. 
 
-W tym temacie wyjaśniono informacje o zdarzeniach w Security Center i sposobach używania korygowania alertów.
+Security Center używa [analizy](security-center-detection-capabilities.md) do łączenia informacji różnych [alertów zabezpieczeń](security-center-managing-and-responding-alerts.md). Korzystając z tych połączeń, Security Center może zapewnić pojedynczy widok kampanii atakującej i powiązane z nią alerty, aby ułatwić zrozumienie akcji osoby atakującej i odpowiednich zasobów.
+
+Ta strona zawiera omówienie zdarzeń w Security Center.
 
 ## <a name="what-is-a-security-incident"></a>Co to jest zdarzenie naruszenia zabezpieczeń?
 
-W usłudze Security Center zdarzenie zabezpieczeń to agregacja wszystkich alertów dotyczących zasobu, które są zgodne ze wzorcami ataku cybernetycznego typu [kill chain](alerts-reference.md#intentions). Zdarzenia są wyświetlane na liście [alerty zabezpieczeń](security-center-managing-and-responding-alerts.md) . Kliknij zdarzenie, aby wyświetlić powiązane alerty, co pozwala uzyskać więcej informacji na temat każdego wystąpienia.
+W usłudze Security Center zdarzenie zabezpieczeń to agregacja wszystkich alertów dotyczących zasobu, które są zgodne ze wzorcami ataku cybernetycznego typu [kill chain](alerts-reference.md#intentions). Zdarzenia są wyświetlane na stronie [alerty zabezpieczeń](security-center-managing-and-responding-alerts.md) . Wybierz zdarzenie, aby wyświetlić powiązane alerty i uzyskać więcej informacji.
 
 ## <a name="managing-security-incidents"></a>Zarządzanie zdarzeniami naruszenia zabezpieczeń
 
-1. Na pulpicie nawigacyjnym Security Center kliknij kafelek **alerty zabezpieczeń** . Zdarzenia i alerty są wymienione na liście. Należy zwrócić uwagę, że ikona opisu zdarzenia naruszenia zabezpieczeń różni się od ikon innych alertów.
+1. Na stronie Przegląd Security Center wybierz kafelek **alerty zabezpieczeń** . Zdarzenia i alerty są wymienione na liście. Zwróć uwagę, że zdarzenia zabezpieczeń mają inną ikonę dla alertów zabezpieczeń.
 
     ![Wyświetl zdarzenia dotyczące zabezpieczeń](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
 
-1. Aby wyświetlić szczegóły, kliknij zdarzenie. Blok **wykryte zdarzenia zabezpieczeń** wyświetla dalsze szczegóły. Sekcja **Informacje ogólne** może oferować wgląd w to, co wyzwolił alert zabezpieczeń. Są w nim wyświetlane informacje, takie jak zasób docelowy, źródłowy adres IP (jeśli ma zastosowanie), jeśli alert jest nadal aktywny i zalecenia dotyczące sposobu korygowania.  
+1. Aby wyświetlić szczegóły, wybierz zdarzenie. Strona **incydentu zabezpieczeń** zawiera więcej szczegółów. 
 
-    ![Reagowanie na zdarzenia związane z bezpieczeństwem w Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
+    [![Reagowanie na zdarzenia związane z bezpieczeństwem w Azure Security Center](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 
-1. Aby uzyskać więcej informacji na temat każdego alertu, kliknij alert. Czynności naprawcze sugerowane w Centrum zabezpieczeń różnią się w zależności od alertu zabezpieczeń.
+    W lewym okienku na stronie zdarzenia zabezpieczeń są wyświetlane ogólne informacje o zdarzeniu zabezpieczeń: tytuł, ważność, stan, czas działania, opis i zasób, którego dotyczy problem. Obok zasobu, którego dotyczy problem, można zobaczyć odpowiednie Tagi platformy Azure. Użyj tych tagów do wywnioskowania kontekstu organizacyjnego zasobu podczas badania alertu.
+
+    Prawe okienko zawiera kartę **alerty** z alertami zabezpieczeń, które zostały skorelowane jako część tego zdarzenia. 
+
+    >[!TIP]
+    > Aby uzyskać więcej informacji na temat określonego alertu, wybierz go. 
+
+    [![Karta akcja podjęcie zdarzenia](media/security-center-incident/incident-take-action-tab.png)](media/security-center-incident/incident-take-action-tab.png#lightbox)
+
+    Aby przełączyć się na kartę **Wypełnij akcję** , wybierz kartę lub przycisk w dolnej części okienka po prawej stronie. Ta karta umożliwia podejmowanie dalszych działań, takich jak:
+    - *Eliminowanie zagrożeń* — zawiera ręczne kroki korygowania dla tego zdarzenia zabezpieczeń
+    - *Zapobiegaj atakom w przyszłości* — zawiera zalecenia dotyczące zabezpieczeń, które pomagają w zmniejszeniu podatności na ataki, zwiększyć bezpieczeństwo stan i zapobiec przyszłym atakom
+    - *Wyzwalanie automatycznej odpowiedzi* — udostępnia opcję wyzwalania aplikacji logiki jako odpowiedzi na to zdarzenie zabezpieczeń
+    - *Pomijaj podobne alerty* — oferuje opcję pomijania przyszłych alertów o podobnych cechach, jeśli alert nie jest odpowiedni dla Twojej organizacji. 
 
    > [!NOTE]
    > Ten sam alert może istnieć jako część zdarzenia, a także być widoczny jako alert autonomiczny.
 
-    ![Szczegóły alertu](./media/security-center-incident/security-center-incident-alert.png)
-
-1. Wykonaj czynności zaradcze podane dla każdego alertu.
+1. Aby skorygować zagrożenia w zdarzeniu, postępuj zgodnie z krokami korygującymi podanymi dla każdego alertu.
 
 
-## <a name="see-also"></a>Zobacz także
-W tym dokumencie przedstawiono sposób użycia funkcji zdarzeń naruszenia zabezpieczeń w usłudze Security Center. Aby uzyskać powiązane informacje, zobacz następujące tematy:
+## <a name="next-steps"></a>Następne kroki
 
-* [Ochrona przed zagrożeniami w usłudze Azure Security Center](threat-protection.md)
-* [Alerty zabezpieczeń w Centrum zabezpieczeń Azure](security-center-alerts-overview.md)
-* [Zarządzanie alertami zabezpieczeń](security-center-managing-and-responding-alerts.md)
+Na tej stronie objaśniono możliwości zdarzeń zabezpieczeń Security Center. Aby uzyskać powiązane informacje, zobacz następujące strony:
+
+* [Ochrona przed zagrożeniami w Security Center](threat-protection.md)
+* [Alerty zabezpieczeń w Security Center](security-center-alerts-overview.md)
+* [Zarządzanie alertami zabezpieczeń i reagowanie na nie](security-center-managing-and-responding-alerts.md)

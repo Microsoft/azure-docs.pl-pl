@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a896d3fbe2d191473b10655ccb19c5759762131
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74077002"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84803629"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Równoważenie obciążenia dla wielu konfiguracji adresów IP przy użyciu Azure Portal
 
@@ -62,7 +62,7 @@ Wykonaj następujące kroki, aby osiągnąć scenariusz opisany w tym artykule.
 
 Dla każdej maszyny wirtualnej w sieci wirtualnej Dodaj konfigurację protokołu IP dla pomocniczej karty sieciowej:  
 
-1. Przejdź do Azure Portal: https://portal.azure.com. Zaloguj się przy użyciu konta platformy Azure.
+1. Przejdź do Azure Portal: https://portal.azure.com . Zaloguj się przy użyciu konta platformy Azure.
 
 2. W lewym górnym rogu ekranu wybierz ikonę **grupy zasobów** . Następnie wybierz grupę zasobów, w której znajdują się maszyny wirtualne (na przykład **contosofabrikam**). W okienku **grupy zasobów** zostaną wyświetlone wszystkie zasoby i karty sieciowe dla maszyn wirtualnych.
 
@@ -78,7 +78,7 @@ Dla każdej maszyny wirtualnej w sieci wirtualnej Dodaj konfigurację protokołu
 
         2. W polu **prywatny adres IP**, ustawienie **alokacji** wybierz pozycję **statyczny**.
 
-        3. Kliknij przycisk **OK**.
+        3. Wybierz przycisk **OK**.
 
 Po zakończeniu drugiej konfiguracji protokołu IP dla pomocniczej karty sieciowej zostanie ona wyświetlona w obszarze Ustawienia **konfiguracji protokołu IP** dla danej karty sieciowej.
 
@@ -86,9 +86,9 @@ Po zakończeniu drugiej konfiguracji protokołu IP dla pomocniczej karty sieciow
 
 Utwórz moduł równoważenia obciążenia dla konfiguracji:
 
-1. Przejdź do Azure Portal: https://portal.azure.com. Zaloguj się przy użyciu konta platformy Azure.
+1. Przejdź do Azure Portal: https://portal.azure.com . Zaloguj się przy użyciu konta platformy Azure.
 
-2. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów** > **Networking** > **Load Balancer**. Następnie wybierz pozycję **Utwórz**.
+2. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Load Balancer**. Następnie wybierz pozycję **Utwórz**.
 
 3. W obszarze **Tworzenie modułu równoważenia obciążenia**wpisz nazwę modułu równoważenia obciążenia. W tym scenariuszu używamy nazwy **mylb**.
 
@@ -112,7 +112,7 @@ Dla każdej witryny sieci Web (contoso.com i fabrikam.com) skonfiguruj pulę adr
 
    3. W polu **Lokalizacja**wybierz tę samą lokalizację co maszyny wirtualne.
 
-   4. Kliknij przycisk **OK**.
+   4. Wybierz przycisk **OK**.
 
       Po utworzeniu publicznych adresów IP są one wyświetlane pod **publicznymi** adresami IP.
 
@@ -152,7 +152,7 @@ Dla każdej witryny sieci Web (contoso.com i fabrikam.com) skonfiguruj pulę adr
 
     2. W obszarze **Konfiguracja protokołu IP sieci**wybierz konfigurację IP pomocniczej karty sieciowej dla maszyny wirtualnej wybranej w poprzednim kroku (na przykład **VM1NIC2-ipconfig2** lub **VM2NIC2-ipconfig2**).
 
-7. Kliknij przycisk **OK**.
+7. Wybierz przycisk **OK**.
 
 Po skonfigurowaniu puli zaplecza adresy są wyświetlane w obszarze Ustawienia **puli zaplecza** modułu równoważenia obciążenia.
 
@@ -166,7 +166,7 @@ Konfigurowanie sondy kondycji dla modułu równoważenia obciążenia:
 
 3. W obszarze **Ustawienia**wybierz pozycję **sonda kondycji**. W następnym okienku w górnej części strony wybierz pozycję **Dodaj**. 
 
-4. Wpisz nazwę sondy kondycji (na przykład **http**). Kliknij przycisk **OK**.
+4. Wpisz nazwę sondy kondycji (na przykład **http**). Wybierz przycisk **OK**.
 
 ### <a name="step-6-configure-load-balancing-rules"></a>Krok 6. Konfigurowanie reguł równoważenia obciążenia
 

@@ -4,15 +4,15 @@ description: W tym przewodniku Szybki start dowiesz się, jak utworzyć aplikacj
 author: yegu-ms
 ms.service: cache
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 06/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 904e15611ae3032c0523d5132fea9973fbfe3f3f
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: c9dfc7c9b396ec6ecd27891298ba0b0f1fc3e186
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457120"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117849"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Szybki Start: korzystanie z usługi Azure cache for Redis z aplikacją internetową ASP.NET 
 
@@ -59,13 +59,13 @@ Następnie utworzysz pamięć podręczną dla aplikacji.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Aby edytować plik *CacheSecrets.config*
 
-1. Utwórz plik na komputerze o nazwie *CacheSecrets. config*. Umieść go w lokalizacji, w której nie zostanie zaewidencjonowany przy użyciu kodu źródłowego przykładowej aplikacji. W tym przewodniku Szybki start plik *CacheSecrets.config* znajduje się w lokalizacji *C:\AppSecrets\CacheSecrets.config*.
+1. Utwórz plik na komputerze o nazwie *CacheSecrets.config*. Umieść go w lokalizacji, w której nie zostanie zaewidencjonowany przy użyciu kodu źródłowego przykładowej aplikacji. W tym przewodniku Szybki start plik *CacheSecrets.config* znajduje się w lokalizacji *C:\AppSecrets\CacheSecrets.config*.
 
 1. Edytuj plik *CacheSecrets.config*. Następnie dodaj następującą zawartość:
 
     ```xml
     <appSettings>
-        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
+        <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
     </appSettings>
     ```
 
@@ -131,49 +131,73 @@ Ponieważ plik *CacheSecrets.config* nie został wdrożony na platformie Azure z
 3. Dodaj następującą metodę do klasy `HomeController` w celu obsługi nowej akcji `RedisCache` uruchamiającej niektóre polecenia w stosunku do nowej pamięci podręcznej.
 
     ```csharp
-        public ActionResult RedisCache()
+    public ActionResult RedisCache()
+    {
+        ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET.";
+
+        var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
         {
-            ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET.";
+            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+            return ConnectionMultiplexer.Connect(cacheConnection);
+        });
 
-            var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-            {
-                string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-                return ConnectionMultiplexer.Connect(cacheConnection);
-            });
-
-            // Connection refers to a property that returns a ConnectionMultiplexer
-            // as shown in the previous example.
+        // Connection refers to a property that returns a ConnectionMultiplexer
+        // as shown in the previous example.
             
-            using (ConnectionMultiplexer redis = lazyConnection.Value)
+        using (ConnectionMultiplexer redis = lazyConnection.Value)
+        {
+            IDatabase cache = redis.GetDatabase();
+
+            // Perform cache operations using the cache object...
+
+            // Simple PING command
+            ViewBag.command1 = "PING";
+            ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
+
+            // Simple get and put of integral data types into the cache
+            ViewBag.command2 = "GET Message";
+            ViewBag.command2Result = cache.StringGet("Message").ToString();
+
+            ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
+            ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
+
+            // Demonstrate "SET Message" executed as expected...
+            ViewBag.command4 = "GET Message";
+            ViewBag.command4Result = cache.StringGet("Message").ToString();
+
+            // Get the client list, useful to see if connection list is growing...
+            ViewBag.command5 = "CLIENT LIST";
+            StringBuilder sb = new StringBuilder();
+
+            var endpoint = (System.Net.DnsEndPoint)Connection.GetEndPoints()[0];
+            var server = Connection.GetServer(endpoint.Host, endpoint.Port);
+            var clients = server.ClientList();
+
+            sb.AppendLine("Cache response :");
+            foreach (var client in clients)
             {
-               IDatabase cache = redis.GetDatabase();
-
-
-               // Perform cache operations using the cache object...
-
-               // Simple PING command
-               ViewBag.command1 = "PING";
-               ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
-
-               // Simple get and put of integral data types into the cache
-               ViewBag.command2 = "GET Message";
-               ViewBag.command2Result = cache.StringGet("Message").ToString();
-
-               ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
-               ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
-
-               // Demonstrate "SET Message" executed as expected...
-               ViewBag.command4 = "GET Message";
-               ViewBag.command4Result = cache.StringGet("Message").ToString();
-
-               // Get the client list, useful to see if connection list is growing...
-               ViewBag.command5 = "CLIENT LIST";
-               ViewBag.command5Result = cache.Execute("CLIENT", "LIST").ToString().Replace(" id=", "\rid=");
-
+                sb.AppendLine(client.Raw);
             }
 
-            return View();
+            ViewBag.command5Result = sb.ToString();
+
+        return View();
+    }
+                
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+        return ConnectionMultiplexer.Connect(cacheConnection);
+    });
+
+    public static ConnectionMultiplexer Connection
+    {
+        get
+        {
+            return lazyConnection.Value;
         }
+    }
+
     ```
 
 4. W **Eksploratorze rozwiązań** rozwiń folder **Widoki** > **Udostępnione**. Następnie otwórz plik *_Layout.cshtml*
@@ -300,7 +324,7 @@ Wybierz pozycję **Test usługi Azure Cache for Redis** na pasku nawigacyjnym, a
 
 ![Ukończony prosty test na platformie Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego samouczka, możesz zachować zasoby utworzone w tym przewodniku Szybki start i użyć ich ponownie.
 
@@ -315,7 +339,7 @@ W przeciwnym razie po zakończeniu pracy z przykładową aplikacją poradnika Sz
 
 2. W polu **Filtruj według nazwy...** wpisz nazwę grupy zasobów. Instrukcje w tym artykule używają grupy zasobów o nazwie *TestResources*. Dla grupy zasobów na liście wyników kliknij pozycję **...**, a następnie wybierz pozycję **Usuń grupę zasobów**.
 
-    ![Usuwanie](./media/cache-web-app-howto/cache-delete-resource-group.png)
+    ![Usuń](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
 Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie wybierz pozycję **Usuń**.
 
