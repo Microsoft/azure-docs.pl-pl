@@ -3,19 +3,20 @@ title: Co to jest usługa Azure Event Hubs? — usługa pozyskiwania danych big 
 description: Informacje na temat usługi Azure Event Hubs, usługi strumieniowego przesyłania danych big data, umożliwiającej pozyskiwanie milionów zdarzeń na sekundę.
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.topic: overview
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 45276ab59f1a3dabea42b904ff54bd37326fdeca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
+ms.openlocfilehash: 9f23bef37f6c858670de076b7a6a9ce5d8e2d046
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80398105"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297311"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Usługa Azure Event Hubs — platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń
 Usługa Azure Event Hubs to platforma przesyłania strumieniowego danych big data i usługa pozyskiwania zdarzeń. Może odbierać i przetwarzać miliony zdarzeń na sekundę. Dane wysłane do centrum zdarzeń mogą zostać przekształcone i zmagazynowane przy użyciu dowolnego dostawcy analityki czasu rzeczywistego lub adapterów przetwarzania wsadowego/magazynowania.
@@ -76,7 +77,7 @@ Na poniższym rysunku przedstawiono architekturę przetwarzania strumienia usłu
 
 ![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
 
-## <a name="event-hubs-on-azure-stack-hub"></a>Event Hubs w centrum Azure Stack
+## <a name="event-hubs-on-azure-stack-hub"></a>Usługa Event Hubs w infrastrukturze Azure Stack Hub
 Event Hubs w centrum Azure Stack pozwala zrealizować scenariusze chmury hybrydowej. Obsługiwane są rozwiązania przesyłania strumieniowego i oparte na zdarzeniach, zarówno w przypadku przetwarzania lokalnego, jak i w chmurze platformy Azure. Bez względu na to, czy scenariusz jest hybrydowy (połączony), czy odłączony, rozwiązanie może obsługiwać przetwarzanie zdarzeń/strumieni w dużej skali. Twój scenariusz jest związany tylko z rozmiarem klastra Event Hubs, który można udostępnić zgodnie z potrzebami. 
 
 Wersje Event Hubs (w centrum Azure Stack i na platformie Azure) oferują wysoką dostępność funkcji. Ta parzystość oznacza zestawy SDK, przykłady, PowerShell, interfejsu wiersza polecenia i portale, które oferują podobne środowisko, z niewielkimi różnicami. 

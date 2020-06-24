@@ -4,15 +4,15 @@ description: Ustaw wiersz polecenia, aby przesłonić punkt wejścia w obrazie k
 ms.topic: article
 ms.date: 04/15/2019
 ms.openlocfilehash: d9554603f78a07fa44af51d8f39a91e1b3c39f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247126"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84693060"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Ustaw wiersz polecenia w wystąpieniu kontenera w celu zastąpienia domyślnej operacji wiersza polecenia
 
-Podczas tworzenia wystąpienia kontenera opcjonalnie należy określić polecenie, aby zastąpić domyślną instrukcję wiersza polecenia rozszerzania do obrazu kontenera. To zachowanie jest podobne do argumentu `--entrypoint` wiersza polecenia do `docker run`.
+Podczas tworzenia wystąpienia kontenera opcjonalnie należy określić polecenie, aby zastąpić domyślną instrukcję wiersza polecenia rozszerzania do obrazu kontenera. To zachowanie jest podobne do `--entrypoint` argumentu wiersza polecenia do `docker run` .
 
 Podobnie jak w przypadku ustawiania [zmiennych środowiskowych](container-instances-environment-variables.md) dla wystąpień kontenerów, określenie uruchamiania wiersza polecenia jest przydatne w przypadku zadań wsadowych, w których konieczne jest przygotowanie każdego kontenera dynamicznie z konfiguracją specyficzną dla zadania.
 
@@ -25,7 +25,7 @@ Podobnie jak w przypadku ustawiania [zmiennych środowiskowych](container-instan
   |System operacyjny  |Powłoka domyślna  |
   |---------|---------|
   |Ubuntu     |   `/bin/bash`      |
-  |Alp     |   `/bin/sh`      |
+  |Alpine     |   `/bin/sh`      |
   |Windows     |    `cmd`     |
 
   Postępuj zgodnie z konwencjami powłoki, aby połączyć wiele poleceń do uruchomienia w sekwencji.
@@ -40,13 +40,13 @@ Podobnie jak w przypadku ustawiania [zmiennych środowiskowych](container-instan
 
 Składnia wiersza polecenia różni się w zależności od interfejsu API platformy Azure lub narzędzia używanego do tworzenia wystąpień. W przypadku określenia środowiska powłoki należy również przestrzegać Konwencji składni polecenia powłoki.
 
-* [AZ Container Create][az-container-create] — polecenie: Przekaż ciąg z `--command-line` parametrem. Przykład: `--command-line "python myscript.py arg1 arg2"`).
+* [AZ Container Create][az-container-create] — polecenie: Przekaż ciąg z `--command-line` parametrem. Przykład: `--command-line "python myscript.py arg1 arg2"` ).
 
 * [New-AzureRmContainerGroup][new-azurermcontainergroup] Azure PowerShell polecenie cmdlet: Przekaż ciąg z `-Command` parametrem. Przykład: `-Command "echo hello"`.
 
-* Azure Portal: w właściwości **zastąpienie polecenia** konfiguracji kontenera Podaj rozdzieloną przecinkami listę ciągów bez cudzysłowów. Przykład: `python, myscript.py, arg1, arg2`). 
+* Azure Portal: w właściwości **zastąpienie polecenia** konfiguracji kontenera Podaj rozdzieloną przecinkami listę ciągów bez cudzysłowów. Przykład: `python, myscript.py, arg1, arg2` ). 
 
-* Menedżer zasobów szablonu lub pliku YAML lub jednego z zestawów SDK platformy Azure: Określ właściwość wiersza polecenia jako tablicę ciągów. Przykład: tablica `["python", "myscript.py", "arg1", "arg2"]` JSON w szablonie Menedżer zasobów. 
+* Menedżer zasobów szablonu lub pliku YAML lub jednego z zestawów SDK platformy Azure: Określ właściwość wiersza polecenia jako tablicę ciągów. Przykład: tablica JSON `["python", "myscript.py", "arg1", "arg2"]` w szablonie Menedżer zasobów. 
 
   Jeśli znasz składnię [pliku dockerfile](https://docs.docker.com/engine/reference/builder/) , ten format jest podobny do formularza *exec* instrukcji cmd.
 

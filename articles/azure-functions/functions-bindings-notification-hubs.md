@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: 211f8c8a203b81a4df6a8e9515b403f99cec572a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277286"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84697412"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Notification Hubs powiązanie danych wyjściowych dla Azure Functions
 
@@ -35,7 +35,7 @@ To powiązanie jest niedostępne w funkcjach 2. x i wyższych.
 
 ## <a name="example---template"></a>Przykład — szablon
 
-Wysyłane powiadomienia mogą być natywnymi powiadomieniami lub [powiadomieniami o szablonach](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Natywne powiadomienia są przeznaczone dla określonej platformy klienta zgodnie z `platform` konfiguracją we właściwości powiązania danych wyjściowych. Powiadomienia szablonu mogą służyć do kierowania wielu platform.   
+Wysyłane powiadomienia mogą być natywnymi powiadomieniami lub [powiadomieniami o szablonach](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md). Natywne powiadomienia są przeznaczone dla określonej platformy klienta zgodnie z konfiguracją we `platform` Właściwości powiązania danych wyjściowych. Powiadomienia szablonu mogą służyć do kierowania wielu platform.   
 
 Zobacz przykład specyficzny dla języka:
 
@@ -43,7 +43,7 @@ Zobacz przykład specyficzny dla języka:
 * [Skrypt C# — asynchroniczny](#c-script-template-example---asynchronous)
 * [Skrypt C# — JSON](#c-script-template-example---json)
 * [Typy bibliotek skryptów C#](#c-script-template-example---library-types)
-* [N #](#f-template-example)
+* [F#](#f-template-example)
 * [JavaScript](#javascript-template-example)
 
 ### <a name="c-script-template-example---out-parameter"></a>Przykładowy parametr szablonu skryptu C#
@@ -135,7 +135,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ### <a name="f-template-example"></a>Przykład szablonu języka F #
 
-Ten przykład wysyła powiadomienie dla [rejestracji szablonu](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) zawierającej `location` i `message`.
+Ten przykład wysyła powiadomienie dla [rejestracji szablonu](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) zawierającej `location` i `message` .
 
 ```fsharp
 let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
@@ -144,7 +144,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
 
 ### <a name="javascript-template-example"></a>Przykład szablonu JavaScript
 
-Ten przykład wysyła powiadomienie dla [rejestracji szablonu](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) zawierającej `location` i `message`.
+Ten przykład wysyła powiadomienie dla [rejestracji szablonu](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) zawierającej `location` i `message` .
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -245,13 +245,13 @@ Parametry i właściwości konstruktora atrybutu są opisane w sekcji [konfigura
 
 ## <a name="configuration"></a>Konfiguracja
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `NotificationHub` atrybucie:
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `NotificationHub` atrybutu:
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź** |n/d| Musi być ustawiony na `notificationHub`. |
-|**wskazywa** |n/d| Musi być ustawiony na `out`. | 
-|**Nazwij** |n/d| Nazwa zmiennej używana w kodzie funkcji dla komunikatu centrum powiadomień. |
+|**Wprowadź** |nie dotyczy| Musi być ustawiony na `notificationHub` . |
+|**wskazywa** |nie dotyczy| Musi być ustawiony na `out` . | 
+|**Nazwij** |nie dotyczy| Nazwa zmiennej używana w kodzie funkcji dla komunikatu centrum powiadomień. |
 |**tagExpression** |**TagExpression** | Wyrażenia tagów umożliwiają określenie, że powiadomienia mają być dostarczane do zestawu urządzeń, które zostały zarejestrowane w celu otrzymywania powiadomień pasujących do wyrażenia tagu.  Aby uzyskać więcej informacji, zobacz [Routing i wyrażenia tagów](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nazwa zasobu centrum powiadomień w Azure Portal. |
 |**połączenia** | **ConnectionStringSetting** | Nazwa ustawienia aplikacji, która zawiera Notification Hubs parametry połączenia.  Parametry połączenia muszą być ustawione na wartość *DefaultFullSharedAccessSignature* dla centrum powiadomień. Zobacz [Konfiguracja parametrów połączenia](#connection-string-setup) w dalszej części tego artykułu.|
@@ -259,9 +259,9 @@ W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-### <a name="functionjson-file-example"></a>przykład pliku Function. JSON
+### <a name="functionjson-file-example"></a>Przykład function.jspliku
 
-Oto przykład powiązania Notification Hubs w pliku *Function. JSON* .
+Oto przykład powiązania Notification Hubs w *function.js* pliku.
 
 ```json
 {
@@ -290,7 +290,7 @@ Aby skonfigurować parametry połączenia z istniejącym centrum powiadomień:
     ![Kopiowanie parametrów połączenia centrum powiadomień](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
 1. Przejdź do aplikacji funkcji w Azure Portal, wybierz pozycję **Ustawienia aplikacji**, Dodaj klucz, taki jak **MyHubConnectionString**, wklej skopiowany *DefaultFullSharedAccessSignature* dla centrum powiadomień jako wartość, a następnie kliknij przycisk **Zapisz**.
 
-Nazwa tego ustawienia aplikacji ma wartość ustawienia połączenie wyjściowe powiązania w *funkcji Function. JSON* lub atrybut .NET. Zapoznaj się z [sekcją konfiguracji](#configuration) wcześniejszą w tym artykule.
+Nazwa tego ustawienia aplikacji ma wartość ustawienia połączenie wyjściowe powiązania w *function.jsna* lub atrybut platformy .NET. Zapoznaj się z [sekcją konfiguracji](#configuration) wcześniejszą w tym artykule.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

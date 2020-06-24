@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fcad05749892e3a652e110a7e351450bffaca6f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 548cd488bc811ad16cd84950ce3819f2e1f3ddbb
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72792978"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080717"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Uaktualnianie do Azure Search .NET SDK w wersji 3
 
@@ -25,7 +25,7 @@ Indexer execution result errors no longer have status
 the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
 --->
 
-W przypadku korzystania z wersji 2,0-Preview lub starszej [Azure Search .NET SDK](https://aka.ms/search-sdk)ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 3.
+W przypadku korzystania z wersji 2,0-Preview lub starszej [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 3.
 
 Aby zapoznać się z bardziej ogólnym przewodnikiem dotyczącym zestawu SDK, łącznie z przykładami, zobacz [jak używać Azure Search z poziomu aplikacji .NET](search-howto-dotnet-sdk.md).
 
@@ -41,7 +41,7 @@ Wersja 3 zestawu SDK Azure Search .NET zawiera pewne zmiany z wcześniejszych we
 ## <a name="whats-new-in-version-3"></a>Co nowego w wersji 3
 Wersja 3 zestawu SDK Azure Search .NET jest przeznaczona dla najnowszej ogólnie dostępnej wersji interfejsu API REST Azure Search, w tym 2016-09-01. Dzięki temu można korzystać z wielu nowych funkcji Azure Search z aplikacji .NET, w tym:
 
-* [Analizatory niestandardowe](https://aka.ms/customanalyzers)
+* [Analizatory niestandardowe](index-add-custom-analyzers.md)
 * Obsługa [usługi azure BLOB Storage](search-howto-indexing-azure-blob-storage.md) i [usługi Azure Table Storage](search-howto-indexing-azure-tables.md) Indexer
 * Dostosowywanie indeksatora za pośrednictwem [mapowań pól](search-indexer-field-mappings.md)
 * Elementy ETag obsługują bezpieczną współbieżną aktualizację definicji indeksu, indeksatorów i źródeł danych
@@ -51,7 +51,7 @@ Wersja 3 zestawu SDK Azure Search .NET jest przeznaczona dla najnowszej ogólnie
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>Kroki do uaktualnienia
-Najpierw zaktualizuj odwołanie do `Microsoft.Azure.Search` programu NuGet przy użyciu konsoli Menedżera pakietów NuGet lub kliknij prawym przyciskiem myszy odwołania do projektu i wybierz polecenie "Zarządzaj pakietami NuGet..." w programie Visual Studio.
+Najpierw zaktualizuj odwołanie do programu NuGet `Microsoft.Azure.Search` przy użyciu konsoli Menedżera pakietów NuGet lub kliknij prawym przyciskiem myszy odwołania do projektu i wybierz polecenie "Zarządzaj pakietami NuGet..." w programie Visual Studio.
 
 Po pobraniu przez program NuGet nowych pakietów i ich zależności, należy ponownie skompilować projekt. W zależności od tego, jak kod jest strukturalny, może zostać pomyślnie ponownie odbudowany. Jeśli tak, wszystko jest gotowe!
 
@@ -71,7 +71,7 @@ Po naprawieniu błędów kompilacji możesz wprowadzić zmiany w aplikacji, aby 
 Istnieje niewielka liczba istotnych zmian w wersji 3, które mogą wymagać zmiany kodu oprócz ponownego kompilowania aplikacji.
 
 ### <a name="indexesgetclient-return-type"></a>Indexes. GetClient zwraca typ
-`Indexes.GetClient` Metoda ma nowy zwracany typ. Wcześniej został zwrócony `SearchIndexClient`, ale został zmieniony na `ISearchIndexClient` w wersji 2,0-Preview, a zmiana ta przeniesie do wersji 3. Jest to pomoc dla klientów, którzy chcą zasymulować `GetClient` metodę dla testów jednostkowych, zwracając implementację makiety `ISearchIndexClient`.
+`Indexes.GetClient`Metoda ma nowy zwracany typ. Wcześniej `SearchIndexClient` został zwrócony, ale został zmieniony na `ISearchIndexClient` w wersji 2,0-Preview, a zmiana ta przeniesie do wersji 3. Jest to pomoc dla klientów, którzy chcą zasymulować `GetClient` metodę dla testów jednostkowych, zwracając implementację makiety `ISearchIndexClient` .
 
 #### <a name="example"></a>Przykład
 Jeśli kod wygląda następująco:
@@ -87,7 +87,7 @@ ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 ### <a name="analyzername-datatype-and-others-are-no-longer-implicitly-convertible-to-strings"></a>Analizatorname, DataType i inne nie są już niejawnie konwertowane na ciągi
-Istnieje wiele typów w zestawie SDK Azure Search .NET, który pochodzi od `ExtensibleEnum`. Wcześniej te typy były niejawnie konwertowane na typ `string`. Jednak usterka została odnaleziona w `Object.Equals` implementacji dla tych klas i Naprawianie błędu wymaganego do wyłączenia tej niejawnej konwersji. Jawna konwersja `string` na jest nadal dozwolona.
+Istnieje wiele typów w zestawie SDK Azure Search .NET, który pochodzi od `ExtensibleEnum` . Wcześniej te typy były niejawnie konwertowane na typ `string` . Jednak usterka została odnaleziona w `Object.Equals` implementacji dla tych klas i Naprawianie błędu wymaganego do wyłączenia tej niejawnej konwersji. Jawna konwersja na `string` jest nadal dozwolona.
 
 #### <a name="example"></a>Przykład
 Jeśli kod wygląda następująco:
@@ -130,13 +130,13 @@ index.Analyzers = new Analyzer[]
 
 Możesz zobaczyć błędy kompilacji związane z metodami lub właściwościami, które zostały oznaczone jako przestarzałe w wersji 2,0-Preview, a następnie usunięte w wersji 3. W przypadku wystąpienia takich błędów poniżej przedstawiono sposób ich rozwiązywania:
 
-- Jeśli używasz tego konstruktora: `ScoringParameter(string name, string value)`, użyj tego:`ScoringParameter(string name, IEnumerable<string> values)`
-- Jeśli używasz `ScoringParameter.Value` właściwości, zamiast tego użyj `ScoringParameter.Values` właściwości lub `ToString` metody.
-- Jeśli używasz `SearchRequestOptions.RequestId` właściwości, Użyj zamiast niej `ClientRequestId` właściwości.
+- Jeśli używasz tego konstruktora: `ScoringParameter(string name, string value)` , użyj tego:`ScoringParameter(string name, IEnumerable<string> values)`
+- Jeśli używasz `ScoringParameter.Value` właściwości, `ScoringParameter.Values` zamiast tego użyj właściwości lub `ToString` metody.
+- Jeśli używasz `SearchRequestOptions.RequestId` właściwości, użyj `ClientRequestId` zamiast niej właściwości.
 
 ### <a name="removed-preview-features"></a>Usunięte funkcje w wersji zapoznawczej
 
-W przypadku uaktualniania z wersji 2,0 — wersja zapoznawcza do wersji 3 należy pamiętać, że obsługa kodu JSON i woluminu CSV dla indeksatorów obiektów BLOB została usunięta, ponieważ te funkcje są nadal w wersji zapoznawczej. W szczególnych przypadkach następujące metody `IndexingParametersExtensions` klasy zostały usunięte:
+W przypadku uaktualniania z wersji 2,0 — wersja zapoznawcza do wersji 3 należy pamiętać, że obsługa kodu JSON i woluminu CSV dla indeksatorów obiektów BLOB została usunięta, ponieważ te funkcje są nadal w wersji zapoznawczej. W szczególnych przypadkach następujące metody klasy zostały `IndexingParametersExtensions` usunięte:
 
 - `ParseJson`
 - `ParseJsonArrays`

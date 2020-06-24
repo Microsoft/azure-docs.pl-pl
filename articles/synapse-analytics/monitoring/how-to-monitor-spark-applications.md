@@ -5,16 +5,16 @@ services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: f231693fdcf3519e29eed38e47db52d92acc00fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e3b3178cd7600d21032fb8dd4b79dd41ec3f601
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430749"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194879"
 ---
 # <a name="use-the-azure-synapse-studio-preview-to-monitor-your-apache-spark-applications"></a>Korzystanie z usługi Azure Synapse Studio (wersja zapoznawcza) do monitorowania aplikacji Apache Spark
 

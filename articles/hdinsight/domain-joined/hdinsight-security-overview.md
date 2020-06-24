@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 94823445e4f8e3f8d40a219dc23b40f8a5c267c6
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 65df89aff0232d7bf9809cdffc4262d1a640a5a1
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996316"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771125"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Omówienie zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight
 
-Usługa Azure HDInsight oferuje różne metody zaspokajania potrzeb związanych z bezpieczeństwem przedsiębiorstwa. Większość z tych rozwiązań nie jest domyślnie aktywowana. Ta elastyczność umożliwia wybranie najważniejszych funkcji zabezpieczeń. I pomaga uniknąć płacenia za niepotrzebne funkcje. Taka elastyczność oznacza również, że odpowiedzialność za zapewnienie, że poprawne rozwiązania zostały włączone dla instalacji i środowiska.
+Usługa Azure HDInsight oferuje różne metody zaspokajania potrzeb związanych z bezpieczeństwem przedsiębiorstwa. Większość z tych rozwiązań nie jest domyślnie aktywowana. Ta elastyczność umożliwia wybranie funkcji zabezpieczeń, które są najważniejsze dla Ciebie i pomaga uniknąć płacenia za niepotrzebne funkcje. Taka elastyczność oznacza również, że odpowiedzialność za zapewnienie, że poprawne rozwiązania zostały włączone dla instalacji i środowiska.
 
 Ten artykuł dotyczy rozwiązań zabezpieczeń dzielących rozwiązania zabezpieczeń na cztery tradycyjne filary zabezpieczeń: zabezpieczenia obwodowe, uwierzytelnianie, autoryzacja i szyfrowanie.
 
@@ -33,7 +33,7 @@ Zabezpieczenia obwodowe w usłudze HDInsight są realizowane za poorednictwem [s
 
 Wszystkie klastry wdrożone w sieci wirtualnej również mają prywatny punkt końcowy. Punkt końcowy jest rozpoznawany jako prywatny adres IP w sieci wirtualnej na potrzeby prywatnego dostępu HTTP do bram klastra.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 [Pakiet Enterprise Security](apache-domain-joined-architecture.md) z usługi HDInsight zapewnia uwierzytelnianie oparte na Active Directoryach, obsługa przez wiele użytkowników oraz kontrolę dostępu opartą na rolach. Integracja Active Directory jest realizowana przy użyciu [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Dzięki tym funkcjom można utworzyć klaster usługi HDInsight przyłączony do domeny Active Directory. Następnie skonfiguruj listę pracowników w przedsiębiorstwie, którzy mogą uwierzytelniać się w klastrze.
 
@@ -53,7 +53,7 @@ Inspekcja dostępu do zasobów klastra jest niezbędna do śledzenia nieautoryzo
 
 Administrator może wyświetlić i zgłosić cały dostęp do zasobów i danych klastra usługi HDInsight. Administrator może wyświetlać i raportować zmiany zasad kontroli dostępu.
 
-Aby uzyskać dostęp do dzienników inspekcji oprogramowania Apache Ranger i Ambari oraz dzienników dostępu SSH, [włącz Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing). I wyświetlić tabele, które udostępniają rekordy inspekcji.
+Aby uzyskać dostęp do dzienników inspekcji oprogramowania Apache Ranger i Ambari oraz dzienników dostępu SSH, [włącz Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing) i Wyświetl tabele, które udostępniają rekordy inspekcji.
 
 ### <a name="encryption"></a>Szyfrowanie
 

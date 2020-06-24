@@ -2,20 +2,20 @@
 title: Eksportuj konfigurację aprowizacji i przywracaj do znanego dobrego stanu na potrzeby odzyskiwania po awarii
 description: Dowiedz się, jak wyeksportować konfigurację aprowizacji i wrócić do znanego dobrego stanu na potrzeby odzyskiwania po awarii.
 services: active-directory
-author: cmmdesai
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 03/19/2020
-ms.author: chmutali
-ms.openlocfilehash: acc14cf9fc544a15dfb9ac4ffd74e5ed0ac56108
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.author: kenwith
+ms.openlocfilehash: ef4fbf582baf1e4b81d49c81a8b0e16674e64841
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593764"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781726"
 ---
 # <a name="how-to-export-provisioning-configuration-and-roll-back-to-a-known-good-state"></a>Porada: eksportowanie konfiguracji aprowizacji i przywracanie do znanego dobrego stanu
 

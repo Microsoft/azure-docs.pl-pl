@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 3784eda2db5f375f04cdde84108a78ae277baf60
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 0fad77f4704b9cbd8c2a37e39c09a334b08766ef
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860668"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193548"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Usuwanie i odzyskiwanie obszaru roboczego usługi Azure Log Analytics
 
@@ -64,21 +64,11 @@ Metoda usuwania nietrwałego może nie mieścić się w niektórych scenariuszac
 > [!IMPORTANT]
 > Użyj trwałej operacji usuwania obszaru roboczego z zachowaniem ostrożności od nieodwracalnej i nie będzie możliwe odzyskanie obszaru roboczego i jego danych.
 
-Aby trwale usunąć obszar roboczy, użyj [obszarów roboczych — Usuń](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) żądanie REST z tagiem Force:
+Dodaj tag "-Force", aby trwale usunąć obszar roboczy:
 
-```rst
-DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
-Authorization: Bearer <token>
+```powershell
+PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -Force
 ```
-
-Alternatywnie można wykonać operację z witryny dokumentacji platformy Azure REST:
-1.  Przejdź do [obszaru obszary robocze — Usuń](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) interfejs API REST i kliknij przycisk **Wypróbuj**. 
-2.  Wprowadź szczegóły obszaru roboczego, który chcesz trwale usunąć
-3.  Ender nowy parametr *Force* o wartości *true*
-4.  Kliknij ikonę "+" po prawej stronie do wartości. Spowoduje to dodanie *wartości Force = true* do identyfikatora URI w żądaniu
-5.  Kliknij przycisk *Uruchom*
-
-Odpowiedź powinna wynosić 200 OK
 
 ## <a name="recover-workspace"></a>Odzyskiwanie obszaru roboczego
 Po przypadkowe lub celowe usunięciu obszaru roboczego Log Analytics usługa umieści obszar roboczy w stanie usuwania nietrwałego, dzięki czemu nie będzie dostępny dla żadnej operacji. Nazwa usuniętego obszaru roboczego jest zachowywana w okresie usuwania nietrwałego i nie można jej używać do tworzenia nowego obszaru roboczego. Po okresie usuwania nieodzyskiwalnego obszar roboczy nie jest możliwy do odzyskania, jest zaplanowany do trwałego usunięcia oraz jego nazwy wydanej i można go użyć do utworzenia nowego obszaru roboczego.
@@ -114,7 +104,7 @@ Obszar roboczy i wszystkie jego dane zostaną przywrócone po operacji odzyskiwa
 > [!NOTE]
 > * Ponowne tworzenie obszaru roboczego w okresie usuwania nietrwałego wskazuje, że ta nazwa obszaru roboczego jest już używana. 
  
-### <a name="troubleshooting"></a>Rozwiązywanie problemów
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
 Aby usunąć obszar roboczy, musisz mieć co najmniej *log Analytics uprawnienia współautora* .<br>
 Jeśli zostanie wyświetlony komunikat o błędzie *Ta nazwa obszaru roboczego jest już używana* lub *występuje konflikt* podczas tworzenia obszaru roboczego, może to być od:
 * Nazwa obszaru roboczego jest niedostępna i jest używana przez kogoś w organizacji lub przez innego klienta.

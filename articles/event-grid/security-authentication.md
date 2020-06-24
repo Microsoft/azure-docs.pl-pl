@@ -2,18 +2,17 @@
 title: Azure Event Grid zabezpieczenia i uwierzytelnianie
 description: W tym artykule opisano różne sposoby uwierzytelniania dostępu do zasobów Event Grid (webhook, subskrypcje, tematy niestandardowe)
 services: event-grid
-author: femila
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
-ms.author: femila
-ms.openlocfilehash: 8335d5a41dc2f322623c163e08f8a4a2c1be8360
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.author: spelluru
+ms.openlocfilehash: d028367b82e8529d5260c086f2e4afa609582b00
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84558994"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100236"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Uwierzytelnianie dostępu do zasobów Azure Event Grid
 Ten artykuł zawiera informacje dotyczące następujących scenariuszy:  
@@ -85,8 +84,21 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 Wszystkie zdarzenia lub dane zapisywane na dysku przez usługę Event Grid są szyfrowane przez klucz zarządzany przez firmę Microsoft, dzięki czemu są szyfrowane w stanie spoczynku. Ponadto maksymalny okres czasu, przez jaki zdarzenia lub dane są przechowywane, wynosi 24 godziny zgodnie z [zasadami ponowienia Event Grid](delivery-and-retry.md). Event Grid automatycznie usunie wszystkie zdarzenia lub dane po 24 godzinach lub czas wygaśnięcia zdarzenia na żywo, w zależności od tego, która wartość jest mniejsza.
 
+## <a name="use-system-assigned-identities-for-event-delivery"></a>Korzystanie z tożsamości przypisanych do systemu na potrzeby dostarczania zdarzeń
+Tożsamość zarządzaną przez system można włączyć dla tematu lub domeny i użyć tożsamości do przekazywania zdarzeń do obsługiwanych miejsc docelowych, takich jak kolejki Service Bus i tematy, Centra zdarzeń i konta magazynu.
+
+Oto kroki do wykonania: 
+
+1. Utwórz temat lub domenę z tożsamością przypisaną do systemu lub zaktualizuj istniejący temat lub domenę, aby włączyć tożsamość. 
+1. Dodaj tożsamość do odpowiedniej roli (na przykład Service Bus nadawcy danych) w miejscu docelowym (na przykład Kolejka Service Bus).
+1. Podczas tworzenia subskrypcji zdarzeń należy włączyć użycie tożsamości w celu dostarczenia zdarzeń do miejsca docelowego. 
+
+Aby uzyskać szczegółowe instrukcje krok po kroku, zobacz [dostarczanie zdarzeń przy użyciu tożsamości zarządzanej](managed-service-identity.md).
+
+
 ## <a name="authenticate-event-delivery-to-webhook-endpoints"></a>Uwierzytelnianie dostarczania zdarzeń do punktów końcowych elementu webhook
 W poniższych sekcjach opisano sposób uwierzytelniania dostarczania zdarzeń do punktów końcowych elementu webhook. Musisz użyć mechanizmu uzgadniania poprawności, niezależnie od używanej metody. Aby uzyskać szczegółowe informacje, zobacz [dostarczanie zdarzeń elementu webhook](webhook-event-delivery.md) . 
+
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Korzystanie z Azure Active Directory (Azure AD)
 Możesz zabezpieczyć punkt końcowy elementu webhook, który jest używany do odbierania zdarzeń z Event Grid przy użyciu usługi Azure AD. Musisz utworzyć aplikację usługi Azure AD, utworzyć rolę i nazwę główną usługi w aplikacji, która autoryzuje Event Grid, i skonfiguruje subskrypcję zdarzeń do korzystania z aplikacji usługi Azure AD. Dowiedz się, jak [skonfigurować Azure Active Directory przy użyciu Event Grid](secure-webhook-delivery.md).

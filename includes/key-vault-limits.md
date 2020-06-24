@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 04/21/2020
 ms.author: jroth
-ms.openlocfilehash: 8247b1cedc2c5ebc8577af6be485aed0fcd5d6af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 065365ec2dc429013732725ccb22f73c519b6c0e
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768743"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85200170"
 ---
 ### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Najważniejsze transakcje (maksymalna liczba transakcji dozwolonych w ciągu 10 sekund, na magazyn na region<sup>1</sup>):
 
@@ -28,7 +28,7 @@ ms.locfileid: "81768743"
 >
 > Wartości progowe ograniczania przepustowości są ważone i wymuszanie jest w ich sumie. Na przykład, jak pokazano w poprzedniej tabeli, po wykonaniu operacji GET na kluczach HSM RSA — jest to osiem razy droższe do używania 4 096-bitowych kluczy w porównaniu z kluczami bitowymi 2 048. Dzieje się tak, ponieważ 1000/125 = 8.
 >
-> W danym przedziale 10 sekund klient Azure Key Vault może wykonać *tylko jedną* z następujących operacji przed wystąpieniem kodu stanu HTTP `429` ograniczenia przepustowości:
+> W danym przedziale 10 sekund klient Azure Key Vault może wykonać *tylko jedną* z następujących operacji przed wystąpieniem `429` kodu stanu HTTP ograniczenia przepustowości:
 > - 2 000 RSA 2 048-bitowe oprogramowanie — transakcje pobierania kluczy
 > - 1 000 RSA 2 048-bitowego modułu HSM — UZYSKIWANie transakcji klucza
 > - 125 RSA 4 096-bitowego modułu HSM — UZYSKIWANie transakcji klucza
@@ -46,7 +46,10 @@ Aby uzyskać informacje na temat sposobu obsługi ograniczania w przypadku przek
 
 ### <a name="azure-private-link-integration"></a>Integracja z prywatnym łączem platformy Azure
 
+> [!NOTE]
+> Liczba magazynów kluczy z włączonymi prywatnymi punktami końcowymi na subskrypcję jest przystosowanym limitem. Limit przedstawiony poniżej jest domyślnym limitem. Jeśli chcesz poprosić o zwiększenie limitu dla usługi, Wyślij wiadomość e-mail na adres akv-privatelink@microsoft.com . Te żądania będą zatwierdzane w przypadku poszczególnych przypadków.
+
 | Zasób | Limit |
 | -------- | ----- |
 | Prywatne punkty końcowe dla magazynu kluczy | 64 |
-| Magazyny kluczy z prywatnymi punktami końcowymi na subskrypcję | 64 |
+| Magazyny kluczy z prywatnymi punktami końcowymi na subskrypcję | 400 |

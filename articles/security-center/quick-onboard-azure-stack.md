@@ -3,8 +3,8 @@ title: Dołączanie Azure Stack maszyn wirtualnych do Azure Security Center
 description: Ten przewodnik Szybki Start przedstawia sposób aprowizacji rozszerzenia maszyny wirtualnej Azure Monitor, aktualizacji i zarządzania konfiguracją na maszynach wirtualnych Azure Stack.
 services: security-center
 documentationcenter: na
-author: pipposera
-manager: dsavage
+author: memildin
+manager: rkarlin
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
 ms.service: security-center
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: fiseraci
-ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: memildin
+ms.openlocfilehash: 1f0a11616fe996f02d6464d23724156906176041
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73686527"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771159"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Szybki Start: dołączanie Azure Stack maszyn wirtualnych do Security Center
 Po dołączeniu subskrypcji platformy Azure można włączyć Security Center, aby chronić maszyny wirtualne działające w Azure Stack przez dodanie rozszerzenia maszyny wirtualnej **Azure monitor, aktualizacji i zarządzania konfiguracją** z witryny Azure Stack Marketplace.
@@ -33,7 +33,7 @@ Przed rozpoczęciem tego przewodnika Szybki Start musisz mieć subskrypcję plat
 
 ## <a name="select-your-workspace-in-azure-security-center"></a>Wybierz obszar roboczy w Azure Security Center
 
-1. Zaloguj się do [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
+1. Zaloguj się w witrynie [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
 2. W menu **Microsoft Azure** wybierz pozycję **Security Center**. Zostanie otwarte okno **Security Center — Przegląd**. 
 
    ![Security Center — Przegląd][2]
@@ -41,7 +41,7 @@ Przed rozpoczęciem tego przewodnika Szybki Start musisz mieć subskrypcję plat
 3. W menu głównym usługi Security Center wybierz pozycję **Wprowadzenie**.
 4. Wybierz kartę **Rozpoczęcie pracy**.
 
-   ![Wprowadzenie][3]
+   ![Rozpoczęcie pracy][3]
 
 5. Kliknij przycisk **Konfiguruj** w obszarze **Dodaj nowe komputery spoza platformy Azure**. Zostanie wyświetlona lista obszarów roboczych usługi Log Analytics. Jeśli ma to zastosowanie, lista zawiera domyślny obszar roboczy utworzony przez usługę Security Center po włączeniu automatycznej aprowizacji. Wybierz ten obszar roboczy lub inny obszar roboczy, do którego maszyna wirtualna Azure Stack ma raportować dane zabezpieczeń.
 
@@ -86,7 +86,7 @@ Istnieją dwa typy ikon przedstawianych w bloku **Obliczanie**:
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Maszyna wirtualna platformy Azure (Azure Stack maszyny wirtualne będą wyświetlane w tej grupie)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy nie jest już potrzebne, można usunąć rozszerzenie z maszyny wirtualnej za pośrednictwem portalu Azure Stack.
 
 Aby usunąć rozszerzenie:

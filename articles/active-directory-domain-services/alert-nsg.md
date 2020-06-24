@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 959f1e3f25602938d769c574ea975c4bba9300e1
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 6d0cde3d3615350658a06cf118ff38cebf8952c9
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71258005"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735017"
 ---
 # <a name="known-issues-network-configuration-alerts-in-azure-active-directory-domain-services"></a>Znane problemy: alerty konfiguracji sieci w Azure Active Directory Domain Services
 
@@ -30,15 +30,15 @@ Ten artykuł ułatwia zrozumienie i rozwiązywanie typowych alertów dotyczącyc
 
 *Firma Microsoft nie może nawiązać połączenia z kontrolerami domeny dla tej domeny zarządzanej. Może się tak zdarzyć, jeśli sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) skonfigurowana w sieci wirtualnej blokuje dostęp do domeny zarządzanej. Kolejną możliwą przyczyną jest to, że istnieje trasa zdefiniowana przez użytkownika, która blokuje ruch przychodzący z Internetu.*
 
-Nieprawidłowe reguły sieciowej grupy zabezpieczeń są Najczęstszymi przyczynami błędów sieci w usłudze Azure AD DS. Grupa zabezpieczeń sieci dla sieci wirtualnej musi zezwalać na dostęp do określonych portów i protokołów. Jeśli te porty są zablokowane, platforma Azure nie może monitorować ani aktualizować domeny zarządzanej. Ma także wpływ na synchronizację między katalogiem usługi Azure AD i domeną zarządzaną platformy Azure AD DS. Upewnij się, że domyślne porty są otwarte, aby uniknąć przerw w działaniu usługi.
+Nieprawidłowe reguły sieciowej grupy zabezpieczeń są Najczęstszymi przyczynami błędów sieci w usłudze Azure AD DS. Grupa zabezpieczeń sieci dla sieci wirtualnej musi zezwalać na dostęp do określonych portów i protokołów. Jeśli te porty są zablokowane, platforma Azure nie może monitorować ani aktualizować domeny zarządzanej. Ma także wpływ na synchronizację między katalogiem usługi Azure AD a usługą Azure AD DS. Upewnij się, że domyślne porty są otwarte, aby uniknąć przerw w działaniu usługi.
 
 ## <a name="default-security-rules"></a>Domyślne reguły zabezpieczeń
 
-Następujące domyślne reguły zabezpieczeń dla ruchu przychodzącego i wychodzącego są stosowane do sieciowej grupy zabezpieczeń dla domeny zarządzanej AD DS platformy Azure. Te reguły przechowują AD DS platformy Azure i umożliwiają korzystanie z platformy Azure w celu monitorowania i aktualizowania domeny zarządzanej oraz zarządzania nią. Możesz również mieć dodatkową regułę, która zezwala na ruch przychodzący w przypadku [skonfigurowania bezpiecznego protokołu LDAP][configure-ldaps].
+Następujące domyślne reguły zabezpieczeń dla ruchu przychodzącego i wychodzącego są stosowane do sieciowej grupy zabezpieczeń dla domeny zarządzanej. Te reguły przechowują AD DS platformy Azure i umożliwiają korzystanie z platformy Azure w celu monitorowania i aktualizowania domeny zarządzanej oraz zarządzania nią. Możesz również mieć dodatkową regułę, która zezwala na ruch przychodzący w przypadku [skonfigurowania bezpiecznego protokołu LDAP][configure-ldaps].
 
 ### <a name="inbound-security-rules"></a>Reguły zabezpieczeń dla ruchu przychodzącego
 
-| Priorytet | Nazwa | Port | Protocol (Protokół) | Element źródłowy | Element docelowy | Akcja |
+| Priorytet | Nazwa | Port | Protokół | Element źródłowy | Element docelowy | Akcja |
 |----------|------|------|----------|--------|-------------|--------|
 | 101      | AllowSyncWithAzureAD | 443 | TCP | AzureActiveDirectoryDomainServices | Dowolne | Zezwalaj |
 | 201      | AllowRD | 3389 | TCP | CorpNetSaw | Dowolne | Zezwalaj |
@@ -49,7 +49,7 @@ Następujące domyślne reguły zabezpieczeń dla ruchu przychodzącego i wychod
 
 ### <a name="outbound-security-rules"></a>Reguły zabezpieczeń dla ruchu wychodzącego
 
-| Priorytet | Nazwa | Port | Protocol (Protokół) | Element źródłowy | Element docelowy | Akcja |
+| Priorytet | Nazwa | Port | Protokół | Element źródłowy | Element docelowy | Akcja |
 |----------|------|------|----------|--------|-------------|--------|
 | 65000    | AllVnetOutBound | Dowolne | Dowolne | VirtualNetwork | VirtualNetwork | Zezwalaj |
 | 65001    | AllowAzureLoadBalancerOutBound | Dowolne | Dowolne |  Dowolne | Internet | Zezwalaj |
@@ -68,7 +68,7 @@ Aby sprawdzić istniejące reguły zabezpieczeń i upewnić się, że porty domy
 
     Przejrzyj reguły ruchu przychodzącego i wychodzącego i porównaj je z listą wymaganych reguł w poprzedniej sekcji. W razie potrzeby wybierz, a następnie usuń wszystkie reguły niestandardowe, które blokują wymagany ruch. Jeśli brakuje dowolnej z wymaganych reguł, Dodaj regułę w następnej sekcji.
 
-    Po dodaniu lub usunięciu reguł w celu zezwolenia na wymagany ruch, kondycja domeny zarządzanej przez usługę Azure AD DS automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
+    Po dodaniu lub usunięciu reguł, aby zezwolić na wymagany ruch, kondycja domeny zarządzanej jest automatycznie aktualizowana w ciągu dwóch godzin i usuwa alert.
 
 ### <a name="add-a-security-rule"></a>Dodawanie reguły zabezpieczeń
 

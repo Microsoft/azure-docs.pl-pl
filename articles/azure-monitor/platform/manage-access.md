@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: b6b5e43ed0baed8cd84078809c5eb0fe146b0ecb
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636295"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85105930"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Zarządzanie dostępem do danych dziennika i obszarów roboczych w Azure Monitor
 
@@ -20,8 +20,10 @@ Azure Monitor przechowuje dane [dzienników](data-platform-logs.md) w obszarze r
 W tym artykule wyjaśniono, jak zarządzać dostępem do dzienników i administrować obszarami roboczymi, które je zawierają, w tym w jaki sposób udzielić dostępu do: 
 
 * Obszar roboczy przy użyciu uprawnień obszaru roboczego.
-* Użytkownicy, którzy potrzebują dostępu do danych dzienników z określonych zasobów przy użyciu kontroli dostępu opartej na rolach (RBAC) na platformie Azure.
+* Użytkownicy, którzy potrzebują dostępu do danych dzienników z określonych zasobów przy użyciu kontroli dostępu opartej na rolach (RBAC) na platformie Azure — znanego również jako [kontekst zasobów](design-logs-deployment.md#access-mode)
 * Użytkownicy, którzy potrzebują dostępu do danych dziennika w określonej tabeli w obszarze roboczym przy użyciu funkcji RBAC platformy Azure.
+
+Aby zrozumieć koncepcje dotyczące strategii RBAC i dostępu, przeczytaj artykuł [projektowanie wdrożenia dzienników Azure monitor](design-logs-deployment.md)
 
 ## <a name="configure-access-control-mode"></a>Konfigurowanie trybu kontroli dostępu
 
@@ -298,7 +300,7 @@ Alternatywnym podejściem do zarządzania dostępem do dzienników niestandardow
 
 Czasami dzienniki niestandardowe pochodzą ze źródeł, które nie są bezpośrednio skojarzone z określonym zasobem. W takim przypadku należy utworzyć grupę zasobów tylko w celu zarządzania dostępem do tych dzienników. Grupa zasobów nie wiąże się z żadnym kosztem, ale zapewnia prawidłowy identyfikator zasobu do kontrolowania dostępu do dzienników niestandardowych. Na przykład jeśli określona Zapora wysyła dzienniki niestandardowe, Utwórz grupę zasobów o nazwie "MyFireWallLogs" i upewnij się, że żądania interfejsu API zawierają identyfikator zasobu "MyFireWallLogs". Rekordy dziennika zapory są następnie dostępne tylko dla użytkowników, którym udzielono dostępu do MyFireWallLogs lub z pełnymi prawami dostępu do obszaru roboczego.          
 
-### <a name="considerations"></a>Istotne zagadnienia
+### <a name="considerations"></a>Zagadnienia do rozważenia
 
 * Jeśli użytkownik otrzymuje globalne uprawnienie do odczytu ze standardowym czytnikiem lub rolą współautor, które zawiera akcję _ \* /Read_ , zastąpi kontrolę dostępu do tabeli i przekaże im dostęp do wszystkich danych dziennika.
 * Jeśli użytkownik uzyska dostęp do tabeli, ale nie ma żadnych innych uprawnień, może uzyskać dostęp do danych dziennika z interfejsu API, ale nie z Azure Portal. Aby zapewnić dostęp z Azure Portal, Użyj czytnika Log Analytics jako roli podstawowej.

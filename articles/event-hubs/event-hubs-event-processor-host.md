@@ -3,23 +3,19 @@ title: Odbieranie zdarzeń za pomocą hosta procesora zdarzeń — Azure Event H
 description: W tym artykule opisano hosta procesora zdarzeń w usłudze Azure Event Hubs, który upraszcza zarządzanie użyciem punktów kontrolnych, dzierżawienia i odczytywania jonu zdarzeń równoległych.
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
+author: spelluru
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/10/2020
-ms.author: shvija
-ms.openlocfilehash: 485f51e45e342ca28d54d609fd975bef5b204f7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.reviewer: shvija
+ms.openlocfilehash: f3d6a5e77c3c1c5e8b8dceb44e5bcbe9cb5f93ec
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372225"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85299300"
 ---
 # <a name="event-processor-host"></a>Host procesora zdarzeń
 > [!NOTE]
@@ -109,10 +105,10 @@ W tym przykładowym scenariuszu Załóżmy, że 16 partycji są przydzielono do 
 Poniższa lista zawiera podsumowanie tego przykładu:
 
 - 16 Event Hubs partycjach.
-- 5 maszyn wirtualnych, 1 aplikacja konsumencka (na przykład Consumer. exe) w każdej maszynie wirtualnej.
-- 5 EPH wystąpień zarejestrowanych, 1 w każdej maszynie wirtualnej za pomocą programu Consumer. exe.
+- 5 maszyn wirtualnych, 1 aplikacja konsumencka (na przykład Consumer.exe) w każdej maszynie wirtualnej.
+- 5 zarejestrowanych wystąpień EPH, 1 w każdej maszynie wirtualnej przez Consumer.exe.
 - 16 `SimpleEventProcessor` obiektów utworzonych przez wystąpienia z 5 EPH.
-- 1 aplikacja Consumer. exe może zawierać 4 `SimpleEventProcessor` obiekty, ponieważ wystąpienie 1 EPH może mieć 4 partycje.
+- 1 aplikacja Consumer.exe może zawierać 4 `SimpleEventProcessor` obiekty, ponieważ wystąpienie 1 EPH może mieć 4 partycje.
 
 ## <a name="partition-ownership-tracking"></a>Śledzenie własności partycji
 
@@ -120,12 +116,12 @@ Własność partycji z wystąpieniem EPH (lub odbiorcą) jest śledzona za pomoc
 
 | **Nazwa grupy konsumentów** | **Identyfikator partycji** | **Nazwa hosta (właściciel)** | **Czas trwania dzierżawy (lub własności)** | **Przesunięcie na partycję (punkt kontrolny)** |
 | --- | --- | --- | --- | --- |
-| $Default | 0 | VM3\_konsumenta | 2018 r – 04-15T01:23:45 | 156 |
-| $Default | 1 | VM4\_konsumenta | 2018 r – 04-15T01:22:13 | 734 |
-| $Default | 2 | VM0\_konsumenta | 2018 r – 04-15T01:22:56 | 122 |
+| $Default | 0 | \_VM3 konsumenta | 2018 r – 04-15T01:23:45 | 156 |
+| $Default | 1 | \_VM4 konsumenta | 2018 r – 04-15T01:22:13 | 734 |
+| $Default | 2 | \_VM0 konsumenta | 2018 r – 04-15T01:22:56 | 122 |
 | : |   |   |   |   |
 | : |   |   |   |   |
-| $Default | 15 | VM3\_konsumenta | 2018 r – 04-15T01:22:56 | 976 |
+| $Default | 15 | \_VM3 konsumenta | 2018 r – 04-15T01:22:56 | 976 |
 
 W tym miejscu każdy host uzyskuje własność partycji przez określony czas (czas trwania dzierżawy). Jeśli host zakończy się niepowodzeniem (maszyna wirtualna zostanie wyłączona), dzierżawa wygaśnie. Inne hosty próbują uzyskać własność partycji, a jeden z nich kończy się powodzeniem. Ten proces resetuje dzierżawę na partycji przy użyciu nowego właściciela. W ten sposób tylko jeden czytelnik w danym momencie może odczytywać daną partycję w obrębie grupy odbiorców.
 
@@ -206,7 +202,7 @@ Teraz, gdy znasz już hosta procesora zdarzeń, zapoznaj się z następującymi 
     - [.NET Core](get-started-dotnet-standard-send-v2.md)
     - [Java](get-started-java-send-v2.md)
     - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [JavaScript](get-started-node-send-v2.md)
 * [Przewodnik programowania Event Hubs](event-hubs-programming-guide.md)
 * [Availability and consistency in Event Hubs](event-hubs-availability-and-consistency.md) (Dostępność i spójność w usłudze Event Hubs)
 * [Event Hubs — często zadawane pytania](event-hubs-faq.md)

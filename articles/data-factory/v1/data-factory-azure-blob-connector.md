@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eab332f102b9e39981e2d8ed6e84f73fada87a1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7f91285b393734bce83785dde62fd573e94ac0f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282135"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254518"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Kopiowanie danych do lub z usługi Azure Blob Storage przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -49,7 +49,7 @@ Dane z następujących magazynów danych można kopiować **do platformy Azure B
 >
 > Działanie Copy nie usuwa danych ze źródła, gdy dane zostaną pomyślnie skopiowane do lokalizacji docelowej. Jeśli musisz usunąć dane źródłowe po pomyślnej kopii, Utwórz [niestandardowe działanie](data-factory-use-custom-activities.md) , aby usunąć dane i użyć działania w potoku. Aby zapoznać się z przykładem, zobacz sekcję [usuwanie obiektu BLOB lub folderu w witrynie GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/DeleteBlobFileFolderCustomActivity).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 Można utworzyć potok za pomocą działania kopiowania, które przenosi dane do/z Blob Storage platformy Azure przy użyciu różnych narzędzi/interfejsów API.
 
 Najprostszym sposobem utworzenia potoku jest użycie **Kreatora kopiowania**. [W tym](#walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage) artykule opisano tworzenie potoku w celu skopiowania danych z lokalizacji BLOB Storage platformy Azure do innej lokalizacji usługi Azure Blob Storage. Aby zapoznać się z samouczkiem dotyczącym tworzenia potoku w celu skopiowania danych z usługi Azure Blob Storage do Azure SQL Database, zobacz [Samouczek: Tworzenie potoku przy użyciu Kreatora kopiowania](data-factory-copy-data-wizard-tutorial.md).
@@ -59,8 +59,8 @@ Do utworzenia potoku można także użyć następujących narzędzi: **Visual St
 Niezależnie od tego, czy używasz narzędzi, czy interfejsów API, wykonaj następujące kroki, aby utworzyć potok służący do przenoszenia danych ze źródłowego magazynu danych do magazynu danych ujścia:
 
 1. Utwórz **fabrykę danych**. Fabryka danych może zawierać jeden lub więcej potoków.
-2. Utwórz **połączone usługi** , aby połączyć magazyny danych wejściowych i wyjściowych z fabryką danych. Na przykład jeśli kopiujesz dane z usługi Azure Blob Storage do bazy danych Azure SQL, utworzysz dwie połączone usługi, aby połączyć konto usługi Azure Storage i bazę danych SQL Azure z fabryką danych. Aby uzyskać właściwości połączonej usługi specyficzne dla platformy Azure Blob Storage, zobacz sekcję [Właściwości połączonej usługi](#linked-service-properties) .
-2. Utwórz **zestawy** danych, aby reprezentować dane wejściowe i wyjściowe dla operacji kopiowania. W przykładzie opisanym w ostatnim kroku utworzysz zestaw danych, aby określić kontener obiektów blob i folder zawierający dane wejściowe. Ponadto utworzysz kolejny zestaw danych, aby określić tabelę SQL w bazie danych SQL Azure, która zawiera dane skopiowane z magazynu obiektów BLOB. Dla właściwości zestawu danych, które są specyficzne dla Blob Storage platformy Azure, zobacz sekcję [Właściwości zestawu danych](#dataset-properties) .
+2. Utwórz **połączone usługi** , aby połączyć magazyny danych wejściowych i wyjściowych z fabryką danych. Na przykład jeśli kopiujesz dane z usługi Azure Blob Storage do Azure SQL Database, utworzysz dwie połączone usługi, aby połączyć konto usługi Azure Storage i Azure SQL Database z fabryką danych. Aby uzyskać właściwości połączonej usługi specyficzne dla platformy Azure Blob Storage, zobacz sekcję [Właściwości połączonej usługi](#linked-service-properties) .
+2. Utwórz **zestawy** danych, aby reprezentować dane wejściowe i wyjściowe dla operacji kopiowania. W przykładzie opisanym w ostatnim kroku utworzysz zestaw danych, aby określić kontener obiektów blob i folder zawierający dane wejściowe. Ponadto utworzysz kolejny zestaw danych, aby określić tabelę SQL w Azure SQL Database, która zawiera dane skopiowane z magazynu obiektów BLOB. Dla właściwości zestawu danych, które są specyficzne dla Blob Storage platformy Azure, zobacz sekcję [Właściwości zestawu danych](#dataset-properties) .
 3. Utwórz **potok** z działaniem kopiowania, które pobiera zestaw danych jako dane wejściowe i zestaw danych jako dane wyjściowe. W powyższym przykładzie użyto BlobSource jako źródła i obiektu sqlsink jako ujścia dla działania kopiowania. Podobnie, jeśli kopiujesz z Azure SQL Database do Blob Storage platformy Azure, użyjesz sqlsource i wartość blobsink w działaniu kopiowania. Aby uzyskać właściwości działania kopiowania specyficzne dla platformy Azure Blob Storage, zobacz sekcję [właściwości działania kopiowania](#copy-activity-properties) . Aby uzyskać szczegółowe informacje na temat używania magazynu danych jako źródła lub ujścia, kliknij link w poprzedniej sekcji dla magazynu danych.
 
 Gdy używasz Kreatora, definicje JSON dla tych Data Factory jednostek (połączone usługi, zestawy danych i potok) są automatycznie tworzone. Korzystając z narzędzi/interfejsów API (z wyjątkiem interfejsu API .NET), należy zdefiniować te Data Factory jednostki przy użyciu formatu JSON.  Przykłady zawierające definicje JSON dla Data Factory jednostek, które są używane do kopiowania danych do/z Blob Storage platformy Azure, zobacz sekcję [przykłady JSON](#json-examples-for-copying-data-to-and-from-blob-storage  ) w tym artykule.
@@ -81,10 +81,10 @@ Usługa Data Factory obsługuje następujące wartości typu opartego na technol
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera informacje o lokalizacji, formacie itp., danych w magazynie danych. Sekcja typeProperties zestawu danych typu **AzureBlob** z zestawem danych ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | folderPath |Ścieżka do kontenera i folderu w magazynie obiektów BLOB. Przykład: myblobcontainer\myblobfolder\ |Tak |
-| fileName |Nazwa obiektu BLOB. Nazwa pliku jest opcjonalna i uwzględnia wielkość liter.<br/><br/>W przypadku określenia nazwy pliku działanie (łącznie z kopią) działa w określonym obiekcie blob.<br/><br/>Jeśli nazwa pliku nie jest określona, Copy zawiera wszystkie obiekty blob w folderPath dla wejściowego zestawu danych.<br/><br/>Gdy nie określono **nazwy pliku** dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w ujścia aktywności, nazwa wygenerowanego pliku będzie w następującym formacie: `Data.<Guid>.txt` (na przykład:: Data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt |Nie |
+| fileName |Nazwa obiektu BLOB. Nazwa pliku jest opcjonalna i uwzględnia wielkość liter.<br/><br/>W przypadku określenia nazwy pliku działanie (łącznie z kopią) działa w określonym obiekcie blob.<br/><br/>Jeśli nazwa pliku nie jest określona, Copy zawiera wszystkie obiekty blob w folderPath dla wejściowego zestawu danych.<br/><br/>Jeśli **Nazwa pliku** nie została określona dla wyjściowego zestawu danych, a **preserveHierarchy** nie jest określona w ujścia aktywności, nazwa wygenerowanego pliku będzie w następującym formacie: `Data.<Guid>.txt` (na przykład:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Nie |
 | partitionedBy |partitionedBy jest właściwością opcjonalną. Można jej użyć do określenia dynamicznego folderPath i nazwy pliku dla danych szeregów czasowych. Na przykład folderPath może być sparametryzowany dla każdej godziny danych. Zobacz [sekcję using partitionedBy](#using-partitionedby-property) , aby uzyskać szczegółowe informacje i przykłady. |Nie |
 | format | Obsługiwane są następujące typy formatów: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw właściwość **Type** w polu Format na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz [format tekstowy](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format)i sekcje [formatu Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) . <br><br> Jeśli chcesz **skopiować pliki** między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych. |Nie |
 | kompresja | Określ typ i poziom kompresji danych. Obsługiwane typy to: **gzip**, **Wklęśnięcie**, **BZip2**i **ZipDeflate**. Obsługiwane poziomy to: **optymalne** i **najszybszy**. Aby uzyskać więcej informacji, zobacz [formaty plików i kompresji w Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nie |
@@ -127,13 +127,13 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania dz
 
 **BlobSource** obsługuje następujące właściwości w sekcji **typeProperties** :
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | rozpoznawania |Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. |True (wartość domyślna), FAŁSZ |Nie |
 
 **Wartość blobsink** obsługuje następujące właściwości **typeProperties** sekcja:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | copyBehavior |Definiuje zachowanie kopiowania, gdy źródłem jest BlobSource lub system plików. |<b>PreserveHierarchy</b>: zachowuje hierarchię plików w folderze docelowym. Ścieżka względna pliku źródłowego do folderu źródłowego jest taka sama jak ścieżka względna pliku docelowego do folderu docelowego.<br/><br/><b>FlattenHierarchy</b>: wszystkie pliki z folderu źródłowego znajdują się na pierwszym poziomie folderu docelowego. Pliki docelowe mają automatycznie wygenerowaną nazwę. <br/><br/><b>MergeFiles</b>: Scala wszystkie pliki z folderu źródłowego do jednego pliku. Jeśli nazwa pliku/obiektu BLOB jest określona, scaloną nazwą pliku będzie określona nazwa; w przeciwnym razie zostanie automatycznie wygenerowana nazwa pliku. |Nie |
 
@@ -177,7 +177,7 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
 1. Utwórz **konto usługi Azure Storage** ogólnego przeznaczenia, jeśli jeszcze go nie masz. Magazyn obiektów BLOB jest używany jako **źródłowy** i **docelowy** magazyn danych w tym instruktażu. Jeśli nie masz konta usługi Azure Storage, zapoznaj się z artykułem [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) , aby dowiedzieć się, jak go utworzyć.
 2. Utwórz kontener obiektów BLOB o nazwie **adfblobconnector** na koncie magazynu.
 4. Utwórz folder o nazwie **Input** w kontenerze **adfblobconnector** .
-5. Utwórz plik o nazwie **EMP. txt** z następującą zawartością i przekaż go do folderu **Input** przy użyciu narzędzi takich jak [Eksplorator usługi Azure Storage](https://azurestorageexplorer.codeplex.com/)
+5. Utwórz plik o nazwie **emp.txt** z następującą zawartością i przekaż go do folderu **Input** przy użyciu narzędzi takich jak [Eksplorator usługi Azure Storage](https://azurestorageexplorer.codeplex.com/)
     ```json
     John, Doe
     Jane, Doe
@@ -187,13 +187,13 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Kliknij pozycję **Utwórz zasób** w lewym górnym rogu, kliknij pozycję **Analiza i analiza**, a następnie kliknij pozycję **Data Factory**.
 3. W okienku **Nowa fabryka danych** :  
-    1. Wprowadź **ADFBlobConnectorDF** dla **nazwy**. Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli wystąpi błąd: `*Data factory name “ADFBlobConnectorDF” is not available`, Zmień nazwę fabryki danych (na przykład yournameADFBlobConnectorDF) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.
+    1. Wprowadź **ADFBlobConnectorDF** dla **nazwy**. Nazwa fabryki danych Azure musi być globalnie unikatowa. Jeśli wystąpi błąd: `*Data factory name “ADFBlobConnectorDF” is not available` , Zmień nazwę fabryki danych (na przykład yournameADFBlobConnectorDF) i spróbuj utworzyć ją ponownie. Artykuł [Data Factory — Naming Rules](data-factory-naming-rules.md) (Fabryka danych — zasady nazewnictwa) zawiera zasady nazewnictwa artefaktów usługi Fabryka danych.
     2. Wybierz swoją **subskrypcję** platformy Azure.
     3. W obszarze Grupa zasobów wybierz pozycję **Użyj istniejącej** , aby wybrać istniejącą grupę zasobów (lub) wybierz pozycję **Utwórz nową** , aby wprowadzić nazwę grupy zasobów.
     4. Wybierz **lokalizację** fabryki danych.
     5. Zaznacz pole wyboru **Przypnij do pulpitu nawigacyjnego** u dołu bloku.
-    6. Kliknij przycisk **Utwórz**.
-3. Po zakończeniu tworzenia zostanie wyświetlony blok **Data Factory** , jak pokazano na poniższej ilustracji: ![Strona główna fabryki danych](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+    6. Kliknij pozycję **Utwórz**.
+3. Po zakończeniu tworzenia zostanie wyświetlony blok **Data Factory** , jak pokazano na poniższej ilustracji: ![ Strona główna fabryki danych](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>Kreator kopiowania
 1. Na stronie głównej Data Factory kliknij przycisk **Kopiuj dane** , aby uruchomić **Kreatora kopiowanie danych** na oddzielnej karcie.  
@@ -220,7 +220,7 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
         ![Narzędzie kopiowania — określanie konta usługi Azure Blob Storage](./media/data-factory-azure-blob-connector/copy-tool-specify-azure-blob-storage-account.png)
 5. Na stronie **Wybieranie pliku lub folderu wejściowego**:
     1. Kliknij dwukrotnie pozycję **adfblobcontainer**.
-    2. Wybierz pozycję **dane wejściowe**, a następnie kliknij pozycję **Wybierz**. W tym instruktażu należy wybrać folder wejściowy. Zamiast tego można również wybrać plik EMP. txt w folderze.
+    2. Wybierz pozycję **dane wejściowe**, a następnie kliknij pozycję **Wybierz**. W tym instruktażu należy wybrać folder wejściowy. Zamiast tego można również wybrać plik emp.txt w folderze.
         ![Narzędzie kopiowania — wybieranie pliku lub folderu wejściowego](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
 6. Na stronie **Wybieranie pliku lub folderu wejściowego** :
     1. Upewnij się, że **plik lub folder** jest ustawiony na **adfblobconnector/Input**. Jeśli pliki znajdują się w podfolderach, na przykład 2017/04/01, 2017/04/02 i tak dalej, wprowadź adfblobconnector/Input/{Year}/{Month}/{Day} dla pliku lub folderu. Po naciśnięciu klawisza TAB z pola tekstowego zobaczysz trzy listy rozwijane, aby wybrać formaty rok (RRRR), miesiąc (MM) i dzień (DD).
@@ -232,13 +232,13 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
 7. Na stronie **Ustawienia formatu pliku** są wyświetlane ograniczniki i schemat wykrywany automatycznie przez kreatora w ramach analizy pliku.
     1. Potwierdź następujące opcje:  
         a. **Format pliku** jest ustawiony na **Format tekstu**. Wszystkie obsługiwane formaty są widoczne na liście rozwijanej. Na przykład: JSON, Avro, ORC, Parquet.
-       b. **Ogranicznik kolumny** jest ustawiony na `Comma (,)`. Na liście rozwijanej można zobaczyć inne ograniczniki kolumn obsługiwane przez Data Factory. Możesz również określić niestandardowy ogranicznik.
-       c. **Ogranicznik wiersza** jest ustawiony na `Carriage Return + Line feed (\r\n)`. Pozostałe ograniczniki wierszy obsługiwane przez Data Factory można zobaczyć na liście rozwijanej. Możesz również określić niestandardowy ogranicznik.
+       b. **Ogranicznik kolumny** jest ustawiony na `Comma (,)` . Na liście rozwijanej można zobaczyć inne ograniczniki kolumn obsługiwane przez Data Factory. Możesz również określić niestandardowy ogranicznik.
+       c. **Ogranicznik wiersza** jest ustawiony na `Carriage Return + Line feed (\r\n)` . Pozostałe ograniczniki wierszy obsługiwane przez Data Factory można zobaczyć na liście rozwijanej. Możesz również określić niestandardowy ogranicznik.
        d. **Liczba wierszy Pomiń** jest ustawiona na **0**. Jeśli chcesz, aby kilka wierszy zostało pominięte w górnej części pliku, wprowadź tutaj liczbę.
        e. **Pierwszy wiersz danych zawiera nazwy kolumn** nie są ustawione. Jeśli pliki źródłowe zawierają nazwy kolumn w pierwszym wierszu, wybierz tę opcję.
        f. Ustawiona jest opcja **Traktuj pustą kolumnę jako wartość null** .
     2. Rozwiń pozycję **Ustawienia zaawansowane** , aby wyświetlić zaawansowaną opcję.
-    3. W dolnej części strony zapoznaj się z **podglądem** danych z pliku EMP. txt.
+    3. W dolnej części strony zapoznaj się z **podglądem** danych w pliku emp.txt.
     4. Kliknij przycisk **schemat** na dole, aby zobaczyć schemat, który został wywnioskowany przez Kreatora kopiowania, przeglądając dane w pliku źródłowym.
     5. Po przejrzeniu ograniczników i wyświetleniu podglądu danych kliknij przycisk **Dalej**.
     ![Narzędzie kopiowania — ustawienia formatu pliku](./media/data-factory-azure-blob-connector/copy-tool-file-format-settings.png)
@@ -272,7 +272,7 @@ Przyjrzyjmy się sposobom szybkiego kopiowania danych do/z usługi Azure Blob St
 
 1. Kliknij link `Click here to monitor copy pipeline` na stronie **wdrażanie** .
 2. **Aplikacja monitor i zarządzanie** powinna zostać wyświetlona na osobnej karcie.  ![Monitorowanie aplikacji i zarządzanie nią](media/data-factory-azure-blob-connector/monitor-manage-app.png)
-3. Zmień wartość w polu godzina **rozpoczęcia** na górną `04/19/2017` i **końcową** na wartość `04/27/2017`, a następnie kliknij pozycję **Zastosuj**.
+3. Zmień wartość w polu godzina **rozpoczęcia** na górną `04/19/2017` i **końcową** na wartość `04/27/2017` , a następnie kliknij pozycję **Zastosuj**.
 4. Na liście **okna działania** powinny być widoczne pięć okien aktywności. Czasy **WindowStart** powinny obejmować wszystkie dni od rozpoczęcia potoku do czasu zakończenia potoku.
 5. Kliknij przycisk **Odśwież** , aby wyświetlić listę **okien działania** kilka razy, aż zobaczysz stan wszystkie okna działania ustawione na gotowe.
 6. Teraz sprawdź, czy pliki wyjściowe są generowane w folderze wyjściowym kontenera adfblobconnector. W folderze wyjściowym powinna zostać wyświetlona następująca struktura folderów:
@@ -548,7 +548,7 @@ Dane są pobierane z nowego obiektu BLOB co godzinę (częstotliwość: godzina,
 ```
 **Wyjściowy zestaw danych usługi Azure SQL:**
 
-Przykład kopiuje dane do tabeli o nazwie "MyTable" w bazie danych SQL Azure. Utwórz tabelę w bazie danych SQL platformy Azure przy użyciu tej samej liczby kolumn, zgodnie z oczekiwaniami plik CSV obiektów BLOB. Nowe wiersze są dodawane do tabeli co godzinę.
+Przykład kopiuje dane do tabeli o nazwie "MyTable" w Azure SQL Database. Utwórz tabelę w bazie danych SQL o tej samej liczbie kolumn, która będzie zawierała plik CSV. Nowe wiersze są dodawane do tabeli co godzinę.
 
 ```json
 {

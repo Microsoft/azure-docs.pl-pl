@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: ca9bb3853698b831fe87f48de346183e4bcd0976
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: e0ecfd3acb6a8a1d40e006aef1bbf63eae0e1ff4
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731716"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84770802"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Przenoszenie obszaru roboczego Log Analytics do innej subskrypcji lub grupy zasobów
 
@@ -38,6 +38,8 @@ Rozwiązania, które należy usunąć, aby można było odłączyć konto usług
 - Uruchamianie lub zatrzymywanie maszyn wirtualnych po godzinach pracy
 - Azure Security Center
 
+>[!IMPORTANT]
+> - Po włączeniu w obszarze roboczym funkcja wskaźnikowa platformy Azure **nie obsługuje obecnie** przeniesienia tego obszaru roboczego do innych grup zasobów lub subskrypcji. Jeśli musisz przenieść obszar roboczy, skontaktuj się z pomocą techniczną [platformy Azure](mailto:AzureSentinel@microsoft.com).
 
 ### <a name="delete-solutions-in-azure-portal"></a>Usuwanie rozwiązań w Azure Portal
 Aby usunąć rozwiązania przy użyciu Azure Portal, należy wykonać czynności opisane w poniższej procedurze:

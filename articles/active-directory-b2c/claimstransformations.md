@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2a919996d00f8ef3fa00109944b60d53b63d95ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37d9bd78a80ac52d2a790537bf47e33807720349
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529127"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202963"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -35,7 +35,7 @@ Aby dołączyć listę funkcji przekształcania oświadczeń, które mogą być 
 
 Element **ClaimsTransformation** zawiera następujące atrybuty:
 
-| Atrybut |Wymagany | Opis |
+| Atrybut |Wymagane | Opis |
 | --------- |-------- | ----------- |
 | Identyfikator |Tak | Identyfikator, który jest używany do jednoznacznego identyfikowania transformacji roszczeń. Identyfikator jest przywoływany z innych elementów XML w zasadach. |
 | TransformationMethod | Tak | Metoda transformacji do użycia w transformacji oświadczeń. Każda transformacja roszczeń ma swoje własne wartości. Aby uzyskać pełną listę dostępnych wartości, zobacz [Dokumentacja transformacji oświadczeń](#claims-transformations-reference) . |
@@ -77,7 +77,7 @@ Element **InputClaims** zawiera następujący element:
 
 Element **oświadczenie inputclaim** zawiera następujące atrybuty:
 
-| Atrybut |Wymagany | Opis |
+| Atrybut |Wymagane | Opis |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |Tak | Odwołanie do elementu ClaimType zdefiniowanego już w sekcji ClaimsSchema w zasadach. |
 | TransformationClaimType |Tak | Identyfikator, który odwołuje się do typu przywoływanego elementu transformacji. Każda transformacja roszczeń ma swoje własne wartości. Aby uzyskać pełną listę dostępnych wartości, zobacz [Dokumentacja transformacji oświadczeń](#claims-transformations-reference) . |
@@ -92,7 +92,7 @@ Element **InputParameters** zawiera następujący element:
 
 #### <a name="inputparameter"></a>InputParameter
 
-| Atrybut | Wymagany |Opis |
+| Atrybut | Wymagane |Opis |
 | --------- | ----------- |----------- |
 | Identyfikator | Tak | Identyfikator, który jest odwołaniem do parametru metody przekształcania oświadczeń. Każda metoda transformacji oświadczeń ma swoje własne wartości. Zobacz tabelę transformacji oświadczeń, aby uzyskać pełną listę dostępnych wartości. |
 | typ_danych | Tak | Typ danych parametru, taki jak String, Boolean, int lub DateTime jako na Wyliczenie typu danych w schemacie XML zasad niestandardowych. Ten typ jest używany do poprawnego wykonywania operacji arytmetycznych. Każda transformacja roszczeń ma swoje własne wartości. Aby uzyskać pełną listę dostępnych wartości, zobacz [Dokumentacja transformacji oświadczeń](#claims-transformations-reference) . |
@@ -110,7 +110,7 @@ Element **OutputClaims** zawiera następujący element:
 
 Element **oświadczenie outputclaim** zawiera następujące atrybuty:
 
-| Atrybut |Wymagany | Opis |
+| Atrybut |Wymagane | Opis |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Tak | Odwołanie do elementu ClaimType zdefiniowanego już w sekcji ClaimsSchema w zasadach.
 | TransformationClaimType | Tak | Identyfikator, który odwołuje się do typu przywoływanego elementu transformacji. Każda transformacja roszczeń ma swoje własne wartości. Aby uzyskać pełną listę dostępnych wartości, zobacz [Dokumentacja transformacji oświadczeń](#claims-transformations-reference) . |
@@ -121,7 +121,7 @@ Jeśli dane wejściowe i dane wyjściowe są tego samego typu (ciąg lub wartoś
 
 Można na przykład przechowywać w ostatniej wersji usługi, która zaakceptowała użytkownika. Po zaktualizowaniu warunków użytkowania można polecić użytkownikowi zaakceptowanie nowej wersji. W poniższym przykładzie transformacja oświadczeń **HasTOSVersionChanged** porównuje wartość oświadczenia **TOSVersion** z wartością oświadczenia **LastTOSAcceptedVersion** , a następnie zwraca oświadczenie **TOSVersionChanged** logicznego.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <ClaimType Id="TOSVersionChanged">

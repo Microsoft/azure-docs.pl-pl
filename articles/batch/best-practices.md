@@ -1,14 +1,14 @@
 ---
 title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
-ms.date: 05/22/2020
+ms.date: 06/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1d482eeb8b3da94e8af0a597ade1a1d834ccf6a0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: d91804b91b50ee1ba4015456438c9f153ed12ada
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677785"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85201722"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -121,6 +121,9 @@ Typowym przykładem jest zadanie kopiowania plików do węzła obliczeniowego. P
 
 Zadania, które są uruchamiane tylko przez jeden do dwóch sekund, nie są idealnym rozwiązaniem. Należy podjąć próbę wykonania znacznej nakładu pracy w pojedynczym zadaniu (10 sekund minimum, przechodząc do kilku godzin lub dni). Jeśli każde zadanie jest wykonywane przez jedną minutę (lub więcej), obciążenie planowania jako ułamek całkowitego czasu obliczeniowego jest małe.
 
+### <a name="use-pool-scope-for-short-tasks-on-windows-nodes"></a>Używanie zakresu puli dla krótkich zadań w węzłach systemu Windows
+
+Planując zadanie w węzłach wsadowych, można wybrać, czy ma być uruchamiane z zakresem zadania czy zakresem puli. Jeśli zadanie zostanie uruchomione tylko przez krótki czas, zakres zadania może być nieefektywny ze względu na zasoby, które są konieczne do utworzenia konta użytkownika dla tego zadania. Aby zwiększyć wydajność, należy rozważyć ustawienie tych zadań na zakres puli. Aby uzyskać więcej informacji, zobacz [Uruchamianie zadania jako użytkownika z zakresem puli](batch-user-accounts.md#run-a-task-as-an-auto-user-with-pool-scope).
 
 ## <a name="nodes"></a>Węzły
 

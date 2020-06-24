@@ -3,12 +3,12 @@ title: Obsługa oceny serwera fizycznego w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny serwera fizycznego za pomocą oceny serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: 058a438d722454368f3275216c92d0a2692b359c
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: e60dc12b1f710fe771b90352872eb7113951a65d
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324321"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080513"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Macierz obsługi dla oceny serwera fizycznego 
 
@@ -24,7 +24,7 @@ Aby ocenić serwery fizyczne, należy utworzyć projekt Azure Migrate i dodać n
 --- | ---
 **Limity oceny** | W jednym [Azure Migrate projekcie](migrate-support-matrix.md#azure-migrate-projects)można odnajdywać i oceniać maksymalnie 35 000 serwerów fizycznych.
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure. Oprócz serwerów fizycznych projekt może obejmować maszyny wirtualne VMware i maszyny wirtualne funkcji Hyper-V, a także limity oceny dla każdego z nich.
-**Odnajdowa** | Urządzenie Azure Migrate może odnajdywać maksymalnie 250 serwerów fizycznych.
+**Odnajdowa** | Urządzenie Azure Migrate może odnajdywać maksymalnie 1000 serwerów fizycznych.
 **Stopnia** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> W ramach jednej oceny można ocenić do 35 000 maszyn.
 
 [Dowiedz się więcej](concepts-assessment-calculation.md) na temat ocen.
@@ -54,7 +54,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących portów dla oceny.
 **Urządzenie** | **Połączenie**
 --- | ---
 **Wprowadzony** | Połączenia przychodzące na porcie TCP 3389, aby zezwolić na połączenia pulpitu zdalnego z urządzeniem.<br/><br/> Połączenia przychodzące na porcie 44368, aby zdalnie uzyskiwać dostęp do aplikacji do zarządzania urządzeniami przy użyciu adresu URL:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Połączenia wychodzące na portach 443 (HTTPS), w celu wysyłania metadanych odnajdywania i wydajności do Azure Migrate.
-**Serwery fizyczne** | **System Windows:** Połączenia przychodzące na portach usługi WinRM 5985 (HTTP) i 5986 (HTTPS), aby ściągnąć konfigurację i metadane wydajności z serwerów z systemem Windows. <br/><br/> System **Linux:**  Połączenia przychodzące na porcie 22 (TCP), w celu ściągania metadanych konfiguracji i wydajności z serwerów z systemem Linux. |
+**Serwery fizyczne** | **System Windows:** Połączenie przychodzące na porcie WinRM 5985 (HTTP) do ściągania metadanych konfiguracji i wydajności z serwerów z systemem Windows. <br/><br/> System **Linux:**  Połączenia przychodzące na porcie 22 (TCP), w celu ściągania metadanych konfiguracji i wydajności z serwerów z systemem Linux. |
 
 ## <a name="agent-based-dependency-analysis-requirements"></a>Wymagania dotyczące analizy zależności opartej na agentach
 

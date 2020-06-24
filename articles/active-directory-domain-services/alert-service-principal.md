@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: f72e98213977a09b97cab9966ec69194cd8439e8
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 991bb3e296f18ef6d5182048d8ce4601c0fc09c9
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845971"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735000"
 ---
 # <a name="known-issues-service-principal-alerts-in-azure-active-directory-domain-services"></a>Znane problemy: alerty nazw głównych usług w Azure Active Directory Domain Services
 
-[Nazwy główne usług](../active-directory/develop/app-objects-and-service-principals.md) to aplikacje używane przez platformę Azure do zarządzania, aktualizowania i konserwowania domeny zarządzanej AD DS platformy Azure. Jeśli jednostka usługi zostanie usunięta, wpłynie to na funkcjonalność domeny zarządzanej platformy Azure AD DS.
+[Nazwy główne usług](../active-directory/develop/app-objects-and-service-principals.md) to aplikacje używane przez platformę Azure do zarządzania, aktualizowania i konserwowania domeny zarządzanej Azure Active Directory Domain Services (Azure AD DS). Jeśli jednostka usługi zostanie usunięta, wpłynie to na funkcjonalność w domenie zarządzanej.
 
 Ten artykuł ułatwia rozwiązywanie problemów i rozwiązywanie alertów dotyczących konfiguracji jednostki usługi.
 
@@ -30,7 +30,7 @@ Ten artykuł ułatwia rozwiązywanie problemów i rozwiązywanie alertów dotycz
 
 *Nazwa główna usługi wymagana do poprawnego działania Azure AD Domain Services została usunięta z katalogu usługi Azure AD. Ta konfiguracja ma wpływ na zdolność firmy Microsoft do monitorowania, poprawiania i synchronizowania domeny zarządzanej oraz zarządzania nią.*
 
-Jeśli zostanie usunięta wymagana jednostka usługi, platforma Azure nie będzie mogła wykonywać zautomatyzowanych zadań zarządzania. Domena zarządzana AD DS platformy Azure może nie stosować poprawnie aktualizacji lub tworzyć kopie zapasowe.
+Jeśli zostanie usunięta wymagana jednostka usługi, platforma Azure nie będzie mogła wykonywać zautomatyzowanych zadań zarządzania. Domena zarządzana może nieprawidłowo stosować aktualizacje lub tworzyć kopie zapasowe.
 
 ### <a name="check-for-missing-service-principals"></a>Sprawdź brakujące jednostki usługi
 
@@ -64,18 +64,18 @@ Jeśli w katalogu usługi Azure AD brakuje identyfikatora aplikacji *2565bd9d-DA
     New-AzureAdServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
     ```
 
-Kondycja domeny zarządzanej na platformie Azure AD DS automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
+Kondycja domeny zarządzanej automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
 
 ### <a name="re-register-the-microsoft-aad-namespace"></a>Zarejestruj ponownie przestrzeń nazw usługi Microsoft AAD
 
 Jeśli w katalogu usługi Azure AD brakuje identyfikatora aplikacji *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022*lub *d87dcbc6-a371-462e-88e3-28ad15ec4e64* , wykonaj następujące kroki, aby ponownie zarejestrować dostawcę zasobów *Microsoft. AAD* :
 
 1. W Azure Portal Wyszukaj i wybierz pozycję **subskrypcje**.
-1. Wybierz subskrypcję skojarzoną z domeną zarządzaną AD DS platformy Azure.
+1. Wybierz subskrypcję skojarzoną z domeną zarządzaną.
 1. W okienku nawigacji po lewej stronie wybierz pozycję **dostawcy zasobów**.
 1. Wyszukaj ciąg *Microsoft. AAD*, a następnie wybierz pozycję **zarejestruj ponownie**.
 
-Kondycja domeny zarządzanej na platformie Azure AD DS automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
+Kondycja domeny zarządzanej automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Alert AADDS105: aplikacja do synchronizacji haseł jest nieaktualna
 
@@ -105,7 +105,7 @@ Aby ponownie utworzyć aplikację usługi Azure AD służącą do synchronizacji
     Remove-AzureADServicePrincipal -ObjectId $spObject
     ```
 
-Po usunięciu obu aplikacji platforma Azure automatycznie odtworzy je i podejmie próbę wznowienia synchronizacji haseł. Kondycja domeny zarządzanej na platformie Azure AD DS automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
+Po usunięciu obu aplikacji platforma Azure automatycznie odtworzy je i podejmie próbę wznowienia synchronizacji haseł. Kondycja domeny zarządzanej automatycznie aktualizuje się w ciągu dwóch godzin i usuwa alert.
 
 ## <a name="next-steps"></a>Następne kroki
 

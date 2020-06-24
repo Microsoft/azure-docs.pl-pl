@@ -2,20 +2,20 @@
 title: Dostosowywanie mapowań atrybutów usługi Azure AD | Microsoft Docs
 description: Dowiedz się, jakie mapowania atrybutów dla aplikacji SaaS w Azure Active Directory są sposobami ich modyfikacji w celu zaspokajania potrzeb firmy.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2019
-ms.author: mimart
-ms.openlocfilehash: 9697bc2abd147a501466ba134f96512fe15173c0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.author: kenwith
+ms.openlocfilehash: 70795c703810212c3b46d06254a0c3ebdcb418f4
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639052"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782045"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Dostosowywanie mapowania atrybutów aprowizacji użytkowników dla aplikacji SaaS w Azure Active Directory
 

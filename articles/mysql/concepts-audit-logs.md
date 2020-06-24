@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/19/2020
-ms.openlocfilehash: b42f0d7a8146f7f2b313959273abd22303c89a60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/18/2020
+ms.openlocfilehash: 00e4ef2452d2048f386d48e994ba1051ca81ec75
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062546"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100964"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Inspekcja dzienników w Azure Database for MySQL
 
@@ -22,20 +22,21 @@ W Azure Database for MySQL dziennik inspekcji jest dostępny dla użytkowników.
 
 ## <a name="configure-audit-logging"></a>Konfigurowanie rejestrowania inspekcji
 
-Domyślnie dziennik inspekcji jest wyłączony. Aby włączyć tę opcję, `audit_log_enabled` ustaw wartość na na.
+>[!NOTE]
+> Zaleca się tylko rejestrowanie typów zdarzeń i użytkowników wymaganych do celów inspekcji, aby upewnić się, że wydajność serwera nie jest w dużym stopniu zagrożona.
+
+Domyślnie dziennik inspekcji jest wyłączony. Aby włączyć tę opcję, ustaw wartość `audit_log_enabled` na na.
 
 Inne parametry, które można dostosować, obejmują:
 
 - `audit_log_events`: kontroluje zdarzenia, które mają być rejestrowane. Szczegółowe zdarzenia inspekcji można znaleźć w poniższej tabeli.
-- `audit_log_include_users`: Użytkownicy programu MySQL mają być włączeni do rejestrowania. Wartość domyślna tego parametru jest pusta, co spowoduje uwzględnienie wszystkich użytkowników do rejestrowania. Ma wyższy priorytet niż `audit_log_exclude_users`. Maksymalna długość parametru to 512 znaków.
-> [!Note]
-> `audit_log_include_users`ma wyższy priorytet niż `audit_log_exclude_users`. Na `audit_log_include_users`  =  `demouser` przykład jeśli `audit_log_exclude_users`  = i `demouser`, użytkownik zostanie uwzględniony w dziennikach inspekcji, ponieważ `audit_log_include_users` ma wyższy priorytet.
+- `audit_log_include_users`: Użytkownicy programu MySQL mają być włączeni do rejestrowania. Wartość domyślna tego parametru jest pusta, co spowoduje uwzględnienie wszystkich użytkowników do rejestrowania. Ma wyższy priorytet niż `audit_log_exclude_users` . Maksymalna długość parametru to 512 znaków.
 - `audit_log_exclude_users`: Użytkownicy programu MySQL mają być wykluczeni z rejestrowania. Maksymalna długość parametru to 512 znaków.
 
-> [!Note]
-> W `sql_text`przypadku programu Dziennik zostanie obcięty, jeśli przekracza 2048 znaków.
+> [!NOTE]
+> `audit_log_include_users`ma wyższy priorytet niż `audit_log_exclude_users` . Na przykład jeśli `audit_log_include_users`  =  `demouser` i `audit_log_exclude_users`  =  `demouser` , użytkownik zostanie uwzględniony w dziennikach inspekcji, ponieważ `audit_log_include_users` ma wyższy priorytet.
 
-| **Wydarzen** | **Opis** |
+| **Zdarzenie** | **Opis** |
 |---|---|
 | `CONNECTION` | -Inicjacja połączenia (powodzenie lub niepowodzenie) <br> -Uwierzytelnianie użytkownika przy użyciu innego użytkownika/hasła podczas sesji <br> -Zakończenie połączenia |
 | `DML_SELECT`| Wybieranie zapytań |
@@ -73,7 +74,7 @@ W poniższych sekcjach opisano dane wyjściowe dzienników inspekcji MySQL na po
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nazwa serwera |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` (dostępne tylko dla MySQL 5,7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT` , `CHANGE USER` (dostępne tylko dla MySQL 5,7) |
 | `connection_id_d` | Unikatowy identyfikator połączenia wygenerowany przez MySQL |
 | `host_s` | Pusty |
 | `ip_s` | Adres IP klienta nawiązującego połączenie z bazą danych MySQL |
@@ -84,6 +85,9 @@ W poniższych sekcjach opisano dane wyjściowe dzienników inspekcji MySQL na po
 ### <a name="general"></a>Ogólne
 
 Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL i administrator.
+
+> [!NOTE]
+> W przypadku programu `sql_text` Dziennik zostanie obcięty, jeśli przekracza 2048 znaków.
 
 | **Właściwość** | **Opis** |
 |---|---|
@@ -101,7 +105,7 @@ Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DM
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nazwa serwera |
 | `event_class_s` | `general_log` |
-| `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (dostępne tylko dla MySQL 5,6) |
+| `event_subclass_s` | `LOG`, `ERROR` , `RESULT` (dostępne tylko dla MySQL 5,6) |
 | `event_time` | Godzina rozpoczęcia zapytania w sygnaturze czasowej UTC |
 | `error_code_d` | Kod błędu, jeśli zapytanie nie powiodło się. `0`oznacza brak błędu |
 | `thread_id_d` | Identyfikator wątku, który wykonał zapytanie |
@@ -114,7 +118,7 @@ Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DM
 ### <a name="table-access"></a>Dostęp do tabeli
 
 > [!NOTE]
-> Dzienniki dostępu do tabel są wyprowadzane wyłącznie dla programu MySQL 5,7.
+> Dzienniki dostępu do tabel są wyprowadzane wyłącznie dla programu MySQL 5,7.<br>W przypadku programu `sql_text` Dziennik zostanie obcięty, jeśli przekracza 2048 znaków.
 
 | **Właściwość** | **Opis** |
 |---|---|
@@ -132,7 +136,7 @@ Poniższy schemat dotyczy typów zdarzeń GENERAL, DML_SELECT, DML_NONSELECT, DM
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nazwa serwera |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`lub`DELETE` |
+| `event_subclass_s` | `READ`, `INSERT` , `UPDATE` lub`DELETE` |
 | `connection_id_d` | Unikatowy identyfikator połączenia wygenerowany przez MySQL |
 | `db_s` | Nazwa bazy danych, do której uzyskano dostęp |
 | `table_s` | Nazwa tabeli, do której można uzyskać dostęp |

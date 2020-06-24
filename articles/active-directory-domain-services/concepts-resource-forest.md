@@ -10,20 +10,20 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: e0e5dde246dbcd5e5cb2e4ae923872a59a539d87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f34ba9b9ebdc395338ef65b696fa9748417e20e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476405"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734915"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Koncepcje i funkcje lasu zasobów dla Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (AD DS) oferuje środowisko logowania dla starszych aplikacji lokalnych, biznesowych. Użytkownicy, grupy i skróty haseł użytkowników lokalnych i w chmurze są synchronizowane z domeną zarządzaną platformy Azure AD DS. Te zsynchronizowane skróty haseł udostępniają użytkownikom pojedynczy zestaw poświadczeń, których mogą używać w lokalnych AD DS, Office 365 i Azure Active Directory.
+Azure Active Directory Domain Services (Azure AD DS) oferuje środowisko logowania dla starszych, lokalnych aplikacji biznesowych. Użytkownicy, grupy i skróty haseł użytkowników lokalnych i w chmurze są synchronizowane z domeną zarządzaną platformy Azure AD DS. Te zsynchronizowane skróty haseł udostępniają użytkownikom pojedynczy zestaw poświadczeń, których mogą używać w lokalnych AD DS, Office 365 i Azure Active Directory.
 
 Chociaż bezpieczeństwo i zapewnia dodatkowe korzyści z zabezpieczeń, niektóre organizacje nie mogą synchronizować tych skrótów haseł użytkowników z usługą Azure AD lub Azure AD DS. Użytkownicy w organizacji mogą nie znać hasła, ponieważ korzystają tylko z uwierzytelniania za pomocą kart inteligentnych. Te ograniczenia uniemożliwiają niektórym organizacjom korzystanie z usługi Azure AD DS w celu podnoszenia i przesunięcia lokalnych aplikacji klasycznych na platformę Azure.
 
-Aby rozwiązać te wymagania i ograniczenia, można utworzyć domenę zarządzaną platformy Azure AD DS, która używa lasu zasobów. W tym artykule opisano, jakie lasy są i jak ufają innym zasobom w celu zapewnienia bezpiecznej metody uwierzytelniania. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
+Aby rozwiązać te wymagania i ograniczenia, można utworzyć domenę zarządzaną, która używa lasu zasobów. W tym artykule opisano, jakie lasy są i jak ufają innym zasobom w celu zapewnienia bezpiecznej metody uwierzytelniania. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
 
 > [!IMPORTANT]
 > Lasy zasobów AD DS platformy Azure nie obsługują obecnie usługi Azure HDInsight ani Azure Files. Domyślne lasy użytkownika platformy Azure AD DS obsługują obie te dodatkowe usługi.
@@ -34,7 +34,7 @@ Aby rozwiązać te wymagania i ograniczenia, można utworzyć domenę zarządzan
 
 W usłudze Azure AD DS Las zawiera tylko jedną domenę. Lokalne lasy AD DS często zawierają wiele domen. W dużych organizacjach, szczególnie po fuzjach i przejęciach, może się okazać, że istnieje wiele lasów lokalnych, które każdy z nich będzie zawierać wiele domen.
 
-Domyślnie domena zarządzana AD DS platformy Azure jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Konta użytkowników mogą być uwierzytelniane bezpośrednio w domenie zarządzanej AD DS platformy Azure, na przykład w celu zalogowania się do maszyny wirtualnej przyłączonej do domeny. Las użytkownika działa, gdy można synchronizować skróty haseł, a użytkownicy nie korzystają z takich samych metod logowania, jak uwierzytelnianie karty inteligentnej.
+Domyślnie domena zarządzana jest tworzona jako Las *użytkownika* . Ten typ lasu służy do synchronizowania wszystkich obiektów z usługi Azure AD, w tym wszystkich kont użytkowników utworzonych w środowisku lokalnym AD DS. Konta użytkowników mogą być uwierzytelniane bezpośrednio względem domeny zarządzanej, na przykład w celu zalogowania się do maszyny wirtualnej przyłączonej do domeny. Las użytkownika działa, gdy można synchronizować skróty haseł, a użytkownicy nie korzystają z takich samych metod logowania, jak uwierzytelnianie karty inteligentnej.
 
 W lesie *zasobów* AD DS platformy Azure użytkownicy uwierzytelniają się za pośrednictwem jednokierunkowego *zaufania* lasu z AD DS lokalnych. W tym podejściu skróty do obiektów użytkownika i haseł nie są synchronizowane z usługą Azure AD DS. Obiekty użytkownika i poświadczenia znajdują się tylko w AD DS lokalnej. Takie podejście umożliwia przedsiębiorstwom hostowanie zasobów i platform aplikacji na platformie Azure, które zależą od klasycznego uwierzytelniania, takich jak LDAPs, Kerberos lub NTLM, ale wszelkie problemy z uwierzytelnianiem lub wątpliwości są usuwane. Lasy zasobów usługi Azure AD DS są obecnie w wersji zapoznawczej.
 

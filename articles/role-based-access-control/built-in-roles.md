@@ -7,13 +7,13 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 05/04/2020
-ms.openlocfilehash: 909485ea3c4e143ce93579d1bfea5e13cf94c575
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/18/2020
+ms.openlocfilehash: 6e570c100a30f18a843f50cb8dc93572bb62d0f7
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660050"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080734"
 ---
 # <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
 
@@ -372,7 +372,7 @@ Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. [D
 }
 ```
 
-## <a name="compute"></a>Wystąpienia obliczeniowe
+## <a name="compute"></a>Compute
 
 
 ### <a name="classic-virtual-machine-contributor"></a>Współautor klasycznej maszyny wirtualnej
@@ -1154,7 +1154,7 @@ Umożliwia zarządzanie profilami Traffic Manager, ale nie pozwala na kontrolowa
 }
 ```
 
-## <a name="storage"></a>Magazyn
+## <a name="storage"></a>Storage
 
 
 ### <a name="avere-contributor"></a>Współautor avere
@@ -1168,6 +1168,7 @@ Można utworzyć klaster avere vFXT i zarządzać nim. [Dowiedz się więcej](..
 > | [Microsoft. Authorization](resource-provider-operations.md#microsoftauthorization)/*/Read | Odczytuj role i przypisania ról |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/*/Read |  |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/availabilitySets/* |  |
+> | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/proximityPlacementGroups/* |  |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/virtualMachines/* |  |
 > | [Microsoft. COMPUTE](resource-provider-operations.md#microsoftcompute)/disks/* |  |
 > | [Microsoft. Network](resource-provider-operations.md#microsoftnetwork)/*/Read |  |
@@ -1207,6 +1208,7 @@ Można utworzyć klaster avere vFXT i zarządzać nim. [Dowiedz się więcej](..
         "Microsoft.Authorization/*/read",
         "Microsoft.Compute/*/read",
         "Microsoft.Compute/availabilitySets/*",
+        "Microsoft.Compute/proximityPlacementGroups/*",
         "Microsoft.Compute/virtualMachines/*",
         "Microsoft.Compute/disks/*",
         "Microsoft.Network/*/read",
@@ -2601,7 +2603,7 @@ Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce.
 }
 ```
 
-## <a name="web"></a>Sieć Web
+## <a name="web"></a>Internet
 
 
 ### <a name="azure-maps-data-reader"></a>Azure Maps czytnika danych
@@ -2767,7 +2769,7 @@ Umożliwia zarządzanie witrynami sieci Web (nie planami internetowymi), ale nie
 > | [Microsoft. Support](resource-provider-operations.md#microsoftsupport)/* | Tworzenie i aktualizowanie biletu pomocy technicznej |
 > | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/Certificates/* | Tworzenie i zarządzanie certyfikatami witryny sieci Web |
 > | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/listSitesAssignedToHostName/Read | Pobieranie nazw lokacji przypisanych do nazwy hosta. |
-> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/serverFarms/Join/Action |  |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/serverFarms/Join/Action | Sprzęga plan App Service |
 > | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/serverFarms/Read | Pobierz właściwości planu App Service |
 > | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/sites/* | Tworzenie witryn sieci Web i zarządzanie nimi (Tworzenie witryn wymaga również uprawnień do zapisu w skojarzonym planie App Service) |
 > | **NotActions** |  |
@@ -5623,7 +5625,7 @@ Umożliwia zarządzanie aplikacjami logiki, ale nie umożliwia zmiany dostępu d
 > | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/connectionGateways/* | Utwórz bramę połączenia i zarządzaj nią. |
 > | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/Connections/* | Utwórz połączenie i Zarządzaj nim. |
 > | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/customApis/* | Tworzy niestandardowy interfejs API i zarządza nim. |
-> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/serverFarms/Join/Action |  |
+> | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/serverFarms/Join/Action | Sprzęga plan App Service |
 > | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/serverFarms/Read | Pobierz właściwości planu App Service |
 > | [Microsoft. Web](resource-provider-operations.md#microsoftweb)/sites/Functions/listSecrets/Action | Utwórz listę wpisów tajnych funkcji. |
 > | **NotActions** |  |
@@ -6342,7 +6344,7 @@ Wyświetl uprawnienia dla Security Center. Może wyświetlać zalecenia, alerty,
 
 ### <a name="devtest-labs-user"></a>Użytkownik DevTest Labs
 
-Umożliwia łączenie, uruchamianie, ponowne uruchamianie i zamykanie maszyn wirtualnych w Azure DevTest Labs. [Dowiedz się więcej](../lab-services/devtest-lab-add-devtest-user.md)
+Umożliwia łączenie, uruchamianie, ponowne uruchamianie i zamykanie maszyn wirtualnych w Azure DevTest Labs. [Dowiedz się więcej](../devtest-labs/devtest-lab-add-devtest-user.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -6446,7 +6448,7 @@ Umożliwia łączenie, uruchamianie, ponowne uruchamianie i zamykanie maszyn wir
 
 ### <a name="lab-creator"></a>Twórca laboratorium
 
-Umożliwia tworzenie i usuwanie zarządzanych laboratoriów z kont laboratorium platformy Azure oraz zarządzanie nimi. [Dowiedz się więcej](../lab-services/classroom-labs/add-lab-creator.md)
+Umożliwia tworzenie i usuwanie zarządzanych laboratoriów z kont laboratorium platformy Azure oraz zarządzanie nimi. [Dowiedz się więcej](../lab-services/add-lab-creator.md)
 
 > [!div class="mx-tableFixed"]
 > |  |  |

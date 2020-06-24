@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/15/2020
+ms.date: 06/10/2020
 ms.author: memildin
-ms.openlocfilehash: 00a5c8e824575b8928aed7e0b0018219e9a51039
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ecabebc884276c0a301ee7e9c25928c78c1d8c8
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147112"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692777"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Zasady zabezpieczeń platformy Azure monitorowane przez Security Center
 

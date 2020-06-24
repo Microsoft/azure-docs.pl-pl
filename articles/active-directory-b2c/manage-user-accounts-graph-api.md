@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 42596ba5470c6062efba4fd1050c1c9745b76e80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 249acaad66bdfd8b5d6b8420d22a9090e44beb41
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637329"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204102"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Zarządzanie kontami użytkowników Azure AD B2C przy użyciu Microsoft Graph
 
@@ -46,7 +46,7 @@ Następujące operacje zarządzania użytkownikami są dostępne w [interfejsie 
 
 ### <a name="display-name-property"></a>Właściwość wyświetlanej nazwy
 
-`displayName` Jest to nazwa, która ma być wyświetlana w Azure Portal zarządzanie użytkownikami dla użytkownika, a w tokenie dostępu Azure AD B2C powraca do aplikacji. Ta właściwość jest wymagana.
+`displayName`Jest to nazwa, która ma być wyświetlana w Azure Portal zarządzanie użytkownikami dla użytkownika, a w tokenie dostępu Azure AD B2C powraca do aplikacji. Ta właściwość jest wymagana.
 
 ### <a name="identities-property"></a>Właściwość tożsamości
 
@@ -57,17 +57,17 @@ Konto klienta, które może być odbiorcą, partnerem lub obywatelem, może być
 
 Użytkownik z kontem klienta może zalogować się przy użyciu wielu tożsamości. Na przykład nazwa użytkownika, adres e-mail, identyfikator pracownika, identyfikator instytucji rządowych i inne. Pojedyncze konto może mieć wiele tożsamości, zarówno lokalnych, jak i społecznościowych, przy użyciu tego samego hasła.
 
-W interfejsie API Microsoft Graph zarówno tożsamość lokalna, jak i federacyjna są przechowywane w `identities` atrybucie użytkownika, który jest typu [objectIdentity][graph-objectIdentity]. `identities` Kolekcja reprezentuje zestaw tożsamości używany do logowania się do konta użytkownika. Ta kolekcja umożliwia użytkownikowi zalogowanie się do konta użytkownika przy użyciu dowolnej skojarzonej tożsamości.
+W interfejsie API Microsoft Graph zarówno tożsamość lokalna, jak i federacyjna są przechowywane w `identities` atrybucie użytkownika, który jest typu [objectIdentity][graph-objectIdentity]. `identities`Kolekcja reprezentuje zestaw tożsamości używany do logowania się do konta użytkownika. Ta kolekcja umożliwia użytkownikowi zalogowanie się do konta użytkownika przy użyciu dowolnej skojarzonej tożsamości.
 
 | Właściwość   | Typ |Opis|
 |:---------------|:--------|:----------|
-|signInType|ciąg| Określa typy logowania użytkownika w katalogu. Dla konta lokalnego: `emailAddress`, `emailAddress1`, `emailAddress2` `emailAddress3` `userName`, lub dowolnego innego typu. Konto społecznościowe musi być ustawione `federated`na wartość.|
-|issuer|ciąg|Określa wystawcę tożsamości. W przypadku kont lokalnych ( **signInType** gdzie nie `federated`signInType) ta właściwość jest domyślną nazwą domeny dzierżawy lokalnej usługi B2C, na przykład `contoso.onmicrosoft.com`. W przypadku tożsamości społecznościowej **signInType** (gdzie `federated`signInType is) wartością jest nazwa wystawcy, na przykład`facebook.com`|
-|issuerAssignedId|ciąg|Określa unikatowy identyfikator przypisany do użytkownika przez wystawcę. Kombinacja **wystawców** i **issuerAssignedId** musi być unikatowa w ramach dzierżawy. W przypadku konta lokalnego, gdy **signInType** jest ustawiona `emailAddress` na `userName`lub, reprezentuje nazwę logowania dla użytkownika.<br>Gdy **signInType** jest ustawiona na: <ul><li>`emailAddress`(lub rozpoczyna się `emailAddress` od `emailAddress1`podobnej do) **issuerAssignedId** musi być prawidłowym adresem e-mail</li><li>`userName`(lub jakakolwiek inna wartość) **issuerAssignedId** musi być prawidłową [lokalną częścią adresu e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** reprezentuje unikatowy identyfikator konta federacyjnego</li></ul>|
+|signInType|ciąg| Określa typy logowania użytkownika w katalogu. Dla konta lokalnego: `emailAddress` , `emailAddress1` , `emailAddress2` , `emailAddress3` `userName` lub dowolnego innego typu. Konto społecznościowe musi być ustawione na wartość `federated` .|
+|issuer|ciąg|Określa wystawcę tożsamości. W przypadku kont lokalnych ( **signInType** gdzie nie signInType `federated` ) ta właściwość jest domyślną nazwą domeny dzierżawy lokalnej usługi B2C, na przykład `contoso.onmicrosoft.com` . W przypadku tożsamości społecznościowej (gdzie **signInType** is `federated` ) wartością jest nazwa wystawcy, na przykład`facebook.com`|
+|issuerAssignedId|ciąg|Określa unikatowy identyfikator przypisany do użytkownika przez wystawcę. Kombinacja **wystawców** i **issuerAssignedId** musi być unikatowa w ramach dzierżawy. W przypadku konta lokalnego, gdy **signInType** jest ustawiona na `emailAddress` lub `userName` , reprezentuje nazwę logowania dla użytkownika.<br>Gdy **signInType** jest ustawiona na: <ul><li>`emailAddress`(lub zaczyna się od `emailAddress` podobnej do `emailAddress1` ) **issuerAssignedId** musi być prawidłowym adresem e-mail</li><li>`userName`(lub jakakolwiek inna wartość) **issuerAssignedId** musi być prawidłową [lokalną częścią adresu e-mail](https://tools.ietf.org/html/rfc3696#section-3)</li><li>`federated`, **issuerAssignedId** reprezentuje unikatowy identyfikator konta federacyjnego</li></ul>|
 
 Następująca właściwość **tożsamości** z tożsamością konta lokalnego z nazwą logowania, adresem e-mail jako logowaniem i tożsamością społecznościową. 
 
- ```JSON
+ ```json
  "identities": [
      {
        "signInType": "userName",
@@ -91,11 +91,11 @@ W przypadku tożsamości federacyjnych, w zależności od dostawcy tożsamości,
 
 ### <a name="password-profile-property"></a>Właściwość profilu hasła
 
-W przypadku tożsamości lokalnej Właściwość **passwordProfile** jest wymagana i zawiera hasło użytkownika. `forceChangePasswordNextSignIn` Właściwość musi mieć ustawioną `false`wartość.
+W przypadku tożsamości lokalnej Właściwość **passwordProfile** jest wymagana i zawiera hasło użytkownika. `forceChangePasswordNextSignIn`Właściwość musi mieć ustawioną wartość `false` .
 
 W przypadku tożsamości federacyjnej (społecznej) Właściwość **passwordProfile** nie jest wymagana.
 
-```JSON
+```json
 "passwordProfile" : {
     "password": "password-value",
     "forceChangePasswordNextSignIn": false
@@ -106,9 +106,9 @@ W przypadku tożsamości federacyjnej (społecznej) Właściwość **passwordPro
 
 Zasady haseł Azure AD B2C (dla kont lokalnych) są oparte na zasadach Azure Active Directory [silnych haseł](../active-directory/authentication/concept-sspr-policy.md) . Zasady rejestrowania i logowania Azure AD B2C i resetowania hasła wymagają silnego siły hasła i nie wygasają hasła.
 
-W scenariuszach migracji użytkowników, jeśli konta, które mają zostać poddane migracji, mają słabsze siły hasła niż [silne siły hasła](../active-directory/authentication/concept-sspr-policy.md) wymuszone przez Azure AD B2C można wyłączyć wymaganie silnego hasła. Aby zmienić domyślne zasady haseł, należy ustawić `passwordPolicies` właściwość na. `DisableStrongPassword` Na przykład można zmodyfikować polecenie Utwórz żądanie użytkownika w następujący sposób:
+W scenariuszach migracji użytkowników, jeśli konta, które mają zostać poddane migracji, mają słabsze siły hasła niż [silne siły hasła](../active-directory/authentication/concept-sspr-policy.md) wymuszone przez Azure AD B2C można wyłączyć wymaganie silnego hasła. Aby zmienić domyślne zasady haseł, należy ustawić `passwordPolicies` Właściwość na `DisableStrongPassword` . Na przykład można zmodyfikować polecenie Utwórz żądanie użytkownika w następujący sposób:
 
-```JSON
+```json
 "passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"
 ```
 
@@ -116,9 +116,9 @@ W scenariuszach migracji użytkowników, jeśli konta, które mają zostać podd
 
 Każda aplikacja dołączona do klienta ma unikatowe wymagania dotyczące zbieranych informacji. Dzierżawa Azure AD B2C zawiera wbudowany zestaw informacji przechowywanych we właściwościach, takich jak imię, nazwisko, miejscowość i kod pocztowy. Za pomocą Azure AD B2C można rozłożyć zestaw właściwości przechowywanych na poszczególnych kontach klientów. Aby uzyskać więcej informacji na temat definiowania atrybutów niestandardowych, zobacz [atrybuty niestandardowe (przepływy użytkownika)](user-flow-custom-attributes.md) i [atrybuty niestandardowe (zasady niestandardowe)](custom-policy-custom-attributes.md).
 
-Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_ApplicationObjectID_attributename`. Przykład:
+Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_ApplicationObjectID_attributename` . Przykład:
 
-```JSON
+```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
@@ -135,7 +135,7 @@ Po uzyskaniu przykładowego kodu skonfiguruj go dla środowiska, a następnie Sk
 
 1. Otwórz projekt w programie [Visual Studio](https://visualstudio.microsoft.com) lub [Visual Studio Code](https://code.visualstudio.com).
 1. Otwórz plik `src/appsettings.json`.
-1. `appSettings` W sekcji Zamień `your-b2c-tenant` na nazwę dzierżawy oraz `Application (client) ID` `Client secret` wartości dla rejestracji aplikacji zarządzania (zobacz sekcję [Rejestrowanie aplikacji zarządzania](#register-a-management-application) w tym artykule).
+1. W `appSettings` sekcji Zamień na `your-b2c-tenant` nazwę dzierżawy oraz `Application (client) ID` `Client secret` wartości dla rejestracji aplikacji zarządzania (zobacz sekcję [Rejestrowanie aplikacji zarządzania](#register-a-management-application) w tym artykule).
 1. Otwórz okno konsoli w ramach lokalnego klonu repozytorium, przejdź do `src` katalogu, a następnie Skompiluj projekt:
     ```console
     cd src
@@ -155,9 +155,9 @@ Przykładowy kod używa [zestawu SDK Microsoft Graph](https://docs.microsoft.com
 
 Każde żądanie do interfejsu API Microsoft Graph wymaga tokenu dostępu do uwierzytelniania. Rozwiązanie korzysta z pakietu NuGet [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) , który udostępnia otokę opartą na scenariuszu uwierzytelniania biblioteki uwierzytelniania firmy Microsoft (MSAL) do użycia z zestawem SDK Microsoft Graph.
 
-`RunAsync` Metoda w pliku _program.cs_ :
+`RunAsync`Metoda w pliku _program.cs_ :
 
-1. Odczytuje ustawienia aplikacji z pliku _appSettings. JSON_
+1. Odczytuje ustawienia aplikacji z _appsettings.jsw_ pliku
 1. Inicjuje dostawcę uwierzytelniania przy użyciu funkcji przepływu [przydzielenia poświadczeń klienta OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) . Za pomocą przepływu Przydziel poświadczenia klienta aplikacja może uzyskać token dostępu do wywołania interfejsu API Microsoft Graph.
 1. Konfiguruje klienta usługi Microsoft Graph przy użyciu dostawcy uwierzytelniania:
 
@@ -202,7 +202,7 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 }
 ```
 
-[Wykonywanie wywołań interfejsu API za pomocą zestawów sdk Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) zawiera informacje na temat odczytywania i zapisywania informacji z Microsoft Graph `$select` , używania do kontrolowania zwracanych właściwości, dostarczania niestandardowych parametrów zapytania i używania `$filter` parametrów `$orderBy` i.
+[Wykonywanie wywołań interfejsu API za pomocą zestawów sdk Microsoft Graph](https://docs.microsoft.com/graph/sdks/create-requests) zawiera informacje na temat odczytywania i zapisywania informacji z Microsoft Graph, używania `$select` do kontrolowania zwracanych właściwości, dostarczania niestandardowych parametrów zapytania i używania `$filter` `$orderBy` parametrów i.
 
 ## <a name="next-steps"></a>Następne kroki
 

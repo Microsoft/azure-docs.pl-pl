@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 35497f978a1819f09411487e4bbc7eb1d05cc80d
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: c94e0f7e2f39eb6002bc2fd1076b78f4579fbe01
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900378"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203983"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Zdefiniuj profil techniczny hasła jednorazowego w zasadach niestandardowych Azure AD B2C
 
@@ -26,17 +26,17 @@ Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę zarządzania genero
 
 Profil techniczny hasła jednorazowego może również zwrócić komunikat o błędzie podczas weryfikacji kodu. Zaprojektuj integrację z hasłem jednorazowym przy użyciu **profilu technicznego weryfikacji**. Profil techniczny weryfikacji jest wywoływany przy użyciu profilu technicznego hasła jednorazowego w celu zweryfikowania kodu. Profil techniczny weryfikacji weryfikuje dane dostarczone przez użytkownika przed kontynuowaniem podróży użytkownika. W profilu technicznym weryfikacji na stronie z potwierdzeniem zostanie wyświetlony komunikat o błędzie.
 
-## <a name="protocol"></a>Protocol (Protokół)
+## <a name="protocol"></a>Protokół
 
-Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary`. Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C:
+Atrybut **name** elementu **Protocol** musi być ustawiony na `Proprietary` . Atrybut **programu obsługi** musi zawierać w pełni kwalifikowaną nazwę zestawu programu obsługi protokołu, który jest używany przez Azure AD B2C:
 
-```XML
+```xml
 Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 ```
 
 Poniższy przykład przedstawia profil techniczny hasła jednorazowego:
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Validate user input verification code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -51,7 +51,7 @@ Pierwszy tryb tego profilu technicznego to generowanie kodu. Poniżej przedstawi
 
 Element **InputClaims** zawiera listę oświadczeń wymaganych do wysłania do dostawcy protokołu hasła jednorazowego. Możesz również zmapować nazwę swojego zgłoszenia na nazwę zdefiniowaną poniżej.
 
-| ClaimReferenceId | Wymagany | Opis |
+| ClaimReferenceId | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | identyfikator | Tak | Identyfikator identyfikujący użytkownika, który musi weryfikować kod później. Jest on często używany jako identyfikator miejsca docelowego, do którego został dostarczony kod, na przykład adres e-mail lub numer telefonu. |
 
@@ -61,7 +61,7 @@ Element **InputClaimsTransformations** może zawierać kolekcję elementów **In
 
 Element **OutputClaims** zawiera listę oświadczeń wygenerowanych przez dostawcę protokołu hasła jednorazowego. Możesz również zmapować nazwę swojego zgłoszenia na nazwę zdefiniowaną poniżej.
 
-| ClaimReferenceId | Wymagany | Opis |
+| ClaimReferenceId | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | otpGenerated | Tak | Wygenerowany kod, którego sesja jest zarządzana przez Azure AD B2C. |
 
@@ -71,20 +71,20 @@ Element **OutputClaimsTransformations** może zawierać kolekcję elementów **O
 
 Następujące ustawienia mogą służyć do konfigurowania trybu generowania kodu:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Nie | Czas (w sekundach) do wygaśnięcia kodu. Minimum: `60`; Wartość maksymalna `1200`:; Wartość domyślna `600`:. |
+| CodeExpirationInSeconds | Nie | Czas (w sekundach) do wygaśnięcia kodu. Minimum: `60` ; Wartość maksymalna: `1200` ; Wartość domyślna: `600` . |
 | CodeLength | Nie | Długość kodu. Wartość domyślna to `6`. |
 | CharacterSet | Nie | Zestaw znaków dla kodu sformatowany do użycia w wyrażeniu regularnym. Na przykład `a-z0-9A-Z`. Wartość domyślna to `0-9`. Zestaw znaków musi zawierać co najmniej 10 różnych znaków w określonym zestawie. |
 | NumRetryAttempts | Nie | Liczba prób weryfikacji przed kodem jest uznawana za nieprawidłową. Wartość domyślna to `5`. |
-| Operacja | Tak | Operacja do wykonania. Możliwa wartość: `GenerateCode`. |
+| Operacja | Tak | Operacja do wykonania. Możliwa wartość: `GenerateCode` . |
 | ReuseSameCode | Nie | Czy należy określić zduplikowany kod zamiast generować nowy kod, gdy dany kod nie wygasł i jest nadal ważny. Wartość domyślna to `false`. |
 
 ### <a name="example"></a>Przykład
 
 Poniższy przykład `TechnicalProfile` służy do generowania kodu:
 
-```XML
+```xml
 <TechnicalProfile Id="GenerateCode">
   <DisplayName>Generate Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -113,7 +113,7 @@ Drugi tryb tego profilu technicznego polega na sprawdzeniu kodu. Poniżej przeds
 
 Element **InputClaims** zawiera listę oświadczeń wymaganych do wysłania do dostawcy protokołu hasła jednorazowego. Możesz również zmapować nazwę swojego zgłoszenia na nazwę zdefiniowaną poniżej.
 
-| ClaimReferenceId | Wymagany | Opis |
+| ClaimReferenceId | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | identyfikator | Tak | Identyfikator identyfikujący użytkownika, który wcześniej wygenerował kod. Jest on często używany jako identyfikator miejsca docelowego, do którego został dostarczony kod, na przykład adres e-mail lub numer telefonu. |
 | otpToVerify | Tak | Kod weryfikacyjny dostarczony przez użytkownika. |
@@ -130,16 +130,16 @@ Element **OutputClaimsTransformations** może zawierać kolekcję elementów **O
 
 Do trybu weryfikacji kodu można użyć następujących ustawień:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
-| Operacja | Tak | Operacja do wykonania. Możliwa wartość: `VerifyCode`. |
+| Operacja | Tak | Operacja do wykonania. Możliwa wartość: `VerifyCode` . |
 
 
 ### <a name="ui-elements"></a>Elementy interfejsu użytkownika
 
 Poniższe metadane mogą służyć do konfigurowania komunikatów o błędach wyświetlanych podczas sprawdzania kodu. Metadane należy skonfigurować w profilu technicznym z [własnym potwierdzeniem](self-asserted-technical-profile.md) . Komunikaty o błędach można [lokalizować](localization-string-ids.md#one-time-password-error-messages).
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | Nie | Komunikat, który ma być wyświetlany użytkownikowi, jeśli sesja weryfikacji kodu wygasła. To albo kod wygasł albo kod nigdy nie został wygenerowany dla danego identyfikatora. |
 | UserMessageIfMaxRetryAttempted | Nie | Komunikat, który ma być wyświetlany użytkownikowi w przypadku przekroczenia maksymalnej dozwolonej liczby prób weryfikacji. |
@@ -151,7 +151,7 @@ Poniższe metadane mogą służyć do konfigurowania komunikatów o błędach wy
 
 Następujący przykład `TechnicalProfile` służy do weryfikowania kodu:
 
-```XML
+```xml
 <TechnicalProfile Id="VerifyCode">
   <DisplayName>Verify Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

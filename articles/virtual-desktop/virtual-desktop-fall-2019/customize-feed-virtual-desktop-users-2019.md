@@ -4,16 +4,16 @@ description: Jak dostosować źródło danych dla użytkowników pulpitu wirtual
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a93aa35353940cfdbded1634448d4f6d2865c365
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: f6b956981269bca83140e4d1d08067b2d0db0d1d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614839"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204782"
 ---
 # <a name="customize-feed-for-windows-virtual-desktop-users"></a>Dostosowywanie kanału informacyjnego dla użytkowników usługi Windows Virtual Desktop
 
@@ -67,6 +67,6 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 ## <a name="next-steps"></a>Następne kroki
 
 Teraz, po dostosowaniu źródła danych dla użytkowników, możesz zalogować się do klienta pulpitu wirtualnego systemu Windows w celu przetestowania go. Aby to zrobić, przejdź do programu Windows Virtual Desktop how-Toss:
-    
+
  * [Łączenie z systemu Windows 10 lub Windows 7](../connect-windows-7-and-10.md)
- * [Łączenie z przeglądarki internetowej](connect-web-2019.md) 
+ * [Łączenie z przeglądarki internetowej](connect-web-2019.md)

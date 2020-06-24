@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 504f8288ad6bf7565a0cae91c11a14ea65b6e160
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 16fdc38d6235ddd0f72c7a35a3d71973ce01a4be
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84556468"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203218"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Informacje o profilach technicznych w Azure Active Directory B2C zasadach niestandardowych
 
@@ -70,7 +70,7 @@ Profil techniczny może zawierać inny profil techniczny, aby zmienić ustawieni
 
 Na przykład profil techniczny **AAD-UserReadUsingAlternativeSecurityId-NOERROR** obejmuje usługi **AAD-UserReadUsingAlternativeSecurityId**. Ten profil techniczny ustawia `RaiseErrorIfClaimsPrincipalDoesNotExist` element metadanych na `true` i zgłasza błąd, jeśli konto społecznościowe nie istnieje w katalogu. **AAD-UserReadUsingAlternativeSecurityId-NOERROR** zastępuje to zachowanie i wyłącza ten komunikat o błędzie.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
   <Metadata>
     <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">false</Item>
@@ -81,7 +81,7 @@ Na przykład profil techniczny **AAD-UserReadUsingAlternativeSecurityId-NOERROR*
 
 W przypadku usługi **AAD-UserReadUsingAlternativeSecurityId** uwzględniono `AAD-Common` profil techniczny.
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
   <Metadata>
     <Item Key="Operation">Read</Item>
@@ -105,7 +105,7 @@ W przypadku usługi **AAD-UserReadUsingAlternativeSecurityId** uwzględniono `AA
 
 W przypadku usługi **AAD-UserReadUsingAlternativeSecurityId-NOERROR** i **AAD-UserReadUsingAlternativeSecurityId** nie określono wymaganego elementu **Protocol** , ponieważ jest on określony w profilu technicznym usługi **AAD-Common** .
 
-```XML
+```xml
 <TechnicalProfile Id="AAD-Common">
   <DisplayName>Azure Active Directory</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

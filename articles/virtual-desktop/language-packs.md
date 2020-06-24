@@ -4,16 +4,16 @@ description: Jak zainstalować pakiety językowe dla maszyn wirtualnych z system
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c40df9d821e069e2cd5ff0c42d5841f6b9041c96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d05c1222ff43537ab8dad34588b80fe537fd0a1
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80634037"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85200413"
 ---
 # <a name="install-language-packs"></a>Instalowanie pakietów językowych
 
@@ -32,7 +32,7 @@ Aby zainstalować pakiety językowe:
 
 1. Zaloguj się jako administrator.
 2. Upewnij się, że zainstalowano wszystkie najnowsze aktualizacje systemu Windows i sklepu Windows.
-3. Przejdź do pozycji **Ustawienia** > **czas &** > **region**języka.
+3. Przejdź do pozycji **Ustawienia**  >  **czas &**  >  **region**języka.
 4. W obszarze **kraj lub region**wybierz preferowany kraj lub region z menu rozwijanego.
     W tym przykładzie wybieramy pozycję **Francja**, jak pokazano na poniższym zrzucie ekranu:
 
@@ -57,7 +57,7 @@ Aby zainstalować pakiety językowe:
 
 9. Jeśli zostanie wyświetlone okno z prośbą o wylogowanie się z sesji użytkownika. Wyloguj się, a następnie zaloguj się ponownie. Język wyświetlania powinien teraz być wybranym językiem.
 
-10.  Przejdź do pozycji **panel** > sterowania**i** > **region**region.
+10.  Przejdź do pozycji **Panel sterowania**  >  **i**  >  **region**region.
 
 11.  Po otwarciu okna **regionu** wybierz kartę **Administracja** , a następnie wybierz pozycję **Kopiuj ustawienia**.
 
@@ -67,7 +67,7 @@ Aby zainstalować pakiety językowe:
 
 14.  Zostanie otwarte okno z informacją o ponownym uruchomieniu sesji. Wybierz pozycję **Uruchom ponownie teraz**.
 
-15.  Po ponownym zalogowaniu Wróć do pozycji **panel** > sterowania**i** > **region**regionu.
+15.  Po ponownym zalogowaniu Wróć do pozycji **Panel sterowania**  >  **i**  >  **region**regionu.
 
 16.  Wybierz kartę **Administracja** .
 
@@ -89,13 +89,13 @@ Aby przeprowadzić Sysprep na komputerze:
 
 1. Uruchom program Windows PowerShell jako administrator.
 2. Uruchom następujące polecenie cmdlet, aby przejść do poprawnego katalogu:
-   
+
     ```powershell
     cd Windows\System32\Sysprep
     ```
 
 3. Następnie uruchom następujące polecenie cmdlet:
-    
+
     ```powershell
     .\sysprep.exe
     ```
@@ -109,7 +109,7 @@ Aby przeprowadzić Sysprep na komputerze:
 
 Jeśli podczas procesu Sysprep zobaczysz komunikat o błędzie, Oto co należy zrobić:
 
-1. Otwórz **dysk C** i przejdź do pozycji **Windows** > **system32 Sysprep** > **Panther**, a następnie otwórz plik **Setuperr** .
+1. Otwórz **dysk C** i przejdź do pozycji **Windows**  >  **system32 Sysprep**  >  **Panther**, a następnie otwórz plik **Setuperr** .
 
    Tekst w pliku błędu informuje o konieczności odinstalowania określonego pakietu językowego, jak pokazano na poniższej ilustracji. Skopiuj nazwę pakietu językowego dla następnego kroku.
 

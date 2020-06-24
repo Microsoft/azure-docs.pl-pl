@@ -8,20 +8,24 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d8e453336005f3389f67e9571fac438bfc340c1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90a9672e3a58a068d1a4488a514a6fd51c272a56
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549015"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081115"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Wzorce projektowe dla wielodostępnych aplikacji SaaS i platformy Azure Wyszukiwanie poznawcze
+
 Aplikacja wielodostępna jest taka, która zapewnia te same usługi i możliwości dla dowolnej liczby dzierżawców, którzy nie mogą zobaczyć ani udostępnić danych innych dzierżawców. W tym dokumencie omówiono strategie izolacji dzierżawców dla aplikacji wielodostępnych utworzonych przy użyciu usługi Azure Wyszukiwanie poznawcze.
 
 ## <a name="azure-cognitive-search-concepts"></a>Pojęcia dotyczące usługi Azure Wyszukiwanie poznawcze
-Jako rozwiązanie typu "wyszukiwanie jako usługa" platforma Azure Wyszukiwanie poznawcze pozwala deweloperom dodawać zaawansowane środowiska wyszukiwania do aplikacji bez konieczności zarządzania infrastrukturą ani do pobierania informacji. Dane są przekazywane do usługi, a następnie przechowywane w chmurze. Przy użyciu prostych żądań do interfejsu API usługi Azure Wyszukiwanie poznawcze można modyfikować i przeszukiwać dane. Przegląd usługi można znaleźć w [tym artykule](https://aka.ms/whatisazsearch). Przed przedyskutowaniem wzorców projektowych ważne jest zrozumienie niektórych pojęć dotyczących usługi Azure Wyszukiwanie poznawcze.
+Jako rozwiązanie typu "wyszukiwanie jako usługa" [platforma Azure wyszukiwanie poznawcze](search-what-is-azure-search.md) pozwala deweloperom dodawać zaawansowane środowiska wyszukiwania do aplikacji bez konieczności zarządzania infrastrukturą ani do pobierania informacji. Dane są przekazywane do usługi, a następnie przechowywane w chmurze. Przy użyciu prostych żądań do interfejsu API usługi Azure Wyszukiwanie poznawcze można modyfikować i przeszukiwać dane. 
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Usługi wyszukiwania, indeksy, pola i dokumenty
+
+Przed przeprowadzeniem omawiania wzorców projektowych należy zrozumieć kilka podstawowych pojęć.
+
 W przypadku korzystania z usługi Azure Wyszukiwanie poznawcze jeden subskrybuje *usługę wyszukiwania*. Dane przekazywane do usługi Azure Wyszukiwanie poznawcze są przechowywane w *indeksie* w ramach usługi wyszukiwania. W ramach jednej usługi może istnieć wiele indeksów. Aby korzystać ze znanych koncepcji baz danych, usługa wyszukiwania może być likened do bazy danych, podczas gdy indeksy w ramach usługi mogą być likened do tabel w bazie danych.
 
 Każdy indeks w ramach usługi wyszukiwania ma własny schemat, który jest definiowany przez wiele dostosowywalnych *pól*. Dane są dodawane do indeksu Wyszukiwanie poznawcze platformy Azure w postaci poszczególnych *dokumentów*. Każdy dokument musi być przekazany do określonego indeksu i musi pasować do tego schematu indeksu. Podczas wyszukiwania danych przy użyciu usługi Azure Wyszukiwanie poznawcze zapytania wyszukiwania pełnotekstowego są wydawane względem określonego indeksu.  Aby porównać te koncepcje z bazą danych, pola mogą być likened do kolumn w tabeli, a dokumenty mogą być likened do wierszy.
@@ -37,7 +41,7 @@ Dodawanie i usuwanie partycji oraz replik umożliwia zwiększenie pojemności us
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Limity usługi i indeksu na platformie Azure Wyszukiwanie poznawcze
 Na platformie Azure Wyszukiwanie poznawcze istnieje kilka różnych [warstw cenowych](https://azure.microsoft.com/pricing/details/search/) , a każda z nich ma różne [limity i przydziały](search-limits-quotas-capacity.md). Niektóre z tych limitów znajdują się na poziomie usługi, a niektóre z nich znajdują się na poziomie indeksu, a niektóre z nich znajdują się na poziomie partycji.
 
-|  | Podstawowy | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | Podstawowa | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | Maksymalna liczba replik na usługę |3 |12 |12 |12 |12 |
 | Maksymalna liczba partycji na usługę |1 |12 |12 |12 |3 |
@@ -127,5 +131,5 @@ Ta metoda może służyć do osiągnięcia funkcjonalności oddzielnych kont uż
 ## <a name="next-steps"></a>Następne kroki
 Usługa Azure Wyszukiwanie poznawcze to atrakcyjny wybór dla wielu aplikacji. Oceniając różne wzorce projektowe dla aplikacji wielodostępnych, należy wziąć pod uwagę [różne warstwy cenowe](https://azure.microsoft.com/pricing/details/search/) i odpowiednie [limity usług](search-limits-quotas-capacity.md) , aby najlepiej dostosować platformę Azure wyszukiwanie poznawcze tak, aby pasowała do obciążeń aplikacji i architektury wszystkich rozmiarów.
 
-Wszystkie pytania dotyczące usługi Azure Wyszukiwanie poznawcze i wielodostępne scenariusze można kierować do azuresearch_contact@microsoft.comprogramu.
+Wszystkie pytania dotyczące usługi Azure Wyszukiwanie poznawcze i wielodostępne scenariusze można kierować do programu azuresearch_contact@microsoft.com .
 

@@ -5,15 +5,16 @@ services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 55ef72b23f804ce7fcdb339ba4c66bcefe39db46
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3f020abd4d207a49068ccffb9bb7f57b88bc87df
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020816"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85206397"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics 
 
@@ -112,7 +113,7 @@ Program SQL on-Demand oferuje mechanizmy zabezpieczania dostępu do danych.
 
 Usługa SQL na żądanie umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft z [integracją Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Azure Active Directory (Azure AD) obsługuje [uwierzytelnianie wieloskładnikowe](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) w celu zwiększenia bezpieczeństwa danych i aplikacji podczas obsługi logowania jednokrotnego.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Uwierzytelnianie
 
 Uwierzytelnianie na żądanie SQL dotyczy sposobu, w jaki użytkownicy udowadniają swoją tożsamość podczas nawiązywania połączenia z punktem końcowym. Obsługiwane są dwa typy uwierzytelniania:
 

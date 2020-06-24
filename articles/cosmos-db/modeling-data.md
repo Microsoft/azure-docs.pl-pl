@@ -7,12 +7,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 523049ea3286445117f41147f3dd12a2c911d1ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4125d7ea17c6ebab28ef8e5fde5af5475d07002d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72755013"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113385"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelowanie danych w Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Po rozpoczęciu modelowania danych w Azure Cosmos DB spróbuj traktować swoje j
 
 Na potrzeby porównania najpierw zobaczymy, jak możemy modelować dane w relacyjnej bazie danych. Poniższy przykład pokazuje, jak osoba może być przechowywana w relacyjnej bazie danych.
 
-![Model relacyjnej bazy danych](./media/sql-api-modeling-data/relational-data-model.png)
+:::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Model relacyjnej bazy danych" border="false":::
 
 W przypadku pracy z relacyjnymi bazami danych strategia ma na celu normalizację wszystkich danych. Normalizacja danych zazwyczaj obejmuje przejęcie jednostki, takiej jak osoba, i przedzielenie jej na składniki dyskretne. W powyższym przykładzie osoba może mieć wiele rekordów szczegółów kontaktu, a także wiele rekordów adresów. Szczegóły kontaktu można podzielić na dalsze wyodrębnianie wspólnych pól, takich jak typ. To samo dotyczy adresu, każdy rekord może być typu *dom* lub *Business*.
 
@@ -282,7 +282,8 @@ W powyższym przykładzie podaliśmy niepowiązaną kolekcję do dokumentu wydaw
 
 W relacyjnej bazie danych *wiele: wiele* relacji jest często modelowanych przy użyciu tabel sprzężenia, które po prostu łączą rekordy z innych tabel.
 
-![Sprzęganie tabel](./media/sql-api-modeling-data/join-table.png)
+
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Sprzęganie tabel" border="false":::
 
 Może być skłonny do replikowania tych samych rzeczy przy użyciu dokumentów i tworzenia modelu danych, który wygląda podobnie do poniższego.
 
@@ -373,7 +374,7 @@ Rozważmy poniższy kod JSON.
 
 W tym miejscu (głównie) nastąpiło osadzony model, w którym dane z innych jednostek są osadzone w dokumencie najwyższego poziomu, ale istnieją odwołania do innych danych.
 
-Jeśli zobaczysz dokument księgi, zobaczymy kilka interesujących pól, gdy zobaczymy tablicę autorów. Istnieje `id` pole, które jest używane do odwoływania się z powrotem do dokumentu autora, standardowej zwyczajowej w znormalizowanym modelu, ale również mamy `name` i. `thumbnailUrl` Firma Microsoft mogła zostać `id` zablokowana i pozostawiona aplikacji w celu uzyskania wszelkich dodatkowych informacji wymaganych od odpowiedniego dokumentu autora przy użyciu linku, ale ponieważ nasza aplikacja wyświetla nazwę autora i miniaturę obrazu z każdą z wyświetlonych książek, można zapisać w postaci okrężnej na serwerze dla każdej książki na liście, denormalizacjjąc **niektóre** dane od autora.
+Jeśli zobaczysz dokument księgi, zobaczymy kilka interesujących pól, gdy zobaczymy tablicę autorów. Istnieje `id` pole, które jest używane do odwoływania się z powrotem do dokumentu autora, standardowej zwyczajowej w znormalizowanym modelu, ale również mamy `name` i `thumbnailUrl` . Firma Microsoft mogła zostać zablokowana `id` i pozostawiona aplikacji w celu uzyskania wszelkich dodatkowych informacji wymaganych od odpowiedniego dokumentu autora przy użyciu linku, ale ponieważ nasza aplikacja wyświetla nazwę autora i miniaturę obrazu z każdą z wyświetlonych książek, można zapisać w postaci okrężnej na serwerze dla każdej książki na liście, denormalizacjjąc **niektóre** dane od autora.
 
 Upewnij się, że jeśli nazwa autora została zmieniona lub chcesz zaktualizować swoje zdjęcie, musimy przeszedł i zaktualizować każdą opublikowaną przez siebie książkę, ale dla naszej aplikacji, w oparciu o założenie, że autorzy nie zmieniają nazw często, jest to akceptowalna decyzja w zakresie projektu.  
 
@@ -383,7 +384,7 @@ Istnieje możliwość, że model z polami wstępnie obliczonymi jest możliwy, p
 
 ## <a name="distinguishing-between-different-document-types"></a>Rozróżnianie między różnymi typami dokumentów
 
-W niektórych scenariuszach warto mieszać różne typy dokumentów w tej samej kolekcji. zwykle jest to przypadek, gdy wiele powiązanych dokumentów ma być w tej samej [partycji](partitioning-overview.md). Można na przykład umieścić zarówno książki, jak i książki, w tej samej kolekcji, a następnie podzielić `bookId`je na partycje. W takiej sytuacji zazwyczaj warto dodać do dokumentów za pomocą pola, które identyfikuje ich typ w celu odróżnienia ich.
+W niektórych scenariuszach warto mieszać różne typy dokumentów w tej samej kolekcji. zwykle jest to przypadek, gdy wiele powiązanych dokumentów ma być w tej samej [partycji](partitioning-overview.md). Można na przykład umieścić zarówno książki, jak i książki, w tej samej kolekcji, a następnie podzielić je na partycje `bookId` . W takiej sytuacji zazwyczaj warto dodać do dokumentów za pomocą pola, które identyfikuje ich typ w celu odróżnienia ich.
 
     Book documents:
     {

@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 088a0d10b96a30ef830b4e8a8dc12c19127141db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cd81031f27d772912383fa050e0f946bf9964c0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417040"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204663"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Strojenie wydajności za pomocą uporządkowanego klastrowanego indeksu magazynu kolumn  
 
@@ -109,7 +109,7 @@ Liczba nakładających się segmentów zależy od rozmiaru danych do sortowania,
 
 - Użyj klasy zasobów xlargerc na wyższym jednostek dwu, aby umożliwić większą ilość pamięci na potrzeby sortowania danych, zanim Konstruktor indeksów kompresuje dane do segmentów.  Raz w segmencie indeksu nie można zmienić fizycznej lokalizacji danych.  Nie ma sortowania danych w ramach segmentu ani między segmentami.  
 
-- Utwórz uporządkowaną WIK z MAXDOP = 1.  Każdy wątek używany do uporządkowanego tworzenia WIK działa w ramach podzestawu danych i sortuje go lokalnie.  Nie ma sortowania globalnego dla danych posortowanych według różnych wątków.  Użycie równoległych wątków może skrócić czas tworzenia uporządkowanej WIK, ale generuje więcej nakładających się segmentów niż przy użyciu jednego wątku.  Obecnie opcja MAXDOP jest obsługiwana tylko w przypadku tworzenia tabeli uporządkowanej WIK przy użyciu CREATE TABLE jako polecenia SELECT.  Tworzenie uporządkowanej WIK za pomocą poleceń CREATE INDEX lub CREATE TABLE nie obsługuje opcji MAXDOP. Na przykład:
+- Utwórz uporządkowaną WIK z MAXDOP = 1.  Każdy wątek używany do uporządkowanego tworzenia WIK działa w ramach podzestawu danych i sortuje go lokalnie.  Nie ma sortowania globalnego dla danych posortowanych według różnych wątków.  Użycie równoległych wątków może skrócić czas tworzenia uporządkowanej WIK, ale generuje więcej nakładających się segmentów niż przy użyciu jednego wątku.  Obecnie opcja MAXDOP jest obsługiwana tylko w przypadku tworzenia tabeli uporządkowanej WIK przy użyciu CREATE TABLE jako polecenia SELECT.  Tworzenie uporządkowanej WIK za pomocą poleceń CREATE INDEX lub CREATE TABLE nie obsługuje opcji MAXDOP. Na przykład
 
 ```sql
 CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )

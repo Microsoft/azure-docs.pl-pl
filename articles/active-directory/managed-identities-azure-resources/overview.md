@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/20/2020
+ms.date: 06/18/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd1b846b77e4b600fc9b7590715a73b0ca8f672
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 3557bab44e1a4af5fdcbda5f8643018952e4e54e
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266325"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099542"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Jakie są zarządzane tożsamości dla zasobów platformy Azure?
 
@@ -43,17 +43,20 @@ Poniższe terminy są używane w zestawie dokumentacji dotyczącej tożsamości 
 - **Identyfikator podmiotu zabezpieczeń** — identyfikator obiektu nazwy głównej usługi dla tożsamości zarządzanej, która jest używana w celu udzielenia dostępu opartego na rolach do zasobu platformy Azure.
 - **Azure instance Metadata Service (IMDS)** — punkt końcowy REST dostępny dla wszystkich maszyn wirtualnych IaaS utworzonych za pośrednictwem Azure Resource Manager. Punkt końcowy jest dostępny pod dobrze znanym, nierutowalnym adresem IP (169.254.169.254), do którego dostęp można uzyskać tylko z poziomu maszyny wirtualnej.
 
-## <a name="how-does-the-managed-identities-for-azure-resources-work"></a>Jak działają tożsamości zarządzane dla zasobów platformy Azure?
+## <a name="managed-identity-types"></a>Zarządzane typy tożsamości
 
 Istnieją dwa typy tożsamości zarządzanych:
 
 - **Tożsamość zarządzana przypisana przez system** jest włączana bezpośrednio w wystąpieniu usługi platformy Azure. Po włączeniu tożsamości platforma Azure tworzy tożsamość wystąpienia w dzierżawie usługi Azure AD, która jest zaufaną dzierżawą subskrypcji wystąpienia. Po utworzeniu tożsamości poświadczenia są aprowizowane w wystąpieniu. Cykl życia tożsamości przypisanej do systemu jest bezpośrednio powiązany z wystąpieniem usługi platformy Azure, na którym jest włączona. Usunięcie wystąpienia spowoduje, że platforma Azure automatycznie oczyści poświadczenia i tożsamość w usłudze Azure AD.
 - **Tożsamość zarządzana przypisana przez użytkownika** jest tworzona jako autonomiczny zasób platformy Azure. W ramach procesu tworzenia platforma Azure tworzy tożsamość w dzierżawie usługi Azure AD, której ufa używana subskrypcja. Utworzoną tożsamość można przypisać do co najmniej jednego wystąpienia usługi platformy Azure. Cykl życia tożsamości przypisanej przez użytkownika jest zarządzany osobno od cyklu życia wystąpień usługi platformy Azure, do których jest przypisany.
 
-Wewnętrznie tożsamości zarządzane to nazwy główne usług typu specjalnego, które mogą być używane tylko z zasobami platformy Azure. Po usunięciu tożsamości zarządzanej jest automatycznie usuwana odpowiednia jednostka usługi.
+Wewnętrznie tożsamości zarządzane są nazwami podmiotu usługi typu specjalnego, które są zablokowane tylko w przypadku zasobów platformy Azure. Po usunięciu tożsamości zarządzanej jest automatycznie usuwana odpowiednia jednostka usługi.
 Ponadto po utworzeniu tożsamości przypisanej do użytkownika lub przypisanej do systemu dostawca zasobów tożsamości zarządzanej (MSRP) wystawia certyfikat wewnętrznie dla tej tożsamości. 
 
 Przy użyciu tożsamości zarządzanej kod może zażądać tokenów dostępu dla usług obsługujących uwierzytelnianie usługi Azure AD. Platforma Azure zapewnia stopniową obsługę poświadczeń, które są używane przez wystąpienie usługi. 
+
+## <a name="credential-rotation"></a>Obrót poświadczeń
+Rotacja poświadczeń jest kontrolowana przez dostawcę zasobów, który hostuje zasób platformy Azure. Domyślny obrót poświadczenie odbywa się co 46 dni. Jest to dostawca zasobów do wywoływania nowych poświadczeń, więc dostawca zasobów może czekać dłużej niż 46 dni.
 
 Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współpracują z maszynami wirtualnymi platformy Azure:
 
@@ -61,10 +64,10 @@ Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współp
 
 |  Właściwość    | Tożsamość zarządzana przypisana przez system | Tożsamość zarządzana przypisana przez użytkownika |
 |------|----------------------------------|--------------------------------|
-| Tworzenie |  Utworzone w ramach zasobu platformy Azure (na przykład maszyny wirtualnej lub Azure App Service platformy Azure). | Utworzono jako autonomiczny zasób platformy Azure. |
+| Tworzenie |  Utworzone w ramach zasobu platformy Azure (na przykład maszyny wirtualnej platformy Azure lub Azure App Service) | Utworzono jako autonomiczny zasób platformy Azure |
 | Cykl życiowy | Współużytkowany cykl życia z zasobem platformy Azure, za pomocą którego utworzono tożsamość zarządzaną. <br/> Po usunięciu zasobu nadrzędnego tożsamość zarządzana również jest usuwana. | Niezależny cykl życia. <br/> Musi być jawnie usunięty. |
-| Udostępnianie w zasobach platformy Azure | Nie można udostępnić. <br/> Może być skojarzony tylko z jednym zasobem platformy Azure. | Mogą być udostępniane. <br/> Ta sama tożsamość zarządzana przypisana przez użytkownika może być skojarzona z więcej niż jednym zasobem platformy Azure. |
-| Typowe przypadki użycia | Obciążenia zawarte w ramach pojedynczego zasobu platformy Azure. <br/> Obciążenia, dla których są potrzebne niezależne tożsamości. <br/> Na przykład aplikacja działająca na jednej maszynie wirtualnej | Obciążenia działające na wielu zasobach, które mogą współużytkować jedną tożsamość. <br/> Obciążenia wymagające wstępnej autoryzacji do bezpiecznego zasobu w ramach przepływu aprowizacji. <br/> Obciążenia, w których zasoby są często odtwarzane, ale uprawnienia powinny pozostać spójne. <br/> Na przykład obciążenie, w przypadku którego wiele maszyn wirtualnych potrzebuje dostępu do tego samego zasobu |
+| Udostępnianie w zasobach platformy Azure | Nie można udostępnić. <br/> Może być skojarzony tylko z jednym zasobem platformy Azure. | Mogą być udostępniane <br/> Ta sama tożsamość zarządzana przypisana przez użytkownika może być skojarzona z więcej niż jednym zasobem platformy Azure. |
+| Typowe przypadki użycia | Obciążenia zawarte w pojedynczym zasobie platformy Azure <br/> Obciążenia, dla których są potrzebne niezależne tożsamości. <br/> Na przykład aplikacja działająca na jednej maszynie wirtualnej | Obciążenia działające na wielu zasobach, które mogą współużytkować jedną tożsamość. <br/> Obciążenia wymagające wstępnej autoryzacji do bezpiecznego zasobu w ramach przepływu aprowizacji. <br/> Obciążenia, w których zasoby są często odtwarzane, ale uprawnienia powinny pozostać spójne. <br/> Na przykład obciążenie, w przypadku którego wiele maszyn wirtualnych potrzebuje dostępu do tego samego zasobu |
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Jak tożsamość zarządzana przypisana przez system współpracuje z maszyną wirtualną platformy Azure
 
@@ -105,9 +108,6 @@ Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współp
 6. W usłudze Azure AD jest wykonywane wywołanie żądające tokenu dostępu (jak określono w kroku 5) przy użyciu certyfikatu i identyfikatora klienta skonfigurowanego w kroku 3. Usługa Azure AD zwraca token dostępu powiązany z internetowym tokenem JSON (JWT, JSON Web Token).
 7. Kod wysyła token dostępu w wywołaniu do usługi, która obsługuje uwierzytelnianie w usłudze Azure AD.
 
-## <a name="credential-rotation"></a>Obrót poświadczeń
-Rotacja poświadczeń jest kontrolowana przez dostawcę zasobów, który hostuje zasób platformy Azure. Domyślny obrót poświadczenie odbywa się co 46 dni. Jest to dostawca zasobów do wywoływania nowych poświadczeń, więc dostawca zasobów może czekać dłużej niż 46 dni.
-
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Jak można używać tożsamości zarządzanych dla zasobów platformy Azure?
 
 Aby dowiedzieć się, jak uzyskiwać dostęp do różnych zasobów platformy Azure za pomocą tożsamości zarządzanej, wypróbuj te samouczki.
@@ -136,7 +136,7 @@ Dowiedz się, jak używać tożsamości zarządzanej z maszyną wirtualną z sys
 Dowiedz się, jak używać tożsamości zarządzanej z innymi usługami platformy Azure:
 
 * [Azure App Service](/azure/app-service/overview-managed-identity)
-* [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Usługa Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Usługa Azure Container Registry Tasks](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
 * [Azure Event Hubs](../../event-hubs/authenticate-managed-identity.md)

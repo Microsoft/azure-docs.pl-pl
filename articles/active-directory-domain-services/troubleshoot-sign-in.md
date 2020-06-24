@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 0585ced3bc53f216ab203b4686b5800b5e14bbbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b85859e6294fa24731bc13e9edd5fe2610e8fb6
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77612751"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733963"
 ---
-# <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Rozwiązywanie problemów z logowaniem do konta przy użyciu domeny zarządzanej Azure AD Domain Services
+# <a name="troubleshoot-account-sign-in-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Rozwiązywanie problemów z logowaniem do konta przy użyciu domeny zarządzanej Azure Active Directory Domain Services
 
-Najczęstsze przyczyny konta użytkownika, które nie mogą zalogować się do domeny zarządzanej AD DS platformy Azure, obejmują następujące scenariusze:
+Najczęstsze przyczyny konta użytkownika, które nie mogą zalogować się do domeny zarządzanej Azure Active Directory Domain Services (Azure AD DS), obejmują następujące scenariusze:
 
 * [Konto nie jest jeszcze zsynchronizowane z platformą Azure AD DS.](#account-isnt-synchronized-into-azure-ad-ds-yet)
 * [Usługa Azure AD DS nie ma skrótów haseł, aby umożliwić logowanie się do konta.](#azure-ad-ds-doesnt-have-the-password-hashes)
@@ -47,19 +47,19 @@ Usługa Azure AD nie generuje ani nie przechowuje skrótów haseł w formacie wy
 
 ### <a name="hybrid-environments-with-on-premises-synchronization"></a>Środowiska hybrydowe z synchronizacją lokalną
 
-W przypadku środowisk hybrydowych, które używają Azure AD Connect do synchronizacji ze środowiskiem lokalnym AD DS, można lokalnie generować i synchronizować wymagane skróty haseł NTLM lub Kerberos w usłudze Azure AD. Po utworzeniu domeny zarządzanej AD DS platformy Azure [Włącz synchronizację skrótów haseł, aby Azure Active Directory Domain Services][azure-ad-connect-phs]. Bez wykonywania tego kroku synchronizacji skrótów haseł nie można zalogować się do konta za pomocą usługi Azure AD DS. Jeśli wyłączysz usługę Azure AD DS i włączysz ją ponownie, należy ponownie wykonać te kroki.
+W przypadku środowisk hybrydowych, które używają Azure AD Connect do synchronizacji ze środowiskiem lokalnym AD DS, można lokalnie generować i synchronizować wymagane skróty haseł NTLM lub Kerberos w usłudze Azure AD. Po utworzeniu domeny zarządzanej [Włącz synchronizację skrótów haseł, aby Azure Active Directory Domain Services][azure-ad-connect-phs]. Bez wykonywania tego kroku synchronizacji skrótów haseł nie można zalogować się do konta za pomocą usługi Azure AD DS. Jeśli wyłączysz usługę Azure AD DS i włączysz ją ponownie, należy ponownie wykonać te kroki.
 
 Aby uzyskać więcej informacji, zobacz [jak działa synchronizacja skrótów haseł dla AD DS platformy Azure][phs-process].
 
 ### <a name="cloud-only-environments-with-no-on-premises-synchronization"></a>Środowiska tylko w chmurze bez synchronizacji lokalnej
 
-W przypadku domen zarządzanych przez platformę Azure AD DS bez synchronizacji lokalnej tylko konta w usłudze Azure AD muszą generować również wymagane skróty uwierzytelniania NTLM lub Kerberos. Jeśli konto tylko w chmurze nie może się zalogować, program pomyślnie zakończył proces zmiany hasła dla konta po włączeniu usługi Azure AD DS?
+W przypadku domen zarządzanych bez synchronizacji lokalnej tylko konta w usłudze Azure AD muszą generować również wymagane skróty uwierzytelniania NTLM lub Kerberos. Jeśli konto tylko w chmurze nie może się zalogować, program pomyślnie zakończył proces zmiany hasła dla konta po włączeniu usługi Azure AD DS?
 
 * **Nie, hasło nie zostało zmienione.**
     * [Zmień hasło dla konta][enable-user-accounts] , aby generować wymagane skróty haseł, a następnie poczekaj 15 minut przed podjęciem próby ponownego zalogowania.
     * Jeśli wyłączysz usługę Azure AD DS i włączysz ją ponownie, każde konto musi ponownie wykonać te czynności, aby zmienić hasło i wygenerować wymagane skróty haseł.
 * **Tak, hasło zostało zmienione.**
-    * Spróbuj zalogować się przy użyciu formatu *UPN* , takiego jak `driley@aaddscontoso.com`, zamiast formatu *sAMAccountName* , np `AADDSCONTOSO\deeriley`..
+    * Spróbuj zalogować się przy użyciu formatu *UPN* , takiego jak `driley@aaddscontoso.com` , zamiast formatu *sAMAccountName* , np `AADDSCONTOSO\deeriley` ..
     * *SAMAccountName* może być automatycznie generowany dla użytkowników, których prefiks nazwy UPN jest zbyt długi lub jest taki sam jak inny użytkownik w domenie zarządzanej. Format *nazwy UPN* ma być unikatowy w ramach dzierżawy usługi Azure AD.
 
 ## <a name="the-account-is-locked-out"></a>Konto jest zablokowane
@@ -72,7 +72,7 @@ Aby uzyskać więcej informacji i jak rozwiązać problemy z blokadą konta, zob
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli nadal masz problemy z przyłączaniem maszyny wirtualnej do domeny zarządzanej AD DS platformy Azure, [Znajdź pomoc i Otwórz bilet pomocy technicznej dla Azure Active Directory][azure-ad-support].
+Jeśli nadal masz problemy z przyłączaniem maszyny wirtualnej do domeny zarządzanej, [Znajdź pomoc i Otwórz bilet pomocy technicznej dla Azure Active Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md

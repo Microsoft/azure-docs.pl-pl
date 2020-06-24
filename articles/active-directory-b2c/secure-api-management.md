@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b0362f9bb80af9f98dad032790a9e88651284a1
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: b5d1f44b35b89607fecf6875b1e56be97f37d0fa
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298877"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85203643"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Zabezpieczanie interfejsu API usługi Azure API Management przy użyciu Azure AD B2C
 
@@ -73,7 +73,7 @@ Następnie uzyskaj dobrze znany adres URL konfiguracji dla jednego z Azure AD B2
 
     Ta wartość jest używana w następnej sekcji podczas konfigurowania interfejsu API w usłudze Azure API Management.
 
-Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Na przykład:
+Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Przykład:
 
 ```
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
@@ -154,7 +154,7 @@ Aplikacja kliencka (w tym przypadku) wywołująca opublikowany interfejs API mus
 
 Po zarejestrowaniu tokenu dostępu i klucza subskrypcji APIM można już sprawdzić, czy bezpieczny dostęp do interfejsu API został prawidłowo skonfigurowany.
 
-1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Na przykład:
+1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Przykład:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 
@@ -171,7 +171,7 @@ Po zarejestrowaniu tokenu dostępu i klucza subskrypcji APIM można już sprawdz
 
 1. Wybierz przycisk **Wyślij** w programie Poster, aby wykonać żądanie. Jeśli wszystko zostało poprawnie skonfigurowane, należy przedstawić odpowiedź JSON z kolekcją prelegentów (pokazane tutaj obcięte):
 
-    ```JSON
+    ```json
     {
       "collection": {
         "version": "1.0",
@@ -206,7 +206,7 @@ Po pomyślnym wykonaniu żądania Przetestuj przypadek niepowodzenia, aby upewni
 
 1. Wybierz przycisk **Wyślij** , aby wykonać żądanie. W przypadku nieprawidłowego tokenu oczekiwany wynik to `401` nieautoryzowany kod stanu:
 
-    ```JSON
+    ```json
     {
         "statusCode": 401,
         "message": "Unauthorized. Access token is missing or invalid."
@@ -219,7 +219,7 @@ Jeśli zobaczysz `401` kod stanu, sprawdzono, że tylko wywołujący mający pra
 
 Niektóre aplikacje zwykle współpracują z pojedynczym interfejsem API REST. Aby umożliwić interfejsowi API akceptowanie tokenów przeznaczonych dla wielu aplikacji, Dodaj ich identyfikatory aplikacji do `<audiences>` elementu w zasadach ruchu przychodzącego APIM.
 
-```XML
+```xml
 <!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
@@ -229,7 +229,7 @@ Niektóre aplikacje zwykle współpracują z pojedynczym interfejsem API REST. A
 
 Podobnie aby obsługiwać wiele wystawców tokenów, Dodaj ich identyfikatory URI punktu końcowego do `<issuers>` elementu w zasadach APIM przychodzących.
 
-```XML
+```xml
 <!-- Accept tokens from multiple issuers -->
 <issuers>
     <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
@@ -249,7 +249,7 @@ Ten ogólny proces można wykonać w celu przeprowadzenia migracji etapowej:
 
 W poniższym przykładzie zasady ruchu przychodzącego APIM przedstawiają sposób akceptowania tokenów wystawionych przez b2clogin.com i login.microsoftonline.com. Ponadto obsługuje żądania interfejsu API z dwóch aplikacji.
 
-```XML
+```xml
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">

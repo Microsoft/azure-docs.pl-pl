@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: iainfou
-ms.openlocfilehash: 07aa9ade25d1d986833b6da2f3907d07b752b662
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71a1a97c3cb6df4c1498940738fe070819fba1b5
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655441"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734813"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Konfigurowanie ograniczonego delegowania protokołu Kerberos (KCD) w Azure Active Directory Domain Services
 
@@ -33,7 +33,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby:
 * Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
 * Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie konieczności [Utwórz i skonfiguruj wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * W razie konieczności [Utwórz i skonfiguruj Azure Active Directory Domain Services domenę zarządzaną][create-azure-ad-ds-instance].
 * Maszyna wirtualna zarządzania systemem Windows Server, która jest dołączona do domeny zarządzanej AD DS platformy Azure.
     * W razie potrzeby uzupełnij ten samouczek, aby [utworzyć maszynę wirtualną z systemem Windows Server i przyłączyć ją do domeny zarządzanej][create-join-windows-vm] , a następnie [zainstalować narzędzia do zarządzania AD DS][tutorial-create-management-vm].
 * Konto użytkownika, które jest członkiem grupy *administratorów DC usługi Azure AD* w dzierżawie usługi Azure AD.
@@ -46,7 +46,7 @@ Ograniczone delegowanie protokołu Kerberos (KCD) ogranicza usługi lub zasoby, 
 
 Tradycyjna KCD również zawiera kilka problemów. Na przykład we wcześniejszych systemach operacyjnych administrator usługi nie miał użytecznych metod, aby wiedzieć, które usługi frontonu są delegowane do usługi zasobów, do których należą. Dowolna usługa frontonu, która może delegować do usługi zasobów, jest potencjalnym punktem ataku. W przypadku naruszenia bezpieczeństwa serwera, na którym jest hostowana usługa frontonu skonfigurowana do delegowania usług zasobów, można także złamać zabezpieczenia usług zasobów.
 
-W domenie zarządzanej AD DS platformy Azure nie masz uprawnień administratora domeny. W związku z tym tradycyjne KCD oparte na koncie nie można skonfigurować na platformie Azure AD DS domenie zarządzanej. Zamiast tego można korzystać z KCD opartego na zasobach, co jest również bezpieczniejsze.
+W domenie zarządzanej nie masz uprawnień administratora domeny. W związku z tym tradycyjne KCD oparte na koncie nie można skonfigurować w domenie zarządzanej. Zamiast tego można korzystać z KCD opartego na zasobach, co jest również bezpieczniejsze.
 
 ### <a name="resource-based-kcd"></a>KCD oparte na zasobach
 
@@ -58,8 +58,8 @@ KCD oparte na zasobach są konfigurowane przy użyciu programu PowerShell. Używ
 
 W tym scenariuszu Załóżmy, że masz aplikację sieci Web, która jest uruchamiana na komputerze o nazwie *contoso-WEBAPP.aaddscontoso.com*. Aplikacja sieci Web musi uzyskać dostęp do internetowego interfejsu API, który jest uruchamiany na komputerze o nazwie *contoso-API.aaddscontoso.com* w kontekście użytkowników domeny. Wykonaj następujące kroki, aby skonfigurować ten scenariusz:
 
-1. [Utwórz niestandardową jednostkę organizacyjną](create-ou.md). Można delegować uprawnienia do zarządzania tą niestandardową jednostką organizacyjną użytkownikom w domenie zarządzanej AD DS platformy Azure.
-1. [Przyłączanie do domeny maszyn wirtualnych][create-join-windows-vm], zarówno tych, na których działa aplikacja sieci Web, jak i tych, na których jest uruchomiony internetowy interfejs API, do domeny zarządzanej platformy Azure AD DS. Utwórz te konta komputerów w niestandardowej jednostce organizacyjnej w poprzednim kroku.
+1. [Utwórz niestandardową jednostkę organizacyjną](create-ou.md). Można delegować uprawnienia do zarządzania tą niestandardową jednostką organizacyjną dla użytkowników w domenie zarządzanej.
+1. [Przyłączanie do domeny maszyn wirtualnych][create-join-windows-vm], zarówno tych, na których jest uruchomiona aplikacja sieci Web, jak i tych, na których jest uruchomiony internetowy interfejs API, do domeny zarządzanej. Utwórz te konta komputerów w niestandardowej jednostce organizacyjnej w poprzednim kroku.
 
     > [!NOTE]
     > Konta komputerów dla aplikacji sieci Web i internetowego interfejsu API muszą znajdować się w niestandardowej jednostce organizacyjnej, w której masz uprawnienia do konfigurowania KCD opartego na zasobach. Nie można skonfigurować KCD opartego na zasobach dla konta komputera w wbudowanym kontenerze *komputery DC w usłudze AAD* .
@@ -75,8 +75,8 @@ W tym scenariuszu Załóżmy, że masz aplikację sieci Web, która jest urucham
 
 W tym scenariuszu Załóżmy, że masz aplikację sieci Web, która działa jako konto usługi o nazwie *appsvc*. Aplikacja sieci Web musi uzyskać dostęp do internetowego interfejsu API, który jest uruchomiony jako konto usługi o nazwie *backendsvc* w kontekście użytkowników domeny. Wykonaj następujące kroki, aby skonfigurować ten scenariusz:
 
-1. [Utwórz niestandardową jednostkę organizacyjną](create-ou.md). Można delegować uprawnienia do zarządzania tą niestandardową jednostką organizacyjną użytkownikom w domenie zarządzanej AD DS platformy Azure.
-1. [Przyłączanie do domeny maszyn wirtualnych][create-join-windows-vm] z URUCHOMIONYm interfejsem API/zasób sieci Web zaplecza w domenie zarządzanej platformy Azure AD DS. Utwórz konto komputera w ramach niestandardowej jednostki organizacyjnej.
+1. [Utwórz niestandardową jednostkę organizacyjną](create-ou.md). Można delegować uprawnienia do zarządzania tą niestandardową jednostką organizacyjną dla użytkowników w domenie zarządzanej.
+1. [Przyłącz do domeny zarządzanej maszyny wirtualne][create-join-windows-vm] , na których działa interfejs API/zasób sieci Web zaplecza. Utwórz konto komputera w ramach niestandardowej jednostki organizacyjnej.
 1. Utwórz konto usługi (na przykład "appsvc") używane do uruchamiania aplikacji sieci Web w ramach niestandardowej jednostki organizacyjnej.
 
     > [!NOTE]

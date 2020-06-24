@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 512ad8f93da53afb618491cd1769645d8edb0b14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bee705e33267a765c1fb5300c0bfe2d04ff2015d
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75965845"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099653"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Używanie punktów końcowych usługi Virtual Network i reguł dla Azure Database for PostgreSQL-pojedynczego serwera
 
@@ -45,7 +45,7 @@ Reguła sieci wirtualnej instruuje serwer Azure Database for PostgreSQL, aby akc
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Zalety reguły sieci wirtualnej
 
@@ -69,7 +69,7 @@ Jeśli serwer **Microsoft. SQL** był węzłem w podsieci w sieci wirtualnej, ws
 
 Jednak od sierpnia 2018 usługa Azure Database for PostgreSQL nie należy jeszcze do usług, które mogą być bezpośrednio przypisane do podsieci.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Szczegóły dotyczące reguł sieci wirtualnej
 
@@ -90,7 +90,7 @@ Każda reguła sieci wirtualnej ma zastosowanie do całego serwera Azure Databas
 Istnieje separacja ról zabezpieczeń w administrowaniu punktami końcowymi usługi Virtual Network. Wymagana jest akcja z każdej z następujących ról:
 
 - **Administrator sieci:** &nbsp; Włącz punkt końcowy.
-- **Administrator bazy danych:** &nbsp; zaktualizuj listę kontroli dostępu (ACL), aby dodać daną podsieć do serwera Azure Database for PostgreSQL.
+- **Administrator bazy danych:** &nbsp; Zaktualizuj listę kontroli dostępu (ACL), aby dodać daną podsieć do serwera Azure Database for PostgreSQL.
 
 *Alternatywa RBAC:*
 
@@ -102,7 +102,7 @@ Istnieje możliwość korzystania z [kontroli dostępu opartej na rolach (RBAC)]
 > W niektórych przypadkach Azure Database for PostgreSQL i podsieć wirtualna znajdują się w różnych subskrypcjach. W takich przypadkach należy zapewnić następujące konfiguracje:
 > - Obie subskrypcje muszą znajdować się w tej samej dzierżawie Azure Active Directory.
 > - Użytkownik ma wymagane uprawnienia do inicjowania operacji, takich jak Włączanie punktów końcowych usługi i Dodawanie podsieci wirtualnej do danego serwera.
-> - Upewnij się, że w subskrypcji jest zarejestrowany dostawca zasobów **Microsoft. SQL** . Aby uzyskać więcej informacji, zobacz temat [Resource-Manager-Registration][resource-manager-portal]
+> - Upewnij się, że w subskrypcji jest zarejestrowany dostawca zasobów **Microsoft. SQL** i **Microsoft. DBforPostgreSQL** . Aby uzyskać więcej informacji, zobacz temat [Resource-Manager-Registration][resource-manager-portal]
 
 ## <a name="limitations"></a>Ograniczenia
 

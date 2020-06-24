@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277780"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84697694"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optymalizowanie wydajności i niezawodności usługi Azure Functions
 
@@ -24,7 +24,7 @@ Poniżej przedstawiono najlepsze rozwiązania w zakresie kompilowania i tworzeni
 
 Duże, długotrwałe funkcje mogą powodować nieoczekiwane problemy z przekroczeniem limitu czasu. Aby dowiedzieć się więcej o limitach czasu dla danego planu hostingu, zobacz [limit czasu aplikacji funkcji](functions-scale.md#timeout). 
 
-Funkcja może być duża ze względu na wiele zależności Node. js. Importowanie zależności może być również przyczyną zwiększonych czasów ładowania, które powodują nieoczekiwane przekroczenie limitu czasu. Zależności są ładowane jawnie i niejawnie. Pojedynczy moduł załadowany przez kod może ładować własne dodatkowe moduły. 
+Funkcja może być duża ze względu na wiele zależności Node.js. Importowanie zależności może być również przyczyną zwiększonych czasów ładowania, które powodują nieoczekiwane przekroczenie limitu czasu. Zależności są ładowane jawnie i niejawnie. Pojedynczy moduł załadowany przez kod może ładować własne dodatkowe moduły. 
 
 Jeśli to możliwe, Refaktoryzacja duże funkcje do mniejszych zestawów funkcji, które współpracują i zwracają odpowiedzi szybko. Na przykład funkcja webhook lub wyzwalacz HTTP może wymagać odpowiedzi potwierdzenia w określonym limicie czasu; elementy webhook często wymagają natychmiastowej reakcji. Ładunek wyzwalacza HTTP można przekazać do kolejki w celu przetworzenia przez funkcję wyzwalacza kolejki. Takie podejście umożliwia odroczenie rzeczywistej pracy i zwrócenie natychmiastowej odpowiedzi.
 
@@ -92,7 +92,7 @@ Nie używaj pełnego rejestrowania w kodzie produkcyjnym, który ma negatywny wp
 
 Programowanie asynchroniczne jest zalecanym najlepszym rozwiązaniem, szczególnie w przypadku blokowania operacji we/wy.
 
-W języku C# należy zawsze unikać odwoływania się `Result` do `Wait` właściwości lub metody `Task` wywołującej w wystąpieniu. Takie podejście może prowadzić do wyczerpania wątków.
+W języku C# należy zawsze unikać odwoływania się do `Result` właściwości lub metody wywołującej `Wait` w `Task` wystąpieniu. Takie podejście może prowadzić do wyczerpania wątków.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -104,17 +104,17 @@ FUNCTIONS_WORKER_PROCESS_COUNT ma zastosowanie do każdego hosta, który tworzy 
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>W miarę możliwości odbieraj komunikaty w usłudze Batch
 
-Niektóre wyzwalacze, takie jak centrum zdarzeń, umożliwiają otrzymywanie wsadowych komunikatów na pojedynczym wywołaniu.  Przetwarzanie wsadowe komunikatów ma znacznie lepszą wydajność.  Maksymalny rozmiar wsadu można skonfigurować w `host.json` pliku zgodnie z opisem w [dokumentacji dotyczącej hosta. JSON.](functions-host-json.md)
+Niektóre wyzwalacze, takie jak centrum zdarzeń, umożliwiają otrzymywanie wsadowych komunikatów na pojedynczym wywołaniu.  Przetwarzanie wsadowe komunikatów ma znacznie lepszą wydajność.  Maksymalny rozmiar wsadu można skonfigurować w `host.json` pliku zgodnie z opisem w [host.jsdokumentacji referencyjnej](functions-host-json.md)
 
-Dla funkcji języka C# można zmienić typ na tablicę o jednoznacznie określonym typie.  Na przykład zamiast `EventData sensorEvent` sygnatury metody może być `EventData[] sensorEvent`.  W przypadku innych języków należy jawnie ustawić właściwość Kardynalność w `function.json` do `many` , aby można było włączyć przetwarzanie wsadowe, [jak pokazano tutaj](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+Dla funkcji języka C# można zmienić typ na tablicę o jednoznacznie określonym typie.  Na przykład zamiast `EventData sensorEvent` sygnatury metody może być `EventData[] sensorEvent` .  W przypadku innych języków należy jawnie ustawić właściwość Kardynalność w do, aby można było `function.json` `many` włączyć przetwarzanie wsadowe, [jak pokazano tutaj](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Konfigurowanie zachowań hosta w celu lepszego obsłużenia współbieżności
 
-`host.json` Plik w aplikacji funkcji umożliwia konfigurację środowiska uruchomieniowego hosta i zachowań wyzwalających.  Oprócz zachowań wsadowych można zarządzać współbieżnością dla wielu wyzwalaczy. Często dostosowanie wartości w tych opcjach może pomóc każdej skali wystąpienia odpowiednio do potrzeb wywołanych funkcji.
+`host.json`Plik w aplikacji funkcji umożliwia konfigurację środowiska uruchomieniowego hosta i zachowań wyzwalających.  Oprócz zachowań wsadowych można zarządzać współbieżnością dla wielu wyzwalaczy. Często dostosowanie wartości w tych opcjach może pomóc każdej skali wystąpienia odpowiednio do potrzeb wywołanych funkcji.
 
-Ustawienia w pliku host. JSON dotyczą wszystkich funkcji w aplikacji w ramach *jednego wystąpienia* funkcji. Na przykład jeśli masz aplikację funkcji z dwoma funkcjami HTTP i [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) żądaniami ustawionymi na wartość 25, żądanie do wyzwalacza http będzie wliczane do współużytkowanych 25 współbieżnych żądań.  Gdy aplikacja funkcji jest skalowana do 10 wystąpień, te dwie funkcje skutecznie zezwalają na 250 współbieżnych żądań (10 wystąpień * 25 współbieżnych żądań na wystąpienie). 
+Ustawienia w host.jsw pliku dotyczą wszystkich funkcji w aplikacji w ramach *jednego wystąpienia* funkcji. Na przykład jeśli masz aplikację funkcji z dwoma funkcjami HTTP i [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) żądaniami ustawionymi na wartość 25, żądanie do wyzwalacza http będzie wliczane do współużytkowanych 25 współbieżnych żądań.  Gdy aplikacja funkcji jest skalowana do 10 wystąpień, te dwie funkcje skutecznie zezwalają na 250 współbieżnych żądań (10 wystąpień * 25 współbieżnych żądań na wystąpienie). 
 
-Inne opcje konfiguracji hosta znajdują się w [artykule Konfiguracja pliku host. JSON](functions-host-json.md).
+Inne opcje konfiguracji hosta znajdują się w [artykulehost.jsw konfiguracji](functions-host-json.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

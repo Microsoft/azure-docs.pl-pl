@@ -4,7 +4,6 @@ description: W tym artykule opisano różne typy punktów końcowych, które mog
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: rohink
-ms.openlocfilehash: 3d8f899a7899243129d31c2620a51dc764a8e917
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd5c6968425c64bd670e56bbe7ae016c59662169
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250935"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84698669"
 ---
 # <a name="traffic-manager-endpoints"></a>Punkty końcowe usługi Traffic Manager
 
@@ -38,7 +37,7 @@ W poniższych sekcjach opisano każdy typ punktu końcowego o większej głębok
 Punkty końcowe platformy Azure są używane dla usług opartych na platformie Azure w Traffic Manager. Obsługiwane są następujące typy zasobów platformy Azure:
 
 * Usługi w chmurze PaaS.
-* Aplikacje internetowe
+* Web Apps
 * Miejsca aplikacji sieci Web
 * PublicIPAddress zasoby (które mogą być połączone z maszynami wirtualnymi bezpośrednio lub za pośrednictwem Azure Load Balancer). PublicIpAddress musi mieć przypisaną nazwę DNS do użycia w profilu Traffic Manager.
 
