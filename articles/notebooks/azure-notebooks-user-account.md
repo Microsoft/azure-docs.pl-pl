@@ -3,12 +3,12 @@ title: Zaloguj się do wersji zapoznawczej Azure Notebooks
 description: Skonfiguruj konto użytkownika dla Azure Notebooks przy użyciu konto Microsoft lub konta służbowego.
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a19803ec0a621b981fa9198766c58376ba50534
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75646300"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125842"
 ---
 # <a name="your-user-account-for-azure-notebooks-preview"></a>Twoje konto użytkownika na potrzeby Azure Notebooks wersji zapoznawczej
 
@@ -43,7 +43,7 @@ W przypadku kont podrzędnych dostęp do Azure Notebooks jest blokowany domyśln
 
 Aby włączyć dostęp, obiekt nadrzędny musi wykonać następujące czynności:
 
-1. Odwiedź `https://account.live.com/mk` stronę i zaloguj się przy użyciu konta nadrzędnego.
+1. Odwiedź stronę `https://account.live.com/mk` i zaloguj się przy użyciu konta nadrzędnego.
 1. W sekcji dla danego elementu podrzędnego wybierz pozycję **Zarządzaj dostępem tego elementu podrzędnego do aplikacji innych**firm.
 1. Na następnej stronie wybierz pozycję **Włącz dostęp**.
 1. Po następnym użyciu konta podrzędnego do zalogowania się do Azure Notebooks wybierz pozycję **tak** w wyświetlonym monicie o uprawnienia.
@@ -53,7 +53,7 @@ Aby włączyć dostęp, obiekt nadrzędny musi wykonać następujące czynności
 
 ## <a name="work-or-school-accounts"></a>Konta służbowe
 
-Konto służbowe jest tworzone przez administratora organizacji, aby umożliwić członkowi organizacji dostęp do usług w chmurze firmy Microsoft, takich jak Office 365, a także konta do logowania się do systemu Windows na komputerze przyłączonym do domeny. Konto służbowe zwykle używa adresu e-mail organizacji, takiego jak any-user@contoso.com.
+Konto służbowe jest tworzone przez administratora organizacji, aby umożliwić członkowi organizacji dostęp do usług w chmurze firmy Microsoft, takich jak Microsoft 365, a także konta do logowania się do systemu Windows na komputerze przyłączonym do domeny. Konto służbowe zwykle używa adresu e-mail organizacji, takiego jak any-user@contoso.com .
 
 Zalogowanie się do Azure Notebooks przy użyciu konta służbowego może wymagać zgody administratora, ponieważ Azure Notebooks zbiera lub używa (ale nie ujawnia) informacji, takich jak adres e-mail konta i informacje o przeglądarce użytkownika. (Dane przeglądarki służą do optymalizowania funkcji zgodnie z popularnym użyciem).
 

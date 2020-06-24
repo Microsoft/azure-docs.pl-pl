@@ -2,21 +2,21 @@
 title: Zaplanuj automatyczne wdrożenie aprowizacji użytkowników dla Azure Active Directory
 description: Wskazówki dotyczące planowania i wykonywania automatycznej aprowizacji użytkowników
 services: active-directory
-author: martincoetzer
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
-ms.author: martinco
+ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 4f391a2fce669c2684ac5001e3659247adfeb4f6
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593543"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84781637"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planowanie wdrożenia automatycznego aprowizowania użytkowników
 
@@ -217,7 +217,7 @@ Aby zmniejszyć liczbę problemów po wdrożeniu, należy wziąć pod uwagę nas
 
 * Aplikacje mogą mieć określone ograniczenia i/lub wymagania, które należy spełnić w celu poprawnego działania aprowizacji użytkowników. Na przykład zapasowy obcina wartości dla niektórych atrybutów. Zapoznaj się z [automatycznymi samouczkami aprowizacji użytkowników](../saas-apps/tutorial-list.md) specyficznymi dla poszczególnych aplikacji.
 
-* Potwierdź spójność schematu między systemem źródłowym a docelowym. Typowe problemy obejmują atrybuty, takie jak nazwa UPN lub poczta, która nie jest zgodna. Na przykład nazwa UPN w usłudze Azure AD ustawiona *john_smith@contoso.com* jako i w aplikacji jest *jsmith@contoso.com*. Aby uzyskać więcej informacji, zobacz [Informacje o schemacie użytkownika i grupy](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+* Potwierdź spójność schematu między systemem źródłowym a docelowym. Typowe problemy obejmują atrybuty, takie jak nazwa UPN lub poczta, która nie jest zgodna. Na przykład nazwa UPN w usłudze Azure AD ustawiona jako *john_smith@contoso.com* i w aplikacji jest *jsmith@contoso.com* . Aby uzyskać więcej informacji, zobacz [Informacje o schemacie użytkownika i grupy](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
 ## <a name="plan-testing-and-security"></a>Planowanie testowania i zabezpieczeń
 

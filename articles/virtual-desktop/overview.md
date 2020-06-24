@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 289cc463732ee6b612b67f6c408d9d7260016137
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929829"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125808"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Co to jest Windows Virtual Desktop? 
 
@@ -22,7 +22,7 @@ Windows Virtual Desktop to usługa wirtualizacji pulpitu i aplikacji działając
 Oto co można zrobić w przypadku uruchamiania pulpitu wirtualnego systemu Windows na platformie Azure:
 
 * Konfigurowanie wdrożenia obejmującego wiele sesji systemu Windows 10, które zapewnia pełną skalowalność systemu Windows 10
-* Wirtualizacja pakietu Office 365 ProPlus i optymalizacja do działania w scenariuszach wirtualnych obejmujących wiele użytkowników
+* Wirtualizacja Microsoft 365 aplikacje dla przedsiębiorstw i optymalizacja do działania w scenariuszach wirtualnych obejmujących wiele użytkowników
 * Udostępnianie pulpitów wirtualnych systemu Windows 7 z bezpłatnymi rozszerzonymi aktualizacjami zabezpieczeń
 * Przenoszenie istniejących Usługi pulpitu zdalnego (RDS) i komputerów stacjonarnych i aplikacji z systemem Windows Server do dowolnego komputera
 * Wirtualizacja zarówno komputerów stacjonarnych, jak i aplikacji
@@ -109,11 +109,11 @@ W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wir
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Tag usługi|
 |---|---|---|---|
-|*.microsoftonline.com|443|Uwierzytelnianie w usługach MS online|Brak|
+|*.microsoftonline.com|443|Uwierzytelnianie w usługach online firmy Microsoft|Brak|
 |*. events.data.microsoft.com|443|Usługa telemetrii|Brak|
 |www.msftconnecttest.com|443|Wykrywa, czy system operacyjny jest połączony z Internetem|Brak|
 |*. prod.do.dsp.mp.microsoft.com|443|Windows Update|Brak|
-|login.windows.net|443|Logowanie do usług MS online, Office 365|Brak|
+|login.windows.net|443|Zaloguj się do usług Microsoft Online Services, Microsoft 365|Brak|
 |*. sfx.ms|443|Aktualizacje oprogramowania klienckiego usługi OneDrive|Brak|
 |*. digicert.com|443|Sprawdzanie odwołania certyfikatu|Brak|
 
@@ -126,7 +126,7 @@ W poniższej tabeli przedstawiono opcjonalne adresy URL, do których maszyny wir
 >Należy użyć symbolu wieloznacznego (*) dla adresów URL związanych z ruchem usługi. Jeśli wolisz używać * w przypadku ruchu związanego z agentem, Oto jak znaleźć adresy URL bez symboli wieloznacznych:
 >
 >1. Zarejestruj maszyny wirtualne w puli hostów systemu Windows Virtual Desktop.
->2. **Application** > Otwórz **Podgląd zdarzeń** i przejdź do **dziennika** > systemu Windows**WVD-Agent** i poszukaj zdarzenia o identyfikatorze 3702.
+>2. Otwórz **Podgląd zdarzeń** i przejdź do **dziennika systemu Windows**  >  **Application**  >  **WVD-Agent** i poszukaj zdarzenia o identyfikatorze 3702.
 >3. Dozwolonych adresy URL Znalezione w obszarze zdarzenia o IDENTYFIKATORze 3702. Adresy URL pod IDENTYFIKATORem zdarzenia 3702 są specyficzne dla regionu. Należy powtórzyć proces listy dozwolonych z odpowiednimi adresami URL dla każdego regionu, w którym mają zostać wdrożone maszyny wirtualne.
 
 Pulpit wirtualny systemu Windows składa się z komputerów stacjonarnych i aplikacji z systemem Windows dostarczanych użytkownikom i rozwiązanie do zarządzania, które jest hostowane jako usługa na platformie Azure przez firmę Microsoft. Komputery stacjonarne i aplikacje można wdrażać na maszynach wirtualnych w dowolnym regionie świadczenia usługi Azure, a rozwiązanie do zarządzania i dane dla tych maszyn wirtualnych będą znajdować się w Stany Zjednoczone. Może to spowodować transfer danych do Stany Zjednoczone.
@@ -157,12 +157,12 @@ Klienci Pulpit zdalny muszą mieć dostęp do następujących adresów URL:
 
 |Adres|Wychodzący port TCP|Przeznaczenie|Klienci|
 |---|---|---|---|
-|*. wvd.microsoft.com|443|Ruch usługi|Wszyscy|
-|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszyscy|
-|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszyscy|
-|aka.ms|443|Shortener URL firmy Microsoft|Wszyscy|
-|docs.microsoft.com|443|Dokumentacja|Wszyscy|
-|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszyscy|
+|*. wvd.microsoft.com|443|Ruch usługi|Wszystko|
+|*.servicebus.windows.net|443|Rozwiązywanie problemów z danymi|Wszystko|
+|go.microsoft.com|443|Linki fwlink firmy Microsoft|Wszystko|
+|aka.ms|443|Shortener URL firmy Microsoft|Wszystko|
+|docs.microsoft.com|443|Dokumentacja|Wszystko|
+|privacy.microsoft.com|443|Oświadczenie o ochronie prywatności|Wszystko|
 |query.prod.cms.rt.microsoft.com|443|Aktualizacje klienta|Pulpit systemu Windows|
 
 >[!IMPORTANT]
@@ -177,7 +177,7 @@ Pulpit wirtualny systemu Windows obsługuje następujące obrazy systemu operacy
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
-* Windows Server 2012 R2
+* Windows Server 2012 z dodatkiem R2
 
 Pulpit wirtualny systemu Windows nie obsługuje obrazów systemu operacyjnego x86 (32-bitowych), Windows 10 Enterprise N lub Windows 10 Enterprise KN. System Windows 7 nie obsługuje również żadnych rozwiązań profilu opartych na dyskach VHD lub VHDX hostowanych w zarządzanym magazynie Azure z powodu ograniczenia rozmiaru sektora.
 
@@ -185,14 +185,14 @@ Dostępne opcje automatyzacji i wdrażania zależą od wybranego systemu operacy
 
 |System operacyjny|Galeria obrazów platformy Azure|Ręczne wdrożenie maszyny wirtualnej|Integracja z szablonem Azure Resource Manager|Inicjowanie obsługi pul hostów w witrynie Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Wiele sesji systemu Windows 10, wersja 1903|Tak|Tak|Tak|Tak|
+|Wiele sesji systemu Windows 10, wersja 1903|Tak|Tak|Tak|Yes|
 |Wiele sesji systemu Windows 10, wersja 1809|Tak|Yes|Nie|Nie|
-|Windows 10 Enterprise, wersja 1903|Tak|Tak|Tak|Tak|
+|Windows 10 Enterprise, wersja 1903|Tak|Tak|Tak|Yes|
 |Windows 10 Enterprise, wersja 1809|Tak|Yes|Nie|Nie|
 |Windows 7 Enterprise|Tak|Yes|Nie|Nie|
 |Windows Server 2019|Tak|Yes|Nie|Nie|
-|Windows Server 2016|Tak|Tak|Tak|Tak|
-|Windows Server 2012 R2|Tak|Yes|Nie|Nie|
+|Windows Server 2016|Tak|Tak|Tak|Yes|
+|Windows Server 2012 z dodatkiem R2|Tak|Yes|Nie|Nie|
 
 ## <a name="next-steps"></a>Następne kroki
 

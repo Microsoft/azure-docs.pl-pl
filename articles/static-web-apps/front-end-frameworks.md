@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: cshoe
-ms.openlocfilehash: 1da2403cc75d979ca34c96caff5ec7cffab7ffb0
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 41f0c44ad65af5fdf2560da3f977a28f135af878
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84680028"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976714"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Konfigurowanie środowisk i bibliotek frontonu za pomocą usługi Azure static Web Apps Preview
 
 Statyczna Web Apps platformy Azure wymaga, aby w [pliku konfiguracji kompilacji](github-actions-workflow.md) dla platformy lub biblioteki frontonu były dostępne odpowiednie wartości konfiguracyjne.
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli wymieniono ustawienia dla serii platform i bibliotek<sup>1</sup>.
 
@@ -37,6 +37,7 @@ Zamiarem kolumn tabeli jest wyjaśnienie następujących elementów:
 | [Backbone.js](https://backbonejs.org/) | `/` | nie dotyczy |
 | [Ember](https://emberjs.com/) | `dist` | nie dotyczy |
 | [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
+| [Framework7](https://framework7.io/) | `www` | `npm run build-prod` |
 | [Glimmer](https://glimmerjs.com/) | `dist` | nie dotyczy |
 | [HTML](https://developer.mozilla.org/docs/Web/HTML) | `/` | nie dotyczy |
 | [Hyperapp](https://hyperapp.dev/) | `/` | nie dotyczy |

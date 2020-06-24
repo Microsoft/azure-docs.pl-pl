@@ -3,79 +3,98 @@ title: Zmniejsz koszty usługi przy użyciu Azure Advisor
 description: Użyj Azure Advisor, aby zoptymalizować koszty wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 99dfec669d8981a557b2e8a8d8979292af74616f
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 8ff4e2d8f778d05e9a0fa271600446e1c24380be
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658563"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130633"
 ---
-# <a name="reduce-service-costs-using-azure-advisor"></a>Zmniejsz koszty usługi przy użyciu Azure Advisor
+# <a name="reduce-service-costs-by-using-azure-advisor"></a>Obniżenie kosztów usługi przy użyciu Azure Advisor
 
-Usługa Advisor pomaga zoptymalizować i obniżyć ogólne wydatki na platformę Azure, identyfikując bezczynne i niedostateczne zasoby.Możesz uzyskać zalecenia dotyczące kosztów na karcie **koszt** na pulpicie nawigacyjnym usługi Advisor.
+Azure Advisor pomaga zoptymalizować i zmniejszyć ogólne wydatki na platformę Azure, identyfikując bezczynne i niedostosowane zasoby.Możesz uzyskać zalecenia dotyczące kosztów na karcie **koszt** na pulpicie nawigacyjnym usługi Advisor.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Zoptymalizuj wydatki na maszyny wirtualne przez zmianę rozmiaru lub zamknięcie nie w pełni wykorzystywanych wystąpień 
 
-Chociaż niektóre scenariusze aplikacji mogą powodować niskie użycie w projekcie, często możesz zaoszczędzić pieniądze, zarządzając rozmiarem i liczbą maszyn wirtualnych. Zaawansowane modele oceny usługi Advisor uwzględniają maszyny wirtualne do zamknięcia, gdy P95th maksymalnej maksymalnej wartości użycia procesora CPU wynosi mniej niż 3%, a wykorzystanie sieci jest mniejsze niż 2% w okresie 7 dni. Maszyny wirtualne są uważane za odpowiedni rozmiar, gdy można dopasować bieżące obciążenie do mniejszej jednostki SKU (w ramach tej samej rodziny SKU) lub mniejszej liczby wystąpień w taki sposób, aby bieżące obciążenie nie przeszedł do 80% w przypadku obciążeń niezwiązanych z użytkownikiem, a nie powyżej 40% w przypadku obciążenia związanego z użytkownikiem. W tym miejscu typ obciążenia jest określany przez analizowanie charakterystyki użycia procesora CPU.
+Chociaż niektóre scenariusze aplikacji mogą powodować niskie użycie w projekcie, często możesz zaoszczędzić pieniądze, zarządzając rozmiarem i liczbą maszyn wirtualnych. 
 
-Zalecane akcje są zamykane lub zmieniane, w odniesieniu do zasobów zalecanych dla. Program Advisor pokazuje szacowane oszczędności kosztów dla zalecanych akcji — zmiana rozmiaru lub zamknięcie. Ponadto w przypadku akcji zalecanej do zmiany rozmiaru klasyfikator udostępnia bieżące i docelowe informacje o jednostce SKU. 
+Zalecane akcje są wyłączane lub zmieniane, w odróżnieniu od wartości ocenianego zasobu.
+
+Zaawansowany model oceny w usłudze Advisor uwzględnia wyłączenie maszyn wirtualnych, gdy obie te instrukcje są prawdziwe: 
+- P95th maksymalna wartość użycia procesora CPU jest mniejsza niż 3%. 
+- Wykorzystanie sieci jest mniejsze niż 2% w okresie siedmiu dni.
+- Wykorzystanie pamięci jest mniejsze niż wartości progowe
+
+Klasyfikator rozważa zmianę rozmiaru maszyn wirtualnych, gdy istnieje możliwość dopasowania bieżącego obciążenia do mniejszej jednostki SKU (w ramach tej samej rodziny SKU) lub mniejszej liczby wystąpień, takich jak:
+- Bieżące obciążenie nie działa powyżej 80% w przypadku obciążeń, które nie są związane z użytkownikiem. 
+- Obciążenie nie przechodzi powyżej 40% dla obciążeń związanych z użytkownikiem. 
+
+Tutaj należy określić typ obciążenia, analizując charakterystykę użycia procesora CPU.
+
+Program Advisor pokazuje szacowane oszczędności kosztów dla zalecanej akcji: zmiana rozmiaru lub wyłączenie. W przypadku zmiany rozmiaru klasyfikator udostępnia bieżące i docelowe informacje o jednostce SKU.
 
 Jeśli chcesz bardziej agresywnie identyfikować nieużywane maszyny wirtualne, możesz dostosować regułę użycia procesora CPU dla każdej subskrypcji.
 
-## <a name="optimize-spend-for-mariadb-mysql-and-postgresql-servers-by-right-sizing"></a>Optymalizowanie wydatków pod kątem serwerów MariaDB, MySQL i PostgreSQL według odpowiednich rozmiarów 
-Program Advisor analizuje użycie i zaleca, jeśli zasoby serwera bazy danych MariaDB/MySQL/PostgreSQL zostały niewykorzystane przez dłuższy czas w ciągu ostatnich 7 dni. Niewielkie wykorzystanie zasobów skutkuje niepotrzebnymi wydatkami. Ten problem można rozwiązać bez znaczącego wpływu na wydajność. Aby zmniejszyć koszty i efektywnie zarządzać zasobami, zalecamy zmniejszenie liczby rdzeni wirtualnych o połowę.
+## <a name="optimize-spend-for-mariadb-mysql-and-postgresql-servers-by-right-sizing"></a>Optymalizowanie wydatków pod kątem serwerów MariaDB, MySQL i PostgreSQL przez odpowiednie rozmiary 
+Program Advisor analizuje użycie i sprawdza, czy zasoby serwera bazy danych MariaDB, MySQL i PostgreSQL zostały poddane niedostatecznej dostępności przez dłuższy czas w ciągu ostatnich siedmiu dni. Niewielkie wykorzystanie zasobów skutkuje niepotrzebnymi wydatkami, które można naprawić bez znaczącego wpływu na wydajność. Aby zmniejszyć koszty i efektywnie zarządzać zasobami, zalecamy zmniejszenie rozmiaru obliczeń (rdzeni wirtualnych) o połowę.
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Zmniejsz koszty, eliminując niezainicjowane obwody usługi ExpressRoute
 
-Program Advisor identyfikuje obwody usługi ExpressRoute, które były w stanie dostawcy *nieobsługiwanym przez więcej* niż jeden miesiąc, i zaleca usunięcie obwodu, jeśli nie planujesz zainicjowania obsługi obwodu u usługodawcy.
+Usługa Advisor identyfikuje obwody usługi Azure ExpressRoute, które były w stanie dostawcy **nieobsługiwanym** przez więcej niż jeden miesiąc. Zaleca się usunięcie obwodu, jeśli nie planujesz zainicjować obsługi obwodu u dostawcy połączenia.
 
 ## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>Zmniejsz koszty, usuwając lub ponownie konfigurując bezczynne bramy sieci wirtualnej
 
-Doradca identyfikuje bramy sieci wirtualnej, które są bezczynne przez ponad 90 dni. Ponieważ bramy są rozliczane co godzinę, należy rozważyć ponowne skonfigurowanie lub usunięcie ich, jeśli nie zamierzasz ich używać. 
+Program Advisor identyfikuje bramy sieci wirtualnej, które są bezczynne przez ponad 90 dni. Ponieważ bramy są rozliczane co godzinę, należy rozważyć ponowne skonfigurowanie lub usunięcie ich, jeśli nie zamierzasz ich używać. 
 
 ## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Kup wystąpienia zarezerwowane maszyn wirtualnych w celu zaoszczędzenia pieniędzy w porównaniu z płatnością zgodnie z rzeczywistym użyciem
 
-Usługa Advisor sprawdzi użycie maszyny wirtualnej w ciągu ostatnich 30 dni i określi, czy możesz zaoszczędzić pieniądze, kupując rezerwację na platformie Azure. W usłudze Advisor zostaną wyświetlone regiony i rozmiary, w których można było korzystać z najbardziej oszczędności i będą widoczne szacowane oszczędności wynikające z kupowania rezerwacji. Dzięki rezerwacji na platformie Azure można wstępnie zakupić podstawowe koszty dla maszyn wirtualnych. Rabaty będą automatycznie stosowane do nowych lub istniejących maszyn wirtualnych o tym samym rozmiarze i regionie co rezerwacje. [Dowiedz się więcej o Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+Usługa Advisor przegląda użycie maszyny wirtualnej w ciągu ostatnich 30 dni, aby określić, czy można zaoszczędzić pieniądze, kupując rezerwację na platformie Azure. W usłudze Advisor przedstawiono regiony i rozmiary, w których możliwy jest poziom oszczędności, a szacowane oszczędności wynikające z zakupu rezerwacji. Dzięki rezerwacji na platformie Azure można wstępnie zakupić podstawowe koszty dla maszyn wirtualnych. Rabaty są automatycznie stosowane do nowych lub istniejących maszyn wirtualnych o tym samym rozmiarze i regionie co rezerwacje. [Dowiedz się więcej o Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
-Program Advisor powiadamia również użytkownika o wystąpieniach zarezerwowanych, które wygaśnie w ciągu następnych 30 dni. Zalecamy zakupienie nowych wystąpień zarezerwowanych, aby uniknąć płacenia cen płatności zgodnie z rzeczywistym użyciem.
+Program Advisor powiadamia również o wystąpieniach zarezerwowanych, które wygaśnie w ciągu następnych 30 dni. Zalecane jest zakupienie nowych wystąpień zarezerwowanych, aby uniknąć cen zgodnie z rzeczywistym użyciem.
 
 ## <a name="buy-reserved-instances-for-several-resource-types-to-save-over-your-pay-as-you-go-costs"></a>Kup wystąpienia zarezerwowane dla kilku typów zasobów, aby zaoszczędzić według kosztów płatność zgodnie z rzeczywistym użyciem
 
-Analizujemy wzorzec użycia dla poniższej listy zasobów, w ciągu ostatnich 30 dni i zalecamy zakupienie zarezerwowanej pojemności, która maksymalizuje oszczędności. 
-### <a name="cosmos-db-reserved-capacity"></a>Pojemność zarezerwowana usługi Cosmos DB
-Na podstawie analiz wzorca użycia usługi Cosmos DB w ciągu ostatnich 30 dni zalecamy zakup pojemności zarezerwowanej, która pozwala obniżyć koszty. Pojemność zarezerwowana pozwala z wyprzedzeniem zakupić użycie godzinowe usługi Cosmos DB i uzyskać większe oszczędności niż w przypadku korzystania z modelu płatności zgodnie z rzeczywistym użyciem. Rabat jest udzielany przy rozliczeniu, a pojemność zarezerwowana jest automatycznie stosowana w nowych lub istniejących wdrożeniach. Oszczędności są szacowane dla indywidualnych subskrypcji na podstawie cennika trzyletniej rezerwacji oraz ekstrapolacji wzorca użycia z ostatnich 30 dni. Zakup rezerwacji obejmuje zalecenia dotyczące współdzielonego zakresu, które umożliwiają dodatkowe zwiększenie oszczędności.
+Klasyfikator analizuje wzorce użycia w ciągu ostatnich 30 dni dla następujących zasobów i zaleca zakupy zarezerwowanych pojemności, które optymalizują koszty.
+
+### <a name="azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB zarezerwowana pojemność
+Klasyfikator analizuje Azure Cosmos DB wzorców użycia w ciągu ostatnich 30 dni i zaleca zakupy zarezerwowanych zdolności produkcyjnych w celu optymalizacji kosztów. Korzystając z zarezerwowanej pojemności, można wstępnie kupić Azure Cosmos DB godzinowe użycie i zaoszczędzić koszty związane z płatność zgodnie z rzeczywistym użyciem. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i ekstrapolacji wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
 
 ### <a name="sql-paas-reserved-capacity"></a>Zarezerwowana pojemność SQL PaaS
-Na podstawie analiz elastycznych pul SQL PaaS oraz wzorca użycia wystąpienia zarządzanego w ciągu ostatnich 30 dni zalecamy zakup pojemności zarezerwowanej, która pozwala zmaksymalizować oszczędności. Pojemność zarezerwowana pozwala z wyprzedzeniem zakupić użycie godzinowe bazy danych SQL i zmniejszyć koszty użycia zasobów obliczeniowych SQL. Licencja SQL jest rozliczana oddzielnie, a rezerwacja nie powoduje zastosowania rabatu. Rabat jest udzielany przy rozliczeniu, a pojemność zarezerwowana jest automatycznie stosowana w nowych lub istniejących wdrożeniach. Oszczędności są szacowane dla indywidualnych subskrypcji na podstawie cennika trzyletniej rezerwacji oraz ekstrapolacji wzorca użycia z ostatnich 30 dni. Zakup rezerwacji obejmuje zalecenia dotyczące współdzielonego zakresu, które umożliwiają dodatkowe zwiększenie oszczędności.
+Klasyfikator analizuje wzorce użycia usługi SQL PaaS dla pul baz danych i wystąpienia zarządzanego w ciągu ostatnich 30 dni. Następnie zaleca się zarezerwowanych zakupów pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, można wstępnie kupić użycie w bazie danych SQL DB i zaoszczędzić na kosztach obliczeń SQL. Licencja SQL jest naliczana osobno i nie podlega rabatowi za rezerwację. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i ekstrapolacji wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
 
-### <a name="app-service-stamp-fee-reserved-capacity"></a>Zarezerwowana pojemność opłaty za sygnaturę usługi App Service
-Analizujemy wzorzec użycia opłat za sygnatury środowiska App Service izolowany w ciągu ostatnich 30 dni i zalecamy zakupienie zarezerwowanej pojemności, która maksymalizuje oszczędności. Pojemność zarezerwowana pozwala z wyprzedzeniem zakupić użycie godzinowe opłaty jednostkowej izolowanego środowiska i uzyskać większe oszczędności niż w przypadku korzystania z modelu płatności zgodnie z rzeczywistym użyciem. Należy pamiętać, że pojemność zarezerwowana dotyczy tylko opłaty jednostkowej, a nie wystąpień usługi App Service. Rabat jest udzielany przy rozliczeniu, a pojemność zarezerwowana jest automatycznie stosowana w nowych lub istniejących wdrożeniach. Oszczędności są szacowane dla indywidualnych subskrypcji na podstawie cennika trzyletniej rezerwacji i wzorca użycia z ostatnich 30 dni.
+### <a name="app-service-stamp-fee-reserved-capacity"></a>Zarezerwowana pojemność opłaty za sygnaturę App Service
+Klasyfikator analizuje wzorzec użycia opłaty za sygnaturę dla Azure App Service środowiska izolowanego w ciągu ostatnich 30 dni i zaleca zakupy zarezerwowanych pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, można wstępnie zakupić opłaty godzinowe za użycie sygnatury środowiska izolowanego i zaoszczędzić na kosztach płatnych zgodnie z rzeczywistym użyciem. Należy zauważyć, że zarezerwowana pojemność dotyczy tylko opłaty za sygnaturę, a nie do App Service wystąpień. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji, korzystając z cen rezerwacji 3-letnich w oparciu o wzorce użycia w ciągu ostatnich 30 dni.
 
 ### <a name="blob-storage-reserved-capacity"></a>Zarezerwowana pojemność magazynu obiektów BLOB
-Na podstawie analizy użycia usług Azure Blob i Datalake Storage z ostatnich 30 dni dokonaliśmy obliczeń dotyczących zakupu pojemności zarezerwowanej, co doprowadziłoby do znacznego zwiększenia oszczędności. Dzięki pojemności zarezerwowanej można z wyprzedzeniem zakupić użycie godzinowe i zmniejszyć bieżące koszty użycia zasobów na żądanie. Pojemność zarezerwowana usługi Blob Storage dotyczy tylko danych przechowywanych w usługach Azure Blob (GPv2) i Azure Data Lake Storage (Gen 2). Rabat jest udzielany przy rozliczeniu, a pojemność zarezerwowana jest automatycznie stosowana w nowych lub istniejących wdrożeniach. Oszczędności są szacowane dla indywidualnych subskrypcji na podstawie cennika trzyletniej rezerwacji oraz wzorca użycia zaobserwowanego w czasie ostatnich 30 dni. Zakup rezerwacji obejmuje zalecenia dotyczące współdzielonego zakresu, które umożliwiają dodatkowe zwiększenie oszczędności.
+Usługa Advisor analizuje magazyn obiektów blob platformy Azure i Azure Data Lake użycie magazynu w ciągu ostatnich 30 dni. Następnie oblicza zarezerwowane zakupy pojemności, które optymalizują koszty. Dzięki zarezerwowanej pojemności można wstępnie zakupić użycie godzinowe i zaoszczędzić na bieżących kosztach na żądanie. Zarezerwowana pojemność magazynu obiektów BLOB ma zastosowanie tylko do danych przechowywanych w usłudze Azure Blob ogólnego przeznaczenia w wersji 2 i Azure Data Lake Storage Gen2. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
 
 ### <a name="mariadb-mysql-and-postgresql-reserved-capacity"></a>Zarezerwowana pojemność MariaDB, MySQL i PostgreSQL
-Analizujemy wzorzec użycia Azure Database for MariaDB, MySQL i PostgreSQL w ciągu ostatnich 30 dni i zalecamy zakup zarezerwowanej pojemności, która maksymalizuje oszczędności. Korzystając z zarezerwowanej pojemności, możesz wstępnie kupić MariaDB, MySQL i PostgreSQL użycie godzinowe i zaoszczędzić na kosztach. Rabat jest udzielany przy rozliczeniu, a pojemność zarezerwowana jest automatycznie stosowana w nowych lub istniejących wdrożeniach. Oszczędności są szacowane dla indywidualnych subskrypcji na podstawie cennika trzyletniej rezerwacji oraz wzorca użycia z ostatnich 30 dni. Zakup rezerwacji obejmuje zalecenia dotyczące współdzielonego zakresu, które umożliwiają dodatkowe zwiększenie oszczędności.
+Program Advisor analizuje wzorce użycia Azure Database for MariaDB, Azure Database for MySQL i Azure Database for PostgreSQL w ciągu ostatnich 30 dni. Następnie zaleca się zarezerwowanych zakupów pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, można wstępnie kupić MariaDB, MySQL i PostgreSQL użycie godzinowe i zaoszczędzić na bieżących kosztach. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
 
-### <a name="synapse-analytics-formerly-sql-dw-reserved-capacity"></a>Zarezerwowana pojemność Synapse Analytics (wcześniej SQL DW)
-Analizujemy wzorzec użycia usługi Azure Synapse Analytics w ciągu ostatnich 30 dni i zalecamy zakup zarezerwowanej pojemności, która maksymalizuje oszczędności. Dzięki pojemności zarezerwowanej można z wyprzedzeniem zakupić użycie godzinowe usługi Synapse Analytics i zmniejszyć koszty użycia zasobów na żądanie. Rabat jest udzielany przy rozliczeniu, a pojemność zarezerwowana jest automatycznie stosowana w nowych lub istniejących wdrożeniach. Oszczędności są szacowane dla indywidualnych subskrypcji na podstawie cennika trzyletniej rezerwacji oraz wzorca użycia zaobserwowanego w czasie ostatnich 30 dni. Zakup rezerwacji obejmuje zalecenia dotyczące współdzielonego zakresu, które umożliwiają dodatkowe zwiększenie oszczędności.
+### <a name="synapse-analytics-formerly-sql-data-warehouse-reserved-capacity"></a>Zarezerwowana pojemność Synapse Analytics (dawniej SQL Data Warehouse)
+Usługa Advisor analizuje wzorce użycia usługi Azure Synapse Analytics w ciągu ostatnich 30 dni i zaleca zakupy zarezerwowanych pojemności, które optymalizują koszty. Korzystając z zarezerwowanej pojemności, możesz wstępnie kupić Synapseą analizę godzinową i zaoszczędzić na kosztach na żądanie. Zarezerwowana pojemność to korzyść rozliczenia i automatycznie stosowana do nowych i istniejących wdrożeń. Doradca oblicza oszczędności dla indywidualnych subskrypcji przy użyciu cen rezerwacji 3-letnich i wzorców użycia zaobserwowanych w ciągu ostatnich 30 dni. Zalecenia dotyczące zakresu udostępnionego są dostępne dla zarezerwowanych zakupów pojemności i mogą zwiększyć oszczędności.
 
 ## <a name="delete-unassociated-public-ip-addresses-to-save-money"></a>Usuń nieskojarzone publiczne adresy IP, aby zaoszczędzić pieniądze
 
-Usługa Advisor identyfikuje publiczne adresy IP, które nie są obecnie skojarzone z zasobami platformy Azure, takimi jak moduły równoważenia obciążenia lub maszyny wirtualne. Te publiczne adresy IP są naliczane przy użyciu stawki nominalnej. Jeśli nie planujesz ich używania, usunięcie ich może spowodować zmniejszenie kosztów.
+Usługa Advisor identyfikuje publiczne adresy IP, które nie są skojarzone z zasobami platformy Azure, takimi jak moduły równoważenia obciążenia i maszyny wirtualne. Opłata nominalna jest skojarzona z tymi publicznymi adresami IP. Jeśli nie planujesz korzystania z nich, możesz zaoszczędzić pieniądze, usuwając je.
 
 ## <a name="delete-azure-data-factory-pipelines-that-are-failing"></a>Usuń potoki usługi Azure Data Factory, które kończą się niepowodzeniem
 
-Azure Advisor wykryje Azure Data Factory potoki, które wielokrotnie kończą się niepowodzeniem i zalecamy rozwiązanie problemów lub usunięcie potoków zakończonych niepowodzeniem, jeśli nie są już potrzebne. Za te potoki będą naliczane opłaty nawet wtedy, gdy nie są one obsługiwane w przypadku awarii. 
+Program Advisor wykrywa potoki Azure Data Factory, które wielokrotnie kończą się niepowodzeniem. Zalecamy Rozwiązywanie problemów lub usuwanie potoków, jeśli nie są one potrzebne. Opłaty są naliczane za te potoki nawet wtedy, gdy nie są one obsługiwane w przypadku awarii.
 
-## <a name="use-standard-snapshots-for-managed-disks"></a>Użyj standardowych migawek dla Managed Disks
-Aby obniżyć koszt o 60%, zalecamy przechowywanie migawek w usłudze Standard Storage niezależnie od typu magazynu na dysku nadrzędnym. Ta opcja jest opcją domyślną dla migawek Managed Disks. Azure Advisor zidentyfikuje migawki, które są przechowywane Premium Storage i zaleca Migrowanie migawki z magazynu w warstwie Premium do warstwy Standardowa. [Dowiedz się więcej o cenach dysku zarządzanego](https://aka.ms/aa_manageddisksnapshot_learnmore)
+## <a name="use-standard-snapshots-for-managed-disks"></a>Używanie standardowych migawek dla dysków zarządzanych
+Aby zaoszczędzić 60% kosztów, zalecamy przechowywanie migawek w magazynie w warstwie Standardowa, niezależnie od typu magazynu dysku nadrzędnego. Ta opcja jest opcją domyślną dla migawek dysków zarządzanych. Usługa Advisor identyfikuje migawki przechowywane w usłudze Premium Storage i zaleca migrowanie ich z magazynu w warstwie Premium do wersji Standard. [Dowiedz się więcej o cenach dysku zarządzanego.](https://aka.ms/aa_manageddisksnapshot_learnmore)
 
-## <a name="utilize-lifecycle-management"></a>Korzystanie z zarządzania cyklem życia
-Azure Advisor będzie używać analizy dotyczącej liczby obiektów usługi Azure Blob Storage, łącznego rozmiaru i transakcji w celu wykrycia, czy co najmniej jedno konto magazynu najlepiej nadaje się do włączenia zarządzania cyklem życia do danych warstwy. Spowoduje to wyświetlenie monitu o utworzenie reguł zarządzania cyklem życia w celu automatycznego przechowania danych w celu zoptymalizowania lub archiwizacji, aby zoptymalizować koszty magazynowania podczas zachowywania danych w usłudze Azure Blob Storage w celu zapewnienia zgodności aplikacji.
+## <a name="use-lifecycle-management"></a>Korzystanie z zarządzania cyklem życia
+Korzystając z analizy o liczbie obiektów usługi Azure Blob Storage, łącznym rozmiarze i transakcjach, usługa Advisor wykrywa, czy należy włączyć zarządzanie cyklem życia w celu uzyskania warstwy danych na co najmniej jednym koncie magazynu. Zostanie wyświetlony komunikat z prośbą o utworzenie reguł zarządzania cyklem życia w celu automatycznej warstwy danych do magazynu chłodnego lub archiwum w celu zoptymalizowania kosztów magazynowania podczas zachowywania danych w usłudze Azure Blob Storage w celu zapewnienia zgodności aplikacji.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>Zalecenie dotyczące tworzenia efemerycznego dysku systemu operacyjnego
-Dzięki tymczasowemu [dyskowi systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks)klienci uzyskują następujące korzyści: oszczędności związane z magazynowaniem dysku systemu operacyjnego. Mniejsze opóźnienie odczytu/zapisu na dysku systemu operacyjnego. Szybsza operacja odtwarzania maszyny wirtualnej obrazu przez resetowanie systemu operacyjnego (i dysku tymczasowego) do jego pierwotnego stanu. Bardziej preferowane jest używanie tymczasowych dysków systemu operacyjnego na krótkoterminowych maszynach wirtualnych IaaS lub maszynach wirtualnych o bezstanowych obciążeniach. Doradca ma rekomendacje dotyczące zasobów, które mogą posłużyć do korzystania z tymczasowych dysków systemu operacyjnego. 
+Dysk tymczasowej wersji [systemu operacyjnego](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks) pozwala: 
+- Oszczędzaj koszty magazynowania dysków systemu operacyjnego. 
+- Uzyskaj mniejsze opóźnienie odczytu/zapisu na dyskach systemu operacyjnego. 
+- Uzyskaj szybsze operacje na oddziałach maszyn wirtualnych przez zresetowanie systemu operacyjnego (i dysku tymczasowego) do jego oryginalnego stanu.
+
+Zalecane jest używanie tymczasowych dysków systemu operacyjnego do krótkoterminowych maszyn wirtualnych IaaS lub maszyn wirtualnych o bezstanowych obciążeniach. Klasyfikator zawiera zalecenia dotyczące zasobów, które mogą korzystać z systemu z systemem tymczasowych systemów operacyjnych.
 
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Jak uzyskać dostęp do zaleceń dotyczących kosztów w Azure Advisor
