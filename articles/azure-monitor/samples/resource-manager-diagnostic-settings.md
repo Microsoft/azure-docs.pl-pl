@@ -5,33 +5,35 @@ ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020
-ms.openlocfilehash: 4330f70328d00766c829478cebeb2cdbb9ad21c1
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/09/2020
+ms.openlocfilehash: 0a71d50945d5be489872e90a5a6d9989295e1fa9
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854480"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753507"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Przykłady szablonów Menedżer zasobów dla ustawień diagnostycznych w programie Azure Monitor
 Ten artykuł zawiera przykładowe [szablony Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) do tworzenia ustawień diagnostycznych dla zasobu platformy Azure. Każdy przykład zawiera plik szablonu i plik parametrów z przykładowymi wartościami do udostępnienia szablonowi.
 
-Aby utworzyć ustawienie diagnostyczne, Dodaj zasób typu <resource namespace> /providers/diagnosticSettings do szablonu. Ten artykuł zawiera przykłady dla dwóch różnych typów zasobów, ale ten sam wzorzec można zastosować do innych typów zasobów. Kolekcja dozwolonych dzienników i metryk różni się w zależności od typu zasobu.
+Aby utworzyć ustawienie diagnostyczne dla zasobu platformy Azure, Dodaj zasób typu `<resource namespace>/providers/diagnosticSettings` do szablonu. Ten artykuł zawiera przykłady dla niektórych typów zasobów, ale ten sam wzorzec można zastosować do innych typów zasobów. Kolekcja dozwolonych dzienników i metryk różni się w zależności od typu zasobu.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
+## <a name="diagnostic-setting-for-activity-log"></a>Ustawienie diagnostyczne dziennika aktywności
+Poniższy przykład tworzy ustawienie diagnostyczne dla dziennika aktywności przez dodanie zasobu typu `Microsoft.Insights/diagnosticSettings` do szablonu.
 
-## <a name="diagnostic-setting-for-azure-key-vault"></a>Ustawienie diagnostyczne magazynu kluczy Azure 
-Poniższy przykład dodaje dwa zapytania dziennika do magazynu kluczy platformy Azure.
+> [!IMPORTANT]
+> Ustawienia diagnostyczne dzienników aktywności są tworzone dla subskrypcji, a nie dla grupy zasobów, takiej jak ustawienia zasobów platformy Azure. Aby wdrożyć szablon zarządzania zasobami, użyj `New-AzSubscriptionDeployment` programu PowerShell lub `az deployment sub create` interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="template-file"></a>Plik szablonu
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "vaultName": {
+        "settingName": {
             "type": "String"
         },
         "workspaceId": {
@@ -52,10 +54,8 @@ Poniższy przykład dodaje dwa zapytania dziennika do magazynu kluczy platformy 
         {
           "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[concat(parameters('vaultName'), '/Microsoft.Insights/Send to all destinations')]",
-          "dependsOn": [
-            
-          ],
+          "name": "[(parameters('settingName')]",
+          "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",
             "storageAccountId": "[parameters('storageAccountId')]",
@@ -86,6 +86,95 @@ Poniższy przykład dodaje dwa zapytania dziennika do magazynu kluczy platformy 
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
+      "workspaceId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/MyResourceGroup/providers/microsoft.operationalinsights/workspaces/MyWorkspace"
+      },
+      "storageAccountId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
+      },
+      "eventHubAuthorizationRuleId": {
+        "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
+      },
+      "eventHubName": {
+        "value": "my-eventhub"
+      }
+  }
+}
+```
+
+
+## <a name="diagnostic-setting-for-azure-key-vault"></a>Ustawienie diagnostyczne dla Azure Key Vault 
+Poniższy przykład tworzy ustawienie diagnostyczne dla Azure Key Vault przez dodanie zasobu typu `Microsoft.KeyVault/vaults/providers/diagnosticSettings` do szablonu.
+
+### <a name="template-file"></a>Plik szablonu
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "settingName": {
+            "type": "String"
+        },
+        "vaultName": {
+            "type": "String"
+        },
+        "workspaceId": {
+            "type": "String"
+        },
+        "storageAccountId": {
+            "type": "String"
+        },
+        "eventHubAuthorizationRuleId": {
+            "type": "String"
+        },
+        "eventHubName": {
+            "type": "String"
+        }
+
+    },
+    "resources": [
+        {
+          "type": "Microsoft.KeyVault/vaults/providers/diagnosticSettings",
+          "apiVersion": "2017-05-01-preview",
+          "name": "[concat(parameters('vaultName'), '/Microsoft.Insights/', parameters('settingName'))]",
+          "dependsOn": [],
+          "properties": {
+            "workspaceId": "[parameters('workspaceId')]",
+            "storageAccountId": "[parameters('storageAccountId')]",
+            "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
+            "eventHubName": "[parameters('eventHubName')]",
+            "logs": [
+              {
+                "category": "AuditEvent",
+                "enabled": true
+              }
+            ],
+            "metrics": [
+              {
+                "category": "AllMetrics",
+                "enabled": true
+              }
+            ]
+          }
+        }
+    ]
+}
+```
+
+### <a name="parameter-file"></a>Plik parametrów
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
       "vaultName": {
         "value": "MyVault"
       },
@@ -99,21 +188,25 @@ Poniższy przykład dodaje dwa zapytania dziennika do magazynu kluczy platformy 
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
       },
       "eventHubName": {
-        "value": "MyKeyVault"
+        "value": "my-eventhub"
       }
   }
 }
 ```
 
 ## <a name="diagnostic-setting-for-azure-sql-database"></a>Ustawienie diagnostyczne usługi Azure SQL Database
-Poniższy przykład dodaje dwa zapytania dziennika do bazy danych Azure SQL Database.
+Poniższy przykład tworzy ustawienie diagnostyczne dla bazy danych SQL Azure, dodając zasób typu `microsoft.sql/servers/databases/providers/diagnosticSettings` do szablonu.
+
 ### <a name="template-file"></a>Plik szablonu
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+        "settingName": {
+            "type": "String"
+        },        
         "serverName": {
             "type": "String"
         },
@@ -138,10 +231,8 @@ Poniższy przykład dodaje dwa zapytania dziennika do bazy danych Azure SQL Data
         {
           "type": "microsoft.sql/servers/databases/providers/diagnosticSettings",
           "apiVersion": "2017-05-01-preview",
-          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights/SQL diagnostic setting')]",
-          "dependsOn": [
-            
-          ],
+          "name": "[concat(parameters('serverName'),'/',parameters('dbName'),'/microsoft.insights', parameters('settingName'))]",
+          "dependsOn": [],
           "properties": {
             "workspaceId": "[parameters('workspaceId')]",
             "storageAccountId": "[parameters('storageAccountId')]",
@@ -209,9 +300,12 @@ Poniższy przykład dodaje dwa zapytania dziennika do bazy danych Azure SQL Data
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+      "settingName": {
+          "value": "Send to all locations"
+      },
       "serverName": {
         "value": "MySqlServer"
       },
@@ -228,7 +322,7 @@ Poniższy przykład dodaje dwa zapytania dziennika do bazy danych Azure SQL Data
         "value": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.EventHub/namespaces/MyNameSpace/authorizationrules/RootManageSharedAccessKey"
       },
       "eventHubName": {
-        "value": "MyKeyVault"
+        "value": "my-eventhub"
       }
   }
 }

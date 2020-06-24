@@ -1,5 +1,5 @@
 ---
-title: Poznaj podstawowe informacje za pomocą przykładowej aplikacji klienckiej
+title: Eksplorowanie podstaw za pomocą przykładowej aplikacji klienckiej
 titleSuffix: Azure Digital Twins
 description: Samouczek przedstawiający Eksplorowanie zestawów SDK Digital bliźniaczych reprezentacji platformy Azure przy użyciu przykładowej aplikacji wiersza polecenia
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 070a65207bc1aa2cf754f3a0dca59f1a2950a339
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 67b476b2ec6ec0c841639f7aa1d94a0d9d3d3304
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613548"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262353"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Poznaj usługę Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 W tym samouczku przedstawiono przykładową aplikację, która implementuje aplikację kliencką wiersza polecenia, aby można było korzystać z usługi Azure Digital bliźniaczych reprezentacji. Aplikacja kliencka jest podobna do tej, która została zapisywana w [samouczku: kod aplikacji klienckiej](tutorial-code.md).
 
@@ -44,7 +47,7 @@ Modele są podobne do klas w języku programowania zorientowanym na obiekty; udo
 
 W oknie programu Visual Studio, w którym jest otwarty projekt _**AdtE2ESample**_ , użyj okienka *Eksplorator rozwiązań* , aby przejść do folderu *AdtSampleApp\SampleClientApp\Models* . Ten folder zawiera przykładowe modele.
 
-Wybierz pozycję *pokój. JSON* , aby otworzyć ją w oknie edycji i zmienić w następujący sposób:
+Wybierz pozycję *Room.jsna* , aby otworzyć ją w oknie edycji i zmienić ją w następujący sposób:
 
 * **Zaktualizuj numer wersji**, aby wskazać, że dostarczasz nowszą wersję tego modelu. W tym celu należy zmienić *1* na końcu `@id` wartości na *2*. Dowolna liczba większa niż bieżący numer wersji również będzie działała.
 * **Edytuj Właściwość**. Zmień nazwę `Humidity` właściwości na *HumidityLevel* (lub coś innego, jeśli chcesz. Jeśli używasz czegoś innego niż *HumidityLevel*, Zapamiętaj, które z nich korzystasz, i Kontynuuj, korzystając z niego, zamiast *HumidityLevel* w całym samouczku).
@@ -70,7 +73,7 @@ Wybierz pozycję *pokój. JSON* , aby otworzyć ją w oknie edycji i zmienić w 
 
 Gdy skończysz, zaktualizowany model powinien wyglądać następująco:
 
-:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Edytowano plik Room. JSON ze zaktualizowanym numerem wersji, właściwościami HumidityLevel i Roomname i zawiera relację" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/room-model.png" alt-text="Edytowano Room.jsprzy użyciu zaktualizowanego numeru wersji, właściwości HumidityLevel i Roomname oraz zawiera relację" border="false":::
 
 Pamiętaj, aby zapisać plik przed przechodzeniem.
 
@@ -78,7 +81,7 @@ Pamiętaj, aby zapisać plik przed przechodzeniem.
 > Jeśli chcesz spróbować utworzyć własny model, możesz wkleić kod modelu *pokoju* do nowego pliku zapisanego przy użyciu rozszerzenia *JSON* w folderze *AdtSampleApp\SampleClientApp\Models* . Następnie zapoznaj się z dodawaniem właściwości i relacji, aby reprezentować wszystko, co chcesz. W przypadku pomysłów można także zapoznać się z innymi przykładowymi modelami w tym folderze.
 
 > [!TIP] 
-> Istnieje [przykład modułu sprawdzania poprawności](https://github.com/Azure-Samples/DTDL-Validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [: analizowanie i weryfikowanie modeli](how-to-use-parser.md).
+> Istnieje [przykład modułu sprawdzania poprawności](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) języka niezależny od DTDL, którego można użyć do sprawdzenia dokumentów modelu, aby upewnić się, że DTDL jest prawidłowy. Jest ona oparta na bibliotece analizatora DTDL, którą można dowiedzieć się więcej na temat postanowień [: analizowanie i weryfikowanie modeli](how-to-use-parser.md).
 
 ### <a name="get-started-with-the-command-line-app"></a>Wprowadzenie do aplikacji wiersza polecenia
 
@@ -282,7 +285,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Wyniki zapytania złożonego, w którym nie są wyświetlane żadne wyniki":::
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Projekt w tym samouczku stanowi podstawę dla następnego samouczka, [Samouczek: łączenie kompleksowego rozwiązania](tutorial-end-to-end.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane zasoby, aby nadal korzystać z tego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i skonfigurowanej przykładowej aplikacji.
 * W takim przypadku można użyć przykładowej aplikacji `DeleteAllTwins` i `DeleteAllModels` poleceń, aby wyczyścić odpowiednio bliźniaczych reprezentacji i modele w wystąpieniu. Spowoduje to wyczyszczenie do następnego samouczka.

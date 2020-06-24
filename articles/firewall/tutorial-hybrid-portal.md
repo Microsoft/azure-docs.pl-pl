@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 5ba9bb723ab7b052440eea2ac509692200b80f6e
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298962"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750699"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure w sieci hybrydowej przy użyciu Azure Portal
 
@@ -54,7 +54,7 @@ Sieć hybrydowa używa modelu architektury Hub i szprych do kierowania ruchu mi�
    Ponadto trasy do sieci wirtualnych podłączonych do bramy lub sieci lokalnych będą automatycznie propagowane do tabel routingu dla równorzędnych sieci wirtualnych przy użyciu tranzytu bramy. Aby uzyskać więcej informacji, zobacz [Konfigurowanie tranzytu bramy sieci VPN dla komunikacji równorzędnej sieci wirtualnych](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
 
 - Ustaw **useremotegateways o wartości** podczas komunikacji równorzędnej między sieciami wirtualnymi i koncentratorem. Jeśli ustawiono opcję **useremotegateways o wartości** i **AllowGatewayTransit** na zdalnej komunikacji równorzędnej, Sieć wirtualna szprych używa bram zdalnej sieci wirtualnej do tranzytu.
-- Aby skierować ruch podsieci szprych przez zaporę centrum, potrzebna jest trasa zdefiniowana przez użytkownika (UDR), która wskazuje zaporę z wyłączoną opcją **propagacji trasy bramy sieci wirtualnej** . Opcja wyłączania **propagacji trasy bramy sieci wirtualnej** uniemożliwia dystrybucję tras do podsieci szprych. Zapobiega to wyznaniom tras spowodowanych konfliktami z UDR.
+- Aby skierować ruch podsieci szprych przez zaporę koncentratora, można użyć trasy zdefiniowanej przez użytkownika (UDR), która wskazuje zaporę z wyłączoną opcją **propagacji trasy bramy sieci wirtualnej** . Opcja wyłączania **propagacji trasy bramy sieci wirtualnej** uniemożliwia dystrybucję tras do podsieci szprych. Zapobiega to wyznaniom tras spowodowanych konfliktami z UDR. Jeśli chcesz zachować **propagację trasy bramy sieci wirtualnej** , upewnij się, że określone trasy są zdefiniowane dla zapory, aby przesłonić te, które są publikowane z lokalizacji lokalnej za pośrednictwem protokołu BGP.
 - Skonfiguruj UDR w podsieci bramy centrum, która wskazuje adres IP zapory w następnym przeskoku do sieci szprych. W podsieci usługi Azure Firewall nie jest wymagana trasa zdefiniowana przez użytkownika, ponieważ uzyskuje ona informacje o trasach na podstawie protokołu BGP.
 
 Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym samouczku, aby zobaczyć, jak te trasy zostały utworzone.
@@ -79,7 +79,7 @@ Najpierw utwórz grupę zasobów zawierającą zasoby do celów tego samouczka:
 4. W polu **Subskrypcja** wybierz subskrypcję.
 5. W **obszarze region**wybierz pozycję **Wschodnie stany USA**. Wszystkie zasoby, które tworzysz później, muszą znajdować się w tej samej lokalizacji.
 6. Wybierz pozycję **Recenzja + Utwórz**.
-7. Wybierz pozycję **Utwórz**.
+7. Wybierz przycisk **Utwórz**.
 
 Teraz Utwórz sieć wirtualną:
 
@@ -288,11 +288,11 @@ Następnie należy utworzyć kilka tras:
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W polu tekstowym Wyszukaj wpisz ciąg **Route Table** i naciśnij klawisz **Enter**.
 3. Wybierz pozycję **tabela tras**.
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 5. W polu Nazwa wpisz **UDR-Hub-szprych**.
 6. Wybierz z grupy zasobów opcję **PD-hybrydowy-test** .
 8. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
-9. Wybierz pozycję **Utwórz**.
+9. Wybierz przycisk **Utwórz**.
 10. Po utworzeniu tabeli tras wybierz ją, aby otworzyć stronę tabela tras.
 11. W lewej kolumnie Wybierz pozycję **trasy** .
 12. Wybierz pozycję **Dodaj**.
@@ -316,12 +316,12 @@ Teraz Utwórz trasę domyślną z podsieci szprych.
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W polu tekstowym Wyszukaj wpisz ciąg **Route Table** i naciśnij klawisz **Enter**.
 3. Wybierz pozycję **tabela tras**.
-5. Wybierz pozycję **Utwórz**.
+5. Wybierz przycisk **Utwórz**.
 6. W polu Nazwa wpisz **UDR-DG**.
 7. Wybierz z grupy zasobów opcję **PD-hybrydowy-test** .
 8. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
 4. W przypadku **propagacji trasy bramy sieci wirtualnej**wybierz pozycję **wyłączone**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 2. Po utworzeniu tabeli tras wybierz ją, aby otworzyć stronę tabela tras.
 3. W lewej kolumnie Wybierz pozycję **trasy** .
 4. Wybierz pozycję **Dodaj**.
@@ -434,7 +434,7 @@ Następnie zmień ustawienie akcji kolekcji reguł sieci zapory na **Odmów**, a
 
 Zamknij wszystkie zdalne pulpity, zanim zaczniesz testować zmienione zasady. Teraz ponownie uruchom testy. Tym razem wszystkie powinny zakończyć się niepowodzeniem.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Możesz zachować zasoby zapory na potrzeby kolejnego samouczka, a jeśli nie będą już potrzebne, możesz usunąć grupę zasobów **FW-Hybrid-Test**, aby usunąć wszystkie zasoby związane z zaporą.
 

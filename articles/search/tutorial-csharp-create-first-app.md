@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/10/2020
-ms.openlocfilehash: a105766b713ce44d800391e2e943f2ac864fa0df
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/20/2020
+ms.openlocfilehash: 4c96dfa078ec12e0681574629276c48af2c1760d
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780627"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261464"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Samouczek: Tworzenie pierwszej aplikacji wyszukiwania przy użyciu zestawu .NET SDK
 
 Dowiedz się, jak utworzyć interfejs sieci Web, aby wykonywać zapytania i przedstawić wyniki wyszukiwania w indeksie przy użyciu usługi Azure Wyszukiwanie poznawcze. Ten samouczek rozpoczyna się od istniejącego, hostowanego indeksu, dzięki czemu możesz skupić się na tworzeniu strony wyszukiwania. Indeks zawiera fikcyjne dane hotelu. Gdy masz stronę podstawową, możesz ją ulepszyć w kolejnych lekcjach w celu uwzględnienia stronicowania, aspektów i środowiska z wyprzedzeniem.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Konfigurowanie środowiska deweloperskiego
 > * Struktury danych modelu
@@ -81,7 +81,7 @@ Aby utworzyć ten projekt od podstaw i w związku z tym pomóc w zwiększeniu po
 
 Na potrzeby tego przykładu używamy publicznie dostępnych danych hotelowych. Te dane to arbitralna kolekcja nieprawidłowych nazw hotelów i opisów 50, utworzonych wyłącznie na potrzeby udostępniania danych demonstracyjnych. Aby uzyskać dostęp do tych danych, należy określić dla niej nazwę i klucz.
 
-1. Otwórz plik appSettings. JSON w nowym projekcie i Zastąp wiersze domyślne następującymi nazwami i kluczem. Klucz interfejsu API przedstawiony w tym miejscu nie jest przykładem klucza, ale jest _dokładnie_ kluczem potrzebnym do uzyskania dostępu do danych hotelowych. Plik appSettings. JSON powinien teraz wyglądać następująco.
+1. Otwórz appsettings.jsw pliku w nowym projekcie i Zastąp wiersze domyślne następującymi nazwami i kluczami. Klucz interfejsu API przedstawiony w tym miejscu nie jest przykładem klucza, ale jest _dokładnie_ kluczem potrzebnym do uzyskania dostępu do danych hotelowych. appsettings.jsw pliku powinien teraz wyglądać następująco.
 
     ```cs
     {
@@ -242,7 +242,7 @@ Modele (klasy C#) służą do przekazywania danych między klientem (widokiem), 
     }
     ```
 
-    Ta klasa zawiera dane wejściowe użytkownika (**tekstprzeszukiwany**) i wyniki wyszukiwania (**resultList**). Typ danych wyjściowych jest krytyczny, **DocumentSearchResult&lt;hotelu&gt;**, ponieważ ten typ dokładnie pasuje do wyników wyszukiwania i musi przekazać to odwołanie do widoku.
+    Ta klasa zawiera dane wejściowe użytkownika (**tekstprzeszukiwany**) i wyniki wyszukiwania (**resultList**). Typ danych wyjściowych jest krytyczny, **DocumentSearchResult &lt; hotelu &gt; **, ponieważ ten typ dokładnie pasuje do wyników wyszukiwania i musi przekazać to odwołanie do widoku.
 
 
 
@@ -252,7 +252,7 @@ Projekt, który został utworzony, zostanie domyślnie utworzony w wielu widokac
 
 Usuń zawartość pliku index. cshtml w całości i Skompiluj ponownie plik w poniższych krokach.
 
-1. Używamy dwóch małych obrazów w widoku. Możesz użyć własnych lub skopiować obrazy z projektu GitHub: Azure-logo. png i Search. png. Te dwa obrazy należy umieścić w folderze **wwwroot/images** .
+1. Używamy dwóch małych obrazów w widoku. Możesz użyć własnych lub skopiować obrazy z projektu GitHub: azure-logo.png i search.png. Te dwa obrazy należy umieścić w folderze **wwwroot/images** .
 
 2. Pierwszy wiersz index. cshtml powinien odwoływać się do modelu, który będzie używany do przekazywania danych między klientem (widokiem) a serwerem (kontrolerem), który jest modelem **SearchData** , który został utworzony. Dodaj ten wiersz do pliku index. cshtml.
 
@@ -502,7 +502,7 @@ Wywołanie Wyszukiwanie poznawcze platformy Azure jest hermetyzowane w naszej me
 
     W tej metodzie najpierw upewnimy się, że konfiguracja platformy Azure została zainicjowana, a następnie ustaw kilka parametrów wyszukiwania. Nazwy pól w **zaznaczeniu** parametru pasują dokładnie do nazw właściwości w klasie **hotelu** . Możliwe jest pozostawienie parametru **SELECT** , w tym przypadku zwracane są wszystkie właściwości. Ustawienie nie **wybieraj** żadnych parametrów jest jednak niewydajne, Jeśli interesuje Cię tylko podzbiór danych. Określając właściwości, których interesuje, są zwracane tylko te właściwości.
 
-    Wywołanie asynchroniczne do wyszukiwania (**model. resultList = await _indexClient. Documents. SearchAsync&lt;Hotel&gt;(model. tekstprzeszukiwany, Parameters);**) to informacje o tym samouczku i aplikacji. Klasa **DocumentSearchResult** jest interesująca, a dobrym pomysłem (gdy aplikacja jest uruchomiona) polega na tym, że w tym miejscu należy ustawić punkt przerwania i użyć debugera do sprawdzenia zawartości **modelu. resultList**. Należy się przekonać, że jest intuicyjny, dostarczając dane, których dotyczy żądanie, a nie wiele innych.
+    Wywołanie asynchroniczne do wyszukiwania (**model. resultList = await _indexClient.Documents. SearchAsync &lt; Hotel &gt; (model. tekstprzeszukiwany, Parameters);**) to informacje o tym samouczku i aplikacji. Klasa **DocumentSearchResult** jest interesująca, a dobrym pomysłem (gdy aplikacja jest uruchomiona) polega na tym, że w tym miejscu należy ustawić punkt przerwania i użyć debugera do sprawdzenia zawartości **modelu. resultList**. Należy się przekonać, że jest intuicyjny, dostarczając dane, których dotyczy żądanie, a nie wiele innych.
 
 Teraz na chwilę zaistnienia prawdy.
 

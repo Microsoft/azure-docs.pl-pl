@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 76480959d94b9e2a2e04857c85b7359105e73e4f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 4aa016294f0ef3bd26f7f3ef6fa374e9367b672d
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612893"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296971"
 ---
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
 
 ### <a name="set-up-cloud-shell-session"></a>Konfigurowanie sesji Cloud Shell
 
-Po otwarciu okna Cloud Shell najpierw Zaloguj się i ustaw kontekst powłoki na subskrypcję dla tej sesji. 
+Po otwarciu okna Cloud Shell najpierw Zaloguj się i ustaw kontekst powłoki na subskrypcję dla tej sesji. Uruchom następujące polecenia w Cloud Shell:
 
 ```azurecli
 az login
@@ -29,16 +29,18 @@ Jeśli korzystasz z tej subskrypcji po raz pierwszy przy użyciu usługi Azure D
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-Następnie uruchom następujące polecenie w wystąpieniu Cloud Shell, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure.
+Następnie dodasz do Cloud Shell [**Microsoft Azure IoT Extension dla interfejsu wiersza polecenia platformy Azure**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) , aby włączyć obsługę komunikacji z usługą Azure Digital bliźniaczych reprezentacji i innymi usługami IoT. Użyj tego polecenia, aby dodać rozszerzenie:
 
    ```azurecli-interactive
    az extension add --name azure-iot
    ```
 
-> [!NOTE]
-> W tym artykule jest stosowana Najnowsza wersja rozszerzenia usługi Azure IoT o nazwie `azure-iot` . Starsza wersja jest wywoływana `azure-iot-cli-ext` . W danym momencie powinna być zainstalowana tylko jedna wersja. Za pomocą polecenia można `az extension list` sprawdzić poprawność zainstalowanych rozszerzeń.
-> Służy `az extension remove --name azure-cli-iot-ext` do usuwania starszej wersji rozszerzenia.
-> Użyj `az extension add --name azure-iot` , aby dodać nową wersję rozszerzenia. Aby zobaczyć, jakie rozszerzenia zostały zainstalowane, użyj programu `az extension list` .
+Jeśli wcześniej zainstalowano rozszerzenie, w danych wyjściowych może zostać wyświetlony komunikat "rozszerzenie" Azure-IoT "jest już zainstalowane". W takim przypadku uruchom następujące polecenie, aby upewnić się, że masz najnowszą aktualizację: 
 
-> [!TIP]
-> Możesz uruchomić `az dt -h` polecenie, aby wyświetlić bliźniaczych reprezentacji cyfrowe polecenia platformy Azure.
+   ```azurecli-interactive
+   az extension update --name azure-iot
+   ```
+
+Teraz możesz przystąpić do pracy z usługą Azure Digital bliźniaczych reprezentacji w Cloud Shell.
+
+Możesz to sprawdzić, uruchamiając `az dt -h` w dowolnym momencie, aby wyświetlić listę dostępnych poleceń usługi Azure Digital bliźniaczych reprezentacji.

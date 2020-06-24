@@ -2,22 +2,22 @@
 title: Dodawanie aplikacji Galerii — Azure Active Directory | Microsoft Docs
 description: Dowiedz się, jak dodać aplikację z galerii usługi Azure AD do aplikacji platformy Azure dla przedsiębiorstw.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: tutorial
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/29/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af0a826c499790c86a20ea7061075a6c3e66b3a4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8f2002414836dcb77a09f633f30ec0fcbb7981de
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73062557"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760528"
 ---
 # <a name="add-a-gallery-app-to-your-azure-ad-organization"></a>Dodawanie aplikacji galerii do organizacji usługi Azure AD
 

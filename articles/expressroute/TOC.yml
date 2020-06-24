@@ -54,8 +54,12 @@
       href: expressroute-global-reach.md
     - name: Informacje o szyfrowaniu w usłudze ExpressRoute
       href: expressroute-about-encryption.md
-    - name: Mechanizmy zabezpieczeń
-      href: expressroute-security-controls.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
+        - name: Atrybuty zabezpieczeń
+          href: expressroute-security-controls.md
     - name: Informacje o bramach sieci wirtualnej
       href: expressroute-about-virtual-network-gateways.md
     - name: Łączenie platformy Azure z chmurą publiczną
@@ -210,7 +214,7 @@
 - name: Dokumentacja
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#expressroute'
+      href: /powershell/module/az.network#expressroute
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/network/express-route
     - name: REST

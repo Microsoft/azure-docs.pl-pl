@@ -4,12 +4,12 @@ description: Opisuje sposób oceny lokalnych maszyn wirtualnych VMware na potrze
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 87eac5979176fe9a71db15961e4c5f822b56568e
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 231daff5972e9b2f115df9e6184c43a553f55b83
+ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331886"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84771312"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Ocenianie maszyn wirtualnych programu VMware przy użyciu narzędzia do oceny serwera
 
@@ -34,7 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 - [Wykonaj pierwszy samouczek](tutorial-prepare-vmware.md) z tej serii. Jeśli tego nie zrobisz, instrukcje podane w tym samouczku nie będą działały.
 - Oto co należy zrobić w pierwszym samouczku:
     - [Przygotuj platformę Azure](tutorial-prepare-vmware.md#prepare-azure) do pracy z Azure Migrate.
-    - [Przygotuj oprogramowanie VMware do oceny](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) w celu oceny. Obejmuje to sprawdzanie ustawień programu VMware, skonfigurowanie konta, za pomocą którego Azure Migrate może uzyskać dostęp do vCenter Server.
+    - [Przygotuj oprogramowanie VMware do oceny](tutorial-prepare-vmware.md#prepare-for-assessment) w celu oceny. Obejmuje to sprawdzanie ustawień programu VMware, skonfigurowanie konta, za pomocą którego Azure Migrate może uzyskać dostęp do vCenter Server.
     - [Sprawdź](tutorial-prepare-vmware.md#verify-appliance-settings-for-assessment) , co jest potrzebne, aby wdrożyć urządzenie Azure Migrate na potrzeby oceny oprogramowania VMware.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurowanie projektu Azure Migrate
@@ -53,7 +53,7 @@ Skonfiguruj nowy projekt Azure Migrate w następujący sposób:
 
    ![Pola nazwy i regionu projektu](./media/tutorial-assess-vmware/migrate-project.png)
 
-1. Wybierz opcję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 1. W **narzędziu Wybierz ocenę**wybierz pozycję **Azure Migrate: Ocena serwera**  >  **dalej**.
 
    ![Wybór dla narzędzia do oceny serwera](./media/tutorial-assess-vmware/assessment-tool.png)
@@ -99,7 +99,7 @@ Przed wdrożeniem należy sprawdzić, czy plik komórki jajowe jest bezpieczny:
         --- | --- | ---
         VMware (10,9 GB) | [Najnowsza wersja](https://aka.ms/migrate/appliance/vmware) | cacbdaef927fe5477fa4e1f494fcb7203cbd6b6ce7402b79f234bc0fe69663dd
 
-    - W przypadku usługi Azure rządu:
+    - Dla Azure Government:
     
         **Algorytm** | **Pobierz** | **SHA256**
         --- | --- | ---
@@ -170,7 +170,7 @@ Urządzenie musi połączyć się z vCenter Server, aby odnaleźć dane dotyczą
 1. W obszarze **określ vCenter Server Szczegóły**Określ nazwę (FQDN) lub adres IP wystąpienia vCenter Server. Można pozostawić port domyślny lub określić port niestandardowy, dla którego vCenter Server nasłuchuje.
 2. W polu **Nazwa użytkownika** i **hasło**określ poświadczenia konta vCenter Server, które będą używane przez urządzenie do odnajdywania maszyn wirtualnych w wystąpieniu vCenter Server. 
 
-    - Należy skonfigurować konto z uprawnieniami wymaganymi w [poprzednim samouczku](tutorial-prepare-vmware.md#set-up-an-account-for-assessment).
+    - Należy skonfigurować konto z uprawnieniami wymaganymi w [poprzednim samouczku](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
     - Jeśli chcesz przeznaczyć zakres odnajdywania do określonych obiektów VMware (vCenter Server centrach danych, klastrów, folderu klastrów, hostów, folderu hostów lub poszczególnych maszyn wirtualnych), zapoznaj się z instrukcjami w [tym artykule](set-discovery-scope.md) , aby ograniczyć konto używane przez Azure Migrate.
 
 3. Wybierz pozycję **Weryfikuj połączenie** , aby upewnić się, że urządzenie może połączyć się z vCenter Server.
@@ -178,7 +178,7 @@ Urządzenie musi połączyć się z vCenter Server, aby odnaleźć dane dotyczą
 
     - Opcjonalnie możesz dodać poświadczenia tutaj, jeśli utworzono konto do użycia dla [funkcji odnajdywania aplikacji](how-to-discover-applications.md)lub [Funkcja analizy zależności bez agenta](how-to-create-group-machine-dependencies-agentless.md).
     - Jeśli nie używasz tych funkcji, możesz pominąć to ustawienie.
-    - Przejrzyj poświadczenia potrzebne do [odnajdowania aplikacji](migrate-support-matrix-vmware.md#application-discovery)lub [analizy bez agentów](migrate-support-matrix-vmware.md#agentless-dependency-analysis-requirements).
+    - Przejrzyj poświadczenia potrzebne do [odnajdowania aplikacji](migrate-support-matrix-vmware.md#application-discovery-requirements)lub [analizy bez agentów](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless).
 
 5. **Zapisz i Rozpocznij odnajdywanie**, aby uruchomić odnajdywanie maszyn wirtualnych.
 

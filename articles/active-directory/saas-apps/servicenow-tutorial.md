@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/25/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fe6c857e5b0c2f48f27c167c177dbf1f4651986
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e99b860f4f75e142a8df09bb538ebee3f2eac6d3
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80384113"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85297481"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą usługi ServiceNow
 
@@ -125,11 +125,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory** > **Użytkownicy** > **Wszyscy użytkownicy**.
+1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**  >  **Wszyscy użytkownicy**.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
-   1. W obszarze **Nazwa**wprowadź `B.Simon`.  
-   1. W polu username@companydomain.extension **Nazwa użytkownika**wprowadź. Na przykład `B.Simon@contoso.com`.
+   1. W obszarze **Nazwa**wprowadź `B.Simon` .  
+   1. W polu **Nazwa użytkownika**wprowadź username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Wybierz pozycję **Pokaż hasło**, a następnie Zapisz wartość, która jest wyświetlana w polu **hasło** .
    1. Wybierz przycisk **Utwórz**.
 
@@ -137,13 +137,13 @@ W tej sekcji utworzysz użytkownika testowego o nazwie B. Simon w Azure Portal.
 
 W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi usługi ServiceNow.
 
-1. W Azure Portal wybierz pozycję **aplikacje** > dla przedsiębiorstw**wszystkie aplikacje**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 1. Na liście aplikacji wybierz pozycję **ServiceNow**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
    ![Zrzut ekranu przedstawiający sekcję Zarządzanie z wyróżnionymi użytkownikami i grupami](common/users-groups-blade.png)
 
-1. Wybierz przycisk **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
+1. Wybierz pozycję **Dodaj użytkownika**. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy**.
 
     ![Zrzut ekranu użytkowników i grup z wyróżnioną pozycją Dodaj użytkownika](common/add-assign-user.png)
 
@@ -272,7 +272,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
               * Skopiuj wartość **Identyfikator jednostki/wystawcy** i wklej ją w **identyfikatorze** w sekcji **usługi servicenow Podstawowa konfiguracja SAML** w Azure Portal.
 
-              * Upewnij się, że **zasady NameID** są `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` ustawione na wartość. 
+              * Upewnij się, że **zasady NameID** są ustawione na `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` wartość. 
 
          1. Przewiń w dół do sekcji **certyfikat X. 509** , a następnie wybierz pozycję **Edytuj**.
 
@@ -336,12 +336,12 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
         * Skopiuj wartość **Identyfikator jednostki/wystawcy** . Wklej ją w polu **Identyfikator** w sekcji **usługi SERVICENOW podstawowe konfigurowanie SAML** w Azure Portal.
 
-        * Upewnij się, że **zasady NameID** są `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` ustawione na wartość.
+        * Upewnij się, że **zasady NameID** są ustawione na `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` wartość.
 
         * Wybierz pozycję **Zaawansowane**. W **polu Użytkownik**wprowadź **adres e-mail**.
 
             > [!NOTE]
-            > Usługę Azure AD można skonfigurować do emisji identyfikatora użytkownika usługi Azure AD (głównej nazwy użytkownika) lub adresu e-mail jako unikatowego identyfikatora w tokenie SAML. W tym celu należy przejść do sekcji **usługi ServiceNow** > **atrybutów** > **logowania** jednokrotnego w Azure Portal i mapowania żądanego pola na atrybut **NameIdentifier** . Wartość przechowywana dla wybranego atrybutu w usłudze Azure AD (na przykład główna nazwa użytkownika) musi być zgodna z wartością przechowywaną w usługi ServiceNow dla wprowadzonego pola (na przykład user_name).
+            > Usługę Azure AD można skonfigurować do emisji identyfikatora użytkownika usługi Azure AD (głównej nazwy użytkownika) lub adresu e-mail jako unikatowego identyfikatora w tokenie SAML. W tym celu należy przejść do sekcji **usługi ServiceNow**  >  **atrybutów**  >  **logowania** jednokrotnego w Azure Portal i mapowania żądanego pola na atrybut **NameIdentifier** . Wartość przechowywana dla wybranego atrybutu w usłudze Azure AD (na przykład główna nazwa użytkownika) musi być zgodna z wartością przechowywaną w usługi ServiceNow dla wprowadzonego pola (na przykład user_name).
 
         * Wybierz pozycję **Testuj połączenie** w prawym górnym rogu strony.
 
@@ -425,7 +425,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w usługi Servic
 
     b. W przypadku **zasad NameID**wprowadź **nazwę urn: języka Oasis: names: TC: SAML: 1.1: NameID-format: nieokreślone**.
 
-    c. W przypadku **metody AuthnContextClassRef**wprowadź `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password`.
+    c. W przypadku **metody AuthnContextClassRef**wprowadź `http://schemas.microsoft.com/ws/2008/06/identity/authenticationmethod/password` .
 
     d. W przypadku **tworzenia elementu AuthnContextClass**Przełącz go na wyłączony (niezaznaczony).
 
@@ -447,7 +447,7 @@ Celem tej sekcji jest utworzenie użytkownika o nazwie B. Simon w usługi Servic
     e. W **polu Użytkownik**wprowadź **adres e-mail**.
 
     > [!NOTE]
-    > Usługę Azure AD można skonfigurować do emisji identyfikatora użytkownika usługi Azure AD (głównej nazwy użytkownika) lub adresu e-mail jako unikatowego identyfikatora w tokenie SAML. W tym celu należy przejść do sekcji **usługi ServiceNow** > **atrybutów** > **logowania** jednokrotnego w Azure Portal i mapowania żądanego pola na atrybut **NameIdentifier** . Wartość przechowywana dla wybranego atrybutu w usłudze Azure AD (na przykład główna nazwa użytkownika) musi być zgodna z wartością przechowywaną w usługi ServiceNow dla wprowadzonego pola (na przykład user_name).
+    > Usługę Azure AD można skonfigurować do emisji identyfikatora użytkownika usługi Azure AD (głównej nazwy użytkownika) lub adresu e-mail jako unikatowego identyfikatora w tokenie SAML. W tym celu należy przejść do sekcji **usługi ServiceNow**  >  **atrybutów**  >  **logowania** jednokrotnego w Azure Portal i mapowania żądanego pola na atrybut **NameIdentifier** . Wartość przechowywana dla wybranego atrybutu w usłudze Azure AD (na przykład główna nazwa użytkownika) musi być zgodna z wartością przechowywaną w usługi ServiceNow dla wprowadzonego pola (na przykład user_name).
 
     f. Wybierz pozycję **Zapisz**.
 
@@ -471,7 +471,7 @@ Po wybraniu kafelka usługi ServiceNow w panelu dostępu należy automatycznie z
 
     ![Zrzut ekranu strony logowania z wyróżnionym użyciem logowania zewnętrznego](./media/servicenow-tutorial/test01.png)
 
-    *  Wprowadź **nazwę użytkownika**, B.simon@contoso.comna przykład.
+    *  Wprowadź **nazwę użytkownika**, na przykład B.simon@contoso.com .
 
     *  Wybierz pozycję **Użyj logowania zewnętrznego**. Nastąpi przekierowanie do strony usługi Azure AD w celu zalogowania się.
 
@@ -479,13 +479,13 @@ Po wybraniu kafelka usługi ServiceNow w panelu dostępu należy automatycznie z
 
         ![Zrzut ekranu przedstawiający stronę główną aplikacji](./media/servicenow-tutorial/test02.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Konfigurowanie aprowizacji użytkowników](servicenow-provisioning-tutorial.md)
 

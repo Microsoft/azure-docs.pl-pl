@@ -3,25 +3,25 @@ title: Konfiguracja logowania jednokrotnego (SSO) dla aplikacji w portalu Azure 
 description: Kroki związane z konfiguracją logowania jednokrotnego dla aplikacji w portalu Azure Marketplace.
 services: active-directory
 documentationCenter: na
-author: jeevansd
-manager: mtillman
-ms.reviewer: celested
+author: kenwith
+manager: celestedg
+ms.reviewer: kenwith
 ms.assetid: e0416991-4b5d-4b18-89bb-91b6070ed3ba
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/11/2019
-ms.author: jeedes
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a83d27af4fd783b95c53ef3a9169cb72bfc29d34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c7e72718e13106b9d895921a2335f1525a7b88c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67872428"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763129"
 ---
 # <a name="one-click-app-configuration-of-single-sign-on"></a>Konfiguracja aplikacji jednokrotnego kliknięcia
 
@@ -59,7 +59,7 @@ Funkcja logowania jednokrotnego w systemie Azure została zaprojektowana tak, ab
 
    ![Zainstaluj moje aplikacje bezpieczne logowanie do przeglądarki](./media/one-click-sso-tutorial/install-myappssecure-extension.png)
 
-6. Po dodaniu rozszerzenia do przeglądarki wybierz kolejno pozycje **Konfiguracja \<nazwa\>aplikacji**. Po przekierowaniu do portalu administracyjnego aplikacji Zaloguj się jako administrator.
+6. Po dodaniu rozszerzenia do przeglądarki wybierz pozycję **Konfiguracja \<Application Name\> **. Po przekierowaniu do portalu administracyjnego aplikacji Zaloguj się jako administrator.
 
    ![Nazwa aplikacji konfiguracji](./media/one-click-sso-tutorial/setup-sso.png)
 
@@ -82,7 +82,7 @@ Funkcja logowania jednokrotnego w systemie Azure została zaprojektowana tak, ab
 
 11. Możesz wybrać **test** , aby przetestować Logowanie jednokrotne.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 * [Co to jest rozszerzenie przeglądarki Moje aplikacje bezpieczne logowanie?](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access)

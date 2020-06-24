@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 4361cee3d07408c3abb5031d2ab18c15c92c5e0a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238986"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711259"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-nfs"></a>Samouczek: kopiowanie danych do Azure Data Box Heavy za pośrednictwem systemu plików NFS
 
@@ -33,7 +33,7 @@ Przed rozpoczęciem upewnij się, że:
 1. Samouczek został ukończony [: skonfiguruj Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Otrzymano Data Box Heavy, a stan zamówienia w portalu jest **dostarczany**.
 3. Masz komputer-host zawierający dane, które mają zostać skopiowane na urządzenie Data Box Heavy. Na komputerze hosta wymagane jest:
-    - Uruchom [obsługiwany system operacyjny](data-box-heavy-system-requirements.md).
+    - Korzystanie z [obsługiwanego systemu operacyjnego](data-box-heavy-system-requirements.md).
     - Połączenie z siecią o dużej szybkości. Aby uzyskać największe szybkości kopiowania, można użyć dwóch równoległych połączeń 40-GbE (po jednym na węzeł). Jeśli nie masz dostępnego połączenia 40-GbE, zalecamy skorzystanie z co najmniej dwóch połączeń 10-GbE (po jednym na węzeł). 
 
 ## <a name="connect-to-data-box-heavy"></a>Nawiązywanie połączenia z urządzeniem Data Box Heavy
@@ -77,7 +77,7 @@ Jeśli używasz komputera hosta z systemem Linux, wykonaj następujące kroki, a
 
     `sudo mount <Data Box Heavy device IP>:/<NFS share on Data Box Heavy device> <Path to the folder on local Linux computer>`
 
-    Poniższy przykład pokazuje, jak nawiązać połączenie za pomocą systemu plików NFS z udziałem Data Box Heavy. Data Box Heavy IP to `10.161.23.130`, udział `Mystoracct_Blob` jest instalowany na ubuntuVM, punktu instalacji. `/home/databoxheavyubuntuhost/databoxheavy`
+    Poniższy przykład pokazuje, jak nawiązać połączenie za pomocą systemu plików NFS z udziałem Data Box Heavy. Data Box Heavy IP to `10.161.23.130` , udział `Mystoracct_Blob` jest instalowany na ubuntuVM, punktu instalacji `/home/databoxheavyubuntuhost/databoxheavy` .
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxheavyubuntuhost/databoxheavy`
     
@@ -100,7 +100,7 @@ Po nawiązaniu połączenia z udziałami Data Box Heavy następnym krokiem jest 
     - Wielkość liter jest zachowywana w nazwie.
     - W plikach nie jest rozróżniana wielkość liter.
     
-    Na przykład, jeśli kopiowanie `SampleFile.txt` i `Samplefile.Txt`, wielkość liter zostanie zachowana w nazwie podczas kopiowania do urządzenia, ale drugi plik zastąpi pierwsze, ponieważ są one uznawane za ten sam plik.
+    Na przykład, jeśli kopiowanie `SampleFile.txt` i `Samplefile.Txt` , wielkość liter zostanie zachowana w nazwie podczas kopiowania do urządzenia, ale drugi plik zastąpi pierwsze, ponieważ są one uznawane za ten sam plik.
 
 
 Jeśli korzystasz z komputera-hosta z systemem Linux, użyj narzędzia do kopiowania podobnego do narzędzia Robocopy. W systemie Linux są dostępne na przykład narzędzia [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) lub [Ultracopier](https://ultracopier.first-world.info/).  

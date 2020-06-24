@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 4bf85a8e38a3cfc46fe4dbaf86639899e7267178
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ee0c6e67dcf0cf5f85734be3ac53a0417e398654
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80676604"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733708"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Samouczek: Włączanie synchronizacji haseł w Azure Active Directory Domain Services dla środowisk hybrydowych
 
@@ -42,7 +42,7 @@ Aby ukończyć ten samouczek, potrzebne są następujące zasoby:
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
     * W razie potrzeby [włącz Azure AD Connect na potrzeby synchronizacji skrótów haseł][enable-azure-ad-connect].
 * Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie konieczności [Utwórz i skonfiguruj wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * W razie konieczności [Utwórz i skonfiguruj Azure Active Directory Domain Services domenę zarządzaną][create-azure-ad-ds-instance].
 
 ## <a name="password-hash-synchronization-using-azure-ad-connect"></a>Synchronizacja skrótów haseł przy użyciu Azure AD Connect
 
@@ -71,7 +71,7 @@ Za pomocą Azure AD Connect zainstalowanych i skonfigurowanych do synchronizacji
     * Łącznik usługi Azure AD ma nazwę *contoso.onmicrosoft.com-AAD*
     * Łącznik AD DS lokalnego ma nazwę *OnPrem.contoso.com*
 
-1. Skopiuj i wklej następujący skrypt programu PowerShell na komputerze z zainstalowanym Azure AD Connect. Skrypt wyzwala pełną synchronizację haseł, która zawiera starsze skróty haseł. Zaktualizuj zmienne `$azureadConnector` i `$adConnector` przy użyciu nazw łączników z poprzedniego kroku.
+1. Skopiuj i wklej następujący skrypt programu PowerShell na komputerze z zainstalowanym Azure AD Connect. Skrypt wyzwala pełną synchronizację haseł, która zawiera starsze skróty haseł. Zaktualizuj `$azureadConnector` zmienne i `$adConnector` przy użyciu nazw łączników z poprzedniego kroku.
 
     Uruchom ten skrypt w każdym lesie usługi AD, aby zsynchronizować skróty haseł dla lokalnego konta NTLM i Kerberos do usługi Azure AD.
 
@@ -97,7 +97,7 @@ Za pomocą Azure AD Connect zainstalowanych i skonfigurowanych do synchronizacji
     Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $azureadConnector -Enable $true
     ```
 
-    W zależności od rozmiaru katalogu pod względem liczby kont i grup synchronizacja starszych skrótów haseł do usługi Azure AD może zająć trochę czasu. Hasła są następnie synchronizowane z domeną zarządzaną platformy Azure AD DS po ich zsynchronizowaniu z usługą Azure AD.
+    W zależności od rozmiaru katalogu pod względem liczby kont i grup synchronizacja starszych skrótów haseł do usługi Azure AD może zająć trochę czasu. Hasła są następnie synchronizowane z domeną zarządzaną po przeprowadzeniu synchronizacji z usługą Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 

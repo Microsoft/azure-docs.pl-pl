@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/18/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 2e9c027a927d4aba9c174db8dfc5a72f0cc4f214
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 43816c815c206da7e3fec197e54e9e7889c6de47
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195174"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735357"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Samouczek: tworzenie zestawu skalowania maszyn wirtualnych i zarządzanie nim przy użyciu programu Azure PowerShell
 
@@ -27,7 +27,7 @@ Zestaw skalowania maszyn wirtualnych umożliwia wdrożenie zestawu identycznych,
 > * Ręczne skalowanie zestawu skalowania
 > * Wykonywanie typowych zadań zarządzania zestawem skalowania
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -191,6 +191,8 @@ New-AzVmss `
   -Credential $cred
 ```
 
+> [!IMPORTANT]
+> Zalecamy użycie *najnowszej* wersji obrazu. Określ wartość "Najnowsza", aby użyć najnowszej wersji obrazu dostępnej w czasie wdrażania. Uwaga nawet jeśli używasz "Najnowsza", obraz maszyny wirtualnej nie zostanie automatycznie zaktualizowany po wdrożeniu, nawet jeśli zostanie udostępniona nowa wersja.
 
 ## <a name="understand-vm-instance-sizes"></a>Opis rozmiarów wystąpień maszyn wirtualnych
 Rozmiar wystąpienia maszyny wirtualnej, czyli *jednostka SKU*, określa ilość zasobów obliczeniowych, takich jak procesor CPU, procesor GPU i pamięć, które są dostępne dla wystąpienia maszyny wirtualnej. Wystąpienia maszyn wirtualnych w zestawie skalowania muszą mieć rozmiary odpowiednie do oczekiwanych obciążeń.
@@ -306,7 +308,7 @@ Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Usunięcie grupy zasobów powoduje również usunięcie wszystkich znajdujących się w niej zasobów, takich jak wystąpienia maszyn wirtualnych, sieć wirtualna i dyski. Parametr `-Force` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu. Parametr `-AsJob` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji.
 
 ```azurepowershell-interactive

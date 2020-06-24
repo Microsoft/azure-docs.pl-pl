@@ -4,15 +4,15 @@ description: Przykłady interfejsu wiersza polecenia platformy Azure dla Azure C
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: sample
+ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: ff4029b13c503413686fbc52c8d59b7d2745cb8e
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 04bbfe3ee38c5ce37c36ab2f85467ce68e7335be
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509512"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262977"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla Azure Cosmos DB interfejs API Cassandra
 

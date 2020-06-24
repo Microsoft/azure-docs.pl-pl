@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: tracking-python
-ms.openlocfilehash: 3075ece58b44caa2077855c7ba8fcd9d949c336b
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 12af4c57fd906d687eedfe7c865d36abaa0da18e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610886"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209151"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu interfejsu API REST i języka Python
 
@@ -50,12 +50,12 @@ Aby zapewnić uczenie modelu przy użyciu danych z etykietami, potrzebne są nas
 
 Wszystkie te pliki powinny zajmować ten sam podfolder i mieć następujący format:
 
-* input_file1. PDF 
-* input_file1. PDF. OCR. JSON
-* input_file1. PDF. labels. JSON 
-* input_file2. PDF 
-* input_file2. PDF. OCR. JSON
-* input_file2. PDF. labels. JSON
+* input_file1.pdf 
+* input_file1.pdf.ocr.jsna
+* input_file1.pdf.labels.jsna 
+* input_file2.pdf 
+* input_file2.pdf.ocr.jsna
+* input_file2.pdf.labels.jsna
 * ...
 
 > [!TIP]
@@ -65,8 +65,8 @@ Wszystkie te pliki powinny zajmować ten sam podfolder i mieć następujący for
 
 Potrzebujesz plików wyników OCR, aby usługa mogła rozważyć odpowiednie pliki wejściowe dla szkolenia z etykietą. Aby uzyskać wyniki OCR dla danego formularza źródłowego, wykonaj poniższe kroki:
 
-1. Wywołaj interfejs API **[analizowania układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** w kontenerze układu odczytu z plikiem wejściowym w ramach treści żądania. Zapisz identyfikator znaleziony w nagłówku **operacji** odpowiedzi.
-1. Wywołaj interfejs API **[wyników Get analizowanie układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** przy użyciu identyfikatora operacji z poprzedniego kroku.
+1. Wywołaj interfejs API **[analizowania układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeLayoutAsync)** w kontenerze układu odczytu z plikiem wejściowym w ramach treści żądania. Zapisz identyfikator znaleziony w nagłówku **operacji** odpowiedzi.
+1. Wywołaj interfejs API **[wyników Get analizowanie układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/GetAnalyzeLayoutResult)** przy użyciu identyfikatora operacji z poprzedniego kroku.
 1. Pobierz odpowiedź i Zapisz zawartość do pliku. Dla każdego formularza źródłowego odpowiedni plik OCR powinien zawierać oryginalną nazwę pliku `.ocr.json` . Dane wyjściowe OCR w formacie JSON powinny mieć następujący format. Zobacz [przykładowy plik OCR](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) , aby zapoznać się z pełnym przykładem. 
 
     ```json
@@ -197,7 +197,7 @@ Dla każdego formularza źródłowego plik etykiety powinien zawierać oryginaln
 
 ## <a name="train-a-model-using-labeled-data"></a>Uczenie modelu przy użyciu danych z etykietami
 
-Aby przeprowadzić uczenie modelu z danymi z etykietami, Wywołaj interfejs API **[niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** , uruchamiając następujący kod w języku Python. Przed uruchomieniem kodu wprowadź następujące zmiany:
+Aby przeprowadzić uczenie modelu z danymi z etykietami, Wywołaj interfejs API **[niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/TrainCustomModelAsync)** , uruchamiając następujący kod w języku Python. Przed uruchomieniem kodu wprowadź następujące zmiany:
 
 1. Zamień na `<Endpoint>` adres URL punktu końcowego dla zasobu aparatu rozpoznawania formularza.
 1. Zamień `<SAS URL>` na adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów blob platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
@@ -211,7 +211,7 @@ from requests import get, post
 
 # Endpoint URL
 endpoint = r"<Endpoint>"
-post_url = endpoint + r"/formrecognizer/v2.0-preview/custom/models"
+post_url = endpoint + r"/formrecognizer/v2.0/custom/models"
 source = r"<SAS URL>"
 prefix = "<Blob folder name>"
 includeSubFolders = False
@@ -561,4 +561,4 @@ Rozumiemy, że ten scenariusz jest istotny dla naszych klientów i pracujemy nad
 W tym przewodniku szybki start przedstawiono sposób korzystania z interfejsu API REST aparatu rozpoznawania formularzy w języku Python w celu uczenia modelu z ręcznymi etykietami danych. Następnie zapoznaj się z dokumentacją interfejsu API w celu eksplorowania interfejsu API rozpoznawania formularzy o większej głębokości.
 
 > [!div class="nextstepaction"]
-> [Dokumentacja interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [Dokumentacja interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-previewoperations/AnalyzeWithCustomForm)

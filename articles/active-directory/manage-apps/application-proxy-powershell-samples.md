@@ -2,22 +2,22 @@
 title: Przykłady programu PowerShell dla usługi Azure serwer proxy aplikacji usługi Azure AD
 description: Za pomocą tych przykładów programu PowerShell dla usługi Azure serwer proxy aplikacji usługi Azure AD można uzyskać informacje o aplikacjach i łącznikach serwera proxy aplikacji, przypisać użytkowników i grupy do aplikacji oraz uzyskać informacje o certyfikatach.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 476bdfdd2c0b81d86900cee18024cc261ee80a07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e624be8103097a8356ae4167cb8f21cce819649
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481266"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760182"
 ---
 # <a name="azure-ad-powershell-examples-for-azure-ad-application-proxy"></a>Przykłady programu Azure AD PowerShell dla usługi Azure serwer proxy aplikacji usługi Azure AD
 
