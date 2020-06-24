@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 3284db031214dfaa631efa6f9f40e6a069998843
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677070"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119226"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Poprzednie generacji rozmiarów maszyn wirtualnych
 
@@ -169,7 +169,7 @@ Rozmiary A8–A11 i serii H są również nazywane *wystąpieniami intensywnie k
 
 ### <a name="d-series"></a>Seria D  
 
-**Nowsze zalecenie dotyczące rozmiaru**: [Seria Dv3](dv3-dsv3-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dav4](dav4-dasv4-series.md), [Dv4](dv4-dsv4-series.md) i [Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -190,7 +190,7 @@ Buforowanie Premium Storage: nieobsługiwane
 
 ### <a name="d-series---memory-optimized"></a>Seria D — zoptymalizowana pod kątem pamięci  
 
-**Nowsze zalecenie dotyczące rozmiaru**: [Seria Dv3](dv3-dsv3-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dav4](dav4-dasv4-series.md), [Dv4](dv4-dsv4-series.md) i [Ddv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -231,7 +231,7 @@ Seria DC używa najnowszej generacji procesora Intel XEON E-2176G z technologią
 
 ### <a name="ds-series"></a>Seria DS  
 
-**Nowsze zalecenie dotyczące rozmiaru**: [Seria Dsv3](dv3-dsv3-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dasv4](dav4-dasv4-series.md), [Dsv4](dv4-dsv4-series.md) i [Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -252,7 +252,7 @@ Buforowanie Premium Storage: obsługiwane
 
 ### <a name="ds-series---memory-optimized"></a>Zoptymalizowane pod kątem pamięci z serii DS  
 
-**Nowsze zalecenie dotyczące rozmiaru**: [Seria Dsv3](dv3-dsv3-series.md)
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Dasv4](dav4-dasv4-series.md), [Dsv4](dv4-dsv4-series.md) i [Ddsv4](ddv4-ddsv4-series.md)
 
 ACU: 160-250 <sup>1, 2</sup>
 
@@ -273,6 +273,8 @@ Buforowanie Premium Storage: obsługiwane
 <br>
 
 ### <a name="ls-series"></a>Seria Ls
+
+**Nowsze zalecenie dotyczące rozmiaru**: [Seria Lsv2](lsv2-series.md)
 
 Maszyny wirtualne serii Ls oferują do 32 procesorów wirtualnych vCPU — procesor [Intel® Xeon® z rodziny E5 v3](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Wydajność procesora CPU dla serii Ls jest taka sama jak w przypadku maszyn wirtualnych serii G/GS. Na procesor wirtualny vCPU przypada pamięć o pojemności 8 GiB.
 
@@ -297,6 +299,8 @@ Maksymalna przepływność dysku możliwa w przypadku maszyn wirtualnych z serii
 
 ### <a name="gs-series"></a>Seria GS
 
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Easv4](eav4-easv4-series.md), [Esv4](ev4-esv4-series.md), [Edsv4](edv4-edsv4-series.md) i serii [M](m-series.md)
+
 ACU: 180 – 240 <sup>1</sup>
 
 Premium Storage: obsługiwane
@@ -320,6 +324,8 @@ dostępne są <sup>3</sup> ograniczone rozmiary rdzeni.
 <br>
 
 ### <a name="g-series"></a>Seria G
+
+**Nowsze zalecenie dotyczące rozmiaru**: serii [Eav4](eav4-easv4-series.md), [Ev4](ev4-esv4-series.md) i [Edv4](edv4-edsv4-series.md) oraz seria [M](m-series.md)
 
 ACU: 180–240
 

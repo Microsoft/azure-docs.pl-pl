@@ -66,7 +66,7 @@ W przypadku usługi Storage podstawowe punkty końcowe zawsze używają **sieci 
 
 * Obiekty blob
 * Files
-* Internet
+* Sieć Web
 * Azure DataLake
 
 ## <a name="pricing"></a>Cennik

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
 ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249687"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84702179"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Samouczek: Konfigurowanie oprogramowania SAP SuccessFactors do Active Directory aprowizacji użytkowników (wersja zapoznawcza)
 Celem tego samouczka jest przedstawienie czynności, które należy wykonać w celu udostępnienia użytkownikom SuccessFactorsego Active Directory w centrum danych (AD) i usługi Azure AD z opcjonalnym zwrotem adresu e-mail na SuccessFactors. Ta integracja jest dostępna w publicznej wersji zapoznawczej i obsługuje pobieranie ponad [70 atrybutów użytkownika](../app-provisioning/sap-successfactors-attribute-reference.md) z SuccessFactors Employee Central.
@@ -247,7 +247,7 @@ W tym kroku ustanawiamy łączność z usługą SuccessFactors i Active Director
 
 1. Wypełnij sekcję **poświadczenia administratora** w następujący sposób:
 
-   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta użytkownika interfejsu API SuccessFactors z DOŁĄCZONYm identyfikatorem firmy. Ma format: **username\@companyID**
+   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta użytkownika interfejsu API SuccessFactors z DOŁĄCZONYm identyfikatorem firmy. Ma format: **username \@ companyID**
 
    * **Hasło administratora —** Wprowadź hasło dla konta użytkownika interfejsu API SuccessFactors. 
 
@@ -346,7 +346,7 @@ Po zakończeniu konfiguracji aplikacji SuccessFactorsing (Inicjowanie obsługi a
 
 1. Na karcie **aprowizacji** Ustaw **stan aprowizacji** na **włączone**.
 
-2. Kliknij przycisk **Zapisz**.
+2. Kliknij pozycję **Zapisz**.
 
 3. Ta operacja rozpocznie synchronizację początkową, która może potrwać zmienną liczbę godzin w zależności od liczby użytkowników w dzierżawie SuccessFactors. Możesz sprawdzić, czy pasek postępu śledzi postęp cyklu synchronizacji. 
 

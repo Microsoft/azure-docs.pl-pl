@@ -90,7 +90,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 Podczas tworzenia lub skalowania planu można wybrać jeden z trzech rozmiarów wystąpień.  Opłaty zostaną naliczone za łączną liczbę rdzeni i zużywaną pamięć na sekundę.  Aplikacja może automatycznie skalować w poziomie do wielu wystąpień stosownie do potrzeb.  
 
-|SKU|Rdzenie|Memory (Pamięć)|Storage|
+|SKU|Rdzenie|Memory (Pamięć)|Magazyn|
 |--|--|--|--|
 |EP1|1|3,5 GB|250|
 |EP2|2|7GB|250|

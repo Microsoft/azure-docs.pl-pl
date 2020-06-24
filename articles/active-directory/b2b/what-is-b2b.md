@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87da588806908566bd1980da4c3120c0d4537b4a
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 89e1868d8e9a346d5a791c9fa8ae7682ca2b6807
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84673143"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84905140"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Co to jest dostęp użytkowników-gości w usłudze Azure Active Directory B2B?
 
@@ -99,9 +99,11 @@ Usługa Azure AD obsługuje zewnętrznych dostawców tożsamości, takich jak Fa
 ## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Tworzenie przepływu użytkownika samoobsługowego tworzenia konta (wersja zapoznawcza)
 
 Korzystając z samoobsługowego przepływu użytkowników, możesz utworzyć konto dla użytkowników zewnętrznych, którzy chcą uzyskać dostęp do aplikacji. W ramach przepływu rejestracji można udostępnić opcje dla różnych dostawców tożsamości społecznościowych lub korporacyjnych i zbierać informacje o użytkowniku. Dowiedz się więcej o rejestrowaniu samoobsługowym [i sposobach jego konfiguracji](self-service-sign-up-overview.md).
-<!-- You can also use [API connectors](api-connectors-overview.md) to integrate your user flows with external systems, for example user approval systems, user input validation systems, or custom business logic. -->
+
+[Łączników interfejsu API](api-connectors-overview.md) można także użyć do zintegrowania przepływów użytkownika samoobsługowego rejestrowania z zewnętrznymi systemami w chmurze. Możesz łączyć się z niestandardowymi przepływami pracy zatwierdzania, przeprowadzać weryfikację tożsamości, weryfikować informacje udostępniane przez użytkownika i nie tylko.
 
 ![Zrzut ekranu przedstawiający stronę przepływów użytkownika](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+<!--TODO: Add screenshot with API connectors -->
 
 ## <a name="next-steps"></a>Następne kroki
 

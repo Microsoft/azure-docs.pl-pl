@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 15457cb2246c48bf244a1f3e93874a5efdb6c5a8
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: a346b205523e2ef1539d92eae06202510585e1f5
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84436124"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85128141"
 ---
 | Kategoria              | Magazyn danych                                                   | [Działanie kopiowania](../articles/data-factory/copy-activity-overview.md) (Źródło/ujścia) | [Mapowanie przepływu danych](../articles/data-factory/concepts-data-flow-overview.md) (Źródło/ujścia) | [Działanie wyszukiwania](../articles/data-factory/control-flow-lookup-activity.md) | [Działanie](../articles/data-factory/control-flow-get-metadata-activity.md) / pobierania metadanych [Działanie walidacji](../articles/data-factory/control-flow-validation-activity.md) | [Usuń działanie](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -80,7 +80,7 @@ ms.locfileid: "84436124"
 | &nbsp;                | [Jira](../articles/data-factory/connector-jira.md)           | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Magento (wersja zapoznawcza)](../articles/data-factory/connector-magento.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Marketo (wersja zapoznawcza)](../articles/data-factory/connector-marketo.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
-| &nbsp;                | [Office 365](../articles/data-factory/connector-office-365.md) | ✓/−                                                          |                                                              |                                                              |                                                              |                                                              |
+| &nbsp;                | [Microsoft 365](../articles/data-factory/connector-office-365.md) | ✓/−                                                          |                                                              |                                                              |                                                              |                                                              |
 | &nbsp;                | [Oracle Eloqua (wersja zapoznawcza)](../articles/data-factory/connector-oracle-eloqua.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Oracle Responsys (wersja zapoznawcza)](../articles/data-factory/connector-oracle-responsys.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [Oracle Service Cloud (wersja zapoznawcza)](../articles/data-factory/connector-oracle-service-cloud.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

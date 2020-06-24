@@ -2,23 +2,23 @@
 title: serwer proxy aplikacji usługi Azure Active Directory i Tableau | Microsoft Docs
 description: Dowiedz się, jak za pomocą serwera proxy aplikacji usługi Azure Active Directory (Azure AD) zapewnić dostęp zdalny do wdrożenia usługi Tableau.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/20/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1aa99e7e71ad78a62c1a9da303b2ecc8347ebeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6df0a0bf21f4be824738d86ac6bdb3c75c9c3564
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "65783850"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84764506"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>serwer proxy aplikacji usługi Azure Active Directory i Tableau 
 

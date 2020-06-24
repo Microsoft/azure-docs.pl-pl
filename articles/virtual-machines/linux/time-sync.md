@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 7c93c1f525713a90abd71c30a21401b9d1cfcb9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25e8be28903d490a7a8c17e16d2beddc44c95c41
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460906"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782776"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronizacja czasu dla maszyn wirtualnych z systemem Linux na platformie Azure
 
@@ -25,10 +25,10 @@ Synchronizacja czasu jest ważna dla korelacji zabezpieczeń i zdarzeń. Czasami
 
 Platforma Azure jest obsługiwana przez infrastrukturę z systemem Windows Server 2016. W systemie Windows Server 2016 udoskonalono algorytmy służące do korygowania czasu i warunku zegara lokalnego na synchronizację z czasem UTC.  Funkcja dokładnego czasu systemu Windows Server 2016 znacznie poprawiła sposób, w jaki usługa VMICTimeSync, która zarządza maszynami wirtualnymi na hoście w celu dokładnego czasu. Udoskonalenia obejmują dokładniejszy czas początkowy w przypadku uruchamiania maszyny wirtualnej lub przywracania maszyny wirtualnej i korekcji opóźnienia przerwań. 
 
->[!NOTE]
->Aby zapoznać się z krótkim omówieniem usługi czas systemu Windows, zapoznaj się z tym [ogólnym omówieniem wideo](https://aka.ms/WS2016TimeVideo).
+> [!NOTE]
+> Aby zapoznać się z krótkim omówieniem usługi czas systemu Windows, zapoznaj się z tym [ogólnym omówieniem wideo](https://aka.ms/WS2016TimeVideo).
 >
-> Aby uzyskać więcej informacji, zobacz [dokładny czas dla systemu Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> Aby uzyskać więcej informacji, zobacz [dokładny czas dla systemu Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time). 
 
 ## <a name="overview"></a>Omówienie
 
@@ -66,7 +66,7 @@ Domyślnie większość obrazów w portalu Azure Marketplace dla systemu Linux j
 
 W przypadku nowszych dystrybucji systemu Linux usługa VMICTimeSync używa protokołu czasu (NTP), ale wcześniejsze dystrybucje mogą nie obsługiwać programu PTP i przewracają do NTP w celu uzyskania czasu od hosta.
 
-Aby potwierdzić, że `ntpq -p` NTP jest prawidłowo synchronizowana, uruchom polecenie.
+Aby potwierdzić, że NTP jest prawidłowo synchronizowana, uruchom `ntpq -p` polecenie.
 
 ### <a name="host-only"></a>Tylko Host 
 
@@ -140,13 +140,13 @@ refclock PHC /dev/ptp0 poll 3 dpoll -2 offset 0
 
 Aby uzyskać więcej informacji na temat Ubuntu i NTP, zobacz [synchronizacja czasu](https://help.ubuntu.com/lts/serverguide/NTP.html).
 
-Aby uzyskać więcej informacji na temat Red Hat i NTP, zobacz [Konfigurowanie NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/s1-configure_ntp). 
+Aby uzyskać więcej informacji na temat Red Hat i NTP, zobacz [Konfigurowanie NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd#s1-Configure_NTP). 
 
-Aby uzyskać więcej informacji na temat chrony, zobacz [using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-using_chrony).
+Aby uzyskać więcej informacji na temat chrony, zobacz [using chrony](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_the_chrony_suite#sect-Using_chrony).
 
 Jeśli zarówno źródła chrony, jak i TimeSync są włączone jednocześnie, można oznaczyć jeden jako **preferowany**, który ustawia inne źródło jako kopię zapasową. Ponieważ usługi NTP nie aktualizują zegara w przypadku dużych pochylenia, chyba że jest to długi czas, VMICTimeSync odzyska zegar od wstrzymanych zdarzeń maszyny wirtualnej znacznie szybciej niż w przypadku narzędzi opartych na protokole NTP.
 
-Domyślnie program chronyd przyspiesza lub spowalnia zegar systemowy w celu naprawienia dowolnego przekroczenia czasu. Jeśli dryf zostanie zbyt duży, chrony nie uda się naprawić dryfu. Aby je przezwyciężyć `makestep` , parametr w **/etc/chrony.conf** można zmienić, aby wymusić timesync, jeśli dryf przekroczy określony próg.
+Domyślnie program chronyd przyspiesza lub spowalnia zegar systemowy w celu naprawienia dowolnego przekroczenia czasu. Jeśli dryf zostanie zbyt duży, chrony nie uda się naprawić dryfu. Aby je przezwyciężyć, `makestep` parametr w **/etc/chrony.conf** można zmienić, aby wymusić timesync, jeśli dryf przekroczy określony próg.
 
  ```bash
 makestep 1.0 -1
@@ -164,6 +164,6 @@ W wersjach SUSE i Ubuntu przed 19,10, synchronizacja czasu jest konfigurowana pr
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji, zobacz [dokładny czas dla systemu Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time).
+Aby uzyskać więcej informacji, zobacz [dokładny czas dla systemu Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time).
 
 

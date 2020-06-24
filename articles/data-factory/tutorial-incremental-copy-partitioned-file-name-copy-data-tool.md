@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/17/2020
-ms.openlocfilehash: 6cc089a1efc3f5960a8bca8a36063bb1019bbcc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/10/2020
+ms.openlocfilehash: 075c8b2670121e7d493d0d99397961155fd0de4b
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409395"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84736575"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Przyrostowe kopiowanie nowych plików na podstawie nazwy pliku podzielonego na partycje przy użyciu narzędzia Kopiowanie danych
 
@@ -45,7 +45,7 @@ Ten samouczek obejmuje wykonanie następujących kroków:
 
 Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
-1. Utwórz kontener o nazwie **Source**.  Utwórz ścieżkę folderu jako **2020/03/17/03** w kontenerze. Utwórz pusty plik tekstowy i nadaj mu nazwę **plik1. txt**. Przekaż plik1. txt do folderu **Source Path/2020/03/17/03** na koncie magazynu.  Do wykonania tych zadań możesz użyć różnych narzędzi, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
+1. Utwórz kontener o nazwie **Source**.  Utwórz ścieżkę folderu jako **2020/03/17/03** w kontenerze. Utwórz pusty plik tekstowy i nadaj mu nazwę **file1.txt**. Przekaż file1.txt do ścieżki folderu **Source/2020/03/17/03** na koncie magazynu.  Do wykonania tych zadań możesz użyć różnych narzędzi, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
     ![Przekaż pliki](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
 
@@ -56,7 +56,7 @@ Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. W menu po lewej stronie wybierz pozycję **Utwórz zasób** > **dane + analiza** > **Data Factory**:
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **dane + analiza**  >  **Data Factory**:
 
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -101,7 +101,7 @@ Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
     d. W obszarze **cykl**wprowadź **1 godzinę**.
 
-    e. Wybierz pozycję **Dalej**.
+    e. Wybierz przycisk **Dalej**.
 
     Interfejs użytkownika usługi Data Factory tworzy potok o określonej nazwie zadania.
 
@@ -155,16 +155,16 @@ Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
 10. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana.  Musisz poczekać na uruchomienie potoku, gdy zostanie on wyzwolony automatycznie (około godzinę). Gdy jest uruchomiona, kliknij link Nazwa potoku **DeltaCopyFromBlobPipeline** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok. Wybierz pozycję **Odśwież**, aby odświeżyć listę.
 
-    ![Monitorowanie uruchomień potoku](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
-11. W potoku jest tylko jedno działanie (działanie kopiowania), dlatego na liście jest wyświetlana tylko jedna pozycja. Dostosuj szerokość kolumny **źródłowej** i **docelowej** (w razie potrzeby), aby wyświetlić więcej szczegółów, plik źródłowy (plik1. txt) został skopiowany ze *źródła/2020/03/17/03/* do *lokalizacji docelowej/2020/03/17/03/* z tą samą nazwą pliku. 
+    ![Monitorowanie uruchomień potoku](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs-1.png)
+11. W potoku jest tylko jedno działanie (działanie kopiowania), dlatego na liście jest wyświetlana tylko jedna pozycja. Dostosuj szerokość kolumny **źródłowej** i **docelowej** (w razie potrzeby), aby wyświetlić więcej szczegółów, plik źródłowy (file1.txt) został skopiowany ze *źródła/2020/03/17/03/* do *lokalizacji docelowej/2020/03/17/03/* o tej samej nazwie pliku. 
 
     ![Monitorowanie uruchomień potoku](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 
-    Możesz również sprawdzić to samo przy użyciu Eksplorator usługi Azure Storage (https://storageexplorer.com/) aby skanować pliki.
+    Możesz również sprawdzić to samo przy użyciu Eksplorator usługi Azure Storage ( https://storageexplorer.com/) Aby skanować pliki.
 
     ![Monitorowanie uruchomień potoku](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 
-12. Utwórz kolejny pusty plik tekstowy o nowej nazwie jako **plik2. txt**. Przekaż plik plik2. txt do ścieżki folderu **Source/2020/03/17/04** na koncie magazynu. Do wykonania tych zadań możesz użyć różnych narzędzi, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
+12. Utwórz kolejny pusty plik tekstowy o nowej nazwie jako **file2.txt**. Przekaż plik file2.txt do ścieżki folderu **Source/2020/03/17/04** na koncie magazynu. Do wykonania tych zadań możesz użyć różnych narzędzi, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
     > [!NOTE]
     > Należy pamiętać, że należy utworzyć nową ścieżkę folderu. Dostosuj nazwę folderu o czas UTC.  Na przykład, jeśli bieżący czas UTC to 4:20 AM. siedemnast, 2020, można utworzyć ścieżkę folderu jako **Source/2020/03/17/04/** według reguły **{Year}/{Month}/{Day}/{Hour}/**.
@@ -173,7 +173,7 @@ Aby przygotować magazyn obiektów BLOB do samouczka, wykonaj te kroki.
 
     ![Monitorowanie uruchomień potoku](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
-14. Wybierz łącze Nowy **DeltaCopyFromBlobPipeline** dla drugiego przebiegu potoku, a następnie wykonaj te same czynności, aby przejrzeć szczegóły. Plik źródłowy (plik2. txt) został skopiowany ze **źródła/2020/03/17/04/** do **lokalizacji docelowej/2020/03/17/04/** o tej samej nazwie pliku. Możesz również sprawdzić to samo przy użyciu Eksplorator usługi Azure Storage (https://storageexplorer.com/) do skanowania plików w kontenerze **docelowym** .
+14. Wybierz łącze Nowy **DeltaCopyFromBlobPipeline** dla drugiego przebiegu potoku, a następnie wykonaj te same czynności, aby przejrzeć szczegóły. Zostanie wyświetlony plik źródłowy (file2.txt) skopiowany ze **źródła/2020/03/17/04/** do **lokalizacji docelowej/2020/03/17/04/** o tej samej nazwie pliku. Możesz również sprawdzić to samo przy użyciu Eksplorator usługi Azure Storage ( https://storageexplorer.com/) do skanowania plików w kontenerze **docelowym** .
 
 
 ## <a name="next-steps"></a>Następne kroki

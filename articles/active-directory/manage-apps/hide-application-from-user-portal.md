@@ -2,22 +2,22 @@
 title: Ukrywanie aplikacji ze środowiska użytkownika w usłudze Azure AD
 description: Sposób ukrycia aplikacji ze środowiska użytkownika w Azure Active Directory panele dostępu lub uruchamiania pakietu Office 365.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/25/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5718adf4fd76e2fbd0ff793dd2fa33ee08f7c0fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e792298c68ed24fb8854c399f32e04e0deaefc0
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295053"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763333"
 ---
 # <a name="hide-applications-from-end-users-in-azure-active-directory"></a>Ukryj aplikacje przed użytkownikami końcowymi w Azure Active Directory
 
@@ -40,7 +40,7 @@ Wykonaj następujące kroki, aby ukryć aplikację z poziomu panelu aplikacje i 
 5.  Wyszukaj aplikację, którą chcesz ukryć, a następnie kliknij aplikację.  Zostanie otwarta przegląd aplikacji.
 6.  Kliknij pozycję **Właściwości**. 
 7.  W przypadku pytania **widoczny dla użytkowników** kliknij przycisk **nie**.
-8.  Kliknij przycisk **Zapisz**.
+8.  Kliknij pozycję **Zapisz**.
 
 ## <a name="use-azure-ad-powershell-to-hide-an-application"></a>Ukrywanie aplikacji przy użyciu programu Azure AD PowerShell
 
@@ -65,7 +65,7 @@ Wykonaj następujące kroki, aby ukryć wszystkie aplikacje pakietu Office 365 z
 3.  Wybierz pozycję **Ustawienia użytkownika**.
 4.  W obszarze **aplikacje dla przedsiębiorstw**kliknij pozycję **Zarządzaj sposobem uruchamiania i wyświetlania aplikacji przez użytkowników końcowych.**
 5.  Aby **użytkownicy mogli zobaczyć tylko aplikacje pakietu office 365 w portalu pakietu office 365**, kliknij przycisk **tak**.
-6.  Kliknij przycisk **Zapisz**.
+6.  Kliknij pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 * [Zobacz wszystkie moje grupy](../fundamentals/active-directory-groups-view-azure-portal.md)

@@ -6,19 +6,19 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1db23bb1176a41b4b9bac548b737fbd13fbe82c4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2800119f1a88172ea7c329fc53359bf1565a0705
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685252"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84731277"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Przywracanie zbiorcze usuniętych użytkowników w Azure Active Directory
 
@@ -76,7 +76,7 @@ Następnie możesz sprawdzić, czy przywróconi użytkownicy znajdują się w or
 
 1. [Zaloguj się do centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji.
 1. W okienku nawigacji wybierz pozycję **Azure Active Directory**.
-1. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 1. W obszarze **Pokaż**wybierz pozycję **Wszyscy użytkownicy** i sprawdź, czy na liście znajdują się użytkownicy, których przywrócono.
 
 ### <a name="view-users-with-powershell"></a>Wyświetlanie użytkowników przy użyciu programu PowerShell

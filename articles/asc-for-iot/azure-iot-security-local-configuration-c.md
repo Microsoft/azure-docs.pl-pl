@@ -40,7 +40,7 @@ Zmiany w pliku konfiguracji są wykonywane po ponownym uruchomieniu agenta.
 | Identyfikator agenta | GUID | Unikatowy identyfikator agenta |
 | TriggerdEventsInterval | Ciąg ISO8601 | Interwał harmonogramu dla zbierania zdarzeń wyzwalanych |
 | Parametru | Ciąg ISO8601 | Czas przed upłynięciem limitu czasu połączenia z usługą IoThub |
-| Uwierzytelnianie | JsonObject | Konfiguracja uwierzytelniania. Ten obiekt zawiera wszystkie informacje, które są związane z uwierzytelnianiem w odniesieniu do IoTHub |
+| Authentication | JsonObject | Konfiguracja uwierzytelniania. Ten obiekt zawiera wszystkie informacje, które są związane z uwierzytelnianiem w odniesieniu do IoTHub |
 | Tożsamość | "DPS", "SecurityModule", "urządzenie" | Tożsamość uwierzytelniania — DPS jeśli następuje uwierzytelnianie za pośrednictwem platformy DPS, SecurityModule w przypadku uwierzytelniania za pomocą poświadczeń modułu zabezpieczeń lub urządzenia, jeśli uwierzytelnianie jest nawiązywane przy użyciu poświadczeń urządzenia |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | klucz tajny użytkownika do uwierzytelniania — wybierz opcję SasToken, jeśli klucz tajny jest kluczem symetrycznym, wybierz opcję certyfikat z podpisem własnym, jeśli klucz tajny jest certyfikatem z podpisem własnym  |
 | Parametr | Ścieżka do pliku (ciąg) | Ścieżka do pliku, który zawiera klucz tajny uwierzytelniania |

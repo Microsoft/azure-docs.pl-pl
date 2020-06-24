@@ -25,8 +25,8 @@ ms.locfileid: "85248364"
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 > * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -116,8 +116,8 @@ Wymagania wstępne zostały spełnione. Fabrykę danych można utworzyć, korzys
 
 * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
 * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-* [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-* [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+* [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 

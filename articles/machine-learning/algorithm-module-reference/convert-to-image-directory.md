@@ -1,5 +1,5 @@
 ---
-title: Konwertuj na katalog obrazu
+title: Konwertowanie na katalog obrazów
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak przekonwertować zestaw danych na format katalogu obrazów przy użyciu modułu Konwertuj na katalog obrazu.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: dc40e0a644f692b397b1f2107b27b1d940d2b284
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 41724753df0d529e4c44344e8e975e68ee5eafd6
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84450633"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84904596"
 ---
-# <a name="convert-to-image-directory"></a>Konwertuj na katalog obrazu
+# <a name="convert-to-image-directory"></a>Konwertowanie na katalog obrazów
 
 W tym artykule opisano sposób użycia modułu Konwertuj na katalog obrazu w celu ułatwienia konwersji zestawu danych obrazu na typ danych "Image Directory", który jest standardowym formatem danych w zadaniach związanych z obrazami, takimi jak Klasyfikacja obrazu w programie Azure Machine Learning Designer (wersja zapoznawcza).
 
@@ -28,11 +28,21 @@ W tym artykule opisano sposób użycia modułu Konwertuj na katalog obrazu w cel
     Obsługiwane są następujące formaty zestawu danych:
 
     - Skompresowany plik w tych rozszerzeniach: "zip", ". tar", ". gz", ". bz2".
-    - Folder zawierający 1 skompresowany plik w powyższych prawidłowych rozszerzeniach. 
-    - Folder zawierający obrazy.
+    - Folder zawierający obrazy. **Zdecydowanie zaleca się kompresowanie takiego folderu jako pierwszy, a następnie użycie skompresowanego pliku jako zestawu danych**.
 
     > [!NOTE]
-    > Kategoria obrazu może być rejestrowana w danych wyjściowych modułu, jeśli ten zestaw danych obrazu jest zorganizowany w formacie torchvision ImageFolder, zapoznaj się z tematem [torchvision DataSets](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) , aby uzyskać więcej informacji. W przeciwnym razie zapisywane są tylko obrazy.
+    > Jeśli Użyj zestawu danych obrazu w nadzorowanej uczeniu, etykieta jest wymagana.
+    > W przypadku zadania klasyfikacji obrazu można wygenerować etykietę jako "Kategoria" w danych wyjściowych modułu, jeśli ten zestaw danych obrazu jest zorganizowany w formacie torchvision ImageFolder. W przeciwnym razie tylko obrazy są zapisywane bez etykiety. Oto przykład sposobu organizowania zestawu danych obrazu w celu uzyskania etykiety. Użyj kategorii obrazu jako nazwy podfolderu. Aby uzyskać więcej informacji, zobacz [zestawy danych torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) .
+    >
+    > ```
+    > root/dog/xxx.png
+    > root/dog/xxy.png
+    > root/dog/xxz.png
+    >
+    > root/cat/123.png
+    > root/cat/nsdf3.png
+    > root/cat/asd932_.png
+    > ```
 
 3.  Prześlij potok.
 

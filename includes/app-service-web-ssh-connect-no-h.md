@@ -17,7 +17,7 @@ ms.locfileid: "67183710"
 ---
 Aby otworzyć bezpośrednią sesję SSH z kontenerem, należy uruchomić aplikację.
 
-Wklej następujący adres URL do przeglądarki i Zastąp \<ciąg App-Name> nazwą swojej aplikacji:
+Wklej następujący adres URL do przeglądarki i Zastąp \< ciąg App-name> nazwą swojej aplikacji:
 
 ```
 https://<app-name>.scm.azurewebsites.net/webssh/host

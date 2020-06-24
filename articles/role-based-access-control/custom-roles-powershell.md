@@ -8,23 +8,23 @@ manager: mtillman
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ffb53bff4e70fbeb80e518fe13aaeaa8b396cfac
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734811"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84790215"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Tworzenie lub aktualizowanie ról niestandardowych platformy Azure przy użyciu Azure PowerShell
 
 > [!IMPORTANT]
-> Dodawanie grupy zarządzania do `AssignableScopes` programu jest obecnie w wersji zapoznawczej.
+> Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej.
 > Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -161,7 +161,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 ### <a name="create-a-custom-role-with-the-psroledefinition-object"></a>Tworzenie roli niestandardowej przy użyciu obiektu PSRoleDefinition
 
-Jeśli tworzysz rolę niestandardową przy użyciu programu PowerShell, możesz użyć jednej z [wbudowanych ról](built-in-roles.md) jako punktu początkowego lub można zacząć od podstaw. Pierwszy przykład w tej sekcji rozpoczyna się od wbudowanej roli, a następnie dostosowuje ją z większą liczbą uprawnień. Edytuj atrybuty, aby dodać `Actions`, `NotActions`lub `AssignableScopes` , a następnie Zapisz zmiany jako nową rolę.
+Jeśli tworzysz rolę niestandardową przy użyciu programu PowerShell, możesz użyć jednej z [wbudowanych ról](built-in-roles.md) jako punktu początkowego lub można zacząć od podstaw. Pierwszy przykład w tej sekcji rozpoczyna się od wbudowanej roli, a następnie dostosowuje ją z większą liczbą uprawnień. Edytuj atrybuty, aby dodać `Actions` , `NotActions` lub, `AssignableScopes` a następnie Zapisz zmiany jako nową rolę.
 
 Poniższy przykład jest uruchamiany z wbudowaną rolą [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) , aby utworzyć rolę niestandardową o nazwie *operator maszyny wirtualnej*. Nowa rola przyznaje dostęp do wszystkich operacji odczytu z dostawców zasobów *Microsoft. COMPUTE*, *Microsoft. Storage*i *Microsoft. Network* oraz udziela dostępu do uruchamiania, ponownego uruchamiania i monitorowania maszyn wirtualnych. Roli niestandardowej można używać w dwóch subskrypcjach.
 
@@ -187,7 +187,7 @@ $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111"
 New-AzRoleDefinition -Role $role
 ```
 
-Poniższy przykład przedstawia inny sposób tworzenia roli niestandardowej *operatora maszyny wirtualnej* . Zaczyna od tworzenia nowego `PSRoleDefinition` obiektu. Operacje akcji są określone w `perms` zmiennej i są ustawione na `Actions` właściwość. `NotActions` Właściwość jest ustawiana poprzez odczytywanie `NotActions` z roli wbudowane [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) . Ponieważ [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) nie ma żadnego `NotActions`, ten wiersz nie jest wymagany, ale pokazuje, jak można pobrać informacje z innej roli.
+Poniższy przykład przedstawia inny sposób tworzenia roli niestandardowej *operatora maszyny wirtualnej* . Zaczyna od tworzenia nowego `PSRoleDefinition` obiektu. Operacje akcji są określone w `perms` zmiennej i są ustawione na `Actions` Właściwość. `NotActions`Właściwość jest ustawiana poprzez odczytywanie `NotActions` z roli wbudowane [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) . Ponieważ [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor) nie ma żadnego `NotActions` , ten wiersz nie jest wymagany, ale pokazuje, jak można pobrać informacje z innej roli.
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()
@@ -302,7 +302,7 @@ AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000,
                    /subscriptions/22222222-2222-2222-2222-222222222222}
 ```
 
-Poniższy przykład dodaje grupę zarządzania do `AssignableScopes` roli niestandardowej *operatora maszyny wirtualnej* . Dodawanie grupy zarządzania do `AssignableScopes` programu jest obecnie w wersji zapoznawczej.
+Poniższy przykład dodaje grupę zarządzania do `AssignableScopes` roli niestandardowej *operatora maszyny wirtualnej* . Dodawanie grupy zarządzania do programu `AssignableScopes` jest obecnie w wersji zapoznawczej.
 
 ```azurepowershell
 Get-AzManagementGroup

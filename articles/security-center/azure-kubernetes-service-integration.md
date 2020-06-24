@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d5c74ac760b5746d37468d692c2a46d5aedbee72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f58afa41a27427f8deabb945261d96763edb4bc
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436178"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126182"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center"></a>Integracja usług Azure Kubernetes Services z usługą Security Center
 
@@ -61,4 +61,4 @@ Aby dowiedzieć się więcej o funkcjach zabezpieczeń kontenera Security Center
 
 * [Integracja z usługą Azure Container Registry](azure-container-registry-integration.md)
 
-* [Zarządzanie danymi w firmie Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) — zawiera opis zasad dotyczących danych usług firmy Microsoft (w tym Azure, Intune i Office 365), szczegółów zarządzania danymi firmy Microsoft oraz zasad przechowywania, które mają wpływ na dane
+* [Zarządzanie danymi w firmie Microsoft](https://www.microsoft.com/trust-center/privacy/data-management) — zawiera opis zasad dotyczących danych usług firmy Microsoft (w tym Azure, Intune i Microsoft 365), szczegółów zarządzania danymi firmy Microsoft oraz zasad przechowywania, które mają wpływ na dane

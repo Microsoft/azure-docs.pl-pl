@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: b7139c458d2cc2a59f4202e9cbc7d48433514f34
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996954"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792096"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Punkty końcowe IoT Hub odwołania
 
@@ -24,7 +24,7 @@ ms.locfileid: "82996954"
 
 ## <a name="iot-hub-names"></a>Nazwy IoT Hub
 
-Nazwę hosta Centrum IoT Hub, który hostuje punkty końcowe w portalu, można znaleźć na stronie **omówienia** centrum. Domyślnie nazwa DNS Centrum IoT wygląda następująco: `{your iot hub name}.azure-devices.net`.
+Nazwę hosta Centrum IoT Hub, który hostuje punkty końcowe w portalu, można znaleźć na stronie **omówienia** centrum. Domyślnie nazwa DNS Centrum IoT wygląda następująco: `{your iot hub name}.azure-devices.net` .
 
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>Lista wbudowanych punktów końcowych IoT Hub
 
@@ -85,14 +85,9 @@ IoT Hub obecnie obsługuje następujące usługi platformy Azure jako dodatkowe 
 
 Aby uzyskać limity liczby punktów końcowych, które można dodać, zobacz [przydziały i ograniczanie przepustowości](iot-hub-devguide-quotas-throttling.md).
 
-Aby uzyskać stan kondycji punktów końcowych, można użyć interfejsu API REST [Uzyskaj kondycję punktu końcowego](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) . Zalecamy używanie [metryk IoT Hub](iot-hub-metrics.md) związanych z opóźnieniem komunikatów routingu w celu identyfikowania i debugowania błędów, gdy kondycja punktu końcowego jest martwa lub zła, ponieważ oczekuje się, że opóźnienie ma być wyższe, gdy punkt końcowy jest w jednym z tych stanów.
+## <a name="endpoint-health"></a>Kondycja punktu końcowego
 
-|Stan kondycji|Opis|
-|---|---|
-|dobrej kondycji|Punkt końcowy akceptuje komunikaty zgodnie z oczekiwaniami.|
-|złej kondycji|Punkt końcowy nie akceptuje komunikatów zgodnie z oczekiwaniami, a IoT Hub ponawia próbę wysłania danych do tego punktu końcowego. Stan punktu końcowego w złej kondycji zostanie zaktualizowany w dobrej kondycji, gdy IoT Hub ustanowił ostatecznie spójny stan kondycji.|
-|unknown|IoT Hub nie nawiązać połączenia z punktem końcowym. Z tego punktu końcowego nie dostarczono żadnych komunikatów ani nie zostały one odrzucone.|
-|martwy|Punkt końcowy nie akceptuje komunikatów, po IoT Hub ponowieniu próby wysłania komunikatów przez okres próbny.|
+[!INCLUDE [iot-hub-endpoint-health](../../includes/iot-hub-include-endpoint-health.md)]
 
 ## <a name="field-gateways"></a>Bramy pól
 

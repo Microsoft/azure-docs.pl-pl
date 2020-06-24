@@ -23,7 +23,7 @@ ms.locfileid: "85212201"
 > [!div class="op_single_selector"]
 >
 > * [Przegląd zabezpieczeń](sql-data-warehouse-overview-manage-security.md)
-> * [Uwierzytelnianie](sql-data-warehouse-authentication.md)
+> * [Authentication](sql-data-warehouse-authentication.md)
 > * [Szyfrowanie (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Szyfrowanie (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 05/08/2020
-ms.openlocfilehash: acf329092d082b9e9cece451e90e96fc0e24fa5c
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 17cbf4f7b0ae31b0523a0fbea0c1cae8f83b234b
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447819"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84982598"
 ---
 # <a name="responsible-machine-learning-ml"></a>Machine Learning odpowiedzialny (ML)
 
@@ -60,6 +60,9 @@ Gdy dane są używane do analizy, ważne jest, aby dane pozostały prywatne i po
 W tradycyjnych scenariuszach dane pierwotne są przechowywane w plikach i bazach danych. Gdy użytkownicy analizują dane, zazwyczaj korzystają z danych pierwotnych. Jest to problem, ponieważ może naruszać prywatność poszczególnych użytkowników. Różnicowa Ochrona prywatności próbuje rozwiązać ten problem, dodając "szum" lub losowość do danych, tak aby użytkownicy nie mogli identyfikować poszczególnych punktów danych.
 
 Implementacja różnicowych systemów prywatnych jest trudna. [WhiteNoise](https://github.com/opendifferentialprivacy/whitenoise-core) to projekt open-source, który zawiera różne składniki służące do tworzenia globalnych, różnicowych systemów prywatnych. Aby dowiedzieć się więcej o zasadach ochrony prywatności i projekcie WhiteNoise, zobacz artykuł [zachowanie prywatności danych przy użyciu różnicowych informacji o ochronie prywatności i WhiteNoise](./concept-differential-privacy.md) .
+
+> [!NOTE]
+> Należy pamiętać, że zmieniamy nazwy zestawu narzędzi i wprowadzamy nową nazwę w nadchodzących tygodniach. 
 
 ## <a name="document-the-machine-learning-lifecycle-with-datasheets"></a>Udokumentowanie cyklu życia uczenia maszynowego za pomocą arkuszy danych
 

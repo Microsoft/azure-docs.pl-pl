@@ -37,6 +37,8 @@
       href: ../../api-management/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Application Gateway
       href: ../../application-gateway/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Automation
+      href: ../../automation/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Backup
@@ -51,24 +53,32 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń skrytki klienta
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń urządzenia Databox
+      href: ../../databox/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń eksploratora danych
       href: /azure/data-explorer/security-baseline
     - name: Punkt odniesienia zabezpieczeń usługi Data Factory
-      href: /azure/data-factory/security-baseline
+      href: ../../data-factory/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Databricks
       href: ../../azure-databricks/security-baseline.md
     - name: Punkt odniesienia usługi Event Hubs
       href: ../../event-hubs/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi ExpressRoute
+      href: ../../expressroute/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Functions
       href: ../../azure-functions/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Key Vault
       href: ../../key-vault/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Logic Apps
+      href: ../../logic-apps/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń bazy danych MariaDB
       href: ../../mariadb/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń bazy danych MySQL
       href: ../../mysql/security-baseline.md
+    - name: Punkt odniesienia zabezpieczeń usługi Network Watcher
+      href: ../../network-watcher/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń bazy danych PostgreSQL
       href: ../../postgresql/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi SQL Database

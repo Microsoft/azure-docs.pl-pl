@@ -5,15 +5,15 @@ description: Dowiedz się, jak utworzyć bramę aplikacji, która przekierowuje 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 6596cdb2df0a916c49086f80466db60b02a81467
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6480bdd5139d5bc7a5a1887b80f43c3903bf579
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74047752"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84804607"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowaniami zewnętrznymi przy użyciu Azure PowerShell
 
@@ -26,7 +26,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Tworzenie reguły odbiornika i przekierowywania
 > * Tworzenie bramy aplikacji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

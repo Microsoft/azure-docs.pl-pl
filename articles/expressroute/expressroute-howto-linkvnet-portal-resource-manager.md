@@ -4,21 +4,21 @@ description: Łączenie sieci wirtualnej z obwodem usługi Azure ExpressRoute. K
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 4c7a24ad692086398059d1afd48c8927e9d18582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a4ed99d69d1c2389e73c215bccfd6112895e791d
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272918"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737074"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Nawiązywanie połączenia sieci wirtualnej z obwodem usługi ExpressRoute za pomocą witryny Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
-> * [PowerShell](expressroute-howto-linkvnet-arm.md)
+> * [Program PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfejs wiersza polecenia platformy Azure](howto-linkvnet-cli.md)
 > * [Wideo — Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (klasyczny)](expressroute-howto-linkvnet-classic.md)
@@ -55,7 +55,7 @@ Ten artykuł pomaga utworzyć połączenie w celu połączenia sieci wirtualnej 
 1. Upewnij się, że pomyślnie skonfigurowano obwód usługi ExpressRoute i prywatną komunikację równorzędną Azure. Postępuj zgodnie z instrukcjami w temacie [Tworzenie obwodu usługi ExpressRoute](expressroute-howto-circuit-arm.md) i [Tworzenie i modyfikowanie komunikacji równorzędnej dla obwodu usługi ExpressRoute](expressroute-howto-routing-arm.md). Obwód ExpressRoute powinien wyglądać jak na poniższej ilustracji:
 
    [![Zrzut ekranu obwodu ExpressRoute](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "Wyświetl obwód")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
-2. Teraz można rozpocząć Inicjowanie obsługi połączenia w celu połączenia bramy sieci wirtualnej z obwodem usługi ExpressRoute. Kliknij pozycję **połączenie** > **Dodaj** , aby otworzyć stronę **Dodawanie połączenia** , a następnie skonfiguruj wartości.
+2. Teraz można rozpocząć Inicjowanie obsługi połączenia w celu połączenia bramy sieci wirtualnej z obwodem usługi ExpressRoute. Kliknij pozycję **połączenie**  >  **Dodaj** , aby otworzyć stronę **Dodawanie połączenia** , a następnie skonfiguruj wartości.
 
    [![Dodaj zrzut ekranu połączenia](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Dodaj zrzut ekranu połączenia")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. Po pomyślnym skonfigurowaniu połączenia obiekt połączenia będzie wyświetlał informacje dotyczące połączenia.

@@ -394,30 +394,64 @@
       items:
         - name: Co to jest asystent głosowy?
           href: voice-assistants.md
-    - name: Polecenia niestandardowe (wersja zapoznawcza)
+    - name: Polecenia niestandardowe
       items:
         - name: Co to są polecenia niestandardowe?
           href: custom-commands.md
         - name: Przewodniki Szybki start
           items:
             - name: Tworzenie aplikacji z poleceniami niestandardowymi
-              href: quickstart-custom-speech-commands-create-new.md
-            - name: Tworzenie polecenia niestandardowego z parametrami
-              href: quickstart-custom-speech-commands-create-parameters.md
-            - name: Używanie poleceń niestandardowych z głosem niestandardowym
-              href: quickstart-custom-speech-commands-select-custom-voice.md
-            - name: Używanie poleceń niestandardowych przy użyciu zestawu SDK usługi Mowa
-              href: quickstart-custom-speech-commands-speech-sdk.md
+              href: quickstart-custom-commands-application.md
         - name: Przewodniki z instrukcjami
           items:
-            - name: Realizacja poleceń z klienta
-              href: how-to-custom-speech-commands-fulfill-sdk.md
-            - name: Dodawanie walidacji parametru
-              href: how-to-custom-speech-commands-validations.md
-            - name: Dodawanie potwierdzenia
-              href: how-to-custom-speech-commands-confirmations.md
-            - name: Dodawanie korekcji w jednym kroku
-              href: how-to-custom-speech-commands-one-step-correction.md
+            - name: Programowanie
+              items:
+                - name: Tworzenie aplikacji przy użyciu prostych poleceń
+                  href: how-to-custom-commands-create-application-with-simple-commands.md
+                - name: Dodawanie parametrów do poleceń
+                  href: how-to-custom-commands-add-parameters-to-commands.md
+                - name: Dodawanie konfiguracji do parametrów poleceń
+                  href: how-to-custom-commands-add-parameter-configuration.md
+                - name: Dodawanie reguł interakcji
+                  href: how-to-custom-commands-add-interaction-rules.md
+                - name: Dodawanie szablonów generowania języka na potrzeby odpowiedzi mowy
+                  href: how-to-custom-commands-add-language-generation-templates.md
+            - name: Integracja
+              items:
+                - name: Integracja z aplikacją kliencką przy użyciu zestawu SDK usługi Mowa
+                  href: how-to-custom-commands-setup-speech-sdk.md
+                - name: Wysyłanie działania do aplikacji klienckiej
+                  href: how-to-custom-commands-send-activity-to-client.md
+                - name: Konfigurowanie internetowych punktów końcowych
+                  href: how-to-custom-commands-setup-web-endpoints.md
+            - name: Wdrażanie
+              items:
+                - name: Ciągłe wdrażanie za pomocą usługi Azure DevOps
+                  href: how-to-custom-commands-deploy-cicd.md
+            - name: Testowanie
+              items:
+                - name: Testowanie aplikacji z poleceniami niestandardowymi
+                  href: how-to-custom-commands-developer-flow-test.md
+            - name: Debugowanie
+              items:
+                - name: Debugowanie błędów podczas tworzenia aplikacji
+                  href: how-to-custom-commands-debug-build-time.md
+                - name: Debugowanie błędów podczas uruchamiania aplikacji
+                  href: how-to-custom-commands-debug-runtime.md
+            - name: Dokumentacja
+              items:
+                - name: Pojęcia z zakresu poleceń niestandardowych
+                  href: custom-commands-references.md
+        - name: Zasoby
+          items:
+            - name: Przykłady poleceń niestandardowych (GitHub)
+              href: 'https://aka.ms/speech/cc-samples'
+            - name: Przykłady asystenta głosowego (GitHub)
+              href: 'http://aka.ms/speech/va-samples'
+            - name: Często zadawane pytania dotyczące asystentów głosowych
+              href: faq-voice-assistants.md
+            - name: Zestaw SDK rozpoznawania mowy
+              href: speech-sdk.md
     - name: Mowa Direct Line
       items:
         - name: Co to jest mowa Direct Line?

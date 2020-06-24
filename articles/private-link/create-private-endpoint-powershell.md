@@ -4,15 +4,15 @@ description: Dowiedz się więcej o usłudze Azure Private link
 services: private-link
 author: malopMSFT
 ms.service: private-link
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 83207c70b147e4f0d416f47a6b12f9826f49f2db
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 0c6fc36be101679cea3a770f311005f63c3f0d66
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267787"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737380"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell
 Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Umożliwia ona korzystanie z zasobów platformy Azure, takich jak Virtual Machines (VM), w celu komunikacji z prywatnymi zasobami łączy prywatnych. 
@@ -212,14 +212,14 @@ mstsc /v:<publicIpAddress>
     | Nazwa serwera | myserver.database.windows.net |
     | Nazwa użytkownika | Wprowadź nazwę użytkownika podaną podczas tworzenia |
     | Hasło | Wprowadź hasło podane podczas tworzenia |
-    | Zapamiętaj hasło | Yes |
+    | Zapamiętaj hasło | Tak |
     
 5. Wybierz pozycję **Połącz**.
 6. Przeglądaj **bazy danych** z menu po lewej stronie. 
 7. Zdefiniować Utwórz lub zapytaj informacje z bazy danych.
 8. Zamknij połączenie pulpitu zdalnego z *myVM*. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
+## <a name="clean-up-resources"></a>Czyszczenie zasobów 
 Gdy skończysz korzystać z prywatnego punktu końcowego, SQL Database i maszyny wirtualnej, użyj polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) , aby usunąć grupę zasobów i wszystkie jej zasoby:
 
 ```azurepowershell-interactive

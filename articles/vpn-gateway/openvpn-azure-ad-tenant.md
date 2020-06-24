@@ -4,17 +4,17 @@ description: Aby nawiązać połączenie z siecią wirtualną przy użyciu uwier
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/17/2020
 ms.author: alzam
-ms.openlocfilehash: 00db2ed05285a1637414aa1e3adbe3b047ff0568
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8658556c152c815b2846f93235e4049c66a7e354
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641344"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987192"
 ---
-# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Tworzenie dzierżawy Azure Active Directory dla połączeń protokołu OpenVPN P2S
+# <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Tworzenie dzierżawy usługi Azure Active Directory dla połączeń protokołu OpenVPN typu punkt-lokacja
 
 Podczas nawiązywania połączenia z siecią wirtualną można użyć uwierzytelniania opartego na certyfikatach lub uwierzytelniania usługi RADIUS. Jednak w przypadku korzystania z otwartego protokołu sieci VPN można również użyć uwierzytelniania Azure Active Directory. Ten artykuł ułatwia skonfigurowanie dzierżawy usługi Azure AD na potrzeby P2S Open VPN Authentication.
 
@@ -105,7 +105,7 @@ Wykonaj kroki opisane w [tym artykule](../active-directory/fundamentals/add-user
     ```
 
    > [!NOTE]
-   > Upewnij się, że na końcu `AadIssuerUri` wartości dołączysz końcowy ukośnik. W przeciwnym razie polecenie zakończy się niepowodzeniem.
+   > Upewnij się, że na końcu wartości dołączysz końcowy ukośnik `AadIssuerUri` . W przeciwnym razie polecenie zakończy się niepowodzeniem.
 
 10. Utwórz i Pobierz profil, uruchamiając następujące polecenia. Zmień wartości parametrów-ResourceGroupName i-Name, aby były zgodne z własnymi.
 
@@ -122,7 +122,7 @@ Wykonaj kroki opisane w [tym artykule](../active-directory/fundamentals/add-user
 
 13. Przejdź do folderu rozpakowanego "AzureVPN".
 
-14. Zanotuj lokalizację pliku "azurevpnconfig. xml". Azurevpnconfig. xml zawiera ustawienie dla połączenia sieci VPN i można je zaimportować bezpośrednio do aplikacji klienckiej sieci VPN platformy Azure. Możesz również dystrybuować ten plik do wszystkich użytkowników, którzy muszą łączyć się za pośrednictwem poczty e-mail lub w inny sposób. Aby nawiązać połączenie, użytkownik musi dysponować prawidłowymi poświadczeniami usługi Azure AD.
+14. Zanotuj lokalizację pliku "azurevpnconfig.xml". azurevpnconfig.xml zawiera ustawienie dla połączenia sieci VPN i można je zaimportować bezpośrednio do aplikacji klienckiej sieci VPN platformy Azure. Możesz również dystrybuować ten plik do wszystkich użytkowników, którzy muszą łączyć się za pośrednictwem poczty e-mail lub w inny sposób. Aby nawiązać połączenie, użytkownik musi dysponować prawidłowymi poświadczeniami usługi Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 

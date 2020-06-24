@@ -4,15 +4,15 @@ description: W tym artykule omówiono konfigurowanie protokołu BGP z bramą sie
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 42a07ac00fd8a26918164f6547bf57c2b021d14c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d71e8af607ac15c708ff18a2f2a91e11ed36a987
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75863618"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987742"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Jak skonfigurować protokół BGP na bramie sieci VPN platformy Azure przy użyciu interfejsu wiersza polecenia
 
@@ -91,9 +91,9 @@ az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Utwórz bramę sieci VPN przy użyciu numeru AS
 
-Utwórz bramę sieci wirtualnej dla sieci TestVNet1. Protokół BGP wymaga bramy sieci VPN opartej na trasach. Wymagany jest również dodatkowy parametr `-Asn` , aby ustawić numer systemu autonomicznego (ASN) dla sieci testvnet1. Utworzenie bramy może potrwać trochę czasu (45 minut lub więcej). 
+Utwórz bramę sieci wirtualnej dla sieci TestVNet1. Protokół BGP wymaga bramy sieci VPN opartej na trasach. Wymagany jest również dodatkowy parametr, `-Asn` Aby ustawić numer systemu autonomicznego (ASN) dla sieci testvnet1. Utworzenie bramy może potrwać trochę czasu (45 minut lub więcej). 
 
-Jeśli uruchomisz to polecenie przy użyciu `--no-wait` parametru, nie zobaczysz żadnych informacji zwrotnych ani danych wyjściowych. `--no-wait` Parametr umożliwia utworzenie bramy w tle. Nie oznacza to, że Brama sieci VPN jest tworzona natychmiast.
+Jeśli uruchomisz to polecenie przy użyciu `--no-wait` parametru, nie zobaczysz żadnych informacji zwrotnych ani danych wyjściowych. `--no-wait`Parametr umożliwia utworzenie bramy w tle. Nie oznacza to, że Brama sieci VPN jest tworzona natychmiast.
 
 ```azurecli
 az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address GWPubIP -g TestBGPRG1 --vnet TestVNet1 --gateway-type Vpn --sku HighPerformance --vpn-type RouteBased --asn 65010 --no-wait
@@ -103,7 +103,7 @@ az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address GWPubIP 
 
 Po utworzeniu bramy należy uzyskać adres IP elementu równorzędnego BGP w bramie sieci VPN platformy Azure. Ten adres jest wymagany do skonfigurowania bramy sieci VPN jako elementu równorzędnego protokołu BGP dla lokalnych urządzeń sieci VPN.
 
-Uruchom następujące polecenie i zapoznaj się `bgpSettings` z sekcją w górnej części danych wyjściowych:
+Uruchom następujące polecenie i zapoznaj się z `bgpSettings` sekcją w górnej części danych wyjściowych:
 
 ```azurecli
 az network vnet-gateway list -g TestBGPRG1 
@@ -133,7 +133,7 @@ To ćwiczenie kontynuuje kompilację konfiguracji pokazanej na diagramie. Należ
 * Minimalny prefiks, który należy zadeklarować dla bramy sieci lokalnej, to adres IP elementu równorzędnego BGP na urządzeniu sieci VPN. W tym przypadku jest to prefiks klasy/32 10.51.255.254/32.
 * W razie konieczności należy używać różnych numerów ASN protokołu BGP między sieciami lokalnymi i siecią wirtualną platformy Azure. Jeśli są takie same, należy zmienić numer ASN sieci wirtualnej, jeśli lokalne urządzenia sieci VPN już używają numeru ASN do komunikacji równorzędnej z innymi sąsiadami BGP.
 
-Przed kontynuowaniem upewnij się, że została ukończona sekcja [Włączanie protokołu BGP dla bramy sieci VPN](#enablebgp) w tym ćwiczeniu i że nadal masz połączenie z subskrypcją 1. Zwróć uwagę, że w tym przykładzie utworzysz nową grupę zasobów. Zwróć również uwagę na dwa dodatkowe parametry bramy sieci lokalnej: `Asn` i. `BgpPeerAddress`
+Przed kontynuowaniem upewnij się, że została ukończona sekcja [Włączanie protokołu BGP dla bramy sieci VPN](#enablebgp) w tym ćwiczeniu i że nadal masz połączenie z subskrypcją 1. Zwróć uwagę, że w tym przykładzie utworzysz nową grupę zasobów. Zwróć również uwagę na dwa dodatkowe parametry bramy sieci lokalnej: `Asn` i `BgpPeerAddress` .
 
 ```azurecli
 az group create -n TestBGPRG5 -l eastus2 
@@ -143,7 +143,7 @@ az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site5 -g T
 
 ### <a name="step-2-connect-the-vnet-gateway-and-local-network-gateway"></a>Krok 2. Łączenie bramy sieci wirtualnej i bramy sieć lokalna
 
-W tym kroku utworzysz połączenie od sieci testvnet1 do site5. Należy określić parametr, `--enable-bgp` aby włączyć protokół BGP dla tego połączenia. 
+W tym kroku utworzysz połączenie od sieci testvnet1 do site5. Należy określić parametr, `--enable-bgp` Aby włączyć protokół BGP dla tego połączenia. 
 
 W tym przykładzie Brama sieci wirtualnej i Brama sieci lokalnej znajdują się w różnych grupach zasobów. Gdy bramy znajdują się w różnych grupach zasobów, należy określić cały identyfikator zasobu dwóch bram, aby skonfigurować połączenie między sieciami wirtualnymi.
 
@@ -155,7 +155,7 @@ Użyj danych wyjściowych z następującego polecenia, aby pobrać identyfikator
 az network vnet-gateway show -n VNet1GW -g TestBGPRG1
 ```
 
-Znajdź `"id":` wiersz w danych wyjściowych. Potrzebujesz wartości w cudzysłowie, aby utworzyć połączenie w następnej sekcji.
+Znajdź wiersz w danych wyjściowych `"id":` . Potrzebujesz wartości w cudzysłowie, aby utworzyć połączenie w następnej sekcji.
 
 Przykładowe dane wyjściowe:
 
