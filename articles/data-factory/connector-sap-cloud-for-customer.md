@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/02/2019
-ms.openlocfilehash: 1d3772a17d0429d9b3a5bf95d2060f2dfbbbafe1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/12/2020
+ms.openlocfilehash: 9544d0298a7aa62d5fd935e8670d02e470ac15e5
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418052"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987560"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Skopiuj dane z chmury SAP dla klienta (C4C) przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -48,9 +48,9 @@ W poniższych sekcjach znajdują się szczegółowe informacje o właściwościa
 
 Następujące właściwości są obsługiwane w przypadku chmury SAP dla usługi połączonej z klientem:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **SapCloudForCustomer**. | Tak |
+| typ | Właściwość Type musi mieć wartość: **SapCloudForCustomer**. | Tak |
 | url | Adres URL usługi SAP C4C OData. | Tak |
 | nazwa użytkownika | Określ nazwę użytkownika, aby nawiązać połączenie z usługą SAP C4C. | Tak |
 | hasło | Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak |
@@ -88,9 +88,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z chmury SAP dla klienta, należy ustawić Właściwość Type zestawu danych na **SapCloudForCustomerResource**. Obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **SapCloudForCustomerResource** |Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **SapCloudForCustomerResource** |Tak |
 | ścieżka | Określ ścieżkę jednostki usługi SAP C4C OData. |Tak |
 
 **Przykład:**
@@ -120,10 +120,11 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z chmury SAP dla klienta, ustaw typ źródła w działaniu Copy na **SapCloudForCustomerSource**. W sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **SapCloudForCustomerSource**  | Tak |
+| typ | Właściwość Type musi mieć wartość: **SapCloudForCustomerSource**  | Tak |
 | query | Określ niestandardowe zapytanie OData do odczytu danych. | Nie |
+| httpRequestTimeout | Limit czasu (wartość **TimeSpan** ) żądania HTTP w celu uzyskania odpowiedzi. Ta wartość jest przekroczeniem limitu czasu w celu uzyskania odpowiedzi, a nie limitu czasu odczytu danych odpowiedzi. Jeśli nie zostanie określony, wartość domyślna to **00:30:00** (30 minut). | Nie |
 
 Przykładowe zapytanie w celu pobrania danych przez konkretny dzień:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -163,9 +164,9 @@ Przykładowe zapytanie w celu pobrania danych przez konkretny dzień:`"query": "
 
 Aby skopiować dane do chmury SAP dla klienta, ustaw typ ujścia w działaniu Copy na **SapCloudForCustomerSink**. W sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **SapCloudForCustomerSink**  | Tak |
+| typ | Właściwość Type musi mieć wartość: **SapCloudForCustomerSink**  | Tak |
 | writeBehavior | Zachowanie zapisu operacji. Może to być "INSERT", "Update". | Nie. Domyślne "INSERT". |
 | writeBatchSize | Rozmiar wsadu operacji zapisu. Rozmiar wsadu w celu uzyskania najlepszej wydajności może być różny dla różnych tabel lub serwerów. | Nie. Wartość domyślna to 10. |
 
@@ -220,13 +221,13 @@ Podczas kopiowania danych z chmury SAP dla klienta następujące mapowania są u
 | EDM. DateTime | DateTime |
 | EDM. Decimal | Wartość dziesiętna |
 | Edm.Double | Double |
-| EDM. Single | Single |
+| EDM. Single | Pojedyncze |
 | EDM. GUID | Guid (identyfikator GUID) |
 | EDM. Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | EDM. | Int16 |
-| Edm.String | String |
+| Edm.String | Ciąg |
 | EDM. Time | przedział_czasu |
 | Edm.DateTimeOffset | DateTimeOffset |
 

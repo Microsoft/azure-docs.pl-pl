@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 65bbc9f66ceb732a8f773f0b49cd46f99750a7d5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 871ea665d23a5fba644448ddb6c596179d47bb3f
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196304"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106390"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Znane problemy/ograniczenia migracji z migracją online do wystąpienia zarządzanego Azure SQL
 
@@ -62,6 +62,6 @@ Poniżej opisano znane problemy i ograniczenia związane z migracją online z pr
 
 - **Wdrożenia**
 
-    Wystąpienie zarządzane SQL to usługa PaaS z automatyczną poprawką poprawek i aktualizacjami wersji. Podczas migracji wystąpienia zarządzanego SQL aktualizacje niekrytyczne są łatwiejsze do 36 godzin. Następnie (i w przypadku aktualizacji krytycznych), jeśli migracja zostanie zakłócona, proces resetuje do stanu pełnego przywracania.
+    Wystąpienie zarządzane SQL to usługa PaaS z automatyczną poprawką poprawek i aktualizacjami wersji. Podczas migracji wystąpienia zarządzanego SQL aktualizacje niekrytyczne są przechowywane przez maksymalnie 36 godzin. Następnie (i w przypadku aktualizacji krytycznych), jeśli migracja zostanie zakłócona, proces resetuje do stanu pełnego przywracania.
 
     Uruchomienie produkcyjne migracji można wywołać tylko po przywróceniu pełnej kopii zapasowej i przejściu do wszystkich kopii zapasowych dziennika. Jeśli dotyczy to jednorazowe migracji produkcyjnej, skontaktuj się z [aliasem opinii platformy Azure](mailto:dmsfeedback@microsoft.com).

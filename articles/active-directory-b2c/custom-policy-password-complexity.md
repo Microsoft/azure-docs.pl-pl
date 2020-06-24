@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b16790e288f6569f08ce14e5a7c751bbd8083faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07212f2968ff1db99ef5fee2e6e8eca818ec0e24
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79138438"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202640"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie złożoności haseł przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -31,13 +31,13 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych](custom-
 
 ## <a name="add-the-elements"></a>Dodaj elementy
 
-Aby skonfigurować złożoność hasła, Zastąp `newPassword` `reenterPassword` [typy i typu roszczeń](claimsschema.md) odwołaniem do [walidacji predykatów](predicates.md#predicatevalidations). Element PredicateValidations grupuje zestaw predykatów do tworzenia walidacji danych wejściowych użytkownika, które można zastosować do typu zgłoszenia. Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+Aby skonfigurować złożoność hasła, Zastąp `newPassword` `reenterPassword` [typy i typu roszczeń](claimsschema.md) odwołaniem do [walidacji predykatów](predicates.md#predicatevalidations). Element PredicateValidations grupuje zestaw predykatów do tworzenia walidacji danych wejściowych użytkownika, które można zastosować do typu zgłoszenia. Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 
 1. Wyszukaj element [BuildingBlocks](buildingblocks.md) . Jeśli element nie istnieje, Dodaj go.
 1. Znajdź element [ClaimsSchema](claimsschema.md) . Jeśli element nie istnieje, Dodaj go.
-1. Dodaj oświadczenia `newPassword` i `reenterPassword` do elementu **ClaimsSchema** .
+1. Dodaj `newPassword` oświadczenia i `reenterPassword` do elementu **ClaimsSchema** .
 
-    ```XML
+    ```xml
     <ClaimType Id="newPassword">
       <PredicateValidationReference Id="CustomPassword" />
     </ClaimType>
@@ -48,7 +48,7 @@ Aby skonfigurować złożoność hasła, Zastąp `newPassword` `reenterPassword`
 
 1. [Predykaty](predicates.md) definiują podstawową walidację w celu sprawdzenia wartości typu i zwraca wartość PRAWDA lub FAŁSZ. Walidacja jest wykonywana przy użyciu określonego elementu metody i zestawu parametrów związanych z tą metodą. Dodaj następujące predykaty do elementu **BuildingBlocks** bezpośrednio po zamknięciu `</ClaimsSchema>` elementu:
 
-    ```XML
+    ```xml
     <Predicates>
       <Predicate Id="LengthRange" Method="IsLengthRange">
         <UserHelpText>The password must be between 6 and 64 characters.</UserHelpText>
@@ -86,7 +86,7 @@ Aby skonfigurować złożoność hasła, Zastąp `newPassword` `reenterPassword`
 
 1. Dodaj następujące walidacje predykatu do elementu **BuildingBlocks** , bezpośrednio po zamknięciu `</Predicates>` elementu:
 
-    ```XML
+    ```xml
     <PredicateValidations>
       <PredicateValidation Id="CustomPassword">
         <PredicateGroups>
@@ -111,7 +111,7 @@ Aby skonfigurować złożoność hasła, Zastąp `newPassword` `reenterPassword`
 
 1. Następujące profile techniczne są [Active Directory profile techniczne](active-directory-technical-profile.md), które odczytują i zapisują dane do Azure Active Directory. Zastąp te profile techniczne w pliku rozszerzenia. Służy `PersistedClaims` do wyłączania zasad silnych haseł. Znajdź element **ClaimsProviders** .  Dodaj następujących dostawców roszczeń w następujący sposób:
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>Azure Active Directory</DisplayName>
       <TechnicalProfiles>
@@ -140,13 +140,13 @@ Aby skonfigurować złożoność hasła, Zastąp `newPassword` `reenterPassword`
 3. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 4. Wybierz pozycję **platforma obsługi tożsamości**.
 5. Na stronie zasady niestandardowe kliknij pozycję **Przekaż zasady**.
-6. Wybierz opcję **Zastąp zasady, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions. XML* .
+6. Wybierz opcję **Zastąp zasady, jeśli istnieje**, a następnie wyszukaj i wybierz plik *TrustFrameworkExtensions.xml* .
 7. Kliknij pozycję **Przekaż**.
 
 ### <a name="run-the-policy"></a>Uruchamianie zasad
 
 1. Otwórz zasady rejestracji lub logowania. Na przykład *B2C_1A_signup_signin*.
-2. W przypadku **aplikacji**wybierz wcześniej zarejestrowaną aplikację. Aby wyświetlić token, należy `https://jwt.ms`wyświetlić **adres URL odpowiedzi** .
+2. W przypadku **aplikacji**wybierz wcześniej zarejestrowaną aplikację. Aby wyświetlić token, należy wyświetlić **adres URL odpowiedzi** `https://jwt.ms` .
 3. Kliknij pozycję **Uruchom teraz**.
 4. Wybierz pozycję **zarejestruj się teraz**, wprowadź adres e-mail i wprowadź nowe hasło. Wskazówki przedstawiono w temacie ograniczenia dotyczące haseł. Zakończ wprowadzanie informacji o użytkowniku, a następnie kliknij przycisk **Utwórz**. Powinna zostać wyświetlona zawartość zwróconego tokenu.
 

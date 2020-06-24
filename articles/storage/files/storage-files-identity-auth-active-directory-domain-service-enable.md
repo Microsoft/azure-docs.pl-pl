@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3454909707b1f9a8a515ff4432cfb4bf75a20f6e
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 26c48c84521946ff748ca960b8060cc973640eb3
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84509274"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888404"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Włącz uwierzytelnianie Azure Active Directory Domain Services na Azure Files
 
@@ -55,6 +55,10 @@ Przed włączeniem usługi Azure AD za pośrednictwem protokołu SMB dla udział
 1.  **Sprawdź łączność Azure Files, instalując udziały plików platformy Azure przy użyciu klucza konta magazynu.**
 
     Aby sprawdzić, czy maszyna wirtualna i udział plików są prawidłowo skonfigurowane, spróbuj zainstalować udział plików przy użyciu klucza konta magazynu. Aby uzyskać więcej informacji, zobacz [Instalowanie udziału plików platformy Azure i uzyskiwanie dostępu do udziału w systemie Windows](storage-how-to-use-files-windows.md).
+
+## <a name="regional-availability"></a>Dostępność regionalna
+
+Uwierzytelnianie Azure Files za pomocą usługi Azure AD DS jest dostępne we [wszystkich regionach publicznych platformy Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview-of-the-workflow"></a>Przegląd przepływu pracy
 

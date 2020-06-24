@@ -7,46 +7,48 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 84067917a43fc7c84770b8852f11622ffe2af930
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: e6c38f3bc695db0e27547e434a81f95fa556e84b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629304"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85296002"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Trasy w usłudze Azure static Web Apps Preview
 
-Routing w usłudze Azure static Web Apps definiuje reguły routingu zaplecza i zachowanie autoryzacji dla zawartości statycznej i interfejsów API. Reguły są definiowane jako tablica reguł w pliku _Routes. JSON_ .
+Routing w usłudze Azure static Web Apps definiuje reguły routingu zaplecza i zachowanie autoryzacji dla zawartości statycznej i interfejsów API<sup>1</sup>. Reguły są definiowane jako tablica reguł w _routes.js_ pliku.
 
-- Plik _Routes. JSON_ musi znajdować się w folderze głównym folderu artefaktów kompilacji aplikacji.
+- _routes.js_ pliku musi znajdować się w folderze głównym folderu artefaktów kompilacji aplikacji.
 - Reguły są wykonywane w kolejności, w jakiej są wyświetlane w `routes` tablicy.
 - Ocena reguły kończy się przy pierwszym dopasowaniu. Reguły routingu nie są powiązane ze sobą.
-- Role są zdefiniowane w pliku _Routes. JSON_ , a użytkownicy są skojarzeni z rolami za pośrednictwem [zaproszeń](authentication-authorization.md).
+- Role są zdefiniowane w _routes.jsw_ pliku i użytkownicy są skojarzeni z rolami za pośrednictwem [zaproszeń](authentication-authorization.md).
 - Masz pełną kontrolę nad nazwami ról.
 
 Temat dotyczący routingu znacznie pokrywa się z pojęciami dotyczącymi uwierzytelniania i autoryzacji. Upewnij się, że zapoznaj się z przewodnikiem [uwierzytelnianie i autoryzacja](authentication-authorization.md) wraz z tym artykułem.
 
+Zobacz [przykładowy plik trasy](#example-route-file) , aby uzyskać szczegółowe informacje.
+
 ## <a name="location"></a>Lokalizacja
 
-Plik _Routes. JSON_ musi znajdować się w folderze głównym folderu artefaktów kompilacji aplikacji. Jeśli aplikacja sieci Web zawiera krok kompilacji, który kopiuje skompilowane pliki z określonego folderu do folderu artefaktów kompilacji, plik _Routes. JSON_ musi istnieć w tym konkretnym folderze.
+_routes.js_ pliku musi znajdować się w folderze głównym folderu artefaktów kompilacji aplikacji. Jeśli aplikacja sieci Web zawiera krok kompilacji, który kopiuje skompilowane pliki z określonego folderu do folderu artefaktów kompilacji, wówczas _routes.jsw_ pliku musi istnieć w tym konkretnym folderze.
 
-W poniższej tabeli wymieniono odpowiednie lokalizacje umieszczania pliku _Routes. JSON_ dla wielu platform i bibliotek języka JavaScript frontonu.
+W poniższej tabeli wymieniono odpowiednie lokalizacje umieszczania _routes.jsw_ pliku dla wielu platform i bibliotek języka JavaScript frontonu.
 
 |Struktura/Biblioteka | Lokalizacja  |
 |---------|----------|
 | Angular | _stanu_   |
-| React   | _public_  |
-| Svelte  | _public_   |
-| VUE     | _public_ |
+| React   | _społeczeństwo_  |
+| Svelte  | _społeczeństwo_   |
+| VUE     | _społeczeństwo_ |
 
 ## <a name="defining-routes"></a>Definiowanie tras
 
-Trasy są zdefiniowane w pliku _Routes. JSON_ jako tablica reguł tras we `routes` właściwości. Każda reguła składa się ze wzorca trasy wraz z co najmniej jedną opcjonalną właściwością reguły. Zobacz [przykładowy plik tras](#example-route-file) dla przykładów użycia.
+Trasy są zdefiniowane w _routes.jsw_ pliku jako tablica reguł tras we `routes` właściwości. Każda reguła składa się ze wzorca trasy wraz z co najmniej jedną opcjonalną właściwością reguły. Zobacz [przykładowy plik tras](#example-route-file) dla przykładów użycia.
 
 | Właściwość reguły  | Wymagane | Wartość domyślna | Komentarz                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Tak      | nie dotyczy          | Wzorzec trasy żądany przez wywołującego.<ul><li>[Symbole wieloznaczne](#wildcards) są obsługiwane na końcu ścieżek tras. Na przykład _administrator trasy/ \* _ dopasowuje dowolną trasę pod ścieżką _administratora_ .<li>Domyślny plik trasy to _index. html_.</ul>|
-| `serve`        | Nie       | nie dotyczy          | Definiuje plik lub ścieżkę zwracaną z żądania. Ścieżka i nazwa pliku mogą się różnić od żądanej ścieżki. Jeśli `serve` wartość jest zdefiniowana, zostanie użyta żądana ścieżka. |
+| `route`        | Tak      | nie dotyczy          | Wzorzec trasy żądany przez wywołującego.<ul><li>[Symbole wieloznaczne](#wildcards) są obsługiwane na końcu ścieżek tras. Na przykład _administrator trasy/ \* _ dopasowuje dowolną trasę pod ścieżką _administratora_ .<li>Domyślny plik trasy to _index.html_.</ul>|
+| `serve`        | Nie       | nie dotyczy          | Definiuje plik lub ścieżkę zwracaną z żądania. Ścieżka i nazwa pliku mogą się różnić od żądanej ścieżki. Jeśli `serve` wartość nie jest zdefiniowana, zostanie użyta żądana ścieżka. Parametry QueryString nie są obsługiwane; `serve`wartości muszą wskazywać na rzeczywiste pliki.  |
 | `allowedRoles` | Nie       | anonimowe     | Tablica nazw ról. <ul><li>Prawidłowe znaki to `a-z` , `A-Z` , `0-9` , i `_` .<li>Wbudowana rola `anonymous` ma zastosowanie do wszystkich nieuwierzytelnionych użytkowników.<li>Wbudowana rola `authenticated` ma zastosowanie do każdego zalogowanego użytkownika.<li>Użytkownicy muszą należeć do co najmniej jednej roli.<li>Role są dopasowane na zasadzie _lub_ . Jeśli użytkownik znajduje się w dowolnej z wymienionych ról, zostanie udzielony dostęp.<li>Indywidualni użytkownicy są skojarzeni z rolami za pomocą [zaproszeń](authentication-authorization.md).</ul> |
 | `statusCode`   | Nie       | 200           | Odpowiedź na [kod stanu HTTP](https://wikipedia.org/wiki/List_of_HTTP_status_codes) dla żądania. |
 
@@ -88,7 +90,7 @@ Na przykład w celu zaimplementowania tras dla aplikacji kalendarza można zmapo
 }
 ```
 
-Plik _Calendar. html_ może następnie użyć routingu po stronie klienta, aby zapewnić inny widok dla wariantów adresów URL, takich jak `/calendar/january/1` , `/calendar/2020` i `/calendar/overview` .
+Plik _calendar.html_ może następnie użyć routingu po stronie klienta, aby zapewnić inny widok dla wariantów adresów URL, takich jak `/calendar/january/1` , `/calendar/2020` i `/calendar/overview` .
 
 Możesz również zabezpieczyć trasy z symbolami wieloznacznymi. W poniższym przykładzie każdy plik żądany w ścieżce _administratora_ wymaga uwierzytelnionego użytkownika, który jest członkiem roli _administratora_ .
 
@@ -126,7 +128,7 @@ Trasa rezerwowa musi być umieszczona na końcu w regułach routingu, ponieważ 
 
 Można użyć kodów stanu HTTP [301](https://en.wikipedia.org/wiki/HTTP_301) i [302](https://en.wikipedia.org/wiki/HTTP_302) do przekierowywania żądań z jednej trasy do innej.
 
-Na przykład następująca reguła tworzy przekierowanie 301 z _Old-Page. html_ do _New-Page. html_.
+Na przykład następująca reguła tworzy przekierowanie 301 z _old-page.html_ do _new-page.html_.
 
 ```json
 {
@@ -148,7 +150,10 @@ Przekierowania również współpracują ze ścieżkami, które nie definiują o
 
 ## <a name="custom-error-pages"></a>Niestandardowe strony błędów
 
-Użytkownicy mogą napotkać różne sytuacje, które mogą spowodować wystąpienie błędu. Korzystając z `platformErrorOverrides` tablicy, można zapewnić niestandardowe środowisko w odpowiedzi na te błędy. Zapoznaj się z [przykładowym plikiem trasy](#example-route-file) do umieszczania tablicy w pliku _Routes. JSON_ .
+Użytkownicy mogą napotkać różne sytuacje, które mogą spowodować wystąpienie błędu. Korzystając z `platformErrorOverrides` tablicy, można zapewnić niestandardowe środowisko w odpowiedzi na te błędy. Zapoznaj się z [przykładowym plikiem trasy](#example-route-file) do umieszczania tablicy w _routes.js_ pliku.
+
+> [!NOTE]
+> Gdy żądanie spowoduje przesłonięcie na poziomie platformy, reguły tras nie są uruchamiane ponownie.
 
 Poniższa tabela zawiera listę dostępnych zastąpień błędów platformy:
 
@@ -164,7 +169,7 @@ Poniższa tabela zawiera listę dostępnych zastąpień błędów platformy:
 
 ## <a name="example-route-file"></a>Przykładowy plik trasy
 
-Poniższy przykład pokazuje, jak utworzyć reguły tras dla zawartości statycznej i interfejsów API w pliku _Routes. JSON_ . Niektóre trasy używają [folderu systemowego _/.auth_ ](authentication-authorization.md) , który uzyskuje dostęp do punktów końcowych powiązanych z uwierzytelnianiem.
+Poniższy przykład pokazuje, jak utworzyć reguły tras dla zawartości statycznej i interfejsów API w _routes.js_ pliku. Niektóre trasy używają [folderu systemowego _/.auth_ ](authentication-authorization.md) , który uzyskuje dostęp do punktów końcowych powiązanych z uwierzytelnianiem.
 
 ```json
 {
@@ -214,7 +219,7 @@ Poniższy przykład pokazuje, jak utworzyć reguły tras dla zawartości statycz
     },
     {
       "errorType": "Unauthenticated",
-      "statusCode": "301",
+      "statusCode": "302",
       "serve": "/login"
     }
   ]
@@ -225,23 +230,27 @@ W poniższych przykładach opisano, co się dzieje, gdy żądanie jest zgodne z 
 
 |Żądania do...  | Wynik... |
 |---------|---------|---------|
-| _/Profile_ | Uwierzytelniani użytkownicy są obsługiwani do pliku _/Profile/index.html_ . Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
-| _/admin/reports_ | Użytkownicy uwierzytelnieni w roli _administratorzy_ są obsługiwani do pliku _/admin/Reports/index.html_ . Uwierzytelnieni użytkownicy, którzy nie należą do roli _administratorzy_ , są obsługiwani 401 Błąd<sup>1</sup>. Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
+| _/Profile_ | Uwierzytelnieni użytkownicy obsługują plik _/profile/index.html_ . Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
+| _/admin/reports_ | Użytkownicy uwierzytelnieni w roli _administratorzy_ są obsługiwani _/admin/Reports/index.html_ . Uwierzytelnieni użytkownicy, którzy nie należą do roli _administratorzy_ , są obsługiwani 401 Błąd<sup>2</sup>. Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
 | _/api/admin_ | Żądania od uwierzytelnionych użytkowników w roli _administratorzy_ są wysyłane do interfejsu API. Uwierzytelnieni użytkownicy, którzy nie znajdują się w roli _administratorzy_ , a nieuwierzytelnieni użytkownicy są obsługiwani błędem 401. |
-| _/customers/contoso_ | Uwierzytelnieni użytkownicy, którzy należą do roli firmy _ \_ contoso lub klienci_ _, są_ obsługiwani do pliku _/Customers/contoso/index.html_ <sup>1</sup>. Uwierzytelnieni użytkownicy, którzy nie _znajdują się w_ rolach firmy _ \_ contoso lub klienci_ , są obsługiwani 401 błędu. Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
+| _/customers/contoso_ | Użytkownicy uwierzytelnieni, którzy należą do roli firmy _ \_ contoso lub klienci_ _, są_ obsługiwani _/Customers/contoso/index.html_ pliku<sup>2</sup>. Uwierzytelnieni użytkownicy, którzy nie _znajdują się w_ rolach firmy _ \_ contoso lub klienci_ , są obsługiwani 401 błędu. Nieuwierzytelnieni użytkownicy przekierowani do programu _/login_. |
 | _/Login_     | Nieuwierzytelnionym użytkownikom wzywa się do uwierzytelnienia w usłudze GitHub. |
 | _/.auth/login/twitter_     | Autoryzacja za pomocą usługi Twitter jest wyłączona. Serwer reaguje na błąd 404. |
 | _/logout_     | Użytkownicy są wyrejestrowani z dowolnego dostawcy uwierzytelniania. |
-| _/calendar/2020/01_ | Przeglądarka jest obsługiwana przez plik _/Calendar.html_ . |
+| _/calendar/2020/01_ | Przeglądarka obsługuje plik _/calendar.html_ . |
 | _/specials_ | Przeglądarka zostanie przekierowana do _/Deals_. |
-| _/unknown-folder_     | Plik _/Custom-404.html_ jest obsługiwany. |
+| _/unknown-folder_     | Obsługiwany jest plik _/custom-404.html_ . |
 
-<sup>1</sup> możesz podać niestandardową stronę błędu, definiując `Unauthorized_MissingRoles` regułę w `platformErrorOverrides` tablicy.
+<sup>1</sup> reguły trasy dla funkcji API obsługują tylko [przekierowywanie](#redirects) i [Zabezpieczanie tras z rolami](#securing-routes-with-roles).
+
+<sup>2</sup> można podać niestandardową stronę błędu, definiując `Unauthorized_MissingRoles` regułę w `platformErrorOverrides` tablicy.
 
 ## <a name="restrictions"></a>Ograniczenia
 
-- Plik _Routes. JSON_ nie może mieć więcej niż 100 KB
-- Plik _Routes. JSON_ obsługuje maksymalnie 50 odrębnych ról
+- _routes.jsw_ pliku nie może być większy niż 100 KB
+- _routes.jsw_ pliku obsługuje maksymalnie 50 odrębnych ról
+
+Zapoznaj się z [artykułem](quotas.md) dotyczącym przydziału ogólnych ograniczeń i ograniczeń.
 
 ## <a name="next-steps"></a>Następne kroki
 

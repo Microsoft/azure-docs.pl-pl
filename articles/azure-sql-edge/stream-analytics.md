@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7c15312b48e7118517894d8ffd4807e4892e03a3
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: e323c56f22c3a7d32bda5afe03a3462d3263f0d0
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84233145"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254076"
 ---
 # <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>Korzystanie z Azure Stream Analytics zadań przy użyciu programu SQL Edge
 
@@ -52,7 +52,7 @@ Usługa Azure SQL Edge zawiera natywną implementację środowiska uruchomieniow
     |Pole      | Opis |
     |---------------|-------------|
     |Alias danych wyjściowych | Nazwa aliasu danych wyjściowych.|
-    |Baza danych | Nazwa bazy danych SQL. Musi być prawidłową nazwą bazy danych, która istnieje w wystąpieniu programu SQL Edge.|
+    |baza danych | Nazwa bazy danych. Musi być prawidłową nazwą bazy danych, która istnieje w wystąpieniu programu SQL Edge.|
     |Nazwa serwera | Nazwa (lub adres IP) i numer portu dla wystąpienia programu SQL Server. W przypadku wdrożenia programu SQL Edge można użyć **protokołu TCP:., 1433** jako nazwy serwera.|
     |Nazwa użytkownika | Konto logowania SQL, które ma dostęp do czytnika danych i składnika zapisywania danych do bazy danych określonej wcześniej.|
     |Hasło | Hasło do konta logowania SQL, które zostało określone wcześniej.|

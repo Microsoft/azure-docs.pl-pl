@@ -7,11 +7,11 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243694"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84694909"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Tworzenie dzierżawy usługi Azure AD na platformie Azure Red Hat OpenShift
 
@@ -28,12 +28,12 @@ Aby utworzyć dzierżawcę:
 3. Podaj **nazwę organizacji**.
 4. Podaj **początkową nazwę domeny**. Zostanie do niego dołączony *onmicrosoft.com* . W tym miejscu możesz użyć tutaj wartości *Nazwa organizacji* .
 5. Wybierz kraj lub region, w którym zostanie utworzona dzierżawa.
-6. Kliknij przycisk **Utwórz**.
+6. Kliknij pozycję **Utwórz**.
 7. Po utworzeniu dzierżawy usługi Azure AD wybierz **pozycję kliknij tutaj, aby zarządzać nowym katalogiem** . Nową nazwę dzierżawy należy wyświetlić w prawym górnym rogu Azure Portal:  
 
     ![Zrzut ekranu przedstawiający Portal pokazujący nazwę dzierżawy w prawym górnym rogu][tenantcallout]  
 
-8. Zanotuj *Identyfikator dzierżawy* , aby później można było określić miejsce utworzenia klastra usługi Azure Red Hat OpenShift. W portalu powinien zostać wyświetlony blok przegląd Azure Active Directory dla nowej dzierżawy. Wybierz pozycję **Właściwości** i skopiuj wartość **identyfikatora katalogu**. Ta wartość zostanie odwołująca się `TENANT` do tej wartości w samouczku [Tworzenie klastra usługi Azure Red Hat OpenShift](tutorial-create-cluster.md) .
+8. Zanotuj *Identyfikator dzierżawy* , aby później można było określić miejsce utworzenia klastra usługi Azure Red Hat OpenShift. W portalu powinien zostać wyświetlony blok przegląd Azure Active Directory dla nowej dzierżawy. Wybierz pozycję **Właściwości** i skopiuj wartość **identyfikatora katalogu**. Ta wartość zostanie odwołująca się do tej wartości `TENANT` w samouczku [Tworzenie klastra usługi Azure Red Hat OpenShift](tutorial-create-cluster.md) .
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 

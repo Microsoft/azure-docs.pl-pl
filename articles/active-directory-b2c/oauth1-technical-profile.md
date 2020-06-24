@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7f734844859d44e66bddbc2ddd999659e52f9668
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184081"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204085"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Zdefiniuj profil techniczny OAuth1 w zasadach niestandardowych Azure Active Directory B2C
 
@@ -24,11 +24,11 @@ ms.locfileid: "78184081"
 
 Azure Active Directory B2C (Azure AD B2C) zapewnia obsługę dostawcy tożsamości [protokołu OAuth 1,0](https://tools.ietf.org/html/rfc5849) . W tym artykule opisano szczegóły dotyczące profilu technicznego dotyczącego współpracy z dostawcą oświadczeń obsługującym ten standardowy protokół. Profil techniczny OAuth1 umożliwia sfederować z dostawcą tożsamości opartym na OAuth1, takim jak Twitter. Federowanie z dostawcą tożsamości umożliwia użytkownikom logowanie się przy użyciu istniejących tożsamości społecznościowych lub firmowych.
 
-## <a name="protocol"></a>Protocol (Protokół)
+## <a name="protocol"></a>Protokół
 
-Atrybut **name** elementu **Protocol** musi być ustawiony na `OAuth1`. Na przykład protokół dla profilu technicznego **Twitter-OAUTH1** ma wartość `OAuth1`.
+Atrybut **name** elementu **Protocol** musi być ustawiony na `OAuth1` . Na przykład protokół dla profilu technicznego **Twitter-OAUTH1** ma wartość `OAuth1` .
 
-```XML
+```xml
 <TechnicalProfile Id="Twitter-OAUTH1">
   <DisplayName>Twitter</DisplayName>
   <Protocol Name="OAuth1" />
@@ -54,7 +54,7 @@ W poniższym przykładzie przedstawiono oświadczenia zwrócone przez dostawcę 
 Profil techniczny zwraca również oświadczenia, które nie są zwracane przez dostawcę tożsamości:
 
 - **IdentityProvider** , który zawiera nazwę dostawcy tożsamości.
-- **AuthenticationSource** z wartością domyślną `socialIdpAuthentication`.
+- **AuthenticationSource** z wartością domyślną `socialIdpAuthentication` .
 
 ```xml
 <OutputClaims>
@@ -68,7 +68,7 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 
 ## <a name="metadata"></a>Metadane
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | client_id | Tak | Identyfikator aplikacji dostawcy tożsamości. |
 | ProviderName | Nie | Nazwa dostawcy tożsamości. |
@@ -82,13 +82,13 @@ Profil techniczny zwraca również oświadczenia, które nie są zwracane przez 
 
 Element **CryptographicKeys** zawiera następujący atrybut:
 
-| Atrybut | Wymagany | Opis |
+| Atrybut | Wymagane | Opis |
 | --------- | -------- | ----------- |
 | client_secret | Tak | Klucz tajny klienta aplikacji dostawcy tożsamości.   |
 
 ## <a name="redirect-uri"></a>Identyfikator URI przekierowania
 
-Podczas konfigurowania adresu URL przekierowania dostawcy tożsamości wprowadź `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`wartość. Pamiętaj o zamianie **dzierżawy** na nazwę dzierżawy (na przykład contosob2c.onmicrosoft.com) i **policyId** z identyfikatorem zasad (na przykład b2c_1a_policy). Identyfikator URI przekierowania musi zawierać tylko małe litery. Dodaj adres URL przekierowania dla wszystkich zasad korzystających z logowania dostawcy tożsamości.
+Podczas konfigurowania adresu URL przekierowania dostawcy tożsamości wprowadź wartość `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp` . Pamiętaj o zamianie **dzierżawy** na nazwę dzierżawy (na przykład contosob2c.onmicrosoft.com) i **policyId** z identyfikatorem zasad (na przykład b2c_1a_policy). Identyfikator URI przekierowania musi zawierać tylko małe litery. Dodaj adres URL przekierowania dla wszystkich zasad korzystających z logowania dostawcy tożsamości.
 
 Jeśli używasz domeny **b2clogin.com** zamiast **login.microsoftonline.com** upewnij się, że używasz b2clogin.com zamiast login.microsoftonline.com.
 

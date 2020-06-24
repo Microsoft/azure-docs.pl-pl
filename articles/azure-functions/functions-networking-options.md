@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a2c57ca6a1f7eb50c277543e9fbe27a13f839bac
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 03402828720272851f9b74000d5bcb79405885a5
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648832"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117230"
 ---
 # <a name="azure-functions-networking-options"></a>Opcje sieciowe usługi Azure Functions
 
@@ -28,13 +28,7 @@ Aplikacje funkcji można hostować na kilka sposobów:
 
 ## <a name="matrix-of-networking-features"></a>Macierz funkcji sieciowych
 
-|                |[Plan Zużycie](functions-scale.md#consumption-plan)|[Plan Premium](functions-scale.md#premium-plan)|[Plan App Service](functions-scale.md#app-service-plan)|[Środowisko usługi App Service](../app-service/environment/intro.md)|
-|----------------|-----------|----------------|---------|-----------------------|  
-|[Ograniczenia przychodzącego adresu IP i dostępu do lokacji prywatnej](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[Integracja z siecią wirtualną](#virtual-network-integration)|❌Nie|✅Tak (regionalne)|✅Tak (regionalne i brama)|✅Yes|
-|[Wyzwalacze sieci wirtualnej (bez protokołu HTTP)](#virtual-network-triggers-non-http)|❌Nie| ✅Yes |✅Yes|✅Yes|
-|[Połączenia hybrydowe](#hybrid-connections) (tylko system Windows)|❌Nie|✅Yes|✅Yes|✅Yes|
-|[Ograniczenia wychodzącego adresu IP](#outbound-ip-restrictions)|❌Nie| ✅Yes|✅Yes|✅Yes|
+[!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
 ## <a name="inbound-ip-restrictions"></a>Ograniczenia przychodzącego adresu IP
 
@@ -139,6 +133,12 @@ Aby dowiedzieć się więcej, zapoznaj się z dokumentacją dotyczącą [App Ser
 Ograniczenia wychodzącego adresu IP są dostępne w planie Premium, planie App Service lub App Service Environment. Można skonfigurować ograniczenia ruchu wychodzącego dla sieci wirtualnej, w której wdrożono App Service Environment.
 
 W przypadku integrowania aplikacji funkcji w planie Premium lub planu App Service z siecią wirtualną aplikacja nadal może domyślnie nawiązywać połączenia wychodzące do Internetu. Po dodaniu ustawienia aplikacji `WEBSITE_VNET_ROUTE_ALL=1` wymusisz, aby cały ruch wychodzący był wysyłany do sieci wirtualnej, w którym można używać zasad grupy zabezpieczeń sieci do ograniczania ruchu.
+
+## <a name="automation"></a>Automation
+Poniższe interfejsy API umożliwiają programowe zarządzanie integracją regionalnej sieci wirtualnej:
+
++ **Interfejs wiersza polecenia platformy Azure**: Użyj [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) poleceń do dodawania, wyświetlania lub usuwania integracji regionalnej sieci wirtualnej.  
++ **Szablony usługi ARM**: integracja regionalnej sieci wirtualnej można włączyć przy użyciu szablonu Azure Resource Manager. Aby zapoznać się z pełnymi przykładami, zobacz [ten szablon funkcji szybkiego startu](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 

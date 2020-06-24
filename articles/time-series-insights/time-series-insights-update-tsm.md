@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 06/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1487cbb7885711beca969604316fd151defb114a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 359837ef5d202cd0e98a6c7cf429a34a38fb7d70
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580604"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052179"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Model szeregów czasowych w wersji zapoznawczej Azure Time Series Insights
 
@@ -100,8 +100,8 @@ Wystąpienia są definiowane przez **timeSeriesId**, **typeId**, **name**, **Des
 
 | Właściwość | Opis |
 | --- | ---|
-| timeSeriesId | Identyfikator UUID szeregów czasowych, z którym jest skojarzone wystąpienie. |
-| Parametru | Identyfikator UUID modelu szeregów czasowych, z którym jest skojarzone wystąpienie. Domyślnie wszystkie wykryte nowe wystąpienia są skojarzone z domyślnym typem.
+| timeSeriesId | Unikatowy identyfikator szeregów czasowych, z którym jest skojarzone wystąpienie. W większości przypadków wystąpienia są jednoznacznie identyfikowane przez właściwość, taką jak deviceId lub assetId. W niektórych przypadkach można użyć bardziej szczegółowego identyfikatora złożonego łączącego do 3 właściwości. |
+| Parametru | Unikatowy identyfikator ciągu z rozróżnianą wielkością liter w modelu szeregów czasowych, z którym jest skojarzone wystąpienie. Domyślnie wszystkie wykryte nowe wystąpienia są skojarzone z domyślnym typem.
 | name | Właściwość **name** jest opcjonalna i uwzględnia wielkość liter. Jeśli **Nazwa** nie jest dostępna, wartość domyślna to **timeSeriesId**. W przypadku podanej nazwy **timeSeriesId** jest nadal [dostępny.](time-series-insights-update-explorer.md#4-time-series-well) |
 | description | Opis tekstowy wystąpienia. |
 | hierarchyIds | Definiuje hierarchie, do których należy wystąpienie. |
@@ -148,7 +148,7 @@ Hierarchie są definiowane przez **Identyfikator**hierarchii, **nazwę**i **Źr�
 
 | Właściwość | Opis |
 | ---| ---|
-| id | Unikatowy identyfikator dla hierarchii, który jest używany na przykład podczas definiowania wystąpienia. |
+| identyfikator | Unikatowy identyfikator dla hierarchii, który jest używany na przykład podczas definiowania wystąpienia. |
 | name | Ciąg używany do podania nazwy hierarchii. |
 | source | Określa hierarchię lub ścieżkę organizacyjną, która jest kolejnością nadrzędny-podrzędny hierarchii, która ma zostać utworzona przez użytkowników. Właściwości nadrzędny-podrzędny mapowania pól wystąpień. |
 
@@ -183,15 +183,15 @@ Hierarchie są reprezentowane w formacie JSON jako:
 
 W poprzednim przykładzie JSON:
 
-* `Location`definiuje hierarchię z elementem `states` nadrzędnym `cities`i podrzędnym. Każdy `location` z nich może `states`mieć wielokrotność, która z kolei może `cities`mieć wiele.
-* `ManufactureDate`definiuje hierarchię z elementem `year` nadrzędnym `month`i podrzędnym. Każdy `ManufactureDate` z nich może `years`mieć wielokrotność, która z kolei może `months`mieć wiele.
+* `Location`definiuje hierarchię z elementem nadrzędnym `states` i podrzędnym `cities` . Każdy `location` z nich może mieć wielokrotność `states` , która z kolei może mieć wiele `cities` .
+* `ManufactureDate`definiuje hierarchię z elementem nadrzędnym `year` i podrzędnym `month` . Każdy `ManufactureDate` z nich może mieć wielokrotność `years` , która z kolei może mieć wiele `months` .
 
 > [!TIP]
 > Aby uzyskać pomoc dotyczącą Time Series Insights wystąpienia interfejsu API i CRUD, przeczytaj artykuł dotyczący [zapytań dotyczących danych](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) oraz [dokumentację interfejsu API REST](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Przykład hierarchii
 
-Rozważmy przykład, w którym hierarchia `floor` **H1** ma `room` `building`, i w ramach swojej definicji **instanceFieldNames** :
+Rozważmy przykład, w którym hierarchia **H1** ma `building` , `floor` i `room` w ramach swojej definicji **instanceFieldNames** :
 
 ```JSON
 {
@@ -240,7 +240,7 @@ Typy modeli szeregów czasowych są zdefiniowane przez **Identyfikator**, **nazw
 
 | Właściwość | Opis |
 | ---| ---|
-| id | Identyfikator UUID typu. |
+| identyfikator | Unikatowy identyfikator ciągu z rozróżnianą wielkością liter dla typu. |
 | name | Ciąg używany do podania nazwy dla typu. |
 | description | Opis ciągu dla typu. |
 | modyfikacj | Określ zmienne skojarzone z typem. |

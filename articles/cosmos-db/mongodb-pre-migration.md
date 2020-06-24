@@ -4,15 +4,15 @@ description: Ten dokument zawiera omówienie wymagań wstępnych dotyczących mi
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: lbosq
-ms.openlocfilehash: a93486e00325e84de655b5b759162fcf63956454
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: ffa30b0fa42abc69c19b5e6c32f4224f3ad1c95a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465681"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263062"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Kroki poprzedzające migrację dla migracji danych z MongoDB do interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -42,7 +42,7 @@ Poniżej przedstawiono konkretne charakterystyki dotyczące interfejsu API Azure
 
 [Azure Database Migration Service interfejsu API Azure Cosmos DB dla MongoDB](../dms/tutorial-mongodb-cosmos-db.md) zapewnia mechanizm, który upraszcza migrację danych, zapewniając w pełni zarządzaną platformę hostingu, opcje monitorowania migracji i automatyczną obsługę ograniczania. Pełna lista opcji jest następująca:
 
-|**Typ migracji**|**Narzędzie**|**Istotne zagadnienia**|
+|**Typ migracji**|**Rozwiązanie**|**Zagadnienia do rozważenia**|
 |---------|---------|---------|
 |W trybie offline|[Narzędzie do migracji danych](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull;Łatwa konfiguracja i obsługa wielu źródeł <br/>&bull;Nieodpowiedni dla dużych zestawów danych.|
 |W trybie offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull;Łatwa konfiguracja i obsługa wielu źródeł <br/>&bull;Korzysta z Azure Cosmos DB biblioteki wykonawców zbiorczych <br/>&bull;Odpowiednie dla dużych zestawów danych <br/>&bull;Brak punktów kontrolnych oznacza, że każdy problem w trakcie migracji będzie wymagał ponownego uruchomienia całego procesu migracji<br/>&bull;Brak kolejki utraconych wiadomości oznacza, że kilka błędnych plików może zatrzymać cały proces migracji <br/>&bull;Potrzebuje niestandardowego kodu, aby zwiększyć przepływność odczytu dla niektórych źródeł danych|

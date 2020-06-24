@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 689a528a75613ac6a38bed74d6597d492f498e8b
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 8730ac8aa6a6056db67613f2ac8decf11740c467
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582731"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727691"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Rozwiązywanie problemów dotyczących grup
 
@@ -35,7 +35,7 @@ Aby wyłączyć tworzenie grupy dla użytkowników niebędących administratoram
    ```
 
   
-2. Jeśli zwróci wartość `UsersPermissionToCreateGroupsEnabled : True`, użytkownicy niebędący administratorami mogą tworzyć grupy. Aby wyłączyć tę funkcję:
+2. Jeśli zwróci wartość `UsersPermissionToCreateGroupsEnabled : True` , użytkownicy niebędący administratorami mogą tworzyć grupy. Aby wyłączyć tę funkcję:
   
 
    ``` 
@@ -68,7 +68,7 @@ Obecnie nie ma możliwości automatycznego wyzwalania grupy do przetworzenia na 
 | --- | --- | --- |
 | Błąd: atrybut nie jest obsługiwany. |(User. invalidProperty-EQ "wartość") |(User. Department-EQ "wartość")<br/><br/>Upewnij się, że atrybut znajduje się na [liście obsługiwanych właściwości](groups-dynamic-membership.md#supported-properties). |
 | Błąd: operator nie jest obsługiwany dla atrybutu. |(User. accountEnabled-zawiera wartość true) |(User. accountEnabled-EQ true)<br/><br/>Używany operator nie jest obsługiwany w przypadku typu właściwości (w tym przykładzie nie można używać typu-Contains w typie Boolean). Użyj poprawnych operatorów dla typu właściwości. |
-| Błąd: błąd kompilacji zapytania. | 1. (User. Department-EQ "Sales") (User. Department-EQ "Marketing")<br>2. (User. userPrincipalName-Match "*@domain.ext") | 1. brak operatora. Predykaty use-and lub or dwa sprzężenia<br>(User. Department-EQ "Sales") — lub (User. Department-EQ "Marketing")<br>2. błąd w wyrażeniu regularnym używanym z parametrem-Match<br>(User. userPrincipalName-Match ". *@domain.ext")<br>lub alternatywnie: (User. userPrincipalName-Match "@domain.ext$") |
+| Błąd: błąd kompilacji zapytania. | 1. (User. Department-EQ "Sales") (User. Department-EQ "Marketing")<br>2. (User. userPrincipalName-Match "* @domain.ext ") | 1. brak operatora. Predykaty use-and lub or dwa sprzężenia<br>(User. Department-EQ "Sales") — lub (User. Department-EQ "Marketing")<br>2. błąd w wyrażeniu regularnym używanym z parametrem-Match<br>(User. userPrincipalName-Match ". * @domain.ext ")<br>lub alternatywnie: (User. userPrincipalName-Match " @domain.ext $") |
 
 ## <a name="next-steps"></a>Następne kroki
 

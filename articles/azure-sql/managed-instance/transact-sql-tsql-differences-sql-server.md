@@ -2,21 +2,21 @@
 title: Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 description: W tym artykule omówiono różnice w języku Transact-SQL (T-SQL) między wystąpieniem zarządzanym usługi Azure SQL i SQL Server.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
-ms.date: 03/11/2020
+ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 3a912e636c8bd8f762b401bda9623f23913047cb
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 229a74fe760386b59bc83373cc7b1429bd826929
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344530"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298451"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -159,7 +159,7 @@ Wystąpienie zarządzane SQL nie może uzyskać dostępu do plików, więc nie m
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
 
-- Eksportowanie/Importowanie bazy danych przy użyciu plików BACPAC jest obsługiwane dla użytkowników usługi Azure AD w wystąpieniu zarządzanym SQL przy użyciu programu [SSMS v 18.4 lub nowszego](/sql/ssms/download-sql-server-management-studio-ssms)lub pliku [sqlpackage. exe](/sql/tools/sqlpackage-download).
+- Eksportowanie/Importowanie bazy danych przy użyciu plików BACPAC jest obsługiwane dla użytkowników usługi Azure AD w wystąpieniu zarządzanym SQL przy użyciu programu [SSMS v 18.4 lub nowszego](/sql/ssms/download-sql-server-management-studio-ssms)albo [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - Następujące konfiguracje są obsługiwane za pomocą pliku BACPAC bazy danych: 
     - Eksportuj/importuj bazę danych między różnymi wystąpieniami zarządzania w ramach tej samej domeny usługi Azure AD.
     - Wyeksportuj bazę danych z wystąpienia zarządzanego SQL i zaimportuj ją do SQL Database w ramach tej samej domeny usługi Azure AD. 
@@ -276,7 +276,7 @@ Nie można modyfikować następujących opcji:
 
 Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="sql-server-agent"></a>Program SQL Server Agent
+### <a name="sql-server-agent"></a>SQL Server Agent
 
 - Włączanie i wyłączanie agenta SQL Server nie jest obecnie obsługiwane w wystąpieniu zarządzanym SQL. Agent SQL zawsze działa.
 - Ustawienia agenta SQL Server są tylko do odczytu. Procedura `sp_set_agent_properties` nie jest obsługiwana w wystąpieniu zarządzanym SQL. 
@@ -284,7 +284,7 @@ Aby uzyskać więcej informacji, zobacz [ALTER DATABASE](/sql/t-sql/statements/a
   - Obsługiwane są czynności zadania T-SQL.
   - Obsługiwane są następujące zadania replikacji:
     - Dziennik transakcji
-    - Migawka
+    - Snapshot
     - Dystrybutor
   - Obsługiwane są etapy zadania SSIS.
   - Inne typy kroków zadań nie są obecnie obsługiwane:
@@ -355,7 +355,7 @@ Nieudokumentowane instrukcje DBCC, które są włączone w SQL Server nie są ob
 
 Usługi MSDTC i [transakcje elastyczne](../database/elastic-transactions-overview.md) obecnie nie są obsługiwane w wystąpieniu zarządzanym SQL.
 
-### <a name="extended-events"></a>Rozszerzone zdarzenia
+### <a name="extended-events"></a>Zdarzenia rozszerzone
 
 Niektóre elementy docelowe specyficzne dla systemu Windows dla zdarzeń rozszerzonych (XEvents) nie są obsługiwane:
 
@@ -432,7 +432,7 @@ Aby uzyskać więcej informacji na temat konfigurowania replikacji transakcyjnej
   - `FROM URL`(Magazyn obiektów blob platformy Azure) jest jedyną obsługiwaną opcją.
   - `FROM DISK`/`TAPE`/Backup urządzenie nie jest obsługiwane.
   - Zestawy kopii zapasowych nie są obsługiwane.
-- `WITH`Opcje nie są obsługiwane, takie jak No `DIFFERENTIAL` lub `STATS` .
+- `WITH`Opcje nie są obsługiwane. Próby przywracania, takie `WITH` jak `DIFFERENTIAL` ,, `STATS` `REPLACE` itp., zakończą się niepowodzeniem.
 - `ASYNC RESTORE`: Przywracanie jest kontynuowane nawet w przypadku przerwania połączenia z klientem. Jeśli połączenie zostało porzucone, można sprawdzić `sys.dm_operation_status` stan operacji przywracania oraz utworzyć i usunąć bazę danych. Zobacz sekcję [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Następujące opcje bazy danych są ustawiane lub zastępowane i nie można ich zmienić później: 
@@ -490,7 +490,7 @@ Następujące zmienne, funkcje i widoki zwracają różne wyniki:
 - `@@SERVERNAME`Zwraca pełną nazwę DNS "Connected", na przykład my-managed-instance.wcus17662feb9ce98.database.windows.net. Zobacz [@ @SERVERNAME ](/sql/t-sql/functions/servername-transact-sql). 
 - `SYS.SERVERS`Zwraca pełną nazwę DNS "Connected", `myinstance.domain.database.windows.net` na przykład dla właściwości "name" i "data_source". Zobacz sekcję [sys. SERWERY](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
 - `@@SERVICENAME`Zwraca wartość NULL, ponieważ koncepcja usługi, która istnieje dla SQL Server nie ma zastosowania do wystąpienia zarządzanego SQL. Zobacz [@ @SERVICENAME ](/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID`jest obsługiwana. Zwraca wartość NULL, jeśli logowanie za pomocą usługi Azure AD nie znajduje się w pliku sys. syslogins. Zobacz [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_ID`jest obsługiwana. Zwraca wartość NULL, jeśli logowanie za pomocą usługi Azure AD nie znajduje się w sys.syslogowaniach. Zobacz [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql). 
 - `SUSER_SID`nie jest obsługiwana. Zwracane są błędne dane, które są tymczasowym znanym problemem. Zobacz [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql). 
 
 ## <a name="environment-constraints"></a><a name="Environment"></a>Ograniczenia środowiska

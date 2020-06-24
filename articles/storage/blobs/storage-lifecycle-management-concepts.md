@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 789d70f77558bbade854ba31fd10ecd2b8e7b853
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692143"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194709"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Zarządzanie cyklem życia magazynu usługi Azure Blob Storage
 
@@ -130,7 +130,7 @@ Istnieją dwa sposoby dodawania zasad za pomocą Azure Portal.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Poniższy skrypt programu PowerShell może służyć do dodawania zasad do konta magazynu. `$rgname` Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName` Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu.
+Poniższy skrypt programu PowerShell może służyć do dodawania zasad do konta magazynu. `$rgname`Zmienna musi być zainicjowana przy użyciu nazwy grupy zasobów. `$accountName`Zmienna musi zostać zainicjowana przy użyciu nazwy konta magazynu.
 
 ```powershell
 #Install the latest module
@@ -232,11 +232,11 @@ Zasady są kolekcją reguł:
 
 Każda reguła w ramach zasad ma kilka parametrów:
 
-| Nazwa parametru | Typ parametru | Uwagi | Wymagany |
+| Nazwa parametru | Typ parametru | Uwagi | Wymagane |
 |----------------|----------------|-------|----------|
-| `name`         | String |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter.  Musi być unikatowa w ramach zasad. | True |
-| `enabled`      | Boolean | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | False | 
-| `type`         | Wartość wyliczenia | Bieżący prawidłowy typ to `Lifecycle`. | True |
+| `name`         | Ciąg |Nazwa reguły może zawierać do 256 znaków alfanumerycznych. W nazwie reguły jest rozróżniana wielkość liter.  Musi być unikatowa w ramach zasad. | True |
+| `enabled`      | Wartość logiczna | Opcjonalna wartość logiczna zezwalająca na tymczasowe wyłączenie reguły. Wartość domyślna to true, jeśli nie została ustawiona. | Fałsz | 
+| `type`         | Wartość wyliczenia | Bieżący prawidłowy typ to `Lifecycle` . | True |
 | `definition`   | Obiekt, który definiuje regułę cyklu życia | Każda definicja składa się z zestawu filtrów i zestawu akcji. | True |
 
 ## <a name="rules"></a>Reguły
@@ -245,7 +245,7 @@ Każda definicja reguły zawiera zestaw filtrów i ustawioną akcję. [Ustawieni
 
 ### <a name="sample-rule"></a>Przykładowa reguła
 
-Następująca przykładowa reguła filtruje konto, aby uruchomić akcje na obiektach, które `container1` istnieją w programie `foo`, i zacznij od.  
+Następująca przykładowa reguła filtruje konto, aby uruchomić akcje na obiektach, które istnieją w `container1` programie, i zacznij od `foo` .  
 
 >[!NOTE]
 >Zarządzanie cyklem życia obsługuje tylko typ bloku obiektów BLOB.  
@@ -291,9 +291,9 @@ Dostępne są następujące filtry:
 
 | Nazwa filtru | Typ filtru | Uwagi | Jest wymagana |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Tablica wstępnie zdefiniowanych wartości wyliczeniowych. | Bieżąca wersja obsługuje `blockBlob`. | Tak |
-| prefixMatch | Tablica ciągów dla prefiksów, które mają zostać dopasowane. Każda reguła może definiować do 10 prefiksów. Ciąg prefiksu musi rozpoczynać się od nazwy kontenera. Na przykład jeśli chcesz dopasować wszystkie obiekty blob w ramach `https://myaccount.blob.core.windows.net/container1/foo/...` reguły, prefixMatch jest. `container1/foo` | Jeśli nie zdefiniujesz prefixMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu.  | Nie |
-| blobIndexMatch | Tablica wartości słownika składająca się z klucza znacznika indeksu obiektów blob i warunków wartości do dopasowania. Każda reguła może definiować do 10 warunek tagu indeksu obiektów BLOB. Na przykład, jeśli chcesz dopasować wszystkie obiekty blob w `Project = Contoso` ramach `https://myaccount.blob.core.windows.net/` reguły, blobIndexMatch to. `{"name": "Project","op": "==","value": "Contoso"}` | Jeśli nie zdefiniujesz blobIndexMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
+| blobTypes   | Tablica wstępnie zdefiniowanych wartości wyliczeniowych. | Bieżąca wersja obsługuje `blockBlob` . | Tak |
+| prefixMatch | Tablica ciągów dla prefiksów, które mają zostać dopasowane. Każda reguła może definiować do 10 prefiksów. Ciąg prefiksu musi rozpoczynać się od nazwy kontenera. Na przykład jeśli chcesz dopasować wszystkie obiekty blob w ramach `https://myaccount.blob.core.windows.net/container1/foo/...` reguły, prefixMatch jest `container1/foo` . | Jeśli nie zdefiniujesz prefixMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu.  | Nie |
+| blobIndexMatch | Tablica wartości słownika składająca się z klucza znacznika indeksu obiektów blob i warunków wartości do dopasowania. Każda reguła może definiować do 10 warunek tagu indeksu obiektów BLOB. Na przykład, jeśli chcesz dopasować wszystkie obiekty blob w `Project = Contoso` ramach `https://myaccount.blob.core.windows.net/` reguły, blobIndexMatch to `{"name": "Project","op": "==","value": "Contoso"}` . | Jeśli nie zdefiniujesz blobIndexMatch, reguła będzie stosowana do wszystkich obiektów BLOB w ramach konta magazynu. | Nie |
 
 > [!NOTE]
 > Indeks obiektów BLOB jest w publicznej wersji zapoznawczej i jest dostępny w regionach **Francji środkowej** i **Francji** . Aby dowiedzieć się więcej na temat tej funkcji wraz z znanymi problemami i ograniczeniami, zobacz artykuł [Zarządzanie danymi na platformie Azure Blob Storage przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
@@ -311,7 +311,7 @@ Zarządzanie cyklem życia obsługuje warstwowe i usuwanie obiektów blob oraz u
 | delete        | Obsługiwane                                   | Obsługiwane     |
 
 >[!NOTE]
->W przypadku zdefiniowania więcej niż jednej akcji w tym samym obiekcie blob Zarządzanie cyklem życia stosuje najtańszą akcję do obiektu BLOB. Na przykład akcja `delete` jest tańsza niż Akcja `tierToArchive`. Akcja `tierToArchive` jest tańsza niż `tierToCool`akcja.
+>W przypadku zdefiniowania więcej niż jednej akcji w tym samym obiekcie blob Zarządzanie cyklem życia stosuje najtańszą akcję do obiektu BLOB. Na przykład akcja `delete` jest tańsza niż Akcja `tierToArchive` . Akcja `tierToArchive` jest tańsza niż Akcja `tierToCool` .
 
 Warunki uruchamiania są oparte na wieku. Podstawowe obiekty blob używają czasu ostatniej modyfikacji do śledzenia wieku, a migawki obiektów BLOB używają czasu utworzenia migawki do śledzenia wieku.
 
@@ -326,7 +326,7 @@ W poniższych przykładach pokazano, jak rozwiązywać typowe scenariusze z regu
 
 ### <a name="move-aging-data-to-a-cooler-tier"></a>Przenoszenie danych przedawnienia do warstwy chłodnicy
 
-Ten przykład pokazuje, jak przejść blokowe obiekty blob `container1/foo` poprzedzone `container2/bar`prefiksem lub. Zasady przeniesieją obiekty blob, które nie zostały zmodyfikowane w ciągu 30 dni do magazynu chłodnego, i nie są modyfikowane przez 90 dni w warstwie archiwum:
+Ten przykład pokazuje, jak przejść blokowe obiekty blob poprzedzone prefiksem `container1/foo` lub `container2/bar` . Zasady przeniesieją obiekty blob, które nie zostały zmodyfikowane w ciągu 30 dni do magazynu chłodnego, i nie są modyfikowane przez 90 dni w warstwie archiwum:
 
 ```json
 {
@@ -354,10 +354,10 @@ Ten przykład pokazuje, jak przejść blokowe obiekty blob `container1/foo` popr
 
 ### <a name="archive-data-after-ingest"></a>Archiwizuj dane po pozyskaniu
 
-Niektóre dane pozostają w stanie bezczynności w chmurze i są rzadko, jeśli kiedykolwiek są dostępne. Następujące zasady cyklu życia są skonfigurowane tak, aby dane były archiwizowane wkrótce po ich pozyskaniu. Ten przykład przechodzi do blokowych obiektów BLOB na koncie magazynu `archivecontainer` w ramach kontenera do warstwy archiwum. Przejście jest realizowane przez działanie w przypadku obiektów BLOB 0 dni od czasu ostatniej modyfikacji:
+Niektóre dane pozostają w stanie bezczynności w chmurze i są rzadko, jeśli kiedykolwiek są dostępne. Następujące zasady cyklu życia są skonfigurowane tak, aby dane były archiwizowane wkrótce po ich pozyskaniu. Ten przykład przechodzi do blokowych obiektów BLOB na koncie magazynu w ramach kontenera `archivecontainer` do warstwy archiwum. Przejście jest realizowane przez działanie w przypadku obiektów BLOB 0 dni od czasu ostatniej modyfikacji:
 
 > [!NOTE] 
-> Zaleca się przekazywanie obiektów BLOB bezpośrednio do warstwy archiwum, aby zwiększyć efektywność. Można użyć nagłówka x-MS-ACE-warstwy dla [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) lub [PUTBLOCKLIST](https://docs.microsoft.com/rest/api/storageservices/put-block-list) z wersją REST 2018-11-09 lub nowszą lub najnowszymi bibliotekami klienta usługi BLOB Storage. 
+> Zaleca się przekazywanie obiektów BLOB bezpośrednio do warstwy archiwum, aby zwiększyć efektywność. Możesz użyć nagłówka x-MS-Access-Version dla [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) lub [PUTBLOCKLIST](https://docs.microsoft.com/rest/api/storageservices/put-block-list) z wersją REST 2018-11-09 lub nowszą lub najnowszymi bibliotekami klienta usługi BLOB Storage. 
 
 ```json
 {
@@ -410,7 +410,7 @@ Niektóre dane oczekują na wygaśnięcie dni lub miesięcy po utworzeniu. Zasad
 ```
 
 ### <a name="delete-data-with-blob-index-tags"></a>Usuwanie danych za pomocą tagów indeksu obiektów BLOB
-Niektóre dane powinny być wygasłe tylko wtedy, gdy są jawnie oznaczone do usunięcia. Zasady zarządzania cyklem życia można skonfigurować tak, aby wygaśnie dane oznaczone przy użyciu atrybutów klucz/wartość indeksu obiektów BLOB. W poniższym przykładzie przedstawiono zasady, które usuwa wszystkie blokowe obiekty blob `Project = Contoso`otagowane przy użyciu. Aby dowiedzieć się więcej na temat indeksu obiektów blob, zobacz temat [Zarządzanie danymi i znajdowanie ich w usłudze Azure Blob Storage przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
+Niektóre dane powinny być wygasłe tylko wtedy, gdy są jawnie oznaczone do usunięcia. Zasady zarządzania cyklem życia można skonfigurować tak, aby wygaśnie dane oznaczone przy użyciu atrybutów klucz/wartość indeksu obiektów BLOB. W poniższym przykładzie przedstawiono zasady, które usuwa wszystkie blokowe obiekty blob otagowane przy użyciu `Project = Contoso` . Aby dowiedzieć się więcej na temat indeksu obiektów blob, zobacz temat [Zarządzanie danymi i znajdowanie ich w usłudze Azure Blob Storage przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)](storage-manage-find-blobs.md).
 
 ```json
 {
@@ -447,7 +447,7 @@ Niektóre dane powinny być wygasłe tylko wtedy, gdy są jawnie oznaczone do us
 
 ### <a name="delete-old-snapshots"></a>Usuń stare migawki
 
-W przypadku danych, które są regularnie modyfikowane i dostępne przez cały okres istnienia, migawki są często używane do śledzenia starszych wersji danych. Można utworzyć zasady, które usuwa stare migawki na podstawie wieku migawki. Wiek migawki jest określany przez ocenę czasu utworzenia migawki. Ta zasada zasad usuwa migawki blokowych obiektów BLOB `activedata` w kontenerze o 90 dni lub starszej wersji po utworzeniu migawki.
+W przypadku danych, które są regularnie modyfikowane i dostępne przez cały okres istnienia, migawki są często używane do śledzenia starszych wersji danych. Można utworzyć zasady, które usuwa stare migawki na podstawie wieku migawki. Wiek migawki jest określany przez ocenę czasu utworzenia migawki. Ta zasada zasad usuwa migawki blokowych obiektów BLOB w kontenerze `activedata` o 90 dni lub starszej wersji po utworzeniu migawki.
 
 ```json
 {

@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 04921cd617a688ebcf31bcec29cf26681914f44b
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 4f7c83df738b72d57719de9b9ef650d119ac5dc4
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247669"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255164"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -75,7 +75,7 @@ Tak.
 
 Usługa Azure Backup obsługuje następujące systemy operacyjne w przypadku tworzenia kopii zapasowych plików i folderów oraz aplikacji chronionych przy użyciu serwera usługi Azure Backup i programu DPM.
 
-**Macintosh** | **SKU** | **Uzyskać**
+**Macintosh** | **SKU** | **Szczegóły**
 --- | --- | ---
 Stacja robocza | |
 Windows 10 (wersja 64-bitowa) | Enterprise, Pro, Home | Na maszynach powinny być uruchomione najnowsze dodatki Service Pack i aktualizacje.
@@ -113,10 +113,10 @@ Maszyna wirtualna platformy Azure | Zobacz [Macierz obsługi kopii zapasowej mas
 
 W poniższej tabeli opisano sposób ustalania rozmiaru dla każdego źródła danych.
 
-**Źródło danych** | **Uzyskać**
+**Źródło danych** | **Szczegóły**
 --- | ---
 Wolumin |Ilość danych kopii zapasowej z jednego woluminu maszyny wirtualnej, którego kopia zapasowa jest wykonywana.
-Baza danych programu SQL Server |Rozmiar pojedynczej bazy danych SQL, której kopia zapasowa jest wykonywana.
+Baza danych programu SQL Server |Rozmiar pojedynczej bazy danych, której kopia zapasowa jest tworzona.
 SharePoint | Suma baz danych z zawartością i danymi konfiguracyjnymi w farmie programu SharePoint, której kopia zapasowa jest wykonywana.
 Exchange |Suma wszystkich baz danych programu Exchange w serwerze Exchange, którego kopia zapasowa jest wykonywana.
 Stan systemu/BMR |Każda pojedyncza kopia BMR lub stanu systemu komputera, którego kopia zapasowa jest wykonywana.

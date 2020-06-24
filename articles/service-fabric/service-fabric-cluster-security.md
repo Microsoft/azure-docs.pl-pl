@@ -4,12 +4,12 @@ description: Dowiedz się więcej o scenariuszach zabezpieczeń dla klastra usł
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.custom: sfrev
-ms.openlocfilehash: 71a5891bf26cbd79ba5cfeff8324e225b3febd73
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: ba1565c31e8a3ce3f25501f0cad321d5413dc962
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324015"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080681"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenariusze zabezpieczeń klastra Service Fabric
 
@@ -41,6 +41,11 @@ Aby dowiedzieć się, jak skonfigurować zabezpieczenia certyfikatów w klastrze
 
 ### <a name="node-to-node-windows-security"></a>Zabezpieczenia między węzłami systemu Windows
 
+> [!NOTE]
+> Uwierzytelnianie systemu Windows jest oparte na protokole Kerberos. Uwierzytelnianie NTLM nie jest obsługiwane jako typ uwierzytelniania.
+>
+> Za każdym razem, gdy to możliwe, Użyj uwierzytelniania certyfikatu X. 509 dla klastrów Service Fabric.
+
 Aby dowiedzieć się, jak skonfigurować zabezpieczenia systemu Windows dla autonomicznego klastra systemu Windows Server, zobacz temat [Zabezpieczanie klastra autonomicznego w systemie Windows przy użyciu zabezpieczeń systemu Windows](service-fabric-windows-cluster-windows-security.md).
 
 ## <a name="client-to-node-security"></a>Zabezpieczenia między klientem a węzłem
@@ -49,7 +54,7 @@ Zabezpieczenia klienta w węźle uwierzytelniają klientów i pomagają w zabezp
 
 ![Diagram komunikacji między klientem a węzłem][Client-to-Node]
 
-Klastry działające na platformie Azure i autonomicznych klastrach działających w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](https://msdn.microsoft.com/library/ff649801.aspx) lub [zabezpieczeń systemu Windows](https://msdn.microsoft.com/library/ff649396.aspx).
+Klastry działające na platformie Azure i w klastrach autonomicznych działających w systemie Windows mogą korzystać z [zabezpieczeń certyfikatów](https://msdn.microsoft.com/library/ff649801.aspx) lub [zabezpieczeń systemu Windows](https://msdn.microsoft.com/library/ff649396.aspx), ale zalecane jest użycie uwierzytelniania certyfikatu X. 509, jeśli to możliwe.
 
 ### <a name="client-to-node-certificate-security"></a>Zabezpieczenia certyfikatów między klientami a węzłami
 
@@ -95,7 +100,7 @@ Certyfikaty cyfrowe X. 509 są zwykle używane do uwierzytelniania klientów i s
 Niektóre ważne zagadnienia, które należy wziąć pod uwagę:
 
 * Aby utworzyć certyfikaty dla klastrów z uruchomionymi obciążeniami produkcyjnymi, należy użyć prawidłowo skonfigurowanej usługi certyfikatów systemu Windows Server lub jednej z zatwierdzonych [urzędów certyfikacji (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
-* Nigdy nie należy używać żadnych certyfikatów tymczasowych ani testowych, które tworzysz przy użyciu narzędzi takich jak MakeCert. exe w środowisku produkcyjnym.
+* Nigdy nie należy używać żadnych certyfikatów tymczasowych ani testowych, które tworzysz przy użyciu narzędzi takich jak MakeCert.exe w środowisku produkcyjnym.
 * Możesz użyć certyfikatu z podpisem własnym, ale tylko w klastrze testowym. Nie należy używać certyfikatu z podpisem własnym w środowisku produkcyjnym.
 * Podczas generowania odcisku palca certyfikatu Pamiętaj o wygenerowaniu odcisku palca SHA1. Algorytm SHA1 jest używany podczas konfigurowania odcisków palca certyfikatu klienta i klastra.
 

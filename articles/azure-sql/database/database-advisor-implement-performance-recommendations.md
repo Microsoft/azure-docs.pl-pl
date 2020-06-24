@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/10/2020
-ms.openlocfilehash: 14f304e3846cab25691da347732de50924356540
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048875"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254943"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Zalecenia dotyczące wydajności Database Advisor Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,10 +40,10 @@ Opcje rekomendacji wydajności dostępne w Azure SQL Database są następujące:
 
 | Zalecenie dotyczące wydajności | Obsługa pojedynczej bazy danych i bazy danych w puli | Obsługa bazy danych wystąpień |
 | :----------------------------- | ----- | ----- |
-| **Tworzenie zaleceń dotyczących indeksów** — zalecane jest utworzenie indeksów, które mogą poprawić wydajność obciążeń. | Yes | Nie |
-| **Porzuć zalecenia dotyczące indeksu** — zalecane jest usunięcie nadmiarowych i zduplikowanych indeksów codziennie, z wyjątkiem indeksów unikatowych i indeksów, które nie były używane przez długi czas (>90 dni). Należy pamiętać, że ta opcja nie jest zgodna z aplikacjami korzystającymi z przełączania partycji i wskazówek dotyczących indeksów. Usuwanie nieużywanych indeksów nie jest obsługiwane dla warstw usług premium i Krytyczne dla działania firmy. | Yes | Nie |
-| **Zalecenia dotyczące zapytań Sparametryzuj (wersja zapoznawcza)** — zalecane parametryzacja w przypadkach, gdy istnieje co najmniej jedno zapytanie, które jest stale ponownie kompilowane, ale kończy się na tym samym planie wykonywania zapytań. | Yes | Nie |
-| **Napraw zalecenia dotyczące problemów ze schematem (wersja zapoznawcza)** — zalecenia dotyczące korekcji schematu są wyświetlane, gdy Azure SQL Database wykryje anomalię w liczbie błędów SQL związanych ze schematami, które są wykonywane w bazie danych SQL. Firma Microsoft jest obecnie przestarzała zalecenia "Napraw problem ze schematem". | Yes | Nie |
+| **Tworzenie zaleceń dotyczących indeksów** — zalecane jest utworzenie indeksów, które mogą poprawić wydajność obciążeń. | Tak | Nie |
+| **Porzuć zalecenia dotyczące indeksu** — zalecane jest usunięcie nadmiarowych i zduplikowanych indeksów codziennie, z wyjątkiem indeksów unikatowych i indeksów, które nie były używane przez długi czas (>90 dni). Należy pamiętać, że ta opcja nie jest zgodna z aplikacjami korzystającymi z przełączania partycji i wskazówek dotyczących indeksów. Usuwanie nieużywanych indeksów nie jest obsługiwane dla warstw usług premium i Krytyczne dla działania firmy. | Tak | Nie |
+| **Zalecenia dotyczące zapytań Sparametryzuj (wersja zapoznawcza)** — zalecane parametryzacja w przypadkach, gdy istnieje co najmniej jedno zapytanie, które jest stale ponownie kompilowane, ale kończy się na tym samym planie wykonywania zapytań. | Tak | Nie |
+| **Napraw zalecenia dotyczące problemów ze schematem (wersja zapoznawcza)** — zalecenia dotyczące korekcji schematu są wyświetlane, gdy Azure SQL Database zauważy anomalię w liczbie błędów SQL związanych ze schematami, które są wykonywane w bazie danych. Firma Microsoft jest obecnie przestarzała zalecenia "Napraw problem ze schematem". | Tak | Nie |
 
 ![Zalecenia dotyczące wydajności Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 
@@ -97,11 +97,11 @@ Po zastosowaniu tego zalecenia włącza wymuszone parametryzacja w ciągu kilku 
 > [!IMPORTANT]
 > Firma Microsoft jest obecnie przestarzała zalecenia "Napraw problem ze schematem". Zalecamy używanie [Intelligent Insights](intelligent-insights-overview.md) do monitorowania problemów z wydajnością bazy danych, w tym problemów ze schematami, które zostały wcześniej omówione w zaleceniach dotyczących problemu ze schematem.
 
-**Rozwiązanie problemów ze schematami** pojawia się, gdy Azure SQL Database zauważy anomalię w liczbie błędów SQL związanych ze schematami, które są wykonywane w bazie danych SQL. To zalecenie zazwyczaj pojawia się, gdy baza danych napotyka wiele błędów związanych ze schematem (Nieprawidłowa nazwa kolumny, Nieprawidłowa nazwa obiektu itd.) w ciągu godziny.
+**Rozwiązanie problemów ze schematami** pojawia się, gdy Azure SQL Database zauważy anomalię w liczbie błędów SQL związanych ze schematami, które są wykonywane w bazie danych. To zalecenie zazwyczaj pojawia się, gdy baza danych napotyka wiele błędów związanych ze schematem (Nieprawidłowa nazwa kolumny, Nieprawidłowa nazwa obiektu itd.) w ciągu godziny.
 
 "Problemy ze schematem" są klasą błędów składniowych. Są one wykonywane, gdy definicja zapytania SQL i definicja schematu bazy danych nie są wyrównane. Na przykład jedna z kolumn oczekiwanych przez zapytanie może nie być w tabeli docelowej lub na odwrót.
 
-Zalecenie "Rozwiąż problem ze schematem" pojawia się, gdy Azure SQL Database zauważy anomalię w liczbie błędów SQL związanych ze schematami, które są wykonywane w bazie danych SQL. W poniższej tabeli przedstawiono błędy związane z problemami ze schematem:
+Zalecenie "Rozwiąż problem ze schematem" pojawia się, gdy Azure SQL Database zauważy anomalię w liczbie błędów SQL związanych ze schematami, które są wykonywane w bazie danych. W poniższej tabeli przedstawiono błędy związane z problemami ze schematem:
 
 | Kod błędu SQL | Komunikat |
 | --- | --- |

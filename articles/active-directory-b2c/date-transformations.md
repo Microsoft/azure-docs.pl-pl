@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c02ac9392d6f3f95deef38ff86250e96dfb76d96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476692"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85202555"
 ---
 # <a name="date-claims-transformations"></a>Przekształceń oświadczeń dat
 
@@ -39,9 +39,9 @@ Przekształcenie oświadczeń **AssertDateTimeIsGreaterThan** jest zawsze wykony
 
 ![AssertStringClaimsAreEqual wykonywanie](./media/date-transformations/assert-execution.png)
 
-Poniższy przykład porównuje `currentDateTime` `approvedDateTime` z tym roszczeń. Błąd jest zgłaszany, `currentDateTime` jeśli jest późniejszy `approvedDateTime`niż. Transformacja traktuje wartości jako równe, jeśli są one w ciągu 5 minut (30000 milisekund).
+Poniższy przykład porównuje z tym roszczeń `currentDateTime` `approvedDateTime` . Błąd jest zgłaszany, jeśli `currentDateTime` jest późniejszy niż `approvedDateTime` . Transformacja traktuje wartości jako równe, jeśli są one w ciągu 5 minut (30000 milisekund).
 
-```XML
+```xml
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="approvedDateTime" TransformationClaimType="leftOperand" />
@@ -55,8 +55,8 @@ Poniższy przykład porównuje `currentDateTime` `approvedDateTime` z tym roszcz
 </ClaimsTransformation>
 ```
 
-Profil `login-NonInteractive` techniczny weryfikacji wywołuje transformację `AssertApprovedDateTimeLaterThanCurrentDateTime` oświadczeń.
-```XML
+`login-NonInteractive`Profil techniczny weryfikacji wywołuje `AssertApprovedDateTimeLaterThanCurrentDateTime` transformację oświadczeń.
+```xml
 <TechnicalProfile Id="login-NonInteractive">
   ...
   <OutputClaimsTransformations>
@@ -67,7 +67,7 @@ Profil `login-NonInteractive` techniczny weryfikacji wywołuje transformację `A
 
 Profil techniczny z własnym potwierdzeniem wywołuje profil techniczny **logowania weryfikacji — nieinteraktywny** .
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
   <Metadata>
     <Item Key="DateTimeGreaterThan">Custom error message if the provided left operand is greater than the right operand.</Item>
@@ -94,9 +94,9 @@ Konwertuje **datę oświadczenia daty** na element ClaimType **DateTime** . Tran
 | Oświadczenie inputclaim | Oświadczenie inputclaim | date | Wartość oświadczenia do przekonwertowania. |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | Data i godzina | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
-Poniższy przykład ilustruje konwersję (typ danych daty `dateOfBirth` ) żądania na inne zastrzeżenie `dateOfBirthWithTime` (typ danych DateTime).
+Poniższy przykład ilustruje konwersję `dateOfBirth` (typ danych daty) żądania na inne zastrzeżenie `dateOfBirthWithTime` (typ danych DateTime).
 
-```XML
+```xml
   <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
@@ -125,7 +125,7 @@ Konwertuje element ClaimType **DateTime** na **datę** ClaimType. Transformacja 
 
 Poniższy przykład ilustruje konwersję żądania `systemDateTime` (typ danych DateTime) na inne zastrzeżenie `systemDate` (Data typ danych).
 
-```XML
+```xml
 <ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
@@ -151,7 +151,7 @@ Pobierz bieżącą datę i godzinę UTC i Dodaj wartość do elementu ClaimType.
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie outputclaim | currentDateTime | Data i godzina | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
-```XML
+```xml
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="currentDateTime" />
@@ -166,7 +166,7 @@ Pobierz bieżącą datę i godzinę UTC i Dodaj wartość do elementu ClaimType.
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-Ustal, czy jedna wartość daty i godziny jest późniejsza, wcześniejsza lub równa innej. Wynik jest nową wartością logiczną typu Boolean, z wartością `true` lub. `false`
+Ustal, czy jedna wartość daty i godziny jest późniejsza, wcześniejsza lub równa innej. Wynik jest nową wartością logiczną typu Boolean, z wartością `true` lub `false` .
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
@@ -174,12 +174,12 @@ Ustal, czy jedna wartość daty i godziny jest późniejsza, wcześniejsza lub r
 | Oświadczenie inputclaim | secondDateTime | Data i godzina | Druga data/godzina do porównania, czy jest wcześniejsza lub późniejsza niż pierwsza wartość daty i godziny. Wartość zerowa jest traktowana jako bieżąca datetTime. |
 | InputParameter | operator | ciąg | Jedna z następujących wartości: taka sama, późniejsza niż lub wcześniejsza niż. |
 | InputParameter | timeSpanInSeconds | int | Dodaj przedział czasu do pierwszej wartości daty i godziny. |
-| Oświadczenie outputclaim | wynik | wartość logiczna | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
+| Oświadczenie outputclaim | result | wartość logiczna | Wartość oświadczenia jest generowana po wywołaniu tego ClaimsTransformation. |
 
 Użyj tej transformacji oświadczeń, aby określić, czy dwa oświadczenia są równe, nowsze czy starsze. Na przykład użytkownik może przechowywać ostatnio zaakceptowane warunki użytkowania usług (TOS) przez użytkownika. Po 3 miesiącach możesz polecić użytkownikowi ponowne uzyskanie dostępu do tych organizacji.
 Aby uruchomić transformację roszczeń, najpierw musisz uzyskać bieżącą wartość dateTime, a także godzinę, w której użytkownik ostatnio akceptuje te organizacje.
 
-```XML
+```xml
 <ClaimsTransformation Id="CompareLastTOSAcceptedWithCurrentDateTime" TransformationMethod="DateTimeComparison">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="currentDateTime" TransformationClaimType="firstDateTime" />

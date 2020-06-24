@@ -4,12 +4,13 @@ description: Dowiedz się, jak używać usługi Azure Application Insights z us�
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 578e1580bdaafb1b309a7af44353602cc31cb5a5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757759"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207011"
 ---
 # <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
@@ -111,7 +112,7 @@ traces
 
 ## <a name="configure-categories-and-log-levels"></a>Konfigurowanie kategorii i poziomów dziennika
 
-Application Insights można używać bez żadnej konfiguracji niestandardowej. Konfiguracja domyślna może powodować duże ilości danych. W przypadku korzystania z subskrypcji programu Visual Studio Azure można osiągnąć limit danych Application Insights. W dalszej części tego artykułu dowiesz się, jak skonfigurować i dostosować dane wysyłane przez funkcje do Application Insights. W przypadku aplikacji funkcji rejestrowanie jest konfigurowane w pliku [host. JSON] .
+Application Insights można używać bez żadnej konfiguracji niestandardowej. Konfiguracja domyślna może powodować duże ilości danych. W przypadku korzystania z subskrypcji programu Visual Studio Azure można osiągnąć limit danych Application Insights. W dalszej części tego artykułu dowiesz się, jak skonfigurować i dostosować dane wysyłane przez funkcje do Application Insights. W przypadku aplikacji funkcji rejestrowanie jest konfigurowane w [host.js] pliku.
 
 ### <a name="categories"></a>Kategorie
 
@@ -146,9 +147,9 @@ Rejestrator Azure Functions obejmuje również *poziom dziennika* z każdym dzie
 
 Poziom dziennika `None` został wyjaśniony w następnej sekcji. 
 
-### <a name="log-configuration-in-hostjson"></a>Konfiguracja dziennika w pliku host. JSON
+### <a name="log-configuration-in-hostjson"></a>Konfiguracja dziennika w host.jsna
 
-Plik [host. JSON] określa, ile rejestrowania aplikacja funkcji wysyła do Application Insights. Dla każdej kategorii należy określić minimalny poziom rejestrowania do wysłania. Istnieją dwa przykłady: pierwszy przykład dotyczy [wersji 2. x i nowszych](functions-versions.md#version-2x) środowiska uruchomieniowego funkcji (z .NET Core), a drugi przykład jest przeznaczony dla środowiska uruchomieniowego w wersji 1. x.
+[host.jsw] pliku konfiguruje, ile rejestrowania aplikacja funkcji wysyła do Application Insights. Dla każdej kategorii należy określić minimalny poziom rejestrowania do wysłania. Istnieją dwa przykłady: pierwszy przykład dotyczy [wersji 2. x i nowszych](functions-versions.md#version-2x) środowiska uruchomieniowego funkcji (z .NET Core), a drugi przykład jest przeznaczony dla środowiska uruchomieniowego w wersji 1. x.
 
 ### <a name="version-2x-and-higher"></a>Wersja 2. x lub nowsza
 
@@ -188,12 +189,12 @@ Wersja V2. x i nowsze wersje środowiska uruchomieniowego funkcji używają [hie
 Ten przykład konfiguruje następujące reguły:
 
 * W przypadku dzienników z kategorią `Host.Results` lub `Function` Wyślij `Error` poziom tylko do Application Insights. Dzienniki na `Warning` poziomie i poniżej zostały zignorowane.
-* W przypadku dzienników z kategorią `Host.Aggregator` Wyślij wszystkie dzienniki do Application Insights. `Trace`Poziom dziennika jest taki sam jak w przypadku niektórych rejestratorów `Verbose` , ale należy użyć `Trace` w pliku [host. JSON] .
+* W przypadku dzienników z kategorią `Host.Aggregator` Wyślij wszystkie dzienniki do Application Insights. `Trace`Poziom dziennika jest taki sam jak w przypadku niektórych rejestratorów `Verbose` , ale użyj `Trace` w [host.jsna] pliku.
 * Dla wszystkich innych dzienników wysyłaj tylko `Information` poziom i powyżej do Application Insights.
 
-Wartość kategorii w kontrolce pliku [host. JSON] rejestruje wszystkie kategorie, które zaczynają się od tej samej wartości. `Host`w kontrolce pliku [host. JSON] są rejestrowane dane dla `Host.General` ,, `Host.Executor` `Host.Results` i tak dalej.
+Wartość kategorii w [host.jsna] kontrolkach rejestrowania dla wszystkich kategorii, które zaczynają się od tej samej wartości. `Host`w [host.jsna] kontrolach rejestrowania dla `Host.General` ,, `Host.Executor` `Host.Results` , i tak dalej.
 
-Jeśli plik [host. JSON] zawiera wiele kategorii, które zaczynają się od tego samego ciągu, są one dopasowywane jako pierwsze. Załóżmy, że chcesz, aby wszystkie elementy uruchomieniowe były wykonywane z wyjątkiem `Host.Aggregator` rejestrowania na `Error` poziomie, ale chcesz `Host.Aggregator` zalogować się na `Information` poziomie:
+Jeśli [host.json] zawiera wiele kategorii, które zaczynają się od tego samego ciągu, zostaną one dopasowane jako pierwsze. Załóżmy, że chcesz, aby wszystkie elementy uruchomieniowe były wykonywane z wyjątkiem `Host.Aggregator` rejestrowania na `Error` poziomie, ale chcesz `Host.Aggregator` zalogować się na `Information` poziomie:
 
 ### <a name="version-2x-and-later"></a>Wersja 2. x i nowsze
 
@@ -232,7 +233,7 @@ Aby pominąć wszystkie dzienniki dla kategorii, można użyć poziomu dziennika
 
 ## <a name="configure-the-aggregator"></a>Konfigurowanie agregatora
 
-Jak wskazano w poprzedniej sekcji, środowisko uruchomieniowe agreguje dane dotyczące wykonywania funkcji w danym okresie czasu. Domyślny okres to 30 sekund lub 1 000 uruchomienia, w zależności od tego, co nastąpi wcześniej. To ustawienie można skonfigurować w pliku [host. JSON] .  Oto przykład:
+Jak wskazano w poprzedniej sekcji, środowisko uruchomieniowe agreguje dane dotyczące wykonywania funkcji w danym okresie czasu. Domyślny okres to 30 sekund lub 1 000 uruchomienia, w zależności od tego, co nastąpi wcześniej. To ustawienie można skonfigurować w [host.js] pliku.  Przykład:
 
 ```json
 {
@@ -245,7 +246,7 @@ Jak wskazano w poprzedniej sekcji, środowisko uruchomieniowe agreguje dane doty
 
 ## <a name="configure-sampling"></a>Konfiguruj próbkowanie
 
-Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampling.md) , która umożliwia ochronę przed generowaniem zbyt dużej ilości danych telemetrycznych w przypadku zakończonych wykonań w czasie szczytowego ładowania. Gdy częstotliwość wykonywania przychodzących przekracza określony próg, Application Insights zaczyna losowo ignorować niektóre wykonania przychodzące. Domyślne ustawienie maksymalnej liczby wykonań na sekundę to 20 (pięć w wersji 1. x). Próbkowanie można skonfigurować w pliku [host. JSON].  Oto przykład:
+Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampling.md) , która umożliwia ochronę przed generowaniem zbyt dużej ilości danych telemetrycznych w przypadku zakończonych wykonań w czasie szczytowego ładowania. Gdy częstotliwość wykonywania przychodzących przekracza określony próg, Application Insights zaczyna losowo ignorować niektóre wykonania przychodzące. Domyślne ustawienie maksymalnej liczby wykonań na sekundę to 20 (pięć w wersji 1. x). Można skonfigurować próbkowanie w [host.jsna](https://docs.microsoft.com/azure/azure-functions/functions-host-json#applicationinsights).  Przykład:
 
 ### <a name="version-2x-and-later"></a>Wersja 2. x i nowsze
 
@@ -255,12 +256,15 @@ Application Insights zawiera funkcję [próbkowania](../azure-monitor/app/sampli
     "applicationInsights": {
       "samplingSettings": {
         "isEnabled": true,
-        "maxTelemetryItemsPerSecond" : 20
+        "maxTelemetryItemsPerSecond" : 20,
+        "excludedTypes": "Request"
       }
     }
   }
 }
 ```
+
+W wersji 2. x można wykluczyć pewne typy danych telemetrycznych z próbkowania. W powyższym przykładzie dane typu `Request` są wykluczone z próbkowania. Gwarantuje to, że *wszystkie* wykonania funkcji (żądania) są rejestrowane, podczas gdy inne typy telemetrii nadal podlegają próbkowaniu.
 
 ### <a name="version-1x"></a>Wersja 1. x 
 
@@ -313,7 +317,7 @@ Poniżej przedstawiono przykładową reprezentację danych w formacie JSON `cust
 
 ```json
 {
-  customDimensions: {
+  "customDimensions": {
     "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
     "Category":"Function",
     "LogLevel":"Information",
@@ -334,7 +338,7 @@ Ten kod jest alternatywą dla wywołania przy `TrackMetric` użyciu interfejsu A
 
 ## <a name="write-logs-in-javascript-functions"></a>Write logs in JavaScript functions (Zapisywanie dzienników w funkcjach języka JavaScript)
 
-W funkcjach środowiska Node. js Użyj `context.log` do pisania dzienników. Rejestrowanie strukturalne nie jest włączone.
+W funkcjach Node.js służy `context.log` do pisania dzienników. Rejestrowanie strukturalne nie jest włączone.
 
 ```
 context.log('JavaScript HTTP trigger function processed a request.' + context.invocationId);
@@ -342,13 +346,13 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 
 ### <a name="custom-metrics-logging"></a>Rejestrowanie metryk niestandardowych
 
-Gdy korzystasz z [wersji 1. x](functions-versions.md#creating-1x-apps) środowiska uruchomieniowego funkcji, funkcje języka Node. js mogą używać `context.log.metric` metody do tworzenia niestandardowych metryk w Application Insights. Ta metoda nie jest obecnie obsługiwana w wersji 2. x i nowszych. Oto przykładowe wywołanie metody:
+Gdy korzystasz z [wersji 1. x](functions-versions.md#creating-1x-apps) środowiska uruchomieniowego funkcji, Node.js funkcje mogą używać `context.log.metric` metody do tworzenia niestandardowych metryk w Application Insights. Ta metoda nie jest obecnie obsługiwana w wersji 2. x i nowszych. Oto przykładowe wywołanie metody:
 
 ```javascript
 context.log.metric("TestMetric", 1234);
 ```
 
-Ten kod jest alternatywą dla wywoływania przy `trackMetric` użyciu zestawu SDK środowiska Node. js dla Application Insights.
+Ten kod jest alternatywą dla wywoływania przy `trackMetric` użyciu zestawu SDK Node.js dla Application Insights.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Log custom telemetry in C# functions (Rejestrowanie telemetrii niestandardowej w funkcjach języka C#)
 
@@ -360,7 +364,7 @@ Istnieje oparta na funkcjach wersja zestawu SDK Application Insights, której mo
 dotnet add package Microsoft.Azure.WebJobs.Logging.ApplicationInsights --version <VERSION>
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VERSION>
@@ -533,7 +537,7 @@ Nie ustawiono `telemetryClient.Context.Operation.Id` . To ustawienie globalne po
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Log custom telemetry in JavaScript functions (Rejestrowanie telemetrii niestandardowej w funkcjach języka JavaScript)
 
-Poniżej przedstawiono przykładowe fragmenty kodu, które wysyłają niestandardową telemetrię przy użyciu [zestawu SDK Application Insights Node. js](https://github.com/microsoft/applicationinsights-node.js):
+Poniżej przedstawiono przykładowe fragmenty kodu, które wysyłają niestandardową telemetrię przy użyciu [zestawu SDK Application Insights Node.js](https://github.com/microsoft/applicationinsights-node.js):
 
 ### <a name="version-2x-and-later"></a>Wersja 2. x i nowsze
 
@@ -684,6 +688,28 @@ Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscripti
 Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
+## <a name="scale-controller-logs"></a>Dzienniki kontrolera skalowania
+
+[Kontroler Azure Functions skalowania](./functions-scale.md#runtime-scaling) monitoruje wystąpienia hosta funkcji, które uruchamiają aplikację, i podejmuje decyzje dotyczące sytuacji, w których należy dodać lub usunąć wystąpienia hosta funkcji. Jeśli musisz zrozumieć decyzje podejmowane przez kontroler skalowania w aplikacji, możesz skonfigurować go do emisji dzienników do Application Insights lub Blob Storage.
+
+> [!WARNING]
+> Ta funkcja jest dostępna w wersji zapoznawczej. Nie zaleca się pozostawienia tej funkcji w nieskończoność, a zamiast tego należy ją włączyć, gdy będą potrzebne zebrane informacje, a następnie je wyłączać.
+
+Aby włączyć tę funkcję, Dodaj nowe ustawienie aplikacji o nazwie `SCALE_CONTROLLER_LOGGING_ENABLED` . Wartość tego ustawienia musi być w formacie `{Destination}:{Verbosity}` , gdzie:
+* `{Destination}`określa miejsce docelowe dzienników do wysłania i musi być albo `AppInsights` `Blob` .
+* `{Verbosity}`Określa żądany poziom rejestrowania i musi być jednym z `None` , `Warning` lub `Verbose` .
+
+Na przykład aby rejestrować pełne informacje z kontrolera skalowania do Application Insights, użyj wartości `AppInsights:Verbose` .
+
+> [!NOTE]
+> W przypadku włączenia `AppInsights` typu miejsca docelowego musisz upewnić się, że [Application Insights dla aplikacji funkcji](#enable-application-insights-integration).
+
+Jeśli ustawisz miejsce docelowe na `Blob` , dzienniki zostaną utworzone w kontenerze obiektów BLOB o nazwie w `azure-functions-scale-controller` ramach konta magazynu ustawionego w `AzureWebJobsStorage` ustawieniu aplikacji.
+
+W przypadku ustawienia szczegółowości do programu `Verbose` kontroler skali będzie rejestrował powód dla każdej zmiany liczby procesów roboczych, a także informacje o wyzwalaczach, które uczestniczą w decyzjach kontrolera skali. Na przykład dzienniki będą zawierać ostrzeżenia wyzwalacza i skróty używane przez wyzwalacze przed uruchomieniem kontrolera skali i po nim.
+
+Aby wyłączyć rejestrowanie kontrolera skalowania, ustaw wartość `{Verbosity}` `None` Ustawienia na lub Usuń `SCALE_CONTROLLER_LOGGING_ENABLED` aplikację.
+
 ## <a name="disable-built-in-logging"></a>Wyłącz wbudowane rejestrowanie
 
 Po włączeniu Application Insights Wyłącz wbudowane rejestrowanie korzystające z usługi Azure Storage. Wbudowane rejestrowanie jest przydatne do testowania z lekkimi obciążeniami, ale nie jest przeznaczone do użycia w środowisku produkcyjnym. W celu monitorowania produkcji zalecamy Application Insights. Jeśli Wbudowana funkcja rejestrowania jest używana w środowisku produkcyjnym, rekord rejestrowania może być niekompletny z powodu ograniczania w usłudze Azure Storage.
@@ -697,4 +723,4 @@ Więcej informacji zawierają następujące zasoby:
 * [Application Insights](/azure/application-insights/)
 * [Rejestrowanie ASP.NET Core](/aspnet/core/fundamentals/logging/)
 
-[plik host. JSON]: functions-host-json.md
+[host.jsna]: functions-host-json.md

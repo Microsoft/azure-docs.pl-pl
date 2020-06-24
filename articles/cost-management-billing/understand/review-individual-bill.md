@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: banders
-ms.openlocfilehash: 5a9e21cacb17743cbb8324a06c083c52aa261eb9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5b0d30d31fbe65360c246282eb2dc2109a541a3f
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194133"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888320"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Samouczek: Przeglądanie indywidualnego rachunku za korzystanie z platformy Azure
 
@@ -100,7 +100,7 @@ Sekcja **Opłaty za użycie** Twojej faktury zawiera łączną wartość (koszt)
 
 ![Fakturowanie opłat za użycie](./media/review-individual-bill/invoice-usage-charges.png)
 
-W pliku CSV użycia filtruj według wartości *MeterName* dla odpowiedniego zasobu wyświetlanego na fakturze. Następnie zsumuj wartość *Cost* (Koszt) dla elementów w kolumnie. Oto przykład.
+W pliku CSV użycia filtruj według wartości *MeterName* dla odpowiedniego zasobu wyświetlanego na fakturze. Następnie zsumuj wartość *Cost* (Koszt) dla elementów w kolumnie. Oto przykład, który koncentruje się na nazwie miernika (P10 disks) odpowiadającej temu samemu elementowi wiersza na fakturze.
 
 ![Zsumowana wartość pliku użycia dla MeterName](./media/review-individual-bill/usage-file-usage-charge-resource.png)
 

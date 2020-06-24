@@ -5,22 +5,22 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 20b030079121104fe7bd75924a63ab0e12be9b19
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 515fd9bfedc5bc5d3cefda2a357c351f515fb5f5
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020867"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194675"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
 Usługa Azure Synapse Apache Spark do Synapse SQL Connector została zaprojektowana w celu wydajnego transferu danych między pulami usługi Spark (wersja zapoznawcza) a pulami SQL na platformie Azure Synapse. Usługa Azure Synapse Apache Spark Synapse łącznik SQL działa tylko w pulach SQL, nie działa z SQL na żądanie.
 
-## <a name="design"></a>Projekt
+## <a name="design"></a>Projektowanie
 
 Przenoszenie danych między pulami platformy Spark i pulami SQL można wykonać przy użyciu JDBC. Jednak w przypadku dwóch systemów rozproszonych, takich jak platforma Spark i pule SQL, JDBC zachodzi wąskie gardło z transferem danych szeregowych.
 

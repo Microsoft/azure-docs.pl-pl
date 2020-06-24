@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: a185ec4938670519029abaf6fa4d23b7bf5c5399
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 2f928ac2f8772942eb748d68a65662938b1405ed
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466531"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84882507"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Skonfiguruj własny magazyn (BYOS) dla Application Insights Profiler i Snapshot Debugger
 
@@ -32,7 +32,7 @@ W przypadku przenoszenia własnego magazynu te artefakty są przekazywane do kon
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Upewnij się, że konto magazynu zostało utworzone w tej samej lokalizacji co zasób Application Insights. Np. Jeśli zasób Application Insights jest w regionie zachodnie stany USA 2, konto magazynu musi być również w regionie zachodnie stany USA 2. 
-* Przypisz rolę "Współautor obiektu blob magazynu" do aplikacji usługi AAD "usługa diagnostyczna zaufanego dostępu do magazynu" na koncie magazynu za pośrednictwem interfejsu użytkownika Access Control (IAM).
+* Udziel roli "Współautor danych obiektów blob magazynu" do aplikacji usługi AAD "dostęp do zaufanego magazynu usług diagnostycznych" na koncie magazynu za pośrednictwem interfejsu użytkownika Access Control (IAM).
 * Jeśli link prywatny jest włączony, skonfiguruj dodatkowe ustawienie, aby zezwolić na połączenie z naszą zaufaną usługą firmy Microsoft z Virtual Network. 
 
 ## <a name="how-to-enable-byos"></a>Jak włączyć BYOS
@@ -156,7 +156,7 @@ Aby skonfigurować BYOS na potrzeby diagnostyki na poziomie kodu (Profiler/debug
 
 #### <a name="configure-using-azure-resource-manager-template"></a>Konfigurowanie przy użyciu szablonu Azure Resource Manager
 
-1. Utwórz plik szablonu Azure Resource Manager o następującej zawartości (BYOS. Template. JSON).
+1. Utwórz plik szablonu Azure Resource Manager o następującej zawartości (byos.template.jswłączony).
     ```json
     {
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",

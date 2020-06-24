@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d2ea038c7d7212529185d77a6ba9e64deacb1c9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265716"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689762"
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>Przenoszenie danych ze źródła tabeli sieci Web przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -36,7 +36,7 @@ Fabryka danych obsługuje obecnie tylko przeniesienie danych z tabeli sieci Web 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby użyć tego łącznika tabeli sieci Web, należy skonfigurować samoobsługowy Integration Runtime (alias Zarządzanie danymi Gateway) i skonfigurować `gatewayName` właściwość w połączonej usłudze ujścia. Aby na przykład skopiować z tabeli sieci Web do usługi Azure Blob Storage, należy skonfigurować połączoną usługę Azure Storage w następujący sposób:
+Aby użyć tego łącznika tabeli sieci Web, należy skonfigurować samoobsługowy Integration Runtime (alias Zarządzanie danymi Gateway) i skonfigurować `gatewayName` Właściwość w połączonej usłudze ujścia. Aby na przykład skopiować z tabeli sieci Web do usługi Azure Blob Storage, należy skonfigurować połączoną usługę Azure Storage w następujący sposób:
 
 ```json
 {
@@ -70,9 +70,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej usługi sieci Web.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość Type musi mieć wartość: **Web** |Tak |
+| typ |Właściwość Type musi mieć wartość: **Web** |Tak |
 | Url |Adres URL źródła sieci Web |Tak |
 | authenticationType |Anonimowe. |Tak |
 
@@ -98,9 +98,9 @@ Aby uzyskać pełną listę sekcji & właściwości dostępne do definiowania ze
 
 Sekcja **typeProperties** jest inna dla każdego typu zestawu danych i zawiera informacje dotyczące lokalizacji danych w magazynie danych. Sekcja typeProperties zestawu danych typu **webtable** ma następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type |Typ zestawu danych. musi być ustawiona na **Webtable** |Tak |
+| typ |Typ zestawu danych. musi być ustawiona na **Webtable** |Tak |
 | ścieżka |Względny adres URL do zasobu, który zawiera tabelę. |Nie. Jeśli ścieżka nie zostanie określona, zostanie użyta tylko adres URL określony w definicji połączonej usługi. |
 | indeks |Indeks tabeli w zasobie. Zobacz sekcję [pobieranie indeksu tabeli w sekcji strony HTML,](#get-index-of-a-table-in-an-html-page) aby poznać procedurę pobierania indeksu tabeli na stronie HTML. |Tak |
 
@@ -288,7 +288,7 @@ Zobacz właściwości typu websource dla listy właściwości obsługiwanych prz
 2. Na pasku narzędzi kliknij pozycję **nowe zapytanie** , wskaż polecenie **z innych źródeł** i kliknij opcję **z sieci Web**.
 
     ![Menu Power Query](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
-3. W oknie dialogowym **z sieci Web** wprowadź **adres URL** , który będzie używany w formacie JSON połączonej usługi (na https://en.wikipedia.org/wiki/) przykład: wraz z ścieżką, którą określisz dla zestawu danych (na przykład: AFI% 27s_100_Years... 100_Movies), a następnie kliknij przycisk **OK**.
+3. W oknie dialogowym **z sieci Web** wprowadź **adres URL** , który będzie używany w formacie JSON połączonej usługi (na przykład: https://en.wikipedia.org/wiki/) wraz z ścieżką, którą określisz dla zestawu danych (na przykład: AFI% 27s_100_Years... 100_Movies), a następnie kliknij przycisk **OK**.
 
     ![Z okna dialogowego sieci Web](./media/data-factory-web-table-connector/FromWeb-DialogBox.png)
 

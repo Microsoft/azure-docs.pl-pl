@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 3ba620d66b84e6724751b2024059e8ecd66888cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266119"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690340"
 ---
 # <a name="api-management-access-restriction-policies"></a>Zasady ograniczeń dostępu usługi API Management
 
@@ -60,21 +60,21 @@ Użyj `check-header` zasad, aby wymusić, że żądanie ma określony nagłówek
 
 ### <a name="elements"></a>Elementy
 
-| Nazwa         | Opis                                                                                                                                   | Wymagany |
+| Nazwa         | Opis                                                                                                                                   | Wymagane |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | znacznik wyboru | Element główny.                                                                                                                                 | Tak      |
-| value        | Dozwolona wartość nagłówka HTTP. Gdy określono wiele elementów wartości, sprawdzanie jest uznawane za sukces, jeśli jedna z wartości jest zgodna. | Nie       |
+| wartość        | Dozwolona wartość nagłówka HTTP. Gdy określono wiele elementów wartości, sprawdzanie jest uznawane za sukces, jeśli jedna z wartości jest zgodna. | Nie       |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                       | Opis                                                                                                                                                            | Wymagany | Domyślny |
+| Nazwa                       | Opis                                                                                                                                                            | Wymagane | Domyślne |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | Niepowodzenie — check-error-message | Komunikat o błędzie do zwrócenia w treści odpowiedzi HTTP, jeśli nagłówek nie istnieje lub ma nieprawidłową wartość. Ten komunikat musi mieć poprawnie zmienione znaki specjalne. | Tak      | Nie dotyczy     |
 | Niepowodzenie — Check-httpcode      | Kod stanu HTTP do zwrócenia, jeśli nagłówek nie istnieje lub ma nieprawidłową wartość.                                                                                        | Tak      | Nie dotyczy     |
 | Nazwa nagłówka                | Nazwa nagłówka HTTP do sprawdzenia.                                                                                                                                  | Tak      | Nie dotyczy     |
 | Ignoruj wielkość liter                | Można ustawić na wartość true lub false. Jeśli jest ustawiona na wartość true Case, jest ignorowana, gdy wartość nagłówka jest porównywana z zestawem akceptowalnych wartości.                                    | Tak      | Nie dotyczy     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -84,7 +84,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="limit-call-rate-by-subscription"></a><a name="LimitCallRate"></a>Ogranicz częstotliwość wywołań według subskrypcji
 
-`rate-limit` Zasady uniemożliwiają użycie interfejsu API dla każdej subskrypcji, ograniczając częstotliwość wywołań do określonej liczby w określonym przedziale czasu. Po wyzwoleniu tych zasad obiekt wywołujący `429 Too Many Requests` otrzymuje kod stanu odpowiedzi.
+`rate-limit`Zasady uniemożliwiają użycie interfejsu API dla każdej subskrypcji, ograniczając częstotliwość wywołań do określonej liczby w określonym przedziale czasu. Po wyzwoleniu tych zasad obiekt wywołujący otrzymuje `429 Too Many Requests` kod stanu odpowiedzi.
 
 > [!IMPORTANT]
 > Tych zasad można używać tylko raz dla każdego dokumentu zasad.
@@ -120,21 +120,21 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ### <a name="elements"></a>Elementy
 
-| Nazwa       | Opis                                                                                                                                                                                                                                                                                              | Wymagany |
+| Nazwa       | Opis                                                                                                                                                                                                                                                                                              | Wymagane |
 | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | stawka — limit | Element główny.                                                                                                                                                                                                                                                                                            | Tak      |
-| api        | Dodaj co najmniej jeden z tych elementów, aby nałożyć limit liczby wywołań na interfejsy API w ramach produktu. Limity szybkości wywołań produktu i interfejsu API są stosowane niezależnie. Do interfejsu API można odwoływać `name` się `id`za pośrednictwem lub. Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane.                    | Nie       |
-| operacje  | Dodaj jeden lub więcej z tych elementów, aby nałożyć limit liczby wywołań na operacje w interfejsie API. Limity szybkości wywołań produktu, interfejsu API i operacji są stosowane niezależnie. Operacji można przywoływać za `name` pośrednictwem `id`lub. Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane. | Nie       |
+| api        | Dodaj co najmniej jeden z tych elementów, aby nałożyć limit liczby wywołań na interfejsy API w ramach produktu. Limity szybkości wywołań produktu i interfejsu API są stosowane niezależnie. Do interfejsu API można odwoływać się za pośrednictwem `name` lub `id` . Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane.                    | Nie       |
+| operacje  | Dodaj jeden lub więcej z tych elementów, aby nałożyć limit liczby wywołań na operacje w interfejsie API. Limity szybkości wywołań produktu, interfejsu API i operacji są stosowane niezależnie. Operacji można przywoływać za pośrednictwem `name` lub `id` . Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane. | Nie       |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa           | Opis                                                                                           | Wymagany | Domyślny |
+| Nazwa           | Opis                                                                                           | Wymagane | Domyślne |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | Nazwa interfejsu API, dla którego ma zostać zastosowany limit szybkości.                                                | Tak      | Nie dotyczy     |
-| Rozmowa          | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period`. | Tak      | Nie dotyczy     |
+| Rozmowa          | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` . | Tak      | Nie dotyczy     |
 | Okres odnawiania | Czas (w sekundach), po upływie którego zostanie zresetowany przydział.                                              | Tak      | Nie dotyczy     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -147,7 +147,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 > [!IMPORTANT]
 > Ta funkcja jest niedostępna w warstwie **zużycia** API Management.
 
-`rate-limit-by-key` Zasady uniemożliwiają użycie interfejsu API na podstawie poszczególnych kluczy, ograniczając częstotliwość wywołań do określonej liczby w określonym przedziale czasu. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad. Opcjonalny warunek przyrostu można dodać, aby określić, które żądania powinny być wliczane do limitu. Po wyzwoleniu tych zasad obiekt wywołujący `429 Too Many Requests` otrzymuje kod stanu odpowiedzi.
+`rate-limit-by-key`Zasady uniemożliwiają użycie interfejsu API na podstawie poszczególnych kluczy, ograniczając częstotliwość wywołań do określonej liczby w określonym przedziale czasu. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad. Opcjonalny warunek przyrostu można dodać, aby określić, które żądania powinny być wliczane do limitu. Po wyzwoleniu tych zasad obiekt wywołujący otrzymuje `429 Too Many Requests` kod stanu odpowiedzi.
 
 Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [zaawansowane Ograniczanie żądań za pomocą usługi Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
 
@@ -185,20 +185,20 @@ W poniższym przykładzie Limit szybkości jest poprzedzony przez adres IP obiek
 
 ### <a name="elements"></a>Elementy
 
-| Nazwa              | Opis   | Wymagany |
+| Nazwa              | Opis   | Wymagane |
 | ----------------- | ------------- | -------- |
 | stawka za klucz | Element główny. | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                | Opis                                                                                           | Wymagany | Domyślny |
+| Nazwa                | Opis                                                                                           | Wymagane | Domyślne |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| Rozmowa               | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period`. | Tak      | Nie dotyczy     |
+| Rozmowa               | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` . | Tak      | Nie dotyczy     |
 | klucz licznika         | Klucz, który ma być używany na potrzeby zasad limitu szybkości.                                                             | Tak      | Nie dotyczy     |
-| Zwiększ warunek | Wyrażenie logiczne określające, czy żądanie powinno być wliczane do limitu przydziału (`true`).        | Nie       | Nie dotyczy     |
+| Zwiększ warunek | Wyrażenie logiczne określające, czy żądanie powinno być wliczane do limitu przydziału ( `true` ).        | Nie       | Nie dotyczy     |
 | Okres odnawiania      | Czas (w sekundach), po upływie którego zostanie zresetowany przydział.                                              | Tak      | Nie dotyczy     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -208,7 +208,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="restrict-caller-ips"></a><a name="RestrictCallerIPs"></a>Ogranicz adresy IP wywołującego
 
-Filtry `ip-filter` zasad (dopuszcza/odrzuca) wywołania z określonych adresów IP i/lub zakresów adresów.
+`ip-filter`Filtry zasad (dopuszcza/odrzuca) wywołania z określonych adresów IP i/lub zakresów adresów.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -232,7 +232,7 @@ W poniższym przykładzie zasada zezwala tylko na żądania pochodzące z pojedy
 
 ### <a name="elements"></a>Elementy
 
-| Nazwa                                      | Opis                                         | Wymagany                                                       |
+| Nazwa                                      | Opis                                         | Wymagane                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | filtr IP                                 | Element główny.                                       | Tak                                                            |
 | adres                                   | Określa pojedynczy adres IP, na który ma zostać przefiltrowany.   | Co najmniej jeden `address` `address-range` element jest wymagany. |
@@ -240,12 +240,12 @@ W poniższym przykładzie zasada zezwala tylko na żądania pochodzące z pojedy
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                                      | Opis                                                                                 | Wymagany                                           | Domyślny |
+| Nazwa                                      | Opis                                                                                 | Wymagane                                           | Domyślne |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| zakres adresów od = "Address" do = "Address" | Zakres adresów IP, dla których ma być dozwolony lub zablokowany dostęp.                                        | Wymagane, `address-range` gdy element jest używany. | Nie dotyczy     |
+| zakres adresów od = "Address" do = "Address" | Zakres adresów IP, dla których ma być dozwolony lub zablokowany dostęp.                                        | Wymagane, gdy `address-range` element jest używany. | Nie dotyczy     |
 | IP-Filter Action = "Zezwalaj na &#124; Zabroń"    | Określa, czy wywołania powinny być dozwolone czy nie dla określonych adresów IP i zakresów. | Tak                                                | Nie dotyczy     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -254,7 +254,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="set-usage-quota-by-subscription"></a><a name="SetUsageQuota"></a>Ustawianie przydziału użycia według subskrypcji
 
-`quota` Zasady wymuszają naliczanie i/lub przydział przepustowości przez okres istnienia dla każdej subskrypcji.
+`quota`Zasady wymuszają naliczanie i/lub przydział przepustowości przez okres istnienia dla każdej subskrypcji.
 
 > [!IMPORTANT]
 > Tych zasad można używać tylko raz dla każdego dokumentu zasad.
@@ -287,22 +287,22 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ### <a name="elements"></a>Elementy
 
-| Nazwa      | Opis                                                                                                                                                                                                                                                                                  | Wymagany |
+| Nazwa      | Opis                                                                                                                                                                                                                                                                                  | Wymagane |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | limit przydziału     | Element główny.                                                                                                                                                                                                                                                                                | Tak      |
-| api       | Dodaj jeden lub więcej z tych elementów, aby nałożyć przydział wywołań na interfejsy API w ramach produktu. Przydziały wywołań produktu i interfejsu API są stosowane niezależnie. Do interfejsu API można odwoływać `name` się `id`za pośrednictwem lub. Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane.                    | Nie       |
-| operacje | Dodaj jeden lub więcej z tych elementów, aby nałożyć przydział wywołań na operacje w interfejsie API. Przydziały produktu, interfejsu API i operacji wywołań są stosowane niezależnie. Operacji można przywoływać za `name` pośrednictwem `id`lub. Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane. | Nie       |
+| api       | Dodaj jeden lub więcej z tych elementów, aby nałożyć przydział wywołań na interfejsy API w ramach produktu. Przydziały wywołań produktu i interfejsu API są stosowane niezależnie. Do interfejsu API można odwoływać się za pośrednictwem `name` lub `id` . Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane.                    | Nie       |
+| operacje | Dodaj jeden lub więcej z tych elementów, aby nałożyć przydział wywołań na operacje w interfejsie API. Przydziały produktu, interfejsu API i operacji wywołań są stosowane niezależnie. Operacji można przywoływać za pośrednictwem `name` lub `id` . Jeśli podano oba atrybuty, `id` zostaną one użyte i `name` zostaną zignorowane. | Nie       |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa           | Opis                                                                                               | Wymagany                                                         | Domyślny |
+| Nazwa           | Opis                                                                                               | Wymagane                                                         | Domyślne |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | name           | Nazwa interfejsu API lub operacji, dla której ma zastosowanie przydział.                                             | Tak                                                              | Nie dotyczy     |
-| zużywa      | Maksymalna łączna liczba kilobajtów dozwolona w przedziale czasu określonym w `renewal-period`. | `calls`Należy określić oba `bandwidth`jednocześnie. | Nie dotyczy     |
-| Rozmowa          | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period`.     | `calls`Należy określić oba `bandwidth`jednocześnie. | Nie dotyczy     |
+| zużywa      | Maksymalna łączna liczba kilobajtów dozwolona w przedziale czasu określonym w `renewal-period` . | `calls` `bandwidth` Należy określić oba jednocześnie. | Nie dotyczy     |
+| Rozmowa          | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` .     | `calls` `bandwidth` Należy określić oba jednocześnie. | Nie dotyczy     |
 | Okres odnawiania | Czas (w sekundach), po upływie którego zostanie zresetowany przydział.                                                  | Tak                                                              | Nie dotyczy     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -314,7 +314,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 > [!IMPORTANT]
 > Ta funkcja jest niedostępna w warstwie **zużycia** API Management.
 
-`quota-by-key` Zasady wymuszają odnowienie i/lub przydział przepustowości dla każdego klucza. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad. Opcjonalny warunek przyrostu można dodać, aby określić, które żądania powinny być wliczane do limitu przydziału. Jeśli wiele zasad zwiększy tę samą wartość klucza, jest zwiększana tylko raz dla każdego żądania. Po osiągnięciu limitu wywołań wywołujący otrzymuje kod stanu `403 Forbidden` odpowiedzi.
+`quota-by-key`Zasady wymuszają odnowienie i/lub przydział przepustowości dla każdego klucza. Klucz może mieć dowolną wartość ciągu i jest zwykle dostarczany przy użyciu wyrażenia zasad. Opcjonalny warunek przyrostu można dodać, aby określić, które żądania powinny być wliczane do limitu przydziału. Jeśli wiele zasad zwiększy tę samą wartość klucza, jest zwiększana tylko raz dla każdego żądania. Po osiągnięciu limitu wywołań wywołujący otrzymuje `403 Forbidden` kod stanu odpowiedzi.
 
 Aby uzyskać więcej informacji i przykłady tych zasad, zobacz [zaawansowane Ograniczanie żądań za pomocą usługi Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
 
@@ -349,21 +349,21 @@ W poniższym przykładzie limit przydziału jest poprzedzony przez adres IP obie
 
 ### <a name="elements"></a>Elementy
 
-| Nazwa  | Opis   | Wymagany |
+| Nazwa  | Opis   | Wymagane |
 | ----- | ------------- | -------- |
 | limit przydziału | Element główny. | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                | Opis                                                                                               | Wymagany                                                         | Domyślny |
+| Nazwa                | Opis                                                                                               | Wymagane                                                         | Domyślne |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| zużywa           | Maksymalna łączna liczba kilobajtów dozwolona w przedziale czasu określonym w `renewal-period`. | `calls`Należy określić oba `bandwidth`jednocześnie. | Nie dotyczy     |
-| Rozmowa               | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period`.     | `calls`Należy określić oba `bandwidth`jednocześnie. | Nie dotyczy     |
+| zużywa           | Maksymalna łączna liczba kilobajtów dozwolona w przedziale czasu określonym w `renewal-period` . | `calls` `bandwidth` Należy określić oba jednocześnie. | Nie dotyczy     |
+| Rozmowa               | Maksymalna całkowita liczba wywołań dozwolona w przedziale czasu określonym w `renewal-period` .     | `calls` `bandwidth` Należy określić oba jednocześnie. | Nie dotyczy     |
 | klucz licznika         | Klucz, który ma być używany dla zasad przydziału.                                                                      | Tak                                                              | Nie dotyczy     |
-| Zwiększ warunek | Wyrażenie logiczne określające, czy żądanie powinno być wliczane do limitu przydziału (`true`)             | Nie                                                               | Nie dotyczy     |
+| Zwiększ warunek | Wyrażenie logiczne określające, czy żądanie powinno być wliczane do limitu przydziału ( `true` )             | Nie                                                               | Nie dotyczy     |
 | Okres odnawiania      | Czas (w sekundach), po upływie którego zostanie zresetowany przydział.                                                  | Tak                                                              | Nie dotyczy     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -372,12 +372,12 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="validate-jwt"></a><a name="ValidateJWT"></a>Weryfikuj token JWT
 
-`validate-jwt` Zasady wymuszają istnienie i ważność tokenu JWT wyodrębnionego z określonego nagłówka HTTP lub określonego parametru zapytania.
+`validate-jwt`Zasady wymuszają istnienie i ważność tokenu JWT wyodrębnionego z określonego nagłówka HTTP lub określonego parametru zapytania.
 
 > [!IMPORTANT]
-> `validate-jwt` Zasady wymagają, aby `exp` zarejestrowane zastrzeżenie zostało uwzględnione w tokenie JWT, chyba że `require-expiration-time` atrybut jest określony i ma `false`ustawioną wartość.
-> `validate-jwt` Zasady obsługują algorytmy podpisywania HS256 i RS256. W przypadku HS256 klucz musi być podany w postaci wbudowanej w ramach zasad w postaci kodowanej algorytmem Base64. W przypadku RS256 klucz musi być udostępniany za pośrednictwem punktu końcowego konfiguracji otwartego identyfikatora.
-> `validate-jwt` Zasady obsługują tokeny szyfrowane za pomocą kluczy symetrycznych przy użyciu następujących algorytmów szyfrowania A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
+> `validate-jwt`Zasady wymagają, aby `exp` zarejestrowane zastrzeżenie zostało uwzględnione w tokenie JWT, chyba że `require-expiration-time` atrybut jest określony i ma ustawioną wartość `false` .
+> `validate-jwt`Zasady obsługują algorytmy podpisywania HS256 i RS256. W przypadku HS256 klucz musi być podany w postaci wbudowanej w ramach zasad w postaci kodowanej algorytmem Base64. W przypadku RS256 klucz musi być udostępniany za pośrednictwem punktu końcowego konfiguracji otwartego identyfikatora.
+> `validate-jwt`Zasady obsługują tokeny szyfrowane za pomocą kluczy symetrycznych przy użyciu następujących algorytmów szyfrowania A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -503,7 +503,7 @@ Ten przykład pokazuje, jak używać zasad [weryfikacji tokenu JWT](api-manageme
 
 ### <a name="elements"></a>Elementy
 
-| Element             | Opis                                                                                                                                                                                                                                                                                                                                           | Wymagany |
+| Element             | Opis                                                                                                                                                                                                                                                                                                                                           | Wymagane |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | Walidacja — JWT        | Element główny.                                                                                                                                                                                                                                                                                                                                         | Tak      |
 | odbiorców           | Zawiera listę dopuszczalnych oświadczeń odbiorców, które mogą znajdować się na tokenie. Jeśli są obecne wiele wartości odbiorców, każda wartość zostanie ponowiona, dopóki wszystkie nie zostaną wyczerpane (w której przypadku niepowodzenie walidacji nie powiedzie się) lub dopóki jeden z nich się nie powiedzie. Należy określić co najmniej jedną grupę odbiorców.                                                                     | Nie       |
@@ -515,7 +515,7 @@ Ten przykład pokazuje, jak używać zasad [weryfikacji tokenu JWT](api-manageme
 
 ### <a name="attributes"></a>Atrybuty
 
-| Nazwa                            | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagany                                                                         | Domyślny                                                                           |
+| Nazwa                            | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane                                                                         | Domyślne                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | przechylenie zegara                      | Czasu. Użyj, aby określić maksymalną oczekiwaną różnicę czasu między zegarami systemowymi wystawcy tokenów a wystąpieniem API Management.                                                                                                                                                                                                                                                                                                               | Nie                                                                               | 0 sekund                                                                         |
 | Niepowodzenie — Walidacja-komunikat o błędzie | Komunikat o błędzie do zwrócenia w treści odpowiedzi HTTP, jeśli token JWT nie przeszedł walidacji. Ten komunikat musi mieć poprawnie zmienione znaki specjalne.                                                                                                                                                                                                                                                                                                 | Nie                                                                               | Domyślny komunikat o błędzie zależy od problemu ze sprawdzaniem poprawności, na przykład "nieobecność tokenu JWT". |
@@ -523,16 +523,16 @@ Ten przykład pokazuje, jak używać zasad [weryfikacji tokenu JWT](api-manageme
 | Nazwa nagłówka                     | Nazwa nagłówka HTTP przechowującego token.                                                                                                                                                                                                                                                                                                                                                                                                         | Jeden z `header-name` `query-parameter-name` lub `token-value` musi być określony. | Nie dotyczy                                                                               |
 | Query-Parameter-Name            | Nazwa parametru zapytania przechowującego token.                                                                                                                                                                                                                                                                                                                                                                                                     | Jeden z `header-name` `query-parameter-name` lub `token-value` musi być określony. | Nie dotyczy                                                                               |
 | Token-wartość                     | Wyrażenie zwracające ciąg zawierający token JWT                                                                                                                                                                                                                                                                                                                                                                                                     | Jeden z `header-name` `query-parameter-name` lub `token-value` musi być określony. | Nie dotyczy                                                                               |
-| id                              | `id` Atrybut w `key` elemencie pozwala określić ciąg, który zostanie dopasowany do `kid` roszczeń w tokenie (jeśli istnieje), aby dowiedzieć się, jaki klucz jest używany do weryfikacji podpisu.                                                                                                                                                                                                                                           | Nie                                                                               | Nie dotyczy                                                                               |
-| match                           | `match` Atrybut `claim` elementu określa, czy każda wartość w zasadach musi być obecna w tokenie, aby Walidacja zakończyła się pomyślnie. Możliwe wartości:<br /><br /> - `all`— Każda wartość w zasadach musi być obecna w tokenie, aby Walidacja zakończyła się pomyślnie.<br /><br /> - `any`-co najmniej jedna wartość elementu Claim musi być obecna w tokenie, aby Walidacja zakończyła się pomyślnie.                                                       | Nie                                                                               | all                                                                               |
+| identyfikator                              | `id`Atrybut w `key` elemencie pozwala określić ciąg, który zostanie dopasowany do `kid` roszczeń w tokenie (jeśli istnieje), aby dowiedzieć się, jaki klucz jest używany do weryfikacji podpisu.                                                                                                                                                                                                                                           | Nie                                                                               | Nie dotyczy                                                                               |
+| match                           | `match`Atrybut `claim` elementu określa, czy każda wartość w zasadach musi być obecna w tokenie, aby Walidacja zakończyła się pomyślnie. Możliwe wartości:<br /><br /> - `all`— Każda wartość w zasadach musi być obecna w tokenie, aby Walidacja zakończyła się pomyślnie.<br /><br /> - `any`-co najmniej jedna wartość elementu Claim musi być obecna w tokenie, aby Walidacja zakończyła się pomyślnie.                                                       | Nie                                                                               | all                                                                               |
 | Wymagaj — czas wygaśnięcia         | Typu. Określa, czy w tokenie jest wymagane żądanie wygaśnięcia.                                                                                                                                                                                                                                                                                                                                                                               | Nie                                                                               | true                                                                              |
 | Wymagaj-schemat                  | Nazwa schematu tokenów, np. "Bearer". Gdy ten atrybut jest ustawiony, zasady zapewnią, że określony schemat jest obecny w wartości nagłówka autoryzacji.                                                                                                                                                                                                                                                                                    | Nie                                                                               | Nie dotyczy                                                                               |
 | Wymagaj-podpisane-tokeny           | Typu. Określa, czy token musi być podpisany.                                                                                                                                                                                                                                                                                                                                                                                           | Nie                                                                               | true                                                                              |
 | rozdzielając                       | Ciąg. Określa separator (np. ","), który będzie używany do wyodrębniania zestawu wartości z roszczeń wielowartościowych.                                                                                                                                                                                                                                                                                                                                          | Nie                                                                               | Nie dotyczy                                                                               |
-| url                             | Otwórz adres URL punktu końcowego konfiguracji identyfikatora, z którego można uzyskać metadane konfiguracji otwartego identyfikatora. Odpowiedź powinna być zgodna ze specyfikacją zdefiniowaną w adresie URL`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`:. W przypadku Azure Active Directory użyj następującego adresu URL `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` : podstawianie nazwy dzierżawy katalogu, `contoso.onmicrosoft.com`np.. | Tak                                                                              | Nie dotyczy                                                                               |
+| url                             | Otwórz adres URL punktu końcowego konfiguracji identyfikatora, z którego można uzyskać metadane konfiguracji otwartego identyfikatora. Odpowiedź powinna być zgodna ze specyfikacją zdefiniowaną w adresie URL: `https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata` . W przypadku Azure Active Directory użyj następującego adresu URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` podstawianie nazwy dzierżawy katalogu, np. `contoso.onmicrosoft.com` . | Tak                                                                              | Nie dotyczy                                                                               |
 | Output-token-Variable-Name      | Ciąg. Nazwa zmiennej kontekstowej, która będzie otrzymywać wartość tokenu jako obiekt typu [`Jwt`](api-management-policy-expressions.md) po pomyślnym sprawdzeniu tokenu                                                                                                                                                                                                                                                                                     | Nie                                                                               | Nie dotyczy                                                                               |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 

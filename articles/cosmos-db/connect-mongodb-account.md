@@ -5,15 +5,15 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: cba16d79b6506f9809a76f0128938a68afd15c92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd4d6e1632ba858e709f6d463a6da4779314e64d
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617050"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262025"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Łączenie aplikacji bazy danych MongoDB z usługą Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Dowiedz się, jak połączyć aplikację MongoDB z usługą Azure Cosmos DB przy
 
 Ten samouczek opisuje dwa sposoby pobierania informacji o parametrach połączenia:
 
-- [Metoda szybkiego startu](#get-the-mongodb-connection-string-by-using-the-quick-start), używana z sterownikami .NET, Node. js, MongoDB Shell, Java i Python
+- [Metoda szybkiego startu](#get-the-mongodb-connection-string-by-using-the-quick-start), używana z sterownikami .net, Node.js, MongoDB Shell, Java i Python
 - [Niestandardowa metoda parametrów połączenia](#get-the-mongodb-connection-string-to-customize)do użycia z innymi sterownikami
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -34,7 +34,7 @@ Ten samouczek opisuje dwa sposoby pobierania informacji o parametrach połączen
 1. W przeglądarce internetowej Zaloguj się do [Azure Portal](https://portal.azure.com).
 2. W bloku **Azure Cosmos DB** wybierz interfejs API.
 3. W lewym okienku bloku konta kliknij pozycję **Szybki Start**.
-4. Wybierz platformę (**.NET**, **Node. js**, **MongoDB Shell**, **Java**, **Python**). Jeśli nie widzisz sterownika lub narzędzia na liście, nie martw się — ciągle dokumentuje więcej fragmentów kodu połączenia. Dodaj komentarz poniżej na temat tego, co chcesz zobaczyć. Aby dowiedzieć się, jak połączyć własne połączenie, przeczytaj temat [pobieranie informacji o parametrach połączenia konta](#get-the-mongodb-connection-string-to-customize).
+4. Wybierz platformę (**.NET**, **Node.js**, **MongoDB Shell**, **Java**, **Python**). Jeśli nie widzisz sterownika lub narzędzia na liście, nie martw się — ciągle dokumentuje więcej fragmentów kodu połączenia. Dodaj komentarz poniżej na temat tego, co chcesz zobaczyć. Aby dowiedzieć się, jak połączyć własne połączenie, przeczytaj temat [pobieranie informacji o parametrach połączenia konta](#get-the-mongodb-connection-string-to-customize).
 5. Skopiuj i wklej fragment kodu do aplikacji MongoDB.
 
     ![Blok Szybki Start](./media/connect-mongodb-account/QuickStartBlade.png)
@@ -46,7 +46,7 @@ Ten samouczek opisuje dwa sposoby pobierania informacji o parametrach połączen
 3. W lewym okienku bloku konta kliknij pozycję **Parametry połączenia**.
 4. Zostanie otwarty blok **parametrów połączenia** . Ma ona wszystkie informacje niezbędne do nawiązania połączenia z kontem przy użyciu sterownika dla MongoDB, łącznie z prebudowanymi parametrami połączenia.
 
-   [![Blok](./media/connect-mongodb-account/ConnectionStringBlade.png) parametrów połączenia](./media/connect-mongodb-account/ConnectionStringBlade.png#lightbox)
+   :::image type="content" source="./media/connect-mongodb-account/ConnectionStringBlade.png" alt-text="Blok Parametry połączenia" lightbox= "./media/connect-mongodb-account/ConnectionStringBlade.png" :::
 
 ## <a name="connection-string-requirements"></a>Wymagania dotyczące parametrów połączenia
 

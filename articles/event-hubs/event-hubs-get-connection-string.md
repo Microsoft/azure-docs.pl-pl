@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
 ms.openlocfilehash: 77a768f907ad989a457ee498f26ad0f6e004f786
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264936"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710919"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Pobierz parametry połączenia Event Hubs
 

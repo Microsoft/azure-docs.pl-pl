@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: bbf1aa2fe8410f6d624fb9d50b1edb6ac2c64093
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: ee742eae38ae95756cf31d60b877f18629c569d4
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84429514"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080495"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtry zabezpieczeń do przycinania wyników Wyszukiwanie poznawcze platformy Azure przy użyciu tożsamości Active Directory
 
@@ -28,7 +28,7 @@ W tym artykule opisano następujące zadania:
 > - Wygeneruj żądanie wyszukiwania z filtrem identyfikatorów grup
 > 
 > [!NOTE]
-> Przykładowe fragmenty kodu w tym artykule są zapisywane w języku C#. Pełny kod źródłowy można znaleźć [w usłudze GitHub](https://aka.ms/search-dotnet-howto). 
+> Przykładowe fragmenty kodu w tym artykule są zapisywane w języku C#. Pełny kod źródłowy można znaleźć [w usłudze GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

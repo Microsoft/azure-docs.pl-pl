@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b24b69716e472082abfdb388e7d79e88a8e23e64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac9e3fd4fec8ab2fe9f0c93d46489e67feebe88d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72754788"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85116268"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Łączny koszt posiadania (TCO) z Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Model aprowizacji bezserwerowej Azure Cosmos DB eliminuje konieczność przekroc
 
 * **NoSQL DevOps nie jest wymagana:** W przypadku Azure Cosmos DB jeden nie musi wykorzystywać DevOps do zarządzania wdrożeniami, wykonywania czynności konserwacyjnych, skalowania i poprawiania. Można wykonać wszystkie obciążenia, które można wykonać przy użyciu klastra OSS NoSQL hostowanego lokalnie lub w infrastrukturze chmurowej.
 
-![Koszt posiadania Azure Cosmos DB](./media/total-cost-ownership/tco.png)
+:::image type="content" source="./media/total-cost-ownership/tco.png" alt-text="Koszt posiadania Azure Cosmos DB" border="false":::
 
 * **Możliwość elastycznego skalowania:** Azure Cosmos DB przepływności można skalować w górę i w dół, co pozwala zmniejszyć koszty użytkowania w czasie poza szczytem. Klastry OSS NoSQL wdrożone w infrastrukturze chmurowej zapewniają ograniczoną elastyczność, a lokalne wdrożenia nie są elastyczne według definicji. W Azure Cosmos DB, jeśli zapewniasz większą przepływność, przepustowość jest gwarantowana w skali liniowej. Ta gwarancja została utworzona przez umowy SLA finansowy i w 99 percentylu w dowolnej skali.
 

@@ -9,17 +9,17 @@ manager: KumudD
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: allensu
-ms.openlocfilehash: cb101095aa95f9d41f7891bc3c18f7e5bfeb59db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29871f53e0f5accd0a6ec9487c43df902b67c980
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148095"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711072"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Przypisywanie wielu adresów IP do maszyn wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -157,11 +157,11 @@ az vm create \
 Oprócz tworzenia maszyny wirtualnej z kartą sieciową z 3 konfiguracjami IP skrypt tworzy następujące polecenie:
 
 - Pojedynczy dysk zarządzany w warstwie Premium domyślnie, ale dostępne są inne opcje dla typu dysku, który można utworzyć. Aby uzyskać szczegółowe informacje, przeczytaj artykuł [Tworzenie maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) .
-- Sieć wirtualna z jedną podsiecią i dwoma publicznymi adresami IP. Alternatywnie możesz użyć *istniejącej* sieci wirtualnej, podsieci, karty sieciowej lub zasobów publicznego adresu IP. Aby dowiedzieć się, jak korzystać z istniejących zasobów sieciowych zamiast tworzyć dodatkowe zasoby `az vm create -h`, wprowadź.
+- Sieć wirtualna z jedną podsiecią i dwoma publicznymi adresami IP. Alternatywnie możesz użyć *istniejącej* sieci wirtualnej, podsieci, karty sieciowej lub zasobów publicznego adresu IP. Aby dowiedzieć się, jak korzystać z istniejących zasobów sieciowych zamiast tworzyć dodatkowe zasoby, wprowadź `az vm create -h` .
 
 Publiczne adresy IP mają opłata nominalną. Aby dowiedzieć się więcej o cenach adresów IP, zapoznaj się z informacjami na stronie [cennika adresów IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Istnieje limit liczby publicznych adresów IP, które mogą być używane w ramach subskrypcji. Aby uzyskać więcej informacji o limitach, przeczytaj artykuł dotyczący [limitów platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-Po utworzeniu maszyny wirtualnej wprowadź `az network nic show --name MyNic1 --resource-group myResourceGroup` polecenie, aby wyświetlić konfigurację karty sieciowej. Wprowadź, `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` aby wyświetlić listę konfiguracji protokołu IP SKOJARZONYCH z kartą sieciową.
+Po utworzeniu maszyny wirtualnej wprowadź `az network nic show --name MyNic1 --resource-group myResourceGroup` polecenie, aby wyświetlić konfigurację karty sieciowej. Wprowadź, `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` Aby wyświetlić listę konfiguracji protokołu IP skojarzonych z kartą sieciową.
 
 Aby dodać prywatne adresy IP do systemu operacyjnego maszyny wirtualnej, wykonaj kroki dla systemu operacyjnego w sekcji [Dodawanie adresów IP do systemu operacyjnego maszyny wirtualnej](#os-config) w tym artykule.
 
@@ -169,7 +169,7 @@ Aby dodać prywatne adresy IP do systemu operacyjnego maszyny wirtualnej, wykona
 
 Możesz dodać dodatkowe prywatne i publiczne adresy IP do istniejącego interfejsu sieciowego platformy Azure, wykonując poniższe kroki. Przykłady zostały skompilowane na podstawie [scenariusza](#scenario) opisanego w tym artykule.
 
-1. Otwórz powłokę poleceń i wykonaj pozostałe kroki opisane w tej sekcji w ramach jednej sesji. Jeśli nie masz jeszcze zainstalowanego i skonfigurowanego interfejsu wiersza polecenia platformy Azure, wykonaj kroki opisane w artykule `az-login` [instalacyjnym interfejsu wiersza polecenia platformy Azure](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) i zaloguj się do konta platformy Azure przy użyciu poleceń.
+1. Otwórz powłokę poleceń i wykonaj pozostałe kroki opisane w tej sekcji w ramach jednej sesji. Jeśli nie masz jeszcze zainstalowanego i skonfigurowanego interfejsu wiersza polecenia platformy Azure, wykonaj kroki opisane w artykule [instalacyjnym interfejsu wiersza polecenia platformy Azure](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) i zaloguj się do konta platformy Azure przy użyciu `az-login` poleceń.
 
 2. Wykonaj kroki opisane w jednej z poniższych sekcji, zgodnie z wymaganiami:
 

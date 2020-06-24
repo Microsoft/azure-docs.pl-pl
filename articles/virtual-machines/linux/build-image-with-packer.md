@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: fa899764e4e80e7eba849e02d617c8c1ca2ae410
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 587e339f2c2d91792ef1c342f7a1f8363da63626
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792704"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106008"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Jak używać programu pakujący do tworzenia obrazów maszyn wirtualnych z systemem Linux na platformie Azure
 Każda maszyna wirtualna na platformie Azure jest tworzona na podstawie obrazu, który definiuje dystrybucję i wersję systemu operacyjnego Linux. Obrazy mogą zawierać wstępnie zainstalowane aplikacje i konfiguracje. Portal Azure Marketplace udostępnia wiele obrazów pierwszej i innej firmy dla typowych dystrybucji i środowisk aplikacji. można też tworzyć własne niestandardowe obrazy dostosowane do Twoich potrzeb. W tym artykule szczegółowo opisano sposób użycia pakietu narzędzi open source [Pack](https://www.packer.io/) do definiowania i tworzenia obrazów niestandardowych na platformie Azure.
@@ -63,7 +63,7 @@ Dane wyjściowe z tych dwóch poleceń są używane w następnym kroku.
 ## <a name="define-packer-template"></a>Definiowanie szablonu pakietu Packer
 Aby tworzyć obrazy, należy utworzyć szablon jako plik JSON. W szablonie należy zdefiniować konstruktory i aprowizacji, które wykonują rzeczywisty proces kompilacji. Program Packer ma [provisioner dla platformy Azure](https://www.packer.io/docs/builders/azure.html) , który umożliwia definiowanie zasobów platformy Azure, takich jak poświadczenia nazwy głównej usługi utworzone w poprzednim kroku.
 
-Utwórz plik o nazwie *Ubuntu. JSON* i wklej poniższą zawartość. Wprowadź własne wartości w następujący sposób:
+Utwórz plik o nazwie *ubuntu.jsna* i wklej następującą zawartość. Wprowadź własne wartości w następujący sposób:
 
 | Parametr                           | Skąd uzyskać |
 |-------------------------------------|----------------------------------------------------|
@@ -119,12 +119,12 @@ Utwórz plik o nazwie *Ubuntu. JSON* i wklej poniższą zawartość. Wprowadź w
 Ten szablon służy do kompilowania obrazu Ubuntu 16,04 LTS, instalowania NGINX, a następnie wyrezerwowania maszyny wirtualnej.
 
 > [!NOTE]
-> Po rozwinięciu tego szablonu, aby udostępnić poświadczenia użytkownika, Dostosuj polecenie aprowizacji, które umożliwia odczytanie `-deprovision` agenta platformy Azure, a nie. `deprovision+user`
-> `+user` Flaga usuwa wszystkie konta użytkowników ze ŹRÓDŁOWEJ maszyny wirtualnej.
+> Po rozwinięciu tego szablonu, aby udostępnić poświadczenia użytkownika, Dostosuj polecenie aprowizacji, które umożliwia odczytanie agenta platformy Azure, `-deprovision` a nie `deprovision+user` .
+> `+user`Flaga usuwa wszystkie konta użytkowników ze źródłowej maszyny wirtualnej.
 
 
 ## <a name="build-packer-image"></a>Obraz pakietu Build Pack
-Jeśli nie masz jeszcze zainstalowanego programu Packer na komputerze lokalnym, [postępuj zgodnie z instrukcjami instalacji programu Packer](https://www.packer.io/docs/install/index.html).
+Jeśli nie masz jeszcze zainstalowanego programu Packer na komputerze lokalnym, [postępuj zgodnie z instrukcjami instalacji programu Packer](https://www.packer.io/docs/install).
 
 Utwórz obraz, określając plik szablonu programu Packer w następujący sposób:
 
@@ -210,7 +210,7 @@ az vm create \
 
 Jeśli chcesz utworzyć maszyny wirtualne w innej grupie zasobów lub regionie niż obraz programu Packer, określ identyfikator obrazu, a nie nazwę obrazu. Identyfikator obrazu można uzyskać za pomocą [AZ Image show](/cli/azure/image#az-image-show).
 
-Utworzenie maszyny wirtualnej może potrwać kilka minut. Po utworzeniu maszyny wirtualnej Zanotuj wyświetlane dane `publicIpAddress` w interfejsie wiersza polecenia platformy Azure. Ten adres służy do uzyskiwania dostępu do witryny NGINX za pośrednictwem przeglądarki sieci Web.
+Utworzenie maszyny wirtualnej może potrwać kilka minut. Po utworzeniu maszyny wirtualnej Zanotuj wyświetlane dane w `publicIpAddress` interfejsie wiersza polecenia platformy Azure. Ten adres służy do uzyskiwania dostępu do witryny NGINX za pośrednictwem przeglądarki sieci Web.
 
 Aby zezwolić na ruch internetowy do maszyny wirtualnej, otwórz port 80 z Internetu za pomocą polecenia [az vm open-port](/cli/azure/vm):
 

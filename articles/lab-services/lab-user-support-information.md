@@ -1,0 +1,44 @@
+---
+title: Azure Lab Services — Wyświetl informacje o pomocy technicznej (użytkownik laboratorium)
+description: W tym artykule wyjaśniono, jak użytkownik laboratorium lub nauczycieli może wyświetlić informacje o pomocy technicznej, których może użyć w celu uzyskania pomocy.
+author: spelluru
+ms.author: spelluru
+ms.date: 02/14/2020
+ms.topic: how-to
+ms.service: lab-services
+ms.openlocfilehash: 216d347eb482cb8cdea86d3e17e4780b2236f1e2
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84895738"
+---
+# <a name="view-support-information-lab-user-in-azure-lab-services"></a>Wyświetl informacje o pomocy technicznej (użytkownik laboratorium w Azure Lab Services)
+W tym artykule wyjaśniono, jak użytkownik (w ramach laboratorium) może wyświetlić następujące informacje o pomocy technicznej:
+
+- Adres URL
+- E-mail
+- Telefon
+- Dodatkowe instrukcje
+
+Korzystając z tych informacji, można uzyskać pomoc w przypadku problemów technicznych podczas korzystania z laboratorium na koncie laboratorium.
+
+ 
+## <a name="view-support-information"></a>Wyświetl informacje o pomocy technicznej
+1. Zaloguj się do [portalu Azure Lab Services](https://labs.azure.com).
+2. Wybierz **laboratorium lub maszynę wirtualną** , dla której potrzebujesz pomocy, a następnie wybierz pozycję **?** w prawym górnym rogu strony. 
+3. Potwierdź, że widzisz linki do **witryny sieci Web pomocy technicznej**, **pomocy technicznej poczty e-mail**i **numeru telefonu pomocy technicznej**.
+
+    ![Wyświetl informacje o pomocy technicznej](./media/lab-user-support-information/support-information.png)
+4. Informacje kontaktowe pomocy technicznej dla innego laboratorium można wyświetlić, przełączając je na listę rozwijaną. 
+
+    ![Przełącz do innego laboratorium](./media/lab-user-support-information/switch-another-lab.png)
+5. Teraz zobaczysz informacje kontaktowe pomocy technicznej dla innych laboratoriów. 
+
+    ![Informacje o pomocy technicznej dotyczącej innych laboratoriów](./media/lab-user-support-information/second-lab-support-information.png)
+
+## <a name="next-steps"></a>Następne kroki
+Zapoznaj się z poniższym artykułem, aby dowiedzieć się, jak użytkownik laboratorium wyświetla informacje kontaktowe pomocy technicznej:
+
+- [Jak właściciel konta laboratorium może ustawić informacje kontaktowe pomocy technicznej](lab-account-owner-support-information.md)
+- [Jak twórca laboratorium może wyświetlać informacje kontaktowe pomocy technicznej](lab-creator-support-information.md)

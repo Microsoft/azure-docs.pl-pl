@@ -4,12 +4,12 @@ description: Szybko naucz się uruchamiać zadanie usługi Batch za pomocą inte
 ms.topic: quickstart
 ms.date: 05/19/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: a4d2e791d810a55b765669c8e909cf448a68fc99
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 1e3becaa8a71fbb0f3c7baea97b57a03722a99cc
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266903"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262688"
 ---
 # <a name="quickstart-create-a-batch-account-by-using-azure-resource-manager-template"></a>Szybki Start: Tworzenie konta usługi Batch przy użyciu szablonu Azure Resource Manager
 
@@ -23,7 +23,7 @@ Musisz mieć aktywną subskrypcję platformy Azure.
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-storage-account"></a>Tworzenie konta magazynu
+## <a name="create-a-batch-account-with-storage"></a>Tworzenie konta w usłudze Batch przy użyciu magazynu
 
 ### <a name="review-the-template"></a>Przegląd szablonu
 
@@ -34,7 +34,7 @@ Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego
 Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
 - [Microsoft. Storage/storageAccounts](https://docs.microsoft.com/azure/templates/microsoft.storage/storageaccounts): tworzy konto magazynu.
-- [Microsoft. Batch/batchAccounts](https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts): tworzy konto w usłudze Batch.
+- [Microsoft.Batch/batchAccounts](https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts): tworzy konto w usłudze Batch.
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -64,7 +64,7 @@ W tym przykładzie Azure Portal jest używany do wdrożenia szablonu. Oprócz Az
 
 Możesz sprawdzić poprawność wdrożenia w Azure Portal, przechodząc do utworzonej grupy zasobów. Na ekranie **Przegląd** Sprawdź, czy konto usługi Batch i konto magazynu są obecne.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli planujesz kontynuować pracę z kolejnymi [samouczkami](./tutorial-parallel-dotnet.md), możesz pozostawić te zasoby na miejscu. Lub, jeśli nie są już potrzebne, można [usunąć grupę zasobów](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), która spowoduje również usunięcie utworzonego konta programu Batch i konta magazynu.
 

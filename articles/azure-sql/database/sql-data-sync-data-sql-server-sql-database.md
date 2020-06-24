@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 94479bda00e2ea7fa7cf2d0b7cd8001a070a5703
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: a6e7e01917ac6499b9836b460077a5513782a4ce
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343272"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254008"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 
@@ -218,7 +218,7 @@ Tak. Utwórz schemat ręcznie w nowej bazie danych, wykonując skrypt z orygina�
 
 Nie zaleca się używania SQL Data Sync, aby utworzyć kopię zapasową danych. Nie można utworzyć kopii zapasowej i przywrócić do określonego punktu w czasie, ponieważ synchronizacje SQL Data Sync nie są obsługiwane. Ponadto SQL Data Sync nie tworzy kopii zapasowej innych obiektów SQL, takich jak procedury składowane, i nie wykonuje operacji przywracania szybko.
 
-Aby poznać jedną z zalecanych technik tworzenia kopii zapasowych, zobacz [Kopiowanie bazy danych Azure SQL Database](database-copy.md).
+Aby zapoznać się z jedną zalecaną techniką tworzenia kopii zapasowych, zobacz [Kopiowanie bazy danych w Azure SQL Database](database-copy.md).
 
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Czy zaszyfrowane tabele i kolumny synchronizacji synchronizacji danych
 

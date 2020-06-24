@@ -4,21 +4,20 @@ description: Dowiedz się, jak za pomocą warunku lokalizacji kontrolować dost�
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.workload: identity
-ms.date: 05/28/2020
+ms.topic: conceptual
+ms.date: 06/15/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: f9f80cf0c42bdc6e45d62cac930c0bce4b20ee60
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 7db7e64840d248b66a61ff310f9441800e1afc31
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605463"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253226"
 ---
 # <a name="using-the-location-condition-in-a-conditional-access-policy"></a>Używanie warunku lokalizacji w zasadach dostępu warunkowego 
 
@@ -141,6 +140,30 @@ Ta opcja ma zastosowanie do:
 ### <a name="selected-locations"></a>Wybrane lokalizacje
 
 Za pomocą tej opcji można wybrać jedną lub więcej nazwanych lokalizacji. Aby można było zastosować zasady z tym ustawieniem, użytkownik musi nawiązać połączenie z dowolnych z wybranych lokalizacji. Po kliknięciu przycisku **Wybierz wybraną** kontrolkę Wybieranie sieci, która wyświetla listę nazwanych sieci otwiera się. Lista pokazuje również, czy lokalizacja sieciowa została oznaczona jako zaufana. Nazwana lokalizacja o nazwie **Zaufane adresy IP usługi MFA** służy do uwzględnienia ustawień protokołu IP, które można skonfigurować na stronie Ustawienia usługi uwierzytelniania wieloskładnikowego.
+
+## <a name="ipv6-traffic"></a>Ruch IPv6
+
+Domyślnie zasady dostępu warunkowego będą stosowane do całego ruchu IPv6. W [wersji zapoznawczej lokalizacji](#preview-features)można wykluczyć określone zakresy adresów IPv6 z zasad dostępu warunkowego. Ta opcja jest przydatna w przypadkach, gdy nie chcesz wymuszać zasad dla określonych zakresów adresów IPv6. Na przykład jeśli chcesz, aby nie wymuszać zasad używanych w sieci firmowej, a sieć firmowa jest hostowana w publicznych zakresach adresów IPv6.  
+
+### <a name="when-will-my-tenant-have-ipv6-traffic"></a>Kiedy moja dzierżawa będzie mieć ruch IPv6?
+
+Azure Active Directory (Azure AD) nie obsługuje obecnie bezpośrednich połączeń sieciowych korzystających z protokołu IPv6. Istnieją jednak sytuacje, w których ruch związany z uwierzytelnianiem jest przychodzący przez inną usługę. W takich przypadkach adres IPv6 zostanie użyty podczas obliczania zasad.
+
+Większość ruchu IPv6, który jest serwerem proxy w usłudze Azure AD pochodzi z usługi Microsoft Exchange Online. Jeśli jest dostępny, program Exchange będzie preferować połączenia IPv6. **Dlatego jeśli masz jakieś zasady dostępu warunkowego dla programu Exchange, które zostały skonfigurowane dla określonych zakresów adresów IPv4, upewnij się, że dodano również zakresy adresów IPv6 organizacji.** Nieuwzględnienie zakresów IPv6 spowoduje nieoczekiwane zachowanie dla następujących dwóch przypadków:
+
+- Gdy klient poczty jest używany do nawiązywania połączenia z usługą Exchange Online przy użyciu starszego uwierzytelniania, usługa Azure AD może odbierać adres IPv6. Początkowe żądanie uwierzytelniania przechodzi do programu Exchange, a następnie jest przekazywane do usługi Azure AD.
+- Gdy w przeglądarce jest używany program Outlook Dostęp w sieci Web (OWA), okresowo sprawdza wszystkie zasady dostępu warunkowego, które nadal będą spełnione. Ta kontrola służy do wychwycenia przypadków, w których użytkownik mógł przenieść się z dozwolonego adresu IP do nowej lokalizacji, na przykład w przypadku warsztatu w dół. W takim przypadku, jeśli używany jest adres IPv6 i jeśli adres IPv6 nie znajduje się w skonfigurowanym zakresie, może to spowodować przerwanie sesji i nastąpi przekierowanie do usługi Azure AD w celu ponownego uwierzytelnienia. 
+
+Oto najczęstsze przyczyny, w których może być konieczne skonfigurowanie zakresów adresów IPv6 w nazwanych lokalizacjach. Ponadto, jeśli używasz usługi Azure sieci wirtualnych, będziesz mieć ruch pochodzący z adresu IPv6. Jeśli ruch sieci wirtualnej jest blokowany przez zasady dostępu warunkowego, sprawdź dziennik logowania usługi Azure AD. Po zidentyfikowaniu ruchu można uzyskać używany adres IPv6 i wykluczyć go z zasad. 
+
+> [!NOTE]
+> Aby określić zakres adresów IP CIDR dla pojedynczego adresu, należy zastosować maskę bitową/32. Jeśli adres IPv6 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A i chciałeś wykluczyć ten pojedynczy adres jako zakres, należy użyć 2607: fb90: b27a: 6f69: f8d5: dea0: fb39:74A/32.
+
+### <a name="identifying-ipv6-traffic-in-the-azure-ad-sign-in-activity-reports"></a>Identyfikowanie ruchu IPv6 w raportach działań związanych z logowaniem w usłudze Azure AD
+
+Ruch IPv6 w dzierżawie można odnajdywać, przechodząc do [raportów dotyczących działań związanych z logowaniem w usłudze Azure AD](../reports-monitoring/concept-sign-ins.md). Po otwarciu raportu aktywności Dodaj kolumnę "adres IP". Ta kolumna umożliwia zidentyfikowanie ruchu IPv6.
+
+Możesz również znaleźć adres IP klienta, klikając wiersz w raporcie, a następnie przechodząc do karty "lokalizacja" w obszarze szczegóły działania logowania. 
 
 ## <a name="what-you-should-know"></a>Co należy wiedzieć
 

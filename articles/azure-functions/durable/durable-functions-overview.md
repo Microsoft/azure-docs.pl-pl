@@ -3,15 +3,15 @@ title: Omówienie rozszerzenia Durable Functions — Azure
 description: Wprowadzenie do rozszerzenia Durable Functions dla usługi Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 08/07/2019
+ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 5d454aefaba89bef9dc9009ff442fa5543dae2ef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bfbab26e47befbd84ed7b060992d6c0b239ae4db
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241346"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193434"
 ---
 # <a name="what-are-durable-functions"></a>Co to jest Durable Functions?
 
@@ -23,6 +23,7 @@ Rozszerzenie Durable Functions obsługuje obecnie następujące języki:
 
 * **C#**: zarówno [prekompilowane biblioteki klas](../functions-dotnet-class-library.md), jak i [skrypt języka C#](../functions-reference-csharp.md).
 * **JavaScript**: obsługiwany tylko w przypadku wersji 2.x środowiska uruchomieniowego usługi Azure Functions. Wymaga rozszerzenia Durable Functions w wersji 1.7.0 lub nowszej. 
+* **Python**: wymaga wersji 1.8.5 rozszerzenia Durable Functions lub nowszej. 
 * **F#**: prekompilowane biblioteki klas i skrypt języka F#. Skrypt języka F# jest obsługiwany tylko w przypadku wersji 1.x środowiska uruchomieniowego usługi Azure Functions.
 
 Docelowo rozszerzenie Durable Functions ma obsługiwać wszystkie [języki obsługiwane w usłudze Azure Functions](../supported-languages.md). Zobacz [listę problemów z rozszerzeniem Durable Functions](https://github.com/Azure/azure-functions-durable-extension/issues), aby poznać aktualny stan prac nad obsługą dodatkowych języków.
@@ -48,9 +49,9 @@ W wzorcu łańcucha funkcji sekwencja funkcji jest wykonywana w określonej kole
 
 Można użyć Durable Functions do zaimplementowania wzorca łańcucha funkcji zwięzłie, jak pokazano w poniższym przykładzie.
 
-W tym przykładzie `F1`wartości, `F2`, `F3`i `F4` są nazwami innych funkcji w tej samej aplikacji funkcji. Przepływ sterowania można zaimplementować przy użyciu zwykłych konstrukcji kodowania. Kod jest wykonywany z góry. Kod może dotyczyć istniejącej semantyki przepływu sterowania języka, takich jak warunkowe i pętle. Logikę obsługi błędów można uwzględnić w `try` / `catch` / `finally` blokach.
+W tym przykładzie wartości `F1` , `F2` , `F3` i `F4` są nazwami innych funkcji w tej samej aplikacji funkcji. Przepływ sterowania można zaimplementować przy użyciu zwykłych konstrukcji kodowania. Kod jest wykonywany z góry. Kod może dotyczyć istniejącej semantyki przepływu sterowania języka, takich jak warunkowe i pętle. Logikę obsługi błędów można uwzględnić w `try` / `catch` / `finally` blokach.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Chaining")]
@@ -71,7 +72,7 @@ public static async Task<object> Run(
 }
 ```
 
-Można użyć `context` parametru, aby wywołać inne funkcje według nazwy, przekazywania parametrów i zwracanych danych wyjściowych funkcji. Za każdym razem, gdy `await`kod wywołuje, program Durable Functions Framework punkty kontrolne postępu bieżącego wystąpienia funkcji. Jeśli proces lub maszyna wirtualna odzyskuje w połowie wykonywania, wystąpienie funkcji zostanie wznowione od poprzedniego `await` wywołania. Aby uzyskać więcej informacji, zobacz następną sekcję, wzorzec #2: wentylator/wentylator w.
+Można użyć parametru, `context` Aby wywołać inne funkcje według nazwy, przekazywania parametrów i zwracanych danych wyjściowych funkcji. Za każdym razem, gdy kod wywołuje `await` , program Durable Functions Framework punkty kontrolne postępu bieżącego wystąpienia funkcji. Jeśli proces lub maszyna wirtualna odzyskuje w połowie wykonywania, wystąpienie funkcji zostanie wznowione od poprzedniego `await` wywołania. Aby uzyskać więcej informacji, zobacz następną sekcję, wzorzec #2: wentylator/wentylator w.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -90,10 +91,33 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Można użyć `context.df` obiektu, aby wywołać inne funkcje według nazwy, przekazywania parametrów i zwracanych danych wyjściowych funkcji. Za każdym razem, gdy `yield`kod wywołuje, program Durable Functions Framework punkty kontrolne postępu bieżącego wystąpienia funkcji. Jeśli proces lub maszyna wirtualna odzyskuje w połowie wykonywania, wystąpienie funkcji zostanie wznowione od poprzedniego `yield` wywołania. Aby uzyskać więcej informacji, zobacz następną sekcję, wzorzec #2: wentylator/wentylator w.
+Można użyć obiektu, `context.df` Aby wywołać inne funkcje według nazwy, przekazywania parametrów i zwracanych danych wyjściowych funkcji. Za każdym razem, gdy kod wywołuje `yield` , program Durable Functions Framework punkty kontrolne postępu bieżącego wystąpienia funkcji. Jeśli proces lub maszyna wirtualna odzyskuje w połowie wykonywania, wystąpienie funkcji zostanie wznowione od poprzedniego `yield` wywołania. Aby uzyskać więcej informacji, zobacz następną sekcję, wzorzec #2: wentylator/wentylator w.
 
 > [!NOTE]
-> `context` Obiekt w języku JavaScript reprezentuje cały [kontekst funkcji](../functions-reference-node.md#context-object). Uzyskaj dostęp do kontekstu Durable Functions przy `df` użyciu właściwości w kontekście głównym.
+> `context`Obiekt w języku JavaScript reprezentuje cały [kontekst funkcji](../functions-reference-node.md#context-object). Uzyskaj dostęp do kontekstu Durable Functions przy użyciu `df` właściwości w kontekście głównym.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    x = yield context.call_activity("F1", None)
+    y = yield context.call_activity("F2", x)
+    z = yield context.call_activity("F3", y)
+    result = yield context.call_activity("F4", z)
+    return result
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+Można użyć obiektu, `context` Aby wywołać inne funkcje według nazwy, przekazywania parametrów i zwracanych danych wyjściowych funkcji. Za każdym razem, gdy kod wywołuje `yield` , program Durable Functions Framework punkty kontrolne postępu bieżącego wystąpienia funkcji. Jeśli proces lub maszyna wirtualna odzyskuje w połowie wykonywania, wystąpienie funkcji zostanie wznowione od poprzedniego `yield` wywołania. Aby uzyskać więcej informacji, zobacz następną sekcję, wzorzec #2: wentylator/wentylator w.
+
+> [!NOTE]
+> `context`Obiekt w języku Python reprezentuje kontekst aranżacji. Uzyskaj dostęp do głównego kontekstu Azure Functions przy użyciu `function_context` właściwości w kontekście aranżacji.
 
 ---
 
@@ -107,7 +131,7 @@ Dzięki normalnym funkcjom można wyrównać, że funkcja wysyła wiele komunika
 
 Rozszerzenie Durable Functions obsługuje ten wzorzec z stosunkowo prostym kodem:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("FanOutFanIn")]
@@ -134,7 +158,7 @@ public static async Task Run(
 
 Wentylator-out Work jest dystrybuowany do wielu wystąpień `F2` funkcji. Zadanie jest śledzone przy użyciu dynamicznej listy zadań. `Task.WhenAll`jest wywoływana, aby poczekać na zakończenie wszystkich wywoływanych funkcji. Następnie dane `F2` wyjściowe funkcji są agregowane z listy zadań dynamicznych i przenoszone do `F3` funkcji.
 
-Automatyczne tworzenie punktów kontrolnych, które odbywa `await` się w `Task.WhenAll` wywołaniu, zapewnia, że potencjalne awarie w Midway lub ponowny rozruch nie wymagają ponownego uruchomienia już wykonanego zadania.
+Automatyczne tworzenie punktów kontrolnych, które odbywa się w `await` wywołaniu, `Task.WhenAll` zapewnia, że potencjalne awarie w Midway lub ponowny rozruch nie wymagają ponownego uruchomienia już wykonanego zadania.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -160,7 +184,37 @@ module.exports = df.orchestrator(function*(context) {
 
 Wentylator-out Work jest dystrybuowany do wielu wystąpień `F2` funkcji. Zadanie jest śledzone przy użyciu dynamicznej listy zadań. `context.df.Task.all`Interfejs API jest wywoływany, aby poczekać na zakończenie wszystkich wywoływanych funkcji. Następnie dane `F2` wyjściowe funkcji są agregowane z listy zadań dynamicznych i przenoszone do `F3` funkcji.
 
-Automatyczne tworzenie punktów kontrolnych, które odbywa `yield` się w `context.df.Task.all` wywołaniu, zapewnia, że potencjalne awarie w Midway lub ponowny rozruch nie wymagają ponownego uruchomienia już wykonanego zadania.
+Automatyczne tworzenie punktów kontrolnych, które odbywa się w `yield` wywołaniu, `context.df.Task.all` zapewnia, że potencjalne awarie w Midway lub ponowny rozruch nie wymagają ponownego uruchomienia już wykonanego zadania.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    parallel_tasks = []
+
+    # Get a list of N work items to process in parallel.
+    work_batch = yield context.call_activity("F1", None)
+
+    for i in range(0, len(work_batch)):
+        parallel_tasks.append(context.call_activity("F2", work_batch[i]))
+    
+    outputs = yield context.task_all(parallel_tasks)
+
+    # Aggregate all N outputs and send the result to F3.
+    total = sum(outputs)
+    yield context.call_activity("F3", total)
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+Wentylator-out Work jest dystrybuowany do wielu wystąpień `F2` funkcji. Zadanie jest śledzone przy użyciu dynamicznej listy zadań. `context.task_all`Interfejs API jest wywoływany, aby poczekać na zakończenie wszystkich wywoływanych funkcji. Następnie dane `F2` wyjściowe funkcji są agregowane z listy zadań dynamicznych i przenoszone do `F3` funkcji.
+
+Automatyczne tworzenie punktów kontrolnych, które odbywa się w `yield` wywołaniu, `context.task_all` zapewnia, że potencjalne awarie w Midway lub ponowny rozruch nie wymagają ponownego uruchomienia już wykonanego zadania.
 
 ---
 
@@ -214,11 +268,11 @@ Przykładem wzorca monitora jest odwrócenie wcześniejszego scenariusza asynchr
 
 ![Diagram wzorca monitora](./media/durable-functions-concepts/monitor.png)
 
-W kilku wierszach kodu można użyć Durable Functions, aby utworzyć wiele monitorów, które obserwują dowolne punkty końcowe. Monitory mogą kończyć wykonywanie, gdy spełniony jest warunek lub inna funkcja może użyć klienta nietrwałej aranżacji do zakończenia monitorów. `wait` Interwał monitora można zmienić na podstawie określonego warunku (na przykład wykładniczy wycofywania). 
+W kilku wierszach kodu można użyć Durable Functions, aby utworzyć wiele monitorów, które obserwują dowolne punkty końcowe. Monitory mogą kończyć wykonywanie, gdy spełniony jest warunek lub inna funkcja może użyć klienta nietrwałej aranżacji do zakończenia monitorów. Interwał monitora można zmienić na `wait` podstawie określonego warunku (na przykład wykładniczy wycofywania). 
 
 Poniższy kod implementuje podstawowy Monitor:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("MonitorJobStatus")]
@@ -276,9 +330,41 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+import json
+from datetime import timedelta 
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    job = json.loads(context.get_input())
+    job_id = job["jobId"]
+    polling_interval = job["pollingInterval"]
+    expiry_time = job["expiryTime"]
+
+    while context.current_utc_datetime < expiry_time:
+        job_status = yield context.call_activity("GetJobStatus", job_id)
+        if job_status == "Completed":
+            # Perform an action when a condition is met.
+            yield context.call_activity("SendAlert", job_id)
+            break
+
+        # Orchestration sleeps until this time.
+        next_check = context.current_utc_datetime + timedelta(seconds=polling_interval)
+        yield context.create_timer(next_check)
+
+    # Perform more work here, or let the orchestration end.
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
-Po odebraniu żądania dla tego identyfikatora zadania zostanie utworzone nowe wystąpienie aranżacji. Wystąpienie sonduje stan do momentu spełnienia warunku, a pętla zostanie zakończona. Trwały czasomierz steruje interwałem sondowania. Następnie można wykonać więcej pracy lub zorganizować. Gdy `nextCheck` przekroczy `expiryTime`, Monitor zostanie zakończony.
+Po odebraniu żądania dla tego identyfikatora zadania zostanie utworzone nowe wystąpienie aranżacji. Wystąpienie sonduje stan do momentu spełnienia warunku, a pętla zostanie zakończona. Trwały czasomierz steruje interwałem sondowania. Następnie można wykonać więcej pracy lub zorganizować. Gdy `nextCheck` przekroczy `expiryTime` , Monitor zostanie zakończony.
 
 ### <a name="pattern-5-human-interaction"></a><a name="human"></a>#5 wzorca: interakcja ludzka
 
@@ -292,7 +378,7 @@ Wzorzec można zaimplementować w tym przykładzie przy użyciu funkcji programu
 
 Te przykłady umożliwiają utworzenie procesu zatwierdzania w celu zademonstrowania wzorca interakcji człowieka:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ApprovalWorkflow")]
@@ -319,7 +405,7 @@ public static async Task Run(
 }
 ```
 
-Aby utworzyć trwały czasomierz, wywołaj `context.CreateTimer`polecenie. Powiadomienie jest odbierane przez `context.WaitForExternalEvent`program. Następnie jest `Task.WhenAny` wywoływana, aby zdecydować, czy należy eskalować (przekroczenie limitu czasu) lub przetworzyć zatwierdzenie (zatwierdzenie zostanie odebrane przed upływem limitu czasu).
+Aby utworzyć trwały czasomierz, wywołaj polecenie `context.CreateTimer` . Powiadomienie jest odbierane przez program `context.WaitForExternalEvent` . Następnie `Task.WhenAny` jest wywoływana, aby zdecydować, czy należy eskalować (przekroczenie limitu czasu) lub przetworzyć zatwierdzenie (zatwierdzenie zostanie odebrane przed upływem limitu czasu).
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -343,7 +429,37 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Aby utworzyć trwały czasomierz, wywołaj `context.df.createTimer`polecenie. Powiadomienie jest odbierane przez `context.df.waitForExternalEvent`program. Następnie jest `context.df.Task.any` wywoływana, aby zdecydować, czy należy eskalować (przekroczenie limitu czasu) lub przetworzyć zatwierdzenie (zatwierdzenie zostanie odebrane przed upływem limitu czasu).
+Aby utworzyć trwały czasomierz, wywołaj polecenie `context.df.createTimer` . Powiadomienie jest odbierane przez program `context.df.waitForExternalEvent` . Następnie `context.df.Task.any` jest wywoływana, aby zdecydować, czy należy eskalować (przekroczenie limitu czasu) lub przetworzyć zatwierdzenie (zatwierdzenie zostanie odebrane przed upływem limitu czasu).
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+import json
+from datetime import timedelta 
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    yield context.call_activity("RequestApproval", None)
+
+    due_time = context.current_utc_datetime + timedelta(hours=72)
+    durable_timeout_task = context.create_timer(due_time)
+    approval_event_task = context.wait_for_external_event("ApprovalEvent")
+
+    winning_task = yield context.task_any([approval_event_task, durable_timeout_task])
+
+    if approval_event_task == winning_task:
+        durable_timeout_task.cancel()
+        yield context.call_activity("ProcessApproval", approval_event_task.result)
+    else:
+        yield context.call_activity("Escalate", None)
+
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
+Aby utworzyć trwały czasomierz, wywołaj polecenie `context.create_timer` . Powiadomienie jest odbierane przez program `context.wait_for_external_event` . Następnie `context.task_any` jest wywoływana, aby zdecydować, czy należy eskalować (przekroczenie limitu czasu) lub przetworzyć zatwierdzenie (zatwierdzenie zostanie odebrane przed upływem limitu czasu).
 
 ---
 
@@ -355,7 +471,7 @@ curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{ins
 
 Zdarzenie może być również zgłaszane przy użyciu nietrwałego klienta aranżacji z innej funkcji w tej samej aplikacji funkcji:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
@@ -380,6 +496,18 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.durable_functions as df
+
+
+async def main(client: str):
+    durable_client = df.DurableOrchestrationClient(client)
+    is_approved = True
+    await durable_client.raise_event(instance_id, "ApprovalEvent", is_approved)
+```
+
 ---
 
 ### <a name="pattern-6-aggregator-stateful-entities"></a><a name="aggregator"></a>Wzorzec #6: agregator (jednostki stanowe)
@@ -392,7 +520,7 @@ W celu zaimplementowania tego wzorca przy użyciu normalnych, bezstanowych funkc
 
 Za pomocą [jednostek trwałych](durable-functions-entities.md) można łatwo zaimplementować ten wzorzec jako pojedynczą funkcję.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Counter")]
@@ -457,11 +585,15 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+Trwałe jednostki nie są obecnie obsługiwane w języku Python.
+
 ---
 
 Klienci mogą umieścić w kolejce *operacje* dla (zwane także "sygnalizacją") funkcji jednostki przy użyciu [powiązania klienta jednostki](durable-functions-bindings.md#entity-client).
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -493,9 +625,13 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+Trwałe jednostki nie są obecnie obsługiwane w języku Python.
+
 ---
 
-Funkcje jednostki są dostępne w [Durable Functions 2,0](durable-functions-versions.md) i nowszych.
+Funkcje jednostki są dostępne w [Durable Functions 2,0](durable-functions-versions.md) i nowszych dla języków C# i JavaScript.
 
 ## <a name="the-technology"></a>Technologia
 
@@ -515,6 +651,7 @@ Ukończ jeden z tych samouczków Szybki start dotyczących poszczególnych języ
 
 * [C# przy użyciu programu Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript w programie Visual Studio Code](quickstart-js-vscode.md)
+* [Python przy użyciu Visual Studio Code](quickstart-python-vscode.md)
 
 W obu przewodnikach Szybki start utworzysz lokalnie i przetestujesz funkcję trwałą „hello world”. Kod funkcji zostanie następnie opublikowany na platformie Azure. Utworzona przez Ciebie funkcja aranżuje i łączy w łańcuchy wywołania do innych funkcji.
 

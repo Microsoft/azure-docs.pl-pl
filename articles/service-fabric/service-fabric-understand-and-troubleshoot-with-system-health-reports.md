@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282018"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692482"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
 Składniki usługi Azure Service Fabric udostępniają raporty kondycji systemu na wszystkich jednostkach w klastrze, które są od razu do końca. [Magazyn kondycji](service-fabric-health-introduction.md#health-store) tworzy i usuwa jednostki na podstawie raportów systemowych. Organizuje także je w hierarchii, która przechwytuje interakcje jednostek.
@@ -639,30 +639,30 @@ HealthEvents          :
 
 Właściwość i tekst wskazują, który interfejs API został zablokowany. Kolejne kroki, które należy wykonać w przypadku różnych zablokowanych interfejsów API, są różne. Każdy interfejs API na *IStatefulServiceReplica* lub *IStatelessServiceInstance* jest zwykle usterką w kodzie usługi. W poniższej sekcji opisano sposób tłumaczenia na [model Reliable Services](service-fabric-reliable-services-lifecycle.md):
 
-- **IStatefulServiceReplica. Open**: to ostrzeżenie wskazuje, że wywołanie elementu `CreateServiceInstanceListeners`, `ICommunicationListener.OpenAsync`lub, jeśli zostało zastąpione, `OnOpenAsync` jest zablokowane.
+- **IStatefulServiceReplica. Open**: to ostrzeżenie wskazuje, że wywołanie elementu `CreateServiceInstanceListeners` , `ICommunicationListener.OpenAsync` lub, jeśli zostało zastąpione, `OnOpenAsync` jest zablokowane.
 
-- **IStatefulServiceReplica. Close** i **IStatefulServiceReplica. Abort**: najbardziej typowym przypadkiem jest usługa, która nie honoruje tokenu anulowania przekazaną do `RunAsync`. Może to być również `ICommunicationListener.CloseAsync`w przypadku, gdy `OnCloseAsync` jest on zasłonięty.
+- **IStatefulServiceReplica. Close** i **IStatefulServiceReplica. Abort**: najbardziej typowym przypadkiem jest usługa, która nie honoruje tokenu anulowania przekazaną do `RunAsync` . Może to być również `ICommunicationListener.CloseAsync` w przypadku, gdy jest on zasłonięty `OnCloseAsync` .
 
-- **IStatefulServiceReplica. ChangeRole** i **IStatefulServiceReplica. ChangeRole (N)**: najczęściej spotykanym przypadkiem jest usługa, która nie honoruje tokenu anulowania przesłanego do `RunAsync`. Najlepszym rozwiązaniem jest ponowne uruchomienie repliki w tym scenariuszu.
+- **IStatefulServiceReplica. ChangeRole** i **IStatefulServiceReplica. ChangeRole (N)**: najczęściej spotykanym przypadkiem jest usługa, która nie honoruje tokenu anulowania przesłanego do `RunAsync` . Najlepszym rozwiązaniem jest ponowne uruchomienie repliki w tym scenariuszu.
 
-- **IStatefulServiceReplica. ChangeRole (P)**: najbardziej typowym przypadkiem jest to, że usługa nie zwróciła zadania `RunAsync`z.
+- **IStatefulServiceReplica. ChangeRole (P)**: najbardziej typowym przypadkiem jest to, że usługa nie zwróciła zadania z `RunAsync` .
 
 Inne wywołania interfejsu API, które mogą zostać zablokowane, znajdują się w interfejsie **IReplicator** . Przykład:
 
-- **IReplicator. CatchupReplicaSet**: to ostrzeżenie wskazuje jedną z dwóch rzeczy. Istnieją niewystarczające repliki. Aby sprawdzić, czy tak jest, sprawdź stan repliki replik w partycji lub raporcie o kondycji System.FM dla zablokowanej ponownej konfiguracji. Lub repliki nie potwierdzają operacji. Polecenia cmdlet `Get-ServiceFabricDeployedReplicaDetail` programu PowerShell można użyć do określenia postępu wszystkich replik. Problem polega na replikach, `LastAppliedReplicationSequenceNumber` których wartość znajduje się za `CommittedSequenceNumber` wartością podstawową.
+- **IReplicator. CatchupReplicaSet**: to ostrzeżenie wskazuje jedną z dwóch rzeczy. Istnieją niewystarczające repliki. Aby sprawdzić, czy tak jest, sprawdź stan repliki replik w partycji lub raporcie o kondycji System.FM dla zablokowanej ponownej konfiguracji. Lub repliki nie potwierdzają operacji. Polecenia cmdlet programu PowerShell `Get-ServiceFabricDeployedReplicaDetail` można użyć do określenia postępu wszystkich replik. Problem polega na replikach `LastAppliedReplicationSequenceNumber` , których wartość znajduje się za `CommittedSequenceNumber` wartością podstawową.
 
-- **IReplicator. BuildReplica (\<zdalny identyfikator repliki>)**: to ostrzeżenie wskazuje na problem w procesie kompilacji. Aby uzyskać więcej informacji, zobacz [cykl życia repliki](service-fabric-concepts-replica-lifecycle.md). Może to być spowodowane nieprawidłową konfiguracją adresu replikatora. Aby uzyskać więcej informacji, zobacz [Konfigurowanie stanowego Reliable Services](service-fabric-reliable-services-configuration.md) i [określanie zasobów w manifeście usługi](service-fabric-service-manifest-resources.md). Może być również problemem w węźle zdalnym.
+- **IReplicator. BuildReplica ( \<Remote ReplicaId> )**: to ostrzeżenie wskazuje na problem w procesie kompilacji. Aby uzyskać więcej informacji, zobacz [cykl życia repliki](service-fabric-concepts-replica-lifecycle.md). Może to być spowodowane nieprawidłową konfiguracją adresu replikatora. Aby uzyskać więcej informacji, zobacz [Konfigurowanie stanowego Reliable Services](service-fabric-reliable-services-configuration.md) i [określanie zasobów w manifeście usługi](service-fabric-service-manifest-resources.md). Może być również problemem w węźle zdalnym.
 
 ### <a name="replicator-system-health-reports"></a>Raportowanie raportów o kondycji systemu
-**Zapełnienie kolejki replikacji:**
-**System. Replikator** zgłasza ostrzeżenie, gdy kolejka replikacji jest pełna. Na serwerze podstawowym Kolejka replikacji zwykle zostaje zapełniona, ponieważ co najmniej jedna replika pomocnicza jest powolna do potwierdzenia operacji. Na serwerze pomocniczym zwykle zdarza się to, gdy usługa jest powolna do zastosowania operacji. Ostrzeżenie jest wyczyszczone, gdy kolejka nie jest już pełna.
+**Pełna Kolejka replikacji:** 
+ **System. Replikator** zgłasza ostrzeżenie, gdy kolejka replikacji jest pełna. Na serwerze podstawowym Kolejka replikacji zwykle zostaje zapełniona, ponieważ co najmniej jedna replika pomocnicza jest powolna do potwierdzenia operacji. Na serwerze pomocniczym zwykle zdarza się to, gdy usługa jest powolna do zastosowania operacji. Ostrzeżenie jest wyczyszczone, gdy kolejka nie jest już pełna.
 
 * **SourceId**: System. Replikator
 * **Właściwość**: **PrimaryReplicationQueueStatus** lub **SecondaryReplicationQueueStatus**, w zależności od roli repliki.
 * **Następne kroki**: Jeśli raport znajduje się na serwerze podstawowym, sprawdź połączenie między węzłami w klastrze. Jeśli wszystkie połączenia są w dobrej kondycji, może się zdarzyć, że co najmniej jedna powolna dodatkowa z opóźnieniem dysku do zastosowania operacji. Jeśli raport znajduje się na serwerze pomocniczym, należy najpierw sprawdzić użycie dysku i wydajność w węźle. Następnie sprawdź połączenie wychodzące z wolnego węzła do podstawowego.
 
-**RemoteReplicatorConnectionStatus:**
-**System. Replikator** w replice podstawowej raportuje ostrzeżenie, gdy połączenie z serwerem pomocniczym (zdalnym) nie jest w dobrej kondycji. Adres zdalnego replikatora jest wyświetlany w komunikacie raportu, co sprawia, że jest wygodniejszy do wykrywania, czy nieprawidłowa konfiguracja została przekazana lub czy występują problemy z siecią między replikatorami.
+**RemoteReplicatorConnectionStatus:** 
+ **System. Replikator** w replice podstawowej raportuje ostrzeżenie, gdy połączenie z serwerem pomocniczym (zdalnym) nie jest w dobrej kondycji. Adres zdalnego replikatora jest wyświetlany w komunikacie raportu, co sprawia, że jest wygodniejszy do wykrywania, czy nieprawidłowa konfiguracja została przekazana lub czy występują problemy z siecią między replikatorami.
 
 * **SourceId**: System. Replikator
 * **Właściwość**: **RemoteReplicatorConnectionStatus**.
@@ -738,7 +738,7 @@ HealthEvents          :
 ## <a name="deployedapplication-system-health-reports"></a>DeployedApplication raporty kondycji systemu
 **System. hosting** jest urzędem dla wdrożonych jednostek.
 
-### <a name="activation"></a>Aktywacja
+### <a name="activation"></a>Uaktywnienie
 W przypadku pomyślnego aktywowania aplikacji w węźle system. hostuje raporty jako poprawne. W przeciwnym razie zgłasza błąd.
 
 * **SourceId**: System. hosting
@@ -773,7 +773,7 @@ HealthEvents                       :
                                      Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Pliki do pobrania
+### <a name="download"></a>Pobierz
 System. host zgłasza błąd, jeśli pobieranie pakietu aplikacji nie powiedzie się.
 
 * **SourceId**: System. hosting
@@ -851,7 +851,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/14/2017 4:55:14 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="download"></a>Pliki do pobrania
+### <a name="download"></a>Pobierz
 System. host zgłasza błąd, jeśli pobranie pakietu usługi nie powiedzie się.
 
 * **SourceId**: System. hosting

@@ -4,15 +4,15 @@ description: Zawiera opis sposobu zastosowania licencji systemu Windows dla masz
 services: virtual-desktop
 author: ChristianMontoya
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: 994edf26e43c7ad67d4f8822d4ed0d18d53b510b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c60303d2306ca167a4d90b0cc27c1d265f2e2db8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612456"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204425"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Zastosuj licencję systemu Windows na maszyny wirtualne hosta sesji
 

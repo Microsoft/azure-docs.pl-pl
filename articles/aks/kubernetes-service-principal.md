@@ -3,13 +3,13 @@ title: Jednostki usługi dla usługi Azure Kubernetes Service (AKS)
 description: Tworzenie jednostki usługi Azure Active Directory dla klastra w usłudze Azure Kubernetes Service (AKS) i zarządzanie nią
 services: container-service
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: 2c792eb4dc060e3f5d7fa2d8f2176bdd51538c43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/16/2020
+ms.openlocfilehash: 7f62c7dc7aacf9be4a59498aa5c556e9991ad578
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392739"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298552"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Jednostki usługi w usłudze Azure Kubernetes Service (AKS)
 
@@ -87,7 +87,10 @@ Aby delegować uprawnienia, Utwórz przypisanie roli za pomocą polecenia [AZ ro
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
 ```
 
-Opcja `--scope` dla zasobu musi być pełnym identyfikatorem zasobu, takim jak */subscriptions/\<identyfikator GUID\>/resourceGroups/myResourceGroup* lub */subscriptions/\<identyfikator GUID\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+`--scope`Dla zasobu musi być pełny identyfikator zasobu, taki jak */subscriptions/ \<guid\> /ResourceGroups/myResourceGroup* lub */subscriptions/ \<guid\> /resourceGroups/myResourceGroupVnet/Providers/Microsoft.Network/virtualNetworks/myVnet*
+
+> [!NOTE]
+> Jeśli usunięto przypisanie roli współautor z grupy zasobów węzła, operacje poniżej mogą zakończyć się niepowodzeniem.  
 
 W poniższych sekcjach opisano typowe delegacje, które należy wykonać.
 
@@ -106,9 +109,12 @@ Możesz użyć zaawansowanych funkcji sieciowych, w przypadku których sieć wir
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
+  - Jeśli używasz [niestandardowych tabel tras w klastrach korzystającą wtyczki kubenet](configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) , Dodaj następujące dodatkowe uprawnienia:
+    - *Microsoft. Network/routeTables/Write*
+    - *Microsoft. Network/routeTables/odczyt*
 - Innym rozwiązaniem jest przypisanie wbudowanej roli [Współautor sieci][rbac-network-contributor] do podsieci w sieci wirtualnej
 
-### <a name="storage"></a>Magazyn
+### <a name="storage"></a>Storage
 
 Konieczne może być uzyskanie dostępu do istniejących zasobów dysku w innej grupie zasobów. Przypisz jeden z następujących zestawów uprawnień ról:
 
@@ -127,12 +133,12 @@ Podczas korzystania z jednostek usług AKS i Azure AD należy pamiętać o nast�
 
 - Jednostka usługi dla rozwiązania Kubernetes jest częścią konfiguracji klastra. Nie należy jednak używać tożsamości do wdrażania klastra.
 - Domyślnie poświadczenia jednostki usługi są ważne przez jeden rok. [Poświadczenia nazwy głównej usługi można zaktualizować lub obrócić][update-credentials] w dowolnym momencie.
-- Każda jednostka usługi jest skojarzona z aplikacją usługi Azure AD. Nazwa główna usługi dla klastra Kubernetes może być skojarzona z dowolną prawidłową nazwą aplikacji usługi Azure AD (na przykład *https://www.contoso.org/example*:). Adres URL dla aplikacji nie musi być rzeczywistym punktem końcowym.
+- Każda jednostka usługi jest skojarzona z aplikacją usługi Azure AD. Nazwa główna usługi dla klastra Kubernetes może być skojarzona z dowolną prawidłową nazwą aplikacji usługi Azure AD (na przykład: *https://www.contoso.org/example* ). Adres URL dla aplikacji nie musi być rzeczywistym punktem końcowym.
 - Podczas określania **identyfikatora klienta** jednostki usługi użyj wartości `appId`.
 - Na maszynach wirtualnych węzłów agenta w klastrze Kubernetes poświadczenia jednostki usługi są przechowywane w pliku`/etc/kubernetes/azure.json`
 - Gdy używasz polecenia [az aks create][az-aks-create], aby automatycznie wygenerować jednostkę usługi, poświadczenia jednostki usługi są zapisywane w pliku `~/.azure/aksServicePrincipal.json` na maszynie użytej do uruchomienia polecenia.
-- Jeśli nie przekażesz podmiotu usługi do dodatkowych poleceń interfejsu wiersza polecenia AKS, zostanie użyta domyślna nazwa główna `~/.azure/aksServicePrincipal.json` usługi.  
-- Opcjonalnie można również usunąć plik aksServicePrincipal. JSON, a AKS utworzy nową nazwę główną usługi.
+- Jeśli nie przekażesz podmiotu usługi do dodatkowych poleceń interfejsu wiersza polecenia AKS, zostanie użyta domyślna nazwa główna usługi `~/.azure/aksServicePrincipal.json` .  
+- Opcjonalnie można również usunąć aksServicePrincipal.jsw pliku, a AKS utworzy nową nazwę główną usługi.
 - Usunięcie klastra AKS utworzonego za pomocą polecenia [az aks create][az-aks-create] nie powoduje usunięcia utworzonej automatycznie jednostki usługi.
     - Aby usunąć jednostkę usługi, utwórz zapytanie dotyczące klastra *servicePrincipalProfile.clientId*, a następnie usuń przy użyciu polecenia [az ad app delete][az-ad-app-delete]. Zastąp następujące nazwy klastra i grupy zasobów własnymi wartościami:
 
@@ -156,7 +162,7 @@ Sprawdź wiek pliku poświadczeń przy użyciu następującego polecenia:
 ls -la $HOME/.azure/aksServicePrincipal.json
 ```
 
-Domyślny czas wygaśnięcia poświadczeń jednostki usługi wynosi jeden rok. Jeśli plik *aksServicePrincipal. JSON* jest starszy niż rok, Usuń ten plik i spróbuj ponownie WDROŻYĆ klaster AKS.
+Domyślny czas wygaśnięcia poświadczeń jednostki usługi wynosi jeden rok. Jeśli *aksServicePrincipal.jsw* pliku jest starsza niż rok, Usuń ten plik i spróbuj ponownie WDROŻYĆ klaster AKS.
 
 ## <a name="next-steps"></a>Następne kroki
 

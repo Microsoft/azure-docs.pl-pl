@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ddcd95356f9b70fec5a74f36f5b80e55ea56b477
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 529e79abbd7fa8f9733254d207af570237044305
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744014"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080823"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>wyodrębnianie kluczowych fraz umiejętności poznawcze
 
@@ -24,7 +24,7 @@ Ta funkcja jest przydatna, jeśli trzeba szybko identyfikować główne punkty r
 > [!NOTE]
 > Podczas rozszerzania zakresu przez zwiększenie częstotliwości przetwarzania, Dodawanie większej liczby dokumentów lub Dodawanie algorytmów AI, należy [dołączyć Cognitive Services rozliczanego zasobu](cognitive-search-attach-cognitive-services.md). Opłaty naliczane podczas wywoływania interfejsów API w Cognitive Services oraz do wyodrębniania obrazów w ramach etapu łamania dokumentu w usłudze Azure Wyszukiwanie poznawcze. Nie są naliczane opłaty za Wyodrębnianie tekstu z dokumentów.
 >
-> Do wykonania wbudowanych umiejętności są naliczane opłaty za istniejące [Cognitive Services cena płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem. Cennik wyodrębniania obrazów został opisany na [stronie cennika usługi Azure wyszukiwanie poznawcze](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Do wykonania wbudowanych umiejętności są naliczane opłaty za istniejące [Cognitive Services cena płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem. Cennik wyodrębniania obrazów został opisany na [stronie cennika usługi Azure wyszukiwanie poznawcze](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -39,24 +39,35 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Dane wejściowe                | Opis |
 |---------------------|-------------|
-| defaultLanguageCode | Obowiązkowe Kod języka, który ma zostać zastosowany do dokumentów, które nie określają jawnie języka.  Jeśli kod języka domyślnego nie zostanie określony, jako domyślny kod języka zostanie użyty język angielski (EN). <br/> Zapoznaj się [z pełną listą obsługiwanych języków](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
-| maxKeyPhraseCount   | Obowiązkowe Maksymalna liczba kluczowych fraz do wygenerowania. |
+| `defaultLanguageCode` | Obowiązkowe Kod języka, który ma zostać zastosowany do dokumentów, które nie określają jawnie języka.  Jeśli kod języka domyślnego nie zostanie określony, jako domyślny kod języka zostanie użyty język angielski (EN). <br/> Zapoznaj się [z pełną listą obsługiwanych języków](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| `maxKeyPhraseCount`   | Obowiązkowe Maksymalna liczba kluczowych fraz do wygenerowania. |
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
 | Dane wejściowe  | Opis |
 |--------------------|-------------|
-| tekst | Tekst do analizy.|
-| languageCode  |  Ciąg wskazujący język rekordów. Jeśli ten parametr nie jest określony, kod języka domyślnego będzie używany do analizowania rekordów. <br/>Zapoznaj się [z pełną listą obsługiwanych języków](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| `text` | Tekst do analizy.|
+| `languageCode`    |  Ciąg wskazujący język rekordów. Jeśli ten parametr nie jest określony, kod języka domyślnego będzie używany do analizowania rekordów. <br/>Zapoznaj się [z pełną listą obsługiwanych języków](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
 
 ## <a name="skill-outputs"></a>Wyniki umiejętności
 
-| Dane wyjściowe  | Opis |
+| Dane wyjściowe     | Opis |
 |--------------------|-------------|
-| keyPhrases | Lista kluczowych fraz wyodrębnionych z tekstu wejściowego. Kluczowe frazy są zwracane w kolejności ważności. |
+| `keyPhrases` | Lista kluczowych fraz wyodrębnionych z tekstu wejściowego. Kluczowe frazy są zwracane w kolejności ważności. |
 
 
 ##  <a name="sample-definition"></a>Definicja Przykładowa
+
+Rozważmy rekord SQL zawierający następujące pola:
+
+```json
+{
+    "content": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. They accumulate ice from snowfall and lose it through melting. As global temperatures have risen, many of the world’s glaciers have already started to shrink and retreat. Continued warming could see many iconic landscapes – from the Canadian Rockies to the Mount Everest region of the Himalayas – lose almost all their glaciers by the end of the century.",
+    "language": "en"
+}
+```
+
+Następnie definicja umiejętności może wyglądać następująco:
 
 ```json
  {
@@ -68,7 +79,7 @@ W nazwach parametrów jest rozróżniana wielkość liter.
       },
       {
         "name": "languageCode",
-        "source": "/document/languagecode" 
+        "source": "/document/language" 
       }
     ],
     "outputs": [
@@ -80,33 +91,12 @@ W nazwach parametrów jest rozróżniana wielkość liter.
   }
 ```
 
-##  <a name="sample-input"></a>Przykładowe dane wejściowe
-
-```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-             "text": "Glaciers are huge rivers of ice that ooze their way over land, powered by gravity and their own sheer weight. They accumulate ice from snowfall and lose it through melting. As global temperatures have risen, many of the world’s glaciers have already started to shrink and retreat. Continued warming could see many iconic landscapes – from the Canadian Rockies to the Mount Everest region of the Himalayas – lose almost all their glaciers by the end of the century.",
-             "language": "en"
-           }
-      }
-    ]
-```
-
-
 ##  <a name="sample-output"></a>Przykładowe dane wyjściowe
 
+W powyższym przykładzie dane wyjściowe Twojej umiejętności będą zapisywane w nowym węźle w wzbogaconym drzewie o nazwie "Document/myKeyPhrases", ponieważ jest to `targetName` wskazane. Jeśli nie określisz elementu `targetName` , będzie to "dokument/frazy kluczowe".
+
+#### <a name="documentmykeyphrases"></a>dokument/myKeyPhrases 
 ```json
-{
-    "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-            "keyPhrases": 
             [
               "world’s glaciers", 
               "huge rivers of ice", 
@@ -115,12 +105,9 @@ W nazwach parametrów jest rozróżniana wielkość liter.
               "Mount Everest region",
               "Continued warming"
             ]
-           }
-      }
-    ]
-}
 ```
 
+Możesz użyć "Document/myKeyPhrases" jako danych wejściowych w innych umiejętnościach lub jako źródło [mapowania pól wyjściowych](cognitive-search-output-field-mapping.md).
 
 ## <a name="errors-and-warnings"></a>Błędy i ostrzeżenia
 Jeśli podano nieobsługiwany kod języka, zostanie wygenerowany błąd i frazy kluczy nie są wyodrębniane.
@@ -131,3 +118,4 @@ Jeśli tekst jest większy niż 50 000 znaków, przeanalizowane zostaną tylko p
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)
++ [Jak definiować mapowania pól wyjściowych](cognitive-search-output-field-mapping.md)

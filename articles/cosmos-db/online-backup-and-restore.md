@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: f5cc4339d7d6dce6d49c8d3eb744fca7fa5774d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8ed9e23b178b8eeefbd3c3a690491124e6901180
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240435"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85112926"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Kopia zapasowa online i przywracanie danych na żądanie w Azure Cosmos DB
 
@@ -34,7 +34,7 @@ W przypadku Azure Cosmos DB nie tylko Twoich danych, ale również kopie zapasow
 
 Na poniższej ilustracji przedstawiono sposób tworzenia kopii Blob Storage zapasowej kontenera usługi Azure Cosmos ze wszystkimi trzema podstawowymi partycjami fizycznymi w regionie zachodnie stany USA.
 
-![Okresowe pełne kopie zapasowe wszystkich jednostek Cosmos DB w usłudze GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
+:::image type="content" source="./media/online-backup-and-restore/automatic-backup.png" alt-text="Okresowe pełne kopie zapasowe wszystkich jednostek Cosmos DB w usłudze GRS Azure Storage" border="false":::
 
 ## <a name="options-to-manage-your-own-backups"></a>Opcje zarządzania własnymi kopiami zapasowymi
 
@@ -62,7 +62,7 @@ Przypadkowe usunięcie lub zmodyfikowanie danych może wystąpić w jednym z nas
 
 * Baza danych udostępnionej oferty lub kontenery w ramach udostępnionej bazy danych oferty są usuwane lub uszkodzone
 
-Azure Cosmos DB może przywrócić dane we wszystkich powyższych scenariuszach. Proces przywracania zawsze tworzy nowe konto usługi Azure Cosmos na potrzeby przechowywania przywróconych danych. Nazwa nowego konta, jeśli nie zostanie określona, będzie miała format `<Azure_Cosmos_account_original_name>-restored1`. Ostatnia cyfra jest zwiększana, jeśli zostanie podjęta próba wielokrotnej operacji przywracania. Nie można przywrócić danych do wstępnie utworzonego konta usługi Azure Cosmos.
+Azure Cosmos DB może przywrócić dane we wszystkich powyższych scenariuszach. Proces przywracania zawsze tworzy nowe konto usługi Azure Cosmos na potrzeby przechowywania przywróconych danych. Nazwa nowego konta, jeśli nie zostanie określona, będzie miała format `<Azure_Cosmos_account_original_name>-restored1` . Ostatnia cyfra jest zwiększana, jeśli zostanie podjęta próba wielokrotnej operacji przywracania. Nie można przywrócić danych do wstępnie utworzonego konta usługi Azure Cosmos.
 
 Po usunięciu konta usługi Azure Cosmos można przywrócić dane do konta o tej samej nazwie, pod warunkiem, że nazwa konta nie jest używana. W takich przypadkach zaleca się, aby nie utworzyć ponownie konta po usunięciu, ponieważ nie tylko uniemożliwia przywrócone dane, aby używały tej samej nazwy, ale również odnajduje odpowiednie konto, aby przywrócić je z trudniejszych. 
 

@@ -5,20 +5,20 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c90bc9527bffff55d7478150cc1f31827bacc46
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: c9f6a61dfa688980fa6400a2fa93ab8862798750
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235282"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194777"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Link usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB obsługiwanych funkcji
 
-W tym artykule opisano funkcje, które są obecnie obsługiwane w usłudze Azure Synapse link do Azure Cosmos DB.
+W tym artykule opisano funkcje, które są obecnie obsługiwane w usłudze Azure Synapse Link dla usługi Azure Cosmos DB.
 
 ## <a name="azure-synapse-support"></a>Pomoc techniczna platformy Azure Synapse
 
@@ -35,8 +35,8 @@ Można nawiązać połączenie z kontenerem Azure Cosmos DB bez włączania link
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | **Obsługa czasu wykonywania** |Obsługa odczytu lub zapisu przez usługę Azure Synapse w czasie wykonywania| ✓ | [Skontaktuj się z nami](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
 | **Obsługa interfejsu API Azure Cosmos DB** |Obsługa interfejsu API jako linku Synapse| SQL/MongoDB | SQL/MongoDB |
-| **Stream**  |Obiekty takie jak tabela, która może być utworzona, wskazująca bezpośrednio na kontener Azure Cosmos DB| Widok, tabela | Widok |
-| **Przeczytaj**    |Odczytywanie danych z kontenera Azure Cosmos DB| OLTP/HTAP | HTAP  |
+| **Obiekt**  |Obiekty takie jak tabela, która może być utworzona, wskazująca bezpośrednio na kontener Azure Cosmos DB| Widok, tabela | Widok |
+| **Odczyt**    |Odczytywanie danych z kontenera Azure Cosmos DB| OLTP/HTAP | HTAP  |
 | **Prawem**   |Zapisywanie danych z czasu wykonywania do kontenera Azure Cosmos DB| OLTP | nie dotyczy |
 
 * Jeśli zapisujesz dane do kontenera Azure Cosmos DB z platformy Spark, ten proces odbywa się za pośrednictwem transakcyjnego magazynu Azure Cosmos DB i wpłynie na transakcyjną wydajność Azure Cosmos DB przez zużywanie jednostek żądania.

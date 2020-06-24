@@ -1,18 +1,19 @@
 ---
 title: Scheduled Events dla maszyn wirtualnych z systemem Linux na platformie Azure
 description: Zaplanuj zdarzenia za pomocą usługi Azure Metadata Service dla maszyn wirtualnych z systemem Linux.
-author: mimckitt
-ms.service: virtual-machines-windows
-ms.topic: article
+author: EricRadzikowskiMSFT
+ms.service: virtual-machines-linux
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/01/2020
-ms.author: mimckitt
-ms.openlocfilehash: 1f34066b9f8fa16a2889c1872ebfd3f8cf33ee69
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.author: ericrad
+ms.reviewer: mimckitt
+ms.openlocfilehash: ba06350a564990899a593714a1f49d1e00ea544a
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418113"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262110"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events dla maszyn wirtualnych z systemem Linux
 
@@ -72,14 +73,14 @@ Jeśli maszyna wirtualna nie zostanie utworzona w ramach Virtual Network, domyś
 ### <a name="version-and-region-availability"></a>Dostępność wersji i regionu
 Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe; Bieżąca wersja to `2019-01-01` .
 
-| Wersja | Typ wydania | Regiony | Informacje o wersji | 
+| Wersja | Typ wydania | Regiony | Uwagi do wersji | 
 | - | - | - | - | 
-| 2019-08-01 | Ogólna dostępność | Wszyscy | <li> Dodano obsługę elementu EventSource |
-| 2019-04-01 | Ogólna dostępność | Wszyscy | <li> Dodano obsługę opisu zdarzenia |
-| 2019-01-01 | Ogólna dostępność | Wszyscy | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
-| 2017-11-01 | Ogólna dostępność | Wszyscy | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
-| 2017-08-01 | Ogólna dostępność | Wszyscy | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
-| 2017-03-01 | Wersja zapoznawcza | Wszyscy | <li>Wersja początkowa |
+| 2019-08-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventSource |
+| 2019-04-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę opisu zdarzenia |
+| 2019-01-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
+| 2017-11-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
+| 2017-08-01 | Ogólna dostępność | Wszystko | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
+| 2017-03-01 | Wersja zapoznawcza | Wszystko | <li>Wersja początkowa |
 
 
 > [!NOTE] 
