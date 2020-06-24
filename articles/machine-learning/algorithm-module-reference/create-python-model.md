@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 0285520c2733cd6e190f9055824cdfed0ce4b842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/18/2020
+ms.openlocfilehash: 59a335e41116818e41579488cc6931ed1534c9ab
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189858"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84984885"
 ---
 # <a name="create-python-model-module"></a>Utwórz moduł modelu języka Python
 
@@ -25,7 +25,7 @@ Dowiedz się, jak za pomocą modułu tworzenia modelu języka Python utworzyć n
 Po utworzeniu modelu można użyć [modelu uczenia](train-model.md) do uczenia modelu w zestawie danych, podobnie jak w przypadku innych dowolnych informacji w Azure Machine Learning. Przeszkolony model można przesłać do [modelu oceny](score-model.md) , aby dokonać prognoz. Następnie można zapisać szkolony model i opublikować przepływ pracy oceniania jako usługę sieci Web.
 
 > [!WARNING]
-> Obecnie nie jest możliwe przekazanie wynikowych wyników modelu języka Python do [oceny modelu](evaluate-model.md). Jeśli trzeba oszacować model, można napisać niestandardowy skrypt języka Python i uruchomić go przy użyciu modułu [uruchamiania skryptu języka Python](execute-python-script.md) .  
+> Obecnie nie jest możliwe połączenie tego modułu w celu dostosowania modułu z **parametrami modelu** lub przekazanie wyników oceny modelu języka Python do [oceny modelu](evaluate-model.md). Jeśli musisz dostroić parametry lub oszacować model, możesz napisać niestandardowy skrypt języka Python za pomocą modułu [skryptu języka Python](execute-python-script.md) .
 
 
 ## <a name="configure-the-module"></a>Konfigurowanie modułu

@@ -4,15 +4,15 @@ description: Bezpieczne łączenie klientów systemu Windows i Mac OS X z sieci�
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: cb9a02532c3651aca544ed946f40bdcff9e9be83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1bdaa2fd1e435e8bf7ff4b17c7f8a15d5bd249d5
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411768"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987170"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurowanie połączenia typu punkt-lokacja z siecią wirtualną przy użyciu uwierzytelniania usługi RADIUS: PowerShell
 
@@ -54,7 +54,7 @@ Oprócz Active Directory serwer RADIUS można także zintegrować z innymi zewn�
 ![Diagram połączenia — promień](./media/point-to-site-how-to-radius-ps/radiusimage.png)
 
 > [!IMPORTANT]
->Tylko połączenie sieci VPN typu lokacja-lokacja może służyć do łączenia się z lokalnym serwerem RADIUS. Nie można użyć połączenia ExpressRoute.
+>Tylko połączenie sieci VPN typu lokacja-lokacja może służyć do łączenia się z lokalnym serwerem RADIUS. Nie można użyć połączenia usługi ExpressRoute.
 >
 >
 
@@ -109,7 +109,7 @@ Zadeklaruj zmienne, których chcesz użyć. Użyj poniższego przykładu, podsta
   $GWIPconfName = "gwipconf"
   ```
 
-## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"> </a>Tworzenie grupy zasobów, sieci wirtualnej i publicznego adresu IP
+## <a name="2-create-the-resource-group-vnet-and-public-ip-address"></a>2. <a name="vnet"></a> Tworzenie grupy zasobów, sieci wirtualnej i publicznego adresu IP
 
 Poniższe kroki tworzą grupę zasobów i sieć wirtualną w grupie zasobów z trzema podsieciami. Podczas podstawiania wartości ważne jest, aby nazwa podsieci bramy była zawsze określana jako "GatewaySubnet". Jeśli nastąpi inna nazwa, tworzenie bramy nie powiedzie się.
 
@@ -143,7 +143,7 @@ Poniższe kroki tworzą grupę zasobów i sieć wirtualną w grupie zasobów z t
    $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
    ```
 
-## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"> </a>Skonfiguruj serwer RADIUS
+## <a name="3-set-up-your-radius-server"></a>3. <a name="radius"></a> Skonfiguruj serwer RADIUS
 
 Przed utworzeniem i skonfigurowaniem bramy sieci wirtualnej należy prawidłowo skonfigurować serwer RADIUS na potrzeby uwierzytelniania.
 
@@ -153,12 +153,12 @@ Przed utworzeniem i skonfigurowaniem bramy sieci wirtualnej należy prawidłowo 
 
 Artykuł [serwera zasad sieciowych (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) zawiera wskazówki dotyczące konfigurowania serwera usługi Windows RADIUS (NPS) na potrzeby uwierzytelniania domeny usługi AD.
 
-## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"> </a>tworzenie bramy sieci VPN
+## <a name="4-create-the-vpn-gateway"></a>4. <a name="creategw"></a> Tworzenie bramy sieci VPN
 
 Skonfiguruj i Utwórz bramę sieci VPN dla sieci wirtualnej.
 
 * -Gatewaytype musi mieć wartość "VPN", a-VpnType musi mieć wartość "RouteBased".
-* Ukończenie bramy sieci VPN może potrwać do 45 minut, w zależności od wybranej [jednostki SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) bramy.
+* Ukończenie bramy sieci VPN może potrwać do 45 minut, w zależności od wybranej [jednostki SKU bramy](vpn-gateway-about-vpn-gateway-settings.md#gwsku)   .
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
@@ -166,7 +166,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1
 ```
 
-## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"> </a>Dodaj serwer RADIUS i pulę adresów klienta
+## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"></a> Dodaj serwer RADIUS i pulę adresów klienta
  
 * Wartość parametru-RadiusServer można określić według nazwy lub adresu IP. Jeśli określisz, że nazwa i serwer znajdują się lokalnie, Brama sieci VPN może nie być w stanie rozpoznać nazwy. W takim przypadku lepiej jest określić adres IP serwera programu. 
 * Parametr-RadiusSecret powinien być zgodny z konfiguracją na serwerze RADIUS.
@@ -223,7 +223,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"> </a>Pobierz pakiet konfiguracji klienta sieci VPN i Skonfiguruj klienta sieci VPN
+## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a> Pobierz pakiet konfiguracji klienta sieci VPN i Skonfiguruj klienta sieci VPN
 
 Konfiguracja klienta sieci VPN umożliwia urządzeniom łączenie się z siecią wirtualną za pośrednictwem połączenia P2S.Aby wygenerować pakiet konfiguracji klienta sieci VPN i skonfigurować klienta sieci VPN, zobacz [Tworzenie konfiguracji klienta sieci VPN na potrzeby uwierzytelniania usługi RADIUS](point-to-site-vpn-client-configuration-radius.md).
 

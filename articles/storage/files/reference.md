@@ -7,12 +7,12 @@ ms.date: 06/02/2020
 ms.service: storage
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: d995e66c2bf3bc1cb1bd0cd93dfc2a0739ab692b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: ffe3777882cd857ffb776bbadb41da0fb88d994e
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84346024"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976527"
 ---
 # <a name="azure-file-shares-storage-reference"></a>Dokumentacja magazynu udziałów plików platformy Azure
 
@@ -66,8 +66,8 @@ W poniższej tabeli przedstawiono odwołania i przykładową dokumentację inter
 
 |  Wersja  | Dokumentacja referencyjna | Pakiet | Szybki start |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12. x | [Biblioteka klienta udziałów plików platformy Azure V12 dla języka Python](/python/api/overview/azure/storage-file-share-readme) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Przykłady](/python/api/overview/azure/storage-file-share-readme#examples) |
-| 2.x | [Azure-Storage-File](/python/api/azure-storage-file/?view=azure-python-previous) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage) (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Python) |
+| 12. x | [Biblioteki klienta usługi Azure Storage V12 dla języka Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v12) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [Przykłady](/python/api/overview/azure/storage-file-share-readme#examples) |
+| 2.x | [Biblioteki klienckie usługi Azure Storage w wersji 2 dla języka Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2) | [Pakiet (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Develop for Azure Files with Python](/azure/storage/files/storage-python-how-to-use-file-storage) (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Python) |
 
 ## <a name="javascript-client-libraries"></a>Biblioteki klienckie języka JavaScript
 
@@ -94,7 +94,7 @@ W poniższej tabeli przedstawiono odwołania i przykładową dokumentację inter
 
 Poniższa lista zawiera linki do bibliotek dla innych języków programowania i platform.
 
-- [Języków](https://azure.github.io/azure-storage-cpp)
+- [C++](https://azure.github.io/azure-storage-cpp)
 - [Ruby](https://azure.github.io/azure-storage-ruby)
 - [PHP](https://azure.github.io/azure-storage-php/)
 - [iOS](https://azure.github.io/azure-storage-ios/)
@@ -106,8 +106,8 @@ Poniższa tabela zawiera linki do najnowszej wersji zawartości referencyjnej.
 
 | Wersja | Platforma |
 | ------- | -------- |
-|  wersji  | [Program PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
-|  2.x  | [Program PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
+|  wersji  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-3.8.0) |
+|  2.x  | [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/?view=azps-2.8.0) |
 
 ## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

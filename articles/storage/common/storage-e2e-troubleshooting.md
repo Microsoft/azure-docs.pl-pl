@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: normesta
-ms.reviewer: cbrooks
+ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 9b4accd14785aedee06850d5a79dc9835086306a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4b0145514a884c43ef18518cf25a2a78b1fc3aa3
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680376"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809050"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Kompleksowe rozwiązywanie problemów przy użyciu metryk i rejestrowania usługi Azure Storage, narzędzia AzCopy i narzędzia Message Analyzer
 
@@ -90,11 +90,11 @@ Najpierw będziemy musieli skonfigurować rejestrowanie i metryki usługi Azure 
 
 ### <a name="configure-net-client-side-logging"></a>Konfigurowanie rejestrowania po stronie klienta platformy .NET
 
-Aby skonfigurować rejestrowanie po stronie klienta dla aplikacji .NET, Włącz diagnostykę .NET w pliku konfiguracyjnym aplikacji (Web. config lub App. config). Aby uzyskać szczegółowe informacje, zobacz [Rejestrowanie po stronie klienta przy użyciu biblioteki klienckiej usługi .NET Storage](https://msdn.microsoft.com/library/azure/dn782839.aspx) i [rejestrowania po stronie klienta za pomocą zestawu Microsoft Azure Storage SDK dla języka Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) w witrynie MSDN.
+Aby skonfigurować rejestrowanie po stronie klienta dla aplikacji .NET, Włącz diagnostykę .NET w pliku konfiguracyjnym aplikacji (web.config lub app.config). Aby uzyskać szczegółowe informacje, zobacz [Rejestrowanie po stronie klienta przy użyciu biblioteki klienckiej usługi .NET Storage](https://msdn.microsoft.com/library/azure/dn782839.aspx) i [rejestrowania po stronie klienta za pomocą zestawu Microsoft Azure Storage SDK dla języka Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) w witrynie MSDN.
 
 Dziennik po stronie klienta zawiera szczegółowe informacje o sposobie przygotowania żądania przez klienta i odebraniu i przetworzeniu odpowiedzi.
 
-Biblioteka klienta magazynu przechowuje dane dziennika po stronie klienta w lokalizacji określonej w pliku konfiguracyjnym aplikacji (Web. config lub App. config).
+Biblioteka klienta magazynu przechowuje dane dziennika po stronie klienta w lokalizacji określonej w pliku konfiguracyjnym aplikacji (web.config lub app.config).
 
 ### <a name="collect-a-network-trace"></a>Zbieranie danych śledzenia sieci
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c31f3c4c6688af7d2142180e8d9b7100965bad96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e2957ea179d9737bb6aad6fb8f121780575115b
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186407"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976397"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Samouczek: tworzenie dzierżawy usługi Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 Dowiesz się, jak zarejestrować aplikację w następnym samouczku.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Tworzenie dzierżawy usługi Azure AD B2C
 
@@ -49,27 +49,20 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
     ![Utwórz nową dzierżawę Azure AD B2C wybraną w Azure Portal](media/tutorial-create-tenant/portal-02-create-tenant.png)
 
-1. Wprowadź **nazwę organizacji** i **początkową nazwę domeny**. Wybierz **kraj lub region** (nie można go zmienić później), a następnie wybierz pozycję **Utwórz**.
+1. Na stronie **Tworzenie katalogu** wprowadź następujące elementy:
 
-    Nazwa domeny jest używana jako część pełnej nazwy domeny dzierżawy. W tym przykładzie nazwa dzierżawy to *contosob2c.onmicrosoft.com*:
+   - **Nazwa organizacji** — wprowadź nazwę swojej organizacji.
+   - **Początkowa nazwa domeny** — wprowadź nazwę domeny. Domyślnie ta nazwa jest dołączana do *. onmicrosoft.com*. Można to zmienić później przez dodanie nazwy domeny używanej przez organizację, na przykład "contoso.com".
+   - **Kraj lub region** — wybierz z listy swój kraj lub region. Tego wyboru nie można później zmienić.
+   - **Subskrypcja** — wybierz subskrypcję z listy.
+   - **Grupa zasobów** — wybierz grupę zasobów, która będzie zawierać dzierżawę. Lub wybierz pozycję **Utwórz nowy**, wprowadź **nazwę** grupy zasobów, wybierz **lokalizację grupy zasobów**, a następnie wybierz przycisk **OK**.
 
-    ![Utwórz formularz dzierżawy przy użyciu przykładowych wartości w Azure Portal](media/tutorial-create-tenant/portal-03-tenant-naming.png)
+    ![Utwórz formularz dzierżawy przy użyciu przykładowych wartości w Azure Portal](media/tutorial-create-tenant/review-and-create-tenant.png)
 
-1. Po zakończeniu tworzenia dzierżawy wybierz link **Utwórz nową dzierżawę B2C lub link do istniejącej dzierżawy** w górnej części strony tworzenia dzierżawy.
+1. Wybierz pozycję **Przegląd + utwórz**.
+1. Przejrzyj ustawienia katalogu. Następnie wybierz pozycję **Utwórz**.
 
-    ![Łącze do łącza do stron nadrzędnych dzierżawy wyróżnione w Azure Portal](media/tutorial-create-tenant/portal-04-select-link-sub-link.png)
-
-1. Wybierz pozycję **Połącz istniejącą dzierżawę Azure AD B2C z moją subskrypcją platformy Azure**.
-
-   ![Połącz istniejący wybór subskrypcji w Azure Portal](media/tutorial-create-tenant/portal-05-link-subscription.png)
-
-1. Wybierz utworzoną **Azure AD B2C dzierżawcę** , a następnie wybierz swoją **subskrypcję**.
-
-    W obszarze **Grupa zasobów** wybierz pozycję **Utwórz nową**. Wprowadź **nazwę** grupy zasobów, która będzie zawierać dzierżawę, wybierz **lokalizację grupy zasobów**, a następnie wybierz pozycję **Utwórz**.
-
-    ![Formularz ustawień subskrypcji linku w Azure Portal](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
-
-    Możesz połączyć wiele dzierżawców Azure AD B2C z pojedynczą subskrypcją platformy Azure na potrzeby rozliczeń.
+Możesz połączyć wiele dzierżawców Azure AD B2C z pojedynczą subskrypcją platformy Azure na potrzeby rozliczeń.
 
 ## <a name="select-your-b2c-tenant-directory"></a>Wybierz katalog dzierżawy B2C
 

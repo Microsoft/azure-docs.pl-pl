@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/18/2020
 ms.author: iainfou
-ms.openlocfilehash: bdfc7d37d99dc5511f47e33d1848c3f142a9693e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99b61bdd4318bf7c77ae53cc9b77e66ebd6c098a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654469"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84733402"
 ---
-# <a name="review-security-audit-events-in-azure-ad-domain-services-using-azure-monitor-workbooks"></a>Przeglądanie zdarzeń inspekcji zabezpieczeń w Azure AD Domain Services przy użyciu skoroszytów Azure Monitor
+# <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Przeglądanie zdarzeń inspekcji zabezpieczeń w Azure Active Directory Domain Services przy użyciu skoroszytów Azure Monitor
 
 Aby ułatwić zrozumienie stanu domeny zarządzanej Azure Active Directory Domain Services (Azure AD DS), możesz włączyć zdarzenia inspekcji zabezpieczeń. Te zdarzenia inspekcji zabezpieczeń można następnie przejrzeć przy użyciu Azure Monitor skoroszytów, które łączą tekst, zapytania analityczne i parametry w rozbudowanych raportach interaktywnych. Usługa Azure AD DS zawiera szablony skoroszytów do przeglądu zabezpieczeń i działania związane z kontem, które pozwalają Dig zdarzenia inspekcji i zarządzać środowiskiem.
 
@@ -31,7 +31,7 @@ Aby wykonać ten artykuł, potrzebne są następujące zasoby i uprawnienia:
 * Dzierżawa usługi Azure Active Directory skojarzona z subskrypcją, zsynchronizowana z katalogiem lokalnym lub katalogiem w chmurze.
     * W razie konieczności [Utwórz dzierżawę Azure Active Directory][create-azure-ad-tenant] lub [skojarz subskrypcję platformy Azure z Twoim kontem][associate-azure-ad-tenant].
 * Azure Active Directory Domain Services zarządzana domena włączona i skonfigurowana w dzierżawie usługi Azure AD.
-    * W razie potrzeby Uzupełnij samouczek, aby [utworzyć i skonfigurować wystąpienie Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * W razie potrzeby uzupełnij ten samouczek, aby [utworzyć i skonfigurować domenę zarządzaną Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Zdarzenia inspekcji zabezpieczeń włączone dla Azure Active Directory Domain Servicesej domeny zarządzanej, która przesyła strumieniowo dane do Log Analytics obszaru roboczego.
     * W razie potrzeby [Włącz inspekcje zabezpieczeń dla Azure Active Directory Domain Services][enable-security-audits].
 

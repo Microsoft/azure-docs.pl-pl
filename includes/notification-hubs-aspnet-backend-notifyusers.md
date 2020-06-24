@@ -1,5 +1,5 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 description: Plik dyrektywy include, który zawiera kod służący tworzenia projektu zaplecza interfejsu WebAPI platformy ASP.NET.
 services: notification-hubs
 author: spelluru
@@ -390,13 +390,13 @@ Następnie wdrożysz tę aplikację w witrynie internetowej platformy Azure, aby
 
     ![Kafelek usługi Microsoft Azure App Service][B15]
 
-3. W oknie **Tworzenie usługi App Service** wybierz swoje konto platformy Azure. Wybierz pozycję **Zmień typ** > **aplikacji sieci Web**. Zachowaj wartość domyślną w polu **Nazwa aplikacji internetowej** i wybierz wartości w polach **Subskrypcja**, **Grupa zasobów** i **Plan usługi App Service**.
+3. W oknie **Tworzenie usługi App Service** wybierz swoje konto platformy Azure. Wybierz pozycję **Zmień typ**  >  **aplikacji sieci Web**. Zachowaj wartość domyślną w polu **Nazwa aplikacji internetowej** i wybierz wartości w polach **Subskrypcja**, **Grupa zasobów** i **Plan usługi App Service**.
 
 4. Wybierz przycisk **Utwórz**.
 
 5. Zanotuj wartość właściwości **Adres URL witryny** w sekcji **Podsumowanie**. Ten adres URL jest Twoim *punktem końcowym zaplecza* w dalszej części samouczka.
 
-6. Wybierz pozycję **Publikuj**.
+6. Wybierz polecenie **Publikuj**.
 
 Po ukończeniu pracy z kreatorem aplikacja internetowa ASP.NET zostanie opublikowana na platformie Azure, a następnie otwarta w przeglądarce domyślnej.  Twoja aplikacja jest widoczna w usłudze Azure App Services.
 

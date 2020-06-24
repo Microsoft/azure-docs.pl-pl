@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: c30a7b1e6440cf69f7a4858273b365d885e5ec7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 534d75a5b9009f0febee2746179ab7357a4985e0
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77060467"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84732875"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie uwierzytelniania tożsamości platformy SAP w chmurze na potrzeby automatycznej aprowizacji użytkowników
 
@@ -58,7 +58,10 @@ Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników n
 
     ![Konsola administracyjna uwierzytelniania tożsamości platformy SAP Cloud Platform](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/adminconsole.png)
 
-2.  Utwórz użytkownika administracyjnego i wybierz użytkownika.  
+2.  Naciśnij przycisk **+ Dodaj** w panelu po lewej stronie, aby dodać nowego administratora do listy. Wybierz pozycję **Dodaj system** i wprowadź nazwę systemu.   
+
+> [!NOTE]
+> Administratora użytkownika w oprogramowaniu SAP Cloud Platform Authentication musi być typu **system**. Tworzenie normalnego użytkownika administratora może prowadzić do *nieautoryzowanych* błędów podczas aprowizacji.   
 
 3.  W obszarze Konfigurowanie autoryzacji przejdź na przycisk przełączania, aby **zarządzać użytkownikami** i **zarządzać grupami**.
 
@@ -123,7 +126,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 8. W sekcji **mapowania** wybierz pozycję **Synchronizuj Azure Active Directory użytkownicy do uwierzytelniania tożsamości platformy w chmurze SAP**.
 
@@ -155,7 +158,7 @@ Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowi
 
 * Punkt końcowy Standard scim uwierzytelniania tożsamości platformy w chmurze SAP wymaga, aby pewne atrybuty miały określony format. Więcej informacji o tych atrybutach i ich konkretnym formacie można znaleźć [tutaj](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/b10fc6a9a37c488a82ce7489b1fab64c.html#).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

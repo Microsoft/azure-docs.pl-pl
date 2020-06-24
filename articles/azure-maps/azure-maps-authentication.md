@@ -1,24 +1,25 @@
 ---
-title: Metody uwierzytelniania | Mapy Microsoft Azure
-description: Ten artykuł zawiera informacje na temat Azure Active Directory (Azure AD) i uwierzytelniania klucza współużytkowanego. Oba są używane na potrzeby usług Microsoft Azure Maps. Dowiedz się, jak uzyskać klucz subskrypcji Azure Maps.
+title: Metody uwierzytelniania
+titleSuffix: Azure Maps
+description: Ten artykuł zawiera informacje na temat Azure Active Directory i uwierzytelniania klucza współużytkowanego. Oba są używane na potrzeby usług Microsoft Azure Maps. Dowiedz się, jak uzyskać klucz subskrypcji Azure Maps.
 author: philmea
 ms.author: philmea
-ms.date: 01/28/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 21d29cba85adfc147ec9deb6ab362a5da943bf10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe79b630291959ce4dc8b4743127986088a876ae
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335700"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987549"
 ---
 # <a name="authentication-with-azure-maps"></a>Uwierzytelnianie w usłudze Azure Maps
 
-Azure Maps obsługuje dwa sposoby uwierzytelniania żądań: uwierzytelnianie klucza wspólnego i uwierzytelnianie Azure Active Directory. W tym artykule opisano te metody uwierzytelniania, które ułatwiają wdrożenie usług Azure Maps.
+Azure Maps obsługuje dwa sposoby uwierzytelniania żądań: uwierzytelnianie klucza wspólnego i uwierzytelnianie [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) . W tym artykule opisano te metody uwierzytelniania, które ułatwiają wdrożenie usług Azure Maps.
 
 > [!NOTE]
 > Aby ulepszyć bezpieczną komunikację z usługą Azure Maps, firma Microsoft obsługuje teraz protokół Transport Layer Security (TLS) 1,2 i wycofywanie pomocy technicznej dla protokołów TLS 1,0 i 1,1. Aby uniknąć przerw w działaniu usługi, **zaktualizuj serwery i aplikacje do korzystania z protokołu TLS 1,2 przed 2 kwietnia 2020**.  Jeśli obecnie używasz protokołu TLS 1. x, Oceń gotowość protokołu TLS 1,2 i Opracuj plan migracji z testowaniem opisanym w temacie [Rozwiązywanie problemów z protokołem tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
@@ -32,11 +33,9 @@ Aby uzyskać informacje na temat wyświetlania kluczy w Azure Portal, zobacz [Za
 > [!Tip]
 > Zaleca się regularne ponowne generowanie kluczy. Podano dwa klucze, dzięki czemu można zachować połączenia z jednym kluczem przy ponownym generowaniu innych. Po ponownym wygenerowaniu kluczy należy zaktualizować wszystkie aplikacje, które uzyskują dostęp do Twojego konta, przy użyciu nowych kluczy.
 
-## <a name="authentication-with-azure-active-directory-preview"></a>Uwierzytelnianie w usłudze Azure Active Directory (wersja zapoznawcza)
+## <a name="azure-ad-authentication"></a>Uwierzytelnianie w usłudze Azure AD
 
-Azure Maps teraz oferuje żądania uwierzytelniania dla usług Azure Maps przy użyciu [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Usługa Azure AD zapewnia uwierzytelnianie oparte na tożsamościach, w tym [kontroli dostępu opartej na rolach (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). RBAC służy do udzielania dostępu do Azure Maps zasobów na poziomie użytkownika, na poziomie grupy lub na poziomie aplikacji. W następnych sekcjach omówiono koncepcje i składniki Azure Maps integracji z usługą Azure AD.
-
-## <a name="authentication-with-oauth-access-tokens"></a>Uwierzytelnianie przy użyciu tokenów dostępu OAuth
+Subskrypcje platformy Azure są dostarczane z dzierżawą usługi Azure AD w celu umożliwienia precyzyjnej kontroli dostępu. Azure Maps oferuje uwierzytelnianie dla usług Azure Maps za pomocą usługi Azure AD. Usługa Azure AD zapewnia uwierzytelnianie oparte na tożsamościach użytkowników i aplikacji zarejestrowanych w dzierżawie usługi Azure AD.
 
 Azure Maps akceptuje tokeny dostępu **OAuth 2,0** dla dzierżawców usługi Azure AD skojarzonych z subskrypcją platformy Azure, która zawiera konto Azure Maps. Azure Maps również akceptuje tokeny dla:
 
@@ -44,54 +43,95 @@ Azure Maps akceptuje tokeny dostępu **OAuth 2,0** dla dzierżawców usługi Azu
 * Aplikacje partnerskie korzystające z uprawnień delegowanych przez użytkowników
 * Tożsamości zarządzane dla zasobów platformy Azure
 
-Azure Maps generuje *unikatowy identyfikator (identyfikator klienta)* dla każdego konta Azure Maps. Możesz zażądać tokenów z usługi Azure AD w przypadku łączenia tego identyfikatora klienta z dodatkowymi parametrami. Aby zażądać tokenu, określ wartości w poniższej tabeli w oparciu o środowisko platformy Azure.
-
-| Środowisko platformy Azure   | Punkt końcowy tokenu usługi Azure AD |
-| --------------------|-------------------------|
-| Azure — publiczna        | https://login.microsoftonline.com |
-| Azure Government    | https://login.microsoftonline.us |
-
+Azure Maps generuje *unikatowy identyfikator (identyfikator klienta)* dla każdego konta Azure Maps. Możesz zażądać tokenów z usługi Azure AD w przypadku łączenia tego identyfikatora klienta z dodatkowymi parametrami.
 
 Aby uzyskać więcej informacji na temat sposobu konfigurowania usługi Azure AD i tokenów żądań dla Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
-Aby uzyskać ogólne informacje na temat żądania tokenów z usługi Azure AD, zobacz [co to jest uwierzytelnianie?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+Aby uzyskać ogólne informacje o uwierzytelnianiu w usłudze Azure AD, zobacz [co to jest uwierzytelnianie?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
-## <a name="request-azure-map-resources-with-oauth-tokens"></a>Żądaj zasobów usługi Azure map przy użyciu tokenów OAuth
+### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Zarządzane tożsamości dla zasobów platformy Azure i Azure Maps
 
-Gdy usługa Azure AD otrzyma token, Azure Maps wysyła żądanie z następującym zestawem wymaganych nagłówków żądań:
+[Zarządzane tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) zapewniają usługi platformy Azure z automatycznie zarządzanym podmiotem zabezpieczeń opartym na aplikacji, który może być uwierzytelniany w usłudze Azure AD. Za pomocą kontroli dostępu opartej na rolach (RBAC) zarządzanym podmiotem zabezpieczeń tożsamości można autoryzować do uzyskiwania dostępu do usług Azure Maps. Przykłady zarządzanych tożsamości obejmują: Azure App Service, Azure Functions i Virtual Machines platformy Azure. Aby uzyskać listę zarządzanych tożsamości, zobacz [zarządzane tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
-| Nagłówek żądania    |    Wartość    |
-|:------------------|:------------|
-| x-ms-client-id    | 30d7cc….9f55|
-| Autoryzacja     | Bearer eyJ0e….HNIVN |
+### <a name="configuring-application-azure-ad-authentication"></a>Konfigurowanie uwierzytelniania aplikacji Azure AD
+
+Aplikacje będą uwierzytelniane w dzierżawie usługi Azure AD przy użyciu co najmniej jednego obsługiwanego scenariusza dostarczonego przez usługę Azure AD. Każdy scenariusz aplikacji usługi Azure AD reprezentuje różne wymagania w zależności od potrzeb firmy. Niektóre aplikacje mogą wymagać środowiska logowania użytkownika, a inne aplikacje mogą wymagać logowania do aplikacji. Aby uzyskać więcej informacji, zobacz [przepływy uwierzytelniania i scenariusze aplikacji](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios).
+
+Po odebraniu tokenu dostępu przez aplikację zestaw SDK i/lub aplikacja wysyła żądanie HTTPS z następującym zestawem wymaganych nagłówków HTTP, a także z innymi nagłówkami HTTP interfejsu API REST:
+
+| Nazwa nagłówka    | Wartość               |
+| :------------- | :------------------ |
+| x-ms-client-id | 30d7cc….9f55        |
+| Autoryzacja  | Bearer eyJ0e….HNIVN |
 
 > [!Note]
 > `x-ms-client-id`jest identyfikatorem GUID opartym na koncie Azure Maps, który pojawia się na stronie uwierzytelnianie Azure Maps.
 
-Oto przykład żądania Azure Maps trasy, które używa tokenu OAuth:
+Oto przykład żądania Azure Maps trasy, które używa tokenu okaziciela OAuth usługi Azure AD:
 
-```
-GET /route/directions/json?api-version=1.0&query=52.50931,13.42936:52.50274,13.43872 
-Host: atlas.microsoft.com 
-x-ms-client-id: 30d7cc….9f55 
-Authorization: Bearer eyJ0e….HNIVN 
+```http
+GET /route/directions/json?api-version=1.0&query=52.50931,13.42936:52.50274,13.43872
+Host: atlas.microsoft.com
+x-ms-client-id: 30d7cc….9f55
+Authorization: Bearer eyJ0e….HNIVN
 ```
 
 Informacje o wyświetlaniu identyfikatora klienta znajdują się w temacie [Wyświetlanie szczegółów uwierzytelniania](https://aka.ms/amauthdetails).
 
-## <a name="control-access-with-rbac"></a>Kontrola dostępu za pomocą RBAC
+## <a name="authorization-with-role-based-access-control"></a>Autoryzacja za pomocą kontroli dostępu opartej na rolach
 
-W usłudze Azure AD Użyj RBAC, aby kontrolować dostęp do zabezpieczonych zasobów. Skonfiguruj konto Azure Maps i zarejestruj dzierżawę Azure Maps usługi Azure AD. Azure Maps obsługuje kontrolę dostępu do odczytu dla poszczególnych użytkowników, grup, aplikacji, zasobów platformy Azure i usług platformy Azure za pośrednictwem zarządzanych tożsamości dla zasobów platformy Azure. Na stronie portalu Azure Maps można skonfigurować RBAC dla wybranych ról.
+Azure Maps obsługuje dostęp do wszystkich typów podmiotów dla [kontroli dostępu opartej na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview) na platformie Azure, w tym: indywidualnych użytkowników, grup, aplikacji, zasobów platformy Azure AD i tożsamości zarządzanych przez platformę Azure. Typy główne mają przyznany zestaw uprawnień, nazywany także definicją roli. Definicja roli zapewnia uprawnienia do akcji interfejsu API REST. Stosowanie dostępu do co najmniej jednego konta Azure Maps jest znane jako zakres. W przypadku stosowania podmiotu zabezpieczeń, definicji roli i zakresu zostanie utworzone przypisanie roli. 
 
-![Czytnik danych Azure Maps (wersja zapoznawcza)](./media/azure-maps-authentication/concept.png)
+W następnych sekcjach omówiono koncepcje i składniki Azure Maps integracji z kontrolą dostępu opartą na rolach usługi Azure AD. W ramach procesu konfigurowania konta Azure Maps katalog usługi Azure AD jest skojarzony z subskrypcją platformy Azure, w której znajduje się konto Azure Maps. 
+
+Podczas konfigurowania usługi Azure RBAC należy wybrać podmiot zabezpieczeń i zastosować go do przypisania roli. Aby dowiedzieć się, jak dodać przypisania ról na Azure Portal, zobacz [Dodawanie lub usuwanie przypisań ról platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+
+### <a name="picking-a-role-definition"></a>Wybieranie definicji roli
+
+W celu obsługi scenariuszy aplikacji istnieją następujące typy definicji ról.
+
+| Definicja roli platformy Azure       | Opis                                                                                              |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------- |
+| Azure Maps czytnika danych      | Zapewnia dostęp do niezmiennego Azure Maps interfejsów API REST.                                                       |
+| Współautor danych Azure Maps | Zapewnia dostęp do modyfikowalnych interfejsów API REST Azure Maps. Zmienność jest definiowana przez akcje: Write i DELETE. |
+| Definicja roli niestandardowej      | Utwórz przygotowaną rolę, aby włączyć elastyczny dostęp ograniczony do Azure Maps interfejsów API REST.                      |
+
+Niektóre usługi Azure Maps mogą wymagać podwyższonego poziomu uprawnień do wykonywania akcji zapisu lub usuwania na Azure Maps interfejsach API REST. Rola współautora danych Azure Maps jest wymagana dla usług, które zapewniają akcje zapisu lub usuwania. W poniższej tabeli opisano, których usług Azure Maps współautor danych dotyczy użycie akcji zapisu lub usuwania w danej usłudze. Jeśli w usłudze są używane tylko akcje odczytu, można użyć czytnika danych Azure Maps zamiast Azure Maps współautor danych.
+
+| Usługa Azure Maps | Azure Maps definicję roli  |
+| :----------------- | :-------------------------- |
+| Dane               | Współautor danych Azure Maps |
+| Kreator            | Współautor danych Azure Maps |
+| Przestrzenne            | Współautor danych Azure Maps |
 
 Aby uzyskać informacje na temat wyświetlania ustawień RBAC, zobacz [How to configure RBAC for Azure Maps](https://aka.ms/amrbac).
 
-## <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Zarządzane tożsamości dla zasobów platformy Azure i Azure Maps
+#### <a name="custom-role-definitions"></a>Niestandardowe definicje ról
 
-[Zarządzane tożsamości dla zasobów platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) zapewniają usługi platformy Azure z automatyczną tożsamością zarządzaną, która może być autoryzowana do uzyskiwania dostępu do usług Azure Maps. Przykłady zarządzanych tożsamości: Azure App Service, Azure Functions i Virtual Machines platformy Azure.
+Jednym z aspektów zabezpieczeń aplikacji jest zastosowanie zasady najniższych uprawnień. Zasada ta określa, że podmiot zabezpieczeń powinien być uprawniony wyłącznie do dostępu, który jest wymagany i nie ma dodatkowego dostępu. Tworzenie niestandardowych definicji ról może obsługiwać przypadki użycia, które wymagają dalszej szczegółowości kontroli dostępu. Aby utworzyć niestandardową definicję roli, można wybrać określone akcje danych, które mają zostać dołączone lub wykluczone dla definicji. 
+
+Definicji roli niestandardowej można następnie użyć w przypisaniu roli dla dowolnego podmiotu zabezpieczeń. Aby dowiedzieć się więcej na temat definicji ról niestandardowych platformy Azure, zobacz [role niestandardowe platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+
+Poniżej przedstawiono kilka przykładowych scenariuszy, w których role niestandardowe mogą poprawić zabezpieczenia aplikacji.
+
+| Scenariusz                                                                                                                                                                                                                 | Niestandardowe akcje danych roli                                                                                                                  |
+| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| Publiczna lub interaktywna Strona sieci Web logowania z kafelkami mapy podstawowej i inne interfejsy API REST.                                                                                                                              | `Microsoft.Maps/accounts/services/render/read`                                                                                              |
+| Aplikacja, która wymaga jedynie odwrotnego geokodowania i nie ma innych interfejsów API REST.                                                                                                                                             | `Microsoft.Maps/accounts/services/search/read`                                                                                              |
+| Rola podmiotu zabezpieczeń, która żąda odczytywania danych mapy opartych na programie Azure Maps Creator i interfejsów API REST kafelka mapy podstawowej.                                                                                                 | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/render/read`                                                |
+| Rola podmiotu zabezpieczeń, która wymaga odczytywania, zapisywania i usuwania danych mapy opartych na programie Creator. Może to być zdefiniowane jako rola edytora danych mapy, ale nie zezwala na dostęp do innych interfejsów API REST, takich jak kafelki mapy podstawowej. | `Microsoft.Maps/accounts/services/data/read`, `Microsoft.Maps/accounts/services/data/write`, `Microsoft.Maps/accounts/services/data/delete` |
+
+### <a name="understanding-scope"></a>Zrozumienie zakresu
+
+Podczas tworzenia przypisania roli jest ono zdefiniowane w hierarchii zasobów platformy Azure. W górnej części hierarchii jest [Grupa zarządzania](https://docs.microsoft.com/azure/governance/management-groups/overview) , a najniższy to zasób platformy Azure, taki jak konto Azure Maps.
+Przypisanie przypisania roli do grupy zasobów może umożliwić dostęp do wielu kont Azure Maps lub zasobów w grupie.
+
+> [!Tip]
+> Ogólne zalecenie firmy Microsoft przypisuje dostęp do zakresu kont Azure Maps, ponieważ uniemożliwia **niezamierzony dostęp do innych kont Azure Maps** istniejących w tej samej subskrypcji platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
+
+* Aby dowiedzieć się więcej na temat RBAC, zobacz [Omówienie kontroli dostępu opartej na rolach](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 * Aby dowiedzieć się więcej o uwierzytelnianiu aplikacji za pomocą usługi Azure AD i Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 

@@ -6,25 +6,36 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4dbc559e62523a1ea17236a9e8c9666ef48bba33
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3b49682b2ece20266b3a051091d3784cc3e8bcca
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664151"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976425"
 ---
 # <a name="overview-of-azure-arc-for-servers-agent"></a>Omówienie usługi Azure ARC dla agenta serwerów
 
 Usługa Azure ARC dla serwerów połączonych z agentem umożliwia zarządzanie maszynami z systemami Windows i Linux hostowanymi poza platformą Azure w sieci firmowej lub w innym dostawcy chmury. Ten artykuł zawiera szczegółowe omówienie wymagań dotyczących agenta, systemu i sieci oraz różnych metod wdrażania.
 
+## <a name="agent-component-details"></a>Szczegóły składnika agenta
+
+Pakiet agenta połączonej maszyny platformy Azure zawiera kilka składników logicznych, które są powiązane ze sobą.
+
+* Usługa metadanych wystąpienia hybrydowego (HIMDS) zarządza połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.
+
+* Agent konfiguracji gościa udostępnia funkcje zasad gościa i konfiguracji gościa, takie jak ocenianie, czy maszyna jest zgodna z wymaganymi zasadami.
+
+* Agent rozszerzeń zarządza rozszerzeniami maszyn wirtualnych, w tym Instalowanie, Odinstalowywanie i uaktualnianie. Rozszerzenia są pobierane z platformy Azure i kopiowane do `%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads` folderu w systemie Windows oraz dla systemu Linux do programu `/opt/GC_Ext/downloads` . W systemie Windows rozszerzenie jest instalowane w następującej ścieżce `%SystemDrive%\Packages\Plugins\<extension>` , a w systemie Linux rozszerzenie jest zainstalowane do `/var/lib/waagent/<extension>` .
+
 ## <a name="download-agents"></a>Pobierz agentów
 
 Pakiet agenta połączonej maszyny platformy Azure dla systemów Windows i Linux można pobrać z lokalizacji wymienionych poniżej.
 
-- [Pakiet Instalator Windows agenta systemu Windows](https://aka.ms/AzureConnectedMachineAgent) z centrum pobierania Microsoft.
-- Pakiet agenta systemu Linux jest dystrybuowany z [repozytorium pakietów](https://packages.microsoft.com/) firmy Microsoft przy użyciu preferowanego formatu pakietu dla dystrybucji (. RPM lub. DEB).
+* [Pakiet Instalator Windows agenta systemu Windows](https://aka.ms/AzureConnectedMachineAgent) z centrum pobierania Microsoft.
+
+* Pakiet agenta systemu Linux jest dystrybuowany z [repozytorium pakietów](https://packages.microsoft.com/) firmy Microsoft przy użyciu preferowanego formatu pakietu dla dystrybucji (. RPM lub. DEB).
 
 >[!NOTE]
 >W tej wersji zapoznawczej wydano tylko jeden pakiet, który jest odpowiedni dla Ubuntu 16,04 lub 18,04.
@@ -49,14 +60,16 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
     |%ProgramData%\AzureConnectedMachineAgent |Zawiera pliki konfiguracji agenta.|
     |%ProgramData%\AzureConnectedMachineAgent\Tokens |Zawiera nabyte tokeny.|
     |%ProgramData%\AzureConnectedMachineAgent\Config |Zawiera plik konfiguracji agenta `agentconfig.json` rejestrującego informacje o rejestracji w usłudze.|
-    |%ProgramData%\GuestConfig |Zawiera pliki powiązane z zasadami platformy Azure (stosowane).|
+    |%SystemDrive%\Program Files\ArcConnectedMachineAgent\ExtensionService\GC | Ścieżka instalacji zawierająca pliki agenta konfiguracji gościa. |
+    |%ProgramData%\GuestConfig |Zawiera zasady (stosowane) platformy Azure.|
+    |%SystemDrive%\AzureConnectedMachineAgent\ExtensionService\downloads | Rozszerzenia są pobierane z platformy Azure i kopiowane w tym miejscu.|
 
 * Podczas instalacji agenta tworzone są następujące usługi systemu Windows na maszynie docelowej.
 
     |Nazwa usługi |Nazwa wyświetlana |Nazwa procesu |Opis |
     |-------------|-------------|-------------|------------|
-    |himds |Instance Metadata Service hybrydowe platformy Azure |himds. exe |Ta usługa implementuje usługę metadanych wystąpienia platformy Azure (IMDS) w celu śledzenia maszyny.|
-    |DscService |Usługa konfiguracji gościa |dsc_service. exe |Jest to baza kodu konfiguracji żądanego stanu (DSC v2) używana wewnątrz platformy Azure do implementowania zasad w gościu.|
+    |himds |Instance Metadata Service hybrydowe platformy Azure |himds.exe |Ta usługa implementuje usługę metadanych wystąpienia platformy Azure (IMDS) w celu zarządzania połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.|
+    |DscService |Usługa konfiguracji gościa |dsc_service.exe |Jest to baza kodu konfiguracji żądanego stanu (DSC v2) używana wewnątrz platformy Azure do implementowania zasad w gościu.|
 
 * Podczas instalacji agenta tworzone są następujące zmienne środowiskowe.
 
@@ -64,17 +77,19 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
-    
-* Dostępne są cztery pliki dziennika do rozwiązywania problemów. Są one opisane w poniższej tabeli.
+
+* Istnieje kilka plików dziennika dostępnych do rozwiązywania problemów. Są one opisane w poniższej tabeli.
 
     |Log |Opis |
     |----|------------|
-    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Rejestruje szczegółowe informacje o usłudze agentów (himds) i interakcji z platformą Azure.|
+    |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Rejestruje szczegółowe informacje o usłudze agentów (HIMDS) i interakcji z platformą Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Zawiera dane wyjściowe poleceń narzędzi azcmagent, gdy jest używany argument verbose (-v).|
-    |%ProgramData%\GuestConfig\ gc_agent_logs \ gc_agent. log |Rejestruje szczegółowe informacje o aktywności usługi DSC,<br> w szczególności łączność między usługą himds i Azure Policy.|
-    |%ProgramData%\GuestConfig\ gc_agent_logs \ gc_agent_telemetry. txt |Rejestruje szczegółowe informacje o telemetrii usługi DSC i pełnym rejestrowaniu.|
+    |%ProgramData%\GuestConfig\ gc_agent_logs \ gc_agent. log |Rejestruje szczegółowe informacje o aktywności usługi DSC,<br> w szczególności łączność między usługą HIMDS i Azure Policy.|
+    |% ProgramData% \GuestConfig\gc_agent_logs\gc_agent_telemetry.txt |Rejestruje szczegółowe informacje o telemetrii usługi DSC i pełnym rejestrowaniu.|
+    |%SystemDrive%\ProgramData\GuestConfig\ ext_mgr_logs|Rejestruje szczegółowe informacje o składniku agenta rozszerzeń.|
+    |%SystemDrive%\ProgramData\GuestConfig\ extension_logs\<Extension>|Rejestruje szczegółowe informacje z zainstalowanego rozszerzenia.|
 
-* Tworzone są **aplikacje rozszerzenia agenta hybrydowego** lokalnej grupy zabezpieczeń. 
+* Tworzone są **aplikacje rozszerzenia agenta hybrydowego** lokalnej grupy zabezpieczeń.
 
 * Podczas odinstalowywania agenta nie są usuwane następujące artefakty.
 
@@ -84,7 +99,7 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Windows są stosowane 
 
 ## <a name="linux-agent-installation-details"></a>Szczegóły instalacji agenta systemu Linux
 
-Agent połączonej maszyny dla systemu Linux jest dostępny w preferowanym formacie pakietu dla dystrybucji (. RPM lub. DEB), które są hostowane w [repozytorium pakietu](https://packages.microsoft.com/)Microsoft. Agent został zainstalowany i skonfigurowany z pakietem skryptu powłoki [Install_linux_azcmagent. sh](https://aka.ms/azcmagent). 
+Agent połączonej maszyny dla systemu Linux jest dostępny w preferowanym formacie pakietu dla dystrybucji (. RPM lub. DEB), które są hostowane w [repozytorium pakietu](https://packages.microsoft.com/)Microsoft. Agent został zainstalowany i skonfigurowany z pakietem skryptu powłoki [Install_linux_azcmagent. sh](https://aka.ms/azcmagent).
 
 Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane następujące dodatkowe zmiany konfiguracji w całym systemie.
 
@@ -94,25 +109,29 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
     |-------|------------|
     |/var/opt/azcmagent/ |Domyślna ścieżka instalacji zawierająca pliki obsługi agentów.|
     |/opt/azcmagent/ |
+    |/opt/GC_Ext | Ścieżka instalacji zawierająca pliki agenta konfiguracji gościa.|
     |/opt/DSC/ |
     |/var/opt/azcmagent/tokens |Zawiera nabyte tokeny.|
-    |/var/lib/GuestConfig |Zawiera pliki powiązane z zasadami platformy Azure (stosowane).|
+    |/var/lib/GuestConfig |Zawiera zasady (stosowane) platformy Azure.|
+    |/opt/GC_Ext/downloads|Rozszerzenia są pobierane z platformy Azure i kopiowane w tym miejscu.|
 
 * Na maszynie docelowej są tworzone następujące demoy podczas instalacji agenta.
 
     |Nazwa usługi |Nazwa wyświetlana |Nazwa procesu |Opis |
     |-------------|-------------|-------------|------------|
-    |himdsd. Service |Instance Metadata Service hybrydowe platformy Azure |/opt/azcmagent/bin/himds |Ta usługa implementuje usługę metadanych wystąpienia platformy Azure (IMDS) w celu śledzenia maszyny.|
+    |himdsd. Service |Instance Metadata Service hybrydowe platformy Azure |/opt/azcmagent/bin/himds |Ta usługa implementuje usługę metadanych wystąpienia platformy Azure (IMDS) w celu zarządzania połączeniem z platformą Azure i tożsamością platformy Azure połączonej maszyny.|
     |dscd. Service |Usługa konfiguracji gościa |/opt/DSC/dsc_linux_service |Jest to baza kodu konfiguracji żądanego stanu (DSC v2) używana wewnątrz platformy Azure do implementowania zasad w gościu.|
 
-* Dostępne są cztery pliki dziennika do rozwiązywania problemów. Są one opisane w poniższej tabeli.
+* Istnieje kilka plików dziennika dostępnych do rozwiązywania problemów. Są one opisane w poniższej tabeli.
 
     |Log |Opis |
     |----|------------|
-    |/var/opt/azcmagent/log/himds.log |Rejestruje szczegółowe informacje o usłudze agentów (himds) i interakcji z platformą Azure.|
+    |/var/opt/azcmagent/log/himds.log |Rejestruje szczegółowe informacje o usłudze agentów (HIMDS) i interakcji z platformą Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Zawiera dane wyjściowe poleceń narzędzi azcmagent, gdy jest używany argument verbose (-v).|
     |/opt/logs/dsc.log |Rejestruje szczegółowe informacje o aktywności usługi DSC,<br> w szczególności łączność między usługą himds i Azure Policy.|
-    |/opt/logs/dsc.telemetry.txt |Rejestruje szczegółowe informacje o telemetrii usługi DSC i pełnym rejestrowaniu.|
+    |/opt/Logs/dsc.telemetry.txt |Rejestruje szczegółowe informacje o telemetrii usługi DSC i pełnym rejestrowaniu.|
+    |/var/lib/GuestConfig/ext_mgr_logs |Rejestruje szczegółowe informacje o składniku agenta rozszerzeń.|
+    |/var/log/GuestConfig/extension_logs|Rejestruje szczegółowe informacje z zainstalowanego rozszerzenia.|
 
 * Podczas instalacji agenta tworzone są następujące zmienne środowiskowe. Te zmienne są ustawione w `/lib/systemd/system.conf.d/azcmagent.conf` .
 
@@ -133,11 +152,11 @@ Po zainstalowaniu agenta połączonej maszyny dla systemu Linux są stosowane na
 Następujące wersje systemu operacyjnego Windows i Linux są oficjalnie obsługiwane dla agenta połączonego z platformą Azure: 
 
 - Windows Server 2012 R2 lub nowszy (w tym Windows Server Core)
-- Ubuntu 16,04 i 18,04
-- CentOS Linux 7
-- SUSE Linux Enterprise Server (SLES) 15
-- Red Hat Enterprise Linux (RHEL) 7
-- Amazon Linux 2
+- Ubuntu 16,04 i 18,04 (x64)
+- CentOS Linux 7 (x64)
+- SUSE Linux Enterprise Server (SLES) 15 (x64)
+- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- Amazon Linux 2 (x64)
 
 >[!NOTE]
 >Ta wersja zapoznawcza agenta połączonej maszyny dla systemu Windows obsługuje tylko system Windows Server skonfigurowany do korzystania z języka angielskiego.
@@ -155,7 +174,7 @@ Przed skonfigurowaniem maszyn przy użyciu usługi Azure ARC dla serwerów (wers
 
 ## <a name="tls-12-protocol"></a>Protokół TLS 1,2
 
-Aby zapewnić bezpieczeństwo danych przesyłanych do platformy Azure, zdecydowanie zalecamy skonfigurowanie komputera do korzystania z Transport Layer Security (TLS) 1,2. Starsze wersje protokołu TLS/SSL (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**. 
+Aby zapewnić bezpieczeństwo danych przesyłanych do platformy Azure, zdecydowanie zalecamy skonfigurowanie komputera do korzystania z Transport Layer Security (TLS) 1,2. Starsze wersje protokołu TLS/SSL (SSL) są zagrożone i chociaż nadal działają tak, aby umożliwić zgodność z poprzednimi wersjami, nie są **zalecane**.
 
 |Platforma/język | Pomoc techniczna | Więcej informacji |
 | --- | --- | --- |
@@ -178,7 +197,7 @@ Adresy
 | Zasób agenta | Opis |
 |---------|---------|
 |management.azure.com|Azure Resource Manager|
-|login.windows.net|Azure Active Directory|
+|login.windows.net|Usługa Azure Active Directory|
 |dc.services.visualstudio.com|Application Insights|
 |agentserviceapi.azure-automation.net|Konfiguracja gościa|
 |*-agentservice-prod-1.azure-automation.net|Konfiguracja gościa|
@@ -215,7 +234,6 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 Dostawców zasobów można zarejestrować w Azure Portal, wykonując czynności opisane w sekcji [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
-
 
 ## <a name="installation-and-configuration"></a>Instalacja i konfiguracja
 

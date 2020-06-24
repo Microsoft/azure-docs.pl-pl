@@ -3,14 +3,14 @@ title: Konfigurowanie środowiska projektowego systemu Windows
 description: Zainstaluj środowisko uruchomieniowe, zestaw SDK i narzędzia oraz utwórz lokalny klaster projektowy. Po ukończeniu tej konfiguracji wszystko będzie gotowe do kompilowania aplikacji w systemie Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 06/16/2020
 ms.custom: sfrev
-ms.openlocfilehash: 8e51b224bdb91d8bce0f83088791cba8cd3b2d45
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: e059a503a29872ee6241fe00ff5c7ec94ae30308
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84449417"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888105"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Przygotowywanie środowiska deweloperskiego w systemie Windows
 
@@ -31,7 +31,7 @@ Na potrzeby tworzenia aplikacji obsługiwane są następujące wersje systemu op
 
 * Windows 7
 * Windows 8/Windows 8.1
-* Windows Server 2012 R2
+* Windows Server 2012 z dodatkiem R2
 * Windows Server 2016
 * Windows 10
 
@@ -69,7 +69,7 @@ Jeśli potrzebujesz tylko zestawu SDK, możesz zainstalować ten pakiet:
 Bieżące wersje:
 
 * Service Fabric zestawu SDK i narzędzi 4.1.416
-* 7.1.416 środowiska uruchomieniowego Service Fabric
+* 7.1.417 środowiska uruchomieniowego Service Fabric
 
 Aby uzyskać listę obsługiwanych wersji, zobacz [Service Fabric wersje](service-fabric-versions.md)
 

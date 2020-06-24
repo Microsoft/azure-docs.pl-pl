@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 04/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 7d2e22804c06f589c7990bf8f19319b897363a93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22743a1e202ac26d95cf4a48cb58b2a2418e9f0c
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743455"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84734185"
 ---
-# <a name="troubleshoot-account-lockout-problems-with-an-azure-ad-domain-services-managed-domain"></a>Rozwiązywanie problemów z blokadą konta przy użyciu domeny zarządzanej Azure AD Domain Services
+# <a name="troubleshoot-account-lockout-problems-with-an-azure-active-directory-domain-services-managed-domain"></a>Rozwiązywanie problemów z blokadą konta przy użyciu domeny zarządzanej Azure Active Directory Domain Services
 
-Aby zapobiec powtarzaniu złośliwych prób logowania, usługa Azure AD DS blokuje konta po określonej wartości progowej. Ta blokada konta może również być spowodowana awarią bez zdarzenia ataku logowania. Na przykład jeśli użytkownik wielokrotnie wprowadzi nieprawidłowe hasło lub usługa próbuje użyć starego hasła, konto zostanie zablokowane.
+Aby zapobiec powtarzaniu złośliwych prób logowania, Azure Active Directory Domain Services (Azure AD DS) blokuje konta po określonym progu. Ta blokada konta może również być spowodowana awarią bez zdarzenia ataku logowania. Na przykład jeśli użytkownik wielokrotnie wprowadzi nieprawidłowe hasło lub usługa próbuje użyć starego hasła, konto zostanie zablokowane.
 
 Ten artykuł rozwiązywania problemów zawiera informacje o tym, dlaczego blokady kont są wykonywane i jak można skonfigurować zachowanie oraz jak przeglądać inspekcje zabezpieczeń w celu rozwiązywania problemów z blokadami zdarzeń.
 
@@ -33,9 +33,9 @@ Domyślne progi blokady konta są konfigurowane przy użyciu szczegółowych zas
 
 ### <a name="fine-grained-password-policy"></a>Szczegółowe zasady haseł
 
-Szczegółowe zasady haseł (FGPPs) pozwalają stosować określone ograniczenia dotyczące zasad blokowania haseł i kont dla różnych użytkowników w domenie. SZCZEGÓŁOWYCH zasad haseł ma wpływ tylko na użytkowników w ramach domeny zarządzanej AD DS platformy Azure. Użytkownicy chmury i użytkownicy domeny zsynchronizowani z domeną zarządzaną AD DS platformy Azure z usługi Azure AD mają wpływ tylko zasady haseł w usłudze Azure AD DS. Nie ma to wpływu na konta w usłudze Azure AD lub katalog lokalny.
+Szczegółowe zasady haseł (FGPPs) pozwalają stosować określone ograniczenia dotyczące zasad blokowania haseł i kont dla różnych użytkowników w domenie. SZCZEGÓŁOWYCH zasad haseł ma wpływ tylko na użytkowników w domenie zarządzanej. Użytkownicy chmury i użytkownicy domeny zsynchronizowani z domeną zarządzaną AD DS platformy Azure z usługi Azure AD mają wpływ tylko zasady haseł w usłudze Azure AD DS. Nie ma to wpływu na konta w usłudze Azure AD lub katalog lokalny.
 
-Zasady są dystrybuowane za pomocą skojarzenia grupy w domenie zarządzanej platformy Azure AD DS i wszelkie wprowadzone zmiany są stosowane podczas następnego logowania użytkownika. Zmiana zasad nie powoduje odblokowania konta użytkownika, które jest już zablokowane.
+Zasady są dystrybuowane za pomocą skojarzenia grupy w domenie zarządzanej, a wszelkie wprowadzone zmiany są stosowane podczas następnego logowania użytkownika. Zmiana zasad nie powoduje odblokowania konta użytkownika, które jest już zablokowane.
 
 Aby uzyskać więcej informacji na temat szczegółowych zasad haseł i różnic między użytkownikami utworzonymi bezpośrednio na platformie Azure AD DS a z usługą Azure AD, zobacz [Konfigurowanie zasad blokowania haseł i kont][configure-fgpp].
 
@@ -88,7 +88,7 @@ AADDomainServicesAccountManagement
 
 Aby uzyskać więcej informacji na temat szczegółowych zasad haseł w celu dostosowania progów blokady konta, zobacz [Konfigurowanie zasad blokowania haseł i kont][configure-fgpp].
 
-Jeśli nadal masz problemy z przyłączaniem maszyny wirtualnej do domeny zarządzanej AD DS platformy Azure, [Znajdź pomoc i Otwórz bilet pomocy technicznej dla Azure Active Directory][azure-ad-support].
+Jeśli nadal masz problemy z przyłączaniem maszyny wirtualnej do domeny zarządzanej, [Znajdź pomoc i Otwórz bilet pomocy technicznej dla Azure Active Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [configure-fgpp]: password-policy.md

@@ -2,23 +2,22 @@
 title: Publikowanie aplikacji lokalnych przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 description: Informacje o tym, dlaczego należy używać serwera proxy aplikacji do publikowania lokalnych aplikacji sieci Web poza użytkownikami zdalnymi. Poznaj architekturę serwera proxy aplikacji, łączniki, metody uwierzytelniania i korzyści z zabezpieczeń.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 05/31/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: d38cf25bb3b7622a0d444e4a71a4d62aafc053b6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a5c9ba026819a542ccd0a7ae41316c0f1d325004
+ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196449"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84976510"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Publikowanie aplikacji lokalnych dla użytkowników zdalnych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -82,14 +81,14 @@ Po zalogowaniu się użytkownicy zewnętrzni mogą uzyskiwać dostęp do lokalny
 
 ![Architektura usługi Azure serwer proxy aplikacji usługi Azure AD](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Uwierzytelnianie
 
 Istnieje kilka sposobów konfigurowania aplikacji do logowania jednokrotnego, a wybrana metoda zależy od uwierzytelniania używanego przez aplikację. Serwer proxy aplikacji obsługuje następujące typy aplikacji:
 
 * Aplikacje internetowe
 * Interfejsy API sieci Web, które mają zostać ujawnione w rozbudowanych aplikacjach na różnych urządzeniach
 * Aplikacje hostowane za bramą Pulpit zdalny
-* Rozbudowane aplikacje klienckie zintegrowane z Active Directory Authentication Library (ADAL)
+* Rozbudowane aplikacje klienckie zintegrowane z [biblioteką uwierzytelniania firmy Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 
 Serwer proxy aplikacji działa z aplikacjami korzystającymi z następującego natywnego protokołu uwierzytelniania:
 
@@ -181,7 +180,7 @@ Aby uzyskać więcej informacji na temat wybierania miejsca instalacji łącznik
 
 ## <a name="other-use-cases"></a>Inne przypadki użycia
 
-Do tego momentu firma Microsoft koncentruje się na używaniu serwera proxy aplikacji do publikowania aplikacji lokalnych na zewnątrz podczas włączania logowania jednokrotnego do wszystkich aplikacji w chmurze i lokalnych. Istnieją jednak inne przypadki użycia dla serwera proxy aplikacji, który jest cenny. Obejmują one następujące raporty:
+Do tego momentu firma Microsoft koncentruje się na używaniu serwera proxy aplikacji do publikowania aplikacji lokalnych na zewnątrz podczas włączania logowania jednokrotnego do wszystkich aplikacji w chmurze i lokalnych. Istnieją jednak inne przypadki użycia dla serwera proxy aplikacji, który jest cenny. Obejmują one:
 
 * **Bezpieczne publikowanie interfejsów API REST**. Jeśli masz logikę biznesową lub interfejsy API działające lokalnie lub hostowane na maszynach wirtualnych w chmurze, serwer proxy aplikacji udostępnia publiczny punkt końcowy do uzyskiwania dostępu do interfejsu API. Dostęp do punktu końcowego interfejsu API umożliwia sterowanie uwierzytelnianiem i autoryzacją bez konieczności używania portów przychodzących. Zapewnia ona dodatkowe zabezpieczenia za pośrednictwem funkcji Azure AD — wersja Premium, takich jak uwierzytelnianie wieloskładnikowe i dostęp warunkowy oparty na urządzeniach dla komputerów stacjonarnych, urządzeń z systemem iOS, MAC i Android przy użyciu usługi Intune. Aby dowiedzieć się więcej, zobacz [jak włączyć natywne aplikacje klienckie do współdziałania z aplikacjami proxy](application-proxy-configure-native-client-application.md) i [chronić interfejs API przy użyciu protokołu OAuth 2,0 z Azure Active Directory i API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad).
 * **Usługi pulpitu zdalnego** **(RDS)**. Standardowe wdrożenia usług RDS wymagają otwartych połączeń przychodzących. Jednak [wdrożenie usług pulpitu zdalnego z serwerem proxy aplikacji](application-proxy-integrate-with-remote-desktop-services.md) ma trwałe połączenie wychodzące z serwera, na którym działa usługa łącznika. W ten sposób możesz zaoferować więcej aplikacji użytkownikom końcowym, publikując aplikacje lokalne za pomocą Usługi pulpitu zdalnego. Możesz również zmniejszyć powierzchnię ataku wdrożenia z ograniczonym zestawem weryfikacji dwuetapowej i kontroli dostępu warunkowego do usług pulpitu zdalnego.

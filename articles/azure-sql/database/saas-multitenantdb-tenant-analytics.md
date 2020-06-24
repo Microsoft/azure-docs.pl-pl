@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: ace818adb4c5157675ac3b1d88f5df2ef61d69ee
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042204"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85249171"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analiza wielu dzierżawców z użyciem wyodrębnionych danych — aplikacji z wieloma dzierżawcami
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -88,10 +88,10 @@ W tym samouczku analiza jest wykonywana na danych sprzedaży biletów. W bieżą
 Często istnieje wiele transakcyjnych baz danych podzielonej na fragmenty, które razem przechowują wszystkie dane dzierżawy. Należy agregować dane dzierżawy z bazy danych podzielonej na fragmenty do jednego sklepu analitycznego. Agregacja umożliwia wydajne wykonywanie zapytań dotyczących danych. W tym samouczku baza danych Azure SQL Database jest używana do przechowywania zagregowanych danych.
 
 W poniższych krokach zostanie wdrożony magazyn analityczny o nazwie **tenantanalytics**. Wdrożono również wstępnie zdefiniowane tabele, które są umieszczane w dalszej części tego samouczka:
-1. W programie PowerShell ISE Otwórz pozycję *. ..\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
+1. W programie PowerShell ISE Otwórz *..\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* 
 2. Ustaw zmienną $DemoScenario w skrypcie, aby pasowała do wybranego sklepu analitycznego. W celach edukacyjnych nie zaleca się korzystania z bazy danych bez magazynu kolumn.
-    - Aby użyć bazy danych SQL bez magazynu kolumn, ustaw **$DemoScenario**  =  **2**
-    - Aby użyć bazy danych SQL z magazynem kolumn, ustaw **$DemoScenario**  =  **3**  
+    - Aby użyć SQL Database bez magazynu kolumn, ustaw **$DemoScenario**  =  **2**
+    - Aby użyć SQL Database z magazynem kolumn, ustaw **$DemoScenario**  =  **3**  
 3. Naciśnij klawisz **F5** , aby uruchomić skrypt demonstracyjny (wywołujący skrypt *Deploy-TenantAnalytics \<XX> . ps1* ), który tworzy magazyn analizy dzierżawców. 
 
 Teraz, gdy aplikacja została wdrożona i uzupełniona o interesujące dane dzierżawy, użyj [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) , aby połączyć program **tenants1 \<User\> -MT-** and **Catalog \<User\> -MT-** Server przy użyciu polecenia login = *Developer*, Password = *P \@ ssword1*.

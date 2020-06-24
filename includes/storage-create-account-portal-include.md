@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: storage
 author: tamram
 ms.service: storage
@@ -31,7 +31,7 @@ Aby utworzyć konto magazynu ogólnego przeznaczenia w wersji 2 w witrynie Azure
    |Pole  |Wartość  |
    |---------|---------|
    |Model wdrażania     |Resource Manager         |
-   |Wydajność     |Standardowa         |
+   |Wydajność     |Standardowa (Standard)         |
    |Rodzaj konta     |StorageV2 (ogólnego przeznaczenia wersja 2)         |
    |Replikacja     |Magazyn geograficznie nadmiarowy dostępny do odczytu (RA-GRS)         |
    |Warstwa dostępu     |Gorąca         |
