@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 04/30/2020
-ms.openlocfilehash: a2e80b9320509144456663672ac5ae03f522459a
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 1004f7fcc8ff93a170b724a6d8b1c2216b9c39b8
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735389"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726977"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Aktywność przepływu danych w Azure Data Factory
 
@@ -54,14 +54,14 @@ Użyj działania przepływu danych do przekształcania i przenoszenia danych za 
 
 ## <a name="type-properties"></a>Właściwości typu
 
-Właściwość | Opis | Dozwolone wartości | Wymagany
+Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
 przepływu danych | Odwołanie do przepływu danych, który jest wykonywany | DataFlowReference | Tak
-integrationRuntime | Środowisko obliczeniowe, w którym działa przepływ danych. Jeśli nie zostanie określony, zostanie użyta funkcja rozwiązywania problemów z rozwiązaniem Azure Integration Runtime. Obsługiwane są tylko środowisko Integration Runtime regionu do rozwiązywania problemów. | IntegrationRuntimeReference | Nie
+integrationRuntime | Środowisko obliczeniowe, w którym działa przepływ danych. Jeśli nie zostanie określony, zostanie użyta funkcja rozwiązywania problemów z rozwiązaniem Azure Integration Runtime. | IntegrationRuntimeReference | Nie
 COMPUTE. coreCount | Liczba rdzeni używanych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | 8, 16, 32, 48, 80, 144, 272 | Nie
 COMPUTE. computetype | Typ obliczeń użytych w klastrze Spark. Można określić tylko wtedy, gdy używane jest automatycznie rozwiązanie Azure Integration Runtime | "Ogólne", "ComputeOptimized", "MemoryOptimized" | Nie
 przemieszczanie. linkedService | Jeśli używasz źródła lub ujścia usługi SQL DW, konto magazynu używane na potrzeby przemieszczania podstawowego | LinkedServiceReference | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane do magazynu SQL
-przemieszczanie. folderPath | Jeśli używasz źródła lub ujścia usługi SQL DW, ścieżka folderu w ramach konta usługi BLOB Storage używanego do przemieszczania podstawowego | String | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane do magazynu SQL
+przemieszczanie. folderPath | Jeśli używasz źródła lub ujścia usługi SQL DW, ścieżka folderu w ramach konta usługi BLOB Storage używanego do przemieszczania podstawowego | Ciąg | Tylko wtedy, gdy przepływ danych odczytuje lub zapisuje dane do magazynu SQL
 
 ![Wykonaj przepływ danych](media/data-flow/activity-data-flow.png "Wykonaj przepływ danych")
 
@@ -75,7 +75,7 @@ Właściwości liczba rdzeni i typ obliczeń można skonfigurować dynamicznie, 
 
 ### <a name="data-flow-integration-runtime"></a>Środowisko Integration Runtime
 
-Wybierz Integration Runtime, które mają być używane do wykonywania działań przepływu danych. Domyślnie Data Factory będzie używać automatycznie rozwiązywania środowiska Azure Integration Runtime z czterema rdzeniami procesów roboczych i bez czasu wygaśnięcia (TTL). Ten IR ma typ obliczeń ogólnego przeznaczenia i działa w tym samym regionie, w którym znajduje się fabryka. Możesz tworzyć własne środowiska Azure Integration Runtime, które definiują określone regiony, typ obliczeń, liczniki rdzeni i czas wygaśnięcia dla wykonywania działania przepływu danych. W tej chwili działania przepływu danych obsługują tylko środowisko Integration Runtime (automatyczne rozwiązanie).
+Wybierz Integration Runtime, które mają być używane do wykonywania działań przepływu danych. Domyślnie Data Factory będzie używać automatycznie rozwiązywania środowiska Azure Integration Runtime z czterema rdzeniami procesów roboczych i bez czasu wygaśnięcia (TTL). Ten IR ma typ obliczeń ogólnego przeznaczenia i działa w tym samym regionie, w którym znajduje się fabryka. Możesz tworzyć własne środowiska Azure Integration Runtime, które definiują określone regiony, typ obliczeń, liczniki rdzeni i czas wygaśnięcia dla wykonywania działania przepływu danych.
 
 W przypadku wykonań potoku klaster jest klastrem zadań, co potrwa kilka minut, zanim uruchomienie zostanie rozpoczęte. Jeśli nie określono czasu wygaśnięcia, ten czas uruchamiania jest wymagany dla każdego uruchomienia potoku. W przypadku określenia czasu wygaśnięcia (TTL) w czasie określonym po ostatnim wykonaniu zostanie uaktywniona bezczynna Pula klastra, co spowoduje skrócenie czasu uruchomienia. Jeśli na przykład czas wygaśnięcia wynosi 60 minut i uruchomisz na nim przepływ danych raz na godzinę, Pula klastrów pozostanie aktywna. Aby uzyskać więcej informacji, zobacz [Azure Integration Runtime](concepts-integration-runtime.md).
 
@@ -148,12 +148,12 @@ Działanie przepływu danych wyprowadza metryki dotyczące liczby wierszy zapisa
 }
 ```
 
-Aby na przykład uzyskać dostęp do liczby wierszy zapisanych w zlewie o nazwie "sink1" w działaniu o nazwie "Dataflow", `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`Użyj elementu.
+Aby na przykład uzyskać dostęp do liczby wierszy zapisanych w zlewie o nazwie "sink1" w działaniu o nazwie "Dataflow", użyj elementu `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten` .
 
-Aby uzyskać informacje o liczbie wierszy odczytanych ze źródła o nazwie "source1", które zostały użyte w `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`tym ujścia, użyj.
+Aby uzyskać informacje o liczbie wierszy odczytanych ze źródła o nazwie "source1", które zostały użyte w tym ujścia, użyj `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead` .
 
 > [!NOTE]
-> Jeśli ujścia nie ma zapisanych wierszy, nie będzie wyświetlana w metrykach. Istnienie można zweryfikować przy użyciu `contains` funkcji. Program sprawdzi na `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` przykład, czy wszystkie wiersze zostały zapisaną w sink1.
+> Jeśli ujścia nie ma zapisanych wierszy, nie będzie wyświetlana w metrykach. Istnienie można zweryfikować przy użyciu `contains` funkcji. Program sprawdzi na przykład, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` czy wszystkie wiersze zostały zapisaną w sink1.
 
 ## <a name="next-steps"></a>Następne kroki
 

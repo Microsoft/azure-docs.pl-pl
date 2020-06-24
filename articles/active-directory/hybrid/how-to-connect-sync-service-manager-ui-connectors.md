@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ae932191c7b76590ea217386dfd729add5566f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261049"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690731"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Używanie łączników z synchronizacją Azure AD Connect Service Manager
 
@@ -37,7 +37,7 @@ Karta łączniki służy do zarządzania wszystkimi systemami, do których jest 
 | Właściwości |Używany do filtrowania domen i jednostek organizacyjnych. |
 | [Usuwanie](#delete) |Służy do usuwania danych w obszarze łącznika lub do usuwania połączenia z lasem. |
 | [Skonfiguruj profile uruchamiania](#configure-run-profiles) |Poza filtrowaniem domeny nic nie należy konfigurować. Za pomocą tej akcji można wyświetlić profile przebiegów, które zostały już skonfigurowane. |
-| Run |Służy do uruchamiania jednokrotnego przebiegu profilu. |
+| Uruchom |Służy do uruchamiania jednokrotnego przebiegu profilu. |
 | Stop |Wyłącza łącznik aktualnie z uruchomionym profilem. |
 | Eksportuj łącznik |Nie używaj. |
 | Importuj łącznik |Nie używaj. |
@@ -45,7 +45,7 @@ Karta łączniki służy do zarządzania wszystkimi systemami, do których jest 
 | Odśwież schemat |Odświeża buforowany schemat. Zamiast tego należy użyć opcji w Kreatorze instalacji, ponieważ powoduje to również aktualizację reguł synchronizacji. |
 | [Wyszukaj w obszarze łącznika](#search-connector-space) |Służy do znajdowania obiektów oraz do wykonywania działań w ramach obiektu i jego danych przez system. |
 
-### <a name="delete"></a>Usuwanie
+### <a name="delete"></a>Usuń
 Akcja usuwania jest używana dla dwóch różnych rzeczy.  
 ![Service Manager synchronizacji](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
@@ -88,7 +88,7 @@ Aby rozwiązać ten problem, zaktualizuj konto użytkownika AD DS przy użyciu n
 5. W podręcznym oknie dialogowym wybierz pozycję Połącz z lasem Active Directory:
 6. Nazwa lasu wskazuje odpowiedni dla lokalnej usługi AD.
 7. Nazwa użytkownika wskazuje konto AD DS używane na potrzeby synchronizacji.
-8. Wprowadź nowe hasło konta AD DS w polu tekstowym ![hasło Azure AD Connect narzędzia synchronizacji klucza szyfrowania](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
+8. Wprowadź nowe hasło konta AD DS w polu tekstowym hasło ![ Azure AD Connect narzędzia synchronizacji klucza szyfrowania](./media/how-to-connect-sync-service-manager-ui-connectors/key6.png)
 9. Kliknij przycisk OK, aby zapisać nowe hasło i ponownie uruchomić usługę synchronizacji, aby usunąć stare hasło z pamięci podręcznej pamięci.
 
 

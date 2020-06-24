@@ -8,18 +8,18 @@ author: asudbring
 manager: kumudD
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 8e79f4c791d0252c719846da3aa8024b0e622dca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a96e22ee8d2f9565ae676574e263beae96b5c1f2
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80477019"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809406"
 ---
 # <a name="load-balancer-health-probes"></a>Sondy kondycji usługi Load Balancer
 
@@ -118,7 +118,7 @@ Poniżej pokazano, jak można wyrazić ten rodzaj konfiguracji sondy w szablonie
       },
 ```
 
-### <a name="http--https-probe"></a><a name="httpprobe"></a><a name="httpsprobe"></a> Sonda protokołu HTTP/HTTPS
+### <a name="http--https-probe"></a><a name="httpprobe"></a><a name="httpsprobe"></a>Sonda protokołu HTTP/HTTPS
 
 >[!NOTE]
 >Sonda HTTPS jest dostępna tylko dla [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md).
@@ -130,7 +130,7 @@ Sondy protokołu HTTP/HTTPS mogą również być przydatne do implementowania w�
 > [!NOTE] 
 > Sonda HTTPS wymaga użycia certyfikatów opartych na minimalnym skrócie podpisu SHA256 w całym łańcuchu.
 
-Jeśli używasz Cloud Services i masz role sieci Web korzystające z programu w3wp. exe, możesz również uzyskać automatyczne monitorowanie witryny sieci Web. Błędy w kodzie witryny sieci Web zwracają stan inny niż 200 do sondy usługi równoważenia obciążenia.
+Jeśli używasz Cloud Services i masz role sieci Web, które używają w3wp.exe, możesz również uzyskać automatyczne monitorowanie witryny sieci Web. Błędy w kodzie witryny sieci Web zwracają stan inny niż 200 do sondy usługi równoważenia obciążenia.
 
 Sonda protokołu HTTP/HTTPS kończy się niepowodzeniem w przypadku:
 * Punkt końcowy sondy zwraca kod odpowiedzi HTTP inny niż 200 (na przykład 403, 404 lub 500). Spowoduje to natychmiastowe oznaczenie sondy kondycji. 
@@ -175,7 +175,7 @@ Jeśli Agent gościa nie odpowie przy użyciu protokołu HTTP 200 OK, moduł ró
 
 Jeśli Agent gościa odpowie przy użyciu protokołu HTTP 200, moduł równoważenia obciążenia ponownie wysyła Nowe przepływy do tego wystąpienia.
 
-W przypadku korzystania z roli sieci Web kod witryny sieci Web jest zwykle uruchamiany w programie w3wp. exe, który nie jest monitorowany przez sieć szkieletową platformy Azure ani agenta gościa. Błędy w w3wp. exe (na przykład odpowiedzi HTTP 500) nie są raportowane agentowi gościa. W związku z tym moduł równoważenia obciążenia nie przeprowadzi tego wystąpienia z obrotu.
+W przypadku korzystania z roli sieci Web kod witryny sieci Web jest zwykle uruchamiany w w3wp.exe, który nie jest monitorowany przez sieć szkieletową platformy Azure ani agenta gościa. Błędy w w3wp.exe (na przykład odpowiedzi HTTP 500) nie są raportowane agentowi gościa. W związku z tym moduł równoważenia obciążenia nie przeprowadzi tego wystąpienia z obrotu.
 
 <a name="health"></a>
 ## <a name="probe-up-behavior"></a><a name="probehealth"></a>Zachowanie sondowania

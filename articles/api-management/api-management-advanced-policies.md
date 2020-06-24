@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 388f05c2af1516a0477392f37763a0480c7ad413
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b17b7784691cdf38c45e4f306b2ed14b981a2d7
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128828"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751261"
 ---
 # <a name="api-management-advanced-policies"></a>Zaawansowane zasady usługi API Management
 
@@ -43,7 +43,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 
 ## <a name="control-flow"></a><a name="choose"></a>Przepływ sterowania
 
-`choose` Zasady stosują się do załączonych instrukcji zasad na podstawie wyniku oceny wyrażeń logicznych, podobnie jak konstrukcja if-then-else lub Switch w języku programowania.
+`choose`Zasady stosują się do załączonych instrukcji zasad na podstawie wyniku oceny wyrażeń logicznych, podobnie jak konstrukcja if-then-else lub Switch w języku programowania.
 
 ### <a name="policy-statement"></a><a name="ChoosePolicyStatement"></a>Instrukcja zasad
 
@@ -61,7 +61,7 @@ Ten temat zawiera informacje dotyczące następujących zasad API Management. Ab
 </choose>
 ```
 
-Zasady przepływu sterowania muszą zawierać co najmniej jeden `<when/>` element. `<otherwise/>` Element jest opcjonalny. Warunki w `<when/>` elementach są oceniane w kolejności ich wyglądu w ramach zasad. Deklaracje zasad ujęte w pierwszym `<when/>` elemencie z atrybutem Condition Equals `true` zostaną zastosowane. Zasady zawarte w `<otherwise/>` elemencie (jeśli istnieją) będą stosowane, jeśli wszystkie atrybuty warunku `<when/>` elementu są `false`.
+Zasady przepływu sterowania muszą zawierać co najmniej jeden `<when/>` element. `<otherwise/>`Element jest opcjonalny. Warunki w `<when/>` elementach są oceniane w kolejności ich wyglądu w ramach zasad. Deklaracje zasad ujęte w pierwszym `<when/>` elemencie z atrybutem Condition Equals `true` zostaną zastosowane. Zasady zawarte w `<otherwise/>` elemencie (jeśli istnieją) będą stosowane, jeśli wszystkie `<when/>` atrybuty warunku elementu są `false` .
 
 ### <a name="examples"></a>Przykłady
 
@@ -69,11 +69,11 @@ Zasady przepływu sterowania muszą zawierać co najmniej jeden `<when/>` elemen
 
 Poniższy przykład ilustruje zasady [zestawu zmiennych](api-management-advanced-policies.md#set-variable) i dwie zasady przepływu sterowania.
 
-Zasada Ustawianie zmiennej znajduje się w sekcji przychodzące i tworzy `isMobile` zmienną [kontekstu](api-management-policy-expressions.md#ContextVariables) logicznego, która ma wartość true, jeśli nagłówek `User-Agent` żądania zawiera tekst `iPad` lub. `iPhone`
+Zasada Ustawianie zmiennej znajduje się w sekcji przychodzące i tworzy `isMobile` zmienną [kontekstu](api-management-policy-expressions.md#ContextVariables) logicznego, która ma wartość true, jeśli `User-Agent` nagłówek żądania zawiera tekst `iPad` lub `iPhone` .
 
-Zasady pierwszego przepływu sterowania są również w sekcji przychodzące i warunkowo stosuje jedną z dwóch [ustawionych zasad parametrów ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) w zależności od wartości zmiennej `isMobile` kontekstowej.
+Zasady pierwszego przepływu sterowania są również w sekcji przychodzące i warunkowo stosuje jedną z dwóch [ustawionych zasad parametrów ciągu zapytania](api-management-transformation-policies.md#SetQueryStringParameter) w zależności od wartości `isMobile` zmiennej kontekstowej.
 
-Zasada drugiego przepływu sterowania znajduje się w sekcji wychodzące i warunkowo stosuje zasady [Konwertuj XML do JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) , `isMobile` gdy jest ustawiony `true`na.
+Zasada drugiego przepływu sterowania znajduje się w sekcji wychodzące i warunkowo stosuje zasady [Konwertuj XML do JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) , gdy `isMobile` jest ustawiony na `true` .
 
 ```xml
 <policies>
@@ -106,7 +106,7 @@ Zasada drugiego przepływu sterowania znajduje się w sekcji wychodzące i warun
 
 #### <a name="example"></a>Przykład
 
-Ten przykład pokazuje, jak wykonywać filtrowanie zawartości przez usunięcie elementów danych z odpowiedzi otrzymanej z usługi wewnętrznej bazy wiedzy podczas korzystania `Starter` z produktu. Aby zapoznać się z prezentacją konfigurowania i korzystania z tych zasad, zobacz temat [Cloud okładki epizod 177: więcej API Management funkcji z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przekazanie do 34:30. Zacznij od 31:50, aby zapoznać się z omówieniem [interfejsu API prognozowania ciemnej przestrzeniki](https://developer.forecast.io/) używanej w tej wersji demonstracyjnej.
+Ten przykład pokazuje, jak wykonywać filtrowanie zawartości przez usunięcie elementów danych z odpowiedzi otrzymanej z usługi wewnętrznej bazy wiedzy podczas korzystania z `Starter` produktu. Aby zapoznać się z prezentacją konfigurowania i korzystania z tych zasad, zobacz temat [Cloud okładki epizod 177: więcej API Management funkcji z Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) i szybkie przekazanie do 34:30. Zacznij od 31:50, aby zapoznać się z omówieniem [interfejsu API prognozowania ciemnej przestrzeniki](https://developer.forecast.io/) używanej w tej wersji demonstracyjnej.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -126,17 +126,17 @@ Ten przykład pokazuje, jak wykonywać filtrowanie zawartości przez usunięcie 
 
 ### <a name="elements"></a>Elementy
 
-| Element   | Opis                                                                                                                                                                                                                                                               | Wymagany |
+| Element   | Opis                                                                                                                                                                                                                                                               | Wymagane |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | następnie    | Element główny.                                                                                                                                                                                                                                                             | Tak      |
-| czasie      | Warunek, który ma być używany `if` dla `ifelse` lub części `choose` zasad. Jeśli `choose` zasady zawierają wiele `when` sekcji, są oceniane sekwencyjnie. `condition` Gdy element elementu when ma `true`wartość, nie są oceniane żadne dalsze `when` warunki. | Tak      |
-| przypadku | Zawiera fragment kodu zasad, który ma być używany, jeśli `when` nie ma żadnych `true`warunków do obliczenia.                                                                                                                                                                               | Nie       |
+| czasie      | Warunek, który ma być używany dla `if` lub `ifelse` części `choose` zasad. Jeśli `choose` zasady zawierają wiele `when` sekcji, są oceniane sekwencyjnie. Gdy `condition` element elementu when ma wartość `true` , nie są oceniane żadne dalsze `when` warunki. | Tak      |
+| przypadku | Zawiera fragment kodu zasad, który ma być używany, jeśli nie `when` ma żadnych warunków do obliczenia `true` .                                                                                                                                                                               | Nie       |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut                                              | Opis                                                                                               | Wymagany |
+| Atrybut                                              | Opis                                                                                               | Wymagane |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| warunek = "wyrażenie logiczne &#124; stałej logicznej" | Wyrażenie logiczne lub stała do oceny, gdy zostanie oceniona zawierająca `when` ją instrukcja Policy. | Tak      |
+| warunek = "wyrażenie logiczne &#124; stałej logicznej" | Wyrażenie logiczne lub stała do oceny, gdy `when` zostanie oceniona zawierająca ją instrukcja Policy. | Tak      |
 
 ### <a name="usage"></a><a name="ChooseUsage"></a>Wykorzystywani
 
@@ -148,7 +148,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="forward-request"></a><a name="ForwardRequest"></a>Prześlij żądanie dalej
 
-`forward-request` Zasady przesyłają żądanie przychodzące do usługi wewnętrznej bazy danych określonej w [kontekście](api-management-policy-expressions.md#ContextVariables)żądania. Adres URL usługi wewnętrznej bazy danych jest określony w [ustawieniach](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) interfejsu API i można go zmienić przy użyciu zasad dla [Ustawienia usługi zaplecza](api-management-transformation-policies.md) .
+`forward-request`Zasady przesyłają żądanie przychodzące do usługi wewnętrznej bazy danych określonej w [kontekście](api-management-policy-expressions.md#ContextVariables)żądania. Adres URL usługi wewnętrznej bazy danych jest określony w [ustawieniach](https://azure.microsoft.com/documentation/articles/api-management-howto-create-apis/#configure-api-settings) interfejsu API i można go zmienić przy użyciu zasad dla [Ustawienia usługi zaplecza](api-management-transformation-policies.md) .
 
 > [!NOTE]
 > Usunięcie tych zasad spowoduje, że żądanie nie zostanie przekazane do usługi wewnętrznej bazy danych, a zasady w sekcji wychodzącej są oceniane natychmiast po pomyślnym zakończeniu zasad w sekcji przychodzące.
@@ -244,20 +244,20 @@ Te zasady poziomu operacji nie przesyłają dalej żądań do usługi wewnętrzn
 
 ### <a name="elements"></a>Elementy
 
-| Element         | Opis   | Wymagany |
+| Element         | Opis   | Wymagane |
 | --------------- | ------------- | -------- |
 | Prześlij dalej żądania | Element główny. | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut                                     | Opis                                                                                                                                                                                                                                                                                                    | Wymagany | Domyślny |
+| Atrybut                                     | Opis                                                                                                                                                                                                                                                                                                    | Wymagane | Domyślne |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | Timeout = "Integer"                             | Czas (w sekundach) oczekiwania na zwrócenie nagłówków odpowiedzi HTTP przez usługę zaplecza przed podjęciem błędu limitu czasu. Wartość minimalna to 0 s. Wartości większe niż 240 sekund mogą nie być honorowane, ponieważ źródłowa infrastruktura sieciowa może porzucić bezczynne połączenia po tym czasie. | Nie       | Brak    |
 | Postępuj zgodnie z przekierowaniami = "false &#124; true"          | Określa, czy przekierowania z usługi wewnętrznej bazy danych następuje przez bramę, czy zwracane do obiektu wywołującego.                                                                                                                                                                                                    | Nie       | fałsz   |
 | buffer-Request-Body = "false &#124; true"       | Kiedy wartość "true" żądania jest buforowana i zostanie ponownie użyta podczas [ponawiania](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | Nie       | fałsz   |
 | Niepowodzenie-w-Error-status-Code = "false &#124; true" | Po ustawieniu na wartość true Wyzwalaj [w sekcji Error](api-management-error-handling-policies.md) dla kodów odpowiedzi z zakresu od 400 do 599 włącznie.                                                                                                                                                                      | Nie       | fałsz   |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -266,7 +266,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="limit-concurrency"></a><a name="LimitConcurrency"></a>Ogranicz współbieżność
 
-Zasady `limit-concurrency` te uniemożliwiają wykonywanie zawartych zasad przez więcej niż określoną liczbę żądań w dowolnym momencie. Po przekroczeniu tej liczby nowe żądania będą natychmiast kończyć się niepowodzeniem z 429 zbyt dużą liczbą żądań w kodzie stanu.
+`limit-concurrency`Zasady te uniemożliwiają wykonywanie zawartych zasad przez więcej niż określoną liczbę żądań w dowolnym momencie. Po przekroczeniu tej liczby nowe żądania będą natychmiast kończyć się niepowodzeniem z 429 zbyt dużą liczbą żądań w kodzie stanu.
 
 ### <a name="policy-statement"></a><a name="LimitConcurrencyStatement"></a>Instrukcja zasad
 
@@ -288,7 +288,7 @@ W poniższym przykładzie pokazano, jak ograniczyć liczbę żądań przesyłany
   <backend>
     <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
-    <limit-concurrency/>
+    </limit-concurrency>
   </backend>
   <outbound>…</outbound>
 </policies>
@@ -296,18 +296,18 @@ W poniższym przykładzie pokazano, jak ograniczyć liczbę żądań przesyłany
 
 ### <a name="elements"></a>Elementy
 
-| Element           | Opis   | Wymagany |
+| Element           | Opis   | Wymagane |
 | ----------------- | ------------- | -------- |
 | Ograniczanie współbieżności | Element główny. | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                        | Wymagany | Domyślny |
+| Atrybut | Opis                                                                                        | Wymagane | Domyślne |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
 | key       | Ciąg. Wyrażenie jest dozwolone. Określa zakres współbieżności. Mogą być współużytkowane przez wiele zasad. | Tak      | Nie dotyczy     |
 | Max-Count | Liczba całkowita. Określa maksymalną liczbę żądań, które mogą wejść do zasad.           | Tak      | Nie dotyczy     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -317,7 +317,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="log-to-event-hub"></a><a name="log-to-eventhub"></a>Logowanie do centrum zdarzeń
 
-`log-to-eventhub` Zasady wysyłają komunikaty w określonym formacie do centrum zdarzeń zdefiniowanego przez jednostkę rejestratora. Zgodnie z jego nazwą, zasady są używane do zapisywania informacji o wybranym żądaniu lub kontekście odpowiedzi dla analizy w trybie online lub offline.
+`log-to-eventhub`Zasady wysyłają komunikaty w określonym formacie do centrum zdarzeń zdefiniowanego przez jednostkę rejestratora. Zgodnie z jego nazwą, zasady są używane do zapisywania informacji o wybranym żądaniu lub kontekście odpowiedzi dla analizy w trybie online lub offline.
 
 > [!NOTE]
 > Przewodnik krok po kroku dotyczący konfigurowania zdarzeń centrum zdarzeń i rejestrowania można znaleźć w temacie [How to log API Management Events with Azure Event Hubs](https://azure.microsoft.com/documentation/articles/api-management-howto-log-event-hubs/).
@@ -349,19 +349,19 @@ Dowolny ciąg może być używany jako wartość, która ma być zalogowana Even
 
 ### <a name="elements"></a>Elementy
 
-| Element         | Opis                                                                     | Wymagany |
+| Element         | Opis                                                                     | Wymagane |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
 | Logowanie do centrum eventhub | Element główny. Wartość tego elementu jest ciągiem, który ma być zalogowany do centrum zdarzeń. | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut     | Opis                                                               | Wymagany                                                             |
+| Atrybut     | Opis                                                               | Wymagane                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | Identyfikator rejestratora     | Identyfikator rejestratora zarejestrowanego w usłudze API Management.         | Tak                                                                  |
 | Identyfikator partycji  | Określa indeks partycji, w której będą wysyłane wiadomości.             | Opcjonalny. Tego atrybutu nie można użyć, jeśli `partition-key` jest używany. |
 | klucz partycji | Określa wartość używaną do przypisywania partycji podczas wysyłania wiadomości. | Opcjonalny. Tego atrybutu nie można użyć, jeśli `partition-id` jest używany.  |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -394,18 +394,18 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementy
 
-| Element       | Opis   | Wymagany |
+| Element       | Opis   | Wymagane |
 | ------------- | ------------- | -------- |
 | makieta — odpowiedź | Element główny. | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut    | Opis                                                                                           | Wymagany | Domyślny |
+| Atrybut    | Opis                                                                                           | Wymagane | Domyślne |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | stan — kod  | Określa kod stanu odpowiedzi i służy do wybierania odpowiedniego przykładu lub schematu.                 | Nie       | 200     |
 | Typ zawartości | Określa `Content-Type` wartość nagłówka odpowiedzi i służy do wybierania odpowiedniego przykładu lub schematu. | Nie       | Brak    |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -415,7 +415,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="retry"></a><a name="Retry"></a>Spróbuj ponownie wykonać
 
-Zasady `retry` te wykonują zasady podrzędne raz, a następnie ponawiają próbę wykonania, `condition` dopóki `false` nie zostanie `count` ponowiona lub nie zostanie ponowiona.
+Zasady te wykonują `retry` zasady podrzędne raz, a następnie ponawiają próbę wykonania, dopóki nie zostanie ponowiona `condition` `false` lub nie zostanie ponowiona `count` .
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -453,27 +453,27 @@ W poniższym przykładzie przekazanie żądania jest ponawiane do dziesięciu ra
 
 ### <a name="elements"></a>Elementy
 
-| Element | Opis                                                         | Wymagany |
+| Element | Opis                                                         | Wymagane |
 | ------- | ------------------------------------------------------------------- | -------- |
 | retry   | Element główny. Mogą zawierać inne zasady jako elementy podrzędne. | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut        | Opis                                                                                                                                           | Wymagany | Domyślny |
+| Atrybut        | Opis                                                                                                                                           | Wymagane | Domyślne |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| rozgrzewa        | Literał logiczny lub [wyrażenie](api-management-policy-expressions.md) określające, czy ponawianie próby powinno zostać`false`zatrzymane ()`true`lub ciąg ().      | Tak      | Nie dotyczy     |
+| rozgrzewa        | Literał logiczny lub [wyrażenie](api-management-policy-expressions.md) określające, czy ponawianie próby powinno zostać zatrzymane ( `false` ) lub ciąg ( `true` ).      | Tak      | Nie dotyczy     |
 | count            | Liczba dodatnia określająca maksymalną liczbę ponownych prób.                                                                                | Tak      | Nie dotyczy     |
 | interval         | Dodatnia liczba sekund określająca interwał oczekiwania między ponownymi próbami.                                                                 | Tak      | Nie dotyczy     |
 | Max — interwał     | Dodatnia liczba sekund określająca maksymalny interwał oczekiwania między ponownymi próbami. Służy do implementowania algorytmu ponowień wykładniczych. | Nie       | Nie dotyczy     |
 | powstanie            | Dodatnia liczba sekund określająca przyrost interwału oczekiwania. Służy do implementowania algorytmów ponawiania liniowego i wykładniczego.             | Nie       | Nie dotyczy     |
-| pierwszy — szybko ponów próbę | Jeśli jest ustawiona `true` na, pierwsza próba ponowienia zostanie wykonana natychmiast.                                                                                  | Nie       | `false` |
+| pierwszy — szybko ponów próbę | Jeśli jest ustawiona na `true` , pierwsza próba ponowienia zostanie wykonana natychmiast.                                                                                  | Nie       | `false` |
 
 > [!NOTE]
-> Gdy jest określona `interval` tylko wartość, zostanie wykonany ponowna próba interwału **stałego** .
-> Gdy tylko `interval` i `delta` są określone, jest używany algorytm ponawiania interwału, w którym czas oczekiwania między ponownymi próbami jest obliczany zgodnie z poniższą formułą. **linear** `interval + (count - 1)*delta`
-> Gdy `interval`, `max-interval` i `delta` są określone, algorytm ponawiania interwałów **wykładniczych** jest stosowany, gdzie czas oczekiwania między ponownymi próbami rośnie wykładniczo od wartości `interval` do wartości `max-interval` zgodnie z poniższą formułą. `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`
+> Gdy `interval` jest określona tylko wartość, zostanie wykonany ponowna próba interwału **stałego** .
+> Gdy tylko `interval` i `delta` są określone, jest używany **linear** algorytm ponawiania interwału, w którym czas oczekiwania między ponownymi próbami jest obliczany zgodnie z poniższą formułą `interval + (count - 1)*delta` .
+> Gdy `interval` , `max-interval` i `delta` są określone, algorytm ponawiania interwałów **wykładniczych** jest stosowany, gdzie czas oczekiwania między ponownymi próbami rośnie wykładniczo od wartości `interval` do wartości zgodnie z `max-interval` poniższą formułą `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)` .
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) zasad. Należy zauważyć, że ograniczenia użycia zasad podrzędnych będą dziedziczone przez te zasady.
 
@@ -483,7 +483,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="return-response"></a><a name="ReturnResponse"></a>Odpowiedź zwrócona
 
-`return-response` Zasady przerywają wykonywanie potoku i zwracają domyślną lub niestandardową odpowiedź do obiektu wywołującego. Odpowiedź domyślna to `200 OK` bez treści. Niestandardową odpowiedź można określić za pomocą zmiennej kontekstowej lub instrukcji zasad. Gdy są podane oba, odpowiedzi zawarte w zmiennej kontekstowej są modyfikowane przez instrukcje zasad przed zwróceniem do obiektu wywołującego.
+`return-response`Zasady przerywają wykonywanie potoku i zwracają domyślną lub niestandardową odpowiedź do obiektu wywołującego. Odpowiedź domyślna to `200 OK` bez treści. Niestandardową odpowiedź można określić za pomocą zmiennej kontekstowej lub instrukcji zasad. Gdy są podane oba, odpowiedzi zawarte w zmiennej kontekstowej są modyfikowane przez instrukcje zasad przed zwróceniem do obiektu wywołującego.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -510,7 +510,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ### <a name="elements"></a>Elementy
 
-| Element         | Opis                                                                               | Wymagany |
+| Element         | Opis                                                                               | Wymagane |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | odpowiedź zwrotna | Element główny.                                                                             | Tak      |
 | Set-header      | Instrukcja zasad [Set-header](api-management-transformation-policies.md#SetHTTPheader) . | Nie       |
@@ -519,11 +519,11 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut              | Opis                                                                                                                                                                          | Wymagany  |
+| Atrybut              | Opis                                                                                                                                                                          | Wymagane  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | odpowiedź-zmienna-nazwa | Nazwa zmiennej kontekstowej, do której odwołuje się, na przykład nadrzędne zasady [wysyłania](api-management-advanced-policies.md#SendRequest) i zawierający `Response` obiekt | Opcjonalny. |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -533,7 +533,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="send-one-way-request"></a><a name="SendOneWayRequest"></a>Wyślij jednokierunkowe żądanie
 
-`send-one-way-request` Zasady wysyłają podane żądanie do określonego adresu URL bez oczekiwania na odpowiedź.
+`send-one-way-request`Zasady wysyłają podane żądanie do określonego adresu URL bez oczekiwania na odpowiedź.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -580,24 +580,24 @@ Te przykładowe zasady przedstawiają przykład użycia `send-one-way-request` z
 
 ### <a name="elements"></a>Elementy
 
-| Element                    | Opis                                                                                                 | Wymagany                        |
+| Element                    | Opis                                                                                                 | Wymagane                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | Wyślij-jednokierunkowe-żądanie       | Element główny.                                                                                               | Tak                             |
 | url                        | Adres URL żądania.                                                                                     | Nie, jeśli tryb = Copy; w przeciwnym razie. |
 | method                     | Metoda HTTP dla żądania.                                                                            | Nie, jeśli tryb = Copy; w przeciwnym razie. |
-| nagłówek                     | Nagłówek żądania. Użyj wielu elementów nagłówka dla wielu nagłówków żądań.                                  | Nie                              |
+| header                     | Nagłówek żądania. Użyj wielu elementów nagłówka dla wielu nagłówków żądań.                                  | Nie                              |
 | body                       | Treść żądania.                                                                                           | Nie                              |
 | Uwierzytelnianie — certyfikat | [Certyfikat do użycia na potrzeby uwierzytelniania klientów](api-management-authentication-policies.md#ClientCertificate) | Nie                              |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut     | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagany | Domyślny  |
+| Atrybut     | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | Mode = "String" | Określa, czy jest to nowe żądanie, czy kopię bieżącego żądania. W trybie wychodzącym tryb = Copy nie inicjuje treści żądania.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nie       | Nowa      |
 | name          | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Nie dotyczy      |
-| Istnieje — akcja | Określa akcję, która ma zostać podjęta, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego nagłówka.<br />-Skip — nie zastępuje istniejącej wartości nagłówka.<br />-Append-dołącza wartość do istniejącej wartości nagłówka.<br />-DELETE — usuwa nagłówek z żądania.<br /><br /> Gdy ustawione na `override` rejestrowanie wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wymienione wartości. | Nie       | override |
+| Istnieje — akcja | Określa akcję, która ma zostać podjęta, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego nagłówka.<br />-Skip — nie zastępuje istniejącej wartości nagłówka.<br />-Append-dołącza wartość do istniejącej wartości nagłówka.<br />-DELETE — usuwa nagłówek z żądania.<br /><br /> Gdy ustawione na `override` Rejestrowanie wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wartości wyświetlane. | Nie       | override |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -607,7 +607,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="send-request"></a><a name="SendRequest"></a>Wyślij żądanie
 
-`send-request` Zasady wysyłają podane żądanie do określonego adresu URL, co nie przekracza wartości limitu czasu.
+`send-request`Zasady wysyłają podane żądanie do określonego adresu URL, co nie przekracza wartości limitu czasu.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -664,27 +664,27 @@ Ten przykład pokazuje jeden ze sposobów na zweryfikowanie tokenu odwołania z 
 
 ### <a name="elements"></a>Elementy
 
-| Element                    | Opis                                                                                                 | Wymagany                        |
+| Element                    | Opis                                                                                                 | Wymagane                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | Wyślij żądanie               | Element główny.                                                                                               | Tak                             |
 | url                        | Adres URL żądania.                                                                                     | Nie, jeśli tryb = Copy; w przeciwnym razie. |
 | method                     | Metoda HTTP dla żądania.                                                                            | Nie, jeśli tryb = Copy; w przeciwnym razie. |
-| nagłówek                     | Nagłówek żądania. Użyj wielu elementów nagłówka dla wielu nagłówków żądań.                                  | Nie                              |
+| header                     | Nagłówek żądania. Użyj wielu elementów nagłówka dla wielu nagłówków żądań.                                  | Nie                              |
 | body                       | Treść żądania.                                                                                           | Nie                              |
 | Uwierzytelnianie — certyfikat | [Certyfikat do użycia na potrzeby uwierzytelniania klientów](api-management-authentication-policies.md#ClientCertificate) | Nie                              |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut                       | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagany | Domyślny  |
+| Atrybut                       | Opis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Wymagane | Domyślne  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | Mode = "String"                   | Określa, czy jest to nowe żądanie, czy kopię bieżącego żądania. W trybie wychodzącym tryb = Copy nie inicjuje treści żądania.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Nie       | Nowa      |
 | odpowiedź-Zmienna-name = "String" | Nazwa zmiennej kontekstowej, która będzie odbierać obiekt odpowiedzi. Jeśli zmienna nie istnieje, zostanie utworzona po pomyślnym wykonaniu zasad i stanie się dostępna za pośrednictwem [`context.Variable`](api-management-policy-expressions.md#ContextVariables) kolekcji.                                                                                                                                                                                                                                                                                                                          | Tak      | Nie dotyczy      |
 | Timeout = "Integer"               | Interwał limitu czasu (w sekundach), po którym wywołanie adresu URL nie powiedzie się.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Nie       | 60       |
 | Ignoruj-błąd                    | Jeśli wartość jest równa true, a żądanie powoduje błąd:<br /><br /> -Jeśli określono odpowiedź-Variable-Name, będzie zawierać wartość null.<br />-Jeśli odpowiedź-Zmienna-name nie została określona, Context. Żądanie nie zostanie zaktualizowane.                                                                                                                                                                                                                                                                                                                                                                                   | Nie       | fałsz    |
 | name                            | Określa nazwę nagłówka, która ma zostać ustawiona.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Tak      | Nie dotyczy      |
-| Istnieje — akcja                   | Określa akcję, która ma zostać podjęta, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego nagłówka.<br />-Skip — nie zastępuje istniejącej wartości nagłówka.<br />-Append-dołącza wartość do istniejącej wartości nagłówka.<br />-DELETE — usuwa nagłówek z żądania.<br /><br /> Gdy ustawione na `override` rejestrowanie wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wymienione wartości. | Nie       | override |
+| Istnieje — akcja                   | Określa akcję, która ma zostać podjęta, gdy nagłówek jest już określony. Ten atrybut musi mieć jedną z następujących wartości.<br /><br /> -override — zastępuje wartość istniejącego nagłówka.<br />-Skip — nie zastępuje istniejącej wartości nagłówka.<br />-Append-dołącza wartość do istniejącej wartości nagłówka.<br />-DELETE — usuwa nagłówek z żądania.<br /><br /> Gdy ustawione na `override` Rejestrowanie wielu wpisów o tej samej nazwie powoduje, że nagłówek jest ustawiany zgodnie ze wszystkimi wpisami (które zostaną wyświetlone wiele razy); w wyniku zostaną ustawione tylko wartości wyświetlane. | Nie       | override |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -694,7 +694,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="set-http-proxy"></a><a name="SetHttpProxy"></a>Ustaw serwer proxy HTTP
 
-`proxy` Zasady umożliwiają kierowanie żądań przesyłanych do frontonu za pośrednictwem serwera proxy HTTP. Między bramą i serwerem proxy obsługiwane są tylko protokół HTTP (nie HTTPS). Tylko uwierzytelnianie podstawowe i NTLM.
+`proxy`Zasady umożliwiają kierowanie żądań przesyłanych do frontonu za pośrednictwem serwera proxy HTTP. Między bramą i serwerem proxy obsługiwane są tylko protokół HTTP (nie HTTPS). Tylko uwierzytelnianie podstawowe i NTLM.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -714,19 +714,19 @@ Zwróć uwagę na użycie [Właściwości](api-management-howto-properties.md) j
 
 ### <a name="elements"></a>Elementy
 
-| Element | Opis  | Wymagany |
+| Element | Opis  | Wymagane |
 | ------- | ------------ | -------- |
 | proxy   | Element główny | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut         | Opis                                            | Wymagany | Domyślny |
+| Atrybut         | Opis                                            | Wymagane | Domyślne |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| URL = "String"      | Adres URL serwera proxy w postaci http://host:port.             | Tak      | Nie dotyczy     |
+| URL = "String"      | Adres URL serwera proxy w postaci http://host:port .             | Tak      | Nie dotyczy     |
 | username = "String" | Nazwa użytkownika, która ma być używana na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Nie dotyczy     |
 | Password = "String" | Hasło, które ma być używane na potrzeby uwierzytelniania z serwerem proxy. | Nie       | Nie dotyczy     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -736,7 +736,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="set-request-method"></a><a name="SetRequestMethod"></a>Ustaw metodę żądania
 
-`set-method` Zasady umożliwiają zmianę metody żądania HTTP dla żądania.
+`set-method`Zasady umożliwiają zmianę metody żądania HTTP dla żądania.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -747,7 +747,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ### <a name="example"></a>Przykład
 
-Ta przykładowa zasada korzystająca `set-method` z zasad pokazuje przykład wysyłania komunikatu do pokoju rozmów zapasowych, jeśli kod odpowiedzi HTTP jest większy lub równy 500. Aby uzyskać więcej informacji na temat tego przykładu, zobacz [Korzystanie z usług zewnętrznych z usługi Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
+Ta przykładowa zasada korzystająca z `set-method` zasad pokazuje przykład wysyłania komunikatu do pokoju rozmów zapasowych, jeśli kod odpowiedzi HTTP jest większy lub równy 500. Aby uzyskać więcej informacji na temat tego przykładu, zobacz [Korzystanie z usług zewnętrznych z usługi Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-send-request/).
 
 ```xml
 <choose>
@@ -777,11 +777,11 @@ Ta przykładowa zasada korzystająca `set-method` z zasad pokazuje przykład wys
 
 ### <a name="elements"></a>Elementy
 
-| Element    | Opis                                                       | Wymagany |
+| Element    | Opis                                                       | Wymagane |
 | ---------- | ----------------------------------------------------------------- | -------- |
 | Set-Method | Element główny. Wartość elementu określa metodę HTTP. | Tak      |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -791,7 +791,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="set-status-code"></a><a name="SetStatus"></a>Ustaw kod stanu
 
-`set-status` Zasada ustawia kod stanu HTTP na określoną wartość.
+`set-status`Zasada ustawia kod stanu HTTP na określoną wartość.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -820,18 +820,18 @@ Ten przykład pokazuje, jak zwrócić odpowiedź 401, jeśli token autoryzacji j
 
 ### <a name="elements"></a>Elementy
 
-| Element    | Opis   | Wymagany |
+| Element    | Opis   | Wymagane |
 | ---------- | ------------- | -------- |
 | Set-status | Element główny. | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut       | Opis                                                | Wymagany | Domyślny |
+| Atrybut       | Opis                                                | Wymagane | Domyślne |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
 | Code = "Integer"  | Kod stanu HTTP do zwrócenia.                            | Tak      | Nie dotyczy     |
 | Przyczyna = "ciąg" | Opis przyczyny zwrócenia kodu stanu. | Tak      | Nie dotyczy     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -840,7 +840,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="set-variable"></a><a name="set-variable"></a>Ustaw zmienną
 
-`set-variable` Zasady deklarują zmienną [kontekstową](api-management-policy-expressions.md#ContextVariables) i przypisuje jej wartość określoną za pośrednictwem [wyrażenia](api-management-policy-expressions.md) lub literału ciągu. Jeśli wyrażenie zawiera literał, zostanie on przekonwertowany na ciąg, a typ wartości będzie `System.String`.
+`set-variable`Zasady deklarują zmienną [kontekstową](api-management-policy-expressions.md#ContextVariables) i przypisuje jej wartość określoną za pośrednictwem [wyrażenia](api-management-policy-expressions.md) lub literału ciągu. Jeśli wyrażenie zawiera literał, zostanie on przekonwertowany na ciąg, a typ wartości będzie `System.String` .
 
 ### <a name="policy-statement"></a><a name="set-variablePolicyStatement"></a>Instrukcja zasad
 
@@ -850,7 +850,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ### <a name="example"></a><a name="set-variableExample"></a>Przyklad
 
-Poniższy przykład ilustruje Ustawianie zmiennych zasad w sekcji przychodzące. Ten zestaw zasad zmiennych tworzy zmienną `isMobile` [kontekstu](api-management-policy-expressions.md#ContextVariables) logicznego, która ma wartość true, jeśli `User-Agent` nagłówek żądania zawiera tekst `iPad` lub. `iPhone`
+Poniższy przykład ilustruje Ustawianie zmiennych zasad w sekcji przychodzące. Ten zestaw zasad zmiennych tworzy `isMobile` zmienną [kontekstu](api-management-policy-expressions.md#ContextVariables) logicznego, która ma wartość true, jeśli `User-Agent` nagłówek żądania zawiera tekst `iPad` lub `iPhone` .
 
 ```xml
 <set-variable name="IsMobile" value="@(context.Request.Headers["User-Agent"].Contains("iPad") || context.Request.Headers["User-Agent"].Contains("iPhone"))" />
@@ -858,18 +858,18 @@ Poniższy przykład ilustruje Ustawianie zmiennych zasad w sekcji przychodzące.
 
 ### <a name="elements"></a>Elementy
 
-| Element      | Opis   | Wymagany |
+| Element      | Opis   | Wymagane |
 | ------------ | ------------- | -------- |
 | Set-Variable | Element główny. | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                              | Wymagany |
+| Atrybut | Opis                                                              | Wymagane |
 | --------- | ------------------------------------------------------------------------ | -------- |
 | name      | Nazwa zmiennej.                                                | Tak      |
-| value     | Wartość zmiennej. Może to być wyrażenie lub wartość literału. | Tak      |
+| wartość     | Wartość zmiennej. Może to być wyrażenie lub wartość literału. | Tak      |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 
@@ -914,10 +914,10 @@ Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następuj�
 
 ## <a name="trace"></a><a name="Trace"></a>Szuka
 
-`trace` Zasady dodaje niestandardowy ślad do danych wyjściowych inspektora interfejsu API, Application Insights telemetrii i/lub dzienników zasobów.
+`trace`Zasady dodaje niestandardowy ślad do danych wyjściowych inspektora interfejsu API, Application Insights telemetrii i/lub dzienników zasobów.
 
--   Zasada dodaje niestandardowy ślad do danych wyjściowych [inspektora interfejsu API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , gdy śledzenie jest wyzwalane `Ocp-Apim-Trace` , tj. nagłówek żądania jest obecny i ma `Ocp-Apim-Subscription-Key` ustawioną wartość true, a nagłówek żądania jest obecny i przechowuje prawidłowy klucz umożliwiający śledzenie.
--   Zasady tworzą dane telemetryczne [śledzenia](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) w Application Insights, gdy [integracja Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) jest włączona, `severity` a poziom określony w zasadach jest równy lub większy niż `verbosity` określony w ustawieniu diagnostyki.
+-   Zasada dodaje niestandardowy ślad do danych wyjściowych [inspektora interfejsu API](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) , gdy śledzenie jest wyzwalane, tj. `Ocp-Apim-Trace` nagłówek żądania jest obecny i ma ustawioną wartość true, a `Ocp-Apim-Subscription-Key` nagłówek żądania jest obecny i przechowuje prawidłowy klucz umożliwiający śledzenie.
+-   Zasady tworzą dane telemetryczne [śledzenia](https://docs.microsoft.com/azure/azure-monitor/app/data-model-trace-telemetry) w Application Insights, gdy [integracja Application Insights](https://docs.microsoft.com/azure/api-management/api-management-howto-app-insights) jest włączona, a `severity` poziom określony w zasadach jest równy lub większy niż `verbosity` określony w ustawieniu diagnostyki.
 -   Zasada dodaje właściwość w wpisie dziennika, gdy [dzienniki zasobów](https://docs.microsoft.com/azure/api-management/api-management-howto-use-azure-monitor#diagnostic-logs) jest włączony, a poziom ważności określony w zasadach jest równy lub większy niż poziom szczegółowości określony w ustawieniu diagnostyki.
 
 ### <a name="policy-statement"></a>Instrukcja zasad
@@ -942,7 +942,7 @@ Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następuj�
 
 ### <a name="elements"></a>Elementy
 
-| Element  | Opis                                                                                                                                          | Wymagany |
+| Element  | Opis                                                                                                                                          | Wymagane |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | śledzenie    | Element główny.                                                                                                                                        | Tak      |
 | message  | Ciąg lub wyrażenie, które ma zostać zarejestrowane.                                                                                                                 | Tak      |
@@ -950,14 +950,14 @@ Wyrażenia używane w `set-variable` zasadach muszą zwracać jeden z następuj�
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                                               | Wymagany | Domyślny |
+| Atrybut | Opis                                                                                                               | Wymagane | Domyślne |
 | --------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | source    | Literał ciągu istotny dla podglądu śledzenia i określający źródło wiadomości.                                   | Tak      | Nie dotyczy     |
-| ważność  | Określa poziom ważności śledzenia. Dozwolone wartości to `verbose`, `information`, `error` (od najniższego do najwyższego). | Nie       | Pełny |
+| ważność  | Określa poziom ważności śledzenia. Dozwolone wartości to `verbose` , `information` , `error` (od najniższego do najwyższego). | Nie       | Pełny |
 | name      | Nazwa właściwości.                                                                                                     | Tak      | Nie dotyczy     |
-| value     | Wartość właściwości.                                                                                                    | Tak      | Nie dotyczy     |
+| wartość     | Wartość właściwości.                                                                                                    | Tak      | Nie dotyczy     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) zasad.
 
@@ -967,7 +967,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ## <a name="wait"></a><a name="Wait"></a>Trwa
 
-`wait` Zasady domyślnie wykonują bezpośrednie zasady podrzędne i czekają na zakończenie wszystkich lub jednej z jej bezpośrednich zasad podrzędnych przed zakończeniem. Zasady oczekiwania mogą mieć charakter żądania natychmiastowego [wysłania żądań](api-management-advanced-policies.md#SendRequest), [pobrania wartości z pamięci podręcznej](api-management-caching-policies.md#GetFromCacheByKey)i zasad [przepływu sterowania](api-management-advanced-policies.md#choose) .
+`wait`Zasady domyślnie wykonują bezpośrednie zasady podrzędne i czekają na zakończenie wszystkich lub jednej z jej bezpośrednich zasad podrzędnych przed zakończeniem. Zasady oczekiwania mogą mieć charakter żądania natychmiastowego [wysłania żądań](api-management-advanced-policies.md#SendRequest), [pobrania wartości z pamięci podręcznej](api-management-caching-policies.md#GetFromCacheByKey)i zasad [przepływu sterowania](api-management-advanced-policies.md#choose) .
 
 ### <a name="policy-statement"></a>Instrukcja zasad
 
@@ -981,7 +981,7 @@ Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.
 
 ### <a name="example"></a>Przykład
 
-W poniższym przykładzie istnieją dwie `choose` zasady jako bezpośrednie zasady podrzędne `wait` zasad. Każda z tych `choose` zasad jest wykonywana równolegle. Każda `choose` zasada próbuje pobrać buforowaną wartość. W przypadku braku miejsca w pamięci podręcznej wywoływana jest usługa zaplecza, aby zapewnić wartość. W tym przykładzie `wait` zasady nie zostaną ukończone przed ukończeniem wszystkich bezpośrednich zasad podrzędnych, ponieważ `for` atrybut jest ustawiony na. `all` W tym przykładzie zmienne kontekstowe (`execute-branch-one`, `value-one`, `execute-branch-two`i `value-two`) są zadeklarowane poza zakresem tych przykładowych zasad.
+W poniższym przykładzie istnieją dwie `choose` zasady jako bezpośrednie zasady podrzędne `wait` zasad. Każda z tych `choose` zasad jest wykonywana równolegle. Każda `choose` zasada próbuje pobrać buforowaną wartość. W przypadku braku miejsca w pamięci podręcznej wywoływana jest usługa zaplecza, aby zapewnić wartość. W tym przykładzie `wait` zasady nie zostaną ukończone przed ukończeniem wszystkich bezpośrednich zasad podrzędnych, ponieważ `for` atrybut jest ustawiony na `all` . W tym przykładzie zmienne kontekstowe ( `execute-branch-one` , `value-one` , `execute-branch-two` i `value-two` ) są zadeklarowane poza zakresem tych przykładowych zasad.
 
 ```xml
 <wait for="all">
@@ -1017,17 +1017,17 @@ W poniższym przykładzie istnieją dwie `choose` zasady jako bezpośrednie zasa
 
 ### <a name="elements"></a>Elementy
 
-| Element | Opis                                                                                                   | Wymagany |
+| Element | Opis                                                                                                   | Wymagane |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
-| czas oczekiwania    | Element główny. Może zawierać tylko `send-request`elementy podrzędne, `cache-lookup-value`i `choose` zasady. | Tak      |
+| czas oczekiwania    | Element główny. Może zawierać tylko elementy podrzędne `send-request` , `cache-lookup-value` i `choose` zasady. | Tak      |
 
 ### <a name="attributes"></a>Atrybuty
 
-| Atrybut | Opis                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagany | Domyślny |
+| Atrybut | Opis                                                                                                                                                                                                                                                                                                                                                                                                            | Wymagane | Domyślne |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Określa, `wait` czy zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all`-Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
+| dla       | Określa, czy `wait` zasady czekają na ukończenie wszystkich bezpośrednich zasad podrzędnych, czy tylko jeden. Dozwolone wartości to:<br /><br /> - `all`-Poczekaj na zakończenie wszystkich bezpośrednich zasad podrzędnych<br />-dowolny-poczekaj na zakończenie wszelkich natychmiastowych zasad podrzędnych. Po zakończeniu pierwszej bezpośredniej zasad podrzędnej `wait` zasady zakończą działanie i wykonywanie wszelkich innych bezpośrednich zasad podrzędnych zostanie zakończone. | Nie       | all     |
 
-### <a name="usage"></a>Sposób użycia
+### <a name="usage"></a>Użycie
 
 Tych zasad można używać w następujących [sekcjach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) i [zakresach](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)zasad.
 

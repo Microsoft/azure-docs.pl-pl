@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 79f85261115dbddcb0b04cd2863a90912de2ab87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87a8291387d50fae7027d007eedf49fa55b39b74
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474911"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052783"
 ---
 # <a name="app-service-networking-features"></a>App Service funkcje sieciowe
 
@@ -36,7 +36,7 @@ O ile nie określono inaczej, wszystkie funkcje mogą być używane razem. Może
 
 W przypadku dowolnego danego przypadku użycia może istnieć kilka sposobów rozwiązania problemu.  Odpowiednia funkcja jest czasami spowodowana tylko przypadkiem użycia. Następujące przypadki użycia ruchu przychodzącego zasugerują sposób użycia App Service funkcje sieciowe do rozwiązywania problemów związanych z kontrolowaniem ruchu kierowanego do aplikacji. 
  
-| Przychodzące przypadki użycia | Funkcja |
+| Przychodzące przypadki użycia | Cecha |
 |---------------------|-------------------|
 | Obsługa protokołu SSL opartego na protokole IP dla aplikacji | adres przypisany do aplikacji |
 | Nieudostępniony, dedykowany adres przychodzący dla aplikacji | adres przypisany do aplikacji |
@@ -49,7 +49,7 @@ W przypadku dowolnego danego przypadku użycia może istnieć kilka sposobów ro
 
 Następujące wychodzące przypadki użycia sugerują, jak używać funkcji sieciowych App Service do rozwiązywania potrzeby dostępu wychodzącego dla aplikacji. 
 
-| Wychodzące przypadki użycia | Funkcja |
+| Wychodzące przypadki użycia | Cecha |
 |---------------------|-------------------|
 | Dostęp do zasobów w Virtual Network platformy Azure w tym samym regionie | Integracja z siecią wirtualną </br> ASE |
 | Dostęp do zasobów w usłudze Azure Virtual Network w innym regionie | Integracja sieci wirtualnej wymagana przez bramę </br> Środowisko ASE i Komunikacja równorzędna sieci wirtualnych |
@@ -85,7 +85,7 @@ Możesz dowiedzieć się, jak ustawić adres w aplikacji za pomocą samouczka na
 
 ### <a name="access-restrictions"></a>Ograniczenia dostępu 
 
-Funkcja ograniczenia dostępu umożliwia filtrowanie żądań **przychodzących** na podstawie adresu IP pochodzenia. Akcja filtrowania odbywa się w rolach frontonu, które są nadrzędne od ról procesu roboczego, w których są uruchomione aplikacje. Ponieważ role frontonu są nadrzędne dla procesów roboczych, możliwość ograniczenia dostępu może być traktowana jako ochrona na poziomie sieci dla aplikacji. Funkcja ta umożliwia tworzenie listy bloków dozwolonych i zablokowanych adresów, które są oceniane w kolejności priorytetów. Jest podobna do sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), która istnieje w sieci platformy Azure.  Tej funkcji można użyć w środowisku ASE lub w usłudze wielu dzierżawców. Gdy jest używany z ILB ASE, można ograniczyć dostęp z bloków adresów prywatnych.
+Funkcja ograniczenia dostępu umożliwia filtrowanie żądań **przychodzących** na podstawie źródłowego adresu IP. Akcja filtrowania odbywa się w rolach frontonu, które są nadrzędne od ról procesu roboczego, w których są uruchomione aplikacje. Ponieważ role frontonu są nadrzędne dla procesów roboczych, możliwość ograniczenia dostępu może być traktowana jako ochrona na poziomie sieci dla aplikacji. Funkcja ta umożliwia tworzenie listy bloków dozwolonych i zablokowanych adresów, które są oceniane w kolejności priorytetów. Jest podobna do sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), która istnieje w sieci platformy Azure.  Tej funkcji można użyć w środowisku ASE lub w usłudze wielu dzierżawców. Gdy jest używany z ILB ASE, można ograniczyć dostęp z bloków adresów prywatnych.
 
 ![Ograniczenia dostępu](media/networking-features/access-restrictions.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Tworzenie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+title: Tworzenie wystąpienia usługi Azure Digital Twins
 titleSuffix: Azure Digital Twins
 description: Zobacz jak skonfigurować wystąpienie usługi Azure Digital bliźniaczych reprezentacji.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f097861f97e7ec62019fa631e2ac608d2e0c5024
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: bbd7c74fc87b3f7af799637e2288dcd074266843
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612873"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725614"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 W tym artykule przedstawiono podstawowe kroki konfigurowania nowego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Obejmuje to utworzenie wystąpienia i przypisanie do niego uprawnień [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) .
 

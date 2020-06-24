@@ -4,16 +4,16 @@ description: Tabela tras wirtualnego koncentratora sieci WAN do kierowania ruchu
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 740a2174933e37e2737de0daa56e4b1670ecf55f
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b22b751880cda91734ce0c322b19702e0ac9840d
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773172"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752974"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Tworzenie tabeli tras wirtualnego centrum sieci WAN dla urządzeń WUS: Azure Portal
 
@@ -34,7 +34,7 @@ Sprawdź, czy zostały spełnione następujące kryteria:
     *  Z siecią wirtualną urządzenie WUS może być połączona jedna lub wiele sieci wirtualnych. W tym artykule odwołujemy się do sieci wirtualnej urządzenie WUS jako "pośrednia Sieć wirtualna". Te sieci wirtualne mogą być połączone z siecią wirtualną urządzenie WUS przy użyciu wirtualnych sieci równorzędnych. Łącza komunikacji równorzędnej sieci wirtualnych są przedstawiane za pomocą czarnych strzałek na powyższym rysunku między siecią wirtualną 1, VNet 2 i urządzenie WUS sieci wirtualnej.
 *  Utworzono dwie sieci wirtualne. Będą one używane jako szprychy sieci wirtualnych.
 
-    * Przestrzenie adresowe sieci wirtualnej szprych: VNet1:10.0.2.0/24 i VNet2:10.0.3.0/24. Jeśli potrzebujesz informacji na temat sposobu tworzenia sieci wirtualnej, zobacz [Tworzenie sieci wirtualnej](../virtual-network/quick-create-portal.md).
+    * Przestrzenie adresowe sieci wirtualnej szprych: VNet1:10.0.2.0/24 i VNet2:10.0.3.0/24. Jeśli potrzebujesz informacji na temat sposobu tworzenia sieci wirtualnej, zobacz [Tworzenie sieci wirtualnej](../virtual-network/quick-create-portal.md). Upewnij się, że UDR w VNET1 i 2 wskazują na urządzenie WUS.
 
     * Upewnij się, że w żadnym z sieci wirtualnych nie ma żadnych bram sieci wirtualnej.
 

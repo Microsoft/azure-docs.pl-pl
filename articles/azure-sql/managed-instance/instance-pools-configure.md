@@ -3,7 +3,7 @@ title: Wdróż wystąpienie zarządzane SQL w puli wystąpień
 titleSuffix: Azure SQL Managed Instance
 description: W tym artykule opisano sposób tworzenia pul wystąpienia zarządzanego usługi Azure SQL (wersja zapoznawcza) i zarządzania nimi.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 569b1fd964665e3efec87adebd5f9a76de01f381
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 1461ba4ae0bea61b3a220c22144a31eade6cdf04
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659653"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708811"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Wdróż wystąpienie zarządzane Azure SQL w puli wystąpień
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

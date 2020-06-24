@@ -1,5 +1,5 @@
 ---
-title: Projekcje w sklepie z bazami wiedzy (wersja zapoznawcza)
+title: Koncepcje projekcji (wersja zapoznawcza)
 titleSuffix: Azure Cognitive Search
 description: Zapisz i umieść wzbogacone dane z potoku indeksowania wzbogacenia AI do magazynu wiedzy, który ma być używany w scenariuszach innych niż wyszukiwanie pełnotekstowe. Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 894fc6efc99eb7fcc17f2199270c08bc3cee8e8e
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942967"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750332"
 ---
-# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projekcje w sklepie z bazami danych na platformie Azure Wyszukiwanie poznawcze
+# <a name="knowledge-store-projections-in-azure-cognitive-search"></a>Projekcje w sklepie z bazami danych na platformie Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT] 
 > Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](search-api-preview.md) zapewnia funkcje w wersji zapoznawczej. Dostępna jest obecnie ograniczona obsługa portalu i nie ma obsługi zestawu SDK platformy .NET.

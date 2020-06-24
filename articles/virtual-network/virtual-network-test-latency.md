@@ -9,25 +9,25 @@ editor: ''
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: steveesp
-ms.openlocfilehash: 00efc2754948d53d4f80a6261dbd4041b358185b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77ea14097538f722569acb5a0371674776aac8e5
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74896357"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687807"
 ---
 # <a name="test-vm-network-latency"></a>Testowanie opóźnienia sieci maszyn wirtualnych
 
-Aby uzyskać najbardziej dokładne wyniki, Zmierz opóźnienie sieci maszyn wirtualnych platformy Azure za pomocą narzędzia zaprojektowanego dla tego zadania. Publicznie dostępne narzędzia, takie jak SockPerf (for Linux) i latte. exe (dla systemu Windows) mogą izolować i mierzyć opóźnienia sieci przy jednoczesnym wykluczaniu innych typów opóźnienia, takich jak opóźnienie aplikacji. Te narzędzia koncentrują się na rodzaju ruchu sieciowego, który ma wpływ na wydajność aplikacji (czyli Transmission Control Protocol [TCP] i ruch protokołu UDP]). 
+Aby uzyskać najbardziej dokładne wyniki, Zmierz opóźnienie sieci maszyn wirtualnych platformy Azure za pomocą narzędzia zaprojektowanego dla tego zadania. Publicznie dostępne narzędzia, takie jak SockPerf (for Linux) i latte.exe (dla systemu Windows) mogą izolować i mierzyć opóźnienia sieci przy jednoczesnym wykluczaniu innych typów opóźnienia, takich jak opóźnienie aplikacji. Te narzędzia koncentrują się na rodzaju ruchu sieciowego, który ma wpływ na wydajność aplikacji (czyli Transmission Control Protocol [TCP] i ruch protokołu UDP]). 
 
 Inne popularne narzędzia do łączności, takie jak polecenie ping, mogą mierzyć opóźnienia, ale ich wyniki mogą nie reprezentować ruchu sieciowego używanego w rzeczywistych obciążeniach. Wynika to z tego, że większość z tych narzędzi korzysta z protokołu ICMP (Internet Control Message Protocol), który może być traktowany inaczej niż ruch aplikacji i którego wyniki mogą nie dotyczyć obciążeń, które korzystają z protokołów TCP i UDP. 
 
-Aby uzyskać dokładne testy opóźnienia w sieci protokołów używanych przez większość aplikacji, SockPerf (dla systemu Linux) i latte. exe (w systemie Windows) generują najbardziej odpowiednie wyniki. W tym artykule omówiono oba te narzędzia.
+Aby uzyskać dokładne testy opóźnienia w sieci protokołów używanych przez większość aplikacji, SockPerf (dla systemu Linux) i latte.exe (w systemie Windows) generują najbardziej odpowiednie wyniki. W tym artykule omówiono oba te narzędzia.
 
 ## <a name="overview"></a>Omówienie
 
@@ -45,7 +45,7 @@ Takie podejście służy do mierzenia opóźnień sieci między dwiema maszynami
 ### <a name="tools-for-testing"></a>Narzędzia do testowania
 Aby mierzyć opóźnienia, dostępne są dwa różne opcje narzędzi:
 
-* W przypadku systemów z systemem Windows: [latte. exe (Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
+* W przypadku systemów z systemem Windows: [latte.exe (system Windows)](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 * W przypadku systemów z systemem Linux: [SockPerf (Linux)](https://github.com/mellanox/sockperf)
 
 Za pomocą tych narzędzi można zagwarantować, że tylko czasy dostarczania protokołu TCP lub UDP są mierzone, a nie protokołu ICMP (ping) lub innych typów pakietów, które nie są używane przez aplikacje, i nie wpływają na ich wydajność.
@@ -69,29 +69,29 @@ Analizując wyniki testów, należy wziąć pod uwagę następujące zalecenia:
 
 ## <a name="test-vms-that-are-running-windows"></a>Testowanie maszyn wirtualnych z systemem Windows
 
-### <a name="get-latteexe-onto-the-vms"></a>Pobierz latte. exe na maszynach wirtualnych
+### <a name="get-latteexe-onto-the-vms"></a>Pobierz latte.exe na maszyny wirtualne
 
-Pobierz [najnowszą wersję programu latte. exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
+Pobierz [najnowszą wersję latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b).
 
-Rozważ umieszczenie pliku latte. exe w osobnym folderze, takim jak *c:\Tools*.
+Rozważ umieszczenie latte.exe w osobnym folderze, na przykład *c:\Tools*.
 
-### <a name="allow-latteexe-through-windows-defender-firewall"></a>Zezwalaj programowi latte. exe za poorednictwem zapory Windows Defender
+### <a name="allow-latteexe-through-windows-defender-firewall"></a>Zezwalaj na latte.exe za poorednictwem zapory Windows Defender
 
-Na *odbiorniku*Utwórz regułę zezwalania w zaporze Windows Defender, aby zezwolić na odbieranie ruchu latte. exe. Najłatwiej zezwolić na cały program latte. exe, zamiast zezwalać na ruch przychodzący określonych portów TCP.
+Na *odbiorniku*Utwórz regułę zezwalania w zaporze Windows Defender, aby zezwolić na odbieranie latte.exe ruchu. Najłatwiej jest zezwolić na cały program latte.exe według nazwy, a nie zezwalać na ruch przychodzący określonych portów TCP.
 
-Zezwól programowi latte. exe za pomocą zapory Windows Defender, uruchamiając następujące polecenie:
+Zezwól na latte.exe za pomocą zapory Windows Defender, uruchamiając następujące polecenie:
 
 ```cmd
 netsh advfirewall firewall add rule program=<path>\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY
 ```
 
-Jeśli na przykład skopiowano plik latte. exe do folderu *c:\Tools* , będzie to polecenie:
+Na przykład, jeśli skopiowano latte.exe do folderu *c:\Tools* , będzie to polecenie:
 
 `netsh advfirewall firewall add rule program=c:\tools\latte.exe name="Latte" protocol=any dir=in action=allow enable=yes profile=ANY`
 
 ### <a name="run-latency-tests"></a>Testy opóźnienia uruchamiania
 
-* Na *odbiorniku*Uruchom program latte. exe (Uruchom go z okna cmd, a nie z programu PowerShell):
+* Na *odbiorniku*Uruchom latte.exe (Uruchom go z okna cmd, a nie z programu PowerShell):
 
     ```cmd
     latte -a <Receiver IP address>:<port> -i <iterations>
@@ -105,13 +105,13 @@ Jeśli na przykład skopiowano plik latte. exe do folderu *c:\Tools* , będzie t
 
     `latte -a 10.0.0.4:5005 -i 65100`
 
-* Na stronie *nadawcy*Uruchom program latte. exe (Uruchom go z okna cmd, a nie z programu PowerShell):
+* Na stronie *nadawca*Uruchom latte.exe (Uruchom ją z okna cmd, a nie z programu PowerShell):
 
     ```cmd
     latte -c -a <Receiver IP address>:<port> -i <iterations>
     ```
 
-    Wyniki polecenia są takie same jak w odniesieniu do odbiornika, z tą&nbsp;*-c* różnicą, że jest to *Klient*lub *nadawca*:
+    Wyniki polecenia są takie same jak w odniesieniu do odbiornika, z tą różnicą, &nbsp; *-c* że jest to *Klient*lub *nadawca*:
 
     `latte -c -a 10.0.0.4:5005 -i 65100`
 

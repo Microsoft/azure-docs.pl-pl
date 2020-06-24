@@ -4,11 +4,11 @@ description: Ten artykuł zawiera podsumowanie Azure Backup pomocy technicznej p
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.openlocfilehash: 6085bc647c06b5907282460a2d8706b8549e1bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247867"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84709882"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Macierz obsługi kopii zapasowej za pomocą agenta Microsoft Azure Recovery Services (MARS)
 
@@ -46,7 +46,7 @@ W celu utworzenia kopii zapasowej danych przy użyciu agenta MARS Agent tworzy m
 Rozmiar |  Ilość wolnego miejsca w folderze pamięci podręcznej powinna wynosić co najmniej 5 do 10 procent całkowitego rozmiaru danych kopii zapasowej.
 Lokalizacja | Folder pamięci podręcznej musi być przechowywany lokalnie na komputerze, na którym jest wykonywana kopia zapasowa, i musi być w trybie online. Folder pamięci podręcznej nie powinien znajdować się w udziale sieciowym na nośniku wymiennym ani w woluminie w trybie offline.
 Folder | Folder pamięci podręcznej nie powinien być szyfrowany na deduplikowanym woluminie lub w folderze skompresowanym, który jest rozrzedzony, lub ma punkt ponownej analizy.
-Zmiany lokalizacji | Można zmienić lokalizację pamięci podręcznej, zatrzymując aparat kopii zapasowych (`net stop bengine`) i kopiując folder pamięci podręcznej na nowy dysk. (Upewnij się, że nowy dysk ma wystarczającą ilość miejsca). Następnie zaktualizuj dwa wpisy rejestru w obszarze **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** i **config/CloudBackupProvider/ScratchLocation**) do nowej lokalizacji i ponownie uruchom aparat.
+Zmiany lokalizacji | Można zmienić lokalizację pamięci podręcznej, zatrzymując aparat kopii zapasowych ( `net stop bengine` ) i kopiując folder pamięci podręcznej na nowy dysk. (Upewnij się, że nowy dysk ma wystarczającą ilość miejsca). Następnie zaktualizuj dwa wpisy rejestru w obszarze **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** i **config/CloudBackupProvider/ScratchLocation**) do nowej lokalizacji i ponownie uruchom aparat.
 
 ## <a name="networking-and-access-support"></a>Obsługa sieci i dostępu
 
@@ -116,8 +116,8 @@ Windows 8.1 (Enterprise, Pro)| Tak |Nie | Sprawdź odpowiednią wersję serwera 
 Windows 8 (Enterprise, Pro) | Tak | Nie | Sprawdź odpowiednią wersję serwera pod kątem wymagań dotyczących oprogramowania/modułu
 Windows Server 2016 (wersje Standard, Datacenter, Essentials) | Tak | Tak | — .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0
 Windows Server 2012 R2 (wersje Standard, Datacenter, Foundation, Essentials) | Tak | Tak | — .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0
-Windows Server 2012 (wersje Standard, Datacenter, Foundation) | Tak | Tak |— .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0 <br> — Obsługa i zarządzanie obrazami wdrażania (DISM. exe)
-Windows Storage Server 2016/2012 R2/2012 (standard, Grupa robocza) | Tak | Nie | — .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0
+Windows Server 2012 (wersje Standard, Datacenter, Foundation) | Tak | Tak |— .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0 <br> — Obsługa i zarządzanie obrazami wdrażania (DISM.exe)
+Windows Storage Server 2016/2012 R2/2012 (standard, Grupa robocza) | Yes | Nie | — .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0
 Windows Server 2019 (wersje Standard, Datacenter, Essentials) | Tak | Tak | — .NET 4,5 <br> — Windows PowerShell <br> -Najnowsza zgodna z pakietem redystrybucyjnym Microsoft VC + + <br> — Program Microsoft Management Console (MMC) 3,0
 
 Aby uzyskać więcej informacji, zobacz [obsługiwane systemy operacyjne serwera usługi MAB i DPM](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
@@ -132,9 +132,9 @@ W przypadku środowisk lokalnych lub hostowanych, w których nie można uaktualn
 
 | **System operacyjny**                                       | **Pliki/foldery** | **Stan systemu** | **Wymagania dotyczące oprogramowania/modułu**                           |
 | ------------------------------------------------------------ | ----------------- | ------------------ | ------------------------------------------------------------ |
-| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Tak               | Nie                 | Sprawdź odpowiednią wersję serwera pod kątem wymagań dotyczących oprogramowania/modułu |
-| Windows Server 2008 R2 (wersje Standard, Enterprise, Datacenter, Foundation) | Tak               | Tak                | — .NET 3,5, .NET 4,5 <br>  — Windows PowerShell <br>  -Zgodna z pakietem redystrybucyjnym Microsoft VC + + <br>  — Program Microsoft Management Console (MMC) 3,0 <br>  — Obsługa i zarządzanie obrazami wdrażania (DISM. exe) |
-| Windows Server 2008 z dodatkiem SP2 (wersje Standard, Datacenter, Foundation)  | Tak               | Nie                 | — .NET 3,5, .NET 4,5 <br>  — Windows PowerShell <br>  -Zgodna z pakietem redystrybucyjnym Microsoft VC + + <br>  — Program Microsoft Management Console (MMC) 3,0 <br>  — Obsługa i zarządzanie obrazami wdrażania (DISM. exe) <br>  -Virtual Server 2005 Base + KB KB948515 |
+| Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes               | Nie                 | Sprawdź odpowiednią wersję serwera pod kątem wymagań dotyczących oprogramowania/modułu |
+| Windows Server 2008 R2 (wersje Standard, Enterprise, Datacenter, Foundation) | Tak               | Tak                | — .NET 3,5, .NET 4,5 <br>  — Windows PowerShell <br>  -Zgodna z pakietem redystrybucyjnym Microsoft VC + + <br>  — Program Microsoft Management Console (MMC) 3,0 <br>  — Obsługa i zarządzanie obrazami wdrażania (DISM.exe) |
+| Windows Server 2008 z dodatkiem SP2 (wersje Standard, Datacenter, Foundation)  | Yes               | Nie                 | — .NET 3,5, .NET 4,5 <br>  — Windows PowerShell <br>  -Zgodna z pakietem redystrybucyjnym Microsoft VC + + <br>  — Program Microsoft Management Console (MMC) 3,0 <br>  — Obsługa i zarządzanie obrazami wdrażania (DISM.exe) <br>  -Virtual Server 2005 Base + KB KB948515 |
 
 ## <a name="backup-limits"></a>Limity kopii zapasowych
 

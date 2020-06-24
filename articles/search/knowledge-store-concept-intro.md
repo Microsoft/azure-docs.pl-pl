@@ -1,5 +1,5 @@
 ---
-title: Wprowadzenie do sklepu merytorycznego (wersja zapoznawcza)
+title: Pojęcia dotyczące sklepu wiedzy (wersja zapoznawcza)
 titleSuffix: Azure Cognitive Search
 description: Wysyłaj wzbogacone dokumenty do usługi Azure Storage, które umożliwiają wyświetlanie, przekształcanie i używanie wzbogaconych dokumentów na platformie Azure Wyszukiwanie poznawcze i w innych aplikacjach. Ta funkcja jest dostępna w publicznej wersji zapoznawczej.
 author: HeidiSteen
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 20819bc6ec091eddf5d65b1c0d7aa57c821b2fc1
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: a8f7aa18598dba41b33ea4964bd2967a8c2670ac
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858800"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752983"
 ---
-# <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Wprowadzenie do magazynów wiedzy na platformie Azure Wyszukiwanie poznawcze
+# <a name="knowledge-store-in-azure-cognitive-search"></a>Magazyn wiedzy na platformie Azure Wyszukiwanie poznawcze
 
 > [!IMPORTANT] 
 > Magazyn wiedzy jest obecnie w publicznej wersji zapoznawczej. Funkcje wersji zapoznawczej są dostępne bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Interfejs API REST w wersji 2019-05-06 — wersja zapoznawcza](search-api-preview.md) zapewnia funkcje w wersji zapoznawczej. Dostępna jest obecnie ograniczona obsługa portalu i nie ma obsługi zestawu SDK platformy .NET.
@@ -77,13 +77,13 @@ Projekcje mogą być łączone jako tabele, obiekty lub pliki.
 
 Typ projekcji określony w tej strukturze określa typ magazynu używanego przez magazyn wiedzy.
 
-+ Magazyn tabel jest używany podczas definiowania `tables`. Zdefiniuj projekcję tabeli, gdy potrzebujesz tabelarycznych struktur raportowania dla danych wejściowych w narzędziach analitycznych lub wyeksportować jako ramki danych do innych magazynów danych. Możesz określić wielokrotność `tables` , aby uzyskać podzbiór lub przecięcie dokumentów wzbogaconych. W ramach tej samej grupy projekcji relacje tabeli są zachowywane, aby można było korzystać ze wszystkich z nich.
++ Magazyn tabel jest używany podczas definiowania `tables` . Zdefiniuj projekcję tabeli, gdy potrzebujesz tabelarycznych struktur raportowania dla danych wejściowych w narzędziach analitycznych lub wyeksportować jako ramki danych do innych magazynów danych. Możesz określić wielokrotność, `tables` Aby uzyskać podzbiór lub przecięcie dokumentów wzbogaconych. W ramach tej samej grupy projekcji relacje tabeli są zachowywane, aby można było korzystać ze wszystkich z nich.
 
-+ Magazyn obiektów BLOB jest używany podczas definiowania `objects` lub `files`. Fizyczna reprezentacja elementu `object` to hierarchiczna struktura JSON, która reprezentuje wzbogacony dokument. A `file` jest obrazem wyodrębnionym z dokumentu, przeniesionym niezmienionym do magazynu obiektów BLOB.
++ Magazyn obiektów BLOB jest używany podczas definiowania `objects` lub `files` . Fizyczna reprezentacja elementu `object` to hierarchiczna struktura JSON, która reprezentuje wzbogacony dokument. A `file` jest obrazem wyodrębnionym z dokumentu, przeniesionym niezmienionym do magazynu obiektów BLOB.
 
-Pojedynczy obiekt projekcji zawiera jeden zestaw `tables`, `objects`, `files`, i dla wielu scenariuszy, co może być wystarczające. 
+Pojedynczy obiekt projekcji zawiera jeden zestaw `tables` , `objects` , `files` , i dla wielu scenariuszy, co może być wystarczające. 
 
-`table` - `object` - `file` Istnieje jednak możliwość utworzenia wielu zestawów projekcji i można to zrobić, jeśli chcesz mieć różne relacje danych. W zestawie dane są powiązane, przy założeniu, że te relacje istnieją i mogą być wykrywane. W przypadku tworzenia dodatkowych zestawów dokumenty w każdej grupie nigdy nie są powiązane. Przykładem użycia wielu grup projekcji może być, jeśli chcesz, aby te same dane były przeznaczone do użytku z systemem online i muszą być reprezentowane w określony sposób. te same dane są również przeznaczone do użycia w potoku analizy danych, który jest prezentowany inaczej.
+Istnieje jednak możliwość utworzenia wielu zestawów `table` - `object` - `file` projekcji i można to zrobić, jeśli chcesz mieć różne relacje danych. W zestawie dane są powiązane, przy założeniu, że te relacje istnieją i mogą być wykrywane. W przypadku tworzenia dodatkowych zestawów dokumenty w każdej grupie nigdy nie są powiązane. Przykładem użycia wielu grup projekcji może być, jeśli chcesz, aby te same dane były przeznaczone do użytku z systemem online i muszą być reprezentowane w określony sposób. te same dane są również przeznaczone do użycia w potoku analizy danych, który jest prezentowany inaczej.
 
 ## <a name="requirements"></a>Wymagania 
 
@@ -103,7 +103,7 @@ Wymagany jest [indeksator](search-indexer-overview.md) . Zestawu umiejętności 
 
 ## <a name="how-to-create-a-knowledge-store"></a>Jak utworzyć sklep merytoryczny
 
-Aby utworzyć sklep merytoryczny, użyj portalu lub interfejsu API REST (`api-version=2019-05-06-Preview`).
+Aby utworzyć sklep merytoryczny, użyj portalu lub interfejsu API REST ( `api-version=2019-05-06-Preview` ).
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
@@ -139,9 +139,9 @@ Po wprowadzeniu wzbogaceń do magazynu dowolne narzędzie lub technologia, któr
 
 <a name="kstore-rest-api"></a>
 
-## <a name="api-reference"></a>Dokumentacja interfejsu API
+## <a name="api-reference"></a>Odwołanie API
 
-Wersja `2019-05-06-Preview` interfejsu API REST zapewnia magazyn wiedzy przez dodatkowe definicje w witrynie umiejętności. Oprócz odwołania, aby uzyskać szczegółowe informacje na temat wywoływania interfejsów API, zobacz artykuł [Tworzenie sklepu merytorycznego korzystającego z programu Poster](knowledge-store-create-rest.md) .
+Wersja interfejsu API REST `2019-05-06-Preview` zapewnia magazyn wiedzy przez dodatkowe definicje w witrynie umiejętności. Oprócz odwołania, aby uzyskać szczegółowe informacje na temat wywoływania interfejsów API, zobacz artykuł [Tworzenie sklepu merytorycznego korzystającego z programu Poster](knowledge-store-create-rest.md) .
 
 + [Create zestawu umiejętności (API-Version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
 + [Update zestawu umiejętności (API-Version = 2019-05 -06 — wersja zapoznawcza)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 

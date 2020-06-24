@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: 5c50186692438be5d0922cd329c28e665310e5c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c5dfcc84530597fc41c547a78478dcee4a4ad803
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77023535"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808490"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Skonfiguruj tryb dystrybucji dla Azure Load Balancer
 
@@ -154,9 +154,9 @@ Poniższy przykład pokazuje, jak zmienić konfigurację trybu dystrybucji modu�
 
 ### <a name="change-distribution-mode-for-deployed-load-balanced-set"></a>Zmień tryb dystrybucji dla wdrożonego zestawu o zrównoważonym obciążeniu
 
-Użyj klasycznego modelu wdrażania platformy Azure, aby zmienić istniejącą konfigurację wdrożenia. Dodaj `x-ms-version` nagłówek i ustaw wartość w wersji 2014-09-01 lub nowszej.
+Użyj klasycznego modelu wdrażania platformy Azure, aby zmienić istniejącą konfigurację wdrożenia. Dodaj `x-ms-version` Nagłówek i ustaw wartość w wersji 2014-09-01 lub nowszej.
 
-#### <a name="request"></a>Request
+#### <a name="request"></a>Żądanie
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml

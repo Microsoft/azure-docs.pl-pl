@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
 ms.author: sohamnc
-ms.openlocfilehash: 716d40a0b86ec3385f236a3d81f651d24a36845a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: a0946da7ff516aa241a0c6d845723c43618ce70e
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342118"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809477"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Często zadawane pytania dotyczące drzwi platformy Azure
 
@@ -98,7 +98,7 @@ Aby zablokować aplikację w celu akceptowania tylko ruchu pochodzącego z okre�
     > [!WARNING]
     > Przestrzeń adresów IP zaplecza z drzwiami może ulec zmianie później, jednak zapewnimy, że przed takim wdrożeniem będziemy zintegrowane z [zakresem adresów IP i tagami usług platformy Azure](https://www.microsoft.com/download/details.aspx?id=56519). Zalecamy, aby zasubskrybować [zakresy adresów IP platformy Azure i Tagi usług](https://www.microsoft.com/download/details.aspx?id=56519) dla wszelkich zmian lub aktualizacji.
 
--    Wykonaj operację pobierania na swoich drzwiach z przodu przy użyciu wersji interfejsu API `2020-01-01` lub nowszej. W wywołaniu interfejsu API poszukaj `frontdoorID` pola. Odfiltruj w przychodzącym nagłówku "**X-Azure-FDID**" wysyłanym przez tylne drzwi do zaplecza przy użyciu wartości jako pola `frontdoorID` . 
+-    Wykonaj operację pobierania na swoich drzwiach z przodu przy użyciu wersji interfejsu API `2020-01-01` lub nowszej. W wywołaniu interfejsu API poszukaj `frontdoorID` pola. Odfiltruj w przychodzącym nagłówku "**X-Azure-FDID**" wysyłanym przez tylne drzwi do zaplecza przy użyciu wartości jako pola `frontdoorID` . Możesz również znaleźć `Front Door ID` wartość w sekcji Przegląd na stronie portalu front-drzwi. 
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>Czy adres IP emisji jest zmieniany w okresie istnienia moich zewnętrznych drzwi?
 

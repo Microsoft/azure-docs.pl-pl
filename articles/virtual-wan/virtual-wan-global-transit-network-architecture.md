@@ -5,15 +5,15 @@ description: Dowiedz się więcej o globalnej architekturze sieci tranzytowej dl
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1cd5ead1604f47f07aa9d517f679850fcea8d897
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195682"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753295"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Globalna architektura sieci tranzytowej i wirtualna sieć WAN
 
@@ -39,7 +39,7 @@ Wirtualna sieć WAN platformy Azure to usługa sieci w chmurze zarządzana przez
 
 Wirtualna sieć WAN platformy Azure umożliwia globalną architekturę sieci tranzytowej przez umożliwienie powszechnej łączności między globalnie rozproszonymi zbiorami obciążeń w chmurze w sieci wirtualnych, oddziałach, aplikacjach SaaS i PaaS oraz użytkowników.
 
-![Wirtualna sieć WAN platformy Azure](./media/virtual-wan-global-transit-network-architecture/figure2.png)
+![Azure Virtual WAN](./media/virtual-wan-global-transit-network-architecture/figure2.png)
 
 **Rysunek 2: globalne sieci tranzytowe i wirtualna sieć WAN**
 

@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: damendo
 ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283279"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708947"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Wprowadzenie do rozwiązywania problemów dotyczących połączeń w usłudze Azure Network Watcher
 
 Funkcja rozwiązywania problemów z połączeniami Network Watcher umożliwia sprawdzenie bezpośredniego połączenia TCP między maszyną wirtualną a maszyną wirtualną (VM), w pełni kwalifikowaną nazwą domeny (FQDN), identyfikatorem URI lub adresem IPv4. Scenariusze sieci są skomplikowane, są implementowane przy użyciu sieciowych grup zabezpieczeń, zapór, tras zdefiniowanych przez użytkownika i zasobów udostępnianych przez platformę Azure. Skomplikowane konfiguracje sprawiają, że problemy z łącznością są trudne. Network Watcher pomaga skrócić czas znajdowania i wykrywania problemów z łącznością. Zwrócone wyniki mogą zapewnić wgląd w to, czy problem z łącznością jest spowodowany problemem z platformą lub konfiguracją użytkownika. Łączność można sprawdzić za pomocą [programu PowerShell](network-watcher-connectivity-powershell.md), interfejsu [wiersza polecenia platformy Azure i usługi](network-watcher-connectivity-cli.md) [API REST](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Rozwiązywanie problemów z połączeniem wymaga, aby maszyna wirtualna z `AzureNetworkWatcherExtension` maszyną wirtualną była zainstalowana jako rozszerzenie maszyny wirtualnej. Aby zainstalować rozszerzenie na maszynie wirtualnej z systemem Windows, odwiedź [rozszerzenie maszyny wirtualnej usługi azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i dla maszyny wirtualnej z systemem Linux odwiedź [rozszerzenie maszyny wirtualnej agenta usługi Azure Network Watcher](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Rozszerzenie nie jest wymagane w docelowym punkcie końcowym.
+> Rozwiązywanie problemów z połączeniem wymaga, aby maszyna wirtualna z maszyną wirtualną była `AzureNetworkWatcherExtension` zainstalowana jako rozszerzenie maszyny wirtualnej. Aby zainstalować rozszerzenie na maszynie wirtualnej z systemem Windows, odwiedź [rozszerzenie maszyny wirtualnej usługi azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) i dla maszyny wirtualnej z systemem Linux odwiedź [rozszerzenie maszyny wirtualnej agenta usługi Azure Network Watcher](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Rozszerzenie nie jest wymagane w docelowym punkcie końcowym.
 
 ## <a name="response"></a>Odpowiedź
 
@@ -46,7 +46,7 @@ W poniższej tabeli przedstawiono właściwości zwracane po zakończeniu rozwi�
 |Przeskoki []. Luk | Kolekcja problemów, które zostały napotkane podczas sprawdzania tego przeskoku. Jeśli nie wystąpiły żadne problemy, wartość jest pusta.|
 |Przeskoki []. Problemy []. Źródł | W bieżącym przeskoku, w którym wystąpił problem. Możliwe wartości:<br/> **Ruch przychodzący** — problem dotyczy linku z poprzedniego przeskoku do bieżącego przeskoku<br/>Ruch **wychodzący** jest związany z linkiem z bieżącego przeskoku do następnego przeskoku<br/>**Lokalne** — problem dotyczy bieżącego przeskoku.|
 |Przeskoki []. Problemy []. Obrażeń | Ważność wykrytego problemu. Możliwe wartości to **Error** i **Warning**. |
-|Przeskoki []. Problemy []. Wprowadź |Typ znalezionego problemu. Możliwe wartości: <br/>**TESTY**<br/>**Rozmiar**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Przeskoki []. Problemy []. Wprowadź |Typ znalezionego problemu. Możliwe wartości: <br/>**Procesor CPU**<br/>**Memory (Pamięć)**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
 |Przeskoki []. Problemy []. Context |Szczegóły dotyczące znalezionego problemu.|
 |Przeskoki []. Problemy []. Context []. Key |Zwrócono klucz pary par klucz-wartość.|
 |Przeskoki []. Problemy []. Context []. wartość |Wartość zwracanej pary kluczy.|

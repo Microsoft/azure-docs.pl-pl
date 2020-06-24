@@ -3,7 +3,7 @@ title: Konfigurowanie połączenia punkt-lokacja za pomocą programu SSMS
 titleSuffix: Azure SQL Managed Instance
 description: Nawiązywanie połączenia z wystąpieniem zarządzanym usługi Azure SQL przy użyciu SQL Server Management Studio (SSMS) przy użyciu połączenia typu punkt-lokacja z lokalnego komputera klienckiego.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: debe32bc39840573620bba5280b6e05b94f3edb6
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 7b9c9fc6259656af77bf1ba1b95ccf190cbd85da
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220931"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708653"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Szybki Start: Konfigurowanie połączenia punkt-lokacja z wystąpieniem zarządzanym usługi Azure SQL z lokalnego
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -71,7 +71,7 @@ Ten przewodnik Szybki start:
 
     ![Pobierz klienta VPN](./media/point-to-site-p2s-configure/download-vpn-client.png)  
 4. Na lokalnym komputerze klienckim Wyodrębnij pliki z pliku zip, a następnie otwórz folder przy użyciu wyodrębnionych plików.
-5. Otwórz folder **WindowsAmd64** i Otwórz plik **VpnClientSetupAmd64. exe** .
+5. Otwórz folder **WindowsAmd64** i otwórz plik **VpnClientSetupAmd64.exe** .
 6. Jeśli otrzymasz **chroniony komputer z systemem Windows** , kliknij pozycję **więcej informacji** , a następnie kliknij pozycję **Uruchom mimo to**.
 
     ![Instalowanie klienta VPN](./media/point-to-site-p2s-configure/vpn-client-defender.png)

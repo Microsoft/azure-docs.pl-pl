@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: a64908eb639a44c6bc9d742e84ebb4d01082d49d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 7d32e4100d00a4ecff9f8bd5017d8bc5ab74105e
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847926"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752384"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
 
@@ -63,7 +63,7 @@ Zespół inżynieryjny powinien dysponować podstawową wiedzą i praktyczną wi
 2. W okienku po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
 3. Na stronie **Przegląd** wybierz pozycję **Nowa oferta**  >  **Azure Virtual Machine**.
 
-    ![Zrzut ekranu przedstawiający opcje menu po lewej stronie i przycisk "Nowa oferta".](./media/new-offer-azure-vm.png)
+    ![Zrzut ekranu przedstawiający opcje menu po lewej stronie i przycisk "Nowa oferta".](./media/new-offer-azure-virtual-machine.png)
 
 > [!NOTE]
 > Po opublikowaniu oferty wszelkie zmiany wprowadzone w centrum partnerskim są wyświetlane w witrynie Azure Marketplace dopiero po ponownym opublikowaniu oferty. Pamiętaj, aby zawsze ponownie opublikować ofertę po wprowadzeniu w niej zmian.
@@ -103,7 +103,7 @@ Po opublikowaniu oferty na komercyjnym rynku z Centrum partnerskiego połącz j�
 1. Wybierz miejsce docelowe potencjalnych klientów, do którego chcesz wysyłać potencjalnych klientów. Centrum partnerskie obsługuje następujące systemy CRM:
     - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [SalesForce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
     > Jeśli Twój system CRM nie jest tutaj wymieniony, użyj [usługi Azure Table Storage](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
@@ -171,7 +171,7 @@ Musisz podać swoim klientom warunki i postanowienia oferty. Dostępne są dwie 
 Na stronie z **listą ofert** zdefiniujesz szczegóły oferty, takie jak nazwa oferty, opis, linki i kontakty.
 
 > [!NOTE]
-> Twoja oferta z listą zawartości, na przykład opis, dokumenty, zrzuty ekranu i warunki użytkowania, nie musi być w języku angielskim, o ile opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w \< języku innym niż angielski>". Możesz także podać adres URL, aby połączyć się z witryną, która oferuje zawartość w języku innym niż ten, który jest używany w zawartości oferty.
+> Twoja oferta zawiera informacje, takie jak opis, dokumenty, zrzuty ekranu i warunki użytkowania, nie musi być w języku angielskim, tak długo, jak opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w systemie \<non-English language> ". Możesz także podać adres URL, aby połączyć się z witryną, która oferuje zawartość w języku innym niż ten, który jest używany w zawartości oferty.
 
 ### <a name="marketplace-details"></a>Szczegóły witryny Marketplace
 
@@ -222,7 +222,7 @@ Podaj witrynę sieci Web pomocy technicznej, w której klienci mogą skontaktowa
 Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być używane, gdy klienci otworzą bilet pomocy technicznej. Te informacje nie są wymienione w witrynie Azure Marketplace.
 
 - Nazwa
-- Adres e-mail
+- E-mail
 - Telefon
 
 ### <a name="engineering-contact"></a>Kontakt inżynieryjny
@@ -230,15 +230,15 @@ Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być u�
 Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypadku problemów z ofertą, w tym problemy z certyfikatem. Te informacje nie są wymienione w witrynie Azure Marketplace.
 
 - Nazwa
-- Adres e-mail
+- E-mail
 - Telefon
 
 ### <a name="azure-marketplace-media"></a>Nośniki portalu Azure Marketplace
 
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Nierozmyte obrazy spowodują odrzucenie zgłoszenia.
 
->[!Note]
->Jeśli występuje problem z przekazywaniem plików, należy się upewnić, że sieć lokalna nie blokuje *https://upload.xboxlive.com* usługi używanej przez centrum partnerskie.
+>[!NOTE]
+>Jeśli występuje problem z przekazywaniem plików, należy się upewnić, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
 #### <a name="azure-marketplace-logos"></a>Logo portalu Azure Marketplace
 
@@ -514,32 +514,73 @@ Ta strona zawiera także linki pomagające w pracy z ofertą, w zależności od 
 
 ## <a name="marketplace-examples"></a>Przykłady dla witryny Marketplace
 
-W poniższych przykładach pokazano, jak oferta pojawia się w witrynie Azure Marketplace.
+Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Marketplace:
 
-### <a name="azure-marketplace-offer-details"></a>Szczegóły oferty witryny Azure Marketplace
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-offer.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
 
-![Przykład strony szczegółów oferty w witrynie Azure Marketplace](media/avm-create1.png)
+#### <a name="call-out-descriptions"></a>Opisy połączeń
 
-### <a name="azure-marketplace-search-results"></a>Wyniki wyszukiwania w portalu Azure Marketplace
+1. Duże logo
+2. Price
+3. Kategorie
+4. Warunki i postanowienia
+5. Adres zasad ochrony prywatności (link)
+6. Nazwa oferty
+7. Opis
+8. Przydatne łącza
+9. Zrzuty ekranu/wideo
 
-![Przykład strony szczegółów wyszukiwania w witrynie Azure Marketplace](media/avm-create2.png)
+<br>Oto przykład sposobu wyświetlania informacji o ofercie w wynikach wyszukiwania w portalu Azure Marketplace:
 
-### <a name="azure-marketplace-plan-details"></a>Szczegóły planu witryny Azure Marketplace
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w wynikach wyszukiwania w portalu Azure Marketplace.":::
 
-![Przykład strony szczegółów planu witryny Azure Marketplace](media/avm-create3.png)
+#### <a name="call-out-descriptions"></a>Opisy połączeń
 
-### <a name="azure-portal-offer-details"></a>Szczegóły oferty Azure Portal
+1. Małe logo
+2. Nazwa oferty
+3. Podsumowanie wyników wyszukiwania
+4. Wersja próbna
 
-![Przykład strony szczegółów oferty Azure Portal](media/avm-create4.png)
+<br>Oto przykład szczegółów planu witryny Azure Marketplace:
 
-### <a name="azure-portal-search-results"></a>Wyniki wyszukiwania Azure Portal
+:::image type="content" source="media/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Ilustruje szczegóły planu witryny Azure Marketplace.":::
 
-![Przykład strony wyników wyszukiwania Azure Portal](media/avm-create5.png)
+#### <a name="call-out-descriptions"></a>Opisy połączeń
 
-### <a name="azure-portal-plan-details"></a>Szczegóły planu Azure Portal
+1. Nazwa i podsumowanie planu
+2. Zalecane rozmiary maszyn wirtualnych
+3. Cennik planu
 
-![Przykład strony szczegółów planu Azure Portal](media/avm-create6.png)
+<br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal:
 
-## <a name="next-steps"></a>Następne kroki
+:::image type="content" source="media/example-azure-portal-virtual-machine-offer.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Nazwa
+2. Opis
+3. Przydatne łącza
+4. Zrzuty ekranu/wideo
+
+<br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal wynikach wyszukiwania:
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-search-results.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w wynikach wyszukiwania Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Małe logo
+2. Nazwa oferty
+3. Podsumowanie wyników wyszukiwania
+
+<br>Oto przykład Azure Portal szczegóły planu:
+
+:::image type="content" source="media/example-azure-portal-virtual-machine-plan-details.png" alt-text="Ilustruje szczegóły planu Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Nazwa planu
+2. Opis planu
+
+## <a name="next-step"></a>Następny krok
 
 - [Aktualizowanie istniejącej oferty w komercyjnej witrynie Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

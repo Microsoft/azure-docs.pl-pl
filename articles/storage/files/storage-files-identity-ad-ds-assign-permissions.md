@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: eda083265d94888a4ccfd466f084982614770c41
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 09fc8e506cd2f0e9ee95eed64d3f61b58f3602de
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268499"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207910"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Część druga: przypisywanie uprawnień na poziomie udziału do tożsamości
 
@@ -77,5 +77,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ```
 
 ## <a name="next-steps"></a>Następne kroki
+
+Po przypisaniu uprawnień na poziomie udziału należy skonfigurować uprawnienia do katalogów i na poziomie plików. Przejdź do następnego artykułu.
 
 [Część trzecia: Konfigurowanie uprawnień na poziomie katalogu i pliku za pośrednictwem protokołu SMB](storage-files-identity-ad-ds-configure-permissions.md)

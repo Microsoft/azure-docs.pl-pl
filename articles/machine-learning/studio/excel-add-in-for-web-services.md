@@ -5,17 +5,17 @@ description: Jak używać Azure Machine Learning usług sieci Web bezpośrednio 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: ae51ed2ce39705e66e82ee28442374e8bcd0f901
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8565e3c62ea1b74879f2e127abed772576563886
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118451"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211327"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Dodatek programu Excel dla usług sieci Web Azure Machine Learning Studio (klasyczny)
 
@@ -83,4 +83,4 @@ Pobierz klucz interfejsu API dla usługi sieci Web. Miejsce, w którym wykonujes
 ## <a name="sharing-your-workbook"></a>Udostępnianie skoroszytu
 Po zapisaniu skoroszytu zostanie również zapisany interfejs API/klucz podstawowy dla dodanych usług sieci Web. Oznacza to, że skoroszyt powinien być współużytkowany tylko z zaufanymi osobami.
 
-Zadawaj pytania w poniższej sekcji komentarza lub na naszym [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Zadawaj pytania w poniższej sekcji komentarza lub na naszym [forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).

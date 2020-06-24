@@ -4,16 +4,16 @@ description: Skonfiguruj kontener profilu FSLogix w udziale plików platformy Az
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4723c2a8fa66e4ed2c4b40975179d7d4d2b281d6
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 7fca57bd517296711ada2f714d523bfa0709337c
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484659"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208386"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i AD DS
 
@@ -43,7 +43,7 @@ Aby skonfigurować konto magazynu:
     - Wprowadź unikatową nazwę konta magazynu.
     - W przypadku **lokalizacji**zalecamy wybranie tej samej lokalizacji co Pula hostów pulpitów wirtualnych systemu Windows.
     - W obszarze **Wydajność** wybierz opcję **Standardowa**. (W zależności od wymagań IOPS. Aby uzyskać więcej informacji, zobacz [Opcje magazynu dla kontenerów profilów FSLogix na pulpicie wirtualnym systemu Windows](store-fslogix-profile.md).
-    - W obszarze **Typ konta**wybierz pozycję **StorageV2** lub **FileStorage**.
+    - W obszarze **Typ konta**wybierz pozycję **StorageV2** lub **FileStorage** (dostępne tylko wtedy, gdy warstwa wydajności to Premium).
     - W obszarze **replikacja**wybierz pozycję **Magazyn lokalnie nadmiarowy (LRS)**.
 
 5. Gdy skończysz, wybierz pozycję **Przegląd + Utwórz**, a następnie wybierz pozycję **Utwórz**.
@@ -78,7 +78,7 @@ Następnie należy włączyć uwierzytelnianie Active Directory (AD). Aby włąc
 
 ## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Przypisywanie uprawnień usługi Azure RBAC do użytkowników pulpitu wirtualnego systemu Windows
 
-Wszyscy użytkownicy, którzy muszą mieć profile FSLogix przechowywane na koncie magazynu, muszą mieć przypisaną rolę współautora udziału SMB danych pliku magazynu. 
+Wszyscy użytkownicy, którzy muszą mieć profile FSLogix przechowywane na koncie magazynu, muszą mieć przypisaną rolę współautora udziału SMB danych pliku magazynu.
 
 Użytkownicy logujący się na hostach sesji usług pulpitu wirtualnego systemu Windows potrzebują uprawnień dostępu, aby uzyskać dostęp do udziału plików. Przyznanie dostępu do udziału plików platformy Azure obejmuje skonfigurowanie uprawnień zarówno na poziomie udziału, jak i na poziomie systemu plików NTFS, podobnie jak w przypadku tradycyjnego udziału systemu Windows.
 
@@ -98,7 +98,7 @@ Aby przypisać uprawnienia kontroli dostępu opartej na rolach (RBAC):
 4. Wybierz pozycję **Dodaj przypisanie roli**.
 
 5. Na karcie **Dodaj przypisanie roli** wybierz pozycję **plik magazynu dane współautora udziału SMB** dla konta administratora.
-   
+
      Aby przypisać uprawnienia użytkowników do swoich profilów FSLogix, wykonaj te same instrukcje. Jednak po przekroczeniu kroku 5 Wybierz opcję **plik magazynu dane współautor udział SMB** .
 
 6. Wybierz pozycję **Zapisz**.
@@ -126,7 +126,7 @@ Poniżej przedstawiono sposób pobierania ścieżki UNC:
 
 5. Po skopiowaniu identyfikatora URI wykonaj następujące czynności, aby zmienić je na UNC:
 
-    - Usuń element `https://`
+    - Usuń `https://` i Zamień na`\\`
     - Zastąp ukośnik odwrotny `/` ukośnikiem `\` .
     - Dodaj nazwę udziału plików utworzonego w obszarze [Utwórz udział plików platformy Azure](#create-an-azure-file-share) na końcu UNC.
 
@@ -157,7 +157,7 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
      ```
 
 3. Uruchom następujące polecenie cmdlet, aby przejrzeć uprawnienia dostępu do udziału plików platformy Azure:
-    
+
     ```powershell
     icacls <mounted-drive-letter>:
     ```
@@ -167,7 +167,7 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
     Zarówno *Użytkownicy NT Authority\Authenticated* , jak i *BUILTIN\Users* mają określone uprawnienia. Te uprawnienia domyślne umożliwiają użytkownikom odczytywanie kontenerów profilów innych użytkowników. Jednak uprawnienia opisane w artykule [Konfigurowanie uprawnień magazynu do użycia z kontenerami profilów i kontenerami pakietu Office](/fslogix/fslogix-storage-config-ht) nie umożliwiają użytkownikom odczytywania kontenerów profilów profilu.
 
 4. Uruchom następujące polecenia cmdlet, aby umożliwić użytkownikom pulpitu wirtualnego systemu Windows Tworzenie własnych kontenerów profilów przy zablokowaniu dostępu do kontenera profilu od innych użytkowników.
-     
+
      ```powershell
      icacls <mounted-drive-letter>: /grant <user-email>:(M)
      icacls <mounted-drive-letter>: /grant "Creator Owner":(OI)(CI)(IO)(M)
@@ -187,7 +187,7 @@ Aby skonfigurować uprawnienia systemu plików NTFS:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-5. Wybierz pozycję **Zastosuj**.
+5. Wybierz przycisk **Zastosuj**.
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>Konfigurowanie FSLogix na maszynach wirtualnych hosta sesji
 

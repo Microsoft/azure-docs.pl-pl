@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: da62efff5db5c71b087657b0eec93f8dd4702665
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780510"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84751500"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi ServiceNow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -54,12 +54,19 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 
 1. Zidentyfikuj nazwę wystąpienia usługi ServiceNow. Nazwę wystąpienia można znaleźć w adresie URL używanym do uzyskiwania dostępu do usługi ServiceNow. W poniższym przykładzie nazwa wystąpienia to dev35214.
 
-![Wystąpienie usługi ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
+   ![Wystąpienie usługi ServiceNow](media/servicenow-provisioning-tutorial/servicenow_instance.png)
 
-    
 2. Uzyskaj poświadczenia dla administratora w usługi ServiceNow. Przejdź do profilu użytkownika w programie usługi ServiceNow i sprawdź, czy użytkownik ma rolę administratora. 
 
-![Rola administratora usługi ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+   ![Rola administratora usługi ServiceNow](media/servicenow-provisioning-tutorial/servicenow-admin-role.png)
+
+3. Upewnij się, że następujące ustawienia są **wyłączone** w usługi ServiceNow:
+
+   1. Wybierz pozycję **zabezpieczenia systemu**  >  **Ustawienia wysokie zabezpieczenia**  >  **wymagają uwierzytelniania podstawowego dla przychodzących żądań schematu**.
+   2. Wybieranie **Właściwości systemu**  >  **usługi sieci Web**  >  **wymagają podstawowej autoryzacji dla przychodzących żądań SOAP**.
+     
+   > [!IMPORTANT]
+   > Jeśli te ustawienia są *włączone*, aparat aprowizacji nie będzie mógł komunikować się z usługą usługi ServiceNow.
 
 ## <a name="step-3-add-servicenow-from-the-azure-ad-application-gallery"></a>Krok 3. Dodawanie usługi ServiceNow z galerii aplikacji usługi Azure AD
 
@@ -142,6 +149,14 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 * **EntryJoiningPropertyValueIsMissing:** Przejrzyj [mapowania atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) , aby zidentyfikować pasujący atrybut. Ta wartość musi być obecna dla użytkownika lub grupy, którą próbujesz udostępnić. 
 * Zapoznaj się z [interfejsem API protokołu SOAP usługi ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) , aby poznać wszelkie wymagania lub ograniczenia (na przykład format, aby określić kod kraju dla użytkownika).
 * Żądania aprowizacji są domyślnie wysyłane do protokołu https://{nazwa wystąpienia}. Service-Now. com/{Table-Name}. Jeśli potrzebujesz niestandardowego adresu URL dzierżawy, możesz podać cały adres URL w polu Nazwa wystąpienia.
+* **ServiceNowInstanceInvalid** 
+  
+  `Details: Your ServiceNow instance name appears to be invalid.  Please provide a current ServiceNow administrative user name and          password along with the name of a valid ServiceNow instance.`                                                              
+
+   Ten błąd wskazuje na problem z komunikacją z wystąpieniem usługi ServiceNow. Sprawdź podwójne, aby upewnić się, że następujące ustawienia są *wyłączone* w usługi ServiceNow:
+   
+   1. Wybierz pozycję **zabezpieczenia systemu**  >  **Ustawienia wysokie zabezpieczenia**  >  **wymagają uwierzytelniania podstawowego dla przychodzących żądań schematu**.
+   2. Wybieranie **Właściwości systemu**  >  **usługi sieci Web**  >  **wymagają podstawowej autoryzacji dla przychodzących żądań SOAP**.
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 

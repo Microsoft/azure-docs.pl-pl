@@ -9,23 +9,23 @@ manager: KumudD
 ms.service: virtual-network
 Customer intent: As an IT administrator, I want to troubleshoot Virtual Network NAT.
 ms.devlang: na
-ms.topic: overview
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: 7723e74b9617d5e8d56dd3c3e46145c4945ca21f
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698094"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688285"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Rozwiązywanie problemów z łącznością NAT na platformie Azure Virtual Network
 
 Ten artykuł ułatwia administratorom diagnozowanie i rozwiązywanie problemów z łącznością podczas korzystania z Virtual Network translatora adresów sieciowych.
 
-## <a name="problems"></a>Dotyczące
+## <a name="problems"></a>Problemy
 
 * [Wyczerpanie adresów współlotowych](#snat-exhaustion)
 * [Polecenie ping protokołu ICMP kończy się niepowodzeniem](#icmp-ping-is-failing)

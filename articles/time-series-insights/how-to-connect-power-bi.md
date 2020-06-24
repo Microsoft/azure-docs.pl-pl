@@ -7,13 +7,13 @@ manager: cshankar
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 0f51f6867d773c906d2df24c7e61ad897a4304f6
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 06/01/2020
+ms.openlocfilehash: ea46f37b0c09ca655b29ac3cfa2f168e18c85590
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258894"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052445"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Wizualizuj dane z Time Series Insights w Power BI
 

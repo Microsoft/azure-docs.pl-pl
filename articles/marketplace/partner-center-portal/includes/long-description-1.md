@@ -5,18 +5,18 @@ author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: include
 ms.date: 05/19/2020
-ms.openlocfilehash: 60358c60ed28b63d97f11ce2ba26474103bcdb54
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 5023e7e215fd96357ee7cdc2105b57af0989d1eb
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698399"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211372"
 ---
 Podaj dłuższy opis oferty, do 3 000 znaków. Klienci będą widzieć ten temat w przeglądzie oferty w portalu Marketplace.
 
-W opisie Uwzględnij co najmniej jeden z następujących elementów:
+Uwzględnij co najmniej jeden z następujących elementów w opisie:
 
 - Wartość i kluczowe korzyści wynikające z oferty
 - Skojarzenia kategorii i/lub branżowych

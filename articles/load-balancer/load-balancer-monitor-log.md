@@ -7,18 +7,18 @@ documentationcenter: na
 author: asudbring
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7563eb4d22048021886925f6864e3616bed83a75
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858767"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809189"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Dzienniki usługi Azure Monitor dla usługi Load Balancer w warstwie Podstawowa
 
@@ -35,12 +35,12 @@ Możesz użyć różnych typów dzienników na platformie Azure do zarządzania 
 
 Rejestrowanie aktywności jest automatycznie włączone dla wszystkich zasobów usługi Resource Manager. Włącz rejestrowanie sondowania zdarzeń i kondycji, aby rozpocząć zbieranie danych dostępnych w tych dziennikach. Wykonaj następujące kroki, aby włączyć rejestrowanie.
 
-Zaloguj się do [portalu Azure](https://portal.azure.com). Jeśli nie masz jeszcze modułu równoważenia obciążenia, przed kontynuowaniem [Utwórz moduł równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) .
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli nie masz jeszcze modułu równoważenia obciążenia, przed kontynuowaniem [Utwórz moduł równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) .
 
 1. W portalu kliknij pozycję **grupy zasobów**.
-2. Wybierz pozycję ** \<Resource-Group-Name>** , w której znajduje się moduł równoważenia obciążenia.
+2. Wybierz **\<resource-group-name>** lokalizację modułu równoważenia obciążenia.
 3. Wybierz moduł równoważenia obciążenia.
-4. Wybierz pozycję **monitorowanie** > **ustawień diagnostycznych**.
+4. Wybierz pozycję **monitorowanie**  >  **ustawień diagnostycznych**.
 5. W okienku **Ustawienia diagnostyki** w obszarze **Ustawienia diagnostyki**wybierz pozycję **+ Dodaj ustawienie diagnostyczne**.
 6. W okienku tworzenie **ustawień diagnostycznych** wprowadź **MyLBDiagnostics** w polu **Nazwa** .
 7. Dla **ustawień diagnostycznych**dostępne są trzy opcje.  Można wybrać jeden, dwa lub wszystkie trzy i skonfigurować każdy z nich w celu spełnienia wymagań:

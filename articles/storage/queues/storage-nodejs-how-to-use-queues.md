@@ -7,14 +7,14 @@ ms.date: 12/08/2016
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 878c4a5028b114ad10d19c03c0239c9d7a8bc6ce
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 4b8f15831c02a74bbba85ca4327369af6a4dbb2a
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659562"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84808803"
 ---
 # <a name="use-azure-queue-service-to-create-and-delete-queues-from-nodejs"></a>Tworzenie i usuwanie kolejek z Node.js za pomocą usługi Azure Queue Service
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

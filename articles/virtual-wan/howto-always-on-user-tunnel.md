@@ -5,15 +5,15 @@ description: W tym artykule opisano sposób konfigurowania tunelu użytkownika z
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: dd5b215b143fbaf487325744a158bb8b05707951
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72287403e8406e0cfce83a69a5b9d3f58c693b8b
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79502869"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750491"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel-for-virtual-wan"></a>Konfigurowanie tunelu użytkownika usługi Always On VPN dla wirtualnej sieci WAN
 

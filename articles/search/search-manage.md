@@ -9,17 +9,17 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3abbf2c8e0734d17aabadd2ae5f61cc03889964b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f91df2e4b76e2a85705100fa5626877b9a86312d
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282928"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84752572"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administracja usługi dla platformy Azure Wyszukiwanie poznawcze w Azure Portal
 > [!div class="op_single_selector"]
-> * [Narzędzia](search-manage-powershell.md)
-> * [INTERFEJS API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [PowerShell](search-manage-powershell.md)
+> * [Interfejs API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [Zestaw SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
@@ -98,9 +98,9 @@ Usługa wyszukiwania mająca więcej replik może równoważyć obciążenie ż�
 Mimo że przepływność zapytań jest dodawana podczas dodawania replik, nie jest ona dokładnie podwójna ani potrójna podczas dodawania replik do usługi. Wszystkie aplikacje wyszukiwania podlegają zewnętrznym czynnikom, które mogą wykonywać pingowanie względem wydajności zapytań. Złożone zapytania i opóźnienia sieci to dwa czynniki, które przyczyniają się do wahań czasów odpowiedzi na zapytanie.
 
 ### <a name="add-partitions"></a>Dodawanie partycji
-Większość aplikacji usługi ma wbudowaną potrzebę tworzenia większej liczby replik, a nie partycji. W przypadku, gdy jest wymagana większa liczba dokumentów, można dodać partycje, jeśli utworzono konto w usłudze Standard. Warstwa Podstawowa nie zapewnia dodatkowych partycji.
+Jest to bardziej powszechne w przypadku dodawania replik, ale w przypadku ograniczenia magazynu można dodać partycje, aby uzyskać więcej pojemności. Warstwa, w której zainicjowano obsługę partycji, określa, czy można dodać partycje. Warstwa Podstawowa jest zablokowana na jednej partycji. Warstwy Standardowa i nowsze obsługują dodatkowe partycje.
 
-W warstwie Standardowa partycje są dodawane w wielokrotnościach 12 (w odróżnieniu od 1, 2, 3, 4, 6 lub 12). To jest artefakt fragmentowania. Indeks jest tworzony w 12 fragmentów, który może być przechowywany na 1 partycji lub równo podzielony na 2, 3, 4, 6 lub 12 partycji (jedną fragmentu na partycję).
+Partycje są dodawane w wielokrotnościach 12 (w odróżnieniu od 1, 2, 3, 4, 6 lub 12). To jest artefakt fragmentowania. Indeks jest tworzony w 12 fragmentów, który może być przechowywany na 1 partycji lub równo podzielony na 2, 3, 4, 6 lub 12 partycji (jedną fragmentu na partycję).
 
 ### <a name="remove-replicas"></a>Usuwanie replik
 Po upływie okresów dużych ilości zapytań można użyć suwaka, aby zmniejszyć liczbę replik po ukończeniu obciążeń zapytań wyszukiwania. W Twojej części nie są wymagane żadne dalsze czynności. Zmniejszenie liczby replik zwalnia maszyny wirtualne w centrum danych. Wykonywanie zapytań i operacji pozyskiwania danych zostanie teraz uruchomione na mniejszej liczbie maszyn wirtualnych niż wcześniej. Minimalnym wymaganiem jest jedna replika.

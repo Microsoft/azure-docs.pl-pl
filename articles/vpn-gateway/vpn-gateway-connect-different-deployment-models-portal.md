@@ -4,15 +4,15 @@ description: Procedura łączenia klasycznej sieci wirtualnych w celu Menedżer 
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5e64cb2db2bd16a881334779a1c6f1ef19296da2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 231fbe3a30cc9507ebb9b401bd2fe07a451c59a9
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152027"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987678"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Łączenie sieci wirtualnych z różnych modeli wdrażania przy użyciu portalu
 
@@ -84,7 +84,7 @@ W poniższej tabeli przedstawiono przykład definiowania przykładowych sieci wi
 
 W tej sekcji utworzysz klasyczną sieć wirtualną (lokację lokalną) i bramę sieci wirtualnej. Zamieszczone zrzuty ekranu są przykładowe. Pamiętaj, aby zastąpić wartości własnymi lub użyć [przykładowych](#values) wartości.
 
-### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"> </a>Tworzenie klasycznej sieci wirtualnej
+### <a name="1-create-a-classic-vnet"></a>1. <a name="classicvnet"></a> Tworzenie klasycznej sieci wirtualnej
 
 Jeśli nie masz klasycznej sieci wirtualnej i uruchamiasz te kroki jako ćwiczenie, możesz utworzyć sieć wirtualną za pomocą [tego artykułu](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) oraz [przykładowych](#values) wartości ustawień z powyższych.
 
@@ -96,7 +96,7 @@ Jeśli masz już sieć wirtualną z bramą sieci VPN, sprawdź, czy brama jest d
 4. Znajdź element "Virtual Network" na liście zwracanej i kliknij go, aby otworzyć stronę Virtual Network. 
 5. Na stronie Sieć wirtualna wybierz opcję "klasyczny", aby utworzyć klasyczną sieć wirtualną. Jeśli w tym miejscu zostanie wprowadzona wartość domyślna, w zamian zostanie wystawiona Menedżer zasobów Sieć wirtualna.
 
-### <a name="2-configure-the-local-site"></a>2. <a name="local"> </a>Skonfiguruj lokację lokalną
+### <a name="2-configure-the-local-site"></a>2. <a name="local"></a> Skonfiguruj lokację lokalną
 
 1. Przejdź do **wszystkich zasobów** i Znajdź na liście **ClassicVNet** .
 2. Kliknij pozycję **brama** w sekcji **Ustawienia** w menu, a następnie kliknij transparent, aby utworzyć bramę.
@@ -207,7 +207,7 @@ W tych krokach skonfigurujesz połączenie z Menedżer zasobów sieci wirtualnej
 2. Kliknij pozycję **Konfiguracja** i sprawdź, czy wartość adresu IP jest bramą VPN dla klasycznej sieci wirtualnej. W razie konieczności zaktualizuj, a następnie kliknij przycisk **Zapisz**. Zamknij stronę.
 3. W obszarze **wszystkie zasoby**kliknij pozycję Brama sieci lokalnej.
 4. Kliknij pozycję **połączenia** , aby otworzyć stronę połączenia.
-5. Na stronie **połączenia** kliknij **+** , aby dodać połączenie.
+5. Na stronie **połączenia** kliknij, **+** Aby dodać połączenie.
 6. Na stronie **Dodawanie połączenia** Nadaj nazwę połączenie. Na przykład "RMtoClassic".
 7. Na tej stronie została już wybrana **lokacja-lokacja** .
 8. Wybierz bramę sieci wirtualnej, która ma zostać skojarzona z tą lokacją.

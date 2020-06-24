@@ -2,7 +2,7 @@
 title: Migrowanie z SQL Server do wystąpienia zarządzanego usługi Azure SQL
 description: Dowiedz się, jak przeprowadzić migrację bazy danych z SQL Server do wystąpienia zarządzanego Azure SQL.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: migration
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 14ad9d1b878881a85e80f72666da54f54263cee3
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 47f766e8e5c1ea43d0c9bde8138c0ab17533f539
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660851"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708684"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server migracji wystąpień do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

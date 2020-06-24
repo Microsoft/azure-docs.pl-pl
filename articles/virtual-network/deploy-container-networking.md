@@ -10,18 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 704f08bc4a41eb52789f8f28675332892d72a500
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cae4b579a933c03ec3a08a00ef032c57d15093f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80475140"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84710018"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Wdrażanie wtyczki CNI w usłudze Azure Virtual Network
 
@@ -168,8 +168,8 @@ Plik konfiguracji wtyczki CNI jest opisany w formacie JSON. Jego domyślna lokal
 
 Pobierz wtyczkę z witryny [GitHub](https://github.com/Azure/azure-container-networking/releases). Pobierz najnowszą wersję dla używanej platformy:
 
-- **Linux**: [azure-vnet-cni-linux-amd64-\<wersja\>.tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
-- **Windows**: [azure-vnet-cni-windows-amd64-\<wersja\>.zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
+- **Linux**: [Azure-VNET-CNI-Linux-amd64- \<version no.\> . tgz](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-linux-amd64-v1.0.12-rc3.tgz)
+- **Windows**: [Azure-VNET-CNI-Windows-amd64- \<version no.\> . zip](https://github.com/Azure/azure-container-networking/releases/download/v1.0.12-rc3/azure-vnet-cni-windows-amd64-v1.0.12-rc3.zip)
 
 Skopiuj skrypt instalacji dla systemu [Linux](https://github.com/Azure/azure-container-networking/blob/master/scripts/install-cni-plugin.sh) lub [Windows](https://github.com/Azure/azure-container-networking/blob/master/scripts/Install-CniPlugin.ps1) na komputer. Zapisz skrypt w katalogu `scripts` na komputerze i nazwij plik `install-cni-plugin.sh` w przypadku systemu Linux lub `install-cni-plugin.ps1` w przypadku systemu Windows. Aby zainstalować wtyczkę, uruchom odpowiedni skrypt dla swojej platformy, określając wersję używanej wtyczki. Możesz na przykład określić wersję *v1.0.12 rc3*:
 

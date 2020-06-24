@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276506"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687654"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Pojęcia powiązań i wyzwalaczy usługi Azure Functions
 
@@ -44,13 +44,13 @@ Wyzwalacze i powiązania są zdefiniowane inaczej w zależności od podejścia d
 | Platforma | Wyzwalacze i powiązania są konfigurowane przez... |
 |-------------|--------------------------------------------|
 | Biblioteka klas języka C# | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dekorowania nazwy metod i parametrów przy użyciu atrybutów języka C# |
-| Wszystkie inne (w tym Azure Portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aktualizowanie [funkcji Function. JSON](./functions-reference.md) ([schemat](http://json.schemastore.org/function)) |
+| Wszystkie inne (w tym Azure Portal) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aktualizowanie [function.jsna](./functions-reference.md) ([schemat](http://json.schemastore.org/function)) |
 
 Portal udostępnia interfejs użytkownika dla tej konfiguracji, ale można edytować plik bezpośrednio, otwierając **Edytor zaawansowany** dostępny za pośrednictwem karty **integracja** funkcji.
 
-W programie .NET typ parametru definiuje typ danych danych wejściowych. Na przykład, użyj `string` , aby powiązać z tekstem wyzwalacza kolejki, tablicę bajtową do odczytu jako Binary i typ niestandardowy do deserializacji do obiektu.
+W programie .NET typ parametru definiuje typ danych danych wejściowych. Na przykład, użyj, `string` Aby powiązać z tekstem wyzwalacza kolejki, tablicę bajtową do odczytu jako Binary i typ niestandardowy do deserializacji do obiektu.
 
-W przypadku języków, które są dynamicznie wpisywane, takich jak JavaScript `dataType` , użyj właściwości w pliku *Function. JSON* . Na przykład, aby odczytać zawartość żądania HTTP w formacie binarnym, ustaw `dataType` opcję na: `binary`
+W przypadku języków, które są dynamicznie wpisywane, takich jak JavaScript, użyj `dataType` właściwości w *function.js* pliku. Na przykład, aby odczytać zawartość żądania HTTP w formacie binarnym, ustaw opcję `dataType` na `binary` :
 
 ```json
 {
@@ -61,15 +61,15 @@ W przypadku języków, które są dynamicznie wpisywane, takich jak JavaScript `
 }
 ```
 
-Inne opcje dla `dataType` programu `stream` to `string`i.
+Inne opcje dla programu `dataType` to `stream` i `string` .
 
 ## <a name="binding-direction"></a>Kierunek powiązania
 
-Wszystkie wyzwalacze i powiązania mają `direction` właściwość w pliku [Function. JSON](./functions-reference.md) :
+Wszystkie wyzwalacze i powiązania mają `direction` Właściwość w [function.js](./functions-reference.md) w pliku:
 
 - W przypadku wyzwalaczy kierunek jest zawsze`in`
 - Powiązania danych wejściowych i wyjściowych używają `in` i`out`
-- Niektóre powiązania obsługują specjalny kierunek `inout`. Jeśli używasz `inout`programu, tylko **Edytor zaawansowany** jest dostępny za pośrednictwem karty **integracja** w portalu.
+- Niektóre powiązania obsługują specjalny kierunek `inout` . Jeśli używasz programu `inout` , tylko **Edytor zaawansowany** jest dostępny za pośrednictwem karty **integracja** w portalu.
 
 W przypadku używania [atrybutów w bibliotece klas](functions-dotnet-class-library.md) do konfigurowania wyzwalaczy i powiązań, kierunek jest udostępniany w konstruktorze atrybutu lub wywnioskowany na podstawie typu parametru.
 

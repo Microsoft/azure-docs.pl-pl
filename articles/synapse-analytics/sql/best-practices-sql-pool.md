@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 345794eead05a4ff5e5d1396df78878d2693f405
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 5ad2867ffdea512348002d03ec742af42b535b31
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834989"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750206"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące pul SQL w usłudze Azure Synapse Analytics
 
@@ -59,7 +59,7 @@ Obciążenia funkcji PolyBase można uruchomić za pomocą instrukcji CTAS lub I
 
 Aby zmaksymalizować przepływność przy użyciu plików tekstowych gzip, należy podzielić pliki na 60 lub więcej plików, aby zmaksymalizować równoległość obciążenia. W celu uzyskania szybszej całkowitej przepływności warto rozważyć równoległe ładowania danych. Dodatkowe informacje dotyczące tematów odpowiednich dla tej sekcji znajdują się w następujących artykułach:
 
-- [Ładowanie danych](data-loading-overview.md)
+- [Ładowanie danych](../sql-data-warehouse/design-elt-data-loading.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Przewodnik po funkcji PolyBase](data-loading-best-practices.md)
 - [Wzorce i strategie ładowania puli SQL platformy Azure](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
 - [Ładowanie danych przy użyciu usługi Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

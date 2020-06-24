@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: f2a5ad78ecf4bf02e84b9bf2e37fea13c708e072
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84143100"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987613"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Wysyłaj powiązane komunikaty w kolejności przy użyciu konwoju sekwencyjnego w Azure Logic Apps z Azure Service Bus
 
@@ -27,7 +27,7 @@ W tym artykule pokazano, jak utworzyć aplikację logiki, która implementuje te
 
 * Odczytaj i Przetwórz wszystkie komunikaty z tej samej sesji w kolejce podczas bieżącego przebiegu przepływu pracy.
 
-Aby przejrzeć plik JSON tego szablonu, zobacz [GitHub: Service-Bus-Sessions. JSON](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
+Aby przejrzeć plik JSON tego szablonu, zobacz artykuł [GitHub: service-bus-sessions.json](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
 Aby uzyskać więcej informacji, zobacz [wzorzec konwoju wzorca — wzorce projektowania architektury platformy Azure](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy).
 
@@ -249,7 +249,7 @@ To [ **do momentu** uruchomienia przez pętlę](../logic-apps/logic-apps-control
 1. W akcji Service Bus **uzyskaj dodatkowe komunikaty z sesji**, podaj nazwę kolejki Service Bus. W przeciwnym razie Zachowaj wszystkie inne domyślne wartości właściwości w akcji.
 
    > [!NOTE]
-   > Domyślnie maksymalna liczba komunikatów jest ustawiona na `175` , ale ten limit ma wpływ na rozmiar komunikatu i Właściwość maksymalny rozmiar komunikatu w Service Bus. Obecnie ten limit jest 256 K dla wersji standardowa i 1 MB dla warstwy Premium.
+   > Domyślnie maksymalna liczba komunikatów jest ustawiona na `175` , ale ten limit ma wpływ na rozmiar komunikatu i Właściwość maksymalny rozmiar komunikatu w Service Bus. Aby uzyskać więcej informacji, zobacz [rozmiar komunikatu dla kolejki](../service-bus-messaging/service-bus-quotas.md).
 
    ![Akcja Service Bus — "Pobierz dodatkowe komunikaty z sesji"](./media/send-related-messages-sequential-convoy/get-additional-messages-from-session.png)
 

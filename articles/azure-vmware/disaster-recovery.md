@@ -3,12 +3,12 @@ title: Wykonaj odzyskiwanie po awarii maszyn wirtualnych
 description: W tym artykule pokazano, jak wykonać odzyskiwanie po awarii maszyn wirtualnych przy użyciu funkcji automatycznej synchronizacji
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 5fdfc252486d94fcc22ebba9705fa5e259539921
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 5ccaa009c8e3e059597636a8bb78cc3bd255fe68
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148161"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749951"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Kończenie odzyskiwania po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware
 
@@ -152,7 +152,7 @@ Te interfejsy API obejmują następujące operacje odzyskiwania po awarii.
 
 - Ochrona
 
-- Recover
+- Odzyskiwanie
 
 - Odzyskiwanie testowe
 

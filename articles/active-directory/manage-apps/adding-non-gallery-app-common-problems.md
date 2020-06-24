@@ -3,24 +3,24 @@ title: Problem z dodaniem aplikacji spoza galerii | Microsoft Docs
 description: Poznaj często spotykane problemy związane z dodawaniem niestandardowych aplikacji nienależących do galerii
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/11/2018
-ms.author: mimart
+ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38a9ef04389318d3588649117c930ff6efa3fe4e
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: ce103ca6c958b0524d753da25c2a79aadfb7c8b3
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "65784475"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84760290"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Problem z dodaniem aplikacji spoza galerii
 
@@ -96,7 +96,7 @@ Więcej informacji o powiadomieniach można znaleźć w następujących opisach.
 
 - **UPN** — użytkownik, który wykonał operację
 
-  *  Przykład — **tperkins\@f128.info**
+  *  Przykład — **tperkins \@ f128.info**
 
 - **Identyfikator dzierżawy** — unikatowy identyfikator dzierżawy, której użytkownik wykonał operację, był członkiem
 
@@ -122,7 +122,7 @@ Więcej informacji o powiadomieniach można znaleźć w następujących opisach.
 
 - **Szczegóły** — szczegółowy opis tego, co się stało w wyniku operacji
 
-  *  Przykład — **wewnętrzny adres `https://bing.com/` URL jest nieprawidłowy, ponieważ jest już używany**
+  *  Przykład — **wewnętrzny adres URL `https://bing.com/` jest nieprawidłowy, ponieważ jest już używany**
 
 - **Błąd kopiowania** — kliknij **ikonę kopiowania** z prawej strony pola tekstowego **błąd kopiowania** , aby skopiować wszystkie szczegóły powiadomienia, które mają być współużytkowane z obsługą lub grupą produktów. 
 - inżynier ds

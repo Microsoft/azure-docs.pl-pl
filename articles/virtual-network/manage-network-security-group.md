@@ -6,17 +6,17 @@ services: virtual-network
 documentationcenter: na
 author: KumudD
 ms.service: virtual-network
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: cac67e85383f36aee0a1535d69fa075f92bd6dbf
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267719"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708284"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Tworzenie, zmienianie i usuwanie sieciowej grupy zabezpieczeń
 
@@ -174,7 +174,7 @@ Istnieje ograniczenie liczby reguł na grupę zabezpieczeń sieci, które można
     | **Docelowe zakresy portów** | Jeden z:<ul><li>Pojedynczy port, taki jak`80`</li><li>Zakres portów, taki jak`1024-65535`</li><li>Rozdzielana przecinkami lista pojedynczych portów i/lub zakresów portów, takich jak`80, 1024-65535`</li><li>Gwiazdka ( `*` ), aby zezwolić na ruch na dowolnym porcie</li></ul> | Podobnie jak w przypadku **zakresów portów źródłowych**, można określić jeden lub wiele portów i zakresów. Istnieją limity dotyczące liczby, którą można określić. Aby uzyskać więcej informacji, zobacz [limity platformy Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). |
     | **Protokół** | **Dowolny**, **TCP**, **UDP**lub **ICMP** | Możesz ograniczyć regułę do Transmission Control Protocol (TCP), User Datagram Protocol (UDP) lub protokołu komunikacyjnego sterowania Internetem (ICMP). Wartość domyślna to reguła, która ma być stosowana do wszystkich protokołów. |
     | **Akcja** | **Zezwalaj** lub **Odmów** | To ustawienie określa, czy ta reguła zezwala na dostęp do podanej konfiguracji źródłowej i docelowej. |
-    | **Priorytet** | Wartość z zakresu od 100 do 4096, która jest unikatowa dla wszystkich reguł zabezpieczeń w sieciowej grupie zabezpieczeń | Platforma Azure przetwarza reguły zabezpieczeń w kolejności priorytetów. Im niższa wartość, tym wyższy priorytet. Zaleca się pozostawienie przerwy między numerami priorytetu podczas tworzenia reguł, takich jak 100, 200 i 300. Pozostawienie przerw w ułatwia dodawanie reguł w przyszłości, dzięki czemu można przyznać im wyższy lub niższy priorytet niż istniejące reguły. |
+    | **Priority** | Wartość z zakresu od 100 do 4096, która jest unikatowa dla wszystkich reguł zabezpieczeń w sieciowej grupie zabezpieczeń | Platforma Azure przetwarza reguły zabezpieczeń w kolejności priorytetów. Im niższa wartość, tym wyższy priorytet. Zaleca się pozostawienie przerwy między numerami priorytetu podczas tworzenia reguł, takich jak 100, 200 i 300. Pozostawienie przerw w ułatwia dodawanie reguł w przyszłości, dzięki czemu można przyznać im wyższy lub niższy priorytet niż istniejące reguły. |
     | **Nazwa** | Unikatowa nazwa reguły w sieciowej grupie zabezpieczeń | Nazwa może składać się z maksymalnie 80 znaków. Musi zaczynać się literą lub cyfrą i musi kończyć się literą, cyfrą lub podkreśleniem. Nazwa może zawierać tylko litery, cyfry, podkreślenia, kropki lub łączniki. |
     | **Opis** | Opis tekstowy | Opcjonalnie można określić opis tekstowy dla reguły zabezpieczeń. |
 

@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261621"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689218"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Synchronizacja Azure AD Connect: zrozumienie architektury
 W tym temacie omówiono podstawową architekturę synchronizacji Azure AD Connect. W wielu aspektach jest podobny do jego poprzedników MIIS 2003, ILM 2007 i FIM 2010. Azure AD Connect synchronizacja jest ewolucją tych technologii. Jeśli znasz już każdą z tych wcześniejszych technologii, zawartość tego tematu będzie również znana. Jeśli dopiero zaczynasz synchronizację, ten temat jest dla Ciebie. Nie jest jednak wymagane, aby poznać szczegóły tego tematu, aby można było pomyślnie dostosowywać Azure AD Connect synchronizacji (nazywany aparatem synchronizacji w tym temacie).
@@ -145,7 +145,7 @@ Obiekt importu jest tworzony jako odłączony obiekt. Obiekt eksportu musi być 
 ## <a name="sync-engine-identity-management-process"></a>Proces zarządzania tożsamościami aparatu synchronizacji
 Proces zarządzania tożsamościami kontroluje sposób aktualizowania informacji o tożsamości między różnymi połączonymi źródłami danych. Zarządzanie tożsamościami odbywa się w trzech procesach:
 
-* Import
+* Importuj
 * Synchronizacja
 * Eksportowanie
 

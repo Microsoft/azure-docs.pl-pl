@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 8c9257c50320497a11a6cd1dbfdd1c709e2d9800
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84658432"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207893"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Portal deweloperów API Management platformy Azure — omówienie
 
@@ -169,7 +169,7 @@ Starsze portale wymagały uprawnienia do `Microsoft.ApiManagement/service/getsso
 
 Za pomocą poniższego skryptu programu PowerShell można utworzyć rolę z wymaganym uprawnieniem. Pamiętaj, aby zmienić `<subscription-id>` parametr. 
 
-```PowerShell
+```powershell
 #New Portals Admin Role 
 Import-Module Az 
 Connect-AzAccount 
@@ -187,7 +187,7 @@ New-AzRoleDefinition -Role $customRole
  
 Po utworzeniu roli można udzielić jej użytkownikowi z poziomu sekcji **Access Control (IAM)** w Azure Portal. Przypisanie tej roli do użytkownika spowoduje przypisanie uprawnienia do zakresu usługi. Użytkownik będzie mógł generować tokeny SAS w imieniu *dowolnego* użytkownika w usłudze. Na minimalnym poziomie ta rola musi być przypisana do administratora usługi. Następujące polecenie programu PowerShell demonstruje sposób przypisywania roli do użytkownika `user1` w najniższym zakresie, aby uniknąć udzielania niepotrzebnych uprawnień użytkownikowi: 
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
 ```
 

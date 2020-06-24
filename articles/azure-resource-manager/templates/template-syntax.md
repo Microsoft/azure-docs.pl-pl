@@ -2,13 +2,13 @@
 title: Struktura i składnia szablonu
 description: Opisuje strukturę i właściwości szablonów Azure Resource Manager przy użyciu deklaracyjnej składni JSON.
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: 1014cb34cd82ed36fec0ab9f9ea3fd71b528178b
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.date: 06/22/2020
+ms.openlocfilehash: 4fdf386aa3b17f46589183706b2a91637acacdb7
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465817"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208828"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Zrozumienie struktury i składni szablonów ARM
 
@@ -277,7 +277,7 @@ Poniższy przykład pokazuje strukturę definicji wyjściowej:
 | Nazwa wyjściowa |Tak |Nazwa wartości wyjściowej. Musi być prawidłowym identyfikatorem JavaScript. |
 | rozgrzewa |Nie | Wartość logiczna wskazująca, czy ta wartość wyjściowa jest zwracana. Gdy `true` wartość jest uwzględniona w danych wyjściowych dla wdrożenia. Gdy `false` Wartość wyjściowa jest pomijana dla tego wdrożenia. Gdy nie zostanie określony, wartość domyślna to `true` . |
 | typ |Tak |Typ wartości wyjściowej. Wartości wyjściowe obsługują takie same typy jak parametry wejściowe szablonu. W przypadku określenia elementu **SecureString** dla typu danych wyjściowych wartość nie jest wyświetlana w historii wdrożenia i nie można jej pobrać z innego szablonu. Aby użyć wartości klucza tajnego w więcej niż jednym szablonie, należy zapisać klucz tajny w Key Vault i odwołać się do wpisu tajnego w pliku parametrów. Aby uzyskać więcej informacji, zobacz [używanie Azure Key Vault do przekazywania zabezpieczonej wartości parametrów podczas wdrażania](key-vault-parameter.md). |
-| value |Nie |Wyrażenie języka szablonu, które jest oceniane i zwracane jako wartość wyjściowa. Określ **wartość** lub **Kopiuj**. |
+| wartość |Nie |Wyrażenie języka szablonu, które jest oceniane i zwracane jako wartość wyjściowa. Określ **wartość** lub **Kopiuj**. |
 | kopiowanie |Nie | Służy do zwrócenia więcej niż jednej wartości dla danych wyjściowych. Określ **wartość** lub **Kopiuj**. Aby uzyskać więcej informacji, zobacz [iteracja danych wyjściowych w szablonach Azure Resource Manager](copy-outputs.md). |
 
 Aby zapoznać się z przykładami sposobu korzystania z danych wyjściowych, zobacz dane [wyjściowe w szablonie Azure Resource Manager](template-outputs.md).
@@ -290,7 +290,7 @@ Istnieje kilka opcji dodawania komentarzy i metadanych do szablonu.
 
 ### <a name="comments"></a>Komentarze
 
-W przypadku komentarzy wbudowanych można użyć którejkolwiek `//` z tych opcji lub, `/* ... */` ale ta składnia nie działa z wszystkimi narzędziami. Nie można użyć edytora szablonów portalu do pracy nad szablonami z wbudowanymi komentarzami. W przypadku dodania tego stylu komentarza upewnij się, że narzędzia, z których korzystasz, obsługują wbudowane Komentarze JSON.
+W przypadku komentarzy wbudowanych można użyć którejkolwiek `//` z tych opcji lub, `/* ... */` ale ta składnia nie działa z wszystkimi narzędziami. W przypadku dodania tego stylu komentarza upewnij się, że narzędzia, z których korzystasz, obsługują wbudowane Komentarze JSON.
 
 > [!NOTE]
 > Aby wdrożyć szablony z komentarzem przy użyciu interfejsu wiersza polecenia platformy Azure w wersji 2.3.0 lub starszej, należy użyć `--handle-extended-json-format` przełącznika.
@@ -412,4 +412,4 @@ Aby wdrożyć szablony z użyciem ciągów wielowierszowych przy użyciu interfe
 * Aby uzyskać szczegółowe informacje o funkcjach, których można użyć w szablonie, zobacz [Azure Resource Manager Template Functions](template-functions.md).
 * Aby połączyć kilka szablonów podczas wdrażania, zobacz [Używanie połączonych szablonów z Azure Resource Manager](linked-templates.md).
 * Zalecenia dotyczące tworzenia szablonów można znaleźć w temacie [Azure Resource Manager Best Practices Template](template-best-practices.md).
-* Aby zapoznać się z zaleceniami dotyczącymi tworzenia Menedżer zasobów szablonów, których można używać we wszystkich środowiskach platformy Azure i Azure Stack, zobacz [opracowywanie szablonów Azure Resource Manager dla spójności chmury](templates-cloud-consistency.md).
+* Odpowiedzi na często zadawane pytania można znaleźć w sekcji [często zadawanych pytań dotyczących szablonów ARM](frequently-asked-questions.md).

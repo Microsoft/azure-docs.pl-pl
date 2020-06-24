@@ -1,18 +1,18 @@
 ---
 title: Seria NDv2
 description: Specyfikacje dotyczące maszyn wirtualnych z serii NDv2.
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 739e8763cf0c42fac68cce6603d087aaa4e0d9f9
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: a5b7dea30cff70d5c45460eb8ded2fa370afa2c2
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672193"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726594"
 ---
 # <a name="updated-ndv2-series"></a>Zaktualizowana seria NDv2
 

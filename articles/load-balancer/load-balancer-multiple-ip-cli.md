@@ -8,17 +8,17 @@ author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 69d324647af014a5122c404929c104a9077d5f13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e9a74690108c0e089e99f9cd7f0f62e7a7d1778
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74225304"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84809157"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Równoważenie obciążenia dla wielu konfiguracji adresów IP przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -71,7 +71,7 @@ Aby osiągnąć scenariusz opisany w tym artykule, wykonaj następujące czynno�
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrkamfe
     ```
 
-8. Utwórz pule adresów zaplecza — *contosopool* i *fabrikampool*, [sondy](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) - *http*i reguły równoważenia obciążenia — *HTTPc* i *HTTPf*:
+8. Utwórz pule adresów zaplecza — *contosopool* i *fabrikampool*, [sondy](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  -  *http*i reguły równoważenia obciążenia — *HTTPc* i *HTTPf*:
 
     ```azurecli
     az network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool

@@ -5,18 +5,18 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 06/07/2020
+ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: b8ff58e830d9ca992db4461ee5c75659120c89c1
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 34535cda82ba039ace98b6055e8f7096c5454fda
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629587"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207876"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Część trzecia: Konfigurowanie uprawnień na poziomie katalogu i pliku za pośrednictwem protokołu SMB 
 
-Przed rozpoczęciem tego artykułu upewnij się, że wykonano Poprzedni artykuł, [przypisując uprawnienia na poziomie udziału do tożsamości](storage-files-identity-ad-ds-assign-permissions.md). , Aby upewnić się, że Twoje uprawnienia na poziomie udziału zostały wprowadzone.
+Przed rozpoczęciem pracy z tym artykułem upewnij się, że wykonano Poprzedni artykuł, [Przypisz uprawnienia na poziomie udziału do tożsamości](storage-files-identity-ad-ds-assign-permissions.md) , aby upewnić się, że Twoje uprawnienia na poziomie udziału zostały wprowadzone.
 
 Po przypisaniu uprawnień na poziomie udziału za pomocą RBAC należy skonfigurować odpowiednie listy ACL systemu Windows na poziomie katalogu głównego, katalogu lub pliku, aby skorzystać z szczegółowej kontroli dostępu. Należy traktować uprawnienia na poziomie udziału RBAC jako strażnika wysokiego poziomu, który określa, czy użytkownik może uzyskać dostęp do udziału. Listy ACL systemu Windows działają na bardziej szczegółowym poziomie, aby określić, jakie operacje może wykonywać użytkownik na poziomie katalogu lub pliku. Uprawnienia na poziomie udziału i pliku/katalogu są wymuszane, gdy użytkownik próbuje uzyskać dostęp do pliku/katalogu, więc jeśli istnieje różnica między jednym z nich, zostanie zastosowane tylko najbardziej restrykcyjne. Na przykład jeśli użytkownik ma dostęp do odczytu/zapisu na poziomie pliku, ale tylko do odczytu na poziomie udziału, może odczytać tylko ten plik. Ta sama wartość powinna być równa true, jeśli została odwrócona, a użytkownik miał dostęp do odczytu/zapisu na poziomie udziału, ale tylko do odczytu na poziomie pliku może nadal tylko odczytać plik.
 
@@ -73,7 +73,7 @@ Użyj Eksploratora plików systemu Windows, aby przyznać pełne uprawnienia do 
 1. W oknie monitu do dodawania nowych użytkowników wprowadź nazwę docelowej nazwy użytkownika, do której chcesz udzielić uprawnień, w polu **Wprowadź nazwy obiektów do wybrania** , a następnie wybierz pozycję **Sprawdź nazwy** , aby znaleźć pełną nazwę UPN użytkownika docelowego.
 1.    Wybierz przycisk **OK**.
 1.    Na karcie **zabezpieczenia** wybierz pozycję wszystkie uprawnienia, które chcesz udzielić nowemu użytkownikowi.
-1.    Wybierz pozycję **Zastosuj**.
+1.    Wybierz przycisk **Zastosuj**.
 
 ### <a name="configure-windows-acls-with-icacls"></a>Konfigurowanie list ACL systemu Windows przy użyciu icacls
 

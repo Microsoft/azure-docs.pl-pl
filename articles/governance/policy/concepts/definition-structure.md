@@ -1,21 +1,21 @@
 ---
 title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
-ms.date: 05/11/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: de9b3c5242f361c9f0cf7128a5ec32c0e7dce428
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: a70534f91584f72ad81b71913c48062e51a324d3
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84205028"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85052737"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
 Azure Policy ustanawia konwencje dla zasobów. Definicje zasad opisują [warunki](#conditions) zgodności zasobów i wpływ, jaki należy wykonać w przypadku spełnienia warunku. Warunek porównuje [pole](#fields) właściwości zasobu z wymaganą wartością. Pola właściwości zasobu są dostępne za pomocą [aliasów](#aliases). Pole właściwości zasobu to pole pojedynczej wartości lub [Tablica](#understanding-the--alias) wielu wartości. Ocena warunku różni się w przypadku tablic.
 Dowiedz się więcej o [warunkach](#conditions).
 
-Dzięki zdefiniowaniu Konwencji można kontrolować koszty i łatwiej zarządzać zasobami. Można na przykład określić, że dozwolone są tylko niektóre typy maszyn wirtualnych. Lub można wymagać, aby wszystkie zasoby miały określony tag. Zasady są dziedziczone przez wszystkie zasoby podrzędne. Jeśli zasady są stosowane do grupy zasobów, mają zastosowanie do wszystkich zasobów w tej grupie zasobów.
+Dzięki zdefiniowaniu Konwencji można kontrolować koszty i łatwiej zarządzać zasobami. Można na przykład określić, że dozwolone są tylko niektóre typy maszyn wirtualnych. Lub można wymagać, aby zasoby miały określony tag. Przypisania zasad są dziedziczone przez zasoby podrzędne. Jeśli przypisanie zasad zostanie zastosowane do grupy zasobów, ma zastosowanie do wszystkich zasobów w tej grupie zasobów.
 
 Schemat definicji zasad znajduje się tutaj:[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
@@ -37,7 +37,7 @@ Na przykład poniższy kod JSON przedstawia zasady, które ograniczają miejsce 
     "properties": {
         "displayName": "Allowed locations",
         "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-        "mode": "all",
+        "mode": "Indexed",
         "metadata": {
             "version": "1.0.0",
             "category": "Locations"
@@ -83,7 +83,7 @@ Podczas gdy nie można ustawić właściwości **Type** , istnieją trzy wartoś
 
 - `Builtin`: Te definicje zasad są udostępniane i obsługiwane przez firmę Microsoft.
 - `Custom`: Ta wartość jest dostępna dla wszystkich definicji zasad utworzonych przez klientów.
-- `Static`: Wskazuje definicję zasad [zgodności z przepisami](./regulatory-compliance.md) firmy Microsoft **Ownership**. Wyniki zgodności dla tych definicji zasad są wynikami audytów przeprowadzanych przez inne firmy w ramach infrastruktury firmy Microsoft. W Azure Portal ta wartość jest czasami wyświetlana jako **zarządzana przez firmę Microsoft**. Aby uzyskać więcej informacji, zobacz [współdzielona odpowiedzialność w chmurze](../../../security/fundamentals/shared-responsibility.md).
+- `Static`: Wskazuje definicję zasad [zgodności z przepisami](./regulatory-compliance.md) firmy Microsoft **Ownership**. Wyniki zgodności dla tych definicji zasad są wynikami audytów innych firm w ramach infrastruktury firmy Microsoft. W Azure Portal ta wartość jest czasami wyświetlana jako **zarządzana przez firmę Microsoft**. Aby uzyskać więcej informacji, zobacz [współdzielona odpowiedzialność w chmurze](../../../security/fundamentals/shared-responsibility.md).
 
 ## <a name="mode"></a>Tryb
 
@@ -91,7 +91,7 @@ Podczas gdy nie można ustawić właściwości **Type** , istnieją trzy wartoś
 
 ### <a name="resource-manager-modes"></a>Tryby Menedżer zasobów
 
-**Tryb** określa, które typy zasobów będą oceniane dla zasad. Obsługiwane są następujące tryby:
+**Tryb** określa, które typy zasobów są oceniane dla definicji zasad. Obsługiwane są następujące tryby:
 
 - `all`: Oceń grupy zasobów, subskrypcje i wszystkie typy zasobów
 - `indexed`: Szacuj tylko typy zasobów obsługujące Tagi i lokalizację
@@ -106,8 +106,8 @@ Zaleca się, aby **mode** `all` w większości przypadków ustawić tryb. Wszyst
 
 Następujące tryby dostawcy zasobów są obecnie obsługiwane w wersji zapoznawczej:
 
-- `Microsoft.ContainerService.Data`Aby zarządzać regułami kontrolera przyjmowania w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md). Zasady korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Ten tryb jest _przestarzały_.
-- `Microsoft.Kubernetes.Data`do zarządzania klastrami Kubernetes na platformie Azure lub w niej. Zasady korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceOPAConstraint](./effects.md#enforceopaconstraint) .
+- `Microsoft.ContainerService.Data`Aby zarządzać regułami kontrolera przyjmowania w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md). Definicje korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Ten tryb jest _przestarzały_.
+- `Microsoft.Kubernetes.Data`do zarządzania klastrami Kubernetes na platformie Azure lub w niej. Definicje używające tego trybu dostawcy zasobów służą do _inspekcji_, _odmowy_i _wyłączania_. Użycie efektu [EnforceOPAConstraint](./effects.md#enforceopaconstraint) jest _przestarzałe_.
 - `Microsoft.KeyVault.Data`Zarządzanie magazynami i certyfikatami w [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
@@ -207,7 +207,7 @@ Podczas tworzenia inicjatywy lub zasad należy określić lokalizację definicji
 Jeśli lokalizacja definicji jest:
 
 - Tylko zasoby z **subskrypcją** w ramach tej subskrypcji mogą być przypisane do zasad.
-- Zasady mogą być przypisywane tylko zasobom należącym do **grupy** zarządzania w ramach podrzędnych grup administracyjnych i subskrypcji podrzędnych. Jeśli planujesz zastosowanie definicji zasad do kilku subskrypcji, lokalizacja musi być grupą zarządzania, która zawiera te subskrypcje.
+- Zasady mogą być przypisywane tylko zasobom należącym do **grupy** zarządzania w ramach podrzędnych grup administracyjnych i subskrypcji podrzędnych. Jeśli planujesz zastosowanie definicji zasad do kilku subskrypcji, lokalizacja musi być grupą zarządzania zawierającą subskrypcję.
 
 ## <a name="policy-rule"></a>Reguła zasad
 
@@ -283,7 +283,7 @@ W przypadku **mniej**, **lessOrEquals**, **większych**i **greaterOrEquals**, je
 W przypadku używania warunków **like** i **notLike** , w wartości można podać symbol wieloznaczny `*` .
 Wartość nie może mieć więcej niż jednego symbolu wieloznacznego `*` .
 
-W przypadku używania warunków **Match** i **notMatch** , podaj, `#` Aby dopasować cyfrę do `?` litery, `.` Aby dopasować dowolny znak, i dowolny inny znak, aby dopasować go do rzeczywistego znaku. While, **Match** i **notMatch** uwzględnia wielkość liter, a wszystkie inne warunki, które szacują _stringValue_ , nie uwzględniają wielkości liter. Alternatywy bez uwzględniania wielkości liter są dostępne w **matchInsensitively** i **notMatchInsensitively**.
+W przypadku używania warunków **Match** i **notMatch** , podaj, `#` Aby dopasować cyfrę do `?` litery, `.` Aby dopasować dowolny znak, i dowolny inny znak, aby dopasować go do rzeczywistego znaku. Chociaż **dopasowuje** i **notMatch** uwzględnia wielkość liter, wszystkie inne warunki, które szacują _stringValue_ , nie uwzględniają wielkości liter. Alternatywy bez uwzględniania wielkości liter są dostępne w **matchInsensitively** i **notMatchInsensitively**.
 
 W wartości pola tablicy ** \[ \* \] aliasu** każdy element w tablicy jest obliczany indywidualnie przy użyciu koniunkcji logicznej **i** między elementami. Aby uzyskać więcej informacji, zobacz [ocenianie \[ \* \] aliasu](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
@@ -432,7 +432,7 @@ Po zmodyfikowaniu reguły zasad `if()` Sprawdź długość **nazwy** przed prób
 
 ### <a name="count"></a>Liczba
 
-Warunki określające, ile elementów członkowskich tablicy w ładunku zasobów spełnia wyrażenie warunku, można utworzyć za pomocą wyrażenia **Count** . Typowe scenariusze sprawdzają, czy "co najmniej jeden z", "dokładnie jeden z", "All" lub "none" elementów członkowskich tablicy spełnia warunek. **licznik** oblicza każdy element członkowski tablicy [ \[ \* \] aliasów](#understanding-the--alias) dla wyrażenia warunku i sumuje _prawdziwe_ wyniki, które są następnie porównywane z operatorem wyrażenia. Wyrażenia **Count** mogą być dodawane do jednej definicji **Klasa policyrule** do 3 razy.
+Warunki określające, ile elementów członkowskich tablicy w ładunku zasobów spełnia wyrażenie warunku, można utworzyć za pomocą wyrażenia **Count** . Typowe scenariusze sprawdzają, czy "co najmniej jeden z", "dokładnie jeden z", "All" lub "none" elementów członkowskich tablicy spełnia warunek. **licznik** oblicza każdy element członkowski tablicy [ \[ \* \] aliasów](#understanding-the--alias) dla wyrażenia warunku i sumuje _prawdziwe_ wyniki, które są następnie porównywane z operatorem wyrażenia. Wyrażenia **Count** mogą być dodawane maksymalnie trzy razy do pojedynczej definicji **Klasa policyrule** .
 
 Struktura wyrażenia **Count** jest:
 
@@ -605,7 +605,7 @@ Wszystkie [funkcje szablonu Menedżer zasobów](../../../azure-resource-manager/
 
 Następująca funkcja jest dostępna do użycia w regule zasad, ale różni się od użycia w szablonie Azure Resource Manager:
 
-- `utcNow()`— W przeciwieństwie do szablonu Menedżer zasobów, można go użyć poza elementem DefaultValue.
+- `utcNow()`— W przeciwieństwie do szablonu Menedżer zasobów, ta właściwość może być używana poza elementem _DefaultValue_.
   - Zwraca ciąg, który jest ustawiony na bieżącą datę i godzinę w formacie uniwersalnego ISO 8601 DateTime-MM-DDTgg: mm: SS. fffffffZ
 
 Następujące funkcje są dostępne tylko w regułach zasad:
@@ -619,7 +619,7 @@ Następujące funkcje są dostępne tylko w regułach zasad:
   - `field`jest używany głównie z **AuditIfNotExists** i **DeployIfNotExists** do odwołań do pól w analizowanym zasobie. Przykład tego zastosowania można zobaczyć w [przykładzie DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Zwraca wersję interfejsu API żądania, które spowodowało wyzwolenie oceny zasad (przykład: `2019-09-01` ).
-    Będzie to wersja interfejsu API, która została użyta w żądaniu PUT/PATCH do oceny przy tworzeniu/aktualizowaniu zasobów. Najnowsza wersja interfejsu API jest zawsze używana podczas oceny zgodności dla istniejących zasobów.
+    Ta wartość jest wersją interfejsu API, która została użyta w żądaniu PUT/PATCH do oceny przy tworzeniu/aktualizowaniu zasobów. Najnowsza wersja interfejsu API jest zawsze używana podczas oceny zgodności dla istniejących zasobów.
   
 #### <a name="policy-function-example"></a>Przykład funkcji zasad
 
@@ -702,7 +702,7 @@ Lista aliasów zawsze rośnie. Aby dowiedzieć się, jakie aliasy są obecnie ob
 
 ### <a name="understanding-the--alias"></a>Informacje o aliasie [*]
 
-Kilka dostępnych aliasów ma wersję, która jest wyświetlana jako nazwa "normal" i inna, która została **\[\*\]** do niej dołączona. Na przykład:
+Kilka dostępnych aliasów ma wersję, która jest wyświetlana jako nazwa "normal" i inna, która została **\[\*\]** do niej dołączona. Przykład:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

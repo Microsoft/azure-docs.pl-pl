@@ -4,15 +4,15 @@ description: Połącz sieć wirtualną w innym regionie z wirtualnym koncentrato
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 340472f84d2dd2c4f46d180992745a57e8ad1884
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78c06ec1d93dcda5d171099943c287a9e4f43bc1
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73588228"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84750560"
 ---
 # <a name="configure-global-vnet-peering-cross-region-vnet-for-virtual-wan"></a>Skonfiguruj globalne wirtualne sieci równorzędne (Sieć wirtualna między regionami) dla wirtualnej sieci WAN
 
@@ -27,7 +27,7 @@ Sprawdź, czy zostały spełnione następujące kryteria:
 
 ## <a name="register-this-feature"></a><a name="register"></a>Rejestrowanie tej funkcji
 
-Możesz zarejestrować się w celu korzystania z tej funkcji przy użyciu programu PowerShell. W przypadku wybrania opcji "Wypróbuj" z poniższego przykładu zostanie otwarte środowisko Azure Cloud Shell i nie będzie konieczne lokalne zainstalowanie poleceń cmdlet programu PowerShell na komputerze. W razie potrzeby można zmienić subskrypcje przy użyciu polecenia cmdlet "Select-AzSubscription- <subid>Subscription".
+Możesz zarejestrować się w celu korzystania z tej funkcji przy użyciu programu PowerShell. W przypadku wybrania opcji "Wypróbuj" z poniższego przykładu zostanie otwarte środowisko Azure Cloud Shell i nie będzie konieczne lokalne zainstalowanie poleceń cmdlet programu PowerShell na komputerze. W razie potrzeby można zmienić subskrypcje przy użyciu polecenia cmdlet "Select-AzSubscription-Subscription <subid> ".
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network

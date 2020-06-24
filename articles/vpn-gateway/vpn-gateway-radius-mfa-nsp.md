@@ -10,23 +10,23 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: 941b6ac86941824351f83592998e8735e3eb8ee5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c439113907c2eb28c41aed3c21c1d27398d5207
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75780372"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987080"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Integrowanie uwierzytelniania usługi RADIUS bramy sieci VPN platformy Azure z serwerem NPS dla Multi-Factor Authentication 
 
 W tym artykule opisano sposób integrowania serwera zasad sieciowych (NPS) z uwierzytelnianiem za pomocą usługi Azure VPN Gateway w celu dostarczania Multi-Factor Authentication (MFA) dla połączeń sieci VPN typu punkt-lokacja. 
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 
 Aby włączyć usługę MFA, użytkownicy muszą należeć do Azure Active Directory (Azure AD), które muszą zostać zsynchronizowane ze środowiska lokalnego lub w chmurze. Ponadto użytkownik musi już zakończyć proces automatycznej rejestracji w usłudze MFA.  Aby uzyskać więcej informacji, zobacz [Konfigurowanie mojego konta na potrzeby weryfikacji dwuetapowej](../active-directory/user-help/multi-factor-authentication-end-user-first-time.md)
 
@@ -65,13 +65,13 @@ Aby włączyć usługę MFA, użytkownicy muszą należeć do Azure Active Direc
 
     ![Obraz dotyczący ustawień zaawansowanych klienta usługi RADIUS](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
-4. Przejdź do **Policies** > pozycji zasady**zasady sieci**, kliknij dwukrotnie pozycję **połączenia z usługą routingu i dostępu zdalnego firmy Microsoft** , wybierz pozycję **Udziel dostępu**, a następnie kliknij przycisk **OK**.
+4. Przejdź do **pozycji zasady**  >  **zasady sieci**, kliknij dwukrotnie **pozycję połączenia z usługą routingu i dostępu zdalnego firmy Microsoft** , wybierz pozycję **Udziel dostępu**, a następnie kliknij przycisk **OK**.
 
 ### <a name="step-3-configure-the-virtual-network-gateway"></a>Krok 3. Konfigurowanie bramy sieci wirtualnej
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 2. Otwórz utworzoną bramę sieci wirtualnej. Upewnij się, że typ bramy jest ustawiony na **Sieć VPN** i że typ sieci VPN jest **oparty na trasie**.
-3. Kliknij pozycję **wskaż konfigurację** > lokacji**Skonfiguruj teraz**, a następnie określ następujące ustawienia:
+3. Kliknij pozycję **wskaż konfigurację lokacji**  >  **Skonfiguruj teraz**, a następnie określ następujące ustawienia:
 
     - **Pula adresów**: wpisz podsieć bramy utworzoną w kroku 1.
     - **Typ uwierzytelniania**: wybierz pozycję **uwierzytelnianie usługi RADIUS**.

@@ -6,17 +6,17 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e963d62df8d2c416726852ee3d46daf1cd22936e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80349939"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85208556"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Przewodnik dotyczący instalacji oferty portalu Azure SQL DW w witrynie Striim
 
@@ -30,11 +30,11 @@ Skonfiguruj maszynę wirtualną Striim z określonymi właściwościami, zwracaj
 
 ![Konfigurowanie Striim][configure]
 
-Po wdrożeniu kliknij pozycję \<Nazwa maszyny wirtualnej>-masternode w Azure Portal, kliknij pozycję Połącz i skopiuj nazwę logowania przy użyciu lokalnego konta maszyny wirtualnej 
+Po wdrożeniu kliknij pozycję \<VM Name> masternode w Azure Portal, kliknij pozycję Połącz i skopiuj nazwę logowania przy użyciu lokalnego konta maszyny wirtualnej 
 
 ![Połącz Striim z SQL Data Warehouse][connect]
 
-Pobierz plik sqljdbc42. jar z <https://www.microsoft.com/en-us/download/details.aspx?id=54671> programu na komputer lokalny. 
+Pobierz plik sqljdbc42. jar z programu <https://www.microsoft.com/en-us/download/details.aspx?id=54671> na komputer lokalny. 
 
 Otwórz okno wiersza polecenia i zmień katalogi na miejsce pobrania JDBC jar. Przechodzenie do pliku JAR na maszynę wirtualną Striim, pobieranie adresu i hasła z Azure Portal
 
@@ -56,7 +56,7 @@ Wykonaj następujące polecenia, aby przenieść plik JAR JDBC do katalogu lib S
 
 ![Uruchom klaster Striim][start-striim]
 
-Teraz otwórz ulubioną przeglądarkę i przejdź do \<nazwy DNS>:9080
+Teraz otwórz ulubioną przeglądarkę i przejdź do \<DNS Name> : 9080
 
 ![Przejdź do ekranu logowania][navigate]
 

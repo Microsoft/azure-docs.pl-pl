@@ -4,15 +4,15 @@ description: Dowiedz się więcej na temat funkcji przechwytywania pakietów, kt
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6edfe0228ce4cbe21ad4ae0eb8b7316a92f1da31
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75353521"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987147"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Konfigurowanie przechwytywania pakietów dla bram sieci VPN
 

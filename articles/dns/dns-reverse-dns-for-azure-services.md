@@ -4,20 +4,19 @@ description: Za pomocą tej ścieżki szkoleniowej Rozpocznij Konfigurowanie wys
 services: dns
 documentationcenter: na
 author: rohinkoul
-manager: KumudD
 ms.service: dns
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: 073e84ece11f6817bfe2c5a94735ec6e16dac4fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15396467e92b3e035add03d0d29888558571aa2f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76932369"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711242"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurowanie odwrotnego serwera DNS dla usług hostowanych na platformie Azure
 
@@ -212,7 +211,7 @@ Aby usunąć odwrotną Właściwość DNS z istniejącej usługi w chmurze:
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
 ```
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="how-much-do-reverse-dns-records-cost"></a>Jak wiele kosztów odwrotnych rekordów DNS?
 

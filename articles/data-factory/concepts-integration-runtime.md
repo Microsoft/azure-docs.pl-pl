@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: 81061f9f20e325d6f392c76c5e2801527abc9e2b
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 8b3dba7996b098ec398c9fe94705c18190b30ba6
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345006"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84753568"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory 
 
@@ -59,7 +59,7 @@ Na poniższym diagramie przedstawiono, jak różnych infrastruktur Integration R
 
 - Uruchamianie przepływów danych na platformie Azure 
 - Uruchamianie działania kopiowania między magazynami danych w chmurze
-- Wysyłanie następujących działań przekształcania w sieci publicznej: działania notesu/jar/Python, działania Hive usługi HDInsight, działania dotyczącego usługi HDInsight, działania dotyczące usługi HDInsight, działania usługi HDInsight Spark, działania usługi HDInsight Streaming Machine Learning, działania związanego z Data Lake Analytics Machine Learning wykonywaniem wsadowym programu .NET, działania w sieci Web, działania wyszukiwania i działania pobierania metadanych.
+- Wysyłaj następujące działania przekształcania w sieci publicznej: działania notesu/jar/Python, działanie Hive usługi HDInsight, działanie usługi HDInsight, działanie dotyczące usługi HDInsight, działanie usługi HDInsight Spark, działanie usługi HDInsight Streaming Machine Learning, działanie tworzenia Data Lake Analytics Machine Learning wsadowego programu .NET, aktywność sieci Web, działanie wyszukiwania i działanie Get Metadata.
 
 ### <a name="azure-ir-network-environment"></a>Środowisko sieciowe IR Azure
 

@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie wykresem bliźniaczym z relacjami
+title: Zarządzanie grafem bliźniaczych reprezentacji z relacjami
 titleSuffix: Azure Digital Twins
 description: Zobacz, jak zarządzać grafem cyfrowego bliźniaczych reprezentacji, łącząc je z relacjami.
 author: baanders
@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 362b5d0f1fee1ca1763cc44f106567c543546eac
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: e332936543cc36e20b88da4ce5cc9115d0890967
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612956"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725702"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Bliźniaczych reprezentacji na platformie Azure Digital to [Wykres dwuosiowy](concepts-twins-graph.md) reprezentujący całe środowisko. Wykres bliźniaczy składa się z pojedynczych bliźniaczych reprezentacji cyfrowych połączonych za pośrednictwem **relacji**.
 

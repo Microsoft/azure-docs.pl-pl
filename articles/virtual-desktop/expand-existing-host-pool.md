@@ -4,23 +4,23 @@ description: Jak rozszerzyć istniejącą pulę hostów na nowe hosty sesji na p
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a60d34c73eed5d71599a90e463138186e21fdf7
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 07394fb2d33aaacdc8e47bc2d1809854c0c8ca1b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677903"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209355"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Rozwiń istniejącą pulę hostów przy użyciu nowych hostów sesji
 
 >[!IMPORTANT]
 >Ta zawartość ma zastosowanie do aktualizacji wiosennej 2020 z Azure Resource Manager obiektów pulpitu wirtualnego systemu Windows. Jeśli używasz pulpitu wirtualnego systemu Windows, wykorzystaj wersję 2019 bez obiektów Azure Resource Manager, zobacz [ten artykuł](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
 >
-> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. 
+> Aktualizacja systemu Windows Virtual Desktop wiosna 2020 jest obecnie dostępna w publicznej wersji zapoznawczej. Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
 > Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W miarę zwiększania użycia w puli hostów może być konieczne rozszerzenie istniejącej puli hostów na nowe hosty sesji w celu obsługi nowego obciążenia.
@@ -57,12 +57,12 @@ Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
 6. Zignoruj kartę podstawowe, a następnie wybierz kartę **Szczegóły maszyny wirtualnej** . W tym miejscu można wyświetlić i edytować szczegóły maszyny wirtualnej, która ma zostać dodana do puli hostów.
 
 7. Wybierz grupę zasobów, w której chcesz utworzyć maszyny wirtualne, a następnie wybierz region. Możesz wybrać bieżący region, który jest używany, lub nowy region.
-   
+
 8. Wprowadź liczbę hostów sesji, które chcesz dodać do puli hostów, do **liczby maszyn wirtualnych**. Na przykład jeśli rozszerzasz pulę hostów o pięć hostów, wprowadź **5**.
-   
+
     >[!NOTE]
     >Nie można edytować rozmiaru ani obrazu maszyn wirtualnych, ponieważ ważne jest, aby upewnić się, że wszystkie maszyny wirtualne w puli hostów mają ten sam rozmiar.
-    
+
 9. W polu **Informacje o sieci wirtualnej**wybierz sieć wirtualną i podsieć, do której chcesz dołączyć maszyny wirtualne. Możesz wybrać tę samą sieć wirtualną, której aktualnie używają istniejące maszyny, lub wybrać inną, która jest bardziej odpowiednia dla regionu wybranego w kroku 7.
 
 10. W przypadku **konta administratora**wprowadź Active Directory nazwę użytkownika domeny i hasło skojarzone z wybraną siecią wirtualną. Te poświadczenia będą używane do przyłączania maszyn wirtualnych do sieci wirtualnej.
@@ -70,9 +70,9 @@ Aby rozszerzyć pulę hostów przez dodanie maszyn wirtualnych:
       >[!NOTE]
       >Upewnij się, że nazwy administratorów są zgodne z informacjami podanym w tym miejscu. I że na koncie nie włączono uwierzytelniania wieloskładnikowego.
 
-11. Wybierz kartę **tag** , jeśli masz jakieś znaczniki, które chcesz zgrupować z maszynami wirtualnymi. W przeciwnym razie Pomiń tę kartę. 
+11. Wybierz kartę **tag** , jeśli masz jakieś znaczniki, które chcesz zgrupować z maszynami wirtualnymi. W przeciwnym razie Pomiń tę kartę.
 
-12. Wybierz kartę **Recenzja + tworzenie** . Przejrzyj wybrane opcje, a jeśli wszystko wygląda dobrze, wybierz pozycję **Utwórz**. 
+12. Wybierz kartę **Recenzja + tworzenie** . Przejrzyj wybrane opcje, a jeśli wszystko wygląda dobrze, wybierz pozycję **Utwórz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

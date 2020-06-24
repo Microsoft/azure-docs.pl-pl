@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279392"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84687790"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Praca z jednostkami SKU bramy sieci wirtualnej (starszą wersją SKU)
 
@@ -32,7 +32,7 @@ Cennik starszej bramy można wyświetlić w sekcji **Virtual Network Gateways** 
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## <a name="resize-a-gateway"></a><a name="resize"></a>Zmienianie rozmiaru bramy
+## <a name="resize-a-gateway"></a><a name="resize"></a>Zmiana rozmiaru bramy
 
 Można zmienić rozmiar bramy do jednostki SKU bramy w tej samej rodzinie SKU. Na przykład jeśli masz standardową jednostkę SKU, możesz zmienić rozmiar do jednostki SKU HighPerformance. Nie można jednak zmienić rozmiaru bramy sieci VPN między starymi jednostkami SKU i nowymi rodzinami SKU. Na przykład nie można przejść ze standardowej jednostki SKU do jednostki SKU VpnGw2 ani podstawowej jednostki SKU do VpnGw1.
 
@@ -47,7 +47,7 @@ Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerfor
 
 Możesz również zmienić rozmiar bramy w Azure Portal.
 
-### <a name="classic"></a><a name="classicresize"></a>Wdrożenie klasyczne
+### <a name="classic"></a><a name="classicresize"></a>Klasyczny
 
 Aby zmienić rozmiar bramy dla klasycznego modelu wdrażania, należy użyć poleceń cmdlet programu PowerShell do zarządzania usługami. Użyj następującego polecenia:
 

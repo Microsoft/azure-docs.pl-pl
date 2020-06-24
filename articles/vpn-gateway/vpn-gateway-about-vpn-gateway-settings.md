@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: cherylmc
 ms.openlocfilehash: d7a2040748d170b4e536df59947ea811f149d931
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244864"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708148"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Informacje o ustawieniach konfiguracji VPN Gateway
 
@@ -169,10 +169,10 @@ Czasami trzeba zmodyfikować ustawienia bramy sieci lokalnej. Na przykład po do
 
 Aby uzyskać dodatkowe zasoby techniczne i wymagania dotyczące składni w przypadku używania interfejsów API REST, poleceń cmdlet programu PowerShell lub interfejsu wiersza polecenia platformy Azure dla konfiguracji VPN Gateway, zobacz następujące strony:
 
-| **Wdrożenie klasyczne** | **Resource Manager** |
+| **Klasyczny** | **Resource Manager** |
 | --- | --- |
-| [Narzędzia](/powershell/module/az.network/#networking) |[Narzędzia](/powershell/module/az.network#vpn) |
-| [INTERFEJS API REST](https://msdn.microsoft.com/library/jj154113) |[INTERFEJS API REST](/rest/api/network/virtualnetworkgateways) |
+| [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
+| [Interfejs API REST](https://msdn.microsoft.com/library/jj154113) |[Interfejs API REST](/rest/api/network/virtualnetworkgateways) |
 | Nieobsługiwane | [Interfejs wiersza polecenia platformy Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Następne kroki

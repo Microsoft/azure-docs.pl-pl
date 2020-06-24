@@ -7,14 +7,17 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a6549f4436fe1bd6a7ab27d942621ccaaf93cff7
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: cf18d8ef391115da5e1c8fcab235c30e96287f5b
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84612942"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84725685"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 W usłudze Azure Digital bliźniaczych reprezentacji można kierować [powiadomieniami o zdarzeniach](how-to-interpret-event-data.md) do usług podrzędnych lub połączyć się z zasobami obliczeniowymi. W tym celu należy najpierw skonfigurować **punkty końcowe** , które mogą odbierać zdarzenia, a następnie [**trasy zdarzeń**](concepts-route-events.md) , które określają, które zdarzenia wygenerowane przez usługę Azure Digital bliźniaczych reprezentacji są dostarczane do których punktów końcowych.
 
