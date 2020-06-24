@@ -3,16 +3,16 @@ title: Wykrywaj ruch i Emituj zdarzenia — platforma Azure
 description: W tym przewodniku szybki start pokazano, jak za pomocą funkcji analizy filmów wideo na żywo na IoT Edge wykrywać ruch i emitować zdarzenia, programowo wywołując metody bezpośrednie.
 ms.topic: quickstart
 ms.date: 05/29/2020
-ms.openlocfilehash: 4986ea13bec5382a8e0ef791e75442e4333e4356
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 69486515125c624b3ef5d44aba6e6d8f7694a3cc
+ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262026"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84816708"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>Szybki Start: wykrywanie ruchu i emitowanie zdarzeń
 
-Ten przewodnik Szybki Start przeprowadzi Cię przez kroki umożliwiające rozpoczęcie pracy z usługą analiza filmów wideo na żywo na IoT Edge. Używa ona maszyny wirtualnej platformy Azure jako urządzenia IoT Edge oraz symulowanego strumienia wideo na żywo. Po wykonaniu kroków instalacji można uruchomić symulowany strumień wideo na żywo za pomocą grafu multimediów, który wykrywa i raportuje wszystkie ruchy w tym strumieniu. Na poniższym diagramie przedstawiono graficzną reprezentację tego wykresu multimedialnego.
+Ten przewodnik Szybki Start przeprowadzi Cię przez kroki umożliwiające rozpoczęcie pracy z usługą analiza filmów wideo na żywo na IoT Edge. Używa ona maszyny wirtualnej platformy Azure jako urządzenia usługi IoT Edge oraz symulowanego strumienia wideo na żywo. Po wykonaniu kroków instalacji można uruchomić symulowany strumień wideo na żywo za pomocą grafu multimediów, który wykrywa i raportuje wszystkie ruchy w tym strumieniu. Na poniższym diagramie przedstawiono graficzną reprezentację tego wykresu multimedialnego.
 
 ![Analiza wideo na żywo oparta na wykrywaniu ruchu](./media/analyze-live-video/motion-detection.png) 
 
@@ -20,58 +20,57 @@ Ten artykuł jest oparty na [przykładowym kodzie](https://github.com/Azure-Samp
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Visual Studio Code](https://code.visualstudio.com/) na komputerze z następującymi rozszerzeniami:
-    1. [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
-    2. [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
-* [Zestaw .NET Core 3,1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) zainstalowany w systemie
+* Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) , jeśli jeszcze go nie masz.
+* [Visual Studio Code](https://code.visualstudio.com/) z następującymi rozszerzeniami:
+    * [Narzędzia usługi Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+* [Zestaw SDK platformy .NET Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/3.1). 
 
 > [!TIP]
-> Może zostać wyświetlony monit o zainstalowanie platformy Docker podczas instalowania rozszerzenia narzędzi Azure IoT Tools. Możesz go zignorować.
+> Może zostać wyświetlony monit o zainstalowanie platformy Docker podczas instalowania rozszerzenia narzędzi Azure IoT Tools. Możesz zignorować monit.
 
 ## <a name="set-up-azure-resources"></a>Konfigurowanie zasobów platformy Azure
 
-Dla tego samouczka wymagane są następujące zasoby platformy Azure.
+Ten samouczek wymaga następujących zasobów platformy Azure:
 
 * Usługa IoT Hub
 * Konto magazynu
 * Konto Azure Media Services
 * Maszyna wirtualna z systemem Linux na platformie Azure z zainstalowanym [IoT Edge środowiska uruchomieniowego](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 
-W tym przewodniku szybki start zalecamy użycie [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) w celu wdrożenia zasobów platformy Azure wymienionych powyżej w ramach subskrypcji platformy Azure. W tym celu wykonaj poniższe kroki:
+W tym przewodniku szybki start zalecamy używanie [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) w celu wdrożenia wymaganych zasobów w ramach subskrypcji platformy Azure. Aby to zrobić, wykonaj następujące kroki:
 
-1. Przejdź do https://shell.azure.com.
-1. Jeśli używasz Cloud Shell po raz pierwszy, zostanie wyświetlony monit o wybranie subskrypcji w celu utworzenia konta magazynu i udziału plików Microsoft Azure. Wybierz pozycję "Utwórz magazyn", aby utworzyć konto magazynu do przechowywania informacji o sesji Cloud Shell. To konto magazynu jest niezależne od tego, który skrypt utworzy do użycia z Twoim kontem Azure Media Services.
-1. Wybierz pozycję "bash" jako środowisko na liście rozwijanej po lewej stronie okna powłoki.
+1. Otwórz usługę [Azure Cloud Shell](https://shell.azure.com).
+1. Jeśli używasz Cloud Shell po raz pierwszy, zostanie wyświetlony monit o wybranie subskrypcji w celu utworzenia konta magazynu i udziału plików Microsoft Azure. Wybierz pozycję **Utwórz magazyn** , aby utworzyć konto magazynu dla informacji sesji Cloud Shell. To konto magazynu jest niezależne od konta tworzonego przez skrypt do użycia z Twoim kontem Azure Media Services.
+1. W menu rozwijanym po lewej stronie okna Cloud Shell wybierz pozycję **bash** jako swoje środowisko.
 
     ![Selektor środowiska](./media/quickstarts/env-selector.png)
 
-1. Uruchom następujące polecenie
+1. Uruchom następujące polecenie.
 
     ```
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
 
-    Jeśli skrypt zakończy się pomyślnie, zobaczysz wszystkie zasoby wymienione powyżej w subskrypcji.
+    Jeśli skrypt zakończy się pomyślnie, wszystkie wymagane zasoby powinny zostać wyświetlone w ramach subskrypcji.
 
-1. Po zakończeniu działania skryptu kliknij nawiasy klamrowe, aby uwidocznić strukturę folderów. Zobaczysz kilka plików utworzonych w katalogu ~/CloudDrive/LVA-Sample. Są one przydatne w tym przewodniku szybki start:
+1. Po zakończeniu działania skryptu wybierz nawiasy klamrowe, aby uwidocznić strukturę folderów. Zobaczysz kilka plików w katalogu *~/CloudDrive/LVA-Sample* . Są one przydatne w tym przewodniku szybki start:
 
-     * ~/CloudDrive/LVA-Sample/Edge-Deployment/.env-zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym
-     * ~/CloudDrive/LVA-Sample/AppSetting.JSON — używany przez Visual Studio Code do uruchamiania przykładowego kodu
+     * ***~/CloudDrive/LVA-Sample/Edge-Deployment/.env*** — ten plik zawiera właściwości, których Visual Studio Code używa do wdrożenia modułów na urządzeniu brzegowym.
+     * ***~/clouddrive/lva-sample/appsetting.json*** -Visual Studio Code używa tego pliku do uruchomienia przykładowego kodu.
      
-Te pliki będą potrzebne do zaktualizowania plików w Visual Studio Code dalszej części przewodnika Szybki Start. Możesz chcieć skopiować je do pliku lokalnego.
-
+Te pliki będą potrzebne podczas konfigurowania środowiska deweloperskiego w Visual Studio Code w następnej sekcji. Możesz chcieć skopiować je do pliku lokalnego.
 
  ![Ustawienia aplikacji](./media/quickstarts/clouddrive.png)
 
 ## <a name="set-up-your-development-environment"></a>Konfigurowanie środowiska projektowego
 
-1. Sklonuj repozytorium z tego miejsca https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp .
-1. Uruchom Visual Studio Code i Otwórz folder, do którego zostało pobrane repozytorium.
-1. W Visual Studio Code przejdź do folderu "src/Cloud-to-Device-App" i Utwórz plik o nazwie "appSettings. JSON". Ten plik będzie zawierać ustawienia, które są konieczne do uruchomienia programu.
-1. Skopiuj zawartość z pliku ~/CloudDrive/LVA-Sample/appSettings.JSON wygenerowanego w poprzedniej sekcji (zobacz krok 5)
+1. Klonuj repozytorium z tej lokalizacji: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp .
+1. W Visual Studio Code Otwórz folder, w którym repozytorium zostało pobrane.
+1. W obszarze Visual Studio Code przejdź do folderu *src/Cloud-to-Device-App* . W tym miejscu Utwórz plik i nadaj mu nazwę *appsettings.js*. Ten plik będzie zawierać ustawienia, które są konieczne do uruchomienia programu.
+1. Skopiuj zawartość z pliku *~/clouddrive/lva-sample/appsettings.js* , która została wygenerowana wcześniej w tym przewodniku Szybki Start.
 
-    Tekst powinien wyglądać następująco:
+    Tekst powinien wyglądać podobnie do poniższego wyniku.
 
     ```
     {  
@@ -80,8 +79,8 @@ Te pliki będą potrzebne do zaktualizowania plików w Visual Studio Code dalsze
         "moduleId" : "lvaEdge"  
     }
     ```
-1. Następnie przejdź do folderu "src/Edge" i Utwórz plik o nazwie "ENV".
-1. Skopiuj zawartość z pliku "/CloudDrive/LVA-Sample/Edge-Deployment/.env". Tekst powinien wyglądać następująco:
+1. Przejdź do folderu *src/Edge* i Utwórz plik o nazwie *. env*.
+1. Skopiuj zawartość pliku */CloudDrive/LVA-Sample/Edge-Deployment/.env* . Tekst powinien wyglądać podobnie do poniższego kodu.
 
     ```
     SUBSCRIPTION_ID="<Subscription ID>"  
@@ -100,66 +99,74 @@ Te pliki będą potrzebne do zaktualizowania plików w Visual Studio Code dalsze
 
 ## <a name="examine-the-sample-files"></a>Sprawdzanie plików przykładowych
 
-1. W Visual Studio Code przejdź do "src/Edge". Zostanie wyświetlony plik ENV, który został utworzony wraz z kilkoma plikami szablonu wdrożenia.
+1. W Visual Studio Code przejdź do pozycji *src/Edge*. Zobaczysz plik *. env* i kilka plików szablonów wdrożenia.
 
-    Szablon wdrożenia odwołuje się do manifestu wdrożenia urządzenia brzegowego z niektórymi wartościami zastępczymi. Plik ENV ma wartości dla tych zmiennych.
-1. Następnie przejdź do folderu "src/Cloud-to-Device-App". W tym miejscu zostanie wyświetlony plik appSettings. JSON, który został utworzony wraz z kilkoma innymi plikami:
+    Szablon wdrożenia odwołuje się do manifestu wdrożenia urządzenia brzegowego, gdzie zmienne są używane dla niektórych właściwości. Plik *ENV* zawiera wartości dla tych zmiennych.
+1. Przejdź do folderu *src/Cloud-to-Device-Console-App* . Tutaj zobaczysz *appsettings.js* pliku i kilku innych plików:
 
-    * C2D-Console-App. csproj — plik projektu dla Visual Studio Code.
-    * Operations. JSON — ten plik zawiera listę różnych operacji, które mają być uruchamiane przez program.
-    * Program.cs — przykładowy kod programu, który wykonuje następujące czynności:
+    * ***C2D-Console-App. csproj*** — plik projektu dla Visual Studio Code.
+    * ***operations.js*** listę operacji, które program ma uruchomić.
+    * ***Program.cs*** — przykładowy kod programu. Ten kod:
     
-        * Ładuje ustawienia aplikacji
-        * Wywołuje bezpośrednie metody udostępniane przez usługę Live Video Analytics w module IoT Edge. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie [metod bezpośrednich](direct-methods.md) 
-        * Wstrzymuje pracę, aby przeanalizować dane wyjściowe z programu w oknie terminalu i zdarzenia wygenerowane przez moduł w oknie danych wyjściowych.
-        * Wywołuje bezpośrednie metody czyszczenia zasobów   
+      * Ładuje ustawienia aplikacji.
+      * Wywołuje metody bezpośrednie, które są udostępniane przez usługę Live Video Analytics w module IoT Edge. Za pomocą modułu można analizować strumienie wideo na żywo poprzez wywoływanie [metod bezpośrednich](direct-methods.md).
+      * Wstrzymuje działanie, aby można było przeanalizować dane wyjściowe programu w oknie **terminalu** i przeanalizować zdarzenia wygenerowane przez moduł w oknie **danych wyjściowych** .
+      * Wywołuje bezpośrednie metody czyszczenia zasobów.   
 
-## <a name="generate-and-deploy-the-iot-edge-deployment-manifest"></a>Generowanie i wdrażanie manifestu wdrażania IoT Edge
+## <a name="generate-and-deploy-the-deployment-manifest"></a>Generowanie i wdrażanie manifestu wdrożenia
 
-Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzegowym, oraz ustawienia konfiguracji dla tych modułów. Wykonaj następujące kroki, aby wygenerować taki manifest z pliku szablonu, a następnie wdróż go na urządzeniu brzegowym.
+Manifest wdrożenia definiuje, jakie moduły są wdrażane na urządzeniu brzegowym. Definiuje również ustawienia konfiguracji dla tych modułów. 
 
-1. Otwórz Visual Studio Code
-1. Ustaw parametry połączenia IoTHub, klikając ikonę "więcej akcji" obok okienka AZURE IOT HUB w lewym dolnym rogu. Można skopiować ciąg z pliku SRC/Cloud-to-Device-Console-App/appSettings. JSON. 
+Wykonaj następujące kroki, aby wygenerować manifest z pliku szablonu, a następnie wdrożyć go na urządzeniu brzegowym.
+
+1. Otwórz program Visual Studio Code.
+1. Obok okienka **Azure IoT Hub** wybierz ikonę **więcej akcji** , aby ustawić parametry połączenia IoT Hub. Możesz skopiować ten ciąg z pliku *src/Cloud-to-Device-App/appsettings.jsna* plik. 
 
     ![Ustaw parametry połączenia IOT](./media/quickstarts/set-iotconnection-string.png)
-1. Następnie kliknij prawym przyciskiem myszy plik "src/Edge/Deployment. Template. JSON" i kliknij pozycję "Generuj IoT Edge manifest wdrożenia".
+
+1. Kliknij prawym przyciskiem myszy pozycję **src/Edge/deployment.template.jsna** i wybierz polecenie **Generuj IoT Edge manifest wdrożenia**.
+
     ![Generowanie manifestu wdrażania IoT Edge](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
 
-    Należy utworzyć plik manifestu w folderze src/Edge/config o nazwie "Deployment. amd64. JSON".
-1. Kliknij prawym przyciskiem myszy pozycję "src/Edge/config/Deployment. amd64. JSON" i kliknij pozycję "Utwórz wdrożenie dla pojedynczego urządzenia" i wybierz nazwę urządzenia brzegowego.
+    Ta akcja powinna utworzyć plik manifestu o nazwie *deployment.amd64.js* w folderze *src/Edge/config* .
+1. Kliknij prawym przyciskiem myszy pozycję **src/Edge/config/deployment.amd64.jsna**, wybierz pozycję **Utwórz wdrożenie dla pojedynczego urządzenia**, a następnie wybierz nazwę urządzenia brzegowego.
 
-    ![Tworzenie wdrożenia dla pojedynczego urządzenia](./media/quickstarts/create-deployment-single-device.png)
-1. Zostanie wyświetlony monit o wybranie opcji "Wybierz urządzenie IoT Hub". Z listy rozwijanej wybierz pozycję LVA-Sample-Device.
-1. W ciągu około 30 sekund Odśwież usługę Azure IOT Hub w lewej dolnej części, a urządzenie brzegowe ma wdrożone następujące moduły:
+    ![Tworzenie wdrożenia dla jednego urządzenia](./media/quickstarts/create-deployment-single-device.png)
 
-    * Analiza wideo na żywo na IoT Edge (Nazwa modułu: "lvaEdge")
-    * Symulator RTSP (Nazwa modułu: "rtspsim")
+1. Po wyświetleniu monitu o wybranie urządzenia IoT Hub wybierz pozycję **LVA-Sample-Device (urządzenie** ) z menu rozwijanego.
+1. Po około 30 sekundach w lewym dolnym rogu okna Odśwież IoT Hub platformy Azure. Na urządzeniu brzegowym są teraz wyświetlane następujące wdrożone moduły:
 
-Moduł symulatora RTSP symuluje strumień wideo na żywo przy użyciu zapisanego pliku wideo, który został skopiowany do urządzenia brzegowego po uruchomieniu [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). Na tym etapie są wdrożone moduły, ale nie są aktywne żadne wykresy multimedialne.
+    * Analiza wideo na żywo na IoT Edge (Nazwa modułu `lvaEdge` )
+    * Symulator protokołu przesyłania strumieniowego (RTSP) w czasie rzeczywistym (Nazwa modułu `rtspsim` )
 
-## <a name="prepare-for-monitoring-events"></a>Przygotowanie do monitorowania zdarzeń
+Moduł symulatora RTSP symuluje strumień wideo na żywo przy użyciu pliku wideo, który został skopiowany do urządzenia brzegowego po uruchomieniu [skryptu konfiguracji zasobów analizy wideo na żywo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 
-Będziesz korzystać z usługi Analiza filmów wideo na żywo w IoT Edge module, aby wykrywać ruch w przychodzącej strumieniu wideo na żywo i wysyłać zdarzenia do IoT Hub. Aby wyświetlić te zdarzenia, wykonaj następujące kroki:
+Na tym etapie moduły są wdrażane, ale nie są aktywne żadne wykresy multimedialne.
 
-1. Otwórz okienko Eksploratora w Visual Studio Code i Znajdź IoT Hub platformy Azure w lewym dolnym rogu.
-1. Rozwiń węzeł urządzenia.
-1. Right-klinkieru na LVA-Sample-Device i wybierz opcję "Rozpocznij monitorowanie wbudowanego monitorowania zdarzeń".
+## <a name="prepare-to-monitor-events"></a>Przygotowanie do monitorowania zdarzeń
+
+Użyjesz usługi Analiza filmów wideo na żywo w IoT Edge module, aby wykryć ruch w przychodzącym strumieniu wideo na żywo i wysyłać zdarzenia do IoT Hub. Aby wyświetlić te zdarzenia, wykonaj następujące kroki:
+
+1. Otwórz okienko Eksploratora w Visual Studio Code i Wyszukaj usługę Azure IoT Hub w lewym dolnym rogu.
+1. Rozwiń węzeł **urządzenia** .
+1. Kliknij prawym przyciskiem myszy pozycję **LVA-Sample-Device** i wybierz pozycję **Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia**.
 
     ![Rozpocznij monitorowanie wbudowanego punktu końcowego zdarzenia](./media/quickstarts/start-monitoring-iothub-events.png)
 
 ## <a name="run-the-sample-program"></a>Uruchamianie przykładowego programu
 
-Wykonaj poniższe kroki, aby uruchomić przykładowy kod.
-1. W Visual Studio Code przejdź do pliku "src/Cloud-to-Device-Console-App/Operations. JSON".
-1. W węźle GraphTopologySet upewnij się, że:
+Wykonaj następujące kroki, aby uruchomić przykładowy kod:
 
-    ` "topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
-1. Następnie w obszarze węzły GraphInstanceSet i GraphTopologyDelete upewnij się, że wartość topologyname pasuje do wartości właściwości "name" w powyższej topologii wykresu:
+1. W Visual Studio Code przejdź do pozycji *src/Cloud-to-Device-App/operations.json*.
+1. W węźle **GraphTopologySet** upewnij się, że została wyświetlona następująca wartość:
+
+    `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-detection/topology.json"`
+1. W węzłach **GraphInstanceSet** i **GraphTopologyDelete** upewnij się, że wartość jest `topologyName` zgodna z wartością `name` właściwości w topologii grafu:
 
     `"topologyName" : "MotionDetection"`
     
-1. Rozpocznij sesję debugowania (naciśnij klawisz F5). Zobaczysz, że niektóre komunikaty są wyświetlane w oknie terminalu.
-1. Operacja. JSON jest uruchamiana z wywołaniami do GraphTopologyList i GraphInstanceList. Jeśli wyczyszczono zasoby po poprzednich przewodnikach Szybki Start, spowoduje to zwrócenie pustych list, a następnie pauzę w celu naciśnięcia klawisza ENTER.
+1. Rozpocznij sesję debugowania, wybierając klawisz F5. W oknie **terminalu** zostaną wyświetlone pewne komunikaty.
+1. *operations.jsw* pliku rozpoczyna się z wywołaniami do `GraphTopologyList` i `GraphInstanceList` . Jeśli wyczyszczono zasoby po zakończeniu poprzednich przewodników Szybki Start, proces ten spowoduje zwrócenie pustych list, a następnie wstrzymanie. Aby kontynuować, wybierz klawisz ENTER.
 
     ```
     --------------------------------------------------------------------------
@@ -176,56 +183,58 @@ Wykonaj poniższe kroki, aby uruchomić przykładowy kod.
     Executing operation WaitForInput
     Press Enter to continue
     ```
-1. Po naciśnięciu klawisza ENTER w oknie terminalu zostanie wprowadzony następny zestaw wywołań metody bezpośredniej
+
+    W oknie **terminalu** zostanie wyświetlony następny zestaw wywołań metod bezpośrednich:
      
-     * Wywołanie GraphTopologySet przy użyciu topologyUrl powyżej
-     * Wywołanie GraphInstanceSet przy użyciu następującej treści
+     * Wywołanie `GraphTopologySet` , które używa poprzedniej`topologyUrl`
+     * Wywołanie `GraphInstanceSet` , które używa następującej treści:
      
-     ```
-     {
-       "@apiVersion": "1.0",
-       "name": "Sample-Graph",
-       "properties": {
-         "topologyName": "MotionDetection",
-         "description": "Sample graph description",
-         "parameters": [
-           {
-             "name": "rtspUrl",
-             "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
-           },
-           {
-             "name": "rtspUserName",
-             "value": "testuser"
-           },
-           {
-             "name": "rtspPassword",
-             "value": "testpassword"
+         ```
+         {
+           "@apiVersion": "1.0",
+           "name": "Sample-Graph",
+           "properties": {
+             "topologyName": "MotionDetection",
+             "description": "Sample graph description",
+             "parameters": [
+               {
+                 "name": "rtspUrl",
+                 "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+               },
+               {
+                 "name": "rtspUserName",
+                 "value": "testuser"
+               },
+               {
+                 "name": "rtspPassword",
+                 "value": "testpassword"
+               }
+             ]
            }
-         ]
-       }
-     }
-     ```
+         }
+         ```
      
-     * Wywołanie GraphInstanceActivate do uruchomienia wystąpienia grafu i rozpoczęcie przepływu wideo.
-     * Drugie wywołanie GraphInstanceList, aby pokazać, że wystąpienie grafu jest rzeczywiście w stanie uruchomienia.
-1. Dane wyjściowe w oknie terminalu zostaną wstrzymane teraz w wierszu "naciśnij klawisz ENTER, aby kontynuować". W tej chwili nie należy trafiać "Enter". Można przewijać w górę, aby zobaczyć ładunki odpowiedzi JSON dla wywoływanych metod bezpośrednich
-1. Jeśli przełączysz się teraz do okna danych wyjściowych w Visual Studio Code, zobaczysz komunikaty wysyłane do IoT Hub za pomocą usługi Live Video Analytics w IoT Edge module.
-     * Te komunikaty zostały omówione w poniższej sekcji
-1. Graf multimedialny będzie nadal uruchamiany i wyniki drukowania — symulator wideo będzie utrzymywać zapętlenie źródłowego filmu. Aby zatrzymać Graf multimedialny, Wróć do okna terminalu i naciśnij klawisz ENTER. Kolejna seria wywołań jest wykonywana w celu oczyszczenia zasobów:
-     * Wywołanie GraphInstanceDeactivate do dezaktywowania wystąpienia grafu
-     * Wywołanie GraphInstanceDelete do usunięcia wystąpienia
-     * Wywołanie GraphTopologyDelete do usunięcia topologii
-     * Końcowe wywołanie GraphTopologyList, aby pokazać, że lista jest teraz pusta
+     * Wywołanie `GraphInstanceActivate` , które uruchamia wystąpienie grafu i przepływ wideo
+     * Drugie wywołanie `GraphInstanceList` , które pokazuje, że wystąpienie grafu jest w stanie uruchomienia
+1. Dane wyjściowe w oknie **terminalu** są wstrzymywane na `Press Enter to continue` . Nie zaznaczaj jeszcze klawisza ENTER. Przewiń w górę, aby wyświetlić ładunki odpowiedzi JSON dla wywoływanych metod bezpośrednich.
+1. Przejdź do okna **dane wyjściowe** w Visual Studio Code. Zobaczysz komunikat informujący o tym, że usługa Live Video Analytics w IoT Edge module wysyła do centrum IoT Hub. W poniższej sekcji tego przewodnika Szybki Start omówiono te komunikaty.
+1. Wykres multimedialny będzie nadal uruchamiany i drukować wyniki. Symulator RTSP utrzymuje zapętlenie źródłowego wideo. Aby zatrzymać Graf multimedialny, Wróć do okna **terminalu** i wybierz klawisz ENTER. 
+
+    Kolejna seria wywołań czyści zasoby:
+     * Wywołanie `GraphInstanceDeactivate` dezaktywowania wystąpienia grafu.
+     * Wywołanie `GraphInstanceDelete` usuwania wystąpienia.
+     * Wywołanie `GraphTopologyDelete` usunięcia topologii.
+     * Końcowe wywołanie `GraphTopologyList` pokazujące, że lista jest pusta.
 
 ## <a name="interpret-results"></a>Interpretowanie wyników
 
-Po uruchomieniu grafu multimediów wyniki z węzła procesora czujnika ruchu są wysyłane za pośrednictwem IoT Hub węzła ujścia do IoT Hub. Komunikaty wyświetlane w oknie dane wyjściowe Visual Studio Code zawierają sekcję "treść" i sekcję "applicationProperties". Aby zrozumieć, co reprezentuje Ta sekcja, Przeczytaj [ten](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) artykuł.
+Po uruchomieniu grafu multimediów wyniki z węzła procesora wykrywania ruchu przechodzą przez węzeł ujścia IoT Hub do centrum IoT Hub. Komunikaty wyświetlane w oknie **dane wyjściowe** Visual Studio Code zawierają `body` sekcję i `applicationProperties` sekcję. Aby uzyskać więcej informacji, zobacz [Tworzenie i odczytywanie wiadomości IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
 
-W poniższych komunikatach właściwości aplikacji i zawartość treści są zdefiniowane przez moduł analizy wideo na żywo.
+W poniższych komunikatach moduł analizy wideo na żywo definiuje właściwości aplikacji i zawartość treści.
 
-## <a name="mediasession-established-event"></a>MediaSession ustalone zdarzenie
+### <a name="mediasessionestablished-event"></a>Zdarzenie MediaSessionEstablished
 
-Po utworzeniu wystąpienia grafu multimedialnego węzeł źródłowy RTSP próbuje połączyć się z serwerem RTSP uruchomionym w kontenerze rtspsim-live555. Jeśli to się powiedzie, spowoduje to wydrukowanie tego zdarzenia:
+Po utworzeniu wystąpienia grafu nośnika węzeł źródłowy RTSP próbuje połączyć się z serwerem RTSP, który działa w kontenerze rtspsim-live555. Jeśli połączenie zakończy się pomyślnie, zostanie wydrukowane następujące zdarzenie.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:  
@@ -243,16 +252,19 @@ Po utworzeniu wystąpienia grafu multimedialnego węzeł źródłowy RTSP próbu
 }
 ```
 
-* Komunikat jest zdarzeniem diagnostycznym, MediaSessionEstablished, wskazuje, że węzeł źródłowy RTSP (podmiot) mógł nawiązać połączenie z symulatorem RTSP i zaczyna odbierać (symulowane) kanały informacyjne na żywo.
-* "Podmiot" w applicationProperties odwołuje się do węzła w topologii grafu, z którego Wygenerowano komunikat. W takim przypadku komunikat pochodzi z węzła źródłowego RTSP.
-* "eventType" w applicationProperties wskazuje, że jest to zdarzenie diagnostyczne.
-* "eventTime" wskazuje czas wystąpienia zdarzenia.
-* "treść" zawiera dane o zdarzeniu diagnostycznym, które w tym przypadku są szczegółami [SDP](https://en.wikipedia.org/wiki/Session_Description_Protocol) .
+W poprzednich danych wyjściowych: 
+* Komunikat jest zdarzeniem diagnostycznym `MediaSessionEstablished` . Wskazuje on, że węzeł źródłowy RTSP (podmiot) połączony z symulatorem RTSP i rozpoczął odbieranie strumieniowego kanału na żywo (symulowanego).
+* W `applicationProperties` programie `subject` , odwołuje się do węzła w topologii grafu, z którego Wygenerowano komunikat. W takim przypadku komunikat pochodzi z węzła źródłowego RTSP.
+* W `applicationProperties` programie `eventType` wskazuje, że to zdarzenie jest zdarzeniem diagnostycznym.
+* `eventTime`Wartość wskazuje godzinę wystąpienia zdarzenia.
+* `body`Sekcja zawiera dane dotyczące zdarzenia diagnostyki. W takim przypadku dane obejmują szczegóły [protokołu Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) .
 
 
-## <a name="motion-detection-event"></a>Zdarzenie wykrywania ruchu
+### <a name="motiondetection-event"></a>Zdarzenie MotionDetection
 
-Po wykryciu ruchu moduł usługi Live Video Analytics Edge wysyła zdarzenie wnioskowania. Typ jest ustawiany na "Motion", aby wskazać, że jest wynikiem procesora wykrywania ruchu, a eventTime informuje o tym, co nastąpiło przekroczenie czasu (UTC). Poniżej znajduje się przykład:
+Po wykryciu ruchu usługa analizy filmów wideo na żywo w IoT Edge module wysyła zdarzenie wnioskowania. `type`Jest ustawiona na `motion` , aby wskazać, że jest to wynik z procesora wykrywania ruchu. `eventTime`Wartość informuje o tym, kiedy nastąpiło przeruch (w formacie UTC). 
+
+Oto przykład tego komunikatu:
 
 ```
   {  
@@ -282,12 +294,14 @@ Po wykryciu ruchu moduł usługi Live Video Analytics Edge wysyła zdarzenie wni
 }  
 ```
 
-* "podmiot" w applicationProperties odwołuje się do węzła na grafie nośnika, z którego Wygenerowano komunikat. W takim przypadku komunikat pochodzi z węzła procesora wykrywania ruchu.
-* "eventType" w applicationProperties wskazuje, że jest to zdarzenie analizy.
-* "eventTime" wskazuje czas wystąpienia zdarzenia.
-"treść" zawiera dane dotyczące zdarzenia analizy. W takim przypadku zdarzenie jest zdarzeniem wnioskowania, w związku z czym treść zawiera dane o sygnaturach czasowych i "wnioskach".
-* dane dotyczące "wnioskowania" wskazują, że "typ" jest "ruch" i zawiera dodatkowe dane dotyczące zdarzenia "Motion".
-* sekcja "Box" zawiera współrzędne dla ograniczonego pola wokół przenoszonego obiektu. Wartości są znormalizowane przez szerokość i wysokość wideo w pikselach (np. Szerokość 1920 i wysokość 1080).
+W tym przykładzie: 
+
+* W `applicationProperties` programie `subject` odwołuje się do węzła na grafie nośnika, z którego Wygenerowano komunikat. W takim przypadku komunikat pochodzi z węzła procesora wykrywania ruchu.
+* W `applicationProperties` programie `eventType` wskazuje, że to zdarzenie jest zdarzeniem analizy.
+* `eventTime`Wartość to godzina wystąpienia zdarzenia.
+* `body`Wartość to dane dotyczące zdarzenia analizy. W takim przypadku zdarzenie jest zdarzeniem wnioskowania, dlatego treść zawiera `timestamp` i `inferences` dane.
+* `inferences`Dane wskazują, że `type` jest to `motion` . Zawiera ona dodatkowe dane dotyczące tego `motion` zdarzenia.
+* `box`Sekcja zawiera współrzędne dla ograniczonego pola wokół przenoszonego obiektu. Wartości są znormalizowane przez szerokość i wysokość wideo w pikselach. Na przykład szerokość to 1920, a wysokość to 1080.
 
     ```
     l - distance from left of image
@@ -296,9 +310,9 @@ Po wykryciu ruchu moduł usługi Live Video Analytics Edge wysyła zdarzenie wni
     h - height of bounding box
     ```
     
-## <a name="cleanup-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Jeśli zamierzasz wypróbować inne Przewodniki Szybki Start, należy zamieścić do utworzonych zasobów. W przeciwnym razie przejdź do obszaru Azure Portal, przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten przewodnik Szybki Start, i Usuń wszystkie zasoby.
+Jeśli zamierzasz wypróbować inne Przewodniki Szybki Start, należy pozostawić utworzone zasoby. W przeciwnym razie w Azure Portal przejdź do grup zasobów, wybierz grupę zasobów, w której uruchomiono ten przewodnik Szybki Start, a następnie usuń wszystkie zasoby.
 
 ## <a name="next-steps"></a>Następne kroki
 

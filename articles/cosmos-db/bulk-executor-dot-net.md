@@ -5,16 +5,16 @@ author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 40ef05107f20a3396f6710f894a2dbad2d7fa6c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bcd2349913c1823e80d46565dfa869d9efe955f
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478847"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260665"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Użycie zbiorczej biblioteki programu .NET do wykonywania operacji zbiorczych w Azure Cosmos DB
 
@@ -23,7 +23,7 @@ ms.locfileid: "80478847"
 
 > Jeśli obecnie korzystasz z biblioteki wykonawców zbiorczych i planujesz przeprowadzić migrację do obsługi zbiorczej w nowszym zestawie SDK, wykonaj kroki opisane w [przewodniku migracji](how-to-migrate-from-bulk-executor-library.md) , aby przeprowadzić migrację aplikacji.
 
-Ten samouczek zawiera instrukcje dotyczące korzystania z biblioteki wykonawczej programu .NET do importowania i aktualizowania dokumentów do kontenera usługi Azure Cosmos. Aby dowiedzieć się więcej o bibliotece modułu wykonawczego zbiorczego i o sposobie korzystania z dużej przepływności i magazynu, zobacz artykuł [Omówienie biblioteki wykonawców zbiorczych](bulk-executor-overview.md) . W tym samouczku zostanie wyświetlona Przykładowa aplikacja .NET, która zbiorczo importuje losowo wygenerowane dokumenty do kontenera usługi Azure Cosmos. Po zaimportowaniu pokazuje, jak można zbiorczo aktualizować zaimportowane dane, określając poprawki jako operacje do wykonania w określonych polach dokumentu.
+Ten samouczek zawiera instrukcje dotyczące korzystania z biblioteki funkcji wykonawczej .NET operacji zbiorczych do importowania i aktualizowania dokumentów do kontenera usługi Azure Cosmos. Aby dowiedzieć się więcej o bibliotece modułu wykonawczego zbiorczego i o sposobie korzystania z dużej przepływności i magazynu, zobacz artykuł [Omówienie biblioteki wykonawców zbiorczych](bulk-executor-overview.md) . W tym samouczku zostanie wyświetlona Przykładowa aplikacja .NET, która zbiorczo importuje losowo wygenerowane dokumenty do kontenera usługi Azure Cosmos. Po zaimportowaniu pokazuje, jak można zbiorczo aktualizować zaimportowane dane, określając poprawki jako operacje do wykonania w określonych polach dokumentu.
 
 Obecnie Biblioteka wykonawców zbiorczych jest obsługiwana przez Azure Cosmos DB tylko konta interfejsu API SQL i Gremlin. W tym artykule opisano sposób użycia zbiorczej biblioteki programu .NET z kontami interfejsu API SQL. Aby dowiedzieć się więcej o używaniu zbiorczej biblioteki programu .NET z kontami interfejsu API Gremlin, zobacz [wykonywanie operacji zbiorczych w interfejsie API usługi Azure Cosmos DB Gremlin](bulk-executor-graph-dotnet.md).
 
@@ -31,7 +31,7 @@ Obecnie Biblioteka wykonawców zbiorczych jest obsługiwana przez Azure Cosmos D
 
 * Jeśli nie masz jeszcze zainstalowanego programu Visual Studio 2019, możesz pobrać [program Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/)i korzystać z niego. Upewnij się, że podczas instalacji programu Visual Studio włączono opcję "Programowanie na platformie Azure".
 
-* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) .
+* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 * Możesz bezpłatnie [Wypróbować Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można też użyć [emulatora Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) z `https://localhost:8081` punktem końcowym. Klucz podstawowy został podany w sekcji [Uwierzytelnianie żądań](local-emulator.md#authenticating-requests).
 
@@ -45,7 +45,7 @@ Teraz przejdźmy do pracy z kodem, pobierając przykładową aplikację platform
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-Sklonowane repozytorium zawiera dwa przykłady "BulkImportSample" i "BulkUpdateSample". Możesz otworzyć jedną z przykładowych aplikacji, zaktualizować parametry połączenia w pliku App. config przy użyciu parametrów połączenia konta Azure Cosmos DB, skompilować rozwiązanie i uruchomić je.
+Sklonowane repozytorium zawiera dwa przykłady "BulkImportSample" i "BulkUpdateSample". Możesz otworzyć jedną z przykładowych aplikacji, zaktualizować parametry połączenia w pliku App.config przy użyciu parametrów połączenia konta Azure Cosmos DB, skompilować rozwiązanie i uruchomić je.
 
 Aplikacja "BulkImportSample" generuje losowe dokumenty i zbiorczo importuje je do konta usługi Azure Cosmos. Aplikacja "BulkUpdateSample" zbiorczo aktualizuje zaimportowane dokumenty, określając poprawki jako operacje do wykonania w określonych polach dokumentu. W następnych sekcjach opisano kod w każdej z tych przykładowych aplikacji.
 
@@ -53,7 +53,7 @@ Aplikacja "BulkImportSample" generuje losowe dokumenty i zbiorczo importuje je d
 
 1. Przejdź do folderu "BulkImportSample" i Otwórz plik "BulkImportSample. sln".  
 
-2. Parametry połączenia Azure Cosmos DB są pobierane z pliku App. config, jak pokazano w poniższym kodzie:  
+2. Parametry połączenia Azure Cosmos DB są pobierane z pliku App.config, jak pokazano w poniższym kodzie:  
 
    ```csharp
    private static readonly string EndpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
@@ -63,7 +63,7 @@ Aplikacja "BulkImportSample" generuje losowe dokumenty i zbiorczo importuje je d
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   Importer zbiorczy tworzy nową bazę danych i kontener z nazwą bazy danych, nazwą kontenera i wartościami przepływności określonymi w pliku App. config.
+   Importer zbiorczy tworzy nową bazę danych i kontener z nazwą bazy danych, nazwą kontenera i wartościami przepływności określonymi w pliku App.config.
 
 3. Następny obiekt DocumentClient jest inicjowany z bezpośrednim trybem połączenia TCP:  
 
@@ -120,7 +120,7 @@ Aplikacja "BulkImportSample" generuje losowe dokumenty i zbiorczo importuje je d
    |NumberOfDocumentsImported (Long)   |  Całkowita liczba dokumentów, które zostały pomyślnie zaimportowane z całkowitej liczby dokumentów dostarczonych do wywołania interfejsu API importu zbiorczego.       |
    |TotalRequestUnitsConsumed (Double)   |   Łączna liczba jednostek żądań (RU) zużytych przez wywołanie interfejsu API importu zbiorczego.      |
    |TotalTimeTaken (TimeSpan)    |   Łączny czas trwania wywołania interfejsu API importu zbiorczego w celu ukończenia wykonywania.      |
-   |BadInputDocuments (lista\<> obiektów)   |     Lista dokumentów z nieprawidłowym formatem, które nie zostały pomyślnie zaimportowane do wywołania interfejsu API importu zbiorczego. Popraw zwrócone dokumenty i ponów próbę importu. Dokumenty z błędami sformatowanymi zawierają dokumenty, których identyfikator nie jest ciągiem (wartość null lub dowolny inny typ danych jest uznawany za nieprawidłowy).    |
+   |BadInputDocuments (lista \<object> )   |     Lista dokumentów z nieprawidłowym formatem, które nie zostały pomyślnie zaimportowane do wywołania interfejsu API importu zbiorczego. Popraw zwrócone dokumenty i ponów próbę importu. Dokumenty z błędami sformatowanymi zawierają dokumenty, których identyfikator nie jest ciągiem (wartość null lub dowolny inny typ danych jest uznawany za nieprawidłowy).    |
 
 ## <a name="bulk-update-data-in-your-azure-cosmos-account"></a>Zbiorcze aktualizowanie danych na koncie usługi Azure Cosmos
 
@@ -128,7 +128,7 @@ Istniejące dokumenty można aktualizować za pomocą interfejsu API BulkUpdateA
 
 1. Przejdź do folderu "BulkUpdateSample" i Otwórz plik "BulkUpdateSample. sln".  
 
-2. Zdefiniuj elementy aktualizacji wraz z odpowiednimi operacjami aktualizacji pola. W tym przykładzie zostanie `SetUpdateOperation` użyta aktualizacja `Name` pola i `UnsetUpdateOperation` usunięcie `Description` pola ze wszystkich dokumentów. Można również wykonywać inne operacje, takie jak zwiększanie pola dokumentu przez określoną wartość, wypychanie określonych wartości do pola tablicy lub usuwanie określonej wartości z pola tablicy. Aby dowiedzieć się więcej o różnych metodach dostarczonych przez interfejs API aktualizacji zbiorczej, zapoznaj się z [dokumentacją interfejsu API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Zdefiniuj elementy aktualizacji wraz z odpowiednimi operacjami aktualizacji pola. W tym przykładzie zostanie użyta `SetUpdateOperation` Aktualizacja `Name` pola i `UnsetUpdateOperation` usunięcie `Description` pola ze wszystkich dokumentów. Można również wykonywać inne operacje, takie jak zwiększanie pola dokumentu przez określoną wartość, wypychanie określonych wartości do pola tablicy lub usuwanie określonej wartości z pola tablicy. Aby dowiedzieć się więcej o różnych metodach dostarczonych przez interfejs API aktualizacji zbiorczej, zapoznaj się z [dokumentacją interfejsu API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -180,15 +180,15 @@ W celu uzyskania lepszej wydajności podczas korzystania z biblioteki wykonawcze
 
 * Ponieważ wykonywanie pojedynczego interfejsu API operacji zbiorczej zużywa duży fragment procesora CPU i sieci we/wy komputera klienckiego (dzieje się to przez duplikowanie wielu zadań wewnętrznie). Unikaj duplikowania wielu współbieżnych zadań w procesie aplikacji, które wykonują wywołania interfejsu API operacji zbiorczej. Jeśli pojedyncze wywołanie interfejsu API operacji zbiorczej działające na jednej maszynie wirtualnej nie jest w stanie korzystać z przepływności całego kontenera (jeśli przepływność kontenera > 1 000 000 RU/s), preferowane jest utworzenie oddzielnych maszyn wirtualnych do współbieżnego wykonywania wywołań interfejsu API operacji zbiorczych.  
 
-* Upewnij się `InitializeAsync()` , że metoda jest wywoływana po utworzeniu wystąpienia obiektu BulkExecutor w celu pobrania mapy partycji docelowego kontenera Cosmos.  
+* Upewnij się, że `InitializeAsync()` Metoda jest wywoływana po utworzeniu wystąpienia obiektu BulkExecutor w celu pobrania mapy partycji docelowego kontenera Cosmos.  
 
-* W pliku App. config aplikacji upewnij się, że **gcServer** jest włączona w celu uzyskania lepszej wydajności
+* W App.Config aplikacji upewnij się, że **gcServer** jest włączona w celu uzyskania lepszej wydajności
   ```xml  
   <runtime>
     <gcServer enabled="true" />
   </runtime>
   ```
-* Biblioteka emituje dane śledzenia, które mogą być zbierane w pliku dziennika lub w konsoli programu. Aby włączyć oba, Dodaj następujący kod do pliku App. config aplikacji.
+* Biblioteka emituje dane śledzenia, które mogą być zbierane w pliku dziennika lub w konsoli programu. Aby włączyć oba, Dodaj następujący kod do pliku App.Config aplikacji.
 
   ```xml
   <system.diagnostics>

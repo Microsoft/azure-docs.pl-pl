@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 05/20/2020
-ms.openlocfilehash: 9a80adbbeda2754f9f08a4d2f16b8caf9263b087
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/11/2020
+ms.openlocfilehash: 6e3a4b61c86d476a9e5c5a0392c51a72f06f048d
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340859"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84761335"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -29,7 +29,7 @@ Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania
 
 CMK umożliwia kontrolowanie dostępu do danych i odwoływanie go w dowolnym momencie. Azure Monitor Storage zawsze uwzględnia zmiany w uprawnieniach klucza w ciągu godziny. Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft bez względu na konfigurację CMK, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#cmk-kek-revocation). Pracujemy nad zaszyfrowaniem danych SSD z CMK w drugiej połowie 2020.
 
-Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, wymagamy, aby Twoja subskrypcja została listy dozwolonych wcześniej. Skontaktuj się z firmą Microsoft, aby uzyskać listy dozwolonych subskrypcji przed rozpoczęciem konfigurowania usługi CMK.
+Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, musisz wcześniej zezwolić na subskrypcję. Skontaktuj się z firmą Microsoft, aby uzyskać dostęp do subskrypcji przed rozpoczęciem konfigurowania usługi CMK.
 
  [Model cenowy klastrów log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)   używa rezerwacji pojemności, rozpoczynając od 1000 GB/dzień.
 
@@ -42,7 +42,7 @@ Po CMK konfiguracji wszystkie dane pozyskiwane w obszarach roboczych skojarzonyc
 
 ![CMK — Omówienie](media/customer-managed-keys/cmk-overview.png)
 
-1. Usługa Key Vault
+1. Key Vault
 2. Log Analytics zasobu *klastra* mającego zarządzaną tożsamość z uprawnieniami do Key Vault — tożsamość jest propagowana do underlay dedykowanego log Analytics magazynu klastra
 3. Dedykowany klaster Log Analytics
 4. Obszary robocze skojarzone z zasobem *klastra* na potrzeby szyfrowania CMK
@@ -69,16 +69,16 @@ Mają zastosowanie następujące zasady:
 
 ## <a name="cmk-provisioning-procedure"></a>Procedura inicjowania obsługi CMK
 
-1. Subskrypcja listy dozwolonych — funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, wymagamy, aby Twoja subskrypcja została listy dozwolonych wcześniej. Korzystanie z Twojego kontaktu z firmą Microsoft w celu listy dozwolonych subskrypcji
+1. Zezwalanie na subskrypcję — funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, musisz wcześniej zezwolić na subskrypcję. Skontaktuj się z pomocą techniczną firmy Microsoft, aby uzyskać dostęp do subskrypcji.
 2. Tworzenie Azure Key Vault i przechowywanie klucza
 3. Tworzenie zasobu *klastra*
 4. Przyznawanie uprawnień do Key Vault
 5. Kojarzenie Log Analytics obszarów roboczych
 
-Procedura nie jest obecnie obsługiwana w interfejsie użytkownika, a proces aprowizacji jest wykonywany za pośrednictwem interfejsu API REST.
+Procedura nie jest obsługiwana w Azure Portal i Inicjowanie obsługi administracyjnej odbywa się za pośrednictwem programu PowerShell lub żądań REST.
 
 > [!IMPORTANT]
-> Wszystkie żądania interfejsu API muszą zawierać Token autoryzacji okaziciela w nagłówku żądania.
+> Wszystkie żądania REST muszą zawierać Token autoryzacji okaziciela w nagłówku żądania.
 
 Przykład:
 
@@ -100,12 +100,12 @@ Token można uzyskać, korzystając z jednej z następujących metod:
 
 ### <a name="asynchronous-operations-and-status-check"></a>Operacje asynchroniczne i sprawdzanie stanu
 
-Niektóre operacje w tej procedurze konfiguracji są uruchamiane asynchronicznie, ponieważ nie mogą być szybko wykonywane. Odpowiedź na operację asynchroniczną początkowo zwraca kod stanu HTTP 200 (OK) i nagłówek z właściwością *Azure-AsyncOperation* po zaakceptowaniu:
+Niektóre operacje w tej procedurze konfiguracji są uruchamiane asynchronicznie, ponieważ nie mogą być szybko wykonywane. W przypadku korzystania z żądań REST w konfiguracji, odpowiedź początkowo zwraca kod stanu HTTP 200 (OK) i nagłówek z właściwością *Azure-AsyncOperation* po zaakceptowaniu:
 ```json
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/subscription-id/providers/Microsoft.OperationalInsights/locations/region-name/operationStatuses/operation-id?api-version=2020-03-01-preview"
 ```
 
-Stan operacji asynchronicznej można sprawdzić, wysyłając żądanie GET do wartości nagłówka *Azure-AsyncOperation* :
+Następnie można sprawdzić stan operacji asynchronicznej, wysyłając żądanie GET do wartości nagłówka *Azure-AsyncOperation* :
 ```rst
 GET https://management.azure.com/subscriptions/subscription-id/providers/microsoft.operationalInsights/locations/region-name/operationstatuses/operation-id?api-version=2020-03-01-preview
 Authorization: Bearer <token>
@@ -172,9 +172,9 @@ Operacja nie powiodła się
 }
 ```
 
-### <a name="subscription-whitelisting"></a>Listy dozwolonych subskrypcji
+### <a name="allowing-subscription-for-cmk-deployment"></a>Zezwalanie na subskrypcję wdrożenia CMK
 
-Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics.Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, wymagamy, aby Twoja subskrypcja została listy dozwolonych wcześniej. Użyj swoich kontaktów do firmy Microsoft, aby podać identyfikatory subskrypcji.
+Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics.Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, musisz wcześniej zezwolić na subskrypcję. Użyj swoich kontaktów do firmy Microsoft, aby podać identyfikatory subskrypcji.
 
 > [!IMPORTANT]
 > Funkcja CMK jest regionalna. Azure Key Vault, zasób *klastra* i powiązane obszary robocze log Analytics muszą znajdować się w tym samym regionie, ale mogą znajdować się w różnych subskrypcjach.
@@ -191,7 +191,7 @@ Te ustawienia są dostępne za pośrednictwem interfejsu wiersza polecenia i pro
 
 ### <a name="create-cluster-resource"></a>Utwórz zasób *klastra*
 
-Ten zasób jest używany jako połączenie tożsamości pośredniej między Key Vault i obszarami roboczymi Log Analytics. Po otrzymaniu potwierdzenia, że subskrypcje zostały listy dozwolonyche, utwórz zasób *klastra* log Analytics w regionie, w którym znajdują się obszary robocze.
+Ten zasób jest używany jako połączenie tożsamości pośredniej między Key Vault i obszarami roboczymi Log Analytics. Po otrzymaniu potwierdzenia, że subskrypcje były dozwolone, utwórz zasób *klastra* log Analytics w regionie, w którym znajdują się obszary robocze.
 
 Podczas tworzenia zasobu *klastra* należy określić poziom *rezerwacji pojemności* (SKU). Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 do 2 000 GB dziennie i można go zaktualizować w krokach 100 w późniejszym czasie. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 2 000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
 
@@ -200,11 +200,21 @@ Właściwość *rozliczenia* określa przypisanie rozliczeń dla zasobu *klastra
 - *Obszary robocze* — koszty rezerwacji pojemności dla klastra są przypisywane proporcjonalnie do obszarów roboczych w klastrze, a zasób *klastra* jest rozliczany jako część użycia, jeśli łączna ilość danych pobieranych przez dzień jest objęta rezerwacją pojemności. Zobacz [log Analytics dedykowanych klastrów](manage-cost-storage.md#log-analytics-dedicated-clusters) , aby dowiedzieć się więcej na temat modelu cen klastra. 
 
 > [!NOTE]
-> Po utworzeniu zasobu *klastra* można go zaktualizować przy użyciu *jednostki SKU*, *keyVaultProperties* lub *rozliczeń* za pomocą żądania poprawek Rest.
+> * Po utworzeniu zasobu *klastra* można go zaktualizować przy użyciu *jednostki SKU*, *keyVaultProperties* lub *rozliczeń* za pomocą żądania poprawek Rest.
+> * W programie PowerShell można obecnie aktualizować opcję *rozliczeń* przy użyciu żądania Rest. nie jest to obsługiwane
 
-**Utwórz**
+Ta operacja jest asynchroniczna i może zostać ukończona.
 
-To żądanie Menedżer zasobów jest operacją asynchroniczną.
+> [!IMPORTANT]
+> Skopiuj i Zapisz odpowiedź, ponieważ będziesz potrzebować szczegółowych informacji w następnych krokach.
+> 
+**PowerShell**
+
+```powershell
+New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -Location {region-name} -SkuCapacity {daily-ingestion-gigabyte} 
+```
+
+**REST**
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -242,9 +252,6 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 Authorization: Bearer <token>
 ```
 
-> [!IMPORTANT]
-> Skopiuj i Zapisz odpowiedź, ponieważ będziesz potrzebować szczegółowych informacji w następnych krokach.
-
 **Reakcji**
 
 ```json
@@ -261,7 +268,6 @@ Authorization: Bearer <token>
     },
   "properties": {
     "provisioningState": "ProvisioningAccount",
-    "clusterType": "LogAnalytics",
     "billingType": "cluster",
     "clusterId": "cluster-id"
     },
@@ -276,10 +282,10 @@ Identyfikator GUID "principalId" jest generowany przez zarządzaną usługę to�
 
 ### <a name="grant-key-vault-permissions"></a>Przyznawanie uprawnień Key Vault
 
-Zaktualizuj Key Vault przy użyciu nowych zasad dostępu, które przyznają uprawnienia do zasobu *klastra* . Te uprawnienia są używane przez underlay Azure Monitor Storage na potrzeby szyfrowania danych. Otwórz Key Vault w Azure Portal, a następnie kliknij pozycję "zasady dostępu" i "+ Dodaj zasady dostępu", aby utworzyć zasady z następującymi ustawieniami:
+Zaktualizuj Key Vault przy użyciu nowych zasad dostępu w celu przyznania uprawnień do zasobu *klastra* . Te uprawnienia są używane przez underlay Azure Monitor Storage na potrzeby szyfrowania danych. Otwórz Key Vault w Azure Portal, a następnie kliknij pozycję "zasady dostępu" i "+ Dodaj zasady dostępu", aby utworzyć zasady z następującymi ustawieniami:
 
 - Uprawnienia klucza: Wybierz uprawnienia "Pobierz", "Zawijanie klucza" i "Cofnij Zawijanie klucza".
-- Wybierz podmiot zabezpieczeń: wprowadź wartość identyfikatora podmiotu zabezpieczeń, która została zwrócona w odpowiedzi w poprzednim kroku.
+- Wybierz podmiot zabezpieczeń: Wprowadź nazwę zasobu *klastra* lub wartość identyfikatora podmiotu zabezpieczeń, która zwróciła odpowiedź w poprzednim kroku.
 
 ![Przyznawanie uprawnień Key Vault](media/customer-managed-keys/grant-key-vault-permissions-8bit.png)
 
@@ -295,12 +301,18 @@ Aby zaktualizować zasób *klastra* przy użyciu Key Vault szczegóły *identyfi
 
 Zaktualizuj KeyVaultProperties zasobów *klastra* przy użyciu szczegółów identyfikatora klucza.
 
-**Aktualizacja**
+Ta operacja jest asynchroniczna podczas aktualizowania szczegółów identyfikatora klucza i może zająć trochę czasu. Jest ona synchroniczna podczas aktualizowania wartości wydajności.
 
-To żądanie Menedżer zasobów jest operacją asynchroniczną podczas aktualizowania szczegółów identyfikatora klucza, podczas gdy jest ona synchroniczna podczas aktualizowania wartości wydajności.
+**PowerShell**
+
+```powershell
+Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -KeyVaultUri {key-uri} -KeyName {key-name} -KeyVersion {key-version}
+```
+
+**REST**
 
 > [!NOTE]
-> W celu zaktualizowania *jednostki SKU*, *keyVaultProperties* lub *rozliczeń*można podać częściową treść w zasobie *klastra* .
+> Możesz zaktualizować *jednostkę SKU*zasobu *klastra* , *keyVaultProperties* lub *rozliczeń* przy użyciu poprawki.
 
 ```rst
 PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
@@ -357,7 +369,6 @@ Odpowiedź na uzyskanie żądania dotyczącego zasobu *klastra* powinna wygląda
       "keyVersion": "current-version"
       },
     "provisioningState": "Succeeded",
-    "clusterType": "LogAnalytics", 
     "billingType": "cluster",
     "clusterId": "cluster-id"
   },
@@ -378,9 +389,16 @@ Aby wykonać tę operację, musisz mieć uprawnienia "Write" do obszaru roboczeg
 > [!IMPORTANT]
 > Ten krok należy wykonać dopiero po zakończeniu aprowizacji klastra Log Analytics. W przypadku kojarzenia obszarów roboczych i pozyskiwania danych przed rozpoczęciem aprowizacji pozyskiwane dane zostaną usunięte i nie będzie można ich odzyskać.
 
-**Kojarzenie obszaru roboczego**
+Ta operacja jest asynchroniczna i można ją ukończyć.
 
-To żądanie Menedżer zasobów jest operacją asynchroniczną.
+**PowerShell**
+
+```powershell
+$clusterResourceId = (Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}).id
+Set-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -WorkspaceName {workspace-name} -LinkedServiceName cluster -WriteAccessResourceId $clusterResourceId
+```
+
+**REST**
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview 
@@ -457,6 +475,14 @@ Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane z
 ## <a name="cmk-manage"></a>CMK Zarządzaj
 
 - **Pobierz wszystkie zasoby *klastra* dla grupy zasobów**
+  
+  **PowerShell**
+
+  ```powershell
+  Get-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name}
+  ```
+
+  **REST**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -486,7 +512,6 @@ Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane z
               "keyVersion": "current-version"
               },
           "provisioningState": "Succeeded",
-          "clusterType": "LogAnalytics", 
           "billingType": "cluster",
           "clusterId": "cluster-id"
         },
@@ -500,6 +525,14 @@ Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane z
   ```
 
 - **Pobierz wszystkie zasoby *klastra* dla subskrypcji**
+  
+  **PowerShell**
+
+  ```powershell
+  Get-AzOperationalInsightsCluster
+  ```
+
+  **REST**
 
   ```rst
   GET https://management.azure.com/subscriptions/<subscription-id>/providers/Microsoft.OperationalInsights/clusters?api-version=2020-03-01-preview
@@ -514,8 +547,19 @@ Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane z
 
   Gdy ilość danych ze skojarzonych obszarów roboczych zmienia się wraz z upływem czasu i chcesz odpowiednio zaktualizować poziom rezerwacji. Postępuj zgodnie z [aktualizacją zasobu *klastra* ](#update-cluster-resource-with-key-identifier-details) i podaj nową wartość pojemności. Może należeć do zakresu od 1 000 do 2 000 GB dziennie i kroków z 100. Na poziomie wyższym niż 2 000 GB dziennie skontaktuj się z osobą kontaktową firmy Microsoft, aby ją włączyć. Należy pamiętać, że nie musisz podawać treści żądania REST i zawierać jednostki SKU:
 
-  **jednostce**
-  ```json
+  **PowerShell**
+
+  ```powershell
+  Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name} -SkuCapacity {daily-ingestion-gigabyte}
+  ```
+
+  **REST**
+   
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  Authorization: Bearer <token>
+  Content-type: application/json
+
   {
     "sku": {
       "name": "capacityReservation",
@@ -532,8 +576,11 @@ Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane z
   
   Postępuj zgodnie z [aktualizacją zasobu *klastra* ](#update-cluster-resource-with-key-identifier-details) i podaj nową wartość rozliczenia. Należy *pamiętać, że*nie musisz podawać treści żądania w trybie REST i powinny być uwzględniane:
 
-  **jednostce**
-  ```json
+  ```rst
+  PATCH https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
+  Authorization: Bearer <token>
+  Content-type: application/json
+
   {
     "properties": {
       "billingType": "cluster",
@@ -545,7 +592,15 @@ Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane z
 
   Aby wykonać tę operację, musisz mieć uprawnienia "Write" dotyczące obszaru roboczego i zasobu *klastra* . W dowolnym momencie możesz usunąć skojarzenie obszaru roboczego z zasobem *klastra* . Nowe dane pozyskiwane po operacji usuwania skojarzenia są przechowywane w magazynie Log Analytics i szyfrowane za pomocą klucza firmy Microsoft. Możesz wykonywać zapytania dotyczące danych, które zostały pozyskane do obszaru roboczego przed bezproblemowym usunięciem skojarzenia, o ile zasób *klastra* został zainicjowany i skonfigurowany z prawidłowym kluczem Key Vault.
 
-  To żądanie Menedżer zasobów jest operacją asynchroniczną.
+  Ta operacja jest asynchroniczna i można ją ukończyć.
+
+  **PowerShell**
+
+  ```powershell
+  Remove-AzOperationalInsightsLinkedService -ResourceGroupName {resource-group-name} -Name {workspace-name} -LinkedServiceName cluster
+  ```
+
+  **REST**
 
   ```rest
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2020-03-01-preview
@@ -561,10 +616,28 @@ Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane z
   1. Skopiuj wartość adresu URL platformy Azure-AsyncOperation z odpowiedzi i postępuj zgodnie ze [sprawdzaniem stanu operacji asynchronicznych](#asynchronous-operations-and-status-check).
   2. Wyślij [obszary robocze — Pobierz](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) żądanie i obserwuj odpowiedź, nieskojarzone obszary robocze nie będą miały *clusterResourceId* w obszarze *funkcje*.
 
+- **Sprawdź stan powiązania obszaru roboczego** Wykonaj operację get w obszarze roboczym i sprawdź, czy *clusterId* jest obecny w odpowiedzi. Skojarzony obszar roboczy będzie miał Właściwość *clusterId* .
+
+  **PowerShell**
+
+  ```powershell
+  Get-AzOperationalInsightsWorkspace -ResourceGroupName {resource-group-name} -Name {workspace-name}
+  ```
+
 - **Usuwanie zasobu *klastra***
 
-  Aby wykonać tę operację, musisz mieć uprawnienia "Write" dotyczące zasobu *klastra* . Operacja usuwania nietrwałego jest wykonywana w celu zezwalania na odzyskiwanie zasobu *klastra* , w tym jego danych w ciągu 14 dni, bez względu na to, czy usunięcie było przypadkowe czy celowe. Nazwa zasobu *klastra* pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o takiej nazwie. Po okresie usuwania nietrwałego nazwa zasobu *klastra* zostanie wydana, a zasoby *klastra* i dane są trwale usuwane i nie można ich odzyskać. Wszystkie skojarzone obszary robocze nie są usuwane z zasobów *klastra* podczas operacji usuwania. Nowe pozyskiwane dane są przechowywane w magazynie Log Analytics i szyfrowane za pomocą klucza firmy Microsoft. Operacje obszarów roboczych, które nie są skojarzone, są asynchroniczne i może upłynąć do 90 minut.
+  Aby wykonać tę operację, musisz mieć uprawnienia "Write" dotyczące zasobu *klastra* . Operacja usuwania nietrwałego jest wykonywana w celu zezwalania na odzyskiwanie zasobu *klastra* , w tym jego danych w ciągu 14 dni, bez względu na to, czy usunięcie było przypadkowe czy celowe. Nazwa zasobu *klastra* pozostaje zarezerwowana w okresie usuwania nietrwałego i nie można utworzyć nowego klastra o takiej nazwie. Po okresie usuwania nietrwałego nazwa zasobu *klastra* zostanie wydana, a zasoby *klastra* i dane są trwale usuwane i nie można ich odzyskać. Wszystkie skojarzone obszary robocze nie są usuwane z zasobów *klastra* podczas operacji usuwania. Nowe pozyskiwane dane są przechowywane w magazynie Log Analytics i szyfrowane za pomocą klucza firmy Microsoft. 
+  
+  Operacje obszarów roboczych, które nie są skojarzone, są asynchroniczne i może upłynąć do 90 minut.
 
+  **PowerShell**
+
+  ```powershell
+  Remove-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -ClusterName {cluster-name}
+  ```
+
+  **REST**
+  
   ```rst
   DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-03-01-preview
   Authorization: Bearer <token>
@@ -590,8 +663,10 @@ Wszystkie dane pozostają dostępne po operacji rotacji kluczy, ponieważ dane z
 
 -CMK szyfrowanie ma zastosowanie do nowo wprowadzonych danych po      konfiguracji CMK.Dane pozyskiwane przed      konfiguracją CMK pozostają zaszyfrowane za pomocą klucza firmy Microsoft.Możesz wykonywać zapytania dotyczące danych pozyskiwanych      przed bezproblemową konfiguracją CMK i po niej.
 
--Azure Key Vault musi być skonfigurowany jako możliwy do odzyskania.Te właściwości nie są domyślnie włączone i powinny być skonfigurowane przy użyciu interfejsu wiersza polecenia lub programu PowerShell:    -  [usuwanie nietrwałe](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 
-      musi być włączone,    - Aby  [Ochrona](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)   przed wymuszeniem usunięcia wpisu tajnego lub magazynu była włączona, nawet po usunięciu nietrwałego.
+-Azure Key Vault musi być skonfigurowany jako możliwy do odzyskania.Te właściwości nie są domyślnie włączone i należy je skonfigurować przy użyciu interfejsu wiersza polecenia lub programu PowerShell:
+
+  - [Soft Delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) 
+ Usuwanie      nietrwałe musi być włączona    -  [Ochrona przed przeczyszczeniem](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection)   powinna być włączona, aby chronić przed usunięciem wpisu tajnego lub magazynu nawet po usunięciu nietrwałego.
 
 - *Klaster*   przeniesienie zasobu do innej grupy zasobów lub subskrypcji      nie jest obecnie obsługiwane.
 

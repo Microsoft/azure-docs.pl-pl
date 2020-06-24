@@ -3,15 +3,15 @@ title: Jak przeprowadzić inspekcję Azure Cosmos DB operacji na płaszczyźnie 
 description: Dowiedz się, jak przeprowadzać inspekcję operacji płaszczyzny kontroli, takich jak Dodawanie regionów, przepływność aktualizacji, tryb failover w regionie, dodawanie sieci wirtualnej itp. w Azure Cosmos DB
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/23/2020
 ms.author: sngun
-ms.openlocfilehash: a5df7866f7897109dbd7a0ea8a52b857ab671875
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: cb6a27c0f03b7c0c41d8f323609df612363cfd9e
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735355"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262654"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Jak przeprowadzić inspekcję Azure Cosmos DB operacji na płaszczyźnie kontroli
 
@@ -27,9 +27,9 @@ Poniżej przedstawiono kilka przykładowych scenariuszy, w których Inspekcja op
 
 ## <a name="disable-key-based-metadata-write-access"></a>Wyłącz dostęp do zapisu metadanych opartych na kluczach
 
-Przed inspekcją operacji płaszczyzny kontroli w Azure Cosmos DB należy wyłączyć dostęp do zapisu metadanych opartych na kluczach na Twoim koncie. Gdy dostęp do zapisu metadanych opartych na kluczach jest wyłączony, klienci łączący się z kontem usługi Azure Cosmos za pomocą kluczy kont nie mogą uzyskać dostępu do konta. Aby wyłączyć dostęp do zapisu, można ustawić `disableKeyBasedMetadataWriteAccess` właściwość na wartość true. Po ustawieniu tej właściwości zmiany w dowolnym zasobie mogą wystąpić od użytkownika z poprawnym rolą kontroli dostępu opartej na rolach (RBAC). Aby dowiedzieć się więcej na temat sposobu ustawiania tej właściwości, zobacz artykuł [Zapobiegaj zmianom z zestawów SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . 
+Przed inspekcją operacji płaszczyzny kontroli w Azure Cosmos DB należy wyłączyć dostęp do zapisu metadanych opartych na kluczach na Twoim koncie. Gdy dostęp do zapisu metadanych opartych na kluczach jest wyłączony, klienci łączący się z kontem usługi Azure Cosmos za pomocą kluczy kont nie mogą uzyskać dostępu do konta. Aby wyłączyć dostęp do zapisu, można ustawić `disableKeyBasedMetadataWriteAccess` Właściwość na wartość true. Po ustawieniu tej właściwości zmiany w dowolnym zasobie mogą wystąpić od użytkownika z poprawnym rolą kontroli dostępu opartej na rolach (RBAC). Aby dowiedzieć się więcej na temat sposobu ustawiania tej właściwości, zobacz artykuł [Zapobiegaj zmianom z zestawów SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . 
 
-Gdy program `disableKeyBasedMetadataWriteAccess` jest włączony, jeśli klient oparty na zestawie SDK uruchomi operacje tworzenia lub aktualizowania, zwracany jest błąd *"operacja post" w zasobie "ContainerNameorDatabaseName" jest niedozwolona za pośrednictwem Azure Cosmos DB punktu końcowego* . Musisz włączyć dostęp do takich operacji dla Twojego konta lub wykonać operacje tworzenia/aktualizacji za pomocą Azure Resource Manager, interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell. Aby przełączyć z powrotem, ustaw disableKeyBasedMetadataWriteAccess na **false** przy użyciu interfejsu wiersza polecenia platformy Azure, zgodnie z opisem w artykule [zapobieganie zmianom z zestawu SDK Cosmos](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Pamiętaj, aby zmienić wartość `disableKeyBasedMetadataWriteAccess` na false zamiast true.
+`disableKeyBasedMetadataWriteAccess`Gdy program jest włączony, jeśli klient oparty na zestawie SDK uruchomi operacje tworzenia lub aktualizowania, zwracany jest błąd *"operacja post" w zasobie "ContainerNameorDatabaseName" jest niedozwolona za pośrednictwem Azure Cosmos DB punktu końcowego* . Musisz włączyć dostęp do takich operacji dla Twojego konta lub wykonać operacje tworzenia/aktualizacji za pomocą Azure Resource Manager, interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell. Aby przełączyć z powrotem, ustaw disableKeyBasedMetadataWriteAccess na **false** przy użyciu interfejsu wiersza polecenia platformy Azure, zgodnie z opisem w artykule [zapobieganie zmianom z zestawu SDK Cosmos](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Pamiętaj, aby zmienić wartość `disableKeyBasedMetadataWriteAccess` na false zamiast true.
 
 Podczas wyłączania dostępu do zapisu metadanych należy wziąć pod uwagę następujące kwestie:
 
@@ -51,7 +51,7 @@ Wykonaj następujące kroki, aby włączyć rejestrowanie na działania płaszcz
 
 Możesz również przechowywać dzienniki na koncie magazynu lub w strumieniu do centrum zdarzeń. W tym artykule pokazano, jak wysyłać dzienniki do usługi log Analytics, a następnie wykonywać do nich zapytania. Po jego włączeniu trwa kilka minut, zanim dzienniki diagnostyczne zaczną obowiązywać. Wszystkie operacje płaszczyzny kontroli wykonywane po tym punkcie mogą być śledzone. Poniższy zrzut ekranu pokazuje, jak włączyć dzienniki płaszczyzny kontroli:
 
-![Włącz rejestrowanie żądań płaszczyzny kontroli](./media/audit-control-plane-logs/enable-control-plane-requests-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/enable-control-plane-requests-logs.png" alt-text="Włącz rejestrowanie żądań płaszczyzny kontroli":::
 
 ## <a name="view-the-control-plane-operations"></a>Wyświetlanie operacji płaszczyzny kontroli
 
@@ -69,17 +69,17 @@ Po włączeniu rejestrowania wykonaj następujące kroki, aby śledzić operacje
 
 Poniższe zrzuty ekranu przechwytują dzienniki po zmianie poziomu spójności dla konta usługi Azure Cosmos:
 
-![Po dodaniu sieci wirtualnej są rejestrowane płaszczyzny kontroli](./media/audit-control-plane-logs/add-ip-filter-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Po dodaniu sieci wirtualnej są rejestrowane płaszczyzny kontroli":::
 
 Następujące zrzuty ekranu przechwytują dzienniki podczas aktualizowania przepływności tabeli Cassandra:
 
-![Gdy przepływność jest aktualizowana, dzienniki płaszczyzny kontroli](./media/audit-control-plane-logs/throughput-update-logs.png)
+:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Gdy przepływność jest aktualizowana, dzienniki płaszczyzny kontroli":::
 
 ## <a name="identify-the-identity-associated-to-a-specific-operation"></a>Zidentyfikuj tożsamość skojarzoną z określoną operacją
 
 Aby przeprowadzić dalsze debugowanie, można zidentyfikować konkretną operację w **dzienniku aktywności** przy użyciu identyfikatora działania lub sygnatury czasowej operacji. Sygnatura czasowa jest używana dla niektórych klientów Menedżer zasobów, w których identyfikator działania nie został jawnie zakończony. Dziennik aktywności zawiera szczegółowe informacje o tożsamości, z którą została zainicjowana operacja. Poniższy zrzut ekranu przedstawia sposób używania identyfikatora działania i wyszukiwania skojarzonych z nim operacji w dzienniku aktywności:
 
-![Użyj identyfikatora działania i Znajdź operacje](./media/audit-control-plane-logs/find-operations-with-activity-id.png)
+:::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Użyj identyfikatora działania i Znajdź operacje":::
 
 ## <a name="control-plane-operations-for-azure-cosmos-account"></a>Operacje płaszczyzny kontroli dla konta usługi Azure Cosmos
 
@@ -147,7 +147,7 @@ Dla operacji specyficznych dla interfejsu API operacja jest nazywana następują
 * Rodzaju interfejsu API + ApiKindResourceType + OperationType + Start/Complete
 * Rodzaju interfejsu API + ApiKindResourceType + "przepływność" + OperationType + Start/Complete
 
-**Przyklad** 
+**Przykład** 
 
 * CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
 * CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete

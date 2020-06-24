@@ -3,8 +3,8 @@ title: Zarządzanie certyfikatami federacyjnymi w usłudze Azure AD | Microsoft 
 description: Dowiedz się, jak dostosować datę wygaśnięcia certyfikatów federacyjnych oraz jak odnowić certyfikaty, które wkrótce wygasną.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de60dc5095ce4ab4d0219a388c445b08f544e1f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1731d5ea5d8db9ea1c5855a32d2daca0387c0bf5
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77159033"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763214"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Zarządzanie certyfikatami federacyjnego logowania jednokrotnego w Azure Active Directory
 
@@ -30,7 +30,7 @@ Ten artykuł dotyczy tylko aplikacji skonfigurowanych do korzystania z logowania
 
 ## <a name="auto-generated-certificate-for-gallery-and-non-gallery-applications"></a>Automatycznie wygenerowany certyfikat dla galerii i aplikacji innych niż Galeria
 
-Gdy dodajesz nową aplikację z galerii i skonfigurujesz logowanie oparte na protokole SAML ( **przez wybranie** > protokołu**SAML** logowania jednokrotnego ze strony przegląd aplikacji), usługa Azure AD generuje certyfikat dla aplikacji, która jest ważna przez trzy lata. Aby pobrać aktywny certyfikat jako plik certyfikatu zabezpieczeń (**. cer**), Wróć do tej strony (**Logowanie oparte na języku SAML**) i wybierz łącze pobierania w nagłówku **certyfikatu podpisywania SAML** . Można wybrać jeden certyfikat pierwotny (binarny) lub certyfikat Base64 (Base 64-Encoded Text). W przypadku aplikacji galerii w tej sekcji można także wyświetlić link umożliwiający pobranie certyfikatu jako pliku XML metadanych Federacji (plik **XML** ), w zależności od wymagań aplikacji.
+Gdy dodajesz nową aplikację z galerii i skonfigurujesz logowanie oparte na protokole SAML ( **przez wybranie protokołu**SAML logowania jednokrotnego  >  **SAML** ze strony przegląd aplikacji), usługa Azure AD generuje certyfikat dla aplikacji, która jest ważna przez trzy lata. Aby pobrać aktywny certyfikat jako plik certyfikatu zabezpieczeń (**. cer**), Wróć do tej strony (**Logowanie oparte na języku SAML**) i wybierz łącze pobierania w nagłówku **certyfikatu podpisywania SAML** . Można wybrać jeden certyfikat pierwotny (binarny) lub certyfikat Base64 (Base 64-Encoded Text). W przypadku aplikacji galerii w tej sekcji można także wyświetlić link umożliwiający pobranie certyfikatu jako pliku XML metadanych Federacji (plik **XML** ), w zależności od wymagań aplikacji.
 
 ![Opcje pobierania aktywnego certyfikatu podpisywania SAML](./media/manage-certificates-for-federated-single-sign-on/active-certificate-download-options.png)
 
@@ -90,7 +90,7 @@ Usługa Azure AD wyśle wiadomość e-mail z powiadomieniem 60, 30 i 7 dni przed
 1. Dla każdego adresu e-mail, który chcesz usunąć, wybierz ikonę **Usuń** (można utworzyć śmieci) obok adresu e-mail.
 1. Wybierz pozycję **Zapisz**.
 
-Otrzymasz wiadomość e-mail z aadnotification@microsoft.compowiadomieniem. Aby uniknąć wiadomości e-mail w lokalizacji spamu, Dodaj tę wiadomość e-mail do kontaktów.
+Otrzymasz wiadomość e-mail z powiadomieniem aadnotification@microsoft.com . Aby uniknąć wiadomości e-mail w lokalizacji spamu, Dodaj tę wiadomość e-mail do kontaktów.
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Odnów certyfikat, który wkrótce wygaśnie
 
@@ -109,6 +109,6 @@ Jeśli certyfikat wkrótce wygaśnie, możesz go odnowić, korzystając z proced
 ## <a name="related-articles"></a>Pokrewne artykuły:
 
 - [Samouczki dotyczące integrowania aplikacji SaaS z usługą Azure Active Directory](../saas-apps/tutorial-list.md)
-- [Zarządzanie aplikacjami przy użyciu usługi Azure Active Directory](what-is-application-management.md)
+- [Zarządzanie aplikacjami za pomocą usługi Azure Active Directory](what-is-application-management.md)
 - [Single sign-on to applications in Azure Active Directory (Logowanie jednokrotne do aplikacji w usłudze Azure Active Directory)](what-is-single-sign-on.md)
-- [Debuguj Logowanie jednokrotne oparte na protokole SAML do aplikacji w Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
+- [Debugowanie logowania jednokrotnego opartego na protokole SAML w aplikacjach w usłudze Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

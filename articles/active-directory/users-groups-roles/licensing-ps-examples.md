@@ -8,25 +8,25 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c5a483ff7a5a93a6908538fd237cb4cf2dacec6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 0d0d83d3b981968949d558cb7ee5672094b00555
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582677"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727334"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Przykłady programów PowerShell i Graph dla licencjonowania opartego na grupach w usłudze Azure AD
 
 Pełna funkcjonalność licencjonowania opartego na grupach jest dostępna za pośrednictwem [Azure Portal](https://portal.azure.com), a obecnie obsługa programu PowerShell i Microsoft Graph jest ograniczona do operacji tylko do odczytu. Istnieje jednak kilka przydatnych zadań, które można wykonać przy użyciu istniejących [poleceń cmdlet programu PowerShell MSOnline](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) i Microsoft Graph. Ten dokument zawiera przykłady tego, co jest możliwe.
 
 > [!NOTE]
-> Przed rozpoczęciem uruchamiania poleceń cmdlet, upewnij się, że masz najpierw połączenie z organizacją, uruchamiając `Connect-MsolService`  polecenie cmdlet.
+> Przed rozpoczęciem uruchamiania poleceń cmdlet, upewnij się, że masz najpierw połączenie z organizacją, uruchamiając `Connect-MsolService`   polecenie cmdlet.
 
 > [!WARNING]
 > Ten kod jest dostarczany jako przykład dla celów demonstracyjnych. Jeśli zamierzasz korzystać z niego w środowisku, rozważ przetestowanie go najpierw na małą skalę lub w oddzielnej organizacji testowej. Może być konieczne dostosowanie kodu w celu spełnienia określonych wymagań środowiska.
@@ -617,7 +617,7 @@ UserId                               OperationResult
 aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipping.
 ```
 > [!NOTE]
-> Zaktualizuj wartości zmiennych `$skuId` , `$groupId`  które są przeznaczone do usuwania bezpośrednich licencji zgodnie ze środowiskiem testowym przed uruchomieniem powyższego skryptu. 
+> Zaktualizuj wartości zmiennych `$skuId` , `$groupId`   które są przeznaczone do usuwania bezpośrednich licencji zgodnie ze środowiskiem testowym przed uruchomieniem powyższego skryptu. 
 
 ## <a name="next-steps"></a>Następne kroki
 

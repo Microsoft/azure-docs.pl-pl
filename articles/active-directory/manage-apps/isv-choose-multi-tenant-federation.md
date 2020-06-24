@@ -2,22 +2,22 @@
 title: Wybieranie odpowiedniego protokołu federacyjnego dla aplikacji wielodostępnych
 description: Wskazówki dla niezależnych dostawców oprogramowania w ramach integracji z usługą Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b3edbbe037c3874d639476e516b3732b7573d9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e7dc40d0e4736b4fef8012b08737cbd07bc36bf
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443371"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763299"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>Wybieranie odpowiedniego protokołu federacyjnego dla aplikacji wielodostępnej
 
@@ -30,7 +30,7 @@ Poniższa tabela zawiera porównanie
 * SAML (SAML)
 * Federacja usług sieci Web (WSFed)
 
-| Możliwości| OAuth/OIDC| SAML/WSFed |
+| Możliwość| OAuth/OIDC| SAML/WSFed |
 | - |-|-|
 | Logowanie jednokrotne oparte na sieci Web| √| √ |
 | Logowanie jednokrotne oparte na sieci Web| √| √ |

@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 2e399c1a7b0f9bbc2aac375fe8af969a2b9e0e48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 962d0d6dd51bb30f5df9ca0b609acf932777ebcf
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80877631"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887523"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Uruchamianie Apache Spark zadań w AKS
 
-[Apache Spark][apache-spark] to szybki aparat do przetwarzania danych na dużą skalę. W przypadku [wersji Spark 2.3.0][spark-latest-release]program Apache Spark obsługuje natywną integrację z klastrami Kubernetes. Usługa Azure Kubernetes Service (AKS) to zarządzane środowisko Kubernetes uruchomione na platformie Azure. Ten dokument zawiera szczegółowe informacje na temat przygotowywania i uruchamiania Apache Spark zadań w klastrze usługi Azure Kubernetes Service (AKS).
+[Apache Spark][apache-spark] to szybki aparat do przetwarzania danych na dużą skalę. W przypadku [wersji Spark 2.3.0][spark-kubernetes-earliest-version]program Apache Spark obsługuje natywną integrację z klastrami Kubernetes. Usługa Azure Kubernetes Service (AKS) to zarządzane środowisko Kubernetes uruchomione na platformie Azure. Ten dokument zawiera szczegółowe informacje na temat przygotowywania i uruchamiania Apache Spark zadań w klastrze usługi Azure Kubernetes Service (AKS).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -25,6 +25,7 @@ Aby wykonać kroki opisane w tym artykule, potrzebne są następujące elementy.
 * Konto [centrum platformy Docker][docker-hub] lub [Azure Container Registry][acr-create].
 * Interfejs wiersza polecenia platformy Azure został [zainstalowany][azure-cli] w systemie deweloperskim.
 * [JDK 8][java-install] zainstalowany w systemie.
+* [Apache Maven][maven-install] zainstalowany w systemie.
 * SBT ([Narzędzie Scala Build][sbt-install]) zainstalowane w systemie.
 * Narzędzia wiersza polecenia usługi git zainstalowane w systemie.
 
@@ -46,7 +47,7 @@ Utwórz nazwę główną usługi dla klastra. Po jego utworzeniu do następnego 
 az ad sp create-for-rbac --name SparkSP
 ```
 
-Utwórz klaster AKS z węzłami o rozmiarze `Standard_D3_v2`, a wartości identyfikatora AppID i hasła przechodzą jako parametry podmiotu zabezpieczeń i klucza klienta.
+Utwórz klaster AKS z węzłami o rozmiarze `Standard_D3_v2` , a wartości identyfikatora AppID i hasła przechodzą jako parametry podmiotu zabezpieczeń i klucza klienta.
 
 ```azurecli
 az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
@@ -77,7 +78,7 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-Jeśli masz zainstalowaną wiele wersji JDK, `JAVA_HOME` ustaw opcję na Użyj wersji 8 dla bieżącej sesji.
+Jeśli masz zainstalowaną wiele wersji JDK, ustaw opcję `JAVA_HOME` na Użyj wersji 8 dla bieżącej sesji.
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
@@ -89,7 +90,7 @@ Uruchom następujące polecenie, aby skompilować kod źródłowy Spark z obsłu
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-Poniższe polecenia umożliwiają utworzenie obrazu kontenera platformy Spark i wypchnięcie go do rejestru obrazów kontenerów. Zastąp `registry.example.com` ciąg nazwą rejestru kontenerów i `v1` znacznikiem, którego wolisz użyć. W przypadku korzystania z usługi Docker Hub ta wartość jest nazwą rejestru. Jeśli jest używany Azure Container Registry (ACR), ta wartość jest nazwą serwera logowania ACR.
+Poniższe polecenia umożliwiają utworzenie obrazu kontenera platformy Spark i wypchnięcie go do rejestru obrazów kontenerów. Zastąp ciąg `registry.example.com` nazwą rejestru kontenerów i `v1` znacznikiem, którego wolisz użyć. W przypadku korzystania z usługi Docker Hub ta wartość jest nazwą rejestru. Jeśli jest używany Azure Container Registry (ACR), ta wartość jest nazwą serwera logowania ACR.
 
 ```bash
 REGISTRY_NAME=registry.example.com
@@ -224,7 +225,7 @@ kubectl create serviceaccount spark
 kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
 ```
 
-Prześlij zadanie przy użyciu `spark-submit`.
+Prześlij zadanie przy użyciu `spark-submit` .
 
 ```bash
 ./bin/spark-submit \
@@ -258,7 +259,7 @@ Gdy zadanie jest uruchomione, można także uzyskać dostęp do interfejsu użyt
 kubectl port-forward spark-pi-2232778d0f663768ab27edc35cb73040-driver 4040:4040
 ```
 
-Aby uzyskać dostęp do interfejsu użytkownika platformy Spark `127.0.0.1:4040` , otwórz go w przeglądarce.
+Aby uzyskać dostęp do interfejsu użytkownika platformy Spark, otwórz go `127.0.0.1:4040` w przeglądarce.
 
 ![Interfejs użytkownika Spark](media/aks-spark-job/spark-ui.png)
 
@@ -277,7 +278,7 @@ NAME                                               READY     STATUS      RESTART
 spark-pi-2232778d0f663768ab27edc35cb73040-driver   0/1       Completed   0          1m
 ```
 
-Użyj polecenia `kubectl logs` , aby pobrać dzienniki ze sterownika Spark pod. Zastąp nazwę pod nazwą sterownika.
+Użyj `kubectl logs` polecenia, aby pobrać dzienniki ze sterownika Spark pod. Zastąp nazwę pod nazwą sterownika.
 
 ```bash
 kubectl logs spark-pi-2232778d0f663768ab27edc35cb73040-driver
@@ -293,7 +294,7 @@ Pi is roughly 3.152155760778804
 
 W powyższym przykładzie plik JAR magazynu Spark został przekazany do usługi Azure Storage. Innym rozwiązaniem jest spakowanie pliku JAR do obrazów platformy Docker utworzonych niestandardowo.
 
-Aby to zrobić, Znajdź obraz `dockerfile` dla platformy Spark znajdujący się `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` w katalogu. Dodaj `ADD` instrukcję dla zadania `jar` Spark w miejscu między `WORKDIR` i `ENTRYPOINT` deklaracjami.
+Aby to zrobić, Znajdź `dockerfile` obraz dla platformy Spark znajdujący się w `$sparkdir/resource-managers/kubernetes/docker/src/main/dockerfiles/spark/` katalogu. Dodaj `ADD` instrukcję dla zadania Spark w `jar` miejscu między `WORKDIR` i `ENTRYPOINT` deklaracjami.
 
 Zaktualizuj ścieżkę jar do lokalizacji `SparkPi-assembly-0.1.0-SNAPSHOT.jar` pliku w systemie deweloperskim. Możesz również użyć własnego pliku JAR.
 
@@ -340,9 +341,10 @@ Aby uzyskać więcej informacji, zapoznaj się z dokumentacją platformy Spark.
 [apache-spark]: https://spark.apache.org/
 [docker-hub]: https://docs.docker.com/docker-hub/
 [java-install]: https://aka.ms/azure-jdks
+[maven-install]: https://maven.apache.org/install.html
 [sbt-install]: https://www.scala-sbt.org/1.0/docs/Setup.html
 [spark-docs]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
-[spark-latest-release]: https://spark.apache.org/releases/spark-release-2-3-0.html
+[spark-kubernetes-earliest-version]: https://spark.apache.org/releases/spark-release-2-3-0.html
 [spark-quickstart]: https://spark.apache.org/docs/latest/quick-start.html
 
 

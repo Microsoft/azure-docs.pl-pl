@@ -4,16 +4,16 @@ description: Dowiedz się, jak monitorować wydajność i dostępność Azure Co
 author: bwren
 services: cosmos-db
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: a31636e4e56ddeb9f48cd8c955dc4415dacdc178
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0d675bd53eac728918c951b1db0dae0188f75df1
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234927"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262790"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB monitorowania
 
@@ -27,11 +27,11 @@ Dane można monitorować za pomocą metryk po stronie klienta i serwera. Korzyst
 
 * **Monitoruj z dziennikami diagnostycznymi w Azure Monitor:** Możesz monitorować dzienniki konta usługi Azure Cosmos i tworzyć pulpity nawigacyjne na podstawie Azure Monitor. Dane telemetryczne, takie jak zdarzenia i ślady występujące na drugim poziomie szczegółowości, są przechowywane jako dzienniki. Na przykład, jeśli przepływność kontenera jest zmieniana, właściwości konta Cosmos są zmieniane te zdarzenia są przechwytywane w dziennikach. Te dzienniki można analizować, uruchamiając zapytania dotyczące zebranych danych. Aby dowiedzieć się więcej, zobacz sekcję [Analizowanie danych dziennika](#analyze-log-data) w tym artykule.
 
-* **Monitoruj programowo przy użyciu zestawów SDK:** Konto usługi Azure Cosmos można monitorować programowo przy użyciu zestawów SDK platformy .NET, Java, Python, Node. js i nagłówków w interfejsie API REST. Aby dowiedzieć się więcej, zobacz sekcję [monitorowanie Azure Cosmos DB programowo](#monitor-cosmosdb-programmatically) w tym artykule.
+* **Monitoruj programowo przy użyciu zestawów SDK:** Konto usługi Azure Cosmos można monitorować programowo przy użyciu zestawów .NET, Java, Python, Node.js SDK i nagłówków w interfejsie API REST. Aby dowiedzieć się więcej, zobacz sekcję [monitorowanie Azure Cosmos DB programowo](#monitor-cosmosdb-programmatically) w tym artykule.
 
 Na poniższej ilustracji przedstawiono różne opcje dostępne do monitorowania konta Azure Cosmos DB przez Azure Portal:
 
-![Opcje monitorowania dostępne w Azure Portal](media/monitor-cosmos-db/monitoring-options-portal.png)
+:::image type="content" source="media/monitor-cosmos-db/monitoring-options-portal.png" alt-text="Opcje monitorowania dostępne w Azure Portal" border="false":::
 
 Korzystając z Azure Cosmos DB, na stronie klienta można zebrać szczegóły dotyczące opłaty za żądania, identyfikator działania, informacje o śledzeniu wyjątku/stosu, stan HTTP/kod stanu podrzędnego, ciąg diagnostyczny w celu debugowania wszelkich problemów, które mogą wystąpić. Te informacje są również wymagane, jeśli musisz skontaktować się z zespołem pomocy technicznej Azure Cosmos DB.  
 
@@ -62,7 +62,7 @@ Azure Cosmos DB gromadzi te same rodzaje danych monitorowania jak inne zasoby pl
 
 Strona **Przegląd** w Azure Portal dla każdej bazy danych usługi Azure Cosmos zawiera krótki widok użycia bazy danych, w tym jego żądanie i co godzinę użycie rozliczeń. Jest to przydatne informacje, ale tylko niewielka ilość dostępnych danych monitorowania. Niektóre z tych danych są zbierane automatycznie i dostępne do analizy zaraz po utworzeniu bazy danych i włączeniu dodatkowej kolekcji danych z konfiguracją.
 
-![Strona przeglądu](media/monitor-cosmos-db/overview-page.png)
+:::image type="content" source="media/monitor-cosmos-db/overview-page.png" alt-text="Strona przeglądu":::
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a>Analizowanie danych metryki
 
@@ -82,27 +82,27 @@ Metryki dla Azure Cosmos DB z metrykami z innych usług platformy Azure za pomoc
 
 1. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie, a następnie wybierz pozycję **metryki**.
 
-   ![Okienko metryki w Azure Monitor](./media/monitor-cosmos-db/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Okienko metryki w Azure Monitor":::
 
 1. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję**i **grupę zasobów**. W polu **Typ zasobu**wybierz pozycję **konta Azure Cosmos DB**, wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj**.
 
-   ![Wybierz konto Cosmos DB, aby wyświetlić metryki](./media/monitor-cosmos-db/select-cosmosdb-account.png)
+   :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Wybierz konto Cosmos DB, aby wyświetlić metryki":::
 
 1. Następnie możesz wybrać metrykę z listy dostępnych metryk. Można wybrać metryki specyficzne dla jednostek żądań, magazynu, opóźnień, dostępności, Cassandra i innych. Aby uzyskać szczegółowe informacje na temat wszystkich dostępnych metryk na tej liście, zobacz artykuł [metryki według kategorii](monitor-cosmos-db-reference.md) . W tym przykładzie wybieramy **jednostki żądania** i **średnika** jako wartość agregacji.
 
    Oprócz tych szczegółów można także wybrać **zakres czasu** i **stopień szczegółowości** metryk. Co więcej, można wyświetlić metryki z ostatnich 30 dni.  Po zastosowaniu filtru na podstawie filtru zostanie wyświetlony wykres. W wybranym okresie można zobaczyć średnią liczbę jednostek żądań zużytych na minutę.  
 
-   ![Wybierz metrykę z Azure Portal](./media/monitor-cosmos-db/metric-types.png)
+   :::image type="content" source="./media/monitor-cosmos-db/metric-types.png" alt-text="Wybierz metrykę z Azure Portal":::
 
 ### <a name="add-filters-to-metrics"></a>Dodawanie filtrów do metryk
 
 Można również filtrować metryki i wykres wyświetlany przez określoną **CollectionName**, **DatabaseName**, **OperationType**, **region**i **StatusCode**. Aby odfiltrować metryki, wybierz pozycję **Dodaj filtr** i wybierz wymaganą właściwość, taką jak **OperationType** , i wybierz wartość, taką jak **zapytanie**. Następnie Wykres wyświetla jednostki żądania wykorzystane dla operacji zapytania w wybranym okresie. Operacje wykonywane za pośrednictwem procedury składowanej nie są rejestrowane, więc nie są dostępne w ramach metryki operacji.
 
-![Dodaj filtr, aby wybrać stopień szczegółowości metryki](./media/monitor-cosmos-db/add-metrics-filter.png)
+:::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Dodaj filtr, aby wybrać stopień szczegółowości metryki":::
 
 Metryki można grupować przy użyciu opcji **Zastosuj dzielenie** . Na przykład można grupować jednostki żądań na typ operacji i wyświetlać wykres dla wszystkich operacji na raz, jak pokazano na poniższej ilustracji:
 
-![Dodaj filtr podziału zastosowania](./media/monitor-cosmos-db/apply-metrics-splitting.png)
+:::image type="content" source="./media/monitor-cosmos-db/apply-metrics-splitting.png" alt-text="Dodaj filtr podziału zastosowania":::
 
 ## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a>Analizowanie danych dziennika
 

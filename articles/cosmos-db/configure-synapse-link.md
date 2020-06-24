@@ -3,15 +3,15 @@ title: Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersj
 description: Dowiedz się, jak włączyć link Synapse dla kont usługi Azure Cosmos, utworzyć kontener z włączonym magazynem analitycznym, połączyć bazę danych Azure Cosmos z obszarem roboczym Synapse i uruchomić zapytania.
 author: SriChintala
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: e1e43579782e204dae027b1771b9013a72843489
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: d2a10d064bed3e2e2e798d16ce72ccf55c965f8d
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456576"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262042"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurowanie i używanie linku Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)
 
@@ -40,11 +40,11 @@ Wykonaj następujące kroki, aby uruchomić zapytania analityczne za pomocą lin
 
 1. Wybierz **łącze Synapse** z listy funkcji.
 
-   ![Znajdź funkcję w wersji zapoznawczej linku Synapse](./media/configure-synapse-link/find-synapse-link-feature.png)
+   :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Znajdź funkcję w wersji zapoznawczej linku Synapse":::
 
 1. Następnie zostanie wyświetlony komunikat z prośbą o włączenie linku Synapse na Twoim koncie. Wybierz pozycję Włącz.
 
-   ![Włącz funkcję linku Synapse](./media/configure-synapse-link/enable-synapse-link-feature.png)
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Włącz funkcję linku Synapse":::
 
 1. Twoje konto ma teraz włączoną funkcję linku Synapse. Następnie zobacz jak utworzyć kontenery obsługujące magazyn analityczny, aby automatycznie rozpocząć replikację danych operacyjnych z magazynu transakcyjnego do magazynu analitycznego.
 
@@ -67,7 +67,7 @@ Możesz włączyć magazyn analityczny w kontenerze usługi Azure Cosmos podczas
 
 1. Wybierz pozycję **nowy kontener** i wprowadź nazwę bazy danych, kontenera, klucza partycji i szczegółów przepływności. Włącz opcję **Magazyn analityczny** . Po włączeniu magazynu analitycznego tworzy on kontener z `AnalyicalTTL` właściwością ustawioną na wartość domyślną-1 (nieograniczone przechowywanie). Ten magazyn analityczny zachowuje wszystkie historyczne wersje rekordów.
 
-   ![Włącz magazyn analityczny dla kontenera usługi Azure Cosmos](./media/configure-synapse-link/create-container-analytical-store.png)
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Włącz magazyn analityczny dla kontenera usługi Azure Cosmos":::
 
 1. Jeśli na tym koncie nie włączono wcześniej linku Synapse, zostanie wyświetlony monit z pytaniem, że jest to wymaganie wstępne do utworzenia kontenera z włączonym magazynem analitycznym. Jeśli zostanie wyświetlony monit, wybierz pozycję **Włącz łącze Synapse**.
 
@@ -142,7 +142,7 @@ container = client.CreateContainer(db['_self'], container_definition, options)
 
 ### <a name="update-the-analytical-store-time-to-live"></a><a id="update-analytical-ttl"></a>Aktualizuj czas trwania magazynu analitycznego
 
-Po włączeniu magazynu analitycznego z określoną wartością TTL można później zaktualizować go do innej prawidłowej wartości. Możesz zaktualizować wartość przy użyciu Azure Portal lub zestawów SDK. Aby uzyskać informacje o różnych opcjach analitycznych konfiguracji czasu wygaśnięcia (TTL), zobacz artykuł [analityczne obsługiwane wartości czasu wygaśnięcia (TTL)](analytical-store-introduction.md#analytical-ttl) .
+Po włączeniu magazynu analitycznego z określoną wartością czasu wygaśnięcia (TTL) można później zaktualizować tę wartość do innej prawidłowej wartości. Można zaktualizować tę wartość przy użyciu witryny Azure Portal lub zestawów SDK. Aby uzyskać informacje o różnych opcjach analitycznych konfiguracji czasu wygaśnięcia (TTL), zobacz artykuł [analityczne obsługiwane wartości czasu wygaśnięcia (TTL)](analytical-store-introduction.md#analytical-ttl) .
 
 #### <a name="azure-portal"></a>Azure Portal
 

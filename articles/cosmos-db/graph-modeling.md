@@ -4,15 +4,15 @@ description: Dowiedz się, jak modelować bazę danych Graph przy użyciu interf
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea3aab76c8d7eaad46ae1c20f6ddb4547b25b5b7
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898326"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261821"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelowanie danych programu Graph dla Azure Cosmos DB API Gremlin
 
@@ -47,12 +47,12 @@ Poniżej przedstawiono najlepsze rozwiązania dotyczące właściwości w obiekt
 
 | Obiekt | Właściwość | Typ | Uwagi |
 | --- | --- | --- |  --- |
-| Wierzchołka | ID | String | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
-| Wierzchołka | label | String | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
+| Wierzchołka | ID | Ciąg | Unikatowo wymuszane na partycję. Jeśli wartość nie zostanie podana podczas wstawiania, zostanie zapisany automatycznie wygenerowany identyfikator GUID. |
+| Wierzchołka | label | Ciąg | Ta właściwość służy do definiowania typu jednostki reprezentowanej przez wierzchołek. Jeśli wartość nie zostanie podana, zostanie użyta wartość domyślna "wierzchołek". |
 | Wierzchołka | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdym wierzchołku. |
 | Wierzchołka | klucz partycji | Ciąg, wartość logiczna, numeryczna | Ta właściwość określa miejsce, w którym będą przechowywane wierzchołki i jej krawędzie wychodzące. Przeczytaj więcej na temat [partycjonowania grafów](graph-partitioning.md). |
-| Brzeg | ID | String | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
-| Brzeg | label | String | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
+| Brzeg | ID | Ciąg | Unikatowo wymuszane na partycję. Automatycznie generowana domyślnie. Krawędzie zazwyczaj nie muszą być jednoznacznie pobierane przez identyfikator. |
+| Brzeg | label | Ciąg | Ta właściwość służy do definiowania typu relacji, które mają dwa wierzchołki. |
 | Brzeg | properties | Ciąg, wartość logiczna, numeryczna | Lista oddzielnych właściwości przechowywanych jako pary klucz-wartość w każdej krawędzi. |
 
 > [!NOTE]
@@ -73,11 +73,11 @@ Jednym z typowych Pitfall jest mapowanie właściwości pojedynczej jednostki ja
 
 * **Właściwości oparte na wierzchołku**: w tym podejściu jednostka używa trzech oddzielnych wierzchołków i dwóch krawędzi do opisywania właściwości. Chociaż takie podejście może zmniejszyć nadmiarowość, zwiększa złożoność modelu. Zwiększenie złożoności modelu może skutkować dodaniem opóźnienia, złożonością zapytania i kosztem obliczeniowym. Ten model może również przedstawiać wyzwania na partycjonowanie.
 
-![Model jednostki z wierzchołkami dla właściwości.](./media/graph-modeling/graph-modeling-1.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Model jednostki z wierzchołkami dla właściwości." border="false":::
 
 * **Wierzchołki osadzone właściwości**: to podejście wykorzystuje listę par klucz-wartość do reprezentowania wszystkich właściwości jednostki w wierzchołku. Ta metoda zapewnia ograniczoną złożoność modelu, która będzie prowadzić do uproszczenia zapytań i bardziej wydajnego przechodzenia.
 
-![Model jednostki z wierzchołkami dla właściwości.](./media/graph-modeling/graph-modeling-2.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Model jednostki z wierzchołkami dla właściwości." border="false":::
 
 > [!NOTE]
 > Powyższe przykłady przedstawiają uproszczony model grafu, aby pokazać tylko porównanie między dwoma sposobami dzielenia właściwości jednostki.
@@ -90,11 +90,11 @@ Istnieją jednak scenariusze, w których odwołanie do właściwości może mie�
 
 Po modelowaniu wierzchołków można dodać krawędzie, aby zauważyć relacje między nimi. Pierwszy aspekt, który należy ocenić, to **kierunek relacji**. 
 
-Obiekty brzegowe mają domyślny kierunek przechodzenia przy użyciu funkcji `out()` or. `outE()` Użycie tego naturalnego kierunku skutkuje wydajną operacją, ponieważ wszystkie wierzchołki są przechowywane z wychodzącymi krawędziami. 
+Obiekty brzegowe mają domyślny kierunek przechodzenia przy użyciu `out()` `outE()` funkcji or. Użycie tego naturalnego kierunku skutkuje wydajną operacją, ponieważ wszystkie wierzchołki są przechowywane z wychodzącymi krawędziami. 
 
 Jednak przechodzenie w odwrotnym kierunku krawędzi brzegowej przy użyciu `in()` funkcji, zawsze spowoduje powstanie zapytania między partycjami. Dowiedz się więcej o [partycjonowaniu grafów](graph-partitioning.md). Jeśli istnieje potrzeba ciągłego przechodzenia przy użyciu `in()` funkcji, zaleca się dodanie krawędzi w obu kierunkach.
 
-Kierunek krawędzi można określić przy użyciu predykatów `.to()` lub `.from()` do kroku `.addE()` Gremlin. Lub przy użyciu [biblioteki wykonawczy Bulk dla interfejsu API Gremlin](bulk-executor-graph-dotnet.md).
+Kierunek krawędzi można określić przy użyciu `.to()` `.from()` predykatów lub do `.addE()` kroku Gremlin. Lub przy użyciu [biblioteki wykonawczy Bulk dla interfejsu API Gremlin](bulk-executor-graph-dotnet.md).
 
 > [!NOTE]
 > Obiekty brzegowe mają domyślnie kierunek.
@@ -105,7 +105,7 @@ Korzystanie z opisowych etykiet relacji może poprawić wydajność operacji roz
 * Aby oznaczyć relację, użyj nieogólnych warunków.
 * Skojarz etykietę wierzchołka źródłowego z etykietą wierzchołka docelowego z nazwą relacji.
 
-![Przykłady etykietowania relacji.](./media/graph-modeling/graph-modeling-3.png)
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Przykłady etykietowania relacji." border="false":::
 
 Im bardziej szczegółowa etykieta, która będzie używana przez przechodzenie do filtrowania krawędzi, tym lepiej. Ta decyzja może mieć znaczny wpływ na koszt zapytań. Koszt zapytania można oszacować w dowolnym momencie [przy użyciu kroku executionProfile](graph-execution-profile.md).
 

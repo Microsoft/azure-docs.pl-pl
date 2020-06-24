@@ -2,16 +2,16 @@
 title: Monitoruj użycie przepływności operacji w Azure Cosmos DB
 description: Dowiedz się, jak monitorować przepływność i użycie jednostek żądań operacji w Azure Cosmos DB. Właściciele konta Azure Cosmos DB mogą zrozumieć, które operacje zajmują więcej jednostek żądań.
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/09/2020
-ms.openlocfilehash: 4ea195dfbf9eddbf10680196c9c75646b45380ae
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e3ec3bc0e0c6028eb5d7a90ee1920938d792941b
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119006"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260750"
 ---
 # <a name="how-to-monitor-throughput-or-request-unit-usage-of-an-operation-in-azure-cosmos-db"></a>Jak monitorować przepływność lub zażądać użycia jednostek operacji w Azure Cosmos DB
 
@@ -38,15 +38,15 @@ Jeśli zauważysz, że niektóre zapytania zajmują więcej jednostek żądań, 
 
 1. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie i wybierz pozycję **metryki**.
 
-   ![Okienko metryki w Azure Monitor](./media/monitor-request-unit-usage/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/monitor-metrics-blade.png" alt-text="Okienko metryki w Azure Monitor":::
 
 1. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję**i **grupę zasobów**. W polu **Typ zasobu**wybierz pozycję **konta Azure Cosmos DB**, wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj**.
 
-   ![Wybierz konto Azure Cosmos DB, aby wyświetlić metryki](./media/monitor-request-unit-usage/select-cosmos-db-account.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/select-cosmos-db-account.png" alt-text="Wybierz konto Azure Cosmos DB, aby wyświetlić metryki":::
 
 1. Następnie wybierz metrykę **łączna liczba jednostek żądań** z listy dostępnych metryk. Aby uzyskać szczegółowe informacje na temat wszystkich dostępnych metryk na tej liście, zobacz artykuł [metryki według kategorii](monitor-cosmos-db-reference.md) . W tym przykładzie wybieramy **sumę jednostek żądań** i **średnią** jako wartość agregacji. Oprócz tych szczegółów można także wybrać **zakres czasu** i **stopień szczegółowości** metryk. Co więcej, można wyświetlić metryki z ostatnich 30 dni.  Po zastosowaniu filtru na podstawie filtru zostanie wyświetlony wykres. W wybranym okresie można zobaczyć średnią liczbę jednostek żądań zużytych na minutę.  
 
-   ![Wybierz metrykę z Azure Portal](./media/monitor-request-unit-usage/request-unit-usage-metric.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-metric.png" alt-text="Wybierz metrykę z Azure Portal":::
 
 ## <a name="filters-for-request-unit-usage"></a>Filtry dotyczące użycia jednostek żądania
 
@@ -54,11 +54,11 @@ Można również filtrować metryki i uzyskiwać wykresy wyświetlane przez konk
 
 Aby uzyskać użycie jednostki żądania dla każdej operacji według sum (sum) lub średniej, wybierz pozycję **Zastosuj podział** i wybierz pozycję **Typ operacji** oraz wartość filtru, jak pokazano na poniższej ilustracji:
 
-   ![Cosmos DB jednostek żądań dla operacji w usłudze Azure monitor](./media/monitor-request-unit-usage/request-unit-usage-operations.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-operations.png" alt-text="Cosmos DB jednostek żądań dla operacji w usłudze Azure monitor":::
 
 Jeśli chcesz zobaczyć użycie jednostki żądania według kolekcji, wybierz pozycję **Zastosuj podział** i wybierz nazwę kolekcji jako filtr. Zobaczysz czat podobny do poniższego, który umożliwia wybranie kolekcji na pulpicie nawigacyjnym. Następnie możesz wybrać określoną nazwę kolekcji, aby wyświetlić więcej szczegółów:
 
-   ![Cosmos DB jednostki żądań dla wszystkich operacji przez kolekcję w usłudze Azure monitor](./media/monitor-request-unit-usage/request-unit-usage-collection.png)
+   :::image type="content" source="./media/monitor-request-unit-usage/request-unit-usage-collection.png" alt-text="Cosmos DB jednostki żądań dla wszystkich operacji przez kolekcję w usłudze Azure monitor":::
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96e79fdfeed5b56a4e0a33229f419f439b20b04c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4ae13dc51b4621dc3d8be39049dcade87c105cbc
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124538"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262620"
 ---
 # <a name="bulk-loading-with-synapse-sql"></a>Ładowanie zbiorcze przy użyciu języka SQL Synapse
 
@@ -28,7 +28,7 @@ Teraz można łatwo ładować dane przy użyciu pul SQL z prostym kliknięciem p
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Musisz mieć dostęp do obszaru roboczego z co najmniej rolą RBAC współautor danych obiektów blob magazynu dla konta ADLS Gen2.
+- Ten Kreator generuje instrukcję COPY, która używa usługi AAD Pass-through dla authentcation. [Użytkownik usługi AAD musi mieć dostęp](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples#d-azure-active-directory-authentication-aad) do obszaru roboczego z co najmniej rolą RBAC współautor danych obiektów blob magazynu dla konta ADLS Gen2.
 
 - Użytkownik musi mieć uprawnienia wymagane [do użycia instrukcji Copy](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#permissions) i CREATE TABLE, jeśli tworzysz nową tabelę do załadowania do programu.
 

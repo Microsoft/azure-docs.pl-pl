@@ -2,13 +2,13 @@
 title: Jak zarządzać Azure Monitor dla agenta kontenerów | Microsoft Docs
 description: W tym artykule opisano zarządzanie najbardziej typowymi zadaniami konserwacji przy użyciu Log Analytics agenta kontenera używanego przez Azure Monitor dla kontenerów.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: ce014d27c6acc473c4a435dfed4757fb0884f4fe
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/15/2020
+ms.openlocfilehash: ca0fa88cf27db15d45a2c855a1af351764c48fde
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652195"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887496"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Jak zarządzać Azure Monitor dla agenta kontenerów
 
@@ -68,7 +68,7 @@ $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
 ```
 
-Jeśli obszar roboczy Log Analytics jest w Chinach platformy Azure, uruchom następujące polecenie:
+Jeśli obszar roboczy Log Analytics jest na platformie Azure w Chinach, uruchom następujące polecenie:
 
 ```
 $ helm upgrade --name myrelease-1 \
@@ -93,6 +93,20 @@ Wykonaj następujące kroki, aby uaktualnić agenta programu w klastrze Kubernet
 ```
 $ helm upgrade --name myrelease-1 \
 --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<azureAroV4ResourceId> incubator/azuremonitor-containers
+```
+
+### <a name="upgrade-agent-on-azure-arc-enabled-kubernetes"></a>Agent uaktualnienia z włączonym usługą Azure Arc Kubernetes
+
+Wykonaj następujące polecenie, aby uaktualnić agenta w klastrze Kubernetes z obsługą usługi Azure Arc bez punktu końcowego serwera proxy.
+
+```
+$ helm upgrade --install azmon-containers-release-1  –set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
+```
+
+Wykonaj następujące polecenie, aby uaktualnić agenta po określeniu punktu końcowego serwera proxy. Aby uzyskać więcej informacji o punkcie końcowym serwera proxy, zobacz [Configure proxy Endpoint](container-insights-enable-arc-enabled-clusters.md#configure-proxy-endpoint).
+
+```
+helm upgrade –name azmon-containers-release-1 –set omsagent.proxy=<proxyEndpoint>,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterId=<resourceIdOfAzureArcK8sCluster>
 ```
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Jak wyłączyć zbieranie zmiennych środowiskowych w kontenerze

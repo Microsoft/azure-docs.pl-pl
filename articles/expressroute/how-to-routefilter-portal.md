@@ -4,16 +4,16 @@ description: W tym artykule opisano sposób konfigurowania filtrów tras dla kom
 services: expressroute
 author: charwen
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: f2be9b4e7152c61885b1a41e94ebd328059d437b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54674be0010bd062cfe6263db4167a24805a9e5a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618562"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84727130"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Konfigurowanie filtrów tras dla komunikacji równorzędnej firmy Microsoft: Azure Portal
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Utwórz listę [wartości społeczności protokołu BGP](expressroute-routing.md
 Filtr trasy może mieć tylko jedną regułę, a reguła musi być typu "Zezwalaj". Ta reguła może zawierać listę skojarzonych z nią wartości społeczności BGP.
 
 ### <a name="1-create-a-route-filter"></a>1. Tworzenie filtru tras
-Filtr tras można utworzyć, wybierając opcję tworzenia nowego zasobu. Kliknij pozycję **Utwórz zasób zasobów** > **Networking** > **RouteFilter**, jak pokazano na poniższej ilustracji:
+Filtr tras można utworzyć, wybierając opcję tworzenia nowego zasobu. Kliknij pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **RouteFilter**, jak pokazano na poniższej ilustracji:
 
 ![Tworzenie filtru tras](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 

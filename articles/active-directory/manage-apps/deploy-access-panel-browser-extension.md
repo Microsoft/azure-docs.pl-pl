@@ -3,8 +3,8 @@ title: Wdróż rozszerzenie panelu dostępu platformy Azure dla programu IE przy
 description: Jak wdrożyć dodatek programu Internet Explorer dla portalu My Apps przy użyciu zasad grupy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/08/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c342ede77349b3f6c22093e5877ad5f5ce6549
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 94c434a2892060acfdd56c496a31e41597c21357
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67807681"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763435"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Instrukcje: Wdrażanie rozszerzenia panelu dostępu dla programu Internet Explorer przy użyciu zasad grupy
 
@@ -37,19 +37,19 @@ Rozszerzenie panelu dostępu jest również dostępne dla [przeglądarki Chrome]
 
 ## <a name="step-1-create-the-distribution-point"></a>Krok 1. Tworzenie punktu dystrybucji
 
-Najpierw należy umieścić pakiet Instalatora w lokalizacji sieciowej, do której mają dostęp komputery, na których chcesz zdalnie zainstalować rozszerzenie. W tym celu wykonaj następujące czynności:
+Najpierw należy umieścić pakiet Instalatora w lokalizacji sieciowej, do której mają dostęp komputery, na których chcesz zdalnie zainstalować rozszerzenie. W tym celu wykonaj następujące kroki:
 
 1. Zaloguj się na serwerze jako administrator.
 1. W oknie **Menedżer serwera** przejdź do pozycji **pliki i usługi magazynu**.
 
     ![Otwórz plik i usługi magazynu](./media/deploy-access-panel-browser-extension/files-services.png)
 
-1. Przejdź do karty **udziały** . Następnie kliknij kolejno pozycje **zadania** > **Nowy udział...**
+1. Przejdź do karty **udziały** . Następnie kliknij kolejno pozycje **zadania**  >  **Nowy udział...**
 
     ![Zrzut ekranu przedstawiający miejsce znalezienia nowego udziału na ekranie zadania](./media/deploy-access-panel-browser-extension/shares.png)
 
 1. Ukończ pracę **Kreatora nowego udziału** i Ustaw uprawnienia, aby upewnić się, że można uzyskać do niego dostęp z maszyn użytkowników. [Dowiedz się więcej o udziałach.](https://technet.microsoft.com/library/cc753175.aspx)
-1. Pobierz następujący pakiet Microsoft Instalator Windows (plik msi): [rozszerzenie panelu dostępu. msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
+1. Pobierz następujący pakiet Microsoft Instalator Windows (plik msi): [panel dostępu Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 1. Skopiuj pakiet Instalatora do żądanej lokalizacji w udziale.
 
     ![Kopiuj plik msi do udziału](./media/deploy-access-panel-browser-extension/copy-package.png)
@@ -59,14 +59,14 @@ Najpierw należy umieścić pakiet Instalatora w lokalizacji sieciowej, do któr
 ## <a name="step-2-create-the-group-policy-object"></a>Krok 2. Tworzenie obiektu zasad grupy
 
 1. Zaloguj się na serwerze, który obsługuje instalację Active Directory Domain Services (AD DS).
-1. W Menedżer serwera przejdź do pozycji **Narzędzia** > **zasady grupy zarządzanie**.
+1. W Menedżer serwera przejdź do pozycji **Narzędzia**  >  **zasady grupy zarządzanie**.
 
     ![Przejdź do narzędzi > zasady grupy Management](./media/deploy-access-panel-browser-extension/tools-gpm.png)
 
 1. W lewym okienku okna **zarządzania zasady grupy** Wyświetl hierarchię jednostki organizacyjnej (OU) i określ zakres, w którym chcesz zastosować zasady grupy. Można na przykład wybrać małą jednostkę organizacyjną do wdrożenia na kilku użytkowników do testowania lub wybrać jednostkę organizacyjną najwyższego poziomu do wdrożenia w całej organizacji.
 
    > [!NOTE]
-   > Jeśli chcesz utworzyć lub edytować jednostki organizacyjne (OU), przełącz się z powrotem do Menedżer serwera i przejdź do pozycji **Narzędzia** > **Active Directory Użytkownicy i komputery**.
+   > Jeśli chcesz utworzyć lub edytować jednostki organizacyjne (OU), przełącz się z powrotem do Menedżer serwera i przejdź do pozycji **Narzędzia**  >  **Active Directory Użytkownicy i komputery**.
 
 1. Po wybraniu jednostki organizacyjnej kliknij ją prawym przyciskiem myszy, a następnie wybierz pozycję **Utwórz obiekt zasad grupy w tej domenie i umieść tu łącze...**
 
@@ -83,7 +83,7 @@ Najpierw należy umieścić pakiet Instalatora w lokalizacji sieciowej, do któr
    * `Computer Configuration/Policies/Software Settings/`
    * `User Configuration/Policies/Software Settings/`
 
-1. Kliknij prawym przyciskiem myszy pozycję **Instalacja oprogramowania**, a następnie wybierz pozycję **Nowy** > **pakiet.**
+1. Kliknij prawym przyciskiem myszy pozycję **Instalacja oprogramowania**, a następnie wybierz pozycję **Nowy**  >  **pakiet.**
 1. Przejdź do folderu udostępnionego zawierającego pakiet Instalatora z [kroku 1: Utwórz punkt dystrybucji](#step-1-create-the-distribution-point), wybierz plik msi, a następnie kliknij przycisk **Otwórz**.
 
    > [!IMPORTANT]

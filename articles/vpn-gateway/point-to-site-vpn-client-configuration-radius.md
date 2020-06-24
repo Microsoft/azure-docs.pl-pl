@@ -4,15 +4,15 @@ description: Tworzenie plików konfiguracji klienta sieci VPN systemu Windows, M
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 69517d69a26364cf1cc950d7aaa849522decacf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f16a902980b8cf88fb3e8a7f888a0f58ed34355
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732738"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84986564"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Tworzenie i Instalowanie plików konfiguracji klienta sieci VPN na potrzeby uwierzytelniania P2S RADIUS
 
@@ -43,7 +43,7 @@ Aby skorzystać z sekcji w tym artykule, najpierw należy wybrać typ uwierzytel
 
 Uwierzytelnianie przy użyciu nazwy użytkownika i hasła można skonfigurować w taki sposób, aby używać Active Directory lub nie Active Directory. W każdym scenariuszu upewnij się, że wszyscy użytkownicy nawiązujący połączenia mają poświadczenia nazwy użytkownika/hasła, które mogą być uwierzytelniane za pomocą usługi RADIUS.
 
-Podczas konfigurowania uwierzytelniania nazwy użytkownika/hasła można utworzyć tylko konfigurację dla protokołu uwierzytelniania przy użyciu nazwy użytkownika/hasła protokołu EAP-MSCHAPv2. W poleceniach `-AuthenticationMethod` jest `EapMSChapv2`.
+Podczas konfigurowania uwierzytelniania nazwy użytkownika/hasła można utworzyć tylko konfigurację dla protokołu uwierzytelniania przy użyciu nazwy użytkownika/hasła protokołu EAP-MSCHAPv2. W poleceniach `-AuthenticationMethod` jest `EapMSChapv2` .
 
 ### <a name="1-generate-vpn-client-configuration-files"></a><a name="usernamefiles"></a>1. Generuj pliki konfiguracji klienta sieci VPN
 
@@ -66,13 +66,13 @@ Generuj pliki konfiguracji klienta sieci VPN do użycia z uwierzytelnianiem przy
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
-Uruchomienie polecenia zwraca link. Skopiuj i wklej link do przeglądarki sieci Web, aby pobrać plik **VpnClientConfiguration. zip**. Rozpakuj plik, aby wyświetlić następujące foldery: 
+Uruchomienie polecenia zwraca link. Skopiuj i wklej link do przeglądarki sieci Web, aby pobrać **VpnClientConfiguration.zip**. Rozpakuj plik, aby wyświetlić następujące foldery: 
  
 * **WindowsAmd64** i **WindowsX86**: te foldery zawierają odpowiednio pakiety Instalatora Windows 64-bit i 32-bitowe. 
 * **Ogólne**: ten folder zawiera informacje ogólne, których można użyć do utworzenia własnej konfiguracji klienta sieci VPN. Ten folder nie jest potrzebny do konfiguracji uwierzytelniania nazwy użytkownika/hasła.
 * **Mac**: w przypadku skonfigurowania protokołu IKEv2 podczas tworzenia bramy sieci wirtualnej zostanie wyświetlony folder o nazwie **Mac** zawierający plik **MOBILECONFIG** . Ten plik jest używany do konfigurowania klientów na komputery Mac.
 
-Jeśli pliki konfiguracji klienta zostały już utworzone, można je pobrać przy użyciu `Get-AzVpnClientConfiguration` polecenia cmdlet. Jeśli jednak wprowadzisz jakiekolwiek zmiany konfiguracji sieci VPN P2S, takie jak typ protokołu sieci VPN lub typ uwierzytelniania, konfiguracja nie zostanie automatycznie zaktualizowana. Aby utworzyć nową konfigurację `New-AzVpnClientConfiguration` , należy uruchomić polecenie cmdlet.
+Jeśli pliki konfiguracji klienta zostały już utworzone, można je pobrać przy użyciu `Get-AzVpnClientConfiguration` polecenia cmdlet. Jeśli jednak wprowadzisz jakiekolwiek zmiany konfiguracji sieci VPN P2S, takie jak typ protokołu sieci VPN lub typ uwierzytelniania, konfiguracja nie zostanie automatycznie zaktualizowana.  `New-AzVpnClientConfiguration`Aby utworzyć nową konfigurację, należy uruchomić polecenie cmdlet.
 
 Aby pobrać wcześniej wygenerowane pliki konfiguracji klienta, użyj następującego polecenia:
 
@@ -95,7 +95,7 @@ Tego samego pakietu konfiguracyjnego klienta sieci VPN można użyć na każdym 
 Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN systemu Windows na potrzeby uwierzytelniania certyfikatu:
 
 1. Wybierz pliki konfiguracji klienta sieci VPN, które odpowiadają architekturze komputera z systemem Windows. W przypadku 64-bitowej architektury procesora wybierz pakiet Instalatora **VpnClientSetupAmd64** . W przypadku 32-bitowej architektury procesora wybierz pakiet Instalatora **VpnClientSetupX86** . 
-2. Aby zainstalować pakiet, kliknij go dwukrotnie. Jeśli zobaczysz okno podręczne SmartScreen, wybierz opcję **więcej informacji** > **Uruchom mimo wszystko**.
+2. Aby zainstalować pakiet, kliknij go dwukrotnie. Jeśli zobaczysz okno podręczne SmartScreen, wybierz opcję **więcej informacji**  >  **Uruchom mimo wszystko**.
 3. Na komputerze klienckim przejdź do **ustawień sieci** i wybierz pozycję **Sieć VPN**. Połączenie z siecią VPN zawiera nazwę sieci wirtualnej, z którą jest nawiązywane połączenie. 
 
 #### <a name="mac-os-x-vpn-client-setup"></a><a name="admaccli"></a>Konfiguracja klienta sieci VPN dla systemu Mac (OS X)
@@ -151,7 +151,7 @@ Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN syst
 
 Następujące instrukcje zostały utworzone za pomocą klient strongswan 5.5.1 na Ubuntu 17.0.4. Rzeczywiste ekrany mogą się różnić w zależności od wersji systemu Linux i klient strongswan.
 
-1. Otwórz **Terminal** , aby zainstalować **Klient strongswan** i jego Menedżera sieci, uruchamiając polecenie w przykładzie. Jeśli zostanie wyświetlony komunikat o błędzie związanym z `libcharon-extra-plugins`programem, Zastąp `strongswan-plugin-eap-mschapv2`go wyrażeniem.
+1. Otwórz **Terminal** , aby zainstalować **Klient strongswan** i jego Menedżera sieci, uruchamiając polecenie w przykładzie. Jeśli zostanie wyświetlony komunikat o błędzie związanym z programem `libcharon-extra-plugins` , zastąp go wyrażeniem `strongswan-plugin-eap-mschapv2` .
 
    ```Terminal
    sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
@@ -165,9 +165,9 @@ Następujące instrukcje zostały utworzone za pomocą klient strongswan 5.5.1 n
 4. Wybierz pozycję **IPSec/IKEv2 (klient strongswan)** z menu rozwijanego, a następnie wybierz pozycję **Utwórz**. W tym kroku można zmienić nazwę połączenia.
 
    ![Wybieranie typu połączenia](./media/point-to-site-vpn-client-configuration-radius/AddIKEv2.png)
-5. Otwórz plik **VpnSettings. XML** z folderu **ogólnego** pobranych plików konfiguracji klienta. Znajdź tag o nazwie `VpnServer` i skopiuj jego nazwę, zaczynając od `azuregateway` i kończąc na `.cloudapp.net`.
+5. Otwórz plik **VpnSettings.xml** z folderu **ogólnego** pobranych plików konfiguracji klienta. Znajdź tag o nazwie `VpnServer` i skopiuj jego nazwę, zaczynając od `azuregateway` i kończąc na `.cloudapp.net` .
 
-   ![Zawartość pliku VpnSettings. XML](./media/point-to-site-vpn-client-configuration-radius/VpnSettings.png)
+   ![Zawartość pliku VpnSettings.xml](./media/point-to-site-vpn-client-configuration-radius/VpnSettings.png)
 6. Wklej tę nazwę w polu **adres** nowego połączenia sieci VPN w sekcji **Gateway** . Następnie wybierz ikonę folderu na końcu pola **certyfikat** , przejdź do folderu **ogólnego** , a następnie wybierz plik **VpnServerRoot** .
 7. W sekcji **Klient** połączenia wybierz pozycję **EAP** na potrzeby **uwierzytelniania**, a następnie wprowadź nazwę użytkownika i hasło. Może być konieczne wybranie ikony kłódki po prawej stronie, aby zapisać te informacje. Następnie wybierz pozycję **Zapisz**.
 
@@ -184,7 +184,7 @@ Można utworzyć pliki konfiguracji klienta sieci VPN dla uwierzytelniania certy
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
 
-W poleceniach `-AuthenticationMethod` jest `EapTls`. Podczas uwierzytelniania przy użyciu certyfikatu klient sprawdza poprawność serwera RADIUS, sprawdzając jego certyfikat. `-RadiusRootCert`to plik. cer zawierający certyfikat główny używany do sprawdzania poprawności serwera RADIUS.
+W poleceniach `-AuthenticationMethod` jest `EapTls` . Podczas uwierzytelniania przy użyciu certyfikatu klient sprawdza poprawność serwera RADIUS, sprawdzając jego certyfikat. `-RadiusRootCert`to plik. cer zawierający certyfikat główny używany do sprawdzania poprawności serwera RADIUS.
 
 Każde urządzenie klienckie sieci VPN wymaga zainstalowanego certyfikatu klienta. Czasami urządzenie z systemem Windows ma wiele certyfikatów klienta. Podczas uwierzytelniania może to spowodować wyskakujące okno dialogowe, które wyświetla listę wszystkich certyfikatów. Użytkownik musi następnie wybrać certyfikat do użycia. Prawidłowy certyfikat można odfiltrować, określając certyfikat główny, do którego ma być powiązany certyfikat klienta. 
 
@@ -198,12 +198,12 @@ Generuj pliki konfiguracji klienta sieci VPN do użycia z uwierzytelnianiem cert
 New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root> | fl
 ```
 
-Uruchomienie polecenia zwraca link. Skopiuj i wklej link do przeglądarki sieci Web, aby pobrać plik VpnClientConfiguration. zip. Rozpakuj plik, aby wyświetlić następujące foldery:
+Uruchomienie polecenia zwraca link. Skopiuj i wklej link do przeglądarki sieci Web, aby pobrać VpnClientConfiguration.zip. Rozpakuj plik, aby wyświetlić następujące foldery:
 
 * **WindowsAmd64** i **WindowsX86**: te foldery zawierają odpowiednio pakiety Instalatora Windows 64-bit i 32-bitowe. 
 * **GenericDevice**: ten folder zawiera ogólne informacje, które są używane do tworzenia własnej konfiguracji klienta sieci VPN.
 
-Jeśli pliki konfiguracji klienta zostały już utworzone, można je pobrać przy użyciu `Get-AzVpnClientConfiguration` polecenia cmdlet. Jeśli jednak wprowadzisz jakiekolwiek zmiany konfiguracji sieci VPN P2S, takie jak typ protokołu sieci VPN lub typ uwierzytelniania, konfiguracja nie zostanie automatycznie zaktualizowana. Aby utworzyć nową konfigurację `New-AzVpnClientConfiguration` , należy uruchomić polecenie cmdlet.
+Jeśli pliki konfiguracji klienta zostały już utworzone, można je pobrać przy użyciu `Get-AzVpnClientConfiguration` polecenia cmdlet. Jeśli jednak wprowadzisz jakiekolwiek zmiany konfiguracji sieci VPN P2S, takie jak typ protokołu sieci VPN lub typ uwierzytelniania, konfiguracja nie zostanie automatycznie zaktualizowana.  `New-AzVpnClientConfiguration`Aby utworzyć nową konfigurację, należy uruchomić polecenie cmdlet.
 
 Aby pobrać wcześniej wygenerowane pliki konfiguracji klienta, użyj następującego polecenia:
 
@@ -221,7 +221,7 @@ Można skonfigurować następujących klientów sieci VPN:
 
 #### <a name="windows-vpn-client-setup"></a><a name="certwincli"></a>Konfiguracja klienta sieci VPN systemu Windows
 
-1. Wybierz pakiet konfiguracyjny i zainstaluj go na urządzeniu klienckim. W przypadku 64-bitowej architektury procesora wybierz pakiet Instalatora **VpnClientSetupAmd64** . W przypadku 32-bitowej architektury procesora wybierz pakiet Instalatora **VpnClientSetupX86** . Jeśli zobaczysz okno podręczne SmartScreen, wybierz opcję **więcej informacji** > **Uruchom mimo wszystko**. Możesz także zapisać pakiet w celu zainstalowania go na innych komputerach klienckich.
+1. Wybierz pakiet konfiguracyjny i zainstaluj go na urządzeniu klienckim. W przypadku 64-bitowej architektury procesora wybierz pakiet Instalatora **VpnClientSetupAmd64** . W przypadku 32-bitowej architektury procesora wybierz pakiet Instalatora **VpnClientSetupX86** . Jeśli zobaczysz okno podręczne SmartScreen, wybierz opcję **więcej informacji**  >  **Uruchom mimo wszystko**. Możesz także zapisać pakiet w celu zainstalowania go na innych komputerach klienckich.
 2. Każdy klient wymaga certyfikatu klienta w celu uwierzytelnienia. Zainstaluj certyfikat klienta. Informacje o certyfikatach klientów znajdują się w temacie [Certyfikaty klienta dla punktu do lokacji](vpn-gateway-certificates-point-to-site.md). Aby zainstalować wygenerowany certyfikat, zobacz [Instalowanie certyfikatu na klientach z systemem Windows](point-to-site-how-to-vpn-client-install-azure-cert.md).
 3. Na komputerze klienckim przejdź do **ustawień sieci** i wybierz pozycję **Sieć VPN**. Połączenie z siecią VPN zawiera nazwę sieci wirtualnej, z którą jest nawiązywane połączenie.
 
@@ -229,7 +229,7 @@ Można skonfigurować następujących klientów sieci VPN:
 
 Należy utworzyć oddzielny profil dla każdego urządzenia Mac, które nawiązuje połączenie z siecią wirtualną platformy Azure. Wynika to z faktu, że te urządzenia wymagają określenia certyfikatu użytkownika w celu uwierzytelnienia w profilu. Folder **ogólny** zawiera wszystkie informacje wymagane do utworzenia profilu:
 
-* **VpnSettings. XML** zawiera ważne ustawienia, takie jak adres serwera i typ tunelu.
+* **VpnSettings.xml** zawiera ważne ustawienia, takie jak adres serwera i typ tunelu.
 * **VpnServerRoot. cer** zawiera certyfikat główny wymagany do zweryfikowania bramy sieci VPN podczas konfiguracji połączenia usługi P2S.
 * **RadiusServerRoot. cer** zawiera certyfikat główny wymagany do zweryfikowania serwera RADIUS podczas uwierzytelniania.
 
@@ -246,7 +246,7 @@ Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN na k
    Wartość **interfejsu** to **VPN**, a wartość **typu sieci VPN** to **IKEv2**. Określ nazwę profilu w polu **nazwa usługi** , a następnie wybierz pozycję **Utwórz** , aby utworzyć profil połączenia klienta sieci VPN.
 
    ![Informacje o nazwie interfejsu i usługi](./media/point-to-site-vpn-client-configuration-radius/network.png)
-4. W folderze **ogólnym** , w pliku **VpnSettings. XML** skopiuj wartość tagu **VpnServer** . Wklej tę wartość w polach **adres serwera** i **Identyfikator zdalny** profilu. Pozostaw pole **Identyfikator lokalny** puste.
+4. W folderze **ogólnym** , w pliku **VpnSettings.xml** skopiuj wartość tagu **VpnServer** . Wklej tę wartość w polach **adres serwera** i **Identyfikator zdalny** profilu. Pozostaw pole **Identyfikator lokalny** puste.
 
    ![Informacje o serwerze](./media/point-to-site-vpn-client-configuration-radius/servertag.png)
 5. Wybierz pozycję **Ustawienia uwierzytelniania**i wybierz pozycję **certyfikat**. 
@@ -267,9 +267,9 @@ Wykonaj następujące kroki, aby skonfigurować natywnego klienta sieci VPN na k
 
 Aby użyć innego typu uwierzytelniania (na przykład OTP) lub użyć innego protokołu uwierzytelniania (takiego jak PEAP-MSCHAPv2 zamiast EAP-MSCHAPv2), należy utworzyć własny profil konfiguracji klienta sieci VPN. Aby utworzyć profil, potrzebne są informacje, takie jak adres IP bramy sieci wirtualnej, typ tunelu i trasy podzielonego tunelu. Te informacje można uzyskać, wykonując następujące czynności:
 
-1. Użyj polecenia `Get-AzVpnClientConfiguration` cmdlet, aby wygenerować konfigurację klienta sieci VPN dla EapMSChapv2.
+1. Użyj `Get-AzVpnClientConfiguration` polecenia cmdlet, aby wygenerować konfigurację klienta sieci VPN dla EapMSChapv2.
 
-2. Rozpakuj plik VpnClientConfiguration. zip i Wyszukaj folder **GenericDevice** . Ignoruj foldery zawierające Instalatorzy systemu Windows dla architektury 64-bitowe i 32-bitowe.
+2. Rozpakuj plik VpnClientConfiguration.zip i Wyszukaj folder **GenericDevice** . Ignoruj foldery zawierające Instalatorzy systemu Windows dla architektury 64-bitowe i 32-bitowe.
  
 3. Folder **GenericDevice** zawiera plik XML o nazwie **VpnSettings**. Ten plik zawiera wszystkie wymagane informacje:
 

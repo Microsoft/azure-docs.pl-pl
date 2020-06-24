@@ -2,25 +2,25 @@
 title: Planowanie wdrożenia panelu dostępu Azure Active Directory
 description: Wskazówki dotyczące wdrażania panelu dostępu Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeffcfc919a6aeeae61ed79286d613d72c6b183c
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897080"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84761174"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planowanie wdrożenia panelu dostępu Azure Active Directory
 
@@ -83,8 +83,8 @@ W poniższej tabeli przedstawiono najważniejsze przypadki użycia dla wdrożeni
 
 | Obszar| Opis |
 | - | - |
-| Dostęp| Portal panelu dostępu jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
-|Dostęp | Portal panelu dostępu jest dostępny z urządzeń firmowych spoza sieci firmowej. |
+| Access| Portal panelu dostępu jest dostępny z urządzeń firmowych i osobistych w sieci firmowej. |
+|Access | Portal panelu dostępu jest dostępny z urządzeń firmowych spoza sieci firmowej. |
 | Inspekcja| Dane użycia są pobierane do systemów firmowych co najmniej co 29 dni. |
 | Nadzór| Cykl życia przypisań użytkowników do aplikacji i grup połączonych z usługą Azure AD jest zdefiniowany i monitorowany. |
 | Zabezpieczenia| Dostęp do zasobów jest kontrolowany za pośrednictwem przypisań użytkowników i grup. Tylko autoryzowani użytkownicy mogą zarządzać dostępem do zasobów. |
@@ -105,7 +105,7 @@ Funkcje panelu dostępu można włączyć stopniowo. Zalecamy wykonanie następu
    * Integracja z Microsoft Office 365
 
 1. Odnajdywanie aplikacji samoobsługowych
-   * Samoobsługowe resetowanie hasła
+   * Samoobsługowe resetowanie haseł
    * Ustawienia Multi-Factor Authentication
    * Zarządzanie urządzeniami
    * Warunki użytkowania
@@ -215,7 +215,7 @@ Przeglądarka chroniona przy użyciu zasad usługi Intune (Microsoft Edge lub In
 
 ## <a name="plan-your-my-apps-deployment"></a>Planowanie wdrożenia aplikacji Moje aplikacje
 
-Podstawa panelu dostępu to aplikacja do uruchamiania aplikacji, do których użytkownicy uzyskują dostęp [https://myapps.microsoft.com](https://myapps.microsoft.com/). Strony Moje aplikacje umożliwiają użytkownikom pojedyncze miejsce na rozpoczęcie pracy i dostęp do niezbędnych aplikacji. W tym miejscu użytkownicy mogą znaleźć listę wszystkich aplikacji, do których mają dostęp z logowaniem jednokrotnym. 
+Podstawa panelu dostępu to aplikacja do uruchamiania aplikacji, do których użytkownicy uzyskują dostęp [https://myapps.microsoft.com](https://myapps.microsoft.com/) . Strony Moje aplikacje umożliwiają użytkownikom pojedyncze miejsce na rozpoczęcie pracy i dostęp do niezbędnych aplikacji. W tym miejscu użytkownicy mogą znaleźć listę wszystkich aplikacji, do których mają dostęp z logowaniem jednokrotnym. 
 
 ![Zrzut ekranu przedstawiający panel aplikacje](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 

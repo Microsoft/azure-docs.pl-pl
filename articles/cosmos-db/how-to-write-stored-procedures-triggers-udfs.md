@@ -3,15 +3,15 @@ title: Zapisuj procedury składowane, wyzwalacze i UDF w Azure Cosmos DB
 description: Dowiedz się, jak definiować procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika w usłudze Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 05/07/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 ms.author: tisande
-ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e9ebd8de956437273246d08821fc87838089a256
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982296"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262875"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Jak pisać procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika w usłudze Azure Cosmos DB
 
@@ -52,21 +52,42 @@ Po utworzeniu elementu przy użyciu procedury składowanej, element zostanie wst
 
 Procedura składowana obejmuje również parametr umożliwiający ustawienie opisu — jest to wartość logiczna. Jeśli dla tego parametru zostanie ustawiona wartość „true”, a opisu nie będzie, procedura składowana zgłosi wyjątek. W przeciwnym razie pozostała część procedury składowanej zostanie wykonana.
 
-Następująca przykładowa procedura składowana Pobiera nowy element usługi Azure Cosmos jako dane wejściowe, wstawia go do kontenera usługi Azure Cosmos i zwraca identyfikator nowo utworzonego elementu. W tym przykładzie wykorzystujemy próbkę ToDoList z [przewodnika Szybki start interfejsu API SQL platformy .NET](create-sql-api-dotnet.md)
+Następująca przykładowa procedura składowana pobiera tablicę nowych elementów Cosmos platformy Azure jako dane wejściowe, wstawia je do kontenera usługi Azure Cosmos i zwraca liczbę wstawionych elementów. W tym przykładzie wykorzystujemy próbkę ToDoList z [przewodnika Szybki start interfejsu API SQL platformy .NET](create-sql-api-dotnet.md)
 
 ```javascript
-function createToDoItem(itemToCreate) {
+function createToDoItems(items) {
+    var collection = getContext().getCollection();
+    var collectionLink = collection.getSelfLink();
+    var count = 0;
 
-    var context = getContext();
-    var container = context.getCollection();
+    if (!items) throw new Error("The array is undefined or null.");
 
-    var accepted = container.createDocument(container.getSelfLink(),
-        itemToCreate,
-        function (err, itemCreated) {
-            if (err) throw new Error('Error' + err.message);
-            context.getResponse().setBody(itemCreated.id)
-        });
-    if (!accepted) return;
+    var numItems = items.length;
+
+    if (numItems == 0) {
+        getContext().getResponse().setBody(0);
+        return;
+    }
+
+    tryCreate(items[count], callback);
+
+    function tryCreate(item, callback) {
+        var options = { disableAutomaticIdGeneration: false };
+
+        var isAccepted = collection.createDocument(collectionLink, item, options, callback);
+
+        if (!isAccepted) getContext().getResponse().setBody(count);
+    }
+
+    function callback(err, item, options) {
+        if (err) throw err;
+        count++;
+        if (count >= numItems) {
+            getContext().getResponse().setBody(count);
+        } else {
+            tryCreate(items[count], callback);
+        }
+    }
 }
 ```
 
@@ -262,7 +283,7 @@ function async_sample() {
 
 Usługa Azure Cosmos DB obsługuje wyzwalacze wykonywane przed operacją (pre-trigger) i po operacji (post-trigger). Te pierwsze są wykonywane przed modyfikacją elementu bazy danych, a te drugie są wykonywane po modyfikacji elementu bazy danych.
 
-### <a name="pre-triggers"></a><a id="pre-triggers"></a>Wyzwalacze wykonywane przed operacją
+### <a name="pre-triggers"></a><a id="pre-triggers"></a>Wyzwalacze wstępne
 
 Poniższy przykład pokazuje, jak prewyzwalacz jest używany do sprawdzania poprawności właściwości elementu usługi Azure Cosmos, który jest tworzony. W tym przykładzie wykorzystujemy próbkę ToDoList z [przewodnika Szybki start interfejsu API SQL platformy .NET](create-sql-api-dotnet.md), aby dodać właściwość znacznika czasu do nowo dodanego elementu, jeśli jeszcze jej nie zawiera.
 
@@ -291,7 +312,7 @@ Podczas rejestrowania wyzwalaczy można określić operacje, z którymi można j
 
 Aby zapoznać się z przykładami rejestrowania i wywoływania wyzwalacza wykonywanego przed operacją, zobacz artykuły na temat [wyzwalaczy wykonywanych przed operacją](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) i [wyzwalaczy wykonywanych po operacji](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 
-### <a name="post-triggers"></a><a id="post-triggers"></a>Wyzwalacze wykonywane po operacji
+### <a name="post-triggers"></a><a id="post-triggers"></a>Wyzwalacze końcowe
 
 W poniższym przykładzie pokazano wyzwalacz wykonywany po operacji. Ten wyzwalacz wysyła zapytanie o element metadanych i aktualizuje go za pomocą informacji o nowo utworzonym elemencie.
 
@@ -366,7 +387,7 @@ Aby zapoznać się z przykładami rejestrowania i używania funkcji zdefiniowane
 
 ## <a name="logging"></a>Rejestrowanie 
 
-Korzystając z procedury składowanej, wyzwalaczy lub funkcji zdefiniowanych przez użytkownika, można rejestrować kroki przy użyciu `console.log()` polecenia. To polecenie spowoduje skoncentrowanie ciągu do debugowania, `EnableScriptLogging` gdy ma wartość true, jak pokazano w następującym przykładzie:
+Korzystając z procedury składowanej, wyzwalaczy lub funkcji zdefiniowanych przez użytkownika, można rejestrować kroki przy użyciu `console.log()` polecenia. To polecenie spowoduje skoncentrowanie ciągu do debugowania `EnableScriptLogging` , gdy ma wartość true, jak pokazano w następującym przykładzie:
 
 ```javascript
 var response = await client.ExecuteStoredProcedureAsync(

@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 005c035468a4225f96e8ef69b2ef31a82bf7eedb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0a455ef911d28306b30bed2fbb00edea198181dd
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682813"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205428"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
@@ -220,7 +220,7 @@ Program ACR obsługuje [role niestandardowe](container-registry-roles.md) , któ
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
   ```
 
-  Lub Przypisz rolę do zasady usługi identyfikowanej za pomocą identyfikatora aplikacji:
+  Lub Przypisz rolę do jednostki usługi identyfikowanej za pomocą jej identyfikatora aplikacji:
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
@@ -313,7 +313,7 @@ unauthorized: authentication required
 ```
 
 Aby rozwiązać ten problem:
-1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Na przykład:
+1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Przykład:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -438,6 +438,7 @@ Poniżej przedstawiono kilka scenariuszy, w których operacje mogą być niedozw
 * Klasyczne rejestry nie są już obsługiwane. Przeprowadź uaktualnienie do obsługiwanej [warstwy usług](https://aka.ms/acr/skus) za pomocą polecenia [AZ acr Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) lub Azure Portal.
 * Obraz lub repozytorium może być zablokowane, aby nie można go było usunąć ani zaktualizować. Aby wyświetlić bieżące atrybuty, można użyć polecenia [AZ ACR show Repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) .
 * Niektóre operacje są niedozwolone, jeśli obraz jest objęty kwarantanną. Dowiedz się więcej o [kwarantannie](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
+* Rejestr mógł osiągnąć [Limit magazynu](container-registry-skus.md#service-tier-features-and-limits).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Jak mogę zbierać ślady http w systemie Windows?
 
@@ -493,8 +494,8 @@ Obecnie nie obsługujemy GitLab dla wyzwalaczy źródłowych.
 
 | Usługa git | Kontekst źródła | Kompilacja ręczna | Automatycznie Kompiluj przez wyzwalacz zatwierdzania |
 |---|---|---|---|
-| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Tak | Yes |
-| Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Tak | Yes |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Tak | Tak |
+| Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Tak | Tak |
 | GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Yes | Nie |
 | BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Yes | Nie |
 

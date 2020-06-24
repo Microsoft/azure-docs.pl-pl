@@ -3,22 +3,22 @@ title: Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .
 description: Korzystaj z funkcji, takich jak rejestrowanie po stronie klienta i innych narzędzi innych firm, aby identyfikować, diagnozować i rozwiązywać problemy Azure Cosmos DB podczas korzystania z zestawu .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/06/2020
+ms.date: 06/16/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: c0f40b3c79c16046ef61e89cad72c714346d2674
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: b24c0b045bc7d894496a59eda00f0e8835ea6a8d
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672633"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887364"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnozowanie i rozwiązywanie problemów podczas korzystania z zestawu .NET SDK usługi Azure Cosmos DB
 
 > [!div class="op_single_selector"]
-> * [Zestaw Java SDK v4](troubleshoot-java-sdk-v4-sql.md)
+> * [Java SDK 4](troubleshoot-java-sdk-v4-sql.md)
 > * [Async Java SDK 2](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dot-net-sdk.md)
 > 
@@ -113,9 +113,11 @@ Jeśli otrzymasz następujący komunikat o błędzie 401: "podpis MAC znaleziony
 
 1. Klucz został obrócony i nie przestrzega [najlepszych](secure-access-to-data.md#key-rotation)rozwiązań. Zwykle jest to przypadek. Rotacja kluczy konta Cosmos DB może potrwać od kilku sekund do prawdopodobnie dni, w zależności od rozmiaru konta Cosmos DB.
    1. Sygnatura 401 MAC jest widoczna wkrótce po rotacji kluczy i ostatecznie zatrzyma się bez wprowadzania jakichkolwiek zmian. 
-2. Klucz jest nieprawidłowo skonfigurowany w aplikacji, więc klucz nie jest zgodny z kontem.
+1. Klucz jest nieprawidłowo skonfigurowany w aplikacji, więc klucz nie jest zgodny z kontem.
    1. problem z sygnaturą 401 dla komputerów MAC będzie spójny i występuje dla wszystkich wywołań
-3. Istnieje sytuacja wyścigu z tworzeniem kontenera. Wystąpienie aplikacji próbuje uzyskać dostęp do kontenera przed ukończeniem tworzenia kontenera. Najbardziej typowym scenariuszem, jeśli aplikacja jest uruchomiona, a kontener jest usuwany i tworzony ponownie o tej samej nazwie, gdy aplikacja jest uruchomiona. Zestaw SDK podejmie próbę użycia nowego kontenera, ale Tworzenie kontenera nadal trwa, dlatego nie ma kluczy.
+1. Aplikacja używa [kluczy tylko do odczytu](secure-access-to-data.md#master-keys) dla operacji zapisu.
+   1. problem z sygnaturą komputera MAC 401 będzie występować tylko wtedy, gdy aplikacja wykonuje żądania zapisu, ale żądania odczytu zakończą się powodzeniem.
+1. Istnieje sytuacja wyścigu z tworzeniem kontenera. Wystąpienie aplikacji próbuje uzyskać dostęp do kontenera przed ukończeniem tworzenia kontenera. Najbardziej typowym scenariuszem, jeśli aplikacja jest uruchomiona, a kontener jest usuwany i tworzony ponownie o tej samej nazwie, gdy aplikacja jest uruchomiona. Zestaw SDK podejmie próbę użycia nowego kontenera, ale Tworzenie kontenera nadal trwa, dlatego nie ma kluczy.
    1. problem z podpisem MAC 401 jest widoczny wkrótce po utworzeniu kontenera i występuje tylko do momentu zakończenia tworzenia kontenera.
  
  ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>Błąd HTTP 400. Rozmiar nagłówków żądania jest zbyt długi.

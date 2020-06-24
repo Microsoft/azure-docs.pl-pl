@@ -3,15 +3,15 @@ title: Wykonywanie zapytań dla kontenerów w usłudze Azure Cosmos DB
 description: Dowiedz się, jak wykonywać zapytania dotyczące kontenerów w Azure Cosmos DB przy użyciu zapytań w partycji i na wielu partycjach
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 299980b67caaea85fbfb40cb1a30ee50fa32d0f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131393"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261260"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Wykonywanie zapytania dotyczącego kontenera usługi Azure Cosmos
 
@@ -21,7 +21,7 @@ W tym artykule wyjaśniono, jak wykonywać zapytania dla kontenera (kolekcji, gr
 
 W przypadku wykonywania zapytań dotyczących danych z kontenerów, jeśli zapytanie ma określony filtr klucza partycji, Azure Cosmos DB automatycznie optymalizuje zapytanie. Kieruje zapytanie do [partycji fizycznych](partition-data.md#physical-partitions) odpowiadających wartościom klucza partycji określonym w filtrze.
 
-Rozważmy na przykład poniższe zapytanie z filtrem równości `DeviceId`. Jeśli to zapytanie zostanie uruchomione w kontenerze partycjonowanym na `DeviceId`, to zapytanie zostanie przefiltrowane na jedną partycję fizyczną.
+Rozważmy na przykład poniższe zapytanie z filtrem równości `DeviceId` . Jeśli to zapytanie zostanie uruchomione w kontenerze partycjonowanym na `DeviceId` , to zapytanie zostanie przefiltrowane na jedną partycję fizyczną.
 
 ```sql
     SELECT * FROM c WHERE c.DeviceId = 'XMS-0001'
@@ -41,7 +41,7 @@ Oto zapytanie, które ma filtr zakresu w kluczu partycji i nie należy do zakres
 
 ## <a name="cross-partition-query"></a>Zapytanie obejmujące wiele partycji
 
-Następujące zapytanie nie ma filtru dla klucza partycji (`DeviceId`). W związku z tym musi ona mieć wentylator we wszystkich partycjach fizycznych, w których są uruchamiane względem indeksu każdej partycji:
+Następujące zapytanie nie ma filtru dla klucza partycji ( `DeviceId` ). W związku z tym musi ona mieć wentylator we wszystkich partycjach fizycznych, w których są uruchamiane względem indeksu każdej partycji:
 
 ```sql
     SELECT * FROM c WHERE c.Location = 'Seattle`
@@ -57,7 +57,7 @@ Zestawy Azure Cosmos DB SDK w wersji 1.9.0 i nowszych obsługują opcje równole
 
 Możesz zarządzać równoległym wykonywaniem zapytań przez dostrojenie następujących parametrów:
 
-- **MaxConcurrency**: ustawia maksymalną liczbę jednoczesnych połączeń sieciowych z partycjami kontenera. Jeśli ustawisz tę właściwość na `-1`, zestaw SDK zarządza stopień równoległości. Jeśli `MaxConcurrency` ustawiona na `0`, istnieje pojedyncze połączenie sieciowe z partycjami kontenera.
+- **MaxConcurrency**: ustawia maksymalną liczbę jednoczesnych połączeń sieciowych z partycjami kontenera. Jeśli ustawisz tę właściwość na `-1` , zestaw SDK zarządza stopień równoległości. Jeśli  `MaxConcurrency` ustawiona na `0` , istnieje pojedyncze połączenie sieciowe z partycjami kontenera.
 
 - **MaxBufferedItemCount**: wyznacza kompromis między wykorzystaniem pamięci po stronie klienta i opóźnieniem zapytań. Jeśli ta opcja zostanie pominięta lub ustawiona na wartość -1, zestaw SDK będzie zarządzać liczbą elementów buforowanych podczas równoległego wykonywania zapytań.
 

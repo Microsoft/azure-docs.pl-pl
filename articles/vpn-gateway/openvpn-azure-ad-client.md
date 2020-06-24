@@ -4,17 +4,17 @@ description: Aby nawiązać połączenie z siecią wirtualną przy użyciu uwier
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: alzam
-ms.openlocfilehash: 7bc28a03476e773325d14808e1c7ac99103b2d5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b16ee1e55d0b3fa22f348c10d0dd7bfb06ec500c
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879449"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84987726"
 ---
-# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurowanie klienta VPN dla połączeń protokołu P2S OpenVPN: uwierzytelnianie usługi Azure AD
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurowanie klienta sieci VPN na potrzeby połączeń typu punkt-lokacja i protokołu OpenVPN: Uwierzytelnianie w usłudze Azure AD
 
 Ten artykuł pomaga skonfigurować klienta sieci VPN do łączenia się z siecią wirtualną przy użyciu sieci VPN typu punkt-lokacja i uwierzytelniania Azure Active Directory. Aby można było nawiązać połączenie i uwierzytelnić się za pomocą usługi Azure AD, należy najpierw skonfigurować dzierżawę usługi Azure AD. Aby uzyskać więcej informacji, zobacz [Konfigurowanie dzierżawy usługi Azure AD](openvpn-azure-ad-tenant.md).
 
@@ -56,11 +56,11 @@ Gdy dysponujesz profilem roboczym i chcesz go rozesłać do innych użytkownikó
 
 1. Zaznacz profil klienta sieci VPN, który chcesz wyeksportować, wybierz pozycję **...**, a następnie wybierz pozycję **Eksportuj**.
 
-    ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![eksportowanie](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. Wybierz lokalizację, w której chcesz zapisać ten profil, pozostaw nazwę pliku, a następnie wybierz pozycję **Zapisz** , aby zapisać plik XML.
 
-    ![export](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![eksportowanie](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="to-import-a-client-profile"></a><a name="import"></a>Aby zaimportować profil klienta
 
@@ -96,7 +96,7 @@ Gdy dysponujesz profilem roboczym i chcesz go rozesłać do innych użytkownikó
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Tworzenie połączenia
 
-1. Na stronie wybierz **+** pozycję, a następnie pozycję **+ Dodaj**.
+1. Na stronie wybierz pozycję **+** , a następnie pozycję **+ Dodaj**.
 
     ![połączenie](./media/openvpn-azure-ad-client/create/create1.jpg)
 
@@ -154,11 +154,11 @@ Te kroki ułatwiają skonfigurowanie połączenia do automatycznego łączenia z
 
     ![Sprawdź](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 ### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Jak mogę dodać sufiksy DNS do klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>**
+Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnssuffixes> \<dnssufix> \</dnssufix> \</dnssuffixes> ** Tagi
 
 ```
 <azvpnprofile>
@@ -176,7 +176,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnssuffixes>\<dnssuf
 
 ### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Jak mogę dodać do klienta sieci VPN niestandardowe serwery DNS?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers>\<serwer DNS> \</DNSServer>\</dnsservers>**
+Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** Tagi
 
 ```
 <azvpnprofile>
@@ -192,12 +192,12 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \<dnsservers>\<serwer 
 ```
 
 > [!NOTE]
-> Klient usługi OpenVPN Azure AD korzysta z wpisów tabeli zasad rozpoznawania nazw DNS (NRPT), co oznacza, że serwery DNS nie będą wyświetlane w danych wyjściowych `ipconfig /all`. Aby potwierdzić używane ustawienia usługi DNS, zapoznaj się z tematem [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) w programie PowerShell.
+> Klient usługi OpenVPN Azure AD korzysta z wpisów tabeli zasad rozpoznawania nazw DNS (NRPT), co oznacza, że serwery DNS nie będą wyświetlane w danych wyjściowych `ipconfig /all` . Aby potwierdzić używane ustawienia usługi DNS, zapoznaj się z tematem [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) w programie PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Jak mogę dodać trasy niestandardowe do klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \< \<includeroutes>trasy>\<miejsce docelowe>\<Mask> \</Destination>\</Mask>\</Route>\</includeroutes>** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać ** \<includeroutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</includeroutes> ** Tagi
 
 ```
 <azvpnprofile>
@@ -215,7 +215,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \< \<includeroutes>tra
 
 ### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Jak mogę blokowe (wykluczanie) tras z klienta sieci VPN?
 
-Można zmodyfikować pobrany plik XML profilu i dodać ** \< \<excluderoutes>trasy>\<miejsce docelowe>\<Mask> \</Destination>\</Mask>\</Route>\</excluderoutes>** Tagi
+Można zmodyfikować pobrany plik XML profilu i dodać ** \<excluderoutes> \<route> \<destination> \<mask> \</destination> \</mask> \</route> \</excluderoutes> ** Tagi
 
 ```
 <azvpnprofile>
@@ -233,7 +233,7 @@ Można zmodyfikować pobrany plik XML profilu i dodać ** \< \<excluderoutes>tra
 
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Czy mogę zaimportować profil z wiersza polecenia?
 
-Możesz zaimportować profil z wiersza polecenia, umieszczając pobrany plik **azurevpnconfig. XML** w folderze **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** i uruchamiając następujące polecenie:
+Możesz zaimportować profil z wiersza polecenia, umieszczając pobrany plik **azurevpnconfig.xml** w folderze **%USERPROFILE%\appdata\local\packages\microsoft. AzureVpn_8wekyb3d8bbwe \localstate** i uruchamiając następujące polecenie:
 
 ```
 azurevpn -i azurevpnconfig.xml 

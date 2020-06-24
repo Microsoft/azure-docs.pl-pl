@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/20/2019
 ms.author: allensu
-ms.openlocfilehash: 22602a1ea64e3dbca34d0c366cf6aa0dc6f35662
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba67ea9455c8d7f077eae87f582f05b5c2672735
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260551"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887630"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Zarządzanie Azure CDN przy użyciu programu PowerShell
 Program PowerShell udostępnia jedną z najbardziej elastycznych metod zarządzania profilami Azure CDN i punktami końcowymi.  Programu PowerShell można używać interaktywnie lub pisząc skrypty do automatyzowania zadań zarządzania.  W tym samouczku przedstawiono kilka typowych zadań, które można wykonać za pomocą programu PowerShell, aby zarządzać profilami Azure CDN i punktami końcowymi.
@@ -28,10 +28,10 @@ Program PowerShell udostępnia jedną z najbardziej elastycznych metod zarządza
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Aby zarządzać profilami i punktami końcowymi Azure CDN za pomocą programu PowerShell, musisz mieć zainstalowany moduł Azure PowerShell.  Aby dowiedzieć się, jak zainstalować Azure PowerShell i nawiązać połączenie `Connect-AzAccount` z platformą Azure za pomocą polecenia cmdlet, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview).
+Aby zarządzać profilami i punktami końcowymi Azure CDN za pomocą programu PowerShell, musisz mieć zainstalowany moduł Azure PowerShell.  Aby dowiedzieć się, jak zainstalować Azure PowerShell i nawiązać połączenie z platformą Azure za pomocą `Connect-AzAccount` polecenia cmdlet, zobacz [jak zainstalować i skonfigurować Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
-> Musisz się `Connect-AzAccount` zalogować, aby móc wykonywać Azure PowerShell polecenia cmdlet.
+> Musisz się zalogować, `Connect-AzAccount` Aby móc wykonywać Azure PowerShell polecenia cmdlet.
 > 
 > 
 
@@ -111,7 +111,7 @@ REMARKS
 ```
 
 ## <a name="listing-existing-azure-cdn-profiles"></a>Wyświetlanie listy istniejących profilów Azure CDN
-`Get-AzCdnProfile` Polecenie cmdlet bez żadnych parametrów pobiera wszystkie istniejące profile sieci CDN.
+`Get-AzCdnProfile`Polecenie cmdlet bez żadnych parametrów pobiera wszystkie istniejące profile sieci CDN.
 
 ```powershell
 Get-AzCdnProfile
@@ -192,7 +192,7 @@ Else { Write-Host "No, that endpoint name is not available." }
 `New-AzCdnCustomDomain`dodaje niestandardową nazwę domeny do istniejącego punktu końcowego.
 
 > [!IMPORTANT]
-> Należy skonfigurować rekord CNAME za pomocą dostawcy DNS zgodnie z opisem w temacie [Jak mapować domenę niestandardową na Content Delivery Network (CDN)](cdn-map-content-to-custom-domain.md).  Możesz przetestować mapowanie Przed zmodyfikowaniem punktu końcowego przy użyciu `Test-AzCdnCustomDomain`.
+> Należy skonfigurować rekord CNAME za pomocą dostawcy DNS zgodnie z opisem w temacie [Jak mapować domenę niestandardową na Content Delivery Network (CDN)](cdn-map-content-to-custom-domain.md).  Możesz przetestować mapowanie Przed zmodyfikowaniem punktu końcowego przy użyciu `Test-AzCdnCustomDomain` .
 > 
 > 
 
@@ -251,7 +251,7 @@ Get-AzCdnProfile | Get-AzCdnEndpoint | Start-AzCdnEndpoint
 ```
 
 ## <a name="creating-standard-rules-engine-policy-and-applying-to-an-existing-cdn-endpoint"></a>Tworzenie zasad standardowego aparatu reguł i stosowanie ich do istniejącego punktu końcowego usługi CDN
-`New-AzCdnDeliveryRule`, `New=AzCdnDeliveryRuleCondition`i `New-AzCdnDeliveryRuleAction` mogą być używane do konfigurowania aparatu reguł Azure CDN Standard na Azure CDN z profilów firmy Microsoft. 
+`New-AzCdnDeliveryRule`, `New=AzCdnDeliveryRuleCondition` i `New-AzCdnDeliveryRuleAction` mogą być używane do konfigurowania aparatu reguł Azure CDN Standard na Azure CDN z profilów firmy Microsoft. 
 
 ```powershell
 # Create a new http to https redirect rule

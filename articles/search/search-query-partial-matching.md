@@ -7,44 +7,47 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 06/23/2020
+ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592047"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260988"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Częściowe wyszukiwanie warunków i wzorce ze znakami specjalnymi (symbol wieloznaczny, wyrażenie regularne, wzorce)
 
-*Częściowe wyszukiwanie warunków* odwołuje się do zapytań składających się z fragmentów terminów, gdzie zamiast całego terminu może być tylko początek, środek lub koniec okresu (czasami określany jako prefiksy, wrostkowe lub kwerendy sufiksów). *Wzorzec* może być kombinacją fragmentów, często z znakami specjalnymi, takimi jak kreski lub ukośniki, które są częścią ciągu zapytania. Typowe przypadki użycia obejmują zapytania dotyczące części numeru telefonu, adresu URL, osób lub kodów produktów lub wyrazów złożonych.
+*Częściowe wyszukiwanie warunków* odwołuje się do zapytań składających się z fragmentów terminów, gdzie zamiast całego terminu może być tylko początek, środek lub koniec okresu (czasami określany jako prefiksy, wrostkowe lub kwerendy sufiksów). Częściowe wyszukiwanie warunków może zawierać kombinację fragmentów, często z znakami specjalnymi, takimi jak kreski lub ukośniki, które są częścią ciągu zapytania. Typowe przypadki użycia obejmują części numeru telefonu, adresu URL, kodów lub wyrazów złożonych z dzielenia wyrazów.
 
-Wyszukiwanie częściowe i wzorców może być problematyczne, jeśli indeks nie ma warunków w oczekiwanym formacie. Podczas [fazy analizy leksykalnej](search-lucene-query-architecture.md#stage-2-lexical-analysis) indeksowania (przy założeniu domyślnego analizatora standardowego) znaki specjalne są odrzucane, złożone i złożone ciągi są dzielone, a odstępy są usuwane. wszystko, co może spowodować niepowodzenie kwerend wzorca, gdy nie zostanie znalezione dopasowanie. Na przykład numer telefonu, taki jak `+1 (425) 703-6214` (tokeny AS `"1"`, `"425"`, `"703"`, `"6214"`) nie będzie wyświetlany w `"3-62"` zapytaniu, ponieważ ta zawartość nie istnieje w indeksie. 
+Częściowe wyszukiwanie warunków i ciągi zapytań, które zawierają znaki specjalne mogą być problematyczne, jeśli indeks nie ma tokenów w oczekiwanym formacie. W [fazie analizy leksykalnej](search-lucene-query-architecture.md#stage-2-lexical-analysis) indeksowania (przy założeniu domyślnego analizatora standardowego) znaki specjalne są odrzucane, wyrazy złożone są dzielone, a odstępy są usuwane. wszystkie z nich mogą spowodować niepowodzenie zapytań, gdy nie zostanie znalezione dopasowanie. Na przykład numer telefonu, taki jak `+1 (425) 703-6214` (tokeny AS `"1"` , `"425"` , `"703"` , `"6214"` ) nie będzie wyświetlany w `"3-62"` zapytaniu, ponieważ ta zawartość nie istnieje w indeksie. 
 
-Rozwiązaniem jest wywołanie analizatora, który zachowuje kompletny ciąg, w tym spacje i znaki specjalne, w razie potrzeby, aby można było dopasować częściowe terminy i wzorce. Tworzenie dodatkowego pola dla nieuszkodzonego ciągu, przy użyciu analizatora obsługującego zawartość, jest podstawą rozwiązania.
+Rozwiązaniem jest wywoływanie analizatora podczas indeksowania, które zachowuje pełny ciąg, w tym spacje i znaki specjalne, w razie potrzeby, aby można było uwzględnić spacje i znaki w ciągu zapytania. Podobnie, posiadanie kompletnego ciągu, który nie jest tokenem do mniejszych części, umożliwia dopasowanie wzorców dla "zaczyna się od" lub "kończy się na" zapytania, gdzie wzorzec, który jest udostępniany, można ocenić względem terminu, który nie jest przekształcony przez analizę leksykalną. Utworzenie dodatkowego pola dla nieuszkodzonego ciągu, a także użycie analizatora obsługującego zawartość, który emituje tokeny całodzienne, jest rozwiązaniem dla obu wzorców i dla dopasowania do ciągów zapytań, które zawierają znaki specjalne.
 
 > [!TIP]
-> Znasz interfejsy API Poster i REST? [Pobierz kolekcję przykładów zapytania](https://github.com/Azure-Samples/azure-search-postman-samples/) , aby wykonać zapytanie dotyczące częściowych terminów i znaków specjalnych opisanych w tym artykule.
+> Jeśli znasz interfejsy API Poster i REST, [Pobierz kolekcję przykładów zapytania](https://github.com/Azure-Samples/azure-search-postman-samples/) , aby wykonać zapytanie dotyczące częściowych terminów i znaków specjalnych opisanych w tym artykule.
 
-## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Co to jest częściowe wyszukiwanie w usłudze Azure Wyszukiwanie poznawcze
+## <a name="what-is-partial-term-search-in-azure-cognitive-search"></a>Co to jest wyszukiwanie częściowe warunków na platformie Azure Wyszukiwanie poznawcze
 
-W przypadku usługi Azure Wyszukiwanie poznawcze w następujących formularzach jest dostępne częściowe wyszukiwanie i wzorzec:
+Usługa Azure Wyszukiwanie poznawcze skanuje w poszukiwaniu całych terminów z tokenami w indeksie i nie znajdzie dopasowania w częściowym warunku, chyba że dołączysz symbole wieloznaczne symboli wieloznacznych ( `*` i `?` ), lub sformatuj zapytanie jako wyrażenie regularne. Częściowe warunki są określane przy użyciu następujących metod:
 
-+ [Wyszukiwanie prefiksów](query-simple-syntax.md#prefix-search), takie `search=cap*`jak, dopasowanie na "Cap'n Jack Waterfront Inn" lub "Gacc Wielka". Możesz użyć prostej składni zapytania lub pełnej składni zapytań Lucene dla wyszukiwania prefiksów.
++ [Zapytania wyrażenia regularnego](query-lucene-syntax.md#bkmk_regex) mogą być dowolnym wyrażeniem regularnym, które jest prawidłowe w obszarze Apache Lucene. 
 
-+ [Wyszukiwanie przy użyciu symboli wieloznacznych](query-lucene-syntax.md#bkmk_wildcard) i [wyrażeń regularnych](query-lucene-syntax.md#bkmk_regex) , które wyszukują wzorzec lub fragmenty ciągu osadzonego. Wyrażenia z symbolami wieloznacznymi i regularnymi wymagają pełnej składni Lucene. Zapytania dotyczące sufiksów i indeksów są formułowane jako wyrażenie regularne.
++ [Operatory symboli wieloznacznych z dopasowywaniem prefiksów](query-simple-syntax.md#prefix-search) odnoszą się do ogólnie rozpoznanego wzorca, który zawiera początek okresu, a następnie `*` `?` Operatory sufiksów, takie jak `search=cap*` dopasowanie do "Cap'n Jack Waterfront Inn" lub "Gacc stolic". Dopasowywanie prefiksów jest obsługiwane zarówno w prostej, jak i pełnej składni zapytań Lucene.
 
-  Poniżej przedstawiono kilka przykładów wyszukiwania częściowego terminu. W przypadku zapytania dotyczącego sufiksu, uwzględniając termin "alfanumeryczne", należy użyć wyszukiwania wieloznacznego (`search=/.*numeric.*/`) w celu znalezienia dopasowania. W przypadku częściowego terminu zawierającego znaki wewnętrzne, takie jak fragment adresu URL, może być konieczne dodanie znaków ucieczki. W formacie JSON ukośnik `/` jest wyprowadzany przy użyciu ukośnika `\`odwrotnego. W związku z `search=/.*microsoft.com\/azure\/.*/` tym, jest składnią dla FRAGMENTU adresu URL "Microsoft.com/Azure/".
++ [Symbol wieloznaczny z wrostkowe i dopasowywanie sufiksów](query-lucene-syntax.md#bkmk_wildcard) umieszcza `*` `?` Operatory i wewnątrz lub na początku terminu i wymaga składni wyrażenia regularnego (gdzie wyrażenie jest ujęte w ukośniki). Na przykład ciąg zapytania ( `search=/.*numeric*./` ) zwraca wyniki dla "alfanumeryczne" i "alfanumeryczne" jako sufiks i wrostkowe dopasowania.
 
-Jak wspomniano, wszystkie powyższe wymagania wymagają, aby indeks zawierał ciągi w formacie obsługującym dopasowanie do wzorca, którego Analizator standardowy nie zapewnia. Wykonując kroki opisane w tym artykule, można upewnić się, że istnieje wymagana zawartość do obsługi tych scenariuszy.
+W przypadku częściowego wyszukiwania warunkowego lub wzorca i kilku innych formularzy zapytań, takich jak Wyszukiwanie rozmyte, analizatory nie są używane w czasie zapytania. Dla tych formularzy zapytań, których Analizator wykrywa obecność operatorów i ograniczników, ciąg zapytania jest przesyłany do aparatu bez analizy leksykalnej. Dla tych formularzy zapytań Analizator określony w polu jest ignorowany.
+
+> [!NOTE]
+> Gdy częściowy ciąg zapytania zawiera znaki, takie jak ukośniki w fragmentu adresu URL, może być konieczne dodanie znaków ucieczki. W formacie JSON ukośnik `/` jest wyprowadzany przy użyciu ukośnika odwrotnego `\` . W związku z tym, `search=/.*microsoft.com\/azure\/.*/` jest składnią dla fragmentu adresu URL "Microsoft.com/Azure/".
 
 ## <a name="solving-partialpattern-search-problems"></a>Rozwiązywanie problemów z wyszukiwaniem części/wzorców
 
-Jeśli chcesz wyszukać fragmenty lub wzorce lub znaki specjalne, możesz zastąpić domyślną Analizator analizatorem niestandardowym, który działa w ramach prostszych reguł tokenizacji, zachowując cały ciąg. Po przełączeniu do tyłu podejście wygląda następująco:
+Jeśli chcesz wyszukać fragmenty lub wzorce lub znaki specjalne, możesz zastąpić domyślną Analizator analizatorem niestandardowym, który działa w ramach prostszych reguł tokenizacji, zachowując cały ciąg w indeksie. Po przełączeniu do tyłu podejście wygląda następująco:
 
-+ Zdefiniuj pole, aby zachować nienaruszoną wersję ciągu (przy założeniu, że chcesz przeanalizować i nieanalizowany tekst)
-+ Wybierz wstępnie zdefiniowany Analizator lub Zdefiniuj Analizator niestandardowy, aby wyprowadził nieanalizowany ciąg nienaruszony
-+ Przypisz Analizator niestandardowy do pola
++ Zdefiniuj pole, aby przechowywać nienaruszoną wersję ciągu (przy założeniu, że chcesz przeanalizować i nieanalizowany tekst w czasie zapytania)
++ Oceń i wybieraj spośród różnych analizatorów, które emitują tokeny na właściwym poziomie szczegółowości
++ Przypisz Analizator do pola
 + Kompiluj i Testuj indeks
 
 > [!TIP]
@@ -52,7 +55,7 @@ Jeśli chcesz wyszukać fragmenty lub wzorce lub znaki specjalne, możesz zastą
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Duplikowanie pól dla różnych scenariuszy
 
-Analizatory są przypisywane według poszczególnych pól, co oznacza, że można tworzyć pola w indeksie w celu optymalizacji pod kątem różnych scenariuszy. W zależności od tego można zdefiniować "featureCode" i "featureCodeRegex" do obsługi regularnego wyszukiwania pełnotekstowego w pierwszej i zaawansowane dopasowywanie do wzorca w drugim.
+Analizatory określają, w jaki sposób są określane tokeny w indeksie. Ponieważ analizatory są przypisywane według poszczególnych pól, można utworzyć pola w indeksie, aby zoptymalizować je pod kątem różnych scenariuszy. Na przykład można zdefiniować "featureCode" i "featureCodeRegex" do obsługi regularnego wyszukiwania pełnotekstowego w pierwszej i zaawansowane dopasowywanie do wzorca w drugim. Analizatory przypisane do każdego pola określają sposób, w jaki zawartość każdego pola jest tokenami w indeksie.  
 
 ```json
 {
@@ -84,9 +87,9 @@ W przypadku wybrania analizatora, który tworzy tokeny całodzienne, typowe są 
 
 Jeśli używasz narzędzia testowego interfejsu API sieci Web, takiego jak Poster, możesz dodać [wywołanie REST analizatora testu](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) , aby przeprowadzić inspekcję danych wyjściowych z tokenami.
 
-Musisz mieć istniejący indeks do pracy z programem. Uwzględniając istniejący indeks i pole zawierające łączniki lub częściowe warunki, możesz wypróbować różne analizatory, aby zobaczyć, jakie tokeny są emitowane.  
+Do pracy z programem musi być wypełniony indeks. Uwzględniając istniejący indeks i pole zawierające łączniki lub częściowe warunki, możesz wypróbować różne analizatory, aby zobaczyć, jakie tokeny są emitowane.  
 
-1. Sprawdź Analizator standardowej, aby zobaczyć, jak są domyślnie opisane tokeny.
+1. Najpierw sprawdź Analizator standardowej, aby zobaczyć, jak są domyślnie opisane tokeny.
 
    ```json
    {
@@ -95,7 +98,7 @@ Musisz mieć istniejący indeks do pracy z programem. Uwzględniając istniejąc
    }
     ```
 
-1. Oceń odpowiedź, aby zobaczyć, w jaki sposób tekst jest tokenem w indeksie. Zwróć uwagę na to, jak każdy termin jest niższy i podzielony na siebie.
+1. Oceń odpowiedź, aby zobaczyć, w jaki sposób tekst jest tokenem w indeksie. Zwróć uwagę na to, jak każdy termin jest niższy i podzielony na siebie. Tylko te zapytania, które pasują do tych tokenów zwróciją ten dokument w wynikach. Zapytanie zawierające wartość "10-lub" zakończy się niepowodzeniem.
 
     ```json
     {
@@ -121,7 +124,7 @@ Musisz mieć istniejący indeks do pracy z programem. Uwzględniając istniejąc
         ]
     }
     ```
-1. Zmodyfikuj żądanie, aby użyć `whitespace` analizatora `keyword` lub:
+1. Teraz zmodyfikuj żądanie, aby użyć `whitespace` `keyword` analizatora lub:
 
     ```json
     {
@@ -130,7 +133,7 @@ Musisz mieć istniejący indeks do pracy z programem. Uwzględniając istniejąc
     }
     ```
 
-1. Teraz odpowiedź składa się z pojedynczego tokenu, wielkie litery, za pomocą łączników zachowywanych jako część ciągu. Jeśli chcesz wyszukać wzorzec lub częściowy termin, aparat zapytań ma teraz podstawę do znalezienia dopasowania.
+1. Teraz odpowiedź składa się z pojedynczego tokenu, wielkie litery, za pomocą łączników zachowywanych jako część ciągu. Jeśli zachodzi potrzeba przeszukania wzorca lub częściowego warunku takiego jak "10-lub", aparat zapytań ma teraz podstawę do znalezienia dopasowania.
 
 
     ```json
@@ -147,7 +150,7 @@ Musisz mieć istniejący indeks do pracy z programem. Uwzględniając istniejąc
     }
     ```
 > [!Important]
-> Podczas kompilowania drzewa zapytań należy pamiętać, że analizatory zapytań często mają małe litery w wyrażeniu wyszukiwania. Jeśli używasz analizatora, który nie uwzględnia małych liter tekstowych, i nie otrzymujesz oczekiwanych wyników, może to być przyczyną. W rozwiązaniu należy dodać filtr tokenu o niższej wielkości liter, zgodnie z opisem w poniższej sekcji "Użyj analizatorów niestandardowych" poniżej.
+> Podczas kompilowania drzewa zapytań należy pamiętać, że analizatory zapytań często mają małe litery w wyrażeniu wyszukiwania. Jeśli używasz analizatora, który nie uwzględnia małych wielkości liter podczas indeksowania i nie otrzymujesz oczekiwanych wyników, może to być przyczyną. W rozwiązaniu należy dodać filtr tokenu o niższej wielkości liter, zgodnie z opisem w poniższej sekcji "Użyj analizatorów niestandardowych" poniżej.
 
 ## <a name="configure-an-analyzer"></a>Konfigurowanie analizatora
  
@@ -211,7 +214,7 @@ Poniższy przykład ilustruje niestandardowy Analizator, który udostępnia toke
 ```
 
 > [!NOTE]
-> `keyword_v2` Tokenizatora i `lowercase` filtr tokenu są znane systemowi i używają ich domyślnych konfiguracji, dlatego można odwoływać się do nich według nazwy bez konieczności definiowania ich jako pierwszej.
+> `keyword_v2`Tokenizatora i `lowercase` Filtr tokenu są znane systemowi i używają ich domyślnych konfiguracji, dlatego można odwoływać się do nich według nazwy bez konieczności definiowania ich jako pierwszej.
 
 ## <a name="build-and-test"></a>Skompiluj i testuj
 
@@ -229,17 +232,17 @@ W poprzednich sekcjach objaśniono logikę. W tej części przedstawiono kroki p
 
 + W obszarze [Wyszukaj dokumenty](https://docs.microsoft.com/rest/api/searchservice/search-documents) objaśniono, jak utworzyć żądanie zapytania przy użyciu [prostej składni](query-simple-syntax.md) lub [pełnej składni](query-lucene-syntax.md) wyrażeń w przypadku symboli wieloznacznych i regularnych.
 
-  W przypadku zapytań częściowych warunkowych, takich jak zapytanie "3-6214" aby znaleźć dopasowanie w "+ 1 (425) 703-6214", można użyć prostej składni: `search=3-6214&queryType=simple`.
+  W przypadku zapytań częściowych warunkowych, takich jak zapytanie "3-6214" aby znaleźć dopasowanie w "+ 1 (425) 703-6214", można użyć prostej składni: `search=3-6214&queryType=simple` .
 
   W przypadku zapytań wrostkowe i sufiksów, takich jak zapytania "num" lub "numeric", aby znaleźć dopasowanie dla "alfanumeryczne", użyj pełnej składni "Lucene" i wyrażenia regularnego:`search=/.*num.*/&queryType=full`
 
-## <a name="tips-and-best-practices"></a>Wskazówki i najlepsze rozwiązania
-
-### <a name="tune-query-performance"></a>Dostosowywanie wydajności zapytań
+## <a name="tune-query-performance"></a>Dostosowywanie wydajności zapytań
 
 W przypadku zaimplementowania zalecanej konfiguracji obejmującej filtr keyword_v2 tokenizatora i niższych wielkości liter można zauważyć spadek wydajności zapytania ze względu na dodatkowe przetwarzanie filtru tokenów dla istniejących tokenów w indeksie. 
 
-Poniższy przykład dodaje [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) , aby przyspieszyć dopasowanie prefiksu. Dodatkowe tokeny są generowane dla kombinacji znaków 2-25, które zawierają znaki: (nie tylko MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/kW, MSFT/SQL). Jak można wyobrazić, dodatkowe tokenizacji wyniki w większym indeksie.
+Poniższy przykład dodaje [EdgeNGramTokenFilter](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/ngram/EdgeNGramTokenizer.html) , aby przyspieszyć dopasowanie prefiksu. Dodatkowe tokeny są generowane dla kombinacji znaków 2-25, które zawierają znaki: (nie tylko MS, MSF, MSFT, MSFT/, MSFT/S, MSFT/kW, MSFT/SQL). 
+
+Jak można wyobrazić, dodatkowe tokenizacji wyniki w większym indeksie. Jeśli masz wystarczającą pojemność, aby pomieścić większy indeks, to podejście z szybszym czasem odpowiedzi może być lepszym rozwiązaniem.
 
 ```json
 {
@@ -276,20 +279,6 @@ Poniższy przykład dodaje [EdgeNGramTokenFilter](https://lucene.apache.org/core
   "side": "front"
   }
 ]
-```
-
-### <a name="use-different-analyzers-for-indexing-and-query-processing"></a>Używanie różnych analizatorów do indeksowania i przetwarzania zapytań
-
-Analizatory są wywoływane podczas indeksowania i podczas wykonywania zapytania. Jest to typowy sposób użycia tego samego analizatora dla obu, ale dla każdego obciążenia można skonfigurować niestandardowe analizy. Zastąpienia analizatora są określone w [definicji indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index) w `analyzers` sekcji, a następnie przywoływane dla konkretnych pól. 
-
-Gdy analiza niestandardowa jest wymagana tylko podczas indeksowania, można zastosować Analizator niestandardowy do samego indeksowania i nadal używać standardowego analizatora Lucene (lub innego analizatora) dla zapytań.
-
-Aby określić analizę specyficzną dla roli, można ustawić właściwości pola dla każdego z nich, ustawienie `indexAnalyzer` i `searchAnalyzer` zamiast właściwości domyślnej. `analyzer`
-
-```json
-"name": "featureCode",
-"indexAnalyzer":"my_customanalyzer",
-"searchAnalyzer":"standard",
 ```
 
 ## <a name="next-steps"></a>Następne kroki

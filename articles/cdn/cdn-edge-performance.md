@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b8a65d4ae6aaac78e642c851a66b745a940fa0ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67593897"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887705"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizowanie wydajności węzła brzegowego w usłudze Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -171,7 +171,7 @@ Każdy raport w tym module zawiera wykres i statystyki dotyczące użycia przepu
 | Agent użytkownika |Zawiera wykres słupkowy przedstawiający 10 najlepszych agentów użytkowników, którzy zażądają zawartości za pomocą naszej sieci CDN. Zazwyczaj agent użytkownika to przeglądarka sieci Web, odtwarzacz multimedialny lub przeglądarka telefonu komórkowego. Statystyki dla najważniejszych agentów użytkownika 100 są wyświetlane bezpośrednio poniżej tego wykresu. |
 | Przywołujących |Zawiera wykres słupkowy przedstawiający 10 najważniejszych odsprzedawców do zawartości, do której uzyskuje się dostęp za pomocą naszej sieci CDN. Zazwyczaj odwołujący jest adres URL strony sieci Web lub zasobu, który łączy się z zawartością. Szczegółowe informacje znajdują się poniżej wykresu dla pierwszych odsprzedawców 100. |
 | Typy kompresji |Zawiera wykres pierścieniowy, który dzieli żądane zasoby na podstawie tego, czy zostały one skompresowane przez serwery brzegowe. Wartość procentowa skompresowanych zasobów jest dzielona na typ używanej kompresji. Szczegółowe informacje znajdują się poniżej wykresu dla każdego typu i stanu kompresji. |
-| Typy plików |Zawiera wykres słupkowy, który wyświetla 10 najważniejszych typów plików, których zażądano za pomocą usługi CDN dla Twojego konta. Na potrzeby tego raportu typ pliku jest definiowany przez rozszerzenie nazwy pliku zasobu i typ \[nośnika internetowego (np. html text/html\],. htm \[text/html\],. aspx \[text/html\]itp.). Szczegółowe informacje znajdują się poniżej grafu dla najpopularniejszych typów plików 100. |
+| Typy plików |Zawiera wykres słupkowy, który wyświetla 10 najważniejszych typów plików, których zażądano za pomocą usługi CDN dla Twojego konta. Na potrzeby tego raportu typ pliku jest definiowany przez rozszerzenie nazwy pliku zasobu i typ nośnika internetowego (np. html \[ Text/HTML \] ,. htm \[ Text/HTML \] ,. aspx \[ Text/HTML \] itp.). Szczegółowe informacje znajdują się poniżej grafu dla najpopularniejszych typów plików 100. |
 | Unikatowe pliki |Zawiera wykres przedstawiający łączną liczbę unikatowych zasobów, które zażądały w określonym dniu w określonym przedziale czasu. |
 | Podsumowanie uwierzytelniania tokenu |Zawiera wykres kołowy, który zawiera krótkie omówienie tego, czy żądane zasoby były chronione za pomocą uwierzytelniania opartego na tokenach. Chronione zasoby są wyświetlane na wykresie zgodnie z wynikami podejmowanych prób uwierzytelnienia. |
 | Szczegóły Odmów autoryzacji tokenu |Zawiera wykres słupkowy, który umożliwia wyświetlanie 10 najważniejszych żądań, które zostały odrzucone z powodu uwierzytelniania opartego na tokenach. |
@@ -183,7 +183,7 @@ Każdy raport w tym module zawiera wykres i statystyki dotyczące użycia przepu
 | Błędy 502 |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 najważniejszych żądań, które spowodowały niewłaściwy kod odpowiedzi bramy 502. 502 nieprawidłowy kod odpowiedzi bramy występuje, gdy wystąpi awaria protokołu HTTP między serwerem i serwerem proxy HTTP. W przypadku naszej sieci CDN niewłaściwy kod odpowiedzi bramy 502 zwykle występuje, gdy serwer pochodzenia klienta zwróci nieprawidłową odpowiedź na serwer graniczny. Odpowiedź jest nieprawidłowa, jeśli nie można jej przeanalizować lub jeśli jest niepełna. |
 | Błędy 5xx |Zawiera wykres słupkowy, który umożliwia wyświetlenie 10 pierwszych żądań, które spowodowały kod odpowiedzi w zakresie 500.  Wykluczone z tego raportu to 502 niewłaściwe kody odpowiedzi bramy i bramy 504. |
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie usługi Azure CDN](cdn-overview.md)
 * [Statystyki w czasie rzeczywistym w usłudze Microsoft Azure CDN](cdn-real-time-stats.md)
 * [Zastępowanie domyślnego zachowania HTTP przy użyciu aparatu reguł](cdn-rules-engine.md)

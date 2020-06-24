@@ -3,21 +3,21 @@ title: Konfigurowanie kluczy zarządzanych przez klienta dla konta Azure Cosmos 
 description: Dowiedz się, jak skonfigurować klucze zarządzane przez klienta dla konta Azure Cosmos DB przy użyciu Azure Key Vault
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: thweiss
-ms.openlocfilehash: 31681397961045da02add7ccb37f29f6c835c08d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 229c1307559c0bd452e95a4f833bc68b66bc6299
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659898"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261311"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Skonfiguruj klucze zarządzane przez klienta na potrzeby konta usługi Azure Cosmos przy użyciu usługi Azure Key Vault
 
 Dane przechowywane na koncie usługi Azure Cosmos są automatycznie i bezproblemowo szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft (**klucze zarządzane przez usługę**). Opcjonalnie można dodać drugą warstwę szyfrowania z kluczami, którymi zarządzasz (**klucze zarządzane przez klienta**).
 
-![Warstwy szyfrowania wokół danych klienta](./media/how-to-setup-cmk/cmk-intro.png)
+:::image type="content" source="./media/how-to-setup-cmk/cmk-intro.png" alt-text="Warstwy szyfrowania wokół danych klienta":::
 
 Klucze zarządzane przez klienta muszą być przechowywane w [Azure Key Vault](../key-vault/general/overview.md) i zapewniać klucz dla każdego konta usługi Azure Cosmos, które jest włączone przy użyciu kluczy zarządzanych przez klienta. Ten klucz służy do szyfrowania wszystkich danych przechowywanych na tym koncie.
 
@@ -32,7 +32,7 @@ Klucze zarządzane przez klienta muszą być przechowywane w [Azure Key Vault](.
 
 1. Wyszukaj dostawcę zasobów usługi **Microsoft.DocumentDB** . Sprawdź, czy dostawca zasobów został już oznaczony jako zarejestrowany. W przeciwnym razie wybierz dostawcę zasobów i wybierz pozycję **zarejestruj**:
 
-   ![Rejestrowanie dostawcy zasobów Microsoft.DocumentDB](./media/how-to-setup-cmk/portal-rp-register.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Rejestrowanie dostawcy zasobów Microsoft.DocumentDB":::
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Skonfiguruj wystąpienie Azure Key Vault
 
@@ -40,7 +40,7 @@ Użycie kluczy zarządzanych przez klienta z Azure Cosmos DB wymaga ustawienia d
 
 Jeśli tworzysz nowe wystąpienie Azure Key Vault, Włącz te właściwości podczas tworzenia:
 
-![Włączanie usuwania nietrwałego i przeczyszczania ochrony dla nowego wystąpienia Azure Key Vault](./media/how-to-setup-cmk/portal-akv-prop.png)
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-prop.png" alt-text="Włączanie usuwania nietrwałego i przeczyszczania ochrony dla nowego wystąpienia Azure Key Vault":::
 
 Jeśli używasz istniejącego wystąpienia Azure Key Vault, możesz sprawdzić, czy te właściwości są włączone, przeglądając sekcję **Właściwości** na Azure Portal. Jeśli którakolwiek z tych właściwości nie jest włączona, zobacz sekcję "Włączanie usuwania nietrwałego" i "Włączanie ochrony przed czyszczeniem" w jednym z następujących artykułów:
 
@@ -57,11 +57,11 @@ Jeśli używasz istniejącego wystąpienia Azure Key Vault, możesz sprawdzić, 
 
 1. W menu rozwijanym **uprawnienia klucza** wybierz pozycję **Pobierz**, **Odpakuj klucz**i **Zawijaj uprawnienia klucza** :
 
-   ![Wybieranie odpowiednich uprawnień](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Wybieranie odpowiednich uprawnień":::
 
 1. W obszarze **Wybierz podmiot zabezpieczeń**wybierz pozycję **nie wybrano**. Następnie wyszukaj **Azure Cosmos DB** podmiot zabezpieczeń i wybierz go (aby ułatwić znalezienie, możesz również wyszukiwać według identyfikatora podmiotu zabezpieczeń `a232010e-820c-4083-83bb-3ace5fc29d0b` ) w dowolnym regionie świadczenia usługi Azure, Azure Government z wyjątkiem regionów, w których jest to identyfikator podmiotu zabezpieczeń `57506a73-e302-42a9-b869-6f12d9ec29e9` . Na koniec wybierz **pozycję Wybierz** u dołu. Jeśli podmiot zabezpieczeń **Azure Cosmos DB** nie znajduje się na liście, może być konieczne ponowne zarejestrowanie **Microsoft.Doc** dostawcy zasobów umentDB zgodnie z opisem w sekcji [Rejestrowanie dostawcy zasobów](#register-resource-provider) w tym artykule.
 
-   ![Wybierz Azure Cosmos DB podmiotu zabezpieczeń](./media/how-to-setup-cmk/portal-akv-add-ap.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Wybierz Azure Cosmos DB podmiotu zabezpieczeń":::
 
 1. Wybierz pozycję **Dodaj** , aby dodać nowe zasady dostępu.
 
@@ -73,13 +73,13 @@ Jeśli używasz istniejącego wystąpienia Azure Key Vault, możesz sprawdzić, 
 
 1. Wybierz pozycję **Generuj/Importuj**, podaj nazwę nowego klucza, a następnie wybierz rozmiar klucza RSA. Aby zapewnić najlepsze zabezpieczenia, zalecamy co najmniej 3072. Następnie wybierz pozycję **Utwórz**:
 
-   ![Utwórz nowy klucz](./media/how-to-setup-cmk/portal-akv-gen.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Utwórz nowy klucz":::
 
 1. Po utworzeniu klucza wybierz nowo utworzony klucz, a następnie jego bieżącą wersję.
 
 1. Skopiuj **Identyfikator klucza**klucza, z wyjątkiem części po ostatnim ukośniku:
 
-   ![Kopiowanie identyfikatora klucza klucza](./media/how-to-setup-cmk/portal-akv-keyid.png)
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Kopiowanie identyfikatora klucza klucza":::
 
 ## <a name="create-a-new-azure-cosmos-account"></a>Utwórz nowe konto usługi Azure Cosmos
 
@@ -87,7 +87,7 @@ Jeśli używasz istniejącego wystąpienia Azure Key Vault, możesz sprawdzić, 
 
 Po utworzeniu nowego konta Azure Cosmos DB z Azure Portal wybierz opcję **klucz zarządzany przez klienta** w kroku **szyfrowanie** . W polu **Identyfikator URI klucza** wklej identyfikator URI/klucz Azure Key Vault klucza skopiowanego z poprzedniego kroku:
 
-![Ustawianie parametrów CMK w Azure Portal](./media/how-to-setup-cmk/portal-cosmos-enc.png)
+:::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="Ustawianie parametrów CMK w Azure Portal":::
 
 ### <a name="using-azure-powershell"></a><a id="using-powershell"></a>Używanie Azure PowerShell
 
@@ -226,7 +226,7 @@ Rotacja klucza zarządzanego przez klienta używanego przez konto usługi Azure 
 
 - Utwórz nową wersję klucza aktualnie używaną w Azure Key Vault:
 
-  ![Utwórz nową wersję klucza](./media/how-to-setup-cmk/portal-akv-rot.png)
+  :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Utwórz nową wersję klucza":::
 
 - Zamień klucz aktualnie używany z całkowicie innym z nich przez zaktualizowanie `keyVaultKeyUri` Właściwości konta. Oto jak to zrobić w programie PowerShell:
 
@@ -297,11 +297,11 @@ Azure Cosmos DB [regularnie i automatycznie tworzy kopie zapasowe](./online-back
 
 Odwoływanie klucza jest wykonywane przez wyłączenie najnowszej wersji klucza:
 
-![Wyłącz wersję klucza](./media/how-to-setup-cmk/portal-akv-rev2.png)
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev2.png" alt-text="Wyłącz wersję klucza":::
 
 Alternatywnie, aby odwołać wszystkie klucze z wystąpienia Azure Key Vault, można usunąć zasady dostępu przyznane do Azure Cosmos DB podmiotu zabezpieczeń:
 
-![Usuwanie zasad dostępu dla podmiotu zabezpieczeń Azure Cosmos DB](./media/how-to-setup-cmk/portal-akv-rev.png)
+:::image type="content" source="./media/how-to-setup-cmk/portal-akv-rev.png" alt-text="Usuwanie zasad dostępu dla podmiotu zabezpieczeń Azure Cosmos DB":::
 
 ### <a name="what-operations-are-available-after-a-customer-managed-key-is-revoked"></a>Jakie operacje są dostępne po odwołaniu klucza zarządzanego przez klienta?
 

@@ -2,22 +2,22 @@
 title: Monitorowanie znormalizowanych jednostek RU/s dla kontenera usługi Azure Cosmos lub konta
 description: Dowiedz się, jak monitorować znormalizowane użycie jednostek żądań dla operacji w Azure Cosmos DB. Właściciele konta Azure Cosmos DB mogą zrozumieć, które operacje zużywają więcej jednostek żądań.
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 05/10/2020
-ms.openlocfilehash: 23001bdaab0732dbeb088ebadefa90a27e622b19
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7a7428d3445d1d5846618bfd84c47121dc9a4bc1
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118816"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85262756"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Jak monitorować znormalizowane Elementy RU/s dla kontenera usługi Azure Cosmos lub konta
 
 Azure Monitor dla Azure Cosmos DB zawiera widok metryk do monitorowania konta i tworzenia pulpitów nawigacyjnych. Metryki Azure Cosmos DB są zbierane domyślnie. Ta funkcja nie wymaga jawnie włączania ani konfigurowania niczego.
 
-**Znormalizowana Metryka zużycia ru** jest używana do sprawdzenia, jak dobrze jest zastosowana replika WRT do użycia jednostek żądań w ramach zakresów kluczy partycji. Azure Cosmos DB dystrybuuje przepływność równomiernie na wszystkie partycje fizyczne. Ta Metryka zawiera widok na sekundę maksymalnego wykorzystania przepływności w zestawie replik. Korzystając z tej metryki, jeśli widzisz wysoki procent wykorzystania jednostek żądań, należy zwiększyć przepływność w celu spełnienia wymagań związanych z obciążeniem.
+**Znormalizowana Metryka zużycia ru** służy do sprawdzenia, jak dobrze nasycone repliki są odnoszące się do zużycia jednostek żądań w ramach zakresów kluczy partycji. Azure Cosmos DB dystrybuuje przepływność równomiernie na wszystkie partycje fizyczne. Ta Metryka zawiera widok na sekundę maksymalnego wykorzystania przepływności w zestawie replik. Korzystając z tej metryki, jeśli widzisz wysoki procent wykorzystania jednostek żądań, należy zwiększyć przepływność w celu spełnienia wymagań związanych z obciążeniem.
 
 ## <a name="what-to-expect-and-do-when-normalized-rus-is-higher"></a>Czego można oczekiwać, a jeśli znormalizowana RU/s jest wyższa
 
@@ -37,17 +37,17 @@ W przypadku ciągłego szczytu zużycia RU/s przez 100% lub blisko 100% zaleca s
 
 2. Wybierz pozycję **monitor** na pasku nawigacyjnym po lewej stronie, a następnie wybierz pozycję **metryki**.
 
-   ![Okienko metryki w Azure Monitor](./media/monitor-normalized-request-units/monitor-metrics-blade.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Okienko metryki w Azure Monitor":::
 
 3. W okienku **metryki** > **Wybierz zasób** > wybierz wymaganą **subskrypcję**i **grupę zasobów**. W polu **Typ zasobu**wybierz pozycję **konta Azure Cosmos DB**, wybierz jedno z istniejących kont usługi Azure Cosmos i wybierz pozycję **Zastosuj**.
 
-   ![Wybierz konto usługi Azure Cosmos, aby wyświetlić metryki](./media/monitor-normalized-request-units/select-cosmos-db-account.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Wybierz konto usługi Azure Cosmos, aby wyświetlić metryki":::
 
 4. Następnie możesz wybrać metrykę z listy dostępnych metryk. Można wybrać metryki specyficzne dla jednostek żądań, magazynu, opóźnień, dostępności, Cassandra i innych. Aby uzyskać szczegółowe informacje na temat wszystkich dostępnych metryk na tej liście, zobacz artykuł [metryki według kategorii](monitor-cosmos-db-reference.md) . W tym przykładzie wybieramy **znormalizowaną metrykę zużycia ru** i **maksymalną** wartość agregacji.
 
    Oprócz tych szczegółów można także wybrać **zakres czasu** i **stopień szczegółowości** metryk. Co więcej, można wyświetlić metryki z ostatnich 30 dni.  Po zastosowaniu filtru na podstawie filtru zostanie wyświetlony wykres.
 
-   ![Wybierz metrykę z Azure Portal](./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png)
+   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Wybierz metrykę z Azure Portal":::
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filtry dla znormalizowanego zużycia jednostek żądań
 
@@ -57,7 +57,7 @@ Metryki można grupować przy użyciu opcji **Zastosuj dzielenie** .
 
 Znormalizowana Metryka użycia jednostki żądania dla każdego kontenera jest wyświetlana jak pokazano na poniższej ilustracji:
 
-![Zastosuj filtry do znormalizowanej metryki użycia jednostki żądania](./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png)
+:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Zastosuj filtry do znormalizowanej metryki użycia jednostki żądania":::
 
 ## <a name="next-steps"></a>Następne kroki
 

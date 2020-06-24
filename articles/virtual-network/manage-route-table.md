@@ -7,17 +7,17 @@ documentationcenter: na
 author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
-ms.openlocfilehash: b30c912319104726069ae98920f0bc825d7358cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e694f29bb6f8e7c78c36ad2b8ee90d507529444f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182858"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708267"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Tworzenie, zmienianie lub usuwanie tabeli tras
 
@@ -31,9 +31,9 @@ Jeśli go nie masz, skonfiguruj konto platformy Azure z aktywną subskrypcją. [
 
 - **Użytkownicy programu PowerShell**: Uruchom polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub Uruchom program PowerShell z komputera. Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Na karcie Azure Cloud Shell Browser Znajdź listę rozwijaną **Wybierz środowisko** , a następnie wybierz opcję **PowerShell** , jeśli nie została jeszcze wybrana.
 
-    Jeśli używasz programu PowerShell lokalnie, użyj Azure PowerShell module w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az.Network`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Uruchom `Connect-AzAccount` również, aby utworzyć połączenie z platformą Azure.
+    Jeśli używasz programu PowerShell lokalnie, użyj Azure PowerShell module w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az.Network`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Uruchom również `Connect-AzAccount` , aby utworzyć połączenie z platformą Azure.
 
-- **Użytkownicy interfejsu wiersza polecenia platformy Azure (CLI)**: uruchamiają polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub uruchamiają interfejs CLI z komputera. Użyj interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej, jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Uruchom `az login` również, aby utworzyć połączenie z platformą Azure.
+- **Użytkownicy interfejsu wiersza polecenia platformy Azure (CLI)**: uruchamiają polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub uruchamiają interfejs CLI z komputera. Użyj interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej, jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Uruchom również `az login` , aby utworzyć połączenie z platformą Azure.
 
 Konto, do którego należy się zalogować lub połączyć się z platformą Azure za pomocą programu, musi być przypisane do [roli współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) lub do [roli niestandardowej](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , do której przypisano odpowiednie akcje wymienione w obszarze [uprawnienia](#permissions).
 
@@ -186,7 +186,7 @@ Istnieje ograniczenie, ile tras na tabelę tras można utworzyć dla lokalizacji
 
 1. Na liście tabela tras wybierz tabelę tras, do której chcesz dodać trasę.
 
-1. Na pasku menu tabeli tras wybierz pozycję **trasy** > **Dodaj**.
+1. Na pasku menu tabeli tras wybierz pozycję **trasy**  >  **Dodaj**.
 
 1. Wprowadź unikatową **nazwę trasy** dla trasy w tabeli tras.
 

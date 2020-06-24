@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie konfliktami między regionami w Azure Cosmos DB
 description: Dowiedz się, jak zarządzać konfliktami w Azure Cosmos DB przez tworzenie zasad ostatniego rozwiązywania konfliktów — WINS lub niestandardowych
-author: markjbrown
+author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 12/03/2019
-ms.author: mjbrown
-ms.openlocfilehash: 8f109bef1c7ebb3ac77c58357ad3cb6064e8afb3
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.topic: how-to
+ms.date: 06/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: ebc5ea6e39b3c4c5f7451c60fef976f6a12b1312
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869952"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85261532"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Zarządzanie zasadami rozwiązywania konfliktów w usłudze Azure Cosmos DB
 
@@ -19,7 +19,7 @@ W przypadku zapisów w wielu regionach, gdy wielu klientów zapisuje do tego sam
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Tworzenie zasad rozwiązywania konfliktów polegających na traktowaniu ostatniego zapisu jako prawidłowego
 
-Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą zasad rozwiązywania konfliktów polegających na traktowaniu ostatniego zapisu jako prawidłowego. Domyślną ścieżką dla ostatniego składnika zapisywania usługi WINS jest pole timestamp lub `_ts` właściwość. W przypadku interfejsu API SQL może to również być ustawiona jako ścieżka zdefiniowana przez użytkownika z typem liczbowym. W konflikcie jest najwyższa wartość WINS. Jeśli ścieżka nie jest ustawiona lub jest nieprawidłowa, domyślnie jest to `_ts`. Konflikty rozwiązane z tymi zasadami nie są wyświetlane w kanale informacyjnym konfliktu. Te zasady mogą być używane przez wszystkie interfejsy API.
+Poniższe przykłady pokazują, jak skonfigurować kontener za pomocą zasad rozwiązywania konfliktów polegających na traktowaniu ostatniego zapisu jako prawidłowego. Domyślną ścieżką dla ostatniego składnika zapisywania usługi WINS jest pole timestamp lub `_ts` Właściwość. W przypadku interfejsu API SQL może to również być ustawiona jako ścieżka zdefiniowana przez użytkownika z typem liczbowym. W konflikcie jest najwyższa wartość WINS. Jeśli ścieżka nie jest ustawiona lub jest nieprawidłowa, domyślnie jest to `_ts` . Konflikty rozwiązane z tymi zasadami nie są wyświetlane w kanale informacyjnym konfliktu. Te zasady mogą być używane przez wszystkie interfejsy API.
 
 ### <a name="net-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>Zestaw SDK .NET
 
@@ -53,9 +53,27 @@ Container container = await createClient.GetDatabase(this.databaseName)
 ```
 ---
 
-### <a name="java-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-java"></a>Zestaw SDK Java
+### <a name="java-v4-sdk"></a><a id="create-custom-conflict-resolution-policy-lww-javav4"></a>Zestaw SDK Java v4
 
-# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+
+   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionLWWAsync)]
+
+# <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+
+   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConflictResolutionLWWSync)]
+
+--- 
+
+### <a name="java-v2-sdks"></a><a id="create-custom-conflict-resolution-policy-lww-javav2"></a>Zestawy SDK Java v2
+
+# <a name="async-java-v2-sdk"></a>[Asynchroniczne środowisko Java w wersji 2 SDK](#tab/async)
+
+[Asynchroniczne środowisko Java w wersji 2 SDK](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -65,7 +83,9 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-# <a name="java-sync-sdk"></a>[Zestaw SDK synchronizacji Java](#tab/sync)
+# <a name="sync-java-v2-sdk"></a>[Synchronizuj zestaw Java v2 SDK](#tab/sync)
+
+[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md)   (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection lwwCollection = new DocumentCollection();
@@ -121,7 +141,7 @@ Procedury składowane rozwiązywania konfliktów niestandardowych należy zaimpl
 > [!IMPORTANT]
 > Podobnie jak w przypadku każdej procedury składowanej, niestandardowa procedura rozwiązywania konfliktów może uzyskać dostęp do dowolnych danych z tym samym kluczem partycji i można wykonać dowolną operację wstawiania, aktualizowania lub usuwania, aby rozwiązać konflikty.
 
-Ta przykładowa procedura składowana rozwiązuje konflikty, wybierając najniższą wartość `/myCustomId` ze ścieżki.
+Ta przykładowa procedura składowana rozwiązuje konflikty, wybierając najniższą wartość ze `/myCustomId` ścieżki.
 
 ```javascript
 function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
@@ -221,9 +241,27 @@ await container.Scripts.CreateStoredProcedureAsync(
 ```
 ---
 
-### <a name="java-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-java"></a>Zestaw SDK Java
+### <a name="java-v4-sdk"></a><a id="create-custom-conflict-resolution-policy-stored-proc-javav4"></a>Zestaw SDK Java v4
 
-# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+
+   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionSprocAsync)]
+
+# <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+
+   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConflictResolutionSprocSync)]
+
+--- 
+
+### <a name="java-v2-sdks"></a><a id="create-custom-conflict-resolution-policy-stored-proc-javav2"></a>Zestawy SDK Java v2
+
+# <a name="async-java-v2-sdk"></a>[Asynchroniczne środowisko Java w wersji 2 SDK](#tab/async)
+
+[Asynchroniczne środowisko Java w wersji 2 SDK](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -233,9 +271,9 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-Po utworzeniu kontenera należy utworzyć procedurę składowaną `resolver`.
+# <a name="sync-java-v2-sdk"></a>[Synchronizuj zestaw Java v2 SDK](#tab/sync)
 
-# <a name="java-sync-sdk"></a>[Zestaw SDK synchronizacji Java](#tab/sync)
+[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md)   (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection udpCollection = new DocumentCollection();
@@ -318,9 +356,27 @@ Container container = await createClient.GetDatabase(this.databaseName)
 ```
 ---
 
-### <a name="java-sdk"></a><a id="create-custom-conflict-resolution-policy-java"></a>Zestaw SDK Java
+### <a name="java-v4-sdk"></a><a id="create-custom-conflict-resolution-policy-javav4"></a>Zestaw SDK Java v4
 
-# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/async)
+# <a name="async"></a>[Asynchroniczne](#tab/api-async)
+
+   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) Async API
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=ManageConflictResolutionCustomAsync)]
+
+# <a name="sync"></a>[Synchronizuj](#tab/api-sync)
+
+   Java SDK v4 (Maven com. Azure:: Azure-Cosmos) — interfejs API synchronizacji
+
+   [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=ManageConflictResolutionCustomSync)]
+
+--- 
+
+### <a name="java-v2-sdks"></a><a id="create-custom-conflict-resolution-policy-javav2"></a>Zestawy SDK Java v2
+
+# <a name="async-java-v2-sdk"></a>[Asynchroniczne środowisko Java w wersji 2 SDK](#tab/async)
+
+[Asynchroniczne środowisko Java w wersji 2 SDK](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 DocumentCollection collection = new DocumentCollection();
@@ -330,7 +386,9 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-# <a name="java-sync-sdk"></a>[Zestaw SDK synchronizacji Java](#tab/sync)
+# <a name="sync-java-v2-sdk"></a>[Synchronizuj zestaw Java v2 SDK](#tab/sync)
+
+[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md)   (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 DocumentCollection manualCollection = new DocumentCollection();
@@ -403,9 +461,11 @@ while (conflictFeed.HasMoreResults)
 ```
 ---
 
-### <a name="java-sdk"></a><a id="read-from-conflict-feed-java"></a>Zestaw SDK Java
+### <a name="java-v2-sdks"></a><a id="read-from-conflict-feed-javav2"></a>Zestawy SDK Java v2
 
-# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/async)
+# <a name="async-java-v2-sdk"></a>[Asynchroniczne środowisko Java w wersji 2 SDK](#tab/async)
+
+[Asynchroniczne środowisko Java w wersji 2 SDK](sql-api-sdk-async-java.md)   (Maven [com. Microsoft. Azure:: Azure-cosmosdb](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb))
 
 ```java
 FeedResponse<Conflict> response = client.readConflicts(this.manualCollectionUri, null)
@@ -414,7 +474,9 @@ for (Conflict conflict : response.getResults()) {
     /* Do something with conflict */
 }
 ```
-# <a name="java-async-sdk"></a>[Asynchroniczny zestaw SDK Java](#tab/sync)
+# <a name="sync-java-v2-sdk"></a>[Synchronizuj zestaw Java v2 SDK](#tab/sync)
+
+[Synchronizuj zestaw Java v2 SDK](sql-api-sdk-java.md)   (Maven [com. Microsoft. Azure:: Azure-DocumentDB](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb))
 
 ```java
 Iterator<Conflict> conflictsIterator = client.readConflicts(this.collectionLink, null).getQueryIterator();

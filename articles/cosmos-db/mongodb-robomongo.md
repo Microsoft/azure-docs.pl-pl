@@ -3,16 +3,16 @@ title: Użyj Robo 3T, aby nawiązać połączenie z Azure Cosmos DB
 description: Dowiedz się, jak nawiązać połączenie z usługą Azure Cosmos DB przy użyciu interfejsu API Robo 3T i Azure Cosmos DB dla MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: 627849acb902a721c80b98adbd16103b4729591b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 657f3cf204411bd51541437f05ff13a3f9b929c0
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114189"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85263045"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Używanie programu Robo 3T za pomocą interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB
 
@@ -30,21 +30,21 @@ Aby dodać konto Cosmos do Menedżera połączeń usługi Robo 3T, wykonaj nast�
 
 1. Pobierz informacje o połączeniu dla konta usługi Cosmos, które skonfigurowano za pomocą interfejsu API usługi Azure Cosmos DB MongoDB przy użyciu instrukcji znajdujących się [tutaj](connect-mongodb-account.md).
 
-    ![Zrzut ekranu przedstawiający Blok parametrów połączenia](./media/mongodb-robomongo/connectionstringblade.png)
+    :::image type="content" source="./media/mongodb-robomongo/connectionstringblade.png" alt-text="Zrzut ekranu przedstawiający Blok parametrów połączenia":::
 2. Uruchom aplikację *Korzystanie narzędzia robomongo* .
 
 3. Kliknij przycisk połączenia w obszarze **plik** , aby zarządzać połączeniami. Następnie kliknij pozycję **Utwórz** w oknie **połączenia MongoDB** , co spowoduje otwarcie okna **Ustawienia połączenia** .
 
 4. W oknie **Ustawienia połączenia** wybierz nazwę. Następnie Znajdź **hosta** i **port** z informacji o połączeniu w kroku 1 i wprowadź je odpowiednio do **adresu** i **portu**.
 
-    ![Zrzut ekranu przedstawiający korzystanie narzędzia robomongo zarządzanie połączeniami](./media/mongodb-robomongo/manageconnections.png)
+    :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Zrzut ekranu przedstawiający korzystanie narzędzia robomongo zarządzanie połączeniami":::
 5. Na karcie **uwierzytelnianie** kliknij pozycję **wykonaj uwierzytelnianie**. Następnie wprowadź swoją bazę danych (domyślnie: *admin*), **nazwę użytkownika** i **hasło**.
 **Nazwę użytkownika** i **hasło** można znaleźć w informacjach o połączeniu w kroku 1.
 
-    ![Zrzut ekranu karty uwierzytelnianie korzystanie narzędzia robomongo](./media/mongodb-robomongo/authentication.png)
+    :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Zrzut ekranu karty uwierzytelnianie korzystanie narzędzia robomongo":::
 6. Na karcie **SSL** zaznacz opcję **Użyj protokołu SSL**, a następnie zmień **metodę uwierzytelniania** na certyfikat z podpisem **własnym**.
 
-    ![Zrzut ekranu karty korzystanie narzędzia robomongo SSL](./media/mongodb-robomongo/SSL.png)
+    :::image type="content" source="./media/mongodb-robomongo/SSL.png" alt-text="Zrzut ekranu karty korzystanie narzędzia robomongo SSL":::
 7. Na koniec kliknij przycisk **Testuj** , aby sprawdzić, czy możesz nawiązać połączenie, a następnie **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki

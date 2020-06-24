@@ -4,15 +4,15 @@ description: Aparat reguł umożliwia dostosowywanie sposobu obsługi żądań H
 services: cdn
 author: asudbring
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: 2e5e4265f30631f8e68d8f9e7156ea578ae85e7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c61407b2a0c9d0423d1f856101400771e27d846
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253479"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887419"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Przesłoń zachowanie protokołu HTTP przy użyciu Azure CDN z aparatu reguł Verizon Premium
 
@@ -22,7 +22,7 @@ ms.locfileid: "81253479"
 
 Aparat reguł Azure CDN umożliwia dostosowywanie sposobu obsługi żądań HTTP. Na przykład blokowanie dostarczania określonych typów zawartości, definiowanie zasad buforowania lub modyfikowanie nagłówka HTTP. W tym samouczku pokazano, jak utworzyć regułę, która zmienia zachowanie buforowania zasobów sieci CDN. Aby uzyskać więcej informacji na temat składni aparatu reguł, zobacz temat [Informacje o aparacie Azure CDN reguł](cdn-verizon-premium-rules-engine-reference.md).
 
-## <a name="access"></a>Dostęp
+## <a name="access"></a>Access
 
 Aby uzyskać dostęp do aparatu reguł, musisz najpierw wybrać pozycję **Zarządzaj** w górnej części strony **profilu usługi CDN** , aby uzyskać dostęp do strony zarządzania Azure CDN. W zależności od tego, czy punkt końcowy jest zoptymalizowany pod kątem przyspieszania witryn dynamicznych (DSA), uzyskujesz dostęp do aparatu reguł przy użyciu zestawu reguł odpowiednich dla danego typu punktu końcowego:
 
@@ -93,11 +93,11 @@ Aby uzyskać dostęp do aparatu reguł, musisz najpierw wybrać pozycję **Zarz�
    >
    >
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Przegląd Azure CDN](cdn-overview.md)
 - [Dokumentacja aparatu reguł](cdn-verizon-premium-rules-engine-reference.md)
-- [Warunki dopasowania aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Warunki dopasowań aparatu reguł](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Wyrażenia warunkowe aparatu reguł](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Funkcje aparatu reguł](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Piątek platformy Azure: zaawansowane nowe funkcje Premium](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (wideo) Azure CDN

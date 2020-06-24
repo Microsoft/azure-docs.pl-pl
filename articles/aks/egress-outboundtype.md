@@ -4,12 +4,12 @@ description: Informacje o definiowaniu niestandardowej trasy ruchu wychodzącego
 services: container-service
 ms.topic: article
 ms.date: 06/05/2020
-ms.openlocfilehash: 03b18a9cb8fa28d54952a77bf8721c63dd56a9ad
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 10555b9c6e9d1d9670ae3bee488a60d782d267bf
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84416787"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85205819"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Dostosowywanie ruchu wychodzącego klastra przy użyciu trasy zdefiniowanej przez użytkownika
 
@@ -103,7 +103,7 @@ DEVSUBNET_NAME="${PREFIX}dev"
 
 Następnie ustaw identyfikatory subskrypcji.
 
-```azure-cli
+```azurecli
 
 # NOTE: Update Subscription Name
 # Set Default Azure Subscription to be Used via Subscription ID
@@ -123,7 +123,7 @@ Zainicjuj obsługę sieci wirtualnej z trzema oddzielnymi podsieciami, jedną dl
 
 Utwórz grupę zasobów, w której mają być przechowywane wszystkie zasoby.
 
-```azure-cli
+```azurecli
 # Create Resource Group
 
 az group create --name $RG --location $LOC
@@ -166,12 +166,12 @@ Reguły ruchu przychodzącego i wychodzącego zapory platformy Azure muszą być
 
 Utwórz zasób publicznego adresu IP jednostki SKU, który będzie używany jako adres frontonu zapory platformy Azure.
 
-```azure-cli
+```azurecli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Zarejestruj interfejs wiersza polecenia w wersji zapoznawczej, aby utworzyć zaporę platformy Azure.
-```azure-cli
+```azurecli
 # Install Azure Firewall preview CLI extension
 
 az extension add --name azure-firewall
@@ -187,7 +187,7 @@ Utworzony wcześniej adres IP można teraz przypisać do frontonu zapory.
 > 
 > Jeśli błędy są często odbierane przy użyciu poniższego polecenia, należy usunąć istniejącą zaporę i publiczny adres IP oraz udostępnić publiczny adres IP i zaporę platformy Azure w tym samym czasie.
 
-```azure-cli
+```azurecli
 # Configure Firewall IP Config
 
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
@@ -214,7 +214,7 @@ Platforma Azure automatycznie kieruje ruchem między podsieciami platformy Azure
 
 Utwórz pustą tabelę tras, która ma zostać skojarzona z daną podsiecią. W tabeli tras zostanie zdefiniowany następny przeskok, który został utworzony powyżej przez zaporę platformy Azure. Każda podsieć może mieć skojarzoną ze sobą żadną lub jedną tabelę tras.
 
-```azure-cli
+```azurecli
 # Create UDR and add a route for Azure Firewall
 
 az network route-table create -g $RG --name $FWROUTE_TABLE_NAME
@@ -267,7 +267,7 @@ Zobacz [dokumentację zapory platformy Azure](https://docs.microsoft.com/azure/f
 
 Aby można było skojarzyć klaster z zaporą, dedykowana podsieć klastra musi odwoływać się do utworzonej powyżej tabeli tras. Skojarzenie można wykonać, wydając polecenie do sieci wirtualnej, w której klaster i Zapora mają aktualizować tabelę tras w podsieci klastra.
 
-```azure-cli
+```azurecli
 # Associate route table with next hop to Firewall to the AKS subnet
 
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
@@ -283,7 +283,7 @@ Teraz klaster AKS można wdrożyć w istniejącej sieci wirtualnej. Aby można b
 
 Nazwa główna usługi jest używana przez AKS do tworzenia zasobów klastra. Nazwa główna usługi przenoszona podczas tworzenia czasu służy do tworzenia podstawowych zasobów AKS, takich jak maszyny wirtualne, magazyn i moduły równoważenia obciążenia używane przez AKS. W przypadku przyznania zbyt małej liczby uprawnień nie będzie możliwe Inicjowanie obsługi administracyjnej klastra AKS.
 
-```azure-cli
+```azurecli
 # Create SP and Assign Permission to Virtual Network
 
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
@@ -291,7 +291,7 @@ az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 
 Teraz Zastąp `APPID` `PASSWORD` poniższe i poniżej z identyfikatorem jednostki usługi i hasłem głównym usługi generowanym automatycznie przez poprzednie dane wyjściowe polecenia. Odwołujemy się do identyfikatora zasobu sieci wirtualnej, aby przyznać uprawnienia do nazwy głównej usługi, dzięki czemu AKS może wdrożyć w niej zasoby.
 
-```azure-cli
+```azurecli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
 PASSWORD="<SERVICEPRINCIPAL_PASSWORD_GOES_HERE>"
 VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
@@ -319,7 +319,7 @@ Można dodać funkcję AKS dla [dozwolonych zakresów adresów IP serwera interf
 > [!TIP]
 > Do wdrożenia klastra można dodać dodatkowe funkcje, takie jak (klaster prywatny) []. W przypadku korzystania z autoryzowanych zakresów adresów IP serwera przesiadkowego w sieci klastra musi być wymagana w celu uzyskania dostępu do serwera interfejsu API.
 
-```azure-cli
+```azurecli
 az aks create -g $RG -n $AKS_NAME -l $LOC \
   --node-count 3 \
   --network-plugin azure --generate-ssh-keys \
@@ -351,7 +351,7 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
  Użyj polecenia [AZ AKS Get-Credentials][az-aks-get-credentials] , aby skonfigurować program `kubectl` do nawiązywania połączenia z nowo utworzonym klastrem Kubernetes. 
 
- ```azure-cli
+ ```azurecli
  az aks get-credentials -g $RG -n $AKS_NAME
  ```
 
@@ -504,18 +504,18 @@ azure-vote-front   LoadBalancer   192.168.19.183   100.64.2.5    80:32106/TCP   
 kubernetes         ClusterIP      192.168.0.1      <none>        443/TCP        4d3h
 ```
 
-```azure-cli
+```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address <INSERT IP OF K8s SERVICE>
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 > [!NOTE]
 > W przypadku usuwania usługi wewnętrznej Kubernetes, jeśli wewnętrzny moduł równoważenia obciążenia nie jest już używany przez żadną usługę, dostawca chmury platformy Azure usunie wewnętrzny moduł równoważenia obciążenia. W następnym wdrożeniu usługi moduł równoważenia obciążenia zostanie wdrożony, jeśli nie można znaleźć żadnej z żądanych konfiguracji.
 
 Aby wyczyścić zasoby platformy Azure, Usuń grupę zasobów AKS.
 
-```azure-cli
+```azurecli
 az group delete -g $RG
 ```
 

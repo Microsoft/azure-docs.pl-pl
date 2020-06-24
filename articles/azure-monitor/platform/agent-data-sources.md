@@ -7,11 +7,11 @@ author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249102"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708879"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Źródła danych agentów w Azure Monitor
 Dane, które Azure Monitor zbiera z agentów, są definiowane przez skonfigurowane źródła danych.  Dane z agentów są przechowywane jako [dane dziennika](data-platform-logs.md) z zestawem rekordów.  Każde źródło danych tworzy rekordy określonego typu z każdym typem, który ma swój własny zestaw właściwości.
@@ -22,7 +22,7 @@ Dane, które Azure Monitor zbiera z agentów, są definiowane przez skonfigurowa
 W poniższej tabeli wymieniono źródła danych agentów, które są obecnie dostępne w Azure Monitor.  Każdy z nich zawiera link do oddzielnego artykułu z szczegółowymi informacjami dla tego źródła danych.   Zawiera również informacje o ich metodzie i częstotliwości zbierania. 
 
 
-| Źródło danych | Platforma | Agent usługi log Analytics | Agent programu Operations Manager | Usługa Azure Storage | Operations Manager jest wymagane? | Dane agenta Operations Manager wysyłane przez grupę zarządzania | Częstotliwość zbierania |
+| Źródło danych | Platforma | Agent usługi log Analytics | Agent programu Operations Manager | Azure Storage | Operations Manager jest wymagane? | Dane agenta Operations Manager wysyłane przez grupę zarządzania | Częstotliwość zbierania |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Niestandardowe dzienniki](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | przy nadejściu |
 | [Niestandardowe dzienniki](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | przy nadejściu |

@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79240926"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84690952"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Szybki start: Dodawanie użytkownika-gościa przy użyciu programu PowerShell
 
@@ -75,7 +75,7 @@ Po wyświetleniu monitu wprowadź poświadczenia.
 
 ## <a name="send-an-invitation"></a>Wysyłanie zaproszenia
 
-1. Aby wysłać zaproszenie do konta testowego e-mail, uruchom następujące polecenie programu PowerShell (Zastąp ciąg **"Sanda"** i **\@Sanda fabrikam.com** nazwą konta testowego i adresem e-mail): 
+1. Aby wysłać zaproszenie do konta testowego e-mail, uruchom następujące polecenie programu PowerShell (Zastąp ciąg **"Sanda"** i **Sanda \@ fabrikam.com** nazwą konta testowego i adresem e-mail): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.microsoft.com -SendInvitationMessage $true
@@ -91,11 +91,11 @@ Po wyświetleniu monitu wprowadź poświadczenia.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Sprawdź dane wyjściowe, aby upewnić się, że zaproszony użytkownik znajduje się na liście przy użyciu głównej nazwy użytkownika (UPN) w formacie *EmailAddress*#EXT #\@*Domain*. Na przykład *sanda_fabrikam. com # EXT #\@contoso.onmicrosoft.com*, gdzie contoso.onmicrosoft.com jest organizacją, z której wysłano zaproszenia.
+3. Sprawdź dane wyjściowe, aby upewnić się, że zaproszony użytkownik znajduje się na liście przy użyciu głównej nazwy użytkownika (UPN) w formacie *emailaddress*#EXT # \@ *Domain*. Na przykład *sanda_fabrikam. com # EXT # \@ contoso.onmicrosoft.com*, gdzie contoso.onmicrosoft.com jest organizacją, z której wysłano zaproszenia.
 
    ![Rezultat w programie PowerShell przedstawiający dodanego użytkownika-gościa](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Testowe konto użytkownika możesz usunąć z katalogu, gdy przestanie być potrzebne. Uruchom następujące polecenie, aby usunąć konto użytkownika:
 

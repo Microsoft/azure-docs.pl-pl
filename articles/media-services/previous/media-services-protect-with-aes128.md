@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269733"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84708335"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Używanie dynamicznego szyfrowania AES-128 i usługi dostarczania kluczy
 > [!div class="op_single_selector"]
@@ -159,7 +159,7 @@ Klient musi wyodrębnić adres URL (zawierający także wartość identyfikatora
 
 W przypadku HLS Manifest główny jest podzielony na pliki segmentów. 
 
-Na przykład, głównym manifestem jest: http:\//test001.Origin.MediaServices.Windows.NET/8bfe7d6f-34e3-4d1a-B289-3e48a8762490/BigBuckBunny.ISM/manifest (format = M3U8-AAPL). Zawiera listę nazw plików segmentów.
+Na przykład, głównym manifestem jest: http: \/ /test001.Origin.MediaServices.Windows.NET/8bfe7d6f-34e3-4d1a-B289-3e48a8762490/BigBuckBunny.ISM/manifest (format = M3U8-AAPL). Zawiera listę nazw plików segmentów.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -168,7 +168,7 @@ Na przykład, głównym manifestem jest: http:\//test001.Origin.MediaServices.Wi
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Jeśli otworzysz jeden z plików segmentu w edytorze tekstu (na przykład http:\//test001.Origin.MediaServices.Windows.NET/8bfe7d6f-34e3-4d1a-B289-3e48a8762490/BigBuckBunny.ISM/QualityLevels (514369)/manifest (wideo, format = M3U8-AAPL), zawiera on #EXT-X-Key, co oznacza, że plik jest szyfrowany.
+Jeśli otworzysz jeden z plików segmentu w edytorze tekstu (na przykład http: \/ /test001.Origin.MediaServices.Windows.NET/8bfe7d6f-34e3-4d1a-B289-3e48a8762490/BigBuckBunny.ISM/QualityLevels (514369)/manifest (wideo, format = M3U8-AAPL), zawiera on #EXT-X-Key, co oznacza, że plik jest szyfrowany.
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -237,16 +237,16 @@ Poniższy kod przedstawia sposób wysyłania żądania do usługi dostarczania k
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Tworzenie i konfigurowanie projektu programu Visual Studio
 
-1. Skonfiguruj środowisko deweloperskie i wypełnij plik App. config informacjami o połączeniu, zgodnie z opisem w temacie [programowanie Media Services przy użyciu platformy .NET](media-services-dotnet-how-to-use.md).
+1. Skonfiguruj środowisko deweloperskie i wypełnij plik app.config za pomocą informacji o połączeniu, zgodnie z opisem w temacie [Media Services Development z platformą .NET](media-services-dotnet-how-to-use.md).
 
-2. Dodaj następujące elementy do appSettings, zgodnie z definicją w pliku App. config:
+2. Dodaj następujące elementy do appSettings, zgodnie z definicją w pliku app.config:
 
     ```xml
     <add key="Issuer" value="http://testissuer.com"/>
     <add key="Audience" value="urn:test"/>
     ```
 
-### <a name="example"></a><a id="example"></a>Przyklad
+### <a name="example"></a><a id="example"></a>Przykład
 
 Zastąp kod w pliku Program.cs kodem przedstawionym w tej sekcji.
  
@@ -260,5 +260,5 @@ Upewnij się, że zaktualizowano zmienne, tak aby wskazywały foldery, w któryc
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -3,9 +3,8 @@ title: Szyfrowanie tokenu SAML w Azure Active Directory
 description: Dowiedz się, jak skonfigurować Azure Active Directory szyfrowanie tokenów SAML.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-editor: ''
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0082d841faf22745e609d38444f4a97553b3c867
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 779d1b73f45f9be5b4bd00d546987b7c1e0b6a43
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79365870"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763350"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption"></a>Instrukcje: Konfigurowanie szyfrowania tokenów SAML usługi Azure AD
 

@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.reviewer: cweining
 ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275765"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84692023"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Debugowanie migawek wyjątków w aplikacjach .NET
-Gdy wystąpi wyjątek, można automatycznie zebrać migawkę debugowania z działającej aplikacji sieci Web. Migawka pokazuje stan kodu źródłowego i zmienne w momencie, gdy wyjątek został zgłoszony. Snapshot Debugger w [usłudze Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoruje dane telemetryczne wyjątku z aplikacji sieci Web. Zbiera migawki na najważniejszych wyjątkach, aby uzyskać informacje potrzebne do diagnozowania problemów w środowisku produkcyjnym. Dołącz [pakiet NuGet modułu zbierającego migawki](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do aplikacji i opcjonalnie Skonfiguruj parametry kolekcji w [pliku ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Migawki są wyświetlane na [wyjątkach](../../azure-monitor/app/asp-net-exceptions.md) w portalu Application Insights.
+Gdy wystąpi wyjątek, można automatycznie zebrać migawkę debugowania z działającej aplikacji sieci Web. Migawka pokazuje stan kodu źródłowego i zmienne w momencie, gdy wyjątek został zgłoszony. Snapshot Debugger w [usłudze Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoruje dane telemetryczne wyjątku z aplikacji sieci Web. Zbiera migawki na najważniejszych wyjątkach, aby uzyskać informacje potrzebne do diagnozowania problemów w środowisku produkcyjnym. Dołącz [pakiet NuGet modułu zbierającego migawki](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) do aplikacji i opcjonalnie Skonfiguruj parametry kolekcji w [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Migawki są wyświetlane na [wyjątkach](../../azure-monitor/app/asp-net-exceptions.md) w portalu Application Insights.
 
 Migawki debugowania można wyświetlić w portalu, aby zobaczyć stos wywołań i sprawdzić zmienne w każdej ramce tego stosu. Aby uzyskać bardziej zaawansowane środowisko debugowania z kodem źródłowym, Otwórz migawki w programie Visual Studio 2019 Enterprise. W programie Visual Studio można także [ustawić punkty przyciągania, aby interaktywnie podejmować migawki](https://aka.ms/snappoint) bez oczekiwania na wyjątek.
 
@@ -46,7 +46,7 @@ Dostęp do migawek jest chroniony przez kontrolę dostępu opartą na rolach (RB
 Właściciele subskrypcji powinni przypisać `Application Insights Snapshot Debugger` rolę do użytkowników, którzy będą przeprowadzali inspekcję migawek. Tę rolę można przypisać do poszczególnych użytkowników lub grup według właścicieli subskrypcji dla docelowego zasobu Application Insights lub jego grupy zasobów lub subskrypcji.
 
 1. Przejdź do zasobu Application Insights w Azure Portal.
-1. Kliknij pozycję **Kontrola dostępu (IAM)**.
+1. Kliknij pozycję **Kontrola dostępu (IAM)** .
 1. Kliknij przycisk **+ Dodaj przypisanie roli** .
 1. Wybierz pozycję **Application Insights Snapshot Debugger** z listy rozwijanej **role** .
 1. Wyszukaj i wprowadź nazwę użytkownika, który ma zostać dodany.
@@ -70,7 +70,7 @@ W widoku migawki debugowania zobaczysz stos wywołań i okienko zmiennych. Po wy
 
 ![Wyświetl migawkę debugowania w portalu](./media/snapshot-debugger/open-snapshot-portal.png)
 
-Migawki mogą zawierać informacje poufne i domyślnie nie są widoczne. Aby wyświetlić migawki, musisz mieć przypisaną `Application Insights Snapshot Debugger` rolę.
+Migawki mogą zawierać informacje poufne i domyślnie nie są widoczne. Aby wyświetlić migawki, musisz mieć `Application Insights Snapshot Debugger` przypisaną rolę.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Wyświetlanie migawek w programie Visual Studio 2017 Enterprise lub nowszym
 1. Kliknij przycisk **Pobierz migawkę** , aby pobrać `.diagsession` plik, który może zostać otwarty przez Visual Studio Enterprise.
@@ -108,13 +108,13 @@ Domyślny okres przechowywania danych wynosi 15 dni. Dla każdego wystąpienia A
 
 ### <a name="publish-symbols"></a>Publikuj symbole
 Snapshot Debugger wymaga plików symboli na serwerze produkcyjnym, aby zdekodować zmienne i zapewnić środowisko debugowania w programie Visual Studio.
-Wersja 15,2 (lub nowsza) programu Visual Studio 2017 publikuje symbole dla kompilacji wydań domyślnie, gdy publikuje je w App Service. W poprzednich wersjach należy dodać następujący wiersz do pliku profilu `.pubxml` publikowania, aby symbole zostały opublikowane w trybie wydania:
+Wersja 15,2 (lub nowsza) programu Visual Studio 2017 publikuje symbole dla kompilacji wydań domyślnie, gdy publikuje je w App Service. W poprzednich wersjach należy dodać następujący wiersz do pliku profilu publikowania, `.pubxml` Aby symbole zostały opublikowane w trybie wydania:
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
 ```
 
-W przypadku obliczeń na platformie Azure i innych typów upewnij się, że pliki symboli znajdują się w tym samym folderze głównej aplikacji. dll ( `wwwroot/bin`zazwyczaj) lub są dostępne w bieżącej ścieżce.
+W przypadku obliczeń na platformie Azure i innych typów upewnij się, że pliki symboli znajdują się w tym samym folderze głównej aplikacji. dll (zazwyczaj `wwwroot/bin` ) lub są dostępne w bieżącej ścieżce.
 
 > [!NOTE]
 > Więcej informacji o różnych opcjach symboli dostępnych można znaleźć w [dokumentacji programu Visual Studio](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output

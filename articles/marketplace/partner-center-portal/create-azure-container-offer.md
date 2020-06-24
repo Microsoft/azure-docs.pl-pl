@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 538baee092ea6e11469f7d0331cc1b89eaf9a161
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: cd0c8961cff15385249222986e5fb90ee75e3559
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672718"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84887341"
 ---
 # <a name="create-an-azure-container-offer"></a>Tworzenie oferty kontenera platformy Azure
 
@@ -48,7 +48,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Na przykład:
+Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -276,20 +276,20 @@ W polu **Nazwa planu** wprowadź nazwę dla tego planu. Klienci widzą tę nazw�
 
 Na tej karcie można wybrać chmurę, w której plan jest dostępny. Odpowiedzi na tej karcie mają wpływ na to, które pola są wyświetlane na innych kartach.
 
-#### <a name="cloud-availability"></a>Dostępność w chmurze
+#### <a name="azure-regions"></a>Regiony świadczenia usługi Azure
 
 Wszystkie plany dla ofert kontenera platformy Azure są automatycznie udostępniane na **platformie Azure Global**.  Twój plan może być używany przez klientów we wszystkich globalnych regionach platformy Azure, które korzystają z komercyjnej witryny Marketplace. Aby uzyskać szczegółowe informacje, zobacz [dostępność geograficzna i obsługa waluty](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
-Wybierz opcję [**Azure Government Cloud**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) , aby rozwiązanie było wyświetlane w tym miejscu. Jest to chmura społecznościowa dla instytucji rządowych, której dostęp jest kontrolowany przez klientów z federalnych, stanowych i lokalnych lub plemienneych instytucji rządowych, a także partnerów uprawnionych do ich używania. Wydawca jest odpowiedzialny za wszelkie kontrole zgodności, miary zabezpieczeń i najlepsze rozwiązania dla tej społeczności w chmurze. Azure Government używa fizycznie wyizolowanych centrów danych i sieci (znajdujących się tylko w Stanach Zjednoczonych).
+Wybierz opcję [**Azure Government**](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) , aby rozwiązanie było wyświetlane w tym miejscu. Jest to chmura społecznościowa dla instytucji rządowych, której dostęp jest kontrolowany przez klientów z federalnych, stanowych i lokalnych lub plemienneych instytucji rządowych, a także partnerów uprawnionych do ich używania. Wydawca jest odpowiedzialny za wszelkie kontrole zgodności, miary zabezpieczeń i najlepsze rozwiązania dla tej społeczności w chmurze. Azure Government używa fizycznie wyizolowanych centrów danych i sieci (znajdujących się tylko w Stanach Zjednoczonych).
 
 Przed [opublikowaniem](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners) w celu Azure Government Przetestuj i Potwierdź swoje rozwiązanie w tym obszarze, ponieważ wyniki mogą się różnić. Aby utworzyć i przetestować rozwiązanie, zażądaj konta próbnego od [Microsoft Azure Government wersji próbnej](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
-> Po opublikowaniu planu i udostępnieniu go w określonej chmurze nie można usunąć tej chmury.
+> Po opublikowaniu planu i udostępnieniu go w określonym regionie nie można usunąć tego regionu.
 
-#### <a name="azure-government-cloud-certifications"></a>Azure Government certyfikaty w chmurze
+#### <a name="azure-government-certifications"></a>Certyfikaty Azure Government
 
-Tę opcję można zobaczyć tylko w przypadku wybrania **Azure Government chmury** w obszarze **dostępność chmury**.
+Tę opcję można zobaczyć tylko w przypadku wybrania **Azure Government** w obszarze **dostępność chmury**.
 
 Usługi Azure Government Services obsługują dane, które podlegają określonym przepisom i wymogom rządowym. Na przykład FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD P4 i CJIS.
 
@@ -331,7 +331,7 @@ Jeśli chcesz ukryć opublikowaną ofertę, aby klienci nie mogli wyszukiwać, p
 
 To pole jest używane w przypadku:
 
-- Oferta jest przeznaczona do użycia pośrednio, gdy występuje odwołanie do innej aplikacji.
+- Oferta jest przeznaczona do użycia pośrednio, gdy jest przywoływana przez inną aplikację.
 - Oferty nie należy kupować osobno.
 - Plan został użyty do wstępnego testowania i nie jest już odpowiedni.
 - Plan został użyty dla ofert tymczasowych lub sezonowych i nie powinien już być oferowany.

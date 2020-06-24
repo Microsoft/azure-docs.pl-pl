@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 95345ba864d498190186e1a366c8551be97c33f5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 47c504d9359779294c4690059d1958614d863e58
+ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299697"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85260886"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Monitor
 
@@ -129,7 +129,7 @@ Teraz, gdy masz zasoby połączone z AMPLS, Utwórz prywatny punkt końcowy, aby
  
    d.    Zezwalaj na weryfikację. 
  
-   e.    Kliknij przycisk **Utwórz**. 
+   e.    Kliknij pozycję **Utwórz**. 
 
     ![Zrzut ekranu przedstawiający pozycję Utwórz prywatny Endpoint2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -229,6 +229,10 @@ Aby zezwolić agentowi Log Analytics na pobieranie pakietów rozwiązań, Dodaj 
 |Azure — publiczna     | scadvisor.blob.core.windows.net         | 443 | Wychodzący
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Wychodzący
 |Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Wychodzący
+
+### <a name="browser-dns-settings"></a>Ustawienia usługi DNS przeglądarki
+
+W przypadku łączenia się z zasobami Azure Monitor za pośrednictwem prywatnego linku ruch do tych zasobów musi przechodzić przez prywatny punkt końcowy skonfigurowany w sieci. Aby włączyć prywatny punkt końcowy, zaktualizuj ustawienia DNS zgodnie z opisem w temacie [Connect to Private Endpoint](#connect-to-a-private-endpoint). Niektóre przeglądarki używają własnych ustawień DNS zamiast ustawionych przez użytkownika. Przeglądarka może próbować nawiązać połączenie z Azure Monitor publicznymi punktami końcowymi i całkowicie ominąć prywatny link. Sprawdź, czy ustawienia przeglądarki nie przesłaniają ani nie buforują starych ustawień DNS. 
 
 ## <a name="next-steps"></a>Następne kroki
 
