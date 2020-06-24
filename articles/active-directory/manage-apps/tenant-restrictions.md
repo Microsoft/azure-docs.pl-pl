@@ -3,8 +3,8 @@ title: Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji S
 description: Jak używać ograniczeń dzierżawy do zarządzania użytkownikami, którzy mogą uzyskiwać dostęp do aplikacji na podstawie ich dzierżawy usługi Azure AD.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680142"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763027"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
@@ -74,7 +74,7 @@ Dla każdego żądania przychodzącego do login.microsoftonline.com, login.micro
 
 Nagłówki powinny zawierać następujące elementy:
 
-- W przypadku *ograniczania dostępu do dzierżawców*Użyj wartości \< dozwolonej listy dzierżawców \> , która jest rozdzielaną przecinkami listą dzierżawców, dla których chcesz zezwolić użytkownikom na dostęp. Wszystkie domeny zarejestrowane za pomocą dzierżawy mogą służyć do identyfikowania dzierżawy na tej liście. Na przykład, aby zezwolić na dostęp zarówno do dzierżaw firmy Contoso, jak i Fabrikam, para nazwa/wartość wygląda następująco: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- W przypadku *ograniczania dostępu do dzierżawców*Użyj wartości \<permitted tenant list\> , która jest rozdzielaną przecinkami listą dzierżawców, dla których chcesz zezwolić użytkownikom na dostęp. Wszystkie domeny zarejestrowane za pomocą dzierżawy mogą służyć do identyfikowania dzierżawy na tej liście. Na przykład, aby zezwolić na dostęp zarówno do dzierżaw firmy Contoso, jak i Fabrikam, para nazwa/wartość wygląda następująco: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
 
 - Aby *ograniczyć dostęp do kontekstu*, użyj wartości identyfikatora pojedynczego katalogu, deklarując, który dzierżawca ustawia ograniczenia dzierżawy. Na przykład, aby zadeklarować contoso jako dzierżawcę, który ustawił zasady ograniczeń dzierżawy, para nazwa/wartość będzie wyglądać następująco: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
@@ -113,7 +113,7 @@ Podobnie jak w przypadku innych raportów w Azure Portal, można użyć filtrów
 - **Użytkownik**
 - **Aplikacja**
 - **Stan**
-- **Dniu**
+- **Date**
 - **Data (UTC)** (gdzie UTC jest uniwersalnym czasem koordynowanym)
 - **Metoda auth uwierzytelniania MFA (metoda uwierzytelniania wieloskładnikowego** )
 - **Szczegóły uwierzytelniania MFA (szczegóły uwierzytelniania wieloskładnikowego** )
@@ -155,7 +155,7 @@ Programu Fiddler to bezpłatny serwer proxy debugowania sieci Web, który może 
 
    1. W narzędziu Web Debugger programu Fiddler wybierz menu **reguły** i wybierz polecenie **Dostosuj reguły...** Aby otworzyć plik CustomRules.
 
-   2. Dodaj następujące wiersze na początku `OnBeforeRequest` funkcji. Zastąp \< domenę dzierżawy \> domeną zarejestrowaną w dzierżawie (na przykład `contoso.onmicrosoft.com` ). Zastąp \< Identyfikator katalogu identyfikatorem \> GUID usługi Azure AD Twojej dzierżawy.
+   2. Dodaj następujące wiersze na początku `OnBeforeRequest` funkcji. Zamień \<tenant domain\> na domenę zazarejestrowaną dla dzierżawy (na przykład `contoso.onmicrosoft.com` ). Zamień \<directory ID\> na identyfikator GUID usługi Azure AD Twojej dzierżawy.
 
       ```JScript.NET
       if (
@@ -169,7 +169,7 @@ Programu Fiddler to bezpłatny serwer proxy debugowania sieci Web, który może 
       }
       ```
 
-      Jeśli musisz zezwolić na wiele dzierżawców, użyj przecinka do oddzielenia nazw dzierżawców. Na przykład:
+      Jeśli musisz zezwolić na wiele dzierżawców, użyj przecinka do oddzielenia nazw dzierżawców. Przykład:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

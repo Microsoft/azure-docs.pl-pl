@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38ac6400a882d98c68ea39ae359e20ed237cd5f
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 25c477d0d293e896bc92cd3bd6047135a56cb4ad
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340270"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85105972"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -173,7 +173,7 @@ Zarządza [żądaniami skrytka klienta](https://docs.microsoft.com/office365/adm
 
 Użytkownicy w tej roli mogą zarządzać narzędziami do analizy pulpitu i dostosowywania pakietu Office &ymi usługami zasad. W przypadku usługi Desktop Analytics obejmuje to możliwość wyświetlania spisu zasobów, tworzenia planów wdrażania, wyświetlania stanu wdrożenia i kondycji. Ta rola umożliwia użytkownikom zarządzanie zasadami pakietu Office w przypadku dostosowywania pakietu Office & Policy Service.
 
-### <a name="device-administrator"></a>[Administrator urządzenia](#device-administrators-permissions)
+### <a name="device-administrators"></a>[Administratorzy urządzeń](#device-administrators-permissions)
 
 Ta rola jest dostępna do przypisania tylko jako dodatkowy administrator lokalny w [ustawieniach urządzenia](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Użytkownicy z tą rolą stają się administratorami maszyn lokalnych na wszystkich urządzeniach z systemem Windows 10, które są przyłączone do Azure Active Directory. Nie mają możliwości zarządzania obiektami obiektów w Azure Active Directory.
 
@@ -209,7 +209,7 @@ Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Exchang
 
 ### <a name="external-id-user-flow-administrator"></a>[Administrator przepływu użytkownika z identyfikatorem zewnętrznym](#external-id-user-flow-administrator-permissions)
 
-Użytkownicy z tą rolą mogą tworzyć i zarządzać Przepływy użytkownika B2C (nazywane również zasadami "wbudowanymi") w Azure Portal.Tworząc lub edytując przepływy użytkowników, mogą oni zmienić zawartość HTML/CSS/JavaScript środowiska użytkownika, zmienić wymagania usługi MFA dla przepływu użytkownika, zmienić oświadczenia w tokenie i dostosować ustawienia sesji dla wszystkich zasad w organizacji usługi Azure AD. Z drugiej strony ta rola nie obejmuje możliwości przeglądania danych użytkownika ani wprowadzania zmian w atrybutach, które są zawarte w schemacie organizacji.Zmiany w strukturze środowiska tożsamości (znane również jako niestandardowe) również są poza zakresem tej roli.
+Użytkownicy z tą rolą mogą tworzyć i zarządzać przepływami użytkowników (nazywanymi również zasadami "wbudowanymi") w Azure Portal. Ci użytkownicy mogą dostosowywać zawartość HTML/CSS/JavaScript, zmieniać wymagania usługi MFA, wybierać oświadczenia w tokenie, zarządzać łącznikami interfejsu API i konfigurować ustawienia sesji dla wszystkich przepływów użytkowników w organizacji usługi Azure AD. Z drugiej strony ta rola nie obejmuje możliwości przeglądania danych użytkownika ani wprowadzania zmian w atrybutach, które są zawarte w schemacie organizacji. Zmiany zasad struktury środowiska tożsamości (znanych także jako zasady niestandardowe) również są poza zakresem tej roli.
 
 ### <a name="external-id-user-flow-attribute-administrator"></a>[Administrator atrybutów przepływu użytkownika zewnętrznego ID](#external-id-user-flow-attribute-administrator-permissions)
 
@@ -309,14 +309,14 @@ Użytkownicy w tej roli mogą monitorować wszystkie powiadomienia w centrum wia
 Użytkownicy w tej roli mogą monitorować powiadomienia i aktualizacje kondycji doradców w [centrum komunikatów pakietu Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) dla swojej organizacji na skonfigurowanych usługach, takich jak Exchange, Intune i Microsoft Teams. Czytelnicy centrum wiadomości otrzymują cotygodniowe podsumowanie wiadomości e-mail z ogłoszeń, aktualizacji i mogą udostępniać wpisy centrum wiadomości w pakiecie Office 365. W usłudze Azure AD Użytkownicy przypisani do tej roli będą mieli dostęp tylko do odczytu w ramach usług Azure AD, takich jak użytkownicy i grupy. Ta rola nie ma dostępu do wyświetlania biletów pomocy technicznej, tworzenia ich ani zarządzania nimi.
 
 ### <a name="modern-commerce-administrator"></a>[Nowoczesny administrator handlowy](#modern-commerce-administrator-permissions)
-Nie używaj. Ta rola jest automatycznie przypisana z handlu i nie jest przeznaczona do użycia ani nie jest obsługiwana w żadnym innym przypadku. Szczegółowe informacje można znaleźć poniżej.
+Nie używaj. Ta rola jest automatycznie przypisana z handlu i nie jest przeznaczona do użycia ani nie jest obsługiwana w żadnym innym przypadku. Zobacz szczegóły poniżej.
 
 Rola Administrator nowoczesnego oprogramowania zapewnia określonym użytkownikom uprawnienia dostępu do centrum administracyjnego Microsoft 365 i widzi lewe wpisy nawigacyjne dla **domu**, **rozliczeń**i **pomocy technicznej**. Zawartość dostępna w tych obszarach jest kontrolowana przez [role specyficzne dla handlu](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) , które są przypisane do użytkowników w celu zarządzania produktami zakupionymi dla siebie lub w organizacji. Mogą to być takie zadania, jak płacisz rachunki lub dostęp do kont rozliczeń i profilów rozliczeń. 
 
 Użytkownicy korzystający z nowoczesnej roli administratora handlu zazwyczaj mają uprawnienia administracyjne w innych systemach zakupów firmy Microsoft, ale nie mają ról administratora globalnego lub administratora rozliczeń służących do uzyskiwania dostępu do centrum administracyjnego. 
 
 **Kiedy jest przypisana rola administratora oprogramowania Modern?**
-* Samoobsługowe **kupowanie w Microsoft 365 centrum administracyjnego** — zakup samoobsługowy umożliwia użytkownikom wypróbowanie nowych produktów przez ich zakup lub utworzenie. Te produkty są zarządzane w centrum administracyjnym. Użytkownicy, którzy dokonują zakupu samoobsługowego, mają przypisaną rolę w systemie handlowym oraz nowoczesne role administratora handlu, aby mogli zarządzać zakupami w centrum administracyjnym. Administratorzy mogą blokować zakupy samoobsługowe (w przypadku Power BI, aplikacji zaawansowanych, automatyzacji) za poorednictwem [programu PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące zakupu samoobsługowego](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* Samoobsługowe **kupowanie w Microsoft 365 centrum administracyjnego** — zakup samoobsługowy umożliwia użytkownikom wypróbowanie nowych produktów przez ich zakup lub utworzenie. Te produkty są zarządzane w centrum administracyjnym. Użytkownicy, którzy dokonują zakupu samoobsługowego, mają przypisaną rolę w systemie handlowym oraz nowoczesne role administratora handlu, aby mogli zarządzać zakupami w centrum administracyjnym. Administratorzy mogą blokować zakupy samoobsługowe (w przypadku Power BI, aplikacji zaawansowanych, automatyzacji) za poorednictwem [programu PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Aby uzyskać więcej informacji, zobacz [Zakup samoobsługowy — często zadawane pytania](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
 * **Zakupy od firmy Microsoft komercyjnej Marketplace** — podobnie jak w przypadku zakupu samoobsługowego, gdy użytkownik kupuje produkt lub usługę od Microsoft AppSource lub Azure Marketplace, rola administratora firmy Modern jest przypisywana, jeśli nie ma roli Administrator globalny lub rozliczenia. W niektórych przypadkach użytkownicy mogą mieć zablokowaną możliwość dokonywania tych zakupów. Aby uzyskać więcej informacji, zobacz [Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).   
 * **Propozycje firmy Microsoft** — propozycja jest formalną ofertą oferowaną przez firmę Microsoft w organizacji do kupowania produktów i usług firmy Microsoft. Gdy osoba akceptująca propozycję nie ma roli administratora globalnego lub administratora rozliczeń w usłudze Azure AD, są oni przypisani do roli specyficznej dla handlu, aby dokończyć propozycję i współczesną rolę administratora handlu w celu uzyskania dostępu do centrum administracyjnego. Gdy uzyskują dostęp do centrum administracyjnego, mogą korzystać tylko z funkcji, które są autoryzowane przez ich rolę specyficzną dla danego handlu. 
 * **Role specyficzne dla handlu** — niektórzy użytkownicy mają przypisane role dotyczące handlu. Jeśli użytkownik nie jest administratorem globalnym lub rozliczeniami, uzyska nowoczesne role administratora handlu, aby mogli uzyskać dostęp do centrum administracyjnego.  
@@ -1931,12 +1931,12 @@ Menedżerowie urządzeń | Przestarzałe | [Dokumentacja przestarzałych ról](d
 Użytkownicy urządzeń | Przestarzałe | [Dokumentacja przestarzałych ról](directory-assign-admin-roles.md#deprecated-roles)
 Konta synchronizacji katalogów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja kont synchronizacji katalogów](directory-assign-admin-roles.md#directory-synchronization-accounts)
 Autorzy katalogów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja usługi zapisywania katalogów](directory-assign-admin-roles.md#directory-writers)
-Użytkownik-gość | Niepokazywany, ponieważ nie można go użyć  | NA
+Użytkownik-gość | Niepokazywany, ponieważ nie można go użyć  | Nie dotyczy
 Administrator usługi Lync | Administrator programu Skype dla firm | [Odzwierciedla bieżącą markę produktu](directory-assign-admin-roles.md#role-template-ids)
 Obsługa warstwy 1 dla partnerów | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja dotycząca pomocy technicznej pomoc partnera](directory-assign-admin-roles.md#partner-tier1-support)
 Obsługa warstwy 2 partnera | Niewyświetlane, ponieważ nie powinno być używane | [Dokumentacja dotycząca pomocy technicznej SVR partnera](directory-assign-admin-roles.md#partner-tier2-support)
-Ograniczony użytkownik-Gość | Niepokazywany, ponieważ nie można go użyć | NA
-Użytkownik | Niepokazywany, ponieważ nie można go użyć | NA
+Ograniczony użytkownik-Gość | Niepokazywany, ponieważ nie można go użyć | Nie dotyczy
+Użytkownik | Niepokazywany, ponieważ nie można go użyć | Nie dotyczy
 Dołączanie urządzenia w miejscu pracy | Przestarzałe | [Dokumentacja przestarzałych ról](directory-assign-admin-roles.md#deprecated-roles)
 
 ## <a name="next-steps"></a>Następne kroki

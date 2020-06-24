@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f49061210ca8e3c106b0569f77a67d1f10757a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3578f95bee3e3fdcd774675627ec212c07fb85ef
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183520"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099366"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Samouczek: Dodawanie dostawców tożsamości do aplikacji w Azure Active Directory B2C
 
@@ -26,12 +26,12 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Tworzenie aplikacji dostawcy tożsamości
-> * Dodawanie dostawców tożsamości do dzierżawy
+> * Dodaj dostawców tożsamości do swojej dzierżawy — zarówno w serwisie Facebook, jak i w Azure Active Directory
 > * Dodawanie dostawców tożsamości do przepływu użytkownika
 
 W aplikacjach zwykle używany jest tylko jeden dostawca tożsamości, ale można dodać więcej. W tym samouczku przedstawiono sposób dodawania dostawcy tożsamości usługi Azure AD i dostawcy tożsamości Facebook do aplikacji. Dodawanie obu tych dostawców tożsamości do aplikacji jest opcjonalne. Możesz również dodać innych dostawców tożsamości, takich jak [Amazon](identity-provider-amazon.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), [LinkedIn](identity-provider-linkedin.md), [Microsoft](identity-provider-microsoft-account.md)lub [Twitter](identity-provider-twitter.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -69,24 +69,24 @@ Aby włączyć Logowanie użytkowników z usługi Azure AD, musisz zarejestrowa�
 
 ### <a name="create-a-facebook-application"></a>Tworzenie aplikacji w usłudze Facebook
 
-Aby użyć konta w serwisie Facebook jako dostawcy tożsamości w Azure AD B2C, musisz utworzyć aplikację w serwisie Facebook. Jeśli nie masz jeszcze konta w serwisie Facebook, możesz je uzyskać pod [https://www.facebook.com/](https://www.facebook.com/)adresem.
+Aby użyć konta w serwisie Facebook jako dostawcy tożsamości w Azure AD B2C, musisz utworzyć aplikację w serwisie Facebook. Jeśli nie masz jeszcze konta w serwisie Facebook, możesz je uzyskać pod adresem [https://www.facebook.com/](https://www.facebook.com/) .
 
 1. Zaloguj się do usługi [Facebook dla deweloperów](https://developers.facebook.com/) przy użyciu poświadczeń konta w serwisie Facebook.
 1. Jeśli jeszcze tego nie zrobiono, należy zarejestrować się jako deweloper w serwisie Facebook. W tym celu wybierz pozycję **Rozpocznij** w prawym górnym rogu strony, zaakceptuj zasady serwisu Facebook i wykonaj kroki rejestracji.
 1. Wybierz pozycję **Moje aplikacje** , a następnie **Utwórz aplikację**.
 1. Wprowadź **nazwę wyświetlaną** i prawidłowy **kontaktowy adres e-mail**.
 1. Kliknij pozycję **Utwórz identyfikator aplikacji**. Może to wymagać zaakceptowania zasad platformy Facebook i ukończenia kontroli zabezpieczeń w trybie online.
-1. Wybierz pozycję **Ustawienia** > **podstawowe**.
-1. Wybierz **kategorię**, na przykład `Business and Pages`. Ta wartość jest wymagana przez serwis Facebook, ale nie jest używana przez Azure AD B2C.
+1. Wybierz pozycję **Ustawienia**  >  **podstawowe**.
+1. Wybierz **kategorię**, na przykład `Business and Pages` . Ta wartość jest wymagana przez serwis Facebook, ale nie jest używana przez Azure AD B2C.
 1. W dolnej części strony wybierz pozycję **Dodaj platformę**, a następnie wybierz pozycję **Witryna sieci Web**.
-1. W polu **adres URL witryny** `https://your-tenant-name.b2clogin.com/` wprowadź `your-tenant-name` zamianę na nazwę dzierżawy.
-1. Wprowadź adres URL **zasad zachowania poufności informacji**, na przykład `http://www.contoso.com/`. Adres URL zasad zachowania poufności informacji to strona, którą przechowujesz, aby zapewnić informacje o ochronie prywatności dla aplikacji.
+1. W polu **adres URL witryny**wprowadź `https://your-tenant-name.b2clogin.com/` zamianę na `your-tenant-name` nazwę dzierżawy.
+1. Wprowadź adres URL **zasad zachowania poufności informacji**, na przykład `http://www.contoso.com/` . Adres URL zasad zachowania poufności informacji to strona, którą przechowujesz, aby zapewnić informacje o ochronie prywatności dla aplikacji.
 1. Wybierz pozycję **Zapisz zmiany**.
 1. W górnej części strony Zapisz wartość **identyfikatora aplikacji**.
 1. Obok pozycji **klucz tajny aplikacji**wybierz pozycję **Pokaż** i Zapisz jej wartość. W celu skonfigurowania usługi Facebook jako dostawcy tożsamości w dzierżawie należy użyć identyfikatora aplikacji i klucza tajnego aplikacji. **Klucz tajny aplikacji** to ważne poświadczenie zabezpieczeń, które należy przechowywać w bezpiecznym miejscu.
 1. Wybierz znak plus obok pozycji **produkty**, a następnie w obszarze **Logowanie do serwisu Facebook**wybierz pozycję **Konfiguruj**.
 1. W obszarze **Logowanie do serwisu Facebook** w menu po lewej stronie wybierz pozycję **Ustawienia**.
-1. W **prawidłowych identyfikatorach URI przekierowania OAuth**wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Zamień `your-tenant-name` na nazwę dzierżawy. Wybierz pozycję **Zapisz zmiany** w dolnej części strony.
+1. W **prawidłowych identyfikatorach URI przekierowania OAuth**wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Zamień `your-tenant-name` na nazwę dzierżawy. Wybierz pozycję **Zapisz zmiany** w dolnej części strony.
 1. Aby udostępnić aplikację Facebook Azure AD B2C, kliknij selektor **stanu** w prawym górnym rogu strony i **Włącz go,** aby udostępnić aplikację, a następnie kliknij przycisk **Potwierdź**. W tym momencie stan powinien ulec zmianie z **opracowywania** na na **żywo**.
 
 ## <a name="add-the-identity-providers"></a>Dodawanie dostawców tożsamości
@@ -99,7 +99,7 @@ Po utworzeniu aplikacji dla dostawcy tożsamości, który chcesz dodać, należy
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Wybierz pozycję **dostawcy tożsamości**, a następnie wybierz pozycję **Nowy dostawca połączenia OpenID Connect**.
 1. Wprowadź **nazwę**. Na przykład wprowadź nazwę *contoso Azure AD*.
-1. W polu **adres URL metadanych**wprowadź następujący adres URL `your-AD-tenant-domain` zastępujący nazwą domeny dzierżawy usługi Azure AD:
+1. W polu **adres URL metadanych**wprowadź następujący adres URL zastępujący `your-AD-tenant-domain` nazwą domeny dzierżawy usługi Azure AD:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
@@ -140,11 +140,11 @@ W samouczku, który został ukończony w ramach wymagań wstępnych, został utw
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
 1. Na stronie Przegląd utworzonego przepływu użytkownika wybierz pozycję **Uruchom przepływ użytkownika**.
-1. W przypadku **aplikacji**wybierz aplikację sieci Web o nazwie *webapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany `https://jwt.ms` **adres URL odpowiedzi** .
+1. W przypadku **aplikacji**wybierz aplikację sieci Web o nazwie *webapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Wybierz pozycję **Uruchom przepływ użytkownika**, a następnie zaloguj się przy użyciu wcześniej dodanego dostawcy tożsamości.
 1. Powtórz kroki od 1 do 3 dla innych dostawców tożsamości, które zostały dodane.
 
-Jeśli operacja logowania zakończy się pomyślnie, nastąpi przekierowanie `https://jwt.ms` do, który wyświetla zdekodowany token, podobny do:
+Jeśli operacja logowania zakończy się pomyślnie, nastąpi przekierowanie do, `https://jwt.ms` który wyświetla zdekodowany token, podobny do:
 
 ```json
 {

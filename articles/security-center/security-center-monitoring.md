@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 40352b7ae1f3fb6b1178f2dfe70cdca9871c76b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d18258d62267c931a39947611dda038ff6e65205
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77603774"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718703"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Zwiększanie poziomu bezpieczeństwa za pomocą usługi Azure Security Center
 Ten artykuł pomoże Ci wzmocnić stan zabezpieczeń. Skorzystaj z możliwości monitorowania w Azure Security Center, aby upewnić się, że zabezpieczenia zasobów są tak ścisłe, jak to możliwe, i monitoruj zgodność z zasadami.
@@ -34,7 +34,7 @@ Możesz wyświetlić stan zabezpieczeń zasobów i wszelkie problemy dotyczące 
 - Aby monitorować zasoby sieciowe, takie jak maszyny wirtualne, sieciowe grupy zabezpieczeń i punkty końcowe, i uzyskać zalecenia dotyczące poprawy ich zabezpieczeń, zobacz [Ochrona sieci w Azure Security Center](security-center-network-recommendations.md) , aby uzyskać więcej informacji. 
 - Aby monitorować zasoby danych i magazynu, takie jak serwery SQL i konta magazynu, i uzyskać zalecenia dotyczące poprawy ich zabezpieczeń, zobacz [Ochrona usługi Azure SQL i danych w Azure Security Center](security-center-sql-service-recommendations.md) , aby uzyskać więcej informacji. 
 - Aby monitorować swoje tożsamości i uzyskiwać dostęp do zasobów, w tym uwierzytelnianie MFA i uprawnienia kont, a także uzyskać zalecenia dotyczące poprawy ich zabezpieczeń, zobacz temat [monitorowanie tożsamości i dostępu w Azure Security Center](security-center-identity-access.md) , aby uzyskać więcej informacji. 
-- Aby monitorować dostęp just in Time do zasobów, zobacz [Zarządzanie dostępem do maszyn wirtualnych za pomocą just in Time](security-center-just-in-time.md) , aby uzyskać więcej informacji. 
+- Aby monitorować dostęp just in Time do zasobów, zobacz [Zarządzanie dostępem do maszyn wirtualnych za pomocą just in Time](security-center-just-in-time.md) , aby uzyskać więcej informacji.
 
 
 Więcej informacji dotyczących stosowania zaleceń można znaleźć w temacie [Wdrażanie zaleceń dotyczących zabezpieczeń w usłudze Azure Security Center](security-center-recommendations.md).
@@ -45,7 +45,7 @@ Więcej informacji dotyczących stosowania zaleceń można znaleźć w temacie [
 
 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 W tym artykule przedstawiono sposób korzystania z funkcji monitorowania w usłudze Azure Security Center. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
 
 * [Ustawianie zasad zabezpieczeń w usłudze Azure Security Center](tutorial-security-policy.md) — informacje na temat konfigurowania ustawień zabezpieczeń w usłudze Azure Security Center.

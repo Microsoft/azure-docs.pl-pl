@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: b2a596b71ee7e5f58e01d5bc10b330f6f54a69d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91e251c8274ad85fcb0b3a65a3bdbcc660ceba00
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428669"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85101011"
 ---
 # <a name="assigning-variables-with-synapse-sql"></a>Przypisywanie zmiennych przy użyciu języka SQL Synapse
 
@@ -22,7 +22,7 @@ W tym artykule znajdziesz wskazówki dotyczące przypisywania zmiennych T-SQL za
 
 ## <a name="setting-variables-with-declare"></a>Ustawianie zmiennych przy użyciu deklaracji DECLARE
 
-Zmienne w Synapse SQL są ustawiane przy `DECLARE` użyciu instrukcji lub `SET` instrukcji. Inicjowanie zmiennych przy użyciu deklaracji jest jednym z najbardziej elastycznych sposobów ustawiania wartości zmiennej w Synapse SQL.
+Zmienne w Synapse SQL są ustawiane przy użyciu `DECLARE` instrukcji lub `SET` instrukcji. Inicjowanie zmiennych przy użyciu deklaracji jest jednym z najbardziej elastycznych sposobów ustawiania wartości zmiennej w Synapse SQL.
 
 ```sql
 DECLARE @v  int = 0
@@ -37,7 +37,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-Nie można zainicjować i użyć zmiennej w tej samej instrukcji DECLARE. Aby zilustrować, Poniższy przykład nie jest dozwolony, ponieważ *@p1* jest zainicjowany i używany w tej samej instrukcji DECLARE. Poniższy przykład zawiera błąd.
+Nie można zainicjować i użyć zmiennej w tej samej instrukcji DECLARE. Do zilustrowania Poniższy przykład nie jest dozwolony, ponieważ * \@ P1* jest zarówno zainicjowany, jak i używany w tej samej instrukcji DECLARE. Poniższy przykład zawiera błąd.
 
 ```sql
 DECLARE @p1 int = 0

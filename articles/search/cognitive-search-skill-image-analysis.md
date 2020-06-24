@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 4ff6972e2f7ea219a1c8c8dbabbf9fe12a8fa59e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/17/2020
+ms.openlocfilehash: d535866881fa6ed73b51eb6039baa9d515b770b2
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80369471"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080836"
 ---
 # <a name="image-analysis-cognitive-skill"></a>Umiejętność analizy obrazów
 
@@ -22,7 +22,7 @@ Umiejętność **analizy obrazów** wyodrębnia bogaty zestaw funkcji wizualnych
 > [!NOTE]
 > Małe woluminy (w ramach 20 transakcji) można bezpłatnie wykonywać na platformie Azure Wyszukiwanie poznawcze, ale większe obciążenia wymagają [dołączenia zasobu Cognitive Services do rozliczenia](cognitive-search-attach-cognitive-services.md). Opłaty naliczane podczas wywoływania interfejsów API w Cognitive Services oraz do wyodrębniania obrazów w ramach etapu łamania dokumentu w usłudze Azure Wyszukiwanie poznawcze. Nie są naliczane opłaty za Wyodrębnianie tekstu z dokumentów.
 >
-> Do wykonania wbudowanych umiejętności są naliczane opłaty za istniejące [Cognitive Services cena płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem. Cennik wyodrębniania obrazów został opisany na [stronie cennika usługi Azure wyszukiwanie poznawcze](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Do wykonania wbudowanych umiejętności są naliczane opłaty za istniejące [Cognitive Services cena płatność zgodnie z rzeczywistym](https://azure.microsoft.com/pricing/details/cognitive-services/)użyciem. Cennik wyodrębniania obrazów został opisany na [stronie cennika usługi Azure wyszukiwanie poznawcze](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -34,15 +34,15 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 | Nazwa parametru     | Opis |
 |--------------------|-------------|
-| defaultLanguageCode   |  Ciąg wskazujący język, który ma zostać zwrócony. Usługa zwraca wyniki rozpoznawania w określonym języku. Jeśli ten parametr nie jest określony, wartością domyślną jest "en". <br/><br/>Obsługiwane są następujące języki: <br/>*pl* — angielski (wartość domyślna) <br/> *es* — hiszpański <br/> *ja* — japoński <br/> *pt* — portugalski <br/> *zh* — chiński uproszczony|
-| visualFeatures |  Tablica ciągów wskazująca typy funkcji wizualizacji do zwrócenia. Prawidłowe typy funkcji wizualizacji to:  <ul><li>*osoba dorosła* — wykrywa, czy obraz jest pornograficznej z natury (przedstawia nagość lub akt płci), czy też jest gorii (przedstawia skrajną przemoc lub krew). Wykryto również zawartość z sugestią seksualną (alias erotycznej Content).</li><li>*marki* — wykrywa różne marki w obrazie, w tym przybliżoną lokalizację. Funkcja wizualizacji *marek* jest dostępna tylko w języku angielskim.</li><li> *Kategorie* — klasyfikuje zawartość obrazu zgodnie z taksonomią zdefiniowaną w [dokumentacji przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)Cognitive Services. </li><li>*Opis* — zawiera opis zawartości obrazu z kompletnymi zdaniami w obsługiwanych językach.</li><li>*twarze* — wykrywa, czy twarze są obecne. Jeśli jest obecny, program generuje współrzędne, płeć i wiek.</li><li> *obiekty* — wykrywa różne obiekty w obrazie, w tym przybliżoną lokalizację. Funkcja wizualizacji *obiektów* jest dostępna tylko w języku angielskim.</li><li> *znaczniki* — znaczniki obrazu ze szczegółową listą wyrazów związanych z zawartością obrazu.</li></ul> Nazwy funkcji wizualnych są rozróżniane wielkości liter. Należy zauważyć, że funkcje wizualne *Color* i *ImageType* zostały wycofane, ale dostęp do tej funkcji można uzyskać za pośrednictwem [niestandardowej umiejętności](https://go.microsoft.com/fwlink/?linkid=2121117).|
-| uzyskać   | Tablica ciągów wskazująca, które szczegóły dotyczące domeny mają być zwracane. Prawidłowe typy funkcji wizualizacji to: <ul><li>*osobistości* — identyfikuje osobistości, jeśli został wykryty w obrazie.</li><li>*punkty orientacyjne* — wskazuje punkty orientacyjne, jeśli zostały wykryte na obrazie. </li></ul> |
+| `defaultLanguageCode` |  Ciąg wskazujący język, który ma zostać zwrócony. Usługa zwraca wyniki rozpoznawania w określonym języku. Jeśli ten parametr nie jest określony, wartością domyślną jest "en". <br/><br/>Obsługiwane są następujące języki: <br/>*pl* — angielski (wartość domyślna) <br/> *es* — hiszpański <br/> *ja* — japoński <br/> *pt* — portugalski <br/> *zh* — chiński uproszczony|
+| `visualFeatures` |    Tablica ciągów wskazująca typy funkcji wizualizacji do zwrócenia. Prawidłowe typy funkcji wizualizacji to:  <ul><li>*osoba dorosła* — wykrywa, czy obraz jest pornograficznej z natury (przedstawia nagość lub akt płci), czy też jest gorii (przedstawia skrajną przemoc lub krew). Wykryto również zawartość z sugestią seksualną (znaną również jako zawartość erotycznej).</li><li>*marki* — wykrywa różne marki w obrazie, w tym przybliżoną lokalizację. Funkcja wizualizacji *marek* jest dostępna tylko w języku angielskim.</li><li> *Kategorie* — klasyfikuje zawartość obrazu zgodnie z taksonomią zdefiniowaną w [dokumentacji przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)Cognitive Services. </li><li>*Opis* — zawiera opis zawartości obrazu z kompletnymi zdaniami w obsługiwanych językach.</li><li>*twarze* — wykrywa, czy twarze są obecne. Jeśli jest obecny, program generuje współrzędne, płeć i wiek.</li><li>   *obiekty* — wykrywa różne obiekty w obrazie, w tym przybliżoną lokalizację. Funkcja wizualizacji *obiektów* jest dostępna tylko w języku angielskim.</li><li> *znaczniki* — znaczniki obrazu ze szczegółową listą wyrazów związanych z zawartością obrazu.</li></ul> Nazwy funkcji wizualnych są rozróżniane wielkości liter. Należy zauważyć, że funkcje wizualne *Color* i *ImageType* zostały wycofane, ale dostęp do tej funkcji można uzyskać za pośrednictwem [niestandardowej umiejętności](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface).|
+| `details` | Tablica ciągów wskazująca, które szczegóły dotyczące domeny mają być zwracane. Prawidłowe typy funkcji wizualizacji to: <ul><li>*osobistości* — identyfikuje osobistości, jeśli został wykryty w obrazie.</li><li>*punkty orientacyjne* — wskazuje punkty orientacyjne, jeśli zostały wykryte na obrazie. </li></ul> |
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
 | Nazwa wejściowa      | Opis                                          |
 |---------------|------------------------------------------------------|
-| image         | Typ złożony. Obecnie działa tylko z polem "/Document/normalized_images" tworzonym przez indeksator usługi Azure Blob, gdy ```imageAction``` jest ustawiony na wartość inną niż ```none```. Zobacz [przykład](#sample-output) , aby uzyskać więcej informacji.|
+| `image`         | Typ złożony. Obecnie działa tylko z polem "/Document/normalized_images" tworzonym przez indeksator usługi Azure Blob, gdy ```imageAction``` jest ustawiony na wartość inną niż ```none``` . Zobacz [przykład](#sample-output) , aby uzyskać więcej informacji.|
 
 
 
@@ -514,15 +514,15 @@ W następujących przypadkach błędów nie są wyodrębniane żadne elementy.
 
 | Kod błędu | Opis |
 |------------|-------------|
-| NotSupportedLanguage | Podany język nie jest obsługiwany. |
-| InvalidImageUrl | Adres URL obrazu jest nieprawidłowo sformatowany lub nie jest dostępny.|
-| InvalidImageFormat | Dane wejściowe nie są prawidłowym obrazem. |
-| InvalidImageSize | Obraz wejściowy jest zbyt duży. |
-| NotSupportedVisualFeature  | Określony typ funkcji jest nieprawidłowy. |
-| NotSupportedImage | Nieobsługiwany obraz, na przykład pornografia podrzędna. |
-| InvalidDetails | Nieobsługiwany model specyficzny dla domeny. |
+| `NotSupportedLanguage` | Podany język nie jest obsługiwany. |
+| `InvalidImageUrl` | Adres URL obrazu jest nieprawidłowo sformatowany lub nie jest dostępny.|
+| `InvalidImageFormat` | Dane wejściowe nie są prawidłowym obrazem. |
+| `InvalidImageSize` | Obraz wejściowy jest zbyt duży. |
+| `NotSupportedVisualFeature`  | Określony typ funkcji jest nieprawidłowy. |
+| `NotSupportedImage` | Nieobsługiwany obraz, na przykład pornografia podrzędna. |
+| `InvalidDetails` | Nieobsługiwany model specyficzny dla domeny. |
 
-Jeśli zostanie wyświetlony błąd podobny do `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"`, sprawdź ścieżkę. Zarówno osobistości, jak i punkty orientacyjne `detail`są właściwościami poniżej.
+Jeśli zostanie wyświetlony błąd podobny do `"One or more skills are invalid. Details: Error in skill #<num>: Outputs are not supported by skill: Landmarks"` , sprawdź ścieżkę. Zarówno osobistości, jak i punkty orientacyjne są właściwościami poniżej `detail` .
 
 ```json
 "categories":[  
@@ -538,7 +538,7 @@ Jeśli zostanie wyświetlony błąd podobny do `"One or more skills are invalid.
             ]
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

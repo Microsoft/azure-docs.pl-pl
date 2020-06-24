@@ -4,12 +4,12 @@ description: Dowiedz się, jak zabezpieczyć klaster przy użyciu zakresu adres�
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 45f82d5a6531b2a9584140d6ff309a799656926a
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 4d9030e21c3b8f31c18c26fc54dc76d5b8d84a17
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299574"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100063"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Bezpieczny dostęp do serwera interfejsu API za pomocą zakresów autoryzowanych adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -22,7 +22,7 @@ W tym artykule pokazano, jak używać zakresów adresów IP autoryzowanych przez
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Zakres adresów IP autoryzowanych przez serwer API działa tylko w przypadku nowych klastrów AKS utworzonych przez Ciebie. W tym artykule opisano sposób tworzenia klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure.
+W tym artykule opisano sposób tworzenia klastra AKS przy użyciu interfejsu wiersza polecenia platformy Azure.
 
 Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
@@ -30,16 +30,16 @@ Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.76 lub no
 
 Serwer interfejsu API Kubernetes to sposób ujawniania podstawowych interfejsów API Kubernetes. Ten składnik zapewnia interakcję z narzędziami do zarządzania, takimi jak `kubectl` lub pulpitem nawigacyjnym Kubernetes. AKS zapewnia jednodostępny wzorzec klastra z dedykowanym serwerem interfejsu API. Domyślnie serwer interfejsu API ma przypisany publiczny adres IP i należy kontrolować dostęp przy użyciu kontroli dostępu opartej na rolach (RBAC).
 
-Aby zabezpieczyć dostęp do dostępnego publicznie AKS kontroli/serwera interfejsu API, można włączyć i używać autoryzowanych zakresów adresów IP. Te autoryzowane zakresy adresów IP zezwalają na komunikowanie się z serwerem interfejsu API tylko zdefiniowanym zakresom IP. Żądanie wysłane do serwera interfejsu API z adresu IP, który nie jest częścią tych autoryzowanych zakresów adresów IP, jest blokowane. Kontynuuj używanie RBAC, aby autoryzować użytkowników i akcje, które żądają.
+Aby zabezpieczyć dostęp do dostępnego publicznie AKS kontroli/serwera interfejsu API, można włączyć i używać autoryzowanych zakresów adresów IP. Te autoryzowane zakresy adresów IP zezwalają na komunikowanie się z serwerem interfejsu API tylko zdefiniowanym zakresom IP. Żądanie wysłane do serwera interfejsu API z adresu IP, który nie należy do tych autoryzowanych zakresów adresów IP, jest blokowane. Kontynuuj używanie RBAC, aby autoryzować użytkowników i akcje, które żądają.
 
 Aby uzyskać więcej informacji na temat serwera interfejsu API i innych składników klastra, zobacz [Kubernetes podstawowe pojęcia dotyczące AKS][concepts-clusters-workloads].
 
 ## <a name="create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled"></a>Tworzenie klastra AKS z włączonymi zakresami adresów IP autoryzowanych przez serwer interfejsu API
 
-Dozwolone zakresy adresów IP serwera interfejsu API działają tylko w przypadku nowych klastrów AKS i nie są obsługiwane w przypadku prywatnych klastrów AKS. Utwórz klaster, używając polecenia [AZ AKS Create][az-aks-create] i określ parametr *--API-Server-autoryzowane-IP-Ranges* , aby podać listę autoryzowanych zakresów adresów IP. Te zakresy adresów IP są zwykle zakresami adresów używanymi przez sieci lokalne lub publiczne adresy IP. Po określeniu zakresu CIDR, należy zacząć od pierwszego adresu IP z zakresu. Na przykład *137.117.106.90/29* jest prawidłowym zakresem, ale należy określić pierwszy adres IP z zakresu, na przykład *137.117.106.88/29*.
+Dozwolone zakresy adresów IP serwera interfejsu API działają tylko w przypadku nowych klastrów AKS i nie są obsługiwane w przypadku prywatnych klastrów AKS. Utwórz klaster przy użyciu polecenia [AZ AKS Create][az-aks-create] i określ *`--api-server-authorized-ip-ranges`* parametr, aby podać listę autoryzowanych zakresów adresów IP. Te zakresy adresów IP są zwykle zakresami adresów używanymi przez sieci lokalne lub publiczne adresy IP. Po określeniu zakresu CIDR, należy zacząć od pierwszego adresu IP z zakresu. Na przykład *137.117.106.90/29* jest prawidłowym zakresem, ale należy określić pierwszy adres IP z zakresu, na przykład *137.117.106.88/29*.
 
 > [!IMPORTANT]
-> Domyślnie klaster używa usługi [równoważenia obciążenia standardowej jednostki SKU][standard-sku-lb] , której można użyć do skonfigurowania bramy wychodzącej. W przypadku włączenia zakresów adresów IP autoryzowanych przez serwer interfejsu API podczas tworzenia klastra publiczny adres IP dla klastra jest również Domyślnie dozwolony jako dodatek do określonych zakresów. Jeśli określisz wartość *""* lub nie określono wartości parametru *--API-Server-autoryzowane-IP-Ranges*, dozwolone zakresy adresów IP serwera interfejsu API zostaną wyłączone. Należy pamiętać, że jeśli używasz programu PowerShell, użyj polecenia *--API-Server-autoryzowane-IP-Ranges = ""* (ze znakiem równości), aby uniknąć problemów z analizowaniem.
+> Domyślnie klaster używa usługi [równoważenia obciążenia standardowej jednostki SKU][standard-sku-lb] , której można użyć do skonfigurowania bramy wychodzącej. W przypadku włączenia zakresów adresów IP autoryzowanych przez serwer interfejsu API podczas tworzenia klastra publiczny adres IP dla klastra jest również Domyślnie dozwolony jako dodatek do określonych zakresów. Jeśli określisz *""* lub nie wartość dla *`--api-server-authorized-ip-ranges`* , dozwolone zakresy adresów IP serwera interfejsu API zostaną wyłączone. Należy pamiętać, że jeśli używasz programu PowerShell, użyj polecenia *`--api-server-authorized-ip-ranges=""`* (z znakiem równości), aby uniknąć problemów z analizowaniem.
 
 W poniższym przykładzie jest tworzony klaster z jednym węzłem o nazwie *myAKSCluster* w grupie zasobów o nazwie Moje *zasoby* z włączonymi zakresami adresów IP autoryzowanego serwera interfejsu API. Dozwolone zakresy adresów IP to *73.140.245.0/24*:
 
@@ -64,7 +64,7 @@ az aks create \
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Określ wychodzące adresy IP dla usługi równoważenia obciążenia standardowej jednostki SKU
 
-W przypadku tworzenia klastra AKS, jeśli określono wychodzące adresy IP lub prefiksy dla klastra, dozwolone są również te adresy lub prefiksy. Na przykład:
+W przypadku tworzenia klastra AKS, jeśli określono wychodzące adresy IP lub prefiksy dla klastra, dozwolone są również te adresy lub prefiksy. Przykład:
 
 ```azurecli-interactive
 az aks create \
@@ -78,13 +78,13 @@ az aks create \
     --generate-ssh-keys
 ```
 
-W powyższym przykładzie wszystkie adresy IP podane w parametrze *--load-module-wychodzące-IP-prefiksy* są dozwolone wraz z adresami IP w parametrze *--API-Server-autoryzowanych adresów IP* .
+W powyższym przykładzie wszystkie adresy IP podane w parametrze *`--load-balancer-outbound-ip-prefixes`* są dozwolone wraz z adresami IP w *`--api-server-authorized-ip-ranges`* parametrze.
 
-Alternatywnie można określić parametr *--Load-wychodzący-IP-reprefixs* , aby zezwolić na wychodzące PREFIKSY protokołu IP modułu równoważenia obciążenia.
+Alternatywnie możesz określić *`--load-balancer-outbound-ip-prefixes`* parametr, aby zezwolić na wychodzące prefiksy IP modułu równoważenia obciążenia.
 
 ### <a name="allow-only-the-outbound-public-ip-of-the-standard-sku-load-balancer"></a>Zezwalaj tylko na wychodzący publiczny adres IP usługi równoważenia obciążenia standardowej jednostki SKU
 
-Po włączeniu zakresów adresów IP autoryzowanych przez serwer interfejsu API podczas tworzenia klastra, publiczny adres IP dla usługi równoważenia obciążenia w warstwie Standardowa jest również Domyślnie dozwolony jako dodatek do określonych zakresów. Aby zezwolić na wychodzący publiczny adres IP standardowego modułu równoważenia obciążenia jednostki SKU, użyj wartości *0.0.0.0/32* podczas określania parametru *--API-Server-autoryzowane-IP-Ranges* .
+Po włączeniu zakresów adresów IP autoryzowanych przez serwer interfejsu API podczas tworzenia klastra, publiczny adres IP dla usługi równoważenia obciążenia w warstwie Standardowa jest również Domyślnie dozwolony jako dodatek do określonych zakresów. Aby zezwolić na wychodzący publiczny adres IP standardowego modułu równoważenia obciążenia jednostki SKU, użyj wartości *0.0.0.0/32* podczas określania *`--api-server-authorized-ip-ranges`* parametru.
 
 W poniższym przykładzie dozwolony jest tylko wychodzący publiczny adres IP usługi równoważenia obciążenia standardowej jednostki SKU i dostęp do serwera interfejsu API można uzyskać tylko z węzłów w klastrze.
 
@@ -101,7 +101,7 @@ az aks create \
 
 ## <a name="update-a-clusters-api-server-authorized-ip-ranges"></a>Aktualizowanie zakresów adresów IP autoryzowanych serwerów interfejsu API klastra
 
-Aby zaktualizować zakres adresów IP autoryzowanych przez serwer interfejsu API w istniejącym klastrze, użyj polecenia [AZ AKS Update][az-aks-update] i użyj parametru *--API-Server-autoryzowane-IP-Ranges* *--Load-Zrównoważ*-wychodzące-IP-Red *--* *load-module*
+Aby zaktualizować zakres adresów IP autoryzowanych przez serwer interfejsu API w istniejącym klastrze, użyj polecenia [AZ AKS Update][az-aks-update] i wykorzystaj *`--api-server-authorized-ip-ranges`* Parametry,--równoważenia obciążenia-wychodzące-IP-Red-* *`--load-balancer-outbound-ips`* -Load-wychodzącego-IP* .
 
 Poniższy przykład aktualizuje zakresy dozwolonych adresów IP serwera interfejsu API w klastrze o nazwie *myAKSCluster* w grupie zasobów o nazwie Moja *resourceName*. Zakres adresów IP do autoryzacji to *73.140.245.0/24*:
 
@@ -112,11 +112,11 @@ az aks update \
     --api-server-authorized-ip-ranges  73.140.245.0/24
 ```
 
-Można również użyć wartości *0.0.0.0/32* podczas określania parametru *--API-Server-autoryzowane-IP-Ranges* , aby zezwalać tylko na publiczny adres IP usługi równoważenia obciążenia w warstwie Standardowa.
+Można również użyć *0.0.0.0/32* podczas określania parametru, *`--api-server-authorized-ip-ranges`* aby zezwalać tylko na publiczny adres IP standardowego modułu równoważenia obciążenia jednostki SKU.
 
 ## <a name="disable-authorized-ip-ranges"></a>Wyłącz autoryzowane zakresy adresów IP
 
-Aby wyłączyć autoryzowane zakresy adresów IP, użyj [AZ AKS Update][az-aks-update] i określ pusty zakres, aby wyłączyć autoryzowane zakresy adresów IP serwera interfejsu API. Na przykład:
+Aby wyłączyć autoryzowane zakresy adresów IP, użyj [AZ AKS Update][az-aks-update] i określ pusty zakres, aby wyłączyć autoryzowane zakresy adresów IP serwera interfejsu API. Przykład:
 
 ```azurecli-interactive
 az aks update \

@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 59ef47ac67955ef5b9b7cb51ae6f39a9e0d30c3b
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 5862a446b1522926f8241959d5e1cff66e4da06b
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84634937"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079392"
 ---
 # <a name="quickstart-create-a-search-index-in-net"></a>Szybki Start: Tworzenie indeksu wyszukiwania w programie .NET
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [Portal](search-get-started-portal.md)
-> * [Program PowerShell](search-create-index-rest-api.md)
+> * [PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 >*
 
-Tworzenie aplikacji konsolowej .NET Core w języku C#, która tworzy i ładuje indeks Wyszukiwanie poznawcze platformy Azure oraz wysyła do niego zapytanie przy użyciu programu Visual Studio i [zestawu azure wyszukiwanie poznawcze .NET SDK](https://aka.ms/search-sdk). 
+Tworzenie aplikacji konsolowej .NET Core w języku C#, która tworzy i ładuje indeks Wyszukiwanie poznawcze platformy Azure oraz wysyła do niego zapytanie przy użyciu programu Visual Studio i [zestawu azure wyszukiwanie poznawcze .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). 
 
 W tym artykule opisano sposób tworzenia aplikacji krok po kroku. Możesz również [pobrać i uruchomić kompletną aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart) , jeśli chcesz przejść do kodu.
 
@@ -64,7 +64,7 @@ Zacznij od otwierania programu Visual Studio i tworzenia nowego projektu aplikac
 
 ### <a name="install-nuget-packages"></a>Instalowanie pakietów NuGet
 
-[Zestaw Azure wyszukiwanie poznawcze .NET SDK](https://aka.ms/search-sdk) składa się z kilku bibliotek klienckich dystrybuowanych jako pakiety NuGet.
+[Zestaw Azure wyszukiwanie poznawcze .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) składa się z kilku bibliotek klienckich dystrybuowanych jako pakiety NuGet.
 
 Dla tego projektu należy użyć wersji 9 `Microsoft.Azure.Search` pakietu NuGet i najnowszego `Microsoft.Extensions.Configuration.Json` pakietu NuGet.
 
@@ -85,9 +85,9 @@ Dla tego projektu należy użyć wersji 9 `Microsoft.Azure.Search` pakietu NuGet
 
 1. W obszarze Dodaj nowy element Wyszukaj ciąg "JSON", aby zwrócić listę typów elementów związanych ze standardem JSON.
 
-1. Wybierz **plik JSON**, Nazwij plik "appSettings. JSON", a następnie kliknij przycisk **Dodaj**. 
+1. Wybierz **plik JSON**, Nazwij plik "appsettings.json", a następnie kliknij przycisk **Dodaj**. 
 
-1. Dodaj plik do katalogu wyjściowego. Kliknij prawym przyciskiem myszy plik appSettings. JSON i wybierz polecenie **Właściwości**. W obszarze **Kopiuj do katalogu wyjściowego**wybierz opcję **Kopiuj, jeśli nowszy**.
+1. Dodaj plik do katalogu wyjściowego. Kliknij prawym przyciskiem myszy appsettings.jsna i wybierz pozycję **Właściwości**. W obszarze **Kopiuj do katalogu wyjściowego**wybierz opcję **Kopiuj, jeśli nowszy**.
 
 1. Skopiuj poniższy kod JSON do nowego pliku JSON. 
 
@@ -204,7 +204,7 @@ Indeks hoteli zawiera proste i złożone pola, w których proste pole to "Hoteln
 
     W tym indeksie pola Description używają [`analyzer`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.analyzer?view=azure-dotnet) Właściwości opcjonalne, określonej podczas przesłonięcia domyślnego standardowego analizatora Lucene. W `description_fr` polu jest używany francuski Analizator Luces ([FrLucene](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.frlucene?view=azure-dotnet)), ponieważ zawiera on tekst w języku francuskim. `description`Używa opcjonalnego narzędzia Microsoft Language Analyzer ([EnMicrosoft](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername.enmicrosoft?view=azure-dotnet)).
 
-1. W Program.cs Utwórz wystąpienie [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) klasy w celu nawiązania połączenia z usługą przy użyciu wartości przechowywanych w pliku konfiguracyjnym aplikacji (appSettings. JSON). 
+1. W Program.cs Utwórz wystąpienie [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) klasy w celu nawiązania połączenia z usługą przy użyciu wartości, które są przechowywane w pliku konfiguracyjnym aplikacji (appsettings.json). 
 
    `SearchServiceClient`ma [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) Właściwość, dostarczając wszystkie metody, które są potrzebne do tworzenia, wyświetlania, aktualizowania lub usuwania indeksów wyszukiwanie poznawcze platformy Azure. 
 
@@ -551,7 +551,7 @@ W tej sekcji dodano dwie elementy funkcjonalności: Logika zapytań i wyniki. W 
 
     Dane wyjściowe zawierają te same wiadomości jak wcześniej, z dodaniem informacji o zapytaniu i wyników.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 

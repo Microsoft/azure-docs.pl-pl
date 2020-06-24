@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/12/2020
 ms.author: memildin
-ms.openlocfilehash: 16c2669dbb0a483a00d093871dfeeed65c5f9f20
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: e0988c60629cab2c6d7312e5067c31153b24e2dc
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669787"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688725"
 ---
 # <a name="permissions-in-azure-security-center"></a>Uprawnienia w usłudze Azure Security Center
 
@@ -44,7 +44,7 @@ W poniższej tabeli przedstawiono role i dozwolone akcje w Security Center.
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Edytuj zasady zabezpieczeń|-|✔|-|-|✔|
 |Zmień warstwę cenową subskrypcji|-|✔|-|-|✔|
-|Włącz/Wyłącz funkcję autoaprowizacji|-|✔|-|-|✔|
+|Włącz/Wyłącz funkcję autoaprowizacji|-|✔|✔|-|✔|
 |Stosowanie zaleceń dotyczących zabezpieczeń dla zasobu</br> (i Użyj [szybkiej poprawki!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Odrzuć alerty|-|✔|-|✔|✔|
 |Wyświetlanie alertów i zaleceń|✔|✔|✔|✔|✔|

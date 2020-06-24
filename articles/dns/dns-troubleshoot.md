@@ -4,15 +4,15 @@ description: W tej ścieżce szkoleniowej Rozpocznij Rozwiązywanie typowych pro
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
-ms.openlocfilehash: 27d192a50a13437b755e7cc0db8a7dbcc4fee2f5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: a63a0c1e0044f5dcd6babb4941e1f4409404cdd2
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833402"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711191"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów Azure DNS
 

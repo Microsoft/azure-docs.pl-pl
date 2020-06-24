@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 3/18/2020
-ms.openlocfilehash: 3098ca0d3d5e41c298d3058ffa84fcf129648281
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/10/2020
+ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399482"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730151"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Przyrostowe kopiowanie nowych i zmienionych plików na podstawie LastModifiedDate przy użyciu narzędzia Kopiowanie danych
 
@@ -25,7 +25,7 @@ ms.locfileid: "81399482"
 
 W tym samouczku utworzysz fabrykę danych za pomocą Azure Portal. Następnie użyjesz narzędzia Kopiowanie danych, aby utworzyć potok, który przyrostowo kopiuje nowe i zmienione pliki, z usługi Azure Blob Storage do usługi Azure Blob Storage. Używa `LastModifiedDate` do określenia plików do skopiowania.
 
-Po wykonaniu tych czynności Azure Data Factory przeskanuje wszystkie pliki w magazynie źródłowym, zastosuje filtr plików według `LastModifiedDate`i skopiuje do plików tylko do magazynu docelowego, które są nowe lub zostały zaktualizowane od ostatniego czasu. Należy pamiętać, że jeśli Data Factory skanuje dużą liczbę plików, nadal powinny oczekiwać długotrwałych czasów trwania. Skanowanie plików jest czasochłonne, nawet w przypadku zmniejszenia ilości kopiowanych danych.
+Po wykonaniu tych czynności Azure Data Factory przeskanuje wszystkie pliki w magazynie źródłowym, zastosuje filtr plików według `LastModifiedDate` i skopiuje do plików tylko do magazynu docelowego, które są nowe lub zostały zaktualizowane od ostatniego czasu. Należy pamiętać, że jeśli Data Factory skanuje dużą liczbę plików, nadal powinny oczekiwać długotrwałych czasów trwania. Skanowanie plików jest czasochłonne, nawet w przypadku zmniejszenia ilości kopiowanych danych.
 
 > [!NOTE]
 > Jeśli jesteś nowym użytkownikiem usługi Data Factory, zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md).
@@ -52,7 +52,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. W okienku po lewej stronie wybierz pozycję **Utwórz zasób**. Wybierz**Data Factory** **analityczne** > :
+1. W okienku po lewej stronie wybierz pozycję **Utwórz zasób**. Wybierz **Data Factory analityczne**  >  **Data Factory**:
 
    ![Wybierz Data Factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -96,7 +96,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     d. W obszarze **cykl**wprowadź **15 minut**.
 
-    e. Wybierz pozycję **Dalej**.
+    e. Wybierz przycisk **Dalej**.
 
     Data Factory tworzy potok o określonej nazwie zadania.
 
@@ -136,7 +136,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     ![Wybieranie pliku lub folderu wyjściowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 
-    b. Wybierz pozycję **Dalej**.
+    b. Wybierz przycisk **Dalej**.
 
 7. Na stronie **Ustawienia** wybierz przycisk **Dalej**.
 
@@ -150,7 +150,7 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
 10. Zwróć uwagę, że karta **Monitor** po lewej stronie jest automatycznie wybrana. Aplikacja przełączy się na kartę **monitorowanie** . Zobaczysz stan potoku. Wybierz pozycję **Odśwież**, aby odświeżyć listę. Wybierz link pod **nazwą potoku** , aby wyświetlić szczegóły uruchomienia działania lub ponownie uruchomić potok.
 
-    ![Odśwież listę i Wyświetl szczegóły uruchomienia działania](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
+    ![Odśwież listę i Wyświetl szczegóły uruchomienia działania](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs-1.png)
 
 11. W potoku jest tylko jedno działanie (działanie kopiowania), więc zobaczysz tylko jeden wpis. Aby uzyskać szczegółowe informacje na temat operacji kopiowania, wybierz link **szczegóły** (ikona okularów) w kolumnie **Nazwa działania** . Aby uzyskać szczegółowe informacje na temat właściwości, zobacz [Omówienie działania kopiowania](copy-activity-overview.md).
 
@@ -160,23 +160,21 @@ Przygotuj magazyn obiektów BLOB dla tego samouczka, wykonując następujące cz
 
     ![Brak plików w kontenerze źródłowym lub kontenerze docelowym](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
 
-12. Utwórz pusty plik tekstowy i nadaj mu nazwę **plik1. txt**. Przekaż ten plik tekstowy do kontenera źródłowego na koncie magazynu. Do wykonywania tych zadań można użyć różnych narzędzi, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
+12. Utwórz pusty plik tekstowy i nadaj mu nazwę **file1.txt**. Przekaż ten plik tekstowy do kontenera źródłowego na koncie magazynu. Do wykonywania tych zadań można użyć różnych narzędzi, takich jak [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
-    ![Utwórz plik plik1. txt i przekaż go do kontenera źródłowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
+    ![Utwórz file1.txt i przekaż go do kontenera źródłowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
 13. Aby powrócić do widoku **uruchomienia potoków** , zaznacz **wszystkie uruchomienia potoków**i poczekaj na ponowne wyzwolenie tego samego potoku.  
 
-    ![Zaznacz wszystkie uruchomienia potoków](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
-
 14. Po zakończeniu drugiego przebiegu potoku wykonaj powyższe same kroki, aby przejrzeć szczegóły uruchomienia działania.  
 
-    Zobaczysz, że jeden plik (plik1. txt) został skopiowany z kontenera źródłowego do docelowego kontenera konta usługi BLOB Storage:
+    Zobaczysz, że jeden plik (file1.txt) został skopiowany z kontenera źródłowego do docelowego kontenera konta usługi BLOB Storage:
 
-    ![plik1. txt skopiowano z kontenera źródłowego do kontenera docelowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
+    ![file1.txt skopiowano z kontenera źródłowego do kontenera docelowego](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
 
-15. Utwórz kolejny pusty plik tekstowy i nadaj mu nazwę **plik2. txt**. Przekaż ten plik tekstowy do kontenera źródłowego na koncie magazynu obiektów BLOB.
+15. Utwórz kolejny pusty plik tekstowy i nadaj mu nazwę **file2.txt**. Przekaż ten plik tekstowy do kontenera źródłowego na koncie magazynu obiektów BLOB.
 
-16. Powtórz kroki od 13 do 14 dla drugiego pliku tekstowego. Zobaczysz, że tylko nowy plik (plik2. txt) został skopiowany z kontenera źródłowego do docelowego kontenera konta magazynu podczas tego uruchomienia potoku.  
+16. Powtórz kroki od 13 do 14 dla drugiego pliku tekstowego. Zobaczysz, że tylko nowy plik (file2.txt) został skopiowany z kontenera źródłowego do docelowego kontenera konta magazynu podczas tego uruchomienia potoku.  
 
     Można również sprawdzić, czy tylko jeden plik został skopiowany przy użyciu [Eksplorator usługi Azure Storage](https://storageexplorer.com/) do skanowania plików:
 

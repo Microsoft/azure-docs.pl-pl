@@ -1,5 +1,5 @@
 ---
-title: Instance Metadata Service platformy Azure
+title: Azure Instance Metadata Service
 description: Interfejs RESTful, aby uzyskać informacje na temat obliczeniowych, sieciowych i nadchodzących zdarzeń konserwacyjnych maszyn wirtualnych.
 services: virtual-machines
 author: KumariSupriya
@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 5338f8b29f2328cec02e44185903eb2581226eff
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 195d9f6da88639cc3b4299519e90bf682bc743d9
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84635275"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888590"
 ---
 # <a name="azure-instance-metadata-service"></a>Usługa metadanych wystąpienia platformy Azure
 
@@ -187,7 +187,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri "http://169.254
 > [!NOTE]
 > W przypadku węzłów liści w/Metadata/instance `format=json` nie działa. Dla tych zapytań `format=text` należy jawnie określić, ponieważ format domyślny to JSON.
 
-### <a name="versioning"></a>Przechowywanie wersji
+### <a name="versioning"></a>Obsługa wersji
 
 Instance Metadata Service ma wersję, a określenie wersji interfejsu API w żądaniu HTTP jest obowiązkowe.
 
@@ -858,6 +858,55 @@ Błąd usługi 500     | Ponów próbę za jakiś czas
    * Obecnie Tagi dla zestawów skalowania są widoczne tylko dla maszyny wirtualnej po ponownym uruchomieniu, odniesieniu obrazu lub zmianie dysku na wystąpienie.
 1. Upłynął limit czasu żądania dla wywołania usługi?
    * Wywołania metadanych muszą pochodzić z podstawowego adresu IP przypisanego do podstawowej karty sieciowej maszyny wirtualnej. Ponadto w przypadku zmiany tras w lokalnej tabeli routingu maszyny wirtualnej musi istnieć trasa dla adresu 169.254.169.254/32.
+   * <details>
+        <summary>Weryfikowanie tabeli routingu</summary>
+
+        1. Zrzuć lokalną tabelę routingu i poszukaj wpisu IMDS (np.):
+            ```console
+            > route print
+            IPv4 Route Table
+            ===========================================================================
+            Active Routes:
+            Network Destination        Netmask          Gateway       Interface  Metric
+                      0.0.0.0          0.0.0.0      172.16.69.1      172.16.69.7     10
+                    127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+                    127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+              127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+                168.63.129.16  255.255.255.255      172.16.69.1      172.16.69.7     11
+              169.254.169.254  255.255.255.255      172.16.69.1      172.16.69.7     11
+            ... (continues) ...
+            ```
+        1. Sprawdź, czy trasa istnieje dla `169.254.169.254` i zanotuj odpowiedni interfejs sieciowy (np. `172.16.69.7` ).
+        1. Zrzuć konfigurację interfejsu i Znajdź interfejs, który odnosi się do tego, do którego odwołuje się tabela routingu, zwracając adres MAC (fizyczny).
+            ```console
+            > ipconfig /all
+            ... (continues) ...
+            Ethernet adapter Ethernet:
+
+               Connection-specific DNS Suffix  . : xic3mnxjiefupcwr1mcs1rjiqa.cx.internal.cloudapp.net
+               Description . . . . . . . . . . . : Microsoft Hyper-V Network Adapter
+               Physical Address. . . . . . . . . : 00-0D-3A-E5-1C-C0
+               DHCP Enabled. . . . . . . . . . . : Yes
+               Autoconfiguration Enabled . . . . : Yes
+               Link-local IPv6 Address . . . . . : fe80::3166:ce5a:2bd5:a6d1%3(Preferred)
+               IPv4 Address. . . . . . . . . . . : 172.16.69.7(Preferred)
+               Subnet Mask . . . . . . . . . . . : 255.255.255.0
+            ... (continues) ...
+            ```
+        1. Upewnij się, że interfejs odpowiada podstawowej karcie sieciowej i podstawowemu adresowi IP maszyny wirtualnej. Podstawowa karta sieciowa/adres IP można znaleźć, przeglądając konfigurację sieci w witrynie Azure Portal lub sprawdzając ją [przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Zwróć uwagę na publiczne i prywatne adresy IP (oraz adres MAC, jeśli jest używany interfejs wiersza polecenia). Przykład interfejsu wiersza polecenia programu PowerShell:
+            ```powershell
+            $ResourceGroup = '<Resource_Group>'
+            $VmName = '<VM_Name>'
+            $NicNames = az vm nic list --resource-group $ResourceGroup --vm-name $VmName | ConvertFrom-Json | Foreach-Object { $_.id.Split('/')[-1] }
+            foreach($NicName in $NicNames)
+            {
+                $Nic = az vm nic show --resource-group $ResourceGroup --vm-name $VmName --nic $NicName | ConvertFrom-Json
+                Write-Host $NicName, $Nic.primary, $Nic.macAddress
+            }
+            # Output: wintest767 True 00-0D-3A-E5-1C-C0
+            ```
+        1. Jeśli nie są zgodne, zaktualizuj tabelę routingu w taki sposób, aby podstawowa karta sieciowa/adres IP były wskazywane.
+    </details>
 
 ## <a name="support-and-feedback"></a>Pomoc techniczna i opinie
 

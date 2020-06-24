@@ -7,14 +7,17 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8390ed8777c2c15940bef5838890e49396404052
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ROBOTS: NOINDEX, NOFOLLOW
+ms.openlocfilehash: 89de2e86e425e2c585f9a1243f6666a0ae077c10
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84613271"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84726093"
 ---
 # <a name="authenticate-a-client-application-with-azure-digital-twins"></a>Uwierzytelnianie aplikacji klienckiej za pomocą usługi Azure Digital bliźniaczych reprezentacji
+
+[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Po [utworzeniu wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance.md)można utworzyć aplikację kliencką, która będzie używana do współpracy z wystąpieniem. Po skonfigurowaniu początkowego projektu klienta w tym artykule opisano sposób prawidłowego uwierzytelniania tej aplikacji klienckiej za pomocą wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
@@ -44,7 +47,7 @@ Aby utworzyć rejestrację aplikacji, należy podać identyfikatory zasobów dla
 }]
 ``` 
 
-Zapisz ten plik jako *manifest. JSON*.
+Zapisz ten plik jako *manifest.js*.
 
 > [!NOTE] 
 > Istnieją pewne miejsca, w których "przyjazny", czytelny dla użytkownika ciąg `https://digitaltwins.azure.net` może być używany dla identyfikatora aplikacji Digital bliźniaczych reprezentacji zasobów platformy Azure zamiast identyfikatora GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` . Na przykład wiele przykładów w tym zestawie dokumentacji używa uwierzytelniania z biblioteką MSAL, a dla tego można użyć przyjaznego ciągu. Jednak w tym kroku tworzenia rejestracji aplikacji identyfikator GUID identyfikatora jest wymagany, tak jak pokazano powyżej. 
@@ -52,7 +55,7 @@ Zapisz ten plik jako *manifest. JSON*.
 W oknie Cloud Shell kliknij ikonę "przekazywanie/pobieranie plików" i wybierz pozycję "Przekaż".
 
 :::image type="content" source="media/how-to-authenticate-client/upload-extension.png" alt-text="Okno Cloud Shell pokazujące wybór opcji przekazywania":::
-Przejdź do pliku *manifest. JSON* , który właśnie został utworzony, i kliknij przycisk "Otwórz".
+Przejdź do *manifest.js* po utworzeniu i naciśnij pozycję "Otwórz".
 
 Następnie uruchom następujące polecenie, aby utworzyć rejestrację aplikacji (zastępując symbole zastępcze w razie potrzeby):
 

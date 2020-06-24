@@ -2,13 +2,13 @@
 title: Konfigurowanie usługi Azure Red Hat OpenShift v4. x z Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób konfigurowania monitorowania klastra Kubernetes przy użyciu Azure Monitor hostowanego na platformie Azure Red Hat OpenShift w wersji 4 lub nowszej.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: 4b827524845874dabaabe535163d99c408f77a60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/15/2020
+ms.openlocfilehash: 872d842f02e19313940dfeba5258feb7d3799547
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196298"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888463"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Konfigurowanie usługi Azure Red Hat OpenShift v4. x z Azure Monitor dla kontenerów
 
@@ -57,11 +57,11 @@ Wykonaj następujące kroki, aby włączyć monitorowanie usługi Azure Red Hat 
 
     `curl -LO https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/docs/aroV4/onboarding_azuremonitor_for_containers.sh.`
 
-3. Aby zidentyfikować **kontekst polecenia** klastra, po pomyślnym `oc login` przejściu do klastra uruchom polecenie `kubectl config current-context` i skopiuj wartość.
+3. Aby zidentyfikować **kontekst polecenia** klastra, po pomyślnym przejściu `oc login` do klastra uruchom polecenie `kubectl config current-context` i skopiuj wartość.
 
 ### <a name="integrate-with-an-existing-workspace"></a>Integracja z istniejącym obszarem roboczym
 
-Poniższy krok umożliwia monitorowanie klastra przy użyciu pobranego wcześniej skryptu bash. Aby zintegrować z istniejącym obszarem roboczym Log Analytics, wykonaj następujące kroki, aby najpierw zidentyfikować pełny identyfikator zasobu Log Analytics obszaru roboczego, `workspaceResourceId` który jest wymagany dla tego parametru, a następnie uruchom polecenie, aby włączyć dodatek monitorowania względem określonego obszaru roboczego. Jeśli nie masz obszaru roboczego do określenia, możesz przejść do kroku 5 i pozwolić skryptowi na utworzenie nowego obszaru roboczego.
+Poniższy krok umożliwia monitorowanie klastra przy użyciu pobranego wcześniej skryptu bash. Aby zintegrować z istniejącym obszarem roboczym Log Analytics, wykonaj następujące kroki, aby najpierw zidentyfikować pełny identyfikator zasobu Log Analytics obszaru roboczego, który jest wymagany dla tego `workspaceResourceId` parametru, a następnie uruchom polecenie, aby włączyć dodatek monitorowania względem określonego obszaru roboczego. Jeśli nie masz obszaru roboczego do określenia, możesz przejść do sekcji [integracja z domyślnym obszarem roboczym](#integrate-with-default-workspace) i pozwolić skryptowi na utworzenie nowego obszaru roboczego.
 
 1. Wyświetl listę wszystkich subskrypcji, do których masz dostęp, za pomocą następującego polecenia:
 
@@ -74,7 +74,7 @@ Poniższy krok umożliwia monitorowanie klastra przy użyciu pobranego wcześnie
     ```azurecli
     Name                                  CloudName    SubscriptionId                        State    IsDefault
     ------------------------------------  -----------  ------------------------------------  -------  -----------
-    Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
+    Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
     Skopiuj wartość identyfikatora **subskrypcji**.
@@ -93,25 +93,25 @@ Poniższy krok umożliwia monitorowanie klastra przy użyciu pobranego wcześnie
 
     W danych wyjściowych Znajdź nazwę obszaru roboczego, a następnie skopiuj pełny identyfikator zasobu tego Log Analytics obszaru roboczego pod **identyfikatorem**pola.
 
-4. Uruchom następujące polecenie, aby włączyć monitorowanie, zastępując wartość `workspaceResourceId` parametru: 
+4. Uruchom następujące polecenie, aby włączyć monitorowanie, zastępując wartość `workspaceResourceId` `azureAroV4ResourceIdparameter` parametrów and: 
 
-    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId> <LogAnayticsWorkspaceResourceId>`
+    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId> <workspaceResourceId>`
 
     Przykład:
 
-    `bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4  /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourcegroups/test-la-workspace-rg/providers/microsoft.operationalinsights/workspaces/test-la-workspace`
+    `bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4 /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourcegroups/test-la-workspace-rg/providers/microsoft.operationalinsights/workspaces/test-la-workspace`
 
 Po włączeniu monitorowania może upłynąć około 15 minut, zanim będzie można wyświetlić metryki kondycji klastra.
 
 ### <a name="integrate-with-default-workspace"></a>Integracja z domyślnym obszarem roboczym
 
-Poniższy krok umożliwia monitorowanie klastra usługi Azure Red Hat OpenShift v4. x przy użyciu pobranego skryptu bash. W tym przykładzie nie trzeba tworzyć ani określać istniejącego obszaru roboczego. To polecenie upraszcza proces przez utworzenie domyślnego obszaru roboczego w domyślnej grupie zasobów subskrypcji klastra, jeśli jeszcze nie istnieje w regionie. Utworzony domyślny obszar roboczy jest podobny do formatu *DefaultWorkspace-\<GUID>\<-region>*.  
+Poniższy krok umożliwia monitorowanie klastra usługi Azure Red Hat OpenShift v4. x przy użyciu pobranego skryptu bash. W tym przykładzie nie trzeba tworzyć ani określać istniejącego obszaru roboczego. To polecenie upraszcza proces przez utworzenie domyślnego obszaru roboczego w domyślnej grupie zasobów subskrypcji klastra, jeśli jeszcze nie istnieje w regionie. Utworzony domyślny obszar roboczy jest podobny do formatu *DefaultWorkspace- \<GUID> - \<Region> *.  
 
-    `bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId>`
+`bash onboarding_azuremonitor_for_containers.sh <kube-context> <azureAroV4ResourceId>`
 
-    For example:
+Przykład:
 
-    `bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4`
+`bash onboarding_azuremonitor_for_containers.sh MyK8sTestCluster /subscriptions/0fb60ef2-03cc-4290-b595-e71108e8f4ce/resourceGroups/test-aro-v4-rg/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/test-aro-v4`
 
 Po włączeniu monitorowania może upłynąć około 15 minut, zanim będzie można wyświetlić metryki kondycji klastra.
 

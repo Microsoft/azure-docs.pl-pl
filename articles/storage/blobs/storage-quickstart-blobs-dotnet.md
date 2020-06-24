@@ -8,11 +8,11 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: 5cfb0430bc94d347afd75bc01170a71a7ad53565
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240506"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711871"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Szybki Start: Biblioteka kliencka usługi Azure Blob Storage V12 dla platformy .NET
 
@@ -29,7 +29,7 @@ Użyj biblioteki klienta usługi Azure Blob Storage V12 dla platformy .NET, aby:
 * Pobieranie obiektu BLOB na komputer lokalny
 * Usuwanie kontenera
 
-[API reference documentation](/dotnet/api/azure.storage.blobs) | [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) pakietu[Code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | Source[(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | biblioteki dokumentacji interfejsu API
+[Dokumentacja](/dotnet/api/azure.storage.blobs)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)  |  źródłowy biblioteki [Pakiet (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)  |  [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -80,7 +80,7 @@ Z katalogu projektu:
 1. Otwórz plik *program.cs* w edytorze
 1. Usuń `Console.WriteLine("Hello World!");` instrukcję
 1. Dodaj `using` dyrektywy
-1. Aktualizowanie deklaracji `Main` metody do obsługi kodu asynchronicznego
+1. Aktualizowanie `Main` deklaracji metody do obsługi kodu asynchronicznego
 
 Oto kod:
 

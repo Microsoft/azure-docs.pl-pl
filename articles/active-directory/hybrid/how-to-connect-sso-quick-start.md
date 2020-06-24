@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef603141129be6a73e018fb3e3dcabf9c5d7961f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 503fc3c9ce566e9b3d90062709222bf27d88fa01
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993494"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106059"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: Szybki Start
 
@@ -100,9 +100,8 @@ Postępuj zgodnie z tymi instrukcjami, aby sprawdzić, czy włączono bezproblem
 
 ## <a name="step-3-roll-out-the-feature"></a>Krok 3. przechodzenie funkcji
 
-Możesz stopniowo wdrożyć bezproblemową rejestrację jednokrotną dla użytkowników, korzystając z instrukcji podanych poniżej. Zacznij od dodania następujących adresów URL usługi Azure AD do ustawień strefy intranetowej wszystkich lub wybranych użytkowników za pomocą zasady grupy w Active Directory:
+Możesz stopniowo wdrożyć bezproblemową rejestrację jednokrotną dla użytkowników, korzystając z instrukcji podanych poniżej. Aby rozpocząć, Dodaj następujący adres URL usługi Azure AD do ustawień strefy intranetowej wszystkich lub wybranych użytkowników za pomocą zasady grupy w Active Directory:
 
-- `https://aadg.windows.net.nsatc.net`
 - `https://autologon.microsoftazuread-sso.com`
 
 Ponadto należy włączyć ustawienie zasad strefy intranet o nazwie **Zezwalaj na aktualizacje na pasku stanu za pośrednictwem skryptu** za pośrednictwem zasady grupy. 

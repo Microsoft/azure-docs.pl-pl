@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: d48ddafdc1ec30ae1533b3a3101582f33e7f4b5c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3dc7547dbcf2bde7dd7db0d3f0db3f163a5910ef
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67594159"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888436"
 ---
 # <a name="core-reports-from-verizon"></a>Podstawowe raporty z Verizon
 
@@ -31,7 +31,7 @@ Korzystając z raportów Verizon Core za pośrednictwem portalu zarządzania dla
 * Przesłane dane
 * Trafienia
 * Stany pamięci podręcznej
-* Współczynnik trafień pamięci podręcznej
+* Współczynnik trafień w pamięci podręcznej
 * Przesyłane dane IPV4/IPV6
 
 ## <a name="accessing-verizon-core-reports"></a>Uzyskiwanie dostępu do podstawowych raportów Verizon
@@ -81,7 +81,7 @@ Aby zmniejszyć liczbę chybień pamięci podręcznej, skonfiguruj serwer pochod
  * Buforowanie ciągu zapytania, chyba że jest to absolutnie niezbędne  
  * Kody odpowiedzi bez pamięci podręcznej
 
-Aby zmniejszyć wygasłe trafienia pamięci podręcznej `max-age` , należy ustawić zasób na długi okres, aby zminimalizować liczbę żądań do serwera pochodzenia.
+Aby zmniejszyć wygasłe trafienia pamięci podręcznej, należy ustawić zasób `max-age` na długi okres, aby zminimalizować liczbę żądań do serwera pochodzenia.
 
 ![Raport o stanie pamięci podręcznej](./media/cdn-reports/cdn-cache-statuses.png)
 
@@ -108,7 +108,7 @@ Aby zmniejszyć wygasłe trafienia pamięci podręcznej `max-age` , należy usta
 * TCP_PARTIAL_HIT: ten stan jest raportowany, gdy żądanie zakresu bajtów powoduje trafienie dla częściowo buforowanego elementu zawartości. Żądany zakres bajtów jest natychmiast obsługiwany z punktu POP do klienta.
 * Bez buforowania: ten stan jest raportowany, gdy element zawartości `Cache-Control` i `Expires` nagłówki wskazują, że nie powinny być buforowane w punkcie obecności lub przez klienta http. Te typy żądań są obsługiwane z serwera pochodzenia.
 
-## <a name="cache-hit-ratio"></a>Współczynnik trafień pamięci podręcznej
+## <a name="cache-hit-ratio"></a>Współczynnik trafień w pamięci podręcznej
 Ten raport wskazuje procent buforowanych żądań, które zostały obsłużone bezpośrednio z pamięci podręcznej.
 
 Raport zawiera następujące informacje:
@@ -120,7 +120,7 @@ Raport zawiera następujące informacje:
 Raport nie zawiera:
 
 * Żądania, które są odrzucane z powodu opcji filtrowania kraju/regionu.
-* Żądania dotyczące zasobów, których nagłówki wskazują, że nie powinny być buforowane. Na przykład `Cache-Control: private` `Cache-Control: no-cache`,, lub `Pragma: no-cache` nagłówki uniemożliwiają buforowanie elementu zawartości.
+* Żądania dotyczące zasobów, których nagłówki wskazują, że nie powinny być buforowane. Na przykład, `Cache-Control: private` , `Cache-Control: no-cache` lub `Pragma: no-cache` nagłówki uniemożliwiają buforowanie elementu zawartości.
 * Żądania zakresu bajtów dla częściowo buforowanej zawartości.
 
 Formuła: (TCP_ TRAFIeń/(TCP_ TRAFIeń + TCP_MISS)) * 100

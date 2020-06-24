@@ -3,25 +3,24 @@ title: Rozwiązywanie problemów z rozszerzeniem panelu dostępu platformy Azure
 description: Jak wdrożyć dodatek programu Internet Explorer dla portalu My Apps przy użyciu zasad grupy.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0269c87572e2a9242a54491103ae0fcc3637518
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 16abfbeacd972ee8b0ab55f09945e687c95f0093
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67723908"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763265"
 ---
 # <a name="troubleshoot-the-access-panel-extension-for-internet-explorer"></a>Rozwiązywanie problemów z rozszerzeniem panelu dostępu dla programu Internet Explorer
 
@@ -40,7 +39,7 @@ Aby pobrać i zainstalować narzędzie diagnostyczne:
 
 1. [Wybierz ten link, aby pobrać narzędzie diagnostyczne.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 1. Otwórz plik i Wyodrębnij zawartość na komputerze.
-1. Aby uruchomić narzędzie, kliknij prawym przyciskiem myszy plik o nazwie *AccessPanelExtensionDiagnosticTool. js* i wybierz polecenie **Otwórz za pomocą** > **hosta skryptów systemu Microsoft Windows**.
+1. Aby uruchomić narzędzie, kliknij prawym przyciskiem myszy plik o nazwie *AccessPanelExtensionDiagnosticTool.js* i wybierz polecenie **Otwórz za pomocą**  >  **hosta skryptów systemu Microsoft Windows**.
 
     ![Otwórz za pomocą > hosta skryptów systemu Microsoft Windows](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
 

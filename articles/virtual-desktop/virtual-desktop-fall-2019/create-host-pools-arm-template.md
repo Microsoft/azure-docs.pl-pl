@@ -4,16 +4,16 @@ description: Jak utworzyć pulę hostów w programie Virtual Desktop systemu Win
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c24e212f901f0af38a24ab203070f637de860fc7
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 925d3ab7c01ef8dc4a2c5d590a56b4d558170472
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615190"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204765"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Tworzenie puli hostów za pomocą szablonu usługi Azure Resource Manager
 
@@ -46,7 +46,7 @@ Jeśli wdrażasz w ramach subskrypcji dostawcy rozwiązań w chmurze, wykonaj na
 
 1. Przewiń w dół i kliknij prawym przyciskiem myszy pozycję **Wdróż na platformie Azure**, a następnie wybierz pozycję **Kopiuj lokalizację linku**.
 2. Otwórz Edytor tekstu, taki jak Notatnik, i Wklej tam link.
-3. Po znaku "https://portal.azure.com/" i przed jego wystąpieniem (#) wprowadź znak (@), a po nim nazwę domeny dzierżawy. Oto przykład formatu, którego należy użyć: `https://portal.azure.com/@Contoso.onmicrosoft.com#create/`.
+3. Po znaku " https://portal.azure.com/ " i przed jego wystąpieniem (#) wprowadź znak (@), a po nim nazwę domeny dzierżawy. Oto przykład formatu, którego należy użyć: `https://portal.azure.com/@Contoso.onmicrosoft.com#create/` .
 4. Zaloguj się do Azure Portal jako użytkownik z uprawnieniami administratora/współautora do subskrypcji dostawcy rozwiązań w chmurze.
 5. Wklej skopiowany link do edytora tekstu na pasku adresu.
 
@@ -70,7 +70,7 @@ Następnie Dodaj użytkowników do grupy aplikacji klasycznych za pomocą tego p
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-Nazwa UPN użytkownika powinna być zgodna z tożsamością użytkownika w Azure Active Directory (na przykład user1@contoso.com). Jeśli chcesz dodać wielu użytkowników, musisz uruchomić to polecenie cmdlet dla każdego użytkownika.
+Nazwa UPN użytkownika powinna być zgodna z tożsamością użytkownika w Azure Active Directory (na przykład user1@contoso.com ). Jeśli chcesz dodać wielu użytkowników, musisz uruchomić to polecenie cmdlet dla każdego użytkownika.
 
 Po wykonaniu tych kroków użytkownicy dodani do grupy aplikacji klasycznych mogą zalogować się do pulpitu wirtualnego systemu Windows z obsługiwanymi Pulpit zdalny klientami i zobaczyć zasób pulpitu sesji.
 

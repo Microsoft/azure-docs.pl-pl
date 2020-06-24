@@ -4,11 +4,11 @@ description: Wprowadzenie do kluczowych pojęć związanych z rejestrami kontene
 ms.topic: article
 ms.date: 09/10/2019
 ms.openlocfilehash: ea6e2577d3eee91626dd613617a0b79e4ff3d6a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247061"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711990"
 ---
 # <a name="about-registries-repositories-and-images"></a>Rejestry, repozytoria i obrazy — informacje
 
@@ -55,7 +55,7 @@ Nazwy repozytoriów mogą również zawierać [przestrzenie nazw](container-regi
 - *produkt — zwraca/przesyła do sieci Web: 20180604*
 - *Product-Returns/Legacy-Integrator: 20180715*
 
-## <a name="image"></a>Obraz
+## <a name="image"></a>Image (Obraz)
 
 Obraz kontenera lub inny artefakt w rejestrze jest skojarzony z co najmniej jednym tagiem, ma jedną lub więcej warstw i jest identyfikowany przez manifest. Zrozumienie, jak te składniki są powiązane ze sobą, mogą pomóc w skutecznym zarządzaniu rejestrem.
 

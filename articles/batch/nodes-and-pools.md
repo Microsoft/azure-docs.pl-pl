@@ -2,13 +2,13 @@
 title: Węzły i pule w Azure Batch
 description: Zapoznaj się z węzłami obliczeniowymi i pulami oraz sposobem ich użycia w przepływie pracy Azure Batch z punktu widzenia rozwoju.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: eadc5236926fed12ebee087f7354c492ae5fc745
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 06/16/2020
+ms.openlocfilehash: 46c78fe1c45d2effe03008667dd424d943d75ec4
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791155"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888362"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Węzły i pule w Azure Batch
 
@@ -27,6 +27,8 @@ Wszystkie węzły obliczeniowe usługi Batch obejmują również:
 - Standardową [strukturę folderów](files-and-directories.md) i skojarzone [zmienne środowiskowe](jobs-and-tasks.md) dostępne do użycia jako odwołania w zadaniach podrzędnych.
 - Ustawienia **Zapory** skonfigurowane do kontroli dostępu.
 - [Dostęp zdalny](error-handling.md#connect-to-compute-nodes) do węzłów systemu Windows (protokół RDP (Remote Desktop)) i Linux (SSH (Secure Shell)).
+
+Domyślnie węzły mogą komunikować się ze sobą, ale nie mogą komunikować się z maszynami wirtualnymi, które nie są częścią tej samej puli. Aby umożliwić węzłom bezpieczne komunikowanie się z innymi maszynami wirtualnymi lub z siecią lokalną, można zainicjować obsługę administracyjną puli [w podsieci sieci wirtualnej platformy Azure](batch-virtual-network.md). Po wykonaniu tej czynności Twoje węzły będą dostępne za poorednictwem publicznych adresów IP. Te publiczne adresy IP są tworzone przez partię i mogą ulec zmianie w okresie istnienia puli. Istnieje również możliwość [utworzenia puli ze statycznymi publicznymi adresami IP](create-pool-public-ip.md) , co gwarantuje, że nie ulegną zmianie.
 
 ## <a name="pools"></a>Pule
 
@@ -162,13 +164,16 @@ Aby uzyskać więcej informacji o używaniu pakietów aplikacji do wdrażania ap
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Konfiguracja sieci wirtualnej i zapory
 
-Podczas aprowizowania puli węzłów obliczeniowych w usłudze Batch możesz ją skojarzyć z podsiecią [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) platformy Azure. Aby użyć sieci wirtualnej platformy Azure, interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi Azure Active Directory (AD). Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md).  
+Podczas aprowizowania puli węzłów obliczeniowych w usłudze Batch możesz ją skojarzyć z podsiecią [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) platformy Azure. Aby użyć sieci wirtualnej platformy Azure, interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi Azure Active Directory (AD). Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md).
 
 ### <a name="vnet-requirements"></a>Wymagania dotyczące sieci wirtualnej
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
 Aby uzyskać więcej informacji na temat konfigurowania puli usługi Batch w sieci wirtualnej, zobacz [Create a pool of virtual machines with your virtual network](batch-virtual-network.md) (Tworzenie puli maszyn wirtualnych przy użyciu sieci wirtualnej).
+
+> [!TIP]
+> Aby mieć pewność, że publiczne adresy IP używane do dostępu do węzłów nie zmieniają się, można [utworzyć pulę z określonymi publicznymi adresami IP, które kontrolujesz](create-pool-public-ip.md).
 
 ## <a name="pool-and-compute-node-lifetime"></a>Okres istnienia puli i węzła obliczeniowego
 

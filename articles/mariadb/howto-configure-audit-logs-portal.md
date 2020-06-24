@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: 506bf076c955beb5c5e57811bbdb42bfedb8cbe3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/18/2020
+ms.openlocfilehash: 62bdb08d3627959b8985481c848db064149cf844
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382966"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100793"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Konfigurowanie i dostęp do dzienników inspekcji w Azure Portal
 
@@ -27,6 +27,9 @@ Aby krokowo poprowadzić ten przewodnik, musisz:
 - [Serwer Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## <a name="configure-audit-logging"></a>Konfigurowanie rejestrowania inspekcji
+
+>[!NOTE]
+> Zaleca się tylko rejestrowanie typów zdarzeń i użytkowników wymaganych do celów inspekcji, aby upewnić się, że wydajność serwera nie jest w dużym stopniu zagrożona.
 
 Włącz i skonfiguruj rejestrowanie inspekcji.
 
@@ -53,7 +56,7 @@ Włącz i skonfiguruj rejestrowanie inspekcji.
 
 1. W sekcji **monitorowanie** na pasku bocznym wybierz pozycję **Ustawienia diagnostyczne**.
 
-1. Kliknij pozycję "+ Dodaj ustawienie diagnostyczne" ![Dodaj ustawienie diagnostyczne](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Kliknij pozycję "+ Dodaj ustawienie diagnostyczne" ![ Dodaj ustawienie diagnostyczne](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. Podaj nazwę ustawienia diagnostycznego.
 

@@ -5,16 +5,16 @@ services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice: ''
+ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: ff8d82966d479491bc9600a0331f69ffd09253d1
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 257847a34821ad48d0491472cf7365932f7740c0
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112705"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080791"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabele udostępnione metadanych usługi Azure Synapse Analytics
 

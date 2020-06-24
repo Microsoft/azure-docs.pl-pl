@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d65d85d21521a6277a3ea823a8c9e83a34e3f42c
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c27938227a13934de11dd6e88d58138c46c3f58e
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772101"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85204630"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Obsługa wyjątków i błędów MSAL
 
@@ -138,7 +138,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 
 ## <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-MSAL. js udostępnia obiekty błędów, które są abstrakcyjne i klasyfikuje różne typy typowych błędów. Zapewnia także interfejs umożliwiający dostęp do szczegółowych informacji o błędach, takich jak komunikaty o błędach, aby odpowiednio je obsługiwać.
+MSAL.js zapewnia obiekty błędów, które są abstrakcyjne i klasyfikuje różne typy typowych błędów. Zapewnia także interfejs umożliwiający dostęp do szczegółowych informacji o błędach, takich jak komunikaty o błędach, aby odpowiednio je obsługiwać.
 
 ### <a name="error-object"></a>Obiekt Error
 
@@ -162,7 +162,7 @@ Rozszerzając klasę błędu, masz dostęp do następujących właściwości:
 
 Dostępne są następujące typy błędów:
 
-- `AuthError`: Klasa błędu podstawowego dla biblioteki MSAL. js, używana również w przypadku nieoczekiwanych błędów.
+- `AuthError`: Klasa błędu podstawowego dla biblioteki MSAL.js, używana również w przypadku nieoczekiwanych błędów.
 
 - `ClientAuthError`: Error — Klasa, która oznacza problem z uwierzytelnianiem klienta. Większość błędów, które pochodzą z biblioteki, zostanie ClientAuthErrors. Te błędy powodują wywołanie metody logowania, gdy logowanie jest już w toku, użytkownik anuluje logowanie i tak dalej.
 
@@ -518,21 +518,25 @@ Aby obsłużyć wyzwanie żądania, należy użyć `.WithClaim()` metody `Public
 
 ### <a name="javascript"></a>JavaScript
 
-W przypadku korzystania z tokenów dyskretnie (przy użyciu programu `acquireTokenSilent` ) przy użyciu MSAL. js aplikacja może otrzymywać błędy, gdy do interfejsu API, do którego próbujesz uzyskać dostęp, jest wymagane [wyzwanie żądania dostępu warunkowego](../azuread-dev/conditional-access-dev-guide.md) , takie jak zasady MFA.
+W przypadku korzystania z tokenów dyskretnie (przy użyciu programu `acquireTokenSilent` ) przy użyciu MSAL.js aplikacja może otrzymywać błędy, gdy do interfejsu API, do którego próbujesz uzyskać dostęp, jest wymagane [żądanie oświadczeń dostępu warunkowego](../azuread-dev/conditional-access-dev-guide.md) , takie jak zasady MFA.
 
-Wzorzec do obsługi tego błędu polega na tym, że wywołanie interaktywne umożliwia uzyskanie tokenu w MSAL. js, takiego jak `acquireTokenPopup` lub `acquireTokenRedirect` , jak w poniższym przykładzie:
+Wzorzec do obsługi tego błędu polega na tym, że wywołanie interaktywne w celu uzyskania tokenu w MSAL.js, takich jak `acquireTokenPopup` lub `acquireTokenRedirect` , jak w poniższym przykładzie:
 
 ```javascript
-myMSALObj.acquireTokenSilent(accessTokenRequest).then(function (accessTokenResponse) {
+myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
     // call API
-}).catch( function (error) {
+}).catch(function(error) {
     if (error instanceof InteractionRequiredAuthError) {
-        // Extract claims from error message
-        accessTokenRequest.claimsRequest = extractClaims(error.errorMessage);
+    
+        // extract, if exists, claims from error message
+        if (error.ErrorMessage.claims) {
+            accessTokenRequest.claimsRequest = JSON.stringify(error.ErrorMessage.claims);
+        }
+        
         // call acquireTokenPopup in case of InteractionRequiredAuthError failure
-        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function (accessTokenResponse) {
+        myMSALObj.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
             // call API
-        }).catch(function (error) {
+        }).catch(function(error) {
             console.log(error);
         });
     }

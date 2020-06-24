@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą automatycznego skalowania klastra auto
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e87470e577f4d2613b43cc02755ccc2d500c0ef8
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683561"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730020"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Automatyczne skalowanie klastra w celu spełnienia wymagań aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -99,7 +99,7 @@ az aks update \
 Powyższy przykład aktualizuje automatyczne skalowanie klastra w puli jednego węzła w *myAKSCluster* do co najmniej *1* i maksymalnie *5* węzłów.
 
 > [!NOTE]
-Automatyczne skalowanie klastra będzie podejmować decyzje dotyczące skalowania na podstawie minimalnej i maksymalnej liczby zestawów ustawionych dla każdej puli węzłów, ale nie wymusza ich wymuszania. Na przykład ustawienie minimalnej liczby 5, gdy bieżąca liczba węzłów wynosi 3, nie spowoduje natychmiastowego skalowania puli do 5. W przypadku zmiany minimalnej liczby w puli węzłów na wartość wyższą niż bieżąca liczba węzłów ten nowy limit będzie przestrzegany w przypadku wystarczającej liczby unschedulableych zasobników, które będą wymagały 2 nowych węzłów i wyzwolenia zdarzenia skalowania automatycznego. Po wystąpieniu tego problemu dla automatycznego skalowania klastra będzie obowiązywać nowy minimalny limit liczby.
+> Automatyczne skalowanie klastra podejmuje decyzje dotyczące skalowania na podstawie minimalnej i maksymalnej liczby zestawów ustawionych w każdej puli węzłów, ale nie wymusza ich po aktualizacji minimalnej lub maksymalnej liczby. Na przykład ustawienie minimalnej liczby 5, gdy bieżąca liczba węzłów wynosi 3, nie spowoduje natychmiastowego skalowania puli do 5. Jeśli minimalna liczba w puli węzłów ma wartość wyższą niż bieżąca liczba węzłów, nowe ustawienia minimalne lub maksymalne będą przestrzegane, gdy jest dostępnych wystarczającą liczbę unschedulableowych zasobników, które wymagają 2 nowych węzłów i wyzwala zdarzenie skalowania automatycznego. Po zdarzeniu skalowania są przestrzegane nowe limity liczby.
 
 Monitoruj wydajność aplikacji i usług, a następnie dostosuj liczbę węzłów automatycznego skalowania klastra, aby dopasować ją do wymaganej wydajności.
 
@@ -145,7 +145,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-Po włączeniu automatycznego skalowania klastra w pulach węzłów w klastrze te klastry będą również używać profilu automatycznego skalowania klastra. Na przykład:
+Po włączeniu automatycznego skalowania klastra w pulach węzłów w klastrze te klastry będą również używać profilu automatycznego skalowania klastra. Przykład:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -162,7 +162,7 @@ az aks nodepool update \
 
 ### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Ustawianie profilu automatycznego skalowania klastra podczas tworzenia klastra AKS
 
-Podczas tworzenia klastra można również użyć parametru *klaster-autoscaleer* . Na przykład:
+Podczas tworzenia klastra można również użyć parametru *klaster-autoscaleer* . Przykład:
 
 ```azurecli-interactive
 az aks create \

@@ -11,16 +11,16 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.custom: has-adal-ref
-ms.openlocfilehash: e03616bf0d02f7ce063c027912cba4ab4e8f8d3f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 20db31b63a82431b7dd59c6c5c92a1fb756c5c06
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611470"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888417"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Rozpoczynanie pracy z wdrażaniem usługi Azure CDN
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Uzyskajmy podstawową strukturę naszego zapisaną przez program.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Musimy zdefiniować niektóre stałe nasze metody będą używane.  W `Program` klasie, ale przed `Main` metodą, Dodaj następujące elementy.  Pamiętaj, aby zastąpić symbole zastępcze, w tym ** &lt;nawiasy&gt;kątowe**, z własnymi wartościami, zgodnie z potrzebami.
+2. Musimy zdefiniować niektóre stałe nasze metody będą używane.  W `Program` klasie, ale przed `Main` metodą, Dodaj następujące elementy.  Pamiętaj, aby zastąpić symbole zastępcze, w tym ** &lt; nawiasy &gt; kątowe**, z własnymi wartościami, zgodnie z potrzebami.
 
     ```csharp
     //Tenant app constants
@@ -156,7 +156,7 @@ Uzyskajmy podstawową strukturę naszego zapisaną przez program.
 
 Teraz, gdy podstawowa struktura naszego programu jest zapisywana, należy utworzyć metody wywoływane przez `Main` metodę.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Uwierzytelnianie
 Zanim będziemy mogli korzystać z biblioteki zarządzania Azure CDN, musimy uwierzytelnić naszą nazwę główną usługi i uzyskać token uwierzytelniania.  Ta metoda używa biblioteki ADAL do pobrania tokenu.
 
 ```csharp
@@ -189,7 +189,7 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-Pamiętaj, aby zastąpić `<redirect URI>` identyfikator URI przekierowania wprowadzony podczas rejestrowania aplikacji w usłudze Azure AD.
+Pamiętaj, aby zastąpić `<redirect URI>` Identyfikator URI przekierowania wprowadzony podczas rejestrowania aplikacji w usłudze Azure AD.
 
 ## <a name="list-cdn-profiles-and-endpoints"></a>Wyświetlanie listy profilów i punktów końcowych usługi CDN
 Teraz jesteśmy gotowi do wykonania operacji usługi CDN.  Pierwsza rzecz naszej metody to lista wszystkich profilów i punktów końcowych w naszej grupie zasobów. w przypadku znalezienia dopasowania dla nazw profilu i punktu końcowego określonych w naszych stałych należy pamiętać, że w przyszłości nie próbujemy tworzyć duplikatów.
@@ -271,7 +271,7 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> Powyższy przykład przypisuje punkt końcowy o nazwie *contoso* z nazwą hosta `www.contoso.com`.  Należy zmienić tę pozycję, aby wskazywała nazwę hosta własnego źródła.
+> Powyższy przykład przypisuje punkt końcowy o nazwie *contoso* z nazwą hosta `www.contoso.com` .  Należy zmienić tę pozycję, aby wskazywała nazwę hosta własnego źródła.
 >
 >
 
@@ -292,7 +292,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> W powyższym przykładzie ciąg `/*` wskazuje, że chcę przeczyścić wszystko w elemencie głównym ścieżki punktu końcowego.  Jest to równoznaczne z sprawdzeniem, czy **wszystkie** w oknie dialogowym "przeczyszczanie" Azure Portal. W `CreateCdnProfile` metodzie został utworzony profil jako **Azure CDN z profilu Verizon** przy użyciu kodu `Sku = new Sku(SkuName.StandardVerizon)`, więc zostanie to wykonane pomyślnie.  Jednak **Azure CDN z profilów Akamai** nie obsługują **przeczyszczania**, więc jeśli w tym samouczku był używany profil Akamai, należy uwzględnić określone ścieżki do przeczyszczenia.
+> W powyższym przykładzie ciąg `/*` wskazuje, że chcę przeczyścić wszystko w elemencie głównym ścieżki punktu końcowego.  Jest to równoznaczne z sprawdzeniem, czy **wszystkie** w oknie dialogowym "przeczyszczanie" Azure Portal. W `CreateCdnProfile` metodzie został utworzony profil jako **Azure CDN z profilu Verizon** przy użyciu kodu `Sku = new Sku(SkuName.StandardVerizon)` , więc zostanie to wykonane pomyślnie.  Jednak **Azure CDN z profilów Akamai** nie obsługują **przeczyszczania**, więc jeśli w tym samouczku był używany profil Akamai, należy uwzględnić określone ścieżki do przeczyszczenia.
 >
 >
 

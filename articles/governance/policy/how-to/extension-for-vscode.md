@@ -1,14 +1,14 @@
 ---
 title: Azure Policy rozszerzenie dla Visual Studio Code
 description: Dowiedz się, jak używać rozszerzenia Azure Policy Visual Studio Code do wyszukiwania aliasów Menedżer zasobów.
-ms.date: 03/07/2020
+ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: 0c4e04cc352744fed1c7c2965f8096f0f05c2a50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 94d865e4a810fbebd8495153f97f9d1e3227e8af
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182569"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888504"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Użyj rozszerzenia Azure Policy dla Visual Studio Code
 
@@ -25,8 +25,8 @@ Azure Policy rozszerzenia Visual Studio Code można zainstalować na wszystkich 
 
 Aby wykonać kroki opisane w tym artykule, wymagane są następujące elementy:
 
-- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
-- [Visual Studio Code](https://code.visualstudio.com).
+- Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
+- [Program Visual Studio Code](https://code.visualstudio.com)
 
 ## <a name="install-azure-policy-extension"></a>Zainstaluj rozszerzenie Azure Policy
 
@@ -34,7 +34,7 @@ Po spełnieniu wymagań wstępnych można zainstalować Azure Policy rozszerzeni
 
 1. Otwórz program Visual Studio Code.
 
-1. Na pasku menu Przejdź do pozycji **Wyświetl** > **rozszerzenia**.
+1. Na pasku menu Przejdź do pozycji **Wyświetl**  >  **rozszerzenia**.
 
 1. W polu wyszukiwania wprowadź **Azure Policy**.
 
@@ -68,7 +68,7 @@ Aby oszacować zasoby i aliasy wyszukiwania, musisz nawiązać połączenie z ko
 
    - Paleta poleceń
 
-     Na pasku menu Przejdź do **widoku** > **paleta poleceń**i wprowadź **Azure: Zaloguj się**.
+     Na pasku menu Przejdź do **widoku**  >  **paleta poleceń**i wprowadź **Azure: Zaloguj się**.
 
      :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Logowanie w chmurze platformy Azure dla Visual Studio Code z palety poleceń" border="false":::
 
@@ -82,11 +82,11 @@ Po pierwszym zalogowaniu tylko domyślne zasoby i zasady subskrypcji są ładowa
 
    - Paleta poleceń: 
 
-     Na pasku menu Przejdź do **widoku** > **paleta poleceń**i wprowadź **Azure: wybierz subskrypcje**.
+     Na pasku menu Przejdź do **widoku**  >  **paleta poleceń**i wprowadź **Azure: wybierz subskrypcje**.
 
    - Stopka okna
 
-     W stopce okna w dolnej części ekranu wybierz segment pasujący do **platformy Azure: \<\>Twoje konto**.
+     W stopce okna u dołu ekranu wybierz segment pasujący do **platformy Azure: \<your account\> **.
 
 1. Użyj pola filtr, aby szybko znaleźć subskrypcje według nazwy. Następnie zaznacz lub usuń zaznaczenie każdej subskrypcji, aby ustawić subskrypcje widoczne przez rozszerzenie Azure Policy. Po zakończeniu dodawania lub usuwania subskrypcji do wyświetlenia wybierz **przycisk OK**.
 
@@ -99,7 +99,7 @@ Rozszerzenie Azure Policy wyświetla listę zasobów w wybranych subskrypcjach w
 - **Grupy zasobów**
   - Wszystkie zasoby według grupy zasobów, w której się znajdują
 
-Domyślnie rozszerzenie filtruje część "dostawca zasobów" według istniejących zasobów i zasobów, które mają aliasy zasad. Zmień to zachowanie w **Settings** > **rozszerzeniu** > ustawienia**Azure Policy** , aby wyświetlić wszystkich dostawców zasobów bez filtrowania.
+Domyślnie rozszerzenie filtruje część "dostawca zasobów" według istniejących zasobów i zasobów, które mają aliasy zasad. Zmień to zachowanie w **Settings**  >  **rozszerzeniu**ustawienia  >  **Azure Policy** , aby wyświetlić wszystkich dostawców zasobów bez filtrowania.
 
 Klienci, którzy mają setki lub tysiące zasobów w ramach jednej subskrypcji, mogą preferować możliwość wyszukiwania swoich zasobów. Rozszerzenie Azure Policy umożliwia wyszukanie określonego zasobu, wykonując następujące czynności:
 
@@ -123,9 +123,12 @@ Klienci, którzy mają setki lub tysiące zasobów w ramach jednej subskrypcji, 
 
 Po wybraniu zasobu, niezależnie od tego, czy za pomocą interfejsu wyszukiwania lub wybierając go w widoku drzewa, rozszerzenie Azure Policy otwiera plik JSON reprezentujący ten zasób i wszystkie jego Menedżer zasobów wartości właściwości.
 
-Gdy zasób jest otwarty, wskaźnik myszy nad nazwą właściwości Menedżer zasobów lub wartością wyświetla alias Azure Policy, jeśli taki istnieje. W tym przykładzie zasób jest typem `Microsoft.Compute/virtualMachines` zasobu, a właściwość **właściwości. obszarze storageprofile. elementu imagereference. Offer** jest umieszczana na początku. Umieszczenie kursora powoduje wyświetlenie pasujących aliasów.
+Gdy zasób jest otwarty, wskaźnik myszy nad nazwą właściwości Menedżer zasobów lub wartością wyświetla alias Azure Policy, jeśli taki istnieje. W tym przykładzie zasób jest `Microsoft.Compute/virtualMachines` typem zasobu, a właściwość **właściwości. obszarze storageprofile. elementu imagereference. Offer** jest umieszczana na początku. Umieszczenie kursora powoduje wyświetlenie pasujących aliasów.
 
 :::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy aktywowania rozszerzenia pokazuje alias właściwości Menedżer zasobów" border="false":::
+
+> [!NOTE]
+> Rozszerzenie VS Code uwidacznia tylko właściwości trybu Menedżer zasobów i nie wyświetla żadnych właściwości [trybu dostawcy zasobów](../concepts/definition-structure.md#mode) .
 
 ## <a name="search-for-and-view-policies-and-assignments"></a>Wyszukiwanie i wyświetlanie zasad i przypisań
 
@@ -149,9 +152,9 @@ Rozszerzenie Azure Policy wyświetla listę typów zasad i przypisań zasad jako
 
 Podczas wybierania zasad lub przypisywania, niezależnie od tego, czy za pomocą interfejsu wyszukiwania, czy przez wybranie go w widoku drzewa, rozszerzenie Azure Policy otwiera plik JSON, który reprezentuje zasady lub przypisanie oraz wszystkie jego wartości właściwości Menedżer zasobów. Rozszerzenie może zweryfikować otwarty schemat JSON Azure Policy.
 
-## <a name="sign-out"></a>Wyloguj
+## <a name="sign-out"></a>Wyloguj się
 
-Na pasku menu Przejdź do **widoku** > **paleta poleceń**, a następnie wprowadź **Azure: Wyloguj się**.
+Na pasku menu Przejdź do **widoku**  >  **paleta poleceń**, a następnie wprowadź **Azure: Wyloguj się**.
 
 ## <a name="next-steps"></a>Następne kroki
 

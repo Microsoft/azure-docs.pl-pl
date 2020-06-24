@@ -7,24 +7,24 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 73f1efc512bf031021791da8cc55bc4e7d98a812
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aae9b282c22b405eeebc2719e377a3091fc9d12e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840779"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84724954"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analizowanie zabezpieczeń maszyny wirtualnej za pomocą widoku grupy zabezpieczeń przy użyciu interfejsu wiersza polecenia platformy Azure
 
 > [!div class="op_single_selector"]
-> - [Narzędzia](network-watcher-security-group-view-powershell.md)
+> - [PowerShell](network-watcher-security-group-view-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-security-group-view-cli.md)
-> - [INTERFEJS API REST](network-watcher-security-group-view-rest.md)
+> - [Interfejs API REST](network-watcher-security-group-view-rest.md)
 
 Widok grupy zabezpieczeń umożliwia skonfigurowanie skonfigurowanych i obowiązujących reguł zabezpieczeń sieci, które są stosowane do maszyny wirtualnej. Ta funkcja jest przydatna do inspekcji i diagnozowania sieciowych grup zabezpieczeń i reguł skonfigurowanych na maszynie wirtualnej w celu zapewnienia, że ruch jest prawidłowo dozwolony lub odrzucany. W tym artykule przedstawiono sposób pobierania skonfigurowanych i obowiązujących reguł zabezpieczeń do maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -40,7 +40,7 @@ Scenariusz opisany w tym artykule umożliwia pobranie skonfigurowanych i obowią
 
 ## <a name="get-a-vm"></a>Pobierz maszynę wirtualną
 
-Aby uruchomić polecenie cmdlet, `vm list` wymagana jest maszyna wirtualna. Następujące polecenie wyświetla listę maszyn wirtualnych w grupie zasobów:
+Aby uruchomić polecenie cmdlet, wymagana jest maszyna wirtualna `vm list` . Następujące polecenie wyświetla listę maszyn wirtualnych w grupie zasobów:
 
 ```azurecli
 az vm list -resource-group resourceGroupName

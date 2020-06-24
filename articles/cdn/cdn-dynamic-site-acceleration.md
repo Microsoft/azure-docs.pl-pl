@@ -11,15 +11,15 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 26559adf183a5e008d77b87654a1bd4dabebbca0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bae131c086e8fbf062015ee27c563bb988731cad
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253836"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84888536"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Przyspieszanie witryn dynamicznych za pośrednictwem Azure CDN
 
@@ -183,7 +183,7 @@ Aby uzyskać dostęp do aparatu reguł:
 
 Alternatywnie można użyć dwóch punktów końcowych usługi CDN: jednego punktu końcowego zoptymalizowanego za pomocą agenta DSA do dostarczania dynamicznych zasobów i innego punktu końcowego zoptymalizowanego za pomocą typu optymalizacji statycznej, takiego jak ogólne dostarczanie w sieci Web, do dostarczania zasobów pamięci podręcznej. Zmodyfikuj adresy URL strony sieci Web, aby połączyć się bezpośrednio z zasobem w punkcie końcowym usługi CDN, który ma być używany. 
 
-Na przykład: `mydynamic.azureedge.net/index.html` jest stroną dynamiczną i jest załadowana z punktu końcowego DSA.Strona HTML odwołuje się do wielu statycznych zasobów, takich jak biblioteki lub obrazy języka JavaScript, które są ładowane ze statycznego `mystatic.azureedge.net/banner.jpg` punktu `mystatic.azureedge.net/scripts.js`końcowego sieci CDN, takiego jak i. 
+Na przykład: `mydynamic.azureedge.net/index.html` jest stroną dynamiczną i jest załadowana z punktu końcowego DSA.Strona HTML odwołuje się do wielu statycznych zasobów, takich jak biblioteki lub obrazy języka JavaScript, które są ładowane ze statycznego punktu końcowego sieci CDN, takiego jak `mystatic.azureedge.net/banner.jpg` i `mystatic.azureedge.net/scripts.js` . 
 
 
 

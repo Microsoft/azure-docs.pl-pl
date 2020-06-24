@@ -7,11 +7,11 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 0026c70a3a1a6b5e635e6b43e74b557d4218e6d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250311"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711599"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Znajdowanie obrazów maszyn wirtualnych z systemem Linux w witrynie Azure Marketplace przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -19,7 +19,7 @@ W tym temacie opisano sposób używania interfejsu wiersza polecenia platformy A
 
 Przeglądaj dostępne obrazy i oferty przy użyciu [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/) , [Azure Portal](https://portal.azure.com)lub [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
-Upewnij się, że zainstalowano najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i zalogowano się na`az login`koncie platformy Azure ().
+Upewnij się, że zainstalowano najnowszy [interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli) i zalogowano się na koncie platformy Azure ( `az login` ).
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -98,9 +98,9 @@ Debian             credativ     8                    credativ:Debian:8:8.0.20190
 ...
 ```
 
-Zastosuj podobne filtry przy użyciu `--location`opcji `--publisher`, i `--sku` . Można wykonać częściowe dopasowania filtru, takie jak wyszukiwanie, `--offer Deb` aby znaleźć wszystkie obrazy debian.
+Zastosuj podobne filtry przy użyciu `--location` `--publisher` opcji, i `--sku` . Można wykonać częściowe dopasowania filtru, takie jak wyszukiwanie, `--offer Deb` Aby znaleźć wszystkie obrazy debian.
 
-Jeśli nie określisz konkretnej lokalizacji z `--location` opcją, zwracane są wartości domyślnej lokalizacji. (Ustaw inną lokalizację domyślną, uruchamiając `az configure --defaults location=<location>`).
+Jeśli nie określisz konkretnej lokalizacji z `--location` opcją, zwracane są wartości domyślnej lokalizacji. (Ustaw inną lokalizację domyślną, uruchamiając `az configure --defaults location=<location>` ).
 
 Na przykład następujące polecenie wyświetla listę wszystkich Debian 8 jednostek SKU w lokalizacji Europa Zachodnia:
 
@@ -186,7 +186,7 @@ westus      akumina
 ...
 ```
 
-Użyj tych informacji, aby znaleźć oferty od określonego wydawcy. Na przykład w przypadku wydawcy *kanonicznego* w lokalizacji zachodnie stany USA Znajdź oferty przez uruchomienie `azure vm image list-offers`. Przekaż lokalizację i wydawcę, tak jak w poniższym przykładzie:
+Użyj tych informacji, aby znaleźć oferty od określonego wydawcy. Na przykład w przypadku wydawcy *kanonicznego* w lokalizacji zachodnie stany USA Znajdź oferty przez uruchomienie `azure vm image list-offers` . Przekaż lokalizację i wydawcę, tak jak w poniższym przykładzie:
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -276,9 +276,9 @@ W przypadku wdrożenia maszyny wirtualnej z szablonem Menedżer zasobów paramet
 
 ### <a name="view-plan-properties"></a>Wyświetl właściwości planu
 
-Aby wyświetlić informacje o planie zakupu obrazu, uruchom polecenie [AZ VM Image show](/cli/azure/image) . Jeśli `plan` właściwość w danych wyjściowych nie `null`jest, obraz zawiera warunki, które należy zaakceptować przed wdrożeniem programistycznym.
+Aby wyświetlić informacje o planie zakupu obrazu, uruchom polecenie [AZ VM Image show](/cli/azure/image) . Jeśli `plan` Właściwość w danych wyjściowych nie jest `null` , obraz zawiera warunki, które należy zaakceptować przed wdrożeniem programistycznym.
 
-Na przykład obraz kanoniczny Ubuntu Server 18,04 LTS nie ma dodatkowych warunków, ponieważ `plan` informacje są `null`następujące:
+Na przykład obraz kanoniczny Ubuntu Server 18,04 LTS nie ma dodatkowych warunków, ponieważ `plan` informacje są `null` następujące:
 
 ```azurecli
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
@@ -300,7 +300,7 @@ Dane wyjściowe:
 }
 ```
 
-Uruchamianie podobnego `plan` polecenia dla obrazu RabbitMQ Certified by Bitnami wyświetla następujące właściwości: `name`, `product`, i. `publisher` (Niektóre obrazy mają również `promotion code` Właściwość). Aby wdrożyć ten obraz, zapoznaj się z następującymi sekcjami, aby zaakceptować warunki i włączyć wdrażanie programistyczne.
+Uruchamianie podobnego polecenia dla obrazu RabbitMQ Certified by Bitnami wyświetla następujące `plan` Właściwości: `name` , `product` , i `publisher` . (Niektóre obrazy mają również `promotion code` Właściwość). Aby wdrożyć ten obraz, zapoznaj się z następującymi sekcjami, aby zaakceptować warunki i włączyć wdrażanie programistyczne.
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
@@ -333,7 +333,7 @@ Aby wyświetlić i zaakceptować postanowienia licencyjne, użyj polecenia [AZ V
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 ``` 
 
-Dane wyjściowe zawierają `licenseTextLink` do postanowień licencyjnych i wskazują, że wartość `accepted` jest: `true`
+Dane wyjściowe zawierają `licenseTextLink` do postanowień licencyjnych i wskazują, że wartość `accepted` jest `true` :
 
 ```
 {

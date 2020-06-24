@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1e4428fecdbb5d664111adc591812a5122bf2eda
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 81a3d8e08486f76fc23a489acd3138d7b9fe8134
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125118"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711633"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji
 
@@ -25,7 +25,7 @@ ms.locfileid: "83125118"
 
 Ten artykuł służy do rozwiązywania problemów występujących podczas konfigurowania maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows.
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
 
@@ -136,7 +136,7 @@ Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy n
 
 ## <a name="error-windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Błąd: wpis rejestru agenta usług pulpitu wirtualnego systemu Windows zawiera wartość 0
 
-**Przyczyna:** Token rejestracji wygasł lub został wygenerowany z wartością wygaśnięcia wynoszącą 999999.
+**Przyczyna:** Token rejestracji wygasł.
 
 **Poprawka:** Postępuj zgodnie z tymi instrukcjami, aby naprawić błąd rejestru agenta.
 
@@ -182,7 +182,7 @@ Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy n
 
 ## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Rozwiązywanie problemów z funkcją pulpitu wirtualnego systemu Windows — stos równoległy
 
-Stos równoległy pulpitu wirtualnego systemu Windows jest automatycznie instalowany z systemem Windows Server 2019. Użyj Instalatora Microsoft (MSI), aby zainstalować stos równoległy w systemie Microsoft Windows Server 2016 lub Windows Server 2012 R2. W przypadku systemu Microsoft Windows 10 stos równoległy pulpitu wirtualnego systemu Windows jest włączony z **enablesxstackrs. ps1**.
+Stos równoległy pulpitu wirtualnego systemu Windows jest automatycznie instalowany z systemem Windows Server 2019. Użyj Instalatora Microsoft (MSI), aby zainstalować stos równoległy w systemie Microsoft Windows Server 2016 lub Windows Server 2012 R2. W przypadku systemu Microsoft Windows 10 stos równoległy pulpitu wirtualnego systemu Windows jest włączony z **enablesxstackrs.ps1**.
 
 Istnieją trzy główne sposoby, w których stos równoległy jest instalowany lub włączony na maszynach wirtualnych puli hostów sesji:
 
@@ -224,8 +224,8 @@ Istnieją znane sytuacje, które mogą spowodować nieprawidłowe działanie sto
 - Nie zgodnie z prawidłową kolejnością kroków, aby włączyć stos równoległy
 - Autoaktualizacja do ulepszonego uniwersalnego dysku systemu Windows 10 (EVD)
 - Brak roli hosta sesji Pulpit zdalny
-- Uruchamianie enablesxsstackrc. ps1 wiele razy
-- Uruchamianie enablesxsstackrc. ps1 na koncie, które nie ma uprawnień administratora lokalnego
+- Uruchamianie enablesxsstackrc.ps1 wiele razy
+- Uruchamianie enablesxsstackrc.ps1 na koncie, które nie ma uprawnień administratora lokalnego
 
 Instrukcje przedstawione w tej sekcji mogą pomóc w odinstalowaniu stosu równoległego pulpitu wirtualnego systemu Windows. Po odinstalowaniu stosu równoległego przejdź do pozycji "Zarejestruj maszynę wirtualną w puli hostów systemu Windows Virtual Desktop" w temacie [Tworzenie puli hostów za pomocą programu PowerShell](create-host-pools-powershell.md) , aby ponownie zainstalować stos równoległy.
 
@@ -278,7 +278,7 @@ Postępuj zgodnie z tymi instrukcjami, aby przeprowadzić korygowanie z tej same
 
 Jeśli używany system operacyjny to Microsoft Windows 10, wykonaj poniższe instrukcje:
 
-14. Na maszynie wirtualnej z systemem PsExec Otwórz Eksploratora plików i skopiuj disablesxsstackrc. ps1 na dysk systemowy maszyny wirtualnej z nieprawidłowo działającym stosem równoległym.
+14. Na maszynie wirtualnej z systemem PsExec Otwórz Eksploratora plików i skopiuj disablesxsstackrc.ps1 na dysk systemowy maszyny wirtualnej z nieprawidłowo działającym stosem równoległym.
 
     ```cmd
         \\<VMname>\c$\
@@ -287,7 +287,7 @@ Jeśli używany system operacyjny to Microsoft Windows 10, wykonaj poniższe ins
     >[!NOTE]
     >VMname to nazwa maszyny wirtualnej z nieprawidłowym stosem równoległym.
 
-15. Zalecany proces: w narzędziu PsExec Uruchom program PowerShell i przejdź do folderu z poprzedniego kroku i uruchom polecenie disablesxsstackrc. ps1. Alternatywnie można uruchomić następujące polecenia cmdlet:
+15. Zalecany proces: w narzędziu PsExec Uruchom program PowerShell i przejdź do folderu z poprzedniego kroku i uruchom disablesxsstackrc.ps1. Alternatywnie można uruchomić następujące polecenia cmdlet:
 
     ```PowerShell
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force

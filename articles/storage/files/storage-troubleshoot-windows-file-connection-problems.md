@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2b49598d51fb785872fccec966ac11a95ef3cede
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 62b3a5ca772e21515fadf0397b294e93d77f96a6
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657733"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84711837"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
 
@@ -342,12 +342,12 @@ Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGrou
 Polecenie cmdlet wykonuje poniższe testy w sekwencji i zawiera wskazówki dotyczące niepowodzeń:
 1. CheckPort445Connectivity: Sprawdź, czy port 445 jest otwarty dla połączenia SMB
 2. CheckDomainJoined: Sprawdź, czy komputer kliencki jest przyłączony do usługi AD
-3. CheckADObject: Upewnij się, że zalogowany użytkownik ma prawidłową reprezentację w domenie usługi AD, z którą skojarzone jest konto magazynu
+3. CheckADObject: Upewnij się, że w Active Directory znajduje się obiekt, który reprezentuje konto magazynu i ma poprawną nazwę SPN (główna nazwa usługi).
 4. CheckGetKerberosTicket: spróbuj uzyskać bilet protokołu Kerberos, aby nawiązać połączenie z kontem magazynu 
-5. CheckADObjectPasswordIsCorrect: Upewnij się, że hasło skonfigurowane na tożsamości usługi AD reprezentującej konto magazynu jest zgodne z kluczem kerb konta magazynu
+5. CheckADObjectPasswordIsCorrect: Upewnij się, że hasło skonfigurowane na tożsamości usługi AD reprezentującej konto magazynu jest zgodne z kluczem konta magazynu kerb1 lub kerb2.
 6. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD. Jeśli chcesz sprawdzić, czy określony użytkownik usługi AD jest synchronizowany z usługą Azure AD, możesz określić parametry-UserName i-Domain w parametrach wejściowych.
-7. CheckAadUserHasSid: Sprawdź, czy użytkownik usługi AD Azuer ma identyfikator SID w usłudze AD, wymagaj od użytkownika wprowadzenia identyfikatora obiektu użytkownika usługi Azure AD z parametrem-ObjectId. 
-8. CheckStorageAccountDomainJoined: Sprawdź, czy w usłudze AD zarejestrowano tożsamość, aby reprezentować konto magazynu. 
+7. CheckAadUserHasSid: Sprawdź, czy użytkownik usługi Azure AD ma identyfikator SID w usłudze AD, to sprawdzenie wymaga od użytkownika wprowadzenia identyfikatora obiektu użytkownika usługi Azure AD z parametrem ObjectId. 
+8. CheckStorageAccountDomainJoined: Sprawdź właściwości konta magazynu, aby zobaczyć, że włączono uwierzytelnianie usługi AD i wypełnianie właściwości usługi AD konta.
 
 ## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Nie można skonfigurować uprawnień na poziomie katalogu/pliku (listy ACL systemu Windows) przy użyciu Eksploratora plików systemu Windows
 

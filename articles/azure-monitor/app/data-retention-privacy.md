@@ -2,13 +2,13 @@
 title: Przechowywanie i przechowywanie danych w usłudze Azure Application Insights | Microsoft Docs
 description: Zasady przechowywania i zasad zachowania poufności informacji
 ms.topic: conceptual
-ms.date: 09/29/2019
-ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/11/2020
+ms.openlocfilehash: d77eaa32c8487d1aa87626683b4c29bf1cee0e75
+ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275999"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84718686"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Zbieranie, przechowywanie i magazynowanie danych w Application Insights
 
@@ -52,10 +52,10 @@ Główne kategorie to:
 * [Strony sieci Web](../../azure-monitor/app/javascript.md) — liczba stron, użytkowników i sesji. Czasy ładowania strony. Wyłączenia. Wywołania AJAX.
 * Liczniki wydajności — pamięć, procesor CPU, we/wy, zajętość sieci.
 * Kontekst klienta i serwera — system operacyjny, ustawienia regionalne, typ urządzenia, przeglądarka, rozdzielczość ekranu.
-* [Wyjątki](../../azure-monitor/app/asp-net-exceptions.md) i awarie — `build id` **zrzuty stosu**, typ procesora CPU. 
+* [Wyjątki](../../azure-monitor/app/asp-net-exceptions.md) i awarie — **zrzuty stosu**, `build id` Typ procesora CPU. 
 * [Zależności](../../azure-monitor/app/asp-net-dependencies.md) — wywołania usług zewnętrznych, takich jak REST, SQL i AJAX. Identyfikator URI lub parametry połączenia, czas trwania, powodzenie, polecenie.
 * [Testy dostępności](../../azure-monitor/app/monitor-web-app-availability.md) — czas trwania testu i kroków, odpowiedzi.
-* [Dzienniki śledzenia](../../azure-monitor/app/asp-net-trace-logs.md) i [niestandardowa Telemetria](../../azure-monitor/app/api-custom-events-metrics.md) - —**wszystko, co jest używane w dziennikach lub danych telemetrycznych**.
+* [Dzienniki śledzenia](../../azure-monitor/app/asp-net-trace-logs.md) i [niestandardowa Telemetria](../../azure-monitor/app/api-custom-events-metrics.md)—  -  **wszystko, co jest używane w dziennikach lub danych telemetrycznych**.
 
 [Więcej szczegółów](#data-sent-by-application-insights).
 
@@ -132,7 +132,7 @@ Jeśli klient musi skonfigurować ten katalog z określonymi wymaganiami dotycz�
 
 ###  <a name="net"></a>.Net
 
-Domyślnie `ServerTelemetryChannel` używa folderu `%localAppData%\Microsoft\ApplicationInsights` danych lokalnej aplikacji lub folderu `%TMP%`tymczasowego bieżącego użytkownika. (Zobacz tutaj [implementację](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) ).
+Domyślnie `ServerTelemetryChannel` używa folderu danych lokalnej aplikacji `%localAppData%\Microsoft\ApplicationInsights` lub folderu tymczasowego bieżącego użytkownika `%TMP%` . (Zobacz tutaj [implementację](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) ).
 
 
 Plik konfiguracji:
@@ -155,9 +155,9 @@ Za pośrednictwem kodu:
 
 ### <a name="netcore"></a>NetCore
 
-Domyślnie `ServerTelemetryChannel` używa folderu `%localAppData%\Microsoft\ApplicationInsights` danych lokalnej aplikacji lub folderu `%TMP%`tymczasowego bieżącego użytkownika. (Zobacz tutaj [implementację](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) ). W środowisku systemu Linux magazyn lokalny zostanie wyłączony, chyba że zostanie określony folder magazynu.
+Domyślnie `ServerTelemetryChannel` używa folderu danych lokalnej aplikacji `%localAppData%\Microsoft\ApplicationInsights` lub folderu tymczasowego bieżącego użytkownika `%TMP%` . (Zobacz tutaj [implementację](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) ). W środowisku systemu Linux magazyn lokalny zostanie wyłączony, chyba że zostanie określony folder magazynu.
 
-Poniższy fragment kodu pokazuje, `ServerTelemetryChannel.StorageFolder` `ConfigureServices()` jak ustawić w metodzie `Startup.cs` klasy:
+Poniższy fragment kodu pokazuje, jak ustawić `ServerTelemetryChannel.StorageFolder` w `ConfigureServices()` metodzie `Startup.cs` klasy:
 
 ```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -169,17 +169,17 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 Domyślnie `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` jest używany do utrwalania danych. Uprawnienia dostępu do tego folderu są ograniczone do bieżącego użytkownika i administratorów. (Zobacz tutaj [implementację](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) ).
 
-Prefiks `appInsights-node` folderu można przesłonić, zmieniając wartość w czasie wykonywania zmiennej `Sender.TEMPDIR_PREFIX` statycznej znalezionej w elemencie Sender. [TS](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+Prefiks folderu `appInsights-node` można przesłonić, zmieniając wartość w czasie wykonywania zmiennej statycznej `Sender.TEMPDIR_PREFIX` znalezionej w elemencie [Sender. TS](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
 ### <a name="javascript-browser"></a>JavaScript (przeglądarka)
 
-[Magazyn sesji HTML5](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) służy do utrwalania danych. Używane są dwa oddzielne bufory `AI_buffer` : `AI_sent_buffer`i. Dane telemetryczne, które są przetwarzane w partii i oczekujące `AI_buffer`na wysłanie, są przechowywane w. Dane telemetryczne, które zostały właśnie `AI_sent_buffer` wysłane, są umieszczane do momentu, gdy serwer pozyskiwania odpowie, że został pomyślnie odebrany. Gdy dane telemetryczne zostały pomyślnie odebrane, zostaną usunięte ze wszystkich buforów. W przypadku błędów przejściowych (na przykład jeśli użytkownik utraci łączność z siecią), dane `AI_buffer` telemetryczne pozostają w programie do momentu jego pomyślnego odebrania lub serwer pozyskiwania odpowie, że dane telemetryczne są nieprawidłowe (na przykład zły schemat lub zbyt stary).
+[Magazyn sesji HTML5](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) służy do utrwalania danych. Używane są dwa oddzielne bufory: `AI_buffer` i `AI_sent_buffer` . Dane telemetryczne, które są przetwarzane w partii i oczekujące na wysłanie, są przechowywane w `AI_buffer` . Dane telemetryczne, które zostały właśnie wysłane, są umieszczane `AI_sent_buffer` do momentu, gdy serwer pozyskiwania odpowie, że został pomyślnie odebrany. Gdy dane telemetryczne zostały pomyślnie odebrane, zostaną usunięte ze wszystkich buforów. W przypadku błędów przejściowych (na przykład jeśli użytkownik utraci łączność z siecią), dane telemetryczne pozostają w programie `AI_buffer` do momentu jego pomyślnego odebrania lub serwer pozyskiwania odpowie, że dane telemetryczne są nieprawidłowe (na przykład zły schemat lub zbyt stary).
 
-Bufory telemetrii można wyłączyć [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) , `false`ustawiając wartość na. Gdy magazyn sesji jest wyłączony, tablica lokalna jest używana jako magazyn trwały. Ponieważ zestaw JavaScript SDK działa na urządzeniu klienckim, użytkownik ma dostęp do tej lokalizacji magazynu za pomocą narzędzi deweloperskich w przeglądarce.
+Bufory telemetrii można wyłączyć, ustawiając wartość [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) na `false` . Gdy magazyn sesji jest wyłączony, tablica lokalna jest używana jako magazyn trwały. Ponieważ zestaw JavaScript SDK działa na urządzeniu klienckim, użytkownik ma dostęp do tej lokalizacji magazynu za pomocą narzędzi deweloperskich w przeglądarce.
 
 ### <a name="opencensus-python"></a>OpenCensus Python
 
-Domyślnie OpenCensus Python SDK używa bieżącego folderu `%username%/.opencensus/.azure/`użytkownika. Uprawnienia dostępu do tego folderu są ograniczone do bieżącego użytkownika i administratorów. (Zobacz tutaj [implementację](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) ). Folder z danymi utrwalanymi zostanie nazwany po pliku języka Python, który wygenerował dane telemetryczne.
+Domyślnie OpenCensus Python SDK używa bieżącego folderu użytkownika `%username%/.opencensus/.azure/` . Uprawnienia dostępu do tego folderu są ograniczone do bieżącego użytkownika i administratorów. (Zobacz tutaj [implementację](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) ). Folder z danymi utrwalanymi zostanie nazwany po pliku języka Python, który wygenerował dane telemetryczne.
 
 Lokalizację pliku magazynu można zmienić, przekazując `storage_path` parametr w konstruktorze używanego przez eksportera.
 
@@ -202,11 +202,11 @@ Firma Microsoft nie zaleca jawnie ustawienia aplikacji do używania protokołu T
 
 |Platforma/język | Pomoc techniczna | Więcej informacji |
 | --- | --- | --- |
-| Azure App Services  | Obsługiwane, może być wymagana konfiguracja. | Obsługa została ogłoszona w kwietniu 2018. Zapoznaj się z ogłoszeniem, aby uzyskać [szczegółowe informacje o konfiguracji](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| Aplikacje funkcji platformy Azure | Obsługiwane, może być wymagana konfiguracja. | Obsługa została ogłoszona w kwietniu 2018. Zapoznaj się z ogłoszeniem, aby uzyskać [szczegółowe informacje o konfiguracji](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+| Azure App Services  | Obsługiwane, może być wymagana konfiguracja. | Obsługa została ogłoszona w kwietniu 2018. Zapoznaj się z ogłoszeniem, aby uzyskać [szczegółowe informacje o konfiguracji](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!).  |
+| Aplikacje funkcji platformy Azure | Obsługiwane, może być wymagana konfiguracja. | Obsługa została ogłoszona w kwietniu 2018. Zapoznaj się z ogłoszeniem, aby uzyskać [szczegółowe informacje o konfiguracji](https://azure.github.io/AppService/2018/04/17/App-Service-and-Functions-hosted-apps-can-now-update-TLS-versions!). |
 |.NET | Obsługiwane, konfiguracja zależy od wersji. | Aby uzyskać szczegółowe informacje o konfiguracji dla programu .NET 4,7 i jego wcześniejszych wersji, zobacz [te instrukcje](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitor stanu | Obsługiwane, wymagana konfiguracja | Monitor stanu korzysta z + [konfiguracji platformy .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) [konfiguracji systemu operacyjnego](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)w celu zapewnienia obsługi protokołu TLS 1,2.
-|Node.js |  Obsługiwane w programie v 10.5.0 może być wymagana konfiguracja. | Użyj [oficjalnej dokumentacji protokołu TLS/SSL języka Node. js](https://nodejs.org/api/tls.html) dla każdej konfiguracji specyficznej dla aplikacji. |
+|Monitor stanu | Obsługiwane, wymagana konfiguracja | Monitor stanu korzysta z [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  +  [konfiguracji platformy .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) konfiguracji systemu operacyjnego w celu zapewnienia obsługi protokołu TLS 1,2.
+|Node.js |  Obsługiwane w programie v 10.5.0 może być wymagana konfiguracja. | Użyj [oficjalnej Node.js protokołu TLS/SSL](https://nodejs.org/api/tls.html) dla każdej konfiguracji specyficznej dla aplikacji. |
 |Java | Obsługiwane, JDK support for TLS 1,2 zostało dodane w [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) i [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 [domyślnie używa protokołu TLS 1,2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
 |Linux | Dystrybucje systemu Linux zależą od [OpenSSL](https://www.openssl.org) obsługi TLS 1,2.  | Sprawdź [Dziennik zmian OpenSSL](https://www.openssl.org/news/changelog.html) , aby potwierdzić, że wersja OpenSSL jest obsługiwana.|
 | Windows 8,0 — 10 | Obsługiwane i domyślnie włączone. | , Aby upewnić się, że nadal używasz [ustawień domyślnych](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
@@ -249,7 +249,7 @@ Zestawy SDK różnią się między platformami i istnieje kilka składników, kt
 | --- | --- |
 | [Dodawanie Application Insights SDK do projektu sieci Web platformy .NET][greenbrown] |ServerContext<br/>Wywnioskować<br/>Liczniki wydajności<br/>Żądania<br/>**Wyjątki**<br/>Sesja<br/>users |
 | [Instalowanie monitor stanu w usługach IIS][redfield] |Zależności<br/>ServerContext<br/>Wywnioskować<br/>Liczniki wydajności |
-| [Dodawanie Application Insights SDK do aplikacji sieci Web Java][java] |ServerContext<br/>Wywnioskować<br/>Request<br/>Sesja<br/>users |
+| [Dodawanie Application Insights SDK do aplikacji sieci Web Java][java] |ServerContext<br/>Wywnioskować<br/>Żądanie<br/>Sesja<br/>users |
 | [Dodaj zestaw SDK JavaScript do strony sieci Web][client] |Klasa ClientContext <br/>Wywnioskować<br/>Strona<br/>ClientPerf<br/>AJAX |
 | [Definiowanie właściwości domyślnych][apiproperties] |**Właściwości** wszystkich zdarzeń standardowych i niestandardowych |
 | [TrackMetric wywołań][api] |Wartości liczbowe<br/>**Właściwości** |
@@ -277,19 +277,19 @@ W przypadku [zestawów SDK dla innych platform][platforms]Zobacz dokumenty.
 | Żądania |Adres URL, czas trwania, kod odpowiedzi |
 | Zależności |Typ (SQL, HTTP,...), parametry połączenia lub identyfikator URI, synchronizacja/Async, czas trwania, powodzenie, instrukcja SQL (z monitor stanu) |
 | **Wyjątki** |Typ, **komunikat**, stosy wywołań, plik źródłowy, numer wiersza,`thread id` |
-| Stąp |`Process id`, `parent process id`, `crash thread id`; Poprawka aplikacji, `id`, kompilacja;  Typ wyjątku, adres, Przyczyna; zasłonięte symbole i rejestry, binarne adresy startowe i końcowe, nazwa binarna i ścieżka, typ procesora |
+| Stąp |`Process id`, `parent process id` , `crash thread id` ; poprawka aplikacji, `id` , kompilacja;  Typ wyjątku, adres, Przyczyna; zasłonięte symbole i rejestry, binarne adresy startowe i końcowe, nazwa binarna i ścieżka, typ procesora |
 | Ślad |**Komunikat** i poziom ważności |
 | Liczniki wydajności |Czas procesora, dostępna pamięć, szybkość żądania, szybkość wyjątku, bajty prywatne procesu, szybkość operacji we/wy, czas żądania, Długość kolejki żądań |
 | Dostępność |Kod odpowiedzi testu sieci Web, czas trwania każdego kroku testu, nazwa testu, sygnatura czasowa, sukces, czas odpowiedzi, lokalizacja testu |
 | Diagnostyka zestawu SDK |Komunikat lub wyjątek śledzenia |
 
-[Niektóre dane można wyłączyć, edytując plik ApplicationInsights. config][config]
+[Niektóre dane można wyłączyć, edytując ApplicationInsights.config][config]
 
 > [!NOTE]
 > Adres IP klienta jest używany do wywnioskowania lokalizacji geograficznej, ale domyślnie dane IP nie są już przechowywane i wszystkie zera są zapisywane w skojarzonym polu. Aby dowiedzieć się więcej na temat obsługi danych osobowych, zalecamy korzystanie z tego [artykułu](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Jeśli zachodzi potrzeba zapisania danych adresów IP w [artykule dotyczącym zbierania adresów IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) , przeprowadzisz Cię przez opcje.
 
 ## <a name="credits"></a>Środki
-Ten produkt zawiera dane GeoLite2 utworzone przez MaxMind, dostępne z [https://www.maxmind.com](https://www.maxmind.com).
+Ten produkt zawiera dane GeoLite2 utworzone przez MaxMind, dostępne z [https://www.maxmind.com](https://www.maxmind.com) .
 
 
 

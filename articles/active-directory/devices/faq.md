@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c238600d412e53ad665214492e292aa395655b78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79497523"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84689048"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory często zadawane pytania dotyczące zarządzania urządzeniami
 
@@ -39,8 +39,8 @@ W obszarze **urządzenia użytkowników**są wyświetlane tylko następujące ur
 
 Odp **.:** W Azure Portal przejdź do pozycji **wszystkie urządzenia**. Wyszukaj urządzenie przy użyciu identyfikatora urządzenia. Sprawdź wartość w kolumnie Typ sprzężenia. Czasami urządzenie może być resetowane lub odtworzenie obrazu. W związku z tym należy również sprawdzić stan rejestracji urządzenia na urządzeniu:
 
-- W przypadku urządzeń z systemem Windows 10 i Windows Server 2016 lub `dsregcmd.exe /status`nowszym Uruchom polecenie.
-- W przypadku wcześniejszych wersji systemu operacyjnego Uruchom `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`polecenie.
+- W przypadku urządzeń z systemem Windows 10 i Windows Server 2016 lub nowszym Uruchom polecenie `dsregcmd.exe /status` .
+- W przypadku wcześniejszych wersji systemu operacyjnego Uruchom polecenie `%programFiles%\Microsoft Workplace Join\autoworkplace.exe` .
 
 Odp **.:** Informacje dotyczące rozwiązywania problemów można znaleźć w następujących artykułach:
 - [Rozwiązywanie problemów z urządzeniami za pomocą polecenia dsregcmd](troubleshoot-device-dsregcmd.md)
@@ -100,7 +100,7 @@ Odp **.:** Ta operacja jest zaprojektowana. W takim przypadku urządzenie nie ma
 
       W przypadku urządzeń z systemem Windows 10 zarejestrowanych w usłudze Azure AD wykonaj następujące czynności:
 
-      1. Przejdź do pozycji **Ustawienia** > **konta** > **dostęp do zasobów służbowych**. 
+      1. Przejdź do pozycji **Ustawienia**  >  **konta**  >  **dostęp do zasobów służbowych**. 
       1. Wybierz konto i wybierz pozycję **Rozłącz**.
       1. Kliknij pozycję "+ Połącz" i ponownie Zarejestruj urządzenie, przechodząc przez proces logowania.
 
@@ -148,7 +148,7 @@ Odp **.:** oczekiwanie wskazuje, że urządzenie nie jest zarejestrowane. Ten st
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>P: Jak mogę odłączania urządzenia dołączonego do usługi Azure AD lokalnie na urządzeniu?
 
-Odp **.:** W przypadku urządzeń z czystym usługą Azure AD upewnij się, że masz konto administratora lokalnego w trybie offline lub utwórz je. Nie można zalogować się przy użyciu żadnych poświadczeń użytkownika usługi Azure AD. Następnie przejdź do pozycji **Ustawienia** > **konta** > **dostęp do zasobów służbowych**. Wybierz swoje konto i wybierz pozycję **Rozłącz**. Po wyświetleniu monitu postępuj zgodnie z monitami i podaj poświadczenia administratora lokalnego. Uruchom ponownie urządzenie, aby zakończyć proces rozłączania.
+Odp **.:** W przypadku urządzeń z czystym usługą Azure AD upewnij się, że masz konto administratora lokalnego w trybie offline lub utwórz je. Nie można zalogować się przy użyciu żadnych poświadczeń użytkownika usługi Azure AD. Następnie przejdź do pozycji **Ustawienia**  >  **konta**  >  **dostęp do zasobów służbowych**. Wybierz swoje konto i wybierz pozycję **Rozłącz**. Po wyświetleniu monitu postępuj zgodnie z monitami i podaj poświadczenia administratora lokalnego. Uruchom ponownie urządzenie, aby zakończyć proces rozłączania.
 
 ---
 
@@ -175,6 +175,8 @@ Usunięci lub wyłączni użytkownicy, którzy nie zalogują się wcześniej, ni
 ### <a name="q-why-do-my-users-have-issues-on-azure-ad-joined-devices-after-changing-their-upn"></a>P: Dlaczego mój użytkownik ma problemy z urządzeniami przyłączonymi do usługi Azure AD po zmianie nazwy UPN?
 
 Odp **.:** Obecnie zmiany nazw UPN nie są w pełni obsługiwane na urządzeniach dołączonych do usługi Azure AD. Uwierzytelnianie za pomocą usługi Azure AD kończy się niepowodzeniem po zmianie nazwy UPN. W związku z tym użytkownicy mają problemy z logowaniem jednokrotnym i dostępem warunkowym na swoich urządzeniach. W tej chwili użytkownicy muszą zalogować się do systemu Windows za pomocą kafelka "inny użytkownik" przy użyciu nowej nazwy UPN, aby rozwiązać ten problem. Obecnie pracujemy nad tym problemem. Jednak użytkownicy logujący się przy użyciu usługi Windows Hello dla firm nie będą napotykać tego problemu. 
+
+Zmiany nazw UPN są obsługiwane w ramach aktualizacji systemu Windows 10 2004. Użytkownicy na urządzeniach z tą aktualizacją nie będą mieli żadnych problemów po zmianie ich nazw UPN
 
 ---
 
@@ -232,7 +234,7 @@ Odp **.:** Przyczyną jest to, że zalogowano się na urządzeniu przy użyciu l
 
 ### <a name="qwhat-are-the-ms-organization-p2p-access-certificates-present-on-our-windows-10-devices"></a>Q:What to certyfikaty MS-Organization-P2P-Access obecne na naszych urządzeniach z systemem Windows 10?
 
-Odp **.:** Certyfikaty MS-Organization-P2P-Access są wystawiane przez usługę Azure AD zarówno do usługi Azure AD, jak i hybrydowych urządzeń przyłączonych do usługi Azure AD. Te certyfikaty służą do włączania zaufania między urządzeniami w tej samej dzierżawie na potrzeby scenariuszy usług pulpitu zdalnego. Jeden certyfikat jest wystawiony dla urządzenia, a drugi jest wystawiony dla użytkownika. Certyfikat urządzenia jest obecny w `Local Computer\Personal\Certificates` usłudze i jest ważny przez jeden dzień. Ten certyfikat zostanie odnowiony (przez wystawienie nowego certyfikatu), jeśli urządzenie jest nadal aktywne w usłudze Azure AD. Certyfikat użytkownika jest obecny w programie `Current User\Personal\Certificates` i ten certyfikat jest również ważny przez jeden dzień, ale jest wystawiany na żądanie, gdy użytkownik próbuje wykonać sesję pulpitu zdalnego na innym urządzeniu przyłączonym do usługi Azure AD. Nie jest odnawiana po wygaśnięciu. Oba te certyfikaty są wystawiane przy użyciu certyfikatu MS-Organization-P2P-Access obecnego w `Local Computer\AAD Token Issuer\Certificates`. Ten certyfikat jest wystawiany przez usługę Azure AD podczas rejestracji urządzenia. 
+Odp **.:** Certyfikaty MS-Organization-P2P-Access są wystawiane przez usługę Azure AD zarówno do usługi Azure AD, jak i hybrydowych urządzeń przyłączonych do usługi Azure AD. Te certyfikaty służą do włączania zaufania między urządzeniami w tej samej dzierżawie na potrzeby scenariuszy usług pulpitu zdalnego. Jeden certyfikat jest wystawiony dla urządzenia, a drugi jest wystawiony dla użytkownika. Certyfikat urządzenia jest obecny w usłudze `Local Computer\Personal\Certificates` i jest ważny przez jeden dzień. Ten certyfikat zostanie odnowiony (przez wystawienie nowego certyfikatu), jeśli urządzenie jest nadal aktywne w usłudze Azure AD. Certyfikat użytkownika jest obecny w programie `Current User\Personal\Certificates` i ten certyfikat jest również ważny przez jeden dzień, ale jest wystawiany na żądanie, gdy użytkownik próbuje wykonać sesję pulpitu zdalnego na innym urządzeniu przyłączonym do usługi Azure AD. Nie jest odnawiana po wygaśnięciu. Oba te certyfikaty są wystawiane przy użyciu certyfikatu MS-Organization-P2P-Access obecnego w `Local Computer\AAD Token Issuer\Certificates` . Ten certyfikat jest wystawiany przez usługę Azure AD podczas rejestracji urządzenia. 
 
 ---
 
@@ -246,7 +248,7 @@ Odp **.:** Wystąpił problem opisany w systemie Windows 10 w wersji 1709 i niż
 
 ### <a name="q-how-do-i-unjoin-a-hybrid-azure-ad-joined-device-locally-on-the-device"></a>P: Jak mogę odłączania hybrydowego urządzenia dołączonego do usługi Azure AD lokalnie na urządzeniu?
 
-Odp **.:** W przypadku urządzeń przyłączonych do hybrydowej usługi Azure AD upewnij się, że funkcja automatycznej rejestracji została wyłączona. Następnie zaplanowane zadanie nie będzie ponownie rejestrować urządzenia. Następnie otwórz wiersz polecenia jako administrator i wprowadź `dsregcmd.exe /debug /leave`. Lub Uruchom to polecenie jako skrypt na kilku urządzeniach, aby rozłączyć zbiorczo.
+Odp **.:** W przypadku urządzeń przyłączonych do hybrydowej usługi Azure AD upewnij się, że funkcja automatycznej rejestracji została wyłączona. Następnie zaplanowane zadanie nie będzie ponownie rejestrować urządzenia. Następnie otwórz wiersz polecenia jako administrator i wprowadź `dsregcmd.exe /debug /leave` . Lub Uruchom to polecenie jako skrypt na kilku urządzeniach, aby rozłączyć zbiorczo.
 
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>P: gdzie można znaleźć informacje dotyczące rozwiązywania problemów w celu zdiagnozowania niepowodzeń dołączania hybrydowej usługi Azure AD?
 
@@ -267,6 +269,8 @@ Dołączanie hybrydowej usługi Azure AD ma pierwszeństwo przed zarejestrowanym
 
 Odp **.:** Obecnie zmiany nazw UPN nie są w pełni obsługiwane w przypadku urządzeń przyłączonych do hybrydowej usługi Azure AD. Użytkownicy mogą logować się na urządzeniu i uzyskiwać dostęp do aplikacji lokalnych, więc uwierzytelnianie za pomocą usługi Azure AD kończy się niepowodzeniem po zmianie nazwy UPN. W związku z tym użytkownicy mają problemy z logowaniem jednokrotnym i dostępem warunkowym na swoich urządzeniach. W tej chwili musisz odłączyć urządzenie od usługi Azure AD (Uruchom polecenie "dsregcmd/Leave" z podniesionymi uprawnieniami) i ponownie Dołącz (automatycznie), aby rozwiązać ten problem. Obecnie pracujemy nad tym problemem. Jednak użytkownicy logujący się przy użyciu usługi Windows Hello dla firm nie będą napotykać tego problemu. 
 
+Zmiany nazw UPN są obsługiwane w ramach aktualizacji systemu Windows 10 2004. Użytkownicy na urządzeniach z tą aktualizacją nie będą mieli żadnych problemów po zmianie ich nazw UPN
+
 ---
 
 ### <a name="q-do-windows-10-hybrid-azure-ad-joined-devices-require-line-of-sight-to-the-domain-controller-to-get-access-to-cloud-resources"></a>P: czy hybrydowe urządzenia z systemem Windows 10 dołączone do usługi Azure AD wymagają linii wglądu do kontrolera domeny w celu uzyskania dostępu do zasobów w chmurze?
@@ -286,8 +290,8 @@ Odp **.:** Jeśli hasło zostanie zmienione poza siecią firmową (na przykład 
 ### <a name="q-how-do-i-remove-an-azure-ad-registered-state-for-a-device-locally"></a>P: Jak mogę usunąć zarejestrowany stan usługi Azure AD na potrzeby lokalnego urządzenia?
 
 **Z** 
-- W przypadku zarejestrowanych urządzeń z systemem Windows 10 w usłudze Azure AD przejdź do pozycji **Ustawienia** > **konta** > **dostęp do zasobów służbowych**. Wybierz swoje konto i wybierz pozycję **Rozłącz**. Rejestracja urządzenia dotyczy profilu użytkownika w systemie Windows 10.
-- W przypadku systemów iOS i Android można użyć Microsoft Authenticator**rejestracji urządzeń** **ustawień** > aplikacji i wybrać pozycję **Wyrejestruj urządzenie**.
+- W przypadku zarejestrowanych urządzeń z systemem Windows 10 w usłudze Azure AD przejdź do pozycji **Ustawienia**  >  **konta**  >  **dostęp do zasobów służbowych**. Wybierz swoje konto i wybierz pozycję **Rozłącz**. Rejestracja urządzenia dotyczy profilu użytkownika w systemie Windows 10.
+- W przypadku systemów iOS i Android można użyć Microsoft Authenticator **Settings**  >  **rejestracji urządzeń** ustawień aplikacji i wybrać pozycję **Wyrejestruj urządzenie**.
 - W przypadku macOS można użyć aplikacji Portal firmy Microsoft Intune, aby wyrejestrować urządzenie z zarządzania i usunąć wszelkie rejestracje. 
 
 ---

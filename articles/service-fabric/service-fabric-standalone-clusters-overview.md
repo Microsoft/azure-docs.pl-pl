@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: e8912ef5bc0fd6009443b736031fc9af57ab6c5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6abe6fca77251a16bcb7663a5192f46fef3476b0
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75465644"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080661"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Omówienie Service Fabric klastrów autonomicznych
 
@@ -21,9 +21,16 @@ Typ węzła definiuje rozmiar, liczbę i właściwości zestawu węzłów w klas
 Proces tworzenia klastra Service Fabric lokalnie jest podobny do procesu tworzenia klastra w dowolnej wybranej chmurze z zestawem maszyn wirtualnych. Początkowe kroki w celu aprowizacji maszyn wirtualnych podlegają dostawcy usług w chmurze lub środowisku lokalnym, z którego korzystasz. Po włączeniu zestawu maszyn wirtualnych z włączoną łącznością sieciową między nimi należy wykonać kroki konfigurowania pakietu Service Fabric, edytowania ustawień klastra i uruchamiania skryptów tworzenia klastra i zarządzania nimi. Zapewnia to, że wiedza i doświadczenie związane z działaniem i zarządzaniem klastrami Service Fabric jest możliwe do przetransferowania w przypadku wybrania opcji ukierunkowanych na nowe środowiska hostingu.
 
 ## <a name="cluster-security"></a>Zabezpieczenia klastra
+
 Klaster Service Fabric jest posiadanym zasobem.  Użytkownik jest odpowiedzialny za zabezpieczanie klastrów w celu zapobiegania łączeniu się z nimi nieautoryzowanych użytkowników. Bezpieczny klaster jest szczególnie ważny w przypadku uruchamiania obciążeń produkcyjnych w klastrze.
 
+> [!NOTE]
+> Uwierzytelnianie systemu Windows jest oparte na protokole Kerberos. Uwierzytelnianie NTLM nie jest obsługiwane jako typ uwierzytelniania.
+>
+> Za każdym razem, gdy to możliwe, Użyj uwierzytelniania certyfikatu X. 509 dla klastrów Service Fabric.
+
 ### <a name="node-to-node-security"></a>Zabezpieczenia między węzłami
+
 Zabezpieczenia między węzłami zabezpieczają komunikację między maszynami wirtualnymi lub komputerami w klastrze. Ten scenariusz zabezpieczeń zapewnia, że tylko komputery autoryzowane do dołączenia do klastra mogą uczestniczyć w aplikacjach i usługach obsługujących klaster. Service Fabric używa certyfikatów X. 509 w celu zabezpieczenia klastra i zapewnienia funkcji zabezpieczeń aplikacji.  Certyfikat klastra jest wymagany do zabezpieczenia ruchu klastra i zapewnienia uwierzytelniania klastra i serwera.  Do klastrów testowych można używać certyfikatów z podpisem własnym, ale do zabezpieczania klastrów produkcyjnych należy używać certyfikatu z zaufanego urzędu certyfikacji.
 
 Zabezpieczenia systemu Windows można również włączyć dla autonomicznego klastra systemu Windows. Jeśli masz systemy Windows Server 2012 R2 i Windows Active Directory, zalecamy użycie zabezpieczeń systemu Windows z kontami usług zarządzanymi przez grupę. W przeciwnym razie Użyj zabezpieczeń systemu Windows z kontami systemu Windows.
@@ -31,6 +38,7 @@ Zabezpieczenia systemu Windows można również włączyć dla autonomicznego kl
 Aby uzyskać więcej informacji, zapoznaj się z tematem [zabezpieczenia między węzłami](service-fabric-cluster-security.md#node-to-node-security)
 
 ### <a name="client-to-node-security"></a>Zabezpieczenia między klientem a węzłem
+
 Zabezpieczenia klienta w węźle uwierzytelniają klientów i pomagają w zabezpieczaniu komunikacji między klientem a poszczególnymi węzłami w klastrze. Ten typ zabezpieczeń pomaga upewnić się, że tylko autoryzowani użytkownicy mają dostęp do klastra i aplikacji wdrożonych w klastrze. Klienci są jednoznacznie identyfikowani przy użyciu swoich poświadczeń zabezpieczeń certyfikatu X. 509. Dowolna liczba opcjonalnych certyfikatów klienta może służyć do uwierzytelniania klientów administratorów lub użytkowników z klastrem.
 
 Oprócz certyfikatów klienta Azure Active Directory można również skonfigurować tak, aby uwierzytelniać klientów w klastrze.
@@ -55,13 +63,15 @@ Autonomiczny klaster jest zasobem, który jesteś całkowicie własnym. Użytkow
 Aby uzyskać więcej informacji, przeczytaj temat [uaktualnianie klastrów autonomicznych](service-fabric-cluster-upgrade-standalone.md).
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
+
 Możesz tworzyć klastry na maszynach wirtualnych lub komputerach z tymi systemami operacyjnymi (system Linux nie jest jeszcze obsługiwany):
 
-* Windows Server 2012 R2
+* Windows Server 2012 z dodatkiem R2
 * Windows Server 2016 
 * Windows Server 2019
 
 ## <a name="next-steps"></a>Następne kroki
+
 Przeczytaj więcej na temat [zabezpieczania](service-fabric-cluster-security.md), [skalowania](service-fabric-cluster-scaling-standalone.md)i [uaktualniania](service-fabric-cluster-upgrade-standalone.md) klastrów autonomicznych.
 
 Dowiedz się więcej o [opcjach pomocy technicznej Service Fabric](service-fabric-support.md).

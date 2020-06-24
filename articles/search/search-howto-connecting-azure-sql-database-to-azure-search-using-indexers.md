@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c09727e8d92a449b41124eae6ad8381d66cb2619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9279622ee54a9fdaa6617cfe2758cfb563fdbffa
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74113304"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080593"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Łączenie się z zawartością i indeksowanie Azure SQL Database za pomocą indeksatora Wyszukiwanie poznawcze platformy Azure
 
@@ -140,7 +140,7 @@ Odpowiedź powinna wyglądać podobnie do poniższego:
     }
 
 Historia wykonywania zawiera maksymalnie 50 ostatnio zakończonych wykonań, które są sortowane w odwrotnej kolejności chronologicznej (w związku z czym najnowsze wykonanie jest najpierw w odpowiedzi).
-Dodatkowe informacje na temat odpowiedzi można znaleźć w temacie [pobieranie stanu indeksatora](https://go.microsoft.com/fwlink/p/?LinkId=528198)
+Dodatkowe informacje na temat odpowiedzi można znaleźć w temacie [pobieranie stanu indeksatora](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
 
 ## <a name="run-indexers-on-a-schedule"></a>Uruchamianie indeksatorów według harmonogramu
 Można również rozmieocić indeksator tak, aby był uruchamiany okresowo zgodnie z harmonogramem. W tym celu należy dodać właściwość **Schedule** podczas tworzenia lub aktualizowania indeksatora. Poniższy przykład przedstawia żądanie PUT, aby zaktualizować indeksator:
@@ -155,7 +155,7 @@ Można również rozmieocić indeksator tak, aby był uruchamiany okresowo zgodn
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-Parametr **interwału** jest wymagany. Interwał odnosi się do czasu między rozpoczęciem dwóch kolejnych wykonań indeksatora. Najmniejszy dozwolony interwał wynosi 5 minut; Najdłuższa wartość to jeden dzień. Musi być sformatowana jako wartość XSD "dayTimeDuration" (ograniczony podzbiór wartości [Duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Wzorzec dla tego elementu to: `P(nD)(T(nH)(nM))`. Przykłady: `PT15M` co 15 minut, `PT2H` przez co 2 godziny.
+Parametr **interwału** jest wymagany. Interwał odnosi się do czasu między rozpoczęciem dwóch kolejnych wykonań indeksatora. Najmniejszy dozwolony interwał wynosi 5 minut; Najdłuższa wartość to jeden dzień. Musi być sformatowana jako wartość XSD "dayTimeDuration" (ograniczony podzbiór wartości [Duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Wzorzec dla tego elementu to: `P(nD)(T(nH)(nM))` . Przykłady: `PT15M` co 15 minut, `PT2H` przez co 2 godziny.
 
 Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w temacie [jak zaplanować indeksatory dla platformy Azure wyszukiwanie poznawcze](search-howto-schedule-indexers.md).
 
@@ -177,7 +177,7 @@ Jeśli Twoja baza danych SQL obsługuje [śledzenie zmian](https://docs.microsof
 + W bazie danych [Włącz śledzenie zmian](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) dla tabeli. 
 + Brak złożonego klucza podstawowego (klucz podstawowy zawierający więcej niż jedną kolumnę) w tabeli.  
 
-#### <a name="usage"></a>Sposób użycia
+#### <a name="usage"></a>Użycie
 
 Aby użyć tych zasad, Utwórz lub zaktualizuj źródło danych podobne do tego:
 
@@ -212,7 +212,7 @@ Ta zasada wykrywania zmian korzysta z kolumny "High-Mark" przechwytującej wersj
 > [!IMPORTANT] 
 > Zdecydowanie zalecamy użycie typu danych [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) dla kolumny znacznika limitu górnego. W przypadku użycia dowolnego innego typu danych śledzenie zmian nie gwarantuje przechwycenia wszystkich zmian w obecności transakcji wykonywanych współbieżnie przy użyciu zapytania indeksatora. W przypadku korzystania z **rowversion** w konfiguracji z replikami tylko do odczytu należy wskazać indeksator w replice podstawowej. Tylko replika podstawowa może być używana do scenariuszy synchronizacji danych.
 
-#### <a name="usage"></a>Sposób użycia
+#### <a name="usage"></a>Użycie
 
 Aby użyć zasad oznakowania górnego, Utwórz lub zaktualizuj źródło danych w następujący sposób:
 
@@ -232,7 +232,28 @@ Aby użyć zasad oznakowania górnego, Utwórz lub zaktualizuj źródło danych 
 >
 >
 
-Jeśli wystąpią błędy limitu czasu, można użyć ustawienia `queryTimeout` konfiguracji indeksatora, aby ustawić limit czasu zapytania na wartość wyższą niż domyślny limit 5 minut. Na przykład aby ustawić limit czasu na 10 minut, należy utworzyć lub zaktualizować indeksator przy użyciu następującej konfiguracji:
+<a name="convertHighWaterMarkToRowVersion"></a>
+
+##### <a name="converthighwatermarktorowversion"></a>convertHighWaterMarkToRowVersion
+
+Jeśli używasz typu danych [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) dla kolumny ze znakiem wysokiej wody, rozważ użycie `convertHighWaterMarkToRowVersion` Ustawienia konfiguracji indeksatora. `convertHighWaterMarkToRowVersion`wykonuje dwie czynności:
+
+* Użyj typu danych rowversion dla kolumny znacznika wysokiej rozdzielczości w zapytaniu SQL indeksatora. Użycie poprawnego typu danych zwiększa wydajność zapytań indeksatora.
+* Odejmij 1 od wartości rowversion przed uruchomieniem zapytania indeksatora. Widoki z 1 do wielu sprzężeń mogą mieć wiersze ze zduplikowanymi wartościami rowversion. Odjęcie 1 gwarantuje, że zapytanie indeksatora nie trafi tych wierszy.
+
+Aby włączyć tę funkcję, Utwórz lub zaktualizuj indeksator przy użyciu następującej konfiguracji:
+
+    {
+      ... other indexer definition properties
+     "parameters" : {
+            "configuration" : { "convertHighWaterMarkToRowVersion" : true } }
+    }
+
+<a name="queryTimeout"></a>
+
+##### <a name="querytimeout"></a>queryTimeout
+
+Jeśli wystąpią błędy limitu czasu, można użyć `queryTimeout` Ustawienia konfiguracji indeksatora, aby ustawić limit czasu zapytania na wartość wyższą niż domyślny limit 5 minut. Na przykład aby ustawić limit czasu na 10 minut, należy utworzyć lub zaktualizować indeksator przy użyciu następującej konfiguracji:
 
     {
       ... other indexer definition properties
@@ -240,7 +261,11 @@ Jeśli wystąpią błędy limitu czasu, można użyć ustawienia `queryTimeout` 
             "configuration" : { "queryTimeout" : "00:10:00" } }
     }
 
-Można również wyłączyć `ORDER BY [High Water Mark Column]` klauzulę. Nie jest to jednak zalecane, ponieważ w przypadku przerwania wykonywania indeksatora przez błąd indeksator musi ponownie przetworzyć wszystkie wiersze, jeśli program indeksator przetworzył już prawie wszystkie wiersze o czas, który został przerwany. Aby wyłączyć `ORDER BY` klauzulę, użyj `disableOrderByHighWaterMarkColumn` ustawienia w definicji indeksatora:  
+<a name="disableOrderByHighWaterMarkColumn"></a>
+
+##### <a name="disableorderbyhighwatermarkcolumn"></a>disableOrderByHighWaterMarkColumn
+
+Można również wyłączyć `ORDER BY [High Water Mark Column]` klauzulę. Nie jest to jednak zalecane, ponieważ w przypadku przerwania wykonywania indeksatora przez błąd indeksator musi ponownie przetworzyć wszystkie wiersze, jeśli program indeksator przetworzył już prawie wszystkie wiersze o czas, który został przerwany. Aby wyłączyć `ORDER BY` klauzulę, użyj `disableOrderByHighWaterMarkColumn` Ustawienia w definicji indeksatora:  
 
     {
      ... other indexer definition properties
@@ -264,7 +289,7 @@ Korzystając z techniki usuwania nietrwałego, można określić zasady usuwania
         }
     }
 
-**SoftDeleteMarkerValue** musi być ciągiem — Użyj ciągu reprezentującego wartość rzeczywistą. Na przykład jeśli masz kolumnę liczb całkowitych, w której usunięte wiersze są oznaczone wartością 1, użyj `"1"`. Jeśli masz kolumnę BITOWą, w której usunięte wiersze są oznaczone wartością logiczną true, użyj literału `True` ciągu lub `true`, jeśli wielkość liter nie ma znaczenia.
+**SoftDeleteMarkerValue** musi być ciągiem — Użyj ciągu reprezentującego wartość rzeczywistą. Na przykład jeśli masz kolumnę liczb całkowitych, w której usunięte wiersze są oznaczone wartością 1, użyj `"1"` . Jeśli masz kolumnę BITOWą, w której usunięte wiersze są oznaczone wartością logiczną true, użyj literału ciągu `True` lub `true` , jeśli wielkość liter nie ma znaczenia.
 
 <a name="TypeMapping"></a>
 
@@ -329,7 +354,7 @@ W przypadku indeksowania przyrostowego usługa Azure Wyszukiwanie poznawcze obs�
 
 W przypadku replik tylko do odczytu usługa SQL Database nie obsługuje zintegrowanego śledzenia zmian. W związku z tym należy używać zasad oznaczania wysokiej wody. 
 
-Naszym standardowym zaleceniem jest użycie typu danych rowversion dla kolumny znacznika wysokiej wody. Jednak użycie rowversion opiera się na `MIN_ACTIVE_ROWVERSION` funkcji SQL Database, która nie jest obsługiwana w przypadku replik tylko do odczytu. W związku z tym należy wskazać indeksator do repliki podstawowej, jeśli używasz rowversion.
+Naszym standardowym zaleceniem jest użycie typu danych rowversion dla kolumny znacznika wysokiej wody. Jednak użycie rowversion opiera `MIN_ACTIVE_ROWVERSION` się na funkcji SQL Database, która nie jest obsługiwana w przypadku replik tylko do odczytu. W związku z tym należy wskazać indeksator do repliki podstawowej, jeśli używasz rowversion.
 
 Jeśli spróbujesz użyć rowversion w replice tylko do odczytu, zostanie wyświetlony następujący błąd: 
 

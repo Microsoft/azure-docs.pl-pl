@@ -10,11 +10,11 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283006"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84688878"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Jak indeksować dane usługi Cosmos DB przy użyciu indeksatora usługi Azure Cognitive Search 
 
@@ -71,7 +71,7 @@ Na stronie **Źródło danych** Źródło musi być **Cosmos DB**z następujący
 
 + **Nazwa** to nazwa obiektu źródła danych. Po utworzeniu można wybrać go dla innych obciążeń.
 
-+ **Konto Cosmos DB** powinno być podstawowym lub pomocniczym ciągiem połączenia z Cosmos DB, z `AccountEndpoint` i. `AccountKey` W przypadku kolekcji MongoDB Dodaj **rodzaju interfejsu API = MongoDB** do końca parametrów połączenia i oddziel go od parametrów połączenia średnikami. Aby uzyskać informacje na temat interfejsu API Gremlin i interfejs API Cassandra, użyj instrukcji dotyczących [interfejsu API REST](#cosmosdb-indexer-rest).
++ **Konto Cosmos DB** powinno być podstawowym lub pomocniczym ciągiem połączenia z Cosmos DB, z `AccountEndpoint` i `AccountKey` . W przypadku kolekcji MongoDB Dodaj **rodzaju interfejsu API = MongoDB** do końca parametrów połączenia i oddziel go od parametrów połączenia średnikami. Aby uzyskać informacje na temat interfejsu API Gremlin i interfejs API Cassandra, użyj instrukcji dotyczących [interfejsu API REST](#cosmosdb-indexer-rest).
 
 + **Baza danych** jest istniejącą bazą danych z konta. 
 
@@ -128,7 +128,7 @@ Za pomocą interfejsu API REST można indeksować Azure Cosmos DB dane, wykonuj�
 Wcześniej w tym artykule opisano, że [Azure Cosmos DB indeksowania](https://docs.microsoft.com/azure/cosmos-db/index-overview) i indeksowania indeksowania [Wyszukiwanie poznawcze na platformie Azure](search-what-is-an-index.md) są różne operacje. W przypadku Cosmos DB indeksowania domyślnie wszystkie dokumenty są automatycznie indeksowane z wyjątkiem interfejs API Cassandra. Jeśli wyłączysz automatyczne indeksowanie, dostęp do dokumentów można uzyskać tylko za pośrednictwem własnych linków lub zapytań przy użyciu identyfikatora dokumentu. Funkcja indeksowania Wyszukiwanie poznawcze platformy Azure Cosmos DB wymaga włączenia automatycznego indeksowania w kolekcji, która będzie indeksowana przez usługę Azure Wyszukiwanie poznawcze. Podczas tworzenia rejestracji w usłudze Cosmos DB interfejs API Cassandra Indexer Preview zostaną podane instrukcje dotyczące konfiguracji Cosmos DB indeksowania.
 
 > [!WARNING]
-> Azure Cosmos DB to Kolejna generacja DocumentDB. Wcześniej z interfejsem API w wersji **2017-11-11** , `documentdb` można użyć składni. Oznacza to, że można określić typ źródła danych jako `cosmosdb` lub. `documentdb` Począwszy od interfejsu API w wersji **2019-05-06** , interfejsy API i portal usługi Azure wyszukiwanie poznawcze `cosmosdb` obsługują tylko składnię zgodnie z instrukcjami w tym artykule. Oznacza to, że typ źródła danych musi `cosmosdb` nawiązać połączenie z punktem końcowym Cosmos DB.
+> Azure Cosmos DB to Kolejna generacja DocumentDB. Wcześniej z interfejsem API w wersji **2017-11-11** , można użyć `documentdb` składni. Oznacza to, że można określić typ źródła danych jako `cosmosdb` lub `documentdb` . Począwszy od interfejsu API w wersji **2019-05-06** , interfejsy API i portal usługi Azure wyszukiwanie poznawcze obsługują tylko `cosmosdb` składnię zgodnie z instrukcjami w tym artykule. Oznacza to, że typ źródła danych musi `cosmosdb` nawiązać połączenie z punktem końcowym Cosmos DB.
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 — Tworzenie danych wejściowych dla żądania
 
@@ -176,7 +176,7 @@ Treść żądania zawiera definicję źródła danych, która powinna zawierać 
 | Pole   | Opis |
 |---------|-------------|
 | **Nazwij** | Wymagany. Wybierz dowolną nazwę reprezentującą obiekt źródła danych. |
-|**Wprowadź**| Wymagany. Musi być `cosmosdb`. |
+|**Wprowadź**| Wymagany. Musi być `cosmosdb` . |
 |**uwierzytelniające** | Wymagany. Musi być Cosmos DB parametrami połączenia.<br/>W przypadku kolekcji SQL parametry połączenia mają następujący format:`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/><br/>W przypadku kolekcji MongoDB Dodaj **rodzaju interfejsu API = MongoDB** do parametrów połączenia:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/><br/>[Aby uzyskać](https://aka.ms/azure-cognitive-search/indexer-preview) dostęp do wersji zapoznawczej i zapoznać się z informacjami na temat sposobu formatowania poświadczeń, w przypadku wykresów Gremlin i tabel Cassandra.<br/><br/>Należy unikać numerów portów w adresie URL punktu końcowego. Jeśli dołączysz numer portu, usługa Azure Wyszukiwanie poznawcze nie będzie w stanie indeksować bazy danych Azure Cosmos DB.|
 | **wbudowane** | Zawiera następujące elementy: <br/>**Nazwa**: wymagane. Określ identyfikator kolekcji baz danych do indeksowania.<br/>**zapytanie**: opcjonalne. Możesz określić zapytanie, aby spłaszczyć dowolny dokument JSON do prostego schematu, który usługa Azure Wyszukiwanie poznawcze może indeksować.<br/>W przypadku interfejsu API MongoDB, interfejsu API Gremlin i interfejs API Cassandra zapytania nie są obsługiwane. |
 | **dataChangeDetectionPolicy** | Rekomendowane. Zobacz sekcję [indeksowanie zmienionych dokumentów](#DataChangeDetectionPolicy) .|
@@ -186,7 +186,7 @@ Treść żądania zawiera definicję źródła danych, która powinna zawierać 
 Możesz określić zapytanie SQL do spłaszczania zagnieżdżonych właściwości lub tablic, właściwości JSON projektu i przefiltrować dane, które mają być indeksowane. 
 
 > [!WARNING]
-> Zapytania niestandardowe nie są obsługiwane w przypadku **interfejsu API MongoDB**, **interfejsu API Gremlin**i `container.query` **interfejs API Cassandra**: parametr musi mieć wartość null lub być pominięty. Jeśli musisz użyć zapytania niestandardowego, poinformuj nas o [głosowaniu użytkownika](https://feedback.azure.com/forums/263029-azure-search).
+> Zapytania niestandardowe nie są obsługiwane w przypadku **interfejsu API MongoDB**, **interfejsu api Gremlin**i **interfejs API Cassandra**: `container.query` parametr musi mieć wartość null lub być pominięty. Jeśli musisz użyć zapytania niestandardowego, poinformuj nas o [głosowaniu użytkownika](https://feedback.azure.com/forums/263029-azure-search).
 
 Przykładowy dokument:
 
@@ -247,9 +247,9 @@ Zapytanie spłaszczone tablicy:
 Upewnij się, że schemat indeksu docelowego jest zgodny ze schematem źródłowych dokumentów JSON lub danymi wyjściowymi projekcji zapytań niestandardowych.
 
 > [!NOTE]
-> W przypadku kolekcji partycjonowanych domyślnym kluczem dokumentu jest Azure Cosmos DB `_rid` właściwości, które platforma Azure wyszukiwanie poznawcze automatycznie zmienia nazwy, `rid` ponieważ nazwy pól nie mogą zaczynać się od znaku podkreślenia. Ponadto wartości Azure Cosmos DB `_rid` zawierają znaki, które są nieprawidłowe w usłudze Azure wyszukiwanie poznawcze Keys. Z `_rid` tego powodu wartości są zakodowane w formacie base64.
+> W przypadku kolekcji partycjonowanych domyślnym kluczem dokumentu jest Azure Cosmos DB `_rid` właściwości, które platforma Azure wyszukiwanie poznawcze automatycznie zmienia nazwy, `rid` ponieważ nazwy pól nie mogą zaczynać się od znaku podkreślenia. Ponadto wartości Azure Cosmos DB `_rid` zawierają znaki, które są nieprawidłowe w usłudze Azure wyszukiwanie poznawcze Keys. Z tego powodu `_rid` wartości są zakodowane w formacie base64.
 > 
-> W przypadku kolekcji MongoDB platforma Azure Wyszukiwanie poznawcze automatycznie zmienia nazwę `_id` właściwości na. `id`  
+> W przypadku kolekcji MongoDB platforma Azure Wyszukiwanie poznawcze automatycznie zmienia nazwę `_id` właściwości na `id` .  
 
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>Mapowanie między typami danych JSON i typami danych Wyszukiwanie poznawcze platformy Azure
 | Typ danych JSON | Zgodne typy pól indeksu docelowego |
@@ -257,7 +257,7 @@ Upewnij się, że schemat indeksu docelowego jest zgodny ze schematem źródłow
 | Wartość logiczna |EDM. Boolean, EDM. String |
 | Liczby, które wyglądają jak liczby całkowite |EDM. Int32, EDM. Int64, EDM. String |
 | Liczby, które wyglądają jak zmiennoprzecinkowe |EDM. Double, EDM. String |
-| String |Edm.String |
+| Ciąg |Edm.String |
 | Tablice typów pierwotnych, na przykład ["a", "b", "c"] |Collection(Edm.String) |
 | Ciągi, które wyglądają jak daty |EDM. DateTimeOffset, EDM. String |
 | Obiekty GEOJSON, na przykład {"Type": "Point", "współrzędne": [Long, lat]} |Edm.GeographyPoint |
@@ -297,7 +297,7 @@ Ogólnie dostępny zestaw .NET SDK ma pełną zgodność z ogólnie dostępnym i
 
 ## <a name="indexing-changed-documents"></a>Indeksowanie zmienionych dokumentów
 
-Celem zasad wykrywania zmian danych jest efektywne zidentyfikowanie zmienionych elementów danych. Obecnie jedyną obsługiwaną zasadą jest [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) użycie właściwości `_ts` (Sygnatura czasowa) dostarczonej przez Azure Cosmos DB, która jest określona w następujący sposób:
+Celem zasad wykrywania zmian danych jest efektywne zidentyfikowanie zmienionych elementów danych. Obecnie jedyną obsługiwaną zasadą jest [`HighWaterMarkChangeDetectionPolicy`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.highwatermarkchangedetectionpolicy) użycie `_ts` właściwości (Sygnatura czasowa) dostarczonej przez Azure Cosmos DB, która jest określona w następujący sposób:
 
     {
         "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
@@ -306,7 +306,7 @@ Celem zasad wykrywania zmian danych jest efektywne zidentyfikowanie zmienionych 
 
 Korzystanie z tych zasad jest zdecydowanie zalecane, aby zapewnić dobrą wydajność indeksatora. 
 
-Jeśli używasz zapytania niestandardowego, upewnij się, że `_ts` właściwość jest rzutowana przez zapytanie.
+Jeśli używasz zapytania niestandardowego, upewnij się, że `_ts` Właściwość jest rzutowana przez zapytanie.
 
 <a name="IncrementalProgress"></a>
 
@@ -316,7 +316,7 @@ Przyrostowy postęp podczas indeksowania zapewnia, że jeśli wykonywanie indeks
 
 Aby włączyć przyrostowy postęp przy użyciu zapytania niestandardowego, upewnij się, że zapytanie porządkuje wyniki według `_ts` kolumny. Dzięki temu okresowe sprawdzanie wskazujące, że usługa Azure Wyszukiwanie poznawcze używa do zapewnienia przyrostowego postępu w przypadku wystąpienia awarii.   
 
-W niektórych przypadkach, nawet jeśli zapytanie zawiera `ORDER BY [collection alias]._ts` klauzulę, usługa Azure wyszukiwanie poznawcze nie może wywnioskować, że zapytanie jest uporządkowane według. `_ts` Możesz powiedzieć, Wyszukiwanie poznawcze platformy Azure, że wyniki są uporządkowane `assumeOrderByHighWaterMarkColumn` przy użyciu właściwości konfiguracja. Aby określić tę wskazówkę, należy utworzyć lub zaktualizować indeksator w następujący sposób: 
+W niektórych przypadkach, nawet jeśli zapytanie zawiera `ORDER BY [collection alias]._ts` klauzulę, usługa Azure wyszukiwanie poznawcze nie może wywnioskować, że zapytanie jest uporządkowane według `_ts` . Możesz powiedzieć, Wyszukiwanie poznawcze platformy Azure, że wyniki są uporządkowane przy użyciu `assumeOrderByHighWaterMarkColumn` właściwości konfiguracja. Aby określić tę wskazówkę, należy utworzyć lub zaktualizować indeksator w następujący sposób: 
 
     {
      ... other indexer definition properties

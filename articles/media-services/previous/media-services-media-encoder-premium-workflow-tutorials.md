@@ -16,11 +16,11 @@ ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
 ms.openlocfilehash: 1ab70d56bd3def58d0e814035070cf027a88cd3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79251013"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84712432"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Zaawansowane samouczki dotyczące usługi Media Encoder Premium Workflow
 ## <a name="overview"></a>Omówienie
@@ -601,7 +601,7 @@ Wykonaj teraz lokalne uruchomienie testu. Po wykonaniu tego działania Sprawdź,
 
 Obiekt węzła, dla którego wywoływana jest metoda log, odnosi się do naszego bieżącego "węzła" lub składnika, w którym wykonujemy skrypty. Każdy składnik jako taki ma możliwość wyprowadzania danych rejestrowania, które są dostępne za pomocą karty system. W tym przypadku wyprowadzamy literał ciągu "Hello World". Ważne jest, aby zrozumieć, że może to być niecenne narzędzie do debugowania, które zapewnia wgląd w to, co robi skrypt.
 
-W naszym środowisku skryptowym mamy również dostęp do właściwości w innych składnikach. Spróbuj tego:
+W naszym środowisku skryptowym mamy również dostęp do właściwości w innych składnikach. Wypróbuj te metody:
 
 ```java
     //inspect current node:
@@ -761,7 +761,7 @@ Zostało to zrobione przez normalne operacje manipulowania ciągami. Zmodyfikowa
 
 *Rejestrowanie listy wycinków z wynikiem*
 
-Wykonaj Test-Run, aby zobaczyć, jak strumienie wideo i audio zostały obcięte. Podobnie jak w przypadku więcej niż jednego przebiegu testowego z różnymi wartościami dla punktów przycinania, należy zauważyć, że nie zostaną one jednak uwzględnione. Przyczyną tego jest to, że projektant, w przeciwieństwie do środowiska uruchomieniowego platformy Azure, nie przesłania pliku XML cliplist w każdym przebiegu. Oznacza to, że tylko po raz pierwszy ustawiono punkty w i out, spowoduje to przekształcenie pliku XML, a wszystkie inne, nasze klauzule Guard (if (`clipListXML.indexOf("<trim>") == -1`)) uniemożliwią przepływowi pracy dodanie innego elementu przycinania, gdy już istnieje.
+Wykonaj Test-Run, aby zobaczyć, jak strumienie wideo i audio zostały obcięte. Podobnie jak w przypadku więcej niż jednego przebiegu testowego z różnymi wartościami dla punktów przycinania, należy zauważyć, że nie zostaną one jednak uwzględnione. Przyczyną tego jest to, że projektant, w przeciwieństwie do środowiska uruchomieniowego platformy Azure, nie przesłania pliku XML cliplist w każdym przebiegu. Oznacza to, że tylko po raz pierwszy ustawiono punkty w i out, spowoduje to przekształcenie pliku XML, a wszystkie inne, nasze klauzule Guard (if ( `clipListXML.indexOf("<trim>") == -1` )) uniemożliwią przepływowi pracy dodanie innego elementu przycinania, gdy już istnieje.
 
 Aby nasz przepływ pracy był wygodny do przetestowania lokalnego, najlepiej dodać kod, który sprawdza, czy element Trim już istnieje. Jeśli tak, możemy ją usunąć przed kontynuowaniem, modyfikując plik XML z nowymi wartościami. Zamiast korzystać z operacji w postaci zwykłego ciągu, jest to raczej bezpieczniejsze do wykonania za pośrednictwem rzeczywistej analizy modelu obiektów XML.
 
@@ -955,5 +955,5 @@ Korzystając z poniższej prostej klauzuli Guard, możemy sprawdzić, czy przyci
 ## <a name="media-services-learning-paths"></a>Ścieżki szkoleniowe dotyczące usługi Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

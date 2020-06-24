@@ -3,25 +3,25 @@ title: Usuwanie przypisań użytkowników lub grup z aplikacji w usłudze Azure 
 description: Jak usunąć przypisanie dostępu użytkownika lub grupy z aplikacji przedsiębiorstwa w Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edf918b57212cf2adfbffb358a0257d9dbea85e9
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: a09b3307403cb78da3bd22f3cc85bd75d7ebd858
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74275882"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84763061"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Usuwanie przypisania użytkownika lub grupy z aplikacji dla przedsiębiorstw w Azure Active Directory
 
@@ -44,7 +44,7 @@ Można łatwo usunąć użytkownika lub grupę z przypisanego dostępu do jednej
 1. Otwórz wiersz polecenia programu Windows PowerShell z podwyższonym poziomem uprawnień.
 
    > [!NOTE]
-   > Należy zainstalować moduł AzureAD (Użyj polecenia `Install-Module -Name AzureAD`). Jeśli zostanie wyświetlony monit o zainstalowanie modułu NuGet lub nowego modułu Azure Active Directory v2 PowerShell, wpisz Y i naciśnij klawisz ENTER.
+   > Należy zainstalować moduł AzureAD (Użyj polecenia `Install-Module -Name AzureAD` ). Jeśli zostanie wyświetlony monit o zainstalowanie modułu NuGet lub nowego modułu Azure Active Directory v2 PowerShell, wpisz Y i naciśnij klawisz ENTER.
 
 1. Uruchom `Connect-AzureAD` i zaloguj się przy użyciu konta administratora globalnego.
 1. Użyj następującego skryptu, aby usunąć użytkownika i rolę z aplikacji:

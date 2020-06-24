@@ -3,12 +3,12 @@ title: Lista kontrolna gotowości produkcyjnej platformy Azure Service Fabric
 description: Zapoznaj się z Service Fabric aplikacji i środowiska produkcyjnego klastra, wykonując następujące najlepsze rozwiązania.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e12e07a4446af46bc1979bd8bd4ab3987a3fd8ad
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75376804"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85081063"
 ---
 # <a name="production-readiness-checklist"></a>Lista kontrolna gotowości do produkcji
 
@@ -17,7 +17,7 @@ Czy Twoja aplikacja i klaster są gotowe do przetworzenia ruchu produkcyjnego? U
 
 ## <a name="prerequisites-for-production"></a>Wymagania wstępne dotyczące produkcji
 1. Najlepsze rozwiązania dotyczące platformy Azure Service Fabric: [projektowanie aplikacji](./service-fabric-best-practices-applications.md), [zabezpieczenia](./service-fabric-best-practices-security.md), [Sieć](./service-fabric-best-practices-networking.md), [Planowanie pojemności i skalowanie](./service-fabric-best-practices-capacity-scaling.md), [infrastruktura jako kod](./service-fabric-best-practices-infrastructure-as-code.md)oraz [monitorowanie i Diagnostyka](./service-fabric-best-practices-monitoring.md). 
-1. Zaimplementuj konfigurację zabezpieczeń Reliable Actors w przypadku korzystania z modelu programowania aktorów
+1. [Skonfiguruj ustawienia FabricTransport](./service-fabric-reliable-actors-fabrictransportsettings.md) w przypadku korzystania z modelu programowania Reliable Actors i wymagaj bezpiecznej komunikacji między usługami.
 1. W przypadku klastrów mających więcej niż 20 rdzeni lub 10 węzłów Utwórz dedykowany typ węzła podstawowego dla usług systemowych. Dodaj [ograniczenia umieszczania](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) w celu zarezerwowania typu węzła podstawowego dla usług systemowych.
 1. Użyj jednostki SKU D2v2 lub wyższej dla typu węzła podstawowego. Zalecane jest wybranie jednostki SKU z co najmniej 50 GB miejsca na dysku twardym.
 1. Klastry produkcyjne muszą być [bezpieczne](service-fabric-cluster-security.md). Aby zapoznać się z przykładem konfigurowania bezpiecznego klastra, zapoznaj się z tym [szablonem klastra](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Używaj typowych nazw dla certyfikatów i Unikaj używania certyfikatów z podpisem własnym.
@@ -41,7 +41,7 @@ Czy Twoja aplikacja i klaster są gotowe do przetworzenia ruchu produkcyjnego? U
 
 
 W przypadku korzystania z Service Fabric Reliable Services lub modelu programowania Reliable Actors należy wyewidencjonować następujące elementy:
-1. Uaktualnij aplikacje podczas lokalnego tworzenia, aby sprawdzić, czy kod usługi jest uznawany za token anulowania `RunAsync` w metodzie i zamykając niestandardowe odbiorniki komunikacji.
+1. Uaktualnij aplikacje podczas lokalnego tworzenia, aby sprawdzić, czy kod usługi jest uznawany za token anulowania w `RunAsync` metodzie i zamykając niestandardowe odbiorniki komunikacji.
 1. Unikaj [typowych pułapek](service-fabric-work-with-reliable-collections.md) podczas korzystania z niezawodnych kolekcji.
 1. Monitoruj liczniki wydajności pamięci środowiska CLR platformy .NET podczas uruchamiania testów obciążenia i sprawdzaj, czy nie ma wysokiego współczynnika wyrzucania elementów bezużytecznych lub wzrostu sterty.
 1. Zachowaj kopię zapasową offline [Reliable Services i Reliable Actors](service-fabric-reliable-services-backup-restore.md) i przetestuj proces przywracania.
