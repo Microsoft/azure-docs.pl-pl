@@ -6,18 +6,18 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 10733dc59d7b143657c67e24d45d4a7c920cbd03
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021606"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85255198"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Samouczek: rejestrowanie zasobów danych w Azure Data Catalog
 
-W tym samouczku użyjesz narzędzia rejestracji do zarejestrowania zasobów danych z przykładowej bazy danych Azure SQL Database w wykazie. Rejestracja to proces wyodrębniania kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje, ze źródła danych i zasobów, które się w nim znajdują, oraz kopiowania tych metadanych do wykazu. Źródło danych i zasoby danych pozostają tam, gdzie się znajdowały, ale metadane są używane przez wykaz, aby można było je łatwiej odnaleźć i zrozumieć.
+W tym samouczku użyjesz narzędzia rejestracji do zarejestrowania zasobów danych z przykładowej bazy danych w wykazie. Rejestracja to proces wyodrębniania kluczowych metadanych strukturalnych, takich jak nazwy, typy i lokalizacje, ze źródła danych i zasobów, które się w nim znajdują, oraz kopiowania tych metadanych do wykazu. Źródło danych i zasoby danych pozostają tam, gdzie się znajdowały, ale metadane są używane przez wykaz, aby można było je łatwiej odnaleźć i zrozumieć.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Rejestrowanie zasobów danych 
 > * Wyszukaj zasoby danych
@@ -30,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Aby rozpocząć, musisz zakończyć pracę z [przewodnikiem Szybki Start](register-data-assets-tutorial.md).
 
-* Subskrypcja [Microsoft Azure](https://azure.microsoft.com/) .
+* Subskrypcję platformy [Microsoft Azure](https://azure.microsoft.com/).
 * Musisz mieć własną [dzierżawę Azure Active Directory](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 Aby skonfigurować Data Catalog, musisz być właścicielem lub współwłaścicielem subskrypcji platformy Azure.
@@ -39,11 +39,11 @@ Aby skonfigurować Data Catalog, musisz być właścicielem lub współwłaścic
 
 ### <a name="register-a-data-source"></a>Rejestrowanie źródła danych
 
-Możesz zarejestrować zasoby danych (tabele) z [przykładowej bazy danych SQL Azure](../azure-sql/database/single-database-create-quickstart.md), ale możesz użyć dowolnego obsługiwanego źródła danych, jeśli wolisz pracować z danymi, które są znane i istotne dla Twojej roli. Aby uzyskać listę obsługiwanych źródeł danych, zobacz [Supported data sources](data-catalog-dsr.md) (Obsługiwane źródła danych).
+Zasoby danych (tabele) można rejestrować z [przykładu bazy danych](../azure-sql/database/single-database-create-quickstart.md) dla Azure SQL Database, ale można użyć dowolnego obsługiwanego źródła danych, jeśli wolisz pracować z danymi, które są znane i istotne dla Twojej roli. Aby uzyskać listę obsługiwanych źródeł danych, zobacz [Supported data sources](data-catalog-dsr.md) (Obsługiwane źródła danych).
 
-Nazwa usługi Azure SQL Database używana w tym samouczku to *RLSTest*.
+Nazwa bazy danych, której używamy w tym samouczku, to *RLSTest*.
 
-Teraz można rejestrować zasoby danych z przykładu usługi Azure SQL Database przy użyciu Azure Data Catalog.
+Teraz można rejestrować zasoby danych z przykładowej bazy danych przy użyciu Azure Data Catalog.
 
 1. Przejdź do [strony głównej Azure Data Catalog](http://azuredatacatalog.com) i wybierz pozycję **Publikuj dane**.
 
@@ -61,13 +61,13 @@ Teraz można rejestrować zasoby danych z przykładu usługi Azure SQL Database 
 
     ![Usługa Azure Data Catalog — źródła danych](media/register-data-assets-tutorial/data-catalog-data-sources.png)
 
-5. Wprowadź SQL Server właściwości połączenia dla usługi Azure SQL Database, a następnie wybierz pozycję **Połącz**.
+5. Wprowadź SQL Server właściwości połączenia dla przykładowej bazy danych w Azure SQL Database a następnie wybierz pozycję **Połącz**.
 
    ![Usługa Azure Data Catalog — ustawienia połączenia programu SQL Server](media/register-data-assets-tutorial/data-catalog-sql-server-connection.png)
 
-6. Zarejestruj metadane zasobów danych. W tym przykładzie należy zarejestrować obiekty **produktu** z przykładowej przestrzeni nazw usługi Azure SQL Database:
+6. Zarejestruj metadane zasobów danych. W tym przykładzie należy zarejestrować obiekty **produktu** z przykładowej przestrzeni nazw:
 
-    1. W drzewie **hierarchii serwera** rozwiń przykład usługi Azure SQL Database, a następnie wybierz pozycję **tabeli SalesLT**.
+    1. W drzewie **hierarchii serwera** rozwiń przykład bazy danych, a następnie wybierz pozycję **tabeli SalesLT**.
 
     2. Wybierz pozycję **Product**, **ProductCategory**, **ProductDescription**i **ProductModel** za pomocą kombinacji klawiszy CTRL + SELECT.
 
@@ -85,7 +85,7 @@ Teraz można rejestrować zasoby danych z przykładu usługi Azure SQL Database 
 
           ![Samouczek dotyczący usługi Azure Data Catalog — obiekty do zarejestrowania](media/register-data-assets-tutorial/data-catalog-objects-register.png)
 
-    8. Wybierz pozycję **zarejestruj**. Wybrane obiekty zostaną zarejestrowane za pomocą usługi Azure Data Catalog. W tym ćwiczeniu zarejestrowano wybrane obiekty z przykładowej bazy danych SQL Azure. Za pomocą narzędzia rejestracji metadane są wyodrębniane z zasobów danych i kopiowane do usługi Azure Data Catalog. Dane pozostają tam, gdzie są obecne. Dane pozostają pod kontrolą administratorów i zasad systemu pochodzenia.
+    8. Wybierz pozycję **zarejestruj**. Wybrane obiekty zostaną zarejestrowane za pomocą usługi Azure Data Catalog. W tym ćwiczeniu zarejestrowano wybrane obiekty z przykładowej bazy danych. Za pomocą narzędzia rejestracji metadane są wyodrębniane z zasobów danych i kopiowane do usługi Azure Data Catalog. Dane pozostają tam, gdzie są obecne. Dane pozostają pod kontrolą administratorów i zasad systemu pochodzenia.
 
           ![Usługa Azure Data Catalog — zarejestrowane obiekty](media/register-data-assets-tutorial/data-catalog-registered-objects.png)
 
@@ -93,7 +93,7 @@ Teraz można rejestrować zasoby danych z przykładu usługi Azure SQL Database 
 
         ![Obiekty w portalu usługi Azure Data Catalog](media/register-data-assets-tutorial/data-catalog-view-portal.png)
 
-W tym ćwiczeniu zarejestrowano obiekty z przykładu usługi Azure SQL Database, dzięki czemu mogą one być łatwo odnajdywane przez użytkowników w organizacji.
+W tym ćwiczeniu zarejestrowano obiekty z przykładu bazy danych dla Azure SQL Database, dzięki czemu mogą one być łatwo odnajdywane przez użytkowników w organizacji.
 
 W następnym ćwiczeniu zostanie przedstawiony sposób odnajdowania zarejestrowanych zasobów danych.
 
@@ -178,7 +178,7 @@ Operatory porównania pozwalają używać innych porównań niż równość dla 
 
 3. Naciśnij klawisz **Enter**.
 
-4. Upewnij się, że są widoczne tabele **Product**, **ProductCategory**i **PRODUCTDESCRIPTION** oraz baza danych Azure SQL, która została zarejestrowana w wynikach wyszukiwania.
+4. Upewnij się, że są widoczne tabele **Product**, **ProductCategory**i **ProductDescription** oraz baza danych SQL zarejestrowana w wynikach wyszukiwania.
 
     ![Usługa Azure Data Catalog — wyniki wyszukiwania z użyciem porównania](media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png)
 
@@ -251,7 +251,7 @@ To ćwiczenie obejmuje otwieranie zasobów danych za pomocą zintegrowanego narz
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 
-W tym ćwiczeniu zostało nawiązane połączenie z zasobami danych odnalezionymi za pomocą usługi Azure Data Catalog. Portal usługi Azure Data Catalog umożliwia bezpośrednie nawiązywanie połączenia przy użyciu aplikacji klienckich zintegrowanych z menu **Otwórz w**. Możesz również nawiązywać połączenia za pomocą dowolnej wybranej aplikacji przy użyciu informacji o lokalizacji połączenia zawartych w metadanych zasobów. Na przykład możesz użyć SQL Server Management Studio, aby nawiązać połączenie z bazą danych Azure SQL Database w celu uzyskania dostępu do danych z zasobów danych zarejestrowanych w tym samouczku.
+W tym ćwiczeniu zostało nawiązane połączenie z zasobami danych odnalezionymi za pomocą usługi Azure Data Catalog. Portal usługi Azure Data Catalog umożliwia bezpośrednie nawiązywanie połączenia przy użyciu aplikacji klienckich zintegrowanych z menu **Otwórz w**. Możesz również nawiązywać połączenia za pomocą dowolnej wybranej aplikacji przy użyciu informacji o lokalizacji połączenia zawartych w metadanych zasobów. Można na przykład użyć SQL Server Management Studio, aby nawiązać połączenie z Azure SQL Database, aby uzyskać dostęp do danych w zasobach danych zarejestrowanych w tym samouczku.
 
 1. Otwórz **SQL Server Management Studio**.
 

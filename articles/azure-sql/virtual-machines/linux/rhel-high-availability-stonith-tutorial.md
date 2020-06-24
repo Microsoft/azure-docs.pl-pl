@@ -7,20 +7,18 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
-ms.date: 02/27/2020
-ms.openlocfilehash: d323d89b13a89a8dd9f2dac6292a01215bf6068a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.date: 06/18/2020
+ms.openlocfilehash: 56af098050315e1b2cb0bdde531cc38452db4738
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343799"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079376"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Samouczek: Konfigurowanie grup dostępności dla SQL Server na maszynach wirtualnych RHEL na platformie Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!NOTE]
-> Przedstawiony samouczek jest w **publicznej wersji zapoznawczej**. 
->
 > W tym samouczku używamy SQL Server 2017 z RHEL 7,6, ale można użyć SQL Server 2019 w RHEL 7 lub RHEL 8, aby skonfigurować wysoką dostępność. Polecenia służące do konfigurowania zasobów grupy dostępności zostały zmienione w RHEL 8 i chcesz zapoznać się z artykułem [Tworzenie zasobu grupy dostępności](/sql/linux/sql-server-linux-availability-group-cluster-rhel#create-availability-group-resource) i zasobów RHEL 8, aby uzyskać więcej informacji na temat prawidłowych poleceń.
 
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
@@ -365,7 +363,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  7. Wybierz pozycję **Certyfikaty i wpisy tajne** dla nowej rejestracji aplikacji, a następnie kliknij pozycję **nowy klucz tajny klienta** .
  8. Wprowadź opis nowego klucza (klucz tajny klienta), wybierz pozycję **nigdy nie wygasa** , a następnie kliknij przycisk **Dodaj** .
  9. Zapisz wartość klucza tajnego. Służy jako hasło dla nazwy głównej usługi
-10. Wybierz pozycję **Omówienie**. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (identyfikator logowania w poniższych krokach) nazwy głównej usługi
+10. Wybierz pozycję **Przegląd**. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (identyfikator logowania w poniższych krokach) nazwy głównej usługi
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Utwórz rolę niestandardową dla agenta ogranicznika
 
@@ -757,7 +755,7 @@ Na wszystkich wystąpieniach SQL Server Zapisz poświadczenia używane do logowa
 
 1. Po przyłączeniu replik pomocniczych można je zobaczyć w programie SSMS Eksplorator obiektów, rozszerzając węzeł **Always On High Availability** :
 
-    ![Availability-Group-JOINED. png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### <a name="add-a-database-to-the-availability-group"></a>Dodawanie bazy danych do grupy dostępności
 

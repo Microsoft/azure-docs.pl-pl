@@ -1,26 +1,26 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure IoT Hub
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla IoT Hub platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 05/29/2020
+ms.date: 06/10/2020
 ms.topic: sample
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 99dda1218136ca81256f918fafef77ffb734e19e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 921bfb8276573feb3cde80e723ff916c84da92a5
+ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234365"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84886693"
 ---
-# <a name="azure-policy-built-in-policy-definitions-for-azure-iot-hub"></a>Azure Policy wbudowane definicje zasad dla platformy Azure IoT Hub
+# <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Azure Policy wbudowane definicje dla platformy Azure IoT Hub
 
-Aby uzyskać IoT Hub przykładowy kod, który pokazuje, jak zaimplementować typowe scenariusze IoT, zobacz [IoT Hub przewodników szybki start](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). Dostępne są Przewodniki Szybki Start dla wielu języków programowania, takich jak C, Node. js i Python.
+Aby uzyskać IoT Hub przykładowy kod, który pokazuje, jak zaimplementować typowe scenariusze IoT, zobacz [IoT Hub przewodników szybki start](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). Dostępne są Przewodniki Szybki Start dla wielu języków programowania, w tym C, Node.js i Python.
 
 Ta strona jest indeksem [Azure Policy](../governance/policy/overview.md) wbudowanych definicji zasad dla IoT Hub platformy Azure. Aby uzyskać dodatkowe Azure Policy wbudowane dla innych usług, zobacz [Azure Policy wbudowane definicje](../governance/policy/samples/built-in-policies.md).
 
-Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **GitHub** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
+Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure Portal. Użyj linku w kolumnie **wersja** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 

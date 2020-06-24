@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e56040f5e17ee33da6b21ab42d2deddf5dd7064
-ms.sourcegitcommit: 0a5bb9622ee6a20d96db07cc6dd45d8e23d5554a
+ms.openlocfilehash: 030d5b5ad596b0d9e5eb2d636770c985b1cff5ed
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84447802"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85099128"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Samouczek: Azure Active Directory Włączanie funkcji zapisywania zwrotnego do samoobsługowego resetowania haseł w środowisku lokalnym
 
@@ -23,7 +23,7 @@ Dzięki usłudze Azure Active Directory (Azure AD) samoobsługowego resetowania 
 
 Funkcję zapisywania zwrotnego haseł można użyć do synchronizowania zmian haseł w usłudze Azure AD z powrotem do środowiska lokalnego AD DS. Azure AD Connect zapewnia bezpieczny mechanizm wysyłania tych haseł z powrotem do istniejącego katalogu lokalnego z usługi Azure AD.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj wymagane uprawnienia do zapisywania zwrotnego haseł
@@ -34,7 +34,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 Do ukończenia tego samouczka potrzebne są następujące zasoby i uprawnienia:
 
-* Działająca dzierżawa usługi Azure AD z włączoną licencją co najmniej Azure AD — wersja Premium P2.
+* Działająca dzierżawa usługi Azure AD z włączoną licencją z co najmniej Azure AD — wersja Premium P1 lub P2.
     * W razie potrzeby [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Aby uzyskać więcej informacji, zobacz [wymagania dotyczące licencjonowania usługi Azure AD SSPR](concept-sspr-licensing.md).
 * Konto z uprawnieniami *administratora globalnego* .
@@ -123,7 +123,7 @@ Aby włączyć funkcję zapisywania zwrotnego haseł w SSPR, wykonaj następują
 
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz już używać funkcji zapisywania zwrotnego SSPR skonfigurowanej w ramach tego samouczka, wykonaj następujące czynności:
 

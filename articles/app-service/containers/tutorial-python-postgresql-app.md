@@ -10,12 +10,12 @@ ms.custom:
 - seo-python-october2019
 - cli-validate
 - tracking-python
-ms.openlocfilehash: 4a2f80ea30fc68ae1dfea72983fd2b229d40c711
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 29aeae7683c46b1e10acdf1b2c4a7183c22eb408
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559279"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807312"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Samouczek: wdrażanie aplikacji sieci Web w języku Python (Django) za pomocą PostgreSQL w Azure App Service
 
@@ -23,7 +23,7 @@ W tym samouczku przedstawiono sposób wdrażania aplikacji sieci Web opartej na 
 
 ![Wdróż aplikację sieci Web w języku Python Django do Azure App Service](./media/tutorial-python-postgresql-app/deploy-python-django-app-in-azure.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych Azure Database for PostgreSQL
@@ -63,7 +63,7 @@ Zapoznaj się z tematem *azuresite/Product. PR*, który wprowadza konfigurację 
 - Dziedzicz wszystkie ustawienia z *azuresite/Settings. PR*.
 - Dodaj w pełni kwalifikowaną nazwę domeny aplikacji App Service na dozwolonych hostach. 
 - Użyj [WhiteNoise](https://whitenoise.evans.io/en/stable/) , aby włączyć obsługę plików statycznych w środowisku produkcyjnym, ponieważ domyślnie Django nie obsługuje plików statycznych w środowisku produkcyjnym. Pakiet WhiteNoise jest już uwzględniony w pliku *requirements.txt*.
-- Dodaj konfigurację dla bazy danych PostgreSQL. Domyślnie Django używa Sqlite3 jako bazy danych, ale nie jest to odpowiednie dla aplikacji produkcyjnych. Pakiet [psycopg2-Binary](https://pypi.org/project/psycopg2-binary/) został już uwzględniony w pliku *Requirements. txt*.
+- Dodaj konfigurację dla bazy danych PostgreSQL. Domyślnie Django używa Sqlite3 jako bazy danych, ale nie jest to odpowiednie dla aplikacji produkcyjnych. Pakiet [psycopg2-Binary](https://pypi.org/project/psycopg2-binary/) został już uwzględniony w *requirements.txt*.
 - Konfiguracja Postgres używa zmiennych środowiskowych. Później dowiesz się, jak ustawić zmienne środowiskowe w App Service.
 
 *azuresite/Product. PR* jest dołączona do repozytorium dla wygody, ale nie jest jeszcze używana przez aplikację. Aby upewnić się, że jego ustawienia są używane w App Service, należy skonfigurować dwa pliki, *manage.py* i *azuresite/WSGI. PR*, aby uzyskać do nich dostęp.
@@ -220,6 +220,8 @@ cd site/wwwroot
 
 # Activate default virtual environment in App Service container
 source /antenv/bin/activate
+# Install packages
+pip install -r requirements.txt
 # Run database migrations
 python manage.py migrate
 # Create the super user (follow prompts)
@@ -267,7 +269,7 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 # Configure the Python virtual environment
@@ -413,7 +415,7 @@ Domyślnie portal pokazuje stronę **Przegląd** aplikacji. Ta strona udostępni
 
 ![Zarządzanie aplikacją Django języka Python na stronie Przegląd w Azure Portal](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz potrzebować tych zasobów w przyszłości, Usuń grupy zasobów, uruchamiając następujące polecenia:
 

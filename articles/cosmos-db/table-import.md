@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 5c828644cb03d83df38265719cd8afabc24cf739
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3d1efc0a116a38686fa929a2058fa88e4c2cfa82
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66242570"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119481"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrowanie danych na konto interfejsu API tabel w usłudze Azure Cosmos DB
 
@@ -66,13 +66,13 @@ Podczas definiowania usługi Azure Table Storage lub interfejsu API tabel w wers
     /s.Filter: Optional. Filter string to apply
     /s.Projection: Optional. List of columns to select
 
-Aby pobrać parametry połączenia źródłowego podczas importowania z usługi Azure Table Storage, Otwórz Azure Portal a następnie kliknij pozycję**klucze dostępu****konta** > konta **magazynu** > , a następnie użyj przycisku kopiowania, aby skopiować **Parametry połączenia**.
+Aby pobrać parametry połączenia źródłowego podczas importowania z usługi Azure Table Storage, Otwórz Azure Portal a następnie kliknij **Storage accounts**pozycję  >  **Account**  >  **klucze dostępu**konta konta magazynu, a następnie użyj przycisku kopiowania, aby skopiować **Parametry połączenia**.
 
-![Zrzut ekranu przedstawiający opcje źródła dla bazy danych HBase](./media/table-import/storage-table-access-key.png)
+:::image type="content" source="./media/table-import/storage-table-access-key.png" alt-text="Zrzut ekranu przedstawiający opcje źródła dla bazy danych HBase":::
 
-Aby pobrać parametry połączenia źródłowego podczas importowania z konta Azure Cosmos DB interfejs API tabel (wersja zapoznawcza), Otwórz Azure Portal, kliknij pozycję **Azure Cosmos DB** > **Account** > **Parametry połączenia** z kontem i użyj przycisku kopiowania, aby skopiować **Parametry połączenia**.
+Aby pobrać parametry połączenia źródłowego podczas importowania z konta Azure Cosmos DB interfejs API tabel (wersja zapoznawcza), Otwórz Azure Portal, kliknij pozycję **Azure Cosmos DB**  >  **Account**  >  **Parametry połączenia** z kontem i użyj przycisku kopiowania, aby skopiować **Parametry połączenia**.
 
-![Zrzut ekranu przedstawiający opcje źródła dla bazy danych HBase](./media/table-import/cosmos-connection-string.png)
+:::image type="content" source="./media/table-import/cosmos-connection-string.png" alt-text="Zrzut ekranu przedstawiający opcje źródła dla bazy danych HBase":::
 
 [Przykład polecenia dla usługi Azure Table Storage](#azure-table-storage)
 

@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 0d8c498199d238f2414d4d9268cf466cd2d6b82d
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: fa3f57a0a3e71eb44de50a6e7a5eaaebe48fced0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85112052"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85242078"
 ---
-[Dokumentacja](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
+[Dokumentacja](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -116,7 +116,7 @@ Należy również dodać odwołania do adresów URL dla danych szkoleniowych i t
 * Użyj powyższej metody, aby uzyskać adres URL obrazu paragonu, lub użyj podanego przykładowego adresu URL obrazu.
 
 > [!NOTE]
-> Fragmenty kodu w tym przewodniku korzystają z formularzy zdalnych, do których uzyskuje dostęp za pomocą adresów URL. Jeśli zamiast tego chcesz przetworzyć lokalne dokumenty formularzy, zapoznaj się z odpowiednimi metodami w [dokumentacji referencyjnej](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview).
+> Fragmenty kodu w tym przewodniku korzystają z formularzy zdalnych, do których uzyskuje dostęp za pomocą adresów URL. Jeśli zamiast tego chcesz przetworzyć lokalne dokumenty formularzy, zapoznaj się z odpowiednimi metodami w [dokumentacji referencyjnej](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
 
 
 ```javascript

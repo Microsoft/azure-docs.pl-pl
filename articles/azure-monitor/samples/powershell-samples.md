@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 2/14/2018
-ms.openlocfilehash: 6c00556bfbcd2108b3cb5bd2cfdf88a741f85a99
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 14fe27c28e2eb6a527dc6f026916002cfb5b0147
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837478"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945260"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Przykłady programu Azure Monitor PowerShell
 W tym artykule przedstawiono przykładowe polecenia programu PowerShell ułatwiające dostęp do funkcji Azure Monitor.
@@ -52,7 +52,7 @@ Set-AzContext -SubscriptionId <subscriptionid>
 ```
 
 
-## <a name="retrieve-activity-log-for-a-subscription"></a>Pobieranie dziennika aktywności dla subskrypcji
+## <a name="retrieve-activity-log"></a>Pobierz dziennik aktywności
 Użyj polecenia cmdlet [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) .  Poniżej przedstawiono kilka typowych przykładów. Dziennik aktywności obejmuje ostatnie 90 dni operacji. Użycie dat przed tym terminem spowoduje wyświetlenie komunikatu o błędzie.  
 
 Sprawdź bieżącą datę/godzinę, aby sprawdzić, jakich godzin użyć w poniższych poleceniach:
@@ -148,7 +148,7 @@ Możesz tworzyć właściwości poczty e-mail i elementu webhook `New-AzAlertRul
 
 W poniższej tabeli opisano parametry i wartości używane do tworzenia alertu przy użyciu metryki.
 
-| parametr | value |
+| parametr | wartość |
 | --- | --- |
 | Nazwa |simpletestdiskwrite |
 | Lokalizacja tej reguły alertu |Wschodnie stany USA |

@@ -3,12 +3,12 @@ title: Ocenianie serwerów fizycznych na potrzeby migracji na platformę Azure z
 description: Opisuje, jak oceniać lokalne serwery fizyczne do migracji na platformę Azure przy użyciu oceny serwera Azure Migrate.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 5cbd1b85bdb9017a96dc863b83223c31c716cf77
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331801"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080763"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Ocenianie serwerów fizycznych za pomocą Azure Migrate: Ocena serwera
 
@@ -80,7 +80,7 @@ Azure Migrate: Ocena serwera uruchamia lekkie urządzenie.
     - Wyodrębnij zawartość z pliku spakowanego. Uruchom konsolę programu PowerShell z uprawnieniami administracyjnymi.
     - Wykonaj skrypt programu PowerShell, aby uruchomić aplikację sieci Web urządzenia.
     - Skonfiguruj urządzenie po raz pierwszy i zarejestruj je w projekcie Azure Migrate.
-- Dla jednego projektu Azure Migrate można skonfigurować wiele urządzeń. Na wszystkich urządzeniach można odnajdywać dowolną liczbę serwerów fizycznych. Na urządzenie można odnaleźć maksymalnie 250 serwerów.
+- Dla jednego projektu Azure Migrate można skonfigurować wiele urządzeń. Na wszystkich urządzeniach można odnajdywać dowolną liczbę serwerów fizycznych. Na urządzenie można odnaleźć maksymalnie 1000 serwerów.
 
 ### <a name="download-the-installer-script"></a>Pobierz skrypt Instalatora
 
@@ -101,7 +101,7 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
 2. Uruchom następujące polecenie, aby wygenerować skrót dla pliku spakowanego:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Przykładowe użycie chmury publicznej:```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-    - Przykładowe użycie w chmurze dla instytucji rządowych:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
+    - Przykładowe użycie w chmurze dla instytucji rządowych:```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256 ```
 3.  Sprawdź najnowsze wersje urządzeń i wartości skrótu:
     - W przypadku chmury publicznej:
 
@@ -132,7 +132,7 @@ Uruchom skrypt w następujący sposób:
 1. Wyodrębnij spakowany plik do folderu na serwerze, który będzie hostować urządzenie.  Upewnij się, że skrypt nie jest uruchamiany na komputerze na istniejącym urządzeniu Azure Migrate.
 2. Uruchom program PowerShell na powyższym serwerze z uprawnieniami administracyjnymi (z podwyższonym poziomem uprawnień).
 3. Zmień katalog programu PowerShell do folderu, w którym zawartość została wyodrębniona z pobranego pliku spakowanego.
-4. Uruchom skrypt o nazwie **AzureMigrateInstaller. ps1** , uruchamiając następujące polecenie:
+4. Uruchom skrypt o nazwie **AzureMigrateInstaller.ps1** , uruchamiając następujące polecenie:
 
     - W przypadku chmury publicznej:``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1 ```
     - Dla Azure Government:``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
@@ -180,7 +180,7 @@ Teraz nawiąż połączenie z urządzeniem z serwerami fizycznymi, które mają 
 
 1. Kliknij pozycję **Dodaj poświadczenia** , aby określić poświadczenia konta, które będą używane przez urządzenie do odnajdywania serwerów.  
 2. Określ **system operacyjny**, przyjazną nazwę dla poświadczeń oraz nazwę użytkownika i hasło. Następnie kliknij przycisk **Dodaj**.
-Można dodać jeden zestaw poświadczeń dla serwerów z systemami Windows i Linux.
+Można dodać wiele poświadczeń dla serwerów z systemami Windows i Linux.
 4. Kliknij przycisk **Dodaj serwer**i określ szczegóły serwera — nazwa FQDN/adres IP i przyjazna nazwa poświadczenia (jeden wpis na wiersz), aby połączyć się z serwerem.
 3. Kliknij pozycję **Validate** (Waliduj). Po sprawdzeniu poprawności zostanie wyświetlona lista serwerów, które mogą zostać odnalezione.
     - Jeśli walidacja nie powiedzie się dla serwera, przejrzyj błąd, umieszczając kursor nad ikoną w kolumnie **stan** . Usuń problemy i ponownie sprawdź poprawność.

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 78ae393c47de7a9d03d7b3de9b3dcd315d228f05
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 19a7cf2ec3a8a7a95952fcebfcf3a127c4dfd013
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605429"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84792187"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Konfigurowanie zapór Azure Key Vault i sieci wirtualnych
 
@@ -22,6 +22,13 @@ Ten artykuł zawiera instrukcje krok po kroku dotyczące konfigurowania zapór A
 
 > [!IMPORTANT]
 > Po zastosowaniu reguł zapory użytkownicy mogą wykonywać Key Vault operacje [płaszczyzny danych](secure-your-key-vault.md#data-plane-access-control) tylko wtedy, gdy ich żądania pochodzą z dozwolonych sieci wirtualnych lub zakresów adresów IPv4. Dotyczy to również uzyskiwania dostępu do Key Vault z Azure Portal. Mimo że użytkownicy mogą przechodzić do magazynu kluczy z Azure Portal, mogą nie być w stanie wyświetlać kluczy, wpisów tajnych ani certyfikatów, jeśli ich maszyny klienckie nie znajdują się na liście dozwolonych. Ma to również wpływ na wybór Key Vault przez inne usługi platformy Azure. Użytkownicy mogą widzieć listę magazynów kluczy, ale nie listy kluczy, jeśli reguły zapory uniemożliwiają ich komputerom klienckim.
+
+> [!NOTE]
+> Należy pamiętać o następujących ograniczeniach konfiguracji:
+> * Dozwolone są maksymalnie 127 reguły sieci wirtualnej i 127. 
+> * Małe zakresy adresów, które używają rozmiarów prefiksu "/31" lub "/32", nie są obsługiwane. Zamiast tego należy skonfigurować te zakresy przy użyciu poszczególnych reguł adresów IP.
+> * Reguły sieci IP są dozwolone tylko dla publicznych adresów IP. Zakresy adresów IP zarezerwowane dla sieci prywatnych (zgodnie z definicją w dokumencie RFC 1918) nie są dozwolone w regułach adresów IP. Sieci prywatne obejmują adresy, które zaczynają się od **10.**, **172.16-31**i **192,168.** 
+> * W tej chwili są obsługiwane tylko adresy IPv4.
 
 ## <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
 
@@ -114,8 +121,8 @@ Poniżej przedstawiono sposób konfigurowania zapór Key Vault i sieci wirtualny
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 
-## <a name="references"></a>Odwołania
-
+## <a name="references"></a>Dokumentacja
+* Dokumentacja szablonu ARM: [Dokumentacja szablonu Azure Key Vault ARM](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/vaults)
 * Polecenie interfejsu wiersza polecenia platformy Azure: [AZ datamagazyn Network-Rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
 * Polecenia cmdlet Azure PowerShell: [Get-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/get-azkeyvault), [Add-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Add-azKeyVaultNetworkRule), [Remove-AzKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/az.KeyVault/Remove-azKeyVaultNetworkRule), [Update-AzKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/az.KeyVault/Update-azKeyVaultNetworkRuleSet)
 

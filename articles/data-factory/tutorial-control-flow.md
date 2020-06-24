@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 7746726775cd5230f48842ad9a9260efe0e540b5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fd006e836432ce775be8cbbefea6d9219e8b13b3
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022116"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253464"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Rozgałęzianie działań i tworzenie łańcuchów działań w potoku usługi Data Factory
 
@@ -48,7 +48,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 * Konto usługi Azure Storage. Magazyn obiektów BLOB jest używany jako magazyn danych źródłowych. Jeśli nie masz konta usługi Azure Storage, zobacz [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 * Eksplorator usługi Azure Storage. Aby zainstalować to narzędzie, zobacz [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
-* usługą Azure SQL Database. Baza danych jest używana jako magazyn danych będący ujściem. Jeśli nie masz Azure SQL Database, zobacz [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* usługą Azure SQL Database. Baza danych jest używana jako magazyn danych będący ujściem. Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z tematem [Tworzenie bazy danych w programie Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Program Visual Studio. W tym artykule jest wykorzystywany program Visual Studio 2019.
 * Zestaw Azure .NET SDK. Pobierz i zainstaluj [zestaw Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
@@ -58,7 +58,7 @@ Utwórz aplikację zgodnie z opisem w temacie [Tworzenie aplikacji Azure Active 
 
 ### <a name="create-a-blob-table"></a>Tworzenie tabeli obiektów BLOB
 
-1. Otwórz edytor tekstów. Skopiuj poniższy tekst i Zapisz go lokalnie jako plik *Input. txt*.
+1. Otwórz edytor tekstów. Skopiuj poniższy tekst i Zapisz go lokalnie jako *input.txt*.
 
    ```
    Ethel|Berg
@@ -66,7 +66,7 @@ Utwórz aplikację zgodnie z opisem w temacie [Tworzenie aplikacji Azure Active 
    ```
 
 1. Otwórz Eksplorator usługi Azure Storage. Rozwiń konto magazynu. Kliknij prawym przyciskiem myszy **kontenery obiektów BLOB** i wybierz pozycję **Utwórz kontener obiektów BLOB**.
-1. Nazwij nowy kontener *adfv2branch* i wybierz pozycję **Przekaż** , aby dodać plik *Input. txt* do kontenera.
+1. Nazwij nowy kontener *adfv2branch* i wybierz pozycję **Przekaż** , aby dodać plik *input.txt* do kontenera.
 
 ## <a name="create-visual-studio-project"></a>Tworzenie projektu programu Visual Studio<a name="create-visual-studio-project"></a>
 
@@ -336,7 +336,7 @@ Przepływ pracy wygląda podobnie do poniższego przykładu:
 
 Zawartość JSON jest wyrównywana z `EmailRequest` klasą utworzoną w poprzedniej sekcji.
 
-Dodaj akcję `Office 365 Outlook – Send an email` . W przypadku akcji **Wyślij wiadomość e-mail** Dostosuj sposób formatowania wiadomości e-mail przy użyciu właściwości przekazaną w schemacie JSON **treści** żądania. Oto przykład:
+Dodaj akcję `Office 365 Outlook – Send an email` . W przypadku akcji **Wyślij wiadomość e-mail** Dostosuj sposób formatowania wiadomości e-mail przy użyciu właściwości przekazaną w schemacie JSON **treści** żądania. Przykład:
 
 ![Projektant aplikacji logiki — wysyłanie akcji poczty e-mail](media/tutorial-control-flow/customize-send-email-action.png)
 

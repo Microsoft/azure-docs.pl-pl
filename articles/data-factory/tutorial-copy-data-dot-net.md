@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: ad257d0bea38d03803bf2be44313a3e086e7654c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 182c5b4059874b6e03092481c68b39cf55bc7e62
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118163"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253940"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiowanie danych z obiektu blob platformy Azure do bazy danych Azure SQL Database przy użyciu usługi Azure Data Factory
 
@@ -41,7 +41,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * *Konto usługi Azure Storage*. Magazyn obiektów blob jest używany jako *źródłowy* magazyn danych. Jeśli nie masz konta usługi Azure Storage, zobacz [Tworzenie konta magazynu ogólnego przeznaczenia](../storage/common/storage-account-create.md).
-* *Azure SQL Database*. Baza danych jest używana jako magazyn danych *ujścia*. Jeśli nie masz Azure SQL Database, zobacz [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
+* *Azure SQL Database*. Baza danych jest używana jako magazyn danych *ujścia*. Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z tematem [Tworzenie bazy danych w programie Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * *Program Visual Studio*. W przewodniku w tym artykule jest wykorzystywany program Visual Studio 2019.
 * *[Zestaw Azure SDK dla platformy .NET](/dotnet/azure/dotnet-tools)*.
 * *Azure Active Directory aplikacji*. Jeśli nie masz aplikacji Azure Active Directory, zapoznaj się z sekcją [Tworzenie aplikacji Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) [: używanie portalu do tworzenia aplikacji usługi Azure AD](../active-directory/develop/howto-create-service-principal-portal.md). Skopiuj następujące wartości do użycia w kolejnych krokach: **Identyfikator aplikacji (klienta)**, **klucz uwierzytelniania**i **Identyfikator katalogu (dzierżawy)**. Przypisz aplikację do roli **współautor** , postępując zgodnie z instrukcjami w tym samym artykule.
@@ -54,14 +54,14 @@ Teraz możesz przygotować obiekt blob platformy Azure i Azure SQL Database dla 
 
 Najpierw utwórz źródłowy obiekt BLOB przez utworzenie kontenera i przekazanie wejściowego pliku tekstowego:
 
-1. Otwórz Notatnik. Skopiuj poniższy tekst i Zapisz go lokalnie w pliku o nazwie *plik inputemp. txt*.
+1. Otwórz Notatnik. Skopiuj poniższy tekst i Zapisz go lokalnie w pliku o nazwie *inputEmp.txt*.
 
     ```inputEmp.txt
     John|Doe
     Jane|Doe
     ```
 
-2. Użyj narzędzia, takiego jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) , aby utworzyć kontener *adfv2tutorial* i przekazać plik *plik inputemp. txt* do kontenera.
+2. Użyj narzędzia, takiego jak [Eksplorator usługi Azure Storage](https://azure.microsoft.com/features/storage-explorer/) , aby utworzyć kontener *adfv2tutorial* i przekazać plik *inputEmp.txt* do kontenera.
 
 #### <a name="create-a-sink-sql-table"></a>Tworzenie tabeli SQL ujścia
 

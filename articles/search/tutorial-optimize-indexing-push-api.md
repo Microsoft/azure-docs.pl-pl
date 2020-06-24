@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/05/2020
-ms.openlocfilehash: 85ac56eb20eabf308d6686a047d8c5ede914fed9
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ef1f0c607eb1d0152a5dd5f5acc812bb9364e47a
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966442"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85079225"
 ---
 # <a name="tutorial-optimize-indexing-with-the-push-api"></a>Samouczek: Optymalizowanie indeksowania przy użyciu interfejsu API wypychania
 
@@ -21,7 +21,7 @@ Usługa Azure Wyszukiwanie poznawcze obsługuje [dwa podstawowe podejścia](sear
 
 W tym samouczku opisano sposób wydajnego indeksowania danych przy użyciu [modelu wypychania](search-what-is-data-import.md#pushing-data-to-an-index) przez przetwarzanie wsadowe żądań i użycie wykładniczej strategii ponawiania wycofywania. Możesz [pobrać i uruchomić aplikację](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/optimize-data-indexing). W tym artykule wyjaśniono kluczowe aspekty aplikacji i czynników, które należy wziąć pod uwagę podczas indeksowania danych.
 
-Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://aka.ms/search-sdk) do wykonywania następujących zadań:
+Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) do wykonywania następujących zadań:
 
 > [!div class="checklist"]
 > * Tworzenie indeksu
@@ -30,7 +30,7 @@ Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://aka.ms/se
 > * Użyj wielu wątków, aby zwiększyć szybkość indeksowania
 > * Aby ponowić próbę wykonania niepomyślnych elementów, Użyj strategii wycofywaniaego ponowienia
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -70,15 +70,15 @@ Wywołania interfejsu API wymagają adresu URL usługi i klucza dostępu. Usług
 
 1. [Zaloguj się do Azure Portal](https://portal.azure.com/)i na stronie **Przegląd** usługi wyszukiwania Uzyskaj adres URL. Przykładowy punkt końcowy może wyglądać podobnie jak `https://mydemo.search.windows.net`.
 
-1. W obszarze **Ustawienia** > **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
+1. W obszarze **Ustawienia**  >  **klucze**Uzyskaj klucz administratora dla pełnych praw do usługi. Istnieją dwa wymienne klucze administratora zapewniające ciągłość działania w przypadku, gdy trzeba ją wycofać. W przypadku żądań dotyczących dodawania, modyfikowania i usuwania obiektów można użyć klucza podstawowego lub pomocniczego.
 
    ![Pobieranie punktu końcowego HTTP i klucza dostępu](media/search-get-started-postman/get-url-key.png "Pobieranie punktu końcowego HTTP i klucza dostępu")
 
 ## <a name="2---set-up-your-environment"></a>2 — Konfigurowanie środowiska
 
 1. Uruchom program Visual Studio i Otwórz **OptimizeDataIndexing. sln**.
-1. W Eksplorator rozwiązań otwórz plik **appSettings. JSON** , aby podać informacje o połączeniu.
-1. W `searchServiceName`przypadku, jeśli pełny adres URL tohttps://my-demo-service.search.windows.net"", nazwa usługi do udostępnienia to "My-Demonstracja-usługa".
+1. W Eksplorator rozwiązań Otwórz **appsettings.jsw** celu udostępnienia informacji o połączeniu.
+1. W przypadku `searchServiceName` , jeśli pełny adres URL to " https://my-demo-service.search.windows.net ", nazwa usługi do udostępnienia to "My-Demonstracja-usługa".
 
 ```json
 {
@@ -90,7 +90,7 @@ Wywołania interfejsu API wymagają adresu URL usługi i klucza dostępu. Usług
 
 ## <a name="3---explore-the-code"></a>3 — Eksplorowanie kodu
 
-Po zaktualizowaniu pliku *appSettings. JSON*Przykładowy program w **OptimizeDataIndexing. sln** powinien być gotowy do kompilowania i uruchamiania.
+Po aktualizacji *appsettings.jsw*programie przykładowego programu w **OptimizeDataIndexing. sln** powinien być gotowy do kompilowania i uruchamiania.
 
 Ten kod pochodzi od [przewodnika Szybki Start języka C#](search-get-started-dotnet.md). Bardziej szczegółowe informacje na temat pracy z zestawem SDK platformy .NET można znaleźć w tym artykule.
 
@@ -269,7 +269,7 @@ Jeśli wystąpi awaria, żądania powinny być ponawiane przy użyciu [strategii
 
 Zestaw .NET SDK platformy Azure Wyszukiwanie poznawcze automatycznie ponawia próbę 503s i inne Nieudane żądania, ale musisz zaimplementować własną logikę, aby ponowić próbę 207s. Narzędzia typu open source, takie jak [Polly](https://github.com/App-vNext/Polly) , mogą również służyć do implementowania strategii ponawiania prób. 
 
-W tym przykładzie implementujemy własną strategię ponowień wykładniczych wycofywania. Aby zaimplementować tę strategię, Zacznijmy od definiowania niektórych zmiennych, `maxRetryAttempts` w tym i `delay` jako inicjału dla żądania zakończonego niepowodzeniem:
+W tym przykładzie implementujemy własną strategię ponowień wykładniczych wycofywania. Aby zaimplementować tę strategię, Zacznijmy od definiowania niektórych zmiennych, w tym `maxRetryAttempts` i jako inicjału `delay` dla żądania zakończonego niepowodzeniem:
 
 ```csharp
 // Create batch of documents for indexing
@@ -281,7 +281,7 @@ TimeSpan delay = delay = TimeSpan.FromSeconds(2);
 int maxRetryAttempts = 5;
 ```
 
-Ważne jest, aby przechwytywać [IndexBatchException](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) , ponieważ te wyjątki wskazują, że Operacja indeksowania tylko częściowo powiodła się (207s). W przypadku elementów zakończonych niepowodzeniem należy `FindFailedActionsToRetry` wykonać ponowną próbę przy użyciu metody, która ułatwia tworzenie nowej partii zawierającej tylko elementy zakończone niepowodzeniem.
+Ważne jest, aby przechwytywać [IndexBatchException](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexbatchexception?view=azure-dotnet) , ponieważ te wyjątki wskazują, że Operacja indeksowania tylko częściowo powiodła się (207s). W przypadku elementów zakończonych niepowodzeniem należy wykonać ponowną próbę przy użyciu `FindFailedActionsToRetry` metody, która ułatwia tworzenie nowej partii zawierającej tylko elementy zakończone niepowodzeniem.
 
 Wyjątki inne niż `IndexBatchException` należy również przechwycić i wskazać, że żądanie nie powiodło się. Te wyjątki są mniej popularne, szczególnie w przypadku zestawu .NET SDK w miarę automatycznego ponawiania prób 503s.
 
@@ -324,7 +324,7 @@ do
 
 W tym miejscu zawijamy kod wykładniczy wycofywania do funkcji, aby można było ją łatwo wywołać.
 
-Kolejna funkcja jest następnie tworzona w celu zarządzania aktywnymi wątkami. Dla uproszczenia ta funkcja nie jest uwzględniona w tym miejscu, ale można ją znaleźć w [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs). Funkcję można wywołać przy użyciu następującego polecenia, gdzie `hotels` to dane, które chcemy przekazać, `1000` to rozmiar wsadu i `8` liczba współbieżnych wątków:
+Kolejna funkcja jest następnie tworzona w celu zarządzania aktywnymi wątkami. Dla uproszczenia ta funkcja nie jest uwzględniona w tym miejscu, ale można ją znaleźć w [ExponentialBackoff.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/optimize-data-indexing/OptimizeDataIndexing/ExponentialBackoff.cs). Funkcję można wywołać przy użyciu następującego polecenia `hotels` , gdzie to dane, które chcemy przekazać, `1000` to rozmiar wsadu i `8` Liczba współbieżnych wątków:
 
 ```csharp
 ExponentialBackoff.IndexData(indexClient, hotels, 1000, 8).Wait();
@@ -380,7 +380,7 @@ Przykładowy kod dla tego samouczka sprawdza istniejące indeksy i usuwa je, aby
 
 Możesz również użyć portalu, aby usunąć indeksy.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 

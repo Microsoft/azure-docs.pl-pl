@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 83e6498f47c36fa54890131922dc8d452a3d9220
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: edb6846d199470818e07a208feb778aca3021d9e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560489"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253668"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Rozgałęzianie działań i łączenie łańcuchów w potoku Azure Data Factory przy użyciu Azure Portal
 
@@ -44,7 +44,7 @@ W tym samouczku jest używana witryna Azure Portal. Aby uzyskać informacje o in
 
 * **Subskrypcja platformy Azure**. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 * **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako **źródłowy** magazyn danych. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
-* **Azure SQL Database**. Baza danych jest używana jako magazyn danych **ujścia**. Jeśli nie masz bazy danych Azure SQL Database, utwórz ją, wykonując czynności przedstawione w artykule [Create an Azure SQL database (Tworzenie bazy danych Azure SQL Database)](../azure-sql/database/single-database-create-quickstart.md).
+* **Azure SQL Database**. Baza danych jest używana jako magazyn danych **ujścia**. Jeśli nie masz bazy danych w Azure SQL Database, zapoznaj się z artykułem [Tworzenie bazy danych w programie Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) .
 
 ### <a name="create-blob-table"></a>Tworzenie tabeli obiektów blob
 
@@ -150,7 +150,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 4. Wybierz opcję **V2** w obszarze **Wersja**.
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
-7. Kliknij przycisk **Utwórz**.      
+7. Kliknij pozycję **Utwórz**.      
 8. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: **wdrażanie fabryki danych**.
 
     ![kafelek Wdrażanie fabryki danych](media/tutorial-control-flow-portal/deploying-data-factory.png)
@@ -206,6 +206,7 @@ W tym kroku jest tworzony potok z jednym działaniem kopiowania i dwoma działan
 13. Przejdź do karty **potoku** lub kliknij potok w widoku drzewa. Upewnij się, że dla ustawienia **Zestaw danych źródłowych** wybrano wartość **SourceBlobDataset**.
 
     ![Zestaw danych źródłowych](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+
 13. W oknie Właściwości przejdź do karty **Ujście**, a następnie kliknij pozycję **+ Nowy** dla elementu **Zestaw danych ujścia**. W tym kroku utworzysz zestaw danych ujścia dla działania kopiowania w podobny sposób do tworzenia zestawu danych źródłowych.
 
     ![Przycisk Nowy zestaw danych ujścia](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)

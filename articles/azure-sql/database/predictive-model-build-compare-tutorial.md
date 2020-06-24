@@ -14,17 +14,17 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a5936501f45694febe284d9747bdefdfeae6aeb
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ca0af9a34587f8d3a3c0502c77556975b1d8df4e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053333"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253838"
 ---
 # <a name="tutorial-create-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Tworzenie modelu predykcyjnego w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-W drugiej części tej serii samouczków z trzema częściami utworzysz dwa modele predykcyjne w języku R i wybierzemy najbardziej precyzyjny model. W następnej części tej serii ten model zostanie wdrożony w bazie danych SQL za pomocą Azure SQL Database Machine Learning Services (wersja zapoznawcza).
+W drugiej części tej serii samouczków z trzema częściami utworzysz dwa modele predykcyjne w języku R i wybierzemy najbardziej precyzyjny model. W następnej części tej serii ten model zostanie wdrożony w bazie danych programu w Azure SQL Database z Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
@@ -38,7 +38,7 @@ W tym artykule dowiesz się, jak:
 
 W [części pierwszej](predictive-model-prepare-data-tutorial.md)przedstawiono sposób importowania przykładowej bazy danych, a następnie przygotowania danych do uczenia modelu predykcyjnego w języku R.
 
-W [trzeciej części](predictive-model-deploy-tutorial.md)dowiesz się, jak przechowywać model w bazie danych, a następnie tworzyć procedury składowane na podstawie skryptów języka R, które zostały opracowane w częściach jeden i dwa. Procedury składowane zostaną uruchomione w bazie danych SQL w celu przeprowadzenia prognoz na podstawie nowych danych.
+W [trzeciej części](predictive-model-deploy-tutorial.md)dowiesz się, jak przechowywać model w bazie danych, a następnie tworzyć procedury składowane na podstawie skryptów języka R, które zostały opracowane w częściach jeden i dwa. Procedury składowane zostaną uruchomione w bazie danych w celu przeprowadzenia prognoz na podstawie nowych danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

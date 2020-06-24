@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 04/10/2020
 ms.custom: include file
-ms.openlocfilehash: e81f584892126a1d79e0d56ecacaa8c202fa81e3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2cb07957af996f19bb15853fda81400cd63c8b21
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647707"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85113804"
 ---
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
@@ -37,14 +37,14 @@ ms.locfileid: "83647707"
     > [!NOTE]
     > W ramach jednej subskrypcji platformy Azure można korzystać z maksymalnie jednego konta usługi Azure Cosmos DB w warstwie Bezpłatna. Tę opcję należy wybrać podczas tworzenia konta. Jeśli opcja zastosowania rabatu na podstawie warstwy Bezpłatna nie jest widoczna, inne konto w subskrypcji już korzysta z warstwy Bezpłatna.
    
-   ![Strona nowego konta usługi Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png)
+   :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png" alt-text="Strona nowego konta usługi Azure Cosmos DB":::
 
 1. Wybierz pozycję **Przegląd + utwórz**. Sekcje **Sieć** i **Tagi** możesz pominąć.
 
 1. Przejrzyj ustawienia konta, a następnie wybierz pozycję **Utwórz**. Utworzenie konta trwa kilka minut. Poczekaj na wyświetlenie komunikatu **Wdrożenie zostało ukończone** na stronie portalu. 
 
-    ![Okienko Powiadomienia w witrynie Azure Portal](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png)
+    :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png" alt-text="Okienko Powiadomienia w witrynie Azure Portal":::
 
 1. Wybierz pozycję **Przejdź do zasobu**, aby przejść do strony konta usługi Azure Cosmos DB. 
 
-    ![Strona konta usługi Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-2.png)
+    :::image type="content" source="./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-2.png" alt-text="Strona konta usługi Azure Cosmos DB":::

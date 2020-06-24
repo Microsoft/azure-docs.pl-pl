@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/16/2018
-ms.openlocfilehash: 3c55becb098c9d93688b59f1db4f702acbff3f72
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: bb61f6146e588673038fae9f41b770c4865cefb7
+ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837490"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84945294"
 ---
 # <a name="azure-monitor-cli-samples"></a>Przykłady interfejsu wiersza polecenia Azure Monitor
 W tym artykule przedstawiono przykładowe polecenia interfejsu wiersza polecenia (CLI) ułatwiające dostęp do funkcji Azure Monitor. Azure Monitor pozwala na automatyczne skalowanie Cloud Services, Virtual Machines i Web Apps oraz wysyłanie powiadomień o alertach lub wywoływanie adresów URL sieci Web na podstawie wartości skonfigurowanych danych telemetrycznych.
@@ -29,51 +29,51 @@ az login
 
 Po uruchomieniu tego polecenia należy zalogować się za pomocą instrukcji na ekranie. Wszystkie polecenia działają w kontekście domyślnej subskrypcji.
 
-Aby wyświetlić szczegóły bieżącej subskrypcji, użyj następującego polecenia.
+Wyświetl szczegóły bieżącej subskrypcji.
 
 ```azurecli
 az account show
 ```
 
-Aby zmienić kontekst roboczy na inną subskrypcję, użyj następującego polecenia.
+Zmień kontekst roboczy na inną subskrypcję.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-Aby wyświetlić listę wszystkich obsługiwanych poleceń Azure Monitor, należy wykonać następujące polecenie.
+Wyświetl listę wszystkich obsługiwanych poleceń Azure Monitor.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>Wyświetlanie dziennika aktywności dla subskrypcji
+## <a name="view-activity-log"></a>Wyświetl dziennik aktywności
 
-Aby wyświetlić listę zdarzeń dziennika aktywności, należy wykonać następujące polecenie.
+Wyświetl listę zdarzeń dziennika aktywności.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-Spróbuj wykonać poniższe czynności, aby wyświetlić wszystkie dostępne opcje.
+Wyświetl wszystkie dostępne opcje.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Oto przykład wyświetlania listy dzienników według źródła
+Wyświetl listę dzienników według źródła.
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Przykład wyświetlania listy dzienników według obiektu wywołującego
+Wyświetl listę dzienników według obiektu wywołującego.
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Przykład wyświetlania listy dzienników według obiektu wywołującego dla typu zasobu w ramach zakresu dat
+Wyświetl listę dzienników według obiektu wywołującego dla typu zasobu w zakresie dat.
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \

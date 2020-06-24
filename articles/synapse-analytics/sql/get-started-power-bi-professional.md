@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4bedcc1f7375cb83131b00be93c785069a7d3e7d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: f5699624300d262630c9582131d00f33f5ce5be9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692393"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212891"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Nawiązywanie połączenia z usługą Synapse SQL przy użyciu programu Power BI Professional
 
@@ -22,7 +22,7 @@ ms.locfileid: "82692393"
 >
 > - [Azure Data Studio](get-started-azure-data-studio.md)
 > - [Power BI](get-started-power-bi-professional.md)
-> - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> - [Program Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 

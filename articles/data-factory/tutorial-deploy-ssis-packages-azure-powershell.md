@@ -14,12 +14,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 6ffc1aa6e28bf17d0de3783e5e03b6a2df541e4a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2c3f2ccd80f2f329a7495beda1a002d84d769802
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194646"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253923"
 ---
 # <a name="set-up-an-azure-ssis-ir-in-azure-data-factory-by-using-powershell"></a>Konfigurowanie Azure-SSIS IR w Azure Data Factory przy użyciu programu PowerShell
 
@@ -55,7 +55,7 @@ W tym samouczku wykonasz następujące czynności:
     - Na podstawie wybranego serwera bazy danych SSISDB można utworzyć w Twoim imieniu jako pojedynczą bazę danych lub część elastycznej puli w SQL Database lub w wystąpieniu zarządzanym SQL, a także w sieci publicznej lub przez dołączenie do sieci wirtualnej. Aby uzyskać wskazówki dotyczące wybierania typu serwera bazy danych do hostowania SSISDB, zobacz [porównanie wystąpienia zarządzanego SQL Database i SQL](create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
     
       Jeśli używasz SQL Database z użyciem zapory IP lub punktów końcowych usługi sieci wirtualnej albo wystąpienia zarządzanego SQL z prywatnym punktem końcowym do hostowania SSISDB lub jeśli potrzebujesz dostępu do danych lokalnych bez konfigurowania samoobsługowego środowiska IR, Dołącz do Azure-SSIS IR do sieci wirtualnej. Aby uzyskać więcej informacji, zobacz [tworzenie Azure-SSIS IR w sieci wirtualnej](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
-    - Upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest włączone dla SQL Database. To ustawienie nie ma zastosowania w przypadku używania SQL Database z regułami zapory IP lub punktami końcowymi usługi sieci wirtualnej albo wystąpieniem zarządzanym SQL z prywatnym punktem końcowym do hostowania SSISDB. Aby uzyskać więcej informacji, zobacz artykuł [Secure your Azure SQL database (Zabezpieczenia bazy danych Azure SQL Database)](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules). Aby włączyć to ustawienie przy użyciu programu PowerShell, zobacz polecenie [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
+    - Upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest włączone dla SQL Database. To ustawienie nie ma zastosowania w przypadku używania SQL Database z regułami zapory IP lub punktami końcowymi usługi sieci wirtualnej albo wystąpieniem zarządzanym SQL z prywatnym punktem końcowym do hostowania SSISDB. Aby uzyskać więcej informacji, zobacz [bezpieczny Azure SQL Database](../azure-sql/database/secure-database-tutorial.md#create-firewall-rules). Aby włączyć to ustawienie przy użyciu programu PowerShell, zobacz polecenie [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule).
     - Dodaj adres IP komputera klienckiego lub zakres adresów IP, w tym adres IP komputera klienckiego, do listy adres IP klienta w ustawieniach zapory dla SQL Database. Aby uzyskać więcej informacji, zobacz [reguły zapory na poziomie serwera i na poziomie bazy danych](../azure-sql/database/firewall-configure.md).
     - Można nawiązać połączenie z usługą SQL Database lub wystąpieniem zarządzanym SQL przy użyciu uwierzytelniania SQL z poświadczeniami administratora serwera lub uwierzytelnianiem usługi Azure Active Directory (Azure AD) z zarządzaną tożsamością dla fabryki danych. Aby w ramach uwierzytelniania usługi Azure AD dodać tożsamość zarządzaną fabryki danych do grupy usługi Azure AD z uprawnieniami dostępu do serwera bazy danych, zobacz [tworzenie Azure-SSIS IR przy użyciu uwierzytelniania usługi Azure AD](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
     - Upewnij się, że SQL Database lub wystąpienie zarządzane SQL nie ma jeszcze SSISDB. Skonfigurowanie Azure-SSIS IR nie obsługuje korzystania z istniejącej SSISDB.

@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 01/04/2019
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
-ms.openlocfilehash: 2d77dcbd07a67e3ba50d70770515416b45fbc7a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2caaadd0da9d62128d04962fa1f2ff7eade907b0
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637903"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254433"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>Szablony usługi Azure Resource Manager dla usługi App Service
 
@@ -29,7 +29,6 @@ Aby poznać składnię JSON i właściwości dla zasobów usługi App Services, 
 | [Aplikacja z niestandardowymi miejscami wdrożenia](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Wdraża aplikację usługi App Service z niestandardowymi środowiskami/miejscami wdrożenia. |
 |**Konfigurowanie aplikacji**||
 | [Certyfikat aplikacji z magazynu Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Wdraża certyfikat aplikacji App Service z poziomu tajnego Azure Key Vault i używa go na potrzeby powiązania TLS/SSL. |
-| [Aplikacja z domeną niestandardową](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Wdraża aplikację usługi App Service z niestandardową nazwą hosta. |
 | [Aplikacja z protokołem SSL i domeną niestandardową](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Wdraża aplikację App Service z niestandardową nazwą hosta i pobiera certyfikat aplikacji z Key Vault dla powiązania TLS/SSL. |
 | [Aplikacja z rozszerzeniem GoLang](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Wdraża aplikację usługi App Service z rozszerzeniem lokacji Golang. Umożliwia to uruchamianie aplikacji internetowych opracowanych przy użyciu oprogramowania Golang na platformie Azure. |
 | [Aplikacja z rozwiązaniami Java 8 i Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Wdraża aplikację usługi App Service z włączoną obsługą rozwiązań Java 8 i Tomcat 8. Umożliwia to uruchamianie aplikacji w języku Java na platformie Azure. |
@@ -42,7 +41,7 @@ Aby poznać składnię JSON i właściwości dla zasobów usługi App Services, 
 |**Aplikacja z połączonymi zasobami**||
 | [Aplikacja z rozwiązaniem MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-mysql)| Wdraża aplikację usługi App Service w systemie Windows przy użyciu usługi Azure Database for MySQL. |
 | [Aplikacja z rozwiązaniem PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-managed-postgresql)| Wdraża aplikację usługi App Service w systemie Windows przy użyciu usługi Azure Database for PostgreSQL. |
-| [Aplikacja z bazą danych SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Wdraża aplikację usługi App Service i bazę danych SQL Database na poziomie usługi Podstawowa. |
+| [Aplikacja z bazą danych w Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Wdraża aplikację App Service i bazę danych w Azure SQL Database na podstawowym poziomie usługi. |
 | [Aplikacja z połączeniem z usługą Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Wdraża aplikację usługi App Service z parametrami połączenia usługi Azure Blob Storage. Umożliwia to użycie usługi Azure Blob Storage z poziomu aplikacji. |
 | [Aplikacja z pamięcią podręczną Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Wdraża aplikację usługi App Service z pamięcią podręczną Azure Cache for Redis. |
 |**Środowisko usługi App Service**||

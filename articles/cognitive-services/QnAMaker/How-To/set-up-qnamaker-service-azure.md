@@ -3,12 +3,12 @@ title: Konfigurowanie usługi QnA Maker — QnA Maker
 description: Przed utworzeniem jakichkolwiek QnA Maker baz wiedzy należy najpierw skonfigurować usługę QnA Maker na platformie Azure. Każda osoba z autoryzacją do tworzenia nowych zasobów w ramach subskrypcji może skonfigurować usługę QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235517"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214132"
 ---
 # <a name="manage-qna-maker-resources"></a>Zarządzanie zasobami QnA Maker
 
@@ -60,9 +60,9 @@ Ta procedura służy do tworzenia zasobów platformy Azure wymaganych do zarząd
     Zasób z typem _Cognitive Services_ ma Twoje klucze _subskrypcji_ .
 
 
-## <a name="find-subscription-keys-in-the-azure-portal"></a>Znajdź klucze subskrypcji w Azure Portal
+## <a name="find-authoring-keys-in-the-azure-portal"></a>Znajdź klucze tworzenia w Azure Portal
 
-Klucze subskrypcji można wyświetlić i zresetować z poziomu Azure Portal, w którym został utworzony zasób QnA Maker.
+Klucze tworzenia można wyświetlić i zresetować z poziomu Azure Portal, w którym został utworzony zasób QnA Maker. Te klucze mogą być określane jako klucze subskrypcji. 
 
 1. Przejdź do zasobu QnA Maker w Azure Portal i wybierz zasób, który ma _Cognitive Services_ typ:
 
@@ -72,7 +72,7 @@ Klucze subskrypcji można wyświetlić i zresetować z poziomu Azure Portal, w k
 
     ![Klucz subskrypcji](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## <a name="find-endpoint-keys-in-the-qna-maker-portal"></a>Znajdź klucze punktów końcowych w portalu QnA Maker
+## <a name="find-query-endpoint-keys-in-the-qna-maker-portal"></a>Znajdowanie kluczy punktu końcowego zapytania w portalu QnA Maker
 
 Punkt końcowy znajduje się w tym samym regionie, w którym znajduje się zasób, ponieważ klucze punktów końcowych są używane do wywołania bazy wiedzy.
 

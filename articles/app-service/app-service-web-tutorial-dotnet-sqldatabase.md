@@ -6,12 +6,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.custom: mvc, devcenter, vs-azure, seodec18
-ms.openlocfilehash: f6c8b388a9d1261e08314b8f8c607e5ee16362ae
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 57701218186266e897e8312d01372fd36ddee715
+ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013792"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84906126"
 ---
 # <a name="tutorial-deploy-an-aspnet-app-to-azure-with-azure-sql-database"></a>Samouczek: wdrażanie aplikacji ASP.NET na platformie Azure za pomocą Azure SQL Database
 
@@ -19,7 +19,7 @@ ms.locfileid: "84013792"
 
 ![Opublikowana aplikacja ASP.NET w aplikacji usługi App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -40,10 +40,10 @@ Zainstaluj <a href="https://www.visualstudio.com/downloads/" target="_blank">pro
 
 Jeśli program Visual Studio został już zainstalowany, Dodaj obciążenia w programie Visual Studio, klikając pozycję **Narzędzia**  >  **Pobierz narzędzia i funkcje**.
 
-## <a name="download-the-sample"></a>Pobierz przykład
+## <a name="download-the-sample"></a>Pobieranie przykładu
 
 * [Pobierz przykładowy projekt](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-* Wyodrębnij (Rozpakuj) plik *plik dotnet-SQLDB-tutorial-Master. zip* .
+* Wyodrębnij (Rozpakuj) plik *dotnet-sqldb-tutorial-master.zip* .
 
 Przykładowy projekt zawiera podstawową aplikację [ASP.NET MVC](https://www.asp.net/mvc) CRUD (create-read-update-delete, tworzenie-odczytywanie-aktualizowanie-usuwanie) korzystającą z modelu [Code First platformy Entity Framework](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -145,7 +145,7 @@ Przed utworzeniem bazy danych potrzebny jest [logiczny serwer SQL](../azure-sql/
 
     ![Konfiguruj bazę danych](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-2. Skonfigurowane zasoby zostaną wyświetlone w oknie dialogowym **Tworzenie usługi App Service**. Kliknij przycisk **Utwórz**.
+2. Skonfigurowane zasoby zostaną wyświetlone w oknie dialogowym **Tworzenie usługi App Service**. Kliknij pozycję **Utwórz**.
 
    ![Utworzone zasoby](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -353,7 +353,7 @@ W celu zmiany poziomu śledzenia w taki sposób, aby w danych wyjściowych znajd
 
 Kliknij ponownie prawym przyciskiem myszy aplikację platformy Azure i wybierz polecenie **Wyświetl ustawienia**.
 
-Z listy rozwijanej **Rejestrowanie aplikacji (System plików)** wybierz pozycję **Pełne**. Kliknij przycisk **Zapisz**.
+Z listy rozwijanej **Rejestrowanie aplikacji (System plików)** wybierz pozycję **Pełne**. Kliknij pozycję **Zapisz**.
 
 ![Zmienianie poziomu śledzenia na Pełne](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -410,3 +410,8 @@ Przejdź do następnego samouczka, aby dowiedzieć się, jak łatwo poprawić za
 
 > [!div class="nextstepaction"]
 > [Zabezpieczony dostęp do usługi SQL Database przy użyciu tożsamości zarządzanych dla zasobów platformy Azure](app-service-web-tutorial-connect-msi.md)
+
+Więcej zasobów:
+
+> [!div class="nextstepaction"]
+> [Konfigurowanie aplikacji ASP.NET](configure-language-dotnet-framework.md)

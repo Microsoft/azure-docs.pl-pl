@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: a709d0d4aa9b7c4e3ab06e6d34bbb199cb1b5917
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: c658283ed610dcd14fca82b14217cba979388fc2
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84323930"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85252920"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Samouczek: Zabezpieczanie bazy danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -301,7 +301,7 @@ Aby włączyć inspekcję:
     ![Rekordy inspekcji](./media/secure-database-tutorial/audit-records.png)
 
 > [!IMPORTANT]
-> Zobacz temat [SQL database auditing (Inspekcja w usłudze SQL Database)](../../azure-sql/database/auditing-overview.md), aby zapoznać się z instrukcjami dalszego dostosowywania zdarzeń inspekcji za pomocą programu PowerShell lub interfejsu API REST.
+> Aby dowiedzieć się więcej o sposobach dostosowywania zdarzeń inspekcji przy użyciu programu PowerShell lub interfejsu API REST, zobacz [SQL Database inspekcji](../../azure-sql/database/auditing-overview.md) .
 
 ### <a name="dynamic-data-masking"></a>Dynamiczne maskowanie danych
 

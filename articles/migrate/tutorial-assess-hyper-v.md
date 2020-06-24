@@ -4,12 +4,12 @@ description: Opisuje sposób oceny lokalnych maszyn wirtualnych funkcji Hyper-V 
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 2c4233df6566f3187c8366188b0eb960189b43c5
-ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
+ms.openlocfilehash: 53cf4eea4bfe61951be9975bacf9adb2b3fcf435
+ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84331767"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85106488"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Ocenianie maszyn wirtualnych funkcji Hyper-V za pomocą oceny serwera Azure Migrate
 
@@ -36,7 +36,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 - [Wykonaj](tutorial-prepare-hyper-v.md) pierwszy samouczek z tej serii. Jeśli tego nie zrobisz, instrukcje podane w tym samouczku nie będą działały.
 - Oto co należy zrobić w pierwszym samouczku:
     - [Przygotuj platformę Azure](tutorial-prepare-hyper-v.md#prepare-azure) do pracy z Azure Migrate.
-    - Przygotowanie oceny hostów i maszyn wirtualnych [funkcji Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) .
+    - Przygotowanie oceny hostów i maszyn wirtualnych [funkcji Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-assessment) .
     - [Sprawdź](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) , co jest potrzebne, aby wdrożyć urządzenie Azure Migrate na potrzeby oceny funkcji Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurowanie projektu Azure Migrate
@@ -96,13 +96,13 @@ Przed wdrożeniem należy sprawdzić, czy spakowany plik jest bezpieczny.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Przykład użycia: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  Sprawdź najnowsze wersje urządzenia i zawiera wartości:
+3.  Sprawdź najnowsze wersje urządzeń i wartości skrótu:
 
     - W przypadku chmury publicznej platformy Azure:
 
         **Scenariusz** | **Pobierz** | **SHA256**
         --- | --- | ---
-        Funkcja Hyper-V (8,93 MB) | [Najnowsza wersja](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+        Funkcja Hyper-V (8,93 GB) | [Najnowsza wersja](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
 
     - Dla Azure Government:
 
@@ -174,10 +174,7 @@ Skonfiguruj urządzenie po raz pierwszy.
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegowanie poświadczeń dla wirtualnych dysków twardych SMB
 
-Jeśli używasz dysków VHD w systemie technologii, musisz włączyć delegowanie poświadczeń z urządzenia do hostów funkcji Hyper-V. Wymaga to:
-
-- Każdemu hostowi można umożliwić działanie jako delegata urządzenia. Jeśli samouczki zostały wykonane w powyższej części samouczka, podczas przygotowywania funkcji Hyper-V do oceny i migracji należy wykonać te instrukcje. Należy skonfigurować protokół CredSSP dla hostów [ręcznie](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts)lub przez [uruchomienie skryptu](tutorial-prepare-hyper-v.md#prepare-with-a-script) , który to robi.
-- Włącz delegowanie CredSSP, aby urządzenie Azure Migrate było działać jako klient, Delegowanie poświadczeń do hosta.
+Jeśli używasz dysków VHD w systemie technologii, musisz włączyć delegowanie poświadczeń z urządzenia do hostów funkcji Hyper-V. W tym celu należy umożliwić każdemu hostowi działanie jako delegata urządzenia. Jeśli samouczki zostały wykonane w powyższej części samouczka, podczas przygotowywania funkcji Hyper-V do oceny i migracji należy wykonać te instrukcje. Należy skonfigurować protokół CredSSP dla hostów [ręcznie](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials)lub przez [uruchomienie skryptu](tutorial-prepare-hyper-v.md#run-the-script) , który to robi.
 
 Włącz na urządzeniu w następujący sposób:
 
@@ -186,7 +183,7 @@ Włącz na urządzeniu w następujący sposób:
 Na maszynie wirtualnej urządzenia Uruchom to polecenie. HyperVHost1/HyperVHost2 są przykładowymi nazwami hostów.
 
 ```
-Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
 ```
 
 Przykład: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `

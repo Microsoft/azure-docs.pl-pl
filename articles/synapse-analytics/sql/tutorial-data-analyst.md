@@ -5,16 +5,16 @@ services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 84e808caa033491ce3f2da099459d1242df6decd
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: afe231186adec95b09a75d7fe59552ca8a07049b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299540"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213146"
 ---
 # <a name="use-sql-on-demand-preview-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio-preview"></a>Korzystanie z SQL na żądanie (wersja zapoznawcza) w celu analizowania otwartych zestawów danych platformy Azure i wizualizacji wyników w usłudze Azure Synapse Studio (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ W ramach tego samouczka nauczysz się przeprowadzać analizę danych w postaci p
 W szczególności analizujemy [zestaw danych o taksówkach w Nowym Jorku (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) , który obejmuje:
 
 - Data i godzina odebrania.
-- Lokalizacja odbioru i przechowywania. 
+- Wybierz i upuść lokalizacje. 
 - Odległość podróży.
 - Opłaty za elementy.
 - Typy szybkości.
@@ -32,7 +32,7 @@ W szczególności analizujemy [zestaw danych o taksówkach w Nowym Jorku (NYC)](
 
 ## <a name="automatic-schema-inference"></a>Automatyczne wnioskowanie schematu
 
-Ponieważ dane są przechowywane w formacie pliku Parquet, automatyczne wnioskowanie schematu jest dostępne. Można łatwo wysyłać zapytania o dane bez konieczności wyświetlania listy typów danych wszystkich kolumn w plikach. Można również użyć mechanizmu kolumny wirtualnej i funkcji FilePath do odfiltrowania określonego podzestawu plików.
+Ponieważ dane są przechowywane w formacie pliku Parquet, automatyczne wnioskowanie schematu jest dostępne. Można łatwo wysyłać zapytania o dane bez wyświetlania typów danych wszystkich kolumn w plikach. Można również użyć mechanizmu kolumny wirtualnej i funkcji FilePath do odfiltrowania określonego podzestawu plików.
 
 Najpierw zapoznaj się z danymi z NYC taksówkami, uruchamiając następujące zapytanie:
 

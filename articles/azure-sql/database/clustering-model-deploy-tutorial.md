@@ -14,21 +14,21 @@ ms.reviewer: davidph
 manager: cgronlun
 ms.date: 07/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5227fc89d99257f3390820d4930c3d57b63f03d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2a90003c9de2cf0e942b518c6d4e9c3569039caf
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053399"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85251424"
 ---
 # <a name="tutorial-deploy-a-clustering-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Samouczek: Wdrażanie modelu klastrowania w języku R z Azure SQL Database Machine Learning Services (wersja zapoznawcza)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-W trzeciej części tej serii samouczków można wdrożyć model klastra, opracowany w języku R, do bazy danych SQL przy użyciu Azure SQL Database Machine Learning Services (wersja zapoznawcza).
+W trzeciej części tej serii samouczków można wdrożyć model klastra, opracowany w języku R, do bazy danych w Azure SQL Database przy użyciu Azure SQL Database Machine Learning Services (wersja zapoznawcza).
 
 [!INCLUDE[ml-preview-note](../../../includes/sql-database-ml-preview-note.md)]
 
-Utworzysz procedurę składowaną z osadzonym skryptem języka R, który wykonuje klastrowanie. Ponieważ model jest wykonywany w usłudze Azure SQL Database, można łatwo go przeszkolić do danych przechowywanych w bazie danych.
+Utworzysz procedurę składowaną z osadzonym skryptem języka R, który wykonuje klastrowanie. Ponieważ model jest wykonywany w Azure SQL Database, można go łatwo przeszkolone do danych przechowywanych w bazie danych.
 
 W tym artykule dowiesz się, jak:
 
@@ -38,7 +38,7 @@ W tym artykule dowiesz się, jak:
 > * Wykonaj klastrowanie w SQL Database
 > * Korzystanie z informacji dotyczących klastrowania
 
-W [części pierwszej](clustering-model-prepare-data-tutorial.md)przedstawiono sposób przygotowania danych z bazy danych Azure SQL Database w celu przeprowadzenia klastrowania.
+W [części pierwszej](clustering-model-prepare-data-tutorial.md)przedstawiono sposób przygotowania danych z bazy danych w celu przeprowadzenia klastrowania.
 
 W [drugiej części](clustering-model-build-tutorial.md)pokazano, jak utworzyć i szkolić model z klastrami w języku R.
 

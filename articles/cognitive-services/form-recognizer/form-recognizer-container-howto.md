@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 761cf5831bb2332ae8c3f7a9a8edee707e6810ee
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: fe6e0a0f3ffd3680c75c086222a4a390ce15d4df
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816339"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213197"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalowanie i uruchamianie kontenerów aparatów rozpoznawania formularzy (wersja zapoznawcza)
 
@@ -39,7 +39,7 @@ Przed użyciem kontenerów aparatów rozpoznawania formularzy należy spełnić 
 |----------|---------|
 | Aparat platformy Docker | Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> W systemie Windows program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br> |
 | Znajomość platformy Docker | Należy dysponować podstawową wiedzą na temat pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów oraz znajomość podstawowych `docker` poleceń. |
-| Interfejs wiersza polecenia platformy Azure | Zainstaluj [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) na hoście. |
+| Interfejs wiersza polecenia platformy Azure | Zainstaluj [interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) na hoście. |
 | Zasób interfejs API przetwarzania obrazów | Do przetworzenia zeskanowanych dokumentów i obrazów potrzebny jest zasób przetwarzanie obrazów. Możesz uzyskać dostęp do funkcji Rozpoznawanie tekstu jako zasobu platformy Azure (interfejsu API REST lub zestawu SDK) lub kontenera *usług poznawczego rozpoznawania tekstu* [container](../Computer-vision/computer-vision-how-to-install-containers.md#get-the-container-image-with-docker-pull). Obowiązują standardowe opłaty za rozliczanie. <br><br>Przekaż zarówno klucz interfejsu API, jak i punkty końcowe dla zasobu przetwarzanie obrazów (Azure Cloud lub Cognitive Services Container). Użyj tego klucza interfejsu API i punktu końcowego jako **{COMPUTER_VISION_API_KEY}** i **{COMPUTER_VISION_ENDPOINT_URI}**.<br><br> Jeśli używasz kontenera *poznawcze-Services-rozpoznaje-Text* , upewnij się, że:<br><br>Klucz przetwarzanie obrazów dla kontenera aparatu rozpoznawania formularzy jest kluczem określonym w przetwarzanie obrazów `docker run` polecenie dla kontenera " *poznawcze-Services-rozpoznaje-Text* ".<br>Punkt końcowy rozliczeniowy jest punktem końcowym kontenera (na przykład `http://localhost:5000` ). Jeśli używasz kontenera przetwarzanie obrazów kontenerów i aparatu rozpoznawania formularzy razem na tym samym hoście, nie można uruchomić obu tych elementów przy użyciu domyślnego portu *5000*. |
 | Zasób aparatu rozpoznawania formularza | Aby korzystać z tych kontenerów, musisz mieć:<br><br>Zasób **aparatu rozpoznawania formularza** platformy Azure, aby pobrać skojarzony klucz interfejsu API i identyfikator URI punktu końcowego. Obie wartości są dostępne na stronie Omówienie i klucze **aparatu rozpoznawania Azure Portal formularzy** , a obie wartości są wymagane do uruchomienia kontenera.<br><br>**{FORM_RECOGNIZER_API_KEY}**: jeden z dwóch dostępnych kluczy zasobów na stronie kluczy<br><br>**{FORM_RECOGNIZER_ENDPOINT_URI}**: punkt końcowy określony na stronie Przegląd |
 

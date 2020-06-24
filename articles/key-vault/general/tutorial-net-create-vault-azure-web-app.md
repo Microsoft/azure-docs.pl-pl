@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dca7392c35c398ae3d9da62114c991ee4c0e57ca
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
+ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997002"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85051891"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Samouczek: używanie tożsamości zarządzanej do łączenia Key Vault z aplikacją sieci Web platformy Azure przy użyciu platformy .NET
 
@@ -51,7 +51,7 @@ Aby utworzyć magazyn kluczy, użyj polecenia [AZ Key magazynu Create](/cli/azur
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Zanotuj zwracaną `vaultUri`wartość, która będzie w formacie "https://<nazwę magazynu kluczy>. Vault.Azure.NET/". Zostanie ona użyta w kroku [Aktualizuj kod](#update-the-code) .
+Zanotuj zwracaną wartość `vaultUri` , która będzie w formacie "https://<nazwę magazynu kluczy>. Vault.Azure.NET/". Zostanie ona użyta w kroku [Aktualizuj kod](#update-the-code) .
 
 Wpis tajny można teraz umieścić w magazynie kluczy za pomocą polecenia [AZ Key magazynu tajnego Set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) . Dla nazwy wpisu tajnego ustaw wartość "powodzenie!".
 
@@ -109,7 +109,7 @@ Aby skonfigurować użytkownika wdrożenia, uruchom polecenie [AZ webapp Deploym
 az webapp deployment user set --user-name "<username>" --password "<password>"
 ```
 
-Dane wyjściowe JSON przedstawiają hasło jako `null`. Jeśli wystąpił błąd `'Conflict'. Details: 409`, zmień nazwę użytkownika. Jeśli wystąpił błąd `'Bad Request'. Details: 400`, użyj silniejszego hasła. 
+Dane wyjściowe JSON przedstawiają hasło jako `null` . Jeśli wystąpił błąd `'Conflict'. Details: 409`, zmień nazwę użytkownika. Jeśli wystąpił błąd `'Bad Request'. Details: 400`, użyj silniejszego hasła. 
 
 Zapisz nazwę użytkownika i hasło, aby użyć do wdrożenia aplikacji sieci Web.
 
@@ -147,7 +147,7 @@ Po utworzeniu planu usługi App Service interfejs wiersza polecenia platformy Az
 Utwórz [aplikację internetową platformy Azure](../../app-service/containers/app-service-linux-intro.md) w `myAppServicePlan` planie App Service. 
 
 > [!Important]
-> Podobnie jak w przypadku Key Vault, aplikacja internetowa platformy Azure musi mieć unikatową nazwę. Zastąp \<wartość webapp-Name\> nazwą swojej aplikacji sieci Web poniższymi przykładami.
+> Podobnie jak w przypadku Key Vault, aplikacja internetowa platformy Azure musi mieć unikatową nazwę. Zastąp ciąg \<your-webapp-name\> nazwą aplikacji sieci Web poniższymi przykładami.
 
 
 ```azurecli-interactive
@@ -176,7 +176,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-na
 
 Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
 
-Przejdź do nowo utworzonej aplikacji. Zastąp _ &lt;ciąg-webapp-Name>_ nazwą swojej aplikacji.
+Przejdź do nowo utworzonej aplikacji. Zastąp _ &lt; ciąg-webapp-Name>_ nazwą swojej aplikacji.
 
 ```bash
 https://<your-webapp-name>.azurewebsites.net
@@ -186,7 +186,7 @@ Zostanie wyświetlona domyślna strona sieci Web dla nowo utworzonej aplikacji i
 
 ### <a name="deploy-your-local-app"></a>Wdrażanie aplikacji lokalnej
 
-Wróć do okna lokalnego terminalu, Dodaj element zdalny platformy Azure do lokalnego repozytorium git, zastępując * \<zmienną deploymentlocalgiturl-from-Create-Step-The->* z adresem URL zdalnego narzędzia Git zapisanego w kroku [Tworzenie zdalnej aplikacji sieci Web](#create-a-remote-web-app) .
+Wróć do okna terminalu lokalnego, Dodaj element zdalny platformy Azure do lokalnego repozytorium git, zastępując *\<deploymentLocalGitUrl-from-create-step>* adres URL zdalnego elementu git, który został zapisany w kroku [Tworzenie zdalnej aplikacji sieci Web](#create-a-remote-web-app) .
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
@@ -232,7 +232,7 @@ Przejdź do (lub Odśwież) wdrożonej aplikacji przy użyciu przeglądarki siec
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-Zobaczysz "Hello world!" komunikat, który został wcześniej wyświetlony `http://localhost:5000`podczas odwiedzania.
+Zobaczysz "Hello world!" komunikat, który został wcześniej wyświetlony podczas odwiedzania `http://localhost:5000` .
 
 ## <a name="create-and-assign-a-managed-identity"></a>Tworzenie i przypisywanie tożsamości zarządzanej
 
@@ -279,6 +279,7 @@ Dodaj te dwa wiersze do nagłówka:
 ```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using Azure.Core;
 ```
 
 Dodaj te wiersze przed `app.UseEndpoints` wywołaniem, aktualizując identyfikator URI w celu odzwierciedlenia `vaultUri` Twojego magazynu kluczy. Poniższy kod używa [elementu "DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) do uwierzytelniania w magazynie kluczy, który używa tokenu z tożsamości zarządzanej przez aplikację do uwierzytelniania. Jest również używany wycofywania wykładniczy do ponawiania prób w przypadku ograniczania magazynu kluczy.

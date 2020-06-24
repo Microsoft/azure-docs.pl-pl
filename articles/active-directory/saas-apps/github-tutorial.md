@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 06/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1da910cbf700845bdb6d5c07a6ee375a73579e75
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 1ade9e3200909c781dc00cf4e3713395f55f173d
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84456865"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253747"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) w usłudze GitHub
 
@@ -58,7 +58,6 @@ Aby skonfigurować integrację aplikacji GitHub z usługą Azure AD, należy dod
 1. W sekcji **Dodaj z galerii** wpisz **GitHub** w polu wyszukiwania.
 1. Wybierz pozycję **GitHub** z panelu wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-github"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla usługi GitHub
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD z usługą GitHub przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w serwisie GitHub.
@@ -84,14 +83,17 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. W sekcji **Podstawowa konfiguracja języka SAML** wprowadź wartości dla następujących pól:
 
-   a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://github.com/orgs/<entity-id>/sso`
+   a. W polu tekstowym **Adres URL logowania** wpisz adres URL, używając następującego wzorca: `https://github.com/orgs/<Organization ID>/sso`
 
-    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://github.com/orgs/<entity-id>`
+    b. W polu tekstowym **Identyfikator (identyfikator jednostki)** wpisz adres URL, używając następującego wzorca: `https://github.com/orgs/<Organization ID>`
+
+    c. W polu **adres URL odpowiedzi** textox wpisz adres URL, używając następującego wzorca:`https://github.com/orgs/<Organization ID>/saml/consume`
+
 
     > [!NOTE]
-    > Należy pamiętać, że nie są to rzeczywiste wartości. Zaktualizuj te wartości przy użyciu rzeczywistego identyfikatora i adresu URL logowania. W tym miejscu zalecamy użycie unikatowej wartości ciągu w identyfikatorze. Przejdź do sekcji dotyczącej administrowania aplikacją GitHub, aby pobrać te wartości.
+    > Należy pamiętać, że nie są to rzeczywiste wartości. Musisz zaktualizować te wartości, podając rzeczywistą adres URL logowania, identyfikator i adres URL odpowiedzi. W tym miejscu zalecamy użycie unikatowej wartości ciągu w identyfikatorze. Przejdź do sekcji dotyczącej administrowania aplikacją GitHub, aby pobrać te wartości.
 
-5. Aplikacja GitHub oczekuje asercji SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenów języka SAML. Na poniższym zrzucie ekranu przedstawiono listę atrybutów domyślnych, gdzie atrybut **nameidentifier** jest mapowany na atrybut **user.userprincipalname**. Aplikacja GitHub oczekuje, że atrybut **nameidentifier** będzie mapowany na atrybut **user.mail**, dlatego należy zmodyfikować mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutów.
+5. Aplikacja GitHub oczekuje asercji SAML w określonym formacie, który wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenów języka SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych, gdzie **Identyfikator unikatowych użytkowników (identyfikator nazwy)** jest mapowany na **User. userPrincipalName**. Aplikacja usługi GitHub oczekuje, że **unikatowy identyfikator użytkownika (identyfikator nazwy)** ma być mapowany do **User. mail**, dlatego należy edytować Mapowanie atrybutów, klikając ikonę **Edytuj** i zmieniając mapowanie atrybutu.
 
     ![image (obraz)](common/edit-attribute.png)
 
@@ -119,7 +121,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
    1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
@@ -141,15 +143,19 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-github-sso"></a>Konfigurowanie rejestracji jednokrotnej usługi GitHub
 
-1. W innym oknie przeglądarki internetowej zaloguj się do firmowej witryny aplikacji GitHub jako administrator.
+1. W innym oknie przeglądarki sieci Web Zaloguj się w witrynie organizacji usługi GitHub jako administrator.
 
 2. Przejdź do karty **Settings** (Ustawienia) i kliknij pozycję **Security** (Zabezpieczenia)
 
     ![Ustawienia](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-3. Zaznacz pole **Enable SAML authentication** (Włącz uwierzytelnianie SAML), aby aktywować pola konfiguracji logowania jednokrotnego. Następnie użyj wartości adresu URL logowania jednokrotnego do zaktualizowania wartości adresu URL logowania jednokrotnego w konfiguracji usługi Azure AD.
+3. Zaznacz pole **Enable SAML authentication** (Włącz uwierzytelnianie SAML), aby aktywować pola konfiguracji logowania jednokrotnego. wykonaj następujące czynności:
 
     ![Ustawienia](./media/github-tutorial/tutorial_github_config_github_13.png)
+
+    a. Skopiuj wartość **adresu URL logowania** jednokrotnego i wklej tę wartość do pola tekstowego **adres URL logowania** w **podstawowej konfiguracji SAML** w Azure Portal.
+    
+    b. Skopiuj **Assertion Consumer Service wartość adresu URL** i wklej tę wartość w polu tekstowym **adres URL odpowiedzi** w **podstawowej konfiguracji SAML** w Azure Portal.
 
 4. Skonfiguruj następujące pola:
 

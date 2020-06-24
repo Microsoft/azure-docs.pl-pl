@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 45097b948c76413785ca5ec48c31faa83b3883ee
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f514c33f2c39e205ac186b70711b478f67fcb4e5
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629628"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212016"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -83,7 +83,7 @@ Aby utworzyć zestaw danych na podstawie danych, które zostały już zapisane w
     * Dołącz "/* *" do ścieżki, aby uwzględnić wszystkie pliki w podfolderach wybranej ścieżki.
     * Dołącz "* */* . *", aby uwzględnić wszystkie dane w bieżącym kontenerze i jego podfolderach.
 1. Podaj opis zestawu danych.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 
@@ -97,7 +97,7 @@ Aby bezpośrednio przekazać dane:
 1. *Opcjonalne:* Wybierz pozycję **Ustawienia zaawansowane** , aby dostosowywać magazyn danych, kontener i ścieżkę do swoich potrzeb.
 1. Wybierz pozycję **Przeglądaj** , aby wybrać pliki lokalne do przekazania.
 1. Podaj opis zestawu danych.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 Dane są przekazywane do domyślnego magazynu obiektów BLOB ("workspaceblobstore") obszaru roboczego Machine Learning.
@@ -176,7 +176,10 @@ Po przeszkoleniu modelu uczenia maszynowego na ręcznie etykietowanych danych mo
 
 ## <a name="initialize-the-labeling-project"></a>Inicjowanie projektu etykietowania
 
-Po zainicjowaniu projektu etykietowania niektóre aspekty projektu są niezmienne. Nie można zmienić typu zadania lub zestawu danych. *Możesz* zmodyfikować etykiety i adres URL opisu zadania. Uważnie przejrzyj ustawienia przed utworzeniem projektu. Po przesłaniu projektu nastąpi powrót do strony głównej **etykietowania danych** , co spowoduje wyświetlenie projektu jako **inicjującego**. Ta strona nie jest automatycznie odświeżana. Dlatego po wstrzymaniu ręcznie Odśwież stronę, aby zobaczyć stan projektu jako **utworzony**.
+Po zainicjowaniu projektu etykietowania niektóre aspekty projektu są niezmienne. Nie można zmienić typu zadania lub zestawu danych. *Możesz* zmodyfikować etykiety i adres URL opisu zadania. Uważnie przejrzyj ustawienia przed utworzeniem projektu. Po przesłaniu projektu nastąpi powrót do strony głównej **etykietowania danych** , co spowoduje wyświetlenie projektu jako **inicjującego**.
+
+> [!NOTE]
+> Ta strona może nie być odświeżana automatycznie. Dlatego po wstrzymaniu ręcznie Odśwież stronę, aby zobaczyć stan projektu jako **utworzony**.
 
 ## <a name="run-and-monitor-the-project"></a>Uruchamianie i monitorowanie projektu
 
