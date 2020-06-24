@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 5c429da761c39ae6828eb5d79809b687e8a76bd3
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: a20cbf14ea2aa2475f25236615b85d6697ce252b
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609101"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704866"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Użyj narzędzi Hive & platformy Spark dla Visual Studio Code
 
@@ -115,7 +115,7 @@ Można połączyć normalny klaster przy użyciu nazwy użytkownika zarządzanej
 3. Wprowadź ogólny punkt końcowy usługi Livy. Na przykład: http \: //10.172.41.42:18080.
 
 4. Wybierz pozycję typ autoryzacji **podstawowa** lub **Brak**.  W przypadku wybrania opcji **podstawowa**:  
-    &emsp;a. Wprowadź nazwę użytkownika Ambari; wartość domyślna to **admin**.  
+    &emsp;z. Wprowadź nazwę użytkownika Ambari; wartość domyślna to **admin**.  
     &emsp;b. Wprowadź hasło Ambari.
 
 5. Przejrzyj widok **danych wyjściowych** na potrzeby weryfikacji.
@@ -140,7 +140,7 @@ Można połączyć normalny klaster przy użyciu nazwy użytkownika zarządzanej
 
 4. [Połącz](#connect-to-an-azure-account) się z kontem platformy Azure lub Połącz klaster, jeśli jeszcze tego nie zrobiono.
 
-5. Wybierz klaster jako domyślny klaster dla bieżącego pliku skryptu. Narzędzia automatycznie aktualizują **. **Plik konfiguracji VSCode\settings.JSON:
+5. Wybierz klaster jako domyślny klaster dla bieżącego pliku skryptu. Narzędzia automatycznie aktualizują **.VSCode\settings.jsw** pliku konfiguracyjnym:
 
    ![Ustaw domyślną konfigurację klastra](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
 
@@ -249,6 +249,10 @@ Narzędzie obsługuje również zapytanie **Spark SQL** :
    ![Uruchom wyniki ipynb](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
 
+> [!NOTE]
+>
+>W tym zakresie nie jest obsługiwana wersja MS-Python >= 2020.5.78807. jest to [znany problem](#known-issues).
+
 ## <a name="submit-pyspark-batch-job"></a>Prześlij zadanie wsadowe PySpark
 
 1. Ponownie otwórz folder **HDexample** , który został omówiony [wcześniej](#open-a-work-folder), jeśli został zamknięty.  
@@ -290,16 +294,16 @@ Po przesłaniu zadania w języku Python dzienniki przesyłania są wyświetlane 
 
 ## <a name="apache-livy-configuration"></a>Konfiguracja Apache usługi Livy
 
-Konfiguracja [Apache usługi Livy](https://livy.incubator.apache.org/) jest obsługiwana. Można ją skonfigurować w programie **. Plik VSCode\settings.json** w folderze obszaru roboczego. Obecnie konfiguracja usługi Livy obsługuje tylko skrypt języka Python. Aby uzyskać więcej informacji, zobacz [plik Readme usługi Livy](https://github.com/cloudera/livy/blob/master/README.rst ).
+Konfiguracja [Apache usługi Livy](https://livy.incubator.apache.org/) jest obsługiwana. Można ją skonfigurować w **.VSCode\settings.jsna** pliku w folderze obszaru roboczego. Obecnie konfiguracja usługi Livy obsługuje tylko skrypt języka Python. Aby uzyskać więcej informacji, zobacz [plik Readme usługi Livy](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**Jak wyzwolić konfigurację usługi Livy**
 
 Metoda 1  
 1. Na pasku menu Przejdź do **File**  >  **Preferences**  >  **ustawień**Preferencje plików.
 2. W polu **Wyszukaj ustawienia** wprowadź wartość **przesyłanie zadania usługi HDInsight: usługi Livy conf**.  
-3. Wybierz pozycję **Edytuj w pliku Settings. JSON** , aby uzyskać odpowiedni wynik wyszukiwania.
+3. Wybierz pozycję **Edytuj w settings.js** , aby uzyskać odpowiedni wynik wyszukiwania.
 
-Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodawany do folderu Work. Konfigurację usługi Livy można wyświetlić, wybierając pozycję **. vscode\settings.JSON**.
+Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodawany do folderu Work. Konfigurację usługi Livy można wyświetlić, wybierając pozycję **.vscode\settings.json**.
 
 + Ustawienia projektu:
 
@@ -315,20 +319,20 @@ Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodaw
     | name | description | typ |
     | --- | --- | --- |
     |  — plik | Plik zawierający aplikację do wykonania | Ścieżka (wymagana) |
-    | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | String |
-    | Nazwą | Aplikacja Java/Spark klasy głównej | String |
+    | proxyUser | Użytkownik do personifikacji podczas uruchamiania zadania | Ciąg |
+    | Nazwą | Aplikacja Java/Spark klasy głównej | Ciąg |
     | args | Argumenty wiersza polecenia dla aplikacji | Lista ciągów |
     | jars | Jars do użycia w tej sesji | Lista ciągów | 
     | pyFiles | Pliki języka Python, które mają być używane w tej sesji | Lista ciągów |
     | files | Pliki, które mają być używane w tej sesji | Lista ciągów |
-    | driverMemory | Ilość pamięci do użycia w procesie sterownika | String |
+    | driverMemory | Ilość pamięci do użycia w procesie sterownika | Ciąg |
     | driverCores | Liczba rdzeni do użycia w procesie sterownika | int |
-    | executorMemory | Ilość pamięci do użycia na proces wykonawczy | String |
+    | executorMemory | Ilość pamięci do użycia na proces wykonawczy | Ciąg |
     | executorCores | Liczba rdzeni do użycia dla każdego wykonawcy | int |
     | numExecutors | Liczba uruchomień do uruchomienia dla tej sesji | int |
     | archiwizowan | Archiwa, które mają być używane w tej sesji | Lista ciągów |
-    | kolejka | Nazwa kolejki PRZĘDZy do przesłania| String |
-    | name | Nazwa tej sesji | String |
+    | kolejka | Nazwa kolejki PRZĘDZy do przesłania| Ciąg |
+    | name | Nazwa tej sesji | Ciąg |
     | produkt | Właściwości konfiguracji platformy Spark | Mapa klucza = Val |
 
     Treść odpowiedzi utworzonego obiektu wsadowego.
@@ -336,10 +340,10 @@ Metoda 2 przesyła plik i Zauważ, że `.vscode` folder jest automatycznie dodaw
     | name | description | typ |
     | --- | ---| --- |
     | ID | Identyfikator sesji | int |
-    | appId | Identyfikator aplikacji dla tej sesji | String |
+    | appId | Identyfikator aplikacji dla tej sesji | Ciąg |
     | appInfo | Szczegółowe informacje o aplikacji | Mapa klucza = Val |
     | Dziennik | Wiersze dziennika | Lista ciągów |
-    | state |Stan partii | String |
+    | state |Stan partii | Ciąg |
 
     > [!NOTE]
     > Przypisana usługi Livy konfiguracja zostanie wyświetlona w okienku danych wyjściowych podczas przesyłania skryptu.
@@ -448,9 +452,9 @@ Prześlij zadanie do klastra usługi HDInsight przy użyciu Data Lake Storage Ge
 Na pasku menu Przejdź do **widoku**  >  **paleta poleceń**, a następnie wprowadź **Azure: Wyloguj się**.
 
 ## <a name="known-issues"></a>Znane problemy
-### <a name="python-on-2020580290-version-is-not-supported-on-this-extention"></a>Język Python w wersji 2020.5.80290 nie jest obsługiwany w tym zakresie 
+### <a name="ms-python-2020578807-version-is-not-supported-on-this-extention"></a>MS-Python >= wersja 2020.5.78807 nie jest obsługiwana w tym zakresie 
 
-"Nie można nawiązać połączenia z notesem Jupyter". jest znanym problemem w przypadku wersji Python 2020.5.80290. Aby uniknąć tego problemu, zaleca się, aby użytkownicy korzystali z **2020.4.76186** wersji MS-Python.
+"Nie można nawiązać połączenia z notesem Jupyter". jest znanym problemem w wersji języka Python >= 2020.5.78807. Aby uniknąć tego problemu, zaleca się, aby użytkownicy korzystali z **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** wersji MS-Python.
 
 ![znane problemy](./media/hdinsight-for-vscode/known-issue.png)
 

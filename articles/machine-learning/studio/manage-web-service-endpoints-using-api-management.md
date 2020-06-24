@@ -5,17 +5,17 @@ description: Przewodnik przedstawiający sposób zarządzania usługami sieci We
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: a5814113906aadad01821f78863f5053b8082892
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: d9b83c065865bf8e3e5906aa3ad7107f1ca8da75
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84114830"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84705546"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Zarządzanie usługami sieci Web Azure Machine Learning Studio (klasycznymi) za pomocą API Management
 
@@ -39,12 +39,12 @@ Usługą sieci Web Azure Machine Learning można zarządzać przy użyciu wystą
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 2. Wybierz pozycję **+ Utwórz zasób**.
 3. W polu wyszukiwania wpisz "API Management", a następnie wybierz zasób "API Management".
-4. Kliknij przycisk **Utwórz**.
+4. Kliknij pozycję **Utwórz**.
 5. Wartość **Nazwa** zostanie użyta do utworzenia unikatowego adresu URL (w tym przykładzie użyto "demoazureml").
 6. Wybierz **subskrypcję**, **grupę zasobów**i **lokalizację** wystąpienia usługi.
 7. Określ wartość dla **nazwy organizacji** (w tym przykładzie jest stosowane "demoazureml").
 8. Wprowadź **adres E-mail administratora** — ten adres e-mail będzie używany na potrzeby powiadomień z systemu API Management.
-9. Kliknij przycisk **Utwórz**.
+9. Kliknij pozycję **Utwórz**.
 
 Utworzenie nowej usługi może potrwać do 30 minut.
 
@@ -67,7 +67,7 @@ Aby utworzyć interfejs API:
 4. Wprowadź znak * * sufiks adresu URL interfejsu API sieci Web. Stanie się ona ostatnią częścią adresu URL, który będzie używany przez klientów do wysyłania żądań do wystąpienia usługi (w tym przykładzie jest używana "usługa Azure-demonstracyjna").
 5. W obszarze **schemat adresu URL interfejsu API sieci Web**wybierz pozycję **https**.
 6. W obszarze **produkty**wybierz pozycję **Starter**.
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 
 ## <a name="add-the-operations"></a>Dodaj operacje
@@ -104,7 +104,7 @@ Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 3. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie zostanie użyta wartość "BES Submit").
 5. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz**.
 
 ### <a name="start-a-batch-execution-job"></a>Uruchom zadanie wykonywania wsadowego
 
@@ -113,7 +113,7 @@ Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 3. Dla **zlecenia http**wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie jest stosowana wartość "BES Start").
 6. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Pobieranie stanu lub wyniku zadania wykonywania wsadowego
 
@@ -122,7 +122,7 @@ Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 3. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie jest stosowana wartość "BES status").
 6. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
-7. Kliknij przycisk **Zapisz**.
+7. Kliknij pozycję **Zapisz**.
 
 ### <a name="delete-a-batch-execution-job"></a>Usuń zadanie wykonywania wsadowego
 
@@ -131,7 +131,7 @@ Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 3. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie zostanie użyta wartość "BES Delete").
 5. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
-6. Kliknij przycisk **Zapisz**.
+6. Kliknij pozycję **Zapisz**.
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Wywoływanie operacji z portalu dla deweloperów
 

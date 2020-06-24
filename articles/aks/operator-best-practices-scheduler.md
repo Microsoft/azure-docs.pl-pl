@@ -5,11 +5,11 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: cccc476a944b28d24c53a947e434d465c94f94ee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79126587"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704747"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące podstawowych funkcji harmonogramu w usłudze Azure Kubernetes Service (AKS)
 
@@ -20,7 +20,7 @@ Te najlepsze rozwiązania koncentrują się na podstawowych funkcjach planowania
 > [!div class="checklist"]
 > * Użyj przydziałów zasobów, aby zapewnić stałą ilość zasobów dla zespołów lub obciążeń
 > * Ogranicz wpływ zaplanowanej konserwacji przy użyciu budżetów przerwań
-> * Wyszukaj brakujące żądania zasobów i limity przy użyciu `kube-advisor` narzędzia
+> * Wyszukaj brakujące żądania zasobów i limity przy użyciu `kube-advisor` Narzędzia
 
 ## <a name="enforce-resource-quotas"></a>Wymuszaj przydziały zasobów
 
@@ -77,7 +77,7 @@ Niedobrowolne zakłócenia można wyeliminować przy użyciu wielu replik Twojeg
 
 Jeśli klaster ma zostać uaktualniony lub Zaktualizowano szablon wdrożenia, usługa Kubernetes Scheduler upewni się, że dodatkowe zasobniki są zaplanowane w innych węzłach, zanim będzie można kontynuować zdarzenia dobrowolnego zakłócenia. Harmonogram czeka przed ponownym uruchomieniem węzła do momentu pomyślnego zaplanowania zdefiniowanej liczby numerów w innych węzłach w klastrze.
 
-Przyjrzyjmy się przykładowi do zestawu replik z pięcioma zasobnikami z systemem NGINX. W zestawie replik są przypisywane etykiety `app: nginx-frontend`. Podczas zdarzenia dobrowolnego zakłócenia, takiego jak uaktualnienie klastra, należy upewnić się, że co najmniej trzy zasobniki będą nadal działać. Następujący manifest YAML dla obiektu *PodDisruptionBudget* definiuje następujące wymagania:
+Przyjrzyjmy się przykładowi do zestawu replik z pięcioma zasobnikami z systemem NGINX. W zestawie replik są przypisywane etykiety `app: nginx-frontend` . Podczas zdarzenia dobrowolnego zakłócenia, takiego jak uaktualnienie klastra, należy upewnić się, że co najmniej trzy zasobniki będą nadal działać. Następujący manifest YAML dla obiektu *PodDisruptionBudget* definiuje następujące wymagania:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -119,7 +119,7 @@ Aby uzyskać więcej informacji o korzystaniu z budżetów, zobacz temat [Okreś
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Regularnie sprawdzaj problemy z klastrem przy użyciu usługi polecenia-Advisor
 
-**Wskazówki dotyczące najlepszych** rozwiązań — regularnie uruchamiaj najnowszą wersję `kube-advisor` narzędzia Open Source, aby wykrywać problemy w klastrze. W przypadku zastosowania przydziałów zasobów w istniejącym klastrze AKS `kube-advisor` najpierw uruchom polecenie, aby znaleźć informacje o jednostkach, dla których zdefiniowano żądania zasobów i limity.
+**Wskazówki dotyczące najlepszych** rozwiązań — regularnie uruchamiaj najnowszą wersję `kube-advisor` Narzędzia Open Source, aby wykrywać problemy w klastrze. W przypadku zastosowania przydziałów zasobów w istniejącym klastrze AKS najpierw uruchom polecenie, `kube-advisor` Aby znaleźć informacje o jednostkach, dla których zdefiniowano żądania zasobów i limity.
 
 Narzędzie [polecenia-Advisor][kube-advisor] to SKOJARZONY projekt AKS typu open source, który skanuje klaster Kubernetes i raportuje o znalezionych problemach. Jednym z przydatnych kontroli jest zidentyfikowanie, które nie mają żądań zasobów i limitów.
 

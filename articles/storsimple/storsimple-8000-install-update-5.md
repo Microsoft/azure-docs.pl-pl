@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
 ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267887"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704377"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Zainstaluj aktualizację Update 5 na urządzeniu StorSimple
 
@@ -78,7 +78,7 @@ Należy pobrać i zainstalować następujące poprawki we wskazanej kolejności 
 
 | Zamówienie | KB | Opis | Typ aktualizacji | Godzina instalacji |Zainstaluj w folderze|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Aktualizacja oprogramowania<br> Pobierz zarówno _HcsSoftwareUpdate. exe_ , jak i _CisMSDAgent. exe_ |Zwykłe <br></br>Bez zakłóceń |~ 25 minut |FirstOrderUpdate|
+| 1. |KB4037264 |Aktualizacja oprogramowania<br> Pobierz zarówno _HcsSoftwareUpdate.exe_ , jak i _CisMSDAgent.exe_ |Zwykłe <br></br>Bez zakłóceń |~ 25 minut |FirstOrderUpdate|
 
 W przypadku aktualizacji z poziomu urządzenia z aktualizacją Update 4 należy zainstalować aktualizacje zbiorcze systemu operacyjnego tylko w ramach aktualizacji drugiej kolejności.
 
@@ -95,7 +95,7 @@ W przypadku instalowania programu z poziomu urządzenia z aktualizacją Update 3
 | 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pakiet aktualizacji systemu operacyjnego <br> Pobierz wersję systemu Windows Server 2012 R2 |Zwykłe <br></br>Bez zakłóceń |- |SecondOrderUpdate|
 
 
-Może być również konieczne zainstalowanie aktualizacji oprogramowania układowego dysku na wszystkich aktualizacjach przedstawionych w poprzednich tabelach. Aby sprawdzić, czy są wymagane aktualizacje oprogramowania układowego dysku, należy `Get-HcsFirmwareVersion` uruchomić polecenie cmdlet. Jeśli są używane te wersje oprogramowania układowego `XMGJ`: `XGEG`, `KZ50`, `F6C2` `VR08` `N003` `0107`,,,,, nie trzeba instalować tych aktualizacji.
+Może być również konieczne zainstalowanie aktualizacji oprogramowania układowego dysku na wszystkich aktualizacjach przedstawionych w poprzednich tabelach. Aby sprawdzić, czy są wymagane aktualizacje oprogramowania układowego dysku, należy uruchomić `Get-HcsFirmwareVersion` polecenie cmdlet. Jeśli są używane te wersje oprogramowania układowego:,,,,,,, `XMGJ` `XGEG` `KZ50` `F6C2` `VR08` `N003` `0107` nie trzeba instalować tych aktualizacji.
 
 | Zamówienie | KB | Opis | Typ aktualizacji | Godzina instalacji | Zainstaluj w folderze|
 | --- | --- | --- | --- | --- | --- |

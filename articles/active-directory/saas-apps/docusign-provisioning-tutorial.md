@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88b65c8e8962ad8420ded47da1a343672123c589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c0a6302383240f65d900369128337a41a13ecfa
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77058182"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805070"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie DocuSign na potrzeby automatycznego aprowizacji użytkowników
 
@@ -78,6 +78,9 @@ Celem tej sekcji jest zaprojektowanie sposobu włączania obsługi administracyj
    
     b. W polu tekstowym **hasło administratora** wpisz hasło dla tego konta.
 
+> [!NOTE]
+> Jeśli skonfigurowano Logowanie jednokrotne i Inicjowanie obsługi użytkownika, poświadczenia autoryzacji używane do aprowizacji muszą zostać skonfigurowane do pracy z logowaniem jednokrotnym i nazwą użytkownika/hasłem.
+
 1. W Azure Portal kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z aplikacją Docusign.
 
 1. W polu **adres E-mail powiadomienia** wprowadź adres e-mail osoby lub grupy, które powinny otrzymywać powiadomienia o błędach aprowizacji, i zaznacz pole wyboru.
@@ -96,7 +99,7 @@ Rozpocznie się początkową synchronizację wszystkich użytkowników przypisan
 
 Aby uzyskać więcej informacji na temat sposobu odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](tutorial-list.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

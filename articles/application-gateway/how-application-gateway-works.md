@@ -4,15 +4,15 @@ description: Ten artykuł zawiera informacje o tym, jak Brama aplikacji akceptuj
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 84a7bdfb9f8f7c741140cbe2086149dff90db211
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132980"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85250234"
 ---
 # <a name="how-an-application-gateway-works"></a>Jak działa Brama aplikacji
 

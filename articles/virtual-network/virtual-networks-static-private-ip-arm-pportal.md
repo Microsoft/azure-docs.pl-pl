@@ -10,17 +10,17 @@ ms.assetid: 11245645-357d-4358-9a14-dd78e367b494
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: kumud
-ms.openlocfilehash: 04e936fe4a6d514b000b08ddf11b52d0e524d98e
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: c8fdba59a8d31c064745c7a1904204359b386a7f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84417875"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707858"
 ---
 # <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Konfigurowanie prywatnego adresu IP dla maszyny wirtualnej przy użyciu Azure Portal
 
@@ -57,7 +57,7 @@ Aby utworzyć maszynę wirtualną o nazwie *DNS01* w podsieci *frontonu* sieci w
     | **Grupa zasobów** | **TestRG** (wybierz z listy rozwijanej) |
     | **Nazwa maszyny wirtualnej** | *DNS01* |
     | **Region** | **Prześlij Wschodnie stany USA** |
-    | **Obraz** | **Windows Server 2019 Datacenter** |
+    | **Image (Obraz)** | **Windows Server 2019 Datacenter** |
     | **Rozmiar** | **Rozmiar maszyny wirtualnej** **B1ls**, **Oferta** **standardu** |
     | **Uż** | Nazwa użytkownika konta administratora |
     | **Hasło** | Hasło dla nazwy użytkownika konta administratora |
