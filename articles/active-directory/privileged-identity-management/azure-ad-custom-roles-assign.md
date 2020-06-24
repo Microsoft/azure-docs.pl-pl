@@ -9,19 +9,19 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0303d37ef5bbbf266feb5456b0bc224ce272ee13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80a75664b977c7f37808de7ca68b332363886a4e
+ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499246"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84742985"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Przypisywanie roli niestandardowej usługi Azure AD w Privileged Identity Management
 
@@ -74,7 +74,7 @@ Privileged Identity Management może zarządzać rolami niestandardowymi, które
 1. Jeśli **trwałe** pole wyboru jest obecne i dostępne (w zależności od ustawień roli), można określić, czy przydział jest trwały. Zaznacz pole wyboru, aby przydzielić trwale kwalifikujące się lub trwale przypisane. Usuń zaznaczenie tego pola wyboru, aby określić czas trwania przypisywania.
 1. Aby utworzyć nowe przypisanie roli, kliknij przycisk **Zapisz** , a następnie **Dodaj**. Zostanie wyświetlony komunikat z informacją o stanie procesu przypisywania.
 
-Aby sprawdzić przypisanie roli, w otwartej roli wybierz pozycję **przypisania** > **Przypisz** i sprawdź, czy przypisanie roli jest prawidłowo zidentyfikowane jako kwalifikujące się lub aktywne.
+Aby sprawdzić przypisanie roli, w otwartej roli wybierz pozycję **przypisania**  >  **Przypisz** i sprawdź, czy przypisanie roli jest prawidłowo zidentyfikowane jako kwalifikujące się lub aktywne.
 
  ![Sprawdź, czy przypisanie roli jest widoczne jako kwalifikujące się lub aktywne](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 

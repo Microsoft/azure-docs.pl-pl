@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -52,4 +52,4 @@ ms.locfileid: "67182945"
 
     ![Podsumowanie](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-Po zakończeniu rejestracji serwer jest wyświetlany w bloku **Ustawienia** > **serwery** w magazynie.
+Po zakończeniu rejestracji serwer jest wyświetlany w bloku **Ustawienia**  >  **serwery** w magazynie.

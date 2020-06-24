@@ -2,7 +2,7 @@
 title: Kluczowe różnice dotyczące Machine Learning Services (wersja zapoznawcza)
 description: W tym temacie opisano kluczowe różnice między Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL i SQL Server Machine Learning Services.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: machine-learning
 ms.custom: ''
 ms.devlang: ''
@@ -12,12 +12,12 @@ ms.author: garye
 ms.reviewer: carlrab, davidph
 manager: cgronlun
 ms.date: 05/27/2020
-ms.openlocfilehash: 02211a09df2d2744119ea8fbe6f0ecaa63dba020
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: da97938736e7a3719da9d280e60e6a636b86e0e5
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84045109"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254752"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Kluczowe różnice między Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL i SQL Server
 
@@ -48,7 +48,7 @@ Machine Learning Services w wystąpieniu zarządzanym SQL i SQL Server obsługuj
   | Wystąpienie zarządzane SQL | 3.7.1  | 3.5.2 |
   | SQL Server           | 3.5.2  | 3.3.3 |
 
-- Nie ma potrzeby konfigurowania `external scripts enabled` za pośrednictwem programu `sp_configure` . Po [zarejestrowaniu](machine-learning-services-overview.md#signup) się w wersji zapoznawczej Uczenie maszynowe jest włączone dla bazy danych SQL.
+- Nie ma potrzeby konfigurowania `external scripts enabled` za pośrednictwem programu `sp_configure` . Po [zarejestrowaniu](machine-learning-services-overview.md#signup) się w wersji zapoznawczej Uczenie maszynowe jest włączone dla wystąpienia zarządzanego Azure SQL.
 
 ## <a name="packages"></a>Pakiety
 
@@ -59,8 +59,8 @@ Zarządzanie pakietami Python i R działa inaczej niż w przypadku wystąpienia 
 
 Aby uzyskać więcej informacji na temat zarządzania pakietami Python i R, zobacz:
 
-- [Pobierz informacje o pakiecie języka Python](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
-- [Pobierz informacje o pakiecie R](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
+- [Uzyskiwanie informacje o pakiecie Python](https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
+- [Uzyskiwanie informacji o pakiecie R](https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=azure/sql-database/context/ml-context&view=sql-server-ver15)
 
 ## <a name="resource-governance"></a>Nadzór nad zasobami
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: ed57003c7a9a5a1a9d87aa2e8934af8c48b1d819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 6/10/2020
+ms.openlocfilehash: d772e98032a29a93527359335a13d7b37e020e50
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063333"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706957"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Jak tworzyć repliki odczytu i zarządzać nimi w Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure i API REST
 
@@ -30,13 +30,16 @@ Można tworzyć repliki odczytu i zarządzać nimi za pomocą interfejsu wiersza
 
 ### <a name="create-a-read-replica"></a>Tworzenie repliki odczytu
 
+> [!IMPORTANT]
+> Gdy tworzysz replikę dla wzorca, który nie ma istniejących replik, wzorzec zostanie najpierw uruchomiony ponownie w celu przygotowania się do replikacji. Należy wziąć pod uwagę i wykonać te operacje w okresie poza szczytem.
+
 Serwer repliki odczytu można utworzyć przy użyciu następującego polecenia:
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup
 ```
 
-`az mysql server replica create` Polecenie wymaga następujących parametrów:
+`az mysql server replica create`Polecenie wymaga następujących parametrów:
 
 | Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
@@ -44,7 +47,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 | name | mydemoreplicaserver | Nazwa nowego serwera repliki, który został utworzony. |
 | source-server | mydemoserver | Nazwa lub identyfikator istniejącego serwera głównego, z którego ma być wykonywana replikacja. |
 
-Aby utworzyć replikę odczytu między regionami, `--location` Użyj parametru. Poniższy przykład interfejsu wiersza polecenia tworzy replikę w regionie zachodnie stany USA.
+Aby utworzyć replikę odczytu między regionami, użyj `--location` parametru. Poniższy przykład interfejsu wiersza polecenia tworzy replikę w regionie zachodnie stany USA.
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
@@ -65,7 +68,7 @@ Aby wyświetlić wszystkie repliki dla danego serwera głównego, uruchom nastę
 az mysql server replica list --server-name mydemoserver --resource-group myresourcegroup
 ```
 
-`az mysql server replica list` Polecenie wymaga następujących parametrów:
+`az mysql server replica list`Polecenie wymaga następujących parametrów:
 
 | Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |
@@ -83,7 +86,7 @@ Replikację na serwer repliki odczytu można zatrzymać przy użyciu następują
 az mysql server replica stop --name mydemoreplicaserver --resource-group myresourcegroup
 ```
 
-`az mysql server replica stop` Polecenie wymaga następujących parametrów:
+`az mysql server replica stop`Polecenie wymaga następujących parametrów:
 
 | Ustawienie | Przykładowa wartość | Opis  |
 | --- | --- | --- |

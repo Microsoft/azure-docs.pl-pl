@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 3b09b431e827bed4e416913c88d23ee1eddaf17c
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 2358cf57348b82975250d489ac95d6e0b35eed0e
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629018"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254824"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Rozwiązywanie problemów z błędami Azure Event Grid
 Ten przewodnik rozwiązywania problemów zawiera listę Azure Event Grid kodów błędów, komunikatów o błędach, ich opisach oraz zalecanych czynnościach, które należy wykonać po otrzymaniu tych błędów. 
@@ -29,11 +29,18 @@ Ten przewodnik rozwiązywania problemów zawiera listę Azure Event Grid kodów 
 | ---------- | ------------- | ----------- | -------------- | 
 | HttpStatusCode. konflikt <br/>409 | Temat o podanej nazwie już istnieje. Wybierz inną nazwę tematu.   | Nazwa tematu niestandardowego powinna być unikatowa w jednym regionie świadczenia usługi Azure, aby zapewnić poprawną operację publikowania. Tej samej nazwy można używać w różnych regionach świadczenia usługi Azure. | Wybierz inną nazwę tematu. |
 | HttpStatusCode. konflikt <br/> 409 | Domena o określonej już istnieje. Wybierz inną nazwę domeny. | Nazwa domeny powinna być unikatowa w jednym regionie świadczenia usługi Azure, aby zapewnić poprawną operację publikowania. Tej samej nazwy można używać w różnych regionach świadczenia usługi Azure. | Wybierz inną nazwę domeny. |
-| HttpStatusCode. konflikt<br/>409 | Osiągnięto limit przydziału. Aby uzyskać więcej informacji na temat tych limitów, zobacz [limity Azure Event Grid](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Dla każdej subskrypcji platformy Azure obowiązuje limit liczby zasobów Azure Event Grid, których może używać. Przekroczono część lub wszystkie te limity przydziału i nie można utworzyć więcej zasobów. |    Sprawdź bieżące użycie zasobów i usuń te, które nie są potrzebne. Jeśli nadal trzeba zwiększyć limit przydziału, Wyślij wiadomość e-mail na [aeg@microsoft.com](mailto:aeg@microsoft.com) adres z dokładną liczbą potrzebnych zasobów. |
+| HttpStatusCode. konflikt<br/>409 | Osiągnięto limit przydziału. Aby uzyskać więcej informacji na temat tych limitów, zobacz [limity Azure Event Grid](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits).  | Dla każdej subskrypcji platformy Azure obowiązuje limit liczby zasobów Azure Event Grid, których może używać. Przekroczono część lub wszystkie te limity przydziału i nie można utworzyć więcej zasobów. |    Sprawdź bieżące użycie zasobów i usuń te, które nie są potrzebne. Jeśli nadal trzeba zwiększyć limit przydziału, Wyślij wiadomość e-mail na adres [aeg@microsoft.com](mailto:aeg@microsoft.com) z dokładną liczbą potrzebnych zasobów. |
+
+## <a name="error-code-403"></a>Kod błędu: 403
+
+| Kod błędu | Komunikat o błędzie | Opis | Zalecana akcja |
+| ---------- | ------------- | ----------- | ------------------ |
+| HttpStatusCode. zabroniony <br/>403 | Publikowanie w programie {temat/domena} przez klienta {IpAddress} zostało odrzucone z powodu nieipaddress reguł filtrowania. | Temat lub domena ma skonfigurowane reguły zapory adresów IP i dostęp jest ograniczony tylko do skonfigurowanych adresów IP. | Dodawanie adresu IP do reguł zapory adresów IP, zobacz [Konfigurowanie zapory IP](configure-firewall.md) |
+| HttpStatusCode. zabroniony <br/> 403 | Publikowanie w {temacie/Domain} przez klienta zostało odrzucone, ponieważ żądanie pochodzi z prywatnego punktu końcowego i nie znaleziono pasującego połączenia z prywatnym punktem końcowym dla tego zasobu. | Temat lub domena ma skonfigurowane prywatne punkty końcowe i żądanie publikowania pochodzi z prywatnego punktu końcowego, który nie jest skonfigurowany/zatwierdzony. | Skonfiguruj prywatny punkt końcowy dla tematu/domeny. [Konfigurowanie prywatnych punktów końcowych](configure-private-endpoints.md) |
 
 ## <a name="troubleshoot-event-subscription-validation"></a>Rozwiązywanie problemów z walidacją subskrypcji zdarzeń
 
-W trakcie tworzenia subskrypcji zdarzeń, jeśli widzisz komunikat o błędzie, taki `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation`jak, oznacza to, że wystąpił błąd uzgadniania walidacji. Aby rozwiązać ten problem, sprawdź następujące aspekty:
+W trakcie tworzenia subskrypcji zdarzeń, jeśli widzisz komunikat o błędzie, taki jak `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` , oznacza to, że wystąpił błąd uzgadniania walidacji. Aby rozwiązać ten problem, sprawdź następujące aspekty:
 
 - Wykonaj wpis HTTP w adresie URL elementu webhook za pomocą [przykładowej](webhook-event-delivery.md#validation-details) treści żądania SubscriptionValidationEvent przy użyciu elementu Poster lub zwinięcie lub podobnego narzędzia.
 - Jeśli element webhook implementuje mechanizm uzgadniania synchronicznego walidacji, należy sprawdzić, czy ValidationCode jest zwracany jako część odpowiedzi.

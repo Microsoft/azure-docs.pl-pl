@@ -2,25 +2,21 @@
 title: Najlepsze rozwiązania dotyczące szablonów
 description: Opisuje zalecane podejścia do tworzenia szablonów Azure Resource Manager. Oferuje sugestie pozwalające uniknąć typowych problemów związanych z korzystaniem z szablonów.
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 870636d6457d842c89f261c2537644c17a335294
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/09/2020
+ms.openlocfilehash: c00a3a1162ffec4ce89c43ef2f76796fb5943438
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80156416"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254093"
 ---
 # <a name="arm-template-best-practices"></a>Najlepsze praktyki dotyczące szablonów ARM
 
-W tym artykule przedstawiono zalecenia dotyczące sposobu konstruowania szablonu Azure Resource Manager (ARM). Te zalecenia pozwalają uniknąć typowych problemów związanych z wdrażaniem rozwiązania przy użyciu szablonu ARM.
-
-Aby uzyskać zalecenia dotyczące sposobu zarządzania subskrypcjami platformy Azure, zobacz [Azure Enterprise szkielet: prescriptal subscriptions](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
-
-Aby zapoznać się z zaleceniami dotyczącymi tworzenia szablonów, które działają we wszystkich środowiskach w chmurze platformy Azure, zobacz [opracowywanie szablonów Azure Resource Manager na potrzeby spójności chmury](templates-cloud-consistency.md).
+W tym artykule przedstawiono sposób użycia zalecanych praktyk podczas konstruowania szablonu ARM. Te zalecenia pozwalają uniknąć typowych problemów związanych z wdrażaniem rozwiązania przy użyciu szablonu ARM.
 
 ## <a name="template-limits"></a>Limity szablonów
 
-Ogranicz rozmiar szablonu do 4 MB, a każdy plik parametrów do 64 KB. Limit 4 MB ma zastosowanie do końcowego stanu szablonu po jego rozszerzeniu z powtarzającymi się definicjami zasobów i wartościami zmiennych i parametrów. 
+Ogranicz rozmiar szablonu do 4 MB, a każdy plik parametrów do 64 KB. Limit 4 MB ma zastosowanie do końcowego stanu szablonu po jego rozszerzeniu z powtarzającymi się definicjami zasobów i wartościami zmiennych i parametrów.
 
 Jest również ograniczona do:
 
@@ -120,7 +116,7 @@ Informacje przedstawione w tej sekcji mogą być przydatne podczas pracy z [para
 
 ### <a name="location-recommendations-for-parameters"></a>Zalecenia dotyczące lokalizacji parametrów
 
-* Użyj parametru, aby określić lokalizację dla zasobów, i ustaw wartość domyślną na `resourceGroup().location`. Podanie parametru Location umożliwia użytkownikom szablonu określenie lokalizacji, do której mają uprawnienia do wdrożenia.
+* Użyj parametru, aby określić lokalizację dla zasobów, i ustaw wartość domyślną na `resourceGroup().location` . Podanie parametru Location umożliwia użytkownikom szablonu określenie lokalizacji, do której mają uprawnienia do wdrożenia.
 
    ```json
    "parameters": {
@@ -236,7 +232,7 @@ Poniższe informacje mogą być przydatne podczas pracy z [zasobami](template-sy
    * [Zezwalanie na dostęp zewnętrzny do maszyny wirtualnej przy użyciu programu PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
    * [Zezwalanie na dostęp zewnętrzny do maszyny wirtualnej z systemem Linux przy użyciu interfejsu wiersza polecenia platformy Azure](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
-* Właściwość **wartość domainnamelabel** dla publicznych adresów IP musi być unikatowa. Wartość **wartość domainnamelabel** musi mieć długość od 3 do 63 znaków i postępować zgodnie z regułami określonymi w tym wyrażeniu `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`regularnym:. Ponieważ funkcja **uniqueString** generuje ciąg o długości 13 znaków, parametr **dnsPrefixString** jest ograniczony do 50 znaków:
+* Właściwość **wartość domainnamelabel** dla publicznych adresów IP musi być unikatowa. Wartość **wartość domainnamelabel** musi mieć długość od 3 do 63 znaków i postępować zgodnie z regułami określonymi w tym wyrażeniu regularnym: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` . Ponieważ funkcja **uniqueString** generuje ciąg o długości 13 znaków, parametr **dnsPrefixString** jest ograniczony do 50 znaków:
 
    ```json
    "parameters": {
@@ -275,7 +271,12 @@ Poniższe informacje mogą być przydatne podczas pracy z [zasobami](template-sy
    > [!NOTE]
    > Aby upewnić się, że wpisy tajne są szyfrowane, gdy są one przesyłane jako parametry do maszyn wirtualnych i rozszerzeń, użyj właściwości **protectedSettings** odpowiednich rozszerzeń.
    > 
-   > 
+
+## <a name="use-test-toolkit"></a>Korzystanie z zestawu narzędzi testowych
+
+Zestaw narzędzi do testowania szablonów ARM jest skryptem, który sprawdza, czy szablon używa zalecanych praktyk. Jeśli szablon nie jest zgodny z zalecanymi praktykami, zwraca listę ostrzeżeń z sugerowanymi zmianami. Zestaw narzędzi testowych może pomóc Ci w dowiedzieć się, jak zaimplementować najlepsze rozwiązania w szablonie.
+
+Po zakończeniu szablonu Uruchom zestaw narzędzi test Toolkit, aby zobaczyć, czy istnieją sposoby ulepszenia implementacji IT. Aby uzyskać więcej informacji, zobacz [zestaw ARM test Toolkit](test-toolkit.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

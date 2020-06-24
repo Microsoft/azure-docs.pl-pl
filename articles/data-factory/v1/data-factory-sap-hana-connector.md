@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 361b98a1cde8ee5dee99a370b46d8fc8e0f5af28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265820"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707144"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Przenoszenie danych z SAP HANA przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -57,9 +57,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 Poniższa tabela zawiera opis elementów JSON specyficznych dla SAP HANA połączonej usługi.
 
-Właściwość | Opis | Dozwolone wartości | Wymagany
+Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-serwer | Nazwa serwera, na którym znajduje się wystąpienie SAP HANA. Jeśli serwer używa niestandardowego portu, określ `server:port`. | ciąg | Tak
+serwer | Nazwa serwera, na którym znajduje się wystąpienie SAP HANA. Jeśli serwer używa niestandardowego portu, określ `server:port` . | ciąg | Tak
 authenticationType | Typ uwierzytelniania. | . "Podstawowa" lub "Windows" | Tak 
 nazwa użytkownika | Nazwa użytkownika, który ma dostęp do serwera SAP | ciąg | Tak
 hasło | Hasło użytkownika. | ciąg | Tak
@@ -79,7 +79,7 @@ Natomiast właściwości dostępne w sekcji **typeProperties** działania różn
 
 Gdy źródło w działaniu kopiowania jest typu **RelationalSource** (w tym SAP HANA), w sekcji typeProperties są dostępne następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | query | Określa zapytanie SQL do odczytu danych z wystąpienia SAP HANA. | Zapytanie SQL. | Tak |
 
@@ -287,14 +287,14 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-LICZBA RZECZYWISTA | Single
-DOUBLE | Single
+LICZBA RZECZYWISTA | Pojedyncze
+DOUBLE | Pojedyncze
 DOKŁADNOŚCI | Wartość dziesiętna
 TYPU | Byte
-VARCHAR | String
-NVARCHAR | String
+VARCHAR | Ciąg
+NVARCHAR | Ciąg
 OBIEKTÓW CLOB | Byte []
-ALPHANUM | String
+ALPHANUM | Ciąg
 TWORZENIA | Byte []
 DATE | DateTime
 CZAS | przedział_czasu

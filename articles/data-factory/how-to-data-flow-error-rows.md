@@ -8,22 +8,22 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: makromer
-ms.openlocfilehash: 8225143bb75118620b45c2520bb62ea30501a617
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f8ac2d1434019548b01d8468015a543d89d0fba
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732684"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254416"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Obsługa wierszy błędów obcięcia SQL w Data Factory mapowania przepływów danych
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Typowym scenariuszem w Data Factory podczas korzystania z mapowania przepływów danych jest zapisanie przekształconych danych do bazy danych Azure SQL Database. W tym scenariuszu typowym warunkiem błędu, które należy zablokować, jest możliwość obcięcia kolumny. Wykonaj następujące kroki, aby zapewnić rejestrowanie kolumn, które nie mieszczą się w docelowej kolumnie ciągu, co pozwoli na kontynuowanie przepływu danych w tych scenariuszach.
+Typowym scenariuszem w Data Factory podczas korzystania z mapowania przepływów danych jest zapisanie przekształconych danych do bazy danych w Azure SQL Database. W tym scenariuszu typowym warunkiem błędu, które należy zablokować, jest możliwość obcięcia kolumny. Wykonaj następujące kroki, aby zapewnić rejestrowanie kolumn, które nie mieszczą się w docelowej kolumnie ciągu, co pozwoli na kontynuowanie przepływu danych w tych scenariuszach.
 
 ## <a name="scenario"></a>Scenariusz
 
-1. Mamy docelową tabelę usługi Azure SQL Database, która ```nvarchar(5)``` zawiera kolumnę o nazwie "name".
+1. Istnieje docelowa tabela bazy danych z ```nvarchar(5)``` kolumną o nazwie "name".
 
 2. W ramach przepływu danych chcemy zmapować tytuły filmów z ujścia do tej docelowej kolumny "name".
 
@@ -40,9 +40,9 @@ Ten film wideo analizuje przykład logiki obsługi wierszy błędów konfiguracj
 
     ![podział warunkowy](media/data-flow/error1.png)
 
-2. Ta transformacja podziału warunkowego określa maksymalną długość tytułu równą pięć. Każdy wiersz, który jest mniejszy niż lub równy pięć, będzie przeszedł ```GoodRows``` do strumienia. Wszystkie wiersze, które są większe niż pięć, zostaną umieszczone ```BadRows``` w strumieniu.
+2. Ta transformacja podziału warunkowego określa maksymalną długość tytułu równą pięć. Każdy wiersz, który jest mniejszy niż lub równy pięć, będzie przeszedł do ```GoodRows``` strumienia. Wszystkie wiersze, które są większe niż pięć, zostaną umieszczone w ```BadRows``` strumieniu.
 
-3. Teraz musimy zarejestrować wiersze, które nie powiodły się. Dodaj transformację ujścia do ```BadRows``` strumienia w celu zarejestrowania. W tym miejscu będziemy "mapować teraz wszystkie pola, aby rejestrować kompletne rekordy transakcji. Jest to rozdzielany tekstem plik CSV danych wyjściowych do pojedynczego pliku w Blob Storage. Wywołamy plik dziennika "badrows. csv".
+3. Teraz musimy zarejestrować wiersze, które nie powiodły się. Dodaj transformację ujścia do ```BadRows``` strumienia w celu zarejestrowania. W tym miejscu będziemy "mapować teraz wszystkie pola, aby rejestrować kompletne rekordy transakcji. Jest to rozdzielany tekstem plik CSV danych wyjściowych do pojedynczego pliku w Blob Storage. Wywołajemy plik dziennika "badrows.csv".
 
     ![Złe wiersze](media/data-flow/error3.png)
     

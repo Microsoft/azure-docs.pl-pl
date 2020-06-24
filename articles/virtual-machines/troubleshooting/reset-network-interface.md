@@ -13,11 +13,11 @@ ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
 ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250077"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706600"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Jak zresetować interfejs sieciowy dla maszyny wirtualnej z systemem Windows na platformie Azure 
 
@@ -117,7 +117,7 @@ Aby zresetować interfejs sieciowy, wykonaj następujące kroki:
 Po dodaniu pulpitu zdalnego do komputera należy usunąć stare karty sieciowe, aby uniknąć potencjalnego problemu:
 
 1.  Otwórz Menedżera urządzeń.
-2.  Wybierz pozycję **Wyświetl** > **Pokaż ukryte urządzenia**.
+2.  Wybierz pozycję **Wyświetl**  >  **Pokaż ukryte urządzenia**.
 3.  Wybierz pozycję **karty sieciowe**. 
 4.  Sprawdź karty o nazwie "Microsoft Hyper-V karcie sieciowej".
 5.  Może zostać wyświetlona niedostępna karta, która jest wyszarzona. Kliknij prawym przyciskiem myszy kartę, a następnie wybierz pozycję Odinstaluj.

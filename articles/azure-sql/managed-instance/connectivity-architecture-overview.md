@@ -3,7 +3,7 @@ title: Architektura łączności
 titleSuffix: Azure SQL Managed Instance
 description: Dowiedz się więcej o architekturze komunikacji i architektury łączności wystąpienia zarządzanego Azure SQL oraz o tym, jak składniki kierują ruch do wystąpienia zarządzanego.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: fasttrack-edit
 ms.devlang: ''
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: d8c98f647736ac2a6cb6e72b754c7b308ad0c3b0
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 115cf589c6aa0786026f68eff839a7a2ad6aa9ca
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84655592"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706209"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architektura łączności dla wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

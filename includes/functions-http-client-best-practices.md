@@ -13,4 +13,4 @@ ms.locfileid: "67182999"
 ---
 > [!TIP]
 >
-> Jeśli planujesz używać powiązań HTTP lub webhook, Zaplanuj, aby uniknąć wyczerpania portów, które mogą być przyczyną nieprawidłowego tworzenia `HttpClient`wystąpienia. Aby uzyskać więcej informacji, zobacz [jak zarządzać połączeniami w Azure Functions](../articles/azure-functions/manage-connections.md).
+> Jeśli planujesz używać powiązań HTTP lub webhook, Zaplanuj, aby uniknąć wyczerpania portów, które mogą być przyczyną nieprawidłowego tworzenia wystąpienia `HttpClient` . Aby uzyskać więcej informacji, zobacz [jak zarządzać połączeniami w Azure Functions](../articles/azure-functions/manage-connections.md).

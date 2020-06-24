@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 80414ccd6d5797614dd15bd61af8f37b3d2be05c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60cbb269693b23b658b8e28f90383814d6657661
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870367"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194335"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Dodawanie bibliotek Apache Spark i zarządzanie nimi w usłudze Azure Synapse Analytics
 
@@ -26,7 +26,7 @@ Pakiety języka Python można dodać na poziomie puli Spark (wersja zapoznawcza)
 
 Apache Spark w usłudze Azure Synapse Analytics ma kompletną instalację Anacondas plus dodatkowe biblioteki. Listę pełnych bibliotek można znaleźć w obszarze [Obsługa wersji Apache Spark](apache-spark-version-support.md).
 
-Po uruchomieniu wystąpienia platformy Spark nowe środowisko wirtualne jest tworzone przy użyciu tej instalacji jako podstawy. Ponadto plik *Requirements. txt* (dane wyjściowe `pip freeze` polecenia) może służyć do uaktualnienia środowiska wirtualnego. Pakiety wymienione w tym pliku do zainstalowania lub uaktualnienia są pobierane z PyPi w momencie uruchomienia klastra. Ten plik wymagań jest używany za każdym razem, gdy wystąpienie platformy Spark jest tworzone na podstawie tej puli platformy Spark.
+Po uruchomieniu wystąpienia platformy Spark nowe środowisko wirtualne jest tworzone przy użyciu tej instalacji jako podstawy. Ponadto plik *requirements.txt* (dane wyjściowe `pip freeze` polecenia) może służyć do uaktualnienia środowiska wirtualnego. Pakiety wymienione w tym pliku do zainstalowania lub uaktualnienia są pobierane z PyPi w momencie uruchomienia klastra. Ten plik wymagań jest używany za każdym razem, gdy wystąpienie platformy Spark jest tworzone na podstawie tej puli platformy Spark.
 
 > [!IMPORTANT]
 >

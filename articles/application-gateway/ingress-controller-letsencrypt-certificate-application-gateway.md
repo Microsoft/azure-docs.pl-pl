@@ -4,15 +4,15 @@ description: Ten artykuł zawiera informacje na temat uzyskiwania certyfikatu z 
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df8722e8160538daa1535711092790dbb2405097
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73957986"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84807028"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>Używanie certyfikatów z LetsEncrypt.org na Application Gateway dla klastrów AKS
 
@@ -22,7 +22,7 @@ Wykonaj poniższe kroki, aby zainstalować [Menedżera certyfikatów](https://do
 
 1. Wykres Helm
 
-    Uruchom następujący skrypt, aby zainstalować wykres `cert-manager` Helm. Spowoduje to:
+    Uruchom następujący skrypt, aby zainstalować `cert-manager` Wykres Helm. Spowoduje to:
 
     - Utwórz nową `cert-manager` przestrzeń nazw na AKS
     - Utwórz następujący CRDs: Certificate, Challenge, ClusterIssuer, Issuer, Order
@@ -56,11 +56,11 @@ Wykonaj poniższe kroki, aby zainstalować [Menedżera certyfikatów](https://do
 
 2. Zasób ClusterIssuer
 
-    Utwórz `ClusterIssuer` zasób. Jest to wymagane przez `cert-manager` program do reprezentowania `Lets Encrypt` urzędu certyfikacji, w którym zostaną uzyskane podpisane certyfikaty.
+    Utwórz `ClusterIssuer` zasób. Jest to wymagane przez program `cert-manager` do reprezentowania `Lets Encrypt` urzędu certyfikacji, w którym zostaną uzyskane podpisane certyfikaty.
 
-    Przy użyciu `ClusterIssuer` zasobu bez przestrzeni nazw Menedżer certyfikatów będzie wystawiał certyfikaty, które mogą być używane z wielu przestrzeni nazw. `Let’s Encrypt`używa protokołu ACME do sprawdzenia, czy podaną nazwę domeny i wystawiasz certyfikat. Więcej szczegółowych informacji na `ClusterIssuer` temat konfigurowania właściwości [znajdziesz tutaj](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer`nakazuje `cert-manager` wystawienie certyfikatów przy `Lets Encrypt` użyciu środowiska przejściowego używanego do testowania (certyfikat główny nieobecny w sklepie/magazyn zaufania klienta).
+    Przy użyciu zasobu bez przestrzeni nazw `ClusterIssuer` Menedżer certyfikatów będzie wystawiał certyfikaty, które mogą być używane z wielu przestrzeni nazw. `Let’s Encrypt`używa protokołu ACME do sprawdzenia, czy podaną nazwę domeny i wystawiasz certyfikat. Więcej szczegółowych informacji na temat konfigurowania `ClusterIssuer` właściwości [znajdziesz tutaj](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer`nakazuje `cert-manager` wystawienie certyfikatów przy użyciu `Lets Encrypt` środowiska przejściowego używanego do testowania (certyfikat główny nieobecny w sklepie/magazyn zaufania klienta).
 
-    Domyślny typ wyzwania w YAML poniżej to `http01`. Inne wyzwania są udokumentowane na [letsencrypt.org — typy wyzwania](https://letsencrypt.org/docs/challenge-types/)
+    Domyślny typ wyzwania w YAML poniżej to `http01` . Inne wyzwania są udokumentowane na [letsencrypt.org — typy wyzwania](https://letsencrypt.org/docs/challenge-types/)
 
     > [!IMPORTANT] 
     > Aktualizacja `<YOUR.EMAIL@ADDRESS>` w YAML poniżej
@@ -97,8 +97,8 @@ Wykonaj poniższe kroki, aby zainstalować [Menedżera certyfikatów](https://do
 
     Utwórz zasób transferu danych przychodzących, aby udostępnić `guestbook` aplikację przy użyciu Application Gateway z opcją szyfrowania certyfikatu.
 
-    Upewnij się, że Application Gateway ma publiczną konfigurację adresu IP frontonu z nazwą DNS (przy `azure.com` użyciu domeny domyślnej lub Zainicjuj obsługę administracyjną `Azure DNS Zone` usługi i przypisz własną domenę niestandardową).
-    Zwróć uwagę na `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`adnotację, która informuje Menedżera certyfikatów, aby przetworzyć oznakowany zasób transferu danych przychodzących.
+    Upewnij się, że Application Gateway ma publiczną konfigurację adresu IP frontonu z nazwą DNS (przy użyciu `azure.com` domeny domyślnej lub Zainicjuj obsługę administracyjną `Azure DNS Zone` usługi i przypisz własną domenę niestandardową).
+    Zwróć uwagę na adnotację `certmanager.k8s.io/cluster-issuer: letsencrypt-staging` , która informuje Menedżera certyfikatów, aby przetworzyć oznakowany zasób transferu danych przychodzących.
 
     > [!IMPORTANT] 
     > Aktualizacja `<PLACEHOLDERS.COM>` w YAML poniżej z własną domeną (lub Application Gateway, na przykład "KH-AKS-Ingress.westeurope.cloudapp.Azure.com")
@@ -128,14 +128,14 @@ Wykonaj poniższe kroki, aby zainstalować [Menedżera certyfikatów](https://do
     ```
 
     Po kilku sekundach można uzyskać dostęp do `guestbook` usługi za pośrednictwem adresu URL protokołu HTTPS Application Gateway przy użyciu automatycznie wystawionego certyfikatu **przemieszczania** `Lets Encrypt` .
-    Przeglądarka może ostrzec użytkownika o nieprawidłowym urzędzie certyfikacji. Certyfikat przemieszczania jest wystawiony przez `CN=Fake LE Intermediate X1`. Wskazuje to, że system działał zgodnie z oczekiwaniami i jest gotowy do certyfikatu produkcyjnego.
+    Przeglądarka może ostrzec użytkownika o nieprawidłowym urzędzie certyfikacji. Certyfikat przemieszczania jest wystawiony przez `CN=Fake LE Intermediate X1` . Wskazuje to, że system działał zgodnie z oczekiwaniami i jest gotowy do certyfikatu produkcyjnego.
 
 4. Certyfikat produkcyjny
 
     Po pomyślnym skonfigurowaniu certyfikatu przemieszczania można przełączyć się na produkcyjny serwer xyz:
     1. Zastąp adnotację przemieszczania w zasobie transferu danych przychodzących przy użyciu:`certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
-    1. Usuń istniejące przemieszczanie `ClusterIssuer` utworzone w poprzednim kroku i Utwórz nowe, ZASTĘPUJĄC serwer XYZ z ClusterIssuer YAML powyżej z`https://acme-v02.api.letsencrypt.org/directory`
+    1. Usuń istniejące przemieszczanie `ClusterIssuer` utworzone w poprzednim kroku i Utwórz nowe, zastępując serwer XYZ z CLUSTERISSUER YAML powyżej z`https://acme-v02.api.letsencrypt.org/directory`
 
 5. Wygaśnięcie i odnowienie certyfikatu
 
-    Przed wygaśnięciem `Lets Encrypt` certyfikatu `cert-manager` program automatycznie zaktualizuje certyfikat w magazynie Kubernetes Secret. W tym momencie Application Gateway kontroler transferu danych przychodzących będzie stosował zaktualizowany klucz tajny, do którego odwołuje się zasób transferu danych przychodzących, za pomocą którego można skonfigurować Application Gateway.
+    Przed `Lets Encrypt` wygaśnięciem certyfikatu `cert-manager` program automatycznie zaktualizuje certyfikat w magazynie Kubernetes Secret. W tym momencie Application Gateway kontroler transferu danych przychodzących będzie stosował zaktualizowany klucz tajny, do którego odwołuje się zasób transferu danych przychodzących, za pomocą którego można skonfigurować Application Gateway.

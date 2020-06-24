@@ -5,17 +5,17 @@ description: Utwórz certyfikat główny z podpisem własnym, wyeksportuj klucz 
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cherylmc
-ms.openlocfilehash: f28e76e9dcaf1331fd26a2321cd4deca1027e693
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9792f52ae60039ff4891ea95688f961e73283af
+ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279340"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "84983422"
 ---
-# <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Generowanie i eksportowanie certyfikatów dla punktu do lokacji przy użyciu programu PowerShell
+# <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Generowanie i eksportowanie certyfikatów dla połączeń punkt-lokacja przy użyciu programu PowerShell
 
 Połączenia punkt-lokacja używają certyfikatów do uwierzytelniania. W tym artykule pokazano, jak utworzyć certyfikat główny z podpisem własnym i wygenerować certyfikaty klienta przy użyciu programu PowerShell w systemie Windows 10 lub Windows Server 2016. Jeśli szukasz różnych instrukcji dotyczących certyfikatów, zobacz [Certificates-Linux](vpn-gateway-certificates-point-to-site-linux.md) lub [Certificates-MakeCert](vpn-gateway-certificates-point-to-site-makecert.md).
 

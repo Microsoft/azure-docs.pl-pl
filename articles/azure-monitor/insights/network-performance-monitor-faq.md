@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c672caaedd3e5cc591659f24c73f54f399c73de
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79096225"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85194007"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Rozwiązanie Network Performance Monitor — często zadawane pytania
 
@@ -54,11 +54,11 @@ Więcej szczegółowych informacji na temat względnych zalet poszczególnych pr
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Jak skonfigurować węzeł do obsługi monitorowania przy użyciu protokołu TCP?
 Aby węzeł obsługiwał monitorowanie przy użyciu protokołu TCP: 
 * Upewnij się, że platformą jest system Windows Server (2008 z dodatkiem SP1 lub nowszym).
-* Uruchom skrypt programu PowerShell [skrypt enablerules. ps1](https://aka.ms/npmpowershellscript) w węźle. Zapoznaj się z [instrukcjami](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) , aby uzyskać więcej szczegółów.
+* Uruchom skrypt [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell w węźle. Zapoznaj się z [instrukcjami](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) , aby uzyskać więcej szczegółów.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Jak mogę zmienić port TCP używany przez NPM do monitorowania?
-Można zmienić port TCP używany przez NPM do monitorowania, uruchamiając skrypt [skrypt enablerules. ps1](https://aka.ms/npmpowershellscript) . Musisz wprowadzić numer portu, który ma być używany jako parametr. Na przykład, aby włączyć protokół TCP na porcie 8060, `EnableRules.ps1 8060`Uruchom polecenie. Upewnij się, że używasz tego samego portu TCP na wszystkich węzłach używanych do monitorowania.
+Można zmienić port TCP używany przez NPM do monitorowania, uruchamiając skrypt [EnableRules.ps1](https://aka.ms/npmpowershellscript) . Musisz wprowadzić numer portu, który ma być używany jako parametr. Na przykład, aby włączyć protokół TCP na porcie 8060, uruchom polecenie `EnableRules.ps1 8060` . Upewnij się, że używasz tego samego portu TCP na wszystkich węzłach używanych do monitorowania.
 
 Skrypt konfiguruje tylko zaporę systemu Windows lokalnie. Jeśli masz reguły zapory sieciowej lub sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), upewnij się, że zezwalają na ruch przeznaczony dla portu TCP używanego przez NPM.
 
@@ -149,19 +149,19 @@ Aby uzyskać informacje na temat poziomu komunikacji równorzędnej firmy Micros
 
     NetworkMonitoring 
      | where SubType == "ERMSPeeringUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond 
     
 W przypadku prywatnych informacji o poziomie komunikacji równorzędnej Użyj poniższego zapytania w przeszukiwaniu dzienników
 
     NetworkMonitoring 
      | where SubType == "ERVNetConnectionUtilization"
-     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | project  CircuitName,PeeringName,BitsInPerSecond,BitsOutPerSecond
   
 Aby uzyskać informacje o poziomie obwodu, użyj poniższego zapytania w przeszukiwaniu dzienników
 
     NetworkMonitoring 
         | where SubType == "ERCircuitTotalUtilization"
-        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | project CircuitName, BitsInPerSecond, BitsOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Które regiony są obsługiwane przez Monitor wydajności NPM?
 NPM może monitorować łączność między sieciami w dowolnej części świata z obszaru roboczego, który jest hostowany w jednym z [obsługiwanych regionów](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
@@ -213,7 +213,7 @@ Taka sytuacja może wystąpić, Jeśli Zapora hosta lub Zapora pośrednia (Zapor
 * Aby sprawdzić, czy pośrednia Zapora sieciowa lub usługa Azure sieciowej grupy zabezpieczeń nie blokuje komunikacji na wymaganym porcie, użyj narzędzia PsPing innej firmy, korzystając z poniższych instrukcji:
   * Narzędzie psping jest dostępne do pobrania w [tym miejscu](https://technet.microsoft.com/sysinternals/psping.aspx) 
   * Uruchom następujące polecenie w węźle źródłowym.
-    * psping-n 15 \<węzeł docelowy adres\>IP:p ortnumber domyślnie używa portu 8084. Na wypadek, gdyby został jawnie zmieniony za pomocą skryptu skrypt enablerules. ps1, wprowadź niestandardowy numer portu, którego używasz). To jest polecenie ping z maszyny Azure do lokalnego
+    * psping-n 15 \<destination node IPAddress\> :P ortnumber domyślnie używa portu 8084. Na wypadek, gdyby został on jawnie zmieniony przy użyciu skryptu EnableRules.ps1, wprowadź niestandardowy numer portu, którego używasz). To jest polecenie ping z maszyny Azure do lokalnego
 * Sprawdź, czy polecenia ping zostały wykonane pomyślnie. W przeciwnym razie wskazuje, że pośrednia Zapora sieciowa lub usługa Azure sieciowej grupy zabezpieczeń blokuje ruch na tym porcie.
 * Teraz uruchom polecenie z węzła docelowego do adresu IP węzła źródłowego.
 
@@ -222,7 +222,7 @@ Taka sytuacja może wystąpić, Jeśli Zapora hosta lub Zapora pośrednia (Zapor
 Ponieważ ścieżki sieciowe między A A B mogą różnić się od ścieżek sieciowych między B a A, można zaobserwować różne wartości utraty i opóźnienia.
 
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Dlaczego wszystkie obwody usługi ExpressRoute i połączenia komunikacji równorzędnej nie są wykrywane?
-NPM teraz odnajduje obwody usługi ExpressRoute i połączenia komunikacji równorzędnej we wszystkich subskrypcjach, do których użytkownik ma dostęp. Wybierz wszystkie subskrypcje, w których są połączone zasoby usługi Express Route, i Włącz monitorowanie dla każdego wykrytego zasobu. NPM szuka obiektów połączeń podczas odnajdywania prywatnej komunikacji równorzędnej, dlatego należy sprawdzić, czy sieć wirtualna jest skojarzona z usługą komunikacji równorzędnej.
+NPM teraz odnajduje obwody usługi ExpressRoute i połączenia komunikacji równorzędnej we wszystkich subskrypcjach, do których użytkownik ma dostęp. Wybierz wszystkie subskrypcje, w których są połączone zasoby usługi Express Route, i Włącz monitorowanie dla każdego wykrytego zasobu. NPM szuka obiektów połączeń podczas odnajdywania prywatnej komunikacji równorzędnej, dlatego należy sprawdzić, czy sieć wirtualna jest skojarzona z usługą komunikacji równorzędnej. Usługa NPM nie wykrywa obwodów i komunikacji równorzędnej, które znajdują się w innej dzierżawie niż obszar roboczy Log Analytics.
 
 ### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>Funkcja monitora ER ma komunikat diagnostyczny "ruch nie przechodzi przez żaden obwód". Co to oznacza?
 
@@ -233,6 +233,12 @@ Może się tak zdarzyć, jeśli:
 * Obwód ER nie działa.
 * Filtry tras są konfigurowane w taki sposób, że zapewniają priorytet innym trasom (na przykład połączenie sieci VPN lub inny obwód usługi ExpressRoute) przez zamierzony obwód ExpressRoute. 
 * Węzły lokalne i platformy Azure wybrane do monitorowania obwodu usługi ExpressRoute w konfiguracji monitorowania nie mają łączności ze sobą za pośrednictwem zamierzonego obwodu usługi ExpressRoute. Upewnij się, że wybrano poprawne węzły, które mają łączność ze sobą za pośrednictwem obwodu usługi ExpressRoute, który ma być monitorowany.
+
+### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Dlaczego monitor ExpressRoute zgłasza mój obwód/komunikację równorzędną w złej kondycji, gdy jest dostępny i przekazuje dane.
+Monitor ExpressRoute porównuje wartości wydajności sieci (utrata, opóźnienie i wykorzystanie przepustowości) zgłoszone przez agentów/usługę z progami ustawionymi podczas konfiguracji. W przypadku obwodu, jeśli zgłoszone wykorzystanie przepustowości jest większe niż próg ustawiony w konfiguracji, obwód zostanie oznaczony jako w złej kondycji. W przypadku komunikacji równorzędnej w przypadku, gdy zgłoszono, że utrata, opóźnienie lub wykorzystanie przepustowości jest większe niż próg ustawiony w konfiguracji, Komunikacja równorzędna jest oznaczana jako zła. NPM nie wykorzystuje metryk ani żadnej innej formy danych, aby deicde stan kondycji.
+
+### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Dlaczego ExpressRoute Wykorzystaj Monitor'bandwidth, zgłoś wartość innej z bitów metryk w/out
+W przypadku monitora ExpressRoute przepustowość utiliation to średnia przepustowość przychodząca i wychodząca w ciągu ostatnich 20 minut, wyrażona w bitach na sekundę. W przypadku metryk usługi Express Route bit in/out jest na minutę punktów danych. Wewnętrznie zestaw danych używany dla obu tych obiektów jest taki sam, ale agregacja valies między metrykami NPM i ER. Aby zapoznać się z szczegółowym, minutowym monitorowaniem i szybkimi alertami, zalecamy ustawienie alertów bezpośrednio w metrykach usługi ER
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>Podczas konfigurowania monitorowania obwodu usługi ExpressRoute nie są wykrywane węzły platformy Azure.
 Taka sytuacja może wystąpić, jeśli węzły platformy Azure są połączone za pomocą Operations Manager. Funkcja monitor ExpressRoute obsługuje tylko te węzły platformy Azure, które są połączone jako agenci bezpośrednio.
@@ -263,7 +269,7 @@ Taka sytuacja może wystąpić, jeśli usługa docelowa nie jest aplikacją inte
 Proces NPM jest skonfigurowany do zatrzymania, jeśli wykorzystuje ponad 5% zasobów procesora CPU hosta. Ma to na celu zapewnienie, że można nadal korzystać z węzłów dla ich zwykłych obciążeń bez wpływu na wydajność.
 
 ### <a name="does-npm-edit-firewall-rules-for-monitoring"></a>Czy NPM edytować reguły zapory na potrzeby monitorowania?
-NPM tworzy tylko lokalną regułę zapory systemu Windows w węzłach, na których jest uruchomiony skrypt skrypt enablerules. ps1 PowerShell, aby umożliwić agentom tworzenie połączeń TCP ze sobą na określonym porcie. Rozwiązanie nie modyfikuje żadnej reguły zapory sieciowej ani sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń).
+NPM tworzy tylko lokalną regułę zapory systemu Windows w węzłach, na których działa skrypt EnableRules.ps1 PowerShell, aby umożliwić agentom tworzenie połączeń TCP ze sobą na określonym porcie. Rozwiązanie nie modyfikuje żadnej reguły zapory sieciowej ani sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń).
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>Jak sprawdzić kondycję węzłów używanych do monitorowania?
 Aby wyświetlić stan kondycji węzłów używanych do monitorowania, należy wykonać następujące czynności: Network Performance Monitor-> Configuration-> nodes. Jeśli węzeł jest w złej kondycji, możesz wyświetlić szczegóły błędu i wykonać sugerowaną akcję.

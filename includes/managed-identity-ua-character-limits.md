@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: active-directory
 author: daveba
 ms.service: msi
@@ -16,4 +16,4 @@ ms.lasthandoff: 04/29/2020
 ms.locfileid: "67183397"
 ---
 > [!IMPORTANT]
-> Podczas tworzenia tożsamości przypisanej do użytkownika można używać tylko znaków alfanumerycznych (0-9, a-z, A-Z),\_znaku podkreślenia () i łącznika (-). Ponadto nazwa powinna mieć co najmniej 3 znaki i długość do 128 znaków, aby przypisanie do maszyny wirtualnej/VMSS działało prawidłowo. Wracaj tutaj, aby zapoznać się z aktualizacjami. Aby uzyskać więcej informacji, zobacz [FAQs and known issues](/azure/active-directory/managed-service-identity/known-issues) (Często zadawane pytania i znane problemy).
+> Podczas tworzenia tożsamości przypisanej do użytkownika można używać tylko znaków alfanumerycznych (0-9, a-z, A-Z), znaku podkreślenia ( \_ ) i łącznika (-). Ponadto nazwa powinna mieć co najmniej 3 znaki i długość do 128 znaków, aby przypisanie do maszyny wirtualnej/VMSS działało prawidłowo. Wracaj tutaj, aby zapoznać się z aktualizacjami. Aby uzyskać więcej informacji, zobacz [FAQs and known issues](/azure/active-directory/managed-service-identity/known-issues) (Często zadawane pytania i znane problemy).

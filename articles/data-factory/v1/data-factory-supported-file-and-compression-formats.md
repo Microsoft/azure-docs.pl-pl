@@ -12,11 +12,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 901e15994b8a51a5fd45d57ca7a4db7778d968e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281615"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707042"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formaty plików i kompresji obsługiwane przez Azure Data Factory
 *Ten temat dotyczy następujących łączników: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [system plików](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [http](data-factory-http-connector.md)i [SFTP](data-factory-sftp-connector.md).*
@@ -33,9 +33,9 @@ Azure Data Factory obsługuje następujące typy formatów plików:
 * [Format Parquet](#parquet-format)
 
 ## <a name="text-format"></a>Format tekstu
-Jeśli chcesz czytać z pliku tekstowego lub zapisywać do pliku tekstowego, ustaw `type` właściwość w `format` sekcji zestawu danych na **TextFormat**. Ponadto możesz określić następujące **opcjonalne** właściwości w sekcji `format`. Aby uzyskać informacje na temat sposobu konfigurowania, zobacz sekcję [Przykład formatu TextFormat](#textformat-example).
+Jeśli chcesz czytać z pliku tekstowego lub zapisywać do pliku tekstowego, ustaw `type` Właściwość w `format` sekcji zestawu danych na **TextFormat**. Ponadto możesz określić następujące **opcjonalne** właściwości w sekcji `format`. Aby uzyskać informacje na temat sposobu konfigurowania, zobacz sekcję [Przykład formatu TextFormat](#textformat-example).
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | columnDelimiter |Znak używany do rozdzielania kolumn w pliku. Można rozważyć użycie rzadko niedrukowalnego znaku, który prawdopodobnie nie istnieje w danych. Na przykład określ wartość "\u0001", która reprezentuje początek nagłówka (raport o kondycji). |Dozwolony jest tylko jeden znak. Wartość **domyślna** to **przecinek (,)**. <br/><br/>Aby użyć znaku Unicode, zapoznaj się ze [znakami Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) w celu uzyskania odpowiedniego kodu. |Nie |
 | rowDelimiter |Znak używany do rozdzielania wierszy w pliku. |Dozwolony jest tylko jeden znak. Wartością **domyślną** jest dowolna z następujących wartości przy odczycie: **[„\r\n”, „\r”, „\n”]** oraz wartość **„\r\n”** przy zapisie. |Nie |
@@ -43,7 +43,7 @@ Jeśli chcesz czytać z pliku tekstowego lub zapisywać do pliku tekstowego, ust
 | quoteChar |Znak używany do umieszczania wartości ciągu w cudzysłowie. Ograniczniki kolumny i wiersza umieszczone w cudzysłowie są traktowane jako część wartości ciągu. Ta właściwość ma zastosowanie zarówno do wejściowych, jak i wyjściowych zestawów danych.<br/><br/>W przypadku tabeli nie można określić zarówno właściwości escapeChar, jak i quoteChar. |Dozwolony jest tylko jeden znak. Brak wartości domyślnej. <br/><br/>Na przykład jeśli ogranicznikiem kolumny jest przecinek (,), ale chcesz, aby znak przecinka występował w tekście (przykład: <Witaj, świecie>), możesz zdefiniować cudzysłów (") jako znak cudzysłowu i użyć ciągu "Witaj, świecie" w źródle. |Nie |
 | nullValue |Co najmniej jeden znak służący do reprezentowania wartości null. |Co najmniej jeden znak. Wartości **domyślne** to **„\N” i „NULL”** przy odczycie oraz **„\N”** przy zapisie. |Nie |
 | encodingName |Określa nazwę kodowania. |Prawidłowa nazwa kodowania. Zobacz [właściwość Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Przykład: windows-1250 lub shift_jis. Wartość **domyślna** to **UTF-8**. |Nie |
-| firstRowAsHeader |Określa, czy pierwszy wiersz ma być traktowany jako nagłówek. W przypadku zestawu danych wejściowych usługa Data Factory odczytuje pierwszy wiersz jako nagłówek. W przypadku zestawu danych wyjściowych usługa Data Factory zapisuje pierwszy wiersz jako nagłówek. <br/><br/>Aby uzyskać przykładowe scenariusze, zobacz sekcję [Scenariusze użycia właściwości `firstRowAsHeader` oraz `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Prawda<br/><b>False (domyślnie)</b> |Nie |
+| firstRowAsHeader |Określa, czy pierwszy wiersz ma być traktowany jako nagłówek. W przypadku zestawu danych wejściowych usługa Data Factory odczytuje pierwszy wiersz jako nagłówek. W przypadku zestawu danych wyjściowych usługa Data Factory zapisuje pierwszy wiersz jako nagłówek. <br/><br/>Aby uzyskać przykładowe scenariusze, zobacz sekcję [Scenariusze użycia właściwości `firstRowAsHeader` oraz `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |True<br/><b>False (domyślnie)</b> |Nie |
 | skipLineCount |Wskazuje liczbę wierszy do pominięcia podczas odczytywania danych z plików wejściowych. Jeśli określono zarówno właściwość skipLineCount, jak i firstRowAsHeader, najpierw zostaną pominięte wiersze, a następnie zostaną odczytane informacje nagłówka z pliku wejściowego. <br/><br/>Aby uzyskać przykładowe scenariusze, zobacz sekcję [Scenariusze użycia właściwości `firstRowAsHeader` oraz `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount). |Liczba całkowita |Nie |
 | treatEmptyAsNull |Określa, czy ciąg pusty lub o wartości null ma być traktowany jako wartość null podczas odczytu danych z pliku wejściowego. |**True (domyślnie)**<br/>Fałsz |Nie |
 
@@ -83,9 +83,9 @@ Aby użyć właściwości `escapeChar` zamiast `quoteChar`, zastąp wiersz z wł
 ## <a name="json-format"></a>Format JSON
 Aby **zaimportować/wyeksportować plik JSON do/z Azure Cosmos DB**, zobacz sekcję [Importowanie/Eksportowanie dokumentów JSON](data-factory-azure-documentdb-connector.md#importexport-json-documents) w artykule [przenoszenie danych do/z Azure Cosmos DB](data-factory-azure-documentdb-connector.md) .
 
-Jeśli chcesz przeanalizować pliki JSON lub zapisać dane w formacie JSON, ustaw `type` właściwość w `format` sekcji na **formatu jsonformat**. Ponadto możesz określić następujące **opcjonalne** właściwości w sekcji `format`. Aby uzyskać informacje na temat sposobu konfigurowania, zobacz sekcję [Przykład formatu JsonFormat](#jsonformat-example).
+Jeśli chcesz przeanalizować pliki JSON lub zapisać dane w formacie JSON, ustaw `type` Właściwość w `format` sekcji na **formatu jsonformat**. Ponadto możesz określić następujące **opcjonalne** właściwości w sekcji `format`. Aby uzyskać informacje na temat sposobu konfigurowania, zobacz sekcję [Przykład formatu JsonFormat](#jsonformat-example).
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | filePattern |Wskazuje wzorzec danych przechowywanych w każdym pliku JSON. Dozwolone wartości to: **setOfObjects** i **arrayOfObjects**. Wartością **domyślną** jest **setOfObjects**. Aby uzyskać szczegółowe informacje o tych wzorcach, zobacz sekcję [Wzorce plików JSON](#json-file-patterns). |Nie |
 | jsonNodeReference | Jeśli chcesz wykonać iterację i ekstrakcję danych z obiektów wewnątrz pola tablicy o tym samym wzorcu, określ ścieżkę JSON tej tablicy. Ta właściwość jest obsługiwana tylko podczas kopiowania danych z plików JSON. | Nie |
@@ -219,7 +219,7 @@ W tym przykładzie oczekiwany jest jeden główny obiekt JSON mapowany na pojedy
 ```
 i chcesz skopiować ją do tabeli usługi Azure SQL w następującym formacie przez wyodrębnienie danych z obiektu i tabeli:
 
-| id | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
+| identyfikator | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -349,7 +349,7 @@ Zestaw danych wejściowych typu **JsonFormat** jest zdefiniowany następująco: 
 
 Jeśli masz poniższą tabelę w SQL Database:
 
-| id | order_date | order_price | order_by |
+| identyfikator | order_date | order_price | order_by |
 | --- | --- | --- | --- |
 | 1 | 20170119 | 2000 | David |
 | 2 | 20170120 | 3500 | Patrick |
@@ -480,7 +480,7 @@ Aby określić kompresję zestawu danych, należy użyć właściwości **Compre
 }  
 ```
 
-Załóżmy, że przykładowy zestaw danych jest używany jako dane wyjściowe działania kopiowania, działanie kopiowania kompresuje dane wyjściowe przy użyciu kodera-in GZIP, stosując Optymalny współczynnik, a następnie zapisuje skompresowane dane w pliku o nazwie pagecounts. csv. gz w Blob Storage platformy Azure.
+Załóżmy, że przykładowy zestaw danych jest używany jako dane wyjściowe działania kopiowania, działanie Copy kompresuje dane wyjściowe przy użyciu kodera-in GZIP, stosując Optymalny współczynnik, a następnie zapisuje skompresowane dane w pliku o nazwie pagecounts.csv. gz w Blob Storage platformy Azure.
 
 > [!NOTE]
 > Ustawienia kompresji nie są obsługiwane w przypadku danych w **AvroFormat**, **OrcFormat**lub **ParquetFormat**. Podczas odczytywania plików w tych formatach Data Factory wykrywa i używa kodera-dekoder kompresji w metadanych. Podczas zapisywania do plików w tych formatach Data Factory wybiera domyślny koder-dekoder kompresji dla tego formatu. Na przykład ZLIB dla OrcFormat i przyciągania dla ParquetFormat.   
@@ -495,20 +495,20 @@ Sekcja **kompresji** ma dwie właściwości:
 
     Aby uzyskać więcej informacji, zobacz temat [poziom kompresji](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) .
 
-W przypadku określenia `compression` właściwości w formacie JSON wejściowego zestawu danych potok może odczytywać skompresowane dane ze źródła. Po określeniu właściwości w formacie JSON wyjściowego zestawu danych działanie kopiowania może zapisywać skompresowane dane w miejscu docelowym. Oto kilka przykładowych scenariuszy:
+W przypadku określenia `compression` właściwości w formacie JSON wejściowego zestawu danych potok może odczytywać skompresowane dane ze źródła. po określeniu właściwości w kodzie JSON wyjściowego zestawu danych działanie kopiowania może zapisywać skompresowane dane w miejscu docelowym. Oto kilka przykładowych scenariuszy:
 
-* Odczytaj skompresowane dane GZIP z obiektu blob platformy Azure, zdekompresuj je i Zapisz dane wynikowe w usłudze Azure SQL Database. Zestaw danych wejściowych obiektów blob platformy Azure można zdefiniować `compression` `type` za pomocą właściwości JSON jako gzip.
-* Odczytaj dane z pliku tekstowego z lokalnego systemu plików, Kompresuj go przy użyciu formatu GZip i Zapisz skompresowane dane w obiekcie blob platformy Azure. Należy zdefiniować wyjściowy zestaw danych obiektów blob platformy Azure `compression` `type` z właściwością JSON jako gzip.
+* Odczytaj skompresowane dane GZIP z obiektu blob platformy Azure, zdekompresuj je i Zapisz dane wynikowe w usłudze Azure SQL Database. Zestaw danych wejściowych obiektów blob platformy Azure można zdefiniować za pomocą `compression` `type` Właściwości JSON jako gzip.
+* Odczytaj dane z pliku tekstowego z lokalnego systemu plików, Kompresuj go przy użyciu formatu GZip i Zapisz skompresowane dane w obiekcie blob platformy Azure. Należy zdefiniować wyjściowy zestaw danych obiektów blob platformy Azure z `compression` `type` właściwością JSON jako gzip.
 * Odczytaj plik. zip z serwera FTP, zdekompresuj go, aby pobrać pliki i wyrównać te pliki do Azure Data Lake Store. Można zdefiniować wejściowy zestaw danych FTP z `compression` `type` właściwością JSON jako ZipDeflate.
-* Odczytaj dane skompresowane w formacie GZIP z obiektu blob platformy Azure, zdekompresuj je, skompresuje przy użyciu BZIP2 i Zapisz dane wynikowe w obiekcie blob platformy Azure. Zdefiniuj zestaw danych wejściowych obiektów blob platformy Azure `compression` `type` z ustawionym na gzip i wyjściowym `compression` `type` zestawem danych z ustawionym na bzip2 w tym przypadku.   
+* Odczytaj dane skompresowane w formacie GZIP z obiektu blob platformy Azure, zdekompresuj je, skompresuje przy użyciu BZIP2 i Zapisz dane wynikowe w obiekcie blob platformy Azure. Zdefiniuj zestaw danych wejściowych obiektów blob platformy Azure z `compression` `type` ustawionym na gzip i wyjściowym zestawem danych z `compression` `type` ustawionym na bzip2 w tym przypadku.   
 
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z następującymi artykułami dotyczącymi magazynów danych opartych na plikach obsługiwanych przez Azure Data Factory:
 
-- [Blob Storage platformy Azure](data-factory-azure-blob-connector.md)
+- [Azure Blob Storage](data-factory-azure-blob-connector.md)
 - [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
 - [FTP](data-factory-ftp-connector.md)
-- [SYSTEM PLIKÓW HDFS](data-factory-hdfs-connector.md)
+- [HDFS](data-factory-hdfs-connector.md)
 - [System plików](data-factory-onprem-file-system-connector.md)
 - [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)

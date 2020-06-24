@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 99de3a6fbbbb1c4324df1712a5e24fd334ca4977
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254991"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706974"
 ---
 # <a name="contact-microsoft-support"></a>Kontakt z pomocą techniczną firmy Microsoft
 
@@ -57,7 +57,7 @@ W zależności od Twojego [planu pomocy](https://azure.microsoft.com/support/pla
 
    1. W obszarze **Opcje kontaktu**Podaj preferowaną metodę kontaktu (telefon lub adres e-mail) i język. Czas odpowiedzi jest wybierany automatycznie na podstawie planu subskrypcji.
    2. W informacjach kontaktowych Podaj swoją nazwę, adres e-mail, kontakt opcjonalny, kraj/region. Zaznacz pole wyboru **Zapisz zmiany kontaktu w przyszłych żądaniach obsługi** .
-   3. Kliknij przycisk **Utwórz**.
+   3. Kliknij pozycję **Utwórz**.
    
        ![Skontaktuj się z pomocą techniczną firmy Microsoft za pośrednictwem nowego portalu](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
@@ -103,7 +103,7 @@ Wykonaj następujące kroki, aby rozpocząć sesję obsługi:
 7. Zapisz ten ciąg i wyślij go w wiadomości e-mail do pomoc techniczna firmy Microsoft.
 
 > [!IMPORTANT]
-> Dostęp do pomocy technicznej można wyłączyć, `Disable-HcsSupportAccess`uruchamiając. Urządzenie StorSimple podejmie również próbę wyłączenia dostępu do pomocy technicznej 8 godzin po zainicjowaniu sesji. Najlepszym rozwiązaniem jest zmiana poświadczeń urządzenia StorSimple po zainicjowaniu sesji obsługi.
+> Dostęp do pomocy technicznej można wyłączyć, uruchamiając `Disable-HcsSupportAccess` . Urządzenie StorSimple podejmie również próbę wyłączenia dostępu do pomocy technicznej 8 godzin po zainicjowaniu sesji. Najlepszym rozwiązaniem jest zmiana poświadczeń urządzenia StorSimple po zainicjowaniu sesji obsługi.
 
 
 ## <a name="next-steps"></a>Następne kroki

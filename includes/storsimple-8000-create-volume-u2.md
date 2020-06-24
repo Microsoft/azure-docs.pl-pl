@@ -45,7 +45,7 @@ ms.locfileid: "67183284"
          1. Wypełnij pole **Nazwa** dla rekordu ACR.
          2. W obszarze **Nazwa inicjatora iSCSI** podaj kwalifikowaną nazwę iSCSI (IQN) hosta z systemem Windows. Jeśli nie masz nazwy IQN, przejdź do tematu [Pobieranie nazwy IQN hosta z systemem Windows Server](#get-the-iqn-of-a-windows-server-host).
 
-      1. Kliknij przycisk **Utwórz**. Wolumin zostanie utworzony przy użyciu wybranych ustawień.
+      1. Kliknij pozycję **Utwórz**. Wolumin zostanie utworzony przy użyciu wybranych ustawień.
 
          ![Kliknięcie pozycji Utwórz](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 

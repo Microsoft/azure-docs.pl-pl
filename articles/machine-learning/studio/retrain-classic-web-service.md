@@ -5,17 +5,17 @@ description: Dowiedz się, jak ponownie nauczyć model i zaktualizować klasyczn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 877697893b377007c812def00858b7300356f5e4
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 659011a13be310512ace68d2e020eaebff9a10ee
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117766"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706039"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ponowne uczenie i wdrażanie klasycznej usługi sieci Web (klasycznej)
 

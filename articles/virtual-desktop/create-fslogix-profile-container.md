@@ -4,16 +4,16 @@ description: Jak utworzyć kontener profilu FSLogix przy użyciu Azure NetApp Fi
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9210787c674e825c8728e3b79e261b184fbc42fa
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: 968e753cb8bf4376d2082d5238004c291b8f0938
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484633"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211945"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure NetApp Files i AD DS
 
@@ -87,7 +87,7 @@ Aby rozpocząć, musisz skonfigurować konto Azure NetApp Files.
 
 ## <a name="create-a-capacity-pool"></a>Tworzenie puli pojemności
 
-Następnie utwórz nową pulę pojemności: 
+Następnie utwórz nową pulę pojemności:
 
 1. Przejdź do menu Azure NetApp Files i wybierz nowe konto.
 2. W menu Konto wybierz pozycję **Pule pojemności** w obszarze usługa magazynu.
@@ -158,7 +158,7 @@ Ta sekcja opiera się na [tworzeniu kontenera profilu dla puli hostów przy uży
 
 2. Rozpakuj pobrany plik.
 
-3. W pliku przejdź do wersji **x64**  >  **Releases** i uruchom program **FSLogixAppsSetup. exe**. Zostanie otwarte menu instalacja.
+3. W pliku przejdź do wersji **x64**  >  **Releases** i uruchom **FSLogixAppsSetup.exe**. Zostanie otwarte menu instalacja.
 
 4.  Jeśli masz klucz produktu, wprowadź go w polu tekstowym klucz produktu.
 

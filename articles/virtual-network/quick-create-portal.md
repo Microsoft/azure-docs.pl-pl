@@ -12,11 +12,11 @@ ms.workload: infrastructure
 ms.date: 03/05/2020
 ms.author: kumud
 ms.openlocfilehash: 1a1593566b8bdb72f322d64c1ee99c7018f49329
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240072"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707416"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Szybki start: tworzenie sieci wirtualnej przy użyciu witryny Azure Portal
 
@@ -32,7 +32,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
-1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**. W portalu Azure Marketplace wybierz pozycję **Sieć** > **Sieć wirtualna**.
+1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**. W portalu Azure Marketplace wybierz pozycję **Sieć**  >  **Sieć wirtualna**.
 
 1. W obszarze **Utwórz sieć wirtualną** wprowadź lub wybierz następujące informacje:
 
@@ -59,7 +59,7 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne:
 
 1. Z menu Azure Portal wybierz pozycję **Utwórz zasób**.
 
-1. W portalu Azure Marketplace wybierz pozycję **COMPUTE** > **Windows Server 2019 Datacenter**. Wybierz przycisk **Utwórz**.
+1. W portalu Azure Marketplace wybierz pozycję **COMPUTE**  >  **Windows Server 2019 Datacenter**. Wybierz przycisk **Utwórz**.
 
 1. W obszarze **Tworzenie maszyny wirtualnej — ustawienia podstawowe** wprowadź lub wybierz następujące informacje:
 
@@ -72,7 +72,7 @@ W sieci wirtualnej utwórz dwie maszyny wirtualne:
     | Nazwa maszyny wirtualnej | Wprowadź nazwę *myVm1*. |
     | Region | Wybierz pozycję **Wschodnie stany USA**. |
     | Opcje dostępności | Domyślnie **nie jest wymagana żadna nadmiarowość infrastruktury**. |
-    | Obraz | Domyślnie dla **systemu Windows Server 2019 Datacenter**. |
+    | Image (Obraz) | Domyślnie dla **systemu Windows Server 2019 Datacenter**. |
     | Rozmiar | Domyślnie **standardowa DS1 v2**. |
     | **Konto administratora** |  |
     | Nazwa użytkownika | Wprowadź wybraną nazwę użytkownika. |
@@ -144,7 +144,7 @@ Po utworzeniu *myVm1*Połącz się z Internetem.
 1. Wprowadź nazwę użytkownika i hasło określone podczas tworzenia maszyny wirtualnej.
 
     > [!NOTE]
-    > Może być konieczne wybranie **pozycji więcej opcji** > **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
+    > Może być konieczne wybranie **pozycji więcej opcji**  >  **Użyj innego konta**, aby określić poświadczenia wprowadzone podczas tworzenia maszyny wirtualnej.
 
 1. Wybierz przycisk **OK**.
 
@@ -206,7 +206,7 @@ Po utworzeniu *myVm1*Połącz się z Internetem.
 
 1. Zamknij podłączanie pulpitu zdalnego z maszyną wirtualną *myVm2*.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 W tym przewodniku Szybki start utworzono domyślną sieć wirtualną i dwie maszyny wirtualne. Nawiązano połączenie z jedną maszyną wirtualną z Internetu i bezpiecznie komunikuje się między tymi dwiema maszynami wirtualnymi.
 

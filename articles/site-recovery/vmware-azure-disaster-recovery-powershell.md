@@ -8,11 +8,11 @@ ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 ms.openlocfilehash: d2dfaab3d01ea29b0f9ecba1e9d748415bed2edc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257201"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84704390"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Konfigurowanie odzyskiwania po awarii maszyn wirtualnych VMware na platformie Azure przy użyciu programu PowerShell
 
@@ -37,7 +37,7 @@ Przed rozpoczęciem:
 
 - Przeanalizuj informacje o [składnikach i architekturze scenariusza](vmware-azure-architecture.md).
 - Zapoznaj się z [wymaganiami dotyczącymi obsługi](site-recovery-support-matrix-to-azure.md) wszystkich składników.
-- Masz moduł Azure PowerShell `Az` . Jeśli musisz zainstalować lub uaktualnić Azure PowerShell, postępuj zgodnie [z tym przewodnikiem, aby zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-az-ps).
+- Masz `Az` moduł Azure PowerShell. Jeśli musisz zainstalować lub uaktualnić Azure PowerShell, postępuj zgodnie [z tym przewodnikiem, aby zainstalować i skonfigurować Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Logowanie się do platformy Azure
 
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Ustaw kontekst magazynu za pomocą polecenia cmdlet Set-ASRVaultContext. Po ustawieniu kolejne Azure Site Recovery operacje w sesji programu PowerShell są wykonywane w kontekście wybranego magazynu.
 
 > [!TIP]
-> Azure Site Recovery module programu PowerShell (AZ. RecoveryServices module) zawiera łatwe do użycia aliasy dla większości poleceń cmdlet. Polecenia cmdlet w module przyjmują operacje w formie * \<>-**AzRecoveryServicesAsr**\<obiektu>* i mają równoważne aliasy, które przyjmują * \<operacje formularza>>obiektu**ASR**\< *. Aliasy poleceń cmdlet można zastąpić, aby ułatwić korzystanie z programu.
+> Azure Site Recovery module programu PowerShell (AZ. RecoveryServices module) zawiera łatwe do użycia aliasy dla większości poleceń cmdlet. Polecenia cmdlet w module przyjmują postać * \<Operation> - **AzRecoveryServicesAsr** \<Object> * i mają równoważne aliasy, które przyjmują formularz usługi * \<Operation> - **ASR** \<Object> *. Aliasy poleceń cmdlet można zastąpić, aby ułatwić korzystanie z programu.
 
 W poniższym przykładzie szczegóły magazynu ze zmiennej $vault są używane do określania kontekstu magazynu dla sesji programu PowerShell.
 

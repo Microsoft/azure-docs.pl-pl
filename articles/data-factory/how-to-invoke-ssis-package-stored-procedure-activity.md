@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: 9309f431a820b800e652d7fa8afcea8f03a46062
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 95f29331c723e584cdecdd27a714f22377dfd26d
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84114521"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253583"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Uruchamianie pakietu SSIS za pomocą działania Procedura składowana w usłudze Azure Data Factory
 
@@ -62,7 +62,7 @@ Pierwszym krokiem jest utworzenie fabryki danych przy użyciu Azure Portal.
 4. Wybierz opcję **V2** w obszarze **Wersja**.
 5. Na liście **lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko lokalizacje obsługiwane przez usługę Data Factory. Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych lokalizacjach.
 6. Wybierz opcję **Przypnij do pulpitu nawigacyjnego**.     
-7. Kliknij przycisk **Utwórz**.
+7. Kliknij pozycję **Utwórz**.
 8. Na pulpicie nawigacyjnym jest widoczny następujący kafelek ze stanem: **wdrażanie fabryki danych**. 
 
      ![kafelek Wdrażanie fabryki danych](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
@@ -80,7 +80,7 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory do utworzenia potoku. 
 2. W przyborniku **działania** rozwiń węzeł **Ogólne**, a następnie przeciągnij i upuść działanie **procedury składowanej** do powierzchni projektanta potoku. 
 
     ![Działanie procedury składowanej przeciągnij i upuść](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
-3. W oknie właściwości działania procedury składowanej przejdź do karty **konto SQL** , a następnie kliknij pozycję **+ Nowy**. Tworzysz połączenie z bazą danych Azure SQL Database, która hostuje wykaz usług SSIS (SSIDB Database). 
+3. W oknie właściwości działania procedury składowanej przejdź do karty **konto SQL** , a następnie kliknij pozycję **+ Nowy**. Tworzysz połączenie z bazą danych w Azure SQL Database, która hostuje wykaz usług SSIS (SSIDB Database). 
    
     ![Przycisk Nowa połączona usługa](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
 4. W oknie **Nowa połączona usługa** wykonaj następujące czynności: 
@@ -97,7 +97,7 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory do utworzenia potoku. 
         ![Połączona usługa Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. W oknie właściwości przejdź do karty **procedura składowana** na karcie **konto SQL** i wykonaj następujące czynności: 
 
-    1. Wybierz pozycję **Edit** (Edytuj). 
+    1. Wybierz pozycję **Edytuj**. 
     2. W polu **nazwa procedury składowanej** wprowadź wartość `sp_executesql` . 
     3. Kliknij pozycję **+ Nowy** w sekcji **parametry procedury składowanej** . 
     4. W polu **Nazwa** parametru wprowadź **stmt**. 
@@ -196,9 +196,9 @@ Pamiętaj o następujących kwestiach:
 * Aby uzyskać listę regionów platformy Azure, w których obecnie jest dostępna usługa Data Factory, wybierz dane regiony na poniższej stronie, a następnie rozwiń węzeł **Analiza**, aby zlokalizować pozycję **Data Factory**: [Produkty dostępne według regionu](https://azure.microsoft.com/global-infrastructure/services/). Magazyny danych (Azure Storage, Azure SQL Database itp.) i jednostki obliczeniowe (HDInsight itp.) używane przez fabrykę danych mogą mieścić się w innych regionach.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Tworzenie połączonej usługi Azure SQL Database
-Utwórz połączoną usługę w celu połączenia bazy danych Azure SQL Database, która hostuje katalog SSIS w fabryce danych. Data Factory używa informacji w tej połączonej usłudze, aby nawiązać połączenie z bazą danych SSISDB i wykonać procedurę przechowywaną w celu uruchomienia pakietu usług SSIS. 
+Utwórz połączoną usługę, aby połączyć bazę danych, która hostuje katalog usług SSIS w fabryce danych. Data Factory używa informacji w tej połączonej usłudze, aby nawiązać połączenie z bazą danych SSISDB i wykonać procedurę przechowywaną w celu uruchomienia pakietu usług SSIS. 
 
-1. Utwórz plik JSON o nazwie **AzureSqlDatabaseLinkedService. JSON** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości: 
+1. Utwórz plik JSON o nazwie **AzureSqlDatabaseLinkedService.js** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości: 
 
     > [!IMPORTANT]
     > Zastąp &lt; &gt; wartości ServerName, &lt; username &gt; i &lt; Password &gt; wartościami Azure SQL Database przed zapisaniem pliku.
@@ -226,7 +226,7 @@ Utwórz połączoną usługę w celu połączenia bazy danych Azure SQL Database
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Tworzenie potoku za pomocą działania procedury składowanej 
 W tym kroku utworzysz potok z działaniem procedury składowanej. Działanie wywołuje sp_executesql procedury składowanej w celu uruchomienia pakietu usług SSIS. 
 
-1. Utwórz plik JSON o nazwie **RunSSISPackagePipeline. JSON** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości:
+1. Utwórz plik JSON o nazwie **RunSSISPackagePipeline.js** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości:
 
     > [!IMPORTANT]
     > &lt; &gt; Przed zapisaniem pliku Zastąp wartość Nazwa folderu, &lt; Nazwa projektu &gt; , &lt; Nazwa pakietu &gt; z nazwami folderu, projektu i pakietu w wykazie usług SSIS. 
@@ -305,7 +305,7 @@ while ($True) {
 ### <a name="create-a-trigger"></a>Tworzenie wyzwalacza
 W poprzednim kroku został wywołany potok na żądanie. Możesz również utworzyć wyzwalacz harmonogramu, aby uruchomić potok zgodnie z harmonogramem (co godzinę, codziennie itd.).
 
-1. Utwórz plik JSON o nazwie mój **Trigger. JSON** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości: 
+1. Utwórz plik JSON o nazwie **MyTrigger.js** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości: 
 
     ```json
     {

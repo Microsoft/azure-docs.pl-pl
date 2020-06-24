@@ -13,11 +13,11 @@ ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
 ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266925"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84703795"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>An internal error occurs when you try to connect to an Azure VM through Remote Desktop (Podczas próby połączenia z maszyną wirtualną platformy Azure za pośrednictwem pulpitu zdalnego występuje błąd wewnętrzny)
 
@@ -59,7 +59,7 @@ Połącz się z [konsolą szeregową i Otwórz wystąpienie programu PowerShell]
 ) , aby sprawdzić, czy port 8080 jest używany przez inne aplikacje:
 
         Netstat -anob |more
-2. Jeśli program TermService. exe używa portu 8080, przejdź do kroku 2. Jeśli inna usługa lub aplikacja inna niż TermService. exe korzysta z portu 8080, wykonaj następujące kroki:
+2. Jeśli Termservice.exe korzysta z portu 8080, przejdź do kroku 2. Jeśli inna usługa lub aplikacja inna niż Termservice.exe korzysta z portu 8080, wykonaj następujące czynności:
 
     1. Zatrzymaj usługę dla aplikacji korzystającej z usługi 3389:
 
@@ -167,7 +167,7 @@ Klient RDP domyślnie używa protokołu TLS 1,0. Można go jednak zmienić na TL
 Aby włączyć dziennik zrzutów i konsolę szeregową, uruchom następujący skrypt.
 
 1. Otwórz sesję wiersza polecenia z podwyższonym poziomem uprawnień (**Uruchom jako administrator**).
-2. Uruchom następujący skrypt:
+2. Uruchom poniższy skrypt:
 
     W tym skrypcie Załóżmy, że litera dysku przypisana do dołączonego dysku systemu operacyjnego to F. Zastąp tę literę dysku odpowiednią wartością dla maszyny wirtualnej.
 

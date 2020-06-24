@@ -5,19 +5,19 @@ description: W tym artykule pokazano, jak wdrożyć aplikację dwustosową proto
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 7c2f66d92597801aa7c6b0b32f86f594d3effb05
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51d43a1cdb24455c12717f4db50955fc7bc738f8
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420599"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707450"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template"></a>Wdrażanie aplikacji dwustosowej IPv6 przy użyciu podstawowego Load Balancer na platformie Azure — szablon
 

@@ -4,19 +4,19 @@ description: Dowiedz się, jak badać Microsoft Graph wykrywanie ryzyka i powią
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: reference
+ms.topic: how-to
 ms.date: 10/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6fd62ccab4d6e32b23835d280732797e133ada8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54b78526ea1409f22b000aed8b20db90dfc9d143
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671620"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253566"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Wprowadzenie do Azure Active Directory Identity Protection i Microsoft Graph
 
@@ -72,9 +72,9 @@ Przed rozpoczęciem należy:
 
    1. Jako **Typ**wybierz pozycję **aplikacja sieci Web i/lub interfejs API sieci Web**.
 
-   1. W polu tekstowym **adres URL logowania** wpisz `http://localhost`.
+   1. W polu tekstowym **adres URL logowania** wpisz `http://localhost` .
 
-   1. Kliknij przycisk **Utwórz**.
+   1. Kliknij pozycję **Utwórz**.
 1. Aby otworzyć stronę **Ustawienia** , na liście Aplikacje kliknij nowo utworzoną rejestrację aplikacji. 
 1. Skopiuj **Identyfikator aplikacji**.
 
@@ -124,7 +124,7 @@ Przed rozpoczęciem należy:
 
    1. W polu tekstowym **Opis klucza** wpisz opis (na przykład *wykrywanie ryzyka w usłudze Azure AD*).
    1. Jako **czas trwania**wybierz **za 1 rok**.
-   1. Kliknij przycisk **Zapisz**.
+   1. Kliknij pozycję **Zapisz**.
    1. Skopiuj wartość klucza, a następnie wklej ją do bezpiecznej lokalizacji.   
    
    > [!NOTE]
@@ -143,8 +143,8 @@ Aby przeprowadzić uwierzytelnianie, Wyślij żądanie post do `https://login.mi
 
 - grant_type: "**client_credentials**"
 - zasoby`https://graph.microsoft.com`
-- client_id: \<identyfikator klienta\>
-- client_secret: \<Twój klucz\>
+- client_id:\<your client ID\>
+- client_secret:\<your key\>
 
 Jeśli to się powiedzie, zwraca token uwierzytelniania.  
 Aby wywołać interfejs API, Utwórz nagłówek z następującym parametrem:

@@ -5,21 +5,19 @@ description: Dowiedz się, jak zaktualizować usługę sieci Web, aby korzystał
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 218c1c98a2ed775ae86c1657156991879708cc7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 601717ce487f8564ed2d431db9b31a3b43fcee75
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217936"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706090"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ponowne uczenie i wdrażanie modelu uczenia maszynowego
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Przeszkolenie jest jednym ze sposobów zapewnienia, że modele uczenia maszynowego są dokładne i oparte na najbardziej przydatnych dostępnych danych. W tym artykule pokazano, jak ponownie nauczyć i wdrożyć model uczenia maszynowego jako nową usługę sieci Web w programie Studio (klasyczna). Jeśli chcesz ponownie przeprowadzić uczenie klasycznej usługi sieci Web, [zapoznaj się z tym artykułem.](retrain-classic-web-service.md)
 
@@ -61,14 +59,14 @@ W tym przykładzie używamy języka C# do tworzenia aplikacji do ponownego szkol
 
 Wykonaj następujące kroki, aby wywołać interfejsy API ponownego uczenia:
 
-1. Tworzenie aplikacji konsolowej w języku C# w programie Visual Studio: **Nowy** > **projekt** > **Visual C#** > **Windows Classic** > **Aplikacja konsolowa (.NET Framework)**.
+1. Tworzenie aplikacji konsolowej w języku C# w programie Visual Studio: **Nowy**  >  **projekt**  >  **Visual C#**  >  **Windows Classic**  >  **Aplikacja konsolowa (.NET Framework)**.
 1. Zaloguj się do portalu usług sieci Web Machine Learning.
 1. Kliknij usługę sieci Web, z którą pracujesz.
 1. Kliknij **pozycję**Użyj.
 1. W dolnej części strony **Zużywaj** w sekcji **przykładowy kod** kliknij pozycję **Batch**.
 1. Skopiuj przykładowy kod w języku C# na potrzeby wykonywania wsadowego i wklej go do pliku Program.cs. Upewnij się, że przestrzeń nazw pozostaje nienaruszona.
 
-Dodaj pakiet NuGet Microsoft. AspNet. WebApi. Client, zgodnie z opisem w komentarzach. Aby dodać odwołanie do pliku Microsoft. WindowsAzure. Storage. dll, może być konieczne zainstalowanie [biblioteki klienckiej dla usług Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage).
+Dodaj pakiet NuGet Microsoft. AspNet. WebApi. Client, zgodnie z opisem w komentarzach. Aby dodać odwołanie do Microsoft.WindowsAzure.Storage.dll, może być konieczne zainstalowanie [biblioteki klienckiej dla usług Azure Storage](https://www.nuget.org/packages/WindowsAzure.Storage).
 
 Poniższy zrzut ekranu przedstawia stronę **Korzystanie** z portalu usług sieci Web Azure Machine Learning.
 
@@ -104,7 +102,7 @@ Należy również upewnić się, że plik wejściowy jest dostępny w lokalizacj
 
 ### <a name="specify-the-output-location"></a>Określ lokalizację wyjściową
 
-Gdy określisz lokalizację wyjściową w ładunku żądania, rozszerzenie pliku, który jest określony w *RelativeLocation* , musi być określone jako `ilearner`.
+Gdy określisz lokalizację wyjściową w ładunku żądania, rozszerzenie pliku, który jest określony w *RelativeLocation* , musi być określone jako `ilearner` .
 
     Outputs = new Dictionary<string, AzureBlobDataReference>() {
         {

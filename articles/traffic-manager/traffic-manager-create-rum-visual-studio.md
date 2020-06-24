@@ -4,21 +4,20 @@ description: Skonfiguruj aplikację mobilną opracowaną przy użyciu programu V
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: rohink
 ms.custom: ''
-ms.openlocfilehash: 3106334e1fb3e3000cbd09e00e413b34a1b55e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11c5ebfb0fe9cde8da0680ea263052e9380012cd
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76939184"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706736"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Jak wysyłać Pomiary rzeczywistego użytkownika do Traffic Manager za pomocą programu Visual Studio Mobile Center
 

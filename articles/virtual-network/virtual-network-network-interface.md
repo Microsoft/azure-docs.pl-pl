@@ -5,20 +5,20 @@ description: Dowiedz się, co to jest interfejs sieciowy i jak utworzyć, zmieni
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 69dc34c3989adee3af69613617368c29072a7650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1eb32fe4950a3a27ec97026b9170d08996de0c89
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186105"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707433"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Tworzenie, zmienianie lub usuwanie interfejsu sieciowego
 
@@ -33,9 +33,9 @@ Jeśli musisz dodać, zmienić lub usunąć adresy IP dla interfejsu sieciowego,
 Przed wykonaniem kroków opisanych w sekcji tego artykułu wykonaj następujące zadania:
 
 - Jeśli nie masz jeszcze konta platformy Azure, Utwórz [konto bezpłatnej wersji próbnej](https://azure.microsoft.com/free).
-- Jeśli używasz portalu, Otwórz https://portal.azure.comprogram i zaloguj się przy użyciu konta platformy Azure.
+- Jeśli używasz portalu, Otwórz https://portal.azure.com program i zaloguj się przy użyciu konta platformy Azure.
 - W przypadku wykonywania zadań w tym artykule przy użyciu poleceń programu PowerShell uruchom polecenia w [Azure Cloud Shell](https://shell.azure.com/powershell)lub przez uruchomienie programu PowerShell z komputera. Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Ten samouczek wymaga modułu Azure PowerShell w wersji 1.0.0 lub nowszej. Uruchom polecenie `Get-Module -ListAvailable Az`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
-- W przypadku korzystania z poleceń interfejsu wiersza polecenia (CLI) platformy Azure w celu wykonania zadań w tym artykule Uruchom polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia na komputerze. Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz też uruchomić `az login` polecenie, aby utworzyć połączenie z platformą Azure.
+- W przypadku korzystania z poleceń interfejsu wiersza polecenia (CLI) platformy Azure w celu wykonania zadań w tym artykule Uruchom polecenia w [Azure Cloud Shell](https://shell.azure.com/bash)lub przez uruchomienie interfejsu wiersza polecenia na komputerze. Ten samouczek wymaga interfejsu wiersza polecenia platformy Azure w wersji 2.0.28 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz też uruchomić polecenie `az login` , aby utworzyć połączenie z platformą Azure.
 
 Konto, do którego należy się zalogować lub połączyć się z platformą Azure za pomocą programu, musi być przypisane do roli [współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) lub do [roli niestandardowej](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) , do której przypisano odpowiednie akcje wymienione w obszarze [uprawnienia](#permissions).
 
@@ -81,7 +81,7 @@ Można wyświetlać i zmieniać większość ustawień interfejsu sieciowego po 
 1. W polu zawierającym *zasoby wyszukiwania* tekstu w górnej części Azure Portal wpisz *interfejsy sieciowe*. Gdy **interfejsy sieciowe** pojawiają się w wynikach wyszukiwania, wybierz je.
 2. Wybierz z listy interfejs sieciowy, dla którego chcesz wyświetlić lub zmienić ustawienia.
 3. Następujące elementy są wyświetlane dla wybranego interfejsu sieciowego:
-   - **Przegląd:** Zawiera informacje o interfejsie sieciowym, takie jak przypisane do niego adresy IP, Sieć wirtualna/podsieć, do której jest przypisany interfejs sieciowy, oraz do maszyny wirtualnej, do której jest dołączony interfejs sieciowy (jeśli jest on dołączony do jednego). Na poniższej ilustracji przedstawiono ustawienia dotyczące interfejsu sieciowego o nazwie **mywebserver256**: ![Network Interface Overview](./media/virtual-network-network-interface/nic-overview.png)
+   - **Przegląd:** Zawiera informacje o interfejsie sieciowym, takie jak przypisane do niego adresy IP, Sieć wirtualna/podsieć, do której jest przypisany interfejs sieciowy, oraz do maszyny wirtualnej, do której jest dołączony interfejs sieciowy (jeśli jest on dołączony do jednego). Na poniższej ilustracji przedstawiono ustawienia dotyczące interfejsu sieciowego o nazwie **mywebserver256**: ![ Network Interface Overview](./media/virtual-network-network-interface/nic-overview.png)
 
      Interfejs sieciowy można przenieść do innej grupy zasobów lub subskrypcji, wybierając pozycję (**Zmień**) obok nazwy **grupy zasobów** lub **subskrypcji**. W przypadku przenoszenia interfejsu sieciowego należy przenieść wszystkie zasoby związane z interfejsem sieciowym. Jeśli interfejs sieciowy jest podłączony do maszyny wirtualnej, na przykład należy również przenieść maszynę wirtualną i inne zasoby związane z maszyną wirtualną. Aby przenieść interfejs sieciowy, zobacz [przenoszenie zasobu do nowej grupy zasobów lub subskrypcji](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-the-portal). Artykuł zawiera listę wymagań wstępnych oraz sposób przenoszenia zasobów przy użyciu Azure Portal, programu PowerShell i interfejsu wiersza polecenia platformy Azure.
    - **Konfiguracje protokołu IP:** Publiczne i prywatne adresy IPv4 i IPv6 przypisane do konfiguracji protokołu IP są wymienione tutaj. Jeśli adres IPv6 jest przypisany do konfiguracji adresu IP, adres nie jest wyświetlany. Aby dowiedzieć się więcej na temat konfiguracji protokołu IP oraz jak dodawać i usuwać adresy IP, zobacz [Konfigurowanie adresów IP dla interfejsu sieciowego platformy Azure](virtual-network-network-interface-addresses.md). W tej sekcji konfigurowane są również przekazywanie adresów IP i przypisanie podsieci. Aby dowiedzieć się więcej na temat tych ustawień, zobacz [Włączanie lub wyłączanie przekazywania adresów IP](#enable-or-disable-ip-forwarding) i [Zmienianie przypisania podsieci](#change-subnet-assignment).
@@ -182,7 +182,7 @@ Możesz dodać interfejs sieciowy do lub usunąć interfejs sieciowy z grupy zab
 1. W polu wyszukiwania w górnej części portalu wprowadź *interfejsy sieciowe* w polu wyszukiwania. Gdy **interfejsy sieciowe** pojawiają się w wynikach wyszukiwania, wybierz je.
 2. Wybierz interfejs sieciowy z listy, do której chcesz skojarzyć sieciową grupę zabezpieczeń, lub usuń skojarzenie sieciowej grupy zabezpieczeń z.
 3. W obszarze **Ustawienia**wybierz pozycję **sieciowa Grupa zabezpieczeń** .
-4. Wybierz pozycję **Edit** (Edytuj).
+4. Wybierz pozycję **Edytuj**.
 5. Wybierz pozycję **sieciowa Grupa zabezpieczeń** , a następnie wybierz grupę zabezpieczeń sieci, która ma zostać skojarzona z interfejsem sieciowym, lub wybierz opcję **Brak**, aby usunąć skojarzenie sieciowej grupy zabezpieczeń.
 6. Wybierz pozycję **Zapisz**.
 

@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 327174974affb3b2511eac60755aa1bf047b3b5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01a22aa5d2ec7ed54be62f0975b0fefbafd84cd8
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133466"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211565"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitorowanie obciążenia — Azure Portal
 

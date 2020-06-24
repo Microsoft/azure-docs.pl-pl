@@ -5,18 +5,18 @@ services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: bb5560164af2b573e6aaffd4e4c62bbe0dc24a51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d66a1174b1b4adc94b24c6aecd55b2b8679f2f7
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80350423"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85211888"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Jak monitorować pamięć podręczną Gen2
 

@@ -31,7 +31,7 @@ ms.locfileid: "67183276"
       Jeśli masz informacje o użyciu przepustowości, możesz przydzielić przepustowość zgodnie z harmonogramem, określając wartość **Wybierz szablon przepustowości**. Aby zapoznać się z procedurą krok po kroku, przejdź do tematu dotyczącego [dodawania szablonu przepustowości](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 
       ![Blok kontenera woluminów](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
-   7. Kliknij przycisk **Utwórz**.
+   7. Kliknij pozycję **Utwórz**.
 
         ![Blok kontenera woluminów](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
    

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Wdrażanie obciążeń Azure IoT Edge
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: d82c93783d80060bc3443131191b7cec32dc4878
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2a688a221b2f4865d51bca2ebf4aaa0b1f714290
+ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680777"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85193791"
 ---
 # <a name="deploy-azure-iot-edge-workloads-preview"></a>Wdrażanie obciążeń Azure IoT Edge (wersja zapoznawcza)
 
@@ -29,7 +29,7 @@ Usługa Azure Arc i Azure IoT Edge uzupełniają wszystkie możliwości. Usługa
 
 * Użyj [obsługi IoT Edge](https://aka.ms/edgek8sdoc) , aby wdrożyć ją za pośrednictwem operatora strumienia usługi Azure Arc.
 
-* Pobierz plik [**Values. yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) IoT Edge dla wykresu Helm i Zastąp symbol zastępczy **deviceConnectionString** na końcu pliku zanotowanym w kroku 1. W razie potrzeby można ustawić inne obsługiwane opcje instalacji wykresów. Utwórz przestrzeń nazw dla obciążeń IoT Edge i Utwórz w niej wpis tajny:
+* Pobierz plik [**Values. yaml**](https://github.com/Azure/iotedge/blob/master/kubernetes/charts/edge-kubernetes/values.yaml) IoT Edge dla wykresu Helm i Zastąp symbol zastępczy **deviceConnectionString** na końcu pliku zanotowanym w kroku 1. W razie potrzeby można ustawić inne obsługiwane opcje instalacji wykresów. Utwórz przestrzeń nazw dla obciążenia IoT Edge i Utwórz wpis tajny:
 
     ```
     $ kubectl create ns iotedge

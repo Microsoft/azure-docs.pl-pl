@@ -4,16 +4,16 @@ description: Jak korzystać z programu Microsoft Teams na pulpicie wirtualnym sy
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b065a79abe4a4f5c23e28be111b09e51e5e6484
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 0b2ef8a944af9f80dd65ce75869bcf4e3156c63f
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667050"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254909"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -42,7 +42,7 @@ W tej sekcji pokazano, jak zainstalować aplikację Team Desktop w obrazie maszy
 
 ### <a name="prepare-your-image-for-teams"></a>Przygotowanie obrazu dla zespołów
 
-Aby włączyć instalację zespołów dla poszczególnych komputerów, należy dla hosta ustawić następujący klucz rejestru:
+Aby włączyć optymalizację multimediów dla zespołów, należy dla hosta ustawić następujący klucz rejestru:
 
 1. Z menu Start Uruchom polecenie **regedit** jako administrator. Przejdź do **HKEY_LOCAL_MACHINE \software\microsoft\teams**.
 2. Utwórz następującą wartość dla klucza zespoły:
@@ -57,29 +57,39 @@ Zainstaluj [usługę WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/
 
 ### <a name="install-microsoft-teams"></a>Zainstaluj program Microsoft Teams
 
-Aplikację Team Desktop można wdrożyć przy użyciu instalacji na komputerze. Aby zainstalować program Microsoft Teams w środowisku pulpitu wirtualnego systemu Windows:
+Aplikację Team Desktop można wdrożyć przy użyciu instalacji na komputerze lub na użytkownika. Aby zainstalować program Microsoft Teams w środowisku pulpitu wirtualnego systemu Windows:
 
 1. Pobierz [pakiet MSI Teams](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) , który jest zgodny z Twoim środowiskiem. Zalecamy używanie Instalatora 64-bitowego w 64-bitowym systemie operacyjnym.
 
       > [!NOTE]
       > Optymalizacja multimediów dla zespołów Microsoft Teams wymaga aplikacji Team Desktop w wersji 1.3.00.4461 lub nowszej.
 
-2. Uruchom to polecenie, aby zainstalować plik MSI na maszynie wirtualnej hosta.
+2. Uruchom jedno z następujących poleceń, aby zainstalować plik MSI na maszynie wirtualnej hosta:
 
-      ```console
-      msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
-      ```
+    - Instalacja na użytkownika
 
-      Spowoduje to zainstalowanie zespołów do folderu Program Files (x86) w 64-bitowym systemie operacyjnym i folderze Program Files w 32-bitowym systemie operacyjnym. W tym momencie zostanie ukończona konfiguracja złota obrazu. Instalacja zespołów dla poszczególnych maszyn jest wymagana w przypadku konfiguracji nietrwałych.
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
+        ```
 
-      Przy następnym otwarciu zespołów w sesji zostanie wyświetlony monit o podanie poświadczeń.
+        Ten proces jest instalacją domyślną, która instaluje zespoły w folderze **% AppData%** użytkownika. Zespoły nie będą działały prawidłowo z instalacją na użytkownika w przypadku nietrwałej instalacji.
 
-      > [!NOTE]
-      > Użytkownicy i Administratorzy nie mogą wyłączyć automatycznego uruchamiania dla zespołów podczas logowania.
+    - Instalacja na komputer
 
-      Aby odinstalować plik MSI z maszyny wirtualnej hosta, uruchom następujące polecenie:
+        ```powershell
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
+        ```
 
-      ```console
+        Spowoduje to zainstalowanie zespołów do folderu Program Files (x86) w 64-bitowym systemie operacyjnym i folderze Program Files w 32-bitowym systemie operacyjnym. W tym momencie zostanie ukończona konfiguracja złota obrazu. Instalacja zespołów dla poszczególnych maszyn jest wymagana w przypadku konfiguracji nietrwałych.
+
+        Przy następnym otwarciu zespołów w sesji zostanie wyświetlony monit o podanie poświadczeń.
+
+        > [!NOTE]
+        > Użytkownicy i Administratorzy nie mogą wyłączyć automatycznego uruchamiania dla zespołów podczas logowania.
+
+3. Aby odinstalować plik MSI z maszyny wirtualnej hosta, uruchom następujące polecenie:
+
+      ```powershell
       msiexec /passive /x <msi_name> /l*v <uninstall_logfile_name>
       ```
 
@@ -137,7 +147,7 @@ Jeśli wystąpią problemy z wywołaniami i spotkaniami, Zbierz dzienniki klient
 
 ## <a name="contact-microsoft-teams-support"></a>Skontaktuj się z pomocą techniczną Microsoft Teams
 
-Aby skontaktować się z pomocą techniczną Microsoft Teams, przejdź do [Centrum administracyjnego Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/contact-support-for-business-products?view=o365-worldwide&tabs=online).
+Aby skontaktować się z pomocą techniczną Microsoft Teams, przejdź do [Centrum administracyjnego Microsoft 365](/microsoft-365/admin/contact-support-for-business-products).
 
 ## <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Dostosowywanie Remote Desktop Protocol właściwości dla puli hostów
 
@@ -145,7 +155,7 @@ Dostosowanie właściwości Remote Desktop Protocol puli hostów (RDP), takich j
 
 Włączanie przekierowań urządzeń nie jest wymagane w przypadku korzystania z zespołów z optymalizacją multimediów. Jeśli używasz zespołów bez optymalizacji multimediów, ustaw następujące właściwości protokołu RDP, aby włączyć przekierowywanie mikrofonu i aparatu:
 
-- `audiocapturemode:i:1`Włącza przechwytywanie audio z urządzenia lokalnego i redirets aplikacje audio w sesji zdalnej.
+- `audiocapturemode:i:1`Włącza przechwytywanie audio z urządzenia lokalnego i przekierowuje aplikacje audio w sesji zdalnej.
 - `audiomode:i:0`odtwarza dźwięk na komputerze lokalnym.
 - `camerastoredirect:s:*`przekierowuje wszystkie kamery.
 

@@ -3,8 +3,8 @@ title: Łączenie aplikacji z wystąpieniem zarządzanym SQL
 titleSuffix: Azure SQL Managed Instance
 description: W tym artykule omówiono sposób łączenia aplikacji z wystąpieniem zarządzanym usługi Azure SQL.
 services: sql-database
-ms.service: sql-database
-ms.subservice: managed-instance
+ms.service: sql-managed-instance
+ms.subservice: operations
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: fea16b3e1e5df056c241d07c0e1dd7a5a30819a5
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: a5d002532adb043fa5196231964d5b6e2c81417c
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219782"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706379"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -107,7 +107,7 @@ Aby rozwiązać problemy z łącznością, zapoznaj się z następującymi temat
 
 - Sprawdź, czy maszyna kliencka (z uruchomionym klientem sieci VPN) ma wpisy trasy dla wszystkich sieci wirtualnych, do których należy uzyskać dostęp. Trasy są przechowywane w `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt` .
 
-   ![Route. txt](./media/connect-application-instance/route-txt.png)
+   ![route.txt](./media/connect-application-instance/route-txt.png)
 
    Jak pokazano na tym obrazie, istnieją dwa wpisy dla każdej z tych sieci wirtualnych i trzeci wpis dla punktu końcowego sieci VPN, który jest skonfigurowany w portalu.
 

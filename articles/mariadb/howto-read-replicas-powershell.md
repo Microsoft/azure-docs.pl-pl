@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 5/26/2020
-ms.openlocfilehash: 4854518d77ca3eb0c978a0ca3462535e17ad3fcd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 6/10/2020
+ms.openlocfilehash: 0280d69dc552b776457ff28d19968f6494a846ee
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84052032"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707952"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for MariaDB przy użyciu programu PowerShell
 
@@ -40,6 +40,9 @@ Jeśli zdecydujesz się używać programu PowerShell lokalnie, Połącz się z k
 > Funkcja odczytu repliki jest dostępna tylko dla serwerów Azure Database for MariaDB w warstwach cenowych Ogólnego przeznaczenia lub zoptymalizowanych pod kątem pamięci. Upewnij się, że serwer główny znajduje się w jednej z tych warstw cenowych.
 
 ### <a name="create-a-read-replica"></a>Tworzenie repliki odczytu
+
+> [!IMPORTANT]
+> Gdy tworzysz replikę dla wzorca, który nie ma istniejących replik, wzorzec zostanie najpierw uruchomiony ponownie w celu przygotowania się do replikacji. Należy wziąć pod uwagę i wykonać te operacje w okresie poza szczytem.
 
 Serwer repliki odczytu można utworzyć przy użyciu następującego polecenia:
 

@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281199"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707314"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Przenoszenie danych z programu Teradata przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -61,9 +61,9 @@ Poniższe sekcje zawierają szczegółowe informacje na temat właściwości JSO
 ## <a name="linked-service-properties"></a>Właściwości połączonej usługi
 Poniższa tabela zawiera opis elementów JSON specyficznych dla połączonej usługi programu Teradata.
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| type |Właściwość Type musi mieć wartość: **OnPremisesTeradata** |Tak |
+| typ |Właściwość Type musi mieć wartość: **OnPremisesTeradata** |Tak |
 | serwer |Nazwa serwera programu Teradata. |Tak |
 | authenticationType |Typ uwierzytelniania używany do nawiązywania połączenia z bazą danych programu Teradata. Możliwe wartości to: Anonymous, Basic i Windows. |Tak |
 | nazwa użytkownika |Określ nazwę użytkownika, jeśli używasz uwierzytelniania podstawowego lub systemu Windows. |Nie |
@@ -82,7 +82,7 @@ Natomiast właściwości dostępne w sekcji typeProperties działania różnią 
 
 Gdy źródłem jest typ **RelationalSource** (w tym program Teradata), w sekcji **typeProperties** dostępne są następujące właściwości:
 
-| Właściwość | Opis | Dozwolone wartości | Wymagany |
+| Właściwość | Opis | Dozwolone wartości | Wymagane |
 | --- | --- | --- | --- |
 | query |Użyj zapytania niestandardowego do odczytywania danych. |Ciąg zapytania SQL. Na przykład: select * from MyTable. |Tak |
 
@@ -284,11 +284,11 @@ Podczas przesuwania danych do programu Teradata następujące mapowania są uży
 
 | Typ bazy danych programu Teradata | Typ programu .NET Framework |
 | --- | --- |
-| Char |String |
-| Obiektów CLOB |String |
-| Zdjęć |String |
-| VarChar |String |
-| VarGraphic |String |
+| Char |Ciąg |
+| Obiektów CLOB |Ciąg |
+| Zdjęć |Ciąg |
+| VarChar |Ciąg |
+| VarGraphic |Ciąg |
 | Obiekt blob |Byte [] |
 | Byte |Byte [] |
 | VarByte |Byte [] |
@@ -300,8 +300,8 @@ Podczas przesuwania danych do programu Teradata następujące mapowania są uży
 | Liczba |Double |
 | SmallInt |Int16 |
 | Date |DateTime |
-| Time |przedział_czasu |
-| Czas ze strefą czasową |String |
+| Godzina |przedział_czasu |
+| Czas ze strefą czasową |Ciąg |
 | Znacznik czasu |DateTime |
 | Sygnatura czasowa ze strefą czasową |DateTimeOffset |
 | Dzień interwału |przedział_czasu |
@@ -314,15 +314,15 @@ Podczas przesuwania danych do programu Teradata następujące mapowania są uży
 | Interwał minut |przedział_czasu |
 | Interwał od minuty do sekundy |przedział_czasu |
 | Interwał drugi |przedział_czasu |
-| Rok interwału |String |
-| Interwał od roku do miesiąca |String |
-| Miesiąc interwału |String |
-| Okres (Data) |String |
-| Czas (Time) |String |
-| Okres (czas ze strefą czasową) |String |
-| Kropka (Sygnatura czasowa) |String |
-| Okres (Sygnatura czasowa ze strefą czasową) |String |
-| Xml |String |
+| Rok interwału |Ciąg |
+| Interwał od roku do miesiąca |Ciąg |
+| Miesiąc interwału |Ciąg |
+| Okres (Data) |Ciąg |
+| Czas (Time) |Ciąg |
+| Okres (czas ze strefą czasową) |Ciąg |
+| Kropka (Sygnatura czasowa) |Ciąg |
+| Okres (Sygnatura czasowa ze strefą czasową) |Ciąg |
+| Xml |Ciąg |
 
 ## <a name="map-source-to-sink-columns"></a>Mapowanie źródła do kolumn ujścia
 Aby dowiedzieć się więcej na temat mapowania kolumn w źródłowym zestawie danych na kolumny w datadataset, zobacz [Mapowanie kolumn zestawu danych w Azure Data Factory](data-factory-map-columns.md).

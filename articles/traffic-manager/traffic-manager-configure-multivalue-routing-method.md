@@ -4,20 +4,19 @@ description: W tym artykule opisano sposób konfigurowania Traffic Manager w cel
 services: traffic-manager
 documentationcenter: ''
 author: rohinkoul
-manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: rohink
-ms.openlocfilehash: daf7d09916d276130e337f7acea738228ee23707
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ac6d20acf32be9678818483e5929dee225501b1
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76938776"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706821"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Konfigurowanie metody routingu z wieloma wartościami w Traffic Manager
 
@@ -38,7 +37,7 @@ Utwórz grupę zasobów dla profilu Traffic Manager.
 ## <a name="create-a-traffic-manager-profile"></a>Tworzenie profilu usługi Traffic Manager
 Utwórz profil Traffic Manager, który kieruje ruchem użytkownika przez wysłanie ich do punktu końcowego z najniższym opóźnieniem.
 
-1. W lewej górnej części ekranu wybierz kolejno pozycje **Utwórz zasób** > **Sieć** > **Traffic Manager** > **Utwórz**profil.
+1. W lewej górnej części ekranu wybierz kolejno pozycje **Utwórz zasób**  >  **Sieć**  >  **Traffic Manager**  >  **Utwórz**profil.
 2. W obszarze **Utwórz profil Traffic Manager**wprowadź lub wybierz poniższe informacje, zaakceptuj wartości domyślne pozostałych ustawień, a następnie wybierz pozycję **Utwórz**:
     
     | Ustawienie                 | Wartość                                              |

@@ -4,17 +4,17 @@ description: Skorzystaj z tego samouczka programowania w języku R, aby rozpocz�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 2c481fc2f435695b4b99b86411a2fcca27e97ab4
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b2bd75750670a83409b0f5b8839144e55ef2c4d0
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117858"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84706285"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Wprowadzenie do Azure Machine Learning Studio (klasyczne) w języku R
 
@@ -141,7 +141,7 @@ Pełny kod dla tej sekcji znajduje się w [MachineLearningSamples — notesy/Stu
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Załaduj zestaw danych
 
-Zaczniemy od ładowania pliku **csdairydata. csv** do Azure Machine Learning Studio (klasyczny).
+Zaczniemy od załadowania pliku **csdairydata.csv** do Azure Machine Learning Studio (klasyczne).
 
 1. Uruchom środowisko Azure Machine Learning Studio (klasyczne).
 1. Wybierz pozycję **+ Nowy** w lewym dolnym rogu ekranu i wybierz pozycję **zestaw danych**.
@@ -156,11 +156,11 @@ Teraz, gdy mamy pewne dane w Machine Learning Studio (klasyczne), musimy utworzy
 
 1. Wybierz pozycję **+ Nowy** w lewym dolnym rogu, a następnie wybierz pozycję **eksperymenty**, a następnie przycisk **pusty eksperyment**.
 1. Możesz nazwać eksperyment poprzez wybranie i zmodyfikowanie **eksperymentu utworzonego w...** title w górnej części strony. Na przykład zmiana na **przeanalizowanie mleczarni urzędu certyfikacji**.
-1. Po lewej stronie eksperymentu rozwiń pozycję **zapisane zestawy danych**, a następnie **Moje zestawy danych**. Powinien zostać wyświetlony wcześniej przekazany plik **cadairydata. csv** .
-1. Przeciągnij i upuść **zestaw danych csdairydata. csv** na eksperyment.
+1. Po lewej stronie eksperymentu rozwiń pozycję **zapisane zestawy danych**, a następnie **Moje zestawy danych**. Powinien zostać wyświetlony wcześniej przekazany **cadairydata.csv** .
+1. Przeciągnij i upuść **zestaw danychcsdairydata.csv** na eksperyment.
 1. W polu **Wyszukaj elementy eksperymentu** w górnej części okienka po lewej stronie wpisz polecenie [Execute R Script][execute-r-script]. Moduł zostanie wyświetlony na liście wyszukiwania.
 1. Przeciągnij i upuść moduł [Wykonaj skrypt R][execute-r-script] na palecie.  
-1. Połącz dane wyjściowe **zestawu danych csdairydata. csv** z lewej strony wejściowej (**pozycję DataSet1**) [skryptu Execute języka R][execute-r-script].
+1. Połącz dane wyjściowe **csdairydata.csv zestawu danych** z lewej strony wejściowej (**pozycję DataSet1**) [skryptu Execute języka R][execute-r-script].
 1. **Nie zapomnij wybrać opcji "Save" (Zapisz)!**  
 
 W tym momencie eksperyment powinien wyglądać jak rysunek 3.
@@ -171,11 +171,11 @@ W tym momencie eksperyment powinien wyglądać jak rysunek 3.
 
 #### <a name="check-on-the-data"></a>Sprawdź dane
 
-Spójrzmy na dane, które zostały załadowane do naszego eksperymentu. W eksperymentie wybierz dane wyjściowe **zestawu danych cadairydata. csv** i wybierz opcję **Wizualizuj**. Powinien pojawić się rysunek 4.  
+Spójrzmy na dane, które zostały załadowane do naszego eksperymentu. W eksperymentie wybierz dane wyjściowe **zestawu danychcadairydata.csv** i wybierz opcję **Wizualizuj**. Powinien pojawić się rysunek 4.  
 
-![Podsumowanie zestawu danych cadairydata. csv](./media/r-quickstart/fig4.png)
+![Podsumowanie zestawu danych cadairydata.csv](./media/r-quickstart/fig4.png)
 
-*Rysunek 4. Podsumowanie zestawu danych cadairydata. csv.*
+*Rysunek 4. Podsumowanie zestawu danych cadairydata.csv.*
 
 W tym widoku widzimy wiele przydatnych informacji. Zobaczymy pierwsze kilka wierszy tego zestawu danych. W przypadku wybrania kolumny w sekcji statystyki zostanie wyświetlona więcej informacji o kolumnie. Na przykład wiersz typu funkcja pokazuje, jakie typy danych Azure Machine Learning Studio (klasyczne) są przypisane do kolumny. Zapoznaj się z dobrym Sanity przed rozpoczęciem wykonywania jakichkolwiek poważnych zadań.
 
@@ -1300,7 +1300,7 @@ RStudio jest całkiem dobrze udokumentowane. Oto kilka linków do najważniejszy
 * **Edytowanie i wykonywanie kodu języka r** — RStudio zapewnia zintegrowane środowisko do edycji i wykonywania kodu języka r. Zobacz [Edytowanie i wykonywanie kodu,](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code) Aby uzyskać szczegółowe informacje.
 * **Debugowanie** — RStudio obejmuje zaawansowane funkcje debugowania. Aby uzyskać więcej informacji o tych funkcjach, zobacz [debugowanie za pomocą RStudio](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) . Aby uzyskać informacje o funkcjach rozwiązywania problemów z punktem przerwania, zobacz temat [Rozwiązywanie problemów](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting)
 
-## <a name="further-reading"></a><a id="appendixb"></a>Dodatkowe informacje
+## <a name="further-reading"></a><a id="appendixb"></a>Dalsze odczytywanie
 
 Ten samouczek programowania w języku R obejmuje podstawowe informacje o tym, co jest potrzebne do korzystania z języka R z Azure Machine Learning Studio (klasyczny). Jeśli nie znasz języka R, dostępne są dwa wprowadzenie w witrynie CRAN:
 

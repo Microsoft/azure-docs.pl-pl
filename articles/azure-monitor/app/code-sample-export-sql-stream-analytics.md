@@ -3,15 +3,15 @@ title: Eksportowanie do bazy danych SQL z platformy Azure Application Insights |
 description: Ciągle Eksportuj dane Application Insights do bazy danych SQL przy użyciu Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: e67365038b9a481bc0cacf079e5d197cc3139a5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 811d86c0a9b8e55f548046402885e2ec5967c477
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536917"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85254688"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Przewodnik: Eksportowanie do bazy danych SQL z Application Insights przy użyciu Stream Analytics
-W tym artykule przedstawiono sposób przenoszenia danych telemetrycznych z [usługi azure Application Insights][start] do bazy danych Azure SQL Database przy użyciu funkcji [eksportu ciągłego][export] i [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+W tym artykule przedstawiono sposób przenoszenia danych telemetrycznych z [usługi Azure Application Insights][start] do Azure SQL Database za pomocą [eksportu ciągłego][export] i [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 Eksport ciągły przenosi dane telemetryczne do usługi Azure Storage w formacie JSON. Przeanalizuje obiekty JSON przy użyciu Azure Stream Analytics i utworzysz wiersze w tabeli bazy danych.
 
@@ -70,7 +70,7 @@ Eksport ciągły zawsze wyprowadza dane do konta usługi Azure Storage, dlatego 
    
     Zanotuj wspólną część nazwy ścieżki, która jest pochodną nazwy aplikacji i klucza Instrumentacji. 
 
-Zdarzenia są zapisywane w plikach obiektów BLOB w formacie JSON. Każdy plik może zawierać jedno lub więcej zdarzeń. Więc chcemy przeczytać dane zdarzenia i odfiltrować pola, które chcemy. Istnieją wszystkie rodzaje rzeczy, które możemy zrobić z danymi, ale naszym planem jest użycie Stream Analytics do przenoszenia danych do bazy danych SQL. Dzięki temu będzie można łatwo uruchamiać wiele interesujących zapytań.
+Zdarzenia są zapisywane w plikach obiektów BLOB w formacie JSON. Każdy plik może zawierać jedno lub więcej zdarzeń. Więc chcemy przeczytać dane zdarzenia i odfiltrować pola, które chcemy. Istnieją wszystkie rodzaje rzeczy, które możemy zrobić z danymi, ale naszym planem jest użycie Stream Analytics do przenoszenia danych do SQL Database. Dzięki temu będzie można łatwo uruchamiać wiele interesujących zapytań.
 
 ## <a name="create-an-azure-sql-database"></a>Tworzenie bazy danych Azure SQL Database
 Po ponownym uruchomieniu z subskrypcji w [Azure Portal][portal]Utwórz bazę danych (i nowy serwer, chyba że już nie masz takiego komputera), na którym chcesz napisać dane.
@@ -220,7 +220,7 @@ Wybierz pozycję SQL jako dane wyjściowe.
 
 ![W usłudze Stream Analytics wybierz pozycję dane wyjściowe.](./media/code-sample-export-sql-stream-analytics/SA006.png)
 
-Określ bazę danych SQL.
+Określ bazę danych.
 
 ![Wprowadź szczegóły bazy danych](./media/code-sample-export-sql-stream-analytics/SA007.png)
 

@@ -4,11 +4,11 @@ description: Zawiera omówienie architektury, składników i procesów używanyc
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273620"
+ms.lasthandoff: 06/11/2020
+ms.locfileid: "84707927"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup architektura i składniki
 
@@ -61,7 +61,7 @@ Azure Backup udostępnia różnych agentów kopii zapasowych, w zależności od 
 
 W poniższej tabeli objaśniono różne typy kopii zapasowych i używane:
 
-**Typ kopii zapasowej** | **Szczegóły** | **Wykorzystywani**
+**Typ kopii zapasowej** | **Szczegóły** | **Użycie**
 --- | --- | ---
 **Pełne** | Pełna kopia zapasowa zawiera całe źródło danych. Zwiększa przepustowość sieci niż różnicowe lub przyrostowe kopie zapasowe. | Używany do początkowej kopii zapasowej.
 **Różnicy** |  Różnicowa kopia zapasowa przechowuje bloki, które uległy zmianie od początkowej pełnej kopii zapasowej. Program używa mniejszej ilości sieci i magazynu i nie zachowuje nadmiarowych kopii niezmienionych danych.<br/><br/> Niewydajne, ponieważ bloki danych, które nie są zmieniane między nowszymi kopiami zapasowymi, są transferowane i przechowywane. | Nieużywane przez Azure Backup.
@@ -71,7 +71,7 @@ W poniższej tabeli objaśniono różne typy kopii zapasowych i używane:
 
 W poniższej tabeli objaśniono różne typy kopii zapasowych używanych dla SQL Server baz danych i częstotliwości ich używania:
 
-**Typ kopii zapasowej** | **Szczegóły** | **Wykorzystywani**
+**Typ kopii zapasowej** | **Szczegóły** | **Użycie**
 --- | --- | ---
 **Pełna kopia zapasowa** | pełna kopia zapasowa bazy danych powoduje utworzenie kopii zapasowej całej bazy danych. Zawiera wszystkie dane z konkretnej bazy danych lub zestawu grup plików lub plików. Pełna kopia zapasowa zawiera również wystarczającą liczbę dzienników do odzyskania tych danych. | Można wyzwalać maksymalnie jedną pełną kopię zapasową dziennie.<br/><br/> Można utworzyć pełną kopię zapasową w ciągu dziennym lub tygodniowym.
 **Różnicowa kopia zapasowa** | Różnicowa kopia zapasowa jest oparta na najnowszej, poprzedniej kopii zapasowej danych pełnych.<br/><br/> Przechwytuje tylko te dane, które zostały zmienione od czasu pełnej kopii zapasowej. |  Można wyzwalać maksymalnie jedną różnicową kopię zapasową dziennie.<br/><br/> Nie można skonfigurować pełnej kopii zapasowej i różnicowej kopii zapasowej w tym samym dniu.

@@ -4,19 +4,19 @@ description: Dowiedz się, jak przypisać role platformy Azure do lokalnej grupy
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc1812d955590ec0c7372e1311c9d69f93b9957c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4285c7d8cd6c9feee84eaae3c49ffd1f21d5df27
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80128877"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253090"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Jak zarządzać lokalną grupą administratorów na urządzeniach dołączonych do usługi Azure AD
 
@@ -26,7 +26,7 @@ W tym artykule wyjaśniono, jak działa aktualizacja członkostwa oraz jak możn
 
 ## <a name="how-it-works"></a>Jak to działa
 
-Po połączeniu urządzenia z systemem Windows z usługą Azure AD przy użyciu funkcji Azure AD Join usługa Azure AD dodaje następujące zasady zabezpieczeń do lokalnej grupy administratorów na urządzeniu:
+Po połączeniu urządzenia z systemem Windows z usługą Azure AD przy użyciu funkcji Azure AD Join usługa Azure AD dodaje następujące podmioty zabezpieczeń do lokalnej grupy administratorów na urządzeniu:
 
 - Rola administratora globalnego usługi Azure AD
 - Rola administratora urządzenia usługi Azure AD 
@@ -79,7 +79,7 @@ Począwszy od wersji **Windows 10 1709** , można wykonać to zadanie na podstaw
  
 Dodatkowo można również dodać użytkowników przy użyciu wiersza polecenia:
 
-- Jeśli użytkownicy dzierżawy są synchronizowani z Active Directory lokalnych, użyj `net localgroup administrators /add "Contoso\username"`programu.
+- Jeśli użytkownicy dzierżawy są synchronizowani z Active Directory lokalnych, użyj programu `net localgroup administrators /add "Contoso\username"` .
 - Jeśli w usłudze Azure AD są tworzone użytkownicy dzierżawy, użyj`net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Zagadnienia do rozważenia 
