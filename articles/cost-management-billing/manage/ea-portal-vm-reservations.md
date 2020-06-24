@@ -3,16 +3,16 @@ title: Wystąpienia zarezerwowane maszyn wirtualnych z umowami EA platformy Azur
 description: W tym artykule przedstawiono podsumowanie sposobu, w jaki rezerwacje platformy Azure dla wystąpień zarezerwowanych maszyn wirtualnych mogą pomóc w zaoszczędzeniu pieniędzy dzięki rejestracji w przedsiębiorstwie.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/01/2020
+ms.date: 06/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 649766d5daedbf880a3c17a1cb8282b0a9e4f2fe
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: a06f416ed1d4df33cc6777eba878eee2b4f6b047
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299064"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84735425"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Wystąpienia zarezerwowane maszyn wirtualnych z umowami EA platformy Azure
 
@@ -39,21 +39,30 @@ Aby uzyskać informacje o cenach, zobacz temat [Ceny maszyn wirtualnych z system
 
 ## <a name="reserved-instances-api-support"></a>Obsługa interfejsu API wystąpień zarezerwowanych
 
-Używając interfejsów API platformy Azure, można programowo uzyskiwać informacje dotyczące rezerwacji oprogramowania lub usług platformy Azure dla organizacji. Aby uzyskać więcej informacji, zobacz [Interfejsy API na potrzeby automatyzacji rezerwacji platformy Azure](../reservations/reservation-apis.md).
+Używając interfejsów API platformy Azure, można programowo uzyskiwać informacje dotyczące rezerwacji oprogramowania lub usług platformy Azure dla organizacji. Interfejsy API umożliwiają na przykład:
+
+- Znajdowanie rezerwacji do zakupienia
+- Kupowanie rezerwacji
+- Wyświetlanie zakupionych rezerwacji
+- Wyświetlanie dostępu do rezerwacji i zarządzanie nim
+- Dzielenie lub scalanie rezerwacji
+- Zmienianie zakresu rezerwacji
+
+Aby uzyskać więcej informacji, zobacz [Interfejsy API na potrzeby automatyzacji rezerwacji platformy Azure](../reservations/reservation-apis.md).
 
 ## <a name="azure-reserved-virtual-machine-instances"></a>Wystąpienia zarezerwowane maszyn wirtualnych na platformie Azure
 
-Wystąpienia zarezerwowane umożliwiają zredukowanie kosztów maszyn wirtualnych do 72% w porównaniu z cenami przy płatności zgodnie z rzeczywistym użyciem na wszystkich maszynach wirtualnych lub nawet do 82% oszczędności w połączeniu z korzyściami użycia hybrydowego platformy Azure. Istnieje możliwość lepszego określania priorytetów dla obciążeń, ustalania budżetu i opracowywania prognoz z płatnością z góry za rok lub trzy lata. Możesz też zmieniać lub anulować rezerwacje w miarę zachodzenia zmian w potrzebach biznesowych.
+Wystąpienia zarezerwowane umożliwiają obniżenie kosztów maszyn wirtualnych nawet o 72% w stosunku do cen w modelu płatności zgodnie z rzeczywistym użyciem na wszystkich maszynach wirtualnych. lub uzyskanie nawet do 82% oszczędności w przypadku połączenia z korzyścią użycia hybrydowego platformy Azure. Wystąpienia zarezerwowane ułatwiają lepsze zarządzanie obciążeniami, budżetem i prognozami dzięki płatności z góry za rok lub trzy lata. Możesz też zmieniać lub anulować rezerwacje w miarę zachodzenia zmian w potrzebach biznesowych.
 
 ### <a name="how-to-buy-reserved-virtual-machine-instances"></a>Jak kupić wystąpienia zarezerwowane maszyn wirtualnych
 
-Aby kupić wystąpienia zarezerwowane maszyn wirtualnych platformy Azure, administrator rejestracji na platformie Azure z umową Enterprise musi włączyć opcję zakupu _Zarezerwuj wystąpienia_ w sekcji _Szczegóły rejestracji_ na karcie _Rejestracja_ w witrynie [Azure EA Portal](https://ea.azure.com/).
+Aby kupić wystąpienia zarezerwowane maszyn wirtualnych platformy Azure, administrator rejestracji na platformie Azure z umową Enterprise musi włączyć opcję zakupu _Zarezerwuj wystąpienia_. Ta opcja znajduje się w sekcji _Szczegóły rejestracji_ na karcie _Rejestracja_ w witrynie [Azure EA Portal](https://ea.azure.com/).
 
 Kiedy będzie można już dodawać wystąpienia zarezerwowane w rejestracji EA, dowolny właściciel konta z aktywną subskrypcją skojarzoną z rejestracją EA będzie mógł kupić wystąpienia zarezerwowane maszyn wirtualnych w witrynie [Azure Portal](https://aka.ms/reservations). Aby uzyskać więcej informacji, zobacz temat [Przedpłaty za maszyny wirtualne i oszczędzanie pieniędzy przy użyciu wystąpień zarezerwowanych maszyn wirtualnych](https://go.microsoft.com/fwlink/?linkid=861721).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Jak wyświetlić szczegóły zakupu wystąpienia zarezerwowanego
 
-Możesz wyświetlić szczegóły zakupu wystąpienia zarezerwowanego za pomocą menu _Rezerwacje_ po lewej stronie witryny [Azure Portal](https://aka.ms/reservations) lub z poziomu witryny [Azure EA Portal](https://ea.azure.com/). Wybierz pozycję **Raporty** z menu po lewej stronie i przewiń w dół do sekcji _Opłaty według usług_ na karcie _Podsumowanie użycia_. Przewiń do dołu sekcji. Twoje zakupy i użycie wystąpień zarezerwowanych zostaną wyświetlone na końcu z opisem „1 year” (1 rok) lub „3 years” (3 lata) obok nazwy usługi, na przykład: Standard_DS1_v2 eastus 1 year lub Standard_D2s_v3 eastus2 3 years.
+Możesz wyświetlić szczegóły zakupu wystąpienia zarezerwowanego za pomocą menu _Rezerwacje_ po lewej stronie witryny [Azure Portal](https://aka.ms/reservations) lub z poziomu witryny [Azure EA Portal](https://ea.azure.com/). Wybierz pozycję **Raporty** z menu po lewej stronie i przewiń w dół do sekcji _Opłaty według usług_ na karcie _Podsumowanie użycia_. Przewiń do dołu sekcji. Twoje zakupy i użycie wystąpień zarezerwowanych zostaną wyświetlone na końcu z opisem `1 year` lub `3 years` obok nazwy usługi, na przykład: `Standard_DS1_v2 eastus 1 year` lub `Standard_D2s_v3 eastus2 3 years`.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Jak mogę zmienić subskrypcję skojarzoną z wystąpieniem zarezerwowanym lub przenieść swoje korzyści z wystąpienia zarezerwowanego do innej subskrypcji w ramach tego samego konta?
 
@@ -66,11 +75,11 @@ Aby uzyskać więcej informacji na temat zmiany zakresu rezerwacji, zobacz [Zmie
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Jak wyświetlić szczegóły użycia wystąpienia zarezerwowanego
 
-Możesz wyświetlić szczegóły użycia wystąpienia zarezerwowanego w witrynie [Azure Portal](https://aka.ms/reservations) lub w witrynie [Azure EA Portal](https://ea.azure.com/) (w przypadku klientów z umowami EA, którzy mają dostęp do wyświetlania informacji dotyczących rozliczeń) w obszarze _Raporty_ > _Podsumowania użycia_ > _Opłaty według usług_. Wystąpienia zarezerwowane mogą być identyfikowane jako nazwy usług zawierające element „Reservation”, na przykład: Reservation-Base VM lub Virtual Machines Reservation-Windows Svr (1 rdzeń).
+Możesz wyświetlić szczegóły użycia wystąpienia zarezerwowanego w witrynie [Azure Portal](https://aka.ms/reservations) lub w witrynie [Azure EA Portal](https://ea.azure.com/) (w przypadku klientów z umowami EA, którzy mają dostęp do wyświetlania informacji dotyczących rozliczeń) w obszarze _Raporty_ > _Podsumowania użycia_ > _Opłaty według usług_. Wystąpienia zarezerwowane mogą być identyfikowane jako nazwy usług zawierające element „Reservation”, na przykład: `Reservation-Base VM or Virtual Machines Reservation-Windows Svr (1 Core)`.
 
 Szczegóły użycia i zaawansowany raport do pobrania w formie pliku CSV zawierają dodatkowe informacje o użyciu wystąpienia zarezerwowanego. Pole _Informacje dodatkowe_ ułatwia sprawdzenie użycia wystąpienia zarezerwowanego.
 
-Jeśli nie użyto korzyści z użycia hybrydowego platformy Azure do zakupu wystąpień zarezerwowanych maszyn wirtualnych platformy Azure, wystąpienia zarezerwowane będą emitować dwa liczniki (sprzęt i oprogramowanie). Jeśli do zakupu wystąpienia zarezerwowanego użyto korzyści z użycia hybrydowego platformy Azure, licznik oprogramowania nie będzie widoczny w szczegółach użycia wystąpienia zarezerwowanego.
+Jeśli nie użyto korzyści z użycia hybrydowego platformy Azure do zakupu wystąpień zarezerwowanych maszyn wirtualnych platformy Azure, wystąpienia zarezerwowane będą emitować dwa mierniki (sprzęt i oprogramowanie). Jeśli do zakupu wystąpienia zarezerwowanego użyto korzyści z użycia hybrydowego platformy Azure, licznik oprogramowania nie będzie widoczny w szczegółach użycia wystąpienia zarezerwowanego.
 
 ### <a name="reserved-instance-billing"></a>Rozliczenia wystąpień zarezerwowanych
 
@@ -83,6 +92,7 @@ Jeśli klient z umową Azure EA wykorzystał już całe zobowiązanie pieniężn
 Powiadomienia e-mail będą wysyłane na 30 dni przed wygaśnięciem rezerwacji. Po wygaśnięciu rezerwacji wdrożone maszyny wirtualne będą nadal działać, a opłaty będą naliczane przy użyciu stawki dla płatności zgodnie z rzeczywistym użyciem. Aby uzyskać więcej informacji, zobacz [ofertę wystąpień zarezerwowanych maszyn wirtualnych.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## <a name="next-steps"></a>Następne kroki
+
 - Aby uzyskać więcej informacji o rezerwacjach platformy Azure, zobacz temat [Co to są rezerwacje platformy Azure?](../reservations/save-compute-costs-reservations.md)
 - Aby dowiedzieć się więcej o kosztach i użyciu rezerwacji w przedsiębiorstwie, zobacz temat [Get Enterprise Agreement reservation costs and usage](../reservations/understand-reserved-instance-usage-ea.md) (Pobieranie kosztów i użycia rezerwacji w ramach umowy Enterprise Agreement).
 - Aby uzyskać informacje o cenach, zobacz temat [Ceny maszyn wirtualnych z systemem Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) lub [Ceny maszyn wirtualnych z systemem Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).

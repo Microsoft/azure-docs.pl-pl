@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 5728a8e254074cd96ae1f13cb053220f347e3983
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 7162e2e8c42f3e83a47c46d739f93cfc4cfcaac6
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791043"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737635"
 ---
-# <a name="data-storage-optimization"></a>Optymalizacja magazynu danych
+# <a name="data-storage-optimization-for-apache-spark"></a>Optymalizacja magazynu danych dla Apache Spark
 
 W tym artykule omówiono strategie optymalizacji magazynu danych w celu wydajnego wykonywania zadań Apache Spark w usłudze Azure HDInsight.
 
@@ -56,10 +56,10 @@ Podczas tworzenia nowego klastra Spark można wybrać platformę Azure Blob Stor
 
 | Typ sklepu | System plików | Szybkość | Administracyjnej | Przypadki użycia |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//URL/ | **Standardowa** | Yes | Przejściowy klaster |
-| Azure Blob Storage (bezpieczna) | **wasbs:**//URL/ | **Standardowa** | Yes | Przejściowy klaster |
-| Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Większej** | Yes | Przejściowy klaster |
-| Azure Data Lake Storage Gen 1| **ADL:**//URL/ | **Większej** | Yes | Przejściowy klaster |
+| Azure Blob Storage | **wasb:**//URL/ | **Standardowa (Standard)** | Tak | Przejściowy klaster |
+| Azure Blob Storage (bezpieczna) | **wasbs:**//URL/ | **Standardowa (Standard)** | Tak | Przejściowy klaster |
+| Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Większej** | Tak | Przejściowy klaster |
+| Azure Data Lake Storage Gen 1| **ADL:**//URL/ | **Większej** | Tak | Przejściowy klaster |
 | Lokalny system plików HDFS | **HDFS:**//URL/ | **Najlepszy** | Nie | Interaktywny klaster 24/7 |
 
 Pełny opis opcji magazynu można znaleźć w temacie [porównanie opcji magazynu do użycia z klastrami usługi Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).

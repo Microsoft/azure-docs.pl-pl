@@ -6,17 +6,17 @@ author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 599514f6e7b97208194fc4c1660712f4d5e0c4cb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585355"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85214013"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Wskazówki dotyczące projektowania tabel rozproszonych w puli SQL Synapse
 

@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 18158c867ba7a3307585eab0f950d15a6a12aa7c
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 5323e54a81c7123e3e60f69d05accef9a63c7bc4
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342633"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737448"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Rozwiązywanie problemów z wizualizacją zależności/oceny
 
@@ -105,7 +105,7 @@ Ocena serwera Azure Migrate obecnie uwzględnia koszt licencji systemu operacyjn
 
 Narzędzie Server Assessment nieprzerwanie zbiera dane wydajności maszyn lokalnych i używa ich do określania zalecanych jednostek SKU maszyn wirtualnych i jednostek SKU dysków na platformie Azure. [Dowiedz się, jak](concepts-assessment-calculation.md#calculate-sizing-performance-based) zbierane są dane oparte na wydajności.
 
-## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combintion-of-reserved-instances-vm-uptime-and-discount-"></a>Dlaczego moja ocena wykazuje ostrzeżenie, że zostało utworzone z nieprawidłowym combintion wystąpień zarezerwowanych, czasu działania maszyny wirtualnej i rabatu (%)?
+## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Dlaczego moja Ocena pokazuje ostrzeżenie, że zostało utworzone przy użyciu nieprawidłowej kombinacji wystąpień zarezerwowanych, czasu działania maszyny wirtualnej i rabatu (%)?
 Po wybraniu opcji "zarezerwowane wystąpienia" rabat (%) i nie mają zastosowania właściwości "czas pracy maszyny wirtualnej". Po utworzeniu oceny z nieprawidłową kombinacją tych właściwości przyciski Edytuj i Oblicz ponownie są wyłączone. Utwórz nową ocenę. [Dowiedz się więcej](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## <a name="dependency-visualization-in-azure-government"></a>Wizualizacja zależności w Azure Government
@@ -132,15 +132,14 @@ W przypadku maszyn wirtualnych z systemem Linux upewnij się, że polecenia inst
 
 ## <a name="visualize-dependencies-for--hour"></a>Wizualizuj zależności dla > godziny
 
-Chociaż Azure Migrate pozwala na powrót do określonej daty w ostatnim miesiącu, maksymalny czas trwania wizualizacji zależności wynosi godzinę.
+Dzięki analizie zależności bez wykorzystania agentów można wizualizować zależności lub eksportować je na mapie przez okres do 30 dni.
 
-Można na przykład użyć funkcji czas trwania w mapie zależności, aby wyświetlić zależności dla wczoraj, ale można je wyświetlić tylko dla jednego okresu.
-
-Można jednak użyć dzienników Azure Monitor, aby [wykonać zapytanie o dane zależności](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) przez dłuższy czas.
+Analiza zależności oparta na agentach, chociaż Azure Migrate pozwala na powrót do określonej daty w ostatnim miesiącu, maksymalny czas trwania wizualizacji zależności wynosi godzinę. Można na przykład użyć funkcji czas trwania w mapie zależności, aby wyświetlić zależności dla wczoraj, ale można je wyświetlić tylko dla jednego okresu. Można jednak użyć dzienników Azure Monitor, aby [wykonać zapytanie o dane zależności](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) przez dłuższy czas.
 
 ## <a name="visualized-dependencies-for--10-machines"></a>Wizualne zależności dla maszyn > 10
 
-W ocenie serwera Azure Migrate można [wizualizować zależności dla grup](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) z maksymalnie 10 maszynami wirtualnymi. W przypadku większych grup zalecamy dzielenie maszyn wirtualnych na mniejsze grupy w celu wizualizacji zależności.
+W Azure Migrate oceny serwera, z analizą zależności opartą na agentach, można [wizualizować zależności dla grup](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) z maksymalnie 10 maszynami wirtualnymi. W przypadku większych grup zalecamy dzielenie maszyn wirtualnych na mniejsze grupy w celu wizualizacji zależności.
+
 
 ## <a name="machines-show-install-agent"></a>Na maszynach zostanie wyświetlona wartość "Zainstaluj agenta"
 
@@ -151,6 +150,9 @@ Po przeprowadzeniu migracji maszyn z włączoną wizualizacją zależności na p
 - Maszyny mogą także mieć inny adres IP w zależności od tego, czy lokalny adres IP został zachowany.
 - Jeśli adresy MAC i IP różnią się od lokalnych, Azure Migrate nie kojarzy maszyn lokalnych z dowolnymi Service Map danymi zależności. W takim przypadku zostanie wyświetlona opcja instalacji agenta zamiast wyświetlania zależności.
 - Po przeprowadzeniu migracji testowej na platformę Azure maszyny lokalne pozostają włączone zgodnie z oczekiwaniami. Równoważne komputery z systemem na platformie Azure uzyskują różne adresy MAC i mogą uzyskiwać różne adresów IP. Jeśli nie zablokujesz wychodzącego ruchu dziennika Azure Monitor z tych maszyn, Azure Migrate nie będzie kojarzyć maszyn lokalnych z dowolnymi Service Map danymi zależności i w ten sposób będzie wyświetlana opcja instalacji agentów, a nie do wyświetlania zależności.
+
+## <a name="dependencies-export-csv-shows-unknown-process"></a>Plik CSV składnika eksport zależności zawiera "nieznany proces"
+W analizie zależności bez wykorzystania agentów nazwy procesów są przechwytywane na podstawie najlepszego wysiłku. W niektórych scenariuszach, chociaż nazwy serwera źródłowego i docelowego oraz port docelowy są przechwytywane, nie jest możliwe ustalenie nazw procesów na obu końcach zależności. W takich przypadkach proces jest oznaczony jako "nieznany proces".
 
 
 ## <a name="capture-network-traffic"></a>Przechwyć ruch sieciowy

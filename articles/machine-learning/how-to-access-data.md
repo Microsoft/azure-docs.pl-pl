@@ -11,19 +11,21 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 835bcba5e24137377c33c9166b1c3076d19cacc1
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: d73427db5fd168a31c478f92ef11307df136a775
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552381"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85125416"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak nawiązać połączenie z usługami Azure Storage za pośrednictwem Azure Machine Learning magazynów danych. Magazyny danych przechowują informacje o połączeniu, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzonych z obszarem roboczym, dzięki czemu można bezpiecznie uzyskać dostęp do magazynu bez konieczności nawiązywania ich w skryptach. Aby zrozumieć, w jaki sposób magazyn danych mieści się w przepływie pracy ogólnego dostępu do danych Azure Machine Learning, zobacz artykuł dotyczący [bezpiecznego dostępu do danych](concept-data.md#data-workflow) .
+W tym artykule dowiesz się, jak **nawiązać połączenie z usługami Azure Storage za pośrednictwem Azure Machine Learning magazynów danych**. Magazyny danych przechowują informacje o połączeniu, takie jak identyfikator subskrypcji i autoryzacja tokenu w [Key Vault](https://azure.microsoft.com/services/key-vault/) skojarzonych z obszarem roboczym, dzięki czemu można bezpiecznie uzyskać dostęp do magazynu bez konieczności nawiązywania ich w skryptach. 
 
-Magazyny danych można tworzyć na podstawie [tych rozwiązań usługi Azure Storage](#matrix). W przypadku nieobsługiwanych rozwiązań magazynu i zapisania kosztów ruchu wychodzącego w trakcie eksperymentów z uczeniem maszynowym zalecamy [przeniesienie danych](#move) do obsługiwanych rozwiązań usługi Azure Storage. 
+**W przypadku nieobsługiwanych rozwiązań magazynu**i oszczędności związanych z ruchem wychodzącym w trakcie eksperymentów w ml [Przenieś dane](#move) do obsługiwanych rozwiązań usługi Azure Storage.  Magazyny danych można tworzyć na podstawie [tych rozwiązań usługi Azure Storage](#matrix). 
+
+Aby zrozumieć, w jaki sposób magazyn danych mieści się w przepływie pracy ogólnego dostępu do danych Azure Machine Learning, zobacz artykuł dotyczący [bezpiecznego dostępu do danych](concept-data.md#data-workflow) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -95,12 +97,14 @@ Wszystkie metody rejestrowania znajdują się w [`Datastore`](https://docs.micro
 
 Możesz znaleźć informacje potrzebne do wypełnienia `register_azure_*()` metody na [Azure Portal](https://portal.azure.com).
 
+* Nazwa magazynu danych powinna zawierać tylko małe litery, cyfry i znaki podkreślenia. 
+
 * Jeśli planujesz użyć klucza konta lub tokenu sygnatury dostępu współdzielonego w celu uwierzytelnienia, wybierz pozycję **konta magazynu** w okienku po lewej stronie i wybierz konto magazynu, które chcesz zarejestrować. 
   * Na stronie **Przegląd** znajdują się takie informacje, jak nazwa konta, kontener i nazwa udziału plików. 
       1. W przypadku kluczy konta przejdź do pozycji **klucze dostępu** w okienku **Ustawienia** . 
       1. W przypadku tokenów SAS przejdź do obszaru **sygnatury dostępu współdzielonego** w okienku **Ustawienia** .
 
-* Jeśli planujesz używać zasady usługi do uwierzytelniania, przejdź do **rejestracje aplikacji** i wybierz aplikację, której chcesz użyć. 
+* Jeśli planujesz użyć jednostki usługi do uwierzytelniania, przejdź do **rejestracje aplikacji** i wybierz aplikację, której chcesz użyć. 
     * Odpowiadająca jej Strona **przeglądu** będzie zawierać wymagane informacje, takie jak identyfikator dzierżawy i identyfikator klienta.
 
 > [!IMPORTANT]
@@ -112,7 +116,7 @@ Aby utworzyć magazyny danych dla innych usług magazynu i zapoznać się z opcj
 
 #### <a name="blob-container"></a>Kontener obiektów blob
 
-Aby zarejestrować kontener obiektów blob platformy Azure jako magazyn danych, użyj elementu [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
+Aby zarejestrować kontener obiektów blob platformy Azure jako magazyn danych, użyj elementu [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) .
 
 Poniższy kod powoduje utworzenie i zarejestrowanie `blob_datastore_name` magazynu danych w `ws` obszarze roboczym. Ten magazyn danych uzyskuje dostęp do `my-container-name` kontenera obiektów BLOB na `my-account-name` koncie magazynu przy użyciu podanego klucza dostępu do konta.
 
@@ -128,7 +132,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
                                                          account_name=account_name,
                                                          account_key=account_key)
 ```
-Jeśli kontener obiektów BLOB znajduje się w sieci wirtualnej, należy uwzględnić parametr `skip_validation=True` w [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) metodzie. 
+Jeśli kontener obiektów BLOB znajduje się w sieci wirtualnej, należy uwzględnić parametr `skip_validation=True` w [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-) metodzie. 
 
 #### <a name="file-share"></a>Udział plików
 

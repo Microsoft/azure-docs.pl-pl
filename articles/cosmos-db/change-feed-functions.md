@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7a74635551d8416bf60689b1f1403f29883e81bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce95e760dd9faf2130a81dff3f0611c27f99551d
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78851369"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118903"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architektury oparte na zdarzeniach bezserwerowych z Azure Cosmos DB i Azure Functions
 
 Azure Functions zapewnia najprostszy sposób nawiązywania połączenia ze [źródłem zmian](change-feed.md). Można utworzyć małe Azure Functions reaktywne, które będą automatycznie wyzwalane dla każdego nowego zdarzenia w źródle zmian kontenera usługi Azure Cosmos.
 
-![Funkcje oparte na zdarzeniach bezserwerowych działające z wyzwalaczem Azure Functions dla Cosmos DB](./media/change-feed-functions/functions.png)
+:::image type="content" source="./media/change-feed-functions/functions.png" alt-text="Funkcje oparte na zdarzeniach bezserwerowych działające z wyzwalaczem Azure Functions dla Cosmos DB" border="false":::
 
 Korzystając z [wyzwalacza Azure Functions dla Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md), można użyć funkcji skalowania i niezawodnego wykrywania zdarzeń przez [procesor kanału informacyjnego](./change-feed-processor.md), bez konieczności zachowywania [infrastruktury procesów roboczych](./change-feed-processor.md). Wystarczy skupić się na logice funkcji platformy Azure bez obaw o resztę potoku pozyskania zdarzeń. Można nawet mieszać wyzwalacz z innymi [powiązaniami Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
@@ -30,7 +30,7 @@ Korzystając z [wyzwalacza Azure Functions dla Cosmos DB](../azure-functions/fun
 Aby zaimplementować przepływ oparty na zdarzeniach bezserwerowych, potrzebne są:
 
 * **Monitorowany kontener**: monitorowany kontener jest monitorowanym kontenerem usługi Azure Cosmos i przechowuje dane, z których jest generowana podawanie zmian. Wszystkie operacje wstawiania, aktualizacje monitorowanego kontenera są odzwierciedlane w kanale zmian kontenera.
-* **Kontener dzierżawy**: kontener dzierżawy zachowuje stan między wieloma i dynamicznymi wystąpieniami funkcji platformy Azure bez serwera i umożliwia dynamiczne skalowanie. Ten kontener dzierżawy może być ręcznie lub automatycznie tworzony przez wyzwalacz Azure Functions dla Cosmos DB. Aby automatycznie utworzyć kontener dzierżawy, Ustaw flagę *CreateLeaseCollectionIfNotExists* w [konfiguracji](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Podzielone na partycje kontenery dzierżaw muszą mieć definicję `/id` klucza partycji.
+* **Kontener dzierżawy**: kontener dzierżawy zachowuje stan między wieloma i dynamicznymi wystąpieniami funkcji platformy Azure bez serwera i umożliwia dynamiczne skalowanie. Ten kontener dzierżawy może być ręcznie lub automatycznie tworzony przez wyzwalacz Azure Functions dla Cosmos DB. Aby automatycznie utworzyć kontener dzierżawy, Ustaw flagę *CreateLeaseCollectionIfNotExists* w [konfiguracji](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Podzielone na partycje kontenery dzierżaw muszą mieć `/id` definicję klucza partycji.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Utwórz wyzwalacz Azure Functions dla Cosmos DB
 

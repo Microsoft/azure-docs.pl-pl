@@ -3,12 +3,12 @@ title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 5baf9ce63442ee60d212362df92a44d0fa2723fa
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 7d5a7d82aceae6902ad953e314434f1a3736a5e1
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610308"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85117543"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -343,7 +343,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | laboratoria/formuły | trybie | 1-80 | Alfanumeryczne, podkreślenia, łączniki i nawiasy. |
 > | Labs/virtualmachines | trybie | 1-15 (system Windows)<br>1-64 (Linux) | Alfanumeryczne i łączniki.<br><br>Zacznij i kończyć znakiem alfanumerycznym. Nie mogą być wszystkie cyfry. |
 
-## <a name="microsoftdocumentdb"></a>Microsoft. DocumentDB
+## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
@@ -524,7 +524,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | przestrzeni | global | 6-50 | Alfanumeryczne i łączniki<br><br>Zacznij i kończyć znakiem alfanumerycznym. |
+> | przestrzeni | global | 6-50 | Alfanumeryczne i łączniki<br><br>Zacznij od litery. Kończy się znakiem alfanumerycznym. |
 > | przestrzenie nazw/reguł autoryzacji | namespace | 1-256 | Alfanumeryczne, kropki, łączniki i podkreślenia.<br><br>Rozpocznij alfanumeryczne. |
 > | przestrzenie nazw/notificationHubs | namespace | 1-260 | Alfanumeryczne, kropki, łączniki i podkreślenia.<br><br>Rozpocznij alfanumeryczne. |
 > | przestrzenie nazw/notificationHubs/reguł autoryzacji | Centrum powiadomień | 1-256 | Alfanumeryczne, kropki, łączniki i podkreślenia.<br><br>Rozpocznij alfanumeryczne. |
@@ -542,7 +542,7 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > [!div class="mx-tableFixed"]
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
-> | rozwiązania | obszar roboczy | Brak | W przypadku rozwiązań utworzonych przez firmę Microsoft nazwa musi być we wzorcu:<br>`SolutionType(WorkspaceName)`<br><br>W przypadku rozwiązań utworzonych przez inne firmy nazwa musi być we wzorcu:<br>`SolutionType[WorkspaceName]`<br><br>Na przykład prawidłowa nazwa to:<br>`AntiMalware(contoso-IT)`<br><br>W typie rozwiązania jest rozróżniana wielkość liter. |
+> | rozwiązania | obszar roboczy | Nie dotyczy | W przypadku rozwiązań utworzonych przez firmę Microsoft nazwa musi być we wzorcu:<br>`SolutionType(WorkspaceName)`<br><br>W przypadku rozwiązań utworzonych przez inne firmy nazwa musi być we wzorcu:<br>`SolutionType[WorkspaceName]`<br><br>Na przykład prawidłowa nazwa to:<br>`AntiMalware(contoso-IT)`<br><br>W typie rozwiązania jest rozróżniana wielkość liter. |
 
 ## <a name="microsoftportal"></a>Microsoft. Portal
 

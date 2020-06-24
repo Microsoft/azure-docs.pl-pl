@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7656b60c31e7da7841f9afb723167eb061fe3401
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655821"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124549"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Wysyłanie metryk systemu operacyjnego gościa do bazy danych metryk Azure Monitor dla maszyny wirtualnej z systemem Windows (wersja klasyczna)
 
@@ -48,7 +48,7 @@ Proces przedstawiony w tym artykule działa tylko w przypadku klasycznych maszyn
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
-Utwórz zasadę usługi w dzierżawie Azure Active Directory przy użyciu instrukcji w temacie [Create a Service Principal](../../active-directory/develop/howto-create-service-principal-portal.md). Podczas przechodzenia przez ten proces należy pamiętać o następujących kwestiach: 
+Utwórz nazwę główną usługi w dzierżawie Azure Active Directory przy użyciu instrukcji w temacie [Create a Service Principal](../../active-directory/develop/howto-create-service-principal-portal.md). Podczas przechodzenia przez ten proces należy pamiętać o następujących kwestiach: 
 - Utwórz nowy klucz tajny klienta dla tej aplikacji.
 - Zapisz klucz i identyfikator klienta do użycia w dalszych krokach.
 

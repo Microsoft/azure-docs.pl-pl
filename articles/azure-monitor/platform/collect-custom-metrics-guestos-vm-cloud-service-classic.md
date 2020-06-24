@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 3b390ffa20cf3cf79b8fb6311ad05b2978bd5d24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46716cf5bd810225cbfc3b54d246917c9559f78f
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655802"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85124466"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Wysyłaj metryki systemu operacyjnego gościa do magazynu Azure Monitor metryk klasyczny Cloud Services 
 
@@ -46,7 +46,7 @@ Proces przedstawiony w tym artykule działa tylko w przypadku liczników wydajno
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi 
 
-Utwórz regułę usługi w dzierżawie Azure Active Directory przy użyciu instrukcji w temacie [use Portal, aby utworzyć aplikację Azure Active Directory i nazwę główną usługi, która może uzyskiwać dostęp do zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Podczas przechodzenia przez ten proces należy pamiętać o następujących kwestiach: 
+Utwórz nazwę główną usługi w dzierżawie Azure Active Directory przy użyciu instrukcji w temacie [use Portal, aby utworzyć aplikację Azure Active Directory i nazwę główną usługi, która może uzyskiwać dostęp do zasobów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Podczas przechodzenia przez ten proces należy pamiętać o następujących kwestiach: 
 
 - Adres URL logowania można umieścić w dowolnym adresie URL.  
 - Utwórz nowy klucz tajny klienta dla tej aplikacji.  

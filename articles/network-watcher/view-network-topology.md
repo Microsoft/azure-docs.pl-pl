@@ -6,17 +6,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: damendo
-ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c04da65af27ebd5ac654bc059ae004c157a20f33
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76840574"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737533"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Wyświetlanie topologii sieci wirtualnej platformy Azure
 
@@ -51,7 +51,7 @@ Zasoby wyświetlane na diagramie są podzbiorem składników sieciowych w sieci 
 
 Polecenia można uruchomić w następujących krokach:
 - W Azure Cloud Shell, wybierając pozycję **Wypróbuj** w prawym górnym rogu dowolnego polecenia. Azure Cloud Shell to bezpłatna interaktywna powłoka, która ma wspólne narzędzia platformy Azure preinstalowane i skonfigurowane do użycia z Twoim kontem.
-- Uruchomienie interfejsu wiersza polecenia na komputerze. Jeśli interfejs wiersza polecenia zostanie uruchomiony z komputera, kroki opisane w tym artykule wymagają interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz też uruchomić `az login` polecenie, aby utworzyć połączenie z platformą Azure.
+- Uruchomienie interfejsu wiersza polecenia na komputerze. Jeśli interfejs wiersza polecenia zostanie uruchomiony z komputera, kroki opisane w tym artykule wymagają interfejsu wiersza polecenia platformy Azure w wersji 2.0.31 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest zainstalowana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli). Jeśli używasz interfejsu wiersza polecenia platformy Azure lokalnie, musisz też uruchomić polecenie `az login` , aby utworzyć połączenie z platformą Azure.
 
 Konto, którego używasz, musi mieć wymagane [uprawnienia](required-rbac-permissions.md).
 

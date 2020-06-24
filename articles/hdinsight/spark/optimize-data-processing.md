@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 1e48573c2b73c10f10f665b5b91759d54d79acdd
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 021999e1757993eea4bbfe3aec0bd68049a37e42
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83791064"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737669"
 ---
-# <a name="data-processing-optimization"></a>Optymalizacja przetwarzania danych
+# <a name="data-processing-optimization-for-apache-spark"></a>Optymalizacja przetwarzania danych dla Apache Spark
 
 W tym artykule omówiono sposób optymalizowania konfiguracji klastra Apache Spark w celu uzyskania najlepszej wydajności w usłudze Azure HDInsight.
 

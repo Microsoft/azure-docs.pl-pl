@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fcc70267754f7e66f29dd1b855d3efb8b814e78b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfff2a1278bc31dc9bc130941985aed2cfb74362
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72793017"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080624"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Uaktualnianie do Azure Search .NET SDK wersja 9
 
-W przypadku korzystania z wersji 7,0-Preview lub starszej [Azure Search .NET SDK](https://aka.ms/search-sdk)ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 9.
+W przypadku korzystania z wersji 7,0-Preview lub starszej [Azure Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)ten artykuł pomoże Ci uaktualnić aplikację do korzystania z wersji 9.
 
 > [!NOTE]
 > Jeśli chcesz użyć wersji 8,0-Preview, aby oszacować funkcje, które nie są jeszcze ogólnie dostępne, możesz również wykonać instrukcje przedstawione w tym artykule, aby uaktualnić program do wersji 8,0 — wersja zapoznawcza z wcześniejszych wersji.
@@ -50,7 +50,7 @@ W wersji 8,0 — wersja zapoznawcza interfejsu API programu Azure Search .NET SD
 <a name="UpgradeSteps"></a>
 
 ## <a name="steps-to-upgrade"></a>Kroki do uaktualnienia
-Najpierw zaktualizuj odwołanie do `Microsoft.Azure.Search` programu NuGet przy użyciu konsoli Menedżera pakietów NuGet lub kliknij prawym przyciskiem myszy odwołania do projektu i wybierz polecenie "Zarządzaj pakietami NuGet..." w programie Visual Studio.
+Najpierw zaktualizuj odwołanie do programu NuGet `Microsoft.Azure.Search` przy użyciu konsoli Menedżera pakietów NuGet lub kliknij prawym przyciskiem myszy odwołania do projektu i wybierz polecenie "Zarządzaj pakietami NuGet..." w programie Visual Studio.
 
 Po pobraniu przez program NuGet nowych pakietów i ich zależności, należy ponownie skompilować projekt. W zależności od tego, jak kod jest strukturalny, może zostać pomyślnie ponownie odbudowany. Jeśli tak, wszystko jest gotowe!
 
@@ -82,7 +82,7 @@ Właściwości publiczne kilku klas modelu są teraz niezmienne. Jeśli trzeba u
 
 ### <a name="changes-to-field"></a>Zmiany pola
 
-`Field` Klasa została teraz zmieniona, ponieważ może również reprezentować pola złożone.
+`Field`Klasa została teraz zmieniona, ponieważ może również reprezentować pola złożone.
 
 Następujące `bool` właściwości są teraz nullable:
 
@@ -93,14 +93,14 @@ Następujące `bool` właściwości są teraz nullable:
   - `IsRetrievable`
   - `IsKey`
 
-Wynika to z faktu, że te `null` właściwości muszą być teraz w przypadku pól złożonych. Jeśli masz kod, który odczytuje te właściwości, należy przygotować się do obsługi `null`. Należy zwrócić uwagę, że wszystkie `Field` inne właściwości zawsze były i nadal dopuszczają wartości null, a niektóre z nich również `null` będą w przypadku pól złożonych — w następujący sposób:
+Wynika to z faktu, że te właściwości muszą być teraz `null` w przypadku pól złożonych. Jeśli masz kod, który odczytuje te właściwości, należy przygotować się do obsługi `null` . Należy zwrócić uwagę, że wszystkie inne właściwości `Field` zawsze były i nadal dopuszczają wartości null, a niektóre z nich również będą `null` w przypadku pól złożonych — w następujący sposób:
 
   - `Analyzer`
   - `SearchAnalyzer`
   - `IndexAnalyzer`
   - `SynonymMaps`
 
-Został utworzony `Field` `internal`Konstruktor bez parametrów. Od teraz do, co `Field` wymaga jawnej nazwy i typu danych w czasie konstruowania.
+Został utworzony Konstruktor bez parametrów `Field` `internal` . Od teraz do, co `Field` wymaga jawnej nazwy i typu danych w czasie konstruowania.
 
 ### <a name="simplified-batch-and-results-types"></a>Uproszczone typy partii i wyników
 
@@ -115,11 +115,11 @@ W wersji 7,0 — wersja zapoznawcza i wcześniejsze, różne klasy, które herme
 
 Typy pochodne bez parametru typu ogólnego zostały przeznaczone do użycia w scenariuszach "dynamicznie wpisanych" i założono użycie tego `Document` typu.
 
-Począwszy od wersji 8,0-Preview, klasy bazowe i inne niż ogólne klasy pochodne zostały usunięte. W przypadku scenariuszy typu dynamicznego można użyć `IndexBatch<Document>`, `DocumentSearchResult<Document>`, i tak dalej.
+Począwszy od wersji 8,0-Preview, klasy bazowe i inne niż ogólne klasy pochodne zostały usunięte. W przypadku scenariuszy typu dynamicznego można użyć `IndexBatch<Document>` , `DocumentSearchResult<Document>` , i tak dalej.
  
 ### <a name="removed-extensibleenum"></a>Usunięto ExtensibleEnum
 
-Klasa `ExtensibleEnum` bazowa została usunięta. Wszystkie klasy pochodzące od niej są teraz strukturami, takimi jak `AnalyzerName`, `DataType`, i `DataSourceType` na przykład. Ich `Create` metody zostały również usunięte. Można po prostu usunąć wywołania, `Create` ponieważ te typy są niejawnie konwertowane z ciągów. Jeśli spowoduje to błędy kompilatora, można jawnie wywołać Operator konwersji poprzez rzutowanie na typy niejednoznaczne. Można na przykład zmienić kod podobny do tego:
+`ExtensibleEnum`Klasa bazowa została usunięta. Wszystkie klasy pochodzące od niej są teraz strukturami, takimi jak `AnalyzerName` ,, `DataType` i `DataSourceType` na przykład. Ich `Create` metody zostały również usunięte. Można po prostu usunąć wywołania, `Create` ponieważ te typy są niejawnie konwertowane z ciągów. Jeśli spowoduje to błędy kompilatora, można jawnie wywołać Operator konwersji poprzez rzutowanie na typy niejednoznaczne. Można na przykład zmienić kod podobny do tego:
 
 ```csharp
 var index = new Index()
@@ -151,7 +151,7 @@ Właściwości, które posiadały wartości opcjonalne tych typów, są teraz ja
 
 ### <a name="removed-facetresults-and-hithighlights"></a>Usunięto FacetResults i HitHighlights
 
-Klasy `FacetResults` i `HitHighlights` zostały usunięte. Wyniki aspektów są teraz wpisywane `IDictionary<string, IList<FacetResult>>` jako i trafią `IDictionary<string, IList<string>>`jako. Szybkie rozwiązanie błędów kompilacji wprowadzonych przez tę zmianę polega na dodaniu `using` aliasów u góry każdego pliku, który używa usuniętych typów. Przykład:
+`FacetResults`Klasy i zostały `HitHighlights` usunięte. Wyniki aspektów są teraz wpisywane jako `IDictionary<string, IList<FacetResult>>` i trafią jako `IDictionary<string, IList<string>>` . Szybkie rozwiązanie błędów kompilacji wprowadzonych przez tę zmianę polega na dodaniu `using` aliasów u góry każdego pliku, który używa usuniętych typów. Przykład:
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;
@@ -160,17 +160,17 @@ using HitHighlights = System.Collections.Generic.IDictionary<string, System.Coll
 
 ### <a name="change-to-synonymmap"></a>Zmień na SynonymMap 
 
-`SynonymMap` Konstruktor nie ma już `enum` parametru dla `SynonymMapFormat`. Ta Wyliczenie ma tylko jedną wartość i dlatego była nadmiarowa. Jeśli w wyniku tego wystąpią błędy kompilacji, wystarczy usunąć odwołania do `SynonymMapFormat` parametru.
+`SynonymMap`Konstruktor nie ma już `enum` parametru dla `SynonymMapFormat` . Ta Wyliczenie ma tylko jedną wartość i dlatego była nadmiarowa. Jeśli w wyniku tego wystąpią błędy kompilacji, wystarczy usunąć odwołania do `SynonymMapFormat` parametru.
 
 ### <a name="miscellaneous-model-class-changes"></a>Zmiany klasy modelu różnego
 
-`AutocompleteMode` Właściwość nie `AutocompleteParameters` ma już wartości null. Jeśli masz kod, który przypisuje tę właściwość `null`do, można po prostu usunąć ją, a właściwość zostanie automatycznie zainicjowana do wartości domyślnej.
+`AutocompleteMode`Właściwość `AutocompleteParameters` nie ma już wartości null. Jeśli masz kod, który przypisuje tę właściwość do `null` , można po prostu usunąć ją, a właściwość zostanie automatycznie zainicjowana do wartości domyślnej.
 
-Kolejność parametrów `IndexAction` konstruktora została zmieniona teraz, gdy ten konstruktor został wygenerowany automatycznie. Zamiast korzystać z konstruktora, zalecamy użycie metod `IndexAction.Upload`fabrycznych, `IndexAction.Merge`i tak dalej.
+Kolejność parametrów `IndexAction` konstruktora została zmieniona teraz, gdy ten konstruktor został wygenerowany automatycznie. Zamiast korzystać z konstruktora, zalecamy użycie metod fabrycznych `IndexAction.Upload` , `IndexAction.Merge` i tak dalej.
 
 ### <a name="removed-preview-features"></a>Usunięte funkcje w wersji zapoznawczej
 
-W przypadku uaktualniania z wersji 8,0-Preview do wersji 9 należy pamiętać, że szyfrowanie z kluczami zarządzanymi przez klienta zostało usunięte, ponieważ ta funkcja jest nadal w wersji zapoznawczej. W `EncryptionKey` szczególnych przypadkach właściwości `Index` i `SynonymMap` zostały usunięte.
+W przypadku uaktualniania z wersji 8,0-Preview do wersji 9 należy pamiętać, że szyfrowanie z kluczami zarządzanymi przez klienta zostało usunięte, ponieważ ta funkcja jest nadal w wersji zapoznawczej. W szczególnych przypadkach `EncryptionKey` właściwości `Index` i `SynonymMap` zostały usunięte.
 
 Jeśli aplikacja ma twardą zależność od tej funkcji, nie będzie można przeprowadzić uaktualnienia do wersji 9 zestawu SDK Azure Search .NET. Możesz nadal używać wersji 8,0-Preview. Należy jednak pamiętać, że **nie zalecamy korzystania z wersji zapoznawczej zestawów SDK w aplikacjach produkcyjnych**. Funkcje w wersji zapoznawczej służą wyłącznie do oceny i mogą ulec zmianie.
 
@@ -179,7 +179,7 @@ Jeśli aplikacja ma twardą zależność od tej funkcji, nie będzie można prze
 
 ### <a name="behavioral-change-in-data-retrieval"></a>Zmiana zachowania podczas pobierania danych
 
-Jeśli używasz typu "dynamicznie `Search`wpisano" `Suggest`lub `Get` interfejsów API, które zwracają wystąpienia typów `Document`, pamiętaj, że teraz deserializacji puste tablice JSON `object[]` zamiast. `string[]`
+Jeśli używasz typu "dynamicznie wpisano" `Search` `Suggest` lub `Get` interfejsów API, które zwracają wystąpienia typów `Document` , pamiętaj, że teraz deserializacji puste tablice JSON `object[]` zamiast `string[]` .
 
 ## <a name="conclusion"></a>Podsumowanie
 Jeśli potrzebujesz więcej szczegółowych informacji na temat korzystania z zestawu SDK Azure Search platformy .NET, zobacz [temat jak to zrobić](search-howto-dotnet-sdk.md).

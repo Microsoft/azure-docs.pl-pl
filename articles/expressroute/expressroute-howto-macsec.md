@@ -4,15 +4,15 @@ description: Ten artykuł pomaga w konfigurowaniu MACsec w celu zabezpieczenia p
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 572147ca43e9a4dea9d9601dfa1dac8ba1c97ed0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a73a99d1e6200faf9feb227f562f5b77b0461f1e
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458236"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737057"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Konfigurowanie MACsec na portach Direct ExpressRoute
 

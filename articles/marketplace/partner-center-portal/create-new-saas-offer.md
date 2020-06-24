@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 3c922675619fc877d9d97a43b69a15f5ca4f393e
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 06/10/2020
+ms.openlocfilehash: b02ba8bd6e3ae858c9e3ded07776a8a83ede171a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849114"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212597"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Utwórz nową ofertę SaaS w portalu komercyjnym
 
@@ -80,11 +80,11 @@ Aby wyświetlić listę ofert oprogramowania jako usługi (SaaS) z komercyjnym r
 
 #### <a name="saas-pricing-and-billing-options"></a>Opcje cen i rozliczeń SaaS
 
-Dzięki rozwiązaniom SaaS działającym w ramach subskrypcji platformy Azure wydawcy opłaty licencyjne są naliczane przez klientów obejmują koszt infrastruktury, w której wdrażane jest oprogramowanie. Użycie infrastruktury platformy Azure jest zarządzane i rozliczane dla Ciebie bezpośrednio przez partnera. Klient nie widzi rzeczywistych opłat za użycie infrastruktury. Wydawcy powinni uzyskać opłaty za użycie infrastruktury platformy Azure do ich cen licencji na oprogramowanie. 
+Dzięki rozwiązaniom SaaS działającym w ramach subskrypcji platformy Azure wydawcy opłaty licencyjne są naliczane przez klientów obejmują koszt infrastruktury, w której wdrażane jest oprogramowanie. Użycie infrastruktury platformy Azure jest zarządzane i rozliczane dla Ciebie bezpośrednio przez partnera. Klient nie widzi rzeczywistych opłat za użycie infrastruktury. Wydawcy powinni uzyskać opłaty za użycie infrastruktury platformy Azure do ich cen licencji na oprogramowanie.
 
 Usługa SaaS oferuje comiesięczne lub roczne rozliczanie w oparciu o stałą opłatę za użytkownika lub opłaty za użycie przy użyciu taryfowej usługi rozliczania. Komercyjny Portal firmy Microsoft działa na modelu agencji, zgodnie z którym wydawcy ustawili ceny, klienci Microsoft Bills i Microsoft płaciją za wydawcę, przy jednoczesnym potrąceniu Opłaty za Agencję.
 
-Jest to przykładowy podział kosztów i wypłaty w celu przedstawienia modelu agencji:
+Jest to przykładowy podział kosztów i wypłaty do zademonstrowania modelu agencji (wszystkie wymienione ceny są przeznaczone wyłącznie do celów i nie mają na celu odzwierciedlenia rzeczywistych kosztów):
 
 |**Koszt licencji**|**$100 miesięcznie**|
 |:---|:---|
@@ -124,7 +124,36 @@ Zbierz informacje kontaktowe klienta, łącząc system zarządzania relacjami z 
 
 #### <a name="example-marketplace-offer-listing"></a>Przykładowa lista ofert platformy handlowej
 
-![Przykładowa lista ofert w witrynie Marketplace z notatkami](./media/marketplace-offer.svg)
+<!-- ![Example marketplace offer listing with notes](./media/marketplace-offer.svg) -->
+
+Oto przykład sposobu wyświetlania informacji o ofercie w Microsoft AppSource:
+
+:::image type="content" source="media/example-appsource-saas.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Microsoft AppSource.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Duże logo
+2. Kategorie
+3. Branże
+4. Adres pomocy technicznej (link)
+5. Warunki użytkowania
+6. Zasady ochrony prywatności
+7. Nazwa oferty
+8. Podsumowanie
+9. Opis
+10. Zrzuty ekranu/wideo
+11. Dokumenty
+
+<br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal:
+
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Tytuł
+2. Opis
+3. Przydatne łącza
+4. Zrzuty ekranu
 
 ## <a name="enable-a-test-drive"></a>Włącz stację testową
 
@@ -194,12 +223,12 @@ Istnieją dwa rodzaje zmian dostępnych dla komercyjnych wydawców portalu Marke
 >[!NOTE]
 > Te dwa typy zmian stosują się między sobą. Klienci z niestandardowymi zmianami otrzymają także uniwersalną zmianę do standardowej umowy podczas zakupu.
 
-**Zasady uniwersalnej zmiany do standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft** — w tym polu Wprowadź postanowienia dotyczące uniwersalnej poprawki. Możesz wprowadzić pojedynczą zmianę uniwersalną dla każdej oferty. W tym polu można wprowadzić nieograniczoną liczbę znaków. Te warunki są wyświetlane klientom w AppSource, w witrynie Azure Marketplace i/lub Azure Portal podczas odnajdywania i przepływu zakupów.
+**Zasady uniwersalnej zmiany do standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft** — w tym polu Wprowadź postanowienia dotyczące uniwersalnej poprawki. Możesz wprowadzić pojedynczą zmianę uniwersalną dla każdej oferty. W tym polu można wprowadzić nieograniczoną liczbę znaków. Te warunki są wyświetlane klientom w AppSource, w witrynie Azure Marketplace i/lub Azure Portal w ramach przepływu odnajdywania i zakupów.
 
 **Niestandardowe warunki zmiany do standardowej umowy dotyczącej komercyjnej witryny Marketplace firmy Microsoft** — Zacznij od wybrania pozycji **Dodaj niestandardowe warunki zmiany**. Dla każdej oferty możesz podać maksymalnie 10 niestandardowych postanowień.
 
 - **Niestandardowe warunki zmiany** — wprowadź niestandardowe warunki zmiany w polu niestandardowe warunki zmiany. W tym polu można wprowadzić nieograniczoną liczbę znaków. Tylko klienci z identyfikatorów dzierżawców, którzy określisz dla tych terminów niestandardowych, będą przedstawiani niestandardowe warunki zmiany w przepływie zakupu oferty w Azure Portal.  
-- **Identyfikatory dzierżawców** (wymagane) — Każda Poprawka niestandardowa może być przeznaczona do maksymalnie 20 identyfikatorów dzierżawy. W przypadku dodania niestandardowej poprawki należy podać co najmniej jeden identyfikator dzierżawy. Identyfikator dzierżawy identyfikuje Twojego klienta na platformie Azure. Możesz polecić klienta dla tego identyfikatora i znaleźć go, przechodząc do portal.azure.com > Azure Active Directory > właściwości. Wartość identyfikatora katalogu to identyfikator dzierżawy (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy organizacji klienta przy użyciu adresu URL nazwy domeny, co [to jest mój Microsoft Azure i identyfikator dzierżawy pakietu Office 365?](https://www.whatismytenantid.com).
+- **Identyfikatory dzierżawców** (wymagane) — Każda Poprawka niestandardowa może być przeznaczona do maksymalnie 20 identyfikatorów dzierżawy. W przypadku dodania niestandardowej poprawki należy podać co najmniej jeden identyfikator dzierżawy. Identyfikator dzierżawy identyfikuje Twojego klienta na platformie Azure. Możesz polecić klienta dla tego identyfikatora i znaleźć go, przechodząc do portal.azure.com > Azure Active Directory > właściwości. Wartość identyfikatora katalogu to identyfikator dzierżawy (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji, używając adresu URL nazwy domeny, co [to jest mój Microsoft Azure i identyfikator dzierżawy pakietu Office 365?](https://www.whatismytenantid.com)
 - **Opis** (opcjonalnie) — Opcjonalnie podaj przyjazny opis identyfikatora dzierżawy, który pomaga zidentyfikować klienta, którego celem jest zmiana.
 
 #### <a name="terms-and-conditions"></a>Warunki i postanowienia
@@ -251,7 +280,7 @@ To pole jest wymagane.
 
 #### <a name="files-and-images"></a>Pliki i obrazy
 
-- **Dokumenty** (wymagane) — Dodaj powiązane dokumenty marketingowe dla oferty w formacie PDF, co daje co najmniej jeden (1) i trzy (3) dokumenty dla jednej oferty.
+- **Dokumenty** (wymagane) — Dodaj powiązane dokumenty marketingowe dla oferty w formacie PDF — co najmniej jeden i maksymalnie trzy dokumenty na ofertę.
 - **Obrazy** (opcjonalnie) — istnieje wiele miejsc, w których obrazy logo oferty mogą pojawić się w całej witrynie Marketplace, wymagając następujących rozmiarów pikseli w formacie PNG:
 
     - **Mały** (48 x 48, wymagane)
@@ -260,7 +289,7 @@ To pole jest wymagane.
     - **Szeroki** (255 x 115)
     - **Hero** (815 x 290)
 
-- **Zrzuty ekranu** (wymagane) — Dodaj zrzuty ekranu pokazujące Twoją ofertę. Można dodać maksymalnie pięć (5) zrzutów ekranu i mieć rozmiar o 1280 x 720 pikseli. Wszystkie obrazy muszą znajdować się w. Format PNG.
+- **Zrzuty ekranu** (wymagane) — Dodaj maksymalnie pięć zrzutów ekranu pokazujących Twoją ofertę o rozmiarze 1280 x 720 pikseli. Wszystkie obrazy muszą znajdować się w. Format PNG.
 - **Wideo** (opcjonalnie) — umożliwia dodanie linków do filmów wideo pokazujących Twoją ofertę. Możesz używać linków do filmów wideo w usłudze YouTube i/lub Vimeo, które są wyświetlane wraz z ofertą dla klientów. Należy również wprowadzić obraz miniatury wideo o rozmiarach do 1280 x 720 pikseli w formacie PNG. Możesz wyświetlić maksymalnie cztery wideo dla każdej oferty.
 
 >[!NOTE]
@@ -290,18 +319,26 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="technical-configuration"></a>Konfiguracja techniczna
 
-Ta strona definiuje szczegóły techniczne (ścieżkę URL, element webhook, identyfikator dzierżawy i identyfikator aplikacji) używane do nawiązania połączenia z ofertą. To połączenie umożliwia nam zainicjowanie oferty dla klienta końcowego, jeśli zdecyduje się ją nabyć. Diagramy opisujące użycie zebranych pól są dostępne w dokumentacji dotyczącej [interfejsów API realizacji SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
-
-- **Adres URL strony docelowej** (wymagane) — Zdefiniuj adres URL witryny, po którym klienci będą mogli skorzystać po uzyskaniu oferty z portalu Marketplace. Ten adres URL będzie punktem końcowym, który odbiera token, gdy klient jest kierowany do strony. Ten token może być wymieniany w celu uzyskania szczegółowych informacji o aprowizacji za pomocą rozwiązania w interfejsach API realizacji. Te szczegóły i wszelkie inne zbierane informacje mogą być używane jako część strony sieci Web interaktywnej klienta wbudowanej w środowisko użytkownika w celu ukończenia rejestracji i aktywowania zakupu.
-
-- **Element webhook połączenia** (wymagany) — dla wszystkich zdarzeń asynchronicznych wymaganych przez firmę Microsoft w imieniu klienta (na przykład subskrypcja SaaS została niepoprawna), wymagamy podania elementu webhook połączenia. Jeśli nie masz jeszcze systemu elementu webhook, najprostszą konfiguracją jest posiadanie aplikacji logiki punktu końcowego protokołu HTTP, która będzie nasłuchiwać wszystkich zdarzeń, które są w nim ogłaszane, a następnie odpowiednio obsługiwać je (na przykład https: \/ /prod-1westus.Logic.Azure.com:443/Work). Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie przepływów pracy za pomocą punktów końcowych HTTP w usłudze Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
-
-- **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wewnątrz Azure Portal wymagamy [utworzenia aplikacji Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami w ramach komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
-
-- **Identyfikator aplikacji usługi Azure AD** (wymagane) — wymagany jest również [Identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i klucz uwierzytelniania. Aby uzyskać te wartości, przejdź do Azure Active Directory i wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Aby znaleźć klucz uwierzytelniania, przejdź do pozycji **Ustawienia** i wybierz pozycję **klucze**. Należy podać opis i czas trwania, a następnie podać wartość liczbową.
+Karta **konfiguracja techniczna** zawiera szczegółowe informacje techniczne używane przez platformę Marketplace do komunikowania się z usługą SaaS. To połączenie umożliwia nam zainicjowanie oferty dla klienta końcowego, jeśli zdecyduje się ją nabyć i zarządzać. 
 
 >[!Note]
->Identyfikator aplikacji platformy Azure jest skojarzony z IDENTYFIKATORem wydawcy, dlatego upewnij się, że ten sam identyfikator aplikacji jest używany we wszystkich ofertach.
+>Należy zaimplementować integrację z [interfejsami API realizacji SaaS](./pc-saas-fulfillment-api-v2.md) przed skonfigurowaniem tych szczegółów w szczegółach oferty.
+
+Diagramy i szczegółowe wyjaśnienia opisujące użycie zebranych pól są dostępne w dokumentacji dotyczącej [interfejsów API](./pc-saas-fulfillment-api-v2.md).
+
+- **Adres URL strony docelowej** (wymagane) — Zdefiniuj adres URL witryny SaaS (na przykład: `https://contoso.com/signup` ), z której będą mogli skorzystać klienci końcowi, po uzyskaniu oferty z portalu Marketplace i wyzwoleniu procesu konfiguracji od nowo utworzonej subskrypcji SaaS.  Ten adres URL zostanie wywołany za pomocą parametru tokena identyfikacji zakupu w portalu Marketplace, który jednoznacznie identyfikuje określony zakup klienta końcowego SaaS.  Ten token należy wymienić dla odpowiednich szczegółów subskrypcji SaaS za pomocą interfejsu API [rozpoznawania](./pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) .  Te szczegóły i wszystkie inne, które mają być zbierane, powinny być używane jako część strony sieci Web interaktywnej klienta wbudowanej w środowisko użytkownika w celu ukończenia rejestracji klienta końcowego i aktywowania zakupu.  Na tej stronie użytkownik powinien zarejestrować się, korzystając z usługi Azure Active Directory (Azure AD). <br> <br> Ten adres URL z parametrem tokena identyfikacji zakupu w witrynie Marketplace zostanie również wywołany, gdy klient końcowy uruchomi środowisko zarządzane SaaS z poziomu Centrum administracyjnego usługi Azure Portal lub M365. Należy obsługiwać oba przepływy, gdy token jest dostarczany po raz pierwszy po zakupie dla nowych klientów i gdy jest on dostarczany dla istniejącego klienta zarządzającego SaaS. <br> <br> Strona docelowa skonfigurowana w tym miejscu powinna mieć wartość uruchomiona 24/7. Jest to jedyny sposób, w jaki otrzymasz powiadomienie o nowych zakupach ofert SaaS w portalu Marketplace lub żądaniach konfiguracji aktywnej subskrypcji oferty.
+
+- **Element webhook połączenia** (wymagany) — dla wszystkich zdarzeń asynchronicznych, które firma Microsoft musi wysłać do Ciebie (na przykład subskrypcja SaaS została anulowana), wymagane jest podanie adresu URL elementu webhook połączenia. Wywołamy ten adres URL, aby powiadomić Cię o zdarzeniu. <br> <br> Ten element webhook powinien działać w trybie 24/7, ponieważ jest to jedyny sposób powiadomienia o aktualizacjach subskrypcji SaaS klientów zakupionych za pośrednictwem portalu Marketplace.  Jeśli nie masz jeszcze systemu elementu webhook, najprostszą konfiguracją jest posiadanie aplikacji logiki punktu końcowego HTTP, która będzie nasłuchiwać wszystkich zdarzeń, które są w nim ogłaszane, a następnie odpowiednio obsługiwać je (na przykład `https://prod-1westus.logic.azure.com:443/work` ). Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie przepływów pracy za pomocą punktów końcowych HTTP w usłudze Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+
+- **Identyfikator dzierżawy usługi Azure AD** (wymagany) — w ramach Azure Portal wymagamy [utworzenia aplikacji Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami w ramach komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
+
+- **Identyfikator aplikacji usługi Azure AD** (wymagany) — potrzebny jest również [Identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Aby uzyskać jego wartość, przejdź do Azure Active Directory i wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład `50c464d3-4930-494c-963c-1e951d15360e` ).
+
+>[!Note]
+>Identyfikator aplikacji usługi Azure AD jest skojarzony z IDENTYFIKATORem wydawcy na koncie Centrum partnerskiego.  Upewnij się, że ten sam identyfikator aplikacji jest używany we wszystkich ofertach.
+
+>[!Note]
+>Jeśli Wydawca ma co najmniej dwa różne konta w centrum partnerskim, należy użyć co najmniej dwóch identyfikatorów aplikacji usługi Azure AD, z których każde będzie miało konto. Każde konto partnera w centrum partnerskim musi używać unikatowego identyfikatora aplikacji usługi Azure AD dla wszystkich ofert SaaS opublikowanych za pośrednictwem tego konta.
 
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
@@ -350,7 +387,7 @@ Wybierz pozycję **Zapisz** przed kontynuowaniem.
 
 ##### <a name="pricing-model"></a>Model cen
 
-**Stawka ryczałtowa** — umożliwia dostęp do oferty przy użyciu jednej ceny miesięcznej lub rocznej ceny ryczałtowej. Jest to czasami określane jako Cennik oparty na witrynie. Korzystając z tego modelu cen, można opcjonalnie zdefiniować plany taryfowe używające interfejsu API usługi pomiarowej Marketplace do naliczania opłat klientom zgodnie z jednostkami niestandardowymi.  Aby uzyskać więcej informacji na temat rozliczeń naliczanych, zobacz opłaty [naliczane przy użyciu usługi pomiaru Marketplace](./saas-metered-billing.md).
+**Stawka ryczałtowa** — umożliwia dostęp do oferty przy użyciu jednej ceny miesięcznej lub rocznej ceny ryczałtowej. Jest to czasami określane jako Cennik oparty na witrynie. Korzystając z tego modelu cen, można opcjonalnie zdefiniować plany taryfowe używające interfejsu API usługi pomiarowej Marketplace do naliczania opłat klientom zgodnie z jednostkami niestandardowymi.  Aby uzyskać więcej informacji na temat rozliczeń naliczanych, zobacz opłaty [naliczane przy użyciu usługi pomiaru Marketplace](./saas-metered-billing.md).  Należy również użyć tej opcji, jeśli zachowanie użycia znajduje się w serii dla usługi SaaS.  Nie zalecamy, aby klient często przełączał plany codziennie, co godzinę.
 
 **Na użytkownika** — umożliwia dostęp do oferty przy użyciu ceny w oparciu o liczbę użytkowników uzyskujących dostęp do oferty lub zajmują stanowiska. Ten model oparty na użytkownikach umożliwia ustawienie minimalnej i maksymalnej liczby użytkowników dozwolonych na podstawie ceny. W ten sposób można skonfigurować różne punkty cenowe na podstawie liczby użytkowników, konfigurując wiele planów.  Te pola są opcjonalne. Jeśli pole pozostanie puste, liczba użytkowników będzie interpretowana jako nie ma limitu (minimum 1 i maksimum, tak jak system może obsługiwać). Te pola mogą być edytowane w ramach aktualizacji planu.
 
@@ -375,7 +412,7 @@ Uważnie Przejrzyj ceny przed opublikowaniem, ponieważ istnieją pewne ogranicz
 
 #### <a name="free-trial"></a>Bezpłatna wersja próbna
 
-Oferty SaaSymi za pomocą komercyjnej witryny Marketplace umożliwiają zapewnienie miesięcznej bezpłatnej wersji próbnej podczas sprzedaży przez firmę Microsoft. W przypadku wszystkich modeli rozliczeń i terminów z wyjątkiem planów taryfowych są obsługiwane bezpłatne wersje próbne. Ta opcja pozwala klientom z niską barierą na wprowadzanie przez jeden miesiąc bezpłatnego dostępu.  Jeśli zdecydujesz się na włączenie bezpłatnej wersji próbnej dla planów w ramach oferty, klient nie będzie mógł dokonać konwersji na płatną subskrypcję przed końcem początkowego okresu pierwszego miesiąca.  W tym czasie klienci kupujący ofertę mogą wypróbować dowolne z obsługiwanych planów, w przypadku których bezpłatna wersja próbna jest włączona i konwertowana między nimi.  Konwersja na płatną subskrypcję odbywa się automatycznie na koniec okresu obowiązywania.
+Oferty SaaSymi za pomocą komercyjnej witryny Marketplace umożliwiają udostępnienie miesięcznej bezpłatnej wersji próbnej podczas sprzedaży przez firmę Microsoft. W przypadku wszystkich modeli rozliczeń i terminów z wyjątkiem planów taryfowych są obsługiwane bezpłatne wersje próbne. Ta opcja pozwala klientom z niską barierą na wprowadzanie przez jeden miesiąc bezpłatnego dostępu.  Jeśli zdecydujesz się na włączenie bezpłatnej wersji próbnej dla planów w ramach oferty, klient nie będzie mógł dokonać konwersji na płatną subskrypcję przed końcem początkowego okresu pierwszego miesiąca.  W tym czasie klienci kupujący ofertę mogą wypróbować dowolne z obsługiwanych planów, w przypadku których bezpłatna wersja próbna jest włączona i konwertowana między nimi.  Konwersja na płatną subskrypcję odbywa się automatycznie na koniec okresu obowiązywania.
 
 >[!NOTE]
 >Jeśli klient zdecyduje się na konwersję do planu bez bezpłatnych wersji próbnych, zostanie wykonana konwersja, ale bezpłatna wersja próbna zostanie utracona natychmiast. Ponadto po rozpoczęciu płacenia przez klienta planu nie można już ponownie uzyskać bezpłatnej wersji próbnej tej subskrypcji, nawet jeśli przekonwertujesz ją na jednostkę SKU, która obsługuje bezpłatne wersje próbne.
@@ -404,7 +441,7 @@ Wybierz opcję **to jest plan prywatny** , aby Twój plan był prywatny i widocz
 
 Przypisz odbiorców, którzy będą mieli dostęp do tego planu prywatnego. Dostęp jest przypisywany przy użyciu identyfikatorów dzierżawców z opcją dołączenia opisu każdego przypisanego identyfikatora dzierżawy. W przypadku importowania pliku arkusza kalkulacyjnego CSV można dodać maksymalnie 10 identyfikatorów dzierżaw lub 20 000 klientów.
 
-Dzierżawca jest reprezentacją organizacji, identyfikator reprezentowany jako identyfikator GUID (unikatowy identyfikator globalny, 128-bitowy numer liczbowy używany do identyfikowania zasobów). Jest to dedykowane wystąpienie usługi Azure AD, które otrzymuje organizacja lub Deweloper aplikacji, gdy organizacja lub Deweloper aplikacji tworzy relację z firmą Microsoft, na przykład podczas rejestracji na platformie Azure, Microsoft Intune lub Microsoft 365. Każda dzierżawa usługi Azure AD jest unikatowa i oddzielona od innych dzierżaw usługi Azure AD. Aby sprawdzić dzierżawę, zaloguj się w witrynie Azure Portal przy użyciu konta, którego chcesz użyć do zarządzania aplikacją. Jeśli masz dzierżawę, nastąpi automatyczne zalogowanie do niej, a nazwa dzierżawy zostanie wyświetlona bezpośrednio pod nazwą Twojego konta. Umieść wskaźnik myszy na nazwie konta w prawym górnym rogu witryny Azure Portal, aby wyświetlić swoją nazwę, adres e-mail, identyfikator katalogu/dzierżawy (GUID) oraz domenę. Jeśli Twoje konto jest skojarzone z wieloma dzierżawami, możesz wybrać nazwę swojego konta, aby otworzyć menu, w którym można przełączać się między dzierżawami. Każda dzierżawa ma własny identyfikator dzierżawy. Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny pod adresem [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+Dzierżawca jest reprezentacją organizacji, identyfikator reprezentowany jako identyfikator GUID (unikatowy identyfikator globalny, 128-bitowy numer liczbowy używany do identyfikowania zasobów). Jest to dedykowane wystąpienie usługi Azure AD, które otrzymuje organizacja lub Deweloper aplikacji, gdy organizacja lub Deweloper aplikacji tworzy relację z firmą Microsoft, na przykład podczas rejestracji na platformie Azure, Microsoft Intune lub Microsoft 365. Każda dzierżawa usługi Azure AD jest odrębna i oddzielona od innych dzierżaw usługi Azure AD. Aby sprawdzić dzierżawę, zaloguj się w witrynie Azure Portal przy użyciu konta, którego chcesz użyć do zarządzania aplikacją. Jeśli masz dzierżawę, nastąpi automatyczne zalogowanie do niej, a nazwa dzierżawy zostanie wyświetlona bezpośrednio pod nazwą Twojego konta. Umieść wskaźnik myszy na nazwie konta w prawym górnym rogu witryny Azure Portal, aby wyświetlić swoją nazwę, adres e-mail, identyfikator katalogu/dzierżawy (GUID) oraz domenę. Jeśli Twoje konto jest skojarzone z wieloma dzierżawami, możesz wybrać nazwę swojego konta, aby otworzyć menu, w którym można przełączać się między dzierżawami. Każda dzierżawa ma własny identyfikator dzierżawy. Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny pod adresem [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 Mimo że usługa SaaS oferuje identyfikatory dzierżawców do definiowania prywatnych odbiorców, inne typy ofert mogą korzystać z identyfikatorów subskrypcji platformy Azure (które są również reprezentowane jako identyfikatory GUID).
 
@@ -415,7 +452,14 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Przykładowa lista planów w ramach oferty portalu Marketplace
 
-![Przykład aukcji planu Marketplace z notatkami](./media/marketplace-plan.svg)
+:::image type="content" source="media/marketplace-plan.png" alt-text="Przykład planu Marketplace z listą notatek.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Nazwa planu
+2. Opis planu
+
+<br>
 
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>Odbiorcy dostawcy rozwiązań w chmurze (CSP)
 
@@ -433,8 +477,8 @@ Jeśli ta oferta jest publikowana po raz pierwszy, możesz:
     - **Nie uruchomiono** — sekcja nie została dotknięcia i należy ją ukończyć.
     - **Niekompletne** — sekcja zawiera błędy, które muszą zostać naprawione lub wymaga podania więcej informacji. Musisz wrócić do sekcji i zaktualizować ją.
     - **Ukończono** — sekcja jest kompletna, wszystkie wymagane dane zostały dostarczone i nie występują żadne błędy. Wszystkie sekcje oferty muszą być w stanie kompletnym, zanim będzie możliwe przesłanie oferty.
-- Podaj instrukcje dotyczące testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja została prawidłowo przetestowana, a także wszelkich dodatkowych notatek przydatnych w zrozumieniu swojej aplikacji.
-- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail z prośbą o udostępnienie wersji zapoznawczej oferty, którą można przejrzeć i zatwierdzić. Musisz wrócić do Centrum partnerskiego i wybrać pozycję **Przejdź na żywo** , aby uzyskać ofertę opublikowania oferty na publiczną (lub w przypadku prywatnej oferty dla odbiorców prywatnych).
+- Podaj instrukcje testowania dla zespołu certyfikacji, aby upewnić się, że aplikacja jest poprawnie przetestowana, a także dowolnych dodatkowych notatek przydatnych w zrozumieniu swojej aplikacji.
+- Prześlij ofertę do opublikowania, wybierając pozycję **Prześlij**. Wyślemy Ci wiadomość e-mail z prośbą o udostępnienie wersji zapoznawczej oferty, którą można przejrzeć i zatwierdzić. Wróć do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo** , aby opublikować ofertę na publiczną (lub w przypadku prywatnej oferty do odbiorców prywatnych).
 
 ## <a name="next-step"></a>Następny krok
 

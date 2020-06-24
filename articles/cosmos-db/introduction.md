@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 6292c3c2d928581d0564fe457342ea7b1e17111c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bfac783fcb8ce88977fc8d97f821a7350f57aab8
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80983028"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118580"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB — Zapraszamy!
 
@@ -24,7 +24,7 @@ Możesz bezpłatnie [Wypróbować Azure Cosmos DB](https://azure.microsoft.com/t
 > [!div class="nextstepaction"]
 > [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)
 
-![Azure Cosmos DB to dostępna w skali światowej usługa bazy danych firmy Microsoft z elastycznym skalowaniem, gwarantowanymi małymi opóźnieniami, pięcioma modelami spójności oraz kompleksowymi, gwarantowanymi umowami SLA](./media/introduction/azure-cosmos-db.png)
+:::image type="content" source="./media/introduction/azure-cosmos-db.png" alt-text="Azure Cosmos DB to dostępna w skali światowej usługa bazy danych firmy Microsoft z elastycznym skalowaniem, gwarantowanymi małymi opóźnieniami, pięcioma modelami spójności oraz kompleksowymi, gwarantowanymi umowami SLA" border="false":::
 
 ## <a name="key-benefits"></a>Najważniejsze korzyści
 
@@ -48,7 +48,7 @@ Przy użyciu usługi Cosmos DB można tworzyć szybko reagujące aplikacje skalo
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Wiele dokładnie zdefiniowanych opcji spójności
 
-Podczas kompilowania aplikacji rozproszonych globalnie w Cosmos DB nie trzeba już podejmować wyjątkowo [kompromisów między spójnością, dostępnością, opóźnieniami i przepływności](consistency-levels-tradeoffs.md). Protokół replikacji wielu wzorców Cosmos DB został starannie zaprojektowany w celu zaoferowania [pięciu dobrze zdefiniowanych opcji](consistency-levels.md) - spójności,*silnych*, *nieodświeżonych*, *sesji*, *spójnego prefiksu*i *ostateczności* — dla intuicyjnego modelu programowania z małymi opóźnieniami i wysokiej dostępności dla aplikacji rozproszonej globalnie.
+Podczas kompilowania aplikacji rozproszonych globalnie w Cosmos DB nie trzeba już podejmować wyjątkowo [kompromisów między spójnością, dostępnością, opóźnieniami i przepływności](consistency-levels-tradeoffs.md). Protokół replikacji wielu wzorców Cosmos DB został starannie zaprojektowany w celu zaoferowania [pięciu dobrze zdefiniowanych opcji spójności](consistency-levels.md)  -  ,*silnych*, *nieodświeżonych*, *sesji*, *spójnego prefiksu*i *ostateczności* — dla intuicyjnego modelu programowania z małymi opóźnieniami i wysokiej dostępności dla aplikacji rozproszonej globalnie.
 
 ### <a name="no-schema-or-index-management"></a>Bez zarządzania schematami lub indeksami
 

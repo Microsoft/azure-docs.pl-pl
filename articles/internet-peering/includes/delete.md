@@ -1,7 +1,7 @@
 ---
-title: Plik dyrektywy include
+title: dołączanie pliku
 titleSuffix: Azure
-description: Plik dyrektywy include
+description: dołączanie pliku
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 9152bdfa9575738c853521814938cd0d7ec25efb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 53725e7d4c39405e7ba47f8915e7444ce6a2167a
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657356"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118453"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Wbudowana obsługa notesów Jupyter w Azure Cosmos DB (wersja zapoznawcza)
 
@@ -19,11 +19,11 @@ Jupyter Notes to aplikacja sieci Web Open Source, która umożliwia tworzenie i 
 
 Azure Cosmos DB wbudowane notesy Jupyter są bezpośrednio zintegrowane z Azure Portal i kontami Azure Cosmos DB, dzięki czemu są wygodne i łatwe w użyciu. Deweloperzy, analityki danych, inżynierowie i analitycy mogą używać znanych Jupyterych notesów do eksplorowania danych, czyszczenia danych, przekształcania danych, symulacji liczbowych, modelowania statystycznego, wizualizacji danych i uczenia maszynowego.
 
-![Wizualizacje notesów Jupyter w Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png" alt-text="Wizualizacje notesów Jupyter w Azure Cosmos DB":::
 
 Azure Cosmos DB obsługuje zarówno notesy C#, jak i Python dla wszystkich interfejsów API, w tym rdzeń (SQL), Cassandra, Gremlin, Table i API dla MongoDB. Wewnątrz notesu można korzystać z wbudowanych poleceń i funkcji, które ułatwiają tworzenie Azure Cosmos DB zasobów, przekazywanie danych i wykonywanie zapytań i wizualizację danych w Azure Cosmos DB. 
 
-![Obsługa notesów Jupyter w Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png)
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Obsługa notesów Jupyter w Azure Cosmos DB":::
 
 ## <a name="benefits-of-jupyter-notebooks"></a>Zalety notesów Jupyter
 

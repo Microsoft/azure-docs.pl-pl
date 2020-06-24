@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: reference
-ms.openlocfilehash: ce287ed94066aac4b900d2ddb02579a54b8550f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1ae8ca1ef940e45c2d32adc9a002b349f9e1b44
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680390"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783014"
 ---
 # <a name="material-mapping-for-model-formats"></a>Mapowanie materiałów dla formatów modelu
 
@@ -47,14 +47,13 @@ Każda tekstura w glTF może mieć `texCoord` wartość, która jest również o
 
 ### <a name="embedded-textures"></a>Tekstury osadzone
 
-Tekstury osadzone w * \*plikach. bin* lub * \*. GLB* są obsługiwane.
+Tekstury osadzone w plikach * \* . bin* lub * \* . GLB* są obsługiwane.
 
 ### <a name="supported-gltf-extension"></a>Obsługiwane rozszerzenie glTF
 
 Oprócz zestawu funkcji podstawowych funkcja renderowania zdalnego platformy Azure obsługuje następujące rozszerzenia glTF:
 
 * [MSFT_packing_occlusionRoughnessMetallic](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_packing_occlusionRoughnessMetallic/README.md)
-* [MSFT_texture_dds](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Vendor/MSFT_texture_dds/README.md)
 * [KHR_materials_unlit](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_unlit/README.md): odpowiada [materiałom koloru](../overview/features/color-materials.md). W przypadku materiałów *emisyjny* zaleca się użycie tego rozszerzenia.
 * [KHR_materials_pbrSpecularGlossiness](https://github.com/KhronosGroup/glTF/blob/master/extensions/2.0/Khronos/KHR_materials_pbrSpecularGlossiness/README.md): zamiast tekstur metalicznych o niesztywności można udostępniać tekstury rozproszone-odblasków-glossiness. Implementacja renderowania zdalnego platformy Azure jest bezpośrednio zgodna z formułami konwersji z rozszerzenia.
 
@@ -102,17 +101,17 @@ Powyższe mapowanie to najbardziej złożona część konwersji materiału ze wz
 Niektóre definicje użyte poniżej:
 
 * `Specular` =  `SpecularColor` * `SpecularFactor`
-* `SpecularIntensity` = `Specular`. Red ∗ 0,2125 + `Specular`. Zielony ∗ 0,7154 + `Specular`. Niebieska ∗ 0,0721
-* `DiffuseBrightness`= 0,299 * `Diffuse`. Czerwony<sup>2</sup> + 0,587 * `Diffuse`. Zielony<sup>2</sup> + 0,114 * `Diffuse`. Niebieski<sup>2</sup>
-* `SpecularBrightness`= 0,299 * `Specular`. Czerwony<sup>2</sup> + 0,587 * `Specular`. Zielony<sup>2</sup> + 0,114 * `Specular`. Niebieski<sup>2</sup>
-* `SpecularStrength`= Max (`Specular`. Czerwony, `Specular`. Zielony, `Specular`. Świetlon
+* `SpecularIntensity` = `Specular`. Red ∗ 0,2125 + `Specular` . Zielony ∗ 0,7154 + `Specular` . Niebieska ∗ 0,0721
+* `DiffuseBrightness`= 0,299 * `Diffuse` . Czerwony<sup>2</sup> + 0,587 * `Diffuse` . Zielony<sup>2</sup> + 0,114 * `Diffuse` . Niebieski<sup>2</sup>
+* `SpecularBrightness`= 0,299 * `Specular` . Czerwony<sup>2</sup> + 0,587 * `Specular` . Zielony<sup>2</sup> + 0,114 * `Specular` . Niebieski<sup>2</sup>
+* `SpecularStrength`= Max ( `Specular` . Czerwony, `Specular` . Zielony, `Specular` . Świetlon
 
 W [tym miejscu](https://en.wikipedia.org/wiki/Luma_(video))zostanie uzyskana formuła SpecularIntensity.
 Formuła jasności jest opisana w tej [specyfikacji](http://www.itu.int/dms_pubrec/itu-r/rec/bt/R-REC-BT.601-7-201103-I!!PDF-E.pdf).
 
 ### <a name="roughness"></a>Niesztywność
 
-`Roughness`jest obliczany `Specular` z `ShininessExponent` i przy użyciu [tej formuły](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). Formuła to przybliżenie przybliżonej wartości z wykładnika podstawowego Phong odblasków:
+`Roughness`jest obliczany z `Specular` i `ShininessExponent` przy użyciu [tej formuły](https://www.cs.cornell.edu/~srm/publications/EGSR07-btdf.pdf). Formuła to przybliżenie przybliżonej wartości z wykładnika podstawowego Phong odblasków:
 
 ```Cpp
 Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
@@ -120,7 +119,7 @@ Roughness = sqrt(2 / (ShininessExponent * SpecularIntensity + 2))
 
 ### <a name="metalness"></a>Metalowy
 
-`Metalness`jest obliczany `Diffuse` z `Specular` i przy użyciu tej [formuły ze specyfikacji glTF](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
+`Metalness`jest obliczany z `Diffuse` i `Specular` przy użyciu tej [formuły ze specyfikacji glTF](https://github.com/bghgary/glTF/blob/gh-pages/convert-between-workflows-bjs/js/babylon.pbrUtilities.js).
 
 Pomysłem jest to, że rozwiązujemy równanie: AX<sup>2</sup> + BX + C = 0.
 Zasadniczo, oddzielne powierzchnie odzwierciedlają około 4% światła w odblasków sposób, a reszta jest rozpraszana. Powierzchnie metalowe nie odzwierciedlają światła w sposób rozpraszania, ale wszystko to w odblasków sposób.
@@ -139,10 +138,10 @@ Metalness = clamp(value, 0.0, 1.0);
 
 ### <a name="albedo"></a>Albedo
 
-`Albedo`jest obliczany `Diffuse`z `Specular`,, `Metalness`i.
+`Albedo`jest obliczany z `Diffuse` , `Specular` , i `Metalness` .
 
 Zgodnie z opisem w sekcji metalu, powierzchnie odelektryczne odzwierciedlają około 4% światła.  
-Pomysłem jest liniowe Interpolacja między `Dielectric` i `Metal` kolorami przy użyciu `Metalness` wartości jako czynnika. Jeśli metalu jest `0.0`, w zależności od odblasków będzie to kolor ciemny (jeśli odblasków jest wysoki) lub Dyfuzja nie ulegnie zmianie (jeśli nie odblasków jest obecny). Jeśli metal jest dużą wartością, kolor rozpraszania będzie znikał na korzyść koloru odblasków.
+Pomysłem jest liniowe Interpolacja między `Dielectric` i `Metal` kolorami przy użyciu `Metalness` wartości jako czynnika. Jeśli metalu jest `0.0` , w zależności od odblasków będzie to kolor ciemny (jeśli odblasków jest wysoki) lub Dyfuzja nie ulegnie zmianie (jeśli nie odblasków jest obecny). Jeśli metal jest dużą wartością, kolor rozpraszania będzie znikał na korzyść koloru odblasków.
 
 ```Cpp
 dielectricSpecularReflectance = 0.04
@@ -156,22 +155,22 @@ AlbedoRGB = clamp(albedoRawColor, 0.0, 1.0);
 
 `AlbedoRGB`został obliczony przez powyższą formułę, ale kanał alfa wymaga dodatkowych obliczeń. Format FBX jest niezrozumiały dla przejrzystości i ma wiele sposobów na jego Definiowanie. Różne narzędzia zawartości używają różnych metod. Dobrym pomysłem jest ujednolicenie ich do jednej formuły. Niektóre elementy zawartości nieprawidłowo pokazywane jako przezroczyste, ale jeśli nie są tworzone w typowy sposób.
 
-Jest on obliczany `TransparentColor`z `TransparencyFactor`, `Opacity`,:
+Jest on obliczany z `TransparentColor` , `TransparencyFactor` , `Opacity` :
 
 Jeśli `Opacity` jest zdefiniowany, użyj go bezpośrednio: `AlbedoAlpha`  =  `Opacity` else  
-Jeśli `TransparencyColor` jest zdefiniowany, then `AlbedoAlpha` = 1,0-((`TransparentColor`. Czerwony + `TransparentColor`. Zielony + `TransparentColor`. Niebieski)/3,0) inny  
-Jeśli `TransparencyFactor`, then `AlbedoAlpha` = 1,0-`TransparencyFactor`
+Jeśli `TransparencyColor` jest zdefiniowany, then `AlbedoAlpha` = 1,0-(( `TransparentColor` . Czerwony + `TransparentColor` . Zielony + `TransparentColor` . Niebieski)/3,0) inny  
+Jeśli `TransparencyFactor` , then `AlbedoAlpha` = 1,0-`TransparencyFactor`
 
-Końcowy `Albedo` kolor ma cztery kanały, łącząc przy `AlbedoRGB` użyciu. `AlbedoAlpha`
+Końcowy `Albedo` kolor ma cztery kanały, łącząc przy `AlbedoRGB` użyciu `AlbedoAlpha` .
 
 ### <a name="summary"></a>Podsumowanie
 
-Aby podsumować w tym `Albedo` miejscu, będzie blisko oryginalnego `Diffuse`, jeśli `Specular` jest bliski zeru. W przeciwnym razie powierzchnia będzie wyglądać jak metalowa powierzchnia i utraci kolor rozpraszania. Powierzchnia będzie wyglądać bardziej dopracowane i odzwierciedlać, `ShininessExponent` jeśli jest wystarczająco duża `Specular` i jest jasna. W przeciwnym razie powierzchnia zostanie wyświetlona i stanowią jedynie ułamek odzwierciedla środowisko.
+Aby podsumować w tym miejscu, `Albedo` będzie blisko oryginalnego `Diffuse` , jeśli `Specular` jest bliski zeru. W przeciwnym razie powierzchnia będzie wyglądać jak metalowa powierzchnia i utraci kolor rozpraszania. Powierzchnia będzie wyglądać bardziej dopracowane i odzwierciedlać, jeśli `ShininessExponent` jest wystarczająco duża i `Specular` jest jasna. W przeciwnym razie powierzchnia zostanie wyświetlona i stanowią jedynie ułamek odzwierciedla środowisko.
 
 ### <a name="known-issues"></a>Znane problemy
 
 * Bieżąca formuła nie działa prawidłowo w przypadku prostej geometrycznej geometrii. Jeśli `Specular` jest wystarczająco krótki, wszystkie geometrie stają się odbijającymi powierzchniami metalicznymi bez żadnego koloru. Obejście tego problemu jest mniejsze `Specular` do 30% od oryginału lub do użycia ustawienia konwersji [fbxAssumeMetallic](../how-tos/conversion/configure-model-conversion.md#converting-from-older-fbx-formats-with-a-phong-material-model).
-* Zostały ostatnio dodane do `Maya` narzędzi i `3DS Max` tworzenia zawartości. Wykorzystują one niestandardowe właściwości czarnego pola zdefiniowane przez użytkownika, aby przekazać je do FBX. Zdalne renderowanie na platformie Azure nie odczytuje tych dodatkowych właściwości, ponieważ nie są one udokumentowane i format jest zamknięty.
+* Zostały ostatnio dodane do `Maya` `3DS Max` narzędzi i tworzenia zawartości. Wykorzystują one niestandardowe właściwości czarnego pola zdefiniowane przez użytkownika, aby przekazać je do FBX. Zdalne renderowanie na platformie Azure nie odczytuje tych dodatkowych właściwości, ponieważ nie są one udokumentowane i format jest zamknięty.
 
 ## <a name="next-steps"></a>Następne kroki
 

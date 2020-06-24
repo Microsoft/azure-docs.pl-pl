@@ -4,14 +4,14 @@ description: Typowe problemy związane z alertami metryk Azure Monitor i możliw
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 06/21/2020
 ms.subservice: alerts
-ms.openlocfilehash: 605d1f550335417a26340b6ee54736321ad69f80
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 36ff80bc0858d6d08cc120d126628de02ba6e703
+ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300762"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85130742"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Rozwiązywanie problemów z alertami metryk Azure Monitor 
 
@@ -112,7 +112,7 @@ Dozwolona liczba reguł alertów dotyczących metryk na subskrypcję podlega [li
 Jeśli osiągnięto limit przydziału, następujące czynności mogą pomóc w rozwiązaniu problemu:
 1. Spróbuj usunąć lub wyłączyć reguły alertów metryk, które nie są już używane.
 
-2. Zacznij korzystać z reguł alertów dotyczących metryk, które monitorują wiele zasobów. Dzięki tej możliwości jedna reguła alertu może monitorować wiele zasobów, używając tylko jednej reguły alertu w stosunku do limitu przydziału. Aby uzyskać więcej informacji na temat tej możliwości i obsługiwanych typów zasobów, zobacz [wiele](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
+2. Zacznij korzystać z reguł alertów dotyczących metryk, które monitorują wiele zasobów. Dzięki tej możliwości jedna reguła alertu może monitorować wiele zasobów, używając tylko jednej reguły alertu w stosunku do limitu przydziału. Aby uzyskać więcej informacji na temat tej możliwości i obsługiwanych typów zasobów, zobacz [tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor).
 
 3. Aby zwiększyć limit przydziału, Otwórz żądanie pomocy technicznej i podaj następujące informacje:
 
@@ -191,6 +191,33 @@ Aby utworzyć regułę alertu metryki, należy mieć następujące uprawnienia:
 - Uprawnienie do odczytu w zasobie docelowym reguły alertu
 - Uprawnienie do zapisu w grupie zasobów, w której jest tworzona reguła alertu (Jeśli tworzysz regułę alertu na podstawie Azure Portal, reguła alertu zostanie utworzona w tej samej grupie zasobów, w której znajduje się zasób docelowy).
 - Uprawnienie Odczyt dla każdej grupy akcji skojarzonej z regułą alertu (jeśli dotyczy)
+
+
+## <a name="naming-restrictions-for-metric-alert-rules"></a>Ograniczenia nazw reguł alertów dotyczących metryk
+
+Należy zwrócić uwagę na następujące ograniczenia dotyczące nazw reguł alertów dotyczących metryk:
+
+- Nie można zmienić nazwy reguły alertu metryki (zmieniono ich nazwę) po utworzeniu
+- Nazwy reguł alertów metryk muszą być unikatowe w obrębie grupy zasobów
+- Nazwy reguł alertów metryk nie mogą zawierać następujących znaków: * # & +:  < > ? @ % { } \ / 
+- Nazwy reguł alertów metryk nie mogą kończyć się znakiem:.
+
+
+## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Ograniczenia w przypadku używania wymiarów w regule alertu metryki z wieloma warunkami
+
+Alerty metryk obsługują generowanie alertów w przypadku metryk wielowymiarowych oraz obsługują definiowanie wielu warunków (do 5 warunków na regułę alertu).
+
+Należy pamiętać o następujących ograniczeniach w przypadku używania wymiarów w regule alertu, która zawiera wiele warunków:
+1. Można wybrać tylko jedną wartość dla każdego wymiaru w każdym warunku.
+2. Nie można użyć opcji "zaznacz wszystkie bieżące i przyszłe wartości" (wybierz \* ).
+3. Gdy metryki, które są skonfigurowane w różnych warunkach, obsługują ten sam wymiar, wówczas skonfigurowana wartość wymiaru musi być jawnie ustawiona w taki sam sposób dla wszystkich metryk (w odpowiednich warunkach).
+Przykład:
+    - Należy wziąć pod uwagę regułę alertu metryki zdefiniowaną na koncie magazynu i monitoruje dwa warunki:
+        * Łączna liczba **transakcji** > 5
+        * Średnia **SuccessE2ELatency** > 250 MS
+    - Chcę zaktualizować pierwszy warunek i monitorować tylko transakcje, w przypadku których wymiar **ApiName** ma wartość *"GetBlob"*
+    - Ponieważ metryki **Transactions** i **SuccessE2ELatency** obsługują wymiar **ApiName** , należy zaktualizować oba warunki i określić, że oba z nich określają wymiar **ApiName** z wartością *"GetBlob"* .
+
 
 ## <a name="next-steps"></a>Następne kroki
 

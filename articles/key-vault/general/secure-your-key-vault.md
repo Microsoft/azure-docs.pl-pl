@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 348ddb0fa8bd973a7e8ebcf5ae14de1eee57d5a5
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: c97645df5fb9183effa8f29f088376519404192d
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827526"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212874"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
 
@@ -79,6 +79,8 @@ Istnieje kilka wstępnie zdefiniowanych ról. Jeśli wstępnie zdefiniowana rola
 Przyznanie dostępu do płaszczyzny danych przez ustawienie Key Vault zasad dostępu dla magazynu kluczy. Aby ustawić te zasady dostępu, użytkownik, Grupa lub aplikacja musi mieć `Contributor` uprawnienia do płaszczyzny zarządzania dla tego magazynu kluczy.
 
 Przyznanie użytkownikowi, grupie lub aplikacji dostępu do wykonywania określonych operacji dla kluczy lub wpisów tajnych w magazynie kluczy. Key Vault obsługuje wpisy zasad dostępu do 1 024 dla magazynu kluczy. Aby udzielić dostępu do płaszczyzny danych kilku użytkownikom, należy utworzyć grupę zabezpieczeń usługi Azure AD i dodać użytkowników do tej grupy.
+
+Można zapoznać się z pełną listą operacji magazynu i wpisów tajnych oraz poznać operacje dozwolone podczas konfigurowania zasad dostępu magazynu kluczy, wyświetlając następujące informacje. [Odwołanie do Key Vault operacji](https://docs.microsoft.com/rest/api/keyvault/#vault-operations)
 
 <a id="key-vault-access-policies"></a>Key Vault zasady dostępu udzielają uprawnień oddzielnie do kluczy, wpisów tajnych i certyfikatów. Można udzielić użytkownikowi dostępu tylko do kluczy i nie do wpisów tajnych. Uprawnienia dostępu do kluczy, wpisów tajnych i certyfikatów znajdują się na poziomie magazynu. Zasady dostępu Key Vault nie obsługują szczegółowych uprawnień na poziomie obiektów, takich jak określony klucz, klucz tajny lub certyfikat. Aby ustawić zasady dostępu dla magazynu kluczy, użyj [Azure Portal](https://portal.azure.com/), [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azureps-cmdlets-docs)lub [interfejsów API REST zarządzania Key Vault](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 

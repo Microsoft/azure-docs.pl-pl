@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
-ms.openlocfilehash: 9131ce9b211a33fe45ef571f3a274b4ddc81739f
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 06/19/2020
+ms.openlocfilehash: f22ef4d1ebd9c4d3c226556c4ef28a873edd80ea
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84430395"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119260"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Tworzenie obszaru roboczego dla Azure Machine Learning przy użyciu interfejsu wiersza polecenia platformy Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ az extension add -n azure-cli-ml
 Obszar roboczy Azure Machine Learning opiera się na następujących usługach lub jednostkach platformy Azure:
 
 > [!IMPORTANT]
-> Jeśli nie określisz istniejącej usługi platformy Azure, zostanie ona utworzona automatycznie podczas tworzenia obszaru roboczego. Zawsze należy określić grupę zasobów.
+> Jeśli nie określisz istniejącej usługi platformy Azure, zostanie ona utworzona automatycznie podczas tworzenia obszaru roboczego. Zawsze należy określić grupę zasobów. Podczas dołączania własnego konta magazynu upewnij się, że jest włączona funkcja Azure BLOB i usługa Azure File oraz że hierarchiczna przestrzeń nazw (ADLS Gen 2) jest wyłączona. Możesz zawsze dołączyć własne konto magazynu później po utworzeniu obszaru roboczego jako magazynów danych.
 
 | Usługa | Parametr określający istniejące wystąpienie |
 | ---- | ---- |
@@ -317,7 +317,7 @@ Aby uzyskać więcej informacji, zobacz sekcję [AZ ml Workspace Share](https://
 
 ## <a name="sync-keys-for-dependent-resources"></a>Synchronizuj klucze dla zasobów zależnych
 
-Jeśli zmienisz klucze dostępu dla jednego z zasobów używanych w obszarze roboczym, użyj następującego polecenia, aby zsynchronizować nowe klucze z obszarem roboczym:
+Jeśli zmienisz klucze dostępu dla jednego z zasobów używanych w obszarze roboczym, będzie ono miało około godzinę, aby obszar roboczy mógł zostać zsynchronizowany z nowym kluczem. Aby wymusić natychmiastowe Synchronizowanie nowych kluczy w obszarze roboczym, użyj następującego polecenia:
 
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>

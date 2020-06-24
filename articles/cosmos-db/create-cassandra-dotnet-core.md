@@ -8,12 +8,12 @@ ms.author: thvankra
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/18/2020
-ms.openlocfilehash: 9df32b441d5dd2653fd3708013bb75660ef593c5
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 56adfa2ddab011372783a7a7872b4f4c8d7fc050
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84311050"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118461"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Szybki Start: Tworzenie aplikacji Cassandra za pomocą platformy .NET Core i Azure Cosmos DB
 
@@ -133,13 +133,13 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) wybierz pozycję **Parametry połączenia**.
 
-    Użyj przycisku ![Kopiuj](./media/create-cassandra-dotnet/copy.png) po prawej stronie ekranu, aby skopiować wartość NAZWA UŻYTKOWNIKA.
+1. Użyj przycisku ![Kopiuj](./media/create-cassandra-dotnet/copy.png) po prawej stronie ekranu, aby skopiować wartość NAZWA UŻYTKOWNIKA.
 
-    ![Wyświetlanie i kopiowanie klucza dostępu w witrynie Portal Azure, strona Parametry połączenia](./media/create-cassandra-dotnet/keys.png)
+   :::image type="content" source="./media/create-cassandra-dotnet/keys.png" alt-text="Wyświetlanie i kopiowanie klucza dostępu w witrynie Portal Azure, strona Parametry połączenia":::
 
-2. W programie Visual Studio Otwórz plik Program.cs. 
+1. W programie Visual Studio Otwórz plik Program.cs. 
 
-3. Wklej wartość NAZWA UŻYTKOWNIKA z portalu do lokalizacji `<PROVIDE>` w wierszu 13.
+1. Wklej wartość NAZWA UŻYTKOWNIKA z portalu do lokalizacji `<PROVIDE>` w wierszu 13.
 
     Wiersz 13 pliku Program.cs powinien teraz wyglądać podobnie do: 
 
@@ -149,14 +149,13 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
     `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
 
-3. Wróć do portalu i skopiuj wartość HASŁO. Wklej wartość HASŁO z portalu do lokalizacji `<PROVIDE>` w wierszu 14.
+1. Wróć do portalu i skopiuj wartość HASŁO. Wklej wartość HASŁO z portalu do lokalizacji `<PROVIDE>` w wierszu 14.
 
     Wiersz 14 pliku Program.cs powinien teraz wyglądać podobnie do: 
 
     `private const string Password = "2Ggkr662ifxz2Mg...==";`
 
-
-4. Zapisz plik Program.cs.
+1. Zapisz plik Program.cs.
     
 ## <a name="run-the-net-core-app"></a>Uruchamianie aplikacji .NET Core
 
@@ -169,19 +168,19 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     ```
 3. Naciśnij klawisze CTRL+F5, aby uruchomić aplikację. Aplikacja zostanie wyświetlona w oknie konsoli. 
 
-    ![Wyświetlanie i weryfikowanie danych wyjściowych](./media/create-cassandra-dotnet/output.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Wyświetlanie i weryfikowanie danych wyjściowych":::
 
     Naciśnij klawisze CTRL+C, aby zatrzymać wykonywanie programu i zamknąć okno konsoli. 
     
 4. W witrynie Azure Portal otwórz **Eksploratora danych**, aby wykonywać zapytania oraz modyfikować te nowe dane i pracować z nimi.
 
-    ![Wyświetlanie danych w Eksploratorze danych](./media/create-cassandra-dotnet/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Wyświetlanie danych w Eksploratorze danych":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Przeglądanie umów SLA w witrynie Azure Portal
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

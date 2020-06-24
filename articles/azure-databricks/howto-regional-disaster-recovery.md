@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 8f68bbb4e73758e44e775e1c0c23ad007ca60aa2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 599dc950cf286520e3f099966786d836ad05ba94
+ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016937"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84789331"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regionalne odzyskiwanie po awarii dla klastrów Azure Databricks
 
@@ -61,8 +61,8 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
    Skonfiguruj jeden dla podstawowego obszaru roboczego, a drugi dla pomocniczego obszaru roboczego:
 
    ```bash
-   databricks configure --profile primary
-   databricks configure --profile secondary
+   databricks configure --profile primary --token
+   databricks configure --profile secondary --token
    ```
 
    Bloki kodu w tym artykule przełączają się między profilami w każdym kolejnym kroku przy użyciu odpowiedniego polecenia obszaru roboczego. Upewnij się, że nazwy tworzonych profilów są zastępowane w każdym bloku kodu.
@@ -93,35 +93,40 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
    Skopiuj i Zapisz następujący skrypt w języku Python do pliku i uruchom go w wierszu polecenia danych. Na przykład `python scriptname.py`.
 
    ```python
+   import sys
+   import os
+   import subprocess
    from subprocess import call, check_output
-
+   
    EXPORT_PROFILE = "primary"
    IMPORT_PROFILE = "secondary"
-
+   
    # Get a list of all users
    user_list_out = check_output(["databricks", "workspace", "ls", "/Users", "--profile", EXPORT_PROFILE])
-   user_list = user_list_out.splitlines()
-
-   # Export sandboxed environment (folders, notebooks) for each user and import into new workspace.
-   # Libraries are not included with these APIs / commands.
-
+   user_list = (user_list_out.decode(encoding="utf-8")).splitlines()
+   
+   print (user_list)
+   
+   # Export sandboxed environment(folders, notebooks) for each user and import into new workspace.
+   #Libraries are not included with these APIs / commands.
+   
    for user in user_list:
-     print "Trying to migrate workspace for user " + user
-
-     call("mkdir -p " + user, shell=True)
-     export_exit_status = call("databricks workspace export_dir /Users/" + user + " ./" + user + " --profile " + EXPORT_PROFILE, shell=True)
-
+     #print("Trying to migrate workspace for user ".decode() + user)
+     print (("Trying to migrate workspace for user ") + user)
+   
+     subprocess.call(str("mkdir -p ") + str(user), shell = True)
+     export_exit_status = call("databricks workspace export_dir /Users/" + str(user) + " ./" + str(user) + " --profile " + EXPORT_PROFILE, shell = True)
+   
      if export_exit_status==0:
-       print "Export Success"
-       import_exit_status = call("databricks workspace import_dir ./" + user + " /Users/" + user + " --profile " + IMPORT_PROFILE, shell=True)
+       print ("Export Success")
+       import_exit_status = call("databricks workspace import_dir ./" + str(user) + " /Users/" + str(user) + " --profile " + IMPORT_PROFILE, shell=True)
        if import_exit_status==0:
-         print "Import Success"
+         print ("Import Success")
        else:
-         print "Import Failure"
+         print ("Import Failure")
      else:
-       print "Export Failure"
-
-   print "All done"
+       print ("Export Failure")
+   print ("All done")
    ```
 
 5. **Migrowanie konfiguracji klastra**
@@ -136,41 +141,48 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
    Skopiuj i Zapisz następujący skrypt w języku Python do pliku i uruchom go w wierszu polecenia danych. Na przykład `python scriptname.py`.
 
    ```python
+   import sys
+   import os
+   import subprocess
+   import json
    from subprocess import call, check_output
-   import json, os
-
+   
    EXPORT_PROFILE = "primary"
    IMPORT_PROFILE = "secondary"
-
+   
    # Get all clusters info from old workspace
-   clusters_out = check_output(["databricks", "clusters", "list", "--profile", EXPORT_PROFILE])
-   clusters_info_list = clusters_out.splitlines()
-
+   clusters_out = check_output(["databricks", "clusters", "list",    "--profile", EXPORT_PROFILE])
+   clusters_info_list = str(clusters_out.decode(encoding="utf-8")).   splitlines()
+   print("Printting Cluster info List")
+   print(clusters_info_list)
+   
    # Create a list of all cluster ids
    clusters_list = []
-   ##for cluster_info in clusters_info_list: clusters_list.append(cluster_info.split(None, 1)[0])
-
+   ##for cluster_info in clusters_info_list: clusters_list.append   (cluster_info.split(None, 1)[0])
+   
    for cluster_info in clusters_info_list:
       if cluster_info != '':
          clusters_list.append(cluster_info.split(None, 1)[0])
-
+   
    # Optionally filter cluster ids out manually, so as to create only required ones in new workspace
 
    # Create a list of mandatory / optional create request elements
    cluster_req_elems = ["num_workers","autoscale","cluster_name","spark_version","spark_conf","node_type_id","driver_node_type_id","custom_tags","cluster_log_conf","spark_env_vars","autotermination_minutes","enable_elastic_disk"]
-
+   print("Printing Cluster element List")
+   print (cluster_req_elems)
    print(str(len(clusters_list)) + " clusters found in the primary site" )
-
+   
    print ("---------------------------------------------------------")
    # Try creating all / selected clusters in new workspace with same config as in old one.
    cluster_old_new_mappings = {}
    i = 0
    for cluster in clusters_list:
       i += 1
-      print("Checking cluster " + str(i) + "/" + str(len(clusters_list)) + " : " + cluster)
-      cluster_get_out = check_output(["databricks", "clusters", "get", "--cluster-id", cluster, "--profile", EXPORT_PROFILE])
+      print("Checking cluster " + str(i) + "/" + str(len(clusters_list)) + " : " +str(cluster))
+      cluster_get_out_f = check_output(["databricks", "clusters", "get", "--cluster-id", str(cluster), "--profile", EXPORT_PROFILE])
+      cluster_get_out=str(cluster_get_out_f.decode(encoding="utf-8"))
       print ("Got cluster config from old workspace")
-
+      print (cluster_get_out)
        # Remove extra content from the config, as we need to build create request with allowed elements only
       cluster_req_json = json.loads(cluster_get_out)
       cluster_json_keys = cluster_req_json.keys()
@@ -181,10 +193,13 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
          print ("---------------------------------------------------------")
          continue
 
-      for key in cluster_json_keys:
-         if key not in cluster_req_elems:
-            cluster_req_json.pop(key, None)
-
+         #cluster_req_json.pop(key, None)
+         for key in cluster_json_keys:
+           if key not in cluster_req_elems:
+            print (cluster_req_json)
+            #cluster_del_item=cluster_json_keys .keys()
+            cluster_req_json.popitem(key, None)
+  
       # Create the cluster, and store the mapping from old to new cluster ids
 
       #Create a temp file to store the current cluster info as JSON
@@ -193,29 +208,29 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
       #delete the temp file if exists
       if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
-
+   
       fClusterJSONtmp = open(strCurrentClusterFile,"w+")
       fClusterJSONtmp.write(json.dumps(cluster_req_json))
       fClusterJSONtmp.close()
-
+   
       #cluster_create_out = check_output(["databricks", "clusters", "create", "--json", json.dumps(cluster_req_json), "--profile", IMPORT_PROFILE])
       cluster_create_out = check_output(["databricks", "clusters", "create", "--json-file", strCurrentClusterFile , "--profile", IMPORT_PROFILE])
       cluster_create_out_json = json.loads(cluster_create_out)
       cluster_old_new_mappings[cluster] = cluster_create_out_json['cluster_id']
-
+   
       print ("Cluster create request sent to secondary site workspace successfully")
       print ("---------------------------------------------------------")
-
+   
       #delete the temp file if exists
       if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
-
+   
    print ("Cluster mappings: " + json.dumps(cluster_old_new_mappings))
    print ("All done")
    print ("P.S. : Please note that all the new clusters in your secondary site are being started now!")
    print ("       If you won't use those new clusters at the moment, please don't forget terminating your new clusters to avoid charges")
    ```
-
+   
 6. **Migrowanie konfiguracji zadań**
 
    Jeśli w poprzednim kroku zostały zmigrowane konfiguracje klastra, można wybrać migrację konfiguracji zadań do nowego obszaru roboczego. Jest to w pełni zautomatyzowany krok przy użyciu datakosteks-CLI, chyba że chcesz przeprowadzić selektywną migrację konfiguracji zadań, zamiast wykonywać ją dla wszystkich zadań.
@@ -228,56 +243,60 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
    Skopiuj i Zapisz Poniższy skrypt w języku Python do pliku. Zastąp wartość dla `old_cluster_id` i `new_cluster_id` , z danymi wyjściowymi z migracji klastra wykonaną w poprzednim kroku. Uruchom ją w wierszu polecenia datakosteks-CLI, na przykład `python scriptname.py` .
 
    ```python
-   from subprocess import call, check_output
+   import sys
+   import os
+   import subprocess
    import json
-
+   from subprocess import call, check_output
+   
+   
    EXPORT_PROFILE = "primary"
    IMPORT_PROFILE = "secondary"
-
+   
    # Please replace the old to new cluster id mappings from cluster migration output
-   cluster_old_new_mappings = {"old_cluster_id": "new_cluster_id"}
-
+   cluster_old_new_mappings = {"0227-120427-tryst214": "0229-032632-paper88"}
+   
    # Get all jobs info from old workspace
    try:
      jobs_out = check_output(["databricks", "jobs", "list", "--profile", EXPORT_PROFILE])
      jobs_info_list = jobs_out.splitlines()
    except:
-     print "No jobs to migrate"
+     print("No jobs to migrate")
      sys.exit(0)
-
+   
    # Create a list of all job ids
    jobs_list = []
    for jobs_info in jobs_info_list:
      jobs_list.append(jobs_info.split(None, 1)[0])
-
+   
    # Optionally filter job ids out manually, so as to create only required ones in new workspace
-
+   
    # Create each job in the new workspace based on corresponding settings in the old workspace
-
+   
    for job in jobs_list:
-     print "Trying to migrate " + job
-
+     print("Trying to migrate ") + job
+   
      job_get_out = check_output(["databricks", "jobs", "get", "--job-id", job, "--profile", EXPORT_PROFILE])
-     print "Got job config from old workspace"
-
+     print("Got job config from old workspace")
+   
      job_req_json = json.loads(job_get_out)  
      job_req_settings_json = job_req_json['settings']
-
+   
      # Remove schedule information so job doesn't start before proper cutover
      job_req_settings_json.pop('schedule', None)
-
+   
      # Replace old cluster id with new cluster id, if job configured to run against an existing cluster
      if 'existing_cluster_id' in job_req_settings_json:
        if job_req_settings_json['existing_cluster_id'] in cluster_old_new_mappings:
          job_req_settings_json['existing_cluster_id'] = cluster_old_new_mappings[job_req_settings_json['existing_cluster_id']]
        else:
-         print "Mapping not available for old cluster id " + job_req_settings_json['existing_cluster_id']
+         print("Mapping not available for old cluster id ") + job_req_settings_json['existing_cluster_id']
          continue
-
+   
      call(["databricks", "jobs", "create", "--json", json.dumps(job_req_settings_json), "--profile", IMPORT_PROFILE])
-     print "Sent job create request to new workspace successfully"
-
-   print "All done"
+     print("Sent job create request to new workspace successfully")
+   
+   print("All done")
    ```
 
 7. **Migrowanie bibliotek**

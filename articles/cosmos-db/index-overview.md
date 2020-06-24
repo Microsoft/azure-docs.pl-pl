@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: bea6d01a8363dd68cff33435335391e0fb0f76c7
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849794"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118597"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indeksowanie w usłudze Azure Cosmos DB — omówienie
 
@@ -41,7 +41,7 @@ Rozważmy na przykład ten element:
 
 Powinna być reprezentowana przez następujące drzewo:
 
-![Poprzedni element reprezentowany jako drzewo](./media/index-overview/item-as-tree.png)
+:::image type="content" source="./media/index-overview/item-as-tree.png" alt-text="Poprzedni element reprezentowany jako drzewo" border="false":::
 
 Zwróć uwagę, jak tablice są kodowane w drzewie: każdy wpis w tablicy pobiera pośredni węzeł z etykietą z indeksem tego wpisu w tablicy (0, 1 itd.).
 
@@ -181,7 +181,7 @@ Tak długo, jak jeden predykat filtru używa jednego z rodzajów indeksu, aparat
 
 Rozważmy na przykład następujące zapytanie: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . Predykat zapytania (filtrowanie dla elementów, gdzie każda lokalizacja ma wartość "Francja", ponieważ jego kraj/region) byłoby zgodny z ścieżką wyróżnioną w kolorze czerwonym poniżej:
 
-![Dopasowanie określonej ścieżki w drzewie](./media/index-overview/matching-path.png)
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Dopasowanie określonej ścieżki w drzewie" border="false":::
 
 > [!NOTE]
 > `ORDER BY`Klauzula, która porządkuje według pojedynczej właściwości, *zawsze* wymaga indeksu zakresu i zakończy się niepowodzeniem, jeśli ścieżka, do której się odwołuje, nie ma takiej wartości. Podobnie, `ORDER BY` zapytanie, które porządkuje wiele właściwości, *zawsze* wymaga indeksu złożonego.

@@ -7,17 +7,17 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 06263f85f7d6ad6cc80724baab01124833498739
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 100a8ed1987b2edbc0aea1708c8a60b48bf391b1
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79129657"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737924"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Zarządzanie przechwytywaniem pakietów za pomocą usługi Azure Network Watcher przy użyciu programu PowerShell
 
@@ -48,7 +48,7 @@ W tym artykule założono, że masz następujące zasoby:
 * Maszyna wirtualna z włączonym rozszerzeniem przechwytywania pakietów.
 
 > [!IMPORTANT]
-> Przechwytywanie pakietów wymaga rozszerzenia `AzureNetworkWatcherExtension`maszyny wirtualnej. Aby zainstalować rozszerzenie na maszynie wirtualnej z systemem Windows, odwiedź [rozszerzenie maszyny wirtualnej usługi azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny wirtualnej z systemem Linux odwiedź [rozszerzenie maszyny wirtualnej agenta usługi Azure Network Watcher](../virtual-machines/linux/extensions-nwa.md).
+> Przechwytywanie pakietów wymaga rozszerzenia maszyny wirtualnej `AzureNetworkWatcherExtension` . Aby zainstalować rozszerzenie na maszynie wirtualnej z systemem Windows, odwiedź [rozszerzenie maszyny wirtualnej usługi azure Network Watcher Agent dla systemu Windows](../virtual-machines/windows/extensions-nwa.md) i dla maszyny wirtualnej z systemem Linux odwiedź [rozszerzenie maszyny wirtualnej agenta usługi Azure Network Watcher](../virtual-machines/linux/extensions-nwa.md).
 
 ## <a name="install-vm-extension"></a>Instalowanie rozszerzenia maszyny wirtualnej
 
@@ -60,10 +60,10 @@ $VM = Get-AzVM -ResourceGroupName testrg -Name VM1
 
 ### <a name="step-2"></a>Krok 2
 
-Poniższy przykład pobiera informacje o rozszerzeniu, które są konieczne `Set-AzVMExtension` do uruchomienia polecenia cmdlet. To polecenie cmdlet powoduje zainstalowanie agenta przechwytywania pakietów na maszynie wirtualnej gościa.
+Poniższy przykład pobiera informacje o rozszerzeniu, które są konieczne do uruchomienia `Set-AzVMExtension` polecenia cmdlet. To polecenie cmdlet powoduje zainstalowanie agenta przechwytywania pakietów na maszynie wirtualnej gościa.
 
 > [!NOTE]
-> Wykonanie `Set-AzVMExtension` polecenia cmdlet może potrwać kilka minut.
+> `Set-AzVMExtension`Wykonanie polecenia cmdlet może potrwać kilka minut.
 
 W przypadku maszyn wirtualnych z systemem Windows:
 
@@ -91,7 +91,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ### <a name="step-3"></a>Krok 3
 
-Aby upewnić się, że Agent jest zainstalowany, `Get-AzVMExtension` Uruchom polecenie cmdlet i przekaż go do nazwy maszyny wirtualnej i nazwy rozszerzenia.
+Aby upewnić się, że Agent jest zainstalowany, uruchom `Get-AzVMExtension` polecenie cmdlet i przekaż go do nazwy maszyny wirtualnej i nazwy rozszerzenia.
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName

@@ -9,25 +9,20 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2019
+ms.date: 06/14/2020
 ms.author: yelevin
-ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14928d3c94ced8d1cd0c12e76428be73b68b91d9
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77582130"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783167"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Wykrywanie zagrożeń przy użyciu transmisję strumieniową łowiectwa w wskaźniku platformy Azure
-
-> [!IMPORTANT]
-> Łowiectwo transmisję strumieniową na platformie Azure — obecnie znajduje się w publicznej wersji zapoznawczej i stopniowo wprowadza do dzierżawców.
-> Ta funkcja jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 Za pomocą transmisję strumieniową łowiectwa można tworzyć interakcyjne sesje umożliwiające testowanie nowo utworzonych zapytań w miarę wystąpienia zdarzeń, otrzymywanie powiadomień z sesji po znalezieniu dopasowania i w razie potrzeby dochodzeń. Sesję transmisję strumieniową można szybko utworzyć przy użyciu dowolnego zapytania Log Analytics.
 
@@ -48,42 +43,42 @@ Za pomocą transmisję strumieniową łowiectwa można tworzyć interakcyjne ses
 
 Sesję transmisję strumieniową można utworzyć na podstawie istniejącego zapytania polowania lub utworzyć sesję od podstaw.
 
-1. W Azure Portal przejdź do**polowania**dotyczącego > **zarządzania zagrożeniami** **wskaźnikiem** > .
+1. W Azure Portal przejdź do polowania dotyczącego **Sentinel**  >  **zarządzania zagrożeniami**wskaźnikiem  >  **Hunting**.
 
-2. Aby utworzyć sesję transmisję strumieniową na podstawie zapytania polowania:
+1. Aby utworzyć sesję transmisję strumieniową na podstawie zapytania polowania:
     
     1. Na karcie **zapytania** Znajdź zapytanie polowające do użycia.
-    2. Kliknij prawym przyciskiem myszy zapytanie i wybierz polecenie **Dodaj do transmisję strumieniową**. Przykład:
+    1. Kliknij prawym przyciskiem myszy zapytanie i wybierz polecenie **Dodaj do transmisję strumieniową**. Przykład:
     
     > [!div class="mx-imgBorder"]
     > ![Utwórz sesję transmisję strumieniową na podstawie zapytania polowania wskaźnikowego platformy Azure](./media/livestream/livestream-from-query.png)
 
-3. Aby utworzyć sesję transmisję strumieniową od podstaw: 
+1. Aby utworzyć sesję transmisję strumieniową od podstaw: 
     
     1. Wybierz kartę **transmisję strumieniową**
-    2. Wybierz pozycję **Przejdź do transmisję strumieniową**.
+    1. Kliknij pozycję **+ Nowy transmisję strumieniową**.
     
-4. W okienku **transmisję strumieniową** :
+1. W okienku **transmisję strumieniową** :
     
     - Jeśli rozpoczęto transmisję strumieniową z zapytania, przejrzyj zapytanie i wprowadź wszelkie zmiany, które chcesz wprowadzić.
     - Jeśli rozpoczęto transmisję strumieniową od podstaw, Utwórz zapytanie. 
 
-5. Wybierz opcję **Odtwórz** na pasku poleceń.
+1. Wybierz opcję **Odtwórz** na pasku poleceń.
     
     Pasek stanu na pasku poleceń wskazuje, czy sesja transmisję strumieniową jest uruchomiona, czy wstrzymana. W poniższym przykładzie jest uruchomiona sesja:
     
     > [!div class="mx-imgBorder"]
     > ![Utwórz sesję transmisję strumieniową z poziomu polowania wskaźnikowego platformy Azure](./media/livestream/livestream-session.png)
 
-6. Wybierz pozycję **Zapisz** na pasku poleceń.
+1. Wybierz pozycję **Zapisz** na pasku poleceń.
     
     Dopóki nie wybierzesz opcji **Wstrzymaj**, sesja będzie nadal działać do momentu wylogowania się z Azure Portal.
 
 ## <a name="view-your-livestream-sessions"></a>Wyświetlanie sesji transmisję strumieniową
 
-1. W Azure Portal przejdź do karty **wskaźnik** > **zagrożeń zarządzania** > **Hunting** > Threat**transmisję strumieniową** .
+1. W Azure Portal przejdź do karty **wskaźnik**  >  **zagrożeń zarządzania Threat**  >  **Hunting**  >  **transmisję strumieniową** .
 
-2. Wybierz sesję transmisję strumieniową, którą chcesz wyświetlić lub edytować. Przykład:
+1. Wybierz sesję transmisję strumieniową, którą chcesz wyświetlić lub edytować. Przykład:
     
     > [!div class="mx-imgBorder"]
     > ![Utwórz sesję transmisję strumieniową na podstawie zapytania polowania wskaźnikowego platformy Azure](./media/livestream/livestream-tab.png)

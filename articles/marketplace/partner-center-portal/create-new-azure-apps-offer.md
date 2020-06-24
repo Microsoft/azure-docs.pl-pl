@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: ace85727680ecf6d62860ac2239a8c0b68ae6e0e
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1755d6808183887ca428f227272c3923d4bae21f
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848791"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213854"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -92,9 +92,9 @@ Istnieją dwa rodzaje planów aplikacji platformy Azure: szablony rozwiązań i 
 
 Wszystkie aplikacje platformy Azure obejmują co najmniej dwa pliki w folderze głównym `.zip` archiwum:
 
-* Plik szablonu Menedżer zasobów o nazwie [mainTemplate. JSON](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Ten szablon definiuje zasoby, które mają zostać wdrożone w ramach subskrypcji platformy Azure klienta.  Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
+* Plik szablonu Menedżer zasobów o nazwie [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Ten szablon definiuje zasoby, które mają zostać wdrożone w ramach subskrypcji platformy Azure klienta. Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
 
-* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition. JSON](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  W interfejsie użytkownika należy określić elementy, które umożliwiają klientom podanie wartości parametrów.
+* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.jsna](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  W interfejsie użytkownika należy określić elementy, które umożliwiają klientom podanie wartości parametrów.
 
 Wszystkie nowe oferty aplikacji platformy Azure muszą obejmować [Identyfikator GUID autorstwa klienta na platformie Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution). 
 
@@ -161,16 +161,43 @@ Wybierz co najmniej jedną i maksymalnie trzy kategorie, aby umieścić ofertę 
 
 ## <a name="offer-listing"></a>Lista oferty
 
-Na tej stronie można zarządzać kopią i obrazami oferty komercyjnej witryny Marketplace. 
+Na tej stronie można zarządzać kopią i obrazami oferty komercyjnej witryny Marketplace.
 
 ### <a name="marketplace-details"></a>Szczegóły witryny Marketplace
 
 > [!NOTE]
 > Oferta zawartości oferty (na przykład opis, dokumenty, zrzuty ekranu i warunki użytkowania) nie jest wymagana w języku angielskim, o ile opis oferty zaczyna się od frazy "Ta aplikacja jest dostępna tylko w języku innym niż angielski]". Można także zapewnić *przydatny adres URL linku* do oferowania zawartości w języku innym niż ten, który jest używany w ofercie dotyczącej oferty.
 
+Oto przykład sposobu wyświetlania informacji o ofercie w witrynie Azure Marketplace (wszystkie wymienione ceny są przeznaczone wyłącznie do celów i nie są przeznaczone do odzwierciedlenia rzeczywistych kosztów):
+
+:::image type="content" source="media/example-azure-marketplace-app.png" alt-text="Ilustruje, jak ta oferta pojawia się w witrynie Azure Marketplace.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Logo
+2. Kategorie
+3. Adres pomocy technicznej (link)
+4. Warunki użytkowania
+5. Adres zasad ochrony prywatności (link)
+6. Nazwa oferty
+7. Podsumowanie
+8. Opis
+9. Zrzuty ekranu/wideo
+
+<br>Oto przykład sposobu wyświetlania informacji o ofercie w Azure Portal:
+
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustruje, w jaki sposób ta oferta pojawia się w Azure Portal.":::
+
+#### <a name="call-out-descriptions"></a>Opisy połączeń
+
+1. Tytuł
+2. Opis
+3. Przydatne łącza
+4. Zrzuty ekranu
+
 #### <a name="name"></a>Nazwa
 
-Nazwa wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty. To pole jest wstępnie wypełniane tekstem wprowadzonym dla **aliasu oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Ta nazwa może być znakiem towarowym (i może zawierać znaki towarowe lub autorskie). Nazwa nie może być dłuższa niż 50 znaków i nie może zawierać żadnych znaków emoji.
+Nazwa wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty. To pole jest wstępnie wypełnione tekstem wprowadzonym dla **aliasu oferty** podczas tworzenia oferty, ale można zmienić tę wartość. Ta nazwa może być znakiem towarowym (i może zawierać znaki towarowe lub autorskie). Nazwa nie może być dłuższa niż 50 znaków i nie może zawierać żadnych znaków emoji.
 
 #### <a name="search-results-summary"></a>Podsumowanie wyników wyszukiwania
 
@@ -265,7 +292,7 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 Konfiguracja techniczna definiuje szczegóły (identyfikator dzierżawy i identyfikator aplikacji) używane do identyfikacji usługi, która będzie emitować zdarzenia pomiaru dla aplikacji zarządzanej przy użyciu [interfejsów API usługi pomiaru Marketplace](./marketplace-metering-service-apis.md).  Wprowadź tożsamość, która będzie używana przez usługę podczas emitowania zdarzeń pomiarowych.
 
-* **Identyfikator dzierżawy usługi Azure AD** (wymagany): wewnątrz Azure Portal wymagamy [utworzenia aplikacji Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami w ramach komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
+* **Identyfikator dzierżawy usługi Azure AD** (wymagane): wewnątrz Azure Portal należy [utworzyć aplikację Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami za pomocą komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
 * **Identyfikator aplikacji usługi Azure AD** (wymagane): wymagany jest również [Identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i klucz uwierzytelniania. Aby uzyskać te wartości, przejdź do Azure Active Directory i wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Aby znaleźć klucz uwierzytelniania, przejdź do pozycji **Ustawienia** i wybierz pozycję **klucze**. Należy podać opis i czas trwania, a następnie podać wartość liczbową.
 
 >[!Note]
@@ -421,8 +448,8 @@ Na tej karcie można edytować wersję roboczą konfiguracji technicznej.
 
 Wszystkie pakiety planu aplikacji platformy Azure muszą zawierać te dwa pliki w folderze głównym `.zip` archiwum:
 
-* Plik szablonu Menedżer zasobów o nazwie [mainTemplate. JSON](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Ten szablon automatyzuje wdrażanie zasobów w subskrypcji platformy Azure dla klientów.  Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
-* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition. JSON](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+* Plik szablonu Menedżer zasobów o nazwie [mainTemplate.json](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Ten szablon automatyzuje wdrażanie zasobów w subskrypcji platformy Azure dla klientów.  Przykłady szablonów Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/) lub w odpowiedniej repozytorium [szablonów szybkiego startu: Azure Resource Manager](https://github.com/azure/azure-quickstart-templates) .
+* Definicja interfejsu użytkownika dla środowiska tworzenia aplikacji platformy Azure o nazwie [createUiDefinition.jsna](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
 
 Maksymalne obsługiwane rozmiary plików:
 
@@ -511,7 +538,7 @@ Aby włączyć stację testową, zaznacz pole wyboru **Włącz dysk testowy** na
 
 Aby zezwolić na wdrożenie dysku testowego w Twoim imieniu, Utwórz i podaj oddzielną, unikatową subskrypcję platformy Azure (niewymaganą dla Power BI dysków testowych).
 
-* **Identyfikator subskrypcji platformy Azure** (wymagany dla Azure Resource Manager i aplikacji logiki) — wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure na potrzeby raportowania użycia zasobów i rozliczeń. Zalecamy [utworzenie oddzielnej subskrypcji platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) , która ma być używana na potrzeby dysków testowych, jeśli jeszcze jej nie masz. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [Azure Portal](https://portal.azure.com/) i przechodząc do karty **subskrypcje** w menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (np. "a83645ac-1234-5ab6-6789-1h234g764ghty").
+* **Identyfikator subskrypcji platformy Azure** (wymagany dla Azure Resource Manager i aplikacji logiki) — wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure na potrzeby raportowania użycia zasobów i rozliczeń. Zalecamy [utworzenie oddzielnej subskrypcji platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) , która ma być używana na potrzeby dysków testowych, jeśli jeszcze jej nie masz. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [Azure Portal](https://portal.azure.com/) i przechodząc do karty **subskrypcje** w menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (na przykład "a83645ac-1234-5ab6-6789-1h234g764ghty").
 * **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny w: [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 * **Nazwa dzierżawy usługi Azure AD** (wymagana dla dynamicznego 365) — wprowadź nazwę Azure Active Directory (AD). Aby znaleźć tę nazwę, zaloguj się do [Azure Portal](https://portal.azure.com/), w prawym górnym rogu nazwa dzierżawy zostanie wyświetlona w polu Nazwa konta.
 * **Identyfikator aplikacji usługi Azure AD** (wymagany) — wprowadź [Identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).

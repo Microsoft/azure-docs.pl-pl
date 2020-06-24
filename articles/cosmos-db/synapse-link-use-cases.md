@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: f0efaf593725fd676ae8e85ff9c190c8b850fef1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 493a2b0d0aab47c2e38648ec8f6be75685dfd7ec
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744680"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85119498"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Link Synapse platformy Azure dla Azure Cosmos DB: przypadki użycia analizy niemal w czasie rzeczywistym
+# <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Usługa Azure Synapse Link dla usługi Azure Cosmos DB: Przypadki użycia analizy prawie w czasie rzeczywistym
 
 [Link Azure Synapse](synapse-link.md) dla Azure Cosmos DB to funkcja natywnego hybrydowego przetwarzania transakcyjnego i analitycznego (HTAP) w chmurze, która umożliwia uruchamianie analizy niemal w czasie rzeczywistym za pośrednictwem danych operacyjnych. Link Synapse tworzy ścisłą integrację między usługami Azure Cosmos DB i Azure Synapse Analytics.
 
@@ -34,7 +34,7 @@ Producenci są dołączani do natywnych technologii w chmurze w celu wyróżnien
 
 W poniższej architekturze przedstawiono możliwości korzystania z Azure Cosmos DB jako natywnej, operacyjnej bazy danych i Synapse w chmurze w analizie łańcucha dostaw:
 
-![Link Synapse platformy Azure dla Azure Cosmos DB w analizie łańcucha dostaw ](./media/synapse-link-use-cases/supply-chain-analytics.png)
+:::image type="content" source="./media/synapse-link-use-cases/supply-chain-analytics.png" alt-text="Link Synapse platformy Azure dla Azure Cosmos DB w analizie łańcucha dostaw" border="false":::
 
 W oparciu o poprzednią architekturę można osiągnąć następujące przypadki użycia z linkiem Synapse Azure Cosmos DB:
 
@@ -70,7 +70,7 @@ Poniżej przedstawiono kilka wskazówek dotyczących integracji danych na potrze
 
 Sprzedawcy detaliczni muszą tworzyć bezpieczne i skalowalne rozwiązania do obsługi handlu elektronicznego, które spełniają wymagania klientów i firmy. Te rozwiązania z zakresu handlu elektronicznego muszą angażować klientów za pośrednictwem dostosowanych produktów i ofert, szybko i bezpiecznie przetwarzać transakcje oraz skupić się na realizacji usługi klienta. Azure Cosmos DB wraz z najnowszym linkiem Synapse dla Azure Cosmos DB umożliwia detalistom generowanie spersonalizowanych zaleceń dla klientów w czasie rzeczywistym. Używają one ustawień spójności o małym opóźnieniu i możliwość dostosowania na potrzeby natychmiastowego wglądu w dane, jak pokazano w następującej architekturze:
 
-![Link usługi Azure Synapse dla Azure Cosmos DB w trybie personalizacji w czasie rzeczywistym](./media/synapse-link-use-cases/real-time-personalization.png)
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Link usługi Azure Synapse dla Azure Cosmos DB w trybie personalizacji w czasie rzeczywistym" border="false":::
 
 Azure Cosmos DB Synapse:
 
@@ -82,7 +82,7 @@ Innowacje przemysłowe mają znacząco zmniejszone przestoje maszyn i zwiększon
 
 Poniżej przedstawiono architekturę wykorzystującą natywne możliwości HTAP w chmurze w usłudze Azure Synapse link Azure Cosmos DB w ramach konserwacji predykcyjnej IoT:
 
-![Link Synapse na platformie Azure dla Azure Cosmos DB w usłudze IOT — konserwacja predykcyjna](./media/synapse-link-use-cases/iot-predictive-maintenance.png)
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Link Synapse na platformie Azure dla Azure Cosmos DB w usłudze IOT — konserwacja predykcyjna" border="false" :::
 
 Link Synapse dla przypadków użycia Azure Cosmos DB:
 
@@ -104,7 +104,7 @@ Na poniższej liście przedstawiono omówienie różnych wzorców obciążeń, k
 
 Usługa Azure Synapse Link umożliwia Azure Cosmos DB nie tylko w przypadku obciążeń transakcyjnych, ale również umożliwia wykonywanie obciążeń analitycznych niemal w czasie rzeczywistym za pośrednictwem historycznych danych operacyjnych. Ma to miejsce bez wymagań ETL i gwarantowanej izolacji wydajności z obciążeń transakcyjnych.
 
-Na poniższej ilustracji przedstawiono wzorce obciążeń przy użyciu Azure Cosmos DB: ![ link Azure Synapse dla wzorców obciążenia Azure Cosmos DB](./media/synapse-link-use-cases/synapse-link-workload-patterns.png)
+Na poniższej ilustracji przedstawiono wzorce obciążeń przy użyciu Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="link Azure Synapse dla wzorców obciążenia Azure Cosmos DB" border="false":::
 
 Poinformuj nas o tym, że CompanyXYZ firmy handlu elektronicznego z operacjami globalnymi w 20 krajach/regionach, aby zilustrować korzyści wynikające z wyboru Azure Cosmos DB jako pojedynczej bazy danych w czasie rzeczywistym, co pozwala na globalne i analityczne wymagania dotyczące platformy zarządzania zapasami.
 
@@ -138,7 +138,7 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Praca z linkiem usługi Azure Synapse dla Azure Cosmos DB](configure-synapse-link.md)
 
-* [Często zadawane pytania dotyczące usługi Azure Synapse link dla Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
+* [Często zadawane pytania dotyczące usługi Azure Synapse Link dla usługi Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 
 * [Apache Spark w usłudze Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md)
 

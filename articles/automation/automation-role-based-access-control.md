@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: d60885f7dbcd090e4f2172015787bc34d4ee7bcf
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ac05d5b4eb8dd9d7a39f56ec6efae4831f00c623
+ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832507"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85100015"
 ---
 # <a name="manage-role-permissions-and-security"></a>Zarządzanie uprawnieniami ról i zabezpieczeniami
 
@@ -21,7 +21,7 @@ Funkcja kontroli dostępu opartej na rolach (role-based access control, RBAC) um
 
 W usłudze Azure Automation prawo dostępu jest nadawane poprzez przypisywanie użytkownikom, grupom i aplikacjom odpowiednich ról RBAC w zakresie konta usługi. Poniżej przedstawiono wbudowane role obsługiwane przez konto automatyzacji:
 
-| **Rola** | **Opis** |
+| **Role** | **Opis** |
 |:--- |:--- |
 | Właściciel |Rola właściciela umożliwia dostęp do wszystkich zasobów i akcji w ramach konta usługi Automation, w tym zapewnia dostęp innym użytkownikom, grupom i aplikacjom w celu zarządzania kontem usługi Automation. |
 | Współautor |Rola Współautor umożliwia zarządzanie wszystkim, z wyjątkiem modyfikowania uprawnień dostępu innych użytkowników do konta usługi Automation. |
@@ -254,7 +254,7 @@ W poniższych sekcjach opisano minimalne wymagane uprawnienia wymagane do włąc
 
 Zarządzanie aktualizacjami dociera do wielu usług w celu zapewnienia swojej usługi. W poniższej tabeli przedstawiono uprawnienia, które są konieczne do zarządzania wdrożeniami zarządzania aktualizacjami:
 
-|**Zasób**  |**Rola**  |**Zakres**  |
+|**Zasób**  |**Role**  |**Zakres**  |
 |---------|---------|---------|
 |Konto usługi Automation     | Współautor usługi Log Analytics       | Konto usługi Automation        |
 |Konto usługi Automation    | Współautor maszyny wirtualnej        | Grupa zasobów dla konta        |
@@ -404,7 +404,7 @@ $userId = "<User ObjectId>" # Azure Active Directory (AAD) user's ObjectId from 
 $aa = Get-AzResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts" -ResourceName $automationAccountName
 
 # Get the Runbook resource
-$rb = Get-AzResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$automationAccountName/$rbName"
+$rb = Get-AzResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$rbName"
 
 # The Automation Job Operator role only needs to be run once per user.
 New-AzRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Operator" -Scope $aa.ResourceId

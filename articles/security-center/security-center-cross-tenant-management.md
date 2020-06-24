@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77919485"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84782816"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Zarządzanie między dzierżawcami w Security Center
 
@@ -43,10 +43,10 @@ Na górnym pasku menu kliknij ikonę filtru, a następnie wybierz subskrypcje, z
 
   ![Filtrowanie dzierżawców](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-Widoki i akcje są zasadniczo takie same. Oto kilka przykładów:
+Widoki i akcje są zasadniczo takie same. Poniżej przedstawiono kilka przykładów:
 
 - **Zarządzanie zasadami zabezpieczeń**: w jednym widoku Zarządzaj Stanami zabezpieczeń wielu zasobów przy użyciu [zasad](tutorial-security-policy.md), podejmuj działania z zaleceniami dotyczącymi zabezpieczeń, a następnie Zbieraj dane związane z zabezpieczeniami i zarządzaj nimi.
-- **Poprawa bezpiecznego oceny i zgodności stan**: widoczność między dzierżawcami umożliwia wyświetlenie ogólnych stan związanych z bezpieczeństwem wszystkich dzierżawców oraz, gdzie i jak najlepiej poprawić [bezpieczną ocenę](security-center-secure-score.md) i [zgodność stan](security-center-compliance-dashboard.md) dla każdego z nich.
+- **Poprawa bezpiecznego oceny i zgodności stan**: widoczność między dzierżawcami umożliwia wyświetlenie ogólnych stan związanych z bezpieczeństwem wszystkich dzierżawców oraz, gdzie i jak najlepiej poprawić [bezpieczną ocenę](secure-score-security-controls.md) i [zgodność stan](security-center-compliance-dashboard.md) dla każdego z nich.
 - **Skoryguj zalecenia**: Monitoruj i Koryguj [zalecenia](security-center-recommendations.md) dotyczące wielu zasobów z różnych dzierżawców jednocześnie. Następnie można natychmiast zaradzić sobie z lukami w zabezpieczeniach, które stwarzają największe ryzyko dla wszystkich dzierżawców.
 - **Zarządzanie alertami**: wykrywanie [alertów](security-center-alerts-overview.md) w różnych dzierżawach. Wykonaj działania dotyczące zasobów, które są niezgodne z [krokami korygowania](security-center-managing-and-responding-alerts.md)akcji.
 

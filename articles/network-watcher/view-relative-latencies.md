@@ -6,18 +6,18 @@ documentationcenter: ''
 author: damendo
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 39f81731f20566d1a39f3f0931ff52c4e8b43ec0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 938315dac80ae51984851083753a9cb8f77662b2
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521392"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737907"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Wyświetlanie względnego opóźnienia do regionów platformy Azure z określonych lokalizacji
 
@@ -59,10 +59,10 @@ Get-AzNetworkWatcherReachabilityReport `
 ```
 
 > [!NOTE]
-> Region określony w poprzednim poleceniu nie musi być tożsamy z regionem określonym podczas pobierania obserwatora sieciowego. Poprzednie polecenie po prostu wymaga określenia istniejącego obserwatora sieci. Obserwator sieci może znajdować się w dowolnym regionie. Jeśli określisz wartości dla `-Country` i `-State`, muszą one być prawidłowe. W wartościach jest rozróżniana wielkość liter. Dane są dostępne dla ograniczonej liczby krajów/regionów, stanów i miejscowości. Uruchom polecenia w [widoku dostępne kraje/regiony, Stany, miasta i dostawcy,](#view-available) aby wyświetlić listę dostępnych krajów/regionów, miast i Stanów do użycia z poprzednim poleceniem. 
+> Region określony w poprzednim poleceniu nie musi być tożsamy z regionem określonym podczas pobierania obserwatora sieciowego. Poprzednie polecenie po prostu wymaga określenia istniejącego obserwatora sieci. Obserwator sieci może znajdować się w dowolnym regionie. Jeśli określisz wartości dla `-Country` i `-State` , muszą one być prawidłowe. W wartościach jest rozróżniana wielkość liter. Dane są dostępne dla ograniczonej liczby krajów/regionów, stanów i miejscowości. Uruchom polecenia w [widoku dostępne kraje/regiony, Stany, miasta i dostawcy,](#view-available) aby wyświetlić listę dostępnych krajów/regionów, miast i Stanów do użycia z poprzednim poleceniem. 
 
 > [!WARNING]
-> Należy określić datę w ciągu ostatnich 30 dni dla `-StartTime` i. `-EndTime` Określenie wcześniejszej daty spowoduje zwrócenie danych.
+> Należy określić datę w ciągu ostatnich 30 dni dla `-StartTime` i `-EndTime` . Określenie wcześniejszej daty spowoduje zwrócenie danych.
 
 Dane wyjściowe poprzedniego polecenia są następujące:
 
@@ -108,7 +108,7 @@ W zwracanych danych wyjściowych wartość dla **oceny** jest względnym opóźn
 
 ## <a name="compare-relative-network-latencies-across-azure-regions-from-a-specific-location"></a>Porównywanie opóźnień sieci w regionach platformy Azure z określonej lokalizacji
 
-Jeśli zamiast określania względnych opóźnień między konkretną lokalizacją i określonym regionem świadczenia usługi `-Location`Azure przy użyciu programu chcesz określić względne opóźnienia dla wszystkich regionów świadczenia usługi Azure z określonej lokalizacji fizycznej, możesz to zrobić. Na przykład następujące polecenie pomaga w ocenie regionu platformy Azure, w którym ma zostać wdrożona usługa, jeśli użytkownicy podstawowi są Comcast w stanie Waszyngton:
+Jeśli zamiast określania względnych opóźnień między konkretną lokalizacją i określonym regionem świadczenia usługi Azure przy użyciu programu chcesz `-Location` określić względne opóźnienia dla wszystkich regionów świadczenia usługi Azure z określonej lokalizacji fizycznej, możesz to zrobić. Na przykład następujące polecenie pomaga w ocenie regionu platformy Azure, w którym ma zostać wdrożona usługa, jeśli użytkownicy podstawowi są Comcast w stanie Waszyngton:
 
 ```powershell
 Get-AzNetworkWatcherReachabilityReport `

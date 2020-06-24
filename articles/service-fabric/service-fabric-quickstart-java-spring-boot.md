@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: eb96989b4a2731e78471b848d690b48352408d1c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: de94e40a8d34a62f4233878f8057649c8fb2c0e4
+ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121481"
+ms.lasthandoff: 06/21/2020
+ms.locfileid: "85126029"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Szybki Start: wdrażanie aplikacji do rozruchu ze sprężyną Java na platformie Azure Service Fabric
 
@@ -33,7 +33,7 @@ W tym przewodniku szybki start wdrożono aplikację rozruchu ze sprężyną Java
 
 --- 
 
-## <a name="download-the-sample"></a>Pobierz przykład
+## <a name="download-the-sample"></a>Pobieranie przykładu
 
 W oknie terminalu uruchom następujące polecenie, aby sklonować przykładową aplikację z rozruchem sprężyny [wprowadzenie](https://github.com/spring-guides/gs-spring-boot) do komputera lokalnego.
 
@@ -61,10 +61,10 @@ W katalogu *GS-Boot-rozruch/pełny* uruchom poniższe polecenie, aby skompilowa�
     #!/bin/bash
     BASEDIR=$(dirname $0)
     cd $BASEDIR
-    java -jar gs-spring-boot-0.1.0.jar
+    java -jar *spring-boot*.jar
     ```
 
-1. Dodaj zasób **punktów końcowych** w pliku *GS-Spring-Boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/servicemanifest. XML*
+1. Dodawanie zasobu **punktów końcowych** w pliku *GS-sprężyn-Boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml*
 
     ```xml 
         <Resources>

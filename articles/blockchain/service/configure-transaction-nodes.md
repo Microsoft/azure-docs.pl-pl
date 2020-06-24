@@ -2,14 +2,14 @@
 title: Konfigurowanie węzłów transakcji usługi Azure łańcucha bloków Service
 description: Jak skonfigurować węzły transakcji usługi Azure łańcucha bloków
 ms.date: 11/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 8fa18496d0c1aa59beb55569e731967d5ebea427
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80876933"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85212568"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurowanie węzłów transakcji usługi Azure łańcucha bloków Service
 
@@ -71,7 +71,7 @@ Aby udzielić kontroli dostępu usługi Azure AD do punktu końcowego:
     |---------|-------------|
     | Rola | Wybierz **właściciela**, **współautora**lub **czytelnika**.
     | Przypisz dostęp do | Wybierz pozycję **użytkownik, Grupa lub nazwa główna usługi Azure AD**.
-    | Wybierz | Wyszukaj użytkownika, grupę lub jednostkę usługi, którą chcesz dodać.
+    | Wybierz pozycję | Wyszukaj użytkownika, grupę lub jednostkę usługi, którą chcesz dodać.
 
 1. Wybierz pozycję **Zapisz** , aby dodać przypisanie roli.
 
@@ -89,7 +89,7 @@ Możesz wyświetlić szczegóły podstawowego punktu końcowego uwierzytelniania
 
 Nazwa użytkownika jest nazwą węzła i nie można jej zmienić.
 
-Aby użyć adresu URL, \<Zastąp\> hasło hasłem ustawionym podczas aprowizacji węzła. Hasło można zaktualizować, wybierając pozycję **Resetuj hasło**.
+Aby użyć adresu URL, Zastąp ciąg \<password\> hasłem ustawionym podczas aprowizacji węzła. Hasło można zaktualizować, wybierając pozycję **Resetuj hasło**.
 
 ### <a name="access-keys"></a>Klawisze dostępu
 

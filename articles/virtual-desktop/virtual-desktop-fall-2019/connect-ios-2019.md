@@ -4,16 +4,16 @@ description: Jak nawiązać połączenie z pulpitem wirtualnym systemu Windows p
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 80bbb90c46376d29c1f4f8b0701cf4059db32246
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 10ad1e3fdcccce4eb0ce97806f67486ce5cc391b
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615008"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85213214"
 ---
 # <a name="connect-with-the-ios-client"></a>Nawiązywanie połączenia z klientem systemu iOS
 
@@ -34,11 +34,11 @@ Zasubskrybuj źródło danych dostarczone przez administratora, aby uzyskać lis
 
 Aby subskrybować źródło danych:
 
-1. W centrum połączenia naciśnij **+** pozycję, a następnie naciśnij pozycję **Dodaj obszar roboczy**.
+1. W centrum połączenia naciśnij pozycję **+** , a następnie naciśnij pozycję **Dodaj obszar roboczy**.
 2. Wprowadź adres URL źródła danych w polu **adres URL źródła danych** . Adres URL źródła danych może być adresem URL lub adresem e-mail.
-   - Jeśli używasz adresu URL, użyj tego administratora. Zwykle jest <https://rdweb.wvd.microsoft.com>to adres URL.
+   - Jeśli używasz adresu URL, użyj tego administratora. Zwykle jest to adres URL <https://rdweb.wvd.microsoft.com> .
    - Aby użyć poczty e-mail, wprowadź swój adres e-mail. Oznacza to, że klient może wyszukać adres URL skojarzony z Twoim adresem e-mail, jeśli administrator skonfigurował serwer w taki sposób.
-3. Naciśnij przycisk **dalej**.
+3. Naciśnij opcję **Dalej**.
 4. Po wyświetleniu monitu podaj swoje poświadczenia.
    - W polu **Nazwa użytkownika**Nadaj nazwę użytkownikowi uprawnienia dostępu do zasobów.
    - W polu **hasło**Podaj hasło skojarzone z nazwą użytkownika.

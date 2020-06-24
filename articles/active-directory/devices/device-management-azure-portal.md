@@ -4,19 +4,19 @@ description: Dowiedz się, jak za pomocą Azure Portal zarządzać urządzeniami
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 241e5baf7f00bc9897e84fb0c10ac7db605fb712
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: bf3f6455be992502182fb942f0e6db089051ab1a
+ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84628328"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85253158"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu Azure Portal
 
@@ -33,7 +33,7 @@ W tym artykule:
 
 Portal usługi Azure AD udostępnia centralne miejsce do zarządzania tożsamościami urządzeń. Możesz to zrobić za pomocą [linku bezpośredniego](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) lub:
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Przejdź do **Azure Active Directory**  >  **urządzeń**.
 
 Na stronie **urządzenia** można:
@@ -184,7 +184,7 @@ Aby włączyć funkcję filtrowania wersji zapoznawczej w widoku **wszystkie urz
 
 ![Włącz funkcję filtrowania filtru](./media/device-management-azure-portal/device-filter-preview-enable.png)
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Przejdź do **Azure Active Directory**  >  **urządzeń**.
 1. Wybierz baner, który brzmi, **Wypróbuj ulepszenia filtrowania nowych urządzeń. Kliknij, aby włączyć podgląd.**
 

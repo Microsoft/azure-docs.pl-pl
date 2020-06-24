@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 3db9dc260cb8546109870834f364c62305aa3fbb
-ms.sourcegitcommit: 58ff2addf1ffa32d529ee9661bbef8fbae3cddec
+ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
+ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84324525"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84783218"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Często zadawane pytania — ogólne pytania dotyczące Azure Security Center
 
@@ -81,7 +81,7 @@ Azure Security Center automatycznie gromadzi, analizuje i odrzuca dane dziennik�
 
 
 ## <a name="why-did-secure-score-values-change"></a>Dlaczego zostały zmienione wartości oceny? <a name="secure-score-faq"></a>
-Od lutego 2019 Security Center skorygowany wynik kilku zaleceń w celu lepszego dopasowania ich ważności. W wyniku tej korekty mogą wystąpić zmiany ogólnych, bezpiecznych wartości oceny.  Aby uzyskać więcej informacji na temat zabezpieczeń oceny, zobacz [Secure Score calculation](security-center-secure-score.md).
+Od lutego 2019 Security Center skorygowany wynik kilku zaleceń w celu lepszego dopasowania ich ważności. W wyniku tej korekty mogą wystąpić zmiany ogólnych, bezpiecznych wartości oceny.  Aby uzyskać więcej informacji na temat zabezpieczeń oceny, zobacz [ulepszony bezpieczny wynik w Azure Security Center](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Jaka jest różnica między zagrożeniami wykrytymi przez centrum Microsoft Security Response Center a Azure Security Centerymi

@@ -5,16 +5,16 @@ services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e9731b869b20c7d8cfc3b1e234711c818a2b7422
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4bab1ef4588a705f0dd6cdb34be8272868f826e9
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744256"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207570"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików Parquet przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -117,7 +117,7 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | INT64 | | bigint |
 | INT96 | |datetime2 |
 | FIXED_LEN_BYTE_ARRAY | |binarny |
-| BINARNY |KODOWANIA |varchar \* (sortowanie UTF8) |
+| BINARNY |UTF8 |varchar \* (sortowanie UTF8) |
 | BINARNY |PARAMETRY |varchar \* (sortowanie UTF8) |
 | BINARNY |PODSTAWOWE|varchar \* (sortowanie UTF8) |
 | BINARNY |INTERFEJSU |uniqueidentifier |
@@ -132,7 +132,7 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | ELEMENTEM |INT (8, FAŁSZ) |tinyint |
 | ELEMENTEM |INT (16, FAŁSZ) |int |
 | ELEMENTEM |INT (32, false) |bigint |
-| ELEMENTEM |DATE |data |
+| ELEMENTEM |DATE |date |
 | ELEMENTEM |DOKŁADNOŚCI |decimal |
 | ELEMENTEM |CZAS (MŁYNER)|time |
 | INT64 |INT (64, true) |bigint |

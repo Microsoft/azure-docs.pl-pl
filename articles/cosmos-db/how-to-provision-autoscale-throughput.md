@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/10/2020
-ms.openlocfilehash: 16fad7f57d3054c193da2571f1b33cfd77fdd51c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 59feabce099087edb011df471561229bfa88a289
+ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664760"
+ms.lasthandoff: 06/20/2020
+ms.locfileid: "85118733"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Zastrzegaj przepływność skalowania automatycznego dla bazy danych lub kontenera w Azure Cosmos DB
 
@@ -26,7 +26,7 @@ W tym artykule wyjaśniono, jak zainicjować przepływność automatycznego skal
 
 1. Wybierz pozycję **nowy kontener.** Wprowadź nazwę bazy danych, kontenera i klucza partycji. W obszarze **przepływność**wybierz opcję **automatycznego skalowania** i ustaw [maksymalną przepływność (ru/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) , na którą ma zostać przeskalowana baza danych lub kontener.
 
-   ![Tworzenie kontenera i Konfigurowanie przepływności aprowizacji automatycznego skalowania](./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Tworzenie kontenera i Konfigurowanie przepływności aprowizacji automatycznego skalowania":::
 
 1. Wybierz przycisk **OK**.
 
@@ -45,7 +45,7 @@ Aby zainicjować automatyczne skalowanie w udostępnionej bazie danych przepływ
 
 1. W obszarze **Skala**wybierz opcję **automatycznego skalowania** i **Zapisz**.
 
-   ![Włączanie skalowania automatycznego na istniejącym kontenerze](./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Włączanie skalowania automatycznego na istniejącym kontenerze":::
 
 > [!NOTE]
 > Po włączeniu funkcji automatycznego skalowania w istniejącej bazie danych lub kontenera wartość początkowa dla Max RU/s jest określana przez system w oparciu o bieżące ręczne ustawienia przepływności i magazyn. Po zakończeniu operacji można zmienić w razie konieczności maksymalną wartość RU/s. [Dowiedz się więcej.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 

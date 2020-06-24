@@ -9,20 +9,20 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32d77b82b30411bd5b423f903c25392fd8e09e44
+ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73847518"
+ms.lasthandoff: 06/19/2020
+ms.locfileid: "85080950"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Uaktualnianie do platformy Azure Wyszukiwanie poznawcze .NET SDK wersja 10
 
-Jeśli korzystasz z wersji 9,0 lub starszej [Azure Search .NET SDK](https://aka.ms/search-sdk), ten artykuł pomoże Ci uaktualnić aplikację pod kątem korzystania z wersji 10.
+W przypadku korzystania z programu [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)w wersji 9,0 lub starszej, ten artykuł pomoże Ci uaktualnić aplikację pod kątem korzystania z wersji 10.
 
 Nazwa Azure Search została zmieniona na Wyszukiwanie poznawcze platformy Azure w wersji 10, ale przestrzenie nazw i nazwy pakietów nie są zmieniane. Poprzednie wersje zestawu SDK (9,0 i starsze) nadal używają poprzedniej nazwy. Aby uzyskać więcej informacji na temat korzystania z zestawu SDK, w tym przykładów, zobacz [jak używać platformy Azure wyszukiwanie poznawcze z poziomu aplikacji .NET](search-howto-dotnet-sdk.md).
 
-Wersja 10 dodaje kilka funkcji i poprawek błędów, umożliwiając ich przekazanie na ten sam poziom funkcjonalności co Najnowsza wersja `2019-05-06`interfejsu API REST. W przypadkach, gdy zmiana przerywa istniejący kod, przeprowadzimy Cię przez [kroki wymagane do rozwiązania problemu](#UpgradeSteps).
+Wersja 10 dodaje kilka funkcji i poprawek błędów, umożliwiając ich przekazanie na ten sam poziom funkcjonalności co Najnowsza wersja interfejsu API REST `2019-05-06` . W przypadkach, gdy zmiana przerywa istniejący kod, przeprowadzimy Cię przez [kroki wymagane do rozwiązania problemu](#UpgradeSteps).
 
 > [!NOTE]
 > Jeśli używasz wersji 8,0-Preview lub starszej, należy najpierw uaktualnić do wersji 9, a następnie uaktualnić do wersji 10. Aby uzyskać instrukcje [, zobacz Uaktualnianie do Azure Search .NET SDK w wersji 9](search-dotnet-sdk-migration-version-9.md) .
@@ -32,7 +32,7 @@ Wersja 10 dodaje kilka funkcji i poprawek błędów, umożliwiając ich przekaza
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-10"></a>Co nowego w wersji 10
-Wersja 10 zestawu SDK platformy Azure Wyszukiwanie poznawcze platformy .NET jest przeznaczona dla najnowszej, ogólnie dostępnej wersji interfejsu API`2019-05-06`REST () z tymi aktualizacjami:
+Wersja 10 zestawu SDK platformy Azure Wyszukiwanie poznawcze platformy .NET jest przeznaczona dla najnowszej, ogólnie dostępnej wersji interfejsu API REST ( `2019-05-06` ) z tymi aktualizacjami:
 
 * Wprowadzenie dwóch nowych [umiejętności związanych z umiejętnościami](cognitive-search-skill-conditional.md) i [tłumaczeniami tekstu](cognitive-search-skill-text-translation.md).
 * Dane wejściowe [umiejętności kształtu](cognitive-search-skill-shaper.md) zostały poddane restrukturyzacji w celu uwzględnienia konsolidacji z zagnieżdżonych kontekstów. Aby uzyskać więcej informacji, zobacz tę [przykładową definicję JSON](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
@@ -47,7 +47,7 @@ Wersja 10 zestawu SDK platformy Azure Wyszukiwanie poznawcze platformy .NET jest
 
 ## <a name="steps-to-upgrade"></a>Kroki do uaktualnienia
 
-1. Zaktualizuj odwołanie do `Microsoft.Azure.Search` programu NuGet za pomocą konsoli Menedżera pakietów NuGet lub klikając prawym przyciskiem myszy odwołania do projektu i wybierając pozycję "Zarządzaj pakietami NuGet..." w programie Visual Studio.
+1. Zaktualizuj odwołanie do programu NuGet za `Microsoft.Azure.Search` pomocą konsoli Menedżera pakietów NuGet lub klikając prawym przyciskiem myszy odwołania do projektu i wybierając pozycję "Zarządzaj pakietami NuGet..." w programie Visual Studio.
 
 2. Po pobraniu przez program NuGet nowych pakietów i ich zależności, należy ponownie skompilować projekt. 
 
@@ -68,9 +68,9 @@ Istnieje kilka istotnych zmian w wersji 10, które mogą wymagać zmiany kodu op
 
 Definicja [niestandardowej umiejętności internetowego interfejsu API](cognitive-search-custom-skill-web-api.md) została niepoprawnie określona w wersji 9 i starszych. 
 
-Model `WebApiSkill` określony `HttpHeaders` jako właściwość obiektu, która _zawiera_ słownik. Utworzenie zestawu umiejętności z `WebApiSkill` skonstruowaną w ten sposób spowoduje wyjątek, ponieważ interfejs API REST rozważy niewłaściwie sformułowane żądanie. Ten problem został poprawiony, tworząc `HttpHeaders` **Właściwość słownika najwyższego poziomu** w samym `WebApiSkill` modelu, która jest uznawana za prawidłowe żądanie z interfejsu API REST.
+Model `WebApiSkill` określony `HttpHeaders` jako właściwość obiektu, która _zawiera_ słownik. Utworzenie zestawu umiejętności z `WebApiSkill` skonstruowaną w ten sposób spowoduje wyjątek, ponieważ interfejs API REST rozważy niewłaściwie sformułowane żądanie. Ten problem został poprawiony, tworząc `HttpHeaders` **Właściwość słownika najwyższego poziomu** w `WebApiSkill` samym modelu, która jest uznawana za prawidłowe żądanie z interfejsu API REST.
 
-Na przykład, jeśli wcześniej podjęto próbę utworzenia wystąpienia `WebApiSkill` w następujący sposób:
+Na przykład, jeśli wcześniej podjęto próbę utworzenia wystąpienia w `WebApiSkill` następujący sposób:
 
 ```csharp
 
@@ -109,22 +109,22 @@ var webApiSkill = new WebApiSkill(
 
 ## <a name="shaper-skill-allows-nested-context-consolidation"></a>Umiejętność kształtu pozwala na konsolidację kontekstów zagnieżdżonych
 
-Umiejętność kształtu może teraz zezwalać na konsolidację danych wejściowych z kontekstów zagnieżdżonych. Aby włączyć tę zmianę, należy ją `InputFieldMappingEntry` zmodyfikować, aby można było utworzyć jej wystąpienie przez określenie tylko `Source` właściwości lub właściwości `SourceContext` i `Inputs` .
+Umiejętność kształtu może teraz zezwalać na konsolidację danych wejściowych z kontekstów zagnieżdżonych. Aby włączyć tę zmianę, należy ją zmodyfikować, `InputFieldMappingEntry` Aby można było utworzyć jej wystąpienie przez określenie tylko właściwości `Source` lub `SourceContext` `Inputs` właściwości i.
 
-Najprawdopodobniej nie musisz wprowadzać żadnych zmian w kodzie; należy jednak zauważyć, że dozwolone są tylko jedną z tych dwóch kombinacji. Oznacza to:
+Najprawdopodobniej nie musisz wprowadzać żadnych zmian w kodzie; należy jednak zauważyć, że dozwolone są tylko jedną z tych dwóch kombinacji. Składają się na to następujące elementy:
 
-- Tworzenie elementu `InputFieldMappingEntry` , gdzie `Source` jest inicjowany, jest prawidłowe.
+- Tworzenie elementu, `InputFieldMappingEntry` gdzie `Source` jest inicjowany, jest prawidłowe.
 - Tworzenie elementu `InputFieldMappingEntry` Where `SourceContext` i `Inputs` -initializes jest prawidłowy.
 - Wszystkie inne kombinacje obejmujące te trzy właściwości są nieprawidłowe.
 
 Jeśli zdecydujesz się rozpocząć korzystanie z tej nowej funkcji, przed wprowadzeniem tej zmiany upewnij się, że wszyscy klienci zostali zaktualizowani do wersji 10. W przeciwnym razie istnieje możliwość, że aktualizacja przez klienta (przy użyciu starszej wersji zestawu SDK) do umiejętności kształtu może spowodować błędy walidacji.
 
 > [!NOTE]
-> Mimo że model źródłowy `InputFieldMappingEntry` został zmodyfikowany w celu umożliwienia konsolidacji z kontekstów zagnieżdżonych, jego użycie jest prawidłowe tylko w ramach definicji umiejętności kształtu. Korzystanie z tej możliwości w innych umiejętnościach, gdy jest to ważne w czasie kompilacji, spowoduje błąd walidacji w czasie wykonywania.
+> Mimo że model źródłowy został `InputFieldMappingEntry` zmodyfikowany w celu umożliwienia konsolidacji z kontekstów zagnieżdżonych, jego użycie jest prawidłowe tylko w ramach definicji umiejętności kształtu. Korzystanie z tej możliwości w innych umiejętnościach, gdy jest to ważne w czasie kompilacji, spowoduje błąd walidacji w czasie wykonywania.
 
 ## <a name="skills-can-be-identified-by-a-name"></a>Kwalifikacje mogą być identyfikowane przez nazwę
 
-Każda umiejętność w zestawu umiejętności ma teraz nową właściwość `Name`, która może zostać zainicjowana w kodzie, aby ułatwić identyfikację umiejętności. Jest to opcjonalne — Jeśli nie określono tego parametru (co jest ustawieniem domyślnym, jeśli nie wprowadzono żadnej jawnej zmiany kodu), jest przypisywana nazwa domyślna przy użyciu indeksu "zestawu umiejętności" w ramach umiejętności, poprzedzonej znakiem "#". Na przykład w następującej definicji zestawu umiejętności (większość inicjacji pominiętych dla zwięzłości):
+Każda umiejętność w zestawu umiejętności ma teraz nową właściwość `Name` , która może zostać zainicjowana w kodzie, aby ułatwić identyfikację umiejętności. Jest to opcjonalne — Jeśli nie określono tego parametru (co jest ustawieniem domyślnym, jeśli nie wprowadzono żadnej jawnej zmiany kodu), jest przypisywana nazwa domyślna przy użyciu indeksu "zestawu umiejętności" w ramach umiejętności, poprzedzonej znakiem "#". Na przykład w następującej definicji zestawu umiejętności (większość inicjacji pominiętych dla zwięzłości):
 
 ```csharp
 var skillset = new Skillset()
@@ -139,7 +139,7 @@ var skillset = new Skillset()
 }
 ```
 
-`SentimentSkill`ma przypisaną nazwę `#1`, `WebApiSkill` jest `#2` `ShaperSkill` przypisana `#3` i tak dalej.
+`SentimentSkill`ma przypisaną nazwę `#1` , `WebApiSkill` jest przypisana `#2` `ShaperSkill` `#3` i tak dalej.
 
 W przypadku wybrania opcji identyfikacji umiejętności według nazwy niestandardowej upewnij się, że wszystkie wystąpienia klientów zostały najpierw zaktualizowane do wersji 10 zestawu SDK. W przeciwnym razie istnieje możliwość, że klient korzystający ze starszej wersji zestawu SDK może `null` wyróżnić `Name` Właściwość umiejętności, powodując, że klient powróci do domyślnego schematu nazewnictwa.
 

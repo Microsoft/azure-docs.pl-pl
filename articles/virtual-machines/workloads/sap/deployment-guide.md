@@ -13,14 +13,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 06/22/2020
 ms.author: sedusch
-ms.openlocfilehash: a850f7ceaeb57678738084cb14f383b46c7dfe84
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.openlocfilehash: 828615add9f24b5a2089e240bbf62647f34a25f0
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84660646"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85207417"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Wdrożenie Virtual Machines platformy Azure dla oprogramowania SAP NetWeaver
 
@@ -201,7 +201,6 @@ ms.locfileid: "84660646"
 [planning-guide-3.2.2]:planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Uaktualnij domeny)
 [planning-guide-3.2.3]:planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Zestawy dostępności platformy Azure)
 [planning-guide-3.2]:planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (Microsoft Azure koncepcji maszyn wirtualnych)
-[planning-guide-3.3.2]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Premium Storage platformy Azure)
 [planning-guide-5.1.1]:planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Przeniesienie maszyny wirtualnej z lokalnego na platformę Azure na dysk nieuogólniony)
 [planning-guide-5.1.2]:planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Wdrażanie maszyny wirtualnej z obrazem specyficznym dla klienta)
 [planning-guide-5.2.1]:planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Przygotowanie do przeniesienia maszyny wirtualnej z lokalizacji lokalnej na platformę Azure przy użyciu dysku nieuogólnionego)
@@ -215,7 +214,6 @@ ms.locfileid: "84660646"
 [planning-guide-7.1]:planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Pojedyncza maszyna wirtualna z programem SAP NetWeaver demonstracyjną/szkoleniami)
 [planning-guide-7]:planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Pojęcia związane z wdrażaniem wystąpień SAP w chmurze)
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Rozwiązanie do monitorowania platformy Azure dla oprogramowania SAP)
-[planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Premium Storage platformy Azure)
 [planning-guide-managed-disks]:planning-guide.md#c55b2c6e-3ca1-4476-be16-16c81927550f (Managed Disks)
 [planning-guide-figure-100]:media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -443,7 +441,7 @@ Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w c
    * **Lokalizacja**: gdzie należy wdrożyć nową maszynę wirtualną. Jeśli chcesz połączyć maszynę wirtualną z siecią lokalną, upewnij się, że wybrano lokalizację sieci wirtualnej, która łączy platformę Azure z siecią lokalną. Aby uzyskać więcej informacji, zobacz [Microsoft Azure Networking][planning-guide-microsoft-azure-networking] na [platformie Azure Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver][planning-guide].
 1. **Rozmiar**:
 
-     Listę obsługiwanych typów maszyn wirtualnych można znaleźć w temacie SAP Note [1928533]. Upewnij się, że wybrano poprawny typ maszyny wirtualnej, jeśli chcesz użyć usługi Azure Premium Storage. Nie wszystkie typy maszyn wirtualnych obsługują Premium Storage. Aby uzyskać więcej informacji, zobacz temat [Magazyn: Microsoft Azure Storage i dyski danych][planning-guide-storage-microsoft-azure-storage-and-data-disks] oraz [Azure Premium Storage][planning-guide-azure-premium-storage] na [platformie Azure Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver][planning-guide].
+     Listę obsługiwanych typów maszyn wirtualnych można znaleźć w temacie SAP Note [1928533]. Upewnij się, że wybrano poprawny typ maszyny wirtualnej, jeśli chcesz użyć usługi Azure Premium Storage. Nie wszystkie typy maszyn wirtualnych obsługują Premium Storage. Aby uzyskać więcej informacji, zobacz [Magazyn: Microsoft Azure Storage i dyski danych][planning-guide-storage-microsoft-azure-storage-and-data-disks] oraz [usługa Azure Storage dla obciążeń SAP](./planning-guide-storage.md) na [platformie Azure Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver][planning-guide].
 
 1. **Ustawienia**:
    * **Storage**
@@ -583,7 +581,7 @@ Kreator przeprowadzi Cię przez proces konfigurowania wymaganych parametrów w c
    * **Lokalizacja**: gdzie należy wdrożyć nową maszynę wirtualną. Jeśli chcesz połączyć maszynę wirtualną z siecią lokalną, upewnij się, że wybrano lokalizację sieci wirtualnej, która łączy platformę Azure z siecią lokalną. Aby uzyskać więcej informacji, zobacz [Microsoft Azure Networking][planning-guide-microsoft-azure-networking] na [platformie Azure Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver][planning-guide].
 1. **Rozmiar**:
 
-     Listę obsługiwanych typów maszyn wirtualnych można znaleźć w temacie SAP Note [1928533]. Upewnij się, że wybrano poprawny typ maszyny wirtualnej, jeśli chcesz użyć usługi Azure Premium Storage. Nie wszystkie typy maszyn wirtualnych obsługują Premium Storage. Aby uzyskać więcej informacji, zobacz temat [Magazyn: Microsoft Azure Storage i dyski danych][planning-guide-storage-microsoft-azure-storage-and-data-disks] oraz [Azure Premium Storage][planning-guide-azure-premium-storage] na [platformie Azure Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver][planning-guide].
+     Listę obsługiwanych typów maszyn wirtualnych można znaleźć w temacie SAP Note [1928533]. Upewnij się, że wybrano poprawny typ maszyny wirtualnej, jeśli chcesz użyć usługi Azure Premium Storage. Nie wszystkie typy maszyn wirtualnych obsługują Premium Storage. Aby uzyskać więcej informacji, zobacz [Magazyn: Microsoft Azure Storage i dyski danych][planning-guide-storage-microsoft-azure-storage-and-data-disks] oraz [usługa Azure Storage dla obciążeń SAP](./planning-guide-storage.md) na [platformie Azure Virtual Machines planowanie i wdrażanie oprogramowania SAP NetWeaver][planning-guide].
 
 1. **Ustawienia**:
    * **Storage**
@@ -1030,6 +1028,11 @@ Nowe rozszerzenie maszyny wirtualnej dla oprogramowania SAP używa zarządzanej 
 
 Proces zostanie zautomatyzowany w następnej wersji Azure PowerShell (> 4.2.0). Po udostępnieniu nowej wersji ten artykuł zostanie zaktualizowany. Do tego czasu należy wykonać następujące kroki, aby ręcznie zainstalować rozszerzenie.
 
+> [!NOTE]
+> Poniższe kroki wymagają uprawnień właściciela do grupy zasobów lub poszczególnych zasobów (maszyn wirtualnych, dysków danych itp.).
+
+1. Upewnij się, że używasz agenta hosta SAP 7,21 PL 47 lub nowszego.
+1. Upewnij się, że odinstalowano bieżącą wersję rozszerzenia maszyny wirtualnej dla oprogramowania SAP. Instalacja obu wersji rozszerzenia maszyny wirtualnej dla oprogramowania SAP na tej samej maszynie wirtualnej nie jest obsługiwana.
 1. Upewnij się, że zainstalowano najnowszą wersję polecenia cmdlet Azure PowerShell. Aby uzyskać więcej informacji, zobacz [wdrażanie Azure PowerShell poleceń cmdlet][deployment-guide-4.1].
 1. Postępuj zgodnie z instrukcjami w artykule [Konfigurowanie zarządzanych tożsamości dla zasobów platformy Azure na maszynie wirtualnej platformy Azure przy użyciu programu PowerShell][qs-configure-powershell-windows-vm] , aby włączyć do maszyny wirtualnej zarządzaną tożsamość skojarzoną z systemem. Tożsamości zarządzane przypisane przez użytkownika nie są obsługiwane przez rozszerzenie maszyny wirtualnej dla oprogramowania SAP. Można jednak włączyć zarówno tożsamość przypisaną przez system, jak i przypisanej do użytkownika.
     
@@ -1067,6 +1070,11 @@ Proces zostanie zautomatyzowany w następnej wersji Azure PowerShell (> 4.2.0). 
 
 Nowe rozszerzenie maszyny wirtualnej dla oprogramowania SAP używa zarządzanej tożsamości przypisanej do maszyny wirtualnej w celu uzyskania dostępu do danych monitorowania i konfiguracji maszyny wirtualnej. Aby zainstalować nowe rozszerzenie platformy Azure dla oprogramowania SAP przy użyciu interfejsu wiersza polecenia platformy Azure, musisz najpierw przypisać taką tożsamość do maszyny wirtualnej i udzielić tej tożsamości dostępu do wszystkich zasobów używanych przez tę maszynę wirtualną, na przykład dyski i interfejsy sieciowe.
 
+> [!NOTE]
+> Poniższe kroki wymagają uprawnień właściciela do grupy zasobów lub poszczególnych zasobów (maszyn wirtualnych, dysków danych itp.).
+
+1. Upewnij się, że używasz agenta hosta SAP 7,21 PL 47 lub nowszego.
+1. Upewnij się, że odinstalowano bieżącą wersję rozszerzenia maszyny wirtualnej dla oprogramowania SAP. Instalacja obu wersji rozszerzenia maszyny wirtualnej dla oprogramowania SAP na tej samej maszynie wirtualnej nie jest obsługiwana.
 1. Zainstaluj interfejs wiersza polecenia platformy Azure 2,0, zgodnie z opisem w temacie [Instalowanie interfejsu wiersza polecenia platformy azure 2,0][azure-cli-2].
 
 1. Zaloguj się przy użyciu konta platformy Azure:
@@ -1420,7 +1428,7 @@ Rozszerzenie nie jest zainstalowane. Ustal, czy jest to problem z serwerem proxy
 
 Proces systemu Windows AzureEnhancedMonitoring zbiera metryki wydajności na platformie Azure. Proces pobiera dane z kilku źródeł. Niektóre dane konfiguracji są zbierane lokalnie, a niektóre metryki wydajności są odczytywane z Azure Monitor.
 
-W przypadku rozwiązywania problemów przy użyciu uwagi SAP [1999351]Otwórz komunikat obsługa klienta SAP na składniku BC-op-NT-AZR dla systemu Windows lub BC-op-LNX-AZR dla maszyny wirtualnej z systemem Linux.
+Jeśli Rozwiązywanie problemów przy użyciu programu SAP Note [1999351] nie rozwiąże problemu, Otwórz komunikat obsługi klienta SAP na składniku BC-op-NT-AZR dla systemu Windows lub BC-op-LNX-AZR dla maszyny wirtualnej z systemem Linux. Dołącz plik dziennika C: \\ pakiety \\ dodatki \\ Microsoft. AzureCAT. AzureEnhancedMonitoring. MonitorX64Windows \\ &lt; w wersji>\\logapp.txt do zdarzenia.
 
 #### <a name="linuxlogo_linux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Liczniki wydajności platformy Azure nie są wyświetlane w ogóle
 
@@ -1442,7 +1450,7 @@ Metryki wydajności na platformie Azure są zbierane przez demon, który pobiera
 
 Aby zapoznać się z pełną i aktualną listą znanych problemów, zobacz temat SAP Note [1999351], który zawiera dodatkowe informacje dotyczące rozwiązywania problemów z rozszerzeniem platformy Azure dla oprogramowania SAP.
 
-Jeśli Rozwiązywanie problemów przy użyciu programu SAP Note [1999351] nie rozwiąże problemu, zainstaluj rozszerzenie ponownie, zgodnie z opisem w artykule [Konfigurowanie rozszerzenia platformy Azure dla oprogramowania SAP][deployment-guide-4.5]. Jeśli problem będzie nadal występował, Otwórz komunikat obsługa klienta SAP na składniku BC-OP-NT-AZR dla systemu Windows lub BC-OP-LNX-AZR dla maszyny wirtualnej z systemem Linux.
+Jeśli Rozwiązywanie problemów przy użyciu programu SAP Note [1999351] nie rozwiąże problemu, zainstaluj rozszerzenie ponownie, zgodnie z opisem w artykule [Konfigurowanie rozszerzenia platformy Azure dla oprogramowania SAP][deployment-guide-4.5]. Jeśli problem będzie nadal występował, Otwórz komunikat obsługa klienta SAP na składniku BC-OP-NT-AZR dla systemu Windows lub BC-OP-LNX-AZR dla maszyny wirtualnej z systemem Linux. Dołącz plik dziennika/var/lib/waagent/Microsoft.AzureCAT.AzureEnhancedMonitoring.MonitorX64Linux- &lt; wersja>/logapp.txt do zdarzenia.
 
 ## <a name="azure-extension-error-codes"></a>Kody błędów rozszerzenia platformy Azure
 

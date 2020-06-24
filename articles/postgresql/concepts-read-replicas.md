@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/09/2020
-ms.openlocfilehash: be9e396a778b81e730906e4a6971505e164dfa43
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.date: 06/11/2020
+ms.openlocfilehash: 48e23aa8cf20dd1225d3d7774d9703b960e0155a
+ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636720"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84737890"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Odczytaj repliki w Azure Database for PostgreSQL — pojedynczy serwer
 
@@ -32,6 +32,9 @@ Funkcja Read Replica używa replikacji asynchronicznej PostgreSQL. Ta funkcja ni
 
 ## <a name="cross-region-replication"></a>Replikacja między regionami
 Replikę odczytu można utworzyć w innym regionie niż serwer główny. Replikacja między regionami może być przydatna w scenariuszach takich jak planowanie odzyskiwania po awarii lub umieszczenie danych bliżej użytkowników.
+
+>[!NOTE]
+> Serwery warstwy Podstawowa obsługują tylko replikację tego samego regionu.
 
 Serwer główny może być w dowolnym [regionie Azure Database for PostgreSQL](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql). Serwer główny może mieć replikę w osobnym regionie lub regionach uniwersalnej repliki. Na poniższej ilustracji przedstawiono, które regiony replik są dostępne w zależności od regionu głównego.
 
@@ -142,7 +145,7 @@ Po podjęciu decyzji o przejściu do trybu failover w replice
 Po pomyślnym przetworzeniu odczytów i zapisów aplikacja została ukończona w trybie failover. Czas przestoju, w jakim zależą od aplikacji, będzie zależny od tego, kiedy wykryjesz problem, i wykonaj kroki 1 i 2 powyżej.
 
 
-## <a name="considerations"></a>Istotne zagadnienia
+## <a name="considerations"></a>Zagadnienia do rozważenia
 
 Ta sekcja zawiera podsumowanie zagadnień dotyczących funkcji odczytu repliki.
 
@@ -171,6 +174,9 @@ PostgreSQL wymaga, `max_connections` aby wartość parametru w replice odczytu b
 Jeśli spróbujesz zaktualizować wartości serwera opisane powyżej, ale nie przestrzegasz limitów, zostanie wyświetlony komunikat o błędzie.
 
 Reguły zapory, reguły sieci wirtualnej i ustawienia parametrów nie są dziedziczone z serwera głównego do repliki, gdy replika zostanie utworzona lub później.
+
+### <a name="basic-tier"></a>Warstwa Podstawowa
+Serwery warstwy Podstawowa obsługują tylko replikację tego samego regionu.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
 [PostgreSQL wymaga](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) , `max_prepared_transactions` aby wartość parametru w replice odczytu była większa lub równa wartości głównej; w przeciwnym razie replika nie zostanie uruchomiona. Jeśli chcesz zmienić `max_prepared_transactions` wzorzec, najpierw zmień go na repliki.
