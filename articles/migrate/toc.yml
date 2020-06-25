@@ -58,6 +58,8 @@
           href: tutorial-assess-import.md
 - name: Pojęcia
   items:
+    - name: Tworzenie planu migracji za pomocą usługi Azure Migrate
+      href: concepts-migration-planning.md
     - name: Tabele obsługi
       items:
         - name: Ogólna pomoc techniczna

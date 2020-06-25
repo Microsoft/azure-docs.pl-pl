@@ -41,6 +41,10 @@
       href: automation-runbook-types.md
     - name: Rozszerzenie DSC programu PowerShell
       href: /powershell/scripting/dsc/overview/overview
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
     - name: Bezpieczeństwo danych
       items:
         - name: Szyfrowanie zabezpieczonych zasobów
@@ -63,6 +67,8 @@
           href: how-to/automation-region-dns-records.md
         - name: Zarządzanie kontem Uruchom jako usługi Automation
           href: manage-runas-account.md
+        - name: Prywatne połączenie z kontem usługi Automation
+          href: how-to/private-link-security.md
         - name: Zarządzanie uprawnieniami ról i zabezpieczeniami
           href: automation-role-based-access-control.md
         - name: Przenoszenie konta usługi Automation do innej subskrypcji
