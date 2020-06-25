@@ -11,16 +11,16 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b15250804dd316000aa20d6b97e9cccbfc36e9ad
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897199"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359096"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnozowanie i naprawianie błędów synchronizacji zduplikowanego atrybutu
 
@@ -32,9 +32,9 @@ Funkcja diagnostyki ma następujące zalety:
 - Aby włączyć tę funkcję, uaktualnienie lub konfiguracja nie jest wymagana.
 Aby uzyskać więcej informacji na temat usługi Azure AD, zobacz [Synchronizacja tożsamości i zduplikowanie odporności na atrybuty](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="problems"></a>Dotyczące
+## <a name="problems"></a>Problemy
 ### <a name="a-common-scenario"></a>Typowy scenariusz
-Gdy wystąpią błędy synchronizacji **QuarantinedAttributeValueMustBeUnique** i **AttributeValueMustBeUnique** , często są wyświetlane adresy **userPrincipalName** lub **proxy** w usłudze Azure AD. Błędy synchronizacji można rozwiązać przez zaktualizowanie obiektu źródłowego powodującego konflikt po stronie lokalnej. Błąd synchronizacji zostanie rozwiązany po następnej synchronizacji. Na przykład ten obraz wskazuje, że dwóch użytkowników ma konflikt ich **userPrincipalName**. Oba są Jan **. J\@contoso.com**. Obiekty powodujące konflikt są poddane kwarantannie w usłudze Azure AD.
+Gdy wystąpią błędy synchronizacji **QuarantinedAttributeValueMustBeUnique** i **AttributeValueMustBeUnique** , często są wyświetlane adresy **userPrincipalName** lub **proxy** w usłudze Azure AD. Błędy synchronizacji można rozwiązać przez zaktualizowanie obiektu źródłowego powodującego konflikt po stronie lokalnej. Błąd synchronizacji zostanie rozwiązany po następnej synchronizacji. Na przykład ten obraz wskazuje, że dwóch użytkowników ma konflikt ich **userPrincipalName**. Oba są Jan **. J \@ contoso.com**. Obiekty powodujące konflikt są poddane kwarantannie w usłudze Azure AD.
 
 ![Diagnozuj typowy scenariusz błędu synchronizacji](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 

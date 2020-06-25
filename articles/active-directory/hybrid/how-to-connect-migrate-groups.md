@@ -5,18 +5,18 @@ services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
-ms.topic: reference
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/02/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da2328674fd601f2e04684e8a9af1ae242ff6106
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ef693a48dc52854e4e1fd8359ef24f65ce236f7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229803"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358586"
 ---
 # <a name="migrate-groups-from-one-forest-to-another-for-azure-ad-connect"></a>Migrowanie grup z jednego lasu do drugiego dla Azure AD Connect
 
@@ -29,7 +29,7 @@ W tym artykule opisano sposób migrowania grup z jednego lasu do drugiego, aby z
 
 ## <a name="migrate-groups"></a>Migrowanie grup
 
-Począwszy od wersji 1.5.18.0, Azure AD Connect obsługuje użycie `mS-DS-ConsistencyGuid` atrybutu dla grup. Jeśli wybierzesz `mS-DS-ConsistencyGuid` jako atrybut zakotwiczenia źródła, a wartość zostanie wypełniona w Active Directory, Azure AD Connect używa wartości `mS-DS-ConsistencyGuid` jako. `immutableId` W przeciwnym razie powraca do użycia `objectGUID`. Należy jednak pamiętać, że Azure AD Connect nie zapisuje wartości z powrotem `mS-DS-ConsistencyGuid` do atrybutu w Active Directory.
+Począwszy od wersji 1.5.18.0, Azure AD Connect obsługuje użycie `mS-DS-ConsistencyGuid` atrybutu dla grup. Jeśli wybierzesz `mS-DS-ConsistencyGuid` jako atrybut zakotwiczenia źródła, a wartość zostanie wypełniona w Active Directory, Azure AD Connect używa wartości `mS-DS-ConsistencyGuid` jako `immutableId` . W przeciwnym razie powraca do użycia `objectGUID` . Należy jednak pamiętać, że Azure AD Connect nie zapisuje wartości z powrotem do `mS-DS-ConsistencyGuid` atrybutu w Active Directory.
 
 Podczas przenoszenia między lasami, gdy obiekt grupy jest przenoszony z jednego lasu (Powiedz F1) do innego lasu (Powiedz F2), należy skopiować `mS-DS-ConsistencyGuid` wartość (jeśli jest obecna) lub `objectGUID` wartość z obiektu w lesie F1 do `mS-DS-ConsistencyGuid` atrybutu obiektu w F2.
 

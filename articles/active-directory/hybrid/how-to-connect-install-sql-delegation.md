@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6269d00c9a6a8f827a4e31044d9d20efb0f8471b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f082ec896bf0542b63c8c1d0257679681334050
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60243550"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358671"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Instalowanie programu Azure AD Connect za pomocą delegowanych uprawnień administratora usługi SQL
 Przed najnowszą Azure AD Connect kompilacją administracyjną, podczas wdrażania konfiguracji wymaganych przez program SQL nie jest obsługiwany.  Użytkownicy, którzy chcą zainstalować Azure AD Connect potrzebują uprawnień administratora serwera na serwerze SQL Server.

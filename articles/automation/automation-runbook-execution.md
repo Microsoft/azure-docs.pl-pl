@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9e602f9ed6a9132c78dbdf0ea3246cbeae80671
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4f62a94c8ed8baa9979aa1469e785d26781af7f0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832354"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361629"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
 
@@ -53,7 +53,7 @@ W poniższej tabeli wymieniono niektóre zadania wykonywania elementów Runbook 
 |Wymagaj oprogramowania i plików wykonywalnych innych firm|Hybrydowy proces roboczy elementu Runbook|Zarządzanie systemem operacyjnym i instalowanie oprogramowania może być możliwe.|
 |Monitorowanie pliku lub folderu za pomocą elementu Runbook|Hybrydowy proces roboczy elementu Runbook|Użyj [zadania obserwatora](automation-watchers-tutorial.md) w hybrydowym procesie roboczym elementu Runbook.|
 |Uruchamianie skryptu intensywnie korzystającego z zasobów|Hybrydowy proces roboczy elementu Runbook| Piaskownice platformy Azure mają [limity zasobów](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
-|Używanie modułów z określonymi wymaganiami| Hybrydowy proces roboczy elementu Runbook|Przykłady to:</br> WinSCP — zależność w WinSCP. exe </br> Administrowanie usługami IIS na potrzeby włączania usług IIS i zarządzania nimi|
+|Używanie modułów z określonymi wymaganiami| Hybrydowy proces roboczy elementu Runbook|Przykłady to:</br> WinSCP — zależność od winscp.exe </br> Administrowanie usługami IIS na potrzeby włączania usług IIS i zarządzania nimi|
 |Instalowanie modułu przy użyciu Instalatora|Hybrydowy proces roboczy elementu Runbook|Moduły dla piaskownicy muszą obsługiwać kopiowanie.|
 |Użyj elementów Runbook lub modułów, które wymagają .NET Framework wersji innej niż 4.7.2|Hybrydowy proces roboczy elementu Runbook|Piaskownice platformy Azure obsługują .NET Framework 4.7.2, a uaktualnienie do innej wersji nie jest obsługiwane.|
 |Uruchamianie skryptów wymagających podniesienia uprawnień|Hybrydowy proces roboczy elementu Runbook|Piaskownice nie umożliwiają podniesienia uprawnień. Przy użyciu hybrydowego procesu roboczego elementu Runbook można wyłączyć funkcję Kontrola konta użytkownika i użyć [polecenia Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) przy uruchamianiu polecenia, które wymaga podniesienia uprawnień.|
@@ -131,7 +131,7 @@ W poniższej tabeli opisano Stany, które są możliwe dla danego zadania. Możn
 
 | Stan | Opis |
 |:--- |:--- |
-| Ukończone |Zadanie zostało ukończone pomyślnie. |
+| Zakończone |Zadanie zostało ukończone pomyślnie. |
 | Niepowodzenie |Nie można skompilować elementu Runbook graficznego lub przepływu pracy programu PowerShell. Nie można uruchomić elementu Runbook programu PowerShell lub zadanie miało wyjątek. Zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).|
 | Niepowodzenie, oczekiwanie na zasoby |Zadanie nie powiodło się, ponieważ osiągnął limit [godziwego udziału](#fair-share) trzy razy i został uruchomiony z tego samego punktu kontrolnego lub od początku elementu Runbook za każdym razem. |
 | W kolejce |Zadanie oczekuje na udostępnienie zasobów w procesie roboczym usługi Automation, aby można było je uruchomić. |

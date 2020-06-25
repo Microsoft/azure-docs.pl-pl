@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f716c52443abedb0fb838fa95b421033f5e93408
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 97ddc91b5e49cafa87b90113f0160d8aec9c699a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85218022"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360320"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planowanie wdrożenia urządzenia Azure Active Directory
 
@@ -118,9 +118,8 @@ urządzenia z systemami iOS i Android mogą być zarejestrowane wyłącznie w us
 |**Najważniejsze możliwości**| | |  |
 | Logowanie jednokrotne do zasobów w chmurze| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Logowanie jednokrotne do zasobów lokalnych| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
-| Dostęp warunkowy| ![zaznaczone](./media/plan-device-deployment/check.png) 
-Zgodne urządzenia| ![zaznaczone](./media/plan-device-deployment/check.png)
-Zgodne urządzenie| ![zaznaczone](./media/plan-device-deployment/check.png) |
+| Dostęp warunkowy <br> (Wymagaj, aby urządzenia były oznaczone jako zgodne) <br> (Musi być zarządzany przez MDM)| ![zaznaczone](./media/plan-device-deployment/check.png) | ![zaznaczone](./media/plan-device-deployment/check.png)|![zaznaczone](./media/plan-device-deployment/check.png) |
+Dostęp warunkowy <br>(Wymagaj hybrydowych urządzeń przyłączonych do usługi Azure AD)| | | ![zaznaczone](./media/plan-device-deployment/check.png)
 | Samoobsługowe resetowanie haseł z ekranu logowania systemu Windows| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Resetowanie numeru PIN systemu Windows Hello| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |
 | Roaming stanu przedsiębiorstwa między urządzeniami| | ![zaznaczone](./media/plan-device-deployment/check.png)| ![zaznaczone](./media/plan-device-deployment/check.png) |

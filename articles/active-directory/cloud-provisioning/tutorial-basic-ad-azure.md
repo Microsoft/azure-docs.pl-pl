@@ -5,17 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356a05d4d92f17ceb66ff0208153ec3eac736757
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe2d0a16aeacfc551a6a07a72b58b5f461f93433
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793900"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360524"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Samouczek: podstawowe środowisko Active Directory
 
@@ -196,8 +196,8 @@ Teraz, gdy masz nasze środowisko Active Directory, musisz być kontem testowym.
 ## <a name="create-an-azure-ad-tenant"></a>Tworzenie dzierżawy usługi Azure AD
 Teraz musisz utworzyć dzierżawę usługi Azure AD, aby umożliwić synchronizację naszych użytkowników z chmurą.  Aby utworzyć nową dzierżawę usługi Azure AD, wykonaj następujące czynności.
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta z subskrypcją platformy Azure.
-2. Wybierz **ikonę plusa (+)** i wyszukaj ciąg **Azure Active Directory**.
+1. Przejdź do witryny [Azure Portal](https://portal.azure.com) i zaloguj się przy użyciu konta, które ma subskrypcję platformy Azure.
+2. Wybierz **ikonę plusa (+)** i wyszukaj pozycję **Azure Active Directory**.
 3. W wynikach wyszukiwania wybierz pozycję **Azure Active Directory**.
 4. Wybierz przycisk **Utwórz**.</br>
 ![Tworzenie](media/tutorial-single-forest/create1.png)</br>
@@ -207,7 +207,7 @@ Teraz musisz utworzyć dzierżawę usługi Azure AD, aby umożliwić synchroniza
 ## <a name="create-a-global-administrator-in-azure-ad"></a>Tworzenie administratora globalnego w usłudze Azure AD
 Teraz, gdy masz już dzierżawę usługi Azure AD, utworzysz konto administratora globalnego.  Aby utworzyć konto administratora globalnego, wykonaj następujące czynności.
 
-1.  W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.</br>
+1.  W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.</br>
 ![Tworzenie](media/tutorial-single-forest/administrator1.png)</br>
 2.  Wybierz pozycję **Wszyscy użytkownicy**, a następnie pozycję **+ Nowy użytkownik**.
 3.  Podaj nazwę i nazwę użytkownika dla tego użytkownika. Będzie to administrator globalny dzierżawy. Zmień też **rolę Katalog** na **Administrator globalny**. Możesz również wyświetlić hasło tymczasowe. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.</br>

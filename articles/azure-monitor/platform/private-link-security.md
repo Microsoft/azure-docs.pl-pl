@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 47c504d9359779294c4690059d1958614d863e58
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: b0cdff2ce71fb63194933bdfed26da16fdebcca7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260886"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361925"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Monitor
 
@@ -168,9 +168,8 @@ Ograniczanie dostępu w ten sposób dotyczy tylko danych w zasobie Application I
 
 > [!NOTE]
 > Aby w pełni zabezpieczyć Application Insights oparte na obszarze roboczym, musisz zablokować zarówno dostęp do zasobu Application Insights, jak i bazowego obszaru roboczego Log Analytics.
-
-> [!NOTE]
-> Diagnostyka na poziomie kodu (Profiler/debuger) obecnie nie obsługuje prywatnego linku.
+>
+> Diagnostyka na poziomie kodu (Profiler/debuger) wymaga podania własnego konta magazynu do obsługi linku prywatnego. Tutaj znajduje się [Dokumentacja](https://docs.microsoft.com/azure/azure-monitor/app/profiler-bring-your-own-storage) umożliwiająca wykonanie tej czynności.
 
 ## <a name="use-apis-and-command-line"></a>Korzystanie z interfejsów API i wiersza polecenia
 
@@ -226,7 +225,7 @@ Aby zezwolić agentowi Log Analytics na pobieranie pakietów rozwiązań, Dodaj 
 
 | Środowisko chmury | Zasób agenta | Porty | Kierunek |
 |:--|:--|:--|:--|
-|Azure — publiczna     | scadvisor.blob.core.windows.net         | 443 | Wychodzący
+|Azure — publiczna     | scadvisorcontent.blob.core.windows.net         | 443 | Wychodzący
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Wychodzący
 |Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Wychodzący
 

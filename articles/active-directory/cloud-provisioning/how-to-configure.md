@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c086227d23901cb7904d8cc0a768e9f4b5ad43db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50f02ea42bb792320da6e2523b733f09afd412a0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77620974"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360966"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Utwórz nową konfigurację dla Azure AD Connect aprowizacji opartej na chmurze
 
@@ -25,7 +25,7 @@ Po zainstalowaniu agenta należy zalogować się do Azure Portal i skonfigurowa�
 ## <a name="configure-provisioning"></a>Konfigurowanie aprowizacji
 Aby skonfigurować Inicjowanie obsługi, wykonaj następujące kroki.
 
-1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
+1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
 1.  Wybierz **Azure AD Connect**.
 1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 
@@ -41,7 +41,7 @@ Aby skonfigurować Inicjowanie obsługi, wykonaj następujące kroki.
 ## <a name="scope-provisioning-to-specific-users-and-groups"></a>Inicjowanie obsługi zakresu dla określonych użytkowników i grup
 Można ograniczyć agenta do synchronizowania określonych użytkowników i grup za pomocą lokalnych grup Active Directory lub jednostek organizacyjnych. W ramach konfiguracji nie można konfigurować grup i jednostek organizacyjnych. 
 
-1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
+1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
 1.  Wybierz **Azure AD Connect**.
 1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 1.  W obszarze **Konfiguracja**wybierz konfigurację.
@@ -64,7 +64,7 @@ Można ograniczyć agenta do synchronizowania określonych użytkowników i grup
 
 ## <a name="restart-provisioning"></a>Ponowne uruchamianie aprowizacji 
 Jeśli nie chcesz czekać na następne zaplanowane uruchomienie, wyzwól uruchomienie aprowizacji za pomocą przycisku **ponowne Inicjowanie obsługi administracyjnej** . 
-1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
+1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
 1.  Wybierz **Azure AD Connect**.
 1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 1.  W obszarze **Konfiguracja**wybierz konfigurację.
@@ -76,7 +76,7 @@ Jeśli nie chcesz czekać na następne zaplanowane uruchomienie, wyzwól uruchom
 ## <a name="remove-a-configuration"></a>Usuń konfigurację
 Aby usunąć konfigurację, wykonaj następujące kroki.
 
-1.  W witrynie Azure Portal wybierz pozycję **Azure Active Directory**.
+1.  W Azure Portal wybierz pozycję **Azure Active Directory**.
 1.  Wybierz **Azure AD Connect**.
 1.  Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 1.  W obszarze **Konfiguracja**wybierz konfigurację.

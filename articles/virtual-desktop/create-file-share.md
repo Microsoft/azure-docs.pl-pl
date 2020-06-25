@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7fca57bd517296711ada2f714d523bfa0709337c
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: eea6f901a7228d7ed411d27296e1fb44a41d9f72
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85208386"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361340"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i AD DS
 
@@ -31,7 +31,7 @@ Najpierw musisz skonfigurować konto magazynu Azure Files.
 
 Aby skonfigurować konto magazynu:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 
 2. Wyszukaj **konto magazynu** na pasku wyszukiwania.
 
@@ -74,7 +74,8 @@ Następnie należy włączyć uwierzytelnianie Active Directory (AD). Aby włąc
 
 3.  Otwórz Azure Portal, Otwórz konto magazynu, wybierz pozycję **Konfiguracja**, a następnie potwierdź, że **Active Directory (AD)** jest ustawiona na wartość **włączone**.
 
-     ![Zrzut ekranu przedstawiający stronę konfiguracji z włączonym Azure Active Directory (AD).](media/active-directory-enabled.png)
+     > [!div class="mx-imgBorder"]
+     > ![Zrzut ekranu przedstawiający stronę konfiguracji z włączonym Azure Active Directory (AD).](media/active-directory-enabled.png)
 
 ## <a name="assign-azure-rbac-permissions-to-windows-virtual-desktop-users"></a>Przypisywanie uprawnień usługi Azure RBAC do użytkowników pulpitu wirtualnego systemu Windows
 

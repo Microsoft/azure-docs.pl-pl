@@ -8,19 +8,19 @@ manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e37095a964e656160edbbbc4a325feceb1e48e74
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 47f0dea435af56f6994b57079983a63b3a29600d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84749626"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358566"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementowanie synchronizacji skrótów haseł za pomocą usługi synchronizacji programu Azure AD Connect
 Ten artykuł zawiera informacje potrzebne do synchronizacji haseł użytkowników z wystąpienia lokalnego Active Directory do wystąpienia Azure Active Directory opartego na chmurze (Azure AD).
@@ -122,7 +122,6 @@ Zastrzeżenie: Jeśli istnieją zsynchronizowane konta, które muszą mieć niew
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Ta funkcja jest teraz dostępna w publicznej wersji zapoznawczej.
 > Polecenie Set-MsolPasswordPolicy programu PowerShell nie będzie działało w domenach federacyjnych. 
 
 #### <a name="synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Synchronizowanie haseł tymczasowych i "Wymuś zmianę hasła przy następnym logowaniu"
@@ -140,9 +139,6 @@ Aby obsłużyć tymczasowe hasła w usłudze Azure AD dla synchronizowanych uży
 
 > [!CAUTION]
 > Tej funkcji należy używać tylko wtedy, gdy w dzierżawie są włączone SSPR i zapisywanie zwrotne haseł.  Jest tak dlatego, że jeśli użytkownik zmieni hasło za pośrednictwem SSPR, zostanie zsynchronizowany z Active Directory.
-
-> [!NOTE]
-> Ta funkcja jest teraz dostępna w publicznej wersji zapoznawczej.
 
 #### <a name="account-expiration"></a>Wygaśnięcie konta
 

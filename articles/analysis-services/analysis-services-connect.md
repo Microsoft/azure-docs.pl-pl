@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc671629934d80b3e727ca69f9026f534d05e160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1b4e56dfeae2d4b7826f3ad30bc5eb4b8672b85
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676646"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361476"
 ---
 # <a name="connecting-to-servers"></a>Łączenie z serwerami
 
@@ -20,7 +20,7 @@ W tym artykule opisano nawiązywanie połączenia z serwerem za pomocą aplikacj
 
 ## <a name="client-libraries"></a>Biblioteki klienta
 
-[Pobierz najnowsze biblioteki klienckie](analysis-services-data-providers.md)
+[Pobierz najnowsze biblioteki klienckie](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
 
 Wszystkie połączenia z serwerem, niezależnie od typu, wymagają zaktualizowanych bibliotek klienta biblioteki AMO, ADOMD.NET i OLEDB do łączenia się z serwerem Analysis Services i interfejsem. W przypadku programów SSMS, Visual Studio, Excel 2016 i nowszych oraz Power BI najnowsze biblioteki klienckie są instalowane lub aktualizowane za pomocą comiesięcznych wersji. Jednak w niektórych przypadkach możliwe, że aplikacja może nie mieć najnowszej wersji. Na przykład gdy zasady opóźnią aktualizacje lub aktualizacje pakietu Office 365 są w odłożonym kanale.
 
@@ -38,7 +38,7 @@ Podczas tworzenia serwera Analysis Services na platformie Azure należy określi
 
 ### <a name="get-the-server-name"></a>Pobierz nazwę serwera
 
-W **Azure Portal** > Server > **Przegląd** > **Nazwa serwera**, Skopiuj całą nazwę serwera. Jeśli inni użytkownicy w organizacji nawiązują połączenie z tym serwerem, możesz udostępnić tę nazwę serwera. Podczas określania nazwy serwera należy użyć całej ścieżki.
+W **Azure Portal** > Server > **Przegląd**  >  **Nazwa serwera**, Skopiuj całą nazwę serwera. Jeśli inni użytkownicy w organizacji nawiązują połączenie z tym serwerem, możesz udostępnić tę nazwę serwera. Podczas określania nazwy serwera należy użyć całej ścieżki.
 
 ![Pobieranie nazwy serwera z systemu Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 

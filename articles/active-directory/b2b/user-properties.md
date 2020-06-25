@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 06/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40f5002e361653614c966dc43301afa83eb7b200
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5da41209747198a9d6e034373e1b396d0f086a74
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050797"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361102"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Właściwości Azure Active Directory użytkownika współpracy B2B
 
@@ -104,7 +104,11 @@ Istnieje możliwość wyłączenia ograniczeń domyślnych, aby użytkownik-Goś
 ![Zrzut ekranu przedstawiający opcję użytkowników zewnętrznych w ustawieniach użytkownika](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Czy można sprawić, aby użytkownicy-Goście widoczni na globalnej liście adresów programu Exchange?
-Tak. Domyślnie obiekty gościa nie są widoczne na globalnej liście adresowej organizacji, ale można użyć programu Azure Active Directory PowerShell, aby je wyświetlić. Aby uzyskać szczegółowe informacje, zobacz temat **czy obiekty gościa są widoczne na globalnej liście adresów?** w obszarze [Zarządzanie dostępem gościa w grupach pakietu Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list). 
+Tak. Domyślnie obiekty gościa nie są widoczne na globalnej liście adresowej organizacji, ale można użyć programu Azure Active Directory PowerShell, aby je wyświetlić. Aby uzyskać szczegółowe informacje, zobacz temat **czy obiekty gościa są widoczne na globalnej liście adresów?** w obszarze [Zarządzanie dostępem gościa w grupach pakietu Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
+
+## <a name="can-i-update-a-guest-users-email-address"></a>Czy mogę zaktualizować adres e-mail użytkownika-gościa?
+
+Jeśli użytkownik-Gość zaakceptuje Twoje zaproszenie i zmieni swój adres e-mail, nowy adres e-mail nie zostanie automatycznie zsynchronizowany z obiektem użytkownika-gościa w katalogu. Właściwość mail jest tworzona za pośrednictwem [interfejsu API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Możesz zaktualizować Właściwość poczty za pośrednictwem Centrum administracyjnego programu Exchange lub programu [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps), a zmiana zostanie odzwierciedlona w obiekcie użytkownika gościa usługi Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 

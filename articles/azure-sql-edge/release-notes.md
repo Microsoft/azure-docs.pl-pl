@@ -10,22 +10,30 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 06/05/2020
-ms.openlocfilehash: 7238e2d7cbcb26a7b45ae9d7db52a0826abe0754
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d5d60db2cc0c35b908454be3f00716db6d2da945
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897982"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361646"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Informacje o wersji usługi Azure SQL Edge 
 
 W tym artykule opisano nowości i zmiany, które zostały zmienione wraz z każdą nową kompilacją usługi Azure SQL Edge.
 
+## <a name="ctp-21"></a>CTP 2,1 
+### <a name="sql-engine-build-number---15020001545"></a>Numer kompilacji aparatu SQL — 15.0.2000.1545
+### <a name="fixes"></a>Poprawki
+1. Popraw PROGNOZowanie dzięki modelom ONNX, aby obsłużyć problem CPUID w usłudze ARM 
+2. Popraw, aby zwiększyć obsługę ścieżki niepowodzeń podczas uruchamiania TSQL Streaming 
+3. W przypadku braku danych Popraw wartość opóźnienia wartości znaku wodnego w metrykach zadania. 
+4. Usuń problem z adapterem wyjściowym, gdy karta zawiera zmienne schemat między partiami.  
+
 ## <a name="ctp-20"></a>CTP 2,0 
 ### <a name="sql-engine-build-number---15020001401"></a>Numer kompilacji aparatu SQL — 15.0.2000.1401
 ### <a name="whats-new"></a>Co nowego?
 1.  Nazwa produktu została zaktualizowana do "Azure SQL Edge"
-2.  Funkcja Date_bucket
+1.  Funkcja Date_bucket
 
     i.  Obsługa daty, godziny, typu DateTime
 3.  PRZEWIDYWANie przy użyciu ONNX

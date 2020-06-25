@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4285c7d8cd6c9feee84eaae3c49ffd1f21d5df27
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 72b21514e07b65b89d10b317da95ec7d92ecae78
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253090"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360337"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Jak zarządzać lokalną grupą administratorów na urządzeniach dołączonych do usługi Azure AD
 
@@ -88,7 +88,7 @@ Nie można przypisać grup do roli administratora urządzenia. dozwolone są tyl
 
 Administratorzy urządzeń są przypisani do wszystkich urządzeń przyłączonych do usługi Azure AD. Nie mogą one być ograniczone do określonego zestawu urządzeń.
 
-Usunięcie użytkowników z roli administratora urządzenia nadal ma uprawnienia administratora lokalnego na urządzeniu, o ile są z nim zalogowane. Uprawnienie jest odwoływane podczas następnego logowania lub po 4 godzinach, gdy zostanie wystawiony nowy podstawowy token odświeżania.
+Usunięcie użytkowników z roli administratora urządzenia nadal ma uprawnienia administratora lokalnego na urządzeniu, o ile są z nim zalogowane. Uprawnienie jest odwoływane podczas kolejnego logowania po 4 godzinach, gdy zostanie wystawiony nowy podstawowy token odświeżania.
 
 ## <a name="next-steps"></a>Następne kroki
 

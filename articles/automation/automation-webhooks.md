@@ -3,14 +3,14 @@ title: Uruchamianie Azure Automation elementu Runbook z elementu webhook
 description: W tym artykule opisano sposób używania elementu webhook do uruchamiania elementu Runbook w Azure Automation z wywołania HTTP.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/03/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 78ce1e46b7ea2cc82a0c478b0c81abbf701f68a9
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: e64f437b65964b585311aeae25e5f3a92275754a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342973"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361680"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Uruchamianie elementu runbook z poziomu elementu webhook
 
@@ -83,9 +83,13 @@ Teraz przekażemy następujący obiekt JSON w interfejsie użytkownika dla `Webh
 
 Bezpieczeństwo elementu webhook polega na poufności jego adresu URL, który zawiera token zabezpieczający, który umożliwia wywołanie elementu webhook. Azure Automation nie wykonuje żadnych uwierzytelnień na żądanie tak długo, jak jest wprowadzony prawidłowy adres URL. Z tego powodu klienci nie powinni używać elementu webhook dla elementów Runbook, które wykonują wysoce poufne operacje bez użycia alternatywnego sposobu weryfikacji żądania.
 
-Można uwzględnić logikę w elemencie Runbook, aby określić, czy jest wywoływana przez element webhook. Element Runbook sprawdza `WebhookName` Właściwość `WebhookData` parametru. Element Runbook może przeprowadzić dalsze sprawdzanie poprawności, szukając określonych informacji we `RequestHeader` `RequestBody` właściwościach i.
+Należy wziąć pod uwagę następujące strategie:
 
-Inna strategia polega na tym, że element Runbook wykonuje weryfikację zewnętrznego warunku, gdy odbierze żądanie elementu webhook. Rozważmy na przykład element Runbook, który jest wywoływany przez witrynę GitHub w dowolnym momencie, gdy istnieje nowe zatwierdzenie do repozytorium GitHub. Element Runbook może połączyć się z usługą GitHub, aby zweryfikować, że nastąpiło nowe zatwierdzenie przed kontynuowaniem.
+* Można uwzględnić logikę w elemencie Runbook, aby określić, czy jest wywoływana przez element webhook. Element Runbook sprawdza `WebhookName` Właściwość `WebhookData` parametru. Element Runbook może przeprowadzić dalsze sprawdzanie poprawności, szukając określonych informacji we `RequestHeader` `RequestBody` właściwościach i.
+
+* Czy element Runbook ma wykonać weryfikację zewnętrznego warunku, gdy odbierze żądanie elementu webhook. Rozważmy na przykład element Runbook, który jest wywoływany przez witrynę GitHub w dowolnym momencie, gdy istnieje nowe zatwierdzenie do repozytorium GitHub. Element Runbook może połączyć się z usługą GitHub, aby zweryfikować, że nastąpiło nowe zatwierdzenie przed kontynuowaniem.
+
+* Azure Automation obsługuje znaczniki usługi sieci wirtualnej platformy Azure, w tym [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Możesz użyć tagów usługi do definiowania kontroli dostępu do sieci dla [sieciowych grup zabezpieczeń](../virtual-network/security-overview.md#security-rules) lub [zapory platformy Azure](../firewall/service-tags.md) i wyzwalania elementów webhook z poziomu sieci wirtualnej. Podczas tworzenia reguł zabezpieczeń można używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi **GuestAndHybridManagement** w odpowiednim polu źródłowym lub docelowym reguły, można zezwolić na ruch dla usługi Automation lub go odrzucić. Ten tag usługi nie obsługuje bardziej szczegółowej kontroli przez ograniczenie zakresów adresów IP do określonego regionu.
 
 ## <a name="create-a-webhook"></a>Tworzenie elementu webhook
 

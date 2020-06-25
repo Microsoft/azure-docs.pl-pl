@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 06/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f228da5afc5998d8fa59ce2d720cec4c9f955b67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9614def5310bdc6fa8c6f37d7cdcc0a5f081a96
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67478721"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85360303"
 ---
 # <a name="adsync-service-account"></a>Konto usługi ADSync
 Azure AD Connect instaluje usługę lokalną, która organizuje synchronizację między Active Directory i Azure Active Directory.  Usługa synchronizacji synchronizacji Microsoft Azure AD (ADSync) jest uruchamiana na serwerze w środowisku lokalnym.  Poświadczenia usługi są domyślnie ustawiane w instalacjach ekspresowych, ale mogą być dostosowane do wymagań bezpieczeństwa organizacji.  Te poświadczenia nie są używane do nawiązywania połączeń z lokalnymi lasami lub Azure Active Directory.

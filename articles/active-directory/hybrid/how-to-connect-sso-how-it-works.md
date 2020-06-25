@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd4743bc38c3b2b4b9495b33535b4b73f48d1372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af5a9b5b5dd8eb6b6bec8440287918d1f8610064
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71176676"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357923"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: głębokie szczegółowe
 
@@ -39,12 +39,12 @@ Ta sekcja zawiera trzy części:
 
 Bezproblemowe logowanie jednokrotne jest włączone przy użyciu Azure AD Connect, jak pokazano [poniżej](how-to-connect-sso-quick-start.md). Podczas włączania funkcji należy wykonać następujące czynności:
 
-- Konto komputera (`AZUREADSSOACC`) jest tworzone w lokalnym Active Directory (AD) w każdym lesie usługi AD synchronizowanym z usługą Azure AD (przy użyciu Azure AD Connect).
+- Konto komputera ( `AZUREADSSOACC` ) jest tworzone w lokalnym Active Directory (AD) w każdym lesie usługi AD synchronizowanym z usługą Azure AD (przy użyciu Azure AD Connect).
 - Ponadto wiele głównych nazw usług (SPN) protokołu Kerberos jest tworzonych do użycia podczas procesu logowania do usługi Azure AD.
 - Klucz odszyfrowywania Kerberos konta komputera jest bezpiecznie współużytkowany z usługą Azure AD. Jeśli istnieje wiele lasów usługi AD, każde konto komputera będzie miało własny unikatowy klucz odszyfrowujący protokołu Kerberos.
 
 >[!IMPORTANT]
-> Konto `AZUREADSSOACC` komputera musi być silnie chronione ze względów bezpieczeństwa. Tylko Administratorzy domeny powinni mieć możliwość zarządzania kontem komputera. Upewnij się, że delegowanie Kerberos na koncie komputera jest wyłączone i że żadne inne konto w Active Directory nie ma uprawnień do `AZUREADSSOACC` delegowania na koncie komputera. Przechowywanie konta komputera w jednostce organizacyjnej (OU), w którym są bezpieczne przed przypadkowym usunięciem i gdzie tylko Administratorzy domeny mają dostęp. Klucz odszyfrowujący protokołu Kerberos na koncie komputera powinien również być traktowany jako poufne. Zdecydowanie zalecamy przeprowadzenie [klucza odszyfrowywania Kerberos](how-to-connect-sso-faq.md) konta `AZUREADSSOACC` komputera co najmniej co 30 dni.
+> `AZUREADSSOACC`Konto komputera musi być silnie chronione ze względów bezpieczeństwa. Tylko Administratorzy domeny powinni mieć możliwość zarządzania kontem komputera. Upewnij się, że delegowanie Kerberos na koncie komputera jest wyłączone i że żadne inne konto w Active Directory nie ma uprawnień do delegowania na `AZUREADSSOACC` koncie komputera. Przechowywanie konta komputera w jednostce organizacyjnej (OU), w którym są bezpieczne przed przypadkowym usunięciem i gdzie tylko Administratorzy domeny mają dostęp. Klucz odszyfrowujący protokołu Kerberos na koncie komputera powinien również być traktowany jako poufne. Zdecydowanie zalecamy przeprowadzenie [klucza odszyfrowywania Kerberos](how-to-connect-sso-faq.md) `AZUREADSSOACC` konta komputera co najmniej co 30 dni.
 
 Po zakończeniu konfiguracji bezproblemowe logowanie jednokrotne działa tak samo jak inne logowania korzystające ze zintegrowanego uwierzytelniania systemu Windows (IWA).
 
@@ -60,7 +60,7 @@ Przepływ logowania w przeglądarce sieci Web jest następujący:
    >W przypadku [niektórych aplikacji](./how-to-connect-sso-faq.md), kroki 2 & 3 są pomijane.
 
 4. Korzystając z języka JavaScript w tle, usługa Azure AD wzywa do przeglądarki za pośrednictwem 401 nieautoryzowanej odpowiedzi, aby zapewnić bilet protokołu Kerberos.
-5. Przeglądarka z kolei żąda biletu od Active Directory dla konta `AZUREADSSOACC` komputera (co reprezentuje usługę Azure AD).
+5. Przeglądarka z kolei żąda biletu od Active Directory dla `AZUREADSSOACC` konta komputera (co reprezentuje usługę Azure AD).
 6. Active Directory lokalizuje konto komputera i zwraca bilet protokołu Kerberos do przeglądarki zaszyfrowanej przy użyciu klucza tajnego konta komputera.
 7. Przeglądarka przekazuje bilet Kerberos uzyskany z Active Directory do usługi Azure AD.
 8. Usługa Azure AD odszyfrowuje bilet protokołu Kerberos, który obejmuje tożsamość użytkownika zalogowanego na urządzeniu firmowym przy użyciu klucza współużytkowanego.

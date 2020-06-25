@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 401f8239cded04b6342b706242e970e39118d73d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: caf7db5f27ed6f612d0896bff0899feda3311883
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827169"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357753"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory bezproblemowe logowanie jednokrotne
 
@@ -63,11 +63,11 @@ Bezproblemowe logowanie jednokrotne może być łączone z [synchronizacją skr�
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Yes\*|Yes|Yes|Tak\*\*\*|Nie dotyczy
-|Windows 8.1|Yes\*|Nie dotyczy|Yes|Tak\*\*\*|Nie dotyczy
-|Windows 8|Yes\*|Nie dotyczy|Yes|Tak\*\*\*|Nie dotyczy
-|Windows 7|Yes\*|Nie dotyczy|Yes|Tak\*\*\*|Nie dotyczy
-|System Windows Server 2012 R2 lub nowszy|Opcję\*\*|Nie dotyczy|Yes|Tak\*\*\*|Nie dotyczy
+|Windows 10|Tak\*|Tak|Yes|Tak\*\*\*|Nie dotyczy
+|Windows 8.1|Opcję\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
+|Windows 8|Opcję\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
+|Windows 7|Tak\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
+|System Windows Server 2012 R2 lub nowszy|Opcję\*\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
 |Mac OS X|Nie dotyczy|Nie dotyczy|Tak\*\*\*|Tak\*\*\*|Tak\*\*\*
 
 

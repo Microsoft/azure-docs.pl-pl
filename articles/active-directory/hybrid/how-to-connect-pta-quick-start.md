@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca425c7c5739785f3463086d89b4796f09bf45b4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 61e772d7a55577c263edc83ccface31932f5b2dd
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229820"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358365"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory uwierzytelnianie przekazywane: Szybki Start
 
@@ -72,9 +72,9 @@ Upewnij się, że są spełnione następujące wymagania wstępne.
      | **8080** (opcjonalnie) | Agenci uwierzytelniania raportują swój stan co dziesięć minut w porcie 8080, jeśli port 443 jest niedostępny. Ten stan jest wyświetlany w portalu usługi Azure AD. Port 8080 _nie_ jest używany podczas logowania użytkownika. |
      
      Jeśli Zapora wymusza reguły zależne od użytkowników inicjujących, należy otworzyć te porty dla ruchu z usług systemu Windows, które działają jako usługa sieciowa.
-   - Jeśli zapora lub serwer proxy zezwala na listy dozwolonych DNS, Dodaj połączenia z ** \*. msappproxy.NET** i ** \*. ServiceBus.Windows.NET**. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień.
+   - Jeśli zapora lub serwer proxy zezwala na listy dozwolonych DNS, Dodaj połączenia z ** \* . msappproxy.NET** i ** \* . ServiceBus.Windows.NET**. W przeciwnym razie Zezwól na dostęp do [zakresów adresów IP centrum danych platformy Azure](https://www.microsoft.com/download/details.aspx?id=41653), które są aktualizowane co tydzień.
    - Agenci uwierzytelniania muszą mieć dostęp do **login.Windows.NET** i **login.microsoftonline.com** na potrzeby rejestracji wstępnej. Należy również otworzyć Zaporę dla tych adresów URL.
-   - Aby sprawdzić poprawność certyfikatu, Odblokuj następujące adresy URL: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**i **www\.Microsoft.com:80**. Ponieważ te adresy URL są używane do sprawdzania poprawności certyfikatu z innymi produktami firmy Microsoft, te adresy URL mogą już być odblokowane.
+   - Aby sprawdzić poprawność certyfikatu, Odblokuj następujące adresy URL: **mscrl.Microsoft.com:80**, **CRL.Microsoft.com:80**, **OCSP.msocsp.com:80**i **www \. Microsoft.com:80**. Ponieważ te adresy URL są używane do sprawdzania poprawności certyfikatu z innymi produktami firmy Microsoft, te adresy URL mogą już być odblokowane.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Azure Government wymagań wstępnych w chmurze
 Przed włączeniem uwierzytelniania przekazywanego za pośrednictwem Azure AD Connect z krok 2 Pobierz najnowszą wersję agenta PTA z Azure Portal.  Musisz się upewnić, że Agent jest w wersji **1.5.1742.0.** lub nowsza wersja.  Aby zweryfikować agenta, zobacz [uaktualnianie agentów uwierzytelniania](how-to-connect-pta-upgrade-preview-authentication-agents.md)
@@ -150,8 +150,8 @@ Najpierw można to zrobić interaktywnie, uruchamiając pobrany plik wykonywalny
 
 Następnie można utworzyć i uruchomić skrypt wdrożenia nienadzorowanego. Jest to przydatne, gdy chcesz wdrożyć wielu agentów uwierzytelniania jednocześnie, lub zainstalować agentów uwierzytelniania na serwerach z systemem Windows, na których nie włączono interfejsu użytkownika lub nie możesz uzyskać dostępu za pomocą Pulpit zdalny. Poniżej przedstawiono instrukcje dotyczące korzystania z tej metody:
 
-1. Uruchom następujące polecenie, aby zainstalować agenta uwierzytelniania: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Agenta uwierzytelniania można zarejestrować za pomocą naszej usługi przy użyciu programu Windows PowerShell. Utwórz obiekt `$cred` poświadczeń programu PowerShell, który zawiera nazwę użytkownika i hasło administratora globalnego dla dzierżawy. Uruchom następujące polecenie, zastępując * \<nazwę użytkownika\> * i * \<hasło\>*:
+1. Uruchom następujące polecenie, aby zainstalować agenta uwierzytelniania: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q` .
+2. Agenta uwierzytelniania można zarejestrować za pomocą naszej usługi przy użyciu programu Windows PowerShell. Utwórz obiekt poświadczeń programu PowerShell `$cred` , który zawiera nazwę użytkownika i hasło administratora globalnego dla dzierżawy. Uruchom następujące polecenie, zastępując *\<username\>* i *\<password\>* :
 
         $User = "<username>"
         $PlainPassword = '<password>'

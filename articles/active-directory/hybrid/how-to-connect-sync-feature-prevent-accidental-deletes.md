@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 55270889c8c284335d5aa7b545718da419ba8d84
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "71827139"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357362"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronizacja programu Azure AD Connect: zapobieganie przypadkowemu usuwaniu
 W tym temacie opisano funkcję zapobiegania przypadkowym usunięciem (zapobieganie przypadkowemu usuwaniu) w Azure AD Connect.
@@ -35,7 +35,7 @@ Typowe scenariusze w przypadku wyświetlenia wielu usunięć obejmują:
 * Wszystkie obiekty w jednostce organizacyjnej zostały usunięte.
 * Nazwa jednostki organizacyjnej została zmieniona, więc wszystkie obiekty w tej jednostce są uznawane za znajdujące się poza zakresem synchronizacji.
 
-Wartość domyślna z 500 obiektów można zmienić przy użyciu `Enable-ADSyncExportDeletionThreshold`programu PowerShell, który jest częścią modułu AD Sync zainstalowanego z Azure Active Directory Connect. Tę wartość należy skonfigurować w celu dopasowania jej do rozmiaru organizacji. Ponieważ harmonogram synchronizacji jest uruchamiany co 30 minut, wartość jest liczbą usunięć wyświetloną w ciągu 30 minut.
+Wartość domyślna z 500 obiektów można zmienić przy użyciu programu PowerShell `Enable-ADSyncExportDeletionThreshold` , który jest częścią modułu AD Sync zainstalowanego z Azure Active Directory Connect. Tę wartość należy skonfigurować w celu dopasowania jej do rozmiaru organizacji. Ponieważ harmonogram synchronizacji jest uruchamiany co 30 minut, wartość jest liczbą usunięć wyświetloną w ciągu 30 minut.
 
 W przypadku zbyt dużej liczby usuniętych etapów, które zostaną wyeksportowane do usługi Azure AD, eksport zostanie zatrzymany i otrzymasz wiadomość e-mail w następujący sposób:
 
@@ -63,11 +63,11 @@ Jeśli jest to nieoczekiwane, zbadaj i wykonaj akcje naprawcze. Aby zobaczyć, k
 ## <a name="if-all-deletes-are-desired"></a>Jeśli wszystkie usunięcia są żądane
 Jeśli wszystkie usunięcia są odpowiednie, wykonaj następujące czynności:
 
-1. Aby pobrać bieżący próg usunięcia, uruchom polecenie cmdlet `Get-ADSyncExportDeletionThreshold`programu PowerShell. Podaj konto i hasło administratora globalnego usługi Azure AD. Wartość domyślna to 500.
-2. Aby tymczasowo wyłączyć tę ochronę i zezwolić na ich usunięcie, uruchom polecenie cmdlet programu PowerShell: `Disable-ADSyncExportDeletionThreshold`. Podaj konto i hasło administratora globalnego usługi Azure AD.
+1. Aby pobrać bieżący próg usunięcia, uruchom polecenie cmdlet programu PowerShell `Get-ADSyncExportDeletionThreshold` . Podaj konto i hasło administratora globalnego usługi Azure AD. Wartość domyślna to 500.
+2. Aby tymczasowo wyłączyć tę ochronę i zezwolić na ich usunięcie, uruchom polecenie cmdlet programu PowerShell: `Disable-ADSyncExportDeletionThreshold` . Podaj konto i hasło administratora globalnego usługi Azure AD.
    ![Poświadczenia](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
 3. Po wybraniu łącznika Azure Active Directory wybierz akcję **Uruchom** i wybierz pozycję **Eksportuj**.
-4. Aby ponownie włączyć ochronę, uruchom polecenie cmdlet programu PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Zastąp 500 wartością zauważoną podczas pobierania bieżącego progu usuwania. Podaj konto i hasło administratora globalnego usługi Azure AD.
+4. Aby ponownie włączyć ochronę, uruchom polecenie cmdlet programu PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500` . Zastąp 500 wartością zauważoną podczas pobierania bieżącego progu usuwania. Podaj konto i hasło administratora globalnego usługi Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 **Tematy dotyczące omówienia**

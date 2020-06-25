@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59cd52dbdf6c13900cde592aeb52d8bf9abf850f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e794b66341d4e7c478fd526107cc35c7c745fa7f
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60347796"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85358331"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory uwierzytelniania przekazywanego: szczegółowe głębokiej wiedzy technicznej
 Ten artykuł zawiera omówienie sposobu działania uwierzytelniania przekazywanego za pomocą usługi Azure Active Directory (Azure AD). Aby uzyskać szczegółowe informacje techniczne i o zabezpieczeniach, zobacz artykuł [głębokie szczegółowe zabezpieczeń](how-to-connect-pta-security-deep-dive.md) .
@@ -40,7 +40,7 @@ Gdy użytkownik próbuje zalogować się do aplikacji zabezpieczonej przez usłu
 5. Usługa Azure AD po odebraniu żądania logowania umieszcza nazwę użytkownika i hasło (zaszyfrowane przy użyciu klucza publicznego agentów uwierzytelniania) w kolejce.
 6. Lokalny Agent uwierzytelniania Pobiera nazwę użytkownika i zaszyfrowane hasło z kolejki. Należy zauważyć, że Agent nie jest często sondowany pod kątem żądań z kolejki, ale pobiera żądania za pośrednictwem wstępnie ustalonego połączenia stałego.
 7. Agent odszyfrowuje hasło przy użyciu jego klucza prywatnego.
-8. Agent sprawdza poprawność nazwy użytkownika i hasła do Active Directory przy użyciu standardowych interfejsów API systemu Windows, która jest podobnym mechanizmem do działania Active Directory Federation Services (AD FS). Nazwa użytkownika może być lokalną domyślną nazwą użytkownika, zazwyczaj `userPrincipalName`lub innym atrybutem skonfigurowanym w Azure AD Connect (znanym jako `Alternate ID`).
+8. Agent sprawdza poprawność nazwy użytkownika i hasła do Active Directory przy użyciu standardowych interfejsów API systemu Windows, która jest podobnym mechanizmem do działania Active Directory Federation Services (AD FS). Nazwa użytkownika może być lokalną domyślną nazwą użytkownika, zazwyczaj `userPrincipalName` lub innym atrybutem skonfigurowanym w Azure AD Connect (znanym jako `Alternate ID` ).
 9. Lokalny Active Directory kontroler domeny (DC) oblicza żądanie i zwraca odpowiednią odpowiedź (powodzenie, Niepowodzenie, wygasłe hasło lub użytkownik jest zablokowany) do agenta.
 10. Z kolei Agent uwierzytelniania zwraca tę odpowiedź z powrotem do usługi Azure AD.
 11. Usługa Azure AD oblicza odpowiedź i reaguje na użytkownika zgodnie z potrzebami. Na przykład usługa Azure AD bezpośrednio podpisuje użytkownika lub żąda od platformy Azure Multi-Factor Authentication.

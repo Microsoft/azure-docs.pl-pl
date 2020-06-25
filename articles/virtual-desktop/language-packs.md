@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/03/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7d05c1222ff43537ab8dad34588b80fe537fd0a1
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 70592d940e3766597475f4a7b90a3902a53406d5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85200413"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361306"
 ---
 # <a name="install-language-packs"></a>Instalowanie pakietów językowych
 
@@ -36,7 +36,8 @@ Aby zainstalować pakiety językowe:
 4. W obszarze **kraj lub region**wybierz preferowany kraj lub region z menu rozwijanego.
     W tym przykładzie wybieramy pozycję **Francja**, jak pokazano na poniższym zrzucie ekranu:
 
-    ![Zrzut ekranu strony regionu. Aktualnie wybrany region to Francja.](media/region-page-france.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu strony regionu. Aktualnie wybrany region to Francja.](media/region-page-france.png)
 
 5. Po wybraniu tej opcji wybierz pozycję **Język**, a następnie wybierz pozycję **Dodaj język**. Wybierz język, który chcesz zainstalować z listy, a następnie wybierz pozycję **dalej**.
 6. Gdy zostanie otwarte okno **Instalowanie funkcji języka** , zaznacz pole wyboru z etykietą **Zainstaluj pakiet językowy i Ustaw jako mój język wyświetlania systemu Windows**.
@@ -45,15 +46,19 @@ Aby zainstalować pakiety językowe:
 
     Zacznijmy od szybkiego pokazu wizualnego. Na poniższych ilustracjach przedstawiono sposób instalowania pakietów języka francuskiego i holenderskiego, a następnie ustawiania języka francuskiego jako język wyświetlania.
 
-    ![Zrzut ekranu przedstawiający stronę języka na początku procesu. Wybrany język wyświetlania systemu Windows jest w języku angielskim.](media/language-page-default.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający stronę języka na początku procesu. Wybrany język wyświetlania systemu Windows jest w języku angielskim.](media/language-page-default.png)
 
-    ![Zrzut ekranu przedstawiający okno wyboru języka. Użytkownik wprowadził wartość "francuski" na pasku wyszukiwania, aby znaleźć francuskie pakiety językowe.](media/select-language-french.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający okno wyboru języka. Użytkownik wprowadził wartość "francuski" na pasku wyszukiwania, aby znaleźć francuskie pakiety językowe.](media/select-language-french.png)
 
-    ![Zrzut ekranu przedstawiający stronę funkcje języka instalacji. Jako preferowany język jest wybrany francuski. Wybrane opcje to "Ustaw mój język wyświetlania", "Zainstaluj pakiet językowy", "Rozpoznawanie mowy" i "pismo ręczne".](media/install-language-features.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający stronę funkcje języka instalacji. Jako preferowany język jest wybrany francuski. Wybrane opcje to "Ustaw mój język wyświetlania", "Zainstaluj pakiet językowy", "Rozpoznawanie mowy" i "pismo ręczne".](media/install-language-features.png)
 
     Po zainstalowaniu pakietów językowych powinny zostać wyświetlone nazwy pakietów językowych na liście języków.
 
-    ![Zrzut ekranu przedstawiający stronę języka z zainstalowanymi nowymi pakietami językowymi. Pakiety językowe francuskie i Holandia są wymienione w obszarze "preferowane języki".](media/language-page-complete.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający stronę języka z zainstalowanymi nowymi pakietami językowymi. Pakiety językowe francuskie i Holandia są wymienione w obszarze "preferowane języki".](media/language-page-complete.png)
 
 9. Jeśli zostanie wyświetlone okno z prośbą o wylogowanie się z sesji użytkownika. Wyloguj się, a następnie zaloguj się ponownie. Język wyświetlania powinien teraz być wybranym językiem.
 
@@ -113,7 +118,8 @@ Jeśli podczas procesu Sysprep zobaczysz komunikat o błędzie, Oto co należy z
 
    Tekst w pliku błędu informuje o konieczności odinstalowania określonego pakietu językowego, jak pokazano na poniższej ilustracji. Skopiuj nazwę pakietu językowego dla następnego kroku.
 
-   ![Zrzut ekranu przedstawiający plik Setuperr. Tekst z nazwą pakietu zostanie wyróżniony kolorem ciemnoniebieskim.](media/setuperr-package-name.png)
+   > [!div class="mx-imgBorder"]
+   > ![Zrzut ekranu przedstawiający plik Setuperr. Tekst z nazwą pakietu zostanie wyróżniony kolorem ciemnoniebieskim.](media/setuperr-package-name.png)
 
 2. Otwórz nowe okno programu PowerShell i uruchom następujące polecenie cmdlet z nazwą pakietu skopiowaną w kroku 2, aby usunąć pakiet językowy:
 
@@ -137,7 +143,8 @@ Aby przechwycić obraz:
 
 3. Wprowadź nazwę obrazu w polu **Nazwa** i przypisz ją do grupy zasobów przy użyciu menu rozwijanego **Grupa zasobów** , jak pokazano na poniższej ilustracji.
 
-   ![Zrzut ekranu przedstawiający okno Tworzenie obrazu. Nazwa, którą użytkownik udzielił do tego obrazu testu, to "vmwvd-Image-fr" i przypisano ją do grupy zasobów "testwvdimagerg".](media/create-image.png)
+   > [!div class="mx-imgBorder"]
+   > ![Zrzut ekranu przedstawiający okno Tworzenie obrazu. Nazwa, którą użytkownik udzielił do tego obrazu testu, to "vmwvd-Image-fr" i przypisano ją do grupy zasobów "testwvdimagerg".](media/create-image.png)
 
 4. Wybierz przycisk **Utwórz**.
 

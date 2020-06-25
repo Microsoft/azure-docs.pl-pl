@@ -3,14 +3,14 @@ title: Usługa Azure Kubernetes Service (AKS) z umową SLA
 description: Dowiedz się więcej o opcjonalnej ofercie SLA dla usługi Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: b360f36dfc80033ac95e4face438b66eed33cec4
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 9f8b0cc5a80853542b15d1993713d8a97f5371b9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945515"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361578"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Umowa SLA dla usługi Azure Kubernetes Service (AKS)
 
@@ -30,29 +30,38 @@ Umowa SLA na czas działania jest dostępna w regionach publicznych, w których 
 * Azure Government nie jest obecnie obsługiwana.
 * Nie jest to obecnie obsługiwane.
 
+## <a name="limitations"></a>Ograniczenia
+
+* Klastry prywatne nie są obecnie obsługiwane.
+
 ## <a name="sla-terms-and-conditions"></a>Warunki i postanowienia umowy SLA
 
 Umowa SLA na czas pracy to płatna funkcja i włączona na klaster. Cennik umowy SLA na czas pracy jest określany przez liczbę klastrów dyskretnych, a nie przez rozmiar poszczególnych klastrów. Aby uzyskać więcej informacji, możesz wyświetlić [szczegóły cennika umowy SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) .
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-* Instalowanie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) w wersji 2.7.0 lub nowszej
+* Instalowanie [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) w wersji 2.8.0 lub nowszej
 
-## <a name="creating-a-cluster-with-uptime-sla"></a>Tworzenie klastra z umową SLA
+## <a name="creating-a-new-cluster-with-uptime-sla"></a>Tworzenie nowego klastra z umową SLA w razie przestoju
+
+> [!NOTE]
+> Obecnie w przypadku włączenia umowy SLA dotyczącej czasu działania nie istnieje sposób, aby usunąć go z klastra.
 
 Aby utworzyć nowy klaster z umową SLA o czas działania, użyj interfejsu wiersza polecenia platformy Azure.
 
-Poniższy przykład obejmuje tworzenie grupy zasobów o nazwie *myResourceGroup* w lokalizacji *eastus*.
+Poniższy przykład tworzy grupę zasobów o nazwie Moja *zasobów* w lokalizacji *Wschodnie* :
 
 ```azurecli-interactive
+# Create a resource group
 az group create --name myResourceGroup --location eastus
 ```
-Utwórz klaster AKS za pomocą polecenia [az aks create][az-aks-create]. W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Usługę Azure Monitor dla kontenerów można również włączyć przy użyciu parametru *--enable-addons monitoring*.  Wykonanie tej operacji może potrwać kilka minut.
+Użyj [`az aks create`][az-aks-create] polecenia, aby utworzyć klaster AKS. W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Wykonanie tej operacji trwa kilka minut:
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1 --enable-addons monitoring --generate-ssh-keys
+# Create an AKS cluster with uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster --uptime-sla --node-count 1
 ```
-Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w formacie JSON. Poniższy fragment kodu JSON przedstawia warstwę płatną dla jednostki SKU, wskazując, że klaster jest włączony z umową SLA.
+Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w formacie JSON. Poniższy fragment kodu JSON przedstawia warstwę płatną dla jednostki SKU, wskazując, że klaster jest włączony z umową SLA na czas pracy:
 
 ```output
   },
@@ -62,15 +71,61 @@ Po kilku minutach polecenie zostanie wykonane i zwróci informacje o klastrze w 
   },
 ```
 
-## <a name="limitations"></a>Ograniczenia
+## <a name="modify-an-existing-cluster-to-use-uptime-sla"></a>Zmodyfikuj istniejący klaster, aby korzystać z umowy SLA dotyczącej czasu działania
 
-* Obecnie nie można konwertować jako istniejący klaster, aby włączyć umowę SLA dotyczącą czasu pracy.
-* Obecnie nie ma możliwości usunięcia umowy SLA dotyczącej czasu działania z klastra AKS po jej utworzeniu.  
-* Klastry prywatne nie są obecnie obsługiwane.
+Opcjonalnie możesz zaktualizować istniejące klastry, aby korzystać z umowy SLA dotyczącej czasu działania.
+
+Jeśli utworzono klaster AKS z poprzednimi krokami, Usuń grupę zasobów:
+
+```azurecli-interactive
+# Delete the existing cluster by deleting the resource group 
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+Utwórz nową grupę zasobów:
+
+```azurecli-interactive
+# Create a resource group
+az group create --name myResourceGroup --location eastus
+```
+
+Utwórz nowy klaster i nie używaj umowy SLA dotyczącej czasu działania:
+
+```azurecli-interactive
+# Create a new cluster without uptime SLA
+az aks create --resource-group myResourceGroup --name myAKSCluster--node-count 1
+```
+
+Użyj [`az aks update`][az-aks-nodepool-update] polecenia, aby zaktualizować istniejący klaster:
+
+```azurecli-interactive
+# Update an existing cluster to use Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --uptime-sla
+ ```
+
+ Poniższy fragment kodu JSON przedstawia warstwę płatną dla jednostki SKU, wskazując, że klaster jest włączony z umową SLA na czas pracy:
+
+ ```output
+  },
+  "sku": {
+    "name": "Basic",
+    "tier": "Paid"
+  },
+  ```
+
+## <a name="clean-up"></a>Czyszczenie
+
+Aby uniknąć naliczania opłat, wyczyść wszystkie utworzone zasoby. Aby usunąć klaster, użyj polecenia, [`az group delete`][az-group-delete] Aby usunąć grupę zasobów AKS:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
 
 ## <a name="next-steps"></a>Następne kroki
 
 Użyj [strefy dostępności][availability-zones] , aby zwiększyć wysoką dostępność przy użyciu obciążeń klastra AKS.
+
 Skonfiguruj klaster, aby [ograniczyć ruch wychodzący](limit-egress-traffic.md).
 
 <!-- LINKS - External -->
@@ -86,3 +141,5 @@ Skonfiguruj klaster, aby [ograniczyć ruch wychodzący](limit-egress-traffic.md)
 [limit-egress-traffic]: ./limit-egress-traffic.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-group-delete]: /cli/azure/group#az-group-delete

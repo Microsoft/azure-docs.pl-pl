@@ -11,17 +11,17 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 356697c4843742c12aa39d82602815e38dcca74a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76897212"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359147"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorowanie synchronizacji usługi Azure AD Connect za pomocą programu Azure AD Connect Health
 Poniższa dokumentacja dotyczy monitorowania programu Azure AD Connect (synchronizacja) przy użyciu programu Azure AD Connect Health.  Aby uzyskać informacje na temat monitorowania usług AD FS za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD FS](how-to-connect-health-adfs.md). Ponadto, aby uzyskać informacje na temat monitorowania Usług domenowych Active Directory za pomocą programu Azure AD Connect Health, zobacz [Używanie programu Azure AD Connect Health z usługami AD DS](how-to-connect-health-adds.md).
@@ -113,7 +113,7 @@ Wybierając przycisk „Eksportuj”, możesz pobrać plik CSV z pełnymi, szcze
 ### <a name="diagnose-and-remediate-sync-errors"></a>Diagnozowanie i naprawianie błędów synchronizacji 
 W przypadku określonego scenariusza błędu synchronizacji zduplikowanego atrybutu dotyczącego aktualizacji zakotwiczenia źródła użytkownika problem można rozwiązać bezpośrednio w portalu. Przeczytaj więcej na temat [diagnozowania i naprawiania błędów synchronizacji zduplikowanego atrybutu](how-to-connect-health-diagnose-sync-errors.md)
 
-## <a name="related-links"></a>Powiązane linki
+## <a name="related-links"></a>Linki pokrewne
 * [Rozwiązywanie problemów z błędami podczas synchronizacji](tshoot-connect-sync-errors.md)
 * [Odporność względem zduplikowanych atrybutów](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)

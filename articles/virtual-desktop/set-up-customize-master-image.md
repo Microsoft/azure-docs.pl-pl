@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 31a2bcdcf7b21999ddf17170b024589204c0e9e5
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: b8d0bcff79b6101047545614538dc1d58a854a6d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212789"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361255"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Przygotowywanie i dostosowywanie głównego obrazu wirtualnego dysku twardego
 
@@ -37,11 +37,13 @@ Aby utworzyć maszynę wirtualną za pomocą skopiowanego wirtualnego dysku twar
 
 2. Na stronie Określanie generacji wybierz opcję **generacja 1**.
 
-    ![Zrzut ekranu przedstawiający stronę Określanie generacji. Zaznaczona jest opcja "generacja 1".](media/a41174fd41302a181e46385e1e701975.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający stronę Określanie generacji. Zaznaczona jest opcja "generacja 1".](media/a41174fd41302a181e46385e1e701975.png)
 
 3. W obszarze Typ punktu kontrolnego Wyłącz punkty kontrolne, usuwając zaznaczenie pola wyboru.
 
-    ![Zrzut ekranu przedstawiający sekcję typ punktu kontrolnego na stronie punktów kontrolnych.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający sekcję typ punktu kontrolnego na stronie punktów kontrolnych.](media/20c6dda51d7cafef33251188ae1c0c6a.png)
 
 Aby wyłączyć punkty kontrolne, można również uruchomić następujące polecenie cmdlet w programie PowerShell.
 
@@ -53,7 +55,8 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 Jeśli utworzysz maszynę wirtualną na podstawie istniejącego wirtualnego dysku twardego, domyślnie zostanie utworzony dysk dynamiczny. Można go zmienić na dysk stały, wybierając pozycję **Edytuj dysk...** , jak pokazano na poniższej ilustracji. Aby uzyskać bardziej szczegółowe instrukcje, zobacz [Przygotowywanie wirtualnego dysku twardego systemu Windows lub dysku VHDX do przekazania do platformy Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
-![Zrzut ekranu przedstawiający opcję Edytuj dysk.](media/35772414b5a0f81f06f54065561d1414.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający opcję Edytuj dysk.](media/35772414b5a0f81f06f54065561d1414.png)
 
 Możesz również uruchomić następujące polecenie cmdlet programu PowerShell, aby zmienić dysk na dysk stały.
 
@@ -126,7 +129,8 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 W przypadku hosta sesji usług pulpitu wirtualnego z systemem Windows 10 Enterprise lub Windows 10 Enterprise zalecamy wyłączenie wykrywania magazynu. Czujnik magazynu można wyłączyć w menu Ustawienia w obszarze **Magazyn**, jak pokazano na poniższym zrzucie ekranu:
 
-![Zrzut ekranu przedstawiający menu magazyn w obszarze Ustawienia. Opcja "czujnik magazynu" jest wyłączona.](media/storagesense.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający menu magazyn w obszarze Ustawienia. Opcja "czujnik magazynu" jest wyłączona.](media/storagesense.png)
 
 Możesz również zmienić to ustawienie za pomocą rejestru, uruchamiając następujące polecenie:
 
@@ -189,15 +193,18 @@ Poniższe instrukcje przedstawiają sposób przekazania obrazu wzorcowego do kon
 
 2. Przekaż wirtualny dysk twardy do kontenera obiektów BLOB na koncie magazynu. Możesz szybko przekazać za pomocą [narzędzia Eksplorator usługi Storage](https://azure.microsoft.com/features/storage-explorer/). Aby dowiedzieć się więcej o narzędziu Eksplorator usługi Storage, zobacz [ten artykuł](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
-    ![Zrzut ekranu przedstawiający okno wyszukiwania narzędzia Eksplorator usługi Microsoft Azure Storage. Pole wyboru "Przekaż pliki VHD lub VHDX jako stronicowe obiekty blob (zalecane)" jest zaznaczone.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający okno wyszukiwania narzędzia Eksplorator usługi Microsoft Azure Storage. Pole wyboru "Przekaż pliki VHD lub VHDX jako stronicowe obiekty blob (zalecane)" jest zaznaczone.](media/897aa9a9b6acc0aa775c31e7fd82df02.png)
 
 3. Następnie przejdź do Azure Portal w przeglądarce i wyszukaj ciąg "images" (obrazy). Wyszukiwanie powinno prowadzić do strony **Tworzenie obrazu** , jak pokazano na poniższym zrzucie ekranu:
 
-    ![Zrzut ekranu przedstawiający stronę Tworzenie obrazu Azure Portal uzupełniony o przykładowe wartości obrazu.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający stronę Tworzenie obrazu Azure Portal uzupełniony o przykładowe wartości obrazu.](media/d3c840fe3e2430c8b9b1f44b27d2bf4f.png)
 
 4. Po utworzeniu obrazu powinno zostać wyświetlone powiadomienie podobne do poniższego zrzutu ekranu:
 
-    ![Zrzut ekranu przedstawiający powiadomienie "pomyślnie utworzono obraz".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający powiadomienie "pomyślnie utworzono obraz".](media/1f41b7192824a2950718a2b7bb9e9d69.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

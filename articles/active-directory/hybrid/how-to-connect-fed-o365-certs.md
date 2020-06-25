@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89de1495dc6bb411d5d43986177f11abb016cf15
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 04f523a2615892268d56c167a682987453dc997c
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82200891"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85359742"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Odnawianie certyfikatów Federacji dla pakietu Office 365 i Azure Active Directory
 ## <a name="overview"></a>Omówienie
@@ -99,7 +99,7 @@ W danych wyjściowych polecenia Get-MsolFederationProperty i Get-AdfsCertificate
 | AutoCertificateRollover | Certyfikaty zsynchronizowane z usługą Azure AD | Metadane federacji są publicznie dostępne | Ważności | Akcja |
 |:---:|:---:|:---:|:---:|:---:|
 | Tak |Tak |Tak |- |Nie jest wymagane żadne działanie. Zobacz [automatyczne odnawianie tokenu certyfikatu podpisywania](#autorenew). |
-| Tak |Nie |- |Mniej niż 15 dni |Odnów natychmiast. Zobacz [ręcznie odnowienie certyfikatu podpisywania tokenu](#manualrenew). |
+| Yes |Nie |- |Mniej niż 15 dni |Odnów natychmiast. Zobacz [ręcznie odnowienie certyfikatu podpisywania tokenu](#manualrenew). |
 | Nie |- |- |Mniej niż 30 dni |Odnów natychmiast. Zobacz [ręcznie odnowienie certyfikatu podpisywania tokenu](#manualrenew). |
 
 \[-] Nie ma znaczenia
@@ -116,7 +116,7 @@ Sprawdź następujące, aby upewnić się, że certyfikat można automatycznie z
 
 **2. metadane federacji AD FS są publicznie dostępne.** Sprawdź, czy metadane federacji są publicznie dostępne, przechodząc do następującego adresu URL z komputera w publicznej sieci Internet (poza siecią firmową):
 
-https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.XML
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 gdzie `(your_FS_name)` jest zastępowana nazwą hosta usługi federacyjnej używanej przez organizację, taką jak FS.contoso.com.  Jeśli można pomyślnie zweryfikować oba te ustawienia, nie trzeba wykonywać żadnych innych czynności.  
 
@@ -141,7 +141,7 @@ Z drugiej strony, jeśli **AutoCertificateRollover** ma **wartość true**, ale 
 1. Sprawdź, czy użytkownik jest zalogowany na podstawowym serwerze AD FS.
 2. Sprawdź bieżące certyfikaty podpisywania w AD FS, otwierając okno poleceń programu PowerShell i uruchamiając następujące polecenie:
 
-    PS C:\>Get-AdfsCertificate — podpisywania tokenu certyfikatu
+    PS C: \> Get-AdfsCertificate — podpisywania tokenu certyfikatu
 
    > [!NOTE]
    > Jeśli używasz AD FS 2,0, najpierw należy uruchomić polecenie add-pssnapin Microsoft. ADFS. PowerShell.
@@ -149,8 +149,8 @@ Z drugiej strony, jeśli **AutoCertificateRollover** ma **wartość true**, ale 
    >
 3. Spójrz na dane wyjściowe polecenia na liście wymienionych certyfikatów. Jeśli AD FS wygenerował nowy certyfikat, w danych wyjściowych powinny być widoczne dwa certyfikaty: jeden, dla którego wartość **isprimary** jest **równa true** , a Data **NotAfter** przypada w ciągu 5 dni, a dla którego właściwość **isprimary** ma wartość **false** , a **NotAfter** to rok w przyszłości.
 4. Jeśli widzisz tylko jeden certyfikat, a Data **NotAfter** w ciągu 5 dni, musisz wygenerować nowy certyfikat.
-5. Aby wygenerować nowy certyfikat, wykonaj następujące polecenie w wierszu polecenia programu PowerShell: `PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
-6. Sprawdź aktualizację, ponownie uruchamiając następujące polecenie: PS C:\>Get-AdfsCertificate – CertificateType token-Signing
+5. Aby wygenerować nowy certyfikat, wykonaj następujące polecenie w wierszu polecenia programu PowerShell: `PS C:\>Update-ADFSCertificate –CertificateType token-signing` .
+6. Sprawdź aktualizację, ponownie uruchamiając następujące polecenie: PS C: \> Get-AdfsCertificate – CertificateType token-Signing
 
 Dwa certyfikaty powinny być wymienione teraz, z których jedna ma datę **NotAfter** o około jeden rok w przyszłości, a dla której wartość **isprimary** jest **równa false**.
 
@@ -160,8 +160,8 @@ Zaktualizuj pakiet Office 365 przy użyciu nowego tokenu certyfikatów podpisywa
 1. Otwórz Moduł Microsoft Azure Active Directory dla Windows PowerShell.
 2. Uruchom $cred = Get-Credential. Gdy to polecenie cmdlet zostanie wyświetlony komunikat z prośbą o poświadczenia, wpisz poświadczenia konta administratora usługi w chmurze.
 3. Uruchom Connect-MsolService — Credential $cred. To polecenie cmdlet nawiązuje połączenie z usługą w chmurze. Utworzenie kontekstu, który nawiązuje połączenie z usługą w chmurze, jest wymagane przed uruchomieniem któregokolwiek z dodatkowych poleceń cmdlet zainstalowanych przez to narzędzie.
-4. Jeśli te polecenia są uruchamiane na komputerze, który nie jest AD FS podstawowym serwerem federacyjnym, uruchom polecenie Set-MSOLAdfscontext-Computer &lt;AD FS Primary Server&gt;, gdzie &lt;AD FS Server&gt; Primary to wewnętrzna nazwa FQDN podstawowego serwera AD FS. To polecenie cmdlet tworzy kontekst, który nawiązuje połączenie z AD FS.
-5. Uruchom Update-MSOLFederatedDomain – nazwa_domeny &lt;domeny.&gt; To polecenie cmdlet aktualizuje ustawienia z AD FS w usłudze w chmurze i konfiguruje relacje zaufania między nimi.
+4. Jeśli te polecenia są uruchamiane na komputerze, który nie jest AD FS podstawowym serwerem federacyjnym, uruchom polecenie Set-MSOLAdfscontext-Computer &lt; AD FS Primary Server &gt; , gdzie &lt; AD FS Server Primary &gt; to wewnętrzna nazwa FQDN podstawowego serwera AD FS. To polecenie cmdlet tworzy kontekst, który nawiązuje połączenie z AD FS.
+5. Uruchom Update-MSOLFederatedDomain – nazwa_domeny &lt; domeny &gt; . To polecenie cmdlet aktualizuje ustawienia z AD FS w usłudze w chmurze i konfiguruje relacje zaufania między nimi.
 
 > [!NOTE]
 > Jeśli konieczne jest obsługę wielu domen najwyższego poziomu, takich jak contoso.com i fabrikam.com, należy użyć przełącznika **SupportMultipleDomain** z dowolnym poleceniem cmdlet. Aby uzyskać więcej informacji, zobacz [Obsługa wielu domen najwyższego poziomu](how-to-connect-install-multiple-domains.md).
@@ -178,6 +178,6 @@ Certyfikaty podpisywania tokenu to standardowe certyfikaty x509, które są uży
 
 Domyślnie program AD FS jest skonfigurowany do automatycznego generowania certyfikatów podpisywania tokenu i odszyfrowywania tokenów, zarówno w czasie początkowej konfiguracji, jak i w przypadku, gdy certyfikaty zbliżają się do daty wygaśnięcia.
 
-Usługa Azure AD próbuje pobrać nowy certyfikat z metadanych usługi federacyjnej 30 dni przed wygaśnięciem bieżącego certyfikatu. W przypadku gdy w tym momencie nowy certyfikat nie jest dostępny, usługa Azure AD będzie kontynuowała monitorowanie metadanych w regularnych odstępach czasu. Po udostępnieniu nowego certyfikatu w metadanych ustawienia Federacji dla domeny są aktualizowane przy użyciu nowych informacji o certyfikacie. Możesz użyć `Get-MsolDomainFederationSettings` , aby sprawdzić, czy nowy certyfikat jest wyświetlany w NextSigningCertificate/SigningCertificate.
+Usługa Azure AD próbuje pobrać nowy certyfikat z metadanych usługi federacyjnej 30 dni przed wygaśnięciem bieżącego certyfikatu. W przypadku gdy w tym momencie nowy certyfikat nie jest dostępny, usługa Azure AD będzie kontynuowała monitorowanie metadanych w regularnych odstępach czasu. Po udostępnieniu nowego certyfikatu w metadanych ustawienia Federacji dla domeny są aktualizowane przy użyciu nowych informacji o certyfikacie. Możesz użyć, `Get-MsolDomainFederationSettings` Aby sprawdzić, czy nowy certyfikat jest wyświetlany w NextSigningCertificate/SigningCertificate.
 
 Aby uzyskać więcej informacji o tokenach podpisywania certyfikatów w AD FS zobacz [Uzyskaj i Konfiguruj certyfikaty podpisywania tokenu i odszyfrowywania tokenów dla AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)

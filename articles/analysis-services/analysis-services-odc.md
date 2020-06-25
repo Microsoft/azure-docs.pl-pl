@@ -7,29 +7,29 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a4e2dc09c54b39d58b0193e7ac9f585236886722
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 36031006f155f1651845dbce48b6c6ec84397e93
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572685"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361425"
 ---
 # <a name="create-an-office-data-connection-file"></a>Tworzenie pliku połączenia danych pakietu Office
 
-Informacje przedstawione w tym artykule opisują sposób tworzenia pliku połączenia danych pakietu Office w celu nawiązania połączenia z serwerem Azure Analysis Services z poziomu programu Excel 2016 w wersji 16.0.7369.2117 lub starszej lub Excel 2013. Wymagany jest również zaktualizowany [dostawca MSOLAP. 7](analysis-services-data-providers.md) .
+Informacje przedstawione w tym artykule opisują sposób tworzenia pliku połączenia danych pakietu Office w celu nawiązania połączenia z serwerem Azure Analysis Services z poziomu programu Excel 2016 w wersji 16.0.7369.2117 lub starszej lub Excel 2013. Wymagany jest również zaktualizowany [dostawca MSOLAP. 7](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) .
 
 
 1. Skopiuj przykładowy plik połączenia poniżej i wklej go do edytora tekstu. 
 
-2. W `odc:ConnectionString`programie Zmień następujące właściwości:
+2. W programie `odc:ConnectionString` Zmień następujące właściwości:
 
-    *   W `Data Source=asazure://<region>.asazure.windows.net/<servername>;` obszarze `<region>` zmień na region serwera Analysis Services i `<servername>` nazwę serwera.
+    *   W obszarze `Data Source=asazure://<region>.asazure.windows.net/<servername>;` Zmień `<region>` na region serwera Analysis Services i `<servername>` nazwę serwera.
 
-    *   W `Initial Catalog=<database>;` polu `<database>` Zmień na nazwę bazy danych.
+    *   W polu `Initial Catalog=<database>;` Zmień `<database>` na nazwę bazy danych.
 
-3. W `<odc:CommandText>Model</odc:CommandText>` obszarze `Model` Zmień na nazwę modelu lub perspektywy. 
+3. W obszarze `<odc:CommandText>Model</odc:CommandText>` Zmień `Model` na nazwę modelu lub perspektywy. 
 
-4. Zapisz plik z `.odc` rozszerzeniem w folderze C:\Users\\*username*\Documents\My Data Sources.
+4. Zapisz plik z rozszerzeniem w `.odc` folderze C:\Users \\ *username*\Documents\My Data Sources.
 
 5. Kliknij plik prawym przyciskiem myszy, a następnie kliknij polecenie **Otwórz w programie Excel**. Lub w programie Excel na Wstążce **dane** kliknij pozycję **istniejące połączenia**, wybierz plik, a następnie kliknij przycisk **Otwórz**.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9797b4c8f8059f9cfefbb70672aa202c7a3f4825
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: f2ffd1ea098bcf98e25958ca40318a65b0ef6605
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168339"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361459"
 ---
 # <a name="automation-with-service-principals"></a>Automatyzacja przy użyciu jednostek usługi
 
@@ -20,7 +20,7 @@ Jednostki usług to zasoby aplikacji usługi Azure Active Directory tworzone w r
 
 W Analysis Services nazwy główne usług są używane z Azure Automation, nienadzorowanym trybem programu PowerShell, niestandardowymi aplikacjami klienckimi i aplikacjami sieci Web do automatyzowania typowych zadań. Na przykład inicjowanie obsługi serwerów, wdrażanie modeli, odświeżanie danych, skalowanie w górę/w dół, a wstrzymywanie/wznawianie może być zautomatyzowane przy użyciu jednostek usługi. Uprawnienia są przypisywane do jednostek usługi za pomocą przynależności do roli, podobnie jak zwykłe konta UPN usługi Azure AD.
 
-Analysis Services obsługuje również operacje wykonywane przez zarządzane tożsamości przy użyciu jednostek usługi. Aby dowiedzieć się więcej, zobacz temat [zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) i [usług platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).  
+Analysis Services obsługuje również operacje wykonywane przez zarządzane tożsamości przy użyciu jednostek usługi. Aby dowiedzieć się więcej, zobacz temat [zarządzane tożsamości dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md) i [usług platformy Azure, które obsługują uwierzytelnianie usługi Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).    
 
 ## <a name="create-service-principals"></a>Tworzenie jednostek usługi
  
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO i ADOMD 
 
-Nawiązując połączenie z aplikacjami klienta i aplikacjami internetowymi instalowalne pakiety NuGet [bibliotek klienta AMO i ADOMD](analysis-services-data-providers.md) w wersji 15.0.2 lub nowszej obsługują jednostki usługi w parametrach połączenia przy użyciu następującej składni: `app:AppID` i password lub `cert:thumbprint`. 
+Nawiązując połączenie z aplikacjami klienta i aplikacjami internetowymi instalowalne pakiety NuGet [bibliotek klienta AMO i ADOMD](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) w wersji 15.0.2 lub nowszej obsługują jednostki usługi w parametrach połączenia przy użyciu następującej składni: `app:AppID` i password lub `cert:thumbprint`. 
 
 W poniższym przykładzie parametry `appID` i `password` są używane do wykonania operacji odświeżania bazy danych modelu:
 

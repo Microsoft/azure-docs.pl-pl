@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 04/14/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2f928ac2f8772942eb748d68a65662938b1405ed
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: d84010fd62d753fafd7edffab833b203657f74c7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84882507"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361942"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Skonfiguruj własny magazyn (BYOS) dla Application Insights Profiler i Snapshot Debugger
 
@@ -21,9 +21,9 @@ W przypadku używania Application Insights Profiler lub Snapshot Debugger artefa
 W przypadku przenoszenia własnego magazynu te artefakty są przekazywane do konta magazynu, które kontrolujesz. Oznacza to, że steruje zasadami szyfrowania w czasie spoczynku, zasadami zarządzania okresem istnienia i dostępem do sieci. Użytkownik będzie jednak odpowiedzialny za koszty związane z tym kontem magazynu.
 
 > [!NOTE]
-> W przypadku włączenia linku prywatnego należy wprowadzić własny magazyn. Więcej informacji o łączu prywatnym [znajduje się w dokumentacji](https://docs.microsoft.com/azure/private-link/private-link-overview).
+> W przypadku włączenia linku prywatnego należy wprowadzić własny magazyn. Aby uzyskać więcej informacji na temat prywatnego linku do Application Insights, [Zobacz dokumentację.](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)
 >
-> W przypadku włączenia kluczy zarządzanych przez klienta należy wprowadzić własny magazyn. Więcej informacji o kluczach zarządzanych przez klienta [znajduje się w dokumentacji](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).
+> W przypadku włączenia kluczy zarządzanych przez klienta należy wprowadzić własny magazyn. Więcej informacji o kluczach zarządzanych przez klienta Application Insights można [znaleźć w dokumentacji.](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys)
 
 ## <a name="how-will-my-storage-account-be-accessed"></a>Jak będzie uzyskiwany dostęp do konta magazynu?
 1. Agenci działający w Virtual Machines lub App Service będą przekazywać artefakty (profile, migawki i symbole) do kontenerów obiektów BLOB na Twoim koncie. Ten proces obejmuje kontaktowanie się z usługą Application Insights Profiler lub Snapshot Debugger w celu uzyskania tokenu sygnatury dostępu współdzielonego do nowego obiektu BLOB na koncie magazynu.

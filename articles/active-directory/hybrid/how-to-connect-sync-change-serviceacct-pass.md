@@ -12,17 +12,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b2a0d0b77b6db481b13785907a1359d2bbe3e9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfb6e0608609a3940affd83a0aa235a2ef7c041c
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984508"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85357566"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Zmienianie hasła konta usługi ADSync
 Jeśli zmienisz hasło konta usługi ADSync, usługa synchronizacji nie będzie mogła zostać uruchomiona prawidłowo, dopóki nie powrócisz klucza szyfrowania i ponownie zainicjowano hasło konta usługi ADSync. 
@@ -107,7 +107,7 @@ Ponieważ istniejące hasła przechowywane wewnątrz bazy danych nie mogą być 
 Nie można bezpośrednio podać hasła konta usługi Azure AD do usługi synchronizacji. Zamiast tego należy użyć polecenia cmdlet **Add-ADSyncAADServiceAccount** , aby ponownie zainicjować konto usługi Azure AD. Polecenie cmdlet resetuje hasło konta i udostępnia je usłudze synchronizacji:
 
 1. Rozpocznij nową sesję programu PowerShell na serwerze Azure AD Connect.
-2. Uruchom polecenie `Add-ADSyncAADServiceAccount`cmdlet.
+2. Uruchom polecenie cmdlet `Add-ADSyncAADServiceAccount` .
 3. W podręcznym oknie dialogowym podaj poświadczenia administratora globalnego usługi Azure AD dla dzierżawy usługi Azure AD.
 ![Narzędzie klucza szyfrowania Azure AD Connect synchronizacji](./media/how-to-connect-sync-change-serviceacct-pass/key7.png)
 4. Jeśli się powiedzie, zobaczysz wiersz polecenia programu PowerShell.

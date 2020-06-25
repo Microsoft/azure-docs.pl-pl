@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65a61babe58e1cb9438262186a7f4cf37cb10a34
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3e248e7af5fc9ed2bc144a4b302577be56524d7d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612593"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85361171"
 ---
 # <a name="host-pool-creation"></a>Tworzenie puli hostów
 
@@ -25,19 +25,20 @@ ms.locfileid: "82612593"
 
 W tym artykule opisano problemy podczas wstępnej instalacji dzierżawy usług pulpitu wirtualnego systemu Windows i infrastruktury puli powiązanych hostów sesji.
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Uzyskiwanie obrazu wielosesyjnego dla systemu Windows 10 Enterprise
 
-Aby użyć obrazu wielosesyjnego dla systemu Windows 10 Enterprise, przejdź do witryny Azure Marketplace, wybierz pozycję **wprowadzenie** > **Microsoft Windows 10** > i [wielosesyjne Windows 10 Enterprise, wersja 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Aby użyć obrazu wielosesyjnego dla systemu Windows 10 Enterprise, przejdź do witryny Azure Marketplace, wybierz pozycję **wprowadzenie**  >  **Microsoft Windows 10** > i [wielosesyjne Windows 10 Enterprise, wersja 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ## <a name="issues-with-using-the-azure-portal-to-create-host-pools"></a>Problemy z używaniem Azure Portal do tworzenia pul hostów
 
 ### <a name="error-create-a-free-account-appears-when-accessing-the-service"></a>Błąd: "utwórz bezpłatne konto" pojawia się podczas uzyskiwania dostępu do usługi
 
-![Obraz przedstawiający Azure Portal wyświetlania komunikatu "Tworzenie bezpłatnego konta"](media/create-new-account.png)
+> [!div class="mx-imgBorder"]
+> ![Obraz przedstawiający Azure Portal wyświetlania komunikatu "Tworzenie bezpłatnego konta"](media/create-new-account.png)
 
 **Przyczyna**: nie ma aktywnych subskrypcji na koncie, które zostało zalogowane na platformie Azure za pomocą usługi, lub że konto nie ma uprawnień do wyświetlania subskrypcji. 
 
@@ -60,9 +61,10 @@ Postępuj zgodnie z poniższymi instrukcjami, aby rozwiązywać problemy z niepo
 3. Po zidentyfikowaniu tego błędu Użyj komunikatu o błędzie i zasobów w [rozwiązywaniu typowych błędów wdrażania platformy Azure z Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) , aby rozwiązać problem.
 4. Usuń wszystkie zasoby utworzone w poprzednim wdrożeniu i ponów próbę wdrożenia szablonu.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Błąd: wdrożenie nie powiodło się..\<.. nazwa hosta>/JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Błąd: wdrożenie nie powiodło się.... \<hostname> /JoinDomain
 
-![Zrzut ekranu wdrożenia nie powiódł się.](media/failure-joindomain.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu wdrożenia nie powiódł się.](media/failure-joindomain.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -103,7 +105,8 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 ### <a name="error-vmextensionprovisioningerror"></a>Błąd: VMExtensionProvisioningError
 
-![Zrzut ekranu wdrożenia nie powiódł się z powodu niepowodzenia inicjowania obsługi administracyjnej.](media/failure-vmextensionprovisioning.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu wdrożenia nie powiódł się z powodu niepowodzenia inicjowania obsługi administracyjnej.](media/failure-vmextensionprovisioning.png)
 
 **Przyczyna 1:** Błąd przejściowy ze środowiskiem pulpitu wirtualnego systemu Windows.
 
@@ -113,7 +116,8 @@ Aby rozwiązać ten problem, wykonaj następujące czynności:
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Błąd: określona nazwa użytkownika administratora jest niedozwolona
 
-![Zrzut ekranu wdrożenia nie powiódł się, gdy określony administrator nie jest dozwolony.](media/failure-username.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu wdrożenia nie powiódł się, gdy określony administrator nie jest dozwolony.](media/failure-username.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -130,7 +134,8 @@ Przykład nieprzetworzonego błędu:
 
 ### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Błąd: maszyna wirtualna zgłosiła błąd podczas przetwarzania rozszerzenia
 
-![Zrzut ekranu przedstawiający operację zasobu zakończony ze stanem inicjowania obsługi terminalu we wdrożeniu nie powiódł się.](media/failure-processing.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający operację zasobu zakończony ze stanem inicjowania obsługi terminalu we wdrożeniu nie powiódł się.](media/failure-processing.png)
 
 Przykład nieprzetworzonego błędu:
 
@@ -149,7 +154,8 @@ Przykład nieprzetworzonego błędu:
 
 ### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Błąd: DeploymentFailed — Konfiguracja DSC programu PowerShell "FirstSessionHost" została ukończona z błędami
 
-![Zrzut ekranu wdrożenia nie powiodło się, ponieważ Konfiguracja DSC programu PowerShell "FirstSessionHost" została ukończona z błędami.](media/failure-dsc.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu wdrożenia nie powiodło się, ponieważ Konfiguracja DSC programu PowerShell "FirstSessionHost" została ukończona z błędami.](media/failure-dsc.png)
 
 Przykład nieprzetworzonego błędu:
 
