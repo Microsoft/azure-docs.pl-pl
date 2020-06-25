@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 53069f24a18bac1f5c0c226ddcc3a79494c93edb
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: b85140d5a54d7447a80899f498dd63014bd11695
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84809307"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321859"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informacje o algorytmach & module dla projektanta Azure Machine Learning (wersja zapoznawcza)
 
@@ -34,7 +34,7 @@ Aby uzyskać pomoc dotyczącą wybierania algorytmów, zobacz
 
 | Funkcjonalność | Opis | Moduł |
 | --- |--- | --- |
-| Dane wejściowe i wyjściowe | Przenieś dane ze źródeł w chmurze do potoku. Zapisuj wyniki lub dane pośrednie w usłudze Azure Storage, w bazie danych SQL lub Hive, podczas uruchamiania potoku lub korzystaj z magazynu w chmurze, aby wymieniać dane między potokami.  | [Ręczne wprowadzanie danych](enter-data-manually.md) <br/> [Eksportowanie danych](export-data.md) <br/> [Importowanie danych](import-data.md) |
+| Dane wejściowe i wyjściowe | Przenieś dane ze źródeł w chmurze do potoku. Zapisuj wyniki lub dane pośrednie w usłudze Azure Storage, SQL Database lub Hive, a następnie uruchamiaj potok lub korzystaj z magazynu w chmurze, aby wymieniać dane między potokami.  | [Ręczne wprowadzanie danych](enter-data-manually.md) <br/> [Eksportowanie danych](export-data.md) <br/> [Importowanie danych](import-data.md) |
 | Przekształcanie danych | Operacje na danych, które są unikatowe dla uczenia maszynowego, takie jak normalizowanie lub pakowania danych, Zmniejszanie liczby wymiarów i konwertowanie danych między różnymi formatami plików.| [Dodawanie kolumn](add-columns.md) <br/> [Dodawanie wierszy](add-rows.md) <br/> [Stosowanie operacji matematycznej](apply-math-operation.md) <br/> [Stosowanie przekształcenia SQL](apply-sql-transformation.md) <br/> [Czyszczenie brakujących danych](clean-missing-data.md) <br/> [Obcinanie wartości](clip-values.md) <br/> [Konwertowanie na plik CSV](convert-to-csv.md) <br/> [Konwertowanie na zestaw danych](convert-to-dataset.md) <br/> [Konwertowanie na wartości wskaźnika](convert-to-indicator-values.md) <br/> [Edytowanie metadanych](edit-metadata.md) <br/> [Grupowanie danych w pojemniki](group-data-into-bins.md) <br/> [Łączenie danych](join-data.md) <br/> [Normalizowanie danych](normalize-data.md) <br/> [Partycjonowanie i próbkowanie](partition-and-sample.md)  <br/> [Usuwanie zduplikowanych wierszy](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Wybieranie przekształcenia kolumn](select-columns-transform.md) <br/> [Wybieranie kolumn w zestawie danych](select-columns-in-dataset.md) <br/> [Dzielenie danych](split-data.md) |
 | Wybór funkcji | Wybierz podzestaw odpowiednich, przydatnych funkcji do użycia podczas tworzenia modelu analitycznego. | [Wybór funkcji oparty na filtrze](filter-based-feature-selection.md) <br/> [Ważność funkcji permutacji](permutation-feature-importance.md) |
 | Funkcje statystyczne | Zapewniają szeroką gamę metod statystycznych związanych z nauką danych. | [Podsumowywanie danych](summarize-data.md)|

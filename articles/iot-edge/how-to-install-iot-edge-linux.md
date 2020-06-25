@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: kgremban
-ms.openlocfilehash: 5c3c9c7a061fd4c471b1ef159388deb1a851dd57
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d73f3a37bb084533733b27b49ac171747cee814c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297158"
+ms.locfileid: "85321883"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Install the Azure IoT Edge runtime on Debian-based Linux systems (Instalowanie środowiska uruchomieniowego usługi IoT Edge w systemach Linux opartych na rozwiązaniu Debian)
 
@@ -166,7 +166,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Opcja 2: automatyczne Inicjowanie obsługi
 
-IoT Edge urządzeń można automatycznie zainicjować przy użyciu [usługi Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). Obecnie IoT Edge obsługuje dwa mechanizmy zaświadczania przy korzystaniu z automatycznej aprowizacji, ale wymagania sprzętowe mogą wpływać na wybór. Na przykład urządzenia Raspberry Pi nie są domyślnie dołączone do układu moduł TPM (TPM). Aby uzyskać więcej informacji, zobacz następujące artykuły:
+IoT Edge urządzeń można automatycznie zainicjować przy użyciu [usługi Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). Obecnie IoT Edge obsługuje trzy mechanizmy zaświadczania przy korzystaniu z automatycznej aprowizacji, ale wymagania sprzętowe mogą wpływać na wybór. Na przykład urządzenia Raspberry Pi nie są domyślnie dołączone do układu moduł TPM (TPM). Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu wirtualnego modułu TPM na maszynie wirtualnej z systemem Linux](how-to-auto-provision-simulated-device-linux.md)
 * [Tworzenie i Inicjowanie obsługi urządzenia IoT Edge przy użyciu certyfikatów X. 509](how-to-auto-provision-x509-certs.md)

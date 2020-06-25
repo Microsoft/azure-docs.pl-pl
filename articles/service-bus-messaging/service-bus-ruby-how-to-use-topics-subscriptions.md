@@ -3,23 +3,15 @@ title: 'Szybki Start: jak używać tematów Service Bus (Ruby)'
 description: 'Szybki Start: informacje dotyczące korzystania z Service Bus tematów i subskrypcji na platformie Azure. Przykłady kodu są zapisywane dla aplikacji Ruby.'
 services: service-bus-messaging
 documentationcenter: ruby
-author: axisc
-manager: timlt
-editor: ''
-ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: aschhab
-ms.openlocfilehash: b5401eae844ed2113a9fbc07c8b3ad8601709d43
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: ef4bb8ba724a8ae1f708ab80a770a521f7879685
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73718935"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336732"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Szybki Start: jak używać tematów Service Bus i subskrypcji za pomocą języka Ruby
  
@@ -102,7 +94,7 @@ rule.filter = Azure::ServiceBus::SqlFilter.new({
 rule = azure_service_bus_service.create_rule(rule)
 ```
 
-Podobnie Poniższy przykład tworzy subskrypcję o nazwie `low-messages` przy użyciu elementu **Azure:: ServiceBus:: sqlfilter** , który wybiera tylko komunikaty o `message_number` właściwości mniejszej lub równej 3:
+Podobnie Poniższy przykład tworzy subskrypcję o nazwie `low-messages` przy użyciu elementu **Azure:: ServiceBus:: sqlfilter** , który wybiera tylko komunikaty o `message_number` Właściwości mniejszej lub równej 3:
 
 ```ruby
 subscription = azure_service_bus_service.create_subscription("test-topic", "low-messages")
@@ -116,12 +108,12 @@ rule.filter = Azure::ServiceBus::SqlFilter.new({
 rule = azure_service_bus_service.create_rule(rule)
 ```
 
-Gdy wiadomość jest teraz wysyłana do `test-topic`usługi, jest zawsze dostarczana do odbiorców, którzy zasubskrybują `all-messages` subskrypcję tematu, i wybiórczo dostarczane do odbiorników subskrybowanych `high-messages` w `low-messages` ramach subskrypcji tematu i (w zależności od zawartości wiadomości).
+Gdy wiadomość jest teraz wysyłana do usługi `test-topic` , jest zawsze dostarczana do odbiorców, którzy zasubskrybują `all-messages` subskrypcję tematu, i wybiórczo dostarczane do odbiorników subskrybowanych w ramach subskrypcji `high-messages` `low-messages` tematu i (w zależności od zawartości wiadomości).
 
 ## <a name="send-messages-to-a-topic"></a>Wysyłanie komunikatów do tematu
-Aby wysłać komunikat do Service Bus tematu, aplikacja musi używać `send_topic_message()` metody w obiekcie **Azure:: ServiceBusService** . Komunikaty wysyłane do tematów Service Bus są wystąpieniami obiektów **Azure:: ServiceBus:: BrokeredMessage** . **Azure:: ServiceBus:: BrokeredMessage** obiekty mają zestaw właściwości standardowych (takich jak `label` i `time_to_live`), słownik używany do przechowywania niestandardowych właściwości specyficznych dla aplikacji i treść ciągu. Aplikacja może ustawić treść komunikatu przez przekazanie wartości ciągu do `send_topic_message()` metody, a wszystkie wymagane właściwości standardowe są wypełniane wartościami domyślnymi.
+Aby wysłać komunikat do Service Bus tematu, aplikacja musi używać `send_topic_message()` metody w obiekcie **Azure:: ServiceBusService** . Komunikaty wysyłane do tematów Service Bus są wystąpieniami obiektów **Azure:: ServiceBus:: BrokeredMessage** . **Azure:: ServiceBus:: BrokeredMessage** obiekty mają zestaw właściwości standardowych (takich jak `label` i `time_to_live` ), słownik używany do przechowywania niestandardowych właściwości specyficznych dla aplikacji i treść ciągu. Aplikacja może ustawić treść komunikatu przez przekazanie wartości ciągu do `send_topic_message()` metody, a wszystkie wymagane właściwości standardowe są wypełniane wartościami domyślnymi.
 
-W poniższym przykładzie pokazano, jak wysłać pięć wiadomości testowych do `test-topic`. Wartość `message_number` właściwości niestandardowej każdego komunikatu różni się w zależności od iteracji pętli (określa, którą subskrypcję otrzymuje):
+W poniższym przykładzie pokazano, jak wysłać pięć wiadomości testowych do `test-topic` . `message_number`Wartość właściwości niestandardowej każdego komunikatu różni się w zależności od iteracji pętli (określa, którą subskrypcję otrzymuje):
 
 ```ruby
 5.times do |i|
@@ -136,11 +128,11 @@ Tematy usługi Service Bus obsługują maksymalny rozmiar komunikatu 256 KB w [w
 ## <a name="receive-messages-from-a-subscription"></a>Odbieranie komunikatów z subskrypcji
 Komunikaty są odbierane z subskrypcji przy użyciu `receive_subscription_message()` metody w obiekcie **Azure:: ServiceBusService** . Domyślnie komunikaty są odczytywane (szczytowe) i zablokowane bez usuwania ich z subskrypcji. Możesz odczytać i usunąć komunikat z subskrypcji, ustawiając `peek_lock` opcję na **false**.
 
-Zachowanie domyślne polega na odczycie i usunięciu operacji dwuetapowej, co również umożliwia obsługę aplikacji, które nie mogą tolerować brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Gdy aplikacja zakończy przetwarzanie komunikatu (lub zapisuje ją w sposób niezawodny w przyszłości), kończy drugi etap procesu odbierania przez wywołanie `delete_subscription_message()` metody i podanie komunikatu, który ma zostać usunięty jako parametr. `delete_subscription_message()` Metoda oznacza komunikat jako używany i usuwa go z subskrypcji.
+Zachowanie domyślne polega na odczycie i usunięciu operacji dwuetapowej, co również umożliwia obsługę aplikacji, które nie mogą tolerować brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Gdy aplikacja zakończy przetwarzanie komunikatu (lub zapisuje ją w sposób niezawodny w przyszłości), kończy drugi etap procesu odbierania przez wywołanie `delete_subscription_message()` metody i podanie komunikatu, który ma zostać usunięty jako parametr. `delete_subscription_message()`Metoda oznacza komunikat jako używany i usuwa go z subskrypcji.
 
 Jeśli `:peek_lock` parametr ma wartość **false**, odczytywanie i usuwanie wiadomości stanie się najprostszym modelem i sprawdza się najlepiej w scenariuszach, w których aplikacja może tolerować nie przetwarzać komunikatu w przypadku wystąpienia błędu. Rozważmy scenariusz, w którym odbiorca wysyła żądanie odebrania, a następnie ulega awarii przed jego przetworzeniem. Ponieważ Service Bus oznaczył komunikat jako używany, wtedy, gdy aplikacja zostanie ponownie uruchomiona i rozpocznie korzystanie z komunikatów, zostanie pominięty komunikat, który był używany przed awarią.
 
-W poniższym przykładzie pokazano, jak komunikaty mogą być odbierane i `receive_subscription_message()`przetwarzane przy użyciu. Przykład `low-messages` najpierw odbiera i usuwa komunikat z subskrypcji przy użyciu `:peek_lock` opcji Ustaw na **wartość false**, a następnie otrzymuje kolejną wiadomość od, `high-messages` a następnie usuwa komunikat przy użyciu: `delete_subscription_message()`
+W poniższym przykładzie pokazano, jak komunikaty mogą być odbierane i przetwarzane przy użyciu `receive_subscription_message()` . Przykład najpierw odbiera i usuwa komunikat z `low-messages` subskrypcji przy użyciu opcji `:peek_lock` Ustaw na **wartość false**, a następnie otrzymuje kolejną wiadomość od, `high-messages` a następnie usuwa komunikat przy użyciu `delete_subscription_message()` :
 
 ```ruby
 message = azure_service_bus_service.receive_subscription_message(
@@ -155,10 +147,10 @@ Usługa Service Bus zapewnia funkcję ułatwiającą bezpieczne odzyskiwanie w r
 
 Istnieje również limit czasu skojarzony z komunikatem zablokowanym w ramach subskrypcji i jeśli aplikacja nie może przetworzyć komunikatu przed upływem limitu czasu blokady (na przykład jeśli awaria aplikacji), Service Bus odblokować komunikat automatycznie i udostępnić go ponownie.
 
-W przypadku awarii aplikacji po przetworzeniu komunikatu, ale przed wywołaniem `delete_subscription_message()` metody, komunikat zostanie ponownie dostarczony do aplikacji po jej ponownym uruchomieniu. Często nazywa się to *co najmniej raz na przetwarzanie*; oznacza to, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach może zostać ponownie dostarczony ten sam komunikat. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Ta logika jest często osiągana `message_id` przy użyciu właściwości komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia.
+W przypadku awarii aplikacji po przetworzeniu komunikatu, ale przed `delete_subscription_message()` wywołaniem metody, komunikat zostanie ponownie dostarczony do aplikacji po jej ponownym uruchomieniu. Często nazywa się to *co najmniej raz na przetwarzanie*; oznacza to, że każdy komunikat jest przetwarzany co najmniej raz, ale w pewnych sytuacjach może zostać ponownie dostarczony ten sam komunikat. Jeśli scenariusz nie toleruje dwukrotnego przetwarzania, deweloperzy aplikacji powinni dodać dodatkową logikę do swojej aplikacji w celu obsługi dwukrotnego dostarczania komunikatów. Ta logika jest często osiągana przy użyciu `message_id` Właściwości komunikatu, która pozostaje stała między kolejnymi próbami dostarczenia.
 
 ## <a name="delete-topics-and-subscriptions"></a>Usuwanie tematów i subskrypcji
-Tematy i subskrypcje są trwałe, chyba że [Właściwość AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) jest ustawiona. Można je usunąć za pomocą [Azure Portal][Azure portal] lub programowo. Poniższy przykład ilustruje sposób usuwania tematu o nazwie `test-topic`.
+Tematy i subskrypcje są trwałe, chyba że [Właściwość AutoDeleteOnIdle](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle) jest ustawiona. Można je usunąć za pomocą [Azure Portal][Azure portal] lub programowo. Poniższy przykład ilustruje sposób usuwania tematu o nazwie `test-topic` .
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")

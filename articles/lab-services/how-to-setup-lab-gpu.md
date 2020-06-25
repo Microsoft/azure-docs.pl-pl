@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/28/2020
 ms.author: nicolela
-ms.openlocfilehash: adac35bd3f59870f0c164b69548375610e9733b1
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 0d42d3292c894aec1deff5da548383499ca50db9
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897341"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338306"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Konfigurowanie laboratorium z maszynami wirtualnymi GPU
 
@@ -26,7 +26,6 @@ W tym artykule przedstawiono sposób wykonywania następujących zadań:
 
 - Wybierz między *wizualizacją* a procesorami przetwarzania grafiki *obliczeniowej* (GPU).
 - Upewnij się, że są zainstalowane odpowiednie sterowniki procesora GPU.
-- Skonfiguruj ustawienia Remote Desktop Protocol (RDP), aby połączyć się z maszyną wirtualną procesora GPU.
 
 ## <a name="choose-between-visualization-and-compute-gpu-sizes"></a>Wybór między rozmiarami wizualizacji i procesora GPU
 Na pierwszej stronie Kreatora tworzenia laboratorium, w **której rozmiarze maszyny wirtualnej jest potrzebna?** lista rozwijana umożliwia wybranie rozmiaru maszyn wirtualnych potrzebnych dla danej klasy.  
@@ -56,9 +55,6 @@ Aby skorzystać z możliwości procesora GPU maszyn wirtualnych laboratorium, up
 Jak pokazano na poprzedniej ilustracji, ta opcja jest domyślnie włączona, co gwarantuje, że *najnowsze* sterowniki są zainstalowane dla wybranego typu procesora GPU i obrazu.
 - Po wybraniu rozmiaru *procesora GPU* maszyny wirtualne laboratorium są obsługiwane przez procesor GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) .  W takim przypadku instalowane są najnowsze sterowniki [obliczeniowe Unified Device Architecture (cuda)](https://www.nvidia.com/object/io_69526.html) , które umożliwiają przetwarzanie o wysokiej wydajności.
 - Po wybraniu rozmiaru graficznej *wizualizacji* maszyny wirtualne laboratorium są obsługiwane przez technologię [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU i [sieci](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  W takim przypadku instalowane są najnowsze sterowniki siatki, które umożliwiają korzystanie z aplikacji intensywnie korzystających z grafiki.
-
-> [!IMPORTANT]
-> Aby najlepiej korzystać z *wizualizacji* GPU, upewnij się, że *oba* sterowniki są zainstalowane, *a* procesor GPU jest włączony przy użyciu połączeń RDP. Aby uzyskać więcej informacji, zobacz sekcję [Włączanie połączenia procesora GPU przez RDP z maszynami wirtualnymi z systemem Windows](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms) w tym artykule.
 
 ### <a name="install-the-drivers-manually"></a>Ręczne instalowanie sterowników
 Może być konieczne zainstalowanie wersji sterownika innej niż Najnowsza wersja.  W tej sekcji pokazano, jak ręcznie zainstalować odpowiednie sterowniki, w zależności od tego, czy *używasz procesora GPU czy procesora* GPU *visualization* .
@@ -99,7 +95,6 @@ Aby ręcznie zainstalować sterowniki dla rozmiaru procesora GPU, wykonaj nastę
   
 1. Uruchom ponownie szablon maszyny wirtualnej.
 1. Sprawdź, czy sterowniki są poprawnie zainstalowane, postępując zgodnie z instrukcjami w sekcji [Sprawdzanie zainstalowanych sterowników](how-to-setup-lab-gpu.md#validate-the-installed-drivers) .
-1. Skonfiguruj ustawienia RDP, aby włączyć połączenie GPU, postępując zgodnie z instrukcjami w sekcji [Włączanie połączenia procesora GPU przez RDP z maszynami wirtualnymi z systemem Windows](how-to-setup-lab-gpu.md#enable-gpu-over-rdp-connection-to-windows-vms) .
 1. Po zainstalowaniu sterowników i innego oprogramowania, które są wymagane dla danej klasy, wybierz pozycję **Publikuj** , aby utworzyć maszyny wirtualne uczniów.
 
 ### <a name="validate-the-installed-drivers"></a>Weryfikowanie zainstalowanych sterowników
@@ -121,25 +116,6 @@ W tej sekcji opisano, jak sprawdzić, czy sterowniki procesora GPU są prawidło
 
 #### <a name="linux-images"></a>Obrazy systemu Linux
 Postępuj zgodnie z instrukcjami w sekcji "Weryfikowanie instalacji sterowników" [w temacie Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych z serii N z systemem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
-
-## <a name="enable-gpu-over-rdp-connection-to-windows-vms"></a>Włącz procesor GPU przez połączenie RDP z maszynami wirtualnymi z systemem Windows
-W przypadku używania protokołu RDP do łączenia się z maszyną wirtualną z systemem Windows, która jest obsługiwana przez procesor GPU *wizualizacji* , należy wykonać dodatkową konfigurację, aby procesor GPU był używany do renderowania grafiki. W przeciwnym razie procesor CPU będzie używany do renderowania grafiki.
-
-Na maszynie wirtualnej szablonu wykonaj następujące czynności:
-
-1. Skonfiguruj ustawienia protokołu RDP na potrzeby używania procesora GPU.
-
-   a. Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie renderowania aplikacji z przyspieszeniem procesora GPU](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#configure-gpu-accelerated-app-rendering).  
-   b. Postępuj zgodnie z instrukcjami w temacie [Konfigurowanie kodowania ramek procesora GPU](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#configure-gpu-accelerated-frame-encoding).
-
-1. Sprawdź konfigurację. 
-
-   a. Postępuj zgodnie z instrukcjami zawartymi w temacie [Weryfikowanie przyspieszanego renderowania aplikacji przez procesor GPU](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#verify-gpu-accelerated-app-rendering).  
-   b. Postępuj zgodnie z instrukcjami podanymi w temacie [Weryfikowanie kodowania ramek procesora GPU](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu#verify-gpu-accelerated-frame-encoding).
-
-1. Masz teraz zainstalowane sterowniki i ustawienia RDP skonfigurowane do korzystania z procesora GPU.  Po zainstalowaniu innego oprogramowania, które jest wymagane dla danej klasy, możesz wybrać pozycję **Publikuj** , aby utworzyć maszyny wirtualne uczniów.  
-
-Gdy uczniowie nawiązują połączenie z maszynami wirtualnymi przy użyciu protokołu RDP, ich pulpity będą renderowane zgodnie z procesorem GPU maszyny wirtualnej.
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:

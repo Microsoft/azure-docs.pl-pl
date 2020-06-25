@@ -3,12 +3,12 @@ title: Jak włączyć Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób włączania i konfigurowania Azure Monitor dla kontenerów, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: a765c601682eb594d40ba98b8b4ef1853f35fb37
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: e17a346418bc5d38470168339f2078a0a187fe4e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886013"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338266"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Jak włączyć Azure Monitor dla kontenerów
 
@@ -57,7 +57,7 @@ Przed rozpoczęciem upewnij się, że masz następujące elementy:
 Poniższe elementy są oficjalnie obsługiwane w przypadku kontenerów Azure Monitor.
 
 - Środowiska: Azure Red Hat OpenShift, Kubernetes on-premises i AKS Engine na platformie Azure i Azure Stack. Aby uzyskać więcej informacji, zobacz [aparat AKS na Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
-- Wersje programu Kubernetes i zasady pomocy technicznej są takie same, jak wersje programu [AKS obsługiwane](../../aks/supported-kubernetes-versions.md). 
+- Wersje programu Kubernetes i zasady pomocy technicznej są takie same, jak wersje programu [AKS obsługiwane](../../aks/supported-kubernetes-versions.md).
 
 ## <a name="network-firewall-requirements"></a>Wymagania dotyczące zapory sieciowej
 
@@ -65,7 +65,7 @@ Informacje w poniższej tabeli zawierają informacje o konfiguracji serwera prox
 
 |Zasób agenta|Porty |
 |--------------|------|
-| `*.ods.opinsights.azure.com` | 443 |  
+| `*.ods.opinsights.azure.com` | 443 |
 | `*.oms.opinsights.azure.com` | 443 |
 | `dc.services.visualstudio.com` | 443 |
 | `*.monitoring.azure.com` | 443 |
@@ -73,7 +73,7 @@ Informacje w poniższej tabeli zawierają informacje o konfiguracji serwera prox
 
 W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory dla platformy Azure w Chinach.
 
-|Zasób agenta|Porty |Opis | 
+|Zasób agenta|Porty |Opis |
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.cn` | 443 | Wprowadzanie danych |
 | `*.oms.opinsights.azure.cn` | 443 | Przechodzenie do pakietu OMS |
@@ -81,7 +81,7 @@ W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory 
 
 Informacje w poniższej tabeli zawierają informacje o konfiguracji serwera proxy i zapory dla instytucji rządowych USA platformy Azure.
 
-|Zasób agenta|Porty |Opis | 
+|Zasób agenta|Porty |Opis |
 |--------------|------|-------------|
 | `*.ods.opinsights.azure.us` | 443 | Wprowadzanie danych |
 | `*.oms.opinsights.azure.us` | 443 | Przechodzenie do pakietu OMS |
@@ -92,7 +92,7 @@ Informacje w poniższej tabeli zawierają informacje o konfiguracji serwera prox
 Możliwość monitorowania wydajności opiera się na Log Analytics agencie dla systemu Linux opracowaną dla Azure Monitor dla kontenerów. Ten wyspecjalizowany Agent zbiera dane dotyczące wydajności i zdarzeń ze wszystkich węzłów w klastrze, a agent jest automatycznie wdrażany i rejestrowany przy użyciu określonego obszaru roboczego Log Analytics podczas wdrażania. Wersja agenta to Microsoft/OMS: ciprod04202018 lub nowsza. jest reprezentowana przez datę w następującym formacie: *mmddyyyy*.
 
 >[!NOTE]
->W wersji zapoznawczej obsługi systemu Windows Server dla programu AKS klaster AKS z węzłami systemu Windows Server nie ma zainstalowanego agenta do zbierania danych i przesyłania dalej do Azure Monitor. Zamiast tego węzeł systemu Linux jest automatycznie wdrażany w klastrze w ramach standardowego wdrożenia zbiera dane i przekazuje je do Azure Monitor w imieniu wszystkich węzłów Windows w klastrze.  
+>Ogólnie dostęp do obsługi systemu Windows Server dla programu AKS, klaster AKS z węzłami systemu Windows Server ma agenta wersji zapoznawczej zainstalowanego jako elementu daemonset pod każdym węzłem systemu Windows Server do zbierania dzienników i przekazywania go do Log Analytics. W przypadku metryk wydajności węzeł systemu Linux jest automatycznie wdrażany w klastrze w ramach wdrożenia standardowego i przekazuje dane do Azure Monitor w imieniu wszystkich węzłów Windows w klastrze.
 >
 
 Po wydaniu nowej wersji agenta zostanie ona automatycznie uaktualniona do zarządzanych klastrów Kubernetes hostowanych w usłudze Azure Kubernetes Service (AKS). Aby postępować zgodnie z wydaną wersją, zobacz [anonse dotyczące wersji agentów](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).

@@ -6,14 +6,14 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 06/23/2020
 ms.author: banders
-ms.openlocfilehash: 12ad1f09c988171b0d6212d79ca61d93acf92d80
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8552b6732736d1d10711479639fa45114f8b039b
+ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199606"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85298008"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Płatność za subskrypcje platformy Azure przy użyciu faktury
 
@@ -110,8 +110,17 @@ Postępuj zgodnie z poniższymi instrukcjami, aby przełączyć profil rozliczen
 
     ![Baner do przełączania na opcję płatności czekiem lub przelewem, Formy płatności, witryna Microsoft Azure Portal](./media/pay-by-invoice/customer-led-switch-to-invoice.png)
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do Umowy klienta firmy Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Sprawdzanie dostępu do umowy klienta firmy Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
+
+## <a name="frequently-asked-questions"></a>Często zadawane pytania
+
+*Dlaczego otrzymuję żądanie dotyczące dokumentu prawnego?*
+
+Czasami firmie Microsoft potrzebna jest dokumentacja prawna, jeśli podane informacje są niepełne lub nie można ich zweryfikować. Przykłady mogą obejmować:
+
+* Różne nazwy konta i firmy
+* Zmiana nazwy
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
 
@@ -119,4 +128,4 @@ Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczn�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- W razie potrzeby zaktualizuj informacje kontaktowe dotyczące rozliczeń w [Centrum konta platformy Azure](https://account.azure.com/Profile).
+* W razie potrzeby zaktualizuj informacje kontaktowe dotyczące rozliczeń w [Centrum konta platformy Azure](https://account.azure.com/Profile).

@@ -1,15 +1,15 @@
 ---
 title: Wbudowane definicje zasad dla platformy Azure Lighthouse
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla usługi Azure Lighthouse. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 88b80fd9e362637250973d108b12b11821ee8ee4
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: bb4c90af88fcfd43ca2b1725b9396df33910fe6b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84885105"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322243"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-lighthouse"></a>Azure Policy wbudowane definicje dla usługi Azure Lighthouse
 

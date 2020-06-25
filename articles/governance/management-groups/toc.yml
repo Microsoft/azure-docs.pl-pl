@@ -21,10 +21,10 @@
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/account/management-group
     - name: Azure PowerShell
-      href: '/powershell/module/az.resources/#resources'
+      href: /powershell/module/az.resources/#resources
     - name: Zestaw Azure SDK dla platformy .NET
       href: /dotnet/api/overview/azure/managementgroups
-    - name: Zestaw Azure SDK dla platformy Node
+    - name: Zestaw Azure SDK dla języka JavaScript
       href: /javascript/api/@azure/arm-managementgroups/managementgroups
     - name: REST
       href: /rest/api/resources/managementgroups

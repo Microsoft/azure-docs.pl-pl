@@ -1,20 +1,14 @@
 ---
 title: Autoryzuj dostęp za pomocą sygnatury dostępu współdzielonego w usłudze Azure Event Hubs
 description: Ten artykuł zawiera informacje dotyczące autoryzowania dostępu do zasobów platformy Azure Event Hubs przy użyciu sygnatur dostępu współdzielonego (SAS).
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 0c572723c493847ed15f80948511d1cc993fa7e1
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6a2d7385f82864e8d378055333377fb9c3f73c19
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298756"
+ms.locfileid: "85323126"
 ---
 # <a name="authorizing-access-to-event-hubs-resources-using-shared-access-signatures"></a>Autoryzowanie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego
 Sygnatura dostępu współdzielonego (SAS) zapewnia możliwość udzielenia ograniczonego dostępu do zasobów w przestrzeni nazw Event Hubs. Funkcja SAS chroni dostęp do Event Hubs zasobów na podstawie reguł autoryzacji. Te reguły są konfigurowane w przestrzeni nazw lub jednostce (centrum zdarzeń lub tematu). Ten artykuł zawiera omówienie modelu SAS i przegląd najlepszych rozwiązań dotyczących sygnatury dostępu współdzielonego.

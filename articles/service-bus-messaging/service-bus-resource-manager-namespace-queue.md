@@ -1,26 +1,19 @@
 ---
 title: Tworzenie Azure Service Bus przestrzeni nazw i kolejki przy użyciu szablonu platformy Azure
 description: 'Szybki Start: tworzenie przestrzeni nazw Service Bus i kolejki przy użyciu szablonu Azure Resource Manager'
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: a6bfb5fd-7b98-4588-8aa1-9d5f91b599b6
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 03/30/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: b08253104eeb61f6bb09fde507473d235a996494
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e382d39e10e1907c9892f03a3da64945f3049fee
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80422678"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337028"
 ---
 # <a name="quickstart-create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Szybki Start: tworzenie Service Bus przestrzeni nazw i kolejki przy użyciu szablonu Azure Resource Manager
 
@@ -36,9 +29,9 @@ Brak
 
 ## <a name="create-a-service-bus-namespace-and-a-queue"></a>Tworzenie Service Bus przestrzeni nazw i kolejki
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue).
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/201-servicebus-create-queue).
 
 :::code language="json" source="~/quickstart-templates/201-servicebus-create-queue/azuredeploy.json" range="1-75" highlight="31-63":::
 
@@ -80,7 +73,7 @@ Aby automatycznie uruchomić wdrożenie, kliknij następujący przycisk: Utwórz
 ## <a name="cleanup-resources"></a>Oczyszczanie zasobów
 
 1. W Azure Portal przejdź do strony **grupy zasobów** dla grupy zasobów.
-2. Wybierz pozycję **Usuń grupę zasobów** na pasku narzędzi. 
+2. Wybierz pozycję **Usuń grupę zasobów** z paska narzędzi. 
 3. Wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**. 
 
     ![Grupa zasobów — usuwanie](./media/service-bus-resource-manager-namespace-queue/resource-group-delete.png)

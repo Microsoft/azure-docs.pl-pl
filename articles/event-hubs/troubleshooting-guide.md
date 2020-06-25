@@ -1,20 +1,14 @@
 ---
 title: Rozwiązywanie problemów z łącznością — Event Hubs platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z łącznością z usługą Azure Event Hubs.
-services: event-hubs
-documentationcenter: na
-author: spelluru
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2020
-ms.author: spelluru
-ms.openlocfilehash: 4111a71200ec9bffdfed37c926635754c868f71e
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.date: 06/23/2020
+ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726722"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322386"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Rozwiązywanie problemów z łącznością — Event Hubs platformy Azure
 Istnieją różne przyczyny, dla których aplikacje klienckie nie mogą połączyć się z centrum zdarzeń. Problemy z łącznością mogą być stałe lub przejściowe. Jeśli problem występuje cały czas (trwały), możesz chcieć sprawdzić parametry połączenia, ustawienia zapory w organizacji, ustawienia zapory protokołu IP, ustawienia zabezpieczeń sieci (punkty końcowe usługi, prywatne punkty końcowe itp.) i inne. W przypadku problemów przejściowych należy uaktualnić do najnowszej wersji zestawu SDK, uruchamiać polecenia służące do sprawdzania porzuconych pakietów i uzyskiwania śladów sieci, które mogą pomóc w rozwiązywaniu problemów. 

@@ -4,12 +4,12 @@ description: Informacje o podstawowym klastrze i składnikach obciążenia Kuber
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ddf6543ff0e4313b28c183718b6ac3b2395e0dbf
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 9b54bdbfcbc37d3863d4e6b86ae6fe5522bb5be9
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84729975"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336625"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Podstawowe pojęcia Kubernetes dla usługi Azure Kubernetes Service (AKS)
 
@@ -105,9 +105,9 @@ Aby zachować wydajność i funkcjonalność węzła, zasoby są zastrzeżone dl
 
 Powyższe zasady dotyczące pamięci i alokacji procesora są używane w celu zachowania poprawnego działania węzłów agenta, w tym pewnych systemów hostingu, które mają kluczowe znaczenie dla kondycji klastra. Te reguły alokacji powodują również, że węzeł zgłasza mniejszą alokację pamięci i procesora CPU niż w przypadku, gdy nie był częścią klastra Kubernetes. Nie można zmienić powyższych rezerwacji zasobów.
 
-Na przykład, jeśli węzeł zawiera 7 GB, zgłasza 34% pamięci nie można przydzielić na podstawie progu wykluczeń twardych 750Mi.
+Na przykład, jeśli węzeł zawiera 7 GB, zgłasza 34% pamięci nie można przydzielić, łącznie z progiem wykluczeń 750Mi.
 
-`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
+`0.75 + (0.25*4) + (0.20*3) = 0.75GB + 1GB + 0.6GB = 2.35GB / 7GB = 33.57% reserved`
 
 Oprócz rezerwacji dla samego Kubernetes, podstawowy system operacyjny węzła również rezerwuje ilość zasobów procesora i pamięci do obsługi funkcji systemu operacyjnego.
 

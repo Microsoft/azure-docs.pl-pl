@@ -3,14 +3,14 @@ title: Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 description: W tym artykule opisano sposób wdrażania hybrydowego procesu roboczego elementu Runbook, którego można użyć do uruchamiania elementów Runbook na maszynach z systemem Windows w lokalnym centrum danych lub w środowisku chmury.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/17/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: b1cac1ed1ff92086991d405ad72950e362493619
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 6141440cdb5b232145417c6051cb340e806f9352
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079189"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338013"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows
 
@@ -190,15 +190,15 @@ Teraz uruchom `Add-HybridRunbookWorker` polecenie cmdlet, używając następują
 Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 ```
 
-Informacje wymagane dla tego polecenia cmdlet można uzyskać ze strony Zarządzanie kluczami w Azure Portal. Otwórz Tę stronę, wybierając pozycję **klucze** na stronie Ustawienia na koncie usługi Automation.
+Możesz uzyskać informacje wymagane do parametrów `EndPoint` i `Token` ze strony **klucze** na koncie usługi Automation. Wybierz pozycję **klucze** w sekcji **Ustawienia konta** w lewej części strony.
 
 ![Strona zarządzania kluczami](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
+* Dla `EndPoint` parametru skopiuj wartość **adresu URL**.
+
+* Dla `Token` parametru skopiuj wartość **podstawowy klucz dostępu**.
+
 * Dla `GroupName` parametru Użyj nazwy grupy hybrydowych procesów roboczych elementu Runbook. Jeśli ta grupa już istnieje na koncie usługi Automation, do niej zostanie dodany bieżący komputer. Jeśli ta grupa nie istnieje, jest dodawana.
-
-* Dla `EndPoint` parametru Użyj wpisu **adresu URL** na stronie Zarządzanie kluczami.
-
-* Dla `Token` parametru należy użyć wpisu **podstawowego klucza dostępu** na stronie Zarządzanie kluczami.
 
 * W razie potrzeby ustaw `Verbose` parametr, aby otrzymać szczegółowe informacje o instalacji.
 

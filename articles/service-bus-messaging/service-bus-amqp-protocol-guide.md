@@ -1,25 +1,14 @@
 ---
 title: AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole | Microsoft Docs
 description: Przewodnik po protokole do wyrażeń i opisów AMQP 1,0 w Azure Service Bus i Event Hubs
-services: service-bus-messaging,event-hubs
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2019
-ms.author: aschhab
-ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 17f2f6da88e585d770a0a04825dc817f870089f1
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77086150"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337891"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1,0 Azure Service Bus i Event Hubs Przewodnik po protokole
 
@@ -35,7 +24,7 @@ Celem jest dla każdego dewelopera korzystającego z dowolnego istniejącego sto
 
 Typowe stosy AMQP 1,0, takie jak Apache Proton lub AMQP.NET Lite, już implementują wszystkie podstawowe protokoły AMQP 1,0. Te podstawowe gesty są czasami opakowane przy użyciu interfejsu API wyższego poziomu. Program Apache Proton oferuje dwa, bezwzględny interfejs API programu Messenger i reaktywny interfejs API reaktora.
 
-W poniższej dyskusji przyjęto założenie, że zarządzanie połączeniami AMQP, sesjami i łączami oraz obsługą transferów ramek i sterowania przepływem jest obsługiwane przez odpowiedni stos (na przykład Apache Proton-C) i nie wymaga dużej uwagi od deweloperów aplikacji. Częściowo zakładamy istnienie kilku prymitywów interfejsu API, takich jak możliwość nawiązywania połączenia, oraz do tworzenia niektórych postaci obiektów abstrakcji *nadawcy* i *odbiorników* , które mają odpowiednio kształt `send()` i `receive()` operacje.
+W poniższej dyskusji przyjęto założenie, że zarządzanie połączeniami AMQP, sesjami i łączami oraz obsługą transferów ramek i sterowania przepływem jest obsługiwane przez odpowiedni stos (na przykład Apache Proton-C) i nie wymaga dużej uwagi od deweloperów aplikacji. Częściowo zakładamy istnienie kilku prymitywów interfejsu API, takich jak możliwość nawiązywania połączenia, oraz do tworzenia niektórych postaci obiektów abstrakcji *nadawcy* i *odbiorników* , które mają `send()` odpowiednio kształt i `receive()` operacje.
 
 W przypadku korzystania z zaawansowanych możliwości Azure Service Bus, takich jak przeglądanie komunikatów lub zarządzanie sesjami, te funkcje są wyjaśnione w AMQPe, ale również jako w warstwowych implementacjach interfejsów API.
 
@@ -88,7 +77,7 @@ Klienci korzystający z połączeń AMQP za pośrednictwem protokołu TCP potrze
 
 ![Lista portów docelowych][4]
 
-Klient platformy .NET może zakończyć się niepowodzeniem z użyciem gniazda SocketException ("podjęto próbę uzyskania dostępu do gniazda w sposób zabroniony przez jego uprawnienia dostępu"), jeśli te porty są blokowane przez zaporę. Tę funkcję można wyłączyć, ustawiając `EnableAmqpLinkRedirect=false` ciąg connectiong, który wymusza komunikację klientów z usługą zdalną przez port 5671.
+Klient platformy .NET może zakończyć się niepowodzeniem z użyciem gniazda SocketException ("podjęto próbę uzyskania dostępu do gniazda w sposób zabroniony przez jego uprawnienia dostępu"), jeśli te porty są blokowane przez zaporę. Tę funkcję można wyłączyć `EnableAmqpLinkRedirect=false` , ustawiając ciąg connectiong, który wymusza komunikację klientów z usługą zdalną przez port 5671.
 
 
 ### <a name="links"></a>Linki
@@ -103,7 +92,7 @@ Kontener inicjujący łączenie prosi o odłączenie kontenera w celu zaakceptow
 
 Linki mają nazwę i są skojarzone z węzłami. Jak wspomniano na początku, węzły są komunikującymi się jednostkami wewnątrz kontenera.
 
-W Service Bus węzeł jest bezpośrednio równoważny z kolejką, tematem, subskrypcją lub podkolejką utraconych wiadomości w kolejce lub subskrypcji. Nazwa węzła używana w AMQP to nazwa względna jednostki wewnątrz przestrzeni nazw Service Bus. Jeśli kolejka ma nazwę `myqueue`, to również jej nazwa węzła AMQP. Subskrypcja tematu jest zgodna z Konwencją interfejsu API protokołu HTTP przez sortowanie do kolekcji zasobów "subskrypcje", a tym samym subskrypcja **podrzędna** tematu **zawiera AMQP** nazwa węzła **/subskrypcje/sub**.
+W Service Bus węzeł jest bezpośrednio równoważny z kolejką, tematem, subskrypcją lub podkolejką utraconych wiadomości w kolejce lub subskrypcji. Nazwa węzła używana w AMQP to nazwa względna jednostki wewnątrz przestrzeni nazw Service Bus. Jeśli kolejka ma nazwę `myqueue` , to również jej nazwa węzła AMQP. Subskrypcja tematu jest zgodna z Konwencją interfejsu API protokołu HTTP przez sortowanie do kolekcji zasobów "subskrypcje", a tym samym subskrypcja **podrzędna** tematu **zawiera AMQP** nazwa węzła **/subskrypcje/sub**.
 
 Klient łączący jest również wymagany do tworzenia linków przy użyciu nazwy lokalnego węzła. Service Bus nie zawiera opisów tych nazw węzłów i nie interpretuje ich. Stosy klientów z systemem AMQP 1,0 zwykle używają schematu, aby zapewnić, że te nazwy tymczasowych węzłów są unikatowe w zakresie klienta.
 
@@ -217,9 +206,9 @@ W poniższych sekcjach wyjaśniono, które właściwości w standardowych sekcja
 
 Każda właściwość, którą aplikacja musi definiować, powinna być mapowana na `application-properties` mapę AMQP.
 
-#### <a name="header"></a>nagłówek
+#### <a name="header"></a>header
 
-| Nazwa pola | Sposób użycia | Nazwa interfejsu API |
+| Nazwa pola | Użycie | Nazwa interfejsu API |
 | --- | --- | --- |
 | służąc |- |- |
 | priority |- |- |
@@ -229,7 +218,7 @@ Każda właściwość, którą aplikacja musi definiować, powinna być mapowana
 
 #### <a name="properties"></a>properties
 
-| Nazwa pola | Sposób użycia | Nazwa interfejsu API |
+| Nazwa pola | Użycie | Nazwa interfejsu API |
 | --- | --- | --- |
 | Identyfikator komunikatu |Zdefiniowany przez aplikację identyfikator dowolnej postaci dla tego komunikatu. Używany do wykrywania duplikatów. |[Identyfikatora](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identyfikator użytkownika zdefiniowany przez aplikację, nieinterpretowany przez Service Bus. |Niedostępne za pomocą interfejsu API Service Bus. |
@@ -247,9 +236,9 @@ Każda właściwość, którą aplikacja musi definiować, powinna być mapowana
 
 #### <a name="message-annotations"></a>Adnotacje komunikatów
 
-Istnieje kilka innych właściwości komunikatów usługi Service Bus, które nie są częścią właściwości komunikatu AMQP i są przesyłane wraz `MessageAnnotations` z wiadomością.
+Istnieje kilka innych właściwości komunikatów usługi Service Bus, które nie są częścią właściwości komunikatu AMQP i są przesyłane wraz z `MessageAnnotations` wiadomością.
 
-| Klucz mapowania adnotacji | Sposób użycia | Nazwa interfejsu API |
+| Klucz mapowania adnotacji | Użycie | Nazwa interfejsu API |
 | --- | --- | --- |
 | x-opt-planowana-czas w kolejce | Deklaruje, w którym czasie komunikat powinien pojawić się w jednostce |[ScheduledEnqueueTime](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.scheduledenqueuetimeutc?view=azure-dotnet) |
 | x-opt-Partition-Key | Klucz zdefiniowany przez aplikację wskazujący partycję, w której ma być używany komunikat. | [PartitionKey](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.partitionkey?view=azure-dotnet) |
@@ -263,17 +252,17 @@ Istnieje kilka innych właściwości komunikatów usługi Service Bus, które ni
 ### <a name="transaction-capability"></a>Możliwość transakcji
 
 Transakcja grupuje razem co najmniej dwie operacje w zakresie wykonania. O charakterze taka transakcja musi zapewnić, że wszystkie operacje należące do danej grupy operacji kończą się powodzeniem lub niepowodzeniem.
-Operacje są pogrupowane według identyfikatora `txn-id`.
+Operacje są pogrupowane według identyfikatora `txn-id` .
 
-W przypadku interakcji transakcyjnej klient pełni funkcję `transaction controller` , która kontroluje operacje, które powinny być zgrupowane razem. Usługa Service Bus działa jako `transactional resource` a i wykonuje działania zgodnie z `transaction controller`żądaniem.
+W przypadku interakcji transakcyjnej klient pełni funkcję `transaction controller` , która kontroluje operacje, które powinny być zgrupowane razem. Usługa Service Bus działa jako `transactional resource` a i wykonuje działania zgodnie z żądaniem `transaction controller` .
 
-Klient i usługa komunikują się za `control link` pośrednictwem, który jest ustanowiony przez klienta. Komunikaty `declare` i `discharge` są wysyłane przez kontroler za pośrednictwem linku sterującego, aby alokować i uzupełniać transakcje odpowiednio (nie reprezentują rozgraniczenia pracy transakcyjnej). Rzeczywiste wysyłanie/odbieranie nie jest wykonywane dla tego linku. Każda żądana operacja transakcyjna jest jawnie zidentyfikowana z odpowiednią `txn-id` i dlatego może wystąpić na dowolnym łączu połączenia. Jeśli łącze kontrolne jest zamknięte, gdy istnieją naliczane transakcje, a następnie wszystkie takie transakcje są natychmiast wycofywane i próby wykonania dalszych operacji transakcyjnych na nich zakończą się niepowodzeniem. Komunikaty na linku kontroli nie mogą być wstępnie rozliczane.
+Klient i usługa komunikują się za pośrednictwem `control link` , który jest ustanowiony przez klienta. `declare`Komunikaty i `discharge` są wysyłane przez kontroler za pośrednictwem linku sterującego, aby alokować i uzupełniać transakcje odpowiednio (nie reprezentują rozgraniczenia pracy transakcyjnej). Rzeczywiste wysyłanie/odbieranie nie jest wykonywane dla tego linku. Każda żądana operacja transakcyjna jest jawnie zidentyfikowana z odpowiednią `txn-id` i dlatego może wystąpić na dowolnym łączu połączenia. Jeśli łącze kontrolne jest zamknięte, gdy istnieją naliczane transakcje, a następnie wszystkie takie transakcje są natychmiast wycofywane i próby wykonania dalszych operacji transakcyjnych na nich zakończą się niepowodzeniem. Komunikaty na linku kontroli nie mogą być wstępnie rozliczane.
 
-Każde połączenie musi inicjować swój własny link kontroli, aby można było rozpocząć i zakończyć transakcje. Usługa definiuje specjalne miejsce docelowe, które działa jako `coordinator`. Klient/kontroler nawiązuje połączenie z tym obiektem docelowym. Link sterujący znajduje się poza granicą jednostki, to oznacza, że ten sam link kontrolny może służyć do inicjowania i zwalniania transakcji dla wielu jednostek.
+Każde połączenie musi inicjować swój własny link kontroli, aby można było rozpocząć i zakończyć transakcje. Usługa definiuje specjalne miejsce docelowe, które działa jako `coordinator` . Klient/kontroler nawiązuje połączenie z tym obiektem docelowym. Link sterujący znajduje się poza granicą jednostki, to oznacza, że ten sam link kontrolny może służyć do inicjowania i zwalniania transakcji dla wielu jednostek.
 
 #### <a name="starting-a-transaction"></a>Uruchamianie transakcji
 
-, Aby rozpocząć pracę transakcyjną. Kontroler musi uzyskać `txn-id` od koordynatora. Robi to przez wysłanie komunikatu `declare` typu. Jeśli deklaracja zostanie zakończona pomyślnie, koordynator odpowie z wynikiem dyspozycji, który przenosi przypisane `txn-id`.
+, Aby rozpocząć pracę transakcyjną. Kontroler musi uzyskać `txn-id` od koordynatora. Robi to przez wysłanie `declare` komunikatu typu. Jeśli deklaracja zostanie zakończona pomyślnie, koordynator odpowie z wynikiem dyspozycji, który przenosi przypisane `txn-id` .
 
 | Klient (kontroler) | | Service Bus (koordynator) |
 | --- | --- | --- |
@@ -284,7 +273,7 @@ Każde połączenie musi inicjować swój własny link kontroli, aby można był
 
 #### <a name="discharging-a-transaction"></a>Rozładowywanie transakcji
 
-Kontroler kończy działanie transakcyjne przez wysłanie `discharge` komunikatu do koordynatora. Kontroler wskazuje, że chce zatwierdzić lub wycofać czynności transakcyjne przez ustawienie `fail` flagi w treści zrzutu. Jeśli koordynator nie jest w stanie zakończyć zrzutu, komunikat zostanie odrzucony z wynikiem przeprowadzenia `transaction-error`.
+Kontroler kończy działanie transakcyjne przez wysłanie `discharge` komunikatu do koordynatora. Kontroler wskazuje, że chce zatwierdzić lub wycofać czynności transakcyjne przez ustawienie `fail` flagi w treści zrzutu. Jeśli koordynator nie jest w stanie zakończyć zrzutu, komunikat zostanie odrzucony z wynikiem przeprowadzenia `transaction-error` .
 
 > Uwaga: błąd = true oznacza wycofanie transakcji i niepowodzenie = false oznacza zatwierdzenie.
 
@@ -293,30 +282,30 @@ Kontroler kończy działanie transakcyjne przez wysłanie `discharge` komunikatu
 | sunięć<br/>Identyfikator dostarczania = 0,...)<br/>{AmqpValue (DECLARE ())}| ------> |  |
 |  | <------ | dyspozycji <br/> pierwsze = 0, ostatnie = 0, <br/>State = zadeklarowane (<br/>transakcja-ID = {Transaction ID}<br/>))|
 | | . . . <br/>Działania transakcyjne<br/>na inne linki<br/> . . . |
-| sunięć<br/>Identyfikator dostarczania = 57,...)<br/>{ AmqpValue (<br/>**Zrzut (transakcja-ID = 0,<br/>niepowodzenie = false)**)}| ------> |  |
+| sunięć<br/>Identyfikator dostarczania = 57,...)<br/>{ AmqpValue (<br/>**Zrzut (transakcja-ID = 0, <br/> Niepowodzenie = false)**)}| ------> |  |
 | | <------ | dyspozycji <br/> pierwsze = 57, ostatnie = 57, <br/>State =**zaakceptowane ()**)|
 
 #### <a name="sending-a-message-in-a-transaction"></a>Wysyłanie komunikatu w transakcji
 
-Wszystkie zadania transakcyjne są wykonywane ze transakcyjnym stanem `transactional-state` dostarczania, który ma identyfikator transakcja. W przypadku wysyłania komunikatów stan transakcyjny jest przenoszony przez ramkę transferu wiadomości. 
+Wszystkie zadania transakcyjne są wykonywane ze transakcyjnym stanem dostarczania `transactional-state` , który ma identyfikator transakcja. W przypadku wysyłania komunikatów stan transakcyjny jest przenoszony przez ramkę transferu wiadomości. 
 
 | Klient (kontroler) | | Service Bus (koordynator) |
 | --- | --- | --- |
 | sunięć<br/>Identyfikator dostarczania = 0,...)<br/>{AmqpValue (DECLARE ())}| ------> |  |
 |  | <------ | dyspozycji <br/> pierwsze = 0, ostatnie = 0, <br/>State = zadeklarowane (<br/>transakcja-ID = {Transaction ID}<br/>))|
-| sunięć<br/>dojście = 1,<br/>Identyfikator dostarczania = 1, <br/>**State =<br/>TransactionalState (<br/>transakcja-ID = 0)**)<br/>ładunku| ------> |  |
-| | <------ | dyspozycji <br/> pierwsze = 1, ostatnie = 1, <br/>State =**TransactionalState (<br/>transakcja-ID = 0,<br/>wynik = zaakceptowane ()**))|
+| sunięć<br/>dojście = 1,<br/>Identyfikator dostarczania = 1, <br/>**stan = <br/> TransactionalState ( <br/> transakcja-ID = 0)**)<br/>ładunku| ------> |  |
+| | <------ | dyspozycji <br/> pierwsze = 1, ostatnie = 1, <br/>State =**TransactionalState ( <br/> transakcja-ID = 0, <br/> wynik = zaakceptowane ()**))|
 
 #### <a name="disposing-a-message-in-a-transaction"></a>Likwidowanie wiadomości w transakcji
 
-Dyspozycja komunikatów obejmuje operacje `Complete`  /  `Abandon`  /  `DeadLetter`  /  `Defer`takie jak. Aby wykonać te operacje w ramach transakcji, należy przekazać `transactional-state` ją do dyspozycji.
+Dyspozycja komunikatów obejmuje operacje takie jak `Complete`  /  `Abandon`  /  `DeadLetter`  /  `Defer` . Aby wykonać te operacje w ramach transakcji, należy przekazać ją do `transactional-state` dyspozycji.
 
 | Klient (kontroler) | | Service Bus (koordynator) |
 | --- | --- | --- |
 | sunięć<br/>Identyfikator dostarczania = 0,...)<br/>{AmqpValue (DECLARE ())}| ------> |  |
 |  | <------ | dyspozycji <br/> pierwsze = 0, ostatnie = 0, <br/>State = zadeklarowane (<br/>transakcja-ID = {Transaction ID}<br/>))|
 | | <------ |sunięć<br/>dojście = 2,<br/>Identyfikator dostarczania = 11, <br/>State = null)<br/>ładunku|  
-| dyspozycji <br/> pierwsze = 11, ostatnie = 11, <br/>State =**TransactionalState (<br/>transakcja-ID = 0,<br/>wynik = zaakceptowane ()**))| ------> |
+| dyspozycji <br/> pierwsze = 11, ostatnie = 11, <br/>State =**TransactionalState ( <br/> transakcja-ID = 0, <br/> wynik = zaakceptowane ()**))| ------> |
 
 
 ## <a name="advanced-service-bus-capabilities"></a>Zaawansowane możliwości Service Bus
@@ -337,9 +326,9 @@ Wszystkie te gesty wymagają interakcji żądania/odpowiedzi między klientem i 
 | Operacja logiczna | Klient | Service Bus |
 | --- | --- | --- |
 | Utwórz ścieżkę odpowiedzi na żądanie |--> dołączyć (<br/>Nazwa = {*Nazwa łącza*},<br/>uchwyt = {*dojście numeryczne*},<br/>rola =**nadawca**,<br/>Źródło =**null**,<br/>Target = "Entity/$management"<br/>) |Brak akcji |
-| Utwórz ścieżkę odpowiedzi na żądanie |Brak akcji |\<--Attach (<br/>Nazwa = {*Nazwa łącza*},<br/>uchwyt = {*dojście numeryczne*},<br/>rola =**odbiornik**,<br/>Źródło = null,<br/>Target = "Moja jednostka"<br/>) |
+| Utwórz ścieżkę odpowiedzi na żądanie |Brak akcji |\<-- attach(<br/>Nazwa = {*Nazwa łącza*},<br/>uchwyt = {*dojście numeryczne*},<br/>rola =**odbiornik**,<br/>Źródło = null,<br/>Target = "Moja jednostka"<br/>) |
 | Utwórz ścieżkę odpowiedzi na żądanie |--> dołączyć (<br/>Nazwa = {*Nazwa łącza*},<br/>uchwyt = {*dojście numeryczne*},<br/>rola =**odbiornik**,<br/>source = "Entity/$management",<br/>Target = "WebClient $ ID"<br/>) | |
-| Utwórz ścieżkę odpowiedzi na żądanie |Brak akcji |\<--Attach (<br/>Nazwa = {*Nazwa łącza*},<br/>uchwyt = {*dojście numeryczne*},<br/>rola =**nadawca**,<br/>Źródło = "Moja jednostka",<br/>Target = "WebClient $ ID"<br/>) |
+| Utwórz ścieżkę odpowiedzi na żądanie |Brak akcji |\<-- attach(<br/>Nazwa = {*Nazwa łącza*},<br/>uchwyt = {*dojście numeryczne*},<br/>rola =**nadawca**,<br/>Źródło = "Moja jednostka",<br/>Target = "WebClient $ ID"<br/>) |
 
 Mając tę parę linków, implementacja żądania/odpowiedzi jest prosta: żądanie jest komunikatem wysyłanym do jednostki wewnątrz infrastruktury obsługi komunikatów, która rozumie ten wzorzec. W tym komunikacie żądania w polu *odpowiedź do* w sekcji *Właściwości* jest ustawiany identyfikator *docelowy* dla łącza, na którym ma być dostarczana odpowiedź. Jednostka obsługi przetwarza żądanie, a następnie dostarcza odpowiedź za pośrednictwem linku, którego identyfikator *docelowy* pasuje do wskazanego identyfikatora *odpowiedzi* .
 
@@ -368,10 +357,10 @@ Gest protokołu jest wymianą żądania/odpowiedzi zgodnie z definicją w specyf
 
 Komunikat żądania ma następujące właściwości aplikacji:
 
-| Key | Optional | Typ wartości | Zawartość wartości |
+| Klucz | Opcjonalne | Typ wartości | Zawartość wartości |
 | --- | --- | --- | --- |
 | operacje |Nie |ciąg |**Put-token** |
-| type |Nie |ciąg |Typ umieszczanego tokenu. |
+| typ |Nie |ciąg |Typ umieszczanego tokenu. |
 | name |Nie |ciąg |"Odbiorcy", do którego ma zastosowanie token. |
 | datę |Tak |sygnatura czasowa |Czas wygaśnięcia tokenu. |
 
@@ -387,7 +376,7 @@ Tokeny przyznaje prawa. Service Bus wie o trzech podstawowych prawach: "Send" um
 
 Komunikat odpowiedzi zawiera następujące wartości *właściwości aplikacji*
 
-| Key | Optional | Typ wartości | Zawartość wartości |
+| Klucz | Opcjonalne | Typ wartości | Zawartość wartości |
 | --- | --- | --- | --- |
 | stan — kod |Nie |int |Kod odpowiedzi HTTP **[RFC2616]**. |
 | stan — opis |Tak |ciąg |Opis stanu. |
@@ -406,13 +395,13 @@ Klient jest w dalszym ciągu odpowiedzialny za śledzenie wygaśnięcia tokenu. 
 
 [Nadawca Wyślij za pośrednictwem/transfer](service-bus-transactions.md#transfers-and-send-via) to funkcja, która umożliwia usłudze Service Bus przekazywanie danej wiadomości do jednostki docelowej za pośrednictwem innej jednostki. Ta funkcja służy do wykonywania operacji między jednostkami w ramach jednej transakcji.
 
-Za pomocą tej funkcji utworzysz nadawcę i nawiążesz połączenie z `via-entity`. Podczas ustanawiania łącza są przekazywane dodatkowe informacje w celu ustalenia prawdziwej lokalizacji docelowej komunikatów/transferów na tym łączu. Po pomyślnym dołączeniu wszystkie komunikaty wysłane w tym linku są automatycznie przekazywane do *jednostki docelowej* za pośrednictwem *jednostki*. 
+Za pomocą tej funkcji utworzysz nadawcę i nawiążesz połączenie z `via-entity` . Podczas ustanawiania łącza są przekazywane dodatkowe informacje w celu ustalenia prawdziwej lokalizacji docelowej komunikatów/transferów na tym łączu. Po pomyślnym dołączeniu wszystkie komunikaty wysłane w tym linku są automatycznie przekazywane do *jednostki docelowej* za pośrednictwem *jednostki*. 
 
 > Uwaga: przed ustanowieniem tego linku należy przeprowadzić *uwierzytelnianie zarówno dla jednostki, jak i* *obiektu docelowego* .
 
 | Klient | | Service Bus |
 | --- | --- | --- |
-| Klej<br/>Nazwa = {Nazwa łącza},<br/>Rola = nadawca,<br/>Źródło = {identyfikator łącza klienta},<br/>Target =**{Via-Entity}**,<br/>**Właściwości = map [(<br/>com. Microsoft: transfer-Destination-Address =<br/>{miejsce_docelowe-Entity})]** ) | ------> | |
+| Klej<br/>Nazwa = {Nazwa łącza},<br/>Rola = nadawca,<br/>Źródło = {identyfikator łącza klienta},<br/>Target =**{Via-Entity}**,<br/>**Właściwości = map [( <br/> com. Microsoft: transfer-Destination-Address = <br/> {miejsce_docelowe-Entity})]** ) | ------> | |
 | | <------ | Klej<br/>Nazwa = {Nazwa łącza},<br/>Rola = odbiornik,<br/>Źródło = {identyfikator łącza klienta},<br/>Target = {Via-Entity},<br/>Właściwości = mapa [(<br/>com. Microsoft: transfer-Destination-Address =<br/>{Destination-Entity})] ) |
 
 ## <a name="next-steps"></a>Następne kroki

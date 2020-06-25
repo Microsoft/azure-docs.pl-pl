@@ -3,19 +3,19 @@ title: Planowanie zadań do obsługi danych ciągłych
 description: Twórz i uruchamiaj zadania cykliczne obsługujące ciągłe dane przy użyciu okien przestawnych w Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, klam, logicappspm
+ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 03/25/2020
-ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 103805fbf395dc120acc96fbcee273abcf14939d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004602"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322116"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Zaplanuj i Uruchom zadania dla ciągłych danych przy użyciu wyzwalacza okna przewijania w Azure Logic Apps
 
-Aby regularnie uruchamiać zadania, procesy lub zadania, które muszą obsługiwać dane w ciągłych fragmentach, można uruchomić przepływ pracy aplikacji logiki przy użyciu wyzwalacza **okna przewijania** . Można ustawić datę i godzinę oraz strefę czasową do uruchomienia przepływu pracy i cykl dla powtarzania tego przepływu pracy. Jeśli z jakiegoś powodu nie zostały pominięte cykle, ten wyzwalacz przetwarza pominięte cykle. Na przykład podczas synchronizowania danych między bazą danych i magazynem kopii zapasowych Użyj wyzwalacza okna przesuwanego, aby dane były synchronizowane bez ponoszenia przerw. Aby uzyskać więcej informacji o wbudowanych wyzwalaczach i akcjach harmonogramu, zobacz temat [Planowanie i uruchamianie cyklicznych zautomatyzowanych, zadań i przepływów pracy przy użyciu Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Aby regularnie uruchamiać zadania, procesy lub zadania, które muszą obsługiwać dane w ciągłych fragmentach, można uruchomić przepływ pracy aplikacji logiki przy użyciu wyzwalacza **okna przewijania** . Można ustawić datę i godzinę oraz strefę czasową do uruchomienia przepływu pracy i cykl dla powtarzania tego przepływu pracy. Jeśli cykle zostały pominięte z jakiegokolwiek powodu, na przykład z powodu zakłóceń lub wyłączonych przepływów pracy, ten wyzwalacz przetwarza pominięte cykle. Na przykład podczas synchronizowania danych między bazą danych i magazynem kopii zapasowych Użyj wyzwalacza okna przesuwanego, aby dane były synchronizowane bez ponoszenia przerw. Aby uzyskać więcej informacji o wbudowanych wyzwalaczach i akcjach harmonogramu, zobacz temat [Planowanie i uruchamianie cyklicznych zautomatyzowanych, zadań i przepływów pracy przy użyciu Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Poniżej przedstawiono niektóre wzorce obsługiwane przez ten wyzwalacz:
 
@@ -50,8 +50,8 @@ Aby uzyskać różnice między tym wyzwalaczem i wyzwalaczem cyklicznym lub aby 
 
    | Właściwość | Nazwa JSON | Wymagany | Typ | Opis |
    |----------|----------|-----------|------|-------------|
-   | **Dat** | `interval` | Yes | Liczba całkowita | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości. Poniżej znajdują się minimalne i maksymalne interwały: <p>-Miesiąc: 1-16 miesięcy <br>-Tydzień: 1-71 tyg. <br>-Dzień: 1-500 dni <br>-Godz.: 1 – 12 godzin <br>-Minutę: 1 – 72000 minut <br>-Sekunda: 1 – 9999999 s <p>Jeśli na przykład interwał wynosi 6, a częstotliwość to "miesiąc", cykl jest co 6 miesięcy. |
-   | **Częstotliwość** | `frequency` | Yes | String | Jednostka czasu dla cyklu: **sekunda**, **minuta**, **godzina**, **dzień**, **tydzień**lub **miesiąc** |
+   | **Dat** | `interval` | Tak | Liczba całkowita | Dodatnia liczba całkowita, która opisuje, jak często przebiega przepływ pracy na podstawie częstotliwości. Poniżej znajdują się minimalne i maksymalne interwały: <p>-Miesiąc: 1-16 miesięcy <br>-Tydzień: 1-71 tyg. <br>-Dzień: 1-500 dni <br>-Godz.: 1 – 12 godzin <br>-Minutę: 1 – 72000 minut <br>-Sekunda: 1 – 9999999 s <p>Jeśli na przykład interwał wynosi 6, a częstotliwość to "miesiąc", cykl jest co 6 miesięcy. |
+   | **Częstotliwość** | `frequency` | Tak | Ciąg | Jednostka czasu dla cyklu: **sekunda**, **minuta**, **godzina**, **dzień**, **tydzień**lub **miesiąc** |
    ||||||
 
    ![Zaawansowane opcje cyklu](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
@@ -60,9 +60,9 @@ Aby uzyskać różnice między tym wyzwalaczem i wyzwalaczem cyklicznym lub aby 
 
    | Właściwość | Wymagany | Nazwa JSON | Typ | Opis |
    |----------|----------|-----------|------|-------------|
-   | **Opóźnienie** | Nie | opóźnienie | String | Czas trwania każdego cyklu z zastosowaniem [specyfikacji daty i godziny ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
-   | **Strefa czasowa** | Nie | timeZone | String | Ma zastosowanie tylko w przypadku określenia czasu rozpoczęcia, ponieważ ten wyzwalacz nie akceptuje [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Wybierz strefę czasową, która ma zostać zastosowana. |
-   | **Godzina rozpoczęcia** | Nie | startTime | String | Podaj datę i godzinę rozpoczęcia w tym formacie: <p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej <p>— lub — <p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej <p>Na przykład jeśli chcesz, aby 18 września 2017 o 2:00 PM, określ wartość "2017-09-18T14:00:00" i wybierz strefę czasową, na przykład Pacyfik (czas standardowy). Lub określ wartość "2017-09-18T14:00:00Z" bez strefy czasowej. <p>**Uwaga:** Ta godzina rozpoczęcia musi być zgodna ze [specyfikacją daty i godziny ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie daty i godziny czasu UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie wybierzesz strefy czasowej, musisz dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). <p>W przypadku prostych harmonogramów czas rozpoczęcia jest pierwszym wystąpieniem, podczas gdy dla zaawansowanych cykli wyzwalacz nie jest uruchamiany wcześniej niż godzina rozpoczęcia. [*Jakie są sposoby używania daty i godziny rozpoczęcia?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Opóźnienie** | Nie | opóźnienie | Ciąg | Czas trwania każdego cyklu z zastosowaniem [specyfikacji daty i godziny ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) |
+   | **Strefa czasowa** | Nie | timeZone | Ciąg | Ma zastosowanie tylko w przypadku określenia czasu rozpoczęcia, ponieważ ten wyzwalacz nie akceptuje [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Wybierz strefę czasową, która ma zostać zastosowana. |
+   | **Godzina rozpoczęcia** | Nie | startTime | Ciąg | Podaj datę i godzinę rozpoczęcia w tym formacie: <p>RRRR-MM-DDTgg: mm: SS w przypadku wybrania strefy czasowej <p>-lub- <p>RRRR-MM-DDTgg: mm: SSS, jeśli nie wybierzesz strefy czasowej <p>Na przykład jeśli chcesz, aby 18 września 2017 o 2:00 PM, określ wartość "2017-09-18T14:00:00" i wybierz strefę czasową, na przykład Pacyfik (czas standardowy). Lub określ wartość "2017-09-18T14:00:00Z" bez strefy czasowej. <p>**Uwaga:** Ta godzina rozpoczęcia musi być zgodna ze [specyfikacją daty i godziny ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) w [formacie daty i godziny czasu UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), ale bez [przesunięcia czasu UTC](https://en.wikipedia.org/wiki/UTC_offset). Jeśli nie wybierzesz strefy czasowej, musisz dodać literę "Z" na końcu bez spacji. Ten "Z" odnosi się do odpowiadającego [czasu morskich](https://en.wikipedia.org/wiki/Nautical_time). <p>W przypadku prostych harmonogramów czas rozpoczęcia jest pierwszym wystąpieniem, podczas gdy dla zaawansowanych cykli wyzwalacz nie jest uruchamiany wcześniej niż godzina rozpoczęcia. [*Jakie są sposoby używania daty i godziny rozpoczęcia?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    |||||
 
 1. Teraz Skompiluj pozostałe przepływy pracy z innymi akcjami. Aby uzyskać więcej akcji, które można dodać, zobacz [Łączniki dla Azure Logic Apps](../connectors/apis-list.md).

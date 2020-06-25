@@ -1,23 +1,23 @@
 ---
-title: Co nowego w usłudze Azure Front Door
-description: Dowiedz się więcej na temat Nowości w programie Azure front-drzwi.
+title: Azure Front Door
+description: Ten artykuł zawiera ciągłą listę najnowszych zmian wprowadzonych w ramach zewnętrznych drzwi platformy Azure.
 services: frontdoor
 documentationcenter: ''
 author: megan-beatty
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: f76e54d698e30cb2b8f929050264a3afaec36562
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: d00ed607322205daefd80c111b83483524c4a742
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743477"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321524"
 ---
 # <a name="whats-new-in-azure-front-door"></a>Co nowego w funkcjach frontonu platformy Azure?
 
@@ -32,6 +32,7 @@ Drzwi frontonu platformy Azure są regularnie aktualizowane. Aby zaktualizować 
 
 |Cecha  |Opis  |Data dodania  |
 |---------|---------|---------|
+| Aparat reguł GA | Dostosuj sposób obsługi żądań HTTP na krawędzi. Aby uzyskać więcej informacji, zobacz [Omówienie aparatu reguł](front-door-rules-engine.md). |Czerwiec 2020 r. |
 | Aparat reguł (wersja zapoznawcza) | Dostosuj sposób obsługi żądań HTTP na krawędzi. Aby uzyskać więcej informacji, zobacz [Omówienie aparatu reguł](front-door-rules-engine.md). |Kwiecień 2020 r. |
 
 

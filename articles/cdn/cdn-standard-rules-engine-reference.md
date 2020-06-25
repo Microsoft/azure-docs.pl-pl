@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 06/22/2020
 ms.author: allensu
-ms.openlocfilehash: 6d4fa4451c3db3d6f2a506eabd5676d18b0219f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cb053a87293a4309a393bd9e0e76bf0d881dd71
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259905"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322186"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Dokumentacja aparatu reguł standardowych dla usługi Azure CDN
 
@@ -32,9 +32,9 @@ Aby zdefiniować regułę w aparacie reguł, ustaw odpowiednie [warunki](cdn-sta
 
  ![Struktura reguł Azure CDN](./media/cdn-standard-rules-engine-reference/cdn-rules-structure.png)
 
-Każda reguła może mieć maksymalnie cztery warunki dopasowania i trzy akcje. Każdy punkt końcowy Azure CDN może mieć maksymalnie pięć reguł. 
+Każda reguła może mieć do dziesięciu warunków dopasowania i pięć akcji. Każdy punkt końcowy Azure CDN może mieć do 25 reguł. 
 
-Uwzględniony w bieżącym limicie pięciu reguł dla punktu końcowego Azure CDN jest domyślną *regułą globalną*. Reguła globalna nie ma pasujących warunków, a akcje, które są zdefiniowane w regule, zawsze są wyzwalane.
+Uwzględniony w tym limicie jest domyślną *regułą globalną*. Reguła globalna nie ma pasujących warunków; akcje, które są zdefiniowane w regule globalnej, są zawsze wyzwalane.
 
 ## <a name="syntax"></a>Składnia
 
@@ -46,9 +46,9 @@ Sposób traktowania znaków specjalnych w regule różni się w zależności od 
 
 ### <a name="literal-values"></a>Wartości literału
 
-Tekst interpretowany jako wartość literału traktuje wszystkie znaki specjalne, *z wyjątkiem% symbol* jako część wartości, która musi być dopasowana w regule. Na przykład warunek dopasowania literału ustawiony na `'*'` jest spełniony tylko wtedy, gdy zostanie znaleziona dokładna wartość. `'*'`
+Tekst interpretowany jako wartość literału traktuje wszystkie znaki specjalne, *z wyjątkiem% symbol* jako część wartości, która musi być dopasowana w regule. Na przykład warunek dopasowania literału ustawiony na `'*'` jest spełniony tylko wtedy, gdy `'*'` zostanie znaleziona dokładna wartość.
 
-Znak procentu jest używany do wskazania kodowania adresu URL (na przykład `%20`).
+Znak procentu jest używany do wskazania kodowania adresu URL (na przykład `%20` ).
 
 ### <a name="wildcard-values"></a>Wartości symboli wieloznacznych
 
@@ -57,10 +57,10 @@ Tekst interpretowany jako wartość symbol wieloznaczny przypisuje dodatkowe zna
 Znak | Opis
 ----------|------------
 \ | Ukośnik odwrotny jest używany do ucieczki znaków określonych w tej tabeli. Ukośnik odwrotny musi być określony bezpośrednio przed znakiem specjalnym, który powinien zostać zmieniony. Na przykład następująca składnia wyprowadza gwiazdkę:`\*`
-% | Znak procentu jest używany do wskazania kodowania adresu URL (na przykład `%20`).
+% | Znak procentu jest używany do wskazania kodowania adresu URL (na przykład `%20` ).
 \* | Gwiazdka jest symbolem wieloznacznym reprezentującym jeden lub więcej znaków.
 spacje | Znak spacji wskazuje, że warunek dopasowania może być spełniony przez jedną z określonych wartości lub wzorców.
-znaki pojedynczego cudzysłowu | Pojedynczy cudzysłów nie ma specjalnego znaczenia. Jednak zestaw znaków pojedynczego cudzysłowu wskazuje, że wartość powinna być traktowana jako wartość literału. Znaki pojedynczego cudzysłowu mogą być używane w następujący sposób:<ul><li>Aby zezwolić na spełnienie warunku dopasowywania za każdym razem, gdy określona wartość pasuje do dowolnej części wartości porównania.  Na przykład `'ma'` dopasuje do żadnego z następujących ciągów: <ul><li>/Business/**ma**rathon/Asset.htm</li><li>**ma**p. gif</li><li>/business/template. **ma**p</li></ul><li>Aby zezwolić na określenie znaku specjalnego jako znaku literału. Na przykład można określić znak spacji literału, umieszczając znak spacji w zestawie znaków pojedynczego cudzysłowu (`' '` lub `'<sample value>'`).</li><li>, Aby umożliwić określenie pustej wartości. Określ wartość pustą, określając zestaw znaków pojedynczego cudzysłowu (**' '**).</li></ul>**Ważne**:<br /><ul><li>Jeśli określona wartość nie zawiera symbolu wieloznacznego, wartość zostanie automatycznie uznana za wartość literału. Nie trzeba określać zestawu znaków pojedynczego cudzysłowu dla wartości literału.</li><li>Jeśli ukośnik odwrotny nie jest używany do ucieczki innego znaku w tej tabeli, ukośnik odwrotny jest ignorowany, gdy jest określony w zestawie znaków pojedynczego cudzysłowu.</li><li>Innym sposobem określenia znaku specjalnego jako znaku literału jest wypróbowanie go przy użyciu ukośnika odwrotnego (`\`).</li></ul>
+znaki pojedynczego cudzysłowu | Pojedynczy cudzysłów nie ma specjalnego znaczenia. Jednak zestaw znaków pojedynczego cudzysłowu wskazuje, że wartość powinna być traktowana jako wartość literału. Znaki pojedynczego cudzysłowu mogą być używane w następujący sposób:<ul><li>Aby zezwolić na spełnienie warunku dopasowywania za każdym razem, gdy określona wartość pasuje do dowolnej części wartości porównania.  Na przykład `'ma'` dopasuje do żadnego z następujących ciągów: <ul><li>/Business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template. **ma**p</li></ul><li>Aby zezwolić na określenie znaku specjalnego jako znaku literału. Na przykład można określić znak spacji literału, umieszczając znak spacji w zestawie znaków pojedynczego cudzysłowu ( `' '` lub `'<sample value>'` ).</li><li>, Aby umożliwić określenie pustej wartości. Określ wartość pustą, określając zestaw znaków pojedynczego cudzysłowu (**' '**).</li></ul>**Ważne**:<br /><ul><li>Jeśli określona wartość nie zawiera symbolu wieloznacznego, wartość zostanie automatycznie uznana za wartość literału. Nie trzeba określać zestawu znaków pojedynczego cudzysłowu dla wartości literału.</li><li>Jeśli ukośnik odwrotny nie jest używany do ucieczki innego znaku w tej tabeli, ukośnik odwrotny jest ignorowany, gdy jest określony w zestawie znaków pojedynczego cudzysłowu.</li><li>Innym sposobem określenia znaku specjalnego jako znaku literału jest wypróbowanie go przy użyciu ukośnika odwrotnego ( `\` ).</li></ul>
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,30 +1,22 @@
 ---
 title: 'Samouczek: przykłady dotyczące Event Grid integracji Azure Service Bus'
 description: 'Samouczek: w tym artykule przedstawiono przykłady Service Bus obsługi komunikatów i Event Grid integracji.'
-services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 5e25e6c9efd7cf06f9d8e20f6cbc8c4b413ca67c
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 8f947489c2298e580ae455763709df1734687130
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84670431"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337058"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Samouczek: reagowanie na zdarzenia Azure Service Bus odbierane za pośrednictwem Azure Event Grid przy użyciu Azure Functions i Azure Logic Apps
 W tym samouczku dowiesz się, jak odpowiedzieć na zdarzenia Azure Service Bus, które są odbierane za pośrednictwem Azure Event Grid przy użyciu Azure Functions i Azure Logic Apps. 
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
 > * Tworzenie przestrzeni nazw usługi Service Bus
 > * Przygotowanie przykładowej aplikacji do wysyłania wiadomości
@@ -333,7 +325,7 @@ W tej sekcji dowiesz się, jak odbierać i przetwarzać komunikaty po odebraniu 
 5. Na stronie **Publikowanie**wykonaj następujące czynności: 
     1. Wybierz pozycję **Rozpocznij** na stronie **Publikowanie** 
     2. Dla **elementu docelowego**wybierz pozycję **Importuj profil**. 
-    3. Wybierz przycisk **Dalej**. 
+    3. Wybierz pozycję **Dalej**. 
 
         ![Visual Studio — przycisk importowania profilu](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)
 7. Wybierz pobrany wcześniej **plik profilu publikowania** i wybierz pozycję **Zakończ**.

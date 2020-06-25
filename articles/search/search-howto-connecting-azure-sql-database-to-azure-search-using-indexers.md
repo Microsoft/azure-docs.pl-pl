@@ -1,7 +1,7 @@
 ---
 title: Wyszukiwanie w usłudze Azure SQL Data
 titleSuffix: Azure Cognitive Search
-description: Importuj dane z Azure SQL Database przy użyciu indeksatorów w celu wyszukiwania pełnotekstowego w usłudze Azure Wyszukiwanie poznawcze. W tym artykule opisano połączenia, konfigurację indeksatora i pozyskiwanie danych.
+description: Importuj dane z usługi Azure SQL Database lub wystąpienia zarządzanego SQL przy użyciu indeksatorów w celu wyszukiwania pełnotekstowego w usłudze Azure Wyszukiwanie poznawcze. W tym artykule opisano połączenia, konfigurację indeksatora i pozyskiwanie danych.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,20 +9,20 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9279622ee54a9fdaa6617cfe2758cfb563fdbffa
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 1afe92720997ede327f098b9a435d00842ae201e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080593"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322141"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-an-azure-cognitive-search-indexer"></a>Łączenie się z zawartością i indeksowanie Azure SQL Database za pomocą indeksatora Wyszukiwanie poznawcze platformy Azure
+# <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Łączenie się z zawartością usługi Azure SQL i indeksowanie jej przy użyciu usługi Azure Wyszukiwanie poznawcze Indexer
 
-Aby można było wykonywać zapytania dotyczące [indeksu wyszukiwanie poznawcze platformy Azure](search-what-is-an-index.md), musisz wypełnić je danymi. Jeśli dane znajdują się w bazie danych Azure SQL, usługa **azure wyszukiwanie poznawcze indeksator dla Azure SQL Database** (lub **Azure SQL indeksator** for Short) może zautomatyzować proces indeksowania, co oznacza, że nie trzeba pisać i mniej więcej, aby zachować infrastrukturę.
+Aby można było wykonywać zapytania dotyczące [indeksu wyszukiwanie poznawcze platformy Azure](search-what-is-an-index.md), musisz wypełnić je danymi. Jeśli dane są przechowywane w Azure SQL Database lub wystąpieniu zarządzanym SQL, **Usługa azure wyszukiwanie poznawcze indeksator dla Azure SQL Database** (lub **usługa Azure SQL indeksator** for Short) może zautomatyzować proces indeksowania, co oznacza, że mniej kodu do pisania i mniejszego poziomu infrastruktury należy zadbać o to.
 
-Ten artykuł dotyczy Mechanics z użyciem [indeksatorów](search-indexer-overview.md), ale również zawiera opis funkcji dostępnych tylko w bazach danych Azure SQL (na przykład zintegrowane śledzenie zmian). 
+Ten artykuł dotyczy Mechanics z użyciem [indeksatorów](search-indexer-overview.md), ale również zawiera opis funkcji dostępnych tylko w przypadku wystąpienia zarządzanego Azure SQL Database lub SQL (na przykład zintegrowane śledzenie zmian). 
 
-Oprócz baz danych SQL Azure usługa Azure Wyszukiwanie poznawcze udostępnia Indeksatory [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)i [Azure Table Storage](search-howto-indexing-azure-tables.md). Aby poprosić o pomoc techniczną dla innych źródeł danych, Prześlij swoją opinię na [forum opinii na temat usługi Azure wyszukiwanie poznawcze](https://feedback.azure.com/forums/263029-azure-search/).
+Oprócz Azure SQL Database i wystąpienia zarządzanego SQL usługa Azure Wyszukiwanie poznawcze udostępnia Indeksatory [Azure Cosmos DB](search-howto-index-cosmosdb.md), [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)i [Azure Table Storage](search-howto-indexing-azure-tables.md). Aby poprosić o pomoc techniczną dla innych źródeł danych, Prześlij swoją opinię na [forum opinii na temat usługi Azure wyszukiwanie poznawcze](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indeksatory i źródła danych
 
@@ -172,7 +172,7 @@ Jeśli Twoja baza danych SQL obsługuje [śledzenie zmian](https://docs.microsof
 
 + Wymagania dotyczące wersji bazy danych:
   * SQL Server 2012 z dodatkiem SP3 lub nowszym, jeśli używasz SQL Server na maszynach wirtualnych platformy Azure.
-  * Azure SQL Database V12, jeśli używasz Azure SQL Database.
+  * Azure SQL Database lub wystąpienie zarządzane SQL.
 + Tylko tabele (bez widoków). 
 + W bazie danych [Włącz śledzenie zmian](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) dla tabeli. 
 + Brak złożonego klucza podstawowego (klucz podstawowy zawierający więcej niż jedną kolumnę) w tabeli.  
@@ -354,7 +354,7 @@ W przypadku indeksowania przyrostowego usługa Azure Wyszukiwanie poznawcze obs�
 
 W przypadku replik tylko do odczytu usługa SQL Database nie obsługuje zintegrowanego śledzenia zmian. W związku z tym należy używać zasad oznaczania wysokiej wody. 
 
-Naszym standardowym zaleceniem jest użycie typu danych rowversion dla kolumny znacznika wysokiej wody. Jednak użycie rowversion opiera `MIN_ACTIVE_ROWVERSION` się na funkcji SQL Database, która nie jest obsługiwana w przypadku replik tylko do odczytu. W związku z tym należy wskazać indeksator do repliki podstawowej, jeśli używasz rowversion.
+Naszym standardowym zaleceniem jest użycie typu danych rowversion dla kolumny znacznika wysokiej wody. Jednak użycie rowversion zależy od `MIN_ACTIVE_ROWVERSION` funkcji, która nie jest obsługiwana w przypadku replik tylko do odczytu. W związku z tym należy wskazać indeksator do repliki podstawowej, jeśli używasz rowversion.
 
 Jeśli spróbujesz użyć rowversion w replice tylko do odczytu, zostanie wyświetlony następujący błąd: 
 

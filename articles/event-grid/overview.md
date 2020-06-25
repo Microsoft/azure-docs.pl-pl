@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: femila
 ms.custom: seodec18
-ms.openlocfilehash: 38f0218a7dedd243cccfab4b0b5ecfb73d3a626a
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 4ae40c37d42848cc2ac726694e32df621996df03
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560302"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321329"
 ---
 # <a name="what-is-azure-event-grid"></a>Co to jest usługa Azure Event Grid?
 
@@ -103,7 +103,7 @@ Usługa Event Grid łączy źródła danych i procedury obsługi zdarzeń. Usłu
 
 ![Automatyzacja operacji](./media/overview/Ops_automation.png)
 
-Usługa Event Grid umożliwia przyspieszenie automatyzacji i uproszczenie wymuszania zasad. Usługi Event Grid można na przykład użyć, aby powiadamiać usługę Azure Automation o utworzeniu maszyny wirtualnej lub bazy danych SQL. Te zdarzenia mogą zostać wykorzystane do automatycznego sprawdzania, czy konfiguracje usługi są zgodne, umieszczania metadanych w narzędziach do obsługi operacji, tagowania maszyn wirtualnych lub zachowywania elementów roboczych.
+Usługa Event Grid umożliwia przyspieszenie automatyzacji i uproszczenie wymuszania zasad. Na przykład użyj Event Grid do powiadomienia Azure Automation, gdy zostanie utworzona maszyna wirtualna lub baza danych w usłudze Azure SQL. Te zdarzenia mogą zostać wykorzystane do automatycznego sprawdzania, czy konfiguracje usługi są zgodne, umieszczania metadanych w narzędziach do obsługi operacji, tagowania maszyn wirtualnych lub zachowywania elementów roboczych.
 
 ### <a name="application-integration"></a>Integracja aplikacji
 

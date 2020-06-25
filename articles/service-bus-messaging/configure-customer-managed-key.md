@@ -1,19 +1,14 @@
 ---
 title: Skonfiguruj własny klucz szyfrowania danych Azure Service Bus przechowywanych w spoczynku
 description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Azure Service Bus Rest.
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: aschhab
-ms.openlocfilehash: 82a5fbef8c307d60d82b147f04a2a687b8b0433e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 9bc48d82d1e63f08ab68e8f9c6a63e781c14c675
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459070"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338095"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania Azure Service Bus danych przechowywanych przy użyciu Azure Portal
 Azure Service Bus Premium zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Service Bus Premium bazuje na usłudze Azure Storage do przechowywania danych i domyślnie wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
@@ -42,7 +37,7 @@ Aby włączyć klucze zarządzane przez klienta w Azure Portal, wykonaj następu
 2. Na stronie **Ustawienia** obszaru nazw Service Bus wybierz pozycję **szyfrowanie**.
 3. Wybierz **szyfrowanie klucza zarządzanego przez klienta** , jak pokazano na poniższej ilustracji.
 
-    ![Włącz klucz zarządzany przez klienta](./media/configure-customer-managed-key/enable-customer-managed-key.png)
+    ![Włączanie klucza zarządzanego przez klienta](./media/configure-customer-managed-key/enable-customer-managed-key.png)
 
 
 ## <a name="set-up-a-key-vault-with-keys"></a>Konfigurowanie magazynu kluczy z kluczami
@@ -117,7 +112,7 @@ W tej sekcji przedstawiono sposób wykonywania następujących zadań przy użyc
 ### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>Tworzenie przestrzeni nazw Service Bus Premium przy użyciu tożsamości usługi zarządzanej
 W tej sekcji przedstawiono sposób tworzenia Azure Service Bus przestrzeni nazw z tożsamością usługi zarządzanej przy użyciu szablonu Azure Resource Manager i programu PowerShell. 
 
-1. Utwórz szablon Azure Resource Manager, aby utworzyć przestrzeń nazw warstwy Premium Service Bus z tożsamością usługi zarządzanej. Nazwij plik: **CreateServiceBusPremiumNamespace. JSON**: 
+1. Utwórz szablon Azure Resource Manager, aby utworzyć przestrzeń nazw warstwy Premium Service Bus z tożsamością usługi zarządzanej. Nazwij plik: **CreateServiceBusPremiumNamespace.jsna**: 
 
     ```json
     {
@@ -165,7 +160,7 @@ W tej sekcji przedstawiono sposób tworzenia Azure Service Bus przestrzeni nazw 
        }
     }
     ```
-2. Utwórz plik parametrów szablonu o nazwie: **CreateServiceBusPremiumNamespaceParams. JSON**. 
+2. Utwórz plik parametrów szablonu o nazwie: **CreateServiceBusPremiumNamespaceParams.jsna**. 
 
     > [!NOTE]
     > Zastąp następujące wartości: 
@@ -225,7 +220,7 @@ Wykonano następujące kroki:
 
 W tym kroku zostanie zaktualizowana przestrzeń nazw Service Bus przy użyciu informacji o magazynie kluczy. 
 
-1. Utwórz plik JSON o nazwie **UpdateServiceBusNamespaceWithEncryption. JSON** z następującą zawartością: 
+1. Utwórz plik JSON o nazwie **UpdateServiceBusNamespaceWithEncryption.js** przy użyciu następującej zawartości: 
 
     ```json
     {
@@ -288,7 +283,7 @@ W tym kroku zostanie zaktualizowana przestrzeń nazw Service Bus przy użyciu in
     }
     ``` 
 
-2. Utwórz plik parametrów szablonu: **UpdateServiceBusNamespaceWithEncryptionParams. JSON**.
+2. Utwórz plik parametrów szablonu: **UpdateServiceBusNamespaceWithEncryptionParams.json**.
 
     > [!NOTE]
     > Zastąp następujące wartości: 
@@ -327,6 +322,6 @@ W tym kroku zostanie zaktualizowana przestrzeń nazw Service Bus przy użyciu in
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące artykuły:
 - [Przegląd Service Bus](service-bus-messaging-overview.md)
-- [Omówienie usługi Key Vault](../key-vault/general/overview.md)
+- [Przegląd Key Vault](../key-vault/general/overview.md)
 
 

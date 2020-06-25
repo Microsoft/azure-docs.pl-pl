@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: da9ad5576d146c007e45124668875e9681860ce6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e2241a452bdcf974282814eb118da68517b02369
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76938820"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85323195"
 ---
 # <a name="specify-a-face-recognition-model"></a>Określanie modelu rozpoznawania twarzy
 
@@ -23,7 +23,14 @@ W tym przewodniku pokazano, jak określić model rozpoznawania kroju na potrzeby
 
 Usługa twarzy używa modeli uczenia maszynowego do wykonywania operacji na ludzkich twarzy na obrazach. Kontynuujemy ulepszanie dokładności naszych modeli w oparciu o opinie klientów i postępy w badaniach, a firma Microsoft zapewnia te udoskonalenia jako aktualizacje modelu. Deweloperzy mogą określić, która wersja modelu rozpoznawania kroju ma być używana; mogą wybrać model, który najlepiej pasuje do swojego przypadku użycia.
 
-Jeśli jesteś nowym użytkownikiem, zalecamy użycie najnowszego modelu. Przeczytaj, aby dowiedzieć się, jak określić ją w różnych operacjach związanych z działaniem, unikając konfliktów między modelami. Jeśli jesteś użytkownikiem zaawansowanym i nie wiesz, czy chcesz przełączyć się do najnowszego modelu, przejdź do sekcji [Oceń różne modele](#evaluate-different-models) , aby obliczyć nowy model i porównać wyniki przy użyciu bieżącego zestawu danych.
+Usługa Azure Front Service ma dostępne trzy modele rozpoznawania. Modele _recognition_01_ (opublikowane 2017) i _recognition_02_ (opublikowane 2019) są stale obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami dla klientów korzystających z FaceLists lub **osób**, które utworzyły te modele. **FaceList** lub **osoba** musi zawsze używać modelu rozpoznawania, który został utworzony za pomocą, a nowe twarze zostaną skojarzone z tym modelem po dodaniu. Tego nie można zmienić po utworzeniu, a klienci będą musieli używać odpowiedniego modelu rozpoznawania z odpowiednimi **FaceListami** lub **osobami**.
+
+Możesz przechodzić do nowszych modeli rozpoznawania we własnym wygodie. należy jednak utworzyć nowe FaceLists i grup osób wynosi z wybranym modelem rozpoznawania.
+
+Model _recognition_03_ (opublikowany 2020) jest najdokładniejszym modelem, który jest obecnie dostępny. Jeśli jesteś nowym klientem, zalecamy korzystanie z tego modelu. _Recognition_03_ zapewni lepszą dokładność zarówno porównania podobieństwa, jak i porównania dopasowania przez osoby. Należy zauważyć, że każdy model działa niezależnie od innych, a próg ufności ustawiony dla jednego modelu nie jest przeznaczony do porównania między innymi modelami rozpoznawania.
+
+Przeczytaj, aby dowiedzieć się, jak określić wybrany model w różnych operacjach tworzenia kroju, unikając konfliktów modelu. Jeśli jesteś użytkownikiem zaawansowanym i chcesz określić, czy chcesz przełączyć się do najnowszego modelu, przejdź do sekcji [Oceń różne modele](#evaluate-different-models) , aby obliczyć nowy model i porównać wyniki przy użyciu bieżącego zestawu danych.
+
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -39,27 +46,27 @@ Wykrywanie twarzy służy do identyfikowania wizualizacji ludzkich i znajdowania
 Model rozpoznawania jest używany podczas wyodrębniania funkcji rozpoznawania, dlatego można określić wersję modelu podczas wykonywania operacji wykrywania.
 
 W przypadku korzystania z interfejsu API [wykrywania kroju] i przypisania wersji modelu do `recognitionModel` parametru. Dostępne są następujące wartości:
+* recognition_01
+* recognition_02
+* recognition_03
 
-* `recognition_01`
-* `recognition_02`
 
 Opcjonalnie można określić parametr _returnRecognitionModel_ (domyślnie **false**), aby wskazać, czy _recognitionModel_ powinien być zwracany w odpowiedzi. Dlatego adres URL żądania dla interfejsu API REST [wykrywania czołowego] będzie wyglądać następująco:
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
-Jeśli używasz biblioteki klienckiej, możesz przypisać wartość `recognitionModel` przez przekazanie ciągu reprezentującego wersję.
-Jeśli pozostawisz ją bez przypisania, zostanie użyta domyślna wersja modelu (_recognition_01_). Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
+Jeśli używasz biblioteki klienckiej, możesz przypisać wartość `recognitionModel` przez przekazanie ciągu reprezentującego wersję. Jeśli pozostawisz ją bez przypisania, `recognition_01` zostanie użyta domyślna wersja modelu. Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_01", returnRecognitionModel: true);
 ```
 
 ## <a name="identify-faces-with-specified-model"></a>Identyfikowanie twarzy z określonym modelem
 
 Usługa kroju może wyodrębnić dane z obrazu i skojarzyć je z obiektem **osoby** (za pośrednictwem wywołania interfejsu API [dodawania](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) , na przykład), a wiele obiektów **osób** może być przechowywanych razem w danej **osobie**. Następnie można porównać nową miarę z grupą **osób** (z wywołaniem o [identyfikacji w miejscu] ) i można zidentyfikować osobę pasującą w tej grupie.
 
-Grupa **osób** powinna mieć jeden unikatowy model rozpoznawania dla wszystkich **osób**i można ją określić przy użyciu `recognitionModel` parametru podczas tworzenia grupy ([osoba-Create] lub [LargePersonGroup-Create]). Jeśli ten parametr nie jest określony, używany jest oryginalny `recognition_01` model. Grupa zawsze będzie używać modelu rozpoznawania, który został utworzony za pomocą programu, a nowe twarze zostaną skojarzone z tym modelem po ich dodaniu. nie można go zmienić po utworzeniu grupy. Aby sprawdzić model, za pomocą którego jest konfigurowana dana **osoba** , użyj interfejsu API [-Get] z parametrem _returnRecognitionModel_ ustawionym jako **true**.
+Grupa **osób** powinna mieć jeden unikatowy model rozpoznawania dla wszystkich **osób**i można ją określić przy użyciu `recognitionModel` parametru podczas tworzenia grupy ([osoba-Create] lub [LargePersonGroup-Create]). Jeśli ten parametr nie jest określony, `recognition_01` używany jest oryginalny model. Grupa zawsze będzie używać modelu rozpoznawania, który został utworzony za pomocą programu, a nowe twarze zostaną skojarzone z tym modelem po ich dodaniu. nie można go zmienić po utworzeniu grupy. Aby sprawdzić model, za pomocą którego jest konfigurowana dana **osoba** , użyj interfejsu API [-Get] z parametrem _returnRecognitionModel_ ustawionym jako **true**.
 
 Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 
@@ -77,29 +84,30 @@ Nie wprowadzono zmian w interfejsie API [identyfikacji czołowej] . wystarczy ok
 
 ## <a name="find-similar-faces-with-specified-model"></a>Znajdź podobne twarze z określonym modelem
 
-Możesz również określić model rozpoznawania dla wyszukiwania podobieństwa. Wersję modelu można przypisać do `recognitionModel` programu podczas tworzenia listy czołowej za pomocą interfejsu API [FaceList-Create] lub [LargeFaceList-Create]. Jeśli ten parametr nie jest określony, używany jest oryginalny `recognition_01` model. Lista twarzy zawsze będzie używać modelu rozpoznawania, który został utworzony za pomocą programu, a nowe twarze zostaną skojarzone z tym modelem po ich dodaniu do niego. nie można go zmienić po utworzeniu. Aby sprawdzić model, z którym jest skonfigurowana lista czołowa, użyj interfejsu API [FaceList-Get] z parametrem _returnRecognitionModel_ ustawionym jako **true**.
+Możesz również określić model rozpoznawania dla wyszukiwania podobieństwa. Wersję modelu można przypisać do programu `recognitionModel` podczas tworzenia listy czołowej za pomocą interfejsu API [FaceList-Create] lub [LargeFaceList-Create]. Jeśli ten parametr nie jest określony, `recognition_01` model jest używany domyślnie. Lista twarzy zawsze będzie używać modelu rozpoznawania, który został utworzony za pomocą programu, a nowe twarze zostaną skojarzone z tym modelem, gdy zostaną dodane do listy. nie można zmienić tego po utworzeniu. Aby sprawdzić model, z którym jest skonfigurowana lista czołowa, użyj interfejsu API [FaceList-Get] z parametrem _returnRecognitionModel_ ustawionym jako **true**.
 
 Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
 ```
 
-Ten kod tworzy listę czołową o `My face collection`nazwie przy użyciu modelu _recognition_02_ do wyodrębniania funkcji. Po przeszukiwaniu tej listy twarzy pod kątem podobnych twarzy na nowej wykrytej powierzchni należy wykrycie tej twarzy ([Wykrywanie twarzy]) przy użyciu modelu _recognition_02_ . Jak w poprzedniej sekcji, model musi być spójny.
+Ten kod tworzy listę czołową o nazwie `My face collection` przy użyciu modelu _recognition_03_ do wyodrębniania funkcji. Po przeszukiwaniu tej listy twarzy pod kątem podobnych twarzy na nowej wykrytej powierzchni należy wykrycie tej twarzy ([Wykrywanie twarzy]) przy użyciu modelu _recognition_03_ . Jak w poprzedniej sekcji, model musi być spójny.
 
 Nie wprowadzono zmian w funkcji [Front-Find podobnego] interfejsu API; należy określić wersję modelu tylko do wykrywania.
 
 ## <a name="verify-faces-with-specified-model"></a>Weryfikuj twarze z określonym modelem
 
-Interfejs API [weryfikacji twarzy] sprawdza, czy dwie twarze należą do tej samej osoby. Nie wprowadzono zmian w sprawdzaniu interfejsu API w odniesieniu do modeli rozpoznawania, ale można tylko porównać twarze, które zostały wykryte w tym samym modelu. W związku z tym obie twarze muszą zostać wykryte przy użyciu `recognition_01` lub. `recognition_02`
+Interfejs API [weryfikacji twarzy] sprawdza, czy dwie twarze należą do tej samej osoby. Nie wprowadzono zmian w sprawdzaniu interfejsu API w odniesieniu do modeli rozpoznawania, ale można tylko porównać twarze, które zostały wykryte w tym samym modelu.
 
 ## <a name="evaluate-different-models"></a>Oceń różne modele
 
-Jeśli chcesz porównać wyniki _recognition_01_ i _recognition_02_ modeli na danych, musisz wykonać następujące działania:
+Jeśli chcesz porównać wyniki różnych modeli rozpoznawania na własnych danych, musisz wykonać następujące działania:
+1. Utwórz odpowiednio trzy grup osób wynosi przy użyciu _recognition_01_, _recognition_02_i _recognition_03_ .
+1. Użyj danych obrazu w celu wykrycia twarzy i zarejestrowania ich w **osobnych**w tych trzech **osobach**. 
+1. Uczenie grup osób wynosi przy użyciu interfejsu API uczenia użytkowników.
+1. Testuj ze stroną i zidentyfikuj wszystkie trzy **osoby**i Porównaj wyniki.
 
-1. Utwórz odpowiednio dwie **osoby**z _recognition_01_ i _recognition_02_ .
-1. Użyj danych obrazu w celu wykrycia twarzy i zarejestrowania ich dla **osób**trzecich dla tych dwóch **osób**i wyzwolenie procesu szkolenia z interfejsem API [uczenia] się w ramach usługi Person.
-1. Przetestuj ze [znakiem na platformie] i **PersonGroup**porównujej wyniki.
 
 Jeśli zwykle określono próg ufności (wartość z zakresu od zero do 1, która określa, jak pewność, że model musi być identyfikowany jako), może być konieczne użycie różnych progów dla różnych modeli. Próg dla jednego modelu nie powinien być współużytkowany z innym i nie musi dawać takich samych wyników.
 
@@ -118,7 +126,7 @@ W tym artykule przedstawiono sposób określania modelu rozpoznawania, który ma
 [Element PersonGroup — tworzenie]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244
 [Osoba — Pobierz]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246
 [PersonGroup Person - Add Face]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b
-[Element PersonGroup — uczenie]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
+[PersonGroup - Train]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
 [Element LargePersonGroup — tworzenie]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d
 [FaceList — tworzenie]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
 [FaceList — Pobierz]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c

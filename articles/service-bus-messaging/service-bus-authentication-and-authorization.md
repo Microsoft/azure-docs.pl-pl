@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus uwierzytelniania i autoryzacji | Microsoft Docs
 description: Uwierzytelniaj aplikacje w celu Service Bus z uwierzytelnianiem sygnatury dostępu współdzielonego (SAS).
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/11/2020
-ms.author: aschhab
-ms.openlocfilehash: fc5f81d55f3a9dd337cc56305cf04979e6f00d92
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.date: 06/23/2020
+ms.openlocfilehash: 56461c13cf6589b5f66f05837e1bcaa6a49a58c7
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84738451"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337715"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Uwierzytelnianie i autoryzacja w usłudze Service Bus
 Istnieją dwa sposoby uwierzytelniania i autoryzowania dostępu do zasobów Azure Service Bus: katalog aktywności platformy Azure (Azure AD) i sygnatury dostępu współdzielonego (SAS). Ten artykuł zawiera szczegółowe informacje dotyczące korzystania z tych dwóch typów mechanizmów zabezpieczeń. 

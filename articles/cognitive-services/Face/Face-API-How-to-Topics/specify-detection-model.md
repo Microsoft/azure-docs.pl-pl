@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 40ca1dbf981c5a9025cf5a0bac6b007709d69a77
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a90b37b197e25a8db79a87761d94dfded53acf50
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76934575"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85323218"
 ---
 # <a name="specify-a-face-detection-model"></a>Określanie modelu wykrywania twarzy
 
@@ -47,11 +47,11 @@ Adres URL żądania dla interfejsu API REST [wykrywania czołowego] będzie wygl
 
 `https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel][&detectionModel]&subscription-key=<Subscription key>`
 
-W przypadku korzystania z biblioteki klienta można przypisać wartość `detectionModel` przez przekazanie odpowiedniego ciągu. Jeśli pozostawisz go nieprzypisane, interfejs API będzie używać domyślnej wersji modelu (`detection_01`). Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
+W przypadku korzystania z biblioteki klienta można przypisać wartość `detectionModel` przez przekazanie odpowiedniego ciągu. Jeśli pozostawisz go nieprzypisane, interfejs API będzie używać domyślnej wersji modelu ( `detection_01` ). Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_02", detectionModel: "detection_02");
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, recognitionModel: "recognition_03", detectionModel: "detection_02");
 ```
 
 ## <a name="add-face-to-person-with-specified-model"></a>Dodaj miarę do osoby z określonym modelem
@@ -63,7 +63,7 @@ Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 ```csharp
 // Create a PersonGroup and add a person with face detected by "detection_02" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_03");
 
 string personId = (await faceClient.PersonGroupPerson.CreateAsync(personGroupId, "My Person Name")).PersonId;
 
@@ -71,7 +71,7 @@ string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.PersonGroupPerson.AddFaceFromUrlAsync(personGroupId, personId, imageUrl, detectionModel: "detection_02");
 ```
 
-Ten kod tworzy **odbiorcę** o identyfikatorze `mypersongroupid` i dodaje do niego **osobę** . Następnie dodaje do tej **osoby** nową miarę przy użyciu `detection_02` modelu. Jeśli nie określisz parametru *detectionModel* , interfejs API użyje domyślnego modelu, `detection_01`.
+Ten kod tworzy **odbiorcę** o identyfikatorze `mypersongroupid` i dodaje do niego **osobę** . Następnie dodaje do tej **osoby** nową miarę przy użyciu `detection_02` modelu. Jeśli nie określisz parametru *detectionModel* , interfejs API użyje domyślnego modelu, `detection_01` .
 
 > [!NOTE]
 > Nie musisz używać tego samego modelu wykrywania dla wszystkich twarzy w obiekcie **osoby** i nie musisz używać tego samego modelu wykrywania podczas wykrywania nowych twarzy do porównania z obiektem **osoby** (na przykład w interfejsie API rozpoznawania [twarzy] ).
@@ -81,13 +81,13 @@ Ten kod tworzy **odbiorcę** o identyfikatorze `mypersongroupid` i dodaje do nie
 Możesz również określić model wykrywania, gdy dodasz miarę do istniejącego obiektu **FaceList** . Zobacz Poniższy przykład kodu dla biblioteki klienta .NET.
 
 ```csharp
-await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_03");
 
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: "detection_02");
 ```
 
-Ten kod tworzy **FaceList** o nazwie `My face collection` i dodaje do niej miarę z `detection_02` modelem. Jeśli nie określisz parametru *detectionModel* , interfejs API użyje domyślnego modelu, `detection_01`.
+Ten kod tworzy **FaceList** o nazwie `My face collection` i dodaje do niej miarę z `detection_02` modelem. Jeśli nie określisz parametru *detectionModel* , interfejs API użyje domyślnego modelu, `detection_01` .
 
 > [!NOTE]
 > Nie musisz używać tego samego modelu wykrywania dla wszystkich twarzy w obiekcie **FaceList** i nie musisz używać tego samego modelu wykrywania podczas wykrywania nowych twarzy do porównania z obiektem **FaceList** .
@@ -103,7 +103,7 @@ Różne modele wykrywania kroju są zoptymalizowane pod kątem różnych zadań.
 |Zwraca atrybuty kroju (ułożenie głowy, wiek, rozpoznawania emocji itd.), jeśli są one określone w wywołaniu wykrywania. |  Nie zwraca atrybutów kroju.     |
 |Zwraca punkty orientacyjne, jeśli są one określone w wywołaniu wykrywania.   | Nie zwraca punktów orientacyjnych.  |
 
-Najlepszym sposobem porównania wydajności modeli `detection_01` i `detection_02` jest użycie ich w przykładowym zestawie danych. Zalecamy wywoływanie interfejsu API [wykrywania twarzy] na różnych obrazach, w szczególności obrazów wielu powierzchni lub twarzy, które trudno zobaczyć, przy użyciu poszczególnych modeli wykrywania. Zwróć uwagę na liczbę twarzy zwracanych przez poszczególne modele.
+Najlepszym sposobem porównania wydajności `detection_01` `detection_02` modeli i jest użycie ich w przykładowym zestawie danych. Zalecamy wywoływanie interfejsu API [wykrywania twarzy] na różnych obrazach, w szczególności obrazów wielu powierzchni lub twarzy, które trudno zobaczyć, przy użyciu poszczególnych modeli wykrywania. Zwróć uwagę na liczbę twarzy zwracanych przez poszczególne modele.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,57 +1,71 @@
 ---
-title: Zmienianie informacji o profilu na koncie platformy Azure
-description: Opisano tutaj sposób modyfikowania profilu konta administratora platformy Azure oraz kontaktowego adresu e-mail.
+title: Zmiana informacji kontaktowych na koncie platformy Azure
+description: Opisano tutaj sposób modyfikowania informacji kontaktowych konta administratora platformy Azure
 author: genlin
 ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/22/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a53dd6e6682d0237793c4afcdea25370f9cc17c
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d1c38057a32f8abc5fa289bc5ab96b8f65ddfb06
+ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79202985"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85209953"
 ---
-# <a name="change-the-profile-information-for-your-azure-account"></a>Zmienianie informacji o profilu na koncie platformy Azure
+# <a name="change-the-contact-information-for-your-azure-account"></a>Zmienianie informacji kontaktowych na koncie platformy Azure
 
-Firma Microsoft korzysta z adresu e-mail z profilu administratora konta w celu wysyłania ważnych powiadomień związanych z rozliczeniami, usługami i rekomendacjami, dotyczących konta platformy Azure. Zalecamy podanie adresu e-mail, który sprawdzasz regularnie. Jako administrator konta możesz także zaktualizować profil, aby zmienić adres wysyłkowy i numer telefonu przypisany do konta.
+Ten artykuł pomoże Ci zaktualizować informacje kontaktowe dotyczące Twojego konta w witrynie Azure Portal. Instrukcje aktualizacji informacji kontaktowych różnią się w zależności od typu konta rozliczeniowego. Aby dowiedzieć się więcej na temat kont rozliczeniowych i identyfikowania typu konta rozliczeniowego, zobacz [Wyświetlanie kont rozliczeniowych w witrynie Azure Portal](view-all-accounts.md).
 
-Firma Microsoft korzysta z adresu e-mail z profilu użytkownika konta niebędącego administratorem do wysyłania powiadomień związanych z usługami i rekomendacji dotyczących konta. Wszystkie powiadomienia o rozliczeniach są wysyłane do administratora konta. Możesz również zaktualizować swój profil, aby zmienić swój adres wysyłkowy i numer telefonu, ale to nie spowoduje zmiany adresu wysyłkowego ani numeru telefonu przypisanego do konta.
+*Adres kupującego* — adres kupującego to adres oraz informacje kontaktowe organizacji lub osoby odpowiedzialnej za konto rozliczeniowe. Jest on widoczny na wszystkich fakturach wygenerowanych dla konta rozliczeniowego.
 
-## <a name="change-your-profile-information"></a>Zmienianie informacji o profilu
+*Adres płatnika* — adres płatnika to adres oraz informacje kontaktowe organizacji lub osoby odpowiedzialnej za faktury wygenerowane dla konta rozliczeniowego. W przypadku konta rozliczeniowego w programie subskrypcji usług online firmy Microsoft jest jeden adres płatnika, widoczny na wszystkich fakturach generowanych dla tego konta. W przypadku konta rozliczeniowego umowy z klientem firmy Microsoft każdy profil rozliczeniowy ma swój adres płatnika, widoczny na fakturze generowanej dla tego profilu rozliczeniowego.
 
-1. Zaloguj się do [Centrum konta platformy Azure](https://account.azure.com/subscriptions).
-1. Wybierz przycisk **Edytuj szczegóły**, a następnie zaktualizuj informacje w polu **Profil**.
+*Kontaktowy adres e-mail dla wiadomości email dotyczących usług i marketingu* — możesz określić adres e-mail inny niż adres e-mail, za pomocą którego się logujesz, aby otrzymywać ważne powiadomienia dotyczące rozliczeń, usług i rekomendacji dotyczących Twojego konta platformy Azure.  
 
-   ![Przykładowe informacje o profilu platformy Azure](./media/change-azure-account-profile/profile.png)
+## <a name="update-an-mosp-billing-account-address"></a>Aktualizowanie adresu konta rozliczeniowego w programie subskrypcji usług online firmy Microsoft
 
-### <a name="send-notifications-to-an-additional-email-address"></a>Wysyłanie powiadomień na dodatkowy adres e-mail
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu adresu e-mail z uprawnieniami administratora konta.
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
+    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/change-azure-account-profile/search-cmb.png)
+1. Wybierz pozycję **Właściwości** po lewej stronie.  
+    ![Zrzut ekranu przedstawiający stronę aktualizowania adresu](./media/change-azure-account-profile/update-contact-information-select-properties.png)
+1. Wybierz pozycję **Aktualizuj adres na fakturze**, aby zaktualizować adresy kupującego i płatnika. Wprowadź nowy adres, a następnie wybierz pozycję **Zapisz**.  
+    ![Zrzut ekranu przedstawiający stronę aktualizowania adresu](./media/change-azure-account-profile/update-contact-information-mosp.png)
 
-Powiadomienia związane z usługami i zalecenia dotyczące konta mogą być wysyłane na dodatkowy adres e-mail, oprócz adresu e-mail administratora konta. Na adres e-mail administratora konta wysyłane są ważne powiadomienia dotyczące wszystkich subskrypcji w ramach konta, w tym informacje związane z rozliczeniami.
+## <a name="update-an-mca-billing-account-sold-to-address"></a>Aktualizowanie adresu kupującego konta rozliczeniowego umowy z klientem Microsoft
 
-### <a name="change-the-account-administrators-email-address-in-your-profile"></a>Zmienianie adresu administratora konta w profilu
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu adresu e-mail z przypisaną rolą właściciela lub współautora na koncie rozliczeniowym umowy z klientem firmy Microsoft.
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
+    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/change-azure-account-profile/search-cmb.png)
+1. Wybierz pozycję **Właściwości** z lewej strony, a następnie wybierz pozycję **Aktualizuj kupującego**.  
+    ![Zrzut ekranu przedstawiający wybór opcji aktualizacji kupującego](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
+1. Wprowadź nowy adres i wybierz pozycję **Zapisz**.  
+    ![Zrzut ekranu pokazujący aktualizowanie adresu](./media/change-azure-account-profile/update-sold-to-save-mca.png)
 
-Administrator konta jest osobą, która konfiguruje konto platformy Azure i otrzymuje ważne powiadomienia e-mail dotyczące wszystkich subskrypcji w ramach konta. Zalecamy określenie kontaktowego adresu e-mail, który administrator konta sprawdza regularnie.
+    > [!IMPORTANT]
+    > Niektóre konta wymagają dodatkowej weryfikacji w celu aktualizacji kupującego. Jeśli na Twoim koncie wymagane jest ręczne zatwierdzenie, pojawi się monit o kontakt z pomocą techniczną platformy Azure.
 
-### <a name="update-your-sign-in-email-address"></a>Aktualizowanie adresu e-mail logowania
+## <a name="update-an-mca-billing-account-address"></a>Aktualizowanie adresu konta rozliczeniowego umowy z klientem firmy Microsoft
 
-Zaktualizowanie adresu e-mail w profilu nie spowoduje aktualizacji Twojego adresu e-mail logowania. Aby zmienić swój adres e-mail logowania, musisz przenieść własność konta.
-
-### <a name="update-the-billing-address-for-your-credit-card"></a>Aktualizowanie adresu rozliczeniowego dla karty kredytowej
-
-Aby dowiedzieć się, jak zaktualizować swoje informacje billingowe, zobacz[Zmiana karty kredytowej używanej do płacenia za subskrypcję platformy Azure](change-credit-card.md).
-
-### <a name="update-your-countryregion"></a>Aktualizowanie kraju/regionu
-
-Ze względu na ograniczenia techniczne nie można zmienić kraju/regionu na istniejącym koncie. Możesz jednak utworzyć konto w wybranym kraju/regionie, a następnie skontaktować się z zespołem pomocy technicznej platformy Azure, aby przeprowadzić migrację usług do tego konta.
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/) przy użyciu adresu e-mail z przypisaną rolą właściciela lub współautora na koncie rozliczeniowym lub w profilu rozliczeniowym umowy z klientem firmy Microsoft.
+1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.  
+    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/change-azure-account-profile/search-cmb.png)
+1. Po lewej stronie wybierz pozycję **Profile rozliczeniowe**.
+1. Wybierz profil rozliczeniowy, aby zaktualizować adres rozliczeniowy.  
+    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/change-azure-account-profile/update-bill-to-list-profiles-mca.png)
+1. Wybierz pozycję **Właściwości** po lewej stronie.
+1. Wybierz pozycję **Aktualizuj adres**.  
+    ![Zrzut ekranu przedstawiający wyszukiwanie zarządzania kosztami i rozliczeń w portalu](./media/change-azure-account-profile/update-bill-to-list-properties-mca.png)
+1. Wprowadź nowy adres, a następnie wybierz pozycję **Zapisz**.  
+    ![Zrzut ekranu przedstawiający aktualizowanie adresu](./media/change-azure-account-profile/update-bill-to-save-mca.png)
 
 ## <a name="service-and-marketing-emails"></a>Wiadomości e-mail dotyczące usług i marketingu
 
-Co 90 dni w witrynie [Azure Portal](https://portal.azure.com) otrzymasz monit o zweryfikowanie lub zaktualizowanie swojego adresu e-mail. Firma Microsoft wysyła na adres e-mail podany w profilu wiadomości e-mail z informacjami dotyczącymi konta platformy Azure, związane z następującymi zagadnieniami:
+Co 90 dni w witrynie [Azure Portal](https://portal.azure.com) otrzymasz monit o zweryfikowanie lub zaktualizowanie swojego adresu e-mail. Firma Microsoft wysyła na ten adres wiadomości e-mail z informacjami dotyczącymi konta platformy Azure, związane z następującymi zagadnieniami:
 
 - Powiadomienia dotyczące usług
 - Alerty zabezpieczeń
@@ -66,13 +80,13 @@ Wprowadź adres e-mail, na który chcesz otrzymywać wiadomości dotyczące kont
 
 ### <a name="change-your-contact-email-address"></a>Zmienianie kontaktowego adresu e-mail
 
-Kontaktowy adres e-mail można zmienić, korzystając z jednej z następujących metod:
+Kontaktowy adres e-mail można zmienić, korzystając z jednej z następujących metod. Aktualizacja kontaktowego adresu e-mail nie oznacza aktualizacji adresu e-mail, za pomocą którego się logujesz.
 
-* Zaloguj się do [Centrum konta platformy Azure](https://account.azure.com/subscriptions). Wybierz pozycję **Edytuj szczegóły**, a następnie zaktualizuj adres e-mail profilu. Zaktualizowanie adresu e-mail w profilu nie spowoduje aktualizacji Twojego adresu e-mail logowania.
+* Jeśli jesteś administratorem konta programu subskrypcji usług online firmy Microsoft, postępuj według instrukcji w sekcji [Aktualizowanie adresu konta rozliczeniowego w programie subskrypcji usług online firmy Microsoft](#update-an-mosp-billing-account-address), a w ostatnim kroku wybierz pozycję **Aktualizuj informacje kontaktowe**. Następnie wprowadź nowy adres e-mail.
 
-* Przejdź do obszaru [Informacje kontaktowe](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) w witrynie Azure Portal i wprowadź adres e-mail. Na podany adres będą wysyłane wiadomości dotyczące usług i komunikaty marketingowe. Adres e-mail w profilu w Centrum konta platformy Azure zostanie zaktualizowany automatycznie. Zaktualizowanie adresu e-mail w profilu nie spowoduje aktualizacji Twojego adresu e-mail logowania.
+* Przejdź do obszaru [Informacje kontaktowe](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) w witrynie Azure Portal i wprowadź nowy adres e-mail. 
 
-* W witrynie [Azure Portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) wybierz ikonę z Twoimi inicjałami lub zdjęciem. Wybierz menu kontekstowe ( **...** ). Następnie wybierz pozycję **Moje informacje kontaktowe** z menu i wprowadź adres e-mail. Na podany adres będą wysyłane wiadomości dotyczące usług i komunikaty marketingowe. Adres e-mail w profilu w Centrum konta platformy Azure zostanie zaktualizowany automatycznie. Zaktualizowanie adresu e-mail w profilu nie spowoduje aktualizacji Twojego adresu e-mail logowania.
+* W witrynie [Azure Portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) wybierz ikonę z Twoimi inicjałami lub zdjęciem. Wybierz menu kontekstowe ( **...** ). Następnie wybierz pozycję **Moje informacje kontaktowe** z menu i wprowadź nowy adres e-mail.
 
 ![Przykład aktualizacji adresu e-mail na platformie Azure](./media/change-azure-account-profile/azure-contact-information.png)
 
@@ -81,16 +95,27 @@ Kontaktowy adres e-mail można zmienić, korzystając z jednej z następujących
 Aby zrezygnować z otrzymywania marketingowych wiadomości e-mail:
 
 1. Przejdź do [formularza zgłoszenia](https://account.microsoft.com/profile/permissions-link-request), aby przesłać zgłoszenie za pomocą adresu e-mail profilu. Otrzymasz pocztą e-mail link umożliwiający zaktualizowanie Twoich preferencji.
-2. Wybierz ten link, aby otworzyć stronę **Manage communication permissions** (Zarządzanie uprawnieniami dotyczącymi komunikacji). Na tej stronie widoczne są typy wiadomości marketingowych, które mogą być wysyłane na Twój adres e-mail. Wyczyść tematy wiadomości, których nie chcesz już otrzymywać, a następnie wybierz przycisk **Save** (Zapisz).
-
-![Przykładowa strona do zarządzania uprawnieniami dotyczącymi komunikacji](./media/change-azure-account-profile/manage-communication-permissions.png)
+1. Wybierz ten link, aby otworzyć stronę **Manage communication permissions** (Zarządzanie uprawnieniami dotyczącymi komunikacji). Na tej stronie widoczne są typy wiadomości marketingowych, które mogą być wysyłane na Twój adres e-mail. Wyczyść wybrane elementy, których nie chcesz już otrzymywać, a następnie wybierz przycisk **Zapisz**.  
+    ![Przykładowa strona do zarządzania uprawnieniami dotyczącymi komunikacji](./media/change-azure-account-profile/manage-communication-permissions.png)
 
 Nawet jeśli zrezygnujesz z otrzymywania wiadomości marketingowych, nadal będziesz otrzymywać powiadomienia dotyczące usług odpowiednie do Twojego konta.
+
+## <a name="update-the-email-address-that-you-sign-in-with"></a>Aktualizowanie adresu e-mail, za pomocą którego się logujesz
+
+Nie ma możliwości aktualizacji adresu e-mail używanego do uzyskiwania dostępu do konta. Jeśli jednak masz konto rozliczeniowe programu subskrypcji usług online firmy Microsoft, możesz zarejestrować kolejne konto przy użyciu nowego adresu e-mail i przenieść własność subskrypcji na to nowe konto. W przypadku konta rozliczeniowego umowy z klientem firmy Microsoft [możesz przyznać nowemu adresowi e-mail uprawnienia do konta](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+
+## <a name="update-your-credit-card"></a>Aktualizowanie karty kredytowej
+
+Aby dowiedzieć się, jak zaktualizować kartę kredytową, zobacz [Zmiana karty kredytowej używanej do płacenia za subskrypcję platformy Azure](change-credit-card.md).
+
+## <a name="update-your-country-or-region"></a>Aktualizowanie kraju lub regionu
+
+Zmiana kraju lub regionu dla istniejącego konta nie jest obsługiwana. Możesz jednak utworzyć nowe konto w innym kraju lub regionie, a następnie skontaktować się z pomocą techniczną platformy Azure, aby przenieść subskrypcję na to nowe konto.
 
 ## <a name="change-the-subscription-name"></a>Zmienianie nazwy subskrypcji
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com), wybierz pozycję **Subskrypcja** w okienku po lewej stronie, a następnie wybierz subskrypcję, której nazwę chcesz zmienić.
-1. Wybierz pozycję **Przegląd**, a następnie polecenie **Zmień nazwę** na pasku poleceń.
+1. Wybierz pozycję **Przegląd**, a następnie polecenie **Zmień nazwę** na pasku poleceń.  
     ![Przykład zmiany nazwy subskrypcji platformy Azure](./media/change-azure-account-profile/rename-sub.png)
 1. Po zmianie nazwy wybierz pozycję **Zapisz**.
 
@@ -99,4 +124,5 @@ Nawet jeśli zrezygnujesz z otrzymywania wiadomości marketingowych, nadal będz
 Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczną](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Następne kroki
+
 - [Wyświetlanie kont rozliczeniowych](view-all-accounts.md)

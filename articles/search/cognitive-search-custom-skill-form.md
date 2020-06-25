@@ -6,14 +6,14 @@ manager: nitinme
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c07c00345140d96bf3265fb280fe29b1274bdee6
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792007"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321310"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Przykład: Utwórz niestandardową umiejętność aparatu rozpoznawania formularzy
 
@@ -43,9 +43,9 @@ Najpierw Dodaj zmienne środowiskowe na poziomie projektu. Znajdź projekt **Ana
 * `FORMS_RECOGNIZER_RETRY_DELAY`wartość ustawiona na 1000. Ta wartość to czas (w milisekundach) oczekiwania programu przed ponowieniem próby wykonania zapytania.
 * `FORMS_RECOGNIZER_MAX_ATTEMPTS`wartość ustawiona na 100. Ta wartość jest tym, ile razy program wyśle zapytanie do usługi podczas próby uzyskania pomyślnej odpowiedzi.
 
-Następnie otwórz _AnalyzeForm.cs_ i Znajdź `fieldMappings` zmienną, która odwołuje się do pliku *mapowania pól. JSON* . Ten plik (oraz zmienna odwołująca się do niego) definiuje listę kluczy, które mają zostać wyodrębnione z formularzy, oraz etykietę niestandardową dla każdego klucza. `{ "Address:", "address" }, { "Invoice For:", "recipient" }` Na przykład wartość oznacza, że skrypt będzie zapisywał tylko wartości dla wykrytych `Address:` i `Invoice For:` pól, a następnie oznaczy te wartości odpowiednio znakami `"recipient"` `"address"` i.
+Następnie otwórz _AnalyzeForm.cs_ i Znajdź `fieldMappings` zmienną, która odwołuje się *field-mappings.js* pliku. Ten plik (oraz zmienna odwołująca się do niego) definiuje listę kluczy, które mają zostać wyodrębnione z formularzy, oraz etykietę niestandardową dla każdego klucza. Na przykład wartość `{ "Address:", "address" }, { "Invoice For:", "recipient" }` oznacza, że skrypt będzie zapisywał tylko wartości dla wykrytych `Address:` i `Invoice For:` pól, a następnie oznaczy te wartości odpowiednio znakami `"address"` i `"recipient"` .
 
-Na koniec Zwróć uwagę `contentType` na zmienną. Ten skrypt uruchamia dany model aparatu rozpoznawania formularzy w dokumentach zdalnych, do których odwołuje się adres URL, więc typ `application/json`zawartości to. Jeśli chcesz analizować pliki lokalne przez uwzględnienie ich strumieni bajtów w żądaniach HTTP, należy zmienić `contentType` na odpowiedni [Typ MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) dla pliku.
+Na koniec Zwróć uwagę na `contentType` zmienną. Ten skrypt uruchamia dany model aparatu rozpoznawania formularzy w dokumentach zdalnych, do których odwołuje się adres URL, więc typ zawartości to `application/json` . Jeśli chcesz analizować pliki lokalne przez uwzględnienie ich strumieni bajtów w żądaniach HTTP, należy zmienić na `contentType` odpowiedni [Typ MIME](https://developer.mozilla.org/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types) dla pliku.
 
 ## <a name="test-the-function-from-visual-studio"></a>Testowanie funkcji z programu Visual Studio
 
@@ -77,12 +77,12 @@ Rozpocznij od szablonu treści żądania poniżej.
 }
 ```
 
-W tym miejscu należy podać adres URL formularza, który ma ten sam typ co przeszkolone formularze. Do celów testowych możesz użyć jednego z Twoich formularzy szkoleniowych. Jeśli korzystasz z tego przewodnika Szybki Start, Twoje formularze będą znajdować się na koncie usługi Azure Blob Storage. Otwórz Eksplorator usługi Azure Storage, zlokalizuj plik formularza, kliknij go prawym przyciskiem myszy, a następnie wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Następne okno dialogowe udostępnia adres URL i token sygnatury dostępu współdzielonego. Wprowadź te ciągi odpowiednio w `"formUrl"` polach `"formSasToken"` i treści żądania.
+W tym miejscu należy podać adres URL formularza, który ma ten sam typ co przeszkolone formularze. Do celów testowych możesz użyć jednego z Twoich formularzy szkoleniowych. Jeśli korzystasz z tego przewodnika Szybki Start, Twoje formularze będą znajdować się na koncie usługi Azure Blob Storage. Otwórz Eksplorator usługi Azure Storage, zlokalizuj plik formularza, kliknij go prawym przyciskiem myszy, a następnie wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Następne okno dialogowe udostępnia adres URL i token sygnatury dostępu współdzielonego. Wprowadź te ciągi odpowiednio w `"formUrl"` `"formSasToken"` polach i treści żądania.
 
 > [!div class="mx-imgBorder"]
 > ![Eksplorator usługi Azure Storage; wybrano dokument PDF](media/cognitive-search-skill-form/form-sas.png)
 
-Jeśli chcesz analizować dokument zdalny, który nie znajduje się w usłudze Azure Blob Storage, wklej jego adres URL `"formUrl"` w polu i pozostaw `"formSasToken"` pole puste.
+Jeśli chcesz analizować dokument zdalny, który nie znajduje się w usłudze Azure Blob Storage, wklej jego adres URL w `"formUrl"` polu i pozostaw `"formSasToken"` pole puste.
 
 > [!NOTE]
 > Gdy umiejętność jest zintegrowana z zestawu umiejętności, adres URL i token będą udostępniane przez Wyszukiwanie poznawcze.
@@ -111,11 +111,11 @@ Powinna zostać wyświetlona odpowiedź podobna do poniższego przykładu:
 
 Gdy zachowanie funkcji jest zadowalające, można je opublikować.
 
-1. W **Eksplorator rozwiązań** w programie Visual Studio kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Publikuj**. Wybierz pozycję **Utwórz nową** > **publikację**.
+1. W **Eksplorator rozwiązań** w programie Visual Studio kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję **Publikuj**. Wybierz pozycję **Utwórz nową**  >  **publikację**.
 1. Jeśli program Visual Studio nie został jeszcze połączony z kontem platformy Azure, wybierz pozycję **Dodaj konto....**
 1. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie. Określ unikatową nazwę usługi App Service, subskrypcję platformy Azure, grupę zasobów, plan hostingu i konto magazynu, którego chcesz użyć. Jeśli jeszcze tego nie zrobiono, możesz utworzyć nową grupę zasobów, nowy plan hostingu i nowe konto magazynu. Po zakończeniu wybierz pozycję **Utwórz**.
 1. Po zakończeniu wdrażania Zwróć uwagę na adres URL witryny. Ten adres URL jest adresem aplikacji funkcji na platformie Azure. Zapisz ją w lokalizacji tymczasowej.
-1. W [Azure Portal](https://portal.azure.com)przejdź do grupy zasobów, a następnie wyszukaj opublikowaną `AnalyzeForm` funkcję. W sekcji **Zarządzanie** powinny zostać wyświetlone klucze hosta. Skopiuj *domyślny* klucz hosta i Zapisz go w lokalizacji tymczasowej.
+1. W [Azure Portal](https://portal.azure.com)przejdź do grupy zasobów, a `AnalyzeForm` następnie wyszukaj opublikowaną funkcję. W sekcji **Zarządzanie** powinny zostać wyświetlone klucze hosta. Skopiuj *domyślny* klucz hosta i Zapisz go w lokalizacji tymczasowej.
 
 ## <a name="connect-to-your-pipeline"></a>Nawiązywanie połączenia z potokiem
 

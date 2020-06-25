@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 1b5d51eafc0cb21a02f8a750bd78b5be7aca734f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84605514"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85336865"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -197,7 +197,7 @@ Zespół fabryki danych dostarczył [przykładowego skryptu przedprodukcyjnego i
 
    ![Tworzenie własnego szablonu](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
-1. Wybierz pozycję **Załaduj plik**, a następnie wybierz wygenerowany szablon Menedżer zasobów. Jest to plik **arm_template. JSON** znajdujący się w pliku zip, który został wyeksportowany w kroku 1.
+1. Wybierz pozycję **Załaduj plik**, a następnie wybierz wygenerowany szablon Menedżer zasobów. Jest to **arm_template.jsw** pliku znajdującym się w pliku zip, który został wyeksportowany w kroku 1.
 
    ![Edytuj szablon](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
@@ -212,7 +212,7 @@ Jeśli fabryka programistyczna ma skojarzone repozytorium git, można zastąpić
 * Używasz zautomatyzowanej ciągłej integracji/ciągłego dostarczania i chcesz zmienić niektóre właściwości podczas wdrażania Menedżer zasobów, ale właściwości nie są domyślnie sparametryzowane.
 * Fabryka jest tak duża, że domyślny szablon Menedżer zasobów jest nieprawidłowy, ponieważ ma więcej niż maksymalna dozwolona liczba parametrów (256).
 
-Aby zastąpić domyślny szablon parametryzacja, Utwórz plik o nazwie **ARM-template-parameters-Definition. JSON** w folderze głównym gałęzi git. Należy użyć tej dokładnej nazwy pliku.
+Aby zastąpić domyślny szablon parametryzacja, Utwórz plik o nazwie **arm-template-parameters-definition.js** w folderze głównym gałęzi git. Należy użyć tej dokładnej nazwy pliku.
 
    ![Plik parametrów niestandardowych](media/continuous-integration-deployment/custom-parameters.png)
 
@@ -225,7 +225,7 @@ Podczas eksportowania szablonu Menedżer zasobów, Data Factory odczytuje ten pl
 
 ### <a name="custom-parameter-syntax"></a>Składnia parametru niestandardowego
 
-Poniżej przedstawiono niektóre wskazówki, które należy wykonać podczas tworzenia pliku parametrów niestandardowych, **ARM-template-parameters-Definition. JSON**. Plik składa się z sekcji dla każdego typu jednostki: wyzwalacz, potok, połączona usługa, zestaw danych, środowisko Integration Runtime i przepływ danych.
+Poniżej przedstawiono niektóre wskazówki, które należy wykonać podczas tworzenia pliku parametrów niestandardowych **arm-template-parameters-definition.js**. Plik składa się z sekcji dla każdego typu jednostki: wyzwalacz, potok, połączona usługa, zestaw danych, środowisko Integration Runtime i przepływ danych.
 
 * Wprowadź ścieżkę właściwości pod odpowiednim typem jednostki.
 * Ustawienie nazwy właściwości na  `*` wskazuje, że chcesz Sparametryzuj wszystkie jej właściwości (tylko do pierwszego poziomu, a nie cyklicznie). Możesz również podać wyjątki dla tej konfiguracji.
@@ -305,7 +305,7 @@ Oto przykład tego, jak może wyglądać szablon parametryzacja:
 ```
 Poniżej przedstawiono wyjaśnienie sposobu konstruowania poprzedniego szablonu, podzielonego na typ zasobu.
 
-#### <a name="pipelines"></a>Pipelines
+#### <a name="pipelines"></a>Potoki
     
 * Wszystkie właściwości w ścieżce `activities/typeProperties/waitTimeInSeconds` są sparametryzowane. Wszystkie działania w potoku, który ma właściwość poziomu kodu o nazwie `waitTimeInSeconds` (na przykład `Wait` działanie), są sparametryzowane jako liczba z nazwą domyślną. Ale nie będzie on miał wartości domyślnej w szablonie Menedżer zasobów. Będzie to obowiązkowe wejście podczas wdrażania Menedżer zasobów.
 * Podobnie właściwość o nazwie `headers` (na przykład w `Web` działaniu) ma wartość sparametryzowane z typem `object` (JObject). Ma wartość domyślną, która jest taka sama jak wartość dla fabryki źródłowej.
@@ -422,6 +422,7 @@ Poniżej znajduje się bieżący domyślny szablon parametryzacja. Jeśli musisz
                     "systemNumber": "=",
                     "server": "=",
                     "url":"=",
+                    "functionAppUrl":"=",
                     "environmentUrl": "=",
                     "aadResourceId": "=",
                     "sasUri": "|:-sasUri:secureString",
@@ -574,9 +575,9 @@ W przypadku skonfigurowania usługi git połączone szablony są generowane i za
 
 ![Folder połączonych Menedżer zasobów szablonów](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-Połączone szablony Menedżer zasobów zwykle składają się z szablonu głównego i zestawu szablonów podrzędnych, które są połączone z serwerem głównym. Szablon nadrzędny ma nazwę ArmTemplate_master. JSON, a szablony podrzędne mają nazwę ze wzorcem ArmTemplate_0. JSON, ArmTemplate_1. JSON itd. 
+Połączone szablony Menedżer zasobów zwykle składają się z szablonu głównego i zestawu szablonów podrzędnych, które są połączone z serwerem głównym. Szablon nadrzędny ma nazwę ArmTemplate_master.json, a szablony podrzędne są nazwane przy użyciu wzorca ArmTemplate_0.json, ArmTemplate_1.json i tak dalej. 
 
-Aby użyć połączonych szablonów zamiast szablonu pełnego Menedżer zasobów, zaktualizuj zadanie ciągłej integracji/ciągłego dostarczania, aby wskazywało plik ArmTemplate_master. JSON zamiast ArmTemplateForFactory. JSON (szablon pełnego Menedżer zasobów). Menedżer zasobów wymaga również przekazania połączonych szablonów do konta magazynu, aby platforma Azure mogła uzyskać do nich dostęp podczas wdrażania. Aby uzyskać więcej informacji, zobacz [wdrażanie połączonych Menedżer zasobów szablonów przy użyciu programu VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Aby korzystać z szablonów połączonych zamiast szablonu pełnego Menedżer zasobów, zaktualizuj zadanie ciągłej integracji/ciągłego dostarczania, aby wskazywało ArmTemplate_master.js, zamiast ArmTemplateForFactory.json (pełny szablon Menedżer zasobów). Menedżer zasobów wymaga również przekazania połączonych szablonów do konta magazynu, aby platforma Azure mogła uzyskać do nich dostęp podczas wdrażania. Aby uzyskać więcej informacji, zobacz [wdrażanie połączonych Menedżer zasobów szablonów przy użyciu programu VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Pamiętaj, aby dodać skrypty Data Factory w potoku ciągłej integracji/ciągłego wdrażania przed i po wykonaniu zadania wdrożenia.
 
@@ -726,8 +727,10 @@ function triggerSortUtil {
         return;
     }
     $visited[$trigger.Name] = $true;
-    $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
-        triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+    if ($trigger.Properties.DependsOn) {
+        $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
+            triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+        }
     }
     $sortedList.Push($trigger)
 }

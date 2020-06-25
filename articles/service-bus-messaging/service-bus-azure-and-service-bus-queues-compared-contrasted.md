@@ -1,25 +1,14 @@
 ---
-title: Porównaj kolejki usługi Azure Storage i kolejki Service Bus
+title: Porównanie kolejek usług Azure Storage i Service Bus
 description: Analizuje różnice i podobieństwa między dwoma typami kolejek oferowanych przez platformę Azure.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
-ms.date: 09/04/2019
-ms.author: aschhab
-ms.openlocfilehash: ffa98e511053edc75fd0e6f25f7b0e21ee9ddda0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: a64000741de68518dd459b105a093ccf4cb6ab7b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414533"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337641"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Porównanie kolejek magazynu i kolejek usługi Service Bus
 Ten artykuł analizuje różnice i podobieństwa między dwoma typami kolejek oferowanych przez Microsoft Azure Dzisiaj: kolejkami magazynu i kolejkami Service Bus. Korzystając z tych informacji, można porównać i rozróżnić odpowiednie technologie i mieć możliwość podejmowania bardziej świadomej decyzji o tym, które rozwiązanie najlepiej odpowiada Twoim potrzebom.
@@ -52,7 +41,7 @@ Jako architekt rozwiązań/deweloper należy **rozważyć użycie kolejek Servic
 * Aplikacja ma przetwarzać komunikaty jako Parallel długotrwałe strumienie (komunikaty są skojarzone ze strumieniem przy użyciu właściwości [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) w komunikacie). W tym modelu każdy węzeł w aplikacji zużywanej konkuruje o strumienie, w przeciwieństwie do komunikatów. Gdy strumień jest przyznany w węźle zużywanym, węzeł może przeanalizować stan strumienia aplikacji przy użyciu transakcji.
 * Twoje rozwiązanie wymaga transakcyjnego zachowania i niepodzielności podczas wysyłania lub otrzymywania wielu komunikatów z kolejki.
 * Aplikacja obsługuje komunikaty, które mogą przekraczać 64 KB, ale prawdopodobnie nie zbliża się do limitu 256 KB.
-* Istnieje wymóg, aby zapewnić model dostępu oparty na rolach dla kolejek i różne prawa/uprawnienia dla nadawców i odbiorników. Aby uzyskać więcej informacji zobacz następujące artykuły:
+* Istnieje wymóg, aby zapewnić model dostępu oparty na rolach dla kolejek i różne prawa/uprawnienia dla nadawców i odbiorników. Aby uzyskać więcej informacji, zobacz następujące artykuły:
     - [Uwierzytelnianie przy użyciu tożsamości zarządzanych](service-bus-managed-service-identity.md)
     - [Uwierzytelnianie przy użyciu aplikacji](authenticate-application.md)
 * Rozmiar kolejki nie przekroczy 80 GB.
@@ -154,10 +143,10 @@ W tej sekcji porównano funkcje zarządzania udostępniane przez kolejki magazyn
 | Protokół zarządzania |**REST za pośrednictwem protokołu HTTP/HTTPS** |**REST za pośrednictwem protokołu HTTPS** |
 | Protokół uruchomieniowy |**REST za pośrednictwem protokołu HTTP/HTTPS** |**REST za pośrednictwem protokołu HTTPS**<br/><br/>**AMQP 1,0 Standard (TCP z TLS)** |
 | Interfejs API .NET |**Tak**<br/><br/>(Interfejs API klienta usługi Storage) |**Tak**<br/><br/>(.NET Service Bus API) |
-| Natywny C++ |**Tak** |**Tak** |
+| Natywny język C++ |**Tak** |**Tak** |
 | Interfejs API języka Java |**Tak** |**Tak** |
 | INTERFEJS API PHP |**Tak** |**Tak** |
-| Interfejs API środowiska Node. js |**Tak** |**Tak** |
+| Interfejs API Node.js |**Tak** |**Tak** |
 | Dowolna Obsługa metadanych |**Tak** |**Nie** |
 | Reguły nazewnictwa kolejek |**Do 63 znaków**<br/><br/>(Litery w nazwie kolejki muszą być małymi literami). |**Do 260 znaków**<br/><br/>(W ścieżkach i nazwach kolejek nie jest rozróżniana wielkość liter). |
 | Pobierz funkcję długości kolejki |**Tak**<br/><br/>(Przybliżona wartość, Jeśli komunikaty wygasną poza czasem wygaśnięcia, bez usuwania). |**Tak**<br/><br/>(Dokładnie wartość wskazywana przez punkt w czasie). |
@@ -175,7 +164,7 @@ W tej sekcji omówiono funkcje uwierzytelniania i autoryzacji obsługiwane przez
 
 | Kryteria porównania | Kolejki magazynu | Kolejki usługi Service Bus |
 | --- | --- | --- |
-| Uwierzytelnianie |**Klucz symetryczny** |**Klucz symetryczny** |
+| Authentication |**Klucz symetryczny** |**Klucz symetryczny** |
 | Model zabezpieczeń |Delegowany dostęp za pośrednictwem tokenów SAS. |SYGNATUR |
 | Federacja dostawcy tożsamości |**Nie** |**Tak** |
 

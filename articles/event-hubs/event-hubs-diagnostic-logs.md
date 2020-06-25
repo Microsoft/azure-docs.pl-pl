@@ -1,25 +1,14 @@
 ---
 title: Konfigurowanie dzienników diagnostycznych — centrum zdarzeń Azure | Microsoft Docs
 description: Informacje na temat konfigurowania dzienników aktywności i dzienników diagnostycznych dla centrów zdarzeń na platformie Azure.
-keywords: ''
-documentationcenter: ''
-services: event-hubs
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
 ms.topic: article
-ms.workload: data-services
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 30ce33adc8e33f8da67c745b52681d171e97db8d
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 976d8a7127438164c8b807b6f14d3ae877f44b65
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299062"
+ms.locfileid: "85322464"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurowanie dzienników diagnostycznych na potrzeby centrum zdarzeń platformy Azure
 

@@ -1,26 +1,16 @@
 ---
 title: Korzystanie z kolejek Azure Service Bus przy użyciu języka Java
 description: W ramach tego samouczka nauczysz się tworzyć aplikacje Java do wysyłania komunikatów do i odbierania komunikatów z kolejki Azure Service Bus.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: f701439c-553e-402c-94a7-64400f997d59
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 224a5ce0a2c8a7fc031f1ad3314e4d8889966433
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 86097603b8b17b0e474cef4b57171bb51d5a1420
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788301"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85338073"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Szybki Start: korzystanie z kolejek Azure Service Bus w języku Java do wysyłania i odbierania wiadomości
 
@@ -129,7 +119,7 @@ Ponieważ Service Bus oznaczył komunikat jako używany, wtedy, gdy aplikacja zo
 
 W trybie **PeekLock** , odbieranie staje się operacją dwuetapową, co umożliwia obsługę aplikacji, które nie mogą tolerować brakujących komunikatów. Gdy usługa Service Bus odbiera żądanie, znajduje następny komunikat do wykorzystania, blokuje go w celu uniemożliwienia innym klientom odebrania go i zwraca go do aplikacji. Gdy aplikacja zakończy przetwarzanie komunikatu (lub zapisuje ją w sposób niezawodny w przyszłości), kończy drugi etap procesu odbierania, wywołując metodę **Complete ()** dla odebranego komunikatu. Gdy Service Bus widzi **kompletne ()** wywołanie, oznacza komunikat jako używany i usuń go z kolejki. 
 
-W poniższym przykładzie pokazano, jak można odbierać i przetwarzać komunikaty przy użyciu trybu **PeekLock** (a nie trybu domyślnego). W poniższym przykładzie zastosowano model wywołania zwrotnego z zarejestrowaną obsługą komunikatów i przetwarza komunikaty w `TestQueue`miarę ich przybycia do naszej firmy. Ten tryb wywołuje **pełny ()** automatycznie, gdy wywołanie zwrotne zwraca się normalnie i wywołuje metodę **Abandon ()** , jeśli wywołanie zwrotne zgłasza wyjątek. 
+W poniższym przykładzie pokazano, jak można odbierać i przetwarzać komunikaty przy użyciu trybu **PeekLock** (a nie trybu domyślnego). W poniższym przykładzie zastosowano model wywołania zwrotnego z zarejestrowaną obsługą komunikatów i przetwarza komunikaty w miarę ich przybycia do naszej firmy `TestQueue` . Ten tryb wywołuje **pełny ()** automatycznie, gdy wywołanie zwrotne zwraca się normalnie i wywołuje metodę **Abandon ()** , jeśli wywołanie zwrotne zgłasza wyjątek. 
 
 ```java
     public void run() throws Exception {

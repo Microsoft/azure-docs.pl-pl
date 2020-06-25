@@ -1,19 +1,19 @@
 ---
 title: Importowanie danych do indeksu wyszukiwania przy użyciu Azure Portal
 titleSuffix: Azure Cognitive Search
-description: Dowiedz się, jak za pomocą Kreatora importu danych w Azure Portal przeszukiwać dane platformy Azure z Cosmos DB, BLOB Storage, Table Storage, SQL Database i SQL Server na maszynach wirtualnych platformy Azure.
+description: Dowiedz się, jak za pomocą Kreatora importu danych w Azure Portal przeszukiwać dane platformy Azure z Cosmos DB, BLOB Storage, Table Storage, SQL Database, wystąpienia zarządzanego SQL i SQL Server na maszynach wirtualnych platformy Azure.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460700"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321385"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Kreator importu danych dla platformy Azure Wyszukiwanie poznawcze
 
@@ -61,14 +61,14 @@ Można importować tylko z pojedynczej tabeli, widoku bazy danych lub równoważ
 
 Przed uruchomieniem kreatora należy utworzyć pojedynczą tabelę lub widok i musi on zawierać zawartość. Z oczywistych powodów nie ma sensu uruchamiania kreatora **importowania danych** w pustym źródle danych.
 
-|  Wybór | Opis |
+|  Zaznaczenie | Opis |
 | ---------- | ----------- |
 | **Istniejące źródło danych** |Jeśli masz już zdefiniowane indeksatory w usłudze wyszukiwania, być może masz istniejącą definicję źródła danych, której można użyć ponownie. Na platformie Azure Wyszukiwanie poznawcze obiekty źródła danych są używane tylko przez indeksatory. Obiekt źródła danych można utworzyć programowo lub za pomocą kreatora **importu danych** i ponownie użyć ich w razie konieczności.|
 | **Samples**| Usługa Azure Wyszukiwanie poznawcze oferuje dwa wbudowane przykładowe źródła danych, które są używane w samouczkach i przewodnikach szybki start: w przypadku bazy danych SQL w wersji rzeczywistej i w hotelach, która jest hostowana na Cosmos DB. Aby zapoznać się z przykładem dotyczącym hoteli, zobacz [Tworzenie indeksu w Azure Portal](search-get-started-portal.md) Szybki Start. |
-| [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Nazwę usługi, poświadczenia użytkownika z uprawnieniem do odczytu bazy danych i nazwę bazy danych można określić na stronie lub przy użyciu parametrów połączenia ADO.NET. Wybierz opcję parametrów połączenia, aby wyświetlić lub dostosować właściwości. <br/><br/>Na stronie należy określić tabelę lub widok zawierające zestaw wierszy. Ta opcja jest dostępna po udanym nawiązaniu połączenia. Pojawia się wtedy lista rozwijana, z której można dokonać wyboru.|
+| [**Wystąpienie zarządzane Azure SQL Database lub SQL**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Nazwę usługi, poświadczenia użytkownika z uprawnieniem do odczytu bazy danych i nazwę bazy danych można określić na stronie lub przy użyciu parametrów połączenia ADO.NET. Wybierz opcję parametrów połączenia, aby wyświetlić lub dostosować właściwości. <br/><br/>Na stronie należy określić tabelę lub widok zawierające zestaw wierszy. Ta opcja jest dostępna po udanym nawiązaniu połączenia. Pojawia się wtedy lista rozwijana, z której można dokonać wyboru.|
 | **Program SQL Server na maszynie wirtualnej platformy Azure** |Określ w pełni kwalifikowaną nazwę usługi, identyfikator użytkownika i hasło oraz bazę danych jako parametry połączenia. Aby użyć tego źródła danych, należy wcześniej zainstalować w magazynie lokalnym certyfikat szyfrujący połączenie. Aby uzyskać instrukcje, zobacz [połączenie maszyny wirtualnej SQL z platformą Azure wyszukiwanie poznawcze](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>Na stronie należy określić tabelę lub widok zawierające zestaw wierszy. Ta opcja jest dostępna po udanym nawiązaniu połączenia. Pojawia się wtedy lista rozwijana, z której można dokonać wyboru. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Wymagane jest konto, baza danych i kolekcja. Wszystkie dokumenty w kolekcji zostaną uwzględnione w indeksie. Można zdefiniować zapytanie, aby spłaszczyć lub filtrować zestaw wierszy, lub pozostawić zapytanie puste. Zapytanie nie jest wymagane w tym kreatorze.|
-| [**Blob Storage platformy Azure**](search-howto-indexing-azure-blob-storage.md) |Wymagane jest miedzy innymi konto magazynu i kontener. Opcjonalnie, jeśli nazwa obiektu blob jest zgodna z konwencją nazw wirtualnych do celów grupowania, można określić część nazwy oznaczającą katalog wirtualny jako folder w kontenerze. Więcej informacji zawiera artykuł [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md) (Indeksowanie w usłudze Blob Storage). |
+| [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Wymagane jest miedzy innymi konto magazynu i kontener. Opcjonalnie, jeśli nazwa obiektu blob jest zgodna z konwencją nazw wirtualnych do celów grupowania, można określić część nazwy oznaczającą katalog wirtualny jako folder w kontenerze. Więcej informacji zawiera artykuł [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md) (Indeksowanie w usłudze Blob Storage). |
 | [**Azure Table Storage**](search-howto-indexing-azure-tables.md) |Wymagane jest miedzy innymi konto magazynu i nazwa tabeli. Opcjonalnie można określić zapytanie w celu pobrania podzbioru tabel. Więcej informacji zawiera artykuł [Indexing Table Storage](search-howto-indexing-azure-tables.md) (Indeksowanie w usłudze Table Storage). |
 
 ## <a name="wizard-output"></a>Dane wyjściowe kreatora
@@ -93,7 +93,7 @@ Kreator importu danych jest uruchamiany z paska poleceń na stronie Przegląd us
 
    ![Importuj dane — polecenie w portalu](./media/search-import-data-portal/import-data-cmd2.png "Uruchamianie kreatora importu danych")
 
-Możesz również uruchomić **Importowanie danych** z innych usług platformy Azure, w tym Azure Cosmos DB, Azure SQL Database i usługi Azure Blob Storage. Znajdź przycisk **dodaj wyszukiwanie poznawcze platformy Azure** w okienku nawigacji po lewej stronie Przegląd usługi.
+Możesz również uruchomić **Importowanie danych** z innych usług platformy Azure, w tym Azure Cosmos DB, Azure SQL Database, wystąpienia zarządzanego SQL i usługi Azure Blob Storage. Znajdź przycisk **dodaj wyszukiwanie poznawcze platformy Azure** w okienku nawigacji po lewej stronie Przegląd usługi.
 
 <a name="index-definition"></a>
 
@@ -105,7 +105,7 @@ Kreator generuje niekompletny indeks, który zostanie wypełniony dokumentami uz
 
 1. Czy dane są odpowiednie dla danych przychodzących? Usługa Azure Wyszukiwanie poznawcze obsługuje [typy danych Entity Data Model (EDM)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). W przypadku danych SQL Azure istnieje [Mapowanie wykresu](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) , który określa równoważne wartości. Aby uzyskać więcej informacji, zobacz [mapowania pól i przekształcenia](search-indexer-field-mappings.md).
 
-1. Czy masz jedno pole, które może być *kluczem*? To pole musi mieć wartość EDM. String i musi jednoznacznie identyfikować dokument. Dane relacyjne mogą być mapowane na klucz podstawowy. W przypadku obiektów BLOB może to być `metadata-storage-path`. Jeśli wartości pola zawierają spacje lub kreski, należy ustawić opcję **kodowania Base-64** w kroku **Utwórz indeksator** w obszarze **Opcje zaawansowane**, aby pominąć sprawdzanie poprawności tych znaków.
+1. Czy masz jedno pole, które może być *kluczem*? To pole musi mieć wartość EDM. String i musi jednoznacznie identyfikować dokument. Dane relacyjne mogą być mapowane na klucz podstawowy. W przypadku obiektów BLOB może to być `metadata-storage-path` . Jeśli wartości pola zawierają spacje lub kreski, należy ustawić opcję **kodowania Base-64** w kroku **Utwórz indeksator** w obszarze **Opcje zaawansowane**, aby pominąć sprawdzanie poprawności tych znaków.
 
 1. Ustaw atrybuty, aby określić, jak to pole jest używane w indeksie. 
 

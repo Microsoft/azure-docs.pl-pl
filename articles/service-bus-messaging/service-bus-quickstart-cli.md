@@ -1,20 +1,17 @@
 ---
 title: Szybki start — używanie interfejsu wiersza polecenia do tworzenia kolejki usługi Service Bus | Microsoft Docs
 description: W tym przewodniku Szybki start dowiesz się, jak utworzyć kolejkę usługi Service Bus przy użyciu interfejsu wiersza polecenia platformy Azure. Następnie użyjesz przykładowej aplikacji Java, aby wysyłać komunikaty do kolejki i odbierać komunikaty z kolejki.
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/10/2019
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ed09a72fd5eed72e7a07fefed53bf010a543b658
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "66400257"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337396"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Szybki Start: Tworzenie kolejki Service Bus przy użyciu interfejsu wiersza polecenia platformy Azure
 W tym przewodniku Szybki start opisano, jak wysyłać i odbierać komunikaty za pomocą usługi Service Bus przy użyciu interfejsu wiersza polecenia Azure oraz biblioteki Java usługi Service Bus. Jeśli interesują Cię inne szczegóły techniczne, możesz [przeczytać wyjaśnienie](#understand-the-sample-code) dotyczące kluczowych elementów przykładowego kodu.

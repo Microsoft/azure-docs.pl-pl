@@ -3,16 +3,16 @@ title: Tworzenie pierwszego zautomatyzowanego przepływu pracy
 description: Szybki Start — Tworzenie pierwszego zautomatyzowanego przepływu pracy przy użyciu Azure Logic Apps na potrzeby rozwiązań integracji systemu i integracji aplikacji w przedsiębiorstwie (EAI)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 555230499ebda106cbca616b779ae632d65349ab
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 0b3559a27fe9fae6c34b07c648a289d205560bd8
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84807871"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321585"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Szybki Start: Tworzenie pierwszego przepływu pracy przy użyciu Azure Logic Apps-Azure Portal
 
@@ -74,13 +74,13 @@ Następnie dodaj [wyzwalacz](../logic-apps/logic-apps-overview.md#logic-app-conc
 
    ![Wybierz wyzwalacz "gdy element kanału informacyjnego jest opublikowany"](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. Podaj te informacje dla wyzwalacza, jak pokazano i opisano tutaj:
+1. Podaj informacje dla wyzwalacza zgodnie z opisem w tabeli:
 
    ![Konfigurowanie kanału informacyjnego RSS, częstotliwości i interwału dla wyzwalacza](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
-   | **Adres URL źródła danych RSS** | `http://feeds.reuters.com/reuters/topNews` | Link do źródła danych RSS, które chcesz monitorować |
+   | **Adres URL źródła danych RSS** | <*RSS-źródło — adres URL*> | Link do źródła danych RSS, które chcesz monitorować. Ten przykład używa `http://feeds.reuters.com/reuters/topNews` . |
    | **Dat** | 1 | Liczba interwałów do odczekania między sprawdzaniami |
    | **Częstotliwość** | Minuta | Jednostka czasu dla każdego interwału między sprawdzaniami  |
    ||||
@@ -171,7 +171,7 @@ Technicznie, gdy wyzwalacz sprawdza kanał informacyjny RSS i odnajduje nowe ele
 
 Gratulacje, udało Ci się pomyślnie skompilować i uruchomić swoją pierwszą aplikację logiki przy użyciu Azure Portal.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy ten przykład nie będzie już potrzebny, usuń grupę zasobów zawierającą aplikację logiki i powiązane zasoby.
 

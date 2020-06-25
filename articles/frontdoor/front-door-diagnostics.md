@@ -6,17 +6,17 @@ documentationcenter: ''
 author: sharad4u
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: how-to
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 7939daf97309d5026fd24732cd922e47c2b16812
-ms.sourcegitcommit: 24f31287b6a526e23ff5b5469113522d1ccd4467
+ms.openlocfilehash: f57c0353989cfcf924042d202bd80a57b476507b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84743630"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322311"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitorowanie metryk i dzienników na platformie Azure — drzwiczki
 
@@ -88,6 +88,7 @@ Drzwi z przodu zawierają obecnie dzienniki diagnostyczne (wsadowe co godzinę).
 | RequestUri | Identyfikator URI odebranego żądania. |
 | ResponseBytes | Bajty wysłane przez serwer wewnętrznej bazy danych jako odpowiedź.  |
 | RoutingRuleName | Nazwa reguły routingu, która pasuje do żądania. |
+| RulesEngineMatchNames | Nazwy reguł, które pasują do żądania. |
 | To elementu SecurityProtocol | Wersja protokołu TLS/SSL używana przez żądanie lub wartość null, jeśli nie ma szyfrowania. |
 | SentToOriginShield | Pole logiczne reprezentujące, czy podczas pierwszego środowiska wystąpił chybień w pamięci podręcznej, a żądanie zostało wysłane do regionalnej pamięci podręcznej. Zignoruj to pole, jeśli reguła routingu jest przekierowaniem lub gdy buforowanie nie jest włączone. |
 | TimeTaken | Czas trwania akcji (w milisekundach). |

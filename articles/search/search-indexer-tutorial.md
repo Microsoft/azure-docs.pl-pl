@@ -1,23 +1,23 @@
 ---
 title: Samouczek języka C# — indeksowanie danych usługi Azure SQL
 titleSuffix: Azure Cognitive Search
-description: W tym samouczku w języku C# Nawiąż połączenie z usługą Azure SQL Database, Wyodrębnij dane z możliwością wyszukiwania i załaduj je do indeksu Wyszukiwanie poznawcze platformy Azure.
+description: W tym samouczku C# Połącz się z Azure SQL Database, Wyodrębnij dane z możliwością wyszukiwania i załaduj je do indeksu Wyszukiwanie poznawcze platformy Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: cf0c2c75b795fcca347439714e163d4022b79fa4
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: c2972d13b25d167c2144c4f66e36822e85e29690
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261022"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321002"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Samouczek: indeksowanie danych usługi Azure SQL przy użyciu zestawu .NET SDK
 
-Skonfiguruj [indeksator](search-indexer-overview.md) , aby wyodrębnić dane z możliwością wyszukiwania z usługi Azure SQL Database, wysyłając je do indeksu wyszukiwania w usłudze Azure wyszukiwanie poznawcze. 
+Skonfiguruj [indeksator](search-indexer-overview.md) , aby wyodrębnić dane możliwe do przeszukania z Azure SQL Database, wysyłając je do indeksu wyszukiwania w usłudze Azure wyszukiwanie poznawcze. 
 
 Ten samouczek używa języka C# i [zestawu SDK platformy .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search) do wykonywania następujących zadań:
 
@@ -144,7 +144,7 @@ Schemat może również obejmować inne elementy, w tym profile oceniania na pot
 
 Program główny zawiera logikę tworzenia klienta, indeksu, źródła danych i indeksatora. Kod sprawdza i usuwa istniejące zasoby o tej samej nazwie, przy założeniu, że ten program może być uruchamiany wiele razy.
 
-Obiekt źródła danych jest skonfigurowany z ustawieniami specyficznymi dla zasobów usługi Azure SQL Database, w tym [częściowym lub przyrostowym indeksem](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) , korzystającym z wbudowanych [funkcji wykrywania zmian](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) usługi Azure SQL. Baza danych hoteli demonstracyjna w usłudze Azure SQL zawiera kolumnę "Usuwanie trwałe" o nazwie **IsDeleted**. Gdy ta kolumna ma wartość true w bazie danych, indeksator usuwa odpowiedni dokument z indeksu Wyszukiwanie poznawcze platformy Azure.
+Obiekt źródła danych jest skonfigurowany przy użyciu ustawień, które są specyficzne dla Azure SQL Database zasobów, w tym [częściowe lub przyrostowe indeksowanie](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) w celu użycia wbudowanych [funkcji wykrywania zmian](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) w usłudze Azure SQL. Baza danych hoteli demonstracyjna w usłudze Azure SQL zawiera kolumnę "Usuwanie trwałe" o nazwie **IsDeleted**. Gdy ta kolumna ma wartość true w bazie danych, indeksator usuwa odpowiedni dokument z indeksu Wyszukiwanie poznawcze platformy Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -242,7 +242,7 @@ Przykładowy kod dla tego samouczka sprawdza istniejące obiekty i usuwa je, aby
 
 Możesz również użyć portalu, aby usunąć indeksy, indeksatory i źródła danych.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy Pracujesz w ramach własnej subskrypcji, na końcu projektu warto usunąć zasoby, które nie są już potrzebne. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 
@@ -253,4 +253,4 @@ Zasoby można znaleźć w portalu i zarządzać nimi za pomocą linku wszystkie 
 Teraz, gdy znasz już podstawy indeksowania SQL Database, przyjrzyjmy się bliżej konfiguracji indeksatora.
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie indeksatora usługi Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Konfigurowanie indeksatora bazy danych SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

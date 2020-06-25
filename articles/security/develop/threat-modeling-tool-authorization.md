@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 75bbce0f1e9787e55880ccac80dacb5457e1f2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56afed264facb6a02040cef01cd5d5d41526ec49
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68728383"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85322670"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Ramka zabezpieczeń: Autoryzacja | Środki zaradcze 
 | Produkt/usługa | Artykuł |
 | --------------- | ------- |
 | **Granica zaufania maszyny** | <ul><li>[Upewnij się, że skonfigurowano odpowiednie listy ACL, aby ograniczyć nieautoryzowany dostęp do danych na urządzeniu](#acl-restricted-access)</li><li>[Upewnij się, że zawartość aplikacji specyficznej dla użytkownika jest przechowywana w katalogu profilu użytkownika](#sensitive-directory)</li><li>[Upewnij się, że wdrożone aplikacje są uruchamiane z najniższymi uprawnieniami](#deployed-privileges)</li></ul> |
 | **Aplikacja sieci Web** | <ul><li>[Wymuszaj kolejność kolejnych etapów podczas przetwarzania przepływów logiki biznesowej](#sequential-logic)</li><li>[Zaimplementuj mechanizm ograniczania szybkości, aby zapobiec wyliczeniu](#rate-enumeration)</li><li>[Upewnij się, że jest stosowana właściwa autoryzacja, a zasada najniższych uprawnień jest wykonywana](#principle-least-privilege)</li><li>[Decyzja o logice biznesowej i autoryzacji dostępu do zasobów nie powinna być oparta na przychodzących parametrach żądania](#logic-request-parameters)</li><li>[Upewnij się, że zawartość i zasoby nie są wyliczalne lub niedostępne za pośrednictwem przeglądania wymuszania](#enumerable-browsing)</li></ul> |
-| **Database** | <ul><li>[Aby nawiązać połączenie z serwerem bazy danych, należy się upewnić, że są używane konta z najniższymi uprawnieniami](#privileged-server)</li><li>[Zaimplementuj zabezpieczenia na poziomie wiersza zabezpieczeń, aby uniemożliwić dzierżawcom uzyskiwanie dostępu do wszystkich danych](#rls-tenants)</li><li>[Rola sysadmin powinna mieć tylko prawidłowych wymaganych użytkowników](#sysadmin-users)</li></ul> |
+| **Baza danych** | <ul><li>[Aby nawiązać połączenie z serwerem bazy danych, należy się upewnić, że są używane konta z najniższymi uprawnieniami](#privileged-server)</li><li>[Zaimplementuj zabezpieczenia na poziomie wiersza zabezpieczeń, aby uniemożliwić dzierżawcom uzyskiwanie dostępu do wszystkich danych](#rls-tenants)</li><li>[Rola sysadmin powinna mieć tylko prawidłowych wymaganych użytkowników](#sysadmin-users)</li></ul> |
 | **Brama usługi IoT Cloud** | <ul><li>[Nawiązywanie połączenia z bramą w chmurze przy użyciu tokenów z najniższymi uprawnieniami](#cloud-least-privileged)</li></ul> |
 | **Centrum zdarzeń Azure** | <ul><li>[Użyj klucza sygnatury dostępu współdzielonego tylko do wysyłania do generowania tokenów urządzeń](#sendonly-sas)</li><li>[Nie używaj tokenów dostępu zapewniających bezpośredni dostęp do centrum zdarzeń](#access-tokens-hub)</li><li>[Łączenie z centrum zdarzeń przy użyciu kluczy SAS, które mają minimalne wymagane uprawnienia](#sas-minimum-permissions)</li></ul> |
 | **Baza danych dokumentów platformy Azure** | <ul><li>[Użyj tokenów zasobów do łączenia się z Azure Cosmos DB, jeśli to możliwe](#resource-docdb)</li></ul> |
@@ -35,7 +35,7 @@ ms.locfileid: "68728383"
 | **Service Fabric granic zaufania** | <ul><li>[Ograniczanie dostępu klienta do operacji klastra przy użyciu RBAC](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Przeprowadzenie modelowania zabezpieczeń i użycie zabezpieczeń na poziomie pola, gdy jest to wymagane](#modeling-field)</li></ul> |
 | **Portal programu Dynamics CRM** | <ul><li>[Należy przeprowadzić modelowanie zabezpieczeń kont portalu, pamiętając, że model zabezpieczeń portalu różni się od reszty programu CRM](#portal-security)</li></ul> |
-| **Usługa Azure Storage** | <ul><li>[Przyznawanie szczegółowych uprawnień dla zakresu jednostek w usłudze Azure Table Storage](#permission-entities)</li><li>[Włączanie Access Control opartego na rolach (RBAC) do konta usługi Azure Storage przy użyciu Azure Resource Manager](#rbac-azure-manager)</li></ul> |
+| **Azure Storage** | <ul><li>[Przyznawanie szczegółowych uprawnień dla zakresu jednostek w usłudze Azure Table Storage](#permission-entities)</li><li>[Włączanie Access Control opartego na rolach (RBAC) do konta usługi Azure Storage przy użyciu Azure Resource Manager](#rbac-azure-manager)</li></ul> |
 | **Klient mobilny** | <ul><li>[Implementowanie niejawnego wykrywania Zdjęcia zabezpieczeń systemu lub korzenia](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[Słabe odwołanie do klasy w programie WCF](#weak-class-wcf)</li><li>[WCF — implementowanie kontroli autoryzacji](#wcf-authz)</li></ul> |
 | **Interfejs API sieci Web** | <ul><li>[Implementowanie właściwego mechanizmu autoryzacji w interfejsie API sieci Web ASP.NET](#authz-aspnet)</li></ul> |
@@ -136,7 +136,7 @@ Teraz możliwa osoba atakująca nie może modyfikować i zmieniać operacji apli
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
 | **Dokumentacja**              | Nie dotyczy  |
-| **Czynnooci** | <p>Poufne pliki statyczne i konfiguracyjne nie powinny być przechowywane w katalogu głównym sieci Web. W przypadku zawartości, która nie musi być publiczna, należy zastosować odpowiednie metody kontroli dostępu lub usunąć samą zawartość.</p><p>Ponadto wymuszenie przeglądania jest zwykle połączone z technikami z oddziałami, aby zebrać informacje, próbując uzyskać dostęp do możliwie największej liczby adresów URL w celu wyliczenia katalogów i plików na serwerze. Osoby atakujące mogą sprawdzić wszystkie odmiany często istniejących plików. Na przykład wyszukiwanie plików z hasłem będzie obejmować pliki, w tym psswd. txt, Password. htm, Password. dat i inne różnice.</p><p>Aby wyeliminować ten problem, należy uwzględnić możliwości wykrywania prób wymuszenia.</p>|
+| **Czynnooci** | <p>Poufne pliki statyczne i konfiguracyjne nie powinny być przechowywane w katalogu głównym sieci Web. W przypadku zawartości, która nie musi być publiczna, należy zastosować odpowiednie metody kontroli dostępu lub usunąć samą zawartość.</p><p>Ponadto wymuszenie przeglądania jest zwykle połączone z technikami z oddziałami, aby zebrać informacje, próbując uzyskać dostęp do możliwie największej liczby adresów URL w celu wyliczenia katalogów i plików na serwerze. Osoby atakujące mogą sprawdzić wszystkie odmiany często istniejących plików. Na przykład wyszukiwanie plików z hasłem będzie obejmować pliki, w tym psswd.txt, password.htm, Password. dat i inne różnice.</p><p>Aby wyeliminować ten problem, należy uwzględnić możliwości wykrywania prób wymuszenia.</p>|
 
 ## <a name="ensure-that-least-privileged-accounts-are-used-to-connect-to-database-server"></a><a id="privileged-server"></a>Aby nawiązać połączenie z serwerem bazy danych, należy się upewnić, że są używane konta z najniższymi uprawnieniami
 
@@ -146,7 +146,7 @@ Teraz możliwa osoba atakująca nie może modyfikować i zmieniać operacji apli
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Dokumentacja**              | [Hierarchia uprawnień SQL Database](https://msdn.microsoft.com/library/ms191465), [Zabezpieczanie bazy danych SQL](https://msdn.microsoft.com/library/ms190401) |
+| **Dokumentacja**              | [Hierarchia uprawnień SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), zabezpieczenia [SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Czynnooci** | Do nawiązania połączenia z bazą danych należy używać kont z najniższymi uprawnieniami. Logowanie do aplikacji powinno być ograniczone w bazie danych i należy wykonać tylko wybrane procedury składowane. Logowanie aplikacji nie powinno mieć bezpośredniego dostępu do tabeli. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>Zaimplementuj zabezpieczenia na poziomie wiersza zabezpieczeń, aby uniemożliwić dzierżawcom uzyskiwanie dostępu do wszystkich danych
@@ -160,7 +160,7 @@ Teraz możliwa osoba atakująca nie może modyfikować i zmieniać operacji apli
 | **Dokumentacja**              | [Zabezpieczenia na poziomie wiersza SQL Server](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Czynnooci** | <p>Zabezpieczenia na poziomie wiersza umożliwiają klientom kontrolowanie dostępu do wierszy w tabeli bazy danych na podstawie właściwości użytkownika wykonującego zapytanie (np. członkostwa w grupie lub kontekstu wykonania).</p><p>Zabezpieczenia na poziomie wiersza upraszczają projektowanie i kodowanie zabezpieczeń w aplikacji. Zabezpieczenia na poziomie wiersza umożliwiają zaimplementowanie ograniczeń w dostępie do wiersza danych. Możliwe jest na przykład zapewnienie, że pracownicy mają dostęp tylko do tych wierszy danych, które są odpowiednie do ich działu, lub ograniczenie dostępu do danych klienta tylko do danych odpowiednich dla firmy.</p><p>Logika ograniczeń dostępu znajduje się w warstwie bazy danych, a nie na danych w innej warstwie aplikacji. System bazy danych stosuje ograniczenia dostępu za każdym razem, gdy próbuje się uzyskać dostęp do danych z dowolnej warstwy. Dzięki temu system zabezpieczeń jest bardziej niezawodny i niezawodny poprzez zmniejszenie powierzchni systemu zabezpieczeń.</p><p>|
 
-Należy pamiętać, że na poziomie wiersza jako gotowy do użycia funkcja bazy danych ma zastosowanie tylko do SQL Server uruchamiania 2016 i usługi Azure SQL Database. Jeśli Wbudowana funkcja nie jest zaimplementowana, należy upewnić się, że dostęp do danych jest ograniczony przy użyciu widoków i procedur
+Należy pamiętać, że na poziomie wiersza jako gotowy do użycia funkcja bazy danych ma zastosowanie tylko do SQL Server począwszy od 2016, Azure SQL Database i wystąpienia zarządzanego SQL. Jeśli Wbudowana funkcja nie jest zaimplementowana, należy upewnić się, że dostęp do danych jest ograniczony przy użyciu widoków i procedur
 
 ## <a name="sysadmin-role-should-only-have-valid-necessary-users"></a><a id="sysadmin-users"></a>Rola sysadmin powinna mieć tylko prawidłowych wymaganych użytkowników
 
@@ -170,7 +170,7 @@ Należy pamiętać, że na poziomie wiersza jako gotowy do użycia funkcja bazy 
 | **Faza SDL**               | Kompilacja |  
 | **Odpowiednie technologie** | Ogólny |
 | **Atrybuty**              | Nie dotyczy  |
-| **Dokumentacja**              | [Hierarchia uprawnień SQL Database](https://msdn.microsoft.com/library/ms191465), [Zabezpieczanie bazy danych SQL](https://msdn.microsoft.com/library/ms190401) |
+| **Dokumentacja**              | [Hierarchia uprawnień SQL](https://docs.microsoft.com/sql/relational-databases/security/permissions-hierarchy-database-engine), zabezpieczenia [SQL](https://docs.microsoft.com/sql/relational-databases/security/securables) |
 | **Czynnooci** | Członkowie stałej roli serwera sysadmin muszą mieć bardzo ograniczoną i nigdy nie zawierać kont używanych przez aplikacje.  Przejrzyj listę użytkowników w roli i Usuń wszelkie niepotrzebne konta|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>Nawiązywanie połączenia z bramą w chmurze przy użyciu tokenów z najniższymi uprawnieniami
@@ -327,10 +327,10 @@ W `<behaviorExtensions/>` poniższym elemencie pliku konfiguracji WCF nakazuje p
     </extensions>
 </system.serviceModel>
 ```
-Używanie w pełni kwalifikowanych (silnie) nazw jednoznacznie identyfikuje typ i zwiększa bezpieczeństwo systemu. Użyj w pełni kwalifikowanych nazw zestawów podczas rejestrowania typów w plikach Machine. config i App. config.
+Używanie w pełni kwalifikowanych (silnie) nazw jednoznacznie identyfikuje typ i zwiększa bezpieczeństwo systemu. Używaj w pełni kwalifikowanych nazw zestawów podczas rejestrowania typów w plikach machine.config i app.config.
 
 ### <a name="example"></a>Przykład
-Poniższy `<behaviorExtensions/>` element pliku konfiguracji WCF instruuje program WCF, aby dodał niestandardową klasę zachowań, do której istnieje odwołanie do określonego rozszerzenia WCF.
+`<behaviorExtensions/>`Poniższy element pliku konfiguracji WCF instruuje program WCF, aby dodał niestandardową klasę zachowań, do której istnieje odwołanie do określonego rozszerzenia WCF.
 ```
 <system.serviceModel>
     <extensions>

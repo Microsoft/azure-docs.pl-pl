@@ -11,18 +11,18 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 3cc47eb3fb097b7ed88cf931ef423aa34c0d071c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 634c8b118a9d1f041e536f17cc9588f3a85fa4d6
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84705733"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321817"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Wdrażanie usług sieci Web Azure Machine Learning Studio (klasycznych), które używają modułów importowania danych i eksportu danych
 
 Podczas tworzenia eksperymentu predykcyjnego zazwyczaj dodawane są dane wejściowe i wyjściowe usługi sieci Web. Podczas wdrażania eksperymentu klienci mogą wysyłać i odbierać dane z usługi sieci Web za pośrednictwem danych wejściowych i wyjściowych. W przypadku niektórych aplikacji dane użytkownika mogą być dostępne ze strumieniowego źródła danych lub już znajdują się w zewnętrznym źródle danych, takim jak Azure Blob Storage. W takich przypadkach nie potrzebują danych odczytu i zapisu przy użyciu wejściowych i wyjściowych usług sieci Web. Mogą zamiast tego używać usługi wykonywania wsadowego (BES) do odczytywania danych ze źródła danych przy użyciu modułu Importuj dane i zapisywania wyników oceniania w innej lokalizacji danych przy użyciu modułu eksport danych.
 
-Moduły import danych i eksport danych umożliwiają odczytywanie i zapisywanie w różnych lokalizacjach danych, takich jak adres URL sieci Web za pośrednictwem protokołu HTTP, zapytanie programu Hive, baza danych SQL Azure, usługa Azure Table Storage, Magazyn obiektów blob platformy Azure, dostarczanie strumieniowe danych lub baza danych SQL Server.
+Moduły import danych i eksport danych umożliwiają odczytywanie i zapisywanie w różnych lokalizacjach danych, takich jak adres URL sieci Web za pośrednictwem protokołu HTTP, zapytanie programu Hive, baza danych w Azure SQL Database, Azure Table Storage, Azure Blob Storage, dostarczanie strumieniowe danych lub SQL Server Database.
 
 W tym temacie użyto przykładu "Przykładowe 5: pociąg, test, szacuje się, że klasyfikacja binarna: zestaw danych dla dorosłych" i przyjęto założenie, że zestaw danych został już załadowany do tabeli Azure SQL o nazwie censusdata.
 

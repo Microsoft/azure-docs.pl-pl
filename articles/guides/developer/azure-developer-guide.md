@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 38e93585c2d9fd3c9cf6e4affdfd1b0a250fedc4
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84695083"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85321925"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Wprowadzenie — przewodnik dla deweloperów platformy Azure
 
@@ -130,7 +130,7 @@ Większość aplikacji musi przechowywać dane, dlatego należy zdecydować, aby
 
   > **Kiedy używać**: gdy aplikacja wymaga magazynu danych z integralnością referencyjną, obsługą transakcyjną i obsługą zapytań TSQL.
   >
-  > **Wprowadzenie**: [Tworzenie bazy danych SQL w ciągu kilku minut przy użyciu Azure Portal](../../sql-database/sql-database-get-started.md).
+  > **Wprowadzenie**: [Tworzenie bazy danych w Azure SQL Database w kilka minut przy użyciu Azure Portal](../../sql-database/sql-database-get-started.md).
 
 
 Za pomocą [Azure Data Factory](../../data-factory/introduction.md) można przenieść istniejące dane lokalne na platformę Azure. Jeśli nie jesteś gotowy do przenoszenia danych do chmury, [połączenia hybrydowe](../../app-service/app-service-hybrid-connections.md) w Azure App Service umożliwia połączenie App Service hostowanej aplikacji z zasobami lokalnymi. Możesz również nawiązać połączenie z usługami Azure Data and Storage z aplikacji lokalnych.
@@ -163,7 +163,7 @@ Platforma Azure oferuje kilka sposobów korzystania z kontenerów w aplikacjach.
   >
   > **Wprowadzenie**: [Użyj niestandardowego obrazu platformy docker dla App Service w systemie Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 Niezwykle ważne jest, aby nie tylko wiedzieć, kto korzysta z aplikacji, ale również aby uniemożliwić nieautoryzowany dostęp do zasobów. Platforma Azure oferuje kilka metod uwierzytelniania klientów aplikacji.
 
@@ -268,7 +268,7 @@ Usługi, takie jak [Mobile Apps](../../app-service-mobile/app-service-mobile-dot
 
 Uruchomienie aplikacji na platformie Azure wymaga, aby pracować z wieloma usługami platformy Azure. Te usługi są zgodne z tym samym cyklem życia i można je traktować jako jednostkę logiczną. Na przykład aplikacja sieci Web może używać Web Apps, SQL Database, magazynu, pamięci podręcznej platformy Azure dla Redis i usług Azure Content Delivery Network. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) pozwala na współpracę z zasobami w aplikacji jako grupą. Można wdrożyć, zaktualizować lub usunąć wszystkie zasoby w jednej, skoordynowanej operacji.
 
-Oprócz logicznego grupowania i zarządzania powiązanymi zasobami Azure Resource Manager obejmuje możliwości wdrażania umożliwiające dostosowanie wdrożenia i konfiguracji powiązanych zasobów. Można na przykład użyć Menedżer zasobów wdrożyć i skonfigurować aplikację. Ta aplikacja może składać się z wielu maszyn wirtualnych, modułu równoważenia obciążenia i bazy danych SQL Azure jako pojedynczej jednostki.
+Oprócz logicznego grupowania i zarządzania powiązanymi zasobami Azure Resource Manager obejmuje możliwości wdrażania umożliwiające dostosowanie wdrożenia i konfiguracji powiązanych zasobów. Można na przykład użyć Menedżer zasobów wdrożyć i skonfigurować aplikację. Ta aplikacja może składać się z wielu maszyn wirtualnych, modułu równoważenia obciążenia i bazy danych w Azure SQL Database jako pojedyncza jednostka.
 
 Te wdrożenia są opracowywane przy użyciu szablonu Azure Resource Manager, który jest dokumentem w formacie JSON. Szablony umożliwiają zdefiniowanie wdrożenia i zarządzanie aplikacjami przy użyciu szablonów deklaratywnych zamiast skryptów. Szablony mogą współpracować z różnymi środowiskami, takimi jak testowanie, przemieszczanie i produkcja. Na przykład możesz użyć szablonów, aby dodać przycisk do repozytorium GitHub, które wdraża kod w repozytorium w ramach zestawu usług platformy Azure za pomocą jednego kliknięcia.
 

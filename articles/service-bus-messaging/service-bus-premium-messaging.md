@@ -1,35 +1,24 @@
 ---
-title: Warstwy premium i warstwy standardowe usługi Azure Service Bus
-description: W tym artykule opisano warstwy standardowe i warstwy premium usługi Azure Service Bus. Porównuje te warstwy i zapewnia różnice techniczne.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: e211774d-821c-4d79-8563-57472d746c58
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Service Bus warstwach Premium i Standard
+description: W tym artykule opisano warstwy Standard i Premium Azure Service Bus. Porównuje te warstwy i zapewnia różnice techniczne.
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: ef3cc8d4c7354b43389244e72c2dbc5899b8db25
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 06/23/2020
+ms.openlocfilehash: eb2d3dda18eb08809a5c8f1020490acdb1e9a21c
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76774562"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85337415"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Warstwy Premium i Standardowa komunikatów usługi Service Bus
 
 Komunikaty usługi Service Bus, w tym jednostki, takie jak kolejki i tematy, stanowią połączenie możliwości obsługi komunikatów dla przedsiębiorstw oraz zaawansowanej semantyki publikowania/subskrybowania w skali chmury. Obsługa komunikatów usługi Service Bus pełni rolę szkieletu komunikacyjnego dla wielu zaawansowanych rozwiązań w chmurze.
 
-Warstwa *Premium* usługi Service Bus Messaging adresuje typowe żądania klientów dotyczące skali, wydajności i dostępności aplikacji o znaczeniu krytycznym. Warstwa Premium jest zalecana do użytku w scenariuszach produkcyjnych. Mimo że zestawy funkcji są niemal identyczne, te dwie warstwy komunikatów usługi Service Bus są przeznaczone do różnych zastosowań.
+Warstwa *Premium* Service Bus komunikatów rozwiązuje typowe żądania klientów dotyczące skali, wydajności i dostępności dla aplikacji o krytycznym znaczeniu. Warstwa Premium jest zalecana do użytku w scenariuszach produkcyjnych. Mimo że zestawy funkcji są niemal identyczne, te dwie warstwy komunikatów usługi Service Bus są przeznaczone do różnych zastosowań.
 
 W poniższej tabeli wyróżniono pewne ogólne różnice.
 
-| Premium | Standardowa |
+| Premium | Standardowa (Standard) |
 | --- | --- |
 | Wysoka przepływność |Zmienna przepływność |
 | Przewidywalna wydajność |Zmienne opóźnienie |
@@ -37,9 +26,9 @@ W poniższej tabeli wyróżniono pewne ogólne różnice.
 | Możliwość skalowania obciążenia |Nie dotyczy |
 | Rozmiar komunikatu do 1 MB |Rozmiar komunikatu do 256 KB |
 
-**Warstwa Premium komunikatów usługi Service Bus** zapewnia izolację zasobów na poziomie procesora CPU i pamięci, dlatego obciążenia poszczególnych klientów są od siebie odizolowane. Ten kontener zasobów jest nazywany *jednostką obsługi wiadomości*. Każda przestrzeń nazw w warstwie Premium ma przydzieloną co najmniej jedną jednostkę obsługi komunikatów. Możesz kupić 1, 2, 4 lub 8 jednostek obsługi wiadomości dla każdej przestrzeni nazw Usługi Service Bus Premium. Jedno obciążenie lub jednostka może obejmować wiele jednostek obsługi wiadomości i liczba jednostek obsługi wiadomości można zmienić do woli. Pozwala to uzyskać przewidywalną i powtarzalną wydajność dla rozwiązania opartego na usłudze Service Bus.
+**Warstwa Premium komunikatów usługi Service Bus** zapewnia izolację zasobów na poziomie procesora CPU i pamięci, dlatego obciążenia poszczególnych klientów są od siebie odizolowane. Ten kontener zasobów jest nazywany *jednostką obsługi komunikatów*. Każda przestrzeń nazw w warstwie Premium ma przydzieloną co najmniej jedną jednostkę obsługi komunikatów. Dla każdej przestrzeni nazw Premium Service Bus można zakupić 1, 2, 4 lub 8 jednostek obsługi komunikatów. Pojedyncze obciążenie lub jednostka mogą obejmować wiele jednostek obsługi komunikatów, a liczba jednostek obsługi komunikatów w programie może zostać zmieniona. Pozwala to uzyskać przewidywalną i powtarzalną wydajność dla rozwiązania opartego na usłudze Service Bus.
 
-Poprawa dotyczy nie tylko przewidywalności i dostępności, ale również szybkości działania. Service Bus Premium Messaging builds on the storage engine introduced in [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Dzięki komunikatom w warstwie Premium maksymalna szybkość działania jest znacznie wyższa niż w przypadku warstwy Standardowa.
+Poprawa dotyczy nie tylko przewidywalności i dostępności, ale również szybkości działania. Service Bus w warstwie Premium kompilacje w aparacie magazynu wprowadzonym w [usłudze Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Dzięki komunikatom w warstwie Premium maksymalna szybkość działania jest znacznie wyższa niż w przypadku warstwy Standardowa.
 
 ## <a name="premium-messaging-technical-differences"></a>Różnice techniczne dotyczące komunikatów w warstwie Premium
 
@@ -55,44 +44,44 @@ Ze względu na fakt, że obsługa komunikatów Premium działa w całkowicie odi
 
 Jeśli masz kod uruchomiony w ramach obsługi komunikatów w warstwie Standardowa i chcesz przenieść go do warstwy Premium, upewnij się, że właściwość [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) jest ustawiona na wartość **false** (wartość domyślna).
 
-## <a name="premium-messaging-resource-usage"></a>Użycie zasobów usługi Wiadomości w u. w wersji Premium
-Ogólnie rzecz biorąc każda operacja na jednostce może spowodować użycie procesora CPU i pamięci. Oto niektóre z tych operacji: 
+## <a name="premium-messaging-resource-usage"></a>Użycie zasobów obsługi komunikatów w warstwie Premium
+Ogólnie rzecz biorąc, każda operacja w jednostce może spowodować użycie procesora CPU i pamięci. Oto niektóre z tych operacji: 
 
-- Operacje zarządzania, takie jak operacje CRUD (Tworzenie, Pobieranie, Aktualizowanie i Usuwanie) w kolejkach, tematach i subskrypcjach.
-- Operacje środowiska uruchomieniowego (wysyłanie i odbieranie wiadomości)
-- Monitorowanie operacji i alertów
+- Operacje zarządzania, takie jak CRUD (tworzenie, pobieranie, aktualizowanie i usuwanie) operacji w kolejkach, tematach i subskrypcjach.
+- Operacje środowiska uruchomieniowego (wysyłanie i odbieranie komunikatów)
+- Operacje monitorowania i alerty
 
-Dodatkowe użycie procesora i pamięci nie jest jednak dodatkowo wycenione. W przypadku warstwy Wiadomości Premium istnieje jedna cena za jednostkę wiadomości.
+Dodatkowe użycie procesora i pamięci nie jest jeszcze tańsze. W przypadku warstwy obsługi komunikatów Premium dostępna jest pojedyncza cena dla jednostki wiadomości.
 
-Użycie procesora i pamięci są śledzone i wyświetlane dla użytkownika z następujących powodów: 
+Użycie procesora CPU i pamięci jest śledzone i wyświetlane z powodu następujących przyczyn: 
 
-- Zapewnienie przejrzystości w wewnętrznych systemach
-- Opis zdolności produkcyjnych zakupionych zasobów.
+- Zapewnianie przejrzystości systemu
+- Zapoznaj się z pojemnością zakupionych zasobów.
 - Planowanie pojemności, które pomaga zdecydować się na skalowanie w górę/w dół.
 
-## <a name="messaging-unit---how-many-are-needed"></a>Jednostka obsługi wiadomości - Ile jest potrzebnych?
+## <a name="messaging-unit---how-many-are-needed"></a>Jednostka obsługi komunikatów — ile jest potrzebnych?
 
-Podczas inicjowania obsługi administracyjnej obszaru nazw usługi Azure Service Bus Premium należy określić liczbę przydzielonych jednostek obsługi wiadomości. Te jednostki obsługi wiadomości są dedykowane zasoby, które są przydzielane do obszaru nazw.
+W przypadku inicjowania obsługi przestrzeni nazw Premium Azure Service Bus należy określić liczbę jednostek obsługi komunikatów przydzieloną. Te jednostki obsługi komunikatów to dedykowane zasoby, które są przydzielane do przestrzeni nazw.
 
-Liczba jednostek obsługi wiadomości przydzielonych do obszaru nazw usługi Service Bus Premium może być **dynamicznie dostosowywana** do czynnika zmiany (zwiększenia lub zmniejszenia) obciążeń.
+Liczba jednostek obsługi komunikatów przypisywanych do przestrzeni nazw Premium Service Bus może być **dynamicznie dostosowywana** do współczynnika zmian (zwiększa lub zmniejsza) w obciążeniach.
 
-Istnieje wiele czynników, które należy wziąć pod uwagę przy podejmowaniu decyzji o liczbie jednostek obsługi wiadomości dla architektury:
+Istnieje kilka czynników, które należy wziąć pod uwagę podczas decydowania o liczbie jednostek obsługi komunikatów dla architektury:
 
-- Zacznij od ***1 lub 2 jednostek obsługi wiadomości przydzielonych*** do przestrzeni nazw.
-- Przestudiuj metryki użycia procesora CPU w [metryki użycia zasobów](service-bus-metrics-azure-monitor.md#resource-usage-metrics) dla obszaru nazw.
-    - Jeśli użycie procesora CPU jest ***poniżej 20%,*** można ***zmniejszyć*** liczbę jednostek obsługi wiadomości przydzielonych do obszaru nazw.
-    - Jeśli użycie procesora CPU jest ***powyżej 70%,*** aplikacja będzie korzystać ze ***skalowania*** liczby jednostek obsługi wiadomości przydzielonych do obszaru nazw.
+- Zacznij od ***1 lub 2 jednostek obsługi komunikatów*** przypisywanych do przestrzeni nazw.
+- Zbadaj metryki użycia procesora CPU w ramach [metryk użycia zasobów](service-bus-metrics-azure-monitor.md#resource-usage-metrics) dla przestrzeni nazw.
+    - Jeśli użycie procesora CPU jest ***poniżej 20%***, można ***skalować*** liczbę jednostek obsługi komunikatów przypisywanych do przestrzeni nazw.
+    - Jeśli użycie procesora CPU jest ***powyżej 70%***, aplikacja będzie korzystać z ***skalowania w górę*** liczby jednostek obsługi komunikatów przypisywanych do przestrzeni nazw.
 
-Proces skalowania zasobów przydzielonych do obszarów nazw usługi Service Bus można zautomatyzować przy użyciu [śmięty uruchomieniu usługi Azure Automation.](../automation/automation-quickstart-create-runbook.md)
+Proces skalowania zasobów przyznanych do przestrzeni nazw Service Bus może być zautomatyzowany przy użyciu [Azure Automation elementów Runbook](../automation/automation-quickstart-create-runbook.md).
 
 > [!NOTE]
-> **Skalowanie** zasobów przydzielonych do obszaru nazw może być prewencyjne lub reaktywne.
+> **Skalowanie** zasobów przyznanych do przestrzeni nazw może być zastępują lub ponownie aktywne.
 >
->  * **Preemptive:** Jeśli oczekuje się dodatkowego obciążenia (ze względu na sezonowość lub trendy), można przystąpić do przydzielenia większej liczby jednostek obsługi wiadomości do obszaru nazw przed trafieniem obciążeń.
+>  * **Zastępujący**: Jeśli oczekiwane jest dodatkowe obciążenie (ze względu na sezonowości lub trendy), można przydzielić więcej jednostek obsługi komunikatów do przestrzeni nazw przed trafieniem obciążeń.
 >
->  * **Reaktywne:** Jeśli dodatkowe obciążenia są identyfikowane przez badanie metryki użycia zasobów, a następnie dodatkowe zasoby mogą być przydzielane do obszaru nazw w celu uwzględnienia rosnącego popytu.
+>  * **Reaktywny**: Jeśli dodatkowe obciążenia są identyfikowane przez analizowanie metryk użycia zasobów, dodatkowe zasoby mogą być przydzielone do przestrzeni nazw w celu uwzględnienia rosnącego zapotrzebowania.
 >
-> Liczniki rozliczeń dla usługi Service Bus są co godzinę. W przypadku skalowania w górę, płacisz tylko za dodatkowe zasoby za godziny, które zostały wykorzystane.
+> Liczniki rozliczeń dla Service Bus są co godzinę. W przypadku skalowania w górę opłaty są napłacone tylko za dodatkowe zasoby w godzinach, w których były używane.
 >
 
 ## <a name="get-started-with-premium-messaging"></a>Wprowadzenie do obsługi komunikatów Premium
