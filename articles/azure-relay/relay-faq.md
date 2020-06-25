@@ -1,25 +1,14 @@
 ---
 title: Azure Relay często zadawane pytania | Microsoft Docs
 description: Ten artykuł zawiera odpowiedzi na niektóre często zadawane pytania dotyczące usługi Azure Relay.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: ac8967ab036929bf5363a79c9d7c60485bc98841
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211985"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317028"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay często zadawane pytania
 
@@ -128,7 +117,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 Opis typowych wyjątków i sugerowanych czynności, które można wykonać, znajduje się w temacie [wyjątki przekaźnika][Relay exceptions].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Co to jest sygnatura dostępu współdzielonego i jakich języków można użyć do wygenerowania podpisu?
-Sygnatury dostępu współdzielonego (SAS) są mechanizmem uwierzytelniania opartym na bezpiecznych skrótach i identyfikatorach URI SHA-256. Aby uzyskać informacje o sposobach generowania własnych podpisów w Node. js, PHP, Python, Java, C i C#, zobacz [Service Bus Authentication with Shared Access Signatures][Shared Access Signatures].
+Sygnatury dostępu współdzielonego (SAS) są mechanizmem uwierzytelniania opartym na bezpiecznych skrótach i identyfikatorach URI SHA-256. Aby uzyskać informacje o sposobach generowania własnych podpisów w Node.js, PHP, Python, Java, C i C#, zobacz [Service Bus Authentication z sygnaturami dostępu współdzielonego][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>Czy można dozwolonych punkty końcowe przekaźnika?
 Tak. Klient usługi Relay nawiązuje połączenia z usługą Azure Relay przy użyciu w pełni kwalifikowanych nazw domen. Klienci mogą dodać wpis dla `*.servicebus.windows.net` zapory, które obsługują listy dozwolonych DNS.

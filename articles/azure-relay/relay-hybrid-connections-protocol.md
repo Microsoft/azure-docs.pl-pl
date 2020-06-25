@@ -1,25 +1,14 @@
 ---
 title: Przewodnik po protokole Połączenia hybrydowe Azure Relay | Microsoft Docs
 description: W tym artykule opisano interakcje po stronie klienta z usługą Połączenia hybrydowe Relay do łączenia klientów w rolach odbiornika i nadawcy.
-services: service-bus-relay
-documentationcenter: na
-author: clemensv
-manager: timlt
-editor: ''
-ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: clemensv
-ms.openlocfilehash: 68668452152064584d1c419a3053ccb642b103f8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 798be7f0003509aee6ae616ba33fcc41e5c86275
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211816"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316657"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protokół Połączenia hybrydowe Azure Relay
 
@@ -144,16 +133,16 @@ Kanał kontrolny jest otwierany przy tworzeniu połączenia WebSocket z:
 
 Opcje parametrów ciągu zapytania są następujące.
 
-| Parametr        | Wymagany | Opis
+| Parametr        | Wymagane | Opis
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | Yes      | Dla roli odbiornika parametr musi mieć wartość **SB-HC-Action = Listen**
-| `{path}`         | Yes      | Ścieżka przestrzeni nazw zakodowana w adresie URL wstępnie skonfigurowanego połączenia hybrydowego do zarejestrowania tego odbiornika. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
-| `sb-hc-token`    | Yes\*    | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo **nasłuchiwanie** .
+| `sb-hc-action`   | Tak      | Dla roli odbiornika parametr musi mieć wartość **SB-HC-Action = Listen**
+| `{path}`         | Tak      | Ścieżka przestrzeni nazw zakodowana w adresie URL wstępnie skonfigurowanego połączenia hybrydowego do zarejestrowania tego odbiornika. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
+| `sb-hc-token`    | Opcję\*    | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo **nasłuchiwanie** .
 | `sb-hc-id`       | Nie       | Ten opcjonalny identyfikator dostarczony przez klienta umożliwia kompleksowe śledzenie diagnostyczne.
 
 Jeśli połączenie z protokołem WebSocket nie powiedzie się z powodu braku rejestracji ścieżki połączenia hybrydowego lub nieprawidłowego lub brakującego tokenu lub innego błędu, opinia o błędzie jest podawana przy użyciu zwykłego modelu opinii o stanie HTTP 1,1. Opis stanu zawiera identyfikator śledzenia błędów, który może być przekazywany do działu pomocy technicznej platformy Azure:
 
-| Code | Error          | Opis
+| Kod | Błąd          | Opis
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Nie znaleziono      | Ścieżka połączenia hybrydowego jest nieprawidłowa lub podstawowy adres URL jest nieprawidłowo sformułowany.
 | 401  | Brak autoryzacji   | Brak tokenu zabezpieczeń lub jest on nieprawidłowo sformułowany lub nieprawidłowy.
@@ -204,10 +193,10 @@ To samo dotyczy `Sec-WebSocket-Extensions` nagłówka. Jeśli struktura obsługu
 
 Adres URL musi być używany jako — służy do ustanawiania gniazda akceptującego, ale zawiera następujące parametry:
 
-| Parametr      | Wymagany | Opis
+| Parametr      | Wymagane | Opis
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Yes      | Aby można było zaakceptować gniazdo, parametr musi być`sb-hc-action=accept`
-| `{path}`       | Yes      | (zobacz poniższy akapit)
+| `sb-hc-action` | Tak      | Aby można było zaakceptować gniazdo, parametr musi być`sb-hc-action=accept`
+| `{path}`       | Tak      | (zobacz poniższy akapit)
 | `sb-hc-id`     | Nie       | Zobacz poprzedni opis **identyfikatora**.
 
 `{path}`jest ścieżką przestrzeni nazw zakodowaną w adresie URL wstępnie skonfigurowanego połączenia hybrydowego, na którym ma zostać zarejestrowany ten odbiornik. To wyrażenie jest dołączane do `$hc/` części stałej ścieżki.
@@ -219,7 +208,7 @@ Więcej informacji można znaleźć w sekcji "Protokół nadawcy".
 
 Jeśli wystąpi błąd, usługa może odpowiedzieć w następujący sposób:
 
-| Code | Error          | Opis
+| Kod | Błąd          | Opis
 | ---- | -------------- | -----------------------------------
 | 403  | Forbidden      | Adres URL jest nieprawidłowy.
 | 500  | Błąd wewnętrzny | Wystąpił problem w usłudze
@@ -241,16 +230,16 @@ Jeśli wystąpi błąd, usługa może odpowiedzieć w następujący sposób:
 
  Aby odrzucić gniazdo, klient Pobiera identyfikator URI adresu z `accept` komunikatu i dołącza dwa parametry ciągu zapytania do niego w następujący sposób:
 
-| Param                   | Wymagany | Opis                              |
+| Param                   | Wymagane | Opis                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| SB-HC-statusCode        | Yes      | Liczbowy kod stanu HTTP.                |
-| SB-HC-statusDescription | Yes      | Powód odczytania przez człowieka. |
+| SB-HC-statusCode        | Tak      | Liczbowy kod stanu HTTP.                |
+| SB-HC-statusDescription | Tak      | Powód odczytania przez człowieka. |
 
 Otrzymany identyfikator URI jest następnie używany do nawiązywania połączenia z użyciem protokołu WebSocket.
 
 Po poprawnym ukończeniu tego uzgadniania celowe nie powiedzie się z kodem błędu HTTP 410, ponieważ nie ustanowiono protokołu WebSocket. Jeśli coś się nie stało, następujące kody opisują błąd:
 
-| Code | Error          | Opis                          |
+| Kod | Błąd          | Opis                          |
 | ---- | -------------- | ------------------------------------ |
 | 403  | Forbidden      | Adres URL jest nieprawidłowy.                |
 | 500  | Błąd wewnętrzny | Wystąpił problem w usłudze. |
@@ -376,13 +365,13 @@ W przypadku odpowiedzi o wartości przekraczającej 64 kB odpowiedź musi zosta�
 
 `address`Adres URL w programie `request` musi być używany jako-jest przeznaczony do tworzenia gniazda termin, ale zawiera następujące parametry:
 
-| Parametr      | Wymagany | Opis
+| Parametr      | Wymagane | Opis
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | Yes      | Aby można było zaakceptować gniazdo, parametr musi być`sb-hc-action=request`
+| `sb-hc-action` | Tak      | Aby można było zaakceptować gniazdo, parametr musi być`sb-hc-action=request`
 
 Jeśli wystąpi błąd, usługa może odpowiedzieć w następujący sposób:
 
-| Code | Error           | Opis
+| Kod | Błąd           | Opis
 | ---- | --------------- | -----------------------------------
 | 400  | Nieprawidłowe żądanie | Nierozpoznana akcja lub nieprawidłowy adres URL.
 | 403  | Forbidden       | Adres URL wygasł.
@@ -436,9 +425,9 @@ Opcje parametrów ciągu zapytania są następujące:
 
 | Param          | Wymagane? | Opis
 | -------------- | --------- | -------------------------- |
-| `sb-hc-action` | Yes       | Dla roli nadawcy parametr musi mieć wartość `sb-hc-action=connect` .
-| `{path}`       | Yes       | (zobacz poniższy akapit)
-| `sb-hc-token`  | Yes\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
+| `sb-hc-action` | Tak       | Dla roli nadawcy parametr musi mieć wartość `sb-hc-action=connect` .
+| `{path}`       | Tak       | (zobacz poniższy akapit)
+| `sb-hc-token`  | Opcję\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
 | `sb-hc-id`     | Nie        | Opcjonalny identyfikator, który umożliwia kompleksowe śledzenie diagnostyczne i jest udostępniany odbiornikowi podczas uzgadniania akceptacji.
 
  `{path}`Jest ścieżką przestrzeni nazw zakodowaną w adresie URL wstępnie skonfigurowanego połączenia hybrydowego, na którym ma zostać zarejestrowany ten odbiornik. `path`Wyrażenie można rozszerzyć za pomocą sufiksu i wyrażenia ciągu zapytania w celu dalszej komunikacji. Jeśli połączenie hybrydowe jest zarejestrowane pod ścieżką `hyco` , `path` po wyrażeniu mogą występować `hyco/suffix?param=value&...` parametry ciągu zapytania zdefiniowane w tym miejscu. Kompletne wyrażenie może następnie być następujące:
@@ -451,7 +440,7 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 
 Jeśli połączenie z protokołem WebSocket nie powiedzie się z powodu braku rejestracji ścieżki połączenia hybrydowego, nieprawidłowego lub brakującego tokenu lub innego błędu, opinia o błędzie jest podawana przy użyciu zwykłego modelu opinii o stanie HTTP 1,1. Opis stanu zawiera identyfikator śledzenia błędów, który może być przekazywany do działu pomocy technicznej platformy Azure:
 
-| Code | Error          | Opis
+| Kod | Błąd          | Opis
 | ---- | -------------- | -------------------------------------------------------------------
 | 404  | Nie znaleziono      | Ścieżka połączenia hybrydowego jest nieprawidłowa lub podstawowy adres URL jest nieprawidłowo sformułowany.
 | 401  | Brak autoryzacji   | Brak tokenu zabezpieczeń lub jest on nieprawidłowo sformułowany lub nieprawidłowy.
@@ -484,21 +473,21 @@ Opcje parametrów ciągu zapytania są następujące:
 
 | Param          | Wymagane? | Opis
 | -------------- | --------- | ---------------- |
-| `sb-hc-token`  | Yes\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
+| `sb-hc-token`  | Opcję\*     | Odbiornik musi podać prawidłowy, zakodowany w adresie URL Service Bus token dostępu współdzielonego dla przestrzeni nazw lub połączenia hybrydowego, które przyznaje prawo do **wysyłania** .
 
 Token może być również przenoszony w `ServiceBusAuthorization` `Authorization` nagłówku lub http. Token może zostać pominięty, jeśli połączenie hybrydowe jest skonfigurowane do zezwalania na żądania anonimowe.
 
 Ponieważ usługa efektywnie działa jako serwer proxy, nawet jeśli nie jest to prawdziwy serwer proxy HTTP, dodaje `Via` nagłówek lub Adnotuj istniejący `Via` nagłówek zgodny z [RFC7230, sekcja 5.7.1](https://tools.ietf.org/html/rfc7230#section-5.7.1).
 Usługa dodaje nazwę hosta przestrzeni nazw przekaźnika do `Via` .
 
-| Code | Komunikat  | Opis                    |
+| Kod | Komunikat  | Opis                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | Żądanie zostało obsłużone przez co najmniej jeden odbiornik.  |
-| 202  | Zaakceptowane | Żądanie zostało zaakceptowane przez co najmniej jeden odbiornik. |
+| 202  | Zaakceptowano | Żądanie zostało zaakceptowane przez co najmniej jeden odbiornik. |
 
 Jeśli wystąpi błąd, usługa może odpowiedzieć w następujący sposób. Określa, czy odpowiedź pochodzi z usługi lub czy odbiornik może być zidentyfikowany za pośrednictwem obecności `Via` nagłówka. Jeśli nagłówek jest obecny, odpowiedź pochodzi z odbiornika.
 
-| Code | Error           | Opis
+| Kod | Błąd           | Opis
 | ---- | --------------- |--------- |
 | 404  | Nie znaleziono       | Ścieżka połączenia hybrydowego jest nieprawidłowa lub podstawowy adres URL jest nieprawidłowo sformułowany.
 | 401  | Brak autoryzacji    | Brak tokenu zabezpieczeń lub jest on nieprawidłowo sformułowany lub nieprawidłowy.

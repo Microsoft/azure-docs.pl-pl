@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 838835cf44b5ca5048ea6cb7bc1bba582b2a0926
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cabb1a7d45906c9e60e1defd7d3d99286cdd39fb
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647982"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318253"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Zarządzanie usługą Azure cache for Redis za pomocą Azure PowerShell
 > [!div class="op_single_selector"]
@@ -124,9 +124,9 @@ Poniższa tabela zawiera właściwości i opisy często używanych parametrów p
 | ResourceGroupName |Nazwa grupy zasobów, w której ma zostać utworzona pamięć podręczna | |
 | Rozmiar |Rozmiar pamięci podręcznej. Prawidłowe wartości to: P1, P2, P3, P4, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2,5 GB, 6 GB, 13GB, 26GB, 53GB |PAMIĘCI |
 | ShardCount |Liczba fragmentów do utworzenia podczas tworzenia pamięci podręcznej Premium z włączoną obsługą klastrowania. Prawidłowe wartości to: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
-| SKU |Określa jednostkę SKU pamięci podręcznej. Prawidłowe wartości to: Basic, standard, Premium |Standardowa |
+| SKU |Określa jednostkę SKU pamięci podręcznej. Prawidłowe wartości to: Basic, standard, Premium |Standardowa (Standard) |
 | RedisConfiguration |Określa ustawienia konfiguracji Redis. Aby uzyskać szczegółowe informacje na temat każdego ustawienia, zobacz następującą tabelę [Właściwości RedisConfiguration](#redisconfiguration-properties) . | |
-| EnableNonSslPort |Wskazuje, czy port bez obsługi protokołu SSL jest włączony. |False |
+| EnableNonSslPort |Wskazuje, czy port bez obsługi protokołu SSL jest włączony. |Fałsz |
 | MaxMemoryPolicy |Ten parametr jest przestarzały — zamiast tego należy użyć RedisConfiguration. | |
 | StaticIP |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa unikatowy adres IP w podsieci dla pamięci podręcznej. Jeśli nie zostanie podany, jeden z nich zostanie wybrany dla Ciebie z podsieci. | |
 | Podsieć |W przypadku hostowania pamięci podręcznej w sieci wirtualnej określa nazwę podsieci, w której ma zostać wdrożona pamięć podręczna. | |
@@ -779,5 +779,5 @@ Aby dowiedzieć się więcej o korzystaniu z programu Windows PowerShell z platf
 * [Używanie grup zasobów do zarządzania zasobami platformy Azure](../azure-resource-manager/templates/deploy-portal.md): Dowiedz się, jak tworzyć grupy zasobów i zarządzać nimi w Azure Portal.
 * [Blog platformy Azure](https://azure.microsoft.com/blog/): Poznaj nowe funkcje platformy Azure.
 * [Blog programu Windows PowerShell](https://devblogs.microsoft.com/powershell/): informacje o nowych funkcjach w programie Windows PowerShell.
-* ["Hej, obsługa skryptów Guy!" Blog](https://blogs.technet.com/b/heyscriptingguy/): Uzyskaj rzeczywiste porady i wskazówki ze społeczności programu Windows PowerShell.
+* ["Hej, obsługa skryptów Guy!" Blog](https://devblogs.microsoft.com/scripting/author/the-scripting-guys/): Uzyskaj rzeczywiste porady i wskazówki ze społeczności programu Windows PowerShell.
 

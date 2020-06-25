@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b0f0ed5a36af0890577fcc6fd097698c147c0d6
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 1c4e2b4d046490500fceb7a1bee09559790fd433
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298110"
+ms.locfileid: "85317524"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -96,7 +96,7 @@ Obecnie użytkownicy, którzy znajdują się w domenach federacyjnych w usłudze
 **Kategoria usługi:** Suwerenne chmury  
 **Możliwość produktu:** Uwierzytelnianie użytkownika
  
-Począwszy od czerwca, OIDC dokument odnajdywania [Microsoft Identity platform i OpenID Connect Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) w punkcie końcowym usługi [Azure Government Cloud](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) (login.microsoftonline.us), zacznie zwracać prawidłowy Narodowy punkt końcowy [grafu w chmurze](https://docs.microsoft.com/graph/deployments) ( https://graph.microsoft.us lub https://dod-graph.microsoft.us0) na podstawie podanej dzierżawy.  W tej chwili jest dostępne nieprawidłowe pole punktu końcowego grafu (graph.microsoft.com) "msgraph_host".  
+Począwszy od czerwca, OIDC dokument odnajdywania [Microsoft Identity platform i OpenID Connect Connect](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc) w punkcie końcowym usługi [Azure Government Cloud](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) (login.microsoftonline.us), zacznie zwracać prawidłowy Narodowy punkt końcowy [grafu w chmurze](https://docs.microsoft.com/graph/deployments) ( https://graph.microsoft.us lub https://dod-graph.microsoft.us) na podstawie podanej dzierżawy.  W tej chwili jest dostępne nieprawidłowe pole punktu końcowego grafu (graph.microsoft.com) "msgraph_host".  
 
 Ta poprawka błędu zostanie przeprowadzona stopniowo przez około 2 miesiące.  
 

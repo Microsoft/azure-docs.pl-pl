@@ -1,20 +1,14 @@
 ---
 title: Uwierzytelnianie tożsamości zarządzanej przy użyciu Azure Active Directory
 description: Ten artykuł zawiera informacje dotyczące uwierzytelniania tożsamości zarządzanej przy użyciu Azure Active Directory dostępu do zasobów Event Hubs platformy Azure
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: ''
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.openlocfilehash: ebbc49e4828fe728cb1810c23b15251e0be2b1f3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 4e9bfb9c4649732ac5afc80dfb0a522ff9f333be
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298841"
+ms.locfileid: "85318100"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Uwierzytelnianie zarządzanej tożsamości za pomocą Azure Active Directory w celu uzyskania dostępu do zasobów Event Hubs
 Usługa Azure Event Hubs obsługuje uwierzytelnianie Azure Active Directory (Azure AD) z [tożsamościami zarządzanymi dla zasobów platformy Azure](../active-directory/managed-identities-azure-resources/overview.md). Zarządzane tożsamości dla zasobów platformy Azure mogą autoryzować dostęp do zasobów Event Hubs przy użyciu poświadczeń usługi Azure AD z aplikacji uruchomionych na platformie Azure Virtual Machines (maszyny wirtualne), aplikacji funkcji, Virtual Machine Scale Sets i innych usług. Korzystając z tożsamości zarządzanych dla zasobów platformy Azure wraz z uwierzytelnianiem w usłudze Azure AD, można uniknąć zapisywania poświadczeń z aplikacjami uruchomionymi w chmurze.

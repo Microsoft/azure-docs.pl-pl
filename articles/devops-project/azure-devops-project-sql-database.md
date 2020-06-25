@@ -8,19 +8,19 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: 93b150d47f1703662ebda5b017e1824cf74b7ab0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40eb9cc22cdc071381cc847b49a01d4d713653d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233707"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318628"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-starter"></a>Samouczek: wdrażanie aplikacji ASP.NET i kodu Azure SQL Database za pomocą usługi Azure DevOps Starter
 
 Usługa Azure DevOps Starter przedstawia uproszczone środowisko, w którym można przenieść istniejący kod i repozytorium Git lub wybrać przykładową aplikację w celu utworzenia potoku ciągłej integracji i ciągłego dostarczania na platformę Azure. 
 
 DevOps Starter również:
-* Automatycznie tworzy zasoby platformy Azure, takie jak baza danych Azure SQL Database.
+* Program automatycznie tworzy zasoby platformy Azure, takie jak baza danych w Azure SQL Database.
 * Tworzy i konfiguruje potok wydania w usłudze Azure Pipelines, który obejmuje potok kompilacji na potrzeby ciągłej integracji.
 * Konfiguruje potok wydania na potrzeby ciągłego wdrażania. 
 * Tworzy zasób usługi Azure Application Insights na potrzeby monitorowania.
@@ -33,16 +33,16 @@ W tym samouczku wykonasz następujące czynności:
 > * Badanie potoku ciągłej integracji
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Azure Repos i automatyczne wdrażanie ich na platformie Azure
-> * Łączenie z bazą danych Azure SQL Database 
+> * Połącz z Azure SQL Database 
 > * Oczyszczanie zasobów
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure. Możesz uzyskać ją bezpłatnie za pośrednictwem programu [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-an-azure-sql-database"></a>Tworzenie projektu w usłudze Azure DevOps Projects dla aplikacji ASP.NET i bazy danych Azure SQL Database
+## <a name="create-a-project-in-devops-projects-for-an-aspnet-app-and-azure-sql-database"></a>Utwórz projekt w DevOps Projects dla aplikacji ASP.NET i Azure SQL Database
 
-DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure Pipelines. Możesz utworzyć nową organizację usługi Azure DevOps lub użyć istniejącej organizacji. DevOps Starter tworzy również zasoby platformy Azure, takie jak baza danych Azure SQL, w wybranej subskrypcji platformy Azure.
+DevOps Starter tworzy potok ciągłej integracji/ciągłego wdrażania w Azure Pipelines. Możesz utworzyć nową organizację usługi Azure DevOps lub użyć istniejącej organizacji. DevOps Starter tworzy również zasoby platformy Azure, takie jak Azure SQL Database, w wybranej subskrypcji platformy Azure.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
@@ -76,7 +76,7 @@ DevOps Starter automatycznie konfiguruje pełny potok ciągłej integracji/ciąg
 
 1. Wskaż pole **stan** , a następnie wybierz przycisk wielokropka (...). Menu wyświetla kilka opcji, takich jak kolejkowanie nowej kompilacji, wstrzymywanie kompilacji i edytowanie potoku kompilacji.
 
-1. Wybierz pozycję **Edit** (Edytuj).
+1. Wybierz pozycję **Edytuj**.
 
 1. W tym okienku możesz zapoznać się z różnymi zadaniami w potoku kompilacji. W ramach kompilacji są wykonywane różne zadania, takie jak pobieranie źródeł z repozytorium Git, przywracanie zależności i publikowanie danych wyjściowych używanych do wdrożenia.
 
@@ -140,11 +140,11 @@ Teraz możesz rozpocząć współpracę z zespołem nad aplikacją w języku Pyt
 
 1. Po zakończeniu tworzenia wydania odśwież aplikację, aby zweryfikować zmiany.
 
-## <a name="connect-to-the-azure-sql-database"></a>Łączenie z bazą danych Azure SQL Database
+## <a name="connect-to-azure-sql-database"></a>Połącz z Azure SQL Database
 
-Aby połączyć się z bazą danych Azure SQL Database potrzebne są odpowiednie uprawnienia.
+Musisz mieć odpowiednie uprawnienia, aby nawiązać połączenie z Azure SQL Database.
 
-1. Na pulpicie nawigacyjnym DevOps wybierz pozycję **SQL Database** , aby przejść do strony zarządzania dla bazy danych SQL.
+1. Na pulpicie nawigacyjnym DevOps Starter wybierz pozycję **SQL Database** , aby przejść do strony zarządzania dla SQL Database.
    
 1. Wybierz polecenie **Ustaw zaporę serwera**, a następnie wybierz pozycję **Dodaj adres IP klienta**. 
 
@@ -156,16 +156,16 @@ Aby połączyć się z bazą danych Azure SQL Database potrzebne są odpowiednie
 
 1. Wybierz pozycję **zresetuj hasło**, wprowadź hasło dla logowania administratora SQL Server, a następnie wybierz pozycję **Zapisz**. Zachowaj to hasło do użycia w dalszej części tego samouczka.
 
-    Możesz teraz opcjonalnie użyć narzędzi klienta, takich jak SQL Server Management Studio lub Visual Studio, aby połączyć się z usługą SQL Server i bazą danych Azure SQL Database. Użyj właściwości **Nazwa serwera**, aby nawiązać połączenie.
+    Opcjonalnie możesz użyć narzędzi klienckich, takich jak SQL Server Management Studio lub Visual Studio, aby połączyć się z SQL Server i Azure SQL Database. Użyj właściwości **Nazwa serwera**, aby nawiązać połączenie.
 
-    Jeśli nie zmieniono nazwy użytkownika bazy danych podczas początkowego konfigurowania projektu w usłudze DevOps Projects, nazwa użytkownika to lokalna część adresu e-mail. Na przykład jeśli adres e-mail to *\@jankowalski Microsoft.com*, nazwa użytkownika to *jankowalski*.
+    Jeśli nie zmieniono nazwy użytkownika bazy danych podczas początkowego konfigurowania projektu w usłudze DevOps Projects, nazwa użytkownika to lokalna część adresu e-mail. Na przykład jeśli adres e-mail to *jankowalski \@ Microsoft.com*, nazwa użytkownika to *jankowalski*.
 
    > [!NOTE]
    > Jeśli zmienisz hasło dla logowania SQL, musisz zmienić hasło w zmiennej potoku wydania, zgodnie z opisem w sekcji [Sprawdzanie potoku dysku CD](#examine-the-cd-pipeline) .
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
-Jeśli przeprowadzasz testowanie, możesz uniknąć naliczania opłat, oczyszczając zasoby. Gdy baza danych Azure SQL Database i powiązane zasoby utworzone w tym samouczku nie będą już potrzebne, możesz je usunąć. Aby to zrobić, użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
+Jeśli przeprowadzasz testowanie, możesz uniknąć naliczania opłat, oczyszczając zasoby. Gdy nie są już potrzebne, możesz usunąć Azure SQL Database i powiązane zasoby, które zostały utworzone w tym samouczku. Aby to zrobić, użyj funkcji **usuwania** na pulpicie nawigacyjnym DevOps Starter.
 
 > [!IMPORTANT]
 > Poniższa procedura powoduje trwałe usunięcie zasobów. Funkcja *usuwania* niszczy dane, które są tworzone przez projekt w DevOps Starter w systemie Azure i Azure DevOps, i nie będzie można go pobrać. Użyj tej procedury dopiero po uważnym przeczytaniu monitów.
@@ -184,7 +184,7 @@ Opcjonalnie możesz zmodyfikować potoki kompilacji i wydania, aby zaspokoić po
 > * Badanie potoku ciągłej integracji
 > * Badanie potoku ciągłego wdrażania
 > * Zatwierdzanie zmian w usłudze Azure Repos i automatyczne wdrażanie ich na platformie Azure
-> * Łączenie z bazą danych Azure SQL Database 
+> * Połącz z Azure SQL Database 
 > * Oczyszczanie zasobów
 
 Aby dowiedzieć się więcej na temat potoku ciągłej integracji/ciągłego wdrażania, zobacz:

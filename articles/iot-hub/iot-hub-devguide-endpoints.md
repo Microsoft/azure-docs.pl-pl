@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b7139c458d2cc2a59f4202e9cbc7d48433514f34
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: d054ff893e1bfdc0f48ede2e2aaa6050885ccc0a
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84792096"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314038"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Punkty końcowe IoT Hub odwołania
 
@@ -38,11 +38,11 @@ Na poniższej liście opisano punkty końcowe:
 
 * **Zarządzanie tożsamościami urządzeń**. Każde Centrum IoT Hub udostępnia zestaw punktów końcowych protokołu HTTPS do zarządzania tożsamościami urządzeń (tworzenia, pobierania, aktualizowania i usuwania). [Tożsamości urządzeń](iot-hub-devguide-identity-registry.md) są używane do uwierzytelniania urządzeń i kontroli dostępu.
 
-* **Zarządzanie bliźniaczymi urządzeniami**. Każde Centrum IoT Hub udostępnia zestaw punktu końcowego REST protokołu HTTPS, który umożliwia wysyłanie zapytań i aktualizowanie [urządzeń bliźniaczych reprezentacji](iot-hub-devguide-device-twins.md) (aktualizowanie tagów i właściwości).
+* **Zarządzanie bliźniaczymi urządzeniami**. Każde Centrum IoT Hub udostępnia zestaw punktu końcowego REST protokołu HTTPS, który umożliwia wysyłanie zapytań i aktualizowanie [urządzeń bliźniaczych reprezentacji](iot-hub-devguide-device-twins.md) (aktualizowanie tagów i właściwości). 
 
 * **Zarządzanie zadaniami**. Każde Centrum IoT Hub udostępnia zestaw punktów końcowych protokołu HTTPS opartych na usłudze w celu wykonywania zapytań dotyczących [zadań](iot-hub-devguide-jobs.md)i zarządzania nimi.
 
-* **Punkty końcowe urządzeń**. Dla każdego urządzenia w rejestrze tożsamości usługa IoT Hub uwidacznia zestaw punktów końcowych:
+* **Punkty końcowe urządzeń**. Dla każdego urządzenia w rejestrze tożsamości IoT Hub uwidacznia zestaw punktów końcowych. Z wyjątkiem sytuacji, w których te punkty końcowe są ujawniane przy użyciu protokołów [MQTT v 3.1.1](https://mqtt.org/), https 1,1 i [AMQP 1,0](https://www.amqp.org/) . AMQP i MQTT są również dostępne za pośrednictwem obiektów [WebSockets](https://tools.ietf.org/html/rfc6455) na porcie 443.
 
   * *Wysyłanie komunikatów z urządzenia do chmury*. Urządzenie używa tego punktu końcowego do [wysyłania komunikatów z urządzenia do chmury](iot-hub-devguide-messages-d2c.md).
 
@@ -50,11 +50,9 @@ Na poniższej liście opisano punkty końcowe:
 
   * *Inicjuj operacje przekazywania plików*. Urządzenie używa tego punktu końcowego do odbierania identyfikatora URI SAS usługi Azure Storage z IoT Hub, aby [przekazać plik](iot-hub-devguide-file-upload.md).
 
-  * *Pobierz i zaktualizuj właściwości sznurka urządzenia*. Urządzenie używa tego punktu końcowego do uzyskiwania dostępu do właściwości [sznurka urządzenia](iot-hub-devguide-device-twins.md).
+  * *Pobierz i zaktualizuj właściwości sznurka urządzenia*. Urządzenie używa tego punktu końcowego do uzyskiwania dostępu do właściwości [sznurka urządzenia](iot-hub-devguide-device-twins.md). Protokół HTTPS nie jest obsługiwany.
 
-  * *Odbieraj żądania metody bezpośredniej*. Urządzenie używa tego punktu końcowego do nasłuchiwania żądań [bezpośredniej metody](iot-hub-devguide-direct-methods.md).
-
-    Punkty końcowe są ujawniane przy użyciu protokołów [MQTT v 3.1.1](https://mqtt.org/), https 1,1 i [AMQP 1,0](https://www.amqp.org/) . AMQP i MQTT są również dostępne za pośrednictwem obiektów [WebSockets](https://tools.ietf.org/html/rfc6455) na porcie 443.
+  * *Odbieraj żądania metody bezpośredniej*. Urządzenie używa tego punktu końcowego do nasłuchiwania żądań [bezpośredniej metody](iot-hub-devguide-direct-methods.md). Protokół HTTPS nie jest obsługiwany.
 
 * **Punkty końcowe usługi**. Każde Centrum IoT Hub udostępnia zestaw punktów końcowych dla zaplecza rozwiązania do komunikowania się z urządzeniami. Z jednym wyjątkiem te punkty końcowe są ujawniane tylko przy użyciu protokołów [AMQP](https://www.amqp.org/) i AMQP over WebSockets. Punkt końcowy wywołania metody bezpośredniej jest udostępniany za pośrednictwem protokołu HTTPS.
   

@@ -1,19 +1,14 @@
 ---
 title: Dynamiczne dodawanie partycji do centrum zdarzeń w usłudze Azure Event Hubs
 description: W tym artykule opisano sposób dynamicznego dodawania partycji do centrum zdarzeń w usłudze Azure Event Hubs.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 985e85e0958984be6ebecb9f0898e2723de9e85d
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: ea0477dcc695c7a2fb936daadc3679c94bfac12f
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297294"
+ms.locfileid: "85317945"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Dynamiczne dodawanie partycji do centrum zdarzeń (Apache Kafka tematu) na platformie Azure Event Hubs
 Usługa Event Hubs udostępnia funkcję transmisji strumieniowej komunikatów za pośrednictwem partycjonowanego wzorca odbiorców, w ramach którego każdy odbiorca odczytuje tylko konkretny podzbiór (partycję) strumienia komunikatów. Ten wzorzec umożliwia skalowanie w poziomie przetwarzania zdarzeń oraz udostępnia inne funkcje dotyczące strumienia, które są niedostępne w przypadku kolejek i tematów. Partycja to uporządkowana sekwencja zdarzeń przechowywana w centrum zdarzeń. Po nadejściu nowszych zdarzeń są one dodawane na końcu tej sekwencji. Aby uzyskać więcej informacji o partycjach ogólnie, zobacz [partycje](event-hubs-scalability.md#partitions)

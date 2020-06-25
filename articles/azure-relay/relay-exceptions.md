@@ -1,25 +1,14 @@
 ---
 title: Azure Relay wyjątki i sposoby ich rozwiązywania | Microsoft Docs
 description: Lista wyjątków Azure Relay i sugerowanych działań, które można podjąć, aby rozwiązać te problemy.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/20/2017
-ms.author: spelluru
-ms.openlocfilehash: fe8f057443b978e70e7cdd2591affd455fefdca8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 0bc8a399173331525d62b25929f65ad189ed219b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210871"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316881"
 ---
 # <a name="azure-relay-exceptions"></a>Wyjątki Azure Relay
 

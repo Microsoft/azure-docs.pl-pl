@@ -1,19 +1,14 @@
 ---
 title: Uwierzytelnianie dostępu do usługi Azure Event Hubs przy użyciu sygnatur dostępu współdzielonego
 description: W tym artykule opisano sposób uwierzytelniania dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego.
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.openlocfilehash: d29fef42fb875c6ed55ac1d879b9c398490e1700
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: ed389460cf3461df060df79fb756e73711f693f0
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85298824"
+ms.locfileid: "85318049"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Uwierzytelnianie dostępu do zasobów Event Hubs przy użyciu sygnatur dostępu współdzielonego (SAS)
 Sygnatura dostępu współdzielonego (SAS) zapewnia szczegółową kontrolę nad typem dostępu przyznanym klientom, którzy mają sygnaturę dostępu współdzielonego. Poniżej przedstawiono niektóre kontrolki, które można ustawić w sygnaturze dostępu współdzielonego: 

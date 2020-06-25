@@ -1,26 +1,14 @@
 ---
 title: Event Hubs — przechwytywanie zdarzeń przesyłania strumieniowego przy użyciu Azure Portal
 description: W tym artykule opisano, jak włączyć przechwytywanie zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs przy użyciu witryny Azure Portal.
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.custom: seodec18
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 4a7a87197a198f7bda63e1cad64144efd345cae0
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 103aa4e3da84e41275bec6310035c117fe780a18
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299164"
+ms.locfileid: "85315728"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>Włączanie przechwytywania zdarzeń przesyłanych strumieniowo za pomocą usługi Azure Event Hubs
 

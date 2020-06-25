@@ -12,17 +12,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: fc8f79221a5923dea9f767e62566c716bbdcad50
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 9548168e15522a8fb21cfd33c0cf475841a5d52b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344836"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318236"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurowanie uwierzytelniania wieloskładnikowego dla SQL Server Management Studio i usługi Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-W tym artykule pokazano, jak używać usługi uwierzytelniania wieloskładnikowego (MFA) w usłudze Azure Active Directory (Azure AD) z programem SQL Server Management Studio (SSMS). Usługi Azure AD MFA można używać podczas nawiązywania połączenia z programem SSMS lub sqlpackage. exe w celu [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) i [usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Aby zapoznać się z omówieniem uwierzytelniania wieloskładnikowego, zobacz [uniwersalne uwierzytelnianie przy użyciu SQL Database, wystąpienia zarządzanego SQL i Azure Synapse (Obsługa programu SSMS dla usługi MFA)](../database/authentication-mfa-ssms-overview.md).
+W tym artykule pokazano, jak używać usługi uwierzytelniania wieloskładnikowego (MFA) w usłudze Azure Active Directory (Azure AD) z programem SQL Server Management Studio (SSMS). Usługi Azure AD MFA można używać podczas nawiązywania połączenia z programem SSMS lub SqlPackage.exe do [Azure SQL Database](sql-database-paas-overview.md), [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) i [usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Aby zapoznać się z omówieniem uwierzytelniania wieloskładnikowego, zobacz [uniwersalne uwierzytelnianie przy użyciu SQL Database, wystąpienia zarządzanego SQL i Azure Synapse (Obsługa programu SSMS dla usługi MFA)](../database/authentication-mfa-ssms-overview.md).
 
 > [!IMPORTANT]
 > Bazy danych w Azure SQL Database, wystąpienia zarządzane usługi Azure SQL i Azure Synapse (wcześniej Azure SQL Data Warehouse) są określane zbiorczo w pozostałej części tego artykułu jako bazy danych, a serwer odwołuje się do [serwera](logical-servers.md) , który obsługuje bazy danych dla Azure SQL Database i Azure Synapse.
@@ -77,5 +77,5 @@ Po zakończeniu weryfikacji program SSMS nawiązuje połączenie zwykle z zało�
 
 - Aby zapoznać się z omówieniem uwierzytelniania wieloskładnikowego, zobacz [uniwersalne uwierzytelnianie przy użyciu SQL Database, wystąpienia zarządzanego SQL i Azure Synapse (Obsługa programu SSMS dla usługi MFA)](../database/authentication-mfa-ssms-overview.md).  
 - Przyznaj innym osobom dostęp do bazy danych: [SQL Database uwierzytelniania i autoryzacji: udzielanie dostępu](logins-create-manage.md)  
-- Upewnij się, że inne osoby mogą łączyć się za pośrednictwem zapory: [Skonfiguruj regułę zapory na poziomie serwera przy użyciu Azure Portal](/database/firewall-configure.md)  
+- Upewnij się, że inne osoby mogą łączyć się za pośrednictwem zapory: [Skonfiguruj regułę zapory na poziomie serwera przy użyciu Azure Portal](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure)  
 - W przypadku korzystania **z Active Directory — uniwersalne z** uwierzytelnianiem MFA, śledzenie ADAL jest dostępne od programu [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Domyślnie wyłączone jest śledzenie ADAL przy użyciu **narzędzi**, menu **opcji** , w obszarze **usługi platformy Azure**, **Azure Cloud**, **ADAL okno dane wyjściowe poziom śledzenia**, a następnie przez włączenie **danych wyjściowych** w menu **Widok** . Ślady są dostępne w oknie danych wyjściowych w przypadku wybrania **opcji Azure Active Directory**.

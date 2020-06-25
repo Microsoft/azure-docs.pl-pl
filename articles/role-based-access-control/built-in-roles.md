@@ -8,12 +8,12 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 06/18/2020
-ms.openlocfilehash: 6e570c100a30f18a843f50cb8dc93572bb62d0f7
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: b645945cc082b321e63e9d02e0bb6a799e82364d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080734"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317296"
 ---
 # <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
 
@@ -87,6 +87,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [AcrQuarantineWriter](#acrquarantinewriter) | składnik zapisywania danych kwarantanny ACR | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | [Rola administratora klastra usługi Kubernetes platformy Azure](#azure-kubernetes-service-cluster-admin-role) | Wyświetl listę akcji poświadczeń administratora klastra. | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | [Rola użytkownika klastra usługi Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Wyświetl listę akcji poświadczeń użytkownika klastra. | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | [Rola współautora usługi Azure Kubernetes](#azure-kubernetes-service-contributor-role) | Przyznaje dostęp do odczytu i zapisu klastrów usługi Azure Kubernetes | ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8 |
 > | **Bazy danych** |  |  |
 > | [Rola czytnika konta Cosmos DB](#cosmos-db-account-reader-role) | Może odczytywać Azure Cosmos DB dane konta. Aby zarządzać kontami Azure Cosmos DB, zobacz [współautor konta usługi DocumentDB](#documentdb-account-contributor) . | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
 > | [Operator Cosmos DB](#cosmos-db-operator) | Umożliwia zarządzanie kontami Azure Cosmos DB, ale nie dostęp do danych w nich. Uniemożliwia dostęp do kluczy konta i parametrów połączenia. | 230815da-be43-4aae-9cb4-875f7bd000aa |
@@ -372,7 +373,7 @@ Umożliwia zarządzanie dostępem użytkowników do zasobów platformy Azure. [D
 }
 ```
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Wystąpienia obliczeniowe
 
 
 ### <a name="classic-virtual-machine-contributor"></a>Współautor klasycznej maszyny wirtualnej
@@ -1154,7 +1155,7 @@ Umożliwia zarządzanie profilami Traffic Manager, ale nie pozwala na kontrolowa
 }
 ```
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Magazyn
 
 
 ### <a name="avere-contributor"></a>Współautor avere
@@ -2603,7 +2604,7 @@ Odczytuj i wyświetlaj kolejki usługi Azure Storage oraz wiadomości w kolejce.
 }
 ```
 
-## <a name="web"></a>Internet
+## <a name="web"></a>Sieć Web
 
 
 ### <a name="azure-maps-data-reader"></a>Azure Maps czytnika danych
@@ -3138,6 +3139,50 @@ Wyświetl listę akcji poświadczeń użytkownika klastra. [Dowiedz się więcej
     }
   ],
   "roleName": "Azure Kubernetes Service Cluster User Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="azure-kubernetes-service-contributor-role"></a>Rola współautora usługi Azure Kubernetes
+
+Przyznaje dostęp do odczytu i zapisu klastrów usługi Azure Kubernetes
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Akcje** |  |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Read | Pobierz zarządzany klaster |
+> | [Microsoft. ContainerService](resource-provider-operations.md#microsoftcontainerservice)/managedClusters/Write | Tworzy nowy zarządzany klaster lub aktualizuje istniejący. |
+> | [Microsoft. resources](resource-provider-operations.md#microsoftresources)/Deployments/* | Tworzenie wdrożenia i zarządzanie nim |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | *brak* |  |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants access to read and write Azure Kubernetes Service clusters",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+  "name": "ed7f3fbd-7b88-4dd4-9017-9adb7ce333f8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ContainerService/managedClusters/read",
+        "Microsoft.ContainerService/managedClusters/write",
+        "Microsoft.Resources/deployments/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Kubernetes Service Contributor Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

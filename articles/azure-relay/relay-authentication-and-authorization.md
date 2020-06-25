@@ -1,25 +1,14 @@
 ---
 title: Azure Relay uwierzytelniania i autoryzacji | Microsoft Docs
 description: Ten artykuł zawiera omówienie uwierzytelniania sygnatury dostępu współdzielonego (SAS) w usłudze Azure Relay.
-services: service-bus-relay
-documentationcenter: na
-author: spelluru
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-ms.openlocfilehash: aac5c973a99b13d5918a0162feb7f1ede443463b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 06/23/2020
+ms.openlocfilehash: 63e075bc9bf75005a92866f9fa0f90ddaba2f016
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210569"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316942"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure Relay uwierzytelnianie i autoryzacja
 

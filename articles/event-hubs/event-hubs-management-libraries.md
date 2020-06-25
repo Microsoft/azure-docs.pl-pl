@@ -1,21 +1,14 @@
 ---
 title: Biblioteki zarządzania — Event Hubs platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje na temat biblioteki, która służy do zarządzania przestrzeniami nazw i jednostkami usługi Azure Event Hubs z poziomu platformy .NET.
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
-ms.devlang: dotnet
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
-ms.openlocfilehash: 431fe04461f422274697d1e91c4b56e914ce2d4e
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.date: 06/23/2020
+ms.openlocfilehash: f3129ae5586a3096dda89eea3af21eefd1606f30
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60746662"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312973"
 ---
 # <a name="event-hubs-management-libraries"></a>Biblioteki zarządzania usługi Event Hubs
 
@@ -35,7 +28,7 @@ Aby rozpocząć korzystanie z bibliotek zarządzania Event Hubs, należy uwierzy
 * [Use Azure PowerShell to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu programu Azure PowerShell)](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Use Azure CLI to create a service principal to access resources (Tworzenie jednostki usługi używanej do uzyskiwania dostępu do zasobów przy użyciu interfejsu wiersza polecenia platformy Azure)](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-Te samouczki zapewniają `AppId` (identyfikator klienta), `TenantId`i `ClientSecret` (klucz uwierzytelniania), które są używane do uwierzytelniania przez biblioteki zarządzania. Użytkownik musi mieć uprawnienia **właściciela** do grupy zasobów, w której ma zostać uruchomione.
+Te samouczki zapewniają `AppId` (identyfikator klienta), `TenantId` i `ClientSecret` (klucz uwierzytelniania), które są używane do uwierzytelniania przez biblioteki zarządzania. Użytkownik musi mieć uprawnienia **właściciela** do grupy zasobów, w której ma zostać uruchomione.
 
 ## <a name="programming-pattern"></a>Wzorzec programowania
 
@@ -60,7 +53,7 @@ Wzorzec służący do manipulowania dowolnym zasobem Event Hubs jest następują
     };
     ```
 
-1. Ustaw `CreateOrUpdate` parametry na określone wartości.
+1. Ustaw `CreateOrUpdate` Parametry na określone wartości.
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {

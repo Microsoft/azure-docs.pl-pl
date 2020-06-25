@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 06/16/2020
+ms.date: 06/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 85b724cacc9c878f39de62e91e18713a1817933d
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 86116e4aa76b376331e25719d128fc733c3257ae
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817231"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316397"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -225,13 +225,20 @@ W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu 
 |Aktualizacje krytyczne i zabezpieczeń     | Aktualizacje dotyczące konkretnego problemu lub problemu związanego z zabezpieczeniami.         |
 |Inne aktualizacje     | Wszystkie inne aktualizacje, których charakter nie ma znaczenia ani aktualizacje zabezpieczeń.        |
 
+>[!NOTE]
+>Klasyfikacja aktualizacji dla maszyn z systemem Linux jest dostępna tylko w przypadku, gdy są używane w obsługiwanych regionach chmury publicznej platformy Azure. W przypadku korzystania z Update Management w następujących regionach w chmurze krajowej:
+>* Wersja platformy Azure dla administracji USA
+>* 21Vianet w Chinach
+>
+> nie ma klasyfikacji aktualizacji systemu Linux i są one zgłaszane w kategorii **inne aktualizacje** . Update Management używa danych opublikowanych przez obsługiwane dystrybucje, w tym w oddzielnym pliku. [OVAL](https://oval.mitre.org/) Ponieważ dostęp do Internetu jest ograniczony z tych chmur narodowych, Update Management nie może uzyskać dostępu do tych plików i korzystać z nich.
+
 W przypadku systemu Linux Update Management może rozróżnić aktualizacje krytyczne i aktualizacje zabezpieczeń w chmurze, a następnie wyświetlać dane oceny z powodu wzbogacania danych w chmurze. W przypadku stosowania poprawek Update Management opiera się na danych klasyfikacji dostępnych na komputerze. W przeciwieństwie do innych dystrybucji, CentOS nie ma informacji dostępnych w wersji RTM. Jeśli masz maszyny CentOS skonfigurowane do zwracania danych zabezpieczeń dla poniższego polecenia, Update Management może zostać poprawione na podstawie klasyfikacji.
 
 ```bash
 sudo yum -q --security check-update
 ```
 
-Obecnie nie jest obsługiwana metoda umożliwiająca natywną klasyfikację — dostępność danych w systemie CentOS. W tej chwili do klientów, którzy mogli korzystać z tej funkcji, jest świadczona tylko Najlepsza pomoc techniczna. 
+Obecnie nie jest obsługiwana metoda umożliwiająca natywną klasyfikację — dostępność danych w systemie CentOS. W tej chwili do klientów, którzy mogli korzystać z tej funkcji, jest świadczona tylko Najlepsza pomoc techniczna.
 
 Aby sklasyfikować aktualizacje w systemie Red Hat Enterprise w wersji 6, należy zainstalować wtyczkę yum-Security. W Red Hat Enterprise Linux 7 wtyczka jest już częścią yum i nie trzeba instalować żadnych elementów. Aby uzyskać więcej informacji, zobacz następujący [artykuł merytoryczny](https://access.redhat.com/solutions/10021)firmy Red Hat.
 

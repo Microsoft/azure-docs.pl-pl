@@ -1,18 +1,14 @@
 ---
 title: Integrowanie Event Hubs platformy Azure z usługą prywatnych linków platformy Azure
 description: Dowiedz się, jak zintegrować usługę Azure Event Hubs z usługą Azure Private Link Service
-services: event-hubs
-author: spelluru
-ms.author: spelluru
-ms.date: 03/12/2020
-ms.service: event-hubs
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 1f07e6eb1a219db4f8eb94c54acaa3181e186da6
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: aa1eb4df425d83a37fbf4ac69e0e256c464dc5c9
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84670025"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312826"
 ---
 # <a name="integrate-azure-event-hubs-with-azure-private-link"></a>Integrowanie Event Hubs platformy Azure z prywatnym łączem platformy Azure
 Usługa link prywatny platformy Azure umożliwia dostęp do usług platformy Azure (na przykład Azure Event Hubs, Azure Storage i Azure Cosmos DB) oraz hostowanych usług klienta i partnerskich platformy Azure za pośrednictwem **prywatnego punktu końcowego** w sieci wirtualnej.
@@ -65,7 +61,7 @@ Jeśli masz już Event Hubs przestrzeń nazw, możesz utworzyć połączenie pry
 5. Wybierz kartę **połączenia prywatnego punktu końcowego** w górnej części strony. 
 6. Wybierz przycisk **+ prywatny punkt końcowy** w górnej części strony.
 
-    ![Obraz](./media/private-link-service/private-link-service-3.png)
+    ![Image (Obraz)](./media/private-link-service/private-link-service-3.png)
 7. Na stronie **podstawowe** wykonaj następujące kroki: 
     1. Wybierz **subskrypcję platformy Azure** , w której chcesz utworzyć prywatny punkt końcowy. 
     2. Wybierz **grupę zasobów** dla prywatnego zasobu punktu końcowego.
@@ -207,7 +203,7 @@ Istnieją cztery Stany aprowizacji:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Zatwierdź, Odrzuć lub Usuń połączenie prywatnego punktu końcowego
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 2. Na pasku wyszukiwania wpisz w **centrach zdarzeń**.
 3. Wybierz **przestrzeń nazw** , którą chcesz zarządzać.
 4. Wybierz kartę **Sieć** .
@@ -218,7 +214,7 @@ Istnieją cztery Stany aprowizacji:
 2. Wybierz **prywatny punkt końcowy** , który chcesz zatwierdzić
 3. Wybierz przycisk **Zatwierdź** .
 
-    ![Obraz](./media/private-link-service/approve-private-endpoint.png)
+    ![Image (Obraz)](./media/private-link-service/approve-private-endpoint.png)
 4. Na stronie **zatwierdzanie połączenia** Dodaj komentarz (opcjonalnie), a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
 5. Stan połączenia prywatnego punktu końcowego powinien zostać wyświetlony na liście zmieniono na **zatwierdzone**. 
 
@@ -226,7 +222,7 @@ Istnieją cztery Stany aprowizacji:
 
 1. Jeśli istnieją jakieś połączenia prywatnego punktu końcowego, które chcesz odrzucić, niezależnie od tego, czy jest to oczekujące żądanie, czy istniejące połączenie, wybierz połączenie i kliknij przycisk **Odrzuć** .
 
-    ![Obraz](./media/private-link-service/private-endpoint-reject-button.png)
+    ![Image (Obraz)](./media/private-link-service/private-endpoint-reject-button.png)
 2. Na stronie **Odrzuć połączenie** Wprowadź komentarz (opcjonalnie), a następnie wybierz pozycję **tak**. Jeśli wybierzesz opcję **nie**, nic się nie dzieje. 
 3. Stan połączenia prywatnego punktu końcowego powinien zostać wyświetlony na liście zmieniono na **odrzucony**. 
 

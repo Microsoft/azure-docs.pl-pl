@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 1599fe76f3542717bebe63228d8c46f7e5de97c3
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 4854fabb3dccc276ec32a596a42263acd07ac276
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457171"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316068"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Dostawca stanu sesji ASP.NET dla usługi Azure Cache for Redis
 
@@ -42,7 +42,7 @@ Pakiet NuGet dostawcy stanu sesji Redis ma zależność od pakietu StackExchange
 >
 >
 
-Pakiet NuGet pobiera i dodaje wymagane odwołania do zestawu i dodaje następującą sekcję do pliku Web. config. Ta sekcja zawiera konfigurację wymaganą przez aplikację ASP.NET do korzystania z pamięci podręcznej platformy Azure dla dostawcy stanu sesji Redis.
+Pakiet NuGet pobiera i dodaje wymagane odwołania do zestawu i dodaje do pliku web.config następującą sekcję. Ta sekcja zawiera konfigurację wymaganą przez aplikację ASP.NET do korzystania z pamięci podręcznej platformy Azure dla dostawcy stanu sesji Redis.
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
@@ -94,9 +94,9 @@ Skonfiguruj atrybuty przy użyciu wartości z bloku pamięci podręcznej w Micro
 * **operationTimeoutInMilliseconds** — to ustawienie umożliwia zastąpienie ustawienia syncTimeout w kliencie stackexchange. Redis. Jeśli nie zostanie określony, zostanie użyte domyślne ustawienie syncTimeout 1000. Aby uzyskać więcej informacji, zobacz [stackexchange. Redis Configuration model](https://go.microsoft.com/fwlink/?LinkId=398705).
 * **redisSerializerType** — to ustawienie pozwala określić niestandardową serializację zawartości sesji, która jest wysyłana do Redis. Określony typ musi implementować `Microsoft.Web.Redis.ISerializer` i musi deklarować publiczny Konstruktor bez parametrów. Domyślnie `System.Runtime.Serialization.Formatters.Binary.BinaryFormatter` jest używana.
 
-Aby uzyskać więcej informacji o tych właściwościach, zapoznaj się z ogłoszeniem oryginalnego wpisu w blogu, w którym jest [ogłaszany dostawca stanu sesji ASP.NET dla usługi Redis](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Aby uzyskać więcej informacji o tych właściwościach, zapoznaj się z ogłoszeniem oryginalnego wpisu w blogu, w którym jest [ogłaszany dostawca stanu sesji ASP.NET dla usługi Redis](https://devblogs.microsoft.com/aspnet/announcing-asp-net-session-state-provider-for-redis-preview-release/).
 
-Nie zapomnij dodać komentarza do sekcji dostawca stanu sesji w warstwie Standardowa w pliku Web. config.
+Nie zapomnij dodać komentarza do sekcji dostawca stanu sesji InProc w web.config.
 
 ```xml
 <!-- <sessionState mode="InProc"

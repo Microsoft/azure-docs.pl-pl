@@ -4,12 +4,12 @@ description: Informacje na temat tworzenia pul węzłów i zarządzania nimi dla
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: dc420f5d453cf7d0bb19dd5db45ca2ae98be2902
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 64eaa3fd38a9f3de7e2032ef7ff7a18924353a1d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887748"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318440"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Tworzenie i zarządzanie wieloma pulami węzłów dla klastra w usłudze Azure Kubernetes Service (AKS)
 
@@ -783,7 +783,7 @@ Publiczne adresy IP dla węzłów można znaleźć na różne sposoby:
 az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 W tym artykule opisano tworzenie klastra AKS zawierającego węzły oparte na procesorach GPU. Aby zmniejszyć niepotrzebny koszt, warto usunąć *gpunodepool*lub cały klaster AKS.
 
@@ -812,6 +812,8 @@ Dowiedz się więcej o [pulach węzła systemowego][use-system-pool].
 W tym artykule przedstawiono sposób tworzenia wielu pul węzłów w klastrze AKS i zarządzania nimi. Aby uzyskać więcej informacji na temat sterowania zestawami w puli węzłów, zobacz [najlepsze rozwiązania dotyczące zaawansowanych funkcji usługi Scheduler w AKS][operator-best-practices-advanced-scheduler].
 
 Aby utworzyć i użyć pul węzłów kontenera systemu Windows Server, zobacz [Tworzenie kontenera systemu Windows Server w AKS][aks-windows].
+
+Używaj [grup umieszczania w sąsiedztwie][reduce-latency-ppg] , aby ograniczyć czas oczekiwania na aplikacje AKS.
 
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
@@ -850,3 +852,4 @@ Aby utworzyć i użyć pul węzłów kontenera systemu Windows Server, zobacz [T
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
 [az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips
+[reduce-latency-ppg]: reduce-latency-ppg.md

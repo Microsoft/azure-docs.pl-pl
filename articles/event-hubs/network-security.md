@@ -1,18 +1,14 @@
 ---
 title: Zabezpieczenia sieciowe dla Event Hubs platformy Azure
 description: W tym artykule opisano sposób konfigurowania dostępu z prywatnych punktów końcowych
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.author: spelluru
-ms.openlocfilehash: 46e6a9ecc2ed09aed1076f12c1f61a966485bdad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: de4c5c6ddc658aab549ccf6960edbca3285e338d
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422781"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312850"
 ---
 # <a name="network-security-for-azure-event-hubs"></a>Zabezpieczenia sieciowe dla Event Hubs platformy Azure 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w usłudze Azure Event Hubs: 
@@ -26,7 +22,7 @@ W tym artykule opisano sposób korzystania z następujących funkcji zabezpiecze
 ## <a name="service-tags"></a>Tagi usługi
 Tag usługi reprezentuje grupę prefiksów adresów IP z danej usługi platformy Azure. Firma Microsoft zarządza prefiksami adresów, które obejmują tag usługi, i automatycznie aktualizuje tag usługi jako adresy, minimalizując złożoność częstych aktualizacji reguł zabezpieczeń sieciowych. Aby uzyskać więcej informacji na temat tagów usługi, zobacz [Omówienie tagów usług](../virtual-network/service-tags-overview.md).
 
-Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/security-overview.md#security-rules)lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **EventHub**) w odpowiednim polu *źródłowym* lub *docelowym* reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
+Za pomocą tagów usługi można definiować kontrolę dostępu do sieci w [grupach zabezpieczeń sieci](../virtual-network/security-overview.md#security-rules)   lub w [zaporze platformy Azure](../firewall/service-tags.md). Podczas tworzenia reguł zabezpieczeń należy używać tagów usługi zamiast określonych adresów IP. Określając nazwę tagu usługi (na przykład **EventHub**) w odpowiednim polu *źródłowym*   lub *docelowym*   reguły, można zezwolić na ruch dla odpowiedniej usługi lub go odrzucić.
 
 | Tag usługi | Przeznaczenie | Może korzystać z ruchu przychodzącego lub wychodzącego? | Może być regionalna? | Czy można używać z zaporą platformy Azure? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|

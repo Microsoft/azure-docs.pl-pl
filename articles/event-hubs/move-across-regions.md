@@ -1,20 +1,14 @@
 ---
 title: Przenoszenie przestrzeni nazw platformy Azure Event Hubs do innego regionu | Microsoft Docs
 description: W tym artykule pokazano, jak przenieść przestrzeń nazw platformy Azure Event Hubs z bieżącego regionu do innego regionu.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
 ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 04/14/2020
-ms.author: spelluru
-ms.reviewer: shvija
-ms.openlocfilehash: 5b96bf1c538b3c5589a1993a0353292fadd0936d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 06/23/2020
+ms.openlocfilehash: a70397772d22a65046f87877deab6263d4b2104f
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690484"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312970"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Przenoszenie przestrzeni nazw Event Hubs platformy Azure do innego regionu
 Istnieją różne scenariusze, w których należy przenieść istniejącą przestrzeń nazw Event Hubs z jednego regionu do innego. Na przykład możesz chcieć utworzyć przestrzeń nazw o tej samej konfiguracji do testowania. Możesz również utworzyć pomocniczą przestrzeń nazw w innym regionie w ramach [planowania odzyskiwania po awarii](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -36,7 +30,7 @@ Aby rozpocząć, wyeksportuj szablon Menedżer zasobów. Ten szablon zawiera ust
 
 2. Wybierz pozycję **wszystkie zasoby** , a następnie wybierz przestrzeń nazw Event Hubs.
 
-3. Wybierz pozycję > **Ustawienia** > **Eksportuj szablon**.
+3. Wybierz pozycję > **Ustawienia**  >  **Eksportuj szablon**.
 
 4. Na stronie **Eksportuj szablon** wybierz pozycję **Pobierz** .
 
@@ -62,7 +56,7 @@ Wdróż szablon w celu utworzenia Event Hubs przestrzeni nazw w regionie docelow
 
 5. Wybierz pozycję **Utwórz własny szablon w edytorze**.
 
-6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować plik **Template. JSON** pobrany z ostatniej sekcji.
+6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** pliku pobranego w ostatniej sekcji.
 
 7. Wybierz pozycję **Zapisz** , aby zapisać szablon. 
 

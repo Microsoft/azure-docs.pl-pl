@@ -13,12 +13,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 20b186c75358344e6e995b24b8e54e308c8653d2
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 84cd6f9d7612cc6cf5829c03c398dd65a6eec412
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975422"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318032"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Zdalny dostęp do aplikacji lokalnych przy użyciu serwera proxy aplikacji Azure Active Directory
 
@@ -71,3 +71,4 @@ Na poniższym diagramie pokazano, w jaki sposób usługa Azure AD i serwer proxy
 
 ## <a name="next-steps"></a>Następne kroki
 Aby rozpocząć korzystanie z serwera proxy aplikacji, zobacz [Samouczek: Dodawanie aplikacji lokalnej dla dostępu zdalnego za pośrednictwem serwera proxy aplikacji](application-proxy-add-on-premises-application.md).
+

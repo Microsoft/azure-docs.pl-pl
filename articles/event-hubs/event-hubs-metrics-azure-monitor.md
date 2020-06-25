@@ -1,26 +1,14 @@
 ---
 title: Metryki w Azure Monitor — Event Hubs platformy Azure | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące monitorowania platformy Azure Event Hubs przy użyciu usługi Azure Monitoring
-services: event-hubs
-documentationcenter: .NET
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 09/18/2019
-ms.author: shvija
-ms.openlocfilehash: 96c346f4359740fda5638dfdbe5735c5bdfce8c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 76df9920c517e8370409bca26e5a6533c7253c1e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162654"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314599"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Metryki usługi Azure Event Hubs na platformie Azure Monitor
 

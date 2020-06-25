@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: 377085a98214d5fa92d08dd78d37635364295c46
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 81132f0a6f8b57d8798a9a5c4f0a2b9c1ac736d4
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85269078"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85317403"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Kompiluj plan migracji z Azure Migrate
 
@@ -70,7 +70,7 @@ Po znalezieniu serwerów Użyj mapowania zależności bez agenta, aby wizualizow
 
 Ponieważ platforma Azure zapewnia elastyczność zmiany rozmiaru chmury w miarę upływu czasu, migracja jest okazją do zoptymalizowania zasobów procesora i pamięci przypisywanych do serwerów. Utwórz ocenę dla grupy identyfikowanej wcześniej, aby zrozumieć historię wydajności obciążeń, które będą bardzo ważne w przypadku poszczególnych jednostek SKU maszyn wirtualnych i zaleceń dotyczących dysków na platformie Azure.
 
-## <a name="asses-your-readiness-for-migration"></a>Ocena gotowości do migracji
+## <a name="assess-your-readiness-for-migration"></a>Ocena gotowości do migracji
 
 ### <a name="readiness-and-suitability-analysis-for-azure"></a>Gotowość i analiza przydatności na platformie Azure
 Wyeksportuj raport oceny maszyn wirtualnych platformy Azure i przefiltruj je według następujących kategorii gotowości, aby zrozumieć gotowość maszyny wirtualnej na platformie Azure:

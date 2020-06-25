@@ -1,21 +1,14 @@
 ---
 title: Congigurej zaporę IP dla przestrzeni nazw Azure Relay
 description: W tym artykule opisano sposób używania reguł zapory do zezwalania na połączenia z określonych adresów IP do Azure Relay przestrzenie nazw.
-services: service-bus-relay
-documentationcenter: ''
-author: spelluru
-ms.service: service-bus-relay
-ms.devlang: na
-ms.custom: seodec18
 ms.topic: article
-ms.date: 05/13/2020
-ms.author: spelluru
-ms.openlocfilehash: 88eb7acf1e72084a83d6d8631c0ea5d740988640
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/23/2020
+ms.openlocfilehash: f5fca44c56982e368b762a0b9b3418f1175f7de0
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653435"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314852"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Konfigurowanie zapory IP dla Azure Relay przestrzeni nazw
 Domyślnie przestrzenie nazw przekaźnika są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IPv4 lub zakresów adresów IPv4 w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
