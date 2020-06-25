@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3a82665f197301fe81c448dd18181f0602bdbef
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f94852a99f0bc430ac193b9951de607cdd7fa933
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85209797"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362547"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji przy użyciu Azure Automation
 
@@ -106,7 +106,8 @@ Najpierw musisz mieć konto Azure Automation, aby uruchomić element Runbook pro
 
 6. Po skonfigurowaniu konta Azure Automation Zaloguj się do subskrypcji platformy Azure i sprawdź, czy konto Azure Automation i odpowiedni element Runbook pojawiły się w określonej grupie zasobów, jak pokazano na poniższej ilustracji:
 
-![Obraz strony Przegląd platformy Azure przedstawiający nowo utworzone konto usługi Automation i element Runbook.](../media/automation-account.png)
+> [!div class="mx-imgBorder"]
+> ![Obraz strony Przegląd platformy Azure przedstawiający nowo utworzone konto usługi Automation i element Runbook.](../media/automation-account.png)
 
   Aby sprawdzić, czy element webhook jest w tym miejscu, wybierz nazwę elementu Runbook. Następnie przejdź do sekcji zasobów elementu Runbook i wybierz pozycję elementy **webhook**.
 
@@ -236,11 +237,13 @@ Na koniec należy utworzyć aplikację logiki platformy Azure i skonfigurować h
 
      Po uruchomieniu skryptu aplikacja logiki powinna pojawić się w grupie zasobów, jak pokazano na poniższej ilustracji.
 
-     ![Obraz strony przegląd dla przykładowej aplikacji logiki platformy Azure.](../media/logic-app.png)
+     > [!div class="mx-imgBorder"]
+     > ![Obraz strony przegląd dla przykładowej aplikacji logiki platformy Azure.](../media/logic-app.png)
 
 Aby wprowadzić zmiany do harmonogramu wykonywania, takie jak zmiana interwału cyklu lub strefy czasowej, przejdź do harmonogramu automatycznego skalowania i wybierz pozycję **Edytuj** , aby przejść do projektanta Logic Apps.
 
-![Obraz projektanta Logic Apps. Menu cykl i element webhook umożliwiające użytkownikowi edytowanie czasów cyklu i pliku elementu webhook.](../media/logic-apps-designer.png)
+> [!div class="mx-imgBorder"]
+> ![Obraz projektanta Logic Apps. Menu cykl i element webhook umożliwiające użytkownikowi edytowanie czasów cyklu i pliku elementu webhook.](../media/logic-apps-designer.png)
 
 ## <a name="manage-your-scaling-tool"></a>Zarządzaj narzędziem do skalowania
 
@@ -252,7 +255,8 @@ Można wyświetlić podsumowanie stanu wszystkich zadań elementu Runbook lub wy
 
 Po prawej stronie wybranego konta usługi Automation w obszarze "statystyki zadania" można wyświetlić listę podsumowań wszystkich zadań elementu Runbook. Otwarcie strony **zadania** po lewej stronie okna powoduje wyświetlenie bieżących stanów zadań, godzin rozpoczęcia i czasu zakończenia.
 
-![Zrzut ekranu przedstawiający stronę stanu zadania.](../media/jobs-status.png)
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający stronę stanu zadania.](../media/jobs-status.png)
 
 ### <a name="view-logs-and-scaling-tool-output"></a>Wyświetlanie dzienników i narzędzi do skalowania danych wyjściowych
 
@@ -260,5 +264,6 @@ Możesz wyświetlić dzienniki operacji skalowania w poziomie i skalowania przez
 
 Przejdź do elementu Runbook (nazwa domyślna to WVDAutoScaleRunbook) w grupie zasobów hostującym konto Azure Automation i wybierz pozycję **Przegląd**. Na stronie Przegląd wybierz zadanie w obszarze ostatnie zadania, aby wyświetlić dane wyjściowe narzędzia do skalowania, jak pokazano na poniższej ilustracji.
 
-![Obraz okna dane wyjściowe narzędzia do skalowania.](../media/tool-output.png)
+> [!div class="mx-imgBorder"]
+> ![Obraz okna dane wyjściowe narzędzia do skalowania.](../media/tool-output.png)
 

@@ -5,24 +5,21 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/18/2020
-ms.openlocfilehash: 9b577b12250f1a600c91776e64ecaf65be5d8476
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.date: 6/24/2020
+ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100886"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362428"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Inspekcja dzienników w Azure Database for MariaDB
 
 W Azure Database for MariaDB dziennik inspekcji jest dostępny dla użytkowników. Dziennik inspekcji może służyć do śledzenia aktywności na poziomie bazy danych i jest często używany w celu zapewnienia zgodności.
 
-> [!IMPORTANT]
-> Funkcje dziennika inspekcji są obecnie dostępne w wersji zapoznawczej.
-
 ## <a name="configure-audit-logging"></a>Konfigurowanie rejestrowania inspekcji
 
->[!NOTE]
+>[!IMPORTANT]
 > Zaleca się tylko rejestrowanie typów zdarzeń i użytkowników wymaganych do celów inspekcji, aby upewnić się, że wydajność serwera nie jest w dużym stopniu zagrożona.
 
 Domyślnie dziennik inspekcji jest wyłączony. Aby włączyć tę opcję, ustaw wartość `audit_log_enabled` na na.

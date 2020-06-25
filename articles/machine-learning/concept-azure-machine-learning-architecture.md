@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 49c23774fe16c24ba90daa02cdda1688b79b12d3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 97b13118eb0299f042bdadfebecbc1a23d1ce59f
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683044"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362598"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -45,9 +45,9 @@ Przepływ pracy modelu uczenia maszynowego jest zwykle następujący:
 Użyj tych narzędzi dla Azure Machine Learning:
 
 +  Korzystanie z usługi w dowolnym środowisku języka Python z [zestawem SDK Azure Machine Learning dla języka Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ Korzystanie z usługi w dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ Korzystanie z usługi w dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (wersja zapoznawcza).
 + Automatyzuj działania uczenia maszynowego za pomocą [interfejsu wiersza polecenia Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
-+ Użyj programu [Azure Machine Learning Designer (wersja zapoznawcza)](concept-designer.md) , aby wykonać etapy przepływu pracy bez pisania kodu.
++ Użyj programu [Azure Machine Learning Designer (wersja zapoznawcza)](concept-designer.md) , aby wykonać etapy przepływu pracy bez pisania kodu. ( [Obszar roboczy przedsiębiorstwa](concept-workspace.md#upgrade)) jest wymagany do korzystania z projektanta.
 + [Akcelerator rozwiązań wielu modeli](https://aka.ms/many-models) (wersja zapoznawcza) jest oparty na Azure Machine Learning i umożliwia uczenie, obsługę setek lub nawet tysięcy modeli uczenia maszynowego oraz zarządzanie nimi.
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Użyj tych narzędzi dla Azure Machine Learning:
     * [Eksperymenty](#experiments)
         * [Uruchom](#runs) 
             * [Uruchom konfigurację](#run-configurations)
-            * [Migawka](#snapshots)
+            * [Snapshot](#snapshots)
             * [Śledzenie git](#github-tracking-and-integration)
             * [Rejestrowanie](#logging)
     * [Potoki uczenia maszynowego](#ml-pipelines)
@@ -68,7 +68,7 @@ Użyj tych narzędzi dla Azure Machine Learning:
         * [Środowiska](#environments)
         * [Skrypt szkoleniowy](#training-scripts)
         * [Szacowania](#estimators)
-    * [Punkty końcowe](#endpoints)
+    * [Punktów końcowych](#endpoints)
         * [Usługa sieci Web](#web-service-endpoint)
         * [Moduły IoT](#iot-module-endpoints)
     * [& magazynów danych](#datasets-and-datastores)

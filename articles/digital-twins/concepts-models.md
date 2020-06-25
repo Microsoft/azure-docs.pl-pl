@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: cacf4c21e92b434aeb73cd76e6dda26508f41d77
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 5aef0c9a9b0f3dbfb5ad2f4c827b1a11190e097a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261362"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362887"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Zrozumienie modeli bliźniaczych w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -23,7 +23,7 @@ Kluczową cechą usługi Azure Digital bliźniaczych reprezentacji jest możliwo
 
 Model jest podobny do **klasy** w języku programowania zorientowanym obiektowo, definiując kształt danych dla jednej konkretnej koncepcji w rzeczywistym środowisku pracy. Modele mają nazwy (na przykład *pomieszczenie* lub *czujnik temperatury*) i zawierają takie elementy, jak właściwości, dane telemetryczne/zdarzenia i polecenia opisujące, co może zrobić ten typ jednostki w środowisku. Później te modele są używane do tworzenia [**cyfrowych bliźniaczych reprezentacji**](concepts-twins-graph.md) , które reprezentują konkretne jednostki, które spełniają opis tego typu.
 
-Modele są zapisywane przy użyciu **języka Digital bliźniaczy (DTDL)** w formacie JSON.  
+Modele są zapisywane przy użyciu **języka DTDL (Digital bliźniaczy Definition)** w formacie JSON.  
 
 ## <a name="digital-twin-definition-language-dtdl-for-writing-models"></a>Digital bliźniaczy Definition Language (DTDL) do pisania modeli
 
@@ -207,7 +207,7 @@ Lub, aby uzyskać więcej informacji na temat biblioteki parsera, w tym przykła
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz, jak zarządzać modelami przy użyciu interfejsów API DigitalTwinsModels:
-* [Instrukcje: Zarządzanie modelem bliźniaczym](how-to-manage-model.md)
+* [Instrukcje: Zarządzanie modelami niestandardowymi](how-to-manage-model.md)
 
 Można też dowiedzieć się, jak są tworzone cyfrowe bliźniaczych reprezentacji na podstawie modeli:
 * [Pojęcia: Digital bliźniaczych reprezentacji i wykres bliźniaczy](concepts-twins-graph.md)

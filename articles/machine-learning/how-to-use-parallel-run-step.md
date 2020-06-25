@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.reviewer: trbye, jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 04/15/2020
+ms.date: 06/23/2020
 ms.custom: Build2020, tracking-python
-ms.openlocfilehash: b26527321cf7fc5ca7fc4b061f11b86f8830ec29
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: ae79a4f7264224f29db4ede0944ae079130b6394
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84552314"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362615"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Uruchamiaj wnioskowanie wsadowe dla dużych ilości danych za pomocą Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +51,7 @@ Poniższe akcje umożliwiają skonfigurowanie zasobów uczenia maszynowego, któ
 
 ### <a name="configure-workspace"></a>Konfigurowanie obszaru roboczego
 
-Utwórz obiekt obszaru roboczego na podstawie istniejącego obszaru roboczego. `Workspace.from_config()`odczytuje plik config. JSON i ładuje szczegóły do obiektu o nazwie WS.
+Utwórz obiekt obszaru roboczego na podstawie istniejącego obszaru roboczego. `Workspace.from_config()`odczytuje config.jsw pliku i ładuje szczegóły do obiektu o nazwie WS.
 
 ```python
 from azureml.core import Workspace
@@ -210,7 +210,7 @@ Skrypt *musi zawierać* dwie funkcje:
 - `init()`: Ta funkcja jest używana do dowolnych kosztownych lub wspólnych przygotowań do późniejszego wnioskowania. Na przykład użyj go do załadowania modelu do obiektu globalnego. Ta funkcja zostanie wywołana tylko raz na początku procesu.
 -  `run(mini_batch)`: Funkcja zostanie uruchomiona dla każdego `mini_batch` wystąpienia.
     -  `mini_batch`: ParallelRunStep wywoła metodę Run i przekaże element list lub Pandas Dataframe jako argument do metody. Każdy wpis w mini_batch będzie ścieżką pliku, jeśli dane wejściowe to FileDataset, Pandas Dataframe, jeśli dane wejściowe to TabularDataset.
-    -  `response`: Metoda Run () powinna zwracać element Pandas Dataframe lub tablicę. W przypadku append_row output_action te zwrócone elementy są dołączane do wspólnego pliku wyjściowego. W przypadku summary_only zawartość elementów jest ignorowana. Dla wszystkich akcji wyjściowych każdy zwrócony element wyjściowy wskazuje jeden udany przebieg elementu wejściowego w danych wejściowych. Należy upewnić się, że w wyniku uruchomienia są zawarte wystarczające dane, aby zamapować dane wejściowe do uruchamiania wynik. Dane wyjściowe uruchamiania będą zapisywane w pliku wyjściowym i nie będą gwarantowane w kolejności, dlatego należy użyć pewnego klucza w danych wyjściowych, aby zamapować go na dane wejściowe.
+    -  `response`: Metoda Run () powinna zwracać element Pandas Dataframe lub tablicę. W przypadku append_row output_action te zwrócone elementy są dołączane do wspólnego pliku wyjściowego. W przypadku summary_only zawartość elementów jest ignorowana. Dla wszystkich akcji wyjściowych każdy zwrócony element wyjściowy wskazuje jeden udany przebieg elementu wejściowego w danych wejściowych. Upewnij się, że wystarczająca ilość danych jest uwzględniona w wyniku uruchomienia, aby zamapować dane wejściowe w celu uruchomienia wyniku. Dane wyjściowe uruchamiania będą zapisywane w pliku wyjściowym i nie będą gwarantowane w kolejności, dlatego należy użyć pewnego klucza w danych wyjściowych, aby zamapować go na dane wejściowe.
 
 ```python
 # Snippets from a sample script.
@@ -270,7 +270,7 @@ Teraz masz wszystko, czego potrzebujesz: dane wejściowe, model, dane wyjściowe
 
 ### <a name="prepare-the-environment"></a>Przygotowywanie środowiska
 
-Najpierw określ zależności dla skryptu. Pozwala to na zainstalowanie pakietów PIP oraz skonfigurowanie środowiska. Zawsze dołączaj pakiety **Azure-Core** i uczenie maszynowe **[Pandas, bezpiecznik]** .
+Najpierw określ zależności dla skryptu. Umożliwia to zainstalowanie pakietów PIP oraz skonfigurowanie środowiska. Zawsze dołączaj pakiety **Azure-Core** i **Azure-datapandas** .
 
 Jeśli używasz niestandardowego obrazu platformy Docker (user_managed_dependencies = true), należy również zainstalować Conda.
 
@@ -309,7 +309,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: `run()` Limit czasu wywołania metody (w sekundach). (opcjonalnie; wartość domyślna to `60` )
 - `run_max_try`: Maksymalna liczba prób `run()` dla typu mini-Batch. A `run()` nie powiodło się, jeśli wystąpił wyjątek lub nie jest zwracany, gdy `run_invocation_timeout` zostanie osiągnięty błąd (opcjonalnie; wartość domyślna to `3` ). 
 
-Można określić `mini_batch_size` , `node_count` ,, `process_count_per_node` i `logging_level` tak `run_invocation_timeout` `run_max_try` `PipelineParameter` , aby po ponownym przesłaniu uruchomienia potoku można dostosować wartości parametrów. W tym przykładzie użyjesz PipelineParameter dla `mini_batch_size` i i zmienisz `Process_count_per_node` te wartości w przypadku ponownego przesłania uruchomienia później. 
+Można określić,,,, `mini_batch_size` `node_count` i tak `process_count_per_node` `logging_level` `run_invocation_timeout` `run_max_try` `PipelineParameter` , aby po ponownym przesłaniu uruchomienia potoku można dostosować wartości parametrów. W tym przykładzie użyjesz PipelineParameter dla `mini_batch_size` i i zmienisz `Process_count_per_node` te wartości w przypadku ponownego przesłania uruchomienia później. 
 
 ```python
 from azureml.pipeline.core import PipelineParameter

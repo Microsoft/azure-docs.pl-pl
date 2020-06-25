@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie bliźniaczą reprezentacją cyfrową
+title: Zarządzanie cyfrowym bliźniaczych reprezentacji
 titleSuffix: Azure Digital Twins
 description: Zobacz, jak pobierać, aktualizować i usuwać poszczególne bliźniaczych reprezentacji i relacje.
 author: baanders
@@ -8,12 +8,12 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 9acea128313fc440834626dd3a99b117e4b25a8f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 07c77f3cf149fdd6533a070b29f709758be23ce5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84735901"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362734"
 ---
 # <a name="manage-digital-twins"></a>Zarządzanie cyfrowym bliźniaczych reprezentacji
 

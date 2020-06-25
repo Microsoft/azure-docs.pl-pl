@@ -2,18 +2,18 @@
 title: Zarządzanie punktami końcowymi i trasami
 titleSuffix: Azure Digital Twins
 description: Zobacz, jak skonfigurować punkty końcowe i trasy zdarzeń dla danych Digital bliźniaczych reprezentacji systemu Azure oraz zarządzać nimi.
-author: cschormann
-ms.author: cschorm
-ms.date: 3/17/2020
+author: alexkarcher-msft
+ms.author: alkarche
+ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: cf18d8ef391115da5e1c8fcab235c30e96287f5b
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: b6f5765f51983e3b1ca9c182849b64258476a2ce
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725685"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362768"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins"></a>Zarządzanie punktami końcowymi i trasami w usłudze Azure Digital bliźniaczych reprezentacji
 
@@ -74,17 +74,19 @@ W przykładach w tym artykule użyto zestawu SDK języka C#.
 
 Trasy zdarzeń są definiowane przy użyciu interfejsów API płaszczyzny danych. Definicja trasy może zawierać następujące elementy:
 * Identyfikator trasy, który ma być używany
-* Identyfikator punktu końcowego, który ma być używany
+* Nazwa punktu końcowego, który ma być używany
 * Filtr określający, które zdarzenia są wysyłane do punktu końcowego. 
 
-Jeśli nie ma identyfikatora trasy, żadne komunikaty nie są kierowane poza usługę Azure Digital bliźniaczych reprezentacji. Jeśli istnieje identyfikator trasy i filtr jest `null` , wszystkie komunikaty są kierowane do punktu końcowego. Jeśli istnieje identyfikator trasy i zostanie dodany filtr, komunikaty będą filtrowane zgodnie z filtrem.
+Jeśli nie ma identyfikatora trasy, żadne komunikaty nie są kierowane poza usługę Azure Digital bliźniaczych reprezentacji. Jeśli istnieje identyfikator trasy i filtr jest `true` , wszystkie komunikaty są kierowane do punktu końcowego. Jeśli istnieje identyfikator trasy i zostanie dodany inny filtr, komunikaty będą filtrowane zgodnie z filtrem.
 
 Jedna trasa powinna zezwalać na wybranie wielu powiadomień i typów zdarzeń. 
 
-Oto wywołanie zestawu SDK, które służy do dodawania trasy zdarzenia:
+`CreateEventRoute`to wywołanie zestawu SDK, które służy do dodawania trasy zdarzenia. Oto przykład użycia:
 
 ```csharp
-await client.CreateEventRoute("routeName", new EventRoute("endpointID"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
 > [!TIP]
@@ -130,11 +132,11 @@ Bez filtrowania punkty końcowe otrzymują wiele zdarzeń z usługi Azure Digita
 
 Można ograniczyć wysyłanie zdarzeń przez dodanie filtru do punktu końcowego.
 
-Aby dodać filtr, można użyć żądania PUT do *protokołu https://{YourHost}/EventRoutes/myNewRoute? API-Version = 2020-03 -01-Preview* z następującą treścią:
+Aby dodać filtr, można użyć żądania PUT do *protokołu https://{YourHost}/EventRoutes/myNewRoute? API-Version = 2020-05 -31-Preview* z następującą treścią:
 
 ```json  
 {
-    "endpointId": "<endpoint-ID>",
+    "endpointName": "<endpoint-name>",
     "filter": "<filter-text>"
 }
 ``` 
@@ -143,9 +145,10 @@ Poniżej przedstawiono obsługiwane filtry tras.
 
 | Nazwa filtru | Opis | Filtruj schemat | Obsługiwane wartości | 
 | --- | --- | --- | --- |
-| Typ | [Typ zdarzenia](./concepts-route-events.md#types-of-event-messages) przepływającego przez swoje cyfrowe wystąpienie sieci dwuosiowej | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Edge.Create`<br>`Microsoft.DigitalTwins.Edge.Update`<br> `Microsoft.DigitalTwins.Edge.Delete` <br> `microsoft.iot.telemetry`  |
-| Element źródłowy | Nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji | `"filter" : "source = '<hostname>'"`|  **Powiadomienia:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Dla telemetrii:**`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/ digitaltwins/<twinId>`|
-| Podmiot | Opis zdarzenia w kontekście źródła zdarzeń powyżej | `"filter": " subject = '<subject>'"` | W **przypadku powiadomień**podmiot jest`<twinid>` <br> lub format identyfikatora URI dla tematów, które są jednoznacznie identyfikowane przez wiele części lub identyfikatorów:<br>`<twinid>/relationships/<relationship>/<edgeid>`<br> W **przypadku telemetrii**podmiot jest ścieżką składnika (Jeśli dane telemetryczne są emitowane z składnika przędzy), np `comp1.comp2` .. Jeśli dane telemetryczne nie są emitowane ze składnika, jego pole podmiotu jest puste. |
+| Typ | [Typ zdarzenia](./concepts-route-events.md#types-of-event-messages) przepływającego przez swoje cyfrowe wystąpienie sieci dwuosiowej | `"filter" : "type = '<eventType>'"` | `Microsoft.DigitalTwins.Twin.Create` <br> `Microsoft.DigitalTwins.Twin.Delete` <br> `Microsoft.DigitalTwins.Twin.Update`<br>`Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br> `Microsoft.DigitalTwins.Relationship.Delete` <br> `microsoft.iot.telemetry`  |
+| Element źródłowy | Nazwa wystąpienia usługi Azure Digital bliźniaczych reprezentacji | `"filter" : "source = '<hostname>'"`|  **Powiadomienia**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net` <br> **Dla telemetrii**:`<yourDigitalTwinInstance>.<yourRegion>.azuredigitaltwins.net/digitaltwins/<twinId>`|
+| Podmiot | Opis zdarzenia w kontekście źródła zdarzeń powyżej | `"filter": " subject = '<subject>'"` | **Powiadomienia**: podmiot jest`<twinid>` <br> lub format identyfikatora URI dla tematów, które są jednoznacznie identyfikowane przez wiele części lub identyfikatorów:<br>`<twinid>/relationships/<relationshipid>`<br> **W przypadku telemetrii**: podmiot jest ścieżką składnika (Jeśli dane telemetryczne są emitowane z składnika przędzy), np `comp1.comp2` .. Jeśli dane telemetryczne nie są emitowane ze składnika, jego pole podmiotu jest puste. |
+| Schemat danych | Identyfikator modelu DTDL | `"filter": "dataschema = 'dtmi:example:com:floor4;2'"` | **W przypadku telemetrii**: schemat danych to identyfikator modelu dwuosiowego lub składnika, który emituje dane telemetryczne <br>**Dla powiadomień**: schemat danych nie jest obsługiwany|
 | Typ zawartości | Typ zawartości wartości danych | `"filter": "datacontenttype = '<contentType>'"` | `application/json` |
 | Wersja specyfikacji | Wersja schematu zdarzeń, którego używasz | `"filter": "specversion = '<version>'"` | Musi być `1.0` . Oznacza to, że schemat CloudEvents w wersji 1,0 |
 | PRAWDA/FAŁSZ | Umożliwia tworzenie trasy bez filtrowania lub wyłączanie trasy | `"filter" : "<true/false>"` | `true`= Trasa jest włączona bez filtrowania <br> `false`= Trasa jest wyłączona |

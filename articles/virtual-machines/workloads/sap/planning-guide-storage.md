@@ -13,17 +13,17 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/22/2020
+ms.date: 06/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3997ae5aa95423841a918a3b5ed1fb0a01d3602e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 1e64624865a314a7487a7ce474c1e5e56e3d9277
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85218030"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85363006"
 ---
-# <a name="azure-storage-types-for-sap-workload"></a>Typy magazynów platformy Azure dla obciążeń SAP
+# <a name="azure-storage-types-for-sap-workload"></a>Typy usługi Azure Storage dla obciążeń SAP
 Platforma Azure ma wiele typów magazynów, które różnią się znacznie w zależności od możliwości, przepływności, opóźnień i cen. Niektóre typy magazynów nie są lub są ograniczone do użycia w scenariuszach SAP. Niektóre typy magazynów platformy Azure są dobrze dopasowane lub zoptymalizowane pod kątem określonych scenariuszy obciążeń SAP. Szczególnie w przypadku SAP HANA niektóre typy magazynów platformy Azure uzyskały certyfikat do użycia z SAP HANA. W tym dokumencie przechodzą różne typy magazynów i opisano ich możliwości i użyteczność przy użyciu obciążeń SAP i składników SAP.
 
 Uwagi dotyczące jednostek używanych w tym artykule. Dostawcy chmury publicznej przeniesieli do używania GiB ([nazywana gigabajtem i](https://en.wikipedia.org/wiki/Gibibyte)) lub TIB ([Tebibyte](https://en.wikipedia.org/wiki/Tebibyte) jako jednostki rozmiaru, a nie gigabajtów lub terabajtów). W związku z tym cała dokumentacja platformy Azure i Prizing korzystają z tych jednostek.  W całym dokumencie są odwołujące się do tych jednostek rozmiarów baz MiB, GiB i TiB na wyłączność. Może być konieczne zaplanowanie z MB, GB i TB. Należy więc pamiętać o niewielkich różnicach w obliczeniach, jeśli trzeba zmienić rozmiar przepływności MiB/s 400, 250 zamiast przepływności MiB/s.
@@ -34,7 +34,23 @@ Microsoft Azure Storage HDD w warstwie Standardowa, SSD w warstwie Standardowa, 
 
 Istnieje kilka metod nadmiarowości, które zostały opisane w artykule [Replikacja usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) , która ma zastosowanie do niektórych różnych typów magazynów platformy Azure. 
 
-Jak te opcje odporności są stosowane do typów magazynu platformy Azure używanych dla SAP, opisano w następnych sekcjach.
+### <a name="azure-managed-disks"></a>Azure Managed disks
+
+Dyski zarządzane są typu zasobów w Azure Resource Manager, które mogą być używane zamiast wirtualnych dysków twardych przechowywanych na kontach usługi Azure Storage. Managed Disks automatycznie wyrównać z [zestaw dostępności] [Virtual-Machines-Manage-Availability] maszyny wirtualnej, do której są dołączone, i w związku z tym zwiększyć dostępność maszyny wirtualnej i usługi, które są uruchomione na maszynie wirtualnej. Aby uzyskać więcej informacji, zapoznaj się z [artykułem Omówienie](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview).
+
+W poniższym przykładzie przedstawiono zalety korzystania z dysków zarządzanych:
+
+- Wdrażasz dwie maszyny wirtualne DBMS dla systemu SAP w zestawie dostępności platformy Azure 
+- Ponieważ platforma Azure wdraża maszyny wirtualne, dysk z obrazem systemu operacyjnego zostanie umieszczony w innym klastrze magazynu. Pozwala to uniknąć, że obie maszyny wirtualne mają wpływ na problem jednego klastra usługi Azure Storage
+- Podczas tworzenia nowych dysków zarządzanych przypisanych do tych maszyn wirtualnych w celu przechowywania danych i plików dziennika bazy danych, nowe dyski dla tych dwóch maszyn wirtualnych są również wdrażane w oddzielnych klastrach magazynu, dlatego nie ma potrzeby udostępniania klastrów magazynów na dyskach drugiej maszyny wirtualnej.
+
+Wdrażanie bez dysków zarządzanych na kontach magazynu zdefiniowanych przez klienta, przydzielanie dysków jest arbitralne i nie ma świadomość faktu, że maszyny wirtualne są wdrażane w AvSet na potrzeby odporności.
+
+> [!NOTE]
+> Z tego powodu i kilku innych ulepszeń, które są dostępne wyłącznie za pośrednictwem usługi Managed disks, wymagamy, aby nowe wdrożenia maszyn wirtualnych korzystających z magazynu blokowego platformy Azure dla swoich dysków (wszystkie magazyny Azure z wyjątkiem Azure NetApp Files) musiały używać usługi Azure Managed disks dla podstawowych dysków VHD/OS, dysków z danymi zawierającymi pliki bazy danych SAP. Niezależnie od tego, czy maszyny wirtualne są wdrażane za pomocą zestawu dostępności, w Strefy dostępności lub niezależnie od zestawów i stref. Dyski, które są używane do przechowywania kopii zapasowych, nie muszą być dyskami zarządzanymi.
+
+> [!NOTE]
+> Usługa Azure Managed disks udostępnia tylko ustawienia nadmiarowości lokalnej (LRS). 
 
 
 ## <a name="storage-scenarios-with-sap-workloads"></a>Scenariusze magazynu z obciążeniami SAP
@@ -67,6 +83,7 @@ Przed przejściem do szczegółów prezentujemy podsumowanie i zalecenia, które
 | Woluminy dziennika systemu DBMS nie należą do rodziny maszyn wirtualnych M/Mv2 | nieobsługiwane | odpowiednie ograniczenia (inne niż produkcyjne) | zalecane<sup>1</sup> | zalecane | nieobsługiwane |
 | Woluminy dziennika systemu DBMS z rodziną maszyn wirtualnych non-M/Mv2 | nieobsługiwane | odpowiednie ograniczenia (inne niż produkcyjne) | odpowiednie dla do średniego obciążenia | zalecane | nieobsługiwane |
 
+
 <sup>1</sup> dzięki użyciu [usługi Azure akcelerator zapisu](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) dla rodzin maszyn wirtualnych M/Mv2 dla woluminów dziennika dziennika/ponownego wykonywania <sup>2</sup> i ANF wymaga/Hana/Data, a także/Hana/log do ANF 
 
 Właściwości, których można oczekiwać od różnych typów magazynów, takich jak:
@@ -78,11 +95,25 @@ Właściwości, których można oczekiwać od różnych typów magazynów, takic
 | Zapisy opóźnienia | wysoka | średni na wysoki  | Niska (sub-milisekunda<sup>1</sup>) | podmilisekunda | podmilisekunda |
 | Obsługiwane przez platformę HANA | nie | nie | tak<sup>1</sup> | tak | tak |
 | Możliwe migawki dysków | tak | tak | tak | nie | tak |
+| Przydzielanie dysków w różnych klastrach magazynu przy użyciu zestawów dostępności | za poorednictwem dysków zarządzanych | za poorednictwem dysków zarządzanych | za poorednictwem dysków zarządzanych | typ dysku nie jest obsługiwany w przypadku maszyn wirtualnych wdrożonych za pośrednictwem zestawów dostępności | Nr<sup>3</sup> |
+| Wyrównane z Strefy dostępności | tak | tak | tak | tak | wymaga zaangażowania firmy Microsoft |
+| Nadmiarowość strefowa | nie dla dysków zarządzanych | nie dla dysków zarządzanych | nie dla dysków zarządzanych | nie | nie |
+| Nadmiarowość geograficzna | nie dla dysków zarządzanych | nie dla dysków zarządzanych | nie | nie | nie |
 
 
 <sup>1</sup> z użyciem [Akcelerator zapisu platformy Azure](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) dla rodzin maszyn wirtualnych M/Mv2 dla woluminów dziennika dziennika/ponownego wykonywania
 
 <sup>2</sup> koszty zależą od aprowizacji operacji we/wy na sekundę
+
+<sup>3</sup> tworzenie różnych pul pojemności ANF nie gwarantuje wdrożenia pul pojemności na różnych jednostkach magazynu
+
+
+> [!IMPORTANT]
+> Aby osiągnąć mniej niż 1 milisekundę opóźnienia we/wy przy użyciu Azure NetApp Files (ANF), musisz współpracować z firmą Microsoft, aby rozmieścić poprawne rozmieszczenie między maszynami wirtualnymi i udziałami NFS w oparciu o ANF. Nie istnieje mechanizm zapewniający automatyczną bliskość między wdrożoną maszyną wirtualną a woluminy NFS hostowane w ANF. Uwzględniając różne ustawienia różnych regionów świadczenia usługi Azure, dodane opóźnienie sieci może wypchnąć opóźnienie operacji we/wy poza 1 milisekundy, jeśli maszyna wirtualna i udział NFS nie są przydzielane w sąsiedztwie.
+
+
+> [!IMPORTANT]
+> Żaden z aktualnie zaproponowanych dysków zarządzanych w usłudze Azure Block Storage lub Azure NetApp Files nie oferuje żadnej wielostrefowej lub geograficznej nadmiarowości. W związku z tym należy upewnić się, że architektury wysokiej dostępności i odzyskiwania po awarii nie polegają na żadnym typie replikacji natywnych magazynów platformy Azure dla tych dysków zarządzanych, plików NFS lub SMB.
 
 
 ## <a name="azure-premium-storage"></a>Azure Premium Storage
@@ -95,8 +126,7 @@ Magazyn SSD systemu Azure w warstwie Premium został wprowadzony w celu zapewnie
 Ten typ magazynu dotyczy obciążeń systemu DBMS, ruchu magazynu, który wymaga niskich jednocyfrowych opóźnień, a umowy SLA w przypadku operacji we/wy na sekundę w przypadku usługi Azure Premium Storage nie jest rzeczywistym woluminem danych przechowywanym na tych dyskach, ale z kategorią rozmiaru dysku, niezależnie od ilości danych przechowywanych na dysku. Można również tworzyć dyski w magazynie w warstwie Premium, które nie są bezpośrednio mapowane do kategorii rozmiaru przedstawionych w artykule [SSD w warstwie Premium](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#premium-ssd). Wnioski z tego artykułu są następujące:
 
 - Magazyn jest zorganizowany w zakresach. Na przykład dysk w zakresie 513 GiB do 1024 GiB może mieć te same możliwości i te same miesięczne koszty
-- Liczba operacji we/wy na GiB nie jest śledzona
--  liniowe dla kategorii rozmiarów. Mniejsze dyski poniżej 32 GiB mają wyższą szybkość operacji we/wy na GiB. W przypadku dysków poza 32 GiB do 1024 GiB szybkość operacji we/wy na GiB wynosi od 4-5 IOPS na GiB. W przypadku większych dysków o pojemności do 32 767 GiB szybkość operacji we/wy na GiB jest mniejsza niż 1
+- Liczba operacji we/wy na sekundę nie jest śledzona liniowo w kategoriach rozmiaru. Mniejsze dyski poniżej 32 GiB mają wyższą szybkość operacji we/wy na GiB. W przypadku dysków poza 32 GiB do 1024 GiB szybkość operacji we/wy na GiB wynosi od 4-5 IOPS na GiB. W przypadku większych dysków o pojemności do 32 767 GiB szybkość operacji we/wy na GiB jest mniejsza niż 1
 - Przepływność we/wy dla tego magazynu nie jest liniowa z rozmiarem kategorii dysku. W przypadku mniejszych dysków, takich jak kategoria między 65 GiB i 128 GiB pojemności, przepływność jest około 780KB/GiB. W przypadku bardzo dużych dysków, takich jak dysk GiB 32 767, przepływność jest około 28KB/GiB
 - Nie można zmienić umowy SLA IOPS i przepływności bez zmiany pojemności dysku
 

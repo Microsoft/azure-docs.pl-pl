@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 89de2e86e425e2c585f9a1243f6666a0ae077c10
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: ddbe49f34bbdbf0f9c461a25f23d6f7cbd8600d9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726093"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362955"
 ---
 # <a name="authenticate-a-client-application-with-azure-digital-twins"></a>Uwierzytelnianie aplikacji klienckiej za pomocą usługi Azure Digital bliźniaczych reprezentacji
 
@@ -175,7 +175,7 @@ Aby uwierzytelnić aplikację platformy .NET za pomocą usług platformy Azure, 
 Wymagana jest nazwa *identyfikatora aplikacji (klienta)* i *Identyfikator katalogu (dzierżawa)* ze starszej wersji, a także adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji.
 
 > [!TIP]
-> Adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji jest tworzony przez dodanie *https://* do początku *nazwy hosta*cyfrowego wystąpienia bliźniaczych reprezentacji platformy Azure. Aby wyświetlić nazwę hosta wraz ze wszystkimi właściwościami wystąpienia, można uruchomić polecenie `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+> Adres URL wystąpienia usługi Azure Digital bliźniaczych reprezentacji jest tworzony przez dodanie *https://* do początku *nazwy hosta*cyfrowego wystąpienia bliźniaczych reprezentacji platformy Azure. Aby wyświetlić *nazwę hosta*wraz ze wszystkimi właściwościami wystąpienia, można uruchomić polecenie `az dt show --dt-name <your-Azure-Digital-Twins-instance>` . Możesz użyć polecenia, `az account show --query tenantId` Aby zobaczyć identyfikator Twojego *katalogu (dzierżawy)*. 
 
 ```javascript
 import * as Msal from "msal";
@@ -259,4 +259,4 @@ Dowiedz się więcej o tym, jak działa zabezpieczenia w usłudze Azure Digital 
 * [Koncepcje: zabezpieczenia rozwiązań Digital bliźniaczych reprezentacji na platformie Azure](concepts-security.md)
 
 Lub teraz, gdy uwierzytelnianie jest skonfigurowane, przejdź do w celu utworzenia modeli w wystąpieniu:
-* [Instrukcje: Zarządzanie modelem bliźniaczym](how-to-manage-model.md)
+* [Instrukcje: Zarządzanie modelami niestandardowymi](how-to-manage-model.md)

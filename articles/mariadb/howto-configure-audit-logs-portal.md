@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 6/18/2020
-ms.openlocfilehash: 62bdb08d3627959b8985481c848db064149cf844
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.date: 6/24/2020
+ms.openlocfilehash: f05f26c54d9f3ea62180c598aada59d405c3c805
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85100793"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362683"
 ---
 # <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Konfigurowanie i dostęp do dzienników inspekcji w Azure Portal
 
 Można skonfigurować [Azure Database for MariaDB dzienników inspekcji](concepts-audit-logs.md) i ustawień diagnostycznych z Azure Portal.
-
-> [!IMPORTANT]
-> Funkcje dziennika inspekcji są obecnie dostępne w wersji zapoznawczej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -28,7 +25,7 @@ Aby krokowo poprowadzić ten przewodnik, musisz:
 
 ## <a name="configure-audit-logging"></a>Konfigurowanie rejestrowania inspekcji
 
->[!NOTE]
+>[!IMPORTANT]
 > Zaleca się tylko rejestrowanie typów zdarzeń i użytkowników wymaganych do celów inspekcji, aby upewnić się, że wydajność serwera nie jest w dużym stopniu zagrożona.
 
 Włącz i skonfiguruj rejestrowanie inspekcji.

@@ -3,16 +3,17 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f37364f62550a76360ea0dbb35b92f8aac67f22f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 81c8c642eb8b5da1e45e4d9a703685acf219ca5a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259154"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362632"
 ---
-# <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa Azure Policy
+# <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa usługi Azure Policy
 
-Azure Policy może przeprowadzać inspekcję ustawień wewnątrz maszyny. Taka weryfikacja jest wykonywana przez klienta i rozszerzenie konfiguracji gościa. Rozszerzenie to, obsługiwane za pośrednictwem klienta, umożliwia weryfikację następujących ustawień:
+Azure Policy może przeprowadzać inspekcję ustawień wewnątrz komputera, zarówno w przypadku maszyn działających na platformie Azure, jak i na [urządzeniach połączonych](https://docs.microsoft.com/azure/azure-arc/servers/overview)z usługą Arc.
+Taka weryfikacja jest wykonywana przez klienta i rozszerzenie konfiguracji gościa. Rozszerzenie to, obsługiwane za pośrednictwem klienta, umożliwia weryfikację następujących ustawień:
 
 - Konfiguracja systemu operacyjnego
 - Konfiguracja lub obecność aplikacji
@@ -21,33 +22,36 @@ Azure Policy może przeprowadzać inspekcję ustawień wewnątrz maszyny. Taka w
 W tej chwili większość Azure Policy zasad konfiguracji gościa tylko ustawienia inspekcji na tym komputerze.
 Nie dotyczą one konfiguracji. Wyjątek jest jedną z wbudowanych zasad, [do których odwołuje się poniżej](#applying-configurations-using-guest-configuration).
 
+## <a name="enable-guest-configuration"></a>Włącz konfigurację gościa
+
+Aby przeprowadzić inspekcję stanu maszyn w środowisku, w tym maszyn na platformie Azure i w połączonych maszynach, zapoznaj się z poniższymi szczegółami.
+
 ## <a name="resource-provider"></a>Dostawca zasobów
 
 Aby można było korzystać z konfiguracji gościa, należy zarejestrować dostawcę zasobów. Dostawca zasobów jest automatycznie rejestrowany w przypadku przypisywania zasad konfiguracji gościa za pomocą portalu. Możesz zarejestrować się ręcznie za pomocą [portalu](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal), [Azure PowerShell](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)lub [interfejsu wiersza polecenia platformy Azure](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
-## <a name="extension-and-client"></a>Rozszerzenie i klient
+## <a name="deploy-requirements-for-azure-virtual-machines"></a>Wdróż wymagania dotyczące usługi Azure Virtual Machines
 
-Aby przeprowadzić inspekcję ustawień wewnątrz maszyny, [rozszerzenie maszyny wirtualnej](../../../virtual-machines/extensions/overview.md) jest włączone. Rozszerzenie pobiera odpowiednie przypisanie zasad i odpowiednią definicję konfiguracji.
+Aby przeprowadzić inspekcję ustawień wewnątrz maszyny, [rozszerzenie maszyny wirtualnej](../../../virtual-machines/extensions/overview.md) jest włączone, a komputer musi mieć tożsamość zarządzaną przez system. Rozszerzenie pobiera odpowiednie przypisanie zasad i odpowiednią definicję konfiguracji. Tożsamość służy do uwierzytelniania maszyny podczas odczytywania i zapisywania w usłudze konfiguracji gościa. Rozszerzenie nie jest wymagane dla maszyn połączonych z łukiem, ponieważ znajduje się w agencie połączonej maszyny.
 
 > [!IMPORTANT]
-> Do przeprowadzania inspekcji w usłudze Azure Virtual Machines jest wymagane rozszerzenie konfiguracji gościa. Aby wdrożyć rozszerzenie w odpowiedniej skali, przypisz następujące definicje zasad: 
->  - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
->  - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> Do inspekcji maszyn wirtualnych platformy Azure wymagane jest rozszerzenie konfiguracji gościa i zarządzana tożsamość. Aby wdrożyć rozszerzenie w odpowiedniej skali, przypisz następujące inicjatywy zasad: 
+>  - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Limity ustawione dla rozszerzenia
 
-Aby ograniczyć rozszerzenie do wpływu aplikacji uruchomionych na maszynie, konfiguracja gościa nie może przekroczyć więcej niż 5% procesora CPU. To ograniczenie istnieje dla wbudowanych i niestandardowych definicji.
+Aby ograniczyć rozszerzenie do wpływu aplikacji uruchomionych na maszynie, konfiguracja gościa nie może przekroczyć więcej niż 5% procesora CPU. To ograniczenie istnieje dla wbudowanych i niestandardowych definicji. Ta sama wartość dotyczy usługi konfiguracji gościa w agencie połączonej maszyny.
 
 ### <a name="validation-tools"></a>Narzędzia sprawdzania poprawności
 
 W ramach maszyny klient konfiguracji gościa używa lokalnych narzędzi do uruchomienia inspekcji.
 
-W poniższej tabeli przedstawiono listę narzędzi lokalnych używanych w poszczególnych obsługiwanych systemach operacyjnych:
+W poniższej tabeli przedstawiono listę narzędzi lokalnych używanych w każdym obsługiwanym systemie operacyjnym. W przypadku zawartości wbudowanej konfiguracja gościa obsługuje automatyczne ładowanie tych narzędzi.
 
 |System operacyjny|Narzędzie walidacji|Uwagi|
 |-|-|-|
 |Windows|[Konfiguracja żądanego stanu programu PowerShell](/powershell/scripting/dsc/overview/overview) w wersji 2| Załadowany bezpośrednio do folderu, który jest używany przez Azure Policy. Nie powoduje konfliktu z konfiguracją DSC programu Windows PowerShell. Program PowerShell Core nie został dodany do ścieżki systemowej.|
-|Linux|[Chef — Specyfikacja](https://www.chef.io/inspec/)| Instaluje Chef IN2.2.61 w domyślnej lokalizacji i dodaje ją do ścieżki systemowej. Dependenices dla pakietu inspecy, w tym Ruby i Python, również są zainstalowane. |
+|Linux|[Chef — Specyfikacja](https://www.chef.io/inspec/)| Instaluje Chef IN2.2.61 w domyślnej lokalizacji i dodaje ją do ścieżki systemowej. Należy również zainstalować zależności dla pakietu INSPEC, w tym Ruby i Python. |
 
 ### <a name="validation-frequency"></a>Częstotliwość walidacji
 
@@ -70,20 +74,17 @@ W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w
 
 Niestandardowe obrazy maszyn wirtualnych są obsługiwane przez zasady konfiguracji gościa, o ile są one jednym z systemów operacyjnych w powyższej tabeli.
 
-### <a name="unsupported-client-types"></a>Nieobsługiwane typy klientów
-
-System Windows Server nano Server nie jest obsługiwany w żadnej wersji.
-
 ## <a name="guest-configuration-extension-network-requirements"></a>Wymagania dotyczące sieci rozszerzenia konfiguracji gościa
 
 Aby komunikować się z dostawcą zasobów konfiguracji gościa na platformie Azure, maszyny wymagają dostępu wychodzącego do centrów danych platformy Azure na porcie **443**. Jeśli sieć na platformie Azure nie zezwala na ruch wychodzący, skonfiguruj wyjątki z regułami [sieciowych grup zabezpieczeń](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . [Tag usługi](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" może służyć do odwoływania się do usługi konfiguracji gościa.
 
 ## <a name="managed-identity-requirements"></a>Wymagania dotyczące tożsamości zarządzanej
 
-Zasady **DeployIfNotExists** , które dodają rozszerzenie do maszyn wirtualnych, również umożliwiają tożsamość zarządzaną przypisaną przez system, jeśli taka nie istnieje.
+Zasady z inicjatywy [wdrażające wymagania wstępne dotyczące włączania zasad konfiguracji gościa na maszynach wirtualnych](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) włączają tożsamość zarządzaną przypisaną przez system, jeśli taka nie istnieje. W ramach inicjatywy, która zarządza tworzeniem tożsamości, istnieją dwa definicje zasad. Warunki IF w definicjach zasad zapewniają poprawne zachowanie na podstawie bieżącego stanu zasobu maszyny na platformie Azure.
 
-> [!WARNING]
-> Unikaj włączania tożsamości zarządzanej przypisanej przez użytkownika do maszyn wirtualnych w zakresie dla zasad, które umożliwiają identyfikację zarządzaną przez system. Tożsamość przypisana przez użytkownika jest zastępowana, a komputer może przestać odpowiadać.
+Jeśli na komputerze nie ma obecnie żadnych tożsamości zarządzanych, obowiązujące zasady będą: [ \[ wersja zapoznawcza \] : Dodawanie tożsamości zarządzanej przypisanej przez system do włączania przypisań konfiguracji gościa na maszynach wirtualnych bez tożsamości](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+
+Jeśli komputer ma obecnie tożsamość systemową przypisaną przez użytkownika, obowiązujące zasady będą: [ \[ wersja zapoznawcza \] : Dodawanie tożsamości zarządzanej przypisanej przez system do włączenia przypisań konfiguracji gościa na maszynach wirtualnych z tożsamością przypisaną przez użytkownika](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Wymagania definicji konfiguracji gościa
 

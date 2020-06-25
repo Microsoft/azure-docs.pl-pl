@@ -8,12 +8,12 @@ ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: bbd7c74fc87b3f7af799637e2288dcd074266843
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 792b3894bf051298250ea8f402086c1edf297842
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725614"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362751"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
 
@@ -58,7 +58,7 @@ Aby móc używać usługi Azure Digital bliźniaczych reprezentacji z aplikacją
 
 #### <a name="assign-yourself-a-role"></a>Przypisywanie siebie do roli
 
-Utwórz przypisanie roli dla siebie, używając poczty e-mail skojarzonej z dzierżawą usługi AAD w ramach subskrypcji platformy Azure. Najpierw upewnij się, że jesteś sklasyfikowany jako właściciel w ramach subskrypcji platformy Azure. Następnie można użyć poniższego polecenia, aby przypisać użytkownika do roli właściciela dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
+Utwórz przypisanie roli dla siebie, używając poczty e-mail skojarzonej z dzierżawą usługi AAD w ramach subskrypcji platformy Azure. Najpierw upewnij się, że jesteś sklasyfikowany jako właściciel w ramach subskrypcji platformy Azure. Można to sprawdzić za pomocą polecenia, `az role assignment list --assignee <your-Azure-email>` Aby sprawdzić, czy *RoleDefinitionName* jest *właścicielem*. Następnie można użyć poniższego polecenia, aby przypisać użytkownika do roli właściciela dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"

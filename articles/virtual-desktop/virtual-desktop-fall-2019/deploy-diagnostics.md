@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0660947907b26e1a86bbd68bb32d1ac5d211b20e
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 544610f4011f7ad12d5b311aab3afd4bc1373ac5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206057"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362343"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Wdrażanie narzędzia diagnostycznego
 
@@ -195,7 +195,8 @@ Aby ustawić identyfikator URI przekierowania:
 6. W menu rozwijanym w obszarze Typ wybierz pozycję **Sieć Web** .
 7. Wprowadź adres URL na stronie Przegląd aplikacji i Dodaj **/Security/SignIn-callback** na końcu. Na przykład: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![Strona URI przekierowania](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![Strona URI przekierowania](../media/redirect-uri-page.png)
 
 8. Teraz przejdź do zasobów platformy Azure, wybierz zasób App Services platformy Azure o nazwie podanej w szablonie i przejdź do adresu URL skojarzonego z nim. (Na przykład jeśli nazwa aplikacji użyta w szablonie to `contosoapp45` , wówczas skojarzony adres URL to <https://contosoapp45.azurewebsites.net> ).
 9. Zaloguj się przy użyciu odpowiedniego konta użytkownika Azure Active Directory.

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 14bf43375e2ebe37d496a7343c5f85c41f55bc29
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307605"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362146"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Tworzenie asystenta głosowego przy użyciu poleceń niestandardowych
 
@@ -24,7 +24,7 @@ W tym przewodniku szybki start utworzysz i testujesz podstawową aplikację pole
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Tworzenie zasobu usługi Azure Speech<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Utwórz zasób usługi Azure Speech w regionie, który obsługuje polecenia niestandardowe.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * Pobierz przykładowy plik JSON dla przykładowego [pokoju inteligentnego](https://aka.ms/speech/cc-quickstart) .
 > * Pobierz najnowszą wersję [klienta asystenta głosowego systemu Windows](https://aka.ms/speech/va-samples-wvac).
 
@@ -82,7 +82,8 @@ Teraz powinien pojawić się przegląd nowej aplikacji poleceń niestandardowych
     - Włączanie telewizora
     - Ustaw temperaturę na 80 stopni
     - Wyłącz
-    - Ustaw alarm
+    - Telewizja
+    - Ustaw alarm 5 PM
 
 ## <a name="integrate-custom-commands-application-in-an-assistant"></a>Integrowanie aplikacji poleceń niestandardowych w Asystencie
 Aby można było uzyskać dostęp do tej aplikacji z programu Speech Studio, należy opublikować aplikację. W przypadku publikowania aplikacji należy skonfigurować zasób usługi przewidywania LUIS.  
@@ -110,7 +111,7 @@ Alternatywnie można również uzyskać te wartości, wybierając pozycję **Ust
 
 W zakresie tego artykułu będziemy używać klienta asystenta głosowego systemu Windows pobranego w ramach wymagań wstępnych. Rozpakuj folder.
 1. Uruchom **VoiceAssistantClient.exe**.
-1. Utwórz nowy profil publikowania i wprowadź wartość dla **profilu połączenia**. W sekcji **Ustawienia ogólne** wprowadź wartości **klucz subskrypcji**, **region klucza subskrypcji** i **polecenia niestandardowe identyfikator aplikacji**.
+1. Utwórz nowy profil publikowania i wprowadź wartość dla **profilu połączenia**. W sekcji **Ustawienia ogólne** wprowadź **klucz subskrypcji** wartości (jest to taka sama jak wartość **klucza zasobu mowy** zapisana podczas publikowania aplikacji), **region klucza subskrypcji** i **Identyfikator aplikacji poleceń niestandardowych**.
     > [!div class="mx-imgBorder"]
     > ![WVAC Utwórz profil](media/custom-commands/create-profile.png)
 1. Wybierz pozycję **Zapisz i Zastosuj profil**.

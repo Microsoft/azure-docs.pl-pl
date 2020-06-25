@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 7f98b2c94659c083f5dbd2c43fd9015f8b60a9db
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307653"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362411"
 ---
 # <a name="create-application-with-simple-commands"></a>Tworzenie aplikacji przy użyciu prostych poleceń
 
@@ -27,6 +27,10 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 ## <a name="create-empty-application"></a>Utwórz pustą aplikację
 Utwórz pustą aplikację poleceń niestandardowych. Aby uzyskać szczegółowe informacje, zapoznaj się z [przewodnikiem Szybki Start](quickstart-custom-commands-application.md). Tym razem zamiast importowania projektu, należy utworzyć pusty projekt.
 
+1. W polu **Nazwa** wprowadź nazwę projektu jako `Smart-Room-Lite` (lub coś innego do wyboru).
+1. Na liście **Język** wybierz pozycję **angielski (Stany Zjednoczone)**.
+1. Wybierz lub Utwórz wybrany zasób LUIS.
+
    > [!div class="mx-imgBorder"]
    > ![Tworzenie projektu](media/custom-commands/create-new-project.png)
 
@@ -36,7 +40,7 @@ Możesz zaktualizować zasób tworzenia wybrany w oknie **Nowy projekt** , a nas
 
 ## <a name="add-turnon-command"></a>Dodaj polecenie wlaczania
 
-W aplikacji polecenia niestandardowe o **pokoju inteligentnym** Dodaj proste polecenie, które przetwarza wypowiedź, `turn on the tv` i odpowiadaj na komunikat `Ok, turning the tv on` .
+W pustej aplikacji poleceń niestandardowych w języku **Smart-The-Lite** , która została właśnie utworzona, Dodaj proste polecenie, które przetwarza wypowiedź, `turn on the tv` i reaguje na wiadomość `Ok, turning the tv on` .
 
 1. Utwórz nowe polecenie, wybierając pozycję **nowe** w górnej części okienka po lewej stronie. Zostanie otwarte **nowe okno polecenia** .
 1. Podaj wartość dla pola **Nazwa** jako **wlaczac**.
@@ -74,7 +78,7 @@ Na razie nie mamy parametrów, więc można przejść do sekcji **reguł ukończ
 
 Następnie polecenie musi mieć regułę uzupełniania. Ta reguła instruuje użytkownika, że jest wykonywana akcja realizacji. Aby dowiedzieć się więcej na temat reguł i reguł ukończenia, przejdź do pozycji [odwołania](./custom-commands-references.md).
 
-1. Wybierz opcję **domyślna reguła** uzupełniania i edytuj ją w następujący sposób: 
+1. Wybierz opcję **domyślna reguła** uzupełniania i edytuj ją w następujący sposób:
 
     
     | Ustawienie    | Sugerowana wartość                          | Opis                                        |
@@ -84,13 +88,7 @@ Następnie polecenie musi mieć regułę uzupełniania. Ta reguła instruuje uż
     | **Akcje**    | Wysyłaj odpowiedzi na mowę > prosty edytor > pierwszej wariacji >`Ok, turning the tv on` | Akcja, która ma zostać podjęta po spełnieniu warunku reguły |
     
 
-1. Alternatywnie możesz usunąć istniejącą domyślną regułę uzupełniania i utworzyć nową, wybierając pozycję **Dodaj** w górnej części środkowego okienka.
-1. Podaj wartość w sekcji **Nazwa** .
-1. Dodaj akcję.
-   1. Utwórz akcję, wybierając pozycję **Dodaj akcję** w sekcji **Akcje** .
-   1. W oknie **Nowa akcja** na liście **Typ** wybierz pozycję **Wyślij odpowiedź na mowę**.
-   1. W obszarze **odpowiedź**wybierz pozycję **prosty edytor**.
-   1. W **pierwszym polu wariacja** podaj wartość odpowiedzi jako `Ok, turning the tv on` .
+
 
    > [!div class="mx-imgBorder"]
    > ![Tworzenie odpowiedzi na mowę](media/custom-commands/create-speech-response-action.png)
@@ -98,6 +96,9 @@ Następnie polecenie musi mieć regułę uzupełniania. Ta reguła instruuje uż
 1. Wybierz pozycję **Zapisz** , aby zapisać akcję.
 1. Wróć do sekcji **reguły uzupełniania** , wybierz pozycję **Zapisz** , aby zapisać wszystkie zmiany. 
 
+
+ > [!NOTE]
+    > Nie jest konieczne użycie domyślnej reguły uzupełniania, która jest dostarczana z poleceniem. W razie konieczności można usunąć istniejącą domyślną regułę uzupełniania i dodać własną regułę.
 
 ### <a name="try-it-out"></a>Wypróbowywanie działania
 

@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 4e2b223337bbe5d46f314a8d2126ab562b937445
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 79035a2fa2f7f3bed4890faa749661f025cea312
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84726085"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362870"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Informacje na temat bliźniaczych reprezentacji cyfrowych i ich bliźniaczych wykresów
 
@@ -187,7 +187,7 @@ Oto przykład relacji sformatowanej jako obiekt JSON:
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz, jak zarządzać elementami grafu za pomocą interfejsów API cyfrowych przędzy na platformie Azure:
-* [Instrukcje: Zarządzanie dwuosiową cyfrą](how-to-manage-twin.md)
+* [Instrukcje: Zarządzanie bliźniaczych reprezentacji cyfrowym](how-to-manage-twin.md)
 * [Instrukcje: Zarządzanie wykresem bliźniaczym z relacjami](how-to-manage-graph.md)
 
 Lub Dowiedz się więcej na temat wykonywania zapytań dotyczących grafu bliźniaczych reprezentacjiów cyfrowych platformy Azure w celu uzyskania informacji:

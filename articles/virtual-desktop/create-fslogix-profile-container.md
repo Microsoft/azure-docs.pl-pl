@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 968e753cb8bf4376d2082d5238004c291b8f0938
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 2656c7ee433198d2ccd883b1c3a175c141c43813
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211945"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362989"
 ---
 # <a name="create-a-profile-container-with-azure-netapp-files-and-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure NetApp Files i AD DS
 
@@ -53,7 +53,8 @@ Aby rozpocząć, musisz skonfigurować konto Azure NetApp Files.
 
 4. Jeśli korzystasz z usługi Azure Cloud Shell, Utwórz konto magazynu w tej samej subskrypcji, aby zachować Azure NetApp Files i pulpit wirtualny systemu Windows.
 
-   ![W oknie konto magazynu z przyciskiem Utwórz magazyn w dolnej części okna wyróżniono kolor czerwony.](media/create-storage-button.png)
+   > [!div class="mx-imgBorder"]
+   > ![W oknie konto magazynu z przyciskiem Utwórz magazyn w dolnej części okna wyróżniono kolor czerwony.](media/create-storage-button.png)
 
 5. Po załadowaniu Azure Cloud Shell Uruchom następujące dwa polecenia cmdlet.
 
@@ -67,7 +68,8 @@ Aby rozpocząć, musisz skonfigurować konto Azure NetApp Files.
 
 6. Po lewej stronie okna wybierz pozycję **wszystkie usługi**. Wprowadź **Azure NetApp Files** w polu wyszukiwania, które pojawia się w górnej części menu.
 
-   ![Zrzut ekranu przedstawiający użytkownika, który wprowadza "Azure NetApp Files" do pola wyszukiwania wszystkie usługi. Wyniki wyszukiwania pokazują zasób Azure NetApp Files.](media/azure-netapp-files-search-box.png)
+   > [!div class="mx-imgBorder"]
+   > ![Zrzut ekranu przedstawiający użytkownika, który wprowadza "Azure NetApp Files" do pola wyszukiwania wszystkie usługi. Wyniki wyszukiwania pokazują zasób Azure NetApp Files.](media/azure-netapp-files-search-box.png)
 
 
 7. Wybierz **Azure NetApp Files** w wynikach wyszukiwania, a następnie wybierz pozycję **Utwórz**.
@@ -108,7 +110,8 @@ Po tym celu należy przyłączyć połączenie Active Directory.
 
 1. Wybierz pozycję **połączenia Active Directory** w menu po lewej stronie strony, a następnie wybierz przycisk **Dołącz** , aby otworzyć stronę **Active Directory sprzężenia** .
 
-   ![Zrzut ekranu przedstawiający menu przyłączanie Active Directory połączeń.](media/active-directory-connections-menu.png)
+   > [!div class="mx-imgBorder"]
+   > ![Zrzut ekranu przedstawiający menu przyłączanie Active Directory połączeń.](media/active-directory-connections-menu.png)
 
 2. Wprowadź następujące wartości na stronie **Dołączanie Active Directory** , aby dołączyć do połączenia:
 
@@ -148,7 +151,8 @@ Po utworzeniu woluminu Skonfiguruj parametry dostępu do woluminu.
 
 6.  Aby wyświetlić ścieżkę instalacji, wybierz pozycję **Przejdź do zasobu** i Znajdź ją na karcie Przegląd.
 
-    ![Zrzut ekranu przedstawiający ekran przegląd z czerwoną strzałką wskazującą ścieżkę instalacji.](media/overview-mount-path.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający ekran przegląd z czerwoną strzałką wskazującą ścieżkę instalacji.](media/overview-mount-path.png)
 
 ## <a name="configure-fslogix-on-session-host-virtual-machines-vms"></a>Konfigurowanie FSLogix na maszynach wirtualnych hosta sesji (VM)
 
@@ -218,7 +222,8 @@ Ta sekcja opiera się na [tworzeniu kontenera profilu dla puli hostów przy uży
 
 4. Otwórz **Azure NetApp Files**, wybierz konto Azure NetApp Files, a następnie wybierz pozycję **woluminy**. Po otwarciu menu woluminy wybierz odpowiedni wolumin.
 
-   ![Zrzut ekranu konta NetApp skonfigurowanego wcześniej w Azure Portal z wybranym przyciskiem woluminy.](media/netapp-account.png)
+   > [!div class="mx-imgBorder"]
+   > ![Zrzut ekranu konta NetApp skonfigurowanego wcześniej w Azure Portal z wybranym przyciskiem woluminy.](media/netapp-account.png)
 
 5. Przejdź do karty **Przegląd** i upewnij się, że kontener profilu FSLogix używa przestrzeni.
 
@@ -226,7 +231,8 @@ Ta sekcja opiera się na [tworzeniu kontenera profilu dla puli hostów przy uży
 
    W tym folderze powinien istnieć dysk VHD (lub VHDX) profilu, taki jak ten, w poniższym przykładzie.
 
-   ![Zrzut ekranu przedstawiający zawartość folderu w ścieżce instalacji. Wewnątrz programu jest pojedynczy plik VHD o nazwie "Profile_ssbb".](media/mount-path-folder.png)
+   > [!div class="mx-imgBorder"]
+   > ![Zrzut ekranu przedstawiający zawartość folderu w ścieżce instalacji. Wewnątrz programu jest pojedynczy plik VHD o nazwie "Profile_ssbb".](media/mount-path-folder.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 1d74bf089f3e5bc1fd04232b58ce95c649a170e1
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307637"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362377"
 ---
 # <a name="add-parameters-to-commands"></a>Dodawanie parametrów do poleceń
 
@@ -60,9 +60,10 @@ Edytuj istniejące polecenie **wlaczanie** , aby włączyć i wyłączyć wiele 
        | Konfiguracja      | Akceptowanie wstępnie zdefiniowanych wartości wejściowych z wykazu wewnętrznego | W przypadku ciągów, to ogranicza dane wejściowe do zestawu możliwych wartości |
        | Wstępnie zdefiniowane wartości wejściowe     | `on`, `off`           | Zestaw możliwych wartości i ich aliasów         |
        
-        > [!div class="mx-imgBorder"]
+        
+   1. Aby dodać wstępnie zdefiniowane wartości wejściowe, wybierz opcję **Dodaj wstępnie zdefiniowane dane wejściowe** i w oknie **nowy element** , wpisz **nazwę** w powyższej tabeli. W tym przypadku nie używamy aliasów, więc można pozostawić to pole puste. 
+    > [!div class="mx-imgBorder"]
         > ![Utwórz parametr](media/custom-commands/create-on-off-parameter.png)
-
    1. Wybierz pozycję **Zapisz** , aby zapisać wszystkie konfiguracje parametru.
  
  ### <a name="add-subjectdevice-parameter"></a>Dodaj parametr SubjectDevice 

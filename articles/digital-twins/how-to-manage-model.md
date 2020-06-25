@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie modelem bliźniaczej reprezentacji
+title: Zarządzanie modelami niestandardowymi
 titleSuffix: Azure Digital Twins
 description: Zobacz jak tworzyć, edytować i usuwać model w usłudze Azure Digital bliźniaczych reprezentacji.
 author: baanders
@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 6c023ff8419a41353e0c8aff70d04c5b9fcb27a4
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 7d9fd0386f13f6c3e6df7b9d8bcf120b55c6446d
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725651"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362785"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Zarządzanie modelami Digital bliźniaczych reprezentacji na platformie Azure
 
@@ -255,4 +255,4 @@ Modele można także zarządzać za pomocą interfejsu wiersza polecenia usługi
 ## <a name="next-steps"></a>Następne kroki
 
 Zobacz, jak tworzyć i zarządzać bliźniaczych reprezentacjiami cyfrowymi w oparciu o Twoje modele:
-* [Instrukcje: Zarządzanie dwuosiową cyfrą](how-to-manage-twin.md)
+* [Instrukcje: Zarządzanie bliźniaczych reprezentacji cyfrowym](how-to-manage-twin.md)

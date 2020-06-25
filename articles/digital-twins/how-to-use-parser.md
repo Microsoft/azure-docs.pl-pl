@@ -8,18 +8,18 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: cc6451d9be6c125d1b01bc5bb33fd553ce789f31
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 753fa7afb49ca58aa2eceb309beb8316024b41bc
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263198"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362717"
 ---
 # <a name="dtdl-client-side-parser-library"></a>DTDL Biblioteka parserów po stronie klienta
 
 [!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
-[Modele](concepts-models.md) w usłudze Azure Digital bliźniaczych reprezentacji są zdefiniowane przy użyciu języka Digital bliźniaczych reprezentacji Definition Language (DTDL) opartego na notacji JSON. W przypadku, gdy pomocne jest przeanalizowanie modeli, biblioteka DTDL analiza jest dostępna w NuGet.org jako biblioteka po stronie klienta: [Microsoft. Azure. DigitalTwins. parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
+[Modele](concepts-models.md) w usłudze Azure Digital bliźniaczych reprezentacji są zdefiniowane przy użyciu języka Digital bliźniaczych reprezentacji Definition Language (DTDL) w formacie JSON. W przypadku, gdy pomocne jest przeanalizowanie modeli, biblioteka DTDL analiza jest dostępna w NuGet.org jako biblioteka po stronie klienta: [Microsoft. Azure. DigitalTwins. parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
 
 Ta biblioteka zapewnia modelowi dostęp do definicji DTDL, zasadniczo działa jako odpowiednik odbicia w języku C# dla DTDL. Ta biblioteka może być używana niezależnie od dowolnego [zestawu SDK usługi Azure Digital bliźniaczych reprezentacji](how-to-use-apis-sdks.md), szczególnie w przypadku weryfikacji DTDL w edytorze wizualizacji lub tekstu. Jest to przydatne w celu upewnienia się, że pliki definicji modelu są prawidłowe przed podjęciem próby przekazania ich do usługi.
 
@@ -70,7 +70,7 @@ Aby uzyskać więcej informacji na temat tego przykładu, zobacz kod źródłowy
 
 ## <a name="use-the-parser-library-in-code"></a>Korzystanie z biblioteki parserów w kodzie
 
-Możesz również użyć biblioteki parserów bezpośrednio do weryfikowania modeli.
+Możesz również użyć biblioteki parserów bezpośrednio dla elementów, takich jak Weryfikowanie modeli we własnej aplikacji lub generowanie dynamicznych, opartych na modelu interfejsów użytkownika, pulpitów nawigacyjnych i raportów.
 
 Aby obsłużyć Poniższy przykład kodu parsera, należy wziąć pod uwagę kilka modeli zdefiniowanych w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji:
 
@@ -172,4 +172,4 @@ void PrintInterfaceContent(DTInterfaceInfo dtif, IReadOnlyDictionary<Dtmi, DTEnt
 ## <a name="next-steps"></a>Następne kroki
 
 Po zakończeniu pisania modeli zapoznaj się z tematem jak je przekazać (i wykonać inne operacje zarządzania) przy użyciu interfejsów API DigitalTwinsModels:
-* [Instrukcje: Zarządzanie modelem bliźniaczym](how-to-manage-model.md)
+* [Instrukcje: Zarządzanie modelami niestandardowymi](how-to-manage-model.md)

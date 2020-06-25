@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3348920260b6c256b25d0ff2419cdfd2a00dea35
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 4ee1b8d849051b9192e53f761050f1c4b6480e1b
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85207315"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362445"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Tworzenie kontenera profilu przy użyciu Azure Files i platformy Azure AD DS
 
@@ -93,7 +93,8 @@ Aby uzyskać klucz dostępu do konta magazynu:
 
     Spowoduje to pobranie pliku RDP, który umożliwi zalogowanie się do maszyny wirtualnej przy użyciu własnych poświadczeń.
 
-    ![Zrzut ekranu karty RDP okna łączenie z maszyną wirtualną.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu karty RDP okna łączenie z maszyną wirtualną.](media/rdp-tab.png)
 
 6. Po zalogowaniu się do maszyny wirtualnej Uruchom wiersz polecenia jako administrator.
 
@@ -156,11 +157,13 @@ Aby skonfigurować kontener profilu FSLogix:
 
 9.  Kliknij prawym przyciskiem myszy pozycję **Profile**, wybierz pozycję **Nowy**, a następnie wybierz **wartość DWORD (32-bitową).** Nazwij wartość **Enabled** i ustaw wartość **danych** na **1**.
 
-    ![Zrzut ekranu przedstawiający klucz profile. Plik REG_DWORD jest wyróżniony, a jego wartość danych jest ustawiona na 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający klucz profile. Plik REG_DWORD jest wyróżniony, a jego wartość danych jest ustawiona na 1.](media/dword-value.png)
 
 10. Kliknij prawym przyciskiem myszy pozycję **Profile**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **wartość ciągu wielociągowego**. Nadaj wartość **VHDLocations** , a w polu wartość danych wprowadź identyfikator URI dla udziału Azure Files `\\fsprofile.file.core.windows.net\share` .
 
-    ![Zrzut ekranu przedstawiający klucz profile pokazujący plik VHDLocations. Jego wartość danych pokazuje identyfikator URI udziału Azure Files.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający klucz profile pokazujący plik VHDLocations. Jego wartość danych pokazuje identyfikator URI udziału Azure Files.](media/multi-string-value.png)
 
 ## <a name="assign-users-to-a-session-host"></a>Przypisywanie użytkowników do hosta sesji
 

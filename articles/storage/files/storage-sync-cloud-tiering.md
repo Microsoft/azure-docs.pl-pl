@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ad222c5fb5554698b6166b0b10a52221a31b360
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 5b54f87635e1ea972778b0039dc34170c5b7ab8a
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886209"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362292"
 ---
 # <a name="cloud-tiering-overview"></a>Omówienie obsługi warstw w chmurze
 Obsługa warstw w chmurze jest opcjonalną funkcją Azure File Sync, w której często używane pliki są buforowane lokalnie na serwerze, podczas gdy wszystkie inne pliki są warstwami do Azure Files na podstawie ustawień zasad. Gdy plik jest warstwowy, filtr systemu plików Azure File Sync (StorageSync.sys) zastępuje plik lokalnie za pomocą wskaźnika lub punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL pliku w Azure Files. Plik warstwowy ma zarówno atrybut "offline", jak i atrybut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS ustawiony w systemie plików NTFS, aby aplikacje innych firm mogły bezpiecznie identyfikować pliki warstwowe.
@@ -31,7 +31,11 @@ Gdy użytkownik otwiera plik warstwowy, Azure File Sync bezproblemowo oddzwoni d
 ### <a name="how-does-cloud-tiering-work"></a>Jak działa Obsługa warstw w chmurze?
 Filtr systemu Azure File Sync kompiluje "mapę cieplną" przestrzeni nazw na każdym punkcie końcowym serwera. Monitoruje dostęp (operacje odczytu i zapisu) w miarę upływu czasu, a następnie, w zależności od częstotliwości i recency dostępu, przypisuje wynik ciepła do każdego pliku. Plik, który był ostatnio otwarty, jest uznawany za gorącą, podczas gdy plik, który jest stanowią jedynie ułamek i nie jest dostępny przez jakiś czas, będzie uznawany za chłodną. Gdy wolumin plików na serwerze przekracza ustawiony próg ilości wolnego miejsca na woluminie, zostanie podwyższony poziom największej liczby plików do Azure Files, dopóki nie zostanie osiągnięty procent wolnego miejsca.
 
-W wersji 4,0 i nowszych Azure File Sync Agent można dodatkowo określić zasady dotyczące dat dla każdego punktu końcowego serwera, który będzie warstwować wszystkie pliki, które nie są dostępne ani modyfikowane w ciągu określonej liczby dni.
+Ponadto można określić zasady daty dla każdego punktu końcowego serwera, który będzie warstwować wszystkie pliki, które nie są dostępne w ciągu określonej liczby dni, niezależnie od dostępnego miejsca do magazynowania lokalnego. Jest to dobry wybór, aby proaktywnie zwolnić miejsce na dysku lokalnym, Jeśli wiesz, że pliki w tym punkcie końcowym serwera nie muszą być przechowywane lokalnie poza określonym okresem ważności. Pozwala to zwiększyć cenne pojemności dysku lokalnego dla innych punktów końcowych w tym samym woluminie, aby buforować więcej plików.
+
+Mapę cieplną warstw w chmurze jest zasadniczo uporządkowaną listą wszystkich synchronizowanych plików i znajdują się w lokalizacji, w której włączono obsługę warstw w chmurze. Aby określić względną pozycję pojedynczego pliku w tym mapę cieplną, system używa maksymalnie jednego z następujących sygnatur czasowych, w tej kolejności: MAX (godzina ostatniego dostępu, czas ostatniej modyfikacji, godzina utworzenia). Zazwyczaj czas ostatniego dostępu jest śledzony i dostępny. Jeśli jednak zostanie utworzony nowy punkt końcowy serwera z włączoną obsługą warstw w chmurze, początkowo nie upłynął wystarczająco dużo czasu, aby obserwować dostęp do pliku. W przypadku braku czasu ostatniego dostępu czas ostatniej modyfikacji jest używany do obliczania pozycji względnej w mapę cieplną. Ta sama wartość rezerwowa dotyczy zasad daty. W przypadku braku czasu ostatniego dostępu zasady daty będą działać od czasu ostatniej modyfikacji. Powinna być niedostępna, nastąpi powrót do czasu utworzenia pliku. W miarę upływu czasu system będzie obserwować więcej i więcej żądań dostępu do plików i przestawiać je w celu wykorzystania wstępnie śledzonego czasu ostatniego dostępu.
+
+Obsługa warstw w chmurze nie zależy od funkcji NTFS do śledzenia czasu ostatniego dostępu. Ta funkcja systemu plików NTFS jest domyślnie wyłączona i ze względu na wydajność nie zaleca się ręcznego włączania tej funkcji. Obsługa warstw w chmurze śledzi czas ostatniego dostępu osobno i bardzo wydajnie.
 
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Jaki jest minimalny rozmiar pliku do warstwy?

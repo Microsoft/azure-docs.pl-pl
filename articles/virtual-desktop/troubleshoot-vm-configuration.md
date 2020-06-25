@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 81a3d8e08486f76fc23a489acd3138d7b9fe8134
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: df2990e3799d0b16f316c522185ac9b779ca48e4
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711633"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362360"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji
 
@@ -121,7 +121,8 @@ Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy n
 
 ### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Błąd: stan zgłoszony w poleceniu cmdlet Get-AzWvdSessionHost pokazuje stan jako niedostępny
 
-![Polecenie cmdlet Get-AzWvdSessionHost wyświetla stan jako niedostępny.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Polecenie cmdlet Get-AzWvdSessionHost wyświetla stan jako niedostępny.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Przyczyna:** Agent nie może zaktualizować się do nowej wersji.
 
@@ -194,7 +195,8 @@ Jeśli występują problemy z stosem równoległym pulpitu wirtualnego systemu W
 
 Dane wyjściowe **qwinsta** będą wystawiać **protokół RDP-SxS** w danych wyjściowych, jeśli zostanie zainstalowany i włączony stos równoległy.
 
-![Stos równoległy został zainstalowany lub włączony przy użyciu qwinsta, który jest wymieniony jako RDP-SxS w danych wyjściowych.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Stos równoległy został zainstalowany lub włączony przy użyciu qwinsta, który jest wymieniony jako RDP-SxS w danych wyjściowych.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Sprawdź wpisy rejestru wymienione poniżej i upewnij się, że ich wartości pasują do siebie. Jeśli brakuje kluczy rejestru lub wartości są niezgodne, postępuj zgodnie z instrukcjami w temacie [Tworzenie puli hostów przy użyciu programu PowerShell](create-host-pools-powershell.md) na temat sposobu ponownej instalacji stosu równoległego.
 
@@ -208,7 +210,8 @@ Sprawdź wpisy rejestru wymienione poniżej i upewnij się, że ich wartości pa
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Błąd: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE kod błędu.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![O_REVERSE_CONNECT_STACK_FAILURE kod błędu.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Przyczyna:** Stos równoległy nie jest zainstalowany na maszynie wirtualnej hosta sesji.
 
@@ -244,19 +247,21 @@ Postępuj zgodnie z tymi instrukcjami, aby przeprowadzić korygowanie z tej same
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname to nazwa maszyny wirtualnej z nieprawidłowym stosem równoległym.
 
 7. Zaakceptuj umowę licencyjną PsExec, klikając pozycję Zgadzam się.
 
-    ![Zrzut ekranu umowy licencji na oprogramowanie.](media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu umowy licencji na oprogramowanie.](media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >To okno dialogowe będzie wyświetlane tylko po pierwszym uruchomieniu PsExec.
 
 8. Po otwarciu sesji wiersza polecenia na maszynie wirtualnej z nieprawidłowym stosem równoległym Uruchom program qwinsta i upewnij się, że jest dostępny wpis o nazwie RDP-SXS. W przeciwnym razie stos równoległy nie jest obecny na maszynie wirtualnej, więc problem nie jest powiązany z stosem równoległym.
 
-    ![Wiersz polecenia administratora](media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![Wiersz polecenia administratora](media/AdministratorCommandPrompt.png)
 
 9. Uruchom następujące polecenie, które spowoduje wyświetlenie listy składników firmy Microsoft zainstalowanych na maszynie wirtualnej z nieprawidłowym stosem równoległym.
 
@@ -324,7 +329,8 @@ Aby sprawdzić, która wersja systemu Windows 10 Enterprise ma wiele sesji:
 3. Wybierz pozycję **Informacje o**komputerze.
 4. Sprawdź liczbę obok pozycji "wersja". Liczba powinna mieć wartość "1809" lub "1903", jak pokazano na poniższej ilustracji.
 
-    ![Zrzut ekranu przedstawiający okno specyfikacji systemu Windows. Numer wersji jest wyróżniony kolorem niebieskim.](media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający okno specyfikacji systemu Windows. Numer wersji jest wyróżniony kolorem niebieskim.](media/windows-specifications.png)
 
 Teraz, gdy znasz numer wersji, przejdź do odpowiedniej sekcji.
 

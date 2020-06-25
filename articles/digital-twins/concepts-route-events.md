@@ -8,12 +8,12 @@ ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: be5709c8ccf8626ac3a48fdf7cad1c61dbfbf628
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 87d57470ffbe1d65bb646c51387e15e58ab6fa30
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84729520"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362921"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Kierowanie zdarzeń w ramach i na zewnątrz usługi Azure Digital bliźniaczych reprezentacji
 
@@ -59,7 +59,7 @@ Aby zdefiniować trasę zdarzeń, deweloperzy najpierw muszą definiować punkty
 * Service Bus
 
 Punkty końcowe są konfigurowane przy użyciu interfejsów API płaszczyzny kontroli (obsługiwane przez [interfejs wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md)lub za pośrednictwem Azure Portal. Definicja punktu końcowego daje:
-* Identyfikator punktu końcowego (lub przyjazna nazwa)
+* Nazwa punktu końcowego
 * Typ punktu końcowego (Event Grid, centrum zdarzeń lub Service Bus)
 * Podstawowe parametry połączenia i pomocnicze parametry połączenia do uwierzytelniania 
 * Ścieżka tematu punktu końcowego, taka jak *Your-topic.westus2.eventgrid.Azure.NET*
@@ -67,18 +67,18 @@ Punkty końcowe są konfigurowane przy użyciu interfejsów API płaszczyzny kon
 Interfejsy API punktu końcowego dostępne w płaszczyźnie sterującej są następujące:
 * Utwórz punkt końcowy
 * Pobierz listę punktów końcowych
-* Pobierz punkt końcowy według identyfikatora (identyfikator punktu końcowego: pass)
-* Usuń punkt końcowy według identyfikatora (identyfikator punktu końcowego: pass)
+* Pobierz punkt końcowy według nazwy
+* Usuń punkt końcowy według nazwy
 
 ## <a name="create-an-event-route"></a>Tworzenie trasy zdarzeń
  
 Trasy zdarzeń są tworzone w aplikacji klienckiej przy użyciu następującego wywołania [zestawu SDK platformy .NET (C#)](how-to-use-apis-sdks.md) : 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-ID>"));
+await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
 ```
 
-* `endpoint-ID`Identyfikuje punkt końcowy, taki jak centrum zdarzeń, Event Grid lub Service Bus. Te punkty końcowe muszą zostać utworzone w subskrypcji i dołączone do usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API płaszczyzny kontroli przed wykonaniem tego wywołania.
+* `endpoint-name`Identyfikuje punkt końcowy, taki jak centrum zdarzeń, Event Grid lub Service Bus. Te punkty końcowe muszą zostać utworzone w subskrypcji i dołączone do usługi Azure Digital bliźniaczych reprezentacji przy użyciu interfejsów API płaszczyzny kontroli przed wykonaniem tego wywołania.
 
 Obiekt trasy zdarzenia przeszedł do `EventRoutes.Add` również przyjmuje parametr [ **filtru** ](./how-to-manage-routes.md#filter-events), który może służyć do ograniczania typów zdarzeń, które są zgodne z tą trasą.
 

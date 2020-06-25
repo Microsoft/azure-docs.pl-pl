@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
 ms.reviewer: baanders
-ms.openlocfilehash: 4051b5c098b0ce299185a483abf2bdd39bb6c11f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 50fade5179d5323a332d9b103f2fac17d402aa3f
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725821"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362853"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Użyj usługi Azure Digital bliźniaczych reprezentacji, aby zaktualizować mapę pomieszczeń Azure Maps
 
@@ -163,5 +163,5 @@ W zależności od konfiguracji topologii, będzie można przechowywać te trzy a
 
 Aby dowiedzieć się więcej o zarządzaniu, uaktualnianiu i pobieraniu informacji z grafu bliźniaczych reprezentacji, zobacz następujące odwołania:
 
-* [Instrukcje: Zarządzanie dwuosiową cyfrą](./how-to-manage-twin.md)
+* [Instrukcje: Zarządzanie bliźniaczych reprezentacji cyfrowym](./how-to-manage-twin.md)
 * [Instrukcje: zapytanie o wykres bliźniaczy](./how-to-query-graph.md)

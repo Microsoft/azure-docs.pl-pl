@@ -12,18 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d4281d3b6132e551283a71cd1801ef462fbfc68c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 33ce2a496caa52609d8bdf8c92e29064ca4ae349
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146123"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362044"
 ---
 # <a name="microsoft-security-code-analysis-releases-and-roadmap"></a>Wersje i plany analizy kodu zabezpieczeń firmy Microsoft
 
-Zespół analizy kodu zabezpieczeń firmy Microsoft w partnerstwie z pomoc techniczna Developerem jest dumny, aby ogłosić najnowsze i nadchodzące ulepszenia rozszerzenia MSCA. Zapoznaj się z planem poniżej.
+Zespół analizy kodu zabezpieczeń firmy Microsoft w partnerstwie z pomoc techniczna Developerem jest dumny, aby ogłosić najnowsze i nadchodzące ulepszenia rozszerzenia MSCA.
 
-![Wydania](./media/security-code-analysis-releases/releases.png)
 
 ## <a name="credential-scanner-v20-released-in-april-2020"></a>Skaner poświadczeń v 2.0: wydano w kwietniu 2020
 
@@ -54,18 +53,25 @@ Zespół analizy kodu zabezpieczeń firmy Microsoft w partnerstwie z pomoc techn
 
 ### <a name="improvements"></a>Ulepszenia
 
-- Funkcja: Aktualizacja do wersji ostatecznej SARIF v2 (wersja 2.1.16). Dzięki temu wyniki są buforowane w przypadku przekazywania wartości skrótu w wierszu polecenia, a znaczne zwiększenie wydajności podczas rekursywnego analizowania katalogów z wieloma kopiami elementów docelowych skanowania.
+- Funkcja: Aktualizacja do wersji ostatecznej SARIF v2 (wersja 2.1.16). Ta aktualizacja umożliwia Buforowanie wyników w przypadku przekazywania wartości skrótu w wierszu polecenia, znaczący wzrost wydajności podczas rekursywnego analizowania katalogów z wieloma kopiami elementów docelowych skanowania.
 - Poprawka usterki: Poprawka literówki w BA2021. DoNotMarkWritableSectionsAsExecutable dane wyjściowe.
 - WYDAJNOŚĆ: eliminowanie ładowania plików PDB dla wszystkich trybów niemieszanych dla zestawów zarządzanych, w tym biblioteki IL (przed czasem skompilowaną).
 - FAŁSZYWa poprawka ujemna: Sprawdź, czy plik PDB umieszczony obok danych binarnych rzeczywiście pasuje do danych binarnych w obszarze Analiza
 - Funkcja: Podaj--Local-Symbols argumentu, aby określić dodatkowe lokalizacje wyszukiwania plików PDB (lokalne, niebędące symbolami)
 - FAŁSZ POZYTYWNEj poprawki: Pomiń analizę opartą na pliku PDB dla wygenerowanego natywnego pliku wykonywalnego Bootstrap platformy .NET Core (który nie jest kodem kontrolowanym przez użytkownika).
 
-## <a name="whats-next-in-fy20"></a>Co dalej w FY20?
+## <a name="whats-next-in-q3-cy20"></a>Co dalej w kwartale CY20?
 
 - Narzędzie do analizy zabezpieczeń języka Java
 - Narzędzie do analizy zabezpieczeń języka Python
 - ES lint zastępujący usługi TS lint dla języka TypeScript i JavaScript
+- Narzędzie do analizy szablonów Menedżer zasobów
+
+## <a name="tool-deprecation-notification"></a>Powiadomienie o zaniechaniu narzędzia
+
+### <a name="microsoft-security-risk-detection-msrd-is-deprecated-on-june-26-2020"></a>Wykrywanie zagrożeń zabezpieczeń firmy Microsoft (MSRD) jest przestarzałe w czerwcu 26 2020.
+
+Przestarzała usługa MSRD rozmytego zostanie zastąpiona platformą Open Source, która umożliwia samodzielne rozciąganie dla deweloperów platformy Azure. Ta platforma jest obecnie opracowywana i testowana w ramach partnerstwa z wieloma podstawowymi zespołami produktów firmy Microsoft. Ta platforma rozmytego integruje programy oczyszczające i zezwala na adaptacyjne testy rozmyte wbudowane w potoki ciągłej integracji/ciągłego wdrażania, które zwiększają się wraz z projektami oprogramowania. Wydanie typu open source tej platformy zaplanowano na drugą połowę 2020.
 
 ## <a name="next-steps"></a>Następne kroki
 

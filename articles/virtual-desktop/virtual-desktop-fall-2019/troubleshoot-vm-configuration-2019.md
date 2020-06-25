@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: eeccf0031e28bdcb719c0d534874d2c240ba46d3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0dd03508a745a231f10cfc6d09953067618043e9
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117431"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362513"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Konfiguracja maszyny wirtualnej hosta sesji
 
@@ -22,7 +22,7 @@ ms.locfileid: "83117431"
 
 Ten artykuł służy do rozwiązywania problemów występujących podczas konfigurowania maszyn wirtualnych hosta sesji usług pulpitu wirtualnego systemu Windows.
 
-## <a name="provide-feedback"></a>Przekazywanie opinii
+## <a name="provide-feedback"></a>Wyraź opinię
 
 Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) , aby omówić usługę pulpitu wirtualnego systemu Windows z zespołem produktu i aktywnymi członkami społeczności.
 
@@ -118,7 +118,8 @@ Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy n
 
 ### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Błąd: stan zgłoszony w poleceniu cmdlet Get-RdsSessionHost pokazuje stan jako niedostępny
 
-![Polecenie cmdlet Get-RdsSessionHost wyświetla stan jako niedostępny.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Polecenie cmdlet Get-RdsSessionHost wyświetla stan jako niedostępny.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Przyczyna:** Agent nie może zaktualizować się do nowej wersji.
 
@@ -179,7 +180,7 @@ Gdy Agent pulpitu wirtualnego systemu Windows jest instalowany po raz pierwszy n
 
 ## <a name="troubleshooting-issues-with-the-windows-virtual-desktop-side-by-side-stack"></a>Rozwiązywanie problemów z funkcją pulpitu wirtualnego systemu Windows — stos równoległy
 
-Stos równoległy pulpitu wirtualnego systemu Windows jest automatycznie instalowany z systemem Windows Server 2019. Użyj Instalatora Microsoft (MSI), aby zainstalować stos równoległy w systemie Microsoft Windows Server 2016 lub Windows Server 2012 R2. W przypadku systemu Microsoft Windows 10 stos równoległy pulpitu wirtualnego systemu Windows jest włączony z **enablesxstackrs. ps1**.
+Stos równoległy pulpitu wirtualnego systemu Windows jest automatycznie instalowany z systemem Windows Server 2019. Użyj Instalatora Microsoft (MSI), aby zainstalować stos równoległy w systemie Microsoft Windows Server 2016 lub Windows Server 2012 R2. W przypadku systemu Microsoft Windows 10 stos równoległy pulpitu wirtualnego systemu Windows jest włączony z **enablesxstackrs.ps1**.
 
 Istnieją trzy główne sposoby, w których stos równoległy jest instalowany lub włączony na maszynach wirtualnych puli hostów sesji:
 
@@ -191,7 +192,8 @@ Jeśli występują problemy z stosem równoległym pulpitu wirtualnego systemu W
 
 Dane wyjściowe **qwinsta** będą wystawiać **protokół RDP-SxS** w danych wyjściowych, jeśli zostanie zainstalowany i włączony stos równoległy.
 
-![Stos równoległy został zainstalowany lub włączony przy użyciu qwinsta, który jest wymieniony jako RDP-SxS w danych wyjściowych.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![Stos równoległy został zainstalowany lub włączony przy użyciu qwinsta, który jest wymieniony jako RDP-SxS w danych wyjściowych.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Sprawdź wpisy rejestru wymienione poniżej i upewnij się, że ich wartości pasują do siebie. Jeśli brakuje kluczy rejestru lub wartości są niezgodne, postępuj zgodnie z instrukcjami w temacie [Tworzenie puli hostów przy użyciu programu PowerShell](create-host-pools-powershell-2019.md) na temat sposobu ponownej instalacji stosu równoległego.
 
@@ -205,7 +207,8 @@ Sprawdź wpisy rejestru wymienione poniżej i upewnij się, że ich wartości pa
 
 ### <a name="error-o_reverse_connect_stack_failure"></a>Błąd: O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE kod błędu.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+> [!div class="mx-imgBorder"]
+> ![O_REVERSE_CONNECT_STACK_FAILURE kod błędu.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Przyczyna:** Stos równoległy nie jest zainstalowany na maszynie wirtualnej hosta sesji.
 
@@ -227,8 +230,8 @@ Istnieją znane sytuacje, które mogą spowodować nieprawidłowe działanie sto
 - Nie zgodnie z prawidłową kolejnością kroków, aby włączyć stos równoległy
 - Autoaktualizacja do ulepszonego uniwersalnego dysku systemu Windows 10 (EVD)
 - Brak roli hosta sesji Pulpit zdalny
-- Uruchamianie enablesxsstackrc. ps1 wiele razy
-- Uruchamianie enablesxsstackrc. ps1 na koncie, które nie ma uprawnień administratora lokalnego
+- Uruchamianie enablesxsstackrc.ps1 wiele razy
+- Uruchamianie enablesxsstackrc.ps1 na koncie, które nie ma uprawnień administratora lokalnego
 
 Instrukcje przedstawione w tej sekcji mogą pomóc w odinstalowaniu stosu równoległego pulpitu wirtualnego systemu Windows. Po odinstalowaniu stosu równoległego przejdź do pozycji "Zarejestruj maszynę wirtualną w puli hostów systemu Windows Virtual Desktop" w temacie [Tworzenie puli hostów za pomocą programu PowerShell](create-host-pools-powershell-2019.md) , aby ponownie zainstalować stos równoległy.
 
@@ -247,19 +250,21 @@ Postępuj zgodnie z tymi instrukcjami, aby przeprowadzić korygowanie z tej same
             psexec.exe \\<VMname> cmd
     ```
 
-    >[!Note]
+    >[!NOTE]
     >VMname to nazwa maszyny wirtualnej z nieprawidłowym stosem równoległym.
 
 7. Zaakceptuj umowę licencyjną PsExec, klikając pozycję Zgadzam się.
 
-    ![Zrzut ekranu umowy licencji na oprogramowanie.](../media/SoftwareLicenseTerms.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu umowy licencji na oprogramowanie.](../media/SoftwareLicenseTerms.png)
 
-    >[!Note]
+    >[!NOTE]
     >To okno dialogowe będzie wyświetlane tylko po pierwszym uruchomieniu PsExec.
 
 8. Po otwarciu sesji wiersza polecenia na maszynie wirtualnej z nieprawidłowym stosem równoległym Uruchom program qwinsta i upewnij się, że jest dostępny wpis o nazwie RDP-SXS. W przeciwnym razie stos równoległy nie jest obecny na maszynie wirtualnej, więc problem nie jest powiązany z stosem równoległym.
 
-    ![Wiersz polecenia administratora](../media/AdministratorCommandPrompt.png)
+    > [!div class="mx-imgBorder"]
+    > ![Wiersz polecenia administratora](../media/AdministratorCommandPrompt.png)
 
 9. Uruchom następujące polecenie, które spowoduje wyświetlenie listy składników firmy Microsoft zainstalowanych na maszynie wirtualnej z nieprawidłowym stosem równoległym.
 
@@ -281,7 +286,7 @@ Postępuj zgodnie z tymi instrukcjami, aby przeprowadzić korygowanie z tej same
 
 Jeśli używany system operacyjny to Microsoft Windows 10, wykonaj poniższe instrukcje:
 
-14. Na maszynie wirtualnej z systemem PsExec Otwórz Eksploratora plików i skopiuj disablesxsstackrc. ps1 na dysk systemowy maszyny wirtualnej z nieprawidłowo działającym stosem równoległym.
+14. Na maszynie wirtualnej z systemem PsExec Otwórz Eksploratora plików i skopiuj disablesxsstackrc.ps1 na dysk systemowy maszyny wirtualnej z nieprawidłowo działającym stosem równoległym.
 
     ```cmd
         \\<VMname>\c$\
@@ -290,7 +295,7 @@ Jeśli używany system operacyjny to Microsoft Windows 10, wykonaj poniższe ins
     >[!NOTE]
     >VMname to nazwa maszyny wirtualnej z nieprawidłowym stosem równoległym.
 
-15. Zalecany proces: w narzędziu PsExec Uruchom program PowerShell i przejdź do folderu z poprzedniego kroku i uruchom polecenie disablesxsstackrc. ps1. Alternatywnie można uruchomić następujące polecenia cmdlet:
+15. Zalecany proces: w narzędziu PsExec Uruchom program PowerShell i przejdź do folderu z poprzedniego kroku i uruchom disablesxsstackrc.ps1. Alternatywnie można uruchomić następujące polecenia cmdlet:
 
     ```PowerShell
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
@@ -327,7 +332,8 @@ Aby sprawdzić, która wersja systemu Windows 10 Enterprise ma wiele sesji:
 3. Wybierz pozycję **Informacje o**komputerze.
 4. Sprawdź liczbę obok pozycji "wersja". Liczba powinna mieć wartość "1809" lub "1903", jak pokazano na poniższej ilustracji.
 
-    ![Zrzut ekranu przedstawiający okno specyfikacji systemu Windows. Numer wersji jest wyróżniony kolorem niebieskim.](../media/windows-specifications.png)
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający okno specyfikacji systemu Windows. Numer wersji jest wyróżniony kolorem niebieskim.](../media/windows-specifications.png)
 
 Teraz, gdy znasz numer wersji, przejdź do odpowiedniej sekcji.
 

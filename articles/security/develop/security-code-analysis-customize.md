@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 744b186b32927f81be21ff067c9195bddb33c416
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871894"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362095"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurowanie i dostosowywanie zadań kompilacji
 
@@ -61,15 +61,15 @@ Szczegóły konfiguracji zadania są pokazane na poniższym zrzucie ekranu i na 
 - W obszarze **docelowy**wprowadź jeden lub więcej specyfikatorów dla pliku, katalogu lub wzorca filtru. Te specyfikatory są rozpoznawane jako co najmniej jeden plik binarny do przeanalizowania:
     - Wiele określonych elementów docelowych musi być rozdzielonych średnikami (;).
     - Specyfikator może być pojedynczym plikiem lub zawierać symbole wieloznaczne.
-    - Specyfikacje katalogów muszą zawsze kończyć się \\znakiem *.
+    - Specyfikacje katalogów muszą zawsze kończyć się znakiem \\ *.
     - Przykłady:
 
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
 
-- Jeśli na liście **Typ** wybierzesz pozycję **wiersz polecenia** , musisz uruchomić program binskim. exe:
-     - Upewnij się, że pierwsze argumenty programu binskim. exe są **analizowane** przy użyciu co najmniej jednej specyfikacji ścieżki. Każda ścieżka może być pełną ścieżką lub ścieżką względną do katalogu źródłowego.
+- Jeśli na liście **Typ** wybierzesz pozycję **wiersz polecenia** , musisz uruchomić binskim.exe:
+     - Upewnij się, że pierwsze argumenty binskim.exe są **analizowane** przez zlecenie, po którym następuje co najmniej jedna Specyfikacja ścieżki. Każda ścieżka może być pełną ścieżką lub ścieżką względną do katalogu źródłowego.
      - Wiele ścieżek docelowych musi być rozdzielonych spacją.
      - Możesz pominąć opcję **/o** lub **/Output** . Wartość wyjściowa jest dodawana do użytkownika lub zastępowana.
      - Standardowe konfiguracje wiersza polecenia są wyświetlane w następujący sposób.
@@ -78,7 +78,7 @@ Szczegóły konfiguracji zadania są pokazane na poniższym zrzucie ekranu i na 
            analyze *.dll *.exe --recurse --verbose
 
           > [!NOTE]
-          > Końcowe \\* jest ważne w przypadku określenia katalogów dla elementu docelowego.
+          > Końcowe \\ * jest ważne w przypadku określenia katalogów dla elementu docelowego.
 
 Aby uzyskać więcej informacji na temat argumentów wiersza polecenia BinSkim, reguł według identyfikatora lub kodów zakończenia, zobacz [Podręcznik użytkownika BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
@@ -103,40 +103,10 @@ Dostępne opcje to:
   - **Limit czasu dopasowania**: czas (w sekundach) poświęcany na próbę dopasowania elementu Search przed opuszczeniem kontroli.
   - **Rozmiar buforu odczytu plików**: rozmiar w bajtach buforu używany podczas odczytywania zawartości. Wartość domyślna to 524 288.  
   - **Maksymalna liczba bajtów odczytu plików**, które można odczytać z pliku podczas analizy zawartości. Wartość domyślna to 104 857 600.
-  - **Opcje kontrolki** > **Uruchom to zadanie**: określa, kiedy zadanie zostanie uruchomione. Wybierz opcję **warunki niestandardowe** , aby określić bardziej złożone warunki.
+  - **Opcje**  >  kontrolki **Uruchom to zadanie**: określa, kiedy zadanie zostanie uruchomione. Wybierz opcję **warunki niestandardowe** , aby określić bardziej złożone warunki.
   - **Wersja**: wersja zadania kompilacji w ramach usługi Azure DevOps. Ta opcja nie jest często używana.
 
 Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z naszymi [opcjami YAML skanera](yaml-configuration.md#credential-scanner-task) .
-
-## <a name="microsoft-security-risk-detection-task"></a>Zadanie wykrywania zagrożeń zabezpieczeń firmy Microsoft
-
-> [!NOTE]
-> Przed rozpoczęciem korzystania z zadania MSRD należy utworzyć i skonfigurować konto z usługą wykrywania zagrożeń zabezpieczeń firmy Microsoft (MSRD). Ta usługa wymaga oddzielnego procesu dołączania. W przeciwieństwie do większości innych zadań w tym rozszerzeniu, to zadanie wymaga oddzielnej subskrypcji z MSRD.
->
-> Zapoznaj się z artykułem [wykrywanie zagrożeń zabezpieczeń firmy Microsoft](https://aka.ms/msrddocs) i [wykrywanie zagrożeń zabezpieczeń firmy Microsoft:](https://docs.microsoft.com/security-risk-detection/how-to/) instrukcje.
-
-Szczegóły dotyczące konfigurowania tego zadania przedstawiono na poniższej liście. Dla każdego elementu interfejsu użytkownika można umieścić kursor nad tym elementem, aby uzyskać pomoc.
-
-   - **Nazwa punktu końcowego usługi Azure DevOps dla MSRD**: ogólny typ punktu końcowego usługi Azure DevOps przechowuje adres URL przykładowego wystąpienia MSRD i token dostępu interfejsu API REST. Jeśli utworzono taki punkt końcowy, możesz go określić w tym miejscu. W przeciwnym razie wybierz link **Zarządzaj** , aby utworzyć i skonfigurować nowy punkt końcowy usługi dla tego zadania MSRD.
-   - **Identyfikator konta**: identyfikator GUID, który można pobrać z adresu URL konta MSRD.
-   - **Adresy URL dla plików binarnych**: rozdzielana średnikami lista publicznie dostępnych adresów URL. Komputer rozmyty używa tych adresów URL do pobierania plików binarnych.
-   - **Adresy URL plików inicjatora**: rozdzielana średnikami lista publicznie dostępnych adresów URL. Komputer rozmyty używa tych adresów URL do pobierania nasion. Określenie tej wartości jest opcjonalne, jeśli pliki inicjatora są pobierane razem z danymi binarnymi.
-   - **Typ platformy systemu operacyjnego**: platforma systemu operacyjnego (OS) maszyn, na których działa zadanie rozmyte. Dostępne wartości to **Windows** i **Linux**.
-   - Wersja **systemu Windows/Linux**: wersja systemu operacyjnego maszyn, na których działa zadanie rozmyte. Wartość domyślną można zastąpić, jeśli na maszynach jest zainstalowana inna wersja systemu operacyjnego.
-   - **Skrypt instalacji pakietu**: skrypt do uruchomienia na maszynie testowej. Ten skrypt instaluje program docelowy test i jego zależności przed przesłaniem zadania rozmytego.
-   - **Parametry przesłania zadania**:
-       - **Katalog inicjatora**: ścieżka do katalogu na maszynie rozmytej, która zawiera nasiona.
-       - **Rozszerzenie inicjatora**: rozszerzenie nazwy pliku dla nasion.
-       - **Plik wykonywalny sterownika testowego**: ścieżka do docelowego pliku wykonywalnego na maszynie rozmytej.
-       - **Architektura wykonywalna sterownika testowego**: docelowa architektura pliku wykonywalnego. Dostępne wartości to **x86** i **amd64**.
-       - **Argumenty sterownika testu**: argumenty wiersza polecenia przekazane do pliku wykonywalnego testu. Argument "% TestFile%", w tym cudzysłowy, jest automatycznie zastępowany pełną ścieżką do pliku docelowego. Ten plik jest analizowany przez sterownik testowy i jest wymagany.
-       - **Proces sterownika testowego kończy się po zakończeniu testu**: zaznacz to pole wyboru, jeśli sterownik testowy ma zostać zakończony po zakończeniu. Wyczyść to pole wyboru, jeśli sterownik testowy należy wymusić zamknięcie.
-       - **Maksymalny czas trwania (w sekundach)**: oszacowanie najdłuższego oczekiwanego czasu oczekiwania przez program docelowy na przeanalizowanie pliku wejściowego. Im dokładniejsze oszacowanie, tym wydajniejsze są uruchomienia aplikacji.
-       - **Sterownik testowy może być uruchamiany wielokrotnie**: zaznacz to pole wyboru, jeśli sterownik testowy może być uruchamiany wielokrotnie bez w zależności od trwałego lub udostępnionego stanu globalnego.
-       - **Można zmienić nazwę sterownika testowego**: zaznacz to pole wyboru, jeśli można zmienić nazwę pliku wykonywalnego sterownika testowego i nadal działać poprawnie.
-       - **Aplikacja rozmytego uruchamiania działa jako pojedynczy proces systemu operacyjnego**: zaznacz to pole wyboru, jeśli sterownik testowy działa w ramach jednego procesu systemu operacyjnego. Wyczyść to pole wyboru, jeśli sterownik testowy duplikuje dodatkowe procesy.
-
-Aby uzyskać informacje na temat konfiguracji YAML dla tego zadania, zapoznaj się z tematem [YAML opcje wykrywania zagrożeń zabezpieczeń firmy Microsoft](yaml-configuration.md#microsoft-security-risk-detection-task)
 
 ## <a name="roslyn-analyzers-task"></a>Zadanie analizatorów Roslyn
 
@@ -153,11 +123,11 @@ Dostępne opcje to:
 - **Zestaw reguł**: wymagane wartości to **SDL**, **zalecane przez SDL**lub własny niestandardowy zestaw reguł.
 - **Wersja analizatorów**: zalecamy wybranie opcji **najnowsze**.
 - **Plik pominięć ostrzeżeń kompilatora**: plik tekstowy z listą identyfikatorów ostrzeżeń, które są pomijane.
-- **Opcje kontrolki** > **Uruchom to zadanie**: określa, kiedy zadanie zostanie uruchomione. Wybierz opcję **warunki niestandardowe** , aby określić bardziej złożone warunki.
+- **Opcje**  >  kontrolki **Uruchom to zadanie**: określa, kiedy zadanie zostanie uruchomione. Wybierz opcję **warunki niestandardowe** , aby określić bardziej złożone warunki.
 
 > [!NOTE]
 >
-> - Analizatory Roslyn są zintegrowane z kompilatorem i mogą być uruchamiane tylko w ramach kompilacji CSC. exe. W związku z tym to zadanie wymaga, aby polecenie kompilatora uruchomione wcześniej w kompilacji zostało powtórzone lub ponownie uruchomione. To odtwarzanie lub uruchamianie jest wykonywane przez przeszukiwanie Visual Studio Team Services (VSTS) dla dzienników zadań kompilacji programu MSBuild.
+> - Analizatory Roslyn są zintegrowane z kompilatorem i mogą być uruchamiane tylko w ramach kompilacji csc.exe. W związku z tym to zadanie wymaga, aby polecenie kompilatora uruchomione wcześniej w kompilacji zostało powtórzone lub ponownie uruchomione. To odtwarzanie lub uruchamianie jest wykonywane przez przeszukiwanie Visual Studio Team Services (VSTS) dla dzienników zadań kompilacji programu MSBuild.
 >
 >   Nie istnieje żaden inny sposób, aby zadanie niezawodnie pobrać wiersz polecenia kompilacji MSBuild z definicji kompilacji. Rozważamy Dodawanie dowolnego pola tekstowego, aby umożliwić użytkownikom wprowadzanie ich linii poleceń. Jednak będzie trudno zachować aktualność tych wierszy poleceń i synchronizować ją z główną kompilacją.
 >

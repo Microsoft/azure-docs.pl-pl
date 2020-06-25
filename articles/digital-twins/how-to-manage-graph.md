@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie grafem bliźniaczych reprezentacji z relacjami
+title: Zarządzanie wykresem bliźniaczym z relacjami
 titleSuffix: Azure Digital Twins
 description: Zobacz, jak zarządzać grafem cyfrowego bliźniaczych reprezentacji, łącząc je z relacjami.
 author: baanders
@@ -8,12 +8,12 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e332936543cc36e20b88da4ce5cc9115d0890967
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 13ceed847b3946b47fb3389145843ad085391dc5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84725702"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362802"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Zarządzanie grafem cyfrowego bliźniaczych reprezentacji przy użyciu relacji
 
@@ -23,7 +23,7 @@ Bliźniaczych reprezentacji na platformie Azure Digital to [Wykres dwuosiowy](co
 
 Gdy korzystasz z działającego [wystąpienia usługi Azure Digital bliźniaczych reprezentacji](how-to-set-up-instance.md) i ustawisz [uwierzytelnianie](how-to-authenticate-client.md) dla aplikacji klienckiej, możesz użyć [**interfejsów API DigitalTwins**](how-to-use-apis-sdks.md) , aby tworzyć, modyfikować i usuwać cyfrowe bliźniaczych reprezentacji oraz ich relacje w wystąpieniu bliźniaczych reprezentacji cyfrowych platformy Azure. Można również użyć [zestawu SDK platformy .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)lub [interfejsu wiersza polecenia usługi Azure Digital bliźniaczych reprezentacji](how-to-use-cli.md).
 
-Ten artykuł koncentruje się na zarządzaniu relacjami i wykresem jako całościowym; Aby obejść poszczególne bliźniaczych reprezentacji cyfrowe, zobacz [How to: Manage a Digital bliźniaczy](how-to-manage-twin.md).
+Ten artykuł koncentruje się na zarządzaniu relacjami i wykresem jako całościowym; Aby korzystać z pojedynczych bliźniaczych reprezentacji cyfrowych, zobacz [How to: Manage Digital bliźniaczych reprezentacji](how-to-manage-twin.md).
 
 ## <a name="create-relationships"></a>Utwórz relacje
 

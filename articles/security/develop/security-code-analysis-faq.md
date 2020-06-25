@@ -1,7 +1,7 @@
 ---
 title: Dokumentacja analizy kodu zabezpieczeń firmy Microsoft — często zadawane pytania
 description: Ten artykuł zawiera często zadawane pytania dotyczące rozszerzenia Microsoft Security code Analysis
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7a888d95a97e30e7d663b528e8d9941aec1f51e9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 3d5eac2d3e2f3cd87ddad02aac68ce015163bd00
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015849"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85362078"
 ---
 # <a name="frequently-asked-questions"></a>Często zadawane pytania
 Masz pytania? Zapoznaj się z poniższymi PYTANIAmi, aby uzyskać więcej informacji.
@@ -123,7 +123,7 @@ Klucz skrótu wpisu tajnego z pliku wyjściowego CredScan jest wymagany, jak pok
 
 Wyrażeniem pliku może być nazwa pliku. Może to być również część podstawowa elementu pełnej ścieżki pliku lub nazwy pliku. Symbole wieloznaczne nie są obsługiwane.
 
-W poniższych przykładach pokazano, jak pominąć plik \<InputPath> \src\JS\lib\angular.js
+W poniższych przykładach pokazano, jak pominąć plik \<InputPath>\src\JS\lib\angular.js
 
 Przykłady prawidłowych reguł pomijania:
 
@@ -131,7 +131,7 @@ Przykłady prawidłowych reguł pomijania:
 - \src\JS\lib\angular.js
 - \JS\lib\angular.js
 - \lib\angular.js
-- kątow. js — pomija wszystkie pliki o tej samej nazwie
+- angular.js — pomija wszystkie pliki o tej samej nazwie
 
         {
             "tool": "Credential Scanner",
@@ -166,7 +166,7 @@ Aby uzyskać więcej informacji, zobacz wpis w blogu [Zarządzanie kluczami tajn
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>Czy mogę napisać własne niestandardowe wyszukiwania?
 
-Skaner poświadczeń polega na zestawie wyszukiwania zawartości, które są często zdefiniowane w pliku buildsearchers. XML. Plik zawiera tablicę serializowanych obiektów XML, które reprezentują obiekt **ContentSearcher** . Program jest dystrybuowany z zestawem dobrze przetestowanych wyszukiwań. Ale można również zaimplementować własne niestandardowe wyszukiwania.
+Skaner poświadczeń bazuje na zestawie wyszukiwania zawartości, które są powszechnie zdefiniowane w pliku buildsearchers.xml. Plik zawiera tablicę serializowanych obiektów XML, które reprezentują obiekt **ContentSearcher** . Program jest dystrybuowany z zestawem dobrze przetestowanych wyszukiwań. Ale można również zaimplementować własne niestandardowe wyszukiwania.
 
 Wyszukiwanie zawartości jest zdefiniowane w następujący sposób:
 
@@ -196,23 +196,23 @@ Pełny komunikat o błędzie:
 
 Ponieważ zadania analizatorów Roslyn są uruchamiane jako część kompilacji, drzewo źródłowe na maszynie kompilacji musi być w stanie możliwego do skompilowania.
 
-Krok między głównymi krokami kompilowania i Roslynów może spowodować umieszczenie drzewa źródłowego w stanie uniemożliwiającym Kompilowanie. Ten dodatkowy krok to prawdopodobnie **plik dotnet. exe Publish**. Spróbuj zduplikować krok, który wykonuje przywracanie NuGet tuż przed krokiem Roslyn analizatorów. Ten zduplikowany krok może spowodować przywrócenie drzewa źródła w stanie możliwego do skompilowania.
+Krok między głównymi krokami kompilowania i Roslynów może spowodować umieszczenie drzewa źródłowego w stanie uniemożliwiającym Kompilowanie. Ten dodatkowy krok prawdopodobnie **dotnet.exe publikowanie**. Spróbuj zduplikować krok, który wykonuje przywracanie NuGet tuż przed krokiem Roslyn analizatorów. Ten zduplikowany krok może spowodować przywrócenie drzewa źródła w stanie możliwego do skompilowania.
 
-##### <a name="cscexe-cant-create-an-analyzer-instance"></a>CSC. exe nie może utworzyć wystąpienia analizatora
+##### <a name="cscexe-cant-create-an-analyzer-instance"></a>csc.exe nie może utworzyć wystąpienia analizatora
 
 Pełny komunikat o błędzie:
 
-Zakończono działanie "CSC. exe" z kodem błędu 1 — nie można utworzyć wystąpienia analizatora *AAAA* w języku C: \\ *bbbb*. dll: nie udało się załadować pliku lub zestawu "Microsoft. CodeAnalysis, Version =*X. x. x. x*, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" lub jednej z jego zależności. System nie może odnaleźć określonego pliku. "
+Zakończono działanie "csc.exe" z kodem błędu 1 — nie można utworzyć wystąpienia elementu analizatora *AAAA* z dysku C: \\ *bbbb*. dll: nie powiodło się załadowanie pliku lub zestawu "Microsoft. CodeAnalysis, Version =*X. x. x. x*, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" lub jednej z jego zależności. System nie może odnaleźć określonego pliku. "
 
-Upewnij się, że kompilator obsługuje analizatory Roslyn. Uruchomienie polecenia **CSC. exe/Version** powinno spowodować zgłoszenie wartości wersji 2,6 lub nowszej.
+Upewnij się, że kompilator obsługuje analizatory Roslyn. Uruchomienie polecenia **csc.exe/Version** powinno zgłosić wartość wersji 2,6 lub nowszej.
 
 Czasami plik. csproj może zastąpić instalację programu Visual Studio na maszynie kompilacji, odwołując się do pakietu z Microsoft.Net. Kompilators. Jeśli nie zamierzasz używać określonej wersji kompilatora, Usuń odwołania do Microsoft.Net. Kompilators. W przeciwnym razie upewnij się, że wersja przywoływanego pakietu jest również 2,6 lub nowsza.
 
-Spróbuj uzyskać ścieżkę dziennika błędów, która jest określona w opcji **CSC. exe/ErrorLog** . Opcja i ścieżka są wyświetlane w dzienniku dla zadania kompilacji analizatory Roslyn. Mogą wyglądać podobnie do **/ErrorLog: f:\ts-services-123 \_ work\456\s\Some\Project\Code\Code.csproj.Sarif**
+Spróbuj uzyskać ścieżkę dziennika błędów, która jest określona w **csc.exe opcji/ErrorLog** . Opcja i ścieżka są wyświetlane w dzienniku dla zadania kompilacji analizatory Roslyn. Mogą wyglądać podobnie do **/ErrorLog: f:\ts-services-123 \_ work\456\s\Some\Project\Code\Code.csproj.Sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>Wersja kompilatora C# jest zbyt mała
 
-Aby uzyskać najnowsze wersje kompilatora języka C#, przejdź do [Microsoft.NET. kompilators](https://www.nuget.org/packages/Microsoft.Net.Compilers). Aby uzyskać zainstalowaną wersję, uruchom **plik csc. exe/Version** w wierszu polecenia. Upewnij się, że odwołujesz się do pakietu NuGet Microsoft.Net. COMPILERS w wersji 2,6 lub nowszej.
+Aby uzyskać najnowsze wersje kompilatora języka C#, przejdź do [Microsoft.NET. kompilators](https://www.nuget.org/packages/Microsoft.Net.Compilers). Aby uzyskać zainstalowaną wersję, uruchom **csc.exe/Version** w wierszu polecenia. Upewnij się, że odwołujesz się do pakietu NuGet Microsoft.Net. COMPILERS w wersji 2,6 lub nowszej.
 
 ##### <a name="msbuild-and-vsbuild-logs-arent-found"></a>Nie znaleziono dzienników MSBuild i VSBuild
 
