@@ -177,7 +177,7 @@
           href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
         - name: Definicje zasad
           href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
-    - name: Zestaw Azure SDK dla platformy Node
+    - name: Zestaw Azure SDK dla języka JavaScript
       items:
         - name: Zasady
           href: /javascript/api/@azure/arm-policy
