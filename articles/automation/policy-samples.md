@@ -1,15 +1,15 @@
 ---
 title: Wbudowane definicje zasad dla Azure Automation
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Automation. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 9a30388279f2e93cca1ceaa43fb3959cea4704d6
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 1cb0ee391e97d87a0c2e96035cc8405b83bb0654
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886023"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318332"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-automation"></a>Azure Policy wbudowane definicje Azure Automation
 

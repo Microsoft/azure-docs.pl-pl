@@ -1,21 +1,15 @@
 ---
 title: Tworzenie centrum zdarzeń za pomocą interfejsu wiersza polecenia platformy Azure — Azure Event Hubs | Microsoft Docs
 description: W tym przewodniku Szybki start opisano tworzenie centrum zdarzeń za pomocą interfejsu wiersza polecenia platformy Azure oraz wysyłanie i odbieranie zdarzeń za pomocą języka Java.
-services: event-hubs
-author: spelluru
-manager: timlt
-ms.service: event-hubs
-ms.devlang: java
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 02/11/2020
+ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 92fd7d15ee5bc54cc41b78f4ba0d078d3f8fac6b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5d3499d6c480a3bfdbad57ffa367c5d2d326d565
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77162637"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313112"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Szybki start: tworzenie centrum zdarzeń za pomocą interfejsu wiersza polecenia platformy Azure
 

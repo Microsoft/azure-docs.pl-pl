@@ -1,19 +1,14 @@
 ---
 title: Wysyłanie i odbieranie zdarzeń z usługi Azure Event Hubs przy użyciu języka JavaScript (najnowsze)
 description: Ten artykuł zawiera wskazówki dotyczące tworzenia aplikacji języka JavaScript, która wysyła/odbiera zdarzenia do/z usługi Azure Event Hubs przy użyciu najnowszego pakietu Azure/Event-Hub w wersji 5.
-services: event-hubs
-author: spelluru
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 01/30/2020
-ms.author: spelluru
-ms.openlocfilehash: 71c50e8efdf26f2a7d3f270a774b08e49c92faa7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: ad9a78aa48ee0d4c01e2748b8b52192e259add7b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159424"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85312925"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z centrów zdarzeń przy użyciu języka JavaScript (Azure/Event-Hubs w wersji 5)
 W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu pakietu **Azure/Event-Hub w wersji 5** JavaScript. 
@@ -27,7 +22,7 @@ Jeśli dopiero zaczynasz w usłudze Azure Event Hubs, zapoznaj się z tematem [E
 Do wykonania kroków tego przewodnika Szybki start niezbędne jest spełnienie następujących wymagań wstępnych:
 
 - **Subskrypcja Microsoft Azure**. Do korzystania z usług platformy Azure, w tym usługi Azure Event Hubs, potrzebna jest subskrypcja.  Jeśli nie masz istniejącego konta platformy Azure, możesz zarejestrować się w celu korzystania z [bezpłatnej wersji próbnej](https://azure.microsoft.com/free/) lub skorzystać z korzyści dla subskrybentów MSDN podczas [tworzenia konta](https://azure.microsoft.com).
-- Node. js w wersji 8. x lub nowszej. Pobierz najnowszą [wersję długoterminowej pomocy technicznej (LTS)](https://nodejs.org).  
+- Node.js w wersji 8. x lub nowszej. Pobierz najnowszą [wersję długoterminowej pomocy technicznej (LTS)](https://nodejs.org).  
 - Visual Studio Code (zalecane) lub inne zintegrowane środowisko programistyczne (IDE).  
 - Aktywna przestrzeń nazw Event Hubs i centrum zdarzeń. Aby je utworzyć, wykonaj następujące czynności: 
 
@@ -61,7 +56,7 @@ npm install @azure/eventhubs-checkpointstore-blob
 W tej sekcji utworzysz aplikację JavaScript, która wysyła zdarzenia do centrum zdarzeń.
 
 1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com).
-1. Utwórz plik o nazwie *send. js*i wklej do niego następujący kod:
+1. Utwórz plik o nazwie *send.js*i wklej do niego następujący kod:
 
     ```javascript
     const { EventHubProducerClient } = require("@azure/event-hubs");
@@ -96,13 +91,13 @@ W tej sekcji utworzysz aplikację JavaScript, która wysyła zdarzenia do centru
 1. W kodzie Użyj wartości rzeczywistych, aby zamienić następujące elementy:
     * `EVENT HUBS NAMESPACE CONNECTION STRING` 
     * `EVENT HUB NAME`
-1. Uruchom `node send.js` polecenie, aby wykonać ten plik. To polecenie wysyła wsadowe trzy zdarzenia do centrum zdarzeń.
+1. Uruchom polecenie `node send.js` , aby wykonać ten plik. To polecenie wysyła wsadowe trzy zdarzenia do centrum zdarzeń.
 1. W Azure Portal Sprawdź, czy centrum zdarzeń odebrało komunikaty. W sekcji **metryki** Przełącz się do widoku **komunikaty** . Odśwież stronę, aby zaktualizować wykres. Wyświetlenie komunikatów może potrwać kilka sekund.
 
     [![Sprawdź, czy centrum zdarzeń odebrało komunikaty](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
     > [!NOTE]
-    > Aby uzyskać pełny kod źródłowy, w tym dodatkowe komentarze informacyjne, przejdź do [strony GitHub sendEvents. js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/samples/javascript/sendEvents.js).
+    > Aby uzyskać pełny kod źródłowy, w tym dodatkowe komentarze informacyjne, przejdź do [strony sendEvents.js usługi GitHub](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/samples/javascript/sendEvents.js).
 
 Gratulacje! Wysłano zdarzenia do centrum zdarzeń.
 
@@ -126,7 +121,7 @@ Pamiętaj, aby zarejestrować parametry połączenia i nazwę kontenera do póź
 ### <a name="write-code-to-receive-events"></a>Pisanie kodu w celu odbierania zdarzeń
 
 1. Otwórz ulubiony Edytor, taki jak [Visual Studio Code](https://code.visualstudio.com).
-1. Utwórz plik o nazwie *Receive. js*i wklej do niego następujący kod:
+1. Utwórz plik o nazwie *receive.js*i wklej do niego następujący kod:
 
     ```javascript
     const { EventHubConsumerClient } = require("@azure/event-hubs");
@@ -185,7 +180,7 @@ Pamiętaj, aby zarejestrować parametry połączenia i nazwę kontenera do póź
 1. Uruchom `node receive.js` polecenie w wierszu polecenia, aby wykonać ten plik. Okno powinno wyświetlać komunikaty dotyczące odebranych zdarzeń.
 
     > [!NOTE]
-    > Aby uzyskać pełny kod źródłowy, w tym dodatkowe komentarze informacyjne, przejdź do [strony GitHub receiveEventsUsingCheckpointStore. js](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsUsingCheckpointStore.js).
+    > Aby uzyskać pełny kod źródłowy, w tym dodatkowe komentarze informacyjne, przejdź do [strony receiveEventsUsingCheckpointStore.js usługi GitHub](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript/receiveEventsUsingCheckpointStore.js).
 
 Gratulacje! Odebrano zdarzenia z centrum zdarzeń. Program odbiorczy otrzyma zdarzenia ze wszystkich partycji domyślnej grupy odbiorców w centrum zdarzeń.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 901e15994b8a51a5fd45d57ca7a4db7778d968e1
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 33f67e1bfa27f4314f64cbcc4d472905fcb15099
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707042"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318768"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Formaty plików i kompresji obsługiwane przez Azure Data Factory
 *Ten temat dotyczy następujących łączników: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [Azure Blob](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [system plików](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [http](data-factory-http-connector.md)i [SFTP](data-factory-sftp-connector.md).*
@@ -219,7 +219,7 @@ W tym przykładzie oczekiwany jest jeden główny obiekt JSON mapowany na pojedy
 ```
 i chcesz skopiować ją do tabeli usługi Azure SQL w następującym formacie przez wyodrębnienie danych z obiektu i tabeli:
 
-| identyfikator | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
+| ID | deviceType | targetResourceType | resourceManagementProcessRunId | occurrenceTime |
 | --- | --- | --- | --- | --- |
 | ed0e4960-d9c5-11e6-85dc-d7996816aad3 | PC | Microsoft.Compute/virtualMachines | 827f8aaa-ab72-437c-ba48-d8917a7336a3 | 1/13/2017 11:24:37 AM |
 
@@ -349,7 +349,7 @@ Zestaw danych wejściowych typu **JsonFormat** jest zdefiniowany następująco: 
 
 Jeśli masz poniższą tabelę w SQL Database:
 
-| identyfikator | order_date | order_price | order_by |
+| ID | order_date | order_price | order_by |
 | --- | --- | --- | --- |
 | 1 | 20170119 | 2000 | David |
 | 2 | 20170120 | 3500 | Patrick |
@@ -497,7 +497,7 @@ Sekcja **kompresji** ma dwie właściwości:
 
 W przypadku określenia `compression` właściwości w formacie JSON wejściowego zestawu danych potok może odczytywać skompresowane dane ze źródła. po określeniu właściwości w kodzie JSON wyjściowego zestawu danych działanie kopiowania może zapisywać skompresowane dane w miejscu docelowym. Oto kilka przykładowych scenariuszy:
 
-* Odczytaj skompresowane dane GZIP z obiektu blob platformy Azure, zdekompresuj je i Zapisz dane wynikowe w usłudze Azure SQL Database. Zestaw danych wejściowych obiektów blob platformy Azure można zdefiniować za pomocą `compression` `type` Właściwości JSON jako gzip.
+* Odczytaj skompresowane dane GZIP z obiektu blob platformy Azure, zdekompresuj je i Zapisz dane wynikowe do Azure SQL Database. Zestaw danych wejściowych obiektów blob platformy Azure można zdefiniować za pomocą `compression` `type` Właściwości JSON jako gzip.
 * Odczytaj dane z pliku tekstowego z lokalnego systemu plików, Kompresuj go przy użyciu formatu GZip i Zapisz skompresowane dane w obiekcie blob platformy Azure. Należy zdefiniować wyjściowy zestaw danych obiektów blob platformy Azure z `compression` `type` właściwością JSON jako gzip.
 * Odczytaj plik. zip z serwera FTP, zdekompresuj go, aby pobrać pliki i wyrównać te pliki do Azure Data Lake Store. Można zdefiniować wejściowy zestaw danych FTP z `compression` `type` właściwością JSON jako ZipDeflate.
 * Odczytaj dane skompresowane w formacie GZIP z obiektu blob platformy Azure, zdekompresuj je, skompresuje przy użyciu BZIP2 i Zapisz dane wynikowe w obiekcie blob platformy Azure. Zdefiniuj zestaw danych wejściowych obiektów blob platformy Azure z `compression` `type` ustawionym na gzip i wyjściowym zestawem danych z `compression` `type` ustawionym na bzip2 w tym przypadku.   

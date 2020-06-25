@@ -2,22 +2,22 @@
 title: Zarządzanie aplikacjami przy użyciu usługi Azure Active Directory | Microsoft Docs
 description: W tym artykule opisano zalety integracji Azure Active Directory z aplikacjami lokalnymi, w chmurze i SaaS.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 06/05/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee9a9d404e9a08d8b795a3d73907e84d25b73107
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3f826f5cc3e56dcf88ee110265724779a9d1f624
+ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739757"
+ms.lasthandoff: 06/14/2020
+ms.locfileid: "84762925"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Zarządzanie aplikacjami za pomocą usługi Azure Active Directory
 

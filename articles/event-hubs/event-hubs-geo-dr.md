@@ -1,24 +1,14 @@
 ---
 title: Replikacja geograficzna — odzyskiwanie po awarii — Event Hubs platformy Azure | Microsoft Docs
 description: Jak używać regionów geograficznych do przełączania awaryjnego i wykonywania odzyskiwania po awarii na platformie Azure Event Hubs
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2020
-ms.author: shvija
-ms.openlocfilehash: 47e3a27ba9c0b7995f45f38ae4e19941cb4f8c01
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 06/23/2020
+ms.openlocfilehash: 142e2b99376bef24a6477f7b40394ca2b67f292b
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659721"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320550"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs — odzyskiwanie geograficzne 
 W przypadku awarii całego regionu platformy Azure lub centrów danych (jeśli nie są używane [strefy dostępności](../availability-zones/az-overview.md) ) nie ma możliwości zapewnienia przestoju, ale ma to na celu kontynuowanie działania w innym regionie lub w centrum. W związku z tym *odzyskiwanie geograficzne* i *replikacja geograficzna* są ważnymi funkcjami dla każdego przedsiębiorstwa. Usługa Azure Event Hubs obsługuje zarówno odzyskiwanie geograficzne po awarii, jak i replikację geograficzną, na poziomie przestrzeni nazw. 
@@ -55,10 +45,10 @@ Obsługiwane są następujące kombinacje podstawowych i pomocniczych przestrzen
 
 | Podstawowa przestrzeń nazw | Pomocnicza przestrzeń nazw | Obsługiwane | 
 | ----------------- | -------------------- | ---------- |
-| Standardowa | Standardowa | Yes | 
-| Standardowa | Dedykowane | Yes | 
-| Dedykowane | Dedykowane | Yes | 
-| Dedykowane | Standardowa | Nie | 
+| Standardowa (Standard) | Standardowa (Standard) | Tak | 
+| Standardowa (Standard) | Dedykowane | Tak | 
+| Dedykowane | Dedykowane | Tak | 
+| Dedykowane | Standardowa (Standard) | Nie | 
 
 > [!NOTE]
 > Nie można sparować przestrzeni nazw, które znajdują się w tym samym dedykowanym klastrze. Można sparować przestrzenie nazw, które znajdują się w osobnych klastrach. 
@@ -160,7 +150,7 @@ Załóżmy, że masz dwie sieci wirtualne: Sieć wirtualna 1, Sieć wirtualna 2 
 
 ![Prywatne punkty końcowe i sieci wirtualne](./media/event-hubs-geo-dr/private-endpoints-virtual-networks.png)
 
-Zaletą tego podejścia jest to, że przełączenie w tryb failover może wystąpić w przypadku warstwy aplikacji niezależnej od Event Hubs przestrzeni nazw. Poniżej przedstawiono przykładowe scenariusze: 
+Zaletą tego podejścia jest to, że przełączenie w tryb failover może wystąpić w przypadku warstwy aplikacji niezależnej od Event Hubs przestrzeni nazw. Rozważ następujące scenariusze: 
 
 **Tryb failover tylko w aplikacji:** W tym miejscu aplikacja nie będzie istnieć w sieci wirtualnej 1, ale przejdzie do sieci VNET-2. Ponieważ zarówno prywatne punkty końcowe są skonfigurowane zarówno w sieci wirtualnej, jak i wirtualnej — 2 dla podstawowych i pomocniczych przestrzeni nazw, aplikacja będzie działać. 
 

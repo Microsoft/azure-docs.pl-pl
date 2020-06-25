@@ -30,7 +30,7 @@ ms.locfileid: "85081438"
     1. Wybierz pozycję **pobierz google-services.jsna**. Następnie Zapisz plik w folderze lokalnym w celu późniejszego użycia i wybierz **dalej**.  
 
         ![Pobierz google-services.jsna](./media/notification-hubs-common-enable-firebase-cloud-messaging/download-google-service-button.png)
-    1. Wybierz przycisk **Dalej**.
+    1. Wybierz pozycję **Dalej**.
     1. Wybierz pozycję **Kontynuuj do konsoli**
 
         > [!NOTE]

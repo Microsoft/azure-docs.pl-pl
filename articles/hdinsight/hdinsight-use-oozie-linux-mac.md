@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 27cc1052a2f35382b2d6a93482b7af219a9a187a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 35835e1508311bd31008a2335a8c543e558686c2
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015169"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319382"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Definiowanie i uruchamianie przepływu pracy w opartej na systemie Linux usłudze Azure HDInsight za pomocą programu Apache Oozie z narzędziem Apache Hadoop
 
@@ -35,7 +35,7 @@ Można również użyć Oozie do planowania zadań specyficznych dla systemu, ta
 
 * **Klient SSH**. Zobacz [nawiązywanie połączenia z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* **Azure SQL Database**.  Zobacz [Tworzenie bazy danych Azure SQL Database w Azure Portal](../sql-database/sql-database-get-started.md).  W tym artykule jest stosowana baza danych o nazwie **oozietest**.
+* **Azure SQL Database**.  Zobacz [Tworzenie bazy danych w Azure SQL Database w Azure Portal](../sql-database/sql-database-get-started.md).  W tym artykule jest stosowana baza danych o nazwie **oozietest**.
 
 * Schemat identyfikatora URI magazynu podstawowego klastrów. `wasb://`w przypadku usługi Azure Storage `abfs://` dla Azure Data Lake Storage Gen2 lub `adl://` Azure Data Lake Storage Gen1. Jeśli w usłudze Azure Storage włączono opcję bezpiecznego transferu, identyfikator URI mógłby być `wasbs://` . Zobacz również [bezpieczny transfer](../storage/common/storage-require-secure-transfer.md).
 
@@ -126,7 +126,7 @@ Wykonaj następujące kroki, aby utworzyć skrypt programu Hive Query Language (
 
    * `${hiveDataFolder}`: Zawiera lokalizację do przechowywania plików danych dla tabeli.
 
-     Plik definicji przepływu pracy. XML w tym artykule przekazuje te wartości do tego skryptu HiveQL w czasie wykonywania.
+     Plik definicji przepływu pracy, workflow.xml w tym artykule, przekazuje te wartości do tego skryptu HiveQL w czasie wykonywania.
 
 1. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X**, wprowadź **Y**, a następnie wybierz klawisz **Enter**.  
 
@@ -275,7 +275,7 @@ Definicje przepływu pracy Oozie są zapisywane w języku definicji procesów us
 
 ## <a name="create-the-job-definition"></a>Tworzenie definicji zadania
 
-W definicji zadania opisano, gdzie znaleźć plik Workflow. XML. Opisano w nim również, gdzie można znaleźć inne pliki używane przez przepływ pracy, na przykład `useooziewf.hql` . Ponadto definiuje wartości właściwości używanych w przepływie pracy i skojarzonych plikach.
+W definicji zadania opisano, gdzie znaleźć workflow.xml. Opisano w nim również, gdzie można znaleźć inne pliki używane przez przepływ pracy, na przykład `useooziewf.hql` . Ponadto definiuje wartości właściwości używanych w przepływie pracy i skojarzonych plikach.
 
 1. Aby uzyskać pełny adres magazynu domyślnego, użyj następującego polecenia. Ten adres jest używany w pliku konfiguracji utworzonym w następnym kroku.
 
@@ -366,7 +366,7 @@ W definicji zadania opisano, gdzie znaleźć plik Workflow. XML. Opisano w nim r
     </configuration>
     ```
 
-    Większość informacji w tym pliku służy do wypełniania wartości używanych w plikach Workflow. XML lub ooziewf. HQL, takich jak `${nameNode}` .  Jeśli ścieżka jest `wasbs` ścieżką, należy użyć pełnej ścieżki. Nie skracaj go do samego siebie `wasbs:///` . `oozie.wf.application.path`Wpis definiuje, gdzie znaleźć plik Workflow. XML. Ten plik zawiera przepływ pracy, który został uruchomiony przez to zadanie.
+    Większość informacji w tym pliku służy do wypełniania wartości używanych w plikach workflow.xml lub ooziewf. HQL, takich jak `${nameNode}` .  Jeśli ścieżka jest `wasbs` ścieżką, należy użyć pełnej ścieżki. Nie skracaj go do samego siebie `wasbs:///` . `oozie.wf.application.path`Wpis określa miejsce, w którym znajduje się plik workflow.xml. Ten plik zawiera przepływ pracy, który został uruchomiony przez to zadanie.
 
 3. Aby utworzyć konfigurację definicji zadania Oozie, użyj następującego polecenia:
 
@@ -495,7 +495,7 @@ Interfejs użytkownika sieci Web Oozie zapewnia internetowy widok stanu zadań O
 
    * Stan zadania
    * Definicja zadania
-   * Konfigurowanie
+   * Konfiguracja
    * Wykres akcji w zadaniu
    * Dzienniki dla zadania
 
@@ -539,7 +539,7 @@ Aby uzyskać dostęp do interfejsu użytkownika sieci Web Oozie, wykonaj następ
 
 Można użyć koordynatora, aby określić częstotliwość uruchamiania, zakończenia i wystąpienia zadań. Aby zdefiniować harmonogram dla przepływu pracy, wykonaj następujące czynności:
 
-1. Użyj następującego polecenia, aby utworzyć plik o nazwie **Coordinator. XML**:
+1. Użyj następującego polecenia, aby utworzyć plik o nazwie **coordinator.xml**:
 
     ```bash
     nano coordinator.xml
@@ -564,7 +564,7 @@ Można użyć koordynatora, aby określić częstotliwość uruchamiania, zakoń
     > * `${coordStart}`: Godzina rozpoczęcia zadania.
     > * `${coordEnd}`: Godzina zakończenia zadania.
     > * `${coordTimezone}`: Zadania koordynatora są w stałej strefie czasowej bez czasu letniego, zazwyczaj reprezentowane przy użyciu czasu UTC. Ta strefa czasowa jest określana jako strefa czasowa *przetwarzania Oozie.*
-    > * `${wfPath}`: Ścieżka do przepływu pracy. XML.
+    > * `${wfPath}`: Ścieżka do workflow.xml.
 
 2. Aby zapisać plik, wybierz **kombinację klawiszy Ctrl + X**, wprowadź **Y**, a następnie wybierz klawisz **Enter**.
 
@@ -593,7 +593,7 @@ Można użyć koordynatora, aby określić częstotliwość uruchamiania, zakoń
         </property>
         ```
 
-       Zastąp `wasbs://mycontainer@mystorageaccount.blob.core.windows` tekst wartością użytą w pozostałych wpisach w pliku Job. XML.
+       Zastąp `wasbs://mycontainer@mystorageaccount.blob.core.windows` tekst wartością użytą w pozostałych wpisach w pliku job.xml.
 
    * Aby zdefiniować początkową, końcową i częstotliwość dla koordynatora, Dodaj następujący kod XML:
 

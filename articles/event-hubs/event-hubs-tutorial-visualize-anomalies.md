@@ -1,20 +1,14 @@
 ---
 title: Azure Event Hubs — Wizualizuj anomalie danych w zdarzeniach w czasie rzeczywistym
 description: 'Samouczek: Wizualizuj anomalie danych w zdarzeniach w czasie rzeczywistym wysyłanych do Microsoft Azure Event Hubs'
-services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
-ms.author: shvija
 ms.topic: tutorial
-ms.service: event-hubs
-ms.custom: seodec18
-ms.date: 01/15/2020
-ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77163181"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85315614"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Samouczek: wizualizowanie anomalii dotyczących danych w zdarzeniach w czasie rzeczywistym wysyłanych do usługi Azure Event Hubs
 
@@ -159,8 +153,8 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 Przykłady Event Hubs [w witrynie GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) obejmują aplikację wykrywania anomalii, która generuje dane testowe. Symuluje ona korzystanie z kart kredytowych, zapisując w centrum zdarzeń transakcje kart kredytowych, w tym zapisując co pewien czas wiele transakcji dla tej samej karty kredytowej w wielu lokalizacjach, aby mogły one zostać oznaczone jako anomalie. Aby uruchomić tę aplikację, wykonaj następujące kroki: 
 
 1. Pobierz [przykłady dotyczące usługi Azure Event Hubs](https://github.com/Azure/azure-event-hubs/archive/master.zip) z usługi GitHub i rozpakuj je lokalnie.
-2. Przejdź do folderu **\azure-Event-Hubs-master\samples\DotNet\\ ** folderu. 
-3. Przejdź do folderu **Azure. Messaging. EventHubs\AnomalyDetector\\ ** , a następnie kliknij dwukrotnie plik **AnomalyDetector. sln** , aby otworzyć rozwiązanie w programie Visual Studio. 
+2. Przejdź do folderu **\azure-Event-Hubs-master\samples\DotNet \\ ** folderu. 
+3. Przejdź do folderu **Azure. Messaging. EventHubs\AnomalyDetector \\ ** , a następnie kliknij dwukrotnie plik **AnomalyDetector. sln** , aby otworzyć rozwiązanie w programie Visual Studio. 
 
     Aby użyć starej wersji przykładu korzystającej z starego pakietu Microsoft. Azure. EventHubs, Otwórz rozwiązanie w folderze **Microsoft. Azure. EventHubs\AnomalyDetector** . 
 3. Otwórz plik Program.cs i zastąp **parametry połączenia usługi Event Hubs** parametrami połączenia zapisanymi podczas uruchamiania skryptu. 
@@ -186,7 +180,7 @@ Teraz możesz przesyłać strumieniowo dane do centrum zdarzeń. Aby użyć tych
 
    ![Zrzut ekranu pokazujący sposób tworzenia nowego zadania usługi Azure Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
-    Zaakceptuj wartości domyślne w pozostałych polach. Kliknij przycisk **Utwórz**. 
+    Zaakceptuj wartości domyślne w pozostałych polach. Kliknij pozycję **Utwórz**. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Dodawanie danych wejściowych do zadania usługi Stream Analytics
 
@@ -217,7 +211,7 @@ Danymi wejściowymi dla zadania usługi Stream Analytics są transakcje kart kre
 
    ![Zrzut ekranu przedstawiający sposób dodawania strumienia wejściowego do zadania usługi Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
 
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Dodawanie danych wyjściowych do zadania usługi Stream Analytics
 
@@ -239,7 +233,7 @@ Danymi wejściowymi dla zadania usługi Stream Analytics są transakcje kart kre
 
 4. Zaakceptuj wartości domyślne w pozostałych polach.
 
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Konfigurowanie zapytania zadania usługi Stream Analytics
 
@@ -268,7 +262,7 @@ To zapytanie służy do pobierania danych, które ostatecznie są wysyłane do w
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 ### <a name="test-the-query-for-the-stream-analytics-job"></a>Testowanie zapytania dla zadania usługi Stream Analytics 
 

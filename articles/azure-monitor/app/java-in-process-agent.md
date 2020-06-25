@@ -3,12 +3,12 @@ title: Monitoruj aplikacje Java w dowolnym środowisku — Azure Monitor Applica
 description: Monitorowanie wydajności aplikacji dla aplikacji Java działających w dowolnym środowisku bez Instrumentacji aplikacji. Śledzenie rozproszone i mapa aplikacji.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 591cfad0f4719595835f212b9205354aad7cb9e8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508075"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319707"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Monitorowanie aplikacji bezkodowej Java Azure Monitor Application Insights — publiczna wersja zapoznawcza
 
@@ -24,13 +24,13 @@ Nadal możesz wysyłać niestandardowe dane telemetryczne z aplikacji. Agent 3,0
 
 **1. Pobierz agenta**
 
-Pobierz [ApplicationInsights-Agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+Pobierz [ApplicationInsights-Agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
 **2. wskaż JVM do agenta**
 
-Dodaj `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` do argumentów JVM aplikacji
+Dodaj `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` do ARGUMENTÓW JVM aplikacji
 
-Typowe argumenty JVM obejmują `-Xmx512m` i `-XX:+UseG1GC`. Jeśli wiesz, gdzie je dodać, już wiesz, gdzie je dodać.
+Typowe argumenty JVM obejmują `-Xmx512m` i `-XX:+UseG1GC` . Jeśli wiesz, gdzie je dodać, już wiesz, gdzie je dodać.
 
 Aby uzyskać dodatkową pomoc dotyczącą konfigurowania argumentów JVM aplikacji, zobacz [3,0 Preview: porady dotyczące aktualizowania ARGUMENTÓW JVM](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
 
@@ -44,7 +44,7 @@ Wskaż agenta Application Insights zasobem, ustawiając zmienną środowiskową:
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Lub tworząc plik konfiguracji o nazwie `ApplicationInsights.json`i umieszczając go w tym samym katalogu, co `applicationinsights-agent-3.0.0-PREVIEW.4.jar`, z następującą zawartością:
+Lub tworząc plik konfiguracji o nazwie `ApplicationInsights.json` i umieszczając go w tym samym katalogu, co `applicationinsights-agent-3.0.0-PREVIEW.5.jar` , z następującą zawartością:
 
 ```json
 {

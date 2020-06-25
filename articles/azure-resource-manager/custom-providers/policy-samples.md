@@ -1,17 +1,17 @@
 ---
 title: Wbudowane definicje zasad dla dostawców zasobów niestandardowych platformy Azure
 description: Wyświetla Azure Policy listę wbudowanych definicji zasad dla dostawców zasobów niestandardowych platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 06/10/2020
+ms.date: 06/23/2020
 ms.topic: sample
 author: jjbfour
 ms.author: jobreen
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 9730b99a9ae7af7e615cf1a6c7f187420ab4f13f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 3ff2095c3b3676facf82c8022896e918726767d3
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887493"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85314749"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-custom-resource-providers"></a>Azure Policy wbudowane definicje dla dostawców zasobów niestandardowych platformy Azure
 

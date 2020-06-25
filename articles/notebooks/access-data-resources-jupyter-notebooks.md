@@ -4,12 +4,12 @@ description: Dowiedz się, jak uzyskać dostęp do plików, interfejsów API RES
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.custom: tracking-python
-ms.openlocfilehash: 2c7133e9c258c77aa9c242dd7276076625153703
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: a7e242c000b57cbbfafebc1e11191199a7a4b95f
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84554369"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319139"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Dostęp do danych z chmury w notesie
 
@@ -42,11 +42,11 @@ if response.status_code == 200:
     print(dataframe_rest2)
 ```
 
-## <a name="azure-sql-databases"></a>Bazy danych SQL Azure
+## <a name="azure-sql-database-and-sql-managed-instance"></a>Azure SQL Database i wystąpienie zarządzane SQL
 
-Dostęp do SQL Server baz danych można uzyskać za pomocą bibliotek moduł pyodbc lub pymssql.
+Można uzyskać dostęp do baz danych w SQL Database lub wystąpieniu zarządzanym SQL z pomocą bibliotek moduł pyodbc lub pymssql.
 
-[Używanie języka Python do wykonywania zapytań w bazie danych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) zawiera instrukcje dotyczące tworzenia bazy danych zawierającej dane AdventureWorks i pokazujące, jak wykonywać zapytania dotyczące tych danych. Ten sam kod jest przedstawiony w notesie przykładowym dla tego artykułu.
+[Używanie języka Python do wykonywania zapytań w bazie danych Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-python) zawiera instrukcje dotyczące tworzenia bazy danych w SQL Database zawierającej dane AdventureWorks i pokazujące, jak wykonywać zapytania dotyczące tych danych. Ten sam kod jest przedstawiony w notesie przykładowym dla tego artykułu.
 
 ## <a name="azure-storage"></a>Azure Storage
 

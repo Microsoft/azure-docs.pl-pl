@@ -4,12 +4,12 @@ description: Szczegóły wbudowanej inicjatywy dotyczącej zgodności z przepisa
 ms.date: 06/23/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 3dda80d772f15869c196a2cc8b77e767a853d22c
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 517bbc1ca2ca4a9f87d1ebef27d5e5ae361351b5
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297056"
+ms.locfileid: "85312546"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Szczegóły wbudowanej inicjatywy dotyczącej zgodności z przepisami dotyczącymi usługi Azure Security test
 
@@ -132,13 +132,6 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładowego planu usługi Az
 
 ## <a name="identity-and-access-control"></a>Tożsamość i kontrola dostępu
 
-### <a name="log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>Rejestruj i Ostrzegaj o podejrzanych działaniach z poziomu kont administracyjnych
-
-**Identyfikator**: Azure Security Test 3,7 **własność**: klient
-
-|Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
-|---|---|---|---|
-
 ### <a name="maintain-an-inventory-of-administrative-accounts"></a>Obsługa spisu kont administracyjnych
 
 **Identyfikator**: Azure Security Test 3,1 **własność**: klient
@@ -200,13 +193,6 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładowego planu usługi Az
 |[Uwierzytelnianie wieloskładnikowe powinno być włączone na kontach z uprawnieniami do odczytu w ramach subskrypcji](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe3576e28-8b17-4677-84c3-db2990658d64) |Multi-Factor Authentication (MFA) powinna być włączona dla wszystkich kont subskrypcji z uprawnieniami do odczytu, aby zapobiec naruszeniu kont lub zasobów. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableMFAForReadPermissions_Audit.json) |
 
 ## <a name="incident-response"></a>Reagowanie na zdarzenia
-
-### <a name="create-an-incident-scoring-and-prioritization-procedure"></a>Tworzenie oceny incydentu i procedury priorytetyzacji
-
-**Identyfikator**: Azure Security test 10,2 **własność**: klient
-
-|Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
-|---|---|---|---|
 
 ### <a name="provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>Podaj szczegóły kontaktu dotyczącego zabezpieczeń i Skonfiguruj powiadomienia dotyczące alertów dotyczących zdarzeń związanych z zabezpieczeniami
 
@@ -336,13 +322,6 @@ Ta inicjatywa wbudowana jest wdrażana w ramach [przykładowego planu usługi Az
 |Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
 |---|---|---|---|
 |[Program Microsoft chroniący przed złośliwym kodem dla platformy Azure powinien zostać skonfigurowany do automatycznego aktualizowania sygnatur ochrony](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc43e4a30-77cb-48ab-a4dd-93f175c63b57) |Ta zasada przeprowadza inspekcję wszystkich maszyn wirtualnych systemu Windows, które nie są skonfigurowane z automatyczną aktualizacją sygnatur ochrony przed złośliwym oprogramowaniem firmy Microsoft. |AuditIfNotExists, wyłączone |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_AntiMalwareAutoUpdate_AuditIfNotExists.json) |
-
-### <a name="pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>Skanuj pliki przed przekazaniem do zasobów platformy Azure, które nie są obliczeniowe
-
-**Identyfikator**: Azure Security test 8,2 **własność**: klient
-
-|Nazwa<br /><sub>(Azure Portal)</sub> |Opis |Efekt (s) |Wersja<br /><sub>GitHub</sub> |
-|---|---|---|---|
 
 ### <a name="use-centrally-managed-anti-malware-software"></a>Użyj centralnie zarządzanego oprogramowania chroniącego przed złośliwym oprogramowaniem
 

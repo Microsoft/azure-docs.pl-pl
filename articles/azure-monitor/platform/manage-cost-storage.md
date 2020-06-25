@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 06/19/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: c6358411572de6049a3362cc0e8e26b9cbc82d43
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 4f7be81c3593e35dfbbcf3a5671726da70ae0c7e
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906855"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319673"
 ---
-# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor
+# <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor    
 
 > [!NOTE]
 > W tym artykule opisano sposób zrozumienia i kontrolowania kosztów Azure Monitor dzienników. W powiązanym artykule, [monitorowaniu użycia i szacowanych kosztów](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) opisano sposób wyświetlania użycia i szacowane koszty w wielu funkcjach monitorowania platformy Azure dla różnych modeli cen. Wszystkie ceny i koszty pokazane w tym artykule są wyłącznie na przykład. 
@@ -32,7 +32,7 @@ W tym artykule opisano, jak można aktywnie monitorować pozyskiwane ilości dan
 
 ## <a name="pricing-model"></a>Model cen
 
-Domyślna cena dla Log Analytics jest modelem **płatności zgodnie z rzeczywistym** użyciem na podstawie ilości danych pozyskiwanych i opcjonalnie do dłuższego przechowywania danych. Ilość danych jest mierzona jako rozmiar danych, które będą przechowywane. Każdy obszar roboczy Log Analytics jest rozliczany jako osobna usługa i przyczynia się do rozliczenia za subskrypcję platformy Azure. Ilość pozyskiwania danych może być znaczna w zależności od następujących czynników: 
+Domyślna cena dla Log Analytics jest modelem **płatności zgodnie z rzeczywistym** użyciem na podstawie ilości danych pozyskiwanych i opcjonalnie do dłuższego przechowywania danych. Ilość danych jest mierzona jako rozmiar danych, które będą przechowywane w GB (10 ^ 9 bajtów). Każdy obszar roboczy Log Analytics jest rozliczany jako osobna usługa i przyczynia się do rozliczenia za subskrypcję platformy Azure. Ilość pozyskiwania danych może być znaczna w zależności od następujących czynników: 
 
   - Liczba włączonych rozwiązań zarządzania i ich konfiguracja
   - Liczba monitorowanych maszyn wirtualnych
@@ -40,7 +40,7 @@ Domyślna cena dla Log Analytics jest modelem **płatności zgodnie z rzeczywist
   
 Oprócz modelu "płatność zgodnie z rzeczywistym użyciem" Log Analytics ma warstwy **rezerwacji pojemności** , które umożliwiają oszczędności o 25% w porównaniu z ceną płatność zgodnie z rzeczywistym użyciem. Cennik rezerwacji zdolności produkcyjnych umożliwia zakupienie rezerwacji rozpoczynającej się o 100 GB/dzień. Każde użycie powyżej poziomu rezerwacji będzie rozliczane według stawki płatności zgodnie z rzeczywistym użyciem. Warstwy rezerwacji pojemności mają 31-dniowy okres zobowiązania. W okresie obowiązywania zobowiązania można zmienić warstwę rezerwacji wyższego poziomu (co spowoduje ponowne uruchomienie 31-dniowego okresu zobowiązań), ale nie będzie można wrócić do warstwy rezerwacji zgodnie z rzeczywistym użyciem lub do niższej wersji, dopóki upłynie okres obowiązywania zobowiązania. Opłaty za warstwy rezerwacji pojemności są wykonywane codziennie. [Dowiedz się więcej](https://azure.microsoft.com/pricing/details/monitor/) na temat log Analytics płatność zgodnie z rzeczywistym użyciem i Cennik rezerwacji zdolności produkcyjnych. 
 
-We wszystkich warstwach cenowych rozmiar danych zdarzenia jest obliczany na podstawie ciągu reprezentującego właściwości, które są przechowywane w Log Analytics dla tego zdarzenia, niezależnie od tego, czy dane są wysyłane z agenta, czy dodawane podczas procesu pozyskiwania. Obejmuje to wszystkie [pola niestandardowe](https://docs.microsoft.com/azure/azure-monitor/platform/custom-fields) , które są dodawane jako dane są zbierane, a następnie przechowywane w log Analytics. Niektóre właściwości wspólne dla wszystkich typów danych, w tym niektóre [log Analytics właściwości standardowe](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties), są wykluczone w obliczaniu rozmiaru zdarzenia. Obejmuje to `_ResourceId` , `_ItemId` , `_IsBillable` `_BilledSize` i `Type` . Wszystkie inne właściwości przechowywane w Log Analytics są uwzględniane podczas obliczania rozmiaru zdarzenia. Niektóre typy danych są bezpłatne od opłat za pozyskiwanie danych, na przykład na platformie Azure, pulsu i typach użycia. Aby określić, czy zdarzenie zostało wykluczone z rozliczeń na potrzeby pozyskiwania danych, można użyć `_IsBillable` właściwości, jak pokazano [poniżej](#data-volume-for-specific-events).
+We wszystkich warstwach cenowych rozmiar danych zdarzenia jest obliczany na podstawie ciągu reprezentującego właściwości, które są przechowywane w Log Analytics dla tego zdarzenia, niezależnie od tego, czy dane są wysyłane z agenta, czy dodawane podczas procesu pozyskiwania. Obejmuje to wszystkie [pola niestandardowe](https://docs.microsoft.com/azure/azure-monitor/platform/custom-fields) , które są dodawane jako dane są zbierane, a następnie przechowywane w log Analytics. Niektóre właściwości wspólne dla wszystkich typów danych, w tym niektóre [log Analytics właściwości standardowe](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties), są wykluczone w obliczaniu rozmiaru zdarzenia. Obejmuje to `_ResourceId` , `_ItemId` , `_IsBillable` `_BilledSize` i `Type` . Wszystkie inne właściwości przechowywane w Log Analytics są uwzględniane podczas obliczania rozmiaru zdarzenia. Niektóre typy danych są bezpłatne od opłat za pozyskiwanie danych, na przykład na platformie Azure, pulsu i typach użycia. Aby określić, czy zdarzenie zostało wykluczone z rozliczeń na potrzeby pozyskiwania danych, można użyć `_IsBillable` właściwości, jak pokazano [poniżej](#data-volume-for-specific-events). Użycie jest raportowane w GB (1,0 E9 bajtów). 
 
 Należy również pamiętać, że niektóre rozwiązania, takie jak [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [wskaźnik platformy Azure](https://azure.microsoft.com/pricing/details/azure-sentinel/) i [Zarządzanie konfiguracją](https://azure.microsoft.com/pricing/details/automation/) mają własne modele cen. 
 
@@ -196,7 +196,7 @@ W każdym obszarze roboczym dzienny limit został zastosowany w innej godzinie d
 Wkrótce po osiągnięciu dziennego limitu w pozostałej części dnia zostanie zatrzymana Kolekcja typów danych do rozliczenia. (Opóźnienie związane z zastosowaniem dziennego limitu oznacza, że zakończenie nie jest stosowane w dokładnie określonym poziomie dziennego limitu). Transparent ostrzegawczy pojawia się w górnej części strony dla wybranego obszaru roboczego Log Analytics, a zdarzenie operacji jest wysyłane do tabeli *operacji* w kategorii **LogManagement** . Zbieranie danych zostanie wznowione po upływie czasu resetowania określonego w obszarze *dzienny limit*. Zalecamy zdefiniowanie reguły alertu na podstawie tego zdarzenia operacji skonfigurowanego do powiadamiania o osiągnięciu dziennego limitu ilości danych. 
 
 > [!WARNING]
-> Dzienny limit nie zatrzymuje zbierania danych z Azure Security Center, z wyjątkiem obszarów roboczych, w których Azure Security Center został zainstalowany przed 19 czerwca 2017. 
+> Dzienny limit nie zatrzymuje zbierania danych z usługi Azure Sentinal lub Azure Security Center, z wyjątkiem obszarów roboczych, w których Azure Security Center został zainstalowany przed 19 czerwca 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Określ dzienny limit danych do zdefiniowania
 

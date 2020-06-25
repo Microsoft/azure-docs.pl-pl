@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 15a2d6ae5d8b80468ffcdd00d60b1f36843ed677
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: e0707f9a7694741f54771699f5aeb3b452b11b8c
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84707161"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319724"
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Data Factory planowanie i wykonywanie
 > [!NOTE]
@@ -25,7 +25,7 @@ ms.locfileid: "84707161"
 W tym artykule wyjaśniono aspekty planowania i wykonywania modelu aplikacji usługi Azure Data Factory. W tym artykule założono, że rozumiesz podstawowe informacje dotyczące Data Factory pojęć modelu aplikacji, w tym działań, potoków, połączonych usług i zestawów danych. Podstawowe pojęcia dotyczące Azure Data Factory można znaleźć w następujących artykułach:
 
 * [Wprowadzenie do usługi Data Factory](data-factory-introduction.md)
-* [Pipelines](data-factory-create-pipelines.md)
+* [Potoki](data-factory-create-pipelines.md)
 * [Zestawy danych](data-factory-create-datasets.md) 
 
 ## <a name="start-and-end-times-of-pipeline"></a>Czasy rozpoczęcia i zakończenia potoku
@@ -233,7 +233,7 @@ Sekcja **zasady** w definicji zestawu danych definiuje kryteria lub warunek, kt�
 | Policy Name (Nazwa zasad) | Opis | Zastosowane do | Wymagane | Domyślne |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Sprawdza, czy dane w **obiekcie blob platformy Azure** spełniają minimalne wymagania dotyczące rozmiaru (w megabajtach). |Obiekt bob Azure |Nie |Nie dotyczy |
-| minimumRows | Sprawdza, czy dane w **bazie danych SQL Azure** lub w **tabeli platformy Azure** zawierają minimalną liczbę wierszy. |<ul><li>Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |Nie dotyczy |
+| minimumRows | Sprawdza, czy dane w **Azure SQL Database** lub w **tabeli platformy Azure** zawierają minimalną liczbę wierszy. |<ul><li>Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |Nie dotyczy |
 
 #### <a name="examples"></a>Przykłady
 **minimumSizeMB:**

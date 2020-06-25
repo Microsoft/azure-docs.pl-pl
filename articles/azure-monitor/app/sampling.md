@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f4989f8dce32e2340357e30541548b3e7e9d8a44
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 664e61697c1fb0c339a4c2caf8d0125a73e608c3
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508891"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319638"
 ---
 # <a name="sampling-in-application-insights"></a>Próbkowanie w usłudze Application Insights
 
@@ -25,7 +25,7 @@ Gdy liczba metryk jest prezentowana w portalu, zostaną one rozznormalizowane w 
 * Próbkowanie z ustaloną szybkością jest dostępne w ostatnich wersjach Application Insights zestawów SDK dla ASP.NET, ASP.NET Core, Java (zarówno dla agenta, jak i zestawu SDK), jak i języka Python.
 * Próbkowanie pozyskiwania działa w punkcie końcowym usługi Application Insights. Ma zastosowanie tylko wtedy, gdy nie są stosowane żadne inne próbki. Jeśli zestaw SDK próbkuje dane telemetryczne, pobieranie próbek pozyskiwania jest wyłączone.
 * W przypadku aplikacji sieci Web, Jeśli rejestrujesz zdarzenia niestandardowe i chcesz upewnić się, że zestaw zdarzeń jest przechowywany lub odrzucony, zdarzenia muszą mieć tę samą `OperationId` wartość.
-* W przypadku pisania zapytań analitycznych należy [wziąć pod uwagę próbkowanie](../../azure-monitor/log-query/aggregations.md). W szczególności, a nie do zwykłego zliczania rekordów, `summarize sum(itemCount)`należy użyć.
+* W przypadku pisania zapytań analitycznych należy [wziąć pod uwagę próbkowanie](../../azure-monitor/log-query/aggregations.md). W szczególności, a nie do zwykłego zliczania rekordów, należy użyć `summarize sum(itemCount)` .
 * Niektóre typy telemetrii, w tym metryki wydajności i metryki niestandardowe, są zawsze zachowywane niezależnie od tego, czy próbkowanie jest włączone, czy nie.
 
 W poniższej tabeli zestawiono typy próbkowania dostępne dla każdego zestawu SDK i typu aplikacji:
@@ -62,7 +62,7 @@ Próbkowanie adaptacyjne wpływa na ilość danych telemetrycznych wysyłanych z
 > [!TIP]
 > Próbkowanie adaptacyjne jest domyślnie włączone w przypadku korzystania z zestawu SDK ASP.NET lub zestawu SDK ASP.NET Core i jest również domyślnie włączone dla Azure Functions.
 
-Wolumin jest dostosowywany automatycznie, aby zachować ruch w określonym maksymalnym natężeniu ruchu, i jest kontrolowany za `MaxTelemetryItemsPerSecond`pośrednictwem ustawienia. Jeśli aplikacja tworzy niską ilość danych telemetrycznych, na przykład w przypadku debugowania lub z powodu niskiego użycia, elementy nie zostaną porzucone przez procesor próbkowania, o `MaxTelemetryItemsPerSecond`ile ilość jest mniejsza niż poniżej. W miarę wzrostu ilości danych telemetrycznych częstotliwość próbkowania jest dostosowywana do osiągnięcia woluminu docelowego. Korekta jest przeliczana w regularnych odstępach czasu i opiera się na średniej liczbie wychodzącej szybkości transmisji.
+Wolumin jest dostosowywany automatycznie, aby zachować ruch w określonym maksymalnym natężeniu ruchu, i jest kontrolowany za pośrednictwem ustawienia `MaxTelemetryItemsPerSecond` . Jeśli aplikacja tworzy niską ilość danych telemetrycznych, na przykład w przypadku debugowania lub z powodu niskiego użycia, elementy nie zostaną porzucone przez procesor próbkowania, o ile ilość jest mniejsza niż poniżej `MaxTelemetryItemsPerSecond` . W miarę wzrostu ilości danych telemetrycznych częstotliwość próbkowania jest dostosowywana do osiągnięcia woluminu docelowego. Korekta jest przeliczana w regularnych odstępach czasu i opiera się na średniej liczbie wychodzącej szybkości transmisji.
 
 Aby osiągnąć wolumin docelowy, niektóre z wygenerowanych danych telemetrycznych są odrzucane. Podobnie jak w przypadku innych typów próbkowania, algorytm zachowuje powiązane elementy telemetrii. Na przykład podczas przeprowadzania inspekcji danych telemetrycznych w programie Search będziesz mieć możliwość znalezienia żądania związanego z określonym wyjątkiem.
 
@@ -73,7 +73,7 @@ Liczby metryk, takie jak częstotliwość żądań i częstotliwość wyjątków
 > [!NOTE]
 > Ta sekcja dotyczy aplikacji ASP.NET, a nie ASP.NET Core aplikacji. [Dowiedz się więcej o konfigurowaniu próbkowania adaptacyjnego dla aplikacji ASP.NET Core w dalszej części tego dokumentu.](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications)
 
-W [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md)programie można dostosować kilka parametrów w `AdaptiveSamplingTelemetryProcessor` węźle. Wyświetlane wartości są wartościami domyślnymi:
+W programie [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) można dostosować kilka parametrów w `AdaptiveSamplingTelemetryProcessor` węźle. Wyświetlane wartości są wartościami domyślnymi:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
@@ -109,13 +109,13 @@ W [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-appl
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    Rozdzielana średnikami lista typów, które nie mają być objęte próbką. Rozpoznawane typy to `Dependency`: `Event`, `Exception`, `PageView`, `Request`, `Trace`,. Wszystkie dane telemetryczne określonych typów są przesyłane; typy, które nie są określone, będą próbkowane.
+    Rozdzielana średnikami lista typów, które nie mają być objęte próbką. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` , `Trace` . Wszystkie dane telemetryczne określonych typów są przesyłane; typy, które nie są określone, będą próbkowane.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    Rozdzielana średnikami lista typów, które mają być objęte próbką. Rozpoznawane typy to `Dependency`: `Event`, `Exception`, `PageView`, `Request`, `Trace`,. Określone typy będą próbkowane; wszystkie dane telemetryczne innych typów będą zawsze przesyłane.
+    Rozdzielana średnikami lista typów, które mają być objęte próbką. Rozpoznawane typy to: `Dependency` ,,,, `Event` `Exception` `PageView` `Request` , `Trace` . Określone typy będą próbkowane; wszystkie dane telemetryczne innych typów będą zawsze przesyłane.
 
-**Aby wyłączyć** próbkowanie adaptacyjne, Usuń `AdaptiveSamplingTelemetryProcessor` węzły z. `ApplicationInsights.config`
+**Aby wyłączyć** próbkowanie adaptacyjne, Usuń `AdaptiveSamplingTelemetryProcessor` węzły z `ApplicationInsights.config` .
 
 #### <a name="alternative-configure-adaptive-sampling-in-code"></a>Alternatywa: Konfigurowanie próbkowania adaptacyjnego w kodzie
 
@@ -156,12 +156,12 @@ builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:5, excludedTypes: "Depend
 
 ### <a name="configuring-adaptive-sampling-for-aspnet-core-applications"></a>Konfigurowanie próbkowania adaptacyjnego dla aplikacji ASP.NET Core
 
-Nie `ApplicationInsights.config` ma dla aplikacji ASP.NET Core, więc cała konfiguracja odbywa się za pośrednictwem kodu.
+Nie ma `ApplicationInsights.config` dla aplikacji ASP.NET Core, więc cała konfiguracja odbywa się za pośrednictwem kodu.
 Próbkowanie adaptacyjne jest domyślnie włączone dla wszystkich aplikacji ASP.NET Core. Można wyłączyć lub dostosować zachowanie pobierania próbek.
 
 #### <a name="turning-off-adaptive-sampling"></a>Wyłączanie próbkowania adaptacyjnego
 
-Domyślną funkcję próbkowania można wyłączyć podczas dodawania usługi Application Insights, w metodzie `ConfigureServices`, przy użyciu `ApplicationInsightsServiceOptions` `Startup.cs` pliku:
+Domyślną funkcję próbkowania można wyłączyć podczas dodawania usługi Application Insights, w metodzie `ConfigureServices` , przy użyciu `ApplicationInsightsServiceOptions` `Startup.cs` pliku:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -183,7 +183,7 @@ Powyższy kod spowoduje wyłączenie próbkowania adaptacyjnego. Wykonaj poniżs
 Użyj metod rozszerzających `TelemetryProcessorChainBuilder` , jak pokazano poniżej, aby dostosować zachowanie próbkowania.
 
 > [!IMPORTANT]
-> W przypadku korzystania z tej metody w celu skonfigurowania próbkowania upewnij się, `aiOptions.EnableAdaptiveSampling` że właściwość `false` jest ustawiona `AddApplicationInsightsTelemetry()`na wartość podczas wywoływania.
+> W przypadku korzystania z tej metody w celu skonfigurowania próbkowania upewnij się, że właściwość jest ustawiona `aiOptions.EnableAdaptiveSampling` na wartość `false` podczas wywoływania `AddApplicationInsightsTelemetry()` .
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
@@ -221,7 +221,7 @@ W Eksplorator metryk stawki, takie jak żądania i liczby wyjątków, są mnożo
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-applications"></a>Konfigurowanie próbkowania o stałej szybkości dla aplikacji ASP.NET
 
-1. **Wyłącz próbkowanie adaptacyjne**: [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md)w, Usuń lub Dodaj komentarz `AdaptiveSamplingTelemetryProcessor` do węzła.
+1. **Wyłącz próbkowanie adaptacyjne**: w [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) , Usuń lub Dodaj komentarz do `AdaptiveSamplingTelemetryProcessor` węzła.
 
     ```xml
     <TelemetryProcessors>
@@ -232,7 +232,7 @@ W Eksplorator metryk stawki, takie jak żądania i liczby wyjątków, są mnożo
         -->
     ```
 
-2. **Włącz moduł próbkowania stałego.** Dodaj następujący fragment kodu [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md)do:
+2. **Włącz moduł próbkowania stałego.** Dodaj następujący fragment kodu do [`ApplicationInsights.config`](../../azure-monitor/app/configuration-with-applicationinsights-config.md) :
    
     ```XML
     <TelemetryProcessors>
@@ -268,7 +268,7 @@ W Eksplorator metryk stawki, takie jak żądania i liczby wyjątków, są mnożo
 
 ### <a name="configuring-fixed-rate-sampling-for-aspnet-core-applications"></a>Konfigurowanie próbkowania o stałej szybkości dla aplikacji ASP.NET Core
 
-1. **Wyłącz próbkowanie adaptacyjne**: zmiany można wprowadzać w `ConfigureServices` metodzie przy użyciu `ApplicationInsightsServiceOptions`:
+1. **Wyłącz próbkowanie adaptacyjne**: zmiany można wprowadzać w `ConfigureServices` metodzie przy użyciu `ApplicationInsightsServiceOptions` :
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -310,7 +310,7 @@ Domyślnie żadne próbkowanie nie jest włączone w agencie Java i zestawie SDK
 
 #### <a name="configuring-java-agent"></a>Konfigurowanie agenta Java
 
-1. Pobierz [ApplicationInsights-Agent-3.0.0-Preview. 4. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+1. Pobierz [ApplicationInsights-Agent-3.0.0-Preview. 5. jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
 
 1. Aby włączyć próbkowanie, Dodaj następujący `ApplicationInsights.json` plik do pliku:
 
@@ -346,7 +346,7 @@ Domyślnie żadne próbkowanie nie jest włączone w agencie Java i zestawie SDK
     </TelemetryProcessors>
     ```
 
-3. Można dołączać lub wykluczać określone typy danych telemetrycznych z próbkowania `Processor` przy użyciu `FixedRateSamplingTelemetryProcessor`następujących tagów w tagu:
+3. Można dołączać lub wykluczać określone typy danych telemetrycznych z próbkowania przy użyciu następujących tagów w `Processor` tagu `FixedRateSamplingTelemetryProcessor` :
    
     ```XML
     <ExcludedTypes>
@@ -358,7 +358,7 @@ Domyślnie żadne próbkowanie nie jest włączone w agencie Java i zestawie SDK
     </IncludedTypes>
     ```
 
-Typy telemetrii, które mogą być dołączone lub wykluczone z próbkowania `Exception`, `PageView`to `Request`: `Dependency`, `Trace` `Event`,,, i.
+Typy telemetrii, które mogą być dołączone lub wykluczone z próbkowania, to:,,,, `Dependency` `Event` `Exception` `PageView` `Request` i `Trace` .
 
 > [!NOTE]
 > W polu procent próbkowania wybierz wartość procentową zbliżoną do 100/N, gdzie N jest liczbą całkowitą.  Obecnie próbkowanie nie obsługuje innych wartości.
@@ -371,7 +371,7 @@ Instrumentacja aplikacji przy użyciu najnowszych [OpenCensusch eksportujących 
 > Próbkowanie ustalonej stawki nie jest dostępne dla eksportera metryk. Oznacza to, że metryki niestandardowe są jedynymi typami danych telemetrycznych, w przypadku których nie można skonfigurować pobierania próbek. Eksporter metryk wyśle wszystkie dane telemetryczne, które śledzi.
 
 #### <a name="fixed-rate-sampling-for-tracing"></a>Próbkowanie z ustaloną szybkością dla śledzenia ####
-Możesz określić element `sampler` w ramach konfiguracji elementu `Tracer`. Jeśli nie zostanie podany jawny próbnik, `ProbabilitySampler` będzie on używany domyślnie. Użycie `ProbabilitySampler` stawki 1/10000 będzie miało wartość domyślną, co oznacza, że jeden z żądań 10000 zostanie wysłany do Application Insights. Jeśli chcesz określić częstotliwość próbkowania, zobacz instrukcje poniżej.
+Możesz określić element `sampler` w ramach konfiguracji elementu `Tracer`. Jeśli nie zostanie podany jawny próbnik, `ProbabilitySampler` będzie on używany domyślnie. `ProbabilitySampler`Użycie stawki 1/10000 będzie miało wartość domyślną, co oznacza, że jeden z żądań 10000 zostanie wysłany do Application Insights. Jeśli chcesz określić częstotliwość próbkowania, zobacz instrukcje poniżej.
 
 Aby określić częstotliwość próbkowania, należy się upewnić, że `Tracer` określa próbkowanie z częstotliwością próbkowania z zakresu od 0,0 do 1,0 włącznie. Częstotliwość próbkowania 1,0 reprezentuje 100%, co oznacza, że wszystkie żądania będą wysyłane jako dane telemetryczne do Application Insights.
 
@@ -385,7 +385,7 @@ tracer = Tracer(
 ```
 
 #### <a name="fixed-rate-sampling-for-logs"></a>Próbkowanie z ustaloną szybkością dla dzienników ####
-Można skonfigurować próbkowanie o `AzureLogHandler` stałej szybkości przez zmodyfikowanie `logging_sampling_rate` opcjonalnego argumentu. Jeśli żaden argument nie zostanie podany, zostanie użyta częstotliwość próbkowania 1,0. Częstotliwość próbkowania 1,0 reprezentuje 100%, co oznacza, że wszystkie żądania będą wysyłane jako dane telemetryczne do Application Insights.
+Można skonfigurować próbkowanie o stałej szybkości `AzureLogHandler` przez zmodyfikowanie `logging_sampling_rate` opcjonalnego argumentu. Jeśli żaden argument nie zostanie podany, zostanie użyta częstotliwość próbkowania 1,0. Częstotliwość próbkowania 1,0 reprezentuje 100%, co oznacza, że wszystkie żądania będą wysyłane jako dane telemetryczne do Application Insights.
 
 ```python
 handler = AzureLogHandler(
@@ -401,9 +401,9 @@ Strony sieci Web oparte na języku JavaScript można skonfigurować do korzystan
 Podczas [konfigurowania stron sieci Web opartych na języku JavaScript dla Application Insights](javascript.md)należy zmodyfikować fragment kodu JavaScript uzyskany w portalu Application Insights.
 
 > [!TIP]
-> W aplikacjach ASP.NET z obsługą języka JavaScript, fragment kodu zwykle `_Layout.cshtml`znajduje się w.
+> W aplikacjach ASP.NET z obsługą języka JavaScript, fragment kodu zwykle znajduje się w `_Layout.cshtml` .
 
-Wstaw wiersz, taki `samplingPercentage: 10,` jak przed kluczem Instrumentacji:
+Wstaw wiersz, taki jak `samplingPercentage: 10,` przed kluczem Instrumentacji:
 
 ```xml
 <script>
@@ -489,7 +489,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 | summarize RetainedPercentage = 100/avg(itemCount) by bin(timestamp, 1h), itemType
 ```
 
-Jeśli widzisz, `RetainedPercentage` że dla dowolnego typu jest mniejsza niż 100, ten typ telemetrii jest próbkowany.
+Jeśli widzisz, że `RetainedPercentage` dla dowolnego typu jest mniejsza niż 100, ten typ telemetrii jest próbkowany.
 
 > [!IMPORTANT]
 > Application Insights nie przykłada sesji, metryk (w tym metryk niestandardowych) ani typów telemetrii licznika wydajności w żadnej z technik próbkowania. Te typy są zawsze wyłączone z próbkowania, ponieważ zmniejszenie dokładności może być wysoce niepożądane dla tych typów telemetrii.
@@ -509,7 +509,7 @@ Dokładność przybliżania zależy od skonfigurowanej wartości procentowej pr�
 *Co to jest domyślne zachowanie podczas próbkowania w zestawach SDK ASP.NET i ASP.NET Core?*
 
 * Jeśli używasz jednej z najnowszych wersji powyższego zestawu SDK, adaptacyjne próbkowanie jest domyślnie włączone z pięciu elementów telemetrii na sekundę.
-  Domyślnie są dodawane `AdaptiveSamplingTelemetryProcessor` dwa węzły, a jeden zawiera `Event` typ podczas próbkowania, podczas gdy inne wyklucza `Event` typ z próbkowania. Ta konfiguracja oznacza, że zestaw SDK spróbuje ograniczyć liczbę elementów telemetrycznych do pięciu `Event` elementów telemetrii typów i pięć elementów telemetrii wszystkich innych typów połączonych `Events` , dzięki czemu są one próbkowane niezależnie od innych typów telemetrii. Zdarzenia są zwykle używane w przypadku telemetrii biznesowej i najprawdopodobniej nie powinny mieć wpływ na woluminy telemetrii diagnostyki.
+  `AdaptiveSamplingTelemetryProcessor`Domyślnie są dodawane dwa węzły, a jeden zawiera `Event` Typ podczas próbkowania, podczas gdy inne wyklucza `Event` Typ z próbkowania. Ta konfiguracja oznacza, że zestaw SDK spróbuje ograniczyć liczbę elementów telemetrycznych do pięciu elementów telemetrii `Event` typów i pięć elementów telemetrii wszystkich innych typów połączonych, dzięki czemu `Events` są one próbkowane niezależnie od innych typów telemetrii. Zdarzenia są zwykle używane w przypadku telemetrii biznesowej i najprawdopodobniej nie powinny mieć wpływ na woluminy telemetrii diagnostyki.
   
   Poniżej przedstawiono domyślny `ApplicationInsights.config` wygenerowany plik. W ASP.NET Core to samo zachowanie domyślne jest włączone w kodzie. Użyj [przykładów z wcześniejszej części tej strony](#configuring-adaptive-sampling-for-aspnet-core-applications) , aby zmienić to zachowanie domyślne.
 
@@ -556,7 +556,7 @@ Dokładność przybliżania zależy od skonfigurowanej wartości procentowej pr�
 
 * Próbkowanie do pozyskiwania może odbywać się automatycznie dla każdej telemetrii powyżej określonego woluminu, jeśli zestaw SDK nie wykonuje próbkowania. Ta konfiguracja będzie działała, na przykład jeśli używasz starszej wersji zestawu SDK ASP.NET lub zestawu Java SDK.
 * Jeśli używasz bieżących ASP.NET lub zestawów SDK ASP.NET Core (hostowanych na platformie Azure lub na własnym serwerze), domyślnie otrzymujesz próbkowanie adaptacyjne, ale możesz przełączyć się na stałą stawkę, jak opisano powyżej. W przypadku próbkowania o stałej szybkości zestaw SDK przeglądarki automatycznie synchronizuje się z przykładowymi zdarzeniami powiązanymi. 
-* Jeśli używasz bieżącego agenta Java, możesz skonfigurować `ApplicationInsights.json` program (dla zestawu Java SDK, skonfigurować `ApplicationInsights.xml`), aby włączyć próbkowanie o stałym tempie. Próbkowanie jest domyślnie wyłączone. W przypadku próbkowania o stałej szybkości zestaw SDK i serwer przeglądarki są automatycznie synchronizowane z przykładowymi zdarzeniami powiązanymi.
+* Jeśli używasz bieżącego agenta Java, możesz skonfigurować program `ApplicationInsights.json` (dla zestawu Java SDK, skonfigurować), `ApplicationInsights.xml` Aby włączyć próbkowanie o stałym tempie. Próbkowanie jest domyślnie wyłączone. W przypadku próbkowania o stałej szybkości zestaw SDK i serwer przeglądarki są automatycznie synchronizowane z przykładowymi zdarzeniami powiązanymi.
 
 *Istnieją pewne rzadkie zdarzenia, które zawsze chcę zobaczyć. Jak mogę uzyskać dostęp do modułu próbkowania?*
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cfea9aa7bfcc9a9698bb93bdf54797481b8539ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cf1d732391f86bec9c0ec2de1e6bace2e808bb19
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333960"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318930"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Samouczek: implementowanie analizy przestrzennej IoT przy użyciu Azure Maps
 
@@ -36,7 +36,7 @@ W tym samouczku wykonasz następujące instrukcje:
 
 W tym rozwiązaniu przedstawiono scenariusz, w którym firma wynajmu samochodu planuje monitorować i rejestrować zdarzenia dotyczące samochodów związanych z wypożyczeniem. Firmy zajmujące się wypożyczeniem samochodu zwykle są dzierżawione samochodów do określonego regionu geograficznego. Muszą śledzić miejsce pobytu samochodów, gdy są one dzierżawione. Wystąpienia samochodu opuszczające wybrany region geograficzny muszą być zarejestrowane. Dane rejestrowania zapewniają, że zasady, opłaty i inne aspekty biznesowe byłyby prawidłowo obsługiwane.
 
-W naszym przypadku użycia samochody najmu są wyposażone w urządzenia IoT regularnie wysyłające dane telemetryczne do IoT Hub platformy Azure. Dane telemetryczne obejmują bieżącą lokalizację i wskazuje, czy aparat samochodu jest uruchomiony. Schemat lokalizacji urządzenia jest zgodny ze [schematem Plug and Play IoT dla danych geoprzestrzennych](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). Schemat telemetrii urządzenia dla samochodu wynajmu:
+W naszym przypadku użycia samochody najmu są wyposażone w urządzenia IoT regularnie wysyłające dane telemetryczne do IoT Hub platformy Azure. Dane telemetryczne obejmują bieżącą lokalizację i wskazuje, czy aparat samochodu jest uruchomiony. Schemat lokalizacji urządzenia jest zgodny ze [schematem Plug and Play IoT dla danych geoprzestrzennych](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md). Schemat telemetrii urządzenia dla samochodu wynajmu:
 
 ```JSON
 {
@@ -191,13 +191,13 @@ Otwórz aplikację Poster i postępuj zgodnie z poniższymi instrukcjami, aby pr
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. Skopiuj identyfikator URI stanu i Dołącz do `subscription-key` niego parametr. Przypisz wartość klucza subskrypcji konta Azure Maps do `subscription-key` parametru. Format identyfikatora URI stanu powinien być podobny do przedstawionego poniżej i `{Subscription-key}` zastąpiony kluczem subskrypcji.
+6. Skopiuj identyfikator URI stanu i Dołącz `subscription-key` do niego parametr. Przypisz wartość klucza subskrypcji konta Azure Maps do `subscription-key` parametru. Format identyfikatora URI stanu powinien być podobny do przedstawionego poniżej i `{Subscription-key}` zastąpiony kluczem subskrypcji.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-7. Aby uzyskać dostęp do `udId` programu, Otwórz nową kartę w aplikacji Poster i wybierz pozycję Pobierz metodę http na karcie Konstruktor i wprowadź żądanie Get w identyfikatorze URI stanu. Jeśli przekazywanie danych zakończyło się pomyślnie, otrzymasz udId w treści odpowiedzi. Skopiuj udId do późniejszego użycia.
+7. Aby uzyskać dostęp do programu, `udId` Otwórz nową kartę w aplikacji Poster i wybierz pozycję Pobierz metodę http na karcie Konstruktor i wprowadź żądanie Get w identyfikatorze URI stanu. Jeśli przekazywanie danych zakończyło się pomyślnie, otrzymasz udId w treści odpowiedzi. Skopiuj udId do późniejszego użycia.
 
    ```JSON
    {
@@ -241,7 +241,7 @@ Wszystkie odpowiednie informacje o zdarzeniu są przechowywane w magazynie obiek
 
 6. Skopiuj [kod C#](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) do funkcji.
  
-7. W skrypcie języka C# Zastąp poniższe parametry. Kliknij przycisk **Zapisz**. Nie klikaj jeszcze przycisku **Uruchom**
+7. W skrypcie języka C# Zastąp poniższe parametry. Kliknij pozycję **Zapisz**. Nie klikaj jeszcze przycisku **Uruchom**
     * Zastąp **SUBSCRIPTION_KEY** podstawowym kluczem subskrypcji konta usługi Azure Maps.
     * Zastąp **UDID** z UDIDem przekazana geoogrodzenia, 
     * Funkcja **CreateBlobAsync** w skrypcie tworzy obiekt BLOB dla zdarzenia na koncie magazynu danych. Zastąp **ACCESS_KEY**, **ACCOUNT_NAME**i **STORAGE_CONTAINER_NAME** kluczem dostępu do konta magazynu, nazwą konta i kontenerem magazynu danych.
@@ -261,7 +261,7 @@ Po dodaniu subskrypcji Event Grid do funkcji platformy Azure zostanie wyświetlo
 
 ![koncentrator-EG-Route](./media/tutorial-iot-hub-maps/hub-route.png)
 
-W naszym przykładowym scenariuszu chcemy odfiltrować wszystkie komunikaty, w przypadku których trwa przeniesienie pojazdu najmu. Aby opublikować takie zdarzenia telemetrii urządzenia do Event Grid, użyjemy zapytania routingu do filtrowania zdarzeń, w których `Engine` właściwość jest **"on"**. Istnieją różne sposoby wykonywania zapytań dotyczących komunikatów przesyłanych z urządzeń do chmury, aby dowiedzieć się więcej na temat składni routingu wiadomości, zobacz [IoT Hub Routing komunikatów](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax). Aby utworzyć zapytanie routingu, kliknij trasę **RouteToEventGrid** i Zastąp **zapytanie routingu** z **"aparat =" na ""** , a następnie kliknij przycisk **Zapisz**. Teraz Centrum IoT będzie publikować dane telemetryczne urządzenia, na których jest włączony aparat.
+W naszym przykładowym scenariuszu chcemy odfiltrować wszystkie komunikaty, w przypadku których trwa przeniesienie pojazdu najmu. Aby opublikować takie zdarzenia telemetrii urządzenia do Event Grid, użyjemy zapytania routingu do filtrowania zdarzeń, `Engine` w których właściwość jest **"on"**. Istnieją różne sposoby wykonywania zapytań dotyczących komunikatów przesyłanych z urządzeń do chmury, aby dowiedzieć się więcej na temat składni routingu wiadomości, zobacz [IoT Hub Routing komunikatów](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax). Aby utworzyć zapytanie routingu, kliknij trasę **RouteToEventGrid** i Zastąp **zapytanie routingu** z **"aparat =" na ""** , a następnie kliknij przycisk **Zapisz**. Teraz Centrum IoT będzie publikować dane telemetryczne urządzenia, na których jest włączony aparat.
 
 ![koncentrator — EG — filtr](./media/tutorial-iot-hub-maps/hub-filter.png)
 

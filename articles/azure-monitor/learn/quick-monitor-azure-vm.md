@@ -7,12 +7,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: 12616fbc80468d35ebb8b0bc5cd12bfd5871e788
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 99e8afa0a92ba8bb53505e2519efec7baafbcf48
+ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79503657"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84805117"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Szybki Start: monitorowanie maszyny wirtualnej platformy Azure za pomocą Azure Monitor
 [Azure monitor](../overview.md) uruchamia zbieranie danych z maszyn wirtualnych platformy Azure w momencie ich tworzenia. W tym przewodniku szybki start zawarto krótkie wskazówki dotyczące danych, które są automatycznie zbierane dla maszyny wirtualnej platformy Azure oraz jak wyświetlać ją w Azure Portal. Następnie włączysz [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) dla maszyny wirtualnej, która umożliwi agentom na maszynie wirtualnej zbieranie i analizowanie danych z systemu operacyjnego gościa, w tym procesów i ich zależności.
@@ -48,7 +48,7 @@ W trakcie zbierania metryk i dzienników aktywności dla maszyny wirtualnej host
 
 6. Zostanie wyświetlona Twoja maszyna wirtualna z innymi maszynami wirtualnymi w ramach subskrypcji, które są dołączane. Wybierz kartę **Niemonitorowane** , jeśli chcesz wyświetlić maszyny wirtualne w subskrypcji, które nie zostały dołączone.
 
-    ![Wprowadzenie](media/quick-monitor-azure-vm/get-started.png)
+    ![Rozpoczęcie pracy](media/quick-monitor-azure-vm/get-started.png)
 
 
 ## <a name="configure-workspace"></a>Konfigurowanie obszaru roboczego
@@ -65,7 +65,7 @@ Podczas tworzenia nowego obszaru roboczego Log Analytics należy go skonfigurowa
 
 2. Wybierz pozycję **Dane**, a następnie pozycję **Dzienniki zdarzeń systemu Windows**.
 
-3. Dodaj dziennik zdarzeń, wpisując nazwę dziennika.  Wpisz **system** , a następnie wybierz znak plus **+**.
+3. Dodaj dziennik zdarzeń, wpisując nazwę dziennika.  Wpisz **system** , a następnie wybierz znak plus **+** .
 
 4. W tabeli zaznacz ważności **Błąd** i **Ostrzeżenie**.
 
@@ -75,7 +75,7 @@ Podczas tworzenia nowego obszaru roboczego Log Analytics należy go skonfigurowa
 
 1. Wybierz dziennik **Syslog**.  
 
-2. Dodaj dziennik zdarzeń, wpisując nazwę dziennika.  Wpisz **Dziennik** systemowy, a następnie wybierz **+** znak plus.  
+2. Dodaj dziennik zdarzeń, wpisując nazwę dziennika.  Wpisz **Dziennik** systemowy, a następnie wybierz znak plus **+** .  
 
 3. W tabeli Usuń zaznaczenie **informacji o informacjach**dotyczących serwerów, **powiadomienia** i **debugowania**. 
 
@@ -83,7 +83,7 @@ Podczas tworzenia nowego obszaru roboczego Log Analytics należy go skonfigurowa
 
 ## <a name="view-data-collected"></a>Wyświetlanie zebranych danych
 
-7. Kliknij maszynę wirtualną, a następnie wybierz kartę **wydajność** . Spowoduje to wyświetlenie grupy liczników wydajności zebranych z systemu operacyjnego gościa maszyny wirtualnej. Przewiń w dół, aby wyświetlić więcej liczników, i przesuń wskaźnik myszy na wykres, aby wyświetlić średnią i percentyly w różnych godzinach.
+7. Kliknij maszynę wirtualną, a następnie wybierz kartę **wydajność** , która znajduje się na kafelku **monitorowanie** **szczegółowe** dane. Spowoduje to wyświetlenie grupy liczników wydajności zebranych z systemu operacyjnego gościa maszyny wirtualnej. Przewiń w dół, aby wyświetlić więcej liczników, i przesuń wskaźnik myszy na wykres, aby wyświetlić średnią i percentyly w różnych godzinach.
 
     ![Wydajność](media/quick-monitor-azure-vm/performance.png)
 

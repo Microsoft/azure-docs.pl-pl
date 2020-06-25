@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: iot-dps
 author: msebolt
 ms.author: v-masebo
@@ -17,6 +17,6 @@ ms.locfileid: "67183352"
 ---
 > [!div class="op_single_selector"]
 > * [Java](../articles/iot-dps/quick-enroll-device-tpm-java.md)
-> * [S #](../articles/iot-dps/quick-enroll-device-tpm-csharp.md)
+> * [C#](../articles/iot-dps/quick-enroll-device-tpm-csharp.md)
 > * [Node.js](../articles/iot-dps/quick-enroll-device-tpm-node.md)
 > * [Python](../articles/iot-dps/quick-enroll-device-tpm-python.md)

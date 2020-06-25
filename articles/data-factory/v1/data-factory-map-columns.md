@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6eb7012e28319ee6cc86de5ee56090743d681068
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74923866"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85318879"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Mapowanie kolumn źródłowych zestawów danych do docelowych kolumn zestawu danych
 > [!NOTE]
@@ -39,7 +39,7 @@ Poniżej przedstawiono warunki błędów, które powodują wyjątek:
 > Poniższe przykłady są przeznaczone dla usług Azure SQL i Azure Blob, ale mają zastosowanie do każdego magazynu danych, który obsługuje prostokątne zestawy DataSet. Dostosuj definicje zestawu danych i połączonej usługi w przykładach, aby wskazać dane w odpowiednim źródle danych.
 
 ## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Przykład 1 — Mapowanie kolumn z usługi Azure SQL do obiektu blob platformy Azure
-W tym przykładzie tabela wejściowa ma strukturę i wskazuje tabelę SQL w bazie danych SQL Azure.
+W tym przykładzie tabela wejściowa ma strukturę i wskazuje tabelę SQL w Azure SQL Database.
 
 ```json
 {

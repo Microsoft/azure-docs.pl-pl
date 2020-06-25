@@ -3,16 +3,16 @@ title: Wprowadzenie
 description: Poznaj funkcje i korzyści wynikające z rozwiązania Azure VMware (Automatyczna synchronizacja) w celu wdrażania obciążeń opartych na oprogramowaniu VMware na platformie Azure i zarządzania nimi.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: e227b6c7c2f25fbf62f11c17dc62293e4fbd5267
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 9e3ab0abfdaa613a08675356bc5b01949e0381ae
+ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740332"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84749672"
 ---
 # <a name="what-is-azure-vmware-solution-avs-preview"></a>Co to jest wersja zapoznawcza rozwiązania Azure VMware (Automatyczna synchronizacja)?
 
-Rozwiązanie Azure VMware (Automatyczna synchronizacja) zapewnia chmurę prywatną na platformie Azure. Chmury prywatne zawierają klastry vSphere, zbudowane z dedykowanej infrastruktury platformy Azure bez systemu operacyjnego. Klastry chmury prywatnej można skalować z 3 do 16 hostów, z możliwością posiadania wielu klastrów w jednej chmurze prywatnej. Obsługiwane są wszystkie chmury prywatne z vCenter Server, sieci vSAN, vSphere i NSX-T. Możesz migrować obciążenia ze środowisk lokalnych, tworzyć i wdrażać nowe maszyny wirtualne oraz korzystać z usług platformy Azure z chmur prywatnych.
+Rozwiązanie Azure VMware (AVS) zapewnia chmury prywatne na platformie Azure. Chmury prywatne zawierają klastry vSphere, zbudowane z dedykowanej infrastruktury platformy Azure bez systemu operacyjnego. Klastry chmury prywatnej można skalować z 3 do 16 hostów, z możliwością posiadania wielu klastrów w jednej chmurze prywatnej. Obsługiwane są wszystkie chmury prywatne z vCenter Server, sieci vSAN, vSphere i NSX-T. Można migrować obciążenia ze środowisk lokalnych, tworzyć i wdrażać nowe maszyny wirtualne oraz korzystać z usług platformy Azure z chmur prywatnych.
 
 Automatyczna synchronizacja to zweryfikowane rozwiązanie VMware, które umożliwia weryfikowanie i testowanie ulepszeń i uaktualnień. Infrastruktura i oprogramowanie chmury prywatnej są zarządzane i utrzymywane przez firmę Microsoft, co pozwala skupić się na tworzeniu i uruchamianiu obciążeń w chmurach prywatnych.
 

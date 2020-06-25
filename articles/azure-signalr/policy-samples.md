@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure Signal
 description: Wyświetla listę wbudowanych definicji zasad dla usługi Azure Signal Azure Policy. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 06/11/2020
+ms.date: 06/23/2020
 author: sffamily
 ms.author: zhshang
 ms.service: signalr
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: bbc44ebc089c70ef89cff5aaf138ad91f7c28bb0
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 192f457127936de2b353b44d2c733894b04e6592
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888526"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85316602"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-signalr"></a>Azure Policy wbudowane definicje dla usługi Azure Signal
 

@@ -1,24 +1,14 @@
 ---
 title: Azure Event Hubs — przetwarzanie zdarzeń Apache Kafka
 description: 'Samouczek: w tym artykule przedstawiono sposób przetwarzania zdarzeń Kafka, które są pozyskiwane za pośrednictwem centrów zdarzeń przy użyciu Azure Stream Analytics'
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: ''
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 04/02/2020
-ms.author: spelluru
-ms.openlocfilehash: 9c678a91b88b87acb438311b4968be4cae46733b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/23/2020
+ms.openlocfilehash: 8fbc1ae326cc75603f5a86361e4bc79ecc461fd6
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80632805"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85313275"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Samouczek: proces Apache Kafka dla zdarzeń Event Hubs za pomocą usługi Stream Analytics 
 W tym artykule pokazano, jak przesłać strumieniowo dane do Event Hubs i przetworzyć je z Azure Stream Analytics. Przeprowadzi Cię przez następujące kroki: 
@@ -50,8 +40,8 @@ Podczas tworzenia warstwy **standardowa** Event Hubs przestrzeń nazw, punkt ko�
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>Wysyłanie komunikatów za pomocą Kafka w Event Hubs
 
 1. Sklonuj [Event Hubs Azure dla repozytorium Kafka](https://github.com/Azure/azure-event-hubs-for-kafka) na komputerze.
-2. Przejdź do folderu: `azure-event-hubs-for-kafka/quickstart/java/producer`. 
-4. Zaktualizuj szczegóły konfiguracji producenta w `src/main/resources/producer.config`temacie. Określ **nazwę** i **Parametry połączenia** dla **przestrzeni nazw centrum zdarzeń**. 
+2. Przejdź do folderu: `azure-event-hubs-for-kafka/quickstart/java/producer` . 
+4. Zaktualizuj szczegóły konfiguracji producenta w temacie `src/main/resources/producer.config` . Określ **nazwę** i **Parametry połączenia** dla **przestrzeni nazw centrum zdarzeń**. 
 
     ```xml
     bootstrap.servers={EVENT HUB NAMESPACE}.servicebus.windows.net:9093
@@ -60,7 +50,7 @@ Podczas tworzenia warstwy **standardowa** Event Hubs przestrzeń nazw, punkt ko�
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Przejdź do `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/`pliku **TestDataReporter. Java** i otwórz go w wybranym edytorze. 
+5. Przejdź do `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/` pliku **TestDataReporter. Java** i otwórz go w wybranym edytorze. 
 6. Skomentuj następujący wiersz kodu:
 
     ```java
@@ -73,7 +63,7 @@ Podczas tworzenia warstwy **standardowa** Event Hubs przestrzeń nazw, punkt ko�
     ```
 
     Ten kod wysyła dane zdarzenia w formacie **JSON** . Podczas konfigurowania danych wejściowych dla zadania Stream Analytics należy określić kod JSON jako format danych wejściowych. 
-7. **Uruchom producenta** i Prześlij strumieniowo do Event Hubs. Na komputerze z systemem Windows, w przypadku korzystania z **wiersza polecenia środowiska Node. js**, `azure-event-hubs-for-kafka/quickstart/java/producer` Przełącz się do folderu przed uruchomieniem tych poleceń. 
+7. **Uruchom producenta** i Prześlij strumieniowo do Event Hubs. Na komputerze z systemem Windows w przypadku korzystania z **wiersza poleceniaNode.js**przejdź do `azure-event-hubs-for-kafka/quickstart/java/producer` folderu przed uruchomieniem tych poleceń. 
    
     ```shell
     mvn clean package
@@ -143,7 +133,7 @@ Po skonfigurowaniu zadania usługi Stream Analytics do odczytu przychodzącego s
 
 1. Wybierz **zapytanie**.
 2. W oknie zapytania Zastąp `[YourOutputAlias]` wartość utworzonym wcześniej aliasem wyjściowym.
-3. Zamień `[YourInputAlias]` na utworzony wcześniej alias wejściowy. 
+3. Zamień na `[YourInputAlias]` utworzony wcześniej alias wejściowy. 
 4. Wybierz pozycję **Zapisz** na pasku narzędzi. 
 
     ![Zapytanie](./media/event-hubs-kafka-stream-analytics/query.png)

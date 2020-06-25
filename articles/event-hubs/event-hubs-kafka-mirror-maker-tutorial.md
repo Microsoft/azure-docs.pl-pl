@@ -1,20 +1,14 @@
 ---
 title: Użyj Apache Kafka narzędzia MirrorMaker — Azure Event Hubs | Microsoft Docs
 description: Ten artykuł zawiera informacje dotyczące używania Kafka narzędzia MirrorMaker do dublowania klastra Kafka w centrach AzureEvent.
-services: event-hubs
-documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
-ms.service: event-hubs
 ms.topic: how-to
-ms.date: 04/02/2020
-ms.author: shvija
-ms.openlocfilehash: fb041ec0d3cd474cca12d5ad55b733337566b9cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: aea8ebcfa65d5f4c90aa1908d03f0fcde8906bba
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632780"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85320194"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Użyj Kafka narzędzia MirrorMaker z Event Hubs dla Apache Kafka
 
@@ -80,9 +74,9 @@ Aby skonfigurować Kafka narzędzia MirrorMaker, nadaj jej klasterowi Kafka jako
 
 #### <a name="consumer-configuration"></a>Konfiguracja konsumenta
 
-Zaktualizuj plik `source-kafka.config`konfiguracji klienta, który informuje narzędzia MirrorMaker o właściwościach źródłowego klastra Kafka.
+Zaktualizuj plik konfiguracji klienta `source-kafka.config` , który informuje narzędzia MirrorMaker o właściwościach źródłowego klastra Kafka.
 
-##### <a name="source-kafkaconfig"></a>source-Kafka. config
+##### <a name="source-kafkaconfig"></a>source-kafka.config
 
 ```
 bootstrap.servers={SOURCE.KAFKA.IP.ADDRESS1}:{SOURCE.KAFKA.PORT1},{SOURCE.KAFKA.IP.ADDRESS2}:{SOURCE.KAFKA.PORT2},etc
@@ -93,9 +87,9 @@ client.id=mirror_maker_consumer
 
 #### <a name="producer-configuration"></a>Konfiguracja producenta
 
-Teraz Zaktualizuj plik `mirror-eventhub.config`konfiguracji producenta, który informuje narzędzia MirrorMaker o wysłaniu duplikatów (lub "dublowanych") danych do usługi Event Hubs. W celu zmiany `bootstrap.servers` i `sasl.jaas.config` wskazywania punktu końcowego Event Hubs Kafka. Usługa Event Hubs wymaga komunikacji Secure (SASL), która jest osiągana przez ustawienie ostatnich trzech właściwości w następującej konfiguracji: 
+Teraz Zaktualizuj plik konfiguracji producenta `mirror-eventhub.config` , który informuje narzędzia MirrorMaker o wysłaniu duplikatów (lub "dublowanych") danych do usługi Event Hubs. W celu zmiany `bootstrap.servers` i `sasl.jaas.config` wskazywania punktu końcowego Event Hubs Kafka. Usługa Event Hubs wymaga komunikacji Secure (SASL), która jest osiągana przez ustawienie ostatnich trzech właściwości w następującej konfiguracji: 
 
-##### <a name="mirror-eventhubconfig"></a>dublowanie — eventhub. config
+##### <a name="mirror-eventhubconfig"></a>mirror-eventhub.config
 
 ```
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093

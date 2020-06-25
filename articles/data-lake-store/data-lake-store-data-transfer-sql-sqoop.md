@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: 154f8f1923874a3221597f1c0017fe99b5d31844
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d240a212f898c917fd9c55b837210191eab704e5
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84015934"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319568"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Kopiuj dane między Data Lake Storage Gen1 i Azure SQL Database przy użyciu Sqoop
 
@@ -22,7 +22,7 @@ Dowiedz się, jak importować i eksportować dane między Azure SQL Database i A
 
 Aplikacje danych Big Data to naturalny wybór służący do przetwarzania danych bez struktury i z częściową strukturą, takich jak dzienniki i pliki. Jednak może być również konieczne przetworzenie danych strukturalnych przechowywanych w relacyjnych bazach danych.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) to narzędzie przeznaczone do przesyłania danych między relacyjnymi bazami danych i repozytorium danych Big Data, takimi jak Data Lake Storage Gen1. Można go użyć do zaimportowania danych z systemu zarządzania relacyjnymi bazami danych (RDBMS), takiego jak Azure SQL Database do Data Lake Storage Gen1. Następnie można przekształcać i analizować dane przy użyciu obciążeń danych Big Data, a następnie eksportować dane z powrotem do RDBMS. W tym artykule użyto bazy danych Azure SQL Database jako relacyjnej bazy danych do importowania/eksportowania z programu.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) to narzędzie przeznaczone do przesyłania danych między relacyjnymi bazami danych i repozytorium danych Big Data, takimi jak Data Lake Storage Gen1. Można go użyć do zaimportowania danych z systemu zarządzania relacyjnymi bazami danych (RDBMS), takiego jak Azure SQL Database do Data Lake Storage Gen1. Następnie można przekształcać i analizować dane przy użyciu obciążeń danych Big Data, a następnie eksportować dane z powrotem do RDBMS. W tym artykule użyto bazy danych w Azure SQL Database jako relacyjna baza danych do zaimportowania/wyeksportowania z programu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,11 +31,11 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 * **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Konto Azure Data Lake Storage Gen1**. Aby uzyskać instrukcje dotyczące sposobu tworzenia konta, zobacz Wprowadzenie [do Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Klaster usługi Azure HDInsight** z dostępem do konta Data Lake Storage Gen1. Zobacz [Tworzenie klastra usługi HDInsight przy użyciu Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). W tym artykule przyjęto założenie, że masz klaster usługi HDInsight w systemie Linux z dostępem Data Lake Storage Gen1.
-* **Azure SQL Database**. Aby uzyskać instrukcje dotyczące sposobu tworzenia jednego z nich, zobacz [Tworzenie bazy danych Azure SQL Database](../sql-database/sql-database-get-started.md)
+* **Azure SQL Database**. Aby uzyskać instrukcje dotyczące sposobu tworzenia bazy danych w Azure SQL Database, zobacz [Tworzenie bazy danych w programie Azure SQL Database](../sql-database/sql-database-get-started.md)
 
-## <a name="create-sample-tables-in-the-azure-sql-database"></a>Tworzenie przykładowych tabel w bazie danych SQL Azure
+## <a name="create-sample-tables-in-the-database"></a>Tworzenie przykładowych tabel w bazie danych
 
-1. Aby rozpocząć, Utwórz dwie przykładowe tabele w bazie danych SQL Azure. Użyj [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) lub Visual Studio, aby nawiązać połączenie z bazą danych, a następnie uruchom następujące zapytania.
+1. Aby rozpocząć, Utwórz dwie przykładowe tabele w bazie danych. Użyj [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) lub Visual Studio, aby nawiązać połączenie z bazą danych, a następnie uruchom następujące zapytania.
 
     **Utwórz tabelę Tabela1**
 
@@ -87,7 +87,7 @@ Dla klastra HDInsight An dostępne są już pakiety Sqoop. Jeśli klaster usług
 
        sqoop-import --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table1 --target-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
-   Symbol zastępczy **SQL-Database-Server-Name** reprezentuje nazwę serwera, na którym działa baza danych SQL Azure. Symbol zastępczy **SQL-Database-Name** reprezentuje rzeczywistą nazwę bazy danych.
+   Symbol zastępczy **SQL-Database-Server-Name** reprezentuje nazwę serwera, na którym uruchomiono bazę danych. Symbol zastępczy **SQL-Database-Name** reprezentuje rzeczywistą nazwę bazy danych.
 
    Na przykład
 

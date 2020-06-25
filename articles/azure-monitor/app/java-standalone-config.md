@@ -3,12 +3,12 @@ title: Monitoruj aplikacje Java w dowolnym miejscu — Azure Monitor Application
 description: Monitorowanie wydajności aplikacji bezkodowej dla aplikacji Java działających w dowolnym środowisku bez Instrumentacji aplikacji. Znajdź główną przyczynę problemów d przy użyciu śledzenia rozproszonego i mapy aplikacji.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 478e42669339ac015076c89da103d91080090685
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509214"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319690"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opcje konfiguracji — autonomiczny Agent Java dla Azure Monitor Application Insights
 
@@ -33,14 +33,14 @@ Aby uzyskać więcej informacji, Zobacz więcej szczegółów i dodatkowe opcje 
 
 ## <a name="configuration-file-path"></a>Ścieżka pliku konfiguracji
 
-Domyślnie program Application Insights Java 3,0 Preview oczekuje, że plik konfiguracji jest nazwany `ApplicationInsights.json`i znajduje się w tym samym katalogu, co. `applicationinsights-agent-3.0.0-PREVIEW.4.jar`
+Domyślnie program Application Insights Java 3,0 Preview oczekuje, że plik konfiguracji jest nazwany `ApplicationInsights.json` i znajduje się w tym samym katalogu, co `applicationinsights-agent-3.0.0-PREVIEW.5.jar` .
 
 Ścieżkę do pliku konfiguracji można określić przy użyciu opcji
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE`Zmienna środowiskowa lub
 * `applicationinsights.configurationFile`Właściwość systemu Java
 
-W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.0-PREVIEW.4.jar` znajduje się lokalizacja.
+W przypadku określenia ścieżki względnej zostanie ona rozwiązany względem katalogu, w którym `applicationinsights-agent-3.0.0-PREVIEW.5.jar` znajduje się lokalizacja.
 
 ## <a name="connection-string"></a>Parametry połączenia
 
@@ -48,7 +48,7 @@ Jest to wymagane. Parametry połączenia można znaleźć w zasobie Application 
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Application Insights parametry połączenia":::
 
-Parametry połączenia można również ustawić przy użyciu zmiennej `APPLICATIONINSIGHTS_CONNECTION_STRING`środowiskowej.
+Parametry połączenia można również ustawić przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_CONNECTION_STRING` .
 
 ## <a name="cloud-role-name"></a>Nazwa roli w chmurze
 
@@ -68,7 +68,7 @@ Jeśli chcesz ustawić nazwę roli w chmurze:
 
 Jeśli nazwa roli chmury nie jest ustawiona, nazwa zasobu Application Insights zostanie użyta do etykietowania składnika na mapie aplikacji.
 
-Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej `APPLICATIONINSIGHTS_ROLE_NAME`środowiskowej.
+Możesz również ustawić nazwę roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_NAME` .
 
 ## <a name="cloud-role-instance"></a>Wystąpienie roli w chmurze
 
@@ -86,7 +86,7 @@ Jeśli chcesz ustawić inną rolę w chmurze, a nie nazwę komputera:
 }
 ```
 
-Możesz również ustawić wystąpienie roli w chmurze przy użyciu zmiennej `APPLICATIONINSIGHTS_ROLE_INSTANCE`środowiskowej.
+Możesz również ustawić wystąpienie roli w chmurze przy użyciu zmiennej środowiskowej `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
 
 ## <a name="application-log-capture"></a>Przechwytywanie dziennika aplikacji
 
@@ -237,7 +237,7 @@ Jeśli aplikacja znajduje się za zaporą i nie może połączyć się bezpośre
 
 Może to być przydatne w przypadku wykrywania trendów i diagnozowania problemów Application Insights samego siebie.
 
-Domyślnie program loguje się do konsoli o poziomie `warn`odpowiadającym tej konfiguracji:
+Domyślnie program loguje się do konsoli o poziomie `warn` odpowiadającym tej konfiguracji:
 
 ```json
 {
@@ -252,7 +252,7 @@ Domyślnie program loguje się do konsoli o poziomie `warn`odpowiadającym tej k
 }
 ```
 
-Prawidłowymi `OFF`poziomami `ERROR`są `WARN`, `INFO`, `DEBUG`,, `TRACE`i.
+Prawidłowymi poziomami są `OFF` , `ERROR` , `WARN` ,, `INFO` `DEBUG` i `TRACE` .
 
 Jeśli chcesz zalogować się do pliku zamiast rejestrowania w konsoli programu:
 
@@ -271,4 +271,4 @@ Jeśli chcesz zalogować się do pliku zamiast rejestrowania w konsoli programu:
 }
 ```
 
-W przypadku korzystania z funkcji rejestrowania plików, gdy `maxSizeMB`trafią pliki, nastąpi Przerzucanie, a oprócz bieżącego pliku dziennika zostanie zachowany tylko ostatnio ukończony plik dziennika.
+W przypadku korzystania z funkcji rejestrowania plików, gdy trafią pliki `maxSizeMB` , nastąpi Przerzucanie, a oprócz bieżącego pliku dziennika zostanie zachowany tylko ostatnio ukończony plik dziennika.

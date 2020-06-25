@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 390cddf557905e95e313896f9f172e30b81352b9
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
+ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195945"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85319071"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Rozwiązywanie problemów z używaniem bramy zarządzania danymi
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z usługą Zarządzanie danymi Gateway.
@@ -224,7 +224,7 @@ Może się to zdarzyć z różnych powodów i środki zaradcze odpowiednio się 
 #### <a name="resolution"></a>Rozwiązanie
 Przed nawiązaniem połączenia z bazą danych SQL Zezwól na wychodzące połączenia TCP na porcie TCP/1433 po stronie klienta bramy Zarządzanie danymi.
 
-Jeśli docelowa baza danych jest bazą danych Azure SQL, Sprawdź również ustawienia SQL Server zapory dla platformy Azure.
+Jeśli docelowa baza danych znajduje się w Azure SQL Database, Sprawdź także SQL Server ustawienia zapory dla platformy Azure.
 
 Zapoznaj się z poniższą sekcją, aby przetestować połączenie z lokalnym magazynem danych.
 
