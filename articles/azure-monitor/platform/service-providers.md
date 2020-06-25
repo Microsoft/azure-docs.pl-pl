@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: b23cc2f69e78135998dcaa8a182f3d3ccc0eba82
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84190411"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340880"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Dzienniki Azure Monitor dla dostawców usług
 
@@ -64,7 +64,7 @@ Zalety scentralizowanej architektury są następujące:
 Wady centralnej architektury są następujące:
 
 * Ta architektura ma zastosowanie tylko do danych maszyn wirtualnych opartych na agencie, ale nie obejmuje źródeł danych PaaS, SaaS i Azure Fabric.
-* Po scaleniu z jednym obszarem roboczym może być trudno rozdzielić dane między klientami. Jedyną dobrą metodą jest użycie w pełni kwalifikowanej nazwy domeny (FQDN) komputera lub identyfikatora subskrypcji platformy Azure. 
+* Po scaleniu z jednym obszarem roboczym może być trudno rozdzielić dane między klientami. Jedyną dobrą metodą jest użycie w pełni kwalifikowanej nazwy domeny (FQDN) komputera lub identyfikatora subskrypcji platformy Azure.
 * Wszystkie dane ze wszystkich klientów będą przechowywane w tym samym regionie z pojedynczym rachunkiem i tymi samymi ustawieniami przechowywania i konfiguracji.
 * Usługi Azure Fabric i PaaS Services, takie jak Diagnostyka Azure i dzienniki inspekcji platformy Azure, wymagają, aby obszar roboczy znajdował się w tej samej dzierżawie co zasób, dlatego nie może wysyłać dzienników do centralnego obszaru roboczego.
 * Wszyscy agenci maszyn wirtualnych wszyscy klienci będą uwierzytelniani w centralnym obszarze roboczym przy użyciu tego samego identyfikatora i klucza obszaru roboczego. Nie ma metody blokowania dzienników od określonego klienta bez zakłócania pracy przez innych klientów.
@@ -77,13 +77,13 @@ Istnieją dwie opcje implementowania dzienników w centralnej lokalizacji:
 
 1. Centralny obszar roboczy: dostawca usług może utworzyć obszar roboczy w swojej dzierżawie i użyć skryptu, który korzysta z [interfejsu API zapytania](https://dev.loganalytics.io/) z [interfejsem API zbierania danych](../../azure-monitor/platform/data-collector-api.md) , aby przenieść dane z różnych obszarów roboczych do tej centralnej lokalizacji. Inną opcją, inną niż skrypt, jest użycie [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
-2. Power BI jako centralnej lokalizacji: Power BI może pełnić rolę centralnej lokalizacji, gdy różne obszary robocze eksportują do niego dane przy użyciu integracji między obszarem roboczym Log Analytics a [Power BI](../../azure-monitor/platform/powerbi.md). 
+2. Power BI jako centralnej lokalizacji: Power BI może pełnić rolę centralnej lokalizacji, gdy różne obszary robocze eksportują do niego dane przy użyciu integracji między obszarem roboczym Log Analytics a [Power BI](../../azure-monitor/platform/powerbi.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Automatyzowanie tworzenia i konfigurowania obszarów roboczych przy użyciu [szablonów Menedżer zasobów](template-workspace-configuration.md)
 
-* Automatyzowanie tworzenia obszarów roboczych przy użyciu [programu PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
+* Automatyzowanie tworzenia obszarów roboczych przy użyciu [programu PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)
 
 * Korzystanie z [alertów](../../azure-monitor/platform/alerts-overview.md) w celu integracji z istniejącymi systemami
 

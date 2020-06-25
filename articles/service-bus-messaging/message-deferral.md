@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus — odroczenie komunikatu
 description: W tym artykule wyjaśniono, jak odroczyć dostarczanie komunikatów Azure Service Bus. Komunikat pozostanie w kolejce lub subskrypcji, ale zostanie odłożony.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 5e32c461902c1e340c6cece22669a59847e660cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: f4fe231c56a1bcdea4f15de90cb0e9406f0284a3
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77538400"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341220"
 ---
 # <a name="message-deferral"></a>Odraczanie komunikatów
 
@@ -36,7 +26,7 @@ Interfejs API to [BrokeredMessage. Ustąp](/dotnet/api/microsoft.servicebus.mess
 
 Komunikaty odroczone pozostają w kolejce głównej wraz ze wszystkimi innymi aktywnymi komunikatami (w przeciwieństwie do wiadomości utraconych w kolejce), ale nie mogą być już odbierane przy użyciu zwykłych funkcji Receive/ReceiveAsync. Komunikaty odroczone mogą zostać odnalezione za pośrednictwem [przeglądania komunikatów](message-browsing.md) , jeśli aplikacja utraci ich śledzenie.
 
-Aby pobrać odroczony komunikat, jego właściciel jest odpowiedzialny za zapamiętanie [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) . Każdy odbiornik, który zna numer sekwencyjny komunikatu, może później odebrać komunikat jawnie za pomocą `Receive(sequenceNumber)`.
+Aby pobrać odroczony komunikat, jego właściciel jest odpowiedzialny za zapamiętanie [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) . Każdy odbiornik, który zna numer sekwencyjny komunikatu, może później odebrać komunikat jawnie za pomocą `Receive(sequenceNumber)` .
 
 Jeśli nie można przetworzyć komunikatu, ponieważ określony zasób obsługujący ten komunikat jest tymczasowo niedostępny, ale przetwarzanie komunikatów nie powinno być podsumowujące w sposób skrócony, sposób umieszczania tego komunikatu po stronie przez kilka minut to zapamiętanie **SequenceNumber** w [zaplanowanym komunikacie](message-sequencing.md) do opublikowania w ciągu kilku minut i ponowne pobranie odroczonego komunikatu po nadejściu zaplanowanego komunikatu. Jeśli program obsługi komunikatów zależy od bazy danych dla wszystkich operacji, a ta baza danych jest tymczasowo niedostępna, nie powinna używać odroczenia, ale raczej wstrzymuje wysyłanie komunikatów do momentu, gdy baza danych będzie ponownie dostępna.
 

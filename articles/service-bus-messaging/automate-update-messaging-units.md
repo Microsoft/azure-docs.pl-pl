@@ -1,19 +1,14 @@
 ---
 title: Azure Service Bus — automatycznie Aktualizuj jednostki obsługi komunikatów
 description: W tym artykule pokazano, jak za pomocą Azure Automation elementu Runbook automatycznie aktualizować jednostki obsługi komunikatów Service Bus przestrzeni nazw.
-services: service-bus-messaging
-ms.service: service-bus-messaging
-documentationcenter: ''
-author: spelluru
 ms.topic: how-to
-ms.date: 05/14/2020
-ms.author: spelluru
-ms.openlocfilehash: db86f22247b757ed2f1cc2c168421346ad90a1fc
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 06/23/2020
+ms.openlocfilehash: 52f5b13b482739bfa56ff606f684fd5a9c7d3b6e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84657644"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341500"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Automatycznie Aktualizuj jednostki obsługi komunikatów Azure Service Bus przestrzeni nazw 
 W tym artykule pokazano, jak można automatycznie aktualizować [jednostki obsługi komunikatów](service-bus-premium-messaging.md) Service Bus przestrzeni nazw na podstawie użycia zasobów (procesora lub pamięci). 

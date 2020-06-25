@@ -1,25 +1,14 @@
 ---
 title: Zarządzanie zasobami Azure Service Bus za pomocą programu PowerShell | Microsoft Docs
 description: W tym artykule wyjaśniono, jak za pomocą modułu Azure PowerShell utworzyć jednostki Service Bus (przestrzenie nazw, kolejki, tematy, subskrypcje) i zarządzać nimi.
-services: service-bus-messaging
-documentationcenter: .NET
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 8605e269f09e4fedf7a61817a3634e75081593ca
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 06/23/2020
+ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890241"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341754"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Zarządzanie zasobami Service Bus przy użyciu programu PowerShell
 
@@ -37,7 +26,7 @@ Przed rozpoczęciem należy spełnić następujące wymagania wstępne:
 * Komputer z Azure PowerShell. Aby uzyskać instrukcje, zobacz [wprowadzenie do Azure PowerShell poleceń cmdlet](/powershell/azure/get-started-azureps).
 * Ogólna znajomość skryptów programu PowerShell, pakietów NuGet i .NET Framework.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Pierwszym krokiem jest użycie programu PowerShell w celu zalogowania się do konta platformy Azure i subskrypcji platformy Azure. Postępuj zgodnie z instrukcjami w temacie [wprowadzenie do Azure PowerShell poleceń cmdlet](/powershell/azure/get-started-azureps) , aby zalogować się do konta platformy Azure i pobrać i uzyskać dostęp do zasobów w ramach subskrypcji platformy Azure.
 
@@ -45,7 +34,7 @@ Pierwszym krokiem jest użycie programu PowerShell w celu zalogowania się do ko
 
 Podczas pracy z Service Bus przestrzeniami nazw można użyć poleceń cmdlet [Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)i [Set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) .
 
-Ten przykład tworzy kilka zmiennych lokalnych w skrypcie; `$Namespace` i `$Location`.
+Ten przykład tworzy kilka zmiennych lokalnych w skrypcie; `$Namespace`i `$Location` .
 
 * `$Namespace`jest nazwą przestrzeni nazw Service Bus, z którą chcemy.
 * `$Location`Identyfikuje centrum danych, w którym ma zostać zainicjowana przestrzeń nazw.

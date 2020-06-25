@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: d6a61a4a26176ee353d1f182579e1f8d80a95aab
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60386928"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356002"
 ---
-# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: jak usunąć limit 10 GB dla lokalnej bazy danych
+# <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Jak usunąć limit 10 GB dla lokalnej bazy danych
 Program Azure AD Connect wymaga bazy danych programu SQL Server do przechowywania danych tożsamości. Możesz korzystać z domyślnego programu SQL Server 2012 Express LocalDB zainstalowanego z programem Azure AD Connect lub użyć własnego pełnego programu SQL. Program SQL Server Express narzuca limit rozmiaru w wysokości 10 GB. Jeśli jest używany program LocalDB i limit zostanie osiągnięty, usługa synchronizacji programu Azure AD Connect nie będzie mogła uruchomić się ani prawidłowo wykonywać synchronizacji. Ten artykuł zawiera kroki odzyskiwania.
 
 ## <a name="symptoms"></a>Objawy
@@ -70,11 +70,11 @@ Nazwa bazy danych utworzonej dla Azure AD Connect to **ADSync**. Aby wykonać op
 
 2. Rozpocznij nową sesję programu PowerShell.
 
-3. Przejdź do folderu `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
+3. Przejdź do folderu `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn` .
 
-4. Uruchom narzędzie **sqlcmd** , uruchamiając polecenie `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`przy użyciu poświadczeń administratora systemu lub bazy danych.
+4. Uruchom narzędzie **sqlcmd** , uruchamiając polecenie `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>` przy użyciu poświadczeń administratora systemu lub bazy danych.
 
-5. Aby zmniejszyć bazę danych, w wierszu polecenia sqlcmd (1>) wprowadź `DBCC Shrinkdatabase(ADSync,1);`, a następnie `GO` w następnym wierszu.
+5. Aby zmniejszyć bazę danych, w wierszu polecenia sqlcmd (1>) wprowadź `DBCC Shrinkdatabase(ADSync,1);` , a następnie `GO` w następnym wierszu.
 
 6. Jeśli operacja się powiedzie, spróbuj ponownie uruchomić usługę synchronizacji. Jeśli możesz uruchomić usługę synchronizacji, przejdź do obszaru [usuwanie danych historii uruchamiania](#delete-run-history-data) . Jeśli nie, skontaktuj się z pomocą techniczną.
 
@@ -87,7 +87,7 @@ Domyślnie Azure AD Connect przechowuje dane historii uruchamiania do siedmiu dn
 
 3. W obszarze **Akcje**wybierz pozycję **Wyczyść uruchomienia**...
 
-4. Możesz wybrać opcję **Wyczyść wszystkie uruchomienia** lub **Wyczyść uruchomienia przed... Opcja \<>daty** . Zalecamy rozpoczęcie od czyszczenia danych historii uruchamiania, które są starsze niż dwa dni. Jeśli chcesz kontynuować pracę z problemem z rozmiarem bazy danych, wybierz opcję **Wyczyść wszystkie uruchomienia** .
+4. Można wybrać opcję **Wyczyść wszystkie uruchomienia** lub **Wyczyść uruchomienia przed... \<date> ** Zalecamy rozpoczęcie od czyszczenia danych historii uruchamiania, które są starsze niż dwa dni. Jeśli chcesz kontynuować pracę z problemem z rozmiarem bazy danych, wybierz opcję **Wyczyść wszystkie uruchomienia** .
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Skrócenie okresu przechowywania danych historii uruchamiania
 Ten krok polega na zmniejszeniu prawdopodobieństwa uruchomienia do 10 GB problemów z limitem po kilku cyklach synchronizacji.

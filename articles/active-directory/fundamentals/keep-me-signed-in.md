@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c4b253a3017f1a836ac989bb897065a6a7d8337
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: a82f81888828cb5edd42c37a6e8b2c2ee51fe603
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84739952"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339555"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Skonfigurować "pozostania w Twojej rejestracji?" Monituj o konta usługi Azure AD
 
@@ -28,7 +28,7 @@ Na poniższym diagramie przedstawiono przepływ logowania użytkownika dla zarz�
 :::image type="content" source="./media/keep-me-signed-in/kmsi-workflow.png" alt-text="Diagram przedstawiający przepływ logowania użytkownika dla dzierżawy zarządzanej a federacyjnej":::
 
 > [!NOTE]
-> Skonfigurowanie opcji nie wylogowuj mnie wymaga użycia usługi Azure Active Directory (Azure AD) Premium 1, Premium 2 lub Basic albo posiadania licencji pakietu Office 365. Aby uzyskać więcej informacji na temat licencjonowania i wydań, zobacz [Rejestrowanie się w usłudze Azure AD — wersja Premium](active-directory-get-started-premium.md).<br><br>Wersje Azure AD — wersja Premium i Basic są dostępne dla klientów z Chin przy użyciu wystąpienia usługi Azure AD na całym świecie. Wersje Premium i Podstawowa usługi Azure AD nie są obecnie obsługiwane w usłudze platformy Azure świadczonej przez firmę 21Vianet w Chinach. Aby uzyskać więcej informacji, porozmawiaj z nami przy użyciu [Forum usługi Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Skonfigurowanie opcji nie wylogowuj mnie wymaga użycia usługi Azure Active Directory (Azure AD) Premium 1, Premium 2 lub Basic albo posiadania licencji Microsoft 365. Aby uzyskać więcej informacji na temat licencjonowania i wydań, zobacz [Rejestrowanie się w usłudze Azure AD — wersja Premium](active-directory-get-started-premium.md).<br><br>Wersje Azure AD — wersja Premium i Basic są dostępne dla klientów z Chin przy użyciu wystąpienia usługi Azure AD na całym świecie. Wersje Premium i Podstawowa usługi Azure AD nie są obecnie obsługiwane w usłudze platformy Azure świadczonej przez firmę 21Vianet w Chinach. Aby uzyskać więcej informacji, porozmawiaj z nami przy użyciu [Forum usługi Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 ## <a name="configure-kmsi"></a>Konfigurowanie KMSI
 
@@ -61,6 +61,6 @@ Aby uniemożliwić użytkownikom wyświetlanie przerwania, należy ustawić **op
 
 Dowiedz się więcej na temat innych ustawień, które wpływają na limit czasu sesji logowania:
 
-* Office 365 — [limit czasu bezczynności sesji](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
+* Microsoft 365 — [limit czasu bezczynności sesji](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
 * Dostęp warunkowy usługi Azure AD — [częstotliwość logowania użytkownika](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
 * Azure Portal — [limit czasu nieaktywności poziomu katalogu](https://docs.microsoft.com/azure/azure-portal/admin-timeout)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: f41b87f50dfac15c6228398a2c9d1c6ae470903d
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: cebc1d54443c63a3fb9a2c8b6e9471525e0d7403
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260937"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341259"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
@@ -31,6 +31,14 @@ Ta strona jest regularnie aktualizowana, więc często należy ją ponownie odwi
 
 
 ## <a name="june-2020"></a>Czerwiec 2020 r.
+
+Aktualizacje w czerwcu obejmują:
+- [Interfejs API usługi Secure Score (wersja zapoznawcza)](#secure-score-api-preview)
+- [Zaawansowane zabezpieczenia danych dla maszyn SQL (Azure, innych chmur i Premium) (wersja zapoznawcza)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-prem-preview)
+- [Dwa nowe zalecenia dotyczące wdrażania agenta Log Analytics na maszynach usługi Azure ARC (wersja zapoznawcza)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
+- [Nowe zasady tworzenia eksportu ciągłego i konfiguracji automatyzacji przepływu pracy na dużą skalę](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
+- [Nowe zalecenie dotyczące używania sieciowych grup zabezpieczeń do ochrony maszyn wirtualnych niepołączonych z Internetem](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
+
 
 ### <a name="secure-score-api-preview"></a>Interfejs API usługi Secure Score (wersja zapoznawcza)
 
@@ -76,6 +84,29 @@ Dowiedz się więcej o tym, jak Azure Security Center używa agenta w [ramach ag
 Dowiedz się więcej [na temat rozszerzeń dla maszyn usługi Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
 
 
+
+### <a name="new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale"></a>Nowe zasady tworzenia eksportu ciągłego i konfiguracji automatyzacji przepływu pracy na dużą skalę
+
+Automatyzacja procesów monitorowania i reagowania na zdarzenia w organizacji może znacznie poprawić czas potrzebny do zbadania i ograniczenia zdarzeń związanych z bezpieczeństwem.
+
+Aby wdrożyć konfiguracje automatyzacji w organizacji, Użyj wbudowanych zasad platformy Azure "DeployIfdNotExist", aby utworzyć i skonfigurować procedury automatyzacji [ciągłego eksportowania](continuous-export.md) i [przepływu pracy](workflow-automation.md) :
+
+Zasady można znaleźć w usłudze Azure Policy:
+
+
+|Cel  |Zasady  |Identyfikator zasad  |
+|---------|---------|---------|
+|Eksport ciągły do centrum zdarzeń|[Wdrażanie eksportu do centrum zdarzeń w celu Azure Security Center alertów i zaleceń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
+|Eksport ciągły do obszaru roboczego Log Analytics|[Wdróż eksport do Log Analytics obszaru roboczego dla alertów Azure Security Center i zaleceń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
+|Automatyzacja przepływu pracy dla alertów zabezpieczeń|[Wdróż automatyzację przepływu pracy dla alertów Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff1525828-9a90-4fcf-be48-268cdd02361e)|f1525828-9a90-4fcf-be48-268cdd02361e|
+|Automatyzacja przepływu pracy dla zaleceń dotyczących zabezpieczeń|[Wdróż automatyzację przepływu pracy dla Azure Security Center zaleceń](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f73d6ab6c-2475-4850-afd6-43795f3492ef)|73d6ab6c-2475-4850-afd6-43795f3492ef|
+||||
+
+Wprowadzenie do [szablonów automatyzacji przepływu pracy](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
+
+Dowiedz się więcej o korzystaniu z dwóch zasad eksportu w celu [ciągłego eksportowania Azure Security Center alertów i zaleceń za pośrednictwem zasad](https://techcommunity.microsoft.com/t5/azure-security-center/continuously-export-azure-security-center-alerts-and/ba-p/1440745).
+
+
 ### <a name="new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines"></a>Nowe zalecenie dotyczące używania sieciowych grup zabezpieczeń do ochrony maszyn wirtualnych niepołączonych z Internetem
 
 Kontrola zabezpieczeń "implementacja najlepszych rozwiązań w zakresie zabezpieczeń" obejmuje teraz następujące nowe zalecenia:
@@ -89,6 +120,16 @@ Dowiedz się więcej z tabeli [zalecenia dotyczące sieci](recommendations-refer
 
 
 ## <a name="may-2020"></a>Maj 2020 r.
+
+Aktualizacje w programie mogą obejmować:
+- [Reguły pomijania alertów (wersja zapoznawcza)](#alert-suppression-rules-preview)
+- [Ocena luk w zabezpieczeniach maszyn wirtualnych jest teraz ogólnie dostępna](#virtual-machine-vulnerability-assessment-is-now-generally-available)
+- [Zmiany dostępu do maszyny wirtualnej just-in-Time (JIT)](#changes-to-just-in-time-jit-virtual-machine-vm-access)
+- [Zalecenia niestandardowe zostały przeniesione do oddzielnej kontroli zabezpieczeń](#custom-recommendations-have-been-moved-to-a-separate-security-control)
+- [Przełącznik dodany do wyświetlania zaleceń w kontrolkach lub jako płaska lista](#toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list)
+- [Rozszerzona kontrola zabezpieczeń "implementacja najlepszych rozwiązań w zakresie zabezpieczeń"](#expanded-security-control-implement-security-best-practices)
+- [Zasady niestandardowe z metadanymi niestandardowymi są teraz ogólnie dostępne](#custom-policies-with-custom-metadata-are-now-generally-available)
+- [Funkcje analizy zrzutów awaryjnych migrowane do wykrywania ataków bezplikowych](#crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection)
 
 
 ### <a name="alert-suppression-rules-preview"></a>Reguły pomijania alertów (wersja zapoznawcza)
@@ -211,6 +252,11 @@ Niektóre zalety tego przejścia:
 
 ## <a name="april-2020"></a>Kwiecień 2020 r.
 
+Aktualizacje w kwietniu obejmują:
+- [Dynamiczne pakiety zgodności są teraz ogólnie dostępne](#dynamic-compliance-packages-are-now-generally-available)
+- [Zalecenia dotyczące tożsamości zawarte obecnie w Azure Security Center warstwy Bezpłatna](#identity-recommendations-now-included-in-azure-security-center-free-tier)
+
+
 ### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Dynamiczne pakiety zgodności są teraz ogólnie dostępne
 
 Pulpit nawigacyjny zgodności z przepisami Azure Security Center obejmuje teraz **dynamiczne pakiety zgodności** (teraz ogólnie dostępne) do śledzenia dodatkowych standardów branżowych i prawnych.
@@ -248,6 +294,14 @@ Dowiedz się więcej o [monitorowaniu tożsamości i dostępu](security-center-i
 
 
 ## <a name="march-2020"></a>Marzec 2020 r.
+
+Aktualizacje w marcu obejmują:
+- [Automatyzacja przepływu pracy jest teraz ogólnie dostępna](#workflow-automation-is-now-generally-available)
+- [Integracja Azure Security Center z centrum administracyjnym systemu Windows](#integration-of-azure-security-center-with-windows-admin-center)
+- [Ochrona usługi Azure Kubernetes Service](#protection-for-azure-kubernetes-service)
+- [Udoskonalone środowisko just in Time](#improved-just-in-time-experience)
+- [Dwie zalecenia dotyczące zabezpieczeń dla aplikacji sieci Web przestarzałe](#two-security-recommendations-for-web-applications-deprecated)
+
 
 ### <a name="workflow-automation-is-now-generally-available"></a>Automatyzacja przepływu pracy jest teraz ogólnie dostępna
 

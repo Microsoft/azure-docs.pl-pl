@@ -3,14 +3,14 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure w Azure Por
 description: Dowiedz się, jak używać Azure Portal do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: a78760e793704d9ec4580e21ea86e0ba573b3949
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978032"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340715"
 ---
-# <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
+# <a name="back-up-azure-file-shares"></a>Tworzenie kopii zapasowej udziałów plików platformy Azure 
 
 W tym artykule wyjaśniono, jak używać Azure Portal do tworzenia kopii zapasowych [udziałów plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -148,7 +148,7 @@ Czasami może być konieczne wygenerowanie migawki kopii zapasowej lub punktu od
 
 1. Wybierz **przycisk OK** , aby potwierdzić uruchomione zadanie tworzenia kopii zapasowej na żądanie.
 
-1. Monitoruj powiadomienia portalu, aby śledzić Kończenie wykonywania zadania tworzenia kopii zapasowej. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu. Wybierz pozycję >  **zadania tworzenia kopii zapasowej****w toku**.
+1. Monitoruj powiadomienia portalu, aby śledzić Kończenie wykonywania zadania tworzenia kopii zapasowej. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu. Wybierz pozycję **zadania tworzenia kopii zapasowej**  >  **w toku**.
 
 >[!NOTE]
 >Azure Backup blokuje konto magazynu podczas konfigurowania ochrony dowolnego udziału plików na odpowiednim koncie. Zapewnia to ochronę przed przypadkowym usunięciem konta magazynu przy użyciu kopii zapasowych udziałów plików.

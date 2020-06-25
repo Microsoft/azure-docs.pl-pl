@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 97509001aa66c2c1bf0c91b6b2a5ab25f9d6ec88
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bfb502e42e41ac530851766db87bcebf3c94c371
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74227065"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340870"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Debugowanie lokalnego wyzwalacza siatki zdarzeń funkcji platformy Azure
 
@@ -34,7 +34,7 @@ Po utworzeniu funkcji Otwórz plik kodu i skopiuj adres URL oznaczony jako komen
 
 ![Kopiuj lokalizację](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-copy-location.png)
 
-Następnie ustaw punkt przerwania w wierszu zaczynającym się od `log.LogInformation`.
+Następnie ustaw punkt przerwania w wierszu zaczynającym się od `log.LogInformation` .
 
 ![Ustaw punkt przerwania](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-set-breakpoint.png)
 
@@ -62,7 +62,7 @@ Otwórz Azure Portal i przejdź do konta magazynu i kliknij opcję **zdarzenia**
 
 ![Dodawanie zdarzenia konta magazynu](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-add-event.png)
 
-W oknie *zdarzenia* kliknij przycisk **subskrypcja zdarzeń** . W oknie *subskrypcji nawet* kliknij listę rozwijaną *Typ punktu końcowego* i wybierz **element webhook**.
+W oknie *zdarzenia* kliknij przycisk **subskrypcja zdarzeń** . W oknie *subskrypcji zdarzeń* kliknij listę rozwijaną *Typ punktu końcowego* i wybierz **element webhook**.
 
 ![Wybierz typ subskrypcji](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-type.png)
 
@@ -70,7 +70,7 @@ Po skonfigurowaniu typu punktu końcowego kliknij pozycję **Wybierz punkt końc
 
 ![Wybierz typ punktu końcowego](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
 
-Wartość *punktu końcowego subskrybenta* składa się z trzech różnych wartości. Prefiks jest adresem URL HTTPS wygenerowanym przez *ngrok*. Pozostała część adresu URL pochodzi z adresu URL znajdującego się w pliku kodu funkcji z dodaną nazwą funkcji na końcu. Począwszy od adresu URL z pliku kodu funkcji, adres URL *ngrok* zastępuje `http://localhost:7071` i zastępuje `{functionname}`nazwę funkcji.
+Wartość *punktu końcowego subskrybenta* składa się z trzech różnych wartości. Prefiks jest adresem URL HTTPS wygenerowanym przez *ngrok*. Pozostała część adresu URL pochodzi z adresu URL znajdującego się w pliku kodu funkcji z dodaną nazwą funkcji na końcu. Począwszy od adresu URL z pliku kodu funkcji, adres URL *ngrok* zastępuje `http://localhost:7071` i zastępuje nazwę funkcji `{functionname}` .
 
 Poniższy zrzut ekranu pokazuje, jak powinien wyglądać końcowy adres URL:
 

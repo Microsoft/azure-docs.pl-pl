@@ -1,20 +1,14 @@
 ---
 title: Tworzenie podzielonych kolejek Azure Service Bus i tematów | Microsoft Docs
 description: Opisuje sposób partycjonowania Service Bus kolejek i tematów przy użyciu wielu brokerów komunikatów.
-services: service-bus-messaging
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/17/2020
-ms.author: aschhab
-ms.openlocfilehash: ff216cba76a0b6eecd4879b9ce3aefc131161b9d
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.date: 06/23/2020
+ms.openlocfilehash: 6ea0bee255f489355056f91d82195382153786bb
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987761"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339645"
 ---
 # <a name="partitioned-queues-and-topics"></a>Partycjonowane kolejki i tematy
 

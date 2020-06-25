@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253d0dc945e0351b5c017739d081c567a139f5d1
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 16a9c8ddfbc2c2a45067080dc68a759de226591b
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85078441"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339577"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Tworzenie wykazu zasobów i zarządzanie nim w usłudze Azure AD uprawnienia zarządzania
 
@@ -57,7 +57,7 @@ Możesz również utworzyć katalog przy użyciu Microsoft Graph.  Użytkownik w
 
 ## <a name="add-resources-to-a-catalog"></a>Dodawanie zasobów do wykazu
 
-Aby uwzględnić zasoby w pakiecie dostępu, zasoby muszą znajdować się w wykazie. Typy zasobów, które można dodać, to grupy, aplikacje i witryny usługi SharePoint Online. Grupy mogą być utworzonymi w chmurze grupami programu Office 365 lub grupami zabezpieczeń usługi Azure AD utworzonych w chmurze. Mogą to być aplikacje dla przedsiębiorstw usługi Azure AD, w tym zarówno aplikacje SaaS, jak i własne aplikacje federacyjne w usłudze Azure AD. Lokacje mogą być witrynami usługi SharePoint Online lub kolekcjami witryn usługi SharePoint Online.
+Aby uwzględnić zasoby w pakiecie dostępu, zasoby muszą znajdować się w wykazie. Typy zasobów, które można dodać, to grupy, aplikacje i witryny usługi SharePoint Online. Grupy mogą być tworzone w chmurze Microsoft 365 grupy lub grupy zabezpieczeń usługi Azure AD utworzone w chmurze. Mogą to być aplikacje dla przedsiębiorstw usługi Azure AD, w tym zarówno aplikacje SaaS, jak i własne aplikacje federacyjne w usłudze Azure AD. Lokacje mogą być witrynami usługi SharePoint Online lub kolekcjami witryn usługi SharePoint Online.
 
 **Rola wymagana wstępnie:** [Aby dodać zasoby do wykazu, zobacz wymagane role](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog) .
 

@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/19/2020
 ms.author: jgao
-ms.openlocfilehash: 3d9ab41fdb05eca3b39bf1ad222f6d42a3311b77
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 6cf10ea9693f922ee8edfb6bab5d1a7cde681fcb
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85193735"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339428"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
@@ -362,10 +362,10 @@ Timeout             : PT1H
 
 Za pomocą interfejsu wiersza polecenia platformy Azure można zarządzać skryptami wdrażania w zakresie subskrypcji lub grupy zasobów:
 
-- [AZ Deployment-scripts Delete](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): usuwa skrypt wdrożenia.
-- [AZ Deployment-Script list](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): wyświetla wszystkie skrypty wdrażania.
-- [AZ Deployment-scripts show](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): pobieranie skryptu wdrożenia.
-- [AZ Deployment-scripts show-log](/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): wyświetla dzienniki skryptu wdrażania.
+- [AZ Deployment-scripts Delete](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): usuwa skrypt wdrożenia.
+- [AZ Deployment-Script list](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): wyświetla wszystkie skrypty wdrażania.
+- [AZ Deployment-scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): pobieranie skryptu wdrożenia.
+- [AZ Deployment-scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): wyświetla dzienniki skryptu wdrażania.
 
 Dane wyjściowe polecenia list są podobne do:
 

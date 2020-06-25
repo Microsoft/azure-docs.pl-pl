@@ -1,23 +1,14 @@
 ---
 title: Azure Service Bus — migracja do autoryzacji sygnatury dostępu współdzielonego
 description: Dowiedz się więcej na temat migrowania z Azure Active Directory Access Control Service do autoryzacji sygnatury dostępu współdzielonego.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.openlocfilehash: 532bbaf0b983b2d4310780686777cbe895afebe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 9ef6eda205af150a20236da68e1b6b1dbf91059e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76774622"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340113"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus — migracja z Azure Active Directory Access Control Service do autoryzacji sygnatury dostępu współdzielonego
 
@@ -29,11 +20,11 @@ Użycie sygnatury dostępu współdzielonego nie jest od razu zależne od innej 
 
 W przypadku wszystkich istniejących aplikacji, które są zależne od usługi ACS, zachęcamy klientów do migrowania aplikacji w celu zalogowania się do nich.
 
-## <a name="migration-scenarios"></a> Scenariusze migracji
+## <a name="migration-scenarios"></a>Scenariusze migracji
 
 Usługi ACS i Service Bus są zintegrowane za pomocą udostępnionej wiedzy o *kluczu podpisywania*. Klucz podpisywania jest używany przez przestrzeń nazw ACS do podpisywania tokenów autoryzacji i jest używany przez Service Bus do sprawdzenia, czy token został wystawiony przez sparowaną przestrzeń nazw usługi ACS. Przestrzeń nazw ACS zawiera tożsamości usługi i reguły autoryzacji. Reguły autoryzacji definiują tożsamość usługi lub token wystawiony przez zewnętrzny dostawca tożsamości, który umożliwia uzyskiwanie typu dostępu do części wykresu przestrzeni nazw Service Bus, w postaci dopasowania najdłuższego prefiksu.
 
-Na przykład reguła ACS może udzielić tożsamości **wysyłania** na prefiksie `/` usługi, co oznacza, że token WYSTAWIONy przez usługę ACS na podstawie tej reguły przyznaje prawa klienta do wysyłania do wszystkich jednostek w przestrzeni nazw. Jeśli prefiks ścieżki ma `/abc`wartość, tożsamość jest ograniczona do wysłania do jednostek o `abc` nazwach lub zorganizowanych pod tym prefiksem. Przyjęto założenie, że czytelnicy tej wskazówki dotyczącej migracji już znają te koncepcje.
+Na przykład reguła ACS może udzielić tożsamości **wysyłania** na prefiksie `/` usługi, co oznacza, że token wystawiony przez usługę ACS na podstawie tej reguły przyznaje prawa klienta do wysyłania do wszystkich jednostek w przestrzeni nazw. Jeśli prefiks ścieżki ma wartość `/abc` , tożsamość jest ograniczona do wysłania do jednostek o nazwach `abc` lub zorganizowanych pod tym prefiksem. Przyjęto założenie, że czytelnicy tej wskazówki dotyczącej migracji już znają te koncepcje.
 
 Scenariusze migracji należą do trzech szerokich kategorii:
 

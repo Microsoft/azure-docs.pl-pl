@@ -1,25 +1,14 @@
 ---
 title: Azure Service Bus z platformą .NET i AMQP 1,0 | Microsoft Docs
 description: W tym artykule opisano sposób korzystania z Azure Service Bus z aplikacji .NET przy użyciu protokołu AMQP (Advanced Messaging kolejkowania komunikatów).
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/10/2020
-ms.author: aschhab
-ms.openlocfilehash: 6555a1718acb0574640e7b7d5d4d47d84b8a72d0
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 06/23/2020
+ms.openlocfilehash: d969607a28759af3b6ee36d79638bb27d0d53808
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711055"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340184"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Używanie Service Bus z platformy .NET z AMQP 1,0
 

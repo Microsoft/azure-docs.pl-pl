@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5585f0cd04dca4145f0322db9d625e35372b24b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 82632fb104438e1b5279b1525fbce2b6d8e7ceeb
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78298347"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356886"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Synchronizacja tożsamości i odporność względem zduplikowanych atrybutów
 Odporność na zduplikowane atrybuty to funkcja w Azure Active Directory, która eliminuje liczbę problemów spowodowanych **przez** wartości **ProxyAddress** i protokołu SMTP podczas uruchamiania jednego z narzędzi do synchronizacji firmy Microsoft.
@@ -40,7 +40,7 @@ Jeśli podjęto próbę zainicjowania nowego obiektu z wartością UPN lub Proxy
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>Zachowanie z odpornością na zduplikowane atrybuty
 Zamiast całkowicie niepowodzeniem zainicjować lub zaktualizować obiekt ze zduplikowanym atrybutem, Azure Active Directory "Kwarantanna", zduplikowany atrybut, który mógłby naruszać ograniczenia unikatowości. Jeśli ten atrybut jest wymagany do aprowizacji, na przykład UserPrincipalName, usługa przypisuje wartość symbolu zastępczego. Format tych wartości tymczasowych to  
-_** \@ \<OriginalPrefix>+\<4DigitNumber>InitialTenantDomain>. onmicrosoft.com. \<**_
+_** \<OriginalPrefix> + \<4DigitNumber> \@ \<InitialTenantDomain> . onmicrosoft.com**_.
 
 Proces odporności atrybutów obsługuje tylko wartości **ProxyAddress** UPN i SMTP.
 
@@ -116,7 +116,7 @@ Aby przeszukać wiele ciągów, Użyj flagi **-ciągwyszukiwania** . Można go u
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>W ograniczonej ilości lub wszystkich
-1. **MaxResults \<int>** można użyć, aby ograniczyć zapytanie do określonej liczby wartości.
+1. **MaxResults \<Int> ** może służyć do ograniczania zapytania do określonej liczby wartości.
 2. **Wszystkie** te mogą służyć do upewnienia się, że wszystkie wyniki są pobierane w przypadku, gdy istnieje duża liczba błędów.
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
@@ -147,9 +147,9 @@ W poniższym artykule opisano różne strategie rozwiązywania problemów i rozw
 1. Obiekty z określonymi konfiguracjami atrybutów nadal otrzymują błędy eksportu zamiast zduplikowanych atrybutów, które są poddane kwarantannie.  
    Przykład:
    
-    a. Nowy użytkownik jest tworzony w usłudze AD przy użyciu nazwy UPN Jan **\@contoso.com** i ProxyAddress **SMTP:\@Jan contoso.com**
+    a. Nowy użytkownik jest tworzony w usłudze AD przy użyciu nazwy UPN Jan ** \@ contoso.com** i ProxyAddress **SMTP: Jan \@ contoso.com**
    
-    b. Właściwości tego obiektu powodują konflikt z istniejącą grupą, gdzie ProxyAddress to **SMTP: jan\@contoso.com**.
+    b. Właściwości tego obiektu powodują konflikt z istniejącą grupą, gdzie ProxyAddress to **SMTP: jan \@ contoso.com**.
    
     c. Podczas eksportowania jest zgłaszany błąd **konfliktu ProxyAddress** , zamiast mieć atrybuty konfliktów poddane kwarantannie. Operacja jest ponawiana podczas każdego kolejnego cyklu synchronizacji, tak jak przed włączeniem funkcji odporności.
 2. Jeśli dwie grupy są tworzone lokalnie przy użyciu tego samego adresu SMTP, jeden z nich nie zostanie udostępniony przy pierwszej próbie przy użyciu standardowego duplikatu błędu **ProxyAddress** . Jednak duplikat wartości jest prawidłowo poddany kwarantannie w następnym cyklu synchronizacji.
@@ -159,22 +159,22 @@ W poniższym artykule opisano różne strategie rozwiązywania problemów i rozw
 1. Szczegółowy komunikat o błędzie dla dwóch obiektów w zestawie konfliktów nazw UPN jest taki sam. Oznacza to, że mają obie nazwy UPN zmienione/poddane kwarantannie, gdy tylko jeden z nich zmienił dane.
 2. Szczegółowy komunikat o błędzie dotyczący konfliktu nazw UPN przedstawia niewłaściwy element displayName dla użytkownika, który miał nazwę UPN zmieniono/poddane kwarantannie. Przykład:
    
-    a. **Użytkownik A** najpierw synchronizuje się z nazwą **UPN =\@user contoso.com**.
+    a. **Użytkownik A** najpierw synchronizuje się z nazwą **UPN = User \@ contoso.com**.
    
-    b. **Użytkownik B** próbuje zsynchronizować się dalej z nazwą **UPN =\@user contoso.com**.
+    b. **Użytkownik B** próbuje zsynchronizować się dalej z nazwą **UPN = User \@ contoso.com**.
    
-    c. **Użytkownik B** Nazwa UPN jest zmieniana na **User1234\@contoso.onmicrosoft.com** i **contoso.com użytkownika\@** zostanie dodana do **DirSyncProvisioningErrors**.
+    c. **Użytkownik B** Nazwa UPN jest zmieniana na **User1234 \@ contoso.onmicrosoft.com** i ** \@ contoso.com użytkownika** zostanie dodana do **DirSyncProvisioningErrors**.
    
-    d. Komunikat o błędzie dla **użytkownika B** powinien wskazywać, że **użytkownik** ma **już\@użytkownika contoso.com** jako nazwę UPN, ale wyświetla własną wartość DisplayName **użytkownika B** .
+    d. Komunikat o błędzie dla **użytkownika B** powinien wskazywać, że **użytkownik** ma już **użytkownika \@ contoso.com** jako nazwę UPN, ale wyświetla własną wartość DisplayName **użytkownika B** .
 
 **Synchronizacja tożsamości raport o błędach**:
 
 Link do *procedury rozwiązywania tego problemu* jest niepoprawny:  
     ![Aktywni użytkownicy](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Aktywni użytkownicy")  
 
-Powinno to wskazywać [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency)na.
+Powinno to wskazywać na [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency) .
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Synchronizacja Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z usługą Azure Active Directory](whatis-hybrid-identity.md)
 * [Zidentyfikuj błędy synchronizacji katalogów w pakiecie Office 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

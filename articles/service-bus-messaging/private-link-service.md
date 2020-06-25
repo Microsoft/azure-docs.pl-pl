@@ -1,18 +1,16 @@
 ---
 title: Integracja Azure Service Bus z usługą konsolidacji prywatnej platformy Azure
 description: Dowiedz się, jak zintegrować Azure Service Bus z usługą Azure Private Link Service
-services: service-bus-messaging
 author: spelluru
 ms.author: spelluru
-ms.date: 03/13/2020
-ms.service: service-bus-messaging
+ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: a78375a3acf5c56d9a59c0f4b6113a063f8c431a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650950"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340437"
 ---
 # <a name="integrate-azure-service-bus-with-azure-private-link"></a>Integracja Azure Service Bus z prywatnym łączem platformy Azure
 

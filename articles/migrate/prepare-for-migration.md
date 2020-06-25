@@ -4,12 +4,12 @@ description: Dowiedz się, jak przygotować maszyny lokalne do migracji za pomoc
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: d5ac4ded59a69e57de02779b0ba8ade9d7b48b26
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: 01e4a0652d575efd1c40612153be1742cd8e8927
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106367"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341322"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Przygotowywanie maszyn lokalnych do migracji na platformę Azure
 
@@ -35,7 +35,7 @@ W tabeli zestawiono limity odnajdywania, oceny i migracji dla Azure Migrate. Zal
 --- | --- | --- | ---
 **Maszyny wirtualne VMware** | Odkrywaj i oceniaj do 35 000 maszyn wirtualnych w jednym projekcie Azure Migrate. | Odkryj do 10 000 maszyn wirtualnych VMware z jednym [Azure Migrate urządzeniem](common-questions-appliance.md) dla programu VMware. | **Migracja bez wykorzystania agentów**: można jednocześnie replikować maksymalnie 300 maszyn wirtualnych. W celu uzyskania najlepszej wydajności zalecamy utworzenie wielu partii maszyn wirtualnych, jeśli masz więcej niż 50.<br/><br/> **Migracja oparta na agentach**: można [skalować](./agent-based-migration-architecture.md#performance-and-scaling) w poziomie [urządzenie replikacji](migrate-replication-appliance.md) , aby replikować dużą liczbę maszyn wirtualnych.<br/><br/> W portalu można wybrać maksymalnie 10 maszyn na potrzeby replikacji. Aby replikować więcej maszyn, Dodaj w partiach 10.
 **Maszyny wirtualne funkcji Hyper-V** | Odkrywaj i oceniaj do 35 000 maszyn wirtualnych w jednym projekcie Azure Migrate. | Odkryj do 5 000 maszyn wirtualnych funkcji Hyper-V z jednym urządzeniem Azure Migrate | Urządzenie nie jest używane na potrzeby migracji funkcji Hyper-V. Zamiast tego dostawca replikacji funkcji Hyper-V jest uruchamiany na każdym hoście funkcji Hyper-V.<br/><br/> Na wydajność replikacji ma wpływ czynniki wydajności, takie jak postęp maszyny wirtualnej, i przekazywanie przepustowości dla danych replikacji.<br/><br/> W portalu można wybrać maksymalnie 10 maszyn na potrzeby replikacji. Aby replikować więcej maszyn, Dodaj w partiach 10.
-**Maszyny fizyczne** | Odnajdź i Oceń do 35 000 maszyn w jednym projekcie Azure Migrate. | Odkryj do 250 serwerów fizycznych z jednym Azure Migrate urządzeniem dla serwerów fizycznych. | [Urządzenie replikacji](migrate-replication-appliance.md) można [skalować w poziomie](/agent-based-migration-architecture.md#performance-and-scaling) w celu replikowania dużej liczby serwerów.<br/><br/> W portalu można wybrać maksymalnie 10 maszyn na potrzeby replikacji. Aby replikować więcej maszyn, Dodaj w partiach 10.
+**Maszyny fizyczne** | Odnajdź i Oceń do 35 000 maszyn w jednym projekcie Azure Migrate. | Odkryj do 250 serwerów fizycznych z jednym Azure Migrate urządzeniem dla serwerów fizycznych. | [Urządzenie replikacji](migrate-replication-appliance.md) można [skalować w poziomie](./agent-based-migration-architecture.md#performance-and-scaling) w celu replikowania dużej liczby serwerów.<br/><br/> W portalu można wybrać maksymalnie 10 maszyn na potrzeby replikacji. Aby replikować więcej maszyn, Dodaj w partiach 10.
 
 ## <a name="select-a-vmware-migration-method"></a>Wybierz metodę migracji VMware
 

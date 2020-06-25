@@ -6,17 +6,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: reference
 ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 217cf8822fcd8ef515ac9ce2dacdac3682e5fd12
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f0120bf3f2bd347ae60677b89ec658f08140af49
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680163"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356359"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Zagadnienia dotyczące tożsamości hybrydowej w chmurze Azure Government
 
@@ -63,7 +63,7 @@ Wykonaj następujące kroki, aby zainstalować agenta dla chmury Azure Governmen
    AADApplicationProxyConnectorInstaller.exe ENVIRONMENTNAME="AzureUSGovernment" 
    ```
 
-## <a name="single-sign-on"></a>Rejestracja jednokrotna
+## <a name="single-sign-on"></a>Logowanie jednokrotne
 
 ### <a name="set-up-your-azure-ad-connect-server"></a>Skonfiguruj serwer Azure AD Connect
 

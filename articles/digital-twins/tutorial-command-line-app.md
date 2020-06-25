@@ -8,12 +8,12 @@ ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 67b476b2ec6ec0c841639f7aa1d94a0d9d3d3304
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 18f7657cdaf3eb1fef76ca65856fde3b29b714a7
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262353"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355883"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Poznaj usługę Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
 
@@ -131,7 +131,8 @@ Uruchom ponownie `CreateModels` polecenie, aby ponowić próbę przekazania jedn
 CreateModels Room
 ```
 
-Ponieważ modeli nie można zastąpić, spowoduje to zwrócenie błędu usługi:
+Ponieważ modeli nie można zastąpić, spowoduje to zwrócenie błędu usługi.
+Aby uzyskać szczegółowe informacje na temat usuwania istniejących modeli, zobacz [How to: Manage Custom models](how-to-manage-model.md).
 ```cmd/sh
 Response 409: Service request failed.
 Status: 409 (Conflict)
@@ -285,7 +286,7 @@ Główną funkcją usługi Azure Digital bliźniaczych reprezentacji jest możli
 
     :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Wyniki zapytania złożonego, w którym nie są wyświetlane żadne wyniki":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Projekt w tym samouczku stanowi podstawę dla następnego samouczka, [Samouczek: łączenie kompleksowego rozwiązania](tutorial-end-to-end.md). Jeśli planujesz przejść do następnego samouczka, możesz zachować tutaj skonfigurowane zasoby, aby nadal korzystać z tego wystąpienia usługi Azure Digital bliźniaczych reprezentacji i skonfigurowanej przykładowej aplikacji.
 * W takim przypadku można użyć przykładowej aplikacji `DeleteAllTwins` i `DeleteAllModels` poleceń, aby wyczyścić odpowiednio bliźniaczych reprezentacji i modele w wystąpieniu. Spowoduje to wyczyszczenie do następnego samouczka.

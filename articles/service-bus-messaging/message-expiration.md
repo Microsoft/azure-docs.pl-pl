@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus — wygaśnięcie komunikatu
 description: W tym artykule wyjaśniono, jak wygasa i czas na żywo komunikatów Azure Service Bus. Po upływie tego terminu wiadomość nie zostanie już dostarczona.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: e86c92fa1cfb13929d5617502224f479709efdd3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: ca789be91e835576ec06a422bdbbbf25eb775dac
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76756338"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341206"
 ---
 # <a name="message-expiration-time-to-live"></a>Wygaśnięcie komunikatu (czas wygaśnięcia)
 
@@ -26,7 +16,7 @@ ms.locfileid: "76756338"
 
 W przypadku środowisk deweloperskich i testowych, w których kolejki i tematy są często używane w kontekście częściowych przebiegów aplikacji lub części aplikacji, pożądane jest również, aby przełączenie komunikatów testowych zostało wykonane automatycznie, aby następny przebieg testu mógł rozpocząć czyszczenie.
 
-Wygaśnięcie poszczególnych komunikatów może być kontrolowane przez ustawienie właściwości System [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) , która określa względny czas trwania. Wygaśnięcie jest bezwzględnym chwilą, gdy wiadomość zostanie przejdzie do kolejki w jednostce. W tym czasie Właściwość [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) przyjmuje wartość [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). Ustawienie czasu wygaśnięcia (TTL) dla komunikatu obsługiwanego przez brokera nie jest wymuszane w przypadku, gdy żaden klient aktywnie nasłuchuje.
+Wygaśnięcie poszczególnych komunikatów może być kontrolowane przez ustawienie właściwości System [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) , która określa względny czas trwania. Wygaśnięcie jest bezwzględnym chwilą, gdy wiadomość zostanie przejdzie do kolejki w jednostce. W tym czasie Właściwość [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) przyjmuje wartość [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc)  +  [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). Ustawienie czasu wygaśnięcia (TTL) dla komunikatu obsługiwanego przez brokera nie jest wymuszane w przypadku, gdy żaden klient aktywnie nasłuchuje.
 
 Po **ExpiresAtUtc** natychmiast wiadomości stają się nieodpowiednie do pobrania. Wygaśnięcie nie ma wpływu na komunikaty, które są aktualnie zablokowane na potrzeby dostarczania; te komunikaty są nadal obsługiwane normalnie. Jeśli blokada wygaśnie lub komunikat zostanie porzucony, wygaśnięcie będzie obowiązywać natychmiast.
 
@@ -74,7 +64,7 @@ Poniżej przedstawiono informacje, które są uważane za bezczynne jednostki (k
     - Brak wysłanych  
     - Brak aktualizacji tematu  
     - Brak zaplanowanych komunikatów 
-- Subscriptions
+- Subskrypcje
     - Nie odebrano  
     - Brak aktualizacji subskrypcji  
     - Nie dodano żadnych nowych reguł do subskrypcji  

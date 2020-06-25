@@ -11,32 +11,32 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: f55f291575aea40cba8551a5fec535f63a90150c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a329ec32e241d88a56fc7031904777888ac194ae
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610449"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356410"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Rozwiązywanie problemów z łącznością z usługą Azure AD
 W tym artykule wyjaśniono, jak działa połączenie między Azure AD Connect i usługą Azure AD oraz jak rozwiązywać problemy z łącznością. Te problemy najprawdopodobniej będą widoczne w środowisku z serwerem proxy.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Rozwiązywanie problemów z łącznością w Kreatorze instalacji
-Azure AD Connect korzysta z nowoczesnego uwierzytelniania (przy użyciu biblioteki ADAL) do uwierzytelniania. Kreator instalacji i aparat synchronizacji prawidłowo wymagają skonfigurowania pliku Machine. config, ponieważ te dwa są aplikacjami .NET.
+Azure AD Connect korzysta z nowoczesnego uwierzytelniania (przy użyciu biblioteki ADAL) do uwierzytelniania. Kreator instalacji i aparat synchronizacji prawidłowo wymagają skonfigurowania machine.config, ponieważ te dwa są aplikacjami .NET.
 
 W tym artykule pokazano, jak firma Fabrikam nawiązuje połączenie z usługą Azure AD za pomocą serwera proxy. Serwer proxy ma nazwę fabrikamproxy i używa portu 8080.
 
-Najpierw musimy upewnić się, że [**plik Machine. config**](how-to-connect-install-prerequisites.md#connectivity) jest prawidłowo skonfigurowany.
+Najpierw należy upewnić się, że [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) jest prawidłowo skonfigurowany.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
-> W niektórych blogach innych niż firmy Microsoft jest udokumentowane, że zamiast tego należy wprowadzić zmiany w pliku MIIServer. exe. config. Jednak ten plik jest zastępowany przy każdym uaktualnieniu, więc nawet jeśli działa podczas instalacji początkowej, system przestanie działać po pierwszym uaktualnieniu. Z tego powodu zaleca się zaktualizowanie pliku Machine. config.
+> W niektórych blogach innych niż firmy Microsoft jest udokumentowane, że zamiast tego należy wprowadzić zmiany w miiserver.exe.config. Jednak ten plik jest zastępowany przy każdym uaktualnieniu, więc nawet jeśli działa podczas instalacji początkowej, system przestanie działać po pierwszym uaktualnieniu. Z tego powodu zaleca się aktualizację machine.config zamiast tego.
 >
 >
 
@@ -62,7 +62,7 @@ Poniżej znajdują się najczęstsze błędy występujące w Kreatorze instalacj
 Ten błąd pojawia się, gdy Kreator nie może nawiązać połączenia z serwerem proxy.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
-* Jeśli widzisz ten błąd, sprawdź, czy [plik Machine. config](how-to-connect-install-prerequisites.md#connectivity) został poprawnie skonfigurowany.
+* Jeśli widzisz ten błąd, sprawdź, czy [machine.config](how-to-connect-install-prerequisites.md#connectivity) został prawidłowo skonfigurowany.
 * Jeśli jest to poprawne, wykonaj kroki opisane w sekcji [Weryfikowanie łączności z serwerem proxy](#verify-proxy-connectivity) , aby sprawdzić, czy problem jest obecny poza kreatorem.
 
 ### <a name="a-microsoft-account-is-used"></a>Zostanie użyta konto Microsoft
@@ -70,33 +70,33 @@ Jeśli używasz **konto Microsoft** , a nie konta w **organizacji** , zobaczysz 
 ![Używane jest konto Microsoft](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>Nie można nawiązać połączenia z punktem końcowym usługi MFA
-Ten błąd jest wyświetlany, jeśli **https://secure.aadcdn.microsoftonline-p.com** nie można skontaktować się z punktem końcowym, a Administrator globalny ma WŁĄCZONĄ usługę MFA.
+Ten błąd jest wyświetlany, jeśli **https://secure.aadcdn.microsoftonline-p.com** nie można skontaktować się z punktem końcowym, a Administrator globalny ma włączoną usługę MFA.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Jeśli widzisz ten błąd, sprawdź, czy punkt końcowy **Secure.aadcdn.microsoftonline-p.com** został dodany do serwera proxy.
 
 ### <a name="the-password-cannot-be-verified"></a>Nie można zweryfikować hasła
-Jeśli Kreator instalacji pomyślnie nawiązuje połączenie z usługą Azure AD, ale nie można zweryfikować hasła, zobaczysz następujący błąd: ![nieprawidłowe hasło.](./media/tshoot-connect-connectivity/badpassword.png)
+Jeśli Kreator instalacji pomyślnie nawiązuje połączenie z usługą Azure AD, ale nie można zweryfikować hasła, zobaczysz następujący błąd: ![ nieprawidłowe hasło.](./media/tshoot-connect-connectivity/badpassword.png)
 
-* Czy hasło jest hasłem tymczasowym i należy je zmienić? Czy jest to prawidłowe hasło? Spróbuj zalogować się do `https://login.microsoftonline.com` programu (na innym komputerze niż serwer Azure AD Connect) i sprawdź, czy konto jest możliwe do użycia.
+* Czy hasło jest hasłem tymczasowym i należy je zmienić? Czy jest to prawidłowe hasło? Spróbuj zalogować się do programu `https://login.microsoftonline.com` (na innym komputerze niż serwer Azure AD Connect) i sprawdź, czy konto jest możliwe do użycia.
 
 ### <a name="verify-proxy-connectivity"></a>Sprawdź łączność z serwerem proxy
-Aby sprawdzić, czy serwer Azure AD Connect ma rzeczywistą łączność z serwerem proxy i Internetem, użyj polecenia programu PowerShell, aby sprawdzić, czy serwer proxy zezwala na żądania sieci Web. W wierszu polecenia programu PowerShell uruchom `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`polecenie. (Technicznie to pierwsze wywołanie `https://login.microsoftonline.com` i ten identyfikator URI działa również, ale inny identyfikator URI jest szybszy, aby odpowiedzieć).
+Aby sprawdzić, czy serwer Azure AD Connect ma rzeczywistą łączność z serwerem proxy i Internetem, użyj polecenia programu PowerShell, aby sprawdzić, czy serwer proxy zezwala na żądania sieci Web. W wierszu polecenia programu PowerShell uruchom polecenie `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc` . (Technicznie to pierwsze wywołanie `https://login.microsoftonline.com` i ten identyfikator URI działa również, ale inny identyfikator URI jest szybszy, aby odpowiedzieć).
 
-Program PowerShell używa konfiguracji w pliku Machine. config w celu skontaktowania się z serwerem proxy. Ustawienia w usłudze WinHTTP/netsh nie powinny mieć wpływu na te polecenia cmdlet.
+Program PowerShell używa konfiguracji w machine.config, aby skontaktować się z serwerem proxy. Ustawienia w usłudze WinHTTP/netsh nie powinny mieć wpływu na te polecenia cmdlet.
 
-Jeśli serwer proxy jest prawidłowo skonfigurowany, powinien zostać wyświetlony stan sukces: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+Jeśli serwer proxy jest prawidłowo skonfigurowany, powinien zostać wyświetlony stan sukces: ![ proxy200](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-Jeśli zostanie wyświetlony komunikat **nie można nawiązać połączenia z serwerem zdalnym**, program PowerShell próbuje wykonać bezpośrednie wywołanie bez użycia serwera proxy lub usługa DNS nie jest poprawnie skonfigurowana. Upewnij się, że plik **Machine. config** jest prawidłowo skonfigurowany.
+Jeśli zostanie wyświetlony komunikat **nie można nawiązać połączenia z serwerem zdalnym**, program PowerShell próbuje wykonać bezpośrednie wywołanie bez użycia serwera proxy lub usługa DNS nie jest poprawnie skonfigurowana. Upewnij się, że plik **machine.config** jest prawidłowo skonfigurowany.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
-Jeśli serwer proxy nie został prawidłowo skonfigurowany, zostanie wyświetlony komunikat o błędzie ![:](./media/tshoot-connect-connectivity/invokewebrequest403.png)
-![proxy200 proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
+Jeśli serwer proxy nie został prawidłowo skonfigurowany, zostanie wyświetlony komunikat o błędzie: ![ proxy200 ](./media/tshoot-connect-connectivity/invokewebrequest403.png)
+ ![ proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)
 
-| Error | Tekst błędu | Komentarz |
+| Błąd | Tekst błędu | Komentarz |
 | --- | --- | --- |
 | 403 |Forbidden |Serwer proxy nie został otwarty dla żądanego adresu URL. Ponownie odwiedź konfigurację serwera proxy i upewnij się, że [adresy URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) zostały otwarte. |
-| 407 |Wymagane jest uwierzytelnianie serwera proxy |Serwer proxy wymaga logowania, ale nie został podany. Jeśli serwer proxy wymaga uwierzytelnienia, upewnij się, że to ustawienie jest skonfigurowane w pliku Machine. config. Upewnij się również, że używasz kont domeny dla użytkownika, który uruchamia kreatora i dla konta usługi. |
+| 407 |Wymagane jest uwierzytelnianie serwera proxy |Serwer proxy wymaga logowania, ale nie został podany. Jeśli serwer proxy wymaga uwierzytelnienia, upewnij się, że to ustawienie jest skonfigurowane w machine.config. Upewnij się również, że używasz kont domeny dla użytkownika, który uruchamia kreatora i dla konta usługi. |
 
 ### <a name="proxy-idle-timeout-setting"></a>Ustawienie limitu czasu bezczynności serwera proxy
 Gdy Azure AD Connect wysyła żądanie eksportu do usługi Azure AD, przetwarzanie żądania przez usługę Azure AD może potrwać do 5 minut przed wygenerowaniem odpowiedzi. Może się to zdarzyć zwłaszcza wtedy, gdy istnieje wiele obiektów grupy z dużymi członkostwami w grupach uwzględnionymi w tym samym żądaniu eksportu. Upewnij się, że limit czasu bezczynności serwera proxy jest skonfigurowany tak, aby był większy niż 5 minut. W przeciwnym razie sporadyczny problem z łącznością z usługą Azure AD może być zaobserwowany na serwerze Azure AD Connect.
@@ -104,7 +104,7 @@ Gdy Azure AD Connect wysyła żądanie eksportu do usługi Azure AD, przetwarzan
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Wzorzec komunikacji między Azure AD Connect i usługą Azure AD
 Jeśli wykonano wszystkie powyższe kroki i nadal nie można nawiązać połączenia, w tym momencie można rozpocząć wyszukiwanie w dziennikach sieciowych. Ta sekcja zawiera dokument z normalnym i pomyślnym wzorcem łączności. Znajduje się w nim również lista typowych czerwonych śledziów, które mogą zostać zignorowane podczas odczytywania dzienników sieciowych.
 
-* Istnieją wywołania do `https://dc.services.visualstudio.com`. Ten adres URL nie musi być otwarty na serwerze proxy, aby instalacja się powiodła i te wywołania można zignorować.
+* Istnieją wywołania do `https://dc.services.visualstudio.com` . Ten adres URL nie musi być otwarty na serwerze proxy, aby instalacja się powiodła i te wywołania można zignorować.
 * Zobaczysz, że rozpoznawanie nazw DNS zawiera listę rzeczywistych hostów, które mają znajdować się w nsatc.net przestrzeni nazwy DNS, a inne przestrzenie nazw nie są w microsoftonline.com. Nie ma jednak żadnych żądań usługi sieci Web na rzeczywistych nazwach serwera i nie trzeba dodawać tych adresów URL do serwera proxy.
 * Punkty końcowe adminwebservice i provisioningapi są punktami końcowymi odnajdywania i służą do znajdowania rzeczywistego punktu końcowego do użycia. Te punkty końcowe są różne w zależności od regionu.
 
@@ -113,7 +113,7 @@ Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z które
 
 **Łączenie z usługą Azure AD**
 
-| Time | Adres URL |
+| Godzina | Adres URL |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -122,9 +122,9 @@ Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z które
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://*bwsc02-Relay*. microsoftonline.com:443 |
 
-**Konfiguruj**
+**Ustaw opcję**
 
-| Time | Adres URL |
+| Godzina | Adres URL |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800 — zakotwiczenie*. microsoftonline.com:443 |
@@ -140,7 +140,7 @@ Oto zrzut z rzeczywistego dziennika proxy i strony Kreatora instalacji, z które
 
 **Synchronizacja początkowa**
 
-| Time | Adres URL |
+| Godzina | Adres URL |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |

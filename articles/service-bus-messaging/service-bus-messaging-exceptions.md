@@ -1,25 +1,14 @@
 ---
 title: Azure Service Bus — wyjątki komunikatów | Microsoft Docs
 description: Ten artykuł zawiera listę wyjątków Azure Service Bus komunikatów i sugerowanych akcji do wykonania w przypadku wystąpienia wyjątku.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/23/2020
-ms.author: aschhab
-ms.openlocfilehash: f1a4caf6ffd5740b4227aff2f38d9cb709c77b48
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.date: 06/23/2020
+ms.openlocfilehash: dd57938c24565257aefebc89a8b070865e6791af
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739351"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341646"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus wyjątki komunikatów
 W tym artykule wymieniono wyjątki platformy .NET wygenerowane przez interfejsy API .NET Framework. 
@@ -29,7 +18,7 @@ Interfejsy API obsługi komunikatów generują wyjątki, które mogą należeć 
 
 1. Błąd kodowania użytkownika ([System. ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System. InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System. OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System. Runtime. Serialization. SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)). Akcja ogólna: spróbuj naprawić kod przed kontynuowaniem.
 2. Błąd instalacji/konfiguracji ([Microsoft. ServiceBus. Messaging. MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception), [System. UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Akcja ogólna: przegląd konfiguracji i zmiana w razie potrzeby.
-3. Wyjątki przejściowe ([Microsoft. ServiceBus. Messaging. messagingexception](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft. ServiceBus. Messaging. wyjątek serverbusyexception](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [Microsoft. ServiceBus. Messaging. MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). Akcja ogólna: ponów próbę wykonania operacji lub Powiadom użytkowników. `RetryPolicy` Klasy w zestawie SDK klienta można skonfigurować do automatycznego obsłużenia ponownych prób. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące ponawiania prób](/azure/architecture/best-practices/retry-service-specific#service-bus).
+3. Wyjątki przejściowe ([Microsoft. ServiceBus. Messaging. messagingexception](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft. ServiceBus. Messaging. wyjątek serverbusyexception](/dotnet/api/microsoft.azure.servicebus.serverbusyexception), [Microsoft. ServiceBus. Messaging. MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception)). Akcja ogólna: ponów próbę wykonania operacji lub Powiadom użytkowników. `RetryPolicy`Klasy w zestawie SDK klienta można skonfigurować do automatycznego obsłużenia ponownych prób. Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące ponawiania prób](/azure/architecture/best-practices/retry-service-specific#service-bus).
 4. Inne wyjątki ([System. Actions. TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System. TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx), [Microsoft. ServiceBus. Messaging. MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception), [Microsoft. ServiceBus. Messaging. SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception)). Akcja ogólna: określona dla typu wyjątku; Zapoznaj się z tabelą w następującej sekcji: 
 
 ## <a name="exception-types"></a>Typy wyjątków
@@ -74,7 +63,7 @@ Message: The maximum entity size has been reached or exceeded for Topic: 'xxx-xx
 
 Komunikat informuje o tym, że temat przekroczył swój limit rozmiaru, w tym przypadku 1 GB (domyślny limit rozmiaru). 
 
-### <a name="namespaces"></a>Namespaces
+### <a name="namespaces"></a>Przestrzenie nazw
 
 W przypadku przestrzeni nazw [QuotaExceededException](/dotnet/api/microsoft.azure.servicebus.quotaexceededexception) może wskazywać, że aplikacja przekroczyła maksymalną liczbę połączeń z przestrzenią nazw. Przykład:
 

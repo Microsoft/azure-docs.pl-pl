@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b23c2b81d281f787914e32818d768d2d531537f4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: db5dbef2b57fb89b33ea116d0373184cdade0ac5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682232"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356767"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funkcje usługi synchronizacji programu Azure AD Connect
 
@@ -114,7 +114,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Po włączeniu tej funkcji istniejące wartości userPrincipalName pozostaną bez zmian. Przy następnej zmianie atrybutu userPrincipalName lokalnego, standardowa synchronizacja różnicowa dla użytkowników będzie aktualizować nazwę UPN.  
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Synchronizacja Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integrowanie tożsamości lokalnych z Azure Active Directory](whatis-hybrid-identity.md).

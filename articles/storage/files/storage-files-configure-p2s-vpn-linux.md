@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cfff05ed52258ee448d83a521b99dca7d356a0f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41feacf180bbe21fdd3d04cabaaf3e3fbaacd20e
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061046"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355475"
 ---
 # <a name="configure-a-point-to-site-p2s-vpn-on-linux-for-use-with-azure-files"></a>Skonfiguruj sieć VPN typu punkt-lokacja (P2S) w systemie Linux do użycia z usługą Azure Files
 Za pomocą połączenia sieci VPN typu punkt-lokacja (P2S) można instalować udziały plików platformy Azure za pośrednictwem protokołu SMB spoza platformy Azure bez konieczności otwierania portu 445. Połączenie sieci VPN typu punkt-lokacja to połączenie sieci VPN między platformą Azure i pojedynczym klientem. Aby można było użyć połączenia sieci VPN P2S z Azure Files, należy skonfigurować połączenie sieci VPN P2S dla każdego klienta, który chce nawiązać połączenie. Jeśli masz wielu klientów, którzy muszą nawiązać połączenie z udziałami plików platformy Azure z sieci lokalnej, możesz użyć połączenia sieci VPN typu lokacja-lokacja (S2S) zamiast połączenia punkt-lokacja dla każdego klienta. Aby dowiedzieć się więcej, zobacz [Konfigurowanie sieci VPN typu lokacja-lokacja do użycia z usługą Azure Files](storage-files-configure-s2s-vpn.md).
@@ -44,7 +44,7 @@ Aby uzyskać dostęp do udziału plików platformy Azure i innych zasobów platf
 
 Poniższy skrypt spowoduje utworzenie sieci wirtualnej platformy Azure z trzema podsieciami: jedną dla punktu końcowego usługi konta magazynu, jedną dla prywatnego punktu końcowego konta magazynu, która jest wymagana do lokalnego dostępu do konta magazynu bez tworzenia routingu niestandardowego dla publicznego adresu IP konta magazynu, które może ulec zmianie, oraz jednego dla bramy sieci wirtualnej, która udostępnia usługę sieci VPN. 
 
-Pamiętaj, aby `<region>`zamienić `<resource-group>`, `<desired-vnet-name>` i z odpowiednimi wartościami dla danego środowiska.
+Pamiętaj, aby zamienić `<region>` , `<resource-group>` i `<desired-vnet-name>` z odpowiednimi wartościami dla danego środowiska.
 
 ```bash
 region="<region>"
@@ -114,10 +114,12 @@ openssl pkcs12 -in "clientCert.pem" -inkey "clientKey.pem" -certfile rootCert.pe
 ## <a name="deploy-virtual-network-gateway"></a>Wdróż bramę sieci wirtualnej
 Brama sieci wirtualnej platformy Azure to usługa, z którą będą łączyć się lokalne maszyny z systemem Linux. Wdrożenie tej usługi wymaga dwóch podstawowych składników: publiczny adres IP, który będzie identyfikować bramę klientom w dowolnym miejscu na świecie i certyfikat główny utworzony wcześniej, który będzie używany do uwierzytelniania klientów.
 
-Pamiętaj, aby `<desired-vpn-name-here>` zamienić na nazwę, którą chcesz dla tych zasobów.
+Pamiętaj, aby zamienić na `<desired-vpn-name-here>` nazwę, którą chcesz dla tych zasobów.
 
 > [!Note]  
-> Wdrożenie bramy sieci wirtualnej platformy Azure może potrwać do 45 minut. Gdy ten zasób jest wdrażany, skrypt skryptu bash zablokuje ukończenie wdrożenia. Jest to oczekiwane zachowanie.
+> Wdrożenie bramy sieci wirtualnej platformy Azure może potrwać do 45 minut. Gdy ten zasób jest wdrażany, skrypt skryptu bash zablokuje ukończenie wdrożenia.
+>
+> P2S IKEv2/OpenVPN połączenia nie są obsługiwane w przypadku **podstawowej** jednostki SKU. Ten skrypt używa odpowiednio jednostki SKU **VpnGw1** dla bramy sieci wirtualnej.
 
 ```bash
 vpnName="<desired-vpn-name-here>"
@@ -208,7 +210,7 @@ smbPath="//$storageAccountPrivateIP/$fileShareName"
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 - [Omówienie sieci Azure Files](storage-files-networking-overview.md)
 - [Skonfiguruj sieć VPN typu punkt-lokacja (P2S) w systemie Windows do użytku z usługą Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Konfigurowanie sieci VPN typu lokacja-lokacja (S2S) do użycia z usługą Azure Files](storage-files-configure-s2s-vpn.md)

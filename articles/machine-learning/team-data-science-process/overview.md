@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 10d6e562301e089700940ac5dfb212bcc4e09653
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4ffe00c3df4abd924fca202d2bcdd0ec458dd3eb
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79088078"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355339"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Co to jest zespołowe przetwarzanie danych?
 
@@ -26,12 +26,12 @@ Ten artykuł zawiera omówienie przetwarzania TDSP i jego głównych składnikó
 
 ## <a name="key-components-of-the-tdsp"></a>Najważniejsze składniki przetwarzania TDSP
 
-PRZETWARZANIA TDSP składa się z następujących najważniejszych składników:
+PRZETWARZANIA TDSP HADS następujące najważniejsze składniki:
 
 - Definicja **cyklu życia analizy danych**
 - **Standardowa struktura projektu**
-- **Infrastruktura i zasoby** dla projektów analizy danych
-- **Narzędzia i programy** do wykonania projektu
+- **Infrastruktura i zasoby** zalecane dla projektów analizy danych
+- **Narzędzia i programy** zalecane do wykonania projektu
 
 
 ## <a name="data-science-lifecycle"></a>Cykl życia analizy danych
@@ -48,7 +48,6 @@ Cykl życia przedstawia główne etapy, które są zwykle wykonywane przez proje
 * **Pozyskiwanie i zrozumienie danych**
 * **Modelowanie**
 * **Wdrożenie**
-* **Akceptacja klienta**
 
 Poniżej przedstawiono wizualną reprezentację **cyklu życia zespołowego procesu nauki danych**. 
 
@@ -58,7 +57,9 @@ Artefakty cele, zadania i dokumentacja dotyczące poszczególnych etapów cyklu 
 
 - Architekt rozwiązań
 - Menedżer projektu
+- Inżynier danych
 - Analityk danych
+- Deweloper aplikacji
 - Lider projektu 
 
 Na poniższym diagramie przedstawiono widok siatki zadań (niebieski) i artefakty (w kolorze zielonym) skojarzone z każdym etapem cyklu życia (na osi poziomej) dla tych ról (na osi pionowej). 
@@ -69,7 +70,7 @@ Na poniższym diagramie przedstawiono widok siatki zadań (niebieski) i artefakt
 
 Jeśli wszystkie projekty współdzielą strukturę katalogów i używają szablonów dokumentów projektu, ułatwiają członkom zespołu znalezienie informacji o ich projektach. Cały kod i dokumenty są przechowywane w systemie kontroli wersji (VCS), takim jak Git, TFS lub Subversion, aby umożliwić współpracę zespołową. Śledzenie zadań i funkcji w systemie monitorowania projektu Agile, takich jak JIRA, Rally i Azure DevOps, umożliwia bliższe śledzenie kodu dla poszczególnych funkcji. Takie śledzenie umożliwia również zespołom uzyskanie lepszych szacunków kosztów. PRZETWARZANIA TDSP zaleca utworzenie oddzielnego repozytorium dla każdego projektu w systemie VCS na potrzeby obsługi wersji, bezpieczeństwa informacji i współpracy. Struktura znormalizowana dla wszystkich projektów pomaga w tworzeniu instytucjonalnej wiedzy w całej organizacji.
 
-Udostępniamy szablony dla struktury folderów i wymaganych dokumentów w standardowych lokalizacjach. Ta struktura folderów organizuje pliki, które zawierają kod służący do eksploracji danych i wyodrębniania funkcji oraz te iteracje modelu rekordu. Te szablony ułatwiają członkom zespołu zrozumienie pracy wykonywanej przez inne osoby i dodawanie nowych członków do zespołów. Można łatwo wyświetlać i aktualizować szablony dokumentów w formacie promocji. Użyj szablonów, aby podać listy kontrolne z kluczowymi pytaniami dla każdego projektu, aby upewnić się, że problem jest dobrze zdefiniowany i że dostarczane dane spełniają wymagania jakości. Przykłady:
+Udostępniamy szablony dla struktury folderów i wymaganych dokumentów w standardowych lokalizacjach. Ta struktura folderów organizuje pliki, które zawierają kod służący do eksploracji danych i wyodrębniania funkcji oraz te iteracje modelu rekordu. Te szablony ułatwiają członkom zespołu zrozumienie pracy wykonywanej przez inne osoby i dodawanie nowych członków do zespołów. Można łatwo wyświetlać i aktualizować szablony dokumentów w formacie promocji. Użyj szablonów, aby podać listy kontrolne z kluczowymi pytaniami dla każdego projektu, aby upewnić się, że problem jest dobrze zdefiniowany i że dostarczane dane spełniają wymagania jakości. Przykłady obejmują:
 
 - Karta projektu do udokumentowania problemu biznesowego i zakresu projektu
 - Raporty danych umożliwiające udokumentowanie struktury i statystyk danych pierwotnych
@@ -87,7 +88,7 @@ PRZETWARZANIA TDSP zawiera zalecenia dotyczące zarządzania udostępnioną infr
 
 - systemy plików w chmurze do przechowywania zestawów danych 
 - bazy danych
-- klastry Big Data (Hadoop lub Spark) 
+- klastry Big Data (SQL lub Spark) 
 - Usługa Machine Learning 
 
 Infrastruktura analizy i magazynu, w której przechowywane są nieprzetworzone i przetworzone zestawy danych, może znajdować się w chmurze lub lokalnie. Ta infrastruktura umożliwia przepustą analizę. Pozwala również uniknąć duplikowania, co może prowadzić do niespójności i niepotrzebnych kosztów związanych z infrastrukturą. Dostępne są narzędzia do udostępniania udostępnionych zasobów, śledzenia ich i zezwalania poszczególnym członkom zespołu na bezpieczne łączenie z tymi zasobami. Dobrym praktyką jest również posiadanie przez członków projektu spójnego środowiska obliczeniowego. Różnych członków zespołu mogą następnie replikować i weryfikować eksperymenty.
@@ -99,7 +100,7 @@ Oto przykład zespołu pracującego nad wieloma projektami i udostępniając ró
 
 ## <a name="tools-and-utilities-for-project-execution"></a>Narzędzia i programy do wykonania projektu
 
-Wprowadzenie procesów w większości organizacji jest trudne. Narzędzia udostępniane do wdrożenia procesu nauki o danych i cyklu życia obniżają bariery i zwiększają spójność ich wdrażania. PRZETWARZANIA TDSP zawiera początkowy zestaw narzędzi i skryptów umożliwiający szybkie rozpoczęcie wdrażania przetwarzania TDSP w zespole. Pomaga również zautomatyzować niektóre typowe zadania związane z analizą danych, takie jak Eksploracja danych i modelowanie linii bazowej. Istnieje dobrze zdefiniowana struktura, która umożliwia osobom Współtworzenie współużytkowanych narzędzi i narzędzi w repozytorium kodu udostępnionego zespołu. Te zasoby mogą być następnie wykorzystywane przez inne projekty w zespole lub w organizacji. PRZETWARZANIA TDSP również planuje, aby umożliwić wkładowanie narzędzi i narzędzi do całej społeczności. Narzędzia przetwarzania TDSP można sklonować z usługi [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
+Wprowadzenie procesów w większości organizacji jest trudne. Narzędzia udostępniane do wdrożenia procesu nauki o danych i cyklu życia obniżają bariery i zwiększają spójność ich wdrażania. PRZETWARZANIA TDSP zawiera początkowy zestaw narzędzi i skryptów umożliwiający szybkie rozpoczęcie wdrażania przetwarzania TDSP w zespole. Pomaga również zautomatyzować niektóre typowe zadania związane z analizą danych, takie jak Eksploracja danych i modelowanie linii bazowej. Istnieje dobrze zdefiniowana struktura, która umożliwia osobom Współtworzenie współużytkowanych narzędzi i narzędzi w repozytorium kodu udostępnionego zespołu. Te zasoby mogą być następnie wykorzystywane przez inne projekty w zespole lub w organizacji. PRZETWARZANIA TDSP również planuje, aby umożliwić wkładowanie narzędzi i narzędzi do całej społeczności. Narzędzia przetwarzania TDSP mogą być klonowane z usługi [GitHub](https://github.com/Azure/Azure-TDSP-Utilities).
 
 
 ## <a name="next-steps"></a>Następne kroki

@@ -1,32 +1,22 @@
 ---
 title: Azure Service Bus — Przeglądanie komunikatów
 description: Przeglądanie i wgląd Service Bus komunikaty umożliwiają klientowi Azure Service Bus Wyliczenie wszystkich komunikatów znajdujących się w kolejce lub subskrypcji.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 0f2d4ed1225aef4c28a5f3d841669c2e3122ba10
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77539369"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341235"
 ---
 # <a name="message-browsing"></a>Przeglądanie komunikatów
 
 Przeglądanie komunikatów lub wgląd, umożliwia klientowi Service Bus Wyliczenie wszystkich komunikatów, które znajdują się w kolejce lub subskrypcji, zwykle do celów diagnostycznych i debugowania.
 
-Operacje wglądu zwracają wszystkie komunikaty znajdujące się w kolejce lub dzienniku komunikatów subskrypcji, a nie tylko te, które są dostępne `Receive()` do natychmiastowego pozyskiwania z lub `OnMessage()` pętlą. `State` Właściwość każdego komunikatu informuje, czy wiadomość jest aktywna (dostępna do odebrania), [odroczona](message-deferral.md)lub [zaplanowana](message-sequencing.md).
+Operacje wglądu zwracają wszystkie komunikaty znajdujące się w kolejce lub dzienniku komunikatów subskrypcji, a nie tylko te, które są dostępne do natychmiastowego pozyskiwania z `Receive()` lub `OnMessage()` pętlą. `State`Właściwość każdego komunikatu informuje, czy wiadomość jest aktywna (dostępna do odebrania), [odroczona](message-deferral.md)lub [zaplanowana](message-sequencing.md).
 
-Wykorzystane i wygasłe komunikaty są czyszczone przez asynchroniczne uruchomienie "wyrzucania elementów bezużytecznych" i niekoniecznie `Peek` nie tylko w przypadku wygaśnięcia komunikatów i dlatego mogą zwracać komunikaty, które już wygasły i zostaną usunięte lub utracone po następnym wywołaniu dla kolejki lub subskrypcji.
+Wykorzystane i wygasłe komunikaty są czyszczone przez asynchroniczne uruchomienie "wyrzucania elementów bezużytecznych" i niekoniecznie nie tylko w przypadku wygaśnięcia komunikatów i dlatego `Peek` mogą zwracać komunikaty, które już wygasły i zostaną usunięte lub utracone po następnym wywołaniu dla kolejki lub subskrypcji.
 
 Jest to szczególnie ważne w przypadku próby odzyskania odroczonych komunikatów z kolejki. Komunikat, dla którego przekazana [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) natychmiast, nie kwalifikuje się do regularnego pobierania w inny sposób, nawet gdy jest zwracany przez wgląd. Zwracanie tych komunikatów jest celowe, ponieważ wgląd jest narzędziem diagnostycznym odzwierciedlającym bieżący stan dziennika.
 

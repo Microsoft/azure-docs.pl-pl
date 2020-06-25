@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 10/22/2019
-  ms.openlocfilehash: 36b82d96f4bfbc3eac6d5ca7f961386224171268
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 06/23/2020
+  ms.openlocfilehash: 2961c46fe486c8e635e17a78cbe8095da13a2614
+  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74666294"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85340277"
 landingContent:
 - title: Informacje o komunikatach usługi Service Bus
   linkLists:
@@ -41,7 +41,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Portalu Azure
+    - text: Azure Portal
       url: service-bus-quickstart-portal.md
     - text: Interfejs wiersza polecenia platformy Azure
       url: service-bus-quickstart-cli.md
@@ -53,7 +53,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Portalu Azure
+    - text: Azure Portal
       url: service-bus-quickstart-topics-subscriptions-portal.md
     - text: Szablon usługi Azure Resource Manager
       url: service-bus-resource-manager-namespace-topic.md

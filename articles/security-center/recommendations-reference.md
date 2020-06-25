@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 647d0b13930109b093532ce0b330e9b3eb6d439b
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 92df0a7919a7d01b062356bfa4d32cc701e1e6f4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85260954"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341293"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Zalecenia dotyczące zabezpieczeń — Przewodnik referencyjny
 
@@ -153,7 +153,7 @@ Twój bezpieczny wynik jest oparty na liczbie Security Center zaleceń, które z
 |**Należy włączyć Transparent Data Encryption baz danych SQL**|Włącz przezroczyste szyfrowanie danych, aby chronić dane w czasie spoczynku i spełnić wymagania dotyczące zgodności.<br>(Powiązane zasady: Transparent Data Encryption w bazach danych SQL należy włączyć)|Małe|**T**|SQL|
 |**Ocena luk w zabezpieczeniach powinna być włączona na SQL Database**|Ocena luk w zabezpieczeniach może wykrywać, śledzić i pomagać w korygowaniu potencjalnych luk w zabezpieczeniach bazy danych.<br>(Powiązane zasady: Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL)|Wysoki|**T**|SQL|
 |**Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniu zarządzanym SQL**|Ocena luk w zabezpieczeniach może wykrywać, śledzić i pomagać w korygowaniu potencjalnych luk w zabezpieczeniach bazy danych.<br>(Powiązane zasady: Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniu zarządzanym SQL)|Wysoki|**T**|SQL|
-|**Luki w zabezpieczeniach baz danych SQL w maszynach wirtualnych należy skorygować**|Ocena luk w zabezpieczeniach SQL skanuje bazę danych pod kątem luk w zabezpieczeniach i ujawnia wszelkie odchylenia od najlepszych rozwiązań, takich jak niepotrzebne konfiguracje, nadmierne uprawnienia i niechronione dane poufne. Rozpoznanie znalezionych luk w zabezpieczeniach może znacznie ulepszyć schemacie zabezpieczeń bazy danych.|Wysoki|N|SQL|
+|**Luki w zabezpieczeniach serwerów SQL na maszynach należy skorygować**|Ocena luk w zabezpieczeniach SQL skanuje bazę danych pod kątem luk w zabezpieczeniach i ujawnia wszelkie odchylenia od najlepszych rozwiązań, takich jak niepotrzebne konfiguracje, nadmierne uprawnienia i niechronione dane poufne. Rozpoznanie znalezionych luk w zabezpieczeniach może znacznie ulepszyć schemacie zabezpieczeń bazy danych.|Wysoki|N|SQL|
 |**Luki w zabezpieczeniach baz danych SQL należy skorygować**|Ocena luk w zabezpieczeniach SQL skanuje bazę danych pod kątem luk w zabezpieczeniach i ujawnia wszelkie odchylenia od najlepszych rozwiązań, takich jak niepotrzebne konfiguracje, nadmierne uprawnienia i niechronione dane poufne. Rozpoznanie znalezionych luk w zabezpieczeniach może znacznie ulepszyć schemacie zabezpieczeń bazy danych.<br>(Powiązane zasady: luki w zabezpieczeniach baz danych SQL należy skorygować)|Wysoki|N|SQL|
 ||||||
 
@@ -172,7 +172,7 @@ Twój bezpieczny wynik jest oparty na liczbie Security Center zaleceń, które z
 |**Przestarzałe konta powinny zostać usunięte z subskrypcji**|Usuń przestarzałe konta z subskrypcji, aby umożliwić dostęp tylko bieżącym użytkownikom.<br>(Powiązane zasady: konta przestarzałe powinny zostać usunięte z subskrypcji)|Wysoki|N|Subskrypcja|
 |**Do subskrypcji powinien być przypisany więcej niż jeden właściciel**|Wyznacz więcej niż jednego właściciela subskrypcji, aby zapewnić nadmiarowość dostępu administratora.<br>(Powiązane zasady: należy mieć więcej niż jednego właściciela przypisanego do subskrypcji)|Wysoki|N|Subskrypcja|
 |**Dla subskrypcji należy wyznaczyć maksymalnie 3 właścicieli**|Wyznacz mniej niż trzy właściciele subskrypcji, aby zmniejszyć ryzyko naruszenia przez zagrożonego właściciela.<br>(Powiązane zasady: dla subskrypcji należy wyznaczyć maksymalnie 3 właścicieli)|Wysoki|N|Subskrypcja|
-|**Dzienniki diagnostyczne w Key Vault powinny być włączone**|Włącz dzienniki i zachowaj je na rok. Pozwala to na ponowne utworzenie śladów aktywności w celach dochodzeniowych w przypadku wystąpienia zdarzenia związanego z bezpieczeństwem lub zabezpieczenia sieci.<br>(Powiązane zasady: dzienniki diagnostyczne w Key Vault powinny być włączone)|Małe|**T**|Key Vault|
+|**Dzienniki diagnostyczne w Key Vault powinny być włączone**|Włącz dzienniki i zachowaj je na rok. Pozwala to na ponowne utworzenie śladów aktywności w celach dochodzeniowych w przypadku wystąpienia zdarzenia związanego z bezpieczeństwem lub zabezpieczenia sieci.<br>(Powiązane zasady: dzienniki diagnostyczne w Key Vault powinny być włączone)|Małe|**T**|Usługa Key Vault|
 ||||||
 
 

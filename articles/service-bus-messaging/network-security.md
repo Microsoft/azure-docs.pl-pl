@@ -1,23 +1,14 @@
 ---
 title: Zabezpieczenia sieci dla Azure Service Bus
 description: W tym artykule opisano funkcje zabezpieczeń sieci, takie jak Tagi usług, reguły zapory adresów IP, punkty końcowe usługi i prywatne punkty końcowe.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.author: aschhab
-ms.openlocfilehash: 607afa4b8411af9b960a251d5f9d4688d3edeb10
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 06/23/2020
+ms.openlocfilehash: 731300179ce9a0ff72169cdad5c7c039749b20f6
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686906"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341137"
 ---
 # <a name="network-security-for-azure-service-bus"></a>Zabezpieczenia sieci dla Azure Service Bus 
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Service Bus: 

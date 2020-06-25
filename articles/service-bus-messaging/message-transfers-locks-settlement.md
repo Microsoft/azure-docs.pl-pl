@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus transfery, blokady i rozliczanie komunikatów
 description: Ten artykuł zawiera omówienie Azure Service Bus transferów komunikatów, blokad i operacji rozliczeń.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
-ms.author: aschhab
-ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.date: 06/23/2020
+ms.openlocfilehash: 22be139fccdeecee846c204a8035804fb897ae5a
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686991"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341162"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferowanie, blokady i uzgadnianie komunikatów
 

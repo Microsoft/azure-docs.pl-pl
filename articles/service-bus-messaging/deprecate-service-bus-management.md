@@ -1,23 +1,14 @@
 ---
 title: Usługi Azure Messaging Services — Service Manager do Menedżer zasobów
 description: Ten artykuł zawiera mapowanie przestarzałych poleceń cmdlet programu PowerShell usługi Azure Service Manager API REST & Menedżer zasobów interfejsu API REST & poleceń cmdlet programu PowerShell.
-services: service-bus-messaging, event-hubs, event-grid
-documentationcenter: na
-author: spelluru
-editor: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/22/2020
-ms.author: spelluru
-ms.openlocfilehash: 714d881f34cace928be5d66973f15fa47cf68f72
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.date: 06/23/2020
+ms.openlocfilehash: 7ef744a3a35888be9d72addca61ef389f2cf97cc
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259494"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340756"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Wycofanie pomocy technicznej Service Manager platformy Azure dla Azure Service Bus, przekazywania i Event Hubs
 

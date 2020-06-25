@@ -5,12 +5,12 @@ description: Informacje o znanych ograniczeniach w przypadku uruchamiania pul w�
 services: container-service
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: e03343bc0bf8d2b49d2322573e75fe76cc853e32
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: c420eb850313900d3726b93dd97f911a428d3560
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84976612"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339873"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Bieżące ograniczenia dotyczące pul węzłów systemu Windows Server i obciążeń aplikacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -85,7 +85,7 @@ Należy zachować nazwę maksymalnie 6 (sześć znaków). Jest to bieżące ogra
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Czy wszystkie funkcje są obsługiwane z węzłami systemu Windows?
 
-Zasady sieciowe i korzystającą wtyczki kubenet nie są obecnie obsługiwane w węzłach systemu Windows. 
+Zasady sieciowe i korzystającą wtyczki kubenet nie są obecnie obsługiwane w węzłach systemu Windows.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Czy można uruchamiać kontrolery transferu danych przychodzących w węzłach systemu Windows?
 
@@ -101,7 +101,7 @@ Obsługa kont usług zarządzanych przez grupę (gMSA) nie jest obecnie dostępn
 
 ## <a name="can-i-use-azure-monitor-for-containers-with-windows-nodes-and-containers"></a>Czy mogę używać Azure Monitor do kontenerów z węzłami i kontenerami systemu Windows?
 
-Tak, jednak Azure Monitor ma zestaw [ograniczeń][azure-monitor] dla pomocy technicznej systemu Windows.
+Tak, jednak Azure Monitor jest w publicznej wersji zapoznawczej na potrzeby zbierania dzienników (stdout, stderr) i metryk z kontenerów systemu Windows. Można również dołączyć strumień strumieni strumienia stdout z kontenera systemu Windows.
 
 ## <a name="what-if-i-need-a-feature-which-is-not-supported"></a>Co zrobić, jeśli potrzebuję funkcji, która nie jest obsługiwana?
 

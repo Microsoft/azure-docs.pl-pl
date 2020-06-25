@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff25cb15257302ac806aa9480d6d7b911eb36d06
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85253294"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339727"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planowanie wdrażania dostępu warunkowego
 
@@ -216,7 +216,7 @@ Tokeny dostępu są domyślnie wysyłane, jeśli warunek zasad urzędu certyfika
 
 ### <a name="minimize-the-number-of-ca-policies"></a>Minimalizacja liczby zasad urzędu certyfikacji
 
-Tworzenie zasad dla każdej aplikacji nie jest wydajne i prowadzi do trudnej administracji. Dostęp warunkowy obejmuje tylko pierwsze zasady 195 dla każdego użytkownika. Zalecamy analizowanie aplikacji i grupowanie ich w aplikacje, które mają takie same wymagania dotyczące zasobów dla tych samych użytkowników. Jeśli na przykład wszystkie aplikacje pakietu Office 365 lub wszystkie aplikacje usługi kadr mają takie same wymagania dla tych samych użytkowników, należy utworzyć pojedynczą zasadę i uwzględnić wszystkie aplikacje, do których ma zastosowanie. 
+Tworzenie zasad dla każdej aplikacji nie jest wydajne i prowadzi do trudnej administracji. Dostęp warunkowy obejmuje tylko pierwsze zasady 195 dla każdego użytkownika. Zalecamy analizowanie aplikacji i grupowanie ich w aplikacje, które mają takie same wymagania dotyczące zasobów dla tych samych użytkowników. Na przykład jeśli wszystkie aplikacje Microsoft 365 lub wszystkie aplikacje kadr mają takie same wymagania dla tych samych użytkowników, należy utworzyć pojedynczą zasadę i uwzględnić wszystkie aplikacje, do których ma zastosowanie. 
 
 ### <a name="set-up-emergency-access-accounts"></a>Konfigurowanie kont dostępu awaryjnego
 

@@ -6,13 +6,13 @@ ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 1/23/2020
-ms.openlocfilehash: 74d8d05ba3c7a061bc78dc4c24a24d6a6275525d
-ms.sourcegitcommit: 5a8c8ac84c36859611158892422fc66395f808dc
+ms.date: 6/10/2020
+ms.openlocfilehash: 3ba7e4b73fb0ac8d6318b7bfee73300800d5b7ee
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84659622"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340782"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Opcje wsparcia technicznego i pomocy usługi Azure IoT
 

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e10d00ed90248319801974c7c1e7fadf835024b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73d4239dd34f2a64aa7b3edbf88bad4348e01291
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81407016"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85356206"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Troubleshoot object synchronization with Azure AD Connect sync (Rozwiązywanie problemów z synchronizacją obiektów w programie Azure AD Connect)
 W tym artykule przedstawiono kroki rozwiązywania problemów z synchronizacją obiektów przy użyciu zadania rozwiązywania problemów. Aby dowiedzieć się, jak działa Rozwiązywanie problemów w programie Azure Active Directory (Azure AD) Connect, Obejrzyj [ten krótki film wideo](https://aka.ms/AADCTSVideo).
@@ -32,7 +32,7 @@ W przypadku wdrożenia usługi Azure AD Connect w wersji 1.1.749.0 lub nowszej u
 Aby uruchomić zadanie rozwiązywania problemów w kreatorze, wykonaj następujące czynności:
 
 1.  Otwórz nową sesję środowiska Windows PowerShell na serwerze Azure AD Connect przy użyciu opcji Uruchom jako administrator.
-2.  Uruchom `Set-ExecutionPolicy RemoteSigned` system `Set-ExecutionPolicy Unrestricted`lub.
+2.  Uruchom system `Set-ExecutionPolicy RemoteSigned` lub `Set-ExecutionPolicy Unrestricted` .
 3.  Uruchom Kreatora Azure AD Connect.
 4.  Przejdź do strony dodatkowe zadania, wybierz pozycję Rozwiązywanie problemów, a następnie kliknij przycisk Dalej.
 5.  Na stronie Rozwiązywanie problemów kliknij przycisk Uruchom, aby uruchomić menu Rozwiązywanie problemów w programie PowerShell.
@@ -43,7 +43,7 @@ Aby uruchomić zadanie rozwiązywania problemów w kreatorze, wykonaj następuj�
 Następujące parametry wejściowe są zbędne przez zadanie rozwiązywania problemów:
 1.  **Nazwa wyróżniająca obiektu** — jest to nazwa wyróżniająca obiektu, który wymaga rozwiązania do rozwiązywania problemów
 2.  **Nazwa łącznika usługi AD** — jest to nazwa lasu usługi AD, w którym znajduje się powyższy obiekt.
-3.  Poświadczenia administratora globalnego dzierżawy ![usługi Azure AD](media/tshoot-connect-objectsync/objsynch1.png)
+3.  Poświadczenia administratora globalnego dzierżawy usługi Azure AD ![](media/tshoot-connect-objectsync/objsynch1.png)
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>Zrozumienie wyników zadania rozwiązywania problemów
 Zadanie rozwiązywania problemów wykonuje następujące sprawdzenia:

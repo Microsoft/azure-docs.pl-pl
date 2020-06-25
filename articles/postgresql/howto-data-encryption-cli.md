@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 77c464f51bd17921052b3ae1e9fefb49e777d6c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7621867aad6baf517462983e35afb0b28223756
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181909"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341314"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Szyfrowanie danych dla Azure Database for PostgreSQL jednego serwera przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -54,16 +54,16 @@ Dowiedz się, jak skonfigurować szyfrowanie danych i zarządzać nimi Azure Dat
 
 1. Istnieją dwa sposoby uzyskania tożsamości zarządzanej dla Azure Database for PostgreSQL jednego serwera.
 
-    ### <a name="create-an-new-azure-database-for-mysql-server-with-a-managed-identity"></a>Utwórz nowy serwer Azure Database for MySQL z tożsamością zarządzaną.
+    ### <a name="create-an-new-azure-database-for-postgresql-server-with-a-managed-identity"></a>Utwórz nowy serwer Azure Database for PostgreSQL z tożsamością zarządzaną.
 
     ```azurecli-interactive
-    az postgres server create --name -g <resource_group> --location <locations> --storage-size <size>  -u <user>-p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled>  --assign-identity
+    az postgres server create --name <server_name> -g <resource_group> --location <location> --storage-size <size>  -u <user> -p <pwd> --backup-retention <7> --sku-name <sku name> --geo-redundant-backup <Enabled/Disabled> --assign-identity
     ```
 
-    ### <a name="update-an-existing-the-azure-database-for-mysql-server-to-get-a-managed-identity"></a>Zaktualizuj istniejący serwer Azure Database for MySQL, aby uzyskać zarządzaną tożsamość.
+    ### <a name="update-an-existing-the-azure-database-for-postgresql-server-to-get-a-managed-identity"></a>Zaktualizuj istniejący serwer Azure Database for PostgreSQL, aby uzyskać zarządzaną tożsamość.
 
     ```azurecli-interactive
-    az postgres server update –name <server name>  -g <resoure_group> --assign-identity
+    az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
 2. Ustaw **uprawnienia klucza** (**pobieranie**, **Zawijanie**, **odpakowywanie) dla** **podmiotu zabezpieczeń**, który jest nazwą serwera PostgreSQL jednego serwera.
@@ -77,7 +77,7 @@ Dowiedz się, jak skonfigurować szyfrowanie danych i zarządzać nimi Azure Dat
 1. Włącz szyfrowanie danych dla Azure Database for PostgreSQL pojedynczego serwera przy użyciu klucza utworzonego w Azure Key Vault.
 
     ```azurecli-interactive
-    az postgres server key create –name  <server name>  -g <resource_group> --kid <key url>
+    az postgres server key create --name <server_name> -g <resource_group> --kid <key_url>
     ```
 
     Adres URL klucza:`https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
@@ -102,7 +102,7 @@ Po zaszyfrowaniu pojedynczego serwera Azure Database for PostgreSQL z kluczem za
 ### <a name="get-the-key-used"></a>Pobierz klucz używany
 
     ```azurecli-interactive
-    az mysql server key show --name  <server name>  -g <resource_group> --kid <key url>
+    az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
     ```
 
     Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: e8c86e88f481c6ad27f551a87afae7547c32a331
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 7e70348ba1638057fdab579c1f2799a0f5aa77a4
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676255"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341363"
 ---
 # <a name="expressroute-routing-requirements"></a>Wymagania dotyczące routingu w usłudze ExpressRoute
 Aby połączyć się z usługami w chmurze firmy Microsoft przy użyciu usługi ExpressRoute, konieczne będzie skonfigurowanie routingu oraz zarządzanie nim. Niektórzy dostawcy połączenia oferują konfigurowanie routingu oraz zarządzanie nim jako usługą zarządzaną. Skontaktuj się z dostawcą połączenia, aby sprawdzić, czy taka usługa jest oferowana. Jeśli nie, musisz spełnić wymagania opisane poniżej:
@@ -153,59 +153,59 @@ Zapoznaj się ze stroną [ExpressRoute partners and peering locations](expressro
 
 Możesz kupić więcej niż jeden obwód usługi ExpressRoute na region geopolityczny. Wiele ofert połączeń daje znaczące korzyści w zakresie wysokiej dostępności z powodu nadmiarowości geograficznej. W przypadkach, gdy masz wiele obwodów usługi ExpressRoute, otrzymasz ten sam zestaw prefiksów anonsowanych od firmy Microsoft na ścieżce komunikacji równorzędnej firmy Microsoft i publicznych komunikacji równorzędnych. Oznacza to, że będziesz mieć wiele ścieżek ze swojej sieci do firmy Microsoft. Może to teoretycznie spowodować podjęcie nieoptymalnych decyzji w zakresie routingu w ramach sieci. W efekcie połączenia z różnymi usługami mogą nie być optymalne. Wartości społeczności gwarantują, że zostaną podjęte odpowiednie decyzje w kwestii routingu i klienci będą mieli zapewniony [optymalny routing do użytkowników](expressroute-optimize-routing.md).
 
-| **Region platformy Microsoft Azure** | **Regionalna społeczność protokołu BGP** | **Społeczność protokołu BGP magazynu** | **Społeczność protokołu BGP SQL** | **Cosmos DB społeczność protokołu BGP** |
-| --- | --- | --- | --- | --- |
+| **Region platformy Microsoft Azure** | **Regionalna społeczność protokołu BGP** | **Społeczność protokołu BGP magazynu** | **Społeczność protokołu BGP SQL** | **Cosmos DB społeczność protokołu BGP** | **Utwórz kopię zapasową społeczności BGP** |
+| --- | --- | --- | --- | --- | --- |
 | **Ameryka Północna** | |
-| Wschodnie stany USA | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
-| Wschodnie stany USA 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
-| Zachodnie stany USA | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
-| Zachodnie stany USA 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
-| Zachodnio-środkowe stany USA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
-| Północno-środkowe stany USA | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
-| Południowo-środkowe stany USA | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
-| Środkowe stany USA | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
-| Kanada Środkowa | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
-| Kanada Wschodnia | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
+| Wschodnie stany USA | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 | 12076:55004 |
+| Wschodnie stany USA 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 | 12076:55005 |
+| Zachodnie stany USA | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
+| Zachodnie stany USA 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
+| Zachodnio-środkowe stany USA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 | 12076:55027 |
+| Północno-środkowe stany USA | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 | 12076:55007 |
+| Południowo-środkowe stany USA | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 | 12076:55008 |
+| Środkowe stany USA | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 | 12076:55009 |
+| Kanada Środkowa | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 | 12076:55020 |
+| Kanada Wschodnia | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 | 12076:55021 |
 | **Ameryka Południowa** | |
-| Brazylia Południowa | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
+| Brazylia Południowa | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 | 12076:55014 |
 | **Europa** | |
-| Europa Północna | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
-| Europa Zachodnia | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
-| Południowe Zjednoczone Królestwo | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
-| Zachodnie Zjednoczone Królestwo | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
-| Francja Środkowa | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
-| Francja Południowa | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
-| Szwajcaria Północna | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
-| Szwajcaria Zachodnia | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
-| Niemcy Północne | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
-| Niemcy Środkowo-Zachodnie | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
-| Norwegia Wschodnia | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
-| Norwegia Zachodnia | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
+| Europa Północna | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 | 12076:55003 |
+| Europa Zachodnia | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 | 12076:55002 |
+| Południowe Zjednoczone Królestwo | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 | 12076:55024 |
+| Zachodnie Zjednoczone Królestwo | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 | 12076:55025 |
+| Francja Środkowa | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 | 12076:55030 |
+| Francja Południowa | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 | 12076:55031 |
+| Szwajcaria Północna | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 12076:55038 |
+| Szwajcaria Zachodnia | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 12076:55039 | 
+| Niemcy Północne | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 12076:55040 | 
+| Niemcy Środkowo-Zachodnie | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 12076:55041 | 
+| Norwegia Wschodnia | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 12076:55042 | 
+| Norwegia Zachodnia | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 12076:55043 | 
 | **Azja i Pacyfik** | |
-| Azja Wschodnia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
-| Azja Południowo-Wschodnia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
+| Azja Wschodnia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 | 12076:55010 |
+| Azja Południowo-Wschodnia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
 | **Japonia** | |
-| Japonia Wschodnia | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
-| Japonia Zachodnia | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
+| Japonia Wschodnia | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
+| Japonia Zachodnia | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
 | **Australia** | |
-| Australia Wschodnia | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
-| Australia Południowo-Wschodnia | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
+| Australia Wschodnia | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 | 12076:55015 |
+| Australia Południowo-Wschodnia | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
 | **Australia — instytucje rządowe** | |
-| Australia Środkowa | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
-| Australia Środkowa 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |
+| Australia Środkowa | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 | 12076:55032 |
+| Australia Środkowa 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 | 12076:55033 |
 | **Indie** | |
-| Indie Południowe | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 |
-| Indie Zachodnie | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
-| Indie Środkowe | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
+| Indie Południowe | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 | 12076:55019 |
+| Indie Zachodnie | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 | 12076:55018 |
+| Indie Środkowe | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 | 12076:55017 |
 | **Korea** | |
-| Korea Południowa | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
-| Korea Środkowa | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
+| Korea Południowa | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 | 12076:55028 |
+| Korea Środkowa | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 | 12076:55029 |
 | **Republika Południowej Afryki**| |
-| Północna Republika Południowej Afryki | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| Zachodnia Republika Południowej Afryki | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| Północna Republika Południowej Afryki | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 | 12076:55034 |
+| Zachodnia Republika Południowej Afryki | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 | 12076:55035 |
 | **Zjednoczone Emiraty Arabskie**| |
-| Północne Zjednoczone Emiraty Arabskie | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
-| Środkowy Zjednoczone Emiraty Arabskie | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
+| Północne Zjednoczone Emiraty Arabskie | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 | 12076:55036 |
+| Środkowy Zjednoczone Emiraty Arabskie | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 | 12076:55037 |
 
 
 Wszystkie trasy anonsowane przez firmę Microsoft zostaną oznaczone odpowiednią wartością społeczności. 
@@ -226,6 +226,7 @@ Oprócz tego firma Microsoft oznaczy również prefiksy w oparciu o usługę, do
 | CRM Online\*\*\*\* |12076:5040 |
 | Usługi globalne platformy Azure\* | 12076:5050 |
 | Usługa Azure Active Directory |12076:5060 |
+| Azure Resource Manager |12076:5070 |
 | Inne usługi online pakietu Office 365 * * | 12076:5100 |
 
 \*W tej chwili usługi globalne platformy Azure zawierają tylko usługę Azure DevOps.

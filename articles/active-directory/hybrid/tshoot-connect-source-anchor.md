@@ -6,16 +6,16 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fac33a01afc2efc1ab06c4783c11f7a089bb6208
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: cb82eb2d8e23daec0ddb8856b713c1aa051f25c5
+ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "62114159"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85355951"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>Rozwiązywanie problemów z kotwicą źródła podczas instalacji
 W tym artykule wyjaśniono różne problemy związane z kotwicą źródłową, które mogą wystąpić podczas instalacji i przedstawiono sposoby rozwiązania tych problemów.

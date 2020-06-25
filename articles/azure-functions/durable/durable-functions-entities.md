@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4f45ac40e7df865bdb4722d086325096c377cd59
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877546"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341558"
 ---
 # <a name="entity-functions"></a>Funkcje jednostki
 
@@ -18,7 +18,7 @@ Funkcje Entity definiują operacje umożliwiające odczytywanie i aktualizowanie
 Jednostki zapewniają metodę skalowania aplikacji przez dystrybuowanie pracy między wieloma jednostkami, z których każdy ma stan o nieokreślonym rozmiarze.
 
 > [!NOTE]
-> Funkcje jednostki i powiązane funkcje są dostępne tylko w Durable Functions 2,0 i nowszych.
+> Funkcje jednostki i powiązane funkcje są dostępne tylko w Durable Functions 2,0 i nowszych. Są one obecnie obsługiwane w językach .NET i JavaScript.
 
 ## <a name="general-concepts"></a>Pojęcia ogólne
 
@@ -32,14 +32,14 @@ Do jednostek uzyskuje się dostęp za pośrednictwem unikatowego identyfikatora,
 * **Nazwa jednostki**, która jest nazwą identyfikującą typ jednostki. Przykładem jest "licznik". Ta nazwa musi być zgodna z nazwą funkcji jednostki implementującej jednostkę. Wielkość liter nie jest uwzględniana.
 * **Klucz jednostki**, który jest ciągiem, który jednoznacznie identyfikuje jednostkę między wszystkimi innymi jednostkami o tej samej nazwie. Przykładem jest identyfikator GUID.
 
-Na przykład funkcja `Counter` Entity może być używana do przechowywania wyników w grze online. Każde wystąpienie gry ma unikatowy identyfikator jednostki, na `@Counter@Game1` przykład i. `@Counter@Game2` Wszystkie operacje przeznaczone dla określonej jednostki wymagają określenia identyfikatora jednostki jako parametru.
+Na przykład `Counter` Funkcja Entity może być używana do przechowywania wyników w grze online. Każde wystąpienie gry ma unikatowy identyfikator jednostki, na przykład `@Counter@Game1` i `@Counter@Game2` . Wszystkie operacje przeznaczone dla określonej jednostki wymagają określenia identyfikatora jednostki jako parametru.
 
 ### <a name="entity-operations"></a>Operacje na jednostkach ###
 
 Aby wywołać operację na jednostce, określ:
 
 * **Identyfikator jednostki** docelowej.
-* **Nazwa operacji**, która jest ciągiem, który określa operację do wykonania. Na przykład `Counter` jednostka może obsługiwać `add`, `get`, lub `reset` operacje.
+* **Nazwa operacji**, która jest ciągiem, który określa operację do wykonania. Na przykład `Counter` Jednostka może obsługiwać `add` , `get` , lub `reset` operacje.
 * **Wejście operacji**, który jest opcjonalnym parametrem wejściowym dla operacji. Na przykład operacja dodawania może przyjmować liczbę całkowitą jako dane wejściowe.
 * **Zaplanowany czas**, który jest opcjonalnym parametrem służącym do określania czasu dostarczania operacji. Na przykład operacja może być niezawodnie zaplanowana do uruchomienia kilku dni w przyszłości.
 
@@ -55,11 +55,11 @@ Obecnie są dostępne dwa różne interfejsy API służące do definiowania jedn
 
 **Składnia oparta na klasie (tylko platforma .NET)**, gdzie jednostki i operacje są reprezentowane przez klasy i metody. Ta składnia daje łatwiejszy do odczytu kod i umożliwia wywoływanie operacji w sposób bezpieczny dla typu. Składnia oparta na klasie jest cienką warstwą na podstawie składni opartej na funkcjach, dlatego można używać obu wariantów zamiennie w tej samej aplikacji.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>Przykład: Składnia oparta na funkcjach-C #
 
-Poniższy kod jest przykładem prostej `Counter` jednostki wdrożonej jako funkcja trwała. Ta funkcja definiuje trzy operacje, `add`, `reset`, i `get`, z których każda działa na stanie liczby całkowitej.
+Poniższy kod jest przykładem prostej `Counter` jednostki wdrożonej jako funkcja trwała. Ta funkcja definiuje trzy operacje, `add` , `reset` , i `get` , z których każda działa na stanie liczby całkowitej.
 
 ```csharp
 [FunctionName("Counter")]
@@ -105,7 +105,7 @@ public class Counter
 }
 ```
 
-Stan tej jednostki jest obiektem typu `Counter`, który zawiera pole przechowujące bieżącą wartość licznika. Aby zachować ten obiekt w magazynie, jest on serializowany i deserializowany przez bibliotekę [JSON.NET](https://www.newtonsoft.com/json) . 
+Stan tej jednostki jest obiektem typu `Counter` , który zawiera pole przechowujące bieżącą wartość licznika. Aby zachować ten obiekt w magazynie, jest on serializowany i deserializowany przez bibliotekę [JSON.NET](https://www.newtonsoft.com/json) . 
 
 Aby uzyskać więcej informacji na temat składni opartej na klasie i korzystania z niej, zobacz [Definiowanie klas jednostek](durable-functions-dotnet-entities.md#defining-entity-classes).
 
@@ -115,7 +115,7 @@ Aby uzyskać więcej informacji na temat składni opartej na klasie i korzystani
 
 Trwałe jednostki są dostępne w języku JavaScript, począwszy **1.3.0** od wersji 1.3.0 `durable-functions` pakietu npm. Poniższy kod jest `Counter` jednostką zaimplementowaną jako funkcja trwała zapisywana w języku JavaScript.
 
-**Counter/Function. JSON**
+**Licznik/function.jsna**
 ```json
 {
   "bindings": [
@@ -129,7 +129,7 @@ Trwałe jednostki są dostępne w języku JavaScript, począwszy **1.3.0** od we
 }
 ```
 
-**Licznik/index. js**
+**Licznik/index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -171,7 +171,7 @@ W poniższych przykładach przedstawiono różne sposoby uzyskiwania dostępu do
 
 Aby uzyskać dostęp do jednostek z zwykłej funkcji platformy Azure, która jest również znana jako funkcja klienta, należy użyć [powiązania klienta jednostki](durable-functions-bindings.md#entity-client). Poniższy przykład pokazuje funkcję wyzwalaną przez kolejkę przy użyciu tego powiązania.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 > [!NOTE]
 > Dla uproszczenia w poniższych przykładach przedstawiono składnię o jednoznacznie określonym typie na potrzeby uzyskiwania dostępu do jednostek. Ogólnie rzecz biorąc, zalecamy [dostęp do jednostek za za poorednictwem interfejsów](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) , ponieważ zapewnia ona większą kontrolę typów.
@@ -209,7 +209,7 @@ Termin " *sygnał* " oznacza, że wywołanie interfejsu API jednostki jest jedno
 
 Funkcje klienta programu mogą również wysyłać zapytania o stan jednostki, jak pokazano w następującym przykładzie:
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -244,7 +244,7 @@ Zapytania o stan jednostki są wysyłane do magazynu trwałego śledzenia i zwra
 
 Funkcje programu Orchestrator mogą uzyskiwać dostęp do jednostek przy użyciu interfejsów API w ramach [powiązania wyzwalacza aranżacji](durable-functions-bindings.md#orchestration-trigger). Poniższy przykładowy kod pokazuje funkcję programu Orchestrator wywołującą i sygnalizującą `Counter` jednostkę.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -291,7 +291,7 @@ Tylko aranżacje mogą wywołać jednostki i uzyskać odpowiedź, co może być 
 Funkcja Entity może wysyłać sygnały do innych jednostek, a nawet do siebie, podczas gdy wykonuje operację.
 Na przykład można zmodyfikować poprzedni `Counter` przykład jednostki, aby wysyłał sygnał "punkt kontrolny" do pewnej jednostki monitora, gdy licznik osiągnie wartość 100.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -330,7 +330,7 @@ Mogą wystąpić sytuacje, w których trzeba skoordynować operacje w wielu jedn
 Poniższy przykładowy kod transferuje fundusze między dwiema jednostkami kont przy użyciu funkcji programu Orchestrator. Koordynacja aktualizacji jednostek wymaga użycia `LockAsync` metody do utworzenia _sekcji krytycznej_ w aranżacji.
 
 > [!NOTE]
-> Dla uproszczenia w tym przykładzie użyto wcześniej `Counter` zdefiniowanej jednostki. W rzeczywistej aplikacji lepiej jest zdefiniować bardziej szczegółową `BankAccount` jednostkę.
+> Dla uproszczenia w tym przykładzie użyto `Counter` wcześniej zdefiniowanej jednostki. W rzeczywistej aplikacji lepiej jest zdefiniować bardziej szczegółową `BankAccount` jednostkę.
 
 ```csharp
 // This is a method called by an orchestrator function
@@ -372,16 +372,16 @@ public static async Task<bool> TransferFundsAsync(
 }
 ```
 
-W programie .NET `LockAsync` program `IDisposable`zwraca, co spowoduje zakończenie sekcji krytycznej po jej zlikwidowaniu. Tego `IDisposable` wyniku można używać razem z `using` blokiem, aby uzyskać składniową reprezentację sekcji krytycznej.
+W programie .NET program `LockAsync` zwraca `IDisposable` , co spowoduje zakończenie sekcji krytycznej po jej zlikwidowaniu. Tego `IDisposable` wyniku można używać razem z `using` blokiem, aby uzyskać składniową reprezentację sekcji krytycznej.
 
-W poprzednim przykładzie funkcja programu Orchestrator przesłała fundusze z jednostki źródłowej do jednostki docelowej. `LockAsync` Metoda została zablokowana zarówno dla jednostki konta źródłowego, jak i docelowego. To blokowanie zapewnia, że żaden inny klient nie może wykonać zapytania lub zmodyfikować stanu jednego z kont, dopóki logika aranżacji nie zakończyła sekcji krytycznej na `using` końcu instrukcji. Takie zachowanie zapobiega możliwości przekroczenia liczby projektów z konta źródłowego.
+W poprzednim przykładzie funkcja programu Orchestrator przesłała fundusze z jednostki źródłowej do jednostki docelowej. `LockAsync`Metoda została zablokowana zarówno dla jednostki konta źródłowego, jak i docelowego. To blokowanie zapewnia, że żaden inny klient nie może wykonać zapytania lub zmodyfikować stanu jednego z kont, dopóki logika aranżacji nie zakończyła sekcji krytycznej na końcu `using` instrukcji. Takie zachowanie zapobiega możliwości przekroczenia liczby projektów z konta źródłowego.
 
 > [!NOTE] 
 > Gdy aranżacja kończy się, zwykle lub z powodu błędu, wszelkie krytyczne sekcje w toku są niejawnie zakończone i wszystkie blokady są zwalniane.
 
 ### <a name="critical-section-behavior"></a>Zachowanie sekcji krytycznej
 
-`LockAsync` Metoda tworzy sekcję krytyczną w aranżacji. Te krytyczne sekcje uniemożliwiają innym aranżacjom wprowadzanie nakładających się zmian do określonego zestawu jednostek. Wewnętrznie `LockAsync` interfejs API wysyła do jednostek operacje "Lock" i zwraca, gdy odbierze komunikat odpowiedzi "Zablokuj pobrany" z każdej z tych samych jednostek. Blokady i odblokowywanie to wbudowane operacje obsługiwane przez wszystkie jednostki.
+`LockAsync`Metoda tworzy sekcję krytyczną w aranżacji. Te krytyczne sekcje uniemożliwiają innym aranżacjom wprowadzanie nakładających się zmian do określonego zestawu jednostek. Wewnętrznie `LockAsync` interfejs API wysyła do jednostek operacje "Lock" i zwraca, gdy odbierze komunikat odpowiedzi "Zablokuj pobrany" z każdej z tych samych jednostek. Blokady i odblokowywanie to wbudowane operacje obsługiwane przez wszystkie jednostki.
 
 Żadna operacja z innych klientów nie jest dozwolona w jednostce, gdy jest w stanie zablokowanym. Takie zachowanie zapewnia, że tylko jedno wystąpienie aranżacji może blokować jednostkę jednocześnie. Jeśli obiekt wywołujący podejmie próbę wywołania operacji na jednostce, gdy jest ona zablokowana przez aranżację, ta operacja zostanie umieszczona w kolejce oczekujących operacji. Żadne oczekujące operacje nie są przetwarzane do momentu, gdy organizacja holdingowa zwolni blokadę.
 

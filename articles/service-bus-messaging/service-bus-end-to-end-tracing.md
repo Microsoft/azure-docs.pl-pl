@@ -1,24 +1,14 @@
 ---
 title: Azure Service Bus kompleksowe śledzenie i Diagnostyka | Microsoft Docs
 description: Przegląd Service Bus diagnostyki klienta i kompleksowego śledzenia (klient przez wszystkie usługi, które są związane z przetwarzaniem).
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: aschhab
-ms.openlocfilehash: 7c2efc9c736097873201505f280af5d47bed4847
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/23/2020
+ms.openlocfilehash: 6138d3d6424364f28f55f81044768acb894bc651
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294175"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340732"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Śledzenie rozproszone i korelacja za poorednictwem Service Bus Messaging
 
@@ -81,7 +71,7 @@ async Task ProcessAsync(Message message)
 ```
 
 W tym przykładzie `RequestTelemetry` jest raportowany dla każdego przetworzonego komunikatu, który ma sygnaturę czasową, czas trwania i wynik (powodzenie). Dane telemetryczne zawierają również zestaw właściwości korelacji.
-Zagnieżdżone dane `RequestTelemetry`śledzenia i wyjątki zgłoszone podczas przetwarzania komunikatu są również sygnaturą z właściwościami korelacji reprezentującymi je jako elementy podrzędne elementu.
+Zagnieżdżone dane śledzenia i wyjątki zgłoszone podczas przetwarzania komunikatu są również sygnaturą z właściwościami korelacji reprezentującymi je jako elementy podrzędne elementu `RequestTelemetry` .
 
 W przypadku tworzenia wywołań do obsługiwanych składników zewnętrznych podczas przetwarzania komunikatów są one również automatycznie śledzone i skorelowane. Zapoznaj się z tematem [śledzenie operacji niestandardowych przy użyciu zestawu SDK platformy Application Insights .NET](../azure-monitor/app/custom-operations-tracking.md) do ręcznego śledzenia i korelacji.
 
@@ -155,7 +145,7 @@ Wszystkie zdarzenia mają również właściwości "Entity" i "Endpoint", które
   * `string Entity`--Nazwa jednostki (kolejki, tematu itp.)
   * `Uri Endpoint`-Service Bus adres URL punktu końcowego
 
-Każde zdarzenie "Stop" ma `Status` właściwość z `TaskStatus` operacją asynchroniczną została ukończona z, która jest również pomijana w poniższej tabeli dla uproszczenia.
+Każde zdarzenie "Stop" ma `Status` Właściwość z `TaskStatus` operacją asynchroniczną została ukończona z, która jest również pomijana w poniższej tabeli dla uproszczenia.
 
 Oto pełna lista operacji Instrumentacji:
 
@@ -183,15 +173,15 @@ Oto pełna lista operacji Instrumentacji:
 | Microsoft. Azure. ServiceBus. RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId`-Identyfikator sesji znajdujący się w wiadomościach. |
 | Microsoft. Azure. ServiceBus. Exception | dowolny interfejs API instrumentacji| `Exception Exception`-Wystąpienie wyjątku |
 
-W każdym zdarzeniu można uzyskać dostęp `Activity.Current` do, który zawiera bieżący kontekst operacji.
+W każdym zdarzeniu można uzyskać dostęp do `Activity.Current` , który zawiera bieżący kontekst operacji.
 
 #### <a name="logging-additional-properties"></a>Rejestrowanie dodatkowych właściwości
 
 `Activity.Current`zawiera szczegółowy kontekst bieżącej operacji i jej obiektów nadrzędnych. Aby uzyskać więcej informacji, zobacz dokumentację dotyczącą [działania](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) , aby uzyskać więcej szczegółów.
-Instrumentacja Service Bus zapewnia dodatkowe informacje w `Activity.Current.Tags` ich wstrzymaniu `MessageId` i `SessionId` za każdym razem, gdy są dostępne.
+Instrumentacja Service Bus zapewnia dodatkowe informacje w ich `Activity.Current.Tags` wstrzymaniu `MessageId` i `SessionId` za każdym razem, gdy są dostępne.
 
-Działania śledzące zdarzenie "Receive", "Peek" i "ReceiveDeferred" mogą także mieć `RelatedTo` tag. Zawiera ona odrębną listę `Diagnostic-Id`(y) komunikatów, które zostały odebrane w wyniku.
-Takie działanie może spowodować odebranie kilku niepowiązanych komunikatów. Ponadto nie `Diagnostic-Id` jest znana, gdy operacja zostanie uruchomiona, więc operacje "Receive" mogą być skorelowane dla operacji "Process" tylko przy użyciu tego tagu. Jest to przydatne podczas analizowania problemów z wydajnością, aby sprawdzić, jak długo trwało odbieranie komunikatów.
+Działania śledzące zdarzenie "Receive", "Peek" i "ReceiveDeferred" mogą także mieć `RelatedTo` tag. Zawiera ona odrębną listę `Diagnostic-Id` (y) komunikatów, które zostały odebrane w wyniku.
+Takie działanie może spowodować odebranie kilku niepowiązanych komunikatów. Ponadto `Diagnostic-Id` nie jest znana, gdy operacja zostanie uruchomiona, więc operacje "Receive" mogą być skorelowane dla operacji "Process" tylko przy użyciu tego tagu. Jest to przydatne podczas analizowania problemów z wydajnością, aby sprawdzić, jak długo trwało odbieranie komunikatów.
 
 Wydajnym sposobem rejestrowania tagów jest przetestowanie nad nimi, więc dodanie tagów do powyższego przykładu wygląda jak 
 
@@ -217,19 +207,19 @@ W niektórych przypadkach wskazane jest zarejestrowanie tylko części zdarzeń,
 
 `IsEnabled`jest wywoływana w następującej kolejności:
 
-1. `IsEnabled(<OperationName>, string entity, null)`na przykład `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")`. Pamiętaj, że na końcu nie ma żadnego "Start" lub "Stop". Służy do filtrowania określonych operacji lub kolejek. Jeśli wywołanie zwrotne zwraca `false`, zdarzenia dla operacji nie są wysyłane
+1. `IsEnabled(<OperationName>, string entity, null)`na przykład `IsEnabled("Microsoft.Azure.ServiceBus.Send", "MyQueue1")` . Pamiętaj, że na końcu nie ma żadnego "Start" lub "Stop". Służy do filtrowania określonych operacji lub kolejek. Jeśli wywołanie zwrotne zwraca `false` , zdarzenia dla operacji nie są wysyłane
 
-   * W przypadku operacji "Process" i "ProcessSession" otrzymasz `IsEnabled(<OperationName>, string entity, Activity activity)` również wywołanie zwrotne. Służy do filtrowania zdarzeń na podstawie właściwości `activity.Id` tagów lub.
+   * W przypadku operacji "Process" i "ProcessSession" otrzymasz również `IsEnabled(<OperationName>, string entity, Activity activity)` wywołanie zwrotne. Służy do filtrowania zdarzeń na podstawie `activity.Id` Właściwości tagów lub.
   
-2. `IsEnabled(<OperationName>.Start)`na przykład `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")`. Sprawdza, czy zdarzenie "Start" powinno być wyzwalane. Wynik dotyczy tylko zdarzenia "Start", ale dalsze Instrumentacja nie jest od niego zależne.
+2. `IsEnabled(<OperationName>.Start)`na przykład `IsEnabled("Microsoft.Azure.ServiceBus.Send.Start")` . Sprawdza, czy zdarzenie "Start" powinno być wyzwalane. Wynik dotyczy tylko zdarzenia "Start", ale dalsze Instrumentacja nie jest od niego zależne.
 
-Nie `IsEnabled` ma dla zdarzenia "Stop".
+Nie ma `IsEnabled` dla zdarzenia "Stop".
 
 Jeśli wynikiem operacji jest wyjątek, `IsEnabled("Microsoft.Azure.ServiceBus.Exception")` jest wywoływana. Można zasubskrybować tylko zdarzenia "Exception" i uniemożliwić resztę Instrumentacji. W takim przypadku nadal trzeba obsługiwać takie wyjątki. Ponieważ inne Instrumentacja jest wyłączona, nie należy oczekiwać kontekstu śledzenia do przepływu z komunikatami od konsumenta do producenta.
 
 Można użyć `IsEnabled` również strategii próbkowania. Próbkowanie oparte na `Activity.Id` lub `Activity.RootId` zapewnia spójne próbkowanie na wszystkich oponach (o ile jest propagowane przez system śledzenia lub przez własny kod).
 
-W obecności wielu `DiagnosticSource` odbiorników dla tego samego źródła wystarcza tylko jeden odbiornik do zaakceptowania zdarzenia, więc nie ma `IsEnabled` gwarancji, że jest on wywoływany,
+W obecności wielu `DiagnosticSource` odbiorników dla tego samego źródła wystarcza tylko jeden odbiornik do zaakceptowania zdarzenia, więc `IsEnabled` nie ma gwarancji, że jest on wywoływany,
 
 ## <a name="next-steps"></a>Następne kroki
 

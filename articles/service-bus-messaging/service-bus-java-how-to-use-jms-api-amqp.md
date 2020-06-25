@@ -1,25 +1,15 @@
 ---
 title: Korzystanie z AMQP z interfejsem API usługi komunikatów Java & Azure Service Bus
 description: Jak używać usługi wiadomości Java (JMS) z Azure Service Bus i Advanced Message Queuing Protocol (AMQP) 1,0.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-editor: spelluru
-ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: Java
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cd06838abbb69af5684fdea18c42f6a8f95ffe2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ccea6175d0baec56b609538d15c32892bb2edff0
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77371250"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341735"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Korzystanie z usługi wiadomości Java (JMS) z Azure Service Bus i AMQP 1,0
 W tym artykule wyjaśniono, jak używać funkcji Azure Service Bus Messaging (kolejek i publikowania/subskrybowania tematów) z aplikacji Java przy użyciu popularnego interfejsu API usługi komunikatów języka Java (JMS). Istnieje [artykuł towarzyszący](service-bus-amqp-dotnet.md) , w którym wyjaśniono, jak to zrobić za pomocą interfejsu API programu Azure Service Bus .NET. Za pomocą tych dwóch przewodników można dowiedzieć się więcej na temat obsługi komunikatów na wielu platformach przy użyciu AMQP 1,0.
@@ -29,7 +19,7 @@ Advanced Message Queuing Protocol (AMQP) 1,0 to wydajny, niezawodny protokół o
 Obsługa AMQP 1,0 w Azure Service Bus oznacza, że można używać funkcji kolejkowania i publikowania/subskrybowania komunikatów obsługiwanych przez brokera z różnych platform przy użyciu wydajnego protokołu binarnego. Ponadto można tworzyć aplikacje składające się ze składników utworzonych przy użyciu różnych języków, struktur i systemów operacyjnych.
 
 ## <a name="get-started-with-service-bus"></a>Rozpoczynanie pracy z usługą Service Bus
-W tym przewodniku przyjęto założenie, że masz już Service Bus przestrzeń `basicqueue`nazw zawierającą kolejkę o nazwie. Jeśli tego nie zrobisz, możesz [utworzyć przestrzeń nazw i kolejkę](service-bus-create-namespace-portal.md) za pomocą [Azure Portal](https://portal.azure.com). Aby uzyskać więcej informacji na temat sposobu tworzenia Service Bus obszarów nazw i kolejek, zobacz [Rozpoczynanie pracy z kolejkami Service Bus](service-bus-dotnet-get-started-with-queues.md).
+W tym przewodniku przyjęto założenie, że masz już Service Bus przestrzeń nazw zawierającą kolejkę o nazwie `basicqueue` . Jeśli tego nie zrobisz, możesz [utworzyć przestrzeń nazw i kolejkę](service-bus-create-namespace-portal.md) za pomocą [Azure Portal](https://portal.azure.com). Aby uzyskać więcej informacji na temat sposobu tworzenia Service Bus obszarów nazw i kolejek, zobacz [Rozpoczynanie pracy z kolejkami Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Partycjonowane kolejki i tematy obsługują również AMQP. Aby uzyskać więcej informacji, zobacz [partycjonowane jednostki obsługi komunikatów](service-bus-partitioning.md) i [obsługę AMQP 1,0 Service Bus dla kolejek i tematów z podziałem na partycje](service-bus-partitioned-queues-and-topics-amqp-overview.md).
@@ -37,11 +27,11 @@ W tym przewodniku przyjęto założenie, że masz już Service Bus przestrzeń `
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Pobieranie biblioteki klienckiej AMQP 1,0 JMS
-Aby uzyskać informacje o tym, gdzie pobrać najnowszą wersję biblioteki klienta Apache Qpid JMS AMQP 1,0, odwiedź stronę [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+Aby uzyskać informacje o tym, gdzie pobrać najnowszą wersję biblioteki klienta Apache Qpid JMS AMQP 1,0, odwiedź stronę [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html) .
 
 Podczas kompilowania i uruchamiania aplikacji JMS z Service Bus należy dodać następujące cztery pliki JAR z archiwum dystrybucji dystrybucyjnej systemu Apache Qpid JMS AMQP 1,0 do ścieżki w języku Java.
 
-* Geronimo-JMS\_1,1\_spec-1.0. jar
+* Geronimo-JMS \_ 1,1 \_ spec-1.0. jar
 * qpid-JMS-Client-[wersja]. jar
 
 > [!NOTE]
@@ -121,7 +111,7 @@ MessageConsumer consumer = session.createConsumer(queue);
 W przypadku korzystania z programu JMS z Service Bus nie są wymagane żadne specjalne interfejsy API ani opcje. Istnieje jednak kilka ograniczeń, które zostaną omówione w przyszłości. Podobnie jak w przypadku dowolnej aplikacji JMS, najpierw wymagane jest konfiguracja środowiska JNDI, aby można było rozpoznać **ConnectionFactory** i miejsc docelowych.
 
 #### <a name="configure-the-jndi-initialcontext"></a>Konfigurowanie InitialContext JNDI
-Środowisko JNDI jest konfigurowane przez przekazanie obiektu Hashtable informacji konfiguracyjnych do konstruktora klasy javax. nazwa. InitialContext. Dwa wymagane elementy w elemencie Hashtable są nazwą klasy początkowej fabryki kontekstu i adresem URL dostawcy. Poniższy kod przedstawia sposób konfigurowania środowiska JNDI do używania dostawcy JNDI na podstawie właściwości Qpid z plikiem właściwości o nazwie **ServiceBus. Properties**.
+Środowisko JNDI jest konfigurowane przez przekazanie tablicy skrótów informacji o konfiguracji do konstruktora klasy javax.naming.InitialContext. Dwa wymagane elementy w elemencie Hashtable są nazwą klasy początkowej fabryki kontekstu i adresem URL dostawcy. Poniższy kod przedstawia sposób konfigurowania środowiska JNDI do używania dostawcy JNDI na podstawie właściwości Qpid z plikiem właściwości o nazwie **ServiceBus. Properties**.
 
 ```java
 // set up JNDI context

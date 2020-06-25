@@ -3,14 +3,14 @@ title: Wdrażanie hybrydowego procesu roboczego elementu Runbook w systemie Linu
 description: W tym artykule opisano sposób instalowania Azure Automation hybrydowego procesu roboczego elementu Runbook w celu uruchamiania elementów Runbook na maszynach z systemem Linux w lokalnym środowisku centrum danych lub w chmurze.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/17/2020
+ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: a8679c189e77fe7b191a645b07c68b6101604644
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: c569c83ed0bc5d78f0e5670c802188ee9fd8fd53
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079158"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340791"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Linux
 
@@ -120,13 +120,25 @@ Aby zainstalować i skonfigurować hybrydowy proces roboczy elementu Runbook sys
 
     W wynikach wyszukiwania powinny być widoczne rekordy pulsu dla maszyny, co oznacza, że jest ona podłączona i zgłaszana do usługi. Domyślnie każdy agent przekazuje rekord pulsu do przypisanego im obszaru roboczego.
 
-3. Uruchom następujące polecenie, aby dodać maszynę do grupy hybrydowych procesów roboczych elementu Runbook, zmieniając wartości parametrów *-w*, *-k*, *-g*i *-e*. Dla parametru *-g* Zastąp wartość nazwą grupy hybrydowych procesów roboczych elementu Runbook, do której ma zostać dołączony nowy hybrydowy proces roboczy elementu Runbook systemu Linux. Jeśli nazwa nie istnieje na koncie usługi Automation, zostanie utworzona nowa grupa hybrydowych procesów roboczych elementu Runbook o tej nazwie.
+3. Uruchom następujące polecenie, aby dodać maszynę do grupy hybrydowych procesów roboczych elementu Runbook, określając wartości parametrów `-w` ,, `-k` `-g` i `-e` .
+
+    Możesz uzyskać informacje wymagane do parametrów `-k` i `-e` ze strony **klucze** na koncie usługi Automation. Wybierz pozycję **klucze** w sekcji **Ustawienia konta** w lewej części strony.
+
+    ![Strona zarządzania kluczami](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
+
+    * Dla `-e` parametru skopiuj wartość **adresu URL**.
+
+    * Dla `-k` parametru skopiuj wartość **podstawowy klucz dostępu**.
+
+    * Dla `-g` parametru Określ nazwę grupy hybrydowych procesów roboczych elementu Runbook, która ma zostać przyłączona do nowego hybrydowego procesu roboczego elementu Runbook systemu Linux. Jeśli ta grupa już istnieje na koncie usługi Automation, do niej zostanie dodany bieżący komputer. Jeśli ta grupa nie istnieje, zostanie utworzona przy użyciu tej nazwy.
+
+    * Dla `-w` parametru Określ identyfikator obszaru roboczego log Analytics.
 
    ```bash
    sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/onboarding.py --register -w <logAnalyticsworkspaceId> -k <automationSharedKey> -g <hybridGroupName> -e <automationEndpoint>
    ```
 
-4. Po zakończeniu działania polecenia na stronie grupy hybrydowych procesów roboczych w Azure Portal zostanie wyświetlona nowa grupa i liczba członków. Jeśli jest to istniejąca Grupa, liczba członków jest zwiększana. Możesz wybrać grupę z listy na stronie grupy hybrydowych procesów roboczych i wybrać kafelek **hybrydowe procesy** robocze. Na stronie hybrydowe procesy robocze zobaczysz każdego członka grupy na liście.
+4. Po zakończeniu działania polecenia na stronie grupy hybrydowych procesów roboczych na koncie usługi Automation zostanie wyświetlona nowa grupa i liczba członków. Jeśli jest to istniejąca Grupa, liczba członków jest zwiększana. Możesz wybrać grupę z listy na stronie grupy hybrydowych procesów roboczych i wybrać kafelek **hybrydowe procesy** robocze. Na stronie hybrydowe procesy robocze zobaczysz każdego członka grupy na liście.
 
     > [!NOTE]
     > Jeśli używasz rozszerzenia maszyny wirtualnej Log Analytics dla systemu Linux dla maszyny wirtualnej platformy Azure, zalecamy ustawienie opcji `autoUpgradeMinorVersion` `false` Autouaktualnianie wersji może spowodować problemy z hybrydowym procesem roboczym elementu Runbook. Aby dowiedzieć się, jak ręcznie uaktualnić rozszerzenie, zobacz [wdrażanie interfejsu wiersza polecenia platformy Azure](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bf1303c6bb13677fdea73b2a1a707c655c58b7c1
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: 2cff9a427cf395414c5b0778f51f4587c8578478
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84945668"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85340915"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -65,7 +65,7 @@ Użyj tej tabeli jako przewodnika:
 
 | Typ magazynu | Obecnie obsługiwana metoda autoryzacji |
 |--|--|
-|**BLOB Storage** | Usługa Azure AD & SAS |
+|**Blob Storage** | Usługa Azure AD & SAS |
 |**BLOB Storage (hierarchiczna przestrzeń nazw)** | Usługa Azure AD & SAS |
 |**Magazyn plików** | Tylko SAS |
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/14/2019
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e379b81fafb156b1ea71a8992abfdc060065b8b2
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 59502e01a96b603067bd80b92bcf49136f8cef4e
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763180"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85339162"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Korzystanie z raportu działania aplikacji AD FS (wersja zapoznawcza) w celu migrowania aplikacji do usługi Azure AD
 
@@ -36,8 +36,9 @@ AD FS dane działania aplikacji są dostępne dla użytkowników, którym przypi
 
 * Twoja organizacja musi obecnie używać AD FS, aby uzyskiwać dostęp do aplikacji.
 * Należy włączyć Azure AD Connect Health w dzierżawie usługi Azure AD.
+* Azure AD Connect Health agenta AD FS musi być zainstalowany.
    * [Dowiedz się więcej o Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)
-   * [Wprowadzenie do konfigurowania Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+   * [Wprowadzenie do konfigurowania Azure AD Connect Health i instalowania agenta AD FS](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
 
 ## <a name="discover-ad-fs-applications-that-can-be-migrated"></a>Odkryj AD FS aplikacje, które można migrować 
 

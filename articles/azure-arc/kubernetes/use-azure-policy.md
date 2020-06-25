@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Użyj Azure Policy, aby zastosować konfiguracje klastra na dużą skalę
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: 80ffd70b830483c548f29a029d448bb6b480a8d4
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 4c013fe562d89bff4d1ce9c9f3e832e1b51c70f1
+ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676203"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85341379"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Użyj Azure Policy, aby zastosować konfiguracje klastra na dużą skalę (wersja zapoznawcza)
 
@@ -26,14 +26,14 @@ Jeśli używasz wielu repozytoriów Git jako źródeł prawdy dla każdego klast
 ## <a name="create-a-policy-assignment"></a>Tworzenie przypisania zasad
 
 1. W Azure Portal przejdź do zasad i w sekcji **Tworzenie** na pasku bocznym wybierz pozycję **definicje**.
-2. Wybierz wbudowane zasady "wdróż GitOps do Kubernetes Cluster" w kategorii "Kubernetes", a następnie kliknij pozycję **Wybierz**.
+2. Wybierz wbudowane zasady "wdróż GitOps do Kubernetes Cluster" w kategorii "Kubernetes", a następnie kliknij przycisk **Assign (Przypisz**).
 3. Ustaw **zakres** dla grupy zarządzania, subskrypcji lub grupy zasobów, w której będą stosowane przypisania zasad.
 4. Jeśli chcesz wykluczyć wszystkie zasoby z zakresu zasad, ustaw **wykluczenia**.
 5. Nadaj zasadom **nazwę** i **Opis** , których można użyć do łatwego identyfikowania.
 6. Upewnij się, że **wymuszanie zasad** jest ustawione na *włączone*.
-7. Wybierz przycisk **Dalej**.
+7. Wybierz pozycję **Dalej**.
 8. Ustaw wartości parametrów, które będą używane podczas tworzenia `sourceControlConfiguration` .
-9. Wybierz przycisk **Dalej**.
+9. Wybierz pozycję **Dalej**.
 10. Włącz **zadanie tworzenia korygowania**.
 11. Należy upewnić się, że jest zaznaczona opcja **Utwórz tożsamość zarządzaną** oraz że tożsamość będzie mieć uprawnienia **współautora** . Zobacz [ten dokument](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) i [komentarz w tym dokumencie](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) , aby uzyskać więcej informacji na temat potrzebnych uprawnień.
 12. Wybierz pozycję **Przegląd + utwórz**.
