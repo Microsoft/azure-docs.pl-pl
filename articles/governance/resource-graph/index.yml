@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 06/16/2020
-  ms.openlocfilehash: 8f4bce7f5230af69a4a1efc3382c3ca6d4a24f59
-  ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+  ms.openlocfilehash: e61131dbcfb9865ff5c91f13e4d3f587b465d851
+  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/17/2020
-  ms.locfileid: "84888136"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85321907"
 landingContent:
 - title: Informacje o usłudze Azure Resource Graph
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Pierwsze zapytanie (portal)
+    - text: Pierwsze zapytanie (Azure Portal)
       url: ./first-query-portal.md
     - text: Pierwsze zapytanie (interfejs wiersza polecenia platformy Azure)
       url: ./first-query-azurecli.md
@@ -43,6 +43,8 @@ landingContent:
       url: ./first-query-powershell.md
     - text: Pierwsze zapytanie (Go)
       url: ./first-query-go.md
+    - text: Pierwsze zapytanie (JavaScript)
+      url: ./first-query-javascript.md
     - text: Pierwsze zapytanie (Python)
       url: ./first-query-python.md
     - text: Udostępnianie zapytań (portal)
@@ -81,29 +83,29 @@ landingContent:
     links:
     - text: Standard OpenAPI — 2019-04-01
       url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
-    - text: Zestaw SDK dla platformy .NET — NuGet
+    - text: Zestaw Azure SDK dla platformy .NET — NuGet
       url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
-    - text: Zestaw SDK dla języka Java — Maven
+    - text: Zestaw Azure SDK dla języka Java — Maven
       url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
-    - text: Zestaw SDK dla języka Ruby — Gem
+    - text: Zestaw Azure SDK dla środowiska Ruby — Gem
       url: https://rubygems.org/gems/azure_mgmt_resourcegraph
 - title: Dokumentacja — zestawy SDK
   linkLists:
   - linkListType: reference
     links:
-    - text: Azure PowerShell
-      url: /powershell/module/az.resourcegraph/
     - text: Interfejs wiersza polecenia platformy Azure
       url: /cli/azure/ext/resource-graph/graph
-    - text: .NET
+    - text: Azure PowerShell
+      url: /powershell/module/az.resourcegraph/
+    - text: Zestaw Azure SDK dla platformy .NET
       url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
-    - text: Przejdź
+    - text: Zestaw Azure SDK dla języka Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
-    - text: Java
+    - text: Zestaw Azure SDK dla języka Java
       url: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
-    - text: Węzeł
+    - text: Zestaw Azure SDK dla języka JavaScript
       url: /javascript/api/@azure/arm-resourcegraph
-    - text: Python
+    - text: Zestaw Azure SDK dla środowiska Python
       url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
     - text: REST
       url: /rest/api/azure-resourcegraph/

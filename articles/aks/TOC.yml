@@ -132,6 +132,8 @@
           href: upgrade-cluster.md
         - name: Używanie umowy SLA dotyczącej czasu dostępności
           href: uptime-sla.md
+        - name: Korzystanie z grup umieszczania w pobliżu (wersja zapoznawcza)
+          href: reduce-latency-ppg.md
         - name: Uaktualnij obraz węzła (wersja zapoznawcza)
           href: node-image-upgrade.md
         - name: Przetwarzanie aktualizacji systemu operacyjnego węzła

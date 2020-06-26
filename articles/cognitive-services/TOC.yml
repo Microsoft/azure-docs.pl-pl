@@ -17,11 +17,11 @@
       href: cognitive-services-apis-create-account.md
     - name: Tworzenie nowego zasobu przy użyciu interfejsu wiersza polecenia platformy Azure
       href: cognitive-services-apis-create-account-cli.md
-    - name: Rejestrowanie diagnostyczne
-      href: diagnostic-logging.md
-    - name: Szablon ARM
+    - name: Tworzenie nowego zasobu przy użyciu szablonu usługi Resource Manager
       displayName: Resource Manager
       href: resource-manager-template.md
+    - name: Rejestrowanie diagnostyczne
+      href: diagnostic-logging.md
 - name: Samples
   items:
     - name: Elementy wbudowane usługi Azure Policy

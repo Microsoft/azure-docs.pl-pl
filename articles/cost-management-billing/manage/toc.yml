@@ -121,6 +121,8 @@
       href: troubleshoot-sign-in-issue.md
     - name: Wyłączony widok kosztów przedsiębiorstwa
       href: enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: Nie znaleziono konta rozliczeniowego
+      href: troubleshoot-account-not-found.md
     - name: Kontakt z pomocą techniczną
       href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Samples

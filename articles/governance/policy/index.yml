@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 05/20/2020
-  ms.openlocfilehash: 4d7c02891330699978134dbb4d53faef0f16b1e9
-  ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+  ms.date: 06/16/2020
+  ms.openlocfilehash: d3a25af9f7d8e16fbb008fd84aff6e29c57680da
+  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/29/2020
-  ms.locfileid: "84204824"
+  ms.lasthandoff: 06/24/2020
+  ms.locfileid: "85321955"
 landingContent:
 - title: Informacje o usłudze Azure Policy
   linkLists:
@@ -129,9 +129,9 @@ landingContent:
       url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
     - text: Zestaw Azure SDK dla platformy .NET (definicje zasad)
       url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
-    - text: Zestaw Azure SDK dla platformy Node (zasady)
+    - text: Zestaw Azure SDK dla języka JavaScript (zasady)
       url: /javascript/api/@azure/arm-policy
-    - text: Zestaw Azure SDK dla platformy Node (szczegółowe dane zasad)
+    - text: Zestaw Azure SDK dla języka JavaScript (analiza zasad)
       url: /javascript/api/@azure/arm-policyinsights
     - text: Zestaw Azure SDK dla środowiska Python (zasady)
       url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy

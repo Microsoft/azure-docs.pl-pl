@@ -325,6 +325,8 @@
                     - name: Azure Multi-Factor Authentication
                       href: multi-factor-auth-technical-profile.md
                       displayName: mfa
+                    - name: Samoobsługowe resetowanie hasła w usłudze Azure AD
+                      href: aad-sspr-technical-profile.md
                     - name: Przekształcanie oświadczeń
                       href: claims-transformation-technical-profile.md
                     - name: Wystawca tokenu JWT

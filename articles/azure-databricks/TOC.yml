@@ -581,6 +581,9 @@
         - name: Notesy wprowadzające
           href: /azure/databricks/delta/intro-notebooks
           maintainContext: true
+        - name: Pozyskiwanie danych do usługi Delta Lake
+          href: /azure/databricks/delta/delta-ingest
+          maintainContext: true
         - name: Operacje odczytu i zapisu w partii dla tabeli
           href: /azure/databricks/delta/delta-batch
           maintainContext: true
@@ -593,68 +596,65 @@
         - name: Polecenia narzędzia tabel
           href: /azure/databricks/delta/delta-utility
           maintainContext: true
-        - name: Dokumentacja interfejsu API usługi Delta Lake
+        - name: Dokumentacja interfejsu API
           href: /azure/databricks/delta/delta-apidoc
           maintainContext: true
         - name: Kontrola współbieżności
           href: /azure/databricks/delta/concurrency-control
           maintainContext: true
-        - name: Optymalizacje
-          items:
-            - name: Omówienie optymalizacji
-              href: /azure/databricks/delta/optimizations/index
-              maintainContext: true
-            - name: Optymalizowanie wydajności za pomocą zarządzania plikami
-              href: /azure/databricks/delta/optimizations/file-mgmt
-              maintainContext: true
-            - name: Automatyczna optymalizacja
-              href: /azure/databricks/delta/optimizations/auto-optimize
-              maintainContext: true
-            - name: Optymalizowanie wydajności za pomocą pamięci podręcznej
-              href: /azure/databricks/delta/optimizations/delta-cache
-              maintainContext: true
-            - name: Poziomy izolacji
-              href: /azure/databricks/delta/optimizations/isolation-level
-              maintainContext: true
-            - name: Replikowanie tabel MySQL do tabel usługi Delta Lake
-              href: /azure/databricks/delta/optimizations/mysql-delta
-              maintainContext: true
-            - name: Optymalizowanie wydajności sprzężeń
-              items:
-                - name: Omówienie optymalizowania wydajności sprzężeń
-                  href: /azure/databricks/delta/join-performance/index
-                  maintainContext: true
-                - name: Optymalizacja sprzężeń w zakresach
-                  href: /azure/databricks/delta/join-performance/range-join
-                  maintainContext: true
-                - name: Optymalizacja sprzężeń ze wskazówkami SKEW
-                  href: /azure/databricks/delta/join-performance/skew-join
-                  maintainContext: true
-            - name: Zoptymalizowane przekształcanie danych
-              items:
-                - name: Omówienie zoptymalizowanego przekształcania danych
-                  href: /azure/databricks/delta/data-transformation/index
-                  maintainContext: true
-                - name: Funkcje wyższego rzędu
-                  href: /azure/databricks/delta/data-transformation/higher-order-lambda-functions
-                  maintainContext: true
-                - name: Przekształcanie złożonych typów danych
-                  href: /azure/databricks/delta/data-transformation/complex-types
-                  maintainContext: true
-            - name: Najlepsze rozwiązania
-              href: /azure/databricks/delta/best-practices
-              maintainContext: true
-            - name: Obsługa wersji tabel
-              href: /azure/databricks/delta/optimizations/versioning
-              maintainContext: true
-            - name: Przykłady optymalizacji
-              href: /azure/databricks/delta/optimizations/optimization-examples
-              maintainContext: true
+        - name: Najlepsze rozwiązania
+          href: /azure/databricks/delta/best-practices
+          maintainContext: true
         - name: Często zadawane pytania
           href: /azure/databricks/delta/delta-faq
           maintainContext: true
-        - name: Dodatkowe zasoby różnicowe
+        - name: Zasoby
           href: /azure/databricks/delta/delta-resources
+          maintainContext: true
+    - name: Aparat różnicowy
+      items:
+        - name: Omówienie aparatu różnicowego
+          href: /azure/databricks/delta/optimizations/index
+          maintainContext: true
+        - name: Optymalizowanie wydajności za pomocą zarządzania plikami
+          href: /azure/databricks/delta/optimizations/file-mgmt
+          maintainContext: true
+        - name: Automatyczna optymalizacja
+          href: /azure/databricks/delta/optimizations/auto-optimize
+          maintainContext: true
+        - name: Optymalizowanie wydajności za pomocą pamięci podręcznej
+          href: /azure/databricks/delta/optimizations/delta-cache
+          maintainContext: true
+        - name: Poziomy izolacji
+          href: /azure/databricks/delta/optimizations/isolation-level
+          maintainContext: true
+        - name: Optymalizowanie wydajności sprzężeń
+          items:
+            - name: Omówienie optymalizowania wydajności sprzężeń
+              href: /azure/databricks/delta/join-performance/index
+              maintainContext: true
+            - name: Optymalizacja sprzężeń w zakresach
+              href: /azure/databricks/delta/join-performance/range-join
+              maintainContext: true
+            - name: Optymalizacja sprzężeń ze wskazówkami SKEW
+              href: /azure/databricks/delta/join-performance/skew-join
+              maintainContext: true
+        - name: Zoptymalizowane przekształcanie danych
+          items:
+            - name: Omówienie zoptymalizowanego przekształcania danych
+              href: /azure/databricks/delta/data-transformation/index
+              maintainContext: true
+            - name: Funkcje wyższego rzędu
+              href: /azure/databricks/delta/data-transformation/higher-order-lambda-functions
+              maintainContext: true
+            - name: Przekształcanie złożonych typów danych
+              href: /azure/databricks/delta/data-transformation/complex-types
+              maintainContext: true
+        - name: Obsługa wersji tabel
+          href: /azure/databricks/delta/optimizations/versioning
+          maintainContext: true
+        - name: Przykłady optymalizacji
+          href: /azure/databricks/delta/optimizations/optimization-examples
           maintainContext: true
     - name: Ramki danych i zestawy danych
       items:
@@ -1899,7 +1899,7 @@
                 - name: Databricks Runtime 7.0
                   href: /azure/databricks/release-notes/runtime/7.0
                   maintainContext: true
-                - name: Databricks Runtime 7.0 ML (wersja beta)
+                - name: Databricks Runtime 7.0 ML
                   href: /azure/databricks/release-notes/runtime/7.0ml
                   maintainContext: true
                 - name: Databricks Runtime 7.0 Genomics
