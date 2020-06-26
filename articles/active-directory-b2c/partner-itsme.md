@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9ab6b1b473380a51ee91f91a0ffe44b8b84c1320
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: d8229864acc80a27994ae3c795213dc2a65d22db
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84809970"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385573"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Konfigurowanie itsme OpenID Connect Connect (OIDC) z Azure Active Directory B2C
 
@@ -94,7 +94,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |Nazwa wyświetlana | name |
    |Imię | given_name |
    |Nazwisko | family_name |
-   |E-mail | poczta e-mail|
+   |Poczta e-mail | poczta e-mail|
 
 5. Wybierz pozycję **Zapisz**.
 

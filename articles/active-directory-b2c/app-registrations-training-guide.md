@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/25/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2344b339575c7338049bfa74c2fc72911e39a362
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: c89ed98d8100df270f09f1d2d1b621e71e326fe3
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84672174"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386304"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Nowe środowisko Rejestracje aplikacji dla Azure Active Directory B2C
 

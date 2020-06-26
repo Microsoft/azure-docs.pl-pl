@@ -4,19 +4,19 @@ description: Skonfiguruj interfejs API sieci Web, który ma być używany w prze
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f186bdc60ed5a30dd51b293e168c7a41377e621
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: e0498a2015b75221763ab5fdd4f6e94428922bd6
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84905101"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386746"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Dodawanie łącznika interfejsu API do przepływu użytkownika
 

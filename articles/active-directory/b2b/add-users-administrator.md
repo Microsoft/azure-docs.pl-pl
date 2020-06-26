@@ -4,19 +4,19 @@ description: Pokazuje, w jaki sposób administrator może dodać użytkowników-
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee246180beb7e8eab9cf12b4df05d7a2dab4d752
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591305"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387426"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Dodawanie Azure Active Directory użytkowników współpracy B2B w Azure Portal
 
@@ -37,7 +37,7 @@ Aby dodać użytkowników współpracy B2B do katalogu, wykonaj następujące kr
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako użytkownik, który ma przypisaną rolę katalogu z ograniczoną administratorem lub rolę zapraszania gościa.
 2. Wyszukaj i wybierz **Azure Active Directory** z dowolnej strony.
-3. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
+3. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 4. Wybierz pozycję **Nowy użytkownik-gość**.
 
    ![Pokazuje, gdzie nowy użytkownik-Gość znajduje się w interfejsie użytkownika](./media/add-users-administrator/new-guest-user-in-all-users.png) 
@@ -88,7 +88,7 @@ Aby dodać użytkowników współpracy B2B do aplikacji, wykonaj następujące k
 
     ![Przycisk łącznej liczby użytkowników umożliwiający dodanie otwartych użytkowników i grup](./media/add-users-administrator/AppUsersAndGroups.png)
 
-6. Wybierz przycisk **Dodaj użytkownika**.
+6. Wybierz pozycję **Dodaj użytkownika**.
 7. W obszarze **Dodaj przypisanie**wybierz pozycję **Użytkownicy i grupy**.
 8. Wykonaj jedną z następujących czynności:
    - Jeśli użytkownik-Gość już istnieje w katalogu, Wyszukaj użytkownika B2B. Wybierz użytkownika, kliknij pozycję **Wybierz**, a następnie kliknij pozycję **Przypisz** , aby dodać użytkownika do aplikacji.
@@ -110,7 +110,7 @@ Jeśli użytkownik-Gość nie zakończył jeszcze zaproszenia, możesz ponownie 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator usługi Azure AD.
 2. Wyszukaj i wybierz **Azure Active Directory** z dowolnej strony.
-3. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
+3. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 5. Wybierz konto użytkownika.
 6. W obszarze **Zarządzaj**wybierz pozycję **profil**.
 7. Jeśli użytkownik jeszcze nie zaakceptował zaproszenia, dostępna jest opcja **Wyślij ponownie zaproszenie** . Wybierz ten przycisk, aby ponownie wysłać.

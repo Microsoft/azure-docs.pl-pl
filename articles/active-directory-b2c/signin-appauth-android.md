@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e3a38b9a02894eafd3ef6df657680d2e2a58a7e7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 79219d7a7b59818d54acc6a2b0b4c8093ead3a6a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638388"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385233"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Logowanie przy użyciu aplikacji systemu Android w Azure Active Directory B2C
 

@@ -4,7 +4,7 @@ description: Jak używać jednorazowego kodu dostępu wiadomości E-mail do uwie
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 520f42956a1e096893935b6b7844d67060958829
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 637e64c66714a67c4d76004668a3a5f7ff890b2d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585927"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386882"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Wyślij wiadomość e-mail do jednorazowego uwierzytelniania kodu dostępu (wersja zapoznawcza)
 

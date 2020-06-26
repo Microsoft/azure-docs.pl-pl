@@ -6,19 +6,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 08/21/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3ad4efa3b8126a9b9c6557822f61e3bfff3fe120
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 163087461dbbcfd036b348f69362f0ad0010e791
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154886"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383856"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Jak uzyskać certyfikat AppSource dla Azure Active Directory
 
@@ -37,8 +37,8 @@ Jeśli chcesz dowiedzieć się, jak zintegrować aplikację z usługą Azure AD 
 *Aplikacja z wieloma dzierżawcami* to aplikacja akceptująca logowania od użytkowników z dowolnej firmy lub organizacji, która ma usługę Azure AD bez konieczności oddzielnego wystąpienia, konfiguracji lub wdrożenia. AppSource zaleca, aby aplikacje implementujące wiele dzierżawców mogły korzystać z bezpłatnej wersji próbnej *pojedynczego kliknięcia* .
 
 Aby włączyć obsługę wielu dzierżawców w aplikacji, wykonaj następujące kroki:
-1. Ustaw `Multi-Tenanted` Właściwość `Yes` na informacje o rejestracji aplikacji w [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Domyślnie aplikacje utworzone w Azure Portal są konfigurowane jako *[pojedyncze dzierżawy](#single-tenant-applications)*.
-1. Zaktualizuj swój kod, aby wysyłać żądania do `common` punktu końcowego. Aby to zrobić, zaktualizuj punkt końcowy z `https://login.microsoftonline.com/{yourtenant}` do `https://login.microsoftonline.com/common*`.
+1. Ustaw `Multi-Tenanted` Właściwość na `Yes` Informacje o rejestracji aplikacji w [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Domyślnie aplikacje utworzone w Azure Portal są konfigurowane jako *[pojedyncze dzierżawy](#single-tenant-applications)*.
+1. Zaktualizuj swój kod, aby wysyłać żądania do `common` punktu końcowego. Aby to zrobić, zaktualizuj punkt końcowy z `https://login.microsoftonline.com/{yourtenant}` do `https://login.microsoftonline.com/common*` .
 1. W przypadku niektórych platform, takich jak ASP .NET, należy również zaktualizować kod w celu zaakceptowania wielu wystawców.
 
 Aby uzyskać więcej informacji na temat wielu dzierżawców, zobacz [Jak zalogować się do każdego użytkownika usługi Azure Active Directory (Azure AD) przy użyciu wzorca aplikacji wielodostępnych](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

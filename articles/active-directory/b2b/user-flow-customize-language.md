@@ -6,17 +6,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed56acc9276177951919a3bc63c8a1dc3876e1c4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 856338e6c5a2bac55fee57d3ea09575a1a4d14ed
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597443"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386542"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Dostosowanie języka w Azure Active Directory (wersja zapoznawcza)
 |     |

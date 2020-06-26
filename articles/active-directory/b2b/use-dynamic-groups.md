@@ -4,19 +4,19 @@ description: Pokazuje, jak używać grup dynamicznych usługi Azure AD w celu Az
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41e8b81bc3594c6a378757636f70058510a38cc7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6adf7e6c5abbba3c018f9a03b5167aec7537c704
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78226921"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386661"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Grupy dynamiczne i Azure Active Directory współpracy B2B
 

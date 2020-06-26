@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 10/03/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 454412bc20fef1a10a51e027b52b6d54df52e6c0
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764608"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386287"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Serwer proxy aplikacji usługi Active Directory (Azure AD) — często zadawane pytania
 
@@ -71,6 +71,13 @@ Istnieją liczniki Monitora wydajności, które są zainstalowane wraz z łączn
 ### <a name="does-the-azure-ad-application-proxy-connector-have-to-be-on-the-same-subnet-as-the-resource"></a>Czy łącznik usługi Azure serwer proxy aplikacji usługi Azure AD musi znajdować się w tej samej podsieci co zasób?
 
 Łącznik nie musi znajdować się w tej samej podsieci. Wymaga to jednak rozpoznawania nazw (DNS, hostowania pliku) do zasobu i niezbędnej łączności sieciowej (routingu do zasobu, portów otwartych w danym zasobie itp.). Aby uzyskać zalecenia, zobacz [zagadnienia dotyczące topologii sieci podczas korzystania z serwer proxy aplikacji usługi Azure Active Directory](application-proxy-network-topology.md).
+
+### <a name="what-versions-of-windows-server-can-i-install-a-connector-on"></a>W jakich wersjach systemu Windows Server można zainstalować łącznik?
+Serwer proxy aplikacji wymaga systemu Windows Server 2012 R2 lub nowszego. Obecnie istnieje ograniczenie dotyczące HTTP2 dla systemu Windows Server 2019. Aby można było pomyślnie korzystać z łącznika w systemie Windows Server 2019, należy dodać następujący klucz rejestru i ponownie uruchomić serwer:
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+    ```
+
 
 ## <a name="application-configuration"></a>Konfiguracja aplikacji
 

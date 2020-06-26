@@ -14,16 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 266d97e834247088d40837cbec1436e00d0f4be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b2a48b3990afc5fb4ecfb8d40738b18873846459
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422138"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374920"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Łączenie danych z Microsoft Cloud App Security 
-
-
 
 Łącznik [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) umożliwia strumieniowe przesyłanie alertów i [dzienników Cloud Discovery](https://docs.microsoft.com/cloud-app-security/tutorial-shadow-it) z MCAS do platformy Azure. Dzięki temu możesz uzyskać wgląd w aplikacje w chmurze, uzyskać zaawansowaną analizę, aby identyfikować i zwalczać dotyczące środowiskach oraz kontrolować sposób podróży danych.
 
@@ -50,7 +48,9 @@ Jeśli Cloud App Security zostanie wdrożona i pozyskuje dane, dane alertów mo�
 
 1. Kliknij przycisk **Zastosuj zmiany**.
 
-1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów Cloud App Security, wpisz `SecurityAlert` w oknie zapytania. W obszarze schemat dzienników Cloud Discovery wpisz `McasShadowItReporting`.
+1. Możesz wybrać, czy alerty od Azure Security Center mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń**wybierz pozycję **włączone** , aby włączyć domyślną regułę analizy, która automatycznie tworzy zdarzenia z alertów. Następnie można edytować tę regułę w obszarze **Analiza**na karcie **aktywne reguły** .
+
+1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów Cloud App Security, wpisz `SecurityAlert` w oknie zapytania. W obszarze schemat dzienników Cloud Discovery wpisz `McasShadowItReporting` .
 
 > [!NOTE]
 > Cloud Discovery pomaga wykrywać i identyfikować trendy poprzez agregowanie połączeń użytkowników podstawowych do aplikacji w chmurze.

@@ -4,7 +4,7 @@ description: Dowiedz się, jak skonfigurować AD FS jako dostawcę tożsamości 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e350d6338b6ca589ab18d068ef6a314363fe205c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fbf9b92b868e8707a0e20531f5738146d833c301
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272825"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387086"
 ---
 # <a name="example-direct-federation-with-active-directory-federation-services-ad-fs-preview"></a>Przykład: bezpośrednia Federacja z Active Directory Federation Services (AD FS) (wersja zapoznawcza)
 |     |
@@ -33,7 +33,7 @@ W tym artykule opisano sposób konfigurowania [Federacji bezpośredniej](direct-
 ## <a name="configure-ad-fs-for-saml-20-direct-federation"></a>Konfigurowanie AD FS dla Federacji bezpośredniego SAML 2,0
 Usługę Azure AD B2B można skonfigurować tak, aby sfederować się z dostawcami tożsamości, którzy korzystają z protokołu SAML z określonymi wymaganiami wymienionymi poniżej. Aby zilustrować kroki konfiguracji języka SAML, w tej sekcji przedstawiono sposób konfigurowania AD FS dla protokołu SAML 2,0. 
 
-Aby skonfigurować bezpośrednią Federacji, należy odebrać następujące atrybuty w odpowiedzi SAML 2,0 od dostawcy tożsamości. Te atrybuty można skonfigurować, łącząc się z plikiem XML usługi tokenu zabezpieczającego w trybie online lub wprowadzając je ręcznie. Krok 12 w temacie [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) opisuje, jak znaleźć punkty końcowe AD FS lub jak wygenerować adres URL metadanych, na przykład `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`. 
+Aby skonfigurować bezpośrednią Federacji, należy odebrać następujące atrybuty w odpowiedzi SAML 2,0 od dostawcy tożsamości. Te atrybuty można skonfigurować, łącząc się z plikiem XML usługi tokenu zabezpieczającego w trybie online lub wprowadzając je ręcznie. Krok 12 w temacie [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) opisuje, jak znaleźć punkty końcowe AD FS lub jak wygenerować adres URL metadanych, na przykład `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml` . 
 
 |Atrybut  |Wartość  |
 |---------|---------|
@@ -58,8 +58,8 @@ Przed rozpoczęciem tej procedury należy wcześniej skonfigurować i działać 
 
 ### <a name="add-the-claim-description"></a>Dodaj opis zgłoszenia
 
-1. Na serwerze AD FS wybierz pozycję **Narzędzia** > **AD FS zarządzanie**.
-2. W okienku nawigacji wybierz pozycję opisy **usług** > **Claim Descriptions**.
+1. Na serwerze AD FS wybierz pozycję **Narzędzia**  >  **AD FS zarządzanie**.
+2. W okienku nawigacji wybierz pozycję opisy **usług**  >  **Claim Descriptions**.
 3. W obszarze **Akcje**wybierz pozycję **Dodaj opis żądania**.
 4. W oknie **Dodawanie opisu roszczeń** określ następujące wartości:
 
@@ -72,10 +72,10 @@ Przed rozpoczęciem tej procedury należy wcześniej skonfigurować i działać 
 
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>Dodawanie zaufania jednostki uzależnionej i reguł dotyczących roszczeń
 
-1. Na serwerze AD FS przejdź do pozycji **Narzędzia** > **AD FS zarządzanie**.
-2. W okienku nawigacji wybierz pozycję **zaufania relacje** > **zaufania jednostek uzależnionych**.
+1. Na serwerze AD FS przejdź do pozycji **Narzędzia**  >  **AD FS zarządzanie**.
+2. W okienku nawigacji wybierz pozycję **zaufania relacje**  >  **zaufania jednostek uzależnionych**.
 3. W obszarze **Akcje**wybierz pozycję **Dodaj zaufanie jednostki uzależnionej**. 
-4. W Kreatorze dodawania zaufania jednostki uzależnionej dla **wyboru źródła danych**Użyj opcji **Importuj dane dotyczące jednostki uzależnionej opublikowane online lub w sieci lokalnej**. Określ adres URL metadanych Federacji — https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml. Pozostaw inne ustawienia domyślne. Wybierz polecenie **Zamknij**.
+4. W Kreatorze dodawania zaufania jednostki uzależnionej dla **wyboru źródła danych**Użyj opcji **Importuj dane dotyczące jednostki uzależnionej opublikowane online lub w sieci lokalnej**. Określ adres URL metadanych Federacji — https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml . Pozostaw inne ustawienia domyślne. Wybierz pozycję **Zamknij**.
 5. Zostanie otwarty Kreator **edycji reguł dotyczących roszczeń** .
 6. W kreatorze **Edytowanie reguł dotyczących roszczeń** wybierz pozycję **Dodaj regułę**. W obszarze **Wybierz typ reguły**wybierz opcję **Wyślij atrybuty LDAP jako oświadczenia**. Wybierz pozycję **Dalej**.
 7. W obszarze **Konfigurowanie reguły roszczeń**określ następujące wartości: 
@@ -106,7 +106,7 @@ Przed rozpoczęciem tej procedury należy wcześniej skonfigurować i działać 
 ## <a name="configure-ad-fs-for-ws-fed-direct-federation"></a>Konfigurowanie AD FS dla Federacji bezpośredniej z obsługą protokołu WS-Direct 
 Usługę Azure AD B2B można skonfigurować tak, aby sfederować się z dostawcami tożsamości, którzy korzystają z protokołu WS-pokarmowego z określonymi wymaganiami wymienionymi poniżej. Obecnie dwaj dostawcy usługi WS-karmione zostały przetestowani pod kątem zgodności z usługą Azure AD, w tym AD FS i Shibboleth. W tym miejscu będziemy używać Active Directory Federation Services (AD FS) jako przykładowego dostawcy tożsamości z obsługą protokołu WS-in. Aby uzyskać więcej informacji na temat ustanawiania zaufania jednostki uzależnionej między zgodnym dostawcą usługi WS-in a usługą Azure AD, pobierz dokumenty zgodności dostawcy tożsamości usługi Azure AD.
 
-Aby skonfigurować bezpośrednią Federacji, należy odebrać następujące atrybuty w komunikacie protokołu WS-pokarmowym od dostawcy tożsamości. Te atrybuty można skonfigurować, łącząc się z plikiem XML usługi tokenu zabezpieczającego w trybie online lub wprowadzając je ręcznie. Krok 12 w temacie [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) opisuje, jak znaleźć punkty końcowe AD FS lub jak wygenerować adres URL metadanych, na przykład `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml`.
+Aby skonfigurować bezpośrednią Federacji, należy odebrać następujące atrybuty w komunikacie protokołu WS-pokarmowym od dostawcy tożsamości. Te atrybuty można skonfigurować, łącząc się z plikiem XML usługi tokenu zabezpieczającego w trybie online lub wprowadzając je ręcznie. Krok 12 w temacie [Create a test AD FS instance](https://medium.com/in-the-weeds/create-a-test-active-directory-federation-services-3-0-instance-on-an-azure-virtual-machine-9071d978e8ed) opisuje, jak znaleźć punkty końcowe AD FS lub jak wygenerować adres URL metadanych, na przykład `https://fs.iga.azure-test.net/federationmetadata/2007-06/federationmetadata.xml` .
  
 |Atrybut  |Wartość  |
 |---------|---------|
@@ -128,10 +128,10 @@ Przed rozpoczęciem tej procedury należy wcześniej skonfigurować i działać 
 
 
 ### <a name="add-the-relying-party-trust-and-claim-rules"></a>Dodawanie zaufania jednostki uzależnionej i reguł dotyczących roszczeń 
-1. Na serwerze AD FS przejdź do pozycji **Narzędzia** > **AD FS zarządzanie**. 
-1. W okienku nawigacji wybierz pozycję **zaufania relacje** > **zaufania jednostek uzależnionych**. 
+1. Na serwerze AD FS przejdź do pozycji **Narzędzia**  >  **AD FS zarządzanie**. 
+1. W okienku nawigacji wybierz pozycję **zaufania relacje**  >  **zaufania jednostek uzależnionych**. 
 1. W obszarze **Akcje**wybierz pozycję **Dodaj zaufanie jednostki uzależnionej**.  
-1. W Kreatorze dodawania zaufania jednostki uzależnionej dla **Wybierz źródło danych**Użyj opcji **Importuj dane dotyczące jednostki uzależnionej opublikowane online lub w sieci lokalnej**. Określ adres URL metadanych Federacji: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml`.  Pozostaw inne ustawienia domyślne. Wybierz polecenie **Zamknij**.
+1. W Kreatorze dodawania zaufania jednostki uzależnionej dla **Wybierz źródło danych**Użyj opcji **Importuj dane dotyczące jednostki uzależnionej opublikowane online lub w sieci lokalnej**. Określ adres URL metadanych Federacji: `https://nexus.microsoftonline-p.com/federationmetadata/2007-06/federationmetadata.xml` .  Pozostaw inne ustawienia domyślne. Wybierz pozycję **Zamknij**.
 1. Zostanie otwarty Kreator **edycji reguł dotyczących roszczeń** . 
 1. W kreatorze **Edytowanie reguł dotyczących roszczeń** wybierz pozycję **Dodaj regułę**. W obszarze **Wybierz typ reguły**wybierz pozycję **Wyślij oświadczenia przy użyciu reguły niestandardowej**. Wybierz pozycję *Dalej*. 
 1. W obszarze **Konfigurowanie reguły roszczeń**określ następujące wartości:

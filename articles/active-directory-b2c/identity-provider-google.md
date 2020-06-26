@@ -7,22 +7,22 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/08/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 48955caddb64069f897078f5e47066d9f11d119b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72e4de1473766d50512453ae38b6033ff0c5b73d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188144"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85388038"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto usługi logowania i zaloguj się za pomocą konta Google przy użyciu Azure Active Directory B2C
 
 ## <a name="create-a-google-application"></a>Tworzenie aplikacji Google
 
-Aby użyć konta Google jako [dostawcy tożsamości](authorization-code-flow.md) w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w konsoli deweloperów firmy Google. Jeśli nie masz jeszcze konta Google, możesz zarejestrować się w [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)usłudze.
+Aby użyć konta Google jako [dostawcy tożsamości](authorization-code-flow.md) w Azure Active Directory B2C (Azure AD B2C), musisz utworzyć aplikację w konsoli deweloperów firmy Google. Jeśli nie masz jeszcze konta Google, możesz zarejestrować się w usłudze [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp) .
 
 1. Zaloguj się do [konsoli usługi Google Developer](https://console.developers.google.com/) przy użyciu poświadczeń konta Google.
 1. W lewym górnym rogu strony wybierz listę projektu, a następnie wybierz pozycję **Nowy projekt**.
@@ -30,10 +30,10 @@ Aby użyć konta Google jako [dostawcy tożsamości](authorization-code-flow.md)
 1. Upewnij się, że używasz nowego projektu, wybierając listę rozwijaną projektu w lewym górnym rogu ekranu, wybierz projekt według nazwy, a następnie wybierz pozycję **Otwórz**.
 1. W menu po lewej stronie wybierz pozycję **ekran zgody na uwierzytelnianie OAuth** , wybierz pozycję **zewnętrzny**, a następnie wybierz pozycję **Utwórz**.
 Wprowadź **nazwę** aplikacji. Wprowadź *b2clogin.com* w sekcji **autoryzowane domeny** i wybierz pozycję **Zapisz**.
-1. Z menu po lewej stronie wybierz pozycję **poświadczenia** , a następnie wybierz pozycję **Utwórz poświadczenia** > **Identyfikator klienta OAuth**.
+1. Z menu po lewej stronie wybierz pozycję **poświadczenia** , a następnie wybierz pozycję **Utwórz poświadczenia**  >  **Identyfikator klienta OAuth**.
 1. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web**.
 1. Wprowadź **nazwę** aplikacji, wprowadź `https://your-tenant-name.b2clogin.com` w polu **autoryzowane źródła kodu JavaScript**i `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` w polu **autoryzowane identyfikatory URI przekierowania**. Zamień `your-tenant-name` na nazwę dzierżawy. Musisz użyć wszystkich małych liter, wprowadzając nazwę dzierżawy, nawet jeśli dzierżawa jest zdefiniowana z dużymi literami w Azure AD B2C.
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 1. Skopiuj wartości **Identyfikator klienta** i **klucz tajny klienta**. Oba te elementy będą potrzebne do skonfigurowania usługi Google jako dostawcy tożsamości w dzierżawie. **Klucz tajny klienta** jest ważnym poświadczeniem zabezpieczeń.
 
 ## <a name="configure-a-google-account-as-an-identity-provider"></a>Konfigurowanie konta Google jako dostawcy tożsamości

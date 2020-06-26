@@ -7,18 +7,18 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3168d36bf4c2d3c696173725f669b12dc168dcc6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a7c6966c439bd69f809a26e0f3a7781d95619ad
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80155005"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383839"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Instrukcje: Migrowanie z usługi Azure Access Control Service
 
@@ -55,9 +55,9 @@ Aby użyć tych składników, należy utworzyć co najmniej jeden Access Control
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Cała komunikacja z operacjami usługi STS i zarządzania odbywa się przy użyciu tego adresu URL. Różne ścieżki są używane do różnych celów. Aby określić, czy aplikacje lub usługi używają Access Control, Monitoruj dla każdego ruchu do https://&lt;przestrzeń&gt;nazw. AccessControl.Windows.NET. Każdy ruch do tego adresu URL jest obsługiwany przez Access Control i musi być wycofany. 
+Cała komunikacja z operacjami usługi STS i zarządzania odbywa się przy użyciu tego adresu URL. Różne ścieżki są używane do różnych celów. Aby określić, czy aplikacje lub usługi używają Access Control, Monitoruj dla każdego ruchu do https:// &lt; przestrzeń nazw &gt; . AccessControl.Windows.NET. Każdy ruch do tego adresu URL jest obsługiwany przez Access Control i musi być wycofany. 
 
-Wyjątkiem jest dowolny ruch do `https://accounts.accesscontrol.windows.net`. Ruch do tego adresu URL jest już obsługiwany przez inną usługę i **nie ma** wpływ na przestarzałą Access Control. 
+Wyjątkiem jest dowolny ruch do `https://accounts.accesscontrol.windows.net` . Ruch do tego adresu URL jest już obsługiwany przez inną usługę i **nie ma** wpływ na przestarzałą Access Control. 
 
 Aby uzyskać więcej informacji na temat Access Control, zobacz [Access Control Service 2,0 (Archiwalny)](https://msdn.microsoft.com/library/hh147631.aspx).
 
@@ -92,7 +92,7 @@ Postępuj zgodnie z instrukcjami w tej sekcji, aby dowiedzieć się, które apli
 
 1. Połącz się z usługą ACS przy użyciu polecenia cmdlet **Connect-AcsAccount** .
   
-    Może być konieczne uruchomienie `Set-ExecutionPolicy -ExecutionPolicy Bypass` programu przed wykonaniem poleceń i być administratorem tych subskrypcji, aby można było wykonać polecenia.
+    Może być konieczne uruchomienie programu `Set-ExecutionPolicy -ExecutionPolicy Bypass` przed wykonaniem poleceń i być administratorem tych subskrypcji, aby można było wykonać polecenia.
 
 2. Wyświetl listę dostępnych subskrypcji platformy Azure za pomocą polecenia cmdlet **Get-AcsSubscription** .
 3. Utwórz listę przestrzeni nazw ACS przy użyciu polecenia cmdlet **Get-AcsNamespace** .
@@ -112,9 +112,9 @@ Od listopada 2017 wszystkie składniki Access Control są w pełni obsługiwane 
 
 Oto harmonogram dla przestarzałych składników Access Control:
 
-- **Listopad 2017**: środowisko administratora usługi Azure AD w klasycznym portalu Azure [zostało wycofane](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). W tym momencie Zarządzanie przestrzenią nazw dla Access Control jest dostępne pod nowym, dedykowanym adresem `https://manage.windowsazure.com?restoreClassic=true`URL:. Użyj tego adresu URl, aby wyświetlić istniejące przestrzenie nazw, włączyć i wyłączyć obszary nazw oraz usunąć przestrzenie nazw, jeśli wybierzesz opcję.
-- **2 kwietnia 2018**: klasyczny portal Azure jest całkowicie wycofywany, co oznacza, że Access Control Zarządzanie przestrzenią nazw nie jest już dostępne za pośrednictwem żadnego adresu URL. W tym momencie nie można wyłączyć ani włączyć, usunąć ani wyliczyć przestrzeni nazw Access Control. Portal zarządzania Access Control będzie jednak w pełni funkcjonalny i znajdować się `https://\<namespace\>.accesscontrol.windows.net`w lokalizacji. Wszystkie inne składniki Access Control nadal działają normalnie.
-- **7 listopada 2018**: wszystkie składniki Access Control są trwale zamknięte. Obejmuje to portal zarządzania Access Control, usługę zarządzania, STS i aparat reguły przekształcania tokenów. W tym momencie wszystkie żądania wysyłane do Access Control (znajdujące się \<w\>przestrzeni nazw. AccessControl.Windows.NET) kończą się niepowodzeniem. Wszystkie istniejące aplikacje i usługi powinny być migrowane do innych technologii przed tym terminem.
+- **Listopad 2017**: środowisko administratora usługi Azure AD w klasycznym portalu Azure [zostało wycofane](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). W tym momencie Zarządzanie przestrzenią nazw dla Access Control jest dostępne pod nowym, dedykowanym adresem URL: `https://manage.windowsazure.com?restoreClassic=true` . Użyj tego adresu URl, aby wyświetlić istniejące przestrzenie nazw, włączyć i wyłączyć obszary nazw oraz usunąć przestrzenie nazw, jeśli wybierzesz opcję.
+- **2 kwietnia 2018**: klasyczny portal Azure jest całkowicie wycofywany, co oznacza, że Access Control Zarządzanie przestrzenią nazw nie jest już dostępne za pośrednictwem żadnego adresu URL. W tym momencie nie można wyłączyć ani włączyć, usunąć ani wyliczyć przestrzeni nazw Access Control. Portal zarządzania Access Control będzie jednak w pełni funkcjonalny i znajdować się w lokalizacji `https://\<namespace\>.accesscontrol.windows.net` . Wszystkie inne składniki Access Control nadal działają normalnie.
+- **7 listopada 2018**: wszystkie składniki Access Control są trwale zamknięte. Obejmuje to portal zarządzania Access Control, usługę zarządzania, STS i aparat reguły przekształcania tokenów. W tym momencie wszystkie żądania wysyłane do Access Control (znajdujące się pod adresem \<namespace\> . AccessControl.Windows.NET) kończą się niepowodzeniem. Wszystkie istniejące aplikacje i usługi powinny być migrowane do innych technologii przed tym terminem.
 
 > [!NOTE]
 > Zasada wyłącza przestrzenie nazw, które nie zażądały tokenu przez pewien czas. Począwszy od początku września 2018, ten okres czasu wynosi obecnie 14 dni braku aktywności, ale zostanie on skrócony do 7 dni braku aktywności w najbliższych tygodniach. Jeśli istnieją Access Control obszary nazw, które są obecnie wyłączone, można [pobrać i zainstalować usługę ACS PowerShell](#download-and-install-acs-powershell) , aby ponownie włączyć przestrzenie nazw.
@@ -148,7 +148,7 @@ Każda usługa w chmurze firmy Microsoft, która akceptuje tokeny wystawiane prz
 
 Klienci programu SharePoint 2013, 2016 i SharePoint Online mogą korzystać z usługi ACS na potrzeby uwierzytelniania w środowiskach lokalnych i hybrydowych. W przypadku niektórych funkcji i zastosowań programu SharePoint wpłynie to na wycofanie usług ACS, a inne nie. Poniższa tabela zawiera podsumowanie wskazówek dotyczących migracji dla niektórych najpopularniejszych funkcji programu SharePoint, które wykorzystują usługę ACS:
 
-| Funkcja | Wskazówki |
+| Cecha | Wskazówki |
 | ------- | -------- |
 | Uwierzytelnianie użytkowników z usługi Azure AD | Wcześniej usługa Azure AD nie obsługiwała tokenów SAML 1,1 wymaganych przez program SharePoint na potrzeby uwierzytelniania, a składnik ACS został użyty jako pośrednik, który udostępnił program SharePoint w formatach tokenów usługi Azure AD. Teraz możesz [połączyć program SharePoint bezpośrednio z usługą Azure AD za pomocą galerii aplikacja usługi Azure AD SharePoint w aplikacji lokalnej](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Uwierzytelnianie aplikacji & uwierzytelnianie między serwerami w programie SharePoint lokalnie](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Nie ma to wpływ na wycofanie usługi ACS; nie trzeba zmieniać żadnych zmian. | 
@@ -187,7 +187,7 @@ Poniższa tabela zawiera porównanie funkcji Access Control, które są istotne 
 
 Na wysokim poziomie *Azure Active Directory jest prawdopodobnie najlepszym wyborem dla migracji, Jeśli zezwolisz użytkownikom na logowanie się tylko przy użyciu kont służbowych firmy Microsoft*.
 
-| Możliwości | Obsługa Access Control | Obsługa usługi Azure AD |
+| Możliwość | Obsługa Access Control | Obsługa usługi Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Typy kont** | | |
 | Konta służbowe lub szkolne firmy Microsoft | Obsługiwane | Obsługiwane |
@@ -238,7 +238,7 @@ Jednak Azure AD B2C nie obsługuje szerokiego zakresu protokołów uwierzytelnia
 
 Poniższa tabela zawiera porównanie funkcji Access Control, które są istotne dla aplikacji sieci Web, które są dostępne w Azure AD B2C. Na wysokim poziomie *Azure AD B2C jest prawdopodobnie właściwy wybór dla migracji, jeśli Twoja aplikacja jest połączona z klientem lub obsługuje wiele różnych typów kont.*
 
-| Możliwości | Obsługa Access Control | Obsługa Azure AD B2C |
+| Możliwość | Obsługa Access Control | Obsługa Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Typy kont** | | |
 | Konta służbowe lub szkolne firmy Microsoft | Obsługiwane | Obsługiwane przez zasady niestandardowe  |
@@ -317,7 +317,7 @@ Nasze rekomendacje dotyczące tego typu przepływu uwierzytelniania są migrowan
 
 Możesz również użyć usługi Azure AD do uwierzytelniania serwer-serwer przy użyciu wdrożenia usługi Azure AD w celu przyznania poświadczeń klienta OAuth. W poniższej tabeli porównano możliwości Access Control w ramach uwierzytelniania serwer-serwer z tymi, które są dostępne w usłudze Azure AD.
 
-| Możliwości | Obsługa Access Control | Obsługa usługi Azure AD |
+| Możliwość | Obsługa Access Control | Obsługa usługi Azure AD |
 | ---------- | ----------- | ---------------- |
 | Jak zarejestrować usługę sieci Web | Tworzenie jednostki uzależnionej w portalu zarządzania Access Control | Tworzenie aplikacji sieci Web usługi Azure AD w Azure Portal |
 | Jak zarejestrować klienta | Tworzenie tożsamości usługi w portalu zarządzania Access Control | Utwórz kolejną aplikację sieci Web usługi Azure AD w Azure Portal |

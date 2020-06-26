@@ -7,15 +7,15 @@ manager: celestedg
 ms.author: mimart
 ms.date: 04/16/2019
 ms.custom: mvc
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 2265ac0880822a46abf8597730fa28703e9b3cfc
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300155"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385964"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Dodawanie aplikacji internetowego interfejsu API do dzierżawy Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Jeśli masz aplikację, która implementuje przepływ niejawnego przydzielenia, 
 6. Dla pozycji **Uwzględnij aplikację internetową/internetowy interfejs API** i **Zezwalaj na niejawny przepływ** wybierz wartość **Tak**.
 7. Dla pozycji **Adres URL odpowiedzi** wprowadź punkt końcowy, w którym usługa Azure AD B2C powinna zwracać wszelkie tokeny żądane przez Twoją aplikację. W aplikacji produkcyjnej można ustawić adres URL odpowiedzi na wartość taką jak `https://localhost:44332` . Dla celów testowych Ustaw adres URL odpowiedzi na `https://jwt.ms` .
 8. Dla pozycji **Identyfikator URI identyfikatora aplikacji** wprowadź identyfikator używany na potrzeby internetowego interfejsu API. Zostanie wygenerowany pełny identyfikator URI łącznie z domeną. Na przykład `https://contosotenant.onmicrosoft.com/api`.
-9. Kliknij przycisk **Utwórz**.
+9. Kliknij pozycję **Utwórz**.
 10. Na stronie właściwości zapisz identyfikator aplikacji, który będzie używany podczas konfigurowania aplikacji internetowej.
 
 * * *

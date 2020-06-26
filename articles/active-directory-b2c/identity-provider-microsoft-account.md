@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 375c83445bb559efe5c797e583129cb1b0c2fb65
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ad4b08a12e63b4ae3eed0eb09e295d9730de97bb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636908"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85388004"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Skonfiguruj konto i zaloguj się za pomocą konto Microsoft przy użyciu Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Aby użyć konto Microsoft jako [dostawcy tożsamości](openid-connect.md) w Azu
 1. Wybierz pozycję **zarejestruj**
 1. Zapisz **Identyfikator aplikacji (klienta)** widoczny na stronie przeglądu aplikacji. Jest to potrzebne podczas konfigurowania dostawcy tożsamości w następnej sekcji.
 1. Wybierz **certyfikaty & wpisy tajne**
-1. Kliknij pozycję **Nowy wpis tajny klienta**
+1. Kliknij pozycję **Nowy klucz tajny klienta**.
 1. Wprowadź **Opis** wpisu tajnego, na przykład *hasło aplikacji 1*, a następnie kliknij przycisk **Dodaj**.
 1. Zapisz hasło aplikacji wyświetlane w kolumnie **wartość** . Jest to potrzebne podczas konfigurowania dostawcy tożsamości w następnej sekcji.
 

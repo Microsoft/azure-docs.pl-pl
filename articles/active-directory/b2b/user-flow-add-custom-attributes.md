@@ -6,17 +6,17 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbf5b758059dc44f17afba191e49fc170e38feef
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 4369f42df8862adbc0b7fafd42979b9ceac0729b
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886414"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386610"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definiowanie atrybutów niestandardowych dla przepływów użytkowników (wersja zapoznawcza)
 
@@ -27,7 +27,7 @@ ms.locfileid: "84886414"
 
 Dla każdej aplikacji mogą istnieć różne wymagania dotyczące informacji, które mają być zbierane podczas tworzenia konta. Usługa Azure AD zawiera wbudowany zestaw informacji przechowywanych w atrybutach, takich jak imię, nazwisko, miejscowość i kod pocztowy. Za pomocą usługi Azure AD można rozciągnąć zestaw atrybutów przechowywanych na koncie gościa, gdy użytkownik zewnętrzny zarejestruje się za pomocą przepływu użytkownika.
 
-Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_<extensions-app-id>_attributename` . Przykład:
+Możesz tworzyć niestandardowe atrybuty w Azure Portal i używać ich w przepływach użytkownika samoobsługowego tworzenia konta. Można również odczytywać i zapisywać te atrybuty przy użyciu [interfejsu API Microsoft Graph](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Interfejs API Microsoft Graph obsługuje tworzenie i aktualizowanie użytkownika z atrybutami rozszerzenia. Atrybuty rozszerzenia w interfejs API programu Graph są nazwane przy użyciu konwencji `extension_<extensions-app-id>_attributename` . Na przykład:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

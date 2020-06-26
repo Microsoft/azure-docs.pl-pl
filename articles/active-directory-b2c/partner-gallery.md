@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c1f08005c5179add52863f5fa6260eec1fbae53e
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 765deda747d46a9ee5b6913c192fa1a43c56d35d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84810033"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385907"
 ---
 # <a name="azure-active-directory-b2c-partners"></a>Partnerzy Azure Active Directory B2C
 
@@ -34,6 +34,7 @@ Nasza sieć partnerskia rozszerza możliwości rozwiązania, które ułatwiają 
 | ![znaku](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) to elektroniczne rozwiązanie do identyfikacji, uwierzytelniania i usług zaufania (eiDAS), które umożliwia użytkownikom bezpieczne logowanie bez czytników kart, haseł, uwierzytelniania dwuskładnikowego i wielu kodów PIN. |
 | ![znaku](./media/partner-gallery/trusona-logo.png) | Integracja [Trusona](./partner-trusona.md) pomaga w bezpiecznym logowaniu i umożliwia uwierzytelnianie bez hasła, uwierzytelnianie wieloskładnikowe i skanowanie licencji cyfrowych.|
 | ![znaku](./media/partner-gallery/twilio-logo.png) | [Twilio Sprawdź, czy aplikacja](./partner-twilio.md) udostępnia wiele rozwiązań umożliwiających uwierzytelnianie wieloskładnikowe (MFA) za pośrednictwem hasła jednorazowego (OTP) usługi SMS, oparte na czasie hasło jednorazowe (TOTP) i powiadomienia wypychane oraz zgodność z wymaganiami SCA dla dyrektywy usług płatniczych 2 (PSD2).|
+| ![znaku](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) to weryfikacja tożsamości i dostawca weryfikacji na podstawie wzorca wpisywania przez użytkownika, zapewnia rozwiązania do weryfikacji identyfikatorów, które wymuszają uwierzytelnianie wieloskładnikowe i pomagają zachować zgodność z wymaganiami SCAymi dotyczącymi usług płatniczych 2 (PSD2). |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,7 +4,7 @@ description: Pokazuje, w jaki sposób administrator może użyć Azure Portal lu
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/15/2018
 ms.author: mimart
 author: msmimart
@@ -12,14 +12,14 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa2ac203f92d401095194bb3f1b5f3ef3c52093b
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74273423"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387290"
 ---
-# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Zezwalanie na zaproszenia lub ich blokowanie dla użytkowników B2B z określonych organizacji
+# <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Zezwalanie na zaproszenia dla użytkowników B2B z określonych organizacji i blokowanie ich
 
 Możesz użyć listy dozwolonych lub listy zablokowanych, aby zezwalać na zaproszenia użytkownikom B2B lub je blokować z określonych organizacji. Jeśli na przykład chcesz zablokować domeny osobistych adresów e-mail, możesz skonfigurować listę Odmów zawierającą domeny, takie jak Gmail.com i Outlook.com. Jeśli firma ma partnerstwo z innymi firmami, takimi jak Contoso.com, Fabrikam.com i Litware.com, i chcesz ograniczyć zaproszenia tylko do tych organizacji, możesz dodać Contoso.com, Fabrikam.com i Litware.com do listy dozwolonych.
   
@@ -42,10 +42,10 @@ Jest to najbardziej typowy scenariusz, w którym organizacja chce współpracowa
 Aby dodać listę Odmów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję**Ustawienia użytkownika** **Azure Active Directory** > **Użytkownicy** > .
+2. Wybierz **Azure Active Directory**pozycję  >  **Users**  >  **Ustawienia użytkownika**Azure Active Directory użytkownicy.
 3. W obszarze **użytkownicy zewnętrzni**wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
 4. W obszarze **ograniczenia dotyczące współpracy**wybierz pozycję **Odmów zaproszeń do określonych domen**.
-5. W obszarze **domeny docelowe**wprowadź nazwę jednej z domen, które chcesz zablokować. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Przykład:
+5. W obszarze **domeny docelowe**wprowadź nazwę jednej z domen, które chcesz zablokować. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Na przykład:
 
    ![Wyświetla opcję Odmów z dodanymi domenami](./media/allow-deny-list/DenyListSettings.png)
  
@@ -63,10 +63,10 @@ Jeśli chcesz użyć listy dozwolonych, upewnij się, że poświęcasz czas na c
 Aby dodać listę dozwolonych:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję**Ustawienia użytkownika** **Azure Active Directory** > **Użytkownicy** > .
+2. Wybierz **Azure Active Directory**pozycję  >  **Users**  >  **Ustawienia użytkownika**Azure Active Directory użytkownicy.
 3. W obszarze **użytkownicy zewnętrzni**wybierz pozycję **Zarządzaj ustawieniami współpracy zewnętrznej**.
 4. W obszarze **ograniczenia dotyczące współpracy**wybierz opcję **Zezwalaj na zaproszenia tylko do określonych domen (najbardziej restrykcyjne)**.
-5. W obszarze **domeny docelowe**wprowadź nazwę jednej z domen, na które chcesz zezwolić. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Przykład:
+5. W obszarze **domeny docelowe**wprowadź nazwę jednej z domen, na które chcesz zezwolić. W przypadku wielu domen wprowadź każdą domenę w nowym wierszu. Na przykład:
 
    ![Wyświetla opcję Zezwalaj z dodanymi domenami](./media/allow-deny-list/AllowListSettings.png)
  
@@ -80,7 +80,7 @@ W przypadku przełączenia z jednej zasady na drugą spowoduje to odrzucenie ist
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>Ustawianie zasad listy Zezwalaj lub Odmów przy użyciu programu PowerShell
 
-### <a name="prerequisite"></a>Wymagania wstępne
+### <a name="prerequisite"></a>Wymaganie wstępne
 
 > [!Note]
 > Moduł AzureADPreview nie jest w pełni obsługiwanym modułem, ponieważ jest w wersji zapoznawczej. 
@@ -140,19 +140,19 @@ Poniżej pokazano ten sam przykład, ale z definicją zasad w tekście.
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Aby ustawić zasady listy dozwolonych lub zablokowanych, należy użyć polecenia cmdlet [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) . Przykład:
+Aby ustawić zasady listy dozwolonych lub zablokowanych, należy użyć polecenia cmdlet [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Aby uzyskać zasady, należy użyć polecenia cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) . Przykład:
+Aby uzyskać zasady, należy użyć polecenia cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Aby usunąć zasady, należy użyć polecenia cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) . Przykład:
+Aby usunąć zasady, należy użyć polecenia cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) . Na przykład:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b5d1f44b35b89607fecf6875b1e56be97f37d0fa
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85203643"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385420"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Zabezpieczanie interfejsu API usługi Azure API Management przy użyciu Azure AD B2C
 
@@ -73,7 +73,7 @@ Następnie uzyskaj dobrze znany adres URL konfiguracji dla jednego z Azure AD B2
 
     Ta wartość jest używana w następnej sekcji podczas konfigurowania interfejsu API w usłudze Azure API Management.
 
-Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Przykład:
+Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Na przykład:
 
 ```
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
@@ -154,7 +154,7 @@ Aplikacja kliencka (w tym przypadku) wywołująca opublikowany interfejs API mus
 
 Po zarejestrowaniu tokenu dostępu i klucza subskrypcji APIM można już sprawdzić, czy bezpieczny dostęp do interfejsu API został prawidłowo skonfigurowany.
 
-1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Przykład:
+1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Na przykład:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 

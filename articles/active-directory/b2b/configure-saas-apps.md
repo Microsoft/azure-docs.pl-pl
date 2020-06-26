@@ -4,7 +4,7 @@ description: Przykłady kodu i programu PowerShell na potrzeby współpracy B2B 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c73a14c2a8cd063672bd0998368ca660f52cd5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272948"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387354"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurowanie aplikacji SaaS na potrzeby współpracy B2B
 
@@ -81,7 +81,7 @@ Można umożliwić użytkownikom uwierzytelnianie w polu gościa za pomocą kont
 
    ![Zrzut ekranu przedstawiający ustawienia konfiguracji logowania jednokrotnego](media/configure-saas-apps/configure-box-sso.png)
 
-   a. Upewnij się, że adres URL logowania jest odpowiednio ustawiony dla pola Azure Portal w polu **adres URL logowania** . Ten adres URL jest adresem URL dzierżawy Box.com. Powinna być zgodna z Konwencją *https://.box.com*nazewnictwa.  
+   a. Upewnij się, że adres URL logowania jest odpowiednio ustawiony dla pola Azure Portal w polu **adres URL logowania** . Ten adres URL jest adresem URL dzierżawy Box.com. Powinna być zgodna z konwencją nazewnictwa *https://.box.com* .  
    **Identyfikator** nie ma zastosowania do tej aplikacji, ale nadal pojawia się jako pole wymagane.
 
    b. W polu **Identyfikator użytkownika** wprowadź wartość **User. mail** (w przypadku logowania jednokrotnego dla kont Gości).

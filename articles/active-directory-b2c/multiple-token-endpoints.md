@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5daf88e746ea803f345c79bd31d656f2615b6754
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5528607b0559dad246262748c83c9d359ee2144e
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184098"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385743"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrowanie internetowego interfejsu API opartego na OWIN do usługi b2clogin.com
 
@@ -27,7 +27,7 @@ Dzięki dodaniu obsługi w interfejsie API do akceptowania tokenów wystawionych
 Poniższe sekcje przedstawiają przykład sposobu włączania wielu wystawców w interfejsie API sieci Web, który używa składników oprogramowania pośredniczącego [Microsoft Owin][katana] (Katana). Chociaż przykłady kodu są specyficzne dla oprogramowania pośredniczącego Microsoft OWIN, ogólna technika powinna być stosowana do innych bibliotek OWIN.
 
 > [!NOTE]
-> Ten artykuł jest przeznaczony dla klientów Azure AD B2C z aktualnie wdrożonymi interfejsami API i `login.microsoftonline.com` aplikacjami, które odwołują się do programu `b2clogin.com` i które chcą migrować do zalecanego punktu końcowego. Jeśli konfigurujesz nową aplikację, użyj [b2clogin.com](b2clogin.md) jako kierowany.
+> Ten artykuł jest przeznaczony dla klientów Azure AD B2C z aktualnie wdrożonymi interfejsami API i aplikacjami, które odwołują się `login.microsoftonline.com` do programu i które chcą migrować do zalecanego `b2clogin.com` punktu końcowego. Jeśli konfigurujesz nową aplikację, użyj [b2clogin.com](b2clogin.md) jako kierowany.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -77,7 +77,7 @@ Jeśli masz zasady niestandardowe zamiast przepływów użytkownika, możesz uż
 
 Teraz, gdy masz oba identyfikatory URI punktu końcowego tokenu, musisz zaktualizować swój kod, aby określić, że oba punkty końcowe są prawidłowymi wystawcami. Aby zapoznać się z przykładem, Pobierz lub Sklonuj przykładową aplikację, a następnie zaktualizuj przykład, aby obsługiwać oba punkty końcowe jako prawidłowych wystawców.
 
-Pobierz archiwum: [Active-Directory-B2C-dotnet-webapp-and-WebAPI-Master. zip][sample-archive]
+Pobierz archiwum: [active-directory-b2c-dotnet-webapp-and-webapi-master.zip][sample-archive]
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
@@ -88,11 +88,11 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 W tej sekcji należy zaktualizować kod, aby określić, że oba punkty końcowe wystawcy tokenu są prawidłowe.
 
 1. Otwórz rozwiązanie **B2C-WebAPI-dotnet. sln** w programie Visual Studio
-1. W projekcie **TaskService** Otwórz plik *TaskService\\App_Start\\* * Startup.auth.cs** * w edytorze
+1. W projekcie **TaskService** Otwórz plik *TaskService \\ App_Start \\ * * Startup.auth.cs** * w edytorze
 1. Dodaj następującą `using` dyrektywę na początku pliku:
 
     `using System.Collections.Generic;`
-1. Dodaj [`ValidIssuers`][validissuers] właściwość do [`TokenValidationParameters`][tokenvalidationparameters] definicji i określ oba identyfikatory URI zarejestrowane w poprzedniej sekcji:
+1. Dodaj [`ValidIssuers`][validissuers] Właściwość do [`TokenValidationParameters`][tokenvalidationparameters] definicji i określ oba identyfikatory URI zarejestrowane w poprzedniej sekcji:
 
     ```csharp
     TokenValidationParameters tvps = new TokenValidationParameters
@@ -123,9 +123,9 @@ Jak wspomniano wcześniej, inne biblioteki OWIN zazwyczaj oferują podobną funk
 
 Przy użyciu obu identyfikatorów URI teraz obsługiwanych przez internetowy interfejs API, musisz teraz zaktualizować aplikację sieci Web tak, aby pobierali tokeny z punktu końcowego b2clogin.com.
 
-Przykładowo można skonfigurować przykładową aplikację sieci Web, aby korzystała z nowego punktu końcowego, `ida:AadInstance` modyfikując wartość w *pliku\\TaskWebApp * * Web. config** * projektu **TaskWebApp** .
+Przykładowo można skonfigurować przykładową aplikację sieci Web do używania nowego punktu końcowego, modyfikując `ida:AadInstance` wartość w pliku *TaskWebApp \\ * * Web.config** * w projekcie **TaskWebApp** .
 
-Zmień `ida:AadInstance` wartość w *pliku Web. config* elementu TaskWebApp tak, aby odwoływał się `{your-b2c-tenant-name}.b2clogin.com` do niego `login.microsoftonline.com`zamiast.
+Zmień `ida:AadInstance` wartość *Web.config* TaskWebApp tak, aby odwołuje się do niej `{your-b2c-tenant-name}.b2clogin.com` zamiast `login.microsoftonline.com` .
 
 Przed:
 
@@ -134,7 +134,7 @@ Przed:
 <add key="ida:AadInstance" value="https://login.microsoftonline.com/tfp/{0}/{1}" />
 ```
 
-Po (Zamień `{your-b2c-tenant}` na nazwę dzierżawy B2C):
+Po (Zamień na `{your-b2c-tenant}` nazwę dzierżawy B2C):
 
 ```xml
 <!-- New value -->
@@ -145,7 +145,7 @@ W przypadku konstruowania ciągów punktów końcowych podczas wykonywania aplik
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule przedstawiono metodę konfigurowania internetowego interfejsu API implementującego oprogramowanie Microsoft OWIN pośredniczące (Katana) w celu akceptowania tokenów z wielu punktów końcowych wystawcy. Jak można zauważyć, istnieje kilka innych ciągów w plikach *Web. config* projektów TaskService i TaskWebApp, które należy zmienić, jeśli chcesz skompilować i uruchomić te projekty względem własnej dzierżawy. Przyjrzyjmy się odpowiednim modyfikacjom projektów, jeśli chcesz, aby były one widoczne w działaniu, jednak pełny wgląd w to robi to poza zakresem tego artykułu.
+W tym artykule przedstawiono metodę konfigurowania internetowego interfejsu API implementującego oprogramowanie Microsoft OWIN pośredniczące (Katana) w celu akceptowania tokenów z wielu punktów końcowych wystawcy. Jak można zauważyć, istnieje kilka innych ciągów w *Web.Config* plikach dla projektów TaskService i TaskWebApp, które należy zmienić, jeśli chcesz kompilować i uruchamiać te projekty względem własnej dzierżawy. Przyjrzyjmy się odpowiednim modyfikacjom projektów, jeśli chcesz, aby były one widoczne w działaniu, jednak pełny wgląd w to robi to poza zakresem tego artykułu.
 
 Aby uzyskać więcej informacji na temat różnych typów tokenów zabezpieczających emitowanych przez Azure AD B2C, zobacz [Omówienie tokenów w Azure Active Directory B2C](tokens-overview.md).
 

@@ -3,12 +3,12 @@ title: Kopia zapasowa offline dla programu DPM i usługi Azure Backup Server
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule wyjaśniono przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 1fb9910f2cdf8f000725fde697d971fc1c3d385b
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: bb9b3599e74e74058598acd53f5156459c0b74fb
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631982"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374937"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (serwera usługi MAB)
 
@@ -83,9 +83,9 @@ Informacje przedstawione w tej sekcji ułatwiają zakończenie przepływu pracy 
    Opis danych wejściowych jest następujący:
 
    * **Lokalizacja tymczasowa**: tymczasowa lokalizacja przechowywania, w której zapisano początkową kopię zapasową. Tymczasowa lokalizacja może znajdować się w udziale sieciowym lub na komputerze lokalnym. Jeśli komputer kopii i komputer źródłowy są inne, określ pełną ścieżkę sieciową lokalizacji tymczasowej.
-   * **Konto usługi Azure Storage**: nazwa konta magazynu w subskrypcji platformy Azure skojarzona z plikiem ustawień publikowania platformy Azure.
-   * **Kontener usługi Azure Storage**: Nazwa docelowego obiektu blob magazynu na koncie usługi Azure Storage, do którego są importowane dane kopii zapasowej.
-   * **Identyfikator subskrypcji platformy Azure**: Identyfikator subskrypcji platformy Azure dla subskrypcji z lokalizacji, w której pobrano plik ustawień publikowania platformy Azure.
+   * **Azure Resource Manager konto magazynu**: Nazwa Menedżer zasobówgo konta magazynu (ogólnego przeznaczenia w wersji 1 lub 2) w dowolnej subskrypcji platformy Azure.
+   * **Kontener usługi Azure Storage**: Nazwa docelowego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage, do którego są importowane dane kopii zapasowej.
+   * **Identyfikator subskrypcji platformy Azure**: Identyfikator subskrypcji platformy Azure, w której tworzone jest konto usługi Azure Storage.
    * **Nazwa zadania importowania platformy Azure**: unikatowa nazwa, za pomocą której usługa Azure Import i Azure Backup śledzi transfer danych wysyłanych na dyskach na platformę Azure.
 
     Zapisz **lokalizację przemieszczania** i informacje o **nazwie zadania importowania platformy Azure** podane przez użytkownika. Jest to wymagane do przygotowania dysków.

@@ -6,19 +6,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: identity
 ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: ade350c91ebd2f3a68b52011e598f739a14c220f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5489c65a0e955183b034e173706b6decfa6df9d5
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154495"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387494"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Azure Active Directory dla deweloperów (v 1.0) — Omówienie
 
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) to usługa zarządzania tożsamościami w chmu
 |[Typy aplikacji](app-types.md) | Przegląd scenariuszy uwierzytelniania obsługiwanych przez usługę Azure AD. |
 | | |
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Przewodniki Szybki Start i samouczki dotyczące programu v 1.0 przeprowadzą Cię przez proces tworzenia aplikacji na preferowanej platformie przy użyciu zestawu SDK biblioteki Azure AD Authentication Library (ADAL). Aby rozpocząć pracę, zobacz **samouczki** **Szybki Start** i wersja 1.0 usługi [Microsoft Identity platform (Azure Active Directory dla deweloperów)](index.yml) .
 

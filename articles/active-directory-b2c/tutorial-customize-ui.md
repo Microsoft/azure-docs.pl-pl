@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e023e9c8c4c6f0021eabccad8783c27eba98d0d5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 235fd429707a418fa193e986b95c9b38fa6c8101
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116530"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385029"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Samouczek: Dostosowywanie interfejsu środowiska użytkownika w Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Aktualizowanie przepływu użytkownika w celu użycia plików
 > * Testowanie dostosowanego interfejsu użytkownika
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -71,7 +71,7 @@ Chociaż pliki można przechowywać na wiele sposobów, w tym samouczku można j
 
     ![Strona konfiguracji funkcji CORS w usłudze Azure Blob Storage w Azure Portal](./media/tutorial-customize-ui/enable-cors.png)
 
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 ### <a name="create-the-customization-files"></a>Tworzenie plików dostosowania
 
@@ -95,7 +95,7 @@ Aby dostosować interfejs użytkownika środowiska rejestracji, Zacznij od utwor
 
     Strona może być zaprojektowana w dowolny sposób, ale element DIV **API** jest wymagany dla dowolnego tworzonego pliku dostosowania html.
 
-3. Zapisz plik jako *Custom-UI. html*.
+3. Zapisz plik jako *custom-ui.html*.
 4. Utwórz następujący prosty kod CSS obejmujący wszystkie elementy na stronie tworzenia konta lub logowania, w tym elementy, które Azure AD B2C wstrzyknąć.
 
     ```css
@@ -129,7 +129,7 @@ W tym samouczku zostaną zapisane pliki utworzone na koncie magazynu, dzięki cz
 
 1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, Wyszukaj i wybierz pozycję **konta magazynu**.
 2. Wybierz utworzone konto magazynu, wybierz pozycję **obiekty blob**, a następnie wybierz utworzony kontener.
-3. Wybierz pozycję **Przekaż**, przejdź do i wybierz plik *Custom-UI. html* , a następnie kliknij przycisk **Przekaż**.
+3. Wybierz pozycję **Przekaż**, przejdź do i wybierz plik *custom-ui.html* , a następnie kliknij pozycję **Przekaż**.
 
     ![Przekaż stronę obiektu BLOB w portalu, używając przycisku przekazywania i plików wyróżnionych](./media/tutorial-customize-ui/upload-blob.png)
 
@@ -141,7 +141,7 @@ W tym samouczku zostaną zapisane pliki utworzone na koncie magazynu, dzięki cz
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 2. Wybierz pozycję **przepływy użytkownika (zasady)**, a następnie wybierz pozycję *B2C_1_signupsignin1* przepływ użytkownika.
 3. Wybierz pozycję **układy stron**, a następnie w obszarze **ujednolicone rejestrowanie lub logowanie**kliknij pozycję **tak** , aby **użyć niestandardowej zawartości strony**.
-4. W polu **Identyfikator URI strony niestandardowej**wprowadź identyfikator URI pliku *Custom-UI. html* , który został zarejestrowany wcześniej.
+4. W polu **Identyfikator URI strony niestandardowej**wprowadź identyfikator URI zarejestrowanego wcześniej pliku *custom-ui.html* .
 5. W górnej części strony wybierz pozycję **Zapisz**.
 
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika

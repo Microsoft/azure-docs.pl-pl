@@ -4,19 +4,19 @@ description: Pokazuje, w jaki sposób udostępnić użytkownikom usługi Cloud B
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 098f464b6af5f10866403e1cd1549d571d883ac1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b510326b6683ae48b6521483118367f36e0dc58
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272796"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387018"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Przyznaj użytkownikom B2B dostęp do aplikacji lokalnych w usłudze Azure AD
 
@@ -52,7 +52,7 @@ Na poniższym diagramie przedstawiono ogólne omówienie sposobu, w jaki usługa
 ![Diagram rozwiązań skryptów programu MIM i B2B](media/hybrid-cloud-to-on-premises/MIMScriptSolution.PNG)
 
 1.  Użytkownik z organizacji partnerskiej (dzierżawa firmy Fabrikam) jest zapraszany do dzierżawy firmy Contoso.
-2.  Obiekt użytkownika-gościa jest tworzony w dzierżawie contoso (na przykład obiekt użytkownika z nazwą UPN guest_fabrikam. com # EXT #@contoso.onmicrosoft.com).
+2.  Obiekt użytkownika-gościa jest tworzony w dzierżawie contoso (na przykład obiekt użytkownika z nazwą UPN guest_fabrikam. com # EXT # @contoso.onmicrosoft.com ).
 3.  Gość Fabrikam jest zaimportowany z firmy Contoso za pośrednictwem programu MIM lub skryptu B2B.
 4.  Reprezentacja lub "powierzchnia" obiektu użytkownika-gościa firmy Fabrikam (gość # EXT #) jest tworzona w katalogu lokalnym, Contoso.com, za pomocą programu MIM lub za pomocą skryptu B2B programu PowerShell.
 5.  Użytkownik-Gość uzyskuje dostęp do aplikacji lokalnej, app.contoso.com.
@@ -61,7 +61,7 @@ Na poniższym diagramie przedstawiono ogólne omówienie sposobu, w jaki usługa
 
 ### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 
-Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Przykład:
+Lokalnymi obiektami użytkownika B2B można zarządzać za pomocą zasad zarządzania cyklem życia. Na przykład:
 
 - Można skonfigurować zasady uwierzytelniania wieloskładnikowego (MFA) dla użytkownika-gościa, aby funkcja MFA była używana podczas uwierzytelniania serwera proxy aplikacji. Aby uzyskać więcej informacji, zobacz [dostęp warunkowy dla użytkowników współpracy B2B](conditional-access.md).
 - Wszystkie sponsorzy, przeglądy dostępu, weryfikacje kont itp., które są wykonywane na użytkownikach w chmurze, mają zastosowanie do użytkowników lokalnych. Na przykład jeśli użytkownik chmury zostanie usunięty w ramach zasad zarządzania cyklem życia, użytkownik lokalny zostanie również usunięty przez program MIM Sync lub za pomocą synchronizacji Azure AD Connect. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem gościa za pomocą przeglądów dostępu w usłudze Azure AD](../governance/manage-guest-access-with-access-reviews.md).
@@ -74,7 +74,7 @@ Informacje o sposobach korzystania z programu MIM 2016 z dodatkiem Service Pack 
 
 Dostępny jest przykładowy skrypt programu PowerShell, którego można użyć jako punktu wyjścia do tworzenia obiektów użytkownika-Gości w lokalnym Active Directory.
 
-Skrypt i plik Readme można pobrać z [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=51495). Wybierz **skrypt i plik Readme, aby ściągnąć plik on-Prem. zip użytkowników B2B usługi Azure AD** .
+Skrypt i plik Readme można pobrać z [Centrum pobierania](https://www.microsoft.com/download/details.aspx?id=51495). Wybierz **skrypt i plik Readme, aby pobrać użytkowników B2B usługi Azure AD on-prem.zip** pliku.
 
 Przed użyciem skryptu upewnij się, że zawarto przegląd wymagań wstępnych i ważnych zagadnień w skojarzonym pliku Readme. Należy również zrozumieć, że skrypt jest udostępniany tylko jako przykład. Twój zespół programistyczny lub partner musi dostosować i przejrzeć skrypt przed jego uruchomieniem.
 

@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/13/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1b51792c86cfce15fa718040dfcbcc13997ee26
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186368"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85384961"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Rozwiązywanie problemów Azure AD B2C zasad niestandardowych i struktury środowiska obsługi tożsamości
 
@@ -52,7 +52,7 @@ Typowe błędy walidacji obejmują następujące elementy:
 
 > Fragment kodu błędu:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Sprawdź, czy wartość TenantId w `<TrustFrameworkPolicy\>` elementach `<BasePolicy\>` i jest zgodna z docelową dzierżawą Azure AD B2C.
+* Sprawdź, czy wartość TenantId w `<TrustFrameworkPolicy\>` `<BasePolicy\>` elementach i jest zgodna z docelową dzierżawą Azure AD B2C.
 
 ## <a name="troubleshoot-the-runtime"></a>Rozwiązywanie problemów dotyczących środowiska uruchomieniowego
 

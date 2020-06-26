@@ -4,7 +4,7 @@ description: Azure Active Directory właściwości użytkownika-gościa B2B i St
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5da41209747198a9d6e034373e1b396d0f086a74
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361102"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386627"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Właściwości Azure Active Directory użytkownika współpracy B2B
 

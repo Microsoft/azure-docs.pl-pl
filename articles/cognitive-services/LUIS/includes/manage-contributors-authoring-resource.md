@@ -1,6 +1,6 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
+title: dołączanie pliku
+description: dołączanie pliku
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,18 +10,18 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 192d3d1a7bd792779b068a9c0c7ac34c7bee1c80
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cbb79c6c7467306bbc202d317684a5c62835d53c
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80116997"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374880"
 ---
 Jeśli aplikacje muszą być tworzone przez inne osoby, należy dodać skojarzone adresy e-mail w zasobie tworzenia Azure Portal.
 
-Jeśli jesteś **właścicielem lub administratorem subskrypcji platformy Azure**, możesz dodać współautora do zasobu.
+Jeśli jesteś właścicielem lub administratorem subskrypcji platformy Azure, możesz dodać współautora do zasobu.
 
-Jeśli nie jesteś **właścicielem lub administratorem subskrypcji platformy Azure**, Twoje konto platformy Azure musi mieć `Microsoft.Authorization/roleAssignments/write` uprawnienia.
+Jeśli nie jesteś właścicielem lub administratorem subskrypcji platformy Azure, Twoje konto platformy Azure musi mieć `Microsoft.Authorization/roleAssignments/write` uprawnienia.
 
 Jeśli masz problemy z tym przypisaniem roli, przejrzyj:
 

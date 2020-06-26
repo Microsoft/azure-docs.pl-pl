@@ -4,19 +4,19 @@ description: Współpraca B2B usługi Azure Active Directory wspiera relacje mi�
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: reference
+ms.topic: how-to
 ms.date: 04/11/2017
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9f62ece12732c45037bcad328eec162bebb4e6a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263467"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387205"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory interfejs API współpracy B2B i dostosowywanie
 
@@ -115,9 +115,9 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > Upewnij się, że masz najnowszą wersję modułu AzureAD PowerShell lub moduł AzureADPreview PowerShell. 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
-Zapoznaj się z dokumentacją interfejsu API [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)zaproszenia w temacie.
+Zapoznaj się z dokumentacją interfejsu API zaproszenia w temacie [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) .
 
 ## <a name="next-steps"></a>Następne kroki
 

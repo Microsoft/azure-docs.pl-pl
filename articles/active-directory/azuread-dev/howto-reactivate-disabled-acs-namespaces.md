@@ -7,18 +7,18 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff0ce05b13fea8409475e3415c5d810d7c79769a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154869"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383721"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Jak ponownie uaktywnić wyłączone Access Control Service przestrzenie nazw
 
@@ -67,7 +67,7 @@ Za pomocą programu ACS PowerShell można wyświetlić listę wszystkich przestr
     Aby można było uruchomić polecenie, może być konieczna zmiana zasad wykonywania przez uruchomienie polecenia **Set-executionpolicy** .
 1. Wyświetl listę dostępnych subskrypcji platformy Azure za pomocą polecenia cmdlet **Get-AcsSubscription** .
 1. Utwórz listę przestrzeni nazw ACS przy użyciu polecenia cmdlet **Get-AcsNamespace** .
-1. Upewnij się, że przestrzenie nazw zostały wyłączone przez `State` potwierdzenie `Disabled`, że jest to.
+1. Upewnij się, że przestrzenie nazw zostały wyłączone przez potwierdzenie, że `State` jest to `Disabled` .
 
     [![Upewnij się, że przestrzenie nazw są wyłączone](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
 
@@ -122,7 +122,7 @@ Dalsze rozszerzenia nie będą już automatycznie zatwierdzane. Jeśli potrzebuj
 ## <a name="help-and-support"></a>Pomoc i obsługa techniczna
 
 - Jeśli po wykonaniu tych czynności wystąpią problemy, skontaktuj się z [pomocą techniczną platformy Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-- Jeśli masz pytania lub opinie na temat emerytury usługi ACS, skontaktuj się z acsfeedback@microsoft.comnami pod adresem.
+- Jeśli masz pytania lub opinie na temat emerytury usługi ACS, skontaktuj się z nami pod adresem acsfeedback@microsoft.com .
 
 ## <a name="next-steps"></a>Następne kroki
 

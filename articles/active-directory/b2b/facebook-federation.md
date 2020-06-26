@@ -4,7 +4,7 @@ description: Sfederować z usługą Facebook, aby umożliwić użytkownikom zewn
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0428671cf41bf148bc76bbd963bdd8fd90fce8e5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 46e37365c73c603a8cd742e2f7943c2f5116ce22
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712274"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387055"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Dodawanie usługi Facebook jako dostawcy tożsamości dla tożsamości zewnętrznych
 

@@ -9,18 +9,14 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: e6e24a97a8b98bdd5447295880811914100563fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d4b22196598d971c49f0364038b74ba81c73805
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588539"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374801"
 ---
-# <a name="connect-data-from-azure-security-center"></a>Łączenie danych z Azure Security Center
-
-
-
-
+# <a name="connect-data-from-azure-security-center-asc"></a>Połącz dane z Azure Security Center (ASC)
 
 System Azure — wskaźnik produkcji umożliwia łączenie alertów z [Azure Security Center](../security-center/security-center-intro.md) i przesyłanie ich strumieniowo do usługi Azure wskaźnikowej. 
 
@@ -30,19 +26,17 @@ System Azure — wskaźnik produkcji umożliwia łączenie alertów z [Azure Sec
 
 - W ramach subskrypcji musi być uruchomiona [Azure Security Center warstwa standardowa](../security-center/security-center-pricing.md) . W przeciwnym razie [Uaktualnij subskrypcję do wersji Standard](https://azure.microsoft.com/pricing/details/security-center/).
 
-
-
 ## <a name="connect-to-azure-security-center"></a>Połącz z Azure Security Center
 
-1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych** , a następnie kliknij kafelek **Azure Security Center** .
+1. W obszarze wskaźnik platformy Azure wybierz pozycję **Łączniki danych** z menu nawigacji.
 
-1. Po prawej stronie kliknij pozycję **Połącz** obok każdej subskrypcji, której alerty chcesz przesłać do usługi Azure wskaźnikowej. Pamiętaj, aby uaktualnić każdą subskrypcję do Azure Security Center warstwy Standardowa, aby przesyłać strumieniowo alerty do platformy Azure.
+1. W galerii łączniki danych wybierz pozycję **Azure Security Center**, a następnie kliknij przycisk **Otwórz stronę łącznika** .
 
-1. Możesz wybrać, czy alerty od Azure Security Center mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń** wybierz pozycję **Włącz** , aby włączyć domyślną regułę analityczną, która automatycznie tworzy zdarzenia z alertów generowanych w połączonej usłudze zabezpieczeń. Następnie można edytować tę regułę w obszarze **Analiza** , a następnie **aktywne reguły**.
+1. W obszarze **Konfiguracja**kliknij pozycję **Połącz** obok każdej subskrypcji, której alerty chcesz przesłać do usługi Azure wskaźnikowej. Przycisk Połącz będzie dostępny tylko wtedy, gdy masz wymagane uprawnienia i subskrypcję warstwy Standardowa ASC.
 
-3. Kliknij pozycję **Połącz**.
+1. Możesz wybrać, czy alerty od Azure Security Center mają automatycznie generować zdarzenia na platformie Azure. W obszarze **Tworzenie zdarzeń**wybierz pozycję **włączone** , aby włączyć domyślną regułę analizy, która automatycznie tworzy zdarzenia z alertów. Następnie można edytować tę regułę w obszarze **Analiza**na karcie **aktywne reguły** .
 
-4. Aby użyć odpowiedniego schematu w Log Analytics dla alertów Azure Security Center, Wyszukaj pozycję **SecurityAlert**.
+1. Aby użyć odpowiedniego schematu w Log Analytics dla alertów Azure Security Center, Wyszukaj pozycję **SecurityAlert**.
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono sposób nawiązywania połączenia Azure Security Center z platformą Azure — wskaźnikiem. Aby dowiedzieć się więcej na temat platformy Azure, zobacz następujące artykuły:

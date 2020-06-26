@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c8fad8b5bd2dccba36c0c6888712fa806f3cbfc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d6d6169f8662c9b973fb7f624a590322f62b0b5
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78187223"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387528"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Użyj Azure Portal, aby tworzyć i usuwać użytkowników w programie Azure AD B2C
 
@@ -40,10 +40,10 @@ Ten artykuł koncentruje się na pracy z **kontami konsumentów** w Azure Portal
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 1. Wybierz przycisk **Nowy użytkownik**.
 1. Wybierz pozycję **utwórz Azure AD B2C użytkownika**.
-1. Wybierz **metodę logowania** , a następnie wprowadź adres **E-mail** lub **nazwę użytkownika** dla nowego użytkownika. Wybrana tutaj metoda logowania musi pasować do ustawienia określonego dla dostawcy tożsamości *konta lokalnego* Azure AD B2C dzierżawy (zobacz **Zarządzanie** > **dostawcami tożsamości** w dzierżawie Azure AD B2C).
+1. Wybierz **metodę logowania** , a następnie wprowadź adres **E-mail** lub **nazwę użytkownika** dla nowego użytkownika. Wybrana tutaj metoda logowania musi pasować do ustawienia określonego dla dostawcy tożsamości *konta lokalnego* Azure AD B2C dzierżawy (zobacz **Zarządzanie**  >  **dostawcami tożsamości** w dzierżawie Azure AD B2C).
 1. Wprowadź **nazwę** użytkownika. Jest to zazwyczaj pełna nazwa (imię i nazwisko) użytkownika.
 1. Obowiązkowe Możesz **zablokować logowanie** , jeśli chcesz opóźnić możliwość logowania się użytkownika. Logowanie można włączyć później, edytując **profil** użytkownika w Azure Portal.
 1. Wybierz opcję **Automatyczne generowanie hasła** lub **pozwól mi tworzyć hasło**.

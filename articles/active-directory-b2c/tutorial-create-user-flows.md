@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/07/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 63486d6ee627d3b321978fb9f0268d15a8a86f34
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 2d9fb98da40602837eee57914036742994b4eb9c
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488192"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385063"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Samouczek: Tworzenie przepływów użytkowników w Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
 
 Przepływ użytkowników rejestracji i logowania obsługuje zarówno środowisko tworzenia konta, jak i logowania przy użyciu jednej konfiguracji. Użytkownicy Twojej aplikacji nie wyłączają właściwej ścieżki w zależności od kontekstu.
 
-1. Zaloguj się do [portalu Azure](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Na pasku narzędzi portalu wybierz ikonę **katalog i subskrypcję** , a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 
     ![B2C dzierżawy, katalogu i subskrypcji, Azure Portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
@@ -94,7 +94,7 @@ Jeśli chcesz umożliwić użytkownikom edytowanie ich profilu w aplikacji, Uży
 1. Wybierz utworzony przepływ użytkownika, aby otworzyć jego stronę przeglądu, a następnie wybierz pozycję **Uruchom przepływ użytkownika**.
 1. W przypadku **aplikacji**wybierz aplikację sieci Web o nazwie *webapp1* , która została wcześniej zarejestrowana. Powinien być pokazywany **adres URL odpowiedzi** `https://jwt.ms` .
 1. Kliknij pozycję **Uruchom przepływ użytkownika**, a następnie zaloguj się przy użyciu utworzonego wcześniej konta.
-1. Teraz można zmienić nazwę wyświetlaną i stanowisko użytkownika. Kliknij przycisk **Kontynuuj**. Token jest zwracany do `https://jwt.ms` i powinien być wyświetlony.
+1. Teraz można zmienić nazwę wyświetlaną i stanowisko użytkownika. Kliknij pozycję **Kontynuuj**. Token jest zwracany do `https://jwt.ms` i powinien być wyświetlony.
 
 ## <a name="create-a-password-reset-user-flow"></a>Tworzenie przepływu użytkownika dotyczącego resetowania haseł
 

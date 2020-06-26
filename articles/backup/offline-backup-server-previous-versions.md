@@ -3,12 +3,12 @@ title: Kopia zapasowa offline dla Data Protection Manager (DPM) i Microsoft Azur
 description: Za pomocą Azure Backup można wysyłać dane z sieci za pomocą usługi Azure Import/Export. W tym artykule wyjaśniono przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 1deda1f0d2671e1316cf8f5c231207a5c32c10b4
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: f39e93973deab09eb328eeafcff4e49b326483f6
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84632059"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374835"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-previous-versions"></a>Przepływ pracy kopii zapasowej offline dla programu DPM i Azure Backup Server (poprzednie wersje)
 
@@ -55,10 +55,10 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
     | Region suwerennej chmury | Link pliku ustawień publikowania platformy Azure |
     | --- | --- |
-    | Stany Zjednoczone | [Powiązań](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
-    | Chiny | [Powiązań](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Stany Zjednoczone | [Łącze](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
+    | Chiny | [Łącze](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* W subskrypcji, z której pobrano plik ustawień publikowania, utworzono konto usługi Azure Storage z modelem wdrażania Menedżer zasobów.
+* W subskrypcji, z której pobrano plik ustawień publikowania, utworzono konto usługi Azure Storage z modelem wdrażania Menedżer zasobów. Na koncie magazynu Utwórz nowy kontener obiektów blob, który będzie używany jako miejsce docelowe.
 
   ![Tworzenie konta magazynu przy użyciu programu Menedżer zasobów Development](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
@@ -69,7 +69,7 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 ## <a name="prepare-the-server-for-the-offline-backup-process"></a>Przygotowywanie serwera do procesu tworzenia kopii zapasowej w trybie offline
 
 >[!NOTE]
-> Jeśli nie możesz znaleźć wymienionych narzędzi, takich jak *AzureOfflineBackupCertGen. exe*, w instalacji agenta Mars, Zapisz w AskAzureBackupTeam@microsoft.com celu uzyskania dostępu do nich.
+> Jeśli nie możesz znaleźć wymienionych narzędzi, takich jak *AzureOfflineBackupCertGen.exe*, w instalacji agenta Mars, Zapisz w celu AskAzureBackupTeam@microsoft.com uzyskania dostępu do nich.
 
 * Otwórz wiersz polecenia z podwyższonym poziomem uprawnień na serwerze i uruchom następujące polecenie:
 
@@ -81,13 +81,13 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
     Jeśli aplikacja już istnieje, ten plik wykonywalny prosi o ręczne przekazanie certyfikatu do aplikacji w dzierżawie. Wykonaj kroki opisane w [tej sekcji](#manually-upload-an-offline-backup-certificate) , aby ręcznie przekazać certyfikat do aplikacji.
 
-* Narzędzie *AzureOfflineBackup. exe* generuje plik *OfflineApplicationParams. XML* . Skopiuj ten plik na serwer z programem serwera usługi MAB lub DPM.
+* Narzędzie *AzureOfflineBackupCertGen.exe* generuje plik *OfflineApplicationParams.xml* . Skopiuj ten plik na serwer z programem serwera usługi MAB lub DPM.
 * Zainstaluj [najnowszego agenta Mars](https://aka.ms/azurebackup_agent) w wystąpieniu programu DPM lub serwerze Azure Backup.
 * Zarejestruj serwer na platformie Azure.
 * Uruchom następujące polecenie:
 
     ```cmd
-    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname to be used for offline backup>
     ```
 
 * Poprzednie polecenie tworzy plik `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml` .
@@ -96,7 +96,7 @@ Przed uruchomieniem przepływu pracy tworzenia kopii zapasowej offline upewnij s
 
 Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej offline do wcześniej utworzonej aplikacji Azure Active Directory przeznaczonej do tworzenia kopii zapasowych w trybie offline.
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 1. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji**Azure Active Directory.
 1. Na karcie **posiadane aplikacje** Znajdź aplikację z formatem nazwy wyświetlanej `AzureOfflineBackup _<Azure User Id` .
 
@@ -104,7 +104,7 @@ Wykonaj następujące kroki, aby ręcznie przekazać certyfikat kopii zapasowej 
 
 1. Wybierz aplikację. W obszarze **Zarządzaj** w lewym okienku przejdź do pozycji **Certyfikaty & wpisy tajne**.
 1. Sprawdź istniejące certyfikaty lub klucze publiczne. Jeśli nie istnieje, możesz bezpiecznie usunąć aplikację, wybierając przycisk **Usuń** na stronie **Przegląd** aplikacji. Następnie można ponowić próbę wykonania kroków w celu [przygotowania serwera do procesu tworzenia kopii zapasowej w trybie offline](#prepare-the-server-for-the-offline-backup-process) i pominąć poniższe kroki. W przeciwnym razie wykonaj następujące kroki z wystąpienia programu DPM lub serwera Azure Backup, na którym chcesz skonfigurować kopie zapasowe w trybie offline.
-1. Wybierz kartę **narzędzia Zarządzanie certyfikatem komputera**  >  **osobiste** . Poszukaj certyfikatu o nazwie `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
+1. Z **menu Start** — **Uruchom**, wpisz *Certlm. msc*. W oknie **Certyfikaty — komputer lokalny** wybierz kartę **Certyfikaty — komputer lokalny**  >  **osobiste** . Poszukaj certyfikatu o nazwie `CB_AzureADCertforOfflineSeeding_<ResourceId>` .
 1. Wybierz certyfikat, kliknij prawym przyciskiem myszy **wszystkie zadania**, a następnie wybierz opcję **Eksportuj**, bez klucza prywatnego, w formacie CER.
 1. Przejdź do aplikacji Azure offline Backup w Azure Portal.
 1. Wybierz pozycję **Zarządzaj**  >  **certyfikatami & klucze tajne**  >  **Przekaż certyfikat**. Przekaż certyfikat wyeksportowany w poprzednim kroku.

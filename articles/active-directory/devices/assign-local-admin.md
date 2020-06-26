@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72b21514e07b65b89d10b317da95ec7d92ecae78
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: a76d9ccbf7b83ea28de3ef5bb1d140caa7201ebd
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360337"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386372"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Jak zarządzać lokalną grupą administratorów na urządzeniach dołączonych do usługi Azure AD
 
 Aby zarządzać urządzeniem z systemem Windows, musisz być członkiem lokalnej grupy administratorów. W ramach procesu dołączania Azure Active Directory (Azure AD) usługa Azure AD aktualizuje członkostwo tej grupy na urządzeniu. Aktualizację członkostwa można dostosować w celu spełnienia wymagań firmy. Aktualizacja członkostwa jest na przykład przydatna, jeśli chcesz umożliwić personelowi pomocy technicznej wykonywanie zadań wymagających uprawnień administratora na urządzeniu.
 
-W tym artykule wyjaśniono, jak działa aktualizacja członkostwa oraz jak można ją dostosować podczas dołączania do usługi Azure AD. Zawartość tego artykułu nie ma zastosowania do **hybrydowego** sprzężenia usługi Azure AD.
+W tym artykule wyjaśniono, jak działa aktualizacja członkostwa administratorów lokalnych i jak można ją dostosować podczas dołączania do usługi Azure AD. Zawartość tego artykułu nie dotyczy urządzeń **przyłączonych do hybrydowej usługi Azure AD** .
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -59,10 +59,13 @@ Aby zmodyfikować rolę administratora urządzenia, należy skonfigurować **dod
 >[!NOTE]
 > Ta opcja wymaga dzierżawy Azure AD — wersja Premium. 
 
-Administratorzy urządzeń są przypisani do wszystkich urządzeń przyłączonych do usługi Azure AD. Nie można określić zakresu administratorów urządzeń do określonego zestawu urządzeń. Aktualizacja roli administratora urządzenia nie musi mieć natychmiastowego wpływu na użytkowników, których dotyczy problem. Na urządzeniach, na których użytkownik jest już zalogowany, aktualizacja uprawnień odbywa się po *obu* poniższych akcjach:
+Administratorzy urządzeń są przypisani do wszystkich urządzeń przyłączonych do usługi Azure AD. Nie można określić zakresu administratorów urządzeń do określonego zestawu urządzeń. Aktualizacja roli administratora urządzenia nie musi mieć natychmiastowego wpływu na użytkowników, których dotyczy problem. Na urządzeniach, na których użytkownik jest już zalogowany, podwyższenie poziomu uprawnień odbywa się po *obu* poniższych akcjach:
 
-- 4 godziny przekazały, że usługa Azure AD wystawia nowy podstawowy token odświeżania z odpowiednimi uprawnieniami. 
+- Maksymalnie 4 godziny przekazały, że usługa Azure AD wystawia nowy podstawowy token odświeżania z odpowiednimi uprawnieniami. 
 - Użytkownik wyloguje się i zaloguje się ponownie, nie blokując/Odblokuj, aby odświeżyć swój profil.
+
+>[!NOTE]
+> Powyższe akcje nie dotyczą użytkowników, którzy nie zarejestrowali się na odpowiednim urządzeniu wcześniej. W takim przypadku uprawnienia administratora są stosowane natychmiast po pierwszym zalogowaniu się do urządzenia. 
 
 ## <a name="manage-regular-users"></a>Zarządzanie regularnymi użytkownikami
 
@@ -88,7 +91,7 @@ Nie można przypisać grup do roli administratora urządzenia. dozwolone są tyl
 
 Administratorzy urządzeń są przypisani do wszystkich urządzeń przyłączonych do usługi Azure AD. Nie mogą one być ograniczone do określonego zestawu urządzeń.
 
-Usunięcie użytkowników z roli administratora urządzenia nadal ma uprawnienia administratora lokalnego na urządzeniu, o ile są z nim zalogowane. Uprawnienie jest odwoływane podczas kolejnego logowania po 4 godzinach, gdy zostanie wystawiony nowy podstawowy token odświeżania.
+Usunięcie użytkowników z roli administratora urządzenia nadal ma uprawnienia administratora lokalnego na urządzeniu, o ile są z nim zalogowane. Uprawnienie jest odwoływane podczas kolejnego logowania, gdy zostanie wystawiony nowy podstawowy token odświeżania. To odwołanie, podobne do podniesienia uprawnień, może trwać do maksymalnie 4 godzin.
 
 ## <a name="next-steps"></a>Następne kroki
 

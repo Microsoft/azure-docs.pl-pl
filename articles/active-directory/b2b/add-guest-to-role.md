@@ -4,7 +4,7 @@ description: Dodawanie użytkownika-Gości do roli w Azure Active Directory
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703e68994a9d156ccf3e74a5df4a2f4ee2f062cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c5e9983c265fcc032908424f747066f8f348771f
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74268550"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85387375"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Przyznawanie uprawnień użytkownikom z organizacji partnerskich w dzierżawie Azure Active Directory
 

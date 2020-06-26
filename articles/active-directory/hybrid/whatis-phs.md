@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568f284a22f170c2a6a0d60d9e2cfed0645937ba
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 3e40eecce3ff0ea5b252fd135ae553fa20e0a77b
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261379"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386355"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>Co to jest synchronizacja skrótów haseł w usłudze Azure AD?
 Synchronizacja skrótów haseł to jedna z metod logowania używana do zapewnienia tożsamości hybrydowej. Azure AD Connect synchronizuje skrót skrótu hasła użytkownika z wystąpienia lokalnego Active Directory do wystąpienia usługi Azure AD opartego na chmurze.
@@ -29,6 +29,12 @@ Synchronizacja skrótów haseł pomaga, ponieważ dzięki niej użytkownicy potr
 
 * Zwiększenie produktywność użytkowników.
 * Obniżenie kosztów pomocy technicznej.  
+
+Synchronizacja skrótów haseł umożliwia również [Wykrywanie przecieków poświadczeń](../identity-protection/concept-identity-protection-risks.md#user-risk) dla kont hybrydowych. Firma Microsoft współpracuje z najciemniejszymi specjalistami z sieci Web i agencjami ścigania, aby znaleźć publicznie dostępne pary nazw i haseł. Jeśli którykolwiek z tych par pasuje do tych użytkowników, skojarzone konto jest przenoszone do wysokiego ryzyka. 
+
+>[!NOTE]
+> Po włączeniu PHS zostaną przetworzone tylko nowe nieujawnione poświadczenia. Weryfikowanie przed poprzednio znalezionymi parami poświadczeń nie jest wykonywane.
+
 
 Jeśli zdecydujesz się na użycie [federacji z usługami Active Directory Federation Services (AD FS)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) jako metody logowania, możesz opcjonalnie skonfigurować synchronizację skrótów haseł jako awaryjną metodę logowania.
 

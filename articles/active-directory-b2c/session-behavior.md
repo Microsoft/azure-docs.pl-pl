@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f5400b47c1e0b4657e40d2c57f8212711bbdaf3f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: ed10a9258590f8f9037a574bd0322a82dd309a5b
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927075"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85385250"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurowanie zachowania sesji w Azure Active Directory B2C
 
@@ -45,7 +45,7 @@ Aby zarządzać sesjami aplikacji sieci Web, można użyć następujących wła�
 
     ![Ustawienia właściwości zachowanie sesji w Azure Portal](./media/session-behavior/session-behavior.png)
 
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

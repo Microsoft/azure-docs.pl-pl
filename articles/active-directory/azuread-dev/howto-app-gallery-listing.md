@@ -6,19 +6,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: fbdae8b8506731f13ff08e877ea8eedb6d57fa78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ae99ba6540250d18c0bb5f6365e2ed3b9939ac9
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666941"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85383873"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Wyświetlanie listy aplikacji w galerii aplikacji usługi Azure Active Directory
 
@@ -51,7 +51,7 @@ Możesz skorzystać z bezpłatnego konta testowego ze wszystkimi funkcjami usłu
 
 Po przetestowaniu współpracy aplikacji z usługą Azure AD Prześlij żądanie aplikacji w [portalu sieci aplikacji firmy Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps).
 
-Jeśli po zalogowaniu zostanie wyświetlona następująca strona, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Podaj konto e-mail, którego chcesz użyć do przesłania żądania. Służbowy adres e-mail, taki [name@yourbusiness.com](mailto:name@yourbusiness.com) jak jest preferowany. Zespół usługi Azure AD doda konto w portalu sieci aplikacji firmy Microsoft.
+Jeśli po zalogowaniu zostanie wyświetlona następująca strona, skontaktuj się z [zespołem ds. integracji rejestracji jednokrotnej usługi Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Podaj konto e-mail, którego chcesz użyć do przesłania żądania. Służbowy adres e-mail, taki jak [name@yourbusiness.com](mailto:name@yourbusiness.com) jest preferowany. Zespół usługi Azure AD doda konto w portalu sieci aplikacji firmy Microsoft.
 
 ![Komunikat żądania dostępu w portalu programu SharePoint](./media/howto-app-gallery-listing/errorimage.png)
 
@@ -79,7 +79,7 @@ Użytkownik-Gość jest federacyjny dla dzierżawy głównej, która jest równi
  
 **Bezpieczne rozwiązania:**
 
-* Zarejestrowani użytkownicy-Goście zarejestrowany przez usługę MFA korygują własne ryzyko użytkownika. Może to zostać zrobione przez użytkownika-gościa wykonującego bezpieczną zmianę lub zresetowaniehttps://aka.ms/sspr) hasła (w swojej dzierżawie domowej (wymaga to usługi MFA i SSPR w dzierżawie głównej). Bezpieczne Zmienianie lub Resetowanie hasła musi być inicjowane w usłudze Azure AD, a nie w Premium.
+* Zarejestrowani użytkownicy-Goście zarejestrowany przez usługę MFA korygują własne ryzyko użytkownika. Może to zostać zrobione przez użytkownika-gościa wykonującego bezpieczną zmianę lub zresetowanie hasła ( https://aka.ms/sspr) w swojej dzierżawie domowej (wymaga to usługi MFA i SSPR w dzierżawie głównej). Bezpieczne Zmienianie lub Resetowanie hasła musi być inicjowane w usłudze Azure AD, a nie w Premium.
 
 * Użytkownicy-Goście mają swoje administratorów korygują ryzyko. W takim przypadku administrator wykona Resetowanie hasła (tymczasowe generowanie hasła). Nie wymaga to ochrony tożsamości. Administrator użytkownika-gościa może przejść do https://aka.ms/RiskyUsers i kliknąć pozycję "Resetuj hasło".
 
@@ -136,7 +136,7 @@ Aby zaktualizować lub usunąć istniejącą aplikację w galerii aplikacji usł
 
 ## <a name="list-requests-by-customers"></a>Wyświetlanie listy żądań według klientów
 
-Klienci mogą przesłać żądanie, aby wyświetlić listę aplikacji, wybierając pozycję **żądania aplikacji przez klientów** > **przesyłając nowe żądanie**.
+Klienci mogą przesłać żądanie, aby wyświetlić listę aplikacji, wybierając pozycję **żądania aplikacji przez klientów**  >  **przesyłając nowe żądanie**.
 
 ![Pokazuje kafelek aplikacje żądane przez klienta](./media/howto-app-gallery-listing/customer-submit-request.png)
 
@@ -156,4 +156,4 @@ Oś czasu procesu tworzenia listy aplikacji OpenID Connect Connect w galerii to 
 
 ## <a name="escalations"></a>Ich eskalacji
 
-W przypadku wszelkich eskalacji Wyślij wiadomość e-mail do [zespołu integracji rejestracji jednokrotnej usługi Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com) w SaaSApplicationIntegrations@service.microsoft.comsystemie i będziemy reagować tak szybko, jak to możliwe.
+W przypadku wszelkich eskalacji Wyślij wiadomość e-mail do [zespołu integracji rejestracji jednokrotnej usługi Azure AD](mailto:SaaSApplicationIntegrations@service.microsoft.com) w systemie SaaSApplicationIntegrations@service.microsoft.com i będziemy reagować tak szybko, jak to możliwe.

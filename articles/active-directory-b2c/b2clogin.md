@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 64b440054795670b99a22e37dec7188f3e1cd74c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4297ee64742b81e86eb8b85c0a6c405fac07d67f
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189994"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85386168"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ustaw adresy URL przekierowania na b2clogin.com dla Azure Active Directory B2C
 
@@ -50,7 +50,7 @@ Istnieje kilka modyfikacji, które trzeba wykonać, aby przeprowadzić migrację
 
 ## <a name="change-identity-provider-redirect-urls"></a>Zmienianie adresów URL przekierowań dostawcy tożsamości
 
-W każdej witrynie sieci Web dostawcy tożsamości, w której została utworzona aplikacja, Zmień wszystkie Zaufane adresy URL, aby `your-tenant-name.b2clogin.com` przekierować do *login.microsoftonline.com*.
+W każdej witrynie sieci Web dostawcy tożsamości, w której została utworzona aplikacja, Zmień wszystkie Zaufane adresy URL, aby przekierować do `your-tenant-name.b2clogin.com` *login.microsoftonline.com*.
 
 Istnieją dwa formaty, których można użyć w odniesieniu do adresów URL przekierowania b2clogin.com. Pierwsza z nich to korzyść, która nie ma "firmy Microsoft" pojawia się w dowolnym miejscu w adresie URL przy użyciu identyfikatora dzierżawy (GUID) zamiast nazwy domeny dzierżawcy:
 
@@ -58,7 +58,7 @@ Istnieją dwa formaty, których można użyć w odniesieniu do adresów URL prze
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-Druga opcja używa nazwy domeny dzierżawy w postaci `your-tenant-name.onmicrosoft.com`. Przykład:
+Druga opcja używa nazwy domeny dzierżawy w postaci `your-tenant-name.onmicrosoft.com` . Na przykład:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
@@ -71,7 +71,7 @@ Dla obu formatów:
 
 ## <a name="update-your-applications-and-apis"></a>Aktualizowanie aplikacji i interfejsów API
 
-Kod w aplikacjach i interfejsach API z obsługą Azure AD B2C mogą odwoływać się do `login.microsoftonline.com` programu w kilku miejscach. Na przykład kod może zawierać odwołania do przepływów użytkowników i punktów końcowych tokenu. W zamian należy zaktualizować następujące informacje `your-tenant-name.b2clogin.com`:
+Kod w aplikacjach i interfejsach API z obsługą Azure AD B2C mogą odwoływać się do `login.microsoftonline.com` programu w kilku miejscach. Na przykład kod może zawierać odwołania do przepływów użytkowników i punktów końcowych tokenu. W zamian należy zaktualizować następujące informacje `your-tenant-name.b2clogin.com` :
 
 * Punkt końcowy autoryzacji
 * Punkt końcowy tokenu
@@ -91,7 +91,7 @@ Aby przeprowadzić migrację interfejsów API usługi Azure API Management chron
 
 ### <a name="validateauthority-property"></a>Właściwość ValidateAuthority
 
-Jeśli używasz programu [MSAL.NET][msal-dotnet] v2 lub starszego, ustaw właściwość **ValidateAuthority** `false` ValidateAuthority na tworzenie wystąpienia klienta, aby umożliwić przekierowywanie do *b2clogin.com*. To ustawienie nie jest wymagane w przypadku wersji MSAL.NET v3 i nowszych.
+Jeśli używasz programu [MSAL.NET][msal-dotnet] v2 lub starszego, ustaw właściwość **ValidateAuthority** na `false` Tworzenie wystąpienia klienta, aby umożliwić przekierowywanie do *b2clogin.com*. To ustawienie nie jest wymagane w przypadku wersji MSAL.NET v3 i nowszych.
 
 ```csharp
 ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
