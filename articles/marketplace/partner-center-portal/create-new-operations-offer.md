@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: badad6da0c0e244cbdb30e4b89955dd073782f04
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 6a062723394b9a5187b72cabf449cdc17b2bbbcd
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752543"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373492"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Tworzenie oferty Dynamics 365 for Operations
 
@@ -210,9 +210,6 @@ Udostępnij logo swojej oferty na dwa rozmiary pikseli:
 - **Mały** (48 x 48)
 - **Duże** (216 x 216)
 
-#### <a name="hero"></a>Hero
-
-Obraz Hero jest opcjonalny. Jeśli postanowisz jeden, musi on mierzyć 815 x 290 pikseli.
 
 #### <a name="screenshots"></a>Zrzuty ekranu
 

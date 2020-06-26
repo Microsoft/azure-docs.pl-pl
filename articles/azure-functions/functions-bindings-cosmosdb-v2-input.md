@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB powiązania danych wejściowych dla funkcji 2. x
+title: Azure Cosmos DB powiązania danych wejściowych dla funkcji 2. x i wyższych
 description: Dowiedz się, jak używać powiązania danych wejściowych Azure Cosmos DB w Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: bce234b0d2fee38f0644ae0bd961cdcd815b0bd2
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: b6daccb7ec4665842fd42a0938e3cbf18e2d7540
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667900"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374376"
 ---
-# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x"></a>Azure Cosmos DB powiązania danych wejściowych dla Azure Functions 2. x
+# <a name="azure-cosmos-db-input-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB powiązania danych wejściowych dla Azure Functions 2. x i wyższych
 
 Powiązanie wejściowe usługi Azure Cosmos DB używa interfejsu API SQL, aby pobrać co najmniej jeden dokument usługi Azure Cosmos DB, a następnie przekazuje go do parametru wejściowego funkcji. Identyfikator dokumentu lub parametry zapytania można określić na podstawie wyzwalacza wywołującego funkcję.
 
@@ -1424,7 +1424,7 @@ W [bibliotece środowiska uruchomieniowego usługi Java Functions](https://docs.
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `CosmosDB` atrybutu.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5b54f87635e1ea972778b0039dc34170c5b7ab8a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 869614c2e3fe11c289ab6eb7f6c1407f666de2b0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362292"
+ms.locfileid: "85368145"
 ---
 # <a name="cloud-tiering-overview"></a>Omówienie obsługi warstw w chmurze
 Obsługa warstw w chmurze jest opcjonalną funkcją Azure File Sync, w której często używane pliki są buforowane lokalnie na serwerze, podczas gdy wszystkie inne pliki są warstwami do Azure Files na podstawie ustawień zasad. Gdy plik jest warstwowy, filtr systemu plików Azure File Sync (StorageSync.sys) zastępuje plik lokalnie za pomocą wskaźnika lub punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL pliku w Azure Files. Plik warstwowy ma zarówno atrybut "offline", jak i atrybut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS ustawiony w systemie plików NTFS, aby aplikacje innych firm mogły bezpiecznie identyfikować pliki warstwowe.
@@ -82,7 +82,11 @@ Utrzymywanie większej ilości danych może prowadzić do obniżenia kosztów ru
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>Dodaliśmy nowy punkt końcowy serwera. Jak długo do moich plików w tej warstwie serwera?
-W wersji 4,0 i większej od agenta Azure File Sync, gdy pliki zostały przekazane do udziału plików platformy Azure, zostaną warstwowo zgodnie z zasadami, gdy tylko zostanie uruchomiona kolejna sesja warstwowa, co nastąpi po godzinie. W przypadku starszych agentów może upłynąć nawet 24 godziny.
+
+Niezależnie od tego, czy pliki muszą być warstwowe dla poszczególnych ustawionych zasad, są oceniane co godzinę. Po utworzeniu nowego punktu końcowego serwera mogą wystąpić dwie sytuacje:
+
+1. Po dodaniu nowego punktu końcowego serwera często istnieją pliki znajdujące się w tej lokalizacji serwera. Przed rozpoczęciem obsługi warstw w chmurze należy je najpierw przekazać. Zasady wolnego miejsca na woluminie nie będą działały do momentu zakończenia wstępnego przekazania wszystkich plików. Jednak opcjonalne zasady dotyczące dat rozpoczną pracę nad pojedynczym plikiem, gdy tylko plik zostanie przekazany. W tym miejscu obowiązuje również interwał jednorazowy. 
+2. Po dodaniu nowego punktu końcowego serwera możliwe jest połączenie pustej lokalizacji serwera z udziałem plików platformy Azure z danymi. Czy jest to dla drugiego serwera, czy podczas odzyskiwania po awarii. Jeśli zdecydujesz się pobrać przestrzeń nazw i odwołać zawartość podczas wstępnego pobierania na serwer, po rozpoczęciu przestrzeni nazw pliki zostaną odwołane na podstawie ostatniej zmodyfikowanej sygnatury czasowej. Tylko tyle plików będzie można odwołać w ramach zasad wolnego miejsca na woluminie i opcjonalnych zasad dotyczących daty.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Jak mogę sprawdzić, czy plik został warstwowy?

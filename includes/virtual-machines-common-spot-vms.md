@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 06/15/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 64433f3233e249059c1c2d180a03e0a221924f15
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 76af1084626944d8399edd2c7ec5dec92e25f3ed
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84793648"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378568"
 ---
 Korzystanie z maszyn wirtualnych na miejscu pozwala korzystać z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure wymaga przywrócenia pojemności, infrastruktura platformy Azure wyłączy maszyny wirtualne. W związku z tym maszyny wirtualne są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
 
@@ -54,8 +54,8 @@ Niektóre kanały subskrypcji nie są obsługiwane:
 | Enterprise Agreement         | Tak                               |
 | Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
 | Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Korzyści                     | Niedostępne                     |
-| Sponsorowan                    | Niedostępne                     |
+| Zalety                     | Niedostępne                     |
+| Sponsorowan                    | Tak                               |
 | Bezpłatna wersja próbna                   | Niedostępne                     |
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: kenwith
-ms.openlocfilehash: a1cf2b57665cad4dd09639579b42b29a288eeca1
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: fdcea318fcd0796a790818794f6dd7cd949c17cd
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84975575"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367788"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planowanie wdrożenia usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -317,7 +317,7 @@ W poniższych artykułach omówiono typowe scenariusze, które mogą być równi
 * [Problem z wyświetlaniem strony aplikacji](application-proxy-page-appearance-broken-problem.md)
 * [Ładowanie aplikacji trwa zbyt długo](application-proxy-page-load-speed-problem.md)
 * [Linki na stronie aplikacji nie działają](application-proxy-page-links-broken-problem.md)
-* [Jakie porty należy otworzyć dla mojej aplikacji](application-proxy-connectivity-ports-how-to.md)
+* [Jakie porty należy otworzyć dla mojej aplikacji](application-proxy-add-on-premises-application.md)
 * [Brak działającego łącznika w grupie łączników mojej aplikacji](application-proxy-connectivity-no-working-connector.md)
 * [Konfigurowanie w portalu administracyjnym](application-proxy-config-how-to.md)
 * [Konfigurowanie logowania jednokrotnego w mojej aplikacji](application-proxy-config-sso-how-to.md)

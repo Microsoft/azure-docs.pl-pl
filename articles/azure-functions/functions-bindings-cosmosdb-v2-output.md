@@ -1,19 +1,19 @@
 ---
-title: Azure Cosmos DB powiązanie danych wyjściowych dla funkcji 2. x
+title: Azure Cosmos DB powiązanie danych wyjściowych dla funkcji 2. x i wyższych
 description: Dowiedz się, jak używać powiązania danych wyjściowych Azure Cosmos DB w Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: b58924607f002af27d21343389404fcc66d1f35d
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 2228a9609b0e0325dc4e6f7ccbe88417c900b688
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561666"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374342"
 ---
-# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure Cosmos DB powiązanie danych wyjściowych dla Azure Functions 2. x
+# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB powiązanie danych wyjściowych dla Azure Functions 2. x i wyższych
 
 Powiązanie danych wyjściowych Azure Cosmos DB umożliwia pisanie nowego dokumentu w Azure Cosmos DB bazie danych przy użyciu interfejsu API SQL.
 
@@ -125,7 +125,7 @@ Ta sekcja zawiera następujące przykłady:
 
 ### <a name="queue-trigger-write-one-doc"></a>Wyzwalacz kolejki, napisz jeden dokument
 
-Poniższy przykład przedstawia Azure Cosmos DB powiązanie danych wyjściowych w pliku *Function. JSON* oraz [funkcję skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja używa powiązania danych wejściowych kolejki dla kolejki, która odbiera kod JSON w następującym formacie:
+Poniższy przykład pokazuje Azure Cosmos DB powiązanie danych wyjściowych w *function.jsna* pliku i [funkcję skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja używa powiązania danych wejściowych kolejki dla kolejki, która odbiera kod JSON w następującym formacie:
 
 ```json
 {
@@ -146,7 +146,7 @@ Funkcja tworzy Azure Cosmos DB dokumenty w następującym formacie dla każdego 
 }
 ```
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -205,7 +205,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Oto plik Function. JSON:
+Oto function.jspliku:
 
 ```json
 {
@@ -250,7 +250,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Poniższy przykład pokazuje Azure Cosmos DB powiązanie danych wyjściowych w pliku *Function. JSON* i [funkcję języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja używa powiązania danych wejściowych kolejki dla kolejki, która odbiera kod JSON w następującym formacie:
+Poniższy przykład pokazuje Azure Cosmos DB powiązanie danych wyjściowych w *function.js* pliku i [funkcji języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja używa powiązania danych wejściowych kolejki dla kolejki, która odbiera kod JSON w następującym formacie:
 
 ```json
 {
@@ -271,7 +271,7 @@ Funkcja tworzy Azure Cosmos DB dokumenty w następującym formacie dla każdego 
 }
 ```
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -307,7 +307,7 @@ Oto kod JavaScript:
 
 W poniższym przykładzie pokazano, jak napisać dokument do bazy danych usługi Azure CosmosDB jako dane wyjściowe funkcji.
 
-Definicja powiązania jest zdefiniowana w *funkcji Function. JSON* , w której *Typ* jest ustawiony na `cosmosDB` .
+Definicja powiązania jest definiowana w *function.jsna* miejscu, w którym ustawiono *Typ* `cosmosDB` .
 
 ```json
 {
@@ -560,11 +560,11 @@ Atrybuty nie są obsługiwane przez język Python.
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `CosmosDB` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `CosmosDB` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź**     | nie dotyczy | Musi być ustawiony na `cosmosDB` .        |
 |**wskazywa**     | nie dotyczy | Musi być ustawiony na `out` .         |
@@ -595,9 +595,9 @@ Domyślnie podczas zapisu do parametru danych wyjściowych w funkcji jest tworzo
 
 <a name="host-json"></a>
 
-## <a name="hostjson-settings"></a>Ustawienia pliku host. JSON
+## <a name="hostjson-settings"></a>host.jsustawień
 
-W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiązania w wersji 2. x. Aby uzyskać więcej informacji na temat ustawień konfiguracji globalnej w wersji 2. x, zobacz informacje dotyczące pliku [host. JSON dla Azure Functions wersji 2. x](functions-host-json.md).
+W tej sekcji opisano globalne ustawienia konfiguracji dostępne dla tego powiązania w wersji 2. x. Aby uzyskać więcej informacji na temat ustawień globalnej konfiguracji w wersji 2. x, zobacz [host.json Reference for Azure Functions wersja 2. x](functions-host-json.md).
 
 ```json
 {

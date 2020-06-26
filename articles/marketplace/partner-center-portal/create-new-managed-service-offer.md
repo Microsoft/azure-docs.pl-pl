@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 1d3804a019add8f97dcbad0f9d707d50c35830bb
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: ffc8e1919350c9a14cb53bd243af66fdfa839d04
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753899"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373458"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -138,9 +138,9 @@ W tej sekcji można podać logo i obrazy, które będą używane podczas wyświe
 
 Podaj logo swojej oferty w postaci czterech pikseli:
 
-- **Mały** (40 x 40)
+- **Mały** (48 x 48)
 - **Średni** (90 x 90)
-- **Duże** (115 x 115)
+- **Duże** (216 x 216)
 - **Szeroki** (255 x 115)
 
 Postępuj zgodnie z poniższymi wskazówkami dotyczącymi logo:

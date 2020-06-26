@@ -6,18 +6,18 @@ ms.author: t-trtr
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 06/04/2020
-ms.openlocfilehash: f13872352e8b4da89d2dcf955440bc54be0fe000
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: fe06d68a7e618b728e314d539dd83dfdf93beaed
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817335"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368213"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Samouczek: Konfigurowanie i uruchamianie dostawcy Azure Key Vault dla sterownika CSI magazynu wpisów tajnych w systemie Kubernetes
 
 Korzystając z tego samouczka, możesz uzyskać dostęp do wpisów tajnych z magazynu kluczy platformy Azure i pobrać je z niego przy użyciu sterownika Kubernetes magazynu kontenerów (CSI).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Utwórz nazwę główną usługi lub użyj zarządzanych tożsamości.
@@ -343,4 +343,4 @@ Sprawdź, czy jest wyświetlana zawartość wpisu tajnego.
 
 Aby upewnić się, że Twój Magazyn kluczy jest możliwy do odzyskania, zobacz:
 > [!div class="nextstepaction"]
-> [Włącz usuwanie nietrwałe](https://docs.microsoft.com/azure/key-vault/general/soft-delete-clid)
+> [Włącz usuwanie nietrwałe](https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli)

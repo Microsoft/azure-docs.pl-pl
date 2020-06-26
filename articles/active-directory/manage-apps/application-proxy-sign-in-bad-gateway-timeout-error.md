@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6a8d156cc2eea881b84dc0ef58f7b6538e0225f
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 6eca304901e391c931aba892abf3cb2a19d4ae3b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84759865"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367754"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Błąd "nie można uzyskać dostępu do tej aplikacji firmowej" podczas korzystania z aplikacji serwera proxy aplikacji
 
@@ -71,7 +71,7 @@ Pierwszym krokiem jest podwójne sprawdzenie i poprawienie wewnętrznego adresu 
 Aby sprawdzić, czy aplikacja jest przypisana do grupy łączników roboczych:
 
 1. Otwórz aplikację w portalu, przechodząc do **Azure Active Directory**, klikając pozycję **aplikacje dla przedsiębiorstw**, a następnie **wszystkie aplikacje.** Otwórz aplikację, a następnie wybierz pozycję **serwer proxy aplikacji** w menu po lewej stronie.
-1. Sprawdź pole Grupa łączników. Jeśli w grupie nie ma aktywnych łączników, zostanie wyświetlone ostrzeżenie. Jeśli nie widzisz żadnych ostrzeżeń, przejdź do, aby sprawdzić, czy wszystkie [wymagane porty](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to) są dozwolone.
+1. Sprawdź pole Grupa łączników. Jeśli w grupie nie ma aktywnych łączników, zostanie wyświetlone ostrzeżenie. Jeśli nie widzisz żadnych ostrzeżeń, przejdź do, aby sprawdzić, czy wszystkie [wymagane porty](application-proxy-add-on-premises-application.md) są dozwolone.
 1. Jeśli pokazywana jest niewłaściwa Grupa łączników, Użyj listy rozwijanej, aby wybrać poprawną grupę i potwierdzić, że nie są już wyświetlane żadne ostrzeżenia. Jeśli zostanie wyświetlona zamierzona Grupa łączników, kliknij komunikat ostrzegawczy, aby otworzyć stronę z zarządzaniem łącznikiem.
 1. W tym miejscu istnieje kilka sposobów szczegółowego przechodzenia do szczegółów:
 
@@ -83,7 +83,7 @@ Po zastosowaniu tych kroków, aby upewnić się, że aplikacja jest przypisana d
 
 ## <a name="check-all-required-ports-are-open"></a>Sprawdź, czy wszystkie wymagane porty są otwarte
 
-Aby sprawdzić, czy wszystkie wymagane porty są otwarte, zapoznaj się z [dokumentacją dotyczącą otwierania portów](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to). Jeśli wszystkie wymagane porty są otwarte, przejdź do następnej sekcji.
+Sprawdź, czy wszystkie wymagane porty są otwarte. W przypadku wymaganych portów Zobacz sekcję otwieranie portów [w samouczku: Dodawanie aplikacji lokalnej dla dostępu zdalnego za pomocą serwera proxy aplikacji w Azure Active Directory](application-proxy-add-on-premises-application.md). Jeśli wszystkie wymagane porty są otwarte, przejdź do następnej sekcji.
 
 ## <a name="check-for-other-connector-errors"></a>Sprawdź inne błędy łącznika
 

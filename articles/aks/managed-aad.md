@@ -3,14 +3,16 @@ title: Korzystanie z usługi Azure AD w usłudze Azure Kubernetes Service
 description: Dowiedz się, jak używać usługi Azure AD w usłudze Azure Kubernetes Service (AKS)
 services: container-service
 manager: gwallace
+author: mlearned
 ms.topic: article
-ms.date: 06/04/2020
-ms.openlocfilehash: 8d446d82550a6bc790d162ee944b0753979b6546
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.date: 06/25/2020
+ms.author: mlearned
+ms.openlocfilehash: 280637be417d904de6dbb7ae2e2647026da6c838
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782674"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374546"
 ---
 # <a name="integrate-aks-managed-azure-ad-preview"></a>Integrowanie usługi Azure AD zarządzanej przez usługę AKS (wersja zapoznawcza)
 
@@ -62,9 +64,6 @@ kubectl version --client
 ```
 
 Użyj [tych instrukcji](https://kubernetes.io/docs/tasks/tools/install-kubectl/) dla innych systemów operacyjnych.
-
-> [!CAUTION]
-> Po zarejestrowaniu funkcji w ramach subskrypcji nie można obecnie wyrejestrować tej funkcji. Po włączeniu niektórych funkcji w wersji zapoznawczej mogą być stosowane wartości domyślne dla wszystkich klastrów AKS utworzonych później w ramach subskrypcji. Nie włączaj funkcji w wersji zapoznawczej w ramach subskrypcji produkcyjnych. Zamiast tego należy użyć oddzielnej subskrypcji do testowania funkcji w wersji zapoznawczej i zebrania opinii.
 
 ```azurecli-interactive
 az feature register --name AAD-V2 --namespace Microsoft.ContainerService
@@ -190,7 +189,7 @@ az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster 
 
 ## <a name="non-interactive-login-with-kubelogin"></a>Nieinterakcyjne Logowanie przy użyciu kubelogin
 
-Istnieją nieinteraktywne scenariusze, takie jak potoki ciągłej integracji, które nie są obecnie dostępne w polecenia kubectl. Możesz użyć [kubelogin](https://github.com/Azure/kubelogin) , aby uzyskać dostęp do klastra w scenariuszach nieinteraktywnych.
+Istnieją nieinteraktywne scenariusze, takie jak potoki ciągłej integracji, które nie są obecnie dostępne w polecenia kubectl. Możesz użyć [kubelogin](https://github.com/Azure/kubelogin) , aby uzyskać dostęp do klastra za pomocą nazwy logowania jednostki usługi nieinteraktywnej.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą usługi Azure Import/Export korzystać
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 6d448687836842835259fcf7bbad41af815dfb58
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 5611b5a6fc9ba8bbff11e35449caf0dd9d33fa21
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629298"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373306"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Przepływ pracy kopii zapasowej offline w Azure Backup
 
@@ -90,7 +90,7 @@ W tej sekcji opisano przepływ pracy tworzenia kopii zapasowych w trybie offline
 
     * **Lokalizacja tymczasowa**: tymczasowa lokalizacja przechowywania, w której zapisano początkową kopię zapasową. Tymczasowa lokalizacja może znajdować się w udziale sieciowym lub na komputerze lokalnym. Jeśli komputer kopii i komputer źródłowy są inne, określ pełną ścieżkę sieciową lokalizacji tymczasowej.
     * **Azure Resource Manager konto magazynu**: Nazwa Menedżer zasobówgo konta magazynu (ogólnego przeznaczenia w wersji 1 lub 2) w dowolnej subskrypcji platformy Azure.
-    * **Kontener usługi Azure Storage**: Nazwa docelowego obiektu blob magazynu na koncie usługi Azure Storage, do którego importowane są dane kopii zapasowej przed skopiowaniem do magazynu Recovery Services.
+    * **Kontener usługi Azure Storage**: Nazwa docelowego kontenera magazynu obiektów BLOB na koncie usługi Azure Storage, do którego importowane są dane kopii zapasowej przed skopiowaniem do magazynu Recovery Services.
     * **Identyfikator subskrypcji platformy Azure**: Identyfikator subskrypcji platformy Azure, w której tworzone jest konto usługi Azure Storage.
     * **Nazwa zadania importowania platformy Azure**: unikatowa nazwa, za pomocą której usługa Azure Import/Export i Azure Backup śledzi transfer danych wysyłanych na dyskach na platformę Azure.
   

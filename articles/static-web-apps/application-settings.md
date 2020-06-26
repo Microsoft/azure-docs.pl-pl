@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 36aa0a4a87e439c128c5247b6850100a7f2e826e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 66ad9c27ca69df230d9ce1d2282e734420fa14f3
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598052"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373673"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Konfigurowanie ustawień aplikacji dla usługi Azure static Web Apps Preview
 
@@ -60,9 +60,9 @@ Aby uzyskać informacje o sposobach używania zmiennych środowiskowych z platfo
 
 ## <a name="about-api-app-settings"></a>Informacje o ustawieniach aplikacji interfejsu API
 
-Interfejsy API w usłudze Azure static Web Apps są obsługiwane przez Azure Functions, co pozwala na definiowanie ustawień aplikacji w pliku _Local. Settings. JSON_ . Ten plik definiuje ustawienia aplikacji we `Values` Właściwości konfiguracji.
+Interfejsy API w usłudze Azure static Web Apps są obsługiwane przez Azure Functions, co pozwala na definiowanie ustawień aplikacji w _local.settings.js_ plik. Ten plik definiuje ustawienia aplikacji we `Values` Właściwości konfiguracji.
 
-Poniższy przykład _Local. Settings. JSON_ pokazuje, jak dodać wartość dla `DATABASE_CONNECTION_STRING` .
+Poniższy przykład _local.settings.json_ pokazuje, jak dodać wartość dla `DATABASE_CONNECTION_STRING` .
 
 ```json
 {
@@ -105,15 +105,17 @@ Azure Portal udostępnia interfejs do tworzenia, aktualizowania i usuwania ustaw
 
     :::image type="content" source="media/application-settings/configuration.png" alt-text="Widok konfiguracji Web Apps statycznej platformy Azure":::
 
-1. Wprowadź **nazwę** i **wartość**
+1. Wprowadź **nazwę** i **wartość**.
 
-1. Kliknij przycisk **OK** .
+1. Kliknij przycisk **OK**.
+
+1. Kliknij pozycję **Zapisz**.
 
 ### <a name="using-the-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
 Możesz użyć polecenia, `az rest` Aby wykonać zbiorcze operacje przekazywania ustawień do platformy Azure. Polecenie akceptuje ustawienia aplikacji jako obiekty JSON w właściwości nadrzędnej o nazwie `properties` .
 
-Najprostszym sposobem utworzenia pliku JSON z odpowiednimi wartościami jest utworzenie zmodyfikowanej wersji pliku _Local. Settings. JSON_ .
+Najprostszym sposobem utworzenia pliku JSON z odpowiednimi wartościami jest utworzenie zmodyfikowanej wersji _local.settings.js_ pliku.
 
 1. Aby zapewnić, że nowy plik z danymi poufnymi nie jest ujawniany publicznie, Dodaj następujący wpis do pliku _. gitignore_ .
 
@@ -121,7 +123,7 @@ Najprostszym sposobem utworzenia pliku JSON z odpowiednimi wartościami jest utw
    local.settings*.json
    ```
 
-2. Następnie utwórz kopię pliku _Local. Settings. JSON_ i nadaj jej nazwę _Local. Settings. Properties. JSON_.
+2. Następnie utwórz kopię _local.settings.js_ pliku i nadaj jej nazwę _local.settings.properties.js_.
 
 3. W nowym pliku Usuń wszystkie inne dane z pliku z wyjątkiem ustawień aplikacji i zmień ich nazwy `Values` na `properties` .
 
@@ -150,13 +152,13 @@ Polecenie interfejsu wiersza polecenia platformy Azure wymaga określonych warto
    ```
 
 > [!IMPORTANT]
-> Plik "Local. Settings. Properties. JSON" musi znajdować się w tym samym katalogu, w którym jest uruchamiane to polecenie. Ten plik może mieć nazwę, którą lubisz. Nazwa nie jest istotna.
+> Plik "local.settings.properties.json" musi znajdować się w tym samym katalogu, w którym jest uruchamiane to polecenie. Ten plik może mieć nazwę, którą lubisz. Nazwa nie jest istotna.
 
 ### <a name="view-application-settings-with-the-azure-cli"></a>Wyświetlanie ustawień aplikacji za pomocą interfejsu wiersza polecenia platformy Azure
 
 Ustawienia aplikacji są dostępne do wyświetlania w interfejsie wiersza polecenia platformy Azure.
 
-1. W terminalu lub wierszu polecenia wykonaj następujące polecenie. Pamiętaj, aby zastąpić symbole zastępcze `<YOUR_SUBSCRIPTION_ID>` , `<YOUR_RESOURCE_GROUP_NAME>` `<YOUR_STATIC_SITE_NAME>` z wartościami.
+- W terminalu lub wierszu polecenia wykonaj następujące polecenie. Pamiętaj, aby zastąpić symbole zastępcze `<YOUR_SUBSCRIPTION_ID>` , `<YOUR_RESOURCE_GROUP_NAME>` `<YOUR_STATIC_SITE_NAME>` z wartościami.
 
    ```bash
    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"
@@ -165,4 +167,4 @@ Ustawienia aplikacji są dostępne do wyświetlania w interfejsie wiersza polece
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Skonfiguruj lokalne programowanie](local-development.md)
+> [Konfigurowanie programowania lokalnego](local-development.md)

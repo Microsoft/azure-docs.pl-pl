@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 6/18/2020
-ms.openlocfilehash: d2705570f6993ecda0c88241d2dc517fac60695c
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ebbe2f754aa70c6c65ec7016da29a4a1b0bd7dd6
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194046"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374529"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -100,7 +100,7 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 
 ## <a name="limitations"></a>Ograniczenia 
 * Nie można zastosować dozwolonych zakresów adresów IP do punktu końcowego serwera prywatnego interfejsu API, są one stosowane tylko do publicznego serwera interfejsu API
-* Strefy dostępności są obecnie obsługiwane w niektórych regionach, zobacz początek tego dokumentu. 
+* [Strefy dostępności][availability-zones] są obecnie obsługiwane w niektórych regionach. 
 * [Ograniczenia usługi Azure Private link][private-link-service] są stosowane do klastrów prywatnych.
 * Brak obsługi dla agentów hostowanych przez firmę Microsoft dla platformy Azure DevOps z klastrami prywatnymi. Rozważ użycie [agentów samoobsługowych][devops-agents]. 
 * W przypadku klientów, którzy muszą umożliwić Azure Container Registry pracy z prywatnym AKS, Container Registry sieci wirtualnej musi być połączona z siecią wirtualną klastra agentów.
@@ -121,3 +121,4 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops
+[availability-zones]: availability-zones.md

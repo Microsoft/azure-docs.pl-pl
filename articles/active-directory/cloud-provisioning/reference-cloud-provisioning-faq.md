@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7c92cb120f91f8cb76675ba9fc50bad0517886e
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 3ef482804c80602771963633bcc46feaf014c363
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360541"
+ms.locfileid: "85373832"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect często zadawane pytania
 
@@ -32,7 +32,7 @@ Zaplanowano uruchomienie aprowizacji w chmurze co 2 minuty. Co 2 minuty wszystki
 
 Jest to oczekiwane zachowanie. Błędy są spowodowane nieobecnością obiektu użytkownika w usłudze Azure AD. Gdy użytkownik zostanie zainicjowany do usługi Azure AD, skróty haseł powinny być inicjowane w kolejnym przebiegu. Zaczekaj na kilka przebiegów i upewnij się, że synchronizacja skrótów haseł nie ma już błędów.
 
-**P: co się stanie, jeśli wystąpienie Active Directory ma atrybuty, które nie są obsługiwane przez propozycję aprowizacji w chmurze (na przykład rozszerzenia katalogów)?**
+**P: co się stanie, jeśli wystąpienie Active Directory ma atrybuty, które nie są obsługiwane przez obsługę administracyjną w chmurze (na przykład rozszerzenia katalogów)?**
 
 Zainicjowanie obsługi administracyjnej usług w chmurze i udostępnienie obsługiwanych atrybutów. Nieobsługiwane atrybuty nie zostaną zainicjowane do usługi Azure AD. Przejrzyj rozszerzenia katalogu w Active Directory i upewnij się, że te atrybuty nie są potrzebne do przepływu do usługi Azure AD. Jeśli wymagane jest co najmniej jeden atrybut, należy rozważyć użycie Azure AD Connect synchronizacji lub przeniesienie wymaganych informacji do jednego z obsługiwanych atrybutów (na przykład atrybuty rozszerzenia 1-15).
 
@@ -62,7 +62,7 @@ Tak, Inicjowanie obsługi w chmurze tworzy jednostkę usługi dla konfiguracji a
 
 **P: co się stanie, gdy synchronizowany użytkownik musi zmienić hasło przy następnym logowaniu?**
 
-Jeśli synchronizacja skrótów haseł jest włączona w ramach aprowizacji w chmurze, a synchronizowany użytkownik musi zmienić hasło przy następnym logowaniu w lokalnej usłudze AD, Inicjowanie obsługi administracyjnej w chmurze nie zapewni zmiany skrótu hasła do usługi Azure AD. Gdy użytkownik zmieni hasło, skrót hasła użytkownika jest inicjowany z usługi AD do usługi Azure AD.
+Jeśli synchronizacja skrótów haseł jest włączona w ramach aprowizacji w chmurze, a synchronizowany użytkownik musi zmienić hasło przy następnym logowaniu w lokalnej usłudze AD, Inicjowanie obsługi administracyjnej w chmurze nie powoduje udostępnienia skrótu hasła "do-zmiana" w usłudze Azure AD. Gdy użytkownik zmieni hasło, skrót hasła użytkownika jest inicjowany z usługi AD do usługi Azure AD.
 
 **P: czy usługa Cloud Provisioning obsługuje zapisywanie zwrotne MS-ds-consistencyGUID dla dowolnego obiektu?**
 
@@ -70,7 +70,7 @@ Nie, Inicjowanie obsługi administracyjnej nie obsługuje zapisywania zwrotnego 
 
 **Pytanie: jestem użytkownikom aprowizacji przy użyciu aprowizacji w chmurze. Usunięto konfigurację. Dlaczego nadal widzę stare zsynchronizowane obiekty w usłudze Azure AD?** 
 
-Po usunięciu konfiguracji Inicjowanie obsługi administracyjnej nie będzie oczyszczać zsynchronizowanych obiektów w usłudze Azure AD. Aby upewnić się, że nie masz starych obiektów, Zmień zakres konfiguracji na pustą grupę lub jednostki organizacyjne. Po uruchomieniu aprowizacji i oczyszczeniu obiektów należy wyłączyć i usunąć konfigurację. 
+Po usunięciu konfiguracji Inicjowanie obsługi administracyjnej nie usuwa automatycznie zsynchronizowanych obiektów w usłudze Azure AD. Aby upewnić się, że nie masz starych obiektów, Zmień zakres konfiguracji na pustą grupę lub jednostki organizacyjne. Po uruchomieniu aprowizacji i oczyszczeniu obiektów należy wyłączyć i usunąć konfigurację. 
 
 **P: co oznacza, że hybrydowe różnice między programem Exchange nie są obsługiwane?**
 
@@ -79,6 +79,10 @@ Funkcja wdrożenia hybrydowego programu Exchange umożliwia jednoczesne istnieni
 **P: Czy można zainstalować agenta aprowizacji w chmurze w systemie Windows Server Core?**
 
 Nie, Instalacja agenta na serwerze Core nie jest obsługiwana.
+
+**P: Czy można użyć serwera przemieszczania z agentem aprowizacji w chmurze?**
+
+Nie, serwery przejściowe nie są obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki 
 

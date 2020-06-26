@@ -7,12 +7,12 @@ ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
 ms.custom: tracking-python
-ms.openlocfilehash: 04581826ab6b05333e910a162c7a0ca9566ec334
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: c6b84b25ae85d20ccd7872daf16014e5bed6934b
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079117"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374155"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -251,9 +251,9 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
 
 4. Eksporter wyśle dane metryk do Azure Monitor w stałym interwale. Wartość domyślna to co 15 sekund. Śledzimy jedną metrykę, więc dane metryk, z dowolną wartością i sygnaturą czasową, będą wysyłane każdego interwału. Dane można znaleźć w sekcji `customMetrics` .
 
-#### <a name="standard-metrics"></a>Metryki standardowe
+#### <a name="performance-counters"></a>Liczniki wydajności
 
-Domyślnie eksporter metryk wyśle zestaw metryk standardowych do Azure Monitor. Można ją wyłączyć przez ustawienie `enable_standard_metrics` flagi `False` w konstruktorze konstruktora metryk.
+Domyślnie eksporter metryk wyśle zestaw liczników wydajności do Azure Monitor. Można ją wyłączyć przez ustawienie `enable_standard_metrics` flagi `False` w konstruktorze konstruktora metryk.
 
 ```python
 ...
@@ -262,17 +262,16 @@ exporter = metrics_exporter.new_metrics_exporter(
   connection_string='InstrumentationKey=<your-instrumentation-key-here>')
 ...
 ```
-Poniżej znajduje się lista standardowych metryk, które są obecnie wysyłane:
+Poniżej znajduje się lista liczników wydajności, które są obecnie wysyłane:
 
 - Dostępna pamięć (w bajtach)
 - Czas procesora CPU (w procentach)
 - Szybkość żądań przychodzących (na sekundę)
 - Średni czas wykonywania żądania przychodzącego (w milisekundach)
-- Szybkość żądania wychodzącego (na sekundę)
 - Użycie procesora CPU przez proces (procent)
 - Prywatne bajty procesu (w bajtach)
 
-Te metryki powinny być dostępne w programie `performanceCounters` . Przychodząca stawka żądania byłaby poniżej `customMetrics` . Aby uzyskać więcej informacji, zobacz [liczniki wydajności](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
+Te metryki powinny być dostępne w programie `performanceCounters` . Aby uzyskać więcej informacji, zobacz [liczniki wydajności](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
 
 #### <a name="modify-telemetry"></a>Modyfikuj dane telemetryczne
 

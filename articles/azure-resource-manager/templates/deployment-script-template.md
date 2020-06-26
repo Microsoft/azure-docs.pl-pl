@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 06/25/2020
 ms.author: jgao
-ms.openlocfilehash: 6cf10ea9693f922ee8edfb6bab5d1a7cde681fcb
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: e3d0c3493039a1c4cda2bec0d949e610321f6c57
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339428"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373815"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
@@ -108,7 +108,7 @@ Poniższy kod JSON jest przykładem.  Najnowszy schemat szablonu można znaleź�
       "storageAccountKey": "myKey"
     },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
-    "arguments": "[concat('-name ', parameters('name'))]",
+    "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
         "name": "someSecret",
@@ -142,6 +142,19 @@ Szczegóły wartości właściwości:
 - **storageAccountSettings**: Określ ustawienia do użycia istniejącego konta magazynu. Jeśli nie zostanie określony, konto magazynu zostanie utworzone automatycznie. Zobacz [Korzystanie z istniejącego konta magazynu](#use-existing-storage-account).
 - **azPowerShellVersion** / **azCliVersion**: Określ wersję modułu, która ma zostać użyta. Aby zapoznać się z listą obsługiwanych wersji programu PowerShell i interfejsu wiersza polecenia, zobacz [wymagania wstępne](#prerequisites).
 - **argumenty**: Określ wartości parametrów. Wartości są rozdzielone spacjami.
+
+    Skrypty wdrażania dzielą argumenty na tablicę ciągów przez wywoływanie wywołania systemowego [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Jest to konieczne, ponieważ argumenty są przekazane jako [Właściwość polecenia](/rest/api/container-instances/containergroups/createorupdate#containerexec) do wystąpienia kontenera platformy Azure, a właściwość polecenia jest tablicą ciągów.
+
+    Jeśli argumenty zawierają znaki ucieczki, użyj [JsonEscaper](https://www.jsonescaper.com/) do podwójnego ucieczki znaków. Wklej oryginalny ciąg ucieczki do narzędzia, a następnie wybierz pozycję **ucieczki**.  Narzędzie wyprowadza podwójnie zmieniony ciąg. Na przykład w poprzednim przykładowym szablonie argument ma wartość **-name \\ "Jan dole \\ "**.  Ciąg ucieczki to **-name \\ \\ \\ "Jan dole \\ \\ \\ "**.
+
+    Aby przekazać parametr szablonu ARM typu Object jako argument, przekonwertuj obiekt na ciąg za pomocą funkcji [String ()](./template-functions-string.md#string) , a następnie użyj funkcji [replace ()](./template-functions-string.md#replace) w celu zastąpienia dowolnego elementu ** \\ "** INTO ** \\ \\ \\ "**. Na przykład:
+
+    ```json
+    replace(string(parameters('tables')), '\"', '\\\"')
+    ```
+
+    Aby wyświetlić przykładowy szablon, wybierz [tutaj](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+
 - **environmentVariables**: Określ zmienne środowiskowe, które mają zostać przekazane do skryptu. Aby uzyskać więcej informacji, zobacz temat [programowanie skryptów wdrażania](#develop-deployment-scripts).
 - **scriptContent**: Określ zawartość skryptu. Aby uruchomić zewnętrzny skrypt, należy `primaryScriptUri` zamiast tego użyć. Aby zapoznać się z przykładami, zobacz [używanie skryptu wbudowanego](#use-inline-scripts) i [używanie skryptu zewnętrznego](#use-external-scripts).
 - **primaryScriptUri**: Określ publicznie dostępny adres URL dla podstawowego skryptu wdrażania z obsługiwanymi rozszerzeniami plików.
@@ -190,7 +203,7 @@ Dane wyjściowe wyglądają następująco:
 
 ## <a name="use-external-scripts"></a>Korzystanie ze skryptów zewnętrznych
 
-Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Przykład:
+Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Na przykład:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -275,7 +288,7 @@ Aby określić istniejące konto magazynu, Dodaj następujący kod JSON do eleme
 ```
 
 - **storageAccountName**: Określ nazwę konta magazynu.
-- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Przykład:
+- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Na przykład:
 
     ```json
     "storageAccountSettings": {
@@ -372,15 +385,15 @@ Dane wyjściowe polecenia list są podobne do:
 ```json
 [
   {
-    "arguments": "-name 'John Dole'",
+    "arguments": "-name \\\"John Dole\\\"",
     "azPowerShellVersion": "3.0",
     "cleanupPreference": "OnSuccess",
     "containerSettings": {
       "containerGroupName": null
     },
     "environmentVariables": null,
-    "forceUpdateTag": "20200618T194637Z",
-    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+    "forceUpdateTag": "20200625T025902Z",
+    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
     "identity": {
       "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
       "type": "userAssigned",
@@ -399,30 +412,32 @@ Dane wyjściowe polecenia list są podobne do:
     },
     "primaryScriptUri": null,
     "provisioningState": "Succeeded",
-    "resourceGroup": "myds0618rg",
+    "resourceGroup": "myds0624rg",
     "retentionInterval": "1 day, 0:00:00",
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "status": {
-      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts",
-      "endTime": "2020-06-18T19:49:45.926522+00:00",
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "endTime": "2020-06-25T03:00:16.796923+00:00",
       "error": null,
-      "expirationTime": "2020-06-19T19:49:45.926522+00:00",
-      "startTime": "2020-06-18T19:46:45.667124+00:00",
-      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts"
+      "expirationTime": "2020-06-26T03:00:16.796923+00:00",
+      "startTime": "2020-06-25T02:59:07.595140+00:00",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts"
     },
+    "storageAccountSettings": null,
     "supportingScriptUris": null,
     "systemData": {
-      "createdAt": "2020-06-18T19:46:41.363741+00:00",
-      "createdBy": "someon@contoso.com",
+      "createdAt": "2020-06-25T02:59:04.750195+00:00",
+      "createdBy": "someone@contoso.com",
       "createdByType": "User",
-      "lastModifiedAt": "2020-06-18T19:46:41.363741+00:00",
+      "lastModifiedAt": "2020-06-25T02:59:04.750195+00:00",
       "lastModifiedBy": "someone@contoso.com",
       "lastModifiedByType": "User"
     },
     "tags": null,
     "timeout": "1:00:00",
     "type": "Microsoft.Resources/deploymentScripts"
-  },
+  }
+]
 ```
 
 ### <a name="use-rest-api"></a>Korzystanie z interfejsu API REST
@@ -446,9 +461,55 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 Dane wyjściowe są podobne do następujących:
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-status.json" range="1-37" highlight="15,34":::
+```json
+{
+  "kind": "AzurePowerShell",
+  "identity": {
+    "type": "userAssigned",
+    "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+    "userAssignedIdentities": {
+      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+        "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+        "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+      }
+    }
+  },
+  "location": "centralus",
+  "systemData": {
+    "createdBy": "someone@contoso.com",
+    "createdByType": "User",
+    "createdAt": "2020-06-25T02:59:04.7501955Z",
+    "lastModifiedBy": "someone@contoso.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2020-06-25T02:59:04.7501955Z"
+  },
+  "properties": {
+    "provisioningState": "Succeeded",
+    "forceUpdateTag": "20200625T025902Z",
+    "azPowerShellVersion": "3.0",
+    "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
+    "arguments": "-name \\\"John Dole\\\"",
+    "retentionInterval": "P1D",
+    "timeout": "PT1H",
+    "containerSettings": {},
+    "status": {
+      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
+      "startTime": "2020-06-25T02:59:07.5951401Z",
+      "endTime": "2020-06-25T03:00:16.7969234Z",
+      "expirationTime": "2020-06-26T03:00:16.7969234Z"
+    },
+    "outputs": {
+      "text": "Hello John Dole"
+    },
+    "cleanupPreference": "OnSuccess"
+  },
+  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+  "type": "Microsoft.Resources/deploymentScripts",
+  "name": "runPowerShellInlineWithOutput"
+}
 
-Dane wyjściowe pokazują stan wdrożenia i identyfikatory zasobów skryptu wdrażania.
+```
 
 Następujący interfejs API REST zwraca dziennik:
 
@@ -472,7 +533,7 @@ Cykl życia tych zasobów jest kontrolowany przez następujące właściwości w
 
   - **Zawsze**: Usuń automatycznie utworzone zasoby, gdy wykonywanie skryptu zostanie rozpoczęte w stanie terminalu. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików utworzony na koncie magazynu. Ponieważ zasób deploymentScripts może nadal występować po oczyszczeniu zasobów, usługa skryptów zachowuje wyniki wykonywania skryptu, na przykład stdout, Output, Value Return itp., zanim zasoby zostaną usunięte.
   - **OnSuccess**: usuwanie automatycznie utworzonych zasobów tylko wtedy, gdy wykonywanie skryptu zakończyło się pomyślnie. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików tylko po pomyślnym wykonaniu skryptu. Nadal możesz uzyskać dostęp do zasobów, aby znaleźć informacje debugowania.
-  - **Onwygaśnięcia**: usuwanie zasobów automatycznie tylko wtedy, gdy ustawienie **retentionInterval** wygasło. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików, ale zachowa konto magazynu.
+  - **Onwygaśnięcia**: usuwanie automatycznie utworzonych zasobów tylko wtedy, gdy ustawienie **retentionInterval** wygasło. Jeśli używane jest istniejące konto magazynu, usługa skryptów usuwa udział plików, ale zachowa konto magazynu.
 
 - **retentionInterval**: Określ interwał czasu, przez który zasób skryptu zostanie zachowany, a następnie zostanie usunięty.
 

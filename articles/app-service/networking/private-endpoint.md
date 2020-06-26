@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 92fdb48f11d4d8753706d61fab9fd32e2b06f488
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: bc9cd134e4c83aea94ae0049158b3054c602cce8
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84668189"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374427"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Używanie prywatnych punktów końcowych dla usługi Azure Web App (wersja zapoznawcza)
 
@@ -57,7 +57,7 @@ Z perspektywy zabezpieczeń:
 - Po włączeniu prywatnego punktu końcowego w aplikacji sieci Web konfiguracja [ograniczeń dostępu][accessrestrictions] aplikacji sieci Web nie jest szacowana.
 - Możesz wyeliminować ryzyko związane z eksfiltracji danych z sieci wirtualnej, usuwając wszystkie reguły sieciowej grupy zabezpieczeń, w których miejsce docelowe jest znacznikiem internetowym lub usług platformy Azure. Po wdrożeniu prywatnego punktu końcowego dla aplikacji sieci Web można uzyskać dostęp tylko do tej konkretnej aplikacji sieci Web za pomocą prywatnego punktu końcowego. Jeśli masz inną aplikację sieci Web, musisz wdrożyć inny dedykowany prywatny punkt końcowy dla tej innej aplikacji sieci Web.
 
-W dziennikach HTTP sieci Web aplikacji sieci Web znajduje się adres IP źródła klienta. Jest to implementowane przy użyciu protokołu serwera proxy TCP, przekazując Właściwość IP klienta do aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie informacji o połączeniu przy użyciu protokołu TCP proxy v2][tcpproxy].
+W dziennikach HTTP sieci Web aplikacji sieci Web znajduje się adres IP źródła klienta. Ta funkcja jest implementowana przy użyciu protokołu proxy TCP, przekazując Właściwość IP klienta do aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie informacji o połączeniu przy użyciu protokołu TCP proxy v2][tcpproxy].
 
 
   > [!div class="mx-imgBorder"]
@@ -65,12 +65,22 @@ W dziennikach HTTP sieci Web aplikacji sieci Web znajduje się adres IP źródł
 
 ## <a name="dns"></a>DNS
 
-Ponieważ ta funkcja jest dostępna w wersji zapoznawczej, nie zmieniamy wpisu DNS w trakcie okresu zapoznawczego. Musisz samodzielnie zarządzać wpisem DNS na prywatnym serwerze DNS lub Azure DNS strefie prywatnej.
+Domyślnie, bez prywatnego punktu końcowego, publiczna nazwa aplikacji sieci Web jest nazwą kanoniczną klastra.
+Na przykład rozpoznawanie nazw będzie: mywebapp.azurewebsites.net CNAME clustername.azurewebsites.windows.net clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net cloudservicename.cloudapp.net A 40.122.110.154 
+
+Podczas wdrażania prywatnego punktu końcowego zmienimy wpis DNS, aby wskazywał nazwę kanoniczną mywebapp.privatelink.azurewebsites.net.
+Na przykład rozpoznawanie nazw będzie: mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net mywebapp.privatelink.azurewebsites.net CNAME clustername.azurewebsites.windows.net clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net cloudservicename.cloudapp.net A 40.122.110.154 
+
+Jeśli masz prywatny serwer DNS lub strefę prywatną Azure DNS, musisz skonfigurować strefę o nazwie privatelink.azurewebsites.net. Zarejestruj rekord aplikacji sieci Web przy użyciu rekordu a i prywatnego adresu IP punktu końcowego.
+Na przykład rozpoznawanie nazw będzie: mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net mywebapp.privatelink.azurewebsites.net 10.10.10.8 
+
 Jeśli musisz użyć niestandardowej nazwy DNS, musisz dodać nazwę niestandardową w aplikacji sieci Web. W trakcie korzystania z wersji zapoznawczej Nazwa niestandardowa musi być zweryfikowana, podobnie jak nazwa niestandardowa, przy użyciu publicznego rozpoznawania DNS. Aby uzyskać więcej informacji, zobacz [niestandardowe sprawdzanie poprawności nazw DNS][dnsvalidation].
 
 Jeśli musisz na przykład użyć konsoli programu kudu lub interfejsu API REST (wdrożenie z obsługą platformy Azure DevOps), musisz utworzyć dwa rekordy w strefie prywatnej Azure DNS lub na niestandardowym serwerze DNS. 
 - PrivateEndpointIP yourwebappname.azurewebsites.net 
 - PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
+
+Te dwa rekordy są wypełniane automatycznie, jeśli masz strefę prywatną o nazwie privatelink.azurewebsites.net połączonej z siecią wirtualną, w której tworzysz prywatny punkt końcowy.
 
 ## <a name="pricing"></a>Cennik
 
@@ -78,7 +88,7 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Pri
 
 ## <a name="limitations"></a>Ograniczenia
 
-Gdy korzystasz z funkcji platformy Azure w elastycznym planie Premium z prywatnym punktem końcowym, aby uruchomić lub wykonać funkcję w portalu internetowym platformy Azure, musisz mieć bezpośredni dostęp do sieci lub otrzymać błąd HTTP 403. Innymi słowy, przeglądarka musi mieć dostęp do prywatnego punktu końcowego, aby wykonać funkcję z portalu sieci Web systemu Azure. 
+Gdy korzystasz z funkcji platformy Azure w elastycznym planie Premium z prywatnym punktem końcowym, aby uruchomić lub wykonać funkcję w portalu internetowym platformy Azure, musisz mieć bezpośredni dostęp do sieci lub otrzymać błąd HTTP 403. Innymi słowy, przeglądarka musi mieć możliwość nawiązania połączenia z prywatnym punktem końcowym w celu wykonania funkcji w portalu internetowym platformy Azure. 
 
 W trakcie okresu zapoznawczego tylko miejsce produkcyjne jest widoczne za prywatnym punktem końcowym, a inne gniazda muszą być osiągalne przez publiczny punkt końcowy.
 
@@ -86,7 +96,7 @@ Regularnie udoskonalamy funkcję prywatnego linku i prywatnego punktu końcowego
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web za pomocą portalu, zobacz [jak połączyć się prywatnie z aplikacją sieci Web][howtoguide]
+Aby wdrożyć prywatny punkt końcowy dla aplikacji sieci Web za pomocą portalu, zobacz [jak połączyć się prywatnie z aplikacją internetową][howtoguide]
 
 
 

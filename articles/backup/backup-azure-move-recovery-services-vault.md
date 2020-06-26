@@ -1,15 +1,14 @@
 ---
 title: Jak przenieść magazyny Recovery Services Azure Backup
 description: Instrukcje dotyczące przenoszenia magazynu usług Recovery Services między subskrypcjami i grupami zasobów platformy Azure.
-ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 93c3f2db6500023755796d50e71d44a427a2ce82
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 9373ea41c3cd5d35c86b8b306a20b5c106105217
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597998"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368230"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Przenoszenie magazynu Recovery Services w ramach subskrypcji i grup zasobów platformy Azure
 
@@ -25,7 +24,7 @@ Francja środkowa, Francja Południowa, Niemcy Południowe, Niemcy środkowe, US
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Wymagania wstępne dotyczące przeniesienia magazynu Recovery Services
 
-- Podczas przenoszenia magazynu między grupami zasobów zarówno źródłowa, jak i docelowa Grupa zasobów są blokowane, co uniemożliwia wykonywanie operacji zapisu i usuwania. Aby uzyskać więcej informacji, zobacz ten [artykuł](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- Podczas przenoszenia magazynu między grupami zasobów zarówno źródłowa, jak i docelowa Grupa zasobów są blokowane, co uniemożliwia wykonywanie operacji zapisu i usuwania. Więcej informacji znajduje się w tym [artykule](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Tylko subskrypcja administratora ma uprawnienia do przenoszenia magazynu.
 - W przypadku przeniesienia magazynów między subskrypcjami subskrypcja docelowa musi znajdować się w tej samej dzierżawie co subskrypcja źródłowa, a jej stan powinien być włączony.
 - Musisz mieć uprawnienia do wykonywania operacji zapisu w docelowej grupie zasobów.
@@ -35,9 +34,13 @@ Francja środkowa, Francja Południowa, Niemcy Południowe, Niemcy środkowe, US
 - Niezależnie od tego, czy maszyna wirtualna jest przenoszona z magazynem, czy nie, możesz zawsze przywrócić maszynę wirtualną z zachowanej historii kopii zapasowych w magazynie.
 - Azure Disk Encryption wymaga, aby Magazyn kluczy i maszyny wirtualne znajdowały się w tym samym regionie i subskrypcji platformy Azure.
 - Aby przenieść maszynę wirtualną z dyskami zarządzanymi, zobacz ten [artykuł](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
-- Opcje przeniesienia zasobów wdrożonych za pomocą modelu klasycznego różnią się w zależności od tego, czy przenosisz zasoby w ramach subskrypcji, czy na nową subskrypcję. Aby uzyskać więcej informacji, zobacz ten [artykuł](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- Opcje przeniesienia zasobów wdrożonych za pomocą modelu klasycznego różnią się w zależności od tego, czy przenosisz zasoby w ramach subskrypcji, czy na nową subskrypcję. Więcej informacji znajduje się w tym [artykule](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Zasady tworzenia kopii zapasowych zdefiniowane dla magazynu są zachowywane po przejściu magazynu między subskrypcjami lub nową grupą zasobów.
-- Magazyn można przenieść tylko wtedy, gdy maszyny wirtualne platformy Azure są jedynymi elementami kopii zapasowych w magazynie.
+- Można przenieść tylko magazyn zawierający dowolne z następujących typów elementów kopii zapasowej. Wszelkie elementy kopii zapasowej typów, które nie są wymienione poniżej, muszą zostać zatrzymane, a dane zostaną trwale usunięte przed przeniesieniem magazynu.
+  - Azure Virtual Machines
+  - Agent Microsoft Azure Recovery Services (MARS)
+  - Serwer Microsoft Azure Backup (serwera usługi MAB)
+  - Program Data Protection Manager (DPM)
 - W przypadku przenoszenia magazynu zawierającego dane kopii zapasowej maszyny wirtualnej między subskrypcjami należy przenieść maszyny wirtualne do tej samej subskrypcji i użyć tej samej nazwy docelowej grupy zasobów maszyny wirtualnej (ponieważ była w starej subskrypcji) w celu kontynuowania wykonywania kopii zapasowych.
 
 > [!NOTE]
@@ -108,7 +111,7 @@ Magazyn Recovery Services i powiązane z nim zasoby można przenieść do innej 
 
 ## <a name="use-powershell-to-move-recovery-services-vault"></a>Przenoszenie magazynu Recovery Services przy użyciu programu PowerShell
 
-Aby przenieść magazyn Recovery Services do innej grupy zasobów, użyj `Move-AzureRMResource` polecenia cmdlet. `Move-AzureRMResource`wymaga nazwy zasobu i typu zasobu. Oba te `Get-AzureRmRecoveryServicesVault` elementy można pobrać z polecenia cmdlet.
+Aby przenieść magazyn Recovery Services do innej grupy zasobów, użyj `Move-AzureRMResource` polecenia cmdlet. `Move-AzureRMResource`wymaga nazwy zasobu i typu zasobu. Oba te elementy można pobrać z `Get-AzureRmRecoveryServicesVault` polecenia cmdlet.
 
 ```powershell
 $destinationRG = "<destinationResourceGroupName>"

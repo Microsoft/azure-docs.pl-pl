@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 357fe6f04c79b5ad0cdf569e6716589007f6253b
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 189ebcc74461a57a4e91bf50262c377540cf885b
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791966"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367839"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Opis i wywoływanie metod bezpośrednich z usługi IoT Hub
 
@@ -33,7 +33,7 @@ Zapoznaj się z tematem [wskazówki dotyczące komunikacji między chmurą i urz
 
 ## <a name="method-lifecycle"></a>Cykl życia metody
 
-Metody bezpośrednie są implementowane na urządzeniu i mogą wymagać zero lub więcej danych wejściowych w ładunku metody, aby można było poprawnie utworzyć wystąpienie. Metodę bezpośrednią wywołuje się za pośrednictwem identyfikatora URI opartego na usłudze ( `{iot hub}/twins/{device id}/methods/` ). Urządzenie odbiera bezpośrednie metody za pośrednictwem specyficznego dla urządzenia tematu MQTT ( `$iothub/methods/POST/{method name}/` ) lub łączy AMQP ( `IoThub-methodname` `IoThub-status` właściwości aplikacji i). 
+Metody bezpośrednie są implementowane na urządzeniu i mogą wymagać zero lub więcej danych wejściowych w ładunku metody, aby można było poprawnie utworzyć wystąpienie. Metodę bezpośrednią wywołuje się za pośrednictwem identyfikatora URI opartego na usłudze ( `{iot hub}/twins/{device id}/methods/` ). Urządzenie odbiera bezpośrednie metody za pośrednictwem specyficznego dla urządzenia tematu MQTT ( `$iothub/methods/POST/{method name}/` ) lub łączy AMQP ( `IoThub-methodname` `IoThub-status` właściwości aplikacji i).
 
 > [!NOTE]
 > Po wywołaniu metody bezpośredniej na urządzeniu nazwy właściwości i wartości mogą zawierać tylko znaki alfanumeryczne drukowalne US-ASCII, z wyjątkiem któregokolwiek z następujących zestawów:``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
@@ -41,7 +41,7 @@ Metody bezpośrednie są implementowane na urządzeniu i mogą wymagać zero lub
 
 Metody bezpośrednie są synchroniczne i kończą się powodzeniem lub niepowodzeniem po upływie limitu czasu (domyślnie: 30 sekund, settable od 5 do 300 sekund). Metody bezpośrednie są przydatne w scenariuszach interaktywnych, w których urządzenie ma działać, jeśli i tylko wtedy, gdy urządzenie jest w trybie online i pobiera polecenia. Na przykład włączenie światła od telefonu. W tych scenariuszach chcesz zobaczyć natychmiastowe sukces lub niepowodzenie, aby usługa w chmurze mogła działać na skutek tak szybko, jak to możliwe. Urządzenie może zwrócić część treści komunikatu w wyniku metody, ale nie jest wymagana do wykonania metody. Nie ma gwarancji związanych z porządkowaniem ani semantyką współbieżności dla wywołań metod.
 
-Metody bezpośrednie są tylko HTTPS — tylko po stronie chmury i HTTPS, MQTT, AMQP, MQTT za pośrednictwem elementów WebSockets lub AMQP przez elementy WebSockets ze strony urządzenia.
+Metody bezpośrednie są tylko HTTPS — tylko po stronie chmury i MQTT, AMQP, MQTT za pośrednictwem elementów WebSockets lub AMQP przez elementy WebSockets ze strony urządzenia.
 
 Ładunek dla żądań metod i odpowiedzi jest dokumentem JSON o wysokości do 128 KB.
 
@@ -80,12 +80,11 @@ Wartość podana `responseTimeoutInSeconds` w żądaniu to ilość czasu, jaką 
 
 Wartość podana `connectTimeoutInSeconds` w żądaniu to czas od wywołania metody bezpośredniej, którą usługa IoT Hub musi oczekiwać na odłączenie urządzenia do trybu online. Wartość domyślna to 0, co oznacza, że urządzenia muszą już być w trybie online przy wywołaniu metody bezpośredniej. Wartość maksymalna dla `connectTimeoutInSeconds` wynosi 300 sekund.
 
-
 #### <a name="example"></a>Przykład
 
 Ten przykład pozwala bezpiecznie zainicjować żądanie wywołania metody bezpośredniej na urządzeniu IoT zarejestrowanym w usłudze Azure IoT Hub.
 
-Aby rozpocząć, użyj [rozszerzenia IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension) , aby utworzyć SharedAccessSignature. 
+Aby rozpocząć, użyj [rozszerzenia IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure](https://github.com/Azure/azure-iot-cli-extension) , aby utworzyć SharedAccessSignature.
 
 ```bash
 az iot hub generate-sas-token -n <iothubName> -du <duration>

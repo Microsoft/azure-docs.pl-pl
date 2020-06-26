@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 65df89aff0232d7bf9809cdffc4262d1a640a5a1
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771125"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367108"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Omówienie zabezpieczeń przedsiębiorstwa w usłudze Azure HDInsight
 
@@ -33,7 +33,7 @@ Zabezpieczenia obwodowe w usłudze HDInsight są realizowane za poorednictwem [s
 
 Wszystkie klastry wdrożone w sieci wirtualnej również mają prywatny punkt końcowy. Punkt końcowy jest rozpoznawany jako prywatny adres IP w sieci wirtualnej na potrzeby prywatnego dostępu HTTP do bram klastra.
 
-### <a name="authentication"></a>Uwierzytelnianie
+### <a name="authentication"></a>Authentication
 
 [Pakiet Enterprise Security](apache-domain-joined-architecture.md) z usługi HDInsight zapewnia uwierzytelnianie oparte na Active Directoryach, obsługa przez wiele użytkowników oraz kontrolę dostępu opartą na rolach. Integracja Active Directory jest realizowana przy użyciu [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Dzięki tym funkcjom można utworzyć klaster usługi HDInsight przyłączony do domeny Active Directory. Następnie skonfiguruj listę pracowników w przedsiębiorstwie, którzy mogą uwierzytelniać się w klastrze.
 
@@ -81,6 +81,7 @@ Poniższa tabela zawiera linki do zasobów dla każdego typu rozwiązania zabezp
 |  | Konfigurowanie [punktów końcowych usługi sieci wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) dla Cosmos DB i [usługi Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Klient |
 |  | Upewnij się, że [szyfrowanie TLS](../../storage/common/storage-security-tls.md) jest włączone na potrzeby przesyłania danych. | Klient |
 |  | Konfigurowanie [kluczy zarządzanych przez klienta](../../storage/common/storage-encryption-keys-portal.md) do szyfrowania za pomocą usługi Azure Storage | Klient |
+|  | Kontroluj dostęp do danych przez pomoc techniczną platformy Azure przy użyciu [skrytki klienta](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Klient |
 | Zabezpieczenia aplikacji i oprogramowania pośredniczącego | Integracja z usługą AAD — DS i [Konfigurowanie uwierzytelniania](apache-domain-joined-configure-using-azure-adds.md) | Klient |
 |  | Konfigurowanie zasad [autoryzacji Apache Ranger](apache-domain-joined-run-hive.md) | Klient |
 |  | Korzystanie z [dzienników Azure monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Klient |

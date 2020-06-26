@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f54eae8c57d3317c6d654b4a019501410239bf9
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: ff1c0bd880f2052e6ee2ad3c5cdc3bed803f6da1
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317510"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367771"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
 Zespół Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect za pomocą nowych funkcji i funkcji. Nie wszystkie dodatki są stosowane dla wszystkich odbiorców.
@@ -581,8 +581,6 @@ Zezwalaj    | Kontrolery domeny przedsiębiorstwa | Uprawnienia do odczytu     |
 Zezwalaj    | Uwierzytelnieni użytkownicy           | Wyświetl zawartość        | Ten obiekt  |
 Zezwalaj    | Uwierzytelnieni użytkownicy           | Odczyt wszystkich właściwości  | Ten obiekt  |
 Zezwalaj    | Uwierzytelnieni użytkownicy           | Uprawnienia do odczytu     | Ten obiekt  |
-
-Aby wzmocnić ustawienia dla konta AD DS można uruchomić [ten skrypt programu PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). Skrypt programu PowerShell przypisze uprawnienia wymienione powyżej do konta AD DS.
 
 #### <a name="powershell-script-to-tighten-a-pre-existing-service-account"></a>Skrypt programu PowerShell służący do zaostrzania istniejącego konta usługi
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: cabb1a7d45906c9e60e1defd7d3d99286cdd39fb
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 10591c6e1e47be5d0f8fcb5eb4a4d4d8c1adf564
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318253"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367873"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Zarządzanie usługą Azure cache for Redis za pomocą Azure PowerShell
 > [!div class="op_single_selector"]
@@ -779,5 +779,5 @@ Aby dowiedzieć się więcej o korzystaniu z programu Windows PowerShell z platf
 * [Używanie grup zasobów do zarządzania zasobami platformy Azure](../azure-resource-manager/templates/deploy-portal.md): Dowiedz się, jak tworzyć grupy zasobów i zarządzać nimi w Azure Portal.
 * [Blog platformy Azure](https://azure.microsoft.com/blog/): Poznaj nowe funkcje platformy Azure.
 * [Blog programu Windows PowerShell](https://devblogs.microsoft.com/powershell/): informacje o nowych funkcjach w programie Windows PowerShell.
-* ["Hej, obsługa skryptów Guy!" Blog](https://devblogs.microsoft.com/scripting/author/the-scripting-guys/): Uzyskaj rzeczywiste porady i wskazówki ze społeczności programu Windows PowerShell.
+* ["Hej, obsługa skryptów Guy!" Blog](https://blogs.technet.microsoft.com/heyscriptingguy/author/the-scripting-guys/): Uzyskaj rzeczywiste porady i wskazówki ze społeczności programu Windows PowerShell.
 

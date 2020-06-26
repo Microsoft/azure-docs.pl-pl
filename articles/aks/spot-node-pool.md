@@ -5,12 +5,12 @@ services: container-service
 ms.service: container-service
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: d1dc54810371c4258616ca95b9f0f0abeee4c415
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: ce2871883300e9eb135b51fdb2f5566e451084f6
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462961"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374614"
 ---
 # <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Wersja zapoznawcza — Dodawanie puli węzłów dodatkowych do klastra usługi Azure Kubernetes Service (AKS)
 
@@ -41,9 +41,6 @@ Podczas tworzenia klastra w celu używania puli węzłów dodatkowych, ten klast
 ### <a name="register-spotpoolpreview-preview-feature"></a>Rejestrowanie funkcji spotpoolpreview w wersji zapoznawczej
 
 Aby utworzyć klaster AKS, który używa puli węzłów dodatkowych, należy włączyć flagę funkcji *spotpoolpreview* w subskrypcji. Ta funkcja udostępnia najnowszy zestaw rozszerzeń usługi podczas konfigurowania klastra.
-
-> [!CAUTION]
-> Po zarejestrowaniu funkcji w ramach subskrypcji nie można obecnie wyrejestrować tej funkcji. Po włączeniu niektórych funkcji w wersji zapoznawczej można użyć wartości domyślnych dla wszystkich klastrów AKS utworzonych w ramach subskrypcji. Nie włączaj funkcji w wersji zapoznawczej w ramach subskrypcji produkcyjnych. Korzystaj z oddzielnej subskrypcji, aby testować funkcje w wersji zapoznawczej i zbierać opinie.
 
 Zarejestruj flagę funkcji *spotpoolpreview* za pomocą polecenia [AZ Feature Register][az-feature-register] , jak pokazano w następującym przykładzie:
 

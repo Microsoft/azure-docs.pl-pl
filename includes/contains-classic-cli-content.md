@@ -1,18 +1,15 @@
 ---
-title: Plik dyrektywy include
-description: Plik dyrektywy include
-author: sptramer
-ms.author: sttramer
-manager: carmonm
-ms.date: 06/05/2019
 ms.topic: include
-ms.custom: include file
-ms.openlocfilehash: b833ae69c0edf3e85bebbb5b78ea514a0c81e5c6
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.date: 06/05/2019
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.openlocfilehash: 93a7e7994727012cd27f2901f75f23d1b130784d
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "66814828"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85378564"
 ---
 > [!IMPORTANT]
 > Ten artykuł dotyczy czynności, które wymagają użycia klasycznego interfejsu wiersza polecenia platformy Azure. Jest to starsza wersja interfejsu wiersza polecenia platformy Azure, której należy używać wyłącznie z klasycznym modelem wdrażania platformy Azure.

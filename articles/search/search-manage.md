@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: f1887065ef356717e05814a23ad85c7f0e6c6ab0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 47c3606b0b1ada93aeb8a107f48222fb26483a9c
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362666"
+ms.locfileid: "85368281"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administracja usługi dla platformy Azure Wyszukiwanie poznawcze w Azure Portal
 
@@ -43,7 +43,8 @@ Usługa Azure Wyszukiwanie poznawcze wykorzystuje inne usługi platformy Azure w
 Niektóre aspekty usługi wyszukiwania są określane podczas aprowizacji usługi i nie można ich zmienić później:
 
 * Nazwa usługi (nie można zmienić nazwy usługi)
-* Maksymalna liczba replik i partycji (określona przez warstwę)
+* Lokalizacja usługi (obecnie nie można przenieść nienaruszonej usługi do innego regionu)
+* Maksymalna liczba replik i partycji (określona przez warstwę, podstawowa lub standardowa)
 
 Jeśli zaczniesz od warstwy Podstawowa z maksymalną jedną partycją i potrzebujesz więcej partycji, musisz [utworzyć nową usługę](search-create-service-portal.md) w wyższej warstwie i ponownie utworzyć zawartość w nowej usłudze. 
 

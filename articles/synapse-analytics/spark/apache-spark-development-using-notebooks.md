@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: tracking-python
-ms.openlocfilehash: 6eb6403ad6d1f181d1f51dde6db266070bf32a56
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 458cbe35e9d46b8a6afde399e20f3b484dfe6478
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194760"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373373"
 ---
 # <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Tworzenie, opracowywanie i konserwowanie notesów platformy Azure Synapse Studio (wersja zapoznawcza)
 
@@ -344,7 +344,7 @@ Podobnie jak w przypadku notesów Jupyter, notesy platformy Azure Synapse Studio
 
    ![tryb polecenia](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Tryb edycji jest wskazywany przez kursor tekstowy z monitem o wpisanie w obszarze edytora. Gdy komórka jest w trybie edycji, nie można wpisać do komórki. Przejdź do trybu edycji, naciskając `Enter` lub klikając myszą w obszarze edytora komórki.
+2. Tryb edycji jest wskazywany przez kursor tekstowy z monitem o wpisanie w obszarze edytora. Gdy komórka jest w trybie edycji, możesz wpisać ją w komórce. Przejdź do trybu edycji, naciskając `Enter` lub klikając myszą w obszarze edytora komórki.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 

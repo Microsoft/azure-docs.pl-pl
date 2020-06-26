@@ -3,26 +3,38 @@ title: Utwórz dostawcę zasobów
 description: Opisuje sposób tworzenia dostawcy zasobów i wdrażania jego niestandardowych typów zasobów.
 author: MSEvanhi
 ms.topic: tutorial
-ms.date: 06/19/2020
+ms.date: 06/24/2020
 ms.author: evanhi
-ms.openlocfilehash: ce547c010d3cc814d4e6f6182c19572248228fc3
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 541d140716e52b4fe1db4bc999682914a380a5f0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125015"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85368111"
 ---
-# <a name="quickstart-create-custom-provider-and-deploy-custom-resources"></a>Szybki Start: Tworzenie niestandardowego dostawcy i wdrażanie zasobów niestandardowych
+# <a name="quickstart-create-a-custom-provider-and-deploy-custom-resources"></a>Szybki Start: Tworzenie niestandardowego dostawcy i wdrażanie zasobów niestandardowych
 
 W tym przewodniku szybki start utworzysz własnego dostawcę zasobów i wdrożono niestandardowe typy zasobów dla tego dostawcy zasobów. Aby uzyskać więcej informacji o dostawcach niestandardowych, zobacz [Omówienie usługi Custom Providers w wersji zapoznawczej](overview.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby wykonać kroki opisane w tym przewodniku Szybki Start, należy wywołać `REST` operacje. Istnieją [różne sposoby wysyłania żądań REST](/rest/api/azure/).
+- Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Aby wykonać kroki opisane w tym przewodniku Szybki Start, należy wywołać `REST` operacje. Istnieją [różne sposoby wysyłania żądań REST](/rest/api/azure/).
 
-Do uruchamiania poleceń interfejsu wiersza polecenia platformy Azure Użyj [bash w Azure Cloud Shell](/azure/cloud-shell/quickstart). Polecenia [niestandardowych dostawców](/cli/azure/ext/custom-providers/custom-providers/resource-provider) wymagają rozszerzenia. Aby uzyskać więcej informacji, zobacz [Korzystanie z rozszerzeń przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
+# <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby uruchomić polecenia programu PowerShell lokalnie, użyj programu PowerShell 7 lub nowszego oraz modułów Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps). Jeśli nie masz jeszcze narzędzia do `REST` wykonywania operacji, zainstaluj [ARMClient](https://github.com/projectkudu/ARMClient). Jest to narzędzie wiersza polecenia Open Source, które upraszcza wywoływanie interfejsu API Azure Resource Manager.
+- Polecenia [niestandardowych dostawców](/cli/azure/ext/custom-providers/custom-providers/resource-provider) wymagają rozszerzenia. Aby uzyskać więcej informacji, zobacz [Korzystanie z rozszerzeń przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/azure-cli-extensions-overview).
+- Przykłady użycia interfejsu wiersza polecenia platformy Azure `az rest` do `REST` żądania. Aby uzyskać więcej informacji, zobacz [AZ REST](/cli/azure/reference-index#az-rest).
+
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+
+- Polecenia programu PowerShell są uruchamiane lokalnie przy użyciu programu PowerShell 7 lub nowszego oraz modułów Azure PowerShell. Aby uzyskać więcej informacji, zobacz [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- Jeśli nie masz jeszcze narzędzia do `REST` wykonywania operacji, zainstaluj [ARMClient](https://github.com/projectkudu/ARMClient). Jest to narzędzie wiersza polecenia Open Source, które upraszcza wywoływanie interfejsu API Azure Resource Manager.
+- Po zainstalowaniu **ARMClient** można wyświetlić informacje o użyciu z wiersza polecenia programu PowerShell, wpisując: `armclient.exe` . Możesz też przejść do [witryny typu wiki ARMClient](https://github.com/projectkudu/ARMClient/wiki).
+
+---
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-custom-provider"></a>Wdróż dostawcę niestandardowego
 
@@ -30,14 +42,16 @@ Aby skonfigurować niestandardowego dostawcę, wdróż [przykładowy szablon](ht
 
 Po wdrożeniu szablonu subskrypcja obejmuje następujące zasoby:
 
-* Aplikacja funkcji z operacjami dotyczącymi zasobów i akcji.
-* Konto magazynu do przechowywania użytkowników utworzonych za pomocą dostawcy niestandardowego.
-* Niestandardowy dostawca definiujący niestandardowe typy zasobów i akcje. Używa punktu końcowego aplikacji funkcji do wysyłania żądań.
-* Zasób niestandardowy od niestandardowego dostawcy.
+- Aplikacja funkcji z operacjami dotyczącymi zasobów i akcji.
+- Konto magazynu do przechowywania użytkowników utworzonych za pomocą dostawcy niestandardowego.
+- Niestandardowy dostawca definiujący niestandardowe typy zasobów i akcje. Używa punktu końcowego aplikacji funkcji do wysyłania żądań.
+- Zasób niestandardowy od niestandardowego dostawcy.
 
-Aby wdrożyć dostawcę niestandardowego, użyj interfejsu wiersza polecenia platformy Azure lub programu PowerShell:
+Aby wdrożyć dostawcę niestandardowego, użyj interfejsu wiersza polecenia platformy Azure, programu PowerShell lub Azure Portal:
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
+
+W tym przykładzie zostanie wyświetlony komunikat z prośbą o wprowadzenie nazwy grupy zasobów, lokalizacji i aplikacji dostawcy. Nazwy są przechowywane w zmiennych, które są używane w innych poleceniach. Polecenia [AZ Group Create](/cli/azure/group#az-group-create) i [AZ Deployment Group](/cli/azure/deployment/group#az-deployment-group-create) Create wdrażają zasoby.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&
@@ -52,6 +66,8 @@ read
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
+W tym przykładzie zostanie wyświetlony komunikat z prośbą o wprowadzenie nazwy grupy zasobów, lokalizacji i aplikacji dostawcy. Nazwy są przechowywane w zmiennych, które są używane w innych poleceniach. Polecenia [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) i [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) wdrażają zasoby.
+
 ```powershell
 $rgName = Read-Host -Prompt "Enter a resource group name"
 $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
@@ -64,7 +80,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ---
 
-Można też wdrożyć rozwiązanie z Azure Portal przy użyciu następującego przycisku:
+Możesz również wdrożyć rozwiązanie z poziomu Azure Portal. Wybierz przycisk **Wdróż na platformie Azure** , aby otworzyć szablon w Azure Portal.
 
 [![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
 
@@ -108,7 +124,7 @@ Otrzymasz odpowiedź:
 }
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```powershell
 $subID = (Get-AzContext).Subscription.Id
@@ -166,7 +182,7 @@ Otrzymasz odpowiedź:
 }
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```powershell
 $pingURI = "https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/ping?api-version=2018-09-01-preview"
@@ -220,7 +236,7 @@ Otrzymasz odpowiedź:
 }
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```powershell
 $addURI = "https://management.azure.com/subscriptions/$subID/resourceGroups/$rgName/providers/Microsoft.CustomProviders/resourceProviders/$funcName/users/testuser?api-version=2018-09-01-preview"
@@ -252,7 +268,7 @@ Użyj poleceń [dostawców niestandardowych](/cli/azure/ext/custom-providers/cus
 
 ### <a name="list-custom-resource-providers"></a>Utwórz listę niestandardowych dostawców zasobów
 
-Wyświetl listę wszystkich niestandardowych dostawców zasobów w ramach subskrypcji. Domyślnie wyświetla listę niestandardowych dostawców zasobów dla bieżącej subskrypcji lub można określić `--subscription` parametr. Aby wyświetlić listę dla grupy zasobów, użyj `--resource-group` parametru.
+Użyj `list` polecenia, aby wyświetlić wszystkich niestandardowych dostawców zasobów w ramach subskrypcji. Domyślnie zawiera listę niestandardowych dostawców zasobów bieżącej subskrypcji lub można określić `--subscription` parametr. Aby wyświetlić listę dla grupy zasobów, użyj `--resource-group` parametru.
 
 ```azurecli-interactive
 az custom-providers resource-provider list --subscription $subID
@@ -289,7 +305,7 @@ az custom-providers resource-provider list --subscription $subID
 
 ### <a name="show-the-properties"></a>Pokaż właściwości
 
-Pokaż właściwości niestandardowego dostawcy zasobów. Format danych wyjściowych przypomina `list` dane wyjściowe.
+Użyj `show` polecenia, aby wyświetlić właściwości niestandardowego dostawcy zasobów. Format danych wyjściowych przypomina `list` dane wyjściowe.
 
 ```azurecli-interactive
 az custom-providers resource-provider show --resource-group $rgName --name $funcName

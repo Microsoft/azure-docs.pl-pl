@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: c34eee74070dfb137311867615f55a7c89522cd5
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b30afd4ef69b9b4ecb49b99f4455bf136a6e6eb2
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84708993"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374410"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Lista kontrolna tworzenia oferty SaaS w centrum partnerskim
 
@@ -92,7 +92,7 @@ Na stronie lista znajduje się tekst i obrazy widoczne dla klientów podczas wy�
 | Przydatne linki tytuł + adres URL  | Opcjonalny. |
 | Dokument pomocniczy tytuł + plik  | Wymagane, minimum 1 i 3. Musi być formatem pliku PDF. |
 | Zrzuty ekranu  | Wymagany, minimalny 1 zrzut ekranu i maksymalnie 5; co najmniej cztery zalecane. Musi mieć 1280 X 720 w formacie PNG. |
-| Logo Sklepu (małe, średnie, duże, szerokie, Hero)  | Małe (48 X 48) i duże (216 X 216) wymagane; inne rozmiary opcjonalne, ale zalecane: Średni (90 x 90), szeroki (255 x 115), Hero (815 x 290). Musi być w formacie PNG. |
+| Logo Sklepu (małe, średnie, duże, szerokie)  | Małe (48 X 48) i duże (216 X 216) wymagane; inne rozmiary opcjonalne, ale zalecane: Średni (90 x 90), szeroki (255 x 115). Musi być w. Format PNG. |
 | Nazwa wideo + URL + miniatura  | Opcjonalne, zalecane, maksymalnie 4 wideo. Miniatura musi mieć 1280 x 720 w formacie PNG. Wideo musi być hostowane w serwisie YouTube lub Vimeo. |
 | Kontakty (program CSP, inżynieria, pomoc techniczna)  | Wymagana osoba kontaktu inżynieryjnego i pomocy technicznej (nazwisko, adres e-mail i numer telefonu); Program CSP kontaktuje się z opcjonalnym, ale zalecanym. |
 | Adres URL pomocy technicznej  | Wymagany. |

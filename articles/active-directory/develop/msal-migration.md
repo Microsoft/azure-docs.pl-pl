@@ -13,16 +13,16 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 893f449c6a8e6b41a79fe9d7c26db461b757e4a3
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 52a4a7131c85231107a2a23a1916016776b219fd
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317754"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367431"
 ---
 # <a name="migrate-applications-to-microsoft-authentication-library-msal"></a>Migrowanie aplikacji do biblioteki uwierzytelniania firmy Microsoft (MSAL)
 
-Wielu deweloperów ma skompilowane i wdrożone aplikacje korzystające z usługi Active Active Directory Authentication Library (ADAL). Zalecamy używanie biblioteki uwierzytelniania firmy Microsoft (MSAL) do uwierzytelniania i autoryzacji jednostek usługi Azure AD.
+Wielu deweloperów ma skompilowane i wdrożone aplikacje korzystające z biblioteki Azure Active Directory Authentication Library (ADAL). Zalecamy używanie biblioteki uwierzytelniania firmy Microsoft (MSAL) do uwierzytelniania i autoryzacji jednostek usługi Azure AD.
 
 Przy użyciu MSAL zamiast biblioteki ADAL:
 

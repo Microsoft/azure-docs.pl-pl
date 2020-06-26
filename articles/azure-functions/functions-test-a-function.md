@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: dae826367661648f3ee56235fd6497d265bf6a1e
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 45a7de4f19b663823a5eff7ba4f352992c3aaf0d
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339447"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374206"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie testowania kodu w usłudze Azure Functions
 
@@ -35,22 +35,22 @@ W poniższym przykładzie opisano sposób tworzenia aplikacji funkcji języka C#
 
 Aby skonfigurować środowisko, Utwórz funkcję i aplikację testową. Poniższe kroki ułatwiają tworzenie aplikacji i funkcji wymaganych do obsługi testów:
 
-1. [Utwórz nową aplikację funkcji](./functions-create-first-azure-function.md) i nadaj jej nazwę *Functions*
-2. [Utwórz funkcję http z szablonu](./functions-create-first-azure-function.md) i nadaj jej nazwę *MyHttpTrigger*.
-3. [Utwórz funkcję timer na podstawie szablonu](./functions-create-scheduled-function.md) i nadaj jej nazwę *MyTimerTrigger*.
-4. [Utwórz aplikację testową xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) w programie Visual Studio, klikając pozycję **plik > nowy > Project > Visual C# > .NET Core > xUnit test projektu** i nazwij go *Functions. test*. 
+1. [Utwórz nową aplikację funkcji](./functions-create-first-azure-function.md) i nadaj jej nazwę **Functions**
+2. [Utwórz funkcję http z szablonu](./functions-create-first-azure-function.md) i nadaj jej nazwę **MyHttpTrigger**.
+3. [Utwórz funkcję timer na podstawie szablonu](./functions-create-scheduled-function.md) i nadaj jej nazwę **MyTimerTrigger**.
+4. [Utwórz aplikację testową xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) w rozwiązaniu i nadaj jej nazwę **Functions. Tests**. 
 5. Użyj NuGet, aby dodać odwołanie z aplikacji testowej do [Microsoft. AspNetCore. MVC](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Odwołuje się do aplikacji *Functions* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) z poziomu aplikacji *Functions. test* .
+6. [Odwołuje się do aplikacji *Functions* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) z poziomu aplikacji *Functions. Tests* .
 
 ### <a name="create-test-classes"></a>Utwórz klasy testowe
 
-Teraz, gdy aplikacje są tworzone, można utworzyć klasy używane do uruchamiania testów automatycznych.
+Teraz, gdy projekty są tworzone, można utworzyć klasy używane do uruchamiania testów automatycznych.
 
 Każda funkcja przyjmuje wystąpienie [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) do obsługi rejestrowania komunikatów. Niektóre testy nie rejestrują komunikatów lub nie mają żadnych obaw dotyczących sposobu zaimplementowania rejestrowania. Inne testy muszą mieć na celu sprawdzenie, czy test kończy się powodzeniem.
 
-`ListLogger`Klasa implementuje `ILogger` interfejs i utrzymuje wewnętrzną listę komunikatów do oceny podczas testu.
+Utworzysz nową klasę o nazwie `ListLogger` , która zawiera wewnętrzną listę komunikatów do oceny podczas testowania. Do zaimplementowania wymaganego `ILogger` interfejsu Klasa musi mieć zakres. W poniższej klasie przedstawiono zakres dla przypadków testowych do przekazania do `ListLogger` klasy.
 
-**Kliknij prawym przyciskiem myszy** aplikację *Functions. test* i wybierz polecenie **Dodaj > Class**, nadaj jej nazwę **NullScope.cs** i wprowadź następujący kod:
+Utwórz nową klasę w *Functions. Tests* projektu o nazwie **NullScope.cs** i wprowadź następujący kod:
 
 ```csharp
 using System;
@@ -68,7 +68,7 @@ namespace Functions.Tests
 }
 ```
 
-Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions. test* , a następnie wybierz pozycję **Dodaj > Class**, nadaj jej nazwę **ListLogger.cs** i wprowadź następujący kod:
+Następnie utwórz nową klasę w *Functions. Tests* projektu o nazwie **ListLogger.cs** i wprowadź następujący kod:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -114,7 +114,7 @@ namespace Functions.Tests
 
 `Logs`Kolekcja jest wystąpieniem `List<string>` i jest inicjowana w konstruktorze.
 
-Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions. test* , a następnie wybierz pozycję **Dodaj > Class**, nadaj jej nazwę **LoggerTypes.cs** i wprowadź następujący kod:
+Następnie utwórz nowy plik w usłudze *Functions. Tests* o nazwie **LoggerTypes.cs** i wprowadź następujący kod:
 
 ```csharp
 namespace Functions.Tests
@@ -129,7 +129,7 @@ namespace Functions.Tests
 
 To Wyliczenie określa typ rejestratora używany przez testy. 
 
-Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions. test* , a następnie wybierz pozycję **Dodaj > Class**, nadaj jej nazwę **TestFactory.cs** i wprowadź następujący kod:
+Teraz Utwórz nową klasę w *funkcji Functions. Tests* projektu o nazwie **TestFactory.cs** i wprowadź następujący kod:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -163,12 +163,11 @@ namespace Functions.Tests
             return qs;
         }
 
-        public static DefaultHttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
+        public static HttpRequest CreateHttpRequest(string queryStringKey, string queryStringValue)
         {
-            var request = new DefaultHttpRequest(new DefaultHttpContext())
-            {
-                Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue))
-            };
+            var context = new DefaultHttpContext();
+            var request = context.Request;
+            request.Query = new QueryCollection(CreateDictionary(queryStringKey, queryStringValue));
             return request;
         }
 
@@ -201,7 +200,7 @@ namespace Functions.Tests
 
 - **Wyrejestrowania**: na podstawie typu rejestratora ta metoda zwraca klasę rejestratora używaną do testowania. `ListLogger`Śledzi zarejestrowane komunikaty dostępne do oceny w testach.
 
-Następnie **kliknij prawym przyciskiem myszy** aplikację *Functions. test* , a następnie wybierz pozycję **Dodaj > Class**, nadaj jej nazwę **FunctionsTests.cs** i wprowadź następujący kod:
+Na koniec Utwórz nową klasę w *Functions. Tests* projektu o nazwie **FunctionsTests.cs** i wprowadź następujący kod:
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;

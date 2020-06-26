@@ -7,15 +7,15 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 06/01/2017
+ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0676a7d31d141e0c264119a54b77ec29a527374b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2160f2c014e1bf7c486c29a48c756936df12788
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200194"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373985"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Zagadnienia dotyczące projektowania zestawów skalowania
 W tym artykule omówiono zagadnienia dotyczące projektowania Virtual Machine Scale Sets. Aby uzyskać informacje o tym, co Virtual Machine Scale Sets, zobacz [omówienie Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).

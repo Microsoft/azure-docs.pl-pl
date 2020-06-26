@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/24/2020
 ms.custom: seodec18, tracking-python
-ms.openlocfilehash: d73427db5fd168a31c478f92ef11307df136a775
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 07d2326d6677ccba93e2d3173bf8abccf309fe70
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125416"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374716"
 ---
 # <a name="connect-to-azure-storage-services"></a>Nawiązywanie połączenia z usługami Azure Storage
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -72,7 +72,7 @@ Zalecamy utworzenie magazynu danych dla [kontenera obiektów blob platformy Azur
 
 [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction?toc=/azure/storage/blobs/toc.json) jest oparta na usłudze Azure Blob Storage i została zaprojektowana z myślą o analizie danych Big Data w przedsiębiorstwie. Podstawową częścią Data Lake Storage Gen2 jest dodanie [hierarchicznej przestrzeni nazw](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) do magazynu obiektów BLOB. Hierarchiczna przestrzeń nazw organizuje obiekty/pliki w hierarchię katalogów w celu zapewnienia wydajnego dostępu do danych.
 
-Podczas tworzenia obszaru roboczego kontener obiektów blob platformy Azure i udział plików platformy Azure są automatycznie rejestrowane w obszarze roboczym. Są one nazwane `workspaceblobstore` i `workspacefilestore` , odpowiednio. `workspaceblobstore`służy do przechowywania artefaktów obszaru roboczego i dzienników eksperymentów w usłudze Machine Learning. `workspacefilestore`służy do przechowywania notesów i skryptów języka R autoryzowanych za pośrednictwem [wystąpienia obliczeniowego](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). `workspaceblobstore`Kontener jest ustawiony jako domyślny magazyn danych.
+Podczas tworzenia obszaru roboczego kontener obiektów blob platformy Azure i udział plików platformy Azure są automatycznie rejestrowane w obszarze roboczym. Są one nazwane `workspaceblobstore` i `workspacefilestore` , odpowiednio. `workspaceblobstore`służy do przechowywania artefaktów obszaru roboczego i dzienników eksperymentów w usłudze Machine Learning. `workspacefilestore`służy do przechowywania notesów i skryptów języka R autoryzowanych za pośrednictwem [wystąpienia obliczeniowego](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files). `workspaceblobstore`Kontener jest ustawiony jako domyślny magazyn danych i nie można go usunąć z obszaru roboczego.
 
 > [!IMPORTANT]
 > Program Azure Machine Learning Designer (wersja zapoznawcza) utworzy magazyn danych o nazwie **azureml_globaldatasets** automatycznie po otwarciu przykładu na stronie głównej projektanta. Ten magazyn danych zawiera tylko przykładowe zestawy danych. **Nie** należy używać tego magazynu danych do uzyskiwania dostępu do poufnych informacji.
@@ -158,8 +158,6 @@ Jeśli udział plików znajduje się w sieci wirtualnej, należy uwzględnić pa
 
 W przypadku magazynu danych Azure Data Lake Storage Generation 2 (ADLS Gen 2) należy użyć [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) do zarejestrowania magazynu danych poświadczeń połączonego z magazynem usługi Azure datalake Generation 2 z [uprawnieniami nazw głównych](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Aby można było korzystać z jednostki usługi, należy [zarejestrować aplikację](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) i przyznać jednostce usługi dostęp do *czytnika danych obiektu blob magazynu* . Dowiedz się więcej [na temat kontroli dostępu skonfigurowanej do ADLS generacji 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
-Aby można było korzystać z jednostki usługi, należy [zarejestrować aplikację](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) i przyznać jednostce usługi dostęp do odpowiednich danych. Dowiedz się więcej [na temat kontroli dostępu skonfigurowanej do ADLS generacji 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
-
 Poniższy kod powoduje utworzenie i zarejestrowanie `adlsgen2_datastore_name` magazynu danych w `ws` obszarze roboczym. Ten magazyn danych uzyskuje dostęp do systemu plików `test` na `account_name` koncie magazynu przy użyciu podanych poświadczeń jednostki usługi.
 
 ```python 
@@ -237,6 +235,7 @@ Możesz również zmienić domyślny magazyn danych przy użyciu następującego
 ```Python
  ws.set_default_datastore(new_default_datastore)
 ```
+
 <a name="up-and-down"></a>
 ## <a name="upload-and-download-data"></a>Przekazywanie i pobieranie danych
 

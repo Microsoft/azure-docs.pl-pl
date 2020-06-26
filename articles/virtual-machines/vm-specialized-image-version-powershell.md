@@ -9,20 +9,20 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 7d54fa25bc4ab55e62b8f88a3cf76a5ba1130e55
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: fdf1e6cf15279a0ff5be4b45385a13a3b967d22e
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796761"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374631"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Tworzenie maszyny wirtualnej przy użyciu wyspecjalizowanego obrazu 
 
-Utwórz maszynę wirtualną na podstawie wersji obrazu specjalistycznej przechowywanej w galerii obrazów udostępnionych. Jeśli chcesz utworzyć maszynę wirtualną przy użyciu uogólnionej wersji obrazu, zobacz temat [Tworzenie maszyny wirtualnej z poziomu wyspecjalizowanej wersji obrazu](vm-generalized-image-version-powershell.md).
+Utwórz maszynę wirtualną na podstawie wersji obrazu specjalistycznej przechowywanej w galerii obrazów udostępnionych. Jeśli chcesz utworzyć maszynę wirtualną przy użyciu uogólnionej wersji obrazu, zobacz [Tworzenie maszyny wirtualnej przy użyciu uogólnionego obrazu](vm-generalized-image-version-powershell.md).
 
 Po udostępnieniu wyspecjalizowanej wersji obrazu można utworzyć co najmniej jedną nową maszynę wirtualną. Za pomocą polecenia cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) . 
 
-W tym przykładzie używamy identyfikatora definicji obrazu, aby upewnić się, że nowa maszyna wirtualna będzie używać najnowszej wersji obrazu. Można również użyć określonej wersji za pomocą identyfikatora wersji obrazu dla programu `Set-AzVMSourceImage -Id`. Na przykład, aby użyć *1.0.0* wersji obrazu typu: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
+W tym przykładzie używamy identyfikatora definicji obrazu, aby upewnić się, że nowa maszyna wirtualna będzie używać najnowszej wersji obrazu. Można również użyć określonej wersji za pomocą identyfikatora wersji obrazu dla programu `Set-AzVMSourceImage -Id` . Na przykład, aby użyć *1.0.0* wersji obrazu typu: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` . 
 
 Należy pamiętać, że użycie określonej wersji obrazu oznacza, że Automatyzacja może się nie powieść, jeśli określona wersja obrazu jest niedostępna, ponieważ została usunięta lub usunięta z regionu. Zalecamy użycie identyfikatora definicji obrazu do tworzenia nowej maszyny wirtualnej, o ile nie jest wymagana określona wersja obrazu.
 

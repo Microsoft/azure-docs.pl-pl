@@ -13,16 +13,16 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b1a89acdf189e41f3c72ec12fc84920cd0c795d
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 1bbc1644294a471bbb704d10c5f684d7404eae95
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84731091"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374580"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Zamknij konto służbowe w niezarządzanej organizacji usługi Azure AD
 
-Jeśli jesteś użytkownikiem w organizacji niezarządzanej usługi Azure Active Directory (Azure AD) i nie potrzebujesz już korzystać z aplikacji z tej organizacji lub nie masz żadnych skojarzonych z nimi powiązań, możesz zamknąć konto w dowolnym momencie. Niezarządzana organizacja nie ma administratora globalnego. Użytkownicy w niezarządzanej organizacji mogą samodzielnie zamknąć swoje konta bez konieczności kontaktowania się z administratorem.
+Jeśli jesteś użytkownikiem w organizacji niezarządzanej Azure Active Directory (Azure AD), a nie potrzebujesz już korzystać z aplikacji z tej organizacji lub nie masz żadnych skojarzonych z nimi powiązań, możesz zamknąć konto w dowolnym momencie. Niezarządzana organizacja nie ma administratora globalnego. Użytkownicy w niezarządzanej organizacji mogą samodzielnie zamknąć swoje konta bez konieczności kontaktowania się z administratorem.
 
 Użytkownicy w organizacji niezarządzanej są często tworzeniu podczas tworzenia konta samoobsługowego. Przykładem może być pracownik przetwarzający informacje w organizacji, który zarejestruje się w celu uzyskania bezpłatnej usługi. Aby uzyskać więcej informacji na temat rejestracji samoobsługowej, zobacz [co to jest samoobsługowe rejestrowanie w usłudze Azure Active Directory?](directory-self-service-signup.md).
 

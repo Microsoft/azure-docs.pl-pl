@@ -1,19 +1,19 @@
 ---
-title: Wyzwalacz Azure Cosmos DB dla funkcji 2. x
+title: Wyzwalacz Azure Cosmos DB dla funkcji 2. x i wyższych
 description: Dowiedz się, jak używać wyzwalacza Azure Cosmos DB w Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: tracking-python
-ms.openlocfilehash: e7a422e0637c6343e1b2757fdf9aee7375ee2c3f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 1ff8281a420eb1e967cb9f1d4db620d8f816794b
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561624"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374240"
 ---
-# <a name="azure-cosmos-db-trigger-for-azure-functions-2x"></a>Wyzwalacz Azure Cosmos DB dla Azure Functions 2. x
+# <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Wyzwalacz Azure Cosmos DB dla Azure Functions 2. x i wyższych
 
 Wyzwalacz Azure Cosmos DB używa [źródła zmian Azure Cosmos DB](../cosmos-db/change-feed.md) do nasłuchiwania operacji wstawiania i aktualizacji między partycjami. Kanał informacyjny zmiany publikuje wstawienia i aktualizacje, a nie usunięć.
 
@@ -57,9 +57,9 @@ namespace CosmosDBSamplesV2
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Poniższy przykład przedstawia powiązanie wyzwalacza Cosmos DB w pliku *Function. JSON* oraz [funkcję skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja zapisuje komunikaty dziennika po dodaniu lub zmodyfikowaniu Cosmos DB rekordów.
+Poniższy przykład przedstawia powiązanie wyzwalacza Cosmos DB w *function.js* pliku i [funkcji skryptu języka C#](functions-reference-csharp.md) , która używa powiązania. Funkcja zapisuje komunikaty dziennika po dodaniu lub zmodyfikowaniu Cosmos DB rekordów.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -93,9 +93,9 @@ Oto kod skryptu w języku C#:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-W poniższym przykładzie pokazano powiązanie wyzwalacza Cosmos DB w pliku *Function. JSON* oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja zapisuje komunikaty dziennika po dodaniu lub zmodyfikowaniu Cosmos DB rekordów.
+W poniższym przykładzie pokazano powiązanie wyzwalacza Cosmos DB w *function.js* pliku oraz [funkcja języka JavaScript](functions-reference-node.md) , która używa powiązania. Funkcja zapisuje komunikaty dziennika po dodaniu lub zmodyfikowaniu Cosmos DB rekordów.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -122,9 +122,9 @@ Oto kod JavaScript:
 
 # <a name="python"></a>[Python](#tab/python)
 
-Poniższy przykład przedstawia powiązanie wyzwalacza Cosmos DB w pliku *Function. JSON* i [funkcji języka Python](functions-reference-python.md) , która używa powiązania. Funkcja zapisuje komunikaty dziennika, gdy rekordy Cosmos DB są modyfikowane.
+W poniższym przykładzie pokazano powiązanie wyzwalacza Cosmos DB w *function.js* pliku oraz [funkcja języka Python](functions-reference-python.md) , która używa powiązania. Funkcja zapisuje komunikaty dziennika, gdy rekordy Cosmos DB są modyfikowane.
 
-Oto dane powiązania w pliku *Function. JSON* :
+Oto dane powiązania w *function.js* pliku:
 
 ```json
 {
@@ -213,11 +213,11 @@ W [bibliotece środowiska uruchomieniowego usługi Java Functions](https://docs.
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `CosmosDBTrigger` atrybucie.
+W poniższej tabeli objaśniono właściwości konfiguracji powiązań, które zostały ustawione w *function.js* pliku i `CosmosDBTrigger` atrybutu.
 
-|Function. JSON — Właściwość | Właściwość atrybutu |Opis|
+|function.jswłaściwości | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
 |**Wprowadź** | nie dotyczy | Musi być ustawiony na `cosmosDBTrigger` . |
 |**wskazywa** | nie dotyczy | Musi być ustawiony na `in` . Ten parametr jest ustawiany automatycznie podczas tworzenia wyzwalacza w Azure Portal. |

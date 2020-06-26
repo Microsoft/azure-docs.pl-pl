@@ -15,44 +15,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 2c5d91894ba35233f3fbebffdff9104edcfdd27b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99565c8dc8b5cbaea9f449a9f6262a37ae5b66d0
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77063164"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367193"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie płatnej śniegu na potrzeby automatycznego aprowizacji użytkowników
 
-Celem tego samouczka jest przedstawienie kroków, które należy wykonać w śniegu i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup na płatki śniegu.
+Celem tego samouczka jest przedstawienie kroków, które należy wykonać w śniegu i Azure Active Directory (Azure AD) w celu skonfigurowania usługi Azure AD w celu automatycznego aprowizacji i cofania aprowizacji użytkowników i/lub grup na [płatki śniegu](https://www.Snowflake.com/pricing/). Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../manage-apps/user-provisioning.md). 
+
 
 > [!NOTE]
-> Ten samouczek zawiera opis łącznika utworzonego na podstawie usługi Azure AD User Provisioning. Aby uzyskać ważne informacje o tym, jak działa ta usługa, jak ona dotyczy, i często zadawanych pytań, zobacz [Automatyzowanie aprowizacji użytkowników i Anulowanie udostępniania aplikacji SaaS przy użyciu programu Azure Active Directory](../app-provisioning/user-provisioning.md).
->
 > Ten łącznik jest obecnie w publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat ogólnych Microsoft Azure warunki użytkowania funkcji w wersji zapoznawczej, zobacz [dodatkowe warunki użytkowania dla Microsoft Azure podglądów](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## <a name="capabilities-supported"></a>Obsługiwane możliwości
+> [!div class="checklist"]
+> * Tworzenie użytkowników w śniegu
+> * Usuń użytkowników w śniegu, gdy nie wymagają już dostępu
+> * Utrzymywanie synchronizacji atrybutów użytkowników między usługą Azure AD i Płatą śniegu
+> * Udostępnianie grup i członkostwa w grupach w śniegu
+> * [Logowanie](https://docs.microsoft.com/azure/active-directory/saas-apps/snowflake-tutorial) jednokrotne do śniegu (zalecane)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Scenariusz opisany w tym samouczku założono, że masz już następujące wymagania wstępne:
 
-* Dzierżawa usługi Azure AD.
+* [Dzierżawa usługi Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* Konto użytkownika w usłudze Azure AD z [uprawnieniami](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) do konfigurowania aprowizacji (np. Administrator aplikacji, administrator aplikacji w chmurze, właściciel aplikacji lub Administrator globalny).
 * [Dzierżawca płatka śniegu](https://www.Snowflake.com/pricing/).
 * Konto użytkownika w śniegu z uprawnieniami administratora.
 
-## <a name="assigning-users-to-snowflake"></a>Przypisywanie użytkowników do płatka śniegu
+## <a name="step-1-plan-your-provisioning-deployment"></a>Krok 1. Planowanie wdrożenia aprowizacji
+1. Dowiedz się [, jak działa usługa aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Określ, kto będzie [objęty zakresem aprowizacji](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Określ, które dane mają być [mapowane między usługą Azure AD i płatą śniegu](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory używa koncepcji zwanej *zadaniami* w celu określenia, którzy użytkownicy powinni otrzymywać dostęp do wybranych aplikacji. W kontekście automatycznej aprowizacji użytkowników są synchronizowane tylko użytkownicy i/lub grupy, które zostały przypisane do aplikacji w usłudze Azure AD.
-
-Przed skonfigurowaniem i włączeniem automatycznej aprowizacji użytkowników należy zdecydować, którzy użytkownicy i/lub grupy w usłudze Azure AD potrzebują dostępu do płatnego śniegu. Po ustaleniu tych użytkowników i/lub grup można przypisywać do śniegu, postępując zgodnie z poniższymi instrukcjami:
-* [Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw](../manage-apps/assign-user-or-group-access-portal.md)
-
-## <a name="important-tips-for-assigning-users-to-snowflake"></a>Ważne porady dotyczące przypisywania użytkowników do śniegu
-
-* Zaleca się, aby jeden użytkownik usługi Azure AD został przypisany do płatnej śniegu w celu przetestowania automatycznej konfiguracji inicjowania obsługi użytkowników. Dodatkowych użytkowników i/lub grupy można przypisywać później.
-
-* Podczas przypisywania użytkownika do płaty śniegu należy wybrać dowolną prawidłową rolę specyficzną dla aplikacji (jeśli jest dostępna) w oknie dialogowym przypisania. Użytkownicy z **domyślną rolą dostępu** są wykluczeni z aprowizacji.
-
-## <a name="setup-snowflake-for-provisioning"></a>Konfigurowanie zainicjowania obsługi płatnej śniegu
+## <a name="step-2-configure-snowflake-to-support-provisioning-with-azure-ad"></a>Krok 2. Konfigurowanie obsługi administracyjnej za pomocą usługi Azure AD
 
 Przed skonfigurowaniem płatnej śniegu w celu automatycznego aprowizacji użytkowników przy użyciu usługi Azure AD należy włączyć funkcję aprowizacji Standard scim na śniegu.
 
@@ -68,34 +68,22 @@ Przed skonfigurowaniem płatnej śniegu w celu automatycznego aprowizacji użytk
 
     ![Dodaj Standard SCIMa śniegu](media/Snowflake-provisioning-tutorial/image02.png)
 
-## <a name="add-snowflake-from-the-gallery"></a>Dodaj płatną śnieg z galerii
+## <a name="step-3-add-snowflake-from-the-azure-ad-application-gallery"></a>Krok 3. Dodaj płatną śnieg z galerii aplikacji usługi Azure AD
 
-Aby skonfigurować płatną śnieg w celu automatycznego aprowizacji użytkowników w usłudze Azure AD, musisz odliczać Płatkę z galerii aplikacji usługi Azure AD do listy zarządzanych aplikacji SaaS.
+Dodaj płatną śnieg z galerii aplikacji usługi Azure AD, aby rozpocząć zarządzanie obsługą na Płatę śniegu. Jeśli wcześniej skonfigurowano płatny śnieg na potrzeby logowania jednokrotnego, możesz użyć tej samej aplikacji. Jednak zaleca się utworzenie osobnej aplikacji podczas wstępnego testowania integracji. Dowiedz się więcej o dodawaniu aplikacji z galerii [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-**Aby dodać płatną śnieg z galerii aplikacji usługi Azure AD, wykonaj następujące czynności:**
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Krok 4. Zdefiniuj, kto będzie w zakresie aprowizacji 
 
-1. W **[Azure Portal](https://portal.azure.com)** w lewym panelu nawigacyjnym wybierz pozycję **Azure Active Directory**.
+Usługa Azure AD Provisioning umożliwia określenie zakresu użytkowników, którzy będą obsługiwani w oparciu o przypisanie do aplikacji i lub na podstawie atrybutów użytkownika/grupy. Jeśli wybierzesz zakres, który zostanie zainicjowany do aplikacji na podstawie przypisania, możesz wykonać następujące [kroki](../manage-apps/assign-user-or-group-access-portal.md) , aby przypisać użytkowników i grupy do aplikacji. Jeśli zdecydujesz się na określenie zakresu, który zostanie zainicjowany na podstawie atrybutów użytkownika lub grupy, możesz użyć filtru określania zakresu, zgodnie z opisem w [tym miejscu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![Przycisk Azure Active Directory](common/select-azuread.png)
+* Podczas przypisywania użytkowników i grup do śniegu należy wybrać rolę inną niż **domyślny dostęp**. Użytkownicy z domyślną rolą dostępu są wykluczeni z aprowizacji i zostaną oznaczeni jako nieskutecznie uprawnieni do dzienników aprowizacji. Jeśli jedyną rolą dostępną w aplikacji jest domyślna rola dostępu, można [zaktualizować manifest aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) , aby dodać dodatkowe role. 
 
-2. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+* Zacznij od małych. Przetestuj przy użyciu małego zestawu użytkowników i grup przed przekazaniem ich do wszystkich osób. W przypadku wybrania dla zakresu aprowizacji przypisanych użytkowników i grup można kontrolować ten sposób, przypisując do aplikacji jednego lub dwóch użytkowników lub grupy. Gdy zakres jest ustawiony dla wszystkich użytkowników i grup, można określić [Filtr określania zakresu na podstawie atrybutu](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-    ![Blok Aplikacje dla przedsiębiorstw](common/enterprise-applications.png)
 
-3. Aby dodać nową aplikację, wybierz przycisk **Nowa aplikacja** w górnej części okienka.
-
-    ![Przycisk Nowa aplikacja](common/add-new-app.png)
-
-4. W polu wyszukiwania wprowadź wartość **płatka śniegu**, wybierz pozycję **płatka** śniegu w panelu wyniki, a następnie kliknij przycisk **Dodaj** , aby dodać aplikację.
-
-    ![Aplikacja Snowflake na liście wyników](common/search-new-app.png)
-
-## <a name="configuring-automatic-user-provisioning-to-snowflake"></a>Konfigurowanie automatycznego aprowizacji użytkowników na płatki śniegu 
+## <a name="step-5-configure-automatic-user-provisioning-to-snowflake"></a>Krok 5. Skonfiguruj automatyczne Inicjowanie obsługi administracyjnej użytkowników na Płatę śniegu 
 
 Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisioning w celu tworzenia, aktualizowania i wyłączania użytkowników i/lub grup w śniegu na podstawie przypisań użytkowników i/lub grup w usłudze Azure AD.
-
-> [!TIP]
-> Możesz również włączyć logowanie jednokrotne oparte na protokole SAML w przypadku płatka za pośrednictwem języka, postępując zgodnie z instrukcjami podanymi w [samouczku logowanie](Snowflake-tutorial.md)jednokrotne. Logowanie jednokrotne można skonfigurować niezależnie od automatycznej aprowizacji użytkowników, chociaż te dwie funkcje napadają nawzajem.
 
 ### <a name="to-configure-automatic-user-provisioning-for-snowflake-in-azure-ad"></a>Aby skonfigurować automatyczne Inicjowanie obsługi użytkowników dla płatnych śniegów w usłudze Azure AD:
 
@@ -115,9 +103,7 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Karta aprowizacji](common/provisioning-automatic.png)
 
-5. W sekcji poświadczenia administratora wprowadź `https://<Snowflake Account URL>/scim/v2` adres URL dzierżawy. Przykład adresu URL dzierżawy:`https://acme.snowflakecomputing.com/scim/v2`
-
-6. Wprowadź wartość **tokenu uwierzytelniania Standard scim** pobraną wcześniej w **tokenie tajnym**. Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z płatą Jeśli połączenie zakończy się niepowodzeniem, upewnij się, że Twoje konto płatne w sieci śnieg ma uprawnienia administratora i spróbuj ponownie.
+5. W sekcji poświadczenia administratora wprowadź odpowiednie wartości **w polach** **adres** URL i **token uwierzytelniania Standard scim 2,0** . Kliknij pozycję **Testuj połączenie** , aby upewnić się, że usługa Azure AD może nawiązać połączenie z płatą Jeśli połączenie zakończy się niepowodzeniem, upewnij się, że Twoje konto płatne w sieci śnieg ma uprawnienia administratora i spróbuj ponownie.
 
     ![Adres URL dzierżawy + token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -125,23 +111,31 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Wiadomość E-mail z powiadomieniem](common/provisioning-notification-email.png)
 
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
 
 9. W sekcji **mapowania** wybierz opcję **Synchronizuj Azure Active Directory użytkownicy z płatą śniegu**.
 
-    ![Mapowania użytkowników płatka śniegu](media/Snowflake-provisioning-tutorial/user-mapping.png)
-
 10. Przejrzyj atrybuty użytkownika, które są synchronizowane z usługi Azure AD do śniegu w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane w celu dopasowania do kont użytkowników w śniegu w przypadku operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Atrybuty użytkownika płatka śniegu](media/Snowflake-provisioning-tutorial/user-attribute.png)
+   |Atrybut|Typ|
+   |---|---|
+   |aktywne|Wartość logiczna|
+   |displayName|Ciąg|
+   |wiadomości e-mail [Type EQ "Work"]. Value|Ciąg|
+   |userName|Ciąg|
+   |Nazwa. imię|Ciąg|
+   |Nazwa. rodzina|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: defaultRole|Ciąg|
+   |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: defaultWarehouse|Ciąg|
 
 11. W sekcji **mapowania** wybierz pozycję **Synchronizuj grupy Azure Active Directory z płatą śniegu**.
 
-    ![Mapowania grup płatnych śniegu](media/Snowflake-provisioning-tutorial/group-mapping.png)
-
 12. Przejrzyj atrybuty grupy, które są synchronizowane z usługi Azure AD do śniegu w sekcji **Mapowanie atrybutów** . Atrybuty wybrane jako **pasujące** właściwości są używane do dopasowania grup w śniegu dla operacji aktualizacji. Wybierz przycisk **Zapisz** , aby zatwierdzić zmiany.
 
-    ![Atrybuty grupy płatka śniegu](media/Snowflake-provisioning-tutorial/group-attribute.png)
+      |Atrybut|Typ|
+      |---|---|
+      |displayName|Ciąg|
+      |elementy członkowskie|Dokumentacja|
 
 13. Aby skonfigurować filtry określania zakresu, zapoznaj się z poniższymi instrukcjami w [samouczku dotyczącym filtru określania zakresu](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -157,15 +151,20 @@ Ta sekcja przeprowadzi Cię przez kroki konfigurowania usługi Azure AD Provisio
 
     ![Zapisywanie konfiguracji aprowizacji](common/provisioning-configuration-save.png)
 
-    Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona. Możesz użyć sekcji **szczegóły synchronizacji** do monitorowania postępu i postępuj zgodnie z raportem o aktywności aprowizacji, który opisuje wszystkie akcje wykonywane przez usługę Azure AD Provisioning na śniegu.
+    Ta operacja uruchamia początkową synchronizację wszystkich użytkowników i/lub grup zdefiniowanych w **zakresie** w sekcji **Ustawienia** . Synchronizacja początkowa trwa dłużej niż kolejne synchronizacje, które wystąpiły co około 40 minut, o ile usługa Azure AD Provisioning jest uruchomiona.
 
-    Aby uzyskać więcej informacji na temat odczytywania dzienników aprowizacji usługi Azure AD, zobacz [Raportowanie dotyczące automatycznego inicjowania obsługi konta użytkownika](../app-provisioning/check-status-user-account-provisioning.md)
+## <a name="step-6-monitor-your-deployment"></a>Krok 6. Monitorowanie wdrożenia
+Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania wdrożenia:
+
+1. Użyj [dzienników aprowizacji](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) , aby określić, którzy użytkownicy zostali zainicjowani pomyślnie lub niepomyślnie
+2. Sprawdź [pasek postępu](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) , aby zobaczyć stan cyklu aprowizacji oraz sposób jego zakończenia.
+3. Jeśli konfiguracja aprowizacji wydaje się być w złej kondycji, aplikacja zostanie przestawiona na kwarantannę. Więcej informacji o Stanach kwarantanny znajduje się [tutaj](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 
 ## <a name="connector-limitations"></a>Ograniczenia łącznika
 
 * Tokeny Standard scim wygenerowały płaty śniegu wygaśnie w ciągu 6 miesięcy. Należy pamiętać, że należy je odświeżyć przed wygaśnięciem, aby umożliwić kontynuowanie synchronizacji aprowizacji. 
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md).
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

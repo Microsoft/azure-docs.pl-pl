@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/24/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 299b0a677e7ca7bea9481d94ecf98c993af0a6ed
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c0641272177371ff5e8b6eac98b5bdbd381af931
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591220"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367465"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Bezpośrednia Federacja z dostawcami AD FS i innych firm dla użytkowników-Gości (wersja zapoznawcza)
 |     |
@@ -174,7 +174,7 @@ Następnie skonfigurujesz Federacji z dostawcą tożsamości skonfigurowanym w k
    Connect-AzureAD
    ```
 1. W wierszu logowania zaloguj się przy użyciu zarządzanego konta administratora globalnego. 
-2. Uruchom następujące polecenia, zastępując wartości z pliku metadanych Federacji. Dla AD FS Server i usługi okta plik federacyjny to federationmetadata. XML, na przykład: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml` . 
+2. Uruchom następujące polecenia, zastępując wartości z pliku metadanych Federacji. W przypadku AD FS Server i usługi okta plik federacyjny federationmetadata.xml, na przykład: `https://sts.totheclouddemo.com/federationmetadata/2007-06/federationmetadata.xml` . 
 
    ```powershell
    $federationSettings = New-Object Microsoft.Open.AzureAD.Model.DomainFederationSettings
@@ -221,3 +221,7 @@ Aby usunąć bezpośrednią Federacji z dostawcą tożsamości przy użyciu prog
    ```powershell
    Remove-AzureADExternalDomainFederation -ExternalDomainName  $domainName
    ```
+
+## <a name="next-steps"></a>Następne kroki
+
+Dowiedz się więcej o [środowisku wykupu zaproszeń](redemption-experience.md) , gdy użytkownicy zewnętrzni logują się przy użyciu różnych dostawców tożsamości.

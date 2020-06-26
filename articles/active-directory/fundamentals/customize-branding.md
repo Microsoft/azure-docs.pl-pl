@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/24/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1e9ec975a17be2675d2f56b2cee87f91d7e9aae
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 388c40867c21390c3de8a033a1bfa08eb95bd602
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84733130"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367414"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Dodawanie znakowania do strony logowania Azure Active Directory organizacji
 Użyj logo organizacji i niestandardowych schematów kolorów, aby zapewnić spójny wygląd i działanie na stronach logowania Azure Active Directory (Azure AD). Strony logowania są wyświetlane, gdy użytkownicy logują się do aplikacji sieci Web w organizacji, takich jak Office 365, które korzystają z usługi Azure AD jako dostawcy tożsamości.
@@ -62,7 +62,17 @@ Niestandardowa znakowanie nie zostanie natychmiast wyświetlone, gdy użytkownic
 
         - **Wskazówka nazwy użytkownika.** Wpisz tekst wskazówki, który pojawia się dla użytkowników w przypadku zapomnienia ich nazwy użytkownika. Ten tekst musi być w formacie Unicode, bez linków lub kodu i nie może przekraczać 64 znaków. Jeśli Goście logują się do aplikacji, sugerujemy, aby nie dodawać tej wskazówki.
 
-        - **Tekst strony logowania.** Wpisz tekst wyświetlany w dolnej części strony logowania. Możesz użyć tego tekstu do przekazania dodatkowych informacji, takich jak numer telefonu do działu pomocy technicznej lub oświadczenia prawnego. Ten tekst musi być w formacie Unicode i nie może przekraczać 256 znaków.
+        - **Tekst i formatowanie strony logowania.** Wpisz tekst wyświetlany w dolnej części strony logowania. Możesz użyć tego tekstu do przekazania dodatkowych informacji, takich jak numer telefonu do działu pomocy technicznej lub oświadczenia prawnego. Ten tekst musi być w formacie Unicode i nie może przekraczać 1024 znaków.
+
+           Można dostosować wprowadzony tekst strony logowania. Aby rozpocząć nowy akapit, użyj klawisza ENTER dwa razy. Możesz również zmienić formatowanie tekstu tak, aby obejmowało pogrubienie, kursywę, podkreślenie lub kliknięcie. Aby dodać formatowanie do tekstu, użyj następującej składni: 
+
+          > Łącza```[text](link)``` 
+          
+          > Pogrubienie: ``` **text** ``` lub``` __text__ ``` 
+          
+          > Kursywa: ``` *text* ``` lub``` _text_ ``` 
+          
+          > Podkreślenie``` ++text++ ``` 
 
     - **Ustawienia zaawansowane**
             

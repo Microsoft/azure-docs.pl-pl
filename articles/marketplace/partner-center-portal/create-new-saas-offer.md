@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: b02ba8bd6e3ae858c9e3ded07776a8a83ede171a
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f214dbbc1991e64f86890687523be256c69e46d3
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85212597"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374274"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Utwórz nową ofertę SaaS w portalu komercyjnym
 
@@ -287,7 +287,6 @@ To pole jest wymagane.
     - **Średni** (90 x 90, wymagane)
     - **Duże** (216 x 216, wymagane)
     - **Szeroki** (255 x 115)
-    - **Hero** (815 x 290)
 
 - **Zrzuty ekranu** (wymagane) — Dodaj maksymalnie pięć zrzutów ekranu pokazujących Twoją ofertę o rozmiarze 1280 x 720 pikseli. Wszystkie obrazy muszą znajdować się w. Format PNG.
 - **Wideo** (opcjonalnie) — umożliwia dodanie linków do filmów wideo pokazujących Twoją ofertę. Możesz używać linków do filmów wideo w usłudze YouTube i/lub Vimeo, które są wyświetlane wraz z ofertą dla klientów. Należy również wprowadzić obraz miniatury wideo o rozmiarach do 1280 x 720 pikseli w formacie PNG. Możesz wyświetlić maksymalnie cztery wideo dla każdej oferty.

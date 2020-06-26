@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: allensu
-ms.openlocfilehash: 30d71333bb29720afd82c7dbbde7126b30a7f6d6
-ms.sourcegitcommit: ad66392df535c370ba22d36a71e1bbc8b0eedbe3
+ms.openlocfilehash: 2dff916bf005b307f27264ad7a17864fbba50872
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84803684"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367397"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-the-azure-portal"></a>Konfigurowanie równoważenia obciążenia i reguł ruchu wychodzącego w usługa Load Balancer w warstwie Standardowa przy użyciu Azure Portal
 
@@ -45,7 +45,7 @@ W tej sekcji utworzysz moduł równoważenia obciążenia, który będzie równo
     | Nazwa                   | **myLoadBalancer**                                   |
     | Region         | Wybierz pozycję **Europa Zachodnia**.                                        |
     | Typ          | wybierz pozycję **Publiczny**.                                        |
-    | SKU           | Wybierz opcję **standardowa** lub **podstawowa**. Firma Microsoft zaleca standardy dotyczące obciążeń produkcyjnych. |
+    | SKU           | Wybierz pozycję **Standardowy**. |
     | Publiczny adres IP | Wybierz pozycję**Utwórz nowy**. Jeśli masz istniejący publiczny adres IP, którego chcesz użyć, wybierz pozycję **Użyj istniejącej**.  Istniejący publiczny adres IP musi być **standardową** jednostką SKU.  Podstawowe publiczne adresy IP nie są zgodne ze **standardowym** modułem równoważenia obciążenia jednostki SKU.  |
     | Nazwa publicznego adresu IP              | Wpisz **myPublicIP** w polu tekstowym.|
     | Strefa dostępności | Wybierz pozycję **strefa nadmiarowa** , aby utworzyć odporną Load Balancer. Aby utworzyć strefę Load Balancer, wybierz określoną strefę z 1, 2 lub 3 |
@@ -166,7 +166,7 @@ Reguły ruchu wychodzącego modułu równoważenia obciążenia Skonfiguruj wych
 
 4. Wybierz pozycję **Dodaj**.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy grupa zasobów, moduł równoważenia obciążenia i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Wybierz grupę zasobów **myResourceGroupSLB** , która zawiera moduł równoważenia obciążenia, a następnie wybierz pozycję **Usuń**.
 

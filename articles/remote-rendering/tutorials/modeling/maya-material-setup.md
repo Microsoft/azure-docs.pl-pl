@@ -1,116 +1,124 @@
 ---
-title: Konfigurowanie fizycznych materiałów do renderowania w programie Maya
-description: Wyjaśniono, jak skonfigurować fizyczne materiały renderowania w Maya i wyeksportować je do formatu FBX
+title: Konfigurowanie materiałów renderowania opartych na fizycznie w Maya
+description: Wyjaśniono, jak skonfigurować fizyczne materiały renderowania w Maya i wyeksportować je do formatu FBX.
 author: muxanickms
 ms.author: misams
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5579994b0746a2de4b0f2ca927027ac709940024
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 72742ff4f6aa19fda092b44d8d2237e7d49dd816
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977835"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85373249"
 ---
-# <a name="tutorial-setting-up-physically-based-rendering-materials-in-maya"></a>Samouczek: Konfigurowanie fizycznie opartych na materiałach renderowania w Maya
+# <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Samouczek: Konfigurowanie fizycznie opartych na materiałach renderowania w Maya
 
 ## <a name="overview"></a>Omówienie
 Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
-> * Przypisz materiały z modelem oświetlenia zaawansowanego do obiektów w scenie.
+> * Przypisuj materiały z zaawansowanymi oświetleniem do obiektów w scenie.
 > * Obsługa wystąpień obiektów i materiałów.
-> * Wyeksportuj scenę do formatu FBX i ważnych opcji do wyboru.
+> * Wyeksportuj scenę do formatu FBX i wybierz ważne opcje.
 
-Tworzenie [opartych na fizycznie materiałach renderowania (PBR)](../../overview/features/pbr-materials.md) w programie `Maya` to stosunkowo proste zadanie do przesyłania dalej, podobnie jak w przypadku innych aplikacji do tworzenia zawartości, takich jak `3DS Max` . Poniższy samouczek przedstawia przewodnik dotyczący podstawowej konfiguracji programu do cieniowania PBR i eksportu FBX dla projektów ARR. 
+Tworzenie [materiałów renderowania opartych na fizycznie (PBR)](../../overview/features/pbr-materials.md) w Maya to stosunkowo proste zadanie. Jest to podobne na wiele sposobów w przypadku instalacji w innych aplikacjach do tworzenia zawartości, takich jak 3DS Max. Ten samouczek to przewodnik dotyczący podstawowej instalacji modułu cieniującego w programie PBR i eksportowania FBX na potrzeby projektów zdalnego renderowania na platformie Azure. 
 
-Przykładowa scena w tym samouczku zawiera kilka `Polygon Box` obiektów, do których przypisano wiele różnych materiałów — drewna, metal, folia metalowa, plastikowa i gumowa. Ogólnie mówiąc, każdy materiał zawiera wszystkie lub większość następujących tekstur 
+Przykładowa scena w tym samouczku zawiera wiele obiektów pól wielokątów. Są do nich przypisane różne materiały, takie jak drewno, metal, malowanie metalowe, plastikowe i gumowe. Ogólnie mówiąc, każdy materiał zawiera wszystkie lub większość następujących tekstur:
 
-* `Albedo`, czy Mapa kolorów materiałów, nazywana również `Diffuse` lub`BaseColor`
-* `Metalness`, które określa, czy materiał jest metaliczny i które części są metalowe. 
-* `Roughness`, która określa, jak sztywne lub gładko powierzchnię, wpływając na ostrość lub blurriness odbicia i wyróżnienia na powierzchni.
-* `Normals`, który dodaje szczegóły do powierzchni, na przykład odpestki i zwiększa wcięcie powierzchni metalowej lub ziarna w drewnie bez konieczności dodawania większej liczby wielokątów.
-* `Ambient Occlusion`, który służy do dodawania cieniowania miękkiego i cieniowania do modelu. Jest to mapa odcienie szarości, która wskazuje, które obszary modelu otrzymują pełne oświetlenie (białe) lub pełny cień (czarny). 
+* **Albedo**, czyli Mapa kolorów materiałów i jest również nazywana **rozpraszaniem** lub **BaseColor**.
+* **Metalowy**, który określa, czy materiał jest metaliczny i które części są metalowe. 
+* **Niesztywność**, która określa, jak sztywne lub gładko powierzchnię i ma wpływ na ostrość lub blurriness odbicia i wyróżnienia na powierzchni.
+* **Normalne**, które dodaje szczegóły do powierzchni bez konieczności dodawania większej liczby wielokątów. Przykłady szczegółów mogą być wygrane i mieć wcięcia na powierzchni metalowej lub ziarna w drewnie.
+* **Zamknięcia otoczenia**, który służy do dodawania cieniowania miękkiego i cieniowania do modelu. Jest to mapa w skali szarości, która wskazuje, które obszary modelu otrzymują pełne oświetlenie (białe) lub pełny cień (czarny). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* `Autodesk Maya 2017`lub nowszy
+* Autodesk Maya 2017 lub nowszy
 
-## <a name="setting-up-materials-in-the-scene"></a>Konfigurowanie materiałów na scenie
-W programie Maya proces konfigurowania materiału PBR jest następujący:
+## <a name="set-up-materials-in-the-scene"></a>Konfigurowanie materiałów na scenie
+Poniżej przedstawiono sposób konfigurowania materiału PBR w Maya.
 
-Aby zacząć od, jak zobaczysz w przykładowej scenie, utworzymy kilka obiektów Box, z których każdy reprezentuje inny typ materiału. Zwróć uwagę, jak pokazano na poniższej ilustracji, że każdy z tych obiektów otrzymał własną nazwę 
+Jak zobaczysz w przykładowej scenie, utworzyliśmy wiele obiektów Box. Każdy obiekt reprezentuje inny typ materiału. Jak pokazano na obrazie, każdy z tych obiektów uzyskał własną odpowiednią nazwę.
 
-> Warto zauważyć, że przed rozpoczęciem tworzenia zasobów dla zdalnego renderowania na platformie Azure (ARR), który używa mierników dla pomiaru, a kierunek w górę jest osią Y. W związku z tym zaleca się ustawienie jednostek sceny w Maya na liczniki. Ponadto zaleca się, aby podczas eksportowania skonfigurować jednostki do liczników w ustawieniach eksportu FBX. 
+Renderowanie zdalne na platformie Azure używa liczników do pomiarów, a kierunek w górę jest osią Y. Przed rozpoczęciem tworzenia zasobów zalecamy ustawienie jednostek sceny w Maya na liczniki. W obszarze eksportowanie Określ wartości jednostek do liczników w ustawieniach eksportu FBX.
 
 > [!TIP]
-Dobrym rozwiązaniem jest odpowiednie nazywanie zasobów modelu, zazwyczaj z istotną częścią lub typem materiału, ponieważ nazwy ułatwiają szybkie przechodzenie do dużych scen.
+> Nadaj modelom odpowiednie nazwy na podstawie odpowiednich części lub typu materiału. Znaczenie nazw ułatwia nawigowanie w dużych scenach obiektów.
 
 ![Nazwy obiektów](media/object-names.jpg)
 
-Po utworzeniu/uzyskaniu tekstury — w zależności od potrzeb, możesz chcieć utworzyć unikatowe tekstury dla modelu w aplikacjach texturing, takich jak `Quixel Suite` , `Photoshop` , lub `Substance Suite` lub użyć rodzajowych tekstur tekstury z innych źródeł, można zastosować je do modelu w następujący sposób:
+Po utworzeniu lub pozyskaniu niektórych tekstur można także utworzyć unikatowe tekstury. Można używać aplikacji texturing, takich jak Quixel Suite, PhotoShop lub Suite, lub pobierać ogólne tekstury z innych źródeł.
 
-* W okienku ekranu sceny wybierz model/geometrię, a następnie kliknij go prawym przyciskiem myszy. W wyświetlonym menu kliknij pozycję`Assign New Material`
-* W obszarze `Assign New Material` Opcje przejdź do `Maya` > `Stingray PBS` . Ta akcja spowoduje przypisanie materiału PBR do modelu. 
+Aby zastosować tekstury do modelu:
 
-W programie `Maya 2020` dostępnych jest wiele różnych programów do cieniowania (PBR) — `Maya Standard Surface` , `Arnold Standard Surface` i `Stingray PBR` . Element `Maya Standard Surface Shader` nie jest jeszcze eksportowany za pośrednictwem programu `FBX plugin 2020` , podczas gdy `Arnold Standard Surface Shader` można go wyeksportować z plikami FBX. W większości innych kwestii jest on identyczny z `Maya Standard Surface Shader` i jest analogiczny do `Physical Material` `3D Studio Max` .
+1. W okienku ekranu sceny wybierz model lub geometrię, a następnie kliknij go prawym przyciskiem myszy. W wyświetlonym menu wybierz pozycję **Przypisz nowy materiał**.
+1. W oknie dialogowym **przypisywanie nowego materiału** przejdź do **Maya**  >  **Stingray PBS**. Ta akcja przypisuje materiał PBR do modelu. 
 
-**`The Stingray PBR Shader`** jest zgodny z wieloma innymi aplikacjami i najlepiej pasuje do wymagań i jest `ARR` obsługiwana od `Maya 2017` . Ponadto wygodnie jest, aby ten typ materiałów był wizualizacją w okienku ekranu podobnym do tego, co będzie wizualizowane później w ARR.
+W Maya 2020 dostępnych jest wiele różnych programów do cieniowania. Obejmują one **powierzchnię standardową Maya**, **powierzchnię standardową Arnold**i **Stingray PBR**. Standardowy program do **cieniowania powierzchni Maya** nie jest jeszcze eksportowany za pośrednictwem wtyczki FBX 2020. **Arnolde standardowe** można eksportować za pomocą plików FBX. W większości innych aspektów jest on identyczny z **Mayaem programu do cieniowania powierzchni standardowej**. Jest to analogiczne do **materiału fizycznego** w programie 3D Studio Max.
 
-![Materiał "Stingray"](media/stingray-material.jpg)
+Program **STINGRAY PBR** jest zgodny z wieloma innymi aplikacjami i najlepiej odpowiada wymaganiom zdalnego renderowania platformy Azure. Jest ona obsługiwana od Maya 2017. Gdy ten typ materiału jest wizualizacją w okienku ekranu, jest podobny do wizualizacji w dalszej części renderowania zdalnego na platformie Azure.
 
-Wraz z materiałem przypisanym do zasobu i odpowiednio nazwanym, możesz teraz przypisywać różne tekstury. Na poniższych ilustracjach przedstawiono szczegółowe informacje o tym, gdzie każdy typ tekstury mieści się w materiale PBR. `Stingray PBR`Materiał umożliwia wybranie atrybutów, które można aktywować, dlatego przed zapisaniem `plug in` mapy tekstury należy aktywować odpowiednie atrybuty: 
+![Materiał Stingray](media/stingray-material.jpg)
+
+Wraz z materiałem przypisanym do zasobu i odpowiednio nazwanym, możesz teraz przypisywać różne tekstury. Na poniższych ilustracjach pokazano, gdzie każdy typ tekstury mieści się w materiale PBR. Materiał Stingray PBR umożliwia wybranie atrybutów, które można aktywować. Przed przystąpieniem do mapowania tekstury należy aktywować odpowiednie atrybuty.
 
 ![Konfiguracja materiału](media/material-setup.jpg)
 
-> [!TIP]
-Dobrym sposobem jest odpowiednie nazwy materiałów, biorąc pod uwagę ich użycie i/lub typ. Materiał, który ma być używany na unikatowej części, może być nazwany dla tej części, podczas gdy materiał, który może być używany w szerszej liczbie obszarów, może być nazwany dla jego właściwości lub typu.
+Nazwij odpowiednie materiały, biorąc pod uwagę ich użycie lub typ. Materiał, który jest używany w ramach unikatowej części, może być nazwany dla tej części. Materiał, który jest używany w szerszym zakresie obszarów, może być nazwany dla jego właściwości lub typu.
 
-Przypisz tekstury w następujący sposób:
+Przypisz tekstury, jak pokazano na obrazie.
 
 ![Konfiguracja tekstury](media/texture-setup.jpg)
 
-Wraz z utworzonymi i skonfigurowanymi materiałami PBR warto zastanowić się nad tworzeniem [wystąpień obiektów](../../how-tos/conversion/configure-model-conversion.md#instancing) na scenie. Tworzenie wystąpień podobnych obiektów w scenie — takich jak orzechy, pioruny, spryskiwacze wkrętów — zasadniczo wszystkie obiekty, które są takie same, mogą przynieść znaczne oszczędności pod względem rozmiaru pliku. Wystąpienia obiektu głównego mogą mieć własną skalę, rotację i przekształcenia, aby można je było umieścić zgodnie z wymaganiami w scenie. W programie Maya proces tworzenia wystąpień jest prosty.
+Po utworzeniu i skonfigurowaniu materiałów PBR należy rozważyć utworzenie wystąpienia [obiektów](../../how-tos/conversion/configure-model-conversion.md#instancing) w scenie. Tworzenie wystąpień podobnych obiektów w scenie, takich jak orzechy, pioruny, wkręty i spryskiwacze, daje znaczący oszczędności w rozmiarze pliku. Wystąpienia obiektu głównego mogą mieć własną skalę, rotację i przekształcenia, aby można je było umieścić zgodnie z wymaganiami w scenie. 
 
-* W `Edit` menu Przejdź do `Duplicate Special` i Otwórz `Options` , 
-* W `Duplicate Special` opcji Przełącz `Geometry Type` z `Copy` do `Instance` , 
-* Kliknij pozycję `Duplicate Special`.
+W programie Maya proces tworzenia wystąpień jest prosty.
 
-![Tworzenie wystąpienia](media/instancing.jpg)
+1. W menu **Edycja** przejdź do pozycji **Duplikuj specjalne** , aby otworzyć Opcje.
+1. W oknie dialogowym **zduplikowane opcje specjalne** w polu **typ geometrii** wybierz opcję **wystąpienie** . 
+1. Wybierz pozycję **Duplikuj specjalne**.
 
-Ta akcja spowoduje utworzenie wystąpienia obiektu, które można przenieść obrócone lub skalowane niezależnie od jego elementu nadrzędnego i innych wystąpień tego elementu nadrzędnego. 
->Jednak wszelkie zmiany wprowadzone w wystąpieniu w trybie składnika będą przesyłane do wszystkich wystąpień obiektu, dlatego w przypadku pracy z wystąpieniami obiektów wystąpień-wierzchołków, wielokątów itp. należy najpierw upewnić się, że wszystkie zmiany mają wpływ na wszystkie te wystąpienia.
+   ![Tworzenie wystąpienia](media/instancing.jpg)
 
-W przykładowej scenie każdy obiekt pojedynczego pola został wystawiony. Ta akcja będzie miała znaczenie podczas eksportowania sceny do formatu FBX.
+Ta akcja powoduje utworzenie wystąpienia obiektu. Można je przenosić, obracać i skalować niezależnie od elementów nadrzędnych i innych wystąpień tego elementu nadrzędnego. 
+
+Wszelkie zmiany wprowadzone w wystąpieniu w trybie składników są przesyłane do wszystkich wystąpień obiektu. Można na przykład współpracować z składnikami wystąpienia obiektu, takimi jak wierzchołki i wielokąta. Upewnij się, że wszystkie zmiany zostały wprowadzone, aby wpływać na wszystkie te wystąpienia. 
+
+W przykładowej scenie każdy obiekt pojedynczego pola został wystąpiły. Ta akcja będzie miała znaczenie podczas eksportowania sceny do formatu FBX.
 
 ![Omówienie sceny](media/scene-overview.jpg)
 
->Najlepszym rozwiązaniem dotyczącym tworzenia wystąpienia w scenie jest tworzenie ich w miarę ich wykonywania, ponieważ zamienianie "kopii" obiektów wystąpień później jest niezwykle trudne. 
+> [!TIP]
+> Twórz wystąpienia w Twojej scenie, jak to możliwe. Późniejsze zastępowanie kopii przy użyciu obiektów wystąpień jest niezwykle trudne. 
 
 ## <a name="fbx-export-process"></a>Proces eksportowania FBX
 
-Teraz możemy przejść do FBXego eksportu elementów zawartości sceny lub sceny. Ogólnie mówiąc, warto mieć sens, gdy eksportowanie zasobów jest możliwe tylko do eksportu tych obiektów/zasobów z Twojej sceny. Jeśli masz 100 obiektów w scenie, ale chcesz użyć tylko 30 z nich, nie ma żadnych punktów eksportowania całej sceny. Jeśli więc nie masz szczęśliwej eksportu całej sceny, wybierz pozycję i przejdź do:
+Przejdźmy do FBXego eksportu zasobów sceny lub sceny. Podczas eksportowania zasobów warto wybrać tylko obiekty lub zasoby z Twojej sceny, które mają zostać wyeksportowane. Na przykład może istnieć 100 obiektów w scenie. Jeśli chcesz używać tylko 30 z nich, nie ma żadnych punktów eksportowania całej sceny. 
 
-* `File` > `Export Selection`a w oknie dialogowym eksportowania przejdź na dół i ustaw wartość `Files of Type` `FBX Export` . W tym oknie zostaną ujawnione ustawienia eksportu FBX. Podstawowe ustawienia eksportu FBX są wyróżnione kolorem czerwonym na poniższej ilustracji.
+Aby wybrać:
 
-![FBX eksportowanie](media/FBX-exporting.jpg)
+1. Przejdź do **File**  >  **obszaru eksportowanie** plików, aby otworzyć okno dialogowe **eksport zaznaczenia** .
+1. W polu **Pliki typu** wybierz pozycję **FBX Export** , aby wyświetlić ustawienia eksportu FBX. Podstawowe ustawienia eksportu FBX są wyróżnione na czerwono na obrazie.
 
-W zależności od wymagań — na przykład możesz chcieć wysłać zasób do klienta, ale nie chcesz wysyłać dużej liczby plików tekstury z elementem zawartości, możesz osadzić tekstury w wyeksportowanym pliku FBX. Ta opcja oznacza, że masz tylko jeden plik do spakowania, ale znacznie zwiększy rozmiar tego elementu zawartości FBX. Możesz włączyć opcję osadzania tekstur, przełączając się do `Embed Media` opcji, jak pokazano poniżej.
+   ![FBX eksportowanie](media/FBX-exporting.jpg)
+
+Na przykład w zależności od wymagań można wysłać zasób do klienta programu. Być może nie chcesz wysyłać dużej liczby plików tekstury z elementem zawartości. Możesz osadzić tekstury w wyeksportowanym pliku FBX. Ta opcja oznacza, że masz tylko jeden plik do spakowania, ale rozmiar tego zasobu FBX znacznie się zwiększy. Możesz włączyć opcję osadzania tekstur, wybierając opcję **Osadź multimedia** , jak pokazano.
 
 > [!TIP]
-> Zauważ, że plik w tym przypadku ma nazwę, aby odzwierciedlić ten warunek. Jest to dobrym sposobem na śledzenie zasobów. 
+> W tym przykładzie plik miał nazwę, aby odzwierciedlał ten warunek. Ten styl nazewnictwa jest dobrym sposobem śledzenia zasobów. 
 
-Po zakończeniu ustawiania konfiguracji na potrzeby eksportu kliknij przycisk "Eksportuj zaznaczenie" w prawym dolnym rogu.
+Po ustawieniu konfiguracji na potrzeby eksportu wybierz pozycję **Eksportuj zaznaczenie** w prawym dolnym rogu.
 
 ![Osadzanie multimediów](media/embedding-media.jpg)
 
 ## <a name="conclusion"></a>Podsumowanie
 
-Ogólnie rzecz biorąc, ten typ materiałów wygląda bardziej realistycznie, ponieważ jest oparty na rzeczywistej fizyki ziemskiej. Tworzy dodatkowy efekt immersyjny, że scena istnieje w świecie rzeczywistym.
+Ogólnie rzecz biorąc, ten typ materiału wygląda bardziej realistycznie, ponieważ jest oparty na rzeczywistej fizyki ziemskiej. Tworzy dodatkowy efekt immersyjny, aby sceny pojawiły się w świecie rzeczywistym.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz znasz najważniejsze funkcje konfigurowania materiałów z zaawansowanymi oświetleniem do obiektów w scenie i eksportując je do formatu FBX, który jest obsługiwany przez ARR. Następnym krokiem jest przekonwertowanie pliku FBX i wizualizacja w ARR.
+Teraz wiesz, jak skonfigurować materiały z zaawansowanymi oświetleniem dla obiektów w scenie. Wiesz również, jak wyeksportować obiekty do formatu FBX, który jest obsługiwany przez renderowanie zdalne na platformie Azure. Następnym krokiem jest przekonwertowanie pliku FBX i wizualizacja go w ramach renderowania zdalnego na platformie Azure.
 
 > [!div class="nextstepaction"]
 > [Szybki Start: konwertowanie modelu do renderowania](../../quickstarts\convert-model.md)

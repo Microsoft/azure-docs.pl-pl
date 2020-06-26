@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3d04751cb8796290135cfc045385e1bf4cf3c3c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84759950"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367737"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplikacje wieloznaczne w Azure Active Directory serwerze proxy aplikacji
 
@@ -62,7 +62,7 @@ Chociaż [domeny niestandardowe](application-proxy-configure-custom-domain.md) s
 1. Utwórz zweryfikowaną domenę na platformie Azure.
 1. Przekaż certyfikat TLS/SSL w formacie PFX do serwera proxy aplikacji.
 
-Należy rozważyć użycie certyfikatu wieloznacznego w celu dopasowania do aplikacji, którą zamierzasz utworzyć. Alternatywnie można również użyć certyfikatu, który zawiera tylko określone aplikacje. W takim przypadku tylko aplikacje wymienione w certyfikacie będą dostępne za pomocą tej aplikacji wieloznacznej.
+Należy rozważyć użycie certyfikatu wieloznacznego w celu dopasowania do aplikacji, którą zamierzasz utworzyć. 
 
 Ze względów bezpieczeństwa jest to wymaganie twarde i nie będzie on obsługiwał symboli wieloznacznych dla aplikacji, które nie mogą używać domeny niestandardowej dla zewnętrznego adresu URL.
 

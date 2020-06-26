@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c3f3eddf57b559d9e8f4837db453232308869767
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: f459e1dd70850db1d7087b4c99de741b37d3bfda
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118053"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367125"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Wysoka dostępność w usłudze Azure Cosmos DB
 
@@ -82,7 +82,7 @@ Nadmiarowość stref to *dodatkowa* funkcja [replikacji z wieloma wzorcami](how-
 
 Podczas konfigurowania wieloregionowych zapisów dla konta usługi Azure Cosmos możesz zrezygnować z nadmiarowości strefy bez dodatkowych kosztów. W przeciwnym razie zapoznaj się z poniższymi uwagami dotyczącymi cen obsługi nadmiarowości stref. Nadmiarowość strefy można włączyć w istniejącym regionie konta usługi Azure Cosmos, usuwając region i dodając go ponownie z włączonym nadmiarowością strefy.
 
-Ta funkcja jest dostępna w: *Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Europa Zachodnia, zachodnie stany USA 2, Australia Wschodnia, Japonia Wschodnia, Europa Północna, Francja środkowa* .
+Ta funkcja jest dostępna w: *Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, środkowe stany USA, Europa Zachodnia, zachodnie stany USA 2, Japonia Wschodnia, Europa Północna, Francja środkowa* .
 
 > [!NOTE]
 > Włączenie Strefy dostępności dla jednego regionu konta platformy Azure Cosmos spowoduje naliczenie opłat, które są równoznaczne z dodaniem dodatkowego regionu do konta. Aby uzyskać szczegółowe informacje o cenach, zobacz [stronę z cennikiem](https://azure.microsoft.com/pricing/details/cosmos-db/) oraz [Koszt dla wieloregionu w](optimize-cost-regions.md) artykułach Azure Cosmos DB.

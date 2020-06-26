@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
-ms.author: kenwith
+ms.date: 06/10/2020
+ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2a2691935cb38c20e20b6a776acfe70cc458a6ed
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763078"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374445"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planowanie wdrożenia logowania jednokrotnego
 
@@ -194,8 +194,6 @@ Aby zaplanować i wdrożyć rozwiązanie w organizacji, należy użyć następuj
    Jeśli nie możesz znaleźć aplikacji, zapoznaj się z [dokumentacją aplikacji niestandardowych](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). Zapoznaj się z tematem jak dodać aplikację, która nie znajduje się w galerii usługi Azure AD.
 
    Opcjonalnie można użyć oświadczeń wystawionych w tokenie SAML dla aplikacji przedsiębiorstwa przy użyciu [dokumentacji wskazówek firmy Microsoft](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping). Upewnij się, że mapowania są zgodne z oczekiwaniami, które chcesz otrzymywać w odpowiedzi SAML dla aplikacji. Jeśli wystąpią problemy podczas konfiguracji, należy skorzystać z naszych wskazówek dotyczących [debugowania integracji z logowaniem JEDNOkrotnym](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging).
-
-Niestandardowe dołączanie do aplikacji jest funkcją licencji na Azure AD — wersja Premium P1 lub P2.
 
 ### <a name="provide-sso-change-communications-to-end-users"></a>Zapewnianie użytkownikom końcowym komunikacji z logowaniem jednokrotnym
 

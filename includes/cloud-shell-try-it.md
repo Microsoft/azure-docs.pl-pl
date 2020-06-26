@@ -1,15 +1,15 @@
 ---
-author: sptramer
-ms.service: azure
 ms.topic: include
 ms.date: 06/13/2019
-ms.author: sttramer
-ms.openlocfilehash: 7da122465c9842ad580808ff713b75e775bde96b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
+ms.openlocfilehash: 40f243ce0044b8e1172fb03a1366f37314a0c550
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76766491"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367816"
 ---
 ## <a name="use-azure-cloud-shell"></a>Używanie usługi Azure Cloud Shell
 

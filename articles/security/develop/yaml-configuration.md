@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c53954e1aa1779bbf6933f7a81a95d25c8b4043a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 6985107dd8f13e26875cf5ea7428b3280d00cea1
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362275"
+ms.locfileid: "85367261"
 ---
 # <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>YAML opcje konfiguracji, aby dostosować zadania kompilacji
 
@@ -27,7 +27,7 @@ W tym artykule wymieniono wszystkie opcje konfiguracji YAML dostępne w poszczeg
 
 | **Atrybutów InputType**      | **Typ**     | **Stosowane**            | **Wymagane** | **Wartość domyślna**             | **Opcje (dla list wyboru)**                                   | **Opis**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Atrybutów InputType | Listy wyboru | zawsze | True | Podstawowa | Podstawowa, niestandardowa | 
+| Atrybutów InputType | Listy wyboru | zawsze | True | Podstawowy | Podstawowa, niestandardowa | 
 | Nr skanowania | Listy wyboru | InputType = Basic | True | CustomScan | CustomScan, FullSystemScan, QuickScan, YourConfiguredScan | Typ skanowania używany do skanowania w poszukiwaniu złośliwego oprogramowania.
 | FileDirPath | Parametr | ScanType = CustomScan | True | $ (Build. StagingDirectory) |  | Wskazuje plik lub katalog do skanowania.
 | DisableRemediation | wartość logiczna | ScanType = CustomScan | Fałsz | true |  | Po zaznaczeniu: 1) wykluczenia plików są ignorowane. 2) skanowane są pliki archiwum. 3) akcje nie są stosowane po wykryciu. 4) wpisy dziennika zdarzeń nie są zapisywane po wykryciu. 5) wykrycia z niestandardowego skanowania nie są wyświetlane w interfejsie użytkownika. 6) dane wyjściowe konsoli będą zawierać listę wykryć z niestandardowego skanowania.
@@ -43,7 +43,7 @@ W tym artykule wymieniono wszystkie opcje konfiguracji YAML dostępne w poszczeg
 
 | **Atrybutów InputType**      | **Typ**     | **Stosowane**            | **Wymagane** | **Wartość domyślna**             | **Opcje (dla list wyboru)**                                   | **Opis**                                                                                                                                                                                                                                                                                                                            |
 |------------|---------------|-----------------------|----------|---------------------------|----------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Atrybutów InputType | Listy wyboru | zawsze | True | Podstawowa | Basic, CommandLine | 
+| Atrybutów InputType | Listy wyboru | zawsze | True | Podstawowy | Basic, CommandLine | 
 | argumentu | ciąg | InputType = CommandLine | True |  |  | Standardowe argumenty wiersza polecenia BinSkim do wykonania. Ścieżka wyjściowa zostanie usunięta i zastąpiona.<br>Aby uzyskać więcej informacji na temat argumentów wiersza polecenia dla tego narzędzia, wpisz **Pomoc** w polu argumenty i wykonaj zadanie kompilacji.
 | Funkcja | Listy wyboru | InputType = Basic | True | Analiza | Analizuj, Zrzuć, exportConfig, exportRules | 
 | AnalyzeTarget | Parametr | InputType = podstawowa && funkcja = analiza | True | $ (Build. ArtifactStagingDirectory) \* . dll;<br>$ (Build. ArtifactStagingDirectory) \* . exe |  | Jeden lub więcej specyfikatorów do pliku, katalogu lub wzorca filtru, który jest rozpoznawany jako jeden lub więcej plików binarnych do przeanalizowania. (lista oddzielona ";")
@@ -104,7 +104,7 @@ W tym artykule wymieniono wszystkie opcje konfiguracji YAML dostępne w poszczeg
 | FileSelectionType | Listy wyboru | zawsze | True | fileGlob | fileGlob, projectFile | 
 | Files | ciąg | FileSelectionType = = fileGlob | True | **\*. TS |  | [Globalizowania](https://www.npmjs.com/package/glob) pliku, który określa pliki do przetworzenia. Ścieżki są względne względem `Build.SourcesDirectory` wartości.<br/><br/>Biblioteka udziałów firmy Microsoft wymaga użycia pliku projektu. Jeśli używasz biblioteki udziałów firmy Microsoft z `File Glob Pattern` opcją, plik projektu zostanie wygenerowany dla Ciebie.
 | ECMAScriptVersion | Listy wyboru | FileSelectionType = = fileGlob && RuleLibrary = = Microsoft | True | ES3 | ES2015, ES2016, ES2017, ES3, ES5, ES6, ESNext | Docelowa wersja języka ECMAScript skonfigurowana za pomocą kompilatora języka TypeScript. W przypadku korzystania z pliku projektu jest to pole compilerOptions. target obiektu TypeScript tsconfig.jsw pliku.
-| Project | ciąg | FileSelectionType = = projectFile | True |  |  | Ścieżka do [tsconfig.jsw](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html) pliku, która określa pliki TypeScript do uruchomienia TSLint. Ścieżki są względne względem `Build.SourcesDirectory` wartości.
+| Projekt | ciąg | FileSelectionType = = projectFile | True |  |  | Ścieżka do [tsconfig.jsw](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html) pliku, która określa pliki TypeScript do uruchomienia TSLint. Ścieżki są względne względem `Build.SourcesDirectory` wartości.
 | TypeCheck | wartość logiczna | RuleLibrary! = Microsoft && FileSelectionType = = projectFile | Fałsz | true |  | Włącza sprawdzanie typu podczas uruchamiania reguł Zaznaczanie błędów.
 | ExcludeFiles | ciąg | zawsze | Fałsz |  |  | Element [globalizowania](https://www.npmjs.com/package/glob) , który wskazuje pliki do wykluczenia z Zaznaczanie błędów. Ścieżki są względne względem `Build.SourcesDirectory` wartości. Można określić wiele wartości rozdzielonych średnikami.
 | OutputFormat | Listy wyboru | zawsze | True | json | checks, codeFrame, filesList, JSON, MSBuild, PMD, Prose,, verbose, VSO | Program [formatujący](https://palantir.github.io/tslint/formatters/) , który ma być używany do generowania danych wyjściowych. Należy pamiętać, że format JSON jest zgodny z po analizie.
@@ -125,7 +125,6 @@ W tym artykule wymieniono wszystkie opcje konfiguracji YAML dostępne w poszczeg
 | AntiMalware | wartość logiczna | AllTools = FAŁSZ | True | true |  | Publikuj wyniki generowane przez zadania kompilacji chroniące przed złośliwym kodem.
 | BinSkim | wartość logiczna | AllTools = FAŁSZ | True | true |  | Publikuj wyniki generowane przez zadania kompilacji BinSkim.
 | CredScan | wartość logiczna | AllTools = FAŁSZ | True | true |  | Wyniki publikowania są generowane przez zadania kompilacji skanera poświadczeń.
-| MSRD | wartość logiczna | AllTools = FAŁSZ | True | true |  | Publikowanie informacji o zadaniu i adresów URL zadań dla zadań MSRD rozpoczętych przez zadanie kompilacji MSRD. Zadania MSRD są długotrwałe i zapewniają osobne raporty.
 | RoslynAnalyzers | wartość logiczna | AllTools = FAŁSZ | True | fałsz |  | Publikuj wyniki generowane przez zadania kompilacji analizatorów Roslyn.
 | TSLint | wartość logiczna | AllTools = FAŁSZ | True | true |  | Publikuj wyniki generowane przez zadania kompilacji TSLint. Należy pamiętać, że w przypadku raportów obsługiwane są tylko dzienniki TSLint w formacie JSON. Jeśli wybrano inny format, należy odpowiednio zaktualizować zadanie kompilacji TSLint.
 | ToolLogsNotFoundAction | listy wyboru | zawsze | True | Standardowa (Standard) | Błąd, brak, standardowe, ostrzeżenie | Akcja, która ma zostać podjęta po zainicjowaniu dzienników dla wybranego narzędzia (lub dowolnego narzędzia, jeśli wszystkie narzędzia są zaznaczone) nie zostanie znaleziona, co oznacza, że narzędzie nie zostało uruchomione.<br/><br/>**Opcje:**<br/>**Brak:** Komunikat jest zapisywana w pełnym strumieniu wyjściowym dostępnym tylko przez ustawienie zmiennej VSTS **System. Debug** na **wartość true**.<br/>**Standardowa:** (domyślnie) zapisuje standardowy komunikat wyjściowy, który nie znalazł dzienników dla tego narzędzia.<br/>**Ostrzeżenie:** Zapisuje żółty komunikat ostrzegawczy informujący o tym, że nie znaleziono dzienników dla tego narzędzia, które są wyświetlane na stronie podsumowania kompilacji jako ostrzeżenie.<br/>**Błąd:** Zapisuje czerwony komunikat o błędzie i zgłasza wyjątek, przerywając kompilację. Użyj tej opcji, aby upewnić się, że narzędzia zostały wykonane przy użyciu poszczególnych narzędzi.
@@ -141,7 +140,6 @@ W tym artykule wymieniono wszystkie opcje konfiguracji YAML dostępne w poszczeg
 | BinSkim | wartość logiczna | AllTools = FAŁSZ | True | fałsz |  | Wyniki raportu generowane przez zadania kompilacji BinSkim.
 | BinSkimBreakOn | Listy wyboru | AllTools = true lub BinSkim = true | True | Błąd | Błąd, WarningAbove | Poziom wyników do raportowania.
 | CredScan | wartość logiczna | AllTools = FAŁSZ | True | fałsz |  | Wyniki raportów generowane przez zadania kompilacji skanera poświadczeń.
-| MSRD | wartość logiczna | AllTools = FAŁSZ | True | fałsz |  | Zgłoś informacje o zadaniu i adresy URL zadań dla zadań MSRD rozpoczęte przez zadanie kompilacji MSRD. Zadania MSRD są długotrwałe i zapewniają osobne raporty.
 | RoslynAnalyzers | wartość logiczna | AllTools = FAŁSZ | True | fałsz |  | Wyniki raportu generowane przez zadania kompilacji analizatora Roslyn.
 | RoslynAnalyzersBreakOn | Listy wyboru | AllTools = true lub RoslynAnalyzers = true | True | Błąd | Błąd, WarningAbove | Poziom wyników do raportowania.
 | TSLint | wartość logiczna | AllTools = FAŁSZ | True | fałsz |  | Wyniki raportu generowane przez zadania kompilacji TSLint. Należy pamiętać, że w przypadku raportów obsługiwane są tylko dzienniki TSLint w formacie JSON. Jeśli wybrano inny format, należy odpowiednio zaktualizować zadanie kompilacji TSLint.

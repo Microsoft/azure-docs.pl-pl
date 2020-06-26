@@ -3,12 +3,12 @@ title: Praca z elementami Reliable Collections
 description: Poznaj najlepsze rozwiązania dotyczące pracy z niezawodnymi kolekcjami w aplikacji Service Fabric platformy Azure.
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 94836a37a62e3eeffb94d891980cc02694bd973e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0f1d332b3636e28ffc50ee8b8edcd253474a307
+ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409803"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85374699"
 ---
 # <a name="working-with-reliable-collections"></a>Praca z elementami Reliable Collections
 Service Fabric oferuje model programowania stanowego dostępny dla deweloperów platformy .NET za pośrednictwem niezawodnych kolekcji. W Service Fabric udostępnia niezawodne słowniki i niezawodne klasy kolejek. W przypadku korzystania z tych klas stan jest partycjonowany (na potrzeby skalowalności), replikowany (na potrzeby dostępności) i transakcyjny w ramach partycji (dla semantyki KWASowej). Przyjrzyjmy się typowi użycia niezawodnego obiektu słownika i zobacz, co faktycznie robi.
@@ -42,9 +42,14 @@ Wszystkie operacje na obiektach niezawodnego słownika (z wyjątkiem ClearAsync,
 
 W powyższym kodzie obiekt ITransaction jest przesyłany do metody addasync w niezawodnym słowniku. Wewnętrznie metody słownika, które akceptują klucz, przyjmują blokadę czytnika/składnika zapisywania skojarzonego z kluczem. Jeśli Metoda modyfikuje wartość klucza, metoda przyjmuje blokadę zapisu klucza i jeśli metoda tylko odczytuje z wartości klucza, wówczas na kluczu jest wykonywana blokada odczytu. Ponieważ metoda addasync modyfikuje wartość klucza do nowej, przekazaną wartość, jest wykonywana blokada zapisu klucza. Tak więc, jeśli 2 (lub więcej) wątków próbuje dodać wartości z tym samym kluczem w tym samym czasie, jeden wątek uzyska blokadę zapisu, a pozostałe wątki zostaną zablokowane. Domyślnie metody blokują do 4 sekund, aby uzyskać blokadę; po upływie 4 sekund Metoda zgłasza wyjątek limitu czasu. Istnieją przeciążenia metod, które umożliwiają przekazywanie jawnej wartości limitu czasu, jeśli wolisz.
 
-Zwykle napiszesz kod w celu reagowania na licznik limit czasu przez przechwycenie go i ponowienie całej operacji (jak pokazano w powyższym kodzie). W moim prostym kodzie mam tylko wywołanie zadania. Opóźnij okresowe przekazywanie 100 milisekund. Jednak w rzeczywistości lepiej jest używać pewnego rodzaju wykładniczego opóźnienia wycofywania.
+Zwykle napiszesz kod w celu reagowania na licznik limit czasu przez przechwycenie go i ponowienie całej operacji (jak pokazano w powyższym kodzie). W tym prostym kodzie właśnie wywołujemy zadanie. Opóźnij okresowe przekazywanie 100 milisekund. Jednak w rzeczywistości lepiej jest używać pewnego rodzaju wykładniczego opóźnienia wycofywania.
 
-Po pobraniu blokady addasync dodaje odwołania do obiektu klucza i wartości do wewnętrznego słownika tymczasowego skojarzonego z obiektem ITransaction. Jest to gotowe do udostępnienia semantyki do odczytu i zapisu. Oznacza to, że po wywołaniu addasync, późniejsze wywołanie do TryGetValueAsync (przy użyciu tego samego metody ITransaction) zwróci wartość, nawet jeśli transakcja nie została jeszcze zatwierdzona. Następnie funkcja addasync serializować obiekty klucza i wartości do tablic bajtowych i dołącza te tablice bajtowe do pliku dziennika w węźle lokalnym. Na koniec Metoda addasync wysyła tablice bajtów do wszystkich replik pomocniczych, dzięki czemu mają one te same informacje o kluczu/wartości. Mimo że informacje o kluczu/wartości są zapisywane w pliku dziennika, informacje nie są uważane za część słownika, dopóki transakcja, z którą są skojarzone, została zatwierdzona.
+Po pobraniu blokady addasync dodaje odwołania do obiektu klucza i wartości do wewnętrznego słownika tymczasowego skojarzonego z obiektem ITransaction. Jest to gotowe do udostępnienia semantyki do odczytu i zapisu. Oznacza to, że po wywołaniu addasync, późniejsze wywołanie do TryGetValueAsync przy użyciu tego samego obiektu ITransaction zwróci wartość nawet wtedy, gdy transakcja nie została jeszcze zatwierdzona.
+
+> [!NOTE]
+> Wywołanie TryGetValueAsync z nową transakcją zwróci odwołanie do ostatniej przekazanej wartości. Nie należy modyfikować tego odwołania bezpośrednio, ponieważ pomija mechanizm utrwalania i replikowania zmian. Zalecamy wprowadzanie wartości tylko do odczytu, aby jedynym sposobem na zmianę wartości klucza jest użycie niezawodnych interfejsów API słownika.
+
+Następnie funkcja addasync serializować obiekty klucza i wartości do tablic bajtowych i dołącza te tablice bajtowe do pliku dziennika w węźle lokalnym. Na koniec Metoda addasync wysyła tablice bajtów do wszystkich replik pomocniczych, dzięki czemu mają one te same informacje o kluczu/wartości. Mimo że informacje o kluczu/wartości są zapisywane w pliku dziennika, informacje nie są uważane za część słownika, dopóki transakcja, z którą są skojarzone, została zatwierdzona.
 
 W powyższym kodzie, wywołanie do CommitAsync zatwierdza wszystkie operacje transakcji. W celu dołączenia informacji o zatwierdzeniu do pliku dziennika w węźle lokalnym, a także do wszystkich replik pomocniczych. Po odinstalowaniu kworum (większości) replik wszystkie zmiany danych są uznawane za trwałe i wszystkie blokady skojarzone z kluczami, które były manipulowane za pośrednictwem obiektu ITransaction, są uwalniane, więc inne wątki/transakcje mogą manipulować tymi samymi kluczami i ich wartościami.
 
@@ -55,13 +60,13 @@ W przypadku niektórych obciążeń, takich jak replikowana pamięć podręczna,
 
 Obecnie obsługa nietrwałych jest dostępna tylko dla niezawodnych słowników i niezawodnych kolejek, a nie ReliableConcurrentQueues. Zapoznaj się z listą zarzucania [, aby poinformować](service-fabric-reliable-services-reliable-collections-guidelines.md#volatile-reliable-collections) decyzję o tym, czy należy używać kolekcji nietrwałych.
 
-Aby włączyć obsługę nietrwałą w usłudze, ustaw ```HasPersistedState``` flagę w deklaracji typu usługi ```false```na, na przykład:
+Aby włączyć obsługę nietrwałą w usłudze, ustaw ```HasPersistedState``` flagę w deklaracji typu usługi na ```false``` , na przykład:
 ```xml
 <StatefulServiceType ServiceTypeName="MyServiceType" HasPersistedState="false" />
 ```
 
 >[!NOTE]
->Istniejących utrwalonych usług nie można uczynić volatile i na odwrót. Jeśli chcesz to zrobić, należy usunąć istniejącą usługę, a następnie wdrożyć usługę ze zaktualizowaną flagą. Oznacza to, że przed zmianą ```HasPersistedState``` flagi należy ponieść pełną utratę danych. 
+>Istniejących utrwalonych usług nie można uczynić volatile i na odwrót. Jeśli chcesz to zrobić, należy usunąć istniejącą usługę, a następnie wdrożyć usługę ze zaktualizowaną flagą. Oznacza to, że przed zmianą flagi należy ponieść pełną utratę danych ```HasPersistedState``` . 
 
 ## <a name="common-pitfalls-and-how-to-avoid-them"></a>Typowe pułapek i sposoby ich unikania
 Teraz, gdy zrozumiesz, jak niezawodne kolekcje pracują wewnętrznie, przyjrzyjmy się niektórym typowym nieprawidłowym objęciem. Zobacz poniższy kod:
@@ -145,7 +150,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Zdefiniuj niezmienne typy danych, aby zapobiec błędom programisty
-Najlepiej, gdy chcemy, aby kompilator zgłaszał błędy w przypadku przypadkowego utworzenia kodu, który jest niezmiennym stanem obiektu. Jednak kompilator języka C# nie ma możliwości wykonania tej czynności. Aby uniknąć potencjalnych błędów programisty, zdecydowanie zalecamy zdefiniowanie typów używanych z niezawodnymi kolekcjami, które mają być niezmienne. W związku z tym oznacza to, że można nawiązać podstawowe typy wartości (takie jak liczby [Int32, UInt64, itp.], DateTime, GUID, TimeSpan i like). Można również użyć ciągu. Najlepszym rozwiązaniem jest uniknięcie właściwości kolekcji jako serializacji i deserializacji ich, co może często pogarszać wydajność. Jeśli jednak chcesz użyć właściwości kolekcji, zdecydowanie zalecamy korzystanie z programu. Biblioteka niemodyfikowalnych kolekcji w sieci ([System. Collections.](https://www.nuget.org/packages/System.Collections.Immutable/)). Ta biblioteka jest dostępna do pobrania z https://nuget.orgprogramu. Zalecamy również opieczętowanie klas i udostępnianie pól tylko do odczytu, gdy tylko jest to możliwe.
+Najlepiej, gdy chcemy, aby kompilator zgłaszał błędy w przypadku przypadkowego utworzenia kodu, który jest niezmiennym stanem obiektu. Jednak kompilator języka C# nie ma możliwości wykonania tej czynności. Aby uniknąć potencjalnych błędów programisty, zdecydowanie zalecamy zdefiniowanie typów używanych z niezawodnymi kolekcjami, które mają być niezmienne. W związku z tym oznacza to, że można nawiązać podstawowe typy wartości (takie jak liczby [Int32, UInt64, itp.], DateTime, GUID, TimeSpan i like). Można również użyć ciągu. Najlepszym rozwiązaniem jest uniknięcie właściwości kolekcji jako serializacji i deserializacji ich, co może często pogarszać wydajność. Jeśli jednak chcesz użyć właściwości kolekcji, zdecydowanie zalecamy korzystanie z programu. Biblioteka niemodyfikowalnych kolekcji w sieci ([System. Collections.](https://www.nuget.org/packages/System.Collections.Immutable/)). Ta biblioteka jest dostępna do pobrania z programu https://nuget.org . Zalecamy również opieczętowanie klas i udostępnianie pól tylko do odczytu, gdy tylko jest to możliwe.
 
 Poniższy typ UserInfo przedstawia sposób definiowania niezmiennego typu wykorzystującego wymienione wcześniej zalecenia.
 

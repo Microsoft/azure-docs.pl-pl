@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/20/2020
-ms.openlocfilehash: dcb0f60f38fbc1b52e29d7fffe0bce7a59257cb5
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 3c62f9794a4eb963bcd23a294d82b67cd9e37d08
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119073"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367227"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -104,7 +104,7 @@ Poniżej przedstawiono limity dla jednej definicji aplikacji logiki:
 | Akcja: wykonania na 5 minut | 100 000 jest limitem domyślnym, ale 300 000 jest maksymalnym limitem. | Aby zmienić domyślny limit, zobacz [Uruchamianie aplikacji logiki w trybie "Wysoka przepływność"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), która jest w wersji zapoznawczej. Można też rozłożyć obciążenie na więcej niż jedną aplikację logiki w razie potrzeby. |
 | Akcja: współbieżne wywołania wychodzące | ~2500 | Możesz zmniejszyć liczbę równoczesnych żądań lub skrócić czas trwania w razie potrzeby. |
 | Punkt końcowy środowiska uruchomieniowego: współbieżne wywołania przychodzące | ~ 1 000 | Możesz zmniejszyć liczbę równoczesnych żądań lub skrócić czas trwania w razie potrzeby. |
-| Punkt końcowy środowiska uruchomieniowego: wywołania odczytu na 5 minut  | 60 000 | W razie potrzeby można dystrybuować obciążenia w więcej niż jednej aplikacji. |
+| Punkt końcowy środowiska uruchomieniowego: wywołania odczytu na 5 minut  | 60 000 | Ten limit dotyczy wywołań, które pobierają nieprzetworzone dane wejściowe i wyjściowe z historii uruchamiania aplikacji logiki. W razie potrzeby można rozłożyć obciążenie na więcej niż jedną aplikację. |
 | Punkt końcowy środowiska uruchomieniowego: wywołania wywołań na 5 minut | 45 000 | W razie potrzeby można dystrybuować obciążenia w więcej niż jednej aplikacji. |
 | Przepływność zawartości na 5 minut | 600 MB | W razie potrzeby można dystrybuować obciążenia w więcej niż jednej aplikacji. |
 ||||
@@ -244,7 +244,7 @@ Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.micros
 |----------|------|-------|----------|
 | Umowy handlowe EDI | 10 | 1 | 1000 |
 | Partnerzy handlowi EDI | 25 | 2 | 1000 |
-| Maps | 25 | 500 | 1000 |
+| Mapy | 25 | 500 | 1000 |
 | Schematy | 25 | 500 | 1000 |
 | Zestawy | 10 | 25 | 1000 |
 | Certyfikaty | 25 | 2 | 1000 |

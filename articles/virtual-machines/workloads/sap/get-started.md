@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/23/2020
+ms.date: 06/24/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46864b0af7a4770debaed84cc3805a219f6687e1
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: fd170d505286d57f383af50da282e120167fe499
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/25/2020
-ms.locfileid: "85361289"
+ms.locfileid: "85367363"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -112,6 +112,8 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 06/24/2020: zmiana w [konfigurowaniu Pacemaker na platformie Azure w](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) celu wydania nowego udoskonalonego agenta usługi Azure ogrodzenia i bardziej odpornej konfiguracji STONITH dla urządzeń na podstawie agenta usługi Azure ogrodzenia 
+- 06/24/2020: zmiana podczas [konfigurowania Pacemaker na RHEL na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) w celu zwolnienia bardziej odpornej konfiguracji STONITH
 - 06/23/2020: zmiany dotyczące [planowania i implementacji usługi azure Virtual Machines dla przewodnika dla oprogramowania SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) i wprowadzenia [typów usługi Azure Storage dla PRZEWODNIKa obciążeń SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
 - 06/22/2020: Dodaj kroki instalacji dla nowego rozszerzenia maszyny wirtualnej dla SAP do [przewodnika wdrażania](deployment-guide.md)
 - 06/16/2020: zmiana [łączności publicznej punktu końcowego dla maszyn wirtualnych przy użyciu usługi Azure Standard ILB w scenariuszach dotyczących oprogramowania SAP ha](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) aby dodać link do usługi SUSE Public Cloud infrastructure 101 Documentation 

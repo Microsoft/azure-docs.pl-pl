@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: a581288259a521f8f2f93ff3fbc16f4926486643
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: a07ba26128d1d4689e820ec8e300ca9420c3c2d2
+ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771176"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85367091"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Szybki Start: tablica wskaźnikowa platformy Azure
 
 W tym przewodniku szybki start dowiesz się, jak dołączyć wskaźnik do platformy Azure. 
 
-Aby przenieść wskaźnik na platformę Azure, musisz najpierw włączyć wskaźnik na platformie Azure, a następnie połączyć źródła danych. Wskaźnik platformy Azure obejmuje wiele łączników dla rozwiązań firmy Microsoft, dostępnych poza platformą i zapewniania integracji w czasie rzeczywistym, w tym rozwiązań ochrony przed zagrożeniami firmy Microsoft, źródeł Microsoft 365, takich jak Office 365, Azure AD, Azure ATP i Microsoft Cloud App Security. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań firm innych niż Microsoft. Możesz również użyć typowego formatu zdarzeń, dziennika systemowego lub REST-API, aby połączyć źródła danych z platformą Azure.  
+Aby przenieść wskaźnik na platformę Azure, musisz najpierw włączyć wskaźnik na platformie Azure, a następnie połączyć źródła danych. Wskaźnik platformy Azure obejmuje wiele łączników dla rozwiązań firmy Microsoft, dostępnych poza platformą i zapewniania integracji w czasie rzeczywistym, w tym rozwiązań ochrony przed zagrożeniami firmy Microsoft, źródeł Microsoft 365 (w tym pakietu Office 365), usługi Azure AD i usługi Azure ATP, Microsoft Cloud App Security i innych. Ponadto istnieją wbudowane łączniki do szerszego ekosystemu zabezpieczeń dla rozwiązań firm innych niż Microsoft. Do łączenia źródeł danych z platformą Azure (CEF), dziennikiem systemu  
 
 Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze szczegółowymi skoroszytami utworzonymi na podstawie danych. Te skoroszyty mogą być łatwo dostosowane do Twoich potrzeb.
 
@@ -41,7 +41,7 @@ Po nawiązaniu połączenia ze źródłami danych wybierz jedną z galerii ze sz
  
 ## <a name="enable-azure-sentinel"></a>Włącz platformę Azure — wskaźnik<a name="enable"></a>
 
-1. Zaloguj się do witryny Azure Portal. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
+1. Zaloguj się do Portalu Azure. Upewnij się, że wybrano subskrypcję, w której tworzony jest wskaźnik "Azure".
 
 1. Wyszukaj i wybierz pozycję **wskaźnik na platformie Azure**.
 
