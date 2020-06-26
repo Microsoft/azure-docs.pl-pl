@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: sngun
-ms.openlocfilehash: fce6cd441214cff4c76b05f8a2b6cb630613a66f
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 67354ca5b9dc7b553b8aa40183b504542d4c08b4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263436"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392390"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Porady dotyczące wydajności Azure Cosmos DB i .NET SDK V2
 
@@ -203,12 +203,12 @@ W miarę możliwości można buforować identyfikatory URI dokumentów w celu uz
 
 Gdy wykonujesz zbiorczy odczyt dokumentów przy użyciu funkcji odczytywania kanału informacyjnego (na przykład `ReadDocumentFeedAsync` ) lub podczas wysyłania zapytania SQL, wyniki są zwracane w postaci segmentacji, jeśli zestaw wyników jest zbyt duży. Domyślnie wyniki są zwracane w fragmentach 100 elementów lub 1 MB, w zależności od tego, który limit zostanie osiągnięty jako pierwszy.
 
-Aby zmniejszyć liczbę podróży sieci wymaganych do pobrania wszystkich stosownych wyników, można zwiększyć rozmiar strony, używając wartości [x-MS-Max-Item-Count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) do żądania tak wielu nagłówków jak 1 000. Jeśli chcesz wyświetlić tylko kilka wyników, na przykład jeśli interfejs użytkownika lub API aplikacji zwraca tylko 10 wyników naraz, można również zmniejszyć rozmiar strony do 10, aby zmniejszyć przepływność wykorzystywaną do odczytu i zapytań.
+Aby zmniejszyć liczbę podróży sieci wymaganych do pobrania wszystkich stosownych wyników, można zwiększyć rozmiar strony, używając wartości [x-MS-Max-Item-Count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) do żądania tak wielu nagłówków jak 1 000. Jeśli chcesz wyświetlić tylko kilka wyników, na przykład jeśli interfejs użytkownika lub API aplikacji zwraca tylko 10 wyników naraz, można również zmniejszyć rozmiar strony do 10, aby zmniejszyć przepływność wykorzystywaną do odczytu i zapytań.
 
 > [!NOTE] 
 > `maxItemCount`Właściwość nie powinna być używana tylko do dzielenia na strony. Jego głównym zastosowaniem jest poprawa wydajności zapytań przez zmniejszenie maksymalnej liczby elementów zwracanych na jednej stronie.  
 
-Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Przykład:
+Możesz również ustawić rozmiar strony przy użyciu dostępnych zestawów SDK Azure Cosmos DB. Właściwość [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) w programie `FeedOptions` umożliwia ustawienie maksymalnej liczby elementów, które mają być zwracane w operacji wyliczania. Gdy `maxItemCount` ustawiono wartość-1, zestaw SDK automatycznie odnajdzie optymalną, w zależności od rozmiaru dokumentu. Na przykład:
     
 ```csharp
 IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -246,7 +246,7 @@ Obsługa przepływności zależy od liczby [jednostek żądania](request-units.m
 
 Złożoność zapytania wpływa na liczbę jednostek żądań używanych dla operacji. Liczba predykatów, charakter predykatów, liczba UDF i rozmiar źródłowego zestawu danych wpływają na koszt operacji zapytania.
 
-Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-obciążeni](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (lub równoważną `RequestCharge` Właściwość w `ResourceResponse\<T>` lub `FeedResponse\<T>` w zestawie .NET SDK), aby zmierzyć liczbę jednostek żądania używanych przez operacje:
+Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-obciążeni](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (lub równoważną `RequestCharge` Właściwość w `ResourceResponse\<T>` lub `FeedResponse\<T>` w zestawie .NET SDK), aby zmierzyć liczbę jednostek żądania używanych przez operacje:
 
 ```csharp
 // Measure the performance (Request Units) of writes
@@ -266,7 +266,7 @@ Opłata za żądanie zwrócona w tym nagłówku jest częścią alokowanej przep
 
 **Zbyt duży współczynnik obsługi — limit liczby żądań**
 
-Gdy klient próbuje przekroczyć zarezerwowaną przepływność dla konta, nie ma obniżenia wydajności na serwerze i żadne użycie wydajności przepływności wykracza poza poziom zarezerwowany. Serwer będzie zapobiegawczo żądanie z RequestRateTooLarge (kod stanu HTTP 429). Spowoduje to zwrócenie nagłówka [x-MS-retry-After-MS](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) , który wskazuje ilość czasu (w milisekundach), przez który użytkownik musi czekać przed ponowną próbą wykonania żądania.
+Gdy klient próbuje przekroczyć zarezerwowaną przepływność dla konta, nie ma obniżenia wydajności na serwerze i żadne użycie wydajności przepływności wykracza poza poziom zarezerwowany. Serwer będzie zapobiegawczo żądanie z RequestRateTooLarge (kod stanu HTTP 429). Spowoduje to zwrócenie nagłówka [x-MS-retry-After-MS](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) , który wskazuje ilość czasu (w milisekundach), przez który użytkownik musi czekać przed ponowną próbą wykonania żądania.
 
     HTTP Status 429,
     Status Line: RequestRateTooLarge

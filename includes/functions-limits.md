@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
-ms.openlocfilehash: 40d171101c5d99cd33c90ee8751092a3ceebf12e
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84906726"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391494"
 ---
 | Zasób |[Plan Zużycie](../articles/azure-functions/functions-scale.md#consumption-plan)|[Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan)|[Plan dedykowany](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
@@ -23,7 +23,7 @@ ms.locfileid: "84906726"
 | Maksymalna ilość pamięci (GB na wystąpienie) | 1.5 | 3,5-14 | 1,75-14 | 3,5 – 14 | Obsługiwany jest dowolny węzeł |
 | Aplikacje funkcji na plan |100 |100 |niepowiązane<sup>4</sup> | Unbounded | Unbounded |
 | [Plany usługi App Service](../articles/app-service/overview-hosting-plans.md) | 100 na [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 na grupę zasobów |100 na grupę zasobów | - | - |
-| Magazyn<sup>5</sup> |1 GB |250 GB |50-1000 GB | 1 TB | nie dotyczy |
+| Magazyn<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | nie dotyczy |
 | Domeny niestandardowe na aplikację</a> |500<sup>6</sup> |500 |500 | 500 | nie dotyczy |
 | [Obsługa protokołu SSL](../articles/app-service/configure-ssl-bindings.md) domeny niestandardowej |uwzględniono niepowiązane połączenie SNI SSL | uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń |uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń | uwzględniono niepowiązane SNI SSL i 1 Połączenie SSL z adresu IP połączeń | nie dotyczy |
 

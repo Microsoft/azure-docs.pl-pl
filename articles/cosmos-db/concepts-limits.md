@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 296f212e26d066613c54f7d69802654e5f7b5090
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697565"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391846"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -117,7 +117,7 @@ Nie ma żadnych ograniczeń dotyczących ładunków elementów, takich jak liczb
 
 ## <a name="per-request-limits"></a>Limity żądań na żądanie
 
-Azure Cosmos DB obsługuje [operacje CRUD i zapytań](https://docs.microsoft.com/rest/api/cosmos-db/) wobec zasobów, takich jak kontenery, elementy i bazy danych. Obsługuje ona również [transakcyjne żądania wsadowe](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) dla wielu elementów z tym samym kluczem partycji w kontenerze.
+Azure Cosmos DB obsługuje [operacje CRUD i zapytań](/rest/api/cosmos-db/) wobec zasobów, takich jak kontenery, elementy i bazy danych. Obsługuje ona również [transakcyjne żądania wsadowe](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) dla wielu elementów z tym samym kluczem partycji w kontenerze.
 
 | Zasób | Limit domyślny |
 | --- | --- |

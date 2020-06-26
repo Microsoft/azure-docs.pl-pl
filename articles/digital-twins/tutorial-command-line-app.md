@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 18f7657cdaf3eb1fef76ca65856fde3b29b714a7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d670ee0cb2396858d908ac13f70819efd57d7f63
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355883"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391829"
 ---
 # <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Poznaj usługę Azure Digital bliźniaczych reprezentacji za pomocą przykładowej aplikacji klienckiej
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 W tym samouczku przedstawiono przykładową aplikację, która implementuje aplikację kliencką wiersza polecenia, aby można było korzystać z usługi Azure Digital bliźniaczych reprezentacji. Aplikacja kliencka jest podobna do tej, która została zapisywana w [samouczku: kod aplikacji klienckiej](tutorial-code.md).
 

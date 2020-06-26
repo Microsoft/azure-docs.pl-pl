@@ -7,18 +7,15 @@ ms.author: alkarche
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 ms.reviewer: baanders
-ms.openlocfilehash: 50fade5179d5323a332d9b103f2fac17d402aa3f
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 8f3e670a4f2a49bcce48be1ba0452a36cbf96df1
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362853"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392322"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Użyj usługi Azure Digital bliźniaczych reprezentacji, aby zaktualizować mapę pomieszczeń Azure Maps
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 W tym artykule przedstawiono kroki wymagane do korzystania z danych Digital bliźniaczych reprezentacji systemu Azure w celu zaktualizowania informacji wyświetlanych na *mapie pomieszczeń* przy użyciu [Azure Maps](../azure-maps/about-azure-maps.md). Usługa Azure Digital bliźniaczych reprezentacji przechowuje Graf relacji urządzeń IoT i przekierowuje dane telemetryczne do różnych punktów końcowych, co sprawia, że jest to idealne rozwiązanie do aktualizowania nakładów informacyjnych na mapach.
 

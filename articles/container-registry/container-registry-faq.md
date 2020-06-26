@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 0a455ef911d28306b30bed2fbb00edea198181dd
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: f160910024d9d64d22028c72825b98d93f66f15d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85205428"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390367"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
@@ -269,6 +269,7 @@ Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) do
 - [Dlaczego w Azure Portal nie są wystawiane wszystkie repozytoria lub Tagi?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
 - [Dlaczego Azure Portal nie można pobrać repozytoriów lub tagów?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Dlaczego moje żądanie ściągnięcia lub wypychania zakończy się niepowodzeniem z niedozwoloną operacją?](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
+- [Format repozytorium jest nieprawidłowy lub nieobsługiwany](#repository-format-is-invalid-or-unsupported)
 - [Jak mogę zbierać ślady http w systemie Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Sprawdzanie kondycji za pomocą`az acr check-health`
@@ -313,7 +314,7 @@ unauthorized: authentication required
 ```
 
 Aby rozwiązać ten problem:
-1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Przykład:
+1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Na przykład:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -426,7 +427,7 @@ Jeśli używasz przeglądarki Microsoft Edge/IE, możesz zobaczyć maksymalnie 1
 Przeglądarka może nie być w stanie wysłać żądania pobrania repozytoriów lub tagów na serwer. Mogą istnieć różne przyczyny, takie jak:
 
 * Brak łączności sieciowej
-* Firewall
+* Zapora
 * Bloki usługi AD
 * Błędy DNS
 
@@ -439,6 +440,12 @@ Poniżej przedstawiono kilka scenariuszy, w których operacje mogą być niedozw
 * Obraz lub repozytorium może być zablokowane, aby nie można go było usunąć ani zaktualizować. Aby wyświetlić bieżące atrybuty, można użyć polecenia [AZ ACR show Repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) .
 * Niektóre operacje są niedozwolone, jeśli obraz jest objęty kwarantanną. Dowiedz się więcej o [kwarantannie](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Rejestr mógł osiągnąć [Limit magazynu](container-registry-skus.md#service-tier-features-and-limits).
+
+### <a name="repository-format-is-invalid-or-unsupported"></a>Format repozytorium jest nieprawidłowy lub nieobsługiwany
+
+Jeśli zostanie wyświetlony błąd, taki jak "nieobsługiwany format repozytorium", "nieprawidłowy format" lub "żądane dane nie istnieją" podczas określania nazwy repozytorium w operacjach repozytorium, Sprawdź pisownię i wielkość liter. Prawidłowe nazwy repozytoriów mogą zawierać tylko małe znaki alfanumeryczne, kropki, łączniki, podkreślenia i ukośniki. 
+
+Aby zapoznać się z pełnymi regułami nazewnictwa repozytorium, zobacz artykuł [Specyfikacja dystrybucji z inicjatywy Open Container Initiative](https://github.com/docker/distribution/blob/master/docs/spec/api.md#overview).
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Jak mogę zbierać ślady http w systemie Windows?
 

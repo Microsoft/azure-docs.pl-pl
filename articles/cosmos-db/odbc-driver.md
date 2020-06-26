@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: ef658412e56dca33769a813994f3790a94a5235b
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 250bb5c7bec9cb68ba3236d0cb43938566b60fa8
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262535"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392509"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Łączenie się z usługą Azure Cosmos DB przy użyciu narzędzi analizy biznesowej ze sterownikiem ODBC
 
@@ -67,7 +67,7 @@ Zacznijmy od sterownika ODBC.
 1. Kliknij przycisk **Testuj** , aby upewnić się, że możesz nawiązać połączenie z kontem Azure Cosmos DB. 
 
 1.  Kliknij pozycję **Opcje zaawansowane** i ustaw następujące wartości:
-    *  **Wersja interfejsu API REST**: Wybierz [wersję interfejsu API REST](https://docs.microsoft.com/rest/api/cosmos-db/) dla operacji. Wartość domyślna 2015-12-16. Jeśli masz kontenery z [dużymi kluczami partycji](large-partition-keys.md) i potrzebujesz interfejsu API REST w wersji 2018-12-31:
+    *  **Wersja interfejsu API REST**: Wybierz [wersję interfejsu API REST](/rest/api/cosmos-db/) dla operacji. Wartość domyślna 2015-12-16. Jeśli masz kontenery z [dużymi kluczami partycji](large-partition-keys.md) i potrzebujesz interfejsu API REST w wersji 2018-12-31:
         - Wpisz **2018-12-31** dla wersji interfejsu API REST
         - W menu **Start** wpisz ciąg "regedit", aby znaleźć i otworzyć aplikację **Edytor rejestru** .
         - W Edytorze rejestru przejdź do ścieżki: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**

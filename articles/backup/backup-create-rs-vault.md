@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak utworzyć magazyny Recovery Servic
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 410ef023898cc57847b8e2f7a5153d50731e2d4c
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: ac30a57dcbceb4616961c9d100e6ac8639ef2172
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84764404"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391064"
 ---
 # <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
@@ -58,6 +58,9 @@ Aby utworzyć magazyn Usług odzyskiwania:
 ## <a name="set-storage-redundancy"></a>Ustawianie nadmiarowości magazynu
 
 Azure Backup automatycznie obsługuje magazyn dla magazynu. Należy określić sposób replikowania magazynu.
+
+>[!NOTE]
+>Ustawienia replikacji magazynu dla magazynu nie są odpowiednie dla kopii zapasowej udziału plików platformy Azure, ponieważ bieżące rozwiązanie jest oparte na migawce i nie przeniesiono danych do magazynu. Migawki są przechowywane na tym samym koncie magazynu co kopia zapasowa udziału plików.
 
 1. W bloku **Magazyny usług Recovery Services** kliknij nowy magazyn. W sekcji **Ustawienia** kliknij pozycję **Właściwości**.
 2. W obszarze **Właściwości**, w obszarze **Konfiguracja kopii zapasowej**, kliknij przycisk **Aktualizuj**.

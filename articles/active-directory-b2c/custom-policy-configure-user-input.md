@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85f2ab6f8c3e5edda027e44eeda13a3279a88321
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 47fdf445fa11693dd3a998b8c73ac0c3ed8452a8
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473680"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389364"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Dodawanie oświadczeń i dostosowywanie danych wejściowych użytkownika przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazy
 - **UserHelpText** — pomaga użytkownikowi zrozumieć, co jest wymagane.
 - [UserInputType](claimsschema.md#userinputtype) — typ kontrolki wprowadzania, taki jak pole tekstowe, wybór radiowy, lista rozwijana lub wiele zaznaczeń.
 
-Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 
 1. Wyszukaj element [BuildingBlocks](buildingblocks.md) . Jeśli element nie istnieje, Dodaj go.
 1. Znajdź element [ClaimsSchema](claimsschema.md) . Jeśli element nie istnieje, Dodaj go.
@@ -75,7 +75,7 @@ Następujące profile techniczne są [samodzielne](self-asserted-technical-profi
 - Logowanie za pierwszym razem z kontem **SelfAsserted-Social** -Federation User.
 - **SelfAsserted-ProfileUpdate** — Edytuj przepływ profilu.
 
-W celu zebrania roszczeń miasto podczas tworzenia konta należy dodać je jako zgłoszenie wyjściowe do profilu `LocalAccountSignUpWithLogonEmail` technicznego. Zastąp ten profil techniczny w pliku rozszerzenia. Określ całą listę oświadczeń danych wyjściowych do kontrolowania kolejności, w której oświadczenia są prezentowane na ekranie. Znajdź element **ClaimsProviders** . Dodaj nową ClaimsProviders w następujący sposób:
+W celu zebrania roszczeń miasto podczas tworzenia konta należy dodać je jako zgłoszenie wyjściowe do `LocalAccountSignUpWithLogonEmail` profilu technicznego. Zastąp ten profil techniczny w pliku rozszerzenia. Określ całą listę oświadczeń danych wyjściowych do kontrolowania kolejności, w której oświadczenia są prezentowane na ekranie. Znajdź element **ClaimsProviders** . Dodaj nową ClaimsProviders w następujący sposób:
 
 ```xml
 <ClaimsProvider>
@@ -98,7 +98,7 @@ W celu zebrania roszczeń miasto podczas tworzenia konta należy dodać je jako 
 <ClaimsProvider>
 ```
 
-Aby zebrać wierzytelność po początkowym logowaniu przy użyciu konta federacyjnego, należy dodać je jako zgłoszenie wyjściowe do profilu `SelfAsserted-Social` technicznego. Aby użytkownicy konta lokalnego i federacyjnego mogli edytować swoje dane profilu później, należy dodać zgłoszenie danych wyjściowych do profilu `SelfAsserted-ProfileUpdate` technicznego. Zastąp te profile techniczne w pliku rozszerzenia. Określ całą listę oświadczeń danych wyjściowych do kontrolowania kolejności, w której oświadczenia są prezentowane na ekranie. Znajdź element **ClaimsProviders** . Dodaj nową ClaimsProviders w następujący sposób:
+Aby zebrać wierzytelność po początkowym logowaniu przy użyciu konta federacyjnego, należy dodać je jako zgłoszenie wyjściowe do `SelfAsserted-Social` profilu technicznego. Aby użytkownicy konta lokalnego i federacyjnego mogli edytować swoje dane profilu później, należy dodać zgłoszenie danych wyjściowych do `SelfAsserted-ProfileUpdate` profilu technicznego. Zastąp te profile techniczne w pliku rozszerzenia. Określ całą listę oświadczeń danych wyjściowych do kontrolowania kolejności, w której oświadczenia są prezentowane na ekranie. Znajdź element **ClaimsProviders** . Dodaj nową ClaimsProviders w następujący sposób:
 
 ```xml
   <DisplayName>Self Asserted</DisplayName>
@@ -172,7 +172,7 @@ Zastąp te profile techniczne w pliku rozszerzenia. Znajdź element **ClaimsProv
 
 ## <a name="include-a-claim-in-the-token"></a>Uwzględnianie roszczeń w tokenie 
 
-Aby zwrócić miasto z powrotem do aplikacji jednostki uzależnionej, Dodaj do <em> `SocialAndLocalAccounts/` </em> pliku zgłoszenie wyjściowe. Zgłoszenie danych wyjściowych zostanie dodane do tokenu po pomyślnym przejściu użytkownika i zostanie wysłane do aplikacji. Zmodyfikuj element profil techniczny w sekcji jednostki uzależnionej, aby dodać miasto jako zgłoszenie wyjściowe.
+Aby zwrócić miasto z powrotem do aplikacji jednostki uzależnionej, Dodaj do pliku zgłoszenie wyjściowe <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> . Zgłoszenie danych wyjściowych zostanie dodane do tokenu po pomyślnym przejściu użytkownika i zostanie wysłane do aplikacji. Zmodyfikuj element profil techniczny w sekcji jednostki uzależnionej, aby dodać miasto jako zgłoszenie wyjściowe.
  
 ```xml
 <RelyingParty>

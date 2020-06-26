@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcc1affb953a737c12ca5bdb70ba7eadee20cd97
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 892e94ba1943b667ffeba63a80f4409b35ea5ec3
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295528"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389296"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do zasad niestandardowych w Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ ms.locfileid: "84295528"
 1. W polu **Nazwa**wprowadź `TokenSigningKeyContainer` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-the-encryption-key"></a>Utwórz klucz szyfrowania
 
@@ -53,7 +53,7 @@ ms.locfileid: "84295528"
 1. W polu **Nazwa**wprowadź `TokenEncryptionKeyContainer` . Prefiks `B2C_1A` _ może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **szyfrowanie**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-the-facebook-key"></a>Tworzenie klucza Facebook
 
@@ -64,7 +64,7 @@ Dodaj [wpis tajny](identity-provider-facebook.md) aplikacji usługi Facebook jak
 1. W obszarze **Nazwa**wprowadź `FacebookSecret` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W **kluczu tajnym**wprowadź *klucz tajny* aplikacji w serwisie Facebook z Developers.Facebook.com. Ta wartość jest kluczem tajnym, a nie IDENTYFIKATORem aplikacji.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz pozycję **Utwórz**.
+1. Wybierz przycisk **Utwórz**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Rejestrowanie aplikacji platformy obsługi tożsamości
 
@@ -138,9 +138,9 @@ Zasady niestandardowe są zestawem plików XML przekazywanym do dzierżawy Azure
 
 Każdy początkowy pakiet zawiera:
 
-- **Plik podstawowy** — do podstawy wymagane są kilka modyfikacji. Przykład: *TrustFrameworkBase. XML*
-- **Plik rozszerzenia** — ten plik jest miejscem, w którym wprowadzane są większość zmian konfiguracji. Przykład: *TrustFrameworkExtensions. XML*
-- **Pliki jednostek uzależnionych** — pliki specyficzne dla zadania wywoływane przez aplikację. Przykłady: *SignUpOrSignin. XML*, *ProfileEdit. XML*, *PasswordReset. XML*
+- **Plik podstawowy** — do podstawy wymagane są kilka modyfikacji. Przykład: *TrustFrameworkBase.xml*
+- **Plik rozszerzenia** — ten plik jest miejscem, w którym wprowadzane są większość zmian konfiguracji. Przykład: *TrustFrameworkExtensions.xml*
+- **Pliki jednostek uzależnionych** — pliki specyficzne dla zadania wywoływane przez aplikację. Przykłady: *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
 W tym artykule opisano edytowanie niestandardowych plików zasad XML w pakiecie **SocialAndLocalAccounts** Starter. Jeśli potrzebujesz edytora XML, wypróbuj [Visual Studio Code](https://code.visualstudio.com/download), lekki Edytor Międzyplatformowy.
 
@@ -160,7 +160,7 @@ Pobierz pakiety początkowe dla zasad niestandardowych z usługi GitHub, a nast�
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>Dodawanie identyfikatorów aplikacji do zasad niestandardowych
 
-Dodaj identyfikatory aplikacji do pliku rozszerzeń *TrustFrameworkExtensions. XML*.
+Dodaj identyfikatory aplikacji do pliku rozszerzeń *TrustFrameworkExtensions.xml*.
 
 1. Otwórz `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** i Znajdź element `<TechnicalProfile Id="login-NonInteractive">` .
 1. Zastąp oba wystąpienia z `IdentityExperienceFrameworkAppId` identyfikatorem aplikacji utworzonej wcześniej aplikacji IdentityExperienceFramework.
@@ -172,11 +172,11 @@ Dodaj identyfikatory aplikacji do pliku rozszerzeń *TrustFrameworkExtensions. X
 1. Wybierz element menu **Struktura środowiska tożsamości** w dzierżawie B2C w Azure Portal.
 1. Wybierz pozycję **Przekaż zasady niestandardowe**.
 1. W tej kolejności należy przekazać pliki zasad:
-    1. *TrustFrameworkBase. XML*
-    1. *TrustFrameworkExtensions. XML*
-    1. *SignUpOrSignin. XML*
-    1. *ProfileEdit. XML*
-    1. *PasswordReset. XML*
+    1. *TrustFrameworkBase.xml*
+    1. *TrustFrameworkExtensions.xml*
+    1. *SignUpOrSignin.xml*
+    1. *ProfileEdit.xml*
+    1. *PasswordReset.xml*
 
 Podczas przekazywania plików platforma Azure dodaje prefiks `B2C_1A_` do każdego z nich.
 
@@ -206,7 +206,7 @@ Jak wspomniano w [wymaganiach wstępnych](#prerequisites), serwis Facebook *nie*
        <Item Key="client_id">00000000000000</Item>
    ```
 
-1. Przekaż plik *TrustFrameworkExtensions. XML* do dzierżawy.
+1. Przekaż plik *TrustFrameworkExtensions.xml* do dzierżawy.
 1. W obszarze **zasady niestandardowe**wybierz pozycję **B2C_1A_signup_signin**.
 1. Wybierz pozycję **Uruchom teraz** i wybierz pozycję Facebook, aby zalogować się za pomocą usługi Facebook i przetestować zasady niestandardowe.
 

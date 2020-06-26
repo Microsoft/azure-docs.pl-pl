@@ -7,61 +7,25 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: article
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 7847964d77e5dc09d2e09f207c47f9504c48e1db
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 6b29937e53fd58886d770ec15c803fb814a155ae
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84729204"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391812"
 ---
 # <a name="service-limits-in-public-preview"></a>Limity usługi w publicznej wersji zapoznawczej
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Są to limity usługi Azure Digital bliźniaczych reprezentacji w publicznej wersji zapoznawczej.
 
 > [!NOTE]
-> Niektóre usługi mają regulowane limity, reprezentowane w poniższych tabelach z kolumną z możliwością *dopasowywania?* Aby można było dostosować limit, wartość *ustawiana* to *tak*.
+> Niektóre obszary tej usługi mają regulowane limity. Jest to reprezentowane w poniższych tabelach z kolumną z możliwością *dopasowywania?* Aby można było dostosować limit, wartość *ustawiana* to *tak*.
 >
 > Jeśli firma wymaga podniesienia regulowanego limitu lub limitu przydziału powyżej domyślnego limitu, można zażądać dodatkowych zasobów, [otwierając bilet pomocy technicznej](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="functional-limits"></a>Limity funkcjonalne
+## <a name="limits-by-type"></a>Limity według typu
 
-W poniższej tabeli wymieniono funkcjonalne limity usługi Azure Digital bliźniaczych reprezentacji w bieżącej wersji zapoznawczej.
-
-| Obszar | Możliwość | Limit | Wraz? |
-| --- | --- | --- | --- |
-| Zasób platformy Azure | Liczba wystąpień bliźniaczych reprezentacji cyfrowych platformy Azure w regionie, na subskrypcję | 10 | Tak |
-| Digital bliźniaczych reprezentacji | Liczba bliźniaczych reprezentacji w wystąpieniu usługi Azure Digital bliźniaczych reprezentacji | 200,000 | Tak |
-| Routing | Liczba punktów końcowych dla pojedynczego wystąpienia usługi Azure Digital bliźniaczych reprezentacji | 6 | Nie |
-| Routing | Liczba tras dla pojedynczego wystąpienia usługi Azure Digital bliźniaczych reprezentacji | 6 | Tak |
-| Modele | Liczba modeli w pojedynczym wystąpieniu usługi Azure Digital bliźniaczych reprezentacji | 10 000 | Tak |
-| Modele | Liczba modeli, które mogą być przekazane w jednym wywołaniu interfejsu API | 250 | Nie |
-| Modele | Liczba elementów zwróconych na jednej stronie | 100 | Nie |
-| Zapytanie | Liczba elementów zwróconych na jednej stronie | 100 | Nie |
-| Zapytanie | Liczba `AND`  /  `OR` wyrażeń w zapytaniu | 50 | Tak |
-| Zapytanie | Liczba elementów tablicy w `IN`  /  `NOT IN` klauzuli | 50 | Tak |
-| Zapytanie | Liczba znaków w zapytaniu | 8000 | Tak |
-| Zapytanie | Liczba `JOINS` w zapytaniu | 1 | Tak |
-
-## <a name="rate-limits"></a>Limity szybkości
-
-Ta tabela odzwierciedla limity szybkości różnych interfejsów API.
-
-| Interfejs API | Możliwość | Limit | Wraz? |
-| --- | --- | --- | --- |
-| Interfejs API modeli | Liczba żądań na sekundę | 100 | Tak |
-| Interfejs API Digital bliźniaczych reprezentacji | Liczba żądań na sekundę | 1000 | Tak |
-| Interfejs API zapytań | Liczba żądań na sekundę | 500 | Tak |
-| Interfejs API zapytań | Liczba jednostek zapytania na sekundę | 4000 | Tak |
-| Interfejs API tras zdarzeń | Liczba żądań na sekundę | 100 | Tak |
-
-## <a name="other-limits"></a>Inne limity
-
-Limity dotyczące typów danych i pól w DTDL dokumentach dla modeli usługi Azure Digital bliźniaczych reprezentacji można znaleźć w dokumentacji dotyczącej specyfikacji w serwisie GitHub: [Digital bliźniaczych reprezentacji Definition Language (DTDL) — wersja 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
- 
-Szczegóły opóźnienia zapytania i inne wskazówki dotyczące pisania zapytań w trakcie korzystania z wersji zapoznawczej można znaleźć w temacie [How to: Query The bliźniaczy Graf](how-to-query-graph.md).
+[!INCLUDE [Azure Digital Twins limits](../../includes/digital-twins-limits.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 

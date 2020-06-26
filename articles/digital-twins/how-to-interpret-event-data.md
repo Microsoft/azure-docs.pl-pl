@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: e8a1bb19a18f43bae4639d2ca9d9b9941bd29324
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 1af98e6ecbe9b5951d94dd22be8a47c1b13691d3
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362830"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390622"
 ---
 # <a name="understand-event-data"></a>Informacje o zdarzeniach
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Różne zdarzenia w usłudze Azure Digital bliźniaczych reprezentacji dają **powiadomienia**, które umożliwiają zaplecze rozwiązania, gdy są wykonywane różne akcje. Są one następnie [kierowane](concepts-route-events.md) do różnych lokalizacji wewnątrz i na zewnątrz bliźniaczych reprezentacji cyfrowych platformy Azure, które mogą korzystać z tych informacji w celu podjęcia odpowiednich działań.
 

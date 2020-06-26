@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: beb6b5666be0d3264720c5bc7a3c9516c1bd18f4
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84790878"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392458"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager
 
@@ -68,7 +68,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 W celu udzielenia dostępu w usłudze Azure RBAC należy dodać przypisanie roli.
 
-### <a name="resource-group-without-parameters"></a>Grupa zasobów (bez parametrów)
+### <a name="resource-group-scope-without-parameters"></a>Zakres grupy zasobów (bez parametrów)
 
 Poniższy szablon przedstawia podstawowy sposób dodawania przypisania roli. Niektóre wartości są określone w szablonie. Poniższy szablon demonstruje:
 
@@ -111,7 +111,7 @@ Poniżej przedstawiono przykład przypisania roli czytnika do użytkownika dla g
 
 ![Przypisanie roli w zakresie grupy zasobów](./media/role-assignments-template/role-assignment-template.png)
 
-### <a name="resource-group-or-subscription"></a>Grupa zasobów lub subskrypcja
+### <a name="resource-group-or-subscription-scope"></a>Grupa zasobów lub zakres subskrypcji
 
 Poprzedni szablon nie jest bardzo elastyczny. Następujący szablon używa parametrów i może być używany w różnych zakresach. Poniższy szablon demonstruje:
 
@@ -195,7 +195,7 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-### <a name="resource"></a>Zasób
+### <a name="resource-scope"></a>Zakres zasobu
 
 Jeśli konieczne jest dodanie przypisania roli na poziomie zasobu, format przypisania roli jest inny. Podaj przestrzeń nazw dostawcy zasobów i typ zasobu zasobu, do którego ma zostać przypisana rola. Należy również podać nazwę zasobu w nazwie przypisania roli.
 

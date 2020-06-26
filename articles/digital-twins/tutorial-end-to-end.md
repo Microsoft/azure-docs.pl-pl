@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: f83eb6a0cab8bdf2f26888f895aeac8a8fa796bb
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: faad1f812fc5c2cde6847a5208ee4b385f28ab3e
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296988"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391931"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Tworzenie kompleksowego rozwiązania
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Aby skonfigurować kompleksowe rozwiązanie oparte na danych na żywo ze środowiska, możesz połączyć wystąpienie usługi Azure Digital bliźniaczych reprezentacji z innymi usługami platformy Azure w celu zarządzania urządzeniami i danymi.
 
@@ -411,7 +408,7 @@ Oto przegląd scenariusza, który został utworzony w tym samouczku.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Ilustracja przedstawiająca pełny scenariusz tworzenia. Przedstawia dane przepływające z urządzenia do IoT Hub za pośrednictwem funkcji platformy Azure (strzałka B) do wystąpienia usługi Azure Digital bliźniaczych reprezentacji (sekcja A), a następnie za pośrednictwem Event Grid do innej funkcji platformy Azure do przetworzenia (strzałka C)":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli zasoby utworzone w tym samouczku nie są już potrzebne, wykonaj następujące kroki, aby je usunąć. 
 

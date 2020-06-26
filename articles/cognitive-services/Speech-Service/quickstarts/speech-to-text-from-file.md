@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.author: dapine
+ms.date: 06/25/2020
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: 343b2e6786e955a460840a34711ef86ae21d8f23
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 4411c0af64c5db516b7d165c67925233230ed883
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714696"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391625"
 ---
 # <a name="quickstart-recognize-speech-from-an-audio-file"></a>Szybki Start: Rozpoznawanie mowy z pliku dźwiękowego
 

@@ -3,12 +3,12 @@ title: Cennik usługi Azure Backup
 description: Dowiedz się, jak oszacować koszty związane z budżetem Azure Backup.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: d88587cfdbb4f60d0da8641fc0362b8f763779ad
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 274a61ff5a98fa1291f9d8917af9ab1d1b3da2fd
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84908165"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391115"
 ---
 # <a name="azure-backup-pricing"></a>Cennik usługi Azure Backup
 
@@ -56,7 +56,7 @@ Aby oszacować koszty tworzenia kopii zapasowych maszyn wirtualnych platformy Az
 
   - Jak długo chcesz zachować kopie zapasowe "rocznie"? (w latach)
 
-  - Jak długo chcesz zachować migawki "Natychmiastowe przywracanie"? (1-7 dni)
+  - Jak długo chcesz zachować migawki "Natychmiastowe przywracanie"? (1-5 dni)
 
     - Ta opcja umożliwia przywrócenie z powrotem przez siedem dni w szybki sposób przy użyciu migawek przechowywanych na dyskach
 
@@ -66,7 +66,7 @@ Aby oszacować koszty tworzenia kopii zapasowych maszyn wirtualnych platformy Az
 
 - **Opcjonalne** — nadmiarowość magazynu kopii zapasowych
 
-  - Wskazuje to nadmiarowość konta magazynu, do którego prowadzą dane kopii zapasowej. Zalecamy korzystanie z **GRS** w celu zapewnienia najwyższej dostępności. Ponieważ gwarantuje to, że kopia kopii zapasowej danych jest przechowywana w innym regionie, ułatwia spełnienie wielu standardów zgodności. Zmień nadmiarowość na **LRS** , jeśli tworzysz kopie zapasowe środowisk programistycznych lub testowych, które nie wymagają tworzenia kopii zapasowych na poziomie przedsiębiorstwa. Wybierz opcję **RAGRS** , jeśli chcesz włączyć **przywracanie między regionami** dla kopii zapasowych
+  - Wskazuje to nadmiarowość konta magazynu, do którego prowadzą dane kopii zapasowej. Zalecamy korzystanie z **GRS** w celu zapewnienia najwyższej dostępności. Ponieważ gwarantuje to, że kopia kopii zapasowej danych jest przechowywana w innym regionie, ułatwia spełnienie wielu standardów zgodności. Zmień nadmiarowość na **LRS** , jeśli tworzysz kopie zapasowe środowisk programistycznych lub testowych, które nie wymagają tworzenia kopii zapasowych na poziomie przedsiębiorstwa. Wybierz opcję **RAGRS** w arkuszu, jeśli chcesz zrozumieć koszty, gdy dla kopii zapasowych jest włączone [przywracanie między regionami](backup-azure-arm-restore-vms.md#cross-region-restore) .
 
 - **Opcjonalne** — modyfikowanie cen regionalnych lub stosowanie stawek z rabatem
 
@@ -104,7 +104,7 @@ Aby oszacować koszty tworzenia kopii zapasowych serwerów SQL działających na
 
     - Możesz również wybrać opcję tworzenia zasad codziennie/co tydzień/miesięcznie/rocznie pełnych kopii zapasowych. Ta opcja spowoduje zużywanie nieco więcej miejsca niż w przypadku pierwszej opcji.
 
-  - Jak długo należy zachować kopie zapasowe "log"? (w dniach) [1-35]
+  - Jak długo należy zachować kopie zapasowe "log"? (w dniach) [7-35]
 
   - Jak długo należy zachować kopie zapasowe "dzienne"? (w dniach)
 
@@ -124,7 +124,29 @@ Aby oszacować koszty tworzenia kopii zapasowych serwerów SQL działających na
 
 ## <a name="estimate-costs-for-backing-up-sap-hana-servers-in-azure-vms"></a>Oszacowanie kosztów tworzenia kopii zapasowych serwerów SAP HANA na maszynach wirtualnych platformy Azure
 
-Szacowanie kosztów tworzenia kopii zapasowych serwerów SAP HANA na maszynach wirtualnych platformy Azure jest podobne do oszacowania dla serwerów SQL. Możesz użyć tych samych zmiennych, jak wspomniano w poprzedniej sekcji, niezależnie od kompresji SQL.
+Aby oszacować koszty tworzenia kopii zapasowych serwerów SAP HANA uruchomionych na maszynach wirtualnych platformy Azure przy użyciu Azure Backup, potrzebne będą następujące parametry:
+
+- Łączny rozmiar SAP HANA baz danych, których kopia zapasowa ma zostać utworzona. Powinna to być suma pełnego rozmiaru kopii zapasowej każdej bazy danych, zgodnie z informacjami w SAP HANA.
+- Liczba serwerów SAP HANA o powyższym rozmiarze
+- Jaki jest oczekiwany rozmiar kopii zapasowych dziennika?
+  - % Oznacza średni dzienny rozmiar dziennika jako% łącznego rozmiaru SAP HANA baz danych, których kopia zapasowa jest wykonywana na serwerze SAP HANA
+- Jaka jest oczekiwana ilość dziennych zmian danych na tych serwerach?
+  - % Oznacza średni rozmiar zmian dziennych jako% łącznego rozmiaru SAP HANA baz danych, których kopia zapasowa jest wykonywana na serwerze SAP HANA
+  - Zwykle bazy danych mają "duże" zmiany
+  - Jeśli znasz wartość **procentową**zmian, możesz użyć opcji **wprowadź własny%**
+- Wybieranie zasad kopii zapasowych
+  - Typ kopii zapasowej
+    - Najbardziej skutecznymi zasadami, które można wybrać, jest **dzienne różnice** **tygodniowe/comiesięczne/roczne** pełne kopie zapasowe. Azure Backup można przywrócić z różnic za pomocą pojedynczego kliknięcia.
+    - Możesz również wybrać opcję tworzenia zasad **codziennie/co tydzień/miesięcznie/rocznie** pełnych kopii zapasowych. Ta opcja spowoduje zużywanie nieco więcej miejsca niż w przypadku pierwszej opcji.
+  - Jak długo należy zachować kopie zapasowe "log"? (w dniach) [7-35]
+  - Jak długo należy zachować kopie zapasowe "dzienne"? (w dniach)
+  - Jak długo chcesz zachować kopie zapasowe "cotygodniowe"? (w tygodniach)
+  - Jak długo chcesz zachować kopie zapasowe "miesięcznie"? (w miesiącach)
+  - Jak długo chcesz zachować kopie zapasowe "rocznie"? (w latach)
+- **Opcjonalne** — nadmiarowość magazynu kopii zapasowych
+  - Wskazuje to nadmiarowość konta magazynu, do którego prowadzą dane kopii zapasowej. Zalecamy korzystanie z **GRS** w celu zapewnienia najwyższej dostępności. Ponieważ gwarantuje to, że kopia kopii zapasowej danych jest przechowywana w innym regionie, ułatwia spełnienie wielu standardów zgodności. Zmień nadmiarowość na **LRS** , jeśli tworzysz kopie zapasowe środowisk programistycznych lub testowych, które nie wymagają tworzenia kopii zapasowych na poziomie przedsiębiorstwa.
+- **Opcjonalne** — modyfikowanie cen regionalnych lub stosowanie stawek z rabatem
+  - Jeśli chcesz sprawdzić oszacowania dla innego regionu lub stawek z rabatem, wybierz opcję **tak** dla opcji **Wypróbuj oszacowania dla innego regionu?** i wprowadź stawki, dla których chcesz uruchomić oszacowania.
 
 ## <a name="next-steps"></a>Następne kroki
 

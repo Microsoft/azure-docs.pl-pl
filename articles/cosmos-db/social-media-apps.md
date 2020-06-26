@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: b121d7f5f1ad626f80a03ebe6cd47a932c209672
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: df48be038635799c08be409f7f1600e324cd8380
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85116437"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392169"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Przechodzenie do społeczności Azure Cosmos DB
 
@@ -228,7 +228,7 @@ W przypadku korzystania z społecznościowych należy wyrównać strategię part
 
 Cosmos DB będą uruchamiać zapytania (łącznie z [agregacjami](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) we wszystkich partycjach w sposób przezroczysty, więc nie trzeba dodawać żadnych logiki w miarę rozwoju danych.
 
-Od momentu ostatecznie zwiększy się ruch, a użycie zasobów (mierzone w [jednostek ru](request-units.md), lub jednostki żądań) zwiększy się. Często przeczytasz i zapisujesz w miarę zwiększania się bazy danych. Baza użytkownika zacznie tworzyć i czytać więcej zawartości. Dzięki temu możliwość **skalowania przepływności** jest istotna. Zwiększenie jednostek ru jest łatwe. Można to zrobić za pomocą kilku kliknięć na Azure Portal lub przez [wystawienie poleceń za pomocą interfejsu API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
+Od momentu ostatecznie zwiększy się ruch, a użycie zasobów (mierzone w [jednostek ru](request-units.md), lub jednostki żądań) zwiększy się. Często przeczytasz i zapisujesz w miarę zwiększania się bazy danych. Baza użytkownika zacznie tworzyć i czytać więcej zawartości. Dzięki temu możliwość **skalowania przepływności** jest istotna. Zwiększenie jednostek ru jest łatwe. Można to zrobić za pomocą kilku kliknięć na Azure Portal lub przez [wystawienie poleceń za pomocą interfejsu API](/rest/api/cosmos-db/replace-an-offer).
 
 :::image type="content" source="./media/social-media-apps/social-media-apps-scaling.png" alt-text="Skalowanie w górę i Definiowanie klucza partycji":::
 

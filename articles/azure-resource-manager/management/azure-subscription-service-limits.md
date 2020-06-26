@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: davidsmatlak
 ms.author: v-dasmat
 ms.date: 06/04/2020
-ms.openlocfilehash: a1413e0f7f8fb9a28d657c32171c518a1bf64a41
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 7805e65b3f49a69d4667180715a58585767ddf5a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84907418"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391496"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure subscription and service limits, quotas, and constraints (Limity subskrypcji i usług, limity przydziału oraz ograniczenia platformy Azure)
 
@@ -218,6 +218,13 @@ W poniższej tabeli przedstawiono funkcje i limity [warstw usług](../../contain
 ## <a name="database-migration-service-limits"></a>Limity Database Migration Service
 
 [!INCLUDE [database-migration-service-limits](../../../includes/database-migration-service-limits.md)]
+
+## <a name="digital-twins-limits"></a>Limity bliźniaczych reprezentacji cyfrowych
+
+> [!NOTE]
+> Niektóre obszary tej usługi mają regulowane limity, a inne nie. Jest to reprezentowane w poniższych tabelach z kolumną z możliwością *dopasowywania?* Aby można było dostosować limit, wartość *ustawiana* to *tak*.
+
+[!INCLUDE [digital-twins-limits](../../../includes/digital-twins-limits.md)]
 
 ## <a name="event-grid-limits"></a>Limity Event Grid
 

@@ -3,19 +3,19 @@ title: Limity i przydziały — Custom Vision Service
 titleSuffix: Azure Cognitive Services
 description: W tym artykule opisano różne typy kluczy licencjonowania oraz limity i przydziały dla Custom Vision Service.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: anroth
-ms.openlocfilehash: 5f481ebf219eea8ae31e9802144bbf771a24e8b8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: pafarley
+ms.openlocfilehash: 089d5dbb1eece2904f104dfecb3de8adec052dfc
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79081781"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391744"
 ---
 # <a name="limits-and-quotas"></a>Limity przydziału i ograniczenia
 
@@ -26,7 +26,7 @@ Liczba obrazów szkoleniowych na projekt i Tagi dla projektu powinna wzrosnąć 
 ||**F0**|**S0**|
 |-----|-----|-----|
 |Projekty|2|100|
-|Obrazy szkoleniowe na projekt |5000|100 000|
+|Obrazy szkoleniowe na projekt |5000|100 000|
 |Przewidywania/miesiąc|10 000 |Nieograniczona liczba|
 |Tagi/projekt|50|500|
 |Iteracji |10|10|

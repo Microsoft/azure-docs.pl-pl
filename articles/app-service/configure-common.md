@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18469c94b66acab27b58243e8d15eb924843319b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4ebb33333dc59432fd269c4847abdeab91d935c
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811122"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389783"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Skonfiguruj aplikację App Service w Azure Portal
 
@@ -19,17 +19,17 @@ W tym temacie opisano sposób konfigurowania typowych ustawień aplikacji sieci 
 
 ## <a name="configure-app-settings"></a>Konfigurowanie ustawień aplikacji
 
-W App Service ustawienia aplikacji są zmienne, które są przesyłane jako zmienne środowiskowe do kodu aplikacji. W przypadku aplikacji systemu Linux i kontenerów niestandardowych App Service przekazuje ustawienia aplikacji do kontenera przy `--env` użyciu flagi, aby ustawić zmienną środowiskową w kontenerze.
+W App Service ustawienia aplikacji są zmienne, które są przesyłane jako zmienne środowiskowe do kodu aplikacji. W przypadku aplikacji systemu Linux i kontenerów niestandardowych App Service przekazuje ustawienia aplikacji do kontenera przy użyciu `--env` flagi, aby ustawić zmienną środowiskową w kontenerze.
 
 W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. 
 
 ![Wyszukaj App Services](./media/configure-common/search-for-app-services.png)
 
-W menu po lewej stronie aplikacji wybierz pozycję **Configuration** > **Ustawienia aplikacji**konfiguracji.
+W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **Ustawienia aplikacji**konfiguracji.
 
 ![Ustawienia aplikacji](./media/configure-common/open-ui.png)
 
-W przypadku deweloperów ASP.NET i ASP.NET Core ustawienia aplikacji w App Service są takie jak `<appSettings>` ustawienia w *pliku Web. config* lub *appSettings. json*, ale wartości w App Service przesłaniają te elementy w *pliku Web. config* lub *appSettings. JSON*. Ustawienia programistyczne (na przykład lokalne hasło MySQL) można zachować w *pliku Web. config* lub *appSettings. JSON*, ale klucze tajne produkcji (na przykład hasło bazy danych Azure mysql) bezpiecznie w App Service. Ten sam kod używa ustawień programistycznych podczas debugowania lokalnego i korzysta z wpisów tajnych produkcji w przypadku wdrożenia na platformie Azure.
+W przypadku deweloperów ASP.NET i ASP.NET Core, Ustawianie ustawień aplikacji w App Service przypomina Ustawianie ich w `<appSettings>` *Web.config* lub *appsettings.jsna*, ale wartości w App Service przesłaniają te elementy w *Web.config* lub *appsettings.js*. Ustawienia programistyczne (na przykład lokalne hasło MySQL) można zachować w *Web.config* lub *appsettings.jsw systemie*, ale klucze tajne produkcji (na przykład hasło bazy danych Azure mysql) bezpiecznie w App Service. Ten sam kod używa ustawień programistycznych podczas debugowania lokalnego i korzysta z wpisów tajnych produkcji w przypadku wdrożenia na platformie Azure.
 
 Inne stosy języka, podobnie, pobierają ustawienia aplikacji jako zmienne środowiskowe w czasie wykonywania. Aby zapoznać się z procedurami specyficznymi dla stosu, zobacz:
 
@@ -59,7 +59,7 @@ Aby edytować ustawienia, kliknij przycisk **Edytuj** po prawej stronie.
 Po zakończeniu kliknij przycisk **Aktualizuj**. Nie zapomnij kliknąć pozycję **Zapisz** ponownie na stronie **Konfiguracja** .
 
 > [!NOTE]
-> W domyślnym kontenerze systemu Linux lub dla niestandardowego kontenera systemu Linux każda zagnieżdżona struktura klucza JSON w nazwie ustawienia aplikacji `ApplicationInsights:InstrumentationKey` , tak jak musi być skonfigurowana w `ApplicationInsights__InstrumentationKey` App Service jak dla nazwy klucza. Innymi słowy, wszystkie `:` powinny zostać zastąpione przez `__` (podwójne podkreślenie).
+> W domyślnym kontenerze systemu Linux lub dla niestandardowego kontenera systemu Linux każda zagnieżdżona struktura klucza JSON w nazwie ustawienia aplikacji, tak jak `ApplicationInsights:InstrumentationKey` musi być skonfigurowana w App Service jak `ApplicationInsights__InstrumentationKey` dla nazwy klucza. Innymi słowy, wszystkie `:` powinny zostać zastąpione przez `__` (podwójne podkreślenie).
 >
 
 ### <a name="edit-in-bulk"></a>Edytuj luzem
@@ -86,11 +86,11 @@ Ustawienia aplikacji mają następujące formatowanie JSON:
 
 ## <a name="configure-connection-strings"></a>Konfigurowanie parametrów połączenia
 
-W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Configuration** > **Ustawienia aplikacji**konfiguracji.
+W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **Ustawienia aplikacji**konfiguracji.
 
 ![Ustawienia aplikacji](./media/configure-common/open-ui.png)
 
-W przypadku deweloperów ASP.NET i ASP.NET Core, ustawianie parametrów połączenia w App Service przypomina Ustawianie ich w `<connectionStrings>` *pliku Web. config*, ale wartości ustawionych w App Service przesłaniają te ustawienia w *pliku Web. config*. Możesz przechowywać ustawienia programistyczne (na przykład plik bazy danych) w pliku *Web. config* i w tajemnicach produkcyjnych (na przykład SQL Database poświadczenia) bezpiecznie w App Service. Ten sam kod używa ustawień programistycznych podczas debugowania lokalnego i korzysta z wpisów tajnych produkcji w przypadku wdrożenia na platformie Azure.
+W przypadku deweloperów ASP.NET i ASP.NET Core, ustawianie parametrów połączenia w App Service przypomina Ustawianie ich w `<connectionStrings>` *Web.config*, ale wartości ustawionych w App Service przesłaniają te elementy w *Web.config*. Możesz przechowywać ustawienia programistyczne (na przykład plik bazy danych) w *Web.config* i SQL Database wpisy tajne (na przykład poświadczenia) w App Service. Ten sam kod używa ustawień programistycznych podczas debugowania lokalnego i korzysta z wpisów tajnych produkcji w przypadku wdrożenia na platformie Azure.
 
 W przypadku innych stosów języka lepiej jest używać [ustawień aplikacji](#configure-app-settings) , ponieważ parametry połączeń wymagają specjalnego formatowania w kluczach zmiennych w celu uzyskania dostępu do wartości. Poniżej przedstawiono jeden wyjątek: w przypadku konfigurowania parametrów połączenia w aplikacji kopie zapasowe niektórych typów baz danych platformy Azure są tworzone razem z aplikacją. Aby uzyskać więcej informacji, zobacz [co to jest kopia zapasowa](manage-backup.md#what-gets-backed-up). Jeśli ta zautomatyzowana kopia zapasowa nie jest potrzebna, Użyj ustawień aplikacji.
 
@@ -102,7 +102,7 @@ W czasie wykonywania parametry połączenia są dostępne jako zmienne środowis
 * Celnej`CUSTOMCONNSTR_`
 * PostgreSQL`POSTGRESQLCONNSTR_`  
 
-Na przykład parametry połączenia MySql o nazwie *connectionstring1* są dostępne jako zmienne `MYSQLCONNSTR_connectionString1`środowiskowe. Aby zapoznać się z procedurami specyficznymi dla stosu, zobacz:
+Na przykład parametry połączenia MySql o nazwie *connectionstring1* są dostępne jako zmienne środowiskowe `MYSQLCONNSTR_connectionString1` . Aby zapoznać się z procedurami specyficznymi dla stosu, zobacz:
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
@@ -158,7 +158,7 @@ Parametry połączenia mają następujące formatowanie JSON:
 
 ## <a name="configure-general-settings"></a>Konfigurowanie ustawień ogólnych
 
-W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Konfiguracja** > **Ustawienia ogólne**.
+W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Konfiguracja**  >  **Ustawienia ogólne**.
 
 ![Ustawienia ogólne](./media/configure-common/open-general.png)
 
@@ -168,22 +168,22 @@ Tutaj można skonfigurować niektóre typowe ustawienia dla aplikacji. Niektóre
 - **Ustawienia platformy**: umożliwia skonfigurowanie ustawień platformy hostingu, w tym:
     - Liczba **bitów**: 32-bitowe lub 64-bitowe.
     - **Protokół WebSocket**: na przykład dla [ASP.NET signaler] lub [Socket.IO](https://socket.io/).
-    - **Zawsze włączone**: Zachowaj załadowanie aplikacji nawet wtedy, gdy nie ma ruchu. Jest to wymagane w przypadku ciągłych zadań WebJob lub zadań WebJob, które są wyzwalane przy użyciu wyrażenia firmy cronus.
+    - **Zawsze włączone**: utrzymuje załadowana aplikacja nawet wtedy, gdy nie ma ruchu. Jest to wymagane w przypadku ciągłych zadań WebJob lub zadań WebJob, które są wyzwalane przy użyciu wyrażenia firmy cronus.
       > [!NOTE]
-      > Dzięki funkcji Always On nie można kontrolować punktu końcowego. Zawsze wysyła żądanie do katalogu głównego aplikacji.
+      > Dzięki funkcji Always On moduł równoważenia obciążenia frontonu wysyła żądanie do katalogu głównego aplikacji. Nie można skonfigurować tego punktu końcowego aplikacji App Service.
     - **Wersja potoku zarządzanego**: [tryb potokowy]usług IIS. Ustaw ją na **klasyczny** , jeśli masz starszą aplikację, która wymaga starszej wersji usług IIS.
     - **Wersja protokołu HTTP**: ustaw na **2,0** , aby włączyć obsługę protokołu [https/2](https://wikipedia.org/wiki/HTTP/2) .
     > [!NOTE]
     > Większość nowoczesnych przeglądarek obsługuje protokół HTTP/2 tylko w przypadku protokołu TLS, podczas gdy ruch nieszyfrowany nadal używa protokołu HTTP/1.1. Aby upewnić się, że przeglądarki klienta nawiązują połączenie z aplikacją za pomocą protokołu HTTP/2, Zabezpiecz swoją niestandardową nazwę DNS. Aby uzyskać więcej informacji, zobacz [Zabezpieczanie niestandardowej nazwy DNS z powiązaniem TLS/SSL w Azure App Service](configure-ssl-bindings.md).
     - **Koligacja ARR**: w przypadku wdrożenia obejmującego wiele wystąpień upewnij się, że klient jest kierowany do tego samego wystąpienia w okresie istnienia sesji. Tę opcję można ustawić na wartość **off** dla bezstanowych aplikacji.
-- **Debugowanie**: Włącz debugowanie zdalne dla aplikacji [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)lub [Node. js](containers/configure-language-nodejs.md#debug-remotely) . Ta opcja jest włączana automatycznie po 48 godzinach.
+- **Debugowanie**: Włącz debugowanie zdalne dla aplikacji [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)lub [Node.js](containers/configure-language-nodejs.md#debug-remotely) . Ta opcja jest włączana automatycznie po 48 godzinach.
 - **Przychodzące certyfikaty klienta**: Wymagaj certyfikatów klienta w ramach [uwierzytelniania wzajemnego](app-service-web-configure-tls-mutual-auth.md).
 
 ## <a name="configure-default-documents"></a>Konfigurowanie dokumentów domyślnych
 
 To ustawienie dotyczy tylko aplikacji systemu Windows.
 
-W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz kolejno pozycje **Konfiguracja** > **dokumenty domyślne**.
+W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz kolejno pozycje **Konfiguracja**  >  **dokumenty domyślne**.
 
 ![Dokumenty domyślne](./media/configure-common/open-documents.png)
 
@@ -193,7 +193,7 @@ Jeśli aplikacja używa modułów, które są oparte na adresie URL zamiast obs�
 
 ## <a name="configure-path-mappings"></a>Konfiguruj mapowania ścieżek
 
-W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Configuration** > **mapowania ścieżki**konfiguracji.
+W [Azure Portal]Wyszukaj i wybierz pozycję **App Services**, a następnie wybierz aplikację. W menu po lewej stronie aplikacji wybierz pozycję **Configuration**  >  **mapowania ścieżki**konfiguracji.
 
 ![Mapowania ścieżki](./media/configure-common/open-path.png)
 
@@ -205,13 +205,13 @@ W przypadku aplikacji systemu Windows można dostosować mapowania programu obs�
 
 Mapowania obsługi umożliwiają dodawanie niestandardowych procesorów skryptów do obsługi żądań dla określonych rozszerzeń plików. Aby dodać niestandardową procedurę obsługi, kliknij pozycję **Nowy program obsługi**. Skonfiguruj procedurę obsługi w następujący sposób:
 
-- **Rozszerzenie**. Rozszerzenie pliku, które ma być obsługiwane, np * \*. php* lub *Handler. FCGI*.
-- **Procesor skryptu**. Ścieżka bezwzględna procesora skryptu do użytkownika. Żądania do plików, które pasują do rozszerzenia pliku, są przetwarzane przez procesor skryptów. Użyj ścieżki `D:\home\site\wwwroot` , aby odwołać się do katalogu głównego aplikacji.
+- **Rozszerzenie**. Rozszerzenie pliku, które ma być obsługiwane, np. * \* php* lub *Handler. FCGI*.
+- **Procesor skryptu**. Ścieżka bezwzględna procesora skryptu do użytkownika. Żądania do plików, które pasują do rozszerzenia pliku, są przetwarzane przez procesor skryptów. Użyj ścieżki, `D:\home\site\wwwroot` Aby odwołać się do katalogu głównego aplikacji.
 - **Argumenty**. Opcjonalne argumenty wiersza polecenia dla procesora skryptów.
 
-Każda aplikacja ma domyślną ścieżkę katalogu głównego (`/`) zamapowana `D:\home\site\wwwroot`na, gdzie kod jest wdrażany domyślnie. Jeśli katalog główny aplikacji znajduje się w innym folderze lub jeśli repozytorium zawiera więcej niż jedną aplikację, możesz w tym miejscu edytować lub dodać wirtualne aplikacje i katalogi. Kliknij pozycję **Nowa aplikacja wirtualna lub katalog**.
+Każda aplikacja ma domyślną ścieżkę katalogu głównego ( `/` ) zamapowana na `D:\home\site\wwwroot` , gdzie kod jest wdrażany domyślnie. Jeśli katalog główny aplikacji znajduje się w innym folderze lub jeśli repozytorium zawiera więcej niż jedną aplikację, możesz w tym miejscu edytować lub dodać wirtualne aplikacje i katalogi. Kliknij pozycję **Nowa aplikacja wirtualna lub katalog**.
 
-Aby skonfigurować aplikacje i katalogi wirtualne, określ każdy katalog wirtualny i odpowiadającą mu ścieżkę fizyczną względem katalogu głównego witryny sieci`D:\home`Web (). Opcjonalnie możesz zaznaczyć pole wyboru **aplikacji** , aby oznaczyć katalog wirtualny jako aplikację.
+Aby skonfigurować aplikacje i katalogi wirtualne, określ każdy katalog wirtualny i odpowiadającą mu ścieżkę fizyczną względem katalogu głównego witryny sieci Web ( `D:\home` ). Opcjonalnie możesz zaznaczyć pole wyboru **aplikacji** , aby oznaczyć katalog wirtualny jako aplikację.
 
 ### <a name="containerized-apps"></a>Aplikacje w kontenerze
 
@@ -253,7 +253,7 @@ Zobacz [Konfigurowanie niestandardowego kontenera systemu Linux dla Azure App Se
 - [Włączanie dzienników diagnostycznych](troubleshoot-diagnostic-logs.md)
 - [Skalowanie aplikacji w Azure App Service]
 - [Podstawowe informacje o monitorowaniu w Azure App Service]
-- [Zmień ustawienia pliku applicationHost. config za pomocą programu applicationHost. XDT](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
+- [Zmień ustawienia applicationHost.config przy użyciu pliku applicationHost. XDT](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 

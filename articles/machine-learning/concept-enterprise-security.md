@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: e030bd1124a93c667070a2b58f2f0e1c10c7d3a6
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.openlocfilehash: be0e24977bbb1aeec74e8847b3fb128267a9ec0e
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84718561"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392237"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -26,7 +26,7 @@ W przypadku korzystania z usługi w chmurze najlepszym rozwiązaniem jest ograni
 > [!NOTE]
 > Informacje przedstawione w tym artykule współdziałają z Azure Machine Learning Python SDK w wersji 1.0.83.1 lub nowszej.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Uwierzytelnianie wieloskładnikowe jest obsługiwane, jeśli Azure Active Directory (Azure AD) jest skonfigurowany do korzystania z niego. Oto proces uwierzytelniania:
 
@@ -176,6 +176,11 @@ Aby uzyskać więcej informacji na temat kluczy zarządzanych przez klienta Cosm
 Wszystkie obrazy kontenerów w rejestrze (Azure Container Registry) są szyfrowane w stanie spoczynku. Platforma Azure automatycznie szyfruje obraz przed jego zapisaniem i odszyfrowuje go, gdy Azure Machine Learning pobiera obraz.
 
 Aby użyć własnych kluczy (zarządzanych przez klienta) do zaszyfrowania Azure Container Registry, należy utworzyć własne ACR i dołączyć je podczas aprowizacji obszaru roboczego lub zaszyfrować domyślne wystąpienie, które jest tworzone w momencie aprowizacji obszaru roboczego.
+
+> [!IMPORTANT]
+> Azure Machine Learning wymaga włączenia konta administratora na Azure Container Registry. Domyślnie to ustawienie jest wyłączone podczas tworzenia rejestru kontenerów. Aby uzyskać informacje na temat włączania konta administratora, zobacz [konto administratora](/azure/container-registry/container-registry-authentication#admin-account).
+>
+> Po utworzeniu Azure Container Registry dla obszaru roboczego nie należy go usuwać. Spowoduje to przerwanie obszaru roboczego Azure Machine Learning.
 
 Przykład tworzenia obszaru roboczego przy użyciu istniejącego Azure Container Registry można znaleźć w następujących artykułach:
 

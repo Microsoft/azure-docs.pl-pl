@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/23/2019
+ms.date: 06/25/2020
 ms.author: chlandsi
-ms.openlocfilehash: c1246b19670a18f8dadc0c5e1c64dd5af4c1b210
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c355071c4bbaff5ddb22b2db5fc4a3a0fdb561d4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75380783"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391557"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Szybki Start: Rozpoznawanie mowy w celu języka C w systemie iOS przy użyciu zestawu Speech SDK
 
@@ -40,7 +40,7 @@ Można go pobrać z [tej witryny sieci Web](https://aka.ms/csspeech/iosbinary). 
 
 ## <a name="create-an-xcode-project"></a>Tworzenie projektu Xcode
 
-Rozpocznij Xcode i Rozpocznij nowy projekt, wybierając pozycję **plik** > **Nowy** > **projekt**.
+Rozpocznij Xcode i Rozpocznij nowy projekt, wybierając pozycję **plik**  >  **Nowy**  >  **projekt**.
 W oknie dialogowym Wybieranie szablonu wybierz szablon aplikacji z **pojedynczym widokiem systemu iOS** .
 
 W poniższych oknach dialogowych wybierz następujące opcje.
@@ -57,7 +57,7 @@ W poniższych oknach dialogowych wybierz następujące opcje.
    1. Wybierz katalog macierzysty, aby umieścić w nim projekt. W tym kroku zostanie utworzony katalog HelloWorld w katalogu macierzystym, który zawiera wszystkie pliki projektu Xcode.
    1. Wyłącz tworzenie repozytorium Git dla tego przykładowego projektu.
    1. Dostosuj ścieżki do zestawu SDK na ekranie Ustawienia projektu.
-      1. Na karcie **Ogólne** w nagłówku **osadzone pliki binarne** Dodaj bibliotekę zestawu SDK jako platformę, wybierając pozycję **Dodaj osadzone pliki binarne** > **Dodaj inne**. Przejdź do katalogu macierzystego i wybierz plik `MicrosoftCognitiveServicesSpeech.framework`. Ta akcja powoduje automatyczne dodanie biblioteki SDK do **połączonej struktury i bibliotek** nagłówka.
+      1. Na karcie **Ogólne** w nagłówku **osadzone pliki binarne** Dodaj bibliotekę zestawu SDK jako platformę, wybierając pozycję **Dodaj osadzone pliki binarne**  >  **Dodaj inne**. Przejdź do katalogu macierzystego i wybierz plik `MicrosoftCognitiveServicesSpeech.framework` . Ta akcja powoduje automatyczne dodanie biblioteki SDK do **połączonej struktury i bibliotek** nagłówka.
          ![Dodano strukturę](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-framework.png)
       1. Przejdź do karty **Ustawienia kompilacji** i wybierz ustawienie **wszystkie** .
       1. Dodaj katalog $ (SRCROOT)/... na **ścieżki wyszukiwania struktury** pod nagłówkiem **ścieżki wyszukiwania** .
@@ -66,7 +66,7 @@ W poniższych oknach dialogowych wybierz następujące opcje.
 
 ## <a name="set-up-the-ui"></a>Konfigurowanie Interfejsu użytkownika
 
-Przykładowa aplikacja ma bardzo prosty interfejs użytkownika. Ma dwa przyciski do uruchamiania rozpoznawania mowy z pliku lub danych wejściowych mikrofonu oraz etykieta tekstowa, aby wyświetlić wynik. Interfejs użytkownika jest skonfigurowany w części `Main.storyboard` projektu. Otwórz widok XML scenorysu, klikając prawym `Main.storyboard` przyciskiem myszy wpis drzewa projektu i wybierając pozycję **Otwórz jako** > **kod źródłowy**.
+Przykładowa aplikacja ma bardzo prosty interfejs użytkownika. Ma dwa przyciski do uruchamiania rozpoznawania mowy z pliku lub danych wejściowych mikrofonu oraz etykieta tekstowa, aby wyświetlić wynik. Interfejs użytkownika jest skonfigurowany w części `Main.storyboard` projektu. Otwórz widok XML scenorysu, klikając prawym przyciskiem myszy `Main.storyboard` wpis drzewa projektu i wybierając pozycję **Otwórz jako**  >  **kod źródłowy**.
 
 Zastąp wygenerowany automatycznie kod XML następującym kodem:
 
@@ -81,8 +81,8 @@ Zastąp wygenerowany automatycznie kod XML następującym kodem:
 
    [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec/ios/from-microphone/helloworld/helloworld/ViewController.m#code)]
 1. Zastąp ciąg `YourSubscriptionKey` kluczem subskrypcji.
-1. Zamień ciąg `YourServiceRegion` na [region](~/articles/cognitive-services/Speech-Service/regions.md) skojarzony z subskrypcją. Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej.
-1. Dodaj żądanie, aby uzyskać dostęp do mikrofonu. Kliknij prawym przyciskiem `Info.plist` myszy wpis drzewa projektu i wybierz polecenie **Otwórz jako** > **kod źródłowy**. Dodaj następujące wiersze do `<dict>` sekcji, a następnie Zapisz plik.
+1. Zamień ciąg na `YourServiceRegion` [region](~/articles/cognitive-services/Speech-Service/regions.md) skojarzony z subskrypcją. Na przykład użyj `westus` subskrypcji bezpłatnej wersji próbnej.
+1. Dodaj żądanie, aby uzyskać dostęp do mikrofonu. Kliknij prawym przyciskiem myszy `Info.plist` wpis drzewa projektu i wybierz polecenie **Otwórz jako**  >  **kod źródłowy**. Dodaj następujące wiersze do `<dict>` sekcji, a następnie Zapisz plik.
 
     ```xml
     <key>NSMicrophoneUsageDescription</key>
@@ -91,9 +91,9 @@ Zastąp wygenerowany automatycznie kod XML następującym kodem:
 
 ## <a name="build-and-run-the-sample"></a>Kompilowanie i uruchamianie przykładu
 
-1. Aby wyświetlić dane wyjściowe debugowania, wybierz opcję **Wyświetl** > **obszar** > debugowania**Aktywuj konsolę**.
-1. Wybierz symulator systemu iOS lub urządzenie z systemem iOS podłączone do komputera deweloperskiego jako miejsce docelowe aplikacji z listy w menu**miejsce docelowe** **produktu** > .
-1. Kompiluj i uruchamiaj przykładowy kod w symulatorze systemu iOS, **wybierając pozycję** > **Uruchom** jako z menu. Możesz również wybrać przycisk **Odtwórz** .
+1. Aby wyświetlić dane wyjściowe debugowania, wybierz opcję **Wyświetl**  >  **obszar debugowania**  >  **Aktywuj konsolę**.
+1. Wybierz symulator systemu iOS lub urządzenie z systemem iOS podłączone do komputera deweloperskiego jako miejsce docelowe aplikacji z listy w **Product**  >  menu**miejsce docelowe** produktu.
+1. Kompiluj i uruchamiaj przykładowy kod w symulatorze systemu iOS, **wybierając pozycję**  >  **Uruchom** jako z menu. Możesz również wybrać przycisk **Odtwórz** .
 1. Po wybraniu przycisku **Rozpoznaj (plik)** w aplikacji powinna zostać wyświetlona zawartość pliku audio "co to jest pogoda"? w dolnej części ekranu.
 
    ![Symulowana aplikacja systemu iOS](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-simulated-app.png)

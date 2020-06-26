@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9845780eaeaa42dc38f97344f86b7e9af3d37180
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 574e2e1647ecf33fb05600407163c96247b6ce41
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84669389"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391047"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Samouczek: ręcznie skonfiguruj grupę dostępności SQL Server na platformie Azure Virtual Machines
 
@@ -119,7 +119,7 @@ Dodaj inne SQL Server do klastra.
    >Jeśli używasz funkcji miejsca do magazynowania i nie zaznaczaj **żadnych opcji Dodaj wszystkie odpowiednie magazyny do klastra**, system Windows odłącza dyski wirtualne podczas procesu klastrowania. W związku z tym nie są one wyświetlane w Menedżerze dysków ani w Eksploratorze, dopóki nie zostaną usunięte miejsca do magazynowania z klastra i ponownie dołączone przy użyciu programu PowerShell. Funkcja miejsca do magazynowania grupuje wiele dysków w puli magazynów. Aby uzyskać więcej informacji, zobacz [miejsca do magazynowania](https://technet.microsoft.com/library/hh831739).
    >
 
-1. Wybierz przycisk **Dalej**.
+1. Wybierz pozycję **Dalej**.
 
 1. Wybierz pozycję **Zakończ**.
 
@@ -143,9 +143,9 @@ W tym przykładzie klaster systemu Windows korzysta z udziału plików w celu ut
 
    Użyj **Kreatora tworzenia folderu udostępnionego** , aby utworzyć udział.
 
-1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego. Wybierz przycisk **Dalej**.
+1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego. Wybierz pozycję **Dalej**.
 
-1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz przycisk **Dalej**.
+1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz pozycję **Dalej**.
 
 1. W obszarze **uprawnienia do folderu udostępnionego** Ustaw **uprawnienia do dostosowywania**. Wybierz **niestandardową...**.
 
@@ -181,9 +181,9 @@ Następnie skonfiguruj kworum klastra.
    >System Windows Server 2016 obsługuje monitor w chmurze. W przypadku wybrania tego typu monitora nie jest potrzebny monitor udostępniania plików. Aby uzyskać więcej informacji, zobacz [wdrażanie monitora chmury dla klastra trybu failover](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). W tym samouczku jest używany monitor udostępniania plików, który jest obsługiwany przez poprzednie systemy operacyjne.
    >
 
-1. Na **skonfigurować Monitor udostępniania plików**, wpisz ścieżkę dla utworzonego udziału. Wybierz przycisk **Dalej**.
+1. Na **skonfigurować Monitor udostępniania plików**, wpisz ścieżkę dla utworzonego udziału. Wybierz pozycję **Dalej**.
 
-1. Sprawdź ustawienia w obszarze **potwierdzenie**. Wybierz przycisk **Dalej**.
+1. Sprawdź ustawienia w obszarze **potwierdzenie**. Wybierz pozycję **Dalej**.
 
 1. Wybierz pozycję **Zakończ**.
 
@@ -199,7 +199,7 @@ Następnie Włącz funkcję **zawsze włączone grupy dostępności** . Wykonaj 
 
     ![Włącz Zawsze włączone grupy dostępności](./media/availability-group-manually-configure-tutorial/54-enableAlwaysOn.png)
 
-4. Wybierz pozycję **Zastosuj**. W podręcznym oknie dialogowym wybierz pozycję **OK** .
+4. Wybierz przycisk **Zastosuj**. W podręcznym oknie dialogowym wybierz pozycję **OK** .
 
 5. Uruchom ponownie usługę SQL Server.
 
@@ -246,9 +246,9 @@ Repeat these steps on the second SQL Server.
 
    Użyj **Kreatora tworzenia folderu udostępnionego** , aby utworzyć udział.
 
-1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego kopii zapasowej bazy danych. Wybierz przycisk **Dalej**.
+1. W polu **ścieżka folderu**wybierz pozycję **Przeglądaj** i zlokalizuj lub Utwórz ścieżkę do folderu udostępnionego kopii zapasowej bazy danych. Wybierz pozycję **Dalej**.
 
-1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz przycisk **Dalej**.
+1. W polu **Nazwa, opis i ustawienia** Sprawdź nazwę i ścieżkę udziału. Wybierz pozycję **Dalej**.
 
 1. W obszarze **uprawnienia do folderu udostępnionego** Ustaw **uprawnienia do dostosowywania**. Wybierz **niestandardową...**.
 
@@ -285,7 +285,7 @@ Teraz można przystąpić do konfigurowania grupy dostępności, wykonując nast
 
     ![Uruchom Kreatora nowej grupy dostępności](./media/availability-group-manually-configure-tutorial/56-newagwiz.png)
 
-2. Na stronie **wprowadzenie** wybierz pozycję **dalej**. Na stronie **Określ nazwę grupy dostępności** wpisz nazwę grupy dostępności w polu **Nazwa grupy dostępności**. Na przykład **AG1**. Wybierz przycisk **Dalej**.
+2. Na stronie **wprowadzenie** wybierz pozycję **dalej**. Na stronie **Określ nazwę grupy dostępności** wpisz nazwę grupy dostępności w polu **Nazwa grupy dostępności**. Na przykład **AG1**. Wybierz pozycję **Dalej**.
 
     ![Kreator nowej grupy dostępności, Określanie nazwy grupy dostępności](./media/availability-group-manually-configure-tutorial/58-newagname.png)
 
@@ -311,7 +311,7 @@ Teraz można przystąpić do konfigurowania grupy dostępności, wykonując nast
 
     ![Kreator nowej grupy dostępności, wybieranie początkowej synchronizacji danych](./media/availability-group-manually-configure-tutorial/66-endpoint.png)
 
-8. Na stronie **Wybierz początkową synchronizację danych** wybierz pozycję **pełna** i określ udostępnioną lokalizację sieciową. Dla lokalizacji Użyj [utworzonego udziału kopii zapasowej](#backupshare). W tym przykładzie ** \\ \\<pierwsze SQL Server \> \Backup \\ **. Wybierz przycisk **Dalej**.
+8. Na stronie **Wybierz początkową synchronizację danych** wybierz pozycję **pełna** i określ udostępnioną lokalizację sieciową. Dla lokalizacji Użyj [utworzonego udziału kopii zapasowej](#backupshare). W tym przykładzie ** \\ \\<pierwsze SQL Server \> \Backup \\ **. Wybierz pozycję **Dalej**.
 
    >[!NOTE]
    >Pełna synchronizacja pobiera pełną kopię zapasową bazy danych przy pierwszym wystąpieniu SQL Server i przywraca ją do drugiego wystąpienia. W przypadku dużych baz danych nie zaleca się stosowania pełnej synchronizacji, ponieważ może to zająć dużo czasu. Możesz skrócić ten czas, ręcznie pobierając kopię zapasową bazy danych i przywracając ją z `NO RECOVERY` . Jeśli baza danych została już przywrócona przy użyciu `NO RECOVERY` programu na drugim SQL Server przed skonfigurowaniem grupy dostępności, wybierz pozycję **tylko Dołącz**. Jeśli chcesz wykonać kopię zapasową po skonfigurowaniu grupy dostępności, wybierz pozycję **Pomiń początkową synchronizację danych**.
@@ -360,7 +360,7 @@ W tym momencie masz grupę dostępności z replikami w dwóch wystąpieniach SQL
 
 W przypadku usługi Azure Virtual Machines Grupa dostępności SQL Server wymaga modułu równoważenia obciążenia. Moduł równoważenia obciążenia przechowuje adresy IP dla odbiorników grupy dostępności i klastra trybu failover systemu Windows Server. Ta sekcja zawiera podsumowanie sposobu tworzenia modułu równoważenia obciążenia w Azure Portal.
 
-Moduł równoważenia obciążenia n platformą Azure może być usługa Load Balancer w warstwie Standardowa lub Load Balancer podstawowym. Usługa Load Balancer w warstwie Standardowa ma więcej funkcji niż Load Balancer podstawowa. W przypadku grupy dostępności usługa Load Balancer w warstwie Standardowa jest wymagana w przypadku używania strefy dostępności (zamiast zestawu dostępności). Aby uzyskać szczegółowe informacje na temat różnic między jednostkami SKU modułu równoważenia obciążenia, zobacz [Load Balancer porównanie jednostek SKU](../../../load-balancer/skus.md).
+Moduł równoważenia obciążenia na platformie Azure może być usługa Load Balancer w warstwie Standardowa lub Load Balancer podstawowym. Usługa Load Balancer w warstwie Standardowa ma więcej funkcji niż Load Balancer podstawowa. W przypadku grupy dostępności usługa Load Balancer w warstwie Standardowa jest wymagana w przypadku używania strefy dostępności (zamiast zestawu dostępności). Aby uzyskać szczegółowe informacje na temat różnic między jednostkami SKU modułu równoważenia obciążenia, zobacz [Load Balancer porównanie jednostek SKU](../../../load-balancer/skus.md).
 
 1. W Azure Portal przejdź do grupy zasobów, w której znajdują się serwery SQL, a następnie wybierz pozycję **+ Dodaj**.
 1. Wyszukaj **Load Balancer**. Wybierz usługę równoważenia obciążenia opublikowaną przez firmę Microsoft.

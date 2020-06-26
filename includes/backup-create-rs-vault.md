@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 2c74783ea8246232cb5c4270691daf3f83fe9a30
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2509bdae01fc9de5511dcd67eb95bf0d13d5cf39
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204542"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391160"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 
-Magazyn Recovery Services jest jednostką magazynową, która przechowuje punkty odzyskiwania utworzone w czasie. Zawiera również zasady tworzenia kopii zapasowych, które są skojarzone z elementami chronionymi.
+Magazyn Recovery Services to jednostka zarządzania, która przechowuje punkty odzyskiwania utworzone w czasie i udostępnia interfejs do wykonywania operacji związanych z tworzeniem kopii zapasowych. Obejmują one wykonywanie kopii zapasowych na żądanie, wykonywanie operacji przywracania i tworzenie zasad tworzenia kopii w usłudze.
 
 Aby utworzyć magazyn Recovery Services, wykonaj następujące kroki.
 

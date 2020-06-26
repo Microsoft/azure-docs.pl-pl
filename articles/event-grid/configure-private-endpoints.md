@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 816d1f762698deeed38afe01899916b491809db2
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890829"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390469"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Skonfiguruj prywatne punkty końcowe dla tematów Azure Event Grid lub domen
 Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) , aby umożliwić bezpieczne wykonywanie zdarzeń bezpośrednio z sieci wirtualnej do Twoich tematów i domen za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md) bez pośrednictwa publicznego Internetu. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla tematu lub domeny. Aby uzyskać więcej informacji na temat pojęć, zobacz [zabezpieczenia sieci](network-security.md).
@@ -140,8 +140,8 @@ az network private-endpoint create \
 
 Aby zapoznać się z opisami parametrów użytych w tym przykładzie, zobacz dokumentację dotyczącą [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Poniżej przedstawiono kilka punktów, do których warto zwrócić uwagę: 
 
-- W `private-connection-resource-id`polu Określ identyfikator zasobu **tematu** lub **domeny**. W poprzednim przykładzie jest użyty typ: temat.
-- dla `group-ids`, określ `topic` lub `domain`. W poprzednim przykładzie `topic` użyto. 
+- W polu `private-connection-resource-id` Określ identyfikator zasobu **tematu** lub **domeny**. W poprzednim przykładzie jest użyty typ: temat.
+- dla `group-ids` , określ `topic` lub `domain` . W poprzednim przykładzie `topic` użyto. 
 
 Aby usunąć prywatny punkt końcowy, użyj metody [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , jak pokazano w następującym przykładzie:
 
@@ -184,8 +184,8 @@ az network private-endpoint create \
 
 Aby zapoznać się z opisami parametrów użytych w tym przykładzie, zobacz dokumentację dotyczącą [AZ Network Private-Endpoint Create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create). Poniżej przedstawiono kilka punktów, do których warto zwrócić uwagę: 
 
-- W `private-connection-resource-id`polu Określ identyfikator zasobu **tematu** lub **domeny**. W poprzednim przykładzie jest użyty typ: temat.
-- dla `group-ids`, określ `topic` lub `domain`. W poprzednim przykładzie `topic` użyto. 
+- W polu `private-connection-resource-id` Określ identyfikator zasobu **tematu** lub **domeny**. W poprzednim przykładzie jest użyty typ: temat.
+- dla `group-ids` , określ `topic` lub `domain` . W poprzednim przykładzie `topic` użyto. 
 
 Aby usunąć prywatny punkt końcowy, użyj metody [AZ Network Private-Endpoint Delete](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-delete) , jak pokazano w następującym przykładzie:
 
@@ -313,7 +313,7 @@ az eventgrid topic update \
 ## <a name="use-powershell"></a>Korzystanie z programu PowerShell
 W tej sekcji pokazano, jak utworzyć prywatny punkt końcowy dla tematu lub domeny przy użyciu programu PowerShell. 
 
-### <a name="prerequisite"></a>Wymagania wstępne
+### <a name="prerequisite"></a>Wymaganie wstępne
 Postępuj zgodnie z instrukcjami, [Aby utworzyć aplikację usługi Azure AD i nazwę główną usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md) w celu utworzenia aplikacji Azure Active Directory i zanotować wartości dla **identyfikatora katalogu (dzierżawy)**, **identyfikatora aplikacji (klienta)** i **wpisu tajnego aplikacji (klienta)**. 
 
 ### <a name="prepare-token-and-headers-for-rest-api-calls"></a>Przygotuj token i nagłówki dla wywołań interfejsu API REST 
@@ -484,4 +484,5 @@ Invoke-RestMethod -Method 'Get'
 Połączenie można zatwierdzić nawet po odrzuceniu za pośrednictwem interfejsu API. Jeśli używasz Azure Portal, nie możesz zatwierdzić punktu końcowego, który został odrzucony. 
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o konfigurowaniu ustawień zapory IP, zobacz [Konfigurowanie zapory IP dla Azure Event Grid tematów lub domen](configure-firewall.md).
+* Aby dowiedzieć się więcej o konfigurowaniu ustawień zapory IP, zobacz [Konfigurowanie zapory IP dla Azure Event Grid tematów lub domen](configure-firewall.md).
+* Aby rozwiązać problemy z łącznością sieciową, zobacz [Rozwiązywanie problemów z łącznością sieciową](troubleshoot-network-connectivity.md)

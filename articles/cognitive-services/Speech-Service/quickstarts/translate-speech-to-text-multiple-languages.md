@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: 666b8ba42a7b97b25b4ecf1fcae9983685e94bed
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f5ea31d4f4e974004e1fc8d62034a4ef0c6d4a3d
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715113"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391319"
 ---
 # <a name="quickstart-translate-speech-to-multiple-languages"></a>Szybki Start: Tłumaczenie mowy na wiele języków
 

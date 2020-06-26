@@ -7,17 +7,14 @@ ms.author: cschorm
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 753fa7afb49ca58aa2eceb309beb8316024b41bc
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: b6d6e16b079f1423fd1ea812e384546ae5d84067
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362717"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392203"
 ---
 # <a name="dtdl-client-side-parser-library"></a>DTDL Biblioteka parserów po stronie klienta
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 [Modele](concepts-models.md) w usłudze Azure Digital bliźniaczych reprezentacji są zdefiniowane przy użyciu języka Digital bliźniaczych reprezentacji Definition Language (DTDL) w formacie JSON. W przypadku, gdy pomocne jest przeanalizowanie modeli, biblioteka DTDL analiza jest dostępna w NuGet.org jako biblioteka po stronie klienta: [Microsoft. Azure. DigitalTwins. parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/).
 

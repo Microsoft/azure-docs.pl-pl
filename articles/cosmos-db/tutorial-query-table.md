@@ -8,16 +8,16 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 14a6d2b448bb943356ae1738c3d53d9c6fee1a98
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: bab0487b09d7088e75ce762c9e4f0338cea507eb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84484671"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391897"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Samouczek: Wykonywanie zapytań w usłudze Azure Cosmos DB przy użyciu interfejsu API tabel
 
-[Interfejs API tabel](table-introduction.md) usługi Azure Cosmos DB obsługuje zapytania OData i [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) dla danych klucz-wartość (tabeli).  
+[Interfejs API tabel](table-introduction.md) usługi Azure Cosmos DB obsługuje zapytania OData i [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) dla danych klucz-wartość (tabeli).  
 
 W tym artykule opisano następujące zadania:
 
@@ -32,7 +32,7 @@ Zapytania w tym artykule korzystają z następującej przykładowej tabeli `Peop
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jan | Jeff@contoso.com| 425-555-0104 |
 
-Zobacz [Wykonywanie zapytań względem tabel i jednostek](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities), aby uzyskać szczegółowe informacje na temat wykonywania zapytań przy użyciu interfejsu API tabel.
+Zobacz [Wykonywanie zapytań względem tabel i jednostek](/rest/api/storageservices/fileservices/querying-tables-and-entities), aby uzyskać szczegółowe informacje na temat wykonywania zapytań przy użyciu interfejsu API tabel.
 
 Aby uzyskać więcej informacji na temat funkcji premium oferowanych przez usługę Azure Cosmos DB, zobacz [Interfejs API tabel usługi Azure Cosmos DB](table-introduction.md) i [Opracowywanie zawartości przy użyciu interfejsu API tabel na platformie .NET](tutorial-develop-table-dotnet.md).
 
@@ -50,7 +50,7 @@ Ponieważ właściwości PartitionKey i RowKey tworzą klucz podstawowy jednostk
 https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')  
 ```
 
-**Uzyskane**
+**Wyniki**
 
 | PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
 | --- | --- | --- | --- |
@@ -65,7 +65,7 @@ Podczas tworzenia ciągu filtru należy pamiętać o następujących regułach:
 * Aby porównać właściwość z wartością, użyj operatorów logicznych określonych w specyfikacji protokołu OData. Pamiętaj, że nie można porównać właściwości z wartością dynamiczną. Jedna strona wyrażenia musi być stałą.
 * Nazwa właściwości, operator i wartość stała muszą być oddzielone spacjami zakodowanymi w adresie URL. Spacja jest zakodowana w adresie URL jako `%20`.
 * We wszystkich częściach ciągu filtru jest rozróżniana wielkość liter.
-* Wartość stała musi mieć ten sam typ danych co właściwość, aby filtr zwracał prawidłowe wyniki. Aby uzyskać szczegółowe informacje na temat obsługiwanych typów właściwości, zobacz [Omówienie modelu danych usługi Table service](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model).
+* Wartość stała musi mieć ten sam typ danych co właściwość, aby filtr zwracał prawidłowe wyniki. Aby uzyskać szczegółowe informacje na temat obsługiwanych typów właściwości, zobacz [Omówienie modelu danych usługi Table service](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 Poniżej przedstawiono przykładowe zapytanie, które pokazuje sposób filtrowania według właściwości PartitionKey i Email przy użyciu elementu `$filter` OData.
 
@@ -75,9 +75,9 @@ Poniżej przedstawiono przykładowe zapytanie, które pokazuje sposób filtrowan
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-Aby uzyskać więcej informacji na temat sposobu tworzenia wyrażenia filtru dla różnych typów danych, zobacz [Wykonywanie zapytań względem tabel i jednostek](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+Aby uzyskać więcej informacji na temat sposobu tworzenia wyrażenia filtru dla różnych typów danych, zobacz [Wykonywanie zapytań względem tabel i jednostek](/rest/api/storageservices/querying-tables-and-entities).
 
-**Uzyskane**
+**Wyniki**
 
 | PartitionKey | RowKey | Poczta e-mail | PhoneNumber |
 | --- | --- | --- | --- |

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636413"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389602"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure AD B2C
 
@@ -50,9 +50,9 @@ Przepływ poświadczeń hasła właściciela zasobu (ROPC) to standardowy przep�
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
 Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wywołania interfejsu API i przejrzyj odpowiedź, aby debugować przepływ użytkownika. Utwórz wywołanie podobne do tego z informacjami w poniższej tabeli jako treść żądania POST:
-- Zastąp * \< nazwę dzierżawcy>. onmicrosoft.com* nazwą dzierżawy B2C.
-- Zastąp * \< B2C_1A_ROPC_Auth>* pełną nazwą zasad poświadczeń hasła właściciela zasobu.
-- Zastąp * \< ciąg bef2222d56-552f-4a5b-b90a-1988A7D634C3>* identyfikatorem aplikacji z rejestracji.
+- Zamień wartość * \<tenant-name> . onmicrosoft.com* na nazwę dzierżawcy B2C.
+- Zastąp *\<B2C_1A_ROPC_Auth>* pełną nazwą zasad poświadczeń hasła właściciela zasobu.
+- Zamień na *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* Identyfikator aplikacji z rejestracji.
 
 `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
@@ -61,7 +61,7 @@ Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wyw
 | nazwa użytkownika | leadiocl@outlook.com |
 | hasło | Passxword1 |
 | grant_type | hasło |
-| scope | OpenID Connect \< bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| scope | OpenID Connect \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | id_token tokenu |
 

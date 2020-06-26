@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dca235374ca20ef8a17e685706f952127d5ece2a
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 49a5ff61e5f7a17005561e0729a9b0fcb0f954d4
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869439"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389568"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Konfigurowanie tokenów w Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Okres istnienia tokenu można skonfigurować w dowolnym przepływie użytkownika
 
     ![Ustawienia właściwości okresu istnienia tokenu w Azure Portal](./media/configure-tokens/token-lifetime.png)
 
-8. Kliknij przycisk **Zapisz**.
+8. Kliknij pozycję **Zapisz**.
 
 ## <a name="configure-jwt-token-compatibility"></a>Konfigurowanie zgodności tokenów JWT
 
@@ -50,7 +50,7 @@ Okres istnienia tokenu można skonfigurować w dowolnym przepływie użytkownika
 
     ![Ustawienia właściwości zgodności tokenu w Azure Portal](./media/configure-tokens/token-compatibility.png)
 
-5. Kliknij przycisk **Zapisz**.
+5. Kliknij pozycję **Zapisz**.
 
 ## <a name="next-steps"></a>Następne kroki
 

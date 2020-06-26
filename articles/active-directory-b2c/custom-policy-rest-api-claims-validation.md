@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a4902e96cd41a02953b6686b5d52d7912b27809f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6381f678979437fdfc10d2ea63a79ed347183e92
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330816"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85388922"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Wskazówki: integruje wymianę oświadczeń interfejsu API REST w ramach kursu Azure AD B2C użytkownika w celu zweryfikowania danych wejściowych użytkownika
 
@@ -71,7 +71,7 @@ Konfiguracja punktu końcowego interfejsu API REST jest poza zakresem tego artyk
 
 W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazyn danych. Oświadczenia można zadeklarować w sekcji [schematu oświadczeń](claimsschema.md) . 
 
-1. Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+1. Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Wyszukaj element [BuildingBlocks](buildingblocks.md) . Jeśli element nie istnieje, Dodaj go.
 1. Znajdź element [ClaimsSchema](claimsschema.md) . Jeśli element nie istnieje, Dodaj go.
 1. Dodaj następujące oświadczenia do elementu **ClaimsSchema** .  
@@ -130,13 +130,13 @@ W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazy
 
 W tym przykładzie `userLanguage` zostanie on wysłany do usługi REST, jak `lang` w ramach ładunku JSON. Wartość tego `userLanguage` żądania zawiera identyfikator języka bieżącego użytkownika. Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie konfliktów](claim-resolver-overview.md).
 
-Powyższe `AuthenticationType` Komentarze i `AllowInsecureAuthInProduction` określają zmiany, które należy wykonać po przejściu do środowiska produkcyjnego. Aby dowiedzieć się, jak zabezpieczyć interfejsy API usługi RESTful w środowisku produkcyjnym, zobacz [Secure RESTful API](secure-rest-api.md).
+Powyższe Komentarze `AuthenticationType` i `AllowInsecureAuthInProduction` określają zmiany, które należy wykonać po przejściu do środowiska produkcyjnego. Aby dowiedzieć się, jak zabezpieczyć interfejsy API usługi RESTful w środowisku produkcyjnym, zobacz [Secure RESTful API](secure-rest-api.md).
 
 ## <a name="validate-the-user-input"></a>Weryfikowanie danych wejściowych użytkownika
 
-Aby uzyskać numer lojalnościowy użytkownika podczas rejestracji, musisz zezwolić użytkownikowi na wprowadzanie tych danych na ekranie. Dodaj **loyaltyIde** dane wyjściowe do strony rejestracji, dodając ją do istniejącej sekcji `OutputClaims` profilu technicznego rejestracji. Określ całą listę oświadczeń danych wyjściowych do kontrolowania kolejności, w której oświadczenia są prezentowane na ekranie.  
+Aby uzyskać numer lojalnościowy użytkownika podczas rejestracji, musisz zezwolić użytkownikowi na wprowadzanie tych danych na ekranie. Dodaj **loyaltyIde** dane wyjściowe do strony rejestracji, dodając ją do istniejącej sekcji profilu technicznego rejestracji `OutputClaims` . Określ całą listę oświadczeń danych wyjściowych do kontrolowania kolejności, w której oświadczenia są prezentowane na ekranie.  
 
-Dodaj do profilu technicznego rejestracji numer referencyjny profilu weryfikacji, który wywołuje `REST-ValidateProfile`. Nowy profil techniczny weryfikacji zostanie dodany na początku `<ValidationTechnicalProfiles>` kolekcji zdefiniowanej w zasadach podstawowych. To zachowanie oznacza, że po pomyślnym sprawdzeniu Azure AD B2C przejdzie w celu utworzenia konta w katalogu.   
+Dodaj do profilu technicznego rejestracji numer referencyjny profilu weryfikacji, który wywołuje `REST-ValidateProfile` . Nowy profil techniczny weryfikacji zostanie dodany na początku `<ValidationTechnicalProfiles>` kolekcji zdefiniowanej w zasadach podstawowych. To zachowanie oznacza, że po pomyślnym sprawdzeniu Azure AD B2C przejdzie w celu utworzenia konta w katalogu.   
 
 1. Znajdź element **ClaimsProviders** . Dodaj nowego dostawcę oświadczeń w następujący sposób:
 
@@ -192,7 +192,7 @@ Dodaj do profilu technicznego rejestracji numer referencyjny profilu weryfikacji
 
 ## <a name="include-a-claim-in-the-token"></a>Uwzględnianie roszczeń w tokenie 
 
-Aby zwrócić z powrotem do aplikacji jednostki uzależnionej, należy dodać do <em> `SocialAndLocalAccounts/` </em> pliku zgłoszenie wyjściowe. Zgłoszenie danych wyjściowych zezwoli na dodanie żądania do tokenu po pomyślnym przejściu użytkownika i zostanie wysłane do aplikacji. Zmodyfikuj element profil techniczny w sekcji jednostki uzależnionej, aby dodać `promoCode` jako zgłoszenie wyjściowe.
+Aby zwrócić z powrotem do aplikacji jednostki uzależnionej, należy dodać do pliku zgłoszenie wyjściowe <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> . Zgłoszenie danych wyjściowych zezwoli na dodanie żądania do tokenu po pomyślnym przejściu użytkownika i zostanie wysłane do aplikacji. Zmodyfikuj element profil techniczny w sekcji jednostki uzależnionej, aby dodać jako zgłoszenie `promoCode` wyjściowe.
  
 ```xml
 <RelyingParty>
@@ -221,7 +221,7 @@ Aby zwrócić z powrotem do aplikacji jednostki uzależnionej, należy dodać do
 1. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD, wybierając filtr **katalog + subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawę usługi Azure AD.
 1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz pozycję **platforma obsługi tożsamości**.
-1. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad: *TrustFrameworkExtensions. XML*i *SignUpOrSignin. XML*. 
+1. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad: *TrustFrameworkExtensions.xml*i *SignUpOrSignin.xml*. 
 1. Wybierz przekazane zasady rejestracji lub logowania, a następnie kliknij przycisk **Uruchom teraz** .
 1. Należy mieć możliwość rejestrowania się przy użyciu adresu e-mail.
 1. Kliknij link **Utwórz konto teraz** .

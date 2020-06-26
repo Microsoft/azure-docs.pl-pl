@@ -3,14 +3,14 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure w Azure Por
 description: Dowiedz się, jak używać Azure Portal do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: a78760e793704d9ec4580e21ea86e0ba573b3949
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 76bf8e00dede5f227cb862f9c9474844e349e298
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340715"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391161"
 ---
-# <a name="back-up-azure-file-shares"></a>Tworzenie kopii zapasowej udziałów plików platformy Azure 
+# <a name="back-up-azure-file-shares"></a>Tworzenie kopii zapasowej udziałów plików platformy Azure
 
 W tym artykule wyjaśniono, jak używać Azure Portal do tworzenia kopii zapasowych [udziałów plików platformy Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -26,27 +26,6 @@ W tym artykule dowiesz się, jak:
 * Upewnij się, że udział plików jest obecny w jednym z [obsługiwanych typów kont magazynu](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
-
-## <a name="modify-storage-replication"></a>Modyfikowanie replikacji magazynu
-
-Domyślnie magazyny korzystają z [magazynu geograficznie nadmiarowego (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-* Jeśli magazyn jest podstawowym mechanizmem tworzenia kopii zapasowych, zalecamy użycie GRS.
-* Możesz użyć [magazynu lokalnie nadmiarowego (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) jako opcji niskiego kosztu.
-
-Aby zmodyfikować typ replikacji magazynu:
-
-1. W nowym magazynie wybierz pozycję **Właściwości** w sekcji **Ustawienia** .
-
-1. Na stronie **Właściwości** w obszarze **Konfiguracja kopii zapasowej**wybierz pozycję **Aktualizuj**.
-
-1. Wybierz typ replikacji magazynu i wybierz pozycję **Zapisz**.
-
-    ![Aktualizacja konfiguracji kopii zapasowej](./media/backup-afs/backup-configuration.png)
-
-> [!NOTE]
-> Nie można zmodyfikować typu replikacji magazynu po skonfigurowaniu magazynu i zawiera elementy kopii zapasowej. Jeśli chcesz to zrobić, należy ponownie utworzyć magazyn.
->
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Odnajdź udziały plików i skonfiguruj kopię zapasową
 

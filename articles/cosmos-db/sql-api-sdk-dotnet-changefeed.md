@@ -8,28 +8,28 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: d7b2e5b811e6e9972c94862a92b8f5808dcbe592
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: 679f3113cddbfe13370483f2678154f4dd1f8ab2
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678124"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392067"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Zestaw SDK procesora kanału informacyjnego platformy .NET: pobieranie i informacje o wersji
 
 > [!div class="op_single_selector"]
 >
 > * [Zestaw .NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [Zestaw .NET SDK V2](sql-api-sdk-dotnet.md)
-> * [Zestaw .NET Core SDK V2](sql-api-sdk-dotnet-core.md)
+> * [.NET SDK 2](sql-api-sdk-dotnet.md)
+> * [.NET Core SDK 2](sql-api-sdk-dotnet-core.md)
 > * [Zestaw SDK zmiany źródła .NET w wersji 2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Zestaw Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Java SDK 4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [Dostawca zasobów REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * CZĘŚĆ (/rest/api
+> * [Dostawca zasobów REST] (/rest/api
 > * [SQL](sql-api-query-reference.md)
 > * [Wykonawca zbiorczy — .NET V2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Moduł wykonawczy zbiorczej — Java](sql-api-sdk-bulk-executor-java.md)
@@ -38,7 +38,7 @@ ms.locfileid: "84678124"
 |---|---|
 |**Pobieranie zestawu SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Dokumentacja interfejsu API**|[Dokumentacja referencyjna interfejsu API biblioteki procesora zmian](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Rozpoczęcie pracy**|[Wprowadzenie do zestawu .NET SDK procesora źródła zmian](change-feed.md)|
+|**Wprowadzenie**|[Wprowadzenie do zestawu .NET SDK procesora źródła zmian](change-feed.md)|
 |**Bieżąca obsługiwana platforma**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET rdzeń](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
@@ -209,6 +209,6 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Aby dowiedzieć się więcej na temat Cosmos DB, zobacz stronę usługi [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) .

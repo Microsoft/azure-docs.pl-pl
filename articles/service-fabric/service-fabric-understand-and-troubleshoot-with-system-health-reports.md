@@ -1,16 +1,16 @@
 ---
 title: Rozwiązywanie problemów z raportami kondycji systemu
 description: Opisuje raporty kondycji wysyłane przez składniki Service Fabric platformy Azure oraz ich użycie do rozwiązywania problemów z klastrami lub aplikacjami
-author: oanapl
+author: georgewallace
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: oanapl
-ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.author: gwallace
+ms.openlocfilehash: a3b2f7c22c1afd0a24aafa3bcd9dc9a6c3f725f1
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84692482"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392577"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Używanie raportów kondycji systemu do rozwiązywania problemów
 Składniki usługi Azure Service Fabric udostępniają raporty kondycji systemu na wszystkich jednostkach w klastrze, które są od razu do końca. [Magazyn kondycji](service-fabric-health-introduction.md#health-store) tworzy i usuwa jednostki na podstawie raportów systemowych. Organizuje także je w hierarchii, która przechwytuje interakcje jednostek.
@@ -647,7 +647,7 @@ Właściwość i tekst wskazują, który interfejs API został zablokowany. Kole
 
 - **IStatefulServiceReplica. ChangeRole (P)**: najbardziej typowym przypadkiem jest to, że usługa nie zwróciła zadania z `RunAsync` .
 
-Inne wywołania interfejsu API, które mogą zostać zablokowane, znajdują się w interfejsie **IReplicator** . Przykład:
+Inne wywołania interfejsu API, które mogą zostać zablokowane, znajdują się w interfejsie **IReplicator** . Na przykład:
 
 - **IReplicator. CatchupReplicaSet**: to ostrzeżenie wskazuje jedną z dwóch rzeczy. Istnieją niewystarczające repliki. Aby sprawdzić, czy tak jest, sprawdź stan repliki replik w partycji lub raporcie o kondycji System.FM dla zablokowanej ponownej konfiguracji. Lub repliki nie potwierdzają operacji. Polecenia cmdlet programu PowerShell `Get-ServiceFabricDeployedReplicaDetail` można użyć do określenia postępu wszystkich replik. Problem polega na replikach `LastAppliedReplicationSequenceNumber` , których wartość znajduje się za `CommittedSequenceNumber` wartością podstawową.
 

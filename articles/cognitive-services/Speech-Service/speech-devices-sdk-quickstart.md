@@ -1,22 +1,22 @@
 ---
 title: 'Szybki Start: uruchamianie zestawu Speech Devices SDK w systemie Windows, Linux lub Android — usługa rozpoznawania mowy'
 titleSuffix: Azure Cognitive Services
-description: Wymagania wstępne i instrukcje dotyczące rozpoczynania pracy z zestawem SDK urządzeń z systemem Windows, Linux lub Android.
+description: Ten artykuł zawiera wymagania wstępne i instrukcje dotyczące rozpoczynania pracy z zestawem SDK urządzeń z systemem Windows, Linux lub Android.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/20/2020
+ms.date: 06/25/2020
 ms.author: trbye
 zone_pivot_groups: platforms-set-of-three
-ms.openlocfilehash: 9303661efc65eb660093c01643073650f360f564
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9589a1642eac494eacb6c0b05007fcde79c0a5b1
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400091"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391251"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows-linux-or-android"></a>Szybki Start: uruchamianie przykładowej aplikacji zestawu Speech Devices SDK w systemie Windows, Linux lub Android
 

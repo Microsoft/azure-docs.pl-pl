@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: 5183591133b6892f6f57db45cf1936851784a45a
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 8776ecae982a4b1c67f6b66f16fceec930a561f0
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262059"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392135"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Tuning query performance with Azure Cosmos DB (Dostosowywanie wydajności zapytań w usłudze Azure Cosmos DB)
 
@@ -131,7 +131,7 @@ Następujące nagłówki odpowiedzi są zwracane z zapytania:
 | `x-ms-documentdb-query-metrics` | Statystyka zapytania dla wykonania. Jest to rozdzielany ciąg zawierający dane statystyczne czasu spędzonego w różnych fazach wykonywania zapytania. Zwraca `x-ms-documentdb-populatequerymetrics` wartość, jeśli jest ustawiona na `True` . | 
 | `x-ms-request-charge` | Liczba [jednostek żądań](request-units.md) zużytych przez zapytanie. | 
 
-Aby uzyskać szczegółowe informacje na temat nagłówków i opcji żądań interfejsu API REST, zobacz [wykonywanie zapytań dotyczących zasobów przy użyciu interfejsu API REST](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
+Aby uzyskać szczegółowe informacje na temat nagłówków i opcji żądań interfejsu API REST, zobacz [wykonywanie zapytań dotyczących zasobów przy użyciu interfejsu API REST](/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Najlepsze rozwiązania dotyczące wydajności zapytań
 Poniżej przedstawiono najbardziej typowe czynniki wpływające na wydajność zapytań Azure Cosmos DB. Dig się do każdego z tych tematów w tym artykule.

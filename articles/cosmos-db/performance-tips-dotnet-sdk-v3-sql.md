@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
-ms.openlocfilehash: a10272324a9535a0c2468d63a404f76ca56ce375
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: ce0bc73fd21210e7cd5cd48c8134abd5f014b026
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85263521"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392424"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Porady dotyczące wydajności usługi Azure Cosmos DB i platformy .NET
 
@@ -225,7 +225,7 @@ Obsługa przepływności zależy od liczby [jednostek żądania](request-units.m
 
 Złożoność zapytania wpływa na liczbę jednostek żądań używanych dla operacji. Liczba predykatów, charakter predykatów, liczba UDF i rozmiar źródłowego zestawu danych wpływają na koszt operacji zapytania.
 
-Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-obciążeni](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (lub równoważną `RequestCharge` Właściwość w `ResourceResponse\<T>` lub `FeedResponse\<T>` w zestawie .NET SDK), aby zmierzyć liczbę jednostek żądania używanych przez operacje:
+Aby zmierzyć obciążenie związane z jakąkolwiek operacją (tworzenie, aktualizowanie lub usuwanie), Sprawdź nagłówek [x-MS-Request-obciążeni](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (lub równoważną `RequestCharge` Właściwość w `ResourceResponse\<T>` lub `FeedResponse\<T>` w zestawie .NET SDK), aby zmierzyć liczbę jednostek żądania używanych przez operacje:
 
 ```csharp
 // Measure the performance (Request Units) of writes
@@ -245,7 +245,7 @@ Opłata za żądanie zwrócona w tym nagłówku jest częścią alokowanej przep
 
 **Zbyt duży współczynnik obsługi — limit liczby żądań**
 
-Gdy klient próbuje przekroczyć zarezerwowaną przepływność dla konta, nie ma obniżenia wydajności na serwerze i żadne użycie wydajności przepływności wykracza poza poziom zarezerwowany. Serwer będzie zapobiegawczo żądanie z RequestRateTooLarge (kod stanu HTTP 429). Spowoduje to zwrócenie nagłówka [x-MS-retry-After-MS](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) , który wskazuje ilość czasu (w milisekundach), przez który użytkownik musi czekać przed ponowną próbą wykonania żądania.
+Gdy klient próbuje przekroczyć zarezerwowaną przepływność dla konta, nie ma obniżenia wydajności na serwerze i żadne użycie wydajności przepływności wykracza poza poziom zarezerwowany. Serwer będzie zapobiegawczo żądanie z RequestRateTooLarge (kod stanu HTTP 429). Spowoduje to zwrócenie nagłówka [x-MS-retry-After-MS](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) , który wskazuje ilość czasu (w milisekundach), przez który użytkownik musi czekać przed ponowną próbą wykonania żądania.
 
     HTTP Status 429,
     Status Line: RequestRateTooLarge

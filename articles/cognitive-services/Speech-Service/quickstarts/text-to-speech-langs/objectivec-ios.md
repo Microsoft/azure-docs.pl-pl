@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 06/25/2020
 ms.author: yulili
-ms.openlocfilehash: 1f5a569f9c3bfa91b78c836e37a22642238674be
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7a1cc2c45988e0c5a8c757e4d280b48dbbe56daa
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74975945"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391387"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Szybki Start: wykluczanie mowy w celu języka C w systemie iOS przy użyciu zestawu Speech SDK
 
@@ -40,7 +40,7 @@ Może być używany w projektach Xcode jako [CocoaPod](https://cocoapods.org/)lu
 
 ## <a name="create-an-xcode-project"></a>Tworzenie projektu programu Xcode
 
-Rozpocznij Xcode i Rozpocznij nowy projekt, klikając pozycję **plik** > **Nowy** > **projekt**.
+Rozpocznij Xcode i Rozpocznij nowy projekt, klikając pozycję **plik**  >  **Nowy**  >  **projekt**.
 W oknie dialogowym wyboru szablonu wybierz szablon „iOS Single View App” (Aplikacja pojedynczego widoku systemu iOS).
 
 W kolejnych oknach dialogowych wybierz następujące opcje:
@@ -58,9 +58,9 @@ W kolejnych oknach dialogowych wybierz następujące opcje:
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Zainstaluj zestaw SDK jako CocoaPod
 
 1. Zainstaluj Menedżera zależności CocoaPod zgodnie z opisem w [instrukcje dotyczące instalacji](https://guides.cocoapods.org/using/getting-started.html).
-1. Przejdź do katalogu aplikacji przykładowej (`helloworld`). Umieść plik tekstowy o nazwie `Podfile` i następującej zawartości w tym katalogu:  
+1. Przejdź do katalogu aplikacji przykładowej ( `helloworld` ). Umieść plik tekstowy o nazwie `Podfile` i następującej zawartości w tym katalogu:  
    [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec/ios/text-to-speech/helloworld/Podfile)]
-1. Przejdź do `helloworld` katalogu w terminalu i uruchom polecenie `pod install`. Spowoduje to wygenerowanie `helloworld.xcworkspace` obszaru roboczego Xcode zawierającego zarówno przykładową aplikację, jak i zestaw mowy SDK jako zależność. Ten obszar roboczy zostanie użyty w poniższej tabeli.
+1. Przejdź do `helloworld` katalogu w terminalu i uruchom polecenie `pod install` . Spowoduje to wygenerowanie `helloworld.xcworkspace` obszaru roboczego Xcode zawierającego zarówno przykładową aplikację, jak i zestaw mowy SDK jako zależność. Ten obszar roboczy zostanie użyty w poniższej tabeli.
 
 ## <a name="add-the-sample-code"></a>Dodawanie przykładowego kodu
 
@@ -74,9 +74,9 @@ W kolejnych oknach dialogowych wybierz następujące opcje:
 
 ## <a name="build-and-run-the-sample"></a>Kompilowanie i uruchamianie przykładu
 
-1. Wyświetlaj dane wyjściowe debugowania (**Wyświetl** > **Debug Area** > **konsolę aktywacji**obszaru debugowania).
-1. Wybierz symulator systemu iOS lub urządzenie z systemem iOS podłączone do komputera deweloperskiego jako miejsce docelowe aplikacji z listy w menu**miejsce docelowe** **produktu** > .
-1. Kompiluj i uruchamiaj przykładowy kod w symulatorze systemu iOS, **wybierając opcję** > **Uruchom** jako z menu lub klikając przycisk **Odtwórz** .
+1. Wyświetlaj dane wyjściowe debugowania (**Wyświetl**  >  **Debug Area**  >  **konsolę aktywacji**obszaru debugowania).
+1. Wybierz symulator systemu iOS lub urządzenie z systemem iOS podłączone do komputera deweloperskiego jako miejsce docelowe aplikacji z listy w **Product**  >  menu**miejsce docelowe** produktu.
+1. Kompiluj i uruchamiaj przykładowy kod w symulatorze systemu iOS, **wybierając opcję**  >  **Uruchom** jako z menu lub klikając przycisk **Odtwórz** .
 
    ![Symulowana aplikacja systemu iOS](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-simulated-app-tts.png)
 

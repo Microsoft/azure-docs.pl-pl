@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 4be2f61cb0a45f30f0201d1ecca0efc2d8cbd9ae
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 05a7af9bcedd84f53e020bec57fc58854861af3e
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836230"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392356"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące interfejs API tabel w programie Azure Cosmos DB
 
@@ -45,10 +45,10 @@ Istnieją pewne różnice w zachowaniu, które użytkownicy pochodzą z usługi 
 
   | Metody REST | Punkt końcowy REST/opcja zapytania | Adresy URL doc | Wyjaśnienie |
   | ------------| ------------- | ---------- | ----------- |
-  | GET, PUT | `/?restype=service@comp=properties`| [Ustawianie właściwości usługi Table Service](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) i [pobieranie właściwości usługi Table Service](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Ten punkt końcowy służy do ustawiania reguł CORS, konfiguracji analizy magazynu i ustawień rejestrowania. Mechanizm CORS nie jest obecnie obsługiwany, a analiza i rejestrowanie są obsługiwane inaczej w Azure Cosmos DB niż tabele usługi Azure Storage |
-  | Opcje | `/<table-resource-name>` | [Żądanie tabeli CORS przed lotem](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Jest to część mechanizmu CORS, który Azure Cosmos DB obecnie nie jest obsługiwany. |
-  | GET | `/?restype=service@comp=stats` | [Pobierz statystyki usługi Table Service](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Zawiera informacje o tym, jak szybko dane są replikowane między podstawowymi i pomocniczymi elementami. Nie jest to wymaganie w Cosmos DB, ponieważ replikacja jest częścią operacji zapisu. |
-  | GET, PUT | `/mytable?comp=acl` | [Pobieranie listy ACL tabel](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) i [Ustawianie listy ACL tabel](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Spowoduje to pobranie i ustawienie przechowywanych zasad dostępu używanych do zarządzania sygnaturami dostępu współdzielonego (SAS). Chociaż sygnatura dostępu współdzielonego jest obsługiwana, są one ustawiane i zarządzane w różny sposób. |
+  | GET, PUT | `/?restype=service@comp=properties`| [Ustawianie właściwości usługi Table Service](/rest/api/storageservices/set-table-service-properties) i [pobieranie właściwości usługi Table Service](/rest/api/storageservices/get-table-service-properties) | Ten punkt końcowy służy do ustawiania reguł CORS, konfiguracji analizy magazynu i ustawień rejestrowania. Mechanizm CORS nie jest obecnie obsługiwany, a analiza i rejestrowanie są obsługiwane inaczej w Azure Cosmos DB niż tabele usługi Azure Storage |
+  | Opcje | `/<table-resource-name>` | [Żądanie tabeli CORS przed lotem](/rest/api/storageservices/preflight-table-request) | Jest to część mechanizmu CORS, który Azure Cosmos DB obecnie nie jest obsługiwany. |
+  | GET | `/?restype=service@comp=stats` | [Pobierz statystyki usługi Table Service](/rest/api/storageservices/get-table-service-stats) | Zawiera informacje o tym, jak szybko dane są replikowane między podstawowymi i pomocniczymi elementami. Nie jest to wymaganie w Cosmos DB, ponieważ replikacja jest częścią operacji zapisu. |
+  | GET, PUT | `/mytable?comp=acl` | [Pobieranie listy ACL tabel](/rest/api/storageservices/get-table-acl) i [Ustawianie listy ACL tabel](/rest/api/storageservices/set-table-acl) | Spowoduje to pobranie i ustawienie przechowywanych zasad dostępu używanych do zarządzania sygnaturami dostępu współdzielonego (SAS). Chociaż sygnatura dostępu współdzielonego jest obsługiwana, są one ustawiane i zarządzane w różny sposób. |
 
 * Azure Cosmos DB interfejs API tabel obsługuje tylko format JSON, a nie ATOM.
 
@@ -85,7 +85,7 @@ Parametry połączenia można uzyskać ze strony parametrów połączenia w Azur
 
 ### <a name="how-do-i-override-the-config-settings-for-the-request-options-in-the-net-sdk-for-the-table-api"></a>Jak mogę zastąpić ustawienia konfiguracji dla opcji żądania w zestawie .NET SDK dla interfejs API tabel?
 
-Niektóre ustawienia są obsługiwane przez metodę CreateCloudTableClient i inne za pośrednictwem pliku App. config w sekcji appSettings w aplikacji klienckiej. Informacje o ustawieniach konfiguracji można znaleźć w temacie [Azure Cosmos DB Capabilities](tutorial-develop-table-dotnet.md).
+Niektóre ustawienia są obsługiwane przez metodę CreateCloudTableClient i inne za pośrednictwem app.config w sekcji appSettings w aplikacji klienckiej. Informacje o ustawieniach konfiguracji można znaleźć w temacie [Azure Cosmos DB Capabilities](tutorial-develop-table-dotnet.md).
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Czy istnieją jakieś zmiany klientów korzystających z istniejących zestawów SDK usługi Azure Table Storage?
 
@@ -151,7 +151,7 @@ Aby dodać region, a następnie przełączyć się do trybu failover w wymaganym
 
 ### <a name="how-do-i-configure-my-preferred-read-regions-for-low-latency-when-i-distribute-my-data"></a>Jak mogę skonfigurować moje preferowane regiony odczytu na potrzeby małych opóźnień podczas dystrybucji danych?
 
-Aby ułatwić odczytywanie z lokalizacji lokalnej, użyj klucza PreferredLocation w pliku App. config. W przypadku istniejących aplikacji interfejs API tabel zgłasza błąd, jeśli ustawiono element Locationmode. Usuń ten kod, ponieważ interfejs API tabel pobiera te informacje z pliku App. config. 
+Aby ułatwić odczytywanie z lokalizacji lokalnej, użyj klucza PreferredLocation w pliku app.config. W przypadku istniejących aplikacji interfejs API tabel zgłasza błąd, jeśli ustawiono element Locationmode. Usuń ten kod, ponieważ interfejs API tabel pobiera te informacje z pliku app.config. 
 
 ### <a name="how-should-i-think-about-consistency-levels-in-the-table-api"></a>Jak należy myśleć o poziomach spójności w interfejs API tabel?
 
@@ -171,7 +171,7 @@ Azure Cosmos DB zatwierdza trwale danych w regionie lokalnym i wypychanie danych
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>Czy można zmienić poziom spójności żądania odczytu?
 
-Za pomocą Azure Cosmos DB można ustawić poziom spójności na poziomie kontenera (w tabeli). Przy użyciu zestawu SDK platformy .NET można zmienić poziom, podając wartość klucza TableConsistencyLevel w pliku App. config. Możliwe wartości to: silna, powiązana nieaktualność, sesja, spójny prefiks i ostateczna. Aby uzyskać więcej informacji, zobacz [możliwość dostosowania poziomów spójności danych w Azure Cosmos DB](consistency-levels.md). Najważniejszym pomysłem jest to, że nie można ustawić poziomu spójności żądania na więcej niż ustawienie tabeli. Na przykład nie można ustawić poziomu spójności dla tabeli na początku i na poziomie spójności żądania.
+Za pomocą Azure Cosmos DB można ustawić poziom spójności na poziomie kontenera (w tabeli). Przy użyciu zestawu SDK platformy .NET można zmienić poziom, podając wartość klucza TableConsistencyLevel w pliku app.config. Możliwe wartości to: silna, powiązana nieaktualność, sesja, spójny prefiks i ostateczna. Aby uzyskać więcej informacji, zobacz [możliwość dostosowania poziomów spójności danych w Azure Cosmos DB](consistency-levels.md). Najważniejszym pomysłem jest to, że nie można ustawić poziomu spójności żądania na więcej niż ustawienie tabeli. Na przykład nie można ustawić poziomu spójności dla tabeli na początku i na poziomie spójności żądania.
 
 ### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>Jak interfejs API tabel obsługiwać tryb failover, jeśli region ulegnie awarii?
 
@@ -197,7 +197,7 @@ Tak, zasady indeksowania można zmienić, podając definicję indeksu. Należy p
 
 W przypadku zestawów SDK non-.NET zasady indeksowania można ustawić tylko w portalu w **Eksplorator danych**, przejdź do konkretnej tabeli, którą chcesz zmienić, a następnie przejdź do pozycji **skalowanie & ustawienia**->zasad indeksowania, wprowadź żądaną zmianę, a następnie **Zapisz**.
 
-Z zestawu SDK platformy .NET można przesłać plik App. config:
+Z zestawu SDK platformy .NET można przesłać plik app.config:
 
 ```JSON
 {
@@ -246,7 +246,7 @@ Tak, możesz użyć okienka skalowanie w portalu Azure Cosmos DB, aby skalować 
 
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>Czy jest to domyślny zestaw TableThroughput dla nowo zainicjowanych tabel?
 
-Tak, jeśli nie zastąpisz TableThroughput za pomocą pliku App. config i nie użyjesz wstępnie utworzonego kontenera w Azure Cosmos DB, usługa utworzy tabelę o przepływności wynoszącej 400.
+Tak, jeśli nie zastąpisz TableThroughput za pośrednictwem app.config i nie używasz wstępnie utworzonego kontenera w Azure Cosmos DB, usługa utworzy tabelę o przepływności 400.
 
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Czy istnieje jakakolwiek zmiana cen dla istniejących klientów usługi Azure Table Storage?
 
@@ -262,7 +262,7 @@ Jeśli częstotliwość żądań jest większa niż pojemność zainicjowanej pr
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Dlaczego należy wybrać przepływność z PartitionKey i RowKey, aby korzystać z oferty interfejs API tabel Azure Cosmos DB?
 
-Azure Cosmos DB ustawia domyślną przepływność dla kontenera, jeśli nie podano go w pliku App. config lub za pośrednictwem portalu.
+Azure Cosmos DB ustawia domyślną przepływność dla kontenera, jeśli nie podano go w pliku app.config lub za pośrednictwem portalu.
 
 Azure Cosmos DB zapewnia gwarancje wydajności i opóźnień z górnymi granicami operacji. Ta gwarancja jest możliwa, gdy silnik może wymusić Zarządzanie operacjami dzierżawy. Ustawienie TableThroughput zapewnia gwarantowaną przepływność i opóźnienie, ponieważ platforma rezerwuje tę pojemność i gwarantuje pomyślne sukcesy działania.
 

@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 09/10/2019
 author: luisbosquez
 ms.author: lbosq
-ms.openlocfilehash: 1b3c95f5727c3839974f79e8d147f99d49c4b1d6
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: a0feac9bbd98dc4c67464e84e9a3204bd9730355
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85261753"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85390350"
 ---
 # <a name="system-document-properties"></a>Właściwości dokumentu systemowego
 
-Azure Cosmos DB zawiera [Właściwości systemu](https://docs.microsoft.com/rest/api/cosmos-db/databases) , takie jak ```_ts``` , ```_self``` ,, ```_attachments``` ```_rid``` i ```_etag``` na wszystkich dokumentach. Ponadto aparat Gremlin dodaje właściwości ```inVPartition``` i ```outVPartition``` dla krawędzi. Domyślnie te właściwości są dostępne do przechodzenia. Można jednak uwzględnić określone właściwości lub wszystkie z nich podczas przechodzenia Gremlin.
+Azure Cosmos DB zawiera [Właściwości systemu](/rest/api/cosmos-db/databases) , takie jak ```_ts``` , ```_self``` ,, ```_attachments``` ```_rid``` i ```_etag``` na wszystkich dokumentach. Ponadto aparat Gremlin dodaje właściwości ```inVPartition``` i ```outVPartition``` dla krawędzi. Domyślnie te właściwości są dostępne do przechodzenia. Można jednak uwzględnić określone właściwości lub wszystkie z nich podczas przechodzenia Gremlin.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())

@@ -7,17 +7,14 @@ ms.author: baanders
 ms.date: 4/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 792b3894bf051298250ea8f402086c1edf297842
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: c9489b9e1afe5e42121f61a3b0b50b28b2401bd3
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362751"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85392288"
 ---
 # <a name="set-up-an-azure-digital-twins-instance"></a>Konfigurowanie wystąpienia usługi Azure Digital bliźniaczych reprezentacji
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 W tym artykule przedstawiono podstawowe kroki konfigurowania nowego wystąpienia usługi Azure Digital bliźniaczych reprezentacji. Obejmuje to utworzenie wystąpienia i przypisanie do niego uprawnień [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) .
 
@@ -58,7 +55,9 @@ Aby móc używać usługi Azure Digital bliźniaczych reprezentacji z aplikacją
 
 #### <a name="assign-yourself-a-role"></a>Przypisywanie siebie do roli
 
-Utwórz przypisanie roli dla siebie, używając poczty e-mail skojarzonej z dzierżawą usługi AAD w ramach subskrypcji platformy Azure. Najpierw upewnij się, że jesteś sklasyfikowany jako właściciel w ramach subskrypcji platformy Azure. Można to sprawdzić za pomocą polecenia, `az role assignment list --assignee <your-Azure-email>` Aby sprawdzić, czy *RoleDefinitionName* jest *właścicielem*. Następnie można użyć poniższego polecenia, aby przypisać użytkownika do roli właściciela dla wystąpienia usługi Azure Digital bliźniaczych reprezentacji:
+Utwórz przypisanie roli dla siebie, używając poczty e-mail skojarzonej z dzierżawą usługi AAD w ramach subskrypcji platformy Azure. 
+
+Najpierw upewnij się, że jesteś sklasyfikowany jako właściciel w ramach subskrypcji platformy Azure. Można to sprawdzić za pomocą `az role assignment list --assignee <your-Azure-email>` polecenia i sprawdzając, czy wartość *RoleDefinitionName* jest *właścicielem*. Jako właściciel subskrypcji możesz użyć następującego polecenia, aby przypisać użytkownika do roli właściciela dla wystąpienia bliźniaczych reprezentacji Digital Azure:
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"

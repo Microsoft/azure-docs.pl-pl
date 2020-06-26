@@ -1,22 +1,22 @@
 ---
 title: 'Szybki Start: synteza mowy z usługą głośnik-mowę'
 titleSuffix: Azure Cognitive Services
-description: W tym przewodniku szybki start użyjesz zestawu Speech SDK do przekonwertowania tekstu na mowę i odtworzenia danych wyjściowych na prelegentze.
+description: W tym przewodniku szybki start użyjesz zestawu Speech SDK, aby przekonwertować tekst na polecenie z syntezą głosu i odtworzyć dane wyjściowe głośników.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 06/25/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js-spx
-ms.openlocfilehash: 03d564242748fa52c176aaaa5341ede4449477fb
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 45822c431725ea5ef900f5f1ff39beae76699fbb
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715250"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391404"
 ---
 # <a name="quickstart-synthesize-speech-to-a-speaker"></a>Szybki Start: synteza mowy z prelegentem
 

@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 15623d622a40fa80889a8704e0b7f19d358a052c
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: dbeb2540084fad2cfab3ce360dd15b60a75e5e59
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84295409"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389330"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: Włączanie atrybutów niestandardowych w niestandardowych zasadach profilu
 
@@ -85,7 +85,7 @@ Aby włączyć atrybuty niestandardowe w zasadach, podaj **Identyfikator aplikac
 2. Upewnij się, że używasz katalogu, który zawiera dzierżawę usługi Azure AD, wybierając filtr **katalog + subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę Azure AD B2C.
 3. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **rejestracje aplikacji**.
 4. Wybierz pozycję **platforma obsługi tożsamości**.
-5. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad TrustFrameworkExtensions. XML.
+5. Wybierz pozycję **Przekaż zasady niestandardowe**, a następnie Przekaż zmienione pliki zasad TrustFrameworkExtensions.xml.
 
 > [!NOTE]
 > Pierwszy raz, gdy profil techniczny usługi Azure AD utrzymuje to zgłoszenie do katalogu, sprawdza, czy istnieje atrybut niestandardowy. Jeśli nie, tworzy atrybut niestandardowy.  

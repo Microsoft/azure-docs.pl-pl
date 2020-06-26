@@ -6,16 +6,16 @@ author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
-ms.topic: reference
+ms.topic: how-to
 ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 716fbafb444985a9c47635f944f6c9c7078c9aa6
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 8939d4546657b049b61eb31c08844dac07c67ae2
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85202657"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85389092"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalizowanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -252,7 +252,7 @@ W poniższym przykładzie w języku angielskim (EN) i hiszpańskim (ES) ciągi n
 1. Wybierz przekazane zasady, a następnie wybierz pozycję **Uruchom teraz**.
 1. Powinno być możliwe wyświetlenie zlokalizowanej strony rejestracji lub logowania.
 1. Kliknij link do rejestracji, aby wyświetlić zlokalizowaną stronę rejestracji w usłudze.
-1. Zmień język domyślny przeglądarki na hiszpański. Można też dodać parametr ciągu zapytania `ui_locales` do żądania autoryzacji. Przykład: 
+1. Zmień język domyślny przeglądarki na hiszpański. Można też dodać parametr ciągu zapytania `ui_locales` do żądania autoryzacji. Na przykład: 
 
 ```http
 https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es

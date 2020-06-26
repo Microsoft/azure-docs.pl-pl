@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: b277ae91dbdd747aba012d6e7302ed6cba61d938
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: d5aef82fe29ec544e29d7c65950e719110ad276a
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262271"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391863"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Korzystanie z zarządzanych tożsamości przypisanych do systemu w celu uzyskiwania dostępu do danych Azure Cosmos DB
 
@@ -75,10 +75,10 @@ W tym scenariuszu aplikacja funkcji odczyta temperaturę Aquarium, a następnie 
 
 Teraz mamy aplikację funkcji, która ma tożsamość zarządzaną przypisaną przez system z rolą **współautor konta DocumentDB** w uprawnieniach Azure Cosmos DB. Poniższy kod aplikacji funkcji pobierze klucze Azure Cosmos DB, utworzy obiekt CosmosClient, pobierze temperaturę Aquarium, a następnie zapisze go w Azure Cosmos DB.
 
-Ten przykład używa [interfejsu API kluczy list](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) , aby uzyskać dostęp do kluczy konta Azure Cosmos DB.
+Ten przykład używa [interfejsu API kluczy list](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) , aby uzyskać dostęp do kluczy konta Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Jeśli chcesz przypisać rolę [czytnika konta Cosmos DB](#grant-access-to-your-azure-cosmos-account) , musisz użyć [interfejsu API tylko do odczytu listy kluczy](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Spowoduje to wypełnienie tylko kluczy tylko do odczytu.
+> Jeśli chcesz przypisać rolę [czytnika konta Cosmos DB](#grant-access-to-your-azure-cosmos-account) , musisz użyć [interfejsu API tylko do odczytu listy kluczy](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys). Spowoduje to wypełnienie tylko kluczy tylko do odczytu.
 
 Interfejs API kluczy list zwraca `DatabaseAccountListKeysResult` obiekt. Ten typ nie jest zdefiniowany w bibliotekach języka C#. Poniższy kod przedstawia implementację tej klasy:  
 

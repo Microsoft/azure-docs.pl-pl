@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyci
 description: Dowiedz się, jak używać interfejsu wiersza polecenia platformy Azure do tworzenia kopii zapasowych udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee83d4df5a857f0ae5b554514ecda0c257a829ae
+ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76844045"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85391098"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Tworzenie kopii zapasowych udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia
 
@@ -22,7 +22,7 @@ Po zakończeniu tego samouczka dowiesz się, jak wykonać poniższe operacje za 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Aby zainstalować interfejs wiersza polecenia lokalnie i korzystać z niego, należy korzystać z interfejsu wiersza polecenia platformy Azure w wersji 2.0.18 lub nowszej. Aby znaleźć wersję interfejsu wiersza polecenia `run az --version`,. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Aby zainstalować interfejs wiersza polecenia lokalnie i korzystać z niego, należy korzystać z interfejsu wiersza polecenia platformy Azure w wersji 2.0.18 lub nowszej. Aby znaleźć wersję interfejsu wiersza polecenia, `run az --version` . Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu Recovery Services
 
@@ -42,7 +42,7 @@ Wykonaj następujące kroki, aby utworzyć magazyn usługi Recovery Services:
     eastus      AzureFiles
     ```
 
-2. Użyj polecenia [AZ Backup magazynu Create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) , aby utworzyć magazyn. Określ tę samą lokalizację dla magazynu, który został użyty dla grupy zasobów.
+1. Użyj polecenia [AZ Backup magazynu Create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) , aby utworzyć magazyn. Określ tę samą lokalizację dla magazynu, który został użyty dla grupy zasobów.
 
     Poniższy przykład tworzy magazyn usługi Recovery Services o nazwie *azurefilesvault* w regionie Wschodnie stany USA.
 
@@ -54,28 +54,6 @@ Wykonaj następujące kroki, aby utworzyć magazyn usługi Recovery Services:
     Location    Name                ResourceGroup
     ----------  ----------------    ---------------
     eastus      azurefilesvault     azurefiles
-    ```
-
-3. Określ typ nadmiarowości, która ma być używana w magazynie magazynu. Można użyć magazynu [lokalnie nadmiarowego](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) lub [magazynu geograficznie nadmiarowego](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-    Poniższy przykład ustawia opcję nadmiarowości magazynu dla *azurefilesvault* do **geonadmiarowości** przy użyciu polecenia [AZ Backup Storage Backup-Properties Set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) .
-
-    ```azurecli-interactive
-    az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
-    ```
-
-    Aby sprawdzić, czy magazyn został utworzony pomyślnie, możesz użyć polecenia [AZ Backup magazynu show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show) , aby uzyskać szczegółowe informacje o magazynie. Poniższy przykład wyświetla szczegóły *azurefilesvault* utworzonej w powyższych krokach.
-
-    ```azurecli-interactive
-    az backup vault show --name azurefilesvault --resource-group azurefiles --output table
-    ```
-
-    Dane wyjściowe będą podobne do następującej:
-
-    ```output
-    Location     Name               ResourceGroup
-    ----------   ---------------    ---------------
-    eastus       azurefilesvault    azurefiles
     ```
 
 ## <a name="enable-backup-for-azure-file-shares"></a>Włącz tworzenie kopii zapasowych dla udziałów plików platformy Azure
@@ -108,7 +86,7 @@ Należy zdefiniować następujące parametry, aby wyzwolić kopię zapasową na 
 * **--Item-Name** to nazwa udziału plików, dla którego chcesz wyzwolić kopię zapasową na żądanie. Aby pobrać **nazwę** lub **przyjazną nazwę** elementu kopii zapasowej, użyj polecenia [AZ Backup Item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 * **--Zachowaj-do** określa datę, do której ma zostać zachowany punkt odzyskiwania. Wartość powinna być ustawiona w formacie czasu UTC (dd-mm-rrrr).
 
-Poniższy przykład wyzwala tworzenie kopii zapasowych na żądanie dla udziału *azuresfiles* na koncie magazynu *afsaccount* z przechowywaniem do *20-01-2020*.
+Poniższy przykład wyzwala tworzenie kopii zapasowych na żądanie dla udziału *migracji pamięci* na koncie magazynu *afsaccount* z przechowywaniem do *20-01-2020*.
 
 ```azurecli-interactive
 az backup protection backup-now --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --retain-until 20-01-2020 --output table
@@ -125,4 +103,4 @@ Atrybut **name** w danych wyjściowych odpowiada nazwie zadania tworzonego przez
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak [przywrócić udziały plików platformy Azure przy użyciu interfejsu wiersza polecenia](restore-afs-cli.md)
-* Dowiedz się, jak [zarządzać usługą Azure File Share ackups przy użyciu interfejsu wiersza polecenia](manage-afs-backup-cli.md)
+* Informacje na temat [zarządzania kopiami zapasowymi udziałów plików platformy Azure przy użyciu interfejsu wiersza polecenia](manage-afs-backup-cli.md)
