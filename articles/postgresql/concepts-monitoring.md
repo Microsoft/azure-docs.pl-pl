@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: 935fba3869367bff971e6067b22b05b3a0d9119f
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/25/2020
+ms.openlocfilehash: a8f76be741ee3407ef4393b2e806889a7e494a15
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266886"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414593"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorowanie i dostrajanie Azure Database for PostgreSQL-pojedynczego serwera
 Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i optymalizację w obciążeniu. Azure Database for PostgreSQL oferuje różne opcje monitorowania w celu zapewnienia wglądu w zachowanie serwera programu.
@@ -24,13 +24,13 @@ Te metryki są dostępne dla Azure Database for PostgreSQL:
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Opis|
 |---|---|---|---|
-|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Procent użycia procesora CPU.|
-|memory_percent|Procent pamięci|Wartość procentowa|Procent używanej pamięci.|
-|io_consumption_percent|Procent operacji we/wy|Wartość procentowa|Procent operacji we/wy w użyciu.|
-|storage_percent|Procent miejsca do magazynowania|Wartość procentowa|Wartość procentowa używanej przestrzeni dyskowej poza maksymalną.|
+|cpu_percent|Procent użycia procesora CPU|Procent|Procent użycia procesora CPU.|
+|memory_percent|Procent pamięci|Procent|Procent używanej pamięci.|
+|io_consumption_percent|Procent operacji we/wy|Procent|Procent operacji we/wy w użyciu. (Nie dotyczy serwerów warstwy Podstawowa).|
+|storage_percent|Procent miejsca do magazynowania|Procent|Wartość procentowa używanej przestrzeni dyskowej poza maksymalną.|
 |storage_used|Używany magazyn|Bajty|Ilość używanej pamięci masowej. Magazyn używany przez usługę może obejmować pliki bazy danych, dzienniki transakcji i Dzienniki serwera.|
 |storage_limit|Limit magazynu|Bajty|Maksymalny magazyn dla tego serwera.|
-|serverlog_storage_percent|Procent magazynu dzienników serwera|Wartość procentowa|Procent magazynu dzienników serwera używany poza maksymalnym magazynem dzienników serwera.|
+|serverlog_storage_percent|Procent magazynu dzienników serwera|Procent|Procent magazynu dzienników serwera używany poza maksymalnym magazynem dzienników serwera.|
 |serverlog_storage_usage|Używany magazyn dzienników serwera|Bajty|Ilość używanego magazynu dzienników serwera.|
 |serverlog_storage_limit|Limit magazynowania dziennika serwera|Bajty|Maksymalny magazyn dzienników serwera dla tego serwera.|
 |active_connections|Aktywne połączenia|Liczba|Liczba aktywnych połączeń z serwerem.|

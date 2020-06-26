@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2017
+ms.date: 06/25/2020
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 46f86c3aa730b5222a6c6e36bdb392a0ae891c6c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 0f2bcb78b1a998c1b335a5757b832fbb1d3fc7fb
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84689422"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412502"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Tworzenie komunikacji równorzędnej sieci wirtualnej — różne modele wdrażania i subskrypcje
 
@@ -34,7 +34,7 @@ Procedurę tworzenia komunikacji równorzędnej sieci wirtualnej różnią się 
 
 Nie można utworzyć komunikacji równorzędnej sieci wirtualnej między dwiema sieciami wirtualnymi wdrożonymi przy użyciu klasycznego modelu wdrażania. W tym samouczku są używane sieci wirtualne istniejące w tym samym regionie. Ten samouczek umożliwia równorzędne sieci wirtualne w tym samym regionie. Można także równorzędne sieci wirtualne w różnych [obsługiwanych regionach](virtual-network-manage-peering.md#cross-region). Zaleca się zapoznanie się z [wymaganiami i ograniczeniami komunikacji równorzędnej](virtual-network-manage-peering.md#requirements-and-constraints) przed równorzędnymi sieciami wirtualnymi.
 
-Podczas tworzenia komunikacji równorzędnej sieci wirtualnej między sieciami wirtualnymi, które istnieją w różnych subskrypcjach, subskrypcje muszą być skojarzone z tą samą dzierżawą Azure Active Directory. Jeśli nie masz jeszcze dzierżawy Azure Active Directory, możesz ją szybko [utworzyć](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Sieci wirtualne można łączyć w różnych subskrypcjach i różnych Azure Active Directory dzierżawców przy użyciu [VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)platformy Azure.
+Podczas tworzenia komunikacji równorzędnej sieci wirtualnej między sieciami wirtualnymi, które istnieją w różnych subskrypcjach, subskrypcje mogą być skojarzone z tą samą dzierżawą Azure Active Directory. Jeśli nie masz jeszcze dzierżawy Azure Active Directory, możesz ją szybko [utworzyć](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant).
 
 Do utworzenia komunikacji równorzędnej sieci wirtualnej można użyć [Azure Portal](#portal), [interfejsu wiersza polecenia](#cli) platformy Azure lub [programu Azure PowerShell](#powershell) . Kliknij dowolne z poprzednich linków narzędzi, aby przejść bezpośrednio do procedury tworzenia komunikacji równorzędnej sieci wirtualnej przy użyciu wybranego przez siebie narzędzia.
 

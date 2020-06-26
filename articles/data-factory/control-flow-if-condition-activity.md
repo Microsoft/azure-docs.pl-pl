@@ -11,17 +11,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9b491c4f0cc99395c44d989bf19fa2a7b03da696
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f65ffc9ef24b18ce0f18571c1f3fc91e7ca7fdf
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417167"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414610"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Działanie if Condition w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Działanie If Condition pełni taką samą rolę, co instrukcja if w językach programowania. Powoduje ono obliczenie zestawu działań, gdy warunek zostanie obliczony na wartość `true`, oraz innego zestawu działań, gdy warunek zostanie obliczony na wartość `false`. 
+Działanie If Condition pełni taką samą rolę, co instrukcja if w językach programowania. Wykonuje zestaw działań, gdy warunek ma wartość `true` i inny zestaw działań, gdy warunek zostanie obliczony `false` . 
 
 ## <a name="syntax"></a>Składnia
 
@@ -65,13 +65,13 @@ Działanie If Condition pełni taką samą rolę, co instrukcja if w językach p
 
 ## <a name="type-properties"></a>Właściwości typu
 
-Właściwość | Opis | Dozwolone wartości | Wymagany
+Właściwość | Opis | Dozwolone wartości | Wymagane
 -------- | ----------- | -------------- | --------
-name | Nazwa działania if-Condition. | String | Tak
-type | Musi być ustawiona na **IfCondition** | String | Tak
-wyrażenie | Wyrażenie, które musi oszacować do wartości true lub false. | Wyrażenie z typem wyniku Boolean | Tak
-ifTrueActivities | Zestaw działań, które są wykonywane, gdy wynikiem wyrażenia jest wyrażenie `true`. | Tablica | Tak
-ifFalseActivities | Zestaw działań, które są wykonywane, gdy wynikiem wyrażenia jest wyrażenie `false`. | Tablica | Tak
+name | Nazwa działania if-Condition. | Ciąg | Tak
+typ | Musi być ustawiona na **IfCondition** | Ciąg | Tak
+expression | Wyrażenie, które musi oszacować do wartości true lub false. | Wyrażenie z typem wyniku Boolean | Tak
+ifTrueActivities | Zestaw działań, które są wykonywane, gdy wynikiem wyrażenia jest wyrażenie `true` . | Tablica | Tak
+ifFalseActivities | Zestaw działań, które są wykonywane, gdy wynikiem wyrażenia jest wyrażenie `false` . | Tablica | Tak
 
 ## <a name="example"></a>Przykład
 Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjściowego. Folder wyjściowy jest określany przez wartość parametru potoku: routeSelection. Jeśli wartość routeSelection ma wartość true, dane są kopiowane do outputPath1. A jeśli wartością routeSelection jest false, dane są kopiowane do outputPath2. 
@@ -79,7 +79,7 @@ Potok w tym przykładzie kopiuje dane z folderu wejściowego do folderu wyjścio
 > [!NOTE]
 > Ta sekcja zawiera definicje JSON i przykładowe polecenia programu PowerShell umożliwiające uruchomienie potoku. Aby zapoznać się z instrukcjami krok po kroku dotyczącymi tworzenia potoku Data Factory przy użyciu definicji Azure PowerShell i JSON, zobacz [Samouczek: Tworzenie fabryki danych przy użyciu Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Potok z działaniem IF-Condition (Adfv2QuickStartPipeline. JSON)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Potok z działaniem IF-Condition (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -190,7 +190,7 @@ Innym przykładem dla wyrażenia jest:
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Połączona usługa Azure Storage (AzureStorageLinkedService. JSON)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Połączona usługa Azure Storage (AzureStorageLinkedService.jswłączona)
 
 ```json
 {
@@ -204,7 +204,7 @@ Innym przykładem dla wyrażenia jest:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Sparametryzowany zestaw danych obiektów blob platformy Azure (BlobDataset. JSON)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Sparametryzowany zestaw danych obiektów blob platformy Azure (BlobDataset.json)
 Potok ustawia **folderPath** na wartość **outputPath1** lub **outputPath2** parametru potoku. 
 
 ```json
@@ -231,7 +231,7 @@ Potok ustawia **folderPath** na wartość **outputPath1** lub **outputPath2** pa
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Plik JSON parametru potoku (PipelineParameters. JSON)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Plik JSON parametru potoku (PipelineParameters.json)
 
 ```json
 {

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: 40b3ebf9193ad2d167cb36792900746201605298
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: f4e5bbdc50d99eca774dc5b96657ac8bfdebca17
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106468"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414151"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -65,7 +65,7 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |**Azure Database for MySQL** | Microsoft. DBforMySQL/serwery    | Mójserwersql |
 |**Azure Database for MariaDB** | Microsoft. DBforMariaDB/serwery    | mariadbServer |
 |**Azure IoT Hub** | Microsoft. Devices/IotHubs    | iotHub |
-|**W usłudze Azure Key Vault** | Microsoft./magazyny kluczy    | magazyn |
+|**Azure Key Vault** | Microsoft./magazyny kluczy    | magazyn |
 |**Usługa Azure Kubernetes Service — interfejs API Kubernetes** | Microsoft. ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft. Search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft. ContainerRegistry/rejestry    | registry |
@@ -76,7 +76,7 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |**Azure Relay** | Microsoft. Relay/przestrzenie nazw | namespace |
 |**Azure Event Grid** | Microsoft. EventGrid/tematy    | temat |
 |**Azure Event Grid** | Microsoft. EventGrid/domeny    | domena |
-|**Azure webapps** | Microsoft. Web/witryny    | lokacja |
+|**Azure webapps** | Microsoft. Web/witryny    | lokacje |
 |**Azure Machine Learning** | Microsoft. MachineLearningServices/obszary robocze    | obszar roboczy |
   
  

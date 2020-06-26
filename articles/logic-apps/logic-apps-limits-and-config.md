@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/20/2020
-ms.openlocfilehash: 3c62f9794a4eb963bcd23a294d82b67cd9e37d08
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.date: 06/25/2020
+ms.openlocfilehash: 33e521046889733b2f0a66b839ab5dde46398318
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367227"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412699"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limits and configuration information for Azure Logic Apps (Limity i informacje o konfiguracji dla usługi Azure Logic Apps)
 
@@ -216,7 +216,7 @@ Poniżej przedstawiono limity łączników niestandardowych, które można tworz
 
 Dla każdej subskrypcji platformy Azure obowiązują następujące limity kont integracji:
 
-* Jedno konto integracji w [warstwie Bezpłatna](../logic-apps/logic-apps-pricing.md#integration-accounts) na region platformy Azure
+* Jedno konto integracji w [warstwie Bezpłatna](../logic-apps/logic-apps-pricing.md#integration-accounts) na region platformy Azure. Ta warstwa jest dostępna tylko dla regionów publicznych na platformie Azure, na przykład zachodnie stany USA czy Azja Południowo-Wschodnia, ale nie dla Chin lub [Azure Government](../azure-government/documentation-government-welcome.md) [platformy Azure](https://docs.microsoft.com/azure/china/overview-operations) .
 
 * 1 000 łączne konta integracji, w tym konta integracji w dowolnych [środowiskach usług integracji (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) zarówno dla [deweloperów, jak i Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 
@@ -244,7 +244,7 @@ Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.micros
 |----------|------|-------|----------|
 | Umowy handlowe EDI | 10 | 1 | 1000 |
 | Partnerzy handlowi EDI | 25 | 2 | 1000 |
-| Mapy | 25 | 500 | 1000 |
+| Maps | 25 | 500 | 1000 |
 | Schematy | 25 | 500 | 1000 |
 | Zestawy | 10 | 25 | 1000 |
 | Certyfikaty | 25 | 2 | 1000 |
@@ -268,7 +268,7 @@ Stawki cenowe znajdują się w temacie [Logic Apps cenniku](https://azure.micros
 
 | Punkt końcowy środowiska uruchomieniowego | Bezpłatna | Podstawowa | Standardowa (Standard) | Uwagi |
 |------------------|------|-------|----------|-------|
-| Wywołania odczytu na 5 minut | 3000 | 30 000 | 60 000 | W razie potrzeby można rozesłać obciążenie do więcej niż jednego konta. |
+| Wywołania odczytu na 5 minut | 3000 | 30 000 | 60 000 | Ten limit dotyczy wywołań, które pobierają nieprzetworzone dane wejściowe i wyjściowe z historii uruchamiania aplikacji logiki. W razie potrzeby można rozesłać obciążenie do więcej niż jednego konta. |
 | Wywołania wywołań na 5 minut | 3000 | 30 000 | 45 000 | W razie potrzeby można rozesłać obciążenie do więcej niż jednego konta. |
 | Śledzenie wywołań na 5 minut | 3000 | 30 000 | 45 000 | W razie potrzeby można rozesłać obciążenie do więcej niż jednego konta. |
 | Blokowanie współbieżnych wywołań | ~ 1 000 | ~ 1 000 | ~ 1 000 | Ten sam dla wszystkich jednostek SKU. Możesz zmniejszyć liczbę równoczesnych żądań lub skrócić czas trwania w razie potrzeby. |

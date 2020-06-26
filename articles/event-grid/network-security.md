@@ -5,14 +5,14 @@ services: event-grid
 author: VidyaKukke
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 06/25/2020
 ms.author: vkukke
-ms.openlocfilehash: ba3bc14c9b4a9d5d866dbb1b9369557b948078d0
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: f3b3877ae3278e12eec43843dbed6ac686227860
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390197"
+ms.locfileid: "85414253"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Zabezpieczenia sieciowe Azure Event Grid zasobów
 W tym artykule opisano sposób korzystania z następujących funkcji zabezpieczeń w Azure Event Grid: 
@@ -37,6 +37,7 @@ Azure Event Grid obsługuje kontrolę dostępu opartą na protokole IP do publik
 
 Domyślnie temat i domena są dostępne z Internetu, o ile żądanie zawiera prawidłowe uwierzytelnianie i autoryzację. Za pomocą zapory IP można ograniczyć ją do tylko zestawu adresów IP lub zakresów adresów IP w notacji [CIDR (bez klas routingu między domenami)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) . Wydawcy pochodzące z dowolnego innego adresu IP będą odrzucani i otrzymają odpowiedź 403 (zabroniony).
 
+Aby uzyskać instrukcje krok po kroku dotyczące konfigurowania zapory IP dla tematów i domen, zobacz [Konfigurowanie zapory IP](configure-firewall.md).
 
 ## <a name="private-endpoints"></a>Prywatne punkty końcowe
 Możesz użyć [prywatnych punktów końcowych](../private-link/private-endpoint-overview.md) , aby umożliwić bezpieczne wykonywanie zdarzeń bezpośrednio z sieci wirtualnej do Twoich tematów i domen za pośrednictwem [prywatnego linku](../private-link/private-link-overview.md) bez pośrednictwa publicznego Internetu. Prywatny punkt końcowy jest specjalnym interfejsem sieciowym dla usługi platformy Azure w sieci wirtualnej. Gdy tworzysz prywatny punkt końcowy dla tematu lub domeny, zapewnia on bezpieczną łączność między klientami w sieci wirtualnej i zasobem Event Grid. Do prywatnego punktu końcowego jest przypisany adres IP z zakresu adresów IP sieci wirtualnej. Połączenie między prywatnym punktem końcowym a usługą Event Grid używa bezpiecznego linku prywatnego.

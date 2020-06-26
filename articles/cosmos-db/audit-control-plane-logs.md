@@ -4,14 +4,14 @@ description: Dowiedz się, jak przeprowadzać inspekcję operacji płaszczyzny k
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/23/2020
+ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: cb6a27c0f03b7c0c41d8f323609df612363cfd9e
-ms.sourcegitcommit: 635114a0f07a2de310b34720856dd074aaf4f9cd
+ms.openlocfilehash: 4c9f02784507ee893b6396fef4ed34a87610166d
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85262654"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414190"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Jak przeprowadzić inspekcję Azure Cosmos DB operacji na płaszczyźnie kontroli
 
@@ -29,7 +29,7 @@ Poniżej przedstawiono kilka przykładowych scenariuszy, w których Inspekcja op
 
 Przed inspekcją operacji płaszczyzny kontroli w Azure Cosmos DB należy wyłączyć dostęp do zapisu metadanych opartych na kluczach na Twoim koncie. Gdy dostęp do zapisu metadanych opartych na kluczach jest wyłączony, klienci łączący się z kontem usługi Azure Cosmos za pomocą kluczy kont nie mogą uzyskać dostępu do konta. Aby wyłączyć dostęp do zapisu, można ustawić `disableKeyBasedMetadataWriteAccess` Właściwość na wartość true. Po ustawieniu tej właściwości zmiany w dowolnym zasobie mogą wystąpić od użytkownika z poprawnym rolą kontroli dostępu opartej na rolach (RBAC). Aby dowiedzieć się więcej na temat sposobu ustawiania tej właściwości, zobacz artykuł [Zapobiegaj zmianom z zestawów SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . 
 
-`disableKeyBasedMetadataWriteAccess`Gdy program jest włączony, jeśli klient oparty na zestawie SDK uruchomi operacje tworzenia lub aktualizowania, zwracany jest błąd *"operacja post" w zasobie "ContainerNameorDatabaseName" jest niedozwolona za pośrednictwem Azure Cosmos DB punktu końcowego* . Musisz włączyć dostęp do takich operacji dla Twojego konta lub wykonać operacje tworzenia/aktualizacji za pomocą Azure Resource Manager, interfejsu wiersza polecenia platformy Azure lub programu Azure PowerShell. Aby przełączyć z powrotem, ustaw disableKeyBasedMetadataWriteAccess na **false** przy użyciu interfejsu wiersza polecenia platformy Azure, zgodnie z opisem w artykule [zapobieganie zmianom z zestawu SDK Cosmos](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Pamiętaj, aby zmienić wartość `disableKeyBasedMetadataWriteAccess` na false zamiast true.
+`disableKeyBasedMetadataWriteAccess`Gdy program jest włączony, jeśli klient oparty na zestawie SDK uruchomi operacje tworzenia lub aktualizowania, zwracany jest błąd *"operacja post" w zasobie "ContainerNameorDatabaseName" jest niedozwolona za pośrednictwem Azure Cosmos DB punktu końcowego* . Musisz włączyć dostęp do takich operacji dla Twojego konta lub wykonać operacje tworzenia/aktualizacji za pomocą Azure Resource Manager, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. Aby przełączyć z powrotem, ustaw disableKeyBasedMetadataWriteAccess na **false** przy użyciu interfejsu wiersza polecenia platformy Azure, zgodnie z opisem w artykule [zapobieganie zmianom z zestawu SDK Cosmos](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Pamiętaj, aby zmienić wartość `disableKeyBasedMetadataWriteAccess` na false zamiast true.
 
 Podczas wyłączania dostępu do zapisu metadanych należy wziąć pod uwagę następujące kwestie:
 
@@ -71,7 +71,7 @@ Poniższe zrzuty ekranu przechwytują dzienniki po zmianie poziomu spójności d
 
 :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Po dodaniu sieci wirtualnej są rejestrowane płaszczyzny kontroli":::
 
-Następujące zrzuty ekranu przechwytują dzienniki podczas aktualizowania przepływności tabeli Cassandra:
+Poniższe zrzuty ekranu przechwytują dzienniki, gdy jest tworzona przestrzeń kluczy lub tabela konta Cassandra oraz gdy przepływność zostanie zaktualizowana. Płaszczyzna kontroli rejestruje operacje tworzenia i aktualizowania bazy danych, a kontener jest rejestrowany oddzielnie, jak pokazano na poniższym zrzucie ekranu:
 
 :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Gdy przepływność jest aktualizowana, dzienniki płaszczyzny kontroli":::
 
@@ -101,30 +101,39 @@ Poniżej przedstawiono operacje płaszczyzny kontroli dostępne na poziomie kont
 
 Poniżej przedstawiono operacje płaszczyzny kontroli dostępne na poziomie bazy danych i kontenera. Te operacje są dostępne jako metryki w usłudze Azure Monitor:
 
+* Utworzono SQL Database
 * SQL Database zaktualizowane
-* Zaktualizowano kontener SQL
 * SQL Database zaktualizowana przepływność
-* Zaktualizowano przepływność kontenera SQL
 * SQL Database usunięte
+* Utworzono kontener SQL
+* Zaktualizowano kontener SQL
+* Zaktualizowano przepływność kontenera SQL
 * Usunięto kontener SQL
+* Utworzono przestrzeń kluczy Cassandra
 * Cassandra miejsce na dysku
-* Zaktualizowano tabelę Cassandra
 * Cassandra przepustowość obszaru kluczy
-* Zaktualizowano przepływność tabeli Cassandra
 * Cassandra usunięto przestrzeń kluczy
+* Utworzono tabelę Cassandra
+* Zaktualizowano tabelę Cassandra
+* Zaktualizowano przepływność tabeli Cassandra
 * Usunięto tabelę Cassandra
+* Utworzono bazę danych Gremlin
 * Baza danych Gremlin została zaktualizowana
-* Zaktualizowano Graf Gremlin
 * Zaktualizowano przepływność bazy danych Gremlin
-* Zaktualizowano przepływność grafu Gremlin
 * Baza danych Gremlin została usunięta
+* Utworzono Graf Gremlin
+* Zaktualizowano Graf Gremlin
+* Zaktualizowano przepływność grafu Gremlin
 * Wykres Gremlin został usunięty
+* Utworzono bazę danych Mongo
 * Baza danych Mongo została zaktualizowana
-* Aktualizacja kolekcji Mongo
 * Zaktualizowano przepływność bazy danych Mongo
-* Zaktualizowano przepływność kolekcji Mongo
 * Baza danych Mongo została usunięta
+* Utworzono kolekcję Mongo
+* Aktualizacja kolekcji Mongo
+* Zaktualizowano przepływność kolekcji Mongo
 * Kolekcja Mongo została usunięta
+* Utworzono tabelę Azure
 * Zaktualizowano tabelę platformy Azure
 * Zaktualizowano przepływność tabeli usługi Azure Table
 * Usunięto tabelę platformy Azure
@@ -144,14 +153,15 @@ Poniżej przedstawiono nazwy operacji w dziennikach diagnostycznych dla różnyc
 
 Dla operacji specyficznych dla interfejsu API operacja jest nazywana następującym formatem:
 
-* Rodzaju interfejsu API + ApiKindResourceType + OperationType + Start/Complete
-* Rodzaju interfejsu API + ApiKindResourceType + "przepływność" + OperationType + Start/Complete
+* Rodzaju interfejsu API + ApiKindResourceType + OperationType
+* Rodzaju interfejsu API + ApiKindResourceType + "przepływność" + OperationType
 
 **Przykład** 
 
-* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
-* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
-* SqlContainersUpdateStart, SqlContainersUpdateComplete
+* CassandraKeyspacesCreate
+* CassandraKeyspacesUpdate
+* CassandraKeyspacesThroughputUpdate
+* SqlContainersUpdate
 
 Właściwość *ResourceDetails* zawiera całą treść zasobu jako ładunek żądania i zawiera wszystkie właściwości żądane do aktualizacji
 
@@ -161,14 +171,28 @@ Poniżej przedstawiono kilka przykładów pobierania dzienników diagnostycznych
 
 ```kusto
 AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdateStart"
+| where Category startswith "ControlPlane"
+| where OperationName contains "Update"
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+| where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 ## <a name="next-steps"></a>Następne kroki

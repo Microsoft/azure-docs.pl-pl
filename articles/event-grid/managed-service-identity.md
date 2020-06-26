@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: spelluru
-ms.openlocfilehash: 69c7c7f361a930ab1dc2e0437365d2f4457b57e2
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: 4d81845ab61d8a84b9bad47ede4a027cd772c499
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85101062"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412939"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
 W tym artykule opisano sposób włączania [tożsamości usługi zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla tematów lub domen w usłudze Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych, takich jak kolejki Service Bus i tematy, Centra zdarzeń i konta magazynu.
@@ -44,6 +44,8 @@ Podobnie można użyć `az eventgrid domain create` polecenia, aby utworzyć dom
 W poprzedniej sekcji przedstawiono sposób włączania tożsamości zarządzanej przez system podczas tworzenia tematu lub domeny. W tej sekcji dowiesz się, jak włączyć tożsamość zarządzaną przez system dla istniejącego tematu lub domeny. 
 
 ### <a name="use-the-azure-portal"></a>Korzystanie z witryny Azure Portal
+Poniższa procedura pokazuje, jak włączyć tożsamość zarządzaną przez system dla tematu. Kroki umożliwiające włączenie tożsamości dla domeny są podobne. 
+
 1. Przejdź do [Azure Portal](https://portal.azure.com).
 2. Wyszukaj **Tematy usługi Event Grid** na pasku wyszukiwania u góry.
 3. Wybierz **temat** , dla którego chcesz włączyć zarządzaną tożsamość. 

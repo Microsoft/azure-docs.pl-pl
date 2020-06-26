@@ -4,15 +4,15 @@ description: Aby nawiązać połączenie z siecią wirtualną przy użyciu uwier
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: how-to
-ms.date: 02/19/2020
+ms.topic: conceptual
+ms.date: 06/25/2020
 ms.author: alzam
-ms.openlocfilehash: 2fc329bd77bafb2e11575b75be102314df98131f
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 0ef0c7d3a269753067e53a69b9da680db969e25d
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987201"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414434"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Tworzenie dzierżawy usługi Azure Active Directory dla połączeń protokołu OpenVPN typu punkt-lokacja
 
@@ -28,32 +28,20 @@ Podczas nawiązywania połączenia z siecią wirtualną można użyć uwierzytel
 
 W tym kroku zostanie włączone uwierzytelnianie usługi Azure AD na bramie sieci VPN.
 
-1. Włącz uwierzytelnianie usługi Azure AD na bramie sieci VPN, uruchamiając następujące polecenia. Pamiętaj, aby zmodyfikować polecenia, aby odzwierciedlały własne środowisko:
+1. Włącz uwierzytelnianie usługi Azure AD na bramie sieci VPN, przechodząc do **konfiguracji typu punkt-lokacja** i wybierając **OpenVPN (SSL)** jako **Typ tunelu**. Wybierz **Azure Active Directory** jako **Typ uwierzytelniania** , a następnie wypełnij informacje w sekcji **Azure Active Directory** .
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "application ID from previous section" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24
-    ```
+    ![Sieć VPN platformy Azure](./media/openvpn-azure-ad-tenant-multi-app/azure-ad-auth-portal.png)
+
     > [!NOTE]
-    > Nie używaj identyfikatora aplikacji klienta sieci VPN platformy Azure w powyższych poleceniach: spowoduje to przyznanie wszystkim użytkownikom dostępu do bramy sieci VPN. Użyj identyfikatora zarejestrowanej aplikacji.
+    > Nie używaj identyfikatora aplikacji klienta sieci VPN platformy Azure: przyznaje wszystkim użytkownikom dostęp do bramy sieci VPN. Użyj identyfikatora zarejestrowanej aplikacji.
 
-2. Utwórz i Pobierz profil, uruchamiając następujące polecenia. Zmień wartości parametrów-ResourcGroupName i-Name, aby były zgodne z własnymi.
+2. Utwórz i Pobierz profil, klikając łącze **Pobierz klienta sieci VPN** .
 
-    ```azurepowershell-interactive
-    $profile = New-AzVpnClientConfiguration -Name <name of VPN gateway> -ResourceGroupName <Resource group> -AuthenticationMethod "EapTls"
-    $PROFILE.VpnProfileSASUrl
-    ```
+3. Wyodrębnij pobrany plik zip.
 
-3. Po uruchomieniu poleceń zobaczysz wynik podobny do przedstawionego poniżej. Skopiuj adres URL wyniku do przeglądarki, aby pobrać plik zip profilu.
+4. Przejdź do folderu rozpakowanego "AzureVPN".
 
-    ![Sieć VPN platformy Azure](./media/openvpn-azure-ad-tenant-multi-app/profile.png)
-
-4. Wyodrębnij pobrany plik zip.
-
-5. Przejdź do folderu rozpakowanego "AzureVPN".
-
-6. Zanotuj lokalizację pliku "azurevpnconfig.xml". azurevpnconfig.xml zawiera ustawienie dla połączenia sieci VPN i można je zaimportować bezpośrednio do aplikacji klienckiej sieci VPN platformy Azure. Możesz również dystrybuować ten plik do wszystkich użytkowników, którzy muszą łączyć się za pośrednictwem poczty e-mail lub w inny sposób. Aby nawiązać połączenie, użytkownik musi dysponować prawidłowymi poświadczeniami usługi Azure AD.
+5. Zanotuj lokalizację pliku "azurevpnconfig.xml". azurevpnconfig.xml zawiera ustawienie dla połączenia sieci VPN i można je zaimportować bezpośrednio do aplikacji klienckiej sieci VPN platformy Azure. Możesz również dystrybuować ten plik do wszystkich użytkowników, którzy muszą łączyć się za pośrednictwem poczty e-mail lub w inny sposób. Aby nawiązać połączenie, użytkownik musi dysponować prawidłowymi poświadczeniami usługi Azure AD.
 
 ## <a name="next-steps"></a>Następne kroki
 

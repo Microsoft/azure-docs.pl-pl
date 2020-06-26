@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 124aac96550b5d462c0794053452ed28dba27452
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 78f50abf68412d2edcb7a6504c8e5c1b788e5901
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84013218"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413165"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
 
@@ -43,7 +43,7 @@ Region to zestaw centrów danych wdrożonych w ramach określonego czasu oczekiw
 
 Strefa dostępności to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefy dostępności to unikatowe fizyczne lokalizacje w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach. Fizyczna separacja stref dostępności w ramach regionu chroni aplikacje i dane przed awariami centrum danych. Usługi strefowo nadmiarowe replikujeją aplikacje i dane między Strefy dostępności, aby chronić je przed awariami jednego punktu. Dzięki strefom dostępności platforma Azure oferuje najlepszą w branży umowę dotycząca poziomu usług (SLA) gwarantującą czas działania na poziomie 99,99%. Pełna treść [umowy SLA dotyczącej usługi Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wyjaśnia w całości kwestię gwarantowanej dostępności platformy Azure.
 
-Strefa dostępności w regionie świadczenia usługi Azure jest kombinacją domeny błędów i domeny aktualizacji. Jeśli na przykład utworzysz trzy lub więcej maszyn wirtualnych w trzech strefach w regionie świadczenia usługi Azure, maszyny wirtualne będą rozproszone w trzech domenach błędów i trzech domenach aktualizacji. Platforma Azure rozpoznaje to rozproszenie w domenach aktualizacji, aby upewnić się, że maszyny wirtualne w różnych strefach nie są aktualizowane w tym samym czasie.
+Strefa dostępności w regionie świadczenia usługi Azure jest kombinacją domeny błędów i domeny aktualizacji. Jeśli na przykład utworzysz trzy lub więcej maszyn wirtualnych w trzech strefach w regionie świadczenia usługi Azure, maszyny wirtualne będą rozproszone w trzech domenach błędów i trzech domenach aktualizacji. Platforma Azure rozpoznaje tę dystrybucję w domenach aktualizacji, aby upewnić się, że maszyny wirtualne w różnych strefach nie są zaplanowane do aktualizacji w tym samym czasie.
 
 Twórz wysoką dostępność w architekturze aplikacji dzięki umieszczeniu na niej zasobów obliczeniowych, magazynu, sieci i danych w ramach strefy i replikacji w innych strefach. Usługi platformy Azure, które obsługują strefy dostępności, dzielą się na dwie kategorie:
 
@@ -112,7 +112,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Service Bus | Azure Firewall | Data Box Heavy |
 > | Service Fabric | Azure Functions | Data Catalog |
 > | Zestawy skali maszyn wirtualnych | Azure HPC Cache | Data Factory: Data Factory v1 |
-> | Virtual Machines | Azure IoT Hub | Data Lake Analytics |
+> | Maszyny wirtualne | Azure IoT Hub | Data Lake Analytics |
 > | Virtual Machines: Seria Av2 | Azure Kubernetes Service (AKS) | Machine Learning Studio |
 > | Virtual Machines: BS — seria | Azure Machine Learning | Microsoft Genomics |
 > | Virtual Machines: Seria DSv2 | Link prywatny platformy Azure | Remote Rendering |

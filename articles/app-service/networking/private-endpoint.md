@@ -4,17 +4,17 @@ description: Połącz się prywatnie z aplikacją internetową przy użyciu pryw
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 06/26/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bc9cd134e4c83aea94ae0049158b3054c602cce8
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: b9cf0467829425003a33ef806d8e7028e7f27add
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374427"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413403"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Używanie prywatnych punktów końcowych dla usługi Azure Web App (wersja zapoznawcza)
 
@@ -65,22 +65,52 @@ W dziennikach HTTP sieci Web aplikacji sieci Web znajduje się adres IP źródł
 
 ## <a name="dns"></a>DNS
 
+W przypadku korzystania z prywatnego punktu końcowego dla aplikacji internetowej żądany adres URL musi być zgodny z nazwą aplikacji sieci Web. Domyślnie mywebappname.azurewebsites.net.
+
 Domyślnie, bez prywatnego punktu końcowego, publiczna nazwa aplikacji sieci Web jest nazwą kanoniczną klastra.
-Na przykład rozpoznawanie nazw będzie: mywebapp.azurewebsites.net CNAME clustername.azurewebsites.windows.net clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net cloudservicename.cloudapp.net A 40.122.110.154 
+Na przykład rozpoznawanie nazw będzie:
 
-Podczas wdrażania prywatnego punktu końcowego zmienimy wpis DNS, aby wskazywał nazwę kanoniczną mywebapp.privatelink.azurewebsites.net.
-Na przykład rozpoznawanie nazw będzie: mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net mywebapp.privatelink.azurewebsites.net CNAME clustername.azurewebsites.windows.net clustername.azurewebsites.windows.net CNAME cloudservicename.cloudapp.net cloudservicename.cloudapp.net A 40.122.110.154 
+|Nazwa |Typ |Wartość |
+|-----|-----|------|
+|mywebapp.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154| 
 
-Jeśli masz prywatny serwer DNS lub strefę prywatną Azure DNS, musisz skonfigurować strefę o nazwie privatelink.azurewebsites.net. Zarejestruj rekord aplikacji sieci Web przy użyciu rekordu a i prywatnego adresu IP punktu końcowego.
-Na przykład rozpoznawanie nazw będzie: mywebapp.azurewebsites.net CNAME mywebapp.privatelink.azurewebsites.net mywebapp.privatelink.azurewebsites.net 10.10.10.8 
+
+Podczas wdrażania prywatnego punktu końcowego aktualizujemy wpis DNS w taki sposób, aby wskazywał nazwę kanoniczną mywebapp.privatelink.azurewebsites.net.
+Na przykład rozpoznawanie nazw będzie:
+
+|Nazwa |Typ |Wartość |Dyskusji |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
+|cloudservicename.cloudapp.net|A|40.122.110.154|< — ten publiczny adres IP nie jest prywatnym punktem końcowym, zostanie wyświetlony błąd 503|
+
+Należy skonfigurować prywatny serwer DNS lub Azure DNS strefę prywatną, w przypadku testów można zmodyfikować wpis hosta maszyny testowej.
+Należy utworzyć strefę DNS: **privatelink.azurewebsites.NET**. Zarejestruj rekord aplikacji sieci Web przy użyciu rekordu a i prywatnego adresu IP punktu końcowego.
+Na przykład rozpoznawanie nazw będzie:
+
+|Nazwa |Typ |Wartość |Dyskusji |
+|-----|-----|------|-------|
+|mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
+|mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|< — zarządzanie tym wpisem w systemie DNS w celu wskazywania prywatnego adresu IP punktu końcowego|
+
+Po tej konfiguracji DNS można skontaktować się z Twoją aplikacją internetową, korzystając z nazwy domyślnej mywebappname.azurewebsites.net.
+
 
 Jeśli musisz użyć niestandardowej nazwy DNS, musisz dodać nazwę niestandardową w aplikacji sieci Web. W trakcie korzystania z wersji zapoznawczej Nazwa niestandardowa musi być zweryfikowana, podobnie jak nazwa niestandardowa, przy użyciu publicznego rozpoznawania DNS. Aby uzyskać więcej informacji, zobacz [niestandardowe sprawdzanie poprawności nazw DNS][dnsvalidation].
 
-Jeśli musisz na przykład użyć konsoli programu kudu lub interfejsu API REST (wdrożenie z obsługą platformy Azure DevOps), musisz utworzyć dwa rekordy w strefie prywatnej Azure DNS lub na niestandardowym serwerze DNS. 
-- PrivateEndpointIP yourwebappname.azurewebsites.net 
-- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
+W przypadku konsoli usługi kudu lub interfejsu API REST (na przykład wdrożenia z użyciem platformy Azure DevOps dla agentów) należy utworzyć dwa rekordy w strefie prywatnej Azure DNS lub na niestandardowym serwerze DNS. 
 
-Te dwa rekordy są wypełniane automatycznie, jeśli masz strefę prywatną o nazwie privatelink.azurewebsites.net połączonej z siecią wirtualną, w której tworzysz prywatny punkt końcowy.
+| Nazwa | Typ | Wartość |
+|-----|-----|-----|
+| mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+| mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+
+> [!TIP]
+> Te dwa rekordy są wypełniane automatycznie, jeśli masz prywatną strefę DNS o nazwie privatelink.azurewebsites.net połączonej z siecią wirtualną, w której tworzysz prywatny punkt końcowy.
+
 
 ## <a name="pricing"></a>Cennik
 

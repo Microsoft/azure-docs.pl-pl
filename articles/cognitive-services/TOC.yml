@@ -36,6 +36,8 @@
       href: ./encryption/cognitive-services-encryption-keys-portal.md
     - name: Uwierzytelnianie żądań w usługach Cognitive Services
       href: authentication.md
+    - name: Punkt odniesienia zabezpieczeń
+      href: security-baseline.md
 - name: Obsługa kontenerów
   items:
     - name: Obsługa kontenerów

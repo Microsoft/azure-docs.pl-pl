@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3412938cfc2ad3fbec293fd33f64e114e14e6f7e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 100e4b88589f3731d127ccb1060e556c1f3a2f39
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450976"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413250"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Włącz logowanie bez hasła przy użyciu aplikacji Microsoft Authenticator (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ Funkcje rejestracji dla metod uwierzytelniania bezhaseł polegają na funkcji re
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Włącz metodę uwierzytelniania logowania jednokrotnego przy użyciu hasła
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com)
-1. Wyszukaj i wybierz pozycję *Azure Active Directory*. Wybieranie **Security** >  > **metod uwierzytelniania**zabezpieczeń**zasady metod uwierzytelniania (wersja zapoznawcza)**
+1. Wyszukaj i wybierz pozycję *Azure Active Directory*. Wybieranie **Security**  >  **metod uwierzytelniania**zabezpieczeń  >  **zasady metod uwierzytelniania (wersja zapoznawcza)**
 1. W obszarze **Logowanie za pomocą telefonu bezhasło**wybierz następujące opcje
    1. **Włącz** — tak lub nie
    1. **Cel** — wszyscy użytkownicy lub wybrani użytkownicy
@@ -78,13 +78,13 @@ Po wpisaniu nazwy użytkownika w sieci Web i wybraniu **pozycji dalej**użytkown
 
 Istnieje możliwość, że użytkownik ma w pewnym momencie utworzyć poświadczenia logowania za pomocą telefonu bez hasła w bieżącej aplikacji Microsoft Authenticator lub na wcześniejszym urządzeniu. Gdy administrator włączy zasady metody uwierzytelniania dla logowania za pomocą telefonu bez hasła, każdy użytkownik z zarejestrowanym poświadczeniem rozpocznie korzystanie z nowego monitu logowania, niezależnie od tego, czy włączono do używania zasad, czy nie. Jeśli użytkownik nie zezwolił na korzystanie z poświadczeń za pomocą zasad, zobaczy błąd po zakończeniu przepływu uwierzytelniania. 
 
-Administrator może wybrać opcję, aby umożliwić użytkownikowi korzystanie z logowania jednokrotnego przy użyciu hasła lub użytkownik musi usunąć metodę. Jeśli użytkownik nie ma już zarejestrowanego urządzenia, może przejść do [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) obszaru i usunąć go. Jeśli nadal korzystają z uwierzytelniania wieloskładnikowego, można wybrać opcję **Wyłącz logowanie** za pomocą telefonu z poziomu Microsoft Authenticator.  
+Administrator może wybrać opcję, aby umożliwić użytkownikowi korzystanie z logowania jednokrotnego przy użyciu hasła lub użytkownik musi usunąć metodę. Jeśli użytkownik nie ma już zarejestrowanego urządzenia, może przejść do obszaru [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) i usunąć go. Jeśli nadal korzystają z uwierzytelniania wieloskładnikowego, można wybrać opcję **Wyłącz logowanie** za pomocą telefonu z poziomu Microsoft Authenticator.  
 
 ### <a name="ad-fs-integration"></a>Integracja AD FS
 
-Jeśli użytkownik włączył Microsoft Authenticator poświadczenie bezhasło, uwierzytelnianie dla tego użytkownika zawsze będzie domyślnie wysyłać powiadomienie o zatwierdzeniu. Ta logika uniemożliwia kierowanie do usług AD FS użytkowników w dzierżawie hybrydowej w celu weryfikacji logowania bez podejmowania dodatkowych kroków przez użytkownika w celu kliknięcia przycisku "Użyj hasła zamiast". Ten proces spowoduje również ominięcie wszelkich lokalnych zasad dostępu warunkowego i przepływów uwierzytelniania przekazywanego. 
+Jeśli użytkownik włączył Microsoft Authenticator poświadczenie bezhasło, uwierzytelnianie dla tego użytkownika zawsze będzie domyślnie wysyłać powiadomienie o zatwierdzeniu. Ta logika zapobiega kierowaniu do AD FS użytkowników w dzierżawie hybrydowej w celu weryfikacji logowania bez konieczności podejmowania przez użytkownika dodatkowego kroku kliknięcia "Użyj hasła zamiast". Ten proces spowoduje również ominięcie wszelkich lokalnych zasad dostępu warunkowego i przepływów uwierzytelniania przekazywanego. 
 
-Jeśli użytkownik nie ma oczekującej weryfikacji logowania jednokrotnego przy użyciu hasła i próbuje zalogować się ponownie, może zostać przełączony do usług AD FS w celu wprowadzenia hasła.  
+Jeśli użytkownik nie ma oczekującej weryfikacji logowania jednokrotnego przy użyciu hasła i próbuje zalogować się ponownie, może zostać podjęta próba AD FS wprowadzenia hasła.  
 
 ### <a name="azure-mfa-server"></a>Serwer usługi Azure MFA
 

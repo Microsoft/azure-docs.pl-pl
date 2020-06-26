@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 869614c2e3fe11c289ab6eb7f6c1407f666de2b0
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85368145"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413981"
 ---
 # <a name="cloud-tiering-overview"></a>Omówienie obsługi warstw w chmurze
 Obsługa warstw w chmurze jest opcjonalną funkcją Azure File Sync, w której często używane pliki są buforowane lokalnie na serwerze, podczas gdy wszystkie inne pliki są warstwami do Azure Files na podstawie ustawień zasad. Gdy plik jest warstwowy, filtr systemu plików Azure File Sync (StorageSync.sys) zastępuje plik lokalnie za pomocą wskaźnika lub punktu ponownej analizy. Punkt ponownej analizy reprezentuje adres URL pliku w Azure Files. Plik warstwowy ma zarówno atrybut "offline", jak i atrybut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS ustawiony w systemie plików NTFS, aby aplikacje innych firm mogły bezpiecznie identyfikować pliki warstwowe.
@@ -39,7 +39,30 @@ Obsługa warstw w chmurze nie zależy od funkcji NTFS do śledzenia czasu ostatn
 
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Jaki jest minimalny rozmiar pliku do warstwy?
-W przypadku agenta w wersji 9. x i nowszych minimalny rozmiar pliku do warstwy jest oparty na rozmiarze klastra systemu plików (dwukrotnie rozmiar klastra systemu plików). Jeśli na przykład rozmiar klastra systemu plików NTFS to 4 KB, minimalny rozmiar pliku do warstwy to rozmiarze 8 KB. W przypadku agenta w wersji 8. x i starszej minimalny rozmiar pliku do warstwy to 64 KB.
+
+W przypadku agenta w wersji 9 i nowszych minimalny rozmiar pliku do warstwy jest oparty na rozmiarze klastra systemu plików. W poniższej tabeli przedstawiono minimalne rozmiary plików, które mogą być warstwowe, w oparciu o rozmiar klastra objętościowego:
+
+|Rozmiar klastra objętościowego (w bajtach) |Pliki o tym rozmiarze lub większe mogą być warstwowe  |
+|----------------------------|---------|
+|4 KB (4096)                 | 8 KB    |
+|8 KB (8192)                 | 16 KB   |
+|16 KB (16384)               | 32 KB   |
+|32 KB (32768) i większych    | 64 KB   |
+
+Wszystkie systemy plików, które są używane przez system Windows, organizują dysk twardy w oparciu o rozmiar klastra (nazywany także rozmiarem jednostki alokacji). Rozmiar klastra reprezentuje najmniejszą ilość miejsca na dysku, która może być użyta do przechowywania pliku. Jeśli rozmiary plików nie są dostępne nawet w przypadku wielokrotnego rozmiaru klastra, należy użyć dodatkowego miejsca do przechowywania pliku (do kolejnej wielokrotności rozmiaru klastra).
+
+Azure File Sync jest obsługiwana na woluminach NTFS w systemie Windows Server 2012 R2 lub nowszym. W poniższej tabeli opisano domyślne rozmiary klastra podczas tworzenia nowego woluminu NTFS. 
+
+|Rozmiar woluminu    |System Windows Server 2012R2 i nowsze |
+|---------------|---------------|
+|7 MB — 16 TB   | 4 KB          |
+|16TB – 32 TB   | 8 KB          |
+|32 TB MIEJSCA – 64 TB   | 16 KB         |
+|64TB – 128 TB  | 32 KB         |
+|128TB – 256 TB | 64 KB         |
+|> 256 TB       | Nieobsługiwane |
+
+Istnieje możliwość, że podczas tworzenia woluminu ręcznie sformatowano wolumin z innym rozmiarem klastra (jednostki alokacji). Jeśli wolumin jest rdzeniem ze starszej wersji systemu Windows, domyślne rozmiary klastra mogą być różne. [Ten artykuł zawiera więcej informacji na temat domyślnych rozmiarów klastra.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>Jak działają zasady obsługi warstw wolnego miejsca na woluminie?
@@ -85,7 +108,7 @@ Utrzymywanie większej ilości danych może prowadzić do obniżenia kosztów ru
 
 Niezależnie od tego, czy pliki muszą być warstwowe dla poszczególnych ustawionych zasad, są oceniane co godzinę. Po utworzeniu nowego punktu końcowego serwera mogą wystąpić dwie sytuacje:
 
-1. Po dodaniu nowego punktu końcowego serwera często istnieją pliki znajdujące się w tej lokalizacji serwera. Przed rozpoczęciem obsługi warstw w chmurze należy je najpierw przekazać. Zasady wolnego miejsca na woluminie nie będą działały do momentu zakończenia wstępnego przekazania wszystkich plików. Jednak opcjonalne zasady dotyczące dat rozpoczną pracę nad pojedynczym plikiem, gdy tylko plik zostanie przekazany. W tym miejscu obowiązuje również interwał jednorazowy. 
+1. Po dodaniu nowego punktu końcowego serwera często istnieją pliki znajdujące się w tej lokalizacji serwera. Przed rozpoczęciem obsługi warstw w chmurze należy je najpierw przekazać. Zasady wolnego miejsca na woluminie nie rozpoczną pracy do momentu zakończenia wstępnego przekazania wszystkich plików. Jednak opcjonalne zasady dotyczące dat rozpoczną pracę nad pojedynczym plikiem, gdy tylko plik zostanie przekazany. W tym miejscu obowiązuje również interwał jednorazowy. 
 2. Po dodaniu nowego punktu końcowego serwera możliwe jest połączenie pustej lokalizacji serwera z udziałem plików platformy Azure z danymi. Czy jest to dla drugiego serwera, czy podczas odzyskiwania po awarii. Jeśli zdecydujesz się pobrać przestrzeń nazw i odwołać zawartość podczas wstępnego pobierania na serwer, po rozpoczęciu przestrzeni nazw pliki zostaną odwołane na podstawie ostatniej zmodyfikowanej sygnatury czasowej. Tylko tyle plików będzie można odwołać w ramach zasad wolnego miejsca na woluminie i opcjonalnych zasad dotyczących daty.
 
 <a id="is-my-file-tiered"></a>

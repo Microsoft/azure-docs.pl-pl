@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 174279e4bd241ee9b336fc1ce7e0af389d2297a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f31ee7f7d60a3bf0ab56b9ed8aa7fd25774e06c
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667006"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85412553"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Praca z datami w Azure Cosmos DB
 
@@ -21,9 +21,9 @@ Oprócz typów podstawowych wiele aplikacji wymaga typu DateTime do reprezentowa
 
 ## <a name="storing-datetimes"></a>Przechowywanie DateTimes
 
-Azure Cosmos DB obsługuje typy JSON, takie jak-String, Number, Boolean, null, Array i Object. Nie obsługuje bezpośrednio typu DateTime. Obecnie Azure Cosmos DB nie obsługuje lokalizacji dat. Dlatego należy przechowywać wartości DateTimes jako ciągi. Zalecany format ciągów DateTime w Azure Cosmos DB jest `YYYY-MM-DDThh:mm:ss.fffffffZ` następujący po standardzie ISO 8601 UTC. Zaleca się przechowywanie wszystkich dat w Azure Cosmos DB jako czas UTC. Konwersja ciągów daty na ten format umożliwi lexicographically dat sortowania. Jeśli są przechowywane daty inne niż UTC, logika musi być obsługiwana po stronie klienta. Aby skonwertować lokalną datę i godzinę do UTC, przesunięcie musi być znane/przechowywane jako właściwość w formacie JSON, a klient może użyć przesunięcia do obliczenia wartości daty i godziny UTC.
+Azure Cosmos DB obsługuje typy JSON, takie jak-String, Number, Boolean, null, Array i Object. Nie obsługuje bezpośrednio typu DateTime. Obecnie Azure Cosmos DB nie obsługuje lokalizacji dat. Dlatego należy przechowywać wartości DateTimes jako ciągi. Zalecany format ciągów DateTime w Azure Cosmos DB jest `yyyy-MM-ddTHH:mm:ss.fffffffZ` następujący po standardzie ISO 8601 UTC. Zaleca się przechowywanie wszystkich dat w Azure Cosmos DB jako czas UTC. Konwersja ciągów daty na ten format umożliwi lexicographically dat sortowania. Jeśli są przechowywane daty inne niż UTC, logika musi być obsługiwana po stronie klienta. Aby skonwertować lokalną datę i godzinę do UTC, przesunięcie musi być znane/przechowywane jako właściwość w formacie JSON, a klient może użyć przesunięcia do obliczenia wartości daty i godziny UTC.
 
-Zapytania zakresowe z ciągami DateTime jako filters są obsługiwane tylko wtedy, gdy ciągi DateTime są wszystkie w formacie UTC i o tej samej długości. W Azure Cosmos DB Funkcja systemowa [GetCurrentDateTime](sql-query-getcurrentdatetime.md) zwróci bieżącą wartość ciągu ISO 8601 daty i czasu UTC w formacie: `YYYY-MM-DDThh:mm:ss.fffffffZ`.
+Zapytania zakresowe z ciągami DateTime jako filters są obsługiwane tylko wtedy, gdy ciągi DateTime są wszystkie w formacie UTC i o tej samej długości. W Azure Cosmos DB Funkcja systemowa [GetCurrentDateTime](sql-query-getcurrentdatetime.md) zwróci bieżącą wartość ciągu ISO 8601 daty i czasu UTC w formacie: `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
 
 Większość aplikacji może używać domyślnej reprezentacji ciągu dla daty i godziny z następujących powodów:
 
@@ -65,7 +65,7 @@ Ten dokument jest przechowywany w Azure Cosmos DB w następujący sposób:
     }
 ```  
 
-Alternatywnie można przechowywać daty i godziny jako sygnatury czasowe systemu UNIX, czyli liczbę reprezentującą liczbę sekund, które upłynęły od 1 stycznia 1970. Azure Cosmos DB wewnętrzna właściwość sygnatury`_ts`czasowej () jest zgodna z tą metodą. Klasy [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) można użyć do serializacji datetimes jako liczby.
+Alternatywnie można przechowywać daty i godziny jako sygnatury czasowe systemu UNIX, czyli liczbę reprezentującą liczbę sekund, które upłynęły od 1 stycznia 1970. Azure Cosmos DB wewnętrzna właściwość sygnatury czasowej ( `_ts` ) jest zgodna z tą metodą. Klasy [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) można użyć do serializacji datetimes jako liczby.
 
 ## <a name="querying-datetimes-in-linq"></a>Wykonywanie zapytań o wartości DateTimes w LINQ
 

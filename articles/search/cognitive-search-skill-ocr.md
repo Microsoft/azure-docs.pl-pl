@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 73cd8083dc6853e36b05854ab2fd7c0226f99bd6
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: a672db649323a82c75a7e8c0cd6556eadce8089d
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080092"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414559"
 ---
 # <a name="ocr-cognitive-skill"></a>Umiejętność OCR
 
 Umiejętność **optycznego rozpoznawania znaków (OCR)** rozpoznaje drukowany i odręczny tekst w plikach obrazu. Ta umiejętność używa modeli uczenia maszynowego zapewnianych przez [Przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) API [v 3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) w Cognitive Services. Umiejętność **OCR** jest mapowana na następujące funkcje:
 
 + W języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim jest używany nowy interfejs API [odczytu](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) .
-+ W przypadku wszystkich innych języków używany jest interfejs API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) .
++ W przypadku wszystkich innych języków używany jest interfejs API ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md) .
 
 Umiejętność **OCR** wyodrębnia tekst z plików obrazów. Obsługiwane formaty plików to:
 

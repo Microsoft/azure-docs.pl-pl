@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 0573456e6f7c5adc2b1efbce8dd12611fae788cd
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.date: 06/25/2020
+ms.openlocfilehash: 708b243d9db16ee8454b4bc0f5c136b9f4399916
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266274"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413199"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorowanie w Azure Database for MariaDB
 Monitorowanie danych dotyczących serwerów ułatwia rozwiązywanie problemów i optymalizację w obciążeniu. Azure Database for MariaDB oferuje różne metryki, które dają wgląd w zachowanie serwera.
@@ -26,12 +26,12 @@ Te metryki są dostępne dla Azure Database for MariaDB:
 
 |Metryka|Nazwa wyświetlana metryki|Jednostka|Opis|
 |---|---|---|---|
-|cpu_percent|Procent użycia procesora CPU|Wartość procentowa|Procent użycia procesora CPU.|
-|memory_percent|Procent pamięci|Wartość procentowa|Procent używanej pamięci.|
-|io_consumption_percent|Procent operacji we/wy|Wartość procentowa|Procent operacji we/wy w użyciu.|
-|storage_percent|Procent miejsca do magazynowania|Wartość procentowa|Wartość procentowa używanej przestrzeni dyskowej poza maksymalną.|
+|cpu_percent|Procent użycia procesora CPU|Procent|Procent użycia procesora CPU.|
+|memory_percent|Procent pamięci|Procent|Procent używanej pamięci.|
+|io_consumption_percent|Procent operacji we/wy|Procent|Procent operacji we/wy w użyciu. (Nie dotyczy serwerów warstwy Podstawowa).|
+|storage_percent|Procent miejsca do magazynowania|Procent|Wartość procentowa używanej przestrzeni dyskowej poza maksymalną.|
 |storage_used|Używany magazyn|Bajty|Ilość używanej pamięci masowej. Magazyn używany przez usługę może obejmować pliki bazy danych, dzienniki transakcji i Dzienniki serwera.|
-|serverlog_storage_percent|Procent magazynu dzienników serwera|Wartość procentowa|Procent magazynu dzienników serwera używany poza maksymalnym magazynem dzienników serwera.|
+|serverlog_storage_percent|Procent magazynu dzienników serwera|Procent|Procent magazynu dzienników serwera używany poza maksymalnym magazynem dzienników serwera.|
 |serverlog_storage_usage|Używany magazyn dzienników serwera|Bajty|Ilość używanego magazynu dzienników serwera.|
 |serverlog_storage_limit|Limit magazynowania dziennika serwera|Bajty|Maksymalny magazyn dzienników serwera dla tego serwera.|
 |storage_limit|Limit magazynu|Bajty|Maksymalny magazyn dla tego serwera.|

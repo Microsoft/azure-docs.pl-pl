@@ -7,15 +7,15 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: spelluru
-ms.openlocfilehash: 488d3025f279916cb98e75f3f8db56fdc9d6d1de
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 1a2eacb5fa03ea2a5a8ba2d38d9b3e7dea315890
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392968"
+ms.locfileid: "85412842"
 ---
 # <a name="set-alerts-on-azure-event-grid-metrics-and-activity-logs"></a>Ustawianie alertów dotyczących Azure Event Grid metryk i dzienników aktywności
-W tym artykule opisano sposób tworzenia alertów dotyczących Azure Event Grid metryk i operacji dziennika aktywności. 
+W tym artykule opisano sposób tworzenia alertów dotyczących Azure Event Grid metryk i operacji dziennika aktywności. Możesz tworzyć alerty dotyczące metryk publikowania i dostarczania dla zasobów Azure Event Grid (tematów i domen). Aby uzyskać informacje dotyczące systemu, [Utwórz alerty przy użyciu strony **metryki** ](#create-alerts-using-the-metrics-page).
 
 ## <a name="create-alerts-on-dead-lettered-events"></a>Tworzenie alertów dotyczących zdarzeń utraconych
 Poniższa procedura pokazuje, jak utworzyć alert dotyczący metryki **zdarzeń utraconych** dla niestandardowo tematu. W tym przykładzie wiadomość e-mail jest wysyłana do właściciela grupy zasobów platformy Azure, gdy liczba utraconych zdarzeń dla tematu przekracza 10. 
@@ -33,6 +33,9 @@ Poniższa procedura pokazuje, jak utworzyć alert dotyczący metryki **zdarzeń 
     2. Wybierz wymiary (opcjonalnie). 
         
         :::image type="content" source="./media/monitor-event-delivery/configure-signal-logic.png" alt-text="Konfigurowanie logiki sygnału":::        
+
+        > [!NOTE]
+        > Możesz wybrać **+** przycisk **EventSubscriptionName** , aby określić nazwę subskrypcji zdarzenia do filtrowania zdarzeń. 
     3. Przewiń w dół. W sekcji **logika alertu** wybierz **operator**, **typ agregacji**i wprowadź **wartość progową**, a następnie wybierz pozycję **gotowe**. W tym przykładzie alert jest wyzwalany, gdy łączna liczba utraconych zdarzeń jest większa niż 10. 
     
         :::image type="content" source="./media/monitor-event-delivery/alert-logic.png" alt-text="Logika alertu":::                
@@ -66,7 +69,7 @@ Na przykład aby utworzyć alert dotyczący zdarzenia błędu dostarczania, na s
 
 
 ## <a name="create-alerts-using-the-metrics-page"></a>Tworzenie alertów przy użyciu strony metryki
-Alerty można także tworzyć przy użyciu strony **metryki** . Kroki są podobne. 
+Alerty można także tworzyć przy użyciu strony **metryki** . Kroki są podobne. W przypadku tematów systemowych można używać tylko strony **metryk** do tworzenia alertów, ponieważ strona **alerty** nie jest dostępna. 
 
 :::image type="content" source="./media/monitor-event-delivery/metric-page-create-alert-button.png" alt-text="Strona metryk — przycisk Utwórz alert":::   
     
