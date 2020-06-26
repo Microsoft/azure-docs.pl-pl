@@ -303,8 +303,6 @@
               href: application-proxy-page-load-speed-problem.md
             - name: Linki na stronie aplikacji nie działają
               href: application-proxy-page-links-broken-problem.md
-            - name: Jakie porty należy otworzyć dla mojej aplikacji
-              href: application-proxy-connectivity-ports-how-to.md
             - name: Brak działającego łącznika w grupie łączników mojej aplikacji
               href: application-proxy-connectivity-no-working-connector.md
             - name: Konfigurowanie w portalu administracyjnym
