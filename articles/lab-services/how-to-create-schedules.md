@@ -1,24 +1,14 @@
 ---
 title: Tworzenie harmonogramu dla laboratoriów zajęć w Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak tworzyć harmonogramy dla laboratoriów stacjonarnych w Azure Lab Services tak, aby maszyny wirtualne w laboratoriach były uruchamiane i zamykane w określonym czasie.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
-ms.author: spelluru
-ms.openlocfilehash: 68d608471b347895a170cc6cf83dfb4180c0a488
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895927"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445784"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Twórz harmonogramy dla laboratoriów stacjonarnych w Azure Lab Services i zarządzaj nimi 
 Harmonogramy umożliwiają skonfigurowanie laboratorium klasy w taki sposób, aby maszyny wirtualne w laboratorium były automatycznie uruchamiane i zamykane w określonym czasie. Można zdefiniować harmonogram jednorazowy lub cykliczny. Poniższe procedury umożliwiają tworzenie harmonogramów dla laboratorium zajęć i zarządzanie nimi: 

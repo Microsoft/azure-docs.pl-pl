@@ -1,25 +1,14 @@
 ---
 title: Wyświetlanie i używanie szablonu Azure Resource Manager maszyny wirtualnej
 description: Dowiedz się, jak utworzyć inne maszyny wirtualne przy użyciu szablonu Azure Resource Manager z maszyny wirtualnej
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: a759d9ce-655c-4ac6-8834-cb29dd7d30dd
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 7064fdeec04f4dc5ae2c73c1a3896cf2d10dd01d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: a53a6ad44cac59bd925e6d200ca50074a2fcd963
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898514"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476618"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Tworzenie maszyn wirtualnych przy użyciu szablonu Azure Resource Manager 
 

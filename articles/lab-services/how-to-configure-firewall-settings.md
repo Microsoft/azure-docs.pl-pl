@@ -3,15 +3,14 @@ title: Ustawienia zapory dla usługi Azure Lab Services
 description: Dowiedz się, jak określić publiczny adres IP i zakres numerów portów maszyn wirtualnych w laboratorium, aby można było dodać informacje do reguł zapory.
 author: emaher
 ms.author: enewman
-ms.date: 05/15/2020
+ms.date: 06/26/2020
 ms.topic: article
-ms.service: lab-services
-ms.openlocfilehash: 15cdaa971b310a34904fb9e70ec084357b3e93ff
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 067a2c9672b87974557f650cef07b0394e7d5a63
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896039"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445852"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Ustawienia zapory dla usługi Azure Lab Services
 

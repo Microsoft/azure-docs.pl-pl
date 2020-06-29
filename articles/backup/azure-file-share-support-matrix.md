@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej pod
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 72492ea77534b636d90820c96e36163e6c6efebe
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 3d9c9e4518ea6cd53c1f1d5e4a50040e3cf025b4
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488464"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443319"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
@@ -32,6 +32,7 @@ Zachodnio-środkowe stany USA, Australia Południowo-Wschodnia, Kanada środkowa
 | Rodzaj konta            | Azure Backup obsługuje udziały plików platformy Azure obecne w ogólnego przeznaczenia w wersji 1, w wersji 2 i w przypadku typów magazynu plików |
 | Wydajność              | Azure Backup obsługuje udziały plików zarówno na kontach standardowych, jak i Premium Storage |
 | Replikacja              | Obsługiwane są udziały plików platformy Azure w ramach kont magazynu z dowolnym typem replikacji |
+| Zapora włączona         | Obsługiwane są udziały plików platformy Azure w ramach kont magazynu z regułami zapory zezwalających na dostęp do konta magazynu przez usługi Microsoft Azure Services|
 
 ## <a name="supported-file-shares"></a>Obsługiwane udziały plików
 
@@ -46,8 +47,10 @@ Zachodnio-środkowe stany USA, Australia Południowo-Wschodnia, Kanada środkowa
 
 | Ustawienie                                                      | Limit |
 | ------------------------------------------------------------ | ----- |
-| Maksymalna liczba udziałów plików, które mogą być chronione dziennie na magazyn | 200   |
+| Maksymalna liczba udziałów plików, które mogą być chronione na magazyn dziennie| 200   |
 | Maksymalna liczba kont magazynu, które można zarejestrować na magazyn dziennie | 50    |
+| Maksymalna liczba udziałów plików, które mogą być chronione na magazyn | 2000   |
+| Maksymalna liczba kont magazynu, które można zarejestrować na magazyn | 200   |
 
 ## <a name="backup-limits"></a>Limity kopii zapasowych
 

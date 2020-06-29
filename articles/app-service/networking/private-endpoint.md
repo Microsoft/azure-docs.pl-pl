@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: b9cf0467829425003a33ef806d8e7028e7f27add
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 462de426a365a2aca4572dae6bff9261e4ee37f7
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413403"
+ms.locfileid: "85445478"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Używanie prywatnych punktów końcowych dla usługi Azure Web App (wersja zapoznawcza)
 
@@ -85,7 +85,7 @@ Na przykład rozpoznawanie nazw będzie:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
-|cloudservicename.cloudapp.net|A|40.122.110.154|< — ten publiczny adres IP nie jest prywatnym punktem końcowym, zostanie wyświetlony błąd 503|
+|cloudservicename.cloudapp.net|A|40.122.110.154|< — ten publiczny adres IP nie jest prywatnym punktem końcowym, zostanie wyświetlony błąd 403|
 
 Należy skonfigurować prywatny serwer DNS lub Azure DNS strefę prywatną, w przypadku testów można zmodyfikować wpis hosta maszyny testowej.
 Należy utworzyć strefę DNS: **privatelink.azurewebsites.NET**. Zarejestruj rekord aplikacji sieci Web przy użyciu rekordu a i prywatnego adresu IP punktu końcowego.

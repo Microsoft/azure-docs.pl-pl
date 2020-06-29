@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 7e444b27d701b3b7ff143a404c4210f9123767b4
-  ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+  ms.openlocfilehash: 6edc39bc9923d53732775c68c9b7fe4f2d35b055
+  ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/25/2020
-  ms.locfileid: "85362530"
+  ms.lasthandoff: 06/26/2020
+  ms.locfileid: "85414389"
 highlightedContent:
   items:
   - title: Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -68,7 +68,7 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     - analytics
-    url: azure-databricks/index.yml
+    url: /azure/databricks/index.yml
   - title: Azure Machine Learning
     summary: Udostępnianie wszystkim użytkownikom możliwości korzystania ze sztucznej inteligencji dzięki kompleksowej, skalowalnej i zaufanej platformie wyposażonej w usługi eksperymentowania i zarządzania modelami
     imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg

@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: 219685b1f82cea3e85a6d45023e913141345e685
-ms.sourcegitcommit: e04a66514b21019f117a4ddb23f22c7c016da126
+ms.openlocfilehash: ec6fcfbc171b7227c79741c00adbc16be4c7ce87
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85106512"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445529"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Jak używać programu pakujący do tworzenia obrazów maszyn wirtualnych z systemem Windows na platformie Azure
 Każda maszyna wirtualna na platformie Azure jest tworzona na podstawie obrazu, który definiuje dystrybucję systemu Windows i wersję systemu operacyjnego. Obrazy mogą zawierać wstępnie zainstalowane aplikacje i konfiguracje. Portal Azure Marketplace udostępnia wiele obrazów od początku i innych firm dla najpopularniejszych środowisk systemów operacyjnych i aplikacji. można też tworzyć własne niestandardowe obrazy dostosowane do Twoich potrzeb. W tym artykule szczegółowo opisano, jak używać pakietu narzędzi open source [Pack](https://www.packer.io/) do definiowania i tworzenia obrazów niestandardowych na platformie Azure.
@@ -122,7 +122,7 @@ Ten szablon tworzy maszynę wirtualną z systemem Windows Server 2016, instaluje
 
 
 ## <a name="build-packer-image"></a>Obraz pakietu Build Pack
-Jeśli nie masz jeszcze zainstalowanego programu Packer na komputerze lokalnym, [postępuj zgodnie z instrukcjami instalacji programu Packer](https://www.packer.io/docs/install/index.html).
+Jeśli nie masz jeszcze zainstalowanego programu Packer na komputerze lokalnym, [postępuj zgodnie z instrukcjami instalacji programu Packer](https://learn.hashicorp.com/packer/getting-started/install).
 
 Utwórz obraz, otwierając wiersz polecenia cmd i określając plik szablonu programu Packer w następujący sposób:
 

@@ -1,24 +1,14 @@
 ---
 title: Korzystanie z funkcji roszczeń w Azure DevTest Labs | Microsoft Docs
 description: Poznaj różne scenariusze korzystania z możliwości usługi Claim/unroście Azure DevTest Labs
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
-ms.author: spelluru
-ms.openlocfilehash: a15148260bccadc59966c86031100f0e0332b0f9
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 73ed3c0b94a66f5d17b5c8e2561c65bb48579aa1
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898528"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476533"
 ---
 # <a name="use-claim-capabilities-in-azure-devtest-labs"></a>Korzystanie z funkcji roszczeń w Azure DevTest Labs
 Usługa Azure DevTest Labs podnosi efektywność i wydajność deweloperów i testerów. Ten artykuł koncentruje się na zaroście lub odroście maszyn wirtualnych w Azure DevTest Labs. Przedstawiono w nim również różne sposoby ulepszenia środowiska użytkownika. Przed przystąpieniem do różnych scenariuszy, w których ta funkcja może zostać użyta, przyjrzyjmy się tym, co **to jest i** jak działa.

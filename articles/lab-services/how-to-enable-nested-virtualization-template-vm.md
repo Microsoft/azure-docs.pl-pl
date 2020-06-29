@@ -1,24 +1,14 @@
 ---
 title: Włącz wirtualizację zagnieżdżoną na maszynie wirtualnej szablonu w Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak utworzyć maszynę wirtualną szablonu z wieloma maszynami wirtualnymi wewnątrz.  Innymi słowy należy włączyć wirtualizację zagnieżdżoną na maszynie wirtualnej szablonu w Azure Lab Services.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
-ms.author: spelluru
-ms.openlocfilehash: 58e3a121f5c7bada41f9980a46e53be1fa643916
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: a2f045cbf7c107e7f5dbeff0d78bf5e8d9d8fba6
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895906"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445240"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Włącz wirtualizację zagnieżdżoną na maszynie wirtualnej szablonu w Azure Lab Services
 

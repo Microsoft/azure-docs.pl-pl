@@ -1,24 +1,14 @@
 ---
 title: Określ obrazy z witryny Marketplace dla laboratorium w Azure Lab Services
 description: W tym artykule opisano sposób określania obrazów z portalu Marketplace, których twórca laboratorium może użyć do tworzenia laboratoriów w ramach konta laboratorium w Azure Lab Services.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2020
-ms.author: spelluru
-ms.openlocfilehash: 199f7b3b94a8f7a3f181a82ca0d3350d528d7d8f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 5a353394fec3dadf0f808a25ec66f6e9028820a3
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897334"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445614"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Określanie obrazów w portalu Marketplace dostępnych dla twórców laboratorium
 Jako właściciel konta laboratorium możesz określić obrazy witryny Marketplace, których twórcy laboratorium mogą używać do tworzenia laboratoriów na koncie laboratorium. 

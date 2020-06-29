@@ -1,24 +1,14 @@
 ---
 title: Zarządzanie laboratoriami klas w Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak utworzyć i skonfigurować laboratorium zajęć, wyświetlić wszystkie laboratoria zajęć, udostępnić link rejestracji użytkownikowi laboratorium lub usunąć laboratorium.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 04/10/2020
-ms.author: spelluru
-ms.openlocfilehash: 93084772852e289c1b35d889e1f4d4378c0298a8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: ed5eb05fa586e19fdf684a4f88b56e7b0185baf4
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895864"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445393"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Zarządzanie pracownią w Azure Lab Services 
 W tym artykule opisano sposób tworzenia i usuwania laboratorium zajęć. Przedstawiono w nim również sposób wyświetlania wszystkich laboratoriów zajęć na koncie laboratorium. 

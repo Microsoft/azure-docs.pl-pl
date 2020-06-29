@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 06/22/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 084c1c604ac780b133f89eaeeb3fa5e780c2d565
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 3189fec114ca68dfd862c0973b289b9eff25fed5
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392594"
+ms.locfileid: "85445563"
 ---
 # <a name="network-isolation-during-training--inference-with-private-virtual-networks"></a>Izolacja sieci podczas uczenia & wnioskowania z prywatnymi sieciami wirtualnymi
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -289,7 +289,7 @@ Aby użyć konta usługi Azure Storage dla obszaru roboczego w sieci wirtualnej,
 
 Podczas uzyskiwania dostępu do programu Studio z zasobu w sieci wirtualnej (na przykład wystąpienie obliczeniowe lub maszyna wirtualna) należy zezwolić na ruch wychodzący z sieci wirtualnej do programu Studio. 
 
-Na przykład, jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) w celu ograniczenia ruchu wychodzącego, Dodaj regułę do miejsca docelowego __tagu usługi__ __AzureFrontDoor. FirstParty__.
+Na przykład, jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń) w celu ograniczenia ruchu wychodzącego, Dodaj regułę do miejsca docelowego __tagu usługi__ __AzureFrontDoor. frontonu__.
 
 <a id="aksvnet"></a>
 

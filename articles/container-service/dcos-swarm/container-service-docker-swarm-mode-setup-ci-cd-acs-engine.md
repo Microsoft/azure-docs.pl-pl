@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: 1ec7ece6f5afd1bbd2613ae08af04b82e8a156b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81be5c4db21e3a2201b8802a2e796f45494fd0dc
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277917"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445461"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>PRZESTARZAŁE Pełny potok ciągłej integracji/ciągłego wdrażania, aby wdrożyć wielokontenerową aplikację na Azure Container Service z aparatem ACS i trybem Docker Swarm przy użyciu usługi Azure DevOps
 
@@ -67,7 +67,7 @@ W tej sekcji skonfigurujesz organizację usługi Azure DevOps. Aby skonfigurowa�
 
 Skonfiguruj połączenie między projektem usługi Azure DevOps i kontem platformy Azure.
 
-1. Po lewej stronie kliknij pozycję **nowy punkt końcowy** > usługi**Azure Resource Manager**.
+1. Po lewej stronie kliknij pozycję **nowy punkt końcowy usługi**  >  **Azure Resource Manager**.
 2. Aby autoryzować usługę Azure DevOps do pracy z kontem platformy Azure, wybierz **subskrypcję** i kliknij przycisk **OK**.
 
     ![Azure DevOps — Autoryzuj platformę Azure](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-azure.PNG)
@@ -76,7 +76,7 @@ Skonfiguruj połączenie między projektem usługi Azure DevOps i kontem platfor
 
 Skonfiguruj połączenie między projektem usługi Azure DevOps i kontem w serwisie GitHub.
 
-1. Po lewej stronie kliknij pozycję **nowy punkt końcowy** > usługi**GitHub**.
+1. Po lewej stronie kliknij pozycję **nowy punkt końcowy usługi**  >  **GitHub**.
 2. Aby autoryzować usługę Azure DevOps do pracy z kontem w serwisie GitHub, kliknij przycisk **Autoryzuj** i postępuj zgodnie z procedurą w otwartym oknie.
 
     ![Azure DevOps — Autoryzuj witrynę GitHub](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-github.png)
@@ -143,7 +143,7 @@ Wymagane są dwa kroki platformy Docker dla każdego obrazu, jeden do skompilowa
 
     Dla operacji kompilowania wybierz Azure Container Registry, akcję Kompiluj a **Image** i pliku dockerfile, która definiuje każdy obraz. Ustaw **katalog roboczy** jako katalog główny pliku dockerfile, zdefiniuj **nazwę obrazu**i wybierz pozycję **Dołącz najnowszy tag**.
     
-    Nazwa obrazu musi mieć następujący format: ```$(RegistryURL)/[NAME]:$(Build.BuildId)```. Zastąp wartość **[name]** nazwą obrazu:
+    Nazwa obrazu musi mieć następujący format: ```$(RegistryURL)/[NAME]:$(Build.BuildId)``` . Zastąp wartość **[name]** nazwą obrazu:
     - ```proxy```
     - ```products-api```
     - ```ratings-api```
@@ -188,15 +188,15 @@ Wymagane są dwa kroki platformy Docker dla każdego obrazu, jeden do skompilowa
 
 ## <a name="step-3-create-the-release-pipeline"></a>Krok 3. Tworzenie potoku wydania
 
-Usługa Azure DevOps umożliwia [Zarządzanie wersjami w różnych środowiskach](https://www.visualstudio.com/team-services/release-management/). Możesz włączyć ciągłe wdrażanie, aby upewnić się, że aplikacja jest wdrożona w różnych środowiskach (takich jak programowanie, testowanie, przedprodukcyjne i produkcyjne) w sposób płynny. Można utworzyć środowisko, które reprezentuje Azure Container Service klaster trybu Docker Swarm.
+Usługa Azure DevOps umożliwia [Zarządzanie wersjami w różnych środowiskach](https://azure.microsoft.com/services/devops/pipelines/). Możesz włączyć ciągłe wdrażanie, aby upewnić się, że aplikacja jest wdrożona w różnych środowiskach (takich jak programowanie, testowanie, przedprodukcyjne i produkcyjne) w sposób płynny. Można utworzyć środowisko, które reprezentuje Azure Container Service klaster trybu Docker Swarm.
 
 ![Azure DevOps — wydanie do usługi ACS](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-acs.png) 
 
 ### <a name="initial-release-setup"></a>Początkowa konfiguracja wydania
 
-1. Aby utworzyć potok wersji, kliknij pozycje **wersje** > **+ wydanie** .
+1. Aby utworzyć potok wersji, kliknij pozycje **wersje**  >  **+ wydanie** .
 
-2. Aby skonfigurować źródło artefaktów, kliknij pozycję **artefakty** > **Połącz Źródło artefaktu**. W tym miejscu Połącz ten nowy potok wydania z kompilacją zdefiniowaną w poprzednim kroku. Po tym pliku Docker-Compose. yml jest dostępny w procesie zwalniania.
+2. Aby skonfigurować źródło artefaktów, kliknij pozycję **artefakty**  >  **Połącz Źródło artefaktu**. W tym miejscu Połącz ten nowy potok wydania z kompilacją zdefiniowaną w poprzednim kroku. Po tym pliku Docker-Compose. yml jest dostępny w procesie zwalniania.
 
     ![Azure DevOps — artefakty wersji](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-artefacts.png) 
 
@@ -222,7 +222,7 @@ Przepływ pracy wydania składa się z dwóch zadań, które zostały dodane.
 
     ![Azure DevOps — punkt połączenia usługi](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-release-scp.png)
 
-2. Skonfiguruj drugie zadanie w celu wykonania polecenia bash w celu uruchomienia `docker` polecenia `docker stack deploy` i poleceń w węźle głównym. Aby uzyskać szczegółowe informacje, zobacz następujący ekran.
+2. Skonfiguruj drugie zadanie w celu wykonania polecenia bash w celu uruchomienia polecenia `docker` i `docker stack deploy` poleceń w węźle głównym. Aby uzyskać szczegółowe informacje, zobacz następujący ekran.
 
     ```
     docker login -u $(docker.username) -p $(docker.password) $(docker.registry) && export DOCKER_HOST=:2375 && cd deploy && docker stack deploy --compose-file docker-compose-v3.yml myshop --with-registry-auth

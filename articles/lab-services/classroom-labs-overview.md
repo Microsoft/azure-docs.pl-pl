@@ -1,24 +1,14 @@
 ---
 title: Informacje o laboratoriach zajęć w Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak szybko skonfigurować środowisko laboratoryjne w chmurze — Skonfiguruj laboratorium z szablonową maszyną wirtualną przy użyciu oprogramowania wymaganego dla klasy i Utwórz kopię maszyny wirtualnej dla każdego ucznia w klasie.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 11/26/2019
-ms.author: spelluru
-ms.openlocfilehash: bbbea0c943758c2682f7b166e461807d2914f790
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: e6ff56a831282c3abf5eec644573b9a3e88c6543
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899696"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445631"
 ---
 # <a name="introduction-to-classroom-labs"></a>Wprowadzenie do laboratoriów na potrzeby zajęć
 Usługa Azure Lab Services umożliwia szybkie skonfigurowanie środowiska laboratorium na potrzeby zajęć w chmurze. Nauczyciel tworzy laboratorium na potrzeby zajęć, aprowizuje maszyny wirtualne z systemem Windows lub Linux, instaluje niezbędne oprogramowanie i narzędzia wymagane podczas zajęć oraz udostępnia je studentom. Studenci na zajęciach łączą się z maszynami wirtualnymi w laboratorium, a następnie używają ich na potrzeby projektów, przydziałów i ćwiczeń wykonywanych na zajęciach. 

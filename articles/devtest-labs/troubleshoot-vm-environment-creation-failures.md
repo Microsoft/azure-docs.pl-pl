@@ -1,23 +1,14 @@
 ---
 title: Rozwiązywanie problemów z awariami maszyn wirtualnych i środowiska Azure DevTest Labs
 description: Dowiedz się, jak rozwiązywać problemy dotyczące maszyn wirtualnych i błędów tworzenia środowiska w Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 155a359608cf6d846578306545f5ce0b4003949c
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b7d3f3ad34d8a5bb48607816623c67121d21d78c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895332"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476482"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Rozwiązywanie problemów dotyczących maszyn wirtualnych i błędów tworzenia środowiska w Azure DevTest Labs
 DevTest Labs zawiera ostrzeżenia, jeśli nazwa komputera jest nieprawidłowa lub jeśli zamierzasz naruszać zasady laboratorium. Czasami zobaczysz czerwoną pozycję `X` na maszynie wirtualnej laboratorium lub w stanie środowiska, która informuje o niepowodzeniu.  Ten artykuł zawiera kilka lew, których można użyć w celu znalezienia podstawowego problemu i miejmy nadzieję, aby uniknąć problemu w przyszłości.

@@ -367,9 +367,9 @@
     - name: Tworzenie i przywracanie kopii zapasowych
       href: backup-recovery.md
     - name: Struktura wdrażania chmury
-      href: 'https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/get-started/'
+      href: 'https://docs.microsoft.com/azure/cloud-adoption-framework/get-started/'
     - name: Centrum architektury
-      href: 'https://docs.microsoft.com/en-us/azure/architecture/'
+      href: 'https://docs.microsoft.com/azure/architecture/'
     - name: Wytyczne dotyczące infrastruktury
       href: infrastructure-example.md
 - name: Przewodniki z instrukcjami

@@ -1,24 +1,14 @@
 ---
 title: Przewodnik konfigurowania dla Azure Lab Services
 description: Ten przewodnik ułatwia twórcom laboratorium szybkie konfigurowanie konta laboratorium do użycia w ramach szkoły.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2020
-ms.author: spelluru
-ms.openlocfilehash: 751d55493b1bdb06dfe61d9f951846e13e1e5d72
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: ad1a679c556316c2d23a713ffa5ac5dfe86cce0e
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897460"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445580"
 ---
 # <a name="classroom-lab-setup-guide"></a>Przewodnik konfigurowania laboratorium zajęć
 

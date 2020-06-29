@@ -3,12 +3,12 @@ title: Skonfiguruj własny klucz szyfrowania danych Azure Service Bus przechowyw
 description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Azure Service Bus Rest.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 9bc48d82d1e63f08ab68e8f9c6a63e781c14c675
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: ca1597f26ec1c7ccaa578d4e7dcd68e0ef54f60c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338095"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85475989"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurowanie kluczy zarządzanych przez klienta do szyfrowania Azure Service Bus danych przechowywanych przy użyciu Azure Portal
 Azure Service Bus Premium zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Service Bus Premium bazuje na usłudze Azure Storage do przechowywania danych i domyślnie wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
@@ -93,7 +93,7 @@ Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarz�
 
 ## <a name="rotate-your-encryption-keys"></a>Obróć klucze szyfrowania
 
-Możesz obrócić klucz w magazynie kluczy przy użyciu mechanizmu rotacji magazynów kluczy platformy Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie rotacji kluczy i inspekcji](../key-vault/secrets/key-rotation-log-monitoring.md). Daty aktywacji i wygaśnięcia można także skonfigurować w celu zautomatyzowania rotacji kluczy. Usługa Service Bus wykryje nowe wersje klucza i rozpocznie korzystanie z nich automatycznie.
+Możesz obrócić klucz w magazynie kluczy przy użyciu mechanizmu rotacji magazynów kluczy platformy Azure. Daty aktywacji i wygaśnięcia można także skonfigurować w celu zautomatyzowania rotacji kluczy. Usługa Service Bus wykryje nowe wersje klucza i rozpocznie korzystanie z nich automatycznie.
 
 ## <a name="revoke-access-to-keys"></a>Odwołaj dostęp do kluczy
 

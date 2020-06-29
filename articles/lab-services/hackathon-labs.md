@@ -1,23 +1,14 @@
 ---
 title: Użyj Azure Lab Services dla hackathon
 description: W tym artykule opisano, jak używać Azure Lab Services do tworzenia laboratoriów, których można użyć do uruchamiania imprezy rozpoczynają.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2020
-ms.author: spelluru
-ms.openlocfilehash: ba5559289f3d17f1a24a90a0daa466d4c8895c9c
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.date: 06/26/2020
+ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85120537"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445886"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Użyj Azure Lab Services dla następnej hackathon
 Azure Lab Services zaprojektowano jako uproszczone i łatwe w użyciu, dzięki czemu możesz szybko uruchomić nowe laboratorium maszyn wirtualnych dla hackathon.  Użyj poniższej listy kontrolnej, aby upewnić się, że hackathon jest tak płynnie, jak to możliwe. Ta lista kontrolna powinna zostać wykonana przez dział IT lub wykładowców odpowiedzialnych za tworzenie i zarządzanie laboratorium hackathon. 

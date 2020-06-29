@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 747acc27a5eaf8551e44a3bf52f55b5a380b73ce
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 6948d4d786e918e5f3e32e6bdf2f7e23940f6815
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752635"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445444"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Włącz przywracanie do punktu w czasie i zarządzaj nimi w przypadku blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -38,6 +38,10 @@ Następujące polecenie instaluje AZ. Storage [2.0.1-Preview](https://www.powers
 Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
 ```
 
+Powyższe polecenie wymaga zainstalowania wersji 2.2.4.1 lub nowszej z PowerShellGet. Aby określić, która wersja została załadowana:
+```powershell
+Get-Module PowerShellGet
+```
 Aby uzyskać więcej informacji o instalowaniu Azure PowerShell, zobacz [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
 
 ## <a name="enable-and-configure-point-in-time-restore"></a>Włącz i skonfiguruj przywracanie do punktu w czasie

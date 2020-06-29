@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 90c2068021f1e9a173f37bdf1098edda10ab3d8d
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117513"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413471"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
@@ -52,7 +52,7 @@ Można analizować obrazy, aby zapewnić wgląd w ich funkcje i cechy wizualne. 
 
 Za pomocą interfejsu API [odczytu](concept-recognizing-text.md#read-api) przetwarzanie obrazów można wyodrębnić wydrukowany i odręczny tekst z obrazów do strumienia znaków, który można odczytać. Interfejs API odczytu korzysta z najnowszych modeli i współpracuje z tekstem na różnych powierzchniach i w tle, takich jak paragony, plakaty, karty biznesowe, litery i tablice. Obecnie działa on w przypadku siedmiu różnych języków (zobacz [Obsługa języka](./language-support.md)).
 
-Możesz również użyć interfejsu API [rozpoznawania znaków optycznych (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) do wyodrębniania tekstu drukowanego w kilku językach. Jeśli to konieczne, funkcja optycznego rozpoznawania znaków poprawia kąt obrotu i podaje współrzędne ramki każdego wyrazu. Funkcja optycznego rozpoznawania znaków obsługuje 25 języków i automatycznie wykrywa język rozpoznanego tekstu.
+Możesz również użyć interfejsu API [rozpoznawania znaków optycznych (OCR)](concept-recognizing-text.md) do wyodrębniania tekstu drukowanego w kilku językach. Jeśli to konieczne, funkcja optycznego rozpoznawania znaków poprawia kąt obrotu i podaje współrzędne ramki każdego wyrazu. Funkcja optycznego rozpoznawania znaków obsługuje 25 języków i automatycznie wykrywa język rozpoznanego tekstu.
 
 ## <a name="moderate-content-in-images"></a>Moderowanie zawartości na obrazach
 

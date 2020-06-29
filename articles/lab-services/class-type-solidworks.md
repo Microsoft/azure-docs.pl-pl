@@ -1,18 +1,16 @@
 ---
 title: Konfigurowanie laboratorium SolidWorks Lab for Engineering with Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak skonfigurować laboratorium dla kursów inżynieryjnych za pomocą SolidWorks.
-services: lab-services
 author: nicolela
-ms.service: lab-services
 ms.topic: article
-ms.date: 06/03/2020
+ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: d3f6a855f4b162f0b14ff01ed0a3560897383c49
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: fa1b93bd71c1319bf8705c8c84cdb3e6f9da19e2
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341770"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443812"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Konfigurowanie laboratorium dla klas inżynieryjnych za pomocą SolidWorks
 

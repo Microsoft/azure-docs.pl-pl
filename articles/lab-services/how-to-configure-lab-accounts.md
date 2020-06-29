@@ -1,24 +1,14 @@
 ---
 title: Skonfiguruj automatyczne zamykanie maszyn wirtualnych w Azure Lab Services
 description: W tym artykule opisano sposób konfigurowania automatycznego zamykania maszyn wirtualnych na koncie laboratorium.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2020
-ms.author: spelluru
-ms.openlocfilehash: 787b9aa3738335ee0261ab94253cf828c232bd44
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 783e3b310b3ad06f637453f0e1b11f6a78beec3a
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896018"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445818"
 ---
 # <a name="configure-automatic-shutdown-of-vms-on-disconnect-setting-for-a-lab-account"></a>Skonfiguruj automatyczne zamykanie maszyn wirtualnych w przypadku ustawienia odłączania dla konta laboratorium
 Można włączyć lub wyłączyć automatyczne zamykanie maszyn wirtualnych laboratorium systemu Windows (szablonu lub ucznia) po odłączeniu połączenia z pulpitem zdalnym. Możesz również określić, jak długo usługi laboratoryjne powinny czekać, aż użytkownik ponownie nawiąże połączenie przed automatycznym zamknięciem.

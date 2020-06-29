@@ -1,24 +1,14 @@
 ---
 title: Zezwól twórcy laboratorium na wybranie lokalizacji w Azure Lab Services
 description: W tym artykule opisano, jak administrator konta laboratorium może umożliwić twórcom laboratorium Wybieranie lokalizacji dla ich laboratoriów.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
-ms.author: spelluru
-ms.openlocfilehash: 8d11b0fcf57be35d5a47d720a07fa274acc05b35
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899137"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444203"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Zezwól twórcy laboratorium na wybranie lokalizacji dla laboratorium w Azure Lab Services
 W Azure Lab Services właściciel konta laboratorium może zezwolić twórcom laboratorium (wykładowcom) na wybranie lokalizacji dla tworzonych przez siebie laboratorium. Ta lokalizacja może różnić się od lokalizacji konta laboratorium. Lokalizacja jest grupą regionów świadczenia usługi Azure. Na przykład lokalizacja Stany Zjednoczone jest grupą regionów, takich jak Wschodnie stany USA, zachodnie stany USA itd. 

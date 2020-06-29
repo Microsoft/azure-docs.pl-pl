@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97ddc91b5e49cafa87b90113f0160d8aec9c699a
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: aab57d48e8bd95f1ce2aec2dde42303d5d991a58
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85360320"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444254"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planowanie wdrożenia urządzenia Azure Active Directory
 
@@ -38,11 +38,11 @@ Istnieje wiele metod integrowania urządzeń z usługą Azure AD:
 
 Przed rozpoczęciem upewnij się, że znasz już [Omówienie zarządzania tożsamościami urządzeń](overview.md).
 
-### <a name="benefits"></a>Korzyści
+### <a name="benefits"></a>Zalety
 
 Najważniejsze zalety nadawania urządzeniom tożsamości usługi Azure AD:
 
-* Zwiększ produktywność — dzięki usłudze Azure AD użytkownicy mogą [bezproblemowo zalogować](/azuread-join-sso.md) się do zasobów lokalnych i w chmurze, co umożliwia ich produktywność wszędzie tam, gdzie się znajdują.
+* Zwiększ produktywność — dzięki usłudze Azure AD użytkownicy mogą [bezproblemowo zalogować](./azuread-join-sso.md) się do zasobów lokalnych i w chmurze, co umożliwia ich produktywność wszędzie tam, gdzie się znajdują.
 
 * Zwiększ bezpieczeństwo — urządzenia usługi Azure AD umożliwiają stosowanie [zasad dostępu warunkowego (CA)](../conditional-access/require-managed-devices.md) do zasobów na podstawie tożsamości urządzenia lub użytkownika. Zasady urzędu certyfikacji mogą oferować dodatkową ochronę przy użyciu [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Przyłączanie urządzenia do usługi Azure AD jest wymaganiem wstępnym w celu zwiększenia bezpieczeństwa dzięki strategii [uwierzytelniania bez hasła](../authentication/concept-authentication-passwordless.md) .
 

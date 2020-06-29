@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0b926491ef3fc672626317184fb7ed2760919866
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85210511"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476278"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące usług SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Jeśli to możliwe, można przygotować pliki w celu uzyskania lepszej wydajnoś
 
 ## <a name="push-wildcards-to-lower-levels-in-the-path"></a>Wypchnij symbole wieloznaczne do niższych poziomów w ścieżce
 
-W ścieżce można używać symboli wieloznacznych, aby [wykonywać zapytania dotyczące wielu plików i folderów](develop-storage-files-overview.md#query-multiple-files-or-folders). Program SQL na żądanie wyświetla listę plików na koncie magazynu, rozpoczynając od pierwszego * przy użyciu interfejsu API usługi Storage. Eliminuje pliki, które nie pasują do określonej ścieżki. Zmniejszenie początkowej listy plików może zwiększyć wydajność, jeśli istnieje wiele plików zgodnych z określoną ścieżką do pierwszego symbolu wieloznacznego.
+W ścieżce można używać symboli wieloznacznych, aby [wykonywać zapytania dotyczące wielu plików i folderów](query-data-storage.md#query-multiple-files-or-folders). Program SQL na żądanie wyświetla listę plików na koncie magazynu, rozpoczynając od pierwszego * przy użyciu interfejsu API usługi Storage. Eliminuje pliki, które nie pasują do określonej ścieżki. Zmniejszenie początkowej listy plików może zwiększyć wydajność, jeśli istnieje wiele plików zgodnych z określoną ścieżką do pierwszego symbolu wieloznacznego.
 
 ## <a name="use-appropriate-data-types"></a>Użyj odpowiednich typów danych
 
@@ -113,7 +113,7 @@ FROM
 
 Dane często są zorganizowane w partycjach. Można wydać instrukcję SQL na żądanie, aby wykonywać zapytania dotyczące określonych folderów i plików. Spowoduje to zmniejszenie liczby plików i ilości danych, które zapytanie musi odczytać i przetworzyć. Dodatkową premią jest osiągnięcie lepszej wydajności.
 
-Aby uzyskać więcej informacji, Przeczytaj o funkcjach [filename](develop-storage-files-overview.md#filename-function) i [FilePath](develop-storage-files-overview.md#filepath-function) oraz Zobacz przykłady dotyczące [wykonywania zapytań dotyczących określonych plików](query-specific-files.md).
+Aby uzyskać więcej informacji, Przeczytaj o funkcjach [filename](query-data-storage.md#filename-function) i [FilePath](query-data-storage.md#filepath-function) oraz Zobacz przykłady dotyczące [wykonywania zapytań dotyczących określonych plików](query-specific-files.md).
 
 > [!TIP]
 > Zawsze należy rzutować wyniki funkcji FilePath i filename na odpowiednie typy danych. Jeśli używasz typów danych znakowych, upewnij się, że używasz odpowiedniej długości.

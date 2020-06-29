@@ -12,12 +12,12 @@ ms.workload: mobile
 ms.topic: article
 ms.date: 06/24/2020
 ms.author: apimpm
-ms.openlocfilehash: b74874806585357fe2c7fa2603bfb50751c4d843
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 72899e743e167eef5ee7d1be04cb50cafc1f2a95
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85355492"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445512"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Ochrona interfejsu API przy użyciu protokołu OAuth 2.0 za pomocą usługi Azure Active Directory i usługi API Management
 
@@ -224,12 +224,12 @@ Użyj [weryfikacji zasad JWT](https://docs.microsoft.com/azure/api-management/ap
 
 ## <a name="build-an-application-to-call-the-api"></a>Tworzenie aplikacji do wywoływania interfejsu API
 
-W tym przewodniku użyto konsoli dewelopera w API Management jako Przykładowa aplikacja kliencka do wywołania `Echo API` chronionego za pomocą protokołu OAuth 2,0. Aby dowiedzieć się więcej na temat tworzenia aplikacji i implementowania protokołu OAuth 2,0, zobacz [Azure Active Directory przykładów kodu](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code.md).
+W tym przewodniku użyto konsoli dewelopera w API Management jako Przykładowa aplikacja kliencka do wywołania `Echo API` chronionego za pomocą protokołu OAuth 2,0. Aby dowiedzieć się więcej na temat tworzenia aplikacji i implementowania protokołu OAuth 2,0, zobacz [Azure Active Directory przykładów kodu](../active-directory/develop/sample-v2-code.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Dowiedz się więcej o [Azure Active Directory i OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios.md).
+- Dowiedz się więcej o [Azure Active Directory i OAuth 2.0](../active-directory/develop/authentication-scenarios.md).
 - Poznaj więcej [filmów wideo](https://azure.microsoft.com/documentation/videos/index/?services=api-management) dotyczących API Management.
-- Aby poznać inne sposoby zabezpieczenia usługi zaplecza, zobacz [uwierzytelnianie wzajemne certyfikatów](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates).
-- [Utwórz wystąpienie usługi API Management](https://docs.microsoft.com/azure/api-management/get-started-create-service-instance).
-- [Zarządzanie pierwszym interfejsem API](https://docs.microsoft.com/azure/api-management/import-and-publish).
+- Aby poznać inne sposoby zabezpieczenia usługi zaplecza, zobacz [uwierzytelnianie wzajemne certyfikatów](./api-management-howto-mutual-certificates.md).
+- [Utwórz wystąpienie usługi API Management](./get-started-create-service-instance.md).
+- [Zarządzanie pierwszym interfejsem API](./import-and-publish.md).

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 3e17df2a3c92d24a7fa662fbf92f8c89b434eb0d
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338230"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444458"
 ---
 # <a name="virtual-network-service-endpoints"></a>Punkty końcowe usługi dla sieci wirtualnej
 
@@ -90,7 +90,7 @@ Punkty końcowe usługi oferują następujące korzyści:
 
 ### <a name="considerations"></a>Zagadnienia do rozważenia
 
-- Po włączeniu punktu końcowego usługi źródłowe adresy IP maszyn wirtualnych w przełączniku podsieci. Źródłowe adresy IP przełączają się z używania publicznych adresów IPv4 podczas komunikacji z usługą z tej podsieci. Wszystkie otwarte połączenia TCP z usługą są zamykane podczas tego przełączania. Upewnij się, że żadne krytyczne zadania nie działają podczas włączania lub wyłączania punktu końcowego w usłudze dla podsieci. Upewnij się również, czy aplikacje mogą automatycznie połączyć się z usługami platformy Azure po przełączeniu adresu IP.
+- Po włączeniu punktu końcowego usługi źródłowe adresy IP przełączają się z używania publicznych adresów IPv4, aby używać ich prywatnego adresu IPv4 podczas komunikacji z usługą z tej podsieci. Wszystkie otwarte połączenia TCP z usługą są zamykane podczas tego przełączania. Upewnij się, że żadne krytyczne zadania nie działają podczas włączania lub wyłączania punktu końcowego w usłudze dla podsieci. Upewnij się również, czy aplikacje mogą automatycznie połączyć się z usługami platformy Azure po przełączeniu adresu IP.
 
   Przełączenie adresu IP ma wpływ tylko na ruch usługi z sieci wirtualnej. Nie ma to wpływu na żaden inny ruch kierowany do lub z publicznych adresów IPv4 przypisanych do maszyn wirtualnych. Jeśli masz istniejące reguły zapory używające publicznych adresów IP platformy Azure dla usług platformy Azure, te reguły przestają działać po przełączeniu na użycie prywatnych adresów sieci wirtualnej.
 - W przypadku punktów końcowych usługi wpisy DNS dla usług platformy Azure pozostają dzisiaj i nadal są rozwiązywane z publicznymi adresami IP przypisanymi do usługi platformy Azure.

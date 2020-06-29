@@ -1,24 +1,14 @@
 ---
 title: Skonfiguruj laboratorium działanie hakerskie etyczne z Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak skonfigurować laboratorium przy użyciu Azure Lab Services do uczenia etycznych działanie hakerskie.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
-ms.author: spelluru
-ms.openlocfilehash: e71efa1c0992a815950d280d4febc9ccdd213936
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 0e3a5c6e09038ea731e4157657b0e6ad9c9263ea
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899060"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443999"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurowanie laboratorium do uczenia się klasy działanie hakerskie etycznych 
 W tym artykule opisano sposób konfigurowania klasy, która koncentruje się na dowodowych etycznej działanie hakerskie. Testowanie penetracji, metoda stosowana przez społeczność etyczną działanie hakerskie, występuje, gdy ktoś próbuje uzyskać dostęp do systemu lub sieci w celu zademonstrowania luk w zabezpieczeniach. 

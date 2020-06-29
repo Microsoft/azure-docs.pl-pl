@@ -5,19 +5,19 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/22/2020
-ms.openlocfilehash: 382849c30c3520bbb208886de5f302f59fdac98b
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 095746b9cf3cada9cebf7d169078eff9eb64a52d
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85374460"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444271"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Zmniejszanie opóźnień przy użyciu grup umieszczania w sąsiedztwie
 
 > [!Note]
 > W przypadku używania grup umieszczania bliskości z AKS, współlokalizacja dotyczy tylko węzłów agenta. Ulepszono węzeł z węzłem i odpowiadający mu oczekiwany czas oczekiwania. Współlokalizacja nie ma wpływu na rozmieszczenie płaszczyzny kontroli klastra.
 
-Podczas wdrażania aplikacji na platformie Azure rozproszenie wystąpień maszyn wirtualnych (VM) między regionami lub strefami dostępności tworzy opóźnienie sieci, co może mieć wpływ na ogólną wydajność aplikacji. Grupa umieszczania bliskości jest grupą logiczną używaną do upewnienia się, że zasoby obliczeniowe platformy Azure znajdują się fizycznie blisko siebie. Niektóre aplikacje, takie jak gry, symulacje inżynieryjne i handel o wysokiej częstotliwości (HFT), wymagają krótkich opóźnień i zadań, które są szybko kompletne. W przypadku scenariuszy obliczeniowych o wysokiej wydajności (HPC), takich jak te, należy rozważyć użycie [grup umieszczania zbliżeniowe](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#proximity-placement-groups) dla pul węzłów klastra.
+Podczas wdrażania aplikacji na platformie Azure rozproszenie wystąpień maszyn wirtualnych (VM) między regionami lub strefami dostępności tworzy opóźnienie sieci, co może mieć wpływ na ogólną wydajność aplikacji. Grupa umieszczania bliskości jest grupą logiczną używaną do upewnienia się, że zasoby obliczeniowe platformy Azure znajdują się fizycznie blisko siebie. Niektóre aplikacje, takie jak gry, symulacje inżynieryjne i handel o wysokiej częstotliwości (HFT), wymagają krótkich opóźnień i zadań, które są szybko kompletne. W przypadku scenariuszy obliczeniowych o wysokiej wydajności (HPC), takich jak te, należy rozważyć użycie [grup umieszczania zbliżeniowe](../virtual-machines/linux/co-location.md#proximity-placement-groups) dla pul węzłów klastra.
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -157,7 +157,7 @@ az group delete --name myResourceGroup --yes --no-wait
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[proximity-placement-groups]: /virtual-machines/windows/co-location.md#proximity-placement-groups/virtual-machines/linux/co-location
+[proximity-placement-groups]: ../virtual-machines/linux/co-location.md#proximity-placement-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add

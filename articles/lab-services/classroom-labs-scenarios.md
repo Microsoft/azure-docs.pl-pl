@@ -1,24 +1,14 @@
 ---
 title: Korzystanie z laboratoriów zajęć na potrzeby szkoleń — Azure Lab Services
 description: W tym artykule opisano, jak używać Azure DevTest Labs do tworzenia laboratoriów na platformie Azure na potrzeby scenariuszy szkoleniowych.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.assetid: 57ff4e30-7e33-453f-9867-e19b3fdb9fe2
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
-ms.author: spelluru
-ms.openlocfilehash: cd5a2fb55e1c2ec360d1585155f53b9213a72179
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 582508968609ba53de14b95b71ee75b5fec9ba93
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897390"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445257"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Korzystanie z laboratoriów zajęć na potrzeby szkoleń
 Usługi Azure Labs umożliwiają nauczycielom (nauczycielom, wykładowcyom, instruktorom lub asystentom nauczania itp.) szybkie i łatwe tworzenie laboratorium online do aprowizacji wstępnie skonfigurowanych środowisk szkoleniowych dla tego instruktora. Każdy z nich może korzystać z tych samych i izolowanych środowisk dla szkolenia. Zasady mogą być stosowane w celu upewnienia się, że środowiska szkoleniowe są dostępne dla każdego z nich tylko wtedy, gdy ich potrzebują i zawierają wystarczające zasoby, takie jak maszyny wirtualne — wymagane do szkolenia. 

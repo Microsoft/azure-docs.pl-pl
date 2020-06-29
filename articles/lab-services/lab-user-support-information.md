@@ -1,17 +1,14 @@
 ---
 title: Azure Lab Services — Wyświetl informacje o pomocy technicznej (użytkownik laboratorium)
 description: W tym artykule wyjaśniono, jak użytkownik laboratorium lub nauczycieli może wyświetlić informacje o pomocy technicznej, których może użyć w celu uzyskania pomocy.
-author: spelluru
-ms.author: spelluru
-ms.date: 02/14/2020
+ms.date: 06/26/2020
 ms.topic: how-to
-ms.service: lab-services
-ms.openlocfilehash: 216d347eb482cb8cdea86d3e17e4780b2236f1e2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 8d0c8a3ad8ba92e606f19480bdb36483f377fa04
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895738"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443506"
 ---
 # <a name="view-support-information-lab-user-in-azure-lab-services"></a>Wyświetl informacje o pomocy technicznej (użytkownik laboratorium w Azure Lab Services)
 W tym artykule wyjaśniono, jak użytkownik (w ramach laboratorium) może wyświetlić następujące informacje o pomocy technicznej:

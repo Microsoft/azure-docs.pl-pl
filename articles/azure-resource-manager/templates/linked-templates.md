@@ -2,13 +2,13 @@
 title: Łączenie szablonów do wdrożenia
 description: Opisuje, jak używać połączonych szablonów w szablonie Azure Resource Manager, aby utworzyć modularne rozwiązanie szablonów. Pokazuje, jak przekazać wartości parametrów, określić plik parametrów i dynamicznie tworzone adresy URL.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 5ade39d014ca309796813cc6ff9259bcc8bdd17b
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.date: 06/26/2020
+ms.openlocfilehash: d8e9617fca38ca2b1f16ba2c6c1599e3663347e7
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194080"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445189"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Używanie połączonych i zagnieżdżonych szablonów podczas wdrażania zasobów platformy Azure
 
@@ -34,9 +34,9 @@ Aby zagnieździć szablon, Dodaj [zasób wdrożenia](/azure/templates/microsoft.
   "variables": {},
   "resources": [
     {
-      "name": "nestedTemplate1",
-      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
         "template": {
@@ -63,9 +63,9 @@ Poniższy przykład służy do wdrażania konta magazynu za pomocą szablonu zag
   },
   "resources": [
     {
-      "name": "nestedTemplate1",
-      "apiVersion": "2019-10-01",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2019-10-01",
+      "name": "nestedTemplate1",
       "properties": {
         "mode": "Incremental",
         "template": {
@@ -313,8 +313,6 @@ W przypadku odwoływania się do połączonego szablonu wartość `uri` nie moż
 > [!NOTE]
 >
 > Można odwoływać się do szablonów przy użyciu parametrów, które ostatecznie rozwiązują się do elementu, który używa **protokołu HTTP** lub **https**, na przykład przy użyciu tego `_artifactsLocation` parametru, takiego jak:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
-
-
 
 Menedżer zasobów musi mieć możliwość uzyskania dostępu do szablonu. Jedną z opcji jest umieszczenie powiązanego szablonu na koncie magazynu i użycie identyfikatora URI dla tego elementu.
 

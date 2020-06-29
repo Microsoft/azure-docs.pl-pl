@@ -1,23 +1,14 @@
 ---
 title: Testowanie aplikacji na platformie Azure | Microsoft Docs
 description: Dowiedz się, jak utworzyć udział plików w laboratorium i zainstalować go na maszynie lokalnej i maszynie wirtualnej w laboratorium, a następnie wdrożyć aplikacje pulpitu/sieci Web w udziale plików i przetestować je.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
-ms.author: spelluru
-ms.openlocfilehash: 65d7ee23195e69c67d9235aeea9a7a166a3a22c1
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 06/26/2020
+ms.openlocfilehash: 30e77e67a1674b2170c1d1782f1389274afa4c35
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85211548"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476499"
 ---
 # <a name="test-your-app-in-azure"></a>Testowanie aplikacji na platformie Azure 
 Ten artykuł zawiera kroki testowania aplikacji na platformie Azure przy użyciu DevTest Labs. Najpierw należy skonfigurować udział plików w środowisku laboratoryjnym i zainstalować go jako dysk na lokalnym komputerze deweloperskim i maszynie wirtualnej w laboratorium. Następnie możesz użyć programu Visual Studio 2019 do wdrożenia aplikacji w udziale plików, aby można było uruchomić aplikację na maszynie wirtualnej w laboratorium.  

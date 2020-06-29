@@ -1,21 +1,16 @@
 ---
 title: Przewodnik konfigurowania komputera z szablonem systemu Windows | Microsoft Docs
 description: Ogólne kroki przygotowujące maszynę szablonu systemu Windows w usługach Lab Services.  Kroki te obejmują ustawienie Windows Update harmonogram, Instalowanie usługi OneDrive i instalowanie pakietu Office.
-services: lab-services
-documentationcenter: na
 author: EMaher
-manager: ''
-editor: ''
-ms.service: lab-services
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 7ed2a506fc4446f78685c6cd6ae9dec2b65e1743
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 5e1d772deb71e03311489ea61d012415860cbe54
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895829"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445325"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Przewodnik konfigurowania komputera z szablonem systemu Windows w Azure Lab Services
 

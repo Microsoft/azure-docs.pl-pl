@@ -1,24 +1,14 @@
 ---
 title: Włącz zarządzane tożsamości na maszynach wirtualnych laboratorium w Azure DevTest Labs
 description: W tym artykule pokazano, jak właściciel laboratorium może włączyć tożsamości zarządzane przypisane przez użytkownika na maszynach wirtualnych laboratorium.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2020
-ms.author: spelluru
-ms.openlocfilehash: 5d70f83babcf53249f581230e72326d99a0533d6
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 886dc3b541c624d9f7a300fbbe696e1d2e143641
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898437"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476006"
 ---
 # <a name="enable-user-assigned-managed-identities-on-lab-virtual-machines-in-azure-devtest-labs"></a>Włącz tożsamości zarządzane przypisane przez użytkownika na maszynach wirtualnych laboratorium w Azure DevTest Labs
 Jako właściciel laboratorium można włączyć tożsamości zarządzane przypisane przez użytkownika na maszynach wirtualnych laboratorium (VM) w Azure DevTest Labs.

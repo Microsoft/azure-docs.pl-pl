@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 1f1a83bce3a8b46bb49bf78917690851390408e0
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 0a9a89b6ff3d0e2d3987d4b4281b9e4e1605475f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194692"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476788"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Co to jest Apache Spark w usłudze Azure Synapse Analytics
 
@@ -60,7 +60,7 @@ SparkContext może połączyć się z menedżerem klastra, który przydziela zas
 
 SparkContext uruchamia główną funkcję użytkownika i wykonuje różne operacje równoległe na węzłach. Następnie pobiera wyniki operacji. Węzły odczytują i zapisują dane z i do systemu plików. Węzły również buforują dane przekształcone w pamięci jako odporne rozproszone zestawy danych (odporne).
 
-SparkContext nawiązuje połączenie z pulą Spark i jest odpowiedzialny za konwersję aplikacji na wykres kierowany (DAG). Wykres składa się z poszczególnych zadań, które są wykonywane w procesie wykonawcy w węzłach. Poszczególne aplikacje uzyskują własne procesy wykonawcze, które istnieją przez cały czas działania aplikacji i pozwalają uruchamiać zadania w wielu wątkach.
+SparkContext nawiązuje połączenie z pulą Spark i jest odpowiedzialny za konwersję aplikacji na ukierunkowany wykres o postaci acykliczne (DAG). Wykres składa się z poszczególnych zadań, które są wykonywane w procesie wykonawcy w węzłach. Poszczególne aplikacje uzyskują własne procesy wykonawcze, które istnieją przez cały czas działania aplikacji i pozwalają uruchamiać zadania w wielu wątkach.
 
 ## <a name="apache-spark-in-synapse-analytics-use-cases"></a>Apache Spark w przypadku użycia analizy Synapse
 
@@ -70,7 +70,7 @@ Pule Spark w usłudze Synapse Analytics umożliwiają korzystanie z następując
 
 Apache Spark zawiera wiele funkcji języka do obsługi przygotowania i przetwarzania dużych ilości danych, dzięki czemu może być bardziej cenne i zużywane przez inne usługi w ramach analizy Synapse. Jest to możliwe za pośrednictwem wielu języków (C#, Scala, PySpark, Spark SQL) i dostarczonych bibliotek do przetwarzania i łączności.
 
-### <a name="machine-learning"></a>Machine Learning
+### <a name="machine-learning"></a>Usługa Machine Learning
 
 Apache Spark to [MLlib](https://spark.apache.org/mllib/), biblioteka uczenia maszynowego oparta na platformie Spark, która może być używana z puli platformy Spark w usłudze Synapse Analytics. Pule Spark w usłudze Synapse Analytics obejmują również Anaconda, dystrybucję języka Python z wieloma pakietami do nauki o danych, w tym uczenia maszynowego. W połączeniu z wbudowaną obsługą notesów masz środowisko do tworzenia aplikacji do uczenia maszynowego.
 
