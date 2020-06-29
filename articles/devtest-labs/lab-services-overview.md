@@ -1,26 +1,16 @@
 ---
-title: Informacje o usłudze Azure Lab Services | Microsoft Docs
-description: Dowiedz się, jak usługa Lab Services może ułatwić tworzenie i zabezpieczanie laboratoriów z maszynami wirtualnymi, które mogą być używane przez deweloperów, testerów, nauczycieli, uczniów itd., a także zarządzanie tymi laboratoriami.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Lab Services a Azure DevTest Labs
+description: Porównaj Azure DevTest Labs i Azure Lab Services.
 ms.topic: overview
-ms.date: 02/03/2020
-ms.author: spelluru
-ms.openlocfilehash: a1e42a415e99bfaec1c48204efdaacd178005705
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: b1cd476faf6c457033ffeace03cd2e37b51e8578
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899672"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480086"
 ---
-# <a name="an-introduction-to-azure-lab-services"></a>Wprowadzenie do usługi Azure Lab Services
+# <a name="compare-azure-devtest-labs-and-azure-lab-services"></a>Porównaj Azure DevTest Labs i Azure Lab Services
 Na platformie Azure dostępne są dwie usługi, które umożliwiają Konfigurowanie środowisk laboratoryjnych w chmurze. 
 
 - **Azure DevTest Labs** — ta usługa umożliwia szybkie skonfigurowanie środowiska dla zespołu (na przykład środowisko programistyczne lub środowisko testowe w chmurze). Właściciel laboratorium tworzy laboratorium, aprowizuje maszyny wirtualne z systemem Windows lub Linux, instaluje niezbędne oprogramowanie i narzędzia oraz udostępnia je użytkownikom laboratorium. Użytkownicy laboratorium nawiązują połączenie z maszynami wirtualnymi w laboratorium i używają ich do codziennej pracy, krótkoterminowych projektów. Gdy użytkownicy rozpoczną korzystanie z zasobów w laboratorium, administrator laboratorium może analizować koszty i użycie w wielu laboratoriach, a następnie ustawić nadrzędne zasady w celu zoptymalizowania kosztów organizacji lub zespołu.

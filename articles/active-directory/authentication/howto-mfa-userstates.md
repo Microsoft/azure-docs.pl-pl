@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ea97d7a2aa5fdc18d11e952eafe65b167b3397
-ms.sourcegitcommit: f57fa5f3ce40647eda93f8be4b0ab0726d479bca
+ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/07/2020
-ms.locfileid: "84483921"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476839"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Włączanie usługi Azure Multi-Factor Authentication dla poszczególnych użytkowników w celu zabezpieczenia zdarzeń logowania
 
@@ -39,7 +39,7 @@ Konta użytkowników na platformie Azure Multi-Factor Authentication mają trzy 
 | Stan | Opis | Uwzględnione aplikacje nie korzystające z przeglądarki | Uwzględnione aplikacje przeglądarki | Zmodyfikowane nowoczesne uwierzytelnianie |
 |:---:| --- |:---:|:--:|:--:|
 | Disabled (Wyłączony) | Domyślny stan nowego użytkownika, który nie jest zarejestrowany w usłudze Azure Multi-Factor Authentication. | Nie | Nie | Nie |
-| Enabled (Włączony) | Użytkownik został zarejestrowany w usłudze Azure Multi-Factor Authentication Otrzymują monit o zarejestrowanie się przy następnym logowaniu. | Nie.  Nadal działają do momentu zakończenia procesu rejestracji. | Tak. Po wygaśnięciu sesji wymagana jest rejestracja w usłudze Azure Multi-Factor Authentication.| Tak. Po wygaśnięciu tokenu dostępu wymagana jest rejestracja w usłudze Azure Multi-Factor Authentication. |
+| Enabled (Włączony) | Użytkownik został zarejestrowany w usłudze Azure Multi-Factor Authentication, ale nie zarejestrowano metod uwierzytelniania. Otrzymują monit o zarejestrowanie się przy następnym logowaniu. | Nie.  Nadal działają do momentu zakończenia procesu rejestracji. | Tak. Po wygaśnięciu sesji wymagana jest rejestracja w usłudze Azure Multi-Factor Authentication.| Tak. Po wygaśnięciu tokenu dostępu wymagana jest rejestracja w usłudze Azure Multi-Factor Authentication. |
 | Enforced (Wymuszony) | Użytkownik został zarejestrowany i ukończył proces rejestracji w usłudze Azure Multi-Factor Authentication. | Tak. Aplikacje wymagają haseł aplikacji. | Tak. Usługa Azure Multi-Factor Authentication jest wymagana podczas logowania. | Tak. Usługa Azure Multi-Factor Authentication jest wymagana podczas logowania. |
 
 Stan użytkownika wskazuje, czy administrator zarejestrował je na platformie Azure Multi-Factor Authentication i czy zakończył proces rejestracji.
@@ -82,7 +82,7 @@ Aby zmienić stan użytkownika przy użyciu [programu Azure AD PowerShell](/powe
 
 * *Włączone*
 * *Enforced (Wymuszony)*
-* *Wyłączone*  
+* *Disabled (Wyłączone)*  
 
 Nie przenoś użytkowników bezpośrednio do stanu *wymuszonego* . W takim przypadku aplikacje niekorzystające z przeglądarki przestaną działać, ponieważ użytkownik nie przeszedł za pośrednictwem usługi Azure Multi-Factor Authentication Registration i uzyskał [hasło aplikacji](howto-mfa-app-passwords.md).
 

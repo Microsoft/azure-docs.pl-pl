@@ -9,13 +9,13 @@ ms.author: sgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: 507b03266e70ae082872890c9d5cddb50fdeb703
-ms.sourcegitcommit: a8928136b49362448e992a297db1072ee322b7fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 09e48bd5c27dc4835ba0261ccd929f858fdb58b4
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84719990"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481888"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optymalizowanie przetwarzania danych za pomocą Azure Machine Learning
 
@@ -61,9 +61,10 @@ Indeksowanie | Zastosowanie i użycie indeksu — podsumowanie informujące o ty
 
 Jeśli poprzednie zalecenia są niewystarczające i nie możesz uzyskać maszyny wirtualnej, która pasuje do danych, możesz 
 
-* Użyj struktury, takiej jak `Spark` lub `Dask` , aby przetworzyć dane za mało pamięci. W przypadku tej opcji ramka Dataframe jest ładowana do partycji RAM przez partycję i przetworzoną, a końcowy wynik jest zbierany na końcu. 
+* Użyj struktury, takiej jak `Spark` lub `Dask` , aby przetworzyć dane za mało pamięci. W przypadku tej opcji ramka Dataframe jest ładowana do partycji RAM przez partycję i przetworzoną, a końcowy wynik jest zbierany na końcu.  
 
 * Skalowanie w poziomie do klastra przy użyciu rozproszonej struktury. W tej opcji obciążenia przetwarzania danych są dzielone i przetwarzane na wielu procesorach, które pracują równolegle, wraz z końcowym wynikiem zebranym na końcu.
+
 
 ### <a name="recommended-distributed-frameworks"></a>Zalecane platformy rozproszone
 
@@ -75,6 +76,8 @@ Jeśli znasz już program`Pandas`| `Modin`lub `Dask` ramka danych
 Jeśli wolisz`Spark` | `PySpark`
 Dla danych mniejszych niż 1 GB | `Pandas`lokalne **lub** zdalne wystąpienie obliczeniowe Azure Machine Learning
 Dla danych większych niż 10 GB| Przejdź do klastra przy użyciu `Ray` , `Dask` lub`Spark`
+
+Możesz tworzyć `Dask` klastry w klastrze obliczeniowym Azure ml przy użyciu pakietu [dask-cloudprovider](https://cloudprovider.dask.org/en/latest/#azure) . Lub można uruchomić `Dask` lokalnie w wystąpieniu obliczeniowym.
 
 ## <a name="next-steps"></a>Następne kroki
 

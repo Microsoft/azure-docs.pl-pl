@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/27/2020
 ms.author: jmprieur
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: f28d3722d56582bd925d31b43b4a0219bca2ae30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df0caf3ae029353742b4b1060ca5241ac9cbb5bd
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81534605"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477808"
 ---
 # <a name="handle-samesite-cookie-changes-in-chrome-browser"></a>Obsługa zmian plików cookie SameSite w przeglądarce Chrome
 
@@ -35,14 +35,14 @@ Domyślnie `SameSite` wartość nie jest ustawiona w przeglądarkach i dlatego n
 
 Najnowsze [aktualizacje standardów SameSite](https://tools.ietf.org/html/draft-west-cookie-incrementalism-00) zaproponują ochronę aplikacji przez zachowanie domyślnego zachowania, `SameSite` gdy żadna wartość nie jest ustawiona na swobodny. Takie łagodzenie oznacza, że pliki cookie będą ograniczone do żądań HTTP, z wyjątkiem przeprowadzonych z innych lokacji. Dodatkowo wprowadzono wartość **Brak** , aby usunąć ograniczenia dotyczące wysyłanych plików cookie. Te aktualizacje zostaną wkrótce udostępnione w nadchodzącej wersji przeglądarki Chrome.
 
-Gdy aplikacje sieci Web są uwierzytelniane za pomocą platformy tożsamości firmy Microsoft przy użyciu trybu odpowiedzi "form_post", serwer logowania odpowiada aplikacji za pomocą polecenia POST protokołu HTTP w celu wysłania tokenów lub kodu uwierzytelniania. Ponieważ to żądanie jest żądaniem obejmującym wiele domen (od `login.microsoftonline.com` do Twojego wystąpienia `https://contoso.com/auth`), pliki cookie, które zostały ustawione przez aplikację, są teraz przydzielone do nowych reguł w programie Chrome. Pliki cookie, które muszą być używane w scenariuszach między lokacjami, to pliki cookie, które przechowują wartości *stanu* i *jednorazowego* , które są również wysyłane w żądaniu logowania. Istnieją inne pliki cookie porzucone przez usługę Azure AD do przechowywania sesji.
+Gdy aplikacje sieci Web są uwierzytelniane za pomocą platformy tożsamości firmy Microsoft przy użyciu trybu odpowiedzi "form_post", serwer logowania odpowiada aplikacji za pomocą polecenia POST protokołu HTTP w celu wysłania tokenów lub kodu uwierzytelniania. Ponieważ to żądanie jest żądaniem obejmującym wiele domen (od `login.microsoftonline.com` do Twojego wystąpienia `https://contoso.com/auth` ), pliki cookie, które zostały ustawione przez aplikację, są teraz przydzielone do nowych reguł w programie Chrome. Pliki cookie, które muszą być używane w scenariuszach między lokacjami, to pliki cookie, które przechowują wartości *stanu* i *jednorazowego* , które są również wysyłane w żądaniu logowania. Istnieją inne pliki cookie porzucone przez usługę Azure AD do przechowywania sesji.
 
 Jeśli nie zaktualizujesz aplikacji sieci Web, to nowe zachowanie spowoduje błędy uwierzytelniania.
 
 ## <a name="mitigation-and-samples"></a>Środki zaradcze i przykłady
 
-W celu pokonania błędów uwierzytelniania aplikacje sieci Web uwierzytelniane za pomocą platformy tożsamości firmy Microsoft mogą `SameSite` ustawić właściwość `None` dla plików cookie, które są używane w scenariuszach międzydomenowych podczas uruchamiania w przeglądarce Chrome.
-Inne przeglądarki (zobacz [tutaj](https://www.chromium.org/updates/same-site/incompatible-clients) , aby uzyskać pełną listę) postępuj zgodnie z `SameSite` poprzednim zachowaniem i nie uwzględniają plików cookie, jeśli `SameSite=None` jest ustawiony.
+W celu pokonania błędów uwierzytelniania aplikacje sieci Web uwierzytelniane za pomocą platformy tożsamości firmy Microsoft mogą ustawić `SameSite` Właściwość `None` dla plików cookie, które są używane w scenariuszach międzydomenowych podczas uruchamiania w przeglądarce Chrome.
+Inne przeglądarki (zobacz [tutaj](https://www.chromium.org/updates/same-site/incompatible-clients) , aby uzyskać pełną listę) postępuj zgodnie z poprzednim zachowaniem `SameSite` i nie uwzględniają plików cookie, jeśli `SameSite=None` jest ustawiony.
 Dlatego w celu obsługi uwierzytelniania w wielu przeglądarkach aplikacje sieci Web będą musiały ustawić `SameSite` wartość `None` tylko dla programu Chrome i pozostawić wartość pustą w innych przeglądarkach.
 
 Ta metoda jest przedstawiona w naszym przykładowym kodzie.

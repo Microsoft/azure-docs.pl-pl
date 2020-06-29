@@ -1,24 +1,14 @@
 ---
 title: Azure DevTest Labs użycie w wielu laboratoriach i subskrypcjach
 description: Dowiedz się, jak raportować użycie Azure DevTest Labs w wielu laboratoriach i subskrypcjach.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: tanmayeekamath
-manager: femila
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: takamath
-ms.openlocfilehash: 912f510f6380c0ba1eb92b7c485091801123558e
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 8650244df4c8eb08d4ccc87b1e23fe1e3d047c54
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897870"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483435"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Raportowanie użycia Azure DevTest Labs w wielu laboratoriach i subskrypcjach
 
@@ -85,7 +75,7 @@ Za pomocą [Azure Data Factory](https://azure.microsoft.com/services/data-factor
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po skonfigurowaniu systemu i przeniesieniu danych do magazynu długoterminowego następnym krokiem jest uzyskanie odpowiedzi na pytania, do których dane muszą odpowiedzieć. Przykład: 
+Po skonfigurowaniu systemu i przeniesieniu danych do magazynu długoterminowego następnym krokiem jest uzyskanie odpowiedzi na pytania, do których dane muszą odpowiedzieć. Na przykład: 
 
 -   Co to jest użycie rozmiaru maszyny wirtualnej?
 

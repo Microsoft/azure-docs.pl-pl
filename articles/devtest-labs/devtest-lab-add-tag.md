@@ -1,25 +1,14 @@
 ---
 title: Dodawanie tagów do laboratorium w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak dodać tag do laboratorium w Azure DevTest Labs
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: dc5b327a-62e4-41bc-80ef-deb3c23d51b2
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2019
-ms.author: spelluru
-ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: bf835cee705012fd175a3132edde1d241311c576
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897166"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483010"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Dodawanie tagów do laboratorium w Azure DevTest Labs
 

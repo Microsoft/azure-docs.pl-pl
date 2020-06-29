@@ -1,25 +1,14 @@
 ---
 title: Dodaj wewnętrzną instrukcję obsługi do laboratorium w Azure DevTest Labs
 description: Dowiedz się, jak opublikować wewnętrzną instrukcję obsługi w laboratorium w Azure DevTest Labs
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: c9900333-6c5e-4d7d-b0f4-889015e9550c
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 591dcec36dc62143901d3b49db24196e84d58c29
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 1c9920e6fe7fbfe2a8d0aeacb896150b342981b0
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897607"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480477"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>Dodaj wewnętrzną instrukcję obsługi do laboratorium w Azure DevTest Labs
 

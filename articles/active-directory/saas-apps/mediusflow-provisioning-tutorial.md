@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: 3b194755e96e8b8dec2bd0325417950ffe96241c
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 838542bf4c3d566c76987754c8f336e00250d04a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85339312"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482415"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie MediusFlow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -56,11 +56,11 @@ Scenariusz opisany w tym samouczku założono, że masz już następujące wymag
 Zacznij od włączenia dostępu do usługi Azure AD login i funkcji konfiguracji usługi Azure AD w ramach usługi MediusFlow, wykonując następujące czynności:
 
 #### <a name="user-login"></a>Logowanie użytkownika
-Aby włączyć przepływ logowania do Microsoft 365/Azure AD, zobacz temat [this] ( https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) artykuł.
+Aby włączyć przepływ logowania do Microsoft 365/Azure AD, zobacz [this] ( https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-login-setup) artykuł.
 
 #### <a name="user-transfer-configuration"></a>Konfiguracja transferu użytkownika
-Aby włączyć obsługę administracyjną usługi Azure AD w portalu konfiguracji, zapoznaj się z [tym](
-https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) artykułem.
+Aby włączyć Portal konfiguracji użytkowników do aprowizacji z usługi Azure AD, zobacz [ten](
+https://success.mediusflow.com/documentation/administration_guide/user_login_and_transfer/office365userintegration/#user-sync-setup) artykuł.
 
 #### <a name="configure-user-provisioning"></a>Konfigurowanie aprowizacji użytkowników
 
@@ -94,7 +94,7 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
     ![Uwierzytelnianie](./media/mediusflow-provisioning-tutorial/7-confirm-secret.png)
 
-8. Aby użytkownicy importowali ze wstępnie zdefiniowanym zestawem ról, firm i innych konfiguracji ogólnych w MediusFlow, należy najpierw ją skonfigurować. Zacznij od dodania konfiguracji, klikając pozycję **Dodaj nową konfigurację**.
+8. Aby użytkownicy zaimportowali ze wstępnie zdefiniowanym zestawem ról, firm i innych konfiguracji ogólnych w MediusFlow, należy najpierw ją skonfigurować. Zacznij od dodania konfiguracji, klikając pozycję **Dodaj nową konfigurację**.
 
     ![Użytkownicy konfiguracji](./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png)
 

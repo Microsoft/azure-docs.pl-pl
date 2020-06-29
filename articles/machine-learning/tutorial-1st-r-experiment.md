@@ -10,17 +10,17 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d95c0fc9baf1e53e6643660726c72660719908ba
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684746"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483384"
 ---
-# <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Samouczek: Tworzenie modelu uczenia maszynowego przy użyciu języka R
+# <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Samouczek: używanie języka R do tworzenia modelu uczenia maszynowego (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym samouczku użyjesz Azure Machine Learning R SDK, aby utworzyć model regresji logistycznej, który przewiduje prawdopodobieństwo wystąpienia krytycznego poziomu się w przypadku awarii samochodu. Zobaczysz, jak zasoby chmury Azure Machine Learning współpracują z językiem R, aby zapewnić skalowalne środowisko do szkolenia i wdrażania modelu.  
+W tym samouczku użyjesz Azure Machine Learning R SDK (wersja zapoznawcza), aby utworzyć model regresji logistycznej, który przewiduje prawdopodobieństwo wystąpienia krytycznej awarii samochodu. Zobaczysz, jak zasoby chmury Azure Machine Learning współpracują z językiem R, aby zapewnić skalowalne środowisko do szkolenia i wdrażania modelu.  
 
 Ten samouczek obejmuje wykonanie następujących zadań:
 > [!div class="checklist"]
@@ -73,7 +73,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
 
 1. Zostanie wyświetlona lista folderów pokazująca każdego użytkownika, który uzyskuje dostęp do obszaru roboczego.  Wybierz folder, w którym ma zostać sklonowany folder **vignettes** .
 
-## <a name="a-nameopenopen-rstudio"></a><a name="open">Otwórz RStudio
+## <a name="open-rstudio"></a><a name="open"></a>Otwórz RStudio
 
 Użyj RStudio na wystąpieniu obliczeniowym lub maszynie wirtualnej z notesem, aby uruchomić ten samouczek.  
 
@@ -124,7 +124,7 @@ library(azuremlsdk)
 Skrypty szkoleniowe i oceniające ( `accidents.R` i `accident_predict.R` ) mają pewne dodatkowe zależności. Jeśli planujesz uruchamiać te skrypty lokalnie, upewnij się, że masz również wymagane pakiety.
 
 ### <a name="load-your-workspace"></a>Załaduj obszar roboczy
-Utwórz wystąpienie obiektu obszaru roboczego z istniejącego obszaru roboczego. Poniższy kod załaduje szczegóły obszaru roboczego z pliku **config. JSON** . Możesz również pobrać obszar roboczy przy użyciu [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html) .
+Utwórz wystąpienie obiektu obszaru roboczego z istniejącego obszaru roboczego. Poniższy kod załaduje szczegóły obszaru roboczego z **config.js** pliku. Możesz również pobrać obszar roboczy przy użyciu [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html) .
 
 ```R
 ws <- load_workspace_from_config()
@@ -384,7 +384,7 @@ Możesz również uzyskać punkt końcowy HTTP usługi sieci Web, który akceptu
 aci_service$scoring_uri
 ```
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Usuń zasoby, gdy nie będą już potrzebne. Nie usuwaj zasobów, których planujesz nadal używać. 
 

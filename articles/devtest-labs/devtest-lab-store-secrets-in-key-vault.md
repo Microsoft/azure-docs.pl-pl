@@ -1,25 +1,14 @@
 ---
 title: Przechowywanie wpisów tajnych w magazynie kluczy w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak przechowywać wpisy tajne w Azure Key Vault i korzystać z nich podczas tworzenia maszyny wirtualnej, formuły lub środowiska.
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
-ms.author: spelluru
-ms.openlocfilehash: 0ca36a7081aaf70ee2045ee7586184c89591df16
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 5714279ef183cb930d643575466dae3d6cb69bba
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896781"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481650"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Przechowywanie wpisów tajnych w magazynie kluczy w Azure DevTest Labs
 W przypadku używania Azure DevTest Labs: hasło dla maszyny wirtualnej z systemem Windows, publicznego klucza SSH dla maszyny wirtualnej z systemem Linux lub osobistego tokenu dostępu w celu sklonowania repozytorium Git za pośrednictwem artefaktu może być konieczne wprowadzenie złożonego hasła. Wpisy tajne są zwykle długie i mają losowe znaki. W związku z tym wprowadzenie ich może być kłopotliwe i niewygodne, szczególnie w przypadku korzystania z tego samego klucza tajnego wiele razy.

@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 43ed0bfed1dbe48c4f66a820ecad6fedf11115fe
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889996"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478165"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Nowe środowisko rejestracji aplikacji Azure Portal
 
@@ -77,7 +77,7 @@ W nowym środowisku **klucze tajne aplikacji** zostały zmienione na **Certyfika
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Platformy/uwierzytelnianie: adresy URL odpowiedzi/identyfikatory URI przekierowania
 W starym doświadczeniu aplikacja zawierała sekcję platforms dla sieci Web, natywnej i internetowego interfejsu API w celu skonfigurowania adresów URL przekierowania, adresu URL wylogowywania i przepływu niejawnego.
 
-W nowym środowisku adresy URL odpowiedzi można znaleźć w sekcji uwierzytelnianie aplikacji\'. Ponadto są one określane jako identyfikatory URI przekierowania, a format identyfikatorów URI przekierowania został zmieniony. Muszą być skojarzone z typem aplikacji (Klient internetowy lub publiczny — Mobile i Desktop). [Dowiedz się więcej](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+W nowym środowisku adresy URL odpowiedzi można znaleźć w \' sekcji uwierzytelnianie aplikacji. Ponadto są one określane jako identyfikatory URI przekierowania, a format identyfikatorów URI przekierowania został zmieniony. Muszą być skojarzone z typem aplikacji (Klient internetowy lub publiczny — Mobile i Desktop). [Dowiedz się więcej](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
 
 Interfejsy API sieci Web są konfigurowane na stronie Uwidacznianie interfejsu API.
 
@@ -106,7 +106,7 @@ Istnieje nowy interfejs użytkownika dla właściwości, które wcześniej mogł
 
 -   Zakresy zdefiniowane przez ten interfejs API (oauth2Permissions) i autoryzowane aplikacje klienckie (preAuthorizedApplications) można skonfigurować za pomocą strony Uwidacznianie interfejsu API. Aby uzyskać więcej informacji na temat konfigurowania aplikacji jako interfejsu API sieci Web i uwidaczniania uprawnień/zakresów, zobacz [ten przewodnik Szybki Start](quickstart-configure-app-expose-web-apis.md).
 
--   Domenę wydawcy (wyświetlaną dla użytkowników w [monicie o zgodę\'aplikacji s](application-consent-experience.md)) można znaleźć na stronie znakowania. Aby uzyskać więcej informacji na temat konfigurowania domeny wydawcy, zobacz [ten sposób](howto-configure-publisher-domain.md).
+-   Domenę wydawcy (wyświetlaną dla użytkowników w [ \' monicie o zgodę aplikacji s](application-consent-experience.md)) można znaleźć na stronie znakowania. Aby uzyskać więcej informacji na temat konfigurowania domeny wydawcy, zobacz [ten sposób](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -116,7 +116,7 @@ Nowe środowisko ma następujące ograniczenia:
 
 -   Nowe środowisko nie obsługuje jeszcze aplikacji Live SDK utworzonych przy użyciu osobistych kont Microsoft.
 
--   Zmiana wartości obsługiwanych kont nie jest obsługiwana w interfejsie użytkownika. Musisz użyć manifestu aplikacji, chyba że będziesz\'ponownie przełączać się między dzierżawą i wieloma dzierżawcami usługi Azure AD.
+-   Zmiana wartości obsługiwanych kont nie jest obsługiwana w interfejsie użytkownika. Musisz użyć manifestu aplikacji, chyba że będziesz \' ponownie przełączać się między dzierżawą i wieloma dzierżawcami usługi Azure AD.
 
    > [!NOTE]
    > Jeśli jesteś użytkownikiem konto Microsoft osobistym w dzierżawie usługi Azure AD, a Administrator dzierżawy ograniczył dostęp do Azure Portal, nastąpi odmowa dostępu. Jeśli jednak przejdziesz przez skrót, wpisując Rejestracje aplikacji na pasku wyszukiwania lub przypinając go, będziesz mieć dostęp do nowego środowiska.

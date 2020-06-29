@@ -1,23 +1,14 @@
 ---
 title: Przykłady Azure PowerShell dla Azure Lab Services | Microsoft Docs
 description: Przykłady Azure PowerShell — skrypty ułatwiające Zarządzanie laboratoriami w programie Azure Lab Services
-services: lab-services
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2020
-ms.author: spelluru
-ms.openlocfilehash: 44050ab9367572a8160f6e268781478ca3313419
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: d94074acdd4aeef87f322f8e7a9734e5da9a1c32
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897829"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483231"
 ---
 # <a name="azure-powershell-samples-for-azure-lab-services"></a>Przykłady Azure PowerShell dla Azure Lab Services
 

@@ -1,24 +1,14 @@
 ---
 title: Przykłady interfejsu wiersza polecenia platformy Azure dla Azure Lab Services | Microsoft Docs
 description: Ten artykuł zawiera listę przykładów skryptów interfejsu wiersza polecenia platformy Azure, które ułatwiają Zarządzanie laboratoriami w Azure Lab Services.
-services: lab-services
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.custom: mvc
-ms.openlocfilehash: 075b5dc06c59682b33c20b182e0dc585b2727027
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 4b4b917224e60c68aa8d1421af011503a7453735
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897863"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483248"
 ---
 # <a name="azure-cli-samples-for-azure-lab-services"></a>Przykłady interfejsu wiersza polecenia platformy Azure dla Azure Lab Services
 

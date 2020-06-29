@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 7205f8a842f2086b1cf3a6bbf76c2df48ed679e9
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: d83aae778c940958d545a9402b09d24a55b1c5a6
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738103"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482687"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorowanie aplikacji w Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) zapewnia wbudowaną funkcję monitorowania dla aplikacji sieci Web, urządzeń przenośnych i aplikacji interfejsu API w [Azure Portal](https://portal.azure.com).
@@ -31,12 +31,12 @@ Jeśli aplikacja jest hostowana w planie w warstwie *podstawowa*, *standardowa*l
 
 Przydziały dla aplikacji bezpłatnych lub udostępnionych:
 
-| Limit przydziału | Opis |
+| limit przydziału | Opis |
 | --- | --- |
 | **PROCESOR (krótki)** | Ilość procesora CPU dozwolona dla tej aplikacji w interwale 5-minutowym. Ten przydział resetuje co pięć minut. |
 | **PROCESOR (dzień)** | Całkowita ilość procesora CPU dozwolona dla tej aplikacji w ciągu dnia. Ten przydział resetuje co 24 godziny o północy czasu UTC. |
-| **Rozmiar** | Całkowita ilość pamięci dozwolonej dla tej aplikacji. |
-| **Szerokość pasma** | Całkowita ilość wychodzącej przepustowości dozwolonej dla tej aplikacji w ciągu dnia. Ten przydział resetuje co 24 godziny o północy czasu UTC. |
+| **Memory (Pamięć)** | Całkowita ilość pamięci dozwolonej dla tej aplikacji. |
+| **Przepustowość** | Całkowita ilość wychodzącej przepustowości dozwolonej dla tej aplikacji w ciągu dnia. Ten przydział resetuje co 24 godziny o północy czasu UTC. |
 | **Filesystem** | Łączna ilość dozwolonego miejsca w magazynie. |
 
 Jedynym przydziałem stosowanym dla aplikacji hostowanych w warstwach *podstawowa*, *standardowa*i *Premium* jest system plików.
@@ -58,7 +58,7 @@ Można zwiększyć lub usunąć przydziały z aplikacji, uaktualniając plan App
 ## <a name="understand-metrics"></a>Informacje o metrykach
 
 > [!NOTE]
-> **Użycie systemu plików** to nowa Metryka, która jest wdrażana globalnie, nie jest oczekiwane żadne dane, chyba że listy dozwolonych się do prywatnej wersji zapoznawczej.
+> **Użycie systemu plików** to nowa Metryka, która jest rzutowana globalnie, nie jest oczekiwane, o ile nie udzielono dostępu do prywatnej wersji zapoznawczej.
 > 
 
 > [!IMPORTANT]
@@ -68,12 +68,12 @@ Metryki zawierają informacje dotyczące aplikacji lub zachowania planu App Serv
 
 W przypadku aplikacji dostępne są następujące metryki:
 
-| Metryka | Opis |
+| Metric | Opis |
 | --- | --- |
 | **Czas odpowiedzi** | Czas potrzebny na obsługę żądań w aplikacji (w sekundach). |
 | **Średni czas odpowiedzi (przestarzałe)** | Średni czas, w którym aplikacja będzie obsługiwała żądania (w sekundach). |
 | **Średni zestaw roboczy pamięci** | Średnia ilość pamięci używanej przez aplikację w megabajtach (MiB). |
-| **Połączenia** | Liczba powiązanych gniazd istniejących w piaskownicy (w3wp. exe i jej procesów podrzędnych).  Powiązane gniazdo jest tworzone przez wywoływanie interfejsów API bind ()/Connect () i pozostanie do momentu zamknięcia wskazanego gniazda przy użyciu funkcji CloseHandle ()/closesocket (). |
+| **Połączenia** | Liczba powiązanych gniazd istniejących w piaskownicy (w3wp.exe i jej procesów podrzędnych).  Powiązane gniazdo jest tworzone przez wywoływanie interfejsów API bind ()/Connect () i pozostanie do momentu zamknięcia wskazanego gniazda przy użyciu funkcji CloseHandle ()/closesocket (). |
 | **Czas procesora CPU** | Ilość procesora CPU zużywanego przez aplikację w sekundach. Aby uzyskać więcej informacji na temat tej metryki, zobacz [czas procesora CPU w porównaniu z wartością procentową procesora](#cpu-time-vs-cpu-percentage)CPU. |
 | **Bieżące zestawy** | Bieżąca liczba zestawów załadowanych we wszystkich domenach aplikacji. |
 | **Dane w** | Ilość przychodzącej przepustowości zużywanej przez aplikację w usłudze MiB. |
@@ -112,7 +112,7 @@ W przypadku planu App Service dostępne są następujące metryki:
 > Metryki planu App Service są dostępne tylko w przypadku planów w warstwach *podstawowa*, *standardowa*i *Premium* .
 > 
 
-| Metryka | Opis |
+| Metric | Opis |
 | --- | --- |
 | **Procent użycia procesora CPU** | Średni procesor używany przez wszystkie wystąpienia planu. |
 | **Procent pamięci** | Średnia pamięć użyta we wszystkich wystąpieniach planu. |
@@ -138,13 +138,13 @@ Aby sprawdzić stan różnych przydziałów i metryk, które mają wpływ na apl
 
 ![Przydziały wykresu w Azure Portal][quotas]
 
-Aby znaleźć przydziały, wybierz pozycję **Ustawienia** > **limity przydziału**. Na wykresie można przejrzeć: 
+Aby znaleźć przydziały, wybierz pozycję **Ustawienia**  >  **limity przydziału**. Na wykresie można przejrzeć: 
 1. Nazwa przydziału.
 1. Jego interwał resetowania.
 1. Bieżący limit.
 1. Jego bieżąca wartość.
 
-![Wykres pomiarowy w Azure Portal][metrics] można uzyskać dostęp do metryk bezpośrednio z poziomu strony **Przegląd** zasobów. Tutaj zobaczysz wykresy przedstawiające niektóre metryki aplikacji.
+![Wykres pomiarowy w Azure Portal ][metrics] można uzyskać dostęp do metryk bezpośrednio z poziomu strony **Przegląd** zasobów. Tutaj zobaczysz wykresy przedstawiające niektóre metryki aplikacji.
 
 Kliknięcie dowolnego z tych wykresów spowoduje przejście do widoku metryk, w którym można tworzyć niestandardowe wykresy, wysyłać zapytania o różne metryki i wiele innych. 
 

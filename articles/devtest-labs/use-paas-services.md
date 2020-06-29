@@ -1,23 +1,14 @@
 ---
 title: Korzystanie z usług typu "platforma jako usługa" (PaaS) w Azure DevTest Labs
 description: Dowiedz się, jak korzystać z usług typu "platforma jako usługa" (pass) w Azure DevTest Labs.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 88bbf921fedae4bcdba2b6386ce6e08105206cd2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: eec37527386098174906dc2737d7b763241da3f2
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895297"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478743"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Korzystanie z usług typu "platforma jako usługa" (PaaS) w Azure DevTest Labs
 PaaS jest obsługiwana w DevTest Labs za pośrednictwem funkcji środowiska. Środowiska w DevTest Labs są obsługiwane przez wstępnie skonfigurowane szablony Azure Resource Manager w repozytorium git. Środowiska mogą zawierać zarówno zasoby PaaS, jak i IaaS. Umożliwiają one tworzenie złożonych systemów, które mogą obejmować zasoby platformy Azure, takie jak maszyny wirtualne, bazy danych, sieci wirtualne i aplikacje sieci Web, które są dostosowane do współdziałania ze sobą. Te szablony umożliwiają spójne wdrożenie i ulepszone zarządzanie środowiskami przy użyciu kontroli kodu źródłowego. 
@@ -71,7 +62,7 @@ Funkcja śledzenia kosztów obejmuje zasoby platformy Azure w różnych środowi
 ### <a name="security"></a>Zabezpieczenia
 Prawidłowo skonfigurowana subskrypcja platformy Azure z DevTest Labs może [ograniczyć dostęp do zasobów platformy Azure tylko za pomocą laboratorium](devtest-lab-add-devtest-user.md). Dzięki środowiskom właściciel laboratorium może pozwolić użytkownikom na dostęp do zasobów PaaS z zatwierdzonymi konfiguracjami bez zezwalania na dostęp do innych zasobów platformy Azure. W scenariuszu, w którym użytkownicy laboratorium dostosowują środowiska, właściciel laboratorium może zezwolić na dostęp współautora. Dostęp współautora umożliwia użytkownikowi laboratorium Dodawanie lub usuwanie zasobów platformy Azure tylko w ramach zarządzanej grupy zasobów. Pozwala to na łatwiejsze śledzenie i zarządzanie, a następnie umożliwienie użytkownikom dostępu do subskrypcji.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatyzacja
 Automatyzacja to kluczowy składnik dla dużej skali, obowiązujący ekosystem. Automatyzacja jest niezbędna do obsługi zarządzania lub śledzenia wielu środowisk w ramach subskrypcji i laboratoriów.
 
 ### <a name="cicd-pipeline"></a>Potok ciągłej integracji/ciągłego wdrażania

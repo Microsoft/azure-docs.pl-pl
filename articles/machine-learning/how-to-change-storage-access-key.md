@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 911fa7d509e756f482b2deefad11e35f9cb5ec01
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85117951"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483316"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Ponowne generowanie kluczy dostępu do konta magazynu
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,6 +23,9 @@ ms.locfileid: "85117951"
 Dowiedz się, jak zmienić klucze dostępu dla kont usługi Azure Storage używanych przez Azure Machine Learning. Azure Machine Learning mogą używać kont magazynu do przechowywania danych lub modeli szkoleniowych.
 
 Ze względów bezpieczeństwa może zajść potrzeba zmiany kluczy dostępu dla konta usługi Azure Storage. Po ponownym wygenerowaniu klucza dostępu Azure Machine Learning należy zaktualizować, aby użyć nowego klucza. Azure Machine Learning może korzystać z konta magazynu zarówno dla magazynu modelowego, jak i magazynu danych.
+
+> [!IMPORTANT]
+> Poświadczenia registred z magazynami danych są zapisywane w Azure Key Vault skojarzonych z obszarem roboczym. Jeśli w Key Vault włączono opcję [nietrwałego usuwania](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) , pamiętaj, aby postępować zgodnie z tym artykułem dotyczącym aktualizacji poświadczeń. Wyrejestrowanie magazynu danych i ponowne zarejestrowanie go w tej samej nazwie zakończy się niepowodzeniem.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

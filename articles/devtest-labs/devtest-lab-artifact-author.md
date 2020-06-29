@@ -1,25 +1,14 @@
 ---
 title: Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak tworzyć własne artefakty do użycia z Azure DevTest Labs.
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
-ms.author: spelluru
-ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: f33b6da3354dc3caf9376f249b802d324aa3148c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896599"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482959"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Tworzenie niestandardowych artefaktów dla maszyny wirtualnej DevTest Labs
 

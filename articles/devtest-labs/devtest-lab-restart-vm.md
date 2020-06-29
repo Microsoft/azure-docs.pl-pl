@@ -1,25 +1,14 @@
 ---
 title: Uruchom ponownie maszynę wirtualną w laboratorium w Azure DevTest Labs | Microsoft Docs
 description: W tym artykule przedstawiono kroki umożliwiające szybkie i łatwe ponowne uruchomienie maszyn wirtualnych w programie Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: 8460f09e-482f-48ba-a57a-c95fe8afa001
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: 52d3b92909483a99eb82c86b727261bbeb5f8d46
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: d2bcbcbea613aa84da91789fb9f118afd7023fab
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898185"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481994"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Uruchom ponownie maszynę wirtualną w laboratorium w Azure DevTest Labs
 Możesz szybko i łatwo uruchomić ponownie maszynę wirtualną w DevTest Labs, wykonując kroki opisane w tym artykule. Przed ponownym uruchomieniem maszyny wirtualnej Rozważ następujące kwestie:

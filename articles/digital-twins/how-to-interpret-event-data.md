@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1af98e6ecbe9b5951d94dd22be8a47c1b13691d3
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 55264f1fe0526773db5af299c37e4ea077e6d63f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390622"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483333"
 ---
 # <a name="understand-event-data"></a>Informacje o zdarzeniach
 
@@ -194,7 +194,7 @@ Poniżej przedstawiono pola w treści powiadomienia o zmianie krawędzi.
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
-| `subject` | Identyfikator relacji, np.`<twinID>/relationships/<relationshipName>` |
+| `subject` | Identyfikator relacji, np.`<twinID>/relationships/<relationshipID>` |
 | `time` | Sygnatura czasowa dla momentu wykonania operacji w relacji |
 | `traceparent` | Kontekst śledzenia W3C dla zdarzenia |
 
@@ -225,15 +225,14 @@ Oto przykład powiadomienia dotyczącego tworzenia lub usuwania relacji:
 
 ```json
 {
-    "$relationshipName": "RelationshipName1",
-    "$sourceId": "building11",
+    "$relationshipId": "building_to_floor",
+    "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
     "$relationshipName": "Contains",
     "$targetId": "floor11",
     "ownershipUser": "user1",
     "ownershipDepartment": "Operations"
 }
 ```
-
 
 ### <a name="digital-twin-change-notifications"></a>Powiadomienia o zmianach cyfrowych przędzy
 

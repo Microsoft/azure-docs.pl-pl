@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9a291971ce0edead9ca28a47f7ad0689b0f65547
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ff4781109b2572d5555ec0a03c65359ef5a89d8d
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83834955"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482517"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Najlepsze rozwiązania dotyczące programowania Synapse SQL
 W tym artykule opisano wskazówki i najlepsze rozwiązania w zakresie tworzenia rozwiązań magazynu danych. 
@@ -106,7 +106,7 @@ Ponieważ duże jakości segmenty magazynu kolumn są ważne, dobrym pomysłem j
 Ponieważ tabele magazynu kolumn zwykle nie przepychają danych do skompresowanego segmentu magazynu kolumn, dopóki nie będzie więcej niż 1 000 000 wierszy na tabelę, a każda tabela puli SQL zostanie podzielona na 60 tabel, tabele magazynu kolumn nie będą korzystać z zapytania, chyba że tabela ma więcej niż 60 000 000 wierszy.  
 
 > [!TIP]
-> W przypadku tabel zawierających mniej niż 60 000 000 wierszy, których indeks columstore może nie być najlepszym rozwiązaniem.  
+> W przypadku tabel zawierających mniej niż 60 000 000 wierszy posiadanie indeksu magazynu kolumn może nie być najlepszym rozwiązaniem.  
 
 Ponadto w przypadku partycjonowania danych warto wziąć pod uwagę, że każda partycja będzie musiała mieć milion wierszy, aby można było odnieść korzyść z zastosowania klastrowanego indeksu magazynu kolumn.  Jeśli tabela ma 100 partycji, będzie musiała mieć co najmniej 6 000 000 000 wierszy do skorzystania z magazynu kolumn klastrowanych (60 distributions *100 partycje* 1 000 000 wiersze).  
 
@@ -150,7 +150,7 @@ Jeśli to możliwe, można przygotować pliki w celu uzyskania lepszej wydajnoś
 
 Dane często są zorganizowane w partycjach. Można wydać instrukcję SQL na żądanie, aby wykonywać zapytania dotyczące określonych folderów i plików. Spowoduje to zmniejszenie liczby plików i ilości danych, które zapytanie musi odczytać i przetworzyć. 
 
-W związku z tym osiągniesz lepszą wydajność. Aby uzyskać więcej informacji, zapoznaj się z funkcjami [filename](develop-storage-files-overview.md#filename-function) i [FilePath](develop-storage-files-overview.md#filepath-function) i przykładami dotyczącymi [zapytań określonych plików](query-specific-files.md).
+W związku z tym osiągniesz lepszą wydajność. Aby uzyskać więcej informacji, zapoznaj się z funkcjami [filename](query-data-storage.md#filename-function) i [FilePath](query-data-storage.md#filepath-function) i przykładami dotyczącymi [zapytań określonych plików](query-specific-files.md).
 
 Jeśli dane w magazynie nie są partycjonowane, rozważ ich partycjonowanie, aby można było używać tych funkcji do optymalizowania zapytań przeznaczonych dla tych plików.
 

@@ -1,5 +1,5 @@
 ---
-title: Co to jest wystąpienie obliczeniowe Azure Machine Learning?
+title: Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 titleSuffix: Azure Machine Learning
 description: Dowiedz się więcej na temat wystąpienia obliczeniowego Azure Machine Learning — w pełni zarządzanej stacji roboczej opartej na chmurze.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 8c03df8fb0cd8f5f092450ebe4c66266d2ff4293
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 8713e7538ae65fc8e750d5b3244482a5503b0e37
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816356"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483265"
 ---
-# <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe Azure Machine Learning?
+# <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe usługi Azure Machine Learning?
 
 Wystąpienie obliczeniowe Azure Machine Learning (wersja zapoznawcza) to w pełni zarządzana stacja robocza oparta na chmurze dla analityków danych. 
 
@@ -33,7 +33,7 @@ Wystąpienie obliczeniowe to w pełni zarządzana stacja robocza oparta na chmur
 
 |Najważniejsze korzyści||
 |----|----|
-|Produktywność|Analityki danych mogą tworzyć i wdrażać modele przy użyciu zintegrowanych notesów i następujących narzędzi w swojej przeglądarce internetowej:<br/>-Jupyter<br/>- JupyterLab<br/>-RStudio|
+|Produktywność|Analityki danych mogą tworzyć i wdrażać modele przy użyciu zintegrowanych notesów i następujących narzędzi w swojej przeglądarce internetowej:<br/>-Jupyter<br/>- JupyterLab<br/>-RStudio (wersja zapoznawcza)|
 |Zarządzane & bezpieczne|Zmniejsz poziom bezpieczeństwa i Dodaj zgodność z wymaganiami dotyczącymi zabezpieczeń przedsiębiorstwa. Wystąpienia obliczeniowe zapewniają niezawodne zasady zarządzania i bezpieczne konfiguracje sieci, takie jak:<br/><br/>— Autoinicjowanie obsługi z szablonów Menedżer zasobów lub Azure Machine Learning SDK<br/>- [Kontrola dostępu oparta na rolach (RBAC)](/azure/role-based-access-control/overview)<br/>- [Obsługa sieci wirtualnej](how-to-enable-virtual-network.md#compute-instance)<br/>-Zasady protokołu SSH do włączania/wyłączania dostępu SSH|
 |Wstępnie skonfigurowany &nbsp; lub &nbsp; ml|Oszczędź czas na zadaniach instalacyjnych ze wstępnie skonfigurowanymi i aktualnymi pakietami ML, platformami uczenia głębokiego, sterownikami procesora GPU.|
 |W pełni dostosowywalne|Szeroka pomoc techniczna dla typów maszyn wirtualnych platformy Azure, w tym GPU i utrwalone dostosowanie niskiego poziomu, takie jak instalowanie pakietów i sterowników, sprawia, że zaawansowane scenariusze to Breeze. |
@@ -58,7 +58,7 @@ Te narzędzia i środowiska są zainstalowane w wystąpieniu obliczeniowym:
 
 |Środowiska **R** Tools & Environments|Szczegóły|
 |----|:----:|
-|RStudio Server Open Source Edition||
+|RStudio Server Open Source Edition (wersja zapoznawcza)||
 |Jądro języka R||
 |Zestaw SDK Azure Machine Learning dla języka R|[azuremlsdk](https://azure.github.io/azureml-sdk-for-r/reference/index.html)</br>Przykłady dla zestawu SDK|
 

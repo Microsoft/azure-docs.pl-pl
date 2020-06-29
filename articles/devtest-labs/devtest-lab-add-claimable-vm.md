@@ -1,25 +1,14 @@
 ---
 title: Twórz i Zarządzaj maszynami wirtualnymi z możliwością domagania w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak dodać maszynę wirtualną z możliwością dochodzenia do laboratorium w Azure DevTest Labs
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: f671e66e-9630-4e30-a131-a6bad9ed9c11
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
-ms.author: spelluru
-ms.openlocfilehash: 988e07c03cb8081e3e6014e626d5fcf7a254a8dd
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 7a4e465f0ba6c592f173a0c48aadd51f3e12ea07
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895549"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481310"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Twórz i Zarządzaj maszynami wirtualnymi z możliwością domagania w Azure DevTest Labs
 Możesz dodać maszynę wirtualną z możliwością przechodzenia do laboratorium w podobny sposób, aby [dodać standardową maszynę wirtualną](devtest-lab-add-vm.md) — od *podstawowej* , która jest [obrazem niestandardowym](devtest-lab-create-template.md), [formułą](devtest-lab-manage-formulas.md)lub [obrazem witryny Marketplace](devtest-lab-configure-marketplace-images.md). Ten samouczek przeprowadzi Cię przez proces używania Azure Portal, aby dodać maszynę wirtualną do laboratorium w środowisku DevTest Labs i wyświetlić procesy, do których użytkownik może zatwierdzić i odrościć maszynę wirtualną.

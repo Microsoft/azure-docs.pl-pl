@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: marsma
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
-ms.openlocfilehash: a437d54dac50be7ddaad899a1cf0a3e93aade8f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f72e16afd61d364a2dad634f3502c801f1b99380
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154580"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478148"
 ---
 # <a name="new-azure-portal-app-registration-training-guide"></a>Nowy przewodnik szkoleniowy na temat rejestracji aplikacji w witrynie Azure Portal
 
@@ -62,7 +62,7 @@ Starsze środowisko miało stronę **Właściwości** . **Właściwości** miał
 - **Adres URL strony głównej**
 - **Adres URL wylogowywania**
 - **Adres URL warunków użytkowania**
-- **Adres URL zasad zachowania poufności informacji**
+- **Adres URL oświadczenia o ochronie prywatności**
 - **Typ aplikacji**
 - **Wiele dzierżawców**
 
@@ -73,13 +73,13 @@ Nowe środowisko nie ma tej strony. Tutaj można znaleźć funkcje równoważne:
 - Funkcje kontrolowane przez przełącznik z **wieloma dzierżawcami** w starszym środowisku zostały zastąpione przez **obsługiwane typy kont** na stronie **uwierzytelnianie** . Aby uzyskać więcej informacji, zobacz [Szybki Start: modyfikowanie kont obsługiwanych przez aplikację](quickstart-modify-supported-accounts.md).
 - **Adres URL wylogowywania** znajduje się teraz na stronie **uwierzytelnianie** .
 - **Typ aplikacji** nie jest już prawidłowym polem. Zamiast tego identyfikatory URI przekierowania, które można znaleźć na stronie **uwierzytelnianie** , określają, które typy aplikacji są obsługiwane.
-- **Identyfikator URI aplikacji** jest teraz nazywany identyfikatorem **URI identyfikatora aplikacji** i można go znaleźć na **uwidocznieniu interfejsu API**. W starszych wersjach ta właściwość została zarejestrowana jako autorejestrowanie przy użyciu następującego formatu `https://{tenantdomain}/{appID}`:, na przykład `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b`. W nowym środowisku jest automatycznie generowane jako `api://{appID}`, ale należy je jawnie zapisać. W Azure AD B2C dzierżawy nadal jest `https://{tenantdomain}/{appID}` używany format.
+- **Identyfikator URI aplikacji** jest teraz nazywany identyfikatorem **URI identyfikatora aplikacji** i można go znaleźć na **uwidocznieniu interfejsu API**. W starszych wersjach ta właściwość została zarejestrowana jako autorejestrowanie przy użyciu następującego formatu: `https://{tenantdomain}/{appID}` , na przykład `https://microsoft.onmicrosoft.com/492439af-3282-44c3-b297-45463339544b` . W nowym środowisku jest automatycznie generowane jako `api://{appID}` , ale należy je jawnie zapisać. W Azure AD B2C dzierżawy `https://{tenantdomain}/{appID}` nadal jest używany format.
 
 ### <a name="reply-urlsredirect-urls"></a>Adresy URL odpowiedzi/adresy URL przekierowań
 
 W starszej wersji aplikacja zawierała **adres URL odpowiedzi** . W nowym środowisku adresy URL odpowiedzi można znaleźć na stronie **uwierzytelniania** aplikacji. Są teraz nazywane identyfikatorami **URI przekierowania**.
 
-Format identyfikatorów URI przekierowania został zmieniony. Są one wymagane do skojarzenia z typem aplikacji, Internet lub public. Ze względów bezpieczeństwa nie są obsługiwane `http://` symbole wieloznaczne i schematy, *http://localhost*z wyjątkiem.
+Format identyfikatorów URI przekierowania został zmieniony. Są one wymagane do skojarzenia z typem aplikacji, Internet lub public. Ze względów bezpieczeństwa nie są obsługiwane symbole wieloznaczne i `http://` schematy, z wyjątkiem *http://localhost* .
 
 ### <a name="keyscertificates--secrets"></a>Klucze/certyfikaty & wpisy tajne
 
@@ -118,8 +118,8 @@ Starsze i nowe środowiska używają różne wersje formatu JSON w edytorze mani
 
 Nowe środowisko dodaje kontrolki interfejsu użytkownika dla następujących właściwości:
 
-- Na stronie **uwierzytelnianie** występuje **niejawny przepływ** (`oauth2AllowImplicitFlow`). W przeciwieństwie do starszych wersji środowiska, można włączyć **tokeny dostępu** lub **tokeny identyfikatora**lub oba te elementy.
-- Strona **Uwidacznianie interfejsu API** zawiera **zakresy zdefiniowane przez ten interfejs API** (`oauth2Permissions`) i **autoryzowane aplikacje klienckie** (`preAuthorizedApplications`). Aby uzyskać więcej informacji na temat konfigurowania aplikacji jako interfejsu API sieci Web i uwidaczniania uprawnień/zakresów, zobacz [Szybki Start: Konfigurowanie aplikacji do udostępniania interfejsów API sieci Web](quickstart-configure-app-expose-web-apis.md).
+- Na stronie **uwierzytelnianie** występuje **niejawny przepływ** ( `oauth2AllowImplicitFlow` ). W przeciwieństwie do starszych wersji środowiska, można włączyć **tokeny dostępu** lub **tokeny identyfikatora**lub oba te elementy.
+- Strona **Uwidacznianie interfejsu API** zawiera **zakresy zdefiniowane przez ten interfejs API** ( `oauth2Permissions` ) i **autoryzowane aplikacje klienckie** ( `preAuthorizedApplications` ). Aby uzyskać więcej informacji na temat konfigurowania aplikacji jako interfejsu API sieci Web i uwidaczniania uprawnień/zakresów, zobacz [Szybki Start: Konfigurowanie aplikacji do udostępniania interfejsów API sieci Web](quickstart-configure-app-expose-web-apis.md).
 - Strona **znakowania** zawiera **domenę wydawcy**. Domena wydawcy jest wyświetlana użytkownikom z [monitem o zgodę aplikacji](application-consent-experience.md). Aby uzyskać więcej informacji, zobacz [How to: Configure a Application Publisher Domain](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Ograniczenia

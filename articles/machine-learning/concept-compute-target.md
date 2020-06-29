@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 03/30/2020
-ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 06/26/2020
+ms.openlocfilehash: 8b0fa1402452d8e1f348cd353b00d0ef050d866c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780117"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483282"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Co to są cele obliczeniowe w Azure Machine Learning? 
 
@@ -52,21 +52,23 @@ Możesz tworzyć Azure Machine Learning wystąpienia obliczeniowe (wersja zapozn
 * Studio uczenia maszynowego Azure
 * Azure Portal
 * Klasy [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) i [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) zestawu SDK języka Python
-* [Zestaw SDK języka R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)
+* [Zestaw SDK języka R](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (wersja zapoznawcza)
 * Szablon usługi Resource Manager
-
-Można również tworzyć klastry obliczeniowe przy użyciu [rozszerzenia Machine Learning dla interfejsu wiersza polecenia platformy Azure](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
+* Rozszerzenie uczenia maszynowego [dla interfejsu wiersza polecenia platformy Azure](reference-azure-machine-learning-cli.md#resource-management).  
 
 Po utworzeniu te zasoby obliczeniowe są automatycznie częścią obszaru roboczego, w przeciwieństwie do innych rodzajów obiektów docelowych obliczeń.
 
-### <a name="compute-clusters"></a>Klastry obliczeniowe
 
-Azure Machine Learning klastrów obliczeniowych można użyć do szkolenia i usługi Batch inferencing (wersja zapoznawcza).  Ten zasób obliczeniowy posiada następujące:
+|Możliwość  |Klaster obliczeniowy  |Wystąpienie obliczeniowe  |
+|---------|---------|---------|
+|Klaster z jednym lub wiele węzłów     |    **&check;**       |         |
+|Skalowanie automatyczne przy każdym przesyłaniu przebiegu     |     **&check;**      |         |
+|Automatyczne zarządzanie klastrami i planowanie zadań     |   **&check;**        |     **&check;**      |
+|Obsługa zasobów procesora CPU i procesora GPU     |  **&check;**         |    **&check;**       |
 
-* Klaster z jednym lub wiele węzłów
-* Skalowanie automatyczne przy każdym przesyłaniu przebiegu 
-* Automatyczne zarządzanie klastrami i planowanie zadań 
-* Obsługa zasobów procesora CPU i procesora GPU
+
+> [!NOTE]
+> Gdy klaster obliczeniowy jest bezczynny, automatycznie skaluje się do 0 węzłów, więc nie płacisz, gdy nie jest używany.  Jednak *wystąpienie*obliczeniowe jest zawsze włączone i nie Skalowanie automatyczne.  [Wystąpienie obliczeniowe należy zatrzymać,](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) gdy nie jest używane, aby uniknąć dodatkowych kosztów.
 
 ### <a name="supported-vm-series-and-sizes"></a>Obsługiwane serie maszyn wirtualnych i rozmiary
 

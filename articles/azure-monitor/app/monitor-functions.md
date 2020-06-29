@@ -4,13 +4,13 @@ description: Azure Monitor bezproblemowo integruje się z aplikacją działając
 ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
-ms.date: 05/20/2020
-ms.openlocfilehash: a936c77abb9aed5886fae8b2ec4a10bb076b7cb5
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.date: 06/26/2020
+ms.openlocfilehash: 093448ad0280ada039f1d4e5abd0e83e4be19b03
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776741"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482109"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Azure Functions monitorowania z Azure Monitor Application Insights
 
@@ -20,11 +20,10 @@ Application Insights zbiera dane dotyczące dzienników, wydajności i błędów
 
 Wymagana Application Insights Instrumentacja jest wbudowana w Azure Functions. Jedyną potrzebną kwestią jest prawidłowy klucz Instrumentacji służący do łączenia aplikacji funkcji z zasobem Application Insights. Klucz Instrumentacji należy dodać do ustawień aplikacji podczas tworzenia zasobu aplikacji funkcji na platformie Azure. Jeśli aplikacja funkcji nie ma jeszcze tego klucza, możesz ją ustawić ręcznie. Aby uzyskać więcej informacji, Przeczytaj więcej na temat [monitorowania Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd).
 
-## <a name="distributed-tracing-for-java-applications-public-preview"></a>Śledzenie rozproszone dla aplikacji Java (publiczna wersja zapoznawcza)
-
+## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>Śledzenie rozproszone dla aplikacji Java w systemie Windows (publiczna wersja zapoznawcza)
 
 > [!IMPORTANT]
-> Ta funkcja jest obecnie dostępna w publicznej wersji zapoznawczej dla Azure Functions Java. W przypadku planu zużycia jego działania zimny start są 8-9 sekund.
+> Ta funkcja jest obecnie dostępna w publicznej wersji zapoznawczej dla Azure Functions Java w systemie Windows, śledzenie rozproszone dla Azure Functions Java w systemie Linux nie jest obsługiwane. Plan zużycia ma zimny Początek 8-9 sekund.
 
 Jeśli aplikacje są zapisywane w języku Java, można wyświetlać bogatsze dane z aplikacji usługi Functions, takich jak żądania, zależności, dzienniki i metryki. Dodatkowe dane umożliwiają również wyświetlanie i diagnozowanie transakcji kompleksowych i wyświetlanie mapy aplikacji, która agreguje wiele transakcji, aby pokazać widok topologiczny, w jaki działają systemy, oraz obliczyć średnią wydajność i częstotliwość błędów.
 

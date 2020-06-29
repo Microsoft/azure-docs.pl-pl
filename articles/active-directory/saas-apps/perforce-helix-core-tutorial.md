@@ -12,17 +12,17 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/15/2020
+ms.date: 06/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ea6531d85670301691e4aa88503d7eee4fb16d9
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 6742b1466ed5055e3906adc96cfe346b7f46be9c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84905519"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482636"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perforce-helix-core--helix-authentication-service"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą usługi uwierzytelniania Perforce Helix Core-Helix
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-perforce-helix-core---helix-authentication-service"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) za pomocą usługi uwierzytelniania Perforce Helix Core-Helix
 
 W tym samouczku dowiesz się, jak zintegrować usługę uwierzytelniania Perforce Helix Core-Helix z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi uwierzytelniania Perforce Helix Core-Helix z usługą Azure AD można:
 
@@ -46,7 +46,7 @@ W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure A
 * Perforce Helix Core-Helix uwierzytelniania obsługuje logowanie jednokrotne w usłudze **SP**
 * Po skonfigurowaniu usługi uwierzytelniania Perforce Helix Core-Helix można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-perforce-helix-core--helix-authentication-service-from-the-gallery"></a>Dodawanie usługi uwierzytelniania Perforce Helix Core-Helix z galerii
+## <a name="adding-perforce-helix-core---helix-authentication-service-from-the-gallery"></a>Dodawanie usługi uwierzytelniania Perforce Helix Core-Helix z galerii
 
 Aby skonfigurować integrację usługi uwierzytelniania Perforce Helix Core-Helix z usługą Azure AD, musisz dodać usługę uwierzytelniania Perforce Helix Core-Helix z galerii do listy zarządzanych aplikacji SaaS.
 
@@ -57,7 +57,7 @@ Aby skonfigurować integrację usługi uwierzytelniania Perforce Helix Core-Heli
 1. W sekcji **Dodaj z galerii** wpisz **Perforce Helix Core-Helix Authentication** w polu wyszukiwania.
 1. Wybierz pozycję **Perforce Helix Core-Helix Authentication Service** z panelu wyniki, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-perforce-helix-core--helix-authentication-service"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla usługi uwierzytelniania Perforce Helix Core-Helix
+## <a name="configure-and-test-azure-ad-single-sign-on-for-perforce-helix-core---helix-authentication-service"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla usługi uwierzytelniania Perforce Helix Core-Helix
 
 Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą usługi Perforce Helix Core-Helix Authentication przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w usłudze Perforce Helix Core-Helix Authentication.
 
@@ -66,8 +66,8 @@ Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pom
 1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
     1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
     1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. Konfigurowanie logowania jednokrotnego w **[usłudze Perforce Helix Core](#configure-perforce-helix-core--helix-authentication-service-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
-    1. **[Utwórz użytkownika testowego usługi Perforce Helix Core-Helix](#create-perforce-helix-core--helix-authentication-service-test-user)** , aby uzyskać odpowiednik B. Simon w Perforce Helix Core-Helix usługi uwierzytelniania, która jest połączona z reprezentacją usługi Azure AD.
+1. Konfigurowanie logowania jednokrotnego w **[usłudze Perforce Helix Core](#configure-perforce-helix-core---helix-authentication-service-sso)** — w celu skonfigurowania ustawień logowania jednokrotnego na stronie aplikacji.
+    1. **[Utwórz użytkownika testowego usługi Perforce Helix Core-Helix](#create-perforce-helix-core---helix-authentication-service-test-user)** , aby uzyskać odpowiednik B. Simon w Perforce Helix Core-Helix usługi uwierzytelniania, która jest połączona z reprezentacją usługi Azure AD.
 1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
@@ -125,11 +125,11 @@ W tej sekcji zostanie włączone Logowanie jednokrotne w usłudze B. Simon, przy
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
 
-## <a name="configure-perforce-helix-core--helix-authentication-service-sso"></a>Konfigurowanie usługi uwierzytelniania Perforce Helix Core-Helix
+## <a name="configure-perforce-helix-core---helix-authentication-service-sso"></a>Konfigurowanie usługi uwierzytelniania Perforce Helix Core-Helix
 
 Aby skonfigurować Logowanie jednokrotne na stronie **usługi uwierzytelniania Perforce Helix Core-Helix** , musisz wysłać **adres URL metadanych federacji aplikacji** do [Perforce Helix Core-Helix](mailto:support@perforce.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
-### <a name="create-perforce-helix-core--helix-authentication-service-test-user"></a>Utwórz użytkownika testowego usługi Perforce Helix Core-Helix
+### <a name="create-perforce-helix-core---helix-authentication-service-test-user"></a>Utwórz użytkownika testowego usługi Perforce Helix Core-Helix
 
 W tej sekcji utworzysz użytkownika o nazwie Britta Simon w usłudze uwierzytelniania Perforce Helix Core-Helix. Współpracuj z [zespołem pomocy technicznej usługi Perforce Helix Core-Helix](mailto:support@perforce.com) , aby dodać użytkowników do platformy usługi uwierzytelniania Perforce Helix Core-Helix. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
 

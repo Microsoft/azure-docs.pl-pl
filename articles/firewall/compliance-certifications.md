@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/19/2020
+ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: b1e7dce6f652d8c9e0fcf5974c3e72be9e1e7844
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3de9ef12619ed27eb48af64c4bf4bd1a79229d04
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77482188"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483163"
 ---
 # <a name="azure-firewall-certifications"></a>Certyfikaty zapory platformy Azure
 
@@ -35,19 +35,21 @@ Następujące certyfikaty zapory platformy Azure dotyczą globalnej platformy Az
 - Zaświadczanie gwiazdy
 - Wydawanie certyfikatów w witrynie CSA STAR
 - Automatyczna Ocena w witrynie CSA STAR
-- Kanadyjskie prawa do ochrony prywatności
+- Canadian Privacy Laws
 - DPP (WIELKA BRYTANIA)
 - IAF ENISA UE
-- Klauzule modelowe UE
+- EU Model Clauses
 - Europejski Urząd banku
-- FCA i PRA (Wielka Brytania)
-- USTAWA FERPA (US)
+- FCA i PRA (Zjednoczone Królestwo)
+- FERPA (USA)
 - FFIEC (US)
 - FINMA (Szwajcaria)
 - FSA (Dania)
-- GLBA (US)
+- GLBA (USA)
 - Niemcy C5
-- GxP (FDA 21 CFR część 11)
+- GxP (FDA 21 CFR Part 11)
+- HIPPA
+- HITECH Act (US)
 - HITRUST
 - ISO 20000-1:2011
 - ISO 22301:2012
@@ -62,15 +64,15 @@ Następujące certyfikaty zapory platformy Azure dotyczą globalnej platformy Az
 - MPAA (US)
 - NBB i FSMA (Belgia)
 - NEN 7510:2011 (Holandia)
-- Zestaw narzędzi NHS IG (UK)
+- NHS IG Toolkit (Zjednoczone Królestwo)
 - Holandia BIR 2012
 - OSFI (Kanada)
 - PCI DSS poziom 1
-- Oprócz i IRDAI (Indie)
+- RBI i IRDAI (Indie)
 - SOC 1, typ 2
 - SOC 2 typu 2
 - SOC 3
-- SOX (US)
+- SOX (USA)
 - DPA (Hiszpania)
 - TISAX
 - TruSight
@@ -87,22 +89,24 @@ Następujące certyfikaty zapory platformy Azure są przeznaczone dla Azure Gove
 - Zaświadczanie gwiazdy
 - DFARS
 - DoD DISA SRG Level 2
-- Nowak 10 CFR część 810
-- USZACH
+- DoE 10 CFR Part 810
+- EAR
 - FIPS 140-2
 - FedRAMP High
+- HIPPA
+- HITECH Act (US)
 - HITRUST
 - IRS 1075
 - ITAR
-- MARS — E (US)
+- MARS-E (USA)
 - NERC
 - Struktura cyberbezpieczeństwa NIST
 - NIST SP 800-171
 - SOC 1, typ 2
 - SOC 2 typu 2
 - SOC 3
-- SOX (US)
-- Sekcja 508 dokumenty VPAT
+- SOX (USA)
+- Section 508 VPATs
 
 ## <a name="icsa-labs-corporate-firewall-certification"></a>Certyfikacja zapory firmy ICSA Labs
 

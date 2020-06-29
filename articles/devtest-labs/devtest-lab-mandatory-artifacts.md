@@ -1,24 +1,14 @@
 ---
 title: Określ obowiązkowe artefakty dla Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak określić obowiązkowe artefakty, które muszą zostać zainstalowane przed zainstalowaniem artefaktów wybranych przez użytkownika na maszynach wirtualnych w środowisku laboratoryjnym.
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
-ms.author: spelluru
-ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 0677f8bea35cb34735fdcf34e717eea349fad8bf
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897558"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480307"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Określ obowiązkowe artefakty dla laboratorium w Azure DevTest Labs
 Jako właściciel laboratorium można określić obowiązkowe artefakty, które są stosowane do wszystkich maszyn utworzonych w laboratorium. Załóżmy, że każdy komputer w laboratorium ma być połączony z siecią firmową. W takim przypadku każdy użytkownik laboratorium będzie musiał dodać artefakt przyłączania do domeny podczas tworzenia maszyny wirtualnej, aby upewnić się, że ich maszyna jest podłączona do domeny firmowej. Innymi słowy, użytkownicy laboratorium muszą ponownie utworzyć maszynę w przypadku zapomnienia zastosowania obowiązkowych artefaktów na komputerze. Jako właściciel laboratorium utworzysz artefakt przyłączania do domeny jako obowiązkowy artefakt w laboratorium. Ten krok zapewnia, że każdy komputer jest połączony z siecią firmową i oszczędność czasu i nakładu pracy dla użytkowników laboratorium.

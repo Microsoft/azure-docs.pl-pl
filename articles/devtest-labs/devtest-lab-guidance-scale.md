@@ -1,24 +1,15 @@
 ---
 title: Skalowanie infrastruktury Azure DevTest Labs
 description: Ten artykuł zawiera wskazówki dotyczące skalowania infrastruktury Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
-ms.author: spelluru
+ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 3a48cef2210721bf7116b1c4ad1169779288f47d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 50bf08678a12a1a0499abd08c52a264d03f4a401
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899214"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478794"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Skalowanie infrastruktury Azure DevTest Labs
 Przed wdrożeniem laboratoriów DevTest w skali przedsiębiorstwa istnieje kilka najważniejszych punktów decyzji. Zrozumienie tych punktów decyzji na wyższym poziomie ułatwia organizacjom podejmowanie decyzji projektowych w przyszłości. Jednak te punkty nie powinny pomieścić z powrotem organizacji przed rozpoczęciem weryfikacji koncepcji. Trzy pierwsze obszary do wstępnego planowania skalowania są następujące:

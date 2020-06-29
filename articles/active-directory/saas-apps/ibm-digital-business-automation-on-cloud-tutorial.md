@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/08/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f33992c7aa205e503c7de150adad7180ff823881
-ms.sourcegitcommit: 51718f41d36192b9722e278237617f01da1b9b4e
+ms.openlocfilehash: c0a8185d81966932c17fd3b0590b5f8ef2f7b6df
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85099667"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479797"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ibm-digital-business-automation-on-cloud"></a>Samouczek Azure Active Directory: integracja logowania jednokrotnego (SSO) z usługą IBM Digital Business Automation w chmurze
 
@@ -93,7 +93,7 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     > Jeśli wartości **identyfikatorów** i **adresów URL odpowiedzi** nie zostaną wypełnione automatycznie, wprowadź wartości ręcznie zgodnie z wymaganiami.
 
     > [!Note]
-    > Klienci mogą uzyskać plik metadanych dla swojej subskrypcji chmury z [zespołu DBAoC DevOps](mailto:supportbpmoncloud@us.ibm.com).
+    > Klienci mogą uzyskać plik metadanych dla swojej subskrypcji chmury od [zespołu pomocy technicznej IBM Digital Business Automation w chmurze](mailto:supportbpmoncloud@us.ibm.com).
 
 1. Jeśli nie masz **pliku metadanych dostawcy usług**, w sekcji **Podstawowa konfiguracja protokołu SAML** , jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **dostawcy tożsamości** , wprowadź wartości dla następujących pól:
 

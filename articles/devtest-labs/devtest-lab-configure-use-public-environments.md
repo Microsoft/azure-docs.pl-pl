@@ -1,25 +1,14 @@
 ---
 title: Konfigurowanie i używanie środowisk publicznych w programie Azure DevTest Labs | Microsoft Docs
 description: W tym artykule opisano sposób konfigurowania i używania środowisk publicznych (Azure Resource Manager szablonów w repozytorium Git) w programie Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
-ms.author: spelluru
-ms.openlocfilehash: 127a6986e04cf90f69b2a8ec70b90b877e534708
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 61cabdb296c3fff75137c7ce7e87652241fd2926
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896284"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482670"
 ---
 # <a name="configure-and-use-public-environments-in-azure-devtest-labs"></a>Konfigurowanie i używanie środowisk publicznych w programie Azure DevTest Labs
 Azure DevTest Labs ma [publiczne repozytorium szablonów Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) , których można użyć do tworzenia środowisk bez konieczności nawiązywania połączenia z zewnętrznym źródłem GitHub przez siebie. To repozytorium obejmuje często używane szablony, takie jak Azure Web Apps, klaster Service Fabric i środowisko farmy deweloperów programu SharePoint. Ta funkcja jest podobna do publicznego repozytorium artefaktów, które są dołączone do każdego tworzonego laboratorium. Repozytorium środowiska umożliwia szybkie rozpoczynanie pracy z szablonami wstępnie utworzonych środowisk z minimalnymi parametrami wejściowymi w celu zapewnienia sprawnego środowiska uruchamiania dla zasobów PaaS w ramach laboratoriów. 

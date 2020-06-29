@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
-ms.openlocfilehash: 4974fe3b387683f662d7a7b4f3ccb4935153f07e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883100"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477196"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Instrukcje: żądania oświadczeń niestandardowych przy użyciu MSAL dla systemów iOS i macOS
 
@@ -25,7 +25,7 @@ Program OpenID Connect Connect umożliwia opcjonalne żądanie powrotu pojedyncz
 
 Biblioteka Microsoft Authentication Library (MSAL) dla systemów iOS i macOS umożliwia żądanie określonych oświadczeń w scenariuszach pozyskiwania tokenów interaktywnych i dyskretnych. Robi to za pomocą `claimsRequest` parametru.
 
-Istnieje wiele scenariuszy, w których jest to wymaganie. Przykład:
+Istnieje wiele scenariuszy, w których jest to wymaganie. Na przykład:
 
 - Żądanie oświadczeń poza standardowym zestawem dla aplikacji.
 - Żądanie określonych kombinacji standardowych oświadczeń, których nie można określić za pomocą zakresów dla aplikacji. Na przykład, jeśli token dostępu zostanie odrzucony z powodu braku oświadczeń, aplikacja może zażądać brakujących oświadczeń przy użyciu MSAL.
@@ -33,7 +33,7 @@ Istnieje wiele scenariuszy, w których jest to wymaganie. Przykład:
 > [!NOTE]
 > MSAL pomija pamięć podręczną tokenów dostępu za każdym razem, gdy żądanie oświadczeń jest określone. Należy podać `claimsRequest` parametr tylko wtedy, gdy potrzebne są dodatkowe oświadczenia (w przeciwieństwie do tego samego `claimsRequest` parametru w każdym wywołaniu interfejsu API MSAL).
 
-`claimsRequest`można określić w `MSALSilentTokenParameters` i `MSALInteractiveTokenParameters`:
+`claimsRequest`można określić w `MSALSilentTokenParameters` i `MSALInteractiveTokenParameters` :
 
 ```objc
 /*!

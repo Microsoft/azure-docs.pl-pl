@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c4bbc3510cc273504d7c97287d3aeb1948db2eb2
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: c4cdfc35d39be827109c56a16d68f6e51b56ef43
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85390673"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483350"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Informacje na temat bliźniaczych reprezentacji cyfrowych i ich bliźniaczych wykresów
 
@@ -124,7 +124,6 @@ Poniżej znajduje się przykład cyfrowego sznurka sformatowanego jako obiekt JS
   "component": {
     "TableOccupancy": 1,
     "$metadata": {
-      "$model": "dtmi:com:contoso:Table;1",
       "TableOccupancy": {
         "desiredValue": 1,
         "desiredVersion": 3,
@@ -163,7 +162,7 @@ Gdy jest reprezentowany jako obiekt JSON, relacja z dwucyfrowego sznurka będzie
 
 | Nazwa pola | Opis |
 | --- | --- |
-| `$edgeId` | Ciąg dostarczony przez użytkownika reprezentujący identyfikator tej krawędzi relacji. Ten ciąg jest unikatowy w kontekście źródłowej cyfrowej przędzy, co oznacza, że `sourceId`  +  `edgeId` jest unikatowy w kontekście wystąpienia usługi Azure Digital bliźniaczych reprezentacji. |
+| `$relationshipId` | Ciąg dostarczony przez użytkownika reprezentujący identyfikator tej relacji. Ten ciąg jest unikatowy w kontekście źródłowej cyfrowej przędzy, co oznacza, że `sourceId`  +  `relationshipId` jest unikatowy w kontekście wystąpienia usługi Azure Digital bliźniaczych reprezentacji. |
 | `$sourceId` | Identyfikator źródłowej dwuosiowej |
 | `$targetId` | Identyfikator docelowej przędzy cyfrowej |
 | `$relationshipName` | Nazwa relacji |
@@ -173,9 +172,10 @@ Oto przykład relacji sformatowanej jako obiekt JSON:
 
 ```json
 {
-  "$edgeId": "Edge-01",
+  "$relationshipId": "relationship-01",
+  "$etag": "W/\"506e8391-2b21-4ac9-bca3-53e6620f6a90\"",
   "$sourceId": "GroundFloor",
-  "$relationship": "contains",
+  "$relationshipName": "contains",
   "$targetId": "Cafe",
   "startDate": "2020-02-04"
 }

@@ -1,24 +1,15 @@
 ---
 title: Zarządzanie infrastrukturą Azure DevTest Labs — zasób
 description: Ten artykuł dotyczy wyrównania i zarządzania zasobami dla Azure DevTest Labs w organizacji.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2019
-ms.author: spelluru
+ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 8bb00c770c61a0a5462a01ae552bd7e40a7cdb36
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 1e470da5cd317d49f0d0734caa11eed6630d3f32
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899263"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480919"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Zarządzanie infrastrukturą Azure DevTest Labs — zasoby
 Ten artykuł dotyczy wyrównania i zarządzania zasobami dla DevTest Labs w organizacji. 

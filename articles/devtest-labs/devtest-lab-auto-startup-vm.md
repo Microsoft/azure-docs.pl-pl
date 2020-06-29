@@ -1,24 +1,14 @@
 ---
 title: Konfigurowanie ustawień Autostart dla maszyny wirtualnej w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak skonfigurować ustawienia Autostart dla maszyn wirtualnych w środowisku laboratoryjnym. To ustawienie umożliwia automatyczne uruchamianie maszyn wirtualnych w środowisku laboratoryjnym zgodnie z harmonogramem.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-editor: ''
-ms.assetid: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: spelluru
-ms.openlocfilehash: 95f810ba16f358c5aabc35e26294cdb3f8c3cca0
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 4ff2a156367b6a65e75b1c8b907da91dc3c88eb9
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896473"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85482789"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Automatycznie uruchamiaj maszyny wirtualne w laboratorium  
 Azure DevTest Labs pozwala skonfigurować maszyny wirtualne w laboratorium do automatycznego uruchamiania i zamykania na podstawie harmonogramu. Aby uzyskać informacje na temat konfigurowania ustawień automatycznego zamykania, zobacz [Zarządzanie zasadami Autozamykania dla laboratorium w Azure DevTest Labs](devtest-lab-auto-shutdown.md). 

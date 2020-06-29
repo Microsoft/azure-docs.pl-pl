@@ -1,24 +1,14 @@
 ---
 title: Integracja Azure DevTest Labs i DevOps | Microsoft Docs
 description: Dowiedz się, jak używać laboratoriów Azure DevTest Labs w ramach potoków ciągłej integracji (CI)/ciągłego dostarczania (CD) w środowisku przedsiębiorstwa.
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
-ms.author: spelluru
-ms.openlocfilehash: db9e338891a4e8bab9f9b36482815542ae348ec2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 8a5d35a541e079b7d39cae2ec43da608274533f5
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896928"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481072"
 ---
 # <a name="integration-of-azure-devtest-labs-and-azure-devops"></a>Integracja Azure DevTest Labs i Azure DevOps
 DevOps to metodologia opracowywania oprogramowania, która integruje programowanie oprogramowania (dev) z operacjami (Ops) dla systemu. Ten system może dostarczać nowe funkcje, aktualizacje i poprawki na wyrównaniu z celami biznesowymi. Ta metodologia obejmuje wszystko od projektowania nowych funkcji w oparciu o cele, wzorce użycia i opinie klientów. w celu naprawienia, odzyskania i zabezpieczenia systemu w przypadku wystąpienia problemów. Łatwo zidentyfikowany składnik tej metodologii jest potokiem ciągłej integracji (CI)/ciągłego dostarczania (CD). Potok ciągłej integracji/ciągłego dostarczania informacji, kodu i zasobów z zatwierdzenia przez serię kroków, które obejmują kompilowanie, testowanie i wdrażanie, aby utworzyć system. Ten artykuł koncentruje się na różnych sposobach efektywnego wykorzystania laboratoriów w ramach potoku w środowisku przedsiębiorstwa. 

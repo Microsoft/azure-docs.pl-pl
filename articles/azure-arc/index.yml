@@ -1,21 +1,20 @@
 ### YamlMime:Landing
 title: Azure Arc
-summary: Usługa Azure Arc rozszerza możliwości usługi Azure Resource Manager na serwery z systemami Linux i Windows oraz klastry Kubernetes w dowolnej infrastrukturze obejmującej środowiska lokalne, wiele chmur i brzeg sieci. Dzięki usłudze Azure Arc klienci mogą również uruchamiać usługi danych platformy Azure w dowolnym miejscu, czerpiąc korzyści z innowacji chmurowych, takich jak między innymi zawsze aktualne funkcje obsługi danych, wdrażanie w ciągu sekund (zamiast godzin) oraz dynamiczna skalowalność w dowolnej infrastrukturze. Usługa Azure Arc dla serwerów jest obecnie w publicznej wersji zapoznawczej.
+summary: Usługa Azure Arc rozszerza możliwości usługi Azure Resource Manager na serwery z systemami Linux i Windows oraz klastry Kubernetes w dowolnej infrastrukturze obejmującej środowiska lokalne, wiele chmur i brzeg sieci. Dzięki usłudze Azure Arc klienci mogą również uruchamiać usługi danych platformy Azure w dowolnym miejscu, czerpiąc korzyści z innowacji chmurowych, takich jak między innymi zawsze aktualne funkcje obsługi danych, wdrażanie w ciągu sekund (zamiast godzin) oraz dynamiczna skalowalność w dowolnej infrastrukturze.
 metadata:
   title: Usługa Azure Arc dla serwerów
   description: Dowiedz się, jak zarządzać komputerami lokalnymi na platformie Azure
-  author: bobbytreed
-  manager: carmonm
+  author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 11/04/2019
-  ms.author: robreed
-  ms.openlocfilehash: e80cdec365a14caee5c74900e1c21f7349165e66
-  ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+  ms.date: 06/26/2020
+  ms.author: magoedte
+  ms.openlocfilehash: 8493a5d90656206c5498fafbc2b0a2743cd973a7
+  ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/13/2020
-  ms.locfileid: "81261282"
+  ms.lasthandoff: 06/27/2020
+  ms.locfileid: "85482347"
 landingContent:
 - title: Omówienie usługi Azure Arc
   linkLists:
@@ -37,3 +36,25 @@ landingContent:
       url: ./servers/onboard-service-principal.md
     - text: Łączenie maszyn z platformą Azure przy użyciu rozszerzenia DSC programu PowerShell
       url: ./servers/onboard-dsc.md
+- title: Łączenie klastrów Kubernetes z platformą Azure przy użyciu usługi Azure Arc
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest platforma Kubernetes z włączoną usługą Azure Arc?
+      url: ./kubernetes/overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Połączenie klastra
+      url: ./kubernetes/connect-cluster.md
+    - text: Korzystanie z podejścia GitOps w połączonym klastrze
+      url: ./kubernetes/use-gitops-connected-cluster.md
+    - text: Korzystanie z podejścia GitOps przy użyciu narzędzia Helm
+      url: ./kubernetes/use-gitops-with-helm.md
+    - text: Korzystanie z usługi Azure Monitor dla kontenerów
+      url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+    - text: Korzystanie z usługi Azure Policy
+      url: ./kubernetes/use-azure-policy.md
+    - text: Wdrażanie obciążeń usługi Azure IoT Edge
+      url: ./kubernetes/deploy-azure-iot-edge-workloads.md
+    - text: Dołączanie nazwy głównej usługi
+      url: ./kubernetes/create-onboarding-service-principal.md

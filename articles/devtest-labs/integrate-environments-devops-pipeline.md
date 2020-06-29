@@ -1,23 +1,14 @@
 ---
 title: Integruj środowiska w Azure Pipelines w Azure DevTest Labs
 description: Dowiedz się, jak zintegrować środowiska Azure DevTest Labs z potokiem ciągłej integracji (CI) DevOps (CI) i ciągłe dostarczanie (CD).
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: bafc4cd08d7b4ee2124c46984121b53cd4651baf
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: be726b2a3f67fd3dada4fdc3cf794922a3c18d06
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898108"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483027"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integruj środowiska z potokami CI/DevOps na platformie Azure
 Możesz użyć rozszerzenia Azure DevTest Labs zadania, które jest zainstalowane w Azure DevOps Services (wcześniej znane jako Visual Studio Team Services), aby łatwo zintegrować potok "Kompilacja ciągła (CI)"/ciągłe dostarczanie (CD-and-Release) z Azure DevTest Labs. Te rozszerzenia ułatwiają szybkie wdrażanie [środowiska](devtest-lab-test-env.md) dla określonego zadania testowego, a następnie usuwanie go po zakończeniu testu. 

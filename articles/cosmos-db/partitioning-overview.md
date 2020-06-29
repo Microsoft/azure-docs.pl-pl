@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: aa7d67cd6bd1bd422bd257b75ac5bde3bd534d7e
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864338"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85481837"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partycjonowanie w usłudze Azure Cosmos DB
 
@@ -35,6 +35,14 @@ Aby dowiedzieć się więcej o tym, [jak Azure Cosmos DB zarządza partycjami](p
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Wybieranie klucza partycji
 
+Klucz partycji ma dwa składniki: **ścieżkę klucza partycji** i **wartość klucza partycji**. Rozważmy na przykład element {"userId": "Andrew", "worksFor": "Microsoft"} Jeśli wybierzesz "userId" jako klucz partycji, poniżej przedstawiono dwa składniki kluczy partycji:
+
+* Ścieżka klucza partycji (na przykład: "/userId"). Ścieżka klucza partycji akceptuje znaki alfanumeryczne i podkreślenia (_). Można również użyć zagnieżdżonych obiektów przy użyciu notacji ścieżki standardowej (/).
+
+* Wartość klucza partycji (na przykład: "Andrew"). Wartość klucza partycji może być typu String lub numeric.
+
+Aby dowiedzieć się więcej na temat limitów przepływności, magazynu i długości klucza partycji, zobacz artykuł dotyczący [przydziałów usługi Azure Cosmos DB](concepts-limits.md) .
+
 Wybór klucza partycji to prosty, ale istotny wybór w Azure Cosmos DB. Po wybraniu klucza partycji nie można go zmienić w miejscu. Jeśli musisz zmienić klucz partycji, Przenieś dane do nowego kontenera przy użyciu nowego żądanego klucza partycji.
 
 W przypadku **wszystkich** kontenerów klucz partycji powinien:
@@ -49,7 +57,7 @@ Jeśli potrzebujesz [wieloelementowych transakcji kwasowych](database-transactio
 
 W przypadku większości kontenerów powyższe kryteria należy wziąć pod uwagę podczas wybierania klucza partycji. W przypadku dużych kontenerów z możliwością odczytu można jednak wybrać klucz partycji, który często pojawia się jako filtr w zapytaniach. Zapytania mogą być [efektywnie kierowane tylko do odpowiednich partycji fizycznych](how-to-query-container.md#in-partition-query) poprzez dołączenie klucza partycji do predykatu filtru.
 
-Jeśli większość żądań obciążeń jest kwerendami i większość zapytań ma filtr równości dla tej samej właściwości, ta właściwość może być dobrym kluczem partycji. Na przykład, jeśli często uruchamiasz zapytanie `UserID`, które jest filtrowane, a następnie `UserID` wybranie klucza partycji zmniejsza liczbę [zapytań między partycjami](how-to-query-container.md#avoiding-cross-partition-queries).
+Jeśli większość żądań obciążeń jest kwerendami i większość zapytań ma filtr równości dla tej samej właściwości, ta właściwość może być dobrym kluczem partycji. Na przykład, jeśli często uruchamiasz zapytanie, które jest filtrowane `UserID` , a następnie wybranie `UserID` klucza partycji zmniejsza liczbę [zapytań między partycjami](how-to-query-container.md#avoiding-cross-partition-queries).
 
 Jeśli jednak kontener jest mały, prawdopodobnie nie masz wystarczającej liczby partycji fizycznych, aby nie trzeba było zajmować się wpływem na wydajność zapytań między partycjami. Większość małych kontenerów w Azure Cosmos DB wymaga tylko jednej lub dwóch partycji fizycznych.
 

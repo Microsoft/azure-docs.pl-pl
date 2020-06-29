@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3f020abd4d207a49068ccffb9bb7f57b88bc87df
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206397"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480443"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics 
 
@@ -89,21 +89,21 @@ SQL na żądanie nie ma magazynu lokalnego. w bazach danych są przechowywane ty
 
 Aby zapewnić bezproblemowe środowisko tworzenia zapytań dotyczących danych znajdujących się w plikach w usłudze Data Lake, funkcja SQL na żądanie rozszerza istniejącą funkcję [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , dodając następujące możliwości:
 
-[Kwerenda wielu plików lub folderów](develop-storage-files-overview.md#query-multiple-files-or-folders)
+[Kwerenda wielu plików lub folderów](query-data-storage.md#query-multiple-files-or-folders)
 
-[Format pliku PARQUET](develop-storage-files-overview.md#parquet-file-format)
+[Format pliku PARQUET](query-data-storage.md#query-parquet-files)
 
-[Dodatkowe opcje pracy z rozdzielonym tekstem (terminator pola, terminator wiersza, znak ucieczki)](develop-storage-files-overview.md#additional-options-for-working-with-delimited-text)
+[Dodatkowe opcje pracy z rozdzielonym tekstem (terminator pola, terminator wiersza, znak ucieczki)](query-data-storage.md#query-csv-files)
 
-[Odczytaj wybrany podzestaw kolumn](develop-storage-files-overview.md#read-a-chosen-subset-of-columns)
+[Odczytaj wybrany podzestaw kolumn](query-data-storage.md#read-a-chosen-subset-of-columns)
 
-[Wnioskowanie schematu](develop-storage-files-overview.md#schema-inference)
+[Wnioskowanie schematu](query-data-storage.md#schema-inference)
 
-[Funkcja filename](develop-storage-files-overview.md#filename-function)
+[Funkcja filename](query-data-storage.md#filename-function)
 
-[FilePath — funkcja](develop-storage-files-overview.md#filepath-function)
+[FilePath — funkcja](query-data-storage.md#filepath-function)
 
-[Pracuj z typami złożonymi i zagnieżdżonymi lub powtarzanymi strukturami danych](develop-storage-files-overview.md#work-with-complex-types-and-nested-or-repeated-data-structures)
+[Pracuj z typami złożonymi i zagnieżdżonymi lub powtarzanymi strukturami danych](query-data-storage.md#work-with-complex-types-and-nested-or-repeated-data-structures)
 
 ## <a name="security"></a>Zabezpieczenia
 
@@ -113,7 +113,7 @@ Program SQL on-Demand oferuje mechanizmy zabezpieczania dostępu do danych.
 
 Usługa SQL na żądanie umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft z [integracją Azure Active Directory](../../azure-sql/database/authentication-aad-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Azure Active Directory (Azure AD) obsługuje [uwierzytelnianie wieloskładnikowe](../../azure-sql/database/authentication-mfa-ssms-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) w celu zwiększenia bezpieczeństwa danych i aplikacji podczas obsługi logowania jednokrotnego.
 
-#### <a name="authentication"></a>Uwierzytelnianie
+#### <a name="authentication"></a>Authentication
 
 Uwierzytelnianie na żądanie SQL dotyczy sposobu, w jaki użytkownicy udowadniają swoją tożsamość podczas nawiązywania połączenia z punktem końcowym. Obsługiwane są dwa typy uwierzytelniania:
 

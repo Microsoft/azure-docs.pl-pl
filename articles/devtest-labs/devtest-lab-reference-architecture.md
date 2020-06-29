@@ -1,24 +1,15 @@
 ---
 title: Architektura referencyjna przedsiębiorstwa dla Azure DevTest Labs
 description: Ten artykuł zawiera wskazówki dotyczące architektury referencyjnej dla Azure DevTest Labs w przedsiębiorstwie.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
-ms.author: spelluru
+ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 77e6ab588f74c8b810f211e069c1c24043155111
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 8b71774d9a833adefdd25214ea4f0e8bdaaba485
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897947"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85480188"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Architektura referencyjna Azure DevTest Labs dla przedsiębiorstw
 Ten artykuł zawiera architekturę referencyjną, która pomaga wdrożyć rozwiązanie na podstawie Azure DevTest Labs w przedsiębiorstwie. Obejmuje następujące elementy:
