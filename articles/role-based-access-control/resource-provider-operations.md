@@ -8,12 +8,12 @@ ms.workload: identity
 author: rolyon
 ms.author: rolyon
 ms.date: 06/18/2020
-ms.openlocfilehash: 2131912244b2f895ebb7d9bbc28f132ac2404ae7
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: 3e79f0498aa14bed1cda29148a6b3c7e1e9e2a3d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85414576"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508473"
 ---
 # <a name="azure-resource-providers-operations"></a>Operacje dostawców zasobów platformy Azure
 
@@ -269,7 +269,7 @@ Usługa platformy Azure: rdzeń
 > | Microsoft. Support/supportTickets/Communications/Read | Wyświetla jedną lub całą komunikację biletów pomocy technicznej |
 > | Microsoft. Support/supportTickets/Communications/Write | Dodaje nową komunikację do biletu pomocy technicznej |
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Wystąpienia obliczeniowe
 
 ### <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -1358,8 +1358,7 @@ Usługa platformy Azure: Magazyn klasycznego modelu wdrażania
 
 ### <a name="microsoftdatabox"></a>Microsoft. DataBox
 
-Usługa platformy Azure: [Azure Data Box](../databox-family/index.md)
-
+Usługa platformy Azure: [Azure Data Box](../databox/index.yml)
 > [!div class="mx-tableFixed"]
 > | Akcja | Opis |
 > | --- | --- |
@@ -1803,7 +1802,7 @@ Usługa platformy Azure: [StorSimple](../storsimple/index.yml)
 > | Microsoft. StorSimple/menedżerowie/storageDomains/operationResults/Read | Wyświetla lub pobiera wyniki operacji |
 > | Microsoft. StorSimple/Operations/Read | Wyświetla lub pobiera operacje |
 
-## <a name="web"></a>Internet
+## <a name="web"></a>Sieć Web
 
 ### <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
 
@@ -2523,7 +2522,7 @@ Usługa platformy Azure: [App Service](../app-service/index.yml), [Azure Functio
 > | Microsoft. Web/staticSites/customdomains/Validate/akcja | Weryfikowanie domeny niestandardowej można dodać do lokacji statycznej |
 > | Microsoft. Web/staticSites/Functions/Read | Wyświetlanie listy funkcji dla lokacji statycznej |
 
-## <a name="containers"></a>Kontenery
+## <a name="containers"></a>Containers
 
 ### <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 

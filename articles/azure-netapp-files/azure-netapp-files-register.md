@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 64e47d9617e300ef114fb8d07517be46dbc859e3
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 6d47da361303a0c421da035fc47608ba363ff82f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636227"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483537"
 ---
 # <a name="register-for-azure-netapp-files"></a>Rejestrowanie w usłudze Azure NetApp Files
 

@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 9997a97b-9382-43ed-b56e-61369335c987
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7bf064ff01693f7a65c756a99c435d7f1a39840e
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 77d2e61533016de7417446ba4111116e9749ac74
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61409419"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507878"
 ---
 # <a name="install-updates-on-your-storsimple-virtual-array---azure-portal"></a>Zainstaluj aktualizacje w wirtualnej macierzy StorSimple — Azure Portal
 
@@ -49,7 +49,7 @@ Wykonaj następujące kroki, aby pobrać aktualizację oprogramowania z Wykazu u
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Aby pobrać aktualizację lub poprawkę
 
-1. Uruchom program Internet Explorer i przejdź [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)do.
+1. Uruchom program Internet Explorer i przejdź do [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Jeśli po raz pierwszy używasz Wykazu usługi Microsoft Update na danym komputerze, po wyświetleniu monitu o zainstalowanie dodatku Wykazu usługi Microsoft Update kliknij pozycję **Zainstaluj**.
 
@@ -59,13 +59,13 @@ Wykonaj następujące kroki, aby pobrać aktualizację oprogramowania z Wykazu u
    
     ![Przeszukiwanie wykazu](./media/storsimple-virtual-array-install-update/download1.png)
 
-4. Kliknij pozycję **Add** (Dodaj). Aktualizacja zostanie dodana do koszyka.
+4. Kliknij pozycję **Dodaj**. Aktualizacja zostanie dodana do koszyka.
 
 5. Kliknij pozycję **Wyświetl koszyk**.
 
 6. Kliknij pozycję **Pobierz**. Określ lokalizację lokalną, do której mają trafiać pobrane pliki, albo **przejdź** do takiej lokalizacji. Aktualizacje zostaną pobrane do wskazanej lokalizacji i umieszczone w podfolderze o nazwie takiej samej jak aktualizacja. Folder można też skopiować do udziału sieciowego osiągalnego z urządzenia.
 
-7. Otwórz skopiowany folder, który powinien zostać wyświetlony Microsoft Update autonomiczny plik `WindowsTH-KB3011067-x64`pakietu. Ten plik jest używany do instalowania aktualizacji lub poprawki.
+7. Otwórz skopiowany folder, który powinien zostać wyświetlony Microsoft Update autonomiczny plik pakietu `WindowsTH-KB3011067-x64` . Ten plik jest używany do instalowania aktualizacji lub poprawki.
 
 ### <a name="install-the-update-or-the-hotfix"></a>Zainstaluj aktualizację lub poprawkę
 
@@ -75,7 +75,7 @@ Ta metoda służy do instalowania aktualizacji na urządzeniu z oprogramowaniem 
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Aby zainstalować aktualizację lub poprawkę
 
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja** > **Aktualizowanie oprogramowania**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**.
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update/update1m.png)
 
@@ -91,7 +91,7 @@ Ta metoda służy do instalowania aktualizacji na urządzeniu z oprogramowaniem 
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update/update5m.png)
 
-5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja** > **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10288.0** dla aktualizacji 0,3.
+5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10288.0** dla aktualizacji 0,3.
    
    > [!NOTE]
    > Firma Microsoft zgłasza wersje oprogramowania w nieco inny sposób w lokalnym interfejsie użytkownika sieci Web i Azure Portal. Na przykład lokalny interfejs użytkownika sieci Web raportuje **10.0.0.0.0.10288** oraz Azure Portal raporty **10.0.10288.0** dla tej samej wersji.

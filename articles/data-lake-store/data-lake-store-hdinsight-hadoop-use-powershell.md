@@ -3,15 +3,15 @@ title: PowerShell-HDInsight z Data Lake Storage Gen1-Add-in Storage — Azure
 description: Informacje dotyczące konfigurowania klastra usługi HDInsight za pomocą Azure PowerShell Azure Data Lake Storage Gen1 jako dodatkowego magazynu.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fb4ab1cdb60fff40effc1ff2f12f8600ba263d23
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b1264475a9e5100e2b38079fe0540ada5d91cd55
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692049"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504716"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Użyj Azure PowerShell, aby utworzyć klaster usługi HDInsight z Azure Data Lake Storage Gen1 (jako dodatkowy magazyn)
 
@@ -75,7 +75,7 @@ Wykonaj następujące kroki, aby utworzyć konto Data Lake Storage Gen1.
         Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
    > [!NOTE]
-   > Jeśli podczas rejestrowania dostawcy zasobów Data Lake Storage Gen1 zostanie `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` wyświetlony komunikat o błędzie podobny do, istnieje możliwość, że subskrypcja nie jest listy dozwolonych dla Data Lake Storage Gen1. Upewnij się, że możesz włączyć subskrypcję platformy Azure dla Data Lake Storage Gen1, wykonując te [instrukcje](data-lake-store-get-started-portal.md).
+   > Jeśli podczas rejestrowania dostawcy zasobów Data Lake Storage Gen1 zostanie wyświetlony komunikat o błędzie podobny do `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` , istnieje możliwość, że subskrypcja nie jest listy dozwolonych dla Data Lake Storage Gen1. Upewnij się, że możesz włączyć subskrypcję platformy Azure dla Data Lake Storage Gen1, wykonując te [instrukcje](data-lake-store-get-started-portal.md).
    >
    >
 2. Konto Data Lake Storage Gen1 jest skojarzone z grupą zasobów platformy Azure. Rozpocznij od utworzenia grupy zasobów platformy Azure.

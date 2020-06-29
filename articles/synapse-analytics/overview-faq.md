@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2c470483cee8b621475fa70dd09c80aa126173be
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: e0f1caf77f0e898b13045e2c840d93f42a5569fc
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84609152"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484047"
 ---
 # <a name="azure-synapse-analytics-workspaces-preview-frequently-asked-questions"></a>Analiza usługi Azure Synapse (obszary robocze — wersja zapoznawcza) — często zadawane pytania
 
@@ -48,6 +48,10 @@ Odp.: usługa Azure Synapse oferuje następujące możliwości:
 Odp.: usługa Azure Synapse Analytics to ewolucja Azure SQL Data Warehouse na platformie analitycznej, która obejmuje pulę SQL jako rozwiązanie magazynu danych. Ta platforma łączy eksplorację, pozyskiwanie, przekształcenie, przygotowanie i obsługę warstwy analitycznej.
 
 ## <a name="use-cases"></a>Przypadki zastosowań
+
+### <a name="q-how-do-i-rename-a-published-artifact-dataset-notebook-sql-script-and-so-on-in-azure-synapse"></a>P: Jak mogę zmienić nazwy opublikowanego artefaktu (zestawu danych, notesu, skryptu SQL itd.) w usłudze Azure Synapse?
+
+Odp.: Aby zmienić nazwę opublikowanego pliku artefaktu, należy najpierw sklonować plik i zmienić nazwę nowego pliku na preferowany. Należy ręcznie zaktualizować wszystkie odwołania artefaktu do nowej nazwy pliku i usunąć stary.
 
 ### <a name="q-what-is-a-good-use-case-for-synapse-sql-pool"></a>P: co to jest dobry przypadek użycia dla puli SQL Synapse
 

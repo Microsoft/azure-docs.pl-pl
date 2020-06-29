@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 48bd909eefbaea15cf6ca2427e106ad9bc0ffbb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80298742"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504461"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Rozwiązywanie problemów z urządzeniami z serii 8000 przy użyciu narzędzia diagnostyki StorSimple
 
@@ -210,7 +210,7 @@ Ten test zgłasza informacje o systemie, dostępne aktualizacje, informacje o kl
 
 * Informacje o systemie obejmują model, numer seryjny urządzenia, strefę czasową, stan kontrolera i szczegółowe wersje oprogramowania działające w systemie. Aby zrozumieć różne parametry systemu raportowane jako dane wyjściowe, przejdź do [interpretacji informacji o systemie](#appendix-interpreting-system-information).
 
-* Dostępność aktualizacji umożliwia określenie, czy są dostępne tryby regularne i konserwacyjne oraz skojarzone z nimi nazwy pakietów. Jeśli `RegularUpdates` i `MaintenanceModeUpdates` są `false`, oznacza to, że aktualizacje są niedostępne. Urządzenie jest aktualne.
+* Dostępność aktualizacji umożliwia określenie, czy są dostępne tryby regularne i konserwacyjne oraz skojarzone z nimi nazwy pakietów. Jeśli `RegularUpdates` i `MaintenanceModeUpdates` są `false` , oznacza to, że aktualizacje są niedostępne. Urządzenie jest aktualne.
 * Informacje o klastrze zawierają informacje dotyczące różnych składników logicznych wszystkich grup klastrów magazynu HCS i ich odpowiednich stanów. Jeśli w tej sekcji raportu zostanie wyświetlona Grupa klastra w trybie offline, [skontaktuj się z firmą pomoc techniczna firmy Microsoft](storsimple-8000-contact-microsoft-support.md).
 * Informacje o usłudze obejmują nazwy i Stany wszystkich usług magazynu HCS i CiS działających na urządzeniu. Te informacje ułatwiają pomoc techniczna firmy Microsoft rozwiązywania problemów z urządzeniem.
 
@@ -416,7 +416,7 @@ Poniżej przedstawiono tabelę zawierającą opis różnych parametrów programu
 
 | Parametr programu PowerShell    | Opis  |
 |-------------------------|------------------|
-| Identyfikator wystąpienia             | Każdy kontroler ma unikatowy identyfikator lub skojarzony z nim identyfikator GUID.|
+| Instance ID             | Każdy kontroler ma unikatowy identyfikator lub skojarzony z nim identyfikator GUID.|
 | Nazwa                    | Przyjazna nazwa urządzenia skonfigurowana za pomocą Azure Portal podczas wdrażania urządzenia. Domyślną przyjazną nazwą jest numer seryjny urządzenia. |
 | Model                   | Model urządzenia z serii StorSimple 8000. Model może mieć wartość 8100 lub 8600.|
 | SerialNumber            | Numer seryjny urządzenia jest przypisany do fabryki i ma 15 znaków. Na przykład 8600-SHX0991003G44HT wskazuje:<br> 8600 — jest modelem urządzenia.<br>SHX — to witryna produkcyjna.<br> 0991003 — jest określonym produktem. <br> G44HT — ostatnie 5 cyfr są zwiększane, aby utworzyć unikatowe numery seryjne. Nie może to być zestaw sekwencyjny.|

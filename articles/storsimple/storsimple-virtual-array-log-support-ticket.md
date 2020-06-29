@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: a0c394df-957b-49b3-a283-38824f8847fd
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 9ac87bbf5089dd20b8c6eeec0b970a7767b3dcda
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 0ed8533b093c5af0d8aefdcd5175bed63f37a76c
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "64723947"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507674"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Korzystanie z usługi StorSimple Menedżer urządzeń do rejestrowania Support request dla macierzy wirtualnej StorSimple
 

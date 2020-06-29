@@ -1,25 +1,14 @@
 ---
 title: Dodawanie maszyny wirtualnej przy użyciu udostępnionego obrazu w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak dodać maszynę wirtualną (VM) przy użyciu obrazu z dołączonej galerii obrazów udostępnionych w Azure DevTest Labs
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
-ms.author: spelluru
-ms.openlocfilehash: c13b2c3d00a0ab0af0f7785feae645d907ffdaa3
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 9421a1e21be9446b0e59328bd9a3730b57655274
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898815"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483860"
 ---
 # <a name="add-a-vm-using-an-image-from-the-attached-shared-image-gallery"></a>Dodawanie maszyny wirtualnej przy użyciu obrazu z dołączonej galerii obrazów udostępnionych
 Azure DevTest Labs umożliwia dołączenie udostępnionej galerii obrazów do laboratorium, a następnie używanie obrazów w galerii jako baz dla maszyn wirtualnych utworzonych w laboratorium. Aby dowiedzieć się, jak dołączyć udostępnioną galerię obrazów do laboratorium, zobacz [Konfigurowanie udostępnionej galerii obrazów](configure-shared-image-gallery.md). W tym artykule pokazano, jak dodać maszynę wirtualną do laboratorium przy użyciu obrazu z dołączonej udostępnionej galerii obrazów jako podstawy. 

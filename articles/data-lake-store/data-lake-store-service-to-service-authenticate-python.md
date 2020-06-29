@@ -3,16 +3,16 @@ title: Python — uwierzytelnianie między usługami — Data Lake Storage Gen1
 description: Dowiedz się, jak uzyskać uwierzytelnianie między usługami Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory przy użyciu języka Python
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref, tracking-python
-ms.openlocfilehash: 2a366f3d32039b29f011cba02915fc5c7a211973
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c97de3eabb895d55d8b69e6a17619508f6b817ed
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84559755"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505107"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Uwierzytelnianie między usługami Azure Data Lake Storage Gen1 przy użyciu języka Python
 > [!div class="op_single_selector"]

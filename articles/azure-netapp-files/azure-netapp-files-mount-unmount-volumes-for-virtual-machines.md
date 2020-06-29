@@ -5,14 +5,14 @@ author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
-ms.openlocfilehash: d02ceda9dc2c6a822d45c2a31fe91a976610292b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: b7586fcd0a262fa325e171480ec0becc297f65fe
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610857"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483588"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Instalowanie lub odinstalowywanie woluminu dla maszyn wirtualnych z systemem Windows lub Linux 
 
@@ -41,11 +41,11 @@ W razie potrzeby można zainstalować lub odinstalować wolumin dla maszyn wirtu
 4. Jeśli chcesz zainstalować wolumin w systemie Windows przy użyciu systemu plików NFS:
 
     a. Najpierw zainstaluj wolumin na maszynie wirtualnej z systemem UNIX lub Linux.  
-    b. Uruchom polecenie `chmod 777` lub `chmod 775` w odniesieniu do woluminu.  
+    b. Uruchom `chmod 777` polecenie lub w `chmod 775` odniesieniu do woluminu.  
     c. Zainstaluj wolumin za pośrednictwem klienta NFS w systemie Windows.
 
 ## <a name="next-steps"></a>Następne kroki
 
 * [Konfigurowanie domyślnej domeny NFSv4.1 dla usługi Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* [Często zadawane pytania dotyczące NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
+* [Często zadawane pytania dotyczące systemu NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)
 * [Omówienie systemu plików sieciowych](https://docs.microsoft.com/windows-server/storage/nfs/nfs-overview)

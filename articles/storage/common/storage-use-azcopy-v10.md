@@ -3,16 +3,16 @@ title: Kopiowanie lub przenoszenie danych do usługi Azure Storage za pomocą Az
 description: AzCopy to narzędzie wiersza polecenia, za pomocą którego można kopiować dane do, z lub między kontami magazynu. Ten artykuł pomaga pobrać AzCopy, nawiązać połączenie z kontem magazynu, a następnie przenieść pliki.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 2cff9a427cf395414c5b0778f51f4587c8578478
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: f0d957c05aded6641377b47c3fe383c141480b30
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340915"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504478"
 ---
 # <a name="get-started-with-azcopy"></a>Wprowadzenie do narzędzia AzCopy
 
@@ -65,7 +65,7 @@ Użyj tej tabeli jako przewodnika:
 
 | Typ magazynu | Obecnie obsługiwana metoda autoryzacji |
 |--|--|
-|**Blob Storage** | Usługa Azure AD & SAS |
+|**BLOB Storage** | Usługa Azure AD & SAS |
 |**BLOB Storage (hierarchiczna przestrzeń nazw)** | Usługa Azure AD & SAS |
 |**Magazyn plików** | Tylko SAS |
 

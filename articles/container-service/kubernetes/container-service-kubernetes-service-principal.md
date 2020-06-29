@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 40d4dc898efe6b719ec5e1f1ec0471a9677d3c95
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1653fbcaf81981ca3d32d41c2e2892093922011b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79371124"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504743"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(PRZESTARZAŁE) Konfigurowanie jednostki usługi Azure AD dla klastra Kubernetes w usłudze Container Service
 
@@ -38,7 +38,7 @@ Możesz użyć istniejącej jednostki usługi Azure AD, która spełnia następu
 * **Wpis tajny klienta**: musi to być hasło. Obecnie nie można używać nazwy głównej usługi do uwierzytelniania certyfikatu.
 
 > [!IMPORTANT]
-> Aby utworzyć jednostkę usługi, musisz mieć uprawnienia do zarejestrowania aplikacji w swojej dzierżawie usługi Azure AD i przypisania aplikacji do roli w swojej subskrypcji. Aby sprawdzić, czy masz wymagane uprawnienia, [zajrzyj do portalu](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+> Aby utworzyć jednostkę usługi, musisz mieć uprawnienia do zarejestrowania aplikacji w swojej dzierżawie usługi Azure AD i przypisania aplikacji do roli w swojej subskrypcji. Aby sprawdzić, czy masz wymagane uprawnienia, [zajrzyj do portalu](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Opcja 1. Tworzenie jednostki usługi w usłudze Azure AD
@@ -61,7 +61,7 @@ Dane wyjściowe są zbliżone do następujących (pokazane tutaj zostały zredag
 
 ![Tworzenie nazwy głównej usługi](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
 
-Wyróżniony jest **Identyfikator klienta** (`appId`) i **klucz tajny klienta** (`password`), który jest używany jako parametry jednostki usługi do wdrożenia klastra.
+Wyróżniony jest **Identyfikator klienta** ( `appId` ) i **klucz tajny klienta** ( `password` ), który jest używany jako parametry jednostki usługi do wdrożenia klastra.
 
 
 ### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Określanie jednostki usługi podczas tworzenia klastra Kubernetes

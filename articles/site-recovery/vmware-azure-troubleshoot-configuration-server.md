@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 85021af94c3cc88f45b391690d7481d5498c40a9
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 26376c6b20816d2e7302403c8391195e16092fa3
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84246887"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504324"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Rozwiązywanie problemów z serwerem konfiguracji
 
@@ -50,7 +50,7 @@ Maszyna źródłowa rejestruje się na serwerze konfiguracji podczas instalacji 
 
 7. W systemie Linux jeśli wartość platformy w <INSTALLATION_DIR \> /etc/drscout.conf jest uszkodzona, rejestracja kończy się niepowodzeniem. Aby zidentyfikować ten problem, Otwórz plik/var/log/ua_install. log. Wyszukaj ciąg **przerwania konfiguracji, ponieważ VM_PLATFORM wartość jest równa null lub nie jest VMware/Azure**. Platforma powinna być ustawiona na platformę **VMware** lub **platformę Azure**. Jeśli plik drscout. conf jest uszkodzony, zalecamy [odinstalowanie agenta mobilności](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) , a następnie ponowne zainstalowanie agenta mobilności. Jeśli Dezinstalacja nie powiedzie się, wykonaj następujące czynności: a. Otwórz plik Installation_Directory/Uninstall.sh i Dodaj komentarz do wywołania funkcji **StopServices** .
     b. Otwórz plik Installation_Directory/VX/bin/Uninstall.sh i Dodaj komentarz do wywołania funkcji **stop_services** .
-    d. Otwórz plik Installation_Directory/FX/Uninstall.sh i Dodaj komentarz do całej sekcji, która próbuje zatrzymać usługę FX.
+    c. Otwórz plik Installation_Directory/FX/Uninstall.sh i Dodaj komentarz do całej sekcji, która próbuje zatrzymać usługę FX.
     d. [Odinstaluj](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) agenta mobilności. Po pomyślnym odinstalowaniu systemu ponownie uruchom system, a następnie spróbuj ponownie zainstalować agenta mobilności.
 
 8. Upewnij się, że uwierzytelnianie wieloskładnikowe nie jest włączone dla konta użytkownika. Azure Site Recovery nie obsługuje uwierzytelniania wieloskładnikowego dla konta użytkownika. Zarejestruj serwer konfiguracji bez konta użytkownika z włączonym uwierzytelnianiem wieloskładnikowym.  
@@ -67,7 +67,7 @@ Aby rozwiązać problemy z odnajdywaniem programu vCenter, Dodaj serwer vCenter 
 - Otwórz program Internet Explorer w zawartości użytkownika systemu, uruchamiając następujący wiersz polecenia PsExec-s-i "użycie ścieżki%ProgramFiles%\Internet Explorer\iexplore.exe"
 - Dodaj ustawienia serwera proxy w programie IE i uruchom ponownie usługę tmanssvc.
 - Aby skonfigurować ustawienia serwera proxy DRA, uruchom polecenie CD C:\Program Files\Microsoft Azure Site Recovery Provider
-- Następnie wykonaj DRCONFIGURATOR. EXE/Configure/AddBypassUrls [Dodaj adres IP/nazwę FQDN vCenter Server podano podczas **konfigurowania wdrożenia vCenter Server/VSphere ESXi** serwera [konfiguracji](vmware-azure-deploy-configuration-server.md#configure-settings)]
+- Następnie wykonaj DRCONFIGURATOR.EXE/Configure/AddBypassUrls [Dodaj adres IP/nazwę FQDN vCenter Server podanych podczas **konfigurowania vCenter Server/VSphere ESXi serwera** [konfiguracji](vmware-azure-deploy-configuration-server.md#configure-settings)]
 
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Zmień adres IP serwera konfiguracji
 
@@ -99,7 +99,7 @@ Uruchom następujące polecenie na maszynie źródłowej:
 
 Ustawienie | Szczegóły
 --- | ---
-Użycie | UnifiedAgentConfigurator. exe/CSEndPoint < adres IP serwera konfiguracji \> /PassphraseFilePath < hasło ścieżka pliku\>
+Użycie | UnifiedAgentConfigurator.exe/CSEndPoint <adres IP serwera konfiguracji \> /PassphraseFilePath <hasło pliku\>
 Dzienniki konfiguracji agenta | Znajduje się w obszarze%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Obowiązkowy parametr. Określa adres IP serwera konfiguracji. Użyj dowolnych prawidłowych adresów IP.
 /PassphraseFilePath |  Obowiązkowy. Lokalizacja hasła. Użyj dowolnej prawidłowej ścieżki UNC lub pliku lokalnego.
@@ -173,7 +173,7 @@ Aby zidentyfikować ten problem, przejdź do C:\ProgramData\ASRSetupLogs\ CX_TP_
     2018-06-28 14:38:12.971   Rolling back the install changes.
     2018-06-28 14:38:12.971   Upgrade has failed.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 Ręcznie Zatrzymaj następujące usługi:
 
@@ -193,7 +193,7 @@ Masz niewystarczające uprawnienia do tworzenia aplikacji w usłudze Azure Activ
 Aby rozwiązać ten problem, zaloguj się do Azure Portal i wykonaj jedną z następujących czynności:
 
 - Zażądaj roli Deweloper aplikacji w usłudze AAD. Aby uzyskać więcej informacji na temat roli Deweloper aplikacji, zobacz [uprawnienia roli administrator w Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
-- Sprawdź, czy **użytkownik może utworzyć** flagę aplikacji *w usłudze* AAD. Aby uzyskać więcej informacji, zobacz [jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+- Sprawdź, czy **użytkownik może utworzyć** flagę aplikacji *w usłudze* AAD. Aby uzyskać więcej informacji, zobacz [jak: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Serwer przetwarzania/główny element docelowy nie może komunikować się z serwerem konfiguracji 
 
@@ -216,7 +216,7 @@ W przypadku znalezienia śladów podobnych do następujących w dziennikach MT, 
  
 Ten błąd może wystąpić, gdy inne aplikacje korzystają również z portu 443 lub z powodu blokowania ustawienia zapory.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 - Sprawdź, czy port 443 nie jest blokowany przez zaporę.
 - Jeśli port jest nieosiągalny z powodu innej aplikacji używającej tego portu, Zatrzymaj i Odinstaluj aplikację.
@@ -228,7 +228,7 @@ Aby rozwiązać ten problem:
 
 Ten błąd może wystąpić, gdy w bazie danych istnieje wiele wpisów identyfikatora UUID wystąpienia serwera konfiguracji (CS). Problem często występuje podczas klonowania maszyny wirtualnej serwera konfiguracji.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 1. Usuń nieodświeżoną/starą maszynę wirtualną CS z serwera vCenter. Aby uzyskać więcej informacji, zobacz [usuwanie serwerów i wyłączanie ochrony](site-recovery-manage-registration-and-protection.md).
 2. Zaloguj się do maszyny wirtualnej serwera konfiguracji i nawiąż połączenie z bazą danych MySQL svsdb1. 
@@ -251,7 +251,7 @@ Po wprowadzeniu prawidłowej nazwy użytkownika i hasła na serwerze konfiguracj
 
 Ten problem może wystąpić, gdy czas systemowy jest nieprawidłowy.
 
-Aby rozwiązać ten problem:
+W celu rozwiązania tego problemu:
 
 Ustaw prawidłowy czas na komputerze i ponów próbę logowania. 
  

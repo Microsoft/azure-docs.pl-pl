@@ -3,16 +3,16 @@ title: Zarządzanie kontem Azure Data Lake Storage Gen1 przy użyciu języka Pyt
 description: Dowiedz się, jak używać zestawu SDK języka Python do Azure Data Lake Storage Gen1 operacji zarządzania kontami.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: tracking-python
-ms.openlocfilehash: afdb132e4e3dd4ca155b6ea0dda413438f0c6b4f
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: 78e638952513eddf8da828158c4afa3187819fbb
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557847"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508609"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operacje zarządzania kontem na Azure Data Lake Storage Gen1 przy użyciu języka Python
 > [!div class="op_single_selector"]
@@ -128,7 +128,7 @@ Poniższy fragment kodu tworzy najpierw klienta konta Data Lake Storage Gen1. U�
 ## <a name="next-steps"></a>Następne kroki
 * [Operacje systemu plików na Data Lake Storage Gen1 przy użyciu języka Python](data-lake-store-data-operations-python.md).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Azure-datalake — Dokumentacja języka Python (system plików)](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Aplikacje do obsługi dużych ilości danych open source zgodne z Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

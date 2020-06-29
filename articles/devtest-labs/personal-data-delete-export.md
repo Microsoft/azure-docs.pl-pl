@@ -1,23 +1,14 @@
 ---
 title: Jak usunąć i wyeksportować dane osobowe z Azure DevTest Labs
 description: Dowiedz się, jak usuwać i eksportować dane osobowe z usługi Azure DevLast Labs, aby wspierać zobowiązania w ramach Ogólne rozporządzenie o ochronie danych (Rodo).
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: b59a799b2e2211ee8fd473de2e26a26148777502
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 2c44b2f3aa6f2dfad18ed53804842a5dad8bd94a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898087"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483520"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Eksportowanie lub usuwanie danych osobowych z Azure DevTest Labs
 Ten artykuł zawiera instrukcje dotyczące usuwania i eksportowania danych osobowych z usługi Azure DevTest Labs. 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 7d32e4100d00a4ecff9f8bd5017d8bc5ab74105e
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 38228e7080cb0bdead2f2b3490729702d923ae36
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84752384"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504903"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w witrynie Azure Marketplace
 
@@ -400,10 +400,14 @@ Każdy plan można zaprojektować jako widoczny dla wszystkich lub tylko do wybr
 
 **Prywatni odbiorcy**: Ustaw, aby Twój plan był widoczny tylko dla wybranych odbiorców. Po opublikowaniu jako planu prywatnego można zaktualizować odbiorców lub zmienić je na publiczną. Po dokonaniu publicznego planu nie musi on być publiczny. Nie można jej zmienić z powrotem do planu prywatnego.
 
-**Odbiorcy z ograniczeniami (identyfikatory subskrypcji platformy Azure)**: Przypisz odbiorców, którzy będą mieli dostęp do tego planu prywatnego przy użyciu identyfikatorów subskrypcji platformy Azure. Opcjonalnie Dołącz opis każdego przypisanego identyfikatora subskrypcji platformy Azure. Po zaimportowaniu arkusza kalkulacyjnego CSV Dodaj do maksymalnie 10 identyfikatorów subskrypcji ręcznie lub do 20 000 identyfikatorów. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID, a wszystkie litery muszą być pisane małymi literami.
-
 > [!NOTE]
 > Prywatna lub ograniczona Grupa odbiorców różni się od odbiorców w wersji zapoznawczej zdefiniowanej w okienku **podglądu** . Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty _przed_ opublikowaniem jej na żywo w witrynie Azure Marketplace. Mimo że wybór dla odbiorców prywatnych dotyczy tylko określonego planu, odbiorcy wersji zapoznawczej mogą wyświetlić wszystkie plany prywatne i publiczne na potrzeby weryfikacji.
+
+**Odbiorcy z ograniczeniami (identyfikatory subskrypcji platformy Azure)**: Przypisz odbiorców, którzy będą mieli dostęp do tego planu prywatnego przy użyciu identyfikatorów subskrypcji platformy Azure. Opcjonalnie Dołącz opis każdego przypisanego identyfikatora subskrypcji platformy Azure. Po zaimportowaniu arkusza kalkulacyjnego CSV Dodaj do maksymalnie 10 identyfikatorów subskrypcji ręcznie lub do 20 000 identyfikatorów. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID, a wszystkie litery muszą być pisane małymi literami.
+
+>[!Note]
+>Oferty prywatne nie są obsługiwane w przypadku subskrypcji platformy Azure ustanowionych przez odsprzedawcę programu dostawcy rozwiązań w chmurze (CSP).
+
 
 #### <a name="hide-a-plan"></a>Ukrywanie planu
 

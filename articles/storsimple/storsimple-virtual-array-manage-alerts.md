@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7c469be4a1d8aba23857b1ba52ee829c126a431
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f32ec82c2b4c6d8b902195782b286cca82befb0
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267432"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507640"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Używanie StorSimple Menedżer urządzeń do zarządzania alertami dla macierzy wirtualnej StorSimple
 
@@ -39,7 +39,7 @@ Możesz wybrać, czy chcesz otrzymywać powiadomienia pocztą e-mail o warunkach
 > [!NOTE]
 > Możesz wprowadzić maksymalnie 20 adresów e-mail na tablicę wirtualną.
 
-Po włączeniu powiadomienia e-mail dla macierzy wirtualnej członkowie listy powiadomień otrzymają wiadomość e-mail za każdym razem, gdy wystąpi alert krytyczny. Komunikaty będą wysyłane z *StorSimple-Alerts-\@noreply mail.windowsazure.com* i opisują warunek alertu. Adresaci mogą kliknąć przycisk **Anuluj subskrypcję** , aby usunąć siebie z listy powiadomień e-mail.
+Po włączeniu powiadomienia e-mail dla macierzy wirtualnej członkowie listy powiadomień otrzymają wiadomość e-mail za każdym razem, gdy wystąpi alert krytyczny. Komunikaty będą wysyłane z *StorSimple-Alerts-noreply \@ mail.windowsazure.com* i opisują warunek alertu. Adresaci mogą kliknąć przycisk **Anuluj subskrypcję** , aby usunąć siebie z listy powiadomień e-mail.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Aby włączyć powiadomienia e-mail dla alertów
 
@@ -53,7 +53,7 @@ Po włączeniu powiadomienia e-mail dla macierzy wirtualnej członkowie listy po
    
    1. W polu **Włącz powiadomienie e-mail** wybierz pozycję **tak**.
    2. W polu **Administratorzy usługi poczty e-mail** wybierz pozycję **tak** , jeśli chcesz, aby administrator usługi i wszyscy współadministratorzy otrzymywali powiadomienia o alertach.
-   3. W polu **dodatkowi adresaci wiadomości e-mail** wprowadź adresy e-mail wszystkich adresatów, którzy powinni otrzymywać powiadomienia o alertach. Wprowadź nazwy w formacie *ktoś\@Somewhere.com*. Użyj średników, aby rozdzielić adresy e-mail. Można skonfigurować maksymalnie 20 adresów e-mail na urządzenie wirtualne.
+   3. W polu **dodatkowi adresaci wiadomości e-mail** wprowadź adresy e-mail wszystkich adresatów, którzy powinni otrzymywać powiadomienia o alertach. Wprowadź nazwy w formacie *ktoś \@ Somewhere.com*. Użyj średników, aby rozdzielić adresy e-mail. Można skonfigurować maksymalnie 20 adresów e-mail na urządzenie wirtualne.
       
        ![Konfiguracja powiadomień o alertach](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Aby wysłać testową wiadomość e-mail z powiadomieniem, kliknij pozycję **Wyślij testową wiadomość e-mail**. Usługa StorSimple Menedżer urządzeń będzie wyświetlać komunikaty o stanie podczas przesyłania dalej powiadomienia testowego.
@@ -128,42 +128,42 @@ W poniższej tabeli wymieniono niektóre z alertów StorSimple, które mogą wys
 
 ### <a name="cloud-connectivity-alerts"></a>Alerty łączności w chmurze
 
-| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
+| Tekst alertu | Zdarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
 | > *nazwy urządzenia* <urządzenia nie jest połączona z chmurą. |Nazwane urządzenie nie może nawiązać połączenia z chmurą. |Nie można nawiązać połączenia z chmurą. Może to być spowodowane jedną z następujących przyczyn:<ul><li>Być może wystąpił problem z ustawieniami sieci na urządzeniu.</li><li>Może wystąpić problem z poświadczeniami konta magazynu.</li></ul>Aby uzyskać więcej informacji na temat rozwiązywania problemów z łącznością, przejdź do [lokalnego interfejsu użytkownika sieci Web](storsimple-ova-web-ui-admin.md) urządzenia. |
 
 ### <a name="configuration-alerts"></a>Alerty konfiguracji
 
-| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
+| Tekst alertu | Zdarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
 | Konfiguracja lokalnej urządzenia wirtualnego jest nieobsługiwana. |Niska wydajność. |Bieżąca konfiguracja może spowodować spadek wydajności. Upewnij się, że serwer spełnia minimalne wymagania dotyczące konfiguracji. Aby uzyskać więcej informacji, przejdź do [wymagań dotyczących macierzy wirtualnej StorSimple](storsimple-ova-system-requirements.md). |
-| Wykorzystano miejsce na dysku w <*nazwie*\>urządzenia. |Ostrzeżenie dotyczące miejsca na dysku. |Używasz wolnego miejsca na dysku. Aby zwolnić miejsce, rozważ przeniesienie obciążeń na inny wolumin lub udział lub usunięcie danych. |
+| Wykorzystano miejsce na dysku w <*nazwie urządzenia* \> . |Ostrzeżenie dotyczące miejsca na dysku. |Używasz wolnego miejsca na dysku. Aby zwolnić miejsce, rozważ przeniesienie obciążeń na inny wolumin lub udział lub usunięcie danych. |
 
 ### <a name="job-failure-alerts"></a>Alerty błędów zadań
 
-| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
+| Tekst alertu | Zdarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Nie można ukończyć tworzenia kopii zapasowej *nazwy* \> urządzenia <. |Niepowodzenie zadania tworzenia kopii zapasowej. |Nie można utworzyć kopii zapasowej. Weź pod uwagę jedną z następujących czynności:<ul><li>Problemy z łącznością mogą uniemożliwiać pomyślne ukończenie operacji tworzenia kopii zapasowej. Upewnij się, że nie występują problemy z łącznością. Aby uzyskać więcej informacji na temat rozwiązywania problemów z łącznością, przejdź do [lokalnego interfejsu użytkownika sieci Web](storsimple-ova-web-ui-admin.md) dla urządzenia wirtualnego.</li><li>Osiągnięto limit ilości dostępnego miejsca. Aby zwolnić miejsce, Rozważ usunięcie wszystkich kopii zapasowych, które nie są już potrzebne.</li></ul> Rozwiąż problemy, Usuń alert i spróbuj ponownie wykonać operację. |
-| Nie można ukończyć klonowania *nazwy* \> urządzenia <. |Niepowodzenie zadania klonowania. |Nie można utworzyć klonu. Weź pod uwagę jedną z następujących czynności:<ul><li>Lista kopii zapasowych może być nieprawidłowa. Odśwież listę, aby upewnić się, że jest ona nadal ważna.</li><li>Problemy z łącznością mogą uniemożliwiać pomyślne zakończenie operacji klonowania. Upewnij się, że nie występują problemy z łącznością.</li><li>Osiągnięto limit ilości dostępnego miejsca. Aby zwolnić miejsce, Rozważ usunięcie wszystkich kopii zapasowych, które nie są już potrzebne.</li></ul>Rozwiąż problemy, Usuń alert i spróbuj ponownie wykonać operację. |
+| Nie można ukończyć tworzenia kopii zapasowej *nazwy urządzenia* <\> . |Niepowodzenie zadania tworzenia kopii zapasowej. |Nie można utworzyć kopii zapasowej. Weź pod uwagę jedną z następujących czynności:<ul><li>Problemy z łącznością mogą uniemożliwiać pomyślne ukończenie operacji tworzenia kopii zapasowej. Upewnij się, że nie występują problemy z łącznością. Aby uzyskać więcej informacji na temat rozwiązywania problemów z łącznością, przejdź do [lokalnego interfejsu użytkownika sieci Web](storsimple-ova-web-ui-admin.md) dla urządzenia wirtualnego.</li><li>Osiągnięto limit ilości dostępnego miejsca. Aby zwolnić miejsce, Rozważ usunięcie wszystkich kopii zapasowych, które nie są już potrzebne.</li></ul> Rozwiąż problemy, Usuń alert i spróbuj ponownie wykonać operację. |
+| Nie można ukończyć klonowania *nazwy urządzenia* <\> . |Niepowodzenie zadania klonowania. |Nie można utworzyć klonu. Weź pod uwagę jedną z następujących czynności:<ul><li>Lista kopii zapasowych może być nieprawidłowa. Odśwież listę, aby upewnić się, że jest ona nadal ważna.</li><li>Problemy z łącznością mogą uniemożliwiać pomyślne zakończenie operacji klonowania. Upewnij się, że nie występują problemy z łącznością.</li><li>Osiągnięto limit ilości dostępnego miejsca. Aby zwolnić miejsce, Rozważ usunięcie wszystkich kopii zapasowych, które nie są już potrzebne.</li></ul>Rozwiąż problemy, Usuń alert i spróbuj ponownie wykonać operację. |
 
 ### <a name="networking-alerts"></a>Alerty sieciowe
 
-| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
+| Tekst alertu | Zdarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
 | Nie można nawiązać połączenia z usługą uwierzytelniania. |Błąd ścieżki datapath |Adres URL używany do uwierzytelniania jest nieosiągalny. Upewnij się, że reguły zapory zawierają wzorce URL określone dla urządzenia StorSimple. Aby uzyskać więcej informacji na temat wzorców adresów URL w Azure Portal, przejdź do [wymagań sieci wirtualnej macierzy StorSimple](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|
 
 ### <a name="performance-alerts"></a>Alerty wydajności
 
-| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
+| Tekst alertu | Zdarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
 | Występują nieoczekiwane opóźnienia w transferze danych. |Wolny transfer danych. |Błędy ograniczania są wykonywane, gdy przekroczy się tarcze skalowalności usługi magazynu. Usługa Storage wykonuje tę funkcję, aby upewnić się, że żaden klient ani dzierżawca nie mogą korzystać z usługi w kosztach innych. Aby uzyskać więcej informacji na temat rozwiązywania problemów z kontem usługi Azure Storage, przejdź do pozycji [monitorowanie, diagnozowanie i rozwiązywanie problemów Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Używasz wolnego miejsca na dysku rezerwacji lokalnej na <*nazwie*\>urządzenia. |Czas wolnej odpowiedzi. |10% całkowitego rozmiaru alokowanego dla *nazwy* \> urządzenia <jest zarezerwowane na urządzeniu lokalnym, a teraz zaczyna brakować miejsca zarezerwowanego. Obciążenie na <*urządzeniu* \> generuje wyższą częstotliwość zmian lub niedawno przeprowadzono migrację dużej ilości danych. Może to spowodować zmniejszenie wydajności. Aby rozwiązać ten problem, należy rozważyć jedną z następujących akcji:<ul><li>Zwiększ przepustowość chmury na tym urządzeniu.</li><li>Zmniejszenie lub przeniesienie obciążeń do innego woluminu lub udziału.</li></ul> |
+| Używasz wolnego miejsca na dysku rezerwacji lokalnej na <*nazwie urządzenia* \> . |Czas wolnej odpowiedzi. |10% całkowitego rozmiaru alokowanego dla *nazwy urządzenia* <\> jest zarezerwowane na urządzeniu lokalnym, a teraz zaczyna brakować miejsca zarezerwowanego. Obciążenie na <*urządzeniu* \> generuje wyższą częstotliwość zmian lub niedawno przeprowadzono migrację dużej ilości danych. Może to spowodować zmniejszenie wydajności. Aby rozwiązać ten problem, należy rozważyć jedną z następujących akcji:<ul><li>Zwiększ przepustowość chmury na tym urządzeniu.</li><li>Zmniejszenie lub przeniesienie obciążeń do innego woluminu lub udziału.</li></ul> |
 
 ### <a name="security-alerts"></a>Alerty zabezpieczeń
 
-| Tekst alertu | Wydarzenie | Więcej informacji/zalecane akcje |
+| Tekst alertu | Zdarzenie | Więcej informacji/zalecane akcje |
 |:--- |:--- |:--- |
-| Hasło dla *nazwy* \> urządzenia <wygaśnie za <*liczbę* \> dni. |Ostrzeżenie o haśle. |Twoje hasło wygaśnie za <*liczbę* \> dni. Rozważ zmianę hasła. Aby uzyskać więcej informacji, przejdź do [obszaru zmiana hasła administratora urządzenia macierzy wirtualnej StorSimple](storsimple-virtual-array-change-device-admin-password.md). |
+| Hasło dla *nazwy urządzenia* <\> wygaśnie za <*liczbę* \> dni. |Ostrzeżenie o haśle. |Twoje hasło wygaśnie za <*liczbę* \> dni. Rozważ zmianę hasła. Aby uzyskać więcej informacji, przejdź do [obszaru zmiana hasła administratora urządzenia macierzy wirtualnej StorSimple](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -3,15 +3,15 @@ title: Przeniesienie danych do avere vFXT dla platformy Azure
 description: Jak dodać dane do nowego woluminu magazynu do użycia z avere vFXT dla platformy Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153722"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505600"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Przeniesienie danych do klastra vFXT — pozyskiwanie danych równoległych
 
@@ -21,11 +21,11 @@ Ponieważ avere vFXT for Azure Cluster to skalowalna pamięć podręczna z wielo
 
 ![Diagram przedstawiający wiele klientów, przenoszenie danych wielowątkowych: w lewym górnym rogu ikona lokalnego magazynu sprzętu ma wiele strzałek. Strzałki wskazują cztery komputery klienckie. Z każdego komputera klienckiego trzy strzałki wskazują na avere vFXT. Z avere vFXT, wiele strzałek wskazuje na usługi BLOB Storage.](media/avere-vfxt-parallel-ingest.png)
 
-Polecenia ``cp`` lub ``copy`` , które są często używane do przesyłania danych z jednego systemu magazynu do innego, to procesy jednowątkowe, które kopiującą tylko jeden plik jednocześnie. Oznacza to, że serwer plików pobiera tylko jeden plik w czasie, który jest odpadami zasobów klastra.
+``cp``Polecenia lub ``copy`` , które są często używane do przesyłania danych z jednego systemu magazynu do innego, to procesy jednowątkowe, które kopiującą tylko jeden plik jednocześnie. Oznacza to, że serwer plików pobiera tylko jeden plik w czasie, który jest odpadami zasobów klastra.
 
 W tym artykule opisano strategie tworzenia wieloskładnikowego systemu kopiowania plików wielowątkowych do przenoszenia danych do klastra vFXT avere. Objaśniono w nim koncepcje transferu plików i punkty decyzyjne, które mogą być używane do wydajnego kopiowania danych przy użyciu wielu klientów i prostych poleceń kopiowania.
 
-Wyjaśniono również niektóre narzędzia, które mogą pomóc. ``msrsync`` Narzędzie może służyć do częściowo automatyzowania procesu dzielenia zestawu danych na przedziały i używania ``rsync`` poleceń. ``parallelcp`` Skrypt jest innym narzędziem, które odczytuje Katalog źródłowy i automatycznie wystawia polecenia kopiowania. Ponadto ``rsync`` narzędzie może być używane w dwóch fazach w celu zapewnienia szybszego kopiowania, które nadal zapewnia spójność danych.
+Wyjaśniono również niektóre narzędzia, które mogą pomóc. ``msrsync``Narzędzie może służyć do częściowo automatyzowania procesu dzielenia zestawu danych na przedziały i używania ``rsync`` poleceń. ``parallelcp``Skrypt jest innym narzędziem, które odczytuje Katalog źródłowy i automatycznie wystawia polecenia kopiowania. Ponadto ``rsync`` Narzędzie może być używane w dwóch fazach w celu zapewnienia szybszego kopiowania, które nadal zapewnia spójność danych.
 
 Kliknij link, aby przejść do sekcji:
 
@@ -55,7 +55,7 @@ Każdy proces kopiowania ma stawkę przepływności i szybkość transferu plik�
 
 Można ręcznie utworzyć kopię wielowątkową na kliencie, uruchamiając więcej niż jedno polecenie kopiowania jednocześnie w tle względem wstępnie zdefiniowanych zestawów plików lub ścieżek.
 
-Polecenie Linux/UNIX ``cp`` zawiera argument ``-p`` , aby zachować własność i mtime metadane. Dodanie tego argumentu do poniższych poleceń jest opcjonalne. (Dodanie argumentu zwiększa liczbę wywołań systemu plików wysyłanych z klienta do docelowego systemu plików na potrzeby modyfikacji metadanych).
+Polecenie Linux/UNIX ``cp`` zawiera argument, ``-p`` Aby zachować własność i mtime metadane. Dodanie tego argumentu do poniższych poleceń jest opcjonalne. (Dodanie argumentu zwiększa liczbę wywołań systemu plików wysyłanych z klienta do docelowego systemu plików na potrzeby modyfikacji metadanych).
 
 Ten prosty przykład kopiuje jednocześnie dwa pliki:
 
@@ -69,7 +69,7 @@ Po wydaniu tego polecenia `jobs` polecenie wyświetli, że dwa wątki są urucho
 
 Jeśli nazwy plików są przewidywalne, można użyć wyrażeń do tworzenia równoległych wątków kopiowania.
 
-Na przykład, jeśli katalog zawiera 1000 plików, które są numerowane sekwencyjnie `0001` od `1000`do, można użyć następujących wyrażeń, aby utworzyć dziesięć równoległych wątków, które każdy z nich 100 skopiuje:
+Na przykład, jeśli katalog zawiera 1000 plików, które są numerowane sekwencyjnie od `0001` do `1000` , można użyć następujących wyrażeń, aby utworzyć dziesięć równoległych wątków, które każdy z nich 100 skopiuje:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -88,7 +88,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 Jeśli struktura nazewnictwa plików nie jest przewidywalna, można grupować pliki według nazw katalogów.
 
-Ten przykład zbiera wszystkie katalogi do wysłania ``cp`` do poleceń jako zadania w tle:
+Ten przykład zbiera wszystkie katalogi do wysłania do ``cp`` poleceń jako zadania w tle:
 
 ```bash
 /root
@@ -170,7 +170,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 Po zrozumieniu powyższych metod (wiele wątków kopiowania na miejsce docelowe, wielu miejsc docelowych na klienta, wielu klientów na dostęp do sieci), należy wziąć pod uwagę następujące zalecenia: Kompiluj manifesty plików, a następnie użyj ich z poleceniami kopiowania na wielu klientach.
 
-W tym scenariuszu do ``find`` tworzenia manifestów plików lub katalogów służy polecenie systemu UNIX:
+W tym scenariuszu ``find`` do tworzenia manifestów plików lub katalogów służy polecenie systemu UNIX:
 
 ```bash
 user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
@@ -260,7 +260,7 @@ Celem jest jednoczesne uruchamianie wielu wątków tych skryptów na kliencie r�
 
 ## <a name="use-a-two-phase-rsync-process"></a>Korzystanie z dwuetapowego procesu rsync
 
-Narzędzie standardowe ``rsync`` nie działa dobrze w przypadku wypełniania magazynu w chmurze za pomocą avere vFXT dla systemu Azure, ponieważ generuje dużą liczbę operacji tworzenia i zmiany nazw plików w celu zagwarantowania integralności danych. Można jednak bezpiecznie użyć ``--inplace`` opcji z ``rsync`` , aby pominąć procedurę kopiowania bardziej ostrożnie po wykonaniu tej czynności z drugim przebiegiem, który sprawdza integralność plików.
+Narzędzie standardowe nie ``rsync`` działa dobrze w przypadku wypełniania magazynu w chmurze za pomocą avere vFXT dla systemu Azure, ponieważ generuje dużą liczbę operacji tworzenia i zmiany nazw plików w celu zagwarantowania integralności danych. Można jednak bezpiecznie użyć ``--inplace`` opcji z, ``rsync`` Aby pominąć procedurę kopiowania bardziej ostrożnie po wykonaniu tej czynności z drugim przebiegiem, który sprawdza integralność plików.
 
 Standardowa ``rsync`` operacja kopiowania tworzy plik tymczasowy i wypełnia go danymi. Jeśli transfer danych zakończy się pomyślnie, nazwa pliku tymczasowego zostanie zmieniona na oryginalną nazwę pliku. Ta metoda gwarantuje spójność, nawet jeśli pliki są dostępne podczas kopiowania. Jednak ta metoda generuje więcej operacji zapisu, co spowalnia przenoszenie plików przez pamięć podręczną.
 
@@ -278,24 +278,24 @@ Ta metoda to prosta i bezterminowa Metoda dla zestawów danych do liczby plików
 
 ## <a name="use-the-msrsync-utility"></a>Korzystanie z narzędzia msrsync
 
-Narzędzia ``msrsync`` te można również użyć do przenoszenia danych do podstawowego pliku dla klastra avere. To narzędzie służy do optymalizowania użycia przepustowości przez uruchamianie wielu procesów ``rsync`` równoległych. Jest on dostępny w witrynie GitHub <https://github.com/jbd/msrsync>pod adresem.
+``msrsync``Narzędzia te można również użyć do przenoszenia danych do podstawowego pliku dla klastra avere. To narzędzie służy do optymalizowania użycia przepustowości przez uruchamianie wielu procesów równoległych ``rsync`` . Jest on dostępny w witrynie GitHub pod adresem <https://github.com/jbd/msrsync> .
 
 ``msrsync``dzieli Katalog źródłowy na oddzielne "zasobniki", a następnie uruchamia poszczególne ``rsync`` procesy w każdym przedziale.
 
-Testowanie wstępne przy użyciu maszyny wirtualnej z czterema rdzeniami wykazało najlepszą wydajność podczas korzystania z 64 procesów. Użyj ``msrsync`` opcji ``-p`` , aby ustawić liczbę procesów na 64.
+Testowanie wstępne przy użyciu maszyny wirtualnej z czterema rdzeniami wykazało najlepszą wydajność podczas korzystania z 64 procesów. Użyj ``msrsync`` opcji, ``-p`` Aby ustawić liczbę procesów na 64.
 
 Można również użyć ``--inplace`` argumentu z ``msrsync`` poleceniami. W przypadku użycia tej opcji należy rozważyć uruchomienie drugiego polecenia (podobnie jak w przypadku [rsync](#use-a-two-phase-rsync-process)opisanego powyżej) w celu zapewnienia integralności danych.
 
 ``msrsync``można zapisywać tylko na woluminach lokalnych i z nich. Źródło i miejsce docelowe muszą być dostępne jako instalacje lokalne w sieci wirtualnej klastra.
 
-``msrsync`` Aby wypełnić wolumin w chmurze platformy Azure za pomocą klastra avere, wykonaj następujące instrukcje:
+Aby ``msrsync`` wypełnić wolumin w chmurze platformy Azure za pomocą klastra avere, wykonaj następujące instrukcje:
 
-1. Zainstaluj ``msrsync`` program i jego wymagania wstępne (rsync i Python 2,6 lub nowsze)
+1. Zainstaluj program ``msrsync`` i jego wymagania wstępne (rsync i Python 2,6 lub nowsze)
 1. Określ łączną liczbę plików i katalogów, które mają zostać skopiowane.
 
-   Na przykład użyj narzędzia ``prime.py`` avere z argumentami ```prime.py --directory /path/to/some/directory``` (dostępne przez pobieranie adresu URL <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   Na przykład użyj narzędzia avere ``prime.py`` z argumentami ```prime.py --directory /path/to/some/directory``` (dostępne przez pobieranie adresu URL <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py> ).
 
-   Jeśli nie korzystasz z programu ``prime.py``, możesz obliczyć liczbę elementów za pomocą narzędzia ``find`` GNU w następujący sposób:
+   Jeśli nie korzystasz z programu ``prime.py`` , możesz obliczyć liczbę elementów za pomocą ``find`` Narzędzia GNU w następujący sposób:
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -305,13 +305,13 @@ Można również użyć ``--inplace`` argumentu z ``msrsync`` poleceniami. W prz
 
 1. Podziel liczbę elementów na 64, aby określić liczbę elementów w procesie. Użyj tej liczby z ``-f`` opcją, aby ustawić rozmiar zasobników po uruchomieniu polecenia.
 
-1. Wydaj polecenie ``msrsync`` , aby skopiować pliki:
+1. Wydaj ``msrsync`` polecenie, aby skopiować pliki:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   W przypadku ``--inplace``użycia Dodaj drugie wykonanie bez opcji, aby sprawdzić, czy dane zostały prawidłowo skopiowane:
+   W przypadku użycia ``--inplace`` Dodaj drugie wykonanie bez opcji, aby sprawdzić, czy dane zostały prawidłowo skopiowane:
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
@@ -323,9 +323,9 @@ Można również użyć ``--inplace`` argumentu z ``msrsync`` poleceniami. W prz
 
 ## <a name="use-the-parallel-copy-script"></a>Użyj skryptu kopiowania równoległego
 
-``parallelcp`` Skrypt może być również przydatny do przeniesienia danych do magazynu zaplecza klastra vFXT.
+``parallelcp``Skrypt może być również przydatny do przeniesienia danych do magazynu zaplecza klastra vFXT.
 
-Poniższy skrypt doda plik wykonywalny `parallelcp`. (Ten skrypt jest przeznaczony dla Ubuntu; w przypadku korzystania z innej dystrybucji należy zainstalować ``parallel`` osobno).
+Poniższy skrypt doda plik wykonywalny `parallelcp` . (Ten skrypt jest przeznaczony dla Ubuntu; w przypadku korzystania z innej dystrybucji należy zainstalować ``parallel`` osobno).
 
 ```bash
 sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM
@@ -379,7 +379,7 @@ EOM
 
 ### <a name="parallel-copy-example"></a>Przykład kopiowania równoległego
 
-W tym przykładzie użyto skryptu kopiowania równoległego do ``glibc`` kompilowania przy użyciu plików źródłowych z klastra avere.
+W tym przykładzie użyto skryptu kopiowania równoległego do kompilowania ``glibc`` przy użyciu plików źródłowych z klastra avere.
 <!-- xxx what is stored where? what is 'the avere cluster mount point'? xxx -->
 
 Pliki źródłowe są przechowywane w punkcie instalacji klastra avere, a pliki obiektów są przechowywane na lokalnym dysku twardym.

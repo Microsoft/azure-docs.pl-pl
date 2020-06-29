@@ -1,24 +1,14 @@
 ---
 title: Włącz połączenie przeglądarki na maszynach wirtualnych Azure DevTest Labs | Microsoft Docs
 description: DevTest Labs teraz integrują się z usługą Azure bastionu, jako właściciel laboratorium można włączyć dostęp do wszystkich maszyn wirtualnych laboratorium za pomocą przeglądarki.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: tanmayeekamath
-manager: femila
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2019
-ms.author: takamath
-ms.openlocfilehash: 074d512767769fe434cd4a6d4f4e8e6a88f7ed2a
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 23fb43fa7295006d8d3784d1dbb5d80c48411431
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896053"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484132"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>Włącz połączenie przeglądarki na maszynach wirtualnych laboratorium 
 DevTest Labs integrują się z [usługą Azure bastionu](https://docs.microsoft.com/azure/bastion/), która umożliwia łączenie się z maszynami wirtualnymi za pomocą przeglądarki. Najpierw należy włączyć połączenie przeglądarki na maszynach wirtualnych laboratorium.

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 03/09/2020
-ms.openlocfilehash: 513e198f9184d5789d5b33de7f05cda0c5dc094d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 06/26/2020
+ms.openlocfilehash: fceac1a5852c0be767ffc375ad9ec5de033f17b7
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046621"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506773"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database i architektura łączności usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -109,6 +109,8 @@ Szczegóły dotyczące sposobu migrowania ruchu do nowych bram w określonych re
 | Zachodnia Republika Południowej Afryki    | 102.133.24.0       |
 | Południowo-środkowe stany USA     | 13.66.62.124, 23.98.162.75, 104.214.16.32   |
 | Azja Południowo-Wschodnia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
+| Szwajcaria Północna    | 51.107.56.0, 51.107.57.0 |
+| Szwajcaria Zachodnia     | 51.107.152.0, 51.107.153.0 |
 | Środkowy Zjednoczone Emiraty Arabskie          | 20.37.72.64        |
 | Północne Zjednoczone Emiraty Arabskie            | 65.52.248.0        |
 | Południowe Zjednoczone Królestwo             | 51.140.184.11      |

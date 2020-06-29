@@ -1,24 +1,14 @@
 ---
 title: Rozdystrybuowane programowanie do współpracy Azure DevTest Labs zasobów
 description: Zapewnia najlepsze rozwiązania dotyczące konfigurowania rozproszonego i współpracy środowiska programistycznego w celu opracowywania zasobów DevTest Labs.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-ms.openlocfilehash: 9469591b1945adaffca973828d619d5d06655262
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: c18bbbfd3ad727811cc28c424381e5caf32b1cfc
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898731"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483809"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Najlepsze rozwiązania dotyczące rozbudowanych i rozwijających się zasobów Azure DevTest Labs
 Rozdystrybuowane programowanie do współpracy umożliwia różnym zespołom i innym osobom programowanie i konserwację kodu. Aby się powieść, proces programowania zależy od możliwości tworzenia, udostępniania i integrowania informacji. Ta zasada tworzenia klucza może być używana w Azure DevTest Labs. Istnieje kilka rodzajów zasobów w środowisku laboratoryjnym, które są powszechnie dystrybuowane między różnymi laboratoriami w przedsiębiorstwie. Różne typy zasobów koncentrują się na dwóch obszarach:

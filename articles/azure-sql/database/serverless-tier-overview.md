@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 6/10/2020
-ms.openlocfilehash: 00c60a0ff20c67b63b2ca93f9e5997e78a283f26
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.date: 6/26/2020
+ms.openlocfilehash: 2b5da354e8e8b49e40e7d960e368aad8067de659
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667594"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506705"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database bezserwerowe
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -125,7 +125,7 @@ Autowstrzymywanie jest tymczasowo uniemożliwiane podczas wdrażania niektórych
 
 Autowznawianie jest wyzwalane, jeśli w dowolnym momencie spełniony jest którykolwiek z następujących warunków:
 
-|Cechy|Wyzwalacz autowznawiania|
+|Cecha|Wyzwalacz autowznawiania|
 |---|---|
 |Uwierzytelnianie i autoryzacja|Zaloguj się|
 |Wykrywanie zagrożeń|Włączanie/wyłączanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.<br>Modyfikowanie ustawień wykrywania zagrożeń na poziomie bazy danych lub serwera.|
@@ -274,14 +274,14 @@ Metryki monitorowania użycia zasobów pakietu aplikacji i puli użytkowników b
 
 |Jednostka|Metric|Opis|Lekcji|
 |---|---|---|---|
-|Pakiet aplikacji|app_cpu_percent|Procent rdzeni wirtualnych używany przez aplikację względem maksymalnej rdzeni wirtualnych dozwolony dla aplikacji.|Procentowe|
+|Pakiet aplikacji|app_cpu_percent|Procent rdzeni wirtualnych używany przez aplikację względem maksymalnej rdzeni wirtualnych dozwolony dla aplikacji.|Procent|
 |Pakiet aplikacji|app_cpu_billed|Kwota obliczeń rozliczanych dla aplikacji w okresie raportowania. Kwota płacona w tym okresie jest iloczynem tej metryki i ceny jednostkowej rdzeń wirtualny. <br><br>Wartości tej metryki są określane przez agregowanie w czasie, gdy jest używana wartość maksymalna procesora CPU i używana pamięć. Jeśli użyta kwota jest mniejsza niż minimalna ilość określona przez minimalną rdzeni wirtualnych i minimalną pamięć, jest naliczana opłata w wysokości minimalnej.Aby porównać procesor z pamięcią na potrzeby rozliczeń, pamięć jest znormalizowana do jednostek rdzeni wirtualnych przez ponowne skalowanie ilości pamięci w GB przez 3 GB na rdzeń wirtualny.|Rdzeń wirtualny sekund|
-|Pakiet aplikacji|app_memory_percent|Procent pamięci używanej przez aplikację względem maksymalnej pamięci dozwolonej dla aplikacji.|Procentowe|
-|Pula użytkowników|cpu_percent|Procent rdzeni wirtualnych używany przez obciążenie użytkowników względem maksymalnej rdzeni wirtualnych dozwolony dla obciążenia użytkownika.|Procentowe|
-|Pula użytkowników|data_IO_percent|Procent operacji we/wy danych używanych przez obciążenie użytkownikami względem maksymalnej liczby operacji we/wy na sekundę dozwolonych dla obciążenia użytkownikami.|Procentowe|
-|Pula użytkowników|log_IO_percent|Procent zdarzeń dzienników używanych przez obciążenie użytkowników względem maksymalnej liczby MB dzienników/s dozwolony dla obciążenia użytkownika.|Procentowe|
-|Pula użytkowników|workers_percent|Procent procesów roboczych używanych przez obciążenie użytkowników względem maksymalnej liczby procesów roboczych dozwolonych dla obciążenia użytkownikami.|Procentowe|
-|Pula użytkowników|sessions_percent|Procent sesji używanych przez obciążenie użytkownikami względem maksymalnej liczby sesji dozwolonych dla obciążenia użytkownika.|Procentowe|
+|Pakiet aplikacji|app_memory_percent|Procent pamięci używanej przez aplikację względem maksymalnej pamięci dozwolonej dla aplikacji.|Procent|
+|Pula użytkowników|cpu_percent|Procent rdzeni wirtualnych używany przez obciążenie użytkowników względem maksymalnej rdzeni wirtualnych dozwolony dla obciążenia użytkownika.|Procent|
+|Pula użytkowników|data_IO_percent|Procent operacji we/wy danych używanych przez obciążenie użytkownikami względem maksymalnej liczby operacji we/wy na sekundę dozwolonych dla obciążenia użytkownikami.|Procent|
+|Pula użytkowników|log_IO_percent|Procent zdarzeń dzienników używanych przez obciążenie użytkowników względem maksymalnej liczby MB dzienników/s dozwolony dla obciążenia użytkownika.|Procent|
+|Pula użytkowników|workers_percent|Procent procesów roboczych używanych przez obciążenie użytkowników względem maksymalnej liczby procesów roboczych dozwolonych dla obciążenia użytkownikami.|Procent|
+|Pula użytkowników|sessions_percent|Procent sesji używanych przez obciążenie użytkownikami względem maksymalnej liczby sesji dozwolonych dla obciążenia użytkownika.|Procent|
 
 ### <a name="pause-and-resume-status"></a>Stan wstrzymania i wznowienia
 
@@ -334,7 +334,7 @@ Dokładniejszy rachunek obliczeń w tym przykładzie jest obliczany w następuj�
 |Przedział czasu|Rdzeni wirtualnych używane w każdej sekundzie|GB używanych w każdej sekundzie|Wymiar obliczeniowy rozliczany|Rdzeń wirtualny s rozliczane w przedziale czasu|
 |---|---|---|---|---|
 |0:00-1:00|4|9|Rdzeni wirtualnych używane|4 rdzeni wirtualnych * 3600 sekund = 14400 rdzeń wirtualny s|
-|1:00-2:00|1|12|Używana pamięć|12 GB * 1/3 * 3600 sekund = 14400 rdzeń wirtualny s|
+|1:00-2:00|1|12|Użycie pamięci|12 GB * 1/3 * 3600 sekund = 14400 rdzeń wirtualny s|
 |2:00-8:00|0|0|Minimalna ilość pamięci zainicjowanej|3 GB * 1/3 * 21600 sekund = 21600 rdzeń wirtualny s|
 |8:00-24:00|0|0|Nie jest naliczana żadna stawka w trakcie wstrzymania|0 rdzeń wirtualny sekund|
 |Łącznie rdzeń wirtualny s rozliczane w ciągu 24 godzin||||50400 rdzeń wirtualny sekund|
@@ -347,7 +347,7 @@ Korzyść użycia hybrydowego platformy Azure (AHB) i rabaty zarezerwowane pojem
 
 ## <a name="available-regions"></a>Dostępne regiony
 
-Warstwa obliczeń bezserwerowych jest dostępna na całym świecie, z wyjątkiem następujących regionów: Chiny Wschodnie, Chiny Północne, Niemcy środkowe, Niemcy Północno-środkowe, Północne Zjednoczone Królestwo, Południowe Zjednoczone Królestwo 2, zachodnie stany USA i US Gov środkowe (Iowa).
+Warstwa obliczeń bezserwerowych jest dostępna na całym świecie, z wyjątkiem następujących regionów: Chiny Wschodnie, Chiny Północne, Niemcy środkowe, Niemcy Wschodnie i US Gov środkowe (Iowa).
 
 ## <a name="next-steps"></a>Następne kroki
 

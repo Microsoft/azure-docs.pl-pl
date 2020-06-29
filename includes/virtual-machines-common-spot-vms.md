@@ -4,15 +4,15 @@ description: dołączanie pliku
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 06/26/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 76af1084626944d8399edd2c7ec5dec92e25f3ed
-ms.sourcegitcommit: dfa5f7f7d2881a37572160a70bac8ed1e03990ad
+ms.openlocfilehash: 8ee5973afb9312688178abd9a186c5319032c493
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85378568"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506053"
 ---
 Korzystanie z maszyn wirtualnych na miejscu pozwala korzystać z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure wymaga przywrócenia pojemności, infrastruktura platformy Azure wyłączy maszyny wirtualne. W związku z tym maszyny wirtualne są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
 
@@ -21,9 +21,17 @@ Ilość dostępnej pojemności może się różnić w zależności od rozmiaru, 
 
 ## <a name="eviction-policy"></a>Zasady wykluczania
 
-Maszyny wirtualne można wykluczyć w oparciu o pojemność lub maksymalną ustawioną cenę. W przypadku maszyn wirtualnych zasady wykluczenia są ustawiane na wartość *unallocate* , która przenosi wykluczone maszyny wirtualne do stanu zatrzymania bez alokacji, umożliwiając ponowne wdrożenie wykluczonych maszyn wirtualnych w późniejszym czasie. Ponowne przydzielanie dodatkowych maszyn wirtualnych będzie jednak zależne od dostępnej pojemności. Cofnięte alokacje maszyn wirtualnych będą wliczane do limitu przydziału usługi vCPUe i zostanie naliczona opłata za dyski bazowe. 
+Maszyny wirtualne można wykluczyć w oparciu o pojemność lub maksymalną ustawioną cenę. Podczas tworzenia maszyny wirtualnej na miejscu możesz ustawić zasady wykluczania na *Cofnij przydział* (domyślnie) lub *Usuń*. 
 
-Użytkownicy mogą zrezygnować z otrzymywania powiadomień w ramach maszyny wirtualnej za pomocą [usługi Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). Spowoduje to powiadomienie użytkownika, jeśli maszyny wirtualne zostaną wykluczone, a użytkownik będzie miał 30 sekund na ukończenie zadań i wykonanie zadań zamknięcia przed wykluczeniem. 
+Zasada cofania *przydziału* przenosi maszynę wirtualną do stanu zatrzymania bez alokacji, umożliwiając ponowne wdrożenie go później. Nie ma jednak gwarancji, że alokacja powiedzie się. Wycofane maszyny wirtualne będą wliczane do limitu przydziału i będą naliczane opłaty za magazyn dla dysków bazowych. 
+
+Jeśli chcesz usunąć maszynę wirtualną, gdy zostanie ona wykluczona, możesz ustawić zasady wykluczania do *usunięcia*. Wykluczone maszyny wirtualne zostaną usunięte wraz z ich podstawowymi dyskami, więc nie będzie można naliczać opłat za magazyn. 
+
+> [!NOTE]
+>
+> Portal nie obsługuje obecnie `Delete` opcji wykluczenia, ale można go ustawić tylko `Delete` przy użyciu programu PowerShell, interfejsu wiersza polecenia i szablonów.
+
+Możesz zrezygnować z otrzymywania powiadomień w ramach maszyny wirtualnej za pomocą [usługi Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). Spowoduje to powiadomienie użytkownika, jeśli maszyny wirtualne zostaną wykluczone, a użytkownik będzie miał 30 sekund na ukończenie zadań i wykonanie zadań zamknięcia przed wykluczeniem. 
 
 
 | Opcja | Wynik |
@@ -36,6 +44,7 @@ Użytkownicy mogą zrezygnować z otrzymywania powiadomień w ramach maszyny wir
 | Po wykluczeniu cena maszyny wirtualnej jest powracana do < maksymalnej ceny. | Maszyna wirtualna nie zostanie automatycznie uruchomiona. Możesz ponownie uruchomić maszynę wirtualną, a opłata będzie naliczana według bieżącej ceny. |
 | Jeśli maksymalna cena jest ustawiona na`-1` | Ta maszyna wirtualna nie zostanie wykluczona ze względu na ceny. Cena maksymalna to cena bieżąca, do ceny standardowych maszyn wirtualnych. Nigdy nie będzie naliczana opłata powyżej standardowej ceny.| 
 | Zmiana maksymalnej ceny | Aby zmienić maksymalną cenę, należy cofnąć przydział maszyny wirtualnej. Cofnij przydział maszyny wirtualnej, ustaw nową cenę maksymalną, a następnie zaktualizuj maszynę wirtualną. |
+
 
 ## <a name="limitations"></a>Ograniczenia
 

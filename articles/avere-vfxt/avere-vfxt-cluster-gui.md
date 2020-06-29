@@ -3,15 +3,15 @@ title: Dostęp do panelu sterowania avere vFXT — Azure
 description: Jak nawiązać połączenie z klastrem vFXT i panelem sterowania avere w przeglądarce w celu skonfigurowania vFXT avere
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: fe2fc062f690498f3d1f588887279aa33d2434b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75416143"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505617"
 ---
 # <a name="access-the-vfxt-cluster"></a>Uzyskiwanie dostępu do klastra vFXT
 
@@ -35,7 +35,7 @@ Tunel SSH można utworzyć z wiersza polecenia systemu klienckiego opartego na s
 
 Użyj polecenia tunelowania SSH w tej postaci:
 
-SSH-L *local_port*:*cluster_mgmt_ip*: 443 *controller_username*\@*controller_public_IP*
+SSH-L *local_port*:*cluster_mgmt_ip*: 443 *controller_username* \@ *controller_public_IP*
 
 To polecenie nawiązuje połączenie z adresem IP zarządzania klastrem za pomocą adresu IP kontrolera klastra.
 
@@ -51,7 +51,7 @@ Uwierzytelnianie jest wykonywane automatycznie, jeśli do utworzenia klastra uż
 
 Ten krok powoduje użycie przeglądarki sieci Web w celu nawiązania połączenia z narzędziem konfiguracji w klastrze vFXT.
 
-* W przypadku połączenia tunelowego SSH Otwórz przeglądarkę internetową i przejdź do `https://127.0.0.1:8443`.
+* W przypadku połączenia tunelowego SSH Otwórz przeglądarkę internetową i przejdź do `https://127.0.0.1:8443` .
 
   Podczas tworzenia tunelu nawiązano połączenie z adresem IP klastra, więc wystarczy użyć adresu IP localhost w przeglądarce. Jeśli użyto portu lokalnego innego niż 8443, zamiast tego należy użyć numeru portu.
 

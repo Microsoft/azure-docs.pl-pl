@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/22/2020
-ms.openlocfilehash: 7765788e9bd0803cd806ef0980991429dbe30af9
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.openlocfilehash: eed333b5e6a83b140df515fc02767b8a7c7a63c7
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85413845"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506643"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Szybki Start: Tworzenie wystąpienia zarządzanego usługi Azure SQL przy użyciu szablonu ARM
 
-Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu ARM w celu utworzenia wystąpienia zarządzanego i sieci wirtualnej usługi Azure SQL. [Wystąpienie zarządzane Azure SQL](sql-managed-instance-paas-overview.md) to inteligentna, w pełni zarządzana i skalowalna baza danych w chmurze, która zapewnia niemal 100% możliwości funkcji Dzięki aparatowi bazy danych SQL Server.
+Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu Azure Resource Manager (szablon ARM) w celu utworzenia wystąpienia zarządzanego i sieci wirtualnej usługi Azure SQL. [Wystąpienie zarządzane Azure SQL](sql-managed-instance-paas-overview.md) to inteligentna, w pełni zarządzana i skalowalna baza danych w chmurze, która zapewnia niemal 100% możliwości funkcji Dzięki aparatowi bazy danych SQL Server.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 

@@ -3,15 +3,15 @@ title: Przekaż duże ilości danych do Azure Data Lake Storage Gen1 — metody 
 description: Usługa Import/Export służy do kopiowania danych z usługi Azure Blob Storage do Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: aa3eb0bcd9ddd2a094563efe326f7af7e9e8708a
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 9b99f7fa88dc933c32077d273221d8551270529c
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73839309"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508575"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-storage-gen1"></a>Użyj usługi Azure Import/Export do kopiowania danych w trybie offline do Data Lake Storage Gen1
 

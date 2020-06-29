@@ -1,24 +1,14 @@
 ---
 title: Dodaj repozytorium artefaktów do laboratorium w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak dodać repozytorium artefaktów do laboratorium w usłudze Azure DevTest Labs.
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
-ms.author: spelluru
-ms.openlocfilehash: 3b4d09e784cf7bfff359fe5ec7ae86243da15349
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 0c2c1b5f93e2b4dcaae818b3f529dc16440c3c75
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898871"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483911"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Dodawanie repozytorium artefaktów do laboratorium w DevTest Labs
 DevTest Labs pozwala określić artefakt, który ma zostać dodany do maszyny wirtualnej podczas tworzenia maszyny wirtualnej lub po utworzeniu maszyny wirtualnej. Ten artefakt może być narzędziem lub aplikacją, która ma zostać zainstalowana na maszynie wirtualnej. Artefakty są zdefiniowane w pliku JSON załadowanym z repozytorium GitHub lub Azure DevOps git.

@@ -133,8 +133,8 @@
       items:
         - name: Często zadawane pytania
           href: faq.md
-        - name: Uzyskiwanie pomocy technicznej dla modelu B2B
-          href: get-support.md
+        - name: Uzyskiwanie pomocy technicznej
+          href: 'https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto'
         - name: Forum z opiniami na temat platformy Azure
           href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
         - name: Harmonogram działania dla platformy Azure

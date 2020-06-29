@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 2aca113e21d759416580c8876ec2092762893da5
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84299829"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506977"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metryki niestandardowe w Azure Monitor (wersja zapoznawcza)
 
@@ -86,7 +86,7 @@ Przy raportowaniu punktu danych metryki dla każdego klucza wymiaru w raportowan
 
 * Nazwa metryki będzie **używana przez bajty pamięci**.
 * Klucz wymiaru będzie **przetwarzany**.
-* Wartość wymiaru to **ContosoApp. exe**.
+* Wartość wymiaru będzie **ContosoApp.exe**.
 
 Podczas publikowania wartości metryki można określić tylko jedną wartość wymiaru dla każdego klucza wymiaru. Jeśli zbierasz to samo użycie pamięci dla wielu procesów na maszynie wirtualnej, możesz zgłosić wiele wartości metryk dla tej sygnatury czasowej. Każda wartość metryki będzie określać inną wartość wymiaru dla klucza wymiaru **procesu** .
 Wymiary są opcjonalne, nie wszystkie metryki mogą mieć wymiary. Jeśli wpis metryki definiuje klucze wymiarów, odpowiednie wartości wymiarów są obowiązkowe.
@@ -189,28 +189,28 @@ W publicznej wersji zapoznawczej możliwość publikowania metryk niestandardowy
 |Region platformy Azure |Prefiks regionu punktu końcowego|
 |---|---|
 | **Stany Zjednoczone i Kanada** | |
-|Zachodnio-środkowe stany USA | https: \/ /westcentralus.Monitoring.Azure.com/ |
-|Zachodnie stany USA 2       | https: \/ /westus2.Monitoring.Azure.com/ |
+|Zachodnio-środkowe stany USA | https: \/ /westcentralus.Monitoring.Azure.com |
+|Zachodnie stany USA 2       | https: \/ /westus2.Monitoring.Azure.com |
 |Północno-środkowe stany USA | https: \/ /northcentralus.Monitoring.Azure.com
-|Południowo-środkowe stany USA| https: \/ /southcentralus.Monitoring.Azure.com/ |
+|Południowo-środkowe stany USA| https: \/ /southcentralus.Monitoring.Azure.com |
 |Środkowe stany USA      | https: \/ /centralus.Monitoring.Azure.com |
-|Kanada Środkowa | https: \/ /canadacentral.Monitoring.Azure.Comc
-|Wschodnie stany USA| https: \/ /eastus.Monitoring.Azure.com/ |
-|Wschodnie stany USA 2 | https: \/ /eastus2.Monitoring.Azure.com/
+|Kanada Środkowa | https: \/ /canadacentral.Monitoring.Azure.com |
+|Wschodnie stany USA| https: \/ /eastus.Monitoring.Azure.com |
+|Wschodnie stany USA 2 | https: \/ /eastus2.Monitoring.Azure.com |
 | **Europa** | |
-|Europa Północna    | https: \/ /northeurope.Monitoring.Azure.com/ |
-|Europa Zachodnia     | https: \/ /westeurope.Monitoring.Azure.com/ |
+|Europa Północna    | https: \/ /northeurope.Monitoring.Azure.com |
+|Europa Zachodnia     | https: \/ /westeurope.Monitoring.Azure.com |
 |Południowe Zjednoczone Królestwo | https: \/ /uksouth.Monitoring.Azure.com
 |Francja Środkowa | https: \/ /francecentral.Monitoring.Azure.com |
 | **Afryka** | |
-|Północna Republika Południowej Afryki | https: \/ /southafricanorth.Monitoring.Azure.com
+|Północna Republika Południowej Afryki | https: \/ /southafricanorth.Monitoring.Azure.com |
 | **Azja** | |
-|Indie Środkowe | https: \/ /centralindia.Monitoring.Azure.com
-|Australia Wschodnia | https: \/ /australiaeast.Monitoring.Azure.com
-|Japonia Wschodnia | https: \/ /japaneast.Monitoring.Azure.com
+|Indie Środkowe | https: \/ /centralindia.Monitoring.Azure.com |
+|Australia Wschodnia | https: \/ /australiaeast.Monitoring.Azure.com |
+|Japonia Wschodnia | https: \/ /japaneast.Monitoring.Azure.com |
 |Azja Południowo-Wschodnia  | https: \/ /southeastasia.Monitoring.Azure.com |
-|Azja Wschodnia | https: \/ /eastasia.Monitoring.Azure.com
-|Korea Środkowa   | https: \/ /koreacentral.Monitoring.Azure.com
+|Azja Wschodnia | https: \/ /eastasia.Monitoring.Azure.com |
+|Korea Środkowa   | https: \/ /koreacentral.Monitoring.Azure.com |
 
 ## <a name="latency-and-storage-retention"></a>Opóźnienie i przechowywanie magazynu
 
@@ -231,7 +231,7 @@ Aktywna seria czasowa jest definiowana jako każda unikatowa kombinacja metryki,
 
 ## <a name="next-steps"></a>Następne kroki
 Użyj niestandardowych metryk z różnych usług: 
- - [Virtual Machines](collect-custom-metrics-guestos-resource-manager-vm.md)
+ - [Maszyny wirtualne](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Zestaw skalowania maszyn wirtualnych](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Virtual Machines platformy Azure (wersja klasyczna)](collect-custom-metrics-guestos-vm-classic.md)
  - [Maszyna wirtualna z systemem Linux przy użyciu agenta telegraf](collect-custom-metrics-linux-telegraf.md)

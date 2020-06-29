@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: c8d8e3b9058b753dc2a6da35878449c94399225e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60723310"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508048"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Korzystanie z usługi StorSimple Menedżer urządzeń w celu administrowania urządzeniem StorSimple
 
@@ -37,7 +37,7 @@ Po przeczytaniu tego artykułu dowiesz się, jak:
 Usługa StorSimple Menedżer urządzeń działa w Microsoft Azure i łączy się z wieloma urządzeniami StorSimple. Aby zarządzać tymi urządzeniami, należy użyć centralnej Microsoft Azure Portal działającej w przeglądarce. Aby nawiązać połączenie z usługą StorSimple Menedżer urządzeń, wykonaj następujące czynności.
 
 #### <a name="to-connect-to-the-service"></a>Aby nawiązać połączenie z usługą
-1. Przejdź do [https://portal.azure.com/](https://portal.azure.com/).
+1. Przejdź do [https://portal.azure.com/](https://portal.azure.com/) .
 2. Korzystając z poświadczeń konto Microsoft, zaloguj się do Microsoft Azure Portal (znajdującego się w prawym górnym rogu okienka).
 3. Przewiń w dół do lewego okienka nawigacji, aby uzyskać dostęp do usługi StorSimple Menedżer urządzeń.
 

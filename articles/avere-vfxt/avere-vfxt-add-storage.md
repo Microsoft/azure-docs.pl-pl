@@ -3,15 +3,15 @@ title: Konfigurowanie magazynu avere vFXT — Azure
 description: Jak dodać system przechowywania zaplecza do avere vFXT dla platformy Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e011b349c9296fd0ca15d119b35c1e6ec6af268a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252612"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505753"
 ---
 # <a name="configure-storage"></a>Konfigurowanie magazynu
 
@@ -47,9 +47,9 @@ Wykonaj następujące kroki, aby dodać podstawowy plik NAS:
 
 1. W panelu sterowania avere kliknij kartę **Ustawienia** w górnej części ekranu.
 
-1. Kliknij pozycję **podstawowe** > pliki**zarządzanymi plikami głównymi** po lewej stronie.
+1. Kliknij pozycję **podstawowe**pliki  >  **zarządzanymi plikami głównymi** po lewej stronie.
 
-1. Kliknij przycisk **Utwórz**.
+1. Kliknij pozycję **Utwórz**.
 
    ![Zrzut ekranu przedstawiający stronę Dodawanie nowej podstawowej klasy plików z kursorem nad przyciskiem Utwórz](media/avere-vfxt-add-core-filer-start.png)
 
@@ -119,7 +119,7 @@ Aby dodać magazyn obiektów BLOB po utworzeniu klastra, wykonaj następujące k
 
    ![Azure Portal graficzny interfejs użytkownika do kopiowania klucza](media/avere-vfxt-copy-storage-key.png)
 
-1. Otwórz Panel sterowania avere dla klastra. Kliknij przycisk **Ustawienia**, a następnie otwórz pozycję**poświadczenia w chmurze** **klastra** > w okienku nawigacji po lewej stronie. Na stronie poświadczenia chmury kliknij pozycję **Dodaj poświadczenie**.
+1. Otwórz Panel sterowania avere dla klastra. Kliknij przycisk **Ustawienia**, a następnie otwórz pozycję **Cluster**  >  **poświadczenia w chmurze** klastra w okienku nawigacji po lewej stronie. Na stronie poświadczenia chmury kliknij pozycję **Dodaj poświadczenie**.
 
    ![Kliknij przycisk Dodaj poświadczenia na stronie Konfiguracja poświadczeń w chmurze](media/avere-vfxt-new-credential-button.png)
 
@@ -137,7 +137,7 @@ Aby dodać magazyn obiektów BLOB po utworzeniu klastra, wykonaj następujące k
 
    ![Formularz ukończonych poświadczeń w chmurze w panelu sterowania avere](media/avere-vfxt-new-credential-submit.png)
 
-1. Następnie Utwórz podstawowy plik. W lewej części panelu sterowania avere kliknij pozycję **podstawowe** >  pliki**zarządzania plikami podstawowymi**.
+1. Następnie Utwórz podstawowy plik. W lewej części panelu sterowania avere kliknij pozycję **podstawowe**pliki  >   **zarządzania plikami podstawowymi**.
 
 1. Kliknij przycisk **Utwórz** na stronie **Zarządzanie ustawieniami plików podstawowych** .
 
@@ -152,7 +152,7 @@ Aby dodać magazyn obiektów BLOB po utworzeniu klastra, wykonaj następujące k
    * Zmień **weryfikację certyfikatu** na **wyłączony**
    * Zmień **tryb kompresji** na **Brak**
    * Kliknij przycisk **Dalej**.
-   * Na czwartej stronie Wprowadź nazwę kontenera w polu **Nazwa zasobnika** jako *storage_account_name*/*container_name*.
+   * Na czwartej stronie Wprowadź nazwę kontenera w polu **Nazwa zasobnika** jako *storage_account_name* / *container_name*.
    * Opcjonalnie Ustaw dla opcji **typ szyfrowania** **wartość Brak**.  Usługa Azure Storage jest domyślnie szyfrowana.
    * Kliknij pozycję **Dodaj plik**.
 
@@ -166,14 +166,14 @@ Następnie należy [utworzyć połączenie](#create-a-junction).
 
 Połączenie jest ścieżką utworzoną dla klientów. Klienci instalują ścieżkę i docierają do wybranego miejsca docelowego.
 
-Można na przykład utworzyć `/vfxt/files` mapowanie do NetApp podstawowego pliku `/vol0/data` eksportu i `/project/resources` podkatalogu.
+Można na przykład utworzyć mapowanie do `/vfxt/files` NetApp podstawowego pliku `/vol0/data` eksportu i `/project/resources` podkatalogu.
 
 Więcej informacji o połączeniach można znaleźć w [sekcji przestrzeń nazw podręcznika konfiguracji klastra avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
 Wykonaj następujące kroki w interfejsie avere panelu sterowania:
 
-* W lewym górnym rogu kliknij pozycję **vserver** > **obszar nazw** .
-* Podaj ścieżkę przestrzeni nazw rozpoczynającą się od znaku/(ukośnik) ``/vfxt/data``, na przykład.
+* **VServer**  >  W lewym górnym rogu kliknij pozycję vserver**obszar nazw** .
+* Podaj ścieżkę przestrzeni nazw rozpoczynającą się od znaku/(ukośnik), na przykład ``/vfxt/data`` .
 * Wybierz podstawowy plik.
 * Wybierz eksport pliku podstawowego.
 * Kliknij przycisk **Dalej**.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: cb35021ad7e4d735a7dd521e39e4fe5fd102ae01
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 1b21141a4b3f9ae92cdcf1d5a93a457012cb136a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84888350"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506613"
 ---
 ### <a name="general-requirements"></a>Wymagania ogólne
 
@@ -38,16 +38,14 @@ Dodatkowe wymagania dotyczące sieci wirtualnej różnią się w zależności od
 
 **Identyfikator podsieci** — w przypadku określenia podsieci za pomocą interfejsów API usługi Batch użyj *identyfikatora zasobu* podsieci. Identyfikator podsieci ma postać:
 
-  ```
-  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}
-  ```
+`/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}`
 
 **Uprawnienia** — sprawdź, czy zasady zabezpieczeń lub blokady dla subskrypcji lub grupy zasobów sieci wirtualnej ograniczają uprawnienia użytkownika do zarządzania siecią wirtualną.
 
 **Dodatkowe zasoby sieciowe** — usługa Batch automatycznie przydziela dodatkowe zasoby sieciowe w grupie zasobów zawierającej sieć wirtualną.
 
 > [!IMPORTANT]
->W przypadku 100 każdego węzła dedykowanego lub o niskim priorytecie usługa Batch przydziela: jedną siećową grupę zabezpieczeń (sieciowej grupy zabezpieczeń), jeden publiczny adres IP i jeden moduł równoważenia obciążenia. Te zasoby są ograniczone przez [limity zasobów](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji. W przypadku dużych pul może być konieczne zażądanie zwiększenia limitu przydziału dla co najmniej jednego z tych zasobów.
+> W przypadku 100 każdego węzła dedykowanego lub o niskim priorytecie usługa Batch przydziela: jedną siećową grupę zabezpieczeń (sieciowej grupy zabezpieczeń), jeden publiczny adres IP i jeden moduł równoważenia obciążenia. Te zasoby są ograniczone przez [limity zasobów](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji. W przypadku dużych pul może być konieczne zażądanie zwiększenia limitu przydziału dla co najmniej jednego z tych zasobów.
 
 #### <a name="network-security-groups-batch-default"></a>Sieciowe grupy zabezpieczeń: domyślna Sekwencja wsadowa
 
@@ -59,11 +57,11 @@ Podsieć musi zezwalać na komunikację przychodzącą z usługi Batch, aby moż
 * Ruch wychodzący na dowolnym porcie do Internetu. Może to być zmienione dla reguł sieciowej grupy zabezpieczeń na poziomie podsieci (patrz poniżej).
 
 > [!IMPORTANT]
-> Zachowaj ostrożność przy modyfikowaniu lub dodawaniu reguły ruchu przychodzącego lub wychodzącego w sieciowych grupach zabezpieczeń skonfigurowanych za pomocą usługi Batch. Jeśli komunikacja z węzłami obliczeniowymi w określonej podsieci zostanie odrzucona przez sieciową grupę zabezpieczeń, usługa Batch ustawi stan węzłów obliczeniowych na **nienadające się do użytku**. Ponadto nie należy stosować blokad zasobów do żadnych zasobów utworzonych w usłudze Batch. w przeciwnym razie może to spowodować uniemożliwienie oczyszczania zasobów w wyniku akcji inicjowanych przez użytkownika, takich jak usuwanie puli.
+> Należy zachować ostrożność w przypadku modyfikacji lub dodania reguł ruchu przychodzącego lub wychodzącego w sieciowych grup zabezpieczeń skonfigurowanym przez partię. Jeśli komunikacja z węzłami obliczeniowymi w określonej podsieci zostanie odrzucona przez sieciowej grupy zabezpieczeń, usługa Batch ustawi stan węzłów obliczeniowych na **niezdatny do użytku**. Ponadto nie należy stosować blokad zasobów do żadnych zasobów utworzonych w usłudze Batch, ponieważ może to uniemożliwić Oczyszczanie zasobów w wyniku akcji inicjowanych przez użytkownika, takich jak usuwanie puli.
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>Sieciowe grupy zabezpieczeń: Określanie reguł poziomu podsieci
 
-Nie jest wymagane Określanie sieciowych grup zabezpieczeń na poziomie podsieci sieci wirtualnej, ponieważ usługa Batch konfiguruje własny sieciowych grup zabezpieczeń (Zobacz powyżej). Jeśli masz sieciowej grupy zabezpieczeń skojarzoną z podsiecią, w której wdrożone są węzły obliczeniowe wsadowe lub chcesz zastosować niestandardowe reguły sieciowej grupy zabezpieczeń w celu zastąpienia ustawień domyślnych, należy skonfigurować ten sieciowej grupy zabezpieczeń przy użyciu co najmniej reguł zabezpieczeń dla ruchu przychodzącego i wychodzącego, jak pokazano w poniższych tabelach.
+Nie trzeba określać sieciowych grup zabezpieczeń na poziomie podsieci sieci wirtualnej, ponieważ usługa Batch konfiguruje własny sieciowych grup zabezpieczeń (Zobacz powyżej). Jeśli istnieje sieciowej grupy zabezpieczeń skojarzona z podsiecią, w której wdrożone są węzły obliczeniowe wsadowe, lub jeśli chcesz zastosować niestandardowe reguły sieciowej grupy zabezpieczeń w celu zastąpienia ustawień domyślnych, należy skonfigurować ten sieciowej grupy zabezpieczeń przy użyciu co najmniej reguł zabezpieczeń dla ruchu przychodzącego i wychodzącego przedstawionych w poniższych tabelach.
 
 Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wtedy, gdy musisz zezwolić na dostęp zdalny do węzłów obliczeniowych ze źródeł zewnętrznych. Może być konieczne włączenie reguł portów 22 w systemie Linux, jeśli wymagana jest obsługa zadań z wieloma wystąpieniami z pewnymi środowiskami uruchomieniowymi MPI. Zezwalanie na ruch na tych portach nie jest absolutnie wymagane do użycia w węzłach obliczeniowych puli.
 
@@ -75,7 +73,7 @@ Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wte
 | Adresy IP źródeł użytkowników umożliwiające zdalne uzyskiwanie dostępu do węzłów obliczeniowych i/lub podsieć węzłów obliczeniowych dla zadań z wielowystąpieniami systemu Linux, jeśli jest to wymagane. | Nie dotyczy | * | Dowolne | 3389 (Windows), 22 (Linux) | TCP | Zezwalaj |
 
 > [!WARNING]
-> Adresy IP usługi Batch mogą ulec zmianie z upływem czasu. W związku z tym zdecydowanie zaleca się użycie `BatchNodeManagement` znacznika usługi (lub zmiennej regionalnej) dla reguł sieciowej grupy zabezpieczeń. Nie zaleca się wypełniania reguł sieciowej grupy zabezpieczeń przy użyciu adresów IP usługi Batch.
+> Adresy IP usługi Batch mogą ulec zmianie z upływem czasu. Dlatego zdecydowanie zaleca się użycie `BatchNodeManagement` znacznika usługi (lub wariantu regionalnego) dla reguł sieciowej grupy zabezpieczeń. Unikaj wypełniania reguł sieciowej grupy zabezpieczeń przy użyciu określonych adresów IP usługi Batch.
 
 **Reguły zabezpieczeń dla ruchu wychodzącego**
 
@@ -89,9 +87,7 @@ Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wte
 
 **Identyfikator podsieci** — w przypadku określenia podsieci za pomocą interfejsów API usługi Batch użyj *identyfikatora zasobu* podsieci. Identyfikator podsieci ma postać:
 
-  ```
-  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}
-  ```
+`/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
 **Uprawnienia** — jednostka usługi `Microsoft Azure Batch` musi mieć rolę `Classic Virtual Machine Contributor` w ramach kontroli dostępu opartej na rolach (RBAC) dla określonej sieci wirtualnej.
 
@@ -99,9 +95,9 @@ Skonfiguruj ruch przychodzący na porcie 3389 (Windows) lub 22 (Linux) tylko wte
 
 Podsieć musi zezwalać na komunikację przychodzącą z usługi Batch, co umożliwia planowanie zadań w węzłach obliczeniowych, i na komunikację wychodzącą na potrzeby komunikacji z usługą Azure Storage lub innymi zasobami.
 
-Nie trzeba określać sieciowej grupy zabezpieczeń, ponieważ usługa Batch konfiguruje komunikację przychodzącą tylko z adresów IP usługi Batch do węzłów puli. Jednak jeśli określona sieć wirtualna ma skojarzone sieciowe grupy zabezpieczeń i/lub zaporę, skonfiguruj reguły zabezpieczeń ruchu przychodzącego i wychodzącego tak, jak pokazano w poniższych tabelach. Jeśli komunikacja z węzłami obliczeniowymi w określonej podsieci zostanie odrzucona przez sieciową grupę zabezpieczeń, usługa Batch ustawi stan węzłów obliczeniowych na **nienadające się do użytku**.
+Nie trzeba określać sieciowej grupy zabezpieczeń, ponieważ usługa Batch konfiguruje komunikację przychodzącą tylko z adresów IP usługi Batch do węzłów puli. Jednak jeśli określona sieć wirtualna ma skojarzone sieciowe grupy zabezpieczeń i/lub zaporę, skonfiguruj reguły zabezpieczeń ruchu przychodzącego i wychodzącego tak, jak pokazano w poniższych tabelach. Jeśli komunikacja z węzłami obliczeniowymi w określonej podsieci zostanie odrzucona przez sieciowej grupy zabezpieczeń, usługa Batch ustawia stan węzłów obliczeniowych na **niezdatny do użytku**.
 
-Skonfiguruj ruch przychodzący na porcie 3389 dla systemu Windows, jeśli chcesz zezwolić na dostęp RDP do węzłów puli. Węzły puli nie muszą być użyteczne.
+Skonfiguruj ruch przychodzący na porcie 3389 dla systemu Windows, jeśli chcesz zezwolić na dostęp RDP do węzłów puli. Nie jest to wymagane, aby węzły puli były użyteczne.
 
 **Reguły zabezpieczeń dla ruchu przychodzącego**
 

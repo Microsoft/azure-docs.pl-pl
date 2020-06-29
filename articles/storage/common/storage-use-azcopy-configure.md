@@ -3,17 +3,17 @@ title: Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy za p
 description: Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 9f6b2b9b0ec2fa497d2de4d69cae58d834654e7c
-ms.sourcegitcommit: 51977b63624dfd3b4f22fb9fe68761d26eed6824
+ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84944836"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504359"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy
 

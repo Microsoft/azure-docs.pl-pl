@@ -1,22 +1,14 @@
 ---
 title: Alerty zabezpieczeń dla środowisk w Azure DevTest Labs
 description: W tym artykule opisano sposób wyświetlania alertów zabezpieczeń dla środowiska w programie DevTest Labs i podejmowania odpowiednich działań.
-services: devtest-lab,lab-services
-documentationcenter: na
-author: spelluru
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2020
-ms.author: spelluru
-ms.openlocfilehash: fbac5a2fab91cdac8ebf626e324f12f209cfade5
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 9eea06066cfca5f67d920456f16e2eb7893dce39
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898402"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483979"
 ---
 # <a name="security-alerts-for-environments-in-azure-devtest-labs"></a>Alerty zabezpieczeń dla środowisk w Azure DevTest Labs
 Jako użytkownik laboratorium możesz teraz wyświetlać alerty Azure Security Center dla środowisk laboratoryjnych. Usługa Security Center automatycznie gromadzi, analizuje i integruje dane dzienników z zasobów platformy Azure, sieci oraz połączonych rozwiązań partnerskich, takich jak rozwiązania zapory i ochrony punktów końcowych, aby wykrywać prawdziwe zagrożenia i redukować liczbę fałszywych alarmów. W usłudze Security Center jest wyświetlana lista alertów zabezpieczeń uporządkowanych według priorytetu oraz informacje potrzebne do szybkiego analizowania problemu i zalecenia dotyczące postępowania w razie ataku. [Dowiedz się więcej o alertach zabezpieczeń w Azure Security Center](../security-center//security-center-alerts-overview.md).  

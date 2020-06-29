@@ -1,25 +1,14 @@
 ---
 title: Konfigurowanie galerii obrazów udostępnionych w Azure DevTest Labs | Microsoft Docs
 description: Dowiedz się, jak skonfigurować galerię obrazów udostępnionych w Azure DevTest Labs
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.assetid: ''
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2020
-ms.author: spelluru
-ms.openlocfilehash: 12a7b678130a2c199dd94af540bacffe8d4685f1
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.date: 06/26/2020
+ms.openlocfilehash: f4a80062a245530c5d15e761a9eb7dc95fee091e
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125734"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85483792"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurowanie galerii obrazów udostępnionych w usłudze Azure DevTest Labs
 DevTest Labs obsługuje teraz funkcję [galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md) . Umożliwia użytkownikom laboratorium dostęp do obrazów z udostępnionej lokalizacji podczas tworzenia zasobów laboratoryjnych. Ułatwia ona również tworzenie struktury i organizacji na podstawie niestandardowych zarządzanych obrazów maszyn wirtualnych. Funkcja galerii obrazów udostępnionych obsługuje:

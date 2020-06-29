@@ -1,24 +1,14 @@
 ---
 title: Użyj Azure DevTest Labs do szkolenia | Microsoft Docs
 description: Ten artykuł zawiera szczegółowe czynności, które można wykonać, aby skonfigurować laboratorium do szkolenia w Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.assetid: 57ff4e30-7e33-453f-9867-e19b3fdb9fe2
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: 8f0a930d6e3c04548ade71f6d4e3294114eb60a2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 1a4b39d104d2ffdb45c23db2ad16cc4ee4627fb9
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84896221"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484149"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Użyj Azure DevTest Labs do szkolenia
 Azure DevTest Labs może służyć do implementowania wielu kluczowych scenariuszy Oprócz tworzenia i testowania. Jednym z tych scenariuszy jest skonfigurowanie laboratorium do szkoleń. Azure DevTest Labs umożliwia utworzenie laboratorium, w którym można udostępnić szablony niestandardowe, które mogą być używane przez każdego z nich do tworzenia takich samych i izolowanych środowisk na potrzeby szkoleń. Można stosować zasady, aby zapewnić, że środowiska szkoleniowe są dostępne dla każdego z nich tylko wtedy, gdy ich potrzebują, i zawierają wystarczające zasoby, takie jak maszyny wirtualne — wymagane do szkolenia. Na koniec możesz łatwo udostępnić laboratorium z osobami, które mogą uzyskać do nich dostęp w jednym kliknięciem.

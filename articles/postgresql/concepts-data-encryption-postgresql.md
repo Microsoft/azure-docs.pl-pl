@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e4811b1b892fb04400b5a96450db14a260532003
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 3eb429c4981cbc548c7d68c788008b841ff5d33e
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488838"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85484081"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL szyfrowanie danych na jednym serwerze z kluczem zarządzanym przez klienta
 
@@ -28,7 +28,7 @@ Key Vault to oparty na chmurze zewnętrzny system zarządzania kluczami. Jest on
 > [!NOTE]
 > Ta funkcja jest dostępna we wszystkich regionach świadczenia usługi Azure, w których Azure Database for PostgreSQL jeden serwer obsługuje warstwy cenowe "Ogólnego przeznaczenia" i "zoptymalizowane pod kątem pamięci".
 
-## <a name="benefits"></a>Korzyści
+## <a name="benefits"></a>Zalety
 
 Szyfrowanie danych dla Azure Database for PostgreSQL pojedynczego serwera zapewnia następujące korzyści:
 
@@ -143,6 +143,15 @@ W przypadku Azure Database for PostgreSQL obsługa szyfrowania danych magazynowa
     > - Aby sprawdzić, czy serwer aprowizacji obsługuje do 16TB, możesz przejść do bloku warstwa cenowa w portalu i zobaczyć maksymalny rozmiar magazynu obsługiwany przez serwer aprowizacji. Jeśli można przenieść suwak do 4 TB, serwer może nie obsługiwać szyfrowania z użyciem kluczy zarządzanych przez klienta. Jednak dane są szyfrowane przy użyciu kluczy zarządzanych przez usługę przez cały czas. AskAzureDBforPostgreSQL@service.microsoft.comJeśli masz jakieś pytania, skontaktuj się z Tobą.
 
 * Szyfrowanie jest obsługiwane tylko przy użyciu klucza kryptograficznego RSA 2048.
+
+## <a name="infrastructure-double-encryption"></a>Podwójne szyfrowanie infrastruktury
+Azure Database for PostgreSQL korzysta [z szyfrowania magazynu danych w usłudze REST](concepts-security.md#at-rest) dla danych przy użyciu kluczy zarządzanych przez firmę Microsoft. Dane, w tym kopie zapasowe, są szyfrowane na dysku, a szyfrowanie jest zawsze włączone i nie można go wyłączyć. Szyfrowanie używa zatwierdzonego modułu kryptograficznego FIPS 140-2 i szyfru AES 256-bit dla szyfrowania usługi Azure Storage. 
+
+Podwójne szyfrowanie infrastruktury dodaje drugą warstwę szyfrowania przy użyciu zatwierdzonego modułu kryptograficznego FIPS 140-2 i innego algorytmu szyfrowania, który zapewnia dodatkową warstwę ochrony danych przechowywanych. Klucz używany w przypadku szyfrowania podwójnego infrastruktury jest również zarządzany przez usługę. Ta wartość nie jest domyślnie *włączona* , ponieważ będzie mieć wpływ na wydajność z powodu dodatkowej warstwy szyfrowania. 
+
+   > [!NOTE]
+   > - Ta funkcja nadal nie jest dostępna globalnie. 
+   > - Obsługa tej funkcji jest ograniczona do warstw cenowych **ogólnego przeznaczenia** i **zoptymalizowanych pod kątem pamięci** .
 
 ## <a name="next-steps"></a>Następne kroki
 
