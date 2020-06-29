@@ -3,12 +3,12 @@ title: Usuwanie magazynu Microsoft Azure Recovery Services
 description: W tym artykule dowiesz się, jak usunąć zależności, a następnie usunąć Magazyn Azure Backup Recovery Services.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 946b199119ee9e03ec9348c4e180f8e4c9b9a776
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 986b3c3ef5bd3903a764726281b6bd0a25ba76a4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84751865"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506835"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Usuwanie magazynu Recovery Services Azure Backup
 
@@ -118,6 +118,9 @@ Po zakończeniu tego procesu można usunąć elementy kopii zapasowej z konsoli 
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>Usuwanie elementów kopii zapasowej z konsoli zarządzania MARS
 
+>[!NOTE]
+>Jeśli maszyna źródłowa została usunięta lub utracona bez zatrzymywania kopii zapasowej, następna zaplanowana kopia zapasowa zakończy się niepowodzeniem. Stary punkt odzyskiwania wygasa zgodnie z zasadami, ale ostatni pojedynczy punkt odzyskiwania jest zawsze zachowywany do momentu zatrzymania wykonywania kopii zapasowej i usunięcia danych. Można to zrobić, wykonując kroki opisane w [tej sekcji](#delete-protected-items-on-premises).
+
 1. Otwórz konsolę zarządzania MARS, przejdź do okienka **Akcje** , a następnie wybierz pozycję **Zaplanuj kopię zapasową**.
 2. Na stronie **Modyfikuj lub Zatrzymaj zaplanowaną kopię zapasową** wybierz pozycję **Zatrzymaj korzystanie z tego harmonogramu kopii zapasowych i Usuń wszystkie przechowywane kopie zapasowe**. Następnie wybierz przycisk **dalej**.
 
@@ -140,6 +143,9 @@ Po zakończeniu tego procesu można usunąć elementy kopii zapasowej z konsoli 
 Po usunięciu lokalnych elementów kopii zapasowej wykonaj kolejne kroki z portalu.
 
 ### <a name="delete-backup-items-from-the-mabs-management-console"></a>Usuwanie elementów kopii zapasowej z konsoli zarządzania serwera usługi MAB
+
+>[!NOTE]
+>Jeśli maszyna źródłowa została usunięta lub utracona bez zatrzymywania kopii zapasowej, następna zaplanowana kopia zapasowa zakończy się niepowodzeniem. Stary punkt odzyskiwania wygasa zgodnie z zasadami, ale ostatni pojedynczy punkt odzyskiwania jest zawsze zachowywany do momentu zatrzymania wykonywania kopii zapasowej i usunięcia danych. Można to zrobić, wykonując kroki opisane w [tej sekcji](#delete-protected-items-on-premises).
 
 Istnieją dwie metody, których można użyć do usunięcia elementów kopii zapasowej z konsoli zarządzania serwera usługi MAB.
 

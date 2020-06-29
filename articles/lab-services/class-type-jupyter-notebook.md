@@ -1,24 +1,16 @@
 ---
 title: Skonfiguruj laboratorium, aby nauczyć się analizy danych za pomocą notesów języka Python i Jupyter | Microsoft Docs
 description: Dowiedz się, jak skonfigurować środowisko laboratoryjne do uczenia danych przy użyciu notesów Python i Jupyter.
-services: lab-services
-documentationcenter: na
 author: emaher
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 587a982e98789c2c1004d6aedb066b615744db99
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 25fd090f76c0aa11617b34503ea18d1b45a0e1ce
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899053"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445019"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Konfigurowanie laboratorium do uczenia się danych za pomocą notesów Python i Jupyter
 W tym artykule opisano, jak skonfigurować maszynę wirtualną szablonu (VM) w usłudze laboratoryjnej z narzędziami, które są konieczne do nauki uczniów, jak korzystać z [notesów Jupyter](http://jupyter-notebook.readthedocs.io/)oraz jak uczniowie mogą łączyć się z notesami na ich maszynach wirtualnych.

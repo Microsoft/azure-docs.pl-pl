@@ -7,18 +7,18 @@ author: shoatman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: 1a4f98b3c569147699432aa4bdcdd44b0b16b3af
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: f6816da35aad51e88449361d2a80542c4349ffac
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85297447"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479423"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Plik konfiguracji biblioteki uwierzytelniania firmy Microsoft dla systemu Android
 
@@ -341,7 +341,7 @@ Poniższy przykład ilustruje podstawową konfigurację, która określa identyf
 ## <a name="how-to-use-a-configuration-file"></a>Jak używać pliku konfiguracji
 
 1. Utwórz plik konfiguracji. Zalecamy utworzenie niestandardowego pliku konfiguracji w programie `res/raw/auth_config.json` . Ale możesz ją umieścić w dowolnym miejscu.
-2. Poinformuj MSAL o tym, gdzie należy wyszukać konfigurację podczas konstruowania `PublicClientApplication` . Przykład:
+2. Poinformuj MSAL o tym, gdzie należy wyszukać konfigurację podczas konstruowania `PublicClientApplication` . Na przykład:
 
    ```java
    //On Worker Thread

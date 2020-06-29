@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f96ec80b529c594a383be8d668fd28b77372cd80
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b9803726bf3a54eb31d3c2ebaddce11fb96472be
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900931"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413727"
 ---
 # <a name="about-azure-key-vault-keys"></a>Informacje o kluczach Azure Key Vault
 
@@ -30,10 +30,10 @@ Klucze kryptograficzne w Key Vault są reprezentowane jako obiekty klucza intern
 
 Podstawowe specyfikacje JWK/JWA są również rozszerzane w celu włączenia typów kluczy unikatowych dla implementacji Key Vault. Na przykład Importowanie kluczy za pomocą pakietów HSM specyficznych dla dostawcy umożliwia bezpieczne transport kluczy, których można używać tylko w Key Vault sprzętowych modułów zabezpieczeń. 
 
-Azure Key Vault obsługuje zarówno klucze miękkie, jak i twarde:
+Azure Key Vault obsługuje zarówno klucze chronione przez oprogramowanie, jak i chronione przez moduł HSM:
 
-- **Klucze "miękkie"**: klucz przetworzony w oprogramowaniu Key Vault, ale jest szyfrowany przy użyciu klucza systemowego, który znajduje się w module HSM. Klienci mogą zaimportować istniejący klucz RSA lub we (krzywa eliptyczna) albo żądanie, które Key Vault wygenerować.
-- **Klucze "twarde"**: klucz przetworzony w module HSM (sprzętowego modułu zabezpieczeń). Te klucze są chronione w jednym z Key Vault światowych zabezpieczeń środowiska HSM (istnieje jeden świat zabezpieczeń na geografię, aby zachować izolację). Klienci mogą zaimportować klucz RSA lub we w postaci miękkiej lub eksportu z zgodnego urządzenia HSM. Klienci mogą również zażądać Key Vault wygenerowania klucza. Ten typ klucza dodaje atrybut key_hsm do JWK do przenoszenia materiału klucza HSM.
+- **Klucze chronione przez oprogramowanie**: klucz, który został przetworzony w oprogramowaniu Key Vault, ale jest szyfrowany przy użyciu klucza systemowego, który znajduje się w module HSM. Klienci mogą zaimportować istniejący klucz RSA lub we (krzywa eliptyczna) albo żądanie, które Key Vault wygenerować.
+- **Klucze HSM-potected**: klucz przetworzony w module HSM (sprzętowego modułu zabezpieczeń). Te klucze są chronione w jednym z Key Vault światowych zabezpieczeń środowiska HSM (istnieje jeden świat zabezpieczeń na geografię, aby zachować izolację). Klienci mogą zaimportować klucz RSA lub we w formie chronionej przez oprogramowanie lub wyeksportować z zgodnego urządzenia HSM. Klienci mogą również zażądać Key Vault wygenerowania klucza. Ten typ klucza dodaje atrybut key_hsm do JWK do przenoszenia materiału klucza HSM.
 
 Aby uzyskać więcej informacji na temat granic geograficznych, zobacz [Microsoft Azure Centrum zaufania](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -41,9 +41,9 @@ Aby uzyskać więcej informacji na temat granic geograficznych, zobacz [Microsof
 
 Key Vault obsługuje tylko klucze RSA i eliptyczna krzywej eliptycznej. 
 
--   **EC**: "miękki" klucz krzywej eliptycznej.
+-   **EC**: klucz krzywej eliptycznej chronionej przez oprogramowanie.
 -   **EC-HSM**: "twardy" klucz krzywej eliptycznej.
--   **RSA**: klucz RSA "Soft".
+-   **RSA**: klucz RSA chroniony przez oprogramowanie.
 -   **RSA-HSM**: klucz RSA "twardy".
 
 Key Vault obsługuje klucze RSA o rozmiarach 2048, 3072 i 4096. Key Vault obsługuje typy kluczy krzywej eliptycznej P-256, P-384, P-521 i P-256 K (SECP256K1).
@@ -119,7 +119,7 @@ Aby uzyskać więcej informacji na temat obiektów JWK, zobacz [JSON Web Key (JW
 
 Oprócz materiału kluczowego można określić następujące atrybuty. W żądaniu JSON atrybuty słowo kluczowe i nawiasy klamrowe "{" "}" są wymagane nawet wtedy, gdy nie określono żadnych atrybutów.  
 
-- *włączone*: wartość logiczna, opcjonalna, **wartość**domyślna to true. Określa, czy klucz jest włączony i użyteczny dla operacji kryptograficznych. *Włączony* atrybut jest używany w połączeniu z *NBF* i *EXP*. Gdy operacja przejdzie między *NBF* i *EXP*, będzie dozwolona tylko wtedy, gdy wartość *Enabled* jest ustawiona na **true**. Operacje poza oknem *nbf* / *EXP* protokołu NBF są automatycznie niedozwolone, z wyjątkiem niektórych typów operacji w [określonych warunkach](#date-time-controlled-operations).
+- *włączone*: wartość logiczna, opcjonalna, **wartość**domyślna to true. Określa, czy klucz jest włączony i użyteczny dla operacji kryptograficznych. *Włączony* atrybut jest używany w połączeniu z *NBF* i *EXP*. Gdy operacja przejdzie między *NBF* i *EXP*, będzie dozwolona tylko wtedy, gdy wartość *Enabled* jest ustawiona na **true**. Operacje poza oknem *nbf*  /  *EXP* protokołu NBF są automatycznie niedozwolone, z wyjątkiem niektórych typów operacji w [określonych warunkach](#date-time-controlled-operations).
 - *NBF*: IntDate, opcjonalnie, domyślnie jest teraz. Atrybut *NBF* (nie wcześniej) określa czas, po którym klucz nie może być używany do operacji kryptograficznych, z wyjątkiem niektórych typów operacji w [określonych warunkach](#date-time-controlled-operations). Przetwarzanie atrybutu *NBF* wymaga, aby bieżąca data/godzina musiała być późniejsza lub równa wartości nie wcześniejsza niż data/godzina określona w atrybucie *NBF* . Key Vault może przewidywać nieco małych Leeway, zwykle nie więcej niż kilka minut, aby uwzględnić pochylenie zegara. Wartość musi być liczbą zawierającą wartość IntDate.  
 - *EXP*: IntDate, opcjonalne, wartość domyślna to "nieskończona". Atrybut *EXP* (czas wygaśnięcia) określa czas wygaśnięcia dla lub po upływie którego klucz nie może być używany do operacji kryptograficznej, z wyjątkiem niektórych typów operacji w [określonych warunkach](#date-time-controlled-operations). Przetwarzanie atrybutu *EXP* wymaga, aby bieżąca data/godzina musiała być wcześniejsza niż data/godzina wygaśnięcia określona w atrybucie *EXP* . Key Vault może przewidywać nieco małych Leeway, zwykle nie więcej niż kilka minut, do konta w celu przesunięcia zegara. Wartość musi być liczbą zawierającą wartość IntDate.  
 
@@ -132,7 +132,7 @@ Aby uzyskać więcej informacji na temat IntDate i innych typów danych, zobacz 
 
 ### <a name="date-time-controlled-operations"></a>Operacje kontrolowane przez datę i godzinę
 
-Klucze, które nie są jeszcze prawidłowe i wygasły, poza oknem*EXP* usługi *NBF* / , będą działały w przypadku operacji **odszyfrowania**, **odpakowania**i **weryfikacji** (nie zwróci 403, zabronione). Uzasadnienie użycia nieprawidłowego stanu ma umożliwić przetestowanie klucza przed użyciem produkcji. Uzasadnienie dotyczące korzystania z stanu wygasłego polega na umożliwieniu operacji odzyskiwania danych, które zostały utworzone, gdy klucz był prawidłowy. Ponadto można wyłączyć dostęp do klucza przy użyciu zasad Key Vault lub przez zaktualizowanie atrybutu *Enabled* klucza na **wartość false**.
+Klucze, które nie są jeszcze prawidłowe i wygasły, poza oknem EXP usługi *NBF*  /  *exp* , będą działały w przypadku operacji **odszyfrowania**, **odpakowania**i **weryfikacji** (nie zwróci 403, zabronione). Uzasadnienie użycia nieprawidłowego stanu ma umożliwić przetestowanie klucza przed użyciem produkcji. Uzasadnienie dotyczące korzystania z stanu wygasłego polega na umożliwieniu operacji odzyskiwania danych, które zostały utworzone, gdy klucz był prawidłowy. Ponadto można wyłączyć dostęp do klucza przy użyciu zasad Key Vault lub przez zaktualizowanie atrybutu *Enabled* klucza na **wartość false**.
 
 Aby uzyskać więcej informacji na temat typów danych, zobacz [typy danych](../general/about-keys-secrets-certificates.md#data-types).
 

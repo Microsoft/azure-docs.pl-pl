@@ -9,12 +9,12 @@ ms.date: 06/04/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: aff731b310010a23d4e1e514493cd32398dd3cfd
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 90e14408f697f113990a478e2d06256e2efb8c74
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465851"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444594"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage
 
@@ -374,7 +374,7 @@ Po włączeniu ustawienia **Zezwalaj na zaufane usługi firmy Microsoft..** . dl
 |:------------------------ |:-------------------------- |:---------------------------------- |
 | Azure Backup             | Microsoft. RecoveryServices | Uruchamianie kopii zapasowych i przywracanie dysków niezarządzanych w IAAS maszynach wirtualnych. (niewymagane w przypadku dysków zarządzanych). [Dowiedz się więcej](/azure/backup/backup-introduction-to-azure-backup). |
 | Azure Data Box           | Microsoft. DataBox          | Umożliwia importowanie danych na platformę Azure przy użyciu urządzenie Data Box. [Dowiedz się więcej](/azure/databox/data-box-overview). |
-| Azure DevTest Labs       | Microsoft. wspólny       | Tworzenie obrazu niestandardowego i instalacja artefaktu. [Dowiedz się więcej](/azure/devtest-lab/devtest-lab-overview). |
+| Azure DevTest Labs       | Microsoft. wspólny       | Tworzenie obrazu niestandardowego i instalacja artefaktu. [Dowiedz się więcej](../../devtest-labs/devtest-lab-overview.md). |
 | Azure Event Grid         | Microsoft. EventGrid        | Włącz Blob Storage publikowanie zdarzeń i zezwól Event Grid na publikowanie w kolejkach magazynu. Informacje o [zdarzeniach magazynu obiektów BLOB](/azure/event-grid/event-sources) i [publikowaniu w kolejkach](/azure/event-grid/event-handlers). |
 | Azure Event Hubs         | Microsoft. EventHub         | Archiwizuj dane przy użyciu funkcji przechwytywania Event Hubs. [Dowiedz się więcej](/azure/event-hubs/event-hubs-capture-overview). |
 | Azure File Sync          | Microsoft. StorageSync      | Umożliwia przekształcenie serwera plików Premium na pamięć podręczną dla udziałów plików platformy Azure. Umożliwienie synchronizacji obejmujących wiele witryn, szybkie odzyskiwanie po awarii i tworzenie kopii zapasowej po stronie chmury. [Dowiedz się więcej](../files/storage-sync-files-planning.md) |

@@ -3,12 +3,12 @@ title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 70abbfe09f3200f0d26978727d21a033e1d4ee34
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: d4dea1dc5ee46d9be7bbc92166535aa93db46275
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84462859"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506807"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | --------------------------- | ------------- |
 | Microsoft. AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft. Dodatki | Procesor |
-| Microsoft. ADHybridHealthService<sup>1</sup> | [Azure Active Directory](/azure/active-directory/) |
+| Microsoft. ADHybridHealthService<sup>1</sup> | [Usługa Azure Active Directory](/azure/active-directory/) |
 | Microsoft. Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft. AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
@@ -55,7 +55,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. ClassicSubscription<sup>1</sup> | Klasyczny model wdrażania |
 | Microsoft. CognitiveServices | [Cognitive Services](/azure/cognitive-services/) |
 | Microsoft. Commerce<sup>1</sup> | Procesor |
-| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Zestawy skali maszyn wirtualnych](/azure/virtual-machine-scale-sets/) |
+| Microsoft.Compute | [Maszyny wirtualne](/azure/virtual-machines/)<br />[Zestawy skali maszyn wirtualnych](/azure/virtual-machine-scale-sets/) |
 | Microsoft. zużycie<sup>1</sup> | [Cost Management](/azure/cost-management/) |
 | Microsoft. ContainerInstance | [Container Instances](/azure/container-instances/) |
 | Microsoft. ContainerRegistry | [Container Registry](/azure/container-registry/) |
@@ -64,7 +64,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft. CustomerLockbox | [Skrytka klienta Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md) |
 | Microsoft. CustomProviders | [Azure Custom Providers](../custom-providers/overview.md) |
-| Microsoft. DataBox | [Azure Data Box](/azure/databox-family/) |
+| Microsoft. DataBox | [Azure Data Box](/azure/databox/) |
 | Microsoft. DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft. datacegły | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft. datacatalog | [Data Catalog](/azure/data-catalog/) |
@@ -84,7 +84,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
 | Microsoft. wspólny | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft. DigitalTwins | [Azure Digital Twins](../../digital-twins/about-digital-twins.md) |
-| Microsoft. DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
+| Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft. DomainRegistration | [App Service](/azure/app-service/) |
 | Microsoft. EnterpriseKnowledgeGraph | Wykres merytoryczny dla przedsiębiorstw |
 | Microsoft. EventGrid | [Event Grid](/azure/event-grid/) |

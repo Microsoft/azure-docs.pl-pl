@@ -11,24 +11,28 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: 273a467f5db2201015352aaf4a232f5a42e29673
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5206c73ac225f31ee8c40105e292726a9f951a79
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618090"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478931"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Szybki Start: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu szablonu Menedżer zasobów
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Szybki Start: Ustawianie i pobieranie klucza tajnego z Azure Key Vault przy użyciu szablonu ARM
 
-[Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn dla wpisów tajnych, takich jak klucze, hasła, certyfikaty i inne wpisy tajne. Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu Menedżer zasobów, aby utworzyć magazyn kluczy i klucz tajny.
+[Azure Key Vault](../general/overview.md) to usługa w chmurze, która zapewnia bezpieczny magazyn dla wpisów tajnych, takich jak klucze, hasła, certyfikaty i inne wpisy tajne. Ten przewodnik Szybki Start koncentruje się na procesie wdrażania szablonu Azure Resource Manager (szablon ARM) w celu utworzenia magazynu kluczy i wpisu tajnego.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli Twoje środowisko spełnia wymagania wstępne i masz doświadczenie w korzystaniu z szablonów usługi ARM, wybierz przycisk **Wdróż na platformie Azure** . Szablon zostanie otwarty w Azure Portal.
+
+[![Wdrażanie na platformie Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-key-vault-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
+Aby ukończyć ten artykuł:
+
+* Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Szablon wymaga Twojego identyfikatora obiektu użytkownika z usługi Azure Active Directory w celu skonfigurowania uprawnień. Poniższa procedura pozwala pobrać identyfikator obiektu (GUID).
 
@@ -42,7 +46,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
         echo "Press [ENTER] to continue ..."
         ```
 
-        # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+        # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
         ```azurepowershell-interactive
         $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
         (Get-AzADUser -UserPrincipalName $upn).Id
@@ -53,22 +57,20 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
     2. Zanotuj identyfikator obiektu. Będzie ona potrzebna w następnej sekcji tego przewodnika Szybki Start.
 
-## <a name="create-a-vault-and-a-secret"></a>Tworzenie magazynu i wpisu tajnego
-
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+## <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/).
 
-:::code language="json" source="~/quickstart-templates/101-key-vault-create/azuredeploy.json" range="1-150" highlight="107-148":::
+:::code language="json" source="~/quickstart-templates/101-key-vault-create/azuredeploy.json" range="1-150" highlight="106-148":::
 
 Dwa zasoby platformy Azure są zdefiniowane w szablonie:
 
 * [**Microsoft. Key — magazyn/magazyny**](/azure/templates/microsoft.keyvault/vaults): Utwórz magazyn kluczy platformy Azure.
 * [**Microsoft. Key/magazyny/wpisy tajne**](/azure/templates/microsoft.keyvault/vaults/secrets): Utwórz klucz tajny magazynu kluczy.
 
-Więcej przykładów szablonów Azure Key Vault można znaleźć [tutaj](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
+Więcej przykładów szablonów Azure Key Vault można znaleźć w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular).
 
-### <a name="deploy-the-template"></a>Wdrożenie szablonu
+## <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Ten szablon umożliwia utworzenie magazynu kluczy oraz wpisu tajnego.
 
@@ -76,24 +78,24 @@ Więcej przykładów szablonów Azure Key Vault można znaleźć [tutaj](https:/
 
 2. Wybierz lub wprowadź następujące wartości.
 
-    ![Szablon Menedżer zasobów, integracja Key Vault, wdrażanie portalu](../media/quick-create-template/create-key-vault-using-template-portal.png)
+    ![Szablon ARM, integracja Key Vault, wdrażanie portalu](../media/quick-create-template/create-key-vault-using-template-portal.png)
 
-    O ile nie jest określona, użyj wartości domyślnej, aby utworzyć magazyn kluczy i klucz tajny.
+    O ile nie zostanie on określony, użyj wartości domyślnej, aby utworzyć magazyn kluczy i wpis tajny.
 
     * **Subskrypcja**: wybierz subskrypcję platformy Azure.
     * **Grupa zasobów**: wybierz pozycję **Utwórz nową**, wprowadź unikatową nazwę grupy zasobów, a następnie kliknij przycisk **OK**.
-    * **Lokalizacja**: wybierz lokalizację.  Na przykład **Środkowe stany USA**.
+    * **Lokalizacja**: wybierz lokalizację. Na przykład **Środkowe stany USA**.
     * **Nazwa Key Vault**: Wprowadź nazwę magazynu kluczy, która musi być globalnie unikatowa w przestrzeni nazw. Vault.Azure.NET. Podczas sprawdzania poprawności wdrożenia potrzebna jest nazwa w następnej sekcji.
-    * **Identyfikator dzierżawy**: Funkcja szablonu automatycznie pobiera swój identyfikator dzierżawy.  Nie zmieniaj wartości domyślnej.
+    * **Identyfikator dzierżawy**: Funkcja szablonu automatycznie pobiera swój identyfikator dzierżawy. Nie zmieniaj wartości domyślnej.
     * **Identyfikator użytkownika usługi AD**: Wprowadź identyfikator obiektu użytkownika usługi Azure AD, który został pobrany z [wymagań wstępnych](#prerequisites).
-    * **Nazwa wpisu tajnego**: Wprowadź nazwę wpisu tajnego, który jest przechowywany w magazynie kluczy.  Na przykład klucz **AdminPassword**.
-    * **Wartość wpisu tajnego**: wprowadź wartość klucza tajnego.  W przypadku przechowywania hasła zaleca się użycie wygenerowanego hasła utworzonego w sekcji wymagania wstępne.
-    * **Wyrażam zgodę na powyższe warunki i postanowienia**: zaznacz.
+    * **Nazwa wpisu tajnego**: Wprowadź nazwę wpisu tajnego, który jest przechowywany w magazynie kluczy. Na przykład klucz **AdminPassword**.
+    * **Wartość wpisu tajnego**: wprowadź wartość klucza tajnego. Jeśli przechowujesz hasło, zalecamy użycie wygenerowanego hasła utworzonego w sekcji wymagania wstępne.
+    * **Wyrażam zgodę na powyższe warunki i postanowienia**: Zaznacz.
 3. Wybierz pozycję **Kup**. Po pomyślnym wdrożeniu magazynu kluczy otrzymujesz powiadomienie:
 
-    ![Menedżer zasobów szablon, integracja Key Vault, wdrażanie powiadomienia portalu](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
+    ![Szablon ARM, integracja Key Vault, wdrażanie powiadomienia portalu](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
-Azure Portal jest używany do wdrożenia szablonu. Oprócz Azure Portal można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../azure-resource-manager/templates/deploy-powershell.md).
+Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można również użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
@@ -108,7 +110,7 @@ az keyvault secret list --vault-name $keyVaultName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $keyVaultName = Read-Host -Prompt "Enter your key vault name"
@@ -122,13 +124,14 @@ Dane wyjściowe wyglądają podobnie do:
 
 # <a name="cli"></a>[Interfejs wiersza polecenia](#tab/CLI)
 
-![Szablon Menedżer zasobów, integracja z Key Vault, wdrażanie danych wyjściowych weryfikacji portalu](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Szablon ARM, integracja Key Vault, wdrażanie danych wyjściowych weryfikacji portalu](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
-![Szablon Menedżer zasobów, integracja z Key Vault, wdrażanie danych wyjściowych weryfikacji portalu](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
+![Szablon ARM, integracja Key Vault, wdrażanie danych wyjściowych weryfikacji portalu](../media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 
 ---
+
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Inne przewodniki Szybki start i samouczki usługi Key Vault bazują na tym przewodniku. Jeśli planujesz korzystać z kolejnych przewodników Szybki start i samouczków, pozostaw te zasoby na swoim miejscu.
@@ -143,7 +146,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -155,8 +158,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono Magazyn kluczy i klucz tajny przy użyciu szablonu Azure Resource Manager i zweryfikowano wdrożenie. Aby dowiedzieć się więcej na temat Key Vault i Azure Resource Manager, przejdź do artykułu poniżej.
+W tym przewodniku szybki start utworzono Magazyn kluczy i klucz tajny przy użyciu szablonu usługi ARM oraz zweryfikowano wdrożenie. Aby dowiedzieć się więcej na temat Key Vault i Azure Resource Manager, przejdź do artykułu poniżej.
 
 - Zapoznaj się [z omówieniem Azure Key Vault](../general/overview.md)
-- Dowiedz się więcej o [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
+- Dowiedz się więcej o usłudze [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 - Przegląd [Azure Key Vault najlepszych](../general/best-practices.md) rozwiązań

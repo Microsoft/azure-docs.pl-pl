@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.subservice: blobs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fb49802adf6242f445b700d06622d7e6aa336b4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67357038"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504342"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Rozwiązania do okresowego transferu danych
  
@@ -42,7 +42,7 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Transfer danych przez skrypt/program programistyczny
 
-| Możliwości                  | Narzędzie AzCopy                                 | Interfejsy API REST usługi Azure Storage       |
+| Możliwość                  | AzCopy                                 | Interfejsy API REST usługi Azure Storage       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Współczynnik postaci                 | Narzędzie wiersza polecenia firmy Microsoft       | Klienci opracowują magazyn <br> Interfejsy API REST przy użyciu bibliotek klienckich platformy Azure |
 | Początkowa konfiguracja jednorazowa     | Minimalny                                | Umiarkowany, zmienny nakład pracy programistycznej    |
@@ -52,7 +52,7 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 
 ### <a name="continuous-data-ingestion-over-network"></a>Ciągłe pozyskiwanie danych za pośrednictwem sieci
 
-| Funkcja                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
+| Cecha                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Współczynnik postaci                                   | Urządzenie wirtualne             | Urządzenie fizyczne          | Usługa w Azure Portal, Agent lokalny                                                            |
 | Sprzęt                                      | Funkcja hypervisor            | Dostarczone przez firmę Microsoft    | Nie dotyczy                                                            |
@@ -60,7 +60,7 @@ Poniższa tabela zawiera podsumowanie różnic między kluczowymi funkcjami.
 | Format danych                                   | Obiekty blob platformy Azure, Azure Files   | Obiekty blob platformy Azure, Azure Files | [Obsługuje ponad 70 łączników danych dla magazynów danych i formatów](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
 | Przetwarzanie wstępne danych                           | Nie                         | Tak, za pomocą obliczeń brzegowych    | Tak                                                           |
 | Lokalna pamięć podręczna<br>(do przechowywania danych lokalnych)    | Tak                        | Tak                      | Nie                                                            |
-| Transfer z innych chmur                    | Nie                         | Nie                       | Tak                                                           |
+| Transfer z innych chmur                    | Nie                         | Nie                       | Yes                                                           |
 | Cennik                                       | [Cennik](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Cennik](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Cennik](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Następne kroki

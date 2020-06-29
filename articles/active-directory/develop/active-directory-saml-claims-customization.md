@@ -8,17 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: dd99934ca74736c1f80bd47d701120398437e27a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 0b0efc7e5dd4a60e33ddd61c19283a048cf4ab78
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845325"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478301"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Instrukcje: Dostosowywanie oświadczeń wystawionych w tokenie SAML dla aplikacji dla przedsiębiorstw
 
@@ -56,7 +56,7 @@ Z listy rozwijanej **Wybierz format identyfikatora nazwy** można wybrać jedną
 
 | Format NameID | Opis |
 |---------------|-------------|
-| **Wartooć** | Usługa Azure AD będzie używać domyślnego formatu źródła. |
+| **Domyślne** | Usługa Azure AD będzie używać domyślnego formatu źródła. |
 | **Stale** | Usługa Azure AD będzie używać trwałego formatu NameID. |
 | **EmailAddress** | Usługa Azure AD będzie używać EmailAddress jako formatu NameID. |
 | **Nie określono** | Usługa Azure AD będzie używać nieokreślone jako formatu NameID. |
@@ -70,7 +70,7 @@ Wybierz żądane źródło dla `NameIdentifier` żądania (lub NameID). Można w
 
 | Nazwa | Opis |
 |------|-------------|
-| Adres e-mail | Adres e-mail użytkownika |
+| E-mail | Adres e-mail użytkownika |
 | userprincipalName | Główna nazwa użytkownika (UPN) użytkownika |
 | onpremisessamaccount | Nazwa konta SAM, które zostało zsynchronizowane z lokalnej usługi Azure AD |
 | obiektu | Identyfikator obiektu użytkownika w usłudze Azure AD |

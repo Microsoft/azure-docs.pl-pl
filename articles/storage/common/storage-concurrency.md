@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 45eb227d5e2608f4fbe6a75f3d95e46dbc3bdee4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 099711bf09fc29a1168ca8ce73ea6ae93f810a08
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655931"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85504291"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Zarządzanie współbieżnością w usłudze Microsoft Azure Storage
 
@@ -95,7 +95,7 @@ Poniższa tabela zawiera podsumowanie operacji kontenera akceptujących nagłów
 | Pobierz metadane kontenera |Yes |Nie |
 | Ustawianie metadanych kontenera |Tak |Tak |
 | Pobierz listę ACL kontenerów |Yes |Nie |
-| Ustawianie listy ACL kontenerów |Yes |Tak (*) |
+| Ustawianie listy ACL kontenerów |Tak |Tak (*) |
 | Usuwanie kontenera |Nie |Yes |
 | Kontener dzierżawy |Tak |Tak |
 | Wyświetl listę obiektów BLOB |Nie |Nie |
@@ -114,7 +114,7 @@ Poniższa tabela zawiera podsumowanie operacji obiektów blob, które akceptują
 | Ustawianie metadanych obiektu BLOB |Tak |Tak |
 | Obiekt BLOB dzierżawy (*) |Tak |Tak |
 | Wykonywanie migawki obiektu blob |Tak |Tak |
-| Kopiowanie obiektu blob |Yes |Tak (dla źródłowego i docelowego obiektu BLOB) |
+| Kopiowanie obiektu blob |Tak |Tak (dla źródłowego i docelowego obiektu BLOB) |
 | Przerwij Kopiowanie obiektu BLOB |Nie |Nie |
 | Usuwanie obiektu blob |Nie |Yes |
 | Umieść blok |Nie |Nie |

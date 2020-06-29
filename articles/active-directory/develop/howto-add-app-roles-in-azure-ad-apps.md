@@ -1,24 +1,24 @@
 ---
 title: Dodaj role aplikacji i uzyskaj je z tokenu | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak dodawać role aplikacji w aplikacji zarejestrowanej w Azure Active Directory, przypisywać użytkownikom i grupom te role i `roles` odbierać je w ramach roszczeń w tokenie.
+description: Dowiedz się, jak dodawać role aplikacji w aplikacji zarejestrowanej w Azure Active Directory, przypisywać użytkownikom i grupom te role i odbierać je w ramach `roles` roszczeń w tokenie.
 services: active-directory
 author: kkrishna
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 144fad249011d547ac6a8cf2d404cb3f8fe74f96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aedf5d710b82185cb634fcd92e6981a2c358ad52
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884260"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477893"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Instrukcje: Dodawanie ról aplikacji do aplikacji i odbieranie ich w tokenie
 
@@ -45,16 +45,16 @@ Te role aplikacji są zdefiniowane w [Azure Portal](https://portal.azure.com) w 
      > [!NOTE]
      > Każda definicja roli aplikacji w tym manifeście musi mieć inny prawidłowy identyfikator GUID w kontekście manifestu `id` właściwości.
      >
-     > `value` Właściwość każdej definicji roli aplikacji powinna dokładnie pasować do ciągów, które są używane w kodzie w aplikacji. `value` Właściwość nie może zawierać spacji. Jeśli tak się stanie, podczas zapisywania manifestu zostanie wyświetlony komunikat o błędzie.
+     > `value`Właściwość każdej definicji roli aplikacji powinna dokładnie pasować do ciągów, które są używane w kodzie w aplikacji. `value`Właściwość nie może zawierać spacji. Jeśli tak się stanie, podczas zapisywania manifestu zostanie wyświetlony komunikat o błędzie.
 
 1. Zapisz manifest.
 
 ### <a name="examples"></a>Przykłady
 
-Poniższy przykład pokazuje `appRoles` , że można przypisać do `users`.
+Poniższy przykład pokazuje `appRoles` , że można przypisać do `users` .
 
 > [!NOTE]
->`id` Musi być UNIKATOWYm identyfikatorem GUID.
+>`id`Musi być unikatowym identyfikatorem GUID.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -74,9 +74,9 @@ Poniższy przykład pokazuje `appRoles` , że można przypisać do `users`.
 ```
 
 > [!NOTE]
->`displayName` Nie może zawierać spacji.
+>`displayName`Nie może zawierać spacji.
 
-Można zdefiniować role aplikacji, które mają `users`być `applications`docelowe, lub obie. Gdy jest to `applications`możliwe, role aplikacji są wyświetlane jako uprawnienia aplikacji w bloku **wymagane uprawnienia** . Poniższy przykład przedstawia rolę aplikacji ukierunkowaną na `Application`.
+Można zdefiniować role aplikacji, które mają być docelowe `users` , `applications` lub obie. Gdy jest to możliwe `applications` , role aplikacji są wyświetlane jako uprawnienia aplikacji w bloku **wymagane uprawnienia** . Poniższy przykład przedstawia rolę aplikacji ukierunkowaną na `Application` .
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",

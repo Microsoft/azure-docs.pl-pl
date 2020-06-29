@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 06/25/2020
 ms.author: aahi
-ms.openlocfilehash: 4fd893691f68c8b51fa3ef234d7828b1bd70cea5
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 367e214a3945ec9d6ed0ffc5b11e6af25dc41503
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465596"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413335"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Obsługa języków interfejs API analizy tekstu v3 
 
@@ -23,7 +23,7 @@ ms.locfileid: "84465596"
 > Wersja 3. x interfejs API analizy tekstu jest obecnie niedostępna w następujących regionach: Indie Środkowe, Zjednoczone Emiraty Arabskie, Chiny Północne 2, Chiny Wschodnie.
 
 
-#### <a name="sentiment-analysis"></a>[Analiza tonacji](#tab/sentiment-analysis)
+#### <a name="sentiment-analysis"></a>[analiza tonacji](#tab/sentiment-analysis)
 
 | Język              | Kod języka | Obsługa wersji 2 | Obsługa wersji 3 | Początkowa wersja modelu v3: |              Uwagi |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
@@ -57,7 +57,7 @@ ms.locfileid: "84465596"
 #### <a name="named-entity-recognition-ner"></a>[Rozpoznawanie jednostek nazwanych (NER)](#tab/named-entity-recognition)
 
 > [!NOTE]
-> * NER v3 obecnie obsługuje tylko język angielski. Jeśli wywołasz NER v3 z innym językiem, interfejs API zwróci wyniki z v 2.1, pod warunkiem, że język jest obsługiwany w wersji 2,1.
+> * NER v3 obecnie obsługuje tylko Języki w języku angielskim i hiszpańskim. Jeśli wywołasz NER v3 z innym językiem, interfejs API zwróci wyniki z v 2.1, pod warunkiem, że język jest obsługiwany w wersji 2,1.
 > * Wersja 2.1 zwraca tylko pełny zestaw dostępnych jednostek w języku angielskim, chińskim tradycyjnym, francuskim, niemieckim i hiszpańskim.  Jednostki "osoba", "lokalizacja" i "organizacja" są zwracane dla innych obsługiwanych języków.
 
 | Język               | Kod języka | obsługa techniczna v 2.1 | Obsługa wersji 3 | Począwszy od wersji modelu v3: |       Uwagi        |
@@ -82,7 +82,7 @@ ms.locfileid: "84465596"
 | Portugalski (Portugalia) |    `pt-PT`    |     ✓      |            |                                 | `pt`również zaakceptowane |
 | Portugalski (Brazylia)   |    `pt-BR`    |     ✓      |            |                                 |                    |
 | Rosyjski              |     `ru`      |     ✓      |            |                                 |                    |
-| Hiszpański               |     `es`      |     ✓      |            |                                 |                    |
+| Hiszpański               |     `es`      |     ✓      |     ✓       |              2020-04-01                   |                    |
 | Szwedzki               |     `sv`      |     ✓      |            |                                 |                    |
 | Turecki               |     `tr`      |     ✓      |            |                                 |                    |
 
@@ -123,6 +123,6 @@ Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz spróbo
 
 ---
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Czym jest interfejs API analizy tekstu?](overview.md)   

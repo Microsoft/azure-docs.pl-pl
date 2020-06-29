@@ -6,16 +6,16 @@ manager: jillfra
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: fe408e965c528db1d82b73ee7b20bbe3b3933657
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36479acca56aa97a5453a9ab99691ed1993daaf3
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886130"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477009"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Wprowadzenie z Azure Active Directory (projekty ASP.NET MVC)
 
@@ -33,7 +33,7 @@ Wszystkie kontrolery w projekcie zostały wbudowane przy użyciu `[Authorize]` a
 
 ## <a name="adding-signin--signout-controls"></a>Dodawanie kontrolek Signing/wylogowaniu
 
-Aby dodać kontrolki logowania/wylogowaniu do widoku, możesz użyć widoku `_LoginPartial.cshtml` częściowego, aby dodać funkcje do jednego z widoków. Oto przykład funkcji dodanych do widoku standardowego `_Layout.cshtml` . (Należy zwrócić uwagę na ostatni element w bloku DIV z klasą nawigacyjną — zwijanie):
+Aby dodać kontrolki logowania/wylogowaniu do widoku, możesz użyć `_LoginPartial.cshtml` widoku częściowego, aby dodać funkcje do jednego z widoków. Oto przykład funkcji dodanych do `_Layout.cshtml` widoku standardowego. (Należy zwrócić uwagę na ostatni element w bloku DIV z klasą nawigacyjną — zwijanie):
 
 ```html
 <!DOCTYPE html>

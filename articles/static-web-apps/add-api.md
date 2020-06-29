@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 1720ea31c8f0b15485df194e62e463671d092b26
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 7101d23d4611f4eea9b5a9e2a7f3ba417c9fcb1a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310856"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476125"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Dodawanie interfejsu API do usługi Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -25,7 +25,7 @@ Bezserwerowe interfejsy API można dodać do Web Apps statycznej platformy Azure
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure Functions rozszerzenie](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) dla Visual Studio Code
 - Rozszerzenie [Visual Studio Code serwera na żywo](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) .
-- Środowiska [Node. js](https://nodejs.org/download/) do lokalnego uruchamiania aplikacji interfejsu API
+- [Node.js](https://nodejs.org/download/) uruchomić aplikację interfejsu API lokalnie
 
 ## <a name="create-a-git-repository"></a>Tworzenie repozytorium git
 
@@ -89,7 +89,7 @@ Aplikacja ma teraz strukturę projektu podobną do poniższego przykładu.
 
 Następnie zmienisz `GetMessage` funkcję, aby zwracała komunikat do frontonu.
 
-1. Zaktualizuj `GetMessage` funkcję w obszarze _API/GetMessage/index. js_ przy użyciu następującego kodu.
+1. Zaktualizuj `GetMessage` funkcję w obszarze _API/GetMessage/index.js_ przy użyciu następującego kodu.
 
     ```javascript
     module.exports = async function (context, req) {
@@ -162,7 +162,7 @@ W przypadku wdrożenia na platformie Azure żądania kierowane do interfejsu API
 
 #### <a name="update-html-files-to-access-the-api"></a>Aktualizowanie plików HTML w celu uzyskania dostępu do interfejsu API
 
-1. Następnie zaktualizuj zawartość pliku _index. html_ przy użyciu następującego kodu, aby pobrać tekst z funkcji API i wyświetlić go na ekranie:
+1. Następnie zaktualizuj zawartość pliku _index.html_ przy użyciu następującego kodu, aby pobrać tekst z funkcji API i wyświetlić go na ekranie:
 
    ```html
    <!DOCTYPE html>
@@ -178,7 +178,7 @@ W przypadku wdrożenia na platformie Azure żądania kierowane do interfejsu API
    <body>
      <main>
        <h1>Vanilla JavaScript App</h1>
-       <p>Loading message from the API: <b id="name">...</b></p>
+       <p>Loading content from the API: <b id="name">...</b></p>
      </main>
 
      <script>

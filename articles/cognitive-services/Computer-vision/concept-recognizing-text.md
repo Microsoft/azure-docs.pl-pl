@@ -1,96 +1,98 @@
 ---
-title: Wydrukowane, rozpoznawanie tekstu odręcznego — przetwarzanie obrazów
+title: Odczytywanie tekstu z obrazów i dokumentów — przetwarzanie obrazów
 titleSuffix: Azure Cognitive Services
-description: Koncepcje dotyczące rozpoznawania wydrukowanych i odręcznych tekstu w obrazach przy użyciu interfejs API przetwarzania obrazów.
+description: Pojęcia dotyczące optycznego rozpoznawania znaków (OCR) i tekstu z obrazów i dokumentów na potrzeby drukowania i tekstu odręcznego przy użyciu interfejs API przetwarzania obrazów.
 services: cognitive-services
-author: PatrickFarley
-manager: nitinme
+author: msbbonsu
+manager: netahw
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: pafarley
+ms.date: 06/23/2020
+ms.author: t-bebon
 ms.custom: seodec18
-ms.openlocfilehash: 5d0a9771e5b999028996676ea72f8def3c5d63cf
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 65e1613eb8fda934899afe692f45a38fca04bff2
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589860"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414044"
 ---
-# <a name="recognize-printed-and-handwritten-text"></a>Rozpoznawanie tekstu drukowanego i pisma odręcznego
+# <a name="read-text-from-images-and-documents"></a>Odczytaj tekst z obrazów i dokumentów
 
-Przetwarzanie obrazów udostępnia wiele usług, które wykrywają i wyodrębniają tekst drukowany lub odręczny, który pojawia się w obrazach. Jest to przydatne w wielu scenariuszach, takich jak notowanie, rejestry medyczne, zabezpieczenia i bankowość. W poniższych trzech sekcjach szczegółowo opisano trzy różne interfejsy API rozpoznawania tekstu, które są zoptymalizowane pod kątem różnych przypadków użycia.
+Przetwarzanie obrazów obejmuje nowe funkcje optycznego rozpoznawania znaków (OCR) oparte na głębokiej uczeniu, które wyodrębniają tekst drukowany lub odręczny z obrazów i dokumentów PDF. Przetwarzanie obrazów wyodrębnia tekst z dokumentów analogowych (obrazów, zeskanowanych dokumentów) i dokumentów z cyframi. Można wyodrębnić tekst ze obrazków dzika, takich jak zdjęcia z płyt licencyjnych lub kontenerów z numerami seryjnymi, a także dokumenty — faktury, weksle, raporty finansowe, artykuły i inne. Ta funkcja OCR jest dostępna jako część usługi zarządzanej w chmurze lub lokalnie (kontenery). Obsługuje ona także sieci wirtualne i prywatne punkty końcowe, aby zaspokoić wymagania dotyczące zgodności i prywatności klasy korporacyjnej.
 
-## <a name="read-api"></a>Odczytaj interfejs API
+## <a name="read-api"></a>Odczytaj interfejs API 
 
-Interfejs API odczytu wykrywa zawartość tekstową w obrazie przy użyciu najnowszych modeli rozpoznawania i konwertuje zidentyfikowany tekst na strumień znaków do odczytu maszynowego. Są one zoptymalizowane pod kątem obrazów z dużym użyciem tekstu (takich jak dokumenty, które zostały przeskanowane cyfrowo) i obrazów z dużą ilością szumów wizualnych. Określi model rozpoznawania, który ma być używany dla każdego wiersza tekstu, obsługując obrazy zarówno w postaci tekstu, jak i w postaci odręcznej. Interfejs API odczytu jest wykonywany asynchronicznie, ponieważ w większych dokumentach można zwrócić wynik.
+[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) przetwarzanie obrazów to najnowsza technologia OCR firmy Microsoft, która wyodrębnia tekst drukowany, tekst pisany ręcznie (tylko w języku angielskim), cyfry i symbole waluty z obrazów i dokumentów PDF. Optymalizacja jest zoptymalizowana pod kątem wyodrębniania tekstu z obrazów ze obrazków w postaci geograficznej, obrazów z zakłóceniami wizualnymi, dokumentów PDF, które są cyfrowe lub skanowane, oraz obrazów zawierających duże ilości tekstu. Obsługuje tekst drukowany i pisany ręcznie (angielski) oraz języki mieszane w tym samym obrazie lub dokumencie. Pełną listę obsługiwanych języków można znaleźć na stronie [Obsługa języka dla przetwarzanie obrazów](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) strony.
 
-Operacja odczytu zachowuje pierwotne Grupowanie wierszy w danych wyjściowych. Każdy wiersz zawiera współrzędne pola ograniczenia, a każdy wyraz w wierszu ma także własne współrzędne. Jeśli wyraz został rozpoznany z niskim poziomem pewności, te informacje są również przekazywane. Aby dowiedzieć się więcej, zobacz [Przeczytaj dokumentację referencyjną interfejsu API v 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) lub [Przeczytaj dokumenty referencyjne interfejsu API v 3.0](https://aka.ms/computer-vision-v3-ref) .
 
-Operacja odczytu może rozpoznawać tekst w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim.
+### <a name="how-it-works"></a>Jak to działa
 
-### <a name="image-requirements"></a>Wymagania obrazu
+[Interfejs API odczytu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) jest asynchroniczny. Pierwszym krokiem jest wywołanie operacji odczytu. Operacja odczytu pobiera obraz lub dokument PDF jako dane wejściowe i zwraca identyfikator operacji. 
 
-Interfejs API odczytu działa z obrazami spełniającymi następujące wymagania:
+Drugim krokiem jest wywołanie operacji [Pobierz wyniki](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) . Ta operacja przyjmuje Identyfikator operacji, który został utworzony przez operację odczytu. Następnie zwraca wyodrębnioną zawartość tekstową z obrazu lub dokumentu w postaci JSON. Odpowiedź JSON zachowuje pierwotną grupę wierszy rozpoznanych wyrazów. Zawiera wyodrębnione wiersze tekstu i ich współrzędne pola ograniczenia. Każdy wiersz tekstu zawiera wszystkie wyodrębnione wyrazy z ich współrzędnymi i wynikami pewności.
 
-- Obraz musi być przedstawiony w formacie JPEG, PNG, BMP, PDF lub TIFF.
-- Wymiary obrazu muszą mieścić się w przedziale od 50 x 50 do 10000 x 10000 pikseli. Strony PDF muszą mieć 17 x 17 cali lub mniej.
-- Rozmiar pliku obrazu musi być mniejszy niż 20 megabajtów (MB).
+W razie potrzeby, odczyt koryguje obrót rozpoznanej strony, zwracając przesunięcie rotacyjne (w stopniach) o poziomą oś obrazu, jak pokazano na poniższej ilustracji.
 
-### <a name="limitations"></a>Ograniczenia
+![Obraz, który jest obracany, a jego tekst jest odczytywany i zakreślony](./Images/vision-overview-ocr-read.png)
 
-Jeśli używasz subskrypcji warstwy Bezpłatna, interfejs API odczytu będzie przetwarzać tylko pierwsze dwie strony dokumentu PDF lub TIFF. Dzięki płatnej subskrypcji proces będzie przetwarzać do 200 stron. Należy również zauważyć, że interfejs API wykryje maksymalnie 300 wierszy na stronie.
+Postępuj zgodnie z przewodnikiem Szybki Start [wydrukowanym i odręcznym](./QuickStarts/CSharp-hand-text.md) , aby zaimplementować OCR przy użyciu języka C# i interfejsu API REST.
 
-## <a name="ocr-optical-character-recognition-api"></a>Interfejs API OCR (optyczne rozpoznawanie znaków)
+### <a name="input-requirements"></a>Wymagania wejściowe
 
-Interfejs API optycznego rozpoznawania znaków (OCR) przetwarzanie obrazów jest podobny do interfejsu API odczytu, ale jest wykonywany synchronicznie i nie jest zoptymalizowany pod kątem dużych dokumentów. Używa wcześniejszego modelu rozpoznawania, ale współpracuje z większą liczbą języków; Zobacz [obsługę języka](language-support.md#text-recognition) , aby uzyskać pełną listę obsługiwanych języków.
+Interfejs API odczytu pobiera następujące dane wejściowe:
+* Obsługiwane formaty plików: JPEG, PNG, BMP, PDF i TIFF
+* W przypadku plików PDF i TIFF przetwarzane są do 2000 stron. W przypadku subskrybentów warstwy Bezpłatna są przetwarzane tylko dwie pierwsze strony.
+* Rozmiar pliku musi być mniejszy niż 50 MB i wymiary co najmniej 50 x 50 pikseli i maksymalnie 10000 x 10000 pikseli.
+* Wymiary PDF muszą mieć co najwyżej 17 x 17 cali, odpowiadające rozmiarowi papieru legalnego lub A3 i mniejszym.
 
-W razie potrzeby OCR koryguje obrót rozpoznanego tekstu, zwracając przesunięcie rotacyjne (w stopniach) o poziomą oś obrazu. OCR udostępnia również współrzędne ramki każdego wyrazu, jak pokazano na poniższej ilustracji.
 
-![Obraz, który jest obracany, a jego tekst jest odczytywany i zakreślony](./Images/vision-overview-ocr.png)
+### <a name="text-from-images"></a>Tekst z obrazów
 
-Zobacz [dokumenty referencyjne OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) , aby dowiedzieć się więcej.
+Następujące dane wyjściowe interfejsu API odczytu pokazują wyodrębnione wiersze tekstu i wyrazy z obrazu z tekstem z różnymi kątami, kolorami i czcionkami
 
-### <a name="image-requirements"></a>Wymagania obrazu
+![Obraz, który jest obracany, a jego tekst jest odczytywany i zakreślony](./Images/text-from-images-example.png)
 
-Interfejs API OCR działa na obrazach, które spełniają następujące wymagania:
+### <a name="text-from-documents"></a>Tekst z dokumentów
 
-* Obraz musi być przedstawiony w formacie JPEG, PNG, GIF lub BMP.
-* Rozmiar obrazu wejściowego musi mieścić się w przedziale od 50 x 50 do 4200 x 4200 pikseli.
-* Tekst w obrazie może być obrócony przez dowolną wielokrotność 90 stopni i niewielki kąt do 40 stopni.
+Oprócz obrazów, interfejs API odczytu pobiera dokument PDF jako dane wejściowe.
 
-### <a name="limitations"></a>Ograniczenia
+![Obraz, który jest obracany, a jego tekst jest odczytywany i zakreślony](./Images/text-from-documents-example.png)
 
-Na fotografiach, w których tekst jest dominujący, fałszywe dodatnie mogą pochodzić z częściowo rozpoznanych wyrazów. W przypadku niektórych fotografii, zwłaszcza zdjęć bez żadnego tekstu, precyzja może się różnić w zależności od typu obrazu.
 
-## <a name="recognize-text-api"></a>Interfejs API Rozpoznawanie tekstu
+### <a name="handwritten-text-in-english"></a>Tekst napisany ręcznie w języku angielskim
 
-> [!NOTE]
-> Interfejs API Rozpoznawanie tekstu jest przestarzały na korzyść interfejsu API odczytu. Interfejs API odczytu ma podobne możliwości i jest aktualizowany do obsługi plików PDF, TIFF i wielostronicowych.
+Teraz operacja odczytu obsługuje Wyodrębnianie tekstu odręcznego wyłącznie w języku angielskim.
 
-Interfejs API Rozpoznawanie tekstu jest podobny do OCR, ale jest wykonywany asynchronicznie i używa zaktualizowanych modeli rozpoznawania. Więcej informacji można znaleźć w [dokumentacji dotyczącej interfejsów API rozpoznawanie tekstu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) .
+![Obraz, który jest obracany, a jego tekst jest odczytywany i zakreślony](./Images/handwritten-example.png)
 
-### <a name="image-requirements"></a>Wymagania obrazu
+### <a name="printed-text-in-supported-languages"></a>Tekst drukowany w obsługiwanych językach
 
-Interfejs API Rozpoznawanie tekstu współpracuje z obrazami spełniającymi następujące wymagania:
+Interfejs API odczytu obsługuje wyodrębnianie drukowanego tekstu w języku angielskim, hiszpańskim, niemieckim, francuskim, włoskim, portugalskim i holenderskim. Jeśli scenariusz wymaga obsługi większej liczby języków, zobacz Omówienie interfejsu API OCR w tym dokumencie. Zapoznaj się z listą wszystkich [obsługiwanych języków](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition)
 
-- Obraz musi być przedstawiony w formacie JPEG, PNG lub BMP.
-- Wymiary obrazu muszą mieścić się w przedziale od 50 x 50 do 4200 x 4200 pikseli.
-- Rozmiar pliku obrazu musi być mniejszy niż 4 megabajty (MB).
+![Obraz, który jest obracany, a jego tekst jest odczytywany i zakreślony](./Images/supported-languages-example.png)
 
-## <a name="limitations"></a>Ograniczenia
+### <a name="mixed-languages-support"></a>Obsługa języków mieszanych
 
-Dokładność operacji rozpoznawania tekstu zależy od jakości obrazów. Następujące czynniki mogą spowodować niedokładne odczytywanie:
+Interfejs API odczytu obsługuje obrazy i dokumenty z wieloma językami, często znane jako dokumenty w języku mieszanym. Robi to przez klasyfikowanie każdego wiersza tekstu w dokumencie do wykrytego języka przed wyodrębnieniem zawartości tekstowej.
 
-* Rozmyte obrazy.
-* Tekst odręczny lub napisany kursywą.
-* Artystyczne style czcionki.
-* Mały rozmiar tekstu.
-* Złożone tła, cienie, oślepiające światło nad tekstem lub zniekształcenie perspektywy.
-* Na początku wyrazów lub brakuje wielkich liter.
-* Indeks dolny, indeks górny lub tekst przekreślony.
+![Obraz, który jest obracany, a jego tekst jest odczytywany i zakreślony](./Images/mixed-language-example.png)
+
+### <a name="data-privacy-and-security"></a>Prywatność i zabezpieczenia danych
+
+Podobnie jak w przypadku wszystkich usług poznawczych, deweloperzy korzystający z usługi odczytu powinni mieć świadomość zasad firmy Microsoft dotyczących danych klientów. Aby dowiedzieć się więcej, zobacz stronę Cognitive Services w [Centrum zaufania firmy Microsoft](https://www.microsoft.com/en-us/trust-center/product-overview) .
+
+### <a name="deploy-on-premises"></a>Wdrażanie lokalnie
+
+Funkcja Read jest również dostępna jako kontener platformy Docker (wersja zapoznawcza) w celu umożliwienia wdrożenia nowych funkcji OCR w Twoim środowisku. Kontenery doskonale nadaje się do określonych wymagań w zakresie zabezpieczeń i zarządzania danymi. Zobacz [temat Instalowanie i uruchamianie kontenerów odczytu.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
+
+
+## <a name="ocr-api"></a>INTERFEJS API OCR
+
+[Interfejs API OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) używa starszego modelu rozpoznawania. Obsługuje tylko pojedyncze obrazy, a nie pliki PDF i zwraca natychmiastową odpowiedź. Obsługuje [więcej języków](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) niż interfejs API odczytu.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Postępuj zgodnie z przewodnikiem Szybki Start dotyczącym [wyodrębniania tekstu (odczyt)](./QuickStarts/CSharp-hand-text.md) , aby zaimplementować rozpoznawanie tekstu w prostej aplikacji języka C#.
+- Dowiedz się więcej o [interfejsie API REST do odczytu 3,0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005).
+- Postępuj zgodnie z przewodnikiem Szybki Start [tekstu](./QuickStarts/CSharp-hand-text.md) , aby zaimplementować OCR przy użyciu języka C#, Java, JavaScript lub Python wraz z interfejsem API REST.

@@ -4,16 +4,16 @@ description: Dowiedz się więcej o Azure Analysis Services — w pełni zarząd
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 04/13/2020
+ms.date: 06/24/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 0fb0e9e2611ed882bffa1df62adeb617e7211354
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 58ef7704cda88caebcbe49cf75e9a7fc9ecaebdc
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191984"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85413621"
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 
@@ -65,14 +65,13 @@ Ta warstwa jest najlepszym rozwiązaniem w przypadku aplikacji produkcyjnych o k
 |S1    |    100     |    25     |
 |S2    |    200     |    50     |
 |S4    |    400     |    100     |
-|S8 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    320    |    200     |
-|S9 <sup>[1](#depr)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
-|S8v2 <sup> [1](#depr)</sup>   |    640     |    200     |
-|S9v2 <sup> [1](#depr)</sup>    |    1280    |    400     |
+|S8 <sup>[1](#naar)</sup>, <sup>[2](#rec)</sup>   |    320    |    200     |
+|S9 <sup>[1](#naar)</sup>, <sup>[2](#rec)</sup>    |    640    |    400     |
+|S8v2 <sup> [1](#naar)</sup>   |    640     |    200     |
+|S9v2 <sup> [1](#naar)</sup>    |    1280    |    400     |
 
-<a name="depr">1</a> — niedostępne we wszystkich regionach.   
-<a name="rec">2</a> — ten plan jest przestarzały. v2 jest zalecane.
-
+<a name="naar">1</a> — niedostępne we wszystkich regionach.   
+zalecany jest <a name="rec">2</a> -v2.
 
 ## <a name="availability-by-region"></a>Dostępność według regionów
 
@@ -86,15 +85,15 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 |Kanada Środkowa    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Wschodnie stany USA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |Wschodnie stany USA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Wschodnie stany USA 2     |     S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    1    |
+|Wschodnie stany USA 2     |     S8, S9, S8v2, S9v2   |    1    |
 |Północno-środkowe stany USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Środkowe stany USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Południowo-środkowe stany USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Zachodnio-środkowe stany USA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Zachodnie stany USA     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|Zachodnie stany USA     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2   |    2  |
+|Zachodnie stany USA     |    S8, S9, S8v2, S9v2   |    2  |
 |Zachodnie stany USA 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|Zachodnie stany USA 2    |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |    1     |
+|Zachodnie stany USA 2    |    S8, S9, S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europa
 
@@ -104,17 +103,17 @@ Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie
 |Europa Północna     |    S8v2, S9v2      |    3     |
 |Południowe Zjednoczone Królestwo     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Europa Zachodnia     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Europa Zachodnia    |   S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2  |  1  |
+|Europa Zachodnia    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Azja i Pacyfik 
 
 |Region  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
 |---------|---------|:---------:|
 |Australia Wschodnia     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Australia Wschodnia     |    S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2    |    1     |
+|Australia Wschodnia     |    S8, S9, S8v2, S9v2    |    1     |
 |Australia Południowo-Wschodnia     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japonia Wschodnia     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Azja Południowo-Wschodnia     |     B1, B2, S0, S1, S2, S4, S8<sup>[2](#rec)</sup>, S9<sup>[2](#rec)</sup>, S8v2, S9v2, D1     |   1      |
+|Azja Południowo-Wschodnia     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Indie Zachodnie     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skalowanie zgodnie z potrzebami

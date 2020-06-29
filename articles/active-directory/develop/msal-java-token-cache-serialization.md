@@ -7,18 +7,18 @@ author: sangonzal
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: bcb34d83365112b97769186ad74dfd762b05c2e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 31b908eacd5f9f8610ad2c0a985fa7e0be8d1505
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76696167"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479338"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-java"></a>Serializacja niestandardowego buforu tokenów w MSAL dla języka Java
 
@@ -60,6 +60,6 @@ PublicClientApplication app =
 PublicClientApplication.builder("my_client_id").setTokenCacheAccessAspect(persistenceAspect).build();
 ```
 
-## <a name="learn-more"></a>Dowiedz się więcej
+## <a name="learn-more"></a>Więcej tutaj
 
 Dowiedz się więcej na temat [pobierania i usuwania kont z pamięci podręcznej tokenów przy użyciu programu MSAL for Java](msal-java-get-remove-accounts-token-cache.md).

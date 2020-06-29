@@ -7,15 +7,15 @@ ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.custom: aaddev, vs-azure
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: d5b6452684757aead684356fd9bb032b90c58c4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b77241b1413fea09e5a16e8bd5cbcda8db5b2327
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535829"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477128"
 ---
 # <a name="add-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Dodawanie Azure Active Directory przy użyciu usług połączonych w programie Visual Studio
 
@@ -44,7 +44,7 @@ W tej chwili usługa połączona Active Directory nie obsługuje aplikacji ASP.N
 
     ![Strona wprowadzenia](./media/vs-azure-active-directory/configure-azure-ad-wizard-1.png)
 
-1. Na stronie **Logowanie** jednokrotne wybierz domenę z listy rozwijanej **domena** . Lista zawiera wszystkie domeny dostępne przez konta wymienione w oknie dialogowym Ustawienia konta w programie Visual Studio (**Ustawienia konta > plików...**). Alternatywnie możesz wprowadzić nazwę domeny, jeśli nie znajdziesz tego, na czym szukasz, na przykład `mydomain.onmicrosoft.com`. Możesz wybrać opcję tworzenia aplikacji Azure Active Directory lub użyć ustawień z istniejącej aplikacji Azure Active Directory. Po zakończeniu wybierz pozycję **dalej** .
+1. Na stronie **Logowanie** jednokrotne wybierz domenę z listy rozwijanej **domena** . Lista zawiera wszystkie domeny dostępne przez konta wymienione w oknie dialogowym Ustawienia konta w programie Visual Studio (**Ustawienia konta > plików...**). Alternatywnie możesz wprowadzić nazwę domeny, jeśli nie znajdziesz tego, na czym szukasz, na przykład `mydomain.onmicrosoft.com` . Możesz wybrać opcję tworzenia aplikacji Azure Active Directory lub użyć ustawień z istniejącej aplikacji Azure Active Directory. Po zakończeniu wybierz pozycję **dalej** .
 
     ![Strona logowania jednokrotnego](./media/vs-azure-active-directory/configure-azure-ad-wizard-2.png)
 

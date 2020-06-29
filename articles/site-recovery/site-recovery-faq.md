@@ -4,12 +4,12 @@ description: W tym artykule omówiono popularne pytania dotyczące Azure Site Re
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: b16301bb092395ac71a5bfd6f53f392ab708b10c
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: dd3b9b8eca4f1eab66f8982b22be5941d082b229
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345176"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506178"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące Azure Site Recovery
 
@@ -128,7 +128,7 @@ Tak. W przypadku korzystania z Site Recovery do organizowania replikacji i trybu
 
 ### <a name="is-disaster-recovery-supported-for-azure-vms"></a>Czy odzyskiwanie po awarii jest obsługiwane dla maszyn wirtualnych platformy Azure?
 
-Tak, Site Recovery obsługuje awarie maszyn wirtualnych platformy Azure między regionami platformy Azure. [Przejrzyj typowe pytania](azure-to-azure-common-questions.md) dotyczące odzyskiwania po awarii maszyny wirtualnej platformy Azure.
+Tak, Site Recovery obsługuje awarie maszyn wirtualnych platformy Azure między regionami platformy Azure. [Przejrzyj typowe pytania](azure-to-azure-common-questions.md) dotyczące odzyskiwania po awarii maszyny wirtualnej platformy Azure. Jeśli chcesz przeprowadzić replikację między dwoma regionami świadczenia usługi Azure w tym samym kontynentie, Skorzystaj z naszej oferty Azure DR. Nie trzeba konfigurować serwera konfiguracji/serwera przetwarzania ani połączeń ExpressRoute.
 
 ### <a name="is-disaster-recovery-supported-for-vmware-vms"></a>Czy odzyskiwanie po awarii jest obsługiwane dla maszyn wirtualnych VMware?
 
@@ -257,7 +257,7 @@ Tak. odzyskiwanie lokalizacji alternatywnej można użyć do powrotu po awarii d
 * [Dla maszyn wirtualnych VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
 * [Dla maszyn wirtualnych funkcji Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>Czy można zautomatyzować scenariusze Site Recovery przy użyciu zestawu SDK?
 Tak. Przepływy pracy usługi Site Recovery można zautomatyzować przy użyciu interfejsu API REST, programu PowerShell lub zestawu SDK platformy Azure. Obecnie obsługiwane scenariusze wdrażania Site Recovery przy użyciu programu PowerShell:

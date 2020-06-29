@@ -3,15 +3,15 @@ title: Włączanie obsługi avere vFXT — Azure
 description: Jak włączyć obsługę przekazywania z avere vFXT dla platformy Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: d12bbd1708ceb948aea982f9ed1ab36879e3751c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc86cca1b73eb58a038a0a6da109e86b995709c9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75415363"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505481"
 ---
 # <a name="enable-support-uploads"></a>Włączanie przekazywania pomocy technicznej
 

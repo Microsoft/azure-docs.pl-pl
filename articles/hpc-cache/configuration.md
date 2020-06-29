@@ -3,15 +3,15 @@ title: Konfigurowanie ustawień pamięci podręcznej platformy Azure HPC
 description: Wyjaśnia sposób konfigurowania dodatkowych ustawień pamięci podręcznej, takich jak MTU i No-root-squash, oraz sposobu uzyskiwania dostępu do migawek ekspresowych z obiektów docelowych usługi Azure Blob Storage.
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: e9eebc9e977c6065f08b996f5ab3f3e46bc1a134
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 88aea7e58aacd9a630771948c6dbc6ed5712a674
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344275"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505311"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Skonfiguruj dodatkowe ustawienia pamięci podręcznej platformy Azure HPC
 

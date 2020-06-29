@@ -1,24 +1,15 @@
 ---
 title: Przyjmowanie Azure DevTest Labs dla przedsiębiorstwa
 description: Ten artykuł zawiera wskazówki dotyczące stosowania Azure DevTest Labs w przedsiębiorstwie.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
-ms.author: spelluru
+ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 32e828f420d41d7a67e4f41ac8a4a0698711ce2f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 81767c36b2a5b46eb41be1e516a14fb3ebe3fb7f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899256"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476992"
 ---
 # <a name="devtest-labs-in-the-enterprise"></a>Laboratoria DevTest Lab w przedsiębiorstwie
 Przedsiębiorstwa szybko wdrażają chmurę ze względu na [zalety](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) , elastyczność i ekonomię. Pierwszym etapem jest często tworzenie i testowanie obciążeń. Azure DevTest Labs udostępnia [funkcje](devtest-lab-concepts.md) , które umożliwiają korzystanie z rozwiązań [deweloperskich i testowych](devtest-lab-guidance-get-started.md)na potrzeby tworzenia i testowania.

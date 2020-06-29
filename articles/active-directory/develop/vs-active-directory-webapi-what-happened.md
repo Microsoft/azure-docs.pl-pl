@@ -6,16 +6,16 @@ manager: jillfra
 ms.workload: azure-vs
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 46fb0ad37b872a1d7ca72114f2f263df776aabf1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7075fbd098736bb297f4a2e3a93aecca5b9182a8
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886062"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478862"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Co się stało z moim projektem WebAPI (usługa połączona Azure Active Directory Visual Studio)
 
@@ -68,9 +68,9 @@ Następujące odwołania są usuwane (tylko projekty ASP.NET 4, jak w programie 
 
 - Ustaw właściwość `IISExpressSSLPort` na wartość DISTINCT.
 - Ustaw właściwość `WebProject_DirectoryAccessLevelKey` na 0 lub 1, jeśli wybrano opcję **Odczytaj dane katalogu** .
-- Ustaw właściwość `IISUrl` na gdzie `https://localhost:<port>/` `<port>` pasuje do `IISExpressSSLPort` wartości.
+- Ustaw właściwość `IISUrl` na `https://localhost:<port>/` gdzie pasuje do `<port>` `IISExpressSSLPort` wartości.
 
-## <a name="webconfig-or-appconfig-changes"></a>zmiany pliku Web. config lub App. config
+## <a name="webconfig-or-appconfig-changes"></a>Zmiany web.config lub app.config
 
 - Dodano następujące wpisy konfiguracji:
 
@@ -82,15 +82,15 @@ Następujące odwołania są usuwane (tylko projekty ASP.NET 4, jak w programie 
     </appSettings>
     ```
 
-- Tylko program Visual Studio 2017: dodano również następujący wpis w `<appSettings>`sekcji "
+- Tylko program Visual Studio 2017: dodano również następujący wpis w sekcji `<appSettings>` "
 
     ```xml
     <add key="ida:MetadataAddress" value="<domain URL + /federationmetadata/2007-06/federationmetadata.xml>" />
     ```
 
-- Dodano `<dependentAssembly>` elementy w `<runtime><assemblyBinding>` węźle dla `System.IdentityModel.Tokens.Jwt`.
+- Dodano `<dependentAssembly>` elementy w `<runtime><assemblyBinding>` węźle dla `System.IdentityModel.Tokens.Jwt` .
 
-- W przypadku wybrania opcji **Odczytaj dane katalogu** dodano następujący wpis konfiguracyjny poniżej `<appSettings>`:
+- W przypadku wybrania opcji **Odczytaj dane katalogu** dodano następujący wpis konfiguracyjny poniżej `<appSettings>` :
 
     ```xml
     <add key="ida:Password" value="<Your Azure AD app's new password>" />
@@ -100,15 +100,15 @@ Następujące odwołania są usuwane (tylko projekty ASP.NET 4, jak w programie 
 
 - Dodano `[Authorize]` atrybut do `Controllers/ValueController.cs` i wszystkich innych istniejących kontrolerów.
 
-- Dodano klasę uruchamiania uwierzytelniania, `App_Start/Startup.Auth.cs`zawierającą logikę uruchamiania dla uwierzytelniania usługi Azure AD lub odpowiednio ją zmodyfikowano. W przypadku wybrania opcji **Czytaj dane katalogu** ten plik zawiera również kod umożliwiający otrzymanie kodu OAuth i wymienianie go z tokenem dostępu.
+- Dodano klasę uruchamiania uwierzytelniania, `App_Start/Startup.Auth.cs` zawierającą logikę uruchamiania dla uwierzytelniania usługi Azure AD lub odpowiednio ją zmodyfikowano. W przypadku wybrania opcji **Czytaj dane katalogu** ten plik zawiera również kod umożliwiający otrzymanie kodu OAuth i wymienianie go z tokenem dostępu.
 
-- (Tylko program Visual Studio 2015 z aplikacją ASP.NET 4) Usunięty `App_Start/IdentityConfig.cs` i dodany `Controllers/AccountController.cs`, `Models/IdentityModel.cs`, i `Providers/ApplicationAuthProvider.cs`.
+- (Tylko program Visual Studio 2015 z aplikacją ASP.NET 4) Usunięty `App_Start/IdentityConfig.cs` i dodany `Controllers/AccountController.cs` , `Models/IdentityModel.cs` , i `Providers/ApplicationAuthProvider.cs` .
 
-- Dodano `Connected Services/AzureAD/ConnectedService.json` (visual Studio 2017) lub `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015) zawierający informacje używane przez program Visual Studio do śledzenia dodawania połączonej usługi.
+- Dodano `Connected Services/AzureAD/ConnectedService.json` (Visual studio 2017) lub `Service References/Azure AD/ConnectedService.json` (visual Studio 2015) zawierający informacje używane przez program Visual Studio do śledzenia dodawania połączonej usługi.
 
 ### <a name="file-backup-visual-studio-2015"></a>Kopia zapasowa plików (Visual Studio 2015)
 
-Podczas dodawania połączonej usługi program Visual Studio 2015 tworzy kopie zapasowe zmienionych i usuniętych plików. Wszystkie odnośne pliki są zapisywane w folderze `Backup/AzureAD`. Program Visual Studio 2017 nie tworzy kopii zapasowych.
+Podczas dodawania połączonej usługi program Visual Studio 2015 tworzy kopie zapasowe zmienionych i usuniętych plików. Wszystkie odnośne pliki są zapisywane w folderze `Backup/AzureAD` . Program Visual Studio 2017 nie tworzy kopii zapasowych.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`

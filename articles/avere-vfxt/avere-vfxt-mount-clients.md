@@ -3,15 +3,15 @@ title: Instalowanie programu avere vFXT — Azure
 description: Jak zainstalować klientów z programem avere vFXT dla platformy Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: b8486b5a33226b1faa5e3874144129dbe7a1a2f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c6a4b2c1d95bc803d10697ce2164ea190f824d96
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153415"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85505447"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Instalowanie klastra Avere vFXT
 

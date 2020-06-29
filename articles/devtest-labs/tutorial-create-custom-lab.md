@@ -1,25 +1,14 @@
 ---
 title: Tworzenie laboratorium przy użyciu usługi Azure DevTest Labs | Microsoft Docs
 description: W tym samouczku utworzysz laboratorium w Azure DevTest Labs przy użyciu Azure Portal. Administrator laboratorium konfiguruje laboratorium, tworzy maszyny wirtualne w laboratorium i konfiguruje zasady.
-services: devtest-lab, lab-services, virtual-machines
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 9d016b38beb2f338a97ac862a060dc5ec3a77780
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899504"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476567"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Samouczek: konfigurowanie laboratorium przy użyciu usługi Azure DevTest Labs
 W tym samouczku utworzysz laboratorium za pomocą witryny Azure Portal. Administrator laboratorium konfiguruje laboratorium w organizacji, tworzy maszyny wirtualne w laboratorium i konfiguruje zasady. Użytkownicy laboratorium (na przykład deweloper i testerzy) przejmują maszyny wirtualne w laboratorium, nawiązują połączenie z nimi i korzystają z nich. 
@@ -97,7 +86,7 @@ Następujące kroki ilustrują tworzenie laboratorium w usłudze Azure DevTest L
 
         ![Dodawanie użytkownika](./media/tutorial-create-custom-lab/add-user.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 W następnym samouczku pokazano, jak użytkownik laboratorium może przejąć maszynę wirtualną w laboratorium i nawiązać z nią połączenie. Jeśli nie chcesz korzystać z tamtego samouczka i chcesz oczyścić zasoby utworzone w ramach tego samouczka, wykonaj następujące czynności: 
 
 1. W witrynie Azure Portal wybierz z menu pozycję **Grupy zasobów**. 

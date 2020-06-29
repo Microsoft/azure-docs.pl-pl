@@ -1,24 +1,14 @@
 ---
 title: Podręcznik administratora Azure Lab Services | Microsoft Docs
 description: Ten przewodnik pomaga administratorom, którzy tworzą konta laboratorium i zarządzają nimi przy użyciu Azure Lab Services.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
-ms.author: spelluru
-ms.openlocfilehash: b286fd9e718769a501b1876d093c549bbe1b0e58
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84899144"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85444152"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services — Podręcznik administratora
 Administratorzy IT, którzy zarządzają zasobami w chmurze University, są zwykle odpowiedzialni za skonfigurowanie konta laboratorium dla swojej szkoły. Po skonfigurowaniu konta Laboratorium Administratorzy lub wykładowcy tworzą laboratoria klas, które są zawarte w ramach konta laboratorium. Ten artykuł zawiera ogólne omówienie związanych zasobów platformy Azure oraz wskazówki dotyczące ich tworzenia.

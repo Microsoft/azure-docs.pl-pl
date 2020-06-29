@@ -2,14 +2,14 @@
 title: Inicjowanie obsługi administracyjnej puli w sieci wirtualnej
 description: Jak utworzyć pulę usługi Batch w sieci wirtualnej platformy Azure, dzięki czemu węzły obliczeniowe mogą bezpiecznie komunikować się z innymi maszynami wirtualnymi w sieci, takimi jak serwer plików.
 ms.topic: how-to
-ms.date: 04/03/2020
+ms.date: 06/26/2020
 ms.custom: seodec18
-ms.openlocfilehash: 559cf3bc145deeed78b91def9d36211f885005d6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3ff8995217521199436e0924acc691dab7c4baef
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83797521"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85506614"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli Azure Batch w sieci wirtualnej
 
@@ -17,27 +17,29 @@ Podczas tworzenia puli Azure Batch można zainicjować obsługę administracyjn�
 
 ## <a name="why-use-a-vnet"></a>Dlaczego warto używać sieci wirtualnej?
 
-Pula Azure Batch ma ustawienia umożliwiające węzłom obliczeniowym komunikowanie się ze sobą, na przykład w celu uruchamiania zadań o wiele wystąpień. Te ustawienia nie wymagają oddzielnej sieci wirtualnej. Jednak domyślnie węzły nie mogą komunikować się z maszynami wirtualnymi, które nie należą do puli partii, takich jak serwer licencji lub serwer plików. Aby umożliwić węzłom obliczeniowym puli bezpieczne komunikowanie się z innymi maszynami wirtualnymi lub z siecią lokalną, można zainicjować obsługę administracyjną puli w podsieci sieci wirtualnej platformy Azure.
+Węzły obliczeniowe w puli mogą komunikować się ze sobą, na przykład do uruchamiania zadań o wiele wystąpień, bez konieczności oddzielnej sieci wirtualnej. Jednak domyślnie węzły w puli nie mogą komunikować się z maszynami wirtualnymi spoza puli, takimi jak serwery licencji lub serwery plików.
+
+Aby umożliwić węzłom obliczeniowym bezpieczne komunikowanie się z innymi maszynami wirtualnymi lub z siecią lokalną, można zainicjować obsługę administracyjną puli w podsieci sieci wirtualnej platformy Azure.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Uwierzytelnianie**. Aby użyć sieci wirtualnej platformy Azure, interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi Azure Active Directory (AD). Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md).
+- **Uwierzytelnianie**. Aby użyć sieci wirtualnej platformy Azure, interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi Azure Active Directory (AD). Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md).
 
-* **Sieć wirtualna platformy Azure**. Zapoznaj się z następującą sekcją dotyczącą wymagań i konfiguracji sieci wirtualnej. Aby przygotować sieć wirtualną z wyprzedzeniem z co najmniej jedną podsiecią, można użyć Azure Portal, Azure PowerShell, interfejsu wiersza polecenia (CLI) platformy Azure lub innych metod.
-  * Aby utworzyć sieć wirtualną opartą na Azure Resource Manager, zobacz [Tworzenie sieci wirtualnej](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Sieć wirtualna oparta na Menedżer zasobów jest zalecana w przypadku nowych wdrożeń i jest obsługiwana tylko w pulach w konfiguracji maszyny wirtualnej.
-  * Aby utworzyć klasyczną sieć wirtualną, zobacz [Tworzenie sieci wirtualnej (klasycznej) z wieloma podsieciami](../virtual-network/create-virtual-network-classic.md). Klasyczna Sieć wirtualna jest obsługiwana tylko w pulach w konfiguracji Cloud Services.
+- **Sieć wirtualna platformy Azure**. Zapoznaj się z następującą sekcją dotyczącą wymagań i konfiguracji sieci wirtualnej. Aby przygotować sieć wirtualną z wyprzedzeniem z co najmniej jedną podsiecią, można użyć Azure Portal, Azure PowerShell, interfejsu wiersza polecenia (CLI) platformy Azure lub innych metod.
+  - Aby utworzyć sieć wirtualną opartą na Azure Resource Manager, zobacz [Tworzenie sieci wirtualnej](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Sieć wirtualna oparta na Menedżer zasobów jest zalecana w przypadku nowych wdrożeń i jest obsługiwana tylko w pulach, które używają konfiguracji maszyny wirtualnej.
+  - Aby utworzyć klasyczną sieć wirtualną, zobacz [Tworzenie sieci wirtualnej (klasycznej) z wieloma podsieciami](../virtual-network/create-virtual-network-classic.md). Klasyczna Sieć wirtualna jest obsługiwana tylko w pulach, które używają konfiguracji Cloud Services.
 
 ## <a name="vnet-requirements"></a>Wymagania dotyczące sieci wirtualnej
 
 [!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Tworzenie puli przy użyciu sieci wirtualnej w portalu
+## <a name="create-a-pool-with-a-vnet-in-the-azure-portal"></a>Utwórz pulę z siecią wirtualną w Azure Portal
 
 Po utworzeniu sieci wirtualnej i przypisaniu do niej podsieci można utworzyć pulę wsadową z tą siecią wirtualną. Wykonaj następujące kroki, aby utworzyć pulę na podstawie Azure Portal: 
 
 1. W witrynie Azure Portal przejdź do swojego konta usługi Batch. To konto musi znajdować się w tej samej subskrypcji i regionie co grupa zasobów zawierająca sieć wirtualną, która ma być używana.
 2. W oknie **Ustawienia** po lewej stronie wybierz element menu **Pule** .
-3. W oknie **Pule** wybierz polecenie **Dodaj** .
+3. W oknie **Pule** wybierz pozycję **Dodaj**.
 4. W oknie **Dodawanie puli** wybierz opcję, która ma zostać użyta z listy rozwijanej **Typ obrazu** .
 5. Wybierz prawidłową **wersję wydawcy/oferty/jednostki SKU** dla obrazu niestandardowego.
 6. Określ pozostałe wymagane ustawienia, w tym **rozmiar węzła**, **docelowe węzły dedykowane**i **węzły o niskim priorytecie**, a także wszystkie wymagane ustawienia opcjonalne.
@@ -47,22 +49,22 @@ Po utworzeniu sieci wirtualnej i przypisaniu do niej podsieci można utworzyć p
 
 ## <a name="user-defined-routes-for-forced-tunneling"></a>Trasy zdefiniowane przez użytkownika dla tunelowania wymuszonego
 
-W Twojej organizacji mogą istnieć wymagania dotyczące przekierowywania (wymuszania) ruchu związanego z Internetu z podsieci z powrotem do lokalizacji lokalnej na potrzeby inspekcji i rejestrowania. Być może włączono Wymuszone tunelowanie dla podsieci w sieci wirtualnej.
+W Twojej organizacji mogą istnieć wymagania dotyczące przekierowywania (wymuszania) ruchu związanego z Internetu z podsieci z powrotem do lokalizacji lokalnej na potrzeby inspekcji i rejestrowania. Ponadto można włączyć Wymuszone tunelowanie dla podsieci w sieci wirtualnej.
 
-Aby upewnić się, że węzły obliczeniowe puli Azure Batch działają w sieci wirtualnej z włączonym wymuszonym tunelowaniem, należy dodać następujące [trasy zdefiniowane przez użytkownika](../virtual-network/virtual-networks-udr-overview.md) (UDR) dla tej podsieci:
+Aby upewnić się, że węzły w puli działają w sieci wirtualnej z włączonym wymuszonym tunelowaniem, należy dodać następujące [trasy zdefiniowane przez użytkownika](../virtual-network/virtual-networks-udr-overview.md) (UDR) dla tej podsieci:
 
-* Usługa Batch musi komunikować się z węzłami obliczeniowymi puli na potrzeby planowania zadań. Aby włączyć tę komunikację, należy dodać UDR dla każdego adresu IP używanego przez usługę Batch w regionie, w którym istnieje konto usługi Batch. Aby dowiedzieć się, jak uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md).
+- Usługa Batch musi komunikować się z węzłami w celu planowania zadań. Aby włączyć tę komunikację, należy dodać UDR dla każdego adresu IP używanego przez usługę Batch w regionie, w którym istnieje konto usługi Batch. Aby uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md).
 
-* Upewnij się, że ruch wychodzący do usługi Azure Storage (w odniesieniu do adresów URL formularza `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` i `<account>.blob.core.windows.net` ) nie jest blokowany za pośrednictwem lokalnego urządzenia sieciowego.
+- Upewnij się, że ruch wychodzący do usługi Azure Storage (w odniesieniu do adresów URL formularza `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` i `<account>.blob.core.windows.net` ) nie jest blokowany przez sieć lokalną.
 
-Po dodaniu UDR należy zdefiniować trasę dla każdego powiązanego prefiksu adresu IP partii i ustawić **Typ następnego przeskoku** na **Internet**. Zobacz poniższy przykład:
+Po dodaniu UDR należy zdefiniować trasę dla każdego powiązanego prefiksu adresu IP partii i ustawić **Typ następnego przeskoku** na **Internet**.
 
 ![Trasa zdefiniowana przez użytkownika](./media/batch-virtual-network/user-defined-route.png)
 
 > [!WARNING]
-> Adresy IP usługi Batch mogą ulec zmianie z upływem czasu. Aby zapobiec awarii ze względu na zmianę adresu IP, sugerujemy ustanowienie okresowego procesu odświeżania adresów IP usługi Batch automatycznie i zachować ich aktualność w tabeli tras.
+> Adresy IP usługi Batch mogą ulec zmianie z upływem czasu. Aby zapobiec awariom ze względu na zmianę adresu IP, należy utworzyć proces automatycznego odświeżania adresów IP usługi Batch i zachować ich aktualność w tabeli tras. Alternatywnie można [utworzyć pulę z określonymi adresami IP, które kontrolujesz](create-pool-public-ip.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
-- Aby uzyskać informacje na temat tworzenia trasy zdefiniowanej przez użytkownika, zobacz [Tworzenie trasy zdefiniowanej przez użytkownika Azure Portal](../virtual-network/tutorial-create-route-table-portal.md).
+- Dowiedz się [, jak utworzyć zdefiniowaną przez użytkownika trasę w Azure Portal](../virtual-network/tutorial-create-route-table-portal.md).

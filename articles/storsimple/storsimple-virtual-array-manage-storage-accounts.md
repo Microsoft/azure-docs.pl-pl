@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 234bf8bb-d5fe-40be-9d25-721d7482bc3b
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: 5cedde1e7daa49aaa7a2786c9ad8a65fb8e452f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8267a678f35d01119ae3e7d89a07c789dc969614
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297578"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507504"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Użyj StorSimple Menedżer urządzeń do zarządzania poświadczeniami konta magazynu dla macierzy wirtualnej StorSimple
 

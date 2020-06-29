@@ -7,18 +7,18 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: 68040c8ee22454c300296493b6c840eabbca98aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 408d8856130947e9be9c6d2714310332d9935cdd
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76697136"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477995"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Instrukcje: Konfigurowanie domeny wydawcy aplikacji
 
@@ -85,7 +85,7 @@ Jeśli aplikacja nie jest zarejestrowana w dzierżawie, zobaczysz tylko opcję w
 
 1. Zastąp symbol zastępczy *{The-App-ID-in}* nazwą aplikacji (klienta) odpowiadającą aplikacji.
 
-1. Hostowanie pliku w: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Zastąp symbol zastępczy *{domeną tutaj}* , aby pasował do zweryfikowanej domeny.
+1. Hostowanie pliku w: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json` . Zastąp symbol zastępczy *{domeną tutaj}* , aby pasował do zweryfikowanej domeny.
 
 1. Kliknij przycisk **Weryfikuj i Zapisz domenę** .
 
@@ -94,7 +94,7 @@ Jeśli aplikacja nie jest zarejestrowana w dzierżawie, zobaczysz tylko opcję w
 - Jeśli dzierżawca ma zweryfikowane domeny, wybierz jedną z domen z listy rozwijanej **Wybierz zweryfikowaną domenę** .
 
 >[!Note]
-> Oczekiwany nagłówek "Content-Type", który ma zostać zwrócony `application/json`. Może wystąpić błąd, jak wspomniano poniżej, jeśli używasz innych elementów, takich jak`application/json; charset=utf-8` 
+> Oczekiwany nagłówek "Content-Type", który ma zostać zwrócony `application/json` . Może wystąpić błąd, jak wspomniano poniżej, jeśli używasz innych elementów, takich jak`application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

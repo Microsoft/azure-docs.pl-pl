@@ -1,24 +1,14 @@
 ---
 title: Ustawianie haseł dla maszyn wirtualnych w Azure Lab Services | Microsoft Docs
 description: Dowiedz się, jak ustawiać i resetować hasła dla maszyn wirtualnych w laboratorium z klasą Azure Lab Services.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
-ms.author: spelluru
-ms.openlocfilehash: eda9a58a3bb63e3f66ca7b0c8bb1b7c866e2ac4f
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 6012123b729bd1be6b4ff0fdb00d71aca56cfa09
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895815"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443778"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurowanie puli maszyn wirtualnych i zarządzanie nią 
 W tym artykule przedstawiono sposób wykonywania następujących zadań:

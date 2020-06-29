@@ -2,13 +2,13 @@
 title: Śledzenie zależności na platformie Azure Application Insights | Microsoft Docs
 description: Monitoruj wywołania zależności z lokalnej lub Microsoft Azure aplikacji sieci Web z Application Insights.
 ms.topic: conceptual
-ms.date: 03/26/2020
-ms.openlocfilehash: 759e465a21b421c22a62245536827546acc2d79e
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.date: 06/26/2020
+ms.openlocfilehash: 17fa2120df45b5cb940f6c1b6887718023a3926f
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204756"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445223"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Śledzenie zależności w usłudze Azure Application Insights 
 
@@ -80,7 +80,7 @@ Na przykład, Jeśli kompilujesz swój kod z zestawem, który nie został napisa
 
 Alternatywnie, `TelemetryClient` dostarcza metody rozszerzające, `StartOperation` `StopOperation` które mogą być używane do ręcznego śledzenia zależności, jak pokazano [poniżej](custom-operations-tracking.md#outgoing-dependencies-tracking)
 
-Jeśli chcesz wyłączyć standardowy moduł śledzenia zależności, usuń odwołanie do DependencyTrackingTelemetryModule w [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) dla aplikacji ASP.NET. W przypadku aplikacji ASP.NET Core należy postępować zgodnie z instrukcjami znajdującymi się [tutaj](asp-net-core.md#configuring-or-removing-default-telemetrymodules).
+Jeśli chcesz wyłączyć standardowy moduł śledzenia zależności, usuń odwołanie do DependencyTrackingTelemetryModule w [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) dla aplikacji ASP.NET. W przypadku aplikacji ASP.NET Core należy postępować zgodnie z instrukcjami znajdującymi się [tutaj](asp-net-core.md#configuring-or-removing-default-telemetrymodules).
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>Śledzenie wywołań AJAX ze stron sieci Web
 
@@ -95,14 +95,22 @@ W przypadku aplikacji ASP.NET Core teraz wymagane jest zalogowanie do kolekcji t
 services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) => { module. EnableSqlCommandTextInstrumentation = true; });
 ```
 
-W przypadku aplikacji ASP.NET pełnych zapytań SQL jest zbieranych za pomocą Instrumentacji kodu bajtowego, co wymaga aparatu Instrumentacji lub z użyciem pakietu NuGet [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) zamiast biblioteki System. Data. SqlClient. Wymagane są dodatkowe czynności specyficzne dla platformy, zgodnie z poniższym opisem.
+W przypadku aplikacji ASP.NET cały tekst zapytania SQL jest zbierany przy użyciu instrumentacji kodu bajtowego, która wymaga użycia aparatu Instrumentacji lub pakietu NuGet [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) zamiast biblioteki System. Data. SqlClient. Kroki specyficzne dla platformy umożliwiające pełną kolekcję zapytań SQL zostały opisane poniżej:
 
 | Platforma | Kroki, które trzeba wykonać, aby uzyskać pełne zapytanie SQL |
 | --- | --- |
 | Aplikacja internetowa platformy Azure |W panelu sterowania aplikacji sieci Web [Otwórz blok Application Insights](../../azure-monitor/app/azure-web-apps.md) i Włącz polecenia SQL w obszarze .NET |
 | Serwer IIS (maszyna wirtualna platformy Azure, premium itd.) | Użyj pakietu NuGet [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) lub użyj modułu Monitor stanu PowerShell, aby [zainstalować aparat Instrumentacji](../../azure-monitor/app/status-monitor-v2-api-reference.md) i ponownie uruchomić usługi IIS. |
 | Azure Cloud Service | Dodaj [zadanie uruchamiania, aby zainstalować StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Twoja aplikacja powinna zostać dołączona do zestawu ApplicationInsights SDK w czasie kompilacji przez zainstalowanie pakietów NuGet dla aplikacji [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) lub [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
-| IIS Express | Używanie pakietu NuGet [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient)
+| IIS Express | Użyj pakietu NuGet [Microsoft. Data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) .
+
+Oprócz kroków specyficznych dla platformy należy **również jawnie zadecydować, aby włączyć zbieranie poleceń SQL** , modyfikując plik applicationInsights.config:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+</Add>
+```
 
 W powyższych przypadkach poprawna metoda sprawdzania poprawności aparatu Instrumentacji jest poprawnie zainstalowana, sprawdzając, czy wersja zestawu SDK zebrana `DependencyTelemetry` to "rddp". element "rdddsd" lub "rddf" wskazuje zależności, które są zbierane za pośrednictwem wywołania zwrotnego DiagnosticSource lub EventSource, i dlatego pełne zapytanie SQL nie zostanie przechwycone.
 

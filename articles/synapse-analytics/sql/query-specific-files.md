@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 9c573e6ea3f80369f9b5cced66302caf12d727a4
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: bf62d57aab07f5b1f2839b9e6e45c42e6b1b2c51
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85206364"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478420"
 ---
 # <a name="using-file-metadata-in-queries"></a>Korzystanie z metadanych plików w zapytaniach
 
@@ -22,7 +22,7 @@ Usługa zapytań na żądanie SQL może rozdzielić wiele plików i folderów zg
 
 Czasami może być konieczne sprawdzenie, który plik lub źródło folderu jest skorelowane z określonym wierszem w zestawie wyników.
 
-Można użyć funkcji `filepath` i `filename` zwrócić nazwy plików i/lub ścieżki w zestawie wyników. Można też użyć ich do filtrowania danych na podstawie nazwy pliku i/lub ścieżki folderu. Te funkcje są opisane w sekcji składnia [Nazwa](develop-storage-files-overview.md#filename-function) i [ścieżka funkcji](develop-storage-files-overview.md#filepath-function). Poniżej znajdziesz krótkie opisy dotyczące przykładów.
+Można użyć funkcji `filepath` i `filename` zwrócić nazwy plików i/lub ścieżki w zestawie wyników. Można też użyć ich do filtrowania danych na podstawie nazwy pliku i/lub ścieżki folderu. Te funkcje są opisane w sekcji składnia [Nazwa](query-data-storage.md#filename-function) i [ścieżka funkcji](query-data-storage.md#filepath-function). Poniżej znajdziesz krótkie opisy dotyczące przykładów.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

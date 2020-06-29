@@ -1,23 +1,14 @@
 ---
 title: Uruchamianie fabryki obrazu z usługi Azure DevOps w Azure DevTest Labs
 description: W tym artykule opisano wszystkie przygotowania, które są konieczne do uruchomienia fabryki obrazu z usługi Azure DevOps (dawniej Visual Studio Team Services).
-services: devtest-lab, lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: bb67f765684c77ed5f8527226bef578e450579e0
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: fa7050bae1ff8681e04b6ab38220be9eaf38a64a
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84897530"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85476142"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Uruchamianie fabryki obrazów z usługi Azure DevOps
 W tym artykule opisano wszystkie przygotowania, które są konieczne do uruchomienia fabryki obrazu z usługi Azure DevOps (dawniej Visual Studio Team Services).

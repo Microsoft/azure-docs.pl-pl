@@ -7,17 +7,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871543"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477247"
 ---
 # <a name="whats-new-for-authentication"></a>Co nowego w uwierzytelnianiu?
 
@@ -37,7 +37,7 @@ System uwierzytelniania zmienia i dodaje funkcje na bieżąco w celu poprawy bez
 
 Brak zaplanowanych w tym momencie.  Poniżej znajdują się zmiany, które znajdują się w środowisku produkcyjnym lub znajdują się w nim.
 
-## <a name="may-2020"></a>2020 maja
+## <a name="may-2020"></a>Maj 2020 r.
 
 ### <a name="azure-government-endpoints-are-changing"></a>Azure Government punkty końcowe są zmieniane
 
@@ -47,9 +47,9 @@ Brak zaplanowanych w tym momencie.  Poniżej znajdują się zmiany, które znajd
 
 **Wpływ na protokół**: wszystkie przepływy
 
-1 czerwca 2018 Urząd oficjalnych Azure Active Directory (AAD) dla Azure Government zmieniony z `https://login-us.microsoftonline.com` na. `https://login.microsoftonline.us` Ta zmiana została również zastosowana do Microsoft 365 i DoD w serwisie zatoce, które Azure Government usługi AAD. Jeśli jesteś członkiem aplikacji w ramach dzierżawy dla instytucji rządowych Stanów Zjednoczonych, musisz zaktualizować aplikację, aby `.us` zalogować użytkowników w punkcie końcowym.  
+1 czerwca 2018 Urząd oficjalnych Azure Active Directory (AAD) dla Azure Government zmieniony z `https://login-us.microsoftonline.com` na `https://login.microsoftonline.us` . Ta zmiana została również zastosowana do Microsoft 365 i DoD w serwisie zatoce, które Azure Government usługi AAD. Jeśli jesteś członkiem aplikacji w ramach dzierżawy dla instytucji rządowych Stanów Zjednoczonych, musisz zaktualizować aplikację, aby zalogować użytkowników w `.us` punkcie końcowym.  
 
-Począwszy od 5 maja, usługa Azure AD zacznie wymuszać zmianę punktu końcowego, blokując Logowanie użytkowników w aplikacjach hostowanych w dzierżawach dla instytucji rządowych Stanów Zjednoczonych przy użyciu publicznego punktu końcowego (`microsoftonline.com`).  Aplikacje, których dotyczy problem, rozpoczną `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`wyświetlanie błędu. Ten błąd oznacza, że aplikacja próbuje zalogować się do użytkownika rządu USA w punkcie końcowym chmury publicznej. Jeśli Twoja aplikacja znajduje się w dzierżawie chmury publicznej i jest przeznaczona do obsługi użytkowników w Stanach Zjednoczonych, musisz [zaktualizować aplikację, aby obsługiwała ją jawnie](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Może to wymagać utworzenia nowej rejestracji aplikacji w chmurze dla instytucji rządowych USA. 
+Począwszy od 5 maja, usługa Azure AD zacznie wymuszać zmianę punktu końcowego, blokując Logowanie użytkowników w aplikacjach hostowanych w dzierżawach dla instytucji rządowych Stanów Zjednoczonych przy użyciu publicznego punktu końcowego ( `microsoftonline.com` ).  Aplikacje, których dotyczy problem, rozpoczną wyświetlanie błędu `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint` . Ten błąd oznacza, że aplikacja próbuje zalogować się do użytkownika rządu USA w punkcie końcowym chmury publicznej. Jeśli Twoja aplikacja znajduje się w dzierżawie chmury publicznej i jest przeznaczona do obsługi użytkowników w Stanach Zjednoczonych, musisz [zaktualizować aplikację, aby obsługiwała ją jawnie](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Może to wymagać utworzenia nowej rejestracji aplikacji w chmurze dla instytucji rządowych USA. 
 
 Egzekwowanie tej zmiany zostanie wykonane przy użyciu stopniowego wdrażania w zależności od tego, jak często użytkownicy z chmury rządowej Stanów Zjednoczonych zalogują się do aplikacji aplikacja — aplikacje dla instytucji rządowych STANów Zjednoczonych często zobaczą wymuszanie, a aplikacje często używane przez użytkowników rządów USA będą musiały zostać zastosowane. Oczekujemy, że wymuszanie zakończy się we wszystkich aplikacjach w czerwcu 2020. 
 
@@ -104,7 +104,7 @@ Począwszy od tygodnia 9/2, żądania uwierzytelniania używające metody POST b
 
 Przykład:
 
-Dzisiaj jest `?e=    "f"&g=h` analizowane identycznie tak, jak `?e=f&g=h` to możliwe `e`  ==  `f`.  W przypadku tej zmiany teraz będzie ona analizowana w taki sposób `e`  ==  `    "f"` , aby nie był to prawidłowy argument, a żądanie mogłoby się nie powieść.
+Dzisiaj `?e=    "f"&g=h` jest analizowane identycznie tak, jak to `?e=f&g=h` możliwe `e`  ==  `f` .  W przypadku tej zmiany teraz będzie ona analizowana w taki sposób, aby nie był to `e`  ==  `    "f"` prawidłowy argument, a żądanie mogłoby się nie powieść.
 
 
 ## <a name="july-2019"></a>Lipiec 2019 r.
@@ -117,7 +117,7 @@ Dzisiaj jest `?e=    "f"&g=h` analizowane identycznie tak, jak `?e=f&g=h` to mo�
 
 **Wpływ na protokół**: [poświadczenia klienta (tokeny tylko dla aplikacji)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
-Nastąpiła zmiana zabezpieczeń na żywo 26 lipca, która zmienia sposób, w jaki są wydawane tokeny tylko dla aplikacji (za pośrednictwem przyznanych poświadczeń klienta). Wcześniej aplikacje mogły uzyskać tokeny wywołujące dowolną inną aplikację, niezależnie od obecności w dzierżawie lub rolach, które zostały wysłane do danej aplikacji.  To zachowanie zostało zaktualizowane, tak aby w przypadku zasobów (nazywanych czasem interfejsem API sieci Web) ustawić jedną dzierżawę (domyślnie), aplikacja kliencka musi znajdować się w dzierżawie zasobów.  Należy zauważyć, że istniejąca zgoda między klientem i interfejsem API nadal nie jest wymagana, a aplikacje nadal powinny przeprowadzać własne testy autoryzacji, `roles` aby upewnić się, że występuje żądanie i zawiera oczekiwaną wartość dla interfejsu API.
+Nastąpiła zmiana zabezpieczeń na żywo 26 lipca, która zmienia sposób, w jaki są wydawane tokeny tylko dla aplikacji (za pośrednictwem przyznanych poświadczeń klienta). Wcześniej aplikacje mogły uzyskać tokeny wywołujące dowolną inną aplikację, niezależnie od obecności w dzierżawie lub rolach, które zostały wysłane do danej aplikacji.  To zachowanie zostało zaktualizowane, tak aby w przypadku zasobów (nazywanych czasem interfejsem API sieci Web) ustawić jedną dzierżawę (domyślnie), aplikacja kliencka musi znajdować się w dzierżawie zasobów.  Należy zauważyć, że istniejąca zgoda między klientem i interfejsem API nadal nie jest wymagana, a aplikacje nadal powinny przeprowadzać własne testy autoryzacji, aby upewnić się, że `roles` występuje żądanie i zawiera oczekiwaną wartość dla interfejsu API.
 
 Komunikat o błędzie dla tego scenariusza jest obecnie stanem:
 
@@ -127,7 +127,7 @@ Aby rozwiązać ten problem, użyj środowiska zgody administratora, aby utworzy
 
 #### <a name="example-request"></a>Przykładowe żądanie
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`W tym przykładzie dzierżawca zasobów (Urząd) to contoso.com, aplikacja zasobów jest aplikacją jednodostępną o nazwie `gateway.contoso.com/api` dzierżawcy contoso, a aplikacja kliencka. `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`  Jeśli aplikacja kliencka ma nazwę główną usługi w ramach Contoso.com, to żądanie może być kontynuowane.  W przeciwnym razie żądanie zakończy się niepowodzeniem z błędem powyżej.
+`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`W tym przykładzie dzierżawca zasobów (Urząd) to contoso.com, aplikacja zasobów jest aplikacją jednodostępną o nazwie `gateway.contoso.com/api` dzierżawcy contoso, a aplikacja kliencka `14c88eee-b3e2-4bb0-9233-f5e3053b3a28` .  Jeśli aplikacja kliencka ma nazwę główną usługi w ramach Contoso.com, to żądanie może być kontynuowane.  W przeciwnym razie żądanie zakończy się niepowodzeniem z błędem powyżej.
 
 Jeśli jednak aplikacja bramy contoso była aplikacją z wieloma dzierżawcami, żądanie będzie kontynuowane bez względu na to, czy aplikacja kliencka ma nazwę główną usługi w Contoso.com.
 
@@ -139,7 +139,7 @@ Jeśli jednak aplikacja bramy contoso była aplikacją z wieloma dzierżawcami, 
 
 **Wpływ na protokół**: wszystkie przepływy
 
-Na [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)aplikacje usługi Azure AD mogą teraz rejestrować i używać identyfikatorów URI przekierowania (odpowiedź) przy użyciu statycznych parametrów zapytania `https://contoso.com/oauth2?idp=microsoft`(takich jak) dla żądań uwierzytelniania OAuth 2,0.  Dynamiczne identyfikatory URI przekierowania są nadal zabronione, ponieważ stanowią zagrożenie bezpieczeństwa i nie mogą być używane do zachowywania informacji o stanie w ramach żądania uwierzytelniania — w tym celu `state` należy użyć parametru.
+Na [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)aplikacje usługi Azure AD mogą teraz rejestrować i używać identyfikatorów URI przekierowania (odpowiedź) przy użyciu statycznych parametrów zapytania (takich jak `https://contoso.com/oauth2?idp=microsoft` ) dla żądań uwierzytelniania OAuth 2,0.  Dynamiczne identyfikatory URI przekierowania są nadal zabronione, ponieważ stanowią zagrożenie bezpieczeństwa i nie mogą być używane do zachowywania informacji o stanie w ramach żądania uwierzytelniania — w tym celu należy użyć `state` parametru.
 
 Statyczny parametr zapytania jest uzależniony od ciągu dla identyfikatorów URI przekierowania, takich jak jakakolwiek inna część identyfikatora URI przekierowania — Jeśli nie jest zarejestrowany żaden ciąg pasujący do redirect_uri z zdekodowanym identyfikatorem URI, żądanie zostanie odrzucone.  Jeśli identyfikator URI zostanie znaleziony w rejestracji aplikacji, cały ciąg zostanie użyty do przekierowania użytkownika, łącznie z parametrem zapytania statycznego.
 
@@ -158,7 +158,7 @@ Należy pamiętać, że w tej chwili (koniec lipca 2019) środowisko rejestracji
 
 Aplikacje klienckie mogą czasami niedziałać, wydając setki tego samego żądania logowania w krótkim czasie.  Te żądania mogą się nie powieść, ale wszystkie mają wpływ na słabe środowisko użytkownika i zwiększone obciążenia dla dostawcy tożsamości, zwiększając opóźnienia dla wszystkich użytkowników i redukując dostępność dostawcy tożsamości.  Te aplikacje działają poza granicami normalnego użycia i należy je zaktualizować, aby działały prawidłowo.
 
-Klienci, którzy wydają zduplikowane żądania wiele razy, `invalid_grant` będą mogli `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`wysłać błąd:.
+Klienci, którzy wydają zduplikowane żądania wiele razy, będą mogli wysłać `invalid_grant` błąd: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` .
 
 Większość klientów nie będzie musiała zmienić zachowania, aby uniknąć tego błędu.  Ten błąd będzie miał wpływ tylko na niepoprawnie skonfigurowanych klientów (bez buforowania tokenu lub tych, które są już wyświetlane).  Klienci są śledzoni lokalnie na poszczególnych wystąpieniach (za pośrednictwem pliku cookie) na następujących czynnikach:
 
@@ -174,7 +174,7 @@ Większość klientów nie będzie musiała zmienić zachowania, aby uniknąć t
 
 Aplikacje wykonujące wiele żądań (15 +) w krótkim czasie (5 minut) otrzymają komunikat `invalid_grant` o błędzie z informacją, że są zapętlenia.  Żądane tokeny mają wystarczająco długie okresy istnienia (co najmniej 10 minut, domyślnie 60 minut), więc powtarzające się żądania w tym okresie są zbędne.
 
-Wszystkie aplikacje powinny być `invalid_grant` obsługiwane przez wyświetlanie interakcyjnego monitu, a nie w trybie dyskretnym.  Aby uniknąć tego błędu, klienci powinni upewnić się, że prawidłowo buforują otrzymywane tokeny.
+Wszystkie aplikacje powinny być obsługiwane `invalid_grant` przez wyświetlanie interakcyjnego monitu, a nie w trybie dyskretnym.  Aby uniknąć tego błędu, klienci powinni upewnić się, że prawidłowo buforują otrzymywane tokeny.
 
 
 ## <a name="october-2018"></a>Październik 2018 r.
@@ -209,5 +209,5 @@ Aby obejść tę zmianę, można wykonać następujące czynności:
 
 1. Utwórz internetowy interfejs API dla aplikacji z co najmniej jednym zakresem. Ten jawny punkt wejścia umożliwi dokładniejszą kontrolę i bezpieczeństwo.
 1. W manifeście aplikacji, w [Azure Portal](https://portal.azure.com) lub [portalu rejestracji aplikacji](https://apps.dev.microsoft.com), upewnij się, że aplikacja może wystawiać tokeny dostępu za pośrednictwem niejawnego przepływu. Jest to kontrolowane przez `oauth2AllowImplicitFlow` klucz.
-1. Gdy aplikacja kliencka żąda id_token za pośrednictwem `response_type=id_token`programu, należy również zażądać`response_type=token`tokenu dostępu () dla internetowego interfejsu API utworzonego powyżej. W tym przypadku, podczas korzystania z punktu końcowego `scope` v 2.0, parametr powinien `api://GUID/SCOPE`wyglądać podobnie do. W punkcie końcowym v 1.0 `resource` parametr powinien być identyfikatorem URI aplikacji interfejsu API sieci Web.
+1. Gdy aplikacja kliencka żąda id_token za pośrednictwem programu `response_type=id_token` , należy również zażądać tokenu dostępu ( `response_type=token` ) dla internetowego interfejsu API utworzonego powyżej. W tym przypadku, podczas korzystania z punktu końcowego v 2.0, `scope` parametr powinien wyglądać podobnie do `api://GUID/SCOPE` . W punkcie końcowym v 1.0 `resource` parametr powinien być identyfikatorem URI aplikacji interfejsu API sieci Web.
 1. Przekaż ten token dostępu do warstwy środkowej zamiast id_token.

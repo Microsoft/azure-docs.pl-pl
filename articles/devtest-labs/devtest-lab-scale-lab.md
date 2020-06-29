@@ -1,24 +1,14 @@
 ---
 title: Skaluj przydziały i limity w laboratorium w Azure DevTest Labs | Microsoft Docs
 description: W tym artykule opisano, jak można skalować laboratorium w Azure DevTest Labs. Wyświetl limity przydziału użycia i ograniczenia oraz Zażądaj zwiększenia.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-ms.assetid: ae624155-9181-45fa-bd2b-1983339b7e0e
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-ms.openlocfilehash: c1074c074b39e107e78a46a6e979e487aea1e0f2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 9c999760a649d4df4b34221633491b8ece784f52
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898164"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477095"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Skalowanie przydziałów i limitów w laboratoriach DevTest Labs
 Podczas pracy w DevTest Labs można zauważyć, że istnieją pewne domyślne limity niektórych zasobów platformy Azure, które mogą mieć wpływ na usługę DevTest Labs. Limity te są określane jako limity **przydziału**.

@@ -3,12 +3,12 @@ title: Skonfiguruj własny klucz do szyfrowania danych usługi Azure Event Hubs 
 description: Ten artykuł zawiera informacje dotyczące sposobu konfigurowania własnego klucza do szyfrowania danych Event Hubs platformy Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b92437f69dd5ff01d57d12e8e8e7fdce73cfddc0
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 2d82fc8c962496246196331c7d191c0fc057694f
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85314725"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85479831"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Skonfiguruj klucze zarządzane przez klienta do szyfrowania danych Event Hubs platformy Azure przechowywanych przy użyciu Azure Portal
 Usługa Azure Event Hubs zapewnia szyfrowanie danych przechowywanych przy użyciu usługi Azure szyfrowanie usługi Storage (SSE platformy Azure). Event Hubs opiera się na usłudze Azure Storage do przechowywania danych i domyślnie wszystkie dane przechowywane w usłudze Azure Storage są szyfrowane przy użyciu kluczy zarządzanych przez firmę Microsoft. 
@@ -66,7 +66,7 @@ Po włączeniu kluczy zarządzanych przez klienta należy skojarzyć klucz zarz�
 
 
 ## <a name="rotate-your-encryption-keys"></a>Obróć klucze szyfrowania
-Możesz obrócić klucz w magazynie kluczy przy użyciu mechanizmu rotacji magazynów kluczy platformy Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie rotacji kluczy i inspekcji](../key-vault/secrets/key-rotation-log-monitoring.md). Daty aktywacji i wygaśnięcia można także skonfigurować w celu zautomatyzowania rotacji kluczy. Usługa Event Hubs wykryje nowe wersje klucza i rozpocznie korzystanie z nich automatycznie.
+Możesz obrócić klucz w magazynie kluczy przy użyciu mechanizmu rotacji magazynów kluczy platformy Azure. Daty aktywacji i wygaśnięcia można także skonfigurować w celu zautomatyzowania rotacji kluczy. Usługa Event Hubs wykryje nowe wersje klucza i rozpocznie korzystanie z nich automatycznie.
 
 ## <a name="revoke-access-to-keys"></a>Odwołaj dostęp do kluczy
 Cofnięcie dostępu do kluczy szyfrowania nie spowoduje przeczyszczenia danych z Event Hubs. Nie można jednak uzyskać dostępu do danych z przestrzeni nazw Event Hubs. Możesz odwołać klucz szyfrowania za pomocą zasad dostępu lub usunąć klucz. Dowiedz się więcej na temat zasad dostępu i zabezpieczania magazynu kluczy, [Aby uzyskać bezpieczny dostęp do magazynu kluczy](../key-vault/general/secure-your-key-vault.md).

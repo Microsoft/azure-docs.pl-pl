@@ -1,17 +1,14 @@
 ---
 title: Azure Lab Services — Wyświetl informacje o pomocy technicznej (twórca laboratorium)
 description: W tym artykule wyjaśniono, jak twórcy laboratorium mogą wyświetlać informacje o pomocy technicznej, których mogą używać w celu uzyskania pomocy.
-author: spelluru
-ms.author: spelluru
-ms.date: 02/14/2020
+ms.date: 06/26/2020
 ms.topic: how-to
-ms.service: lab-services
-ms.openlocfilehash: acb5a2d063cf77ce237ab38ddbd53d8d93600ee2
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 3e04245c3f2d9b0a4f4e98ae21287983cf679ec6
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895752"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445053"
 ---
 # <a name="view-support-information-lab-creator-in-azure-lab-services"></a>Wyświetl informacje o pomocy technicznej (twórca laboratorium w Azure Lab Services)
 W tym artykule wyjaśniono, jak użytkownik (jako twórca laboratorium) może wyświetlić następujące informacje o pomocy technicznej:

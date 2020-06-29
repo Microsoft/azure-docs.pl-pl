@@ -7,19 +7,19 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/01/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d1ee8e90d1d690315b2727a050e0383d7d28dc03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91abfc395c84ad49079fcaa55c20d641ee4e7b49
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546141"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85478114"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów
 
 W tym artykule opisano sposób tworzenia nowej aplikacji Azure Active Directory (Azure AD) i nazwy głównej usługi, która może być używana z kontrolą dostępu opartą na rolach. Jeśli masz kod wymagający dostępu lub modyfikacji zasobów, możesz utworzyć tożsamość dla aplikacji. Ta tożsamość jest określana jako jednostka usługi. Następnie można przypisać wymagane uprawnienia do nazwy głównej usługi. W tym artykule pokazano, jak utworzyć jednostkę usługi przy użyciu portalu. Koncentruje się na aplikacji z jedną dzierżawą, w której aplikacja jest przeznaczona do działania tylko w jednej organizacji. Zwykle używasz aplikacji z jedną dzierżawą dla aplikacji biznesowych, które działają w organizacji.
 
@@ -56,7 +56,7 @@ Zakres można ustawić na poziomie subskrypcji, grupy zasobów lub zasobu. Upraw
 
    Jeśli nie widzisz subskrypcji, której szukasz, wybierz pozycję **Filtr subskrypcje globalne**. Upewnij się, że wybrano subskrypcję dla portalu.
 
-1. Wybierz pozycję **Kontrola dostępu (IAM)**.
+1. Wybierz pozycję **Kontrola dostępu (IAM)** .
 1. Wybierz pozycję **Dodaj przypisanie roli**.
 1. Wybierz rolę, którą chcesz przypisać do aplikacji. Na przykład, aby zezwolić aplikacji na wykonywanie akcji takich jak **ponowny rozruch**, **Uruchamianie** i **Zatrzymywanie** wystąpień, wybierz rolę **współautor** .  Przeczytaj więcej na temat [dostępnych ról](../../role-based-access-control/built-in-roles.md) domyślnie aplikacje usługi Azure AD nie są wyświetlane w dostępnych opcjach. Aby znaleźć aplikację, wyszukaj ją i wybierz ją.
 

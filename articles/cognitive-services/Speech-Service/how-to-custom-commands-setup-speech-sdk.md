@@ -1,5 +1,5 @@
 ---
-title: Integracja z aplikacją kliencką przy użyciu zestawu Speech SDK
+title: Integracja z aplikacją kliencką przy użyciu zestawu SDK usługi Mowa
 titleSuffix: Azure Cognitive Services
 description: W tym artykule dowiesz się, jak wykonywać żądania do opublikowanej aplikacji poleceń niestandardowych z zestawu Speech SDK działającego w aplikacji platformy UWP.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: d87301f09665062a1b56fa33443f1178b42fb42f
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 6aa63c49328848ca707e938dada6ce3af9f75694
+ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307693"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85414367"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integracja z aplikacją kliencką przy użyciu zestawu Speech SDK
 
@@ -38,7 +38,7 @@ Wymagane są również:
 
 ## <a name="step-1-publish-custom-commands-application"></a>Krok 1. publikowanie aplikacji poleceń niestandardowych
 
-1. Otwórz wcześniej utworzone aplikacje poleceń niestandardowych (wersja zapoznawcza) i wybierz pozycję **Publikuj** .
+1. Otwórz wcześniej utworzone aplikacje niestandardowe poleceń i wybierz pozycję **Publikuj** .
 
    > [!div class="mx-imgBorder"]
    > ![Publikowanie aplikacji](media/custom-commands/setup-speech-sdk-publish-application.png)

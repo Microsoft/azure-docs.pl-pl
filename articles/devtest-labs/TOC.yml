@@ -8,9 +8,13 @@
       href: lab-services-overview.md
 - name: Samouczki
   items:
-    - name: 1. Konfigurowanie laboratorium
-      href: tutorial-create-custom-lab.md
-    - name: 2. Dostęp do laboratorium
+    - name: Konfigurowanie laboratorium
+      items:
+        - name: Korzystanie z witryny Azure Portal
+          href: tutorial-create-custom-lab.md
+        - name: Używanie szablonu usługi Resource Manager
+          href: create-lab-windows-vm-template.md
+    - name: Dostęp do laboratorium
       href: tutorial-use-custom-lab.md
 - name: Samples
   items:

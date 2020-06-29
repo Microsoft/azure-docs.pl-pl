@@ -1,31 +1,31 @@
 ---
-title: Unikaj ponownego ładowania stron (MSAL. js) | Azure
+title: Unikaj ponownego ładowania strony (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Dowiedz się, jak uniknąć ponownego ładowania strony podczas uzyskiwania i odnawiania tokenów w trybie dyskretnym przy użyciu biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL. js).
+description: Dowiedz się, jak uniknąć ponownego ładowania strony podczas uzyskiwania i odnawiania tokenów dyskretnie przy użyciu biblioteki uwierzytelniania firmy Microsoft dla języka JavaScript (MSAL.js).
 services: active-directory
 author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/29/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 63944a5a9af34c2d4cf98eeb870a730df49654e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5eb30f7dcf4b459b0af0bd8de965971fbbe44863
+ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77084959"
+ms.lasthandoff: 06/27/2020
+ms.locfileid: "85477655"
 ---
-# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Unikaj ponownego ładowania stron podczas uzyskiwania i odnawiania tokenów dyskretnie przy użyciu MSAL. js
-Biblioteka Microsoft Authentication Library for JavaScript (MSAL. js) używa `iframe` ukrytych elementów w celu pozyskania i odnawiania tokenów dyskretnie w tle. Usługa Azure AD zwraca token z powrotem do zarejestrowanego redirect_uri określonego w żądaniu tokenu (domyślnie jest to Strona główna aplikacji). Ponieważ odpowiedź jest 302, wynikiem jest kod HTML odpowiadający `redirect_uri` wczytywaniu w. `iframe` Zwykle `redirect_uri` jest to Strona główna, która powoduje ponowne załadowanie.
+# <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Unikaj ponownego ładowania stron podczas uzyskiwania i odnawiania tokenów dyskretnie przy użyciu MSAL.js
+Biblioteka Microsoft Authentication Library for JavaScript (MSAL.js) używa ukrytych `iframe` elementów do pozyskania i odnawiania tokenów dyskretnie w tle. Usługa Azure AD zwraca token z powrotem do zarejestrowanego redirect_uri określonego w żądaniu tokenu (domyślnie jest to Strona główna aplikacji). Ponieważ odpowiedź jest 302, wynikiem jest kod HTML odpowiadający `redirect_uri` wczytywaniu w `iframe` . Zwykle `redirect_uri` jest to Strona główna, która powoduje ponowne załadowanie.
 
 W innych przypadkach, jeśli przechodzenie do strony głównej aplikacji wymaga uwierzytelnienia, może to prowadzić do zagnieżdżonych `iframe` elementów lub `X-Frame-Options: deny` błędu.
 
-Ponieważ MSAL. js nie może odrzucić 302 wystawionych przez usługę Azure AD i jest wymagany do przetworzenia zwróconego tokenu `redirect_uri` , nie można zapobiec załadowaniu go w `iframe`.
+Ponieważ MSAL.js nie może odrzucić 302 wystawionych przez usługę Azure AD i jest wymagany do przetworzenia zwróconego tokenu, nie można zapobiec `redirect_uri` załadowaniu go w `iframe` .
 
 Aby uniknąć ponownego ładowania całej aplikacji lub innych błędów spowodowanych tym problemem, należy postępować zgodnie z poniższymi obejściami.
 
@@ -35,9 +35,9 @@ Ustaw `redirect_uri` właściwość konfiguracji na prostą stronę, która nie 
 
 ## <a name="initialization-in-your-main-app-file"></a>Inicjowanie w głównym pliku aplikacji
 
-Jeśli aplikacja jest strukturalna w taki sposób, że istnieje jeden centralny plik języka JavaScript, który definiuje inicjalizację, Routing i inne elementy aplikacji, można warunkowo załadować moduły aplikacji w zależności od tego, czy aplikacja jest ładowana `iframe` w programie, czy nie. Przykład:
+Jeśli aplikacja jest strukturalna w taki sposób, że istnieje jeden centralny plik języka JavaScript, który definiuje inicjalizację, Routing i inne elementy aplikacji, można warunkowo załadować moduły aplikacji w zależności od tego, czy aplikacja jest ładowana w programie, czy `iframe` nie. Na przykład:
 
-W AngularJS: App. js
+W AngularJS: app.js
 
 ```javascript
 // Check that the window is an iframe and not popup
@@ -146,4 +146,4 @@ export class MsalComponent {
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-Dowiedz się więcej o [tworzeniu aplikacji jednostronicowej (Spa)](scenario-spa-overview.md) przy użyciu MSAL. js.
+Dowiedz się więcej o [tworzeniu aplikacji jednostronicowej (Spa)](scenario-spa-overview.md) przy użyciu MSAL.js.

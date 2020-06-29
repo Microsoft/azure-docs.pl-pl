@@ -1,24 +1,14 @@
 ---
 title: Koncepcje dotyczące zajęć w laboratoriach — Azure Lab Services | Microsoft Docs
 description: Zapoznaj się z podstawowymi pojęciami dotyczącymi usług Lab Services oraz możliwością tworzenia laboratoriów oraz zarządzania nimi.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2020
-ms.author: spelluru
-ms.openlocfilehash: 548cacfb76aba9093a59a5c87525d038558bf353
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: 38dd77df7a80ad252b553b6afa8b52d7fee753a1
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84898976"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85443710"
 ---
 # <a name="classroom-labs-concepts"></a>Pojęcia związane z laboratoriami na potrzeby zajęć
 

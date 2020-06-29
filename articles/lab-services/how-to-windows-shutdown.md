@@ -1,21 +1,14 @@
 ---
 title: Przewodnik dotyczący kontrolowania zachowania zamykania systemu Windows w Azure Lab Services | Microsoft Docs
 description: Procedura automatycznego zamykania bezczynnej maszyny wirtualnej z systemem Windows i usuwania polecenia zamykania systemu Windows.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: ''
-editor: ''
-ms.service: lab-services
 ms.topic: article
-ms.date: 3/30/2020
-ms.author: spelluru
-ms.openlocfilehash: 834338a6c695cf5eed9bcccbe31a703080cb4f6d
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.date: 06/26/2020
+ms.openlocfilehash: e17f6e79c3d18d82dd206954dcfb0e06b02b4d53
+ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84895808"
+ms.lasthandoff: 06/26/2020
+ms.locfileid: "85445172"
 ---
 # <a name="guide-to-controlling-windows-shutdown-behavior"></a>Przewodnik kontrolowania zachowania zamykania systemu Windows
 
