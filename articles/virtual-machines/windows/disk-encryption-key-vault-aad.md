@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8610beb8903c979f0d5f5e71bd6710a3ccb49bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05d2ec362a81052b94746bdcfb0653e6366a3b32
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82081986"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513570"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Tworzenie i Konfigurowanie magazynu kluczy dla Azure Disk Encryption za pomocą usługi Azure AD (poprzednia wersja)
 
@@ -106,7 +106,7 @@ Aby wykonać następujące polecenia, Pobierz [moduł Azure AD PowerShell](/powe
      $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
      ```
 
-3. $AzureAdApplication. Identyfikator aplikacji to ClientID usługi Azure AD, a $aadClientSecret jest kluczem tajnym klienta, który będzie używany później do włączania Azure Disk Encryption. Odpowiednio Zabezpiecz klucz tajny klienta usługi Azure AD. W `$azureAdApplication.ApplicationId` systemie zostanie wyświetlony Identyfikator aplikacji.
+3. $AzureAdApplication. Identyfikator aplikacji to ClientID usługi Azure AD, a $aadClientSecret jest kluczem tajnym klienta, który będzie używany później do włączania Azure Disk Encryption. Odpowiednio Zabezpiecz klucz tajny klienta usługi Azure AD. `$azureAdApplication.ApplicationId`W systemie zostanie wyświetlony Identyfikator aplikacji.
 
 
 ### <a name="set-up-an-azure-ad-app-and-service-principal-with-azure-cli"></a>Konfigurowanie aplikacji usługi Azure AD i jednostki usługi przy użyciu interfejsu wiersza polecenia platformy Azure
@@ -123,10 +123,10 @@ Jednostkami usługi można zarządzać za pomocą interfejsu wiersza polecenia p
 ### <a name="set-up-an-azure-ad-app-and-service-principal-though-the-azure-portal"></a>Skonfiguruj aplikację usługi Azure AD i nazwę główną usługi, chociaż Azure Portal
 Wykonaj kroki z [portalu use, aby utworzyć aplikację Azure Active Directory i nazwę główną usługi, która będzie mogła uzyskać dostęp do zasobów](../../active-directory/develop/howto-create-service-principal-portal.md) artykułu w celu utworzenia aplikacji usługi Azure AD. Każdy krok wymieniony poniżej przeprowadzi Cię bezpośrednio do sekcji artykułu, aby zakończyć. 
 
-1. [Weryfikuj wymagane uprawnienia](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
-2. [Tworzenie aplikacji Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
+1. [Weryfikuj wymagane uprawnienia](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
+2. [Tworzenie aplikacji Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) 
      - W przypadku tworzenia aplikacji możesz użyć dowolnej nazwy i adresu URL logowania.
-3. [Pobierz identyfikator aplikacji i klucz uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in). 
+3. [Pobierz identyfikator aplikacji i klucz uwierzytelniania](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). 
      - Klucz uwierzytelniania jest kluczem tajnym klienta i jest używany jako AadClientSecret dla elementu Set-AzVMDiskEncryptionExtension. 
         - Klucz uwierzytelniania jest używany przez aplikację jako poświadczenia do logowania się do usługi Azure AD. W Azure Portal ten klucz tajny nosi nazwę klucze, ale nie ma relacji do magazynów kluczy. Odpowiednio Zabezpiecz ten klucz tajny. 
      - Identyfikator aplikacji będzie później używany jako AadClientId dla właściwości Set-AzVMDiskEncryptionExtension i jako ServicePrincipalName dla elementu Set-AzKeyVaultAccessPolicy. 
@@ -220,7 +220,7 @@ Użyj [AZ Key Update](/cli/azure/keyvault#az-keyvault-update) , aby włączyć s
 1. Wybierz swój magazyn kluczy, przejdź do pozycji **zasady dostępu**, a **następnie kliknij, aby wyświetlić zaawansowane zasady dostępu**.
 2. Zaznacz pole o nazwie **Włącz dostęp do Azure Disk Encryption na potrzeby szyfrowania woluminów**.
 3. Wybierz pozycję **Włącz dostęp do usługi Azure Virtual Machines w celu wdrożenia** i/lub **włącz dostęp do Azure Resource Manager na potrzeby wdrożenia szablonu**, jeśli jest to konieczne. 
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 ![Zaawansowane zasady dostępu magazynu kluczy platformy Azure](../media/disk-encryption/keyvault-portal-fig4.png)
 

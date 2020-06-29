@@ -8,24 +8,24 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 1ff29be9cde4a2bd53f0edbe57f3eab603c1796f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: f673fd4b49a33c2faf6bc8b489520f2a877b0689
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740367"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513813"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Samouczek: kompilowanie i wdrażanie niestandardowej umiejętności przy użyciu Azure Machine Learning 
 
-W tym samouczku zostanie użyty [zestaw danych dla przeglądów hotelu](https://www.kaggle.com/datafiniti/hotel-reviews) (dystrybuowany w ramach licencji Creative Commons attributions [CC według-NC-sa 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)), aby utworzyć [niestandardową umiejętność](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface) przy użyciu Azure Machine Learning do wyodrębnienia tonacji opartego na aspektach z przeglądów. Pozwala to na przypisanie pozytywnych i ujemnych tonacji w ramach tego samego przeglądu, aby były prawidłowo przypisane do zidentyfikowanych jednostek, takich jak personel, pokój, lobby lub Pula.
+W tym samouczku zostanie użyty [zestaw danych dla przeglądów hotelu](https://www.kaggle.com/datafiniti/hotel-reviews) (dystrybuowany w ramach licencji Creative Commons attributions [CC według-NC-sa 4,0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)), aby utworzyć [niestandardową umiejętność](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) przy użyciu Azure Machine Learning do wyodrębnienia tonacji opartego na aspektach z przeglądów. Pozwala to na przypisanie pozytywnych i ujemnych tonacji w ramach tego samego przeglądu, aby były prawidłowo przypisane do zidentyfikowanych jednostek, takich jak personel, pokój, lobby lub Pula.
 
-Aby przeprowadzić uczenie modelu tonacji opartego na aspektach, będziesz używać [repozytorium z przepisami NLP](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Model zostanie następnie wdrożony jako punkt końcowy w klastrze usługi Azure Kubernetes. Po wdrożeniu model jest dodawany do potoku wzbogacania jako niestandardowa umiejętność użytkowania przez usługę Wyszukiwanie poznawcze.
+Aby przeprowadzić uczenie modelu tonacji opartego na aspektach w Azure Machine Learning, będziesz używać [repozytorium z przepisami NLP](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Model zostanie następnie wdrożony jako punkt końcowy w klastrze usługi Azure Kubernetes. Po wdrożeniu punkt końcowy jest dodawany do potoku wzbogacenia jako umiejętność AML do użycia przez usługę Wyszukiwanie poznawcze.
 
 Dostępne są dwa zestawy danych. Jeśli chcesz samodzielnie szkolić model, wymagany jest plik hotel_reviews_1000.csv. Wolisz pominąć krok szkolenia? Pobierz hotel_reviews_100.csv.
 
 > [!div class="checklist"]
 > * Tworzenie wystąpienia usługi Azure Wyszukiwanie poznawcze
-> * Tworzenie obszaru roboczego Azure Machine Learning
+> * Utwórz obszar roboczy Azure Machine Learning (usługa wyszukiwania i obszar roboczy powinny znajdować się w tej samej subskrypcji)
 > * Uczenie i wdrażanie modelu w klastrze usługi Azure Kubernetes
 > * Łączenie potoku wzbogacania AI ze wdrożonym modelem
 > * Pozyskiwanie danych wyjściowych z wdrożonego modelu jako umiejętności niestandardowych
@@ -94,7 +94,7 @@ Zapisz zestawu umiejętności.
 
 Po zapisaniu zestawu umiejętności przejdź do indeksatora i wybierz łącze indeksatora definicji (JSON). W portalu zostanie wyświetlony kod JSON indeksatora, który został utworzony w pierwszej komórce notesu. Mapowania pól wyjściowych muszą zostać zaktualizowane przy użyciu dodatkowych mapowań pól, aby upewnić się, że indeksator może obsłużyć i przekazać je poprawnie. Zapisz zmiany, a następnie wybierz pozycję Uruchom. 
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 

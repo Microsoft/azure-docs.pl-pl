@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: cd0c8961cff15385249222986e5fb90ee75e3559
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: f7f0a466f288031474b100f42c9ba41aafb9ff9a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887341"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515537"
 ---
 # <a name="create-an-azure-container-offer"></a>Tworzenie oferty kontenera platformy Azure
 
@@ -48,7 +48,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Przykład:
+Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -239,9 +239,6 @@ Określ odbiorców w wersji zapoznawczej przy użyciu identyfikatorów GUID iden
 
 Dodaj co najmniej jeden identyfikator subskrypcji platformy Azure — pojedynczo (do 10) lub przekazując plik CSV (do 100). Dodając te identyfikatory subskrypcji, możesz określić, kto może wyświetlać podgląd oferty przed opublikowaniem jej na żywo. Jeśli Twoja oferta jest już na żywo, możesz wybrać użytkowników wersji zapoznawczej, aby przetestować zmiany lub aktualizacje oferty.
 
-> [!NOTE]
-> Odbiorcy wersji zapoznawczej różnią się od odbiorców prywatnych. Odbiorca w **wersji zapoznawczej** może zobaczyć i potwierdzić wszystkie plany oferty przed ich zapisaniem w portalu Marketplace, w tym te, które będą publikowane tylko dla odbiorców **prywatnych** (ustawionych na karcie dostępność).
-
 Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 ### <a name="plan-overview"></a>Przegląd planu
@@ -396,7 +393,7 @@ Aby przesłać ofertę do publikacji, wybierz pozycję **Publikuj**.
 
 Wyślemy Ci wiadomość e-mail z prośbą o poinformowanie o udostępnieniu wersji zapoznawczej oferty do przejrzenia i zatwierdzenia.
 
-Aby opublikować ofertę dla publiczną (lub, jeśli publiczną, prywatną), przejdź do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo**.
+Aby opublikować publiczną ofertę, przejdź do Centrum partnerskiego i wybierz pozycję **Przejdź na żywo**.
 
 ## <a name="next-step"></a>Następny krok
 

@@ -6,14 +6,14 @@ ms.author: mhopkins
 ms.date: 01/23/2017
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
+ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 29ce845fa3239dd48ff2ff0480beff08cf704b30
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 86fc63d8b0615423f4138ed1b09dc3a24d1e527e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82591690"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514458"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Generowanie listy zasobów usługi Azure Storage w języku C++
 
@@ -34,7 +34,7 @@ Każda z tych metod jest pokazywana przy użyciu różnych przeciążeń dla ró
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynchroniczna a synchroniczna
 
-Ponieważ Biblioteka klienta usługi Storage dla języka C++ jest oparta na [bibliotece REST języka c++](https://github.com/Microsoft/cpprestsdk), nie obsługujemy operacji asynchronicznych za pomocą programu [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Przykład:
+Ponieważ Biblioteka klienta usługi Storage dla języka C++ jest oparta na [bibliotece REST języka c++](https://github.com/Microsoft/cpprestsdk), nie obsługujemy operacji asynchronicznych za pomocą programu [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Na przykład:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -115,7 +115,7 @@ Te metody zostały zaimplementowane jako otoki interfejsów API z segmentacją. 
 
 Takie podejście może być możliwe, gdy konto magazynu lub tabela zawiera niewielką liczbę obiektów. Jednak ze wzrostem liczby obiektów wymagana ilość pamięci może wzrosnąć bez ograniczenia, ponieważ wszystkie wyniki pozostawały w pamięci. Jedna operacja tworzenia listy może zająć bardzo dużo czasu, podczas gdy obiekt wywołujący nie miał informacji o postępie.
 
-Te zachłanne listy interfejsów API w zestawie SDK nie istnieją w środowisku C#, Java lub JavaScript Node. js. Aby uniknąć potencjalnych problemów z korzystaniem z tych interfejsów API zachłanne, firma Microsoft usunęła je w wersji zapoznawczej 0.6.0.
+Te zachłanne listy interfejsów API w zestawie SDK nie istnieją w środowisku C#, Java ani JavaScript Node.js. Aby uniknąć potencjalnych problemów z korzystaniem z tych interfejsów API zachłanne, firma Microsoft usunęła je w wersji zapoznawczej 0.6.0.
 
 Jeśli kod wywołuje te interfejsy API zachłanne:
 

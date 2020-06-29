@@ -12,6 +12,12 @@
   items:
     - name: Monitorowanie zasobu platformy Azure
       href: learn/quick-monitor-azure-resource.md
+    - name: Wysyłanie dziennika aktywności do obszaru roboczego
+      items:
+        - name: Azure Portal
+          href: learn/quick-collect-activity-log-portal.md
+        - name: Szablon ARM
+          href: learn/quick-collect-activity-log-arm.md
     - name: Monitorowanie maszyn wirtualnych
       items:
         - name: Maszyny wirtualne platformy Azure
@@ -455,7 +461,7 @@
             - name: Akcje elementów webhook
               href: platform/alerts-log-webhook.md
             - name: Rozwiązywanie problemów z alertami dzienników
-              href: platform/alert-log-troubleshoot.md
+              href: platform/alerts-troubleshoot-log.md
         - name: Reguły alertów dziennika aktywności
           items:
             - name: Alert dotyczący zdarzenia dziennika aktywności
@@ -506,6 +512,8 @@
           href: platform/api-alerts.md
         - name: Rozwiązywanie problemów z alertami
           href: platform/alerts-troubleshoot.md
+        - name: Alerty a przenoszenie regionów
+          href: platform/alerts-resource-move.md
         - name: Zarządzanie usługami IT
           items:
             - name: Łącznik zarządzania usługami IT
@@ -555,12 +563,12 @@
             - name: ASP.NET
               displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
               href: app/asp-net.md
+            - name: Konsola ASP.NET
+              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
+              href: app/console.md
             - name: Aplikacje niekorzystające z protokołu HTTP/aplikacje w tle
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: Konsola .NET
-              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
-              href: app/console.md
             - name: Java
               items:
                 - name: Aplikacje internetowe

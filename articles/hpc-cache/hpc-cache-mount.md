@@ -3,19 +3,19 @@ title: Instalowanie pamięci podręcznej platformy Azure HPC
 description: Jak połączyć klientów z usługą Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: v-erkel
-ms.openlocfilehash: a44232f06b455e20530271723e816c2117b339a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb3e4fd4935afc4869e50ccbc35c53333d43b1df
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458393"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515531"
 ---
-# <a name="mount-the-azure-hpc-cache"></a>Instalowanie pamięci podręcznej platformy Azure HPC
+# <a name="mount-the-azure-hpc-cache"></a>Instalowanie pamięci podręcznej usługi Azure HPC Cache
 
-Po utworzeniu pamięci podręcznej klienci systemu plików NFS mogą uzyskać do niej `mount` dostęp za pomocą prostego polecenia. Polecenie łączy określoną ścieżkę docelową magazynu w pamięci podręcznej platformy Azure HPC do katalogu lokalnego na komputerze klienckim.
+Po utworzeniu pamięci podręcznej klienci systemu plików NFS mogą uzyskać do niej dostęp za pomocą prostego `mount` polecenia. Polecenie łączy określoną ścieżkę docelową magazynu w pamięci podręcznej platformy Azure HPC do katalogu lokalnego na komputerze klienckim.
 
 Polecenie instalacji składa się z następujących elementów:
 
@@ -57,7 +57,7 @@ Po połączeniu komputera klienckiego z pamięcią podręczną należy skojarzy�
 
 Korzystając ze strony **instrukcje instalacji** w Azure Portal, można utworzyć polecenie instalacji możliwej do kopiowania. Otwórz stronę w sekcji **Konfigurowanie** widoku pamięci podręcznej w portalu.
 
-Przed użyciem polecenia na kliencie upewnij się, że klient spełnia wymagania wstępne i że oprogramowanie wymagane do użycia polecenia NFS `mount` , zgodnie z powyższym opisem w artykule [Przygotowywanie klientów](#prepare-clients).
+Przed użyciem polecenia na kliencie upewnij się, że klient spełnia wymagania wstępne i że oprogramowanie wymagane do użycia polecenia NFS, zgodnie z `mount` powyższym opisem w artykule [Przygotowywanie klientów](#prepare-clients).
 
 ![zrzut ekranu wystąpienia pamięci podręcznej platformy Azure HPC w portalu z załadowana stroną Konfigurowanie > instalacji](media/mount-instructions.png)
 
@@ -129,7 +129,7 @@ Jeśli chcesz utworzyć polecenie instalacji bez używania strony z **instrukcja
 ![zrzut ekranu strony Przegląd wystąpienia pamięci podręcznej platformy Azure HPC z wyróżnionym polem wyboru na liście adresy instalacji w prawym dolnym rogu](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE]
-> Adresy instalacji pamięci podręcznej są zgodne z interfejsami sieciowymi w podsieci pamięci podręcznej. W grupie zasobów te karty sieciowe są wyświetlane z nazwami kończącymi `-cluster-nic-` się na i numerami. Nie zmieniaj ani nie usuwaj tych interfejsów lub pamięć podręczna stanie się niedostępna.
+> Adresy instalacji pamięci podręcznej są zgodne z interfejsami sieciowymi w podsieci pamięci podręcznej. W grupie zasobów te karty sieciowe są wyświetlane z nazwami kończącymi się na `-cluster-nic-` i numerami. Nie zmieniaj ani nie usuwaj tych interfejsów lub pamięć podręczna stanie się niedostępna.
 
 Ścieżki wirtualnych przestrzeni nazw są wyświetlane na stronie szczegółów każdego miejsca docelowego magazynu. Kliknij nazwę obiektu docelowego magazynu, aby wyświetlić jego szczegóły, w tym zagregowane ścieżki przestrzeni nazw, z którymi są skojarzone.
 

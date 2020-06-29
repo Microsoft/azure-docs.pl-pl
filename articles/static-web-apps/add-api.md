@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 7101d23d4611f4eea9b5a9e2a7f3ba417c9fcb1a
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: e3cb45ee2cfa299a482391d59359b40baea0feb5
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476125"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517341"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Dodawanie interfejsu API do usługi Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -156,7 +156,7 @@ Visual Studio Code integruje się z [Azure Functions Core Tools](https://docs.mi
 
 ### <a name="call-the-api-from-the-application"></a>Wywoływanie interfejsu API z aplikacji
 
-W przypadku wdrożenia na platformie Azure żądania kierowane do interfejsu API są automatycznie przekierowywane do aplikacji funkcji dla żądań wysyłanych do `api` trasy. Pracując lokalnie, można skonfigurować ustawienia aplikacji do żądań proxy do lokalnego interfejsu API.
+W przypadku wdrożenia na platformie Azure żądania kierowane do interfejsu API są automatycznie przekierowywane do aplikacji funkcji dla żądań wysyłanych do `api` trasy. Pracując lokalnie, musisz skonfigurować ustawienia aplikacji do żądań proxy do lokalnego interfejsu API.
 
 [!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
 

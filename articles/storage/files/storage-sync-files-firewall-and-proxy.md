@@ -3,16 +3,16 @@ title: Azure File Sync lokalne ustawienia zapory i serwera proxy | Microsoft Doc
 description: Azure File Sync konfigurację sieci lokalnej
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 415dc4f5609b912163be42605277a33ebcfda589
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 7410e30c892eb083f9ed71b1d9ce379ae9a036b5
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466191"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515289"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Ustawienia serwera proxy i zapory usługi Azure File Sync
 Azure File Sync nawiązuje połączenie z serwerami lokalnymi w celu Azure Files, włączając synchronizację z obsługą wielolokacją i funkcjami obsługi warstw w chmurze. W związku z tym serwer lokalny musi być połączony z Internetem. Administrator IT musi zdecydować najlepszą ścieżkę serwera, aby uzyskać dostęp do usług Azure Cloud Services.
@@ -61,7 +61,7 @@ Aby skonfigurować ustawienia serwera proxy dla całej maszyny, wykonaj następu
      C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
      C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-   - Dodaj sekcję < System. net > w plikach Machine. config (poniżej sekcji < System. serviceModel >).  Zmień 127.0.01:8888 na adres IP i port serwera proxy. 
+   - Dodaj sekcję <system.net> w plikach machine.config (poniżej sekcji <system. serviceModel>).  Zmień 127.0.01:8888 na adres IP i port serwera proxy. 
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -266,7 +266,7 @@ if ($found) {
 Następnie można użyć zakresów adresów IP w programie, `$ipAddressRanges` Aby zaktualizować zaporę. Aby uzyskać informacje na temat aktualizowania zapory, Sprawdź witrynę sieci Web zapory/urządzenia sieciowego.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Testowanie łączności sieciowej z punktami końcowymi usługi
-Po zarejestrowaniu serwera w usłudze Azure File Sync polecenie cmdlet Test-StorageSyncNetworkConnectivity i ServerRegistration. exe może służyć do testowania komunikacji ze wszystkimi punktami końcowymi (URL) specyficznymi dla tego serwera. To polecenie cmdlet może pomóc w rozwiązywaniu problemów w przypadku niekompletnej komunikacji uniemożliwia serwerowi pełną pracę z Azure File Sync i można go użyć do dostosowania konfiguracji serwera proxy i zapory.
+Po zarejestrowaniu serwera w usłudze Azure File Sync polecenie cmdlet Test-StorageSyncNetworkConnectivity i ServerRegistration.exe może służyć do testowania komunikacji ze wszystkimi punktami końcowymi (URL) specyficznymi dla tego serwera. To polecenie cmdlet może pomóc w rozwiązywaniu problemów w przypadku niekompletnej komunikacji uniemożliwia serwerowi pełną pracę z Azure File Sync i można go użyć do dostosowania konfiguracji serwera proxy i zapory.
 
 Aby uruchomić test łączności sieciowej, Zainstaluj agenta Azure File Sync w wersji 9,1 lub nowszej i uruchom następujące polecenia programu PowerShell:
 ```powershell

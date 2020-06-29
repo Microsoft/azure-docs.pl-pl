@@ -3,16 +3,16 @@ title: Zdalne nawiązywanie połączenia z urządzeniem StorSimple
 description: Wyjaśniono, jak skonfigurować urządzenie pod kątem zdalnego zarządzania i jak nawiązać połączenie z program Windows PowerShell dla usługi StorSimple za pośrednictwem protokołu HTTP lub HTTPS.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58d61df932da06e32bb4c8f21a3a296b185f02d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80299001"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514573"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Zdalne nawiązywanie połączenia z urządzeniem z serii StorSimple 8000
 
@@ -155,7 +155,7 @@ Aby włączyć zdalne zarządzanie, wykonaj następujące czynności w konsoli s
     Upewnij się, że pole **RemoteManagementMode** zawiera **HttpsEnabled**. Na poniższej ilustracji przedstawiono te ustawienia w temacie.
    
      ![Port Serial HTTPS włączony](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
-4. Z danych wyjściowych `Get-HcsSystem`Skopiuj numer seryjny urządzenia i Zapisz go do późniejszego użycia.
+4. Z danych wyjściowych `Get-HcsSystem` Skopiuj numer seryjny urządzenia i Zapisz go do późniejszego użycia.
    
    > [!NOTE]
    > Numer seryjny jest mapowany na nazwę POSPOLITą w certyfikacie.

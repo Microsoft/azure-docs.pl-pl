@@ -3,15 +3,15 @@ title: Aktualizuj cele magazynu pamięci podręcznej platformy Azure HPC
 description: Jak edytować cele magazynu pamięci podręcznej platformy Azure HPC
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9bce4ec383b8ac7efaa9b00237044424ffb58fc0
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 0fa8be58db9754c652d6e1ee5349c950a1c19109
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344258"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513848"
 ---
 # <a name="edit-storage-targets"></a>Edytowanie lokalizacji docelowych magazynu
 

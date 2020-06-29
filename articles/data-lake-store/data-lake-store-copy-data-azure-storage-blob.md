@@ -3,15 +3,15 @@ title: Kopiowanie danych z obiektów BLOB usługi Azure Storage do Data Lake Sto
 description: Użyj narzędzia AdlCopy, aby skopiować dane z obiektów BLOB usługi Azure Storage do Azure Data Lake Storage Gen1
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: ad408df140be49da2e50ef810285dd850e9da6a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1a2ae153d1409fddbaf4939ab4295d7434abd80
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75638872"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515690"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Kopiowanie danych z obiektów BLOB usługi Azure Storage do Azure Data Lake Storage Gen1
 
@@ -55,17 +55,17 @@ Parametry w składni opisano poniżej:
 | Dest |Określa miejsce docelowe Data Lake Storage Gen1, do którego ma zostać skopiowane. |
 | SourceKey |Określa klucz dostępu do magazynu dla źródła obiektów BLOB usługi Azure Storage. Jest to wymagane tylko wtedy, gdy źródłem jest kontener obiektów blob lub obiekt BLOB. |
 | Konto |**Opcjonalne**. Użyj tego, jeśli chcesz użyć konta Azure Data Lake Analytics do uruchomienia zadania kopiowania. Jeśli używasz opcji/Account w składni, ale nie określisz konta Data Lake Analytics, AdlCopy używa konta domyślnego do uruchomienia zadania. Ponadto w przypadku korzystania z tej opcji należy dodać źródło (Azure Storage Blob) i miejsce docelowe (Azure Data Lake Storage Gen1) jako źródła danych dla konta Data Lake Analytics. |
-| Jednostki |Określa liczbę jednostek Data Lake Analytics, które będą używane dla zadania kopiowania. Ta opcja jest wymagana, jeśli używasz opcji **/Account** , aby określić konto Data Lake Analytics. |
+| Lekcji |Określa liczbę jednostek Data Lake Analytics, które będą używane dla zadania kopiowania. Ta opcja jest wymagana, jeśli używasz opcji **/Account** , aby określić konto Data Lake Analytics. |
 | Wzorce |Określa wzorzec wyrażenia regularnego, który wskazuje, które obiekty blob lub pliki do skopiowania. AdlCopy używa dopasowania uwzględniającego wielkość liter. Domyślny wzorzec, gdy nie jest określony żaden wzorzec, to skopiowanie wszystkich elementów. Określanie wzorców wielu plików nie jest obsługiwane. |
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-an-azure-storage-blob"></a>Używanie AdlCopy (jako autonomicznego) do kopiowania danych z obiektu BLOB usługi Azure Storage
 
-1. Otwórz wiersz polecenia i przejdź do katalogu, w którym zainstalowano AdlCopy, `%HOMEPATH%\Documents\adlcopy`zwykle.
+1. Otwórz wiersz polecenia i przejdź do katalogu, w którym zainstalowano AdlCopy, zwykle `%HOMEPATH%\Documents\adlcopy` .
 1. Uruchom następujące polecenie, aby skopiować określony obiekt BLOB z kontenera źródłowego do folderu Data Lake Storage Gen1:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-    Przykład:
+    Na przykład:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -84,7 +84,7 @@ Parametry w składni opisano poniżej:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
 
-    Przykład:
+    Na przykład:
 
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -96,12 +96,12 @@ W przypadku kopiowania z konta usługi Azure Blob Storage w ramach kopiowania po
 
 Można również użyć AdlCopy do kopiowania danych między dwoma kontami Data Lake Storage Gen1.
 
-1. Otwórz wiersz polecenia i przejdź do katalogu, w którym zainstalowano AdlCopy, `%HOMEPATH%\Documents\adlcopy`zwykle.
+1. Otwórz wiersz polecenia i przejdź do katalogu, w którym zainstalowano AdlCopy, zwykle `%HOMEPATH%\Documents\adlcopy` .
 1. Uruchom następujące polecenie, aby skopiować określony plik z jednego konta Data Lake Storage Gen1 do innego.
 
         AdlCopy /Source adl://<source_adlsg1_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adlsg1_account>.azuredatalakestore.net/<path>/
 
-    Przykład:
+    Na przykład:
 
         AdlCopy /Source adl://mydatastorage.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestorage.azuredatalakestore.net/mynewfolder/
 
@@ -140,7 +140,7 @@ Uruchom następujące polecenie, aby skopiować z usługi Azure Storage BLOB do 
 
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Units <number_of_data_lake_analytics_units_to_be_used>
 
-Przykład:
+Na przykład:
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
@@ -156,12 +156,12 @@ Podczas kopiowania danych z zakresu terabajtów użycie AdlCopy z własnym konte
 
 W tej sekcji dowiesz się, jak używać AdlCopy do kopiowania danych ze źródła (w naszym przykładzie poniżej używamy Azure Storage Blob) do docelowego konta Data Lake Storage Gen1 przy użyciu dopasowania do wzorca. Na przykład możesz wykonać poniższe kroki, aby skopiować wszystkie pliki z rozszerzeniem CSV ze źródłowego obiektu BLOB do lokalizacji docelowej.
 
-1. Otwórz wiersz polecenia i przejdź do katalogu, w którym zainstalowano AdlCopy, `%HOMEPATH%\Documents\adlcopy`zwykle.
+1. Otwórz wiersz polecenia i przejdź do katalogu, w którym zainstalowano AdlCopy, zwykle `%HOMEPATH%\Documents\adlcopy` .
 1. Uruchom następujące polecenie, aby skopiować wszystkie pliki z rozszerzeniem *. CSV z określonego obiektu BLOB z kontenera źródłowego do folderu Data Lake Storage Gen1:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adlsg1_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 
-    Przykład:
+    Na przykład:
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestorage.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
@@ -178,7 +178,7 @@ W tej sekcji dowiesz się, jak używać AdlCopy do kopiowania danych ze źródł
 
 AdlCopy obsługuje kopiowanie danych zawierających tysiące plików i folderów. Jeśli jednak wystąpią problemy z kopiowaniem dużego zestawu danych, można dystrybuować pliki/foldery do mniejszych podfolderów. AdlCopy została skompilowana dla kopii ad hoc. Jeśli próbujesz kopiować dane cyklicznie, należy rozważyć użycie [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) , które zapewnia pełne zarządzanie operacjami kopiowania.
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 * 1.0.13 — Jeśli kopiujesz dane do tego samego konta Azure Data Lake Storage Gen1 w wielu poleceniach adlcopy, nie musisz już ponownie wprowadzać poświadczeń dla każdego przebiegu. Adlcopy będzie teraz buforować te informacje w wielu przebiegach.
 

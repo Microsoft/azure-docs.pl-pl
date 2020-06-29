@@ -151,6 +151,10 @@
               href: howto-manage-preferences.md
             - name: Przełączanie czatu na żywo
               href: howto-show-hide-chat.md
+- name: Dokumentacja
+  items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/azure-cli-reference-for-IoT
 - name: Zasoby
   items:
     - name: Opcje wsparcia technicznego i pomocy

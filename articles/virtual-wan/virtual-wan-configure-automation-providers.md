@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d282cec55d5534957478d6268c8bbd6d74245d8d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77190417"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514862"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Wskazówki dotyczące automatyzacji dla partnerów wirtualnych sieci WAN
 
@@ -54,7 +54,7 @@ Zapoznaj się z oczekiwanym doświadczeniem klienta w połączeniu z wirtualną 
 
 ###  <a name="access-control"></a><a name="access"></a>Kontrola dostępu
 
-Klienci muszą mieć możliwość skonfigurowania odpowiedniej kontroli dostępu dla wirtualnej sieci WAN w interfejsie użytkownika urządzenia. Jest to zalecane przy użyciu nazwy głównej usługi platformy Azure. Dostęp oparty na jednostce usługi zapewnia kontrolerowi urządzenia odpowiednie uwierzytelnianie w celu przekazania informacji o gałęzi. Aby uzyskać więcej informacji, zobacz [Tworzenie nazwy głównej usługi](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Chociaż ta funkcja jest poza ofertą wirtualnej sieci WAN platformy Azure, zostanie wystawiona poniżej typowych kroków w celu skonfigurowania dostępu na platformie Azure, po czym odpowiednie szczegóły są wprowadzane na pulpicie nawigacyjnym zarządzania urządzeniami.
+Klienci muszą mieć możliwość skonfigurowania odpowiedniej kontroli dostępu dla wirtualnej sieci WAN w interfejsie użytkownika urządzenia. Jest to zalecane przy użyciu nazwy głównej usługi platformy Azure. Dostęp oparty na jednostce usługi zapewnia kontrolerowi urządzenia odpowiednie uwierzytelnianie w celu przekazania informacji o gałęzi. Aby uzyskać więcej informacji, zobacz [Tworzenie nazwy głównej usługi](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Chociaż ta funkcja jest poza ofertą wirtualnej sieci WAN platformy Azure, zostanie wystawiona poniżej typowych kroków w celu skonfigurowania dostępu na platformie Azure, po czym odpowiednie szczegóły są wprowadzane na pulpicie nawigacyjnym zarządzania urządzeniami.
 
 * Utwórz aplikację Azure Active Directory dla lokalnego kontrolera urządzenia.
 * Pobieranie identyfikatora aplikacji i klucza uwierzytelniania
@@ -227,4 +227,4 @@ Lokalne urządzenie SDWAN/VPN lub Konfiguracja SD-WAN muszą być zgodne lub zaw
 
 Aby uzyskać więcej informacji na temat wirtualnej sieci WAN, zobacz [temat informacje o wirtualnej sieci WAN platformy Azure](virtual-wan-about.md) i [usłudze Azure Virtual WAN — często zadawane pytania](virtual-wan-faq.md).
 
-Aby uzyskać dodatkowe informacje, Wyślij wiadomość e-mail na <azurevirtualwan@microsoft.com>adres. W wierszu tematu wpisz nazwę firmy w nawiasie kwadratowym („[ ]”).
+Aby uzyskać dodatkowe informacje, Wyślij wiadomość e-mail na adres <azurevirtualwan@microsoft.com> . W wierszu tematu wpisz nazwę firmy w nawiasie kwadratowym („[ ]”).

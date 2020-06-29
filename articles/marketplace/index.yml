@@ -10,12 +10,12 @@ metadata:
   author: marleva
   ms.author: maevan
   ms.date: 04/02/2020
-  ms.openlocfilehash: 694dd8e2e856c997def8b6af000322d63477d3e4
-  ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+  ms.openlocfilehash: 89c1aba70d6a9cc5b3b7e262b1dda7d5401c4583
+  ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/03/2020
-  ms.locfileid: "84340525"
+  ms.lasthandoff: 06/28/2020
+  ms.locfileid: "85513226"
 landingContent:
 - title: Praca na platformie handlowej
   linkLists:
@@ -118,17 +118,17 @@ landingContent:
     - text: Interfejsy API usługi pomiaru w witrynie Marketplace
       url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
     - text: Dokumentacja interfejsu API portalu Cloud Partner
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
+      url: ./cloud-partner-portal-api-overview.md
     - text: Wymagania wstępne dotyczące interfejsu API
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
+      url: ./cloud-partner-portal-api-prerequisites.md
     - text: Pobieranie oferty
-      url: .//cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
+      url: ./cloud-partner-portal-api-retrieve-offers.md
     - text: Tworzenie lub modyfikowanie oferty
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
+      url: ./cloud-partner-portal-api-creating-offer.md
     - text: Cennik ofert maszyn wirtualnych
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
+      url: ./cloud-partner-portal-api-setting-price.md
     - text: Udostępnianie
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
+      url: ./cloud-partner-portal-api-go-live.md
 - title: Uzyskiwanie pomocy technicznej
   linkLists:
   - linkListType: get-started
@@ -136,6 +136,6 @@ landingContent:
     - text: Opcje pomocy technicznej
       url: ./partner-center-portal/support.md
     - text: Rozwiązywanie problemów z uwierzytelnianiem
-      url: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
+      url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - text: Dostępność geograficzna i waluty
       url: ./marketplace-geo-availability-currencies.md

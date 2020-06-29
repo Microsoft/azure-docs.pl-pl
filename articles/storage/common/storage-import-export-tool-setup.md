@@ -4,16 +4,16 @@ description: Dowiedz się, jak skonfigurować narzędzie do przygotowywania i na
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/29/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 01432ab68fc399f3e97eac2de5a7c356bef7078a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7d2cac9402477090ae412dcf21265bec4609278
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74979040"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514189"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Konfigurowanie narzędzia Azure Import/Export
 
@@ -49,28 +49,28 @@ Jeśli próbujesz **naprawić eksport** , który częściowo zakończył się ni
 
 ## <a name="installing-the-azure-importexport-tool"></a>Instalowanie narzędzia Azure Import/Export
 
-Najpierw [Pobierz narzędzie Azure Import/Export](https://www.microsoft.com/download/details.aspx?id=55280) i Wyodrębnij je do katalogu na komputerze, na przykład `c:\WAImportExport`.
+Najpierw [Pobierz narzędzie Azure Import/Export](https://www.microsoft.com/download/details.aspx?id=55280) i Wyodrębnij je do katalogu na komputerze, na przykład `c:\WAImportExport` .
 
 Narzędzie Import/Export platformy Azure składa się z następujących plików:
 
-* DataSet. csv
-* driveset. csv
-* hddid. dll
+* dataset.csv
+* driveset.csv
+* hddid.dll
 * Microsoft.Data.Services.Client.dll
-* Microsoft. WindowsAzure. Storage. dll
+* Microsoft.WindowsAzure.Storage.dll
 * Microsoft. WindowsAzure. Storage. pdb
-* Microsoft. WindowsAzure. Storage. XML
-* WAImportExport. exe
-* WAImportExport. exe. config
+* Microsoft.WindowsAzure.Storage.xml
+* WAImportExport.exe
+* WAImportExport.exe.config
 * WAImportExport. pdb
-* WAImportExportCore. dll
+* WAImportExportCore.dll
 * WAImportExportCore. pdb
-* WAImportExportRepair. dll
+* WAImportExportRepair.dll
 * WAImportExportRepair. pdb
 
 Następnie otwórz okno wiersza polecenia w **trybie administratora**i przejdź do katalogu zawierającego wyodrębnione pliki.
 
-Aby uzyskać pomoc dotyczącą polecenia, uruchom narzędzie (`WAImportExport.exe`) bez parametrów:
+Aby uzyskać pomoc dotyczącą polecenia, uruchom narzędzie ( `WAImportExport.exe` ) bez parametrów:
 
 ```
 WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013

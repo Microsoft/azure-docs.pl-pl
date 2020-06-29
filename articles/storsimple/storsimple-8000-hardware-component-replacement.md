@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69b6c4e81446cf6a922fe9a1d0da8452e5ec164d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60321831"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513199"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Zastępowanie składnika sprzętowego na urządzeniu z serii StorSimple 8000
 
@@ -51,12 +51,12 @@ Zapoznaj się z informacjami o bezpieczeństwie dotyczącymi Twojego urządzenia
 
 Przed podjęciem próby zamiany składnika należy wziąć pod uwagę następujące informacje.
 
-![](./media/storsimple-hardware-component-replacement/Warning.png) ![](./media/storsimple-hardware-component-replacement/Electric.png) **Ikona ostrzeżenia ikona** wstrząsu instalacji elektrycznej.
+![Ikona ostrzeżenia ](./media/storsimple-hardware-component-replacement/Warning.png) ![ ikona wstrząsu instalacji elektrycznej ](./media/storsimple-hardware-component-replacement/Electric.png) **WARNING!** .
 
 * Poprawna, przy użyciu zrzutów elektrostatyczne lub do niestatycznego mat podczas obsługi modułów i składników urządzenia StorSimple.
 * Nie dotykaj żadnego obwodu. Użyj dostarczonych dojść i prowadnic podczas obsługi składników, które mogą mieć narażony obwód.
 
-![Ikona ostrzeżenia ostrzeżenie **:** ](./media/storsimple-hardware-component-replacement/Warning.png) ![](./media/storsimple-hardware-component-replacement/NoticeIcon.png)
+![Ikona ostrzeżenia ostrzeżenie ](./media/storsimple-hardware-component-replacement/Warning.png) ![ ](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **:**
 
 Gdy zastąpisz moduł, **nigdy nie opuszczaj pustej kieszeni w tylnej części obudowy**. Przed usunięciem części problemu Uzyskaj Moduł zastępczy lub pusty.
 

@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.openlocfilehash: 766a41b61f32804c7d7f59c946530f8e1a7b869a
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 3f84cd92a4c4f96831d39cac783df6710c5ea5f4
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296274"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513411"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-sql-pool-by-using-an-arm-template"></a>Szybki Start: Tworzenie puli SQL usługi Azure Synapse Analytics przy użyciu szablonu ARM
 
-Ten szablon spowoduje utworzenie puli SQL usługi Azure Synapse Analytics z włączonym Transparent Data Encryption. Synapse Pula SQL odwołuje się do funkcji magazynowania danych przedsiębiorstwa, które są ogólnie dostępne w usłudze Azure Synapse.
+Ten szablon Azure Resource Manager (szablon ARM) utworzy pulę SQL usługi Azure Synapse Analytics z włączonym Transparent Data Encryption. Synapse Pula SQL odwołuje się do funkcji magazynowania danych przedsiębiorstwa, które są ogólnie dostępne w usłudze Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -107,8 +107,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono pulę SQL usługi Azure Synapse Analytics przy użyciu szablonu Azure Resource Manager i zweryfikowano wdrożenie. Aby dowiedzieć się więcej o usłudze Azure Synapse Analytics i Azure Resource Manager, przejdź do artykułu poniżej.
+W tym przewodniku szybki start utworzono pulę SQL usługi Azure Synapse Analytics przy użyciu szablonu ARM i zweryfikowano wdrożenie. Aby dowiedzieć się więcej o usłudze Azure Synapse Analytics i Azure Resource Manager, przejdź do artykułu poniżej.
 
 - Zapoznaj się [z omówieniem usługi Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Dowiedz się więcej o usłudze [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- [Tworzenie i wdrażanie pierwszego szablonu usługi Azure Resource Manager](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- [Tworzenie i wdrażanie pierwszego szablonu ARM](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

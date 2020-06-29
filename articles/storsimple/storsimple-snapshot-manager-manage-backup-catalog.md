@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: twooley
-ms.openlocfilehash: 38ef7774263e4b28b7c316fd0870ca8f7b89d6b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 94dccdabfa4cf83077bca3629dee8a796d27182a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75931706"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515476"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Zarządzanie wykazem kopii zapasowych przy użyciu Snapshot Manager StorSimple
 
@@ -93,7 +93,7 @@ Poniższa procedura umożliwia utworzenie duplikatu (klonowania) woluminu lub gr
    1. W polu tekstowym **Nazwa** wpisz nazwę sklonowanego woluminu. Ta nazwa zostanie wyświetlona w węźle **woluminy** . 
    2. (Opcjonalnie) wybierz pozycję **dysk**, a następnie wybierz z listy rozwijanej literę dysku.
    3. (Opcjonalnie) wybierz pozycję **folder (NTFS)**, a następnie wpisz ścieżkę folderu lub kliknij przycisk Przeglądaj i wybierz lokalizację folderu. 
-   4. Kliknij przycisk **Utwórz**.
+   4. Kliknij pozycję **Utwórz**.
 5. Po zakończeniu procesu klonowania należy zainicjować sklonowany wolumin. Uruchom Menedżer serwera, a następnie uruchom Zarządzanie dyskami. Aby uzyskać szczegółowe instrukcje, zobacz [woluminy instalacji](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Po jego zainicjowaniu wolumin zostanie wyświetlony w węźle **woluminy** w okienku **zakres** . Jeśli nie widzisz na liście woluminów, Odśwież listę woluminów (kliknij prawym przyciskiem myszy węzeł **woluminy** , a następnie kliknij polecenie **Odśwież**).
 
 ## <a name="delete-a-backup"></a>Usuń kopię zapasową
@@ -126,7 +126,7 @@ Przed rozpoczęciem upewnij się, że masz bieżącą kopię zapasową grupy wol
    1. W polu tekstowym **Nazwa** wpisz nazwę sklonowanego woluminu. Ta nazwa zostanie wyświetlona w węźle **woluminy** . 
    2. Obowiązkowe Wybierz pozycję **dysk**, a następnie wybierz z listy rozwijanej literę dysku. 
    3. Obowiązkowe Wybierz pozycję **folder (NTFS)**, a następnie wpisz ścieżkę folderu lub kliknij przycisk **Przeglądaj** i wybierz lokalizację folderu. 
-   4. Kliknij przycisk **Utwórz**. 
+   4. Kliknij pozycję **Utwórz**. 
 5. Po zakończeniu procesu klonowania należy zainicjować sklonowany wolumin. Uruchom Menedżer serwera, a następnie uruchom Zarządzanie dyskami. Aby uzyskać szczegółowe instrukcje, zobacz [woluminy instalacji](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Po jego zainicjowaniu wolumin zostanie wyświetlony w węźle **woluminy** w okienku **zakres** . 
    
     Jeśli nie widzisz na liście woluminów, Odśwież listę woluminów (kliknij prawym przyciskiem myszy węzeł **woluminy** , a następnie kliknij polecenie **Odśwież**).

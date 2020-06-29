@@ -3,15 +3,15 @@ title: Tworzenie pakietu dla pomocy technicznej serii StorSimple 8000
 description: Dowiedz się, jak tworzyć, odszyfrowywać i edytować pakiet pomocy technicznej dla urządzenia z serii StorSimple 8000.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8f84542cd52d8ad4affd64627637d4e95b1fb10
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277069"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514040"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Utwórz pakiet pomocy technicznej dla serii StorSimple 8000 i Zarządzaj nim
 
@@ -23,7 +23,7 @@ Ten samouczek zawiera instrukcje krok po kroku dotyczące tworzenia pakietu dla 
 
 ## <a name="create-a-support-package"></a>Tworzenie pakietu dla pomocy technicznej
 
-W niektórych przypadkach należy ręcznie utworzyć pakiet pomocy technicznej za pomocą program Windows PowerShell dla usługi StorSimple. Przykład:
+W niektórych przypadkach należy ręcznie utworzyć pakiet pomocy technicznej za pomocą program Windows PowerShell dla usługi StorSimple. Na przykład:
 
 * Jeśli musisz usunąć poufne informacje z plików dziennika przed udostępnieniem pomoc techniczna firmy Microsoft.
 * Jeśli masz problemy z przekazywaniem pakietu ze względu na problemy z łącznością.
@@ -54,7 +54,7 @@ Możesz udostępnić ręcznie wygenerowany pakiet pomocy technicznej pomoc techn
        `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
        Zostanie wyświetlony monit o hasło i hasło szyfrowania (ponieważ pakiet pomocy technicznej jest szyfrowany). Pakiet pomocy technicznej jest następnie tworzony w folderze domyślnym (nazwa urządzenia dołączona z bieżącą datą i godziną).
-   * W przypadku udziałów, które nie są chronione hasłem, `-Credential` parametr nie jest wymagany. Wprowadź następujące dane:
+   * W przypadku udziałów, które nie są chronione hasłem, parametr nie jest wymagany `-Credential` . Wprowadź następujące dane:
      
        `Export-HcsSupportPackage`
      
@@ -66,12 +66,12 @@ Można użyć następujących parametrów za pomocą polecenia cmdlet Export-Hcs
 
 | Parametr | Wymagane/Opcjonalne | Opis |
 | --- | --- | --- |
-| `-Path` |Wymagany |Służy do zapewnienia lokalizacji udostępnionego folderu sieciowego, w którym znajduje się pakiet pomocy technicznej. |
-| `-EncryptionPassphrase` |Wymagany |Użyj, aby podać hasło, aby pomóc w zaszyfrowaniu pakietu dla pomocy technicznej. |
-| `-Credential` |Optional |Użyj, aby podać poświadczenia dostępu do udostępnionego folderu sieciowego. |
-| `-Force` |Optional |Użyj, aby pominąć etap potwierdzania hasła szyfrowania. |
-| `-PackageTag` |Optional |Użyj, aby określić katalog w *ścieżce* , w którym jest umieszczany pakiet pomocy technicznej. Wartość domyślna to [nazwa urządzenia] — [bieżąca data i godzina: RRRR-MM-DD-HH-mm-SS]. |
-| `-Scope` |Optional |Określ jako **klaster** (domyślnie), aby utworzyć pakiet dla obu kontrolerów. Jeśli chcesz utworzyć pakiet tylko dla bieżącego kontrolera, określ pozycję **kontroler**. |
+| `-Path` |Wymagane |Służy do zapewnienia lokalizacji udostępnionego folderu sieciowego, w którym znajduje się pakiet pomocy technicznej. |
+| `-EncryptionPassphrase` |Wymagane |Użyj, aby podać hasło, aby pomóc w zaszyfrowaniu pakietu dla pomocy technicznej. |
+| `-Credential` |Opcjonalne |Użyj, aby podać poświadczenia dostępu do udostępnionego folderu sieciowego. |
+| `-Force` |Opcjonalne |Użyj, aby pominąć etap potwierdzania hasła szyfrowania. |
+| `-PackageTag` |Opcjonalne |Użyj, aby określić katalog w *ścieżce* , w którym jest umieszczany pakiet pomocy technicznej. Wartość domyślna to [nazwa urządzenia] — [bieżąca data i godzina: RRRR-MM-DD-HH-mm-SS]. |
+| `-Scope` |Opcjonalne |Określ jako **klaster** (domyślnie), aby utworzyć pakiet dla obu kontrolerów. Jeśli chcesz utworzyć pakiet tylko dla bieżącego kontrolera, określ pozycję **kontroler**. |
 
 ## <a name="edit-a-support-package"></a>Edytuj pakiet pomocy technicznej
 

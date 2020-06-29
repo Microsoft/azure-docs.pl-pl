@@ -258,36 +258,6 @@
           href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
         - name: Oferta maszyny wirtualnej
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
-    - name: Dokumentacja interfejsu API
-      items:
-        - name: Omówienie
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Wymagania wstępne
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
-        - name: Zagadnienia do rozważenia
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md
-        - name: Kontrola współbieżności
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md
-        - name: Pobieranie oferty
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offers.md
-        - name: Pobieranie konkretnej oferty
-          href: ./cloud-partner-portal-orig//cloud-partner-portal-api-retrieve-specific-offer.md
-        - name: Dodawanie lub modyfikowanie oferty
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-creating-offer.md
-        - name: Pobieranie stanu oferty
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-offer-status.md
-        - name: Publikowanie oferty
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-publish-offer.md
-        - name: Pobieranie operacji
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-retrieve-operations.md
-        - name: Anulowanie operacji
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-cancel-operations.md
-        - name: Udostępnianie
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-go-live.md
-        - name: Cennik ofert maszyn wirtualnych
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-setting-price.md
-        - name: Rozwiązywanie problemów z błędami uwierzytelniania
-          href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Uzyskiwanie pomocy technicznej
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
 - name: Komercyjna platforma handlowa w Centrum partnerskim
@@ -433,8 +403,6 @@
       href: ./partner-center-portal/update-existing-offer.md
     - name: Uaktywnianie korzyści
       href: ./partner-center-portal/marketplace-rewards.md
-    - name: Opcje pomocy technicznej
-      href: ./partner-center-portal/support.md
     - name: Analiza w Centrum partnerskim
       items:
         - name: Analiza dla komercyjnej platformy handlowej
@@ -471,3 +439,35 @@
           href: ./partner-center-portal/payout-policy-details.md
         - name: Szczegóły podatku
           href: ./partner-center-portal/tax-details-paid-transactions.md
+    - name: Dokumentacja interfejsu API języka CPP
+      items:
+        - name: Omówienie
+          href: ./cloud-partner-portal-api-overview.md
+        - name: Wymagania wstępne
+          href: ./cloud-partner-portal-api-prerequisites.md
+        - name: Zagadnienia do rozważenia
+          href: ./cloud-partner-portal-api-considerations.md
+        - name: Kontrola współbieżności
+          href: ./cloud-partner-portal-api-concurrency-control.md
+        - name: Pobieranie oferty
+          href: ./cloud-partner-portal-api-retrieve-offers.md
+        - name: Pobieranie konkretnej oferty
+          href: ./cloud-partner-portal-api-retrieve-specific-offer.md
+        - name: Dodawanie lub modyfikowanie oferty
+          href: ./cloud-partner-portal-api-creating-offer.md
+        - name: Pobieranie stanu oferty
+          href: ./cloud-partner-portal-api-retrieve-offer-status.md
+        - name: Publikowanie oferty
+          href: ./cloud-partner-portal-api-publish-offer.md
+        - name: Pobieranie operacji
+          href: ./cloud-partner-portal-api-retrieve-operations.md
+        - name: Anulowanie operacji
+          href: ./cloud-partner-portal-api-cancel-operations.md
+        - name: Udostępnianie
+          href: ./cloud-partner-portal-api-go-live.md
+        - name: Cennik ofert maszyn wirtualnych
+          href: ./cloud-partner-portal-api-setting-price.md
+        - name: Rozwiązywanie problemów z błędami uwierzytelniania
+          href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
+    - name: Opcje pomocy technicznej
+      href: ./partner-center-portal/support.md

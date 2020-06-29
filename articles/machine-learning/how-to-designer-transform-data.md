@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: how-to
 author: peterclu
 ms.author: peterlu
-ms.date: 05/04/2020
+ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 69e4583d03fbe013fd6629952e34dae039f3836d
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: ea0ba58c3eb38a54be5ff777519ca12d6a2cf9ce
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433212"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517544"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Przekształcanie danych w programie Azure Machine Learning Designer (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -78,7 +78,7 @@ W tej sekcji użyjesz [modułu Split Data](algorithm-module-reference/split-data
 
 Potok powinien wyglądać następująco:
 
-![Zrzut ekranu przedstawiający sposób konfigurowania potoku i modułu Split Data](media/how-to-designer-transform-data/split-data.png).
+:::image type="content" source="./media/how-to-designer-transform-data/split-data.png"alt-text="Zrzut ekranu przedstawiający sposób konfigurowania potoku i modułu Split Data":::
 
 
 ## <a name="save-the-datasets"></a>Zapisz zestawy danych

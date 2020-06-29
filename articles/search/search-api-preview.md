@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.openlocfilehash: db941152186127302680b5e659e43cd2d82a8908
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3fa67f6961b146d1dc7f5a4d1780e4060f1fdedc
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77162280"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512689"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funkcje w wersji zapoznawczej na platformie Azure Wyszukiwanie poznawcze
 
@@ -37,6 +37,7 @@ Zapoznaj się z najnowszymi ulepszeniami wzbogacenia AI za pomocą [interfejsu A
 | [Umiejętność wykrywania przez dane OSOBowe (wersja zapoznawcza)](cognitive-search-skill-pii-detection.md) | Umiejętność, która jest używana podczas indeksowania, która wyodrębnia dane osobowe z tekstu wejściowego i umożliwia maskowanie tego tekstu na różne sposoby.| 
 | [Wzbogacanie przyrostowe (wersja zapoznawcza)](cognitive-search-incremental-indexing-conceptual.md) | Dodaje pamięć podręczną do potoku wzbogacania, umożliwiając ponowne użycie istniejących danych wyjściowych, jeśli docelowa modyfikacja, taka jak aktualizacja zestawu umiejętności lub innego obiektu, nie zmienia zawartości. Buforowanie dotyczy tylko ulepszonych dokumentów utworzonych przez zestawu umiejętności.| 
 | [Magazyn wiedzy (wersja zapoznawcza)](knowledge-store-concept-intro.md) | Nowe miejsce docelowe potoku wzbogacania opartego na AI. Struktura danych fizycznych istnieje w usłudze Azure Blob Storage i Azure Table Storage oraz jest tworzona i wypełniana podczas uruchamiania indeksatora, który ma dołączony zestawu umiejętności poznawcze. Definicja samego sklepu wiedzy została określona w definicji zestawu umiejętności. W ramach definicji sklepu merytorycznego można kontrolować struktury fizyczne danych za pomocą elementów *projekcji* , które określają, jak dane są w kształcie, czy dane są przechowywane w magazynie tabel lub w magazynie obiektów blob, oraz czy istnieje wiele widoków.| 
+| [Umiejętność AML (wersja zapoznawcza)](cognitive-search-aml-skill.md) | Niestandardowa umiejętność wbudowana Azure Machine Learning (AML) do wzbogacania dokumentów podczas indeksowania. Umiejętność uczenia maszynowego Azure ułatwia odnajdywanie, uwierzytelnianie i mapowanie schematów.|
 
 ## <a name="indexing-and-query-features"></a>Funkcje indeksowania i zapytania
 
@@ -53,15 +54,15 @@ Funkcje programu Indexer Preview są dostępne w interfejsie API wyszukiwania w 
 |||
 |-|-|
 | [Obsługa prywatnego punktu końcowego](service-create-private-endpoint.md) | Można utworzyć sieć wirtualną z bezpiecznym klientem (na przykład maszyną wirtualną), a następnie utworzyć usługę wyszukiwania używającą prywatnego punktu końcowego. |
-| Ograniczenie dostępu do adresów IP | Za [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) pomocą interfejsu API REST zarządzania można utworzyć usługę, która ma ograniczenia dotyczące dozwolonych adresów IP. |
+| Ograniczenie dostępu do adresów IP | Za pomocą [`api-version=2019-10-01-Preview`](https://docs.microsoft.com/rest/api/searchmanagement/index-2019-10-01-preview) interfejsu API REST zarządzania można utworzyć usługę, która ma ograniczenia dotyczące dozwolonych adresów IP. |
 
 ## <a name="earlier-preview-features"></a>Wcześniejsze funkcje w wersji zapoznawczej
 
-Funkcje ogłoszone we wcześniejszych wersjach zapoznawczych, jeśli nie przechodzą do ogólnej dostępności, nadal są w publicznej wersji zapoznawczej. Jeśli wywołujesz interfejs API z wcześniejszą wersją interfejsu API w wersji zapoznawczej, możesz nadal korzystać z tej wersji lub `2019-05-06-Preview` przełączać się do programu bez zmian w oczekiwanym zachowaniu.
+Funkcje ogłoszone we wcześniejszych wersjach zapoznawczych, jeśli nie przechodzą do ogólnej dostępności, nadal są w publicznej wersji zapoznawczej. Jeśli wywołujesz interfejs API z wcześniejszą wersją interfejsu API w wersji zapoznawczej, możesz nadal korzystać z tej wersji lub przełączać się do `2019-05-06-Preview` programu bez zmian w oczekiwanym zachowaniu.
 
 ## <a name="how-to-call-a-preview-api"></a>Jak wywołać interfejs API w wersji zapoznawczej
 
-Starsze wersje zapoznawcze nadal działają, ale stają się nieodświeżone w czasie. Jeśli kod wywołuje `api-version=2016-09-01-Preview` lub `api-version=2017-11-11-Preview`, te wywołania są nadal ważne. Jednak tylko Najnowsza wersja zapoznawcza jest odświeżana z ulepszeniami. 
+Starsze wersje zapoznawcze nadal działają, ale stają się nieodświeżone w czasie. Jeśli kod wywołuje `api-version=2016-09-01-Preview` lub `api-version=2017-11-11-Preview` , te wywołania są nadal ważne. Jednak tylko Najnowsza wersja zapoznawcza jest odświeżana z ulepszeniami. 
 
 Poniższa przykładowa składnia ilustruje wywołanie wersji interfejsu API podglądu.
 

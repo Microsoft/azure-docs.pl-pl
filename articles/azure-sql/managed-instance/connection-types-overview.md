@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 153f338a49a24d1cb9eb71c068effcfd20bd2ffe
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 6c6774fb462a21e721b19ae53d1d018d780b28ae
+ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84706311"
+ms.lasthandoff: 06/29/2020
+ms.locfileid: "85517324"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Typy połączeń wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,7 +44,11 @@ W przypadku typu połączenia serwera proxy sesja TCP zostaje ustanowiona przy u
 
 ![proxy.png](./media/connection-types-overview/proxy.png)
 
-## <a name="script-to-change-connection-type-settings-using-powershell"></a>Skrypt służący do zmiany ustawień typu połączenia przy użyciu programu PowerShell
+## <a name="changing-connection-type"></a>Zmienianie typu połączenia
+
+- **Korzystanie z portalu:** Aby zmienić typ połączenia przy użyciu Azure Portal, Otwórz stronę Virtual Network i użyj ustawienia **Typ połączenia** , aby zmienić typ połączenia i zapisać zmiany.
+
+- **Skrypt służący do zmiany ustawień typu połączenia przy użyciu programu PowerShell:**
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 650798fdb884e6494990efb533335a1dd8b4d89f
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67875389"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514913"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatyczne rozwiązanie do odzyskiwania po awarii wykorzystujące Azure Site Recovery dla udziałów plików hostowanych w usłudze StorSimple
 
@@ -84,7 +84,7 @@ Ten krok wymaga przygotowania lokalnego środowiska serwera plików, utworzenia 
 
 1. Zainstaluj agenta maszyny wirtualnej na każdej maszynie wirtualnej serwera plików. Jest to wymagane, aby można było uruchamiać skrypty usługi Azure Automation na maszynach wirtualnych w trybie failover.
    
-   1. [Pobierz agenta](https://aka.ms/vmagentwin) do `C:\\Users\\<username>\\Downloads`programu.
+   1. [Pobierz agenta](https://aka.ms/vmagentwin) do programu `C:\\Users\\<username>\\Downloads` .
    1. Otwórz program Windows PowerShell w trybie administratora (Uruchom jako administrator), a następnie wprowadź następujące polecenie, aby przejść do lokalizacji pobierania:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -142,7 +142,7 @@ Możesz wybrać maszynę wirtualną na karcie **zreplikowane elementy** , aby sk
 Możesz utworzyć plan odzyskiwania w usłudze ASR, aby zautomatyzować proces trybu failover udziałów plików. Jeśli wystąpi zakłócenie, można przenieść udziały plików w ciągu kilku minut za pomocą jednego kliknięcia. Aby włączyć tę automatyzację, konieczne będzie konto usługi Azure Automation.
 
 #### <a name="to-create-an-automation-account"></a>Aby utworzyć konto usługi Automation
-1. Przejdź do sekcji &gt; **Automatyzacja** Azure Portal.
+1. Przejdź do &gt; sekcji **automatyzacja** Azure Portal.
 1. Kliknij przycisk **+ Dodaj** przycisk, otwiera poniżej bloku.
    
    ![Dodawanie konta usługi Automation](./media/storsimple-disaster-recovery-using-azure-site-recovery/image11.png)
@@ -177,10 +177,10 @@ Możesz utworzyć plan odzyskiwania w usłudze ASR, aby zautomatyzować proces t
    - _RecoveryPlanName_**-DeviceIpAddress**: adres IP urządzenia (można go znaleźć na karcie **urządzenia** w obszarze StorSimple Menedżer urządzeń sekcji &gt; **Ustawienia** &gt; **sieciowej** &gt; grupy **ustawień DNS** ).
    - _RecoveryPlanName_**-VolumeContainers**: rozdzielany przecinkami ciąg kontenerów woluminów znajdujących się na urządzeniu, które wymagają przełączenia w tryb failover; na przykład: volcon1, volcon2, volcon3.
    - _RecoveryPlanName_**-TargetDeviceName**: urządzenie w chmurze StorSimple, na którym znajdują się przełączenia w tryb failover.
-   - _RecoveryPlanName_**-TargetDeviceIpAddress**: adres IP urządzenia docelowego (można go znaleźć na karcie &gt; **sieci** grupy &gt; **ustawień** sekcji **maszyny wirtualnej** ).
+   - _RecoveryPlanName_**-TARGETDEVICEIPADDRESS**: adres IP urządzenia docelowego (można go znaleźć na karcie sieci grupy ustawień sekcji **maszyny wirtualnej** &gt; **Settings** &gt; **Networking** ).
    - _RecoveryPlanName_**-StorageAccountName**: nazwa konta magazynu, w którym będzie przechowywany skrypt (który musi działać na maszynie wirtualnej w trybie failover). Może to być dowolne konto magazynu z ilością miejsca do tymczasowego przechowywania skryptu.
    - _RecoveryPlanName_**-StorageAccountKey**: klucz dostępu dla powyższego konta magazynu.
-   - _RecoveryPlanName_**-VMGUIDS**: w przypadku ochrony maszyny wirtualnej Azure Site Recovery przypisuje każdej maszynie wirtualnej unikatowy identyfikator, który zawiera szczegółowe informacje dotyczące maszyny wirtualnej przełączonej w tryb failover. Aby uzyskać VMGUID, wybierz kartę **Recovery Services** , a następnie kliknij **pozycję chronione** &gt; **grupy** &gt; ochrony elementów **Właściwości** **maszyny** &gt; . Jeśli masz wiele maszyn wirtualnych, Dodaj identyfikatory GUID jako ciąg rozdzielony przecinkami.
+   - _RecoveryPlanName_**-VMGUIDS**: w przypadku ochrony maszyny wirtualnej Azure Site Recovery przypisuje każdej maszynie wirtualnej unikatowy identyfikator, który zawiera szczegółowe informacje dotyczące maszyny wirtualnej przełączonej w tryb failover. Aby uzyskać VMGUID, wybierz kartę **Recovery Services** , a następnie kliknij pozycję **chronione** &gt; **grupy ochrony** elementów &gt; **Machines** &gt; **Właściwości**maszyny. Jeśli masz wiele maszyn wirtualnych, Dodaj identyfikatory GUID jako ciąg rozdzielony przecinkami.
 
      Na przykład jeśli nazwa planu odzyskiwania to fileServerpredayRP, wówczas **zmienne**, **połączenia** i **Certyfikaty** powinny być wyświetlane w następujący sposób po dodaniu wszystkich zasobów.
 
@@ -195,7 +195,7 @@ Możesz utworzyć plan odzyskiwania w usłudze ASR, aby zautomatyzować proces t
             cd C:\scripts\StorSimpleSDKTools
       ```
    1. Pobierz interfejs wiersza polecenia NuGet w tym samym folderze w krok 1.
-      Różne wersje programu NuGet. exe są dostępne na stronie [pobierania narzędzia NuGet](https://www.nuget.org/downloads). Każde łącze pobierania wskazuje bezpośrednio plik. exe, dlatego należy kliknąć prawym przyciskiem myszy i zapisać plik na komputerze zamiast uruchamiać go z przeglądarki.
+      Różne wersje nuget.exe są dostępne na stronie [pobierania narzędzia NuGet](https://www.nuget.org/downloads). Każde łącze pobierania wskazuje bezpośrednio plik. exe, dlatego należy kliknąć prawym przyciskiem myszy i zapisać plik na komputerze zamiast uruchamiać go z przeglądarki.
       
       ```
             wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
@@ -230,7 +230,7 @@ Możesz utworzyć plan odzyskiwania w usłudze ASR, aby zautomatyzować proces t
             compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
       ```
          
-   1. Zaimportuj plik zip modułu Azure Automation (Microsoft. Azure. Management. StorSimple8000Series. zip) utworzony w powyższym kroku. W tym celu należy wybrać konto usługi Automation, kliknąć pozycję **moduły** w obszarze zasoby udostępnione, a następnie kliknąć pozycję **Dodaj moduł**.
+   1. Zaimportuj plik zip modułu Azure Automation (Microsoft.Azure.Management.StorSimple8000Series.zip) utworzony w powyższym kroku. W tym celu należy wybrać konto usługi Automation, kliknąć pozycję **moduły** w obszarze zasoby udostępnione, a następnie kliknąć pozycję **Dodaj moduł**.
    
    Po zaimportowaniu modułu StorSimple 8000 Series karta **moduły** powinna wyglądać w następujący sposób:
    
@@ -282,7 +282,7 @@ Zapoznaj się z przewodnikiem uzupełniania [rozwiązania Active Directory Dr](.
    
    ![Uruchom tryb failover](./media/storsimple-disaster-recovery-using-azure-site-recovery/image8.png)
    
-1. Kliknij przycisk **OK**, aby rozpocząć tryb failover. Postęp można śledzić, klikając maszynę wirtualną, aby otworzyć jej właściwości, lub w **zadaniu testowego trybu failover** w &gt; obszarze **zadania** &gt; nazwy magazynu **Site Recovery zadania**.
+1. Kliknij przycisk **OK**, aby rozpocząć tryb failover. Postęp można śledzić, klikając maszynę wirtualną, aby otworzyć jej właściwości, lub w **zadaniu testowego trybu failover** w obszarze zadania nazwy magazynu &gt; **Jobs** &gt; **Site Recovery zadania**.
 1. Po zakończeniu pracy w trybie failover należy również sprawdzić, czy replika maszyny Azure jest wyświetlana w &gt; **Virtual Machines**Azure Portal. Możesz wykonywać walidację.
 1. Po zakończeniu walidacji kliknij pozycję **walidacje ukończone**. Spowoduje to usunięcie woluminów StorSimple i zamknięcie urządzenia w chmurze StorSimple.
 1. Gdy skończysz, kliknij przycisk **Oczyść test pracy w trybie failover** w planie odzyskiwania. W obszarze Uwagi zarejestruj i zapisz wszelkie obserwacje związane z testem pracy w trybie failover. Spowoduje to usunięcie maszyny wirtualnej, która została utworzona podczas testu pracy w trybie failover.

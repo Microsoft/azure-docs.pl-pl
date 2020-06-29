@@ -3,16 +3,16 @@ title: Monitoruj Azure File Sync | Microsoft Docs
 description: Jak monitorować Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ac09f9b59bc6f47adc9311cc910352c1a0d73b5d
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 0232a0c6526d6dcdfec86dedec437c71e7e21080
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68699290"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515208"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorowanie usługi Azure File Sync
 
@@ -68,7 +68,7 @@ Aby wyświetlić zarejestrowane kondycje serwera, kondycja punktu końcowego ser
 ### <a name="registered-server-health"></a>Zarejestrowana kondycja serwera
 
 - Jeśli **zarejestrowany stan serwera** jest w **trybie online**, serwer pomyślnie komunikuje się z usługą.
-- Jeśli **zarejestrowany stan serwera** jest **wyświetlany w trybie offline**, sprawdź, czy na serwerze działa proces monitora synchronizacji magazynu (AzureStorageSyncMonitor. exe). Jeśli serwer znajduje się za zaporą lub serwerem proxy, zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) , aby skonfigurować zaporę i serwer proxy.
+- Jeśli **zarejestrowany stan serwera** jest **wyświetlany w trybie offline**, sprawdź, czy na serwerze działa proces Monitor synchronizacji magazynu (AzureStorageSyncMonitor.exe). Jeśli serwer znajduje się za zaporą lub serwerem proxy, zapoznaj się z [tym artykułem](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) , aby skonfigurować zaporę i serwer proxy.
 
 ### <a name="server-endpoint-health"></a>Kondycja punktu końcowego serwera
 
@@ -132,7 +132,7 @@ Kondycja warstw chmury:
 
 Użyj Azure File Sync liczników wydajności na serwerze, aby monitorować aktywność synchronizacji.
 
-Aby wyświetlić liczniki wydajności Azure File Sync na serwerze, otwórz Monitor wydajności (Perfmon. exe). Liczniki można znaleźć w obszarze **transfery bajtów AFS** i obiekty **operacji synchronizacji AFS** .
+Aby wyświetlić liczniki wydajności Azure File Sync na serwerze, otwórz Monitor wydajności (Perfmon.exe). Liczniki można znaleźć w obszarze **transfery bajtów AFS** i obiekty **operacji synchronizacji AFS** .
 
 Następujące liczniki wydajności dla Azure File Sync są dostępne w Monitorze wydajności:
 

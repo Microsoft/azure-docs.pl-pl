@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 34aeda7534c15b51b9759b696caaf3fcfac88659
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 086e3cf71012f168851df1c85b19689294fe6302
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85317702"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515737"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
@@ -23,11 +23,11 @@ Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić
 
 ### <a name="june-2020"></a>Czerwiec 2020 r.
 
-+ [Azure Machine Learning (AML) (wersja zapoznawcza)](cognitive-search-aml-skill.md) to umiejętność wykorzystywana podczas indeksowania, która otacza model Azure Machine Learning. Za pomocą umiejętności można zintegrować wcześniej przeszkolony i wdrożoną niestandardową Uczenie maszynowe w potoku wzbogacania AI. [Zarejestruj się, aby zażądać dostępu](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0jK7x7HQYdDm__YfEsbtcZUMTFGTFVTOE5XMkVUMFlDVFBTTlYzSlpLTi4u). Gdy wszystko będzie gotowe do dodania umiejętności AML, użyj szablonu AML w edytorze zestawu umiejętności w Azure Portal. Aby poznać wskazówki, zacznij korzystać z [tego samouczka](cognitive-search-tutorial-aml-custom-skill.md).
+Azure Machine Learning umiejętność to nowy typ umiejętności do integrowania punktu końcowego inferencing z Azure Machine Learning. Środowisko portalu obsługuje odnajdywanie i integrację punktu końcowego Azure Machine Learning w ramach Wyszukiwanie poznawcze zestawu umiejętności. Odnajdywanie wymaga, aby Wyszukiwanie poznawcze i usługi Azure ML zostały wdrożone w tej samej subskrypcji. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-aml-custom-skill.md).
 
 ### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft Build)
 
-+ Funkcja [debugowania sesji](cognitive-search-debug-session.md) jest teraz dostępna w wersji zapoznawczej. [Zarejestruj się, aby zażądać dostępu](https://aka.ms/DebugSessions). Sesje debugowania zapewniają interfejs oparty na portalu do badania i rozwiązywania problemów z zestawu umiejętności. Poprawki utworzone w sesji debugowania można zapisać w środowisku produkcyjnym umiejętności. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-debug-sessions.md).
++ Funkcja [debugowania sesji](cognitive-search-debug-session.md) jest teraz dostępna w wersji zapoznawczej. Sesje debugowania zapewniają interfejs oparty na portalu do badania i rozwiązywania problemów z zestawu umiejętności. Poprawki utworzone w sesji debugowania można zapisać w środowisku produkcyjnym umiejętności. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-debug-sessions.md).
 
 + Ulepszenia zabezpieczeń umożliwiają [skonfigurowanie prywatnego punktu końcowego wyszukiwania (wersja zapoznawcza)](service-create-private-endpoint.md) , który jest niedostępny w publicznej sieci Internet. Istnieje również możliwość [skonfigurowania reguł IP dla obsługi zapory w powiązaniu (wersja zapoznawcza)](service-configure-firewall.md).
 

@@ -3,15 +3,15 @@ title: Zarządzanie i aktualizowanie pamięci podręcznej platformy Azure HPC
 description: Jak zarządzać i aktualizować pamięć podręczną Azure HPC przy użyciu Azure Portal
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: v-erkel
-ms.openlocfilehash: 226483666491197013c5f4d9ab8e04911f4b1198
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.openlocfilehash: 825b8a34e130286a5772363107311fe4170e8743
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84432964"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515553"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Zarządzanie pamięcią podręczną przy użyciu Azure Portal
 

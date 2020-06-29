@@ -3,15 +3,15 @@ title: Monitorowanie urządzenia z serii StorSimple 8000
 description: Opisuje, jak używać usługi StorSimple Menedżer urządzeń do monitorowania użycia, wydajności we/wy i wykorzystania pojemności.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: b3b77024606c5cdb02ff7bdd357c2d14a2415efa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c2df017a9af47bfa330c8e0fa7561bf5b2d5bae
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277056"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514698"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Monitorowanie urządzenia StorSimple przy użyciu usługi StorSimple Menedżer urządzeń
 
@@ -29,7 +29,7 @@ Przydzielona i pozostała pojemność jest podzielona na woluminy przypięte war
 
 
 
-## <a name="usage"></a>Sposób użycia
+## <a name="usage"></a>Użycie
 **Użycie** śledzi metryki dotyczące ilości miejsca do magazynowania danych używanego przez woluminy, kontenery woluminów lub urządzenie. Możesz tworzyć raporty na podstawie wykorzystania pojemności magazynu podstawowego, magazynu w chmurze lub magazynu urządzeń. Wykorzystanie pojemności można mierzyć na określonym woluminie, konkretnym kontenerze woluminów lub wszystkich kontenerach woluminów.
 Domyślnie zostanie zgłoszone użycie w ciągu ostatnich 24 godzin. Można edytować wykres, aby zmienić czas, w którym jest raportowane użycie, wybierając z:
 * Ostatnie 24 godziny

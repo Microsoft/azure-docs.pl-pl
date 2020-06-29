@@ -3,15 +3,15 @@ title: Dostrajanie wydajności — burza Azure Data Lake Storage Gen1
 description: Informacje na temat wskazówek dotyczących dostrajania wydajności dla klastra burzy na Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 85a38a4da65d1b4a669a41eba902b39508e9216c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 47fb385e5e1fb60f860735530356fa87031c51e8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691640"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513786"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dotyczące burzy w usłudze HDInsight i Azure Data Lake Storage Gen1
 
@@ -126,8 +126,8 @@ W przypadku osiągnięcia limitów przepustowości zapewnianej przez Data Lake S
 
 Aby sprawdzić, czy masz ograniczone ograniczenia, Włącz rejestrowanie debugowania po stronie klienta:
 
-1. W obszarze **Ambari** > **burzy** > **config** > **Advanced burzy-Worker-Log4J**, Zmień ** &lt;poziom główny =&gt; "info"** na ** &lt;root Level =&gt;"debug"**. Uruchom ponownie wszystkie węzły/usługi, aby konfiguracja zaczęła obowiązywać.
-2. Monitoruj dzienniki topologii burzy w węzłach procesu roboczego&lt;(w&gt;/&lt;obszarze&gt;/var/log/Storm/Worker-Artifacts/topologyname port/Worker.log), aby uzyskać Data Lake Storage Gen1 wyjątków ograniczania.
+1. W obszarze **Ambari**  >  **burzy**  >  **config**  >  **Advanced burzy-Worker-Log4J**, Zmień ** &lt; poziom główny = &gt; "info"** na ** &lt; root Level = &gt; "debug"**. Uruchom ponownie wszystkie węzły/usługi, aby konfiguracja zaczęła obowiązywać.
+2. Monitoruj dzienniki topologii burzy w węzłach procesu roboczego (w obszarze/var/log/Storm/Worker-Artifacts/ &lt; topologyname &gt; / &lt; port &gt; /Worker.log), aby uzyskać Data Lake Storage Gen1 wyjątków ograniczania.
 
 ## <a name="next-steps"></a>Następne kroki
 W [tym blogu](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)można odwoływać się do dodatkowej dostrajania wydajności dla burzy.

@@ -4,16 +4,16 @@ description: Dowiedz się, jak naprawić zadanie eksportu, które zostało utwor
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: b2ba30bddfc6364c79e1bb01d30cde63b261a07f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10e209228ad12b377b729bc251eb761b51ff5378
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74978019"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514370"
 ---
 # <a name="repairing-an-export-job"></a>Naprawianie zadania eksportu
 Po zakończeniu zadania eksportu można uruchomić narzędzie Microsoft Azure Import/Export lokalnie, aby:  
@@ -33,14 +33,14 @@ Następujące parametry można określić za pomocą **RepairExport**:
 |Parametr|Opis|  
 |---------------|-----------------|  
 |**/r: <RepairFile\>**|Wymagany. Ścieżka do pliku naprawy, która śledzi postęp naprawy i pozwala na wznowienie przerwanej naprawy. Każdy dysk musi mieć jeden i tylko jeden plik naprawy. Po rozpoczęciu naprawy danego dysku zostanie przekazane ścieżka do pliku naprawy, który jeszcze nie istnieje. Aby wznowić przerwaną naprawę, należy przekazać nazwę istniejącego pliku naprawy. Należy zawsze określić plik naprawy odpowiadający dyskowi docelowemu.|  
-|**/logdir: <LogDirectory\>**|Element opcjonalny. Katalog dzienników. Pełne pliki dziennika będą zapisywane w tym katalogu. Jeśli nie określono katalogu dziennika, bieżący katalog będzie używany jako katalog dziennika.|  
+|**/logdir: <LogDirectory\>**|Opcjonalny. Katalog dzienników. Pełne pliki dziennika będą zapisywane w tym katalogu. Jeśli nie określono katalogu dziennika, bieżący katalog będzie używany jako katalog dziennika.|  
 |**/d: <TargetDirectory\>**|Wymagany. Katalog, który ma zostać zweryfikowany i naprawiony. Jest to zazwyczaj katalog główny dysku eksportu, ale może to być również sieciowy udział plików zawierający kopię eksportowanych plików.|  
-|**/BK: <BitLockerKey\>**|Element opcjonalny. Należy określić klucz funkcji BitLocker, jeśli narzędzie ma odblokować zaszyfrowane pliki.|  
+|**/BK: <BitLockerKey\>**|Opcjonalny. Należy określić klucz funkcji BitLocker, jeśli narzędzie ma odblokować zaszyfrowane pliki.|  
 |**/SN: <StorageAccountName\>**|Wymagany. Nazwa konta magazynu dla zadania eksportu.|  
 |**/SK: <StorageAccountKey\>**|**Wymagane** , jeśli i tylko wtedy, gdy nie określono sygnatury dostępu współdzielonego kontenera. Klucz konta magazynu dla zadania eksportu.|  
 |**/CSAS: <ContainerSas\>**|**Wymagane** , jeśli i tylko wtedy, gdy nie określono klucza konta magazynu. Kontener SAS kontenera do uzyskiwania dostępu do obiektów BLOB skojarzonych z zadaniem eksportu.|  
 |**/CopyLogFile: <DriveCopyLogFile\>**|Wymagany. Ścieżka do pliku dziennika kopiowania dysku. Plik jest generowany przez usługę Import/Export systemu Windows Azure i można go pobrać z magazynu obiektów BLOB skojarzonego z zadaniem. Plik dziennika kopiowania zawiera informacje dotyczące niezakończonych obiektów blob lub plików, które mają zostać naprawione.|  
-|**/ManifestFile: <DriveManifestFile\>**|Element opcjonalny. Ścieżka do pliku manifestu dysku eksportu. Ten plik jest generowany przez usługę Import/Export systemu Windows Azure i przechowywany na dysku eksportu i opcjonalnie w obiekcie BLOB na koncie magazynu skojarzonym z zadaniem.<br /><br /> Zawartość plików na dysku eksportu zostanie zweryfikowana przy użyciu skrótów MD5 zawartych w tym pliku. Wszystkie pliki, które zostały uznane za uszkodzone, zostaną pobrane i ponownie umieszczone w katalogach docelowych.|  
+|**/ManifestFile: <DriveManifestFile\>**|Opcjonalny. Ścieżka do pliku manifestu dysku eksportu. Ten plik jest generowany przez usługę Import/Export systemu Windows Azure i przechowywany na dysku eksportu i opcjonalnie w obiekcie BLOB na koncie magazynu skojarzonym z zadaniem.<br /><br /> Zawartość plików na dysku eksportu zostanie zweryfikowana przy użyciu skrótów MD5 zawartych w tym pliku. Wszystkie pliki, które zostały uznane za uszkodzone, zostaną pobrane i ponownie umieszczone w katalogach docelowych.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Poprawianie nieudanych eksportów przy użyciu trybu RepairExport  
 Aby pobrać pliki, które nie zostały wyeksportowane, można użyć narzędzia Azure Import/Export. Plik dziennika kopiowania będzie zawierać listę plików, które nie zostały wyeksportowane.  

@@ -3,15 +3,15 @@ title: Integracja Data Lake Storage Gen1 z usługą Azure Data Catalog
 description: Dowiedz się, jak zarejestrować dane z Azure Data Lake Storage Gen1 w Azure Data Catalog, aby umożliwić odnajdywanie danych w organizacji.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 66191a52c6ef1f3d19afd2a47356487b07e9eff4
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 1484c4bf17d5f437d681e32559b7e6ed4115f5f5
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692338"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515131"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Rejestruj dane z Azure Data Lake Storage Gen1 w Azure Data Catalog
 W tym artykule dowiesz się, jak zintegrować Azure Data Lake Storage Gen1 z Azure Data Catalog, aby umożliwić odnajdywanie danych w organizacji przez integrację jej z Data Catalog. Aby uzyskać więcej informacji na temat katalogowania danych, zobacz [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Aby zrozumieć scenariusze, w których można używać Data Catalog, zobacz [Azure Data Catalog typowych scenariuszach](../data-catalog/data-catalog-common-scenarios.md).
@@ -30,7 +30,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 
 > [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
 
-1. Przejdź do `https://azure.microsoft.com/services/data-catalog`, a następnie kliknij pozycję **Rozpocznij pracę**.
+1. Przejdź do `https://azure.microsoft.com/services/data-catalog` , a następnie kliknij pozycję **Rozpocznij pracę**.
 1. Zaloguj się do portalu usługi Azure Data Catalog, a następnie kliknij pozycję **Publikuj dane**.
 
     ![Rejestrowanie źródła danych](./media/data-lake-store-with-data-catalog/register-data-source.png "Rejestrowanie źródła danych")
@@ -59,7 +59,7 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
 
     ![Wyświetl strukturę danych](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "Wyświetl strukturę danych")
 
-    Kliknij pozycję **zarejestruj**.
+    Kliknij pozycję **Zarejestruj**.
 1. Poniższy zrzut ekranu oznacza, że dane zostały pomyślnie zarejestrowane w Data Catalog.
 
     ![Zakończono rejestrację](./media/data-lake-store-with-data-catalog/registration-complete.png "Wyświetl strukturę danych")

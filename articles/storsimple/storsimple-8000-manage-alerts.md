@@ -3,15 +3,15 @@ title: Wyświetlanie alertów dla urządzenia z serii StorSimple 8000 i zarządz
 description: Opisuje warunki i ważność alertów StorSimple, sposób konfigurowania powiadomień o alertach oraz sposób używania usługi StorSimple Menedżer urządzeń do zarządzania alertami.
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 4956c511f67fc5929eef2e39797cbe93b5b1d73e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84711939"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515503"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Używanie usługi StorSimple Menedżer urządzeń do wyświetlania alertów StorSimple i zarządzania nimi
 
@@ -219,7 +219,12 @@ W przypadku niepowodzenia łączności z chmurą na urządzeniu produkcyjnym Sto
 |:--- |:--- |:--- |
 | Tworzenie pakietu dla pomocy technicznej nie powiodło się. |StorSimple nie może wygenerować pakietu. |Spróbuj ponownie wykonać tę operację. Jeśli problem będzie się powtarzać, skontaktuj się z firmą pomoc techniczna firmy Microsoft. Po rozwiązaniu problemu Wyczyść ten alert na stronie alertów. |
 
+### <a name="enclosure-environment-alerts"></a>Alerty środowiska obudowy
+
+| Tekst alertu | Zdarzenie | Więcej informacji/zalecane akcje |
+|:--- |:--- |:--- |
+| Czujnik temperatury otoczenia składnika sprzętowego zgłasza stan jako niepowodzenie.  | Typ obudowy: Obudowa główna | Ten alert jest wyzwalany, gdy otoczenia poza temperaturą StorSimple przekracza akceptowalny zakres. Sprawdź otoczenia poza temperaturą lub przepływem powietrza z oddziału AC w centrum danych. Gdy temperatura powróci do normalnego, alert zostanie automatycznie wyczyszczony po upływie pewnego czasu. Jeśli problem będzie się powtarzał, skontaktuj się z pomocą techniczną firmy Microsoft.   |
+
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się więcej o [błędach StorSimple i rozwiązywaniu problemów z wdrażaniem urządzeń](storsimple-8000-troubleshoot-deployment.md).
-

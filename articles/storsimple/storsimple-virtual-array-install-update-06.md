@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 5f0be5d8378cd1640d3052f2e56c8161e2c0b203
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 02b85cb90948f35cb6f6c855cfbe81fd58301de0
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "62116895"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513588"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 0,6 w macierzy wirtualnej StorSimple
 
@@ -30,6 +30,7 @@ W tym artykule opisano kroki wymagane do zainstalowania aktualizacji 0,6 w macie
 Przed zastosowaniem aktualizacji zaleca się, aby najpierw przełączyć woluminy lub udziały w tryb offline na hoście, a następnie na urządzeniu. Minimalizuje to ryzyko uszkodzenia danych. Gdy woluminy lub udziały są w trybie offline, należy również ręcznie wykonać kopię zapasową urządzenia.
 
 > [!IMPORTANT]
+>
 > - Aktualizacja 0,6 jest zgodna z wersją oprogramowania **10.0.10293.0** na urządzeniu. Aby uzyskać informacje na temat Nowości w tej aktualizacji, przejdź do informacji o [wersji aktualizacji 0,6](storsimple-virtual-array-update-06-release-notes.md).
 >
 > - W przypadku korzystania z aktualizacji 0,2 lub nowszej zaleca się zainstalowanie aktualizacji za pomocą Azure Portal. W przypadku korzystania z aktualizacji 0,1 lub GA wersji oprogramowania należy użyć metody poprawek za pomocą lokalnego interfejsu użytkownika sieci Web, aby zainstalować aktualizację 0,6.
@@ -57,7 +58,7 @@ Wykonaj następujące kroki, aby pobrać aktualizację oprogramowania z Wykazu u
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Aby pobrać aktualizację lub poprawkę
 
-1. Uruchom program Internet Explorer i przejdź [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)do.
+1. Uruchom program Internet Explorer i przejdź do [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Jeśli używasz wykazu Microsoft Update po raz pierwszy na tym komputerze, kliknij przycisk **Zainstaluj** po wyświetleniu monitu, aby zainstalować dodatek katalogu Microsoft Update.
 
@@ -75,15 +76,15 @@ Wykonaj następujące kroki, aby pobrać aktualizację oprogramowania z Wykazu u
     ![Pliki w pakiecie](./media/storsimple-virtual-array-install-update-06/update06folder.png)
 
     Zobaczysz:
-    -  Microsoft Update autonomiczny plik `WindowsTH-KB3011067-x64`pakietu. Ten plik jest używany do aktualizacji oprogramowania urządzenia.
-    - Plik `GenevaMonitoringAgentPackageInstaller`pakietu agenta monitorowania Genewa. Ten plik jest używany do aktualizowania agenta usług monitorowania i diagnostyki. Kliknij dwukrotnie plik cab. Zostanie wyświetlony plik _MSI_ . Wybierz plik, kliknij prawym przyciskiem myszy, a następnie **Wyodrębnij** plik. Aby zaktualizować agenta, należy użyć pliku _. msi_ .
+    -  Microsoft Update autonomiczny plik pakietu `WindowsTH-KB3011067-x64` . Ten plik jest używany do aktualizacji oprogramowania urządzenia.
+    - Plik pakietu agenta monitorowania Genewa `GenevaMonitoringAgentPackageInstaller` . Ten plik jest używany do aktualizowania agenta usług monitorowania i diagnostyki. Kliknij dwukrotnie plik cab. Zostanie wyświetlony plik _MSI_ . Wybierz plik, kliknij prawym przyciskiem myszy, a następnie **Wyodrębnij** plik. Aby zaktualizować agenta, należy użyć pliku _. msi_ .
 
         ![Wyodrębnij plik aktualizacji agenta usług MDS](./media/storsimple-virtual-array-install-update-06/extract-geneva-monitoring-agent-installer.png)
 
         > [!IMPORTANT]
         > Nie trzeba aktualizować agenta usług MDS, jeśli jest używany program StorSimple Update 0,5 (0.0.10293.0).
 
-    - Trzy pliki zawierające krytyczne aktualizacje zabezpieczeń systemu Windows, `windows8.1-kb4012213-x64``windows8.1-kb3205400-x64`, i `windows8.1-kb4019213-x64`.
+    - Trzy pliki zawierające krytyczne aktualizacje zabezpieczeń systemu Windows, `windows8.1-kb4012213-x64` , `windows8.1-kb3205400-x64` i `windows8.1-kb4019213-x64` .
 
 
 ### <a name="install-the-update-or-the-hotfix"></a>Zainstaluj aktualizację lub poprawkę
@@ -94,7 +95,7 @@ Ta metoda służy do instalowania aktualizacji na urządzeniu z oprogramowaniem 
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Aby zainstalować aktualizację lub poprawkę
 
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja** > **Aktualizowanie oprogramowania**. Zanotuj wersję oprogramowania, która jest uruchamiana. W przypadku korzystania z programu **10.0.10290.0**nie trzeba aktualizować agenta usług MDS w kroku 6.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Zanotuj wersję oprogramowania, która jest uruchamiana. W przypadku korzystania z programu **10.0.10290.0**nie trzeba aktualizować agenta usług MDS w kroku 6.
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -110,7 +111,7 @@ Ta metoda służy do instalowania aktualizacji na urządzeniu z oprogramowaniem 
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja** > **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10293** dla aktualizacji 0,6.
+5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10293** dla aktualizacji 0,6.
    
    > [!NOTE]
    > Firma Microsoft zgłasza wersje oprogramowania w nieco inny sposób w lokalnym interfejsie użytkownika sieci Web i Azure Portal. Na przykład lokalny interfejs użytkownika sieci Web raportuje **10.0.0.0.0.10293** oraz Azure Portal raporty **10.0.10293.0** dla tej samej wersji.
@@ -121,7 +122,7 @@ Ta metoda służy do instalowania aktualizacji na urządzeniu z oprogramowaniem 
 
     W przypadku korzystania z wersji oprogramowania przed aktualizacją 0,5, następnym krokiem dla Ciebie jest aktualizacja agenta usług MDS. Na stronie **Aktualizacja oprogramowania** przejdź do **ścieżki pliku aktualizacji** i przejdź do `GenevaMonitoringAgentPackageInstaller.msi` pliku. Powtórz kroki 2-4. Po ponownym uruchomieniu macierzy wirtualnej Zaloguj się do lokalnego interfejsu użytkownika sieci Web.
 
-7. Powtórz krok 2-4, aby zainstalować poprawki zabezpieczeń systemu Windows przy `windows8.1-kb4012213-x64`użyciu`windows8.1-kb3205400-x64`plików, `windows8.1-kb4019213-x64`i. Macierz wirtualna jest uruchamiana ponownie po każdej instalacji i należy zalogować się do lokalnego interfejsu użytkownika sieci Web.
+7. Powtórz krok 2-4, aby zainstalować poprawki zabezpieczeń systemu Windows przy użyciu plików `windows8.1-kb4012213-x64` , `windows8.1-kb3205400-x64` i `windows8.1-kb4019213-x64` . Macierz wirtualna jest uruchamiana ponownie po każdej instalacji i należy zalogować się do lokalnego interfejsu użytkownika sieci Web.
 
 ## <a name="next-steps"></a>Następne kroki
 

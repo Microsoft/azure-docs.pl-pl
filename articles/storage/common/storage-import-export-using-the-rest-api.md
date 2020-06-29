@@ -4,16 +4,16 @@ description: Dowiedz się, gdzie znaleźć zasoby do użycia interfejsu API REST
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 833b8c79fba57b7129092e084381c0671c396496
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae80c00fd81d0966167d2adf00764a0b1089c163
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74978870"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514112"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Korzystanie z interfejsu API REST usługi Azure Import/Export
 
@@ -29,9 +29,9 @@ Usługa Azure Import/Export jest dostawcą zasobów dla Azure Resource Manager i
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>
 ```
 
-## <a name="versioning"></a>Przechowywanie wersji
+## <a name="versioning"></a>Obsługa wersji
 
-Żądania do usługi Import/Export muszą określać `api-version` parametr i ustawić jego wartość na. `2016-11-01`
+Żądania do usługi Import/Export muszą określać `api-version` parametr i ustawić jego wartość na `2016-11-01` .
 
 ## <a name="importexport-service-operations"></a>Operacje usługi Import/Export
 

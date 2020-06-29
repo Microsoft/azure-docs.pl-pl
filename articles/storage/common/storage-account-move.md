@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.subservice: common
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 64d987ff01e596eefa98e8086788546c465e2d83
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195391"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515020"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Przenoszenie konta usługi Azure Storage do innego regionu
 
@@ -109,13 +109,13 @@ Aby wdrożyć szablon przy użyciu Azure Portal:
 
     ![Biblioteka szablonów usługi Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Wybierz pozycję **Utwórz**.
+4. Wybierz przycisk **Utwórz**.
 
 5. Wybierz pozycję **Utwórz własny szablon w edytorze**.
 
-6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować plik **Template. JSON** pobrany z ostatniej sekcji.
+6. Wybierz pozycję **Załaduj plik**, a następnie postępuj zgodnie z instrukcjami, aby załadować **template.js** pliku pobranego w ostatniej sekcji.
 
-7. W pliku **Template. JSON** Nazwij docelowe konto magazynu, ustawiając wartość domyślną nazwy konta magazynu. W tym przykładzie ustawiono wartość domyślną nazwy konta magazynu na `mytargetaccount` .
+7. W **template.jsw** pliku Nazwij docelowe konto magazynu, ustawiając wartość domyślną nazwy konta magazynu. W tym przykładzie ustawiono wartość domyślną nazwy konta magazynu na `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -143,7 +143,7 @@ Aby wdrożyć szablon przy użyciu Azure Portal:
 
 Aby wdrożyć szablon przy użyciu programu PowerShell:
 
-1. W pliku **Template. JSON** Nazwij docelowe konto magazynu, ustawiając wartość domyślną nazwy konta magazynu. W tym przykładzie ustawiono wartość domyślną nazwy konta magazynu na `mytargetaccount` .
+1. W **template.jsw** pliku Nazwij docelowe konto magazynu, ustawiając wartość domyślną nazwy konta magazynu. W tym przykładzie ustawiono wartość domyślną nazwy konta magazynu na `mytargetaccount` .
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -156,7 +156,7 @@ Aby wdrożyć szablon przy użyciu programu PowerShell:
     },
     ``` 
 
-2. Edytuj Właściwość **Location** w pliku **Template. JSON** w regionie docelowym. Ten przykład ustawia region docelowy na `eastus` .
+2. Edytuj Właściwość **Location** w **template.js** pliku w regionie docelowym. Ten przykład ustawia region docelowy na `eastus` .
 
     ```json
     "resources": [{
@@ -182,7 +182,7 @@ Wdróż szablon, aby utworzyć nowe konto magazynu w regionie docelowym.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Zapisz plik **Template. JSON** .
+1. Zapisz **template.js** pliku.
 
 2. Wprowadź lub wybierz wartości właściwości:
 
@@ -219,7 +219,7 @@ Niektóre funkcje nie będą eksportowane do szablonu, dlatego musisz dodać je 
 
 W poniższej tabeli wymieniono te funkcje wraz ze wskazówkami dotyczącymi dodawania ich do nowego konta magazynu.
 
-| Cechy    | Wskazówki    |
+| Cecha    | Wskazówki    |
 |--------|-----------|
 | **Zasady zarządzania cyklem życia** | [Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](../blobs/storage-lifecycle-management-concepts.md) |
 | **Statyczne witryny internetowe** | [Hostowanie statycznej witryny sieci Web w usłudze Azure Storage](../blobs/storage-blob-static-website-how-to.md) |

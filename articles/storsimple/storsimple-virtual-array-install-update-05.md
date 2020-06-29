@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/10/2017
 ms.author: alkohli
-ms.openlocfilehash: e09ff4bcbc141b1a1f80bc278918a291639c1885
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 9b95593dd7ce7e10300ecef9b3636073a3096a7f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61445424"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85513649"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>Zainstaluj aktualizację 0,5 w macierzy wirtualnej StorSimple
 
@@ -57,7 +57,7 @@ Wykonaj następujące kroki, aby pobrać aktualizację oprogramowania z Wykazu u
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Aby pobrać aktualizację lub poprawkę
 
-1. Uruchom program Internet Explorer i przejdź [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com)do.
+1. Uruchom program Internet Explorer i przejdź do [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
 2. Jeśli po raz pierwszy używasz Wykazu usługi Microsoft Update na danym komputerze, po wyświetleniu monitu o zainstalowanie dodatku Wykazu usługi Microsoft Update kliknij pozycję **Zainstaluj**.
 
@@ -75,8 +75,8 @@ Wykonaj następujące kroki, aby pobrać aktualizację oprogramowania z Wykazu u
     ![Pliki w pakiecie](./media/storsimple-virtual-array-install-update-05/update05folder.png)
 
     Zobaczysz:
-    -  Microsoft Update autonomiczny plik `WindowsTH-KB3011067-x64`pakietu. Ten plik jest używany do aktualizacji oprogramowania urządzenia.
-    - Plik `GenevaMonitoringAgentPackageInstaller`pakietu agenta monitorowania Genewa. Ten plik jest używany do aktualizowania agenta usług monitorowania i diagnostyki. Kliknij dwukrotnie plik cab. Zostanie wyświetlony plik msi. Wybierz plik, kliknij prawym przyciskiem myszy, a następnie **Wyodrębnij** plik. Do zaktualizowania agenta zostanie użyty plik _MSI_ .
+    -  Microsoft Update autonomiczny plik pakietu `WindowsTH-KB3011067-x64` . Ten plik jest używany do aktualizacji oprogramowania urządzenia.
+    - Plik pakietu agenta monitorowania Genewa `GenevaMonitoringAgentPackageInstaller` . Ten plik jest używany do aktualizowania agenta usług monitorowania i diagnostyki. Kliknij dwukrotnie plik cab. Zostanie wyświetlony plik msi. Wybierz plik, kliknij prawym przyciskiem myszy, a następnie **Wyodrębnij** plik. Do zaktualizowania agenta zostanie użyty plik _MSI_ .
 
         ![Wyodrębnij plik aktualizacji agenta usług MDS](./media/storsimple-virtual-array-install-update-05/extract-geneva-monitoring-agent-installer.png)
         
@@ -90,7 +90,7 @@ Ta metoda służy do instalowania aktualizacji na urządzeniu z oprogramowaniem 
 
 #### <a name="to-install-the-update-or-the-hotfix"></a>Aby zainstalować aktualizację lub poprawkę
 
-1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja** > **Aktualizowanie oprogramowania**.
+1. W lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**.
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-05/update1m.png)
 
@@ -106,7 +106,7 @@ Ta metoda służy do instalowania aktualizacji na urządzeniu z oprogramowaniem 
    
     ![aktualizowanie urządzenia](./media/storsimple-virtual-array-install-update-05/update5m.png)
 
-5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja** > **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10290.0** dla aktualizacji 0,5.
+5. Po ponownym uruchomieniu nastąpi przekierowanie do strony **logowania** . Aby sprawdzić, czy oprogramowanie urządzenia zostało zaktualizowane, w lokalnym interfejsie użytkownika sieci Web przejdź do pozycji **konserwacja**  >  **Aktualizowanie oprogramowania**. Wyświetlana wersja oprogramowania powinna być **10.0.0.0.0.10290.0** dla aktualizacji 0,5.
    
    > [!NOTE]
    > Firma Microsoft zgłasza wersje oprogramowania w nieco inny sposób w lokalnym interfejsie użytkownika sieci Web i Azure Portal. Na przykład lokalny interfejs użytkownika sieci Web raportuje **10.0.0.0.0.10290** oraz Azure Portal raporty **10.0.10290.0** dla tej samej wersji.

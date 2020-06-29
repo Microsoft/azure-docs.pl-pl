@@ -3,15 +3,15 @@ title: Pobieranie danych z pamięci podręcznej platformy Azure HPC — kopia r�
 description: Jak używać poleceń CP do przenoszenia danych do docelowego magazynu obiektów BLOB w pamięci podręcznej Azure HPC
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 1d5f8e6b59a4ae0149f219738952b47ce399c2ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a5fdc3b76c330619601e171c152d7a2e583ae90
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194996"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514486"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Pobieranie danych z pamięci podręcznej platformy Azure HPC — metoda kopiowania ręcznego
 
@@ -23,7 +23,7 @@ Aby dowiedzieć się więcej na temat przenoszenia danych do magazynu obiektów 
 
 Można ręcznie utworzyć kopię wielowątkową na kliencie, uruchamiając więcej niż jedno polecenie kopiowania jednocześnie w tle względem wstępnie zdefiniowanych zestawów plików lub ścieżek.
 
-Polecenie Linux/UNIX ``cp`` zawiera argument ``-p`` , aby zachować własność i mtime metadane. Dodanie tego argumentu do poniższych poleceń jest opcjonalne. (Dodanie argumentu zwiększa liczbę wywołań systemu plików wysyłanych z klienta do docelowego systemu plików na potrzeby modyfikacji metadanych).
+Polecenie Linux/UNIX ``cp`` zawiera argument, ``-p`` Aby zachować własność i mtime metadane. Dodanie tego argumentu do poniższych poleceń jest opcjonalne. (Dodanie argumentu zwiększa liczbę wywołań systemu plików wysyłanych z klienta do docelowego systemu plików na potrzeby modyfikacji metadanych).
 
 Ten prosty przykład kopiuje jednocześnie dwa pliki:
 
@@ -37,7 +37,7 @@ Po wydaniu tego polecenia `jobs` polecenie wyświetli, że dwa wątki są urucho
 
 Jeśli nazwy plików są przewidywalne, można użyć wyrażeń do tworzenia równoległych wątków kopiowania.
 
-Na przykład, jeśli katalog zawiera 1000 plików, które są numerowane sekwencyjnie `0001` od `1000`do, można użyć następujących wyrażeń, aby utworzyć 10 równoległych wątków, które każdy z nich 100 skopiuje:
+Na przykład, jeśli katalog zawiera 1000 plików, które są numerowane sekwencyjnie od `0001` do `1000` , można użyć następujących wyrażeń, aby utworzyć 10 równoległych wątków, które każdy z nich 100 skopiuje:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -56,7 +56,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 Jeśli struktura nazewnictwa plików nie jest przewidywalna, można grupować pliki według nazw katalogów.
 
-Ten przykład zbiera wszystkie katalogi do wysłania ``cp`` do poleceń jako zadania w tle:
+Ten przykład zbiera wszystkie katalogi do wysłania do ``cp`` poleceń jako zadania w tle:
 
 ```bash
 /root
@@ -138,7 +138,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 Po zrozumieniu powyższych metod (wiele wątków kopiowania na miejsce docelowe, wielu miejsc docelowych na klienta, wielu klientów na system plików źródłowych dostępnych dla sieci) należy wziąć pod uwagę następujące zalecenia: Kompiluj manifesty plików, a następnie użyj ich z poleceniami kopiowania na wielu klientach.
 
-W tym scenariuszu do ``find`` tworzenia manifestów plików lub katalogów służy polecenie systemu UNIX:
+W tym scenariuszu ``find`` do tworzenia manifestów plików lub katalogów służy polecenie systemu UNIX:
 
 ```bash
 user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d

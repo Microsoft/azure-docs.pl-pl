@@ -3,16 +3,16 @@ title: Konfigurowanie sieci VPN typu lokacja-lokacja (S2S) do użycia z Azure Fi
 description: Jak skonfigurować sieć VPN typu lokacja-lokacja (S2S) do użytku z usługą Azure Files
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae3d38d92990d7a1af4146c25b017286ebd29352
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d1d0f9e2a86da8213a9662b68c791a117dcc7fb
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061041"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85515333"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Konfigurowanie sieci VPN typu lokacja-lokacja do użycia z usługą Azure Files
 Za pomocą połączenia sieci VPN typu lokacja-lokacja (S2S) można instalować udziały plików platformy Azure za pośrednictwem protokołu SMB z sieci lokalnej bez konieczności otwierania portu 445. Sieć VPN typu lokacja-lokacja można skonfigurować przy użyciu usługi [azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), która jest zasobem platformy Azure oferującym usług sieci VPN, i jest wdrażana w grupie zasobów obok kont magazynu lub innych zasobów platformy Azure.
@@ -96,7 +96,7 @@ Ostatni krok konfigurowania sieci VPN S2S polega na sprawdzeniu, czy działa on 
 - [macOS](storage-how-to-use-files-mac.md)
 - [Linux](storage-how-to-use-files-linux.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 - [Omówienie sieci Azure Files](storage-files-networking-overview.md)
 - [Skonfiguruj sieć VPN typu punkt-lokacja (P2S) w systemie Windows do użytku z usługą Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Skonfiguruj sieć VPN typu punkt-lokacja (P2S) w systemie Linux do użycia z usługą Azure Files](storage-files-configure-p2s-vpn-linux.md)

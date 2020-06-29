@@ -3,16 +3,16 @@ title: Zagadnienia dotyczące sieci Azure File Sync | Microsoft Docs
 description: Omówienie opcji sieciowych dla Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95fb967fa33a581096df65c3ed77e575aa3f6268
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: af5561a010ca1c2d45cf10a37a3b302d5e224158
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84466748"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512574"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Zagadnienia dotyczące sieci Azure File Sync
 Możesz połączyć się z udziałem plików platformy Azure na dwa sposoby:
@@ -53,7 +53,7 @@ Azure File Sync wymaga zakresów adresów IP dla następujących usług, identyf
 | Azure File Sync | Usługa Azure File Sync, reprezentowana przez obiekt usługi synchronizacji magazynu, jest odpowiedzialna za podstawową aktywność synchronizacji danych między udziałem plików platformy Azure a serwerem plików systemu Windows. | `StorageSyncService` |
 | Azure Files | Wszystkie dane zsynchronizowane za pośrednictwem Azure File Sync są przechowywane w udziale plików platformy Azure. Pliki zmienione na serwerach plików systemu Windows są replikowane do udziału plików platformy Azure, a pliki warstwowe na lokalnym serwerze plików są bezproblemowo pobierane podczas żądania przez użytkownika. | `Storage` |
 | Azure Resource Manager | Azure Resource Manager jest interfejsem zarządzania dla platformy Azure. Wszystkie wywołania zarządzania, w tym Azure File Sync rejestracji serwera i trwającego serwera synchronizacji, są tworzone przez Azure Resource Manager. | `AzureResourceManager` |
-| Azure Active Directory | Azure Active Directory lub usługa Azure AD zawiera podmioty zabezpieczeń wymagane do autoryzacji rejestracji serwera względem usługi synchronizacji magazynu oraz jednostki usługi wymagane do Azure File Sync mają autoryzację w celu uzyskania dostępu do zasobów w chmurze. | `AzureActiveDirectory` |
+| Usługa Azure Active Directory | Azure Active Directory lub usługa Azure AD zawiera podmioty zabezpieczeń wymagane do autoryzacji rejestracji serwera względem usługi synchronizacji magazynu oraz jednostki usługi wymagane do Azure File Sync mają autoryzację w celu uzyskania dostępu do zasobów w chmurze. | `AzureActiveDirectory` |
 
 Jeśli używasz Azure File Sync w ramach platformy Azure, nawet jeśli jest to inny region, możesz użyć nazwy znacznika usługi bezpośrednio w sieciowej grupie zabezpieczeń, aby zezwolić na ruch do tej usługi. Aby dowiedzieć się więcej o tym, jak to zrobić, zobacz [Network Security Groups](../../virtual-network/security-overview.md). 
 
@@ -170,6 +170,6 @@ Połączenia wykonane z agenta Azure File Sync do udziału plików platformy Azu
 
 Aby uzyskać więcej informacji na temat szyfrowania podczas przesyłania, zobacz [wymaganie bezpiecznego transferu w usłudze Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 - [Planowanie wdrażania usługi Azure File Sync](storage-sync-files-planning.md)
 - [Wdrażanie usługi Azure File Sync](storage-sync-files-deployment-guide.md)

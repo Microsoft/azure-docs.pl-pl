@@ -5,17 +5,17 @@ description: Skonfiguruj preferencję routingu sieciowego (wersja zapoznawcza) d
 services: storage
 author: santoshc
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/12/2020
 ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
-ms.openlocfilehash: bdb33ebfb1ca37772a5b0db96acdbddd422578af
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5b4a1b1f27dff059090d78e24a6a0eca0bbbf01f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597821"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85514205"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Konfigurowanie preferencji routingu sieciowego dla usługi Azure Storage (wersja zapoznawcza)
 
@@ -46,7 +46,7 @@ Na przykład opublikowanie punktu końcowego specyficznego dla trasy internetowe
 | Usługa magazynu        | Punkt końcowy dotyczący trasy                                  |
 | :--------------------- | :------------------------------------------------------- |
 | Blob service           | `StorageAccountA-internetrouting.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `StorageAccountA-internetrouting.dfs.core.windows.net`   |
+| Usługa Data Lake Storage 2. generacji | `StorageAccountA-internetrouting.dfs.core.windows.net`   |
 | Usługa plików           | `StorageAccountA-internetrouting.file.core.windows.net`  |
 | Statyczne witryny sieci Web        | `StorageAccountA-internetrouting.web.core.windows.net`   |
 
@@ -55,7 +55,7 @@ Jeśli masz magazyn Geograficznie nadmiarowy do odczytu (RA-GRS) lub konto magaz
 | Usługa magazynu        | Pomocniczy punkt końcowy tylko do odczytu dotyczący trasy                        |
 | :--------------------- | :----------------------------------------------------------------- |
 | Blob service           | `StorageAccountA-internetrouting-secondary.blob.core.windows.net`  |
-| Data Lake Storage Gen2 | `StorageAccountA-internetrouting-secondary.dfs.core.windows.net`   |
+| Usługa Data Lake Storage 2. generacji | `StorageAccountA-internetrouting-secondary.dfs.core.windows.net`   |
 | Usługa plików           | `StorageAccountA-internetrouting-secondary.file.core.windows.net`  |
 | Statyczne witryny sieci Web        | `StorageAccountA-internetrouting-secondary.web.core.windows.net`   |
 
