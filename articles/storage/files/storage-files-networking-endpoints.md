@@ -3,16 +3,16 @@ title: Konfigurowanie punktów końcowych sieci Azure Files | Microsoft Docs
 description: Omówienie opcji sieciowych dla Azure Files.
 author: roygara
 ms.service: storage
-ms.topic: overview
+ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e58a84d8c001ad273cfa14ffb871aaea71bc468b
-ms.sourcegitcommit: 813f7126ed140a0dff7658553a80b266249d302f
+ms.openlocfilehash: 0859b034cf0caa60039fbf9eb4dd9be54448a940
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/06/2020
-ms.locfileid: "84465028"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510326"
 ---
 # <a name="configuring-azure-files-network-endpoints"></a>Konfigurowanie punktów końcowych sieci Azure Files
 Azure Files udostępnia dwa główne typy punktów końcowych do uzyskiwania dostępu do udziałów plików platformy Azure: 
@@ -153,7 +153,7 @@ W przypadku ograniczenia konta magazynu do określonych sieci wirtualnych można
 
 ---
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 - [Zagadnienia dotyczące sieci Azure Files](storage-files-networking-overview.md)
 - [Konfigurowanie przekazywania DNS dla usługi Azure Files](storage-files-networking-dns.md)
 - [Konfigurowanie sieci VPN S2S dla Azure Files](storage-files-configure-s2s-vpn.md)

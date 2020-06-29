@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: 35c37f5b2b307bb1a3d90b9876f148b5a1120490
-  ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+  ms.openlocfilehash: 3f2feec02efebbf6b3736b01151098cbe2bf02ae
+  ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/20/2020
-  ms.locfileid: "83713634"
+  ms.lasthandoff: 06/26/2020
+  ms.locfileid: "85413794"
 landingContent:
 - title: Informacje o przetwarzaniu obrazów
   linkLists:
@@ -32,11 +32,11 @@ landingContent:
     links:
     - text: Przydawanie aplikacjom inteligencji dzięki interfejsom API przetwarzania obrazów
       url: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
-- title: Rozpoznawanie tekstu drukowanego i pisma odręcznego
+- title: Odczytywanie tekstu z obrazów i dokumentów
   linkLists:
   - linkListType: concept
     links:
-    - text: Rozpoznawanie tekstu drukowanego i odręcznego
+    - text: Rozpoznawanie tekstu
       url: concept-recognizing-text.md
   - linkListType: quickstart
     links:

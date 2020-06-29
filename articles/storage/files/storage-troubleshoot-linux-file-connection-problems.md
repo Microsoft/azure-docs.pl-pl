@@ -3,16 +3,16 @@ title: Rozwiązywanie problemów z Azure Files w systemie Linux | Microsoft Docs
 description: Rozwiązywanie problemów z Azure Files w systemie Linux
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 95e220102cba290664a32cb6bbebef881ae4ffde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a24f6c7c8339ee5e63fea4c0cd4d7edc9da2a17
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159493"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512005"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Rozwiązywanie problemów z Azure Files w systemie Linux
 
@@ -80,7 +80,7 @@ Sprawdź, czy reguły sieci wirtualnej i zapory są skonfigurowane poprawnie na 
 
 W systemie Linux pojawia się komunikat o błędzie podobny do następującego:
 
-**\<Nazwa pliku> [uprawnienie odmowa] Przekroczono limit przydziału dysku**
+**\<filename>[odmowa uprawnień] Przekroczono limit przydziału dysku**
 
 ### <a name="cause"></a>Przyczyna
 
@@ -106,14 +106,14 @@ Aby zamknąć otwarte uchwyty dla udziału plików, katalogu lub pliku, należy 
 - Użyj odpowiedniej metody copy:
     - Użyj [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) do dowolnego transferu między dwoma udziałami plików.
     - Użycie opcji CP lub DD z równoległością może zwiększyć szybkość kopiowania, a liczba wątków zależy od przypadku użycia i obciążenia. W poniższych przykładach użyto sześciu: 
-    - przykład CP (CP użyje domyślnego rozmiaru bloku systemu plików jako rozmiaru fragmentu): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - przykład CP (CP użyje domyślnego rozmiaru bloku systemu plików jako rozmiaru fragmentu): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
     - DD przykład (to polecenie jawnie ustawia rozmiar fragmentu na 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Narzędzia firm trzecich typu open source, takie jak:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) — sortuje pliki i pakuje je na partycje.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) — używa narzędzi Fpart i Copy do duplikowania wielu wystąpień w celu migrowania danych z src_dir do dst_url.
         - [Wiele](https://github.com/pkolano/mutil) wielowątkowych CP i md5sum opartych na GNU Coreutils.
-- Ustawienie rozmiaru pliku z wyprzedzeniem, zamiast każdorazowego zapisu rozszerzającego zapis, pomaga zwiększyć szybkość kopiowania w scenariuszach, w których rozmiar pliku jest znany. Jeśli należy unikać rozszerzania zapisów, można ustawić docelowy rozmiar pliku za pomocą `truncate - size <size><file>` polecenia. Następnie `dd if=<source> of=<target> bs=1M conv=notrunc`polecenie skopiuje plik źródłowy bez konieczności wielokrotnego aktualizowania rozmiaru pliku docelowego. Na przykład można ustawić rozmiar pliku docelowego dla każdego pliku, który ma zostać skopiowany (Załóżmy, że udział jest zainstalowany w ramach/mnt/Share):
+- Ustawienie rozmiaru pliku z wyprzedzeniem, zamiast każdorazowego zapisu rozszerzającego zapis, pomaga zwiększyć szybkość kopiowania w scenariuszach, w których rozmiar pliku jest znany. Jeśli należy unikać rozszerzania zapisów, można ustawić docelowy rozmiar pliku za pomocą `truncate - size <size><file>` polecenia. Następnie `dd if=<source> of=<target> bs=1M conv=notrunc` polecenie skopiuje plik źródłowy bez konieczności wielokrotnego aktualizowania rozmiaru pliku docelowego. Na przykład można ustawić rozmiar pliku docelowego dla każdego pliku, który ma zostać skopiowany (Załóżmy, że udział jest zainstalowany w ramach/mnt/Share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
     - a następnie skopiuj pliki bez rozszerzania zapisów równolegle:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
@@ -217,11 +217,11 @@ Użyj użytkownika konta magazynu do kopiowania plików:
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: nie można uzyskać&lt;dostępu&gt;do "Path": błąd wejścia/wyjścia
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: nie można uzyskać dostępu do " &lt; Path &gt; ": błąd wejścia/wyjścia
 
 Podczas próby wyświetlenia listy plików w udziale plików platformy Azure przy użyciu polecenia ls polecenie zawiesza się podczas tworzenia listy plików. Zostanie wyświetlony następujący błąd:
 
-**ls: nie można uzyskać&lt;dostępu&gt;do "Path": błąd wejścia/wyjścia**
+**ls: nie można uzyskać dostępu do " &lt; Path &gt; ": błąd wejścia/wyjścia**
 
 
 ### <a name="solution"></a>Rozwiązanie

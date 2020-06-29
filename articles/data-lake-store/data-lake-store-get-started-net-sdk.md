@@ -3,15 +3,15 @@ title: Zarządzanie kontem Azure Data Lake Storage Gen1 przy użyciu platformy .
 description: Dowiedz się, jak używać zestawu SDK .NET dla Azure Data Lake Storage Gen1 operacji zarządzania kontami.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: d7ea2b7fffc4edff6cae895e08b955d2e21ff5f2
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: c163629f4c74a812ee7dc3da7391148a92ae6435
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692114"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511167"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operacje zarządzania kontem na Azure Data Lake Storage Gen1 przy użyciu zestawu .NET SDK
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Aby uzyskać instrukcje dotyczące wykonywania operacji zarządzania danymi na D
 ## <a name="create-a-net-application"></a>Tworzenie aplikacji .NET
 1. W programie Visual Studio wybierz menu **plik** , **Nowy**i **projekt**.
 2. Wybierz pozycję **aplikacja konsoli (.NET Framework)**, a następnie wybierz przycisk **dalej**.
-3. W polu **Nazwa projektu**wprowadź `CreateADLApplication`, a następnie wybierz pozycję **Utwórz**.
+3. W polu **Nazwa projektu**wprowadź, `CreateADLApplication` a następnie wybierz pozycję **Utwórz**.
 
 4. Dodaj pakiety NuGet do swojego projektu.
 

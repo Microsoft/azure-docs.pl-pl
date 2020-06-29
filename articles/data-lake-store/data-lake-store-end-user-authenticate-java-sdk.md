@@ -3,15 +3,15 @@ title: Uwierzytelnianie użytkowników końcowych — Java z Data Lake Storage G
 description: Dowiedz się, jak uzyskać uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory z językiem Java
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 1e03ad657fd40dce22a17f2fff5b67a65eb3eb52
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9186922803c287f2aa17c151590a0c1b590619d3
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691760"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511324"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Uwierzytelnianie użytkownika końcowego za pomocą Azure Data Lake Storage Gen1 przy użyciu języka Java
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Ten artykuł zawiera informacje na temat używania zestawu SDK języka Java do u
 ## <a name="end-user-authentication"></a>Uwierzytelnianie użytkowników końcowych
 1. Utwórz projekt Maven za pomocą polecenia [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) w wierszu polecenia lub w środowisku IDE. Aby uzyskać instrukcje dotyczące sposobu tworzenia projektu Java przy użyciu wtyczki IntelliJ, zobacz [tutaj](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html). Aby uzyskać instrukcje dotyczące sposobu tworzenia projektu Java przy użyciu wtyczki Eclipse, zobacz [tutaj](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm).
 
-2. Dodaj poniższe zależności do Twojego pliku **pom.xml** programu Maven. Dodaj następujący fragment kodu przed tagiem ** \</Project>** :
+2. Dodaj poniższe zależności do Twojego pliku **pom.xml** programu Maven. Dodaj następujący fragment kodu przed **\</project>** tagiem:
    
         <dependencies>
           <dependency>
@@ -51,7 +51,7 @@ Ten artykuł zawiera informacje na temat używania zestawu SDK języka Java do u
           </dependency>
         </dependencies>
    
-    Pierwsza zależność polega na użyciu zestawu SDK Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) z repozytorium Maven. Drugą zależnością (`slf4j-nop`) jest określenie struktury rejestrowania używanej dla tej aplikacji. Zestaw Data Lake Storage Gen1 SDK używa fasady rejestrowania [SLF4J](https://www.slf4j.org/) , która umożliwia wybór spośród wielu popularnych platform rejestrowania, takich jak Log4J, rejestrowanie w języku Java, Logback itp. lub bez rejestrowania. W tym przykładzie wyłączyliśmy rejestrowanie, dlatego używamy powiązania **slf4j-nop**. Aby używać innych opcji rejestrowania w aplikacji, zobacz [tutaj](https://www.slf4j.org/manual.html#projectDep).
+    Pierwsza zależność polega na użyciu zestawu SDK Data Lake Storage Gen1 ( `azure-data-lake-store-sdk` ) z repozytorium Maven. Drugą zależnością (`slf4j-nop`) jest określenie struktury rejestrowania używanej dla tej aplikacji. Zestaw Data Lake Storage Gen1 SDK używa fasady rejestrowania [SLF4J](https://www.slf4j.org/) , która umożliwia wybór spośród wielu popularnych platform rejestrowania, takich jak Log4J, rejestrowanie w języku Java, Logback itp. lub bez rejestrowania. W tym przykładzie wyłączyliśmy rejestrowanie, dlatego używamy powiązania **slf4j-nop**. Aby używać innych opcji rejestrowania w aplikacji, zobacz [tutaj](https://www.slf4j.org/manual.html#projectDep).
 
 3. Dodaj do swojej aplikacji następujące instrukcje importowania.
 
@@ -62,7 +62,7 @@ Ten artykuł zawiera informacje na temat używania zestawu SDK języka Java do u
         import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
         import com.microsoft.azure.datalake.store.oauth2.DeviceCodeTokenProvider;
 
-4. Użyj poniższego fragmentu kodu w aplikacji Java, aby uzyskać token dla aplikacji Active Directory Native utworzonej wcześniej przy użyciu `DeviceCodeTokenProvider`narzędzia. Zastąp pole **Wypełnij w tym miejscu** wartościami rzeczywistymi Azure Active Directory aplikacji natywnych.
+4. Użyj poniższego fragmentu kodu w aplikacji Java, aby uzyskać token dla aplikacji Active Directory Native utworzonej wcześniej przy użyciu narzędzia `DeviceCodeTokenProvider` . Zastąp pole **Wypełnij w tym miejscu** wartościami rzeczywistymi Azure Active Directory aplikacji natywnych.
 
         private static String nativeAppId = "FILL-IN-HERE";
             

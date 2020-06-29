@@ -4,16 +4,16 @@ description: Zapoznaj się z wymaganiami dotyczącymi oprogramowania i sprzętu 
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: ded8aa0587ecb6bb756f3faa07cc816b7d46b561
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259579"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512420"
 ---
 # <a name="azure-importexport-system-requirements"></a>Wymagania systemowe usługi Azure Import/Export
 
@@ -27,14 +27,14 @@ Aby przygotować dyski twarde przy użyciu narzędzia WAImportExport, obsługiwa
 |Platforma |Wersja |
 |---------|---------|
 |Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
-|Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
+|Windows Server     |Windows Server 2008 z dodatkiem R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Inne wymagane oprogramowanie dla klienta systemu Windows
 
 |Platforma |Wersja |
 |---------|---------|
 |.NET Framework    | 4.5.1       |
-| BitLocker        |  _          |
+| Funkcja BitLocker        |  _          |
 
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu

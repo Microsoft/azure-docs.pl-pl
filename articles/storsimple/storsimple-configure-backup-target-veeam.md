@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
-ms.openlocfilehash: 3ebf464fed1480e7452f246f04f3906faf0dd219
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f2a514b6f44df7be15f18aa8f7c42668c872ab4a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67875299"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509697"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>StorSimple jako miejsce docelowe kopii zapasowej za pomocą Veeam
 
@@ -56,8 +56,8 @@ Podobnie jak w przypadku dowolnego rozwiązania magazynu, staranna ocena wydajno
 
 StorSimple zaprojektowano w celu zapewnienia magazynu dla aplikacji, które działają na dobrze zdefiniowanym zestawie roboczym danych (gorącą dane). W tym modelu zestaw roboczy danych jest przechowywany w warstwach lokalnych, a pozostała część danych niepracujących/zimnych/zarchiwizowanych jest warstwą w chmurze. Ten model jest reprezentowany na poniższej ilustracji. Prawie płaski zielony wiersz reprezentuje dane przechowywane w warstwach lokalnych urządzenia StorSimple. Czerwona linia reprezentuje łączną ilość danych przechowywanych w rozwiązaniu StorSimple we wszystkich warstwach. Odstęp między płaską zieloną linią a wykładniczą czerwoną krzywą reprezentuje łączną ilość danych przechowywanych w chmurze.
 
-**StorSimple tiering**
-![Diagram warstwowy StorSimple warstw StorSimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
+Obsługa **warstw StorSimple** 
+ ![ Diagram warstwowy StorSimple](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
 W tej architekturze należy zauważyć, że StorSimple idealnie nadaje się do działania jako miejsce docelowe kopii zapasowej. Możesz użyć StorSimple, aby:
 
@@ -187,7 +187,7 @@ W tej sekcji przedstawiono przykłady konfiguracji. Poniższe przykłady i zalec
 | StorSimple zadania wdrażania  | Dodatkowe komentarze |
 |---|---|
 | Wdróż lokalne urządzenie StorSimple. | Obsługiwane wersje: Update 3 i nowsze wersje. |
-| Włącz miejsce docelowe kopii zapasowej. | Te polecenia służą do włączania lub wyłączania trybu docelowego kopii zapasowej oraz pobierania stanu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem StorSimple](storsimple-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable`. </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable`. </br> Aby uzyskać bieżący stan ustawień trybu tworzenia kopii zapasowej `Get-HCSBackupApplianceMode`:. |
+| Włącz miejsce docelowe kopii zapasowej. | Te polecenia służą do włączania lub wyłączania trybu docelowego kopii zapasowej oraz pobierania stanu. Aby uzyskać więcej informacji, zobacz [zdalne nawiązywanie połączenia z urządzeniem StorSimple](storsimple-remote-connect.md).</br> Aby włączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -enable` . </br> Aby wyłączyć tryb tworzenia kopii zapasowej: `Set-HCSBackupApplianceMode -disable` . </br> Aby uzyskać bieżący stan ustawień trybu tworzenia kopii zapasowej: `Get-HCSBackupApplianceMode` . |
 | Utwórz wspólny kontener woluminów dla woluminu, który przechowuje dane kopii zapasowej. Wszystkie dane w kontenerze woluminów są deduplikowane. | Kontenery woluminów StorSimple definiują domeny deduplikacji.  |
 | Utwórz woluminy StorSimple. | Utwórz woluminy o rozmiarach jak najbliżej przewidywanego użycia, ponieważ rozmiar woluminu wpływa na czas trwania migawki w chmurze. Aby uzyskać informacje o sposobie rozmiaru woluminu, Przeczytaj o [zasadach przechowywania](#retention-policies).</br> </br> Użyj StorSimple woluminów warstwowych i zaznacz pole wyboru **Użyj tego woluminu dla rzadziej używanych danych archiwalnych** . </br> Używanie tylko woluminów przypiętych lokalnie nie jest obsługiwane. |
 | Utwórz unikatowe zasady tworzenia kopii zapasowych StorSimple dla wszystkich woluminów docelowych kopii zapasowych. | Zasady tworzenia kopii zapasowych StorSimple definiują grupę spójności woluminu. |
@@ -276,11 +276,11 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![Konsola zarządzania Veeam, Strona repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz opcję **Dalej**.
+2.  W oknie dialogowym **nowe repozytorium kopii zapasowych** wprowadź nazwę i opis repozytorium. Wybierz pozycję **Dalej**.
 
     ![Strona Veeam Management Console, nazwa i opis](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  W polu Typ wybierz pozycję **Microsoft Windows Server**. Wybierz serwer Veeam. Wybierz opcję **Dalej**.
+3.  W polu Typ wybierz pozycję **Microsoft Windows Server**. Wybierz serwer Veeam. Wybierz pozycję **Dalej**.
 
     ![Veeam Management Console, wybierz typ repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -293,7 +293,7 @@ W oparciu o powyższe założenia Utwórz wolumin warstwowy z 26 TiB StorSimple 
 
     ![Veeam Management Console, ustawienia zgodności magazynu](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz opcję **Dalej**.
+6.  W oknie dialogowym **nowe repozytorium kopii zapasowych** zaznacz pole wyboru **Włącz usługę NFS vPower na serwerze instalacji (zalecane)** . Wybierz pozycję **Dalej**.
 
     ![Konsola zarządzania Veeam, Strona repozytorium kopii zapasowych](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -319,7 +319,7 @@ Oto przykład harmonogramu rotacji GFS przez cztery tygodnie, co miesiąc i rok:
 | Częstotliwość/typ kopii zapasowej | Pełne | Przyrostowe (dni 1-5)  |   
 |---|---|---|
 | Co tydzień (tygodnie 1-4) | Sobota | Poniedziałek — piątek |
-| Co miesiąc  | Sobota  |   |
+| Miesięczne  | Sobota  |   |
 | Roczne | Sobota  |   |
 
 
@@ -349,7 +349,7 @@ W przypadku scenariusza cel głównej kopii zapasowej Utwórz codzienne zadanie 
 
     ![Strona ustawień zaawansowanych zadania tworzenia kopii zapasowej Veeam, konsola zarządzania](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
-6. Na karcie **Magazyn** upewnij się, że pole wyboru **Włącz funkcję deduplikacji danych wbudowanych** jest wyczyszczone. Zaznacz pole wyboru **Wyklucz bloki wymiany plików** , a następnie zaznacz pole wyboru **Wyklucz bloki usuniętego pliku** . Ustaw **poziom kompresji** na **Brak**. W celu zapewnienia zrównoważonej wydajności i deduplikacji ustaw opcję **Optymalizacja magazynu** na wartość **docelową sieci LAN**. Kliknij przycisk **OK**.
+6. Na karcie **Magazyn** upewnij się, że pole wyboru **Włącz funkcję deduplikacji danych wbudowanych** jest wyczyszczone. Zaznacz pole wyboru **Wyklucz bloki wymiany plików** , a następnie zaznacz pole wyboru **Wyklucz bloki usuniętego pliku** . Ustaw **poziom kompresji** na **Brak**. W celu zapewnienia zrównoważonej wydajności i deduplikacji ustaw opcję **Optymalizacja magazynu** na wartość **docelową sieci LAN**. Wybierz przycisk **OK**.
 
     ![Strona ustawień zaawansowanych zadania tworzenia kopii zapasowej Veeam, konsola zarządzania](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
 
@@ -378,7 +378,7 @@ Na poniższej ilustracji przedstawiono typowe krótkoterminowe przechowywanie da
 
 W poniższej tabeli przedstawiono sposób konfigurowania kopii zapasowych do uruchamiania na dyskach lokalnych i StorSimple. Obejmuje to indywidualne i łączne wymagania dotyczące pojemności.
 
-| Typ i przechowywanie kopii zapasowych | Skonfigurowany magazyn | Rozmiar (TiB) | Mnożnik GFS | Całkowita pojemność\* (TIB) |
+| Typ i przechowywanie kopii zapasowych | Skonfigurowany magazyn | Rozmiar (TiB) | Mnożnik GFS | Całkowita pojemność \* (TIB) |
 |---|---|---|---|---|
 | Tydzień 1 (pełny i przyrostowy) |Dysk lokalny (krótkoterminowy)| 1 | 1 | 1 |
 | StorSimple tygodni 2-4 |Dysk StorSimple (długoterminowy) | 1 | 4 | 4 |
@@ -399,7 +399,7 @@ GFS rotacja co tydzień, co miesiąc i co rok
 | Tydzień 2 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 3 | StorSimple tygodni 2-4 |   |   |   |   |   |
 | Tydzień 4 | StorSimple tygodni 2-4 |   |   |   |   |   |
-| Co miesiąc | StorSimple miesięcznie |   |   |   |   |   |
+| Miesięczne | StorSimple miesięcznie |   |   |   |   |   |
 | Roczne | StorSimple rocznie  |   |   |   |   |   |
 
 ### <a name="assign-storsimple-volumes-to-a-veeam-copy-job"></a>Przypisywanie woluminów StorSimple do zadania kopiowania Veeam
@@ -468,9 +468,9 @@ W poniższej sekcji opisano, jak utworzyć krótki skrypt do uruchamiania i usuw
 
 ### <a name="to-start-or-delete-a-cloud-snapshot"></a>Aby rozpocząć lub usunąć migawkę w chmurze
 
-1. [Zainstaluj Azure PowerShell](/powershell/azure/overview).
-2. Pobierz i zainstaluj skrypt programu PowerShell [Manage-CloudSnapshots. ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) .
-3. Na serwerze, na którym działa skrypt, uruchom program PowerShell jako administrator. Upewnij się, że skrypt został uruchomiony `-WhatIf $true` za pomocą programu, aby zobaczyć, jakie zmiany wprowadzi skrypt. Po zakończeniu walidacji zakończono pomyślnie `-WhatIf $false`. Uruchom następujące polecenie:
+1. [Zainstalowanie programu Azure PowerShell](/powershell/azure/overview).
+2. Pobierz i skonfiguruj [Manage-CloudSnapshots.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Manage-CloudSnapshots.ps1) skrypt programu PowerShell.
+3. Na serwerze, na którym działa skrypt, uruchom program PowerShell jako administrator. Upewnij się, że skrypt został uruchomiony za pomocą programu, `-WhatIf $true` Aby zobaczyć, jakie zmiany wprowadzi skrypt. Po zakończeniu walidacji zakończono pomyślnie `-WhatIf $false` . Uruchom następujące polecenie:
    ```powershell
    .\Manage-CloudSnapshots.ps1 -SubscriptionId [Subscription Id] -TenantId [Tenant ID] -ResourceGroupName [Resource Group Name] -ManagerName [StorSimple Device Manager Name] -DeviceName [device name] -BackupPolicyName [backup policyname] -RetentionInDays [Retention days] -WhatIf [$true or $false]
    ```
@@ -507,7 +507,7 @@ Awaria może być spowodowana przez różne czynniki. W poniższej tabeli wymien
 | Awaria lokacji, która powoduje utratę zarówno serwera kopii zapasowej, jak i StorSimple | Operacje tworzenia kopii zapasowej i przywracania są przerywane. | Najpierw Przywróć StorSimple, a następnie Przywróć Veeam. | Najpierw Przywróć StorSimple, a następnie Przywróć Veeam. Jeśli trzeba wykonać przywracanie po odzyskiwaniu urządzenia, do nowego urządzenia zostaną pobrane wszystkie zestawy robocze z danymi z chmury. Wszystkie operacje są z szybkością chmury. |
 
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 Następujące dokumenty odwołują się do tego artykułu:
 

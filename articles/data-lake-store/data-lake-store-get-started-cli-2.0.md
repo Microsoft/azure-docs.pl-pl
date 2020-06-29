@@ -3,15 +3,15 @@ title: Zarządzanie kontem Azure Data Lake Storage Gen1 — interfejs wiersza po
 description: Użyj interfejsu wiersza polecenia platformy Azure, aby utworzyć konto Data Lake Storage Gen1 i wykonać podstawowe operacje.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 4e278981ce7647a53d2e80c5b835c8ed666db541
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 29aa3932f8ba566e4542031ce157fc7bb8c05ce7
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688166"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511194"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -19,7 +19,7 @@ ms.locfileid: "82688166"
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
+> * [Program PowerShell](data-lake-store-get-started-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli-2.0.md)
 >
 > 

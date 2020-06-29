@@ -8,21 +8,20 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: d325b65b01ea13cfcb141d28343d94866d9e05e2
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 6c658053afcaff99249e5d20ca2dc5a14037470b
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84751532"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510851"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Debugowanie sesji na platformie Azure Wyszukiwanie poznawcze
 
 Sesje debugowania to edytor wizualny, który współpracuje z istniejącym zestawu umiejętności w Azure Portal. W ramach sesji debugowania można identyfikować i rozwiązywać błędy, sprawdzać poprawność zmian i wypchnąć zmiany do zestawu umiejętności produkcyjnego w potoku wzbogacenia AI.
 
 > [!Important]
-> Obsługa sesji debugowania dla usługi Azure Wyszukiwanie poznawcze jest dostępna [na żądanie](https://aka.ms/DebugSessions) jako wersja zapoznawcza ograniczonego dostępu. Funkcje w wersji zapoznawczej są udostępniane bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Sesje debugowania to funkcja w wersji zapoznawczej, która jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Po uzyskaniu dostępu do wersji zapoznawczej będziesz mieć możliwość dostępu do sesji debugowania i używania ich w ramach usługi przy użyciu Azure Portal.
 
 ## <a name="using-debug-sessions"></a>Korzystanie z sesji debugowania
 
@@ -86,6 +85,10 @@ Okienko **ulepszona struktura danych** pokazuje wzbogacenia dokumentu za pomocą
 ## <a name="errorswarnings"></a>Błędy/ostrzeżenia
 
 W tym oknie są wyświetlane wszystkie błędy i ostrzeżenia, które zestawu umiejętności produkuje, gdy jest wykonywane względem dokumentu w sesji debugowania.
+
+## <a name="limitations"></a>Ograniczenia
+
+Debuguj sesisons pracy ze wszystkimi ogólnie dostępnymi źródłami danych AMD w większości źródeł danych. Interfejs API MongoDB (wersja zapoznawcza) i interfejs API Cassandra (wersja zapoznawcza) Cosmos DB nie są obecnie obsługiwane.
 
 ## <a name="next-steps"></a>Następne kroki
 

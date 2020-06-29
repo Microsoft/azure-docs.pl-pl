@@ -3,21 +3,21 @@ title: Wprowadzenie do Azure Data Lake Storage Gen1 — Portal
 description: Użyj Azure Portal, aby utworzyć konto Data Lake Storage Gen1 i wykonać podstawowe operacje na koncie.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 7dac5976904263de40c7bc240bdb7deac1ec3df6
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686226"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509204"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
-> * [PowerShell](data-lake-store-get-started-powershell.md)
+> * [Program PowerShell](data-lake-store-get-started-powershell.md)
 > * [Interfejs wiersza polecenia platformy Azure](data-lake-store-get-started-cli-2.0.md)
 >
 >

@@ -3,16 +3,16 @@ title: Tworzenie udziału plików platformy Azure w warstwie Premium
 description: W tym artykule dowiesz się, jak utworzyć udział plików platformy Azure w warstwie Premium.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 271acdb968bf5bbec3632bbc1f6def854196cd8e
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: ae40f94ca6c8c0b92c85a49e634aa02c81a98eff
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629351"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509986"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Jak utworzyć udział plików platformy Azure w warstwie Premium
 Udziały plików w warstwie Premium są oferowane na nośnikach magazynowania SSD i są przydatne w przypadku obciążeń intensywnie korzystających z operacji we/wy, w tym hostingu baz danych i obliczeń o wysokiej wydajności (HPC). Udziały plików w warstwie Premium są hostowane w specjalnym rodzaju koncie magazynu o nazwie konto FileStorage. Udziały plików w warstwie Premium są przeznaczone dla aplikacji o wysokiej wydajności i skalowania w przedsiębiorstwie, zapewniając spójne małe opóźnienia, duże liczby operacji we/wy i duże przepływność.
@@ -27,7 +27,7 @@ Aby uzyskać dostęp do zasobów platformy Azure, w tym udziałów plików Premi
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do [portalu Azure](https://portal.azure.com/).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ### <a name="create-a-filestorage-storage-account"></a>Utwórz konto magazynu FileStorage
 

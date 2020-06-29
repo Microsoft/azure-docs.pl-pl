@@ -3,16 +3,16 @@ title: Uwierzytelnianie użytkowników końcowych — Data Lake Storage Gen1 z u
 description: Dowiedz się, jak uzyskać uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5a0c3e1df5cd283ad08f905ed0bd4f329dcfcc7e
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: ac585f1c215e5eb7ad5a6628ac85b70e7c76b14e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688235"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511317"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ W tym artykule omówiono sposób tworzenia **aplikacji natywnej usługi Azure AD
 
     ![Pobierz domenę usługi AAD](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Identyfikator dzierżawy platformy Azure. Aby uzyskać instrukcje dotyczące pobierania identyfikatora dzierżawy, zobacz [Pobieranie identyfikatora dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+* Identyfikator dzierżawy platformy Azure. Aby uzyskać instrukcje dotyczące pobierania identyfikatora dzierżawy, zobacz [Pobieranie identyfikatora dzierżawy](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 
 ## <a name="end-user-authentication"></a>Uwierzytelnianie użytkowników końcowych
 Mechanizm uwierzytelniania jest zalecanym rozwiązaniem, jeśli użytkownik końcowy ma zalogować się do aplikacji za pośrednictwem usługi Azure AD. Aplikacja będzie w stanie uzyskać dostęp do zasobów platformy Azure z takim samym poziomem dostępu jak zalogowany użytkownik końcowy. Użytkownik końcowy musi okresowo podawać poświadczenia, aby aplikacja mogła zachować dostęp.
@@ -57,7 +57,7 @@ Aplikacja może wyzwolić wyskakujące okienko autoryzacji OAuth 2,0, w którym 
 >
 
 ### <a name="directly-passing-in-user-credentials"></a>Bezpośrednie przekazywanie poświadczeń użytkownika
-Aplikacja może bezpośrednio podać poświadczenia użytkownika w usłudze Azure AD. Ta metoda działa tylko z kontami użytkowników o IDENTYFIKATORze organizacji; nie jest on zgodny z kontami użytkowników osobisty/"Live ID", w tym kontami @outlook.com kończącymi się na lub @live.com. Ponadto ta metoda nie jest zgodna z kontami użytkowników, które wymagają uwierzytelniania dwuskładnikowego usługi Azure AD (funkcji 2FA).
+Aplikacja może bezpośrednio podać poświadczenia użytkownika w usłudze Azure AD. Ta metoda działa tylko z kontami użytkowników o IDENTYFIKATORze organizacji; nie jest on zgodny z kontami użytkowników osobisty/"Live ID", w tym kontami kończącymi się na @outlook.com lub @live.com . Ponadto ta metoda nie jest zgodna z kontami użytkowników, które wymagają uwierzytelniania dwuskładnikowego usługi Azure AD (funkcji 2FA).
 
 ### <a name="what-do-i-need-for-this-approach"></a>Co jest potrzebne do tego podejścia?
 * Nazwa domeny usługi Azure AD. To wymaganie jest już wymienione w wymaganiach wstępnych dotyczących tego artykułu.
@@ -78,7 +78,7 @@ Po zakończeniu wykonywania instrukcji w linku upewnij się, że wybrano opcję 
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Krok 2. Pobieranie identyfikatora aplikacji i identyfikatora URI przekierowania
 
-Zobacz [Pobieranie identyfikatora aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) , aby pobrać identyfikator aplikacji.
+Zobacz [Pobieranie identyfikatora aplikacji](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) , aby pobrać identyfikator aplikacji.
 
 Aby pobrać identyfikator URI przekierowania, wykonaj następujące czynności.
 

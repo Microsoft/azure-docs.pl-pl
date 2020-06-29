@@ -4,19 +4,19 @@ description: Dowiedz się, jak naprawić zadanie importu, które zostało utworz
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: f5db321d8c4a6e42591a82b0ed8eb6bc6e93bad4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5c0e9bf94a9953e107de148792af2e39f8bac24
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74973887"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512290"
 ---
 # <a name="repairing-an-import-job"></a>Naprawianie zadania importu
-Usługa Microsoft Azure Import/Export może nie kopiować niektórych plików lub części pliku do Blob service platformy Microsoft Azure. Niektóre przyczyny niepowodzenia obejmują:  
+Usługa Microsoft Azure Import/Export może nie móc skopiować niektórych plików lub części pliku do usługi Windows Azure Blob. Przyczyny niepowodzeń mogą być następujące:  
   
 -   Uszkodzone pliki  
   
@@ -24,7 +24,7 @@ Usługa Microsoft Azure Import/Export może nie kopiować niektórych plików lu
   
 -   Klucz konta magazynu został zmieniony, gdy plik był transferowany.  
   
-Narzędzie Microsoft Azure Import/Export można uruchomić za pomocą plików dziennika kopiowania zadania importowania, a narzędzie przekazuje brakujące pliki (lub części pliku) do konta usługi Microsoft Azure Storage, aby zakończyć zadanie importowania.  
+Narzędzie Microsoft Azure Import/Export można uruchomić przy użyciu plików dziennika kopiowania zadania importowania, a narzędzie przekaże brakujące pliki (lub części pliku) do konta magazynu platformy Azure, aby zakończyć zadanie importowania.  
   
 ## <a name="repairimport-parameters"></a>Parametry RepairImport
 
@@ -68,20 +68,20 @@ W poniższym przykładzie pliku dziennika kopiowania 1 64-K część pliku zosta
 </DriveLog>  
 ```
   
-Gdy ten dziennik kopiowania jest przesyłany do narzędzia Azure Import/Export, Narzędzie próbuje zakończyć importowanie dla tego pliku przez skopiowanie brakującej zawartości w sieci. W powyższym przykładzie narzędzie szuka oryginalnego pliku `\animals\koala.jpg` w dwóch katalogach `C:\Users\bob\Pictures` i. `X:\BobBackup\photos` Jeśli plik `C:\Users\bob\Pictures\animals\koala.jpg` istnieje, narzędzie Azure Import/Export kopiuje brakujący zakres danych do odpowiedniego obiektu BLOB `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
+Gdy ten dziennik kopiowania jest przesyłany do narzędzia Azure Import/Export, Narzędzie próbuje zakończyć importowanie dla tego pliku przez skopiowanie brakującej zawartości w sieci. W powyższym przykładzie narzędzie szuka oryginalnego pliku `\animals\koala.jpg` w dwóch katalogach `C:\Users\bob\Pictures` i `X:\BobBackup\photos` . Jeśli plik `C:\Users\bob\Pictures\animals\koala.jpg` istnieje, narzędzie Azure Import/Export kopiuje brakujący zakres danych do odpowiedniego obiektu BLOB `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg` .  
   
 ## <a name="resolving-conflicts-when-using-repairimport"></a>Rozwiązywanie konfliktów podczas korzystania z RepairImport  
 W niektórych sytuacjach narzędzie może nie być w stanie znaleźć lub otworzyć wymaganego pliku z jednego z następujących powodów: nie można odnaleźć pliku, plik nie jest dostępny, nazwa pliku jest niejednoznaczna lub zawartość pliku nie jest już poprawna.  
   
-Może wystąpić niejednoznaczny błąd, jeśli narzędzie próbuje zlokalizować `\animals\koala.jpg` i istnieje plik o tej nazwie w ramach obu `C:\Users\bob\pictures` i. `X:\BobBackup\photos` Oznacza to, że `C:\Users\bob\pictures\animals\koala.jpg` zarówno `X:\BobBackup\photos\animals\koala.jpg` , jak i istnieją na dyskach zadań importowania.  
+Może wystąpić niejednoznaczny błąd, jeśli narzędzie próbuje zlokalizować `\animals\koala.jpg` i istnieje plik o tej nazwie w ramach obu `C:\Users\bob\pictures` i `X:\BobBackup\photos` . Oznacza to, że zarówno, `C:\Users\bob\pictures\animals\koala.jpg` jak i `X:\BobBackup\photos\animals\koala.jpg` istnieją na dyskach zadań importowania.  
   
-`/PathMapFile` Opcja pozwala rozwiązać te błędy. Możesz określić nazwę pliku, który zawiera listę plików, które narzędzie nie mogło prawidłowo zidentyfikować. Poniższy przykład wiersza polecenia wypełnia `9WM35C2V_pathmap.txt`:  
+`/PathMapFile`Opcja pozwala rozwiązać te błędy. Możesz określić nazwę pliku, który zawiera listę plików, które narzędzie nie mogło prawidłowo zidentyfikować. Poniższy przykład wiersza polecenia wypełnia `9WM35C2V_pathmap.txt` :  
   
 ```
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log /PathMapFile:C:\WAImportExport\9WM35C2V_pathmap.txt  
 ```
   
-Następnie narzędzie zapisze problematyczne ścieżki plików do `9WM35C2V_pathmap.txt`, po jednym w każdym wierszu. Na przykład po uruchomieniu polecenia plik może zawierać następujące wpisy:  
+Następnie narzędzie zapisze problematyczne ścieżki plików do `9WM35C2V_pathmap.txt` , po jednym w każdym wierszu. Na przykład po uruchomieniu polecenia plik może zawierać następujące wpisy:  
  
 ```
 \animals\koala.jpg  

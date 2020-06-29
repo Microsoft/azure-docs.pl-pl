@@ -4,16 +4,16 @@ titleSuffix: Azure Files
 description: Jak utworzyć udział plików platformy Azure przy użyciu Azure Portal, programu PowerShell lub interfejsu wiersza polecenia platformy Azure.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ed6abbac7c5953eaec4fa4584248d0d98b49ba63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba6f4bcaffbf9fa11c949853362485d524bec23a
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77596920"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510020"
 ---
 # <a name="create-an-azure-file-share"></a>Tworzenie udziału plików platformy Azure
 Aby utworzyć udział plików platformy Azure, musisz odpowiedzieć na trzy pytania dotyczące sposobu ich używania:
@@ -86,7 +86,7 @@ Tagi to pary nazwa/wartość, które umożliwiają kategoryzowanie zasobów i wy
 #### <a name="review--create"></a>Przegląd + tworzenie
 Ostatnim krokiem tworzenia konta magazynu jest wybranie przycisku **Utwórz** na karcie **Recenzja + tworzenie** . Ten przycisk nie będzie dostępny, jeśli nie wypełniono wszystkich pól wymaganych dla konta magazynu.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 Aby utworzyć konto magazynu przy użyciu programu PowerShell, użyjemy `New-AzStorageAccount` polecenia cmdlet. To polecenie cmdlet ma wiele opcji; wyświetlane są tylko wymagane opcje. Aby dowiedzieć się więcej na temat opcji zaawansowanych, zobacz [ `New-AzStorageAccount` dokumentację poleceń cmdlet](/powershell/module/az.storage/new-azstorageaccount).
 
 Aby uprościć tworzenie konta magazynu i kolejnych udziałów plików, firma Microsoft będzie przechowywać kilka parametrów w zmiennych. Zawartość zmiennej można zastąpić dowolną wartością, jednak należy pamiętać, że nazwa konta magazynu musi być globalnie unikatowa.
@@ -97,7 +97,7 @@ $storageAccountName = "mystorageacct$(Get-Random)"
 $region = "westus2"
 ```
 
-Aby utworzyć konto magazynu z możliwością przechowywania standardowych udziałów plików platformy Azure, użyjemy poniższego polecenia. `-SkuName` Parametr odnosi się do typu żądanego nadmiarowości; Jeśli potrzebujesz geograficznie nadmiarowego lub geograficznie nadmiarowego konta magazynu, należy również usunąć `-EnableLargeFileShare` parametr.
+Aby utworzyć konto magazynu z możliwością przechowywania standardowych udziałów plików platformy Azure, użyjemy poniższego polecenia. `-SkuName`Parametr odnosi się do odpowiedniego typu nadmiarowości. Jeśli potrzebujesz geograficznie nadmiarowego lub geograficznie nadmiarowego konta magazynu, należy również usunąć `-EnableLargeFileShare` parametr.
 
 ```azurepowershell-interactive
 $storAcct = New-AzStorageAccount `
@@ -109,7 +109,7 @@ $storAcct = New-AzStorageAccount `
     -EnableLargeFileShare
 ```
 
-Aby utworzyć konto magazynu z możliwością przechowywania udziałów plików platformy Azure w warstwie Premium, użyjemy poniższego polecenia. Należy zauważyć, `-SkuName` że parametr został zmieniony w taki `Premium` sposób, aby obejmował zarówno, jak i żądany poziom`LRS`nadmiarowości lokalnie nadmiarowy (). Ten `-Kind` parametr jest `FileStorage` zamiast tego `StorageV2` , ponieważ udziały plików w warstwie Premium muszą zostać utworzone na koncie magazynu FileStorage, a nie na koncie magazynu GPv2.
+Aby utworzyć konto magazynu z możliwością przechowywania udziałów plików platformy Azure w warstwie Premium, użyjemy poniższego polecenia. Należy zauważyć, że `-SkuName` parametr został zmieniony w taki sposób, aby obejmował zarówno `Premium` , jak i żądany poziom nadmiarowości lokalnie nadmiarowy ( `LRS` ). Ten `-Kind` parametr jest `FileStorage` zamiast tego, `StorageV2` ponieważ udziały plików w warstwie Premium muszą zostać utworzone na koncie magazynu FileStorage, a nie na koncie magazynu GPv2.
 
 ```azurepowershell-interactive
 $storAcct = New-AzStorageAccount `
@@ -131,7 +131,7 @@ storageAccountName="mystorageacct$RANDOM"
 region="westus2"
 ```
 
-Aby utworzyć konto magazynu z możliwością przechowywania standardowych udziałów plików platformy Azure, użyjemy poniższego polecenia. `--sku` Parametr odnosi się do typu żądanego nadmiarowości; Jeśli potrzebujesz geograficznie nadmiarowego lub geograficznie nadmiarowego konta magazynu, należy również usunąć `--enable-large-file-share` parametr.
+Aby utworzyć konto magazynu z możliwością przechowywania standardowych udziałów plików platformy Azure, użyjemy poniższego polecenia. `--sku`Parametr odnosi się do odpowiedniego typu nadmiarowości. Jeśli potrzebujesz geograficznie nadmiarowego lub geograficznie nadmiarowego konta magazynu, należy również usunąć `--enable-large-file-share` parametr.
 
 ```azurecli-interactive
 az storage account create \
@@ -143,7 +143,7 @@ az storage account create \
     --output none
 ```
 
-Aby utworzyć konto magazynu z możliwością przechowywania udziałów plików platformy Azure w warstwie Premium, użyjemy poniższego polecenia. Należy zauważyć, `--sku` że parametr został zmieniony w taki `Premium` sposób, aby obejmował zarówno, jak i żądany poziom`LRS`nadmiarowości lokalnie nadmiarowy (). Ten `--kind` parametr jest `FileStorage` zamiast tego `StorageV2` , ponieważ udziały plików w warstwie Premium muszą zostać utworzone na koncie magazynu FileStorage, a nie na koncie magazynu GPv2.
+Aby utworzyć konto magazynu z możliwością przechowywania udziałów plików platformy Azure w warstwie Premium, użyjemy poniższego polecenia. Należy zauważyć, że `--sku` parametr został zmieniony w taki sposób, aby obejmował zarówno `Premium` , jak i żądany poziom nadmiarowości lokalnie nadmiarowy ( `LRS` ). Ten `--kind` parametr jest `FileStorage` zamiast tego, `StorageV2` ponieważ udziały plików w warstwie Premium muszą zostać utworzone na koncie magazynu FileStorage, a nie na koncie magazynu GPv2.
 
 ```azurecli-interactive
 az storage account create \
@@ -175,10 +175,10 @@ Nowy blok udział plików powinien pojawić się na ekranie. Wypełnij pola w bl
 - **Name**: nazwa udziału plików, który ma zostać utworzony.
 - **Przydział**: przydział udziału plików dla standardowych udziałów plików; udostępniony rozmiar udziału plików dla udziałów plików w warstwie Premium.
 
-Wybierz pozycję **Utwórz** , aby ukończyć tworzenie nowego udziału. Należy pamiętać, że jeśli konto magazynu znajduje się w sieci wirtualnej, nie będzie można pomyślnie utworzyć udziału plików platformy Azure, chyba że klient jest również w sieci wirtualnej. Możesz również obejść to ograniczenie do czasu w czasie za pomocą polecenia cmdlet Azure PowerShell `New-AzRmStorageShare` .
+Wybierz pozycję **Utwórz** , aby ukończyć tworzenie nowego udziału. Należy pamiętać, że jeśli konto magazynu znajduje się w sieci wirtualnej, nie będzie można pomyślnie utworzyć udziału plików platformy Azure, chyba że klient jest również w sieci wirtualnej. Możesz również obejść to ograniczenie do czasu w czasie za pomocą `New-AzRmStorageShare` polecenia cmdlet Azure PowerShell.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Udział plików platformy Azure można utworzyć przy użyciu [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) polecenia cmdlet. W poniższych poleceniach programu PowerShell przyjęto założenie `$resourceGroupName` , `$storageAccountName` że zostały ustawione zmienne i zdefiniowane powyżej w sekcji tworzenie konta magazynu z Azure PowerShell. 
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
+Udział plików platformy Azure można utworzyć przy użyciu [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) polecenia cmdlet. W poniższych poleceniach programu PowerShell przyjęto założenie, że zostały ustawione zmienne `$resourceGroupName` i `$storageAccountName` zdefiniowane powyżej w sekcji Tworzenie konta magazynu z Azure PowerShell. 
 
 > [!Important]  
 > Dla udziałów plików w warstwie Premium `-QuotaGiB` parametr odnosi się do udostępnionego rozmiaru udziału plików. Udostępniony rozmiar udziału plików to kwota, za którą zostanie naliczona opłata, niezależnie od użycia. Standardowe udziały plików są rozliczane na podstawie użycia, a nie od rozmiaru aprowizacji.
@@ -222,7 +222,7 @@ az storage share create \
     --output none
 ```
 
-To polecenie zakończy się niepowodzeniem, jeśli konto magazynu jest zawarte w sieci wirtualnej, a komputer, z którego jest wywoływana polecenie, nie należy do sieci wirtualnej. Można obejść to ograniczenie do określonego momentu przy użyciu polecenia cmdlet Azure PowerShell `New-AzRmStorageShare` , jak opisano powyżej, lub przez wykonanie interfejsu wiersza polecenia platformy Azure z komputera, który jest częścią sieci wirtualnej, w tym za pośrednictwem połączenia sieci VPN.
+To polecenie zakończy się niepowodzeniem, jeśli konto magazynu jest zawarte w sieci wirtualnej, a komputer, z którego jest wywoływana polecenie, nie należy do sieci wirtualnej. Można obejść to ograniczenie do określonego momentu przy użyciu polecenia cmdlet Azure PowerShell, `New-AzRmStorageShare` jak opisano powyżej, lub przez wykonanie interfejsu wiersza polecenia platformy Azure z komputera, który jest częścią sieci wirtualnej, w tym za pośrednictwem połączenia sieci VPN.
 
 ---
 

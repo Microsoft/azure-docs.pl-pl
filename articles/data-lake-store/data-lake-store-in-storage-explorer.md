@@ -3,15 +3,15 @@ title: Zarządzanie zasobami Data Lake Storage Gen1 — Eksplorator usługi Azur
 description: Dowiedz się, jak uzyskać dostęp do danych i zasobów Azure Data Lake Storage Gen1 i zarządzać nimi w Eksplorator usługi Azure Storage
 author: jejiang
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a5117f72f933e1e48dc471a75624a8d3921f55af
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: a99196cfad7abad38408c847a8a0b64ffe95fff5
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73832259"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508796"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Zarządzanie zasobami Azure Data Lake Storage Gen1 przy użyciu Eksplorator usługi Storage
 

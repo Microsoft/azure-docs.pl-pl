@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 347b899608d4322a7873b9f80f38ca1c767194d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 198b87d0a458108ce76934217c651d613ab5d75e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77468749"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512067"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Przechodzenie w tryb failover do urządzenia w chmurze StorSimple
 

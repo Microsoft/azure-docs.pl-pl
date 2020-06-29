@@ -9,15 +9,15 @@ editor: cgronlun
 ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: d200f72b3c0e5634c3dca8f60a4754a14351110a
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 479b227a9144604d3bd0116a60de751189376b5f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60878758"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511466"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Uzyskiwanie dostępu do dzienników diagnostycznych dla Azure Data Lake Storage Gen1
 Dowiedz się, jak włączyć rejestrowanie diagnostyczne dla konta Azure Data Lake Storage Gen1 i jak wyświetlić dzienniki zebrane dla Twojego konta.
@@ -50,7 +50,7 @@ Organizacje mogą włączyć rejestrowanie diagnostyczne dla swojego konta Azure
      
    * Określ, czy chcesz pobrać dzienniki inspekcji, czy Dzienniki żądań czy oba te elementy.
    * Określ liczbę dni, przez jaką dane muszą zostać zachowane. Przechowywanie jest stosowane tylko w przypadku korzystania z konta usługi Azure Storage do archiwizowania danych dziennika.
-   * Kliknij przycisk **Zapisz**.
+   * Kliknij pozycję **Zapisz**.
 
 Po włączeniu ustawień diagnostycznych można obejrzeć dzienniki na karcie **dzienniki diagnostyczne** .
 
@@ -115,25 +115,25 @@ Oto przykładowy wpis w dzienniku żądań w formacie JSON. Każdy obiekt BLOB m
 #### <a name="request-log-schema"></a>Schemat dziennika żądania
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| time |String |Sygnatura czasowa (w formacie UTC) dziennika |
-| resourceId |String |Identyfikator zasobu, w którym miało miejsce operacja |
-| category |String |Kategoria dziennika. Na przykład **żądania**. |
-| operationName |String |Nazwa rejestrowanej operacji. Na przykład getfilestatus. |
-| resultType |String |Stan operacji, na przykład 200. |
-| callerIpAddress |String |Adres IP klienta wysyłającego żądanie |
-| correlationId |String |Identyfikator dziennika, który może służyć do grupowania razem zestawu powiązanych wpisów dziennika |
+| time |Ciąg |Sygnatura czasowa (w formacie UTC) dziennika |
+| resourceId |Ciąg |Identyfikator zasobu, w którym miało miejsce operacja |
+| category |Ciąg |Kategoria dziennika. Na przykład **żądania**. |
+| operationName |Ciąg |Nazwa rejestrowanej operacji. Na przykład getfilestatus. |
+| resultType |Ciąg |Stan operacji, na przykład 200. |
+| callerIpAddress |Ciąg |Adres IP klienta wysyłającego żądanie |
+| correlationId |Ciąg |Identyfikator dziennika, który może służyć do grupowania razem zestawu powiązanych wpisów dziennika |
 | identity |Obiekt |Tożsamość, która wygenerowała dziennik. |
 | properties |JSON |Szczegóły znajdują się poniżej. |
 
 #### <a name="request-log-properties-schema"></a>Schemat właściwości dziennika żądań
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| HttpMethod |String |Metoda HTTP użyta dla operacji. Na przykład Pobierz. |
-| Ścieżka |String |Ścieżka, na której wykonano operację |
+| HttpMethod |Ciąg |Metoda HTTP użyta dla operacji. Na przykład Pobierz. |
+| Ścieżka |Ciąg |Ścieżka, na której wykonano operację |
 | RequestContentLength |int |Długość zawartości żądania HTTP |
-| Identyfikatorem żądania klienta |String |Identyfikator, który jednoznacznie identyfikuje to żądanie |
-| StartTime |String |Godzina, o której serwer odebrał żądanie |
-| EndTime |String |Godzina, o której serwer wysłał odpowiedź |
+| Identyfikatorem żądania klienta |Ciąg |Identyfikator, który jednoznacznie identyfikuje to żądanie |
+| StartTime |Ciąg |Godzina, o której serwer odebrał żądanie |
+| EndTime |Ciąg |Godzina, o której serwer wysłał odpowiedź |
 
 ### <a name="audit-logs"></a>Dzienniki inspekcji
 Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB ma jeden element główny o nazwie **Records** zawierający tablicę obiektów dziennika
@@ -162,20 +162,20 @@ Oto przykładowy wpis w dzienniku inspekcji w formacie JSON. Każdy obiekt BLOB 
 #### <a name="audit-log-schema"></a>Schemat dziennika inspekcji
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| time |String |Sygnatura czasowa (w formacie UTC) dziennika |
-| resourceId |String |Identyfikator zasobu, w którym miało miejsce operacja |
-| category |String |Kategoria dziennika. Na przykład **Inspekcja**. |
-| operationName |String |Nazwa rejestrowanej operacji. Na przykład getfilestatus. |
-| resultType |String |Stan operacji, na przykład 200. |
-| resultSignature |String |Dodatkowe szczegóły dotyczące operacji. |
-| correlationId |String |Identyfikator dziennika, który może służyć do grupowania razem zestawu powiązanych wpisów dziennika |
+| time |Ciąg |Sygnatura czasowa (w formacie UTC) dziennika |
+| resourceId |Ciąg |Identyfikator zasobu, w którym miało miejsce operacja |
+| category |Ciąg |Kategoria dziennika. Na przykład **Inspekcja**. |
+| operationName |Ciąg |Nazwa rejestrowanej operacji. Na przykład getfilestatus. |
+| resultType |Ciąg |Stan operacji, na przykład 200. |
+| resultSignature |Ciąg |Dodatkowe szczegóły dotyczące operacji. |
+| correlationId |Ciąg |Identyfikator dziennika, który może służyć do grupowania razem zestawu powiązanych wpisów dziennika |
 | identity |Obiekt |Tożsamość, która wygenerowała dziennik. |
 | properties |JSON |Szczegóły znajdują się poniżej. |
 
 #### <a name="audit-log-properties-schema"></a>Schemat właściwości dziennika inspekcji
 | Nazwa | Typ | Opis |
 | --- | --- | --- |
-| StreamName |String |Ścieżka, na której wykonano operację |
+| StreamName |Ciąg |Ścieżka, na której wykonano operację |
 
 ## <a name="samples-to-process-the-log-data"></a>Przykłady do przetwarzania danych dziennika
 W przypadku wysyłania dzienników z usługi Azure Data Lake Storage Gen1 do dzienników Azure Monitor (zobacz [Wyświetlanie lub analizowanie danych zebranych za pomocą dzienników Azure monitor wyszukiwanie](../azure-monitor/learn/tutorial-viewdata.md) szczegółowych informacji dotyczących korzystania z dzienników Azure monitor), następujące zapytanie zwróci tabelę zawierającą listę nazw wyświetlanych użytkowników, czas zdarzeń oraz liczbę zdarzeń w czasie zdarzenia wraz z wykresem wizualnym. Można łatwo zmodyfikować, aby pokazać identyfikator GUID użytkownika lub inne atrybuty:
@@ -187,9 +187,9 @@ search *
 ```
 
 
-Azure Data Lake Storage Gen1 zawiera przykład sposobu przetwarzania i analizowania danych dziennika. Przykład można znaleźć pod adresem [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+Azure Data Lake Storage Gen1 zawiera przykład sposobu przetwarzania i analizowania danych dziennika. Przykład można znaleźć pod adresem [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) . 
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Omówienie Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Zabezpieczanie danych w usłudze Data Lake Storage 1. generacji](data-lake-store-secure-data.md)
 

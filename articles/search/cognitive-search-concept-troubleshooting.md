@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 25f0e0f15a299ef8b946b3d5fa0eb3eddc2272c2
-ms.sourcegitcommit: 5504d5a88896c692303b9c676a7d2860f36394c1
+ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84508624"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510869"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Wskazówki dotyczące wzbogacania AI na platformie Azure Wyszukiwanie poznawcze
 
@@ -49,7 +49,16 @@ W takim przypadku możesz chcieć poinstruować indeksator, aby ignorował błę
    }
 }
 ```
-## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>Porada 4: spojrzenie na wzbogacone dokumenty pod okapem 
+> [!NOTE]
+> Najlepszym rozwiązaniem jest ustawienie wartości maxFailedItems, maxFailedItemsPerBatch na 0 w przypadku obciążeń produkcyjnych.
+
+## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Porada 4: Użyj sesji debugowania, aby identyfikować i rozwiązywać problemy z zestawu umiejętności 
+
+Sesje debugowania to edytor wizualny, który współpracuje z istniejącym zestawu umiejętności w Azure Portal. W ramach sesji debugowania można identyfikować i rozwiązywać błędy, sprawdzać poprawność zmian oraz zatwierdzić zmiany w środowisku produkcyjnym w potoku wzbogacenia AI. Jest to funkcja w wersji zapoznawczej [zapoznaj się z dokumentacją](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). Aby uzyskać więcej informacji o pojęciach i rozpoczynaniu pracy, zobacz [debugowanie sesji](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+
+Sesje debugowania działają w jednym dokumencie, to świetny sposób na iteracyjne Kompilowanie bardziej złożonych potoków wzbogacania.
+
+## <a name="tip-5-looking-at-enriched-documents-under-the-hood"></a>Porada 5: spojrzenie na wzbogacone dokumenty pod okapem 
 Wzbogacone dokumenty są tymczasowymi strukturami utworzonymi podczas wzbogacania, a następnie usuwane po zakończeniu przetwarzania.
 
 Aby przechwycić migawkę wzbogaconego dokumentu utworzoną podczas indeksowania, dodaj pole o nazwie ```enriched``` do indeksu. Indeksator automatycznie zrzuca do tego pola ciąg będący reprezentacją wszystkich wzbogaceń dokumentu.
@@ -77,11 +86,7 @@ Dodaj ```enriched``` pole jako część definicji indeksu na potrzeby debugowani
 }
 ```
 
-### <a name="debug-sessions"></a>Sesje debugowania
-
-Sesje debugowania to edytor wizualny, który współpracuje z istniejącym zestawu umiejętności w Azure Portal. W ramach sesji debugowania można identyfikować i rozwiązywać błędy, sprawdzać poprawność zmian i wypchnąć zmiany do zestawu umiejętności produkcyjnego w potoku wzbogacenia AI. Jest to funkcja w wersji zapoznawczej, a dostęp jest udzielany na zasadzie wielkości liter. [Zapoznaj się z dokumentacją](https://docs.microsoft.com/azure/search/cognitive-search-debug-session) i Dowiedz się, jak to zrobić, aby uzyskać dostęp.
-
-## <a name="tip-5-expected-content-fails-to-appear"></a>Porada 5: nie można wyświetlić oczekiwanej zawartości
+## <a name="tip-6-expected-content-fails-to-appear"></a>Porada 6: nie można wyświetlić oczekiwanej zawartości
 
 Brakująca zawartość może być wynikiem porzucenia dokumentów podczas indeksowania. Warstwy Bezpłatna i podstawowa mają niskie limity rozmiaru dokumentu. Każdy plik przekraczający limit jest usuwany podczas indeksowania. Możesz sprawdzić porzucone dokumenty w Azure Portal. Na pulpicie nawigacyjnym usługi wyszukiwania kliknij dwukrotnie kafelek indeksatory. Sprawdź stosunek pomyślnych dokumentów indeksowanych. Jeśli wartość nie jest równa 100%, możesz kliknąć współczynnik, aby uzyskać więcej szczegółów. 
 
@@ -89,7 +94,7 @@ Jeśli problem dotyczy rozmiaru pliku, może zostać wyświetlony następujący 
 
 Druga przyczyna niepowodzenia wyświetlania zawartości może być związana z błędami mapowania operacji wejścia/wyjścia. Na przykład nazwa elementu docelowego danych wyjściowych to "ludzie", ale nazwa pola indeksu jest małymi literami "ludzie". System może zwrócić komunikaty o powodzeniu 201 dla całego potoku, aby podejrzewać, że indeksowanie powiedzie się, gdy w rzeczywistości pole jest puste. 
 
-## <a name="tip-6-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Porada 6: rozszerzona przetwarzanie poza maksymalnym czasem wykonywania (okno 24-godzinne)
+## <a name="tip-7-extend-processing-beyond-maximum-run-time-24-hour-window"></a>Porada 7: rozszerzona przetwarzanie poza maksymalnym czasem wykonywania (okno 24-godzinne)
 
 Analiza obrazów jest intensywnie czasochłonna dla nawet prostych przypadków, dlatego w przypadku, gdy obrazy są szczególnie duże lub złożone, czasy przetwarzania mogą przekroczyć maksymalny dozwolony czas. 
 
@@ -102,12 +107,12 @@ W przypadku zaplanowanych indeksatorów indeksowanie zostaje wznowione zgodnie z
 
 W przypadku indeksowania opartego na portalu (zgodnie z opisem w przewodniku Szybki Start) wybranie opcji indeksatora "Uruchom raz" ogranicza przetwarzanie do 1 godziny ( `"maxRunTime": "PT1H"` ). Możesz chcieć wydłużyć przedział czasu przetwarzania.
 
-## <a name="tip-7-increase-indexing-throughput"></a>Porada 7: zwiększenie przepływności indeksowania
+## <a name="tip-8-increase-indexing-throughput"></a>Porada 8: zwiększenie przepływności indeksowania
 
 W przypadku [indeksowania równoległego](search-howto-large-index.md)należy umieścić dane w wielu kontenerach lub w wielu folderach wirtualnych w tym samym kontenerze. Następnie Utwórz wiele par DataSource i indeksatora. Wszystkie indeksatory mogą używać tego samego zestawu umiejętności i zapisywać w tym samym docelowym indeksie wyszukiwania, dzięki czemu aplikacja wyszukiwania nie musi znać tego partycjonowania.
 Aby uzyskać więcej informacji, zobacz [indeksowanie dużych zestawów danych](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 + [Szybki Start: Tworzenie potoku wzbogacenia AI w portalu](cognitive-search-quickstart-blob.md)
 + [Samouczek: informacje o interfejsach API REST wzbogacania AI](cognitive-search-tutorial-blob.md)
 + [Określanie poświadczeń źródła danych](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)

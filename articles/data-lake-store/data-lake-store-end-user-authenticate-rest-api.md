@@ -3,15 +3,15 @@ title: Uwierzytelnianie użytkowników końcowych — zaplecze Data Lake Storage
 description: Dowiedz się, jak uzyskać uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory przy użyciu interfejsu API REST
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: ac06c9ef355eeba489d2006c435a48b7efcfd7f0
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: f0b79ec08883c81aee535a6eff1176e3e10027d9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688076"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511210"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 korzystania z interfejsu API REST
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszys
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<APPLICATION-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
 
    > [!NOTE]
-   > Identyfikator \<REDIRECT-URI> musi być zakodowany na potrzeby adresu URL. Tak więc, https://localhostfor, `https%3A%2F%2Flocalhost`use)
+   > \<REDIRECT-URI>należy zakodować do użycia w adresie URL. Tak więc, for https://localhost , USE `https%3A%2F%2Flocalhost` )
 
     Na potrzeby tego samouczka możesz zastąpić symbole zastępcze w powyższym adresie URL i wkleić go w pasku adresu przeglądarki sieci web. Nastąpi przekierowanie w celu uwierzytelniania przy użyciu identyfikatora logowania do platformy Azure. Gdy pomyślnie się zalogujesz, odpowiedź zostanie wyświetlona na pasku adresu przeglądarki. Odpowiedź będzie miała następujący format:
 
@@ -60,11 +60,11 @@ W tym scenariuszu aplikacja wyświetla monit o zalogowanie się i wówczas wszys
         -F code=<AUTHORIZATION-CODE>
 
    > [!NOTE]
-   > W takim przypadku identyfikatora \<REDIRECT-URI> nie trzeba kodować.
+   > W takim przypadku \<REDIRECT-URI> nie trzeba zakodować.
    > 
    > 
 
-3. Odpowiedź jest obiektem JSON, który zawiera token dostępu (na przykład `"access_token": "<ACCESS_TOKEN>"`) i token odświeżania (na przykład `"refresh_token": "<REFRESH_TOKEN>"`). Aplikacja używa tokenu dostępu podczas uzyskiwania dostępu do Azure Data Lake Storage Gen1 i tokenu odświeżania, aby uzyskać inny token dostępu po wygaśnięciu tokenu dostępu.
+3. Odpowiedź jest obiektem JSON, który zawiera token dostępu (na przykład `"access_token": "<ACCESS_TOKEN>"` ) i token odświeżania (na przykład `"refresh_token": "<REFRESH_TOKEN>"` ). Aplikacja używa tokenu dostępu podczas uzyskiwania dostępu do Azure Data Lake Storage Gen1 i tokenu odświeżania, aby uzyskać inny token dostępu po wygaśnięciu tokenu dostępu.
 
         {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3599","expires_on":"1461865782","not_before":    "1461861882","resource":"https://management.core.windows.net/","access_token":"<REDACTED>","refresh_token":"<REDACTED>","id_token":"<REDACTED>"}
 

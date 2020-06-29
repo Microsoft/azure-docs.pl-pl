@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: ca5ba8d7b2d78440401e29344361538c3650ba48
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: d3bfb589ec4c152b136e8e1f432864b719c97d58
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779179"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509323"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Magazyn danych i ruch przychodzący w wersji zapoznawczej Azure Time Series Insights
 
@@ -60,8 +60,13 @@ Obsługiwane typy danych to:
 |---|---|
 | **bool** | Typ danych, który ma jeden z dwóch stanów: `true` lub `false` . |
 | **Datę** | Reprezentuje chwilę w czasie, zwykle wyrażoną jako datę i godzinę dnia. Wyrażony w formacie [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) . |
+| **długi** | 64-bitowa liczba całkowita ze znakiem  |
 | **double** | Podwójnie precyzyjne 64-bitowe [IEEE 754](https://ieeexplore.ieee.org/document/8766229) zmiennoprzecinkowe. |
-| **ciąg** | Wartości tekstowe składające się z znaków Unicode.          |
+| **parametry** | Wartości tekstowe składające się z znaków Unicode.          |
+
+> [!IMPORTANT]
+>
+> * Środowisko TSI jest silnie wpisane. Jeśli urządzenia lub Tagi wysyłają zarówno dane całkowite, jak i niecałkowite, wartości właściwości urządzenia będą przechowywane w dwóch rozdzielonych podwójnie i długich kolumnach, a [Funkcja łączenia ()](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) powinna być używana podczas wykonywania wywołań interfejsu API i definiowania wyrażeń zmiennych modelu szeregów czasowych.
 
 #### <a name="objects-and-arrays"></a>Obiekty i tablice
 
@@ -232,9 +237,11 @@ Time Series Insights w wersji zapoznawczej przechowuje kopie danych w następuj�
 
 * Druga kopia z podziałem na partycje jest pogrupowana według identyfikatorów szeregów czasowych i znajduje się w `PT=TsId` folderze:
 
-  `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+  `V=1/PT=TsId/<TSI_INTERNAL_STRUCTURE>/<TSI_INTERNAL_NAME>.parquet`
 
-W obu przypadkach Właściwość Time pliku Parquet odpowiada czasowi utworzenia obiektu BLOB. Dane w `PT=Time` folderze są zachowywane bez zmian po zapisaniu ich w pliku. Dane w `PT=TsId` folderze zostaną zoptymalizowane pod kątem zapytania w czasie i nie są statyczne.
+Sygnatura czasowa w nazwach obiektów BLOB w `PT=Time` folderze odpowiada czasowi przybycia danych do TSI (nie sygnaturą czasową zdarzeń).
+
+Dane w `PT=TsId` folderze zostaną zoptymalizowane pod kątem zapytania w czasie i nie są statyczne. Podczas ponownego partycjonowania te same zdarzenia mogą być obecne w wielu obiektach Blob. Ponadto nazwy obiektów BLOB mogą ulec zmianie w przyszłości.
 
 > [!NOTE]
 >

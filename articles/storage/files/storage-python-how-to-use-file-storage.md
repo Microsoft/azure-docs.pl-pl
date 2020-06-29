@@ -3,17 +3,17 @@ title: Programowanie dla Azure Files przy użyciu języka Python | Microsoft Doc
 description: Dowiedz się, jak opracowywać aplikacje i usługi w języku Python, które używają Azure Files do przechowywania danych plików.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/14/2018
 ms.author: rogarana
 ms.subservice: files
 ms.custom: tracking-python
-ms.openlocfilehash: d04b158761d501d4a79d91fe551670b57f9847f3
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: c612ddc324144a818dd738b440660d473ec3a1bd
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84678719"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509646"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Develop for Azure Files with Python (Tworzenie oprogramowania dla usługi Azure Files przy użyciu języka Python)
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]

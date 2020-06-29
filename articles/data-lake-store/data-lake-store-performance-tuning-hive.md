@@ -3,15 +3,15 @@ title: Dostrajanie wydajności — Hive na Azure Data Lake Storage Gen1
 description: Wskazówki dotyczące dostrajania wydajności dla programu Hive w usłudze HdInsight i Azure Data Lake Storage Gen1.
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 2e44332ddab9387c05a45d15101ccd2bdec3ada4
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 819e158ce2613441efdf2177d50fc8e7989bf68f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690524"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510938"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Wskazówki dotyczące dostrajania wydajności dla programu Hive w usłudze HDInsight i Azure Data Lake Storage Gen1
 
@@ -35,7 +35,7 @@ Poniżej przedstawiono najważniejsze ustawienia, które należy dostosować w c
 
 * **tez. Grouping. Max-size** — maksymalny rozmiar każdego mapowania
 
-* **Hive. exec. redukować. Bytes. per. zredukować** — rozmiar każdego środka zmniejszającego
+* **hive.exec. zredukować. bajtów. na. zmniejszenie** — rozmiar każdego środka zmniejszającego
 
 **Hive. tez. Container. size** — rozmiar kontenera określa ilość dostępnej pamięci dla każdego zadania.  Jest to główne dane wejściowe służące do kontrolowania współbieżności w usłudze Hive.  
 
@@ -43,11 +43,11 @@ Poniżej przedstawiono najważniejsze ustawienia, które należy dostosować w c
 
 **tez. Group. Max-size** — parametr umożliwia ustawienie maksymalnego rozmiaru każdego mapowania.  Jeśli liczba odwzorowań, które tez wybór są większe niż wartość tego parametru, tez będzie używać wartości ustawionej w tym miejscu.
 
-**Hive. exec. redukować. Bytes. per. zredukować** — ten parametr ustawia rozmiar każdego środka.  Domyślnie każdy z nich zmniejsza wartość 256 MB.  
+**hive.exec. zredukować. bajtów. na. zredukować** — ten parametr ustawia rozmiar poszczególnych elementów zmniejszających.  Domyślnie każdy z nich zmniejsza wartość 256 MB.  
 
 ## <a name="guidance"></a>Wskazówki
 
-**Set Hive. exec. redukować. Bytes. per. zredukować** — wartość domyślna działa prawidłowo, gdy dane są nieskompresowane.  W przypadku skompresowanych danych należy zmniejszyć rozmiar tego ograniczenia.  
+**Ustaw hive.exec. redukować. Bytes. per. zredukować** — wartość domyślna działa prawidłowo, gdy dane są nieskompresowane.  W przypadku skompresowanych danych należy zmniejszyć rozmiar tego ograniczenia.  
 
 **Ustaw gałąź. tez. Container. size** — w każdym węźle pamięć jest określana przez przędzę. nodemanager. Resource. Memory-MB i powinna być prawidłowo ustawiona w klastrze HDI domyślnie.  Aby uzyskać dodatkowe informacje na temat ustawiania odpowiedniej pamięci w ramach PRZĘDZy, zobacz ten [wpis](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
@@ -77,7 +77,7 @@ Aby sprawdzić, czy masz ograniczone ograniczenia, należy włączyć rejestrowa
 
 1. Umieść następującą właściwość we właściwościach Log4J w konfiguracji Hive. Można to zrobić z widoku Ambari: Log4J. rejestrator. com. Microsoft. Azure. datalake. Store = DEBUGUJ ponownie uruchom wszystkie węzły/usługę, aby konfiguracja zaczęła obowiązywać.
 
-2. W przypadku uzyskania ograniczenia przepustowości w pliku dziennika programu Hive zobaczysz kod błędu HTTP 429. Plik dziennika programu Hive znajduje się w&lt;/tmp/&gt;użytkownika/Hive.log
+2. W przypadku uzyskania ograniczenia przepustowości w pliku dziennika programu Hive zobaczysz kod błędu HTTP 429. Plik dziennika programu Hive znajduje się w/tmp/ &lt; użytkownika &gt; /Hive.log
 
 ## <a name="further-information-on-hive-tuning"></a>Więcej informacji na temat dostrajania programu Hive
 

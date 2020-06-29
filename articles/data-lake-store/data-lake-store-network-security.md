@@ -8,17 +8,17 @@ manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 7d6c826df2a509ffb378809e3682073bd5ab1301
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 471633414603ede123382b46b549acb2fd4fd98e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60612702"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508711"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integracja z siecią wirtualną w usłudze Azure Data Lake Storage Gen1
 

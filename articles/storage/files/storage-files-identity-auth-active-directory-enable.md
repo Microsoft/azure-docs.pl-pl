@@ -4,15 +4,15 @@ description: Informacje o uwierzytelnianiu Active Directory Domain Services (AD 
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: b0ba03687d691226b0ad659e09dfe1693fe2c296
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: 7999f042b8a67bed8ef01cccec5890b1a2d58ebb
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214404"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510224"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Omówienie lokalnego uwierzytelniania Active Directory Domain Services za pośrednictwem protokołu SMB dla udziałów plików platformy Azure
 

@@ -3,17 +3,17 @@ title: Włącz nietrwałe usuwanie udziałów plików platformy Azure
 description: Dowiedz się, jak włączyć usuwanie nietrwałe (wersja zapoznawcza) w udziałach plików platformy Azure na potrzeby odzyskiwania danych i uniemożliwiając Przypadkowe usunięcie.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 582a3603ad80ec1312429ed7cbd140d4310fadcb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 84da8993bd1b0a61ef885d03f7c2bc80b92d47cb
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196197"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510809"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Włącz usuwanie nietrwałe w udziałach plików platformy Azure
 

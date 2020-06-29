@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: twooley
-ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b27cf605c978e15d81a43db3371a71b0ccc48c8d
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84712075"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508924"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Używanie Snapshot Manager StorSimple do wyświetlania woluminów i zarządzania nimi
 ## <a name="overview"></a>Omówienie

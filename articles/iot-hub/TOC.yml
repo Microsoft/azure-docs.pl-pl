@@ -416,7 +416,7 @@
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/iot
+      href: /cli/azure/azure-cli-reference-for-IoT
     - name: Azure PowerShell
       href: /powershell/module/az.iothub#iot
     - name: .NET (urządzenie)

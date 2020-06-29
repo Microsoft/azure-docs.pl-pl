@@ -4,15 +4,15 @@ description: Dowiedz się, jak zaktualizować hasło do konta Active Directory D
 author: roygara
 ms.service: storage
 ms.subservice: files
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 53dcc69b6e9ae94846330077f07ae57af1b0b414
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: d16f11a85c6b370b0187975cce965bf3e1b5ba3f
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214387"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510258"
 ---
 # <a name="update-the-password-of-your-storage-account-identity-in-ad-ds"></a>Zaktualizuj hasło tożsamości konta magazynu w AD DS
 

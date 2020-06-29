@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
 ms.subservice: alerts
-ms.openlocfilehash: fe89f932bcf7aa22657a3fcabddd015df4b9913d
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 65c2e3dbe7cb99c9b7c6e1a84178fd28d5013a69
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85486679"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85507946"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Jak zaktualizować reguły alertów lub reguły akcji, gdy ich zasób docelowy jest przenoszony do innego regionu platformy Azure
 
@@ -32,6 +32,7 @@ Istnieją dwa główne przyczyny, dla których reguły mogą przestać działać
 Podczas przenoszenia zasobu jego identyfikator zasobu zmienia się w większości przypadków. W tle system replikuje zasób w nowym regionie przed usunięciem go ze starego regionu. Ten proces wymaga, aby dwa zasoby i w ten sposób dwa różne identyfikatory zasobów były jednocześnie dostępne przez niewielki czas. Ponieważ identyfikatory zasobów muszą być unikatowe, podczas procesu należy utworzyć nowy identyfikator. 
 
 **Jak przeniesienie zasobu wpływa na istniejące reguły?**
+
 Reguły alertów i reguły akcji mają zakres zasobów, do których mają zastosowanie. Zakresem może być cała subskrypcja, Grupa zasobów lub jeden lub więcej określonych zasobów.
 Na przykład poniżej przedstawiono regułę z zakresem zawierającym dwa zasoby (dwie maszyny wirtualne):
 
@@ -101,8 +102,12 @@ Jeśli **tylko część** zasobów w zakresie została przeniesiona, należy usu
 2. Zmodyfikuj zakres. W razie potrzeby Podziel na dwie reguły (odpowiednie dla niektórych przypadków alertów metryk, jak wspomniano powyżej).
 3. Ponownie Wdróż regułę ([alerty metryk](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2), [alerty dziennika aktywności](https://docs.microsoft.com/powershell/module/az.monitor/enable-azactivitylogalert), [reguły akcji](https://docs.microsoft.com/powershell/module/az.alertsmanagement/set-azactionrule)).
 
-### <a name="changing-the-scope-of-a-rule-using-azure-cli"></a>Zmiana zakresu reguły przy użyciu interfejsu wiersza polecenia platformy Azure
+### <a name="change-the-scope-of-a-rule-using-azure-cli"></a>Zmiana zakresu reguły przy użyciu interfejsu wiersza polecenia platformy Azure
 
 1.  Pobierz istniejącą regułę ([alerty metryki](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest#az-monitor-metrics-alert-show), [alerty dziennika aktywności](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)).
 2.  Aktualizuj zakres reguły bezpośrednio ([alerty metryczne](https://docs.microsoft.com/cli/azure/monitor/metrics/alert#az-monitor-metrics-alert-update), [alerty dziennika aktywności](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope))
 3.  W razie potrzeby Podziel na dwie reguły (odpowiednie dla niektórych przypadków alertów metryk, jak wspomniano powyżej).
+
+## <a name="next-steps"></a>Następne kroki
+
+Dowiedz się więcej o rozwiązywaniu innych problemów z [powiadomieniami o alertach](alerts-troubleshoot.md), [alertami metrykami](alerts-troubleshoot-metric.md)i [alertami dzienników](alerts-troubleshoot-log.md). 

@@ -8,22 +8,20 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 14760eaef309ec5695b423b98e59a8ae1ab5cacb
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 35590fd8aefb8b6a90adeef52fabe773663403c2
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84886737"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510985"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Samouczek: diagnozowanie, naprawianie i zatwierdzanie zmian w zestawu umiejętności
 
 Ten artykuł zawiera Azure Portal do uzyskiwania dostępu do sesji debugowania w celu naprawy problemów z podaną zestawu umiejętności. Zestawu umiejętności zawiera błędy, które należy rozwiązać. Ten samouczek przeprowadzi Cię przez sesję debugowania, aby identyfikować i rozwiązywać problemy związane z danymi wejściowymi i wyjściowymi.
 
 > [!Important]
-> Obsługa sesji debugowania dla usługi Azure Wyszukiwanie poznawcze jest dostępna [na żądanie](https://aka.ms/DebugSessions) jako wersja zapoznawcza ograniczonego dostępu. Funkcje w wersji zapoznawczej są udostępniane bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Sesje debugowania to funkcja w wersji zapoznawczej, która jest dostępna bez umowy dotyczącej poziomu usług i nie jest zalecana w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Po uzyskaniu dostępu do wersji zapoznawczej będziesz mieć możliwość dostępu do sesji debugowania i używania ich dla usługi przy użyciu Azure Portal.
->   
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -249,7 +247,7 @@ Gdy indeksator zakończył działanie, powinien istnieć zielony znacznik wyboru
 1. Otwórz indeks "badania kliniczne", a następnie na karcie Eksplorator wyszukiwania kliknij pozycję **Wyszukaj**.
 1. W oknie wyników należy pokazać, że organizacje i lokalizacje obiektów są teraz wypełniane oczekiwanymi wartościami.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli pracujesz w ramach własnej subskrypcji, dobrym pomysłem po zakończeniu projektu jest sprawdzenie, czy dalej potrzebujesz utworzonych zasobów. Nadal uruchomione zasoby mogą generować koszty. Zasoby możesz usuwać pojedynczo lub możesz usunąć grupę zasobów, aby usunąć cały ich zestaw.
 

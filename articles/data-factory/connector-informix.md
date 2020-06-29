@@ -1,6 +1,6 @@
 ---
-title: Kopiuj dane ze źródeł programu IBM Informix przy użyciu Azure Data Factory
-description: Informacje o kopiowaniu danych ze źródeł programu IBM Informix do obsługiwanych magazynów danych ujścia przy użyciu działania kopiowania w potoku Azure Data Factory.
+title: Kopiuj dane z i do programu IBM Informix przy użyciu Azure Data Factory
+description: Dowiedz się, jak skopiować dane z i do programu IBM Informix przy użyciu działania kopiowania w potoku Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,16 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 06/28/2020
 ms.author: jingwang
-ms.openlocfilehash: b4fb6662491443db5d10825635cad8496e56e7f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93f484bd30de1ba0ca0f7aa5db263243bebc5b09
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414977"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85508813"
 ---
-# <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>Kopiowanie danych z i do magazynów danych programu IBM Informix przy użyciu Azure Data Factory
+# <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Kopiuj dane z i do programu IBM Informix przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 W tym artykule opisano sposób używania działania kopiowania w Azure Data Factory do kopiowania danych z magazynu danych programu IBM Informix. Jest ona oparta na [przeglądzie działania kopiowania](copy-activity-overview.md) , która przedstawia ogólne omówienie działania kopiowania.
@@ -30,7 +30,7 @@ Ten łącznik programu Informix jest obsługiwany przez następujące działania
 - [Działanie kopiowania](copy-activity-overview.md) z [obsługiwaną macierzą źródłową/ujścia](copy-activity-overview.md)
 - [Działanie Lookup](control-flow-lookup-activity.md)
 
-Możesz skopiować dane ze źródła Informix do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
+Dane z źródła programu Informix można kopiować do dowolnego obsługiwanego magazynu danych ujścia lub kopiować z dowolnego obsługiwanego źródłowego magazynu danych do ujścia programu Informix. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -49,10 +49,10 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Dla połączonej usługi programu Informix są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **Informix** | Tak |
-| Parametry połączenia | Parametry połączenia ODBC z wyjątkiem części poświadczenia. Można określić parametry połączenia lub użyć systemu DSN (nazwa źródła danych) skonfigurowanego na maszynie Integration Runtime (w związku z tym nadal należy określić część poświadczeń w połączonej usłudze). <br> Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md) .| Tak |
+| typ | Właściwość Type musi mieć wartość: **Informix** | Tak |
+| Parametry połączenia | Parametry połączenia ODBC z wyjątkiem części poświadczenia. Można określić parametry połączenia lub użyć systemu DSN (nazwa źródła danych) skonfigurowanego na maszynie Integration Runtime (w związku z tym nadal należy określić część poświadczeń w połączonej usłudze). <br> Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć  `password`   konfigurację z parametrów połączenia. Aby uzyskać więcej informacji, zobacz temat [poświadczenia sklepu w Azure Key Vault](store-credentials-in-key-vault.md)   .| Tak |
 | authenticationType | Typ uwierzytelniania używany do nawiązywania połączenia z magazynem danych programu Informix.<br/>Dozwolone wartości to: **podstawowe** i **anonimowe**. | Tak |
 | userName | Określ nazwę użytkownika w przypadku korzystania z uwierzytelniania podstawowego. | Nie |
 | hasło | Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
@@ -89,12 +89,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z programu Informix, obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na: **Informix** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na: **Informix** | Tak |
 | tableName | Nazwa tabeli w programie Informix. | Nie dla źródła (Jeśli określono "zapytanie" w źródle aktywności);<br/>Tak dla ujścia |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -120,9 +120,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z programu Informix, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **InformixSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **InformixSource** | Tak |
 | query | Użyj zapytania niestandardowego do odczytywania danych. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**
@@ -151,6 +151,48 @@ Aby skopiować dane z programu Informix, w sekcji **Źródło** działania kopio
             },
             "sink": {
                 "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+### <a name="informix-as-sink"></a>Informix jako ujścia
+
+Aby skopiować dane do programu Informix, w sekcji **ujścia** działania kopiowania są obsługiwane następujące właściwości:
+
+| Właściwość | Opis | Wymagane |
+|:--- |:--- |:--- |
+| typ | Właściwość Type ujścia działania Copy musi być ustawiona na wartość: **InformixSink** | Tak |
+| writeBatchTimeout |Czas oczekiwania na zakończenie operacji wstawiania partii przed upływem limitu czasu.<br/>Dozwolone wartości to: TimeSpan. Przykład: "00:30:00" (30 minut). |Nie |
+| writeBatchSize |Wstawia dane do tabeli SQL, gdy rozmiar buforu osiągnie writeBatchSize.<br/>Dozwolone wartości to: Integer (liczba wierszy). |Nie (domyślnie: 0 — wykryto Autowykrywanie) |
+| preCopyScript |Określ zapytanie SQL dla działania kopiowania, które ma zostać wykonane przed zapisaniem danych w magazynie danych w każdym przebiegu. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. |Nie |
+
+**Przykład:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToInformix",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Informix output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "InformixSink"
             }
         }
     }

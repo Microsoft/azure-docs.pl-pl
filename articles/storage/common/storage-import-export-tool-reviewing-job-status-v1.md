@@ -4,16 +4,16 @@ description: Dowiedz się, jak używać plików dziennika utworzonych podczas wy
 author: twooley
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/26/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 33e6ecca0eb4ca05b1f6bf53cdb3bd4ac8c8d8a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ab0dd7f0e0ed90c205c37ddbb7ea3a9fca74ae9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978433"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85512256"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Przeglądanie stanu zadania importowania/eksportowania platformy Azure przy użyciu plików dziennika kopiowania
 Gdy usługa Microsoft Azure Import/Export przetwarza dyski skojarzone z zadaniem importu lub eksportu, zapisuje pliki dziennika kopiowania na koncie magazynu lub z którego są importowane lub eksportowane obiekty blob. Plik dziennika zawiera szczegółowy stan każdego importowanego lub wyeksportowanego pliku. Adres URL każdego pliku dziennika kopiowania jest zwracany podczas wykonywania zapytania o stan ukończonego zadania; Zobacz [pobieranie zadania](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get) , aby uzyskać więcej informacji.  

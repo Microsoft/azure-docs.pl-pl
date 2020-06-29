@@ -4,15 +4,15 @@ description: Konfigurowanie funkcji MPIO w systemie StorSimple połączonej z ho
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 5dadd231335e93839e947077168f32dbfe96eb45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9978be9182bbb2923fa5db0b4e5ada422ef0da9
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76278357"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511599"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Konfigurowanie funkcji MPIO na hoście StorSimple z systemem CentOS
 W tym artykule opisano kroki wymagane do skonfigurowania wielościeżkowego wejścia/wyjścia (MPIO) na serwerze hosta z systemem CentOS 6,6. Serwer hosta jest połączony z urządzeniem Microsoft Azure StorSimple, aby zapewnić wysoką dostępność za pośrednictwem inicjatorów iSCSI. Szczegółowo opisano automatyczne odnajdowanie urządzeń wielościeżkowych i konkretnej konfiguracji tylko dla woluminów StorSimple.
@@ -45,7 +45,7 @@ Wielościeżkowe w systemie Linux obejmuje składniki jądra i składniki obszar
    * **Wielościeżkowe. conf**: plik konfiguracyjny demona wielościeżkowego, która jest używana do zastępowania wbudowanej tabeli konfiguracyjnej.
 
 ### <a name="about-the-multipathconf-configuration-file"></a>Informacje o pliku konfiguracji wielościeżkowego. conf
-Plik `/etc/multipath.conf` konfiguracji udostępnia wiele funkcji wielościeżkowych, które użytkownik konfigurowalne. `multipath` Polecenie i demon `multipathd` jądra używają informacji znajdujących się w tym pliku. Ten plik jest konsultowany tylko podczas konfigurowania urządzeń wielościeżkowych. Przed uruchomieniem `multipath` polecenia upewnij się, że wszystkie zmiany zostały wprowadzone. W przypadku zmodyfikowania pliku później należy zatrzymać i ponownie uruchomić wielościeżkową zmianę, aby zmiany zaczęły obowiązywać.
+Plik konfiguracji `/etc/multipath.conf` udostępnia wiele funkcji wielościeżkowych, które użytkownik konfigurowalne. `multipath`Polecenie i demon jądra `multipathd` używają informacji znajdujących się w tym pliku. Ten plik jest konsultowany tylko podczas konfigurowania urządzeń wielościeżkowych. Przed uruchomieniem polecenia upewnij się, że wszystkie zmiany zostały wprowadzone `multipath` . W przypadku zmodyfikowania pliku później należy zatrzymać i ponownie uruchomić wielościeżkową zmianę, aby zmiany zaczęły obowiązywać.
 
 Wielościeżkowe. conf ma pięć sekcji:
 
@@ -68,7 +68,7 @@ Ta sekcja zawiera szczegółowe informacje o wymaganiach wstępnych dotyczących
    
     `ifconfig`
    
-    Poniższy przykład przedstawia dane wyjściowe, gdy na hoście znajdują`eth0` się `eth1`dwa interfejsy sieciowe (i).
+    Poniższy przykład przedstawia dane wyjściowe, gdy `eth0` `eth1` na hoście znajdują się dwa interfejsy sieciowe (i).
    
         [root@centosSS ~]# ifconfig
         eth0  Link encap:Ethernet  HWaddr 00:15:5D:A2:33:41  
@@ -109,7 +109,7 @@ Ta sekcja zawiera szczegółowe informacje o wymaganiach wstępnych dotyczących
       
        `service iscsid start`
       
-       Zdarza się to, `iscsid` że `--force` program może nie zostać uruchomiony i może być wymagana opcja
+       Zdarza się to, `iscsid` że program może nie zostać uruchomiony i `--force` może być wymagana opcja
    1. Aby zapewnić włączenie inicjatora iSCSI w czasie rozruchu, użyj `chkconfig` polecenia, aby włączyć usługę.
       
        `chkconfig iscsi on`
@@ -228,7 +228,7 @@ Ten algorytm równoważenia obciążenia używa wszystkich dostępnych wielu śc
 1. Edytuj `/etc/multipath.conf` plik. Wpisz:
    
     `vi /etc/multipath.conf`
-1. W `defaults` sekcji Ustaw wartość `path_grouping_policy` na. `multibus` `path_grouping_policy` Określa domyślne zasady grupowania ścieżek, które mają być stosowane do nieokreślonych wielościeżkowych. Zostanie wyświetlona sekcja wartości domyślne, jak pokazano poniżej.
+1. W `defaults` sekcji Ustaw wartość `path_grouping_policy` na `multibus` . `path_grouping_policy`Określa domyślne zasady grupowania ścieżek, które mają być stosowane do nieokreślonych wielościeżkowych. Zostanie wyświetlona sekcja wartości domyślne, jak pokazano poniżej.
    
         defaults {
                 user_friendly_names yes
@@ -268,7 +268,7 @@ Ten algorytm równoważenia obciążenia używa wszystkich dostępnych wielu śc
     10.126.162.26:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target
     ```
 
-    Skopiuj nazwę IQN urządzenia StorSimple, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`z poprzednich danych wyjściowych.
+    Skopiuj nazwę IQN urządzenia StorSimple, `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target` z poprzednich danych wyjściowych.
 
    b. Połącz się z urządzeniem przy użyciu docelowej nazwy IQN. Urządzenie StorSimple jest miejscem docelowym iSCSI. Wpisz:
 
@@ -276,7 +276,7 @@ Ten algorytm równoważenia obciążenia używa wszystkich dostępnych wielu śc
     iscsiadm -m node --login -T <IQN of iSCSI target>
     ```
 
-    Poniższy przykład przedstawia dane wyjściowe z docelową IQN `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`. Dane wyjściowe wskazują, że pomyślnie nawiązano połączenie z dwoma interfejsami sieciowymi obsługującymi iSCSI na urządzeniu.
+    Poniższy przykład przedstawia dane wyjściowe z docelową IQN `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target` . Dane wyjściowe wskazują, że pomyślnie nawiązano połączenie z dwoma interfejsami sieciowymi obsługującymi iSCSI na urządzeniu.
 
     ```
     Logging in to [iface: eth0, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.25,3260] (multiple)
@@ -326,7 +326,7 @@ Ten algorytm równoważenia obciążenia używa wszystkich dostępnych wielu śc
 ## <a name="troubleshoot-multipathing"></a>Rozwiązywanie problemów z funkcją wielościeżkowego
 Ta sekcja zawiera kilka przydatnych porad w przypadku napotkania problemów podczas konfiguracji wielościeżkowej.
 
-PYTANIE: Zmiany wprowadzone w `multipath.conf` pliku nie są widoczne.
+PYTANIE: Zmiany wprowadzone w pliku nie są widoczne `multipath.conf` .
 
 A. Jeśli wprowadzono jakiekolwiek zmiany w `multipath.conf` pliku, należy ponownie uruchomić usługę wielościeżkowego. Wpisz następujące polecenie:
 

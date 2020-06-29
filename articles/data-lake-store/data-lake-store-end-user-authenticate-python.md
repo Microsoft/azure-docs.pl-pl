@@ -3,16 +3,16 @@ title: Uwierzytelnianie użytkowników końcowych — Python z Data Lake Storage
 description: Dowiedz się, jak uzyskać uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu Azure Active Directory przy użyciu języka Python
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref, tracking-python
-ms.openlocfilehash: b08024ae60346354b97fd377fdea350c52e44404
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: c8333d50217581b0681f9f19c10d2583c71ac759
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84557931"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85511241"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Uwierzytelnianie użytkowników końcowych za pomocą Azure Data Lake Storage Gen1 przy użyciu języka Python
 > [!div class="op_single_selector"]

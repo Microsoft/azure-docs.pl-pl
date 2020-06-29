@@ -3,15 +3,15 @@ title: PowerShell — klaster HDInsight z Data Lake Storage Gen1 — Azure
 description: Użyj Azure PowerShell, aby tworzyć klastry usługi Azure HDInsight i korzystać z nich przy użyciu Azure Data Lake Storage Gen1.
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 2b4e5fad65d2ad358bca6b5a2b87d4aa36b77e73
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: cd4faec2d57b15dd23fe01dfc49063f06d70639e
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692072"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85510973"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Tworzenie klastrów usługi HDInsight z Azure Data Lake Storage Gen1 jako magazyn domyślny przy użyciu programu PowerShell
 
@@ -65,7 +65,7 @@ Aby utworzyć konto Data Lake Storage Gen1, wykonaj następujące czynności:
         Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
     > [!NOTE]
-    > Jeśli zarejestrujesz dostawcę zasobów Data Lake Storage Gen1 i otrzymasz błąd podobny do `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid`, subskrypcja może nie być listy dozwolonych dla Data Lake Storage Gen1. Aby włączyć subskrypcję platformy Azure dla Data Lake Storage Gen1, postępuj zgodnie z instrukcjami w temacie [wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu Azure Portal](data-lake-store-get-started-portal.md).
+    > Jeśli zarejestrujesz dostawcę zasobów Data Lake Storage Gen1 i otrzymasz błąd podobny do `Register-AzResourceProvider : InvalidResourceNamespace: The resource namespace 'Microsoft.DataLakeStore' is invalid` , subskrypcja może nie być listy dozwolonych dla Data Lake Storage Gen1. Aby włączyć subskrypcję platformy Azure dla Data Lake Storage Gen1, postępuj zgodnie z instrukcjami w temacie [wprowadzenie do Azure Data Lake Storage Gen1 przy użyciu Azure Portal](data-lake-store-get-started-portal.md).
     >
 
 2. Konto Data Lake Storage Gen1 jest skojarzone z grupą zasobów platformy Azure. Zacznij od utworzenia grupy zasobów.
@@ -209,7 +209,7 @@ W tej sekcji utworzysz klaster usługi HDInsight Hadoop Linux z Data Lake Storag
     Po pomyślnym ukończeniu tego polecenia cmdlet powinny zostać wyświetlone dane wyjściowe zawierające szczegółowe informacje o klastrze.
 
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Uruchom zadania testowe w klastrze usługi HDInsight, aby używać Data Lake Storage Gen1
-Po skonfigurowaniu klastra usługi HDInsight można uruchomić na nim zadania testowe, aby upewnić się, że może on uzyskać dostęp do Data Lake Storage Gen1. Aby to zrobić, uruchom przykładowe zadanie Hive w celu utworzenia tabeli korzystającej z przykładowych danych, które są już dostępne w Data Lake Storage Gen1 w * \<katalogu głównym klastra>/example/Data/Sample.log*.
+Po skonfigurowaniu klastra usługi HDInsight można uruchomić na nim zadania testowe, aby upewnić się, że może on uzyskać dostęp do Data Lake Storage Gen1. Aby to zrobić, uruchom przykładowe zadanie Hive w celu utworzenia tabeli korzystającej z przykładowych danych, które są już dostępne w Data Lake Storage Gen1 w * \<cluster root> /example/Data/Sample.log*.
 
 W tej sekcji utworzysz połączenie Secure Shell (SSH) z utworzonym klastrem usługi HDInsight Linux, a następnie uruchamiasz przykładowe zapytanie Hive.
 
@@ -230,7 +230,7 @@ W tej sekcji utworzysz połączenie Secure Shell (SSH) z utworzonym klastrem us�
     Powinno zostać wyświetlone dane wyjściowe zapytania w konsoli SSH.
 
     >[!NOTE]
-    >Ścieżka do przykładowych danych w poprzednim poleceniu CREATE TABLE to `adl:///example/data/`, gdzie `adl:///` jest katalogiem głównym klastra. Zgodnie z przykładem katalogu głównego klastra określonego w tym samouczku polecenie to `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster`. Możesz użyć krótszej alternatywy lub podać pełną ścieżkę do katalogu głównego klastra.
+    >Ścieżka do przykładowych danych w poprzednim poleceniu CREATE TABLE to `adl:///example/data/` , gdzie `adl:///` jest katalogiem głównym klastra. Zgodnie z przykładem katalogu głównego klastra określonego w tym samouczku polecenie to `adl://hdiadlstore.azuredatalakestore.net/clusters/hdiadlcluster` . Możesz użyć krótszej alternatywy lub podać pełną ścieżkę do katalogu głównego klastra.
     >
 
 ## <a name="access-data-lake-storage-gen1-by-using-hdfs-commands"></a>Dostęp do Data Lake Storage Gen1 przy użyciu systemu plików HDFS

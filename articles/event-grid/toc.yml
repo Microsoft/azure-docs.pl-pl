@@ -242,10 +242,14 @@
           href: enable-diagnostic-logs-topic.md
         - name: Rozwiązywanie problemów
           href: troubleshoot-errors.md
+        - name: Rozwiązywanie problemów z łącznością sieciową
+          href: troubleshoot-network-connectivity.md
         - name: Rozwiązywanie problemów z walidacją subskrypcji
           href: troubleshoot-subscription-validation.md
-        - name: Wyświetlanie metryk i tworzenie alertów
+        - name: Wyświetlanie metryk
           href: monitor-event-delivery.md
+        - name: Tworzenie alertów
+          href: set-alerts.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

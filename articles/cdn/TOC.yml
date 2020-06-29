@@ -12,8 +12,8 @@
       href: cdn-create-a-storage-account-with-cdn.md
     - name: Tworzenie profilu i punktu końcowego
       href: cdn-create-new-endpoint.md
-    - name: Tworzenie profilu za pomocą szablonu usługi Azure Resource Manager
-      href: create-profile-resource-manager-template.md
+    - name: Tworzenie profilu i punktu końcowego — szablon usługi ARM
+      href: create-profile-endpoint-template.md
 - name: Samouczki
   items:
     - name: Dodawanie usługi Azure CDN do aplikacji internetowej

@@ -191,8 +191,12 @@
               displayName: 'ux, input, cors, html, css'
             - name: Dostosowywanie języka
               href: custom-policy-localization.md
-            - name: Niestandardowy adres e-mail
-              href: custom-email.md
+            - name: Niestandardowa weryfikacja e-mail
+              items:
+                - name: Mailjet
+                  href: custom-email-mailjet.md
+                - name: SendGrid
+                  href: custom-email-sendgrid.md
               displayName: verification
             - name: Wyłączanie weryfikacji e-mail
               href: custom-policy-disable-email-verification.md
@@ -373,6 +377,8 @@
           href: partner-trusona.md
         - name: Twilio
           href: partner-twilio.md
+        - name: TypingDNA
+          href: partner-typingdna.md
     - name: Korzystanie z usługi b2clogin.com
       items:
         - name: Omówienie usługi b2clogin.com

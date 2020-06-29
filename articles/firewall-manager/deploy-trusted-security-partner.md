@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: victorh
-ms.openlocfilehash: e06f8e3adaedbc8847aacba0ca4ad9c6a172c9b7
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 91cf453247bfe4fa689df34bdf6b585ac72686aa
+ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791694"
+ms.lasthandoff: 06/28/2020
+ms.locfileid: "85509061"
 ---
 # <a name="deploy-a-security-partner-provider-preview"></a>Wdrażanie dostawcy partnera zabezpieczeń (wersja zapoznawcza)
 
@@ -55,7 +55,7 @@ Pomiń tę sekcję, Jeśli wdrażasz dostawcę innej firmy w istniejącym centru
 8. Jeśli chcesz wdrożyć dostawcę zabezpieczeń innych firm w centrum, wybierz opcję **Zapora systemu Azure: włączone/wyłączone** , aby ustawić ustawienie na **wyłączone**. 
 9. Wybierz pozycję **Dalej: dostawca partnera zabezpieczeń**.
 10. Wybierz **dostawcę partnera zabezpieczeń** , aby ustawić go jako **włączony**. Wybierz partnera. 
-11. Wybierz przycisk **Dalej**. 
+11. Wybierz pozycję **Dalej**. 
 12. Przejrzyj zawartość, a następnie wybierz pozycję **Utwórz**.
 
 Wdrożenie bramy sieci VPN może potrwać ponad 30 minut.
@@ -81,9 +81,9 @@ Aby skonfigurować tunele do VPN Gateway koncentratora wirtualnego, dostawcy inn
 
 1. Utwórz nazwę główną usługi Azure Active Directory (AD): możesz pominąć adres URL przekierowania. 
 
-   [Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 2. Dodawanie praw dostępu i zakresu dla jednostki usługi.
-   [Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
+   [Instrukcje: używanie portalu do tworzenia aplikacji usługi Azure AD i jednostki usługi w celu uzyskiwania dostępu do zasobów](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)
 
    > [!NOTE]
    > Możesz ograniczyć dostęp tylko do grupy zasobów, aby uzyskać bardziej szczegółową kontrolę.

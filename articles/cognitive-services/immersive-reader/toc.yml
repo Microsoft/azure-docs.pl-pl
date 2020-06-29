@@ -29,9 +29,15 @@
       href: how-to-customize-launch-button.md
     - name: Buforowanie tokenu uwierzytelniania
       href: how-to-cache-token.md
+    - name: Konfigurowanie czytania na głos
+      href: how-to-configure-read-aloud.md
+    - name: Konfigurowanie tłumaczenia
+      href: how-to-configure-translation.md
+    - name: Zapisywanie preferencji użytkownika
+      href: how-to-store-user-preferences.md
 - name: Dokumentacja
   items:
-    - name: Dokumentacja zestawu SDK
+    - name: Zestaw SDK dla języka JavaScript
       href: reference.md
 - name: Zasoby
   items:

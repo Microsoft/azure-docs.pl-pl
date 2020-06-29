@@ -8,6 +8,12 @@
       href: azure-portal-quickstart-center.md
     - name: Obsługiwane przeglądarki i urządzenia
       href: azure-portal-supported-browsers-devices.md
+- name: Przewodniki Szybki start
+  items:
+    - name: Tworzenie maszyny wirtualnej w portalu
+      href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+    - name: Tworzenie pulpitu nawigacyjnego — szablon usługi ARM
+      href: quick-create-template.md
 - name: Pojęcia
   items:
     - name: Udostępnianie pulpitów nawigacyjnych przy użyciu kontroli dostępu opartej na rolach

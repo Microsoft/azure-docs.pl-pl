@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 6edc39bc9923d53732775c68c9b7fe4f2d35b055
-  ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+  ms.openlocfilehash: 5f9dbc120b301100364da61f7d8c19fa58beb5c9
+  ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 06/26/2020
-  ms.locfileid: "85414389"
+  ms.lasthandoff: 06/27/2020
+  ms.locfileid: "85482925"
 highlightedContent:
   items:
   - title: Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -1042,12 +1042,12 @@ productDirectory:
     - media
     url: media-services/latest/index.yml
   - title: Data Box
-    summary: Urządzenia i rozwiązania do transferu danych na platformę Azure i na potrzeby obliczeń brzegowych
+    summary: Urządzenia i rozwiązania do transferu danych na platformę Azure
     imageSrc: https://static.docs.com/ui/media/product/azure/data-box.svg
     azureCategories:
     - migration
     - storage
-    url: databox-family/index.md
+    url: databox/index.yml
   - title: Spatial Anchors (wersja zapoznawcza)
     summary: Tworzenie środowisk rzeczywistości mieszanej z orientacją przestrzenną dla wielu użytkowników
     imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
